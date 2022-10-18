@@ -44,7 +44,7 @@ In the following user guide, you can learn how to:
 
 ## Overview
 
-![Desktop-overview](images/desktop/desktop-le-overview.png)
+[![Desktop-overview](images/desktop/desktop-le-overview.png)](images/desktop/desktop-le-overview.png)
 
 
 ## Service access 
@@ -90,7 +90,7 @@ After entering the temporary code, **please press the Continue button**. Pressin
 
 For specific guidance regarding the MFA activation on your CSC account, see the [MFA paragraph](../../accounts/mfa.md).
 
-![Authentication](images/desktop/authentication.png)
+[![Authentication](images/desktop/desktop_login-mfa1.png)](images/desktop/desktop_login-mfa1.png)
 
 
 !!! Note
@@ -118,9 +118,6 @@ Here you can specify several parameters:
 When all the settings are done, press the **Launch Desktop** button. The launch operation is entirely automated and can take **up to 30 minutes**. If you try to access the virtual Desktop and see a black screen, come back later. 
 
 
-![Launch-virtual-Desktop](images/desktop/desktop-2.png)
-
-
 You can choose between **four different pre-built virtual Desktop options**:
 
 
@@ -134,12 +131,10 @@ You can choose between **four different pre-built virtual Desktop options**:
 
 
 
-![Launch-virtual-Desktop](images/desktop/desktop-3.png)
-
-
 !!! Note
         If you don't know the best Desktop option for your needs, please contact us at servicedesk@csc.fi (email subject: Sensitive Data). 
-
+        
+[![Launch](images/desktop/desktop_launch.png)](images/desktop/desktop_launch.png)
 
 Unfortunately, we are not yet providing a virtual Desktop with GPUs or Windows, Linux Ubuntu operating systems. However, we are working on it, and you can find more information on the future developments of the services on our webpage. 
 
@@ -159,9 +154,7 @@ When you log in to SD Desktop **Homepage**, you will be able to access your virt
 * **All connections** if you click on + you can see all the connections associated with each project (e.g. project_NNNNN_NNNN). If you click on the connection ID you will also access your Desktop. 
 
 
-
-![Access-virtual-Desktop](images/desktop/desktop-4.png)
-
+ [![Access-virtual-Desktop](images/desktop/desktop-access.png)](images/desktop/desktop-access.png)
 
 When you open the connection, a virtual computing environment (Linux Centos operating system) will open into your browser. When you access the virtual Desktop for the first time, you will see the getting started panel, from which you can, for example, adjust the screen resolution.
 
@@ -317,14 +310,13 @@ At the end of your analysis, you can delete your virtual Desktop and all the fil
 You cannot undo this action:
   
 * On SD Desktop Homepage, click on **Go to SD Desktop Management page**. 
-* Here, under **Available instances** click on **Delete Desktop**. 
+* Here, under **Available Desktops** click on **Delete Desktop**. 
 
 
 !!! Note
     The desktop **should not be deleted before all the results have been exported**. All the data present in the computing environment will be deleted, and it will not be possible to retrieve them. You will delete the entire virtual workspace, and your colleagues (or the other CCS project members) will lose their results and data imported to it. For this reason, please get in touch with all the project members and send a request to export all the results of your analysis from the virtual workspace, before deleting a virtual Desktop.
 
-
-![Screeshot_SDDesktop_0109_deletingvm](https://user-images.githubusercontent.com/83574067/131730561-12a229e7-b4d8-4c9d-868a-718f5014271d.png)
+[![Desktop-delete](images/desktop/desktop-delete.png)](images/desktop/desktop-delete.png)
 
 
 ## End of data access and data deletion policies
