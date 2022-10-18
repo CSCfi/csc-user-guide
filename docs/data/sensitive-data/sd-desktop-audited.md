@@ -61,7 +61,7 @@ When you are processing secondary use data from public registries, access to SD 
 For specific guidance regarding these steps check the [Accounts](../../accounts/index.md) paragraph at the beginning of this user guide. Note that you always need to use your CSC username and password when you access data from your virtual Desktop. If you don't remember your CSC password, you can [reset it](../../accounts/how-to-change-password.md).
 
 
-### Requesting a project for registry data
+### Requesting a project for register data
 
 To start a service access process at CSC Sensitive Data services, you need to send a project request to us at servicedesk@csc.fi. Please,
 
@@ -181,6 +181,41 @@ You can close your connection to your virtual Desktop in two ways:
     **Never use the lock or reboot buttons** in SD Desktop as you will not be able to connect to the Desktop again after that.
  
    
+### RStudio in SD Desktop
+
+To access RStudio in SD Desktop, open the terminal in your virtual Desktop and launch RStudio with:
+
+```text
+start-rstudio-server
+```
+
+This will return a URL and a service-specific password:
+
+```
+RStudio Server - Sensitive Data Desktop Edition
+---------------------------------------------------------------------------------------
+Copy/Paste this URL into Firefox:
+
+http://localhost:8787/
+
+-----------------------------------------------------------------------------------------
+Enter these at the RStudio Server sign-in screen
+----------------------------------------------------------------------------------------
+Username: accountname  Password: Example23241232
+----------------------------------------------------------------------------------------
+To stop RStudio Server: Ctrl+C
+```
+
+Next:
+
+* paste the URL in Firefox 
+* after a few seconds, you can input the username and password (service-specific) and access the server.
+
+!!! Note
+    Also when using RStudio, you need to save your data in **Shared-directory** if your colleagues need to work on the same files.
+
+
+[![Desktop-rstudio](images/desktop/desktop-rstudio.png)](images/desktop/desktop-rstudio.png)
 
 
 ## Accessing sensitive register data within SD Desktop
