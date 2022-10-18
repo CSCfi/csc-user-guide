@@ -252,7 +252,8 @@ Once you sign in to your virtual Desktop, you can access the data by following t
  * access the files of interest in the Project folder **using Data Gateway**;
  
  *  Select all the necessary files from the Project folder, make a **copy** and save it in the virtual Desktop **home directory** (the files will be visible only from your browser) or in the **shared folder** (in this case, the files will be accessible also by all the CSC project members).
-
+     
+ [![Desktop-data-import](images/desktop/desktop-gateway-import.png)](images/desktop/desktop-gateway-import.png)
 
 ## Default programs available on the Desktop and software customisation
 
