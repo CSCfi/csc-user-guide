@@ -124,10 +124,6 @@ When you log in to SD Desktop **Homepage**,  you will be able to access your vir
 * **All connections** if you click on + you can see all the connections associated with each project (e.g. project_NNNNN_NNNN). If you click on the connection ID you will also access your Desktop. 
 
 
-
-![Access-virtual-Desktop](images/desktop/desktop-4.png)
-
-
 When you open the connection, a virtual computing environment (Linux Centos operating system) will open into your browser. When you access the virtual Desktop for the first time, you will see the getting started panel, from which you can, for example, adjust the screen resolution.
 
 You can work with this virtual Desktop like in a standard computing environment.  From the applications menu bar (top left corner) you can access several pre-installed programs. Examples include Open Office, image viewing applications, video and audio players, Jupiter Notebook etc. You can also open a terminal and use Linux from command line. To start using R-Studio please check the paragraph below.
@@ -152,8 +148,9 @@ You can close your connection to your virtual Desktop in two ways:
 !!! Note
     **Never use the lock or reboot buttons** in SD Desktop as you will not be able to connect to the Desktop again after that.
  
-    
-![Launch-virtual-Desktop](images/desktop/desktop-5.png)
+ 
+ [![Access-virtual-Desktop](images/desktop/desktop-access.png)](images/desktop/desktop-access.png)
+
      
 
 ### RStudio in SD Desktop
