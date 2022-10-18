@@ -83,8 +83,6 @@ Here you can specify several parametes:
 
 When all the settings are done, press the **Launch Desktop** button. The launch operation is entirely automated and can take **up to 30 minutes**. If you try to access the virtual Desktop and see a black screen, come back later. 
 
-[![Launch](images/desktop/desktop_launch.png)](images/desktop/desktop_launch.png)
-
 
 You can choose between **four different pre-built virtual Desktop options **:
 
@@ -100,6 +98,7 @@ You can choose between **four different pre-built virtual Desktop options **:
 !!! Note
         If you don't know the best Desktop option for your needs, please contact us at servicedesk@csc.fi (email subject: Sensitive Data). 
 
+[![Launch](images/desktop/desktop_launch.png)](images/desktop/desktop_launch.png)
 
 Unfortunately, we are not yet providing a virtual Desktop with GPUs or Windows, Linux Ubuntu operating systems. However, we are working on it, and you can find more information on the future developments of the services on our webpage. 
 
