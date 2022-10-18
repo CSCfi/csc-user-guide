@@ -53,7 +53,7 @@ After entering your username and passworod, you need to  **verify your identity*
 
 For specific guidance regarding the activation of the second verification step on your CSC account, see the [MFA paragraph](../../accounts/mfa.md).
 
-[![Authentication](images/desktop/desktop-login-mfa.png)](images/desktop/desktop-login-mfa.png)
+[![Authentication](images/desktop/desktop_login-mfa.png)](images/desktop/desktop_login-mfa.png)
 
 
 
