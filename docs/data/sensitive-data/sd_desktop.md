@@ -234,11 +234,13 @@ Once you sign in to your virtual Desktop, you can access encrypted data stored i
 
  * access the files of interest in the Project folder **using Data Gateway**;
  
- *  Select all the necessary files from the Project folder, make a **copy** and save it in the virtual Desktop **home directory** (the files will be visible only from your browser) or in the **shared folder** (in this case, the files will be accessible also by all the CSC project members). 
+ *  select the files from the Project folder, make a **copy** and save it in the virtual Desktop **home directory** (the files will be visible only from your browser) or in the **shared folder** (in this case, the files will be accessible also by all the CSC project members). 
+
+The files have been decrypted during the copy/paste process and are available for analysis or editing. 
 
  
 !!! Note
-    Your private workspace in SD Desktop is completely isolated from the internet for security reasons. However, you can use the procedure described above if you need to visualize or import specific scripts into your Desktop (for example, from GitHub or other trusted repositories).
+    Your private workspace in SD Desktop is completely isolated from the internet for security reasons. However, you can use the procedure described above if you need to import specific scripts into your Desktop (for example, from GitHub or other trusted repositories).
 
 ###  Accessing published data for re-use via SD Apply
 
@@ -437,8 +439,8 @@ At the end of your analysis, you can delete your virtual Desktop and all the fil
 
 You can not undo this action:
   
-* On SD Desktop Homepage, click on **Go To SD Desktop Management page**. 
-* Here, under **Available instances** click on **Delete Desktop**. 
+* On SD Desktop Homepage, click on **Go To SD Desktop Management**. 
+* Here, under **Available Desktops** click on **Delete Desktop**. 
 
 
 !!! note
