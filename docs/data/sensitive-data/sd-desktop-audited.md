@@ -180,8 +180,7 @@ You can close your connection to your virtual Desktop in two ways:
 !!! Note
     **Never use the lock or reboot buttons** in SD Desktop as you will not be able to connect to the Desktop again after that.
  
-    
-![Launch-virtual-Desktop](images/desktop/desktop-5.png)
+   
 
 
 ## Accessing sensitive registry data within SD Desktop
