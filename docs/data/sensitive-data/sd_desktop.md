@@ -241,6 +241,10 @@ The files have been decrypted during the copy/paste process and are available fo
  
 !!! Note
     Your private workspace in SD Desktop is completely isolated from the internet for security reasons. However, you can use the procedure described above if you need to import specific scripts into your Desktop (for example, from GitHub or other trusted repositories).
+    
+     
+ [![Desktop-data-import](images/desktop/desktop-gateway-import.png)](images/desktop/desktop-gateway-import.png)
+
 
 ###  Accessing published data for re-use via SD Apply
 
