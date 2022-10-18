@@ -4,8 +4,8 @@
     }
 
     .md-content[data-md-component=content]>article.md-content__inner.md-typeset {
-        max-width: 50rem;
-        min-width: min(90%, 50rem);
+        max-width: var(--csc-content-width);
+        min-width: min(100%, var(--csc-content-width));
         justify-self: center;
     }
 }
