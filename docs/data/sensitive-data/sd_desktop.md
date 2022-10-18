@@ -331,7 +331,8 @@ Your virtual Desktop is isolated from the internet for security reasons. Only th
 
 Below you can find step-by-step instructions to encrypt and export data from SD Desktop to SD Connect, where you can download and decrypt it. 
 
-![Data-export](images/desktop/airlock.png)
+[![Data-export](images/desktop/airlock.png)](images/desktop/airlock.png)
+
 
 **1- Generate your encryption key pair** (secret key and public key) with the Crypt4GH application (you can skip this paragraph if you already have a key pair).
 
