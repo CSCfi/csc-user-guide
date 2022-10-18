@@ -1,6 +1,6 @@
 # Creating containers
 
-CSC's supercomputers Puhti and Mahti support running [Apptainer containers](https://apptainer.org/) (formerly known as Singularity). If you wish to run a container-based application, first check the [application pages](../../apps/index.md) to see if a pre-installed container is already available. Also see our [documentation on how to run Singularity containers](run-existing.md).
+CSC's supercomputers Puhti and Mahti support running [Apptainer containers](https://apptainer.org/) (formerly known as Singularity). If you wish to run a container-based application, first check the [application pages](../../apps/index.md) to see if a pre-installed container is already available. Also see our [documentation on how to run containers](run-existing.md).
 
 If you cannot find a pre-built container, one option is to build your own. If a Docker container image already exists, you can often simply convert that to an Apptainer container. Another option is to build your own container from scratch.  Both approaches will be discussed below. As always, if you have any problems or questions, don't hesitate to contact [CSC's Service Desk](https://www.csc.fi/en/contact-info).
 
@@ -12,7 +12,7 @@ GPU-optimized containers can also be found in [NVIDIA's GPU cloud (NGC)](https:/
 
 Further [information about converting Docker containers can be found in the Apptainer documentation](https://apptainer.org/docs/user/main/docker_and_oci.html).
 
-Here is an example of how to build a Singularity image from [NVIDIA's PyTorch Docker image](https://ngc.nvidia.com/catalog/containers/nvidia:pytorch). We'll use `sinteractive` as heavy processing should not be done in the login nodes.
+Here is an example of how to build an Apptainer image from [NVIDIA's PyTorch Docker image](https://ngc.nvidia.com/catalog/containers/nvidia:pytorch). We'll use `sinteractive` as heavy processing should not be done in the login nodes.
 
 ```bash
 # Let's start a 1 hour interactive job
@@ -41,4 +41,4 @@ Also see our [documentation on how to run containers](run-existing.md).
 
 You can also build your own container from scratch. This is an option for more experienced users, and your main source of information is the [official Apptainer documentation on building containers](https://apptainer.org/docs/user/main/build_a_container.html).
 
-You can find some help also by looking at our [tutorial on building Singularity containers from scratch](../../support/tutorials/singularity-scratch.md).
+You can find some help also by looking at our [tutorial on building Apptainer containers from scratch](../../support/tutorials/singularity-scratch.md).
