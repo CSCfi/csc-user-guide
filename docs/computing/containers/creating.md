@@ -15,8 +15,8 @@ Further [information about converting Docker containers can be found in the Appt
 Here is an example of how to build an Apptainer image from [NVIDIA's PyTorch Docker image](https://ngc.nvidia.com/catalog/containers/nvidia:pytorch). We'll use `sinteractive` as heavy processing should not be done in the login nodes.
 
 ```bash
-# Let's start a 1 hour interactive job
-sinteractive --account <project> --time 1:00:00
+# Let's start a 1 hour interactive job with 16G of memory
+sinteractive --account <project> --time 1:00:00 -m 16G
 
 # Let's use the fast local drive for temporary storage
 export APPTAINER_TMPDIR=$LOCAL_SCRATCH
