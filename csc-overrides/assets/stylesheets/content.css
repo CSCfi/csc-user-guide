@@ -132,5 +132,5 @@
 
 .md-typeset .md-source-file,
 .md-typeset .git-revision-date-localized-plugin {
-    color: var(--md-default-fg-color--light);
+    color: var(--csc-mid-grey--wcag);
 }
