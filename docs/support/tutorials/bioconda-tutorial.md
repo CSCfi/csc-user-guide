@@ -5,10 +5,10 @@ Conda channel for bioinformatics software. It provides an easy
 method to install thousands of software packages related to biomedical
 research.
 
-CSC has deprecated the direct usage of Conda installations on our
-supercomputers' (Puhti and Mahti) shared file systems due to performance
+CSC has deprecated the direct usage of Conda installations on shared file systems
+of supercomputers (Puhti and Mahti) due to performance
 issues, but you can easily install packages from Bioconda using the
-[Tykky](../../computing/containers/tykky.md) tool.
+[Tykky](../../computing/containers/tykky.md) tool instead.
 
 All packages in Bioconda have a ready-made Docker container image available. While
 those images could be pulled and used directly, Tykky provides an easy method to
