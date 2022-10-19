@@ -13,7 +13,7 @@ be moved/compressed/removed. By default the tool will only fetch size data for 3
 
 ## Short prelude
 
-LUE is a tool available on Puhti which shows the amount of data and number of files
+LUE is a tool available on CSC supercomputers which shows the amount of data and number of files
 for a given folder on the parallel filesystem.
 
 The main point is being significantly faster than standard tools like
