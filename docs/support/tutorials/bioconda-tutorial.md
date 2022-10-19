@@ -54,7 +54,8 @@ Load Tykky module
 module load tykky
 ```
 
-We will use the Tykky [wrap-container](../../computing/containers/tykky.md#existing-containers) command.
+We will use the Tykky [wrap-container](../../computing/containers/tykky.md#container-based-installations)
+command.
 
 The `-w` parameter needs to specify installation directory inside the container. For containers
 from Bioconda this is always `/usr/local/bin`. For containers from other sources, please see below.
