@@ -16,7 +16,7 @@ Here are a few benefits that one can get by using containerized applications:
   significantly fewer requests to the Lustre server nodes (OSS and MDS) compared to
   Conda-based installations, which read an excessive number of files each time an
   application is launched. [SquashFS images](run-existing.md#mounting-datasets-with-squashfs)
-  can also be used together with Singularity containers to create compact images
+  can also be used together with Apptainer containers to create compact images
   of your dataset that are interpreted as a single file by Lustre.
 - **Portability and reproducibility:** Containerized applications can be deployed
   easily in different computing environments and they run the same way regardless
@@ -24,7 +24,7 @@ Here are a few benefits that one can get by using containerized applications:
 - **Greater efficiency:** As containers are lightweight in nature, CPU and memory
   utilization is not an issue. Thus, containerized applications are easy to scale
   up across the cluster.
-- **Easy installation:** Once you have a singularity image, launching a container
+- **Easy installation:** Once you have an apptainer image, launching a container
   from the image is very easy. No real installation is needed.
 
 To make working with containers in CSC's environment as transparent and easy as
