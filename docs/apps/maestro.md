@@ -11,14 +11,6 @@ model systems.
 
 [TOC]
 
-!!! info "Please update your `schrodinger.hosts` file"
-
-    The login nodes of Puhti were renamed following the RHEL8 upgrade in October 2022.
-    Consequently, old `schrodinger.hosts` files referencing `puhti-login1` will not work
-    anymore! Please update your hosts file either manually by replacing all occurrences of
-    `login1` with `login11`, or by deleting your old `schrodinger.hosts` file and setting a
-    new one by running the `/appl/soft/chem/schrodinger/set-hosts-file.bash` script.
-
 ## Available
 
 * Puhti: 2021.3, 2021.4, 2022.1, 2022.2
@@ -39,6 +31,14 @@ The Maestro license consists of floating licenses and tokens.
 If licenses run out, contact us via [ServiceDesk](/support/contact/)
 
 ## Usage
+
+!!! info "Please update your `schrodinger.hosts` file"
+
+    The login nodes of Puhti were renamed following the RHEL8 upgrade in October 2022.
+    Consequently, old `schrodinger.hosts` files referencing `puhti-login1` will not work
+    anymore! Please update your hosts file either manually by replacing all occurrences of
+    `login1` with `login11`, or by deleting your old `schrodinger.hosts` file and setting a
+    new one by running the `/appl/soft/chem/schrodinger/set-hosts-file.bash` script.
 
 It is recommended to download and install Maestro on your 
 own computer, see below.
