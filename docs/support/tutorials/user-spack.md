@@ -13,7 +13,7 @@ customers that enables per-project software installations using Spack.
 ## Creating a Spack instance
 
 Before running the Spack module for the first time, you have to prepare an
-installation location that can reside on either `/projappl` of `/scratch` disk
+installation location that can reside either on `/projappl` or `/scratch` disk
 areas. You also have to set an environment variable that points to the location
 of the Spack instance.
 
@@ -41,7 +41,7 @@ Run user-spack-init to initialize user installation in /projappl/project_2001234
 
 !!! info "Several Spack instances"
     You can have several Spack instances under the same project. The used
-    instance is specified by the `$USER_SPACK_ROOT` environment variable that
+    instance is specified with the `$USER_SPACK_ROOT` environment variable that
     points to the root directory of the instance.
 
 !!! info "Initializing"
