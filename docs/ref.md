@@ -143,6 +143,12 @@ def main():
     print(string)
 ```
 
+```text
+# Here's one with a loooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong comment on one line.
+
+# You know, for testing purposes.
+```
+
 ## Tables
 | This | Table | Has | Five | Columns |
 |-|-|-|-|-|
