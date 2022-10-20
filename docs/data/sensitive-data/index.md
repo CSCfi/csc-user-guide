@@ -95,7 +95,7 @@ Access to this service requires a Findata permit.
 
   * [**Working with your virtual Desktop**](./sd-desktop-audited.md#working-with-your-virtual-desktop)
 
-  * [**Accessing sensitive registry data within SD Desktop**](./sd-desktop-audited.md#accessing-sensitive-registry-data-within-sd-desktop)
+  * [**Accessing sensitive register data within SD Desktop**](./sd-desktop-audited.md#accessing-sensitive-register-data-within-sd-desktop)
 
   * [**Default programs available on the Desktop and software customisation**](./sd-desktop-audited.md#default-programs-available-on-the-desktop-and-software-customisation)
 
