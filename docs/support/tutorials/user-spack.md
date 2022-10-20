@@ -77,6 +77,16 @@ Concretized
  -   kakoune@2021.11.08%gcc@11.3.0 arch=linux-rhel8-cascadelake
 [^]      ^ncurses@6.2%gcc@11.3.0~symlinks+termlib abi=none arch=linux-rhel8-cascadelake
 [^]          ^pkgconf@1.8.0%gcc@11.3.0 arch=linux-rhel8-cascadelake
+```
+
+The `spack spec` command shows what would be installed given a certain input.
+It is good practice to run it before installing to ensure that the build looks
+like intended. The `-I` flag is used to display the current install status of
+the package and its dependencies, while the `--reuse` flag is provided in order
+to reuse already installed dependencies whenever possible. Actual installation
+is then performed via the `spack install` command.
+
+```bash
 [maijam@puhti-login11 ~]$ spack install --reuse kakoune
 [+] /appl/spack/v018/install-tree/gcc-11.3.0/pkgconf-1.8.0-2hkydh
 [+] /appl/spack/v018/install-tree/gcc-11.3.0/ncurses-6.2-n4phtn
@@ -91,14 +101,6 @@ Concretized
   Fetch: 0.00s.  Build: 34.31s.  Total: 34.31s.
 [+] /projappl/project_2001234/spack-instance-1/install_tree/gcc-11.3.0/kakoune-2021.11.08-yh4nmf
 ```
-
-!!! info "Notes on commands"
-    The `spack spec` command shows what would be installed given a certain
-    input. The `-I` flag is used to display the current install status of the
-    package and its dependencies, while the `--reuse` flag will try to reuse
-    already installed dependencies whenever possible. Actual installation is
-    performed via the `spack install` command. Run `spack spec --help` and
-    `spack install --help` for further details.
 
 !!! info "Spec syntax"
     The string that specifies which package should be installed (the *spec*) can
