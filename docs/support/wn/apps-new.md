@@ -1,5 +1,11 @@
 # Applications
 
+## Installing software with Spack, 24.10.2022
+
+Users can now install software on CSC supercomputers using the Spack package
+manager. [See here for a short tutorial on how to use the user Spack module at
+CSC](../tutorials/user-spack.md).
+
 ## Installing packages from Bioconda using Tykky, 10.10.2022
 
 A [new tutorial](../tutorials/bioconda-tutorial.md) on how to install packages from the Bioconda

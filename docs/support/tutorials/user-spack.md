@@ -1,24 +1,23 @@
 # Using user Spack module for software installations
 
-Spack is a package manager for supercomputers, Linux and MacOS. It
-that can be used to install complicated scientific software packages
-easily. CSC installs the development stack, including compilers, MPI
-libraries and also many other libraries and applications using
-Spack. CSC provides also a user module for customers that enables
-per-project software installations using Spack.
+Spack is a package manager for supercomputers, Linux and MacOS. It can be used
+to install complicated scientific software packages easily. CSC installs the
+development stack, including compilers, MPI libraries and also many other
+libraries and applications using Spack. CSC provides also a user module for
+customers that enables per-project software installations using Spack.
 
-!!! note
+!!! warning "Note"
     Spack is an advanced tool and it requires understanding of
     compiling and linking programs.
 
 ## Creating a Spack instance
 
-When Spack module is run for the first time, you have to prepare an
-installation location that can reside on either `/projappl` of
-`/scratch` area. You also have to set up environment variable that
-denotes the location of the Spack instance.
+Before running the Spack module for the first time, you have to prepare an
+installation location that can reside on either `/projappl` of `/scratch` disk
+areas. You also have to set an environment variable that points to the location
+of the Spack instance.
 
-For example, if you want to create a Spack instance on the `/projappl`
+For example, if you want to create a Spack instance in the `/projappl`
 directory, you can initialize the environment as follows:
 
 ```bash
@@ -35,22 +34,24 @@ Run user-spack-init to initialize user installation in /projappl/project_2001234
 [INFO] USER_SPACK_GROUP not set, defaulting to project_2001234 based on target directory
 ```
 
-!!! note
-    You have to purge all default environment compiler and
-    library modules as they may interfere with Spack builds.
-!!! note
-    You can have several Spack instances under same project. The
-    instance is selected by the USER_SPACK_ROOT environment variable
-    that points to the root directory of the instance.
-!!! note When
-    the Spack instance is accessed for the first time, you have to
-    initialize it with `user-spack-init` command.
+!!! info "Purge before loading"
+    Before loading Spack, you have to run `module purge` to purge all default
+    environment compilers and library modules as they may interfere with Spack
+    builds.
+
+!!! info "Several Spack instances"
+    You can have several Spack instances under the same project. The used
+    instance is specified by the `$USER_SPACK_ROOT` environment variable that
+    points to the root directory of the instance.
+
+!!! info "Initializing"
+    Before accessing the Spack instance for the first time, you have to
+    initialize it by running the `user-spack-init` command.
 
 ## Using the Spack instance
 
-An initialized instance can be activated by cleaning up the module
-environment, setting the root path of the instance and loading the
-Spack module:
+An initialized instance can be activated by purging the module environment,
+setting the root path of the instance and loading the Spack module:
 
 ```bash
 [maijam@puhti-login11 ~]$ module purge
@@ -61,10 +62,10 @@ The following modules were not unloaded:
 [maijam@puhti-login11 ~]$ export USER_SPACK_ROOT=/projappl/project_2001234/spack-instance-1
 [maijam@puhti-login11 ~]$ module load spack/v0.18-user
 Found existing user spack installation at /projappl/project_2001234/spack-instance-1
-[maijam@puhti-login11 ~]$
 ```
 
-Example build:
+### Example build
+
 ```bash
 [maijam@puhti-login11 ~]$ spack spec -I --reuse kakoune
 Input spec
@@ -91,17 +92,34 @@ Concretized
 [+] /projappl/project_2001234/spack-instance-1/install_tree/gcc-11.3.0/kakoune-2021.11.08-yh4nmf
 ```
 
+!!! info "Notes on commands"
+    The `spack spec` command shows what would be installed given a certain
+    input. The `-I` flag is used to display the current install status of the
+    package and its dependencies, while the `--reuse` flag will try to reuse
+    already installed dependencies whenever possible. Actual installation is
+    performed via the `spack install` command. Run `spack spec --help` and
+    `spack install --help` for further details.
+
+!!! info "Spec syntax"
+    The string that specifies which package should be installed (the *spec*) can
+    be simply just the package name, as above, but often you might want to install
+    a specific version, perhaps using a specific compiler and with some optional
+    installation flags (e.g. a GPU-enabled version of the software). Spack uses
+    a special syntax for specifying this information as explained in the [official
+    documentation](https://spack.readthedocs.io/en/latest/basic_usage.html#specs-dependencies).
+
 ## Using modules with user Spack installations
 
-By default the modules are installed under `$USER_SPACK_ROOT/modules`
-and you can add that path to module path with command:
+By default, Spack creates module files under `$USER_SPACK_ROOT/modules`
+and you can add that path to your `$MODULEPATH` with the command:
+
 ```bash
 module use ${USER_SPACK_ROOT}/modules
 ```
 
-After the `module use` command you can see the modules with regular
-`module avail` and `module spider` commands. For example, the kakoune
-editor build of the previous example can be loaded with command
+After running the `module use` command you can see the modules with regular
+`module avail` and `module spider` commands. For example, the `kakoune`
+editor built in the previous example can be loaded with the command:
 
 ```bash
 module load kakoune
@@ -109,6 +127,6 @@ module load kakoune
 
 ## Further reading
 
-- Spack documentation: [https://spack.readthedocs.io/en/latest/index.html](https://spack.readthedocs.io/en/latest/index.html)
-- Spack tutorial: [https://spack.readthedocs.io/en/latest/tutorial.html](https://spack.readthedocs.io/en/latest/tutorial.html)
-- Spack github repository: [https://github.com/spack/spack](https://github.com/spack/spack)
+- [Official Spack documentation](https://spack.readthedocs.io/en/latest/index.html)
+- [Spack tutorial](https://spack.readthedocs.io/en/latest/tutorial.html)
+- [Spack github repository](https://github.com/spack/spack)
