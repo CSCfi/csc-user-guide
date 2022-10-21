@@ -227,7 +227,7 @@ environment variables:
     source <project_name_here>-openrc.sh
 
 You will be asked to type in a password. Use the password of your CSC
-account. Note that using Haka credentials in the command  line
+account. Note that using OIDC auhthenticaiton methods in the command line
 interface is not yet supported. After doing this, the current terminal
 session  will have the proper environment variables for using the
 command line tools. You need to do this again if you open a new
