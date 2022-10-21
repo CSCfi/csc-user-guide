@@ -10,6 +10,12 @@ customers that enables per-project software installations using Spack.
     Spack is an advanced tool and it requires understanding of
     compiling and linking programs.
 
+!!! info "Note"
+    This tutorial assumes you are on Puhti, which has `spack/v0.18-user` installed.
+    Mahti has another version of Spack available for users, `spack/v0.17-user`.
+    Aside from the module versions, the outlined procedure is identical on the two
+    systems.
+
 ## Creating a Spack instance
 
 Before running the Spack module for the first time, you have to prepare an
@@ -131,4 +137,4 @@ module load kakoune
 
 - [Official Spack documentation](https://spack.readthedocs.io/en/latest/index.html)
 - [Spack tutorial](https://spack.readthedocs.io/en/latest/tutorial.html)
-- [Spack github repository](https://github.com/spack/spack)
+- [Spack GitHub repository](https://github.com/spack/spack)
