@@ -1,5 +1,13 @@
 # Applications
 
+## Installing packages from Bioconda using Tykky, 10.10.2022
+
+A [new tutorial](../tutorials/bioconda-tutorial.md) on how to install packages from the Bioconda
+channel using the [Tykky container wrapper tool](../../computing/containers/tykky.md) has been
+published. This tutorial outlines the recommended way to install software packages related to
+bioinformatics and biomedical research. Note that CSC has deprecated the *direct* (non-containerized)
+usage of Conda installations on our supercomputers due to file system performance issues.
+
 ## Available applications can now be viewed as grouped by license type, 7.10.2022
 
 In addition to alphabetical ordering, grouped by discipline or by availability, applications can now be

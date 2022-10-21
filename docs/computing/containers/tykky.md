@@ -2,13 +2,16 @@
 
 ## Intro
 
-Tykky is a set of tools for easy installation of tools to HPC using Apptainer containers. 
+Tykky is a set of tools which make software installations to HPC systems easier and
+more efficient using Apptainer containers.
 
 Tykky use cases:
 
-* Conda installations, based on conda environment.yml.
-* Pip installations, based on pip requirements.txt.
+* Conda installations, based on Conda `environment.yml`.
+* Pip installations, based on pip `requirements.txt`.
 * Container installations, based on existing Docker or Apptainer/Singularity images.
+    * This includes installations from the Bioconda channel, see [this tutorial for
+      an example](../../support/tutorials/bioconda-tutorial.md).
 
 Tykky wraps installations inside 
 an Apptainer/Singularity container to improve startup times, 
