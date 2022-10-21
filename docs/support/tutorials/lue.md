@@ -30,15 +30,15 @@ saving the user from having to script something themselves based on raw `du` out
 The sources of possible inaccuracy are:
 
 1. Old files which have not been accessed are missing size data.
-   - There is a specific date (2020-11-18) before which data is not available on
-     **Puhti**. Mahti does not have a such a limitation.
-   - Files created/accessed after this should be ok.
-   - It's not always possible to accurately determine affected files in a
-     sufficiently efficient manner.
+      - There is a specific date (2020-11-18) before which data is not available on
+        **Puhti**. Mahti does not have a such a limitation.
+      - Files created/accessed after this should be ok.
+      - It's not always possible to accurately determine affected files in a
+        sufficiently efficient manner.
 2. We can't get the actual layout of the files on the disk, so we might slightly
    overestimate the actual disk usage.
-   - A file which is 95 MB large might only consume 68 MB of disk space if it
-     contains large parts of only zeros.
+      - A file which is 95 MB large might only consume 68 MB of disk space if it
+        contains large parts of only zeros.
 3. Files which are currently in use might not be reported correctly
 
 ## Basic usage
@@ -155,39 +155,38 @@ Next follows the steps to correct this. This procedure needs to be done only onc
 after which the size should be reported correctly:
 
 1. Run `lue <target_dir>`.
-   - If no warnings are printed and there are no `NOSIZE` labels, the reported size
-     should be fairly accurate. No need for further steps.
+      - If no warnings are printed and there are no `NOSIZE` labels, the reported size
+        should be fairly accurate. No need for further steps.
 2. Rerun `lue --sync-size <target_dir>`. The previous command should have reported
    the number of affected files and a (very) rough estimate of the duration.
-   - A progress bar will be updated to show how many files have been processed and
-     how many files could not be updated due to insufficient permissions.
+      - A progress bar will be updated to show how many files have been processed and
+        how many files could not be updated due to insufficient permissions.
 3. Rerun `lue --refresh <target_dir>`.
-   - Shown size should be fairly accurate.
+      - Shown size should be fairly accurate.
 
 **If there are still `NOSIZE` labels reported:**
 
 1. Some files could not be updated due to insufficient permissions.
-   - The number of affected files was reported when running with `--sync-size`.
-       - If the number matches the number of `NOSIZE`, there is no need for steps
-         2. and 3.
-   - Can only be remedied by the owner fixing the access permissions.
-   - If the number of affected files is small (<1000), you can rerun with
-     `lue --refresh <target_dir> --stat-unsynced` to get more accurate size info,
-     although this will be a bit slower.
+      - The number of affected files was reported when running with `--sync-size`.
+         - If the number matches the number of `NOSIZE`, there is no need for steps 2. and 3.
+      - Can only be remedied by the owner fixing the access permissions.
+      - If the number of affected files is small (<1000), you can rerun with
+        `lue --refresh <target_dir> --stat-unsynced` to get more accurate size info,
+        although this will be a bit slower.
 2. Some files require much heavier operations to sync the size.
-   - Rerun with `lue --sync-size --slow-sync <target_dir>`. **NOTE!** Adding the
-     `--slow-sync` option will be about x10 slower than with just `--sync-size`
-   - Before doing this run `lue` on some of the subfolders (without `--refresh`)
-     to find out where the `NOSISZE` files are located. Then use `ls -l` or `du -h`
-     to confirm that the files are actually not zero in size. If the files seem to
-     be non-zero in size, run with `--slow-sync`. Otherwise go to 3.
-   - Usually this step is not needed.
+      - Rerun with `lue --sync-size --slow-sync <target_dir>`. **NOTE!** Adding the
+        `--slow-sync` option will be about x10 slower than with just `--sync-size`
+      - Before doing this run `lue` on some of the subfolders (without `--refresh`)
+        to find out where the `NOSISZE` files are located. Then use `ls -l` or `du -h`
+        to confirm that the files are actually not zero in size. If the files seem to
+        be non-zero in size, run with `--slow-sync`. Otherwise go to 3.
+      - Usually this step is not needed.
 3. Some files are very old and have an actual size of zero -> we have incorrectly
    flagged them.
-   - If you know that you have a program/framework which produces a lot of empty
-     files, consider removing those before running the tool.
-   - If you already ran with `--slow-sync` or confirmed that it was not needed, you
-     can add the `--no-guess` flag to not report these files.
+      - If you know that you have a program/framework which produces a lot of empty
+        files, consider removing those before running the tool.
+      - If you already ran with `--slow-sync` or confirmed that it was not needed, you
+        can add the `--no-guess` flag to not report these files.
 
 ## Limiting the runtime
 
