@@ -44,7 +44,7 @@ In the following user guide, you can learn how to:
 
 ## Overview
 
-![Desktop-overview](images/desktop/desktop-le-overview.png)
+[![Desktop-overview](images/desktop/desktop-le-overview.png)](images/desktop/desktop-le-overview.png)
 
 
 ## Service access 
@@ -61,7 +61,7 @@ When you are processing secondary use data from public registries, access to SD 
 For specific guidance regarding these steps check the [Accounts](../../accounts/index.md) paragraph at the beginning of this user guide. Note that you always need to use your CSC username and password when you access data from your virtual Desktop. If you don't remember your CSC password, you can [reset it](../../accounts/how-to-change-password.md).
 
 
-### Requesting a project for registry data
+### Requesting a project for register data
 
 To start a service access process at CSC Sensitive Data services, you need to send a project request to us at servicedesk@csc.fi. Please,
 
@@ -90,7 +90,7 @@ After entering the temporary code, **please press the Continue button**. Pressin
 
 For specific guidance regarding the MFA activation on your CSC account, see the [MFA paragraph](../../accounts/mfa.md).
 
-![Authentication](images/desktop/authentication.png)
+[![Authentication](images/desktop/desktop_login-mfa1.png)](images/desktop/desktop_login-mfa1.png)
 
 
 !!! Note
@@ -118,9 +118,6 @@ Here you can specify several parameters:
 When all the settings are done, press the **Launch Desktop** button. The launch operation is entirely automated and can take **up to 30 minutes**. If you try to access the virtual Desktop and see a black screen, come back later. 
 
 
-![Launch-virtual-Desktop](images/desktop/desktop-2.png)
-
-
 You can choose between **four different pre-built virtual Desktop options**:
 
 
@@ -130,15 +127,14 @@ You can choose between **four different pre-built virtual Desktop options**:
 
 * **Medium computation**. Technical specifications: **Core:8; memory 30 GB; Root disk: 80 GB; Correspondent Pouta Flavour: standar.xxlarge; Billing Units: 10.4 units/h**. This option is ideal for running complex statistical or genome analysis. You can compare this Desktop to a powerful laptop provided by your IT unit. 
 
-* **Heavy computation**: Technical specifications: **Core:40; memory 168 GB; Root disk: 80 GB; Correspondent Pouta Flavour: hpc4.40core; Billing Units: 78 units/h**. This option is ideal for running non-interactive programmatic analysis (for example, machine learning) that require heavy computation. Please do not choose this option for simple analysis, as it consumes much resources. 
+* **Heavy computation**: Technical specifications: **Core:32; memory 116 GiB; Root disk: 80 GB; Correspondent Pouta Flavour: hpc.5.32core; Billing Units: 52 units/h**. This option is ideal for running non-interactive programmatic analysis (for example, machine learning) that require heavy computation. Please do not choose this option for simple analysis, as it consumes much resources. 
 
-
-![Launch-virtual-Desktop](images/desktop/desktop-3.png)
 
 
 !!! Note
         If you don't know the best Desktop option for your needs, please contact us at servicedesk@csc.fi (email subject: Sensitive Data). 
-
+        
+[![Launch](images/desktop/desktop_launch.png)](images/desktop/desktop_launch.png)
 
 Unfortunately, we are not yet providing a virtual Desktop with GPUs or Windows, Linux Ubuntu operating systems. However, we are working on it, and you can find more information on the future developments of the services on our webpage. 
 
@@ -156,10 +152,6 @@ When you log in to SD Desktop **Homepage**, you will be able to access your virt
 * **Recent connections**, clicking on the image of your Desktop (visible only if you recently accessed it)
 
 * **All connections** if you click on + you can see all the connections associated with each project (e.g. project_NNNNN_NNNN). If you click on the connection ID you will also access your Desktop. 
-
-
-
-![Access-virtual-Desktop](images/desktop/desktop-4.png)
 
 
 When you open the connection, a virtual computing environment (Linux Centos operating system) will open into your browser. When you access the virtual Desktop for the first time, you will see the getting started panel, from which you can, for example, adjust the screen resolution.
@@ -186,11 +178,46 @@ You can close your connection to your virtual Desktop in two ways:
 !!! Note
     **Never use the lock or reboot buttons** in SD Desktop as you will not be able to connect to the Desktop again after that.
  
-    
-![Launch-virtual-Desktop](images/desktop/desktop-5.png)
+  [![Access-virtual-Desktop](images/desktop/desktop-access.png)](images/desktop/desktop-access.png)
+   
+### RStudio in SD Desktop
+
+To access RStudio in SD Desktop, open the terminal in your virtual Desktop and launch RStudio with:
+
+```text
+start-rstudio-server
+```
+
+This will return a URL and a service-specific password:
+
+```
+RStudio Server - Sensitive Data Desktop Edition
+---------------------------------------------------------------------------------------
+Copy/Paste this URL into Firefox:
+
+http://localhost:8787/
+
+-----------------------------------------------------------------------------------------
+Enter these at the RStudio Server sign-in screen
+----------------------------------------------------------------------------------------
+Username: accountname  Password: Example23241232
+----------------------------------------------------------------------------------------
+To stop RStudio Server: Ctrl+C
+```
+
+Next:
+
+* paste the URL in Firefox 
+* after a few seconds, you can input the username and password (service-specific) and access the server.
+
+!!! Note
+    Also when using RStudio, you need to save your data in **Shared-directory** if your colleagues need to work on the same files.
 
 
-## Accessing sensitive registry data within SD Desktop
+[![Desktop-rstudio](images/desktop/desktop-rstudio.png)](images/desktop/desktop-rstudio.png)
+
+
+## Accessing sensitive register data within SD Desktop
 
 As the virtual Desktop is isolated from the internet, the only way to access data for analysis is by utilizing a specific application called _Data Gateway_. This application will allow you to access the dataset for which you have received a permit from Findata. Encrypted files will be **visible in read-only mode (similarly to opening a pdf file or streaming a YouTube video)**. This solution allows you to process large amounts of data without storing any copy on your virtual Desktop.
 
@@ -206,21 +233,16 @@ Once you sign in to your virtual Desktop, you can access the data by following t
 
 * **Click on Continue**;
 
-
-![Data-Gateway-LE-1](images/desktop/data-gateway-le-1.png)
-
-
 * In the new window, under the second step, click on **Create**. The application will create a new folder called **Projects** accessible from your Desktop or programmatically the terminal. Next, click on **Open folder**.
-
-![Data-Gateway-LE-2](images/desktop/data-gateway-le-2.png)
-
-![Data-Gateway-LE-3](images/desktop/data-gateway-le-3.png)
 
 *   The files have been encrypted using the **sensitive data public encryption key**, and you will be able to access their content in read-only mode. The current streaming speed can be up to 50 MB/s.
 
 
 !!! Note 
     The Projects folder is **available only when the Data Gateway application is open**. If you close or disconnect the application, you will not be able to access the data stored in the data service unless you previously made a full copy of it inside your Desktop. Thus, Data Gateway needs to be open and connected during data processing in streaming mode.
+
+
+[![Desktop-register-access](images/desktop/desktop-register-gateway.png)](images/desktop/desktop-register-gateway.png)
 
 
 ### Importing data inside the Desktop
@@ -230,7 +252,8 @@ Once you sign in to your virtual Desktop, you can access the data by following t
  * access the files of interest in the Project folder **using Data Gateway**;
  
  *  Select all the necessary files from the Project folder, make a **copy** and save it in the virtual Desktop **home directory** (the files will be visible only from your browser) or in the **shared folder** (in this case, the files will be accessible also by all the CSC project members).
-
+     
+ [![Desktop-data-import](images/desktop/desktop-gateway-import.png)](images/desktop/desktop-gateway-import.png)
 
 ## Default programs available on the Desktop and software customisation
 
@@ -304,7 +327,9 @@ In order to export the result at the end of your analysis, you need to:
 
 * send a request to servicedesk@csc.fi to export your results.
 
-![Data-Export-LE-1](images/desktop/data-export-le-1.png )
+
+
+[![Desktop-register-export](images/desktop/desktop-register-exp.png)](images/desktop/desktop-register-exp.png)
 
 All the content in the “Results” folder will be exported to the data permit authority, and it will be available for you after their scrutiny. During the export, you will not be able to access your virtual Desktop. All the project members have to be removed from the CSC project for the duration of the data export. Afterwards, you will be invited back to the CSC project, if your project is still ongoing.
 
@@ -316,14 +341,13 @@ At the end of your analysis, you can delete your virtual Desktop and all the fil
 You cannot undo this action:
   
 * On SD Desktop Homepage, click on **Go to SD Desktop Management page**. 
-* Here, under **Available instances** click on **Delete Desktop**. 
+* Here, under **Available Desktops** click on **Delete Desktop**. 
 
 
 !!! Note
     The desktop **should not be deleted before all the results have been exported**. All the data present in the computing environment will be deleted, and it will not be possible to retrieve them. You will delete the entire virtual workspace, and your colleagues (or the other CCS project members) will lose their results and data imported to it. For this reason, please get in touch with all the project members and send a request to export all the results of your analysis from the virtual workspace, before deleting a virtual Desktop.
 
-
-![Screeshot_SDDesktop_0109_deletingvm](https://user-images.githubusercontent.com/83574067/131730561-12a229e7-b4d8-4c9d-868a-718f5014271d.png)
+[![Desktop-delete](images/desktop/desktop-delete.png)](images/desktop/desktop-delete.png)
 
 
 ## End of data access and data deletion policies
