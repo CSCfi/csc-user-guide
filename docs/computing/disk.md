@@ -59,8 +59,9 @@ the disks do not fill up CSC will regularly delete files that have not
 been accessed in a long time. In Puhti the current policy is to remove
 files that have not been accessed for more than 12 months. In Mahti a
 similar cleaning procedure will be introduced, but is not yet
-active. See [usage policy](usage-policy.md) for details on the current
+active. See [Usage policy](../../computing/usage-policy) page for details on the current
 policy.
+
 
 Make sure to consult our tutorial for [tips and guidelines on how to
 manage your data on `scratch`](../support/tutorials/clean-up-data.md).
