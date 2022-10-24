@@ -12,7 +12,9 @@ of executables are in the path and the linker can find the correct version
 of the required libraries. For example, the command `mpicc` points to
 different compilers depending on the module loaded.
 
-CSC uses **Lmod** environment modules. They are developed at the Texas Advanced Computing Center (TACC) and implemented using the _Lua_ programming language. More technical details can be found on the [Lmod homepage].
+CSC uses **Lmod** environment modules. They are developed at the Texas Advanced Computing
+Center (TACC) and implemented using the _Lua_ programming language. More technical
+details can be found on the [Lmod homepage].
 
 [TOC]
 
@@ -31,17 +33,17 @@ module list
 ```
 
 The command `module help` provides general information about a module. For
-example, to get more information about the module `intel`, use:
+example, to get more information about the module `intel-oneapi-compilers`, use:
 
 ```text
-module help intel
+module help intel-oneapi-compilers
 ```
 
 Load new modules to your environment with the command `load`. For
-example, to load the `intel-mpi` module, use:
+example, to load the `intel-oneapi-mpi` module, use:
 
 ```text
-module load intel-mpi
+module load intel-oneapi-mpi
 ```
 
 Note that you can only load modules that are compatible with the other
@@ -53,10 +55,10 @@ Modules that are not needed or conflict with other modules
 can be unloaded using `unload`:
 
 ```text
-module unload intel-mkl
+module unload intel-oneapi-mkl
 ```
 
-#### The most commonly used module commands {#module-commands-table}
+### The most commonly used module commands {#module-commands-table}
 
 |  Module command                   |  Description                                                                                        |
 |-----------------------------------|-----------------------------------------------------------------------------------------------------|
@@ -72,7 +74,6 @@ module unload intel-mkl
 | module swap *modulename1 modulename2* | Replaces a module with another (and tries to re-load compatible versions of other loaded modules).  |
 | module show *modulename*          | Show commands in the module file.                                                                   |
 | module purge                      | Unloads all modules.                                                                                |
-
 
 ### Finding modules
 
@@ -105,12 +106,13 @@ The above command will list all modules with the string _int_ in their name. A m
 description of a module can be printed using the full module name with a version number:
 
 ```text
-module spider fftw/3.3.8
+module spider intel-oneapi-mkl/2022.1.0
 ```
 
 ### Solving module dependencies
 
-Some modules depend on other modules. If a required module is missing, the module system prints an error message:
+Some modules depend on other modules. If a required module is missing, the module system
+prints an error message:
 
 ```text
 $ module load parallel-netcdf
@@ -125,35 +127,36 @@ $ module spider parallel-netcdf
   parallel-netcdf:
 ----------------------------------------------------------------------------
      Versions:
-        parallel-netcdf/1.8.0
+        parallel-netcdf/1.12.2
 
 ----------------------------------------------------------------------------
   For detailed information about a specific "parallel-netcdf" module
   (including how to load the modules) use the module's full name.
   For example:
 
-$ module spider parallel-netcdf/1.8.0
+$ module spider parallel-netcdf/1.12.2
 ----------------------------------------------------------------------------
 ```
 
-In such cases, the `module avail` command excludes the module from the list and the `module load`
-command cannot find it. The easiest way to find out the required environment is to use the `module spider` command with the
-version information. For example:
+In such cases, the `module avail` command excludes the module from the list and the
+`module load` command cannot find it. The easiest way to find out the required environment
+is to use the `module spider` command with the version information. For example:
 
 ```text
-$ module spider parallel-netcdf/1.8.0
+$ module spider parallel-netcdf/1.12.2
 ------------------------------------------------------------------
- parallel-netcdf: parallel-netcdf/1.8.0
+ parallel-netcdf: parallel-netcdf/1.12.2
 ------------------------------------------------------------------
  You will need to load all module(s) on any one of the lines below before
- the "parallel-netcdf/1.8.0" module is available to load.
+ the "parallel-netcdf/1.12.2" module is available to load.
 
- gcc/9.1.0  hpcx-mpi/2.4.0
- intel/19.0.4  hpcx-mpi/2.4.0
+  gcc/11.3.0  openmpi/4.1.4
+  gcc/9.4.0  openmpi/4.1.4
+  intel-oneapi-compilers-classic/2021.6.0  intel-oneapi-mpi/2021.6.0
 ...
 ```
 
-In this case, you will have to load one the listed environments before
+In this case, you will have to load one of the listed environments before
 proceeding with `module load` command.
 
 ## Advanced topics
@@ -162,7 +165,7 @@ In general, applications and their dependencies should be compiled and
 linked using the same compiler. In some cases this is a strict
 requirement. For example, you can not use the _MPI Fortran90_ module
 compiled with Intel compilers with _gfortran_. Environment modules
-have several mechanisms that prevent the user from setting up an 
+have several mechanisms that prevent the user from setting up an
 incompatible environment.
 
 The module hierarchy contributes to keeping the compiler and MPI library
@@ -174,23 +177,30 @@ correct versions of the loaded modules:
 ```text
 $ module list
 Currently Loaded Modules:
- 1) gcc/9.1.0   2) hpcx-mpi/2.4.0   3) parallel-netcdf/1.8.0
+ 1) gcc/11.3.0   2) openmpi/4.1.4   3) parallel-netcdf/1.12.2
 
-$ module swap gcc intel
+$ module swap gcc intel-oneapi-compilers-classic
+
+Inactive Modules:
+ 1) parallel-netcdf/1.12.2
+
 Due to MODULEPATH changes the following modules have been reloaded:
- 1) hpcx-mpi/2.4.0     2) parallel-netcdf/1.8.0
+ 1) openmpi/4.1.4
 
 $ module list
 Currently Loaded Modules:
- 1) intel/19.0.4   2) hpcx-mpi/2.4.0   3) parallel-netcdf/1.8.0
+ 1) intel-oneapi-compilers-classic/2021.6.0   2) openmpi/4.1.4
+
+Inactive Modules:
+ 1) parallel-netcdf/1.12.2
 ```
 
 If the correct version is not found, the module system _deactivates_ these
-modules. In practice, the module is unloaded, but it is marked so that
+modules (see above). In practice, the module is unloaded, but it is marked so that
 when the compiler/MPI configuration is changed, the system tries to find
 the correct version automatically.
 
-This hierarchy is implemented by changing the **$MODULEPATH** variable.
+This hierarchy is implemented by changing the `$MODULEPATH` variable.
 Every compiler module adds its own path to the module path so that
 the software modules compatible with that specific compiler can be listed.
 When the compiler module is unloaded, this path is removed from the
@@ -201,13 +211,13 @@ module path. The same applies to the MPI modules as well.
 If you want to control the software packages using modules
 installed by yourself, you can place your own module files in your home
 directory. For example, if you include module files in
-**$HOME/modulefiles**, you can access them after adding the path to the
+`$HOME/modulefiles`, you can access them after adding the path to the
 module search path using the command:
 
 ```text
 module use $HOME/modulefiles
 ```
 
-If you want to study existing module files, `module show module-name` shows also the filename of the module file.
+If you want to study existing module files, `module show <modulename>` shows also the filename of the module file.
 
   [Lmod homepage]: https://lmod.readthedocs.io/en/latest/

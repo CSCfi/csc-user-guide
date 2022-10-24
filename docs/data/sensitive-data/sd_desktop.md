@@ -34,26 +34,27 @@ In the following user guide, you can learn how to:
 
 ## Overview
 
-![Desktop-overview](images/desktop/desktop-overview.png)
+[![Desktop-overview](images/desktop/desktop-overview.png)](images/desktop/desktop-overview.png)
 
 
 ### Authentication
 
-Login to SD Desktop is possible with identity federation systems (Haka, Virtu, CSC Login or LSLogin) at:
+Login to SD Desktop is possible with identity federation systems (Haka, Virtu, CSCLogin or LSLogin) at:
 
 [**https://sd-desktop.csc.fi**](https://sd-desktop.csc.fi)
 
 from any modern web-browser.
 
-After entering your username and passworod, you need to  **verify your identity** (or Multi factor Authentication, MFA) by entering the verification **code** provided via mobile application. 
+After entering your username and passworod, you need to  **verify your identity** with a second verification step , also called Multi factor Authentication, MFA. Enter the verification **code** provided via mobile application and press on *Continue*.
 
-!!! Note:
-    After entering the temporaty code, **please press the Continue button**. Pressing Enter on your keybord is currently causing an error that will re-directed to a stall request error page. We are working to fix this step. 
+!!! Note
+    Please press the *Continue* button **using your mouse**. Due to a techincal problem, pressing Enter on your keybord will re-directed to a stall request error page.
 
 
-For specific guidance regarding the MFA activation on your CSC account, see the [MFA paragraph](../../accounts/mfa.md).
+For specific guidance regarding the activation of the second verification step on your CSC account, see the [MFA paragraph](../../accounts/mfa.md).
 
-![Authentication](images/desktop/authentication.png)
+[![Authentication](images/desktop/desktop_login-mfa1.png)](images/desktop/desktop_login-mfa1.png)
+
 
 
 
@@ -83,9 +84,6 @@ Here you can specify several parametes:
 When all the settings are done, press the **Launch Desktop** button. The launch operation is entirely automated and can take **up to 30 minutes**. If you try to access the virtual Desktop and see a black screen, come back later. 
 
 
-![Launch-virtual-Desktop](images/desktop/desktop-2.png)
-
-
 You can choose between **four different pre-built virtual Desktop options **:
 
 
@@ -95,15 +93,12 @@ You can choose between **four different pre-built virtual Desktop options **:
 
 * **Medium computation**. Techincal specifications:**Core:8; memory 30 GiB; Root disk: 80 GB; Correspondent Pouta Flavour: standar.xxlarge; Billing Units: 10.4 units/h**. This option is ideal for running complex statistical or genome analysis (for example: use the command line to run specific scripts). You can compare this Desktop to a powerful laptop provided by your IT unit. 
 
-* **Heavy computation**: Technical specifications: **Core:40; memory 168 GiB; Root disk: 80 GB; Correspondent Pouta Flavour: hpc4.40core; Billing Units: 78 units/h**. This option is ideal for running non-interactive programmatic analysis (for example, machine learning) that require heavy computation. Please do not choose this option for simple analysis, as it consumes much resources. 
-
-
-![Launch-virtual-Desktop](images/desktop/desktop-3.png)
-
+* **Heavy computation**: Technical specifications: **Core:32; memory 116 GiB; Root disk: 80 GB; Correspondent Pouta Flavour: hpc.5.32core; Billing Units: 52 units/h**. This option is ideal for running non-interactive programmatic analysis (for example, machine learning) that require heavy computation. Please do not choose this option for simple analysis, as it consumes much resources. 
 
 !!! Note
         If you don't know the best Desktop option for your needs, please contact us at servicedesk@csc.fi (email subject: Sensitive Data). 
 
+[![Launch](images/desktop/desktop_launch.png)](images/desktop/desktop_launch.png)
 
 Unfortunately, we are not yet providing a virtual Desktop with GPUs or Windows, Linux Ubuntu operating systems. However, we are working on it, and you can find more information on the future developments of the services on our webpage. 
 
@@ -115,7 +110,9 @@ In the following paragraphs, we will discuss how to work with a virtual Desktop,
 ### Working with your virtual Desktop
 
 
-<iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/t6xXKPTB6H0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/EhuAYNLS90g" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+
 
 Once your private virtual computer (Desktop) is launched, each CSC project member can securely access it from their browser at any time.
 
@@ -124,10 +121,6 @@ When you log in to SD Desktop **Homepage**,  you will be able to access your vir
 * **Recent connections**, clicking on the image of your Desktop (visible only if you recently accessed it)
 
 * **All connections** if you click on + you can see all the connections associated with each project (e.g. project_NNNNN_NNNN). If you click on the connection ID you will also access your Desktop. 
-
-
-
-![Access-virtual-Desktop](images/desktop/desktop-4.png)
 
 
 When you open the connection, a virtual computing environment (Linux Centos operating system) will open into your browser. When you access the virtual Desktop for the first time, you will see the getting started panel, from which you can, for example, adjust the screen resolution.
@@ -154,8 +147,9 @@ You can close your connection to your virtual Desktop in two ways:
 !!! Note
     **Never use the lock or reboot buttons** in SD Desktop as you will not be able to connect to the Desktop again after that.
  
-    
-![Launch-virtual-Desktop](images/desktop/desktop-5.png)
+ 
+ [![Access-virtual-Desktop](images/desktop/desktop-access.png)](images/desktop/desktop-access.png)
+
      
 
 ### RStudio in SD Desktop
@@ -192,7 +186,8 @@ Next:
     Also when using RStudio, you need to save your data in **Shared-directory** if your colleagues need to work on the same files.
 
 
-![RStudio Final](https://user-images.githubusercontent.com/83574067/122616050-4f597f00-d092-11eb-9e6f-1984572d8a63.png)
+[![Desktop-rstudio](images/desktop/desktop-rstudio.png)](images/desktop/desktop-rstudio.png)
+
 
 
 
@@ -207,6 +202,9 @@ Encrypted files will be **visible in read-only mode (similarly to opening a pdf 
    
 ### Accessing encrypted data stored in SD Connect using Data Gateway
 
+<iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/7iGQ7gWb-Pk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+
 Once you sign in to your virtual Desktop, you can access encrypted data stored in SD Connect by following these steps:
 
 * Open **Data Gateway** (you can find the application on your Desktop);
@@ -217,28 +215,18 @@ Once you sign in to your virtual Desktop, you can access encrypted data stored i
 
 * **Click on Login** and next click on **Continue**;
 
-![Data-Gateway-1](images/desktop/data-gateway-1.png)
-
-![Data-Gateway-2](images/desktop/data-gateway-2.png )
-
-
 * In the new window, at the end of the page, click on **create Data Gateway**. The application will create a new folder called **Projects** accessible from your Desktop or programmatically the terminal. Next, click on **Open folder**.
 
-![Data-Getewa-3y](https://user-images.githubusercontent.com/83574067/158682331-183db935-3380-4e30-84c8-1f91508da9e8.png)
-
-![Data-Gateway-4](https://user-images.githubusercontent.com/83574067/158682773-68e05a99-95dc-435e-a643-de8af5021f6f.png)
+ 
+ [![Data-gateway1](images/desktop/desktop-gateway-part1.png)](images/desktop/desktop-gateway-part1.png)
 
 
 *   If the files have been encrypted using SD Connect or the **sensitive data public encryption key**, you will be able to access their content in read-only mode. The current streaming speed can be up to 50 MB/s. 
 
-![Data-Gateway-5](https://user-images.githubusercontent.com/83574067/158682863-a82bdffa-0e3c-4888-a11e-15f32d4841dc.png)
-
-![Data-Gateway-6](https://user-images.githubusercontent.com/83574067/158682916-0db649e9-6bf1-4ed4-930f-8a4c93e1a93e.png)
-
-
 !!! Note 
     The Projects folder is **available only when the Data Gateway application is open**. If you sign out from the application, you will not access the data stored in other Sensitive Data services unless you previously made a full copy of it inside your Desktop. Thus, Data Gateway needs to be open during data processing in streaming mode.
 
+ [![Data-gateway2](images/desktop/desktop-gateway-part2.png)](images/desktop/desktop-gateway-part2.png)
 
 ### Importing data inside the Desktop
 
@@ -246,22 +234,30 @@ Once you sign in to your virtual Desktop, you can access encrypted data stored i
 
  * access the files of interest in the Project folder **using Data Gateway**;
  
- *  Select all the necessary files from the Project folder, make a **copy** and save it in the virtual Desktop **home directory** (the files will be visible only from your browser) or in the **shared folder** (in this case, the files will be accessible also by all the CSC project members). 
+ *  select the files from the Project folder, make a **copy** and save it in the virtual Desktop **home directory** (the files will be visible only from your browser) or in the **shared folder** (in this case, the files will be accessible also by all the CSC project members). 
+
+The files have been decrypted during the copy/paste process and are available for analysis or editing. 
 
  
 !!! Note
-    Your private workspace in SD Desktop is completely isolated from the internet for security reasons. However, you can use the procedure described above if you need to visualize or import specific scripts into your Desktop (for example, from GitHub or other trusted repositories).
+    Your private workspace in SD Desktop is completely isolated from the internet for security reasons. However, you can use the procedure described above if you need to import specific scripts into your Desktop (for example, from GitHub or other trusted repositories).
+    
+     
+ [![Desktop-data-import](images/desktop/desktop-gateway-import.png)](images/desktop/desktop-gateway-import.png)
+
 
 ###  Accessing published data for re-use via SD Apply
+
+<iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/1cF_NQV6vyk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 
 Data Gateway can also be used to access data published under controlled access via other CSC services for sensitive data. To access a specific dataset in your virtual Desktop, you need first to apply for it using SD Apply service. When the data owner (or Data Access Committee) has granted you access, you will be able to access the dataset in SD Desktop for a limited time.
 
-<img width="960" alt="Screenshot 2022-03-16 222235" src="https://user-images.githubusercontent.com/83574067/158684026-959e7b8d-d910-4a77-919a-414c8623b8ec.png">
 
 If you did not yet apply for access to a specific dataset or if the access period has ended and you try to access the data using the Data gateway application, you will encounter an error message. 
 
-<img width="960" alt="10" src="https://user-images.githubusercontent.com/83574067/158683211-3a390e9e-f576-4a2b-8638-07c399c1b4fe.png">
+
+ [![Desktop-apply](images/desktop/desktop-apply.png)](images/desktop/desktop-apply.png)
 
 
 SD Apply is currently in the pilot phase. Please contact us at servidesk@csc.fi (subject: sensitive data) for more information.
@@ -341,7 +337,8 @@ Your virtual Desktop is isolated from the internet for security reasons. Only th
 
 Below you can find step-by-step instructions to encrypt and export data from SD Desktop to SD Connect, where you can download and decrypt it. 
 
-![Data-export](images/desktop/airlock.png)
+[![Data-export](images/desktop/airlock.png)](images/desktop/airlock.png)
+
 
 **1- Generate your encryption key pair** (secret key and public key) with the Crypt4GH application (you can skip this paragraph if you already have a key pair).
 
@@ -446,15 +443,16 @@ At the end of your analysis, you can delete your virtual Desktop and all the fil
 
 You can not undo this action:
   
-* On SD Desktop Homepage, click on **Go To SD Desktop Management page**. 
-* Here, under **Available instances** click on **Delete Desktop**. 
+* On SD Desktop Homepage, click on **Go To SD Desktop Management**. 
+* Here, under **Available Desktops** click on **Delete Desktop**. 
 
 
 !!! note
     All the data present in the computing environment will be deleted, and it will not be possible to retrieve them. You will delete the entire virtual workspace,       and your colleagues (or the other CCS project members) will lose their results and data imported to it. For this reason, please get in touch with all the           project members and export all the results of your analysis from the virtual workspace, before deleting a virtual Desktop.
 
 
-![Screeshot_SDDesktop_0109_deletingvm](https://user-images.githubusercontent.com/83574067/131730561-12a229e7-b4d8-4c9d-868a-718f5014271d.png)
+ [![Desktop-delete](images/desktop/desktop-delete.png)](images/desktop/desktop-delete.png)
+
 
 
 

@@ -1,40 +1,46 @@
+---
+tags:
+  - Academic
+---
+
 # Materials Studio
 
-Materials Studio is a versatile modelling suite for building and 
+Materials Studio is a versatile modelling suite for building and
 quantum and classical simulation of molecules, materials and nanostructures.
 
 !!! Note
     The national Materials Studio license provided by CSC will end by the end of 2022.
-    From 2023 on Materials Studio will not be availale any more.
+    From 2023 on Materials Studio will not be available any more.
     Please consider using e.g. [Maestro](./maestro.md) or [AMS](ams.md) as a replacement.
-
 
 ## License
 
 Materials Studio is a commercial program by [Biovia Inc.](https://3dsbiovia.com/)
-CSC has purchased a national academic license for the year 2020 that allows non-profit
-usage in Finnish institutes proviging higher education (for example
-universities). If you're new to Materials Studio, consider also [Maestro](maestro.md),
+CSC has purchased a national academic license for the year 2022 that allows non-profit
+usage in Finnish institutes providing higher education (for example
+universities). If you're new to Materials Studio, consider also [Maestro](maestro.md)
 and [AMS](ams.md).
 
 ## Available
 
 Puhti: Version 2020
 
-Materials Studio version 2020 can be downloaded and installed on your local 
+Materials Studio version 2020 can be downloaded and installed on your local
 computer. The graphical user interface runs only on Windows, but the
 back end server components can also be run on Linux.
 
-Look here for [installation files and instructions to configure licensing](https://wiki.eduuni.fi/display/cscjemma/Materials+Studio) (requires Haka authentication)
+Look here for [installation files and instructions to configure
+licensing](https://wiki.eduuni.fi/display/cscjemma/Materials+Studio) (requires
+Haka authentication)
 
 ## Usage
 
 The way to use Materials Studio is to install it locally and:
 
 1. Prepare jobs (build systems, set simulation parameters) locally
-1. Either run them locally or write the input files on disk
-1. Copy them to Puhti, prepare a batch script to run the files
-1. Copy the results back for analysis
+2. Either run them locally or write the input files on disk
+3. Copy them to Puhti, prepare a batch script to run the files
+4. Copy the results back for analysis
 
 See above for instructions for download, local installation and license configuration.
 Usage on Puhti does not require any installation steps.
@@ -132,4 +138,3 @@ Please see method descriptions and log files in Materials Studio for details.
 
 The [Biovia website](https://3dsbiovia.com/events/webinars/materials-science/)
 has useful material for self study, and the documentation which comes with the Suite has several very useful tutorials.
-

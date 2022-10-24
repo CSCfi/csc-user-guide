@@ -213,20 +213,20 @@ Output examples:
 
 ```
 # Plain text:
-[westersu@puhti-login1 ~]$ lcleaner path_summary.txt | head -3
+[westersu@puhti-login11 ~]$ lcleaner path_summary.txt | head -3
 /scratch/westersu/my-old-files/file1
 /scratch/westersu/my-old-files/file2
 /scratch/westersu/my-old-files/file3
 
 # CSV:
-[westersu@puhti-login1 ~]$ lcleaner --csv path_summary.txt | head -4
+[westersu@puhti-login11 ~]$ lcleaner --csv path_summary.txt | head -4
 "path","size"
 "/scratch/westersu/my-old-files/file1","1704"
 "/scratch/westersu/my-old-files/file2","452"
 "/scratch/westersu/my-old-files/file3","4951"
 
 # JSON, piped into jq:
-[westersu@puhti-login1 ~]$ lcleaner --json path_summary.txt | jq .
+[westersu@puhti-login11 ~]$ lcleaner --json path_summary.txt | jq .
 {
   "lustre_files": [
     {
@@ -238,7 +238,7 @@ Output examples:
 }
 
 # Null byte xargs:
-[westersu@puhti-login1 ~]$ lcleaner -0 --limit 3 path_summary.txt \
+[westersu@puhti-login11 ~]$ lcleaner -0 --limit 3 path_summary.txt \
 >   | xargs -0 -Ifilepath echo "I should run: rm -vf 'filepath'"
 I should run: rm -vf '/scratch/westersu/my-old-files/file1'
 I should run: rm -vf '/scratch/westersu/my-old-files/file2'

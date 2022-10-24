@@ -1,4 +1,10 @@
+---
+tags:
+  - Free
+---
+
 # Stacks
+
 ## Description
 
 Stacks is a software pipeline for building loci from short-read sequences, such as those generated on the 
@@ -12,7 +18,7 @@ the purpose of building genetic maps and conducting population genomics and phyl
 Free to use and open source under [GNU GPLv3](https://www.gnu.org/licenses/gpl-3.0.html).
 
 ## Available
-Puhti: 2.60
+Puhti: 2.62
 
 ## Usage
 

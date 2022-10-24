@@ -29,7 +29,9 @@ These disk areas have quotas for both the amount of data and total number of fil
 |**projappl**|50 GiB  |100 000 files  |
 |**scratch** |1 TiB   |1 000 000 files|
 
-See [Increasing quotas](#increasing-quotas) for instructions on how to apply for increased quota.
+See [Increasing quotas](#increasing-quotas) for instructions on how to apply for increased
+quota. A general tutorial on [managing and cleaning data on Puhti and Mahti `scratch`
+disks](../support/tutorials/clean-up-data.md) is also available.
 
 ## Home directory
 
@@ -49,14 +51,19 @@ are project-specific. If you are a member of several projects, you also have acc
 
 Each project has by default 1 TB of scratch disk space in the directory `/scratch/<project>`.
 
+
 This fast parallel scratch space is intended as temporary storage
 space for the data that is used in the supercomputer. The scratch
 directory is not intended for long-term data storage. To ensure that
 the disks do not fill up CSC will regularly delete files that have not
 been accessed in a long time. In Puhti the current policy is to remove
 files that have not been accessed for more than 12 months. In Mahti a
-similar cleaning procedure will be introduced in the near future. See [usage
-policy](usage-policy.md) for details on the current policy.
+similar cleaning procedure will be introduced, but is not yet
+active. See [usage policy](usage-policy.md) for details on the current
+policy.
+
+Make sure to consult our tutorial for [tips and guidelines on how to
+manage your data on `scratch`](../support/tutorials/clean-up-data.md).
 
 
 
@@ -160,6 +167,11 @@ active computing should be stored in the Allas storage service.
 Remember also that you can increase these values only to some extent. Especially regarding
 the number of files, you should reconsider your data workflow if it requires that tens
 of millions of files are stored in the `scratch` area.
+
+!!! info
+    To find out how much data/files you have on the disk, please use our [LUE
+    tool](../support/tutorials/lue.md) which is much more performant than standard
+    tools such as `stat` or `du`.
 
 ## Temporary local disk areas
 

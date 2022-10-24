@@ -1,7 +1,7 @@
 # Connecting to CSC supercomputers
 
 !!! Note
-    Please see the LUMI documentation for instructions on [how to connect to the LUMI supercomputer](https://docs.lumi-supercomputer.eu/computing/connecting/)
+    Please see the LUMI documentation for instructions on [how to connect to the LUMI supercomputer](https://docs.lumi-supercomputer.eu/firststeps/getstarted/)
 
 Connecting to CSC supercomputers is done with `ssh`, i.e. for Puhti with
 
@@ -117,7 +117,7 @@ rm ~/.ssh/mypubkey.pub
 ### Setting up your SSH keys in MyCSC portal
 
 !!! warning "Note"
-    Setting up your SSH keys in [MyCSC](https://my.csc.fi) portal is currently available only for [LUMI environment](https://www.lumi-supercomputer.eu/).
+    Setting up your SSH keys in [MyCSC](https://my.csc.fi) portal is currently available only for [LUMI environment](https://docs.lumi-supercomputer.eu/).
     
 You can set up your SSH keys in MyCSC portal by following these steps
 

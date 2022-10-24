@@ -8,7 +8,7 @@ strongly recommend users moving away from their own installations which use
 Conda directly on a shared drive (such as `/projappl`, `/scratch` on user's home
 directory). We are also gradually deprecating CSC-installed modules that are
 based directly on Conda. **Conda can still be used indirectly, for example wrapped
-as a Singularity container. This can be easily accomplished using the [Tykky
+as an Apptainer container. This can be easily accomplished using the [Tykky
 container wrapper](../computing/containers/tykky.md).**
 
 Conda environments typically contain tens or even hundreds of thousands of
@@ -28,7 +28,7 @@ As an alternative to direct Conda usage we recommend:
     
     Our
     [Python](../apps/python.md#installing-python-packages-to-existing-modules)
-    and [R](../apps/r-env-singularity.md#r-package-installations) pages also
+    and [R](../apps/r-env.md#r-package-installations) pages also
     contain further details on how to install your own packages to our modules.
     You can also [contact CSC's servicedesk](contact.md) with requests for
     missing packages.
@@ -37,7 +37,7 @@ As an alternative to direct Conda usage we recommend:
 
     CSC has developed [a tool for wrapping existing Conda or pip
     installations](../computing/containers/tykky.md) into a
-    smaller set of files using Singularity and squashfs technologies. The tool
+    smaller set of files using Apptainer and squashfs technologies. The tool
     is available as a pre-installed module and is also used for CSC's own
     installations.
 
@@ -45,12 +45,12 @@ As an alternative to direct Conda usage we recommend:
     
     This is a great alternative for developing software locally on a
     workstation, and then deploying it on other workstation, cluster, or on
-    cloud platforms. CSC's supercomputers support Singularity containers, which
+    cloud platforms. CSC's supercomputers support Apptainer containers, which
     are are just single big files for Lustre, thus avoiding much of the
     problems. Many software projects offer Docker-containers which can often
-    easily be converted to Singularity format. Inside of the container you can
+    easily be converted to Apptainer format. Inside of the container you can
     naturally use for example Conda to manage the packages without causing any
     file system issues.
     
-    Read our documentation on [how to create your own Singularity
+    Read our documentation on [how to create your own Apptainer
     container](../computing/containers/creating.md)

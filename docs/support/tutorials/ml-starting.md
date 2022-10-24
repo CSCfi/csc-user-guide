@@ -12,7 +12,7 @@ guide](ml-guide.md).
 
 CSC has several supercomputers: [Puhti](../../computing/systems-puhti.md),
 [Mahti](../../computing/systems-mahti.md) and
-[LUMI](https://docs.lumi-supercomputer.eu/generic/overview/). In this guide we
+[LUMI](https://docs.lumi-supercomputer.eu/hardware/). In this guide we
 will focus on using Puhti as it has the widest selection of software, and has a
 web user interface, making it very easy to access.
 
@@ -151,7 +151,7 @@ In the Files browser you can edit a file by clicking on the file-specific menu
 
 **It is recommended to keep your training data in the `scratch` directory of the
 project**, for example `/scratch/project_2001234/`. **Remember that the scratch
-may be regularly cleaned, so don't keep anything important there.** Datasets
+will be regularly cleaned, so don't keep anything important there.** Datasets
 should typically have another more permanent location, such as in
 [Allas](../../data/Allas/index.md) for storing during the project's life-time.
 

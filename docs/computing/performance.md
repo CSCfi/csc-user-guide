@@ -19,7 +19,7 @@ used (CPU Efficiency) and how much of the allocated memory was actually used
 
 Example output for a single node job:
 ```bash
-puhti-login2:~$ seff 366910
+puhti-login12:~$ seff 366910
 Job ID: 366910
 Cluster: puhti
 User/Group: louhivuo/louhivuo
@@ -59,5 +59,3 @@ bottlenecks. At CSC, several profiling tools are available:
   for CUDA programs
 * [nsys](nsys.md) is the command-line interface of Nsight Systems a system-wide performance analysis tool designed to visualize an application’s algorithms
 * [ncu](ncu.md) is the command-line interface of Nsight Compute, a tool to debug and optimize CUDA kernels
-* [mpiP](mpip.md) is a lightweight MPI profiler
-* [IPM](ipm.md) is a lightweight MPI profiler

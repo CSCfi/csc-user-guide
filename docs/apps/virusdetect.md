@@ -1,3 +1,8 @@
+---
+tags:
+  - Free
+---
+
 # VirusDetect
 
 ## Description
@@ -23,7 +28,8 @@ a specific license.
 ## Available
 
 
-*   Version 1.7  is available in Puhti and in Chipster
+*   Puhti: 1.7
+*   Chipster graphical user interface
 
 
 ### Usage
@@ -87,9 +93,9 @@ reference virus sequence dataset to be used. The available reference datasets ar
 vrl_algae
 vrl_bacteria
 vrl_fungus
-vrl_invertebrate
-vrl_plant
-vrl_vertebrate
+vrl_invertebrates
+vrl_plants
+vrl_vertebrates
 ```
 
 Both the Virus Detect and BWA indexing task require often significant
@@ -117,7 +123,7 @@ and 8 GB of memory. The maximum running time in the job below is set to
 module load biokit
 module load virusdetect
 
-virus_detect.pl --thread_num 8 --reference vrl_plant --host_reference triticum_aestivum.fa reads_123.fastq
+virus_detect.pl --thread_num 8 --reference vrl_plants --host_reference triticum_aestivum.fa reads_123.fastq
 ```
 
 The batch job file above can be submitted to the batch job system with

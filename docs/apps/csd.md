@@ -1,3 +1,8 @@
+---
+tags:
+  - Academic
+---
+
 # CSD
 
 The Cambridge Structural Database is a collection of small-molecule
@@ -20,7 +25,7 @@ Using the CSD components requires adhering [to these conditions](../img/CSDLicen
 
 ## Available
 
-- Puhti: 2021
+- Puhti: 2022
 - Download and install locally
 
 ## Usage

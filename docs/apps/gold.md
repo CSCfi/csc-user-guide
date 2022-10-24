@@ -1,3 +1,8 @@
+---
+tags:
+  - Academic
+---
+
 # GOLD
 
 GOLD is a docking program for predicting how flexible molecules will
@@ -6,7 +11,8 @@ protein-ligand docking and allows full ligand and partial protein
 flexibility.
 
 ## Available
--  Puhti: 2021
+
+-  Puhti: 2022
 -  Download and install locally
 
 ## License
@@ -25,9 +31,9 @@ interface (GUI) called Hermes. The best way to run a GUI remotely
 on Puhti is to use the [Puhti web interface desktop](../computing/webinterface/desktop.md). To set up
 the GOLD interactive environment, open a `Host Terminal` and run:
 
-`module load ccdc`
+`module load ccdc/2022`
 
-This will load the latest version of CSD and GOLD. To run GOLD you can either enter `hermes` and navigate to the GOLD tab, or alternatively run `gold` which opens the GOLD wizard of Hermes directly. Note that the GUI performance can be somewhat slow as the Puhti web interface does not yet provide accelerated graphics.
+This will load the latest version of CSD and GOLD. To run GOLD you can either enter `hermes` and navigate to the GOLD tab, or alternatively run `gold` which opens the GOLD wizard of Hermes directly. Note that the GUI performance can be somewhat slow as the Puhti web interface does not provide accelerated graphics for Hermes.
 
 Longer (non-interactive) jobs are best run as batch jobs:
 

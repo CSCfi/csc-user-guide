@@ -22,7 +22,6 @@
 * [General high-throughput guidelines](../../computing/running/throughput.md)
 * [Running Nextflow workflows using HyperQueue](nextflow-hq.md)
 * [FireWorks workflow manager](../../computing/running/fireworks.md)
-* [How to run many short jobs with GREASY](../../computing/running/greasy.md)
 * [How to run many short jobs with GNU Parallel](many.md)
 
 ## Allas
@@ -30,8 +29,11 @@
 * [Using Allas in batch jobs](../../data/Allas/allas_batchjobs.md)
 * [Using Allas to host a dataset for a research project](../../data/Allas/allas_project_example.md)
 * [Tools for client side encryption for Allas](../../data/Allas/allas_encryption.md)
+* [Using Allas to transport sensitive data](../../data/sensitive-data/sequencing_center_tutorial.md)
+* [Using Allas from LUMI supercomputer](../../data/Allas/allas_lumi.md)
 
 ## Bioinformatics
+* [Installing packages from Bioconda using Tykky](bioconda-tutorial.md)
 * [Singularity applications on Puhti](bioapplications-puhti.md)
 * [Running MaxQuant on Puhti](MaxQuant-tutorial.md)
 * [Nextflow tutorial for Puhti (basic)](https://yetulaxman.github.io/Biocontainer/tutorials/nextflow_tutorial.html)
@@ -42,7 +44,6 @@
 
 ## Chemistry
 * [Using Gabedit for Gaussian jobs on Puhti](gabedit_gaussian.md)
-* [Using GREASY for running multiple Gaussian jobs on Puhti](https://csc-training.github.io/csc-env-eff/hands-on/throughput/gaussian_greasy.html)
 
 ## Data analysis and machine learning
 

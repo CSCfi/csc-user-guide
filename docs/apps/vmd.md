@@ -1,3 +1,8 @@
+---
+tags:
+  - Non-commercial
+---
+
 # VMD
 
 VMD (Visual Molecular Dynamics) is a molecular visualization program for displaying,
@@ -6,8 +11,8 @@ scripting.
 
 ## Available
 
-- Puhti: 1.9.3
-- Mahti: 1.9.3
+-   Puhti: 1.9.3
+-   Mahti: 1.9.3
 
 ## License
 

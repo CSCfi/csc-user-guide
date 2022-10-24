@@ -1,3 +1,8 @@
+---
+tags:
+  - Free
+---
+
 # PANNZER2/SANSPANZ
 
 ## Description

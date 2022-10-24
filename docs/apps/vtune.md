@@ -1,10 +1,15 @@
+---
+tags:
+  - Free
+---
+
 # Intel VTune Profiler
 
 Intel VTune Profiler is a performance analysis tool for single core and threading performance, i.e. for single node performance. For MPI analysis with multiple nodes, VTune produces a separate analysis for each node. More comprehensive MPI performance analysis is possible e.g. with [Intel Traceanalyzer](itac.md) or [Scalasca](scalasca.md).
 
 ## Available
 
-Puhti
+Puhti:
 
 ## License
 
@@ -92,8 +97,7 @@ For more details about the issue, please see the official
 ## Analysing the Results Using GUI
 
 Results can be viewed using the `amplxe-gui` application. Unfortunately it
-does not work well with SSH and X11 forwarding, so we recommend running the
-graphical analysis tool using the [Puhti web interface remote desktop](../computing/webinterface/desktop.md).
+does not work on Puhti, so it is recommended for a user to install and use the GUI locally.
 
 You can inspect the results of a profile run by giving the name of the results
 directory as an argument to `amplxe-gui`. For example, the results of the
@@ -103,7 +107,5 @@ previous example can be viewed with the command:
 amplxe-gui results_dir_name
 ```
 
-Please see Intel’s documentation for more information on using the GUI:
+Please see Intel’s documentation for more information on installing and using the GUI:
 [https://software.intel.com/content/www/us/en/develop/documentation/vtune-help/top.html](https://software.intel.com/content/www/us/en/develop/documentation/vtune-help/top.html)
-
-Sometimes trying to start the GUI fails with the error message `Failed to launch VTune Amplifier GUI`. This is due to some leftover processes ( check with `ps ax | grep vtune_amplifier`) which have to be killed first.

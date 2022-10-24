@@ -1,8 +1,19 @@
+---
+tags:
+  - Free
+---
+
 # Python Data
 
 Collection of Python libraries for data analytics and machine learning.
 
-!!! News
+!!! info "News"
+
+    **5.10.2022** Together with Puhti's update to Red Hat Enterprise Linux
+    8 (RHEL8), **we removed some old versions of Python Data, including all
+    (previously deprecated) conda-based versions. We also changed the version naming of the
+    modules.** Please [contact our servicedesk](../support/contact.md) if
+    you really need access to older versions.
 
     **5.5.2022** Due to Mahti's update to Red Hat Enterprise Linux 8 (RHEL8),
     older versions of Python Data are no longer fully supported. Please [contact our
@@ -15,25 +26,20 @@ Collection of Python libraries for data analytics and machine learning.
 
 ## Available
 
-Older versions of the `python-data` module are available on **Puhti only**.
-Versions are numbered as `X.Y-N`, where `X.Y` is the version of the Python
-interpreter included, and `N` is a running version number starting from 1.
+Versions are numbered as `X.Z-YY.MM`, where `X.Z` is the version of
+the Python interpreter, and `YY.MM` is the year and month of the
+installation. Typically the module will include the newest versions of
+libraries at installation time, to the extent software dependencies
+allow.
+
 Current versions are:
 
-- `python-data/3.9-3` installed in April 2022, includes for example Scikit-learn
-  1.0.2, SciPy 1.8.0, Pandas 1.4.2 and JupyterLab 3.3.4. Available on **both
-  Puhti and Mahti**.
-- `python-data/3.9-2` installed in January 2022, includes for example
-  Scikit-learn 1.0.2, SciPy 1.7.3, Pandas 1.3.5 and JupyterLab 3.2.6.
-- `python-data/3.9-1` installed in June 2021, includes for example: Scikit-learn
-  0.24.2, Pandas 1.2.4 and JupyterLab 3.0.16. This is the first version of
-  Python Data that has been installed using Singularity which should make
-  loading times much faster. Thanks to wrapper scripts this change should be
-  mostly invisible to users. If you still encounter any problems, don't hesitate
-  to report them to [CSC's service desk](../support/contact.md).
-- _(deprecated)_ `python-data/3.7.6-1` installed in June 2020, includes for example:
-  Scikit-learn 0.23.1, Pandas 1.0.4 and JupyterLab 2.1.4.
-- _(deprecated)_ `python-data/3.7.3-1` installed in July 2019.
+- `python-data/3.10-22.09` or `python-data/3.10`: installed in
+  September 2022, includes for example Scikit-learn 1.1.2, SciPy
+  1.9.1, Pandas 1.4.4 and JupyterLab 3.4.6.
+- `python-data/3.9-22.04` or `python-data/3.9`: installed in April
+  2022, includes for example Scikit-learn 1.0.2, SciPy 1.8.0, Pandas
+  1.4.2 and JupyterLab 3.3.4.
 
 Python-data tries to include a comprehensive selection of Python libraries for
 data analytics and machine learning, for example:
@@ -47,15 +53,15 @@ data analytics and machine learning, for example:
 - [Scikit-learn](https://scikit-learn.org/stable/): machine learning in Python
 - [Seaborn](https://seaborn.pydata.org/): statistical data visualization
 
-If you find that some package is missing, you can often install it yourself with
-`pip install --user`. See [our Python
-documentation](python.md#installing-python-packages-to-existing-modules) for
-more information on how to install packages yourself. If you think that some
-important package should be included in the module provided by CSC, please
-[contact our servicedesk](../support/contact.md). Note that some machine
-learning frameworks have their own specific modules, for example:
-[PyTorch](pytorch.md), [TensorFlow](tensorflow.md), [JAX](jax.md),
-[MXNet](mxnet.md) and [RAPIDS](rapids.md).
+If you find that some package is missing, you can often install it
+yourself with `pip install --user`. See [our Python
+documentation](python.md#installing-python-packages-to-existing-modules)
+for more information on how to install packages yourself. If you think
+that some important package should be included in the module provided
+by CSC, please [contact our servicedesk](../support/contact.md). Note
+that some machine learning frameworks have their own specific modules,
+for example: [PyTorch](pytorch.md), [TensorFlow](tensorflow.md),
+[JAX](jax.md), and [RAPIDS](rapids.md).
 
 ## License
 
@@ -69,7 +75,18 @@ To use this software on Puhti, initialize it with:
 module load python-data
 ```
 
-to access the default version.
+to access the default version, or if you wish to have a specific version ([see
+above for available versions](#available)):
+
+```text
+module load python-data/3.9-2022.04
+```
+
+If you just want the most recent version with a specific Python version, you can also run:
+
+```text
+module load python-data/3.9
+```
 
 This will show all available versions:
 
@@ -83,7 +100,7 @@ To check the exact packages and versions included in the loaded module you can r
 list-packages
 ```
 
-!!! note 
+!!! warning
 
     Note that Puhti login nodes are not intended for heavy computing, please use
     slurm batch jobs instead. See our [instructions on how to use the batch job
@@ -93,7 +110,7 @@ Please also check [CSC's general Python documentation](python.md).
 
 ### Local storage
 
-Some nodes in Puhti have fast local storage which is useful for IO-intensive
-applications. See our [general instructions on how to take the fast local
-storage into
+Some nodes in Puhti have fast local storage which is useful for
+IO-intensive applications. See our [general instructions on how to
+take the fast local storage into
 use](../computing/running/creating-job-scripts-puhti.md#local-storage).

@@ -1,7 +1,7 @@
 # Overview
 
 !!! Note
-    For an overview of the LUMI supercomputer, see [the LUMI documentation](https://docs.lumi-supercomputer.eu/computing/).
+    For an overview of the LUMI supercomputer, see [the LUMI documentation](https://docs.lumi-supercomputer.eu/hardware/).
 
 Puhti and Mahti are CSC's supercomputers. Puhti has been available for CSC users since 2 September 2019 and Mahti has been available since 26 August 2020. LUMI is the one of the pan-European pre-exascale supercomputers, located in CSC's data center in Kajaani. The CPU-partition of LUMI (LUMI-C) has been available since early 2022, and general availability of the GPU-partition (LUMI-G) is projected for September 2022.
 
@@ -22,24 +22,27 @@ To be able to use CSC's supercomputers, you need to have a CSC user account that
 
 Connect using a ssh client:
 
-```
+```bash
 ssh yourcscusername@puhti.csc.fi
 ```
+
 or
-```
+
+```bash
 ssh yourcscusername@mahti.csc.fi
 ```
-
 
 This will connect you to one of the login nodes. If you need to connect
 to a specific login node, use the command:
 
+```bash
+ssh yourcscusername@puhti-login<number 11-12>.csc.fi
 ```
-ssh yourcscusername@puhti-login<number 1-2>.csc.fi
-```
+
 or
-```
-ssh yourcscusername@mahti-login<number 1-2>.csc.fi
+
+```bash
+ssh yourcscusername@mahti-login<number 11-12>.csc.fi
 ```
 
 Where **yourcscusername** is the username you get from CSC.
