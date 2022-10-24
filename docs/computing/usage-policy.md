@@ -21,10 +21,35 @@ Programs not adhering to these rules will be terminated without warning.
 
 ## Disk cleaning
 
+Each project has disk space in the directory
+`/scratch/<project>`. This fast parallel scratch space is intended as
+temporary storage space for the data that is used in the
+supercomputer. The scratch directory is not intended for long-term
+data storage.
+
+The performance of a parallel file system starts to degrade when it
+fills up, and the more the disks fill up, the slower the performance
+will get. To ensure that the parallel disk system does not run out of
+storage space, and to keep performance acceptable CSC automatically
+cleans up files in Puhti that have not been accessed for **12 months** or more.
+
+This cleaning will happen regularly each year in Puhti, and each time users are
+informed at least 1 month in advance. CSC also provides lists of files
+that are about to be removed and instructions for how one can transfer
+important files to more suitable disk systems.
+
+A similar cleaning procedure will be introduced on Mahti, but is not yet in place.
+
+If the disks fill up too much, then the allowed life time will be
+reduced step wise to **6 months**, and then **3 months**. CSC will
+separately inform users if we reduce the life time.
+
+
+
+
 
 ## Conda installations
 
-## IO load 
 
 
 
