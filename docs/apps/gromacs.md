@@ -276,18 +276,11 @@ trajectory files can be visualized with the following programs:
 -   [PyMOL] molecular modeling system (not available at CSC)
 
 !!! Note
-<<<<<<< HEAD
     Please don't run visualization or heavy Gromacs tool scripts in
     the login node (see [usage policy for details](../../computing/usage-policy)).
     You can run the tools in the [interactive partition](../computing/running/interactive-usage.md)
     by prepending your `gmx_mpi` command with `orterun -n 1`, e.g. `orterun -n 1 gmx_mpi msd -n index -s topol -f traj`).
-=======
-    Please don't run visualization or heavy Gromacs tool scripts in the login node (see
-    [usage policy for details](../../computing/overview/#usage-policy)). You can run the
-    tools in the [interactive partition](../computing/running/interactive-usage.md) by
-    prepending your `gmx_mpi` command with `orterun -n 1`, e.g. `orterun -n 1 gmx_mpi msd
-    -n index -s topol -f traj`).
->>>>>>> 92c3f7863181bd93b724f3863b4d3252bcf5a59a
+
 
 ## References
 
