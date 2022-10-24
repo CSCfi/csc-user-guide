@@ -81,6 +81,25 @@ Data sharing is increasingly required by funding agencies and journals as it ben
     - [CSC's videos on Research Data Management](https://video.csc.fi/playlist/details/0_xtsuml9w)  
 
 
+## Budgeting Research Data Management
+
+The processes of data management may incur costs. Researchers should plan to address these costs and the allocation of resources in the early planning phases of the project. The majority of funders accept data management as a legitimate cost that can and should be accounted for in the project budget.
+
+Estimate the resources needed to manage, share and preserve the data. Consider the additional computational facilities and resources that need to be accessed.
+
+Budgeting and costing for your project is often dependent upon institutional resources, services, and policies. Remember to consult your organisation’s data support office.
+
+**Examples of possible data management costs**
+    
+    - Will there be costs involved in storing the data? Will you need additional server space or tailored solutions?
+    - Are you planning to use commercial services for example for anonymising data, transcribing audio material, or using an electronic laboratory notebook?
+    - Will you need additional paid help for organising and documenting data; are your data files, sheets etc. stored in uniform format and clearly named and well organised and understandable? Higher costs will apply if organising data has been neglected during the project. 
+    - When you archive and open data, will there be costs involved?
+    - When you archive and open data, will there be costs involved?
+
+Read more about [CSC free-of-charge use cases and pricing](https://research.csc.fi/pricing).
+
+
 ## How to manage sensitive data
 
 The EU General Data Protection Regulation (GDPR) outlines the principles on sensitive data processing, without giving exact technical details on how to process sensitive data. You can learn about sensitive data more from [CSC's definition of sensitive data](https://research.csc.fi/en/definition-of-sensitive-data). At this point only certain basic rules regarding sensitive personal data are highlighted.
