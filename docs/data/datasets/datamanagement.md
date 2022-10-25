@@ -95,7 +95,6 @@ Budgeting and costing for your project is often dependent upon institutional res
     - Are you planning to use commercial services for example for anonymising data, transcribing audio material, or using an electronic laboratory notebook?
     - Will you need additional paid help for organising and documenting data; are your data files, sheets etc. stored in uniform format and clearly named and well organised and understandable? Higher costs will apply if organising data has been neglected during the project. 
     - When you archive and open data, will there be costs involved?
-    - When you archive and open data, will there be costs involved?
 
 Read more about [CSC free-of-charge use cases and pricing](https://research.csc.fi/pricing).
 
