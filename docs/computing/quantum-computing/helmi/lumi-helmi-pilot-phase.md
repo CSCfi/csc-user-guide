@@ -8,7 +8,7 @@ Welcome to the LUMI Helmi partition pilot phase! The pilot phase is running for 
 	Apply for access to Helmi through MyCSC, under LUMI select **Development** access mode.
 	[More details can be found here](../helmi_accounts/)
 
-* During the pilot phase, all approved projects will get 24 hours of access to the FiQCI Quantum Partition, `q_fiqci`.
+* During the pilot phase, all approved projects will get 24 hours of access to the FiQCI Quantum Partition, `q_fiqci`. The `q_fiqci` partition will be available for usage between 13:00 and 08:00 every day. 
 * The total lifetime of a pilot project is 3 months.
 * The billing unit is QPU minutes (1440 QPUm), and is counted as the wall-clock time running in `q_fiqci`.
 * Max run time for a single job is 30 minutes.
