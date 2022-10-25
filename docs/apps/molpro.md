@@ -31,10 +31,13 @@ Molpro has been built with the Global Arrays toolkit (`--with-mpi-pr`) that allo
 #SBATCH --ntasks-per-node=40 # MPI tasks per node
 #SBATCH --account=<project>  # insert here the project to be billed 
 #SBATCH --time=00:10:00           # time as `hh:mm:ss`
+
 module load molpro/2022.2.2
+
 export MOLPRO_TMP=$PWD/MOLPRO_TMP_$SLURM_JOB_ID
 mkdir -p $MOLPRO_TMP
-$MOLPROP -d$MOLPRO_TMP -I$MOLPRO_TMP -W$PWD ./test.com
+
+$MOLPROP -d$MOLPRO_TMP -I$MOLPRO_TMP -W$PWD test.com
 rm -rf $MOLPRO_TMP
 ```
 
@@ -53,10 +56,12 @@ rm -rf $MOLPRO_TMP
 #SBATCH --account=<project>  # insert here the project to be billed 
 #SBATCH --time=00:10:00      # time as `hh:mm:ss`
 #SBATCH --gres=nvme:100      # requested local disk space in GB 
+
 module load molpro/2022.2.2
 export MOLPRO_TMP=$LOCAL_SCRATCH/$SLURM_JOB_ID
 mkdir -p $MOLPRO_TMP
-$MOLPROP -d$MOLPRO_TMP -I$MOLPRO_TMP -W$PWD ./test.com
+
+$MOLPROP -d$MOLPRO_TMP -I$MOLPRO_TMP -W$PWD test.com
 rm -rf $MOLPRO_TMP
 ```
 
@@ -74,10 +79,6 @@ The performance of Molpro depends a lot on the system size and which computation
 | 40                  |  1112               |     814            |
 | 2x20                |   786               |     729            |
 | 2x40                |   716               |     701            |    
-
-The details of the inputs and outputs can be found on Puhti at:
-
-`/appl_el7/soft/chem/molpro/molpro2021.2_mkl_gcc83/molpro_2021.2/c6h6_ccsdt/avtz/`
 
 
 ## References

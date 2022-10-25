@@ -1,8 +1,8 @@
 # compute-sanitizer: functional correctness checking suite for CUDA programs
 
 ## Available
-    Puhti: 2020.2.0
-    Mahti: 2020.3.1
+    Puhti: 2022.2.0
+    Mahti: 2021.3.0
 ## Usage    
 [compute-sanitizer](https://docs.nvidia.com/cuda/compute-sanitizer/index.html) is a functional correctness checking suite included in the CUDA toolkit (starting from version 11). 
 In order to use the tool, the CUDA code has to be compiled with the extra flags

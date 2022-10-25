@@ -34,6 +34,7 @@
 * [Using Allas from LUMI supercomputer](../../data/Allas/allas_lumi.md)
 
 ## Bioinformatics
+* [Installing packages from Bioconda using Tykky](bioconda-tutorial.md)
 * [Singularity applications on Puhti](bioapplications-puhti.md)
 * [Running MaxQuant on Puhti](MaxQuant-tutorial.md)
 * [Nextflow tutorial for Puhti (basic)](https://yetulaxman.github.io/Biocontainer/tutorials/nextflow_tutorial.html)
