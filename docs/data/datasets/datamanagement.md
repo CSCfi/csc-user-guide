@@ -89,7 +89,7 @@ Estimate the resources needed to manage, share and preserve the data. Consider t
 
 Budgeting and costing for your project is often dependent upon institutional resources, services, and policies. Remember to consult your organisation’s data support office.
 
-**Examples of possible data management costs**
+!!! note "Examples of possible data management costs"
     
     - Will there be costs involved in storing the data? Will you need additional server space or tailored solutions?
     - Are you planning to use commercial services for example for anonymising data, transcribing audio material, or using an electronic laboratory notebook?
