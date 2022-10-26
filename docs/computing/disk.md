@@ -9,7 +9,7 @@ purposes. The disk areas for different supercomputers are separate, *i.e.* **hom
 [a more technical description of the Lustre filesystem](lustre.md) used in these directories
 is available.
 
-!!! Note
+!!! warning "CSC does not backup your data!"
     None of the disk areas are automatically backed up by CSC! This means that data accidentally
     deleted by the user cannot be recovered in any way. To avoid unintended data loss, make sure
     to perform regular backups to, for example, [Allas](../data/Allas/index.md). See also the
@@ -29,9 +29,19 @@ These disk areas have quotas for both the amount of data and total number of fil
 |**projappl**|50 GiB  |100 000 files  |
 |**scratch** |1 TiB   |1 000 000 files|
 
-See [Increasing quotas](#increasing-quotas) for instructions on how to apply for increased
-quota. A general tutorial on [managing and cleaning data on Puhti and Mahti `scratch`
-disks](../support/tutorials/clean-up-data.md) is also available.
+!!! info "LUE"
+    To easily check the amount of data and number of files within a given folder on
+    the parallel file system, please consider using the [LUE](../support/tutorials/lue.md)
+    tool. This tool is significantly faster than tools like `stat` or `du` and causes
+    much less load on the file system.
+
+!!! info "Quotas and cleaning"
+    While it is possible to [apply for increased quotas](#increasing-quotas), we
+    recommend that you always first ensure that the data you have stored on the
+    shared file system is really needed and in active use. Unused data should be
+    moved to e.g. [Allas](../data/Allas/index.md). A general tutorial on [managing
+    and cleaning data on Puhti and Mahti disks](../support/tutorials/clean-up-data.md)
+    is also available.
 
 ## Home directory
 
