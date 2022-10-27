@@ -75,6 +75,9 @@
 </span><br>
 <span class="index-quicklinks">
 [Sensitive Data services User Guide](data/sensitive-data/index.md) 
+</span><br>
+<span class="index-quicklinks">
+[Machine Learning Guide](support/tutorials/ml-guide.md) 
 </span>
 
 ## What's new
