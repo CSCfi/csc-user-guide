@@ -44,7 +44,7 @@ data in scratch.
 
 ## GPU nodes
 
-Puhti and Mahti GPUs should only be used for workloads that greatly benefit of GPU capacity compared to using CPU or which can't be run on CPU. A good rule of thumb is to compare the [billing unit (BU)](../accounts/billing.md) usage (_e.g._ with [`seff`](./performance/#quick-start-efficiency-report-with-seff) or the [billing unit calculator](https://research.csc.fi/pricing)) on the job on GPU with CPU and select the one using less.
+Puhti and Mahti GPUs should only be used for workloads that greatly benefit of GPU capacity compared to using CPU or which can't be run on CPU. A good rule of thumb is to compare the [billing unit (BU)](../accounts/billing.md) usage (_e.g._ with [`seff`](../performance/#quick-start-efficiency-report-with-seff) or the [billing unit calculator](https://research.csc.fi/pricing)) on the job on GPU with CPU and select the one using less.
 
-For Puhti and Mahti, this means that a full node of CPU cores roughly equals one GPU. Note, that [LUMI has a lot of GPU capacity](https://docs.lumi-supercomputer.eu/hardware/compute/lumig/) which is also "cheaper" as measured in BUs, and on LUMI it's better to use GPUs if possible for your research. In any case, always make sure you use resources efficiently.
+For Puhti and Mahti, this means that a full node of CPU cores roughly equals one GPU. However, since Puhti and Mahti have more CPU capacity than GPU, you might get access to CPU with less queuing. Note, that [LUMI has a lot of GPU capacity](https://docs.lumi-supercomputer.eu/hardware/compute/lumig/) which is also "cheaper" as measured in BUs, and on LUMI it's better to use GPUs if possible for your research. In any case, always make sure you use resources efficiently.
 
