@@ -1,15 +1,3 @@
-@media screen and (min-width: 60em) {
-    .md-grid>.md-content[data-md-component=content] {
-        display: grid;
-    }
-
-    .md-content[data-md-component=content]>article.md-content__inner.md-typeset {
-        max-width: var(--csc-content-width);
-        min-width: min(100%, var(--csc-content-width));
-        justify-self: center;
-    }
-}
-
 .md-main__inner {
     margin: unset;
     max-width: unset;
