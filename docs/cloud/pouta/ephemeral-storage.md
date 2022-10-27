@@ -29,7 +29,7 @@ and that there is no entry in `/etc/fstab` for this disk:
 Look for a line containing `/dev/vdb` or `LABEL=EPHEMERAL`,
 and comment it out (adding `#` at the beginning of the line).
 
-Now you can continue to format and mount it:
+Now you can continue to format and mount it. We are using ext4 in the example below:
 
     sudo mkfs.ext4 /dev/vdb
     sudo mkdir /mnt/myephdisk
