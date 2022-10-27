@@ -3,6 +3,11 @@
 This guide aims to help users who wish to do machine learning using CSC's
 computing resources.
 
+!!! info "News"
+
+    CSC/PRACE course: [Practical Deep Learning](https://ssl.eventilla.com/event/aqew6) on 24-25 Nov, 2022.
+    **Registration closes Nov 15!**
+
 
 ## Machine learning guide subsections
 
