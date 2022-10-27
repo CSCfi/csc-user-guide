@@ -36,7 +36,7 @@ Before you submit a job to the batch queue you have to define what resources it 
 6. ```Run command: sbatch --partition=test --nodes=1 --ntasks-per-node=40 --account=<yourproject> --time=00:10:00 "$job" ```   
 Please replace `<yourproject>` with a proper project name. You can use the same command line options as in a normal batch job script.
 7. ```Use Local Batch: yes```  
-8. ```Prolog command: module load ams/2022.103; export SCM_TMPDIR=$PWD; export FORT_TMPDIR=$SCM_TMPDIR```
+8. ```Prolog command: source /appl/profile/zz-csc-env.sh; module load ams/2022.103; export SCM_TMPDIR=$PWD; export FORT_TMPDIR=$SCM_TMPDIR```
    This initiates the AMS environment .  
 
 Select the job you want to submit (`SCM-> Jobs`), the queue you want to use (`Queue`) and submit the job `Job-> Run`.  
@@ -59,6 +59,8 @@ Request the credentials for downloading the AMS-GUI from [CSC Service Desk](../s
 Get the right binary for your machine from [the SCM website](https://www.scm.com/support/downloads/) using:  
 **SCM User ID:** ` <the User ID you got from servicedesk@csc.fi>`  
 **password:**  `<the password you got from servicedesk@csc.fi>`   
+
+The download starts without entering a user ID and the password for users of Safari on Mac. 
 
 ** 3. Install**
 
@@ -93,4 +95,4 @@ Before you submit a job to the batch queue you have to define what resources it 
 6. ```Run command: sbatch --partition=test --nodes=1 --ntasks-per-node=40 --account=<yourproject> --time=00:10:00 "$job" ```  
 Please replace `<yourproject>` with a proper project name. You can use the same command line options as in a normal batch job script.  
 7. ```Use Local Batch: no```
-8. ```Prolog command: source /appl/soft/chem/adf/ams2022.103/ams_csc.bash;export SCM_TMPDIR=/scratch/<yourproject>; export FORT_TMPDIR=$SCM_TMPDIR```
+8. ```Prolog command: source /appl/profile/zz-csc-env.sh;source /appl/soft/chem/AMS/ams2022.103/ams_csc.bash;export SCM_TMPDIR=/scratch/<yourproject>; export FORT_TMPDIR=$SCM_TMPDIR```
