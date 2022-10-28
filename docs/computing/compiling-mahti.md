@@ -174,5 +174,15 @@ module load openmpi/4.0.5
 
 The use of the wrappers `mpicc`, `mpic++`, `mpif90`, executes the corresponding `nvc`,`nvc++`,`nvfortran` respectively.
 
+## Building software using Spack
 
+[Spack](https://spack.io) is a flexible package manager that can be used to
+install software on supercomputers and Linux and macOS systems. The basic
+module tree including compilers, MPI libraries and many of the available
+software on CSC supercomputers have been installed using Spack.
 
+CSC provides a module `spack/v0.17-user` on Mahti that can be used by users to
+build software on top of the available compilers and libraries using Spack. It
+is also possible to install different customized versions of packages available
+in the module tree for special use cases. [See here for a short tutorial on how
+to install software on CSC supercomputers using Spack](../support/tutorials/user-spack.md).
