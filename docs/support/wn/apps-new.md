@@ -1,6 +1,6 @@
 # Applications
 
-## Installing software with Spack, 24.10.2022
+## Installing software with Spack, 28.10.2022
 
 Users can now install software on CSC supercomputers using the Spack package
 manager. [See here for a short tutorial on how to use the user Spack module at
