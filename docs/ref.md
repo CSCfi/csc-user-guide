@@ -143,6 +143,10 @@ def main():
     print(string)
 ```
 
+```javascript
+// Here's a JavaScript comment with a loooooooooooooooooooooooooooooooong line. You know, for testing purposes. Tell you what, let's make it just a bit longer still.
+```
+
 ## Tables
 | This | Table | Has | Five | Columns |
 |-|-|-|-|-|
