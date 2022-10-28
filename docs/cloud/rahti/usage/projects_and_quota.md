@@ -87,7 +87,7 @@ In this case, the project is `1000123`. Unfortunately, this information is not a
     a completely new project if you want to use a different label.
 
 !!! note
-    It is possible to change the description of a project, but **it will not** change the csc_project label**.
+    It is possible to change the description of a project, but **it will not** change the csc_project label.
 
 ## Project quotas
 
