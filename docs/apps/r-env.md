@@ -54,7 +54,7 @@ There are several ways to use the `r-env` module on Puhti:
 
 * Non-interactive batch jobs without limits on the reserved computing resources (other than those applying to Puhti in general). Use this option for analyses that take longer or require a lot of memory.
 * [Interactive jobs on a compute node](../../computing/running/interactive-usage/), using either the R console or RStudio Server. Use this option for preparing your code and for smaller analyses. Interactive jobs may use limited resources.
-* Interactively on the login node, using the R console. Use this option only for moving data, checking package availability and installing packages. Puhti login nodes are [not intended for heavy computing](../../computing/overview/#usage-policy). 
+* Interactively on the login node, using the R console. Use this option only for moving data, checking package availability and installing packages. Puhti login nodes are [not intended for heavy computing](../../computing/usage-policy#login-nodes). 
 
 #### Interactive use on a compute node
 
@@ -625,7 +625,7 @@ It is possible to configure `r-env` to use NVIDIA NVBLAS, a drop-in BLAS replace
 
 Compared to CPU jobs, using NVBLAS may offer speed improvements without changes to the underlying R code. However, the benefits afforded are strongly analysis-specific. Additionally, NVBLAS jobs make sub-optimal use of reservations on the GPU partition, with only certain operations being routed to the GPU.
 
-Prior to running a NVBLAS job, consider the [Puhti GPU node usage policy](../computing/overview.md#gpu-nodes) and this checklist:
+Prior to running a NVBLAS job, consider the [Puhti GPU node usage policy](../../computing/usage-policy#gpu-nodes) and this checklist:
 
 - Are BLAS3 routines the main bottleneck in your workflow? 
 - Are speed-ups possible through other means (e.g. rewriting your code)?
