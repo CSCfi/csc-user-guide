@@ -13,7 +13,6 @@ model systems.
 
 ## Available
 
-
 * Puhti: 2021.3, 2021.4, 2022.1, 2022.2
 * Mahti: 2021.4, 2022.1, 2022.2
 
@@ -32,6 +31,14 @@ The Maestro license consists of floating licenses and tokens.
 If licenses run out, contact us via [ServiceDesk](/support/contact/)
 
 ## Usage
+
+!!! info "Please update your `schrodinger.hosts` file"
+
+    The login nodes of Puhti were renamed following the RHEL8 upgrade in October 2022.
+    Consequently, old `schrodinger.hosts` files referencing `puhti-login1` will not work
+    anymore! Please update your hosts file either manually by replacing all occurrences of
+    `login1` with `login11`, or by deleting your old `schrodinger.hosts` file and setting a
+    new one by running the `/appl/soft/chem/schrodinger/set-hosts-file.bash` script.
 
 It is recommended to download and install Maestro on your 
 own computer, see below.
@@ -119,11 +126,11 @@ The following video tutorial walks you through it:
 
 !!! note
     We do _not_ recommend running the Maestro GUI remotely on Puhti.
-    It _can_ be done via [the Puhti web interface remote desktop](../computing/webinterface/desktop.md),
-    but the performance may be somewhat slow due to lack of accelerated graphics. Also, **no long/heavy tasks**
-    should be done on the login nodes. Please consult the [policy](../../computing/overview/#usage-policy)
-    on the computing overview page. If you need to run the GUI on Puhti, use the
-    [sinteractive command](../computing/running/interactive-usage.md).
+    It _can_ be done via [the Puhti web interface remote desktop](../computing/webinterface/desktop.md), but the performance may be somewhat slow due to lack of accelerated graphics. Also, **no long/heavy tasks** should be
+    done on the login nodes. Please consult the
+    [Usage policy](../../computing/usage-policy) page under Computing.
+    If you need to run the GUI on Puhti, use the [sinteractive command](../computing/running/interactive-usage.md).
+
 
 !!! note
     **Windows** users, may need to edit the script created by GUI a little.
