@@ -21,7 +21,7 @@ Current modules and versions supported on Puhti:
 
 | Module name (R version) | CRAN package dating | Bioconductor version | RStudio Server version | oneMKL version  | TensorFlow version | CmdStan version |
 | ----------------------- | ------------------- | -------------------- | ---------------------- | ----------------| ------------------ | --------------- |
-| r-env/4.2.1             | June 29 2022        | 3.15                 | 2022.02.3-492          | 2022.1.0        | 2.9.1              | 2.30.1
+| r-env/421               | June 29 2022        | 3.15                 | 2022.02.3-492          | 2022.1.0        | 2.9.1              | 2.30.1
 
 Other software and libraries:
 
