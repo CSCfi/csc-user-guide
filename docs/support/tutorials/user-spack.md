@@ -122,15 +122,30 @@ By default, Spack creates module files under `$USER_SPACK_ROOT/modules`
 and you can add that path to your `$MODULEPATH` with the command:
 
 ```bash
-module use ${USER_SPACK_ROOT}/modules
+[maijam@puhti-login11 ~]$ module use ${USER_SPACK_ROOT}/modules
 ```
 
-After running the `module use` command you can see the modules with regular
-`module avail` and `module spider` commands. For example, the `kakoune`
-editor built in the previous example can be loaded with the command:
+After installing a new package, you need to regenerate the module files. For
+example:
 
 ```bash
-module load kakoune
+[maijam@puhti-login11 ~]$ spack module tcl refresh kakoune
+```
+
+Now you can see the modules with regular `module avail` and `module spider`
+commands. For example, the `kakoune` editor built in the previous example can be
+searched and loaded with:
+
+```bash
+[maijam@puhti-login11 ~]$ module spider kakoune
+
+--------------------------------
+  linux-rhel8-cascadelake/kakoune: linux-rhel8-cascadelake/kakoune/2021.11.08-gcc-11.3.0-yh4n
+--------------------------------
+
+    This module can be loaded directly: module load linux-rhel8-cascadelake/kakoune/2021.11.08-gcc-11.3.0-yh4n
+
+[maijam@puhti-login11 ~]$ module load linux-rhel8-cascadelake/kakoune/2021.11.08-gcc-11.3.0-yh4n
 ```
 
 ## Further reading
