@@ -19,9 +19,9 @@ With a small number of exceptions, R package versions on `r-env` are date-locked
 
 Current modules and versions supported on Puhti:
 
-| Module name (R version) | CRAN package dating | Bioconductor version | RStudio Server version | oneMKL version  | TensorFlow version |
-| ----------------------- | ------------------- | -------------------- | ---------------------- | ----------------| ------------------ |
-| r-env/4.2.1             | June 29 2022        | 3.15                 | 2022.02.3-492          | 2022.1.0        | 2.9.1              |
+| Module name (R version) | CRAN package dating | Bioconductor version | RStudio Server version | oneMKL version  | TensorFlow version | CmdStan version |
+| ----------------------- | ------------------- | -------------------- | ---------------------- | ----------------| ------------------ | --------------- |
+| r-env/4.2.1             | June 29 2022        | 3.15                 | 2022.02.3-492          | 2022.1.0        | 2.9.1              | 2.30.1
 
 Other software and libraries:
 
@@ -45,6 +45,8 @@ Other software and libraries:
 - NVIDIA cuDNN is distributed under the [Software License Agreement for NVIDIA cuDNN](https://docs.nvidia.com/deeplearning/cudnn/sla/index.html).
 
 - cget is available under the [Boost Software License](https://github.com/pfultz2/cget/blob/master/LICENSE).
+
+- CmdStan is distributed under the [3-clause BSD license](https://github.com/stan-dev/cmdstan/blob/develop/LICENSE).
 
 Licensing information within the `r-env` container is available in the file `/usr/licensing.txt`.
 
@@ -585,7 +587,7 @@ Sys.getenv("LOCAL_SCRATCH")
 
 #### R interface to TensorFlow
 
-R modules from `r-env/4.0.4` onward support GPU-accelerated TensorFlow jobs using the [R interface to TensorFlow](https://tensorflow.rstudio.com/). If you only require TensorFlow without access to R, please use one of the available [TensorFlow modules on Puhti](tensorflow.md). For general information on submitting GPU jobs, [see this tutorial](../support/tutorials/gpu-ml.md). Note that `r-env` includes CUDA and cuDNN libraries, so there is no need to load CUDA and cuDNN modules separately.
+The `r-env` module supports GPU-accelerated TensorFlow jobs using the [R interface to TensorFlow](https://tensorflow.rstudio.com/). If you only require TensorFlow without access to R, please use one of the available [TensorFlow modules on Puhti](tensorflow.md). For general information on submitting GPU jobs, [see this tutorial](../support/tutorials/gpu-ml.md). Note that `r-env` includes CUDA and cuDNN libraries, so there is no need to load CUDA and cuDNN modules separately.
 
 To submit a GPU job using the R interface to TensorFlow, you need to use the GPU partition and specify the type and number of GPUs using the `--gres` flag. The rest is handled by the R script (see [this page for examples](https://keras.rstudio.com/articles/examples/index.html)). In the script below, we would reserve a single GPU and 10 CPUs in a single node:
 
@@ -641,7 +643,7 @@ NVBLAS_GPU_LIST ALL
 NVBLAS_TRACE_LOG_ENABLED
 NVBLAS_CPU_BLAS_LIB /opt/intel/oneapi/mkl/2022.1.0/lib/intel64/libmkl_rt.so
 ```
-Note that the CPU BLAS library listed above is specific to `r-env/4.2.1`.
+Note that the CPU BLAS library listed above is specific to `r-env/421`.
 Adding `NVBLAS_TRACE_LOG_ENABLED` is optional and prompts NVBLAS to create a list of all intercepted BLAS calls for debugging.
 
 Step 2. Add the following lines to your GPU batch job file:
@@ -650,6 +652,35 @@ Step 2. Add the following lines to your GPU batch job file:
 # Use NVBLAS
 export APPTAINERENV_LD_PRELOAD=/usr/local/cuda/targets/x86_64-linux/lib/libnvblas.so
 export APPTAINERENV_NVBLAS_CONFIG_FILE=~/nvblas/nvblas.conf
+```
+
+#### Using `r-env` with Stan
+
+The `r-env` module includes several packages that make use of [Stan](https://mc-stan.org/) for statistical modelling.
+
+*Multithreading and `rstan`*
+
+The thread affinity variable `APPTAINERENV_OMP_PLACES=cores` has been found to interfere with jobs using the `rstan` package (it binds all R processes to a single core, rather than binding each thread to a single core). It is therefore currently recommended that this variable should not be used for parallel R jobs with Stan.
+
+*Using R with the CmdStan backend* 
+
+The `r-env` module comes with a separate [CmdStan] installation which is specific to each module version.
+To use it, one must set the correct path to CmdStan using `cmdstanr`. For example, for `r-env/421` this would be done as follows:
+
+```r
+cmdstanr::set_cmdstan_path("/appl/soft/math/r-env/421-stan/cmdstan-2.30.1")
+```
+
+Other details on using the CmdStan backend are package-specific. As one example, one could use it for [within-chain parallelisation using `brms`](https://cran.r-project.org/web/packages/brms/vignettes/brms_threading.html): 
+
+```r
+library(brms)
+
+fit_serial <- brm(
+  count ~ zAge + zBase * Trt + (1|patient),
+  data = epilepsy, family = poisson(),
+  chains = 4, cores = 4, backend = "cmdstanr"
+)
 ```
 
 #### R package installations
