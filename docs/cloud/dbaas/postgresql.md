@@ -60,4 +60,8 @@ This will show each column of the record on its own rows. This is especially use
 
     SELECT * FROM table1 LIMIT 1 \gx
 
+#### Import database dump
 
+If you have a database dump you can import it with the following command. Be aware that this might overwrite what ever you already have in the database
+
+    psql -h $FLOATING_IP -d $DATABASE -U USERNAME -f file.sql

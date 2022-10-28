@@ -5,12 +5,12 @@ The DBaaS is using openstack on the backend this means that you can use the open
 ## Getting started
 
 1. First make sure that you have `python3` installed.
-2. Then install the command line tools 
+2. Then install the command line tools
 
     pip3 install python-openstackclient python-troveclient
 
 3. You need to download your openrc file from the https://pukki.dbaas.csc.fi and choose correct project number then go to `API Access` and `Download OpenStack RC file` choose `OpenStack RC file`.
-4. Once you have downloaded the file you can source it by running 
+4. Once you have downloaded the file you can source it by running
 
     source $FILENAME
 
@@ -63,7 +63,7 @@ What `username` and `password` you want to use. (In this example we will use `da
 
 If you have any issues don't hesitate using the `openstack database instance create --help` command.
 
-8. Now you need to wait a couple of minutes until the database instances have been created and received a public IP. Once the instances have received an `HEALTHY` state the public IP should be visible. (note that it will show you a private and public IP you are only interested in the public IP). The following command will show you info about the instance: 
+8. Now you need to wait a couple of minutes until the database instances have been created and received a public IP. Once the instances have received an `HEALTHY` state the public IP should be visible. (note that it will show you a private and public IP you are only interested in the public IP). The following command will show you info about the instance:
 
     openstack database instance show $INSTANCE_ID
 
@@ -76,16 +76,16 @@ It is a good idea to check out what the command options are by `openstack databa
 
 More information about how to connect to database can be found in the `Databases` section on the left hand side.
 
-### Restoring from backups 
+### Restoring from backups
 
-You can use the same command as when creating an backup but you need to use the flag and the backup id you want to use for restoring the backup `--backup $BACKUP_ID` 
+You can use the same command as when creating an backup but you need to use the flag and the backup id you want to use for restoring the backup `--backup $BACKUP_ID`
 
 ##  Additional useful commands
 
 ##### Create additional database in database instance
 This is similar to do a `CREATE DATABASE db_name;`
 
-    openstack database db create $INSTANCE_ID $DB_NAME 
+    openstack database db create $INSTANCE_ID $DB_NAME
 
 ##### Add user to your database and update permissions
 
@@ -115,17 +115,17 @@ Delete the instances
 
 These are the available commands at the moment
 
-| Openstack command | supported | Comments |
+| Openstack command | status | Comments |
 |--- |:---:|:---|
-| openstack database backup create 			| DONE		|	All flags are not tested |
-| openstack database backup delete 			| DONE 	 	|                           |
+| openstack database backup create 			| Supported	|	All flags are not tested |
+| openstack database backup delete 			| Supported 	|       Might be removed in future |
 | openstack database backup execution delete 		| Not available | 	Not investigated yet|
-| openstack database backup list 			| DONE 		|                           |
-| openstack database backup list instance 		| DONE 	 	|                           |
-| openstack database backup show 			| DONE 		|                           |
-| openstack database backup strategy create 		| DONE 	 	|                           |
-| openstack database backup strategy delete 		| DONE 	 	|                           |
-| openstack database backup strategy list 		| DONE 	 	|                           |
+| openstack database backup list 			| Supported	||
+| openstack database backup list instance 		| Supported 	||
+| openstack database backup show 			| Supported	||
+| openstack database backup strategy create 		| Supported 	|	Might be changed in future|
+| openstack database backup strategy delete 		| Supported 	|	Might be changed in future|
+| openstack database backup strategy list 		| Supported 	|	Might be changed in future|
 | openstack database cluster create 			| Not available | 	Not investigated yet|
 | openstack database cluster delete 			| Not available | 	Not investigated yet|
 | openstack database cluster force delete 		| Not available | 	Not investigated yet|
@@ -149,51 +149,51 @@ These are the available commands at the moment
 | openstack database configuration parameter show 	| Not available | 	Not investigated yet|
 | openstack database configuration set 			| Not available | 	Not investigated yet|
 | openstack database configuration show 		| Not available | 	Not investigated yet|
-| openstack database db create 				| DONE ||
-| openstack database db delete 				| DONE | |
-| openstack database db list 				| DONE || 
-| openstack database flavor list 			| DONE 	 ||
-| openstack database flavor show 			| DONE 	 ||
-| openstack database instance create 			| DONE 	 ||
-| openstack database instance delete 			| DONE 	 ||
-| openstack database instance detach 			| Not available | 	 |
-| openstack database instance eject 			| Not available | 	 |
-| openstack database instance force delete 		| Not available | 	Only admins can force delete|
-| openstack database instance list 			| DONE 	 ||
-| openstack database instance promote 			| Not available | 	 |
-| openstack database instance reboot 			| Not available | 	Only admins can reboot DB instances|
-| openstack database instance rebuild 			| Not available | 	Only admins can rebuild DB instances|
-| openstack database instance reset status 		| Not available | 	Only admins modify the status|
-| openstack database instance resize flavor 		| Not available | 	Works but not recommended by DBaaS team|
-| openstack database instance resize volume 		| Not available | 	Does not work without admin intervention, require hard reboot.|
-| openstack database instance restart 			| DONE 	 ||
-| openstack database instance show 			| DONE 	 ||
-| openstack database instance update 			| DONE 		| 	Subset of the flags are supported. Flags that are supported: --name , --allowed-cidr|
-| openstack database instance upgrade 			| Not available | 	 
-| openstack database limit list 			| Not available | 	Command works but unclear how it should be used|
-| openstack database log list 				| Not available | 	 |
-| openstack database log save 				| Not available | 	 |
-| openstack database log set 				| Not available | 	 |
-| openstack database log show 				| Not available | 	 |
-| openstack database log tail 				| Not available | 	 |
-| openstack database quota show 			| Not available | 	Only admins can see this|
-| openstack database quota update 			| Not available | 	Only admins can see this|
-| openstack database root disable 			| DONE 	||
-| openstack database root enable 			| DONE 		| 	It is not recommended to enable root you might break the DBaaS integration|
-| openstack database root show 				| DONE 	 ||
-| openstack database user create 			| DONE 	 ||
-| openstack database user delete 			| DONE 	 ||
-| openstack database user grant access 			| DONE 	 ||
-| openstack database user list 				| DONE 	 ||
-| openstack database user revoke access 		| DONE 	 ||
-| openstack database user show 				| DONE 	 ||
-| openstack database user show access 			| DONE 	 ||
-| openstack database user update attributes 		| DONE 	 ||
-| openstack datastore delete  				| Not available |	Only admins|
-| openstack datastore list 				| DONE 	 	||
-| openstack datastore show 				| DONE 	 	||
-| openstack datastore version create 			| Not available | 	Only admins|
-| openstack datastore version delete 			| Not available | 	Only admins|
-| openstack datastore version list 			| DONE 		||
-| openstack datastore version set 			| Not available	| 	Only admins |
-| openstack datastore version show 			| DONE		||
+| openstack database db create 				| Supported 	||
+| openstack database db delete 				| Supported 	||
+| openstack database db list 				| Supported 	||
+| openstack database flavor list 			| Supported 	||
+| openstack database flavor show 			| Supported 	||
+| openstack database instance create 			| Supported 	||
+| openstack database instance delete 			| Supported 	||
+| openstack database instance detach 			| Not available ||
+| openstack database instance eject 			| Not available ||
+| openstack database instance force delete 		| Only admins 	||
+| openstack database instance list 			| Suppoted 	||
+| openstack database instance promote 			| Not available ||
+| openstack database instance reboot 			| Only admins 	||
+| openstack database instance rebuild 			| Only admins 	||
+| openstack database instance reset status 		| Only admins 	||
+| openstack database instance resize flavor 		| Not recommended |	Works but not recommended by DBaaS team|
+| openstack database instance resize volume 		| Not suppoted 	| 	Does not work without admin intervention, require hard reboot.|
+| openstack database instance restart 			| Supported 	|	Restart the database container - limited benefit |
+| openstack database instance show 			| Supported 	||
+| openstack database instance update 			| Supported 	|	Subset of the flags are supported. Flags that are supported: --name , --allowed-cidr|
+| openstack database instance upgrade 			| Supported 	| 	Upgrading the database instance. This command will cause downtime. |
+| openstack database limit list 			| Supported 	||
+| openstack database log list 				| Not available ||
+| openstack database log save 				| Not available ||
+| openstack database log set 				| Not available ||
+| openstack database log show 				| Not available ||
+| openstack database log tail 				| Not available ||
+| openstack database quota show 			| Only admins 	||
+| openstack database quota update 			| Only admins 	||
+| openstack database root disable 			| Suppoted 	||
+| openstack database root enable 			| Not recommended |	It is not recommended to enable root you might break the DBaaS integration|
+| openstack database root show 				| Suppoted 	||
+| openstack database user create 			| Suppoted 	||
+| openstack database user delete 			| Suppoted 	||
+| openstack database user grant access 			| Suppoted 	||
+| openstack database user list 				| Suppoted 	||
+| openstack database user revoke access 		| Suppoted 	||
+| openstack database user show 				| Suppoted 	||
+| openstack database user show access 			| Suppoted 	||
+| openstack database user update attributes 		| Suppoted 	||
+| openstack datastore delete  				| Only admins 	||
+| openstack datastore list 				| Suppoted 	||
+| openstack datastore show 				| Suppoted 	||
+| openstack datastore version create 			| Only admins 	||
+| openstack datastore version delete 			| Only admins 	||
+| openstack datastore version list 			| Suppoted	||
+| openstack datastore version set 			| Only admins 	||
+| openstack datastore version show 			| Suppoted	||
