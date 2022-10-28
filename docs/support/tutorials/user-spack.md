@@ -140,12 +140,12 @@ searched and loaded with:
 [maijam@puhti-login11 ~]$ module spider kakoune
 
 --------------------------------
-  linux-rhel8-cascadelake/kakoune: linux-rhel8-cascadelake/kakoune/2021.11.08-gcc-11.3.0-yh4n
+  kakoune: kakoune/2021.11.08-gcc-11.3.0-yh4n
 --------------------------------
 
-    This module can be loaded directly: module load linux-rhel8-cascadelake/kakoune/2021.11.08-gcc-11.3.0-yh4n
+    This module can be loaded directly: module load kakoune/2021.11.08-gcc-11.3.0-yh4n
 
-[maijam@puhti-login11 ~]$ module load linux-rhel8-cascadelake/kakoune/2021.11.08-gcc-11.3.0-yh4n
+[maijam@puhti-login11 ~]$ module load kakoune/2021.11.08-gcc-11.3.0-yh4n
 ```
 
 ## Further reading
