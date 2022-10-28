@@ -5,7 +5,7 @@ The database instances are hosted on top of cPouta. The billing is based on the 
 TODO the prices have not been decided on, in internal beta the services is free.
 
 ## Flavor types
-|Flavor|Cores|Memory<br/>(GiB)|Billing<br/>Units<br/>/h|
+| Flavor | Cores|Memory<br/>(GiB) | Billing<br/>Units<br/>/h |
 |--- |:---:|:---:|:---:|
 | standard.small   | 2 | 2   | 4 |
 | standard.medium  | 3 | 4   | 7 |
@@ -18,8 +18,8 @@ TODO the prices have not been decided on, in internal beta the services is free.
 
 ## Other resources
 
-|Resource type| Unit | Price |
-|--- |:---:|:---:|
+| Resource type | Unit | Billing<br/>Units<br/>/h |
+|--- |--- |--- |
 | Volumes | GiB reserved | 0.1 BU/GiB |
 | Backups | GiB usage | 0.1 BU/GiB |
 
