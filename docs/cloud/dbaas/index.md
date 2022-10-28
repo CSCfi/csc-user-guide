@@ -5,7 +5,7 @@
 <h2>Getting access to DBaaS</h2>
 * [Applying for DBaaS access](../../accounts/how-to-add-service-access-for-project.md)
 * [Security guide for DBaaS](security-guides.md)
-* [What does DBaaS cost](flavor.md)
+* [What does DBaaS cost](flavors.md)
 
 <h2>Using DBaaS</h2>
 * [Web interface](web-interface.md)
