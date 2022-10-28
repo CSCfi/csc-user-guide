@@ -658,13 +658,13 @@ export APPTAINERENV_NVBLAS_CONFIG_FILE=~/nvblas/nvblas.conf
 
 The `r-env` module includes several packages that make use of [Stan](https://mc-stan.org/) for statistical modelling.
 
-*Multithreading and `rstan`*
+*Note on parallel jobs using `rstan`*
 
-The thread affinity variable `APPTAINERENV_OMP_PLACES=cores` has been found to interfere with jobs using the `rstan` package (it binds all R processes to a single core, rather than binding each thread to a single core). It is therefore currently recommended that this variable should not be used for parallel R jobs with Stan.
+The thread affinity variable `APPTAINERENV_OMP_PLACES=cores` has been found to interfere with parallel jobs using the `rstan` package. We currently recommend that this variable should not be used for parallel R jobs with Stan.
 
 *Using R with the CmdStan backend* 
 
-The `r-env` module comes with a separate [CmdStan] installation which is specific to each module version.
+The `r-env` module comes with a separate [CmdStan](https://github.com/stan-dev/cmdstan) installation that is specific to each module version.
 To use it, one must set the correct path to CmdStan using `cmdstanr`. For example, for `r-env/421` this would be done as follows:
 
 ```r
