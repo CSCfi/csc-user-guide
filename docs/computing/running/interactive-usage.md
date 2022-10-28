@@ -1,6 +1,6 @@
 # Interactive usage
 
-When you login to CSC supercomputers, you end up in one of the login nodes of the computer. These login nodes are shared by all users and they are **not** intended for heavy computing. See our [Usage policy](../overview.md#usage-policy) for details.
+When you login to CSC supercomputers, you end up in one of the login nodes of the computer. These login nodes are shared by all users and they are **not** intended for heavy computing. See our [Usage policy](../../usage-policy) for details.
 If you need to do heavy computing interactively, you should use interactive batch jobs.
 
 In an interactive batch job, a user submits a batch job that starts an interactive shell session in a computing node. For heavy interactive tasks users can also request specific resources (time, memory, cores, disk). You can also use tools with graphical user interfaces in this interactive shell session, but in this case you need to have enabled X11 forwarding. An even better option for remote graphics is to use the [Puhti web interface](../webinterface/index.md).
