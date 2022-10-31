@@ -81,6 +81,8 @@ In Rahti4 the default limits are lower than the default quota:
           memory: 100Mi
 ```
 
+In addition, Rahti4 will enforce a maximum limit/request ratio of 10. This means that the CPU or memory `limits` cannot be more than 10 times the `request`. So if the CPU request is 50m, the CPU limit cannot be higher than 500m. And if we wanted to increase the CPU limit to 1, we will have to increase aswell the request to at least 100m. 
+
 This change helps lowering the default costs for the user, gives the administrators a better understanding of the total resource usage and needs, and improves loadbalancing.
 
 ## How to create routes?
