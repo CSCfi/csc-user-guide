@@ -53,6 +53,36 @@ If you click in "quota"
 
 ![Quota details](img/quota_details.png)
 
+## What are the default limits?
+
+Every Pod needs to have lower and upper limits regarding resources, specifically for CPU and memory. The lower are called requests, and the upper are called limits. The requests sets the minimum resources needed for a Pod to run, and a Pod is not allowed to use more resources than the specified in limits. The user can set the limits explicitly within the available quota.
+
+In Rahti3 the default limits were the same as the default quota:
+
+```yaml
+      resources:
+        limits:
+          cpu: '2'
+          memory: 8Gi
+        requests:
+          cpu: 50m
+          memory: 200Mi
+```
+
+In Rahti4 the default limits are lower than the default quota:
+
+```yaml
+    - resources:
+        limits:
+          cpu: 500m
+          memory: 500Mi
+        requests:
+          cpu: 50m
+          memory: 100Mi
+```
+
+This change helps lowering the default costs for the user, gives the administrators a better understanding of the total resource usage and needs, and improves loadbalancing.
+
 ## How to create routes?
 
 !!! info "Default URLs sufix have changed"

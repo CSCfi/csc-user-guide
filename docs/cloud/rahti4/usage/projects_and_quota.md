@@ -154,6 +154,19 @@ support. See the [Contact page](/support/contact/) for instructions. Quota reque
 handled on a case-by-case basis depending on the currently available resources
 in Rahti and the use case.
 
+### Default Pod resource limits
+
+Every Pod needs to have lower and upper limits regarding resources, specifically for CPU and memory. The lower are called `requests`, and the upper are called `limits`. The `requests` sets the minimum resources needed for a  Pod to run, and a Pod is not allowed to use more resources than the specified in `limits`.
+
+The user can set the limits explicitly within the available quota, but if no limit is set by the user, the defaults are used:
+
+|Type|CPU|Memory|
+|:-:|:-:|:-:|
+|limits|500m|500Mi|
+|requests|50m|100Mi|
+
+Note: `m` stands for milicores. `500m` will be the equivalent of 0.5 cores, or in other words half of the time of a CPU core.
+
 ## Sharing projects with other users
 
 OpenShift has a flexible role-based access control system that allows you to
