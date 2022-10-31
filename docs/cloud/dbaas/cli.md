@@ -165,7 +165,7 @@ These are the available commands at the moment
 | openstack database instance rebuild 			| Only admins 	||
 | openstack database instance reset status 		| Only admins 	||
 | openstack database instance resize flavor 		| Not recommended |	Works but not recommended by DBaaS team|
-| openstack database instance resize volume 		| Not suppoted 	| 	Does not work without admin intervention, require hard reboot.|
+| openstack database instance resize volume 		| Not suppoted 	| 	Does not work without admin intervention. jira: DBAAS-46 |
 | openstack database instance restart 			| Supported 	|	Restart the database container - limited benefit |
 | openstack database instance show 			| Supported 	||
 | openstack database instance update 			| Supported 	|	Subset of the flags are supported. Flags that are supported: --name , --allowed-cidr|
