@@ -9,6 +9,8 @@ extra:
   mkdocs_env: !ENV MKDOCS_ENV # Used when building on Rahti to enable Matomo web analytics
 
 plugins:
+  - tags:
+      tags_file: apps/by_license.md
   - search
   - git-revision-date-localized:
       type: date
@@ -86,6 +88,7 @@ extra_css:
   - assets/stylesheets/header.css
   - assets/stylesheets/sidebars.css
   - assets/stylesheets/table.css
+  - assets/stylesheets/tags.css
   - assets/stylesheets/video.css
   - "https://use.typekit.net/csv4mjm.css" # Museo Sans font
 
@@ -115,7 +118,11 @@ nav:
      - Multi-factor Authentication: accounts/mfa.md
      - FMI: accounts/fmi.md
   - Computing:
+<<<<<<< HEAD
      - computing/index.md
+=======
+     - Overview: computing/overview.md
+>>>>>>> 6d5026be (Apply upstream changes)
      - Usage policy: computing/usage-policy.md
      - Systems:
         - Available systems: computing/available-systems.md
@@ -166,8 +173,7 @@ nav:
   - Cloud:
      - cloud/index.md
      - Concepts of cloud computing: cloud/concepts.md
-     - When to migrate to Kubernetes: cloud/moving-into.md
-     - Rahti3:
+     - Rahti:
        - Contents: cloud/rahti/index.md
        - What is Rahti: cloud/rahti/rahti-what-is.md
        - Containers & their Orchestration: cloud/rahti/containers.md
@@ -178,25 +184,24 @@ nav:
          - Getting access: cloud/rahti/access.md
          - Using the web interface: cloud/rahti/usage/getting_started.md
          - Command line tool installation and usage: cloud/rahti/usage/cli.md
-       - Rahti4 migration: cloud/rahti/rahti4-migration.md
        - Rahti Tutorials:
-         - Accessing databases on Rahti from CSC supercomputers: cloud/rahti/tutorials/connect-database-hpc.md
-         - Annotations: cloud/rahti/tutorials/annotations.md
-         - CI/CD on Rahti: cloud/rahti/tutorials/ci_cd_introduction.md
-         - Configuration, ConfigMaps and Secrets: cloud/rahti/tutorials/configuration.md
-         - Custom domain names and secure transport: cloud/rahti/tutorials/custom-domain.md
-         - Deploying a static web server using the command line: cloud/rahti/tutorials/elemental_tutorial.md
          - Deploying a static web server using the web interface: cloud/rahti/tutorials/basic-console.md
-         - How backup a Postgres DB into Allas: cloud/rahti/tutorials/backup-postgres-allas.md
+         - Deploying a static web server using the command line: cloud/rahti/tutorials/elemental_tutorial.md
+         - Custom domain names and secure transport: cloud/rahti/tutorials/custom-domain.md
+         - Configuration, ConfigMaps and Secrets: cloud/rahti/tutorials/configuration.md
+         - Webhooks: cloud/rahti/tutorials/webhooks.md
+         - Reverse proxy authentication using a sidecar container: cloud/rahti/tutorials/sidecar_proxy_authentication.md
+         - Short introduction to YAML: cloud/rahti/tutorials/yaml_introduction.md
+         - How to transfer data to Rahti?: cloud/rahti/tutorials/transfer_data_rahti.md
          - How to add docker hub credentials to a project: cloud/rahti/tutorials/docker_hub_login.md
          - How to manually cache images in Rahti's registry: cloud/rahti/tutorials/docker_hub_manual_caching.md
+         - CI/CD on Rahti: cloud/rahti/tutorials/ci_cd_introduction.md
          - How to run an ad-hoc interactive container: cloud/rahti/tutorials/oc-run.md
-         - How to transfer data to Rahti?: cloud/rahti/tutorials/transfer_data_rahti.md
-         - Multi stage builds: cloud/rahti/tutorials/multi-stage-builds.md
-         - Reverse proxy authentication using a sidecar container: cloud/rahti/tutorials/sidecar_proxy_authentication.md
+         - How backup a Postgres DB into Allas: cloud/rahti/tutorials/backup-postgres-allas.md
+         - Annotations: cloud/rahti/tutorials/annotations.md
          - Sending e-mail from Rahti: cloud/rahti/tutorials/email.md
-         - Short introduction to YAML: cloud/rahti/tutorials/yaml_introduction.md
-         - Webhooks: cloud/rahti/tutorials/webhooks.md
+         - Accessing databases on Rahti from CSC supercomputers: cloud/rahti/tutorials/connect-database-hpc.md
+         - Multi stage builds: cloud/rahti/tutorials/multi-stage-builds.md
        - Storage in Rahti:
          - Available storage options: cloud/rahti/storage/index.md
          - Persistent volumes: cloud/rahti/storage/persistent.md
@@ -211,51 +216,6 @@ nav:
        - Projects and quota: cloud/rahti/usage/projects_and_quota.md
        - Billing: cloud/rahti/billing.md
        - External documentation: cloud/rahti/ext_docs.md
-     - Rahti4:
-       - Contents: cloud/rahti4/index.md
-       - What is Rahti: cloud/rahti4/rahti-what-is.md
-       - Containers & their Orchestration: cloud/rahti4/containers.md
-       - Kubernetes and OpenShift concepts: cloud/rahti4/concepts.md
-       - Networking: cloud/rahti4/networking.md
-       - Security guide: cloud/rahti4/security-guide.md
-       - Getting Started:
-         - Getting access: cloud/rahti4/access.md
-         - Using the web interface: cloud/rahti4/usage/getting_started.md
-         - Command line tool installation and usage: cloud/rahti4/usage/cli.md
-       - Rahti4 migration: cloud/rahti4/rahti4-migration.md
-       - Rahti Tutorials:
-         - Accessing databases on Rahti from CSC supercomputers: cloud/rahti4/tutorials/connect-database-hpc.md
-         - Annotations: cloud/rahti4/tutorials/annotations.md
-         - CI/CD on Rahti: cloud/rahti4/tutorials/ci_cd_introduction.md
-         - Configuration, ConfigMaps and Secrets: cloud/rahti4/tutorials/configuration.md
-         - Custom domain names and secure transport: cloud/rahti4/tutorials/custom-domain.md
-         - Deploying a static web server using the command line: cloud/rahti4/tutorials/elemental_tutorial.md
-         - Deploying a static web server using the web interface: cloud/rahti4/tutorials/basic-console.md
-         - How backup a Postgres DB into Allas: cloud/rahti4/tutorials/backup-postgres-allas.md
-         - How to add docker hub credentials to a project: cloud/rahti4/tutorials/docker_hub_login.md
-         - How to automatically scale up and down replicas: cloud/rahti4/tutorials/addHorizontalAutoscaler.md
-         - How to manually cache images in Rahti's registry: cloud/rahti4/tutorials/docker_hub_manual_caching.md
-         - How to run an ad-hoc interactive container: cloud/rahti4/tutorials/oc-run.md
-         - How to transfer data to Rahti?: cloud/rahti4/tutorials/transfer_data_rahti.md
-         - Multi stage builds: cloud/rahti4/tutorials/multi-stage-builds.md
-         - Reverse proxy authentication using a sidecar container: cloud/rahti4/tutorials/sidecar_proxy_authentication.md
-         - Sending e-mail from Rahti: cloud/rahti4/tutorials/email.md
-         - Short introduction to YAML: cloud/rahti4/tutorials/yaml_introduction.md
-         - Webhooks: cloud/rahti4/tutorials/webhooks.md
-       - Storage in Rahti:
-         - Available storage options: cloud/rahti4/storage/index.md
-         - Persistent volumes: cloud/rahti4/storage/persistent.md
-         - Ephemeral storage: cloud/rahti4/storage/ephemeral.md
-         - Expand a volume: cloud/rahti4/storage/expand-volumes.md
-       - Images:
-         - Overview: cloud/rahti4/images/overview.md
-         - Creating an image: cloud/rahti4/images/creating.md
-         - Keeping docker images small: cloud/rahti4/images/keeping_docker_images_small.md
-       - GPU in Rahti: cloud/rahti4/gpu.md
-       - Rahti Templates: cloud/rahti4/template-docs.md
-       - Projects and quota: cloud/rahti4/usage/projects_and_quota.md
-       - Billing: cloud/rahti4/billing.md
-       - External documentation: cloud/rahti4/ext_docs.md
      - Pouta:
         - Contents: cloud/pouta/index.md
         - What is Pouta: cloud/pouta/pouta-what-is.md
@@ -267,7 +227,7 @@ nav:
             - Connecting to your virtual machine: cloud/pouta/connecting-to-vm.md
             - Install command line tools: cloud/pouta/install-client.md
             - Command line client tools: cloud/pouta/command-line-tools.md
-            - API Access to Pouta: cloud/pouta/api-access.md
+            - API Access to Pouta: cloud/pouta/api-access.md  
             - Virtual machine lifecycle & saving billing units: cloud/pouta/vm-lifecycle.md
         - Storage in Pouta:
             - Available storage options: cloud/pouta/storage.md
@@ -291,7 +251,7 @@ nav:
        - Guide for teachers: cloud/csc_notebooks/guide_for_teachers.md
        - Concepts: cloud/csc_notebooks/concepts.md
        - Data persistence: cloud/csc_notebooks/data_persistence.md
-       - Migration to beta: cloud/csc_notebooks/migration_to_beta.md
+       - What is new: cloud/csc_notebooks/what_is_new.md
   - Data:
 #    - Datasets: data/datasets.md
      - Working with data:
@@ -340,6 +300,7 @@ nav:
      - apps/index.md
      - By discipline: apps/by_discipline.md
      - By availability: apps/by_system.md
+     - By license: apps/by_license.md
   - FAQ: support/faq/index.md
   - Tutorials: support/tutorials/index.md
   - Training material: support/training-material.md
