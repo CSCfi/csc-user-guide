@@ -9,6 +9,9 @@ Collection of Python libraries for data analytics and machine learning.
 
 !!! info "News"
 
+    **28.10.2022** Module `python-data/3.8` was added for those who
+    specifically need Python 3.8.
+
     **5.10.2022** Together with Puhti's update to Red Hat Enterprise Linux
     8 (RHEL8), **we removed some old versions of Python Data, including all
     (previously deprecated) conda-based versions. We also changed the version naming of the
@@ -40,6 +43,8 @@ Current versions are:
 - `python-data/3.9-22.04` or `python-data/3.9`: installed in April
   2022, includes for example Scikit-learn 1.0.2, SciPy 1.8.0, Pandas
   1.4.2 and JupyterLab 3.3.4.
+- `python-data/3.8-22.10` or `python-data/3.8`: added for those who
+  specifically need Python 3.8.
 
 Python-data tries to include a comprehensive selection of Python libraries for
 data analytics and machine learning, for example:

@@ -61,11 +61,22 @@ are project-specific. If you are a member of several projects, you also have acc
 
 Each project has by default 1 TB of scratch disk space in the directory `/scratch/<project>`.
 
-This fast parallel scratch space is intended as temporary storage space for the data that is
-used in the supercomputer. The scratch directory is not intended for long-term data storage. In
-the future, any files that have not been used for 90 days will be automatically removed, but
-this is not yet enabled. Make sure to consult our tutorial for [tips and guidelines on how to
+
+This fast parallel scratch space is intended as temporary storage
+space for the data that is used in the supercomputer. The scratch
+directory is not intended for long-term data storage. To ensure that
+the disks do not fill up CSC will regularly delete files that have not
+been accessed in a long time. In Puhti the current policy is to remove
+files that have not been accessed for more than 12 months. In Mahti a
+similar cleaning procedure will be introduced, but is not yet
+active. See [Usage policy](../../computing/usage-policy) page for details on the current
+policy.
+
+
+Make sure to consult our tutorial for [tips and guidelines on how to
 manage your data on `scratch`](../support/tutorials/clean-up-data.md).
+
+
 
 ## Projappl directory
 
@@ -74,7 +85,7 @@ Each project has also a 50 GB project application disk space in the directory
 
 It is intended for storing applications you have compiled yourself, libraries etc. that you
 are sharing within the project. It is not a personal storage space but it is shared with
-all members of the project team.
+all members of the project team. Note that no files in this folder will be removed automatically.
 
 It is not intended for running applications, so please run them in `scratch` instead.
 
