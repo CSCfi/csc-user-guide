@@ -4,9 +4,14 @@
 
 Jobs can be submitted to the `q_fiqci` queue by specifying `--partition=q_fiqci` in batch scripts. 
 
-Helmi currently supports submitting jobs using Qiskit or Cirq. Qiskit and Cirq scripts can only be submitted as ordinary python files.
+Helmi currently supports submitting jobs using Qiskit or Cirq. Qiskit and Cirq scripts can only be submitted as ordinary python files. 
+To submit and run jobs on Helmi you need to use the correct environment on LUMI.
 
-Before running jobs users will need to use `module use /appl/local/quantum/modulefiles` to get access to the `helmi` module. The `helmi` module can then be loaded via `module load helmi`. Doing this ensures that the correct environments are setup to submit jobs to Helmi. 
+* First, run `module use /appl/local/quantum/modulefiles`. The available modules will now show up on `module avail`. 
+* Second, depending on if you want to use the Qiskit or Cirq environment, run:
+	* `module load helmi_qiskit` or 
+	* `module load helmi_cirq`
+
 
 ```bash
 #!/bin/bash -l
