@@ -22,7 +22,7 @@ To submit and run jobs on Helmi you need to use the correct environment on LUMI.
 #SBATCH --partition=q_fiqci   # Partition (queue) name
 #SBATCH --ntasks=1              # One task (process)
 #SBATCH --cpus-per-task=1     # Number of cores (threads)
-#SBATCH --time=00:30:00         # Run time (hh:mm:ss)
+#SBATCH --time=00:15:00         # Run time (hh:mm:ss)
 #SBATCH --account=project_<id>  # Project for billing
 
 module use /appl/local/quantum/modulefiles
@@ -38,7 +38,7 @@ python your_python_script.py
 The batch script can then be submitted with `sbatch`. You can also submit interactive jobs through `srun`. 
 
 ```bash
-srun --account=project_<id> -t 00:30:00 -c 1 -n 1 --partition q_fiqci python your_python_script.py
+srun --account=project_<id> -t 00:15:00 -c 1 -n 1 --partition q_fiqci python your_python_script.py
 ```
 
 The `helmi_*` module sets up the correct python environment to use Qiskit or Cirq in conjunction with Helmi. A set of Quantum Tools are also set up via `import csc_qu_tools`. The tools provide additional help in submitting jobs to Helmi. 
@@ -125,6 +125,6 @@ As quantum resources can be scarce, it is recommended that you prepare the codes
 
 Initially, Helmi provides 5 physical qubits. You can also test and run algorithms on your local computer(s), using local simulators. For Qiskit, the python environment can be installed via `pip install qiskit-iqm==2.0`, for Cirq, `pip install cirq-iqm==4.1`.
 
-When you are ready to run your circuits on Helmi it is recommended that you read the [Getting started guide](../helmi_quick/), which covers the prerequisites for submitting your first job. 
+When you are ready to run your circuits on Helmi it is recommended that you read the [Getting started guide](../helmi-from-lumi/), which covers the prerequisites for submitting your first job. 
 
 A set of Qiskit and Cirq examples and scripts for guidance in using the LUMI-Helmi partition are also available. [You can find these here](https://github.com/FiQCI/helmi-examples). 

@@ -48,7 +48,7 @@ Quantum computing projects work similarly to the regular LUMI system. The main d
 1. FiQCI projects use the `--partition=q_fiqci` partition instead of the regular LUMI-C `--partition=standard` and `--partition=small`
 2. The maximum job walltime is **15 mins**
 3. Usage is billed as QPU minutes **QPUm** in `q_fiqci`. 
-4. The LUMI-Helmi software stack has to be loaded separately. See [Running on Helmi](./running-on-helmi) for details.
+4. The LUMI-Helmi software stack has to be loaded separately. See [Running on Helmi](../running-on-helmi/) for details.
 
 Presently, running through the `q_fiqci` queue will consume QPU minutes for the amount of wall-time spent running in the `q_fiqci` queue.
 

@@ -1,7 +1,7 @@
 # Overview
 
 !!! success "Helmi Pilot Phase is now open!"
-    The Helmi Pilot Phase is now open! [More details about the Pilot Phase](../helmi/lumi-helmi-pilot-phase/).
+    The Helmi Pilot Phase is now open! [More details about the Pilot Phase](../helmi/helmi-projects/).
 
 Quantum computers differ from their classical counterparts when it comes to the basic 
 computational operators. Before QPUs can be utilized, they require tailor-made programs 
@@ -18,9 +18,9 @@ Access to Helmi is provided through the LUMI supecomputer environment. Users wil
 
 For further reading:
 
-* [A more technical description about Helmi](./helmi/helmi.md).
-* [Specific instructions for the LUMI Helmi partition](./helmi/helmi_accounts.md)
-* [Getting started with Helmi](./helmi/helmi_quick.md)
+* [A more technical description about Helmi](./helmi/helmi-specs.md).
+* [Specific instructions for the LUMI Helmi partition](./helmi/fiqci-partition.md)
+* [Getting started with Helmi](./helmi/helmi-from-lumi.md)
 * [LUMI Documentation page](https://docs.lumi-supercomputer.eu/)
 
 
