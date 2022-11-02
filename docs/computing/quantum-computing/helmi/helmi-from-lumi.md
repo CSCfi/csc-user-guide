@@ -2,16 +2,9 @@
 
 This page goes through the steps required for setting up an account on LUMI for accessing the Helmi quantum computer. It is assumed that you have some knowledge of supercomputing systems. If not, you can start by looking at [overview of CSC supercomputers](../../../overview/).
 
-## Access to LUMI
+## Access to Helmi through LUMI
 
-Helmi is accessed through the LUMI environment. Users accessing Helmi need to be part of a LUMI project with allocated quantum computing resources. The first step is thus to create a LUMI project. All LUMI projects require a Principal Investigator serving as the Project Manager. A LUMI Project Manager is typically a leader of a research team or other senior researcher. 
-
-Detailed instructions on how to create a LUMI project can be found behind the following links. The first will guide you through the process of creating a LUMI project via MyCSC, the second will guide you through the specific LUMI Helmi partition instructions.
-
-* [Creating a LUMI project and applying for resources](../../../../accounts/how-to-create-new-project/#how-to-create-finnish-lumi-projects)
-	* **Select "Development" from the LUMI access mode**
-
-* [Specific instructions for the LUMI Helmi partition](../helmi_accounts/)
+You first need to create a Helmi project according to the instructions here: [Helmi Projects on LUMI](../helmi-projects/)
 
 After creation of a project, the PI/PM can invite additional standard users to the project:
 
