@@ -20,17 +20,6 @@ experience to fiqci-feedback@postit.csc.fi
 	To get started with Helmi see
 	[Getting started with Helmi](../helmi_quick/). 
 
-
-## Pilot Phase Software
-
-To submit and run jobs on Helmi you need to use the correct environment on LUMI.
-
-* First, run `module use /appl/local/quantum/modulefiles`. The available modules will now show up on `module avail`. 
-* Second, depending on if you want to use the Qiskit or Cirq environment, run:
-	* `module load helmi_qiskit` or 
-	* `module load helmi_cirq`
-
-
 ## Further reading:
 
 * [Description of Helmi's Topology](../helmi/).
