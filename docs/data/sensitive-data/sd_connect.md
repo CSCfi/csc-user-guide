@@ -162,13 +162,12 @@ The following paragraphs illustrate all the necessary steps to generate encrypti
 
 
 ## Sensitive data encryption and upload (less than 100 GB) 
-Due to a technical problem, data encryption and upload via SD Connect are possible only for files < 1GB. We are working to solve the issue and apologise for the inconvenience. For support, contact us at servicedesk@csc.fi
 
 <iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/yAKtGs6FkMc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
+SD Connect allows you to encrypt and upload files or folders directly from your web browser. With the following workflow, the file will be **encrypted by default** with the services encryption key (also called here Sensitive Data services public key). In this manner, encrypted files will be safely stored in SD Connect and can be directly analysed using other Sensitive Data services components (for example, in SD Desktop). However, you will not be yet able to decrypt the files after download. We are developing a new feature that will soon provide also this option.
 
-SD Connect allows you to encrypt and upload files or folders directly from your web browser (for files smaller than 100 GB). With the following workflow, the file will be **encrypted by default** with the services encryption key (also called here Sensitive Data services public key). In this manner, encrypted files will be safely stored in SD Connect and can be directly analysed using other Sensitive Data services components (for example, in SD Desktop). However, you will not be yet able to decrypt the files after download. We are developing a new feature that will soon provide also this option.
-
+Automated encryption via SD Connect is suitable for any file type and for files less than 100 GB. Uploading larger files might take up to several hours, depending on the internet connection. Data uploads via SD Connect are supported only for 8 hours. 
 
 The necessary steps are the following: 
  
