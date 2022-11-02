@@ -18,12 +18,12 @@ experience to fiqci-feedback@postit.csc.fi
 
 !!! info "Getting Started"
 	To get started with Helmi see
-	[Getting started with Helmi](../helmi_quick/). 
+	[Access Helmi through LUMI](../helmi-from-lumi/). 
 
 ## Further reading:
 
-* [Description of Helmi's Topology](../helmi/).
-* [Specific instructions for the LUMI Helmi partition](../helmi_accounts/)
+* [Description of Helmi's Topology](../helmi-specs/).
+* [Specific instructions for the LUMI Helmi partition](../fiqci-partition/)
 * [Running jobs on Helmi](../running-on-helmi/)
 * [LUMI Documentation page](https://docs.lumi-supercomputer.eu/)
 
