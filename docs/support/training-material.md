@@ -20,7 +20,7 @@ for self study.
  
 ## Learn R and Python:
 *   [R for Beginners](https://github.com/csc-training/R-for-beginners)
-*   [Data Analysis with R](https://github.com/csc-training/da-with-r)
+*   [Data Analysis with R](https://github.com/csc-training/da-with-r-remote)
 *   [Practical Machine Learning (using Python)](https://e-learn.csc.fi/course/view.php?id=14)
 *   [Python basic course for geoscientists](https://geo-python.github.io/site/)
 *   [Python in High Performance Computing](https://www.futurelearn.com/courses/python-in-hpc) PRACE MOOC
