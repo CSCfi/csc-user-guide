@@ -76,7 +76,7 @@
 [Getting started with LUMI](https://docs.lumi-supercomputer.eu/firststeps/getstarted/)
 </span><br>
 <span class="index-quicklinks">
-[Getting started with Helmi](computing/quantum-computing/helmi/helmi_quick.md)
+[Getting started with Helmi](computing/quantum-computing/helmi/helmi-projects.md)
 </span><br>
 <span class="index-quicklinks">
 [Sensitive Data services User Guide](data/sensitive-data/index.md) 
