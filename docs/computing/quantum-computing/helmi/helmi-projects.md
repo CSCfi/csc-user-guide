@@ -1,6 +1,12 @@
 # Helmi Projects on LUMI 
 
-The connection to Helmi through LUMI is now accepting pilot phase projects. The pilot phase opened 1 November 2022 and is expected to run for three months.
+Helmi is accessed through the LUMI environment. Users accessing Helmi need to be part of a 
+LUMI project with allocated quantum computing resources. The first step is thus to create a 
+LUMI project. All LUMI projects require a Principal Investigator serving as the Project Manager. 
+A LUMI Project Manager is typically a leader of a research team or other senior researcher. 
+
+**The connection to Helmi through LUMI is now accepting pilot phase projects**. 
+The pilot phase opened 1 November 2022 and is expected to run for three months.
 
 !!! info "Open Call for pilot phase projects"
 	Pilot phase projects for researchers in Finnish higher-education institutions and research organisations is now open.
@@ -10,6 +16,12 @@ The connection to Helmi through LUMI is now accepting pilot phase projects. The 
 * Max run time for a single job is 15 minutes.
 * You will need to read and accept the Helmi General Terms of Use and adhere to export restrictions
 * More details in the [Call text](https://fiqci.fi/_posts/2022-11-01-Helmi-pilot/)
+
+
+Detailed instructions on the process of creating a general LUMI project via MyCSC are here:
+
+* [Creating a LUMI project and applying for resources](../../../../accounts/how-to-create-new-project/#how-to-create-finnish-lumi-projects)
+
 
 Note that during the pilot phase, access is provided "as is", without guarantees of any specific functionality.
 One aim of the pilot phase is to, together with the users, develop the service further and make it
