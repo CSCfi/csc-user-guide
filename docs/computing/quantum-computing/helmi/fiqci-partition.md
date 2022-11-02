@@ -45,8 +45,8 @@ The Helmi partition uses the same storage policies as LUMI.
 
 Quantum computing projects work similarly to the regular LUMI system. The main differences are:
 
-1. FiQCI projects use the `--partition=q_fiqci` partition instead of the regular LUMI-C `--partition=standard` and `--partition=small`
-2. The maximum job walltime is **15 mins**
+1. FiQCI projects use the `--partition=q_fiqci` partition instead of the regular LUMI-C `--partition=standard` and `--partition=small`.
+2. The maximum job walltime is **15 mins**.
 3. Usage is billed as QPU minutes **QPUm** in `q_fiqci`. 
 4. The LUMI-Helmi software stack has to be loaded separately. See [Running on Helmi](../running-on-helmi/) for details.
 

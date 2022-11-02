@@ -4,7 +4,7 @@ This page goes through the steps required for setting up an account on LUMI for 
 
 ## Access to Helmi through LUMI
 
-You first need to create a Helmi project according to the instructions here: [Helmi Projects on LUMI](../helmi-projects/)
+You first need to create a Helmi project according to the instructions here: [Helmi Projects on LUMI](../helmi-projects/).
 
 After creation of a project, the PI/PM can invite additional standard users to the project:
 

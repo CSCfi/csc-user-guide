@@ -14,8 +14,8 @@ The pilot phase opened 1 November 2022 and is expected to run for three months.
 
 * During the pilot phase, approved projects will get 24 hours of access to the FiQCI Quantum Partition, `q_fiqci`. 
 * Max run time for a single job is 15 minutes.
-* You will need to read and accept the Helmi General Terms of Use and adhere to export restrictions
-* More details in the [Call text](https://fiqci.fi/_posts/2022-11-01-Helmi-pilot/)
+* You will need to read and accept the Helmi General Terms of Use and adhere to export restrictions.
+* More details in the [Call text](https://fiqci.fi/_posts/2022-11-01-Helmi-pilot/).
 
 
 Detailed instructions on the process of creating a general LUMI project via MyCSC are here:
