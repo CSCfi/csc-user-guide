@@ -57,23 +57,3 @@ The selection of installed [scientific software](../apps/by_system.md#mahti) in
 Mahti is more limited than in Puhti.
 
 [A more technical description about Mahti](systems-mahti.md).
-
-
-## Kvasi
-
-**The Quantum Learning Machine**
-
-Quantum computers differ from their classical counterparts when it comes to the basic 
-computational operators. Before QPUs can be utilized, they require tailor-made programs 
-and algorithms. With Kvasi, the user can explore and develop algorithms 
-for quantum computers. Read here [detailed instructions on how to access](kvasi.md)
-
-Kvasi provides an ecosystem for developing and simulating quantum algorithms in both 
-ideal, and realistic, noisy conditions. With Kvasi, you can optimize your algorithm 
-for a specific hardware (QPU), with specific connections and basic gate operations.
-
-The algorithms can be developed either at a level close to the hardware, using 
-the Atos Quantum Assembler (AQASM) language, or using a higher level, Python based 
-language and ready-made libraries. The QLM comes with several ready-made examples.
-You can also download and run locally [myQLM](./kvasi.md#myqlm) - a light-weight version of the 
-QLM ecosystem.
