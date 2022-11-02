@@ -2,12 +2,6 @@
 
 If you've applied for a project, been accepted, setup your ssh keys and gained access to LUMI, then the next step is to run your first quantum computing job on a real quantum computer! This is a guide for exactly how to do that. The only thing you need to know is your project number! 
 
-If you've not yet done any of the above then here are some helpful links:
-
-- [Applying for a project](../helmi_accounts/)
-- [Setting up ssh keys](../helmi_quick/#connecting-to-lumi)
-
-
 ## Configuring the environment
 
 The first step after you have logged into LUMI (via `ssh lumi` on your terminal) is to configure the environment. The base environment when first logging into LUMI does not provide the necessary tools to submit quantum jobs, therefore a quantum software stack has been created which sets up the correct python virtual environments and the correct environment variables. This is accessed through the LMOD system on LUMI using *modules*.
