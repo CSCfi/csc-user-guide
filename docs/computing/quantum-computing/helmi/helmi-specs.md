@@ -2,7 +2,10 @@
 
 ## Architecture and Topology
 
-Helmi is a 5 qubit Quantum Computer co-developed by VTT and IQM using superconducting qubits. The qubits are arranged in a **star shaped** topology, with the central qubit being Qubit 3 (QB3) connected to the other 4 qubits. This means that any two-qubit gate will work most efficiently between QB3 and any other qubit whereas one-qubit gates can be mapped to any of the 4 surrounding qubits. 
+Helmi is a 5-qubit quantum Computer co-developed by VTT and IQM using superconducting qubits. 
+The qubits are arranged in a **star shaped** topology, with the central qubit being Qubit 3 (QB3) connected to the other 4 qubits. 
+This means that any two-qubit gate will work most efficiently between QB3 and any other qubit, 
+whereas one-qubit gates can be mapped to any of the 4 surrounding qubits. 
 
 <p align="center">
     <img src="../../../../img/helmi_mapping.png" alt="Helmi's node mapping">
@@ -32,8 +35,8 @@ With Qiskit you will need to decompose your circuit with the basis gate and defi
 
 ## Further Reading
 
-* [Specific instructions for the LUMI Helmi partition](../helmi_accounts/)
-* [Getting started with Helmi](../helmi_quick/)
+* [Specific instructions for the LUMI Helmi partition](../fiqci-partition/)
+
 
 
 
