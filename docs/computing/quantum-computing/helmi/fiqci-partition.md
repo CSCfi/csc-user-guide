@@ -2,6 +2,11 @@
 
 The FiQCI partition of LUMI provides access to the Helmi quantum computer. Acces is granted for users belonging to projects that have been granted QPU resources. In addition to running jobs on Helmi via LUMI, users can also use the general LUMI system and software stack including using simulators. 
 
+!!! info "Opening Hours"
+	Helmi is available daily 13:00-8:00 (Finnish time zone). 
+	The queue will accept new jobs continuously, but will only run them in this period.
+	You can check the status of the connection here: [https://fiqci.fi/status](https://fiqci.fi/status)
+
 
 ## LUMI Helmi projects vs. regular LUMI projects
 
