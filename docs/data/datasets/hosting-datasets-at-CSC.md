@@ -103,3 +103,35 @@ Note that file sizes can vary a lot, depending for example on the quality of an 
 |Human genome sequence                  |60 GiB           |0                       |0                        |17                      |
 
 **Average file size** is based on data from 14,000 word processing files, 1,000 presentation graphics files, 4 million JPEG images, 27,000 PDF files, and 7,000 MPEG files related to the study, as well as data from 5 non-study 30-minute HD h264 videos. 
+
+## Storage Comparison Table
+
+We provide multiple storage options for research purposes. You can find the right storage solution for you in the comparison table below. We recommend [creating a data management plan](https://research.csc.fi/data-management-planning) when you consider data storage options. If you have questions, our [service desk](servicedesk@csc.fi) will provide personal guidance and expert support in choosing the right storage solution for your data.
+
+ -  [Services suitable for sensitive data](https://research.csc.fi/sensitive-data) are being developed.
+ -  We also provision storage capacity (CEPH/NFS) on request.
+
+|Service                                |Intended purpose |Currently available quotas*|Interfaces|Number of files in 1 TiB|
+|:-------------------------------------:|:---------------:|:----------------------:|:-----------------------:|:----------------------:|
+|Word processing file                   |730 KiB          |1400                    |35000                    |1436000                 |
+|Presentation (ppt)                     |6 MiB            |170                     |4300                     |174000                  |
+|JPEG picture                           |300 KiB          |3400                    |85000                    |3495000                 |
+|JPEG photograph taken with a smartphone|3 MiB            |340                     |8500                     |349000                  |
+|PDF document                           |3 MiB            |340                     |8500                     |349000                  |
+|MPEG video                             |650 MiB          |1                       |39                       |1600                    |
+|30 min HD video                        |2,1 GiB          |0                       |12                       |490                     |
+|full DVD                               |4,7 GiB          |0                       |6                        |218                     |
+|Human genome sequence                  |60 GiB           |0                       |0                        |17                      |
+
+
+   **Intended purpose** **Currently available quotas\*** **Interfaces** **Single user or project based access** **Additional features**  **Service offered by**   [**Allas object storage**](https://docs.csc.fi/data/Allas/) platform independent data storage and sharing 10 TB (more on request) S3 and Swift clients. OpenStack Horizon web interface.
+
+  project group enables sharing data from the service CSC   [**Fairdata IDA storage service**](https://www.fairdata.fi/en/services/ida/) storing and sharing stable data granted based on application (from 1 GB to around 100 TB) browser, CLI project group enables sharing data from the service, persistent identifiers  MINEDU (service produced by CSC)   [**Storage in CSC cloud environments**](https://docs.csc.fi/cloud/pouta/storage/) temporary or persistent storage resources via virtual machines 1 TB (more on request) block storage via virtual machine, big data frameworks (Hadoop, Spark) project group   CSC   [**Project directories in Puhti supercomputer**](https://docs.csc.fi/computing/disk/) disk areas for processing data 50 GB,  
+ 1 TB short term (more on request) file system project group
+
+    CSC   [**EUDAT B2DROP**  ](http://www.eudat.eu/services/b2drop)  storing, sharing and syncing files 20 GB browser, desktop single user enables sharing data from the service, and publishing data in EUDAT B2SHARE service EUDAT   [**Kaivos relational database service**](https://docs.csc.fi/data/kaivos/overview/) data for applications utilizing relational databases up to tens of GBs MariaDB database project group   CSC  
+    
+    
+
+
+* For more detailed information about available storage capacity, see the [information on default quotas](https://research.csc.fi/en/applying-for-computing-resources).
