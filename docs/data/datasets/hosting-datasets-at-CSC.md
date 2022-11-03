@@ -111,17 +111,17 @@ We provide multiple storage options for research purposes. You can find the righ
  -  [Services suitable for sensitive data](https://research.csc.fi/sensitive-data) are being developed.
  -  We also provision storage capacity (CEPH/NFS) on request.
 
-|Service                                |Intended purpose |Currently available quotas*|Interfaces|Single user or project based access|Additional features|Service offered by|
-|:---------------------------------------------------------:|:---------------:|:----------------------:|:-----------------------:|:----------------------:|
-|[**Allas object storage**](../Allas/index.md) | platform independent data storage and sharing | 10 TB (more on request)  | S3 and Swift clients. OpenStack Horizon web interface.         |project group  | enables sharing data from the service | CSC |
-|Presentation (ppt)                     |6 MiB            |170                     |4300                     |174000                  | | |
-|JPEG picture                           |300 KiB          |3400                    |85000                    |3495000                 | | |
-|JPEG photograph taken with a smartphone|3 MiB            |340                     |8500                     |349000                  | | |
-|PDF document                           |3 MiB            |340                     |8500                     |349000                  | | |
-|MPEG video                             |650 MiB          |1                       |39                       |1600                    | | |
-|30 min HD video                        |2,1 GiB          |0                       |12                       |490                     | | |
-|full DVD                               |4,7 GiB          |0                       |6                        |218                     | | |
-|Human genome sequence                  |60 GiB           |0                       |0                        |17                      | | |
+| Service | Intended purpose | Currently available quotas* | Interfaces | Single user or project based access | Additional features | Service offered by |
+|:----------:|:------------:|:-----------------:|:---------------:|:------------------:|:------------------:|:------------------:|
+|[**Allas object storage**](../Allas/index.md) | platform independent data storage and sharing | 10 TB (more on request) | S3 and Swift clients. OpenStack Horizon web interface. | project group | enables sharing data from the service | CSC |
+|Presentation (ppt)                     |6 MiB            |170                     |4300                     |174000                  | 6 | 7 |
+|JPEG picture                           |300 KiB          |3400                    |85000                    |3495000                 | 6 | 7 |
+|JPEG photograph taken with a smartphone|3 MiB            |340                     |8500                     |349000                  | 6 | 7 |
+|PDF document                           |3 MiB            |340                     |8500                     |349000                  | 6 | 7 |
+|MPEG video                             |650 MiB          |1                       |39                       |1600                    | 6 | 7 |
+|30 min HD video                        |2,1 GiB          |0                       |12                       |490                     | 6 | 7 |
+|full DVD                               |4,7 GiB          |0                       |6                        |218                     | 6 | 7 |
+|Human genome sequence                  |60 GiB           |0                       |0                        |17                      | 6 | 7 |
 
 
    **Intended purpose** **Currently available quotas\*** **Interfaces** **Single user or project based access** **Additional features**  **Service offered by**   [**Allas object storage**](../Allas/index.md) platform independent data storage and sharing 10 TB (more on request) S3 and Swift clients. OpenStack Horizon web interface.
