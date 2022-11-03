@@ -113,7 +113,7 @@ We provide multiple storage options for research purposes. You can find the righ
 
 |Service                                |Intended purpose |Currently available quotas*|Interfaces|Single user or project based access|Additional features|Service offered by|
 |:---------------------------------------------------------:|:---------------:|:----------------------:|:-----------------------:|:----------------------:|
-|[**Allas object storage**](Allas.md) | platform independent data storage and sharing | 10 TB (more on request)  | S3 and Swift clients. OpenStack Horizon web interface.         |project group  | enables sharing data from the service | CSC |
+|[**Allas object storage**](../Allas/index.md) | platform independent data storage and sharing | 10 TB (more on request)  | S3 and Swift clients. OpenStack Horizon web interface.         |project group  | enables sharing data from the service | CSC |
 |Presentation (ppt)                     |6 MiB            |170                     |4300                     |174000                  | | |
 |JPEG picture                           |300 KiB          |3400                    |85000                    |3495000                 | | |
 |JPEG photograph taken with a smartphone|3 MiB            |340                     |8500                     |349000                  | | |
@@ -124,12 +124,12 @@ We provide multiple storage options for research purposes. You can find the righ
 |Human genome sequence                  |60 GiB           |0                       |0                        |17                      | | |
 
 
-   **Intended purpose** **Currently available quotas\*** **Interfaces** **Single user or project based access** **Additional features**  **Service offered by**   [**Allas object storage**](Allas.md) platform independent data storage and sharing 10 TB (more on request) S3 and Swift clients. OpenStack Horizon web interface.
+   **Intended purpose** **Currently available quotas\*** **Interfaces** **Single user or project based access** **Additional features**  **Service offered by**   [**Allas object storage**](../Allas/index.md) platform independent data storage and sharing 10 TB (more on request) S3 and Swift clients. OpenStack Horizon web interface.
 
-  project group enables sharing data from the service CSC   [**Fairdata IDA storage service**](https://www.fairdata.fi/en/services/ida/) storing and sharing stable data granted based on application (from 1 GB to around 100 TB) browser, CLI project group enables sharing data from the service, persistent identifiers  MINEDU (service produced by CSC)   [**Storage in CSC cloud environments**](../cloud/pouta/storage.md) temporary or persistent storage resources via virtual machines 1 TB (more on request) block storage via virtual machine, big data frameworks (Hadoop, Spark) project group   CSC   [**Project directories in Puhti supercomputer**](../computing/disk.md) disk areas for processing data 50 GB,  
+  project group enables sharing data from the service CSC   [**Fairdata IDA storage service**](https://www.fairdata.fi/en/services/ida/) storing and sharing stable data granted based on application (from 1 GB to around 100 TB) browser, CLI project group enables sharing data from the service, persistent identifiers  MINEDU (service produced by CSC)   [**Storage in CSC cloud environments**](../../cloud/pouta/storage.md) temporary or persistent storage resources via virtual machines 1 TB (more on request) block storage via virtual machine, big data frameworks (Hadoop, Spark) project group   CSC   [**Project directories in Puhti supercomputer**](../../computing/disk.md) disk areas for processing data 50 GB,  
  1 TB short term (more on request) file system project group
 
-    CSC   [**EUDAT B2DROP**  ](http://www.eudat.eu/services/b2drop)  storing, sharing and syncing files 20 GB browser, desktop single user enables sharing data from the service, and publishing data in EUDAT B2SHARE service EUDAT   [**Kaivos relational database service**](kaivos/overview.md) data for applications utilizing relational databases up to tens of GBs MariaDB database project group   CSC  
+    CSC   [**EUDAT B2DROP**  ](http://www.eudat.eu/services/b2drop)  storing, sharing and syncing files 20 GB browser, desktop single user enables sharing data from the service, and publishing data in EUDAT B2SHARE service EUDAT   [**Kaivos relational database service**](../kaivos/overview.md) data for applications utilizing relational databases up to tens of GBs MariaDB database project group   CSC  
     
     
 
