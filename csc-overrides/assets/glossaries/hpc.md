@@ -31,3 +31,5 @@
 *[PaaS]: Platform-as-a-Service
 *[SaaS]: Software-as-a-Service
 *[VM]: Virtual Machine
+*[PI]: Principal Investigator
+*[PM]: Project Manager
