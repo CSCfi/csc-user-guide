@@ -64,10 +64,6 @@ Then you can mount it:
 
     sudo mount /dev/vdb /media/volume
 
-You can also check the status of the volume in a mounted XFS filesystem using the following command:
-
-    sudo xfs_growfs /dev/vdb
-
 Finally, you need to change the ownership to be able to read and write data in it.
 In the following command, we are assuming the username is cloud-user.
 
@@ -184,7 +180,7 @@ Your colleague can accept the transfer request of this volume:
 
     openstack volume transfer request accept <transferID> <authKey>
 
-## Expanding size to the attached volumes in the Pouta web interface
+## Expanding size of the attached volumes in the Pouta web interface
 
 Previously you have created and attached a volume. In this section you are going to enlarge the size of the volume attached to the instance. Before you attempt for volume expansion you have to detach the volume from the instance, please remember to unmount the volume before detaching it!
 
@@ -200,11 +196,16 @@ volumes:
 
     sudo parted -l
 
-Similar to the previous persistent volume creation you can identify the volume based on its size. First mount the path othewise it will through an error:
+Similar to the previous persistent volume creation you can identify the volume based on its size. First mount the volume at the usual path:
 
     sudo mount /dev/vdb /media/volume
 
-Now you can check the status of the volume in a mounted XFS filesystem using the following command:
+Finally we need to grow the filesystem of the volume, so that the additional space can be used. Assuming that the filesystem in the volume is xfs, we can grow the filesystem with the following command:
 
     sudo xfs_growfs /dev/vdb
     
+To verify that the filesystem has now the expected size, you can use the following command:
+
+    sudo xfs_info /dev/vdb
+
+By multiplying the block size (_bs_) by the number of blocks in the filesystem (_blocks_), you will obtain the size of the filesystem in bytes.
