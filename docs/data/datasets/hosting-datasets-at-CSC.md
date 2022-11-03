@@ -106,7 +106,7 @@ Note that file sizes can vary a lot, depending for example on the quality of an 
 
 ## Storage Comparison Table
 
-We provide multiple storage options for research purposes. You can find the right storage solution for you in the comparison table below. We recommend [creating a data management plan](https://research.csc.fi/data-management-planning) when you consider data storage options. If you have questions, our service desk (<mailto:servicedesk@csc.fi>) will provide personal guidance and expert support in choosing the right storage solution for your data.
+We provide multiple storage options for research purposes. You can find the right storage solution for you in the comparison table below. We recommend [creating a data management plan](datamanagement.md) when you consider data storage options. If you have questions, our service desk (<mailto:servicedesk@csc.fi>) will provide personal guidance and expert support in choosing the right storage solution for your data.
 
  -  [Services suitable for sensitive data](https://research.csc.fi/sensitive-data) are being developed.
  -  We also provision storage capacity (CEPH/NFS) on request.
