@@ -71,7 +71,7 @@
  - **Do not make** _internal_ links with `https://docs.csc.fi/...`, the tests will fail!
 
 ## Tables
-- You can copy the table from Excel / notepad to a webpage and get it in MarkDown
+- You can copy the table from Excel / Notepad to a webpage and get it in Markdown
 - Good converter pages: 
     - [https://markdown.land/markdown-table](https://markdown.land/markdown-table)
     - [https://tableconvert.com](https://tableconvert.com)
