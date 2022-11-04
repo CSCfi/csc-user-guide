@@ -7,6 +7,7 @@
   - [Embedded Videos](#embedded-videos)
   - [Links](#links)
   - [Images, linked documents](#images-linked-documents)
+  - [Tables](#tables)
   - [Syntax highlighting](#syntax-highlighting)
   - [Redirecting pages](#redirecting-pages)
   - [Terminology](#terminology)
@@ -68,6 +69,12 @@
      - `[stuff in other section](../other_section/page.md)`
      - `[stuff elsewhere in page](../other_section/page.md#anchor)` 
  - **Do not make** _internal_ links with `https://docs.csc.fi/...`, the tests will fail!
+
+## Tables
+- You can copy the table from Excel / notepad to a webpage and get it in MarkDown
+- Good converter pages: 
+    - [https://markdown.land/markdown-table](https://markdown.land/markdown-table)
+    - [https://tableconvert.com](https://tableconvert.com)
 
 ## Images, linked documents
  - [See FAQ for details](FAQ.md#how-to-add-an-image).
