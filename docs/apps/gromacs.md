@@ -14,21 +14,24 @@ systems. It also comes with plenty of analysis scripts.
 
 ## Available
 
--   Puhti: 2020-2022 releases with regularly updated minor versions, one with plumed, two with cuda
--   Mahti: 2020-2022 releases with regularly updated minor versions, two with plumed, two with CP2K
--   Check recommended version(s) with `module avail gromacs-env`
--   If you want to use command-line [plumed tools](plumed.md), load the plumed module.
+- Puhti: 2020-2022 releases with regularly updated minor versions, one with plumed,
+  three with CUDA
+- Mahti: 2020-2022 releases with regularly updated minor versions, two with plumed,
+  two with CP2K, two with CUDA
+- Check recommended version(s) with `module avail gromacs-env`
+- If you want to use command-line [plumed tools](plumed.md), load the plumed module.
 
-!!! Note
+!!! info
     We only provide the parallel version `gmx_mpi`, but it can
     be used for grompp, editconf etc. similarly to the serial version.
     Instead of `gmx grompp ...` give `gmx_mpi grompp`
 
-!!! Note
-    CP2K 9.1 has been linked to Gromacs 2022 for QM/MM in the module `gromacs-env/2022-cp2k`
+!!! info
+    CP2K 9.1 has been linked to Gromacs 2022.1 for QM/MM in the module `gromacs-env/2022-cp2k`
     on Mahti. This option was previously available under the CP2K module `cp2k/8.1-gmx`,
     which has now been deprecated. Please use `gromacs-env/2022-cp2k` for QM/MM simulations
-    from now on. [See the official documentation for more details](https://manual.gromacs.org/documentation/2022/reference-manual/special/qmmm.html).
+    from now on. [See the official documentation for more
+    details](https://manual.gromacs.org/documentation/2022/reference-manual/special/qmmm.html).
 
 ## License
 
@@ -55,14 +58,14 @@ as otherwise mdrun will spawn threads for cores it _thinks_ are free. -->
 It is important to set up the simulations properly to use resources efficiently.
 The most important aspects to consider are:
 
--   If you run in parallel, make a scaling test for each system - don't use more cores
-    than is efficient. Scaling depends on many aspects of your system and used algorithms,
-    not just size.
--   Use a recent version - there has been significant speedup over the years
--   Minimize unnecessary disk I/O - never run batch jobs with -v (the verbose flag)
-    for mdrun
--   For large jobs, use full nodes (multiples of 40 cores on Puhti or multiples
-    of 128 cores on Mahti), see example below.
+- If you run in parallel, make a scaling test for each system - don't use more cores
+  than is efficient. Scaling depends on many aspects of your system and used algorithms,
+  not just size.
+- Use a recent version - there has been significant speedup over the years
+- Minimize unnecessary disk I/O - never run batch jobs with -v (the verbose flag)
+  for mdrun
+- For large jobs, use full nodes (multiples of 40 cores on Puhti or multiples
+  of 128 cores on Mahti), see example below.
 
 For a more complete description, consult the [mdrun performance checklist] on the
 Gromacs page.
@@ -168,7 +171,7 @@ Submit the script with `sbatch script_name.sh`
 # requesting 15 minutes time
 
 module purge
-module load gcc/9.4.0 openmpi/4.1.2 gromacs/2021.5
+module load gromacs-env
 
 export OMP_NUM_THREADS=1
 
@@ -191,7 +194,7 @@ srun gmx_mpi mdrun -s topol -maxh 0.2 -dlb yes
 # requesting 15 minutes time and 64 tasks per node, each with 2 OpenMP threads
 
 module purge
-module load gcc/9.4.0 openmpi/4.1.2 gromacs/2021.5
+module load gromacs-env
 
 export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
 
@@ -249,7 +252,7 @@ $ tree
 # this script runs a 128 core gromacs multidir job (8 simulations, 16 cores per simulation)
 
 module purge
-module load gcc/9.4.0 openmpi/4.1.2 gromacs/2021.5
+module load gromacs-env
 
 export OMP_NUM_THREADS=1
 
@@ -271,36 +274,36 @@ For further details on running Gromacs multi-simulations, see the [official Grom
 In addition to the `view` tool of Gromacs (not available at CSC),
 trajectory files can be visualized with the following programs:
 
--   [VMD](vmd.md) visualizing program for large biomolecular systems
--   [Grace](grace.md) plotting graphs produced with Gromacs tools
--   [PyMOL] molecular modeling system (not available at CSC)
+- [VMD](vmd.md) visualizing program for large biomolecular systems
+- [Grace](grace.md) plotting graphs produced with Gromacs tools
+- [PyMOL] molecular modeling system (not available at CSC)
 
 !!! Note
     Please don't run visualization or heavy Gromacs tool scripts in
     the login node (see [usage policy for details](../../computing/usage-policy)).
     You can run the tools in the [interactive partition](../computing/running/interactive-usage.md)
-    by prepending your `gmx_mpi` command with `orterun -n 1`, e.g. `orterun -n 1 gmx_mpi msd -n index -s topol -f traj`).
-
+    by prepending your `gmx_mpi` command with `orterun -n 1`, e.g.
+    `orterun -n 1 gmx_mpi msd -n index -s topol -f traj`).
 
 ## References
 
 Cite your work with the following references:
 
--   GROMACS 4: Algorithms for Highly Efficient, Load-Balanced, and
+- GROMACS 4: Algorithms for Highly Efficient, Load-Balanced, and
     Scalable Molecular Simulation. Hess, B., Kutzner, C., van der
     Spoel, D. and Lindahl, E. J. Chem. Theory Comput., 4, 435-447
     (2008).
--   GROMACS: Fast, Flexible and Free. D. van der Spoel, E. Lindahl, B.
+- GROMACS: Fast, Flexible and Free. D. van der Spoel, E. Lindahl, B.
     Hess, G. Groenhof, A. E. Mark and H. J. C.Berendsen, J. Comp. Chem.
     26 (2005) pp. 1701-1719
--   *GROMACS: High performance molecular simulations through multi-level
-    parallelism from laptops to supercomputers* 
+- *GROMACS: High performance molecular simulations through multi-level
+    parallelism from laptops to supercomputers*
     M. J. Abraham, T. Murtola, R. Schulz, S. Páll, J. C. Smith, B. Hess, E.
     Lindahl *SoftwareX* 1 (2015) pp. 19-25
--   *Tackling Exascale Software Challenges in Molecular Dynamics Simulations with
+- *Tackling Exascale Software Challenges in Molecular Dynamics Simulations with
     GROMACS* In S. Markidis & E. Laure (Eds.), Solving Software Challenges for Exascale
     S. Páll, M. J. Abraham, C. Kutzner, B. Hess, E. Lindahl 8759 (2015) pp. 3-27
--   *GROMACS 4.5: a high-throughput and highly parallel open source molecular
+- *GROMACS 4.5: a high-throughput and highly parallel open source molecular
     simulation toolkit* S. Pronk, S. Páll, R. Schulz, P. Larsson, P. Bjelkmar, R. Apostolov, M. R.
     Shirts, J. C. Smith, P. M. Kasson, D. van der Spoel, B. Hess, and E. Lindahl
     Bioinformatics 29 (2013) pp. 845-54
@@ -310,13 +313,15 @@ for methods applied in your setup.
 
 ## More information
 
--   Gromacs home page: [http://www.gromacs.org/](http://www.gromacs.org/)
--   [Hands-on tutorials] by Justin A. Lemkul, on [GROMACS tutorial home](https://tutorials.gromacs.org/) and by [Bert de Groot group](https://www3.mpibpc.mpg.de/groups/de_groot/compbio/index.html)
--   [Lots of material at BioExcel EU project]
--   [HOW-TO](https://manual.gromacs.org/documentation/current/how-to/index.html) section on the Gromacs pages
--   Gromacs [documentation] and [mdrun performance checklist]
--   [The PRODRG Server] for online creation of small molecule topology
--   [2021 Advanced Gromacs Workshop materials](https://enccs.github.io/gromacs-gpu-performance/)
+- Gromacs home page: [http://www.gromacs.org/](http://www.gromacs.org/)
+- [Hands-on tutorials] by Justin A. Lemkul, on [GROMACS tutorial home](https://tutorials.gromacs.org/)
+  and by [Bert de Groot group](https://www3.mpibpc.mpg.de/groups/de_groot/compbio/index.html)
+- [Lots of material at BioExcel EU project]
+- [HOW-TO](https://manual.gromacs.org/documentation/current/how-to/index.html) section on the
+  Gromacs pages
+- Gromacs [documentation] and [mdrun performance checklist]
+- [The PRODRG Server] for online creation of small molecule topology
+- [2021 Advanced Gromacs Workshop materials](https://enccs.github.io/gromacs-gpu-performance/)
 
   [mdrun performance checklist]: https://manual.gromacs.org/current/user-guide/mdrun-performance.html
   [documentation]: http://manual.gromacs.org/documentation
