@@ -108,7 +108,6 @@ Note that file sizes can vary a lot, depending for example on the quality of an 
 
 We provide multiple storage options for research purposes. You can find the right storage solution for you in the comparison table below. We recommend [creating a data management plan](datamanagement.md) when you consider data storage options. If you have questions, our service desk (<mailto:servicedesk@csc.fi>) will provide personal guidance and expert support in choosing the right storage solution for your data.
 
- -  [Services suitable for sensitive data](https://research.csc.fi/sensitive-data) are being developed.
  -  We also provision storage capacity (CEPH/NFS) on request.
 
 
@@ -120,6 +119,7 @@ We provide multiple storage options for research purposes. You can find the righ
 |  [**Project directories in Puhti supercomputer**](../../computing/disk.md) | disk areas for processing data                                 | 50GB, 1 TB short term (more on request)                    | file system                                                            | project group                       |                                                                             | CSC                               |
 | [**EUDAT B2DROP**](http://www.eudat.eu/services/b2drop) | storing, sharing and syncing files                             | 20 GB                                                      | browser, desktop                                                       | single user                         | enables sharing data from the service, and publishing data in EUDAT B2SHARE service | EUDAT                             |
 | [**Kaivos relational database service**](../kaivos/overview.md) | data for applications utilizing relational databases           | up to tens of GBs                                          | MariaDB database                                                       | project group                       |                                                                           | CSC                               |
+| [**Sensitive Data (SD) Connect**](../sensitive-data.md#store-and-share-with-sd-connect) | Store, collect and share encrypted research data              | 10 TB (more on request)                                        | Browser and CLI                                                      | project group                       | Enables sharing data from the service. Automated encryption via web-browser. Enables analysing encrypted data from the SD Desktop service. Enables publishing sensitive data under controller access via SD Submit (under development). [More info on Sd service](https://research.csc.fi/sensitive-data-services-for-research)| CSC                               |
 
 
 * For more detailed information about available storage capacity, see the [information on default quotas](https://research.csc.fi/en/applying-for-computing-resources).
