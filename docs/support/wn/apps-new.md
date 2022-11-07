@@ -1,5 +1,10 @@
 # Applications
 
+## Gromacs 2022.3, 7.11.2022
+
+[Gromacs](../../apps/gromacs.md) 2022.3 has been installed and set as the default module on Puhti
+and Mahti. [See release notes here](https://manual.gromacs.org/2022.3/release-notes/2022/2022.3.html).
+
 ## Installing software with Spack, 28.10.2022
 
 Users can now install software on CSC supercomputers using the Spack package
