@@ -50,11 +50,10 @@
 
 -->
 
-## Quick links
 <div class="quick-links-container">
 
   <div class="quick-links-topic">
-    <span class="quick-links-title"><h3>Getting started</h3></span>
+    <span class="quick-links-title"><h2>Getting started</h2></span>
     <div class="quick-links-item">
       <a class="quick-link" target="_self" href="computing/overview/">Puhti and Mahti Overview</a>
     </div>
@@ -70,7 +69,7 @@
   </div>
 
   <div class="quick-links-topic">
-    <span class="quick-links-title"><h3>User guides</h3></span>
+    <span class="quick-links-title"><h2>User guides</h2></span>
     <div class="quick-links-item">
       <a class="quick-link" target="_blank" href="https://docs.lumi-supercomputer.eu/">LUMI User Guide</a><sup>&#128279;</sup>
     </div>
@@ -86,7 +85,7 @@
   </div>
 
   <div class="quick-links-topic">
-    <span class="quick-links-title"><h3>Tutorials/courses</h3></span>
+    <span class="quick-links-title"><h2>Tutorials/courses</h2></span>
     <div class="quick-links-item">
       <a class="quick-link" target="_self" href="support/tutorials/ml-guide/">Machine Learning Guide</a>
     </div>
@@ -100,6 +99,7 @@
       <a class="quick-link" target="_blank" href="#">Linux Basics for CSC</a><sup>&#128279;</sup><!-- FIXME -->
     </div>
   </div>
+
 </div>
 
 ## What's new

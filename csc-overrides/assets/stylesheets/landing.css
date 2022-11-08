@@ -11,7 +11,7 @@
   box-shadow: var(--csc-box-shadow--quicklinks);
 }
 
-.quick-links-title h3 {
+.quick-links-title h2 {
   margin-top: 0;
   margin-bottom: 0.3em;
 }
