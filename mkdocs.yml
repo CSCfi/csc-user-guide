@@ -58,6 +58,7 @@ theme:
 extra_css:
   - assets/stylesheets/variables.css
   - assets/stylesheets/scheme.css
+  - assets/stylesheets/landing.css
   - assets/stylesheets/admonition.css
   - assets/stylesheets/announcement.css
   - assets/stylesheets/breadcrumbs.css

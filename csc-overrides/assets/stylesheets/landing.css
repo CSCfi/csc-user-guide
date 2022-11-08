@@ -1,0 +1,15 @@
+.quick-links-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.quick-links-topic {
+  margin-right: 2em;
+  flex-grow: 1;
+}
+
+.quick-links-title h3 {
+  margin-top: 0;
+  margin-bottom: 0.3em;
+}
