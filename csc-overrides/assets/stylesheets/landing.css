@@ -12,6 +12,7 @@
 }
 
 .quick-links-title h2 {
+  font-size: var(--csc-font-size--h4) !important;
   margin-top: 0;
   margin-bottom: 0.3em;
 }
