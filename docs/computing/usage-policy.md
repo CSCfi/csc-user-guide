@@ -1,4 +1,6 @@
 # Usage policy
+!!! info "Additional information"
+    [General Terms of Use for CSC's Services for Research and Education](https://research.csc.fi/general-terms-of-use)
 
 ## Login nodes
 When you login to CSC supercomputers, you end up to one of the login nodes of the cluster.
