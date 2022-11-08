@@ -1,22 +1,27 @@
 # Usage policy
+
 !!! info "Additional information"
-    [General Terms of Use for CSC's Services for Research and Education](https://research.csc.fi/general-terms-of-use)
+    [General Terms of Use for CSC's Services for Research and
+    Education](https://research.csc.fi/general-terms-of-use)
 
 ## Login nodes
-When you login to CSC supercomputers, you end up to one of the login nodes of the cluster.
-These login nodes are shared by all users and they are **not** intended for heavy computing.
+
+When you login to CSC supercomputers, you end up to one of the login nodes of
+the cluster. These login nodes are shared by all users and they are **not**
+intended for heavy computing.
 
 The login nodes should be used only for:
 
- * compiling
- * managing batch jobs
- * moving data
- * **light** pre- and postprocessing
+* compiling
+* managing batch jobs
+* moving data
+* **light** pre- and postprocessing
 
-Here **light** means **one-core-jobs** that finish in **minutes** and require **a less than 1 GiB** of memory at maximum.
-All the other tasks are to be done in compute nodes either as normal [batch jobs](running/getting-started.md)
-or as [interactive batch jobs](running/interactive-usage.md).
-Programs not adhering to these rules will be terminated without warning.
+Here **light** means **one-core-jobs** that finish in **minutes** and require
+**a less than 1 GiB** of memory at maximum. All the other tasks are to be done
+in compute nodes either as normal [batch jobs](running/getting-started.md) or as
+[interactive batch jobs](running/interactive-usage.md). Programs not adhering to
+these rules will be terminated without warning.
 
 !!! warning "Important"
     The login nodes are not meant for long or heavy processes.
@@ -43,12 +48,31 @@ A similar procedure will be introduced on Mahti, but it is not yet in
 place. The policy is still that users should keep only actively used
 data in scratch.
 
-
 ## GPU nodes
 
-Puhti and Mahti GPUs should only be used for workloads that greatly benefit of GPU capacity compared to using CPU or which can't be run on CPU. In particular AI/ML workloads are prioritized, since many of them cannot be done at all on CPUs. A good rule of thumb is to compare the [billing unit (BU)](../accounts/billing.md) usage (_e.g._ with [`seff`](../performance/#quick-start-efficiency-report-with-seff) or the [billing unit calculator](https://research.csc.fi/pricing)) on the job on GPU with CPU and select the one using less. 
+Puhti and Mahti GPUs should only be used for workloads that greatly benefit of
+GPU capacity compared to using CPU or which can't be run on CPU. In particular
+AI/ML workloads are prioritized, since many of them cannot be done at all on
+CPUs. A good rule of thumb is to compare the [billing unit (BU)](../accounts/billing.md)
+usage (_e.g._ with [`seff`](../performance/#quick-start-efficiency-report-with-seff)
+or the [billing unit calculator](https://research.csc.fi/pricing)) on the job on
+GPU with CPU and select the one using less.
 
-For Puhti and Mahti, this means that a full node of CPU cores roughly equals one GPU. However, since Puhti and Mahti have more CPU capacity than GPU, you might get access to CPU with less queuing. Note, that [LUMI has a lot of GPU capacity](https://docs.lumi-supercomputer.eu/hardware/compute/lumig/) which is also "cheaper" as measured in BUs, and on LUMI it's better to use GPUs if possible for your research. In any case, always make sure you use resources efficiently.
+For Puhti and Mahti, this means that a full node of CPU cores roughly equals
+one GPU. However, since Puhti and Mahti have more CPU capacity than GPU, you
+might get access to CPU with less queuing. Note, that [LUMI has a lot of GPU
+capacity](https://docs.lumi-supercomputer.eu/hardware/compute/lumig/) which is
+also "cheaper" as measured in BUs, and on LUMI it's better to use GPUs if
+possible for your research. In any case, always make sure you use resources
+efficiently.
 
-## Regarding Conda installations
-Due to performance issues of Conda-based environments on parallel file systems, CSC has deprecated the direct usage of Conda installations. See the page [Deprecating Conda](../support/deprecate-conda.md) for more information.
+## Conda installations
+
+Due to performance issues of Conda-based environments on parallel file systems,
+CSC has deprecated the direct usage of Conda installations. This means that any
+Conda environments you intend to use must be installed within a container. See
+the page [Deprecating Conda](../support/deprecate-conda.md) for more information.
+
+!!! info "Tykky"
+    Please consider the [Tykky container wrapper](containers/tykky.md) for easy
+    containerization of Conda and pip environments.
