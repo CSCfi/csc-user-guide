@@ -55,6 +55,9 @@
   <div class="quick-links-topic">
     <span class="quick-links-title"><h2>Getting started</h2></span>
     <div class="quick-links-item">
+      <a class="quick-link" target="_self" href="accounts/">CSC Accounts and Projects</a>
+    </div>
+    <div class="quick-links-item">
       <a class="quick-link" target="_self" href="computing/overview/">Puhti and Mahti Overview</a>
     </div>
     <div class="quick-links-item">
@@ -77,26 +80,32 @@
       <a class="quick-link" target="_self" href="data/Allas/">Allas User Guide</a>
     </div>
     <div class="quick-links-item">
-      <a class="quick-link" target="_self" href="computing/quantum-computing/overview/#kvasi">Kvasi QLM Guide</a>
+      <a class="quick-link" target="_self" href="computing/quantum-computing/overview/">Quantum Computing Guide</a>
     </div>
-    <div class="quick-links-item">
-      <a class="quick-link" target="_self" href="computing/quantum-computing/overview/#helmi">Helmi User Guide</a>
-    </div>
-  </div>
-
-  <div class="quick-links-topic">
-    <span class="quick-links-title"><h2>Tutorials/courses</h2></span>
     <div class="quick-links-item">
       <a class="quick-link" target="_self" href="support/tutorials/ml-guide/">Machine Learning Guide</a>
     </div>
     <div class="quick-links-item">
       <a class="quick-link" target="_self" href="data/sensitive-data/">Sensitive Data Services Guide</a>
     </div>
+  </div>
+
+  <div class="quick-links-topic">
+    <span class="quick-links-title"><h2>Tutorials/courses</h2></span>
     <div class="quick-links-item">
       <a class="quick-link" target="_blank" href="https://csc-training.github.io/csc-env-eff/">CSC Computing Environment</a><sup>&#128279;</sup>
     </div>
+      <div class="quick-links-item">
+      <a class="quick-link" target="_blank" href="https://edukamu.fi/elements-of-supercomputing/">Elements of Supercomputing</a><sup>&#128279;</sup>
+    </div>
     <div class="quick-links-item">
       <a class="quick-link" target="_self" href="support/tutorials/env-guide/overview/">Linux basics for CSC</a>
+    </div>
+    <div class="quick-links-item">
+      <a class="quick-link" target="_self" href="computing/running/throughput/">High-throughput computing</a>
+    </div>
+    <div class="quick-links-item">
+      <a class="quick-link" target="_self" href="support/tutorials/clean-up-data/">Managing data on scratch</a>
     </div>
   </div>
 
