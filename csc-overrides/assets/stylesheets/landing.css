@@ -5,8 +5,10 @@
 }
 
 .quick-links-topic {
-  margin-right: 2em;
+  margin: 1em;
+  padding: 1em;
   flex-grow: 1;
+  box-shadow: var(--csc-box-shadow--quicklinks);
 }
 
 .quick-links-title h3 {
