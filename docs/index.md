@@ -96,7 +96,7 @@
       <a class="quick-link" target="_blank" href="https://csc-training.github.io/csc-env-eff/">CSC Computing Environment</a><sup>&#128279;</sup>
     </div>
     <div class="quick-links-item">
-      <a class="quick-link" target="_blank" href="#">Linux Basics for CSC</a><sup>&#128279;</sup><!-- FIXME -->
+      <a class="quick-link" target="_self" href="support/tutorials/env-guide/overview/">Linux basics for CSC</a>
     </div>
   </div>
 
