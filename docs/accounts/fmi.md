@@ -42,7 +42,7 @@ between __projappl__ and __scratch__:
 
 ## Usage
 
-The FMI customers can use both the regular Puhti login nodes `puhti.csc.fi`, and FMI specific login nodes `puhti-login1.fmi.fi` and `puhti-login2.fmi.fi`.
+The FMI customers can use both the regular Puhti login nodes `puhti.csc.fi`, and FMI specific login nodes `puhti-login11.fmi.fi` and `puhti-login12.fmi.fi`.
 
 Puhti FMI works similarly to the regular Puhti system, the main difference being that
 

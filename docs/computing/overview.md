@@ -36,7 +36,7 @@ This will connect you to one of the login nodes. If you need to connect
 to a specific login node, use the command:
 
 ```bash
-ssh yourcscusername@puhti-login<number 11-12>.csc.fi
+ssh yourcscusername@puhti-login<number 11-12,13-14>.csc.fi
 ```
 
 or
