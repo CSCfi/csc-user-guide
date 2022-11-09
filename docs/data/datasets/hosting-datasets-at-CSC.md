@@ -8,7 +8,7 @@
 
 [Store and Share Data](https://research.csc.fi/storage)
 
-[Storage Comparison Table](https://research.csc.fi/storage-comparison-table)
+[Storage Comparison Table](../hosting-datasets-at-CSC.md#cscs-services-for-storing-data)
 
 [Services for Sensitive Data](../sensitive-data/index.md)
 
