@@ -1,5 +1,12 @@
 # Computing environment
 
+## New login nodes on Puhti, 9.11.2022
+
+Two new login nodes, `puhti-login14.csc.fi` and `puhti-login15.csc.fi`, have
+been added to Puhti and included to the round-robin DNS of `puhti.csc.fi`.
+Use the command `ssh <username>@puhti-login<11-12,14-15>.csc.fi` if you need
+to connect to a specific login node, e.g. `ssh kkayttaj@puhti-login14.csc.fi`.
+
 ## Puhti operating system updated to RHEL8, 5.10.2022
 
 The operating system of Puhti has been updated from Red Hat Enterprise Linux (RHEL) 7 to RHEL 8.

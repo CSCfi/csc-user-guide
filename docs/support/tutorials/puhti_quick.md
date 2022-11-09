@@ -4,8 +4,8 @@ This is a quick start guide for Puhti users. It is assumed that you have previou
 used CSC cluster resources like Taito/Sisu. If not, you can start by looking at
 [overview of CSC supercomputers](../../computing/overview.md).
 
-**Go to [my.csc.fi](https://my.csc.fi) to apply for access to Puhti or view your projects
-and their project numbers if you already have access.** On Puhti, you can also use command
+**Go to [MyCSC](https://my.csc.fi) to apply for access to Puhti or view your projects
+and their project numbers if you already have access.** You can also use the command
 `csc-projects`.
 
 [TOC]
@@ -18,7 +18,7 @@ Connect using a normal ssh-client:
 ssh yourcscusername@puhti.csc.fi
 ```
 
-Where **yourcscusername** is the username you get from CSC.
+Where `yourcscusername` is the username you get from CSC.
 
 There is also a beta [web interface](../../computing/webinterface/index.md) available at
 [www.puhti.csc.fi](https://www.puhti.csc.fi), where you can log in with your CSC user name.
@@ -56,7 +56,8 @@ Currently the system has a two MPI implementations installed:
 
 We recommend to test using `openmpi` first.
 
- **You will need to have the MPI module loaded when submitting your jobs.**
+!!! warning "Note"
+    You need to have the MPI module loaded when submitting your jobs.
 
 More information about [building](../../computing/compiling-puhti.md#building-mpi-applications) and
 [running](../../computing/running/creating-job-scripts-puhti.md#mpi-based-batch-jobs) MPI applications.
@@ -70,7 +71,7 @@ More information about specific applications can be found [here](../../apps/alph
     (= 3.6.8) is available as `python3`. The default system Python does not include any optional Python
     packages. Several other [Python](../../apps/python.md) installations are available via the module system.
     [python-data](../../apps/python-data.md) is a good first choice, it includes a lot of regularly used
-    packages. 
+    packages.
 
 ## Running jobs
 
@@ -99,12 +100,25 @@ system error messages in the [FAQ](../faq/why-does-my-batch-job-fail.md).
 ## Storage
 
 The **project based** shared storage can be found under `/scratch/<project>`.
-Note that this folder is shared by **all users** in a project. This folder is not meant for long term data storage
-and files that have not been used for 90 days will be automatically removed. The default quota for this folder is 1 TB. There is also a persistent **project based**
-storage with a default quota of 50 GB. It is located under `/projappl/<project>`. Each user can store up to 10 GB of data in their home directory (`$HOME`).
+Note that this folder is shared by **all users** in a project. This folder is
+not meant for long term data storage and files that have not been used for 90
+days will be automatically removed. **This policy has not yet been fully
+implemented, but we plan to take this cleaning procedure fully in use later
+in 2022.**
 
-You can [check your current disk usage](../faq/disk-quota-exceeded.md) with `csc-workspaces`, more detailed information about storage can be found [here](../../computing/disk.md).
+The default quota for this folder is 1 TB. There is also a persistent
+**project based** storage with a default quota of 50 GB. It is located
+under `/projappl/<project>`. Each user can store up to 10 GB of data in
+their home directory (`$HOME`).
+
+You can [check your current disk usage](../faq/disk-quota-exceeded.md) with
+`csc-workspaces`. More detailed information about storage can be found
+[here](../../computing/disk.md) and a guideline on managing data on the
+`/scratch` disk [here](clean-up-data.md). See also the [LUE tool](lue.md)
+for efficiently querying how much data/files you have in a directory.
 
 ## Linux basics Tutorial for CSC
 
-If you are new to Linux command line or using supercomputers, please consult [this tutorial section](env-guide/overview.md)!
+If you are new to Linux command line or using supercomputers, please consult
+[this tutorial section](env-guide/overview.md)! See also the materials of the
+[CSC Computing Environment self-learning course](https://csc-training.github.io/csc-env-eff/).
