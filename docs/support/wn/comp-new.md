@@ -1,6 +1,6 @@
 # Computing environment
 
-## Puhti web interface beta updated to release 12, 9.11.2022
+## Puhti web interface beta updated to release 12, 10.11.2022
 
 * User authentication is now happening through OpenID Connect, which means that users
   can authenticate via Haka, Virtu, or CSC login. This enables Single Sign-on (SSO) between,
