@@ -55,14 +55,14 @@ provider = helmi()
 backend = provider.set_backend()
 basis_gates = provider.basis_gates
  
-circuit_decomposed = transpile(qc, backend=backend, basis_gates=basis_gates) # Decompose circuit into native basis gates
+circuit_decomposed = transpile(qc, basis_gates=basis_gates) # Decompose circuit into native basis gates
  
 virtual_qubits = circuit_decomposed.qubits # Get the virtual qubits
 qubit_mapping = {virtual_qubits[0]: 'QB1',
                  virtual_qubits[1]: 'QB2',
                  virtual_qubits[2]: 'QB3'
                  virtual_qubits[3]: 'QB4',
-                 virtual_qubits[4]: 'QB5'  } # Set Helmi qubit mapping
+                 virtual_qubits[4]: 'QB5'  } # Set Helmi qubit mapping. This will need to be changed based on where your 2 qubit gates are in your circuit.
 job = backend.run(circuit_decomposed, shots=, qubit_mapping=qubit_mapping) # Run with decomposed circuit and qubit mapping
 ```
 
