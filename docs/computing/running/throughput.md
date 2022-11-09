@@ -59,7 +59,7 @@ graph TD
     E -->|Parallel| G(Single- or multinode subtasks?)
     G -->|Single| H(Dependencies between subtasks?)
     G -->|Multi| I(<a href='/computing/running/fireworks/'>FireWorks</a>)
-    H -->|Yes| J(<a href='https://snakemake.readthedocs.io/en/stable/'>Snakemake</a><br><a href='/support/tutorials/nextflow-puhti/'>Nextflow</a>)
+    H -->|Yes| J(<a href='https://snakemake.readthedocs.io/en/stable/'>Snakemake</a><br><a href='/support/tutorials/nextflow-puhti/'>Nextflow</a><br><a href='/computing/running/fireworks/'>FireWorks</a>)
     H -->|No| K(<a href='/apps/hyperqueue/'>HyperQueue</a>)
 ```
 
