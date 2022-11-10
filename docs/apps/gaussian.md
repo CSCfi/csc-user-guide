@@ -123,3 +123,4 @@ on Puhti. For this type of calculation Mahti isn't the optimal choice.
 
 - [Online Gaussian user reference](http://gaussian.com/man/)
 - [Using Gabedit as GUI for Gaussian jobs on Puhti](../support/tutorials/gabedit_gaussian.md)
+- [Farming Gaussian jobs with HyperQueue](https://csc-training.github.io/csc-env-eff/hands-on/throughput/gaussian_hq.html)
