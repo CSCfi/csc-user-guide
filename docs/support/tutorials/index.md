@@ -45,6 +45,7 @@
 * [Running your first job on Puhti](biojobs-on-puhti.md)
 
 ## Chemistry
+* [Farming Gaussian jobs with HyperQueue](https://csc-training.github.io/csc-env-eff/hands-on/throughput/gaussian_hq.html)
 * [Using Gabedit for Gaussian jobs on Puhti](gabedit_gaussian.md)
 
 ## Data analysis and machine learning
