@@ -1,5 +1,21 @@
 # Computing environment
 
+## Puhti web interface beta updated to release 12, 10.11.2022
+
+* User authentication is now happening through OpenID Connect, which means that users
+  can authenticate via Haka or CSC login. This enables Single Sign-on (SSO) between,
+  e.g., the web interface and My CSC.
+* A new welcome page has been added instead of the old login page.
+* The Puhti usage metrics are now visualized in a new manner.
+* Open onDemand version updated to 2.0.29.
+
+## New login nodes on Puhti, 9.11.2022
+
+Two new login nodes, `puhti-login14.csc.fi` and `puhti-login15.csc.fi`, have
+been added to Puhti and included to the round-robin DNS of `puhti.csc.fi`.
+Use the command `ssh <username>@puhti-login<11-12,14-15>.csc.fi` if you need
+to connect to a specific login node, e.g. `ssh kkayttaj@puhti-login14.csc.fi`.
+
 ## Puhti operating system updated to RHEL8, 5.10.2022
 
 The operating system of Puhti has been updated from Red Hat Enterprise Linux (RHEL) 7 to RHEL 8.
