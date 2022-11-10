@@ -3,9 +3,10 @@
 ## Puhti web interface beta updated to release 12, 10.11.2022
 
 * User authentication is now happening through OpenID Connect, which means that users
-  can authenticate via Haka, Virtu, or CSC login. This enables Single Sign-on (SSO) between,
+  can authenticate via Haka or CSC login. This enables Single Sign-on (SSO) between,
   e.g., the web interface and My CSC.
 * A new welcome page has been added instead of the old login page.
+* The Puhti usage metrics are now visualized in a new manner.
 * Open onDemand version updated to 2.0.29.
 
 ## New login nodes on Puhti, 9.11.2022
