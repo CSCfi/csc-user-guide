@@ -1,5 +1,10 @@
 # Applications
 
+## CP2K 2022.2, 10.11.2022
+
+[CP2K](../../apps/cp2k.md) 2022.2 has been installed and set as the default module on Puhti
+and Mahti. [See release notes here](https://www.cp2k.org/version_history).
+
 ## Gromacs 2022.3, 7.11.2022
 
 [Gromacs](../../apps/gromacs.md) 2022.3 has been installed and set as the default module on Puhti
