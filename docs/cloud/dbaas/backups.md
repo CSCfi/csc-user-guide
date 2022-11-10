@@ -23,7 +23,7 @@ Automatic backups are enabled by default and can not be disabled.
 
 Backups can be taken manually. 
 
-1. Before taking the first backup of your database instance you need to create "backup strategy". This basically defines in what object storage the instance backups should be stored. This only need to be done once per database instance.
+1. Before taking the first backup of your database instance you need to create "backup strategy". This basically defines in what object storage the instance backups should be stored. This only need to be done once per database instance. This step will not be necessary in the future.
 
     openstack database strategy create --instance-id $YOUR_INSTANCE_ID --swift-container $A_RANDOM_STRING
 
