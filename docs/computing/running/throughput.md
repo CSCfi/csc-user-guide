@@ -166,6 +166,7 @@ graph TD
 * [Nextflow] singularity container-based bioinformatics pipelines on Puhti
 * [Data storage guide for machine learning] explains where to work with ML data
   and how to use the shared file system efficiently
+* [Farming Gaussian jobs with HyperQueue]
 
 ### Workflow tools integrated into common simulation software
 
@@ -214,3 +215,4 @@ workflows.
 [see usage policy]: ../overview.md#gpu-nodes
 [Fast disk areas in CSC computing environment]: https://csc-training.github.io/csc-env-eff/hands-on/disk-areas/disk-areas-tutorial-fastdisks.html
 [Nextflow workflows using HyperQueue as an executor]: ../../support/tutorials/nextflow-hq.md
+[Farming Gaussian jobs with HyperQueue]: https://csc-training.github.io/csc-env-eff/hands-on/throughput/gaussian_hq.html
