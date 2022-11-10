@@ -466,3 +466,52 @@ Other references to setting up a lifecycle:
 * [Creating an intelligent object storage system with Ceph’s Object Lifecycle Management](https://shopnpaz.medium.com/creating-an-intelligent-object-storage-system-with-cephs-object-lifecycle-management-112e2e46d490)
 * [Multiple lifecycles - s3cmd](https://stackoverflow.com/questions/49615977/multiple-lifecycles-s3cmd)
 * Surprise entry for the above found at [cloud.blog.csc.fi](http://cloud.blog.csc.fi/2019/02/cpouta-cloud-object-storage-service-has.html)
+
+## Limit bucket access to specific IP addresses
+
+You can limit access to a bucket to specific IP addresses by defining a policy.
+
+!!! Warning
+    Remeber not to block your own access to the bucket, you can't access the bucket or fix the policy if you do so.
+
+In the following IP policy example we allow access to bucket POLICY-EXAMPLE-BUCKET from IP subnet 86.50.164.0/24. Let's name the policy file `myippolicy.json`.
+
+```json
+{
+    "Version": "2012-10-17",
+    "Id": "S3PolicyExample",
+    "Statement": [
+        {
+            "Sid": "IPAllow",
+            "Effect": "Deny",
+            "Principal": "*",
+            "Action": "s3:*",
+            "Resource": [
+                "arn:aws:s3:::POLICY-EXAMPLE-BUCKET",
+                "arn:aws:s3:::POLICY-EXAMPLE-BUCKET/*"
+            ],
+            "Condition": {
+                "NotIpAddress": {
+                    "aws:SourceIp": "86.50.164.0/24"
+                }
+            }
+        }
+    ]
+}
+```
+
+To set this IP policy into our bucket, we use the `setpolicy` sub-command:
+
+```bash
+s3cmd setpolicy myippolicy.json s3://POLICY-EXAMPLE-BUCKET
+```
+
+The current policy can be viewed with `info` sub-command.
+
+We can delete current policy with `delpolicy` sub-command:
+
+```bash
+s3cmd delpolicy s3://POLICY-EXAMPLE-BUCKET
+s3://POLICY-EXAMPLE-BUCKET/: Policy deleted
+```
+
