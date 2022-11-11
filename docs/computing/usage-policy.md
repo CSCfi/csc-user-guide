@@ -6,7 +6,7 @@
 
 ## Login nodes
 
-When you login to CSC supercomputers, you end up to one of the login nodes of
+When you login to CSC supercomputers, you end up on one of the login nodes of
 the cluster. These login nodes are shared by all users and they are **not**
 intended for heavy computing.
 
@@ -17,7 +17,7 @@ The login nodes should be used only for:
 * moving data
 * **light** pre- and postprocessing
 
-Here **light** means **one-core-jobs** that finish in **minutes** and require
+Here **light** means **one-core jobs** that finish in **minutes** and require
 **less than 1 GiB** of memory at maximum. All other tasks are to be done in
 compute nodes either as normal [batch jobs](running/getting-started.md) or as
 [interactive batch jobs](running/interactive-usage.md). Programs not adhering to
@@ -47,7 +47,7 @@ The policy is still that users should keep only actively used data in scratch.
 
 ## GPU nodes
 
-Puhti and Mahti GPUs should only be used for workloads that greatly benefit of
+Puhti and Mahti GPUs should only be used for workloads that greatly benefit from
 GPU capacity compared to using CPUs or which can't be run on CPUs. In particular
 AI/ML workloads are prioritized, since many of them cannot be done at all on
 CPUs. A good rule of thumb is to compare the [billing unit (BU)](../accounts/billing.md)

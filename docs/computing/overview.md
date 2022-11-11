@@ -6,15 +6,15 @@
 
 Puhti and Mahti are CSC's supercomputers. Puhti has been available for CSC users
 since 2 September 2019 and Mahti has been available since 26 August 2020. LUMI is
-the one of the pan-European pre-exascale supercomputers, located in CSC's data
-center in Kajaani. The CPU-partition of LUMI (LUMI-C) has been available since
-early 2022, and general availability of the GPU-partition (LUMI-G) is projected
+one of the pan-European pre-exascale supercomputers, located in CSC's data
+center in Kajaani. The CPU partition of LUMI (LUMI-C) has been available since
+early 2022, and general availability of the GPU partition (LUMI-G) is projected
 for late 2022.
 
 Puhti contains CPU nodes with a range of memory sizes as well as a large GPU
 partition (Puhti AI), while Mahti contains homogeneous CPU nodes and is meant
 for larger jobs (minimum 128 CPU-cores). Mahti also contains a GPU partition
-from 2021 (Mahti AI) with latest generation Nvidia GPUs. See [specifications](available-systems.md)
+since 2021 (Mahti AI) with Nvidia Ampere GPUs. See [specifications](available-systems.md)
 for details on the systems and [this page for an outline of differences between LUMI-C and
 Mahti](lumi-vs-mahti.md).
 
@@ -24,8 +24,8 @@ basics of [Linux command line usage](../support/tutorials/env-guide/overview.md)
 ## Accessing Puhti and Mahti
 
 To be able to use CSC's supercomputers, you need to have a CSC user account that
-belongs to a computing project that has access to the respective supercomputer.
-CSC user accounts and projects are managed in [MyCSC portal](https://my.csc.fi).
+belongs to a computing project which has access to the respective supercomputers.
+CSC user accounts and projects are managed in the [MyCSC portal](https://my.csc.fi).
 Further instructions are provided in the [Accounts section](../accounts/index.md)
 of this user guide.
 
@@ -95,7 +95,7 @@ csc-projects
 ```
 
 This command shows information for all your CSC projects. You can select just
-one project to be reported with option `-p` . For example:
+one project to be reported with the `-p` option. For example:
 
 ```bash
 [kkayttaj@puhti ~]$ csc-projects -p project_2012345
@@ -110,10 +110,10 @@ Latest resource grant: 2019-03-04
 
 The command reports the owner of the project, title, start and end dates. In
 addition the command prints out the budgeting information for the project: how
-many billing units have been granted to your project, how much has been used
-and how much still remain.
+many billing units have been granted to your project, how many have been used
+and how many still remain.
 
-The [disk areas](disk.md) of your projects can be checked with command:
+The [disk areas](disk.md) of your projects can be checked with the command:
 
 ```text
 csc-workspaces
