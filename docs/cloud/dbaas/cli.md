@@ -64,7 +64,13 @@ Remember that you can use the help command like: `openstack help database` and t
 
 	What `username` and `password` you want to use. (In this example we will use `databaseuser` and `myPassword568`
 
+<<<<<<< HEAD
 1. Once you gather the data you want to use to crate your database you can do it by running the following command. Please update the variables how you see fit, especially `MY_IP` . You can also use the flag `--allowed-cidr` multiple times to add multiple IP-addresses.
+=======
+```
+    openstack database instance create my_database_instance --flavor standard.small --databases my_first_database --users databaseuser:myPassword568 --datastore postgresql --datastore-version 14.2  --is-public --size 1  --allowed-cidr ${MY_IP}/32
+```
+>>>>>>> 55e8f995 (try again)
 
 	```sh
 	openstack database instance create my_database_instance \
