@@ -33,6 +33,7 @@
   - [When the research project ends](hosting-datasets-at-CSC.md#when-the-research-project-ends)
   - [Preservation](hosting-datasets-at-CSC.md#preservation)
   - [How much storage space is needed](hosting-datasets-at-CSC.md#how-much-storage-space-is-needed)
+  - [Storage comparison table](hosting-datasets-at-CSC.md#storage-comparison-table)
 
 ## [Publishing Datasets](publishing-datasets.md)
 

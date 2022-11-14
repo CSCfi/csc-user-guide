@@ -151,7 +151,7 @@ The data has now been copied to Allas and you can check the uploaded files with 
 
 The `allas-crypt remote` translates the data from the encrypted bucket (allas:2001659-crypt) automatically into readable format. However, if you study the content of the encrypted bucket directly, you can see that the object names, as well as the stored data, are in encrypted format:
 
-<pre>[kkayttaj@puhti-login3 ~]$ <b>rclone ls allas:2001659-crypt</b>
+<pre>[kkayttaj@puhti-login11 ~]$ <b>rclone ls allas:2001659-crypt</b>
       125 4lpbj55pc5v8t119q0tp2o6k58/36sb832och3tde30k9nlks3dpo
        59 4lpbj55pc5v8t119q0tp2o6k58/90alcaodph3386197agf252t5b97f144n88e99m9ire5tcpqu380/flqitnrsrc8iloggbc4ouagukg
       134 4lpbj55pc5v8t119q0tp2o6k58/90alcaodph3386197agf252t5b97f144n88e99m9ire5tcpqu380/gvie6dv3s50v32qptl30960me4

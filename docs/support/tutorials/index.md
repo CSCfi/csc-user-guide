@@ -25,6 +25,7 @@
 * [Running Nextflow workflows using HyperQueue](nextflow-hq.md)
 * [FireWorks workflow manager](../../computing/running/fireworks.md)
 * [How to run many short jobs with GNU Parallel](many.md)
+* [HyperQueue meta-scheduler](../../apps/hyperqueue.md)
 
 ## Allas
 * [Using Allas interactively in Puhti and Mahti](../../data/Allas/allas-examples.md)
@@ -45,6 +46,7 @@
 * [Running your first job on Puhti](biojobs-on-puhti.md)
 
 ## Chemistry
+* [Farming Gaussian jobs with HyperQueue](https://csc-training.github.io/csc-env-eff/hands-on/throughput/gaussian_hq.html)
 * [Using Gabedit for Gaussian jobs on Puhti](gabedit_gaussian.md)
 
 ## Data analysis and machine learning

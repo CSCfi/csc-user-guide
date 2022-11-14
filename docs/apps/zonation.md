@@ -17,7 +17,7 @@ __Zonation__ is available in Puhti with following versions:
 
 ## Usage
 
-Zonation is available in the __zonation__ module and can be loaded with
+Zonation is available in the __zonation__ module and the command line interface can be loaded with
 
 `module load zonation`
 
@@ -26,6 +26,12 @@ After loading the Zonation module you can run zonation commands in the following
 ```
 z5 <command arguments>
 ```
+
+Alternatively, if you want to use the Zonation Graphical User Interface (GUI) tool, Zonation can be started in Puhti web interface within the desktop application:
+
+1. Log in to [Puhti web interface](https://puhti.csc.fi).
+2. Open Desktop: Apps -> Desktop, choose Desktop: `mate` or `xfce`. 
+3. After launcing the remote desktop, double-click Zonation icon to start the application.
 
 ### Example
 
