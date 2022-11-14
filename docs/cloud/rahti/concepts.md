@@ -464,9 +464,9 @@ Every host with the pattern `*.rahtiapp.fi` will automatically have a **DNS reco
     </body></html>
     ```
 
-    Any other kind of Timeout error, will more likely be not related to the Loadbalancers.
+    Any other kind of Timeout error, will more likely be not related to the LoadBalancers.
 
-    And for example, to increase the timeout of route `myroute` to 60s:
+    For example, to increase the timeout of route `myroute` to 60s give:
 
     ```sh
     oc annotate route myroute --overwrite haproxy.router.openshift.io/timeout=60s
