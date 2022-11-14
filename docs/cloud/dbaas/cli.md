@@ -41,7 +41,7 @@ What `databases` you want to create (in this example we will just use `my_first_
 
     openstack datastore list
 
-`datastore version` This depends on the datastore you have chosen and you should usually choose the latest. If you use PostgreSQL you can probably use `14.2`. You can find out the available datastore versions by:
+`datastore version` This depends on the datastore you have chosen and you should usually choose the latest. If you use PostgreSQL you can probably use `14.5`. You can find out the available datastore versions by:
 
     openstack datastore version list postgresql
 
@@ -57,7 +57,7 @@ openstack database instance create my_database_instance \
 --databases my_first_database \
 --users databaseuser:myPassword568 \
 --datastore postgresql \
---datastore-version 14.2 \
+--datastore-version 14.5 \
 --is-public \
 --size 1 \
 --allowed-cidr ${MY_IP}/32
