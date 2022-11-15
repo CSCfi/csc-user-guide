@@ -12,8 +12,8 @@ parallel quantum chemistry calculations, in particular for AIMD.
 
 ## Available
 
-* Puhti: 9.1
-* Mahti: 8.2, 9.1
+* Puhti: 9.1, 2022.2
+* Mahti: 8.2, 9.1, 2022.2
 
 ## License
 

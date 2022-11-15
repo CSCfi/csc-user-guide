@@ -227,3 +227,4 @@ how to use HyperQueue as an executor for Nextflow workflows.
     node-level granularity.
 
 * [Full documentation for HQ](https://it4innovations.github.io/hyperqueue/v0.11.0/)
+* [Farming Gaussian jobs with HyperQueue](https://csc-training.github.io/csc-env-eff/hands-on/throughput/gaussian_hq.html)
