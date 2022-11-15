@@ -13,7 +13,7 @@
     - [Making pull requests on the command line](#making-pull-requests-on-the-command-line)
     - [Making pull requests in the desktop application](#making-pull-requests-in-the-desktop-application)
   - [Previewing the website using MkDocs](#previewing-the-website-using-mkdocs)
-  - [Bulding the website using the included Dockerfile](#bulding-the-website-using-the-included-dockerfile)
+  - [Building the website using the included Dockerfile](#building-the-website-using-the-included-dockerfile)
   - [Hosting the website on OpenShift](#hosting-the-website-on-openshift)
 
 ## Starting as a writer
