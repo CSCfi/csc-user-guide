@@ -1,4 +1,7 @@
 {% extends "base.html" %}
+{% block htmltitle %}
+  <title>Page not found - Docs CSC</title>
+{% endblock htmltitle %}
 {% block extrahead %}
     {{ super () }}
     {% if config.extra.mkdocs_env == "production" %}
