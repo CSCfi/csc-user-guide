@@ -1,5 +1,9 @@
 {%- if page %}
+    {% macro sentence_case(text) %}
+        {{ text[0]|upper}}{{text[1:] }}
+    {% endmacro %}
     {% set parent_url = "/" + "/".join(page.url.split("/")[:-2]) + "/" %}
+    {% set parent_name = sentence_case(page.url.split('/')[0]) %}
     {# Redirect some breadcrumb urls (at least for now): #}
     {% set parent_url = parent_url.replace("/wn/", "/whats-new/", -1) %}
     {% set parent_url = parent_url.replace("env-guide/", "", -1) %}
@@ -20,6 +24,9 @@
         {# ...so breadcrumbs must be defined literally: #}
         {% if not page.ancestors and parent_url in sections %}
             <a class="csc-breadcrumbs__link" href="{{ parent_url }}">{{ sections[parent_url] }}</a>
+        {% endif %}
+        {% if not page.ancestors %}
+            <a class="csc-breadcrumbs__link" href="{{ document_url }}">{{ parent_name }}</a>
         {% endif %}
         {% set depth = page.ancestors|length+2 %}
         {%- for document in page.ancestors[::-1] -%}
