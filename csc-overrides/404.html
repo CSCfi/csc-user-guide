@@ -1,9 +1,12 @@
 {% extends "base.html" %}
+{% block htmltitle %}
+  <title>Page not found - Docs CSC</title>
+{% endblock htmltitle %}
 {% block extrahead %}
-    {{ super () }}
-    {% if config.extra.mkdocs_env == "production" %}
-        {% include "partials/matomo.html" %}
-    {% endif %}
+  {{ super () }}
+  {% if config.extra.mkdocs_env == "production" %}
+      {% include "partials/matomo.html" %}
+  {% endif %}
 {% endblock extrahead %}
 {% block content %}
   <nav class="csc-breadcrumbs">

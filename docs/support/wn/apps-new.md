@@ -1,5 +1,11 @@
 # Applications
 
+## Maestro 2022.3 and 2022.4 installed on Puhti, 15.11.2022
+
+[Schrödinger Maestro](../../apps/maestro.md) 2022.3 and 2022.4 have been
+installed on Puhti and the latter version set as the default module. [See
+release notes here](https://www.schrodinger.com/releases/new-features/).
+
 ## CP2K 2022.2, 10.11.2022
 
 [CP2K](../../apps/cp2k.md) 2022.2 has been installed and set as the default module on Puhti

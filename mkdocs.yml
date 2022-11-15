@@ -7,6 +7,8 @@ site_description: Instructions and user guides for the CSC supercomputers, cloud
 extra:
   announcement_visible: true # Controls the visibility of the announcement bar
   mkdocs_env: !ENV MKDOCS_ENV # Used when building on Rahti to enable Matomo web analytics
+  matomo_url: "docs-design-matomo.rahtiapp.fi"
+  matomo_site_id: "1"
 
 plugins:
   - tags:
