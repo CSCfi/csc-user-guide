@@ -130,10 +130,10 @@ The following video tutorial walks you through it:
 !!! note
     We do *not* recommend running the Maestro GUI remotely on Puhti. It *can* be done via
     [the Puhti web interface remote desktop](../computing/webinterface/desktop.md), but
-    the performance may be somewhat slow due to lack of accelerated graphics. Also,
-    **no long/heavy tasks** should be    done on the login nodes. Please consult the
-    [Usage policy](../../computing/usage-policy) page under Computing. If you need to run
-    the GUI on Puhti, use the [sinteractive command](../computing/running/interactive-usage.md).
+    the performance may be somewhat slow due to lack of accelerated graphics, and submitted
+    jobs may end up fizzled. Also,
+    **no long/heavy tasks** should be done on the login nodes. Please consult the
+    [Usage policy](../../computing/usage-policy) page under Computing.
 
 !!! note
     **Windows** users, may need to edit the script created by GUI a little.
