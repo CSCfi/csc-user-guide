@@ -49,15 +49,13 @@ own computer, see below.
 
 ### Local Installation
 
-Maestro can be installed on a Linux, Mac or Windows computer.
-Download the appropriate files from [www.schrodinger.com](https://www.schrodinger.com/)
-You don't need a license to *download* the software, although you need to register
-to the Schrödinger website, but you'll need
-to configure licensing before you can *run* it.
-[These instructions to configure licensing](https://wiki.eduuni.fi/pages/viewpage.action?pageId=130528861)
-require Haka authentication. Access to the license requires that
-your computer is in FUNET network, e.g. you're on the university
-or connected to it via VPN from home.
+Maestro can be installed on a Linux, Mac or Windows computer. Download the appropriate files
+from [the Schrödinger website](https://www.schrodinger.com/). You don't need a license to
+*download* the software, although you need to register to the Schrödinger website, but you'll
+need to configure licensing before you can *run* it. [See these instructions on how to configure
+licensing](https://wiki.eduuni.fi/pages/viewpage.action?pageId=130528861) (requires Haka
+authentication). Access to the license requires that your computer is in FUNET network, e.g.
+you're on the university or connected to it via VPN from home.
 
 ### Standalone usage on Puhti
 
@@ -113,11 +111,12 @@ For example, a Desmond workflow could be run with:
 -LOCAL"
 ```
 
-This is a bit complicated and it's best to write it out from the Maestro GUI as explained above.
-Please also have a look at the [additional flags we recommend to use](../support/tutorials/power-maestro.md).
+This is a bit complicated and it's best to write it out from the Maestro GUI as
+explained above. Please also have a look at the [additional flags we recommend
+to use](../support/tutorials/power-maestro.md).
 
-To run such a script in Puhti you first need to initialize Maestro (possibly edit it a bit)
-and run the script:
+To run such a script in Puhti you first need to initialize Maestro (possibly edit
+it a bit) and run the script:
 
 ```bash
 module load maestro
@@ -129,7 +128,7 @@ The following video tutorial walks you through it:
 [![Maestro Standalone](http://img.youtube.com/vi/Aj205UDcWFE/0.jpg)](http://www.youtube.com/watch?v=Aj205UDcWFE "Maestro Standalone")
 
 !!! note
-    We do *not* recommend running the Maestro GUI remotely on Puhti. It _can_ be done via
+    We do *not* recommend running the Maestro GUI remotely on Puhti. It *can* be done via
     [the Puhti web interface remote desktop](../computing/webinterface/desktop.md), but
     the performance may be somewhat slow due to lack of accelerated graphics. Also,
     **no long/heavy tasks** should be    done on the login nodes. Please consult the
@@ -159,8 +158,8 @@ Jaguar, version 7.6, Schrödinger, LLC, New York, NY, 2009.
 
 * [Tutorial and tips for power usage on Puhti](../support/tutorials/power-maestro.md)
 * Manual including tutorials come with the Maestro GUI.
-* The [Schrödinger website](http://www.schrodinger.com/support) has an extensive collection of videos,
-  tutorials, online courses, etc.
+* The [Schrödinger website](http://www.schrodinger.com/support) has an extensive collection of
+  videos, tutorials, online courses, etc.
    * [A 3 min overview video](https://www.youtube.com/watch?v=NkM8jjHr7f4)
    * [Learn Maestro in 40 minutes](https://www.schrodinger.com/seminars/archives/1338/6th-life-science-bootcamp)
      Requires registration, which may take a while to complete.
