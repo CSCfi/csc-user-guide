@@ -6,26 +6,30 @@ description: Schrodinger Maestro usage instructions on CSC supercomputer Puhti
 # Maestro
 
 Schrödinger Maestro is a versatile molecular modelling environment. It has modules
-for *drug design* and *materials science*. It can be used to build, edit, run and analyse chemical
+for *drug design* and *materials science*. It can be used to build, edit, run and analyze chemical
 model systems.
 
 [TOC]
 
 ## Available
 
-* Puhti: 2021.3, 2021.4, 2022.1, 2022.2
+* Puhti: 2020.4, 2021.3, 2021.4, 2022.1, 2022.2, 2022.3, 2022.4
 * Mahti: 2021.4, 2022.1, 2022.2
 
-!!! info "Incompatibility issue with latest versions"
+!!! info "Incompatibility issue with latest versions on Mahti"
 
-    Versions 2022.3 and later are incompatible with the RHEL8 operating system on Puhti and Mahti. If you intend
-    to run jobs at CSC, don't upgrade your local installation beyond 2022.2! We're looking for a workaround.
+    Versions 2022.3 and later are incompatible with Mahti. If you intend to run
+    jobs on Mahti, don't upgrade your local installation beyond 2022.2! We're
+    looking for a workaround.
+    
+    Note that Mahti is mostly suitable for running Desmond MD simulations on GPUs.
+    Most other jobs do not scale to full nodes, so please use Puhti instead for these.
 
 ## License
 
 Maestro is available for all academic users in Finland: staff and students,
 for academic purposes. Please consult the [EULA](https://www.schrodinger.com/maestro-academic-eula)
-for the exact definition. 
+for the exact definition.
 Using Maestro means that you accept the EULA linked to above.
 The Maestro license consists of floating licenses and tokens.
 If licenses run out, contact us via [ServiceDesk](/support/contact/)
@@ -40,16 +44,16 @@ If licenses run out, contact us via [ServiceDesk](/support/contact/)
     `login1` with `login11`, or by deleting your old `schrodinger.hosts` file and setting a
     new one by running the `/appl/soft/chem/schrodinger/set-hosts-file.bash` script.
 
-It is recommended to download and install Maestro on your 
+It is recommended to download and install Maestro on your
 own computer, see below.
 
 ### Local Installation
 
 Maestro can be installed on a Linux, Mac or Windows computer.
 Download the appropriate files from [www.schrodinger.com](https://www.schrodinger.com/)
-You don't need a license to _download_ the software, although you need to register
+You don't need a license to *download* the software, although you need to register
 to the Schrödinger website, but you'll need
-to configure licensing before you can _run_ it.
+to configure licensing before you can *run* it.
 [These instructions to configure licensing](https://wiki.eduuni.fi/pages/viewpage.action?pageId=130528861)
 require Haka authentication. Access to the license requires that
 your computer is in FUNET network, e.g. you're on the university
@@ -64,7 +68,7 @@ or connected to it via VPN from home.
      because most other jobs do not scale. If in doubt, [contact us](/support/contact/).
 
 It is possible to run the heavy computations on Puhti. To do that you need to
-[get a CSC account](../accounts/how-to-create-new-user-account.md) and 
+[get a CSC account](../accounts/how-to-create-new-user-account.md) and
 apply for [access to Puhti](../accounts/how-to-add-service-access-for-project.md). Before you
 start the actual workflow below, you need to set up your Maestro environment on Puhti.
 
@@ -87,7 +91,7 @@ For actual simulations we recommend using Puhti as follows:
 
 1. Set up your simulations on your local computer
 2. Write the GUI generated input files on disk
-3. Copy them to Puhti 
+3. Copy them to Puhti
 4. Edit the script (`your-jobname.sh`) if needed
 5. Run the script on the Puhti command line to submit the jobs to the queuing system
 6. Copy the results back for analysis
@@ -125,17 +129,17 @@ The following video tutorial walks you through it:
 [![Maestro Standalone](http://img.youtube.com/vi/Aj205UDcWFE/0.jpg)](http://www.youtube.com/watch?v=Aj205UDcWFE "Maestro Standalone")
 
 !!! note
-    We do _not_ recommend running the Maestro GUI remotely on Puhti.
-    It _can_ be done via [the Puhti web interface remote desktop](../computing/webinterface/desktop.md), but the performance may be somewhat slow due to lack of accelerated graphics. Also, **no long/heavy tasks** should be
-    done on the login nodes. Please consult the
-    [Usage policy](../../computing/usage-policy) page under Computing.
-    If you need to run the GUI on Puhti, use the [sinteractive command](../computing/running/interactive-usage.md).
-
+    We do *not* recommend running the Maestro GUI remotely on Puhti. It _can_ be done via
+    [the Puhti web interface remote desktop](../computing/webinterface/desktop.md), but
+    the performance may be somewhat slow due to lack of accelerated graphics. Also,
+    **no long/heavy tasks** should be    done on the login nodes. Please consult the
+    [Usage policy](../../computing/usage-policy) page under Computing. If you need to run
+    the GUI on Puhti, use the [sinteractive command](../computing/running/interactive-usage.md).
 
 !!! note
     **Windows** users, may need to edit the script created by GUI a little.
     Replace the backslashes "\" with "/" in the path to the Maestro binary
-    (right after `$SCHRODINGER` in the script). 
+    (right after `$SCHRODINGER` in the script).
 
 Desmond molecular dynamics runs **very well** on GPUs. We recommend watching
 the video above on how to accomplish this easily.
@@ -146,7 +150,7 @@ ignore that warning, but consider any others you may see.
 
 ## References
 
-Please cite the Maestro modules in all published work as described 
+Please cite the Maestro modules in all published work as described
 in the Module manuals. Jaguar, for example, should be acknowledged with:
 
 Jaguar, version 7.6, Schrödinger, LLC, New York, NY, 2009.
