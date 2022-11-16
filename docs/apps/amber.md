@@ -121,7 +121,7 @@ Sometimes it is more convenient to run small jobs, like system preparations,
 interactively. To prevent excessive load on the login node, these kinds of jobs
 should be run as interactive batch jobs. You can request a shell on a compute
 node from the [Puhti Web Interface](../../computing/webinterface/), from the
-commmand line with [sinteractive](../computing/running/interactive-usage.md),
+command line with [sinteractive](../computing/running/interactive-usage.md),
 or manually access to a single core with:
 
 ```bash
