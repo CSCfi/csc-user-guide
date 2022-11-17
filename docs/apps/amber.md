@@ -46,7 +46,7 @@ with the `-cuda` extension.
 
 !!! warning "Note"
     Run only GPU aware binaries in the GPU partitions. If you're unsure,
-    check with `seff <slurm_jobid>` that GPUs were used and that the job
+    check with `seff <slurm_jobid>` that GPUs _were_ used and that the job
     was significantly faster than without GPUs.
 
 Our tests show that for medium-sized systems the most efficient setup
