@@ -13,7 +13,7 @@
     - [Making pull requests on the command line](#making-pull-requests-on-the-command-line)
     - [Making pull requests in the desktop application](#making-pull-requests-in-the-desktop-application)
   - [Previewing the website using MkDocs](#previewing-the-website-using-mkdocs)
-  - [Bulding the website using the included Dockerfile](#bulding-the-website-using-the-included-dockerfile)
+  - [Building the website using the included Dockerfile](#building-the-website-using-the-included-dockerfile)
   - [Hosting the website on OpenShift](#hosting-the-website-on-openshift)
 
 ## Starting as a writer
@@ -30,7 +30,7 @@ The rest of this document describes the workflow in Github as well as instructio
 
 Once you've completed the steps above:
 * In [docs.csc.fi](https://docs.csc.fi) go to the page you want to edit and click the pen icon at top right
-* (sign in GitHub) and edit then content
+* (sign in to GitHub) and edit the content
 * Scroll down to commit changes (create a new branch) -> make a pull request
 * Assign a reviewer
 
@@ -80,7 +80,7 @@ If you see an approved branch:
  - Delete the (now unnecessary) branch
  - Occasionally the number of (unnecessary) branches grows: prune.
 
-**Note:** If you make bigger changes to the (main) categories / menu on the left, it might effect some links used on our webpages. Please communicate these changes, for example in the RC-channel #research.csc.fi.
+**Note:** If you make bigger changes to the (main) categories / menu on the left, it might affect some links used on our webpages. Please communicate these changes, for example in the RC-channel #research.csc.fi.
 
 ### Previewing active branches
 
@@ -180,7 +180,7 @@ Pull requests can be created as follows:
 
 See the [FAQ](FAQ.md#how-can-i-preview-my-edits) for how to preview the Docs CSC website locally using MkDocs.
 
-## Bulding the website using the included Dockerfile
+## Building the website using the included Dockerfile
 
 You can also create a Docker container to host the docs. First build
 an image from the included Dockerfile.

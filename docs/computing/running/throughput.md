@@ -53,13 +53,13 @@ regarding how to implement your workflow.
 ```mermaid
 %%{init: {'theme': 'default', 'themeVariables': { 'fontSize': '0.6rem'}}}%%
 graph TD
-    C(Does your software have a built-in HTC option?) -->|Yes| D("Use if suitable for use case:<br><a href='/apps/gromacs/#high-throughput-computing-with-gromacs'>Gromacs</a>, <a href='/apps/cp2k/#high-throughput-computing-with-gromacs'>CP2K</a>, <a href='/apps/lammps/#high-throughput-computing-with-gromacs'>LAMMPS</a>, Python, R ")
+    C(Does your software have a built-in HTC option?) -->|Yes| D("Use if suitable for use case:<br><a href='/apps/gromacs/#high-throughput-computing-with-gromacs'>Gromacs</a>, <a href='/apps/cp2k/#high-throughput-computing-with-cp2k'>CP2K</a>, <a href='/apps/lammps/#high-throughput-computing-with-lammps'>LAMMPS</a>, Python, R ")
     C -->|No| E(Serial or parallel subtasks?)
     E -->|Serial| F(<a href='/support/tutorials/many/'>GNU Parallel</a><br><a href='/computing/running/array-jobs/'>Array jobs</a><br><a href='/apps/hyperqueue/'>HyperQueue</a>)
     E -->|Parallel| G(Single- or multinode subtasks?)
     G -->|Single| H(Dependencies between subtasks?)
     G -->|Multi| I(<a href='/computing/running/fireworks/'>FireWorks</a>)
-    H -->|Yes| J(<a href='https://snakemake.readthedocs.io/en/stable/'>Snakemake</a><br><a href='/support/tutorials/nextflow-puhti/'>Nextflow</a>)
+    H -->|Yes| J(<a href='https://snakemake.readthedocs.io/en/stable/'>Snakemake</a><br><a href='/support/tutorials/nextflow-puhti/'>Nextflow</a><br><a href='/computing/running/fireworks/'>FireWorks</a>)
     H -->|No| K(<a href='/apps/hyperqueue/'>HyperQueue</a>)
 ```
 
@@ -166,6 +166,7 @@ graph TD
 * [Nextflow] singularity container-based bioinformatics pipelines on Puhti
 * [Data storage guide for machine learning] explains where to work with ML data
   and how to use the shared file system efficiently
+* [Farming Gaussian jobs with HyperQueue]
 
 ### Workflow tools integrated into common simulation software
 
@@ -214,3 +215,4 @@ workflows.
 [see usage policy]: ../overview.md#gpu-nodes
 [Fast disk areas in CSC computing environment]: https://csc-training.github.io/csc-env-eff/hands-on/disk-areas/disk-areas-tutorial-fastdisks.html
 [Nextflow workflows using HyperQueue as an executor]: ../../support/tutorials/nextflow-hq.md
+[Farming Gaussian jobs with HyperQueue]: https://csc-training.github.io/csc-env-eff/hands-on/throughput/gaussian_hq.html

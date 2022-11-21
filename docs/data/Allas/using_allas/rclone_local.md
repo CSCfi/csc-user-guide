@@ -31,7 +31,7 @@ configuration you can for example list your buckets in Allas with command:
 ```text
 rclone lsd allas:
 ```
-If you want to use S3 protocol in setead of Swift, add option _-m S3_ to the configuration command. 
+If you want to use S3 protocol instead of Swift, add option _-m S3_ to the configuration command. 
 ```text
 source allas_conf -u kkayttaj -p project_2001234 -m S3
 ```
