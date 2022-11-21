@@ -5,18 +5,18 @@
 
 [![Desktop-overview](images/desktop/desktop_overviewnew.png)](images/desktop/desktop_overviewnew.png)
 
-Sensitive Data (SD) Desktop allows you to analyze sensitive data from your web browser securely. With this user interface, you can easily manage (start, use, delete) a virtual computer (here called Desktop, technically defined as a virtual machine). No previous knowledge or expertise is required to use the service. In addition, SD Desktop provides a secure workspace for collaborative research projects.
+
+Sensitive Data (SD) Desktop allows you to securely analyze sensitive research data from your web browser. With this user interface, you can easily manage (start, use, delete) a virtual computer (here called Desktop, technically defined as a virtual machine). No previous knowledge or expertise is required to use the service. In addition, SD Desktop provides a secure workspace for collaborative research projects.
 
 In the following user guide, you can learn how to:
+* [Set up your virtual Desktop](./sd_desktop.md#setting-up-a-virtual-desktop);
+* [Analyse data uploaded and stored in SD Connect](./sd_desktop.md#accessing-encrypted-sensitive-data-within-sd-desktop);
+* Reuse published research data stored under controlled access via SD Apply (pilot phase),
+* [Export non-sensitive results from the secure virtual Desktop](./sd_desktop.md#data-export-from-sd-desktop)
 
-* [Set up](./sd_desktop.md#setting-up-a-virtual-desktop) your virtual Desktop;
-* [Analyse data stored in SD Connect](./sd_desktop.md#accessing-encrypted-sensitive-data-within-sd-desktop);
-* Reuse published research data stored under controlled access (pilot phase),
-* [Export](./sd_desktop.md#data-export-from-sd-desktop) non-sensitive results from the secure virtual Desktop.
+To navigate the user guide you can also click on the topics on the left-hand side of the navigation bar or use the search functionality. 
 
-!!! Note
-    For secondary use of health and social data (register data) please check the detailed user guide: [SD Desktop for seconday use](./sd-desktop-audited.md). In this case, access to the service requires a permit provided by the Findata authority, and the service has specific limitations.  
-    
+!!! Note If you are processing register data under the Act on the Secondary Use of Health and Social Data please check the detailed user guide: SD Desktop for secondary use. In this case, access to SD Desktop requires a permit provided by the Findata authority, and the service has specific limitations.
 
 
 ## Key features
