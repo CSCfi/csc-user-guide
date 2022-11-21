@@ -34,7 +34,7 @@ In the following user guide, you can learn how to:
 
 ## Overview
 
-[![Desktop-overview](images/desktop/desktop-overviewnew.png)](images/desktop/desktop-overviewnew.png)
+[![Desktop-overview](images/desktop/desktop_overviewnew.png)](images/desktop/desktop_overviewnew.png)
 
 
 ### Authentication
