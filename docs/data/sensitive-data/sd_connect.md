@@ -200,7 +200,7 @@ The necessary steps are the following:
 
 
 
-[![SDConnect-upload2](images/connect/SDConnect-upload2.png)](images/connect/SDConnect-upload2.png)
+[![SDConnect-upload2](images/connect/SDConnect-segments.png)](images/connect/SDConnect-segments.png)
 
 
 
