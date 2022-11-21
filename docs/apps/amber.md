@@ -14,7 +14,7 @@ refinement.
 ## Available
 
 * Puhti: 20, 20-cuda, 22, 22-cuda
-* Mahti: 20, 20-cuda
+* Mahti: 20, 20-cuda, 22, 22-cuda
 
 ## License
 
@@ -36,9 +36,8 @@ system preparation can be done on the login node as well (short serial AmberTool
 jobs).
 
 !!! info "Python modules"
-    Please use the Amber22 modules on Puhti if you intend to run the Python
-    scripts distributed with AmberTools. These are not available in the older
-    modules.
+    Please use the Amber22 modules if you intend to run the Python scripts
+    distributed with AmberTools. These are not available in the older modules.
 
 Molecular dynamics jobs are best run with `pmemd.CUDA`. They are much faster
 on GPUs than on CPUs. Please note that using `pmemd.CUDA` requires a module
@@ -46,7 +45,7 @@ with the `-cuda` extension.
 
 !!! warning "Note"
     Run only GPU aware binaries in the GPU partitions. If you're unsure,
-    check with `seff <slurm_jobid>` that GPUs _were_ used and that the job
+    check with `seff <slurm_jobid>` that GPUs *were* used and that the job
     was significantly faster than without GPUs.
 
 Our tests show that for medium-sized systems the most efficient setup
@@ -120,7 +119,7 @@ srun paramfit -i Job_Control.in -p prmtop -c mdcrd -q QM_data.dat
 Sometimes it is more convenient to run small jobs, like system preparations,
 interactively. To prevent excessive load on the login node, these kinds of jobs
 should be run as interactive batch jobs. You can request a shell on a compute
-node from the [Puhti Web Interface](../../computing/webinterface/), from the
+node from the [Puhti Web Interface](../computing/webinterface/index.md), from the
 command line with [sinteractive](../computing/running/interactive-usage.md),
 or manually access to a single core with:
 
