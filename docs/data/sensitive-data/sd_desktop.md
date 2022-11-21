@@ -17,7 +17,7 @@ In the following user guide, you can learn how to:
 
 * [Export non-sensitive results](./sd_desktop.md#data-export-from-sd-desktop).
 
-To navigate the user guide you can also click on the topics on the left-hand side of the navigation bar or use the search functionality. 
+To navigate the user guide, click on the topics on the left-hand side of the navigation bar or use the search functionality. 
 
 !!! Note 
     If you are processing register data under the Act on the Secondary Use of Health and Social Data please check the detailed user guide: SD Desktop for secondary use. In this case, access to SD Desktop requires a permit provided by the Findata authority, and the service has specific limitations.
