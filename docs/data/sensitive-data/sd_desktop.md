@@ -3,10 +3,9 @@
 
 ## Overview
 
-[![Desktop-overview](images/desktop/desktop_overviewnew.png)](images/desktop/desktop_overviewnew.png)
-
-
 Sensitive Data (SD) Desktop allows you to securely analyze sensitive research data from your web browser. With this user interface, you can easily manage (start, use, delete) a virtual computer (here called Desktop, technically defined as a virtual machine). No previous knowledge or expertise is required to use the service. In addition, SD Desktop provides a secure workspace for collaborative research projects.
+
+[![Desktop-overview](images/desktop/desktop_overviewnew.png)](images/desktop/desktop_overviewnew.png)
 
 In the following user guide, you can learn how to:
 * [Set up your virtual Desktop](./sd_desktop.md#setting-up-a-virtual-desktop);
