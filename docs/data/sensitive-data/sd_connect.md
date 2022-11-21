@@ -41,8 +41,7 @@ In the following user guide, you can learn how to:
 
 ## Overview
 
-![Connect-overview](images/connect/connect_overview.png)
-
+[![SDConnect-overview](images/connect/SDConnect-overview.png)](images/connect/SDConnect-overview.png)
 
 
 ## Authentication
@@ -54,8 +53,8 @@ Login to SD Connect is currently possible only with CSC credentials and  Haka (a
 The interface is compatible with all modern web browsers. 
 
 
-<img width="960" alt="SD-Connect-0" src="https://user-images.githubusercontent.com/83574067/124901836-0b033400-dfeb-11eb-96d3-e5416f48f299.png">
 
+[![SDConnect-login](images/connect/SDConnect-login.png)](images/connect/SDConnect-login.png)
 
 
 ## User Interface 
@@ -165,21 +164,13 @@ The following paragraphs illustrate all the necessary steps to generate encrypti
 
 <iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/yAKtGs6FkMc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-SD Connect allows you to encrypt and upload files or folders directly from your web browser. With the following workflow, the file will be **encrypted by default** with the services encryption key (also called here Sensitive Data services public key). In this manner, encrypted files will be safely stored in SD Connect and can be directly analysed using other Sensitive Data services components (for example, in SD Desktop). However, you will not be yet able to decrypt the files after download. We are developing a new feature that will soon provide also this option.
+SD Connect allows you to encrypt and upload files or folders directly from your web browser. With the following workflow, each files will be **encrypted by default** with the services encryption key (also called here Sensitive Data services public key). In this manner, encrypted files will be safely stored in SD Connect and can be directly analysed using other Sensitive Data services components (for example, in SD Desktop). However, you will not be yet able to decrypt the files after download. We are developing a new feature that will soon provide also this option.
 
-Automated encryption via SD Connect is suitable for any file type and for files less than 100 GB. Uploading larger files might take up to several hours, depending on the internet connection. Data uploads via SD Connect are supported only for 8 hours. 
+Automated encryption via SD Connect is suitable for any file format.  Uploading files larger than 100 GB might take up to several hours, depending on the internet connection. Data uploads via SD Connect are supported only for 8 hours. 
 
 The necessary steps are the following: 
  
 1- To upload folders and files to SD Connect, use the **drag and drop function**. You can also use the **upload** icon in the SD Connect browser window to select and upload files.
-
-
-
-![1](https://user-images.githubusercontent.com/83574067/149009891-a049a79d-b66a-45c5-96a1-e0ea85617b0f.png)
-
-
-![SD Connect 0](https://user-images.githubusercontent.com/83574067/158693924-21da1d2d-fddf-4ed2-980c-186c198c823d.png)
-
 
 
 2-  Next, you will be **redirected to a new page displaying the default encryption options**. 
@@ -201,18 +192,17 @@ The necessary steps are the following:
 
 5- With the icon  **Select Files for Upload**, you will open a browser window in which you can select and add more files. 
 
-![SD Connect 1a](https://user-images.githubusercontent.com/83574067/158694096-279987b4-b922-46b7-86d5-fe1b9fbd9ff0.png)
-
 
 6-  Next, click on **Encrypt and upload**: each file will be automatically encrypted and uploaded to the bucket in SD Connect. 
 
-![SD Connect 2](https://user-images.githubusercontent.com/83574067/158695759-072c404c-a956-4f08-96f4-19377ae049ed.png)
+[![SDConnect-upload](images/connect/SDConnect-upload.png)](images/connect/SDConnect-upload.png)
 
 
 7- Once the process is completed, you can return to the SD Connect **browser** window. The encrypted files will be displayed in the correct bucket, in a **default folder called DATA**, and each encrypted file will have the extension *.c4gh*. 
 
+[![SDConnect-upload2](images/connect/SDConnect-upload2.png)](images/connect/SDConnect-upload2.png)
 
-![SD Connect 4](https://user-images.githubusercontent.com/83574067/158695860-38a662f2-4c14-4060-91bd-700db8e4dba4.png)
+
 
 ## Sensitive data encryption and upload with multiple encryption keys (less than 100 GB) 
 Due to a technical problem, data encryption and upload via SD Connect are possible only for files < 1GB. We are working to solve the issue and we apologise for the inconvenience. For support, contact us at servicedesk@csc.fi
