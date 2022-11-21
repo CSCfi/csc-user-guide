@@ -5,42 +5,38 @@
 
 ## Overview
 
+Sensitive Data (SD) Connect allows you to store sensitive research data in the CSC cloud storage solution Allas. With this user interface, you can easily encrypt and upload files from your web browser. As a result, the service can serve as a workspace for collaborative research projects, facilitating data collection and sharing. In addition, encrypted files stored in SD Connect are directly available for data analysis via the SD Desktop service. 
+
 [![SDConnect-overview](images/connect/SDConnect-overview.png)](images/connect/SDConnect-overview.png)
-
-Sensitive Data (SD) Connect is an interface that allows you to encrypt and upload sensitive data to CSC cloud storage solution Allas, directly from your web browser. No specific expertise is required to use the service. SD Connect can serve multiple functions:
-
-- is designed to store or transfer sensitive data (via URL) with other CSC projects;
-- provides a secure workspace for collaborative research projects (e.g. facilitates data collection and data sharing);
-- provides a secure way to upload files to SD Desktop for data analysis. 
 
 In the following user guide, you can learn how to:
 
-* Use SD Connect [default options](./sd_connect.md#sensitive-data-encryption-and-upload-less-than-100-gb) to encrypt and upload sensitive data for analysis with SD Desktop;
+* [Use SD Connect default options to encrypt and upload sensitive data for analysis with SD Desktop] (./sd_connect.md#sensitive-data-encryption-and-upload-less-than-100-gb) :
 * [Encrypt, upload](./sd_connect.md#sensitive-data-encryption-and-upload-with-multiple-encryption-keys-less-than-100-gb) and [download](./sd_connect.md#data-download-and-decryption) sensitive data for [data transfer](./sd_connect.md#data-sharing) and storage;
-* Encrypt and upload sensitive data [programmatically](./sd_connect.md#command-line-interface-data-encryption-and-upload) (advanced). 
+* [Encrypt and upload sensitive data programmatically](./sd_connect.md#command-line-interface-data-encryption-and-upload)(advanced). 
+
+To navigate the user guide, click on the topics on the left-hand side of the navigation bar or use the search functionality. 
 
 
 ## Key features
 
 * Accessible via web browser from your computer (Mac, Linux, or Windows) and from any location (no need to install specific programs or use a VPN).
 
-* Only your colleagues (or CSC project members) can access encrypted files stored in the same CSC project. 
+* Automated encryption and data upload (up to 100 GB, larger datasets can be uploaded programmatically).
 
-* Data upload and automated encryption via drag-drop using a web browser (less than 100 GB, larger datasets can be uploaded programmatically).
-
-* Can store any file type: text files, images, audio files, video, and genetic data (default space 10 TB, additional space required contact servicedesk@csc.fi). You can define or manage each file or bucket with specific tags. By default, a project can store up to 10 TiB of data.
+* Can store any file type: text files, images, audio files, video, and genetic data (default space 10 TB, additional space required contact servicedesk@csc.fi). In addition, you can define or manage each file or bucket with specific tags. 
 
 
 **Limitations**:
 
-* All files (sensitive or non-sensitive, e.g. scripts) stored in SD Connect must be encrypted. Files and folders are stored in buckets: the technical definition for the main folder in which all the files or folders are uploaded.
+SD Connect is based on an object storage solution. Files are stored as file segments. All files (sensitive or non-sensitive, e.g. scripts) stored in SD Connect must be encrypted. 
 
-* A project can store up to 10 TiB of data. See [how to increase disk space](../../accounts/how-to-increase-disk-quotas.md) to apply for additional resources. The storage space remains available as long as the CSC project is active. All data will be deleted 90 days after account termination or project closure, accordingly to [CSC's General Terms of Use](https://research.csc.fi/general-terms-of-use). 
+*  The storage space remains available as long as the CSC project is active. All data will be deleted 90 days after account termination or project closure, accordingly to [CSC's General Terms of Use](https://research.csc.fi/general-terms-of-use). 
 
 * CSC does not provide backups of the data stored in SD Connect. Therefore, we advise you to maintain **backups** of important datasets.
 
 !!! Note
-    SD Connect is unsuitable for processing health and social data for seconday use. Please check this specific user guide: [SD Desktop for registry data](./sd-desktop-audited.md) to learn about the precise requirements.
+    SD Connect is unsuitable for data processing under the Act on the Secondary Use of Health and Social Data. Please check [SD Desktop for secondary use](./sd-desktop-audited.md) to learn about the precise requirements.
 
 
 
@@ -51,7 +47,6 @@ Login to SD Connect is currently possible only with CSC credentials and  Haka (a
    * [https://sd-connect.csc.fi](https://sd-connect.csc.fi) 
 
 The interface is compatible with all modern web browsers. 
-
 
 
 [![SDConnect-login](images/connect/SDConnect-login.png)](images/connect/SDConnect-login.png)
