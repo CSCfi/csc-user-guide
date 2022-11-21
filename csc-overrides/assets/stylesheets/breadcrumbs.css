@@ -1,12 +1,12 @@
 .csc-breadcrumbs {
     margin-bottom: .6rem;
-    color: var(--md-default-fg-color--light);
+    color: var(--csc-mid-grey--wcag);
     font-weight: var(--csc-font-weight--regular);
     font-size: var(--csc-font-size--body);
 }
 
 .csc-breadcrumbs__link {
-    color: var(--md-default-fg-color--light) !important;
+    color: var(--csc-mid-grey--wcag) !important;
     text-decoration: unset !important;
 }
 
