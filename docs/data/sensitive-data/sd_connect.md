@@ -11,7 +11,7 @@ Sensitive Data (SD) Connect allows you to store sensitive research data in the C
 
 In the following user guide, you can learn how to:
 
-* [Use SD Connect default options to encrypt and upload sensitive data for analysis with SD Desktop](./sd_connect.md#sensitive-data-encryption-and-upload-less-than-100-gb) :
+* [Use SD Connect default options to encrypt and upload sensitive data for analysis with SD Desktop](./sd_connect.md#sensitive-data-encryption-and-upload-less-than-100-gb);
 * [Encrypt, upload](./sd_connect.md#sensitive-data-encryption-and-upload-with-multiple-encryption-keys-less-than-100-gb) and [download](./sd_connect.md#data-download-and-decryption) sensitive data for [data transfer](./sd_connect.md#data-sharing) and storage;
 * [Encrypt and upload sensitive data programmatically](./sd_connect.md#command-line-interface-data-encryption-and-upload)(advanced). 
 
@@ -29,7 +29,7 @@ To navigate the user guide, click on the topics on the left-hand side of the nav
 
 **Limitations**:
 
-SD Connect is based on an object storage solution. Files are stored as file segments. All files (sensitive or non-sensitive, e.g. scripts) stored in SD Connect must be encrypted. 
+* SD Connect is based on an object storage solution. Files are stored as file segments and can not be directly edited. All files (sensitive or non-sensitive, e.g. scripts) stored in SD Connect must be encrypted. 
 
 *  The storage space remains available as long as the CSC project is active. All data will be deleted 90 days after account termination or project closure, accordingly to [CSC's General Terms of Use](https://research.csc.fi/general-terms-of-use). 
 
