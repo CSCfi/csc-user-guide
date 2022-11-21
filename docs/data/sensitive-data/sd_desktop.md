@@ -12,6 +12,8 @@ In the following user guide, you can learn how to:
 
 !!! Note
     For secondary use of health and social data (register data) please check the detailed user guide: [SD Desktop for seconday use](./sd-desktop-audited.md). In this case, access to the service requires a permit provided by the Findata authority, and the service has specific limitations.  
+    
+[![Desktop-overview](images/desktop/desktop_overviewnew.png)](images/desktop/desktop_overviewnew.png)
 
 
 ## Key features
@@ -30,11 +32,6 @@ In the following user guide, you can learn how to:
 * The project manager's or group leader's responsibility is to frequently review the list of members belonging to a project in MyCSC and verify who can access SD Desktop or SD Connect. Remove the project members who do not need access to the data when their contribution is no longer needed.
 
 * The standard SD Desktop service is unsuitable for data processing under the Secondary Use of Health and Social Data Act. Please check this specific user guide: [SD Desktop for secondary use](./sd-desktop-audited.md) to learn about the precise requirements to access the dataset approved by the Findata Authority.
-
-
-## Overview
-
-[![Desktop-overview](images/desktop/desktop_overviewnew.png)](images/desktop/desktop_overviewnew.png)
 
 
 ### Authentication
