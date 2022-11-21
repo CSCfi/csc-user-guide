@@ -158,9 +158,9 @@ These are the available commands at the moment
 | openstack database backup list 			| Supported	||
 | openstack database backup list instance 		| Supported 	||
 | openstack database backup show 			| Supported	||
-| openstack database backup strategy create 		| Supported 	|	Will be admin only in the future|
-| openstack database backup strategy delete 		| Supported 	|	Will be admin only in the future|
-| openstack database backup strategy list 		| Supported 	| 	Will be admin only in the future|
+| openstack database backup strategy create 		| Not available	|	Only available for admins|
+| openstack database backup strategy delete 		| Not available	|	Only available for admins|
+| openstack database backup strategy list 		| Not available	| 	Only available for admins|
 | openstack database cluster create 			| Not available | 	Not investigated yet|
 | openstack database cluster delete 			| Not available | 	Not investigated yet|
 | openstack database cluster force delete 		| Not available | 	Not investigated yet|
