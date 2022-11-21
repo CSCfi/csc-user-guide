@@ -49,16 +49,15 @@ Login to SD Desktop is possible with identity federation systems (Haka, Virtu, C
 
 from any modern web-browser.
 
-After entering your username and passworod, you need to  **verify your identity** with a second verification step , also called Multi factor Authentication, MFA. Enter the verification **code** provided via mobile application and press on *Continue*.
+After entering your username and passworod, you need to  **verify your identity** with a second verification step (or Multi factor Authentication, MFA). Enter the verification **code** provided via mobile application and press on *Continue*.
 
 !!! Note
-    Please press the *Continue* button **using your mouse**. Due to a techincal problem, pressing Enter on your keybord will re-directed to a stall request error page.
+    Please click on the *Continue* button. Due to a techincal problem, pressing Enter on your keybord will re-directed to a stall request error page.
 
 
 For specific guidance regarding the activation of the second verification step on your CSC account, see the [MFA paragraph](../../accounts/mfa.md).
 
 [![Authentication](images/desktop/desktop_login-mfa1.png)](images/desktop/desktop_login-mfa1.png)
-
 
 
 
