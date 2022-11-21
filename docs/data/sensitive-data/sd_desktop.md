@@ -15,7 +15,7 @@ In the following user guide, you can learn how to:
 
 * Reuse published research data stored under controlled access via SD Apply (pilot phase);
 
-* [Export non-sensitive results from the secure virtual Desktop](./sd_desktop.md#data-export-from-sd-desktop).
+* [Export non-sensitive results](./sd_desktop.md#data-export-from-sd-desktop).
 
 To navigate the user guide you can also click on the topics on the left-hand side of the navigation bar or use the search functionality. 
 
