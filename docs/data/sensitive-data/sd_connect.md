@@ -2,6 +2,11 @@
 
 # Store and share with Sensitive Data Connect
 
+
+## Overview
+
+[![SDConnect-overview](images/connect/SDConnect-overview.png)](images/connect/SDConnect-overview.png)
+
 Sensitive Data (SD) Connect is an interface that allows you to encrypt and upload sensitive data to CSC cloud storage solution Allas, directly from your web browser. No specific expertise is required to use the service. SD Connect can serve multiple functions:
 
 - is designed to store or transfer sensitive data (via URL) with other CSC projects;
@@ -37,11 +42,6 @@ In the following user guide, you can learn how to:
 !!! Note
     SD Connect is unsuitable for processing health and social data for seconday use. Please check this specific user guide: [SD Desktop for registry data](./sd-desktop-audited.md) to learn about the precise requirements.
 
-
-
-## Overview
-
-[![SDConnect-overview](images/connect/SDConnect-overview.png)](images/connect/SDConnect-overview.png)
 
 
 ## Authentication
