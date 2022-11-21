@@ -172,14 +172,9 @@ The necessary steps are the following:
  
 1- To upload folders and files to SD Connect, use the **drag and drop function**. You can also use the **upload** icon in the SD Connect browser window to select and upload files.
 
-
 2-  Next, you will be **redirected to a new page displaying the default encryption options**. 
 
-<img width="922" alt="df" src="https://user-images.githubusercontent.com/83574067/158699006-ed0f34e8-08ca-41cf-8632-d48bb47f4277.png">
-
-
 3- Here, you can specify the bucket's name to which the data should be uploaded. If you don't fill in a specific term, the user interface will automatically create a bucket named: upload-nnn (where nnn is replaced with a 13 digit number based on creation time). Note that **it is not possible to rename buckets**.
-
 
 4- If you create a new bucket use the following **suggestions to name it**:
 
@@ -189,9 +184,7 @@ The necessary steps are the following:
 
 * All bucket **names are public**, so please do not include any confidential information in the bucket names
 
-
 5- With the icon  **Select Files for Upload**, you will open a browser window in which you can select and add more files. 
-
 
 6-  Next, click on **Encrypt and upload**: each file will be automatically encrypted and uploaded to the bucket in SD Connect. 
 
