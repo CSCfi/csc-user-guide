@@ -164,38 +164,39 @@ The following paragraphs illustrate all the necessary steps to generate encrypti
 
 <iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/yAKtGs6FkMc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-SD Connect allows you to encrypt and upload files or folders directly from your web browser. With the following workflow, each files will be **encrypted by default** with the services encryption key (also called here Sensitive Data services public key). In this manner, encrypted files will be safely stored in SD Connect and can be directly analysed using other Sensitive Data services components (for example, in SD Desktop). However, with this workflow, you will not be yet able to decrypt the files after download. We are developing a new feature that will soon provide also this option.
+SD Connect allows you to encrypt and upload files or folders directly from your web browser. Each file is encrypted with the default automated option, uploaded and safely stored in SD Connect, and can be analysed using other Sensitive Data services components (for example, in SD Desktop). However, you will not be able to decrypt the files after downloading. We are developing a new feature that will provide this option.
 
-Automated encryption via SD Connect is suitable for any file format.  Uploading files larger than 100 GB might take up to several hours, depending on the internet connection. Data uploads via SD Connect are supported only for 8 hours. 
+Automated encryption via SD Connect is suitable for any file type and format. However, data upload via SD Connect is recommended for files up to 100 GB and is supported only for 8 hours. Depending on the internet connection, uploading larger files might take up to several hours.
 
 The necessary steps are the following: 
 
-1- From the browser page select the correct CSC project.
+1- From the browser page, select the correct CSC project.
  
-2- To upload folders and files, click on the **upload** icon.
+2- To upload folders, drag and drop them to the browser or click on the **upload** icon.
 
-3-  Next, you will be **redirected to a new page displaying the default encryption options**. 
+3- You will be **redirected to a new page displaying the default encryption options**. 
 
-4- Here, you can specify the bucket's name to which the data should be uploaded. If you don't fill in a specific term, the user interface will automatically create a bucket named: upload-nnn (where nnn is replaced with a 13 digit number based on creation time). Note that **it is not possible to rename buckets**.
+4- You can specify the bucket's name to which the data should be uploaded. If you don't fill in a specific term, the user interface will automatically create a bucket named: upload-nnn (where nnn is replaced with a 13 digit number based on creation time). Note that **it is not possible to rename buckets**.
 
 5- If you create a new bucket use the following **suggestions to name it**:
 
-* Bucket **names must be unique** across all existing buckets in all projects in SD-Connect and Allas. If you can't create a new bucket, it's possible that some other project is already using the name you would like to use. To avoid this situation, it is good practice to include some project-specific identifiers (e.g., project ID number or acronym) in the bucket names.  
+* Bucket **names must be unique** across all existing buckets in all projects in SD-Connect and Allas. If you can't create a new bucket, some other project may already use the name you would like to use. To avoid this situation, it is good practice to include project-specific identifiers (e.g., project ID number or acronym) in the bucket names.  
     
-* **Avoid using spaces and special characters in bucket names**. Preferred characters are Latin alphabets (a-z), numbers (0-9), dash (-), underscore (\_) and dot (.). SD Connect can cope with other characters too, but they may cause problems in some other interfaces.
+* **Avoid using spaces and special characters in bucket names**. Preferred characters are Latin alphabets (a-z), numbers (0-9), dash (-), underscore (\_), and dot (.). SD Connect can cope with other characters too, but they may cause problems in some other interfaces.
 
 * All bucket **names are public**, so please do not include any confidential information in the bucket names
 
-6- With the icon  **Select Files for Upload**, you will open a browser window in which you can select and add more files. 
+6- With the icon  **Select files for Upload**, you will open a browser window in which you can select and add more files. 
 
-7-  Next, click on **Encrypt and upload**: each file will be automatically encrypted and uploaded to the bucket in SD Connect. The upload bars will respectively show the state of data encryption (upper bar) and upload (lower bar). 
+7-  Next, click on **Encrypt and Upload**: each file will be automatically encrypted and uploaded to the bucket in SD Connect. The upload bars will respectively show the state of data encryption (upper bar) and upload (lower bar). 
 
 [![SDConnect-upload](images/connect/SDConnect-upload.png)](images/connect/SDConnect-upload.png)
 
 
-7- Once the process is completed, you can return to the SD Connect **browser** window. The encrypted files will be displayed in the correct bucket, in a **default folder called DATA**, and each encrypted file will have the extension *.c4gh*. During upload each file is slipt in 
+7- Once the process is completed, you can return to the SD Connect **browser** page. The encrypted files will be displayed in the correct bucket, in a **default folder called DATA**, and each encrypted file will have the extension *.c4gh*. 
 
-Note: 
+!!! Note
+    After upload, the size of each file will be displayed as zero (see example image below). This is a temporary solution, and we apologize for the inconvenience. For technical reasons, during upload each file is slipt into several segments. To see the correct file size, click on **Hidden files**. This will allow you to visualize all the segments, one of each corresponding to the original file size. If you need to delete the file, you must select all the associated segments.
 
 
 
@@ -204,7 +205,6 @@ Note:
 
 
 ## Sensitive data encryption and upload with multiple encryption keys (less than 100 GB) 
-Due to a technical problem, data encryption and upload via SD Connect are possible only for files < 1GB. We are working to solve the issue and we apologise for the inconvenience. For support, contact us at servicedesk@csc.fi
 
 
 <iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/xpUF0ig-4MI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
