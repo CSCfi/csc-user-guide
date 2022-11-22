@@ -155,7 +155,7 @@ The following paragraphs illustrate all the necessary steps to generate encrypti
 
 SD Connect allows you to encrypt and upload files or folders directly from your web browser. Each file is encrypted with the default automated option, uploaded and safely stored in SD Connect, and can be analysed using other Sensitive Data services components (for example, in SD Desktop). However, you will not be able to decrypt the files after downloading. We are developing a new feature that will provide this option.
 
-Automated encryption via SD Connect is suitable for any file type and format. However, data upload via SD Connect is recommended for files up to 100 GB and is supported only for 8 hours. Depending on the internet connection, uploading larger files might take up to several hours.
+Automated encryption via SD Connect is suitable for any file type and format. However, data upload via web browser is recommended for files up to 100 GB and is supported only for 8 hours. Depending on the internet connection, uploading larger files might take up to several hours.
 
 The necessary steps are the following: 
 
@@ -185,8 +185,7 @@ The necessary steps are the following:
 7- Once the process is completed, you can return to the SD Connect **browser** page. The encrypted files will be displayed in the correct bucket, in a **default folder called DATA**, and each encrypted file will have the extension *.c4gh*. 
 
 !!! Note
-    After upload, the size of each file will be displayed as zero (see example image below). This is a temporary solution, and we apologize for the inconvenience. For technical reasons, during upload each file is slipt into several segments. To see the correct file size, click on **Hidden files**. This will allow you to visualize all the segments, one of each corresponding to the original file size. If you need to delete the file, you must select all the associated segments.
-
+    After upload, the size of each file will be displayed as zero (see example image below). This is a temporary solution, and we apologize for the inconvenience. For technical reasons, during upload each file is split into several segments. To see the correct file size, click on **Hidden files**. This will allow you to visualize all the segments, one of each corresponding to the original file size. If you need to delete the file, you must select all the associated segments.
 
 
 [![SDConnect-upload2](images/connect/SDConnect-segments.png)](images/connect/SDConnect-segments.png)
