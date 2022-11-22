@@ -22,6 +22,8 @@ Possible production: The database data is encrypted at rest.
 
 ## Backups
 
-Internal Beta: Backups are stored unscripted in Allas.
-Production: The backups are stored encrypted in Allas. The backups are automatically deleted after 90 days. The backups are unencrypted on the database instances if and when a database is restored from backups.
+The backups are still in the early development phase so use it with caution!
+
+Internal Beta: Backups are stored encrypted in Allas.
+Production: The backups are stored encrypted in Allas. The backups will be automatically deleted after 90 days.
 
