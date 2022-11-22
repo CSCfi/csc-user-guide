@@ -5,7 +5,7 @@
 
 Sensitive Data (SD) Desktop allows you to securely analyze sensitive research data from your web browser. With this user interface, you can easily manage (start, use, delete) a virtual computer (here called Desktop, technically defined as a virtual machine). In addition, SD Desktop provides a secure workspace for collaborative research projects. No previous knowledge or expertise is required to use the service. 
 
-[![Desktop-overview](images/desktop/desktop_overviewnew.png)](images/desktop/desktop_overviewnew.png)
+[![Desktop-overview](images/desktop/desktop_overviewnew1.png)](images/desktop/desktop_overviewnew1.png)
 
 In the following user guide, you can learn how to:
 
@@ -17,7 +17,6 @@ In the following user guide, you can learn how to:
 
 * [Export non-sensitive results](./sd_desktop.md#data-export-from-sd-desktop).
 
-To navigate the user guide, click on the topics on the left-hand side of the navigation bar or use the search functionality. 
 
 !!! Note 
     If you are processing register data under the Act on the Secondary Use of Health and Social Data please check the detailed user guide: SD Desktop for secondary use. In this case, access to SD Desktop requires a permit provided by the Findata authority, and the service has specific limitations.
