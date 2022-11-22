@@ -185,7 +185,9 @@ The necessary steps are the following:
 7- Once the process is completed, you can return to the SD Connect **browser** page. The encrypted files will be displayed in the correct bucket, in a **default folder called DATA**, and each encrypted file will have the extension *.c4gh*. 
 
 !!! Note
-    After upload, the size of each file will be displayed as zero (see example image below). This is a temporary solution, and we apologize for the inconvenience. For technical reasons, during upload each file is split into several segments. To see the correct file size, click on **Hidden files**. This will allow you to visualize all the segments, one of each corresponding to the original file size. If you need to delete the file, you must select all the associated segments.
+    After upload, the size of each file will be displayed as zero (see example image below). This is a temporary solution, and we apologise for the inconvenience. 
+
+For technical reasons, during the upload phase  each file is split into several segments. To see the correct file size, click on the button Hidden files. This will allow you to visualize all the segments, one of each corresponding to the original file size. You must select all the associated segments if you need to delete the file.
 
 
 [![SDConnect-upload2](images/connect/SDConnect-segments.png)](images/connect/SDConnect-segments.png)
