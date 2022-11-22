@@ -9,14 +9,15 @@ Sensitive Data (SD) Desktop allows you to securely analyze sensitive research da
 
 In the following user guide, you can learn how to:
 
-* [Set up your virtual Desktop](./sd_desktop.md#setting-up-a-virtual-desktop);
+* Set up your virtual Desktop
 
-* [Analyse data uploaded and stored in SD Connect](./sd_desktop.md#accessing-encrypted-sensitive-data-within-sd-desktop);
+* Analyse data uploaded and stored in SD Connect;
 
 * Reuse published research data stored under controlled access via SD Apply (pilot phase);
 
-* [Export non-sensitive results](./sd_desktop.md#data-export-from-sd-desktop).
+* Export non-sensitive results.
 
+To browse through the main topics of the user guide, you can use the navigation bar on the left side of this page or the search functionality.
 
 !!! Note 
     If you are processing register data under the Act on the Secondary Use of Health and Social Data please check the detailed user guide: SD Desktop for secondary use. In this case, access to SD Desktop requires a permit provided by the Findata authority, and the service has specific limitations.
