@@ -37,6 +37,9 @@ To browse through the main topics of the user guide, you can use the navigation 
 * CSC does not provide backups of the data stored in SD Connect. Therefore, we advise you to maintain **backups** of important datasets.
 
 !!! Note
+    Files uplaoded using Sd Connect after November 2,2022 show size as zero.This is a temporary solution, and we apologise for the inconvenience. Learn how to visualize the correct file size here. 
+
+!!! Note
     SD Connect is unsuitable for data processing under the Act on the Secondary Use of Health and Social Data. Please check [SD Desktop for secondary use](./sd-desktop-audited.md) to learn about the precise requirements.
 
 
@@ -289,6 +292,15 @@ The files are now encrypted with three encryption keys:
  - With **your collaborator's public key**. This allows sharing (or transferring) the data with your collaborator using SD Connect. Next, they will be able to download and decrypt the files in their secure computing environment, using the correspondent secrete key. 
 
 Using this workflow allows to securely manage only one copy of the data for different purposes.
+
+
+!!! Note
+    After upload, the size of each file will be displayed as zero (see example image below). This is a temporary solution, and we apologise for the inconvenience. 
+
+For technical reasons, during the upload phase  each file is split into several segments. To see the correct file size, click on the button Hidden files. This will allow you to visualize all the segments, one of each corresponding to the original file size. You must select all the associated segments if you need to delete the file.
+
+
+[![SDConnect-upload2](images/connect/SDConnect-segments.png)](images/connect/SDConnect-segments.png)
 
 
 ## Data Sharing 
