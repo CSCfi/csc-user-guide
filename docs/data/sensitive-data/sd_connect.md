@@ -37,7 +37,7 @@ To browse through the main topics of the user guide, you can use the navigation 
 * CSC does not provide backups of the data stored in SD Connect. Therefore, we advise you to maintain **backups** of important datasets.
 
 !!! Note
-    Files uplaoded using Sd Connect after November 2,2022 show size as zero.This is a temporary solution, and we apologise for the inconvenience. Learn how to visualize the correct file size here. 
+    Files uplaoded using SD Connect after November 2,2022 show size as zero. This is a temporary problem and we apologise for the inconvenience. 
 
 !!! Note
     SD Connect is unsuitable for data processing under the Act on the Secondary Use of Health and Social Data. Please check [SD Desktop for secondary use](./sd-desktop-audited.md) to learn about the precise requirements.
