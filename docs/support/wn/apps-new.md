@@ -2,7 +2,7 @@
 
 ## Amber22 installed on Puhti, 16.11.2022
 
-[Amber](../../apps/maestro.md) version 22 has been installed on Puhti and set as the default
+[Amber](../../apps/amber.md) version 22 has been installed on Puhti and set as the default
 module. [See here for a list of major new features](https://ambermd.org/AmberMD.php).
 
 ## Maestro 2022.3 and 2022.4 installed on Puhti, 15.11.2022
