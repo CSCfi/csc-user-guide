@@ -472,7 +472,7 @@ Other references to setting up a lifecycle:
 You can limit access to a bucket to specific IP addresses by defining a policy.
 
 !!! Warning
-    Remeber not to block your own access to the bucket, you can't access the bucket or fix the policy if you do so.
+    Remember not to block your own access to the bucket, you can't access the bucket or fix the policy if you do so.
 
 In the following IP policy example we allow access to bucket POLICY-EXAMPLE-BUCKET from IP subnet 86.50.164.0/24. Let's name the policy file `myippolicy.json`.
 
