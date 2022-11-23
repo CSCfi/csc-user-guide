@@ -1,5 +1,26 @@
 # Applications
 
+## Amber22 installed on Puhti, 16.11.2022
+
+[Amber](../../apps/amber.md) version 22 has been installed on Puhti and set as the default
+module. [See here for a list of major new features](https://ambermd.org/AmberMD.php).
+
+## Maestro 2022.3 and 2022.4 installed on Puhti, 15.11.2022
+
+[Schrödinger Maestro](../../apps/maestro.md) 2022.3 and 2022.4 have been
+installed on Puhti and the latter version set as the default module. [See
+release notes here](https://www.schrodinger.com/releases/new-features/).
+
+## CP2K 2022.2, 10.11.2022
+
+[CP2K](../../apps/cp2k.md) 2022.2 has been installed and set as the default module on Puhti
+and Mahti. [See release notes here](https://www.cp2k.org/version_history).
+
+## Gromacs 2022.3, 7.11.2022
+
+[Gromacs](../../apps/gromacs.md) 2022.3 has been installed and set as the default module on Puhti
+and Mahti. [See release notes here](https://manual.gromacs.org/2022.3/release-notes/2022/2022.3.html).
+
 ## Installing software with Spack, 28.10.2022
 
 Users can now install software on CSC supercomputers using the Spack package

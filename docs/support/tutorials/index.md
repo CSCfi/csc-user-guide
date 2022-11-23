@@ -3,6 +3,7 @@
 ## General
 * [Getting started with Puhti](puhti_quick.md)
 * [Getting started with Mahti](mahti_quick.md)
+* [Getting started with Helmi](../../computing/quantum-computing/helmi/helmi-from-lumi.md)
 * [Managing data on Puhti and Mahti scratch disks](clean-up-data.md)
 * [Conda best practices](conda.md)
 * [Using NoMachine](nomachine-usage.md)
@@ -24,6 +25,7 @@
 * [Running Nextflow workflows using HyperQueue](nextflow-hq.md)
 * [FireWorks workflow manager](../../computing/running/fireworks.md)
 * [How to run many short jobs with GNU Parallel](many.md)
+* [HyperQueue meta-scheduler](../../apps/hyperqueue.md)
 
 ## Allas
 * [Using Allas interactively in Puhti and Mahti](../../data/Allas/allas-examples.md)
@@ -44,6 +46,7 @@
 * [Running your first job on Puhti](biojobs-on-puhti.md)
 
 ## Chemistry
+* [Farming Gaussian jobs with HyperQueue](https://csc-training.github.io/csc-env-eff/hands-on/throughput/gaussian_hq.html)
 * [Using Gabedit for Gaussian jobs on Puhti](gabedit_gaussian.md)
 
 ## Data analysis and machine learning

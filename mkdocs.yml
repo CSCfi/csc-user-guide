@@ -7,6 +7,8 @@ site_description: Instructions and user guides for the CSC supercomputers, cloud
 extra:
   announcement_visible: true # Controls the visibility of the announcement bar
   mkdocs_env: !ENV MKDOCS_ENV # Used when building on Rahti to enable Matomo web analytics
+  matomo_url: "docs-design-matomo.rahtiapp.fi"
+  matomo_site_id: "1"
 
 plugins:
   - tags:
@@ -39,7 +41,7 @@ markdown_extensions:
       custom_fences:
         - name: mermaid
           class: mermaid
-          format: !!python/name:pymdownx.superfences.fence_div_format
+          format: !!python/name:pymdownx.superfences.fence_code_format
 
 theme:
   name: material
@@ -52,8 +54,8 @@ theme:
   palette:
     scheme: csc
   font: false # No loading fonts from G****e
-  features:
-    - announce.dismiss
+#  features:
+#    - announce.dismiss
 
 extra_css:
   - assets/stylesheets/variables.css
@@ -105,8 +107,7 @@ nav:
         - Available systems: computing/available-systems.md
         - Puhti: computing/systems-puhti.md
         - Mahti: computing/systems-mahti.md
-        - LUMI: "https://docs.lumi-supercomputer.eu/generic/overview/"
-        - Kvasi: computing/kvasi.md
+        - LUMI: "https://docs.lumi-supercomputer.eu/hardware/"
      - Connecting: computing/connecting.md
      - Supercomputer storage:
         - Disk areas: computing/disk.md
@@ -147,6 +148,18 @@ nav:
          - RStudio: computing/webinterface/rstudio.md
          - TensorBoard: computing/webinterface/tensorboard.md
          - Visual Studio Code: computing/webinterface/vscode.md
+     - Quantum computing:
+       - Overview: computing/quantum-computing/overview.md
+       - Kvasi QLM:
+           - Accessing Kvasi: computing/quantum-computing/kvasi/kvasi.md
+           - Kvasi Billing: computing/quantum-computing/kvasi/kvasi-billing.md
+       - Helmi:
+           - Helmi projects: computing/quantum-computing/helmi/helmi-projects.md
+           - Access Helmi through LUMI: computing/quantum-computing/helmi/helmi-from-lumi.md
+           - First quantum job: computing/quantum-computing/helmi/first-quantum-job.md
+           - Technical details: computing/quantum-computing/helmi/helmi-specs.md
+           - FiQCI partition: computing/quantum-computing/helmi/fiqci-partition.md
+           - Running on Helmi: computing/quantum-computing/helmi/running-on-helmi.md
   - Cloud:
      - Concepts of cloud computing: cloud/concepts.md
      - Rahti:
