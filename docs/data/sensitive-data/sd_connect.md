@@ -15,9 +15,9 @@ In the following user guide, you can learn how to:
 
 * Encrypt, upload and download sensitive data for data transfer and storage;
 
-* Encrypt and upload sensitive data programmatically(advanced).
+* Encrypt and upload sensitive data programmatically (advanced).
 
-To browse through the main topics of the user guide, you can use the navigation bar on the left side of this page or the search functionality.
+ You can use the navigation bar on the left side of this page or the search functionality to browse through the main topics of the user guide.
 
 ## Key features
 
