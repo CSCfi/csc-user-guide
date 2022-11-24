@@ -154,7 +154,7 @@ rm ~/.ssh/mypubkey.pub
       edit the file first so that everything is on one row only and does not include
       any spaces in the key itself.
 
-### Setting up your SSH keys in the MyCSC portal
+### Setting up your SSH keys in MyCSC portal
 
 !!! warning "Note"
     Setting up your SSH keys in the [MyCSC](https://my.csc.fi) portal is currently
