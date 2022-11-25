@@ -76,7 +76,7 @@ SSH keys provide more secure authentication and can be enabled with a two-step p
 2. **Copy public key from local PC to supercomputer**  
    Only the _public key_ should be copied, don't copy the private key.
 
-!!! warning "Note"
+!!! error "Important!"
     The private key should **never** be shared with anyone, not even with
     CSC staff. It should be also stored only on the local computer (public key
     can be safely stored in cloud services).
@@ -91,6 +91,13 @@ ssh-keygen -o -a 100 -t ed25519
 
 You will be prompted for a file name and location where to save the
 key. Accept the defaults by pressing `ENTER`.
+
+!!! warning "Note"
+    You will receive a warning if the default file name would overwrite an existing
+    key: `/home/username/.ssh/id_ed25519 already exists.`. Generally, you do not want
+    to overwrite existing keys, so press `n` and provide a different file name manually
+    when prompted. See also the section on [SSH key files with non-default name or
+    location](#ssh-key-file-with-non-default-name-or-location).
 
 Next, you will be asked for a passphrase. Please choose a secure
 passphrase. It should be at least 8 characters long and should contain
