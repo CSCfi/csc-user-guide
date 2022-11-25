@@ -2,46 +2,45 @@
 
 # Store and share with Sensitive Data Connect
 
-Sensitive Data (SD) Connect is an interface that allows you to encrypt and upload sensitive data to CSC cloud storage solution Allas, directly from your web browser. No specific expertise is required to use the service. SD Connect can serve multiple functions:
 
-- is designed to store or transfer sensitive data (via URL) with other CSC projects;
-- provides a secure workspace for collaborative research projects (e.g. facilitates data collection and data sharing);
-- provides a secure way to upload files to SD Desktop for data analysis. 
+## Overview
+
+Sensitive Data (SD) Connect allows you to store sensitive research data in the CSC cloud storage solution Allas. With this user interface, you can easily encrypt and upload files from your web browser. SD Connect can serve as a workspace for collaborative research projects, facilitating data collection and sharing. In addition, encrypted files stored in SD Connect are directly available for analysis via the SD Desktop service. 
+
+[![SDConnect-overview](images/connect/connect_overviewnew.png)](images/connect/connect_overviewnew.png)
 
 In the following user guide, you can learn how to:
 
-* Use SD Connect [default options](./sd_connect.md#sensitive-data-encryption-and-upload-less-than-100-gb) to encrypt and upload sensitive data for analysis with SD Desktop;
-* [Encrypt, upload](./sd_connect.md#sensitive-data-encryption-and-upload-with-multiple-encryption-keys-less-than-100-gb) and [download](./sd_connect.md#data-download-and-decryption) sensitive data for [data transfer](./sd_connect.md#data-sharing) and storage;
-* Encrypt and upload sensitive data [programmatically](./sd_connect.md#command-line-interface-data-encryption-and-upload) (advanced). 
+* Use SD Connect default options to automatically encrypt and upload sensitive data for analysis with SD Desktop;
 
+* Encrypt, upload and download sensitive data for data transfer and storage;
+
+* Encrypt and upload sensitive data programmatically (advanced).
+
+ You can use the navigation bar on the left side of this page or the search functionality to browse through the main topics of the user guide.
 
 ## Key features
 
 * Accessible via web browser from your computer (Mac, Linux, or Windows) and from any location (no need to install specific programs or use a VPN).
 
-* Only your colleagues (or CSC project members) can access encrypted files stored in the same CSC project. 
+* Automated encryption and data upload (up to 100 GB, larger datasets can be uploaded programmatically).
 
-* Data upload and automated encryption via drag-drop using a web browser (less than 100 GB, larger datasets can be uploaded programmatically).
-
-* Can store any file type: text files, images, audio files, video, and genetic data (default space 10 TB, additional space required contact servicedesk@csc.fi). You can define or manage each file or bucket with specific tags. By default, a project can store up to 10 TiB of data.
+* Can store any file type: text files, images, audio files, video, and genetic data (default space 10 TB, additional space required contact servicedesk@csc.fi). In addition, you can define or manage each file or bucket with specific tags. 
 
 
 **Limitations**:
 
-* All files (sensitive or non-sensitive, e.g. scripts) stored in SD Connect must be encrypted. Files and folders are stored in buckets: the technical definition for the main folder in which all the files or folders are uploaded.
+* SD Connect is based on an object storage solution. Files are stored as file segments and can not be directly edited. All files (sensitive or non-sensitive, e.g. scripts) stored in SD Connect must be encrypted. 
 
-* A project can store up to 10 TiB of data. See [how to increase disk space](../../accounts/how-to-increase-disk-quotas.md) to apply for additional resources. The storage space remains available as long as the CSC project is active. All data will be deleted 90 days after account termination or project closure, accordingly to [CSC's General Terms of Use](https://research.csc.fi/general-terms-of-use). 
+*  The storage space remains available as long as the CSC project is active. All data will be deleted 90 days after account termination or project closure, accordingly to [CSC's General Terms of Use](https://research.csc.fi/general-terms-of-use). 
 
 * CSC does not provide backups of the data stored in SD Connect. Therefore, we advise you to maintain **backups** of important datasets.
 
 !!! Note
-    SD Connect is unsuitable for processing health and social data for seconday use. Please check this specific user guide: [SD Desktop for registry data](./sd-desktop-audited.md) to learn about the precise requirements.
+    Files uplaoded using SD Connect after November 2, 2022 show size as zero. This is a temporary problem and we apologise for the inconvenience. 
 
-
-
-## Overview
-
-![Connect-overview](images/connect/connect_overview.png)
+!!! Note
+    SD Connect is unsuitable for data processing under the Act on the Secondary Use of Health and Social Data. Please check [SD Desktop for secondary use](./sd-desktop-audited.md) to learn about the precise requirements.
 
 
 
@@ -54,8 +53,7 @@ Login to SD Connect is currently possible only with CSC credentials and  Haka (a
 The interface is compatible with all modern web browsers. 
 
 
-<img width="960" alt="SD-Connect-0" src="https://user-images.githubusercontent.com/83574067/124901836-0b033400-dfeb-11eb-96d3-e5416f48f299.png">
-
+[![SDConnect-login](images/connect/SDConnect-login.png)](images/connect/SDConnect-login.png)
 
 
 ## User Interface 
@@ -162,61 +160,51 @@ The following paragraphs illustrate all the necessary steps to generate encrypti
 
 
 ## Sensitive data encryption and upload (less than 100 GB) 
-Due to a technical problem, data encryption and upload via SD Connect are possible only for files < 1GB. We are working to solve the issue and apologise for the inconvenience. For support, contact us at servicedesk@csc.fi
 
 <iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/yAKtGs6FkMc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
+SD Connect allows you to encrypt and upload files or folders directly from your web browser. Each file is encrypted with the default automated option, uploaded and safely stored in SD Connect, and can be analysed using other Sensitive Data services components (for example, in SD Desktop). However, you will not be able to decrypt the files after downloading. We are developing a new feature that will provide this option.
 
-SD Connect allows you to encrypt and upload files or folders directly from your web browser (for files smaller than 100 GB). With the following workflow, the file will be **encrypted by default** with the services encryption key (also called here Sensitive Data services public key). In this manner, encrypted files will be safely stored in SD Connect and can be directly analysed using other Sensitive Data services components (for example, in SD Desktop). However, you will not be yet able to decrypt the files after download. We are developing a new feature that will soon provide also this option.
-
+Automated encryption via SD Connect is suitable for any file type and format. However, data upload via web browser is recommended for files up to 100 GB and is supported only for 8 hours. Depending on the internet connection, uploading larger files might take up to several hours.
 
 The necessary steps are the following: 
+
+1- From the browser page, select the correct CSC project.
  
-1- To upload folders and files to SD Connect, use the **drag and drop function**. You can also use the **upload** icon in the SD Connect browser window to select and upload files.
+2- To upload folders, drag and drop them to the browser or click on the **upload** icon.
 
+3- You will be **redirected to a new page displaying the default encryption options**. 
 
+4- You can specify the bucket's name to which the data should be uploaded. If you don't fill in a specific term, the user interface will automatically create a bucket named: upload-nnn (where nnn is replaced with a 13 digit number based on creation time). Note that **it is not possible to rename buckets**.
 
-![1](https://user-images.githubusercontent.com/83574067/149009891-a049a79d-b66a-45c5-96a1-e0ea85617b0f.png)
+5- If you create a new bucket use the following **suggestions to name it**:
 
-
-![SD Connect 0](https://user-images.githubusercontent.com/83574067/158693924-21da1d2d-fddf-4ed2-980c-186c198c823d.png)
-
-
-
-2-  Next, you will be **redirected to a new page displaying the default encryption options**. 
-
-<img width="922" alt="df" src="https://user-images.githubusercontent.com/83574067/158699006-ed0f34e8-08ca-41cf-8632-d48bb47f4277.png">
-
-
-3- Here, you can specify the bucket's name to which the data should be uploaded. If you don't fill in a specific term, the user interface will automatically create a bucket named: upload-nnn (where nnn is replaced with a 13 digit number based on creation time). Note that **it is not possible to rename buckets**.
-
-
-4- If you create a new bucket use the following **suggestions to name it**:
-
-* Bucket **names must be unique** across all existing buckets in all projects in SD-Connect and Allas. If you can't create a new bucket, it's possible that some other project is already using the name you would like to use. To avoid this situation, it is good practice to include some project-specific identifiers (e.g., project ID number or acronym) in the bucket names.  
+* Bucket **names must be unique** across all existing buckets in all projects in SD-Connect and Allas. If you can't create a new bucket, some other project may already use the name you would like to use. To avoid this situation, it is good practice to include project-specific identifiers (e.g., project ID number or acronym) in the bucket names.  
     
-* **Avoid using spaces and special characters in bucket names**. Preferred characters are Latin alphabets (a-z), numbers (0-9), dash (-), underscore (\_) and dot (.). SD Connect can cope with other characters too, but they may cause problems in some other interfaces.
+* **Avoid using spaces and special characters in bucket names**. Preferred characters are Latin alphabets (a-z), numbers (0-9), dash (-), underscore (\_), and dot (.). SD Connect can cope with other characters too, but they may cause problems in some other interfaces.
 
 * All bucket **names are public**, so please do not include any confidential information in the bucket names
 
+6- With the icon  **Select files for Upload**, you will open a browser window in which you can select and add more files. 
 
-5- With the icon  **Select Files for Upload**, you will open a browser window in which you can select and add more files. 
+7-  Next, click on **Encrypt and Upload**: each file will be automatically encrypted and uploaded to the bucket in SD Connect. The upload bars will respectively show the state of data encryption (upper bar) and upload (lower bar). 
 
-![SD Connect 1a](https://user-images.githubusercontent.com/83574067/158694096-279987b4-b922-46b7-86d5-fe1b9fbd9ff0.png)
-
-
-6-  Next, click on **Encrypt and upload**: each file will be automatically encrypted and uploaded to the bucket in SD Connect. 
-
-![SD Connect 2](https://user-images.githubusercontent.com/83574067/158695759-072c404c-a956-4f08-96f4-19377ae049ed.png)
+[![SDConnect-upload](images/connect/SDConnect-upload.png)](images/connect/SDConnect-upload.png)
 
 
-7- Once the process is completed, you can return to the SD Connect **browser** window. The encrypted files will be displayed in the correct bucket, in a **default folder called DATA**, and each encrypted file will have the extension *.c4gh*. 
+7- Once the process is completed, you can return to the SD Connect **browser** page. The encrypted files will be displayed in the correct bucket, in a **default folder called DATA**, and each encrypted file will have the extension *.c4gh*. 
+
+!!! Note
+    After upload, the size of each file will be displayed as zero (see example image below). This is a temporary solution, and we apologise for the inconvenience. 
+
+For technical reasons, during the upload phase  each file is split into several segments. To see the correct file size, click on the button Hidden files. This will allow you to visualize all the segments, one of each corresponding to the original file size. You must select all the associated segments if you need to delete the file.
 
 
-![SD Connect 4](https://user-images.githubusercontent.com/83574067/158695860-38a662f2-4c14-4060-91bd-700db8e4dba4.png)
+[![SDConnect-upload2](images/connect/SDConnect-segments.png)](images/connect/SDConnect-segments.png)
+
+
 
 ## Sensitive data encryption and upload with multiple encryption keys (less than 100 GB) 
-Due to a technical problem, data encryption and upload via SD Connect are possible only for files < 1GB. We are working to solve the issue and we apologise for the inconvenience. For support, contact us at servicedesk@csc.fi
 
 
 <iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/xpUF0ig-4MI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -304,6 +292,15 @@ The files are now encrypted with three encryption keys:
  - With **your collaborator's public key**. This allows sharing (or transferring) the data with your collaborator using SD Connect. Next, they will be able to download and decrypt the files in their secure computing environment, using the correspondent secrete key. 
 
 Using this workflow allows to securely manage only one copy of the data for different purposes.
+
+
+!!! Note
+    After upload, the size of each file will be displayed as zero (see example image below). This is a temporary solution, and we apologise for the inconvenience. 
+
+For technical reasons, during the upload phase  each file is split into several segments. To see the correct file size, click on the button Hidden files. This will allow you to visualize all the segments, one of each corresponding to the original file size. You must select all the associated segments if you need to delete the file.
+
+
+[![SDConnect-upload2](images/connect/SDConnect-segments.png)](images/connect/SDConnect-segments.png)
 
 
 ## Data Sharing 

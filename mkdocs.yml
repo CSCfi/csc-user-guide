@@ -54,8 +54,8 @@ theme:
   palette:
     scheme: csc
   font: false # No loading fonts from G****e
-  features:
-    - announce.dismiss
+#  features:
+#    - announce.dismiss
 
 extra_css:
   - assets/stylesheets/variables.css
