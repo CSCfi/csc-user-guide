@@ -93,11 +93,11 @@ You will be prompted for a file name and location where to save the
 key. Accept the defaults by pressing `ENTER`.
 
 !!! warning "Note"
-    You will receive a warning if the default file name would overwrite an existing
-    key: `/home/username/.ssh/id_ed25519 already exists.`. Generally, you do not want
-    to overwrite existing keys, so press `n` and provide a different file name manually
-    when prompted. See also the section on [SSH key files with non-default name or
-    location](#ssh-key-file-with-non-default-name-or-location).
+    You will receive a warning if the default file name would overwrite an existing key:
+    `/home/username/.ssh/id_ed25519 already exists. Overwrite (y/n)?` Generally, you do
+    not want to overwrite existing keys, so press `n`, run `ssh-keygen` again and provide
+    a different file name manually when prompted. See also the section on [SSH key files
+    with non-default name or location](#ssh-key-file-with-non-default-name-or-location).
 
 Next, you will be asked for a passphrase. Please choose a secure
 passphrase. It should be at least 8 characters long and should contain
