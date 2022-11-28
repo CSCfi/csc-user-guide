@@ -3,7 +3,7 @@
 Get the basics right! In addition the the [Tutorials](tutorials/index.md) 
 and [FAQ](faq/index.md) collections, 
 this page links to a selection of additional training material useful 
-for self study.
+for self study. On the bottom of the page, you can also find a summary of training and training material sources and platforms by CSC and CSCs partners!
  
 ## Linux & HPC basics
 *   [Linux 101 tutorial](tutorials/env-guide/overview.md)
@@ -51,3 +51,20 @@ for self study.
 *   [Fairdata service training material](https://www.fairdata.fi/en/training/materials/)
 *   [Data management checklist](https://www.fairdata.fi/en/why-fairdata/data-management-checklist/) find tips on how to take care of your research data.
 *   [Remote training day for the Universities of the Applied Sciences](https://www.csc.fi/web/training/-/csc-tki-toiminnan-tukena) 18th May (in Finnish)
+
+## Training materials and sources from CSC and partners
+| Source | Example Content |
+| -------- | -------- |
+| **[CSC training calendar](https://csc.fi/web/guest/training)**         | Upcoming courses, <br> Link to [Elements of Supercomputing](https://edukamu.fi/elements-of-supercomputing)
+| **[eLena](https://e-learn.csc.fi) (Moodle environment)**  | [Research data management](https://e-learn.csc.fi/course/view.php?id=63), <br> [CSC computing environment](https://e-learn.csc.fi/course/view.php?id=76)  |
+| **[Tutorials](https://docs.csc.fi/support/tutorials/)  at docs.csc.fi**    | [Getting started with Puhti](https://docs.csc.fi/support/tutorials/puhti_quick/), <br> [Machine learning guide](https://docs.csc.fi/support/tutorials/ml-guide/) | 
+| **[Training material collection]((https://docs.csc.fi/support/training-material/)) in docs.csc.fi (this page)** | Links to thematically collected material
+| **[CSC Notebooks](https://notebooks.rahtiapp.fi)**                |  Introduction to Python, <br>Introduction to R, <br> 2h intro to Quantum computing  |
+| **[VideoCSC](https://video.csc.fi)**          | [Introductions to topics](https://video.csc.fi/category/Training%3EIntroductions+to+Topics/455249), <br> Recordings of weekly user zoom talks |
+| **[CSC YouTube-channel](https://www.youtube.com/c/CscFi)**                      | See also [Chipster channel](https://www.youtube.com/channel/UCnL-Lx5gGlW01OkskZL7JEQ), <br> [Elmer channel](https://www.youtube.com/user/elmerfem)
+| **[CSC Training GitHub](https://github.com/csc-training)**         | Repositories to course materials (~~some~~ many are old) |
+|**[LUMI Training events](https://www.lumi-supercomputer.eu/events/)**     | [Workshop on quantum computing](https://www.lumi-supercomputer.eu/events/workshop-on-quantum-computing-hybrid-systems/), <br> [LUMI-C environment](https://www.lumi-supercomputer.eu/events/detailed-introduction-to-the-lumi-c-environment-and-architecture/) |
+| **[CodeRefinery Lessons](https://coderefinery.org/lessons/)**       | Version control, <br> open and collaborative coding | 
+| **[Aalto Python for Scientific Computing](https://scicomp.aalto.fi/training/scip/python-for-scicomp-2022/)**  | pandas, <br> plotting, <br> binder, <br> parallel programming | 
+
+
