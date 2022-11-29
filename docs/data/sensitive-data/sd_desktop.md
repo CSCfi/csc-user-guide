@@ -1,17 +1,26 @@
 
 # Analyse and compute with Sensitive Data Desktop
 
-Sensitive Data (SD) Desktop allows you to analyze sensitive data from your web browser securely. With this user interface, you can easily manage (start, use, delete) a virtual computer (here called Desktop, technically defined as a virtual machine). No previous knowledge or expertise is required to use the service. In addition, SD Desktop provides a secure workspace for collaborative research projects.
+## Overview
+
+Sensitive Data (SD) Desktop allows you to securely analyze sensitive research data from your web browser. With this user interface, you can easily manage (start, use, delete) a virtual computer (here called Desktop, technically defined as a virtual machine). In addition, SD Desktop provides a secure workspace for collaborative research projects. No previous knowledge or expertise is required to use the service. 
+
+[![Desktop-overview](images/desktop/desktop_overviewnew1.png)](images/desktop/desktop_overviewnew1.png)
 
 In the following user guide, you can learn how to:
 
-* [Set up](./sd_desktop.md#setting-up-a-virtual-desktop) your virtual Desktop;
-* [Analyse data stored in SD Connect](./sd_desktop.md#accessing-encrypted-sensitive-data-within-sd-desktop);
-* Reuse published research data stored under controlled access (pilot phase),
-* [Export](./sd_desktop.md#data-export-from-sd-desktop) non-sensitive results from the secure virtual Desktop.
+* Set up your virtual Desktop
 
-!!! Note
-    For secondary use of health and social data (register data) please check the detailed user guide: [SD Desktop for seconday use](./sd-desktop-audited.md). In this case, access to the service requires a permit provided by the Findata authority, and the service has specific limitations.  
+* Analyse data uploaded and stored in SD Connect;
+
+* Reuse published research data stored under controlled access via SD Apply (pilot phase);
+
+* Export non-sensitive results.
+
+To browse through the main topics of the user guide, you can use the navigation bar on the left side of this page or the search functionality.
+
+!!! Note 
+    If you are processing register data under the Act on the Secondary Use of Health and Social Data please check the detailed user guide: SD Desktop for secondary use. In this case, access to SD Desktop requires a permit provided by the Findata authority, and the service has specific limitations.
 
 
 ## Key features
@@ -29,12 +38,9 @@ In the following user guide, you can learn how to:
 
 * The project manager's or group leader's responsibility is to frequently review the list of members belonging to a project in MyCSC and verify who can access SD Desktop or SD Connect. Remove the project members who do not need access to the data when their contribution is no longer needed.
 
-* The standard SD Desktop service is unsuitable for data processing under the Secondary Use of Health and Social Data Act. Please check this specific user guide: [SD Desktop for secondary use](./sd-desktop-audited.md) to learn about the precise requirements to access the dataset approved by the Findata Authority.
+* Only open-source software available. 
 
-
-## Overview
-
-[![Desktop-overview](images/desktop/desktop-overview.png)](images/desktop/desktop-overview.png)
+* The standard SD Desktop service is unsuitable for data processing under the Secondary Use of Health and Social Data Act. Please check this specific user guide: [SD Desktop for secondary use](./sd-desktop-audited.md) to learn about the precise requirements to access datasets approved by the Findata authority.
 
 
 ### Authentication
@@ -45,16 +51,15 @@ Login to SD Desktop is possible with identity federation systems (Haka, Virtu, C
 
 from any modern web-browser.
 
-After entering your username and passworod, you need to  **verify your identity** with a second verification step , also called Multi factor Authentication, MFA. Enter the verification **code** provided via mobile application and press on *Continue*.
+After entering your username and passworod, you need to  **verify your identity** with a second verification step (or Multi factor Authentication, MFA). Enter the verification **code** provided via mobile application and press on *Continue*.
 
 !!! Note
-    Please press the *Continue* button **using your mouse**. Due to a techincal problem, pressing Enter on your keybord will re-directed to a stall request error page.
+    Please click on the *Continue* button. Due to a techincal problem, pressing Enter on your keybord will re-directed to a stall request error page.
 
 
 For specific guidance regarding the activation of the second verification step on your CSC account, see the [MFA paragraph](../../accounts/mfa.md).
 
 [![Authentication](images/desktop/desktop_login-mfa1.png)](images/desktop/desktop_login-mfa1.png)
-
 
 
 
