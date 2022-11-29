@@ -22,13 +22,13 @@ Find, under **Instance name**, the Virtual Machine that you want to connect to.
 
 * Check the name of the key under **Key Pair**. You will need the corresponding SSH secret key installed in your computer.
 
-!!! Info "Generate SSH public key from a SSH private key
+    !!! Info "Generate SSH public key from a SSH private key"
 
-    If you have access to a SSH private, it is possible to generate the corresponding public key by:
+        If you have access to a SSH private key, it is possible to generate the corresponding public key by:
 
-    `ssh-keygen -y -f ~/.ssh/id_rsa`
+        `ssh-keygen -y -f ~/.ssh/id_rsa`
 
-    This is useful to be sure which private key corresponds to which public one configured in Pouta.
+        This is useful to be sure which private key corresponds to which public one configured in Pouta.
 
 * Click in the machine name and check that there is a security group that allow SSH connections from your current IP. See the [security group](../launch-vm-from-web-gui/#firewalls-and-security-groups) article for more information on how to create a SSH security group.
 
@@ -108,6 +108,31 @@ Open Putty, after following the instructions at [windows-putty](http://localhost
 * Click **Open**, a new window to the instance will be opened
 
 Next time you need to use Putty to connect this instance, you will just need to **Load** the corresponding saved session and click **Open**.
+
+!!! error "REMOTE HOST IDENTIFICATION HAS CHANGED"
+
+    Sometimes Floating IPs are reused with different Virtual Machines on different times. By default SSH will have `stricthostkeychecking=yes` configured, and will ahow you the error message:
+
+    ```sh
+    $ ssh cloud-user@86.50.xxx.xxx
+    @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+    @    WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!     @
+    @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+    IT IS POSSIBLE THAT SOMEONE IS DOING SOMETHING NASTY!
+    Someone could be eavesdropping on you right now (man-in-the-middle attack)!
+    It is also possible that a host key has just been changed.
+    The fingerprint for the ECDSA key sent by the remote host is
+    SHA256:JURkzITHXHGavwz6fAahou5g4ii1q9CVuzLyImH5+tI.
+    Please contact your system administrator.
+    Add correct host key in /home/yyyy/.ssh/known_hosts to get rid of this message.
+    Offending ECDSA key in /home/yyyy/.ssh/known_hosts:28
+      remove with:
+      ssh-keygen -f "/home/yyyy/.ssh/known_hosts" -R "86.50.xxx.xxx"
+    ECDSA host key for 86.50.xxx.xxx has changed and you have requested strict checking.
+    Host key verification failed.
+    ```
+
+    You can safely do as it says and remove the entry only of you are sure that is the first time you connect to said IP for the firsdt time since it has been assigned to a new instance, or since the instance has been reinstalled.
 
 
 ## `root` administrator access on a virtual machine
