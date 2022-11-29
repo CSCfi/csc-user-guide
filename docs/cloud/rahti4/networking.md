@@ -82,5 +82,5 @@ The IP for all outgoing customer traffic is `86.50.229.150`. Any pod that runs i
 
 !!! warning "egress IP may change"
 
-    The egress IP of Rahti might change in the future. For example, if several versions of Rahti are run in parallel each will have a different IP. Or if a mayor change in the underlining network infrastructure happens.
+    The egress IP of Rahti might change in the future. For example, if several versions of Rahti are run in parallel each will have a different IP. Or if a major change in the underlining network infrastructure happens.
 
