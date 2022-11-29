@@ -132,7 +132,7 @@ The egress IP used in Rahti4 is different that for Rahti3. This means that if yo
 
 !!! warning "egress IP may change"
 
-    The egress IP of Rahti might change in the future. For example, if several versions of Rahti are run in paralleli each will have a different IP. Or if a mayor change in the underlining network infrastructure happens.
+    The egress IP of Rahti might change in the future. For example, if several versions of Rahti are run in parallel each will have a different IP. Or if a mayor change in the underlining network infrastructure happens.
 
 Some project with dedicated egress IPs will have to request a new dedicated IP in Rahti4 and update their firewalls accordingly.
 
