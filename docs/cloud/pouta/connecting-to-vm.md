@@ -1,142 +1,152 @@
 # Connecting to your virtual machine
 
-This article describes several ways to connect to a running virtual machine.
-The prerequisites include proper [firewall settings](../launch-vm-from-web-gui/#firewalls-and-security-groups)
-and, in case of cPouta, a [floating IP](../launch-vm-from-web-gui/#adding-a-public-ip-for-the-machine-in-cpouta).
+This article describes several ways to connect to a running virtual machine. In order to create a Virtual Machine, check out [Creating a virtual machine in Pouta](../launch-vm-from-web-gui/).
+
+!!! info "Password access disabled"
+
+    None of the accounts in the default images provided by Pouta CSC have password login enabled by default. Only SSH keypair access is possible by default. This is done to improve security.
 
 ## Keypair-based SSH connection
 
-Before connecting to your virtual  machine, you can check its status
-in the *Instances* view of the cPouta/ePouta web interface.
+First, you need to check the Virtual Machine status in the **Compute > Instances** view of the Pouta web interface.
 
 ![VM Status check](/img/pouta-instance-details.png)
 
 **Figure** The Instances view of the cPouta web interface.
 
-The figure above shows a sample of the Instances view in cPouta web
-interface. In this case, we can see that a virtual machine called
-*test-instance-1* is active and running. The machine has two IP
-addresses, of which the address 86.50.169.56 is the public one. The
-machine uses a keypair called *skapoor*. The ePouta web interface looks 
-similar but the instances in ePouta have only one IP address field 
-specified which is the virtual machine's local IP.
+Find, under **Instance name**, the Virtual Machine that you want to connect to.
 
-When your virtual machine has a public floating IP assigned in the cPouta
-cloud (or VM local IP in the case of ePouta) and a [security group](../launch-vm-from-web-gui/#firewalls-and-security-groups) that
-allows SSH, you can open a remote SSH connection to your
-instance. Any standard SSH client should work.
+* The **Power State** must be `Running`
 
-A new virtual machine only has a default user account and the
-*root* or *administrator* account, or in some cases, only the root
-account. The user account name depends on the image used. For images
-provided by CSC, it has usually been "cloud-user", but we are moving
-towards using the image's upstream defaults. For example, Ubuntu images
-use "ubuntu". You can only log in using keypair-based authentication,
-such as:
+* It must have a `Floating IP` attached, write it down.
 
-    #for cPouta CentOS VMs
-    ssh cloud-user@public-ip -i keyfile.pem
+* Check the name of the key under **Key Pair**. You will need the corresponding SSH secret key installed in your computer.
 
-    #for cPouta Ubuntu VMs
-    ssh ubuntu@public-ip -i keyfile.pem
+!!! Info "Generate SSH public key from a SSH private key
 
-    #for ePouta CentOS VMs
-    ssh cloud-user@vm-ip -i keyfile.pem
+    If you have access to a SSH private, it is possible to generate the corresponding public key by:
 
-    #for ePouta Ubuntu VMs
-    ssh ubuntu@vm-ip -i keyfile.pem
+    `ssh-keygen -y -f ~/.ssh/id_rsa`
 
-With the default CSC images, when you try logging in as root, you
-get a message that tells you which username to use instead. Some third-party
-images may use the root account directly or a completely
-different username.
+    This is useful to be sure which private key corresponds to which public one configured in Pouta.
 
-Instead of specifying the path to the key to use for the SSH connection 
-each time, you can use an *SSH agent*. To use a *SSH agent* in your
-local Linux or Mac OS X machine, start a shell and run the following 
-commands:
+* Click in the machine name and check that there is a security group that allow SSH connections from your current IP. See the [security group](../launch-vm-from-web-gui/#firewalls-and-security-groups) article for more information on how to create a SSH security group.
 
-    ssh-agent /bin/bash
-    ssh-add ~/.ssh/keyname.pem
+* Now you need to know which user name is configured in the Virtual Machine to let your SSH keypair to log in. Different distributions/images have different user names. Third-party images can use any user name, please check the respective documentation. The default images provided by Pouta CSC have the following user names:
 
-Now you should be able to connect to the public floating IP of your VM 
-in cPouta (or VM local IP in case of ePouta) using SSH without the need 
-of specifying the key:
+    * for CentOS7 VMs is `cloud-user`
 
-    #for cPouta VMs
-    ssh cloud-user@public-ip
+    * for Ubuntu VMs is `ubuntu`
 
-    #for ePouta VMs
-    ssh cloud-user@vm-ip
+    * for CentOS8 VMs is `centos`
 
-!!! Tip
-    You can enable *agent forwarding* when connecting through SSH to a 
-    virtual machine by using the *-A* flag.
+!!! Info
+
+    With the default CSC images, when you try logging in as `root`, you get a message that tells you which username to use instead.
+
+    ```sh
+    $ ssh root@86.xxx.xxx.xxx               
+    Please login as the user "cloud-user" rather than the user "root".
+    ```
+
+With all the information ready you can now connect to the instance.
+
+### Linux, Mac and PowerShell
+
+In Linux, Mac and most modern Windows, it is possible to use `ssh`:
+
+```sh
+ssh <user_name>@<floating-ip> -i <secretkey>
+```
+
+#### ssh_config
+
+Instead of specifying the path, IP and user name each time you want to connect to the same Virtual Machine, you can write this formation in your ssh config file. Edit (or create if it is not there) the `~/.ssh/config` file, and add this content:
+
+```ini
+Host <machine_name>
+Hostname <floating ip>
+User <user_name>
+IdentityFile <private_key_with_path>
+```
+
+* In **Host** you should write the machine name (to later use to connect using `ssh machine_name`.
+
+* In **Hostname** write the floating of the Virtual Machine.
+
+* In **User** the user name must be specified.
+
+* In **IdentityFile** the full apth to the private key must be written, for example `IdentityFile ~/.ssh/id_rsa`.
+
+Check the manual page of [ssh_config](https://linux.die.net/man/5/ssh_config) for more information.
+
+!!! Info "Agent forwarding"
+    You can enable *agent forwarding* when connecting through SSH to a virtual machine by using the *-A* flag.
 
         ssh -A cloud-user@public-ip
 
-    By enabling agent forwarding, you enable the ssh agent running on 
-    the virtual machine to make use of the keys which are loaded in the 
-    ssh agent of your local workstation. You can use this feature to 
-    reduce the number of floating IPs used in your project:
+    By enabling agent forwarding, you enable the ssh agent running on the remote Virtual Machine to make use of the keys which are loaded in the ssh agent of your local workstation. You can use this feature to use the "Bastion host model", where only one single machine, the bastion host, in the cluster has Floating IP and outside access, and the rest of the machines are accessed through the bastion. 
     
     1. Assign a floating IP to one of your instances
-    2. ssh to the instance enabling agent forwarding
-    3. You can now ssh from this instance to the other instances in the
-       network using their private IP
+    1. ssh to the instance enabling agent forwarding
+    1. ssh from this instance to the other instances in the network using their private IP
     
-    Using these steps, you need only a single public IP instead of one 
-    public IP for each of the instances.
+    Using these steps, you need only a single public IP instead of one public IP for each of the instances.
 
-    **Warning**: using agent forwarding has some [security implications](https://blog.wizardsoftheweb.pro/ssh-agent-forwarding-vulnerability-and-alternative/#thevulnerability)
-    which might be unacceptable in certain environments or for certain
-    security policies.
+    **Warning**: using agent forwarding has some [security implications](https://blog.wizardsoftheweb.pro/ssh-agent-forwarding-vulnerability-and-alternative/#thevulnerability) 
 
-## Getting root access on a virtual machine
+### Putty
 
-If you logged in using a default user account, you will be able to run
-commands as root with sudo:
+Open Putty, after following the instructions at [windows-putty](http://localhost:8000/cloud/pouta/launch-vm-from-web-gui/#windows-putty) you should have a saved session with the private key stored on it.
 
-    sudo <some command>
+* Load the saved session.
 
-You can also get a root shell:
+* Under **Host Name (or IP address)**, write the user name an `@` symbol and the floating IP of the instance like: `cloud@89.14.89.14`
 
-    sudo -i
+* Write a new name (like the machine name) under **Saved Sessions** and click save.
 
-None of the accounts in the default images provided by CSC have
-password login enabled. In these images, you can utilize sudo without
-a password. If accounts that do not have root access are needed,
-they need to be created separately.
+* Click **Open**, a new window to the instance will be opened
+
+Next time you need to use Putty to connect this instance, you will just need to **Load** the corresponding saved session and click **Open**.
+
+
+## `root` administrator access on a virtual machine
+
+If you are using an image provided by Pouta, and logged in using the default user account, you will be able to run commands as root with `sudo` with no password. If other accounts are created, they will not have `root` administrator access by default.
+
+```sh
+sudo <some command>
+```
+
+You can also get an interactive root shell:
+
+```sh
+sudo -i
+```
 
 ## Connect to a machine using the Pouta virtual console
 
-The recommended way of accessing Pouta instances is through an SSH 
-connection, as explained earlier. Nevertheless, if you suddenly find 
-yourself experiencing issues with the SSH connection for example, the 
-web interface includes a console tool that you can use to access your 
-virtual machine directly.
+It is possible to access a machine using the Pouta Virtual console. This is only advisable **when SSH access is impossible**, for example when the network access of the Virtual Machine is broken.
 
-In order to be able to use the console, **you need to set up a 
-password-based user account first**. Once connected through SSH to your 
-instance, you can use tools such as [useradd](https://linux.die.net/man/8/useradd)
-and [passwd](https://linux.die.net/man/1/passwd) to set up this type of 
-account. As indicated in our [security guidelines](../security/#disable-password-login-use-keys),
-please do not enable remote login for this password-based account, but
-rather use it only in case you need to access the instance though the 
-console.
+In order to be able to use the console, **you need to set up a password-based user account first**:
 
-You can open a console session by clicking **Console** in the
-instance dropdown menu:
+* Connected through SSH to your Virtual Machine instance
+* You can use [useradd](https://linux.die.net/man/8/useradd) and or [passwd](https://linux.die.net/man/1/passwd) to set up the account. 
+* As indicated in our [security guidelines](../security/#disable-password-login-use-keys), please **do not enable remote login** for this **password-based account**, but rather use it only in case you need to access the instance though the console.
+
+Once there is a passord based account, with no remote login allowed.
+
+* From the instance page at **Compute > Instances**, open a console session by clicking **Console** in the instance dropdown menu:
 
 ![Open a console in the web GUI](/img/console-button-horizon.png)
 
-To input text in the console, click the grey bar:
+* To input text in the console, click the grey bar:
 
 ![Input text to web console](/img/pouta-instances-terminal.png)
 
-After this, you can log in with the user account and password you have
-created.
+* Log in with the user account and password you have created.
 
-!!! note
+!!! warning "Non ASCII characters problems"
     *Umlaut* characters, such as *ä* or *ö*, do not work in the virtual 
     console for most keymaps.
+

@@ -1,4 +1,4 @@
-# Launching a virtual machine in the cPouta web interface
+# Creating a virtual machine in Pouta
 
 !!! Warning
 
@@ -32,86 +32,142 @@ There are two options for logging in the cPouta's Dashboard: CSC username and pa
 
 For ePouta dashboard, you can only login using the CSC username and password.
 
-### Preparatory steps
+## Preparatory steps
 
-In case you have multiple projects with Pouta access, first select the one you want to use at the menu bar on top left.
+Before creating a Virtual Machine you must do these 3 steps:
+
+1. Select the correct **CSC project**.
+
+1. Create and setup a **SSH key pair**.
+
+1. Setting a **security group** to control the firewall.
 
 Before starting your first virtual machine in cPouta/ePouta, you must first set up a SSH key pair and modify the security settings so that you will be able to connect to your virtual machine.
 
+### Selecting the CSC project
+
+![Pouta project selection](/img/pouta_project_selection.png){ align=left }
+
+You may have more than one CSC project with access to Pouta. You can check this from [my.csc.fi](https://my.csc.fi){:target="_blank"}, where you will be able to see all the projects you have access and which ones have cPouta (or ePouta) activated as a service.
+
+Back in Poutai's interface, make sure that you select the correct project. There are two condiderations here:
+
+* A project is a sandbox which contains resources like Virtual Machines and networks, and anyone with access to that project will be able to see and administer all these resources. They may not be able to access a Virtual Machine, as this is determinated by the SSH keys configured in the machine, but they will be able to **delete**, **reboot**, ... etc.
+* Projects are used to determinate billing. Make sure that the costs will go the correct billing project.
+
+
 ### Setting up SSH keys
 
-To open a connection to your virtual machines in cPouta/ePouta, you need SSH keys. This is the default way to access new virtual machines. You only need to set up your SSH keys once.
+To open a connection to your virtual machines in cPouta/ePouta, you first need to prove your identity to the Virtual and for that need SSH keys. This is the default (and more secure) way to access Virtual Machines. You only need to set up your SSH keys once per project.
 
-If you are already familiar with SSH keys, you can use your existing SSH keys to access the virtual machines. In the web interface, go to **Key Pair** section, and select **Import Public Key **. Name your key, and paste your public key (starts with something like "ssh-rsa AAFAA...." or "ssh-dss AFAFA...") into the other box.
+!!! info "Import puyblic keys"
+    If you are already familiar with SSH keys, you can use your existing SSH keys to access the virtual machines. In the web interface, go to the **Compute > Key Pairs** section, and select **Import Public Key**. You need to name your key, keep in mind you will need to use this name when creating Virtual Machines, so the recomendation is to keep it short and informative of the intended use. Secondly paste your public key, it must be in a single line and be in the form of `key-type hash comment`, for example a RSA key from `person@doamin.name`:
 
-If you have not used SSH keypairs before, you need to create one. The web interface can take care of this for you. Go to **Key Pairs** section, select **Create Key Pair**. Give your key a name and click **Create**. You get a "_keyname.pem_" to save. Save it in your home directory.
+    `ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAAAQQCo9+BpMRYQ/dL3DS2CyJxRF+j6ctbT3/Qp84+KeFhnii7NT7fELilKUSnxS30WAvQCCo2yU1orfgqr41mM70MB person@domain.name`
 
-![The Access & Security subpage in the cPouta web interface](/img/pouta-user-guide-keypairs.png 'ssh key pairs')
+If you have not used SSH keypairs before, you need to create one. The web interface can take care of this for you:
 
-**Figure** The _Access & Security_ subpage in the cPouta web interface
+1. Go to the **Compute > Key Pairs** section, and select **Create Key Pair**.
 
-Finalize the key installation in the **Linux** and **Mac OS X** environments:
-If you are using Chrome browser in Mac OS X Monterey, you will get keyname.cer instead of keyname.pem.
-The following procedure will remain same.
+    ![The Access & Security subpage in the cPouta web interface](/img/pouta-user-guide-keypairs.png 'ssh key pairs')
+
+    **Figure** The _Access & Security_ subpage in the cPouta web interface
+
+1. Give your key a name and click in **Create Key Pair**. You will get a "_keyname.pem_" to save. Save it in your home directory. This will be the last time you will be able to download this **private key**, Pouta does not keep a copy in its servers.
+
+    ![Create key](/img/pouta-create-key.png)
+
+    **Figure** The Create Key Pait dialog
+
+#### Linux and Mac
+
+In order to install the key you downloaded in the repvious step (_keyname.pem_ or _keyname.cer_), you must run this commmands:
+
+!!! info "For MacOS"
+    If you are using Chrome browser in Mac OS X Monterey, you will get keyname.cer instead of keyname.pem. The following procedure will remain same.
 
 ```bash
-cd ~
-mkdir -p .ssh
+mkdir -p ~/.ssh
 chmod 700 .ssh
-mv keyname.pem .ssh
+mv keyname.pem ~/.ssh
+chmod 400 ~/.ssh/keyname.pem
 ```
 
-Before using the newly created key, you need to protect it with a passphrase and make the key read-only:
+Before using the newly created key, you should protect it with a passphrase:
 
 ```bash
 ssh-keygen -p -f .ssh/keyname.pem
-chmod 400 .ssh/keyname.pem
 ```
 
-_keyname.pem_ or keyname.cer is the file you downloaded.
+#### Windows (PowerShell)
 
-In **Windows** environments, the downloaded private key can be loaded, for example, in the Putty SSH client. This is done by using the _puttygen_ tool to load your private key (.pem) and save it in the (password protected) .ppk format which Putty can use. Putty and puttygen are available at [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/%7Esgtatham/putty/download.html). Using these programs does not require administrator privileges. As with Linux, in Windows it is also important to store the keyfile in a secure location with limited permissions.
+In **Windows** environments it is recommended to use PowerShell. The process is very similar
 
-![Saving the private key in the password protected .ppk format with puttygen](/img/Screenshot-puttygen-ppk2.png 'Screenshot puttygen')
+```PowerShell
+mkdir ~/.ssh
+mv yourkey.pem ~/.ssh/
+```
 
-**Figure** Saving the private key in the password protected .ppk format with puttygen
+Before using the newly created key, you should protect it with a passphrase:
 
-When connecting, the private key configuration is found in Putty's _Configuration_ menu under **Connection | SSH | Auth | Private key file for authentication**. Use the **Browse...** button to select the proper .ppk file. When connecting to the virtual machine, it first asks for the username (root or cloud-user) and then for the password which you previously provided to puttygen. The session can be saved for easier key access.
+```PowerShell
+ssh-keygen.exe -p -f yourkey.pem
+```
 
-After performing these steps, you should have what you need to access the running instances.
+Then, still from PowerShell, you can use the `ssh` command to connect to your machine, in the same way it is done from Linux or Mac.
+
+#### Windows (Putty)
+
+If your copy of Windows does not have the _ssh_ command installed, it is also possible to use _Putty_.
+
+This is done by using the _puttygen_ tool to load your private key (.pem) and save it in the (password protected) .ppk format which Putty can use.
+
+1. Download _Putty_ and _puttygen_, which are available at <http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html>.
+
+1. Run _puttygen_ and load the key you downloaded (it should be in the Downloads page).
+
+    ![Putty Gen](/img/putty-load.png)
+
+1. Set a password to the key. This is not compulsory, but advised.
+
+1. Save the key in _ppk_ format, this is the default Putty format for keys.
+
+    ![Saved](/img/putty-saved-ppk.png)
+
+Now we can use this new in Putty to connect to a Virtual Machine.
+
+1. Run _putty_ and load the ssh key. Go to **Connection > SSH > Auth** and under **Private key file for authentication**, use the **Browse...** button to select the proper .ppk file.
+
+    ![Private key file for authentication](/img/putty-key-file-authentication.png)
+
+1. Once the key is loaded, you will save the session. Go to the **Session** section and under **Saved Sessions** write the name of the new session and click save.
 
 ### Firewalls and security groups
 
-Security groups are sets of firewall rules which limit access to your machines. A virtual machine can use one or more security groups. These firewall rules are made on the _OpenStack_ layer and you may have additional firewall rules within your virtual machine. In case of connectivity problems, you should make sure both the security group and the virtual machine's internal firewall are correctly configured.
+Security groups are sets of firewall rules which limit access to your machines. A virtual machine can use one or more security groups. These firewall rules are made on the _OpenStack_ layer and you may have additional firewall rules within your virtual machine. In case of connectivity problems, you should make sure both the security group and the virtual machine's internal firewall are correctly configured. The "Default" security group comes with rules that allow internal communication between virtual machines that are members of the security group.
 
-Security groups are easiest to edit on the **Access & Security** page of the web interface. Modifying and adding security groups is easy but you can only do limited things with them. By default, all non-local incoming traffic (including SSH connections) is denied. You can allow additional traffic by creating rules. A rule opens a port range for a set of IP addresses.
+A security group can be edited or created in any moment of the Virtual Machine life-cycle. Any change applied to a security group assigned to a Virtual Machine, will be applied instantly to the Virtual Machine.
 
-The "Default" security group comes with rules that allow communication between virtual machines that are all connected to the default security group. If you want your virtual machines to communicate with each other, you need to either add the default security group for them or add similar rules to other security groups used by your virtual machines.
+!!! warning "Do not edit the default security group"
+    As a good practice, we discourage changing the "Default" security group. We recommend instead that you create specific security groups for specific purposes and name them accordinly. For example create a security group called "SSH-VPN" to allow computers from the VPN to SSH/22 to the machines on that security group.
 
-As a practice, we recommend that you avoid using the "Default" security group for any other rules. If your project grows, the "Default" group quickly becomes unmanageable. We recommend that you create individual security groups for different purposes.
+In order to create a new security group:
 
-To access a virtual machine in the cPouta or ePouta services, you need to allow SSH connections to the machine. Do this by going to **Access & Security** in the web interface. Select the **Security Groups** tab. Click **Create Security Group**, name it "SSH", and add a description such as "Allow incoming SSH". Then click **Manage Rules** for the SSH security group. In the view that is displayed, click **Add Rule**.
+1. Go to **Network > Security Groups**, and click in **Create Security Group**, name it and add a description.
 
-**Note: "From port" and "To port" define a range of destination ports. It is not possible to specify the source port. "Ingress" means incoming connections (to the VM). "Egress" means outgoing connections (from the VM).**
+1. Then click in **Manage Rules**, and in the view that is displayed, click **Add Rule**.
 
-If you know from which subnet you are going to SSH in from (e.g. 88.44.55.0/24), add a rule like this (recommended):
-```bash
-Direction   IP Protocol   From Port   To port   Source Group   CIDR
-Ingress     TCP           22          22        CIDR           88.44.55.0/24
-```
-You can also just open up a port to a single IP. In this case, you take the IP and add "/32", and add it as you would add a network:
-```bash
-Direction   IP Protocol   From Port   To port   Source Group   CIDR
-Ingress     TCP           22          22        CIDR           88.44.55.77/32
-```
-If you do not know your IP address, you can use [https://apps.csc.fi/myip](https://apps.csc.fi/myip) to find out what it is.
+    ![Add rule](/img/pouta-add-rules-secgroup.png)
 
-You can also open ports to all possible IP addresses. In that case, you would use "0.0.0.0/0" for the network:
-```bash
-Direction   IP Protocol   From Port   To port   Source Group   CIDR
-Ingress     TCP           22          22        CIDR           0.0.0.0/0
-```
-Opening up ports this widely is not recommended and not necessary in most cases. Limiting access to a virtual machines to only those networks that actually need to access it is a good security practice.
+    There is a lot customization available, but in this case it is recommended to use the `SSH` rule that only requires one parameter: `CIDR`. The **Classless Inerdomain Routing** or **CIDR** allows you to specify a subnet (`88.44.55.0/24`) or an specific IP (`88.44.55.77/32`).
+
+1. In order to find out your IP you can use services like <https://apps.csc.fi/myip>.
+
+!!! warning
+    Your network situation might more complicated than that. You may be behind a proxy. In that case, consult with your network support.
+
+!!! error
+    You can also open ports to all possible IP addresses by using `0.0.0.0/0` as CIDR, but doing this is a bad security practise.
 
 !!! Tip
     **Please note:**
@@ -120,59 +176,70 @@ Opening up ports this widely is not recommended and not necessary in most cases.
     *   **Even though the ePouta virtual machines are only accessible via the customer's network, they also need to have security groups configured for them. Otherwise they can not be accessed.**
     *   **It is possible to add and remove security groups on a running instance. This is done from the instances page.**
 
-### Launching a virtual machine
+## Launching a virtual machine
 
-Once the SSH keys and security groups, discussed in Chapter 3.2.1, have been set, you can launch a new virtual machine using the Pouta web interfaces:
+Once the SSH keys and security groups are set, you can launch a new virtual machine using the Pouta web interfaces:
 
-[https://pouta.csc.fi](https://pouta.csc.fi) (for cPouta) or [https://epouta.csc.fi](https://epouta.csc.fi) (for ePouta)
+!!! info
+    * [https://pouta.csc.fi](https://pouta.csc.fi) (for cPouta)
+    * or [https://epouta.csc.fi](https://epouta.csc.fi) (for ePouta)
 
-In the main page of the Pouta web interface, open the **Instances** view. The process to launch a new virtual machine is now started by clicking the **Launch Instance** button in the top of the view. This opens a _launch instance_ screen where you define the properties of the new virtual machine.
+1. In the main page of the Pouta web interface, open the **Compute > Instances** view.
+1. Click in **Launch Instance** on the top right. This opens a _launch instance_ screen where you define the properties of the new virtual machine.
 
-![Launch the instance view](/img/pouta-launch-instance.jpg 'Launch cPouta instance')
+    ![Launch the instance view](/img/pouta-launch-instance.png 'Launch cPouta instance')
 
-**Figure** Launch the instance view
+    **Figure** Launch the instance view
 
-On the **Details** tab of the _launch instance_ view, first select **Instance Boot Source**. You will most likely want to select "Boot from image" in the dropdown menu. In case you want to be more cloud-native, you can select the "Boot from image (creates a new volume)" option. This option creates a new persistent volume for your instance. In the event you accidentally delete your instance or it enters an unrecoverable state, the file system of your instance will be saved in this volume. You can later use this volume to boot up a new instance with the same filesystem state as the previous instance.
+1. On the **Details** tab of the _launch instance_ view, first write the **Instance Name**.
 
-!!! Tip
+1. Select the **Flavour**, which is the "size" of the Virtual Machine that you will create. See [Virtual machine flavors and billing unit rates](vm-flavors-and-billing/) for a complete list and descriptions.
 
-   **Please note:**
+1. In **Instance Count** you can specify the number of Virtual Machines to create. If in doubt, leave it to `1`.
 
-   This approach creates an additional volume which is billed normally as mentioned on our [pricing](https://research.csc.fi/pricing-of-computing-services) page.
+1. **Instance Boot Source**. Select "Boot from image" in the drop down menu.
 
-After selecting the instance boot source, you can select an _image_ or a virtual machine _snapshot_ you wish to use in the **Image Name** dropdown menu. After that, give your instance a _name_ and select the _flavor_ (i.e. size of the virtual machine, see Table 3.1). Under the **Access & Security** tab, choose the keypair you have created or added (see Chapter 3.2.1) and the security groups you wish to use (remember to select the security group for SSH access that you created previously in 3.2.1.2). Then on the **Networking** tab, select your own network (your project name). Once you have assigned these parameters for your virtual machine, you can click **Launch** to start the virtual machine.
+    !!! Info "Cloud-native"
 
-## Adding a public IP for the machine in cPouta
+        In case you want to be more cloud-native, you can select the "Boot from image (creates a new volume)" option. This option creates a new persistent volume for your instance. In the event you accidentally delete your instance or it enters an unrecoverable state, the file system of your instance will be saved in this volume. You can later use this volume to boot up a new instance with the same filesystem state as the previous instance.
 
-When a virtual machine is launched, it only gets a _NATed internal network_. This means that the machine can access the internet and other virtual machines in cPouta, but you can not access it on the internet. To be able to access your virtual machine, you need to add a public IP address for it.
+    !!! Warning "Please note"
 
-When the _Instances_ view shows that your machine is _Active_ and in the _Running_ state, select **Associate Floating IP** from the drop down menu that shows up when you click the arrow symbol next to the "Create Snapshot" button.
+        The "Boot from image (creates a new volume)" approach creates an additional volume which is billed normally as mentioned on our [pricing](https://research.csc.fi/pricing-of-computing-services) page.
 
-![Floating IP association options](/img/associate-floating-ip-menu.png 'Associate floating IP menu')
 
-**Figure** Floating IP association options
+1. **Image Name**, this decides which Linux distribution to use. You can select the image that fits more your use case. The images provided by Pouta by default are regularly maintained up to date.
 
-Click the plus to create a new IP, select the IP, select your machine under **Instance**, and click **Associate**. It takes some minutes before you are able to see the second, public IP address in the _Instances view_. Once the second IP is shown as well, your machine has a public IP and is accessible on the internet.
+1. Under the **Access & Security** tab, you need to configure two options. First you need to choose the name of the *Key Pair* you have created in the **Preparatory Stepss**. Secondly you need to select under the **Security Groups** the security group previously created.
 
-![Floating IP association dialog](/img/pouta-assign-ip.jpg 'Assign IP')
+1. Finally on the **Networking** tab, make sure that your own network (your project name) is selected.
+
+You can click **Launch** to start the Virtual Machine creation.
+
+## Post creation step
+
+When a virtual machine is launched, it only gets a **private IP** (`192.168.XXX.XXX`). This means that meanwhile the machine can access the internet and other virtual machines in the same project, it can not be accessed from outside the project. To be able to access your virtual machine, you need to attach a **public IP address** to it.
+
+1. Go to **Compute > Instances**, you should see your Virtual machine listed.
+
+1. On the right of your new machine's entry, under **Actions**, click in the drop down menu, and select **Associate Floating IP**.
+
+    ![Floating IP association options](/img/associate-floating-ip-menu.png 'Associate floating IP menu')
+
+    **Figure** Floating IP association options
+
+1. Select an IP address under **IP Address**. If "No floating IP addresses allocated" show up, click in the plus to allocate a new IP to you project, you will need to add a description.
+
+1. Under **Port to be associated** select the virtual machine.
+
+1. Click in **Associate**.
+
+![Floating IP association dialog](/img/pouta-assign-ip.png 'Assign IP')
 
 **Figure** Floating IP association dialog
 
-!!! Tip
-    Please note: Allocated and assigned floating IPs are billed at the rate of 0,2 BU/hr. You can additionally read our [blog post](http://cloud.blog.csc.fi/2017/12/floating-ip-management.html) for management of floating IPs in a cPouta project.
+!!! warning "IP billing"
 
-## Adding a security group to the machine in cPouta
+    Allocated floating IPs are billed at the rate of 0,2 BU/hr. You can additionally read our [blog post](http://cloud.blog.csc.fi/2017/12/floating-ip-management.html) for management of floating IPs in a cPouta project.
 
-In the project, a user can manage the security group by creating or updating existing ones. A security group can be updated by adding different security rules for allowing or preventing network traffics. 
-
-![Creating and managing security groups](/img/create_security_group.png 'Create a security group')
-
-**Figure** Creating and managing security groups
-
-A new security group can be added to other VMs in the same project. On the other hand, we can also remove a security group from running VM.
-
-![Managing security groups for virtual machine](/img/attach_security_group_vm.png 'Attach a security group')
-
-**Figure** Managing security groups for virtual machine
-
-  [Applying for Pouta access]: ../../accounts/how-to-add-service-access-for-project.md
+Now we can go to the [Connecting to your virtual machine](../connecting-to-vm) section and log in to the new Virtual Machine.
