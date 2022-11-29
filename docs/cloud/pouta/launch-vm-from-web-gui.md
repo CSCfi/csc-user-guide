@@ -46,7 +46,7 @@ Before starting your first virtual machine in cPouta/ePouta, you must first set 
 
 ### Selecting the CSC project
 
-![Pouta project selection](/img/pouta_project_selection.png){ align=left }
+![Pouta project selection](../../../img/pouta_project_selection.png){ align=left }
 
 You may have more than one CSC project with access to Pouta. You can check this from [my.csc.fi](https://my.csc.fi){:target="_blank"}, where you will be able to see all the projects you have access and which ones have cPouta (or ePouta) activated as a service.
 
@@ -69,13 +69,13 @@ If you have not used SSH keypairs before, you need to create one. The web interf
 
 1. Go to the **Compute > Key Pairs** section, and select **Create Key Pair**.
 
-    ![The Access & Security subpage in the cPouta web interface](/img/pouta-user-guide-keypairs.png 'ssh key pairs')
+    ![The Access & Security subpage in the cPouta web interface](../../../img/pouta-user-guide-keypairs.png 'ssh key pairs')
 
     **Figure** The _Access & Security_ subpage in the cPouta web interface
 
 1. Give your key a name and click in **Create Key Pair**. You will get a "_keyname.pem_" to save. Save it in your home directory. This will be the last time you will be able to download this **private key**, Pouta does not keep a copy in its servers.
 
-    ![Create key](/img/pouta-create-key.png)
+    ![Create key](../../../img/pouta-create-key.png)
 
     **Figure** The Create Key Pait dialog
 
@@ -126,19 +126,19 @@ This is done by using the _puttygen_ tool to load your private key (.pem) and sa
 
 1. Run _puttygen_ and load the key you downloaded (it should be in the Downloads page).
 
-    ![Putty Gen](/img/putty-load.png)
+    ![Putty Gen](../../../img/putty-load.png)
 
 1. Set a password to the key. This is not compulsory, but advised.
 
 1. Save the key in _ppk_ format, this is the default Putty format for keys.
 
-    ![Saved](/img/putty-saved-ppk.png)
+    ![Saved](../../../img/putty-saved-ppk.png)
 
 Now we can use this new in Putty to connect to a Virtual Machine.
 
 1. Run _putty_ and load the ssh key. Go to **Connection > SSH > Auth** and under **Private key file for authentication**, use the **Browse...** button to select the proper .ppk file.
 
-    ![Private key file for authentication](/img/putty-key-file-authentication.png)
+    ![Private key file for authentication](../../../img/putty-key-file-authentication.png)
 
 1. Once the key is loaded, you will save the session. Go to the **Session** section and under **Saved Sessions** write the name of the new session and click save.
 
@@ -157,7 +157,7 @@ In order to create a new security group:
 
 1. Then click in **Manage Rules**, and in the view that is displayed, click **Add Rule**.
 
-    ![Add rule](/img/pouta-add-rules-secgroup.png)
+    ![Add rule](../../../img/pouta-add-rules-secgroup.png)
 
     There is a lot customization available, but in this case it is recommended to use the `SSH` rule that only requires one parameter: `CIDR`. The **Classless Inerdomain Routing** or **CIDR** allows you to specify a subnet (`88.44.55.0/24`) or an specific IP (`88.44.55.77/32`).
 
@@ -187,7 +187,7 @@ Once the SSH keys and security groups are set, you can launch a new virtual mach
 1. In the main page of the Pouta web interface, open the **Compute > Instances** view.
 1. Click in **Launch Instance** on the top right. This opens a _launch instance_ screen where you define the properties of the new virtual machine.
 
-    ![Launch the instance view](/img/pouta-launch-instance.png 'Launch cPouta instance')
+    ![Launch the instance view](../../../img/pouta-launch-instance.png 'Launch cPouta instance')
 
     **Figure** Launch the instance view
 
@@ -224,7 +224,7 @@ When a virtual machine is launched, it only gets a **private IP** (`192.168.XXX.
 
 1. On the right of your new machine's entry, under **Actions**, click in the drop down menu, and select **Associate Floating IP**.
 
-    ![Floating IP association options](/img/associate-floating-ip-menu.png 'Associate floating IP menu')
+    ![Floating IP association options](../../../img/associate-floating-ip-menu.png 'Associate floating IP menu')
 
     **Figure** Floating IP association options
 
@@ -234,7 +234,7 @@ When a virtual machine is launched, it only gets a **private IP** (`192.168.XXX.
 
 1. Click in **Associate**.
 
-![Floating IP association dialog](/img/pouta-assign-ip.png 'Assign IP')
+![Floating IP association dialog](../../../img/pouta-assign-ip.png 'Assign IP')
 
 **Figure** Floating IP association dialog
 
