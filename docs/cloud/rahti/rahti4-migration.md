@@ -126,7 +126,11 @@ Where `Redirect` tells the route to redirect users from http to https automatica
 
 ## What changes must be made in firewalls?
 
-The egress IP used in Rahti4 is different that for Rahti3. This means that if you have a firewall rule opening for traffic coming from Rahti, the IP has to be updated. The Rahti3 IP is `193.167.189.25` and the new one for Rahti4 is `128.214.255.177`.
+The egress IP used in Rahti4 is different that for Rahti3. This means that if you have a firewall rule opening for traffic coming from Rahti, the IP has to be updated. The Rahti3 IP is `193.167.189.25` and the new one for Rahti4 is `86.50.229.150`.
+
+!!! warning "egress IP may change"
+
+    The egress IP of Rahti might change in the future. For example, if several versions of Rahti are run in parallel each will have a different IP. Or if a mayor change in the underlining network infrastructure happens.
 
 Some project with dedicated egress IPs will have to request a new dedicated IP in Rahti4 and update their firewalls accordingly.
 
