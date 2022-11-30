@@ -97,7 +97,7 @@ Check the manual page of [ssh_config](https://linux.die.net/man/5/ssh_config) fo
 
 ### Putty
 
-Open Putty, after following the instructions at [windows-putty](http://localhost:8000/cloud/pouta/launch-vm-from-web-gui/#windows-putty) you should have a saved session with the private key stored on it.
+Open Putty, after following the instructions at [windows-putty](/cloud/pouta/launch-vm-from-web-gui/#windows-putty) you should have a saved session with the private key stored on it.
 
 * Load the saved session.
 
@@ -111,7 +111,7 @@ Next time you need to use Putty to connect this instance, you will just need to 
 
 !!! error "REMOTE HOST IDENTIFICATION HAS CHANGED"
 
-    Sometimes Floating IPs are reused with different Virtual Machines on different times. By default SSH will have `stricthostkeychecking=yes` configured, and will ahow you the error message:
+    Sometimes Floating IPs are reused with different Virtual Machines at different times. By default SSH will have `stricthostkeychecking=yes` configured, and will show you the error message:
 
     ```sh
     $ ssh cloud-user@86.50.xxx.xxx
@@ -132,8 +132,7 @@ Next time you need to use Putty to connect this instance, you will just need to 
     Host key verification failed.
     ```
 
-    You can safely do as it says and remove the entry only of you are sure that is the first time you connect to said IP for the firsdt time since it has been assigned to a new instance, or since the instance has been reinstalled.
-
+    You can safely do as it suggests and remove the entry. But only if you are **sure** that it is the first time you connect to said IP since it has been **assigned to a new instance**, or since the instance has been **reinstalled**.
 
 ## `root` administrator access on a virtual machine
 
