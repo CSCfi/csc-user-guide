@@ -13,12 +13,12 @@ for self study. On the bottom of the page, you can also find a summary of traini
 *   [MPI: A Short Introduction to One-sided Communication](https://www.futurelearn.com/courses/mpi-one-sided) PRACE MOOC
 *   [Using CSC HPC Environment Efficiently](https://a3s.fi/CSC_training/csc-env.html) Slides, tutorials and exercises about the CSC environment
  
-## CSC cloud resources, cPouta, ePouta and Rahti:
+## CSC cloud resources, cPouta, ePouta and Rahti
 *   [cPouta and ePouta related videos](../cloud/pouta/pouta-videos.md)
 *   [Pouta cloud course materials](https://pouta-course.a3s.fi/index.html)
 *   [Container clouds fundamentals](https://rahti-course.a3s.fi/basic.html) (with Rahti OpenShift OKD)
  
-## Learn R and Python:
+## Learn R and Python
 *   [R for Beginners](https://github.com/csc-training/R-for-beginners)
 *   [Data Analysis with R](https://github.com/csc-training/da-with-r-remote)
 *   [Practical Machine Learning (using Python)](https://e-learn.csc.fi/course/view.php?id=14)
