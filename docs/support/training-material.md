@@ -64,7 +64,6 @@ for self study. On the bottom of the page, you can also find a summary of traini
 | **[CSC YouTube-channel](https://www.youtube.com/c/CscFi)**                      | See also [Chipster channel](https://www.youtube.com/channel/UCnL-Lx5gGlW01OkskZL7JEQ), <br> [Elmer channel](https://www.youtube.com/user/elmerfem)
 | **[CSC Training GitHub](https://github.com/csc-training)**         | Repositories to course materials (~~some~~ many are old) |
 |**[LUMI Training events](https://www.lumi-supercomputer.eu/events/)**     | [Workshop on quantum computing](https://www.lumi-supercomputer.eu/events/workshop-on-quantum-computing-hybrid-systems/), <br> [LUMI-C environment](https://www.lumi-supercomputer.eu/events/detailed-introduction-to-the-lumi-c-environment-and-architecture/) |
-| **LUMI Training material](https://lumi-supercomputer.github.io/LUMI-training-materials/)**       | Material from past LUMI courses |
 | **[LUMI Training material](https://lumi-supercomputer.github.io/LUMI-training-materials/)**       | Material from past LUMI courses |
 | **[CodeRefinery Lessons](https://coderefinery.org/lessons/)**       | Version control, <br> open and collaborative coding | 
 | **[Aalto Python for Scientific Computing](https://scicomp.aalto.fi/training/scip/python-for-scicomp-2022/)**  | pandas, <br> plotting, <br> binder, <br> parallel programming | 
