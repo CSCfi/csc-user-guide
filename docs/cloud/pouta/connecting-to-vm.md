@@ -10,7 +10,7 @@ This article describes several ways to connect to a running virtual machine. In 
 
 First, you need to check the Virtual Machine status in the **Compute > Instances** view of the Pouta web interface.
 
-![VM Status check](../../../img/pouta-instance-details.png)
+![VM Status check](../../img/pouta-instance-details.png)
 
 **Figure** The Instances view of the cPouta web interface.
 
@@ -162,11 +162,11 @@ Once there is a passord based account, with no remote login allowed.
 
 * From the instance page at **Compute > Instances**, open a console session by clicking **Console** in the instance dropdown menu:
 
-![Open a console in the web GUI](../../../img/console-button-horizon.png)
+![Open a console in the web GUI](../../img/console-button-horizon.png)
 
 * To input text in the console, click the grey bar:
 
-![Input text to web console](../../../img/pouta-instances-terminal.png)
+![Input text to web console](../../img/pouta-instances-terminal.png)
 
 * Log in with the user account and password you have created.
 
