@@ -57,8 +57,8 @@ for self study. On the bottom of the page, you can also find a summary of traini
 | -------- | -------- |
 | **[CSC training calendar](https://csc.fi/web/guest/training)**         | Upcoming courses, <br> Link to [Elements of Supercomputing](https://edukamu.fi/elements-of-supercomputing)
 | **[eLena](https://e-learn.csc.fi) (Moodle environment)**  | [Research data management](https://e-learn.csc.fi/course/view.php?id=63), <br> [CSC computing environment](https://e-learn.csc.fi/course/view.php?id=76)  |
-| **[Tutorials](https://docs.csc.fi/support/tutorials/)  at docs.csc.fi**    | [Getting started with Puhti](https://docs.csc.fi/support/tutorials/puhti_quick/), <br> [Machine learning guide](https://docs.csc.fi/support/tutorials/ml-guide/) | 
-| **[Training material collection]((https://docs.csc.fi/support/training-material/)) in docs.csc.fi (this page)** | Links to thematically collected material
+| **[Tutorials](tutorials.md)  at docs.csc.fi**    | [Getting started with Puhti](../tutorials/puhti_quick.md), <br> [Machine learning guide](../tutorials/ml-guide.md) | 
+| **[Training material collection](training-material.md) in docs.csc.fi (this page)** | Links to thematically collected material
 | **[CSC Notebooks](https://notebooks.rahtiapp.fi)**                |  Introduction to Python, <br>Introduction to R, <br> 2h intro to Quantum computing  |
 | **[VideoCSC](https://video.csc.fi)**          | [Introductions to topics](https://video.csc.fi/category/Training%3EIntroductions+to+Topics/455249), <br> Recordings of weekly user zoom talks |
 | **[CSC YouTube-channel](https://www.youtube.com/c/CscFi)**                      | See also [Chipster channel](https://www.youtube.com/channel/UCnL-Lx5gGlW01OkskZL7JEQ), <br> [Elmer channel](https://www.youtube.com/user/elmerfem)
