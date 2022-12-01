@@ -62,7 +62,7 @@ for self study. On the bottom of the page, you can also find a summary of traini
 | **[CSC Notebooks](https://notebooks.rahtiapp.fi)**                |  Introduction to Python, <br>Introduction to R, <br> 2h intro to Quantum computing  |
 | **[VideoCSC](https://video.csc.fi)**          | [Introductions to topics](https://video.csc.fi/category/Training%3EIntroductions+to+Topics/455249), <br> Recordings of weekly user zoom talks |
 | **[CSC YouTube-channel](https://www.youtube.com/c/CscFi)**                      | See also [Chipster channel](https://www.youtube.com/channel/UCnL-Lx5gGlW01OkskZL7JEQ), <br> [Elmer channel](https://www.youtube.com/user/elmerfem)
-| **[CSC Training GitHub](https://github.com/csc-training)**         | Repositories to course materials (~~some~~ many are old) |
+| **[CSC Training GitHub](https://github.com/csc-training)**         | Repositories to course materials (some are old) |
 |**[LUMI Training events](https://www.lumi-supercomputer.eu/events/)**     | [Workshop on quantum computing](https://www.lumi-supercomputer.eu/events/workshop-on-quantum-computing-hybrid-systems/), <br> [LUMI-C environment](https://www.lumi-supercomputer.eu/events/detailed-introduction-to-the-lumi-c-environment-and-architecture/) |
 | **[LUMI Training material](https://lumi-supercomputer.github.io/LUMI-training-materials/)**       | Material from past LUMI courses |
 | **[CodeRefinery Lessons](https://coderefinery.org/lessons/)**       | Version control, <br> open and collaborative coding | 
