@@ -1,5 +1,8 @@
 # Training & tutorials
 
+## Training materials and sources from CSC and partners, 2.12.2022
+
+[link to the table in question](../training-material.md#training-materials-and-sources-from-csc-and-partners) text missing FIXME
 
 ## A new visual appearance for Docs CSC, 18.8.2022
 
