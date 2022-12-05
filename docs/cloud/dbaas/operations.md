@@ -35,3 +35,24 @@ openstack database instance upgrade $Instance $Datastore_version
 ```
 
 5. Verify with your refereed tool that your database is working as expected
+
+
+## Deleting a database in your database instances
+
+By default your database user accounts does not have permissions to delete databases. If you want to delete a database in your database instance you need to use the web-GUI or the openstack cli.
+
+```
+openstack database db delete $INSTANCE_UUID $DATABASE_NAME
+```
+
+If you want to allow your database users too be able to manage your database instance's databases you will need to enable root permissions for your instance.
+
+```
+openstack database root enable $INSTANCE_UUID
+```
+
+Then create a user with your `root` account that have suitable permission (in PostgreSQL the permission is `CREATEDB` ). Once you are done you can disable your root user.
+
+```
+openstack database root disable $INSTANCE_UUID
+```
