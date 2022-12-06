@@ -20,7 +20,7 @@ ssh yourcscusername@puhti.csc.fi
 
 Where `yourcscusername` is the username you get from CSC.
 
-There is also a beta [web interface](../../computing/webinterface/index.md) available at
+There is also a [web interface](../../computing/webinterface/index.md) available at
 [www.puhti.csc.fi](https://www.puhti.csc.fi), where you can log in with your CSC user name.
 In this interface you can manage files, launch interactive applications and list jobs, quotas
 and project statuses. You can use it also for graphical applications.

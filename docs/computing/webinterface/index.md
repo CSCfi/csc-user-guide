@@ -19,9 +19,6 @@ using just a web browser. In the web interface you can:
 Everything still runs directly on Puhti, giving you all the resources and power
 of a supercomputer, but easily accessible using just a web browser. 
 
-!!! note
-    The service is still in a beta state, and we are working on adding new features and generally improving the service. Please let us know if you experience any issues or have improvement suggestions. A link to a feedback form can be found on the frontpage of the web interface under the "Message of the day" or under the "Help" icon in the navbar.  
-
 
 ## Connecting
 
