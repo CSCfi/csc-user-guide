@@ -149,7 +149,7 @@ Security groups are sets of firewall rules which limit access to your machines. 
 A security group can be edited or created in any moment of the Virtual Machine life-cycle. Any change applied to a security group assigned to a Virtual Machine, will be applied instantly to the Virtual Machine.
 
 !!! warning "Do not edit the default security group"
-    As a good practice, we discourage changing the "Default" security group. We recommend instead that you create specific security groups for specific purposes and name them accordinly. For example create a security group called "SSH-VPN" to allow computers from the VPN to SSH/22 to the machines on that security group.
+    As a good practice, we discourage changing the "Default" security group. We recommend instead that you create specific security groups for specific purposes and name them accordingly. For example create a security group called "SSH-VPN" to allow computers from the VPN to SSH/22 to the machines on that security group.
 
 In order to create a new security group:
 
@@ -159,7 +159,7 @@ In order to create a new security group:
 
     ![Add rule](../../img/pouta-add-rules-secgroup.png)
 
-    There is a lot customization available, but in this case it is recommended to use the `SSH` rule that only requires one parameter: `CIDR`. The **Classless Inerdomain Routing** or **CIDR** allows you to specify a subnet (`88.44.55.0/24`) or an specific IP (`88.44.55.77/32`).
+    There is a lot customization available, but in this case it is recommended to use the `SSH` rule that only requires one parameter: `CIDR`. The **Classless Inter-Domain Routing** or **CIDR** allows you to specify a subnet (`88.44.55.0/24`) or an specific IP (`88.44.55.77/32`).
 
 1. In order to find out your IP you can use services like <https://apps.csc.fi/myip>.
 
@@ -210,7 +210,7 @@ Once the SSH keys and security groups are set, you can launch a new virtual mach
 
 1. **Image Name**, this decides which Linux distribution to use. You can select the image that fits more your use case. The images provided by Pouta by default are regularly maintained up to date.
 
-1. Under the **Access & Security** tab, you need to configure two options. First you need to choose the name of the *Key Pair* you have created in the **Preparatory Stepss**. Secondly you need to select under the **Security Groups** the security group previously created.
+1. Under the **Access & Security** tab, you need to configure two options. First you need to choose the name of the *Key Pair* you have created in the **Preparatory Steps**. Secondly you need to select under the **Security Groups** the security group previously created.
 
 1. Finally on the **Networking** tab, make sure that your own network (your project name) is selected.
 
