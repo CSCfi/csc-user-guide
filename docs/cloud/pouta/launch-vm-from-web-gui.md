@@ -97,7 +97,7 @@ chmod 400 ~/.ssh/keyname.pem
     When a file in Unix has 400 permissions, it translates to:
     `r-- --- ---`
 
-    which means, only the owner can read the file. This is the recommended for SSH, but in case you need to overwrite the file, you will need to give also write permissions: `chmod 600 ~/.ssh/keyname.pem`.
+    which means, only the owner can read the file. This is the recommended value for SSH, but in case you need to overwrite the file, you will need to give also write permissions: `chmod 600 ~/.ssh/keyname.pem`.
 
 
 Before using the newly created key, you should protect it with a passphrase:
