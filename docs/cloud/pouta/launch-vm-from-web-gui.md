@@ -77,7 +77,7 @@ If you have not used SSH keypairs before, you need to create one. The web interf
 
     ![Create key](../../img/pouta-create-key.png)
 
-    **Figure** The Create Key Pait dialog
+    **Figure** The Create Key Pair dialog
 
 #### Linux and Mac
 
