@@ -152,7 +152,7 @@ In order to be able to use the console, **you need to set up a password-based us
 * You can use [useradd](https://linux.die.net/man/8/useradd) and or [passwd](https://linux.die.net/man/1/passwd) to set up the account. 
 * As indicated in our [security guidelines](../security/#disable-password-login-use-keys), please **do not enable remote login** for this **password-based account**, but rather use it only in case you need to access the instance though the console.
 
-Once there is a passord based account, with no remote login allowed.
+Once there is a password based account, with no remote login allowed:
 
 * From the instance page at **Compute > Instances**, open a console session by clicking **Console** in the instance dropdown menu:
 
