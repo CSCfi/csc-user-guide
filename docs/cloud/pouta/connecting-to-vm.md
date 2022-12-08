@@ -64,13 +64,13 @@ User <user_name>
 IdentityFile <private_key_with_path>
 ```
 
-* In **Host** you should write the machine name (to later use to connect using `ssh machine_name`.
+* In **Host** you should write the machine name (to later use it to connect using `ssh machine_name`).
 
 * In **Hostname** write the floating of the Virtual Machine.
 
 * In **User** the user name must be specified.
 
-* In **IdentityFile** the full apth to the private key must be written, for example `IdentityFile ~/.ssh/id_rsa`.
+* In **IdentityFile** the full path to the private key must be written, for example `IdentityFile ~/.ssh/id_rsa`.
 
 Check the manual page of [ssh_config](https://linux.die.net/man/5/ssh_config) for more information.
 
