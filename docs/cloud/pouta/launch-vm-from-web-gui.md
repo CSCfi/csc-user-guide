@@ -81,7 +81,7 @@ If you have not used SSH keypairs before, you need to create one. The web interf
 
 #### Linux and Mac
 
-In order to install the key you downloaded in the repvious step (_keyname.pem_ or _keyname.cer_), you must run this commmands:
+In order to install the key you downloaded in the previous step (_keyname.pem_ or _keyname.cer_), you must run this commmands:
 
 !!! info "For MacOS"
     If you are using Chrome browser in Mac OS X Monterey, you will get keyname.cer instead of keyname.pem. The following procedure will remain same.
