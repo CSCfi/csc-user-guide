@@ -103,7 +103,9 @@ chmod 400 ~/.ssh/keyname.pem
 Before using the newly created key, you should protect it with a passphrase:
 
 ```bash
+chmod 600 ~/.ssh/keyname.pem
 ssh-keygen -p -f .ssh/keyname.pem
+chmod 400 ~/.ssh/keyname.pem
 ```
 
 #### Windows (PowerShell)
