@@ -53,7 +53,7 @@ You may have more than one CSC project with access to Pouta. You can check this 
 Back in Pouta's interface, make sure that you select the correct project. There are two condiderations here:
 
 * A project is a sandbox which contains resources like Virtual Machines and networks, and anyone with access to that project will be able to see and administer all these resources. They may not be able to access a Virtual Machine, as this is determinated by the SSH keys configured in the machine, but they will be able to **delete**, **reboot**, ... etc.
-* Projects are used to determinate billing. Make sure that the costs will go the correct billing project.
+* Projects are used to determinate billing. Make sure that the costs will go to the correct billing project.
 
 
 ### Setting up SSH keys
