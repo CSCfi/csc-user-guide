@@ -1,5 +1,8 @@
 # Data submission
 
+!!! Note 
+    FEGA is still in the pilot phase, so no submissions can be made to the service. The expected launch of the service is in the beginning of year 2023. We will process submissions in the order we have received the support reguests. In addition to the legal agreements listed on this page, there needs to be service agreement between CSC and the data controller specific for FEGA service. Make sure before starting submitting any data that all these legal agreements are in place. This user guide is still preliminary, and changes to the instructions are expected before the launch of the service.
+
 <iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/eg9YRFgT_5w" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ## Submission process overview 
