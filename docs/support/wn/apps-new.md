@@ -1,5 +1,13 @@
 # Applications
 
+## PyTorch 1.13, 9.12.2022
+
+PyTorch 1.13.0 is now available in the `pytorch/1.13` module on Puhti
+and Mahti, and has been set as the default version. See the [PyTorch
+1.13 release blog
+post](https://pytorch.org/blog/PyTorch-1.13-release/), and [CSC's
+PyTorch module documentation](../../apps/pytorch.md).
+
 ## Amber22 installed on Puhti, 16.11.2022
 
 [Amber](../../apps/amber.md) version 22 has been installed on Puhti and set as the default
