@@ -30,7 +30,8 @@ Currently supported PyTorch versions:
 
 | Version | Module         | Puhti | Mahti | Notes           |
 |:--------|----------------|:-----:|:-----:|:----------------|
-| 1.12.0  | `pytorch/1.12` | X     | X     | default version |
+| 1.13.0  | `pytorch/1.13` | X     | X     | default version |
+| 1.12.0  | `pytorch/1.12` | X     | X     |                 |
 | 1.11.0  | `pytorch/1.11` | X     | X     |                 |
 | 1.10.0  | `pytorch/1.10` | (x)   | (x)   |                 |
 | 1.9.0   | `pytorch/1.9`  | (x)   | (x)   |                 |
@@ -88,7 +89,7 @@ to access the default version, or if you wish to have a specific version ([see
 above for available versions](#available)):
 
 ```text
-module load pytorch/1.12
+module load pytorch/1.13
 ```
 
 Please note that the module already includes CUDA and cuDNN libraries,
@@ -130,7 +131,7 @@ a single node:
     #SBATCH --time=1:00:00
     #SBATCH --gres=gpu:v100:1
         
-    module load pytorch/1.12
+    module load pytorch/1.13
     srun python3 myprog.py <options>
     ```
 
@@ -144,7 +145,7 @@ a single node:
     #SBATCH --time=1:00:00
     #SBATCH --gres=gpu:a100:1
     
-    module load pytorch/1.11
+    module load pytorch/1.13
     srun python3 myprog.py <options>
     ```
 
