@@ -1,11 +1,11 @@
 # Accessing Kvasi
 
-You first need a CSC userid for Puhti. If you do not have one, check out the
+You first need a CSC userid. If you do not have one, check out the
 [How to get started as a new user at CSC?](../../../support/faq/how-to-get-started-at-CSC.md) FAQ.
 
 In order to access Kvasi, your CSC userid needs to part of the `kvasi-users` group. Send a mail to servicedesk@csc.fi and ask to be added to the **kvasi-users** group.
 
-When you have been added, you can use SSH to login to kvasi.csc.fi directly. (Before August 2020, one had to go from/via Puhti, but not anymore)
+When you have been added, you can use SSH to login to kvasi.csc.fi directly.
 
 ## Setting up an SSH tunnel for the Jupyter web interface
 
@@ -13,7 +13,7 @@ In order to use the Jupyter notebook environment, you need to set up an SSH tunn
 
 1. Login to Kvasi with SSH:
     * `ssh <userid>@kvasi.csc.fi`
-2. Start the Jupyter server: `./qlm_notebooks/launch_qlm_notebooks`. This will give you two values:
+2. Start the Jupyter server: `./launch_qlm_notebooks`. This will give you two values:
     * The Jupyter port number. It will be `8888`, or higher
     * The token for accessing the web interface (a string of letters and numbers)
     * Example output:
@@ -42,6 +42,8 @@ to Kvasi, with two main options to explore:
     * **The manual** (to the left)
     * **The Jupyter notebook environment** with examples (to the right)
 
+This will launch the most up-to-date version of Kvasi notebooks (1.7.1). Previous versions of the notebooks can be found under `~/qlm_notebooks/notebooks_1.5.1`.
+
 
 ## myQLM
 
@@ -57,6 +59,7 @@ Training material related to previous course can be found under the Folder **Cou
 
 ## Links
 
+* [QLM Product Documentation](https://qlm.bull.com/)
 * [Webinar: Quantum Computing and Programming in Two Hours (2021)](https://youtu.be/whoTr3zM3jU)
 * [Webinar: Kvanttilaskentaa ja -ohjelmointia kahdessa tunnissa (2021)](https://youtu.be/EnDKcCAjRtg)
 * [Webinar: What is Quantum Computing? (2019)](https://www.csc.fi/web/training/-/quantum-computing)
@@ -64,4 +67,4 @@ Training material related to previous course can be found under the Folder **Cou
 * [The Quantum Learning Machine at atos.net](https://atos.net/en/solutions/quantum-learning-machine)
 
 ---
-Latest update: 27 Nov 2020
+Latest update: 12 Dec 2022

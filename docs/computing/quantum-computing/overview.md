@@ -26,6 +26,9 @@ For further reading:
 
 ## Kvasi
 
+!!! success "Kvasi updated to QLM 1.7"
+    Kvasi has been updated to QLM 1.7. Documentation can be viewed [here](https://qlm.bull.com/) 
+
 **The Quantum Learning Machine**
 
 Kvasi is an advanced quantum computer simulator/emulator. With Kvasi, the user can explore and develop algorithms 
