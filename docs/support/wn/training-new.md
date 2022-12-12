@@ -1,6 +1,6 @@
 # Training & tutorials
 
-## Training materials and sources from CSC and partners, 2.12.2022
+## Training materials and sources from CSC and partners, 12.12.2022
 
 Check out this [concise table of training materials](../training-material.md#training-materials-and-sources-from-csc-and-partners)
 available from us and our partners on many topics related to doing science
