@@ -1,6 +1,7 @@
 <div style="margin-bottom: 2rem;">
     <img
       src="assets/images/logo.png"
+      alt="CSC logo"
       style="
         float: left;
         height: 62px;

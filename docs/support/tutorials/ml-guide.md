@@ -3,12 +3,6 @@
 This guide aims to help users who wish to do machine learning using CSC's
 computing resources.
 
-!!! info "News"
-
-    CSC/PRACE course: [Practical Deep Learning](https://ssl.eventilla.com/event/aqew6) on 24-25 Nov, 2022.
-    **Registration closes Nov 15!**
-
-
 ## Machine learning guide subsections
 
 In addition to this page, this guide contains the following subsections:
@@ -65,8 +59,6 @@ New users may in particular be interested in [Puhti's web
 interface](https://docs.csc.fi/computing/webinterface/), which can be accessed
 at [www.puhti.csc.fi](https://www.puhti.csc.fi). Via the web interface, one can
 easily launch for example a Jupyter Notebook session with TensorFlow or PyTorch.
-Please note that Puhti's web interface is still in a beta stage and being
-continuously improved.
 
 Also check the subsections related to [efficient GPU utilization](gpu-ml.md),
 [how to work with big data sets](ml-data.md), and [multi-GPU and multi-node

@@ -21,8 +21,8 @@ Free to use and open source under [MIT License](https://github.com/It4innovation
 
 ## Available
 
-* Puhti: 0.11.0
-* Mahti: 0.11-dev
+* Puhti: 0.11.0, 0.13.0
+* Mahti: 0.11-dev, 0.13.0
 
 ## Usage
 

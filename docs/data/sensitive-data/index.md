@@ -19,10 +19,9 @@ This guide, in CSC Docs, introduces CSC's Sensitive Data (SD) services. To navig
   
 ## [Store and share with SD Connect](./sd_connect.md)
    
+   * [**Overview**](./sd_connect.md#overview)
 
   * [**Key features**](./sd_connect.md)
-  
-  * [**Overview**](./sd_connect.md#overview)
   
   * [**Authentication**](./sd_connect.md#authentication)
 
@@ -54,10 +53,9 @@ This guide, in CSC Docs, introduces CSC's Sensitive Data (SD) services. To navig
 
 ## [Analyse and compute with SD Desktop](./sd_desktop.md)
 
+  * [**Overview**](./sd_desktop.md#overview) 
 
   * [**Key features**](./sd_desktop.md)
-  
-  * [**Overview**](./sd_desktop.md#overview) 
   
   * [**Authentication**](./sd_desktop.md#authentication) 
 
@@ -79,7 +77,7 @@ This guide, in CSC Docs, introduces CSC's Sensitive Data (SD) services. To navig
   
   
 ## [SD Desktop for secondary use of health and social data](./sd-desktop-audited.md)
-Access to this service requires a Findata permit.
+Access to this service requires a Findata permit. There are also [instructions](./single-register-submission.md) for single registers to submit secondary use data for research use in SD services.
   
   * [**Key features**](./sd-desktop-audited.md#key-features)
 

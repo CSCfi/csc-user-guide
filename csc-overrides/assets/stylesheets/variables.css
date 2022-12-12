@@ -34,6 +34,9 @@
     --csc-turqoise: #50978D;
     --csc-mint: #CCF4F0;
 
+    /* A darker mid grey to achieve a >4.5 contrast ratio with white, in accordance with WCAG. */
+    --csc-mid-grey--wcag: rgb(118, 118, 118);
+
     /* ...and some more: */
     --csc-header-height: 71px;
     --csc-content-width: 48rem;
