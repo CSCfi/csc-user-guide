@@ -201,8 +201,9 @@ to take place. If you are happy with purging all of the files that were listed i
 
 !!! warning-label
     **The commands in this section will delete your files!** Be sure that you have reviewed the
-    list of files to remove, and that you have backed up the files you wish to save outside of the
-    cluster prior to running them. This operation is irreversible.
+    list of files to remove carefully! Also make sure that you have backed up the files you
+    wish to save (outside the cluster) prior to running the commands. This operation is
+    irreversible.
 
 !!! Note
     The deletion process may take a considerable amount of time (several hours, depending on the
