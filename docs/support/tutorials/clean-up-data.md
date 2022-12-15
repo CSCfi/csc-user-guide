@@ -65,11 +65,18 @@ of automatic removal is implemented in Puhti. All files that have not been acces
 will be deleted on July 1, 2022. 
 
 Files that will be deleted in the next clean up are listed in so called "purge lists" files.
-These are split up by project, and can be found on Lustre at the locations below. Only members 
-of the project groups can access the project directories.
+These are split up by project, and can be found on Lustre at one of the locations below.
+Only members of the project groups can access the project directories.
+If your project is newly created, your project might not yet have its own subdirectory in
+the `purge_lists` directory, in which case it won't participate in the automatic cleaning.
 
 * `/scratch/purge_lists/<PROJECT NAME>/path_summary.txt`
-* `/fmi/scratch/purge_lists/<PROJECT NAME>/path_summary.txt` (only on Puhti)
+* `/fmi/scratch/purge_lists/<PROJECT NAME>/path_summary.txt` (only on Puhti, for FMI projects)
+
+In case the `path_summary.txt` file does not exist, your project did not have any files that matched
+the clean-up criteria, and thus nothing will be deleted from it. To indicate that the file is
+intentionally missing, CSC will place a file named `nothing-to-remove-for-your-project` in your
+project's purge_lists subdirectory, so check for the existence of this file as well.
 
 The file system tools which CSC uses to generate the list of files to remove will output files
 which are quite verbose and difficult to read. By using the LCleaner tool described in the next section, 
@@ -84,6 +91,51 @@ Run `lcleaner --help` on the login nodes to see what options LCleaner supports.
 
 ### LCleaner examples
 
+#### Check if your project has a path_summary.txt file
+
+The first thing to check, is whether your project indeed has a `path_summary.txt` file.
+All projects don't automatically have one, only the ones which have something to clean up.
+
+```bash
+# Check if your project has a path_summary.txt file
+my_project="project_2001659" # Replace with your own project name
+ls "/scratch/purge_lists/${my_project:?}/"
+# Or if you are in an FMI project on Puhti:
+ls "/fmi/scratch/purge_lists/${my_project:?}/"
+```
+
+If you see a `path_summary.txt` file in the directory, read ahead to discover what files
+are on the list. However, if you find a file named `nothing-to-remove-for-your-project`,
+your project doesn't have anything that will be automatically removed.
+
+If you want a quick, copy-pasteable solution, use the small script below:
+
+```bash
+# Check all of the projects you belong to in one go:
+
+for g in $(/usr/bin/groups) ; do
+  if [ -d "/scratch/$g" ]; then
+    dir="/scratch/purge_lists/$g" ;
+  elif [ -d "/fmi/scratch/$g" ]; then
+    dir="/fmi/scratch/purge_lists/$g";
+  else
+    continue;
+  fi ;
+  echo -n "- Project '$g': ";
+  if [ ! -d "${dir:?}" ]; then
+    echo "doesn't have a purge_lists subdirectory. No files will be removed.";
+    continue;
+  fi ;
+  if [ -f "${dir:?}/path_summary.txt" ]; then
+    echo "has files that will be removed." ;
+  elif [ -f "${dir:?}/nothing-to-remove-for-your-project" ]; then
+    echo "is not included in the automatic cleaning.";
+  else
+    echo "is unclear, based on this script. Check with Service desk what to do.";
+  fi ;
+done
+```
+
 #### List your files
 
 To get a simple list of all file paths in your purge list, simply give the `path_summary.txt` file
@@ -91,8 +143,7 @@ path as an argument:
 
 ```bash
 # List all files in your purge list:
-my_project="project_2001659" # Replace with your own project name
-lcleaner /scratch/purge_lists/${my_project}/path_summary.txt
+lcleaner "/scratch/purge_lists/${my_project:?}/path_summary.txt"
 ```
 
 If your `path_summary.txt` is big (over 100 MB in size), it may take some time to execute the tool.
@@ -100,10 +151,10 @@ You can save time and resources by saving the result into an output file:
 
 ```bash
 # List all files in your purge list into an output file in your home folder:
-lcleaner --out-file ~/purge_list /scratch/purge_lists/${my_project}/path_summary.txt
+lcleaner --out-file ~/purge_list "/scratch/purge_lists/${my_project:?}/path_summary.txt"
 
 # Alternatively, you can redirect the standard output with the bash shell:
-lcleaner /scratch/purge_lists/${my_project}/path_summary.txt > ~/purge_list
+lcleaner "/scratch/purge_lists/${my_project:?}/path_summary.txt" > ~/purge_list
 
 # Check the output with less, or your preferred text editor
 less ~/purge_list
@@ -116,9 +167,9 @@ somewhere, using the commands above, you can use that file.
 ```bash
 # Search for directories to check if they are included in the purge list
 my_project="project_2001659" # Replace with your own project name!
-grep "/scratch/$my_project/important-dir" /scratch/purge_lists/$my_project/path_summary.txt
+grep "/scratch/${my_project:?}/important-dir" "/scratch/purge_lists/${my_project:?}/path_summary.txt"
 # Or search the purge_list if you saved it:
-grep "/scratch/$my_project/important-dir" ~/purge_list
+grep "/scratch/${my_project:?}/important-dir" ~/purge_list
 
 # If there are no matches, grep will not print anything.
 ```
@@ -133,13 +184,13 @@ where `N` is the number of lines you want to see.
 
 ```bash
 # Print the file paths to be purged in size order:
-lcleaner --sort-by-size /scratch/purge_lists/${my_project}/path_summary.txt
+lcleaner --sort-by-size "/scratch/purge_lists/${my_project:?}/path_summary.txt"
 
 # Print the 10 biggest files:
-lcleaner --sort-by-size --limit 10 /scratch/purge_lists/${my_project}/path_summary.txt
+lcleaner --sort-by-size --limit 10 "/scratch/purge_lists/${my_project:?}/path_summary.txt"
 
 # Print the 10 biggest files, and their sizes in bytes:
-lcleaner --sort-by-size --limit 10 --csv /scratch/purge_lists/${my_project}/path_summary.txt
+lcleaner --sort-by-size --limit 10 --csv "/scratch/purge_lists/${my_project:?}/path_summary.txt"
 ```
 
 #### Delete your purge list files
@@ -148,10 +199,11 @@ We encourage you to delete the files you do not need, instead of waiting for the
 to take place. If you are happy with purging all of the files that were listed in the
 `path_summary.txt` file, you can run the following command:
 
-!!! Note
+!!! warning-label
     **The commands in this section will delete your files!** Be sure that you have reviewed the
-    list of files to remove, and that you have backed up the files you wish to save outside of the
-    cluster prior to running them. This operation is irreversible.
+    list of files to remove carefully! Also make sure that you have backed up the files you
+    wish to save (outside the cluster) prior to running the commands. This operation is
+    irreversible.
 
 !!! Note
     The deletion process may take a considerable amount of time (several hours, depending on the
@@ -175,7 +227,7 @@ example use a command like this:
 
 ```bash
 # Delete only files on the list which are inside /scratch/$my_project/delete-this-dir/
-screen lcleaner -0 /path/to/my/path_summary.txt | grep -zZ "/scratch/$my_project/delete-this-dir/" | xargs -0 -n 50 rm -vf --
+screen lcleaner -0 /path/to/my/path_summary.txt | grep -zZ "/scratch/${my_project:?}/delete-this-dir/" | xargs -0 -n 50 rm -vf --
 # Ctrl + a, d to detach from the screen.
 ```
 
@@ -190,22 +242,22 @@ which may be useful to avoid problems with whitespace in the file paths.
 ```bash
 # Print your purge list as CSV output with file paths and sizes.
 # Note that the CSV format also prints a header row.
-lcleaner --csv /scratch/purge_lists/${my_project}/path_summary.txt
+lcleaner --csv "/scratch/purge_lists/${my_project:?}/path_summary.txt"
 
 # Print your purge list as JSON output with file paths and sizes:
-lcleaner --json /scratch/purge_lists/${my_project}/path_summary.txt
+lcleaner --json "/scratch/purge_lists/${my_project:?}/path_summary.txt"
 # TIP: You can pipe the output into the jq program to prettify the output.
 # The dot at the end is a mandatory argument to jq.
-lcleaner --json /scratch/purge_lists/${my_project}/path_summary.txt | jq .
+lcleaner --json "/scratch/purge_lists/${my_project:?}/path_summary.txt" | jq .
 
 # Output both JSON and CSV into purge_list.json and purge_list.csv:
-lcleaner --json --csv --out-file purge_list /scratch/purge_lists/${my_project}/path_summary.txt
+lcleaner --json --csv --out-file purge_list "/scratch/purge_lists/${my_project:?}/path_summary.txt"
 
 # Output file paths separated by null bytes:
-lcleaner -0 /scratch/purge_lists/${my_project}/path_summary.txt
+lcleaner -0 "/scratch/purge_lists/${my_project:?}/path_summary.txt"
 # Usually you will want to pipe null-byte-separated output into "xargs -0" and do some
 # further processing with it. For example like this:
-lcleaner -0 --limit 3 /scratch/purge_lists/${my_project}/path_summary.txt \
+lcleaner -0 --limit 3 "/scratch/purge_lists/${my_project:?}/path_summary.txt" \
   | xargs -0 -Ifilepath echo "I should run: rm -vf 'filepath'"
 ```
 
