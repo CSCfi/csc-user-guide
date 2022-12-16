@@ -507,9 +507,5 @@ but they will be removed at some point in the near future.
 | tb.westmere.32core    | 32 | 488 | 80 (RAID6) | 3250 (RAID6) | 3330 | 15.2 | 200 |
 | tb.westmere.64core    | 64 | 976 | 80 (RAID6) | 6500 (RAID6) | 6580 | 15.2 | 400 |
 
-  [CSC computing environment articles]: https://research.csc.fi/computing
   [command line instructions]: command-line-tools.md
   [TensorFlow]: https://www.tensorflow.org
-  [Optimization service]: https://research.csc.fi/optimization-service
-  [Terms of Use]: https://research.csc.fi/pouta-user-policy
-  [https://research.csc.fi/pouta-adding-images]: 
