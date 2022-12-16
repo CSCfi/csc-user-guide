@@ -214,7 +214,7 @@ These are the available commands at the moment
 | openstack database quota show 			| Only admins 	||
 | openstack database quota update 			| Only admins 	||
 | openstack database root disable 			| Supported 	||
-| openstack database root enable 			| Not recommended |	It is not recommended to enable root you might break the DBaaS integration|
+| openstack database root enable 			| Supported 	|	For most cases root enable is not necessary but if you want to do advanced permission configuration it is probably necessary. |
 | openstack database root show 				| Supported 	||
 | openstack database user create 			| Supported 	||
 | openstack database user delete 			| Supported 	||

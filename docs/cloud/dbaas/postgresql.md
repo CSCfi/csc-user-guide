@@ -18,7 +18,7 @@ The most common issues when accessing the database from the CLI are the followin
 3. Now you should be able to use the database.
 
 ## How is DBaaS PostgreSQL different from an normal PostgreSQL
-There are a couple difference from installing PostgreSQL yourself and using DBaaS. Even if you can get admin permission of the database it is not recommend. It is recommend to manage the users and database access from the DBaaS interface. By following these guidelines you have lower risks for shooting yourself in the foot. There is an `openstack database root enable` command, this can be useful in an education environment if a teacher want all the students to get admin permissions in their database but by doing so the DBaaS-admin team will not help with any troubleshooting if you get troubles with your database instances.
+There are a couple difference from installing PostgreSQL yourself and using DBaaS. Even if you can get admin permission of the database it is not recommend. It is recommend to manage the users and database access from the DBaaS interface. By following these guidelines you have lower risks for shooting yourself in the foot. There is an `openstack database root enable` command, this can be useful in an education environment if a teacher want all the students to get admin permissions in their database.
 
 ## Some useful commands
 
