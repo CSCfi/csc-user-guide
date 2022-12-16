@@ -116,10 +116,14 @@ hq submit --array 1-10 --cpus <n> <COMMAND>
 to enumerate all the tasks.
 
 !!! info "sbatch-hq"
-    For very simple submissions where you only want to run each line within a file with
-    identical resources (task farming) you can just use the CSC utility tool `sbatch-hq`.
-    This way you do not have to care about HyperQueue. Run `module load sbatch-hq` to load
-    the wrapper (only available on Mahti).
+    For simple task farming workflows, where you only want to run similar (non-MPI parallel, independent)
+    commands/programs, you can use the CSC utility tool `sbatch-hq`. Just specify the list of commands to run
+    in a file, one command per line. The tool `sbatch-hq` will create and launch a batch job, that starts running
+    commands from the file using Hyperqueue. You can specify how many nodes you want to be running the
+    commands, and `sbatch-hq` keeps executing the commands until all are done, or the batch job time limit
+    is reached. The number of commands in the file can (usually should) be much larger than the number of
+    commands that can fit running simultaneously in the reserved nodes. Run `module load sbatch-hq` to load
+    the wrapper, and check the usage details with `sbatch-hq -h`.
 
 When we have submitted everything we want, we need to wait for the jobs to finish.
 This can be done e.g. with:
