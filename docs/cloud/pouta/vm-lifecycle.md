@@ -64,7 +64,9 @@ similar to shutting down your personal computer and relocating it somewhere
 new. This frees up all reserved computing resources. 
 However, the state of all other associated resources is saved, for
 example the file system, floating IPs, network configuration etc. in our
-central storage. Shelving works best for the standard flavors that are
+central storage. From resource quota perspective shelving doesn’t free up 
+used resources, but those resources aren’t included in billing calculations.
+Shelving works best for the standard flavors that are
 already backed by our central storage service. Shelving can be slow
 for flavors that are using local storage, especially bigger flavors
 since the data needs to be copied between the local and 
