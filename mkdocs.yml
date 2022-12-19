@@ -213,7 +213,7 @@ nav:
         - Pouta Accounting Principles and Quotas: cloud/pouta/accounting.md
         - Virtual machine flavors and Billing Unit rates: cloud/pouta/vm-flavors-and-billing.md
         - Getting started with Pouta:
-            - Launching a virtual machine with the cPouta web interface: cloud/pouta/launch-vm-from-web-gui.md
+            - Creating a virtual machine in Pouta: cloud/pouta/launch-vm-from-web-gui.md
             - Connecting to your virtual machine: cloud/pouta/connecting-to-vm.md
             - Install command line tools: cloud/pouta/install-client.md
             - Command line client tools: cloud/pouta/command-line-tools.md
