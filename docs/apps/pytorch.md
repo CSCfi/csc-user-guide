@@ -8,7 +8,6 @@ tags:
 Machine learning framework for Python.
 
 !!! info "News"
-
     **5.10.2022** Due to Puhti's update to Red Hat Enterprise Linux 8
     (RHEL8), **the number of fully supported PyTorch versions has been
     reduced. Previously deprecated conda-based versions have been
@@ -28,15 +27,15 @@ Machine learning framework for Python.
 
 Currently supported PyTorch versions:
 
-| Version | Module         | Puhti | Mahti | Notes           |
-|:--------|----------------|:-----:|:-----:|:----------------|
-| 1.13.0  | `pytorch/1.13` | X     | X     | default version |
-| 1.12.0  | `pytorch/1.12` | X     | X     |                 |
-| 1.11.0  | `pytorch/1.11` | X     | X     |                 |
-| 1.10.0  | `pytorch/1.10` | (x)   | (x)   |                 |
-| 1.9.0   | `pytorch/1.9`  | (x)   | (x)   |                 |
-| 1.8.1   | `pytorch/1.8`  | (x)   | (x)   |                 |
-| 1.7.1   | `pytorch/1.7`  | (x)   | -     |                 |
+| Version | Module         | Puhti | Mahti | LUMI | Notes           |
+|:--------|----------------|:-----:|:-----:|------|:----------------|
+| 1.13.0  | `pytorch/1.13` | X     | X     | -    | default version |
+| 1.12.0  | `pytorch/1.12` | X     | X     | X*   |                 |
+| 1.11.0  | `pytorch/1.11` | X     | X     | -    |                 |
+| 1.10.0  | `pytorch/1.10` | (x)   | (x)   | -    |                 |
+| 1.9.0   | `pytorch/1.9`  | (x)   | (x)   | -    |                 |
+| 1.8.1   | `pytorch/1.8`  | (x)   | (x)   | -    |                 |
+| 1.7.1   | `pytorch/1.7`  | (x)   | -     | -    |                 |
 
 All modules include [PyTorch](https://pytorch.org/) and related libraries with
 GPU support via CUDA.
@@ -46,6 +45,10 @@ Versions marked with "(x)" are based on old Red Hat Enterprise Linux 7
 and Horovod are not expected to work anymore with these modules. If
 you still wish to access these versions, you need to enable old RHEL7
 modules by `module use /appl/soft/ai/rhel7/modulefiles/`.
+
+Versions in LUMI, marked as "X*" are still experimental with limited
+support. They are still subject to change at any time without notice,
+and for example multi-node jobs are know not to work properly yet.
 
 If you find that some package is missing, you can often install it yourself with
 `pip install --user`. See [our Python
@@ -79,14 +82,27 @@ file](https://github.com/pytorch/pytorch/blob/master/LICENSE).
 
 ## Usage
 
-To use this software on Puhti or Mahti, initialize it with:
+To use the default version of PyTorch on Puhti or Mahti, initialize it
+with:
 
 ```text
 module load pytorch
 ```
 
-to access the default version, or if you wish to have a specific version ([see
-above for available versions](#available)):
+To access PyTorch on LUMI:
+
+```text
+module use /appl/local/csc/soft/ai/modulefiles/
+module load pytorch
+```
+
+Note that LUMI versions are still considered experimental with limited
+support. They are still subject to change at any time without notice,
+and for example multi-node jobs are know not to work properly yet.
+
+
+If you wish to have a specific version ([see above for available
+versions](#available)), use:
 
 ```text
 module load pytorch/1.13
@@ -117,8 +133,8 @@ list-packages
 
 ### Example batch script
 
-Example batch script for reserving one GPU and 1/4 of the available CPU cores in
-a single node:
+Example batch script for reserving one GPU and a corresponding
+proportion of the available CPU cores in a single node:
 
 === "Puhti"
     ```bash
@@ -146,6 +162,22 @@ a single node:
     #SBATCH --gres=gpu:a100:1
     
     module load pytorch/1.13
+    srun python3 myprog.py <options>
+    ```
+
+=== "LUMI"
+    ```bash
+    #!/bin/bash
+    #SBATCH --account=<project>
+    #SBATCH --partition=eap
+    #SBATCH --ntasks=1
+    #SBATCH --cpus-per-task=8
+    #SBATCH --gpus-per-task=1
+    #SBATCH --mem=64G
+    #SBATCH --time=1:00:00
+    
+    module use /appl/local/csc/soft/ai/modulefiles/
+    module load pytorch/1.12
     srun python3 myprog.py <options>
     ```
 
