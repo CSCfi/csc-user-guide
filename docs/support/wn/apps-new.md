@@ -1,5 +1,12 @@
 # Applications
 
+## sbatch-hq, 19.12.2022
+
+A wrapper for HyperQueue called `sbatch-hq` has been created to enable easy and efficient
+task farming, *i.e.* high-throughput computing workflows where the intention is to run many
+similar (non-MPI parallel, independent) commands/programs. [See the HyperQueue page for more
+details](../../apps/hyperqueue.md#sbatch-hq).
+
 ## PyTorch 1.13, 9.12.2022
 
 PyTorch 1.13.0 is now available in the `pytorch/1.13` module on Puhti
@@ -57,20 +64,19 @@ Coinciding with the Red Hat 8 update of Puhti, a new [Python Data](../../apps/py
 ## `r-env-singularity` renamed to `r-env` and update to R 4.2.1 coinciding with RHEL8 update, 14.9.2022
 
 Following the RHEL8 update on Puhti, the `r-env-singularity` module has been renamed to [`r-env`](../../apps/r-env.md).
-The R version has been updated to 4.2.1, along with several other version updates for installations included in the module. 
+The R version has been updated to 4.2.1, along with several other version updates for installations included in the module.
 Due to the RHEL8 update requiring modifications to the `r-env` module setup, older R versions are currently unavailable.
 
 ## Discovery Studio and Material Studio license discontinued in 2023, 25.8.2022
 
-CSC has beed provinging a national academic license for [Discovery Studio](../../apps/discovery-studio.md)
+CSC has beed providing a national academic license for [Discovery Studio](../../apps/discovery-studio.md)
 and [Materilas Studio](../../apps/materialsstudio.md).
-Due to small usage, and the availability of overlapping tools 
-([Maestro](../../apps/maestro.md)) the licence will be not 
-continued after this year. This means than in 2023 these molecular modeling tools 
-can't be use any more at CSC nor in users own computers. Please contact 
-servicedesk@csc.fi if you need help in moving your moleclular modeling work 
+Due to small usage, and the availability of overlapping tools
+([Maestro](../../apps/maestro.md)) the licence will be not
+continued after this year. This means than in 2023 these molecular modeling tools
+can't be use any more at CSC nor in users own computers. Please contact
+servicedesk@csc.fi if you need help in moving your moleclular modeling work
 to other modeling environments.
-
 
 ## PyTorch 1.12, 8.7.2022
 
