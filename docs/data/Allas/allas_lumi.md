@@ -73,12 +73,12 @@ alias allas-conf="source /project/project_462000007/allas/allas-cli-utils/allas_
 ```
 
 Now the installation is ready. In the future you and your group members need to only 
-run the setup commands decribed below, to enable object storage tools and to open connection to Allas and Lumo-O
+run the setup commands described below, to enable object storage tools and to open connection to Allas and Lumo-O
 
 ## Using Lumi-O and Allas
 
 Once the object storage tools have been installed to the project directory as described above, then 
-opening connection to Allas or Lumi-O requires first setting up the enviroment with command:
+opening connection to Allas or Lumi-O requires first setting up the environment with command:
 
 ```text
 source /project/project_your-project-number/allas/allas_setup.sh
