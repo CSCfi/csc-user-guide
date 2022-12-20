@@ -3,6 +3,7 @@
 ## Puhti web interface updated to release 13, 20.12.2022
 
 * New visual style.
+* A logout page now informs users about how to securely log out of Puhti web interface.
 
 ## Puhti web interface beta updated to release 12, 10.11.2022
 
