@@ -70,23 +70,23 @@ connection setup script _allas_conf_. (remember here too to replace the project 
 ```text
 export PATH=/project/project_462000007/allas/allas-cli-utils:/project/project_462000007/allas/bin:$PATH
 alias allas-conf="source /project/project_462000007/allas/allas-cli-utils/allas_conf"
-``
+```
 
 Now the installation is ready. In the future you and your group members need to only 
 run the setup commands decribed below, to enable object storage tools and to open connection to Allas and Lumo-O
 
-## Opening connection from Lumi to Allas
+## Using Lumi-O and Allas
 
-Once the object storage tools have been installed to the project directory as describe above, then 
+Once the object storage tools have been installed to the project directory as described above, then 
 opening connection to Allas or Lumi-O requires first setting up the enviroment with command:
 
 ```text
 source /project/project_your-project-number/allas/allas_setup.sh
 ```
 
-Now commands like _allas-conf_, _rclone_, _swift_ or _a-put_ should work in the same way as in Puhti and Mahti.
+After this commands like _allas-conf_, _rclone_, _swift_ or _a-put_ should work in the same way as in Puhti and Mahti.
 
-Running command _allas-conf_ starts normal configuration process for swift based connetion to Allas:
+Running command _allas-conf_ starts normal configuration process for a swift based connetion to Allas:
 
 ```text
 allas-conf
@@ -97,11 +97,11 @@ If you want to configure connetion Lumi-O, run command:
 allas-conf --lumi
 ```
 This command asks you to connect with your browser to Lumi-O configuration sever, create credentials there and the copy the project nunber 
-and keys for the setup tool. The setup process for Lumi-O will create environmeny variables, needed for _S3_ command and confuguration files for commands: _s3cmd_ and _rclone_. In addition you can define that a-commands will use by default Lumi-O storage server in stead of Allas. After that commands like _a-lits_, _a-put_ or _a-get_ will use your Lumi-O. If you don't c set Lumi-O as the defauly, you can add option _--lumi_ to a-commend to make use Lumi-O in stead of Allas. 
+and keys for the setup tool. The setup process for Lumi-O will create environment variables needed for _S3_ command and confuguration files for _s3cmd_ and _rclone_. In addition you can define that _a-commands_ will use by default Lumi-O storage server in stead of Allas. After that commands like _a-list_, _a-put_ or _a-get_ will use your Lumi-O storage. If you don't set Lumi-O as the default storage serice, you can add option _--lumi_ to a-commands to use Lumi-O instead of Allas. 
 
-In the case of _rclone_,  Lumi-o configuration provides two _rclone remotes_: _lumi-o:_ and _lumi-pub:_ . The buckets used by _lumi-pub_ will be publicly visible in URL: https://_project-number_.lumidata.eu/_bucket_name_.
+For _rclone_,  Lumi-o configuration provides two _rclone remotes_: _lumi-o:_ and _lumi-pub:_ . The buckets used by _lumi-pub_ will be publicly visible in URL: https://_project-number_.lumidata.eu/_bucket_name_.
 
-Note that you can have active connection to both Lumi-O and Allas in the same time.
+Note, that you can have active connection to both Lumi-O and Allas in the same time.
 
 For example, if you would first open Allas connection with command:
 
@@ -109,7 +109,7 @@ For example, if you would first open Allas connection with command:
 source /project/project_your-project-number/allas/allas_setup.sh
 allas-conf
 ```
-And then open Lumo-O connection with:
+And then open Lumi-O connection with:
 ```text
 allas-conf --lumi
 ```
@@ -135,5 +135,8 @@ rclone lsd allas:
 
 Copying data from Allas to Lumi-O could now be done with command:
 
-rclone copy
+```text
+rclone copyto -P allas:bucket-in-allas/object lumi-o:bucket-in-lumi-o/object
+```
+The command above will work only for files smaller than 5 GB.
 
