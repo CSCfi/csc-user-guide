@@ -46,7 +46,7 @@ Open the file:
 nano allas-cli-utils/a_env_conf
 ```
 
-In this file do following modifications (remember to use your own project number in stead of
+In this file do following modifications (remember to use your own project number instead of
 462000007)
 
 ```text
