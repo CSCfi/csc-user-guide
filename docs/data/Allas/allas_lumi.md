@@ -10,18 +10,18 @@ can be used to access Lumi-O too when it becomes available.
 
 ## Installing Object Storage tools for Allas and Lumi-O
 
-In this example we do the installation to the _/project_ area of a project so that 
+In this example we do the installation to the _/project_ area in Lumi so that 
 all project members can utilize these tools. In this example we use example project _462000007_. 
-Please use your own project number when installing these tools for your own project.
+Please use your own project number when installing these tools for your own use.
 
-Once you have logged in to Lumi, move to the _/project_ disk area of the project and make there a directory called _allas_.
+Once you have logged in to Lumi, move to the _/project_ disk area and make there a directory called _allas_.
 
 ```text
 cd /project/project_462000007
 mkdir allas
 cd allas
 ```
-Then we clone _allas-cli-utils_ repository to this location and continue to the cloned directory:
+Then, clone _allas-cli-utils_ repository to this location and continue to the cloned directory:
  
 ```text
 git clone https://github.com/CSCfi/allas-cli-utils  
