@@ -1,6 +1,6 @@
 # Computing environment
 
-## Puhti web interface beta updated to release 13, 20.12.2022
+## Puhti web interface updated to release 13, 20.12.2022
 
 * New visual style.
 
