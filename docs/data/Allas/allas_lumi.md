@@ -1,4 +1,4 @@
-# Using Allas from LUMI supercomputer
+# Using Allas and Lumi-O from LUMI supercomputer
 
 
 At the moment the LUMI object storage service, LUMI-O, is not yet in use and tools for 
