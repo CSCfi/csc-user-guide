@@ -1,10 +1,10 @@
 # How to open a terminal to a Pod?
 
-In order to open a terminal to a **Running** Pod there are two options:
+In order to open a terminal to a **Running** status Pod there are two options:
 
 ## Using the web interface
 
-1. Login into Rahti's webinterface and navigate to **Applications > Pods**.
+1. Login into Rahti's [webinterface](https://docs.csc.fi/cloud/rahti/usage/getting_started/) and navigate to **Applications > Pods**.
 
 ![Terminal Pod](img/terminalPod1.png)
 
@@ -18,7 +18,7 @@ In order to open a terminal to a **Running** Pod there are two options:
 
 ## Using the command line with `oc`
 
-1. First, get the name of the Pod you want to open the interactive terminal session:
+1. To use the [command line](https://docs.csc.fi/cloud/rahti/usage/cli/) to interract with OpenShift cluster using `oc` client. First, get the name of the Pod you want to open the interactive terminal session:
 
 	```sh
 	$ oc get pods
