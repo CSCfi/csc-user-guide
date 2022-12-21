@@ -18,7 +18,7 @@ In order to open a terminal to a **Running** Pod there are two options:
 
 ## Using the command line with `oc`
 
-1. To use the [command line](https://docs.csc.fi/cloud/rahti/usage/cli/) to interract with OpenShift cluster using `oc` client. First, get the name of the Pod you want to open the interactive terminal session:
+1. To use the [command line](/cloud/rahti/usage/cli/) to interract with OpenShift cluster using `oc` client. First, get the name of the Pod you want to open the interactive terminal session:
 
 	```sh
 	$ oc get pods
