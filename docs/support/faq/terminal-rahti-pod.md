@@ -1,6 +1,6 @@
 # How to open a terminal to a Pod?
 
-In order to open a terminal to a **Running** status Pod there are two options:
+In order to open a terminal to a **Running** Pod there are two options:
 
 ## Using the web interface
 
