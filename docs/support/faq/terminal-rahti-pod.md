@@ -4,7 +4,7 @@ In order to open a terminal to a **Running** Pod there are two options:
 
 ## Using the web interface
 
-1. Login into Rahti's [webinterface](https://docs.csc.fi/cloud/rahti/usage/getting_started/) and navigate to **Applications > Pods**.
+1. Login into Rahti's [webinterface](/cloud/rahti/usage/getting_started/) and navigate to **Applications > Pods**.
 
 ![Terminal Pod](img/terminalPod1.png)
 
