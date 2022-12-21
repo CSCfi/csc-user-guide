@@ -170,7 +170,7 @@ a single node:
     ```bash
     #!/bin/bash
     #SBATCH --account=<project>
-    #SBATCH --partition=eap
+    #SBATCH --partition=small-g
     #SBATCH --ntasks=1
     #SBATCH --cpus-per-task=8
     #SBATCH --gpus-per-task=1
