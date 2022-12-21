@@ -62,9 +62,9 @@ Shelving means shutting down a virtual machine and removing it from the host com
 This frees up the computing resources that were reserved for the virtual machine. 
 However, the state of all other associated resources, for example the file system,
 floating IPs, network configuration, etc., is saved in our central storage. 
+Please note that shelving a virtual machine will **not** reduce the amount of
+resources used by the project, only the billing for that virtual machine will stop.
 
-Shelving a virtual machine will **not** reduce the amount of resources used by
-the project, but the billing for that virtual machine will stop.
 Shelving works best for the standard flavors that are already backed by our 
 central storage service. Shelving can be slow for flavors that are using local storage,
 especially bigger flavors since the data needs to be copied between the local and 
