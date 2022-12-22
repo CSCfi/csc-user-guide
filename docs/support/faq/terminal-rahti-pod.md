@@ -18,7 +18,7 @@ In order to open a terminal to a **Running** Pod there are two options:
 
 ## Using the command line with `oc`
 
-1. First, get the name of the Pod you want to open the interactive terminal session:
+1. First, get the name of the Pod you want to open an interactive terminal session to:
 
 	```sh
 	$ oc get pods
