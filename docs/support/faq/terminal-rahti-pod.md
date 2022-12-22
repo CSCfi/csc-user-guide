@@ -8,7 +8,7 @@ In order to open a terminal to a **Running** Pod there are two options:
 
 ![Terminal Pod](img/terminalPod1.png)
 
-1. Click in any of the Pod names whose status is **Running**.
+1. Click on any of the Pod names whose status is **Running**.
 
 ![Terminal Pod](img/terminalPod2.png)
 
