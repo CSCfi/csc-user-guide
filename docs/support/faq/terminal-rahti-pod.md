@@ -12,7 +12,7 @@ In order to open a terminal to a **Running** Pod there are two options:
 
 ![Terminal Pod](img/terminalPod2.png)
 
-1. Click in the **Terminal** tab to reveal the terminal.
+1. Click on the **Terminal** tab to reveal the terminal.
 
 ![Terminal Pod](img/terminalPod3.png)
 
