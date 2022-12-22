@@ -28,7 +28,7 @@ In order to open a terminal to a **Running** Pod there are two options:
 	django-ex-1-rtbak   1/1       Running     0          2h
 	```
 
-1. We can open a terminal to either `django-ex-1-svwg2` or `django-ex-1-rtbak`.
+1. We see that a terminal to either `django-ex-1-svwg2` or `django-ex-1-rtbak` can be opened.
 
 	```sh
 	oc rsh pod/django-ex-1-rtbak
