@@ -73,7 +73,7 @@
 * [Does Rahti support UDP connections?](rahti-udp.md)
 * [Why my SSH key does not work in Rahti?](ssh-clone.md)
 * [Why Rahti cannot find this docker image?](get-image-format.md)
-
+* [How to open a terminal to a Pod?](terminal-rahti-pod.md)
 
 
 ## Sensitive Data Services for research
