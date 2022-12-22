@@ -173,12 +173,12 @@ proportion of the available CPU cores in a single node:
     #SBATCH --partition=small-g
     #SBATCH --ntasks=1
     #SBATCH --cpus-per-task=8
-    #SBATCH --gpus-per-task=1
+    #SBATCH --gpus-per-node=1
     #SBATCH --mem=64G
     #SBATCH --time=1:00:00
     
     module use /appl/local/csc/soft/ai/modulefiles/
-    module load pytorch/1.12
+    module load pytorch/1.13
     srun python3 myprog.py <options>
     ```
 

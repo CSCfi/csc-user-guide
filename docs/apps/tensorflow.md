@@ -173,7 +173,7 @@ a single node:
     #SBATCH --partition=small-g
     #SBATCH --ntasks=1
     #SBATCH --cpus-per-task=8
-    #SBATCH --gpus-per-task=1
+    #SBATCH --gpus-per-node=1
     #SBATCH --mem=64G
     #SBATCH --time=1:00:00
     
