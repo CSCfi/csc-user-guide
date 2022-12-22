@@ -15,8 +15,8 @@ tags:
     independent) commands/programs, you can use the CSC utility tool `sbatch-hq` to avoid writing
     a batch script for HyperQueue from scratch. [See below for details and an example](#sbatch-hq).
 
-HyperQueue (HQ) is a tool for efficient sub-node task scheduling. Instead of submitting each one of
-your computational tasks using `sbatch` or `srun` you can instead allocate a large resource block
+HyperQueue (HQ) is an efficient sub-node task scheduler. Instead of submitting each one of
+your computational tasks using `sbatch` or `srun` you can just allocate a large resource block
 and then use HyperQueue to submit your tasks. This will be much less stressful for the batch queue
 system and is therefore the recommended way to run your high-throughput computing use cases.
 
