@@ -51,8 +51,8 @@ and Horovod are not expected to work anymore with these modules. If
 you still wish to access these versions, you need to enable old RHEL7
 modules by `module use /appl/soft/ai/rhel7/modulefiles/`.
 
-Versions in LUMI, marked as "X*" are still experimental with limited
-support. They are still subject to change at any time without notice,
+**Versions in LUMI, marked as "X*" are still experimental with limited
+support.** They are still subject to change at any time without notice,
 and for example multi-node jobs are know not to work properly yet.
 
 If you find that some package is missing, you can often install it yourself with
