@@ -174,17 +174,23 @@ the target directory.
 New directories can be created with the command `mkdir`
 ***directory\_name***. For example, the command:
 
+```
     mkdir project1 
+```
 
 Creates a new directory called *project1*. You can use the `ls` command to
 check that the directory was created. Now you can go to this directory
 with the command
 
+```
     cd project1 
+```
 
 You can come back from the *project1* directory using the command
 
+```
     cd .. 
+```
 
 Note the space between `cd` and the dots in the command. One dot (`.`) and
 two dots (`..`) have a special meaning in Linux. One dot (`.`)
@@ -320,41 +326,43 @@ can move forward one line at a time by pressing the *Return key* or one
 screenfull at a time by pressing *Space*. You can exit from the file preview
 by pressing `q`.
 
-The `less` pager program is more advanced than `more`. `Less` can browse 
+The `less` pager program is more advanced than `more`. For example, `less` can browse 
 text also backwards, either one row at a time by pressing `k` or
 one screenfull at a time by pressing `b`. You can also search a text
 string from the document by using slash (`/`) character. For example,
-to locate a string *ABC* from the file in *less* program type `/ABC`
-and the press *Return*. `man` command uses `less` program as its pager.
+to locate the string *ABC* in a file opened with `less`, type `/ABC`
+and the press *Return*. Actually, the `man` command uses `less` as its pager.
 
-Commands `head` and `tail` can be used to see just the
-first or last rows of a file, respectively. By default these commands
-print out 10 lines, but you can change this by giving the number of rows
-to be printed as an option to a `head` or `tail` command. For example,
-to check the 30 last rows of a file called *run1.log* give command:
+The commands `head` and `tail` can be used to see just the
+first and the last rows of a file, respectively. By default, these commands
+print 10 lines, but you can change this by giving the number of rows
+to be printed as an argument to a `head` or `tail` command. For example,
+to check the last 30 rows of a file called *run1.log*, give the command
 
     tail -30 run1.log 
 
-Copying files to a new file or to another directory is done with command
-`cp` (copy). Find below two examples of copy commands:
+Copying files to a new file or to another directory is done using the command
+`cp` (copy). Below you can find two examples of copy commands:
 
 `cp output.dat output_copy.dat`  
 `cp output1.dat output2.dat results/ `
 
 The first command makes a copy of file *output.dat* to a new file called
-*output\_copy.dat*. In the second example the two files: *output1.dat*
+*output\_copy.dat*. In the second example, the files *output1.dat*
 and *output2.dat* are copied to an existing directory called *results*.
-Command `mv` (move) is used to rename or move the files to
+The command `mv` (move) is used to rename or move a file to
 another location. For example:
 
+```
     mv output.dat output_copy.dat
     mv output1.dat output2.dat results/ 
+```
 
-would create the same new files as `cp` sample commands. However in the
-case of `mv` the original files *output.dat*, *output1.dat* and
-*output2.dat*, would be removed from the current working directory.
+would create the same new files as the `cp` example commands. However, in the
+case of `mv`, the original files *output.dat*, *output1.dat* and
+*output2.dat* would be removed from the current working directory.
 
-Files are removed with command `rm file-name`. In the CSC environment, 
+Files are removed using the command `rm filename`. In the CSC environment, 
 the `rm` command used to ask the user to confirm that he/she really wants to remove the
 file:
 
@@ -364,7 +372,7 @@ file:
 You can answer *y* (yes) or *n* (no). Note that this confirmation step
 is not necessary in use in your local Linux environment or currently in Puhti.
 You can skip
-the confirmation query with option `-f`. However you should use this
+the confirmation query using the option `-f`, standing for *force*. However, you should use this
 option with caution as the `rm` command will remove the file immediately
 and permanently.  
 
