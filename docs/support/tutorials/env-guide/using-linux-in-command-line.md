@@ -379,14 +379,14 @@ and permanently.
 ## Special characters
 
 Some characters have special functions in Linux. In the following
-paragraphs we present characters that are used for redirecting standard
-input and output or used as so called *wildcard characters*.
+paragraphs, we present the characters that are used for redirecting standard
+input and output or used as the so-called *wildcard characters*.
 
-The `$` sign, that is used as an indicator of a variable name, `\#`
-mark that is used to place comments and different kind of quotation
-marks are discussed later on in the [linux scripting chapter].
+The `$` sign, that serves as an indicator of a variable name, the `#`
+symbol that is used to place comments, and the different kind of quotation
+marks are discussed later on in the [linux scripting chapter](https://docs.csc.fi/support/tutorials/env-guide/linux-bash-scripts/).
 
-Commonly used special characters
+### Commonly used special characters
 
 | Character    | Function                                                        |
 |--------------|-----------------------------------------------------------------|
@@ -404,55 +404,65 @@ Commonly used special characters
 
 ### Wildcard characters
 
-In Linux, question mark (`?`) and asterisk (`*`) are used as so
-called wildcard characters. They can be used to define arguments that
-match many files or directories. When used in the command arguments, the
+In Linux, a question mark (`?`) and an sterisk (`*`) are used as the so-called 
+wildcard characters. They can be used to define arguments that
+match many files or directories. When given as command arguments, the
 `?` sign is interpreted as *any single character* and `*` sign as *any
-string of characters*. For example command:
+string of characters*. For example,
 
     ls test?.input 
 
-Would produce a list of files that has a name: test*any
-character*.input. Thus files with names *testA.input* and *test4.input*
-would be listed, but file names like *test10.input* or *testOld.input*
-would be ignored. Instead, command:
+would produce a list of files that has a name: test*character*.input. 
+Thus, the files with names *testA.input* and *test4.input*
+would be listed, but filenames like *test10.input* or *testOld.input*
+would be ignored. Instead, the command
 
     ls test*.input 
 
 would list all of the files mentioned above as `*` matches any string.
-Now the only limitations would be that the command must start with
+Here, the only limitations would be that the command must start with the
 string *test* and end with string *.input*.
 
 ### Redirecting standard input and output
 
-Characters less than (`<`), greater than (`>`), `>>`
-and pipe (`|`) are used to control the standard input and output. The
-less than (`<`) instructs the command to read data for standard input
-from a file defined after that &lt; character instead of the keyboard.
+The characters *less than* (`<`), *greater than* (`>`), `>>`
+and *pipe* (`|`) are used to control the standard input and output. The
+*less than* symbol (`<`) instructs the command to read data 
+from a file defined after that &lt; character instead of reading from the keyboard.
 
-The greater than character ('>') would direct the standard output of to
-a new file instead of the display. For example command:
+The *greater than* character ('>') would redirect the output of a command to
+a new file instead of the display (standard output). For example, the command
 
 `ls test*.input > input_files `
 
 would produce a new file called *input\_files* that would contain the
-names of files that start with string *test* and end with *.input*.
-Using two greater than signs with no space between them (`>>`)
+names of files that start with the string *test* and end with *.input*.
+Using two *greater than* signs with no space between them (`>>`)
 would append the results of a command to the end of an existing file or,
-if the file does not yet exist, direct the output to a new file.
+if the file does not exist yet, direct the output to a new file with the specified filename.
 
-The pipe character (`|`) directs the standard output of the command
-to the standard input of the next command. With this function you can
-combine several linux commands into a command chain. For example if your
+The pipe character (`|`) redirects the output of the command
+as input for the next command. In this way, you can
+combine several Linux commands into a command chain. For example, if your
 file listing does not fit to one screen, you could redirect it to `less`
-command so that you can study and browse it one screenfull at a time.
-This kind of redirecting could be done with command:
+so that you can browse it one screenfull at a time.
+This kind of redirecting could be done like this:
 
+```
     ls -l | less 
+```
 
-As another example, we could use `grep` command as a post processor for
-`ls` command and pick for example those files that have been created on
-August 14th :
+As another example, we could use the `grep` command as a postprocessor for
+the output of the `ls` command and pick, e.g., those files that have been created on
+August 14th:
 
+```
     ls -l | grep "Aug 14"
+```
 
+## Further practice
+
+We recommend that you look up examples of the practical usage of Linux commands
+online. There are lots of resources showing efficient use of the toolset that
+comes with Linux, so that you can save your time and produce neat results
+faster. 
