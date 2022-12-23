@@ -5,13 +5,18 @@ tags:
 
 # HyperQueue
 
-!!!warning "Autoallocation"
+!!! warning "Autoallocation"
     The autoallocation feature available in HQ is still under development and buggy, don't use it
     as it's very likely that the job queue will be filled with idling workers which just waste
     resources.
 
-HyperQueue (HQ) is a tool for efficient sub-node task scheduling. Instead of submitting each one of
-your computational tasks using `sbatch` or `srun` you can instead allocate a large resource block
+!!! info "sbatch-hq"
+    For simple task farming workflows, where the intention is to run many similar (non-MPI parallel,
+    independent) commands/programs, you can use the CSC utility tool `sbatch-hq` to avoid writing
+    a batch script for HyperQueue from scratch. [See below for details and an example](#sbatch-hq).
+
+HyperQueue (HQ) is an efficient sub-node task scheduler. Instead of submitting each one of
+your computational tasks using `sbatch` or `srun` you can just allocate a large resource block
 and then use HyperQueue to submit your tasks. This will be much less stressful for the batch queue
 system and is therefore the recommended way to run your high-throughput computing use cases.
 
@@ -115,12 +120,6 @@ hq submit --array 1-10 --cpus <n> <COMMAND>
 `<COMMAND>` then has access to the environment variable `HQ_TASK_ID` which is used
 to enumerate all the tasks.
 
-!!! info "sbatch-hq"
-    For very simple submissions where you only want to run each line within a file with
-    identical resources (task farming) you can just use the CSC utility tool `sbatch-hq`.
-    This way you do not have to care about HyperQueue. Run `module load sbatch-hq` to load
-    the wrapper (only available on Mahti).
-
 When we have submitted everything we want, we need to wait for the jobs to finish.
 This can be done e.g. with:
 
@@ -138,6 +137,32 @@ error from Slurm when the job ends:
 hq worker stop all
 hq server stop
 ```
+
+#### sbatch-hq
+
+For simple task farming workflows, where you only want to run many similar (non-MPI parallel,
+independent) commands/programs, you can use the CSC utility tool `sbatch-hq`. Just specify the
+list of commands to run in a file, one command per line. The tool `sbatch-hq` will create and
+launch a batch job that starts running commands from the file using HyperQueue. You can specify
+how many nodes you want to run the commands on and `sbatch-hq` will keep executing the commands
+until all are done, or the batch job time limit is reached.
+
+!!! info "Note"
+    Do not include `srun` in the commands you want to run. HyperQueue will take care of
+    launching the tasks using the allocated resources as requested.
+
+Let's assume we are working on Mahti and we have a file named `commandlist` with a list of commands
+that we want to run using 16 threads each. As an example, let's reserve 2 nodes so that we can run
+16 tasks simultaneously:
+
+```bash
+module load sbatch-hq
+sbatch-hq --cores=16 --nodes=2 --account=<project> --partition=medium --time=02:00:00 commandlist
+```
+
+The number of commands in the file can (usually should) be much larger than the number of commands
+that can fit running simultaneously in the reserved nodes. See `sbatch-hq --help` for more details
+on usage and input options.
 
 ### Full example
 
