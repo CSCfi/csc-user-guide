@@ -102,7 +102,7 @@ nav:
      - Multi-factor Authentication: accounts/mfa.md
      - FMI: accounts/fmi.md
   - Computing:
-     - Overview: computing/overview.md
+     - Overview: computing/index.md
      - Usage policy: computing/usage-policy.md
      - Systems:
         - Available systems: computing/available-systems.md
@@ -116,7 +116,7 @@ nav:
         - Allas object storage: computing/allas.md
      - Module environment: computing/modules.md
      - Running jobs:
-        - Getting started: computing/running/getting-started.md
+        - Getting started: computing/running/index.md
         - Create Puhti batch jobs: computing/running/creating-job-scripts-puhti.md
         - Puhti example scripts: computing/running/example-job-scripts-puhti.md
         - Create Mahti batch jobs: computing/running/creating-job-scripts-mahti.md
@@ -134,7 +134,7 @@ nav:
      - Debugging: computing/debugging.md
      - Performance analysis: computing/performance.md
      - Containers:
-        - Overview: computing/containers/overview.md
+        - Overview: computing/containers/index.md
         - Running containers: computing/containers/run-existing.md
         - Creating containers: computing/containers/creating.md
         - Container wrapper (Tykky): computing/containers/tykky.md
@@ -150,19 +150,19 @@ nav:
          - TensorBoard: computing/webinterface/tensorboard.md
          - Visual Studio Code: computing/webinterface/vscode.md
      - Quantum computing:
-       - Overview: computing/quantum-computing/overview.md
+       - Overview: computing/quantum-computing/index.md
        - Kvasi QLM:
-           - Accessing Kvasi: computing/quantum-computing/kvasi/kvasi.md
+           - Accessing Kvasi: computing/quantum-computing/kvasi/index.md
            - Kvasi Billing: computing/quantum-computing/kvasi/kvasi-billing.md
        - Helmi:
-           - Helmi projects: computing/quantum-computing/helmi/helmi-projects.md
+           - Helmi projects: computing/quantum-computing/helmi/index.md
            - Access Helmi through LUMI: computing/quantum-computing/helmi/helmi-from-lumi.md
            - First quantum job: computing/quantum-computing/helmi/first-quantum-job.md
            - Technical details: computing/quantum-computing/helmi/helmi-specs.md
            - FiQCI partition: computing/quantum-computing/helmi/fiqci-partition.md
            - Running on Helmi: computing/quantum-computing/helmi/running-on-helmi.md
   - Cloud:
-     - Concepts of cloud computing: cloud/concepts.md
+     - Concepts of cloud computing: cloud/index.md
      - Rahti:
        - Contents: cloud/rahti/index.md
        - What is Rahti: cloud/rahti/rahti-what-is.md
@@ -172,9 +172,10 @@ nav:
        - Security guide: cloud/rahti/security-guide.md
        - Getting Started:
          - Getting access: cloud/rahti/access.md
-         - Using the web interface: cloud/rahti/usage/getting_started.md
+         - Using the web interface: cloud/rahti/usage/index.md
          - Command line tool installation and usage: cloud/rahti/usage/cli.md
        - Rahti Tutorials:
+         - Rahti Tutorials: cloud/rahti/tutorials/index.md
          - Deploying a static web server using the web interface: cloud/rahti/tutorials/basic-console.md
          - Deploying a static web server using the command line: cloud/rahti/tutorials/elemental_tutorial.md
          - Custom domain names and secure transport: cloud/rahti/tutorials/custom-domain.md
@@ -198,7 +199,7 @@ nav:
          - Ephemeral storage: cloud/rahti/storage/ephemeral.md
          - Expand a volume: cloud/rahti/storage/expand-volumes.md
        - Images:
-         - Overview: cloud/rahti/images/overview.md
+         - Overview: cloud/rahti/images/index.md
          - Creating an image: cloud/rahti/images/creating.md
          - Keeping docker images small: cloud/rahti/images/keeping_docker_images_small.md
        - GPU in Rahti: cloud/rahti/gpu.md
@@ -234,7 +235,7 @@ nav:
              - Pouta videos: cloud/pouta/pouta-videos.md
              - Known problems and limitations: cloud/pouta/known-problems.md
      - Grid computing:
-        - The Grid Monitor: cloud/grid/grid-monitor.md
+        - The Grid Monitor: cloud/grid/index.md
      - CSC Notebooks:
        - Overview: cloud/csc_notebooks/index.md
        - Guide for students: cloud/csc_notebooks/guide_for_students.md
