@@ -28,19 +28,19 @@ Deep learning framework for Python.
 
 Currently supported TensorFlow versions:
 
-| Version | Module               | Puhti | Mahti | Horovod | Notes           |
-|:--------|:---------------------|:-----:|:-----:|:-------:|-----------------|
-| 2.10.0  | `tensorflow/2.10`    | X     | X     | X       | default version |
-| 2.9.0   | `tensorflow/2.9`     | X     | X     | X       |                 |
-| 2.8.0   | `tensorflow/2.8`     | X     | X     | X       |                 |
-| 2.7.0   | `tensorflow/2.7`     | (x)   | (x)   | -       |                 |
-| 2.6.0   | `tensorflow/2.6`     | (x)   | (x)   | -       |                 |
-| 2.5.0   | `tensorflow/2.5`     | (x)   | (x)   | -       |                 |
-| 2.4.1   | `tensorflow/2.4`     | (x)   | (x)   | -       |                 |
-| 2.4.0   | `tensorflow/2.4-sng` | (x)   | -     | -       |                 |
-| 2.3.0   | `tensorflow/2.3`     | (x)   | -     | -       |                 |
-| 2.2.0   | `tensorflow/2.2`     | (x)   | -     | -       |                 |
-| 1.15.5  | `tensorflow/1.15`    | (x)   | -     | -       |                 |
+| Version | Module               | Puhti | Mahti | LUMI | Notes           |
+|:--------|:---------------------|:-----:|:-----:|:----:|-----------------|
+| 2.10.0  | `tensorflow/2.10`    | X     | X     | X*   | default version |
+| 2.9.0   | `tensorflow/2.9`     | X     | X     | X*   |                 |
+| 2.8.0   | `tensorflow/2.8`     | X     | X     | X*   |                 |
+| 2.7.0   | `tensorflow/2.7`     | (x)   | (x)   | -    |                 |
+| 2.6.0   | `tensorflow/2.6`     | (x)   | (x)   | -    |                 |
+| 2.5.0   | `tensorflow/2.5`     | (x)   | (x)   | -    |                 |
+| 2.4.1   | `tensorflow/2.4`     | (x)   | (x)   | -    |                 |
+| 2.4.0   | `tensorflow/2.4-sng` | (x)   | -     | -    |                 |
+| 2.3.0   | `tensorflow/2.3`     | (x)   | -     | -    |                 |
+| 2.2.0   | `tensorflow/2.2`     | (x)   | -     | -    |                 |
+| 1.15.5  | `tensorflow/1.15`    | (x)   | -     | -    |                 |
 
 Includes [TensorFlow](https://www.tensorflow.org/) and
 [Keras](https://keras.io/) with GPU support via CUDA.
@@ -50,6 +50,10 @@ Versions marked with "(x)" are based on old Red Hat Enterprise Linux 7
 and Horovod are not expected to work anymore with these modules. If
 you still wish to access these versions, you need to enable old RHEL7
 modules by `module use /appl/soft/ai/rhel7/modulefiles/`.
+
+**Versions in LUMI, marked as "X*" are still experimental with limited
+support.** They are still subject to change at any time without notice,
+and for example multi-node jobs are know not to work properly yet.
 
 If you find that some package is missing, you can often install it yourself with
 `pip install --user`. See [our Python
@@ -81,14 +85,26 @@ TensorFlow is licensed under [Apache License
 
 ## Usage
 
-To use this software on Puhti or Mahti, initialize it with:
+To use the default version of TensorFlow on Puhti or Mahti, initialize
+it with:
 
 ```text
 module load tensorflow
 ```
 
-to access the default version, or if you wish to have a specific version ([see
-above for available versions](#available)):
+To access TensorFlow on LUMI:
+
+```text
+module use /appl/local/csc/soft/ai/modulefiles/
+module load tensorflow
+```
+
+Note that LUMI versions are still considered experimental with limited
+support. They are still subject to change at any time without notice,
+and for example multi-node jobs are know not to work properly yet.
+
+If you wish to have a specific version ([see above for available
+versions](#available)), use:
 
 ```text
 module load tensorflow/2.9
@@ -132,7 +148,7 @@ a single node:
     #SBATCH --time=1:00:00
     #SBATCH --gres=gpu:v100:1
     
-    module load tensorflow/2.8
+    module load tensorflow/2.10
     srun python3 myprog.py <options>
     ```
     
@@ -146,7 +162,23 @@ a single node:
     #SBATCH --time=1:00:00
     #SBATCH --gres=gpu:a100:1
     
-    module load tensorflow/2.8
+    module load tensorflow/2.10
+    srun python3 myprog.py <options>
+    ```
+
+=== "LUMI"
+    ```bash
+    #!/bin/bash
+    #SBATCH --account=<project>
+    #SBATCH --partition=small-g
+    #SBATCH --ntasks=1
+    #SBATCH --cpus-per-task=8
+    #SBATCH --gpus-per-node=1
+    #SBATCH --mem=64G
+    #SBATCH --time=1:00:00
+    
+    module use /appl/local/csc/soft/ai/modulefiles/
+    module load tensorflow/2.10
     srun python3 myprog.py <options>
     ```
 

@@ -58,25 +58,23 @@ as **active** state virtual machines. Suspending is not generally used
 in modern workflows.
 
 ### Shelved
-Shelving means shutting down 
-a virtual machine and removing it from the host compute node. It is
-similar to shutting down your personal computer and relocating it somewhere
-new. This frees up all reserved computing resources. 
-However, the state of all other associated resources is saved, for
-example the file system, floating IPs, network configuration etc. in our
-central storage. Shelving works best for the standard flavors that are
-already backed by our central storage service. Shelving can be slow
-for flavors that are using local storage, especially bigger flavors
-since the data needs to be copied between the local and 
-central storage. Virtual machines in the shelved state do not consume
-billing units. On a rare occasion, if all of our compute resources are
-used up, we may not be able to unshelve your virtual machine
-until another user frees up compute resources. N.B. that your floating IPs,
-volumes etc. cannot be removed from the virtual machine before it
-has been unshelved. If you have a floating IP quota of two and one
-of them is attached to a shelved virtual machine, you have only one
-left. **Note** that the ephemeral storage in the IO, GPU or TB
-flavors is **not** be shelved.
+Shelving means shutting down a virtual machine and removing it from the host compute node. 
+This frees up the computing resources that were reserved for the virtual machine. 
+However, the state of all other associated resources, for example the file system,
+floating IPs, network configuration, etc., is saved in our central storage. 
+Please note that shelving a virtual machine will **not** reduce the amount of
+resources used by the project, only the billing for that virtual machine will stop.
+
+Shelving works best for the standard flavors that are already backed by our 
+central storage service. Shelving can be slow for flavors that are using local storage,
+especially bigger flavors since the data needs to be copied between the local and 
+central storage. On a rare occasion, if all of our compute resources are used up, 
+we may not be able to unshelve your virtual machine until another user frees up 
+compute resources. N.B. that your floating IPs, volumes etc. cannot be removed from
+the virtual machine before it has been unshelved. If you have a floating IP quota
+of two and one of them is attached to a shelved virtual machine, you have only one left. 
+**Note** that the ephemeral storage in the IO, or TB flavors is **not** shelved.
+
 
 ### Terminate
 Termination (or deletion) removes the virtual machine

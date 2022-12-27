@@ -24,7 +24,7 @@ There are two options for connecting to the remote desktop:
 2. **With VNC client**. For better performance you can use a native VNC client, such as RealVNC or TigerVNC. Native VNC client may also be a good alternative if experiencing issues with clipboard integration between remote desktop and local host with the browser connection. Instructions for native VNC clients can be found in the Native instructions tab. This requires installing the VNC client on your local machine.
 
 ## Using the desktop
-The applications mentioned above have a direct shortcuts on desktop.
+The applications mentioned above have a direct shortcut on desktop.
 
 For starting any other software available in Puhti:
 

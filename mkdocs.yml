@@ -60,6 +60,7 @@ theme:
 extra_css:
   - assets/stylesheets/variables.css
   - assets/stylesheets/scheme.css
+  - assets/stylesheets/landing.css
   - assets/stylesheets/admonition.css
   - assets/stylesheets/announcement.css
   - assets/stylesheets/breadcrumbs.css
@@ -212,7 +213,7 @@ nav:
         - Pouta Accounting Principles and Quotas: cloud/pouta/accounting.md
         - Virtual machine flavors and Billing Unit rates: cloud/pouta/vm-flavors-and-billing.md
         - Getting started with Pouta:
-            - Launching a virtual machine with the cPouta web interface: cloud/pouta/launch-vm-from-web-gui.md
+            - Creating a virtual machine in Pouta: cloud/pouta/launch-vm-from-web-gui.md
             - Connecting to your virtual machine: cloud/pouta/connecting-to-vm.md
             - Install command line tools: cloud/pouta/install-client.md
             - Command line client tools: cloud/pouta/command-line-tools.md
@@ -272,6 +273,7 @@ nav:
         - Store with SD Connect: data/sensitive-data/sd_connect.md
         - Analyse with SD Desktop: data/sensitive-data/sd_desktop.md
         - SD Desktop for secondary use: data/sensitive-data/sd-desktop-audited.md
+#       - SD Apply for secondary use: data/sensitive-data/single-register-submission.md
 #       - Federated EGA: data/sensitive-data/federatedega.md
 #       - SD Apply: data/sensitive-data/sd-apply.md
 #       - Containers: data/sensitive-data/creating_containers.md

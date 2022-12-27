@@ -670,6 +670,17 @@ To use it, one must set the correct path to CmdStan using `cmdstanr`. For exampl
 cmdstanr::set_cmdstan_path("/appl/soft/math/r-env/421-stan/cmdstan-2.30.1")
 ```
 
+If you are using CmdStan in an interactive session, the above command will work directly. For non-interactive batch jobs, the path to CmdStan needs to be separately set in the batch job file. This is done by including the following commands further to your other batch job file contents: 
+
+```r
+# Set R version
+export RVER=421
+
+# Launch R after binding CmdStan
+SING_FLAGS="$SING_FLAGS -B /appl/soft/math/r-env/${RVER}-stan:/appl/soft/math/r-env/${RVER}-stan"
+srun apptainer_wrapper exec Rscript --no-save script.R
+```
+
 Other details on using the CmdStan backend are package-specific. As one example, one could use it for [within-chain parallelisation using `brms`](https://cran.r-project.org/web/packages/brms/vignettes/brms_threading.html): 
 
 ```r
