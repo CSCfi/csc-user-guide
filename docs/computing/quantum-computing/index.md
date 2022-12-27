@@ -1,7 +1,7 @@
 # Overview
 
 !!! success "Helmi Pilot Phase is now open!"
-    The Helmi Pilot Phase is now open! [More details about the Pilot Phase](../helmi/index/).
+    The Helmi Pilot Phase is now open! [More details about the Pilot Phase](helmi/).
 
 Quantum computers differ from their classical counterparts when it comes to the basic 
 computational operators. Before QPUs can be utilized, they require tailor-made programs 
@@ -14,7 +14,7 @@ quantum computing resources through CSC's service portals.
 
 Helmi, the first Finnish quantum computer, is co-developed by VTT and IQM Quantum Computers. Presently, Helmi provides 5 qubits. With Helmi, users can run quantum programs and algorithms on a real, physical device.
 
-Access to Helmi is provided through the LUMI supecomputer environment. Users will need to apply for a quantum computing project on LUMI, which gives access to Helmi through the LUMI job scheduler (SLURM). Applying for a project is done through [MyCSC](../../../accounts/how-to-create-new-project/).
+Access to Helmi is provided through the LUMI supecomputer environment. Users will need to apply for a quantum computing project on LUMI, which gives access to Helmi through the LUMI job scheduler (SLURM). Applying for a project is done through [MyCSC](../../accounts/how-to-create-new-project/).
 
 For further reading:
 

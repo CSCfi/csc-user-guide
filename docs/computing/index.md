@@ -66,7 +66,7 @@ Where `yourcscusername` is the username you get from CSC.
 
 For more details, see the [connecting](connecting.md) page.
 
-Puhti can also be accessed via the [Puhti web interface](../webinterface)
+Puhti can also be accessed via the [Puhti web interface](webinterface/)
 available at [www.puhti.csc.fi](https://www.puhti.csc.fi).
 
 ### Scalability
@@ -124,7 +124,7 @@ csc-workspaces
 * [Systems](available-systems.md): What computational resources are available
 * [Usage policy](usage-policy.md): Usage policy of CSC supercomputers
 * [Connecting](connecting.md): How to connect to  CSC supercomputers
-* [Puhti web interface](../webinterface): How to connect to Puhti using the web
+* [Puhti web interface](webinterface/): How to connect to Puhti using the web
   interface
 * [Disk areas](disk.md): What places are there for storing data on CSC
   supercomputers

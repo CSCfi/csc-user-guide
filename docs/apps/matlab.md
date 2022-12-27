@@ -39,7 +39,7 @@ and specifying your resource requirements.
 
 ### Getting Started with MATLAB Parallel Server on Puhti
 
-The use of MATLAB on Puhti is possible with the MATLAB Parallel Server product and is available for both academic and commercial users, who have their own license of MATLAB. CSC's MPS license makes possible parallel computing runs using up to 500 (academic) or 32 (commercial) cores. With MPS, users can submit jobs from their local MATLAB's GUI directly to the batch job system of Puhti. Before starting using MPS, it is strongly recommend to read the 'Computing' section in [Puhti User Guide](/computing/overview).
+The use of MATLAB on Puhti is possible with the MATLAB Parallel Server product and is available for both academic and commercial users, who have their own license of MATLAB. CSC's MPS license makes possible parallel computing runs using up to 500 (academic) or 32 (commercial) cores. With MPS, users can submit jobs from their local MATLAB's GUI directly to the batch job system of Puhti. Before starting using MPS, it is strongly recommend to read the 'Computing' section in [Puhti User Guide](/computing/).
 
 #### Installing the Tool Scripts
 
@@ -189,4 +189,4 @@ Documentation and manuals for MATLAB and related products is available via the D
 - [Parallel Computing Tutorials](http://www.mathworks.com/products/parallel-computing/tutorials.html)
 - [Parallel Computing Videos](http://www.mathworks.com/products/parallel-computing/videos.html)
 - [Parallel Computing Webinars](http://www.mathworks.com/products/parallel-computing/webinars.html)
-- [Puhti User Guide](/computing/overview/)
+- [Puhti User Guide](/computing/)
