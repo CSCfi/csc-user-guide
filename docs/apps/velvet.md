@@ -107,7 +107,7 @@ The batch job can be launched with command
 sbatch script_file_name
 ```
 
-More information about runnig batch jobs can be found from the [batch job section of the Puhti user guide](../computing/running/getting-started.md).
+More information about runnig batch jobs can be found from the [batch job section of the Puhti user guide](../computing/running/index.md).
 
 
 

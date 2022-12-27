@@ -323,7 +323,7 @@ parameters. But please don't submit hundreds of jobs at the same time.
 Now, that you've gotten started, you might be interested in checking out the
 rest of our documentation. For example:
 
-* [Running jobs with Slurm](../../computing/running/getting-started.md)
+* [Running jobs with Slurm](../../computing/running/index.md)
 * [Applications on Puhti and Mahti](../../apps/index.md), in particular
   [PyTorch](../../apps/pytorch.md) and [TensorFlow](../../apps/tensorflow.md).
 * [CSC's Machine learning guide](ml-guide.md)

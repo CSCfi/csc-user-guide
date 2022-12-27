@@ -37,7 +37,7 @@ supercomputers.
 !!! warning "Login nodes: important note for Puhti and Mahti"
     The login nodes can be used for **light** pre- and postprocessing, compiling
     applications and moving data. All other tasks are to be done on the
-    compute nodes using the [batch job system](running/getting-started.md).
+    compute nodes using the [batch job system](running/index.md).
     Programs not adhering to these rules will be terminated without warning.
     Note that compute nodes can be used also [interactively](running/interactive-usage.md)
 

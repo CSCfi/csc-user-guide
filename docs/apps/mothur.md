@@ -75,7 +75,7 @@ with command:
 ```text
 sbatch mothur_batch_job.sh
 ```
-See the [Puhti user guide](../computing/running/getting-started.md) for more information about running batch jobs.
+See the [Puhti user guide](../computing/running/index.md) for more information about running batch jobs.
 
 
 ## Support

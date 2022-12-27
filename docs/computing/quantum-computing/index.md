@@ -1,7 +1,7 @@
 # Overview
 
 !!! success "Helmi Pilot Phase is now open!"
-    The Helmi Pilot Phase is now open! [More details about the Pilot Phase](../helmi/helmi-projects/).
+    The Helmi Pilot Phase is now open! [More details about the Pilot Phase](../helmi/index/).
 
 Quantum computers differ from their classical counterparts when it comes to the basic 
 computational operators. Before QPUs can be utilized, they require tailor-made programs 
@@ -29,7 +29,7 @@ For further reading:
 **The Quantum Learning Machine**
 
 Kvasi is an advanced quantum computer simulator/emulator. With Kvasi, the user can explore and develop algorithms 
-for quantum computers. Read here [detailed instructions on how to access](../quantum-computing/kvasi/kvasi.md)
+for quantum computers. Read here [detailed instructions on how to access](../quantum-computing/kvasi/index.md)
 
 Kvasi provides an ecosystem for developing and simulating quantum algorithms in both 
 ideal and realistic, noisy conditions. With Kvasi, you can optimize your algorithm 
@@ -38,7 +38,7 @@ for a specific hardware (QPU), with specific qubit connectivity and basic gate o
 The algorithms can be developed either at a level close to the hardware, using 
 the Atos Quantum Assembler (AQASM) language, or using a higher level, Python based 
 language and ready-made libraries. The QLM comes with several ready-made examples.
-You can also download and run locally [myQLM](../quantum-computing/kvasi/kvasi.md#myqlm) - a light-weight version of the 
+You can also download and run locally [myQLM](../quantum-computing/kvasi/index.md#myqlm) - a light-weight version of the 
 QLM ecosystem.
 
 

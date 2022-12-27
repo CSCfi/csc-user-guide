@@ -2,7 +2,7 @@
 
 This is a quick start guide for Puhti users. It is assumed that you have previously
 used CSC cluster resources like Taito/Sisu. If not, you can start by looking at
-[overview of CSC supercomputers](../../computing/overview.md).
+[overview of CSC supercomputers](../../computing/index.md).
 
 **Go to [MyCSC](https://my.csc.fi) to apply for access to Puhti or view your projects
 and their project numbers if you already have access.** You can also use the command

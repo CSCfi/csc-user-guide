@@ -25,7 +25,7 @@ There is an example of **batch job script** available on the servers:
 
     /appl/soft/eng/starccm+/parjob_starccm+
 
-Copy the file and modify it for your own use. Further instructions are given in the file.  How to submit a batch job on CSC's servers, see the user guide *CSCDocs*, page [Getting started](../computing/running/getting-started.md).
+Copy the file and modify it for your own use. Further instructions are given in the file.  How to submit a batch job on CSC's servers, see the user guide *CSCDocs*, page [Getting started](../computing/running/index.md).
 
 
 ## Support

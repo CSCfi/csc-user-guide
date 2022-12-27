@@ -44,7 +44,7 @@ macs2 -h
 macs3 -h
 ```
 
-Short MACS jobs can be executed as [interactive batch jobs](../computing/running/interactive-usage.md) in Puhti. Longer jobs should be run as [batch jobs](../computing/running/getting-started.md).
+Short MACS jobs can be executed as [interactive batch jobs](../computing/running/interactive-usage.md) in Puhti. Longer jobs should be run as [batch jobs](../computing/running/index.md).
 
 
 ## More information
