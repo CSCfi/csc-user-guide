@@ -362,8 +362,14 @@ would create the same new files as the `cp` example commands. However, in the
 case of `mv`, the original files *output.dat*, *output1.dat* and
 *output2.dat* would be removed from the current working directory.
 
-Files are removed using the command `rm filename`. In the CSC environment, 
-the `rm` command used to ask the user to confirm that he/she really wants to remove the
+Files are removed using the command `rm filename`. By default, the file is deleted immediately.
+If you would like to first confirm file deletion, you can add a parameter to the command: `rm -i`. 
+To make this behaviour permanent, you can set an alias in your *.bashrc*:
+
+`alias rm="rm -i"`
+
+Note that after editting your *.bashrc* file, you need to use the `source ~/.bashrc` command or open a new shell.  
+After that, the `rm` command will always ask the user to confirm that he/she really wants to remove the
 file:
 
     kkayttaj@c305:~>rm output_copy.dat
@@ -465,4 +471,11 @@ August 14th:
 We recommend that you look up examples of the practical usage of Linux commands
 online. There are lots of resources showing efficient use of the toolset that
 comes with Linux, so that you can save your time and produce neat results
-faster. 
+faster.
+
+Defining own aliases is one of the ways of speeding up your work, and they are
+recommended. However, sometimes there might be name clashes and some commands
+might end up behaving unexpectedly. We have the tool called `csc-env` which
+shows how your environment differs from the default one. For more information,
+[check this documentation entry](https://docs.csc.fi/support/tutorials/using_csc_env/). 
+
