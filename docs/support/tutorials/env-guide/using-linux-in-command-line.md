@@ -477,5 +477,5 @@ Defining own aliases is one of the ways of speeding up your work, and they are
 recommended. However, sometimes there might be name clashes and some commands
 might end up behaving unexpectedly. We have the tool called `csc-env` which
 shows how your environment differs from the default one. For more information,
-[check this documentation entry](https://docs.csc.fi/support/tutorials/using_csc_env/). 
+[check this documentation entry](../support/tutorials/using_csc_env.md). 
 
