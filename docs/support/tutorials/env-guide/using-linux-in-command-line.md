@@ -390,7 +390,7 @@ input and output or used as the so-called *wildcard characters*.
 
 The `$` sign, that serves as an indicator of a variable name, the `#`
 symbol that is used to place comments, and the different kind of quotation
-marks are discussed later on in the [linux scripting chapter](https://docs.csc.fi/support/tutorials/env-guide/linux-bash-scripts/).
+marks are discussed later on in the [linux scripting chapter](linux-bash-scripts.md).
 
 ### Commonly used special characters
 
