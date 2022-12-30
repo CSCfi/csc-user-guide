@@ -1,5 +1,4 @@
-# How can I give access to other people to my VM in Pouta? [How can I make my Pouta VM accessible to others? 
-]
+# How can I give access to other people to my VM in Pouta?
 
 When a [new VM is created](/cloud/pouta/launch-vm-from-web-gui/), a single default user is created automatically. And a single SSH key pair has given access to that default user in that VM. This gives access to that VM to a single person, the one that created the VM and the one that owns the SSH **private** key. See the Wikipedia [Secure Shell](https://en.wikipedia.org/wiki/Secure_Shell) article for more information about SSH keys and the protocol in general.
 
