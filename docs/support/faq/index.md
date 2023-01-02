@@ -57,6 +57,7 @@
 * [Can I run MPI applications on pouta?](can-i-run-mpi-applications-on-pouta.md)
 * [How fast is the Pouta network?](how-fast-is-the-pouta-network.md)
 * [Why can't I connect to my VM in Pouta?](why-cant-i-connect-to-my-vm-in-pouta.md)
+* [How can I give access to other people to my VM in Pouta?](how-can-I-give-access-to-other-people-to-my-vm-in-pouta.md)
 * [Can I access my CSC home/wrkdir/scratch/project directories from Pouta?](how-to-access-home-wrkdir-projdir-from-epouta.md)
 * [What are volumes? How do I use them?](what-are-volumes-and-how-to-use.md)
 * [Is Pouta backed up?](is-pouta-backed-up.md)
