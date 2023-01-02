@@ -8,12 +8,6 @@ tags:
 Discovery Studio is a protein modeling program that contains tools to
 visualize, analyse, modify and simulate protein structures. 
 
-## License
-
-Discover Studio is a commercial program by Biovia Inc. CSC has purchased
-a national academic license for Discovery Studio that allows non-profit
-usage in Finnish universities.
-
 !!! Note
     The national Discovery Studio license provided by CSC ended at the end of 2022.
     Starting 2023, Discovery Studio will not be availale any more.
