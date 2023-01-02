@@ -19,7 +19,7 @@ for details on the systems and [this page for an outline of differences between 
 Mahti](lumi-vs-mahti.md).
 
 CSC supercomputers use the Linux operating system and we recommend that you are familiar with
-basics of [Linux command line usage](../support/tutorials/env-guide/overview.md) before starting.
+basics of [Linux command line usage](../support/tutorials/env-guide/index.md) before starting.
 
 ## Accessing Puhti and Mahti
 

@@ -28,7 +28,7 @@ getting access to Finland's most powerful GPU resource for researchers!
     While this guide tries to explain every step carefully, it is still recommended
     to have at least a basic familiarity with the Linux command line, as you will
     need to use that for a few of the steps. You can, for example, take a look at
-    the first section of our [Linux basics tutorial](env-guide/overview.md).
+    the first section of our [Linux basics tutorial](env-guide/index.md).
 
 
 ## Step 1: Get a CSC user account

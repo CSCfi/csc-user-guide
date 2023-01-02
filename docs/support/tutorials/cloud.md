@@ -1,5 +1,5 @@
 # Learn cloud computing by developing and deploying a web application
-This tutorial will teach you how to use CSC's [Cloud](../../cloud/index.md) services by developing a web application and deploying it on the cloud. The tutorial assumes basic knowledge of the Linux operating system, Git version control system, Julia language, and SQL databases. We recommend reading the Linux basics tutorial for understanding basic [Linux command line usage](env-guide/overview.md).
+This tutorial will teach you how to use CSC's [Cloud](../../cloud/index.md) services by developing a web application and deploying it on the cloud. The tutorial assumes basic knowledge of the Linux operating system, Git version control system, Julia language, and SQL databases. We recommend reading the Linux basics tutorial for understanding basic [Linux command line usage](env-guide/index.md).
 
 You can find the web application from the [csc-training/GenieWebApp.jl](https://github.com/csc-training/GenieWebApp.jl) repository. You can start by cloning the GitHub repository.
 

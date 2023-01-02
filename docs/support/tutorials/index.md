@@ -9,7 +9,7 @@
 * [Using NoMachine](nomachine-usage.md)
 * [CSC Quick reference (pdf)](../../img/csc-quick-reference.pdf)
 * [How to run existing containers in Puhti](../../computing/containers/run-existing.md)
-* [Linux basics for CSC](env-guide/overview.md)
+* [Linux basics for CSC](env-guide/index.md)
 * [Interactive and batch job hands-on in Puhti](cmdline-handson.md)
 * [Using csc-env command](using_csc_env.md)
 * [Developing scripts remotely](remote-dev.md)
