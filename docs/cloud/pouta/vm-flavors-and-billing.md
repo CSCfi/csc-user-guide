@@ -6,8 +6,7 @@ cost in billing units.
 [TOC]
 
 The cPouta and ePouta services consume the same billing units as 
-Puhti and Mahti. You can find more information in the [CSC computing
-environment articles].
+Puhti and Mahti. You can find more information in the [CSC computing environment articles].
 
 Users can create virtual machines with larger or
 smaller compute resources based on their needs. The virtual
@@ -507,5 +506,6 @@ but they will be removed at some point in the near future.
 | tb.westmere.32core    | 32 | 488 | 80 (RAID6) | 3250 (RAID6) | 3330 | 15.2 | 200 |
 | tb.westmere.64core    | 64 | 976 | 80 (RAID6) | 6500 (RAID6) | 6580 | 15.2 | 400 |
 
+  [CSC computing environment articles]: https://research.csc.fi/computing
   [command line instructions]: command-line-tools.md
   [TensorFlow]: https://www.tensorflow.org
