@@ -266,7 +266,7 @@ nav:
         - Overview: data/Allas/index.md
         - Introduction to Allas Storage service: data/Allas/introduction.md
         - Accessing Allas: data/Allas/accessing_allas.md
-        - Common Use Cases: data/Allas/using_allas/common_use_cases.md
+        - Common Use Cases: data/Allas/using_allas/index.md
         - Common Error Messages: data/Allas/using_allas/error_messages.md
         - Allas object storage related terms and concepts: data/Allas/terms_and_concepts.md
      - Sensitive data:
