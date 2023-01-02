@@ -244,15 +244,16 @@ nav:
        - Data persistence: cloud/csc_notebooks/data_persistence.md
        - What is new: cloud/csc_notebooks/what_is_new.md
   - Data:
-#    - Datasets: data/datasets.md
+     - Overview: data/index.md
      - Working with data:
-        - Contents: data/datasets/dataset-sources.md
+        - Contents: data/datasets/index.md
         - Tips for data management: data/datasets/datamanagement.md
         - Metadata and data documentation: data/datasets/metadata-and-documentation.md
         - Dataset sources: data/datasets/sourcing-datasets.md
         - Storing data at CSC: data/datasets/hosting-datasets-at-CSC.md
         - Publishing datasets: data/datasets/publishing-datasets.md
      - Moving data:
+        - Moving data between CSC and local workstation: data/moving/index.md
         - Copying files using scp: data/moving/scp.md
         - Graphical file transfer tools: data/moving/graphical_transfer.md
         - Using rsync for data transfer and synchronization: data/moving/rsync.md
@@ -280,7 +281,7 @@ nav:
 #       - Containers: data/sensitive-data/creating_containers.md
 
      - Kaivos database service:
-        - Kaivos overview: data/kaivos/overview.md
+        - Kaivos overview: data/kaivos/index.md
         - Getting a database account: data/kaivos/kaivos-account.md
         - MySQL client programs at CSC: data/kaivos/kaivos_client_in_puhti.md
         - Data import and export: data/kaivos/kaivos_import.md
