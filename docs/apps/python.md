@@ -133,7 +133,7 @@ direct use of Conda installations on CSC supercomputers.** You can, however, sti
 Conda environments granted that they are containerized. To easily containerize your Conda
 (or pip) environments, please see the [Tykky container wrapper tool](../computing/containers/tykky.md).
 
-* [CSC Conda tutorial](../support/tutorials/conda.md) describes in more detail
+* [CSC Conda tutorial](../support/tutorials/conda-best-practices.md) describes in more detail
   what Conda is and how to use it. Some parts of this tutorial may be helpful also for
   Tykky installations.
 
