@@ -62,7 +62,7 @@ In the CSC computing environment, Allas should be used to store any data that ne
 
 4. To access Allas with a GUI client, a suitable GUI client is required. The client needs to be capable to use the _Swift_ or _S3_ access protocol. Instructions to use a GUI client: [Accessing Allas with Windows and Mac](./accessing_allas.md#accessing-allas-with-windows-or-mac).
 
-See also the [common use cases](./using_allas/).
+See also the [common use cases](../using_allas/).
 
 
 ## Protocols

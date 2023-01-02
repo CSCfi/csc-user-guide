@@ -63,7 +63,7 @@ ida upload -p 2000002 survey_2021 survey_2021
 ```
 More examples can be found from the [home page of ida command line tool](https://github.com/CSCfi/ida2-command-line-tools#examples).
 
-If the user has already configured the IDA command line tool, then the upload command uses that configuration. If not, the the upload command asks the username and password in IDA. Detailed instructions can be found in [IDA command line tool](../ida/using_ida.md#configuring-and-using-ida-in-csc-supercomputers).
+If the user has already configured the IDA command line tool, then the upload command uses that configuration. If not, the the upload command asks the username and password in IDA. Detailed instructions can be found in [IDA command line tool](using_ida.md#configuring-and-using-ida-in-csc-supercomputers).
 
 
 ### Step 4. Clean the Puhti scratch
@@ -99,7 +99,7 @@ module load ida
 cd /scratch/project_2000012/xferdir
 ida download -p 2000001 testi testi.zip
 ```
-The last argument in the download command is the file name to be created in puhti, and in this case as a directory is downloaded, it will be downloaded as a zip package. If the user has used and configured the IDA command line tool, then the download command uses that configuration. If not, the the download command asks the username and password in IDA. Detailed instructions can be found in [IDA command line tool](../ida/using_ida.md#configuring-and-using-ida-in-csc-supercomputers).
+The last argument in the download command is the file name to be created in puhti, and in this case as a directory is downloaded, it will be downloaded as a zip package. If the user has used and configured the IDA command line tool, then the download command uses that configuration. If not, the the download command asks the username and password in IDA. Detailed instructions can be found in [IDA command line tool](using_ida.md#configuring-and-using-ida-in-csc-supercomputers).
 
 If the data to be downloaded from IDA is a published open dataset visible in Fairdata Etsin, then downloading it requires two steps, locating and copying the download command in Etsin and then downloading the dataset. Download button in Etsin has option to show download commands for a few command line tools.
 
