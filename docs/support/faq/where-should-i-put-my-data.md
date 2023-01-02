@@ -11,5 +11,5 @@ You should change to your project's _scratch_ directory when working with Puhti 
 
 One of the main use cases of Allas is to store data that is not in active in the HPC systems. Before working on the data, stage stage it in. When the data is no longer actively used, it can be staged out. 
 
-Read more about [common use cases of Allas](/data/Allas/using_allas/common_use_cases/) and see the [example of hosting data set](/data/Allas/allas_project_example/).
+Read more about [common use cases of Allas](/data/Allas/using_allas/) and see the [example of hosting data set](/data/Allas/allas_project_example/).
 
