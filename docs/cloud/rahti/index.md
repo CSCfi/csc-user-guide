@@ -15,7 +15,7 @@ you could move directly to the instructions for getting started with Rahti & its
 
   * [Getting access](/cloud/rahti/access/)
   * [Storage](/cloud/rahti/storage/)
-  * [Images](/cloud/rahti/images/overview/)
+  * [Images](/cloud/rahti/images/)
   * [Rahti Templates](/cloud/rahti/template-docs/)
   * [Project and Quota](/cloud/rahti/usage/projects_and_quota/)
   * [Billing](/cloud/rahti/billing/)

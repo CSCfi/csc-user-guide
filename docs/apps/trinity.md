@@ -92,7 +92,7 @@ When the batch job file is ready, it can be submitted to the batch queue system 
 ```text
 sbatch batch_job_file
 ```
-Look here for [more information about running batch jobs](../computing/running/getting-started.md).
+Look here for [more information about running batch jobs](../computing/running/index.md).
 
 Please check the Trinity site to get hints for estimating the required resources,
 

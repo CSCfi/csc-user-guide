@@ -212,7 +212,7 @@ workflows.
 [how to work efficiently with Lustre are documented here]: ../lustre.md#best-practices
 [Data storage guide for machine learning]: ../../support/tutorials/ml-data.md
 [xargsjob.sh]: https://a3s.fi/pub/xargsjob.sh
-[see usage policy]: ../overview.md#gpu-nodes
+[see usage policy]: ../index.md#gpu-nodes
 [Fast disk areas in CSC computing environment]: https://csc-training.github.io/csc-env-eff/hands-on/disk-areas/disk-areas-tutorial-fastdisks.html
 [Nextflow workflows using HyperQueue as an executor]: ../../support/tutorials/nextflow-hq.md
 [Farming Gaussian jobs with HyperQueue]: https://csc-training.github.io/csc-env-eff/hands-on/throughput/gaussian_hq.html

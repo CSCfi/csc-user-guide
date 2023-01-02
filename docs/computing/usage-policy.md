@@ -19,7 +19,7 @@ The login nodes should be used only for:
 
 Here **light** means **one-core jobs** that finish in **minutes** and require
 **less than 1 GiB** of memory at maximum. All other tasks are to be done in
-compute nodes either as normal [batch jobs](running/getting-started.md) or as
+compute nodes either as normal [batch jobs](running/index.md) or as
 [interactive batch jobs](running/interactive-usage.md). Programs not adhering to
 these rules will be terminated without warning.
 

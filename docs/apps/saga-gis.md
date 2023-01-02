@@ -17,7 +17,7 @@ __SAGA GIS__ is available in Puhti in [r-env module  with different versions](r-
 
 `r-env` is an Apptainer container, which means the commands are slightly different compared normal installations, basically all commands need to have `apptainer_wrapper exec` before the usual command.
 
-SAGA GIS command line tools can be used in an [interactive session](../computing/running/interactive-usage.md) or [batch jobs](../computing/running/getting-started.md).
+SAGA GIS command line tools can be used in an [interactive session](../computing/running/interactive-usage.md) or [batch jobs](../computing/running/index.md).
 
 You can test that SAGA GIS loaded successfully and print the command line tools help information with
 

@@ -47,4 +47,6 @@ script:
   - bash tests/check_masked.sh
   # Test that all apps have an entry for license
   - bash tests/check_licenses.sh
+  # Test to check that all directories in docs/ have an index.md file to ensure breadcrumbs don't break.
+  - bash tests/check_index.sh
 

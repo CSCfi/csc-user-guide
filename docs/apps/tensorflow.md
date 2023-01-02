@@ -130,7 +130,7 @@ list-packages
 
     Note that login nodes are not intended for heavy computing, please use
     slurm batch jobs instead. See our [instructions on how to use the batch job
-    system](../computing/running/getting-started.md).
+    system](../computing/running/index.md).
 
 ### Example batch script
 

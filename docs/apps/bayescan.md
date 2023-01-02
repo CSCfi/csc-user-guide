@@ -62,7 +62,7 @@ sbatch script
 ```
 Don't use BayeScan with more than 8 cores (execpt if you have verified that your task really benefits from larger core numbers).
 
-More instructions for running batch jobs can be found form [CSC batch job instructions](../computing/running/getting-started.md)
+More instructions for running batch jobs can be found form [CSC batch job instructions](../computing/running/index.md)
 
 ## More information
 

@@ -20,7 +20,7 @@ The pilot phase opened 1 November 2022 and is expected to run for three months.
 
 Detailed instructions on the process of creating a general LUMI project via MyCSC are here:
 
-* [Creating a LUMI project and applying for resources](../../../../accounts/how-to-create-new-project/#how-to-create-finnish-lumi-projects)
+* [Creating a LUMI project and applying for resources](../../../accounts/how-to-create-new-project/#how-to-create-finnish-lumi-projects)
 
 
 Note that during the pilot phase, access is provided "as is", without guarantees of any specific functionality.
@@ -30,12 +30,12 @@ experience to fiqci-feedback@postit.csc.fi
 
 !!! info "Getting Started"
 	To get started with Helmi see
-	[Access Helmi through LUMI](../helmi-from-lumi/). 
+	[Access Helmi through LUMI](helmi-from-lumi/). 
 
 ## Further reading:
 
-* [Description of Helmi's Topology](../helmi-specs/).
-* [Specific instructions for the LUMI Helmi partition](../fiqci-partition/)
-* [Running jobs on Helmi](../running-on-helmi/)
+* [Description of Helmi's Topology](helmi-specs/).
+* [Specific instructions for the LUMI Helmi partition](fiqci-partition/)
+* [Running jobs on Helmi](running-on-helmi/)
 * [LUMI Documentation page](https://docs.lumi-supercomputer.eu/)
 

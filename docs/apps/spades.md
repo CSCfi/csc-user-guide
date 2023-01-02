@@ -85,7 +85,7 @@ file is named as _spades_job.sh_ then the submission command is:
 ```text
 sbatch spades_job.sh 
 ```
-More information about running batch jobs can be found from the [batch job section of the Puhti user guide](../computing/running/getting-started.md).
+More information about running batch jobs can be found from the [batch job section of the Puhti user guide](../computing/running/index.md).
 
 
 

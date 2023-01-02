@@ -136,7 +136,7 @@ module load ipyrad
 ipyrad -p ipyrad-run1.txt -s 4567 -c 8 -t 1 
 ```
 
-More information about runnig batch jobs can be found from the [batch job section of the Puhti user guide](../computing/running/getting-started.md).
+More information about runnig batch jobs can be found from the [batch job section of the Puhti user guide](../computing/running/index.md).
 
 ## Using cPouta for very long ipyrad jobs
 

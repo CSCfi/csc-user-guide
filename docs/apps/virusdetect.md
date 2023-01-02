@@ -132,7 +132,7 @@ command:
 sbatch batch_job_file.sh
 ```
 More information about running batch jobs in Puhti can be found from
-[batch job instruction pages](../computing/running/getting-started.md).
+[batch job instruction pages](../computing/running/index.md).
 
 VirusDetect wites the analysys results to a new directory, named after the query dataset: result_<i>queryfile</i>. VirusDetect produces a large number of result files. The most essential files are:
 

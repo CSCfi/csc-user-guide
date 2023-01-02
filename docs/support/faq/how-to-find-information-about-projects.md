@@ -6,5 +6,5 @@ You can see your projects, their project numbers, managers and billing unit stat
 Please see also:
 
 * [Accounts section](../../accounts/how-to-create-new-project.md)
-* `csc-projects` - a commandline tool for [active projects on Puhti](../../../computing/overview/#projects-and-quotas)
+* `csc-projects` - a commandline tool for [active projects on Puhti](../../../computing/#projects-and-quotas)
 
