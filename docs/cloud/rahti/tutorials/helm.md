@@ -85,7 +85,7 @@ Now we can create the `YAML` files that contain the different parts of the appli
 
 1. From the list above, we are only interested in `deploymentconfig.apps.openshift.io`, `persistentvolumeclaim/html`, `service/nginx` and `route.route.openshift.io/nginx`. The rest are auto-generated like the `secret/` tokens or created with other objects like `service/glusterfs-dynamic-ed156002-8a7e-11ed-b60d-fa163e0d8841` was created after the `persistentvolumeclaim/` (PVC) was created.
 
-    We will write templates one by one, starting by the Volume. There are two approaches to acomplish this task, "get and and clean" or "recreate from template". We will first try the "get and clean" method.
+    We will write templates one by one, starting by the Volume. There are two approaches to accomplish this task, "get and and clean" or "recreate from template". We will first try the "get and clean" method.
 
 ### Get and clean
 
@@ -407,7 +407,7 @@ The tests should be done in a separate namespace, and there are two approaches:
     TEST SUITE: None
     ```
 
-    * And finaly to destroy it:
+    * And finally to destroy it:
 
     ```sh
     $ helm uninstall test-name
