@@ -1,5 +1,11 @@
 # Applications
 
+## Materials Studio no longer available, 3.1.2023
+
+The national Materials Studio license provided by CSC ended at the end of 2022. It is no longer
+available, starting 2023. Please consider using, e.g., [Maestro](./maestro.md) or [AMS](ams.md)
+instead.
+
 ## sbatch-hq, 19.12.2022
 
 A wrapper for HyperQueue called `sbatch-hq` has been created to enable easy and efficient
