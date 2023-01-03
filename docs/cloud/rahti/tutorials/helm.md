@@ -1,0 +1,655 @@
+# How to package a Kubernetes application with Helm?
+
+[Helm](https://helm.sh/) is the "The package manager for Kubernetes", it allows to manage the life-cycle of a Kubernetes application (deploy, configure, upgrade, retire, ...). It is an **Infrastructure as Code** (IaC) tool, so it allows to version control an application and follow its evolution along time, make identical copies (prod, preprod, dev, ...) and predictable upgrades, and of course share and publish the application. It is one of the main tools used upstream, if a tool has a "Kubernetes deployment" it is most likey going to be using Helm.
+
+## Introduction
+
+Helm packages applications into Charts. A Helm chart is a collection of `YAML` templates. In order to create a chart, one must first [install the Helm](https://helm.sh/docs/intro/install/) command line tool and install the [oc command line](/cloud/rahti/usage/cli/) tool. Once done, you can continue:
+
+Make sure you are logged in:
+
+```sh
+oc whoami
+```
+
+this should return your Rahti username. Then create an example chart:
+
+```sh
+$ helm create example
+Creating example
+```
+
+the result will be:
+
+```sh
+$ find example
+example
+example/Chart.yaml
+example/templates
+example/templates/tests
+example/templates/tests/test-connection.yaml
+example/templates/deployment.yaml
+example/templates/service.yaml
+example/templates/ingress.yaml
+example/templates/hpa.yaml
+example/templates/serviceaccount.yaml
+example/templates/_helpers.tpl
+example/templates/NOTES.txt
+example/values.yaml
+example/charts
+example/.helmignore
+```
+
+It creates a mostly self-explanatory skeleton of a Chart. The structure is:
+
+* The `Chart.yaml` file contains basic description values: `name`, `description`, `version`, ...
+* The `values.yaml` file contains default values for the Chart and shows which parameters can be configured.
+* The `.helmignore` contains the patterns to ignore, it is similar to `gitignore`.
+* The `charts` folder contains the other charts that this one depends on.
+* Finally the `templates` folder contains the different API Kubernetes objects to be deployed. The [templates engine syntax](https://helm.sh/docs/chart_template_guide/) allows for a great deal of configurability. It supports [Built-in Objects](https://helm.sh/docs/chart_template_guide/builtin_objects/) that for example show the current cluster capabilities, it supports external [values files](https://helm.sh/docs/chart_template_guide/values_files/) where each deployment of the application can have its own separate value file, it has an extensive list of [template functions](https://helm.sh/docs/chart_template_guide/function_list/), [flow control](https://helm.sh/docs/chart_template_guide/control_structures/), and more.
+
+## Package a deployed application
+
+Before we can start the process, we need to "clean up" the current Helm example template.
+
+1. Delete (or move anywhere else) all files inside the `templates` folder.
+
+1. Empty the `values.yaml` file.
+
+1. Edit `Chart.yaml` and fill up the values as needed.
+
+!!! info "helm lint"
+    The helm provides a lint command that will report any issue with the current template
+
+Now we can create the `YAML` files that contain the different parts of the application. As an example we will use a simple webserver with a volume attached to it. We will use an iterative process to create a copy of our current deployment:
+
+1. List all the API Objects to get an idea of the different parts that it consists of:
+
+	```sh
+	$ oc get dc,deployment,pvc,secret,configmaps,service,route -o name
+	deploymentconfig.apps.openshift.io/nginx
+	persistentvolumeclaim/html
+	secret/builder-dockercfg-h4cwh
+	secret/builder-token-6fngh
+	secret/builder-token-n2rdm
+	secret/default-dockercfg-dqfxm
+	secret/default-token-kfjlb
+	secret/default-token-znxls
+	secret/deployer-dockercfg-rpsxj
+	secret/deployer-token-gnvzt
+	secret/deployer-token-pvws5
+	service/glusterfs-dynamic-ed156002-8a7e-11ed-b60d-fa163e0d8841
+	service/nginx
+	route.route.openshift.io/nginx
+	```
+
+1. From the list above, we are only interested in `deploymentconfig.apps.openshift.io`, `persistentvolumeclaim/html`, `service/nginx` and `route.route.openshift.io/nginx`. The rest are auto-generated like the `secret/` tokens or created with other objects like `service/glusterfs-dynamic-ed156002-8a7e-11ed-b60d-fa163e0d8841` was created after the `persistentvolumeclaim/` (PVC) was created.
+
+    We will write templates one by one, starting by the Volume. There are two approaches to acomplish this task, "get and and clean" or "recreate from template". We will first try the "get and clean" method.
+
+### Get and clean
+
+The idea of get and clean is simple, we will retrieve a `yaml` representation of an object and then delete all unnecessary information.
+
+#### Persistent Volume Claim
+
+Get the PVC object in YAML format into the file `pvc.yaml`:
+
+```sh
+oc get persistentvolumeclaim/html -o yaml > pvc.yaml
+```
+
+Most of the information in the `YAML` retrieved is generated by OpenShift, and can be deleted:
+
+```diff
+@@ -1,18 +1,7 @@
+ apiVersion: v1
+ kind: PersistentVolumeClaim
+ metadata:
+-  annotations:
+-    pv.kubernetes.io/bind-completed: "yes"
+-    pv.kubernetes.io/bound-by-controller: "yes"
+-    volume.beta.kubernetes.io/storage-provisioner: kubernetes.io/glusterfs
+-  creationTimestamp: "2023-01-02T09:22:06Z"
+-  finalizers:
+-  - kubernetes.io/pvc-protection
+   name: html
+-  namespace: test
+-  resourceVersion: "1771053847"
+-  selfLink: /api/v1/namespaces/test/persistentvolumeclaims/html
+-  uid: ed156002-8a7e-11ed-b60d-fa163e0d8841
+ spec:
+   accessModes:
+   - ReadWriteOnce
+@@ -20,10 +9,4 @@
+     requests:
+       storage: 1Gi
+   storageClassName: glusterfs-storage
+-  volumeName: pvc-ed156002-8a7e-11ed-b60d-fa163e0d8841
+-status:
+-  accessModes:
+-  - ReadWriteOnce
+-  capacity:
+-    storage: 1Gi
+-  phase: Bound
++status: {}
+```
+
+The main fields are **metadata > name**, **spec > resources > requests > storage**, and **spec > storageClassName**, and the result will be:
+
+```yaml
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: html
+spec:
+  accessModes:
+  - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi
+  storageClassName: glusterfs-storage
+status: {}
+```
+
+#### Deployment
+
+The same process can be repeated for `deploymentconfig.apps.openshift.io/nginx`:
+
+```sh
+oc get deploymentconfig.apps.openshift.io/nginx -o yaml >dc.yaml
+```
+
+We need to delete the auto-generated information, delete the unnecessary configuration options, and finally replace the `@sha256` hash by `:latest`.
+
+```diff
+@@ -1,44 +1,24 @@
+ apiVersion: apps.openshift.io/v1
+ kind: DeploymentConfig
+ metadata:
+-  annotations:
+-    openshift.io/generated-by: OpenShiftWebConsole
+-  creationTimestamp: "2023-01-02T09:20:11Z"
+-  generation: 3
+   labels:
+     app: nginx
+   name: nginx
+-  namespace: test
+-  resourceVersion: "1771055913"
+-  selfLink: /apis/apps.openshift.io/v1/namespaces/test/deploymentconfigs/nginx
+-  uid: a828c0db-8a7e-11ed-b60d-fa163e0d8841
+ spec:
+   replicas: 1
+   selector:
+     app: nginx
+     deploymentconfig: nginx
+   strategy:
+-    activeDeadlineSeconds: 21600
+-    resources: {}
+-    rollingParams:
+-      intervalSeconds: 1
+-      maxSurge: 25%
+-      maxUnavailable: 25%
+-      timeoutSeconds: 600
+-      updatePeriodSeconds: 1
+     type: Rolling
+   template:
+     metadata:
+-      annotations:
+-        openshift.io/generated-by: OpenShiftWebConsole
+-      creationTimestamp: null
+       labels:
+	 app: nginx
+	 deploymentconfig: nginx
+     spec:
+       containers:
+-      - image: bitnami/nginx@sha256:abe48bff022ec9c675612653292b2e685c91ce24bc4374199723c4f69603a127
+-        imagePullPolicy: Always
++      - image: bitnami/nginx:latest
+	 name: nginx
+	 ports:
+	 - containerPort: 8080
+@@ -46,21 +26,12 @@
+	 - containerPort: 8443
+	   protocol: TCP
+	 resources: {}
+-        terminationMessagePath: /dev/termination-log
+-        terminationMessagePolicy: File
+	 volumeMounts:
+	 - mountPath: /opt/bitnami/nginx/html/
+	   name: html
+-      dnsPolicy: ClusterFirst
+-      restartPolicy: Always
+-      schedulerName: default-scheduler
+-      securityContext: {}
+-      terminationGracePeriodSeconds: 30
+       volumes:
+       - name: html
+	 persistentVolumeClaim:
+	   claimName: html
+-  test: false
+   triggers:
+   - type: ConfigChange
+   - imageChangeParams:
+@@ -71,29 +42,5 @@
+	 kind: ImageStreamTag
+	 name: nginx:latest
+	 namespace: test
+-      lastTriggeredImage: bitnami/nginx@sha256:abe48bff022ec9c675612653292b2e685c91ce24bc4374199723c4f69603a127
+     type: ImageChange
+-status:
+-  availableReplicas: 1
+-  conditions:
+-  - lastTransitionTime: "2023-01-02T09:20:28Z"
+-    lastUpdateTime: "2023-01-02T09:20:28Z"
+-    message: Deployment config has minimum availability.
+-    status: "True"
+-    type: Available
+-  - lastTransitionTime: "2023-01-02T09:25:01Z"
+-    lastUpdateTime: "2023-01-02T09:25:04Z"
+-    message: replication controller "nginx-2" successfully rolled out
+-    reason: NewReplicationControllerAvailable
+-    status: "True"
+-    type: Progressing
+-  details:
+-    causes:
+-    - type: ConfigChange
+-    message: config change
+-  latestVersion: 2
+-  observedGeneration: 3
+-  readyReplicas: 1
+-  replicas: 1
+-  unavailableReplicas: 0
+-  updatedReplicas: 1
++status: {}
+```
+
+The result being:
+
+```yaml
+apiVersion: apps.openshift.io/v1
+kind: DeploymentConfig
+metadata:
+  labels:
+    app: nginx
+  name: nginx
+spec:
+  replicas: 1
+  selector:
+    app: nginx
+    deploymentconfig: nginx
+  strategy:
+    type: Rolling
+  template:
+    metadata:
+      labels:
+        app: nginx
+        deploymentconfig: nginx
+    spec:
+      containers:
+      - image: bitnami/nginx:latest
+        name: nginx
+        ports:
+        - containerPort: 8080
+          protocol: TCP
+        - containerPort: 8443
+          protocol: TCP
+        resources: {}
+        volumeMounts:
+        - mountPath: /opt/bitnami/nginx/html/
+          name: html
+      volumes:
+      - name: html
+        persistentVolumeClaim:
+          claimName: html
+  triggers:
+  - type: ConfigChange
+  - imageChangeParams:
+      automatic: true
+      containerNames:
+      - nginx
+      from:
+        kind: ImageStreamTag
+        name: nginx:latest
+        namespace: test
+    type: ImageChange
+status: {}
+```
+
+### Recreate from template
+
+For the two remaining objects: `service` and `route`, we will use the "recreate from template" method, where we start from a simple object and fill up the blanks with the configuration we need.
+
+#### Route
+
+This is the minimal possible route:
+
+```yaml
+apiVersion: v1
+kind: Route
+metadata:
+  name: XXXX
+spec:
+  to:
+    kind: Service
+    name: YYYY
+```
+
+Where `XXXX` is the name of the route, and `YYYY` is the Service is connected to it. We can optionaly add **spec > host** to add a hostname, but if omitted, Rahti will choose a name automatically.
+
+#### Service
+
+A minimal possible service is:
+
+```yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: XXXX
+spec:
+  selector:
+    deploymentconfig: YYYY
+  ports:
+  - nodePort: 0
+    port: NNNN
+    protocol: TCP
+    targetPort: NNNN
+```
+
+Where `XXXX` is the name of the service we filled up in the Route, `YYYY` is the name of the deployment config, and `NNNN` is the port the deployment is listening to.
+
+### Test
+
+The tests should be done in a separate namespace, and there are two approaches:
+
+* Test them individually by:
+
+    ```sh
+    oc create -f pvc.yaml
+    ```
+
+    The command above will create a PVC object in the selected namespace. You should check that it works as expected. You can destroy it by:
+
+    ```sh
+    oc delete pvc/XXXX
+    ```
+
+    where `XXXX` is the name of the volume.
+
+* Or all together in the Helm chart, by copying all the `yaml` files we created into the `templates` folder.
+
+    * We can install it:
+
+    ```sh
+    helm install test-name example/
+    ```
+
+    **Note:** With `--dry-run` you can preview what helm will deploy.
+
+    * We can see the status of the installed chart by:
+
+    ```sh
+    $ helm ls
+    NAME     	NAMESPACE    	REVISION	UPDATED                                	STATUS  	CHART        	APP VERSION
+    test-name	test    	1       	2023-01-03 14:59:04.026623633 +0200 EET	deployed	example-0.1.0	1.16.0
+    ```
+
+    * After making a change we can upgrade it:
+
+    ```sh
+    $ helm upgrade test-name .
+    Release "test-name" has been upgraded. Happy Helming!
+    NAME: test-name
+    LAST DEPLOYED: Tue Jan  3 15:54:15 2023
+    NAMESPACE: test
+    STATUS: deployed
+    REVISION: 2
+    TEST SUITE: None
+    ```
+
+    * And finaly to destroy it:
+
+    ```sh
+    $ helm uninstall test-name
+    release "test-name" uninstalled
+    ```
+
+### Configuration
+
+One of the powerful aspects of Helm is the possibility to extract hardwired values from the templates to a separate `values.yaml` file or to directly use the provided [built-in](https://helm.sh/docs/chart_template_guide/builtin_objects/) values. By removing hardwired values, we provide easy customization that will allow to use the template in more circumstances and for a longer period of time. A user of the template just needs to worry about the values file and not how these values fit into the complexities of the Chart. Helm uses _Go templates_ to accomplish this.
+
+The [built-in](https://helm.sh/docs/chart_template_guide/builtin_objects/) values offer a lot of information, but we will focus in two of sets of them:
+
+* `Release` offers the basic information of the Chart. Information like the `Namespace` we are deploying this template to, or the `Name` of the Chart.
+* `Capabilities` is a more advance feature that provides information about what capabilities the Kubernetes cluster supports. For example the version of Kubernetes, or which APIVersions are supported. These two pieces of information allow us to make a more widely compatible template, as different versions of Kubernetes will expect different configuration standards.
+
+We can also define our own variables, we will set up a default value and allow configuration from the `values.yaml` file. Let's start with the Volume `yaml` file from previous steps:
+
+```yaml
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: html
+spec:
+  accessModes:
+  - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi
+  storageClassName: glusterfs-storage
+status: {}
+```
+
+In this template we would like to parametrize at least two of the values: the `storage` size and the `storage class`. One allows the user to grow or shrink the space in disk used, and the second allows to change the driver used for the storage. The resulting file would be something like this:
+
+```yaml
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: html
+spec:
+  accessModes:
+  - ReadWriteOnce
+  resources:
+    requests:
+      storage: {{ .Values.storage.size | default "500Mi" }}
+  storageClassName: {{ .Values.storage.class | default "glusterfs-storage" }}
+status: {}
+```
+
+And then a `values.yaml` file like:
+
+```yaml
+storage:
+  size: 1Gi
+  class: glusterfs-storage
+```
+
+As you can see all variables in the `values.yaml` file can be accessed from `{{ .Values }}`. We have also set up a default of `500Mi` in the template itself using `default`, and configured a value of `1Gi` at `values.yaml`. In this example the storage of `1Gi` will be used, but if we removed the line `size: 1Gi`, the storage will be `500Mi`.
+
+Other values that might be interesting to configure:
+
+* The `host` which the application will be available at.
+* The `image` to use.
+* The number of `replicas` for the application.
+
+### Conditionals
+
+It is possible to have conditionals in the templates, based on capabilities of the cluster, or in a configuration option. For example to `tls` activate or not
+
+```sh
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  name: nginx
+spec:
+  host: {{ .Values.host }}
+  {{ if eq .Values.tls "active" }}
+  tls:
+    insecureEdgeTerminationPolicy: Redirect
+    termination: edge
+  {{ end }}
+  to:
+    kind: Service
+    weight: 100
+    name: nginx
+status:
+  ingress: []
+```
+
+Which needs to have an option in `values.yaml` like:
+
+```yaml
+tls: active
+```
+
+## Final product
+
+The final chart will be:
+
+```sh
+$ find
+.
+./Chart.yaml
+./templates
+./templates/deployment.yaml
+./templates/service.yaml
+./templates/pvc.yaml
+./templates/route.yaml
+./values.yaml
+./charts
+./.helmignore
+```
+
+* `Chart.yaml`:
+
+```yaml
+apiVersion: v2
+name: example
+description: A Helm chart for Kubernetes
+type: application
+
+version: 0.1.0
+
+appVersion: "1.16.0"
+```
+
+* `templates/deployment.yaml`:
+
+```yaml
+apiVersion: apps.openshift.io/v1
+kind: DeploymentConfig
+metadata:
+  labels:
+    app: nginx
+  name: nginx
+spec:
+  replicas: 1
+  selector:
+    app: nginx
+    deploymentconfig: nginx
+  strategy:
+    type: Rolling
+  template:
+    metadata:
+      labels:
+        app: nginx
+        deploymentconfig: nginx
+    spec:
+      containers:
+      - image: bitnami/nginx:latest
+        name: nginx
+        ports:
+        - containerPort: 8080
+          protocol: TCP
+        - containerPort: 8443
+          protocol: TCP
+        resources: {}
+        volumeMounts:
+        - mountPath: /opt/bitnami/nginx/html/
+          name: html
+      volumes:
+      - name: html
+        persistentVolumeClaim:
+          claimName: html
+  triggers:
+  - type: ConfigChange
+  - imageChangeParams:
+      automatic: true
+      containerNames:
+      - nginx
+      from:
+        kind: ImageStreamTag
+        name: nginx:latest
+        namespace: {{ .Release.Namespace }}
+    type: ImageChange
+```
+
+* `templates/service.yaml`:
+
+```yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx
+spec:
+  selector:
+    deploymentconfig: nginx
+  ports:
+  - nodePort: 0
+    port: 8080
+    protocol: TCP
+    targetPort: 8080
+```
+
+* `templates/pvc.yaml`:
+
+```yaml
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: html
+spec:
+  accessModes:
+  - ReadWriteOnce
+  resources:
+    requests:
+      storage: {{ .Values.storage.size | default "500Mi" }}
+  storageClassName: {{ .Values.storage.class | default "glusterfs-storage" }}
+status: {}
+```
+
+* `templates/route.yaml`:
+
+```yaml
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  name: nginx
+spec:
+  host: {{ .Values.host }}
+  {{ if eq .Values.tls "active" }}
+  tls:
+    insecureEdgeTerminationPolicy: Redirect
+    termination: edge
+  {{ end }}
+  to:
+    kind: Service
+    weight: 100
+    name: nginx
+status:
+  ingress: []
+```
+
+* `./values.yaml`:
+
+```yaml
+image: bitnami/nginx:latest
+host: example.rahtiapp.fi
+tls: active
+
+storage:
+  size: 1Gi
+  class: glusterfs-storage
+```
+
