@@ -1,9 +1,10 @@
 # Applications
 
-## License for Materials Studio no longer available, 3.1.2023
+## License for Materials and Discovery Studio no longer available, 3.1.2023
 
-The national [Materials Studio](../../apps/materialsstudio.md) license provided by CSC ended at the end of 2022. It is no longer
-available, starting 2023. Please consider using, e.g., [Maestro](../../apps/maestro.md) or [AMS](../../apps/ams.md)
+The national [Materials Studio](../../apps/materialsstudio.md) and
+[Discovery Studio](../../apps/discovery-studio.md) licenses provided by CSC ended at the end of 2022.
+Please consider using, e.g., [Maestro](../../apps/maestro.md) or [AMS](../../apps/ams.md)
 instead.
 
 ## sbatch-hq, 19.12.2022
