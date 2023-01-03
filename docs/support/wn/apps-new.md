@@ -3,7 +3,7 @@
 ## License for Materials Studio no longer available, 3.1.2023
 
 The national Materials Studio license provided by CSC ended at the end of 2022. It is no longer
-available, starting 2023. Please consider using, e.g., [Maestro](./maestro.md) or [AMS](ams.md)
+available, starting 2023. Please consider using, e.g., [Maestro](../../apps/maestro.md) or [AMS](../../apps/ams.md)
 instead.
 
 ## sbatch-hq, 19.12.2022
