@@ -12,7 +12,7 @@ Edit profile information:
     You cannot change your username or primary email address. If your email
     address changes, please contact us at _servicedesk@csc.fi_.
 
-# How to link your CSC user account to external authentication sources
+## How to link your CSC user account to external authentication sources
 
 You can link your CSC user account to external authentication mechanisms which can be used side by side on several CSC services.
 In our example we will link CSC user account to MyAccessID which we will create on the fly.
