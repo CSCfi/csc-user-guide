@@ -4,7 +4,7 @@
 
 ## Introduction
 
-Helm packages applications into Charts. A Helm chart is a collection of `YAML` templates. In order to create a chart, one must first [install the Helm](https://helm.sh/docs/intro/install/) command line tool and install the [oc command line](/cloud/rahti/usage/cli/) tool. Once done, you can continue:
+Helm packages applications into Charts. A Helm chart is a collection of `YAML` templates. In order to create a chart, one must first [install the Helm](https://helm.sh/docs/intro/install/) command line tool and install the [oc command line](/cloud/rahti/usage/cli/) tool. Once done, to continue:
 
 Make sure you are logged in:
 
@@ -44,13 +44,13 @@ It creates a mostly self-explanatory skeleton of a Chart. The structure is:
 
 * The `Chart.yaml` file contains basic description values: `name`, `description`, `version`, ...
 * The `values.yaml` file contains default values for the Chart and shows which parameters can be configured.
-* The `.helmignore` contains the patterns to ignore, it is similar to `gitignore`.
-* The `charts` folder contains the other charts that this one depends on.
+* The `.helmignore` contains the patterns to ignore, it is similar to `gitignore`.i WE will not change this file.
+* The `charts` folder contains the other charts that this one depends on. We will not use this feature.
 * Finally the `templates` folder contains the different API Kubernetes objects to be deployed. The [templates engine syntax](https://helm.sh/docs/chart_template_guide/) allows for a great deal of configurability. It supports [Built-in Objects](https://helm.sh/docs/chart_template_guide/builtin_objects/) that for example show the current cluster capabilities, it supports external [values files](https://helm.sh/docs/chart_template_guide/values_files/) where each deployment of the application can have its own separate value file, it has an extensive list of [template functions](https://helm.sh/docs/chart_template_guide/function_list/), [flow control](https://helm.sh/docs/chart_template_guide/control_structures/), and more.
 
 ## Package a deployed application
 
-Before we can start the process, we need to "clean up" the current Helm example template.
+Before we can start the process, we need to "clean up" the current Helm example chart.
 
 1. Delete (or move anywhere else) all files inside the `templates` folder.
 
@@ -59,9 +59,16 @@ Before we can start the process, we need to "clean up" the current Helm example 
 1. Edit `Chart.yaml` and fill up the values as needed.
 
 !!! info "helm lint"
-    The helm provides a lint command that will report any issue with the current template
+    The helm tool provides a `lint` command that will report any syntaxt issue with the current template.
+    ```sh
+    $ helm lint example
+    ==> Linting example
+    [INFO] Chart.yaml: icon is recommended
 
-Now we can create the `YAML` files that contain the different parts of the application. As an example we will use a simple webserver with a volume attached to it. We will use an iterative process to create a copy of our current deployment:
+    1 chart(s) linted, 0 chart(s) failed
+    ```
+
+Now we can create the `YAML` files that contain the different parts of the application. As an example we will use a simple webserver with a volume attached to it. We will use an iterative process to create a copy of our current deployment. It is iterative because we will first create a simple, not configurable, and probably not working version, test it, come back and make it more complete and configurable, test it again, and so on.
 
 1. List all the API Objects to get an idea of the different parts that it consists of:
 
@@ -83,13 +90,13 @@ Now we can create the `YAML` files that contain the different parts of the appli
 	route.route.openshift.io/nginx
 	```
 
-1. From the list above, we are only interested in `deploymentconfig.apps.openshift.io`, `persistentvolumeclaim/html`, `service/nginx` and `route.route.openshift.io/nginx`. The rest are auto-generated like the `secret/` tokens or created with other objects like `service/glusterfs-dynamic-ed156002-8a7e-11ed-b60d-fa163e0d8841` was created after the `persistentvolumeclaim/` (PVC) was created.
+1. From the list above, we are only interested in `deploymentconfig.apps.openshift.io`, `persistentvolumeclaim/html`, `service/nginx` and `route.route.openshift.io/nginx`. The rest are auto-generated like the `secret/` tokens or created by other objects like the `service/glusterfs-dynamic-ed156002-8a7e-11ed-b60d-fa163e0d8841` object was created as a result of the creation of the `persistentvolumeclaim/` (PVC) creation.
 
-    We will write templates one by one, starting by the Volume. There are two approaches to accomplish this task, "get and and clean" or "recreate from template". We will first try the "get and clean" method.
+We will write templates one by one, starting by the Volume. There are two simple approaches to accomplish this task, "get and and clean" or "recreate from template". We will first try the "get and clean" method.
 
 ### Get and clean
 
-The idea of get and clean is simple, we will retrieve a `yaml` representation of an object and then delete all unnecessary information.
+The idea of get and clean is simple, we will retrieve a `yaml` representation of an object running in the Kubernetes cluster and then delete all unnecessary information, like status and default configuration options.
 
 #### Persistent Volume Claim
 
@@ -99,7 +106,7 @@ Get the PVC object in YAML format into the file `pvc.yaml`:
 oc get persistentvolumeclaim/html -o yaml > pvc.yaml
 ```
 
-Most of the information in the `YAML` retrieved is generated by OpenShift, and can be deleted:
+Most of the information in the `YAML` retrieved is status information generated by OpenShift and can be deleted:
 
 ```diff
 @@ -1,18 +1,7 @@
@@ -160,7 +167,9 @@ The same process can be repeated for `deploymentconfig.apps.openshift.io/nginx`:
 oc get deploymentconfig.apps.openshift.io/nginx -o yaml >dc.yaml
 ```
 
-We need to delete the auto-generated information, delete the unnecessary configuration options, and finally replace the `@sha256` hash by `:latest`.
+* First, for the `image` used, we need to replace the `@sha256` hash by `:latest`. This way we will always get the actual latest version of the image. It is also possible to replace it by a specific version like `:1.23.3`.
+* Then we will delete the status information. An example of "status" entries are `lastTransitionTime` and `creationTimestamp`. This has no place to be in a template as it is information 100% generated by Kubernetes about the current running object, not the one we want to create.
+* Finally we will delete the auto-generated configuration options. An example of "configuration options" are the `rollingParams`. These configuration options are generated from the defaults of the Kubernetes cluster. It is also possible to keep these default options, so the user of the chart can change them before the creation is started, for example it could be necessary to increase the `timeoutSeconds` because the application takes more than 10 minutes to start.
 
 ```diff
 @@ -1,44 +1,24 @@
@@ -322,7 +331,7 @@ For the two remaining objects: `service` and `route`, we will use the "recreate 
 
 #### Route
 
-This is the minimal possible route:
+This is a minimal route:
 
 ```yaml
 apiVersion: v1
@@ -330,12 +339,13 @@ kind: Route
 metadata:
   name: XXXX
 spec:
+  host: YYYY
   to:
     kind: Service
-    name: YYYY
+    name: ZZZZ
 ```
 
-Where `XXXX` is the name of the route, and `YYYY` is the Service is connected to it. We can optionaly add **spec > host** to add a hostname, but if omitted, Rahti will choose a name automatically.
+Where `XXXX` is the name of the route, `YYYY` is the host where the application will be configured to listen, and `ZZZZ` is the Service connected to it.
 
 #### Service
 
@@ -378,13 +388,13 @@ The tests should be done in a separate namespace, and there are two approaches:
 
 * Or all together in the Helm chart, by copying all the `yaml` files we created into the `templates` folder.
 
-    * We can install it:
+    * We can then install it:
 
     ```sh
     helm install test-name example/
     ```
 
-    **Note:** With `--dry-run` you can preview what helm will deploy.
+    **Note:** With `--dry-run` you can preview what helm will deploy without making any change.
 
     * We can see the status of the installed chart by:
 
@@ -394,7 +404,7 @@ The tests should be done in a separate namespace, and there are two approaches:
     test-name	test    	1       	2023-01-03 14:59:04.026623633 +0200 EET	deployed	example-0.1.0	1.16.0
     ```
 
-    * After making a change we can upgrade it:
+    * After making a change in the chart templates we can upgrade it:
 
     ```sh
     $ helm upgrade test-name .
@@ -416,14 +426,14 @@ The tests should be done in a separate namespace, and there are two approaches:
 
 ### Configuration
 
-One of the powerful aspects of Helm is the possibility to extract hardwired values from the templates to a separate `values.yaml` file or to directly use the provided [built-in](https://helm.sh/docs/chart_template_guide/builtin_objects/) values. By removing hardwired values, we provide easy customization that will allow to use the template in more circumstances and for a longer period of time. A user of the template just needs to worry about the values file and not how these values fit into the complexities of the Chart. Helm uses _Go templates_ to accomplish this.
+One of the powerful aspects of Helm is the possibility to, instead of using hardwired values, parametrize them, or to use provided [built-in](https://helm.sh/docs/chart_template_guide/builtin_objects/) values. By removing hardwired values, we provide easy customization that will allow to use the template in more circumstances and for a longer period of time, for example by changing the template image. A user of the template just needs to worry about the `values.yaml` file and not how these values fit into the complexities of the Chart. Helm uses _Go templates_ to accomplish this.
 
-The [built-in](https://helm.sh/docs/chart_template_guide/builtin_objects/) values offer a lot of information, but we will focus in two of sets of them:
+The [built-in](https://helm.sh/docs/chart_template_guide/builtin_objects/) values can be very handy, but we will mention only two of sets of them:
 
-* `Release` offers the basic information of the Chart. Information like the `Namespace` we are deploying this template to, or the `Name` of the Chart.
-* `Capabilities` is a more advance feature that provides information about what capabilities the Kubernetes cluster supports. For example the version of Kubernetes, or which APIVersions are supported. These two pieces of information allow us to make a more widely compatible template, as different versions of Kubernetes will expect different configuration standards.
+* `Release` variables offer the basic information of this chart deployment. Information like the `Namespace` we are deploying this template to, or the `Name` of the Chart.
+* `Capabilities` is a more advance feature that provides information about what API objects and that version the Kubernetes cluster supports. For example the version of Kubernetes, or if `Ingress` or `Route` are supported. These two pieces of information allow us to make more widely compatible templates, as different versions of Kubernetes will need slightly different options.
 
-We can also define our own variables, we will set up a default value and allow configuration from the `values.yaml` file. Let's start with the Volume `yaml` file from previous steps:
+We can also define our own configuration variables. We will set up a default value and at the same time allow the `values.yaml` file to override it. Let's start with the Volume `yaml` file from previous steps:
 
 ```yaml
 apiVersion: v1
@@ -440,7 +450,7 @@ spec:
 status: {}
 ```
 
-In this template we would like to parametrize at least two of the values: the `storage` size and the `storage class`. One allows the user to grow or shrink the space in disk used, and the second allows to change the driver used for the storage. The resulting file would be something like this:
+In this template we would like to parametrize at least two of the values: the `storage` size and the `storage class`. One allows the user to use more or less disk space, and the second allows to change the driver used for the storage. The resulting file would be something like this:
 
 ```yaml
 apiVersion: v1
@@ -465,7 +475,7 @@ storage:
   class: glusterfs-storage
 ```
 
-As you can see all variables in the `values.yaml` file can be accessed from `{{ .Values }}`. We have also set up a default of `500Mi` in the template itself using `default`, and configured a value of `1Gi` at `values.yaml`. In this example the storage of `1Gi` will be used, but if we removed the line `size: 1Gi`, the storage will be `500Mi`.
+As you can see all variables in the `values.yaml` file can be found from `{{ .Values }}`. We have also set up a default of `500Mi` in the template itself using the `default` function, and configured a value of `1Gi` at `values.yaml`. In this example the storage of `1Gi` will be used, but if we removed the line `size: 1Gi`, the storage will be the default of `500Mi`.
 
 Other values that might be interesting to configure:
 
@@ -475,7 +485,7 @@ Other values that might be interesting to configure:
 
 ### Conditionals
 
-It is possible to have conditionals in the templates, based on capabilities of the cluster, or in a configuration option. For example to `tls` activate or not
+It is possible to have conditionals in the templates, based on capabilities of the cluster, or in a configuration option. For example to activate `tls` or not
 
 ```sh
 apiVersion: route.openshift.io/v1
