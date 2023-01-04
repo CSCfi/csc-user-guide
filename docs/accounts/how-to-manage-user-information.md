@@ -25,8 +25,8 @@ In our example we will link CSC user account to MyAccessID which we will create 
 1. When you've selected your home orgazation you're transfered to your login page and need authenticate
 1. If you already have a MyAccessID the linking with your CSC user account is now done automacally
 1. If you do not have a MyAccessID you're requested to register your MyAccessID identity.
-    2. Test
-    2. Test2
+    1. Review and accept the information release document
+    2. Review and accept the policies and terms of use for LUMI
 
 
 !!! Note
