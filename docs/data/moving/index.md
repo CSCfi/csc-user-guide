@@ -4,6 +4,7 @@ There are many ways to move data, please select
 below the one that suits your needs best.
 
 * [Copying files using scp](scp.md)
+* [Moving files using the Puhti web interface](ood.md)
 * [Graphical file transfer tools](graphical_transfer.md)
 * [Using rsync for data transfer and synchronization](rsync.md)
 * [Using wget to download data from web sites to CSC](wget.md)
