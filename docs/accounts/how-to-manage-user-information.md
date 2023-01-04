@@ -15,7 +15,7 @@ Edit profile information:
 ## How to link your CSC user account to external authentication sources
 
 You can link your CSC user account to external authentication mechanisms which can be used side by side on several CSC services.
-In our example we will link CSC user account to MyAccessID which we will create on the fly. 
+In our example we will link CSC user account to MyAccessID but this method is similar to other methods.
 
 ### You already have a MyAccessID available
 
@@ -25,6 +25,7 @@ In our example we will link CSC user account to MyAccessID which we will create 
 1. When asked for confirmation to do the linking, click 'Confirm'
 1. You're now transfered to MyAccessID login page and you must provide your home orgazation to the search field
 1. When you've selected your home orgazation you're transfered to your login page and need authenticate
+1. After successful authentication your CSC user account is now linked with MyAccessID
 
 ### You do not have a MyAccessID available
 
@@ -34,7 +35,7 @@ In our example we will link CSC user account to MyAccessID which we will create 
 1. When asked for confirmation to do the linking, click 'Confirm'
 1. Review and accept the information release document
 1. Review and accept the policies for MyAccessID and terms of use for LUMI
-1. You've now registered your MyAccessID and you need to 
+1. You've now registered your MyAccessID and you need to perform the tasks in [You already have a MyAccessID available](/how-to-manage-user-information.md##you-already-have-a-myaccessid-available)
 
 !!! Note
     If you're invited to a EHPC LUMI project or you're a a EHPC PI you must link your CSC user account with MyAccessID.
