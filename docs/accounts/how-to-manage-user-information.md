@@ -35,7 +35,7 @@ In our example we will link CSC user account to MyAccessID but this method is si
 1. When asked for confirmation to do the linking, click 'Confirm'
 1. Review and accept the information release document
 1. Review and accept the policies for MyAccessID and terms of use for LUMI
-1. You've now registered your MyAccessID and you need to perform the tasks in [You already have a MyAccessID available](../accounts/how-to-manage-user-information.md#you-already-have-a-myaccessid-available)
+1. You've now registered your MyAccessID. Unfortunately MyAccessID portal does not redirect you back to [MyCSC](http://my.csc.fi) but you still need to perform the tasks in [You already have a MyAccessID available](../accounts/how-to-manage-user-information.md#you-already-have-a-myaccessid-available)
 
 !!! Note
     If you're invited to a EHPC LUMI project or you're a a EHPC PI you must link your CSC user account with MyAccessID.
