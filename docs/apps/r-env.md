@@ -681,7 +681,7 @@ SING_FLAGS="$SING_FLAGS -B /appl/soft/math/r-env/${RVER}-stan:/appl/soft/math/r-
 srun apptainer_wrapper exec Rscript --no-save script.R
 ```
 
-Other details on using the CmdStan backend are package-specific. As one example, one could use it for [within-chain parallelisation using `brms`](https://cran.r-project.org/web/packages/brms/vignettes/brms_threading.html): 
+Other details on using the CmdStan backend are package-specific. As one example, one could use it with the [`brms`](https://paul-buerkner.github.io/brms/) package:
 
 ```r
 library(brms)
@@ -692,6 +692,8 @@ fit_serial <- brm(
   chains = 4, cores = 4, backend = "cmdstanr"
 )
 ```
+
+Note that [within-chain parallelisation with `brms`](https://cran.r-project.org/web/packages/brms/vignettes/brms_threading.html) requires a project-specific installation of CmdStan. Please contact [servicedesk@csc.fi](mailto:servicedesk@csc.fi) for instructions.
 
 #### R package installations
 
