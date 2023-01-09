@@ -7,11 +7,11 @@
     {# Some pages don't have ancestor sections in nav... #}
     {% set sections = {
         "/apps/": "Applications",
-        "/support/tutorials/": "Tutorials",
-        "/support/faq/": "FAQ",
+        "/tutorials/": "Tutorials",
+        "/faq/": "FAQ",
         "/support/training-material/": "Training material",
         "/support/contact/": "Contact",
-        "/support/whats-new/": "What's new"
+        "/whats-new/": "What's new"
     } %}
     <nav class="csc-breadcrumbs">
         {% if not page.is_homepage %}
