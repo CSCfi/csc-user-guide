@@ -57,7 +57,7 @@ A [tutorial on how to connect to databases on Rahti from CSC supercomputers](../
 
 ## New machine learning guide released, 20.12.2021
 
-Our [Machine learning guide](../tutorials/ml-guide.md) has been updated and
+Our [Machine learning guide](../../tutorials/ml-guide/) has been updated and
 expanded. It now includes subsections on:
 
 * [GPU-accelerated machine learning](../tutorials/gpu-ml.md)

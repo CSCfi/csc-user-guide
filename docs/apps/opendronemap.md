@@ -43,7 +43,7 @@ apptainer_wrapper run --project-path /scratch/project_2000XXX/odm --max-concurre
 3) Outputs are available in `code`-folder, for example `/scratch/project_2000XXX/odm/code`
 
 ### OpenDroneMap with compute node's local NMVE disk
-OpenDroneMap reads and writes a lot to disk, so running it is slightly (~15%) faster using [compute node's local NMVE disk](../computing/running/creating-job-scripts-puhti.md#local-storage). Below is example file for using OpenDroneMap with NMVE disk.
+OpenDroneMap reads and writes a lot to disk, so running it is slightly (~15%) faster using [compute node's local NMVE disk](../../computing/running/creating-job-scripts-puhti/#local-storage). Below is example file for using OpenDroneMap with NMVE disk.
 
 ```
 #!/bin/bash

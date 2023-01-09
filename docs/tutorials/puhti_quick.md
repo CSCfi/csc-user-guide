@@ -2,7 +2,7 @@
 
 This is a quick start guide for Puhti users. It is assumed that you have previously
 used CSC cluster resources like Taito/Sisu. If not, you can start by looking at
-[overview of CSC supercomputers](../../computing/index.md).
+[overview of CSC supercomputers](../computing/index.md).
 
 **Go to [MyCSC](https://my.csc.fi) to apply for access to Puhti or view your projects
 and their project numbers if you already have access.** You can also use the command
@@ -20,7 +20,7 @@ ssh yourcscusername@puhti.csc.fi
 
 Where `yourcscusername` is the username you get from CSC.
 
-There is also a [web interface](../../computing/webinterface/index.md) available at
+There is also a [web interface](../../computing/webinterface/) available at
 [www.puhti.csc.fi](https://www.puhti.csc.fi), where you can log in with your CSC user name.
 In this interface you can manage files, launch interactive applications and list jobs, quotas
 and project statuses. You can use it also for graphical applications.
@@ -32,7 +32,7 @@ CSC uses the [Lmod](https://lmod.readthedocs.io) module system.
 Modules are set up in a hierarchical fashion, meaning you need to load a compiler
 before MPI and other libraries appear.
 
-See [more information about modules](../../computing/modules.md).
+See [more information about modules](../computing/modules.md).
 
 ## Compilers
 
@@ -40,12 +40,12 @@ The system comes with two compiler families installed, the Intel OneAPI and GCC 
 We have installed `intel-oneapi-compilers-classic/2021.6.0` and `intel-oneapi-compilers/2022.1.0`
 of the Intel compilers, and for GCC 11.3, 9.4 and 8.5 are available.
 
-See [more information about compilers](../../computing/compiling-puhti.md).
+See [more information about compilers](../computing/compiling-puhti.md).
 
 ## High performance libraries
 
 Puhti has several high performance libraries installed, see [more
-information about libraries](../../computing/hpc-libraries.md).
+information about libraries](../computing/hpc-libraries.md).
 
 ## MPI
 
@@ -59,18 +59,18 @@ We recommend to test using `openmpi` first.
 !!! warning "Note"
     You need to have the MPI module loaded when submitting your jobs.
 
-More information about [building](../../computing/compiling-puhti.md#building-mpi-applications) and
-[running](../../computing/running/creating-job-scripts-puhti.md#mpi-based-batch-jobs) MPI applications.
+More information about [building](../computing/compiling-puhti.md#building-mpi-applications) and
+[running](../../computing/running/creating-job-scripts-puhti/#mpi-based-batch-jobs) MPI applications.
 
 ## Applications
 
-More information about specific applications can be found [here](../../apps/alpha.md)
+More information about specific applications can be found [here](../apps/alpha.md)
 
 !!! Python
     System Python is available by default both in Puhti and Mahti without loading any module. Python 3
     (= 3.6.8) is available as `python3`. The default system Python does not include any optional Python
-    packages. Several other [Python](../../apps/python.md) installations are available via the module system.
-    [python-data](../../apps/python-data.md) is a good first choice, it includes a lot of regularly used
+    packages. Several other [Python](../apps/python.md) installations are available via the module system.
+    [python-data](../apps/python-data.md) is a good first choice, it includes a lot of regularly used
     packages.
 
 ## Running jobs
@@ -78,18 +78,18 @@ More information about specific applications can be found [here](../../apps/alph
 Puhti uses the [Slurm](https://slurm.schedmd.com/documentation.html) batch job system.
 
 A description of the different Slurm partitions can be found
-[here](../../computing/running/batch-job-partitions.md). Note
+[here](../../computing/running/batch-job-partitions/). Note
 that the GPU partitions are available from the normal login nodes.
 
-Instructions on how to submit jobs can be found [here](../../computing/running/creating-job-scripts-puhti.md)
-and example batch job scripts are found [here](../../computing/running/example-job-scripts-puhti.md)
+Instructions on how to submit jobs can be found [here](../../computing/running/creating-job-scripts-puhti/)
+and example batch job scripts are found [here](../computing/running/example-job-scripts-puhti.md)
 
 !!! note "Very important change!!"
     You have to specify your billing project in your batch script with the `--account=<project>`
     flag. Failing to do so will cause your job to be held with the reason `AssocMaxJobsLimit`.
     Running `srun` directly also requires the flag.
 
-More information about billing [here](../../accounts/billing.md) and common queuing
+More information about billing [here](../accounts/billing.md) and common queuing
 system error messages in the [FAQ](../faq/why-does-my-batch-job-fail.md).
 
 ## Network
@@ -113,7 +113,7 @@ their home directory (`$HOME`).
 
 You can [check your current disk usage](../faq/disk-quota-exceeded.md) with
 `csc-workspaces`. More detailed information about storage can be found
-[here](../../computing/disk.md) and a guideline on managing data on the
+[here](../../computing/disk/) and a guideline on managing data on the
 `/scratch` disk [here](clean-up-data.md). See also the [LUE tool](lue.md)
 for efficiently querying how much data/files you have in a directory.
 

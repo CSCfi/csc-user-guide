@@ -34,5 +34,5 @@ Once you sign in to your virtual Desktop, you can access the data using Data Gat
 Once your analysis is completed, you can export the results from the computing environment. After that, the data access will be revoked. To get access to the same dataset, you need to start a new application process.
 
 !!! note
-    If you are a new CSC user, please check these instructions on CSC [accounts](../../accounts/index.md) and [multi-factor authentication](../../accounts/mfa.md). Check also the [SD Desktop user guide](./sd_desktop.md) and [CSC Sensitive Data Services for Research webpage](https://research.csc.fi/sensitive-data-services-for-research) for more information.  
+    If you are a new CSC user, please check these instructions on CSC [accounts](../../accounts/index.md) and [multi-factor authentication](../../../accounts/mfa/). Check also the [SD Desktop user guide](./sd_desktop.md) and [CSC Sensitive Data Services for Research webpage](https://research.csc.fi/sensitive-data-services-for-research) for more information.  
 

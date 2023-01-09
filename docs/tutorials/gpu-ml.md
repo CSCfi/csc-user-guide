@@ -34,7 +34,7 @@ The main GPU-related statistics are summarized in the table below.
     are shown in parenthesis.
 
 Please read our [usage policy for the GPU
-nodes](../../computing/index.md#gpu-nodes). Also consider that the Slurm
+nodes](../computing/index.md#gpu-nodes). Also consider that the Slurm
 queuing situation may vary between Puhti and Mahti at different times. However,
 note that Puhti and Mahti have distinct file systems, so you need to manually
 copy your files if you wish to change the system. **In case you are unsure which
@@ -46,13 +46,13 @@ software supported.
 ## Available machine learning software
 
 We support [a number of
-applications](../../apps/index.md#data-analytics-and-machine-learning) for
+applications](../apps/index.md#data-analytics-and-machine-learning) for
 GPU-accelerated machine learning on CSC's supercomputers, including
-[TensorFlow](../../apps/tensorflow.md) and [PyTorch](../../apps/pytorch.md).
+[TensorFlow](../apps/tensorflow.md) and [PyTorch](../apps/pytorch.md).
 Please read the detailed instructions for the specific application that you are
 interested in.
 
-You need to use the [module system](../../computing/modules.md) to
+You need to use the [module system](../computing/modules.md) to
 load the application you want, for example:
 
 ```bash
@@ -67,7 +67,7 @@ default in the module system. These have been made available due to user
 requests, but with limited support. You can enable them by running:
 
 ```bash
-module use /appl/soft/ai/singularity/modulefiles/
+module use /appl/so../singularity/modulefiles/
 ```
 
 ### Installing your own software
@@ -75,14 +75,14 @@ module use /appl/soft/ai/singularity/modulefiles/
 In many cases, our existing modules provide the required framework, but some
 packages are missing. In this case you can often load the appropriate module and
 then [install additional packages for personal use with the `pip` package
-manager](../../apps/python.md#installing-python-packages-to-existing-modules).
+manager](../apps/python.md#installing-python-packages-to-existing-modules).
 
 For more complex software requirements, we recommend using Singularity
 containers. These are similar to Docker containers, and are well supported in
 CSC's supercomputers, in fact many of our own modules are based on Singularity.
 See our [documentation on how to run Singularity
-containers](../../computing/containers/run-existing.md), and [how to create your
-own containers](../../computing/containers/creating.md).
+containers](../computing/containers/run-existing.md), and [how to create your
+own containers](../computing/containers/creating.md).
 
 
 ## Running GPU jobs
@@ -128,12 +128,12 @@ multi-node jobs in our separate tutorial](ml-multi.md).
 
 For more detailed information about the different partitions, see our page about
 [the available batch job partitions on CSC's
-supercomputers](../../computing/running/batch-job-partitions.md).
+supercomputers](../computing/running/batch-job-partitions/).
 
 ## GPU utilization
 
 GPUs are an expensive resource compared to CPUs ([60 times more
-BUs!](../../accounts/billing.md)). Hence, ideally, a GPU should be maximally
+BUs!](../accounts/billing.md)). Hence, ideally, a GPU should be maximally
 utilized once it has been reserved.
 
 You can check the current GPU utilization of a running job by `ssh`ing to the
@@ -180,7 +180,7 @@ GPU memory
        r01g07             0         16.72          1.74         16.91 
 ```
 
-As always, don't hesitate to [contact our service desk](../contact.md) if you
+As always, don't hesitate to [contact our service desk](../support/contact.md) if you
 need advice on how to improve you GPU utilization.
 
    

@@ -8,7 +8,7 @@ Mahti has only a few (24) GPU-nodes available, while LUMI-C will be flanked by L
 
 ## Accessing and SSH keys
 
-To access LUMI, you need to first [create a LUMI-specific project](../accounts/how-to-create-new-project.md#how-to-create-finnish-lumi-projects). Note that LUMI-projects have a finite duration ([see below](lumi-vs-mahti.md#finite-time-projects)) and cannot be used for running on the national resources and vice versa.
+To access LUMI, you need to first [create a LUMI-specific project](../../accounts/how-to-create-new-project/#how-to-create-finnish-lumi-projects). Note that LUMI-projects have a finite duration ([see below](lumi-vs-mahti.md#finite-time-projects)) and cannot be used for running on the national resources and vice versa.
 
 Furthermore, accessing LUMI is only possible using SSH keys, meaning that you cannot use passwords to connect through SSH like on Mahti. For instructions on how to generate an SSH key pair and uploading the public key to [MyCSC](https://my.csc.fi/), see [Setting up SSH keys](connecting.md#setting-up-ssh-keys) and the [Get started with LUMI](https://docs.lumi-supercomputer.eu/firststeps/getstarted/) pages.
 

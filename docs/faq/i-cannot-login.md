@@ -13,8 +13,8 @@ for login problems affecting other services, like Puhti:
    the maintenance is completed or the issue is resolved.
 1. You have no projects enabled in the service that you are trying to login.
    Check the services linked to your projects at MyCSC.
-   [Add service access for your project](../../accounts/how-to-add-service-access-for-project.md)
-   if you have a suitable project, or [create a new project](../../accounts/how-to-create-new-project.md),
+   [Add service access for your project](../../accounts/how-to-add-service-access-for-project/)
+   if you have a suitable project, or [create a new project](../../accounts/how-to-create-new-project/),
    and for it, add the access to the service.
 1. You just changed your password and it has not yet been updated on the system
    you try to access. Please allow for up to one hour and retry. Too many

@@ -4,14 +4,14 @@
 really slow. You've learned that moving to GPUs and CSC's supercomputers might
 be the answer but the documentation seems a bit daunting.*
 
-CSC's computing environment is well-documented at [docs.csc.fi](../../index.md),
+CSC's computing environment is well-documented at [docs.csc.fi](../index.md),
 but for a newcomer it might be a bit difficult to know how to get started.
 **This guide will show you, step by step, how to get your codes and data to the
 Puhti supercomputer and running on GPUs**. It is part of our [Machine learning
 guide](ml-guide.md).
 
-CSC has several supercomputers: [Puhti](../../computing/systems-puhti.md),
-[Mahti](../../computing/systems-mahti.md) and
+CSC has several supercomputers: [Puhti](../computing/systems-puhti.md),
+[Mahti](../computing/systems-mahti.md) and
 [LUMI](https://docs.lumi-supercomputer.eu/hardware/). In this guide we
 will focus on using Puhti as it has the widest selection of software, and has a
 web user interface, making it very easy to access.
@@ -41,7 +41,7 @@ with your normal university credentials. Fill in your information on the *Sign
 up*-page. Once you're done, you should get a confirmation email.
 
 For more information, and special cases, check our separate ["How to create new
-user account" documentation](../../accounts/how-to-create-new-user-account.md).
+user account" documentation](../accounts/how-to-create-new-user-account/).
 
 ## Step 2: Join an existing project, or create a new one
 
@@ -54,7 +54,7 @@ already have a CSC project that you can join**. If that is the case the manager
 of the project (most likely the professor) can add you to the project via the
 [My CSC portal](https://my.csc.fi). Check our more [detailed documentation on
 how to add a new user to a
-project](../../accounts/how-to-add-members-to-project.md)
+project](../accounts/how-to-add-members-to-project/)
 
 Otherwise, for example if you are working on your own doctoral thesis project,
 you can create your own project. **To create a new project, go to [My
@@ -62,11 +62,11 @@ CSC](https://my.csc.fi)** and log in as in Step 1 above. Choose *My Projects*
 and click the *New project* button. Give your project a name, and describe
 briefly the research you are doing. "Academic" is probably the appropriate
 category in most cases. For more information, check our "[Creating a new
-project" documentation](../../accounts/how-to-create-new-project.md).
+project" documentation](../accounts/how-to-create-new-project/).
 
 Once your project is created you also need to **add Puhti access to your
 project**. See [Adding service access for a
-project](../../accounts/how-to-add-service-access-for-project.md) for more
+project](../accounts/how-to-add-service-access-for-project/) for more
 information on that.
 
 **Make a note of the unix group of the project**, which is typically something
@@ -93,7 +93,7 @@ username and password created in Step 1 of this guide.
 After logging in, you will see the Puhti web interface, which looks something
 like this:
 
-![Puhti web interface front page](../../img/ood_main.png)
+![Puhti web interface front page](../img/ood_main.png)
 
 If you are unfamiliar with Puhti's web interface (based on [Open
 OnDemand][OOD]), take some time to familiarize yourself with its functions.
@@ -144,7 +144,7 @@ option, it is the path to where the dataset is stored.
 In the Files browser you can edit a file by clicking on the file-specific menu
 (three dots) and selecting *Edit*, as shown below.
 
-![How to edit a file in Puhti web](../../img/ood-edit-example.png)
+![How to edit a file in Puhti web](../img/ood-edit-example.png)
 
 
 ## Step 5: Copy your data to Puhti
@@ -153,7 +153,7 @@ In the Files browser you can edit a file by clicking on the file-specific menu
 project**, for example `/scratch/project_2001234/`. **Remember that the scratch
 will be regularly cleaned, so don't keep anything important there.** Datasets
 should typically have another more permanent location, such as in
-[Allas](../../data/Allas/index.md) for storing during the project's life-time.
+[Allas](../data/Allas/index.md) for storing during the project's life-time.
 
 You can navigate to `/scratch/project_2001234/` in the *Files* browser in the
 Puhti web interface. Here we will fetch the dataset from a public Allas bucket
@@ -188,11 +188,11 @@ that you are installing on a personal computer**.
 libraries**. It's usually a good idea to use these as a starting point, even if
 they don't contain all the packages you need. Check the list of [data analytics
 and machine learning modules provided on CSC's
-supercomputers](../../apps/index.md#data-analytics-and-machine-learning). 
+supercomputers](../apps/index.md#data-analytics-and-machine-learning). 
 
-For example [PyTorch](../../apps/pytorch.md) and
-[TensorFlow](../../apps/tensorflow.md) have their own dedicated modules, while
-[Python Data](../../apps/python-data.md) is a general module containing many
+For example [PyTorch](../apps/pytorch.md) and
+[TensorFlow](../apps/tensorflow.md) have their own dedicated modules, while
+[Python Data](../apps/python-data.md) is a general module containing many
 data analytics libraries such as numpy, SciPy, Scikit-learn, Dask, JupyterLab
 and many others. These software environments can be activated with the `module
 load` command. See the specific documentation pages listed above for more
@@ -202,13 +202,13 @@ If you find a module that has most of what you need, but a few packages are
 missing, you can easily install them yourself (to your home directory) with the
 `pip install --user` command. See our [Python documentation for more information
 on how to install packages
-yourself](../../apps/python.md#installing-python-packages-to-existing-modules).
+yourself](../apps/python.md#installing-python-packages-to-existing-modules).
 
 If you have more complex software needs which are not easily covered by our
 existing modules, it is always possible to [create your own Python
-environments](../../apps/python.md#creating-your-own-python-environments). If
+environments](../apps/python.md#creating-your-own-python-environments). If
 you are unsure what to do, you can always [contact our service
-desk](../contact.md).
+desk](../support/contact.md).
 
 
 ## Step 7: Create your first batch job script
@@ -222,7 +222,7 @@ To run a program in Slurm we need to define a batch job script. This is just a
 text file with a set of Slurm options defining the resources we need for our
 program and the actual commands needed to run it. You can read more about
 defining [batch job scripts in our separate documentation
-page](../../computing/running/creating-job-scripts-puhti.md).
+page](../computing/running/creating-job-scripts-puhti/).
 
 In the file `run-cifar10.sh` in our code directory, you can find an example
 batch job script:
@@ -293,7 +293,7 @@ Submitted batch job 12345678
 
 If you're instead seeing some error message, take a look at our [page of common
 batch job errors](../faq/why-does-my-batch-job-fail.md). If you cannot find a
-solution there, don't hesitate to [contact our service desk](../contact.md).
+solution there, don't hesitate to [contact our service desk](../support/contact.md).
 
 You can check your running job, either from the terminal:
 
@@ -323,14 +323,14 @@ parameters. But please don't submit hundreds of jobs at the same time.
 Now, that you've gotten started, you might be interested in checking out the
 rest of our documentation. For example:
 
-* [Running jobs with Slurm](../../computing/running/index.md)
-* [Applications on Puhti and Mahti](../../apps/index.md), in particular
-  [PyTorch](../../apps/pytorch.md) and [TensorFlow](../../apps/tensorflow.md).
+* [Running jobs with Slurm](../computing/running/index.md)
+* [Applications on Puhti and Mahti](../apps/index.md), in particular
+  [PyTorch](../apps/pytorch.md) and [TensorFlow](../apps/tensorflow.md).
 * [CSC's Machine learning guide](ml-guide.md)
 
 In case you have any questions about this guide or any other problems getting
 started with using machine learning on CSC's services, don't hesitate to [contact
-our service desk](../contact.md).
+our service desk](../support/contact.md).
 
 
 [OOD]: http://openondemand.org/

@@ -35,7 +35,7 @@ and finally create a Singularity image as below:
 ```
 sudo SINGULARITY_NOHTTPS=1 singularity build deepvariant.simg  deffile
 ```
-Alternatively, one can download  pre-converted singularity images (both cpu and gpu versions) along with test data from CSC's [Allas](../../data/Allas/index.md) object storage as below:
+Alternatively, one can download  pre-converted singularity images (both cpu and gpu versions) along with test data from CSC's [Allas](../data/Allas/index.md) object storage as below:
 
 ```
 wget https://a3s.fi/pilot_projects/Deepvariant_singularity.zip
@@ -91,7 +91,7 @@ deepvariant_gpu.simg \
 --output_gvcf=output.g.vcf.gz
 ```
 ### Deepvariant as an interactive job in Puhti
-One can run singularity containers also in the [interactive](../../computing/running/interactive-usage.md) mode.
+One can run singularity containers also in the [interactive](../computing/running/interactive-usage.md) mode.
 For example, deepvariant can be run as follows: 
 
 Download and unzip the deepvariant folder with data and singularity images in the login node

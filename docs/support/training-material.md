@@ -1,14 +1,14 @@
 # Training material
 
-Get the basics right! In addition the the [Tutorials](tutorials/index.md)
-and [FAQ](faq/index.md) collections, this page links to a selection of
+Get the basics right! In addition the the [Tutorials](../../tutorials)
+and [FAQ](../../faq) collections, this page links to a selection of
 additional training material useful for self study. At the bottom of the
 page, you can also find a summary of trainings and training material sources
 and platforms by CSC and partners!
 
 ## Linux & HPC basics
 
-* [Linux 101 tutorial](tutorials/env-guide/index.md)
+* [Linux 101 tutorial](../../tutorials/env-guide/)
 * [Linux 1: Introduction to Linux course material](https://www.csc.fi/en/web/training/-/linux1_autumn2018)
 * [Linux 2: Intermediate Linux course materials](https://www.csc.fi/web/training/-/linux-2-november-2018)
 * [Linux 3: Scripting course material](https://www.csc.fi/web/training/-/linux3_spring_2019)
@@ -31,7 +31,7 @@ and platforms by CSC and partners!
 
 ## Data analytics and machine learning
 
-* [Data analysis guide](tutorials/da-guide.md)
+* [Data analysis guide](../../tutorials/da-guide/)
 * [Practical machine learning](https://e-learn.csc.fi/course/view.php?id=14) MOOC
 
 ## Language bank
@@ -68,7 +68,7 @@ and platforms by CSC and partners!
 | -------- | -------- |
 | **[CSC training calendar](https://csc.fi/web/guest/training)** | Upcoming courses <br> Links to self-learning materials, e.g. [Elements of Supercomputing](https://edukamu.fi/elements-of-supercomputing) |
 | **[eLena](https://e-learn.csc.fi) (Moodle environment)** | [Research Data Management](https://e-learn.csc.fi/course/view.php?id=63) <br> [CSC Computing Environment](https://e-learn.csc.fi/course/view.php?id=76) |
-| **[Tutorials at Docs CSC](tutorials/index.md)** | [Getting started with Puhti](tutorials/puhti_quick.md) <br> [Machine learning guide](tutorials/ml-guide.md) |
+| **[Tutorials at Docs CSC](../../tutorials)** | [Getting started with Puhti](../../tutorials/puhti_quick/) <br> [Machine learning guide](../../tutorials/ml-guide/) |
 | **[Docs CSC training materials collection](training-material.md) (this page)** | Links to thematically collected materials |
 | **[CSC Notebooks](https://notebooks.rahtiapp.fi)** |  Introduction to Python <br> Introduction to R <br> 2h Intro to Quantum Computing |
 | **[VideoCSC](https://video.csc.fi)** | [Introductions to topics](https://video.csc.fi/category/Training%3EIntroductions+to+Topics/455249) <br> Recordings of weekly user support coffee talks |

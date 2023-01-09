@@ -51,19 +51,19 @@ The _allas_ module provides several tools that you can use to move data between 
 You can cross-use the Allas clients as long as you access Allas with the same protocol (swift or S3).
 Below is a list of the Allas clients that are most commonly used in Puhti and Mahti:
 
-* **a-commands:** (Swift, optionally S3) [Easy and safe: a-commands](../data/Allas/using_allas/a_commands.md)
-* **rclone:** (Swift, optionally S3) [Advanced tool: rclone](../data/Allas/using_allas/rclone.md)
-* **swift python client:** (Swift) [Native Swift client](../data/Allas/using_allas/swift_client.md)
-* **s3cmd:** (S3) [S3 client](../data/Allas/using_allas/s3_client.md#configuring-s3-connection-in-supercomputers)
+* **a-commands:** (Swift, optionally S3) [Easy and safe: a-commands](../../data/Allas/using_allas/a_commands/)
+* **rclone:** (Swift, optionally S3) [Advanced tool: rclone](../../data/Allas/using_allas/rclone/)
+* **swift python client:** (Swift) [Native Swift client](../../data/Allas/using_allas/swift_client/)
+* **s3cmd:** (S3) [S3 client](../../data/Allas/using_allas/s3_client/#configuring-s3-connection-in-supercomputers)
 
 More information about using Allas can be found from the Allas documentation:
 
-* [Allas](../data/Allas/index.md)
+* [Allas](../../data/Allas/)
 
 The Allas documentation includes two tutorials that are especially designed for Puhti and Mahti users:
 
-* [Examples for using Allas in CSC supercomputers](../data/Allas/allas-examples.md)
+* [Examples for using Allas in CSC supercomputers](../../data/Allas/allas-examples)
 
-* [Using Allas in batch jobs](../data/Allas/allas_batchjobs.md)
+* [Using Allas in batch jobs](../../data/Allas/allas_batchjobs/)
 
 

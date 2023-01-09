@@ -49,7 +49,7 @@ CSC also hosts or provides access to several datasets on different platforms.
 
 ## Processing and analysing data
 
-Read more in [CSC's Data analysis guide](../../tutorials/da-guide.md)
+Read more in [CSC's Data analysis guide](../../../tutorials/da-guide/)
 
 [CSC's services for processing and analysing data](https://research.csc.fi/en/service-catalog#compute)
 

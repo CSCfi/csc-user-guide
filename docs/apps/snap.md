@@ -62,7 +62,7 @@ After loading the snap module run
 
 `source snap_add_userdir <YOUR-PROJECTS-SCRATCH-FOLDER>`
 
-You could also request a fast [nvme](../computing/running/creating-job-scripts-puhti.md#local-storage) disk in a batch job and run the command first in the batch job so that all the temp/cache files are written to a fast disk rather than the scratch. It might provide speed improvement in demanding calculations.
+You could also request a fast [nvme](../../computing/running/creating-job-scripts-puhti/#local-storage) disk in a batch job and run the command first in the batch job so that all the temp/cache files are written to a fast disk rather than the scratch. It might provide speed improvement in demanding calculations.
 
 `source snap_add_userdir $LOCAL_SCRATCH` with batch jobs
 
@@ -79,7 +79,7 @@ __By default SNAP/8.0 in Puhti uses only up to 2 Gb memory for Java.__ To increa
 
 ### Using SNAP with Graph Processing Tool (gpt) command
 
-The Graph Processing Tool `gpt` is a command line tool used for bulk processing. Using GPT more computing power can be used than with SNAP graphical interface, because it can be used in scripts and therefore included in jobs that can be submitted to any [Puhti partition](../computing/running/batch-job-partitions.md).
+The Graph Processing Tool `gpt` is a command line tool used for bulk processing. Using GPT more computing power can be used than with SNAP graphical interface, because it can be used in scripts and therefore included in jobs that can be submitted to any [Puhti partition](../../computing/running/batch-job-partitions/).
 
 GPT command looks often something like this:
 

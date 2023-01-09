@@ -8,13 +8,13 @@ guide](ml-guide.md).
 
 Puhti and Mahti have three types of shared disk areas: **home**, **projappl**
 and **scratch**. You can [read more about the disk areas
-here](../../computing/disk.md). In general, keep your code and software in
+here](../computing/disk/). In general, keep your code and software in
 **projappl** and datasets, logs and calculation outputs in **scratch**. The
 **home** directory is not intended for data analysis and computing, and you
 should only store small personal files there.
 
 It is recommended to store big datasets in the [Allas object
-store](../../data/Allas/index.md), and download them to your project's scratch
+store](../data/Allas/index.md), and download them to your project's scratch
 directory prior to starting your computation. For example:
 
 ```bash
@@ -57,7 +57,7 @@ hours**.
     for sequential access instead!
 
 For further reading, see CSC's [technical description of the Lustre
-filesystem](../../computing/lustre.md) and our general tutorial on [how to
+filesystem](../computing/lustre.md) and our general tutorial on [how to
 achieve better I/O performance on Lustre](lustre_performance.md).
 
 
@@ -69,7 +69,7 @@ TFRecord](https://www.tensorflow.org/tutorials/load_data/tfrecord) and
 [WebDataset](https://webdataset.github.io/webdataset/) for PyTorch.
 Other examples include using
 [HDF5](https://towardsdatascience.com/hdf5-datasets-for-pytorch-631ff1d750f5),
-or [LMDB](http://deepdish.io/2015/04/28/creating-lmdb-in-python/)
+or [LMDB](http://deepdish.io/20../28/creating-lmdb-in-python/)
 formats, or even humble ZIP-files, e.g., via Python's
 [zipfile](https://docs.python.org/3/library/zipfile.html) library.
 See also [an example of creating TFRecord files from an image
@@ -78,7 +78,7 @@ dataset](https://github.com/CSCfi/machine-learning-scripts/blob/master/notebooks
 The main point with all of these formats is that instead of many
 thousands of small files you have one or a few bigger files, which are
 much more efficient to access and read sequentially. Don't hesitate to
-[contact our service desk](../contact.md) if you need advice about how
+[contact our service desk](../support/contact.md) if you need advice about how
 to access your data more efficiently.
 
 
@@ -110,7 +110,7 @@ srun python3 myprog.py --input_data=$LOCAL_SCRATCH <options>
 Note that you need to communicate somehow to your own program where to find the
 dataset, for example with a command line argument. Also see our [general
 instructions on how to take the fast local storage into
-use](../../computing/running/creating-job-scripts-puhti.md#local-storage).
+use](../computing/running/creating-job-scripts-puhti/#local-storage).
 
 If you are running a [multi-node job](ml-multi.md), you need to modify the `tar`
 line so that it is performed on each node separately:

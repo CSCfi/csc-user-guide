@@ -3,7 +3,7 @@
 This is a quick start guide for Mahti users. It is assumed that you
 have previously used CSC supercomputing resources like Puhti, Sisu
 or Taito. If not, you can start by looking at [overview of CSC
-supercomputers](../../computing/index.md).
+supercomputers](../computing/index.md).
 
 **Go to [MyCSC](https://my.csc.fi) to apply for access to Mahti or
 view your projects and their project numbers if you already have
@@ -26,7 +26,7 @@ Where `yourcscusername` is the username you get from CSC.
 Modules are set up in a hierarchical fashion, meaning you need to load
 a compiler before MPI and other libraries appear. CSC uses the
 [Lmod](https://lmod.readthedocs.io) module system. See [more information
-about modules](../../computing/modules.md).
+about modules](../computing/modules.md).
 
 Default modules, which are loaded automatically, are `gcc/11.2.0`,
 `openmpi/4.1.2` and `openblas/0.3.18-omp`.
@@ -43,7 +43,7 @@ In Mahti, many applications benefit from hybrid MPI/OpenMP
 parallelization, so it is recommended to build a hybrid version if it
 is supported by your application.
 
-See [more information about compilers](../../computing/compiling-mahti.md).
+See [more information about compilers](../computing/compiling-mahti.md).
 
 !!! warning "Note"
     You need to have the MPI module loaded when submitting your jobs.
@@ -51,21 +51,21 @@ See [more information about compilers](../../computing/compiling-mahti.md).
 ## High performance libraries
 
 Mahti has several high performance libraries installed, see [more
-information about libraries](../../computing/hpc-libraries.md).
+information about libraries](../computing/hpc-libraries.md).
 
 ## Applications
 
-More information about specific applications can be found [here](../../apps/alpha.md).
+More information about specific applications can be found [here](../apps/alpha.md).
 Note, the pre-installed selection is not as large as on Puhti.
 
 ## Running jobs
 
 Like Puhti, Mahti uses the [Slurm](https://slurm.schedmd.com/documentation.html)
 batch job system. A description of the different Slurm partitions can
-be found [here](../../computing/running/batch-job-partitions.md).
+be found [here](../../computing/running/batch-job-partitions/).
 
-Instructions on how to submit jobs can be found [here](../../computing/running/creating-job-scripts-mahti.md)
-and example batch job scripts are found [here](../../computing/running/example-job-scripts-mahti.md).
+Instructions on how to submit jobs can be found [here](../../computing/running/creating-job-scripts-mahti/)
+and example batch job scripts are found [here](../../computing/running/example-job-scripts-mahti/).
 
 ## Performance considerations
 
@@ -79,7 +79,7 @@ performance becomes worse. Binding of threads to CPU cores can also have
 an impact on performance.
 
 More information about controlling hybrid applications can be found
-[here](../../computing/running/performance-checklist.md#hybrid-parallelization-in-mahti).
+[here](../computing/running/performance-checklist.md#hybrid-parallelization-in-mahti).
 
 ## Storage
 
@@ -101,13 +101,13 @@ accessed from Mahti.
 
 You can [check your current disk usage](../faq/disk-quota-exceeded.md) with
 `csc-workspaces`. More detailed information about storage can be found
-[here](../../computing/disk.md) and a guideline on managing data on the
+[here](../../computing/disk/) and a guideline on managing data on the
 `/scratch` disk [here](clean-up-data.md). See also the [LUE tool](lue.md)
 for efficiently querying how much data/files you have in a directory.
 
 ## Moving data between Mahti and Puhti
 
-Data can be moved between supercomputers via [Allas](../../data/Allas/index.md)
+Data can be moved between supercomputers via [Allas](../data/Allas/index.md)
 by first uploading the data from one supercomputer and then downloading it to
 the other. This is the recommended approach if the data should also be preserved
 for a longer time.
@@ -121,7 +121,7 @@ in Mahti, one can issue in Puhti the command:
 rsync -azP my_results <username>@mahti.csc.fi:/scratch/project_2002291
 ```
 
-See [Using rsync](../../data/moving/rsync.md) for more detailed instructions
+See [Using rsync](../data/moving/rsync.md) for more detailed instructions
 for `rsync`.
 
 ## How Mahti and Puhti differ?

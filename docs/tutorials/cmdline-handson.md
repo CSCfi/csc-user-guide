@@ -3,12 +3,12 @@
 The next few exercises take you through submitting your first batch jobs on Puhti.
 We've used R and HMMER as examples, but the principles are the same for other
 applications as well. However, please always consult the [application specific
-page](../../apps/alpha.md) if it exists. It may have a tailored template for you.
+page](../apps/alpha.md) if it exists. It may have a tailored template for you.
 
 ## Get the exercise files
 ### a) Log in to Puhti from a terminal
 
-`ssh your-username@puhti.csc.fi` or if you don't have an ssh client available, you can log in via the [Puhti web interface](../../computing/webinterface/index.md) using your web browser and open a terminal there.
+`ssh your-username@puhti.csc.fi` or if you don't have an ssh client available, you can log in via the [Puhti web interface](../../computing/webinterface/) using your web browser and open a terminal there.
 
 ### b) Go to scratch directory and download the exercises file
 
@@ -107,7 +107,7 @@ If the job failed, please check which project you had in the batch script `--acc
 
 Run a simple R job from a script. The script will fit a straight line
 through a file containing some x,y value pairs. More info on
-[running R in the CSC environment](../../apps/r-env.md)
+[running R in the CSC environment](../apps/r-env.md)
 
 ### a) Set up an interactive batch job and initialize R environment
 
@@ -191,7 +191,7 @@ Now run the previous R script as a batch job.
 
 ### a) Create a batch job script, which will submit the job to the queue.
 
-Copy the *serial batch script* template from [CSC's R-env page](../../../apps/r-env/#serial-batch-jobs)
+Copy the *serial batch script* template from [CSC's R-env page](../../apps/r-env/#serial-batch-jobs)
 into a file called _batch.sh_
 
 In addition to setting up the computing requirements, this script
@@ -304,9 +304,9 @@ You should get the fit coefficients in separate files in the
 ### e) Collect the results and plot them.
 
 Note, plotting will work only if you have 
-[remote X11 forwarding](../../../computing/connecting/#using-graphical-applications).
+[remote X11 forwarding](../../computing/connecting/#using-graphical-applications).
 Actually, for R, there is even a tailored remote setup using 
-[RStudio Server](../../apps/r-env.md),
+[RStudio Server](../apps/r-env.md),
 and you're welcome to use that, but in this tutorial, the key point is to 
 demonstrate the general approach.
 
@@ -325,7 +325,7 @@ The plot will appear in a separate window.
 ## Batch job with thread parallelization
 
 Some applications can be run in parallel to speed them up. In this
-example you run the [HMMER software](../../apps/hmmer.md) to describe 
+example you run the [HMMER software](../apps/hmmer.md) to describe 
 and analyze related or similar protein sequence areas both in serial 
 and parallel to see if the jobs speed up.
 
@@ -340,7 +340,7 @@ wget https://a3s.fi/docs-files/example.fasta
 
 Let's first run the job with just one core. Copy one of the old batch
 scripts to current directory, and change / add the following items in
-it (or take a look at [these examples](../../computing/running//example-job-scripts-puhti.md)):
+it (or take a look at [these examples](../computing/running//example-job-scripts-puhti.md)):
 
 1. Output to `out_%j.txt`
 1. error to `err_%j.txt`
@@ -473,13 +473,13 @@ First copy the input file to your working directory:
 
 ```
 module load cp2k`
-cp $CP2K_DATA_DIR/tests/QS/benchmark/H2O-32.inp .
+cp $CP2K_DATA_DIR/tes../benchmark/H2O-32.inp .
 ```
 
 Then create a batch script and submit it with `sbatch`
 !!! Tip
     Remember to check the CSC software pages for [application specific
-    examples for batch jobs:](../../apps/alpha.md)
+    examples for batch jobs:](../apps/alpha.md)
 
 For the first job, ask minimal resources (copy the rest of the
 batch script contents from CSC's CP2k page):
@@ -503,7 +503,7 @@ also use the `test` partition. If you ask for more than 40 cores (in Puhti), you
 need to switch to `large` partition. In multinode jobs, always 
 limit the number of *Nodes*, so that the job is not spread onto
 more nodes than necessary as it [creates unwanted communication overhead and
-fragments the allocations on the system](../../computing/running/performance-checklist-md)).
+fragments the allocations on the system](../computing/running/performance-checklist-md)).
 
 With the following command you can sum the time spent at different steps
 for each job.

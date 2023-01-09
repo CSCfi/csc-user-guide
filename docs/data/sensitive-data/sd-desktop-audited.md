@@ -1,4 +1,3 @@
-
 # Sensitive Data Desktop for secondary use of health and social data 
 
 Sensitive Data (SD) Desktop is a registered environment for secondary use of health and social data (register data). Access to the service requires a permit from the Findata authority. SD Desktop is a web-user interface that allows you to manage (start, use, delete) a virtual computer (here called Desktop, technically defined as a virtual machine) from your web browser. With the virtual Desktop, you can access the authorised datasets. No previous knowledge of cloud computing or programming expertise is required to use the service.
@@ -25,7 +24,7 @@ In the following user guide, you can learn how to:
 
 * To comply with the regulation, virtual Desktops for seconday use are completely isolated from the internet and other services: you can only access the data you have requested from Findata;
 
-* SD Desktop can be used to work with any type of data: text files, images, audio files, video, and genetic data. However, the virtual Desktop includes [a limited set of pre-installed software](../../data/sensitive-data/sd-desktop-audited.md#default-programs-available-on-the-desktop-and-software-customisation) (open source). Only the permit authority can approve the use of additional software/files/scripts and import them into your virtual Desktop.
+* SD Desktop can be used to work with any type of data: text files, images, audio files, video, and genetic data. However, the virtual Desktop includes [a limited set of pre-installed software](#default-programs-available-on-the-desktop-and-software-customisation) (open source). Only the permit authority can approve the use of additional software/files/scripts and import them into your virtual Desktop.
 
 
 ## Before you start
@@ -52,13 +51,13 @@ In the following user guide, you can learn how to:
 When you are processing secondary use data from public registries, access to SD Desktop is managed by CSC. To start using SD Desktop for seconday use, you need to:
 
 * request a CSC project from servicedesk@csc.fi (subject: Sensitive Data) and attach a copy of your **data permit** (see more instructions below);
-* set up [a CSC account](../../accounts/how-to-create-new-user-account.md) using the [My CSC portal](https://my.csc.fi): log in with Haka, if you don't have Haka credentials you need to contact us at servicedesk@csc.fi in order to verify your identity;
-* **activate the additional security verification (or Multi-factor Authentication)** on your account scanning the QR code with a specific application (e.g. Google Authenticator). For further instructions see the [MFA paragraph](../../accounts/mfa.md), under the Account section on the CSC user guide;
+* set up [a CSC account](../../../accounts/how-to-create-new-user-account/) using the [My CSC portal](https://my.csc.fi): log in with Haka, if you don't have Haka credentials you need to contact us at servicedesk@csc.fi in order to verify your identity;
+* **activate the additional security verification (or Multi-factor Authentication)** on your account scanning the QR code with a specific application (e.g. Google Authenticator). For further instructions see the [MFA paragraph](../../../accounts/mfa/), under the Account section on the CSC user guide;
 * join a CSC project via an invitation link and wait for an approval from the service desk;
-* fill in the [description of data processing activities](../../accounts/when-your-project-handles-personal-data.md) form;
-* approve [the terms and conditions of SD Desktop service](../../accounts/how-to-add-service-access-for-project.md#member);
+* fill in the [description of data processing activities](../../../accounts/when-your-project-handles-personal-data/) form;
+* approve [the terms and conditions of SD Desktop service](../../../accounts/how-to-add-service-access-for-project/#member);
 
-For specific guidance regarding these steps check the [Accounts](../../accounts/index.md) paragraph at the beginning of this user guide. Note that you always need to use your CSC username and password when you access data from your virtual Desktop. If you don't remember your CSC password, you can [reset it](../../accounts/how-to-change-password.md).
+For specific guidance regarding these steps check the [Accounts](../../../accounts/) paragraph at the beginning of this user guide. Note that you always need to use your CSC username and password when you access data from your virtual Desktop. If you don't remember your CSC password, you can [reset it](../../../accounts/how-to-change-password/).
 
 
 ### Requesting a project for register data
@@ -88,7 +87,7 @@ After entering your username and password, you need to **verify your identity** 
 After entering the temporary code, **please press the Continue button**. Pressing Enter on your keyboard is currently causing an error that will re-directed to a stall request error page. We are working to fix this step. 
 
 
-For specific guidance regarding the MFA activation on your CSC account, see the [MFA paragraph](../../accounts/mfa.md).
+For specific guidance regarding the MFA activation on your CSC account, see the [MFA paragraph](../../../accounts/mfa/).
 
 [![Authentication](images/desktop/desktop_login-mfa1.png)](images/desktop/desktop_login-mfa1.png)
 
@@ -156,7 +155,7 @@ When you log in to SD Desktop **Homepage**, you will be able to access your virt
 
 When you open the connection, a virtual computing environment (Linux Centos operating system) will open into your browser. When you access the virtual Desktop for the first time, you will see the getting started panel, from which you can, for example, adjust the screen resolution.
 
-You can work with this virtual Desktop like in a standard computing environment.  From the applications menu bar (top left corner) you can access several pre-installed programs. Examples include Open Office, image viewing applications, video and audio players, Jupiter Notebook etc. You can also open a terminal and use Linux from command line. To start using R-Studio please check [the paragraph](../../data/sensitive-data/sd_desktop.md#rstudio-in-sd-desktop) under SD Desktop.
+You can work with this virtual Desktop like in a standard computing environment.  From the applications menu bar (top left corner) you can access several pre-installed programs. Examples include Open Office, image viewing applications, video and audio players, Jupiter Notebook etc. You can also open a terminal and use Linux from command line. To start using R-Studio please check [the paragraph](#rstudio-in-sd-desktop) under SD Desktop.
 
 
 Security-related features of the audited SD Desktop include:
@@ -361,4 +360,4 @@ If you are still waiting for a decision about your amendment application when th
 
 ## Troubleshooting
 
-Find solutions to common problems in the [Troubleshooting paragraph](../../data/sensitive-data/sd_desktop.md#troubleshooting) under SD Desktop.
+Find solutions to common problems in the [Troubleshooting paragraph](#troubleshooting) under SD Desktop.

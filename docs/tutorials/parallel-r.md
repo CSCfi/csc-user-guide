@@ -30,9 +30,9 @@ Moreover, R processes are often split into a **master** process and **worker** p
 
 **Multithreading**
 
-The default behaviour of R is to use a single thread at a time. However, R can be separately configured to use BLAS/LAPACK libraries that can utilise multiple cores via *multithreading*. Multithreading can help speed up certain (e.g. linear algebra) routines. The R installation in `r-env` has been linked with [Intel® OneMKL](https://www.intel.com/content/www/us/en/developer/tools/oneapi/onemkl.html) to enable support for multithreading.
+The default behaviour of R is to use a single thread at a time. However, R can be separately configured to use BLAS/LAPACK libraries that can utilise multiple cores via *multithreading*. Multithreading can help speed up certain (e.g. linear algebra) routines. The R installation in `r-env` has been linked with [Intel® OneMKL](https://www.intel.com/content/w../en/developer/tools/oneapi/onemkl.html) to enable support for multithreading.
 
-While `r-env` is linked with OneMKL, the module is configured to use a single thread unless the user specifies otherwise. In multithreaded analyses, the number of threads is typically matched with the number of cores using the environment variable `OMP_NUM_THREADS`. More information can be found in the [`r-env` documentation](../../apps/r-env.md#improving-performance-using-threading).
+While `r-env` is linked with OneMKL, the module is configured to use a single thread unless the user specifies otherwise. In multithreaded analyses, the number of threads is typically matched with the number of cores using the environment variable `OMP_NUM_THREADS`. More information can be found in the [`r-env` documentation](../apps/r-env.md#improving-performance-using-threading).
 
 Certain R packages (such as [`mgcv`](https://stat.ethz.ch/R-manual/R-devel/library/mgcv/html/mgcv-parallel.html) and [`ranger`](https://cran.r-project.org/web/packages/ranger/ranger.pdf)) offer direct support for multithreading. Jobs using other types of R packages could also benefit from multithreading, depending on the analysis. However, **it is always recommended** to check your job using a single *versus* multiple threads to confirm whether any speed-up is obtained and that the results remain correct when using multithreading.
 
@@ -42,15 +42,15 @@ It is also possible to run jobs that combine multiprocessing and multithreading.
 
 ## Submitting concurrent jobs
 
-For this purpose, the recommended way is to submit an [array job](../../computing/running/array-jobs.md). Example batch job files can be found in the [`r-env` documentation](../../apps/r-env.md#parallel-batch-jobs) and [on GitHub](https://github.com/csc-training/geocomputing/tree/master/R/puhti/02_array). Array jobs are suitable for executing the same code using different parameters, or any other situation where the parallel tasks are independent (i.e. they do not need to communicate with one another).
+For this purpose, the recommended way is to submit an [array job](../computing/running/array-jobs.md). Example batch job files can be found in the [`r-env` documentation](../apps/r-env.md#parallel-batch-jobs) and [on GitHub](https://github.com/csc-training/geocomputing/tree/master/R/puhti/02_array). Array jobs are suitable for executing the same code using different parameters, or any other situation where the parallel tasks are independent (i.e. they do not need to communicate with one another).
 
 ## Multinode analyses
 
 Regardless of whether you are running a serial, multiprocess or multithreaded R job, it is possible to distribute your analysis over multiple Puhti nodes. To do so, your batch job file and R script will require some modifications, compared to an analysis running on a single node. You will also need to use R packages that are compatible with multinode jobs, such as `snow` or `future`. 
 
-A number of practical examples can be found under the [parallel batch jobs section of the `r-env` documentation](../../apps/r-env.md#parallel-batch-jobs). Multinode R examples using raster data can also be found [on GitHub](https://github.com/csc-training/geocomputing/tree/master/R/puhti).
+A number of practical examples can be found under the [parallel batch jobs section of the `r-env` documentation](../apps/r-env.md#parallel-batch-jobs). Multinode R examples using raster data can also be found [on GitHub](https://github.com/csc-training/geocomputing/tree/master/R/puhti).
 
-One topic of note is that setting up multiprocess and/or multithread jobs on multiple nodes (so-called hybrid jobs) is a special case of its own. Even if you have successfully set up a parallel R job on a single node, it will be necessary to rethink your setup when scaling up to several nodes. Tips on how to approach this can be found in the [`r-env` documentation](../../apps/r-env.md#openmp-mpi-hybrid-jobs) and as part of [CSC's general documentation on hybrid batch jobs](../../computing/running/creating-job-scripts-mahti.md#hybrid-batch-jobs).
+One topic of note is that setting up multiprocess and/or multithread jobs on multiple nodes (so-called hybrid jobs) is a special case of its own. Even if you have successfully set up a parallel R job on a single node, it will be necessary to rethink your setup when scaling up to several nodes. Tips on how to approach this can be found in the [`r-env` documentation](../apps/r-env.md#openmp-mpi-hybrid-jobs) and as part of [CSC's general documentation on hybrid batch jobs](../../computing/running/creating-job-scripts-mahti/#hybrid-batch-jobs).
 
 ## Some practical tips
 
@@ -64,7 +64,7 @@ Multinode analyses will give you access to more resources than a single-node ana
 
 **2. Start with a minimal proof of concept.** Begin with a single node to make sure that your parallelisation strategy is working. Use a small set of test data first and compare the execution time of your parallel analysis with that of a serial (non-parallel) analysis, for example using the R package `tictoc`. Once your parallel analysis works on a single node, troubleshooting multinode setups becomes much easier.
 
-**3. Become close friends with batch job files and your R packages.** To help with this, consult existing tutorials and R package documentation. Useful CSC Docs pages include examples of [serial and parallel R batch jobs](../../apps/r-env.md#serial-batch-jobs), our [basic batch job documentation](../../computing/running/creating-job-scripts-puhti.md) and details on [available batch job partitions](../../computing/running/batch-job-partitions.md). The `r-env` user documentation provides many examples of parallel R jobs and how to launch them on Puhti.
+**3. Become close friends with batch job files and your R packages.** To help with this, consult existing tutorials and R package documentation. Useful CSC Docs pages include examples of [serial and parallel R batch jobs](../apps/r-env.md#serial-batch-jobs), our [basic batch job documentation](../../computing/running/creating-job-scripts-puhti/) and details on [available batch job partitions](../../computing/running/batch-job-partitions/). The `r-env` user documentation provides many examples of parallel R jobs and how to launch them on Puhti.
 
 **4. Reserving more resources does not necessarily mean faster analyses.** Finding an optimal number of cores and/or threads is usually a case of trial and error. Often there is a threshold after which only marginal benefits are obtained in relation to the resources you reserve. Also, the more resources one reserves, the longer the wait until they become available.
 

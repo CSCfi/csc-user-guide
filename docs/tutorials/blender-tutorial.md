@@ -23,8 +23,8 @@ This second tutorial covers Blender 2.9 interface.
 
 ## Meshes
 
-This third Blender tutorial covers importing and fixing meshes exported from scientific applications, such as [ParaView](../../apps/paraview.md),
- [VisIt](../../apps/visit.md), and [VMD](../../apps/vmd.md).
+This third Blender tutorial covers importing and fixing meshes exported from scientific applications, such as [ParaView](../apps/paraview.md),
+ [VisIt](../apps/visit.md), and [VMD](../apps/vmd.md).
  
 * [Course material for this part can be downloaded from Allas](https://a3s.fi/blendermaterials/Blender_tutorial_series_demo_files.zip)
 

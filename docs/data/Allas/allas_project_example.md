@@ -21,13 +21,13 @@ The analysis takes some weeks and produces 80 TB of data that the research group
 
 Saara and Pekka, who is taking care of the data management, study the [storage options provided by CSC](https://research.csc.fi/data-management). They decide to use the Allas service for storing and sharing the data during the research project. The data is not sensitive personal data, so Allas is suitable.
 
-As a first step, Saara and Pekka login to the [MyCSC portal](https://my.csc.fi) and [register as CSC users](../../accounts/how-to-create-new-user-account.md).
+As a first step, Saara and Pekka login to the [MyCSC portal](https://my.csc.fi) and [register as CSC users](../../../accounts/how-to-create-new-user-account/).
 
-Then Saara [creates two research projects](../../accounts/how-to-create-new-project.md) at CSC: one called _Data management of the HiaNo project_ (project ID: project_2000444) and another called _HiaNo research project_ (project ID: project_2000333).
+Then Saara [creates two research projects](../../../accounts/how-to-create-new-project/) at CSC: one called _Data management of the HiaNo project_ (project ID: project_2000444) and another called _HiaNo research project_ (project ID: project_2000333).
 
-Once the CSC projects are established, Saara [activates the Allas, Puhti and cPouta services](../../accounts/how-to-add-service-access-for-project.md) for both projects. As Saara knows that the default storage space of Allas (10 TB) will not be enough for the incoming data set, she sends a request for 90 TB of Allas quota for the project _Data management of the HiaNo project_ to servicedesk@csc.fi.
+Once the CSC projects are established, Saara [activates the Allas, Puhti and cPouta services](../../../accounts/how-to-add-service-access-for-project/) for both projects. As Saara knows that the default storage space of Allas (10 TB) will not be enough for the incoming data set, she sends a request for 90 TB of Allas quota for the project _Data management of the HiaNo project_ to servicedesk@csc.fi.
 
-Finally, Saara [adds Pekka to both CSC projects](../../accounts/how-to-add-members-to-project.md) and asks him to take care of the details of the incoming data.  
+Finally, Saara [adds Pekka to both CSC projects](../../../accounts/how-to-add-members-to-project/) and asks him to take care of the details of the incoming data.  
 
 ## Act 2. Creating a shared bucket ##
 
@@ -81,7 +81,7 @@ Xi and Laura can now start working with the data. They register using the MyCSC 
 
 Xi and Laura need to revisit MyCSC and accept the services of the research project. After that, they can download the research data they need to any environment that is able to connect to Allas: Puhti, a virtual machine in cPouta, or their own laptop. As new researchers join the project, Saara adds them in project_2000333, so that they can access the data.
 
-Because storing data in Allas consumes billing units, Saara needs to check the saldo in MyCSC from time to time, and if needed, [apply for more billing units](../../accounts/how-to-apply-for-billing-units.md) (80 TB consumes 700 800 Bu in year). Fortunately, HiaNo is an academic research project, so Saara does not need to pay for the billing units.
+Because storing data in Allas consumes billing units, Saara needs to check the saldo in MyCSC from time to time, and if needed, [apply for more billing units](../../../accounts/how-to-apply-for-billing-units/) (80 TB consumes 700 800 Bu in year). Fortunately, HiaNo is an academic research project, so Saara does not need to pay for the billing units.
 
 Allas storage is only for research project's duration, but Saara thinks it would be beneficial to have the preliminary data made publicly available and easier to be found. This is supported by the [Fairdata Services](https://www.fairdata.fi/en/) produced by CSC.
 

@@ -1,7 +1,7 @@
 # Using Gabedit as GUI for Gaussian jobs on Puhti
  
 [Gabedit](http://gabedit.sourceforge.net/) is a free graphical user interface 
-(GUI) to many computational chemistry packages. Here we introduce how it can be used to prepare and analyze [Gaussian](../../apps/gaussian.md) jobs on Puhti.
+(GUI) to many computational chemistry packages. Here we introduce how it can be used to prepare and analyze [Gaussian](../apps/gaussian.md) jobs on Puhti.
 The prerequisites are that you have a valid CSC account that belongs to the Gaussian group, and that you are a member of a CSC project that has access to Puhti. This tutorial also assumes that you have Gabedit installed on your local computer.
 
 ## The workflow
@@ -17,12 +17,12 @@ Gaussian job on Puhti using Gabedit are:
 ### 1.  Create the Gaussian input 
    - In Gabedit, build or load your molecular structure 
    - Define the method and other details you want to use
-![Gabedit input](../../img/gabedit_1.png)
+![Gabedit input](../img/gabedit_1.png)
    - Save it as a Gaussian input in a separate directory (here called ```benzene```)
-![Gabedit save](../../img/gabedit_2.png)
+![Gabedit save](../img/gabedit_2.png)
 
 ### 2.  Copy the input files to Puhti
-   - Copy the whole input directory (here called ```benzene```) to a suitable scratch directory on Puhti (here we use ```rsync```. For other methods, see ["Moving data between CSC and local workstation"](../../data/moving/index.md)) 
+   - Copy the whole input directory (here called ```benzene```) to a suitable scratch directory on Puhti (here we use ```rsync```. For other methods, see ["Moving data between CSC and local workstation"](../data/moving/index.md)) 
      
      ```rsync -rP benzene username@puhti.csc.fi:/scratch/project_2001199/gabedit```
      
@@ -46,7 +46,7 @@ Gaussian job on Puhti using Gabedit are:
    - In the lower right corner of the ```Open file``` window change the ```*.inp``` to ```*.com```
    - Select the com-file corresponding to your Gaussian job and open it. This opens the main Gabedit window
    - Select the tab showing the log file
-![Gabedit analyze](../../img/gabedit_3.png) 
+![Gabedit analyze](../img/gabedit_3.png) 
    
    - The panel on the right shows various options that can be analyzed
    - In the example above we calculated the vibrational frequencies. These results can be studied by selecting ```Dens. Orb``` that opens the ```Gabedit: Orbitals/Density/Vibration``` window. 

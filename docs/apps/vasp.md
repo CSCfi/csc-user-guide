@@ -54,7 +54,7 @@ module load vasp
 srun vasp_std
 ```
 
-For more options and details, see [Creating a batch job script](../computing/running/creating-job-scripts-puhti.md).
+For more options and details, see [Creating a batch job script](../../computing/running/creating-job-scripts-puhti/).
 
 
 ### Performance optimization

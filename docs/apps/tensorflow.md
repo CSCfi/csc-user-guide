@@ -12,12 +12,12 @@ Deep learning framework for Python.
     **5.10.2022** Due to Puhti's update to Red Hat Enterprise Linux 8
     (RHEL8), **the number of fully supported TensorFlow versions has been
     reduced. Previously deprecated conda-based versions have been
-    removed.** Please [contact our servicedesk](../support/contact.md) if
+    removed.** Please [contact our servicedesk](../../support/contact/) if
     you really need access to older versions.
 
     **5.5.2022** Due to Mahti's update to Red Hat Enterprise Linux 8 (RHEL8),
     the number of fully supported TensorFlow versions has been reduced. Please [contact our
-    servicedesk](../support/contact.md) if you really need access to other versions.
+    servicedesk](../../support/contact/) if you really need access to other versions.
 
     **4.2.2022** All old TensorFlow versions which were based on direct Conda
     installations have been deprecated, and we encourage users to move to newer
@@ -60,7 +60,7 @@ If you find that some package is missing, you can often install it yourself with
 documentation](python.md#installing-python-packages-to-existing-modules) for
 more information on how to install packages yourself. If you think that some
 important TensorFlow-related package should be included in the module provided
-by CSC, please [contact our servicedesk](../support/contact.md).
+by CSC, please [contact our servicedesk](../../support/contact/).
 
 All modules are based on containers using Apptainer (previously known
 as Singularity). Wrapper scripts have been provided so that common
@@ -202,7 +202,7 @@ guide](../tutorials/ml-multi.md)
 
 ## More information
 
-- [CSC's Machine learning guide](../tutorials/ml-guide.md)
+- [CSC's Machine learning guide](../../tutorials/ml-guide/)
 - [TensorFlow overview](https://www.tensorflow.org/overview/)
 - [Get Started with TensorFlow](https://www.tensorflow.org/tutorials)
 - [TensorFlow API documentation](https://www.tensorflow.org/api_docs/python/tf)

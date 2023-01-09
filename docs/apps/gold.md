@@ -50,7 +50,7 @@ gold_auto gold.conf
 ```
 
 !!! Note
-    If you want to run GOLD in parallel, please contact [CSC Service Desk](../support/contact.md).
+    If you want to run GOLD in parallel, please contact [CSC Service Desk](../../support/contact/).
 
 ## More information
 

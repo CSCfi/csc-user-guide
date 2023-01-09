@@ -63,5 +63,5 @@ We could do the same analysis procedure in the scratch directory too.  Below is 
 |Total                          | 14m 15s       |   1h 8m 31s    |
 
 More detailed information about batch job specific local storage can be found 
-[here](../../computing/disk.md).                 
+[here](../../computing/disk/).                 
  

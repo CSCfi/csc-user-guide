@@ -3,7 +3,7 @@
 * [What is Pouta?](pouta-what-is.md)
 
 <h2>Getting access to the Pouta service</h2>
-* [Applying for Pouta access](../../accounts/how-to-add-service-access-for-project.md)
+* [Applying for Pouta access](../../accounts/how-to-add-service-access-for-project/)
 * [Security guidelines for Pouta](security.md)
 * [Pouta accounting principles and quotas](accounting.md)
 
@@ -29,4 +29,4 @@
 <h2>Self study and troubleshooting</h2>
 * [Pouta videos](pouta-videos.md)
 * [Known problems and limitations](known-problems.md)
-* [Pouta FAQ](../../faq/index.md#pouta)
+* [Pouta FAQ](../../faq#pouta)

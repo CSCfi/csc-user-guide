@@ -27,9 +27,9 @@ These modifications include changes in :
 
 ## Submit as a batch job to Puhti cluster
 
-- First login to Puhti computer (see instructions [here](../../computing/connecting.md))
+- First login to Puhti computer (see instructions [here](../computing/connecting.md))
 
-- Change to your project directory on Puhti and copy your input files there ([tips on how to transfer files](../../data/moving/index.md)).
+- Change to your project directory on Puhti and copy your input files there ([tips on how to transfer files](../data/moving/index.md)).
 
  This is your project directory (on scratch) where your .xml files, .fasta file, and raw data files are located
 
@@ -60,7 +60,7 @@ Note that the directory name contains a space, so you need to either escape it u
 
  - Finally submit your script
 
-Create a batch script according to the [instructions for shared memory jobs](../../../computing/running/creating-job-scripts-puhti#serial-and-shared-memory-batch-jobs) 
+Create a batch script according to the [instructions for shared memory jobs](../../computing/running/creating-job-scripts-puhti#serial-and-shared-memory-batch-jobs) 
 and make sure the script ends up in the same directory as your `mqpar.xml` 
 file and other data files are located.
 

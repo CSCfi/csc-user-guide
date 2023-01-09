@@ -159,7 +159,7 @@ The command `csc-env save` can be used create a save of the settings without cha
 Both `save` and `reset` also accept the `--sname` for creating a save with a custom name (instead of the automatic _csc(number)_).
 Note that `csc-env restore` will by default choose the most recent automatically named save created during a `save` or `reset`
 
-If for some reason you don't like the default place for the saves (`$HOME/.csc/csc_env_saves`), you can change it with the `--sdir=/path/to/save/dir`. 
+If for some reason you don't like the default place for the saves (`$HOME/.csc/csc_env_saves`), you can change it with the `--sdir=/pa../save/dir`. 
 The tool will then both create new saves and search for existing ones in this directory. 
 
 To remove the whole save directory, use the command `csc-env remove-saved`. **Warning!** this will permanently delete all saves in the directory.

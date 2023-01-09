@@ -55,7 +55,7 @@ Here are some options for preparing your singularity image:
 - Convert a Docker image to Singularity on your local system and then copy it to Puhti.
 - Copy a Singularity image from a container registry to Puhti.
 
-You can also use [cPouta](../../cloud/pouta/launch-vm-from-web-gui.md) environment at CSC to build singularity images.
+You can also use [cPouta](../../cloud/pouta/launch-vm-from-web-gui/) environment at CSC to build singularity images.
 
 !!! note 
     Singularity is installed only on the compute nodes in Puhti and 
@@ -63,7 +63,7 @@ You can also use [cPouta](../../cloud/pouta/launch-vm-from-web-gui.md) environme
 
 ## 2. Login to Puhti supercomputer
 
-SSH into the login node of Puhti cluster (See instructions [here](../../computing/index.md))
+SSH into the login node of Puhti cluster (See instructions [here](../computing/index.md))
 
 ```
 ssh yourcscusername@puhti.csc.fi
@@ -79,7 +79,7 @@ module load nextflow/21.10.6
 ```
 
 In case you need any custom installations with specific version of Nextflow in your 
-workspace, please follow instructions [here](../../computing/containers/tykky.md). 
+workspace, please follow instructions [here](../computing/containers/tykky.md). 
 
 ## 4. Set-up your Nextflow pipeline environment
 
@@ -102,7 +102,7 @@ You can do the following basic preparation before running your Nextflow pipeline
 ## 5. Run your Nextflow pipeline as a batch job
 
 Please follow our instructions for writing a batch job on Puhti as described in 
-[CSC documentation pages](../../computing/running/example-job-scripts-puhti.md).
+[CSC documentation pages](../computing/running/example-job-scripts-puhti.md).
 
 Here is a minimal script to get started with your Nextflow pipeline on Puhti:
 

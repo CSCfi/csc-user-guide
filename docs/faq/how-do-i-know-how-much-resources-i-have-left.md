@@ -5,7 +5,7 @@ You can see your projects, their project numbers, managers and billing
 unit status on the [My Project subpage](https://my.csc.fi/myProjects).
 
 `csc-projects` will give information on 
-[active projects on Puhti](../../../computing/#projects-and-quotas)
+[active projects on Puhti](../../computing/#projects-and-quotas)
 directly on the command line.
 
 More information with the help flag:

@@ -6,7 +6,7 @@ tags:
 # AMS-GUI
 
 [AMS](../apps/ams.md) comes with an integrated GUI (Graphical User Interface) that makes it easy to set up, run and analyze modelling tasks.
-You can test the GUI via the Puhti web interface, [www.puhti.csc.fi](../computing/webinterface/index.md), but for more extensive use we recommend to install the GUI on your own laptop/workstation.
+You can test the GUI via the Puhti web interface, [www.puhti.csc.fi](../../computing/webinterface/), but for more extensive use we recommend to install the GUI on your own laptop/workstation.
 
 ## License
 
@@ -52,7 +52,7 @@ valid for academic usage (not government or commercial research).
 
 ** 1. Request credentials**
 
-Request the credentials for downloading the AMS-GUI from [CSC Service Desk](../support/contact.md). Please include the tag `AMS-GUI` in the subject field. Note that the license covers only academic usage at CSC (not government or commercial research). The credentials will be reset every 6 months.
+Request the credentials for downloading the AMS-GUI from [CSC Service Desk](../../support/contact/). Please include the tag `AMS-GUI` in the subject field. Note that the license covers only academic usage at CSC (not government or commercial research). The credentials will be reset every 6 months.
 
 ** 2. Download**
 

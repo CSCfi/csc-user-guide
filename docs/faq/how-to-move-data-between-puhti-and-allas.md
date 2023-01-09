@@ -6,10 +6,10 @@ All the required packages and software needed for the clients are already instal
 
 ## Move data with a-commands
 
-[a-commands](../../data/Allas/using_allas/a_commands.md){target="_blank"} provides easy-to-use tools for basic usage of Allas. The functions to use for data movement between Puhti and Allas are:
+[a-commands](../../data/Allas/using_allas/a_commands/){target="_blank"} provides easy-to-use tools for basic usage of Allas. The functions to use for data movement between Puhti and Allas are:
 
-* [a-put](../../data/Allas/using_allas/a_commands.md#a-put-uploads-data-to-allas){target="_blank"}: Move data from Puhti to Allas
-* [a-get](../../data/Allas/using_allas/a_commands.md#a-get-retrieves-stored-data){target="_blank"}: Move data from Allas to Puhti 
+* [a-put](../../data/Allas/using_allas/a_commands/#a-put-uploads-data-to-allas){target="_blank"}: Move data from Puhti to Allas
+* [a-get](../../data/Allas/using_allas/a_commands/#a-get-retrieves-stored-data){target="_blank"}: Move data from Allas to Puhti 
 
 ## Move data with Swift
 
@@ -21,7 +21,7 @@ swift upload <bucket name> <file name>
 ```bash
 swift download <bucket name> <file name>
 ```
-For more information, see [Swift client](../../data/Allas/using_allas/swift_client.md){target="_blank"}.
+For more information, see [Swift client](../../data/Allas/using_allas/swift_client/){target="_blank"}.
 
 ## Move data with rclone
 
@@ -49,14 +49,14 @@ rclone copy allas:2000620-raw-data/file.dat
 rclone copy allas:2000620-raw-data/file.dat doh
 ```
 
-For further guidance for using rclone with Allas from Supercomputers, see [Using Allas with rclone from Puhti](../../data/Allas/using_allas/rclone.md){target="_blank"}.
+For further guidance for using rclone with Allas from Supercomputers, see [Using Allas with rclone from Puhti](../../data/Allas/using_allas/rclone/){target="_blank"}.
 
 ## Move data with s3cmd
 
-For data movement between Puhti and Allas [s3cmd](../../data/Allas/using_allas/s3_client.md){target="_blank"} provides functions:
+For data movement between Puhti and Allas [s3cmd](../../data/Allas/using_allas/s3_client/){target="_blank"} provides functions:
 
-* [put](../../data/Allas/using_allas/s3_client.md#create-buckets-and-upload-objects){target="_blank"} move data from Puhti to Allas
+* [put](../../data/Allas/using_allas/s3_client/#create-buckets-and-upload-objects){target="_blank"} move data from Puhti to Allas
 
-* [get](../../data/Allas/using_allas/s3_client.md#download-objects-and-buckets){target="_blank"}: move data from Allas to Puhti
+* [get](../../data/Allas/using_allas/s3_client/#download-objects-and-buckets){target="_blank"}: move data from Allas to Puhti
 
-More examples of using s3cmd from Supercomputers can be found [here](../../data/Allas/using_allas/s3_client.md){:target="_blank"}.
+More examples of using s3cmd from Supercomputers can be found [here](../../data/Allas/using_allas/s3_client/){:target="_blank"}.

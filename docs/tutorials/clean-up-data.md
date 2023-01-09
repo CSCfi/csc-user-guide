@@ -25,15 +25,15 @@ Please do the following tasks:
   Test with one file first. If the file size drops by 50%, go ahead and compress all similar files.
   [See here for available compression tools](env-guide/packing-and-compression-tools.md).
 * **Move files** not in active use now, but that need to be available later during the project.
-  The typical model is to move the files to [Allas](../../data/Allas/index.md).
-  We recommend to use [a-tools](../../data/Allas/using_allas/a_commands.md) for small to
+  The typical model is to move the files to [Allas](../data/Allas/index.md).
+  We recommend to use [a-tools](../../data/Allas/using_allas/a_commands/) for small to
   medium sized data transfers, in particular when you have a large amount of small files.
   These tools make the usage of Allas safer, and can make your data management easier.
-  For very large data transfers we recommend using [rclone](../../data/Allas/using_allas/rclone.md).
-  A tutorial for data transfer is available at [allas-examples](../../data/Allas/allas-examples.md).
+  For very large data transfers we recommend using [rclone](../../data/Allas/using_allas/rclone/).
+  A tutorial for data transfer is available at [allas-examples](../data/Allas/allas-examples.md).
 * **Archive files** that should be available longer than the lifetime of compute projects.
   Options for this can be for example your organizations own storage systems, or
-  [IDA safe storage for research data](https://www.fairdata.fi/en/).
+  [IDA safe storage for research data](https://www.fairdata.../).
 
 ## Identifying where you have data
 
@@ -46,7 +46,7 @@ show the amount of data in folders:
 * **Do** use `lue` or `lfs find --lazy`
 
 CSC has developed an approximate tool called LUE (Lustre usage explorer) for reporting amount of
-data in folders. [Read the documentation at LUE](../../tutorials/lue.md) before using it.
+data in folders. [Read the documentation at LUE](../tutorials/lue.md) before using it.
 `lfs find --lazy` has some edge-case where it can be as bad as `du` or silently fail to get correct
 size information. Run `man lfs-find` for further instructions and information on its limitations.
 
@@ -214,8 +214,8 @@ to take place. If you are happy with purging all of the files that were listed i
 # Start a screen session
 screen
 # Delete all of the files on your purge list:
-# Replace the "/path/to/my/path_summary.txt" with the path to your project's path_summary.txt
-lcleaner -0 /path/to/my/path_summary.txt | xargs -0 -n 50 rm -vf --
+# Replace the "/pa../my/path_summary.txt" with the path to your project's path_summary.txt
+lcleaner -0 /pa../my/path_summary.txt | xargs -0 -n 50 rm -vf --
 # Then you can press "Ctrl + a" and then "d" to disconnect from the screen and keep
 # the deletion running in the background.
 # Run "screen -r" to reattach your screen.
@@ -227,7 +227,7 @@ example use a command like this:
 
 ```bash
 # Delete only files on the list which are inside /scratch/$my_project/delete-this-dir/
-screen lcleaner -0 /path/to/my/path_summary.txt | grep -zZ "/scratch/${my_project:?}/delete-this-dir/" | xargs -0 -n 50 rm -vf --
+screen lcleaner -0 /pa../my/path_summary.txt | grep -zZ "/scratch/${my_project:?}/delete-this-dir/" | xargs -0 -n 50 rm -vf --
 # Ctrl + a, d to detach from the screen.
 ```
 
@@ -309,7 +309,7 @@ why the command examples above are architected the way they are.
   The errors indicate which line number the problematic text was on, so you can go
   and check it manually.
     - Tip: To print only a specific line, e.g., line 123 of the `path_summary.txt`, you can use
-      this command: `sed -n 123p /path/to/path_summary.txt`
+      this command: `sed -n 123p /pa../path_summary.txt`
 - To capture the logging of `lcleaner`, you can redirect the standard error output stream into
   a file. This may be useful if you experience problems, and would like help to troubleshoot
   the situation.

@@ -4,8 +4,8 @@
     **CSC has deprecated the use of Conda environments that are installed directly
     on the shared file system** on Puhti/Mahti due to performance issues. We
     strongly recommend users to either containerize their Conda-based installations
-    or consider alternative means of installation. Read more on our separate [Conda deprecation page](../deprecate-conda.md). See also the [Tykky container wrapper
-    tool](../../computing/containers/tykky.md) to easily containerize your
+    or consider alternative means of installation. Read more on our separate [Conda deprecation page](../support/deprecate-conda.md). See also the [Tykky container wrapper
+    tool](../computing/containers/tykky.md) to easily containerize your
     installations.
 
 <br/>
@@ -203,8 +203,8 @@ geoconda in puhti.csc.fi, we recommend installing a project specific copy of Min
 
 As Conda packages may take significant storage space it is not recommended to 
 to install Miniconda3 to your home directory. Instead you should install it to 
-the [ProjAppl]( ../../computing/disk.md) directory of your Puhti project and
-preferably containerize the environment (see [Tykky](../../computing/containers/tykky.md)).
+the [ProjAppl]( ../../computing/disk/) directory of your Puhti project and
+preferably containerize the environment (see [Tykky](../computing/containers/tykky.md)).
 
 To get an overview of your directories in Puhti, run command:
 
@@ -412,10 +412,10 @@ performing the environment maintenance task within a special shell environment.
 Some ideas for the shell environment setup can be found in file
 [bash_profile_extras.sh]. 
 
-[Conda]: https://docs.conda.io/en/latest
-[environment.yaml]: https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#creating-an-environment-from-an-environment-yml-file
+[Conda]: https://docs.conda.../latest
+[environment.yaml]: https://docs.conda.io/projects/con../latest/user-guide/tasks/manage-environments.html#creating-an-environment-from-an-environment-yml-file
 [Spack]: https://spack.io
-[Miniconda]: https://docs.conda.io/en/latest/miniconda.html
+[Miniconda]: https://docs.conda.../latest/miniconda.html
 [Anaconda]: https://www.anaconda.com/distribution
 [conda-docs-env.yaml]: conda/conda-docs-env-1.0.yaml
 [mkdocs]: https://www.mkdocs.org

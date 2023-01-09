@@ -8,7 +8,7 @@ research.
 CSC has deprecated the direct usage of Conda installations on shared file systems
 of supercomputers (Puhti and Mahti) due to performance
 issues, but you can easily install packages from Bioconda using the
-[Tykky](../../computing/containers/tykky.md) tool instead.
+[Tykky](../computing/containers/tykky.md) tool instead.
 
 All packages in Bioconda have a ready-made Docker container image available. While
 those images could be pulled and used directly, Tykky provides an easy method to
@@ -54,7 +54,7 @@ Load Tykky module
 module load tykky
 ```
 
-We will use the Tykky [wrap-container](../../computing/containers/tykky.md#container-based-installations)
+We will use the Tykky [wrap-container](../computing/containers/tykky.md#container-based-installations)
 command.
 
 The `-w` parameter needs to specify installation directory inside the container. For containers
@@ -107,7 +107,7 @@ metabat --help
     like `python` or `perl`. These are specific for each installation, and having them in your
     default `$PATH` will cause problems with running other software. It's best to add the
     installation directory to your `$PATH` only when you are using the program. You can e.g. add the
-    `export` command to your [batch job script](../../computing/running/creating-job-scripts-puhti.md).
+    `export` command to your [batch job script](../../computing/running/creating-job-scripts-puhti/).
 
 ## Containers from other source
 

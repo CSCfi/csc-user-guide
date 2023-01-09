@@ -4,7 +4,7 @@
 
 Technically a virtual raster is just a small xml file that tells GDAL where the actual data files are, but from user's point of view virtual rasters can be treated much like any other raster format. Virtual rasters can include raster data in any file format GDAL supports. Virtual rasters are useful because they allow handling of large datasets as if they were a single file eliminating need for locating correct files.
 
-For example the [NLS 2m and 10m DEM are available in Puhti](../../../data/datasets/spatial-data-in-csc-computing-env.md). These datasets are split into a number of tif files (map sheets) and if we wanted for example to calculate zonal statistics for some areas scattered around whole Finland we would have to somehow find out which file covers which area and compute statistics from correct file. Further complications would arise if an area we want to calculate statistics for happens to lie at a border between two or more map sheets. Similar issues with edge effects would arise for example when using focal functions where information from surrounding files is also needed. These issues can be easily avoided by creating a virtual raster for the whole study area and above mentioned problems will be automatically taken care of by GDAL.
+For example the [NLS 2m and 10m DEM are available in Puhti](../../data/datasets/spatial-data-in-csc-computing-env.md). These datasets are split into a number of tif files (map sheets) and if we wanted for example to calculate zonal statistics for some areas scattered around whole Finland we would have to somehow find out which file covers which area and compute statistics from correct file. Further complications would arise if an area we want to calculate statistics for happens to lie at a border between two or more map sheets. Similar issues with edge effects would arise for example when using focal functions where information from surrounding files is also needed. These issues can be easily avoided by creating a virtual raster for the whole study area and above mentioned problems will be automatically taken care of by GDAL.
 
 It is possible to use virtual rasters so, that only the small xml-file is stored locally and the big raster files are in Allas, Amazon S3, publicly on server or any other place supported by GDAL virtual drivers. The data is moved to local only for the area and zoom level requested when the virtual raster is opened. The best performing format to save your raster data in remote service is [Cloud optimized GeoTIFF](https://www.cogeo.org/), but other formats are also possible.
 
@@ -66,11 +66,11 @@ Following tools support creating virtual rasters:
 
 *   [GDAL gdalbuildvrt](https://gdal.org/programs/gdalbuildvrt.html) commandline tool.
 *   [Python](https://gdal.org/python/osgeo.gdal-module.html#BuildVRT) and [R](https://rdrr.io/cran/terra/man/vrt.html) have wrappers for GDAL gdalbuildvrt, for [longer example for R see StackOverflow's answer](https://stackoverflow.com/questions/68332846/improving-computational-speed-of-zonal-statistics-on-150gb-of-raster-tiles-in-r).
-*   [QGIS,](https://docs.qgis.org/3.10/en/docs/user_manual/processing_algs/gdal/rastermiscellaneous.html?highlight=virtual#build-virtual-raster) [GrassGIS](https://grass.osgeo.org/grass79/manuals/r.buildvrt.html) and [SagaGIS](http://www.saga-gis.org/saga_tool_doc/7.5.0/io_gdal_12.html) provide graphical interface for gdalbuildvrt
+*   [QGIS,](https://docs.qgis.org/3.../docs/user_manual/processing_algs/gdal/rastermiscellaneous.html?highlight=virtual#build-virtual-raster) [GrassGIS](https://grass.osgeo.org/grass79/manuals/r.buildvrt.html) and [SagaGIS](http://www.saga-gis.org/saga_tool_doc/7.5.0/io_gdal_12.html) provide graphical interface for gdalbuildvrt
 *   [lidR](https://cran.r-project.org/web/packages/lidR/index.html) supports writing lidar data analysis results directly as virtual raster
-* [vrt_creator.py](../../../data/datasets/spatial-data-in-csc-computing-env.md) in Puhti for custom areas with 2m or 10m DEM
+* [vrt_creator.py](../../data/datasets/spatial-data-in-csc-computing-env.md) in Puhti for custom areas with 2m or 10m DEM
 
-In Puhti glalbuildvrt is included in all [modules including GDAL](../../../apps/gdal.md), Python BuildVRT in [geoconda](../../../apps/geoconda.md), QGIS in [QGIS](../../../apps/qgis.md), R terra and lidR in [r-env](../../../apps/r-env.md) module.
+In Puhti glalbuildvrt is included in all [modules including GDAL](../../apps/gdal.md), Python BuildVRT in [geoconda](../../apps/geoconda.md), QGIS in [QGIS](../../apps/qgis.md), R terra and lidR in [r-env](../../apps/r-env.md) module.
 
 ### Creating virtual raster with GDAL gdalbuildvrt
 
@@ -91,7 +91,7 @@ File list should include preferably full paths, but for local files also relativ
 
 **Windows**
 
-`dir \data\dem2m\*.**tif** /S /B > file_list.txt`
+`dir \data\dem2m\*.**tif*../B > file_list.txt`
 
 **Raster files in Allas / some other S3**
 
@@ -101,7 +101,7 @@ List the file names as they are in the bucket with rclone or some other tool:
 
 `rclone lsf --include '*.**tif**' allas:<your_bucket_name > file_list.txt`
 
-Next add to the file list the full paths as they are required by GDAL, using vsicurl, vsis3 or vsiswift drivers. See longer explanations of GDAL drivers and Allas from [Puhti GDAL page](../../../apps/gdal.md).
+Next add to the file list the full paths as they are required by GDAL, using vsicurl, vsis3 or vsiswift drivers. See longer explanations of GDAL drivers and Allas from [Puhti GDAL page](../../apps/gdal.md).
 
 `sed -i -e 's-^-/**vsicurl**/https://a3s.fi/<your_bucket_name>/-' file_list.txt`
 
@@ -109,7 +109,7 @@ Next add to the file list the full paths as they are required by GDAL, using vsi
 
 `sed -i -e 's-^-/**vsiswift**/<your_bucket_name>/-' file_list.txt`
 
-Set up your credentials for [GDAL](../../../apps/gdal.md) before running `gdalbuildvrt`.
+Set up your credentials for [GDAL](../../apps/gdal.md) before running `gdalbuildvrt`.
 
 
 

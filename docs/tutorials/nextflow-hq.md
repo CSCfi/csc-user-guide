@@ -5,12 +5,12 @@ is not suitable for large workflows involving tens of thousands of processes on 
 systems. This is due to the usage of individual jobs/job steps that bloat the Slurm log
 and degrade the performance of the batch job scheduler. To maximize throughput and
 performance, we recommend the Nextflow workflow tasks to be run using the
-[HyperQueue](../../apps/hyperqueue.md) meta-scheduler as the
+[HyperQueue](../apps/hyperqueue.md) meta-scheduler as the
 executor. This page provides an example batch script for this purpose.
 
 !!! Note
     Whenever you're unsure how to run your workflow efficiently, don't hesitate
-    to [contact CSC Service Desk](../contact.md).
+    to [contact CSC Service Desk](../support/contact.md).
 
 ## Example batch script
 
@@ -84,7 +84,7 @@ main.nf work
 ## More information
 
 * [General guidelines for high-throughput computing in CSC's HPC
-  environment](../../computing/running/throughput.md)
+  environment](../computing/running/throughput.md)
 * [Basic](https://yetulaxman.github.io/Biocontainer/tutorials/nextflow_tutorial.html)
   and [advanced Nextflow tutorials for Puhti](nextflow-puhti.md)
 * [Official Nextflow documentation](https://www.nextflow.io/docs/latest/index.html)

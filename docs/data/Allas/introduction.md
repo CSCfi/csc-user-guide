@@ -54,7 +54,7 @@ You cannot mount Allas direcly to a computer. This means that in order to use Al
 ![Allas access clients](img/allas-access-flavors.png)
 
 1. In the CSC computing environment (Puhti and Mahti), there are ready-to-use tools provided by CSC to access Allas. These tools are mostly the same that can also be installed in any Linux environment, e.g. a virtual machine in cPouta or a local Linux server.
-In the CSC computing environment, Allas should be used to store any data that needs to be preserved for longer than a few weeks. The supercomputer's own storage has a policy to delete idle data, so the data must be moved to Allas after computing. See [Computing disk environment](../../computing/disk.md)
+In the CSC computing environment, Allas should be used to store any data that needs to be preserved for longer than a few weeks. The supercomputer's own storage has a policy to delete idle data, so the data must be moved to Allas after computing. See [Computing disk environment](../../../computing/disk/)
 
 2. WWW access to Allas is provided by the web interface of the cPouta cloud environment [https://pouta.csc.fi](https://pouta.csc.fi). No special software is required to access Allas with a browser, making this the by far simplest way to access Allas. On the other hand, the browser user interface has a number of limitations compared to other clients, the most notable of which are lower performance and uploading/downloading only a single file at a time. Instructions for accessing and using Allas with a browser: [OpenStack Horizon web interface](./using_allas/web_client.md)
 

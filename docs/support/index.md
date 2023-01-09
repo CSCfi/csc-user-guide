@@ -1,6 +1,6 @@
 # Supporting materials
 
-## [Tutorials](tutorials/index.md)
-## [FAQ](faq/index.md)
+## [Tutorials](../tutorials/)
+## [FAQ](../faq/)
 ## [Training Materials](training-material.md)
 ## [Contact us](contact.md)

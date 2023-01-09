@@ -1,6 +1,6 @@
 # Extended instructions for using Maestro at CSC
 
-Please first read the actual [CSC Maestro page](../../apps/maestro.md)
+Please first read the actual [CSC Maestro page](../apps/maestro.md)
 and then consult the power user and special case instructions below.
 Further down there are steps to help solving or diagnosing issues
 and to prepare data for support requests.
@@ -14,7 +14,7 @@ and to prepare data for support requests.
 
 The recommended way to run Maestro jobs on Puhti is to create the input files on
 your local computer and instead of running them, write them to disk. The procedure
-is shown in [a video](../../apps/maestro.md#standalone-usage-on-puhti) on our
+is shown in [a video](../apps/maestro.md#standalone-usage-on-puhti) on our
 main Maestro page. Use e.g. `scp` on your local machine to copy the inputs to Puhti
 (edit your username and project accordingly):
 
@@ -47,14 +47,14 @@ for analysis. On your local machine, run e.g. `scp` again:
 scp -r <your username>@puhti.csc.fi:/scratch/<your project>/my_job .
 ```
 
-Note that you can also use e.g. the [Puhti web interface](../../computing/webinterface/index.md)
+Note that you can also use e.g. the [Puhti web interface](../../computing/webinterface/)
 for copying files between Puhti and your local computer.
 
 Another more advanced version is to use e.g. the `pipeline` tool which allows
 you to bypass some of the Schrödinger jobcontrol machinery, but requires you to
 write the job script yourself. This may be useful in case some of your subjobs
 terminate unexpectedly. In this case, please make note of those JobIds and
-[contact us](../contact.md).
+[contact us](../support/contact.md).
 
 The remainder of this article explains some implementation details on Puhti
 and helps setting up efficient simulation workflows.
@@ -101,7 +101,7 @@ For example, this HOST entry, available for Schrödinger jobs as _test_ (from `n
 will use the Slurm partition _test_ (from `-p test`), allocate a maximum of 10 minutes of time,
 2 GB of memory and consume resources from Project_2042424. If you need different resources you
 can edit this file e.g. by adding a new entry. The requests must be within the
-[partition limits](../../computing/running/batch-job-partitions.md).
+[partition limits](../../computing/running/batch-job-partitions/).
 
 If your `schrodinger.hosts` file **on Puhti** does not have the `--account=<project>` defined,
 delete the file and rerun the script to create it (`module load maestro` will print out the
@@ -144,7 +144,7 @@ sure you don't ask for too many (sub)jobs. As a rule of thumb, each subjob
 should last at least 1 hour, and for very large jobs preferably 24 hours.
 Running a lot of very short jobs is inefficient in many ways and may degrade
 the performance of the system for all users, see our [high-throughput computing
-guidelines](../../computing/running/throughput.md). For large workflows, you'll
+guidelines](../computing/running/throughput.md). For large workflows, you'll
 need to edit your scripts, see below.
 
 ### Quantum Espresso
@@ -184,7 +184,7 @@ The following figures show the time to solution and scaling of the [PSIWAT
 benchmark](https://github.com/QEF/benchmarks/tree/master/PSIWAT) (2552 electrons,
 4 k-points, Maestro 2021.3, pure MPI).
 
-![QE scaling](../../img/qe-scaling.svg)
+![QE scaling](../img/qe-scaling.svg)
 
 * Scaling is almost ideal up to 4 nodes when using `-npools 4 -ntg 4` .
 * For this system and QE binary the performance does not scale beyond 320 cores.
@@ -316,11 +316,11 @@ and waiting in the queue have been in for nothing.
 ## Optimal disk usage
 
 The Schrödinger HOSTs in Puhti have not been configured to use the [NVMe local
-disk](../../../computing/running/creating-job-scripts-puhti/#local-storage),
+disk](../../computing/running/creating-job-scripts-puhti/#local-storage),
 which is available only on some of the compute nodes. Since most jobs don't
 gain speed advantage from NVME disk, you'll likely queue less by not asking
 for it. If your job requires a lot or random I/O, please contact [CSC Service
-Desk](../contact.md) on how to request it. The only disk available for the jobs
+Desk](../support/contact.md) on how to request it. The only disk available for the jobs
 is the same where your input files already are. Hence, it does not make sense
 to copy the files to a "temporary" location at the start of the job. However,
 at the moment there doesn't seem to be a way to prevent that in latest versions
@@ -345,7 +345,7 @@ copy it back (give the command on your local computer):
 
 `scp -r <your username>@puhti.csc.fi:/scratch/project_2001234/glide-dock_1 .`
 
-You might be interested in some [additional SSH tips](../../computing/connecting.md#setting-up-ssh-keys),
+You might be interested in some [additional SSH tips](../computing/connecting.md#setting-up-ssh-keys),
 which will release you from typing your password every time.
 
 ## Running the Maestro GUI on Puhti
@@ -353,7 +353,7 @@ which will release you from typing your password every time.
 This is **not recommended**. Running the GUI remotely is slow and prone to
 glitches. Please run the GUI locally, and only submit the jobs (run the script)
 on Puhti. If this is not possible, and you _have to_ run the GUI on Puhti, use
-the [Puhti web interface remote desktop](../../computing/webinterface/desktop.md)
+the [Puhti web interface remote desktop](../computing/webinterface/desktop.md)
 
 ## Availability of licenses
 
@@ -424,7 +424,7 @@ _postmortem_ step below.
 
 ## Asking for support
 
-Maestro has a tool called [postmortem](https://www.schrodinger.com/kb/1692)
+Maestro has a tool called [postmortem](https://www.schrodinger.c../1692)
 that can be used to create a zip file containing the details of a failed job
 and the Maestro environment. Please add that to your support request to help
 us analyse your issue. On Puhti, first use
@@ -452,7 +452,7 @@ using [a-flip](/data/Allas/using_allas/a_commands/#a-list) and just sending a li
 Also, see the previous recommendation to [try with small systems](#how-to-speed-up-simulations),
 as this will also enable you to use the test HOST and avoid queueing.
 
-Please have a look at our [instructions on making support requests](../support-howto.md).
+Please have a look at our [instructions on making support requests](../support/support-howto.md).
 An efficient support request will help us to solve your issue faster.
 
 ## Recap of Maestro usage on Puhti
@@ -470,4 +470,4 @@ An efficient support request will help us to solve your issue faster.
 
 If you have suggestions on how to improve this guide, e.g. to give examples of efficient
 workflows, fork a copy (top right pen icon), edit and propose merge, or send your suggestion
-to [CSC Service Desk](../contact.md).
+to [CSC Service Desk](../support/contact.md).

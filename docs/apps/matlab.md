@@ -23,7 +23,7 @@ MATLAB is a high-level technical computing language and interactive environment 
 
 ## License
 
-Proprietary software. The terms of use of this software allow its use for only the affiliates (staff and students) of Finnish higher education institutions. **NB** If you are an user from a commercial company or Finnish research institute, please [contact CSC Service Desk](../support/contact.md) for further instructions.
+Proprietary software. The terms of use of this software allow its use for only the affiliates (staff and students) of Finnish higher education institutions. **NB** If you are an user from a commercial company or Finnish research institute, please [contact CSC Service Desk](../../support/contact/) for further instructions.
 
 ## Usage
 
@@ -33,7 +33,7 @@ At CSC, MATLAB is available both interactive and batch jobs. The interactive ses
 <div id="interactive-matlab" />
 
 There are four interactive MATLAB licenses with **two Parallel Computing Toolbox** and **two Compiler SDK** licenses
-available for temporary interactive academic use. We recommend using [the Puhti web interface](../computing/webinterface/index.md)
+available for temporary interactive academic use. We recommend using [the Puhti web interface](../../computing/webinterface/)
 for the sessions. After logging in to the web interface, MATLAB can be launched by selecting it from the "Apps"-view
 and specifying your resource requirements.
 

@@ -19,7 +19,7 @@ Eastern-Finland, Jyväskylä, Turku, Åbo Akademi, Lappeenranta University
 of Technology, Finnish Defence Forces University. If you want your
 university or research institute added, fill in the 
 [License agreement](../img/CSDLicenseAgreementTemplateNAC.pdf) 
-and [contact us via Service Desk](../support/contact.md)
+and [contact us via Service Desk](../../support/contact/)
 
 Using the CSD components requires adhering [to these conditions](../img/CSDLicenseAgreementTemplateNAC.pdf).
 
@@ -57,7 +57,7 @@ Software to access and analyse CSD entries:
 There are three ways to access the CSD System:
 
 -   Local installation (Windows or Linux, takes up a lot of disk space)
--   Using the CSD System via the [Puhti web interface](../computing/webinterface/index.md)
+-   Using the CSD System via the [Puhti web interface](../../computing/webinterface/)
 -   WebCSD (limited functionality), point your browser to [CCDC webserver](http://webcsd.ccdc.cam.ac.uk/)
 
 ### Using CSD as a local installation
@@ -65,7 +65,7 @@ There are three ways to access the CSD System:
 The installation media can be downloaded from the CCDC website, but
 needs the site number and confirmation code of your university. After
 installation you need to activate the product. To obtain the required
-codes, contact either [CSC Service Desk](../support/contact.md)
+codes, contact either [CSC Service Desk](../../support/contact/)
 or the local CSD administrator at your university. This is the
 recommended way for power users. The full installation requires ~18 GB of disk space.
 
@@ -87,7 +87,7 @@ The [WebCSD service](https://www.ccdc.cam.ac.uk/structures)
 provides most of the search capabilities directly via a browser from
 the computers within the licensed university's IP range. Access does not need
 further authentication. If there are problems, [contact CSC
-Service Desk](../support/contact.md).
+Service Desk](../../support/contact/).
 
 ## References
 

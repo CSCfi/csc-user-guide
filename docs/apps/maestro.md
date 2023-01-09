@@ -35,7 +35,7 @@ Maestro is available for all academic users in Finland: staff and students, for 
 purposes. Please consult the [EULA](https://www.schrodinger.com/maestro-academic-eula)
 for the exact definition. Using Maestro means that you accept the EULA linked to above.
 The Maestro license consists of floating licenses and tokens. If licenses run out, contact
-us via [ServiceDesk](/support/contact/).
+us via [ServiceDesk../../support/contact/).
 
 ## Usage
 
@@ -70,14 +70,14 @@ you're at the university or connected to it via VPN from home.
      We mainly recommend using Puhti to run your Maestro jobs. If running on
      Mahti, you must ensure that your jobs are able to utilize full nodes
      (128 CPU cores). Preferably, run only Desmond MD simulations on GPUs
-     because most other jobs do not scale. If in doubt, [contact us](/support/contact/).
+     because most other jobs do not scale. If in doubt, [contact us../../support/contact/).
 
 It is possible to run heavier computations on Puhti. Here, a brief overview is given.
 Additional details and some diagnostics tips are explained in our [Maestro power usage
 tutorial](../tutorials/power-maestro.md). See also the video below.
 
-First, you need to [get a CSC account](../accounts/how-to-create-new-user-account.md)
-and apply for [access to Puhti](../accounts/how-to-add-service-access-for-project.md).
+First, you need to [get a CSC account](../../accounts/how-to-create-new-user-account/)
+and apply for [access to Puhti](../../accounts/how-to-add-service-access-for-project/).
 Before you start the actual workflow below, you need to set up your Maestro environment
 on Puhti.
 
@@ -101,7 +101,7 @@ For actual simulations we recommend using Puhti as follows:
 1. Set up your simulations on your local computer
 2. Write the GUI-generated input files to disk
 3. Copy them to Puhti with e.g. [`scp`](../data/moving/scp.md) or through the
-   [Puhti web interface](../computing/webinterface/index.md)
+   [Puhti web interface](../../computing/webinterface/)
 4. If needed, edit the submission script (`your-jobname.sh`)
 5. Run the script on the Puhti command line to submit the jobs to the queuing system
 6. Copy the results back for analysis
@@ -175,5 +175,5 @@ Jaguar, version 7.6, Schrödinger, LLC, New York, NY, 2009.
    * [Short videos on 11 features](https://www.schrodinger.com/training/videos/maestro/all)
    * [Downloadable tutorials section](https://www.schrodinger.com/training/tutorials)
 * Search the [Schrödinger KnowledgeBase](https://www.schrodinger.com/kb) for solutions
-* Issues on how to run Maestro on CSC environment: [contact ServiceDesk](/support/contact/)
+* Issues on how to run Maestro on CSC environment: [contact ServiceDesk../../support/contact/)
 * Scientific questions related to Maestro modules: [help@schrodinger.com](mailto:help@schrodinger.com)

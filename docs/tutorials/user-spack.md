@@ -98,7 +98,7 @@ is then performed via the `spack install` command.
 [+] /appl/spack/v018/install-tree/gcc-11.3.0/ncurses-6.2-n4phtn
 ==> Installing kakoune-2021.11.08-yh4nmfid4st4l7gsmuzqv43o6qt6ckrm
 ==> No binary for kakoune-2021.11.08-yh4nmfid4st4l7gsmuzqv43o6qt6ckrm found: installing from source
-==> Using cached archive: /local_scratch/maijam/spack-build-project_2002567/source-cache/_source-cache/archive/aa/aa30889d9da11331a243a8f40fe4f6a8619321b19217debac8f565e06eddb5f4.tar.bz2
+==> Using cached archive: /local_scratch/maijam/spack-build-project_2002567/source-cache/_source-cache/archi../aa30889d9da11331a243a8f40fe4f6a8619321b19217debac8f565e06eddb5f4.tar.bz2
 ==> No patches needed for kakoune
 ==> kakoune: Executing phase: 'edit'
 ==> kakoune: Executing phase: 'build'
@@ -114,7 +114,7 @@ is then performed via the `spack install` command.
     a specific version, perhaps using a specific compiler and with some optional
     installation flags (e.g. a GPU-enabled version of the software). Spack uses
     a special syntax for specifying this information as explained in the [official
-    documentation](https://spack.readthedocs.io/en/latest/basic_usage.html#specs-dependencies).
+    documentation](https://spack.readthedocs.../latest/basic_usage.html#specs-dependencies).
 
 ## Using modules with user Spack installations
 
@@ -150,6 +150,6 @@ searched and loaded with:
 
 ## Further reading
 
-- [Official Spack documentation](https://spack.readthedocs.io/en/latest/index.html)
-- [Spack tutorial](https://spack.readthedocs.io/en/latest/tutorial.html)
+- [Official Spack documentation](https://spack.readthedocs.../latest/index.html)
+- [Spack tutorial](https://spack.readthedocs.../latest/tutorial.html)
 - [Spack GitHub repository](https://github.com/spack/spack)

@@ -70,7 +70,7 @@ Instructions on how to submit and monitor jobs can be found [here](../computing/
 
 **Example parallel batch script for Mahti**
 
-The main difference on mahti is, that only complete nodes can be allocated. A single node contains 128 cores (we do _not_ recommend to use [multithreading](../computing/running/creating-job-scripts-mahti.md#hybrid-batch-jobs-with-simultaneous-multithreading-smt)). The following script submits a 6 hour job using 4 nodes and all 128 cores per node (hence in total 512).
+The main difference on mahti is, that only complete nodes can be allocated. A single node contains 128 cores (we do _not_ recommend to use [multithreading](../../computing/running/creating-job-scripts-mahti/#hybrid-batch-jobs-with-simultaneous-multithreading-smt)). The following script submits a 6 hour job using 4 nodes and all 128 cores per node (hence in total 512).
 
 ```
 #!/bin/bash 
@@ -93,7 +93,7 @@ srun ElmerSolver
 echo "done"
 ```
 
-It can be advantageous to utilize fewer cores per node as available, which can increase performance in certain Elmer cases. See the example on [undersubscribing](../computing/running/creating-job-scripts-mahti.md#undersubscribing-nodes).
+It can be advantageous to utilize fewer cores per node as available, which can increase performance in certain Elmer cases. See the example on [undersubscribing](../../computing/running/creating-job-scripts-mahti/#undersubscribing-nodes).
 
 ## More information
 

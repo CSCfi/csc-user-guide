@@ -15,12 +15,12 @@ Collection of Python libraries for data analytics and machine learning.
     **5.10.2022** Together with Puhti's update to Red Hat Enterprise Linux
     8 (RHEL8), **we removed some old versions of Python Data, including all
     (previously deprecated) conda-based versions. We also changed the version naming of the
-    modules.** Please [contact our servicedesk](../support/contact.md) if
+    modules.** Please [contact our servicedesk](../../support/contact/) if
     you really need access to older versions.
 
     **5.5.2022** Due to Mahti's update to Red Hat Enterprise Linux 8 (RHEL8),
     older versions of Python Data are no longer fully supported. Please [contact our
-    servicedesk](../support/contact.md) if you really need access to older versions.
+    servicedesk](../../support/contact/) if you really need access to older versions.
 
     **4.2.2022** All old Python Data versions which were based on direct Conda
     installations have been deprecated, and we encourage users to move to newer
@@ -63,7 +63,7 @@ yourself with `pip install --user`. See [our Python
 documentation](python.md#installing-python-packages-to-existing-modules)
 for more information on how to install packages yourself. If you think
 that some important package should be included in the module provided
-by CSC, please [contact our servicedesk](../support/contact.md). Note
+by CSC, please [contact our servicedesk](../../support/contact/). Note
 that some machine learning frameworks have their own specific modules,
 for example: [PyTorch](pytorch.md), [TensorFlow](tensorflow.md),
 [JAX](jax.md), and [RAPIDS](rapids.md).
@@ -118,4 +118,4 @@ Please also check [CSC's general Python documentation](python.md).
 Some nodes in Puhti have fast local storage which is useful for
 IO-intensive applications. See our [general instructions on how to
 take the fast local storage into
-use](../computing/running/creating-job-scripts-puhti.md#local-storage).
+use](../computing/running/creating-job-scripts-puhti/#local-storage).

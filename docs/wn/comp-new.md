@@ -26,7 +26,7 @@ to connect to a specific login node, e.g. `ssh kkayttaj@puhti-login14.csc.fi`.
 The operating system of Puhti has been updated from Red Hat Enterprise Linux (RHEL) 7 to RHEL 8.
 
 * Pre-installed software and libraries as well as the documentation have been updated
-* Default compiler stack is now `gcc/11.3.0`, `openmpi/4.1.4` and `intel-oneapi-mkl/2022.1.0`. [See more details.](../../computing/compiling-puhti.md)
+* Default compiler stack is now `gcc/11.3.0`, `openmpi/4.1.4` and `intel-oneapi-mkl/2022.1.0`. [See more details.](../computing/compiling-puhti.md)
 * Note that `hpcx-mpi` has been removed and replaced by `openmpi`
 * Users should recompile their own codes for the new OS
 * Some older versions of applications are not available anymore
@@ -55,8 +55,8 @@ connecting. After this you should be able to connect to `puhti.csc.fi` normally.
 
 ## Puhti web interface beta updated to release 10 24.8.2022
 
-* A new [MATLAB app](../../../computing/webinterface/matlab/) has been added.
-* Blender has been added to the [Accelerated Visualization app](../../../computing/webinterface/accelerated-visualization).
+* A new [MATLAB app](../../computing/webinterface/matlab/) has been added.
+* Blender has been added to the [Accelerated Visualization app](../../computing/webinterface/accelerated-visualization).
 * Improved form validation messages.
 * Improved Jupyter app launch form.
 * pytorch module now launches correctly in Jupyter app.
@@ -70,7 +70,7 @@ Fast local NVMe disks can be used to speed up single node workloads that do a lo
 read and write operations on data sets that fit on the disks. Especially small reads
 and writes, and operations on a large amount of files are much faster on the local disks
 than on the parallel file system. Now also the 6 nodes with 1.5 TiB of memory have been
-upgraded with 5960 GiB local disks. See [Puhti technical details](../../../computing/systems-puhti/)
+upgraded with 5960 GiB local disks. See [Puhti technical details](../../computing/systems-puhti/)
 for a detailed list of all nodes.
 
 ## Puhti web interface beta updated to release 9 5.7.2022
@@ -91,7 +91,7 @@ your data](../../tutorials/clean-up-data/).
 
 ## Puhti web interface beta updated to release 8 25.5.2022
 
-* A new [Accelerated Visualization app](../../../computing/webinterface/accelerated-visualization/) has been added for running applications with GPU acceleration.
+* A new [Accelerated Visualization app](../../computing/webinterface/accelerated-visualization/) has been added for running applications with GPU acceleration.
 * Improved the main dashboard page layout.
 * Improved login page layout.
 * Added more visible warnings about home directory quota.
@@ -100,7 +100,7 @@ your data](../../tutorials/clean-up-data/).
 
 ## Puhti has been updated with additional local disks, 13.5.2022
 
-Fast local NVMe disks can be used to speed up single node workloads that do a lot of read and write operations on data sets that fit on the disks. Especially small reads and writes, and operations on a large amount of files is much faster on the local disks than on the parallel file system. Now 48 nodes with 192 GiB of memory, and 12 nodes with 768 GiB of memory have been equipped with local disks that have a size of 1490 GiB. Later in 2022 all the big memory nodes with 1,5TiB of memory will be upgraded with 6 TiB disks. These are in addition to the original 40 CPU nodes and 80 GPU nodes with 3600 GiB NVMes.  See [Puhti technical details](../../../computing/systems-puhti/) for a detailed list of all nodes.
+Fast local NVMe disks can be used to speed up single node workloads that do a lot of read and write operations on data sets that fit on the disks. Especially small reads and writes, and operations on a large amount of files is much faster on the local disks than on the parallel file system. Now 48 nodes with 192 GiB of memory, and 12 nodes with 768 GiB of memory have been equipped with local disks that have a size of 1490 GiB. Later in 2022 all the big memory nodes with 1,5TiB of memory will be upgraded with 6 TiB disks. These are in addition to the original 40 CPU nodes and 80 GPU nodes with 3600 GiB NVMes.  See [Puhti technical details](../../computing/systems-puhti/) for a detailed list of all nodes.
 
 ## Mahti operating system updated to RHEL8, 4.5.2022
 
@@ -134,7 +134,7 @@ connecting. After this you should be able to connect to mahti.csc.fi normally.
 
 ## Puhti web interface beta updated to release 7 23.3.2022
 
-* [Jupyter for courses](../../../computing/webinterface/jupyter-for-courses/) app now supports creating course environments for projects.
+* [Jupyter for courses](../../computing/webinterface/jupyter-for-courses/) app now supports creating course environments for projects.
 * Added Puhti usage graphs to dashboard.
 * Added cookie policy and accessibility statement pages.
 * Some UI fixes and small bug fixes.
@@ -155,7 +155,7 @@ connecting. After this you should be able to connect to mahti.csc.fi normally.
 
 ## Puhti web interface beta updated to release 4 30.11.2021 
 
-* Can now use custom python environments for Jupyter notebooks, see [Jupyter documentation](../../../computing/webinterface/jupyter/).
+* Can now use custom python environments for Jupyter notebooks, see [Jupyter documentation](../../computing/webinterface/jupyter/).
 * Added new **Compute node shell** app that gives a persistent shell on a compute node for commands that should not be run on login nodes.
 * App cards show more information  about resource usage after job has finished (seff output)
 * Can reset interactive forms to default settings
@@ -174,7 +174,7 @@ connecting. After this you should be able to connect to mahti.csc.fi normally.
 
 ## Puhti web interface beta (release 2) is available 18.10.2021
 
-An easy-to-use web interface for Puhti is now open for beta test use at <https://www.puhti.csc.fi>. The new user interface offers an easy way for new users to use Puhti, and for experienced users it makes access to some features quicker and easier. See [web interface](../../../computing/webinterface/) for details
+An easy-to-use web interface for Puhti is now open for beta test use at <https://www.puhti.csc.fi>. The new user interface offers an easy way for new users to use Puhti, and for experienced users it makes access to some features quicker and easier. See [web interface](../../computing/webinterface/) for details
 
 ## MPICH modules no longer work 4.5.2021 
 

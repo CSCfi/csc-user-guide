@@ -57,7 +57,7 @@ After entering your username and passworod, you need to  **verify your identity*
     Please click on the *Continue* button. Due to a techincal problem, pressing Enter on your keybord will re-directed to a stall request error page.
 
 
-For specific guidance regarding the activation of the second verification step on your CSC account, see the [MFA paragraph](../../accounts/mfa.md).
+For specific guidance regarding the activation of the second verification step on your CSC account, see the [MFA paragraph](../../../accounts/mfa/).
 
 [![Authentication](images/desktop/desktop_login-mfa1.png)](images/desktop/desktop_login-mfa1.png)
 

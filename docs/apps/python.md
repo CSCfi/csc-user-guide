@@ -103,7 +103,7 @@ Apptainer](https://apptainer.org/news/community-announcement-20211130) since the
 beginning of 2022.
 
 If you think that some important package should be included in a module provided
-by CSC, you can send an email to [Service Desk](../support/contact.md).
+by CSC, you can send an email to [Service Desk](../../support/contact/).
 
 ## Creating your own Python environments
 
@@ -150,7 +150,7 @@ Studio Code.
 
 Finally, several graphical programming environments can be used directly on the
 supercomputer, such as Jupyter Notebooks, Spyder and Visual Studio Code, through
-the [Puhti web interface](../computing/webinterface/index.md).
+the [Puhti web interface](../../computing/webinterface/).
 
 ### Jupyter Notebooks
 

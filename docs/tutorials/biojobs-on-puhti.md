@@ -16,7 +16,7 @@ ssh yourcscusername@puhti.csc.fi
 Where **yourcscusername** is the username you get from CSC.
 
 You can find more detailed instructions in our User Guide: [Connecting
-to CSC supercomputers](../../computing/connecting.md).
+to CSC supercomputers](../computing/connecting.md).
 
 
 ## What is Puhti?
@@ -30,7 +30,7 @@ are meant for things like moving data and setting up and managing your
 batch jobs. You should not run actual jobs on the login nodes. There
 are only two login nodes and they are shared by everybody. Running big
 jobs on them can make the system slow and unresponsive for all
-(More details in our [usage policy](../../../computing/usage-policy)).
+(More details in our [usage policy](../../computing/usage-policy)).
 
 Jobs should be run in the compute nodes. This is done using the *batch
 job system* also called a *scheduler* or a *workload manager*. The
@@ -42,14 +42,14 @@ discuss this in more detail later.
 
 To check what kind of compute nodes are available in Puhti, see the
 User Guide: [Technical details about
-Puhti](../../computing/systems-puhti.md).
+Puhti](../computing/systems-puhti.md).
 
 
 ## Software environment
 
 Puhti has a selection of commonly used bioscience software
 available. You can check the listing in
-[Applications](../../apps/index.md).
+[Applications](../apps/index.md).
 
 The application listing may not be quite up to date, so it is a good
 idea to use **module spider** command to see if a software (and which
@@ -86,7 +86,7 @@ module list
 To see which modules to load, see the instruction page for each software
 
 For more information on the module system, please see the user guide:
-[The module system](../../computing/modules.md).
+[The module system](../computing/modules.md).
 
 
 ## Planning your job
@@ -198,7 +198,7 @@ can use **sinteractive** command to open an interactive shell:
 ```text
 sinteractive -i
 ```
-For more detailed instructions, see the User Guide: [Interactive usage](../../computing/running/interactive-usage.md)
+For more detailed instructions, see the User Guide: [Interactive usage](../computing/running/interactive-usage.md)
 
 Longer jobs that take more resources are best run as batch jobs.
 
@@ -206,7 +206,7 @@ Longer jobs that take more resources are best run as batch jobs.
 
 Running a batch job typically has three steps:
 1. Make sure you have all the necessary input files
-    1. For instructions on how to move data from your own computer to Puhti, see section [Data/Moving data](../../data/moving/index.md) in the User Guide
+    1. For instructions on how to move data from your own computer to Puhti, see section [Data/Moving data](../data/moving/index.md) in the User Guide
 2. Write a batch job script
     1. Use a text editor like nano, vim or emacs to write the script
     2. If you write the script on your own computer, and move it to 
@@ -278,7 +278,7 @@ run inside one node.
 ```
 
 You can check the available partitions in the User Guide: [Available
-batch job partitions](../../computing/running/batch-job-partitions.md)
+batch job partitions](../computing/running/batch-job-partitions/)
 
 By default various outputs and error messages that would be printed to
 the screen if the application was run interactively, are saved in a
@@ -293,7 +293,7 @@ the outputs and errors. This can be done adding options `--output` and
 
 There are also other available options. For a more detailed
 explanation, please see the User Guide: [Creating a batch job script
-for Puhti](../../computing/running/creating-job-scripts-puhti.md)
+for Puhti](../computing/running/creating-job-scripts-puhti/)
 
 When you have written the batch job script, you can submit the job to the queue:
 ```text
@@ -318,7 +318,7 @@ them as an array job. Array jobs offer an easy way to launch and manage
 a group of similar jobs.
 
 Running array jobs is described in detail in the User Guide: 
-[Array jobs](../../computing/running/array-jobs.md)
+[Array jobs](../computing/running/array-jobs.md)
 
 ## Managing jobs
 
@@ -382,7 +382,7 @@ Most important things to check are the CPU efficiency and memory utilization.
 There are many things that can cause poor CPU efficiency. It could, for example,
 indicate that the program is waiting for disk access to catch up. In these cases
 you should consider using a node with fast local disk.  For details, please see the User Guide: 
-[Creating a batch job script for Puhti](../../computing/running/creating-job-scripts-puhti.md)
+[Creating a batch job script for Puhti](../../computing/running/creating-job-scripts-puhti/)
 
 Low efficiency could also be due to reserving more than one core and the application
 scaling poorly. Check especially if the percentage matches the number of cores reserved,

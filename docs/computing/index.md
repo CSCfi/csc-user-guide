@@ -19,7 +19,7 @@ for details on the systems and [this page for an outline of differences between 
 Mahti](lumi-vs-mahti.md).
 
 CSC supercomputers use the Linux operating system and we recommend that you are familiar with
-basics of [Linux command line usage](../tutorials/env-guide/index.md) before starting.
+basics of [Linux command line usage](../tutorials/env-guide/) before starting.
 
 ## Accessing Puhti and Mahti
 
@@ -31,7 +31,7 @@ of this user guide.
 
 !!! Note
     To access the LUMI supercomputer, you need to [create a LUMI-specific
-    project](../accounts/how-to-create-new-project.md#creating-a-lumi-project-and-applying-for-resources).
+    project](../accounts/how-to-create-new-project/#creating-a-lumi-project-and-applying-for-resources).
     For more details on getting started with LUMI, see the [LUMI
     documentation](https://docs.lumi-supercomputer.eu/firststeps/getstarted/).
 

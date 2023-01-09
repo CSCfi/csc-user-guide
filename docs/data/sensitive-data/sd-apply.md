@@ -78,12 +78,12 @@ You will receive an email notification whenever the state of your application ch
 [![SD Apply "Applications" tab](images/apply/apply_state.png)](images/apply/apply_state.png)
 
 ### Step 5: Set up your Desktop
-Once your application has been approved, you will receive a notification and further instructions via email. You can now access the data in SD Desktop, a private cloud computing environment. To set up your workspace, you need a CSC account, a CSC project, and service access to SD Desktop. When logging in to SD Desktop, use the same user account/identity provider (CSC account, Haka, or ELXIR login) you have used for SD Apply log in. Next, enter the authentication code received via the mobile app. If you are a new CSC user, check these instructions on [accounts](../../accounts/index.md) and [multi-factor authentication](../../accounts/mfa.md).
+Once your application has been approved, you will receive a notification and further instructions via email. You can now access the data in SD Desktop, a private cloud computing environment. To set up your workspace, you need a CSC account, a CSC project, and service access to SD Desktop. When logging in to SD Desktop, use the same user account/identity provider (CSC account, Haka, or ELXIR login) you have used for SD Apply log in. Next, enter the authentication code received via the mobile app. If you are a new CSC user, check these instructions on [accounts](../../../accounts/) and [multi-factor authentication](../../../accounts/mfa/).
 
 [![SD Desktop login](images/apply/desktop_login.png)](images/apply/desktop_login.png)
 
 !!! note
-    If you are a new CSC user, please check these instructions on CSC [accounts](../../accounts/index.md). Check also the [SD Desktop user guide](./sd_desktop.md) and [CSC Sensitive Data Services for Research webpage](https://research.csc.fi/sensitive-data-services-for-research) for more information. 
+    If you are a new CSC user, please check these instructions on CSC [accounts](../../../accounts/). Check also the [SD Desktop user guide](./sd_desktop.md) and [CSC Sensitive Data Services for Research webpage](https://research.csc.fi/sensitive-data-services-for-research) for more information. 
 
 ### Step 6: Access the data 
 

@@ -28,7 +28,7 @@
 
 !!! default "Overview"
 
-    Docs CSC contains user guides, [FAQs](faq/index.md) and [tutorials](tutorials/index.md) related to CSC services.
+    Docs CSC contains user guides, [FAQs](faq/) and [tutorials](tutorials/) related to CSC services.
 
     * In order to navigate across the CSC user guide, click on the topics on
       the left hand side of the navigation bar

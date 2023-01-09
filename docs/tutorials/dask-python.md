@@ -98,7 +98,7 @@ cluster = SLURMCluster(
     walltime = "00:10:00",
     interface = 'ib0',
     local_directory = "/scratch/<YOUR-PROJECT>/temp",
-    python = "/appl/soft/ai/cont_conda/python-data-2022-04-ubi8.5/bin/python"
+    python = "/appl/so../cont_conda/python-data-2022-04-ubi8.5/bin/python"
 )
 
 ### This launches the cluster (submits the worker jobs)
@@ -122,11 +122,11 @@ compute(list_of_delayed_functions)
 
 ## Dask with Jupyter 
 
-For better understanding of how Dask splits the computations internally, the computations can be followed from [Dask Dashboard](https://docs.dask.org/en/stable/diagnostics-distributed.html) or [JupyterLab Dask extension](https://github.com/dask/dask-labextension). Dask Dashboard should be available whenever Dask is available, JupyterLab Dask extension requires extra installations (in Puhti it is available in [geoconda](../../apps/geoconda.md) module). 
+For better understanding of how Dask splits the computations internally, the computations can be followed from [Dask Dashboard](https://docs.dask.o../stable/diagnostics-distributed.html) or [JupyterLab Dask extension](https://github.com/dask/dask-labextension). Dask Dashboard should be available whenever Dask is available, JupyterLab Dask extension requires extra installations (in Puhti it is available in [geoconda](../apps/geoconda.md) module). 
 
-Both `LocalCluster` and `SLURMCluster` type clusters work. When [startin JupyterLab session](../../computing/webinterface/jupyter.md) in Puhti web interface, pay attention to computing resource reservation: 
+Both `LocalCluster` and `SLURMCluster` type clusters work. When [startin JupyterLab session](../computing/webinterface/jupyter.md) in Puhti web interface, pay attention to computing resource reservation: 
 
-* If using `LocalCluster`, reserve computing resources for it, notice the [interactive job](../../computing/running/interactive-usage.md) limits. Bigger requests are sent to usual queueing system. Max. 40 cores.
+* If using `LocalCluster`, reserve computing resources for it, notice the [interactive job](../computing/running/interactive-usage.md) limits. Bigger requests are sent to usual queueing system. Max. 40 cores.
 * If using `SLURMCluster`, at this phase only master node resources are reserved, 1 core should be enough.
 
 ### Dask Dashboard on separate browser tab

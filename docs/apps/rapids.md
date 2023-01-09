@@ -11,12 +11,12 @@ Suite of libraries for data analytics and machine learning on GPUs.
 
     **5.10.2022** Due to Puhti's update to Red Hat Enterprise Linux 8
     (RHEL8), **the number of supported RAPIDS versions has been reduced.**
-    Please [contact our servicedesk](../support/contact.md) if you really
+    Please [contact our servicedesk](../../support/contact/) if you really
     need access to older versions.
 
     **5.5.2022** Due to Mahti's update to Red Hat Enterprise Linux 8 (RHEL8),
     older versions of RAPIDS are no longer fully supported. Please [contact our
-    servicedesk](../support/contact.md) if you really need access to older versions.
+    servicedesk](../../support/contact/) if you really need access to older versions.
 
     **4.2.2022** All old RAPIDS versions which were based on direct Conda
     installations have been deprecated, and we encourage users to move to newer
@@ -41,7 +41,7 @@ If you find that some package is missing, you can often install it yourself with
 documentation](python.md#installing-python-packages-to-existing-modules) for
 more information on how to install packages yourself. If you think that some
 important RAPIDS-related package should be included in the module provided by
-CSC, please [contact our servicedesk](../support/contact.md).
+CSC, please [contact our servicedesk](../../support/contact/).
 
 All modules are based on containers using Apptainer (previously known
 as Singularity). Wrapper scripts have been provided so that common
@@ -88,7 +88,7 @@ list-packages
 The GPU nodes have fast local storage which is useful for IO-intensive
 applications. See our [general instructions on how to take the fast local
 storage into
-use](../computing/running/creating-job-scripts-puhti.md#local-storage).
+use](../computing/running/creating-job-scripts-puhti/#local-storage).
 
 ## More information
 

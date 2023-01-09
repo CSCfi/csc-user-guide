@@ -12,7 +12,7 @@ learning research.
 
     **5.10.2022** Due to Puhti's update to Red Hat Enterprise Linux 8
     (RHEL8), **the number of supported JAX versions has been reduced.**
-    Please [contact our servicedesk](../support/contact.md) if you really
+    Please [contact our servicedesk](../../support/contact/) if you really
     need access to older versions.
 
 
@@ -33,7 +33,7 @@ documentation](python.md#installing-python-packages-to-existing-modules)
 for more information on how to install packages yourself. If you think
 that some important JAX-related package should be included in
 the modules provided by CSC, please [contact our
-servicedesk](../support/contact.md).
+servicedesk](../../support/contact/).
 
 The JAX modules are Apptainer (formerly Singularity)-based but wrapper
 scripts have been provided so that common commands such as `python`,
@@ -90,6 +90,6 @@ list-packages
 
 ## More information
 
-- [CSC's Machine learning guide](../tutorials/ml-guide.md)
+- [CSC's Machine learning guide](../../tutorials/ml-guide/)
 - [JAX GitHub page](https://github.com/google/jax)
 - [JAX reference documentation](https://jax.readthedocs.io/en/latest/)

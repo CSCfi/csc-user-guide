@@ -119,7 +119,7 @@ srun paramfit -i Job_Control.in -p prmtop -c mdcrd -q QM_data.dat
 Sometimes it is more convenient to run small jobs, like system preparations,
 interactively. To prevent excessive load on the login node, these kinds of jobs
 should be run as interactive batch jobs. You can request a shell on a compute
-node from the [Puhti Web Interface](../computing/webinterface/index.md), from the
+node from the [Puhti Web Interface](../../computing/webinterface/), from the
 command line with [sinteractive](../computing/running/interactive-usage.md),
 or manually access to a single core with:
 

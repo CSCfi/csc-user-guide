@@ -16,10 +16,10 @@ This error message refers to Slurm options `--account=<project>` and
 
 * Project does not exist.
 * Project exists, but you are not a member of it. See how to
-  [add a member to project](../../accounts/how-to-add-members-to-project.md)
+  [add a member to project](../../accounts/how-to-add-members-to-project/)
 * You are a project member, but the project has not been enabled on Puhti. See
   how to
-  [add service access for project](../../accounts/how-to-add-service-access-for-project.md).
+  [add service access for project](../../accounts/how-to-add-service-access-for-project/).
 * Partition does not exist.
 * Partition exists, but your project is not enabled in it.
 
@@ -53,5 +53,5 @@ sbatch: error: Batch job submission failed: Requested node configuration is not 
 The most common causes are:
 
 
-* Requesting e.g. a GPU or NVME in a partition that does not have them. See [Puhti partitions](../../computing/running/batch-job-partitions.md) for available resources.
+* Requesting e.g. a GPU or NVME in a partition that does not have them. See [Puhti partitions](../../computing/running/batch-job-partitions/) for available resources.
 

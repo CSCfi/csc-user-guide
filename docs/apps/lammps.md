@@ -35,11 +35,11 @@ LAMMPS on Puhti or Mahti for optimal performance.
 Please compile in `$TMPDIR` for faster performance and less load on the shared filesystem. After
 compiling, move your files to `/projappl/<project code>` (the local disk is cleaned frequently).
 Consult these pages on [how to create batch jobs on
-Puhti](../computing/running/creating-job-scripts-puhti.md) and [on
-Mahti](../computing/running/creating-job-scripts-mahti.md).
+Puhti](../computing/running/creating-job-scripts-puhti/) and [on
+Mahti](../computing/running/creating-job-scripts-mahti/).
 
 If you encounter problems compiling LAMMPS, don't hesitate to [contact CSC Service
-Desk](../support/contact.md).
+Desk](../../support/contact/).
 
 ### High-throughput computing with LAMMPS
 

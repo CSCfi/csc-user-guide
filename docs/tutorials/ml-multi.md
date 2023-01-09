@@ -420,7 +420,7 @@ repository](https://github.com/CSCfi/pytorch-ddp-examples):
 [DeepSpeed](https://www.deepspeed.ai/) is an optimization software
 suite for PyTorch that helps in scaling both training and inference
 for large deep learning models. DeepSpeed is supported in the [PyTorch
-modules in Puhti and Mahti](../../apps/pytorch.md) since version
+modules in Puhti and Mahti](../apps/pytorch.md) since version
 1.10. DeepSpeed is not yet fully supported on LUMI.
 
 Example of running DeepSpeed on a single full node using the
@@ -589,15 +589,15 @@ use MPI for launching jobs.  Horovod can be used both with single- and
 multi-node jobs.
 
 In CSC's supercomputers Horovod is supported only for some specific
-versions of [TensorFlow](../../apps/tensorflow.md) and
-[PyTorch](../../apps/pytorch.md).  Please check the application pages
+versions of [TensorFlow](../apps/tensorflow.md) and
+[PyTorch](../apps/pytorch.md).  Please check the application pages
 for further information. To take Horovod into use, just load the
 appropriate module, and modify your program according to the
 instructions in [Horovod's
 documentation](https://horovod.readthedocs.io/), for example:
 
-* [Horovod with PyTorch](https://horovod.readthedocs.io/en/latest/pytorch.html)
-* [Horovod with TensorFlow](https://horovod.readthedocs.io/en/stable/tensorflow.html) and [Keras](https://horovod.readthedocs.io/en/stable/keras.html)
+* [Horovod with PyTorch](https://horovod.readthedocs.../latest/pytorch.html)
+* [Horovod with TensorFlow](https://horovod.readthedocs.../stable/tensorflow.html) and [Keras](https://horovod.readthedocs.../stable/keras.html)
 
 
 ### TensorFlow's `tf.distribute.Strategy`
@@ -605,7 +605,7 @@ documentation](https://horovod.readthedocs.io/), for example:
 TensorFlow also has its own [built-in mechanisms for distributed
 training](https://www.tensorflow.org/guide/distributed_training) in
 the [`tf.distribute.Strategy`
-API](https://www.tensorflow.org/api_docs/python/tf/distribute/Strategy).
+API](https://www.tensorflow.org/api_docs/pyth../distribute/Strategy).
 
 
 

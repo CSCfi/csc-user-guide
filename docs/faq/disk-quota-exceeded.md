@@ -36,7 +36,7 @@ quota.
      adapt container-based installation as the choice of installation method for
      better performance. We support HPC-compliant Singularity containers on
      Puhti/Mahti. To easily containerize your Conda environments, please see the
-     [Tykky container wrapper tool](../../computing/containers/tykky.md).
+     [Tykky container wrapper tool](../../computing/containers/tykky/).
 
 If you are new to the concept of containers, you can consult the following relevant 
 sections of tutorials which are collected as part of previous CSC courses:

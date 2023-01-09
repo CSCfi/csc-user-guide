@@ -83,7 +83,7 @@ start-r
 
 The`r-env` module can be used to remotely launch RStudio Server on your web browser. For this, you have two options.
 
-**Option 1. Using the Puhti web interface**. This is by far the easiest way to launch RStudio on Puhti. For details, [see the Puhti web interface documentation](../computing/webinterface/index.md).
+**Option 1. Using the Puhti web interface**. This is by far the easiest way to launch RStudio on Puhti. For details, [see the Puhti web interface documentation](../../computing/webinterface/).
 
 **Option 2. Using SSH tunneling**. This option requires authentication using a Secure Shell (SSH) key. Detailed instructions for this are provided in a [separate tutorial for using RStudio Server](../tutorials/rstudio-or-jupyter-notebooks.md) and our [documentation on setting up SSH keys on Windows, macOS and Linux](../../computing/connecting/#setting-up-ssh-keys).
 
@@ -102,7 +102,7 @@ apptainer_wrapper exec R --no-save
 
 #### Non-interactive use
 
-Further to interactive jobs, R scripts can be run non-interactively using batch job files. In addition to the following examples, [see this link](../computing/running/creating-job-scripts-puhti.md) for more information. Batch job files can be submitted to the batch job system as follows:
+Further to interactive jobs, R scripts can be run non-interactively using batch job files. In addition to the following examples, [see this link](../../computing/running/creating-job-scripts-puhti/) for more information. Batch job files can be submitted to the batch job system as follows:
 
 ```bash
 sbatch batch_job_file.sh
@@ -145,7 +145,7 @@ In the above example, one task (`--ntasks=1`) is executed with 1 GB of memory (`
 
 The `r-env` module can be used for parallel computing in several ways. These include multi-core and array submissions, as well as MPI (Message Passing Interface)-based jobs. The module comes with several packages that support multi-node communication via MPI: `doMPI` (used with `foreach`), `future`, `lidR`, `pbdMPI` and `snow`.
 
-Further to the following examples, please see our separate [tutorial for parallel R jobs](../tutorials/parallel-r.md). There is also [separate documentation on MPI jobs](../computing/running/creating-job-scripts-puhti.md#mpi-based-batch-jobs). You may also wish to check the relevant R package manuals and [this page](https://github.com/csc-training/geocomputing/tree/master/R/puhti/05_parallel_future) for examples of parallel computing using the `raster` package.
+Further to the following examples, please see our separate [tutorial for parallel R jobs](../tutorials/parallel-r.md). There is also [separate documentation on MPI jobs](../../computing/running/creating-job-scripts-puhti/#mpi-based-batch-jobs). You may also wish to check the relevant R package manuals and [this page](https://github.com/csc-training/geocomputing/tree/master/R/puhti/05_parallel_future) for examples of parallel computing using the `raster` package.
 
 !!! note
     For jobs employing the Rmpi package, please use snow (which is built on top of Rmpi). Jobs using Rmpi alone are unavailable due to compatibility issues.
@@ -547,7 +547,7 @@ srun apptainer_wrapper exec Rscript --no-save myscript.R
 
 #### Using fast local storage
 
-For I/O-intensive analyses, [fast local storage](../computing/running/creating-job-scripts-puhti.md#local-storage) can be used in non-interactive batch jobs with minor changes to the batch job file. Interactive R jobs use fast local storage by default.
+For I/O-intensive analyses, [fast local storage](../../computing/running/creating-job-scripts-puhti/#local-storage) can be used in non-interactive batch jobs with minor changes to the batch job file. Interactive R jobs use fast local storage by default.
 
 An example of a serial batch job using 10 GB of fast local storage (`--gres=nvme:10`) is given below. Here a temporary directory is specified using the environment variable `TMPDIR`, in contrast to the prior examples where it was set as `/scratch/<project>`.
 
@@ -711,7 +711,7 @@ installed_packages <- library()$results[,1]
 
 Additional R package installations can be arranged via two routes:
 
-- Project-specific installations can be used by creating a separate package directory in the `/projappl/<project>` directory (instructions below; also see [here](../computing/disk.md#projappl-directory) for information on ProjAppl)
+- Project-specific installations can be used by creating a separate package directory in the `/projappl/<project>` directory (instructions below; also see [here](../../computing/disk/#projappl-directory) for information on ProjAppl)
 
 - Requests for general installations (provided to all users as part of the module): please contact [servicedesk@csc.fi](mailto:servicedesk@csc.fi)
 

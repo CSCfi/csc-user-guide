@@ -39,7 +39,7 @@ Puhti installation includes only the open source tools of LAStools.
 
 ### Using a licensed version
 
-Not open source LasTools tools are available only as .exe files, so they have to be run with wine (Windows emulator). Only the command-line tools work, not the graphical interface. If you have a LAStools license, you can install the .exe files easily yourself for your project. Download and unzip __LAStools__ to your [projappl disk area](../computing/disk.md).
+Not open source LasTools tools are available only as .exe files, so they have to be run with wine (Windows emulator). Only the command-line tools work, not the graphical interface. If you have a LAStools license, you can install the .exe files easily yourself for your project. Download and unzip __LAStools__ to your [projappl disk area](../../computing/disk/).
 
 ```
 cd /projappl/<your_project>

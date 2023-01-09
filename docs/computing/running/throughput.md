@@ -181,7 +181,7 @@ workflows.
 * Python:
     * [Python parallel jobs](../../apps/python.md#python-parallel-jobs)
     * [CSC Dask tutorial](../../tutorials/dask-python.md)
-    * [CSC machine learning guide](../../tutorials/ml-guide.md)
+    * [CSC machine learning guide](../../../tutorials/ml-guide/)
 * R:
     * [Parallel jobs using R](../../tutorials/parallel-r.md)
     * [R targets library](https://docs.ropensci.org/targets/)
@@ -197,7 +197,7 @@ workflows.
 [HyperQueue]: ../../apps/hyperqueue.md
 [GNU Parallel]: ../../tutorials/many.md
 [FireWorks]: fireworks.md
-[contact CSC Service Desk]: ../../support/contact.md
+[contact CSC Service Desk]: ../../../support/contact/
 [Nextflow]: ../../tutorials/nextflow-puhti.md
 [Snakemake]: https://snakemake.readthedocs.io/en/stable/
 [Array jobs]: array-jobs.md

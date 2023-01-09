@@ -2,7 +2,7 @@
 
 On CSC platforms, there are two ways to use [Apptainer containers](https://apptainer.org/) (formerly known as Singularity) that you have built yourself. You may: 
 
-* [Convert Docker containers to Apptainer image files](../../computing/containers/creating.md#converting-a-docker-container), or 
+* [Convert Docker containers to Apptainer image files](../computing/containers/creating.md#converting-a-docker-container), or 
 * Build an Apptainer image entirely from scratch.
 
 This tutorial focuses on the latter scenario, with further information available on the [Apptainer website](https://apptainer.org/docs/user/main/build_a_container.html).
@@ -45,7 +45,7 @@ If you wish to specify environment variables on the host environment in a way th
 
 Building an Apptainer container requires root (`sudo`) access. As such, this cannot be directly done on CSC's supercomputers. Instead you must use your own computer, or a virtual computer where you have root access, to build the container image.
 
-One option is to use a [Pouta virtual machine](../../cloud/pouta/index.md). This enables one to specify the type of environment used to build the image. Most of the time, the Linux distribution of the environment used to build the container will matter relatively little. However, certain installations (e.g. [NVIDIA CUDA drivers](https://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html)) have strict version requirements with regard to kernel headers, meaning that the distribution must effectively be matched between the environment for container building, the container and the host.
+One option is to use a [Pouta virtual machine](../cloud/pouta/index.md). This enables one to specify the type of environment used to build the image. Most of the time, the Linux distribution of the environment used to build the container will matter relatively little. However, certain installations (e.g. [NVIDIA CUDA drivers](https://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html)) have strict version requirements with regard to kernel headers, meaning that the distribution must effectively be matched between the environment for container building, the container and the host.
 
 To build a container using a definition file, one can simply run:
 
@@ -59,7 +59,7 @@ If everything is successful, this results in a container image (.sif file) that 
 
 ## Running a container
 
-There are a couple of ways to run Apptainer containers on CSC computing environments. For detailed instructions, visit our documentation on [running containers](../../computing/containers/run-existing.md).
+There are a couple of ways to run Apptainer containers on CSC computing environments. For detailed instructions, visit our documentation on [running containers](../computing/containers/run-existing.md).
 
 The options include using:
 
@@ -72,8 +72,8 @@ Many of the containers available on CSC environments come with wrappers for sele
 
 #### Puhti and Mahti
 
-Apptainer image files can be transferred onto Puhti or Mahti [using `scp`, `rsync` or a graphical file transfer tool](../../data/moving/index.md). 
+Apptainer image files can be transferred onto Puhti or Mahti [using `scp`, `rsync` or a graphical file transfer tool](../data/moving/index.md). 
 
 #### CSC Sensitive Data Desktop
 
-If wishing to use a custom-built container on the [CSC Sensitive Data Desktop](../../data/sensitive-data/sd_desktop.md), first transfer the image file to Puhti. Then follow our guidelines on [using Allas to move containers to the SD Desktop](../../data/sensitive-data/sd-desktop-singularity.md).
+If wishing to use a custom-built container on the [CSC Sensitive Data Desktop](../../data/sensitive-data/sd-desktop-audited/), first transfer the image file to Puhti. Then follow our guidelines on [using Allas to move containers to the SD Desktop](../data/sensitive-data/sd-desktop-singularity.md).

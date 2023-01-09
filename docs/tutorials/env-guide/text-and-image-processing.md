@@ -41,7 +41,7 @@ and press ***Ctrl-k***. To paste the text that was cut, press
 ***Ctrl-u***. More commands can be found from the nano help text, that
 is opened by pressing ***Ctrl-g***.
 
-![The Nano Editor](../../../img/nano.jpg "Nano editor.")
+![The Nano Editor](../../img/nano.jpg "Nano editor.")
 
 Nano editor.
 
@@ -51,7 +51,7 @@ Nano editor.
 commands, functions and extensions. *Emacs* can be used in two ways: as
 character based editor like *nano* or through a graphical interface.
 Using the graphical interface requires that you have X-term
-connection to CSC or are using the [Puhti web interface remote desktop](../../../computing/webinterface/desktop.md). In the character based mode emacs commands are given
+connection to CSC or are using the [Puhti web interface remote desktop](../../computing/webinterface/desktop.md). In the character based mode emacs commands are given
 using *Ctrl* and *Esc* keys much like in the case of nano commands. In
 the graphical interface you can use also mouse based command menus which
 makes working much more feasible for a new emacs user. To start emacs in
@@ -73,7 +73,7 @@ tools.
 
 If you don't have remote graphics enabled you need to know the [command shortcuts](https://www.gnu.org/software/emacs/refcards/pdf/refcard.pdf). For example, the shortcut to exit is **ctrl-x ctrl-c**.
 
-![Graphical interface of emacs editor](../../../img/emacs.jpg "Graphical interface of emacs editor.")
+![Graphical interface of emacs editor](../../img/emacs.jpg "Graphical interface of emacs editor.")
 
 Graphical interface of emacs editor.
 
@@ -124,7 +124,7 @@ keys.
 
 For more options, please refer to vim manual.
 
-![Graphical interface of vim editor with welcome screen](../../../img/vim.jpg "Graphical interface of vim editor with welcome screen.")
+![Graphical interface of vim editor with welcome screen](../../img/vim.jpg "Graphical interface of vim editor with welcome screen.")
 
 Graphical interface of vim editor with welcome screen.
 
@@ -154,7 +154,7 @@ corresponding *pdf* file. For example command:
 
 Produces a pdf-formatted file *file1.pdf*
 
-![Eog image viewing program](../../../img/eog.jpg  "Eog image viewing program.")
+![Eog image viewing program](../../img/eog.jpg  "Eog image viewing program.")
 
 Eog image viewing program.
 

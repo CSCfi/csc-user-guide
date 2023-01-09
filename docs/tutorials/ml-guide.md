@@ -18,15 +18,15 @@ In addition to this page, this guide contains the following subsections:
 
 CSC offers several services which might be relevant for machine learning users:
 
-- [Supercomputers, Puhti and Mahti](../../computing/index.md) are multi-user
+- [Supercomputers, Puhti and Mahti](../computing/index.md) are multi-user
   clusters and offer the highest computing performance, including GPU
   acceleration in a centrally controlled software environment,
 
-- [Pouta](../../cloud/pouta/index.md) offers your own virtual server with full
+- [Pouta](../cloud/pouta/index.md) offers your own virtual server with full
   control of the software environment, but restricted computing performance
   compared to supercomputers, 
 
-- [Rahti](../../cloud/rahti/index.md) offers a more automatized container-based
+- [Rahti](../cloud/rahti/index.md) offers a more automatized container-based
   cloud environment, useful in particular for deploying web services.
 
 **Our recommendation is to use CSC's Puhti or Mahti supercomputers**, unless you
@@ -38,22 +38,22 @@ If you are developing a service, for example want to deploy a trained model as a
 service, then Pouta or Rahti might be most relevant for you. 
 
 If you are unsure about the right service to use, don't hesitate to [contact our
-service desk](../contact.md) and explain your computing needs.
+service desk](../support/contact.md) and explain your computing needs.
 
 
 ## CSC's supercomputers
 
 For most machine learning needs [CSC's supercomputers, Puhti and
-Mahti](../../computing/index.md), are the way to go. Both are clusters of
+Mahti](../computing/index.md), are the way to go. Both are clusters of
 hundreds of computers, some of which offer GPU-acceleration. The supercomputers
 are multi-user systems, so individual users have limited rights to install
 software, and as with any shared resource one must follow the [usage
-policy](../../computing/index.md#usage-policy) so that the service can remain
+policy](../computing/index.md#usage-policy) so that the service can remain
 usable.
 
 If you are a new user, please read [how to access Puhti and
-Mahti](../../computing/index.md), and [how to submit computing
-jobs](../../computing/running/index.md).
+Mahti](../computing/index.md), and [how to submit computing
+jobs](../computing/running/index.md).
 
 New users may in particular be interested in [Puhti's web
 interface](https://docs.csc.fi/computing/webinterface/), which can be accessed
@@ -70,7 +70,7 @@ jobs](ml-multi.md).
 ### Pouta
 
 There are some use cases where the supercomputers are not the right solution,
-and you may need a [virtual server on **Pouta**](../../cloud/pouta/index.md).
+and you may need a [virtual server on **Pouta**](../cloud/pouta/index.md).
 Typical examples include:
 
 - very complex software environment,
@@ -79,7 +79,7 @@ Typical examples include:
 
 With Pouta you get your own virtual server, where you have root or administrator
 access. [HPC and GPU flavors are
-available](../../cloud/pouta/vm-flavors-and-billing.md#hpc-flavors) for heavy
+available](../cloud/pouta/vm-flavors-and-billing.md#hpc-flavors) for heavy
 computing needs, however, the computing resources will always be smaller than in
 a supercomputer.
 
@@ -88,12 +88,12 @@ which is suited for cases with high security requirements. With ePouta the
 virtual server will be integrated into your existing network infrastructure.
 
 See our [Pouta documentation pages on how to apply for
-access](../../cloud/pouta/index.md).
+access](../cloud/pouta/index.md).
 
 
 ### Rahti
 
-For model deployment, the [**Rahti**](../../cloud/rahti/index.md) container
+For model deployment, the [**Rahti**](../cloud/rahti/index.md) container
 cloud service might be used. However, it currently doesn't offer GPU support.
 
 Below are a few examples of how Rahti can be used for machine learning tasks:
@@ -106,6 +106,6 @@ Below are a few examples of how Rahti can be used for machine learning tasks:
 
 ## Further reading in Docs CSC
 
-* [Python parallel jobs](../../apps/python.md#python-parallel-jobs)
+* [Python parallel jobs](../apps/python.md#python-parallel-jobs)
 * [Dask tutorial](dask-python.md)
-* [High-throughput computing and workflows](../../computing/running/throughput.md)
+* [High-throughput computing and workflows](../computing/running/throughput.md)

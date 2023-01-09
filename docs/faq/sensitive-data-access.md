@@ -22,4 +22,4 @@ SD Submit and Federated EGA, the services for submitting sensitive data to a nat
 
 ## Does CSC provide Multi-Factor Authentication (MFA)?
 
-Yes, MFA is enabled on SD Desktop. For specific guidance regarding the MFA activation on your CSC account, see the [Multi-factor Authentication paragraph](../../accounts/mfa.md).
+Yes, MFA is enabled on SD Desktop. For specific guidance regarding the MFA activation on your CSC account, see the [Multi-factor Authentication paragraph](../../accounts/mfa/).

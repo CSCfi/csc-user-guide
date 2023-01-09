@@ -7,9 +7,9 @@ We have collected some useful material in the following locations:
 * [Get started at CSC -collection page](https://www.csc.fi/get-started)
 * [Services for research](https://research.csc.fi/home)
 * [Services by discipline](https://research.csc.fi/sciences)
-* [Tutorials](../../tutorials/index.md)
+* [Tutorials](../../tutorials/)
 * [Frequently Asked Questions](index.md)
-* [Contact us](../../support/contact.md)
+* [Contact us](../../support/contact/)
 * [Collection of training materials](https://www.csc.fi/en/web/training/materials)
 
 Direct support from CSC Servicedesk: send email to servicedesk (at) csc.fi
