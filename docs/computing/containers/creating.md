@@ -41,4 +41,4 @@ Also see our [documentation on how to run containers](run-existing.md).
 
 You can also build your own container from scratch. This is an option for more experienced users, and your main source of information is the [official Apptainer documentation on building containers](https://apptainer.org/docs/user/main/build_a_container.html).
 
-You can find some help also by looking at our [tutorial on building Apptainer containers from scratch](../../support/tutorials/singularity-scratch.md).
+You can find some help also by looking at our [tutorial on building Apptainer containers from scratch](../../tutorials/singularity-scratch.md).

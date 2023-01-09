@@ -2,7 +2,7 @@
 
 ## Training materials and sources from CSC and partners, 12.12.2022
 
-Check out this [concise table of training materials](../training-material.md#training-materials-and-sources-from-csc-and-partners)
+Check out this [concise table of training materials](../support/training-material.md#training-materials-and-sources-from-csc-and-partners)
 available from us and our partners on many topics related to doing science
 with computers.
 
@@ -21,7 +21,7 @@ or onsite courses.
 
 ## Documentation on High-throughput computing and workflows updated, 6.6.2022
 
-Our documentation on [high-throughput computing and workflows](../../computing/running/throughput.md)
+Our documentation on [high-throughput computing and workflows](../computing/running/throughput.md)
 has been updated and extended. The page contains important instructions and
 guidelines on how to run workflows and tasks with heavy IO patterns in CSC's
 computing environment. By carefully selecting the most appropriate technology
@@ -41,7 +41,7 @@ on GPUs.
 
 ## How does LUMI-C differ from Mahti? 6.4.2022
 
-[A brief overview of key differences between LUMI-C and CSC supercomputers](../../computing/lumi-vs-mahti.md), notably Mahti, has been published. See this page to quickly understand which aspects you should be mindful of when starting as a new LUMI user as well as where to get more information!
+[A brief overview of key differences between LUMI-C and CSC supercomputers](../computing/lumi-vs-mahti.md), notably Mahti, has been published. See this page to quickly understand which aspects you should be mindful of when starting as a new LUMI user as well as where to get more information!
 
 ## Tutorial on managing data on scratch disks, 5.4.2022
 
@@ -49,11 +49,11 @@ A [best practice guide on managing data on Puhti and Mahti `scratch` disks](../t
 
 ## FireWorks workflow tool, 15.2.2022
 
-A [guide on using FireWorks](../../computing/running/fireworks.md) in CSC's computing environment has been released. The guide explains how to use an external MongoDB on Rahti as a backend database for FireWorks and how to launch workflows running parallel jobs through the batch queue system.
+A [guide on using FireWorks](../computing/running/fireworks.md) in CSC's computing environment has been released. The guide explains how to use an external MongoDB on Rahti as a backend database for FireWorks and how to launch workflows running parallel jobs through the batch queue system.
 
 ## Accessing databases on Rahti from CSC supercomputers, 8.2.2022
 
-A [tutorial on how to connect to databases on Rahti from CSC supercomputers](../../cloud/rahti/tutorials/connect-database-hpc.md) has been published. The tutorial describes the process of setting up MongoDB on Rahti and how to establish an HTTP-compatible connection between the database and Puhti/Mahti using the WebSocat tool.
+A [tutorial on how to connect to databases on Rahti from CSC supercomputers](../cloud/rahti/tutorials/connect-database-hpc.md) has been published. The tutorial describes the process of setting up MongoDB on Rahti and how to establish an HTTP-compatible connection between the database and Puhti/Mahti using the WebSocat tool.
 
 ## New machine learning guide released, 20.12.2021
 

@@ -74,7 +74,7 @@ you're at the university or connected to it via VPN from home.
 
 It is possible to run heavier computations on Puhti. Here, a brief overview is given.
 Additional details and some diagnostics tips are explained in our [Maestro power usage
-tutorial](../support/tutorials/power-maestro.md). See also the video below.
+tutorial](../tutorials/power-maestro.md). See also the video below.
 
 First, you need to [get a CSC account](../accounts/how-to-create-new-user-account.md)
 and apply for [access to Puhti](../accounts/how-to-add-service-access-for-project.md).
@@ -123,7 +123,7 @@ For example, a Desmond workflow could be run with the script:
 
 The scripts tend to be somewhat complicated, so it's best to write them out from the
 Maestro GUI as explained above. Please also have a look at the [additional flags we
-recommend to use](../support/tutorials/power-maestro.md).
+recommend to use](../tutorials/power-maestro.md).
 
 To submit such a script in Puhti, you need to first load Maestro and then run the script:
 
@@ -165,7 +165,7 @@ Jaguar, version 7.6, Schrödinger, LLC, New York, NY, 2009.
 
 ## More information
 
-* [Tutorial and tips for power usage on Puhti](../support/tutorials/power-maestro.md)
+* [Tutorial and tips for power usage on Puhti](../tutorials/power-maestro.md)
 * Manual including tutorials come with the Maestro GUI.
 * The [Schrödinger website](http://www.schrodinger.com/support) has an extensive collection of
   videos, tutorials, online courses, etc.

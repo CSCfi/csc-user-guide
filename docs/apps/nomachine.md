@@ -58,4 +58,4 @@ is available for Win, Mac, Linux.
 * NoMachine [knowledge base](https://www.nomachine.com/knowledge-base)
 * User support via CSC through servicedesk@csc.fi
 
-  [CSC NoMachine Tutorial]: /support/tutorials/nomachine-usage
+  [CSC NoMachine Tutorial]: /tutorials/nomachine-usage

@@ -86,10 +86,10 @@ list-packages
     Please **do not read a huge number of files from the shared file system**, use
     fast local disk or package your data into larger files instead! See the [Data
     storage section in our machine learning
-    guide](../support/tutorials/ml-data.md) for more details.
+    guide](../tutorials/ml-data.md) for more details.
 
 ## More information
 
-- [CSC's Machine learning guide](../support/tutorials/ml-guide.md)
+- [CSC's Machine learning guide](../tutorials/ml-guide.md)
 - [JAX GitHub page](https://github.com/google/jax)
 - [JAX reference documentation](https://jax.readthedocs.io/en/latest/)

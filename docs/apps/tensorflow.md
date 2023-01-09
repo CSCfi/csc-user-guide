@@ -75,7 +75,7 @@ Some modules support [Horovod](https://horovod.ai/), which is our recommended
 framework for multi-node jobs, i.e., jobs needing more than 4
 GPUs. Horovod can also be used with single-node jobs for 2-4 GPUs. For more
 information, read the [Multi-GPU section in our machine learning
-guide](../support/tutorials/ml-multi.md).
+guide](../tutorials/ml-multi.md).
 
 
 ## License
@@ -183,7 +183,7 @@ a single node:
     ```
 
 Please read the section on [Efficient GPU utilization in our Machine
-learning guide](../support/tutorials/gpu-ml.md) to learn how to use
+learning guide](../tutorials/gpu-ml.md) to learn how to use
 the GPU efficiently.
 
 
@@ -191,18 +191,18 @@ the GPU efficiently.
 
 If you are working with big datasets, or datasets that contain a lot
 of files, please read [the data section of our Machine learning
-guide](../support/tutorials/ml-data.md). In particular, please **do
+guide](../tutorials/ml-data.md). In particular, please **do
 not read a huge number of files from the shared file system**, use
 fast local disk or package your data into larger files instead!
 
 For multi-GPU and multi-node please read the [Multi-GPU and multi-node
 section of our Machine learning
-guide](../support/tutorials/ml-multi.md)
+guide](../tutorials/ml-multi.md)
 
 
 ## More information
 
-- [CSC's Machine learning guide](../support/tutorials/ml-guide.md)
+- [CSC's Machine learning guide](../tutorials/ml-guide.md)
 - [TensorFlow overview](https://www.tensorflow.org/overview/)
 - [Get Started with TensorFlow](https://www.tensorflow.org/tutorials)
 - [TensorFlow API documentation](https://www.tensorflow.org/api_docs/python/tf)

@@ -86,7 +86,7 @@ gdalinfo /vsis3/<name_of_your_bucket>/<name_of_your_file>
 
 ### Virtual rasters
 
-With large quantities of raster data (also in Allas), the most convenient method of accessing them might be [GDAL virtual rasters](../support/tutorials/gis/virtual-rasters.md). 
+With large quantities of raster data (also in Allas), the most convenient method of accessing them might be [GDAL virtual rasters](../tutorials/gis/virtual-rasters.md). 
 
 ## License and acknowledgement
 
@@ -98,6 +98,6 @@ As an example, you can write "The authors wish to thank CSC - IT Center for Scie
 ## References
 
 * [GDAL documentation, programs](https://gdal.org/programs/index.html)
-* [GDAL tutorial by CSC](../support/tutorials/gis/gdal.md)
+* [GDAL tutorial by CSC](../tutorials/gis/gdal.md)
 * [GDAL cheat sheet](https://github.com/dwtkns/gdal-cheat-sheet)
 * [GDAL Linux examples](https://github.com/clhenrick/shell_scripts)

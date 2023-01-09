@@ -20,4 +20,4 @@ you could move directly to the instructions for getting started with Rahti & its
   * [Project and Quota](/cloud/rahti/usage/projects_and_quota/)
   * [Billing](/cloud/rahti/billing/)
 
-Still have queries? Checkout our [Rahti FAQs](/support/faq/#rahti) page or contact <servicedesk@csc.fi> for more info.
+Still have queries? Checkout our [Rahti FAQs](/faq/#rahti) page or contact <servicedesk@csc.fi> for more info.

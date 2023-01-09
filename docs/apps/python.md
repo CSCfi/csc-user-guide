@@ -133,19 +133,19 @@ direct use of Conda installations on CSC supercomputers.** You can, however, sti
 Conda environments granted that they are containerized. To easily containerize your Conda
 (or pip) environments, please see the [Tykky container wrapper tool](../computing/containers/tykky.md).
 
-* [CSC Conda tutorial](../support/tutorials/conda-best-practices.md) describes in more detail
+* [CSC Conda tutorial](../tutorials/conda-best-practices.md) describes in more detail
   what Conda is and how to use it. Some parts of this tutorial may be helpful also for
   Tykky installations.
 
 ## Python development environments
 
 Python code can be edited with a console-based [text editor directly on the
-supercomputer](../support/tutorials/env-guide/text-and-image-processing.md).
+supercomputer](../tutorials/env-guide/text-and-image-processing.md).
 Codes can also be edited on your local machine and copied to the supercomputer
 with [scp](../data/moving/scp.md) or [graphical file transfer
 tools](../data/moving/graphical_transfer.md).
 You can also [edit Python scripts in Puhti from your local
-PC](../support/tutorials/remote-dev.md) with some code editors like Visual
+PC](../tutorials/remote-dev.md) with some code editors like Visual
 Studio Code.
 
 Finally, several graphical programming environments can be used directly on the
@@ -159,7 +159,7 @@ browser running on a local PC. The notebooks can combine code, equations,
 visualizations and narrative text in a single document. Many of our modules, including
 [python-data](python-data.md), the deep learning modules and [geoconda](geoconda.md)
 include the Jupyter notebook package. See the tutorial [how to set up and connect to
-a Jupyter Notebook](../support/tutorials/rstudio-or-jupyter-notebooks.md) for using
+a Jupyter Notebook](../tutorials/rstudio-or-jupyter-notebooks.md) for using
 Jupyter in CSC environment.
 
 ### Spyder
@@ -182,7 +182,7 @@ The `multiprocessing` package is likely the easiest to use and as it is part of 
 Python standard library it is included in all Python installations. `joblib` provides
 some more flexibility. `multiprocessing` and `joblib` are suitable for one
 node (max 40 cores). `dask` is the most versatile and has several options for
-parallelization. Please see [CSC's Dask tutorial](../support/tutorials/dask-python.md)
+parallelization. Please see [CSC's Dask tutorial](../tutorials/dask-python.md)
 which includes both single-node (max 40 cores) and multi-node examples.
 
 See our GitHub repository for some [examples for using the different parallelization

@@ -37,7 +37,7 @@ CSC also hosts or provides access to several datasets on different platforms.
 ### Chemistry
 
  - [CSD - Cambridge Crystallographic Database](../../apps/csd.md) – organic and metallo-organic crystal structures and tools
- - [Molport 6M molecule database](../../support/tutorials/gpu-shape.md) preprocessed for fast GPU screening with Schrödinger Shape
+ - [Molport 6M molecule database](../../tutorials/gpu-shape.md) preprocessed for fast GPU screening with Schrödinger Shape
 
 ### Geosciences
 
@@ -49,7 +49,7 @@ CSC also hosts or provides access to several datasets on different platforms.
 
 ## Processing and analysing data
 
-Read more in [CSC's Data analysis guide](../../support/tutorials/da-guide.md)
+Read more in [CSC's Data analysis guide](../../tutorials/da-guide.md)
 
 [CSC's services for processing and analysing data](https://research.csc.fi/en/service-catalog#compute)
 

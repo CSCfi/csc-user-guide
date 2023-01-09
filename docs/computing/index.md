@@ -19,7 +19,7 @@ for details on the systems and [this page for an outline of differences between 
 Mahti](lumi-vs-mahti.md).
 
 CSC supercomputers use the Linux operating system and we recommend that you are familiar with
-basics of [Linux command line usage](../support/tutorials/env-guide/index.md) before starting.
+basics of [Linux command line usage](../tutorials/env-guide/index.md) before starting.
 
 ## Accessing Puhti and Mahti
 
@@ -75,7 +75,7 @@ Don't allocate more resources to your job than it can use efficiently. This
 needs to be verified for each new code and job type (different input) by a
 scaling test. The policy is that the job should be **at least 1.5 times faster**
 when you double the resources (cores). [Instructions for performing a scalability
-test](../../support/tutorials/cmdline-handson/#scaling-test-for-an-mpi-parallel-job).
+test](../../tutorials/cmdline-handson/#scaling-test-for-an-mpi-parallel-job).
 Please also consider [other important factors related to performance.](performance.md)
 
 ## Projects and quotas

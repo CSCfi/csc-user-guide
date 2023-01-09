@@ -2,7 +2,7 @@
 
 In this tutorial, we discuss some technical details about parallel I/O
 and provide examples for achieving higher performance. Please note also
-the [Technical description about Lustre filesystem](../../computing/lustre.md)
+the [Technical description about Lustre filesystem](../computing/lustre.md)
 used in CSC supercomputers.
 
 ## MPI I/O
@@ -17,7 +17,7 @@ bandwidth than independent I/O.
 * Example 8 MPI processes, 4 MPI processes per computing node, collective I/O,
   all the processes write on the same file.
 
-!["Schematic example of 8 MPI processes, 4 MPI processes per computing node, collective I/O, all the processes write on the same file"](../../img/aggregators.png "MPI-IO aggregators")
+!["Schematic example of 8 MPI processes, 4 MPI processes per computing node, collective I/O, all the processes write on the same file"](../img/aggregators.png "MPI-IO aggregators")
 
 *MPI-IO Aggregators example*
 
@@ -103,7 +103,7 @@ as well as for the actual I/O operations. There can be cases where
 file per process is an efficient approach, but always be careful and
 think about scalability, as this approach is not scalable.
 
-!["Schematic with one file per process"](../../img/file_per_process.png "File Per Process")
+!["Schematic with one file per process"](../img/file_per_process.png "File Per Process")
 
 *File Per Process*
 

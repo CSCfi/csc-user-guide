@@ -28,7 +28,7 @@
 
 !!! default "Overview"
 
-    Docs CSC contains user guides, [FAQs](support/faq/index.md) and [tutorials](support/tutorials/index.md) related to CSC services.
+    Docs CSC contains user guides, [FAQs](faq/index.md) and [tutorials](tutorials/index.md) related to CSC services.
 
     * In order to navigate across the CSC user guide, click on the topics on
       the left hand side of the navigation bar
@@ -37,7 +37,7 @@
 !!! info "Puhti upgraded to RHEL 8"
 
     The operating system of Puhti has been upgraded to Red Hat Enterprise Linux (RHEL) 8.
-    [Click here for more information.](./support/wn/comp-new.md#puhti-operating-system-updated-to-rhel8-5102022)
+    [Click here for more information.](./wn/comp-new.md#puhti-operating-system-updated-to-rhel8-5102022)
 
     !!! warning-label
 
@@ -62,10 +62,10 @@
       <a class="quick-link" target="_self" href="computing/overview/">Puhti and Mahti Overview</a>
     </div>
     <div class="quick-links-item">
-      <a class="quick-link" target="_self" href="support/tutorials/puhti_quick/">Getting started with Puhti</a>
+      <a class="quick-link" target="_self" href="tutorials/puhti_quick/">Getting started with Puhti</a>
     </div>
     <div class="quick-links-item">
-      <a class="quick-link" target="_self" href="support/tutorials/mahti_quick/">Getting started with Mahti</a>
+      <a class="quick-link" target="_self" href="tutorials/mahti_quick/">Getting started with Mahti</a>
     </div>
     <div class="quick-links-item">
       <a class="quick-link" target="_blank" href="https://docs.lumi-supercomputer.eu/firststeps/getstarted/">Getting started with LUMI</a><sup>&#128279;</sup>
@@ -84,7 +84,7 @@
       <a class="quick-link" target="_self" href="computing/quantum-computing/overview/">Quantum Computing Guide</a>
     </div>
     <div class="quick-links-item">
-      <a class="quick-link" target="_self" href="support/tutorials/ml-guide/">Machine Learning Guide</a>
+      <a class="quick-link" target="_self" href="tutorials/ml-guide/">Machine Learning Guide</a>
     </div>
     <div class="quick-links-item">
       <a class="quick-link" target="_self" href="data/sensitive-data/">Sensitive Data Services Guide</a>
@@ -100,13 +100,13 @@
       <a class="quick-link" target="_blank" href="https://edukamu.fi/elements-of-supercomputing/">Elements of Supercomputing</a><sup>&#128279;</sup>
     </div>
     <div class="quick-links-item">
-      <a class="quick-link" target="_self" href="support/tutorials/env-guide/overview/">Linux basics for CSC</a>
+      <a class="quick-link" target="_self" href="tutorials/env-guide/overview/">Linux basics for CSC</a>
     </div>
     <div class="quick-links-item">
       <a class="quick-link" target="_self" href="computing/running/throughput/">High-throughput computing</a>
     </div>
     <div class="quick-links-item">
-      <a class="quick-link" target="_self" href="support/tutorials/clean-up-data/">Managing data on scratch</a>
+      <a class="quick-link" target="_self" href="tutorials/clean-up-data/">Managing data on scratch</a>
     </div>
   </div>
 

@@ -185,4 +185,4 @@ CSC provides a module `spack/v0.17-user` on Mahti that can be used by users to
 build software on top of the available compilers and libraries using Spack. It
 is also possible to install different customized versions of packages available
 in the module tree for special use cases. [See here for a short tutorial on how
-to install software on CSC supercomputers using Spack](../support/tutorials/user-spack.md).
+to install software on CSC supercomputers using Spack](../tutorials/user-spack.md).

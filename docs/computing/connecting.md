@@ -23,11 +23,11 @@ the `ssh` command can be given in the terminal. To connect with [PuTTY](https://
 in Windows, specify **puhti.csc.fi** as _Host Name_ (using the default port 22 and SSH
 connection type). Clicking the _Open_ button starts a new terminal session and asks for
 your CSC username and password. You can also use some code editors like Visual Studio
-Code to [edit and run code in Puhti/Mahti remotely](../support/tutorials/remote-dev.md).
+Code to [edit and run code in Puhti/Mahti remotely](../tutorials/remote-dev.md).
 
 Once the terminal connection to Puhti/Mahti is open you can start using it with the Linux command
 line tools (bash shell). An introduction to operating on the Linux command line can be found,
-for example, in our [Linux basics tutorial for CSC](../support/tutorials/env-guide/index.md).
+for example, in our [Linux basics tutorial for CSC](../tutorials/env-guide/index.md).
 You can have several connections to CSC supercomputers open at the same time.
 
 By default, SSH access to Puhti/Mahti is authenticated with the password of your CSC user account.

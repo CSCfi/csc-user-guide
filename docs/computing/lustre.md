@@ -213,4 +213,4 @@ corresponding performance for Puhti is half of that of Mahti.
       of the used OSTs should be less or equal to 16.
 
 For more details, please consult our [Lustre performance
-optimization tutorial](../support/tutorials/lustre_performance.md).
+optimization tutorial](../tutorials/lustre_performance.md).

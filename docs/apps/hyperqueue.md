@@ -239,7 +239,7 @@ properties](https://snakemake.readthedocs.io/en/stable/executing/cluster.html#jo
 
 #### Nextflow
 
-See a [separate tutorial](../support/tutorials/nextflow-hq.md) for instructions on
+See a [separate tutorial](../tutorials/nextflow-hq.md) for instructions on
 how to use HyperQueue as an executor for Nextflow workflows.
 
 ## More information

@@ -15,7 +15,7 @@ Our Sensitive Data services guide has been updated and reorganised into the foll
 
 * [Sensitive Data Desktop](../../data/sensitive-data/sd_desktop.md#), with a specific section dedicated to [software customisation with singularity containers](../../data/sensitive-data/sd_desktop.md#software-customisation);
 
-* [general FAQs about the services](../../support/faq/index.md#sensitive-data-services-for-research).
+* [general FAQs about the services](../../faq/index.md#sensitive-data-services-for-research).
 
 New features enabled on Sensitive Data Services (28.04.2022):
 

@@ -4,7 +4,7 @@ The Accelerated visualization app enables using visualization applications with 
 ## Available applications
 * [Abaqus CAE](../../apps/abaqus.md)
 * [Ansys Workbench](../../apps/ansys.md)
-* [Blender](../../../support/tutorials/blender-tutorial/)
+* [Blender](../../../tutorials/blender-tutorial/)
 * [COMSOL](../../apps/comsol.md)
 * [ParaView](../../apps/paraview.md)
 * [Visit](../../apps/visit.md)

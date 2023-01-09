@@ -55,11 +55,11 @@ regarding how to implement your workflow.
 graph TD
     C(Does your software have a built-in HTC option?) -->|Yes| D("Use if suitable for use case:<br><a href='/apps/gromacs/#high-throughput-computing-with-gromacs'>Gromacs</a>, <a href='/apps/cp2k/#high-throughput-computing-with-cp2k'>CP2K</a>, <a href='/apps/lammps/#high-throughput-computing-with-lammps'>LAMMPS</a>, Python, R ")
     C -->|No| E(Serial or parallel subtasks?)
-    E -->|Serial| F(<a href='/support/tutorials/many/'>GNU Parallel</a><br><a href='/computing/running/array-jobs/'>Array jobs</a><br><a href='/apps/hyperqueue/'>HyperQueue</a>)
+    E -->|Serial| F(<a href='/tutorials/many/'>GNU Parallel</a><br><a href='/computing/running/array-jobs/'>Array jobs</a><br><a href='/apps/hyperqueue/'>HyperQueue</a>)
     E -->|Parallel| G(Single- or multinode subtasks?)
     G -->|Single| H(Dependencies between subtasks?)
     G -->|Multi| I(<a href='/computing/running/fireworks/'>FireWorks</a>)
-    H -->|Yes| J(<a href='https://snakemake.readthedocs.io/en/stable/'>Snakemake</a><br><a href='/support/tutorials/nextflow-puhti/'>Nextflow</a><br><a href='/computing/running/fireworks/'>FireWorks</a>)
+    H -->|Yes| J(<a href='https://snakemake.readthedocs.io/en/stable/'>Snakemake</a><br><a href='/tutorials/nextflow-puhti/'>Nextflow</a><br><a href='/computing/running/fireworks/'>FireWorks</a>)
     H -->|No| K(<a href='/apps/hyperqueue/'>HyperQueue</a>)
 ```
 
@@ -180,10 +180,10 @@ workflows.
 * [LAMMPS multi-partition switch][lmp]
 * Python:
     * [Python parallel jobs](../../apps/python.md#python-parallel-jobs)
-    * [CSC Dask tutorial](../../support/tutorials/dask-python.md)
-    * [CSC machine learning guide](../../support/tutorials/ml-guide.md)
+    * [CSC Dask tutorial](../../tutorials/dask-python.md)
+    * [CSC machine learning guide](../../tutorials/ml-guide.md)
 * R:
-    * [Parallel jobs using R](../../support/tutorials/parallel-r.md)
+    * [Parallel jobs using R](../../tutorials/parallel-r.md)
     * [R targets library](https://docs.ropensci.org/targets/)
 
 ### General tools and tutorials for efficient IO
@@ -195,10 +195,10 @@ workflows.
 [cp2k]: ../../apps/cp2k.md#high-throughput-computing-with-cp2k
 [lmp]: ../../apps/lammps.md#high-throughput-computing-with-lammps
 [HyperQueue]: ../../apps/hyperqueue.md
-[GNU Parallel]: ../../support/tutorials/many.md
+[GNU Parallel]: ../../tutorials/many.md
 [FireWorks]: fireworks.md
 [contact CSC Service Desk]: ../../support/contact.md
-[Nextflow]: ../../support/tutorials/nextflow-puhti.md
+[Nextflow]: ../../tutorials/nextflow-puhti.md
 [Snakemake]: https://snakemake.readthedocs.io/en/stable/
 [Array jobs]: array-jobs.md
 [Lustre]: ../lustre.md
@@ -210,9 +210,9 @@ workflows.
 [CSC has deprecated the direct usage of Conda environments]: ../../support/deprecate-conda.md
 [container wrapper tool Tykky]: ../containers/tykky.md
 [how to work efficiently with Lustre are documented here]: ../lustre.md#best-practices
-[Data storage guide for machine learning]: ../../support/tutorials/ml-data.md
+[Data storage guide for machine learning]: ../../tutorials/ml-data.md
 [xargsjob.sh]: https://a3s.fi/pub/xargsjob.sh
 [see usage policy]: ../index.md#gpu-nodes
 [Fast disk areas in CSC computing environment]: https://csc-training.github.io/csc-env-eff/hands-on/disk-areas/disk-areas-tutorial-fastdisks.html
-[Nextflow workflows using HyperQueue as an executor]: ../../support/tutorials/nextflow-hq.md
+[Nextflow workflows using HyperQueue as an executor]: ../../tutorials/nextflow-hq.md
 [Farming Gaussian jobs with HyperQueue]: https://csc-training.github.io/csc-env-eff/hands-on/throughput/gaussian_hq.html

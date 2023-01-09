@@ -81,7 +81,7 @@ Available options for `sinteractive` in Mahti are:
 
 
 ### Example: Running a Jupyter notebook or RStudio server via sinteractive
-See the [Using RStudio or Jupyter notebook tutorial](../../support/tutorials/rstudio-or-jupyter-notebooks.md).
+See the [Using RStudio or Jupyter notebook tutorial](../../tutorials/rstudio-or-jupyter-notebooks.md).
 
 ### Example: Running an MPI job in an interactive session
 

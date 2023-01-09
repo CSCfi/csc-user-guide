@@ -23,7 +23,7 @@ done via batch job system.
           computational resources between all the users of the cluster.
     - **The starting time for a job cannot be predicted**
         - It depends heavily on the actual runtimes for all user jobs and 
-          whether new jobs are submitted, see [FAQ](../../support/faq/when-will-my-job-run.md).
+          whether new jobs are submitted, see [FAQ](../../faq/when-will-my-job-run.md).
     - **Computational resources (runtime, memory, number of cores) are requested explicitly**
         - If the time or memory limits are exceeded, the job will be terminated.
 

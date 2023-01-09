@@ -11,7 +11,7 @@ Tykky use cases:
 * Pip installations, based on pip `requirements.txt`.
 * Container installations, based on existing Docker or Apptainer/Singularity images.
     * This includes installations from the Bioconda channel, see [this tutorial for
-      an example](../../support/tutorials/bioconda-tutorial.md).
+      an example](../../tutorials/bioconda-tutorial.md).
 
 Tykky wraps installations inside 
 an Apptainer/Singularity container to improve startup times, 

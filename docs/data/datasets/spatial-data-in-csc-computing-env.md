@@ -29,7 +29,7 @@ Open spatial data in Puhti is maintained by CSC personnel. If you notice any pro
 
 ### Puhti virtual rasters
 
-CSC has added [virtual rasters](../../support/tutorials/gis/virtual-rasters.md) to NLS 2m and 10m elevation models and infrared ortophotos in Puhti. There are two variants of virtual rasters for the elevation models: 
+CSC has added [virtual rasters](../../tutorials/gis/virtual-rasters.md) to NLS 2m and 10m elevation models and infrared ortophotos in Puhti. There are two variants of virtual rasters for the elevation models: 
 
 1.  The **direct** virtual rasters contain directly the source tif images without any hierarchical structure, overviews or pre-calculated statistics. The direct virtual raster is meant for using **only in scripts**. It should **not** be opened in QGIS, unless zoomed in and need to open only a few files etc:
     *   2m DEM: `/appl/data/geo/mml/dem2m/dem2m_direct.vrt`

@@ -14,7 +14,7 @@ In this user guide, you can find:
 
 * video tutorials helpful to get started. 
 
-For general information, see the [Sensitive Data (SD) services webpage](https://research.csc.fi/sensitive-data-services-for-research), [FAQs](../../support/faq/index.md#sensitive-data-services-for-research), and services descriptions in [CSC's service catalog](https://research.csc.fi/service-catalog).
+For general information, see the [Sensitive Data (SD) services webpage](https://research.csc.fi/sensitive-data-services-for-research), [FAQs](../../faq/index.md#sensitive-data-services-for-research), and services descriptions in [CSC's service catalog](https://research.csc.fi/service-catalog).
 
 You can also learn more from example cases for:
 

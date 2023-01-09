@@ -97,7 +97,7 @@ You can add more Python packages to `geoconda`, see instructions from [CSC Pytho
 You can edit your Python code in Puhti with:
 
 * [Visual Studio Code in Puhti web interface](../computing/webinterface/vscode.md), 
-* [Visual Studio Code on your local laptop](../support/tutorials/remote-dev.md),
+* [Visual Studio Code on your local laptop](../tutorials/remote-dev.md),
 * [Jupyter Notebook or Lab in Puhti web interface](../computing/webinterface/jupyter.md) or 
 * Spyder in [Puhti web interface with remote desktop](../computing/webinterface/desktop.md).
 

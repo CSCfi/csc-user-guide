@@ -85,7 +85,7 @@ The`r-env` module can be used to remotely launch RStudio Server on your web brow
 
 **Option 1. Using the Puhti web interface**. This is by far the easiest way to launch RStudio on Puhti. For details, [see the Puhti web interface documentation](../computing/webinterface/index.md).
 
-**Option 2. Using SSH tunneling**. This option requires authentication using a Secure Shell (SSH) key. Detailed instructions for this are provided in a [separate tutorial for using RStudio Server](../support/tutorials/rstudio-or-jupyter-notebooks.md) and our [documentation on setting up SSH keys on Windows, macOS and Linux](../../computing/connecting/#setting-up-ssh-keys).
+**Option 2. Using SSH tunneling**. This option requires authentication using a Secure Shell (SSH) key. Detailed instructions for this are provided in a [separate tutorial for using RStudio Server](../tutorials/rstudio-or-jupyter-notebooks.md) and our [documentation on setting up SSH keys on Windows, macOS and Linux](../../computing/connecting/#setting-up-ssh-keys).
 
 #### Interactive use on a login node
 
@@ -145,7 +145,7 @@ In the above example, one task (`--ntasks=1`) is executed with 1 GB of memory (`
 
 The `r-env` module can be used for parallel computing in several ways. These include multi-core and array submissions, as well as MPI (Message Passing Interface)-based jobs. The module comes with several packages that support multi-node communication via MPI: `doMPI` (used with `foreach`), `future`, `lidR`, `pbdMPI` and `snow`.
 
-Further to the following examples, please see our separate [tutorial for parallel R jobs](../support/tutorials/parallel-r.md). There is also [separate documentation on MPI jobs](../computing/running/creating-job-scripts-puhti.md#mpi-based-batch-jobs). You may also wish to check the relevant R package manuals and [this page](https://github.com/csc-training/geocomputing/tree/master/R/puhti/05_parallel_future) for examples of parallel computing using the `raster` package.
+Further to the following examples, please see our separate [tutorial for parallel R jobs](../tutorials/parallel-r.md). There is also [separate documentation on MPI jobs](../computing/running/creating-job-scripts-puhti.md#mpi-based-batch-jobs). You may also wish to check the relevant R package manuals and [this page](https://github.com/csc-training/geocomputing/tree/master/R/puhti/05_parallel_future) for examples of parallel computing using the `raster` package.
 
 !!! note
     For jobs employing the Rmpi package, please use snow (which is built on top of Rmpi). Jobs using Rmpi alone are unavailable due to compatibility issues.
@@ -214,7 +214,7 @@ echo "TMPDIR=/scratch/<project>" >> ~/.Renviron
 srun apptainer_wrapper exec Rscript --no-save myscript.R $SLURM_ARRAY_TASK_ID
 ```
 
-For larger-scale array jobs involving [many small independent runs](../support/tutorials/many.md), we could consider the following example. Let's assume that we have a total of 1500 runs that we would like to complete. We also have a list (`mylist.txt`) with unique identifiers for each run that we wish to use as part of an R script to retrieve the correct data set for analysis. The list is arranged row-by-row like this:
+For larger-scale array jobs involving [many small independent runs](../tutorials/many.md), we could consider the following example. Let's assume that we have a total of 1500 runs that we would like to complete. We also have a list (`mylist.txt`) with unique identifiers for each run that we wish to use as part of an R script to retrieve the correct data set for analysis. The list is arranged row-by-row like this:
 
 ```bash
 set1
@@ -587,7 +587,7 @@ Sys.getenv("LOCAL_SCRATCH")
 
 #### R interface to TensorFlow
 
-The `r-env` module supports GPU-accelerated TensorFlow jobs using the [R interface to TensorFlow](https://tensorflow.rstudio.com/). If you only require TensorFlow without access to R, please use one of the available [TensorFlow modules on Puhti](tensorflow.md). For general information on submitting GPU jobs, [see this tutorial](../support/tutorials/gpu-ml.md). Note that `r-env` includes CUDA and cuDNN libraries, so there is no need to load CUDA and cuDNN modules separately.
+The `r-env` module supports GPU-accelerated TensorFlow jobs using the [R interface to TensorFlow](https://tensorflow.rstudio.com/). If you only require TensorFlow without access to R, please use one of the available [TensorFlow modules on Puhti](tensorflow.md). For general information on submitting GPU jobs, [see this tutorial](../tutorials/gpu-ml.md). Note that `r-env` includes CUDA and cuDNN libraries, so there is no need to load CUDA and cuDNN modules separately.
 
 To submit a GPU job using the R interface to TensorFlow, you need to use the GPU partition and specify the type and number of GPUs using the `--gres` flag. The rest is handled by the R script (see [this page for examples](https://keras.rstudio.com/articles/examples/index.html)). In the script below, we would reserve a single GPU and 10 CPUs in a single node:
 
@@ -787,7 +787,7 @@ citation("package") # for citing R packages
 
 - [r-env container recipes](https://github.com/CSCfi/singularity-recipes/tree/main/r-env) (link to public GitHub repository)
 
-- [Tutorial on parallel R](../support/tutorials/parallel-r.md)
+- [Tutorial on parallel R](../tutorials/parallel-r.md)
 
 - [R FAQs](https://cran.r-project.org/faqs.html) (hosted by CRAN)
 

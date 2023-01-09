@@ -46,7 +46,7 @@ show the amount of data in folders:
 * **Do** use `lue` or `lfs find --lazy`
 
 CSC has developed an approximate tool called LUE (Lustre usage explorer) for reporting amount of
-data in folders. [Read the documentation at LUE](../../support/tutorials/lue.md) before using it.
+data in folders. [Read the documentation at LUE](../../tutorials/lue.md) before using it.
 `lfs find --lazy` has some edge-case where it can be as bad as `du` or silently fail to get correct
 size information. Run `man lfs-find` for further instructions and information on its limitations.
 

@@ -28,4 +28,4 @@ You can often see usage information of an 'unknown' user. You and the other
 members of the project are responsible also for this use. See the explanation
 in FAQ:
 
-* [Who 'unknown' is using our resources](../support/faq/who-unknown-is-using-our-resources.md)
+* [Who 'unknown' is using our resources](../faq/who-unknown-is-using-our-resources.md)

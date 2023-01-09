@@ -31,7 +31,7 @@ These disk areas have quotas for both the amount of data and total number of fil
 
 !!! info "LUE"
     To easily check the amount of data and number of files within a given folder on
-    the parallel file system, please consider using the [LUE](../support/tutorials/lue.md)
+    the parallel file system, please consider using the [LUE](../tutorials/lue.md)
     tool. This tool is significantly faster than tools like `stat` or `du` and causes
     much less load on the file system.
 
@@ -40,7 +40,7 @@ These disk areas have quotas for both the amount of data and total number of fil
     recommend that you always first ensure that the data you have stored on the
     shared file system is really needed and in active use. Unused data should be
     moved to e.g. [Allas](../data/Allas/index.md). A general tutorial on [managing
-    and cleaning data on Puhti and Mahti disks](../support/tutorials/clean-up-data.md)
+    and cleaning data on Puhti and Mahti disks](../tutorials/clean-up-data.md)
     is also available.
 
 ## Home directory
@@ -74,7 +74,7 @@ policy.
 
 
 Make sure to consult our tutorial for [tips and guidelines on how to
-manage your data on `scratch`](../support/tutorials/clean-up-data.md).
+manage your data on `scratch`](../tutorials/clean-up-data.md).
 
 
 
@@ -181,7 +181,7 @@ of millions of files are stored in the `scratch` area.
 
 !!! info
     To find out how much data/files you have on the disk, please use our [LUE
-    tool](../support/tutorials/lue.md) which is much more performant than standard
+    tool](../tutorials/lue.md) which is much more performant than standard
     tools such as `stat` or `du`.
 
 ## Temporary local disk areas
