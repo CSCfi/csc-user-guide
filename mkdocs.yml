@@ -20,7 +20,7 @@ plugins:
       timezone: Europe/Helsinki
       exclude:
         - index.md
-        - support/whats-new.md
+        - whats-new.md
         - apps/by_system.md
         - apps/alpha.md
         - apps/by_license.md
