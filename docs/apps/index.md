@@ -1,7 +1,7 @@
 # Applications by discipline
 
 !!! Note
-    In addition to technical support, CSC also provides expert consulting in questions related to sciences and methods. For more details, see our [science-specific support pages at research.csc.fi](https://research.csc.fi/sciences) or directly [contact our Service Desk](../../support/contact/).
+    In addition to technical support, CSC also provides expert consulting in questions related to sciences and methods. For more details, see our [science-specific support pages at research.csc.fi](https://research.csc.fi/sciences) or directly [contact our Service Desk](../support/contact/).
 
 ## Biosciences
 
