@@ -3,7 +3,7 @@
 
 ## Sensitive Data services have now an audited computing environment for secondary use of social and health data 8.6.2022
 
-Sensitive Data (SD) Desktop is audited against Findata regulation and can be used to process secondary use social and health care data. SD Desktop comes with some restrictions when processing secondary use data, and there is now a page in [the user guide](../data/sensitive-data/sd-desktop-audited/) explaining how to apply access to the audited SD Desktop service and describing the use and limitations of the audited environment.
+Sensitive Data (SD) Desktop is audited against Findata regulation and can be used to process secondary use social and health care data. SD Desktop comes with some restrictions when processing secondary use data, and there is now a page in [the user guide](../data/sensitive-data/sd-desktop-audited.md) explaining how to apply access to the audited SD Desktop service and describing the use and limitations of the audited environment.
 
 ## Sensitive Data services for research 28.04.2022
 
@@ -11,14 +11,14 @@ Our Sensitive Data services guide has been updated and reorganised into the foll
 
 * [Introduction to the services and legal agreements](../data/sensitive-data/intro.md);
 
-* [Sensitive Data Connect](../data/sensitive-data/sd_connect.md#), with a specific paragraph describing [data encryption compatible with Sensitive Data services](../data/sensitive-data/sd_connect.md#introduction-to-data-encryption-compatible-with-sensitive-data-services);
+* [Sensitive Data Connect](../data/sensitive-data/sd_connect.md), with a specific paragraph describing [data encryption compatible with Sensitive Data services](../data/sensitive-data/sd_connect.md#introduction-to-data-encryption-compatible-with-sensitive-data-services);
 
-* [Sensitive Data Desktop](../../data/sensitive-data/sd-desktop-audited/#), with a specific section dedicated to [software customisation with singularity containers](../data/sensitive-data/sd-desktop-audited#software-customisation);
+* [Sensitive Data Desktop](../data/sensitive-data/sd-desktop-audited.md), with a specific section dedicated to [software customisation with singularity containers]((../data/sensitive-data/sd-desktop-audited.md#default-programs-available-on-the-desktop-and-software-customisation);
 
-* [general FAQs about the services](../faq/#sensitive-data-services-for-research).
+* [general FAQs about the services](../faq/index.md#sensitive-data-services-for-research).
 
 New features enabled on Sensitive Data Services (28.04.2022):
 
-* **Multi-factor Authentication (MFA) on SD Desktop**: login to SD Desktop now requires an extra verification step. Next to autheticating with username and pawssword you also need to type in a 6-digit verification code provided via mobile application. To activate MFA on your CSC account see  [Multi-factor authentication paragraph in the Account section of this user guide](../accounts/mfa/).
+* **Multi-factor Authentication (MFA) on SD Desktop**: login to SD Desktop now requires an extra verification step. Next to autheticating with username and pawssword you also need to type in a 6-digit verification code provided via mobile application. To activate MFA on your CSC account see  [Multi-factor authentication paragraph in the Account section of this user guide](../../accounts/mfa/).
 
-* [**authorised data export**](../data/sensitive-data/sd-desktop-audited#data-export-from-sd-desktop) from SD Desktop using the airlock client;
+* [**authorised data export**](../data/sensitive-data/sd_desktop.md#data-export-from-sd-desktop) from SD Desktop using the airlock client;

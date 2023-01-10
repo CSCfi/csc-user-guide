@@ -123,7 +123,7 @@ An approximate tool called [LUE](../../tutorials/lue/) (Lustre Usage Explorer) f
 
 ## Tykky 0.2.2, 31.3.2022
 
-[Tykky](../../computing/containers/tykky/), a brand new tool for wrapping Conda/pip environments inside a Singularity container, has been released. Containerization will considerably improve startup times and decrease IO load with less files on the shared parallel filesystem. We recommend wrapping all existing Conda environments within containers using Tykky as the [direct usage of Conda on CSC supercomputers has been deprecated](../../deprecate-conda/).
+[Tykky](../../computing/containers/tykky/), a brand new tool for wrapping Conda/pip environments inside a Singularity container, has been released. Containerization will considerably improve startup times and decrease IO load with less files on the shared parallel filesystem. We recommend wrapping all existing Conda environments within containers using Tykky as the [direct usage of Conda on CSC supercomputers has been deprecated](../support/deprecate-conda.md).
 
 ## TensorFlow 2.8, 17.3.2022
 
