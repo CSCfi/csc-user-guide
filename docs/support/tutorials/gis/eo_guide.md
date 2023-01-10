@@ -5,19 +5,20 @@ This guide aims to help users who wish to work with Earth Observation (EO) data 
 The purpose of this guide is to help you finding the right data and tools for EO tasks. The basis of this guide is a seminar about the topic held at CSC in 2018 and 2022. And part of the material will also be taught in geospatial training at CSC, check the [training calendar](https://www.csc.fi/web/training) for dates and topics of upcoming courses. If you encounter any problems or questions come up, CSC's specialists are happy to help with all aspects of your data driven research, and can be contacted via the CSC Service Desk: `servicedesk@csc.fi`. 
 
 If you are interested in the fundamentals of remote sensing, take a look at these excellent resources:
+
 * [Fundamentals of remote sensing tutorial](https://www.nrcan.gc.ca/maps-tools-and-publications/satellite-imagery-and-air-photos/tutorial-fundamentals-remote-sensing/9309) by Canada Centre for Mapping and Earth Observation , Natural Resources Canada; an "interactive module is intended as an overview at a senior high school or early university level and touches on physics, environmental sciences, mathematics, computer sciences and geography."
 * [Echoes in space - Introduction to RADAR remote sensing](https://eo-college.org/courses/echoes-in-space/) by the European Space Agency; "a detailed insight into the history of Radar technology, including all the basics that are needed to understand how electromagnetic waves work and a unique hands-on experience to work with Radar data in diverse application scenarios."
 * [Newcomers guide to Earth Observation](https://business.esa.int/newcomers-earth-observation-guide) by the European Space Agency, "a  guide to help non-experts in providing a starting point in the decision process for selecting an appropriate Earth Observation (EO) solution."
 
 
-## EO potential
+## EO data benefits
 
 * Possibility to observe wide area at same time
 * Non-intrusive
 * Same sensor for different parts of the world
 * Time series 
 
-## -> Raster data
+## Most EO data = Raster data
 
 * One file per band or multiband files
 * Grid of pixel values
@@ -358,13 +359,13 @@ Julia packages can easily be installed by the user. [JuliaGeo](https://github.co
 
 [Matlab on Puhti](https://docs.csc.fi/apps/matlab/)
 
-### Machine Learning
+### Machine Learning with EO data
 
 One example of the advanced usage of EO data is for machine learning. If you are interested in the topic, you can find a lot of examples using EO and other geospatial data for machine learning in our [Machine learning with spatial data course exercises]( https://github.com/csc-training/GeoML) on Github. 
  
-## Help
+## Where can I get help?
 
-Help from CSC specialists is available via servicedesk@csc.fi. 
+Help from CSC specialists is available via servicedesk@csc.fi or in CSC's weekly user support sessions.
 We are happy to help with technical problems around our services and are open for suggestions on which Software should be installed to Puhti, or what kind of courses should be offered or materials/examples should be prepared.
 
 ## Acknowledgement
