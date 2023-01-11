@@ -1,8 +1,14 @@
 # Backups
 
-The backups are stored encrypted in Allas. There will two kind of backups; automatic and manual.
+All databases in DBaaS gets automatically backed up about every 24 hours. Users can also manually
+backup their instances but that means that the next automatic backup will be taken about 24 hours
+after the last backup. All backups are stored for 90 days after which they get automatically
+deleted (not yet implemented). In the future backups will only be possible to delete automatically,
+users will not be able to manually delete their own backups.
 
-You can manage your backups from the CLI and web-interface.
+The backups are stored encrypted in Allas.
+
+You can manage your backups from the CLI and the web-interface.
 
 ## Risks
 
@@ -13,14 +19,6 @@ Be aware the backup feature is still in the development phase and should not be 
 * If you have any concern do not hesitate taking contact with servicedesk@csc.fi
 * All your database data backups included is stored in the CSC Kajaani datacenter, if the datacenter burns down you will lose all your data.
 * If you are using the DBaaS services for really important stuff it is worth consider to also take your own backups that are stored somewhere else than CSC in case of disaster.
-
-## Automatic Backups
-
-Automatic backups have not been developed yet.
-
-* Automatic backups will be enabled by default and can not be disabled.
-* Automatic backups will be automatically deleted after 30 or 90 days.
-* Users will not be able to delete their own backups.
 
 ## Manual backups
 
