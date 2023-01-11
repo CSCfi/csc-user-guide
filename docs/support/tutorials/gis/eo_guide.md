@@ -2,7 +2,7 @@
 
 This guide aims to help users who wish to work with Earth Observation (EO) data using CSC's computing resources.
 
-The purpose of this guide is to help you finding the right data and tools for EO tasks. The basis of this guide is a seminar about the topic held at CSC in 2018 and 2022. And part of the material will also be taught in geospatial training at CSC, check the [training calendar](https://www.csc.fi/web/training) for dates and topics of upcoming courses. If you encounter any problems or questions come up, CSC's specialists are happy to help with all aspects of your data driven research, and can be contacted via the CSC Service Desk: `servicedesk@csc.fi`. 
+The purpose of this guide is to help you find the right data and tools for EO tasks. The basis of this guide is a seminar about the topic held at CSC in 2018 and 2022. And part of the material will also be taught in geospatial training at CSC, check the [training calendar](https://www.csc.fi/training#training-calendar) for dates and topics of upcoming courses. If you encounter any problems or questions come up, CSC's specialists are happy to help with all aspects of your data-driven research, and can be contacted via the CSC Service Desk: `servicedesk@csc.fi`. 
 
 If you are interested in the fundamentals of remote sensing, take a look at these excellent resources:
 
@@ -44,7 +44,7 @@ Consider:
         * ...
     * RADAR (Radio Detection and Ranging) -> SAR (Synthetic Aperture Radar)
         * [Copernicus Sentinel 1](https://sentinel.esa.int/web/sentinel/missions/sentinel-1)
-        * [Radarsat](https://www.asc-csa.gc.ca/eng/satellites/radarsat/default.asp)
+        * [Radarsat](https://www.asc-csa.gc.ca/eng/satellites/radarsat/)
         * [TanDEM-X](https://www.dlr.de/content/en/missions/tandem-x.html)
         * [TerraSAR-X](https://www.dlr.de/content/en/missions/terrasar-x.html)
         * [ICEYE](https://www.iceye.com/)
@@ -66,12 +66,12 @@ Consider:
     * Raw or pre-processed 
 * User experience and knowledge
     * RADAR/LiDAR require solid background knowledge for processing and interpretation
-    * Optical  data is more easily interpreted and processed (and more pre-processed data is available)
+    * Optical data is more easily interpreted and processed (and more pre-processed data is available)
 
 
 ### Where do I find the data?
 
-The best place to get the data from depends on your needs: Do you want to download the data into your own processing environment or do you need a processing environment close to the data? The answer depends on what you want to do with the data and where it is located.
+The best place to get the data depends on your needs: Do you want to download the data into your own processing environment or do you need a processing environment close to the data? The answer depends on what you want to do with the data and where it is located.
 
 Below is a (uncomplete) set of services, that provide download or download and processing (marked with *) capabilities:
 
@@ -93,8 +93,7 @@ See also a list of other places on [CSC research pages](https://research.csc.fi/
 
     [SciHub](https://scihub.copernicus.eu/dhus/#/home)
 
-    * needs [registration](https://scihub.copernicus.eu/dhus/#/self-registration) 
-
+    * Needs [registration](https://scihub.copernicus.eu/dhus/#/self-registration) 
     * Sentinel 2 L1C and L2A products
     * Sentinel 1 SLC, GRD , RAW and OCN products
     * Worldwide
@@ -110,7 +109,7 @@ See also a list of other places on [CSC research pages](https://research.csc.fi/
     [ASF](https://search.asf.alaska.edu/#/)
     
     * Needs [registration](https://urs.earthdata.nasa.gov/users/new?)
-    * Sentinel 1 SLC, GRD , RAW and OCN products
+    * Sentinel 1 SLC, GRD, RAW, and OCN products
     * Many SAR and SAR derived datasets from other sensors
     * Worldwide
     * Sentinel 1 data available for immediate download
@@ -155,7 +154,6 @@ See also a list of other places on [CSC research pages](https://research.csc.fi/
     * [FORCE](../../../apps/force.md) can download directly from here
 
 === "Amazon Web Service (AWS) *"
-
 
     * Worldwide
     * [Sentinel-2 bucket](https://registry.opendata.aws/sentinel-2/)
@@ -213,8 +211,8 @@ See also a list of other places on [CSC research pages](https://research.csc.fi/
         * Good coverage of analysis ready data worldwide
             * [Sentinel-2](https://developers.google.com/earth-engine/datasets/catalog/sentinel-2/)
             * [Sentinel-1](https://developers.google.com/earth-engine/datasets/catalog/COPERNICUS_S1_GRD)
-        * (rather easy to use, nice tool to test new ideas)
-        * lots of case studies and tutorials:
+        * (Rather easy to use, nice tool to test new ideas)
+        * Lots of case studies and tutorials:
             * [GEE tutorials](https://developers.google.com/earth-engine/tutorials)
             * [CSC GEE materials](https://www.csc.fi/fi/web/training/-/introduction-to-using-google-earth-engine)
     
@@ -258,7 +256,7 @@ See also CSC's [guide on how to choose a suitable storage solution](../../../dat
 
 At CSC, EO data can be processed and analyzed using for example supercomputer [Puhti](../../../computing/systems-puhti.md) or a virtual machine in the CSC cloud = [cPouta](../../../cloud/pouta/pouta-what-is.md). You can find more information around geocomputing using CSC resources on our [Geocomputing pages](https://research.csc.fi/geocomputing).
 
-Puhti has a lot of applications ready installed (see below), you do not need to worry about it. You can also add your own installations using for example the [Tykky tool](../../../computing/containers/tykky.md). In cPouta, you need to set up your own virtual machine including all security and software setup, see [instructions](../../../cloud/pouta/launch-vm-from-web-gui.md).
+Puhti has a lot of applications already installed (see below), you do not need to worry about it. You can also add your own installations using for example the [Tykky tool](../../../computing/containers/tykky.md). In cPouta, you need to set up your own virtual machine including all security and software setup, see [instructions](../../../cloud/pouta/launch-vm-from-web-gui.md).
 
 #### Software
 
@@ -280,7 +278,7 @@ What to consider:
 * Only Linux software
 * Mostly open source
 
-GUIs of software available on Puhti can be accessed as an interactive job via the [Puhti web interface](https://puhti.csc.fi) or [X11 connection](../../../computing/connecting.md). These graphical interfaces are mainly for visualization and testing purposes, the actual efficient processing should be done within batch  jobs rather than interactive jobs.
+GUIs of software available on Puhti can be accessed as an interactive job via the [Puhti web interface](https://puhti.csc.fi) or [X11 connection](../../../computing/connecting.md). These graphical interfaces are mainly for visualization and testing purposes, the actual efficient processing should be done within batch jobs rather than interactive jobs.
 
 [**SNAP**](../../../apps/snap.md)
 
