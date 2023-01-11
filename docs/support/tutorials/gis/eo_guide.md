@@ -80,13 +80,13 @@ See also a list of other places on [CSC research pages](https://research.csc.fi/
 === "CSC * "
 
     * Puhti
-        * [List of all available datasets in Puhti](https://docs.csc.fi/data/datasets/spatial-data-in-csc-computing-env/#spatial-data-in-puhti)
+        * [List of all available datasets in Puhti](../../../data/datasets/spatial-data-in-csc-computing-env/#spatial-data-in-puhti)
         * Sentinel and Landsat mosaics of Finland provided by FMI and SYKE: ```/appl/data/geo/sentinel/s2```
         * Every CSC user has **read** access to data stored on Puhti, no need to move it, unless you need to modify it
     * Allas
-        * [List of all available geospatial datasets in Allas](https://docs.csc.fi/data/datasets/spatial-data-in-csc-computing-env/#spatial-data-in-allas)
+        * [List of all available geospatial datasets in Allas](../../../data/datasets/spatial-data-in-csc-computing-env/#spatial-data-in-allas)
         * Sentinel-2 L2A data of crop growing Finland, growing seasons 2016-present, [usage instructions](https://a3s.fi/sentinel-readme/README.txt)
-        * Data can be directly read from Allas without download for some cases, see eg [GDAL docs](https://docs.csc.fi/apps/gdal/#using-files-directly-from-allas) and [Allas Python examples](https://github.com/csc-training/geocomputing/blob/master/python/allas/working_with_allas_from_Python_S3.py)
+        * Data can be directly read from Allas without download for some cases, see eg [GDAL docs](../../../apps/gdal/#using-files-directly-from-allas) and [Allas Python examples](https://github.com/csc-training/geocomputing/blob/master/python/allas/working_with_allas_from_Python_S3.py)
         
     
 === "Open Access Hubs"
@@ -145,7 +145,6 @@ See also a list of other places on [CSC research pages](https://research.csc.fi/
     * [WMS (Geoserver)](https://data.nsdc.fmi.fi/geoserver/wms)
     * [WCS (Geoserver)](https://data.nsdc.fmi.fi/geoserver/wcs)
     * Provided by [SYKE](https://www.syke.fi/en-US) and [FMI](https://en.ilmatieteenlaitos.fi/)
-    * Instructions on how to use - link to example script?
 
 === "Google Cloud Storage"
 
@@ -153,7 +152,7 @@ See also a list of other places on [CSC research pages](https://research.csc.fi/
 
     * [Sentinel 2: L1C](https://cloud.google.com/storage/docs/public-datasets/sentinel-2)
     * [Landsat: Collection 1](https://cloud.google.com/storage/docs/public-datasets/landsat)
-    * [FORCE](https://docs.csc.fi/apps/force/) can download directly from here
+    * [FORCE](../../../apps/force/) can download directly from here
 
 === "Amazon Web Service (AWS) *"
 
@@ -216,8 +215,8 @@ See also a list of other places on [CSC research pages](https://research.csc.fi/
             * [Sentinel-1](https://developers.google.com/earth-engine/datasets/catalog/COPERNICUS_S1_GRD)
         * (rather easy to use, nice tool to test new ideas)
         * lots of case studies and tutorials:
-            * https://developers.google.com/earth-engine/tutorials
-            * https://www.csc.fi/fi/web/training/-/introduction-to-using-google-earth-engine
+            * [GEE tutorials](https://developers.google.com/earth-engine/tutorials)
+            * [CSC GEE materials](https://www.csc.fi/fi/web/training/-/introduction-to-using-google-earth-engine)
     
     * Cons:
         * Uncertain long-term availability
@@ -225,7 +224,7 @@ See also a list of other places on [CSC research pages](https://research.csc.fi/
         * Not always suitable for small-scale analysis
 
 
-> If you plan to work with Sentinel-2 and Landsat 8, check also the 30 m harmonized Landsat 8 and Sentinel-2 product: https://hls.gsfc.nasa.gov/
+> If you plan to work with Sentinel-2 and Landsat 8, check also the 30 m harmonized Landsat 8 and Sentinel-2 product at [NASA](https://hls.gsfc.nasa.gov/).
 
 > Many data providers and companies also provide a Spatio Temporal Asset Catalog (STAC) of their and other datasets. These catalogues help in finding available data based on time and location with the possibility for multiple additional filters, such as cloud cover and resolution. The [STAC Index](https://www.stacindex.org/) provides a nice overview of available catalogues from all over the world. The STAC Index page also includes many resources for learning and utilizing STAC.  
 
@@ -244,23 +243,23 @@ What to consider:
 * Maintenance needs?
 * Metadata needs?
 
-See also: https://docs.csc.fi/data/datasets/hosting-datasets-at-CSC/#what-to-consider-when-choosing-a-suitable-storage-solution
+See also: ../../../data/datasets/hosting-datasets-at-CSC/#what-to-consider-when-choosing-a-suitable-storage-solution
 
     
-* For direct access data can be stored on the supercomputer, check out the [different available disk areas](https://docs.csc.fi/computing/disk) or in the object storage Allas ([Allas overview](https://research.csc.fi/-/allas), [Allas guide](https://docs.csc.fi/data/Allas/index.md))
+* Data can be stored on the supercomputer, check out the [different available disk areas](../../../computing/disk) or in the object storage Allas ([Allas overview](https://research.csc.fi/-/allas), [Allas guide](../../../data/Allas/index.md)) during processing
 * On the supercomputer, data can be stored on ```/scratch/project_xxx``` with xxx being your project number
 * Smaller amounts can also be stored short term on the computing nodes ```$LOCAL_SCRATCH``` during processing
 * In Allas, data is stored in so-called buckets, and can be accessed or transferred as part of the computing job, see also CSC's webinar on [Allas for spatial data](https://www.youtube.com/watch?v=mnFXe2-dJ_g).
 
 
-> For longer term storage and publication, CSC offers a range of other services. See also CSC's general [guide on stroing data](https://docs.csc.fi/data/datasets/hosting-datasets-at-CSC/#cscs-services-for-storing-data).
+> For longer term storage and publication, CSC offers a range of other services. See also CSC's general [guide on stroing data](../../../data/datasets/hosting-datasets-at-CSC/#cscs-services-for-storing-data).
 
 
 ### How can I process the data?
 
-At CSC, EO data can be processed and analyzed using for example supercomputer [Puhti](https://docs.csc.fi/computing/systems-puhti.md) or a virtual machine in the CSC cloud = [cPouta](https://docs.csc.fi/cloud/pouta/pouta-what-is/). You can find more information around geocomputing using CSC resources on our [Geocomputing pages](https://research.csc.fi/geocomputing).
+At CSC, EO data can be processed and analyzed using for example supercomputer [Puhti](../../../computing/systems-puhti.md) or a virtual machine in the CSC cloud = [cPouta](../../../cloud/pouta/pouta-what-is/). You can find more information around geocomputing using CSC resources on our [Geocomputing pages](https://research.csc.fi/geocomputing).
 
-Puhti has a lot of applications ready installed (see below), you do not need to worry about it. You can also add your own installations using for example the [Tykky tool](https://docs.csc.fi/computing/containers/tykky/). In cPouta, you need to set up your own virtual machine including all security and software setup, see [instructions](https://docs.csc.fi/cloud/pouta/launch-vm-from-web-gui/).
+Puhti has a lot of applications ready installed (see below), you do not need to worry about it. You can also add your own installations using for example the [Tykky tool](../../../computing/containers/tykky/). In cPouta, you need to set up your own virtual machine including all security and software setup, see [instructions](../../../cloud/pouta/launch-vm-from-web-gui/).
 
 #### Software
 
@@ -275,20 +274,20 @@ What to consider:
     * Automation
     * Reproducibility
 * Open source vs commercial
-    * This guide focusses on [software available on CSC supercomputer Puhti](https://docs.csc.fi/apps/#geosciences) 
+    * This guide focusses on [software available on CSC supercomputer Puhti](../../../apps/#geosciences) 
 
 ##### What applications are available on Puhti?
 
 * Only Linux software
 * Mostly open source
 
-GUIs of software available on Puhti can be accessed as an interactive job via the [Puhti web interface](https://puhti.csc.fi) or [X11 connection](https://docs.csc.fi/computing/connecting/#using-graphical-applications). These graphical interfaces are mainly for visualization and testing purposes, the actual efficient processing should be done within batch  jobs rather than interactive jobs.
+GUIs of software available on Puhti can be accessed as an interactive job via the [Puhti web interface](https://puhti.csc.fi) or [X11 connection](../../../computing/connecting/#using-graphical-applications). These graphical interfaces are mainly for visualization and testing purposes, the actual efficient processing should be done within batch  jobs rather than interactive jobs.
 
 [**SNAP**](https://step.esa.int/main/toolboxes/snap/)
 
 "All-in-one" Graphical User Interface for processing of Sentinel data (+ support for other data sources) with Python interfaces [snappy](https://senbox.atlassian.net/wiki/spaces/SNAP/pages/19300362/How+to+use+the+SNAP+API+from+Python) and [snapista](https://snap-contrib.github.io/snapista/) and the [Graph Processing Tool](https://step.esa.int/docs/tutorials/SNAP_CommandLine_Tutorial.pdf) as Command Line Interface. 
 
-* [SNAP on Puhti](https://docs.csc.fi/apps/snap/). See examples for use of SNAP GPT on Puhti on [github](https://github.com/csc-training/geocomputing/tree/master/snap).
+* [SNAP on Puhti](../../../apps/snap/). See examples for use of SNAP GPT on Puhti on [github](https://github.com/csc-training/geocomputing/tree/master/snap).
 
 [**QGIS**](https://www.qgis.org/en/site/) 
 
@@ -299,7 +298,7 @@ GIS software with limited multispectral image processing capabilities
 * Map algebra / Band math and other [raster processing](https://docs.qgis.org/3.22/en/docs/user_manual/processing_algs/qgis/rasteranalysis.html)
 * [semi-automatic classification plugin](https://fromgistors.blogspot.com/p/semi-automatic-classification-plugin.html) 
 
-* [QGIS on Puhti](https://docs.csc.fi/apps/qgis/)
+* [QGIS on Puhti](../../../apps/qgis/)
 
 [**Orfeo Toolbox (OTB)**](https://www.orfeo-toolbox.org/)
 
@@ -309,25 +308,25 @@ Orfeo Toolbox is available as [Command Line Interface](https://www.orfeo-toolbox
 
 * GUI (https://www.orfeo-toolbox.org/CookBook/GraphicalInterface.html)
 
-[**Sen2Cor**](https://docs.csc.fi/apps/sen2cor/) 
+[**Sen2Cor**](../../../apps/sen2cor/) 
 
 A stand-alone processor for Sentinel-2 Level 2A product generation and formatting with CLI.
 
-[**FORCE**](https://docs.csc.fi/apps/sen2cor/) 
+[**FORCE**](../../../apps/sen2cor/) 
 
 The Framework for Operational Radiometric Correction for Environmental monitoring is an all-in-one solution for mass-processing medium-resolution satellite images with CLI and GUI.
 
 See examples for use of FORCE on Puhti on [github](https://github.com/csc-training/geocomputing/tree/master/force)
 
-[**GDAL (OGR)**](https://docs.csc.fi/apps/gdal/)
+[**GDAL (OGR)**](../../../apps/gdal/)
 
 The Geospatial Data Abstraction Library is a geospatial library for accessing and transforming geospatial data with CLI and Python package. 
 
 See examples for use of GDAL on Puhti on [github](https://github.com/csc-training/geocomputing/tree/master/gdal)
 
-[**Python**](https://docs.csc.fi/apps/python/)
+[**Python**](../../../apps/python/)
 
-[Geospatial Python module on Puhti](https://docs.csc.fi/apps/geoconda/)
+[Geospatial Python module on Puhti](../../../apps/geoconda/)
 
 The **geoconda module** provides - among others - many useful Python packages for raster data processing and analysis:
 
@@ -343,21 +342,21 @@ The **geoconda module** provides - among others - many useful Python packages fo
 * See examples for use of geopspatial Python on Puhti on [github](https://github.com/csc-training/geocomputing/tree/master/python)
 * See also raster lesson of CSC version of GeoPython [course material](https://github.com/csc-training/notebooks) 
 
-[**R**]((https://docs.csc.fi/apps/r-env/)
+[**R**]((../../../apps/r-env/)
 
-All available R packages on Puhti are included in the [r-env module](https://docs.csc.fi/apps/r-env/). 
+All available R packages on Puhti are included in the [r-env module](../../../apps/r-env/). 
 
-* [Geospatial R on Puhti](https://docs.csc.fi/apps/r-env-for-gis/)
+* [Geospatial R on Puhti](../../../apps/r-env-for-gis/)
 * [Geospatial R course material](https://github.com/csc-training/r-spatial-course)
 * [Examples geospatial R](https://github.com/csc-training/geocomputing/tree/master/R)
 
-[**Julia**](https://docs.csc.fi/apps/julia/)
+[**Julia**](../../../apps/julia/)
 
-Julia packages can easily be installed by the user. [JuliaGeo](https://github.com/JuliaGeo) provides an overview of available packages for geospatial data handling.    
+Julia packages can be installed by the user. [JuliaGeo](https://github.com/JuliaGeo) provides an overview of available packages for geospatial data handling.    
 
 **Matlab**
 
-[Matlab on Puhti](https://docs.csc.fi/apps/matlab/)
+[Matlab on Puhti](../../../apps/matlab/)
 
 ### Machine Learning with EO data
 
@@ -366,7 +365,7 @@ One example of the advanced usage of EO data is for machine learning. If you are
 ## Where can I get help?
 
 Help from CSC specialists is available via servicedesk@csc.fi or in CSC's weekly user support sessions.
-We are happy to help with technical problems around our services and are open for suggestions on which Software should be installed to Puhti, or what kind of courses should be offered or materials/examples should be prepared.
+We are happy to help with technical problems around our services and are open for suggestions on which Software should be installed to Puhti, or what kind of courses should be offered or materials/examples should be prepared. See also our [contact page](../../contact.md)
 
 ## Acknowledgement
 
@@ -374,8 +373,8 @@ This guide was developed in cooperation with the Finnish Environment Institute [
 
 ## Resources and further reading
 
-* https://step.esa.int/main/doc/tutorials/
-* https://www.earthdatascience.org/courses/use-data-open-source-python/multispectral-remote-sensing/intro-multispectral-data/ 
-* https://github.com/sacridini/Awesome-Geospatial
-* https://github.com/acgeospatial/awesome-earthobservation-code
-* http://database.eohandbook.com/
+* [ESA tutorials](https://step.esa.int/main/doc/tutorials/)
+* [Earthdatascience intro to multispectral data](https://www.earthdatascience.org/courses/use-data-open-source-python/multispectral-remote-sensing/intro-multispectral-data/)
+* [Awesome Geospatial](https://github.com/sacridini/Awesome-Geospatial)
+* [Awesome EO code](https://github.com/acgeospatial/awesome-earthobservation-code)
+* [EO handbook database](http://database.eohandbook.com/)
