@@ -18,8 +18,8 @@ To the members of ArcGIS software consortium these products are available (for d
 -   ArcGIS Online
 -   ArcGIS Pro and Desktop.
 -   ArcGIS Enterprise 
+-   ArcGIS Drone2map, NEW 2022
 -   Esri CityEngine
--   ArcPad
 -   ArcGIS Monitor
 -   ArcGIS Hub Premium
 -   ArcGIS Developer Subscription
@@ -81,9 +81,9 @@ License is borrowed with [ArcGIS Administrator](http://desktop.arcgis.com/en/arc
 
 ------------------------------------------------------------------------
 
-## ArcGIS Server, ArcPad 
+## ArcGIS Server 
 
-These do not use license server, they need registration code for
+It does not use license server and need registration code for
 installation, these are available from University's contact persons.
 
 ------------------------------------------------------------------------
@@ -151,17 +151,16 @@ for it from CSC.
 |-------------------------|--------------------------------------|
 | Aalto university        | Pekka Karppinen                      |
 | University of Helsinki  | helpdesk at helsinki.fi              |
-| HAMK                    | Kirsi Laaksonen                         |
+| HAMK                    | Esa Lientola                |
 | UEF                     | Sonja Kivinen                       |
 | University of Jyväskylä | Juha Alioravainen, Anssi Lensu       |
 | Karelia AMK             | Antti Lajunen                        |
 | Lapin AMK               | lisenssit at lapinamk.fi             |
-| Laurea AMK              | servicedesk at laurea.fi             |
 | Kaakkois-Suomen AMK     | Pertti Kilpeläinen                   |
 | Novia AMK               | Stefan Heinänen         |
 | University of Oulu      | Lauri Aho                            |
 | TUT, Tampere AMK        | it-helpdesk at tuni.fi               |
-| University of Turku      | Leena Laurila |
+| University of Turku      | Leena Laurila                       |
 | Åbo Akademi             | Mårten Hedman                         |
 
 
