@@ -274,7 +274,7 @@ What to consider:
     * Automation
     * Reproducibility
 * Open source vs commercial
-    * This guide focusses on [software available on CSC supercomputer Puhti](../../../apps/#geosciences) 
+    * This guide focusses on [software available on CSC supercomputer Puhti](../../../apps/index.md) 
 
 ##### What applications are available on Puhti?
 
