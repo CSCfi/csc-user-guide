@@ -113,7 +113,7 @@ You can preview how the Docs CSC page would look like with your changes included
 * This user guide uses [MkDocs](https://www.mkdocs.org/) to generate documentation pages. You can install it on your local computer by following the instructions given in the [MkDocs documentation](https://www.mkdocs.org/user-guide/installation/), or with [Conda](https://docs.conda.io/en/latest/miniconda.html):
 
 ```bash
-conda env create -f docs/tutorials/conda/conda-docs-env-1.1.yaml
+conda env create -f docs/tutorials/conda/conda-docs-env-1.2.yaml
 conda activate docs-env
 ```
 

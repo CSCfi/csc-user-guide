@@ -25,6 +25,7 @@ plugins:
         - apps/by_system.md
         - apps/alpha.md
         - apps/by_license.md
+  - section-index
 
 markdown_extensions:
   - admonition
