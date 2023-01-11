@@ -9,7 +9,7 @@ extra:
   mkdocs_env: !ENV MKDOCS_ENV # Used when building on Rahti to enable Matomo web analytics
   matomo_url: "docs-design-matomo.rahtiapp.fi"
   matomo_site_id: "1"
-  breadcrumbs_debug: true # Renders a debug view for breadcrumbs navigation
+  breadcrumbs_debug: false # Renders a debug view for breadcrumbs navigation
 
 plugins:
   - tags:
