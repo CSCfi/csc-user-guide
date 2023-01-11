@@ -125,7 +125,6 @@ See also a list of other places on [CSC research pages](https://research.csc.fi/
     * Lots of different US related datasets 
     * Main: Landsat worldwide
     * GUI in web interface and bulk download
-    * Landsat download instructions: https://lta.cr.usgs.gov/sites/default/files/LS_C2_Help_122020.pdf
     
 === "NASA Earthdata"
 
@@ -141,8 +140,6 @@ See also a list of other places on [CSC research pages](https://research.csc.fi/
     * Only Finland
     * [Sentinel-2 image index mosaics](https://ckan.ymparisto.fi/dataset/sentinel-2-image-index-mosaics-s2ind-sentinel-2-kuvamosaiikit-s2ind) 
     * [Sentinel-1 SAR-image mosaics](https://ckan.ymparisto.fi/dataset/sentinel-1-sar-image-mosaic-s1sar-sentinel-1-sar-kuvamosaiikki-s1sar)
-    * [WMS (Geoserver)](https://data.nsdc.fmi.fi/geoserver/wms)
-    * [WCS (Geoserver)](https://data.nsdc.fmi.fi/geoserver/wcs)
     * Provided by [SYKE](https://www.syke.fi/en-US) and [FMI](https://en.ilmatieteenlaitos.fi/)
 
 === "Google Cloud Storage"
@@ -166,7 +163,6 @@ See also a list of other places on [CSC research pages](https://research.csc.fi/
     * Data and Information Access Services
     * Multiple sites exits:
         * [ONDA](https://www.onda-dias.eu/cms/)
-        * [sobloo](https://sobloo.eu/)
         * [CREODIAS](https://creodias.eu/)
         * [MUNDI](https://mundiwebservices.com/)
     * Costs
@@ -184,7 +180,7 @@ See also a list of other places on [CSC research pages](https://research.csc.fi/
 
     * Pre-prosessed, analysis ready Sentinel-2 data
     * Data from Finland available between 2018-2020
-    * [Pricing](https://store.terramonitor.com/category/analysis-ready?6f8e8f38_page=1) 
+    * [Contact Terramonitor about pricing](https://www.terramonitor.com/services/analysis-ready#contact)
 
 === "Sentinelhub *" 
 
