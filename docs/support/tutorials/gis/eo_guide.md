@@ -85,7 +85,7 @@ See also a list of other places on [CSC research pages](https://research.csc.fi/
         * Every CSC user has **read** access to data stored on Puhti, no need to move it, unless you need to modify it
     * Allas
         * [List of all available geospatial datasets in Allas](../../../data/datasets/spatial-data-in-csc-computing-env.md)
-        * Sentinel-2 L2A data of crop growing Finland, growing seasons 2016-present, [usage instructions](https://a3s.fi/sentinel-readme/README.txt)
+        * Sentinel-2 L2A data of Finland, where crops are grown during growing seasons of 2016-present, [usage instructions](https://a3s.fi/sentinel-readme/README.txt)
         * Data can be directly read from Allas without download for some cases, see eg [GDAL docs](../../../apps/gdal.md) and [Allas Python examples](https://github.com/csc-training/geocomputing/blob/master/python/allas/working_with_allas_from_Python_S3.py)
         
     
