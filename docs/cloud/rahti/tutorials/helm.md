@@ -1,6 +1,6 @@
 # How to package a Kubernetes application with Helm?
 
-[Helm](https://helm.sh/) is the "The package manager for Kubernetes", it allows to manage the life-cycle of a Kubernetes application (deploy, configure, upgrade, retire, ...). It is an **Infrastructure as Code** (IaC) tool, so it allows to version control an application and follow its evolution along time, make identical copies (prod, preprod, dev, ...) and predictable upgrades, and of course share and publish the application. It is one of the main tools used upstream, if a tool has a "Kubernetes deployment" it is most likey going to be using Helm.
+[Helm](https://helm.sh/) is the "The package manager for Kubernetes", it allows the management of the life-cycle of a Kubernetes application (deploy, configure, upgrade, retire, ...). It is an **Infrastructure as Code** (IaC) tool, so it allows us to version control an application and follow its evolution along time, make identical copies (prod, preprod, dev, ...) and predictable upgrades, and of course share and publish the application. It is one of the main tools used upstream, if a tool has a "Kubernetes deployment" it is most likely going to be using Helm.
 
 ## Introduction
 
@@ -44,7 +44,7 @@ It creates a mostly self-explanatory skeleton of a Chart. The structure is:
 
 * The `Chart.yaml` file contains basic description values: `name`, `description`, `version`, ...
 * The `values.yaml` file contains default values for the Chart and shows which parameters can be configured.
-* The `.helmignore` contains the patterns to ignore, it is similar to `gitignore`.i WE will not change this file.
+* The `.helmignore` contains the patterns to ignore, it is similar to `gitignore`. WE will not change this file.
 * The `charts` folder contains the other charts that this one depends on. We will not use this feature.
 * Finally the `templates` folder contains the different API Kubernetes objects to be deployed. The [templates engine syntax](https://helm.sh/docs/chart_template_guide/) allows for a great deal of configurability. It supports [Built-in Objects](https://helm.sh/docs/chart_template_guide/builtin_objects/) that for example show the current cluster capabilities, it supports external [values files](https://helm.sh/docs/chart_template_guide/values_files/) where each deployment of the application can have its own separate value file, it has an extensive list of [template functions](https://helm.sh/docs/chart_template_guide/function_list/), [flow control](https://helm.sh/docs/chart_template_guide/control_structures/), and more.
 
@@ -92,7 +92,7 @@ Now we can create the `YAML` files that contain the different parts of the appli
 
 1. From the list above, we are only interested in `deploymentconfig.apps.openshift.io`, `persistentvolumeclaim/html`, `service/nginx` and `route.route.openshift.io/nginx`. The rest are auto-generated like the `secret/` tokens or created by other objects like the `service/glusterfs-dynamic-ed156002-8a7e-11ed-b60d-fa163e0d8841` object was created as a result of the creation of the `persistentvolumeclaim/` (PVC) creation.
 
-We will write templates one by one, starting by the Volume. There are two simple approaches to accomplish this task, "get and and clean" or "recreate from template". We will first try the "get and clean" method.
+We will write templates one by one, starting with the Volume. There are two simple approaches to accomplish this task, "get and and clean" or "recreate from template". We will first try the "get and clean" method.
 
 ### Get and clean
 
