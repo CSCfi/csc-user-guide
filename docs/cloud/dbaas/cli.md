@@ -154,7 +154,7 @@ These are the available commands at the moment
 |--- |:---:|:---|
 | openstack database backup create 			| Supported	|	All flags are not tested |
 | openstack database backup delete 			| Supported 	|       Might be removed in future |
-| openstack database backup execution delete 		| Not available | 	Not investigated yet|
+| openstack database backup execution delete 		| Not available | 	Not supported in DBaaS |
 | openstack database backup list 			| Supported	||
 | openstack database backup list instance 		| Supported 	||
 | openstack database backup show 			| Supported	||
@@ -199,8 +199,8 @@ These are the available commands at the moment
 | openstack database instance reboot 			| Only admins 	||
 | openstack database instance rebuild 			| Only admins 	||
 | openstack database instance reset status 		| Only admins 	||
-| openstack database instance resize flavor 		| Not recommended |	Works but not recommended by DBaaS team|
-| openstack database instance resize volume 		| Not supported 	| 	Does not work without admin intervention. jira: DBAAS-46 |
+| openstack database instance resize flavor 		| Supported     |	Be aware that this causes downtime |
+| openstack database instance resize volume 		| Not supported	| 	Does not work without admin intervention. jira: DBAAS-46 |
 | openstack database instance restart 			| Supported 	|	Restart the database container - limited benefit |
 | openstack database instance show 			| Supported 	||
 | openstack database instance update 			| Supported 	|	Subset of the flags are supported. Flags that are supported: --name , --allowed-cidr|
