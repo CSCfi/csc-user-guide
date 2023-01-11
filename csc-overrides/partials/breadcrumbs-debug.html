@@ -7,10 +7,10 @@
   background-color: black;
   color: white;
 ">
-    <p>this page: {{ page }}</p>
-    <p>parent_url: {{ parent_url }}</p>
+    <p style="text-decoration: underline;">{{ page }}</p>
     {% if parent_url in sections %}
-      <p>section: {{ sections[parent_url] }}</p>
+      <p>parent_url: {{ parent_url }}</p>
+      <p>sections[parent_url]: {{ sections[parent_url] }}</p>
     {% endif %}
     {% for anc in page.ancestors %}
         <p>ancestor {{ loop.index }}: {{ anc }}</p>

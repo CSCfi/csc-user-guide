@@ -1,30 +1,25 @@
 {%- if page %}
     {% set parent_url = "/" + "/".join(page.url.split("/")[:-2]) + "/" %}
-    {# Redirect some breadcrumb urls (at least for now): #}
-    {% set parent_url = parent_url.replace("/wn/", "/whats-new/", -1) %}
-    {% set parent_url = parent_url.replace("env-guide/", "", -1) %}
-    {% set parent_url = parent_url.replace("gis/", "", -1) %}
-    {# Some pages don't have ancestor sections in nav... #}
+    {# Breadcrumbs must be defined literally... #}
     {% set sections = {
-        "/apps/": "Applications",
         "/tutorials/": "Tutorials",
+        "/tutorials/env-guide/": "Linux tutorials",
+        "/tutorials/gis/": "Geoinformatics tutorials",
         "/faq/": "FAQ",
-        "/support/training-material/": "Training material",
-        "/support/contact/": "Contact",
-        "/whats-new/": "What's new"
+        "/wn/": "What's new",
     } %}
     <nav class="csc-breadcrumbs">
         {% if not page.is_homepage %}
             <a class="csc-breadcrumbs__link" href="{{ base_url }}">Docs CSC</a>
         {% endif %}
-        {# ...so breadcrumbs must be defined literally: #}
+        {# ...for pages that don't have ancestors in nav: #}
         {% if not page.ancestors and parent_url in sections %}
             <a class="csc-breadcrumbs__link" href="{{ parent_url }}">{{ sections[parent_url] }}</a>
         {% endif %}
-        {% set depth = page.ancestors|length+2 %}
-        {%- for document in page.ancestors[::-1] -%}
-            {% set document_url = "/" + "/".join(page.url.split("/")[:(-depth)+loop.index:]) + "/" %}
-            <a class="csc-breadcrumbs__link" href="{{ document_url }}">{{ document.title }}</a>
+        {%- for ancestor in page.ancestors[::-1] -%}
+            {% if ancestor.is_page %}
+                <a class="csc-breadcrumbs__link" href="/{{ ancestor.url }}">{{ ancestor.title }}</a>
+            {% endif %}
         {%- endfor -%}
         {% if not page.is_homepage %}
             {{ page.title }}
