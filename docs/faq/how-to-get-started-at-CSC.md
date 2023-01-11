@@ -1,4 +1,4 @@
-#How to get started as a new user at CSC?
+# How to get started as a new user at CSC?
 
 You are now browsing through our service guides.
 We have collected some useful material in the following locations:
