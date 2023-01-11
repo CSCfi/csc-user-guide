@@ -53,7 +53,7 @@ Consider:
         * [ICESat](https://icesat-2.gsfc.nasa.gov/)
         * [GEDI](https://gedi.umd.edu/)
         * ...
-    * Database of all current and future EO missions can be found in the [CEOS EO handbook database](http://database.eohandbook.com/database/missiontable.aspx)
+    * Database of all current and future EO missions and instrument information can be found in the [CEOS EO handbook database](http://database.eohandbook.com/database/instrumenttable.aspx)
 * Resolution
     * Temporal: when and how often a certain area is visited
     * Spatial: the area on the ground that each pixel covers
