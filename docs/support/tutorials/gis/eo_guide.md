@@ -243,10 +243,9 @@ What to consider:
 * Maintenance needs?
 * Metadata needs?
 
-See also: ../../../data/datasets/hosting-datasets-at-CSC/#what-to-consider-when-choosing-a-suitable-storage-solution
-
+See also CSC's [guide on how to choose a suitable storage solution](../../../data/datasets/hosting-datasets-at-CSC.md).
     
-* Data can be stored on the supercomputer, check out the [different available disk areas](../../../computing/disk.md) or in the object storage Allas ([Allas overview](https://research.csc.fi/-/allas), [Allas guide](../../../data/Allas/index.md)) during processing
+* In general, data can be stored on the [supercomputer](../../../computing/disk.md) or in the object storage Allas ([Allas overview](https://research.csc.fi/-/allas), [Allas guide](../../../data/Allas/index.md)) 
 * On the supercomputer, data can be stored on ```/scratch/project_xxx``` with xxx being your project number
 * Smaller amounts can also be stored short term on the computing nodes ```$LOCAL_SCRATCH``` during processing
 * In Allas, data is stored in so-called buckets, and can be accessed or transferred as part of the computing job, see also CSC's webinar on [Allas for spatial data](https://www.youtube.com/watch?v=mnFXe2-dJ_g).
@@ -283,11 +282,11 @@ What to consider:
 
 GUIs of software available on Puhti can be accessed as an interactive job via the [Puhti web interface](https://puhti.csc.fi) or [X11 connection](../../../computing/connecting.md). These graphical interfaces are mainly for visualization and testing purposes, the actual efficient processing should be done within batch  jobs rather than interactive jobs.
 
-[**SNAP**](https://step.esa.int/main/toolboxes/snap/)
+[**SNAP**](../../../apps/snap.md)
 
 "All-in-one" Graphical User Interface for processing of Sentinel data (+ support for other data sources) with Python interfaces [snappy](https://senbox.atlassian.net/wiki/spaces/SNAP/pages/19300362/How+to+use+the+SNAP+API+from+Python) and [snapista](https://snap-contrib.github.io/snapista/) and the [Graph Processing Tool](https://step.esa.int/docs/tutorials/SNAP_CommandLine_Tutorial.pdf) as Command Line Interface. 
 
-* [SNAP on Puhti](../../../apps/snap.md). See examples for use of SNAP GPT on Puhti on [github](https://github.com/csc-training/geocomputing/tree/master/snap).
+* See examples for use of SNAP GPT on Puhti on [github](https://github.com/csc-training/geocomputing/tree/master/snap).
 
 [**QGIS**](../../../apps/qgis.md)
 
@@ -296,7 +295,7 @@ GIS software with limited multispectral image processing capabilities
 * Visualization
 * [Map making](https://www.qgistutorials.com/en/docs/making_a_map.html)
 * Map algebra / Band math and other [raster processing](https://docs.qgis.org/3.22/en/docs/user_manual/processing_algs/qgis/rasteranalysis.html)
-* [semi-automatic classification plugin](https://fromgistors.blogspot.com/p/semi-automatic-classification-plugin.html) 
+* [Semi-automatic classification plugin](https://fromgistors.blogspot.com/p/semi-automatic-classification-plugin.html) 
 
 
 [**Orfeo Toolbox (OTB)**](../../../apps/otb.md)
@@ -325,9 +324,7 @@ See examples for use of GDAL on Puhti on [github](https://github.com/csc-trainin
 
 [**Python**](../../../apps/python.md)
 
-[Geospatial Python module on Puhti](../../../apps/geoconda.md)
-
-The **geoconda module** provides - among others - many useful Python packages for raster data processing and analysis:
+The [geoconda module](../../../apps/geoconda.md) provides - among others - many useful Python packages for raster data processing and analysis:
 
 * *py6s*: Python interface to the Second Simulation of the Satellite Signal in the Solar Spectrum (6S) atmospheric Radiative Transfer Model.
 * *rasterio*: access to geospatial raster data.
@@ -337,13 +334,11 @@ The **geoconda module** provides - among others - many useful Python packages fo
 * *stackstac*: STAC data to xarray
 * *xarray*: working with multidimensional raster data.
 
+You can find examples of geospatial Python on Puhti on [github](https://github.com/csc-training/geocomputing/tree/master/python). See also raster lesson of CSC version of GeoPython [course material](https://github.com/csc-training/notebooks) for further examples.
 
-* See examples for use of geopspatial Python on Puhti on [github](https://github.com/csc-training/geocomputing/tree/master/python)
-* See also raster lesson of CSC version of GeoPython [course material](https://github.com/csc-training/notebooks) 
+[**R**](../../../apps/r-env.md)
 
-[**R**]((../../../apps/r-env.md)
-
-All available R packages on Puhti are included in the [r-env module](../../../apps/r-env.md). 
+All available R packages on Puhti are included in the [r-env module](../../../apps/r-env.md).
 
 * [Geospatial R on Puhti](../../../apps/r-env-for-gis.md)
 * [Geospatial R course material](https://github.com/csc-training/r-spatial-course)
@@ -363,8 +358,8 @@ One example of the advanced usage of EO data is for machine learning. If you are
  
 ## Where can I get help?
 
-Help from CSC specialists is available via servicedesk@csc.fi or in CSC's weekly user support sessions.
-We are happy to help with technical problems around our services and are open for suggestions on which Software should be installed to Puhti, or what kind of courses should be offered or materials/examples should be prepared. See also our [contact page](../../contact.md)
+You can find all the ways that you can get help from CSC specialists via our [contact page](../../contact.md).
+We are happy to help with technical problems around our services and are open for suggestions on which Software should be installed to Puhti, or what kind of courses should be offered or materials/examples should be prepared. 
 
 ## Acknowledgement
 
