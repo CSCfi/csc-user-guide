@@ -50,7 +50,7 @@ parallel_stereo [options] <images> [<cameras>] <output_file_prefix>
 
 The [parallel_stereo](https://stereopipeline.readthedocs.io/en/latest/tools/parallel_stereo.html) program is the primary tool of the Ames Stereo Pipeline, it has a lot of different options described in detail in documentation.
 
-Ames Stereo Pipeline supports also multi-node batch jobs, see its [PBS and SLURM documentation](https://stereopipeline.readthedocs.io/en/latest/examples.html#using-pbs-and-slurm) for details, notice that in Puhti `--account` should always be given and that correct [`--partion`-names](../computing/running/batch-job-partitions.md) should be used.
+Ames Stereo Pipeline supports also multi-node batch jobs, see its [PBS and SLURM documentation](https://stereopipeline.readthedocs.io/en/latest/examples.html#using-pbs-and-slurm) for details; please notice that in Puhti, in addition to the mentioned arguments, you need to provide the `--account` argument and use the correct [`--partion`-names](../computing/running/batch-job-partitions.md).
 
 
 ## License and acknowledgement
