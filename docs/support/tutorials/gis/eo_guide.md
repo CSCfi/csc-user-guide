@@ -4,23 +4,22 @@ This guide aims to help users who wish to work with Earth Observation (EO) data 
 
 The purpose of this guide is to help you find the right data and tools for your raster data based EO tasks. If you are interested in the funamentals of EO, please check the resources at the bottom of the page first.
 
-**EO data benefits**
+**What are the benefits of using EO data**
 
 * Possibility to observe wide area at same time
 * Non-intrusive
 * Same sensor for different parts of the world
 * Time series 
 
-**Most EO data = Raster data**
+**EO data in raster format**
 
 * One file per band or multiband files
 * Grid of pixel values
 * Example of continuous data
 * Georeference: coordinate for the top left pixel , the size of each pixel in the X direction, the size of each pixel in the Y direction, and the amount (if any) by which the product is rotated.
 
-## Using EO data in your research
 
-### What data do I need?
+## What data do I need?
 
 Consider:
 
@@ -63,7 +62,7 @@ Consider:
 
 > If you plan to work with Sentinel-2 and Landsat 8, check also the 30 m harmonized Landsat 8 and Sentinel-2 product at [NASA](https://hls.gsfc.nasa.gov/).
 
-### Where can I find the data?
+## Where can I find the data?
 
 The best place to get the data depends on your needs: Do you want to download the data into your own processing environment or do you need a processing environment close to the data? 
 
@@ -188,7 +187,7 @@ Other tools for downloading the data from open access hubs: [sentinelsat](https:
 
 > Many data providers and companies also provide a Spatio Temporal Asset Catalog (STAC) of their and other datasets. These catalogues help in finding available data based on time and location with the possibility for multiple additional filters, such as cloud cover and resolution. The [STAC Index](https://www.stacindex.org/) provides a nice overview of available catalogues from all over the world. The STAC Index page also includes many resources for learning and utilizing STAC.  
 
-### Where can I store the data?
+## Where can I store the data?
 
 What to consider:
 
@@ -214,7 +213,7 @@ See also CSC's [guide on how to choose a suitable storage solution](../../../dat
 > For longer term storage and publication, CSC offers a range of other services. See also CSC's general [guide on stroing data](../../../data/datasets/hosting-datasets-at-CSC.md).
 
 
-### How can I process the data?
+## How can I process the data?
 
 At CSC, EO data can be processed and analyzed using for example supercomputer [Puhti](../../../computing/systems-puhti.md) or a virtual machine in the CSC cloud = [cPouta](../../../cloud/pouta/pouta-what-is.md). You can find more information around geocomputing using CSC resources on our [Geocomputing pages](https://research.csc.fi/geocomputing).
 
@@ -233,7 +232,7 @@ What to consider when chosing software:
 * Open source vs commercial
     * This guide focusses on [software available on CSC supercomputer Puhti](../../../apps/index.md) 
 
-#### What applications are available on Puhti?
+### What applications are available on Puhti?
 
 To Puhti, only Linux based software can be installed. Most of the installed geospatial tools are open source.
 
