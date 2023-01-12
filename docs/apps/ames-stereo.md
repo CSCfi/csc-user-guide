@@ -25,7 +25,7 @@ You can test that Ames Stereo Pipeline is loaded successfully with
 stereo -help
 ```
 
-Running `parallel_stereo` can be very computationally expensive, so it should be run via batch jobs system. The software developers recommend reserving full nodes for Ames Stereo Pipeline.
+Running `parallel_stereo` can be very computationally expensive, so it should be run via batch job system. The software developers recommend reserving full nodes for Ames Stereo Pipeline.
 
 
 
