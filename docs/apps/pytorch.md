@@ -93,7 +93,7 @@ module load pytorch
 To access PyTorch on LUMI:
 
 ```text
-module use /appl/local/csc/soft/ai/modulefiles/
+module use /appl/local/csc/modulefiles/
 module load pytorch
 ```
 
@@ -177,7 +177,7 @@ proportion of the available CPU cores in a single node:
     #SBATCH --mem=64G
     #SBATCH --time=1:00:00
     
-    module use /appl/local/csc/soft/ai/modulefiles/
+    module use /appl/local/csc/modulefiles/
     module load pytorch/1.13
     srun python3 myprog.py <options>
     ```
