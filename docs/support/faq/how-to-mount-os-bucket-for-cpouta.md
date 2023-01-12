@@ -1,64 +1,76 @@
-#How can I mount my Pouta Object Storage bucket to a VM running in cPouta
+# How can I mount my Allas S3 bucket to a VM running in cPouta
 
-Combining cPouta cloud environment and Allas storage environment allows you to build scalable data management environments. This document shows one example how you can combine these two services by mounting a bucket from Allas to an Ubuntu 16.04 or Centos7 based virtual machine running in cPouta.
+Combining cPouta cloud environment and Allas storage environment allows you to build scalable data management environments. This document shows one example how you can combine these two services by mounting a bucket from Allas to an Ubuntu or a Centos7 based virtual machine running in cPouta.
 
 [TOC]
 
-##Installing OpenStack, s3cmd and s3fs in Ubuntu 16.04
+## Installing OpenStack, s3cmd and s3fs
 
-After launching an Ubuntu 16.04 based virtual machine in cPouta, open a terminal connection to the VM and  update it with command:
+### In Ubuntu
 
-```
-sudo apt-get update
-```
+* After launching an Ubuntu based virtual machine in cPouta, open a terminal connection to the VM and update it with the command:
 
-Then install OpenStack client with commands:
+	```sh
+	sudo apt update
+	```
 
-```
-sudo apt install python-pip python-dev
-sudo apt-get install python-setuptools
-sudo pip install python-openstackclient
-```
+!!! warning
+    Older versions of Ubuntu will have older and deprecated versions of python. It is recommended to use the latest Ubuntu version available in Pouta.
 
-Next, add  **s3cmd** and **s3fs** commands to your VM.
+* Then install OpenStack client by:
 
-```
-sudo apt-get install s3cmd
-sudo apt-get install s3fs
-```
+	```sh
+	sudo apt install python3-pip python3-dev python3-setuptools
+	sudo pip install --upgrade pip
+	sudo pip install python-openstackclient
+	```
 
-##Installing OpenStack, s3cmd and s3fs in Centos7
+* Next, install  **s3cmd** and **s3fs** commands to your VM.
 
-After launching an Centos7 based virtual machine in cPouta, open a terminal connection to the VM and  update it with command:
+	```sh
+	sudo apt install s3cmd s3fs
+	```
 
-    sudo yum update
+### In Centos7
 
-OpenStack and s3cmd can then be installed with commands:
+* After launching a Centos7 based virtual machine in cPouta, open a terminal connection to the VM and update it with the command:
 
-```
-sudo yum install python-pip python-devel wget
-sudo pip install python-openstackclient
-`sudo pip install --upgrade --requirement https://raw.githubusercontent.com/platform9/support-locker/master/openstack-clients/requirements.txt --constraint https://raw.githubusercontent.com/openstack/requirements/stable/pike/upper-constraints.txt`
-sudo yum install s3cmd
-```
+	```sh
+	sudo yum update
+	```
 
-In the case of Centos7, s3fs needs to be compiled locally. To do this we need to first to intall some tools needed for compilation:
+* OpenStack and s3cmd can then be installed by:
 
-    sudo yum install automake fuse fuse-devel gcc-c++ git libcurl-devel libxml2-devel make openssl-devel
+	```sh
+	sudo yum install python-pip python-devel wget
+	sudo pip install python-openstackclient
+	sudo pip install --upgrade \
+	    --requirement https://raw.githubusercontent.com/platform9/support-locker/master/openstack-clients/requirements.txt \
+	    --constraint https://raw.githubusercontent.com/openstack/requirements/stable/pike/upper-constraints.txt
+	sudo yum install s3cmd
+	```
 
-Then download the s3fs-fuse from the git repository and install it:
+* In the case of Centos7, s3fs needs to be compiled locally. To do this we need to first to intall some tools needed for compilation:
 
-```
-git clone https://github.com/s3fs-fuse/s3fs-fuse.git
-cd s3fs-fuse/
-./autogen.sh
-./configure
-make
-make  all-recursive
-sudo make install
-```
+	```sh
+	sudo yum install automake fuse fuse-devel gcc-c++ git libcurl-devel libxml2-devel make openssl-devel
+	```
 
-##Configuring and using Allas (Ubuntu and Centos)
+* Then download the s3fs-fuse from the git repository and install it:
+
+	```sh
+	git clone https://github.com/s3fs-fuse/s3fs-fuse.git
+	cd s3fs-fuse/
+	./autogen.sh
+	./configure
+	make
+	make  all-recursive
+	sudo make install
+	```
+
+## Configuring and using Allas
+
+### Use s3cmd to read and write files
 
 Once you have openstack, s3cmd and s3fs installed, download and execute the **poutaos_configure** tool to configure _s3cmd_ so that it uses your cPouta project. You can also use this tool to switch between different Allas projects 
 if you have several of them.
@@ -69,55 +81,85 @@ chmod u+x poutaos_configure
 ./poutaos_configure
 ```
 
-The _poutaos_configure_ command asks first your CSC password. Then it lists your Allas projects and asks you to for the project to be used. During the following configuration steps, the system asks you about the values that will be used for the Allas connection. In most cases you can just accept the proposed default values, but there are two exceptions:  
+The _poutaos_configure_ will first ask you for your CSC username and password, you can see which is your CSC username in your [My CSC profile](https://my.csc.fi/profile) page, you csan also change your password there. Then it will list your Allas projects and ask you to fill up the project to be used. Finally it will ask you for the **chunk size**, it is recommended to leave the default.
 
-   1. It is recommended that you define a password that is used to encrypt the data traffic to and from Object Storage server.
-   2. As the last question the configuration process asks if the configuration is saved. The default is "no" but you should 
-      answer y (yes) so that configuration information is stored to file _$HOME/.s3cfg_.  
-      This configuration needs to be defined only once. In the future _s3cmd_ will use this 
-      Object Storage connection described in the _.s3cfg_ file automatically.
+After this you can use the storage area of your Allas project with _s3cmd_ commands. Now you can see, download and upload files in this bucket with _s3cmd_.
 
-After this you can use the storage area of your Allas project with _s3cmd_ commands.
+* List all your buckets:
 
-Lets, assume you already have a bucket called _case_1_ in your object storage and that you have some data objects (i.e. files) in this bucket. Now you can see, download and upload files in this bucket with _s3cmd_.
-
+```sh
+$ s3cmd ls s3://
+2022-10-17 07:03  s3://data-europe
+2020-09-17 11:12  s3://images-sky
+2020-11-06 13:56  s3://case_1
 ```
-s3cmd ls s3://case_1
+
+* Let's assume you already have a bucket called **case_1** in Allas and that you have some data objects (i.e. files) in this bucket.
+
+```sh
+$ s3cmd ls s3://case_1
+2022-10-17 07:14     67213268  s3://case_1/file1.txt
+```
+
+* To retrieve the file:
+
+```sh
 s3cmd get s3://case_1/file1.txt
+```
+
+* To upload a new file:
+
+```sh
 s3cmd put file2.txt s3://case_1/
 ```
 
-This is normally the recommended way if you wish to use Allas with the S3 protocol. However, it is also possible to mount the bucket to your VM so that it is shown as  "mounted disk".
+This is the **recommended way** to use Allas with the S3 protocol from the command line. However, it is also possible to mount the bucket to your VM so that it is shown as  "mounted disk". You can use `s3fs` for that.
 
-To do this, create first an empty directory to be used as a mount point. E.g.
+### Use s3fs to mount a folder intyo your VM
 
-```
-mkdir os_case_1
-```
 
-Then check the UID if the user account you are using (normally it is 1000 for cloud-user)
+1. To do this, create first an empty directory (like **os_case_1**) to be used as a mount point:
 
-```
-id -u $(whoami)
-```
+	```sh
+	mkdir os_case_1
+	```
 
-then use _s3fs_ command to mount the bucket.
+	!!! info
+	    Any empty directory can be used as a mount point
 
-```
-s3fs case_1 os_case_1 -o passwd_file=~/.passwd-s3fs -o url=https://a3s.fi/ -o use_path_request_style -o umask=0333,uid=1000
-```
+1. Create a `.passwd-s3fs` file in your home directory. The format of the file must be: `ACCESS_KEY_ID:SECRET_ACCESS_KEY` and have _600_ permissions.
 
-And after this you should be able to see the objects of the mounted bucket as files. Try for example command:
+	```sh
+	$ openstack ec2 credentials list -f value | grep $OS_PROJECT_ID | tail -1 |\
+	   awk '{print $1":"$2}' >.passwd-s3fs
+	Password:
+	$ chmod 600 .passwd-s3fs
+	```
 
-```
-ls -l os_case_1
-```
+1. then use the _s3fs_ command to mount the bucket.
 
-The mounting command above uses a project specific keypair that the _poutaos_configure_ command previously stored to file _.passwd-s3fs_. The uid value 1000 refers to the _cloud-user_ account and should be changed if some other user account is used.
+	```sh
+	s3fs case_1 os_case_1 -o passwd_file=~/.passwd-s3fs -o url=https://a3s.fi/ \
+		-o use_path_request_style -o umask=0333,uid=$(id -u)
+	```
 
-The _umask_ value defines the read, write and execution permissions for the mounted directory. In the sample command above the bucket is mounted in read-only mode (umask=0333). In many cases this might be reasonable, because modifying the files directly in object storage is not efficient. If a file needs to be constantly modified it is better to make a local copy of it and upload only the final version of the file back to the bucket. However, if needed you can re-mount the bucket with more permissive _umask_ value. E.g.
+	!!! info 
+	    The uid value returned by `id -u` should be 1000 for the default user
 
-```
-sudo umount os_case_1
-s3fs case_1 os_case_1 -o passwd_file=~/.passwd-s3fs -o url=https://a3s.fi/ -o use_path_request_style -o umask=0027,uid=1000
-```
+	!!! info
+	    The umask value `0333` mounts the files in **read-only mode**. If you want to mount them in read-write mode, use `0027` instead
+
+1. And after this you should be able to see the objects of the mounted bucket as files. Try for example the command:
+
+	```sh
+	ls -l os_case_1
+	```
+
+	The output should be the same as with `s3cmd ls s3://case_1`
+
+1. When you are done you can unmount the folder by:
+
+	```sh
+	sudo umount os_case_1
+	```
+
