@@ -34,7 +34,9 @@ What to consider when chosing data:
     * Free: e.g. Landsat, MODIS, Sentinel, ...
     * Non free (but might be possible to get for free/less for research): e.g. WorldView, Spot, Planet, ...
 * Preprocessing level
-    * Raw or pre-processed data, e.g. analysis ready data or mosaics
+    * Raw data
+    * Analysis ready data 
+    * Mosaics
 * User experience and knowledge
     * RADAR/LiDAR require solid background knowledge for processing and interpretation
     * Optical data is more easily interpreted and processed (and more pre-processed data is available)
