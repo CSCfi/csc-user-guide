@@ -78,6 +78,9 @@
     <div class="quick-links-item">
       <a class="quick-link" target="_self" href="data/sensitive-data/">Sensitive Data Services Guide</a>
     </div>
+    <div class="quick-links-item">
+      <a class="quick-link" target="_blank" href="https://www.fairdata.fi/en/fairdata-quick-guide/">Fairdata Services Guides</a><sup>&#128279;</sup>
+    </div>
   </div>
 
   <div class="quick-links-topic">
