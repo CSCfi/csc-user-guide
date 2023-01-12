@@ -11,14 +11,14 @@ If you are interested in the fundamentals of remote sensing, take a look at thes
 * [Newcomers guide to Earth Observation](https://business.esa.int/newcomers-earth-observation-guide) by the European Space Agency, "a  guide to help non-experts in providing a starting point in the decision process for selecting an appropriate Earth Observation (EO) solution."
 
 
-## EO data benefits
+**EO data benefits**
 
 * Possibility to observe wide area at same time
 * Non-intrusive
 * Same sensor for different parts of the world
 * Time series 
 
-## Most EO data = Raster data
+**Most EO data = Raster data**
 
 * One file per band or multiband files
 * Grid of pixel values
@@ -254,9 +254,7 @@ At CSC, EO data can be processed and analyzed using for example supercomputer [P
 
 Puhti has a lot of applications already installed (see below), you do not need to worry about it. You can also add your own installations using for example the [Tykky tool](../../../computing/containers/tykky.md). In cPouta, you need to set up your own virtual machine including all security and software setup, see [instructions](../../../cloud/pouta/launch-vm-from-web-gui.md).
 
-#### Software
-
-What to consider:
+What to consider when chosing software:
 
 * User skills and preferences
     * Graphical User Interface (GUI)
@@ -269,82 +267,76 @@ What to consider:
 * Open source vs commercial
     * This guide focusses on [software available on CSC supercomputer Puhti](../../../apps/index.md) 
 
-##### What applications are available on Puhti?
+#### What applications are available on Puhti?
 
-* Only Linux software
-* Mostly open source
+To Puhti, only Linux based software can be installed. Most of the installed geospatial tools are open source.
 
-GUIs of software available on Puhti can be accessed as an interactive job via the [Puhti web interface](https://puhti.csc.fi) or [X11 connection](../../../computing/connecting.md). These graphical interfaces are mainly for visualization and testing purposes, the actual efficient processing should be done within batch jobs rather than interactive jobs.
+GUIs of software available on Puhti can be accessed as an interactive job via the [Puhti web interface](https://puhti.csc.fi) or [X11 connection](../../../computing/connecting.md). These graphical interfaces are mainly for visualization and testing purposes, the actual efficient processing should be done within batch jobs.
 
-[**SNAP**](../../../apps/snap.md)
+[**FORCE**](../../../apps/force.md) - Framework for Operational Radiometric Correction for Environmental monitoring
 
-"All-in-one" Graphical User Interface for processing of Sentinel data (+ support for other data sources) with Python interfaces [snappy](https://senbox.atlassian.net/wiki/spaces/SNAP/pages/19300362/How+to+use+the+SNAP+API+from+Python) and [snapista](https://snap-contrib.github.io/snapista/) and the [Graph Processing Tool](https://step.esa.int/docs/tutorials/SNAP_CommandLine_Tutorial.pdf) as Command Line Interface. 
+* All-in-one processing engine with CLI for EO image archives 
+* [FORCE example for Puhti](https://github.com/csc-training/geocomputing/tree/master/force)
 
-* See examples for use of SNAP GPT on Puhti on [github](https://github.com/csc-training/geocomputing/tree/master/snap).
+[**GDAL (OGR)**](../../../apps/gdal.md) - Geospatial Data Abstraction Library
 
-[**QGIS**](../../../apps/qgis.md)
-
-GIS software with limited multispectral image processing capabilities
-
-* Visualization
-* [Map making](https://www.qgistutorials.com/en/docs/making_a_map.html)
-* Map algebra / Band math and other [raster processing](https://docs.qgis.org/3.22/en/docs/user_manual/processing_algs/qgis/rasteranalysis.html)
-* [Semi-automatic classification plugin](https://fromgistors.blogspot.com/p/semi-automatic-classification-plugin.html) 
-
-
-[**Orfeo Toolbox (OTB)**](../../../apps/otb.md)
-
-Offers a wide variety of applications from ortho-rectification or pansharpening, all the way to classification, SAR processing, and much more!
-
-Orfeo Toolbox is available as [Command Line Interface](https://www.orfeo-toolbox.org/CookBook/CliInterface.html), [Graphical User Interface](https://www.orfeo-toolbox.org/CookBook/GraphicalInterface.html), Python API and as plugin to other applications.
-
-* GUI (https://www.orfeo-toolbox.org/CookBook/GraphicalInterface.html)
-
-[**Sen2Cor**](../../../apps/sen2cor.md) 
-
-A stand-alone processor for Sentinel-2 Level 2A product generation and formatting with CLI.
-
-[**FORCE**](../../../apps/force.md) 
-
-The Framework for Operational Radiometric Correction for Environmental monitoring is an all-in-one solution for mass-processing medium-resolution satellite images with CLI and GUI.
-
-See examples for use of FORCE on Puhti on [github](https://github.com/csc-training/geocomputing/tree/master/force)
-
-[**GDAL (OGR)**](../../../apps/gdal.md)
-
-The Geospatial Data Abstraction Library is a geospatial library for accessing and transforming geospatial data with CLI and Python package. 
-
-See examples for use of GDAL on Puhti on [github](https://github.com/csc-training/geocomputing/tree/master/gdal)
-
-[**Python**](../../../apps/python.md)
-
-The [geoconda module](../../../apps/geoconda.md) provides - among others - many useful Python packages for raster data processing and analysis:
-
-* *py6s*: Python interface to the Second Simulation of the Satellite Signal in the Solar Spectrum (6S) atmospheric Radiative Transfer Model.
-* *rasterio*: access to geospatial raster data.
-* *rasterstats*: summarizing geospatial raster datasets based on vector geometries.
-* *sentinelsat*: downloading Sentinel images
-* *scimage*: algorithms for image processing.
-* *stackstac*: STAC data to xarray
-* *xarray*: working with multidimensional raster data.
-
-You can find examples of geospatial Python on Puhti on [github](https://github.com/csc-training/geocomputing/tree/master/python). See also raster lesson of CSC version of GeoPython [course material](https://github.com/csc-training/notebooks) for further examples.
-
-[**R**](../../../apps/r-env.md)
-
-All available R packages on Puhti are included in the [r-env module](../../../apps/r-env.md).
-
-* [Geospatial R on Puhti](../../../apps/r-env-for-gis.md)
-* [Geospatial R course material](https://github.com/csc-training/r-spatial-course)
-* [Examples geospatial R](https://github.com/csc-training/geocomputing/tree/master/R)
+* Collection of command-line tools for accessing and transforming geospatial data 
+* [GDAL example for Puhti](https://github.com/csc-training/geocomputing/tree/master/gdal)
 
 [**Julia**](../../../apps/julia.md)
 
-Julia packages can be installed by the user. [JuliaGeo](https://github.com/JuliaGeo) provides an overview of available packages for geospatial data handling.
+* Julia is provided via the `Julia` module, it does not include any packages, but they can be installed by the user. 
+* [JuliaGeo](https://github.com/JuliaGeo) provides an overview of packages for geospatial data.
 
-**Matlab**
+[**Matlab**](../../../apps/matlab.md)
 
-[Matlab on Puhti](../../../apps/matlab.md)
+* You can run Matlab jobs on Puhti conveniently from your own computers Matlab installation.
+
+[**Orfeo Toolbox (OTB)**](../../../apps/otb.md)
+
+* Offers a wide variety of applications from ortho-rectification or pansharpening, all the way to classification, SAR processing, and much more.
+* Orfeo Toolbox is available as [Command Line Interface](https://www.orfeo-toolbox.org/CookBook/CliInterface.html), [Graphical User Interface](https://www.orfeo-toolbox.org/CookBook/GraphicalInterface.html), Python API .
+
+
+[**Python**](../../../apps/python.md)
+
+* The [geoconda module](../../../apps/geoconda.md) provides many useful Python packages for raster data processing and analysis:
+
+    * py6s: Python interface to the Second Simulation of the Satellite Signal in the Solar Spectrum (6S) atmospheric Radiative Transfer Model.
+    * rasterio: access to geospatial raster data.
+    * rasterstats: summarizing geospatial raster datasets based on vector geometries.
+    * sentinelsat: downloading Sentinel images
+    * scimage: algorithms for image processing.
+    * stackstac: STAC data to xarray
+    * xarray: working with multidimensional raster data.
+
+* [Geospatial Python examples for Puhti](https://github.com/csc-training/geocomputing/tree/master/python). See also raster lesson of CSC version of GeoPython [course material](https://github.com/csc-training/notebooks) for further examples.
+
+
+[**QGIS**](../../../apps/qgis.md)
+
+* General Geographic Information System (GIS) with limited multispectral image processing capabilities
+* GUI with batch processing possibility and Python interface
+* Used for example for [visualization](https://www.qgistutorials.com/en/docs/making_a_map.html) and [map algebra and other raster processing](https://docs.qgis.org/3.22/en/docs/user_manual/processing_algs/qgis/rasteranalysis.html)
+* Many plug-ins available, for EO data processing, check out the [Semi-automatic classification plugin](https://fromgistors.blogspot.com/p/semi-automatic-classification-plugin.html).
+
+[**R**](../../../apps/r-env-for-gis.md)
+
+* All R packages are provided in `r-env` module, inlcuding many that can be used for EO data processing, such as terra, CAST, raster, spacetime.
+
+[**Sen2Cor**](../../../apps/sen2cor.md)
+
+* A command-line tool for Sentinel-2 Level 2A product generation and formatting.
+
+[**Sen2mosaic**](../../../apps/sen2cor.md)
+
+* A command-line tool to download, preprocess and mosaic Sentinel-2 data.
+
+[**SNAP**](../../../apps/snap.md) - ESA Sentinel Application Platform
+
+* Tool for processing of Sentinel data (+ support for other data sources) 
+* GUI, CLI (Graph Processing Tool, GPT) and Python interfaces (snappy and snapista)
+* [SNAP GPT example for Puhti](https://github.com/csc-training/geocomputing/tree/master/snap).
 
 ### Machine Learning with EO data
 
