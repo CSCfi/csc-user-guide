@@ -2,9 +2,9 @@
 
 This guide aims to help users who wish to work with Earth Observation (EO) data using CSC's computing resources.
 
-The purpose of this guide is to help you find the right data and tools for EO tasks. The basis of this guide is a seminar about the topic held at CSC in 2018 and 2022. And part of the material will also be taught in geospatial training at CSC, check the [training calendar](https://www.csc.fi/training#training-calendar) for dates and topics of upcoming courses. If you encounter any problems or questions come up, CSC's specialists are happy to help with all aspects of your data-driven research, and can be contacted via the CSC Service Desk: `servicedesk@csc.fi`. 
+The purpose of this guide is to help you find the right data and tools for your raster data based EO tasks.
 
-If you are interested in the fundamentals of remote sensing, take a look at these excellent resources:
+If you are interested in the fundamentals of EO, take a look at these excellent resources:
 
 * [Fundamentals of remote sensing tutorial](https://www.nrcan.gc.ca/maps-tools-and-publications/satellite-imagery-and-air-photos/tutorial-fundamentals-remote-sensing/9309) by Canada Centre for Mapping and Earth Observation , Natural Resources Canada; an "interactive module is intended as an overview at a senior high school or early university level and touches on physics, environmental sciences, mathematics, computer sciences and geography."
 * [Echoes in space - Introduction to RADAR remote sensing](https://eo-college.org/courses/echoes-in-space/) by the European Space Agency; "a detailed insight into the history of Radar technology, including all the basics that are needed to understand how electromagnetic waves work and a unique hands-on experience to work with Radar data in diverse application scenarios."
@@ -32,7 +32,7 @@ If you are interested in the fundamentals of remote sensing, take a look at thes
 Consider:
 
 * Sensor
-    * Optical
+    * Optical, Multispectal
         * [Landsat](https://landsat.gsfc.nasa.gov/)
         * [MODIS](https://modis.gsfc.nasa.gov/)
         * [Copernicus Sentinel-2](https://sentinel.esa.int/web/sentinel/missions/sentinel-2)
@@ -63,162 +63,135 @@ Consider:
     * Free: e.g. Landsat, MODIS, Sentinel, ...
     * Non free (but might be possible to get for free/less for research): e.g. WorldView, Spot, Planet, ...
 * Preprocessing needs
-    * Raw or pre-processed 
+    * Raw or pre-processed data
 * User experience and knowledge
     * RADAR/LiDAR require solid background knowledge for processing and interpretation
     * Optical data is more easily interpreted and processed (and more pre-processed data is available)
 
+> If you plan to work with Sentinel-2 and Landsat 8, check also the 30 m harmonized Landsat 8 and Sentinel-2 product at [NASA](https://hls.gsfc.nasa.gov/).
 
-### Where do I find the data?
+### Where can I find the data?
 
-The best place to get the data depends on your needs: Do you want to download the data into your own processing environment or do you need a processing environment close to the data? The answer depends on what you want to do with the data and where it is located.
+The best place to get the data depends on your needs: Do you want to download the data into your own processing environment or do you need a processing environment close to the data? 
 
-Below is a (uncomplete) set of services, that provide download or download and processing (marked with *) capabilities:
+> For other geospatial vector and raster datasets, check out our [spatial dataset list on CSC research pages](https://research.csc.fi/open-gis-data#intdata3).
 
-See also a list of other places on [CSC research pages](https://research.csc.fi/open-gis-data#intdata3).
+Below is a (uncomplete) set of services, that provide download and processing capabilities:
 
-=== "CSC * "
+**CSC services**
 
-    * Puhti
-        * [List of all available datasets in Puhti](../../../data/datasets/spatial-data-in-csc-computing-env.md)
-        * Sentinel and Landsat mosaics of Finland provided by FMI and SYKE: ```/appl/data/geo/sentinel/s2```
-        * Every CSC user has **read** access to data stored on Puhti, no need to move it, unless you need to modify it
-    * Allas
-        * [List of all available geospatial datasets in Allas](../../../data/datasets/spatial-data-in-csc-computing-env.md)
-        * Sentinel-2 L2A data of Finland, where crops are grown during growing seasons of 2016-present, [usage instructions](https://a3s.fi/sentinel-readme/README.txt)
-        * Data can be directly read from Allas without download for some cases, see eg [GDAL docs](../../../apps/gdal.md) and [Allas Python examples](https://github.com/csc-training/geocomputing/blob/master/python/allas/working_with_allas_from_Python_S3.py)
+* Puhti
+    * [List of all available datasets in Puhti](../../../data/datasets/spatial-data-in-csc-computing-env.md)
+    * Sentinel and Landsat mosaics of Finland provided by FMI and SYKE: ```/appl/data/geo/sentinel/s2```
+    * Every CSC user has **read** access to data stored on Puhti, no need to move it, unless you need to modify it
+* Allas
+    * [List of all available geospatial datasets in Allas](../../../data/datasets/spatial-data-in-csc-computing-env.md)
+    * Sentinel-2 L2A data of Finland, where crops are grown during growing seasons of 2016-present, [usage instructions](https://a3s.fi/sentinel-readme/README.txt)
+    * Data can be directly read from Allas without download for some cases, see eg [GDAL docs](../../../apps/gdal.md) and [Allas Python examples](https://github.com/csc-training/geocomputing/blob/master/python/allas/working_with_allas_from_Python_S3.py)
         
     
-=== "Open Access Hubs"
+**Amazon Web Service (AWS)**
 
-    [SciHub](https://scihub.copernicus.eu/dhus/#/home)
+* Worldwide
+* [Sentinel-2 bucket](https://registry.opendata.aws/sentinel-2/)
+* [Sentinel-1 bucket](https://registry.opendata.aws/sentinel-1/)
+* Requester pays the download costs
+* Managed by [Sinergise](http://www.sinergise.com/) 
+* Possibility for virtual machines.
 
-    * Needs [registration](https://scihub.copernicus.eu/dhus/#/self-registration) 
-    * Sentinel 2 L1C and L2A products
-    * Sentinel 1 SLC, GRD , RAW and OCN products
-    * Worldwide
-    * Note: most of the data is in "Long term archive" and cannot be downloaded directly, but needs to be requested
+**Data and Information Access Services (DIAS)**
 
-    [FinHub](https://finhub.nsdc.fmi.fi/#/home)
-
-    * Needs [registration](https://nsdc.fmi.fi/services/service_finhub_registration)
-    * Sentinel 2 L1C product
-    * Sentinel 1 SLC, GRD and OCN products
-    * Only Finland (and Baltics)
-
-    [ASF](https://search.asf.alaska.edu/#/)
+* Multiple sites exits:
+    * [ONDA](https://www.onda-dias.eu/cms/)
+    * [CREODIAS](https://creodias.eu/)
+    * [MUNDI](https://mundiwebservices.com/)
+* Costs
+* Processing platform with the data, no download needed
+* Data from DIAS objectstorage can easily be transferred to Allas (link to instructions here)
     
-    * Needs [registration](https://urs.earthdata.nasa.gov/users/new?)
-    * Sentinel 1 SLC, GRD, RAW, and OCN products
-    * Many SAR and SAR derived datasets from other sensors
-    * Worldwide
-    * Sentinel 1 data available for immediate download
+**[Microsoft planetary computer](https://planetarycomputer.microsoft.com)**
+
+* [Data](https://planetarycomputer.microsoft.com/catalog) and processing platform ([Hub](https://planetarycomputer.microsoft.com/compute))
+* Currently available in preview, [request access](https://planetarycomputer.microsoft.com/account/request)
+
+**[Google Earth Engine](https://earthengine.google.com/)**
+
+* [Registration](https://signup.earthengine.google.com/)
+* [Access via browser](https://code.earthengine.google.com/)
+* Analysis ready data worldwide
+    * [Sentinel-2](https://developers.google.com/earth-engine/datasets/catalog/sentinel-2/)
+    * [Sentinel-1](https://developers.google.com/earth-engine/datasets/catalog/COPERNICUS_S1_GRD)
+* Python: 
+    * [API](https://developers.google.com/earth-engine/guides/python_install)
+    * [geemap-library](https://geemap.org/)
+* [R-package](https://github.com/r-spatial/rgee)
+* [GEE tutorials](https://developers.google.com/earth-engine/tutorials)
+* [CSC GEE materials](https://www.csc.fi/fi/web/training/-/introduction-to-using-google-earth-engine)
+* Uncertain long-term availability
+* Google Cloud Storage might be needed to export large datasets
+
+Other services that provide raw and/or preprocessed data for download only: 
+
+[**European Space Agency's SciHub**](https://scihub.copernicus.eu/dhus/#/home)
+
+* Needs [registration](https://scihub.copernicus.eu/dhus/#/self-registration) 
+* Sentinel 2 L1C and L2A products
+* Sentinel 1 SLC, GRD , RAW and OCN products
+* Worldwide
+* Note: most of the data is in "Long term archive" and cannot be downloaded directly, but needs to be requested
+
+[**FinHub**](https://finhub.nsdc.fmi.fi/#/home)
+
+* Finnish national mirror of SciHub; others exist.
+* Needs [registration](https://nsdc.fmi.fi/services/service_finhub_registration)
+* Sentinel 2 L1C product
+* Sentinel 1 SLC, GRD and OCN products
+* Only Finland (and Baltics)
     
-    **All of the above** provide a similar Graphical User Interface (GUI) and Application Programming Interface (API) to access the data.
-    Other tools for downloading the data from open access hubs: [sentinelsat](https://sentinelsat.readthedocs.io/en/stable/) with [examples for SciHub and FinHub](https://github.com/csc-training/geocomputing/blob/master/python/sentinel/sentinelsat_download_from_finhub_and_scihub.py), ...
+> **Both of the above** provide a similar Graphical User Interface (GUI) and Application Programming Interface (API) to access the data.
+Other tools for downloading the data from open access hubs: [sentinelsat](https://sentinelsat.readthedocs.io/en/stable/) with [examples for SciHub and FinHub](https://github.com/csc-training/geocomputing/blob/master/python/sentinel/sentinelsat_download_from_finhub_and_scihub.py), ...
 
-=== "USGS EarthExplorer"
 
-    [Earthexplorer](https://earthexplorer.usgs.gov/)
+[**USGS EarthExplorer**](https://earthexplorer.usgs.gov/)
 
-    * Needs [registration](https://ers.cr.usgs.gov/register)
-    * Lots of different US related datasets 
-    * Main: Landsat worldwide
-    * GUI in web interface and bulk download
+* Needs [registration](https://ers.cr.usgs.gov/register)
+* Lots of different US related datasets 
+* Main: Landsat worldwide
+* GUI in web interface and bulk download
     
-=== "NASA Earthdata"
-
-    [Earthdata](https://search.earthdata.nasa.gov)
+[**NASA Earthdata**](https://search.earthdata.nasa.gov)
     
-    * Needs [registration](https://urs.earthdata.nasa.gov/users/new)
-    * Harmonized Landsat 8 and Sentinel-2 dataset and many more
-    * Graphical web interface and bulk download
+* Needs [registration](https://urs.earthdata.nasa.gov/users/new)
+* Harmonized Landsat 8 and Sentinel-2 dataset and many more
+* Graphical web interface and bulk download
 
-=== "Sentinel image mosaics"
+**Finnish Sentinel image mosaics**
 
-    * Available in Puhti: /appl/data/geo/sentinel
-    * Only Finland
-    * [Sentinel-2 image index mosaics](https://ckan.ymparisto.fi/dataset/sentinel-2-image-index-mosaics-s2ind-sentinel-2-kuvamosaiikit-s2ind) 
-    * [Sentinel-1 SAR-image mosaics](https://ckan.ymparisto.fi/dataset/sentinel-1-sar-image-mosaic-s1sar-sentinel-1-sar-kuvamosaiikki-s1sar)
-    * Provided by [SYKE](https://www.syke.fi/en-US) and [FMI](https://en.ilmatieteenlaitos.fi/)
+* Partly available in Puhti: `/appl/data/geo/sentinel`
+* Covering Finland
+* [Sentinel-2 image index mosaics](https://ckan.ymparisto.fi/dataset/sentinel-2-image-index-mosaics-s2ind-sentinel-2-kuvamosaiikit-s2ind) 
+* [Sentinel-1 SAR-image mosaics](https://ckan.ymparisto.fi/dataset/sentinel-1-sar-image-mosaic-s1sar-sentinel-1-sar-kuvamosaiikki-s1sar)
+* Provided by [SYKE](https://www.syke.fi/en-US) and [FMI](https://en.ilmatieteenlaitos.fi/)
 
-=== "Google Cloud Storage"
+[**Google Cloud Storage**](https://cloud.google.com)
 
-    [Google Cloud Storage](https://cloud.google.com)
+* [Sentinel 2: L1C](https://cloud.google.com/storage/docs/public-datasets/sentinel-2)
+* [Landsat: Collection 1](https://cloud.google.com/storage/docs/public-datasets/landsat)
+* [FORCE](../../../apps/force.md) can download directly from here
 
-    * [Sentinel 2: L1C](https://cloud.google.com/storage/docs/public-datasets/sentinel-2)
-    * [Landsat: Collection 1](https://cloud.google.com/storage/docs/public-datasets/landsat)
-    * [FORCE](../../../apps/force.md) can download directly from here
+[**Terramonitor**](https://www.terramonitor.com/services/analysis-ready)
 
-=== "Amazon Web Service (AWS) *"
+* Pre-prosessed, analysis ready Sentinel-2 data
+* Data from Finland available between 2018-2020
+* [Contact Terramonitor about pricing](https://www.terramonitor.com/services/analysis-ready#contact)
 
-    * Worldwide
-    * [Sentinel-2 bucket](https://registry.opendata.aws/sentinel-2/)
-    * [Sentinel-1 bucket](https://registry.opendata.aws/sentinel-1/)
-    * Requester pays the download costs
-    * Managed by [Sinergise](http://www.sinergise.com/) 
+[**Sentinelhub**](https://www.sentinel-hub.com/explore/)
 
-=== "DIAS *" 
-
-    * Data and Information Access Services
-    * Multiple sites exits:
-        * [ONDA](https://www.onda-dias.eu/cms/)
-        * [CREODIAS](https://creodias.eu/)
-        * [MUNDI](https://mundiwebservices.com/)
-    * Costs
-    * Processing platform with the data, no download needed
-    * Data from DIAS objectstorage can easily be transferred to Allas (link to instructions here)
-    
-=== "Microsoft planetary computer *"
-
-    * [Data](https://planetarycomputer.microsoft.com/catalog) and processing platform ([Hub](https://planetarycomputer.microsoft.com/compute))
-    * Currently available in preview, [request access](https://planetarycomputer.microsoft.com/account/request)
-  
-=== "Terramonitor"
-
-    [Terramonitor](https://www.terramonitor.com/services/analysis-ready)
-
-    * Pre-prosessed, analysis ready Sentinel-2 data
-    * Data from Finland available between 2018-2020
-    * [Contact Terramonitor about pricing](https://www.terramonitor.com/services/analysis-ready#contact)
-
-=== "Sentinelhub *" 
-
-    [Sentinelhub](https://www.sentinel-hub.com/explore/)
-
-    * Worldwide
-    * Lots of different EO data sets:
-        * [Sentinel-2](https://collections.sentinel-hub.com/sentinel-2-l2a/) 
-        * [Sentinel-1](https://collections.sentinel-hub.com/sentinel-1-grd/)
-    * Requires [subscription](https://www.sentinel-hub.com/pricing/)
-
-=== "Google Earth Engine * "
-
-    [Google Earh Engine](https://earthengine.google.com/) is a platform for planetary-scale Earth observation data and analysis
-
-    * Usage:
-        * [Registration](https://signup.earthengine.google.com/)
-        * [From a browser](https://code.earthengine.google.com/)
-        * Python: 
-            * [API](https://developers.google.com/earth-engine/guides/python_install)
-            * [geemap-library](https://geemap.org/)
-        * [R-package](https://github.com/r-spatial/rgee)
-    * Pros:
-        * Good coverage of analysis ready data worldwide
-            * [Sentinel-2](https://developers.google.com/earth-engine/datasets/catalog/sentinel-2/)
-            * [Sentinel-1](https://developers.google.com/earth-engine/datasets/catalog/COPERNICUS_S1_GRD)
-        * (Rather easy to use, nice tool to test new ideas)
-        * Lots of case studies and tutorials:
-            * [GEE tutorials](https://developers.google.com/earth-engine/tutorials)
-            * [CSC GEE materials](https://www.csc.fi/fi/web/training/-/introduction-to-using-google-earth-engine)
-    
-    * Cons:
-        * Uncertain long-term availability
-        * Google Cloud Storage might be needed to export large datasets
-        * Not always suitable for small-scale analysis
-
-
-> If you plan to work with Sentinel-2 and Landsat 8, check also the 30 m harmonized Landsat 8 and Sentinel-2 product at [NASA](https://hls.gsfc.nasa.gov/).
+* Worldwide
+* Datasets, among others:
+    * [Sentinel-2](https://collections.sentinel-hub.com/sentinel-2-l2a/) 
+    * [Sentinel-1](https://collections.sentinel-hub.com/sentinel-1-grd/)
+* Requires [subscription](https://www.sentinel-hub.com/pricing/)
 
 > Many data providers and companies also provide a Spatio Temporal Asset Catalog (STAC) of their and other datasets. These catalogues help in finding available data based on time and location with the possibility for multiple additional filters, such as cloud cover and resolution. The [STAC Index](https://www.stacindex.org/) provides a nice overview of available catalogues from all over the world. The STAC Index page also includes many resources for learning and utilizing STAC.  
 
@@ -322,7 +295,7 @@ GUIs of software available on Puhti can be accessed as an interactive job via th
 
 [**R**](../../../apps/r-env-for-gis.md)
 
-* All R packages are provided in `r-env` module, inlcuding many that can be used for EO data processing, such as terra, CAST, raster, spacetime.
+* All R packages are provided in `r-env` module, including many that can be used for EO data processing, such as terra, CAST, raster, spacetime.
 
 [**Sen2Cor**](../../../apps/sen2cor.md)
 
