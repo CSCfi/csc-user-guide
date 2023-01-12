@@ -19,7 +19,7 @@ Load the module:
 module load ames-stereo
 ```
 
-You can test Ames Stereo Pipeline loaded successfully with
+You can test that Ames Stereo Pipeline is loaded successfully with
 
 ```
 stereo -help
