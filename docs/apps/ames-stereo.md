@@ -9,15 +9,15 @@ tags:
 
 ## Usage
 
-### Using Ames Stereo Pipeline
-
 Ames Stereo Pipeline is included in following modules:
 
 * ames-stereo: 3.2.0
 
-Load the modules:
+Load the module:
 
-`module load ames-stereo` 
+```
+module load ames-stereo
+```
 
 You can test Ames Stereo Pipeline loaded successfully with
 
@@ -25,10 +25,12 @@ You can test Ames Stereo Pipeline loaded successfully with
 stereo -help
 ```
 
-Running `parallel_stereo` can be very computationally expensive, so it should be run via batch jobs system.
+Running `parallel_stereo` can be very computationally expensive, so it should be run via batch jobs system. The software developers recommend reserving full nodes for Ames Stereo Pipeline.
 
 
-#### Exemple batch job
+
+
+### Exemple batch job
 
 ```
 #!/bin/bash
