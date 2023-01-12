@@ -213,7 +213,7 @@ What to consider:
 * Smaller amounts can also be stored short term on the computing nodes ```$LOCAL_SCRATCH``` during processing
 * In Allas, data is stored in so-called buckets, and can be accessed or transferred as part of the computing job, see also CSC's webinar on [Allas for spatial data](https://www.youtube.com/watch?v=mnFXe2-dJ_g).
 
-!!! default "Other storage solutions at CSC"
+!!! default "Longer term storage solutions at CSC"
 
     For longer term storage and publication, CSC offers a range of other services. See also CSC's general [guide on stroing data](../../../data/datasets/hosting-datasets-at-CSC.md) and CSC's [guide on how to choose a suitable storage solution](../../../data/datasets/hosting-datasets-at-CSC.md).
 
@@ -246,6 +246,8 @@ What to consider when chosing software:
 To Puhti, only Linux based software can be installed. Most of the installed geospatial tools are open source.
 
 GUIs of software available on Puhti can be accessed as an interactive job via the [Puhti web interface](https://puhti.csc.fi) or [X11 connection](../../../computing/connecting.md). These graphical interfaces are mainly for visualization and testing purposes, the actual efficient processing should be done within batch jobs.
+
+
 
 [**FORCE**](../../../apps/force.md) - Framework for Operational Radiometric Correction for Environmental monitoring
 
