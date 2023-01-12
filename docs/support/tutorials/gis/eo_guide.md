@@ -9,12 +9,12 @@ This guide aims to help users to work with Earth Observation (EO) data using CSC
 * Same sensor for different parts of the world
 * Time series 
 
-**EO data in raster format**
+!!! default "Raster data format"
 
-* Usually several bands, stored one file per band or several bands in one file (multiband files).
-* Grid of pixel values
-* Example of continuous data
-* Georeference: coordinate for the top left pixel , the size of each pixel in the X direction, the size of each pixel in the Y direction, and the amount (if any) by which the product is rotated.
+    * EO data often several bands, stored one file per band or several bands in one file (multiband files).
+    * Grid of pixel values
+    * Example of continuous data
+    * Georeference: coordinate for the top left pixel , the size of each pixel in the X direction, the size of each pixel in the Y direction, and the amount (if any) by which the product is rotated.
 
 
 ## What data do I need?
