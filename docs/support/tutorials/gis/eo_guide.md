@@ -1,6 +1,6 @@
 # Earth Observation guide
 
-This guide aims to help users who wish to work with Earth Observation (EO) data using CSC's computing resources. The purpose of this guide is to help you find the right data and tools for your raster data based EO tasks. If you are interested in the funamentals of EO, please check the resources at the bottom of the page first.
+This guide aims to help users to work with Earth Observation (EO) data using CSC's computing resources. The purpose of this guide is to help you find the right data and tools for your raster data based EO tasks. If you are interested in the fundamentals of EO, please check the resources at the bottom of the page.
 
 **What are the benefits of using EO data**
 
