@@ -69,7 +69,7 @@ The best place to get the data depends on your needs: Do you want to download th
     
 **[Amazon Web Service (AWS) open EO data](https://registry.opendata.aws/?search=tags:gis,earth%20observation,events,mapping,meteorological,environmental,transportation)** provides many different worldwide datasets, including Landsat and Sentinel. Some of the data can be downloaded on "requestor pays" basis. The situation is changing all the time, currently [Sentinel-2 L2A Cloud-optimized Geotiffs](https://registry.opendata.aws/sentinel-2-l2a-cogs/) are available for free. AWS also offers the possibility for virtual machines.
 
-**Data and Information Access Services (DIAS)** (for example [ONDA](https://www.onda-dias.eu/cms/), [CREODIAS](https://creodias.eu/) or [MUNDI](https://mundiwebservices.com/)) are non-free processing platforms with data access. Data from DIAS objectstorage can also be transferred to Allas.
+**[Data and Information Access Services (DIAS)](https://www.copernicus.eu/en/access-data/dias)** are paid processing platforms with direct data access. The services provide primarily Copernicus data.
     
 **[Microsoft planetary computer](https://planetarycomputer.microsoft.com)** is a processing platform with [data access](https://planetarycomputer.microsoft.com/catalog). It is currently available in preview, [request access](https://planetarycomputer.microsoft.com/account/request).
 
