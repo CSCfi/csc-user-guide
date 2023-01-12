@@ -7,7 +7,7 @@
 * [Managing data on Puhti and Mahti scratch disks](clean-up-data.md)
 * [Conda best practices](conda.md)
 * [Using NoMachine](nomachine-usage.md)
-* [CSC Quick reference (pdf)](../../img/csc-quick-reference.pdf)
+* [CSC Quick reference (pdf)](../img/csc-quick-reference/csc-quick-reference.pdf)
 * [How to run existing containers in Puhti](../../computing/containers/run-existing.md)
 * [Linux basics for CSC](env-guide/index.md)
 * [Interactive and batch job hands-on in Puhti](cmdline-handson.md)
