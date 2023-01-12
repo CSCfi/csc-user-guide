@@ -1,0 +1,124 @@
+% \documentclass[twocolumn]{article}
+\documentclass{article}
+\usepackage{parallel,enumitem}
+\usepackage[utf8]{inputenc}
+\usepackage[a4paper, total={7in, 11in}]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{helvet}
+\usepackage[colorlinks=true,
+            linkcolor=red,
+            urlcolor=blue,
+            citecolor=gray]{hyperref}
+
+\title{CSC Quick Reference\vspace{-2em}}
+% \date{January 2023}
+\date{}
+\pagenumbering{gobble}
+\begin{document}
+
+\maketitle
+
+\begin{Parallel}{0.48\textwidth}{0.48\textwidth}
+\ParallelLText{\noindent
+\section*{Unix commands}
+\begin{itemize}
+    \item \textbf{ls} - list directory contents
+    \item \textbf{cp} - copy a file
+    \item \textbf{mv} - move or rename a file
+    \item \textbf{rm} - delete a file 
+    \item \textbf{cd} - change the current directory
+    \item \textbf{pwd} - print name of the current directory
+    \item \textbf{mkdir} - create a directory
+    \item \textbf{rmdir} - delete a directory
+    \item \textbf{chmod} - change file rights
+    \begin{itemize}
+    \item owner/group/everybody
+    \item read(4)/write(2)/execute(1)
+    \end{itemize}
+    \item \textbf{chgrp} - change file/folder owner
+    \item \textbf{less} - see text file (exit with q)
+    \item \textbf{cat} - see file content
+    \item \textbf{head} - list ten first lines of the file 
+    \item \textbf{tail} -100 - show the last 100 lines
+    \item \textbf{grep} - find rows containing a string
+    \item \textbf{eog} - open an image-file
+    \item \textbf{evince} - open a pdf-document
+    \item \textbf{echo} - print text
+    \item \textbf{exit} - quit the session
+    \item \textbf{history} - list all commands given previously 
+    \item \textbf{ls -la > file} - output of a command to a file
+    \item \textbf{ls -la >> file} – append output of a command \newline to a file
+    \item \textbf{ls -la | grep "nobel"} - Chaining (piping) \newline multiple commands
+    \item \textbf{zip} - compress 
+    \item \textbf{unzip} - uncompress
+    \\
+    \\
+\end{itemize}
+\section*{File transfer}
+\begin{itemize}
+    \item \textbf{scp} - copy a file from one computer to another
+    \item \textbf{wget, curl} – get a file from HTTP /FTP
+    \item \textbf{rsync} – get/put a file from/to rsync server
+    \item \textbf{du -hs *} - disk space used by directories (see also csc-workspaces)
+    \item \textbf{allas-conf} - initialize access to Allas 
+    \item \textbf{a-put file} - copies file or folder to Allas 	
+    \item \textbf{a-get object} - copy an object from Allas to current directory 
+    \item \textbf{a-list} - shows content of your Allas archive
+    \item \textbf{a-publish} - makes file available via www
+    \\
+    \\
+\end{itemize}
+}
+\ParallelRText{\noindent
+\section*{CSC modules}
+\begin{itemize}[itemsep=1ex,leftmargin=0cm,rightmargin=.52\textwidth]
+    \item \textbf{module load} - initialize the environment of an application
+    \item \textbf{module spider} - list available modules
+    \item \textbf{module list} - list loaded applications
+    \item \textbf{module purge} - remove application environments
+    \\
+    \\
+\end{itemize}
+\section*{CSC batch jobs}
+\begin{itemize}[itemsep=1ex,leftmargin=0cm,rightmargin=.52\textwidth]
+    \item \textbf{sbatch} - submit a job
+    \item \textbf{squeue} - see the job status in the queue
+    \item \textbf{scancel} - cancel a job
+    \item \textbf{seff} - info about completed jobs
+    \item \textbf{sacct} - info about completed jobs
+    \\
+    \\
+\end{itemize}
+\section*{CSC Servers}
+\begin{itemize}[itemsep=1ex,leftmargin=0cm,rightmargin=.52\textwidth]
+    \item \textbf{puhti.csc.fi}
+    \item \textbf{mahti.csc.fi}
+    \item \textbf{Puhti Web Interface} - \href{www.puhti.csc.fi}{www.puhti.csc.fi}
+    \\
+    \\
+\end{itemize}
+\section*{Help + CSC specific}
+\begin{itemize}[itemsep=1ex,leftmargin=0cm,rightmargin=.52\textwidth]
+    \item ServiceDesk: \href{mailto:servicedesk@csc.fi}{servicedesk@csc.fi}  
+    \item Accounts, projects, forgotten password: \href{https://my.csc.fi}{https://my.csc.fi} on commandline also csc-projects and csc-workspaces
+    \item \textbf{csc-env} - check/reset Puhti/Mahti environment
+    \item What is available: \href{https://research.csc.fi/}{https://research.csc.fi/}
+    \item How to use them: \href{https://docs.csc.fi/}{https://docs.csc.fi/}
+    \item \href{https://docs.csc.fi/FAQ}{https://docs.csc.fi/FAQ}
+    \item \href{https://docs.csc.fi/tutorials/}{https://docs.csc.fi/tutorials/}
+    \\
+    \\
+\end{itemize}
+}
+\ParallelPar
+\end{Parallel}
+
+
+
+
+
+% \sloppy% Just for this example
+% \lipsum[1-20]
+\textcolor{lightgray}{Updated 2023-01-11}
+\end{document}
