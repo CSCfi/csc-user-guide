@@ -21,30 +21,12 @@ The purpose of this guide is to help you find the right data and tools for your 
 
 ## What data do I need?
 
-Consider:
+What to consider when chosing data:
 
 * Sensor
-    * Optical, Multispectal
-        * [Landsat](https://landsat.gsfc.nasa.gov/)
-        * [MODIS](https://modis.gsfc.nasa.gov/)
-        * [Copernicus Sentinel-2](https://sentinel.esa.int/web/sentinel/missions/sentinel-2)
-        * [Pleiades](https://pleiades.cnes.fr/en/PLEIADES/index.htm)
-        * [Spot](https://www.intelligence-airbusds.com/imagery/constellation/spot/)
-        * [Planet](https://www.planet.com/products/planet-imagery/)
-        * [WorldView](http://worldview3.digitalglobe.com/)
-        * [Proba-V](https://earth.esa.int/eogateway/catalog/proba-v-1km-333m-and-100m-products)
-        * ...
-    * RADAR (Radio Detection and Ranging) -> SAR (Synthetic Aperture Radar)
-        * [Copernicus Sentinel 1](https://sentinel.esa.int/web/sentinel/missions/sentinel-1)
-        * [Radarsat](https://www.asc-csa.gc.ca/eng/satellites/radarsat/)
-        * [TanDEM-X](https://www.dlr.de/content/en/missions/tandem-x.html)
-        * [TerraSAR-X](https://www.dlr.de/content/en/missions/terrasar-x.html)
-        * [ICEYE](https://www.iceye.com/)
-        * ...
-    * LiDAR (Light Detection and Ranging)
-        * [ICESat](https://icesat-2.gsfc.nasa.gov/)
-        * [GEDI](https://gedi.umd.edu/)
-        * ...
+    * Optical, Multispectal: [Landsat](https://landsat.gsfc.nasa.gov/), [MODIS](https://modis.gsfc.nasa.gov/), [Copernicus Sentinel-2](https://sentinel.esa.int/web/sentinel/missions/sentinel-2),[Pleiades](https://pleiades.cnes.fr/en/PLEIADES/index.htm), [Spot](https://www.intelligence-airbusds.com/imagery/constellation/spot/), [Planet](https://www.planet.com/products/planet-imagery/), [WorldView](http://worldview3.digitalglobe.com/), [Proba-V](https://earth.esa.int/eogateway/catalog/proba-v-1km-333m-and-100m-products), ...
+    * RADAR (Radio Detection and Ranging) -> SAR (Synthetic Aperture Radar): [Copernicus Sentinel 1](https://sentinel.esa.int/web/sentinel/missions/sentinel-1), [Radarsat](https://www.asc-csa.gc.ca/eng/satellites/radarsat/), [TanDEM-X](https://www.dlr.de/content/en/missions/tandem-x.html), [TerraSAR-X](https://www.dlr.de/content/en/missions/terrasar-x.html), [ICEYE](https://www.iceye.com/),...
+    * LiDAR (Light Detection and Ranging): [ICESat](https://icesat-2.gsfc.nasa.gov/), [GEDI](https://gedi.umd.edu/), ...
     * Database of all current and future EO missions and instrument information can be found in the [CEOS EO handbook database](http://database.eohandbook.com/database/instrumenttable.aspx)
 * Resolution
     * Temporal: when and how often a certain area is visited
@@ -195,7 +177,7 @@ Other services that provide raw and/or preprocessed data for download only:
 
 ## Where can I store the data?
 
-What to consider:
+What to consider when chosing a storage location:
 
 * Raw vs intermediate vs final result data
     * What needs to be stored?
@@ -208,10 +190,7 @@ What to consider:
 * Maintenance needs?
 * Metadata needs?
 
-* In general, data can be stored on the [supercomputer](../../../computing/disk.md) or in the object storage Allas ([Allas overview](https://research.csc.fi/-/allas), [Allas guide](../../../data/Allas/index.md)) 
-* On the supercomputer, data can be stored on ```/scratch/project_xxx``` with xxx being your project number
-* Smaller amounts can also be stored short term on the computing nodes ```$LOCAL_SCRATCH``` during processing
-* In Allas, data is stored in so-called buckets, and can be accessed or transferred as part of the computing job, see also CSC's webinar on [Allas for spatial data](https://www.youtube.com/watch?v=mnFXe2-dJ_g).
+In general, data can be stored on the [supercomputer disk](../../../computing/disk.md) or in the object storage Allas ([Allas overview](https://research.csc.fi/-/allas), [Allas guide](../../../data/Allas/index.md)). On the supercomputer, data can be stored on ```/scratch/project_xxx``` with xxx being your project number. Smaller amounts can also be stored short term on the computing nodes ```$LOCAL_SCRATCH``` during processing. In Allas, data is stored in so-called buckets, and can be accessed or transferred as part of the computing job, see also CSC's webinar on [Allas for spatial data](https://www.youtube.com/watch?v=mnFXe2-dJ_g).
 
 !!! default "Longer term storage solutions at CSC"
 
@@ -246,7 +225,6 @@ What to consider when chosing software:
 To Puhti, only Linux based software can be installed. Most of the installed geospatial tools are open source.
 
 GUIs of software available on Puhti can be accessed as an interactive job via the [Puhti web interface](https://puhti.csc.fi) or [X11 connection](../../../computing/connecting.md). These graphical interfaces are mainly for visualization and testing purposes, the actual efficient processing should be done within batch jobs.
-
 
 
 [**FORCE**](../../../apps/force.md) - Framework for Operational Radiometric Correction for Environmental monitoring
