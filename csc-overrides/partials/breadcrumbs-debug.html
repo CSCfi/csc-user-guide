@@ -7,12 +7,17 @@
   background-color: black;
   color: white;
 ">
-    <p style="text-decoration: underline;">{{ page }}</p>
-    {% if parent_url in sections %}
-      <p>parent_url: {{ parent_url }}</p>
-      <p>sections[parent_url]: {{ sections[parent_url] }}</p>
-    {% endif %}
-    {% for anc in page.ancestors %}
-        <p>ancestor {{ loop.index }}: {{ anc }}</p>
-    {% endfor %}
+  <p style="text-decoration: underline;">{{ page }}</p>
+  {% if parent_url in sections %}
+    <p>parent_url: {{ parent_url }}</p>
+    <p>sections[parent_url]: {{ sections[parent_url] }}</p>
+  {% endif %}
+  {% if page.ancestors %}
+    <p>ancestors:</p>
+    <ul>
+      {% for anc in page.ancestors %}
+        <li>{{ anc }}</li>
+      {% endfor %}
+    </ul>
+  {% endif %}
 </div>
