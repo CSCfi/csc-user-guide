@@ -2,14 +2,7 @@
 
 This guide aims to help users who wish to work with Earth Observation (EO) data using CSC's computing resources.
 
-The purpose of this guide is to help you find the right data and tools for your raster data based EO tasks.
-
-If you are interested in the fundamentals of EO, take a look at these excellent resources:
-
-* [Fundamentals of remote sensing tutorial](https://www.nrcan.gc.ca/maps-tools-and-publications/satellite-imagery-and-air-photos/tutorial-fundamentals-remote-sensing/9309) by Canada Centre for Mapping and Earth Observation , Natural Resources Canada; an "interactive module is intended as an overview at a senior high school or early university level and touches on physics, environmental sciences, mathematics, computer sciences and geography."
-* [Echoes in space - Introduction to RADAR remote sensing](https://eo-college.org/courses/echoes-in-space/) by the European Space Agency; "a detailed insight into the history of Radar technology, including all the basics that are needed to understand how electromagnetic waves work and a unique hands-on experience to work with Radar data in diverse application scenarios."
-* [Newcomers guide to Earth Observation](https://business.esa.int/newcomers-earth-observation-guide) by the European Space Agency, "a  guide to help non-experts in providing a starting point in the decision process for selecting an appropriate Earth Observation (EO) solution."
-
+The purpose of this guide is to help you find the right data and tools for your raster data based EO tasks. If you are interested in the funamentals of EO, please check the resources at the bottom of the page first.
 
 **EO data benefits**
 
@@ -317,6 +310,13 @@ One example of the advanced usage of EO data is for machine learning. If you are
  
 ## Where can I get help?
 
+If you are interested in using CSC services for your EO research, please make yourself familiar with the services:
+
+* Visit a course, seminar or workshop; you can find all upcoming and past events in [the CSC training calendar](https://www.csc.fi/en/training#training-calendar)
+    * For getting familiar and started with CSCs environment, check out the [self learning CSC computing environment material](https://ssl.eventilla.com/csccompenvselflearn)
+* Find information about services and how to use them in [CSC's documentation pages](../../../index.md)
+* For information on geocomputing in CSC environment, checkout the collection of CSC's [geocomputing learning materials](https://research.csc.fi/gis-learning-materials) and [geocomputing examples on github](https://github.com/csc-training/geocomputing)
+
 You can find all the ways that you can get help from CSC specialists via our [contact page](../../contact.md).
 We are happy to help with technical problems around our services and are open for suggestions on which Software should be installed to Puhti, or what kind of courses should be offered or materials/examples should be prepared. 
 
@@ -331,3 +331,11 @@ This guide was developed in cooperation with the Finnish Environment Institute [
 * [Awesome Geospatial](https://github.com/sacridini/Awesome-Geospatial)
 * [Awesome EO code](https://github.com/acgeospatial/awesome-earthobservation-code)
 * [EO handbook database](http://database.eohandbook.com/)
+* [CSC geocomputing seminar materials](https://research.csc.fi/geocomputing-seminars), especially materials of the 2022 EO-workshop
+
+
+> If you are interested in the fundamentals of EO, take a look at these excellent resources:
+
+* [Fundamentals of remote sensing tutorial](https://www.nrcan.gc.ca/maps-tools-and-publications/satellite-imagery-and-air-photos/tutorial-fundamentals-remote-sensing/9309) by Canada Centre for Mapping and Earth Observation , Natural Resources Canada; an "interactive module is intended as an overview at a senior high school or early university level and touches on physics, environmental sciences, mathematics, computer sciences and geography."
+* [Echoes in space - Introduction to RADAR remote sensing](https://eo-college.org/courses/echoes-in-space/) by the European Space Agency; "a detailed insight into the history of Radar technology, including all the basics that are needed to understand how electromagnetic waves work and a unique hands-on experience to work with Radar data in diverse application scenarios."
+* [Newcomers guide to Earth Observation](https://business.esa.int/newcomers-earth-observation-guide) by the European Space Agency, "a  guide to help non-experts in providing a starting point in the decision process for selecting an appropriate Earth Observation (EO) solution."
