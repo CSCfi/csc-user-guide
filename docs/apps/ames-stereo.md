@@ -9,7 +9,7 @@ tags:
 
 ## Usage
 
-Ames Stereo Pipeline is included in following modules:
+Ames Stereo Pipeline is included in the following module:
 
 * ames-stereo: 3.2.0
 
