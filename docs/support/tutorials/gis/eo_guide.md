@@ -68,108 +68,36 @@ Below is a (uncomplete) set of services, that provide download and processing ca
     * Data can be directly read from Allas without download for some cases, see eg [GDAL docs](../../../apps/gdal.md) and [Allas Python examples](https://github.com/csc-training/geocomputing/blob/master/python/allas/working_with_allas_from_Python_S3.py)
         
     
-**Amazon Web Service (AWS)**
+**Amazon Web Service (AWS)** provides worldwide data from, among others, [Sentinel-2](https://registry.opendata.aws/sentinel-2/) and [Sentinel-1 bucket](https://registry.opendata.aws/sentinel-1/), which is managed by [Sinergise](http://www.sinergise.com/). The download costs are on a "requestor pays" basis. AWS also offers the possibility for virtual machines.
 
-* Worldwide
-* [Sentinel-2 bucket](https://registry.opendata.aws/sentinel-2/)
-* [Sentinel-1 bucket](https://registry.opendata.aws/sentinel-1/)
-* Requester pays the download costs
-* Managed by [Sinergise](http://www.sinergise.com/) 
-* Possibility for virtual machines.
-
-**Data and Information Access Services (DIAS)**
-
-* Multiple sites exits:
-    * [ONDA](https://www.onda-dias.eu/cms/)
-    * [CREODIAS](https://creodias.eu/)
-    * [MUNDI](https://mundiwebservices.com/)
-* Costs
-* Processing platform with the data, no download needed
-* Data from DIAS objectstorage can easily be transferred to Allas (link to instructions here)
+**Data and Information Access Services (DIAS)** (for example [ONDA](https://www.onda-dias.eu/cms/), [CREODIAS](https://creodias.eu/) or [MUNDI](https://mundiwebservices.com/)) are non-free processing platforms with data access. Data from DIAS objectstorage can also be transferred to Allas.
     
-**[Microsoft planetary computer](https://planetarycomputer.microsoft.com)**
+**[Microsoft planetary computer](https://planetarycomputer.microsoft.com)** is a processing platform with [data access](https://planetarycomputer.microsoft.com/catalog). It is currently available in preview, [request access](https://planetarycomputer.microsoft.com/account/request).
 
-* [Data](https://planetarycomputer.microsoft.com/catalog) and processing platform ([Hub](https://planetarycomputer.microsoft.com/compute))
-* Currently available in preview, [request access](https://planetarycomputer.microsoft.com/account/request)
-
-**[Google Earth Engine](https://earthengine.google.com/)**
-
-* [Registration](https://signup.earthengine.google.com/)
-* [Access via browser](https://code.earthengine.google.com/)
-* Analysis ready data worldwide
-    * [Sentinel-2](https://developers.google.com/earth-engine/datasets/catalog/sentinel-2/)
-    * [Sentinel-1](https://developers.google.com/earth-engine/datasets/catalog/COPERNICUS_S1_GRD)
-* Python: 
-    * [API](https://developers.google.com/earth-engine/guides/python_install)
-    * [geemap-library](https://geemap.org/)
-* [R-package](https://github.com/r-spatial/rgee)
-* [GEE tutorials](https://developers.google.com/earth-engine/tutorials)
-* [CSC GEE materials](https://www.csc.fi/fi/web/training/-/introduction-to-using-google-earth-engine)
-* Uncertain long-term availability
-* Google Cloud Storage might be needed to export large datasets
+**[Google Earth Engine](https://earthengine.google.com/)** is a processing platform, which requires [registration](https://signup.earthengine.google.com/). It can be accessed via browser and has worldwide analysis ready data available of, among others [Sentinel-2](https://developers.google.com/earth-engine/datasets/catalog/sentinel-2/) and [Sentinel-1](https://developers.google.com/earth-engine/datasets/catalog/COPERNICUS_S1_GRD). In general JavaScript is used to use the platform, but also [Python](https://developers.google.com/earth-engine/guides/python_install) and [R](https://github.com/r-spatial/rgee) support exists. Check out [CSC's GEE course materials](https://www.csc.fi/fi/web/training/-/introduction-to-using-google-earth-engine) and [GEE's own tutorials](https://developers.google.com/earth-engine/tutorials). Note that Google Cloud Storage might be needed to export large datasets.
 
 Other services that provide raw and/or preprocessed data for download only: 
 
-[**European Space Agency's SciHub**](https://scihub.copernicus.eu/dhus/#/home)
+[**European Space Agency's SciHub**](https://scihub.copernicus.eu/dhus/#/home) provides worldwide Sentinel 2 L1C and L2A and Sentinel 1 SLC, GRD , RAW and OCN products. It requires free [registration](https://scihub.copernicus.eu/dhus/#/self-registration) and many of the data is in "Long term archive" and cannot be downloaded directly, but needs to be requested.
 
-* Needs [registration](https://scihub.copernicus.eu/dhus/#/self-registration) 
-* Sentinel 2 L1C and L2A products
-* Sentinel 1 SLC, GRD , RAW and OCN products
-* Worldwide
-* Note: most of the data is in "Long term archive" and cannot be downloaded directly, but needs to be requested
-
-[**FinHub**](https://finhub.nsdc.fmi.fi/#/home)
-
-* Finnish national mirror of SciHub; others exist.
-* Needs [registration](https://nsdc.fmi.fi/services/service_finhub_registration)
-* Sentinel 2 L1C product
-* Sentinel 1 SLC, GRD and OCN products
-* Only Finland (and Baltics)
+[**FinHub**](https://finhub.nsdc.fmi.fi/#/home) is the Finnish national mirror of SciHub; others national mirrors also exist. It covers Finland and the Baltics and offers Sentinel 2 L1C and Sentinel 1 SLC, GRD and OCN products and requires own registration.
 
 !!! default  ""  
     **Both of the above** provide a similar Graphical User Interface (GUI) and Application Programming Interface (API) to access the data. Other tools for downloading the data from open access hubs: [sentinelsat](https://sentinelsat.readthedocs.io/en/stable/) with [examples for SciHub and FinHub](https://github.com/csc-training/geocomputing/blob/master/python/sentinel/sentinelsat_download_from_finhub_and_scihub.py), ...
 
 
-[**USGS EarthExplorer**](https://earthexplorer.usgs.gov/)
-
-* Needs [registration](https://ers.cr.usgs.gov/register)
-* Lots of different US related datasets 
-* Main: Landsat worldwide
-* GUI in web interface and bulk download
+[**USGS EarthExplorer**](https://earthexplorer.usgs.gov/) provides lots of different US related datasets, also worldwide Landsat mission datasets. It requires free [registration](https://ers.cr.usgs.gov/register). Data can be browsed and downloaded via GUI in web interface and bulk download.
     
-[**NASA Earthdata**](https://search.earthdata.nasa.gov)
-    
-* Needs [registration](https://urs.earthdata.nasa.gov/users/new)
-* Harmonized Landsat 8 and Sentinel-2 dataset and many more
-* Graphical web interface and bulk download
+[**NASA Earthdata**](https://search.earthdata.nasa.gov) provides among many others harmonized Landsat 8 and Sentinel-2 dataset. It requires [registration](https://urs.earthdata.nasa.gov/users/new) and download is possible via Graphical web interface and bulk download.
 
-**Finnish Sentinel image mosaics**
+**Finnish Sentinel image mosaics** are provided by  [SYKE](https://www.syke.fi/en-US) and [FMI](https://en.ilmatieteenlaitos.fi/) and partly available in Puhti: `/appl/data/geo/sentinel`. Among others, [Sentinel-2 image index mosaics](https://ckan.ymparisto.fi/dataset/sentinel-2-image-index-mosaics-s2ind-sentinel-2-kuvamosaiikit-s2ind)  and [Sentinel-1 SAR-image mosaics](https://ckan.ymparisto.fi/dataset/sentinel-1-sar-image-mosaic-s1sar-sentinel-1-sar-kuvamosaiikki-s1sar) are available.
 
-* Partly available in Puhti: `/appl/data/geo/sentinel`
-* Covering Finland
-* [Sentinel-2 image index mosaics](https://ckan.ymparisto.fi/dataset/sentinel-2-image-index-mosaics-s2ind-sentinel-2-kuvamosaiikit-s2ind) 
-* [Sentinel-1 SAR-image mosaics](https://ckan.ymparisto.fi/dataset/sentinel-1-sar-image-mosaic-s1sar-sentinel-1-sar-kuvamosaiikki-s1sar)
-* Provided by [SYKE](https://www.syke.fi/en-US) and [FMI](https://en.ilmatieteenlaitos.fi/)
+[**Google Cloud Storage**](https://cloud.google.com) provides [Sentinel 2: L1C](https://cloud.google.com/storage/docs/public-datasets/sentinel-2)
+ and [Landsat: Collection 1](https://cloud.google.com/storage/docs/public-datasets/landsat). Data can be downloaded from here for example with [FORCE](../../../apps/force.md).
 
-[**Google Cloud Storage**](https://cloud.google.com)
+[**Terramonitor**](https://www.terramonitor.com/services/analysis-ready) provides pre-prosessed, analysis ready Sentinel-2 data from Finland available between 2018-2020.[Contact Terramonitor about pricing](https://www.terramonitor.com/services/analysis-ready#contact)
 
-* [Sentinel 2: L1C](https://cloud.google.com/storage/docs/public-datasets/sentinel-2)
-* [Landsat: Collection 1](https://cloud.google.com/storage/docs/public-datasets/landsat)
-* [FORCE](../../../apps/force.md) can download directly from here
-
-[**Terramonitor**](https://www.terramonitor.com/services/analysis-ready)
-
-* Pre-prosessed, analysis ready Sentinel-2 data
-* Data from Finland available between 2018-2020
-* [Contact Terramonitor about pricing](https://www.terramonitor.com/services/analysis-ready#contact)
-
-[**Sentinelhub**](https://www.sentinel-hub.com/explore/)
-
-* Worldwide
-* Datasets, among others:
-    * [Sentinel-2](https://collections.sentinel-hub.com/sentinel-2-l2a/) 
-    * [Sentinel-1](https://collections.sentinel-hub.com/sentinel-1-grd/)
-* Requires [subscription](https://www.sentinel-hub.com/pricing/)
+[**Sentinelhub**](https://www.sentinel-hub.com/explore/) provides among others worldwide [Sentinel-2](https://collections.sentinel-hub.com/sentinel-2-l2a/) and [Sentinel-1](https://collections.sentinel-hub.com/sentinel-1-grd/) data. Requires [subscription](https://www.sentinel-hub.com/pricing/).
 
 !!! default "STAC"
 
