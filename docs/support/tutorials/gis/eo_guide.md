@@ -11,7 +11,7 @@ This guide aims to help users to work with Earth Observation (EO) data using CSC
 
 **EO data in raster format**
 
-* One file per band or multiband files
+* Usually several bands, stored one file per band or several bands in one file (multiband files).
 * Grid of pixel values
 * Example of continuous data
 * Georeference: coordinate for the top left pixel , the size of each pixel in the X direction, the size of each pixel in the Y direction, and the amount (if any) by which the product is rotated.
@@ -34,15 +34,15 @@ What to consider when chosing data:
 * Costs
     * Free: e.g. Landsat, MODIS, Sentinel, ...
     * Non free (but might be possible to get for free/less for research): e.g. WorldView, Spot, Planet, ...
-* Preprocessing needs
-    * Raw or pre-processed data
+* Preprocessing level
+    * Raw or pre-processed data, e.g. analysis ready data or mosaics
 * User experience and knowledge
     * RADAR/LiDAR require solid background knowledge for processing and interpretation
     * Optical data is more easily interpreted and processed (and more pre-processed data is available)
 
-!!! default "Harmonized products"
+!!! default "EO database"
 
-    If you plan to work with Sentinel-2 and Landsat 8, check also the 30 m harmonized Landsat 8 and Sentinel-2 product at [NASA](https://hls.gsfc.nasa.gov/).
+    Database of all current and future EO missions and instrument information can be found in the [CEOS EO handbook database](http://database.eohandbook.com/database/instrumenttable.aspx)
 
 ## Where can I find the data?
 
@@ -52,21 +52,21 @@ The best place to get the data depends on your needs: Do you want to download th
 
     For other geospatial vector and raster datasets, check out our [spatial dataset list on CSC research pages](https://research.csc.fi/open-gis-data#intdata3).
 
-Below is a (uncomplete) set of services, that provide download and processing capabilities:
+### Services providing EO data and processing capabilities
 
 **CSC services**
 
 * Puhti
     * [List of all available datasets in Puhti](../../../data/datasets/spatial-data-in-csc-computing-env.md)
     * Sentinel and Landsat mosaics of Finland provided by FMI and SYKE: ```/appl/data/geo/sentinel/s2```
-    * Every CSC user has **read** access to data stored on Puhti, no need to move it, unless you need to modify it
+    * Accessing data in Puhti requires CSC user account with a project where Puhti service is enabled. All Puhti users have **read** access to data stored on Puhti, no need to move it, unless you need to modify it.
 * Allas
-    * [List of all available geospatial datasets in Allas](../../../data/datasets/spatial-data-in-csc-computing-env.md)
-    * Sentinel-2 L2A data of Finland, where crops are grown during growing seasons of 2016-present, [usage instructions](https://a3s.fi/sentinel-readme/README.txt)
-    * Data can be directly read from Allas without download for some cases, see eg [GDAL docs](../../../apps/gdal.md) and [Allas Python examples](https://github.com/csc-training/geocomputing/blob/master/python/allas/working_with_allas_from_Python_S3.py)
+    * [List of all available geospatial datasets in Allas](../../../data/datasets/spatial-data-in-csc-computing-env.md#spatial-data-in-allas)
+    * Sentinel-2 L2A data of Finland, where crops are grown, during growing seasons of 2016-present, [usage instructions](https://a3s.fi/sentinel-readme/README.txt)
+    * [Data from Allas can be read directly with different tools](../../../apps/gdal.md#using-files-directly-from-allas).
         
     
-**Amazon Web Service (AWS)** provides worldwide data from, among others, [Sentinel-2](https://registry.opendata.aws/sentinel-2/) and [Sentinel-1 bucket](https://registry.opendata.aws/sentinel-1/), which is managed by [Sinergise](http://www.sinergise.com/). The download costs are on a "requestor pays" basis. AWS also offers the possibility for virtual machines.
+**[Amazon Web Service (AWS) open EO data](https://registry.opendata.aws/?search=tags:gis,earth%20observation,events,mapping,meteorological,environmental,transportation)** provides many different worldwide datasets, including Landsat and Sentinel. Some of the data can be downloaded on "requestor pays" basis. The situation is changing all the time, currently [Sentinel-2 L2A Cloud-optimized Geotiffs](https://registry.opendata.aws/sentinel-2-l2a-cogs/) are available for free. AWS also offers the possibility for virtual machines.
 
 **Data and Information Access Services (DIAS)** (for example [ONDA](https://www.onda-dias.eu/cms/), [CREODIAS](https://creodias.eu/) or [MUNDI](https://mundiwebservices.com/)) are non-free processing platforms with data access. Data from DIAS objectstorage can also be transferred to Allas.
     
