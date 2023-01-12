@@ -60,13 +60,17 @@ Consider:
     * RADAR/LiDAR require solid background knowledge for processing and interpretation
     * Optical data is more easily interpreted and processed (and more pre-processed data is available)
 
-> If you plan to work with Sentinel-2 and Landsat 8, check also the 30 m harmonized Landsat 8 and Sentinel-2 product at [NASA](https://hls.gsfc.nasa.gov/).
+!!! default "Harmonized products"
+
+    If you plan to work with Sentinel-2 and Landsat 8, check also the 30 m harmonized Landsat 8 and Sentinel-2 product at [NASA](https://hls.gsfc.nasa.gov/).
 
 ## Where can I find the data?
 
 The best place to get the data depends on your needs: Do you want to download the data into your own processing environment or do you need a processing environment close to the data? 
 
-> For other geospatial vector and raster datasets, check out our [spatial dataset list on CSC research pages](https://research.csc.fi/open-gis-data#intdata3).
+!!! default "Other geospatial datasets"
+
+    For other geospatial vector and raster datasets, check out our [spatial dataset list on CSC research pages](https://research.csc.fi/open-gis-data#intdata3).
 
 Below is a (uncomplete) set of services, that provide download and processing capabilities:
 
@@ -139,9 +143,9 @@ Other services that provide raw and/or preprocessed data for download only:
 * Sentinel 2 L1C product
 * Sentinel 1 SLC, GRD and OCN products
 * Only Finland (and Baltics)
-    
-> **Both of the above** provide a similar Graphical User Interface (GUI) and Application Programming Interface (API) to access the data.
-Other tools for downloading the data from open access hubs: [sentinelsat](https://sentinelsat.readthedocs.io/en/stable/) with [examples for SciHub and FinHub](https://github.com/csc-training/geocomputing/blob/master/python/sentinel/sentinelsat_download_from_finhub_and_scihub.py), ...
+
+!!! default  ""  
+    **Both of the above** provide a similar Graphical User Interface (GUI) and Application Programming Interface (API) to access the data. Other tools for downloading the data from open access hubs: [sentinelsat](https://sentinelsat.readthedocs.io/en/stable/) with [examples for SciHub and FinHub](https://github.com/csc-training/geocomputing/blob/master/python/sentinel/sentinelsat_download_from_finhub_and_scihub.py), ...
 
 
 [**USGS EarthExplorer**](https://earthexplorer.usgs.gov/)
@@ -185,7 +189,9 @@ Other tools for downloading the data from open access hubs: [sentinelsat](https:
     * [Sentinel-1](https://collections.sentinel-hub.com/sentinel-1-grd/)
 * Requires [subscription](https://www.sentinel-hub.com/pricing/)
 
-> Many data providers and companies also provide a Spatio Temporal Asset Catalog (STAC) of their and other datasets. These catalogues help in finding available data based on time and location with the possibility for multiple additional filters, such as cloud cover and resolution. The [STAC Index](https://www.stacindex.org/) provides a nice overview of available catalogues from all over the world. The STAC Index page also includes many resources for learning and utilizing STAC.  
+!!! default "STAC"
+
+    Many data providers and companies also provide a Spatio Temporal Asset Catalog (STAC) of their and other datasets. These catalogues help in finding available data based on time and location with the possibility for multiple additional filters, such as cloud cover and resolution. The [STAC Index](https://www.stacindex.org/) provides a nice overview of available catalogues from all over the world. The STAC Index page also includes many resources for learning and utilizing STAC. Check out also CSC's [examples for utilizing STAC from Python](https://github.com/csc-training/geocomputing/blob/master/python/STAC).
 
 ## Where can I store the data?
 
@@ -202,22 +208,25 @@ What to consider:
 * Maintenance needs?
 * Metadata needs?
 
-See also CSC's [guide on how to choose a suitable storage solution](../../../data/datasets/hosting-datasets-at-CSC.md).
-    
 * In general, data can be stored on the [supercomputer](../../../computing/disk.md) or in the object storage Allas ([Allas overview](https://research.csc.fi/-/allas), [Allas guide](../../../data/Allas/index.md)) 
 * On the supercomputer, data can be stored on ```/scratch/project_xxx``` with xxx being your project number
 * Smaller amounts can also be stored short term on the computing nodes ```$LOCAL_SCRATCH``` during processing
 * In Allas, data is stored in so-called buckets, and can be accessed or transferred as part of the computing job, see also CSC's webinar on [Allas for spatial data](https://www.youtube.com/watch?v=mnFXe2-dJ_g).
 
+!!! default "Other storage solutions at CSC"
 
-> For longer term storage and publication, CSC offers a range of other services. See also CSC's general [guide on stroing data](../../../data/datasets/hosting-datasets-at-CSC.md).
+    For longer term storage and publication, CSC offers a range of other services. See also CSC's general [guide on stroing data](../../../data/datasets/hosting-datasets-at-CSC.md) and CSC's [guide on how to choose a suitable storage solution](../../../data/datasets/hosting-datasets-at-CSC.md).
 
 
 ## How can I process the data?
 
-At CSC, EO data can be processed and analyzed using for example supercomputer [Puhti](../../../computing/systems-puhti.md) or a virtual machine in the CSC cloud = [cPouta](../../../cloud/pouta/pouta-what-is.md). You can find more information around geocomputing using CSC resources on our [Geocomputing pages](https://research.csc.fi/geocomputing).
+At CSC, EO data can be processed and analyzed using for example [supercomputer Puhti](../../../computing/systems-puhti.md) or a virtual machine in the CSC cloud, [cPouta](../../../cloud/pouta/pouta-what-is.md). You can find more information around geocomputing using CSC resources on our [Geocomputing pages](https://research.csc.fi/geocomputing).
 
-Puhti has a lot of applications already installed (see below), you do not need to worry about it. You can also add your own installations using for example the [Tykky tool](../../../computing/containers/tykky.md). In cPouta, you need to set up your own virtual machine including all security and software setup, see [instructions](../../../cloud/pouta/launch-vm-from-web-gui.md).
+Puhti has a lot of applications already installed (see below), you do not need to worry about it. If you need further applications, you can ask us to install them for you. You can also add your own installations using for example the [Tykky tool](../../../computing/containers/tykky.md).   In cPouta, you need to set up your own virtual machine including all security and software setup, see [our cPouta instructions](../../../cloud/pouta/launch-vm-from-web-gui.md).
+
+!!! default "Please note"
+
+    Puhti (and also CSC's other supercomputers Mahti and LUMI), work differently from your own computer. Before starting to use them, please familiarize yourself with the environment by for example visit the respective chapters in our [CSC computing environment self-learning course](https://ssl.eventilla.com/csccompenvselflearn).
 
 What to consider when chosing software:
 
@@ -260,7 +269,7 @@ GUIs of software available on Puhti can be accessed as an interactive job via th
 [**Orfeo Toolbox (OTB)**](../../../apps/otb.md)
 
 * Offers a wide variety of applications from ortho-rectification or pansharpening, all the way to classification, SAR processing, and much more.
-* Orfeo Toolbox is available as [Command Line Interface](https://www.orfeo-toolbox.org/CookBook/CliInterface.html), [Graphical User Interface](https://www.orfeo-toolbox.org/CookBook/GraphicalInterface.html), Python API .
+* Orfeo Toolbox is available as CLI, GUI and via Python interface.
 
 
 [**Python**](../../../apps/python.md)
@@ -300,7 +309,7 @@ GUIs of software available on Puhti can be accessed as an interactive job via th
 [**SNAP**](../../../apps/snap.md) - ESA Sentinel Application Platform
 
 * Tool for processing of Sentinel data (+ support for other data sources) 
-* GUI, CLI (Graph Processing Tool, GPT) and Python interfaces (snappy and snapista)
+* GUI, CLI (Graph Processing Tool, GPT) and Python interfaces (snappy and snapista (snapista currently not available on Puhti))
 * [SNAP GPT example for Puhti](https://github.com/csc-training/geocomputing/tree/master/snap).
 
 ### Machine Learning with EO data
@@ -333,7 +342,7 @@ This guide was developed in cooperation with the Finnish Environment Institute [
 * [CSC geocomputing seminar materials](https://research.csc.fi/geocomputing-seminars), especially materials of the 2022 EO-workshop
 
 
-> If you are interested in the fundamentals of EO, take a look at these excellent resources:
+If you are interested in the fundamentals of EO, take a look at these excellent resources:
 
 * [Fundamentals of remote sensing tutorial](https://www.nrcan.gc.ca/maps-tools-and-publications/satellite-imagery-and-air-photos/tutorial-fundamentals-remote-sensing/9309) by Canada Centre for Mapping and Earth Observation , Natural Resources Canada; an "interactive module is intended as an overview at a senior high school or early university level and touches on physics, environmental sciences, mathematics, computer sciences and geography."
 * [Echoes in space - Introduction to RADAR remote sensing](https://eo-college.org/courses/echoes-in-space/) by the European Space Agency; "a detailed insight into the history of Radar technology, including all the basics that are needed to understand how electromagnetic waves work and a unique hands-on experience to work with Radar data in diverse application scenarios."
