@@ -22,7 +22,7 @@ Combining cPouta cloud environment and Allas storage environment allows you to b
 	```sh
 	sudo apt install python3-pip python3-dev python3-setuptools
 	sudo pip install --upgrade pip
-	sudo pip install python3-openstackclient
+	sudo pip install python-openstackclient
 	```
 
 * Next, install  **s3cmd** and **s3fs** commands to your VM.
@@ -68,7 +68,9 @@ Combining cPouta cloud environment and Allas storage environment allows you to b
 	sudo make install
 	```
 
-## Configuring and using Allas (in Ubuntu and Centos)
+## Configuring and using Allas
+
+### Use s3cmd to read and write files
 
 Once you have openstack, s3cmd and s3fs installed, download and execute the **poutaos_configure** tool to configure _s3cmd_ so that it uses your cPouta project. You can also use this tool to switch between different Allas projects 
 if you have several of them.
@@ -79,48 +81,53 @@ chmod u+x poutaos_configure
 ./poutaos_configure
 ```
 
-The _poutaos_configure_ command asks first your CSC password. Then it lists your Allas projects and asks you to for the project to be used. During the following configuration steps, the system asks you about the values that will be used for the Allas connection. In most cases you can just accept the proposed default values, but there are two exceptions:  
+The _poutaos_configure_ will first ask you for your CSC username and password, you can see which is your CSC username in your [My CSC profile](https://my.csc.fi/profile) page, you csan also change your password there. Then it will list your Allas projects and ask you to fill up the project to be used. Finally it will ask you for the **chunk size**, it is recommended to leave the deafult. 
 
-   1. It is recommended that you define a password that is used to encrypt the data traffic to and from Object Storage server.
-   2. As the last question the configuration process asks if the configuration is saved. The default is "no" but you should 
-      answer y (yes) so that configuration information is stored to file _$HOME/.s3cfg_.  
-      This configuration needs to be defined only once. In the future _s3cmd_ will use this 
-      Object Storage connection described in the _.s3cfg_ file automatically.
-
-After this you can use the storage area of your Allas project with _s3cmd_ commands.
-
-Now you can see, download and upload files in this bucket with _s3cmd_.
+After this you can use the storage area of your Allas project with _s3cmd_ commands. Now you can see, download and upload files in this bucket with _s3cmd_.
 
 * List all your buckets:
 
 ```sh
-s3cmd ls s3://
+$ s3cmd ls s3://
+2022-10-17 07:03  s3://data-europe
+2020-09-17 11:12  s3://images-sky
+2020-11-06 13:56  s3://case_1
 ```
 
 * Let's assume you already have a bucket called **case_1** in Allas and that you have some data objects (i.e. files) in this bucket.
 
 ```sh
-s3cmd ls s3://case_1
+$ s3cmd ls s3://case_1
+2022-10-17 07:14     67213268  s3://case_1/file1.txt
+```
+
+* To retrieve the file:
+
+```sh
 s3cmd get s3://case_1/file1.txt
+```
+
+* To upload a new file:
+
+```sh
 s3cmd put file2.txt s3://case_1/
 ```
 
-This is the **recommended way** if you wish to use Allas with the S3 protocol. However, it is also possible to mount the bucket to your VM so that it is shown as  "mounted disk".
+This is the **recommended way** to use Allas with the S3 protocol from the command line. However, it is also possible to mount the bucket to your VM so that it is shown as  "mounted disk". You can use `s3fs` for that.
 
-1. To do this, create first an empty directory to be used as a mount point. E.g.
+### Use s3fs to mount a folder intyo your VM
+
+
+1. To do this, create first an empty directory (like **os_case_1**) to be used as a mount point:
 
 	```sh
 	mkdir os_case_1
 	```
 
-1. Then check the UID if the user account you are using (normally it is 1000 for the default user)
+	!!! info
+	    Any empty directory can be used as a mount point
 
-	```sh
-	$ id -u
-	1000
-	```
-
-1. Create a `.passwd-s3fs` file in your home directory. The format of the file must be: `ACCESS_KEY_ID:SECRET_ACCESS_KEY` and have 600 permissions.
+1. Create a `.passwd-s3fs` file in your home directory. The format of the file must be: `ACCESS_KEY_ID:SECRET_ACCESS_KEY` and have _600_ permissions.
 
 	```sh
 	$ openstack ec2 credentials list -f value | grep $OS_PROJECT_ID | tail -1 |\
@@ -129,27 +136,30 @@ This is the **recommended way** if you wish to use Allas with the S3 protocol. H
 	$ chmod 600 .passwd-s3fs
 	```
 
-1. then use _s3fs_ command to mount the bucket.
+1. then use the _s3fs_ command to mount the bucket.
 
 	```sh
 	s3fs case_1 os_case_1 -o passwd_file=~/.passwd-s3fs -o url=https://a3s.fi/ \
-		-o use_path_request_style -o umask=0333,uid=1000
+		-o use_path_request_style -o umask=0333,uid=$(id -u)
 	```
 
 	!!! info 
-	    The uid value 1000 refers to the user id returned by `id -u`
+	    The uid value returned by `id -u` should be 1000 for the default user
 
 	!!! info
-	    The umask value `0333` mounts the files in read-only mode. If you want to be able to write to the files, use `0027` instead
+	    The umask value `0333` mounts the files in **read-only mode**. If you want to mount them in read-write mode, use `0027` instead
 
-1. And after this you should be able to see the objects of the mounted bucket as files. Try for example command:
+1. And after this you should be able to see the objects of the mounted bucket as files. Try for example the command:
 
 	```sh
 	ls -l os_case_1
 	```
 
+	The output should be the same as with `s3cmd ls s3://case_1`
+
 1. When you are done you can unmount the folder by:
 
-        ```sh
+	```sh
 	sudo umount os_case_1
 	```
+
