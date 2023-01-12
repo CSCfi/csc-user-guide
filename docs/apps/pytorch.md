@@ -39,7 +39,7 @@ Currently supported PyTorch versions:
 | 1.7.1   | `pytorch/1.7`  | (x)   | -     | -    |                 |
 
 All modules include [PyTorch](https://pytorch.org/) and related libraries with
-GPU support via CUDA.
+GPU support via CUDA/ROCm.
 
 Versions marked with "(x)" are based on old Red Hat Enterprise Linux 7
 (RHEL7) images, and are no longer fully supported. In particular MPI
