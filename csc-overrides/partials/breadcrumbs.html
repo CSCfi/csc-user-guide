@@ -1,6 +1,6 @@
 {%- if page %}
+    {# Breadcrumbs must be defined literally for pages that don't have ancestors #}
     {% set parent_url = "/" + "/".join(page.url.split("/")[:-2]) + "/" %}
-    {# Breadcrumbs must be defined literally... #}
     {% set sections = {
         "/tutorials/": "Tutorials",
         "/tutorials/env-guide/": "Linux tutorials",
@@ -12,15 +12,14 @@
         {% if not page.is_homepage %}
             <a class="csc-breadcrumbs__link" href="{{ base_url }}">Docs CSC</a>
         {% endif %}
-        {# ...for pages that don't have ancestors in nav: #}
-        {% if not page.ancestors and parent_url in sections %}
-            <a class="csc-breadcrumbs__link" href="{{ parent_url }}">{{ sections[parent_url] }}</a>
-        {% endif %}
         {%- for ancestor in page.ancestors[::-1] -%}
             {% if ancestor.is_page %}
                 <a class="csc-breadcrumbs__link" href="/{{ ancestor.url }}">{{ ancestor.title }}</a>
             {% endif %}
         {%- endfor -%}
+        {% if not page.ancestors and parent_url in sections %}
+            <a class="csc-breadcrumbs__link" href="{{ parent_url }}">{{ sections[parent_url] }}</a>
+        {% endif %}
         {% if not page.is_homepage %}
             {{ page.title }}
         {% endif %}
