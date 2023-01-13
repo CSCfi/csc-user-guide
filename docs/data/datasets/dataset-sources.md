@@ -9,6 +9,7 @@
   - [Best practices](datamanagement.md#best-practices)
   - [Budgeting Research Data Management](datamanagement.md#budgeting-research-data-management)
   - [How to manage sensitive data](datamanagement.md#how-to-manage-sensitive-data)
+  - [Best Practices for Client Side Encryption](best-encryption-practices.md)
 
 ## [Metadata and Data Documentation](metadata-and-documentation.md)
 
