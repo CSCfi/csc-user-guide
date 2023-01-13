@@ -11,10 +11,8 @@ This guide aims to help users to work with Earth Observation (EO) data using CSC
 
 !!! default "Raster data format"
 
-    * EO data often several bands, stored one file per band or several bands in one file (multiband files).
-    * Grid of pixel values
-    * Example of continuous data
-    * Georeference: coordinate for the top left pixel , the size of each pixel in the X direction, the size of each pixel in the Y direction, and the amount (if any) by which the product is rotated.
+EO data is usually available in [raster format]( 
+https://towardsdatascience.com/the-ultimate-beginners-guide-to-geospatial-raster-data-feb7673f6db0). The most common file formats are [GeoTiff](https://en.wikipedia.org/wiki/GeoTIFF) and [GeoJPEG2000](http://giswiki.org/wiki/GeoJPEG2000).
 
 
 ## What data do I need?
@@ -48,11 +46,13 @@ What to consider when chosing data:
 
 ## Where can I find the data?
 
-The best place to get the data depends on your needs: Do you want to download the data into your own processing environment or do you need a processing environment close to the data? 
+For working with EO data there are two main options:
+* Use a service which has EO data readily available and offers data processing and analysis capabilities. Usually these give better user experience and efficiency, but the services might be limited in computing power, available tools or options for adding own data. The commercial systems also might have costs.
+* Use your own processing environment (PC, cloud or HPC) and download the data to this system. This requires extra effort for downloading and managing the data, but in other ways might give more freedom.
 
 !!! default "Other geospatial datasets"
 
-    For other geospatial vector and raster datasets, check out our [spatial dataset list on CSC research pages](https://research.csc.fi/open-gis-data#intdata3).
+    To find other geospatial datasets, check out [CSC open spatial dataset list](https://research.csc.fi/open-gis-data).
 
 ### Services providing EO data and processing capabilities
 
@@ -68,19 +68,19 @@ The best place to get the data depends on your needs: Do you want to download th
     * [Data from Allas can be read directly with different tools](../../../apps/gdal.md#using-files-directly-from-allas).
         
     
-**[Amazon Web Service (AWS) open EO data](https://registry.opendata.aws/?search=tags:gis,earth%20observation,events,mapping,meteorological,environmental,transportation)** provides many different worldwide datasets, including Landsat and Sentinel. Some of the data can be downloaded on "requestor pays" basis. The situation is changing all the time, currently [Sentinel-2 L2A Cloud-optimized Geotiffs](https://registry.opendata.aws/sentinel-2-l2a-cogs/) are available for free. AWS also offers the possibility for virtual machines.
+**[Amazon Web Service (AWS) open EO data](https://registry.opendata.aws/?search=tags:gis,earth%20observation,events,mapping,meteorological,environmental,transportation)** provides many different worldwide datasets, including Landsat and Sentinel. Some of the data can be downloaded on "requestor pays" basis. The situation is changing all the time, currently [Sentinel-2 L2A Cloud-optimized Geotiffs](https://registry.opendata.aws/sentinel-2-l2a-cogs/) are available for free. AWS also offers the possibility for virtual machines, with both CPU and GPU.
 
 **[Data and Information Access Services (DIAS)](https://www.copernicus.eu/en/access-data/dias)** are paid processing platforms with direct data access. The services provide primarily Copernicus data.
     
-**[Microsoft planetary computer](https://planetarycomputer.microsoft.com)** is a processing platform with [data access](https://planetarycomputer.microsoft.com/catalog). It is currently available in preview, [request access](https://planetarycomputer.microsoft.com/account/request).
+**[Microsoft planetary computer](https://planetarycomputer.microsoft.com)** provides [worldwide EO data](https://planetarycomputer.microsoft.com/catalog). For [computing](https://planetarycomputer.microsoft.com/docs/concepts/computing/) it offers JupyterHub together with Dask Gateway, both CPUs and GPUs are avaialable. It is currently available in preview: [request access to the planetary computer](https://planetarycomputer.microsoft.com/account/request).
 
-**[Google Earth Engine](https://earthengine.google.com/)** is a processing platform, which requires [registration](https://signup.earthengine.google.com/). It can be accessed via browser and has worldwide analysis ready data available of, among others [Sentinel-2](https://developers.google.com/earth-engine/datasets/catalog/sentinel-2/) and [Sentinel-1](https://developers.google.com/earth-engine/datasets/catalog/COPERNICUS_S1_GRD). In general JavaScript is used to use the platform, but also [Python](https://developers.google.com/earth-engine/guides/python_install) and [R](https://github.com/r-spatial/rgee) support exists. Check out [CSC's GEE course materials](https://www.csc.fi/fi/web/training/-/introduction-to-using-google-earth-engine) and [GEE's own tutorials](https://developers.google.com/earth-engine/tutorials). Note that Google Cloud Storage might be needed to export large datasets.
+**[Google Earth Engine](https://earthengine.google.com/)** is a processing platform, which requires [registration](https://signup.earthengine.google.com/). It can be accessed via browser and has worldwide analysis ready data available of, among others [Sentinel-2](https://developers.google.com/earth-engine/datasets/catalog/sentinel-2/) and [Sentinel-1](https://developers.google.com/earth-engine/datasets/catalog/COPERNICUS_S1_GRD). In general JavaScript is used to use the platform, but also [Python](https://developers.google.com/earth-engine/guides/python_install) and [R](https://github.com/r-spatial/rgee) support exists. Check out [GEE's tutorials](https://developers.google.com/earth-engine/tutorials). Note that Google Cloud Storage might be needed to export large datasets.
 
-Other services that provide raw and/or preprocessed data for download only: 
+### EO data download services 
 
-[**European Space Agency's SciHub**](https://scihub.copernicus.eu/dhus/#/home) provides worldwide Sentinel 2 L1C and L2A and Sentinel 1 SLC, GRD , RAW and OCN products. It requires free [registration](https://scihub.copernicus.eu/dhus/#/self-registration) and many of the data is in "Long term archive" and cannot be downloaded directly, but needs to be requested.
+[**European Space Agency's SciHub**](https://scihub.copernicus.eu/dhus/#/home) provides worldwide Sentinel 2 L1C and L2A and Sentinel 1 SLC, GRD , RAW and OCN products. It requires free [registration](https://scihub.copernicus.eu/dhus/#/self-registration) and many of the data is in "Long term archive" and cannot be downloaded directly, but needs to be requested. Download is limited to 2 concurrent processes per user.
 
-[**FinHub**](https://finhub.nsdc.fmi.fi/#/home) is the Finnish national mirror of SciHub; others national mirrors also exist. It covers Finland and the Baltics and offers Sentinel 2 L1C and Sentinel 1 SLC, GRD and OCN products and requires own registration.
+[**FinHub**](https://finhub.nsdc.fmi.fi/#/home) is the Finnish national mirror of SciHub; others national mirrors also exist. It covers Finland and the Baltics and offers Sentinel 2 L1C (but not L2A) and Sentinel 1 SLC, GRD and OCN products and requires own registration. Finhub does not have concurrent download limitations.
 
 !!! default  ""  
     **Both of the above** provide a similar Graphical User Interface (GUI) and Application Programming Interface (API) to access the data. Other tools for downloading the data from open access hubs: [sentinelsat](https://sentinelsat.readthedocs.io/en/stable/) with [examples for SciHub and FinHub](https://github.com/csc-training/geocomputing/blob/master/python/sentinel/sentinelsat_download_from_finhub_and_scihub.py), ...
