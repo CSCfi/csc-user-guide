@@ -158,7 +158,7 @@ It's good practice to leave comments/suggest changes to a PR so that they appear
 5. If you want to edit multiple lines, click and drag the `+` sign to select all lines.
 6. Once done, click `Add single comment`.
 
-If you want to add changes suggested by a reviewer, go to the `files changed` tab, find the suggestions you want to add to your pull request and -if you have multiple suggestions to add - choose `add suggestion to batch`. Once you added all suggestions to the batch, you can find a `commit suggestions` button with the number of changes that will be commited under each added suggestion or in the top right of the `files changed` page. Once you click that, you can provide a commit message and commit all changes at once to your branch.
+If you want to add changes suggested by a reviewer, go to the `files changed` tab, find the suggestions you want to add to your pull request and -if you have multiple suggestions to add - choose `add suggestion to batch`. Once you added all suggestions to the batch, you can find a `commit suggestions` button with the number of changes that will be committed under each added suggestion or in the top right of the `files changed` page. Once you click that, you can provide a commit message and commit all changes at once to your branch.
 
 ## How do I add an entry to the "What's new" section
 
