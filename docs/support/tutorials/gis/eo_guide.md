@@ -97,7 +97,7 @@ For Finnish researchers, CSC computing services provide free of charge supercomp
 
 [**Terramonitor**](https://www.terramonitor.com/services/analysis-ready) provides pre-prosessed, analysis ready Sentinel-2 data from Finland available between 2018-2020.[Contact Terramonitor about pricing](https://www.terramonitor.com/services/analysis-ready#contact)
 
-[**Sentinelhub**](https://www.sentinel-hub.com/explore/) provides among others worldwide [Sentinel-2](https://collections.sentinel-hub.com/sentinel-2-l2a/) and [Sentinel-1](https://collections.sentinel-hub.com/sentinel-1-grd/) data. Requires [subscription](https://www.sentinel-hub.com/pricing/).
+[**Sentinelhub**](https://www.sentinel-hub.com/explore/) provides among others worldwide <a href="https://collections.sentinel-hub.com/sentinel-2-l2a/" aria-label="Sentinel 2 on sentinelhub">Sentinel 2</a> and <a href="https://collections.sentinel-hub.com/sentinel-1-grd/" aria-label="Sentinel 1 on sentinelhub">Sentinel 1</a> data. Requires [sentinelhub subscription](https://www.sentinel-hub.com/pricing/).
 
 !!! default "STAC"
 
