@@ -258,6 +258,7 @@ nav:
      - Moving data:
         - Moving data between CSC and local workstation: data/moving/index.md
         - Copying files using scp: data/moving/scp.md
+        - Moving files using the Puhti web interface: data/moving/web-interface.md
         - Graphical file transfer tools: data/moving/graphical_transfer.md
         - Using rsync for data transfer and synchronization: data/moving/rsync.md
         - Using wget to download data from web sites to CSC: data/moving/wget.md
