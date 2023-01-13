@@ -78,7 +78,7 @@ For Finnish researchers, CSC computing services provide free of charge supercomp
 
 ### EO data download services 
 
-[**European Space Agency's SciHub**](https://scihub.copernicus.eu/dhus/#/home) provides worldwide Sentinel 2 L1C and L2A and Sentinel 1 SLC, GRD , RAW and OCN products. It requires free [registration](https://scihub.copernicus.eu/dhus/#/self-registration) and many of the data is in "Long term archive" and cannot be downloaded directly, but needs to be requested. Download is limited to 2 concurrent processes per user.
+[**European Space Agency's SciHub**](https://scihub.copernicus.eu/dhus/#/home) provides worldwide Sentinel 2 L1C and L2A and Sentinel 1 SLC, GRD , RAW and OCN products. It requires free [SciHub registration](https://scihub.copernicus.eu/dhus/#/self-registration) and many of the data is in "Long term archive" and cannot be downloaded directly, but needs to be requested. Download is limited to 2 concurrent processes per user.
 
 [**FinHub**](https://finhub.nsdc.fmi.fi/#/home) is the Finnish national mirror of SciHub; others national mirrors also exist. It covers Finland and the Baltics and offers Sentinel 2 L1C (but not L2A) and Sentinel 1 SLC, GRD and OCN products and requires own registration. Finhub does not have concurrent download limitations.
 
