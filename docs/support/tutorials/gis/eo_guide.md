@@ -240,7 +240,7 @@ We are happy to help with technical problems around our services and are open fo
 
 ## Acknowledgement
 
-This guide was developed in cooperation with the Finnish Environment Institute [SYKE](https://www.syke.fi/), as part of the [Geoportti](https://www.geoportti.fi/) project.
+This guide was developed in cooperation with the [Finnish Environment Institute, SYKE](https://www.syke.fi/), as part of the [Geoportti project](https://www.geoportti.fi/).
 
 ## Resources and further reading
 
