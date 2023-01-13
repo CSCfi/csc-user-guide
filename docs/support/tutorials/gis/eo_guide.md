@@ -90,7 +90,7 @@ For Finnish researchers, CSC computing services provide free of charge supercomp
     
 [**NASA Earthdata**](https://search.earthdata.nasa.gov) provides among many others harmonized Landsat 8 and Sentinel-2 dataset. It requires [NASA EarthData registration](https://urs.earthdata.nasa.gov/users/new) and download is possible via Graphical web interface and bulk download.
 
-**Finnish Sentinel image mosaics** are provided by  [SYKE](https://www.syke.fi/en-US) and [FMI](https://en.ilmatieteenlaitos.fi/) and partly available in Puhti: `/appl/data/geo/sentinel`. Among others, [Sentinel-2 image index mosaics](https://ckan.ymparisto.fi/dataset/sentinel-2-image-index-mosaics-s2ind-sentinel-2-kuvamosaiikit-s2ind)  and [Sentinel-1 SAR-image mosaics](https://ckan.ymparisto.fi/dataset/sentinel-1-sar-image-mosaic-s1sar-sentinel-1-sar-kuvamosaiikki-s1sar) are available.
+**Finnish Sentinel image mosaics** are provided by the [Finnish Environment Institute, SYKE](https://www.syke.fi/en-US) and the [Finnish Meteorological Institute, FMI](https://en.ilmatieteenlaitos.fi/) and partly available in Puhti: `/appl/data/geo/sentinel`. Among others, [Sentinel-2 image index mosaics](https://ckan.ymparisto.fi/dataset/sentinel-2-image-index-mosaics-s2ind-sentinel-2-kuvamosaiikit-s2ind)  and [Sentinel-1 SAR-image mosaics](https://ckan.ymparisto.fi/dataset/sentinel-1-sar-image-mosaic-s1sar-sentinel-1-sar-kuvamosaiikki-s1sar) are available.
 
 [**Google Cloud Storage**](https://cloud.google.com) provides [Sentinel 2: L1C](https://cloud.google.com/storage/docs/public-datasets/sentinel-2)
  and [Landsat: Collection 1](https://cloud.google.com/storage/docs/public-datasets/landsat). Data can be downloaded from here for example with [FORCE](../../../apps/force.md).
