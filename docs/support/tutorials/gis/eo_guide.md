@@ -154,7 +154,7 @@ What to consider when chosing software:
 
 To Puhti, only Linux based software can be installed. Most of the installed geospatial tools are open source.
 
-GUIs of software available on Puhti can be accessed as an interactive job via the [Puhti web interface](https://puhti.csc.fi) or [X11 connection](../../../computing/connecting.md). These graphical interfaces are mainly for visualization and testing purposes, the actual efficient processing should be done within batch jobs.
+GUIs of software available on Puhti can be accessed as an interactive job via the [Puhti web interface](https://puhti.csc.fi) or [X11 connection to the CSC computing resources](../../../computing/connecting.md). These graphical interfaces are mainly for visualization and testing purposes, the actual efficient processing should be done within batch jobs.
 
 
 [**FORCE**](../../../apps/force.md) - Framework for Operational Radiometric Correction for Environmental monitoring
