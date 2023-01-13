@@ -53,7 +53,7 @@ regarding how to implement your workflow.
 ```mermaid
 %%{init: {'theme': 'default', 'themeVariables': { 'fontSize': '0.6rem'}}}%%
 graph TD
-    C(Does your software have a built-in HTC option?) -->|Yes| D("Use if suitable for use case:<br><a href='/apps/gromacs/#high-throughput-computing-with-gromacs'>Gromacs</a>, <a href='/apps/cp2k/#high-throughput-computing-with-cp2k'>CP2K</a>, <a href='/apps/lammps/#high-throughput-computing-with-lammps'>LAMMPS</a>, Python, R ")
+    C(Does your software have a built-in HTC option?) -->|Yes| D("Use if suitable for use case:<br><a href='/apps/gromacs/#high-throughput-computing-with-gromacs'>Gromacs</a>, <a href='/apps/cp2k/#high-throughput-computing-with-cp2k'>CP2K</a>, <a href='/apps/lammps/#high-throughput-computing-with-lammps'>LAMMPS</a>, <a href='/apps/amber/#high-throughput-computing-with-amber'>Amber</a>,<br> Python, R ")
     C -->|No| E(Serial or parallel subtasks?)
     E -->|Serial| F(<a href='/tutorials/many/'>GNU Parallel</a><br><a href='/computing/running/array-jobs/'>Array jobs</a><br><a href='/apps/hyperqueue/'>HyperQueue</a>)
     E -->|Parallel| G(Single- or multinode subtasks?)
@@ -178,6 +178,7 @@ workflows.
 * [Gromacs multidir option][gmx]
 * [FARMING mode of CP2K][cp2k] (supports dependencies between subjobs)
 * [LAMMPS multi-partition switch][lmp]
+* [Amber multi-pmemd][amber-multi-pmemd]
 * Python:
     * [Python parallel jobs](../../apps/python.md#python-parallel-jobs)
     * [CSC Dask tutorial](../../tutorials/dask-python.md)
@@ -192,6 +193,7 @@ workflows.
 
 [built-in option for farming-type workloads]: throughput.md#workflow-tools-integrated-into-common-simulation-software
 [gmx]: ../../apps/gromacs.md#high-throughput-computing-with-gromacs
+[amber-multi-pmemd]: ../../apps/amber.md#high-throughput-computing-with-amber
 [cp2k]: ../../apps/cp2k.md#high-throughput-computing-with-cp2k
 [lmp]: ../../apps/lammps.md#high-throughput-computing-with-lammps
 [HyperQueue]: ../../apps/hyperqueue.md
