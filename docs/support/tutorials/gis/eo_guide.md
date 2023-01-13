@@ -235,7 +235,7 @@ If you are interested in using CSC services for your EO research, please make yo
 * Find information about services and how to use them in [CSC's documentation pages](../../../index.md)
 * For information on geocomputing in CSC environment, checkout the collection of CSC's [geocomputing learning materials](https://research.csc.fi/gis-learning-materials) and [geocomputing examples on github](https://github.com/csc-training/geocomputing)
 
-You can find all the ways that you can get help from CSC specialists via our [contact page](../../contact.md).
+You can find all the ways that you can get help from CSC specialists via [CSC contact page](../../contact.md).
 We are happy to help with technical problems around our services and are open for suggestions on which Software should be installed to Puhti, or what kind of courses should be offered or materials/examples should be prepared. 
 
 ## Acknowledgement
