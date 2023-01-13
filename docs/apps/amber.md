@@ -195,7 +195,7 @@ where you want to run many similar, but independent, simulations. Typical use ca
 are enhanced sampling methods such as umbrella sampling or replica exchange MD. Also,
 since Amber simulations do not scale that well to multiple GPUs, multi-pmemd can be
 used as a straightforward method to accelerate sampling by launching several differently
-initialized copies of you system, each running simultaneously using a single GPU.
+initialized copies of your system, all running simultaneously on a single GPU each.
 
 !!! info "Note"
     GPU resources on Puhti and Mahti are scarce, so we recommend running large-scale multi-pmemd
