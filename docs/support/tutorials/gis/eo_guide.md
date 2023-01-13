@@ -64,7 +64,7 @@ For Finnish researchers, CSC computing services provide free of charge supercomp
     * Accessing data in Puhti requires CSC user account with a project where Puhti service is enabled. All Puhti users have **read** access to data stored on Puhti, no need to move it, unless you need to modify it.
 * Allas
     * [List of all available geospatial datasets in Allas](../../../data/datasets/spatial-data-in-csc-computing-env.md#spatial-data-in-allas)
-    * Sentinel-2 L2A data of Finland, where crops are grown, during growing seasons of 2016-present, [usage instructions](https://a3s.fi/sentinel-readme/README.txt)
+    * Sentinel-2 L2A data of Finland, where crops are grown, during growing seasons of 2016-present; <a href="https://a3s.fi/sentinel-readme/README.txt" aria-label="Sentinel-2 data on Allas usage instructions">usage instructions</a>
     * [Data from Allas can be read directly with different tools](../../../apps/gdal.md#using-files-directly-from-allas).
         
     
