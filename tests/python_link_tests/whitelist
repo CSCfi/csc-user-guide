@@ -13,3 +13,8 @@ docs/tutorials/gis/index.md
 docs/tutorials/conda/index.md
 docs/img/csc-quick-reference/README.md
 docs/ref.md
+docs/cloud/csc_notebooks/index.md
+docs/data/index.md
+docs/data/datasets/index.md
+docs/computing/quantum-computing/index.md
+docs/computing/compiling/index.md
