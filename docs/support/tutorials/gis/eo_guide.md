@@ -194,7 +194,7 @@ GUIs of software available on Puhti can be accessed as an interactive job via th
     * stackstac: STAC data to xarray
     * xarray: working with multidimensional raster data.
 
-* [Geospatial Python examples for Puhti](https://github.com/csc-training/geocomputing/tree/master/python). See also raster lesson of CSC version of GeoPython [course material](https://github.com/csc-training/notebooks) for further examples.
+* [Geospatial Python examples for Puhti](https://github.com/csc-training/geocomputing/tree/master/python). See also raster lesson of [CSC version of Python GIS course material](https://github.com/csc-training/notebooks) for further examples.
 
 
 [**QGIS**](../../../apps/qgis.md)
