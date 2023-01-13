@@ -118,12 +118,12 @@ To make managing encryption easy for the end user, the Cryptomator treats a remo
 
 ## 6. References
 
-[1] CSC Services for Research. Sensitive data. https://research.csc.fi/sensitive-data
-[2] Kryptografiset vahvuusvaatimukset luottamuksellisuuden suojaamiseen - kansalliset suojaustasot. https://www.kyberturvallisuuskeskus.fi/sites/default/files/media/regulation/ohje-kryptografiset-vahvuusvaatimukset-kansalliset-suojaustasot.pdf 
-[3] NIST Special Publication 800-57 Part 1 Revision 4. Recommendation for Key Management. Part 1: General. https://doi.org/10.6028/NIST.SP.800-57pt1r4 
-[4] Best practices for securing PaaS web and mobile applications using Azure Storage.  https://docs.microsoft.com/en-us/azure/security/fundamentals/paas-applications-using-storage 
-[5] Security Best Practices for Amazon S3.  https://docs.aws.amazon.com/AmazonS3/latest/dev/security-best-practices.html 
-[6] Security Guidance for Critical Areas of Focus in Cloud Computing v4.0. https://cloudsecurityalliance.org/artifacts/security-guidance-v4/ 
-[7] Katakri 2015 - Tietoturvallisuuden auditointityökalu viranomaisille. https://www.defmin.fi/files/3165/Katakri_2015_Tietoturvallisuuden_auditointityokalu_viranomaisille.pdf
-[8] NIST Recommendation for Password-Based Key Derivation. Part 1: Storage Applications. https://doi.org/10.6028/NIST.SP.800-132 
-[9] 6 Techniques For Creating Strong Passwords. https://www.lifewire.com/8-character-password-2180969
+[1] [CSC Services for Research. Sensitive data](https://research.csc.fi/sensitive-data)
+[2] [Kryptografiset vahvuusvaatimukset luottamuksellisuuden suojaamiseen - kansalliset suojaustasot](https://www.kyberturvallisuuskeskus.fi/sites/default/files/media/regulation/ohje-kryptografiset-vahvuusvaatimukset-kansalliset-suojaustasot.pdf)
+[3] [NIST Special Publication 800-57 Part 1 Revision 4. Recommendation for Key Management. Part 1: General](https://doi.org/10.6028/NIST.SP.800-57pt1r4) 
+[4] [Best practices for securing PaaS web and mobile applications using Azure Storage](https://docs.microsoft.com/en-us/azure/security/fundamentals/paas-applications-using-storage)
+[5] [Security Best Practices for Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/dev/security-best-practices.html) 
+[6] [Security Guidance for Critical Areas of Focus in Cloud Computing v4.0](https://cloudsecurityalliance.org/artifacts/security-guidance-v4/)
+[7] [Katakri 2015 - Tietoturvallisuuden auditointityökalu viranomaisille](https://www.defmin.fi/files/3165/Katakri_2015_Tietoturvallisuuden_auditointityokalu_viranomaisille.pdf)
+[8] [NIST Recommendation for Password-Based Key Derivation. Part 1: Storage Applications](https://doi.org/10.6028/NIST.SP.800-132)
+[9] [6 Techniques For Creating Strong Passwords](https://www.lifewire.com/8-character-password-2180969)
