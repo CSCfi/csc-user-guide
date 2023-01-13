@@ -122,7 +122,7 @@ In general, data can be stored on the [supercomputer disk](../../../computing/di
 
 !!! default "Longer term storage solutions at CSC"
 
-    For longer term storage and publication, CSC offers a range of other services. See also CSC's general [guide on stroing data](../../../data/datasets/hosting-datasets-at-CSC.md) and CSC's [guide on how to choose a suitable storage solution](../../../data/datasets/hosting-datasets-at-CSC.md).
+    For longer term storage and publication, CSC offers a range of other services. See also [CSC's general guide on stroing data](../../../data/datasets/hosting-datasets-at-CSC.md) and [CSC's guide on how to choose a suitable storage solution](../../../data/datasets/hosting-datasets-at-CSC.md).
 
 
 ## How can I process the data?
