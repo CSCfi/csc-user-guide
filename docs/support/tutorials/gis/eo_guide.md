@@ -93,7 +93,7 @@ For Finnish researchers, CSC computing services provide free of charge supercomp
 **Finnish Sentinel image mosaics** are provided by the [Finnish Environment Institute, SYKE](https://www.syke.fi/en-US) and the [Finnish Meteorological Institute, FMI](https://en.ilmatieteenlaitos.fi/) and partly available in Puhti: `/appl/data/geo/sentinel`. Among others, [Sentinel-2 image index mosaics](https://ckan.ymparisto.fi/dataset/sentinel-2-image-index-mosaics-s2ind-sentinel-2-kuvamosaiikit-s2ind)  and [Sentinel-1 SAR-image mosaics](https://ckan.ymparisto.fi/dataset/sentinel-1-sar-image-mosaic-s1sar-sentinel-1-sar-kuvamosaiikki-s1sar) are available.
 
 [**Google Cloud Storage**](https://cloud.google.com) provides <a href="https://cloud.google.com/storage/docs/public-datasets/sentinel-2" aria-label="Sentinel-2 data on Google cloud storage">Sentinel 2: L1C</a> 
- and [Landsat: Collection 1](https://cloud.google.com/storage/docs/public-datasets/landsat). Data can be downloaded from here for example with [FORCE](../../../apps/force.md).
+ and <a href="https://cloud.google.com/storage/docs/public-datasets/landsat" aria-label="Landsat: Collection 1 data on Google cloud storage">Landsat: Collection 1</a>. Data can be downloaded from here for example with [FORCE](../../../apps/force.md).
 
 [**Terramonitor**](https://www.terramonitor.com/services/analysis-ready) provides pre-prosessed, analysis ready Sentinel-2 data from Finland available between 2018-2020.[Contact Terramonitor about pricing](https://www.terramonitor.com/services/analysis-ready#contact)
 
