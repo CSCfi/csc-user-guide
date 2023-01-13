@@ -118,7 +118,7 @@ What to consider when chosing a storage location:
 * Maintenance needs?
 * Metadata needs?
 
-In general, data can be stored on the [supercomputer disk](../../../computing/disk.md) or in the object storage Allas ([Allas overview](https://research.csc.fi/-/allas), [Allas guide](../../../data/Allas/index.md)). On the supercomputer, data can be stored on ```/scratch/project_xxx``` with xxx being your project number. Smaller amounts can also be stored short term on the computing nodes ```$LOCAL_SCRATCH``` during processing. In Allas, data is stored in so-called buckets, and can be accessed or transferred as part of the computing job, see also CSC's webinar on [Allas for spatial data](https://www.youtube.com/watch?v=mnFXe2-dJ_g).
+In general, data can be stored on the [supercomputer disk](../../../computing/disk.md) or in the object storage Allas ([CSC Allas overview](https://research.csc.fi/-/allas), [CSC Allas guide](../../../data/Allas/index.md)). On the supercomputer, data can be stored on ```/scratch/project_xxx``` with xxx being your project number. Smaller amounts can also be stored short term on the computing nodes ```$LOCAL_SCRATCH``` during processing. In Allas, data is stored in so-called buckets, and can be accessed or transferred as part of the computing job, see also [CSC's webinar on Allas for spatial data](https://www.youtube.com/watch?v=mnFXe2-dJ_g).
 
 !!! default "Longer term storage solutions at CSC"
 
