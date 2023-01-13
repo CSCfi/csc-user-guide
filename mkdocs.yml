@@ -144,6 +144,7 @@ nav:
         - Creating containers: computing/containers/creating.md
         - Container wrapper (Tykky): computing/containers/tykky.md
      - Web interface:
+       - computing/webinterface/index.md
        - Overview: computing/webinterface/index.md
        - Interactive apps:
          - Accelerated visualization: computing/webinterface/accelerated-visualization.md
