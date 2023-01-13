@@ -131,7 +131,7 @@ In general, data can be stored on the [supercomputer disk](../../../computing/di
 
 At CSC, EO data can be processed and analyzed using for example [CSC's supercomputer Puhti](../../../computing/systems-puhti.md) or a virtual machine in the [CSC cloud service cPouta](../../../cloud/pouta/pouta-what-is.md). You can find more information around geocomputing using CSC resources on [CSC geocomputing pages](https://research.csc.fi/geocomputing).
 
-Puhti has a lot of applications already installed (see below), you do not need to worry about it. If you need further applications, you can ask us to install them for you. You can also add your own installations using for example the [Tykky tool](../../../computing/containers/tykky.md).   In cPouta, you need to set up your own virtual machine including all security and software setup, see [our cPouta instructions](../../../cloud/pouta/launch-vm-from-web-gui.md).
+Puhti has a lot of applications already installed (see below), you do not need to worry about it. If you need further applications, you can ask us to install them for you. You can also add your own installations using for example the [CSC Tykky tool](../../../computing/containers/tykky.md).   In cPouta, you need to set up your own virtual machine including all security and software setup, see [CSC cPouta instructions](../../../cloud/pouta/launch-vm-from-web-gui.md).
 
 !!! default "Please note"
 
