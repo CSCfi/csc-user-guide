@@ -202,7 +202,7 @@ GUIs of software available on Puhti can be accessed as an interactive job via th
 * General Geographic Information System (GIS) with limited multispectral image processing capabilities
 * GUI with batch processing possibility and Python interface
 * Used for example for visualization, map algebra and other raster processing
-* Many plug-ins available, for EO data processing, check out the [Semi-automatic classification plugin](https://fromgistors.blogspot.com/p/semi-automatic-classification-plugin.html).
+* Many plug-ins available, for EO data processing, check out the [QGIS Semi-automatic classification plugin](https://fromgistors.blogspot.com/p/semi-automatic-classification-plugin.html).
 
 [**R**](../../../apps/r-env-for-gis.md)
 
