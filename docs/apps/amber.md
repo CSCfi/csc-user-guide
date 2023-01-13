@@ -186,7 +186,7 @@ General batch script examples for [LUMI-G](https://docs.lumi-supercomputer.eu/ru
 and [LUMI-C](https://docs.lumi-supercomputer.eu/runjobs/scheduled-jobs/lumic-job/) are available in the LUMI
 documentation.
 
-## High-throughput computing with Amber
+### High-throughput computing with Amber
 
 Similar to [Gromacs multidir](gromacs.md#high-throughput-computing-with-gromacs),
 Amber has a built-in "multi-pmemd" functionality, which allows you to run multiple
