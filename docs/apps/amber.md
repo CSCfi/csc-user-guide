@@ -41,11 +41,11 @@ jobs).
     scripts distributed with AmberTools. These are not available in the older modules,
     nor on LUMI.
 
-Molecular dynamics jobs are best run with `pmemd.CUDA`. They are much faster
-on GPUs than on CPUs. Please note that using `pmemd.CUDA` requires a module
-with the `-cuda` extension. Similarly, [on LUMI](#amber-on-lumi) one should
-use `pmemd.hip` (or `pmemd.hip.MPI` for multi-GPU simulations), which requires
-loading a module with the `-gpu` extension.
+Molecular dynamics jobs are best run with `pmemd.cuda`. They are much faster
+on GPUs than on CPUs. Please note that using `pmemd.cuda` requires a module
+with the `-cuda` extension. Similarly, on LUMI one should use `pmemd.hip` (or
+`pmemd.hip.MPI` for multi-GPU simulations), which requires loading a module
+with the `-gpu` extension.
 
 !!! warning "Note"
     Run only GPU aware binaries in the GPU partitions. If you're unsure,
@@ -76,11 +76,11 @@ srun pmemd.cuda -O -i mdin -r restrt -x mdcrd -o mdout
 
 !!! info "Note"
     If you want to use more than one GPU, perform scaling tests to verify that the
-    jobs really become faster and use a binary with `.MPI` extension. The rule of
-    thumb is that when you double the resources, the job duration should decrease
-    at least 1.5-fold. For overall performance info, consult the [Amber benchmark
+    jobs really become faster and use a binary with `.cuda.MPI` or `.hip.MPI` extension.
+    The rule of thumb is that when you double the resources, the job duration should
+    decrease at least 1.5-fold. For overall performance info, consult the [Amber benchmark
     scaling details](http://ambermd.org/GPUPerformance.php). Typically, best efficiency
-    is achieved with 1 GPU. For example, the Cellulose NPT benchmark does not scale
+    is achieved with 1 GPU. For example, the Cellulose NPT benchmark does not scale well
     to multiple GPUs, but it is still massively faster on a single GPU than the CPU
     version (see diagram below).
 
@@ -110,7 +110,7 @@ srun paramfit -i Job_Control.in -p prmtop -c mdcrd -q QM_data.dat
 ```
 
 !!! info "Note"
-    `pmemd.CUDA` and `pmemd.hip` are way faster than `pmemd.MPI`, so use a
+    `pmemd.cuda` and `pmemd.hip` are way faster than `pmemd.MPI`, so use a
     CPU-version only in case you cannot use the GPU-version. If Amber performance
     is not fast enough, consider using [Gromacs](gromacs.md), which can make use
     of more CPU cores (*i.e.* scales further). In particular, for large scale or
