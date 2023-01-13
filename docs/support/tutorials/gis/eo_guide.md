@@ -29,6 +29,7 @@ What to consider when chosing data:
     * Temporal: when and how often a certain area is visited
     * Spatial: the area on the ground that each pixel covers
     * Spectral: the area of the electromagnetic spectrum that is observed and spectral width of each band provided
+        * Depending on the wavelengths observed,  clouds and atmospheric artifacts may result in data gaps
     * Radiometric: how many values are possible for each pixel (bit-depth)
 * Costs
     * Free: e.g. Landsat, MODIS, Sentinel, ...
