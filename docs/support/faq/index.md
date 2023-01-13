@@ -52,7 +52,7 @@
 * [How to use cPouta for Remote Desktop](how-to-use-pouta-for-remote-desktop.md)
 * [How to create default network and router in a Pouta project](how-to-create-default-network-and-router-in-pouta.md)
 * [How to use cPouta GPU for rendering](how-to-use-cpouta-gpu-for-rendering.md)
-* [How to mount my Pouta Object Storage bucket to a VM running in cPouta](how-to-mount-os-bucket-for-cpouta.md)
+* [How to mount my Allas S3 bucket to a VM running in cPouta](how-to-mount-os-bucket-for-cpouta.md)
 * [Do you offer SSL certificates?](do-you-offer-ssl-certificates.md)
 * [Can I run MPI applications on pouta?](can-i-run-mpi-applications-on-pouta.md)
 * [How fast is the Pouta network?](how-fast-is-the-pouta-network.md)
