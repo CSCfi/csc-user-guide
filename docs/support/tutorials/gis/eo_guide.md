@@ -58,7 +58,7 @@ For working with EO data there are two main options:
 
 **CSC services**
 
-For Finnish researchers, CSC computing services provide free of charge supercomputing and cloud resources. Supercomputer Puhti provides a wide selection of [EO tools](https://github.com/CSCfi/csc-user-guide/pull/1522/files#what-applications-are-available-on-puhti). A few Finnish EO datasets are provided on the supercomputer Puhti and in object storage Allas.
+For Finnish researchers, CSC computing services provide free of charge supercomputing and cloud resources. Supercomputer Puhti provides a wide selection of EO tools, see below. A few Finnish EO datasets are provided on the supercomputer Puhti and in object storage Allas.
 * Puhti
     * [List of all available datasets in Puhti](../../../data/datasets/spatial-data-in-csc-computing-env.md)
     * Sentinel and Landsat mosaics of Finland provided by FMI and SYKE: ```/appl/data/geo/sentinel/s2```
