@@ -113,7 +113,7 @@
 
 ## Geosciences
 
-* [Ames Stereo Pipeline](ames-stereo.md) for processing stereo images captured from satellites (around Earth and other planets).
+* [Ames Stereo Pipeline](ames-stereo.md) for processing stereo images
 * [ArcGIS](arcgis.md) General purpose GIS software family for viewing, editing and analysing geospatial data
 * [CloudCompare](cloudcompare.md) for visualizing, editing and processing poing clouds
 * [FORCE](force.md) for mass-processing of medium-resolution satellite images
