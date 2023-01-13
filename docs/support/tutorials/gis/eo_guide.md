@@ -83,7 +83,7 @@ For Finnish researchers, CSC computing services provide free of charge supercomp
 [**FinHub**](https://finhub.nsdc.fmi.fi/#/home) is the Finnish national mirror of SciHub; others national mirrors also exist. It covers Finland and the Baltics and offers Sentinel 2 L1C (but not L2A) and Sentinel 1 SLC, GRD and OCN products and requires own registration. Finhub does not have concurrent download limitations.
 
 !!! default  ""  
-    **Both of the above** provide a similar Graphical User Interface (GUI) and Application Programming Interface (API) to access the data. Other tools for downloading the data from open access hubs: [sentinelsat](https://sentinelsat.readthedocs.io/en/stable/) with [examples for SciHub and FinHub](https://github.com/csc-training/geocomputing/blob/master/python/sentinel/sentinelsat_download_from_finhub_and_scihub.py), ...
+    **Both of the above** provide a similar Graphical User Interface (GUI) and Application Programming Interface (API) to access the data. You can also use for example the [sentinelsat](https://sentinelsat.readthedocs.io/en/stable/) tool for downloading data from open access hubs. See also [CSC examples for SciHub and FinHub data download](https://github.com/csc-training/geocomputing/blob/master/python/sentinel/sentinelsat_download_from_finhub_and_scihub.py).
 
 
 [**USGS EarthExplorer**](https://earthexplorer.usgs.gov/) provides lots of different US related datasets, also worldwide Landsat mission datasets. It requires free [registration](https://ers.cr.usgs.gov/register). Data can be browsed and downloaded via GUI in web interface and bulk download.
