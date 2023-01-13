@@ -40,12 +40,12 @@ The system comes with two compiler families installed, the Intel OneAPI and GCC 
 We have installed `intel-oneapi-compilers-classic/2021.6.0` and `intel-oneapi-compilers/2022.1.0`
 of the Intel compilers, and for GCC 11.3, 9.4 and 8.5 are available.
 
-See [more information about compilers](../computing/compiling-puhti.md).
+See [more information about compilers](../computing/compiling/compiling-puhti.md).
 
 ## High performance libraries
 
 Puhti has several high performance libraries installed, see [more
-information about libraries](../computing/hpc-libraries.md).
+information about libraries](../computing/compiling/hpc-libraries.md).
 
 ## MPI
 
@@ -59,7 +59,7 @@ We recommend to test using `openmpi` first.
 !!! warning "Note"
     You need to have the MPI module loaded when submitting your jobs.
 
-More information about [building](../computing/compiling-puhti.md#building-mpi-applications) and
+More information about [building](../computing/compiling/compiling-puhti.md#building-mpi-applications) and
 [running](../../computing/running/creating-job-scripts-puhti/#mpi-based-batch-jobs) MPI applications.
 
 ## Applications

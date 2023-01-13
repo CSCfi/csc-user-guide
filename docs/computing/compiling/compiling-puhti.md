@@ -2,7 +2,7 @@
 
 ## General instructions
 
-- Whenever possible, use the [local disk](disk.md#login-nodes) on the login node for compiling software.
+- Whenever possible, use the [local disk](../disk.md#login-nodes) on the login node for compiling software.
     - Compiling on the local disk is much faster and shifts load from the shared file system.
     - The local disk is cleaned frequently, so please move your files elsewhere after compiling.
 
@@ -12,7 +12,7 @@
     Intel reorganized their compiler suites and names of Intel compilers have changed following the Red Hat Enterprise Linux 8 (RHEL8) update on Puhti. In addition, Intel changed the underlying technology of their compilers and renamed the old compilers as Intel Compilers Classic.
 
 C/C++ and Fortran applications can be built with Intel or GNU
-compiler suites. The compiler suite is selected via the [Modules](modules.md)
+compiler suites. The compiler suite is selected via the [Modules](../modules.md)
 system, i.e.
 
 ```bash
@@ -177,4 +177,4 @@ CSC provides a module `spack/v0.18-user` on Puhti that can be used by users to
 build software on top of the available compilers and libraries using Spack. It
 is also possible to install different customized versions of packages available
 in the module tree for special use cases. [See here for a short tutorial on how
-to install software on CSC supercomputers using Spack](../tutorials/user-spack.md).
+to install software on CSC supercomputers using Spack](../../tutorials/user-spack.md).
