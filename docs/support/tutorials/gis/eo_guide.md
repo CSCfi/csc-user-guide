@@ -46,6 +46,7 @@ What to consider when chosing data:
 ## Where can I find the data?
 
 For working with EO data there are two main options:
+
 * Use a service which has EO data readily available and offers data processing and analysis capabilities. Usually these give better user experience and efficiency, but the services might be limited in computing power, available tools or options for adding own data. The commercial systems also might have costs.
 * Use your own processing environment (PC, cloud or HPC) and download the data to this system. This requires extra effort for downloading and managing the data, but in other ways might give more freedom.
 
