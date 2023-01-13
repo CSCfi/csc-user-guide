@@ -11,7 +11,7 @@ This guide aims to help users to work with Earth Observation (EO) data using CSC
 
 !!! default "Raster data format"
 
-EO data is usually available in [raster format]( 
+Most EO data is available in [raster format]( 
 https://towardsdatascience.com/the-ultimate-beginners-guide-to-geospatial-raster-data-feb7673f6db0). The most common file formats are [GeoTiff](https://en.wikipedia.org/wiki/GeoTIFF) and [GeoJPEG2000](http://giswiki.org/wiki/GeoJPEG2000).
 
 
