@@ -7,9 +7,9 @@ _embarrassingly parallel_ jobs, or _task farming_, as the tasks can in principle
 to as many processors as there are subtasks to run. If the independent jobs are "large" enough,
 so that the batch system overhead is not relevant (more than 30 minutes per job, for example),
 and the total number of independent jobs is not huge (less than 1000 per month, for example),
-array jobs in Puhti may be a good (easy) option. There are more suitable options for
-running high throughput calculations when the number of individual runs is very large or the individual
-runs are very short.
+array jobs in Puhti may be a good (easy) option. There are more suitable options for running
+high throughput calculations when the number of individual runs is very large or the individual
+runs are very short (see, for example, [HyperQueue](../../apps/hyperqueue.md)).
 
 ## Defining an array job
 
