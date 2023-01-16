@@ -106,7 +106,7 @@ So very likely you need to download data from other services. The commercial dat
 
 ### EO data download services  
 
-**[SYKE/FMI, Finnish regular image mosaics](https://www.syke.fi/fi-FI/Tutkimus__kehittaminen/Tutkimus_ja_kehittamishankkeet/Hankkeet/Paikkatietoalusta_PTA)** Mosaics are available both for Sentinel 1 and 2, and Landsat, for several time periods per year. Some of them are available in Puhti, but not all. [FMI has also STAC catalog for these mosaics](https://pta.data.lit.fmi.fi/stac/root.json)
+**[SYKE/FMI, Finnish image mosaics](https://www.syke.fi/fi-FI/Tutkimus__kehittaminen/Tutkimus_ja_kehittamishankkeet/Hankkeet/Paikkatietoalusta_PTA)** Mosaics are available both for Sentinel 1 and 2, and Landsat, for several time periods per year. Some of them are available in Puhti, but not all. [FMI has also STAC catalog for these mosaics](https://pta.data.lit.fmi.fi/stac/root.json)
 
 [**European Space Agency's SciHub**](https://scihub.copernicus.eu/dhus/#/home) provides worldwide all main products for Sentinel 1, 2 and 3. It requires free registration. Big part of the data is in the "Long term archive" and cannot be downloaded directly, but needs to be requested. Download is limited to 2 concurrent processes per user.
 
