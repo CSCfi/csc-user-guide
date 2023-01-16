@@ -27,6 +27,7 @@ If there are some parameter that you think you should be able to modify please c
 By default we assume that default parameters are sane and that users should not under normal circumstances need to modify any of these parameters.
 
 | Parameters       | Default | Comments |
+|:--- |:---:|:---|
 | maintenance_work_mem | 64MB | |
 | max_connections      | 100  | It is usually recommended to use connection pools instead of modify this value |
 | work_mem             | 4MB  | |
