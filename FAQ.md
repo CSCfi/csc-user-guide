@@ -131,6 +131,24 @@ mkdocs serve
 mkdocs serve --dirtyreload
 ```
 
+#### Tests
+
+You can also run the tests locally with
+
+```bash
+bash tests/run_tests.sh
+```
+
+#### Scripts
+
+If you're adding entries to the _What's new_ or _Applications_ sections and want to check that they are generated correctly, you can run the scripts with
+
+```bash
+for s in scripts/*.sh; do bash $s; done
+```
+
+Keep in mind, though, that the tests are meant to be run _before_ the scripts, so make sure to restore any files the scripts edit/create before re-running the tests. (Or just ignore the new errors/warnings that resulted from running the scripts.)
+
 ## How and who should I ask to review my PR?
 
 1. Ask someone (one or two persons) who knows the *content* of the work you have committed to review your pull request. This is done in your pull request view using the right-hand-side panel, under `Reviewers`. The panel will suggest a few names for you based on, for example, who has edited the same pages recently. To view more reviewer options, click the cogwheel in the upper right corner of the `Reviewers` panel. If you're still unsure who to pick, you can always drop a message in the Rocket Chat channel #docs.csc.fi. Always request someone to review your PR, otherwise there's a high chance that it will just linger around.
