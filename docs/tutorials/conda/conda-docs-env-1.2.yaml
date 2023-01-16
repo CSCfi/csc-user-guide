@@ -11,3 +11,4 @@ dependencies:
       - mkdocs-material-extensions==1.0.3
       - mkdocs-git-revision-date-localized-plugin==1.1.0
       - mkdocs-section-index
+      - mkdocs-redirects
