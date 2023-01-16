@@ -20,6 +20,21 @@ The most common issues when accessing the database from the CLI are the followin
 ## How is DBaaS PostgreSQL different from an normal PostgreSQL
 There are a couple difference from installing PostgreSQL yourself and using DBaaS. Even if you can get admin permission of the database it is not recommend. It is recommend to manage the users and database access from the DBaaS interface. By following these guidelines you have lower risks for shooting yourself in the foot. There is an `openstack database root enable` command, this can be useful in an education environment if a teacher want all the students to get admin permissions in their database.
 
+## Parameters that users can modify
+
+The DBaaS allows users to modify some of the parameters. 
+If there are some parameter that you think you should be able to modify please contact servicedesk@csc.fi and let's see if we can make it possible. 
+By default we assume that default parameters are sane and that users should not under normal circumstances need to modify any of these parameters.
+
+| Parameters       | Default | Comments |
+| effective_cache_size |      | Default depends on flavor size. It is probably a good idea to increase flavor size instead of changing this value. |
+| maintenance_work_mem | 64MB | |
+| max_connections      | 100  | It is usually recommended to use connection pools instead of modify this value |
+| shared_buffers       |      | This depends on flavor size it is recommend to change flavor instead of modify this value |
+| work_mem             | 4MB  | |
+
+
+
 ## Some useful commands
 
 ##### List databases
@@ -46,7 +61,7 @@ note that this is the same command as creating a new database if it does not exi
 
 ##### Show all database settings
 
-    show all
+    SHOW ALL;
 
 ##### Show all users 
 

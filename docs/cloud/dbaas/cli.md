@@ -172,18 +172,18 @@ These are the available commands at the moment
 | openstack database cluster show 			| Not available | 	Not investigated yet|
 | openstack database cluster shrink 			| Not available | 	Not investigated yet|
 | openstack database cluster upgrade 			| Not available | 	Not investigated yet|
-| openstack database configuration attach 		| Not available | 	Not investigated yet|
-| openstack database configuration create 		| Not available | 	Not investigated yet|
-| openstack database configuration default 		| Not available | 	Not investigated yet|
-| openstack database configuration delete 		| Not available | 	Not investigated yet|
-| openstack database configuration detach 		| Not available | 	Not investigated yet|
-| openstack database configuration instances 		| Not available | 	Not investigated yet|
-| openstack database configuration list 		| Not available | 	Not investigated yet|
-| openstack database configuration parameter list	| Not available | 	Not investigated yet|
-| openstack database configuration parameter set 	| Not available | 	Not investigated yet|
-| openstack database configuration parameter show 	| Not available | 	Not investigated yet|
-| openstack database configuration set 			| Not available | 	Not investigated yet|
-| openstack database configuration show 		| Not available | 	Not investigated yet|
+| openstack database configuration attach 		| Supported     ||
+| openstack database configuration create 		| Supported     ||
+| openstack database configuration default 		| Supported     ||
+| openstack database configuration delete 		| Supported     ||
+| openstack database configuration detach 		| Supported     ||
+| openstack database configuration instances 		| Supported     ||
+| openstack database configuration list 		| Supported     ||
+| openstack database configuration parameter list	| Supported     ||
+| openstack database configuration parameter set 	| Supported     ||
+| openstack database configuration parameter show 	| Supported     ||
+| openstack database configuration set 			| Supported     ||
+| openstack database configuration show 		| Supported     ||
 | openstack database db create 				| Supported 	||
 | openstack database db delete 				| Supported 	||
 | openstack database db list 				| Supported 	||
