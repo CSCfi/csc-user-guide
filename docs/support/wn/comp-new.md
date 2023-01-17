@@ -1,5 +1,9 @@
 # Computing environment
 
+## Puhti disk cleaning policy changed
+
+* Now files not accessed in 6 months are deleted in the cleaning process, earlier it was 12 months.
+
 ## Puhti web interface updated to release 13, 20.12.2022
 
 * New visual style.
