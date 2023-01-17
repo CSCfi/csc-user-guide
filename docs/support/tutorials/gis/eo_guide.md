@@ -135,7 +135,18 @@ Some Finnish EO datasets are available locally at CSC. A STAC for all spatial da
 
 
 ## How can I process EO data at CSC?
-
+* User skills and preferences
+    * Graphical User Interface (GUI)
+    * Command Line Interface (CLI)
+    * Scripting
+* User needs
+    * Functionality
+    * Batch processing
+    * Automation
+    * Reproducibility
+* Open source vs proprietary
+    * Proprietary tools need licenses which may be expensive and/or limiting the use of the tool
+    * FOSS (free and open source software) allows the user to inspect the source code and provide high level insights in its functionality 
 You can find more information about geocomputing using CSC resources and how to get started on [CSC geocomputing pages](https://research.csc.fi/geocomputing), including links to creating user accounts and all other practical information. 
 
 ### What applications are available on Puhti?
@@ -157,7 +168,7 @@ You can find more information about geocomputing using CSC resources and how to 
 * [Machine learning modules](../../../apps/index.md#data-analytics-and-machine-learning) provide some common machine learning frameworks, also for deep learning..
 
 
-[**QGIS**](../../../apps/qgis.md) - is a very widely used GUI for working with spatial data, it has also limited multispectral image processing capabilities.  GUI with batch processing possibility and Python interface. Used for example for visualization, map algebra and other raster processing. Many plug-ins available, for EO data processing, check out the [QGIS Semi-automatic classification plugin](https://fromgistors.blogspot.com/p/semi-automatic-classification-plugin.html).
+[**QGIS**](../../../apps/qgis.md) - open source tool with GUI for working with spatial data including limited multispectral image processing capabilities.  GUI with batch processing possibility and Python interface. Used for example for visualization, map algebra and other raster processing. Many plug-ins available, for EO data processing, check out the [QGIS Semi-automatic classification plugin](https://fromgistors.blogspot.com/p/semi-automatic-classification-plugin.html).
 
 [**R**](../../../apps/r-env-for-gis.md) - Puhti R installation includes a lot of geospatial packages, includeing serveral useful for EO data processing, such as `terra`, `CAST`, `raster` and `spacetime`, also `rstac` for working with STAC catalogues.
 
@@ -175,7 +186,7 @@ One example of the advanced usage of EO data is for machine learning. If you are
 
 
 ## Alternative processing services
-Below is a list of alternative EO processing services that might be useful, when a lot of data is required and downloading it all to CSC might not be feasible. All of them include the main open datasets: Sentinel, Landsat, MODIS etc.
+Below is a list of alternative EO processing services that might be useful, when a lot of data is required and downloading it all to CSC might not be feasible. 
 
 **[Google Earth Engine](https://earthengine.google.com/)** is a processing platform, which requires registration, but is currently free of charge for research users. It can be accessed via browser and has worldwide analysis ready data available (<a href="https://developers.google.com/earth-engine/datasets/catalog/" aria-label="GEE data catalogue">browse the catalogue</a>). In general, JavaScript is used on the platform, but also  <a href="https://developers.google.com/earth-engine/guides/python_install" aria-label="Python on GEE">Python</a>  and  <a href="https://github.com/r-spatial/rgee" aria-label="R on GEE">R</a> support exists. Check out [GEE's tutorials](https://developers.google.com/earth-engine/tutorials). Note that Google Cloud Storage might be needed to export large datasets.
 
@@ -185,7 +196,7 @@ Below is a list of alternative EO processing services that might be useful, when
  
 [**Sentinelhub**](https://www.sentinel-hub.com/explore/) is a commercial service that offers several different APIs.
 
-**Commercial clouds**: Amazon, Google Cloud and Microsoft Azure, all provide virtual machines and other processing services, all of them have some local data, see links above. No EO support.
+**Commercial clouds**: Amazon, Google Cloud and Microsoft Azure, all provide virtual machines and other processing services, all of them have some local data, see links above. 
  
 ## Where can I get help?
 
