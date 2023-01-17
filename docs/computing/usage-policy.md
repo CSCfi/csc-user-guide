@@ -37,7 +37,7 @@ to degrade when it fills up, and the more it fills up, the slower the performanc
 will get.
 
 The current policy in Puhti is that files that have not been accessed for
-**12 months** or more will be removed. This cleaning will happen regularly,
+**6 months** or more will be removed. This cleaning will happen regularly,
 and each time users are informed at least 1 month in advance. CSC also provides
 lists of files that are about to be removed and instructions for how one can
 transfer important files to more suitable disk systems.
