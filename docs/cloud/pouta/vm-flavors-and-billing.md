@@ -508,4 +508,5 @@ but they will be removed at some point in the near future.
   [CSC computing environment articles]: https://research.csc.fi/computing
   [command line instructions]: command-line-tools.md
   [TensorFlow]: https://www.tensorflow.org
+  [optimization service]: https://research.csc.fi/optimization-service
   [Terms of Use]: https://research.csc.fi/pouta-user-policy
