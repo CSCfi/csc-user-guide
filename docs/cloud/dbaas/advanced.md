@@ -50,7 +50,8 @@ openstack database configuration attach $INSTANCE_ID $CONFIGURATION_GROUP_ID
 7. If your configuration group contained changes that requires a restart you will need to restart
 your database instance. Note that you won't be able to attach a new configuration group before
 restarting the instance if you detached a configuration that requires restart. Also only one
-configuration group can be attach at the same time.
+configuration group can be attach at the same time. Note that no new backups will be taken of the
+instance before the restart have been done.
 ```
 openstack database instance restart $INSTANCE_ID
 ```
