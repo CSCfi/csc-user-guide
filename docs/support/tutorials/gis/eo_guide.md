@@ -16,11 +16,13 @@ This guide aims to help researchers to work with Earth Observation (EO) data usi
 
 For working with EO data, there are in general three main options:
 
-1. **Special EO services**, which provide both data and advanced ready-to-use processing environments. Usually these give better user experience and efficiency, but the services might be limited in computing power, available tools or options for adding own data. Often these have fees for using.
-2. **Commercial clouds** with local copy of open EO data. The data is practically always saved to object-storage and usually can be downloaded from anywhere as independent service. They provide also general computing services where EO data analysis tools need to be installed by the end-user. The most common option for processing in the cloud are virtual machines. These options usually have some fees, mainly for processing. The data download may be free of charge or then have some small costs depending on the amount of data needed. Data download costs might be smaller if using virtual machines of the same cloud provider in the same region.
-3. **Own processing environment** - PC, local cluster. All data needs to be downloaded to this system and all tools must be installed, which requires extra effort. On the other hand it gives more freedom to select the tools and set-up. Usually this does not cause any extra costs, but the computing power is usually rather limited.
+1) **EO specific services**, which provide both data and advanced ready-to-use processing environments. Usually these give better user experience and efficiency, but the services might be limited in computing power, available tools and options for adding own data. Often these have fees for using.
 
-CSC services do not fit well in this categorization, as  they provide some features from all of these. **CSC computing services provide a lot of computing power and storage space, and they are free of charge** for Finnish researchers for academic or educational use. 
+2) **Cloud services** with access to EO data. Practically, the data is often stored in object-storage and can be accessed as independent service. They  also provide general computing services, such as virtual machines, to which EO  tools need to be installed by the end-user. These options usually have some fees, mainly for processing. The data download may be free of charge or have a small cost, depending on the amount of data needed. 
+
+3) **Own computing environment** - PC, local cluster. Data needs to be downloaded and all tools must be installed to this system. On the other hand, it gives more freedom to select the tools and set-up. Usually this does not cause any extra costs, but the computing power is usually rather limited.
+
+CSC services do not fit well in this categorization, as they provide some features from all of these. **CSC computing services provide a lot of computing power and storage space, and they are free of charge** for Finnish researchers for academic or educational use. 
 
 At CSC, EO data can be processed and analyzed using a supercomputer, for example [supercomputer Puhti](../../../computing/systems-puhti.md), or a virtual machine in the [cPouta cloud service](../../../cloud/pouta/pouta-what-is.md). Puhti's computing capacity can hardly be compared to any other EO service, in both available processing power and amount of memory. Both Puhti and cPouta have also GPU resources, which are especially useful for large simulations and deep learning use cases. 
 
