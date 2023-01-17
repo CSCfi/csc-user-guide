@@ -122,7 +122,7 @@ Some Finnish EO datasets are available locally at CSC. STAC for data at CSC is c
 
 **[Microsoft planetary computer](https://planetarycomputer.microsoft.com)**: Sentinel, Landsat, MODIS etc. STAC available. It is currently available in preview.
 
-[**Google Cloud Storage open EO data**](https://cloud.google.com/storage/docs/public-datasets), inlcuding Sentinel-2 L1C and Landsat: Collection 1 data. Data can be downloaded from here for example with [FORCE](../../../apps/force.md).
+[**Google Cloud Storage open EO data**](https://cloud.google.com/storage/docs/public-datasets), including Sentinel-2 L1C and Landsat: Collection 1 data. Data can be downloaded from here for example with [FORCE](../../../apps/force.md).
     
 [**Terramonitor**](https://www.terramonitor.com/services/analysis-ready) provides pre-prosessed, analysis ready Sentinel-2 data from Finland available between 2018-2020. Commercial service.
 
@@ -133,7 +133,7 @@ Some Finnish EO datasets are available locally at CSC. STAC for data at CSC is c
 
 ## How can I process EO data at CSC?
 
-You can find more information about geocomputing using CSC resources and how to get started on [CSC geocomputing pages](https://research.csc.fi/geocomputing), inlcuding links to creating user accounts and all other practical information. 
+You can find more information about geocomputing using CSC resources and how to get started on [CSC geocomputing pages](https://research.csc.fi/geocomputing), including links to creating user accounts and all other practical information. 
 
 ### What applications are available on Puhti?
 
@@ -168,7 +168,7 @@ If you need further applications, you can ask CSC to install them for you.
  
 ### Machine Learning with EO data
 
-One example of the advanced usage of EO data is for machine learning. If you are interested in the topic, you can find a lot of examples from [CSC machine learning with spatial data course materials]( https://github.com/csc-training/GeoML). For practical guidelines, see also [CSC machine learning guide](ml-guide.md)
+One example of the advanced usage of EO data is for machine learning. If you are interested in the topic, you can find a lot of examples from [CSC machine learning with spatial data course materials]( https://github.com/csc-training/GeoML). For practical guidelines, see also [CSC machine learning guide](../ml-guide.md)
 
 
 ## Alternative processing services
