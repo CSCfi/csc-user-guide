@@ -167,7 +167,7 @@ The username and password should be printed in the console text, above the login
 
 1. Open `/tmp/mnt/boot/grub2/grub.cfg` with your favorite text editor. Remove the first `menuentry` section. 
 
-    *NOTE:* This might not be the correct solution for your specific problem. The first menuentry is normaly your latest and default kernell. 
+    *NOTE:* This might not be the correct solution for your specific problem. The first menuentry is normally your latest and default kernel. 
 
 ## Use `chroot` to change the `/` folder
 
