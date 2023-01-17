@@ -59,7 +59,7 @@ cloud-user@<floating-ip>: Permission denied (publickey,gssapi-keyex,gssapi-with-
 
 Note that there are always several ways to fix any problem, this FAQ is mostly meant to show one the ways to fix these kind of problems. Also that meanwhile you are allowed to edit Grub boot parameters, the root single mode access is disabled by default for security reasons. The procedure to perform a rescue is:
 
-1. You need to have installed the [OpenStack command line tools](https://docs.csc.fi/cloud/pouta/install-client/). And you have to login, see [Configure your terminal environment for OpenStack](https://docs.csc.fi/cloud/pouta/install-client/#configure-your-terminal-environment-for-openstack) for reference.
+1. You need to have installed the [OpenStack command line tools](/cloud/pouta/install-client/). And you have to login, see [Configure your terminal environment for OpenStack](/cloud/pouta/install-client/#configure-your-terminal-environment-for-openstack) for reference.
 
 1. Get the server's ID, and store it in an environment variable called: `INSTANCE_UUID` :
 
