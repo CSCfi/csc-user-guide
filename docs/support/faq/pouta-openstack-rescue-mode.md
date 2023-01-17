@@ -1,11 +1,13 @@
-# Server can't boot. How to rescue instances?
+# How to rescue instances?
 
-In case you run into a situation where your kernel upgrade fails for some reason, and your CentOS 7 instance won't come up, you might find these instructions useful. Sometimes this might seem like a failed resize but the real reason is the restart that a resize requires.
+Openstack offers a rescue mode to recover VMs. It is a command that let's use a different image to boot a VM. This can be used when the virtual machine fails to boot due to a kernel panic, full disk, or when you simply lost access to the private key. By allowing you to boot from a different image, you will be able to mount and edit the files on your current disk and fix the problem.
 
 ## Symptoms
 
-Check your instance Console Log (web UI: Instances -> <your instance> -> Log)
+### Kernel Panic
 
+Check your instance Console Log (web UI: **Instances** > `<your instance>` > **Log**)
+	```sh
 	[    1.041853] Loading compiled-in X.509 certificates
 	[    1.043433] Loaded X.509 cert 'CentOS Linux kpatch signing key:ea0413152cde1d98ebdca3fe6f0230904c9ef717'
 	[    1.046556] Loaded X.509 cert 'CentOS Linux Driver update signing key:7f421ee0ab69461574bb358861dbe77762a4201b'
@@ -40,60 +42,162 @@ Check your instance Console Log (web UI: Instances -> <your instance> -> Log)
 	[    1.104497]  [<ffffffff871255f7>] ret_from_fork_nospec_begin+0x21/0x21
 	[    1.106367]  [<ffffffff87101bc0>] ? rest_init+0x80/0x80
 	[    1.107997] Kernel Offset: 0x5a00000 from 0xffffffff81000000 (relocation range:0xffffffff80000000-0xffffffffbfffffff)
-
+	```
 
 The log says that the instance couldn't boot because it can't find root "Kernel panic - not syncing: VFS: Unable to mount root fs onunknown-block(0,0)". The fix is to use (some) previous, working kernel. Since you can't boot the server, you have to make the fix to the Volume (boot files) by using another instance.
 
-## How to fix the issue
+### Access denied
 
-Note, that you will modify grub, there are probably better ways to do it, so do not be afraid to see what other guides there are on the internet. This FAQ is mostly meant to show that there is a command named `nova rescue`. There is also a command named `openstack server rescue` which is almost the same as `nova rescue` but is missing the `--image` flag which is almost *always* required when rescuing servers.
+The problem can be as simple as:
 
-1. shutdown the instance <pre><code>openstack server stop $INSTANCE_UUID</pre></code>
+```sh
+$ ssh cloud-user@<floating-ip>
+cloud-user@<floating-ip>: Permission denied (publickey,gssapi-keyex,gssapi-with-mic).
+```
 
-2. Use this command to rescue the instances. <pre><code>nova rescue $INSTANCE_UUID --image CentOS-7</pre></code>
+## How to fix the issue, nova rescue
 
-In this step, you may need to use the image ID instead of the image name (CentOS-7) if you have many images with the same name. In order to find the ID of the image please use the following command: <pre><code> openstack image list </pre></code>.
+Note that there are always several ways to fix any problem, this FAQ is mostly meant to show one the ways to fix these kind of problems. Also that meanwhile you are allowed to edit Grub boot parameters, the root single mode access is disabled by default for security reasons. The procedure to perform a rescue is:
 
-Also, if your intance is an Ubuntu instead of CentOS, then select Ubuntu image ID instead. 
+1. You need to have installed the [OpenStack command line tools](https://docs.csc.fi/cloud/pouta/install-client/). And you have to login, see [Configure your terminal environment for OpenStack](https://docs.csc.fi/cloud/pouta/install-client/#configure-your-terminal-environment-for-openstack) for reference.
 
-3. Make sure that the instance is in rescue mode with <pre><code>openstack server show $INSTANCE_UUID</pre></code>
+1. Get the server's ID, and store it in an environment variable called: `INSTANCE_UUID` :
 
-4. ssh into the instances.
+	```sh
+	$ openstack server list
+	+--------------------------------------+-----------+--------+----------------------------+-------+----------------+
+	| ID                                   | Name      | Status | Networks                   | Image | Flavor         |
+	+--------------------------------------+-----------+--------+----------------------------+-------+----------------+
+	| 55555566-ffff-4a52-5735-356251902325 | comp1  | ACTIVE | net=192.168.211.211  |       | standard.small |
+	+--------------------------------------+-----------+--------+----------------------------+-------+----------------+
 
-In case that you have this message in the terminal:  <pre><code>WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!</pre></code>
+	```
 
-Fix it by removing the line of your instance IP address from the file ~/.ssh/known_hosts 
+1. Shutdown the instance:
 
-An alternative way is the execution of the followiwng command: 
-<pre><code>ssh-keygen -f "~/.ssh/known_hosts" -R "$INSTANCE_IP"</pre></code>
+	```sh
+	openstack server stop $INSTANCE_UUID
+	```
 
-5. Check what volumes you have. If you don't have any other volumes attached it should looks something like this:
-<pre><code>$ lsblk
-NAME   MAJ:MIN RM SIZE RO TYPE MOUNTPOINT
-vda    253:0    0  10G  0 disk
-└─vda1 253:1    0  10G  0 part
-vdb    253:16   0  80G  0 disk
-└─vdb1 253:17   0  80G  0 part /
-</code></pre>
+1. Check that the VM is stopped:
 
-6. Now you want to mount `vdb1` to /tmp/mnt and go to that directory. <pre><code>$ sudo mkdir -p /tmp/mnt; $sudo mount /dev/vdb1 /tmp/mnt/</code></pre>
+	```sh
+	openstack server show $INSTANCE_UUID
+	```
 
-7. Take a backup of grub <pre><code>$ cp /tmp/mnt/boot/grub2/grub.cfg /tmp/mnt/root/grub.cfg.bak-`date +"%F"`</pre></code>
+    The power_state should be `Shutdown`.
 
-8. Open `/tmp/mnt/boot/grub2/grub.cfg` with your favorite text editor. Remove the first `menuentry` section. *NOTE:* This might not be the correct solution for your specific problem.
+1. You are now ready to launch the rescue of the instances:
 
-9. In case that your instance has issues due to some broken packages or drivers, then you can switch to your original and fix the problems using the following commands:
+	```sh
+	nova rescue $INSTANCE_UUID --image <image-name>
+	```
 
-<pre><code>
+	!!! warning
+    	    There is also a command named `openstack server rescue` which is almost the same as `nova rescue` but is missing the `--image` flag which is almost *always* required when rescuing servers.
+
+    In this step, you should the same image your instance is using. You can get a list of images available by:  
+
+	```sh
+	openstack image list
+	```
+
+	!!! info "Cirros"
+	    Cirros is a small image designed for rescue operations when access was lost. It provides a default username and password that can be used in Pouta's web console
+
+1. Make sure that the instance is in rescue mode with:
+
+	```sh
+	openstack server show $INSTANCE_UUID
+	```
+
+## Connecting
+
+### Using ssh 
+
+Ssh into the instance, the user and IP should be the same as the normal ones.
+
+```sh
+ssh <default-user>@<floating-ip>
+```
+
+You will get this warning: `WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!`. This is what is called the `host keys`, they are stored in the VM's disk, and they change because you are booting using a different disk. Fix it by removing the line of your instance IP address from the file `~/.ssh/known_hosts`. An alternative way is the execution of the following command:
+
+```sh
+ssh-keygen -f "~/.ssh/known_hosts" -R "$INSTANCE_IP"
+```
+
+### Using Pouta's web console (cirros)
+
+Login in Pouta's web interface: <https://pouta.csc.fi>. Look for your instance and click in `console`.
+
+![Web console](/img/pouta-web-console.png)
+
+The username and password should be printed in the console text, above the login.
+
+## Mount the disk 
+
+1. Check what volumes you have. If you don't have any other volumes attached it should looks something like this:
+
+	```sh
+	$ lsblk
+	NAME   MAJ:MIN RM SIZE RO TYPE MOUNTPOINT
+	vda    253:0    0  10G  0 disk
+	└─vda1 253:1    0  10G  0 part
+	vdb    253:16   0  80G  0 disk
+	└─vdb1 253:17   0  80G  0 part /
+	```
+
+1. Now you want to mount `vdb1` to `/tmp/mnt` and go to that directory:
+
+	```sh
+	$ sudo mkdir -p /tmp/mnt
+	$ sudo mount /dev/vdb1 /tmp/mnt/
+	```
+
+## Change bootloader (Grub)
+
+1. Take a backup of grub:
+
+	```sh
+	$ cp /tmp/mnt/boot/grub2/grub.cfg /tmp/mnt/root/grub.cfg.bak-$(date +"%F")
+	```
+
+1. Open `/tmp/mnt/boot/grub2/grub.cfg` with your favorite text editor. Remove the first `menuentry` section. 
+
+    *NOTE:* This might not be the correct solution for your specific problem. The first menuentry is normaly your latest and default kernell. 
+
+## Use `chroot` to change the `/` folder
+
+In case that your instance has issues due to some broken packages or drivers, then you can switch to your original and fix the problems using the following commands:
+
+```sh
 $ sudo mv /tmp/mnt/etc/resolv.conf{,.bak}
 $ sudo cp /etc/resolv.conf /tmp/mnt/etc/resolv.conf
 $ sudo chroot /tmp/mnt
-$ sudo source /etc/environment
-</code></pre>
+```
 
-10. Log out from the instances and `unrescue` the instance <pre><code>nova unrescue $INSTANCE_UUID</pre></code>
+The `chroot` has now changed your root folder `/` to `/tmp/mnt/` (your VM's disk partition). And can do any fix or change like uninstalling or reinstalling a package. 
 
-11. If the instance comes up successfully ssh into the instance and reinstall the kernel. In case of CentOS-7, use the following command:
-    <pre><code>yum reinstall kernel</pre></code>
+## Get out of rescue
 
-12. It would be a good idea to verify that a restart works after the kernel reinstallation. 
+1. Log out from the instances and `unrescue` the instance:
+
+	```sh
+	nova unrescue $INSTANCE_UUID
+	```
+
+1. It would be a good idea to verify that a restart works after the kernel reinstallation:
+
+	```sh
+	ssh <default-user>@<floating-ip> reboot
+	```
+
+    wait to boot and ssh to it again:
+
+	```sh
+	ssh <default-user>@<floating-ip>
+	```
+
+    It should work as before the incident happened.
+
