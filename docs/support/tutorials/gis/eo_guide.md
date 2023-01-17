@@ -209,6 +209,7 @@ If you are interested in the fundamentals of EO, take a look at these excellent 
 * [Earthdatascience intro to multispectral data](https://www.earthdatascience.org/courses/use-data-open-source-python/multispectral-remote-sensing/intro-multispectral-data/)
 
 Further reading:
+
 * [CSC geocomputing seminar materials](https://research.csc.fi/geocomputing-seminars), especially materials of the 2022 EO-workshop
 * [ESA tutorials](https://step.esa.int/main/doc/tutorials/)
 * [Awesome EO code](https://github.com/acgeospatial/awesome-earthobservation-code), long list of EO tools
