@@ -131,6 +131,24 @@ mkdocs serve
 mkdocs serve --dirtyreload
 ```
 
+#### Tests
+
+You can also run the tests locally with
+
+```bash
+bash tests/run_tests.sh
+```
+
+#### Scripts
+
+If you're adding entries to the _What's new_ or _Applications_ sections and want to check that they are generated correctly, you can run the scripts with
+
+```bash
+for s in scripts/*.sh; do bash $s; done
+```
+
+Keep in mind, though, that the tests are meant to be run _before_ the scripts, so make sure to restore any files the scripts edit/create before re-running the tests. (Or just ignore the new errors/warnings that resulted from running the scripts.)
+
 ## How and who should I ask to review my PR?
 
 1. Ask someone (one or two persons) who knows the *content* of the work you have committed to review your pull request. This is done in your pull request view using the right-hand-side panel, under `Reviewers`. The panel will suggest a few names for you based on, for example, who has edited the same pages recently. To view more reviewer options, click the cogwheel in the upper right corner of the `Reviewers` panel. If you're still unsure who to pick, you can always drop a message in the Rocket Chat channel #docs.csc.fi. Always request someone to review your PR, otherwise there's a high chance that it will just linger around.
@@ -157,6 +175,8 @@ It's good practice to leave comments/suggest changes to a PR so that they appear
 4. If you want to remove a line, delete the content (leave the tics and the word suggestion)
 5. If you want to edit multiple lines, click and drag the `+` sign to select all lines.
 6. Once done, click `Add single comment`.
+
+If you want to add changes suggested by a reviewer, go to the `files changed` tab, find the suggestions you want to add to your pull request and -if you have multiple suggestions to add - choose `add suggestion to batch`. Once you added all suggestions to the batch, you can find a `commit suggestions` button with the number of changes that will be committed under each added suggestion or in the top right of the `files changed` page. Once you click that, you can provide a commit message and commit all changes at once to your branch.
 
 ## How do I add an entry to the "What's new" section
 
