@@ -93,6 +93,8 @@ Note that there are always several ways to fix any problem, this FAQ is mostly m
 	nova rescue $INSTANCE_UUID --image <image-name>
 	```
 
+	Ignopre the password the commabd shows, it is disabled in all our images.
+
 	!!! warning
     	    There is also a command named `openstack server rescue` which is almost the same as `nova rescue` but is missing the `--image` flag which is almost *always* required when rescuing servers.
 
