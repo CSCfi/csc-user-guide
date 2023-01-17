@@ -133,21 +133,27 @@ Some Finnish EO datasets are available locally at CSC. A STAC for all spatial da
 
     To find other geospatial datasets, check out [CSC open spatial dataset list](https://research.csc.fi/open-gis-data).  
 
-
 ## How can I process EO data at CSC?
-* User skills and preferences
+
+You can find information about geocomputing using CSC resources and how to get started on [CSC geocomputing pages](https://research.csc.fi/geocomputing), including links to creating user accounts and all other practical information. 
+
+### What to consider when choosing a software?
+
+* Functionality
+* Interaction type:
     * Graphical User Interface (GUI)
     * Command Line Interface (CLI)
     * Scripting
-* User needs
-    * Functionality
-    * Batch processing
-    * Automation
+* Technical aspects:
     * Reproducibility
+    * Supported operating systems
+    * Automation possibility
+    * Combination possibility
+    * Computational efficiency
+    * Support for parallel computing or batch processing
 * Open source vs proprietary
     * Proprietary tools need licenses which may be expensive and/or limiting the use of the tool
-    * FOSS (free and open source software) allows the user to inspect the source code and provide high level insights in its functionality 
-You can find more information about geocomputing using CSC resources and how to get started on [CSC geocomputing pages](https://research.csc.fi/geocomputing), including links to creating user accounts and all other practical information. 
+    * FOSS (free and open source software) allows the user to inspect the source code and provide high level insights in its functionality
 
 ### What applications are available on Puhti?
 
