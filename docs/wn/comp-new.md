@@ -2,7 +2,7 @@
 
 ## Puhti disk cleaning policy changed, 17.1.2023
 
-* [Usage policy](../../../computing/usage-policy/) changed, now files not accessed in **6** months are deleted in the cleaning process.
+* [Usage policy](../../computing/usage-policy/) changed, now files not accessed in **6** months are deleted in the cleaning process.
 
 ## Puhti web interface updated to release 13, 20.12.2022
 

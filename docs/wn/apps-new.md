@@ -2,7 +2,7 @@
 
 ## Gromacs 2022.4, 16.1.2023
 
-[Gromacs](../../apps/gromacs.md) 2022.4 has been installed and set as the default module on Puhti
+[Gromacs](../../apps/gromacs/) 2022.4 has been installed and set as the default module on Puhti
 and Mahti. [See release notes here](https://manual.gromacs.org/2022.4/release-notes/2022/2022.4.html).
 
 ## License for Materials and Discovery Studio no longer available, 3.1.2023
@@ -71,7 +71,7 @@ the side navigation: Applications > By license)
 
 ## Python Data 3.10-22.09, 7.10.2022
 
-Coinciding with the Red Hat 8 update of Puhti, a new [Python Data](../../apps/python-data.md)
+Coinciding with the Red Hat 8 update of Puhti, a new [Python Data](../../apps/python-data/)
 module has been installed (on both Puhti and Mahti). In addition, old conda-based modules have
 been removed, and the naming of modules has changed. Modules are now named according to the Python
 version (PV) and the year (YY) and month (MM) of the installation, as PV-YY.MM. Typically the
@@ -82,17 +82,17 @@ the most recent installation with that version of Python, for example: `module l
 ## `r-env-singularity` renamed to `r-env` and update to R 4.2.1 coinciding with RHEL8 update, 14.9.2022
 
 Following the RHEL8 update on Puhti, the `r-env-singularity` module has been renamed to
-[`r-env`](../../apps/r-env.md). The R version has been updated to 4.2.1, along with several
+[`r-env`](../../apps/r-env/). The R version has been updated to 4.2.1, along with several
 other version updates for installations included in the module. Due to the RHEL8 update requiring
 modifications to the `r-env` module setup, older R versions are currently unavailable.
 
 ## Discovery Studio and Material Studio license discontinued in 2023, 25.8.2022
 
-CSC has been providing a national academic license for [Discovery Studio](../../apps/discovery-studio.md)
-and [Materials Studio](../../apps/materialsstudio.md). Due to small usage and the availability of
-overlapping tools ([Maestro](../../apps/maestro.md)), the license will not be continued after this
+CSC has been providing a national academic license for [Discovery Studio](../../apps/discovery-studio/)
+and [Materials Studio](../../apps/materialsstudio/). Due to small usage and the availability of
+overlapping tools ([Maestro](../../apps/maestro/)), the license will not be continued after this
 year. This means that in 2023 these molecular modeling tools can't be used any more at CSC nor on
-users' own computers. Please contact [Service Desk](../contact.md) if you need help in moving your
+users' own computers. Please contact [Service Desk](../../support/contact/) if you need help in moving your
 molecular modeling work to other modeling environments.
 
 ## PyTorch 1.12, 8.7.2022
@@ -118,7 +118,7 @@ default versions have been changed to these new versions.
 
 ## CP2K 9.1 linked to Gromacs 2022, 19.4.2022
 
-[CP2K](../../apps/cp2k.md) 9.1 has been linked to [Gromacs](../../apps/gromacs.md) 2022 for QM/MM
+[CP2K](../../apps/cp2k/) 9.1 has been linked to [Gromacs](../../apps/gromacs/) 2022 for QM/MM
 in the module `gromacs-env/2022-cp2k` on Mahti. This option was previously available under the
 CP2K module `cp2k/8.1-gmx`, which has now been deprecated. Please use `gromacs-env/2022-cp2k` for
 QM/MM simulations from now on.
@@ -140,11 +140,11 @@ performant filesystem for all users.
 
 ## Tykky 0.2.2, 31.3.2022
 
-[Tykky](../../computing/containers/tykky.md), a brand new tool for wrapping Conda/pip environments
+[Tykky](../../computing/containers/tykky/), a brand new tool for wrapping Conda/pip environments
 inside a Singularity container, has been released. Containerization will considerably improve
 startup times and decrease IO load with less files on the shared parallel filesystem. We recommend
 wrapping all existing Conda environments within containers using Tykky as the [direct usage of
-Conda on CSC supercomputers has been deprecated](../deprecate-conda.md).
+Conda on CSC supercomputers has been deprecated](../support/deprecate-conda/).
 
 ## TensorFlow 2.8, 17.3.2022
 
@@ -155,14 +155,14 @@ for more details.
 
 ## Gromacs 2022, 9.3.2022
 
-[Gromacs 2022](../../apps/gromacs.md) has been installed on Puhti and Mahti and is available on
+[Gromacs 2022](../../apps/gromacs/) has been installed on Puhti and Mahti and is available on
 both systems with `module load gromacs-env/2022`. A list of new features and changes is found in the
 [Gromacs manual](https://manual.gromacs.org/documentation/current/release-notes/index.html#gromacs-2022-series).
 `gromacs-env/2021` is now the default.
 
 ## CP2K 9.1, 4.3.2022
 
-[CP2K](../../apps/cp2k.md) version 9.1 has been installed on Mahti and is available with
+[CP2K](../../apps/cp2k/) version 9.1 has been installed on Mahti and is available with
 `module load cp2k/9.1-omp`, given that `gcc/10.3.0` and `openmpi/4.1.0` are first loaded.
 A list of new features and changes is found on the [CP2K website](https://www.cp2k.org/version_history#section91).
 
@@ -173,7 +173,7 @@ of new features, see the [Schrödinger website](https://www.schrodinger.com/rele
 
 ## Gromacs 2021 now default version, 7.2.2022
 
-[Gromacs 2021.5](../../apps/gromacs.md) has been installed on Puhti and Mahti and set as the
+[Gromacs 2021.5](../../apps/gromacs/) has been installed on Puhti and Mahti and set as the
 default module (gromacs-env).
 
 ## Direct usage of Conda deprecated, 4.2.2022
@@ -252,7 +252,7 @@ Note that some keywords, such as `MAP_CONSISTENT` in the `QS` section, have been
 ## AMS 2021.102, 13.8.2021
 
 AMS has been updated to version 2021.102 on both Mahti and Puhti and set as the default module. The
-[AMS documentation](../../apps/ams.md) has been updated accordingly to cover version 2021.102.
+[AMS documentation](../../apps/ams/) has been updated accordingly to cover version 2021.102.
 
 ## Molpro 2021.2, 10.8.2021
 
@@ -279,4 +279,4 @@ This is the first version of Python Data that has been installed using
 Singularity which should make loading times much faster. Thanks to wrapper
 scripts this change should be mostly invisible to users. If you still encounter
 any problems, don't hesitate to report them to [CSC's service
-desk](../contact/).
+desk](../../support/contact/).
