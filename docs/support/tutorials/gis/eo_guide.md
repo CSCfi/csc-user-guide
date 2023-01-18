@@ -102,7 +102,7 @@ Commercial datasets are usually available from data provider, while open dataset
 
 ### EO data at CSC
 
-Some Finnish EO datasets are available locally at CSC. A STAC for all spatial data available at CSC is coming in 2023.
+Some Finnish EO datasets are available locally at CSC. A STAC catalgoue for all spatial data available at CSC is coming in 2023.
 
 * **Sentinel and Landsat mosaics** of Finland in Puhti. Accessing data in Puhti requires CSC user account with a project where Puhti service is enabled. All Puhti users have **read** access these datasets. You do not need to move the files: they can be used directly, unless you need to modify them, which requires you to make your own copy.
 * **Sentinel-2 L2A data** of Finland in Allas. These files are public, so anybody can download them, also from own computer or other services.
@@ -161,7 +161,7 @@ You can find information about geocomputing using CSC resources and how to get s
 
 [**FORCE**](../../../apps/force.md) - Framework for Operational Radiometric Correction for Environmental monitoring. All-in-one processing engine with CLI for EO image archives. [FORCE example for Puhti](https://github.com/csc-training/geocomputing/tree/master/force)
 
-[**GDAL (OGR)**](../../../apps/gdal.md) - Geospatial Data Abstraction Library.  Collection of command-line tools for accessing and transforming geospatial data, relatively fast and require little computational resources. GDAL support reading data directly from Internet or object storage. GDAL is included in many other tools for data reading and writing. [GDAL example for Puhti](https://github.com/csc-training/geocomputing/tree/master/gdal)
+[**GDAL (OGR)**](../../../apps/gdal.md) - Geospatial Data Abstraction Library.  Collection of command-line tools for accessing and transforming geospatial data. It is relatively fast and requires little computational resources. GDAL supports reading data directly from Internet or object storage. GDAL is included in many other tools for data reading and writing. [GDAL example for Puhti](https://github.com/csc-training/geocomputing/tree/master/gdal)
 
 [**Julia**](../../../apps/julia.md) - Puhtis Julia installation does not include any geospatial packages, but they can be installed by the user. [JuliaGeo](https://github.com/JuliaGeo) provides an overview of packages for geospatial data.
 
