@@ -83,7 +83,7 @@ License is borrowed with [ArcGIS Administrator](http://desktop.arcgis.com/en/arc
 
 ## ArcGIS Server 
 
-It does not use license server and needs a registration code for
+It does not use license server and need registration code for
 installation, these are available from University's contact persons.
 
 ------------------------------------------------------------------------
