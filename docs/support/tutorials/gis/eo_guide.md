@@ -114,7 +114,7 @@ Some Finnish EO datasets are available locally at CSC. A STAC catalog for all sp
 
 **[SYKE/FMI, Finnish image mosaics](https://www.syke.fi/fi-FI/Tutkimus__kehittaminen/Tutkimus_ja_kehittamishankkeet/Hankkeet/Paikkatietoalusta_PTA)** : Sentinel-1, Sentinel-2 and Landsat mosaics, for several time periods per year. Some of them are available in Puhti, but not all. [FMI provides also a STAC catalog for these mosaics](https://pta.data.lit.fmi.fi/stac/root.json)
 
-[**European Space Agency's SciHub**](https://scihub.copernicus.eu/dhus/#/home) provides worldwide main products for Sentinel-1, -2 and -3. It requires free registration. Big part of the data is in the "Long term archive" and cannot be downloaded directly, but needs to be requested first. Download is limited to 2 concurrent processes per user.
+[**European Space Agency's SciHub**](https://scihub.copernicus.eu/dhus/#/home) provides worldwide main products for Sentinel-1, -2 and -3. It requires free registration. Big part of the data is in the "Long term archive" and cannot be downloaded directly, but needs to be requested first. Download is limited to 2 concurrent processes per user. Please note that between end of January and July 2023 this system is being updated to become the [Copernicus Space Ecosystem](https://medium.com/sentinel-hub/new-copernicus-data-access-service-to-support-the-ecosystem-for-earth-observation-412f829355a3). 
 
 [**FinHub**](https://finhub.nsdc.fmi.fi/#/home) is the Finnish national mirror of SciHub; other national mirrors also exist. It covers Finland and the Baltics and offers Sentinel-2 L1C (but not L2A) and Sentinel 1 SLC, GRD and OCN products and requires own registration. Finhub does not have concurrent download limitations nor a "Long term archive".
 
