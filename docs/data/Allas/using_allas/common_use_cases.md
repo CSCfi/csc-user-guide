@@ -2,7 +2,7 @@
 
 ## Processing data in CSC supercomputers
 
-The CSC supercomputers provide disk environments for working with large datasets. These storage areas are however not intended for storing data that is not actively used. For example in the _scratch_ area of Puhti the un-used files are automatically removed after 90 days. 
+The CSC supercomputers provide disk environments for working with large datasets. These storage areas are however not intended for storing data that is not actively used. For example in the _scratch_ area of Puhti the un-used files are automatically removed after 180 days. 
 
 One of the main use cases of Allas is to store data while it is not actively used in the CSC supercomputers. When you start
 working, you stage in the data from Allas. And when the data is no longer actively used, it can be staged out to Allas. 
