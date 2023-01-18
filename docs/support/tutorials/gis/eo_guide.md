@@ -26,7 +26,7 @@ CSC services do not fit well in this categorization, as they provide some featur
 
 At CSC, EO data can be processed and analyzed using a supercomputer, for example [supercomputer Puhti](../../../computing/systems-puhti.md), or a virtual machine in the [cPouta cloud service](../../../cloud/pouta/pouta-what-is.md). Puhti's computing capacity can hardly be compared to any other EO service, in both available processing power and amount of memory. Both Puhti and cPouta have also GPU resources, which are especially useful for large simulations and deep learning use cases. 
 
-Puhti has also a lot of [pre-installed applications](#what-applications-are-available-on-puhti), so it is an environment ready to use. cPouta virtual machines are similar to commercial clouds, where all set-up and installations are done by the end-user. In general, both services only support Linux software.
+Puhti has also a lot of [pre-installed applications](#what-applications-are-available-on-puhti), so it is an environment ready to use. cPouta virtual machines are similar to commercial cloud services, where all set-up and installations are done by the end-user. In general, both services only support Linux software.
 
 At CSC, [some Finnish EO datasets](#eo-data-at-csc) are available for direct use. In many cases, however, downloading EO data from other services (see [list of EO data download services](#eo-data-download-services)) is a required step of the process. Puhti and cPouta provide local storage of ~1-20 Tb. For more storage space,  [Allas object storage](../../../data/Allas/index.md) can be used.
 
