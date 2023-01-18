@@ -59,7 +59,6 @@
 ## Geoinformatics
 * [GDAL tutorial](gis/gdal.md)
 * [Virtual rasters](gis/virtual-rasters.md)
-* [Earth Observation (EO) guide](gis/eo_guide.md)
 
 ## Pouta - cloud
 * [cPouta and ePouta related videos](../../cloud/pouta/pouta-videos.md)
