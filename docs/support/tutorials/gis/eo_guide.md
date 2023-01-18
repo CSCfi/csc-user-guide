@@ -28,7 +28,7 @@ At CSC, EO data can be processed and analyzed using a supercomputer, for example
 
 Puhti has also a lot of [pre-installed applications](#what-applications-are-available-on-puhti), so it is an environment ready to use. cPouta virtual machines are similar to commercial clouds, where all set-up and installations are done by the end-user. In general, both services only support Linux software.
 
-At CSC, [some Finnish datasets](#eo-data-at-csc) are available for direct use. In many cases, however, downloading EO data from other services (see [list of EO data download services](#eo-data-download-services)) is a required step of the process. Puhti and cPouta provide local storage of ~1-20 Tb. For more space,  [Allas object storage](../../../data/Allas/index.md) can be used.
+At CSC, [some Finnish EO datasets](#eo-data-at-csc) are available for direct use. In many cases, however, downloading EO data from other services (see [list of EO data download services](#eo-data-download-services)) is a required step of the process. Puhti and cPouta provide local storage of ~1-20 Tb. For more storage space,  [Allas object storage](../../../data/Allas/index.md) can be used.
 
 Using CSC computing services requires basic Linux skills and ability to use some scripting language or command-line tools. In addition, supercomputers and virtual machines require you to understand some specific concepts, so it takes a few hours to get started. The new Puhti web interface makes the start considerably easier, providing a desktop environment in the web browser, which enables the use of tools with Graphical User Interfaces (GUI) and also tools like R Studio and JupyterLab for an easy start with R, Python and Julia.
 
