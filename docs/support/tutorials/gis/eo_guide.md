@@ -9,12 +9,13 @@ This guide aims to help researchers to work with Earth Observation (EO) data usi
 * Same sensor for different parts of the world, easy to compare different areas
 * Time series to see changes during different seasons and years
 * Cost-efficient
+
 !!! default "Raster data format"
 
     Most EO data is available in <a href="https://towardsdatascience.com/the-ultimate-beginners-guide-to-geospatial-raster-data-feb7673f6db0" aria-label="Towards data science guide to raster data">raster format</a>. The most common file formats are <a href="https://en.wikipedia.org/wiki/GeoTIFF" aria-label="GeoTiff data format description">GeoTiff</a> and <a href="http://giswiki.org/wiki/GeoJPEG2000" aria-label="GeoJPEG2000 data format description">GeoJPEG2000</a>.
 ## Why should I use CSC computing resources for EO?
 
-For working with EO data, there are in general three main options:
+For working with EO data in general, there are three main options:
 
 1) **EO specific services**, which provide both data and advanced ready-to-use processing environments. Usually these give better user experience and efficiency, but the services might be limited in computing power, available tools and options for adding own data. Often these have fees for using.
 
@@ -40,7 +41,7 @@ What to consider when chosing data:
     * Optical
     * Multispectal
     * Hyperspectral
-    * RADAR (Radio Detection and Ranging) -> SAR (Synthetic Aperture Radar)
+    * RADAR (Radio Detection and Ranging), SAR (Synthetic Aperture Radar)
     * LiDAR (Light Detection and Ranging)
 * Resolution
     * Temporal: when and how often a certain area is visited
@@ -90,8 +91,7 @@ What to consider when chosing data:
 
     Database of all EO missions and instrument information can be found in the [CEOS EO handbook database](http://database.eohandbook.com/database/instrumenttable.aspx)
     
-  
-
+    
 ## Where can I find the data?
 
 Commercial datasets are usually available from data provider, while open datasets may be available in different processing stages from different services. Where possible, it might be a good idea to check processing options close to the data, for direct access or faster download. While graphical browse and download services can provide a good overview of the data and are easy to use, the download of huge amounts of data gets considerably easier using a bulk downloader or download API (Application Programming Interface).
@@ -161,7 +161,7 @@ You can find information about geocomputing using CSC resources and how to get s
 
 [**FORCE**](../../../apps/force.md) - Framework for Operational Radiometric Correction for Environmental monitoring. All-in-one processing engine with CLI for EO image archives. [FORCE example for Puhti](https://github.com/csc-training/geocomputing/tree/master/force)
 
-[**GDAL (OGR)**](../../../apps/gdal.md) - Geospatial Data Abstraction Library.  Collection of command-line tools for accessing and transforming geospatial data. It is relatively fast and requires little computational resources. GDAL supports reading data directly from Internet or object storage. GDAL is included in many other tools for data reading and writing. [GDAL example for Puhti](https://github.com/csc-training/geocomputing/tree/master/gdal)
+[**GDAL (OGR)**](../../../apps/gdal.md) - Geospatial Data Abstraction Library. Collection of command-line tools for accessing and transforming geospatial data. It is relatively fast and requires little computational resources. GDAL supports reading data directly from the Internet or object storage. GDAL is included in many other tools for data reading and writing. [GDAL example for Puhti](https://github.com/csc-training/geocomputing/tree/master/gdal)
 
 [**Julia**](../../../apps/julia.md) - Puhtis Julia installation does not include any geospatial packages, but they can be installed by the user. [JuliaGeo](https://github.com/JuliaGeo) provides an overview of packages for geospatial data.
 
@@ -169,12 +169,10 @@ You can find information about geocomputing using CSC resources and how to get s
 
 [**Orfeo Toolbox (OTB)**](../../../apps/otb.md) - offers a wide variety of applications from ortho-rectification or pansharpening, all the way to classification, SAR processing, and much more. Orfeo Toolbox is available as CLI, GUI and via Python interface.
 
-
 [**Python**](../../../apps/python.md)
 
 * The [geoconda module](../../../apps/geoconda.md) provides many useful Python packages for raster data processing and analysis, such as `rasterio`, `rasterstats`, `scimage`, `sentinelsat`, `xarray` and tools for working with STAC.
 * [Machine learning modules](../../../apps/index.md#data-analytics-and-machine-learning) provide some common machine learning frameworks, also for deep learning..
-
 
 [**QGIS**](../../../apps/qgis.md) - open source tool with GUI for working with spatial data including limited multispectral image processing capabilities.  GUI with batch processing possibility and Python interface. Used for example for visualization, map algebra and other raster processing. Many plug-ins available, for EO data processing, check out the [QGIS Semi-automatic classification plugin](https://fromgistors.blogspot.com/p/semi-automatic-classification-plugin.html).
 
@@ -192,8 +190,8 @@ If you need further applications, you can ask CSC to install them for you.
 
 One example of the advanced usage of EO data is for machine learning. If you are interested in the topic, you can find a lot of examples from [CSC machine learning with spatial data course materials]( https://github.com/csc-training/GeoML). For practical guidelines, see also [CSC machine learning guide](../ml-guide.md)
 
-
 ## Alternative processing services
+
 Below is a list of alternative EO processing services that might be useful, when a lot of data is required and downloading it all to CSC might not be feasible. 
 
 **[Google Earth Engine](https://earthengine.google.com/)** is a processing platform, which requires registration, but is currently free of charge for research users. It can be accessed via browser and has worldwide analysis ready data available (<a href="https://developers.google.com/earth-engine/datasets/catalog/" aria-label="GEE data catalogue">browse the catalogue</a>). In general, JavaScript is used on the platform, but also  <a href="https://developers.google.com/earth-engine/guides/python_install" aria-label="Python on GEE">Python</a>  and  <a href="https://github.com/r-spatial/rgee" aria-label="R on GEE">R</a> support exists. Check out [GEE's tutorials](https://developers.google.com/earth-engine/tutorials). Note that Google Cloud Storage might be needed to export large datasets.
@@ -235,6 +233,3 @@ Further reading:
 * [CSC geocomputing seminar materials](https://research.csc.fi/geocomputing-seminars), especially materials of the 2022 EO-workshop
 * [ESA tutorials](https://step.esa.int/main/doc/tutorials/)
 * [Awesome EO code](https://github.com/acgeospatial/awesome-earthobservation-code), long list of EO tools
-
-
-
