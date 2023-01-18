@@ -6,8 +6,7 @@ cost in billing units.
 [TOC]
 
 The cPouta and ePouta services consume the same billing units as 
-Puhti and Mahti. You can find more information in the [CSC computing
-environment articles].
+Puhti and Mahti. You can find more information in the [CSC computing environment articles].
 
 Users can create virtual machines with larger or
 smaller compute resources based on their needs. The virtual
@@ -362,8 +361,7 @@ your own applications, the [optimization service] helps in
 leveraging the GPGPUs.
 
 GPGPUs can be used for a lot of cool and interesting things,
-but please remember the resource usage must comply with the [Terms of
-use].
+but please remember the resource usage must comply with the [Terms of Use].
 
 Limitations and caveats: 
 
@@ -510,6 +508,5 @@ but they will be removed at some point in the near future.
   [CSC computing environment articles]: https://research.csc.fi/computing
   [command line instructions]: command-line-tools.md
   [TensorFlow]: https://www.tensorflow.org
-  [Optimization service]: https://research.csc.fi/optimization-service
+  [optimization service]: https://research.csc.fi/optimization-service
   [Terms of Use]: https://research.csc.fi/pouta-user-policy
-  [https://research.csc.fi/pouta-adding-images]: 
