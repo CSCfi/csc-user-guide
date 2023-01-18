@@ -213,7 +213,7 @@ If you are interested in using CSC services for your EO research, please make yo
 * Find information about services and how to use them in [CSC's documentation pages](../../../index.md)
 * For information on geocomputing in CSC environment, checkout the collection of  [CSC's geocomputing learning materials](https://research.csc.fi/gis-learning-materials) and [CSC geocomputing examples on Github](https://github.com/csc-training/geocomputing)
 
-You can find all the ways that you can get help from CSC specialists via [CSC contact page](../../contact.md). We are happy to help with technical problems around our services and are open for suggestions on which software should be installed to Puhti, or what kind of courses should be offered or materials/examples should be prepared. 
+You can find all the ways that you can get help from CSC specialists via [CSC contact page](../../contact.md). We are happy to help with technical problems around our services and are open for suggestions on which software should be installed to Puhti, or what kind of courses should be offered or materials/examples should be prepared. Please also let us know, if you would like to add a service to this page or find anything unclear.
 
 ## Acknowledgement
 
@@ -233,3 +233,4 @@ Further reading:
 * [CSC geocomputing seminar materials](https://research.csc.fi/geocomputing-seminars), especially materials of the 2022 EO-workshop
 * [ESA tutorials](https://step.esa.int/main/doc/tutorials/)
 * [Awesome EO code](https://github.com/acgeospatial/awesome-earthobservation-code), long list of EO tools
+* [Overview of big EO data management and analysis platforms (from 2020)](https://www.mdpi.com/2072-4292/12/8/1253)
