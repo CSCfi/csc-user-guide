@@ -1,6 +1,6 @@
 # Earth Observation guide
 
-This guide aims to help researchers to work with Earth Observation (EO) data using CSC's computing resources. The purpose of this guide is to give an overview of available options, so it would be easier to decide if CSC has suitable services for your EO reseach. It also helps you find the right data and tools for raster data based EO tasks. If you are interested in the fundamentals of EO, please check the [resources and further reading section](#resources-and-further-reading).
+This guide aims to help researchers to work with Earth Observation (EO) data using CSC's computing resources. The purpose of this guide is to give an overview of available options, so it would be easier to decide if CSC has suitable services for your EO reseach. It also helps you find the right data and tools for raster data based EO tasks. This guide focuses on spaceborne platforms. However, many tools and concepts also apply to airborne platforms. If you are interested in the fundamentals of EO, please check the [resources and further reading section](#resources-and-further-reading).
 
 **What are the benefits of using EO data?**
 
@@ -43,22 +43,24 @@ What to consider when chosing data:
     * Hyperspectral
     * RADAR (Radio Detection and Ranging), SAR (Synthetic Aperture Radar)
     * LiDAR (Light Detection and Ranging)
+    * Note that depending on the wavelengths observed, clouds, ground conditions and atmospheric artifacts may result in data gaps
 * Resolution
-    * Temporal: when and how often a certain area is visited
-    * Spatial: the area on the ground that each pixel covers
+    * Temporal: when and how often a certain area is revisited
+    * Spatial: the area on the ground that each pixel covers, determining the size of the smallest possible feature that can be detected
     * Spectral: the area of the electromagnetic spectrum that is observed and spectral width of each band provided
-        * Depending on the wavelengths observed,  clouds and atmospheric artifacts may result in data gaps
-    * Radiometric: how many values are possible for each pixel (bit-depth)
+    * Radiometric: number of bits used to represent the energy recorded (bit-depth)
 * Costs:
     * Some EO data is freely available as open data
     * Some commercial datasets might be possible to get for free/less for research
 * Preprocessing level
-    * Raw data
-    * Analysis ready data 
+    * Raw data - can have different levels and often need to be processed before it can be used for reliable analysis
+    * Different levels of preprocessed data - make sure you are aware of what kind of preprocessing has been performed on your data
+    * Analysis ready data (ARD)
     * Mosaics
 * User experience and knowledge
-    * RADAR/LiDAR require solid background knowledge for processing and interpretation
-    * Optical data is more easily interpreted and processed (and more pre-processed data is available)
+    * Appropriate background knowledge required for many tasks
+    * ARD is "ready to go", but be aware of what preprocessing has been performed on your data
+  
 
 ### Some widely used EO datasets
 
