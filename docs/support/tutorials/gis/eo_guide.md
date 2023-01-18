@@ -104,7 +104,7 @@ Commercial datasets are usually available from data provider, while open dataset
 
 Some Finnish EO datasets are available locally at CSC. A STAC catalog for all spatial data available at CSC is coming in 2023.
 
-* **Sentinel and Landsat mosaics** of Finland in Puhti. Accessing data in Puhti requires CSC user account with a project where Puhti service is enabled. All Puhti users have **read** access these datasets. You do not need to move the files: they can be used directly, unless you need to modify them, which requires you to make your own copy.
+* **Sentinel and Landsat mosaics** of Finland in Puhti. Accessing data in Puhti requires CSC user account with a project where Puhti service is enabled. All Puhti users have **read** access to these datasets. You do not need to move the files: they can be used directly, unless you need to modify them, which requires you to make your own copy.
 * **Sentinel-2 L2A data** of Finland in Allas. These files are public, so anybody can download them, also from own computer or other services.
 * [More information and list of all spatial datasets in CSC computing environment](../../../data/datasets/spatial-data-in-csc-computing-env.md)
 
