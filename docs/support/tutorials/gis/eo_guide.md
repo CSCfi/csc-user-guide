@@ -98,11 +98,11 @@ Commercial datasets are usually available from data provider, while open dataset
 
 !!! default "STAC"
 
-    Many data providers provide a Spatio Temporal Asset Catalog (STAC) of their datasets. These catalogues help in finding available data based on time and location with the possibility for multiple additional filters, such as cloud cover and resolution. The [STAC Index](https://www.stacindex.org/) provides a nice overview of available catalogues from all over the world. The STAC Index page also includes many resources for learning and utilizing STAC. Check out also CSC's [examples for utilizing STAC from Python](https://github.com/csc-training/geocomputing/blob/master/python/STAC).
+    Many data providers provide a Spatio Temporal Asset Catalog (STAC) of their datasets. These catalogs help in finding available data based on time and location with the possibility for multiple additional filters, such as cloud cover and resolution. The [STAC Index](https://www.stacindex.org/) provides a nice overview of available catalogs from all over the world. The STAC Index page also includes many resources for learning and utilizing STAC. Check out also CSC's [examples for utilizing STAC from Python](https://github.com/csc-training/geocomputing/blob/master/python/STAC).
 
 ### EO data at CSC
 
-Some Finnish EO datasets are available locally at CSC. A STAC cataloguefor all spatial data available at CSC is coming in 2023.
+Some Finnish EO datasets are available locally at CSC. A STAC catalog for all spatial data available at CSC is coming in 2023.
 
 * **Sentinel and Landsat mosaics** of Finland in Puhti. Accessing data in Puhti requires CSC user account with a project where Puhti service is enabled. All Puhti users have **read** access these datasets. You do not need to move the files: they can be used directly, unless you need to modify them, which requires you to make your own copy.
 * **Sentinel-2 L2A data** of Finland in Allas. These files are public, so anybody can download them, also from own computer or other services.
@@ -176,7 +176,7 @@ You can find information about geocomputing using CSC resources and how to get s
 
 [**QGIS**](../../../apps/qgis.md) - open source tool with GUI for working with spatial data including limited multispectral image processing capabilities.  GUI with batch processing possibility and Python interface. Used for example for visualization, map algebra and other raster processing. Many plug-ins available, for EO data processing, check out the [QGIS Semi-automatic classification plugin](https://fromgistors.blogspot.com/p/semi-automatic-classification-plugin.html).
 
-[**R**](../../../apps/r-env-for-gis.md) - Puhti R installation includes a lot of geospatial packages, includeing serveral useful for EO data processing, such as `terra`, `CAST`, `raster` and `spacetime`, also `rstac` for working with STAC catalogues.
+[**R**](../../../apps/r-env-for-gis.md) - Puhti R installation includes a lot of geospatial packages, includeing serveral useful for EO data processing, such as `terra`, `CAST`, `raster` and `spacetime`, also `rstac` for working with STAC catalogs.
 
 [**Sen2Cor**](../../../apps/sen2cor.md) - a command-line tool for Sentinel-2 Level 2A product generation and formatting.
 
@@ -194,7 +194,7 @@ One example of the advanced usage of EO data is for machine learning. If you are
 
 Below is a list of alternative EO processing services that might be useful, when a lot of data is required and downloading it all to CSC might not be feasible. 
 
-**[Google Earth Engine](https://earthengine.google.com/)** is a processing platform, which requires registration, but is currently free of charge for research users. It can be accessed via browser and has worldwide analysis ready data available (<a href="https://developers.google.com/earth-engine/datasets/catalog/" aria-label="GEE data catalogue">browse the catalogue</a>). In general, JavaScript is used on the platform, but also  <a href="https://developers.google.com/earth-engine/guides/python_install" aria-label="Python on GEE">Python</a>  and  <a href="https://github.com/r-spatial/rgee" aria-label="R on GEE">R</a> support exists. Check out [GEE's tutorials](https://developers.google.com/earth-engine/tutorials). Note that Google Cloud Storage might be needed to export large datasets.
+**[Google Earth Engine](https://earthengine.google.com/)** is a processing platform, which requires registration, but is currently free of charge for research users. It can be accessed via browser and has worldwide analysis ready data available (<a href="https://developers.google.com/earth-engine/datasets/catalog/" aria-label="GEE data catalog">browse the catalog</a>). In general, JavaScript is used on the platform, but also  <a href="https://developers.google.com/earth-engine/guides/python_install" aria-label="Python on GEE">Python</a>  and  <a href="https://github.com/r-spatial/rgee" aria-label="R on GEE">R</a> support exists. Check out [GEE's tutorials](https://developers.google.com/earth-engine/tutorials). Note that Google Cloud Storage might be needed to export large datasets.
 
 **[Microsoft planetary computer](https://planetarycomputer.microsoft.com)** offers JupyterHub together with Dask Gateway, both CPUs and GPUs are available. It is currently available in preview.
 
