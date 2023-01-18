@@ -1,12 +1,13 @@
 # How to rescue instances?
 
-Openstack offers a rescue mode to recover VMs. It is a command that let's use a different image to boot a VM. This can be used when the virtual machine fails to boot due to a kernel panic, full disk, or when you simply lost access to the private key. By allowing you to boot from a different image, you will be able to mount and edit the files on your current disk and fix the problem.
+Openstack offers a rescue mode to recover VMs. It is a command that allows for a different image to boot a VM. This can be used when the virtual machine fails to boot due to a kernel panic, full disk, or when you simply lost access to the private key. By allowing you to boot from a different image, you will be able to mount and edit the files on your current disk and fix the problem.
 
 ## Symptoms
 
 ### Kernel Panic
 
 Check your instance Console Log (web UI: **Instances** > `<your instance>` > **Log**)
+
 	```sh
 	[    1.041853] Loading compiled-in X.509 certificates
 	[    1.043433] Loaded X.509 cert 'CentOS Linux kpatch signing key:ea0413152cde1d98ebdca3fe6f0230904c9ef717'
@@ -57,9 +58,9 @@ cloud-user@<floating-ip>: Permission denied (publickey,gssapi-keyex,gssapi-with-
 
 ## How to fix the issue, nova rescue
 
-Note that there are always several ways to fix any problem, this FAQ is mostly meant to show one the ways to fix these kind of problems. Also that meanwhile you are allowed to edit Grub boot parameters, the root single mode access is disabled by default for security reasons. The procedure to perform a rescue is:
+Note that there are always several ways to fix any problem, this FAQ is mainly meant to show one of the ways to fix these kinds of problems. Also meanwhile you are allowed to edit Grub boot parameters, the root single mode access is disabled by default for security reasons. The procedure to perform a rescue is as follows:
 
-1. You need to have installed the [OpenStack command line tools](/cloud/pouta/install-client/). And you have to login, see [Configure your terminal environment for OpenStack](/cloud/pouta/install-client/#configure-your-terminal-environment-for-openstack) for reference.
+1. You need to have installed the [OpenStack command line tools](/cloud/pouta/install-client/). And you have to login, and see [Configure your terminal environment for OpenStack](/cloud/pouta/install-client/#configure-your-terminal-environment-for-openstack) for reference.
 
 1. Get the server's ID, and store it in an environment variable called: `INSTANCE_UUID` :
 
@@ -93,12 +94,12 @@ Note that there are always several ways to fix any problem, this FAQ is mostly m
 	nova rescue $INSTANCE_UUID --image <image-name>
 	```
 
-	Ignopre the password the commabd shows, it is disabled in all our images.
+	Ignore the password the command shows, the ssh password login is disabled in all our images.
 
 	!!! warning
     	    There is also a command named `openstack server rescue` which is almost the same as `nova rescue` but is missing the `--image` flag which is almost *always* required when rescuing servers.
 
-    In this step, you should the same image your instance is using. You can get a list of images available by:  
+    In this step, you should use the same image as your instance. You can get a list of images available by:
 
 	```sh
 	openstack image list
@@ -139,7 +140,7 @@ The username and password should be printed in the console text, above the login
 
 ## Mount the disk 
 
-1. Check what volumes you have. If you don't have any other volumes attached it should looks something like this:
+1. Check what volumes you have. If you don't have any other volumes attached it should look something like this:
 
 	```sh
 	$ lsblk
