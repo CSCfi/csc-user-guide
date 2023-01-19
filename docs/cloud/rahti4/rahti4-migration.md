@@ -6,6 +6,15 @@ Rahti3 is the current deployed and used version of OpenShift OKD running in CSC.
 
 Rahti4 is the next version of OpenShift OKD running in CSC. The underlining version of Kubernetes is v1.22. This version uses [cri-o](https://cri-o.io/) as the container runtime. `CRI-o` it is a lightweight alternative to using Docker as the runtime for kubernetes, both are fully compatible with each other and follow the `OCI` standard. Due to the fact that OpenShift OKD v4 is a re-implementation, there is no upgrade path provided by the manufacturer for Rahti3 to become Rahti4. So in other words, this means that every single application running in Rahti3 needs to be migrated to Rahti4 manually. The two versions will run in parallel for a while, till all applications running in v1 are migrated to v2.
 
+## Breaking changes
+
+There are few breaking changes to take into account.
+
+1. [Storage](/cloud/rahti4/rahti4-migration/#how-to-use-storage), ReadWriteMany (RWX) is no longer supported.
+1. [Default limits](/cloud/rahti4/rahti4-migration/#what-are-the-default-limits), the default limits are much lower (`{"cpu": 500m, "memory": 500Mi}`). Most deployments will need explicit cpu and memory limits. 
+
+More information can be obtained by following the links.
+
 ## How to log in Rahti4?
 
 Go to [Rahti4](https://landing.2.rahti.csc.fi/), click in `Login` and then choose the `oidcidp` option, it stands for OpenID Connect identity provider:
@@ -161,6 +170,9 @@ In the Project details page (`Developer` > `Project`), click `PersistentVolumeCl
 ![Create PersistentVolumeClaim](img/Create_PersistentVolumeClaim.png)
 
 * For the moment only a single type of `StorageClass` can be used. It corresponds to `Cinder` volumes, which can only be read or write by a single Pod.
+
+!!! warning "glusterfs is no longer supported"
+    The `StorageClass` glusterfs is no longer supported. This means that any PVC declaration with StorageClass set to `glusterfs` will **FAIL**.
 
 * A unique name within the project must be provided.
 
