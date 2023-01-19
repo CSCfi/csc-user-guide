@@ -33,7 +33,7 @@ To increase your Allas quota, please send a request to: `servicedesk@csc.fi`
 In the request, define what Allas project you are using, how large storage space is needed and what kind of data will be stored to Allas.
 
 
-The default quotas for projects:
+**The default quotas for projects:**
 
 | Resource | Limit |
 | :-------- |:------- |
