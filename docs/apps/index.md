@@ -29,7 +29,7 @@
 * [Grace](grace.md) Plotting tool for xvg-files in particular
 * [Gromacs](gromacs.md) Fast and versatile classical molecular dynamics
 * [HMMER](hmmer.md) Toolkit to create and use sequence profile hidden Markov models
-* [HUMAnN2](humann.md) Profiling microbial pathways with metagenomic data
+* [HUMAnN](humann.md) Profiling microbial pathways with metagenomic data
 * [Illumina BaseSpace](bs.md) Command line client for retrieving data from the Illumina BaseSpace environment
 * [InterProScan](interpro.md) Protein signature/motif search tool
 * [Ipyrad](ipyrad.md) toolkit for population genetic and phylogenetic studies of restriction-site associated genomic data sets (e.g., RAD, ddRAD, GBS)
@@ -40,7 +40,7 @@
 * [MIRA](mira.md) Whole genome shotgun and EST sequence Assembler
 * [MACS2](macs2.md) ChIP-Seq analysis tool
 * [Maestro](maestro.md) Versatile drug discovery and materials modeling suite
-* [Megahit](megahit.md) Metagenomics assebly
+* [Megahit](megahit.md) Metagenomics assembly
 * [MetaPhlAn](metaphlan.md) Profiling the composition of microbial communities with metagenomic data
 * [Minimap2](minimap2.md) Short read aligner
 * [Mothur](mothur.md) Package for microbial community analysis of amplicon sequencing data 
@@ -96,11 +96,8 @@
 
 * [Abaqus](abaqus.md) Dassault Systemes' SIMULIA academic research suite
 * [ANSYS](ansys.md) ANSYS Academic engineering simulation software suite
-* [CFDEMcoupling](cfdem.md) Open source toolbox for CFD-DEM coupling
 * [COMSOL Multiphysics](comsol.md) General-purpose simulation software
 * [Elmer](elmer.md) Open source multi-physics FEM package
-* [LS-DYNA](lsdyna.md) General-purpose finite element program
-* [Nektar++](nektar++.md) Spectral/hp element framework
 * [OpenFOAM](openfoam.md) Open source C++ tool box for continuum mechanics problems
 * [PALM](palm.md) Meteorological model system for atmospheric and oceanic boundary-layer flows
 * [Star-CCM+](starccm+.md) Computational Fluid Dynamics software by Siemens Digital Industries Software
@@ -109,7 +106,6 @@
 
 * [Python Data](python-data.md) Collection of Python libraries for data analytics and machine learning
 * [JAX](jax.md) Autograd and XLA, brought together for high-performance machine learning 
-* [MXNet](mxnet.md) Deep learning library for Python
 * [PyTorch](pytorch.md) Machine learning framework for Python
 * [RAPIDS](rapids.md) Suite of libraries for data analytics and machine learning on GPUs
 * [Spark](spark.md) High-performance distributed computing framework 
@@ -117,6 +113,7 @@
 
 ## Geosciences
 
+* [Ames Stereo Pipeline](ames-stereo.md) for processing stereo images
 * [ArcGIS](arcgis.md) General purpose GIS software family for viewing, editing and analysing geospatial data
 * [CloudCompare](cloudcompare.md) for visualizing, editing and processing poing clouds
 * [FORCE](force.md) for mass-processing of medium-resolution satellite images
@@ -134,7 +131,6 @@
 * [Sen2Cor](sen2cor.md) for atmospheric-, terrain and cirrus correction of the Sentinel-2 products
 * [Sen2mosaic](sen2mosaic.md) for download, preprocessing and mosaicing of Sentinel-2 products
 * [SNAP](snap.md) for remote sensing applications
-* [SPLITS](splits.md) for time series analysis of remotely sensed parameters
 * [WhiteboxTools](whiteboxtools.md) an advanced geospatial data analysis platform 
 * [Zonation](zonation.md) Spatial conservation prioritization framework 
 
@@ -156,7 +152,7 @@
 * [MATLAB](matlab.md) High-level technical computing language
 * [Octave](octave.md) High-level interpreted language for numerical computations.
 * [Python](python.md) programming language and its modules at CSC.
-* [r-env-singularity](r-env-singularity.md) R, RStudio Server, SAGA and TensorFlow (Singularity container)
+* [r-env](r-env.md) R, RStudio Server, SAGA and TensorFlow
 * [RStudio](rstudio.md) Integrated development environment for R
 * [SageMath](sagemath.md) Free open-source mathematics software system
 
@@ -170,3 +166,4 @@
 * [MySQL](../data/kaivos/overview.md) MySQL database client. 
 * [ParaView](paraview.md) Free open-source visualization application
 * [VisIt](visit.md) Free open-source visualization application
+* [HyperQueue](hyperqueue.md) Scheduler for sub-node tasks 

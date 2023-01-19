@@ -7,8 +7,12 @@ site_description: Instructions and user guides for the CSC supercomputers, cloud
 extra:
   announcement_visible: true # Controls the visibility of the announcement bar
   mkdocs_env: !ENV MKDOCS_ENV # Used when building on Rahti to enable Matomo web analytics
+  matomo_url: "docs-design-matomo.rahtiapp.fi"
+  matomo_site_id: "1"
 
 plugins:
+  - tags:
+      tags_file: apps/by_license.md
   - search
   - git-revision-date-localized:
       type: date
@@ -19,6 +23,7 @@ plugins:
         - support/whats-new.md
         - apps/by_system.md
         - apps/alpha.md
+        - apps/by_license.md
 
 markdown_extensions:
   - admonition
@@ -36,7 +41,7 @@ markdown_extensions:
       custom_fences:
         - name: mermaid
           class: mermaid
-          format: !!python/name:pymdownx.superfences.fence_div_format
+          format: !!python/name:pymdownx.superfences.fence_code_format
 
 theme:
   name: material
@@ -49,12 +54,13 @@ theme:
   palette:
     scheme: csc
   font: false # No loading fonts from G****e
-  features:
-    - announce.dismiss
+#  features:
+#    - announce.dismiss
 
 extra_css:
   - assets/stylesheets/variables.css
   - assets/stylesheets/scheme.css
+  - assets/stylesheets/landing.css
   - assets/stylesheets/admonition.css
   - assets/stylesheets/announcement.css
   - assets/stylesheets/breadcrumbs.css
@@ -65,6 +71,7 @@ extra_css:
   - assets/stylesheets/header.css
   - assets/stylesheets/sidebars.css
   - assets/stylesheets/table.css
+  - assets/stylesheets/tags.css
   - assets/stylesheets/video.css
   - "https://use.typekit.net/csv4mjm.css" # Museo Sans font
 
@@ -96,12 +103,12 @@ nav:
      - FMI: accounts/fmi.md
   - Computing:
      - Overview: computing/overview.md
+     - Usage policy: computing/usage-policy.md
      - Systems:
         - Available systems: computing/available-systems.md
         - Puhti: computing/systems-puhti.md
         - Mahti: computing/systems-mahti.md
-        - LUMI: "https://docs.lumi-supercomputer.eu/generic/overview/"
-        - Kvasi: computing/kvasi.md
+        - LUMI: "https://docs.lumi-supercomputer.eu/hardware/"
      - Connecting: computing/connecting.md
      - Supercomputer storage:
         - Disk areas: computing/disk.md
@@ -142,6 +149,18 @@ nav:
          - RStudio: computing/webinterface/rstudio.md
          - TensorBoard: computing/webinterface/tensorboard.md
          - Visual Studio Code: computing/webinterface/vscode.md
+     - Quantum computing:
+       - Overview: computing/quantum-computing/overview.md
+       - Kvasi QLM:
+           - Accessing Kvasi: computing/quantum-computing/kvasi/kvasi.md
+           - Kvasi Billing: computing/quantum-computing/kvasi/kvasi-billing.md
+       - Helmi:
+           - Helmi projects: computing/quantum-computing/helmi/helmi-projects.md
+           - Access Helmi through LUMI: computing/quantum-computing/helmi/helmi-from-lumi.md
+           - First quantum job: computing/quantum-computing/helmi/first-quantum-job.md
+           - Technical details: computing/quantum-computing/helmi/helmi-specs.md
+           - FiQCI partition: computing/quantum-computing/helmi/fiqci-partition.md
+           - Running on Helmi: computing/quantum-computing/helmi/running-on-helmi.md
   - Cloud:
      - Concepts of cloud computing: cloud/concepts.md
      - Rahti:
@@ -166,6 +185,7 @@ nav:
          - How to transfer data to Rahti?: cloud/rahti/tutorials/transfer_data_rahti.md
          - How to add docker hub credentials to a project: cloud/rahti/tutorials/docker_hub_login.md
          - How to manually cache images in Rahti's registry: cloud/rahti/tutorials/docker_hub_manual_caching.md
+         - How to package a Kubernetes application with Helm?: cloud/rahti/tutorials/helm.md
          - CI/CD on Rahti: cloud/rahti/tutorials/ci_cd_introduction.md
          - How to run an ad-hoc interactive container: cloud/rahti/tutorials/oc-run.md
          - How backup a Postgres DB into Allas: cloud/rahti/tutorials/backup-postgres-allas.md
@@ -194,7 +214,7 @@ nav:
         - Pouta Accounting Principles and Quotas: cloud/pouta/accounting.md
         - Virtual machine flavors and Billing Unit rates: cloud/pouta/vm-flavors-and-billing.md
         - Getting started with Pouta:
-            - Launching a virtual machine with the cPouta web interface: cloud/pouta/launch-vm-from-web-gui.md
+            - Creating a virtual machine in Pouta: cloud/pouta/launch-vm-from-web-gui.md
             - Connecting to your virtual machine: cloud/pouta/connecting-to-vm.md
             - Install command line tools: cloud/pouta/install-client.md
             - Command line client tools: cloud/pouta/command-line-tools.md
@@ -222,7 +242,7 @@ nav:
        - Guide for teachers: cloud/csc_notebooks/guide_for_teachers.md
        - Concepts: cloud/csc_notebooks/concepts.md
        - Data persistence: cloud/csc_notebooks/data_persistence.md
-       - Migration to beta: cloud/csc_notebooks/migration_to_beta.md
+       - What is new: cloud/csc_notebooks/what_is_new.md
   - Data:
 #    - Datasets: data/datasets.md
      - Working with data:
@@ -234,6 +254,7 @@ nav:
         - Publishing datasets: data/datasets/publishing-datasets.md
      - Moving data:
         - Copying files using scp: data/moving/scp.md
+        - Moving files using the Puhti web interface: data/moving/web-interface.md
         - Graphical file transfer tools: data/moving/graphical_transfer.md
         - Using rsync for data transfer and synchronization: data/moving/rsync.md
         - Using wget to download data from web sites to CSC: data/moving/wget.md
@@ -254,6 +275,7 @@ nav:
         - Store with SD Connect: data/sensitive-data/sd_connect.md
         - Analyse with SD Desktop: data/sensitive-data/sd_desktop.md
         - SD Desktop for secondary use: data/sensitive-data/sd-desktop-audited.md
+#       - SD Apply for secondary use: data/sensitive-data/single-register-submission.md
 #       - Federated EGA: data/sensitive-data/federatedega.md
 #       - SD Apply: data/sensitive-data/sd-apply.md
 #       - Containers: data/sensitive-data/creating_containers.md
@@ -271,6 +293,7 @@ nav:
      - In alphabetical order: apps/alpha.md
      - By discipline: apps/index.md
      - By availability: apps/by_system.md
+     - By license: apps/by_license.md
   - FAQ: support/faq/index.md
   - Tutorials: support/tutorials/index.md
   - Training material: support/training-material.md

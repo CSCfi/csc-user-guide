@@ -1,3 +1,8 @@
+---
+tags:
+  - Academic
+---
+
 # ABAQUS
 
 Dassault Systemes' SIMULIA academic software portfolio offers software tools for for realistic simulation, optimization, durability studies, multibody simulation, computational fluid dynamics and electromagnetic simulation. [SIMULIA Academic Research Suite](https://www.3ds.com/products-services/simulia/academia/) licenses are available on CSC's server computers. 
@@ -19,9 +24,9 @@ To find out which versions of Abaqus are installed on the server, give command
 
     module available
 
-and check lines *abaqus/(version number)*. For example, to load Abaqus version 2019, give command
+and check lines *abaqus/(version number)*. For example, to load Abaqus version 2022, give command
 
-    module load abaqus/2019
+    module load abaqus/2022
 
 There is an example of **batch job file** available on Puhti server:
 

@@ -1,10 +1,11 @@
 .md-main__inner {
     margin: unset;
     max-width: unset;
+    justify-content: space-between;
 }
 
 .md-content {
-    margin: 1% 3%;
+    max-width: var(--csc-content-width);
 }
 
 .md-typeset {
@@ -120,5 +121,5 @@
 
 .md-typeset .md-source-file,
 .md-typeset .git-revision-date-localized-plugin {
-    color: var(--md-default-fg-color--light);
+    color: var(--csc-mid-grey--wcag);
 }

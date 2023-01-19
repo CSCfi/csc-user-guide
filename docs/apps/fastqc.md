@@ -1,3 +1,7 @@
+---
+tags:
+  - Free
+---
 
 # FastQC
 
@@ -15,7 +19,7 @@ Free to use and open source under [GNU GPLv3](https://www.gnu.org/licenses/gpl-3
 
 ###Version on CSC's Servers
 
--   Puhti: 0:11.8 
+-   Puhti: 0.11.8 
 -   [Chipster](https://chipster.csc.fi) graphical user interface
 
 ##Usage
@@ -25,16 +29,14 @@ To initialize in Puhti use:
 ```text
 module load biokit
 ```
-You can then start FastQC:
+
+You can then run FastQC:
 ```text
-fastqc
+fastqc --help
 ```
 
-FastQC is a graphical software so if you use it in Puhti you will need a working X-term connection (FreeNX remote desktop is not yet available in Puhti). 
-
+If you run FastQC without command line arguments, it will open a GUI. The best way to run a GUI remotely on Puhti is to use the [Puhti web interface desktop](../computing/webinterface/desktop.md).
 
 ## Manual
 
 *   [FastQC Homepage](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/)
-
-* [CD-HIT home page](http://weizhongli-lab.org/cd-hit/)

@@ -1,3 +1,8 @@
+---
+tags:
+  - Free
+---
+
 # VisIt
 
 VisIt is an open source, versatile software for scientific visualization.
@@ -22,7 +27,7 @@ VisIt can be run interactively in parallel configuration using several processor
 Login to Puhti and submit the following to launch VisIt on a compute node
 
 ```bash
-module load visit/3.0.2
+module load visit/3.1.3
 visit -l srun -np 2 -p test -t 00:10:00 -la --mem-per-cpu=2G -la --account=<your project>
 ```
 

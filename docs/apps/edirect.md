@@ -1,3 +1,8 @@
+---
+tags:
+  - Free
+---
+
 # Entrez Direct
 
 ## Description

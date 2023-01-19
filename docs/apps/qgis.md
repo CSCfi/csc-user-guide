@@ -1,3 +1,8 @@
+---
+tags:
+  - Free
+---
+
 # QGIS
 
 [QGIS](https://qgis.org/en/site/) is a free and open source GIS application that can be used for viewing, editing and analysing geospatial data. QGIS supports a very wide range of vector and raster formats and also common API protocols like WMS, WMTS, WCS and WFS.
@@ -8,8 +13,7 @@ In Puhti, QGIS could be used for example to visualize the resulting files from o
 
 __QGIS__ is available in Puhti with following versions:
 
-* 3.22 in a singularity container: qgis(/3.22 = default) module
-* 3.16 in a singularity container: qgis/3.16 module
+* 3.22
 
 ## Usage
 

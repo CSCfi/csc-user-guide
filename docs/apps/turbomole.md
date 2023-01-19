@@ -1,3 +1,8 @@
+---
+tags:
+  - Academic
+---
+
 # Turbomole
 
 TURBOMOLE is a modular program suite for *ab initio* quantum-chemical and condensed-matter simulations. 
@@ -6,7 +11,7 @@ The developers tend to recommend the SMP paralellization for most routine calcul
 
 ## Available
 
-*   Puhti: 7.6
+*   Puhti: 7.5.1, 7.6
 *   Mahti: 7.6
 
 ## License
@@ -24,10 +29,9 @@ Initialise Turbomole environment:
 module load turbomole/7.6
 ```
 
-
 ### Batch script example for Puhti using MPI parallelization
 
-```
+```bash
 #!/bin/bash
 #SBATCH --partition=test
 #SBATCH --nodes=2
@@ -48,7 +52,7 @@ jobex -ri -c 300 > jobex.out
 
 ### Batch script example for Puhti using SMP parallelization
 
-```
+```bash
 #!/bin/bash
 #SBATCH --partition=test
 #SBATCH --nodes=1            # for SMP only 1 is possible
@@ -73,16 +77,12 @@ jobex -ri -c 300 > jobex.out
 ```
 
 !!! note
-    Second-order approximate coupled cluster calculations using the `ricc2` module have been reported to suffer from numerical errors resulting in crashed jobs. This applies to Turbomole versions 7.5 and older on Puhti. For reliable performance, we suggest running `ricc2` calculations using Turbomole 7.5.1.
-
-!!! note
     Particularly some of the wavefunction-based electron correlation methods can be very disk I/O intensive. Such jobs benefit from using the fast local storage on Puhti. Using local disk for such jobs will also reduce the load on the Lustre parallel file system.
  
 
-   
 ### Batch script example for Puhti using MPI parallelization and local disk
 
-```
+```bash
 #!/bin/bash
 #SBATCH --partition=small
 #SBATCH --nodes=1
@@ -104,7 +104,7 @@ ccsdf12 > ccsdt.out
 
 ### Batch script example for Mahti using MPI parallelization
 
-```
+```bash
 #!/bin/bash
 #SBATCH --partition=medium
 #SBATCH --nodes=2
@@ -126,13 +126,13 @@ jobex -ri -c 300 > jobex.out
 ### NumForce calculations
 
 NumForce is a tool that can be used to calculate second derivatives (molecular Hessian) for all methods
-for which analytic gradients are available in `TURBOMOLE`.   
+for which analytic gradients are available in `TURBOMOLE`.
 A NumForce job spawns `3*N*2` (`N` = number of atoms ) independent gradient calculations. 
 Usually it is most efficient that the single gradient calculations are run as serial (`unset PARA_ARCH`). Each serial calculation is expected to take roughly the same time, hence optimally the total number of gradient calculations should be an integer multiple of the allocated cores.
 
 A NumForce step in a job file:
 
-```
+```bash
 unset PARA_ARCH
 export HOSTS_FILE=$PWD/turbomole.machines
 rm -f $HOSTS_FILE

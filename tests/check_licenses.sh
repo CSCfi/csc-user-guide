@@ -8,6 +8,10 @@ APPS_WITHOUT_LICENSE=$(grep -r -L \
     --exclude index.md \
     --exclude alpha.md \
     --exclude by_system.md \
+    --exclude by_license.md \
+    --exclude bioconda.md \
+    --exclude discovery-studio.md \
+    --exclude materialsstudio.md \
     -- \
     "$regex" $directory)
 

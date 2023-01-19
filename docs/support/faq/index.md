@@ -52,11 +52,12 @@
 * [How to use cPouta for Remote Desktop](how-to-use-pouta-for-remote-desktop.md)
 * [How to create default network and router in a Pouta project](how-to-create-default-network-and-router-in-pouta.md)
 * [How to use cPouta GPU for rendering](how-to-use-cpouta-gpu-for-rendering.md)
-* [How to mount my Pouta Object Storage bucket to a VM running in cPouta](how-to-mount-os-bucket-for-cpouta.md)
+* [How to mount my Allas S3 bucket to a VM running in cPouta](how-to-mount-os-bucket-for-cpouta.md)
 * [Do you offer SSL certificates?](do-you-offer-ssl-certificates.md)
 * [Can I run MPI applications on pouta?](can-i-run-mpi-applications-on-pouta.md)
 * [How fast is the Pouta network?](how-fast-is-the-pouta-network.md)
 * [Why can't I connect to my VM in Pouta?](why-cant-i-connect-to-my-vm-in-pouta.md)
+* [How can I give access to other people to my VM in Pouta?](how-can-I-give-access-to-other-people-to-my-vm-in-pouta.md)
 * [Can I access my CSC home/wrkdir/scratch/project directories from Pouta?](how-to-access-home-wrkdir-projdir-from-epouta.md)
 * [What are volumes? How do I use them?](what-are-volumes-and-how-to-use.md)
 * [Is Pouta backed up?](is-pouta-backed-up.md)
@@ -73,7 +74,7 @@
 * [Does Rahti support UDP connections?](rahti-udp.md)
 * [Why my SSH key does not work in Rahti?](ssh-clone.md)
 * [Why Rahti cannot find this docker image?](get-image-format.md)
-
+* [How to open a terminal to a Pod?](terminal-rahti-pod.md)
 
 
 ## Sensitive Data Services for research

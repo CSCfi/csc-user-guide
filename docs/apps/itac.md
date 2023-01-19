@@ -1,3 +1,8 @@
+---
+tags:
+  - Free
+---
+
 # Intel Trace Analyzer and Collector (ITAC)
 
 Intel Trace Analyzer and Collector (ITAC) is a MPI profiling and tracing tool

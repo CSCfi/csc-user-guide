@@ -79,7 +79,7 @@ The Allas object storage is charged:
 * See [Rahti billing](../cloud/rahti/billing.md).
 
 ## Kvasi
-* See [Kvasi billing](../computing/kvasi-billing.md)
+* See [Kvasi billing](../computing/quantum-computing/kvasi/kvasi-billing.md)
 
 
 ## Monitoring billing unit consumption

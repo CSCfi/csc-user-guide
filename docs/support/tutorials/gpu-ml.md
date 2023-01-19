@@ -12,10 +12,10 @@ installed software, while Mahti has a smaller number of faster newer
 generation A100 GPUs.
 
 The CSC-hosted European supercomputer
-[LUMI](https://docs.lumi-supercomputer.eu/generic/overview/) will
+[LUMI](https://docs.lumi-supercomputer.eu/hardware/) will
 provide a massive GPU resource once it's up and running. Currently,
 only a [small early access
-platform](https://docs.lumi-supercomputer.eu/eap/) is available for
+platform](https://docs.lumi-supercomputer.eu/hardware/compute/eap/) is available for
 testing code compatibility.
 
 The main GPU-related statistics are summarized in the table below.

@@ -1,3 +1,8 @@
+---
+tags:
+  - Free
+---
+
 ## PALM
 
 PALM is an advanced and modern meteorological model system for atmospheric and oceanic boundary-layer flows. It has been developed as a turbulence-resolving large-eddy simulation (LES) model that is especially designed for performing on massively parallel computer architectures. 

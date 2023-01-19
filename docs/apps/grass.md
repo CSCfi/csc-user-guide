@@ -1,3 +1,8 @@
+---
+tags:
+  - Free
+---
+
 # GRASS GIS
 
 [GRASS](https://grass.osgeo.org/) (Geographic Resources Analysis Support System) is a free Geographic Information System (GIS) software used for geospatial data management and analysis, image processing, graphics/maps production, spatial modeling, and visualization.
@@ -6,8 +11,8 @@
 
 __GRASS__ is available in Puhti with following versions:
 
-* GRASS 7.8.5 with (default) qgis/3.22 module
-* GRASS 7.4 with older qgis/3.16 module
+* GRASS 7.8.5 with qgis/3.22 module
+
 
 ## Usage
 

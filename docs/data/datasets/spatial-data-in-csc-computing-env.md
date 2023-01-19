@@ -14,11 +14,12 @@ Puhti has following datasets:
         + Automatically classified lidar data, only data of year 2019
 *   **LUKE, multi-source national forest inventory**, 2013, 2015, 2017 and 2019. LUKE license changed in Aug 2019 to CC BY 4.0.
 *   **SYKE, All open spatial datasets** available from [SYKE open data service](https://www.syke.fi/fi-FI/Avoin_tieto/Paikkatietoaineistot/Ladattavat_paikkatietoaineistot).
-*   **Satellite mosaics produced by SYKE and FMI** in Paikkatietoalusta project, **added in 2020**
+*   **Satellite mosaics produced by SYKE and FMI** in Paikkatietoalusta project, 
     -   [Sentinel1 SAR mosaics](https://ckan.ymparisto.fi/dataset/sentinel-1-sar-image-mosaic-s1sar-sentinel-1-sar-kuvamosaiikki-s1sar): 10/2019 ->, 3 mosaics per month
     -   [Sentinel2 index mosaics](https://ckan.ymparisto.fi/dataset/sentinel-2-image-index-mosaics-s2ind-sentinel-2-kuvamosaiikit-s2ind): 2018 ->, 2 mosaics per month, only during vegetation period, NDVI, NDBI, NDMI, NDTI, META.
     -   [Historical Landsat satellite image mosaics](https://ckan.ymparisto.fi/dataset/historical-landsat-satellite-image-mosaics-href-historialliset-landsat-kuvamosaiikit-href): 1985, 1990, 1995
     -   [Historical Landsat NDVI mosaics: 1984-2011](https://ckan.ymparisto.fi/dataset/historical-landsat-image-index-mosaics-hind-historialliset-landsat-kuvaindeksimosaiikit-hind)
+* **Finnish Forest Centre, [Canopy height model, 2021](https://www.paikkatietohakemisto.fi/geonetwork/srv/fin/catalog.search#/metadata/0e7ad446-2999-4c94-ad0d-095991d8f80a)**, CC BY 4.0 license, **added in 2022**
 
 NLS 2m DEM, lidar, infrared ortophotos, all SYKE datasets and satellite mosaics are updated in Puhti automatically every Monday.
 
@@ -59,13 +60,13 @@ Optional arguments:
 
 ## Spatial data in Allas
 
-CSC computing services users are welcome to share spatial data in Allas with other users, if the data license terms allow this. This is a community service, meaning that any CSC user is welcome to contribute and add data to Allas. The data buckets in Allas are owned by data collaborators. If you would like some share some data you have in Allas, and would like the dataset be added to this page, contact CSC Servicedesk
+CSC computing services users are welcome to share spatial data in [Allas](../Allas/index.md) with other users, if the data license terms allow this. This is a community service, meaning that any CSC user is welcome to contribute and add data to Allas. The data buckets in Allas are owned by data collaborators. If you would like some share some data you have in Allas, and would like the dataset be added to this page, contact CSC Servicedesk
 
 Currently available:
 
 1.  **[Sentinel2 2A level images](https://a3s.fi/sentinel-readme/README.txt)**. Maria Yli-Heikkilä (LUKE) has downloaded data of Finland from vegetation period (ca 10.5.-1.9.) in 2016-2020. 
 
-
+For using data in Allas, see [CSC webinar about Allas and geospatial data](https://youtu.be/mnFXe2-dJ_g) and [GDAL Allas documentation](../../apps/gdal.md#using-files-directly-from-allas).
 
 ## License and acknowledgement
 

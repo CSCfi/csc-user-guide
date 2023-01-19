@@ -47,7 +47,7 @@ ida info /
 Adding option `-f` to the _ida_ command makes the command reference the frozen area instead of the staging area. For example the following command would give you information about the file _test2_, locating in the root of the frozen area:
 
 <pre>
-[kkayttaj@puhti-login2 ~] <b>ida info -f /test2</b>
+[kkayttaj@puhti-login12 ~] <b>ida info -f /test2</b>
 project:    2000136
 pathname:   /test2
 area:       frozen

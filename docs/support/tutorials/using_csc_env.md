@@ -1,13 +1,12 @@
 # csc-env command
 
 `csc-env` is a command line tool for testing for common issues in the programming environment,
-and resetting the login- and ssh-settings on CSC supercomputers.
+and resetting the login environment on CSC supercomputers.
 
 The tool does the reset in a non-destructive manner by saving a copy of the current settings which 
 can then be later restored.  
 
 - **login-settings** -> The following files: `.bashrs`, `.bash_profile` and `.bash_logout` in the users home directory
-- **ssh-settings** -> The `.ssh ` folder in the users home directory
 
 Incorrect or extra variables in the login-settings are a common cause for strange and hard to track down issues.
 CSC support staff also can't see a users login-settings, so catching issues here is difficult unless the user 
@@ -18,13 +17,8 @@ Temporarily resetting the login-settings to system default allows us to rule out
     If you are using some other login shell (ksh, zsh ...) the tool can not reset your login-settings,
     you can use the tool to switch to bash.
 
-Errors or missing keys in the ssh-settings can stop the user from connecting to CSC supercomputers using ssh-keys
-or connecting to the compute nodes. Resetting the ssh-settings can sometimes fix these issues.  
-
-!!!Note "Remember your password"
-    Resetting the ssh-settings will disable key-based login, so make sure you remember your password
-    so that your are still able to login.
-
+!!!Note "CSC internal ssh changes"
+    As of the RHEL8 update, ssh connections between nodes within the supercomputers no longer use keys and configs from "~/.ssh" instead using host based authentication. Due to this the capability to reset the ssh settings has been removed. 
 
 ## Usage
 
@@ -45,7 +39,7 @@ csc_user@puhti $ csc-env test
 Info
 ---------------------
 User: csc_user
-Host: puhti-login1
+Host: puhti-login11
 Home: /users/csc_user
 Home quota
     capacity: 23%
@@ -56,24 +50,19 @@ Default shell: /bin/bash
 
 Environment test
 ---------------------
-PATH has default value OK
+PATH is modified NOTE
 LD_LIBRARY_PATH has default value OK
 LD_PRELOAD has default value OK
 PYTHONPATH has default value OK
 MODULEPATH has default value OK
 MODULEPATH_ROOT has default value OK
 TMPDIR has default value OK
+CDPATH has default value OK
 Command alias output differs NOTE
 Command module list has default output OK
-
-
-CSC ssh test
----------------------
-CSC generated key pair exists: OK
 $HOME permission is 0700: OK
-CSC generated key pair seem valid: OK
-SSH folder and key permissions correct: OK
-CSC generated ssh config is present: OK
+SSH folder permission is 0700: OK
+
 
 
 File diff test
@@ -97,8 +86,7 @@ When the program prompts for input, press the number corresponding to your selec
 csc_user@puhti $ csc-env reset
 [ INFO ] reset requires a target, please select one: 
 1) login
-2) ssh
-3) shell
+2) shell
 #? 1
 [ INFO ] Files ~/.bashrc ~/.bash_profile and ~/.bash_logout have been saved to 
          /users/csc_user/.csc/csc_env_saves/login_auto/2021-01-18T14:42:44_reset_csc14 
@@ -117,8 +105,7 @@ then restore the settings saved during the previous reset.
 csc_user@puhti $ csc-env restore
 [ INFO ] restore requires a target, please select one: 
 1) login
-2) ssh
-3) shell
+2) shell
 #? 1
 [ INFO ] Files ~/.bashrc ~/.bash_profile and ~/.bash_logout have been saved to
          /users/csc_user/.csc/csc_env_saves/login_auto/2021-01-18T14:47:59_restore_csc15 
@@ -162,13 +149,6 @@ csc7  restore  2021-01-18T14:52:34
 csc6  restore  2021-01-18T14:51:55
 csc5  reset    2021-01-18T14:51:37
 csc4  reset    2021-01-18T14:51:34
-
-ssh
----------------------
-csc3  restore  2021-01-08T11:18:27
-csc2  reset    2021-01-08T11:18:10
-csc1  restore  2021-01-08T11:17:06
-csc   reset    2021-01-08T11:15:47
 ```
 The first column is the name of the save, the second is the action which created the save and the last column is the creation time of the save.
 

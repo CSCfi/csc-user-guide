@@ -2,12 +2,12 @@
 
 Instructions on using the CSC Notebooks environment as a teacher or for collaboration.
 
-## How to host a course or use notebooks for collaboration?
+## How to host a course or use CSC Notebooks for collaboration?
 
 CSC Notebooks is built for hosting online courses. We support currently Jupyter and RStudio based content, with more
 options to come in the future. The intended workflow is that you create one workspace per course, and arrange your 
 exercises in one or more applications in that workspace.
-Instead of a course you can also use CSC Notebooks for collaboration. The workflow is similar to creating a course notebooks environment and is described below.
+Instead of a course you can also use CSC Notebooks for collaboration. The workflow is similar to creating a course environment and is described below.
 
 ### 1. Become a workspace owner and creating a workspace
 * Login to CSC Notebooks using your CSC account. Make note of your user account on the bottom of the left navigation
@@ -34,15 +34,23 @@ through `Application wizard` or `Application form`-buttons.
 
 **Application template** Template provides the base features for your application. Most of the templates are based on
 container images maintained by Notebooks team. Take a look at the 
-[image sources in notebook-images repository.](https://github.com/CSCfi/notebook-images/tree/master/builds). If you intend to use your own custom image, you can choose any of the templates which then determines only the memory and lifetime of your application.
+[image sources in notebook-images repository](https://github.com/CSCfi/notebook-images/tree/master/builds). 
+If you intend to use your own custom image, you can choose any template that matches your application type (Jupyter/RStudio).
 
-**Application name** Give a valid meaningful name. This is the name under which participants will see the notebook in the list of notebooks.
+**Application name** Give a valid meaningful name. This is the name under which participants will see the application.
 
 **Application description** Fill a detailed description to helps users to understand more about the application.
 
 **Container image** 
 * If using existing image, then pre-filled based on chosen Application template.
-* If using own custom image, then path to the Docker image. If using Rahti, then: `docker-registry.rahti.csc.fi/<yourprojectname>/<yourimagename>:<tag>` .
+* If using own custom image, then URL of the Docker image. In case of Rahti, this would be something like
+  `docker-registry.rahti.csc.fi/<yourprojectname>/<yourimagename>:<tag>`.
+
+**Session lifetime** The maximum lifetime for a single session. Sessions are deleted when they expire, thus making room 
+for other users.
+
+**Session memory** RAM memory reserved for each session. Workspaces have a limit for total memory for concurrent
+sessions. Choosing a higher value here will affect the maximum number of concurrent sessions.
 
 **Labels** Select the default labels or create custom labels. Labels are useful in searching applications. The icon for
 the application is also selected based on assigned labels.

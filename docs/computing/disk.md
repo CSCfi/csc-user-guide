@@ -9,7 +9,7 @@ purposes. The disk areas for different supercomputers are separate, *i.e.* **hom
 [a more technical description of the Lustre filesystem](lustre.md) used in these directories
 is available.
 
-!!! Note
+!!! warning "CSC does not backup your data!"
     None of the disk areas are automatically backed up by CSC! This means that data accidentally
     deleted by the user cannot be recovered in any way. To avoid unintended data loss, make sure
     to perform regular backups to, for example, [Allas](../data/Allas/index.md). See also the
@@ -19,7 +19,7 @@ is available.
 |------------|--------|--------------------|---------------------|-------------------------|----------------|
 |**home**    |Personal|`${HOME}`           |`/users/<user-name>` |No                       |No              |
 |**projappl**|Project |Not available       |`/projappl/<project>`|No                       |No              |
-|**scratch** |Project |Not available       |`/scratch/<project>` |Not yet - will be 90 days|No              |
+|**scratch** |Project |Not available       |`/scratch/<project>` |180 days on Puhti        |No              |
 
 These disk areas have quotas for both the amount of data and total number of files:
 
@@ -29,9 +29,19 @@ These disk areas have quotas for both the amount of data and total number of fil
 |**projappl**|50 GiB  |100 000 files  |
 |**scratch** |1 TiB   |1 000 000 files|
 
-See [Increasing quotas](#increasing-quotas) for instructions on how to apply for increased
-quota. A general tutorial on [managing and cleaning data on Puhti and Mahti `scratch`
-disks](../support/tutorials/clean-up-data.md) is also available.
+!!! info "LUE"
+    To easily check the amount of data and number of files within a given folder on
+    the parallel file system, please consider using the [LUE](../support/tutorials/lue.md)
+    tool. This tool is significantly faster than tools like `stat` or `du` and causes
+    much less load on the file system.
+
+!!! info "Quotas and cleaning"
+    While it is possible to [apply for increased quotas](#increasing-quotas), we
+    recommend that you always first ensure that the data you have stored on the
+    shared file system is really needed and in active use. Unused data should be
+    moved to e.g. [Allas](../data/Allas/index.md). A general tutorial on [managing
+    and cleaning data on Puhti and Mahti disks](../support/tutorials/clean-up-data.md)
+    is also available.
 
 ## Home directory
 
@@ -51,11 +61,22 @@ are project-specific. If you are a member of several projects, you also have acc
 
 Each project has by default 1 TB of scratch disk space in the directory `/scratch/<project>`.
 
-This fast parallel scratch space is intended as temporary storage space for the data that is
-used in the supercomputer. The scratch directory is not intended for long-term data storage. In
-the future, any files that have not been used for 90 days will be automatically removed, but
-this is not yet enabled. Make sure to consult our tutorial for [tips and guidelines on how to
+
+This fast parallel scratch space is intended as temporary storage
+space for the data that is used in the supercomputer. The scratch
+directory is not intended for long-term data storage. To ensure that
+the disks do not fill up CSC will regularly delete files that have not
+been accessed in a long time. In Puhti the current policy is to remove
+files that have not been accessed for more than 12 months. In Mahti a
+similar cleaning procedure will be introduced, but is not yet
+active. See [Usage policy](../../computing/usage-policy) page for details on the current
+policy.
+
+
+Make sure to consult our tutorial for [tips and guidelines on how to
 manage your data on `scratch`](../support/tutorials/clean-up-data.md).
+
+
 
 ## Projappl directory
 
@@ -64,7 +85,7 @@ Each project has also a 50 GB project application disk space in the directory
 
 It is intended for storing applications you have compiled yourself, libraries etc. that you
 are sharing within the project. It is not a personal storage space but it is shared with
-all members of the project team.
+all members of the project team. Note that no files in this folder will be removed automatically.
 
 It is not intended for running applications, so please run them in `scratch` instead.
 
