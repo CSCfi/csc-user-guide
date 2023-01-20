@@ -74,21 +74,10 @@ To start your virtual desktop, log in to the services and on the **Connection** 
 
 Here you can specify several parameters:
 
-* **Select your CSC project**.
+1. **Select CSC Project, Operating System and Desktop Name**.
+Currently, the only possible operating system is Linux CentOS 7. Assigning a descriptive name for a Desktop so that all project members can quickly identify it, later on is good practice.
 
-* **Choose the operating system**. Currently, the only possible operating system is Linux CentOS 7.
-
-* **Assign a name for your virtual desktop**. Assigning a descriptive name for a Desktop so that all project members can quickly identify it, later on is good practice.
-
-* Based on the computing and memory needs, choose one of the pre-built options (Light, Small, Medium, or Heavy computing). All desktops' default disk (or storage) space is 80 GB. You can extend your Desktop disk space up to 200 GB by selecting the option: **add an external disk**. Note: you can't extend the disk space after you have created the virtual desktop. Additional disk space can be required by writing to servicedesk@csc.fi (subject: Sensitive data);
-
-Finally, press the **Create desktop** button. The launch operation is entirely automated and can take **up to 30 minutes**. 
-
-If you try accessing the virtual desktop during the creation process, an error message will be displayed asking you to return later.
-
-
-You can choose between **four different pre-built virtual Desktop options **:
-
+2. **Select a Desktop from the pre-built options**. Based on the computing needs, choose one of the pre-built options (Light, Small, Medium, or Heavy computing):
 
 *  **Light computation**. Technical specifications: **Core:3; memory 4 GiB; Root disk: 80 GB; Correspondent Pouta Flavour: standard.medium; Billing Units: 1.3 units/h**. This option is ideal for testing the services (for example: starting a virtual desktop, accessing data stored in SD Connect, and deleting the desktop). For this reason, we advise you to start this option only for testing purposes and delete it when the testing is completed. 
 
@@ -97,6 +86,11 @@ You can choose between **four different pre-built virtual Desktop options **:
 * **Medium computation**. Technical specifications:**Core:8; memory 30 GiB; Root disk: 80 GB; Correspondent Pouta Flavour: standard.xxlarge; Billing Units: 10.4 units/h**. This option is ideal for running complex statistical or genome analysis (for example: using the command line to run specific scripts). You can compare this desktop to a powerful laptop provided by your organization's  IT unit. 
 
 * **Heavy computation**: Technical specifications: **Core:32; memory 116 GiB; Root disk: 80 GB; Correspondent Pouta Flavour: hpc.5.32core; Billing Units: 52 units/h**. This option is ideal for running non-interactive programmatic analysis (machine learning) that requires heavy computation. Please do not choose this option for simple analysis, as it consumes considerable resources. 
+
+3. All desktops' default disk (or storage) space is 80 GB. You can extend the disk space up to 200 GB with the option: **Add External volume**. Note: you can't extend the disk space after you have created the virtual desktop. Additional disk space can be required by writing to servicedesk@csc.fi (subject: Sensitive data);
+
+4. Finally, press on **Create desktop**. The operation is entirely automated and can take **up to 30 minutes**. If you try accessing the virtual desktop during this process, an error message will be displayed asking you to return later.
+
 
 !!! Note
         For support in choosing the correct option for your needs, don't hesitate to contact us at servicedesk@csc.fi (email subject: Sensitive Data). 
