@@ -3,7 +3,7 @@
 
 ## Overview
 
-Sensitive Data (SD) Desktop allows you to securely analyze sensitive research data from your web browser. With this user interface, you can easily manage (start, use, delete) a virtual computer (here called Desktop, technically defined as a virtual machine). In addition, SD Desktop provides a secure workspace for collaborative research projects. No previous knowledge or expertise is required to use the service. 
+Sensitive Data (SD) Desktop allows you to analyze sensitive research data from your web browser securely. With this user interface, you can easily manage (start, use, delete) a virtual computer (here called a desktop, technically defined as a virtual machine). In addition, SD Desktop provides a secure workspace for collaborative research projects. 
 
 [![Desktop-overview](images/desktop/desktop_overviewnew1.png)](images/desktop/desktop_overviewnew1.png)
 
@@ -17,19 +17,16 @@ In the following user guide, you can learn how to:
 
 * Export non-sensitive results.
 
-To browse through the main topics of the user guide, you can use the navigation bar on the left side of this page or the search functionality.
-
-!!! Note 
-    If you are processing register data under the Act on the Secondary Use of Health and Social Data please check the detailed user guide: SD Desktop for secondary use. In this case, access to SD Desktop requires a permit provided by the Findata authority, and the service has specific limitations.
+You can browse through the main topics of the manual using the navigation bar on the left side of this page or the search function.
 
 
 ## Key features
 
-* Accessible from any operating system (Mac, Linux or Windows) via a web browser (e.g., Google Chrome, Firefox) from the public internet (without the need of installing a client or using a VPN).
+* Accessible from any operating system (Mac, Linux or Windows) via a web browser (e.g., Google Chrome, Firefox) from the public internet (without the need to install a client or use a VPN).
 
-* Only the same CSC project members can access the same virtual Desktop. Currently, it is possible to launch three virtual Desktops (or computing environments) for each CSC project. Each CSC project has its private Desktop, and each Desktop is isolated from other CSC projects or CSC accounts unless you authorize it.
+* Only the same CSC project members can access the same virtual desktop. Currently, it is possible to launch three virtual desktops (or computing environments) for each CSC project. In addition, each CSC project has its private desktop, which is isolated from other CSC projects or CSC accounts unless you authorize it.
 
-* After login into SD Desktop, the user can start a pre-built computing environment (Linux OS), on-demand; available options offer the capability of doing simple statistical analysis to machine learning and work with any data: text files, images, audio files, video, and genetic data. Further customization is possible by writing at servicedesk@csc.fi (subject: Sensitive data);
+* After login into SD Desktop, the user can start a pre-built computing environment (Linux OS), on-demand; available options offer the capability of doing simple statistical analysis to machine learning and work with any data: text files, images, audio files, video, and genetic data. Further customization is possible by writing to servicedesk@csc.fi (subject: Sensitive data);
 
 * Virtual Desktops are not connected to the internet: the only way to import and export data is SD Connect service;
 
@@ -38,9 +35,11 @@ To browse through the main topics of the user guide, you can use the navigation 
 
 * The project manager's or group leader's responsibility is to frequently review the list of members belonging to a project in MyCSC and verify who can access SD Desktop or SD Connect. Remove the project members who do not need access to the data when their contribution is no longer needed.
 
-* Only open-source software available. 
+* Only open-source software is available. 
 
-* The standard SD Desktop service is unsuitable for data processing under the Secondary Use of Health and Social Data Act. Please check this specific user guide: [SD Desktop for secondary use](./sd-desktop-audited.md) to learn about the precise requirements to access datasets approved by the Findata authority.
+!!! Note 
+The standard SD Desktop service is unsuitable for data processing under the Secondary Use of Health and Social Data Act. Please check this specific user guide: [SD Desktop for secondary use](./sd-desktop-audited.md) to learn about the precise requirements to access datasets approved by the Findata authority.
+
 
 
 ### Authentication
@@ -51,17 +50,15 @@ Login to SD Desktop is possible with identity federation systems (Haka, Virtu, C
 
 from any modern web-browser.
 
-After entering your username and passworod, you need to  **verify your identity** with a second verification step (or Multi factor Authentication, MFA). Enter the verification **code** provided via mobile application and press on *Continue*.
+After entering your username and password, you need to  **verify your identity** with a second verification step (or Multi-factor Authentication, MFA). Enter the verification **code** provided via mobile application and press on *Continue*.
 
 !!! Note
-    Please click on the *Continue* button. Due to a techincal problem, pressing Enter on your keybord will re-directed to a stall request error page.
+    Please click on the *Continue* button. Due to a technical problem, pressing Enter on your keyboard will re-directed you to a stall request error page.
 
 
-For specific guidance regarding the activation of the second verification step on your CSC account, see the [MFA paragraph](../../accounts/mfa.md).
+For specific guidance regarding activating the second verification step on your CSC account, see the [MFA paragraph](../../accounts/mfa.md).
 
 [![Authentication](images/desktop/desktop_login-mfa1.png)](images/desktop/desktop_login-mfa1.png)
-
-
 
 ### Setting up a virtual Desktop
 
