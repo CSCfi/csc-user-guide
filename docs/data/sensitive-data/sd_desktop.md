@@ -3,7 +3,7 @@
 
 ## Overview
 
-Sensitive Data (SD) Desktop allows you to analyze sensitive research data from your web browser securely. With this user interface, you can easily manage (start, use, delete) a virtual computer (here called a desktop, technically defined as a virtual machine). In addition, SD Desktop provides a secure workspace for collaborative research projects. 
+Sensitive Data (SD) Desktop allows you to analyze sensitive research data from your web browser securely. With this user interface, you can easily manage (start, use, delete) a virtual computer (here called desktop, technically defined as virtual machine). In addition, SD Desktop provides a secure workspace for collaborative research projects. 
 
 [![Desktop-overview](images/desktop/desktop_overviewnew1.png)](images/desktop/desktop_overviewnew1.png)
 
@@ -153,7 +153,7 @@ You can close the connection to your virtual desktop in two ways:
 
 ### Accesing RStudio 
 
-To access RStudio, open the terminal in your virtual desktop and launch RStudio with:
+Open the terminal and launch RStudio with:
 
 ```text
 start-rstudio-server
@@ -182,58 +182,61 @@ Next:
 * after a few seconds, you can input the username and password (service-specific) and access the server.
 
 !!! Note
-    Also when using RStudio, you need to save your data in **Shared-directory** if your colleagues need to work on the same files.
+    Only file saved in shared-directory or external volume are accessible to other project memebers using RSudio.
 
 
 [![Desktop-rstudio](images/desktop/desktop-rstudio.png)](images/desktop/desktop-rstudio.png)
 
 
 
-
 ## Accessing encrypted sensitive data within SD Desktop
 
-As the virtual Desktop is isolated from the internet, the only way to access data for analysis is by utilizing a specific application called _Data Gateway_.
-This application will allow you to access encrypted data stored in SD Connect or a specific dataset for which you have been granted access via SD Apply for re-use.
-Encrypted files will be **visible in read-only mode (similarly to opening a pdf file or streaming a YouTube video)**. This solution allows you to process large amounts of data without storing any copy on your virtual Desktop. 
+As the virtual desktop is isolated from the internet, the only way to access data for analysis is by utilizing a specific application called _Data Gateway_.
+
+This application will allow you to establish a secure connection with two other Sensitive Data Service components and:
+Access and analyse encrypted files directly uploaded via SD Connect by any of the project members;
+  Reuse published data under controlled access via the Sensitive Data  (SD) Apply service.
+
+Encrypted files are visible in read-only mode (similar to opening a pdf file or streaming a YouTube video). This solution allows you to process large amounts of data without storing additional copies on your virtual desktop. 
 
 !!! Note
-    In SD Desktop, you can access only files encrypted with the Sensitive Data Services encryption key or using SD Connect. If you try to access unencrypted data or files encrypted only with your public encryption key, this will result in an error. If you experience any problem with Desktops launched before March 2022, don't hesitate to contact us at servicedesk@csc.fi (subject: sensitive data). 
+    In SD Desktop, you can access only encrypted files. Trying to access unencrypted data or files encrypted only with your public encryption key will result in an error. 
    
 ### Accessing encrypted data stored in SD Connect using Data Gateway
 
 <iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/7iGQ7gWb-Pk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 
-Once you sign in to your virtual Desktop, you can access encrypted data stored in SD Connect by following these steps:
+You can access encrypted data stored in SD Connect by following these steps:
 
-* Open **Data Gateway** (you can find the application on your Desktop);
+1. Open _Data Gateway_ (you can find the application on your desktop);
 
-* select SD Connect;
+2.Select _SD Connect_;
 
-* add your **CSC credentials** (username and password. Note: we disabled the copy/paste options for security reasons; thus, you need to type in your password);
+3.Add your CSC credentials (username and password. Note: we disabled the copy/paste options for security reasons; thus, you need to type in your password);
 
-* **Click on Login** and next click on **Continue**;
+4.Click on _Login_ and next click on _Continue_;
 
-* In the new window, at the end of the page, click on **create Data Gateway**. The application will create a new folder called **Projects** accessible from your Desktop or programmatically the terminal. Next, click on **Open folder**.
+5.In the new window, under _ Create secure access_ click on  _Create_. The application will create a secure connection with SD Connect, and a new folder called _Projects_  will be accessible from your desktop or programmatically from the terminal. Next, click on _Open folder_.
 
  
  [![Data-gateway1](images/desktop/desktop-gateway-part1.png)](images/desktop/desktop-gateway-part1.png)
 
 
-*   If the files have been encrypted using SD Connect or the **sensitive data public encryption key**, you will be able to access their content in read-only mode. The current streaming speed can be up to 50 MB/s. 
+You can directly access all the files stored in SD Connect in read-only mode from the project folder. The application will automatically decrypt them. The current streaming speed can be up to 50 MB/s. 
 
 !!! Note 
-    The Projects folder is **available only when the Data Gateway application is open**. If you sign out from the application, you will not access the data stored in other Sensitive Data services unless you previously made a full copy of it inside your Desktop. Thus, Data Gateway needs to be open during data processing in streaming mode.
+    The Projects folder is available only when the Data Gateway application is open. If you sign out from the application, you can only access the data stored in other Sensitive Data services if you make a full copy of it on your virtual desktop. Thus, Data Gateway needs to be open during data processing in streaming mode.
 
  [![Data-gateway2](images/desktop/desktop-gateway-part2.png)](images/desktop/desktop-gateway-part2.png)
 
-### Importing data inside the Desktop
+### Importing data inside the desktop
 
-**If you need to edit the files/data**:
+If during the analysis phase you need to edit or annotate files:
 
- * access the files of interest in the Project folder **using Data Gateway**;
+ * Access the files of interest in the Project folder using Data Gateway;
  
- *  select the files from the Project folder, make a **copy** and save it in the virtual Desktop **home directory** (the files will be visible only from your browser) or in the **shared folder** (in this case, the files will be accessible also by all the CSC project members). 
+ * Select the files from the Project folder, make a **copy** and save it in the virtual Desktop **home directory** (the files will be visible only from your browser) or in the **shared folder** (in this case, the files will be accessible also by all the CSC project members). 
 
 The files have been decrypted during the copy/paste process and are available for analysis or editing. 
 
@@ -245,21 +248,22 @@ The files have been decrypted during the copy/paste process and are available fo
  [![Desktop-data-import](images/desktop/desktop-gateway-import.png)](images/desktop/desktop-gateway-import.png)
 
 
-###  Accessing published data for re-use via SD Apply
+###  Accessing published data for reuse via SD Apply
 
 <iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/1cF_NQV6vyk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 
-Data Gateway can also be used to access data published under controlled access via other CSC services for sensitive data. To access a specific dataset in your virtual Desktop, you need first to apply for it using SD Apply service. When the data owner (or Data Access Committee) has granted you access, you will be able to access the dataset in SD Desktop for a limited time.
+Data Gateway can also be used to access data published under controlled access via other Sensitive Data Service components. To access a specific dataset for reuse on your virtual desktop, you must first apply for it using SD Apply service. When the data owner (or Data Access Committee) has granted you access, you can access the dataset in SD Desktop for a limited time.
 
 
-If you did not yet apply for access to a specific dataset or if the access period has ended and you try to access the data using the Data gateway application, you will encounter an error message. 
+You will encounter an error message if you still need to apply for access or if the access period has ended. 
 
 
  [![Desktop-apply](images/desktop/desktop-apply.png)](images/desktop/desktop-apply.png)
 
 
-SD Apply is currently in the pilot phase. Please contact us at servidesk@csc.fi (subject: sensitive data) for more information.
+SD Apply is currently in the pilot phase. Don't hesitate to contact us at servidesk@csc.fi (subject: sensitive data) for more information.
+
 
 
 ## Default programs available on SD Desktop
