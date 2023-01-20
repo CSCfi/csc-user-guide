@@ -52,10 +52,6 @@ from any modern web-browser.
 
 After entering your username and password, you need to  verify your identity with a second verification step (or Multi-factor Authentication, MFA). Enter the verification code provided via mobile application and press on *Continue*.
 
-!!! Note
-    Please click on the *Continue* button. Due to a technical problem, pressing Enter on your keyboard will re-directed you to a stall request error page.
-
-
 For specific guidance regarding activating the second verification step on your CSC account, see the [MFA paragraph](../../accounts/mfa.md).
 
 [![Authentication](images/desktop/desktop_login-mfa1.png)](images/desktop/desktop_login-mfa1.png)
