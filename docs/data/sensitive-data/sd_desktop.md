@@ -127,16 +127,20 @@ You can work with the desktop like in a standard computing environment, accessin
 
 Security-related features of SD Desktop include:
 
-* The computing environment (visible from your browser) is isolated from the internet. So you can, for example, open a Firefox web browser but not access any site online. At this moment, you will also not be able to access any repositories directly.
+1. The computing environment (visible from your browser) is isolated from the internet. So you can, for example, open a Firefox web browser but not access any site online. At this moment, you will also not be able to access any repositories directly.
 
-* You can access or import data only data stored in SD Connect using the Data Gateway application (see below for more information);
+2. You can access or import files into the computing environment only using the Data Gateway application (see below for more information);
 
-* The copy-paste function from your computer/laptop to the browser visualizing your virtual desktop is entirely disabled for security reasons. You can use this function inside your browser.
+3. You can access and visualize only encrypted files (uploaded to CSC using SD Connect or encrypted programmatically with the service's public encryption key). Unencrypted files are not visible via the SD Desktop service. 
+
+4. The copy-paste function from your computer/laptop to the browser visualizing your secure desktop is entirely disabled for security reasons. However, you can use this function inside the virtual desktop.
+
+5. Only files saved in the shared folder or the external volume in the same virtual desktop are accessible to all project members.
 
 
 You can close the connection to your virtual desktop in two ways:
 
-1. _Log out_ from the virtual desktop (in the workspace view, top right corner of the browser, select your _username_ and _log out_). This will close all virtual desktop applications and disconnect the work session. You can access the same desktop anytime after logging in to the services.
+1. _Log out_ from the desktop (in the workspace view, top right corner of the browser, select your _username_ and _log out_). This will close all applications and disconnect the work session. You can access the same desktop anytime after logging in to the services.
 
 2. If you initiated an analysis programmatically (running a script), you can close the browser window. This doesn't interfere with the processes running. Thus, when you reconnect to your desktop, all your tools and interfaces are still open and you can continue working. However, log out from the desktop once the analysis is finished. If you leave more than ten connections open, you will be unable to re-access the services. 
 
@@ -147,9 +151,9 @@ You can close the connection to your virtual desktop in two ways:
 
      
 
-### RStudio in SD Desktop
+### Accesing RStudio 
 
-To access RStudio in SD Desktop, open the terminal in your virtual Desktop and launch RStudio with:
+To access RStudio, open the terminal in your virtual desktop and launch RStudio with:
 
 ```text
 start-rstudio-server
