@@ -50,7 +50,7 @@ Login to SD Desktop is possible with identity federation systems (Haka, Virtu, C
 
 from any modern web-browser.
 
-After entering your username and password, you need to  **verify your identity** with a second verification step (or Multi-factor Authentication, MFA). Enter the verification **code** provided via mobile application and press on *Continue*.
+After entering your username and password, you need to  verify your identity with a second verification step (or Multi-factor Authentication, MFA). Enter the verification code provided via mobile application and press on *Continue*.
 
 !!! Note
     Please click on the *Continue* button. Due to a technical problem, pressing Enter on your keyboard will re-directed you to a stall request error page.
@@ -60,51 +60,52 @@ For specific guidance regarding activating the second verification step on your 
 
 [![Authentication](images/desktop/desktop_login-mfa1.png)](images/desktop/desktop_login-mfa1.png)
 
-### Setting up a virtual Desktop
+### Creating your virtual desktop
 
 
 <iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/t6xXKPTB6H0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
+Once you can access the service, you can create your virtual computer (desktop), choosing between four pre-built options. This operation can be carried out with a few simple steps and does not require any technical expertise. The services will automatically start your virtual desktop (or, in technical terms: launch a virtual machine) and create a secure connection between CSC and your browser. After this operation, your virtual desktop will be directly available whenever you log in to the service and will consume billing units (or resources) from your CSC project until paused or deleted.
 
-Once you have access to the service, you can launch your virtual computer (Desktop), choosing between four pre-built options. This operation can be carried out with a few simple steps and does not require any technical experties. Next, the services will start your virtual Desktop (or, in technical terms: launch a virtual machine) and create a secure connection between CSC and your browser. After launch, your virtual Desktop will be directly available for use every time you log in to the service. Moreover, the running Desktop will consume billing units (or resources) from your CSC project until it is deleted.
-
-Each CSC project supports the launch of 3 virtual Desktops. In addition, each Desktop supports the simultaneous connection of 10 project members. Thus, if you add colleagues/collaborators as project members in the same CSC project, they will also be able to connect to a virtual Desktop and access the data stored in your project. Furthermore, all the Desktop are provided with the same software (pre-installed and managed by CSC). The complete and updated list can be found in the following paragraph.
+Each CSC project supports the launch of 3 virtual Desktops. In addition, each desktop supports the simultaneous connection of 10 project members. Therefore, all project members can connect to the virtual desktop and access the data stored in your project. Furthermore, all the desktops are provided with the same open-source software (pre-installed and managed by CSC). The complete and updated list can be found in the following paragraph.
 
 
-To start your virtual Desktop, log in to the services and in **Connection** page, click on **Go To SD Desktop Management page**. 
+To start your virtual desktop, log in to the services and on the **Connection** page, click on **Go To SD Desktop Management page**. 
 
-Here you can specify several parametes:
+Here you can specify several parameters:
 
 * **Select your CSC project**.
 
-* **Choose the operating system**. Currently the only possible operating system is Linux CentOS 7 but in the future there will be other options too.
+* **Choose the operating system**. Currently, the only possible operating system is Linux CentOS 7.
 
-* **Assign a name for your virtual Desktop**. It is good practice to assign a descriptive name for a Desktop so that all project members can easily identify it later on.
+* **Assign a name for your virtual desktop**. Assigning a descriptive name for a Desktop so that all project members can quickly identify it, later on is good practice.
 
-* Choose one of the **virtual Desktop** pre-built options (Light, Small, Medium or Heavy computing), based on your computing and memory needs. The default disk (or storage) space for all Desktop is 80 GB. You can extend your Desktop disk space by selecting option: **add an external disk**. You can add up to 200 GB. Note: you can't extend the disk space after you have lauched the virtual Desktop. Additional disk space later on can be required writing at servicedesk@csc.fi (subject: Sensitive data);
+* Based on the computing and memory needs, choose one of the pre-built options (Light, Small, Medium, or Heavy computing). All desktops' default disk (or storage) space is 80 GB. You can extend your Desktop disk space up to 200 GB by selecting the option: **add an external disk**. Note: you can't extend the disk space after you have created the virtual desktop. Additional disk space can be required by writing to servicedesk@csc.fi (subject: Sensitive data);
 
-When all the settings are done, press the **Launch Desktop** button. The launch operation is entirely automated and can take **up to 30 minutes**. If you try to access the virtual Desktop and see a black screen, come back later. 
+Finally, press the **Create desktop** button. The launch operation is entirely automated and can take **up to 30 minutes**. 
+
+If you try accessing the virtual desktop during the creation process, an error message will be displayed asking you to return later.
 
 
 You can choose between **four different pre-built virtual Desktop options **:
 
 
-*  **Light computation**. Techincal specifications: **Core:3; memory 4 GiB; Root disk: 80 GB; Correspondent Pouta Flavour: standard.medium; Billing Units: 1.3 units/h**. This option is ideal for testing the services (for example, test how to start a Desktop, check out how it looks, try to access data stored in SD Connect, delete the Desktop). You can compare this Desktop to a laptop with limited capacities, which probably freezes when you open too much software or more than three colleagues connect to it simultaneously. For this reason, we advise you to start this type of Desktop only for testing purposes and delete it when the testing is completed. 
+*  **Light computation**. Technical specifications: **Core:3; memory 4 GiB; Root disk: 80 GB; Correspondent Pouta Flavour: standard.medium; Billing Units: 1.3 units/h**. This option is ideal for testing the services (for example: starting a virtual desktop, accessing data stored in SD Connect, and deleting the desktop). For this reason, we advise you to start this option only for testing purposes and delete it when the testing is completed. 
 
-* **Small computation**. Techincal specifications: **Core:6; memory 15 GiB; Root disk: 80 GB; Correspondent Pouta Flavour: standar.xlarge; Billing Units: 5.2 units/h**. This option is ideal for analysing sensitive data using office software (for example: similar to simple statistical analysis with Excel, watching videos, listening to audio files, working on text files). You can compare this Desktop to your working laptop. 
+* **Small computation**. Technical specifications: **Core:6; memory 15 GiB; Root disk: 80 GB; Correspondent Pouta Flavour: standard.xlarge; Billing Units: 5.2 units/h**. This option is ideal for analyzing sensitive data using office software (for example: similar to simple statistical analysis with Excel, watching videos, listening to audio files, and working on text files). You can compare this desktop to your laptop. 
 
-* **Medium computation**. Techincal specifications:**Core:8; memory 30 GiB; Root disk: 80 GB; Correspondent Pouta Flavour: standar.xxlarge; Billing Units: 10.4 units/h**. This option is ideal for running complex statistical or genome analysis (for example: use the command line to run specific scripts). You can compare this Desktop to a powerful laptop provided by your IT unit. 
+* **Medium computation**. Technical specifications:**Core:8; memory 30 GiB; Root disk: 80 GB; Correspondent Pouta Flavour: standard.xxlarge; Billing Units: 10.4 units/h**. This option is ideal for running complex statistical or genome analysis (for example: using the command line to run specific scripts). You can compare this desktop to a powerful laptop provided by your organization's  IT unit. 
 
-* **Heavy computation**: Technical specifications: **Core:32; memory 116 GiB; Root disk: 80 GB; Correspondent Pouta Flavour: hpc.5.32core; Billing Units: 52 units/h**. This option is ideal for running non-interactive programmatic analysis (for example, machine learning) that require heavy computation. Please do not choose this option for simple analysis, as it consumes much resources. 
+* **Heavy computation**: Technical specifications: **Core:32; memory 116 GiB; Root disk: 80 GB; Correspondent Pouta Flavour: hpc.5.32core; Billing Units: 52 units/h**. This option is ideal for running non-interactive programmatic analysis (machine learning) that requires heavy computation. Please do not choose this option for simple analysis, as it consumes considerable resources. 
 
 !!! Note
-        If you don't know the best Desktop option for your needs, please contact us at servicedesk@csc.fi (email subject: Sensitive Data). 
+        For support in choosing the correct option for your needs, don't hesitate to contact us at servicedesk@csc.fi (email subject: Sensitive Data). 
+
 
 [![Launch](images/desktop/desktop_launch.png)](images/desktop/desktop_launch.png)
 
-Unfortunately, we are not yet providing a virtual Desktop with GPUs or Windows, Linux Ubuntu operating systems. However, we are working on it, and you can find more information on the future developments of the services on our webpage. 
-
-In the following paragraphs, we will discuss how to work with a virtual Desktop, which software is available and how it is possible to customise your workspace.
+Unfortunately, we do not yet provide virtual desktop with GPUs, Windows, or Linux Ubuntu operating systems. 
+The following paragraphs will discuss how to work with your virtual desktop, which software is available, and how to customize your workspace.
 
 
 
