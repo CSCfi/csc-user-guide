@@ -70,32 +70,24 @@ Once you can access the service, you can create your virtual computer (desktop),
 Each CSC project supports the launch of 3 virtual Desktops. In addition, each desktop supports the simultaneous connection of 10 project members. Therefore, all project members can connect to the virtual desktop and access the data stored in your project. Furthermore, all the desktops are provided with the same open-source software (pre-installed and managed by CSC). The complete and updated list can be found in the following paragraph.
 
 
-To start your virtual desktop, log in to the services and on the **Connection** page, click on **Go To SD Desktop Management page**. 
+To start your virtual desktop, log in to the services and on the **Connection** page, click on **Go To SD Desktop Management**. 
 
 Here you can specify several parameters:
 
-1. **Select CSC Project, Operating System and Desktop Name**.
+1. **Select CSC project, operating System and desktop name**.
 Currently, the only possible operating system is Linux CentOS 7. Assigning a descriptive name for a Desktop so that all project members can quickly identify it, later on is good practice.
 
 2. **Select a Desktop from the pre-built options**. Based on the computing needs, choose one of the pre-built options (Light, Small, Medium, or Heavy computing):
 
-Light computation. 
+Light computation. Technical specifications: Core:3; memory 4 GiB; Root disk: 80 GB; Correspondent Pouta Flavour: standard.medium; Billing Units: 1.3 units/h. This option is ideal for testing the services (for example: starting a virtual desktop, accessing data stored in SD Connect, and deleting the desktop). For this reason, we advise you to start this option only for testing purposes and delete it when the testing is completed. 
 
-Technical specifications: Core:3; memory 4 GiB; Root disk: 80 GB; Correspondent Pouta Flavour: standard.medium; Billing Units: 1.3 units/h. This option is ideal for testing the services (for example: starting a virtual desktop, accessing data stored in SD Connect, and deleting the desktop). For this reason, we advise you to start this option only for testing purposes and delete it when the testing is completed. 
+Small computation. Technical specifications: Core:6; memory 15 GiB; Root disk: 80 GB; Correspondent Pouta Flavour: standard.xlarge; Billing Units: 5.2 units/h. This option is ideal for analyzing sensitive data using office software (for example: similar to simple statistical analysis with Excel, watching videos, listening to audio files, and working on text files). You can compare this desktop to your laptop. 
 
-Small computation. 
+Medium computation. Technical specifications: Core:8; memory 30 GiB; Root disk: 80 GB; Correspondent Pouta Flavour: standard.xxlarge; Billing Units: 10.4 units/h. This option is ideal for running complex statistical or genome analysis (for example: using the command line to run specific scripts). You can compare this desktop to a powerful laptop provided by your organization's  IT unit. 
 
-Technical specifications: Core:6; memory 15 GiB; Root disk: 80 GB; Correspondent Pouta Flavour: standard.xlarge; Billing Units: 5.2 units/h. This option is ideal for analyzing sensitive data using office software (for example: similar to simple statistical analysis with Excel, watching videos, listening to audio files, and working on text files). You can compare this desktop to your laptop. 
+Heavy computation. Technical specifications: Core:32; memory 116 GiB; Root disk: 80 GB; Correspondent Pouta Flavour: hpc.5.32core; Billing Units: 52 units/h. This option is ideal for running non-interactive programmatic analysis (machine learning) that requires heavy computation. Please do not choose this option for simple analysis, as it consumes considerable resources. 
 
-Medium computation. 
-
-Technical specifications: Core:8; memory 30 GiB; Root disk: 80 GB; Correspondent Pouta Flavour: standard.xxlarge; Billing Units: 10.4 units/h. This option is ideal for running complex statistical or genome analysis (for example: using the command line to run specific scripts). You can compare this desktop to a powerful laptop provided by your organization's  IT unit. 
-
-Heavy computation
-
-Technical specifications: Core:32; memory 116 GiB; Root disk: 80 GB; Correspondent Pouta Flavour: hpc.5.32core; Billing Units: 52 units/h. This option is ideal for running non-interactive programmatic analysis (machine learning) that requires heavy computation. Please do not choose this option for simple analysis, as it consumes considerable resources. 
-
-3. **Add External volume (option)**. All desktops' default disk (or storage) space is 80 GB. With this option you can extend the disk space up to 200 GB. Note: you can't extend the disk space after you have created the virtual desktop. Additional disk space can be required by writing to servicedesk@csc.fi (subject: Sensitive data);
+3. **Add external volume (optional)**. All desktops' default disk (or storage) space is 80 GB. With this option you can extend the disk space up to 200 GB. Note: you can't extend the disk space after you have created the virtual desktop. Additional disk space can be required by writing to servicedesk@csc.fi (subject: Sensitive data);
 
 4. Finally, press on **Create desktop**. The operation is entirely automated and can take **up to 30 minutes**. If you try accessing the virtual desktop during this process, an error message will be displayed asking you to return later.
 
