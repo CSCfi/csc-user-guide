@@ -9,9 +9,9 @@ Sensitive Data (SD) Desktop allows you to analyze sensitive research data from y
 
 In the following user guide, you can learn how to:
 
-* Set up your virtual Desktop
+* Create and set up your virtual desktop;
 
-* Analyse data uploaded and stored in SD Connect;
+* Analyse encrypted data uploaded and stored in SD Connect;
 
 * Reuse published research data stored under controlled access via SD Apply (pilot phase);
 
@@ -104,52 +104,46 @@ The following paragraphs will discuss how to work with your virtual desktop, whi
 
 
 
-
-
-
-
-### Working with your virtual Desktop
+### Working with your virtual desktop
 
 
 <iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/EhuAYNLS90g" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 
 
-Once your private virtual computer (Desktop) is launched, each CSC project member can securely access it from their browser at any time.
+Once a virtual desktop has been created, each CSC project member can securely access it from their browser.
 
-When you log in to SD Desktop **Homepage**,  you will be able to access your virtual Desktop in:
+When you log in to SD Desktop **Homepage**,  you will be able to access your virtual computing environment from:
 
-* **Recent connections**, clicking on the image of your Desktop (visible only if you recently accessed it)
+* **Recent connections**. Click on your desktop's image (visible only if recently accessed).
 
-* **All connections** if you click on + you can see all the connections associated with each project (e.g. project_NNNNN_NNNN). If you click on the connection ID you will also access your Desktop. 
-
-
-When you open the connection, a virtual computing environment (Linux Centos operating system) will open into your browser. When you access the virtual Desktop for the first time, you will see the getting started panel, from which you can, for example, adjust the screen resolution.
-
-You can work with this virtual Desktop like in a standard computing environment.  From the applications menu bar (top left corner) you can access several pre-installed programs. Examples include Open Office, image viewing applications, video and audio players, Jupiter Notebook etc. You can also open a terminal and use Linux from command line. To start using R-Studio please check the paragraph below.
+* **All connections**. Click on + next to the CSC  project ID (e.g. project_NNNNN): this allows you to visualize and access all the desktops associated with the project (desktopname-NNNNNNNNNN) via a secure connection. 
 
 
-Security-related features SD Desktop include:
+When you open the connection, a virtual computing environment (Linux Centos operating system) will open in your browser. If you are accessing the virtual desktop for the first time, you will see the panel getting started, from which you can, for example, adjust the screen resolution.
 
-* the computing environment (visible from your browser) is isolated from the internet. You can, for example, open a Firefox web browser, but you are not able to access any site on the internet. At this moment, you will also not be able to access any repositories directly.
-
-* you can access or import data only data stored in SD Connect using the Data Gateway application (see below for more information);
-
-* the copy-paste function from your computer/laptop to the browser visualizing your virtual Desktop is entirely disabled for security reasons. You can anyhow use this function inside your browser.
+You can work with the desktop like in a standard computing environment, accessing several pre-installed programs from the applications menu bar (top left corner). Examples include Open Office, image viewing applications, video and audio players, Jupiter Notebook etc. You can also open a terminal and use Linux from the command line. For more information on accessing R-Studio, please check the paragraph below.
 
 
-You can close your connection to your virtual Desktop in two ways:
+Security-related features of SD Desktop include:
 
-1.  _Log out_ from your Desktop (in the workspace view, top right corner of the browser, select your _username_ and _log out_). This will close all applications in your virtual Desktop and disconnect the work session. You will be able to access the virtual Desktop at any time after logging in to the services.
+* The computing environment (visible from your browser) is isolated from the internet. So you can, for example, open a Firefox web browser but not access any site online. At this moment, you will also not be able to access any repositories directly.
 
-2. If you started a data analysis programmatically (you are running a script) you can close the browser window. This doesn't interfere with the processes running. Thus, when you reconnect to your Desktop, you have all your tools and interfaces still open and can continue working. However, remember to log out from the Desktop once the analysis is finished. If you leave more than ten connections open, you will be unable to re-access the services. 
+* You can access or import data only data stored in SD Connect using the Data Gateway application (see below for more information);
+
+* The copy-paste function from your computer/laptop to the browser visualizing your virtual desktop is entirely disabled for security reasons. You can use this function inside your browser.
 
 
-!!! Note
-    **Never use the lock or reboot buttons** in SD Desktop as you will not be able to connect to the Desktop again after that.
+You can close the connection to your virtual desktop in two ways:
+
+1. _Log out_ from the virtual desktop (in the workspace view, top right corner of the browser, select your _username_ and _log out_). This will close all virtual desktop applications and disconnect the work session. You can access the same desktop anytime after logging in to the services.
+
+2. If you initiated an analysis programmatically (running a script), you can close the browser window. This doesn't interfere with the processes running. Thus, when you reconnect to your desktop, all your tools and interfaces are still open and you can continue working. However, log out from the desktop once the analysis is finished. If you leave more than ten connections open, you will be unable to re-access the services. 
+
  
  
  [![Access-virtual-Desktop](images/desktop/desktop-access.png)](images/desktop/desktop-access.png)
+
 
      
 
