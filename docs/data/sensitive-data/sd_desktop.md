@@ -135,7 +135,7 @@ Security-related features of SD Desktop include:
 
 4. The copy-paste function from your computer/laptop to the browser visualizing your secure desktop is entirely disabled for security reasons. However, you can use this function inside the virtual desktop.
 
-5. Only files saved in the shared folder or the external volume in the same virtual desktop are accessible to all project members.
+5. Only files saved in the shared-directory or the external volume are accessible to all project members.
 
 
 You can close the connection to your virtual desktop in two ways:
