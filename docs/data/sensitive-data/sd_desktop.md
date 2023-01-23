@@ -196,7 +196,7 @@ Access and analyse encrypted files directly uploaded via SD Connect by any of th
 Encrypted files are visible in read-only mode (similar to opening a pdf file or streaming a YouTube video). This solution allows you to process large amounts of data without storing additional copies on your virtual desktop. 
 
 !!! Note
-    In SD Desktop, you can access only encrypted files. Trying to access unencrypted data or files encrypted only with your public encryption key will result in an error. 
+    In SD Desktop, you can access only encrypted files. Accessing unencrypted data or files encrypted only with your public encryption key will result in an error. 
    
 ### Accessing encrypted data stored in SD Connect using Data Gateway
 
