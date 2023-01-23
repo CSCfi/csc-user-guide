@@ -7,7 +7,7 @@ Puhti has three main disk areas: _home_, _projappl_ and _scratch_. Please famili
 You should change to your project's _scratch_ directory when working with Puhti because the home directory is not intended for data analysis or computing. Its purpose is to store configuration files and other minor personal data. A home directory exceeding its capacity causes various account problems.
 
 !!! note
-     Note that the directories in Puhti are NOT backed up, which means that data accidentally deleted by the user cannot be recovered. Also keep in mind that the files in _scratch_ are automatically removed after 90 days. Store the data that is not in active use in Allas.
+     Note that the directories in Puhti are NOT backed up, which means that data accidentally deleted by the user cannot be recovered. Also keep in mind that the files in _scratch_ are automatically removed after 180 days. Store the data that is not in active use in Allas.
 
 One of the main use cases of Allas is to store data that is not in active in the HPC systems. Before working on the data, stage stage it in. When the data is no longer actively used, it can be staged out. 
 
