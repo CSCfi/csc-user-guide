@@ -20,7 +20,7 @@ In the following user guide, you can learn how to:
 You can browse through the main topics of the manual using the navigation bar on the left side of this page or the search function.
 
 
-## Key features
+### Key features
 
 * Accessible from any operating system (Mac, Linux or Windows) via a web browser (e.g., Google Chrome, Firefox) from the public internet (without the need to install a client or use a VPN).
 
@@ -42,7 +42,7 @@ The standard SD Desktop service is unsuitable for data processing under the Seco
 
 
 
-### Authentication
+## Authentication
 
 Login to SD Desktop is possible with identity federation systems (Haka, Virtu, CSCLogin or LSLogin) at:
 
@@ -56,7 +56,7 @@ For specific guidance regarding activating the second verification step on your 
 
 [![Authentication](images/desktop/desktop_login-mfa1.png)](images/desktop/desktop_login-mfa1.png)
 
-### Creating your virtual desktop
+## Creating your virtual desktop
 
 
 <iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/t6xXKPTB6H0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -100,7 +100,7 @@ The following paragraphs will discuss how to work with your virtual desktop, whi
 
 
 
-### Working with your virtual desktop
+## Working with your virtual desktop
 
 
 <iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/EhuAYNLS90g" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
