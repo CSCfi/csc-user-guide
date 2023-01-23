@@ -65,19 +65,19 @@ Sample SPAdes batch job file:
 #SBATCH --output==spades_out
 #SBATCH --error=sprdes_err
 #SBATCH --cpus-per-task=8
-#SBATCH --mem-per-cpu=2G
+#SBATCH --mem=32G
 #SBATCH --partition=small
 
 
 module load biokit
+export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK 
 srun spades.py --pe1-1 reads_R1.fastq.gz --pe1-2 reads_R2.fastq.gz -t $SLURM_CPUS_PER_TASK -o SpadesResult
 
 ```
 In the example above _<project>_ could be replaced with your project name. You can use `csc-workspaces` to check your Puhti projects.
 Maximum running time is 
-set to 12 hours (`--time=12:00:00`). As SPAdes uses threads based parallelization, the process is considered as one job that should be executed within one node (`--ntasks=1`, `--nodes=1`). The job reserves eight cores `--cpus-per-task=8` that can use in total up to 32 GB of memory  (`--mem=32G`). Note that the number of cores to be used needs to be defined in actual _spades.py_ command
-too. That is done with _spades.py_ option `-t`. In this case we use $SLURM_CPUS_PER_TASK variable that contains the _cpus-pre-task_ 
-value. We could as well use `-t 8` but then we have to remember to change the value if number of the reserved CPU:s is changed.
+set to 12 hours (`--time=12:00:00`). As SPAdes uses threads based parallelization, the process is considered as one job that should be executed within one node (`--ntasks=1`, `--nodes=1`). The job reserves eight cores `--cpus-per-task=8` that can use in total up to 32 GB of memory  (`--mem=32G`). Note that the number of cores to be used needs to be defined with bouth OMP_NUM_THREADS environment variable and in the actual _spades.py_ command (option `-t`). In this case we use $SLURM_CPUS_PER_TASK variable that contains the _cpus-pre-task_ 
+value. We could as well use `export OMP_NUM_THREADS=8` and `-t 8` but then we have to remember to change the values if number of the reserved CPU:s is changed.
 
 
 The job is submitted to the to the batch job system with `sbatch` command. For example, if the batch job

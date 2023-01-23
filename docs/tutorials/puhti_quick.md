@@ -101,10 +101,8 @@ system error messages in the [FAQ](../faq/why-does-my-batch-job-fail.md).
 
 The **project based** shared storage can be found under `/scratch/<project>`.
 Note that this folder is shared by **all users** in a project. This folder is
-not meant for long term data storage and files that have not been used for 90
-days will be automatically removed. **This policy has not yet been fully
-implemented, but we plan to take this cleaning procedure fully in use later
-in 2022.**
+not meant for long term data storage and files that have not been used for 180
+days will be automatically removed.
 
 The default quota for this folder is 1 TB. There is also a persistent
 **project based** storage with a default quota of 50 GB. It is located

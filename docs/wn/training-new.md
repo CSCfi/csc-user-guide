@@ -1,5 +1,9 @@
 # Training & tutorials
 
+## New guide for working with Earth Observation data, 19.01.2023
+
+The [Earth Observation guide](../tutorials/gis/eo_guide.md) aims to help researchers to work with Earth Observation (EO) data by giving an overview of available data and tools for raster data based EO tasks. The focus of the guide is on using CSC computing resources for EO data processing and analysis. However, it also includes some information of non CSC related options for processing and download of EO data.
+
 ## Training materials and sources from CSC and partners, 12.12.2022
 
 Check out this [concise table of training materials](../support/training-material.md#training-materials-and-sources-from-csc-and-partners)

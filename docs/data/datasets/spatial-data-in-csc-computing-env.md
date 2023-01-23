@@ -60,13 +60,13 @@ Optional arguments:
 
 ## Spatial data in Allas
 
-CSC computing services users are welcome to share spatial data in Allas with other users, if the data license terms allow this. This is a community service, meaning that any CSC user is welcome to contribute and add data to Allas. The data buckets in Allas are owned by data collaborators. If you would like some share some data you have in Allas, and would like the dataset be added to this page, contact CSC Servicedesk
+CSC computing services users are welcome to share spatial data in [Allas](../Allas/index.md) with other users, if the data license terms allow this. This is a community service, meaning that any CSC user is welcome to contribute and add data to Allas. The data buckets in Allas are owned by data collaborators. If you would like some share some data you have in Allas, and would like the dataset be added to this page, contact CSC Servicedesk
 
 Currently available:
 
 1.  **[Sentinel2 2A level images](https://a3s.fi/sentinel-readme/README.txt)**. Maria Yli-Heikkilä (LUKE) has downloaded data of Finland from vegetation period (ca 10.5.-1.9.) in 2016-2020. 
 
-
+For using data in Allas, see [CSC webinar about Allas and geospatial data](https://youtu.be/mnFXe2-dJ_g) and [GDAL Allas documentation](../../apps/gdal.md#using-files-directly-from-allas).
 
 ## License and acknowledgement
 

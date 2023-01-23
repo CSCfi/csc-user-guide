@@ -58,11 +58,8 @@ size information. Run `man lfs-find` for further instructions and information on
 
 ## Automatic removal of files
 
-There is a policy of removing files older than 90 days from `scratch` (not `projappl`) to ensure
-that only actively used data resides on the disk. **This policy has not yet been fully implemented,**
-**but we plan to take this cleaning procedure fully in use later in 2022**.  In June 2022 the first stage 
-of automatic removal is implemented in Puhti. All files that have not been accessed since 2019 and 2020 
-will be deleted on July 1, 2022. 
+There is a policy of removing files older than 180 days from `scratch` (not `projappl`) to ensure
+that only actively used data resides on the disk (currently implemented only on Puhti).
 
 Files that will be deleted in the next clean up are listed in so called "purge lists" files.
 These are split up by project, and can be found on Lustre at one of the locations below.
