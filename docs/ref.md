@@ -8,7 +8,7 @@
 This page contains some elements that are available in Docs CSC. For example, here we have some
 body text [with an external link](https://example.com){ target=_blank }. **Some of it is
 boldfaced**, *some italicized*. `Some might be monospaced`. Some acronyms, like HPC, are
-defined automatically (see: [Glossary](#glossary)).
+defined automatically (see: [Glossary](#Glossary)).
 
 > There's even text in a blockquote. The blockquote has some filler text after an empty line. I
 like to imagine it's what a typewriter would dream.
