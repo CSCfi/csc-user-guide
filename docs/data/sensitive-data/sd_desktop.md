@@ -38,11 +38,11 @@ You can browse through the main topics of the manual using the navigation bar on
 * Only open-source software is available. We do not provide virtual desktop with GPUs, Windows, or Linux Ubuntu operating systems. 
 
 !!! Note 
-The standard SD Desktop service is unsuitable for data processing under the Secondary Use of Health and Social Data Act. Please check this specific user guide: [SD Desktop for secondary use](./sd-desktop-audited.md) to learn about the precise requirements to access datasets approved by the Findata authority.
+    The standard SD Desktop service is unsuitable for data processing under the Secondary Use of Health and Social Data Act. Please check this specific user guide:     [SD Desktop for secondary use](./sd-desktop-audited.md) to learn about the precise requirements to access datasets approved by the Findata authority.
 
 
 
-## Authentication
+### Authentication
 
 Login to SD Desktop is possible with identity federation systems (Haka, Virtu, CSCLogin or LSLogin) at:
 
@@ -50,13 +50,13 @@ Login to SD Desktop is possible with identity federation systems (Haka, Virtu, C
 
 from any modern web-browser.
 
-After entering your username and password, you need to  verify your identity with a second verification step (or Multi-factor Authentication, MFA). Enter the verification code provided via mobile application and press on *Continue*.
+After entering your username and password, you need to  verify your identity with a second verification step (or Multi-factor Authentication, MFA). Enter the verification code provided via mobile application and press on _Continue_.
 
 For specific guidance regarding activating the second verification step on your CSC account, see the [MFA paragraph](../../accounts/mfa.md).
 
 [![Authentication](images/desktop/desktop_login-mfa1.png)](images/desktop/desktop_login-mfa1.png)
 
-## Creating your virtual desktop
+### Creating your virtual desktop
 
 
 <iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/t6xXKPTB6H0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -100,7 +100,7 @@ The following paragraphs will discuss how to work with your virtual desktop, whi
 
 
 
-## Working with your virtual desktop
+### Working with your virtual desktop
 
 
 <iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/EhuAYNLS90g" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -127,11 +127,11 @@ Security-related features of SD Desktop include:
 
 2. You can access or import files into the computing environment only using the Data Gateway application (see below for more information);
 
-3. You can access and visualize only encrypted files (uploaded to CSC using SD Connect or encrypted programmatically with the service's public encryption key). Unencrypted files are not visible via the SD Desktop service. 
+3. Unencrypted files are not visible via the SD Desktop service. You can access and visualize only encrypted files (uploaded to CSC using SD Connect or encrypted programmatically with the service's public encryption key). 
 
 4. The copy-paste function from your computer/laptop to the browser visualizing your secure desktop is entirely disabled for security reasons. However, you can use this function inside the virtual desktop.
 
-5. Only files saved in the shared-directory or the external volume are accessible to all project members.
+5. Only files saved in the shared-directory or the external volume are accessible to all project members via the virtual desktop. 
 
 
 You can close the connection to your virtual desktop in two ways:
@@ -222,23 +222,24 @@ You can access encrypted data stored in SD Connect by following these steps:
 You can directly access all the files stored in SD Connect in read-only mode from the project folder. The application will automatically decrypt them. The current streaming speed can be up to 50 MB/s. 
 
 !!! Note 
-    The Projects folder is available only when the Data Gateway application is open. If you sign out from the application, you can only access the data stored in other Sensitive Data services if you make a full copy of it on your virtual desktop. Thus, Data Gateway needs to be open during data processing in streaming mode.
+    The _Projects_ folder is available only when the Data Gateway application is open. Thus, Data Gateway needs to be open during data processing in streaming mode.
+    
 
  [![Data-gateway2](images/desktop/desktop-gateway-part2.png)](images/desktop/desktop-gateway-part2.png)
 
 ### Importing data inside the desktop
 
-If during the analysis phase you need to edit or annotate files:
+If during the analysis phase you need to edit or annotate files, you make a full copy of it on your virtual desktop following these steps: 
 
- * Access the files of interest in the Project folder using Data Gateway;
+ 1. Access the files of interest in the _Project folder_ using _Data Gateway_;
  
- * Select the files from the Project folder, make a **copy** and save it in the virtual Desktop **home directory** (the files will be visible only from your browser) or in the **shared folder** (in this case, the files will be accessible also by all the CSC project members). 
+ 2. Select the files from the Project folder, make a copy and paste it in the virtual desktop home directory (the files will be visible only from your browser) or in the shared folder (in this case, the files will be accessible also by all the CSC project members). 
 
-The files have been decrypted during the copy/paste process and are available for analysis or editing. 
+The files are automatically decrypted by the Data Gateway application during the copy/paste process and are directly available for analysis or editing. 
 
  
 !!! Note
-    Your private workspace in SD Desktop is completely isolated from the internet for security reasons. However, you can use the procedure described above if you need to import specific scripts into your Desktop (for example, from GitHub or other trusted repositories).
+    Your private workspace in SD Desktop is completely isolated from the internet for security reasons. However, you can use the procedure described above if you need to import specific scripts into your desktop (for example, from GitHub or other trusted repositories).
     
      
  [![Desktop-data-import](images/desktop/desktop-gateway-import.png)](images/desktop/desktop-gateway-import.png)
