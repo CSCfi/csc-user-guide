@@ -96,20 +96,20 @@ srun julia my_script.jl
 
 This runs the script `my_script.jl` one time using one cpu-core. You can find more information about batch jobs on Puhti from the [user guide](../computing/running/getting-started.md).
 
-### Packaging code and running it as a batch job
+### Running a package as a batch job
 It is a best practice to package your code instead of running standalone scripts.
-The standard Julia package includes, at minimum, `src/<name>.jl` and `Project.toml` files.
+The standard Julia package includes, at minimum, `src/<package>.jl` and `Project.toml` files.
 Including a command line interface in your program, such as `cli.jl`, is also a good idea.
 In this example, we place scripts for activating the project environment and running a batch job in the `scripts` directory.
 
 ```text
-<name>.jl/         # the package directory
+<package>.jl/      # the package directory
 ├── scripts/       # directory for optional scripts
 │   ├── pkg.jl     # script for installing the package locally
 │   ├── env.sh     # environment for running the project
 │   └── batch.sh   # batch script
 ├── src/           # directory for source files
-│   ├── <name>.jl  # package module
+│   ├── <package>.jl  # package module
 │   └── cli.jl     # command-line interface
 └── Project.toml   # configurations and dependencies
 ```
@@ -122,7 +122,7 @@ We can use the following structure:
 ```text
 /projappl/project_<id>/<subdirectory>/
 ├── .julia/  # location for Julia to install packages
-└── <name>/  # our Julia package
+└── <package>.jl/  # our Julia package
 ```
 
 As the subdirectory, we can use your username (`$USER`) or another name to avoid mixing your Julia dependencies with others in the project.
@@ -131,7 +131,7 @@ Now, we can write our environment as a shell script, such as `scripts/env.sh`.
 
 ```bash
 # Set the environment variables.
-export JULIA_PKGDIR="/projappl/project_<id>/$USER/.julia"
+export JULIA_PKGDIR="/projappl/project_<id>/<subdirectory>/.julia"
 export JULIA_DEPOT_PATH="$JULIA_PKGDIR"
 
 # Create the directory path if it does not exist.
