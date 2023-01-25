@@ -30,6 +30,14 @@ such as your university e-mail address, since this will be validated by
 the SMTP server. Please note that this is a different e-mail header
 attribute from the _From_ attribute.
 
+You might need to add CSC's SPF record included to your own domain existing DNS record if SPF is already configured in use. 
+Even if it isn't it should be considered as there are parties which have started to reject mails from domains where SPF isn't configured.
+It's good to know that taking SPF in use or just by modifying existing record incorrectly could affect whole domain email traffic functionality.
+Also it's good to understand that you may only add/edit SPF record on domain to which you have access to control DNS.
+Part which should be added to SPF record is include:hosted-at.csc.fi
+Your domain SPF record should look then something like this:
+domain.of.the.sending.email.address.    IN    TXT    "v=spf1 include:hosted-at.csc.fi ~all"
+
 If you want to set up any services on cPouta that generate a large
 amount of SMTP traffic (e.g. public mailing lists), please contact
 the CSC Service Desk to coordinate this.
