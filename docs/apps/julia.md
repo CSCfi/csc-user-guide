@@ -114,6 +114,27 @@ In this example, we place scripts for activating the project environment and run
 └── Project.toml   # configurations and dependencies
 ```
 
+The `src/<package>.jl` file must define `module` keyword with the package name.
+
+```julia
+module <package>
+# your code and exports
+end
+```
+
+The `Project.toml` file defines configuration and dependencies similar to the following example.
+
+```toml
+name = "<package>"
+uuid = "d8317c12-93af-4873-9588-10bf4a9df297"
+authors = ["author <email>"]
+version = "0.1.0"
+[deps]
+# dependencies
+[compat]
+julia = "1.8"
+```
+
 In Puhti and Mahti, it is best practice to place the project under a subdirectory in Projappl.
 Furthermore, to install our Julia package and its dependencies to a specific directory, we must set two environment variables, `JULIA_PKGDIR` and `JULIA_DEPOT_PATH`.
 We should also point them to a subdirectory in Projappl.
