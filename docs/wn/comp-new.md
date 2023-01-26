@@ -30,7 +30,7 @@ to connect to a specific login node, e.g. `ssh kkayttaj@puhti-login14.csc.fi`.
 The operating system of Puhti has been updated from Red Hat Enterprise Linux (RHEL) 7 to RHEL 8.
 
 * Pre-installed software and libraries as well as the documentation have been updated
-* Default compiler stack is now `gcc/11.3.0`, `openmpi/4.1.4` and `intel-oneapi-mkl/2022.1.0`. [See more details.](../computing/compiling/compiling-puhti.md)
+* Default compiler stack is now `gcc/11.3.0`, `openmpi/4.1.4` and `intel-oneapi-mkl/2022.1.0`. [See more details.](../computing/installing/compiling-puhti.md)
 * Note that `hpcx-mpi` has been removed and replaced by `openmpi`
 * Users should recompile their own codes for the new OS
 * Some older versions of applications are not available anymore

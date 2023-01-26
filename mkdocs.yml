@@ -116,12 +116,12 @@ nav:
         - High throughput: computing/running/throughput.md
         - Interactive usage: computing/running/interactive-usage.md
         - Performance checklist: computing/running/performance-checklist.md
-     - Compiling:
-        - computing/compiling/index.md
-        - Puhti: computing/compiling/compiling-puhti.md
-        - Mahti: computing/compiling/compiling-mahti.md
-        - LUMI: computing/compiling/compiling-lumi.md
-        - High performance libraries: computing/compiling/hpc-libraries.md
+     - Installing software:
+        - computing/installing/index.md
+        - Compiling on Puhti: computing/installing/compiling-puhti.md
+        - Compiling on Mahti: computing/installing/compiling-mahti.md
+        - Compiling on LUMI: computing/installing/compiling-lumi.md
+        - High performance libraries: computing/installing/hpc-libraries.md
      - Debugging: computing/debugging.md
      - Performance analysis: computing/performance.md
      - Containers:

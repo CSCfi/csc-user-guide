@@ -43,7 +43,7 @@ In Mahti, many applications benefit from hybrid MPI/OpenMP
 parallelization, so it is recommended to build a hybrid version if it
 is supported by your application.
 
-See [more information about compilers](../computing/compiling/compiling-mahti.md).
+See [more information about compilers](../computing/installing/compiling-mahti.md).
 
 !!! warning "Note"
     You need to have the MPI module loaded when submitting your jobs.
@@ -51,7 +51,7 @@ See [more information about compilers](../computing/compiling/compiling-mahti.md
 ## High performance libraries
 
 Mahti has several high performance libraries installed, see [more
-information about libraries](../computing/compiling/hpc-libraries.md).
+information about libraries](../computing/installing/hpc-libraries.md).
 
 ## Applications
 
