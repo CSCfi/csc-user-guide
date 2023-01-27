@@ -43,7 +43,7 @@ resembles a Slurm within a Slurm, but you have to start the server and workers y
 
 !!! info "Note"
     The following instructions apply for Slurm job scripts where only full nodes
-    are allocated. [A full example](#full-example) (for Mahti) can be found at the bottom.
+    are allocated. [A full example](#full-example) (for Puhti) can be found at the bottom.
 
 Specify where on the file system the HyperQueue server should be placed. All `hq` commands
 respect this variable so make sure it's set before you call any `hq` commands. The server
