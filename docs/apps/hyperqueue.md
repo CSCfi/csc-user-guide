@@ -60,8 +60,8 @@ Slurm job, we recommend starting one server per job in some job-specific directo
 Start the server:
 
 ```bash
-hq server start & 
-until hq jobs ; do sleep 1 ; done
+hq server start &
+until hq job list &>/dev/null ; do sleep 1 ; done
 ```
 
 Here, the server is placed in the background (`&`) so that we can continue.
@@ -71,7 +71,7 @@ Here, the server is placed in the background (`&`) so that we can continue.
 Start the workers (again in the background so our script can continue):
 
 ```bash
-srun --cpu-bind=none --hint=nomultithread --mpi=none --ntasks-per-node=$SLURM_NNODES -c $SLURM_CPUS_PER_TASK hq worker start --cpus=$SLURM_CPUS_PER_TASK &
+srun --exact --cpu-bind=none --mpi=none hq worker start --cpus=${SLURM_CPUS_PER_TASK} &
 ```
 
 Here, we launch one worker per node with each worker getting the full node. If you need HQ
@@ -83,15 +83,10 @@ Next, we can start submitting jobs or alternatively wait for all the workers to 
 to the server before submission. This is generally good practice as we can notice issues with
 the workers early.
 
-Loop until all workers are online (note no timeout):
+Wait until all workers are online (note no timeout):
 
 ```bash
-echo "Checking if workers have started"
-until [[ $num_up -eq $SLURM_NNODES ]]; do
-    num_up=$(hq worker list | grep -c RUNNING)
-    echo "$num_up/$SLURM_NNODES workers have started"
-    sleep 1
-done
+hq worker wait "${SLURM_NTASKS}"
 ```
 
 ### Submitting jobs
@@ -124,10 +119,7 @@ When we have submitted everything we want, we need to wait for the jobs to finis
 This can be done e.g. with:
 
 ```bash
-while hq job list --all | grep -q "RUNNING\|PENDING"; do
-    echo "WAITING FOR JOBS TO FINISH"
-    sleep 30
-done
+hq job wait all
 ```
 
 Once we are done running all of our jobs, we shutdown the workers and server to avoid a false
@@ -168,53 +160,41 @@ on usage and input options.
 
 ```bash
 #!/bin/bash
-#SBATCH --partition=medium
+#SBATCH --partition=small
 #SBATCH --account=<project>
-#SBATCH --nodes=4
-#SBATCH --cpus-per-task=128
+#SBATCH --nodes=1
+#SBATCH --cpus-per-task=40
 #SBATCH --ntasks-per-node=1
-#SBATCH --time=01:00:00
+#SBATCH --time=00:30:00
 
-export SLURM_EXACT=1
-
-# Load the required modules
 module load hyperqueue
 
-# Set the directory which hyperqueue will use
-export HQ_SERVER_DIR=$PWD/hq-server-$SLURM_JOB_ID
-mkdir -p "$HQ_SERVER_DIR"
+# Specify a location for the HyperQueue server
+export HQ_SERVER_DIR=${PWD}/hq-server-${SLURM_JOB_ID}
+mkdir -p "${HQ_SERVER_DIR}"
 
-echo "STARTING HQ SERVER, log in $HQ_SERVER_DIR/HQ.log"
-echo "===================="
-hq server start &>> "$HQ_SERVER_DIR/HQ.log" &
+# Start the server in the background (&) and wait until it has started
+hq server start &
 until hq job list &>/dev/null ; do sleep 1 ; done
 
-echo "STARTING HQ WORKERS ON $SLURM_NNODES nodes"
-echo "===================="
-srun --cpu-bind=none --mpi=none hq worker start --cpus=$SLURM_CPUS_PER_TASK &>> "$HQ_SERVER_DIR/HQ.log" &
+# Start the workers (one per node, in the background) and wait until they have started
+srun --exact --cpu-bind=none --mpi=none hq worker start --cpus=${SLURM_CPUS_PER_TASK} &
+hq worker wait "${SLURM_NTASKS}"
 
-until [[ $num_up -eq $SLURM_NNODES ]]; do
-    num_up=$(hq worker list 2>/dev/null | grep -c RUNNING )
-    echo "WAITING FOR WORKERS TO START ( $num_up / $SLURM_NNODES )"
-    sleep 1
+# Simple example workflow. Compute the checksums of all files in the current
+# directory. For small files you would do this very simply in a single
+# interactive compute node, right ;)
+#
+#     sha256sum $(find . -maxdepth 1 -type f) > checksums.txt
+#
+# Parallelized with HyperQueue (not restricted to a single node):
+
+for f in $(find . -maxdepth 1 -type f) ; do
+    hq submit --stdout $f.sha256 sha256sum $f
 done
 
-## Here you run your submit commands, workflow managers etc...
-## hq submit <hq submit args> --cpus <n> <COMMAND/executable> <args to program>
-## ...
-
-while hq job list --all | grep -q "RUNNING\|PENDING"; do
-    echo "WAITING FOR JOBS TO FINISH"
-    # Adjust the timing here if you get to much output in the Slurm log file
-    # Now set to 30 seconds
-    sleep 30
-done
-
-echo "===================="
-echo "DONE"
-echo "===================="
-echo "SHUTTING DOWN HYPERQUEUE"
-echo "===================="
+# Wait until all jobs have finished, shut down the HyperQueue workers and server
+hq job wait all
 hq worker stop all
 hq server stop
 ```
@@ -252,4 +232,5 @@ how to use HyperQueue as an executor for Nextflow workflows.
     node-level granularity.
 
 * [Full documentation for HQ](https://it4innovations.github.io/hyperqueue/v0.11.0/)
-* [Farming Gaussian jobs with HyperQueue](https://csc-training.github.io/csc-env-eff/hands-on/throughput/gaussian_hq.html)
+* [Using HyperQueue and local disk to process many files](https://csc-training.github.io/csc-env-eff/hands-on/throughput/hyperqueue.html)
+* [Farming Gaussian jobs with sbatch-hq](https://csc-training.github.io/csc-env-eff/hands-on/throughput/gaussian_hq.html)
