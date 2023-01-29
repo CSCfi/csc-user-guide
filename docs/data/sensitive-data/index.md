@@ -7,10 +7,10 @@ This guide, in CSC Docs, introduces CSC's Sensitive Data (SD) services. To navig
 
 
 ## [Introduction](./intro.md)
-  * [**Introduction to the user guide**](./intro.md#introduction-to-the-user-guide)
-  * [**Introduction to the services**](./intro.md#introduction-to-the-services)
-  * [**Legal agreements**](./intro.md#legal-agreements)
-  * [**Useful terminology**](./intro.md#useful-terminology)
+  * [Introduction to the user guide](./intro.md#introduction-to-the-user-guide)
+  * [Introduction to the services](./intro.md#introduction-to-the-services)
+  * [Legal agreements](./intro.md#legal-agreements)
+  * [Useful terminology](./intro.md#useful-terminology)
 
 
 ## [Applying for SD services access](./intro.md#applying-for-sd-services-access)
@@ -19,13 +19,13 @@ This guide, in CSC Docs, introduces CSC's Sensitive Data (SD) services. To navig
   
 ## [Store and share with SD Connect](./sd_connect.md)
    
-   * [**Overview**](./sd_connect.md#overview)
+   * [Overview](./sd_connect.md#overview)
 
-  * [**Key features**](./sd_connect.md)
+  * [Key features](./sd_connect.md)
   
-  * [**Authentication**](./sd_connect.md#authentication)
+  * [Authentication](./sd_connect.md#authentication)
 
-  * [**User Interface**](./sd_connect.md#user-interface)
+  * [User Interface](./sd_connect.md#user-interface)
   
   * [**Introduction to data encryption compatible with sensitive data services**](./sd_connect.md#introduction-to-data-encryption-compatible-with-sensitive-data-services)
  
