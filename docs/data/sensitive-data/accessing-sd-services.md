@@ -9,8 +9,7 @@ Below you can find more information on the steps required to access SD service t
 You can browse through the main topics of the manual using the navigation bar on the left side of this page or the search function.	 
   
 
-## Processing sensitive research data with SD Connect and SD Desktop	 
-  
+## Processing sensitive research data
  	 
   
 To access CSC's services for sensitive research data processing:
