@@ -238,6 +238,7 @@ The necessary steps for encryption with Cryp4GH application and upload with SD C
 For example, encrypting the file my_data1.csv will produce a new, encrypted file named my_data.csv.c4gh. 
 Unfortunately, the Cryp4GH application does not provide a progress bar, and the encryption process can last up to several minutes.
 
+[![SDConnect-cryp4ghapplication](images/connect/connect_encryption_app.png)](images/connect/connect_encryption_app.png)
 
 6- Now, you can upload the encrypted file (or a folder containing encrypted data) to SD Connect using the drag-and-drop function.
 
@@ -247,6 +248,8 @@ Unfortunately, the Cryp4GH application does not provide a progress bar, and the 
 If you create a new bucket, use the following suggestions to name it. Bucket names must be unique across all existing buckets in all projects in SD-Connect and Allas. If you can't create a new bucket, some other projects may already use the name you want to use. To avoid this situation, it is good practice to include project-specific identifiers (e.g. project ID number or acronym) in the bucket names. Avoid using spaces and special characters in bucket names. Preferred characters are Latin alphabets (a-z), numbers (0-9), dash (-), underscore (_), and dot (.). SD Connect can also support other characters, but they may cause problems in other interfaces. All bucket names are public, so please do not include any confidential information in the bucket names.
 
 9- Next, click on _Upload_. A progress bar will visualise the upload's status. Once the process is completed, you can return to the SD Connect browser window, open the bucket and visualize the encrypted file, here named .c4hg.
+
+[![SDConnect-upload-encrypted](images/connect/cconnect_encryption_large_upload.png))](images/connect/cconnect_encryption_large_upload.png)
 
 
 ## Sensitive data encryption and upload for data storage, sharing, and transfer (less than 1 GB) 
