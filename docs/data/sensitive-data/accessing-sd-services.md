@@ -95,15 +95,14 @@ Note that you need to use your CSC username and password when you access data fr
  ## Default storage space and billing units consumption
 
 
-### SD Connect:
+SD Connect:
 
 The default quota (or storage space) for SD Connect is 10 TB, which can be increased up to 200 TB if needed. If you work with larger datasets, contact us for support at servicedesk@csc.fi (Subject: Sensitive data).
 Storing data in SD Connect/Allas consumes billing units. In Allas, billing is based on the amount of data stored. The rate is 1 BU/TiBh, i.e. 1 TB of data stored in Allas consumes 24 BU in a day and 8760 BU in a year.
 
-### SD Desktop:
+SD Desktop:
 
 The default disk space (or storage space) in SD Desktop is 80 GB, and can be increased up  to 280 GB by adding an external volume during virtual desktop creation. If you work with larger datasets, contact us for support at servicedesk@csc.fi (Subject: Sensitive data).
-
 Analysing data in SD Desktop consumes billing units, and this is based on the type of virtual desktop you are using. The rate is 5,2 BU/h for the small computation option up to 52 BU/h for the heavy computation. 
 
 For specific guidance regarding applying for additional quota or billing units, check the [Accounts](../../accounts/index.md) paragraph at the beginning of this user guide.	 
