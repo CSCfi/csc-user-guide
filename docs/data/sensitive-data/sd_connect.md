@@ -200,16 +200,14 @@ The necessary steps to automatically upload and encrypt small files are the foll
 
 7-  Next, click on _Encrypt and Upload_: each file will be automatically encrypted and uploaded to the bucket in SD Connect. The upload bar will display the state of data encryption and upload. 
 
-[![SDConnect-upload](images/connect/SDConnect-upload.png)](images/connect/SDConnect-upload.png)
+8- Once the process is completed, you can return to the SD Connect browser page by clicking on _Browser_. The encrypted files will be displayed in the correct bucket, in a default folder called DATA, and each encrypted file will have the extension .c4gh. 
 
-7- Once the process is completed, you can return to the SD Connect browser page by clicking on _Browser_. The encrypted files will be displayed in the correct bucket, in a default folder called DATA, and each encrypted file will have the extension .c4gh. 
-
-8- Encrypted files are now available for data analysis, editing or annotation via the SD Desktop service. 
+9- Encrypted files are now available for data analysis, editing or annotation via the SD Desktop service. 
 
 !!! Note
 Due to a technical issue, buckets containing encrypted files might look empty (white) after data upload. This problem can be solved by clearing the browser cookies. 
 
-
+[![SDConnect-upload](images/connect/SDConnect-upload.png)](images/connect/SDConnect-upload.png)
 
 ## Sensitive data encryption and upload for data analysis (up to 100 GB) 
 
