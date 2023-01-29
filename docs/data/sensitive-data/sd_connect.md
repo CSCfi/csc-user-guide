@@ -65,7 +65,7 @@ Login to SD Connect is currently possible only with CSC credentials and  Haka (a
 
 ## User Interface 
 
-As SD Connect is a user interface based on a cloud object storage, all files are stored in buckets or containers. Buckets are the main folder that holds your data. All buckets are associated with a CSC project. You can use buckets to organize data and control access via your CSC project or share functionality. However, you can not merge buckets or change the order of the folders and subfolders stored in them. You can edit buckets or folder content only by making a complete copy inside the SD Desktop service or downloading the encrypted files back to your organization's secure computing environment for decryption. 
+As SD Connect is a service based on a cloud object storage solution, all files uploaded to CSC are stored in buckets or containers. Buckets are the main folder that holds your data. All buckets are associated with a CSC project. You can use buckets to organize data and control access via your CSC project or the share-bukcet functionality. However, you can not merge buckets or change the order of the folders and subfolders stored in them. You can edit buckets or folder content only by making a complete copy inside the SD Desktop service or downloading the encrypted files back to your organization's secure computing environment for decryption. 
 
 Once you log in to SD Connect, you can access three main pages: 
 
@@ -337,49 +337,51 @@ This workflow allows managing only one copy of the data for different purposes.
  With this workflow is possible to encrypt only small files (up to 1GB). If you have any questions or the instructions above need clarification (e.g. encryption of larger files), don't hesitate to contact us at servicedesk@csc.fi (subject: Sensitive Data). We also provide step-by-step support online (e.g. via Zoom).
 
 
-## Data Sharing 
+## Data sharing 
 
-SD Connect user interface provides a simple way of sharing containers between different projects.
+SD Connect user interface provides a simple way of sharing buckets between different projects.
 
-To share a container with another CSC project (and thus one of your colleagues or collaborators), you need to:
+To share a bucket with another CSC project (and thus one of your colleagues or collaborators), you need to:
 
-* **know in advance the project identifier you want to share a container with** (see above in *User Interface* paragraph);
+* know in advance the project identifier you want to share a bucket with (see above the _User Interface_ paragraph);
 
-* in the browser page, click on the **share** button on the row of the container in the bucket listing;
+* in the browser page, click on the _share_ button next to the  bucket's name;
 
-Clicking the button takes you to **Share the container**  view, in which the user needs to specify the project/projects the bucket is going to be shared with and what rights to give: 
 
-* select **Grant read permission** if you want your colleagues to be able to see the files and folder inside the bucket and download them
+Next:
 
-* select also **Grant write permissions** if you want your colleague to be able to add files and folders to the shared bucket. If you select only this option, your colleague or collaborator will be only able to add files to the bucket but not be able to see its content.
+1-   In the _Browser_ page, next to the bucket same, click the _share_ icon
 
-* in **Project Identifiers to share with** add the SD Connect Project Identifier of the project you want to share the bucket with 
+ 2- You will be redirected to the _Share the bucket_  page. Here you can select:
 
-* Next click on **Share**
+*only  _Grant read permission_ if you want your colleagues to be able to access the files and folder stored in the bucket, download them or access them via the SD Desktop service;
 
-At this point, the user interface will redirect you to the **Shared** page, and the bucket will be listed under **Shared from project**. Here you will be able to interrupt the sharing by clicking on **Revoke bucket access**. 
+* or _Grant write permissions_ if you want your colleague to be able to add files and folders to the shared bucket. If you select only this option, your colleague will be only able to add files to the bucket but not be able to see its content.
+
+3- Under _Project Identifiers to share with_, you can add the identifiers corresponding to your collaborator's CSC project. It is possible to add multiple identifiers. 
+
+4- Next, click on _Share_. If the operation is successful, you will be redirected to the _Share from the project_ view, where are listed all the buckets shared with other CSC projects. From the same page, it is possible to interrupt the sharing by clicking on _Revoke bucket access_.
+
 
 
 ![sd-connect-6](https://user-images.githubusercontent.com/83574067/122786188-ba869980-d2bc-11eb-93be-cde0f14d0795.png)
 
 
 
-
-
 ![SD-Connec-7](https://user-images.githubusercontent.com/83574067/124917332-5d008580-dffc-11eb-9c70-3647e9538f79.png)
 
 
-
 ![sd-connect-8](https://user-images.githubusercontent.com/83574067/122786632-2ec13d00-d2bd-11eb-966a-ad2eb6be2589.png)
+
 
 ## Data download and decryption
 
 
 <iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/SQJ8QEKV7BE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-You can easily download entire buckets or single encrypted files from the SD Connect Browser page by clicking on download. 
+You can easily download entire buckets or single encrypted files from the SD Connect _Browser page_ by clicking on _download_. 
 
-After download, you can decrypt the data using the Crypt4GH application and your secret encryption key. Unfortunately, it is currently not possible not to decrypt more than one file at a time. However, we are working on adding this option and integrating it with the SD Connect user interface.
+Next, you can decrypt the data using the Crypt4GH application and your secret encryption key. Unfortunately, it is currently only possible to single files. However, we are working on adding this option and integrating it with the SD Connect user interface.
 
 1- Open the Crypt4GH application and click on _load Your Private Key_.
 
@@ -389,9 +391,9 @@ After download, you can decrypt the data using the Crypt4GH application and your
 
 4- Next, click on _Decrypt File_.
 
-5-The tool will ask you to write the secret key's password, press _ok_. Then, the file will be decrypted in the same location as the original file.
+5-The tool will ask you to write the secret key's password. Press _ok_. 
 
-The secret key must match the public key used to encrypt the data in the decryption process.
+The secret key must match the public key used to encrypt the data.
 In the case of decryption, adding the public key is not mandatory, but if you have the public key of the person who has encrypted the file, you can use it to verify the encryption signature. If you don't select a public key, the activity log will display the following (the decryption will be executed anyway):
 
 ```
@@ -411,6 +413,8 @@ Decrypted file: C:/users/username/exampledirectory/examplefile
 ![Download](images/connect/download.png)
 
 ![Decryption](images/connect/decryption.png)
+
+The decrypted file will no longer display the .c4gh extension and will be saved in the same folder from which the original file was uploaded.  
 
 ## Command Line Interface: data encryption and upload 
 
