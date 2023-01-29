@@ -12,7 +12,7 @@ You can browse through the main topics of the manual using the navigation bar on
 ## Processing sensitive research data
  	 
   
-To access CSC's services for sensitive research data processing:
+To access CSC's services for processing sensitive research data:
  
 
  1. Create a user account using the [MyCSC](https://my.csc.fi) portal.  
