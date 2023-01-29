@@ -211,13 +211,38 @@ Due to a technical issue, buckets containing encrypted files might look empty (w
 
 
 
-## Sensitive data encryption and upload for data analysis (less than 100 GB) 
+## Sensitive data encryption and upload for data analysis (up to 100 GB) 
+
+As the workflow described above is still being developed, files up to 100 GB can be encrypted with an additional step with an application called Crypt4GH. Encrypted files can then be uploaded to CSC using SD Connect (via a web browser) and directly analysed using SD Desktop. This method is suitable for any file type and format. However, uploading large files might take several hours, depending on the internet connection. Data upload will be interrupted after 8 hours. 
+
+The necessary steps for encryption with Cryot4GH upload with SD Connect are the following: 
+
+1- First, download the encryption application specific to your operating system from the [GitHub repository](https://github.com/CSCfi/crypt4gh-gui/releases/tag/sds-v1.0.0):
+[Mac](https://github.com/CSCfi/crypt4gh-gui/releases/download/sds-v1.0.0/crypt4sds-python3.7-macos-amd64.zip)
+[Windows](https://github.com/CSCfi/crypt4gh-gui/releases/download/sds-v1.0.0/crypt4sds-python3.7-windows-amd64.zip)
+[Linux](https://github.com/CSCfi/crypt4gh-gui/releases/download/sds-v1.0.0/crypt4sds-python3.7-linux-amd64.zip)
+
+2- Verify that the program has been digitally signed by CSC - IT Center for Science. After downloading and unzipping the application, you can find the Crypt4GH application in your download folder. When you open the application, you might encounter an error message. In this case, click More info and verify that the publisher is CSC-IT Center for Science (or in Finnish CSC-Tieteen tietotekniikan keskus Oy) and then click Run anyway.
+
+3- Open the Crypt4GH application and press _ Select File_. This opens a small browser that you can use to select the file that needs to be encrypted.  
+
+4- Click on _Open_ . The file name will be displayed under _File to encryot_. Next, press on _Encrypt_.
+
+4- The Cryot4GH application will create an encrypted file, located in the same folder as the original file.  The encrypted file 's extension is .c4gh, 
+
+ For example, encrypting file my_data1.csv will produce a new, encrypted file with the name my_data.csv.c4gh. 
+The Cryp4GH application does not provide a progress bar; if the file is large, the encryption process can last up to several minutes.
 
 
-Files up to 100 GB can be encrypted only using a specific application called Cryot5GH. In this case 
-With SD Connect, you can encrypt and upload files or folders from your web browser (<1GB). Each file will be encrypted with the default automated option, uploaded, and safely stored in SD Connect and can be directly analysed using SD Desktop. For guidance on encryptng and uploading larger files, please view the following paragraph. 
+5- Now, you can upload the encrypted file (or a folder containing encrypted data) to SD Connect using the drag and drop function.
 
-Automated encryption via SD Connect is suitable for any file type and format. However, uploading large files might take several hours, depending on the internet connection. Data upload will be interrupted after 8 hours. 
+6- You will be redirected to a new page. Here  deselect the option: Encrypt file before upload.
+
+
+7- Next, you can specify the name of the bucket in which the data should be uploaded to. If you don't fill in a specific name, the user interface will automatically create a bucket named: upload-nnn (where nnn is replaced with a 13-digit number based on creation time). Note that it is not possible to rename buckets.
+8- If you create a new bucket use the following suggestions to name it. Bucket names must be unique across all existing buckets in all projects in SD-Connect and Allas. If you can't create a new bucket, some other project may already use the name you want to use. To avoid this situation, it is good practice to include some project-specific identifiers (e.g. project ID number or acronym) in the bucket names. Avoid using spaces and special characters in bucket names. Preferred characters are Latin alphabets (a-z), numbers (0-9), dash (-), underscore (_) and dot (.). SD Connect can also support other characters, but they may cause problems in other interfaces. All bucket names are public, so please do not include any confidential information in the bucket names.
+
+9- Next, click on _Upload_. A progress bar will visualise the status of the upload. Once the process is completed, you can return to the SD Connect browser window. The encrypted files will show the extension .c4hg.
 
 
 
