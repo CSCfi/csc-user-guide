@@ -252,7 +252,7 @@ If you create a new bucket, use the following suggestions to name it. Bucket nam
 [![SDConnect-upload-encrypted](images/connect/connect_encryption_large_upload.png)](images/connect/connect_encryption_large_upload.png)
 
 
-## Sensitive data encryption and upload for data storage, sharing, and transfer (less than 1 GB) 
+## Sensitive data encryption and upload for storage and sharing (less than 1 GB) 
 
 
 <iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/xpUF0ig-4MI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
