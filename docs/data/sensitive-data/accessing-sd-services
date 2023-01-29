@@ -1,0 +1,76 @@
+# Accessing Sensitve Data services 
+
+CSC's Sensitive Data services are suitable for managing sensitive data from any research field and for diverse purposes.
+The services are available to researchers and students affiliated with Finnish higher education institution (universities, 
+universities of applied sciences), or a state research institute. This is based on the agreement made with the Ministry of Education and Culture.
+CSC's Sensitive Data services are available free-of-charge according to [CSC's General terms of use ](https://research.csc.fi/general-terms-of-use). 
+
+Below you can find more information on accessing SD service for processing research data or register data under the Act od Secondary use. 
+You can browse through the main topics of the manual using the navigation bar on the left side of this page or the search function.
+
+## Processing sensitive reaserch data with SD Connect and SD Desktop
+
+To access CSC's services for sensitive research data processing data using [MyCSC](https://my.csc.fi) portal:
+
+   1. Create a user account.
+
+   3. Create or join a CSC project and add project members.
+
+   4. Fill in the Description of processing activities form and accepct CSC's Data processing agreement.
+    
+   5. Each project member needs to add service access to Allas (to use SD Connect) and SD Desktop.
+
+   6. Activate the additional security verification (or Multi-factor Authentication) on your account by scanning the QR code with an application (e.g. Google Authenticator).
+
+   7. Apply for billing units or disk quota.
+
+For video tutorials and guidance regarding these steps, check the [Accounts](../../accounts/index.md) paragraph at the beginning of this user guide.
+
+Once you have completed these steps, you can log in to SD services with identity federation systems (Haka, Virtu, CSC Login, or LSLogin) at:
+
+   * [https://sd-connect.csc.fi](https://sd-connect.csc.fi) 
+   * [https://sd-desktop.csc.fi](https://sd-desktop.csc.fi)
+
+with any modern web-browser.
+
+!!! Note
+    LSLogin (LifeScience login, previously known as ELIXIR login) is available only after linking your CSC account to your LifeScience account (under your profile in MyCSC).
+  
+Note that you always need to use your CSC username and password when you access data from your virtual Desktop. If you don't remember your CSC password, you can [reset it](../../accounts/how-to-change-password.md).
+
+
+## Processing register data under the Act of Secondary Use
+
+Processing register data for seconday use differs from the abovementioned process. In this case, access to the SD Desktop computing enviroment is managed by CSC's helpdesk in
+accordance to Finnish Act on Seconday use of health and social data and Findata authority regulations. 
+Currently it is possible to process only register data provided by the Fidata authority. For more information about data provided by single registers write at: servicedesk@csc.fi (Sensitive Data).
+
+
+!!! Note 
+    Processing of register data is subject to several limitations. In this case, the SD Desktop computing enviroment might not be suitable for your needs or the sfoteare needed for data
+    analysis mifht not be available as a default program. For this reason, we recommend you to contact us at servicedesk@csc.fi before applying for a data
+    permit from Findata or from a register to understand if this workflow is suitable for yoru needs.
+ 
+1. Create a[a CSC account](../../accounts/how-to-create-new-user-account.md) using the 
+[My CSC portal](https://my.csc.fi): log in with Haka, if you don't have Haka credentials you
+need to contact us at servicedesk@csc.fi in order to verify your identity;
+
+2. Request a CSC project from servicedesk@csc.fi (subject: Sensitive Data) and attach a copy of the Findata permit data permit, describe shortly your research project (name and research field are enough) and
+ and add all the project members as a cc to the email (please use the organizational email addresses).
+
+3. Activate the additional security verification (or Multi-factor Authentication)** on your account scanning the QR code with a specific application (e.g. Google Authenticator). 
+For further instructions see the [MFA paragraph](../../accounts/mfa.md), under the Account section on the CSC user guide;
+
+4- Join a CSC project via an invitation link and wait for an approval from the service desk;
+
+5- Fill in the [description of data processing activities](../../accounts/when-your-project-handles-personal-data.md) form;
+
+6- Approve [the terms and conditions of SD Desktop service](../../accounts/how-to-add-service-access-for-project.md#member);
+
+For specific guidance regarding these steps check the [Accounts](../../accounts/index.md) paragraph at the beginning of this user guide.
+Note that you always need to use your CSC username and password when you access data from your virtual Desktop. If you don't remember your CSC password, you can [reset it](../../accounts/how-to-change-password.md).
+
+
+
+
+    
