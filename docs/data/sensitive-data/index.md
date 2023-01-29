@@ -29,9 +29,9 @@ This guide, in CSC Docs, introduces CSC's Sensitive Data (SD) services. To navig
   
   * [**Introduction to data encryption compatible with sensitive data services**](./sd_connect.md#introduction-to-data-encryption-compatible-with-sensitive-data-services)
  
- * [**Data encryption and upload for data analysis (less than 1 GB)**](./sd_connect.md#sensitive-data-encryption-and-upload-for-data-analysis-less-than-1-gb) (Default analysis)
+ * [**Data encryption and upload for analysis (less than 1 GB)**](./sd_connect.md#sensitive-data-encryption-and-upload-for-analysis-less-than-1-gb) (Default analysis)
 
-* [**Data encryption and upload for data analysis (up to 100 GB)**](./sd_connect.md#sensitive-data-encryption-and-upload-for-data-analysis-up-to-100-gb)
+* [**Data encryption and upload for analysis (up to 100 GB)**](./sd_connect.md#sensitive-data-encryption-and-upload-for-analysis-up-to-100-gb)
  
 * [**Data encryption and upload for storage and sharing (less than 1 GB)**](./sd_connect.md#sensitive-data-encryption-and-upload-for-storage-and-sharing-less-than-1-gb) (Data storage and transfer)
  
