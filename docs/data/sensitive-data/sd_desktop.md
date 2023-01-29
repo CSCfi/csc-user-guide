@@ -66,33 +66,34 @@ Once you can access the service, you can create your virtual computer (desktop),
 Each CSC project supports the launch of 3 virtual Desktops. In addition, each desktop supports the simultaneous connection of 10 project members. Therefore, all project members can connect to the virtual desktop and access the data stored in your project. Furthermore, all the desktops are provided with the same open-source software (pre-installed and managed by CSC). The complete and updated list can be found in the following paragraph.
 
 
-To start your virtual desktop, log in to the services and on the **Connection** page, click on **Go To SD Desktop Management**. 
+To start your virtual desktop, log in to the services and on the _Connection_ page, click on _Go To SD Desktop Management_. 
 
 Here you can specify several parameters:
 
-1. **Select CSC project, operating system and desktop name**.
+1. _Select CSC project, operating system and desktop name_.
 Currently, the only possible operating system is Linux CentOS 7. Assigning a descriptive name for a Desktop so that all project members can quickly identify it, later on is good practice.
 
-2. **Select a desktop from the pre-built options**. Based on the computing needs, choose one of the pre-built options (Light, Small, Medium, or Heavy computing).
+2. _Select a desktop from the pre-built options_. Based on the computing needs, choose one of the pre-built options (Light, Small, Medium, or Heavy computing).
 
-3. **Add external volume (optional)**. All desktops' default disk (or storage) space is 80 GB. With this option you can extend the disk space up to 200 GB. Note: you can't extend the disk space after you have created the virtual desktop. Additional disk space can be required by writing to servicedesk@csc.fi (subject: Sensitive data);
+3. _Add external volume (optional)_. Each desktop's default disk (or storage) space is 80 GB. With this option, you can extend the disk space up to 200 GB, adding an external volume where you can save your files. You can detach and reattach a volume to your virtual desktop. This operation corresponds to connecting or disconnecting a hard drive to your laptop.  Note: you can't extend the disk space after you have created the virtual desktop. Additional disk space can be required by writing to servicedesk@csc.fi (subject: Sensitive data);
 
-4. Finally, press on **Create desktop**. The operation is entirely automated and can take **up to 30 minutes**. If you try accessing the virtual desktop during this process, an error message will be displayed asking you to return later.
+4. Finally, press on _Create desktop_. The operation is entirely automated and can take up to 30 minutes. If you try accessing the virtual desktop during this process, an error message will be displayed asking you to return later.
 
 
-You can choose between **four different pre-built virtual Desktop options **:
+You can choose between four different pre-built virtual desktop options:
 
-*  **Light computation**. Technical specifications: **Core:3; memory 4 GiB; Root disk: 80 GB; Correspondent Pouta Flavour: standard.medium; Billing Units: 1.3 units/h**. This option is ideal for testing the services (for example: starting a virtual desktop, accessing data stored in SD Connect, and deleting the desktop). For this reason, we advise you to start this option only for testing purposes and delete it when the testing is completed. 
+*  **Light computation**. Technical specifications: _Core:3; memory 4 GiB; Root disk: 80 GB; Correspondent Pouta Flavour: standard.medium; Billing Units: 1.3 units/h_. This option is ideal for testing the services (for example: starting a virtual desktop, accessing data stored in SD Connect, and deleting the desktop). For this reason, we advise you to start this option only for testing purposes and delete it when the testing is completed. 
 
-* **Small computation**. Technical specifications: **Core:6; memory 15 GiB; Root disk: 80 GB; Correspondent Pouta Flavour: standard.xlarge; Billing Units: 5.2 units/h**. This option is ideal for analyzing sensitive data using office software (for example: similar to simple statistical analysis with Excel, watching videos, listening to audio files, and working on text files). You can compare this desktop to your laptop. 
+* **Small computation**. Technical specifications: _Core:6; memory 15 GiB; Root disk: 80 GB; Correspondent Pouta Flavour: standard.xlarge; Billing Units: 5.2 units/h_. This option is ideal for analyzing sensitive data using office software (for example: similar to simple statistical analysis with Excel, watching videos, listening to audio files, and working on text files). You can compare this desktop to your laptop. 
 
-* **Medium computation**. Technical specifications:**Core:8; memory 30 GiB; Root disk: 80 GB; Correspondent Pouta Flavour: standard.xxlarge; Billing Units: 10.4 units/h**. This option is ideal for running complex statistical or genome analysis (for example: using the command line to run specific scripts). You can compare this desktop to a powerful laptop provided by your organization's  IT unit. 
+* **Medium computation**. Technical specifications:_Core:8; memory 30 GiB; Root disk: 80 GB; Correspondent Pouta Flavour: standard.xxlarge; Billing Units: 10.4 units/h**_. This option is ideal for running complex statistical or genome analysis (for example: using the command line to run specific scripts). You can compare this desktop to a powerful laptop provided by your organization's  IT unit. 
 
-* **Heavy computation**: Technical specifications: **Core:32; memory 116 GiB; Root disk: 80 GB; Correspondent Pouta Flavour: hpc.5.32core; Billing Units: 52 units/h**. This option is ideal for running non-interactive programmatic analysis (machine learning) that requires heavy computation. Please do not choose this option for simple analysis, as it consumes considerable resources. 
+* **Heavy computation**: Technical specifications: _Core:32; memory 116 GiB; Root disk: 80 GB; Correspondent Pouta Flavour: hpc.5.32core; Billing Units: 52 units/h_. This option is ideal for running non-interactive programmatic analysis (machine learning) that requires heavy computation. Please do not choose this option for simple analysis, as it consumes considerable resources. 
+
 
 
 !!! Note
-        For support in choosing the correct desktop option for your needs, don't hesitate to contact us at servicedesk@csc.fi (email subject: Sensitive Data). 
+        For support in choosing the correct desktop option for your needs, don't hesitate to contact us at servicedesk@csc.fi (email subject: Sensitive data). 
 
 The following paragraphs will discuss how to work with your virtual desktop, which software is available, and how to customize your workspace.
 
@@ -332,7 +333,7 @@ The most convenient way to add new software to your SD Desktop is to build a Sin
 
 ##  Data export from SD Desktop
 
-Your virtual Desktop is isolated from the internet for security reasons. Only the CSC project manager can export results or data from the secure workspace using the Airlock application, currently available only programmatically. The results are exported to SD Connect, where they will be available for download to your computer. 
+Your virtual desktop is isolated from the internet for security reasons. Only the CSC project manager can export results or data from the secure workspace using the _Data Gateway_ application, currently available only programmatically. The results are exported to SD Connect, where they will be available for download to your computer. 
 
 
 Below you can find step-by-step instructions to encrypt and export data from SD Desktop to SD Connect, where you can download and decrypt it. 
@@ -340,7 +341,7 @@ Below you can find step-by-step instructions to encrypt and export data from SD 
 [![Data-export](images/desktop/airlock.png)](images/desktop/airlock.png)
 
 
-**1- Generate your encryption key pair** (secret key and public key) with the Crypt4GH application (you can skip this paragraph if you already have a key pair).
+1- Generate your encryption key pair (secret key and public key) with the Crypt4GH application (you can skip this paragraph if you already have a key pair).
 
 * Install the Crypt4GH application:
 
@@ -377,24 +378,24 @@ The keys will be generated and saved to the same folder in which the application
     * You need to **create your keys only once** and use them for all your encryption needs, but you can of course, choose to generate separate keys for encryption as you wish.
 
 
-**2- Upload the public key to SD Connect**. 
+2- Upload the public key to SD Connect. 
 
 * You can easily upload the public key to SD Connect via drag and drop. You will be **redirected to a new window displaying the default encryption options**. 
 
 * Next, you can specify the bucket's name to which the public encryption key should be uploaded. If you don't fill in a specific term, the user interface will automatically create a bucket named with a 13 digit number (based on creation time). 
 
-* Click on **Encrypt and upload**: the public key will be encrypted and uploaded to the bucket in SD Connect. Only encrypted files are visible and accessible via SD Desktop; thus, even your public encryption key must be encrypted during upload.
+* Click on _Encrypt and upload_: the public key will be encrypted and uploaded to the bucket in SD Connect. Only encrypted files are visible and accessible via SD Desktop; thus, even your public encryption key must be encrypted during upload.
 
 <img width="960" alt="export" src="https://user-images.githubusercontent.com/83574067/160693019-e0bafc69-7bc6-4cb4-bca4-37db0e124b63.png">
 
 
 
-**3- Import the public key inside the Desktop**.
+3- Import the public key inside the virtual desktop.
 
 Once the upload process is completed, you can access your virtual Desktop. Using the Data Gateway application, access the bucket with the public key. You can now import a copy of your public key inside the virtual Desktop (via copy/paste function). 
 
 
-**4- Encrypt the results**.
+4- Encrypt the results.
 
 Open the terminal (right-click) and encrypt with your public key the files you want to export. Crypt4GH is already installed on each Desktop and accessible programmatically. 
 
@@ -412,7 +413,7 @@ For example:
 crypt4gh encrypt --recipient_pk your-username.pub < my_results.csv > my_results.csv.c4gh
 ```
 
-**5- Exporting the results from the private Desktop**.
+5- Exporting the results from the private desktop.
 
 Once the results are encrypted, only the CSC project manager can export the files with the Airlock client. 
 
@@ -432,23 +433,83 @@ airlock-client cscuser  analysis-2022  results-03.csv.c4gh
 
 Press enter and add your password. Note: if you try to upload an unencrypted file, the airlock client will automatically encrypt it with the Sensitive Data public key for security reasons and export it to SD Connect. Here, you will be able to download the file but you will not be able to decrypt it.
 
-**6- Download and decrypt the files**.
+6- Download and decrypt the files.
 
 The exported file is now available in SD Connect/Allas. After downloading the file in your local environment, you can decrypt it with your secret encryption key, using the Crypt4GH application or programmatically. For specific guidance check the following [paragraph](./sd_connect.md#data-download-and-decryption).
-For more information and support, write to servicedesk@csc.fi (email subject Sensitive Data)
+For more information and support, write to servicedesk@csc.fi (email subject Sensitive Data).
 
-## Deleting your virtual Desktop
-  
-At the end of your analysis, you can delete your virtual Desktop and all the files in it.
+# Managing volumes and virtual desktops
 
-You can not undo this action:
-  
-* On SD Desktop Homepage, click on **Go To SD Desktop Management**. 
-* Here, under **Available Desktops** click on **Delete Desktop**. 
+With the SD Desktop service, you can easily manage volumes and pause, reboot, rebuild or delete virtual desktops. Below we illustrate the main available options.
+
+### Detaching and reattaching  a volume
+With the option  _Detach volume_, you can easily detach a volume from your virtual desktop. The volume and its content will be stored in the same CSC project where it was initially created. You can compare this operation to detaching or attaching a virtual hard drive to your laptop.
+
+To detach a volume from your virtual desktop:
+Save and close all the files on the volume to prevent data corruption and log out from the virtual desktop.
+From SD Desktop homepage, click on  _SD Desktop management page_.
+Here, under _Available desktops_  select the correct virtual desktop, and in the same raw, on the right side, click on _Detach volume_
+A message will ask to confirm the operation.
 
 
-!!! note
-    All the data present in the computing environment will be deleted, and it will not be possible to retrieve them. You will delete the entire virtual workspace,       and your colleagues (or the other CCS project members) will lose their results and data imported to it. For this reason, please get in touch with all the           project members and export all the results of your analysis from the virtual workspace, before deleting a virtual Desktop.
+If you want to use the existing data on the volume again, you can reattach it to a new desktop:
+From the SD Desktop homepage, click on  _SD Desktop management page_.
+Here, under _desktop selection_  select all the necessary fields to create a new desktop (CSC project, operating system etc). 
+Under _Add External Volume (optional)_ click inside the option _Choose from existing volumes_. The user interface will visualize available volumes stored in the same CSC project. Note: do not click on the options _volume size_ or _volume name_, as only one volume can be attached per virtual desktop. 
+Click on _Create desktop_
+
+
+Limitations:
+A volume can not be reattached to an existing virtual desktop.
+The content of a detached volume can not be accessed or deleted.
+ To delete or access the volume content, attach it to a desktop with the same operating system during the creation phase. 
+Volumes can not be moved or transferred between CSC projects for security reasons.
+
+
+### Pausing or restarting  a virtual desktop
+At the end of your analysis, you can pause a virtual desktop. In this manner, the desktop will stop consuming billing units. 
+
+To pause the desktop:
+Close all the programs, save/close all the files and log out from the virtual desktop to prevent data corruption.
+ On SD Desktop homepage, click on _Go To SD Desktop Management_;
+Here, under _Available desktops_  select the correct virtual desktop, and in the same raw, on the right side, click on _Pause desktop_. Note: you can not detach a volume or access a paused desktop. 
+ A message will ask to confirm the operation, which can take up to 30 minutes.
+You can restart the virtual desktop at any time from the same page. Also, in this case, the restart processes can take up to 30 minutes. This option is available only for active CSC projects with available billing units. 
+
+### Rebooting or rebuilding a virtual desktop
+
+If the virtual desktop or software has become unresponsive, you can use this option to reboot (or restart) your desktop. All the files/ software saved in the virtual desktop will remain available after the reboot. 
+
+To reboot a virtual machine:
+
+If possible, close all the programs, save/close all the files and log out from the virtual desktop to prevent data corruption.
+ On SD Desktop homepage, click on _Go To SD Desktop Management_;
+Here, under _Available desktops_  select the correct virtual desktop, and in the same raw, on the right side, click on _Options _ and select _Reboot_.
+ A message will ask to confirm the operation, which will restart yoru virtual desktop and can take up to 30 minutes.
+
+
+If the virtual desktop or software has become obsolete, you can use this option to rebuild your virtual desktop. 
+
+!!! Note
+This operation will delete all the files/software or scripts imported into the virtual desktop. Only the files saved in the volume will still be available. As a result, you will delete the virtual workspace, and your colleagues (or the other CCS project members) will lose their analysis results or imported data. For this reason, please contact all the CSC project members before deleting a virtual desktop.
+
+To reboot a virtual machine:
+ On SD Desktop homepage, click on _Go To SD Desktop Management_;
+Here, under _Available desktops_  select the correct virtual desktop, and in the same raw, on the right side, click on _Options _ and select _Rebuiltt_.
+ A message will ask to confirm the operation, which will reboot your virtual desktop and can take up to 30 minutes. All data saved will be deleted. 
+
+
+
+### Deleting a  virtual desktop
+You can delete your virtual desktop and all the files and external volume at the end of your analysis. 
+
+You cannot undo this action:
+On SD Desktop Homepage, click on _Go to SD Desktop Management page_.
+Here, under _Available desktops_  select the correct virtual desktop, and in the same raw, on the right side, click on _Options _ and select _Delete_.
+
+!!! Note
+All the data saved in the virtual desktop or external volume will be deleted, and retrieving them will not be possible. As a result, you will delete the virtual workspace, and your colleagues (or the other CCS project members) will lose their analysis results or imported data. For this reason, please contact all the CSC project members before deleting a virtual desktop.
+
 
 
  [![Desktop-delete](images/desktop/desktop-delete.png)](images/desktop/desktop-delete.png)
