@@ -27,25 +27,25 @@ This guide, in CSC Docs, introduces CSC's Sensitive Data (SD) services. To navig
 
   * [User Interface](./sd_connect.md#user-interface)
   
-  * [**Introduction to data encryption compatible with sensitive data services**](./sd_connect.md#introduction-to-data-encryption-compatible-with-sensitive-data-services)
+  * [Introduction to data encryption compatible with sensitive data services](./sd_connect.md#introduction-to-data-encryption-compatible-with-sensitive-data-services)
  
- * [**Data encryption and upload for analysis (less than 1 GB)**](./sd_connect.md#sensitive-data-encryption-and-upload-for-analysis-less-than-1-gb) (Default analysis)
+ * [Data encryption and upload for analysis (less than 1 GB)](./sd_connect.md#sensitive-data-encryption-and-upload-for-analysis-less-than-1-gb) (Default analysis)
 
-* [**Data encryption and upload for analysis (up to 100 GB)**](./sd_connect.md#sensitive-data-encryption-and-upload-for-analysis-up-to-100-gb)
+* [Data encryption and upload for analysis (up to 100 GB)](./sd_connect.md#sensitive-data-encryption-and-upload-for-analysis-up-to-100-gb)
  
-* [**Data encryption and upload for storage and sharing (less than 1 GB)**](./sd_connect.md#sensitive-data-encryption-and-upload-for-storage-and-sharing-less-than-1-gb) (Data storage and transfer)
+* [Data encryption and upload for storage and sharing (less than 1 GB)](./sd_connect.md#sensitive-data-encryption-and-upload-for-storage-and-sharing-less-than-1-gb) (Data storage and transfer)
  
 
- * [**Data sharing**](./sd_connect.md#data-sharing) 
+ * [Data sharing](./sd_connect.md#data-sharing) 
  
- * [**Data download and decryption**](./sd_connect.md#data-download-and-decryption) (Data storage and transfer)
+ * [Data download and decryption](./sd_connect.md#data-download-and-decryption) (Data storage and transfer)
  
- * [**Command Line Interface: data encryption and upload:**](./sd_connect.md#command-line-interface-data-encryption-and-upload) (Advanced)
+ * [Command Line Interface: data encryption and upload](./sd_connect.md#command-line-interface-data-encryption-and-upload) (Advanced)
  
  
- * [**Command Line Interface: data encryption for data sharing**](./sd_connect.md#command-line-interface-encryption-for-data-sharing) (Advanced)
+ * [Command Line Interface: data encryption for data sharing](./sd_connect.md#command-line-interface-encryption-for-data-sharing) (Advanced)
  
- * [**Troubleshooting**](./sd_connect.md#troubleshooting)
+ * [Troubleshooting](./sd_connect.md#troubleshooting)
 
 
   
