@@ -48,7 +48,7 @@ with any modern web-browser (note: SD Connect is not support private browsing).
 
   
 !!! Note	 
-    1) LSLogin (LifeScience login, previously known as ELIXIR login) is available only after linking your CSC account to your LifeScience account (under your profile in MyCSC). 2) You need to use your CSC credentials (username and password) to access data from your virtual desktop. If you don't remember your CSC password, you can [reset it](../../accounts/how-to-change-password.md).	 
+    LSLogin (LifeScience login, previously known as ELIXIR login) is available only after linking your CSC account to your LifeScience account (under your profile in MyCSC). You need to use your CSC credentials (username and password) to access data from your virtual desktop. If you don't remember your CSC password, you can [reset it](../../accounts/how-to-change-password.md).	 
 
  	 
   
@@ -61,8 +61,7 @@ Processing register data for secondary use differs from the abovementioned proce
 Currently, processing only register data provided by the Fidata authority is possible. For more information about data provided by single registers, contact us at: servicedesk@csc.fi (Sensitive Data).	 
  
 !!! Note 	 
-  
- Processing of register data is subject to several limitations. In this case, the SD Desktop computing environment might not be suitable for your needs or the software needed for data analysis might not be available as a default program. For this reason, we recommend you contact us at servicedesk@csc.fi before applying for a data permit from Findata or a register to understand if this workflow suits your needs.	 
+    Processing of register data is subject to several limitations. In this case, the SD Desktop computing environment might not be suitable for your needs or the software needed for data analysis might not be available as a default program. For this reason, we recommend you contact us at servicedesk@csc.fi before applying for a data permit from Findata or a register to understand if this workflow suits your needs.	 
   
  To access SD Desktop for processing register data:
   
@@ -91,8 +90,7 @@ Note that you need to use your CSC username and password when you access data fr
   
  	 
   
- 	 
- ## Default storage space and billing units consumption
+## Default storage space and billing units consumption
 
 
 SD Connect:
