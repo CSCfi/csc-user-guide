@@ -76,7 +76,7 @@ This guide, in CSC Docs, introduces CSC's Sensitive Data (SD) services. To navig
 
   * [Data export](./sd_desktop.md#data-export-from-sd-desktop)
 
-  * [Managing volumes and desktops](.sd_desktop.md#managing-volumes-and-virtual-desktops)
+  * [Managing volumes and desktops](./sd_desktop.md#managing-volumes-and-virtual-desktops)
   
   * [Troubleshooting](./sd_desktop.md#troubleshooting)
   
