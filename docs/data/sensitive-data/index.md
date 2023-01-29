@@ -1,4 +1,4 @@
-# Sensitive Data Services for research: user guide
+# Sensitive Data (SD) Services for research: user guide
 
 This guide, in CSC Docs, introduces CSC's Sensitive Data (SD) services. To navigate the CSC user guide, click on the topics on the left-hand side of the navigation bar or use the search functionality. Below you can find an overview of the contents related to Sensitive Data Services.
 
