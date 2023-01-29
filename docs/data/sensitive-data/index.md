@@ -66,8 +66,8 @@ This guide, in CSC Docs, introduces CSC's Sensitive Data (SD) services. To navig
 
   * [Creating your virtual desktop](./sd_desktop.md#creating-your-virtual-desktop) (Default analysis)
 
-  * [Working with Desktop](./sd_desktop.md#working-with-your-virtual-desktop)(Default analysis)
-
+  * [Working with your desktop](./sd_desktop.md#working-with-your-virtual-desktop)(Default analysis)
+  
   * [Accessing encrypted sensitive data within SD Desktop](./sd_desktop.md#accessing-encrypted-sensitive-data-within-sd-desktop) (Default analysis)
 
   * [Default programs available on SD Desktop](./sd_desktop.md#default-programs-available-on-sd-desktop) (Default analysis)
@@ -76,7 +76,7 @@ This guide, in CSC Docs, introduces CSC's Sensitive Data (SD) services. To navig
 
   * [Data export](./sd_desktop.md#data-export-from-sd-desktop)
 
-  * [Deleting your virtual Desktop](./sd_desktop.md#deleting-your-virtual-desktop)
+  * [Managing or deleting your virtual desktop](./sd_desktop.md#deleting-your-virtual-desktop)
   
   * [Troubleshooting](./sd_desktop.md#troubleshooting)
   
