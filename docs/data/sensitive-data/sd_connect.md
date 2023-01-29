@@ -658,7 +658,7 @@ The command will ask you to enter the password (passphrase) of your private key.
 
 | Problem                                                       | Description                                                                                                                                                                   | Solution                                                                                                                                                                                                                                                                                                                                                                                                         |
 | ------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Access                                                        | I can not access SD Connect                                                                                                                                                   | 1) Check in the MyCSC portal if your CSC project  has service access to the  Allas services or if you have accepted CSC’s terms of use. SD Connect is a user interface that helps Allas usage.
+| Access                                                        | I can not access SD Connect                                                                                                                                                   | 1) Check in the MyCSC portal if your CSC project  has service access to the  Allas services or if you have accepted CSC’s terms of use. SD Connect is a user interface that helps Allas usage.
 
 <br><br>
 
@@ -682,7 +682,7 @@ The command will ask you to enter the password (passphrase) of your private key.
 
 3) Select the correct project in the SD Connect user interface                                                                                                                                                                  |
 | Bucket not visible                                            | I cannot find my bucket.                                                                                                                                                      | Check if the bucket is stored under a different project. If someone has shared the bucket with you, you can find it under the ‘Shared to’ section and copy it. If someone has shared the bucket with you, they could have revoked the sharing.                                                                                                                                                                   |
-| Bucket deletion                                               | I can  not delete an empty bucket                                                                                                                                             | 1)This problem is due to a technical issue. It can be solved by clearing cookies in your browser. We are working on solving the underlying issue.
+| Bucket deletion                                               | I can  not delete an empty bucket                                                                                                                                             | 1)This problem is due to a technical issue. It can be solved by clearing cookies in your browser. We are working on solving the underlying issue.
 
 If the bucket has been created in November or December 2022 contact us at servciedesk@csc.fi                                                                                                                                                                  |
 | Decryption with Crypt4gh                                      | Cannot open or decrypt files downloaded from SD Connect.                                                                                                                      | <br>
@@ -700,7 +700,7 @@ If the bucket has been created in November or December 2022 contact us at servci
 
 <br><br>                                                                  | <br>
 
-Files or folders larger than 100 GB  should be uploaded programmatically.
+Files or folders larger than 100 GB  should be uploaded programmatically.
 
 SD Connect user interface supports only data uploads that last up to 8 hours.
 
@@ -721,5 +721,6 @@ Moreover, uploading and encrypting all the files saved in one folder with the SD
 
 <br><br>           |
 | Shared bucket                                                 | I cannot upload data into a shared bucket.                                                                                                                                    | Your colleague didn’t add editing rights when they shared the bucket.                                                                                                                                                                                                                                                                                                                                            |
-|                                                               | I cannot see the content of a shared bucket.                                                                                                                           
+|                                                               | I cannot see the content of a shared bucket.                                                                                                                                  | Your colleague didn’t add reading rights when they shared the bucket.                                                                                                                                                                                                                                                                                                                                            |
+                                                                                                                      
     
