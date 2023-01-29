@@ -249,7 +249,7 @@ If you create a new bucket, use the following suggestions to name it. Bucket nam
 
 9- Next, click on _Upload_. A progress bar will visualise the upload's status. Once the process is completed, you can return to the SD Connect browser window, open the bucket and visualize the encrypted file, here named .c4hg.
 
-[![SDConnect-upload-encrypted](images/connect/cconnect_encryption_large_upload.png))](images/connect/cconnect_encryption_large_upload.png)
+[![SDConnect-upload-encrypted](images/connect/cconnect_encryption_large_upload.png)](images/connect/cconnect_encryption_large_upload.png)
 
 
 ## Sensitive data encryption and upload for data storage, sharing, and transfer (less than 1 GB) 
