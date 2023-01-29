@@ -170,7 +170,7 @@ The following paragraphs illustrate all the necessary steps to generate encrypti
 
 
 
-## Sensitive data encryption and upload for data analysis (less than 1 GB) 
+## Sensitive data encryption and upload for analysis (less than 1 GB) 
 
 <iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/yAKtGs6FkMc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
@@ -209,7 +209,7 @@ Due to a technical issue, buckets containing encrypted files might look empty (w
 
 [![SDConnect-upload](images/connect/SDConnect-upload.png)](images/connect/SDConnect-upload.png)
 
-## Sensitive data encryption and upload for data analysis (up to 100 GB) 
+## Sensitive data encryption and upload for analysis (up to 100 GB) 
 
 As the workflow described above is still being developed, files up to 100 GB can be encrypted with an additional step with an application called Crypt4GH. Encrypted files can then be uploaded to CSC using SD Connect (via a web browser) and directly analysed using SD Desktop. This method is suitable for any file type and format. 
 
