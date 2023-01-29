@@ -336,15 +336,6 @@ The files are now encrypted with three encryption keys:
 Using this workflow allows to securely manage only one copy of the data for different purposes.
 
 
-!!! Note
-    After upload, the size of each file will be displayed as zero (see example image below). This is a temporary solution, and we apologise for the inconvenience. 
-
-For technical reasons, during the upload phase  each file is split into several segments. To see the correct file size, click on the button Hidden files. This will allow you to visualize all the segments, one of each corresponding to the original file size. You must select all the associated segments if you need to delete the file.
-
-
-[![SDConnect-upload2](images/connect/SDConnect-segments.png)](images/connect/SDConnect-segments.png)
-
-
 ## Data Sharing 
 
 SD Connect user interface provides a simple way of sharing containers between different projects.
