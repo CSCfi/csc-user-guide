@@ -50,11 +50,6 @@ with any modern web-browser (note: SD Connect is not support private browsing).
 !!! Note	 
     1) LSLogin (LifeScience login, previously known as ELIXIR login) is available only after linking your CSC account to your LifeScience account (under your profile in MyCSC). 2) You need to use your CSC credentials (username and password) to access data from your virtual desktop. If you don't remember your CSC password, you can [reset it](../../accounts/how-to-change-password.md).	 
 
-
-
-  
- 	 
-  
  	 
   
 ## Processing register data under the Act of Secondary Use	 
@@ -77,24 +72,22 @@ Currently, processing only register data provided by the Fidata authority is pos
 2. Request a CSC project from servicedesk@csc.fi (subject: Sensitive Data). Attach a copy of the Findata permit data permit; describe shortly your research project (name and research field are enough) and add all the project members as a cc to the email (please use the organizational email addresses).	 
   
  	 
-3. Activate your account's additional security verification (or Multi-factor Authentication) by scanning the QR code with a specific application (e.g. Google Authenticator). 	 
-  
-For further instructions see the [MFA paragraph](../../accounts/mfa.md), under the Account section on the CSC user guide;	 
+3. Activate your account's additional security verification (or Multi-factor Authentication) by scanning the QR code with a specific application (e.g. Google Authenticator). For further instructions see the [MFA paragraph](../../accounts/mfa.md), under the Account section on the CSC user guide;	 
   
  	 
-4- Join a CSC project via the invitation link provided to you by the service desk and wait for approval;	 
+4. Join a CSC project via the invitation link provided to you by the service desk and wait for approval;	 
   
  	
-5- Fill in the [description of data processing activities](../../accounts/when-your-project-handles-personal-data.md) form;	 
+5. Fill in the [description of data processing activities](../../accounts/when-your-project-handles-personal-data.md) form;	 
   
  	 
-6- All project members should approve [the terms and conditions of SD Desktop service](../../accounts/how-to-add-service-access-for-project.md#member);	 
+6. All project members should approve [the terms and conditions of SD Desktop service](../../accounts/how-to-add-service-access-for-project.md#member);	 
   
  	 
   
 For specific guidance regarding these steps, check the [Accounts](../../accounts/index.md) paragraph at the beginning of this user guide.	 
   
-Note that you always need to use your CSC username and password when you access data from your virtual desktop. If you don't remember your CSC password, you can [reset it](../../accounts/how-to-change-password.md).	 
+Note that you need to use your CSC username and password when you access data from your virtual desktop. If you don't remember your CSC password, you can [reset it](../../accounts/how-to-change-password.md).	 
   
  	 
   
