@@ -1,43 +1,49 @@
 
-
 # Store and share with Sensitive Data Connect
 
 
 ## Overview
 
-Sensitive Data (SD) Connect allows you to store sensitive research data in the CSC cloud storage solution Allas. With this user interface, you can easily encrypt and upload files from your web browser. SD Connect can serve as a workspace for collaborative research projects, facilitating data collection and sharing. In addition, encrypted files stored in SD Connect are directly available for analysis via the SD Desktop service. 
+Sensitive Data (SD) Connect allows you to store sensitive research data in the CSC cloud storage solution Allas. With this user interface, you can easily encrypt and upload files from your web browser. As a result, SD Connect can serve as a workspace for collaborative research projects, facilitating data collection and sharing.  In addition, encrypted files stored in SD Connect are directly available for analysis, annotiation or editing via the SD Desktop service. 
 
 [![SDConnect-overview](images/connect/connect_overviewnew.png)](images/connect/connect_overviewnew.png)
 
 In the following user guide, you can learn how to:
 
-* Use SD Connect default options to automatically encrypt and upload sensitive data for analysis with SD Desktop;
+* Use SD Connect default options to automatically encrypt and upload sensitive data for analysis with SD Desktop (limited to files <1GB);
+
+* Use the Crypt4GH application to encyrpt files and upload them using SD Connect (up to 100 GB);
 
 * Encrypt, upload and download sensitive data for data transfer and storage;
 
 * Encrypt and upload sensitive data programmatically (advanced).
 
- You can use the navigation bar on the left side of this page or the search functionality to browse through the main topics of the user guide.
+You can browse through the main topics of the manual using the navigation bar on the left side of this page or the search function.
 
 ## Key features
 
-* Accessible via web browser from your computer (Mac, Linux, or Windows) and from any location (no need to install specific programs or use a VPN).
+* Accessible via web browser from your computer (Mac, Linux, or Windows) and any location (no need to install specific programs or use a VPN).
 
-* Automated encryption and data upload (up to 100 GB, larger datasets can be uploaded programmatically).
+* Automated encryption and data upload via a web browser for small files (1<GB). Larger files (100<GB) can be encrypted using an application and uploaded to the web browser or programmatically (100>GB).
 
-* Can store any file type: text files, images, audio files, video, and genetic data (default space 10 TB, additional space required contact servicedesk@csc.fi). In addition, you can define or manage each file or bucket with specific tags. 
+* Supports encryption and storage of any file type: text files, images, audio files, video, and genetic data (default space 10 TB, additional space required contact servicedesk@csc.fi). In addition, you can describe or organize each file or bucket with specific tags. 
 
 
 **Limitations**:
 
 * SD Connect is based on an object storage solution. Files are stored as file segments and can not be directly edited. All files (sensitive or non-sensitive, e.g. scripts) stored in SD Connect must be encrypted. 
 
+* Automated encryption is currently limited to files <1GB. Lager files (up to 100 GB) can be encrypted with the Cryp4GH application and uploaded using SD Connect or programmatically (>100GB).
+
+* SD Connect user interface is compatible with all modern web browsers but not supported during private browsing (incognito mode). 
+
 *  The storage space remains available as long as the CSC project is active. All data will be deleted 90 days after account termination or project closure, accordingly to [CSC's General Terms of Use](https://research.csc.fi/general-terms-of-use). 
 
 * CSC does not provide backups of the data stored in SD Connect. Therefore, we advise you to maintain **backups** of important datasets.
 
 !!! Note
-    Files uplaoded using SD Connect after November 2, 2022 show size as zero. This is a temporary problem and we apologise for the inconvenience. 
+    Files uploaded using the automated encryption option between November 2, 2022, and December 2022 might be corrupted. This is because during data upload, files are split into short segments, and in some cases, the correct segment's order has been lost, making the files unreadable. Therefore, if you have used this function and can not re-upload a copy of the same data, don't hesitate to contact us at servicedesk@csc.fi. We need to evaluate individual cases to determine if the files can be retrieved. Currently, SD Connect automated encryption is supported only for files <1GB.
+
 
 !!! Note
     SD Connect is unsuitable for data processing under the Act on the Secondary Use of Health and Social Data. Please check [SD Desktop for secondary use](./sd-desktop-audited.md) to learn about the precise requirements.
@@ -50,54 +56,57 @@ Login to SD Connect is currently possible only with CSC credentials and  Haka (a
 
    * [https://sd-connect.csc.fi](https://sd-connect.csc.fi) 
 
-The interface is compatible with all modern web browsers. 
 
+!!! Note
+    The interface is compatible with all modern web browsers but not supported during private browsing (incognito mode). 
 
 [![SDConnect-login](images/connect/SDConnect-login.png)](images/connect/SDConnect-login.png)
 
 
 ## User Interface 
 
+As SD Connect is a user interface based on a cloud object storage, all files are stored in buckets or containers. Buckets are the main folder that holds your data. All buckets are associated with a CSC project. You can use buckets to organize data and control access via your CSC project or share functionality. However, you can not merge buckets or change the order of the folders and subfolders stored in them. You can edit buckets or folder content only by making a complete copy inside the SD Desktop service or downloading the encrypted files back to your organization's secure computing environment for decryption. 
+
 Once you log in to SD Connect, you can access three main pages: 
 
-* The default **Browser** page, where are listed the buckets (or main folders) in which your encrypted files are stored;
-* The **Shared** page, where you can manage shared buckets;
-* The **User information** page, where you can visualise the resources consumed by your CSC project and the Project Identifier.
+* The default _Browser page_, where are listed the buckets (or main folders) in which your encrypted files are stored;
+* The _Shared_page_ , where you can manage shared buckets;
+* The _User information_ page, where you can visualise the resources consumed by your CSC project and the Project Identifier.
 
 
 ### Browser page
 
-In this page, you can :
 
-* View all **the buckets available in your CSC project**, where you can store encrypted data. The buckets can be created, downloaded, deleted or shared using the appropriate icons. Note: SD Connect displays all the data uploaded in Allas using CSC interfaces for non-sensitive data management. 
+On the _Browser page_ , you can :
+
+* View all the buckets available in your CSC project, where you can store encrypted data.
+
+* The buckets can be created, downloaded, deleted, or shared using the appropriate icons. Note: SD Connect displays all the data uploaded in Allas using CSC interfaces for non-sensitive data management. 
    
-*  **list and select your CSC project** from the drop-down menu bar (top left corner) to visualize buckets belonging to a specific CSC project;
+* List and select your CSC project from the drop-down menu bar (top left corner) to visualize buckets belonging to a specific CSC project;
 
-*  open any bucket (double click) and view its content (uploaded files or folders). Any file can be downloaded or shared using the download link. From this view, you can also download the entire bucket, delete files or upload new files and folders;
+* Open any bucket (double click) and view its content (uploaded files or folders). Any file can be downloaded or shared using the download link. From this view, you can also download the entire bucket, delete files or upload new files and folders;
 
+* Clicking on _edit_, you can type in and add appropriate tags to describe buckets or files. 
 
 
 ![SD Connect Image 1](https://user-images.githubusercontent.com/83574067/149062070-7541673f-9fc1-445a-a790-80aa5f296e0c.png)
 
 
-* clicking on **edit**, you can type in and add **appropriate tags** to describe buckets or files. 
-
-
-
 ![SD Connect image 2](https://user-images.githubusercontent.com/83574067/149062085-a149fe12-0d9a-4dd2-87d4-d2e82ca2bbc4.png)
+
+
 
 
 ### User information page
 
-In this view, you can:
+On this page, you can:
 
-* in **Currently Consumes** view statistics about the selected CSC project resource usage: billing unit consumption and the total project storage usage (default storage 10 TiB);
+* in _Currently Consumes_ view statistics about the selected CSC project resource usage: billing unit consumption and the total project storage usage (default storage 10 TiB);
 
-* in **Project usage**, you can view the SD Connect **Project Identifier**, an ID associated with your CSC project. This ID is required when you want to share containers with other CSC projects using the SD Connect user interface. It does not contain sensitive information. Thus it can be shared with your colleagues or collaborators via email.
+* in _Project usage_, you can view the SD Connect _Project Identifier_, an ID associated with your CSC project. This ID is required when sharing buckets with other CSC projects using the SD Connect user interface. It does not contain sensitive information. Thus it can be shared with your colleagues or collaborators via email.
 
-* access the **Sharing API tokens** through which you can generate a temporary token (necessary for data upload programmatically, using Swift client).
-
-
+* access the _Sharing API tokens_ to generate a temporary token (necessary for data upload programmatically, using Swift client).
 
 
 ![SD-Connect-2](https://user-images.githubusercontent.com/83574067/124910227-098a3980-dff4-11eb-8029-57af3abc5cf4.png)
@@ -107,19 +116,17 @@ In this view, you can:
 ### Shared page
 
 
-On the **Shared** page:
+On the _Shared_ page:
 
-* in **Shared to the project**, you can view the **buckets that other CSC projects (belonging to your colleagues or collaborators) shared with you**. Next to the bucket name, under **Bucket Owner**,  it displays the ID associated with the CSC project to which the bucket belongs (also called SD Account). With a double click, you can access the bucket and view the content (if you have reading access) or add files to the container (if you have edits rights).
+* in _Shared to the project_, you can view the buckets that other CSC projects (belonging to your colleagues or collaborators) shared with you. Next to the bucket name, under _Bucket Owner_,  it displays the ID associated with the CSC project to which the bucket belongs (also called SD Account). With a double click, you can access the bucket and view the content (if you have reading access) or add files to the container (if you have edit rights).
 
-!!! note
+!!! Note
     All the buckets listed here are owned by other users, which can decide when to revoke your access. You will not be able to access the file from SD Desktop until you make a copy of the bucket.
 
-
-* in **Shared with the project**, you can view the buckets which  **you shared with other CSC projects**. In this case, you own the shared buckets, and you can decide when to revoke access. 
+* in _Shared with the project_, you can view the buckets you shared with other CSC projects. In this case, you own the shared buckets, and you can decide when to revoke access. 
 
 
 ![sd-connect-4](https://user-images.githubusercontent.com/83574067/122786163-b22e5e80-d2bc-11eb-8c15-7585e656f0f2.png)
-
 
 
 
@@ -129,28 +136,31 @@ On the **Shared** page:
 <iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/dI1Py_1gA-k" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 
-Files uploaded to Sensitive Sensitive data services via SD Connect need to be encrypted. Once uploaded to CSC, encrypted data are accessible from each service component. At the same time, the original files are always encrypted during data storage or analysis. **Data encryption does not require technical expertise**. 
+Sensitive data uploaded to CSC's cloud services using SD Connect or programmatically must be encrypted. Files encrypted following the guidelines provided in this chapter will be compatible and accessible via all Sensitive Data (SD) Service components. This way, encrypted files stored in the SD Connect service will be available for analysis (using the SD Desktop service) or publishing and reuse under controlled access (via SD Submit, Federated EGA, or SD Apply). 
 
-We integrated the encryption **as an automated step in the SD Connect user interface**, specifically for files less than 100 GB. All the data uploaded using SD Connect are automatically encrypted with the Sensitive Data services public encryption key. However, you can choose different options to encrypt your data for analysis or sharing. 
+!!! Note
+    Data encryption does not require technical expertise but requires you to become familiar with the following user guide and video tutorials. We also provide step-by-step guidance online or via the help desk. If you have any questions or the instructions below need clarification, don't hesitate to contact us at servicedesk@csc.fi (subject: Sensitive Data). 
+
+We integrated the encryption as an automated step in the SD Connect user interface, specifically for files smaller than 1 GB. All the data uploaded using SD Connect are automatically encrypted with the Sensitive Data services public encryption key. However, you can choose different options to encrypt your data for analysis or sharing. 
 
 Briefly, the services use an encryption method called  _asymmetric encryption_,  based on two interlinked encryption keys:
 
-   * A **public key** is always **used for data encryption**, but it can not be used to decrypt the data. You can share your public key with others, e.g. your collaborators and they will then be able encrypt data with your public key. 
+   * A public key is used for data encryption. A public can not be used to decrypt the data. You can share your public key with others, e.g. your collaborators and they will then be able encrypt data with your public key. 
 
-   * A **secret key**, (also called a private key) is **used to decrypt** a file encrypted with the corresponding public key. This key is password protected and can not be shared with others. 
+   * A secret key (also called a private key) is used to decrypt a file encrypted with the corresponding public key. This key is password protected and can not be shared with others. 
 
 
 When using SD Connect to upload your data to CSC, you have several possibilities for encryption:
 
-1- Default option:
+1- Default option for data analysis:
 
-* You can simply upload the data using SD Connect, via your web browser, with the **default encryption options**. The files will be encrypted with the services encryption key and they will become compatible with other services components. They will be decrypted in an automated manner when accessed using SD Desktop, but you will not be able to decrypt the files after download.  We are developing a new feature that will simplify the download option and it will soon be available as part of the SD Connect user interface.
+* With the default encryption options, you can upload the data using SD Connect via your web browser for data analysis. The files will be automatically encrypted and accessible for analysis via SD Desktop. However, you cannot decrypt the files after downloading them to your laptop or organization's computing environment. Therefore, we are developing a new feature that provides automated decryption via SD Connect. For more information, contact us at: servicedesk@csc.fi (Sensitive Data).
 
-2- Adding multiple encryption keys:
+2- Adding multiple encryption keys for data storage, transfer/sharing:
    
-*  You can upload the data using SD Connect via web browser and **add your public encryption key**. The files will be encrypted with your enycyption key and with the services encryption key by default, thus, they will be compatible with other services components. Moreover, you will also be able to download and decrypt the data when necessary.
+*  You can upload the data using SD Connect via a web browser and add your public encryption key. The files will be encrypted with the SD services by default, but you can also add your encryption key. In this manner,  you will also be able to download and decrypt the data when necessary
    
-*  You can upload the data using SD Connect via your web browser and add **several encryption keys**. For example, your public encryption key and your collaborator's public encryption key. In this case, the files will be encrypted with the services encryption key by default and they will be compatible with other services components. Moreover, you and your collaborator will also be able to download and decrypt the data when necessary.
+*  You can upload the data using SD Connect via your web browser and add several encryption keys. For example, your public encryption key and your collaborator's public encryption key. Also, in this case, the files will be encrypted with the SD services encryption key by default and available for data analysis via SD Desktop. Moreover, you and your collaborator can also download and decrypt the data when necessary.
 
    
 This encryption method is based on Crypt4GH, a tool initially designed to encrypt and share human genetic data according to the [Global Alliance for Genomics and Health](https://www.ga4gh.org/) (GA4GH) standard. Crypt4GH can be used to encrypt any file (images, audio, video, text files, etc.).
@@ -159,13 +169,14 @@ CSC has developed a simple application that will allow you to **generate your en
 The following paragraphs illustrate all the necessary steps to generate encryption keys, upload and encrypt your data using SD Connect, and decrypt the files once downloaded back to your computer. Of course, you can also execute each of these steps programmatically.
 
 
-## Sensitive data encryption and upload (less than 100 GB) 
+
+## Sensitive data encryption and upload (less than 1 GB) 
 
 <iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/yAKtGs6FkMc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 SD Connect allows you to encrypt and upload files or folders directly from your web browser. Each file is encrypted with the default automated option, uploaded and safely stored in SD Connect, and can be analysed using other Sensitive Data services components (for example, in SD Desktop). However, you will not be able to decrypt the files after downloading. We are developing a new feature that will provide this option.
 
-Automated encryption via SD Connect is suitable for any file type and format. However, data upload via web browser is recommended for files up to 100 GB and is supported only for 8 hours. Depending on the internet connection, uploading larger files might take up to several hours.
+Automated encryption via SD Connect is suitable for any file type and format. However, data upload via web browser is recommended for files up to 1 GB and is upload supported only for 8 hours. Depending on the internet connection, uploading files larger than 100 GB might take up to several hours.
 
 The necessary steps are the following: 
 
