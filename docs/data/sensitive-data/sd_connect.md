@@ -12,7 +12,7 @@ In the following user guide, you can learn how to:
 
 * Use SD Connect default options to automatically encrypt and upload sensitive data for analysis with SD Desktop (limited to files <1GB);
 
-* Use the Crypt4GH application to encyrpt files and upload them using SD Connect (up to 100 GB);
+* Use the Crypt4GH application to encrypt files and upload them using SD Connect (up to 100 GB);
 
 * Encrypt, upload and download sensitive data for data transfer and storage;
 
