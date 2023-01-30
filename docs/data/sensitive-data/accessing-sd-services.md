@@ -26,7 +26,7 @@ To access CSC's services for processing sensitive research data:
  4. All project members need to add service access to Allas (to use SD Connect) and SD Desktop.	 
   
  	
- 5. All project members need to activate thier account's additional security verification (or Multi-factor Authentication) by scanning the QR code with an application (e.g. Google Authenticator).	 
+ 5. All project members need to activate their account's additional security verification (or Multi-factor Authentication) by scanning the QR code with an application (e.g. Google Authenticator).	 
   
  6. Apply for billing units or disk quota.	 
   
