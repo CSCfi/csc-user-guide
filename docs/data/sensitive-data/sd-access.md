@@ -47,9 +47,9 @@ with any modern web-browser (Note: private browsing is not supported when using 
 
 ## Processing register data under the Act of Secondary Use
 
-Processing register data for secondary use differs from the process mentioned above. In this case, CSC's helpdesk handles access to the SD Desktop computing environment in compliance with the Finnish Act on the Secondary Use of Health and Social data and the Findata authority's Regulation.
+Analysing register data differs from the process mentioned above. In this case, CSC's helpdesk managers user's access to the SD Desktop computing environment in compliance with the Finnish Act on the Secondary Use of Health and Social data and the Findata authority's regulation.
 
-Register data can only be provided by the Fidata authority and accessed via the SD Desktop service. For more information about data provided by single registers, contact us at: servicedesk@csc.fi (sunject: sensitive data).
+Register data can only be provided by the Fidata authority and accessed via the SD Desktop service. For more information about data provided by single registers, contact us at: servicedesk@csc.fi.
 
 
 !!! Note
