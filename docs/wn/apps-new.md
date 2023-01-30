@@ -2,7 +2,7 @@
 
 ## CP2K 2023.1, 30.1.2023
 
-[CP2K](../../apps/cp2k.md) 2023.1 has been installed and set as the default module on Puhti
+[CP2K](../../apps/cp2k/) 2023.1 has been installed and set as the default module on Puhti
 and Mahti. [See release notes here](https://www.cp2k.org/version_history).
 
 ## Gromacs 2022.4, 16.1.2023
