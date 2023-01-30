@@ -59,13 +59,7 @@ To access and analyse register data via the SD Desktop service:
 
  1. Create [a CSC account](../../accounts/how-to-create-new-user-account.md) by logging in at the [My CSC portal](https://my.csc.fi) with your Haka account. If you don't have access to Haka credential provided by your organization, contact us at servicedesk@csc.fi. Additional steps will be necessary to verify your identity.
 
-2. Next, request a CSC project from servicedesk@csc.fi (subject: sensitive data) providing:
-
- - a copy of the data permit issued by the Findata authority;
- 
- - a short description of your research project (name and research field are sufficient);
- 
- - a list of all the project members, added in cc to the email (please use only organizational email addresses).
+2. Next, request a CSC project from servicedesk@csc.fi (subject: sensitive data) providing: - a copy of the data permit issued by the Findata authority; - a short description of your research project (name and research field are sufficient); - a list of all the project members, added in cc to the email (please use only organizational email addresses).
   
 3. Each project member should activate the account's additional security verification (or Multi-factor Authentication) by scanning the QR code with a specific application (e.g. Google Authenticator). For further instructions, see the [MFA paragraph](../../accounts/mfa.md) under the Account section on the CSC user guide;
 
