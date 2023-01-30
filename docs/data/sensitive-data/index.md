@@ -15,9 +15,9 @@ This guide, in CSC Docs, introduces CSC's Sensitive Data (SD) services. To navig
 
 ## [Applying for SD services access](./accessingsdservices.md)
 
-* [For research data processing](./accessing-sd-services.md#processing-sensitive-research-data)
-* [For register data processing under the Act on Secondary use](./accessing-sd-services.md#processing-register-data-under-the-act-of-secondary-use)
-* [Default storage space and billing units consumption](.sensitive-data/accessing-sd-services.md#default-storage-space-and-billing-units-consumption)
+* [For research data processing](./accessingsdservices.md#processing-sensitive-research-data)
+* [For register data processing under the Act on Secondary use](./accessingsdservices.md#processing-register-data-under-the-act-of-secondary-use)
+* [Default storage space and billing units consumption](.sensitive-data/accessingsdservices.md#default-storage-space-and-billing-units-consumption)
 
   
 ## [Store and share with SD Connect](./sd_connect.md)
