@@ -43,7 +43,7 @@ resembles a Slurm within a Slurm, but you have to start the server and workers y
 
 !!! info "Note"
     The following instructions apply for Slurm job scripts where only full nodes
-    are allocated. [A full example](#full-example) (for Puhti) can be found at the bottom.
+    are allocated. [A full example](#full-example) can be found at the bottom.
 
 Specify where on the file system the HyperQueue server should be placed. All `hq` commands
 respect this variable so make sure it's set before you call any `hq` commands. The server
@@ -160,12 +160,12 @@ on usage and input options.
 
 ```bash
 #!/bin/bash
-#SBATCH --partition=small
-#SBATCH --account=<project>
-#SBATCH --nodes=1
-#SBATCH --cpus-per-task=40
-#SBATCH --ntasks-per-node=1
-#SBATCH --time=00:30:00
+#SBATCH --partition=test       # Queue name
+#SBATCH --account=<project>    # Billing project
+#SBATCH --nodes=1              # Number of nodes
+#SBATCH --cpus-per-task=40     # CPUs per task (40 on Puhti, 128 on Mahti)
+#SBATCH --ntasks-per-node=1    # Tasks per node
+#SBATCH --time=00:30:00        # Time limit
 
 module load hyperqueue
 
