@@ -55,7 +55,7 @@ Register data can only be provided by the Fidata authority and accessed via the 
 !!! Note
     Register data processing is subject to several limitations. In this case, the SD Desktop computing environment might not suit your needs, or the software needed for data analysis might not be available as a default program. Therefore, we recommend contacting us at servicedesk@csc.fi (subject: sensitive data) before applying for a data permit to verify if the service matches your needs. 
 
-To access and analyse sensitive research data via the SD Desktop service:
+To access and analyse register data via the SD Desktop service:
 
  1. Create [a CSC account](../../accounts/how-to-create-new-user-account.md) by logging in at the [My CSC portal](https://my.csc.fi) your Haka account. If you don't have access to Haka credential provided by your organization, contact us at servicedesk@csc.fi. Additional steps will be necessary to verify your identity.
 Next, request a CSC project from servicedesk@csc.fi (subject: sensitive data) providing: 
