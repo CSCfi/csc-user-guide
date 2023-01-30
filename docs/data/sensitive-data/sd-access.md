@@ -33,16 +33,16 @@ To access SD Connect and SD Desktop for storing, sharing or analysing sensitive 
 6. Apply for billing units or disk quota.
 
 
-For video tutorials and further guidance, check the[Accounts](../../accounts/index.md) at the beginning of this user guide.
+For video tutorials and further guidance, check the [Accounts](../../accounts/index.md) paragraph at the beginning of this user guide.
 
-Once you have completed these steps, you can log in to SD services with identity federation systems (Haka, Virtu, CSC Login, or LSLogin) at:
+Once you have completed these steps, you can log in with identity federation systems (Haka, Virtu, CSC Login, or LSLogin) at:
 
 * [https://sd-connect.csc.fi](https://sd-connect.csc.fi) 	 
   
  * [https://sd-desktop.csc.fi](https://sd-desktop.csc.fi)	 
   
 
-with any modern web-browser (note: private browsing is not supported when using Firefox).
+with any modern web-browser (Note: private browsing is not supported when using Firefox).
 
 
 ## Processing register data under the Act of Secondary Use
