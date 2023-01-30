@@ -269,6 +269,17 @@ nav:
         - Common Use Cases: data/Allas/using_allas/common_use_cases.md
         - Common Error Messages: data/Allas/using_allas/error_messages.md
         - Allas object storage related terms and concepts: data/Allas/terms_and_concepts.md
+        - Allas clients:
+            - a-command: data/Allas/using_allas/a_commands.md
+            - a-backup: data/Allas/using_allas/a_backups.md
+            - Cyberduck: data/Allas/using_allas/cyberduck.md
+            - Python Library: data/Allas/using_allas/python_library.md
+            - Rclone from Computing environment: data/Allas/using_allas/rclone.md
+            - Rclone form Workstation: data/Allas/using_allas/rclone_local.md
+            - Swift: data/Allas/using_allas/swift_client.md
+            - S3cmd: data/Allas/using_allas/s3_client.md
+            - Web GUI: data/Allas/using_allas/web_client.md
+# data/Allas/using_allas/directory_object_error.md is not linked in this structure
      - Sensitive data:
         - Contents: data/sensitive-data/index.md
         - Introduction: data/sensitive-data/intro.md
