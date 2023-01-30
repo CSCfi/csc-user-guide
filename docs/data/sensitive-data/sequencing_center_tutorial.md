@@ -70,7 +70,7 @@ consisting of _secret key_ and _public key_ for your own use. You can use the sa
 several times and normally it is practical to use the same keys for all data of a project so that 
 key management does not get too complicated. 
 
-Instructions for creating a _crypt4gh_ compatible keys can be found [here](./sd_connect.md#sensitive-data-encryption-and-upload-with-multiple-encryption-keys-less-than-100-gb).
+Instructions for creating a _crypt4gh_ compatible keys can be found [here](./sd_connect.md#sensitive-data-encryption-and-upload-for-storage-and-sharing-less-than-1-gb).
 (The key generation processes are described in the second steps of graphical user 
 interface and command line client instructions).
 Once the keys have been generated, you can send the public key to all data producers, 
