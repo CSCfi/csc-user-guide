@@ -57,7 +57,7 @@ Register data can only be provided by the Fidata authority and accessed via the 
 
 To access and analyse register data via the SD Desktop service:
 
- 1. Create [a CSC account](../../accounts/how-to-create-new-user-account.md) by logging in at the [My CSC portal](https://my.csc.fi) your Haka account. If you don't have access to Haka credential provided by your organization, contact us at servicedesk@csc.fi. Additional steps will be necessary to verify your identity.
+ 1. Create [a CSC account](../../accounts/how-to-create-new-user-account.md) by logging in at the [My CSC portal](https://my.csc.fi) with your Haka account. If you don't have access to Haka credential provided by your organization, contact us at servicedesk@csc.fi. Additional steps will be necessary to verify your identity.
 Next, request a CSC project from servicedesk@csc.fi (subject: sensitive data) providing: 
 
 2. Next, request a CSC project from servicedesk@csc.fi (subject: sensitive data) providing: 
