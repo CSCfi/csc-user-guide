@@ -272,7 +272,7 @@ nav:
      - Sensitive data:
         - Contents: data/sensitive-data/index.md
         - Introduction: data/sensitive-data/intro.md
-        - Accessing SD Services: data/sensitive-data/accessing-sd-services.md
+        - Accessing SD Services: data/sensitive-data/sd-access.md
         - Store research data with SD Connect: data/sensitive-data/sd_connect.md
         - Analyse research data with SD Desktop: data/sensitive-data/sd_desktop.md
         - Analyse register data with SD Desktop under the Act of Seconday Use: data/sensitive-data/sd-desktop-audited.md
