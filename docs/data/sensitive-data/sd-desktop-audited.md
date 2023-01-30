@@ -156,7 +156,7 @@ When you log in to SD Desktop **Homepage**, you will be able to access your virt
 
 When you open the connection, a virtual computing environment (Linux Centos operating system) will open into your browser. When you access the virtual Desktop for the first time, you will see the getting started panel, from which you can, for example, adjust the screen resolution.
 
-You can work with this virtual Desktop like in a standard computing environment.  From the applications menu bar (top left corner) you can access several pre-installed programs. Examples include Open Office, image viewing applications, video and audio players, Jupiter Notebook etc. You can also open a terminal and use Linux from command line. To start using R-Studio please check [the paragraph](../../data/sensitive-data/sd_desktop.md#rstudio-in-sd-desktop) under SD Desktop.
+You can work with this virtual Desktop like in a standard computing environment.  From the applications menu bar (top left corner) you can access several pre-installed programs. Examples include Open Office, image viewing applications, video and audio players, Jupiter Notebook etc. You can also open a terminal and use Linux from command line. To start using R-Studio please check [the following paragraph](../../data/sensitive-data/sd-desktop-audited.md#rstudio-in-sd-desktop).
 
 
 Security-related features of the audited SD Desktop include:
