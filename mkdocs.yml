@@ -271,7 +271,7 @@ nav:
         - Allas object storage related terms and concepts: data/Allas/terms_and_concepts.md
         - Allas clients:
             - a-command: data/Allas/using_allas/a_commands.md
-            - a-backup: data/Allas/using_allas/a_backups.md
+            - a-backup: data/Allas/using_allas/a_backup.md
             - Cyberduck: data/Allas/using_allas/cyberduck.md
             - Python Library: data/Allas/using_allas/python_library.md
             - Rclone from Computing environment: data/Allas/using_allas/rclone.md
