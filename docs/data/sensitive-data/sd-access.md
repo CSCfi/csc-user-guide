@@ -7,7 +7,7 @@ CSC's Sensitive Data Services are available to researchers and students affiliat
 
 Below is more information on the steps required to access the services for processing research data, processing register data under the Act for secondary use of health and social data, storage space (or quota) availability, and resource (or billing units) consumption.
 
-You can browse through the main topics of the manual using the navigation bar on the left side of this page or the search function.
+You can browse through this chapter using the navigation bar on the right side of this page or the search function.
  
   
   
