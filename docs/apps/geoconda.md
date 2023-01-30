@@ -21,7 +21,9 @@ includes following python packages:
 -   [geoalchemy2]  - provides extensions to [SQLAlchemy] for working with spatial databases, primarily PostGIS.
 -   **[geopandas]** - GeoPandas extends the datatypes used by [pandas].
 -   [igraph](https://igraph.org/python/) - for fast routing. [Routing examples in CSC geocomputing Github](https://github.com/csc-training/geocomputing/tree/master/python/routing)
+-   [geopy](https://geopy.readthedocs.io/) - client for several popular geocoding web services. NEW 2023
 -   **[jupyter]** - Jupyter Notebooks and JupyterLab, best to use with [Puhti web interface](../computing/webinterface/index.md) and [Jupyter](../computing/webinterface/jupyter.md)
+-   [landsatlinks](https://github.com/ernstste/landsatlinks) - for creating download URLs for Landsat Collection 2 Level 1 product bundles using the USGS/EROS Machine-to-Machine API. NEW 2023
 -   [laspy](https://pythonhosted.org/laspy/) - for reading, modifying, and creating .LAS LIDAR files. 
 -   [lidar](https://lidar.gishub.org/) - for delineating the nested hierarchy of surface depressions in digital elevation models (DEMs).
 -   [metpy](https://unidata.github.io/MetPy/latest/index.html) - reading, visualizing, and performing calculations with weather data. NEW 2022
