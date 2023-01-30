@@ -96,10 +96,7 @@ When you apply for a new CSC project and service access for SD Connect/Allas, th
 * SD Desktop:
 
 The default disk space (or storage space) in SD Desktop is 80 GB and can be increased to 280 GB by adding an external volume during virtual desktop creation. If you need additional storage space for data analysis, contact us for support at servicedesk@csc.fi (subject: sensitive data). 
-Analysing data in SD Desktop consumes billing units based on the type of virtual desktop you are using. The rate is:
+Analysing data in SD Desktop consumes billing units based on the type of virtual desktop you are using. The rate is:Light computation, Billing units; 1.3 BU/h; Small computation, Billing Units: 5.2 units/h; Medium computation, Billing Units: 10.4 units/h; Heavy computation, Billing Units: 52 units/h.
 
-- 5,2 BU/h for the small computation optiion
-- 
--   52 BU/h for the heavy computation.
 
 For further guidance regarding applying for additional quota or billing units, check the [Accounts](../../accounts/index.md) paragraph at the beginning of this user guide.  
