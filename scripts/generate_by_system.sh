@@ -38,6 +38,9 @@ do
     files=$(grep --exclude-from=<(echo "$ignores") -wi ${system_key[$i]} $app_dir/*.md | awk -F ":" '{print $1}' | sort | uniq | sed s%docs/apps/%%)
     software=$(grep -f <(echo "$files") $app_dir/alpha.md)
     echo -e "\n## ${system_name[$i]} \n" >> $generated_file
+    if [[ "${system_name[$i]}" == "LUMI" ]]; then
+        echo -e "!!! info \"Note\"\n    This list refers only to applications pre-installed by CSC under \`/appl/local/csc\`.\n    For a comprehensive list of available EasyBuild recipes, see the [LUMI Software\n    Library](https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/)\n" >> $generated_file
+    fi
     echo "$software" >> $generated_file
 done
 
