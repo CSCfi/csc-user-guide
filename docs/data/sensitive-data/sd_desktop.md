@@ -28,7 +28,7 @@ You can browse through the main topics of the manual using the navigation bar on
 
 * After login into SD Desktop, the user can start a pre-built computing environment (Linux OS), on-demand; available options offer the capability of doing simple statistical analysis to machine learning and work with any data: text files, images, audio files, video, and genetic data. Further customization is possible by writing to servicedesk@csc.fi (subject: Sensitive data);
 
-* Virtual Desktops are not connected to the internet: the only way to import and export data is SD Connect service;
+* Virtual desktops are not connected to the internet: the only way to import and export data is SD Connect service;
 
 
 **Limitations**:
@@ -440,41 +440,59 @@ For more information and support, write to servicedesk@csc.fi (email subject Sen
 
 ## Managing volumes and virtual desktops
 
-With the SD Desktop service, you can easily manage volumes and pause, reboot, rebuild or delete virtual desktops. Below we illustrate the main available options.
+With the SD Desktop service, you can easily manage volumes and pause, reboot, rebuild or delete your virtual desktops. Below we illustrate the main available options.
 
 ### Detaching and reattaching  a volume
-With the option  _Detach volume_, you can easily detach a volume from your virtual desktop. The volume and its content will be stored in the same CSC project where it was initially created. You can compare this operation to detaching or attaching a virtual hard drive to your laptop.
+
+With the option  _Detach volume_, you can easily detach a volume from your virtual desktop. The volume and its content will be stored in the same CSC project where it was initially created. You can compare this operation to detaching or attaching an hard drive to your laptop.
 
 To detach a volume from your virtual desktop:
-Save and close all the files on the volume to prevent data corruption and log out from the virtual desktop.
-From SD Desktop homepage, click on  _SD Desktop management page_.
-Here, under _Available desktops_  select the correct virtual desktop, and in the same raw, on the right side, click on _Detach volume_
+
+1. Save and close all the files on the volume to prevent data corruption and log out from the virtual desktop.
+
+2. From SD Desktop homepage, click on  _SD Desktop management page_.
+
+3. Here, under _Available desktops_  select the correct virtual desktop, and in the same raw, on the right side, click on _Detach volume_.
 A message will ask to confirm the operation.
 
 
-If you want to use the existing data on the volume again, you can reattach it to a new desktop:
-From the SD Desktop homepage, click on  _SD Desktop management page_.
-Here, under _desktop selection_  select all the necessary fields to create a new desktop (CSC project, operating system etc). 
-Under _Add External Volume (optional)_ click inside the option _Choose from existing volumes_. The user interface will visualize available volumes stored in the same CSC project. Note: do not click on the options _volume size_ or _volume name_, as only one volume can be attached per virtual desktop. 
-Click on _Create desktop_
+If you want to access the existing data on the detached volume, you can reattach it to a new desktop:
+
+1. From the SD Desktop homepage, click on  _SD Desktop management page_.
+
+2. Here, under _desktop selection_  select all the necessary fields to create a new desktop (CSC project, operating system etc). 
+
+3. Under _Add External Volume (optional)_ click inside the option _Choose from existing volumes_. The user interface will visualize available volumes stored in the same CSC project. Note: do not click on the options _volume size_ or _volume name_. 
+
+4. Click on _Create desktop_
 
 
 Limitations:
-A volume can not be reattached to an existing virtual desktop.
-The content of a detached volume can not be accessed or deleted.
- To delete or access the volume content, attach it to a desktop with the same operating system during the creation phase. 
-Volumes can not be moved or transferred between CSC projects for security reasons.
+
+- A detached-volume can not be reattached to an existing virtual desktop.
+
+- The content of a detached volume can not be accessed or deleted.
+
+- To delete or access the volume content, attach it to a desktop with the same operating system, during the desktop creation phase. 
+
+- Volumes can not be moved or transferred between CSC projects for security reasons.
 
 
-### Pausing or restarting  a virtual desktop
-At the end of your analysis, you can pause a virtual desktop. In this manner, the desktop will stop consuming billing units. 
+### Pausing or restarting a virtual desktop
+
+You can pause a virtual desktop. In this manner, the desktop will stop consuming billing units. 
 
 To pause the desktop:
-Close all the programs, save/close all the files and log out from the virtual desktop to prevent data corruption.
- On SD Desktop homepage, click on _Go To SD Desktop Management_;
-Here, under _Available desktops_  select the correct virtual desktop, and in the same raw, on the right side, click on _Pause desktop_. Note: you can not detach a volume or access a paused desktop. 
- A message will ask to confirm the operation, which can take up to 30 minutes.
-You can restart the virtual desktop at any time from the same page. Also, in this case, the restart processes can take up to 30 minutes. This option is available only for active CSC projects with available billing units. 
+
+1. Close all the programs, save/close all the files and log out from the virtual desktop to prevent data corruption.
+
+2. On SD Desktop homepage, click on _Go To SD Desktop Management_;
+
+3. Here, under _Available desktops_  select the correct virtual desktop, and in the same raw, on the right side, click on _Pause desktop_. Note: you can not detach a volume or access a paused desktop. 
+
+4. A message will ask to confirm the operation, which can take up to 30 minutes.
+
+You can restart the virtual desktop at any time from the same page. Alsoin this case, the restart processes can take up to 30 minutes. This option is available only for active CSC projects with available billing units. 
 
 ### Rebooting or rebuilding a virtual desktop
 
@@ -482,33 +500,42 @@ If the virtual desktop or software has become unresponsive, you can use this opt
 
 To reboot a virtual machine:
 
-If possible, close all the programs, save/close all the files and log out from the virtual desktop to prevent data corruption.
- On SD Desktop homepage, click on _Go To SD Desktop Management_;
-Here, under _Available desktops_  select the correct virtual desktop, and in the same raw, on the right side, click on _Options _ and select _Reboot_.
- A message will ask to confirm the operation, which will restart yoru virtual desktop and can take up to 30 minutes.
+1- If possible, close all the programs, save/close all the files and log out from the virtual desktop to prevent data corruption.
+
+2-  On SD Desktop homepage, click on _Go To SD Desktop Management_;
+
+3- Here, under _Available desktops_  select the correct virtual desktop, and in the same raw, on the right side, click on _Options _ and select _Reboot_.
+
+4- A message will ask to confirm the operation, which can take up to 30 minutes.
 
 
 If the virtual desktop or software has become obsolete, you can use this option to rebuild your virtual desktop. 
 
 !!! Note
-This operation will delete all the files/software or scripts imported into the virtual desktop. Only the files saved in the volume will still be available. As a result, you will delete the virtual workspace, and your colleagues (or the other CCS project members) will lose their analysis results or imported data. For this reason, please contact all the CSC project members before deleting a virtual desktop.
+This operation will delete all the files/software or scripts imported into the virtual desktop. Only the files saved in the volume will still be available. As a result, you will delete the entire virtual workspace. For this reason, please contact all the CSC project members before rebuilding a virtual desktop.
 
-To reboot a virtual machine:
- On SD Desktop homepage, click on _Go To SD Desktop Management_;
-Here, under _Available desktops_  select the correct virtual desktop, and in the same raw, on the right side, click on _Options _ and select _Rebuiltt_.
- A message will ask to confirm the operation, which will reboot your virtual desktop and can take up to 30 minutes. All data saved will be deleted. 
+To reboot a virtual desktop:
+
+1. On SD Desktop homepage, click on _Go To SD Desktop Management_;
+
+2. Here, under _Available desktops_  select the correct virtual desktop, and in the same raw, on the right side, click on _Options _ and select _Rebuilt_.
+
+3. A message will ask to confirm the operation, which can take up to 30 minutes. 
 
 
 
 ### Deleting a  virtual desktop
-You can delete your virtual desktop and all the files and external volume at the end of your analysis. 
 
-You cannot undo this action:
-On SD Desktop Homepage, click on _Go to SD Desktop Management page_.
-Here, under _Available desktops_  select the correct virtual desktop, and in the same raw, on the right side, click on _Options _ and select _Delete_.
+You can delete your virtual desktop, external volume and all files saved in it at the end of your analysis. You cannot undo this action:
+
+1- On SD Desktop Homepage, click on _Go to SD Desktop Management page_.
+
+2- Here, under _Available desktops_  select the correct virtual desktop.
+
+3- Onthe same raw, on the right side, click on _Options _ and select _Delete_.
 
 !!! Note
-All the data saved in the virtual desktop or external volume will be deleted, and retrieving them will not be possible. As a result, you will delete the virtual workspace, and your colleagues (or the other CCS project members) will lose their analysis results or imported data. For this reason, please contact all the CSC project members before deleting a virtual desktop.
+Please contact all the project members before deleting a virtual desktop. With this action you will delete the entire workspace, including all files saved in the virtual desktop or external volume by other project memebrs. 
 
 
 
