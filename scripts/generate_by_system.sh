@@ -13,7 +13,8 @@ system_name=("Mahti" "Puhti" "LUMI")
 system_key=("mahti" "puhti" "lumi")
 
 system_desc=("CSC supercomputer for massively parallel jobs"\
-    "CSC supercomputer for small and medium jobs")
+    "CSC supercomputer for small and medium jobs"\
+    "EuroHPC supercomputer for CPU and, especially, GPU jobs")
 
 
 num_systems=${#system_name[@]}
