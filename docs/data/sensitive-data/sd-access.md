@@ -43,9 +43,9 @@ Once you have completed these steps, you can log in with identity federation sys
 with any modern web-browser (Note: private browsing is not supported when using Firefox).
 
 
-## Processing register data under the Act of Secondary Use
+## Processing register data under the Act on Secondary Use
 
-Analysing register data under the Act of Secondary Use differs from the process mentioned above. In this case, CSC's helpdesk managers user's access to the SD Desktop computing environment in compliance with the Finnish Act on the Secondary Use of Health and Social data and the Findata authority's regulation.
+Analysing register data under the Act on Secondary Use differs from the process mentioned above. In this case, CSC's helpdesk manages user's access to the SD Desktop computing environment in compliance with the Finnish Act on the Secondary Use of Health and Social data and the Findata authority's regulation.
 
 Register data can only be provided by the Fidata authority and accessed via the SD Desktop service. For more information about data provided by single registers, contact us at: servicedesk@csc.fi.
 
@@ -57,7 +57,7 @@ To access and analyse register data via the SD Desktop service:
 
  1. Create [a CSC account](../../accounts/how-to-create-new-user-account.md) by logging in at the [My CSC portal](https://my.csc.fi) with your Haka account. If organization is not a member of the Haka or Virtu federation, contact us at servicedesk@csc.fi. Additional steps will be necessary to verify your identity.
 
-2. Next, request a CSC project from servicedesk@csc.fi (subject: sensitive data) providing: - a copy of the data permit issued by the Findata authority; - a short description of your research project (name and research field are sufficient); - a list of all the project members, added in cc to the email (please use only organizational email addresses).
+2. Next, apply for a CSC project writing to servicedesk@csc.fi (subject: sensitive data) providing: - a copy of the data permit issued by the Findata authority; - a short description of your research project (name and research field are sufficient); - a list of all the project members, added in cc to the email (please use only organizational email addresses).
   
 3. Each project member should activate the account's additional security verification (or Multi-factor Authentication) by scanning the QR code with a specific application (e.g. Google Authenticator). For further instructions, see the [MFA paragraph](../../accounts/mfa.md) under the Account section on the CSC user guide;
 
