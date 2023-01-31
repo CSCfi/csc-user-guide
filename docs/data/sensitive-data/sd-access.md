@@ -93,4 +93,4 @@ The default disk space (or storage space) in SD Desktop is 80 GB and can be incr
 Analysing data in SD Desktop consumes billing units based on the type of virtual desktop you are using. The rate is:Light computation, Billing units; 1.3 BU/h; Small computation, Billing Units: 5.2 units/h; Medium computation, Billing Units: 10.4 units/h; Heavy computation, Billing Units: 52 units/h.
 
 
-For further guidance regarding applying for additional quota or billing units, check the [Accounts](../../accounts/index.md) paragraph at the beginning of this user guide.  
+For further guidance on applying for additional quota or billing units, check the [Accounts](../../accounts/index.md) paragraph at the beginning of this user guide.  
