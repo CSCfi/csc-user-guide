@@ -5,9 +5,13 @@ CSC's Sensitive Data Services are available to researchers and students affiliat
 !!! Note
     The legal basis for data processing determines which service component you can access and use. For example, you can directly manage research data access, uploads, or data export using SD Connect and SD Desktop. In contrast, access to register data via SD Desktop is managed by CSC's helpdesk, based on the data permit issued by the Fidata authority and in compliance with the Finnish regulations. 
 
-Below is more information on the steps required to access the services for processing research data, processing register data under the Act for secondary use, storage space (or quota) availability, and resource (or billing units) consumption.
+Below is more information on the steps required to access the services:
 
-You can browse through this chapter using the navigation bar on the right side of this page or the search function.
+* for processing research data;
+* for processing register data under the Act on Secondary Use;
+* storage space (or quota) availability and resource (or billing units) consumption.
+
+You can browse through the guide using the navigation bar on the right side of this page or the search function.
  
  
 
@@ -24,7 +28,6 @@ To access SD Connect and SD Desktop for storing, sharing or analysing sensitive 
 
 4. All project members should add service access to Allas (to use SD Connect) and SD Desktop, accepting the terms of use. 
 
-
 5. All project members should activate their account's additional security verification (or Multi-factor Authentication) by scanning the QR code with an application (e.g. Google Authenticator).
 
 
@@ -40,7 +43,7 @@ Once you have completed these steps, you can log in with identity federation sys
  * [https://sd-desktop.csc.fi](https://sd-desktop.csc.fi)	 
   
 
-with any modern web-browser (Note: private browsing is not supported when using Firefox).
+with any modern web-browser (Note: private browsing is not supported using Firefox).
 
 
 ## Processing register data under the Act on Secondary Use
@@ -83,12 +86,22 @@ Using SD Connect and SD Desktop is free of charge for research purposes, accordi
 
 * SD Connect:
 
-When you apply for a new CSC project and service access for SD Connect/Allas, the default quota (or storage space) for SD Connect is 10 TB, which can be increased to 200 TB if needed. If you work with larger datasets and your project requires additional storage space, contact us for support at servicedesk@csc.fi (subject: sensitive data). Storing data in SD Connect/Allas consumes billing units. The rate is 1 BU/TiBh, i.e. 1 TB of data stored in Allas consumes 24 BU in a day and 8760 BU in a year.
+When you apply for a new CSC project and service access for SD Connect/Allas, the default quota (or storage space) for SD Connect is 10 TB, which can be increased to 200 TB if needed. If you work with larger datasets and your project requires additional storage space, contact us for support at servicedesk@csc.fi (subject: sensitive data). Storing data in SD Connect/Allas consumes billing units. 
+
+The rate is: 1 units/TiBh, i.e. 1 TB of data stored in Allas consumes 24 Billing units in a day and 8760 BU in a year.
 
 * SD Desktop:
 
 The default disk space (or storage space) in SD Desktop is 80 GB and can be increased to 280 GB by adding an external volume during virtual desktop creation. If you need additional storage space for data analysis, contact us for support at servicedesk@csc.fi (subject: sensitive data). 
-Analysing data in SD Desktop consumes billing units based on the type of virtual desktop you are using. The rate is:Light computation, Billing units; 1.3 BU/h; Small computation, Billing Units: 5.2 units/h; Medium computation, Billing Units: 10.4 units/h; Heavy computation, Billing Units: 52 units/h.
+Analysing data in SD Desktop consumes billing units based on the type of virtual desktop you are using. The rate is:
+
+* Light computation, Billing units; 1.3 BU/h;
+
+* Small computation, Billing Units: 5.2 units/h;
+
+* Medium computation, Billing Units: 10.4 units/h;
+
+* Heavy computation, Billing Units: 52 units/h.
 
 
-For further guidance on applying for additional quota or billing units, check the [Accounts](../../accounts/index.md) paragraph at the beginning of this user guide.  
+For further guidance on applying for additional quota or billing units, check the [Accounts](../../accounts/index.md) paragraph at the beginning of the user guide.  
