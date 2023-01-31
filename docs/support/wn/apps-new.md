@@ -1,5 +1,12 @@
 # Applications
 
+## CSC software collection on LUMI, 31.1.2023
+
+Applications pre-installed by CSC on the LUMI supercomputer can now be viewed in the
+[application list grouped by availability](../../apps/by_system.md#lumi). For a comprehensive
+list of available EasyBuild recipes for personal or project-specific installations, see
+the [LUMI Software Library](https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/).
+
 ## CP2K 2023.1, 30.1.2023
 
 [CP2K](../../apps/cp2k.md) 2023.1 has been installed and set as the default module on Puhti
