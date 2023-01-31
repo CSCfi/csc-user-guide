@@ -3,14 +3,13 @@
 CSC's Sensitive Data Services are available to researchers and students affiliated with Finnish higher education institutions (universities, universities of applied sciences) or a state research institute. 
 
 !!! Note
-    The legal basis for data processing determines which service component you can access and use. For example, you directly manage research data access, uploads, or data export using SD Connect and SD Desktop, in compliance with the General Data Protection Regulation. In contrast, access to register data via SD Desktop is managed by CSC's helpdesk, based on the data permit issued by the Fidata authority and in compliance with the Finnish regulations. 
+    The legal basis for data processing determines which service component you can access and use. For example, you can directly manage research data access, uploads, or data export using SD Connect and SD Desktop. In contrast, access to register data via SD Desktop is managed by CSC's helpdesk, based on the data permit issued by the Fidata authority and in compliance with the Finnish regulations. 
 
 Below is more information on the steps required to access the services for processing research data, processing register data under the Act for secondary use, storage space (or quota) availability, and resource (or billing units) consumption.
 
 You can browse through this chapter using the navigation bar on the right side of this page or the search function.
  
-  
-  
+ 
 
 ## Processing sensitive research data
  	 
@@ -22,7 +21,6 @@ To access SD Connect and SD Desktop for storing, sharing or analysing sensitive 
 2. Create or join a CSC project and add project members.
 
 3. Fill in the _Description of processing activities form_ and accept _CSC's Data Processing Agreement_.
-
 
 4. All project members should add service access to Allas (to use SD Connect) and SD Desktop, accepting the terms of use. 
 
@@ -57,7 +55,7 @@ Register data can only be provided by the Fidata authority and accessed via the 
 
 To access and analyse register data via the SD Desktop service:
 
- 1. Create [a CSC account](../../accounts/how-to-create-new-user-account.md) by logging in at the [My CSC portal](https://my.csc.fi) with your Haka account. If you don't have access to Haka credential provided by your organization, contact us at servicedesk@csc.fi. Additional steps will be necessary to verify your identity.
+ 1. Create [a CSC account](../../accounts/how-to-create-new-user-account.md) by logging in at the [My CSC portal](https://my.csc.fi) with your Haka account. If organization is not a member of the Haka or Virtu federation, contact us at servicedesk@csc.fi. Additional steps will be necessary to verify your identity.
 
 2. Next, request a CSC project from servicedesk@csc.fi (subject: sensitive data) providing: - a copy of the data permit issued by the Findata authority; - a short description of your research project (name and research field are sufficient); - a list of all the project members, added in cc to the email (please use only organizational email addresses).
   
