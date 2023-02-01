@@ -54,7 +54,7 @@ Register data can only be provided by the Fidata authority and accessed via the 
 
 
 !!! Note
-    Register data processing is subject to several limitations. In this case, the SD Desktop computing environment might not suit your needs, or the software needed for data analysis might not be available as a default program. Therefore, we recommend contacting us at servicedesk@csc.fi (subject: sensitive data) before applying for a data permit to verify if the service matches your needs. 
+    Register data processing is subject to several limitations. Therefore, we recommend contacting us at servicedesk@csc.fi (subject: sensitive data) before applying for a data permit to verify if the service matches your needs. 
 
 To access and analyse register data via the SD Desktop service:
 
