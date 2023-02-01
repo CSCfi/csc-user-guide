@@ -21,14 +21,14 @@ we recommend:
 
 1. **Use CSC's pre-installed environments available through the module system**
 
-    Check if any of [CSC's pre-installed environments](../apps/index.md) would
+    Check if any of [CSC's pre-installed environments](../../apps/index.md) would
     be suitable for your project. If the existing environment is missing a few
     critical packages, you can often install the missing packages on your own.
 
-    Our [Python](../apps/python.md#installing-python-packages-to-existing-modules)
-    and [R](../apps/r-env.md#r-package-installations) pages also contain further
+    Our [Python](../../apps/python.md#installing-python-packages-to-existing-modules)
+    and [R](../../apps/r-env.md#r-package-installations) pages also contain further
     details on how to install your own packages to our modules. You can also
-    [contact CSC Service Desk](contact.md) with requests for missing packages.
+    [contact CSC Service Desk](../contact.md) with requests for missing packages.
 
 2. **Wrap your Conda or pip environment using CSC's Tykky tool**
 
