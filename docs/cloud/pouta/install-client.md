@@ -226,12 +226,11 @@ environment variables:
 
     source <project_name_here>-openrc.sh
 
-You will be asked to type in a password. Use the password of your CSC
-account. After doing this, the current terminal session  will have the proper
-environment variables for using the command line tools. You need to do this
-again if you open a new terminal. Note that using CSC central user
-authentication methods (e.g. Haka) from the command line interface is not yet
-supported.
+You will be asked to type in a password. *Please use the password of your CSC
+account* because the command line interface does not support yet the usage of
+credentials from linked accounts, such as Haka or Virtu. After doing this, the
+current terminal session will have the proper environment variables for using
+the command line tools. You need to do this again if you open a new terminal.
 
   [install it first]: http://docs.python-guide.org/en/latest/starting/installation/
   [SoftwareCollections.org]: https://www.softwarecollections.org/en/
