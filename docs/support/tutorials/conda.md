@@ -32,7 +32,7 @@ we recommend:
 
 2. **Create containerized Conda or pip environment using CSC's Tykky tool**
 
-    CSC has developed [a tool for wrapping existing Conda or pip
+    CSC has developed [a tool for wrapping Conda or pip
     installations](../../computing/containers/tykky.md) into a smaller set
     of files using Apptainer and SquashFS technologies. The tool is available
     as a pre-installed module and is also used for CSC's own installations.
