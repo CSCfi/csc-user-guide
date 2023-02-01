@@ -1,14 +1,13 @@
 # Conda best practices
 
 !!! warning "Do not install Conda environments directly on the shared file system!"
-    [CSC has deprecated the use of Conda environments](../../computing/usage-policy.md)
-    that are installed directly on the shared file system (e.g. `/scratch`, `/projappl`,
-    `$HOME`) on CSC supercomputers. This is due to performance issues of Conda-based
-    environments on parallel file systems, causing long start-up delays and system-wide
-    slowdowns when using Python scripts. Users should either containerize their
-    Conda-based installations or consider alternative means of installation. See
-    also the [Tykky container wrapper](../../computing/containers/tykky.md), a tool
-    using which you can easily containerize your Conda installations.
+    [CSC has deprecated the use of Conda environments](../../computing/usage-policy.md#conda-installations)
+    that are installed directly on the shared file system on CSC supercomputers (e.g. `/scratch`,
+    `/projappl`, `$HOME`). This is due to performance issues of Conda-based environments on parallel
+    file systems, causing long start-up delays and system-wide slowdowns when using Python scripts.
+    Users should either containerize their Conda-based installations or consider alternative means
+    of installation. See also the [Tykky container wrapper](../../computing/containers/tykky.md),
+    a tool using which you can easily containerize your Conda installations.
 
 Conda environments typically contain tens or even hundreds of thousands of
 files, and starting a Conda application requires reading a large number of them.
