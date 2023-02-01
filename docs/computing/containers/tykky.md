@@ -215,6 +215,25 @@ wrap-container -w /path/inside/container <container> --prefix <install_dir>
   	- In case of Docker or non-local Apptainer/Singularity file, create first the
       installation with some path and then start with created `_debug_shell`.
 
+## Memory errors
+
+With very large installations the resources available on the login node might not
+be enough, resulting in Tykky failing with a `MemoryError`. In this case, the
+installation needs to be done on a compute node, for example using an [interactive
+session](../../computing/running/interactive-usage.md#sinteractive-in-puhti):
+
+```bash
+# Start an interactive session, here with 12 GB memory and 15 GB local disk, increase if needed.
+sinteractive -m 12000 -d 15
+
+# Define where Apptainer should store temporary files
+export APPTAINER_CACHEDIR=$LOCAL_SCRATCH
+export APPTAINER_TMPDIR=$LOCAL_SCRATCH
+
+# Run the Tykky commands as described above, e.g.
+conda-containerize new --prefix <install_dir> env.yml
+```
+
 ## More complicated example
 
 [Example in tool repository](https://github.com/CSCfi/hpc-container-wrapper/blob/master/examples/fftw.md).
