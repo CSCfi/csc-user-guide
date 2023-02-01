@@ -238,7 +238,7 @@ The necessary steps for encryption with Cryp4GH application and upload with SD C
 For example, encrypting the file my_data1.csv will produce a new, encrypted file named my_data.csv.c4gh. 
 Unfortunately, the Cryp4GH application does not provide a progress bar, and the encryption process can last up to several minutes.
 
-[![SDConnect-cryp4ghapplication](images/connect/connect_encryption.png)](images/connect/connect_encryption.png)
+[![SDConnect-cryp4ghapplication](images/connect/connect_encryption-large.png)](images/connect/connect_encryption-large.png)
 
 6- Now, you can upload the encrypted file (or a folder containing encrypted data) to SD Connect using the drag-and-drop function.
 
