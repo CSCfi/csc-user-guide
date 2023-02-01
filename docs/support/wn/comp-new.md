@@ -1,5 +1,14 @@
 # Computing environment
 
+## Puhti web interface updated to release 14, 2.2.2023
+
+* Xfce is now the main desktop alternative and other options are being deprecated
+* Removed MOTD from the frontpage
+* All terminals in the desktop now open outside the container -> should work exactly as a normal login shell
+  * Host terminal has been renamed Terminal on the desktop
+* Grafical emacs now available in the desktop
+* Jupyter app now accepts full path to python interpeter, enabling direct usage of Tykky installations.  
+
 ## Puhti disk cleaning policy changed, 17.1.2023
 
 * [Usage policy](../../../computing/usage-policy/) changed, now files not accessed in **6** months are deleted in the cleaning process.
