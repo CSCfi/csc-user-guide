@@ -217,18 +217,18 @@ wrap-container -w /path/inside/container <container> --prefix <install_dir>
 
 ## Memory errors
 
-With very large installations the resources available on the login node might not
-be enough, resulting in Tykky failing with a `MemoryError`. In this case, the
+With very large installations the resources available on the login node might
+not be enough, resulting in Tykky failing with a `MemoryError`. In this case, the
 installation needs to be done on a compute node, for example using an [interactive
 session](../../computing/running/interactive-usage.md#sinteractive-in-puhti):
 
 ```bash
-# Start an interactive session, here with 12 GB memory and 15 GB local disk, increase if needed.
-sinteractive -m 12000 -d 15
+# Start interactive session, here with 12 GB memory and 15 GB local disk (increase if needed)
+sinteractive --account <project> --time 1:00:00 --mem 12000 --tmp 15
 
-# Define where Apptainer should store temporary files
-export APPTAINER_CACHEDIR=$LOCAL_SCRATCH
-export APPTAINER_TMPDIR=$LOCAL_SCRATCH
+# Load Tykky
+module purge
+module load tykky
 
 # Run the Tykky commands as described above, e.g.
 conda-containerize new --prefix <install_dir> env.yml
