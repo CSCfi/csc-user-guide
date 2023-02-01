@@ -18,6 +18,5 @@ SD Desktop is a certified environment for data processing under the Act on the S
 
 For more information see the user guide:
 
-* [SD Desktop for secondary use](../../data/sensitive-data/sd-desktop-audited.md) explaining how to apply access to the audited SD Desktop service and describing the use and limitations of the audited environment.
+* [SD Desktop for secondary use](../../data/sensitive-data/sd-desktop-audited.md) and [Accessing SD service](../../data/sensitive-data/sd-access.md) explaining how to apply access to the audited SD Desktop service and describing the use and limitations of the audited environment.
 
-* [Accessing SD service](../../data/sensitive-data/sd-access.md)
