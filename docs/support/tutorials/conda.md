@@ -30,7 +30,7 @@ we recommend:
     details on how to install your own packages to our modules. You can also
     [contact CSC Service Desk](../contact.md) with requests for missing packages.
 
-2. **Wrap your Conda or pip environment using CSC's Tykky tool**
+2. **Create containerized Conda or pip environment using CSC's Tykky tool**
 
     CSC has developed [a tool for wrapping existing Conda or pip
     installations](../../computing/containers/tykky.md) into a smaller set
