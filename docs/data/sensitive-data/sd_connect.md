@@ -31,11 +31,11 @@ You can browse through the main topics of the manual using the navigation bar on
 
 **Limitations**:
 
-* SD Connect is based on an object storage solution. Files are stored as file segments and can not be directly edited. All files (sensitive or non-sensitive, e.g. scripts) stored in SD Connect must be encrypted. 
+* SD Connect is based on an object storage solution. Files are called objects, they are stored as file segments and can not be directly edited. All files (sensitive or non-sensitive, e.g. scripts) stored in SD Connect must be encrypted. 
 
 * Automated encryption is currently limited to files <1GB. Lager files (up to 100 GB) can be encrypted with the Cryp4GH application and uploaded using SD Connect or programmatically (>100GB).
 
-* SD Connect user interface is compatible with all modern web browsers but not supported during private browsing (incognito mode). 
+* SD Connect user interface is compatible with all modern web browsers but not supported during Firefox private browsing. 
 
 *  The storage space remains available as long as the CSC project is active. All data will be deleted 90 days after account termination or project closure, accordingly to [CSC's General Terms of Use](https://research.csc.fi/general-terms-of-use). 
 
