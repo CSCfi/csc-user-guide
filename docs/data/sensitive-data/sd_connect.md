@@ -52,13 +52,13 @@ You can browse through the main topics of the manual using the navigation bar on
 
 ## Authentication
 
-Login to SD Connect is currently possible only with CSC credentials and  Haka (a user identity federation system) at:
+After [creating a CSC account, a CCS project and appling for Allas service access](../../sensitive-data/sd-access.md), login to SD Connect is currently possible only with CSC credentials and  Haka (a user identity federation system) at:
 
    * [https://sd-connect.csc.fi](https://sd-connect.csc.fi) 
 
 
 !!! Note
-    The interface is compatible with all modern web browsers but not supported during private browsing (incognito mode). 
+    The interface is compatible with all modern web browsers but does not support firefox private browsing (incognito mode). 
 
 [![SDConnect-login](images/connect/SDConnect-login.png)](images/connect/SDConnect-login.png)
 
