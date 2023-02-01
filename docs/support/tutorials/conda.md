@@ -33,7 +33,7 @@ we recommend:
 2. **Wrap your Conda or pip environment using CSC's Tykky tool**
 
     CSC has developed [a tool for wrapping existing Conda or pip
-    installations](../computing/containers/tykky.md) into a smaller set
+    installations](../../computing/containers/tykky.md) into a smaller set
     of files using Apptainer and SquashFS technologies. The tool is available
     as a pre-installed module and is also used for CSC's own installations.
 
@@ -48,4 +48,4 @@ we recommend:
     Conda to manage the packages without causing any file system issues.
 
     Read our documentation on [how to create your own Apptainer
-    container](../computing/containers/creating.md)
+    container](../../computing/containers/creating.md)
