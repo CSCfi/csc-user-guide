@@ -93,7 +93,7 @@ You can choose between four different pre-built virtual desktop options:
 
 
 !!! Note
-        For support in choosing the correct desktop option for your needs, don't hesitate to contact us at servicedesk@csc.fi (email subject: Sensitive data). 
+    For support in choosing the correct desktop option for your needs, don't hesitate to contact us at servicedesk@csc.fi (email subject: Sensitive data). 
 
 The following paragraphs will discuss how to work with your virtual desktop, which software is available, and how to customize your workspace.
 
@@ -512,7 +512,7 @@ To reboot a virtual machine:
 If the virtual desktop or software has become obsolete, you can use this option to rebuild your virtual desktop. 
 
 !!! Note
-This operation will delete all the files/software or scripts imported into the virtual desktop. Only the files saved in the volume will still be available. As a result, you will delete the entire virtual workspace. For this reason, please contact all the CSC project members before rebuilding a virtual desktop.
+    This operation will delete all the files/software or scripts imported into the virtual desktop. Only the files saved in the volume will still be available. As a result, you will delete the entire virtual workspace. For this reason, please contact all the CSC project members before rebuilding a virtual desktop.
 
 To reboot a virtual desktop:
 
@@ -535,7 +535,7 @@ You can delete your virtual desktop, external volume and all files saved in it a
 3- Onthe same raw, on the right side, click on _Options _ and select _Delete_.
 
 !!! Note
-Please contact all the project members before deleting a virtual desktop. With this action you will delete the entire workspace, including all files saved in the virtual desktop or external volume by other project memebrs. 
+    Please contact all the project members before deleting a virtual desktop. With this action you will delete the entire workspace, including all files saved in the virtual desktop or external volume by other project memebrs. 
 
 
 
