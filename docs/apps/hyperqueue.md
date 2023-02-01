@@ -143,13 +143,14 @@ until all are done, or the batch job time limit is reached.
     Do not include `srun` in the commands you want to run. HyperQueue will take care of
     launching the tasks using the allocated resources as requested.
 
-Let's assume we are working on Mahti and we have a file named `commandlist` with a list of commands
-that we want to run using 16 threads each. As an example, let's reserve 2 nodes so that we can run
-16 tasks simultaneously:
+Let's assume we have a file named `commandlist` with a list of commands that we want to
+run using 8 threads each. As an example, let's reserve 1 compute node for the whole job.
+This means that we could run either 5 or 16 tasks simultaneously depending on whether we
+are using Puhti or Mahti.
 
 ```bash
 module load sbatch-hq
-sbatch-hq --cores=16 --nodes=2 --account=<project> --partition=medium --time=02:00:00 commandlist
+sbatch-hq --cores=8 --nodes=1 --account=<project> --partition=test --time=00:15:00 commandlist
 ```
 
 The number of commands in the file can (usually should) be much larger than the number of commands
@@ -163,7 +164,7 @@ on usage and input options.
 #SBATCH --partition=test       # Queue name
 #SBATCH --account=<project>    # Billing project
 #SBATCH --nodes=1              # Number of nodes
-#SBATCH --cpus-per-task=40     # CPUs per task (40 on Puhti, 128 on Mahti)
+#SBATCH --cpus-per-task=<n>    # CPUs per task (40 on Puhti, 128 on Mahti)
 #SBATCH --ntasks-per-node=1    # Tasks per node
 #SBATCH --time=00:30:00        # Time limit
 
