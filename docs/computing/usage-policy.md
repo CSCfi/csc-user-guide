@@ -68,7 +68,7 @@ efficiently.
 Due to performance issues of Conda-based environments on parallel file systems,
 CSC has deprecated the _direct_ usage of Conda installations. This means that any
 Conda environments you intend to use must be installed within a container. See
-the page [Deprecating Conda](../support/deprecate-conda.md) for more information.
+[Conda best practices](../support/tutorials/conda.md) for more information.
 
 !!! info "Tykky"
     Please consider the [Tykky container wrapper](containers/tykky.md) for easy

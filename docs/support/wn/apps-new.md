@@ -156,7 +156,7 @@ performant filesystem for all users.
 inside a Singularity container, has been released. Containerization will considerably improve
 startup times and decrease IO load with less files on the shared parallel filesystem. We recommend
 wrapping all existing Conda environments within containers using Tykky as the [direct usage of
-Conda on CSC supercomputers has been deprecated](../deprecate-conda.md).
+Conda on CSC supercomputers has been deprecated](../tutorials/conda.md).
 
 ## TensorFlow 2.8, 17.3.2022
 
@@ -191,7 +191,7 @@ default module (gromacs-env).
 ## Direct usage of Conda deprecated, 4.2.2022
 
 CSC has [deprecated the direct usage of Conda
-installations](../deprecate-conda.md) on our supercomputers' (Puhti and Mahti)
+installations](../tutorials/conda.md) on our supercomputers' (Puhti and Mahti)
 shared file systems.
 
 ## Python Data 3.9-2, 20.1.2022
