@@ -1,23 +1,22 @@
 # Puhti web interface
 
-
 ## Intro
 
 The Puhti web interface at [www.puhti.csc.fi](https://www.puhti.csc.fi) can be used to access the Puhti supercomputer 
-using just a web browser. In the web interface you can:
+using only a web browser. With the web interface you can:
 
 - View, download and upload files
 - Launch common graphical applications and connect to them directly from the browser
     - Jupyter
-    - Rstudio
+    - RStudio
     - Visual Studio Code
     - and more
 - Open a shell on the login node
-- open a persistent shell on a compute node
+- Open a persistent shell on a compute node
 - View running batch jobs
 
 Everything still runs directly on Puhti, giving you all the resources and power
-of a supercomputer, but easily accessible using just a web browser. 
+of a supercomputer, but easily accessible using only a web browser.
 
 
 ## Connecting
@@ -32,7 +31,8 @@ After successful authentication, you will see the dashboard.
 
 ![Puhti web interface front page](../../img/ood_main.png)
 
-From here you can browse your files on Puhti, start a shell, view running jobs and start one of the many available programs. The front page also contains important system information.  
+From here you can browse your files on Puhti, start a shell, view running jobs or start one of the many available applications. The dashboard also contains some important system information.
+
 
 ## Available features
 
@@ -48,6 +48,7 @@ Note that the same rules apply here as during a normal ssh session.
 
 The _Compute node shell_ launches a persistent shell on a compute node for heavier commands that should not be run on login nodes.
 The persistent shell will keep running even if you close your browser or lose internet connection.
+
 
 ### Files
 
@@ -67,11 +68,13 @@ The file browser comes with a basic text editor. Some important notes on that:
 - There is no _save-as_ feature
 - If a read-only file is opened no indication will be given to the user but no changes will be applied
 
+
 ### Active jobs
 
 Recent and running batch jobs can be viewed using the _Jobs_ section on the top navbar and selecting _Active jobs_. Here you can view the current status of the job and what kind of resources were requested. Deleting a running job will cancel the job. 
 
 In the future it will become possible to submit batch jobs through the web interface, but for now the recommended way is to launch the jobs using `sbatch` from the shell.   
+
 
 ### Interactive apps
 
@@ -80,17 +83,17 @@ These are apps such as Jupyter Notebook, RStudio, Visual Studio Code and Rclone.
 
 If the interactive app does not start or does not work as expected you can delete the session and try to launch the app again.
 
+
 #### Launching an interactive app
 
-The interactive apps can be found in the navigation bar or on `My Interactive Sessions` page.
+The interactive apps can be found in the navigation bar under _Apps_, or on _My Interactive Sessions_ page.
 After selecting an interactive app from the list you will be presented with a form to configure the session.
-After submitting the app form the app will be started and you will be able to connect to the application on the `My Interactive Sessions` page.
+After submitting the app form the app will be started and you will be able to connect to the application on the _My Interactive Sessions_ page.
 
-For a list of applications and specific instructions see [apps](apps.md)
-
+For a list of applications and specific instructions see [apps](apps.md).
 
 
 ### Project view
 
 Using the project view under the _Tools_ section on the top navbar, you can view 
-current disk and project billing unit quotas on Puhti. For more information see [project-view](project-view.md) 
+current disk and project billing unit quotas on Puhti. For more information see [project-view](project-view.md).
