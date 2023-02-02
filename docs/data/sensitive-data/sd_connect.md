@@ -58,7 +58,7 @@ After creating a CSC account, a CCS project and appling for Allas service access
 
 
 !!! Note
-    The interface is compatible with all modern web browsers but does not support firefox private browsing (incognito mode). 
+    The interface is compatible with all modern web browsers but does not support Firefox private browsing (incognito mode). 
 
 [![SDConnect-login](images/connect/SDConnect-login.png)](images/connect/SDConnect-login.png)
 
