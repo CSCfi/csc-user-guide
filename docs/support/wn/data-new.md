@@ -9,7 +9,7 @@ We will evaluate individual cases to determine if the files can be retrieved. Cu
 Larger files can be encrypted following this workflow:
 
 * [Sensitive data encryption and upload for analysis, up to 100 GB](../../data/sensitive-data/sd_connect.md#sensitive-data-encryption-and-upload-for-analysis-up-to-100-gb)
-* [Command Line Interface: data encryption and upload](../..data/sensitive-data/sd_connect.md#command-line-interface-data-encryption-and-upload)
+* [Command Line Interface: data encryption and upload](../../data/sensitive-data/sd_connect.md#command-line-interface-data-encryption-and-upload)
 
 
 ## Sensitive Data services now have an audited computing environment for secondary use of social and health data 8.6.2022
