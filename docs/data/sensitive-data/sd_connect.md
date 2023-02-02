@@ -52,7 +52,7 @@ You can browse through the main topics of the manual using the navigation bar on
 
 ## Authentication
 
-After [creating a CSC account, a CCS project and appling for Allas service access](../../sensitive-data/sd-access.md), login to SD Connect is currently possible only with CSC credentials and  Haka (a user identity federation system) at:
+After creating a CSC account, a CCS project and appling for Allas service access, login to SD Connect is currently possible only with CSC credentials and  Haka (a user identity federation system) at:
 
    * [https://sd-connect.csc.fi](https://sd-connect.csc.fi) 
 
