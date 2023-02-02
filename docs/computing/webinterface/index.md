@@ -22,10 +22,14 @@ of a supercomputer, but easily accessible using just a web browser.
 
 ## Connecting
 
-Go to [puhti.csc.fi](https://puhti.csc.fi) using a web browser and login using your CSC user account (same username and password you use when connecting with `ssh`). 
+Using a web browser, go to [www.puhti.csc.fi](https://www.puhti.csc.fi). On the landing page, click on "Log in to Puhti" and select an appropriate authentication provider. When logging in using your CSC user account, select CSC as the authentication provider and use the same username and password you use when connecting with `ssh`.
+&nbsp;
+
 ![Puhti web interface login page](../../img/ood_login.png)
 
-After logging in, you will see the front page.
+After successful authentication, you will see the dashboard.
+&nbsp;
+
 ![Puhti web interface front page](../../img/ood_main.png)
 
 From here you can browse your files on Puhti, start a shell, view running jobs and start one of the many available programs. The front page also contains important system information.  
