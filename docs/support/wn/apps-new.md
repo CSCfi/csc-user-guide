@@ -1,5 +1,17 @@
 # Applications
 
+## CSC software collection on LUMI, 31.1.2023
+
+Applications pre-installed by CSC on the LUMI supercomputer can now be viewed in the
+[application list grouped by availability](../../apps/by_system.md). For a comprehensive
+list of available EasyBuild recipes for personal or project-specific installations, see
+the [LUMI Software Library](https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/).
+
+## CP2K 2023.1, 30.1.2023
+
+[CP2K](../../apps/cp2k.md) 2023.1 has been installed and set as the default module on Puhti
+and Mahti. [See release notes here](https://www.cp2k.org/version_history).
+
 ## Gromacs 2022.4, 16.1.2023
 
 [Gromacs](../../apps/gromacs.md) 2022.4 has been installed and set as the default module on Puhti
@@ -144,7 +156,7 @@ performant filesystem for all users.
 inside a Singularity container, has been released. Containerization will considerably improve
 startup times and decrease IO load with less files on the shared parallel filesystem. We recommend
 wrapping all existing Conda environments within containers using Tykky as the [direct usage of
-Conda on CSC supercomputers has been deprecated](../deprecate-conda.md).
+Conda on CSC supercomputers has been deprecated](../tutorials/conda.md).
 
 ## TensorFlow 2.8, 17.3.2022
 
@@ -179,7 +191,7 @@ default module (gromacs-env).
 ## Direct usage of Conda deprecated, 4.2.2022
 
 CSC has [deprecated the direct usage of Conda
-installations](../deprecate-conda.md) on our supercomputers' (Puhti and Mahti)
+installations](../tutorials/conda.md) on our supercomputers' (Puhti and Mahti)
 shared file systems.
 
 ## Python Data 3.9-2, 20.1.2022
