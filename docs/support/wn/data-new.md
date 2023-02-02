@@ -1,6 +1,6 @@
 # Data management
 
-## Techincal issues on SD Connect: follow up 02.2023
+## Technical issues on SD Connect: follow up 2.2.2023
 
 Files uploaded using the SD Connect automated encryption option between November 2, 2022, and December 20, 2022, might be corrupted. This is because during the upload phase, files are split into short segments, and in some cases, due to a technical issue, the correct segment's order has been lost, making the files unreadable. Therefore, if you have used this function, we advise you to upload a new copy of the files. If this is impossible, don't hesitate to contact us at servicedesk@csc.fi. 
 
