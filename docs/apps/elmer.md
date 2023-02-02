@@ -5,8 +5,8 @@ tags:
 
 # Elmer
 
-Elmer is CSC's open source Finite Element multi-physics simulation package.  It covers modules for fluid and solid mechanics,
-acoustics, electro-magneto dynamics 
+Elmer is CSC's open source Finite Element multi-physics simulation package. It covers modules for fluid and solid mechanics,
+acoustics, electro-magneto dynamics
 
 Elmer utilizes third-party open source programs for pre- (e.g., Gmsh) and post-processing (e.g., ParaView, Visit).
 The version installed includes Elmer/Ice solvers needed for glaciological simulations (ice-sheets, glaciers).
@@ -17,35 +17,37 @@ directives implemented.
 
 ## Available
 
--  Puhti: 9.0
--  Mahti: 9.0
+- Puhti: 9.0
+- Mahti: 9.0
+- LUMI: 9.0
 
 ## License
-Elmer is licensed under GPL and (as for the elmersolver.lib) LGPL, hence free to use for everyone.
+
+Elmer is licensed under GPL and (as for the `elmersolver.lib`) LGPL, hence free to use for everyone.
 
 ## Usage
 
 Elmer version available can be listed using the command
 
 ```bash
-$ module avail elmer
+module avail elmer
 ```
 
-The default version of Elmer is taken into use by 
+The default version of Elmer is taken into use by
 
 ```bash
-$ module load elmer/latest
+module load elmer/latest
 ```
 
-We recommend to use this version (except for special reasons) on both platforms. 
+We recommend to use this version (except for special reasons) on both platforms.
 
 Be aware that this version is frequently updated. If you have User Functions as compiled code added to your case, make sure to recompile upon such an update (the date is displayed upon loading the module).
 
-**Example parallel batch script for Puhti**
+### Example parallel batch script for Puhti
 
-This is a basic script for a 30 minute single full node job using all 40 cores and reserving 2 GB memory for each core. 
+This is a basic script for a 30 minute single full node job using all 40 cores and reserving 2 GB memory for each core.
 
-```
+```bash
 #!/bin/bash 
 #SBATCH --time=00:30:00
 #SBATCH --job-name=jobname
@@ -68,11 +70,11 @@ echo "done"
 
 Instructions on how to submit and monitor jobs can be found [here](../computing/running/submitting-jobs.md).
 
-**Example parallel batch script for Mahti**
+### Example parallel batch script for Mahti
 
 The main difference on mahti is, that only complete nodes can be allocated. A single node contains 128 cores (we do _not_ recommend to use [multithreading](../computing/running/creating-job-scripts-mahti.md#hybrid-batch-jobs-with-simultaneous-multithreading-smt)). The following script submits a 6 hour job using 4 nodes and all 128 cores per node (hence in total 512).
 
-```
+```bash
 #!/bin/bash 
 #SBATCH --time=06:00:00
 #SBATCH --job-name=jobname
@@ -97,4 +99,4 @@ It can be advantageous to utilize fewer cores per node as available, which can i
 
 ## More information
 
--   [Elmer home page](https://www.elmerfem.org)
+- [Elmer home page](https://www.elmerfem.org)
