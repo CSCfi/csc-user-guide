@@ -1,13 +1,13 @@
 
 # Sensitive Data Desktop for secondary use of health and social data 
 
-Sensitive Data (SD) Desktop is a registered environment for secondary use of health and social data (register data). Access to the service requires a permit from the Findata authority. SD Desktop is a web-user interface that allows you to manage (start, use, delete) a virtual computer (here called Desktop, technically defined as a virtual machine) from your web browser. With the virtual Desktop, you can access the authorised datasets. No previous knowledge of cloud computing or programming expertise is required to use the service.
+Sensitive Data (SD) Desktop is a registered environment for secondary use of health and social data (register data). Access to the service requires a permit from the Findata authority. SD Desktop is a web-user interface that allows you to manage (start, use, delete) a virtual computer (here called desktop, technically defined as a virtual machine) from your web browser. With the virtual desktop, you can access the authorised datasets. No previous knowledge of cloud computing or programming expertise is required to use the service.
 In the following user guide, you can learn how to:
 
 * apply for service access;
-* set up your virtual Desktop;
+* set up your virtual desktop;
 * analyze data authorised by Findata;
-* request export of non-sensitive results from the secure virtual Desktop.
+* request export of non-sensitive results from the secure desktop.
 
 !!! Note 
     We apologise for any confusion caused by the previous name of the service. You can apply to use SD Desktop by sending an application to Findata. This is a restricted version of the service compared to standard SD Desktop.
@@ -156,7 +156,7 @@ When you log in to SD Desktop **Homepage**, you will be able to access your virt
 
 When you open the connection, a virtual computing environment (Linux Centos operating system) will open into your browser. When you access the virtual Desktop for the first time, you will see the getting started panel, from which you can, for example, adjust the screen resolution.
 
-You can work with this virtual Desktop like in a standard computing environment.  From the applications menu bar (top left corner) you can access several pre-installed programs. Examples include Open Office, image viewing applications, video and audio players, Jupiter Notebook etc. You can also open a terminal and use Linux from command line. To start using R-Studio please check [the paragraph](../../data/sensitive-data/sd_desktop.md#rstudio-in-sd-desktop) under SD Desktop.
+You can work with this virtual Desktop like in a standard computing environment.  From the applications menu bar (top left corner) you can access several pre-installed programs. Examples include Open Office, image viewing applications, video and audio players, Jupiter Notebook etc. You can also open a terminal and use Linux from command line. To start using R-Studio please check [the following paragraph](../../data/sensitive-data/sd-desktop-audited.md#rstudio-in-sd-desktop).
 
 
 Security-related features of the audited SD Desktop include:
