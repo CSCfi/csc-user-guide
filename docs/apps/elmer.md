@@ -32,7 +32,10 @@ On Puhti and Mahti, the Elmer versions available can be listed using the command
 ```bash
 module avail elmer
 ```
-
+On LUMI, one needs to first take into use the module files of CSC installed software:
+```bash
+module use /appl/local/csc/modulefiles/
+module avail elmer
 The default version of Elmer is taken into use by
 
 ```bash
