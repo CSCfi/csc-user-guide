@@ -27,7 +27,7 @@ Elmer is licensed under GPL and (as for the `elmersolver.lib`) LGPL, hence free 
 
 ## Usage
 
-Elmer version available can be listed using the command
+On Puhti and Mahti, the Elmer versions available can be listed using the command
 
 ```bash
 module avail elmer
