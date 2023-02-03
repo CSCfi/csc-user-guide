@@ -12,6 +12,11 @@ using only a web browser. With the web interface you can:
     - RStudio
     - Visual Studio Code
     - and more
+- Launch an interactive GPU accelerated visualization session for applications such as
+    - Blender
+    - COMSOL
+    - ParaView
+    - VMD
 - Open a shell on the login node
 - Open a persistent shell on a compute node
 - View running batch jobs
