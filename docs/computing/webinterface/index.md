@@ -8,6 +8,7 @@ using only a web browser. With the web interface you can:
 - View, download and upload files
 - Launch common graphical applications and connect to them directly from the browser
     - Jupyter
+    - Jupyter for courses: An interactive Jupyter session specifically for courses
     - RStudio
     - Visual Studio Code
     - and more
