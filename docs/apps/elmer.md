@@ -39,7 +39,7 @@ The default version of Elmer is taken into use by
 module load elmer/latest
 ```
 
-We recommend to use this version (except for special reasons) on both platforms.
+We recommend to use this version (except for special reasons) on all platforms.
 
 Be aware that this version is frequently updated. If you have User Functions as compiled code added to your case, make sure to recompile upon such an update (the date is displayed upon loading the module).
 
