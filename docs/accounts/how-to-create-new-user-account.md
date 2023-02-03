@@ -59,7 +59,7 @@ You will receive the accounts' information via email and SMS.
 
     Student accounts are only valid during the
     course. Please request the accounts in advance, at least one week before
-    the course begins.
+    the course begins. Also please note that student accounts do not work on Puhti Web interface, only via SSH terminal sessions.
 
 ## Getting a machine-to-machine robot account
 
