@@ -34,17 +34,6 @@
       the left hand side of the navigation bar
     * Or use the search functionality
 
-!!! info "Puhti upgraded to RHEL 8"
-
-    The operating system of Puhti has been upgraded to Red Hat Enterprise Linux (RHEL) 8.
-    [Click here for more information.](./support/wn/comp-new.md#puhti-operating-system-updated-to-rhel8-5102022)
-
-    !!! warning-label
-
-        If you encounter any issues, please don't hesitate to [contact Service
-        Desk](support/contact.md)!
-
-
 <!--- Placeholder for a possible banner in the future
 
 [![CSC Summer School in High-Performance Computing 2022](img/banneri__summerhpc_800x164px_csc.fi.png 'CSC Summer School in High-Performance Computing 2022')](https://ssl.eventilla.com/summerschool)
@@ -88,6 +77,9 @@
     </div>
     <div class="quick-links-item">
       <a class="quick-link" target="_self" href="data/sensitive-data/">Sensitive Data Services Guide</a>
+    </div>
+    <div class="quick-links-item">
+      <a class="quick-link" target="_blank" href="https://www.fairdata.fi/en/fairdata-quick-guide/">Fairdata Services Guides</a><sup>&#128279;</sup>
     </div>
   </div>
 

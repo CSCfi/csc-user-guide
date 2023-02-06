@@ -1,5 +1,22 @@
 # Applications
 
+## CSC software collection on LUMI, 31.1.2023
+
+Applications pre-installed by CSC on the LUMI supercomputer can now be viewed in the
+[application list grouped by availability](../../apps/by_system.md). For a comprehensive
+list of available EasyBuild recipes for personal or project-specific installations, see
+the [LUMI Software Library](https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/).
+
+## CP2K 2023.1, 30.1.2023
+
+[CP2K](../../apps/cp2k.md) 2023.1 has been installed and set as the default module on Puhti
+and Mahti. [See release notes here](https://www.cp2k.org/version_history).
+
+## Gromacs 2022.4, 16.1.2023
+
+[Gromacs](../../apps/gromacs.md) 2022.4 has been installed and set as the default module on Puhti
+and Mahti. [See release notes here](https://manual.gromacs.org/2022.4/release-notes/2022/2022.4.html).
+
 ## License for Materials and Discovery Studio no longer available, 3.1.2023
 
 The national [Materials Studio](../../apps/materialsstudio.md) and
@@ -66,24 +83,29 @@ the side navigation: Applications > By license)
 
 ## Python Data 3.10-22.09, 7.10.2022
 
-Coinciding with the Red Hat 8 update of Puhti, a new [Python Data](../../apps/python-data.md) module has been installed (on both Puhti and Mahti). In addition, old conda-based modules have been removed, and the naming of modules has changed. Modules are now named according to the Python version (PV) and the year (YY) and month (MM) of the installation, as PV-YY.MM. Typically the module will include the newest versions of libraries at installation time, to the extent software dependencies allow. Modules can also be loaded simply with the Python version, and you will get the most recent installation with that version of Python, for example: `module load python-data/3.9`.
+Coinciding with the Red Hat 8 update of Puhti, a new [Python Data](../../apps/python-data.md)
+module has been installed (on both Puhti and Mahti). In addition, old conda-based modules have
+been removed, and the naming of modules has changed. Modules are now named according to the Python
+version (PV) and the year (YY) and month (MM) of the installation, as PV-YY.MM. Typically the
+module will include the newest versions of libraries at installation time, to the extent software
+dependencies allow. Modules can also be loaded simply with the Python version, and you will get
+the most recent installation with that version of Python, for example: `module load python-data/3.9`.
 
 ## `r-env-singularity` renamed to `r-env` and update to R 4.2.1 coinciding with RHEL8 update, 14.9.2022
 
-Following the RHEL8 update on Puhti, the `r-env-singularity` module has been renamed to [`r-env`](../../apps/r-env.md).
-The R version has been updated to 4.2.1, along with several other version updates for installations included in the module.
-Due to the RHEL8 update requiring modifications to the `r-env` module setup, older R versions are currently unavailable.
+Following the RHEL8 update on Puhti, the `r-env-singularity` module has been renamed to
+[`r-env`](../../apps/r-env.md). The R version has been updated to 4.2.1, along with several
+other version updates for installations included in the module. Due to the RHEL8 update requiring
+modifications to the `r-env` module setup, older R versions are currently unavailable.
 
 ## Discovery Studio and Material Studio license discontinued in 2023, 25.8.2022
 
-CSC has beed providing a national academic license for [Discovery Studio](../../apps/discovery-studio.md)
-and [Materilas Studio](../../apps/materialsstudio.md).
-Due to small usage, and the availability of overlapping tools
-([Maestro](../../apps/maestro.md)) the licence will be not
-continued after this year. This means than in 2023 these molecular modeling tools
-can't be use any more at CSC nor in users own computers. Please contact
-servicedesk@csc.fi if you need help in moving your moleclular modeling work
-to other modeling environments.
+CSC has been providing a national academic license for [Discovery Studio](../../apps/discovery-studio.md)
+and [Materials Studio](../../apps/materialsstudio.md). Due to small usage and the availability of
+overlapping tools ([Maestro](../../apps/maestro.md)), the license will not be continued after this
+year. This means that in 2023 these molecular modeling tools can't be used any more at CSC nor on
+users' own computers. Please contact [Service Desk](../contact.md) if you need help in moving your
+molecular modeling work to other modeling environments.
 
 ## PyTorch 1.12, 8.7.2022
 
@@ -108,7 +130,10 @@ default versions have been changed to these new versions.
 
 ## CP2K 9.1 linked to Gromacs 2022, 19.4.2022
 
-[CP2K](../../apps/cp2k.md) 9.1 has been linked to [Gromacs](../../apps/gromacs.md) 2022 for QM/MM in the module `gromacs-env/2022-cp2k` on Mahti. This option was previously available under the CP2K module `cp2k/8.1-gmx`, which has now been deprecated. Please use `gromacs-env/2022-cp2k` for QM/MM simulations from now on.
+[CP2K](../../apps/cp2k.md) 9.1 has been linked to [Gromacs](../../apps/gromacs.md) 2022 for QM/MM
+in the module `gromacs-env/2022-cp2k` on Mahti. This option was previously available under the
+CP2K module `cp2k/8.1-gmx`, which has now been deprecated. Please use `gromacs-env/2022-cp2k` for
+QM/MM simulations from now on.
 
 ## PyTorch 1.11, 8.4.2022
 
@@ -119,11 +144,19 @@ module documentation](../../apps/pytorch.md).
 
 ## LUE released on Puhti, 5.4.2022
 
-An approximate tool called [LUE](../tutorials/lue.md) (Lustre Usage Explorer) for reporting amount of data in folders has been released on Puhti. LUE is significantly faster than standard tools like `stat` or `du` while being nicer on the file system. Please use LUE to keep track of how much data/files you have on the disk and perform clean-ups in a timely manner to ensure a more performant filesystem for all users.
+An approximate tool called [LUE](../tutorials/lue.md) (Lustre Usage Explorer) for reporting amount
+of data in folders has been released on Puhti. LUE is significantly faster than standard tools like
+`stat` or `du` while being nicer on the file system. Please use LUE to keep track of how much
+data/files you have on the disk and perform clean-ups in a timely manner to ensure a more
+performant filesystem for all users.
 
 ## Tykky 0.2.2, 31.3.2022
 
-[Tykky](../../computing/containers/tykky.md), a brand new tool for wrapping Conda/pip environments inside a Singularity container, has been released. Containerization will considerably improve startup times and decrease IO load with less files on the shared parallel filesystem. We recommend wrapping all existing Conda environments within containers using Tykky as the [direct usage of Conda on CSC supercomputers has been deprecated](../deprecate-conda.md).
+[Tykky](../../computing/containers/tykky.md), a brand new tool for wrapping Conda/pip environments
+inside a Singularity container, has been released. Containerization will considerably improve
+startup times and decrease IO load with less files on the shared parallel filesystem. We recommend
+wrapping all existing Conda environments within containers using Tykky as the [direct usage of
+Conda on CSC supercomputers has been deprecated](../tutorials/conda.md).
 
 ## TensorFlow 2.8, 17.3.2022
 
@@ -134,25 +167,31 @@ for more details.
 
 ## Gromacs 2022, 9.3.2022
 
-[Gromacs 2022](../../apps/gromacs.md) has been installed on Puhti and Mahti and is available on both systems with `module load gromacs-env/2022`. A list of new features and changes is found in the [Gromacs manual](https://manual.gromacs.org/documentation/current/release-notes/index.html#gromacs-2022-series). gromacs-env/2021 is now the default.
+[Gromacs 2022](../../apps/gromacs.md) has been installed on Puhti and Mahti and is available on
+both systems with `module load gromacs-env/2022`. A list of new features and changes is found in the
+[Gromacs manual](https://manual.gromacs.org/documentation/current/release-notes/index.html#gromacs-2022-series).
+`gromacs-env/2021` is now the default.
 
 ## CP2K 9.1, 4.3.2022
 
-[CP2K](../../apps/cp2k.md) version 9.1 has been installed on Mahti and is available with `module load cp2k/9.1-omp`, given that `gcc/10.3.0` and `openmpi/4.1.0` are first loaded. A list of new features and changes is found on the [CP2K website](https://www.cp2k.org/version_history#section91).
+[CP2K](../../apps/cp2k.md) version 9.1 has been installed on Mahti and is available with
+`module load cp2k/9.1-omp`, given that `gcc/10.3.0` and `openmpi/4.1.0` are first loaded.
+A list of new features and changes is found on the [CP2K website](https://www.cp2k.org/version_history#section91).
 
 ## Schrödinger Maestro 2022.1, 25.2.2022
 
-Schrödinger Maestro 2022.1 has been installed on Puhti and set as the default module. For a list of new features, see the [Schrödinger website](https://www.schrodinger.com/releases/new-features).
+Schrödinger Maestro 2022.1 has been installed on Puhti and set as the default module. For a list
+of new features, see the [Schrödinger website](https://www.schrodinger.com/releases/new-features).
 
 ## Gromacs 2021 now default version, 7.2.2022
 
-[Gromacs 2021.5](../../apps/gromacs.md) has been installed on Puhti and Mahti and set as the default module
-(gromacs-env).
+[Gromacs 2021.5](../../apps/gromacs.md) has been installed on Puhti and Mahti and set as the
+default module (gromacs-env).
 
 ## Direct usage of Conda deprecated, 4.2.2022
 
 CSC has [deprecated the direct usage of Conda
-installations](../deprecate-conda.md) on our supercomputers' (Puhti and Mahti)
+installations](../tutorials/conda.md) on our supercomputers' (Puhti and Mahti)
 shared file systems.
 
 ## Python Data 3.9-2, 20.1.2022
@@ -197,21 +236,35 @@ for more details. CSC's module has the following improvements:
 
 ## Schrödinger Maestro 2021.3, 30.8.2021
 
-Schrödinger Maestro 2021.3 has been installed on Puhti and set as the default module. The [extended Maestro instructions](../tutorials/power-maestro.md#quantum-espresso) have been appended with a section on how to speed up Quantum Espresso jobs. A bug in the script that generates the `schrodinger.hosts` file has also been fixed by setting the `parallel` HOST entry to use the `large` Slurm partition as intended.
+Schrödinger Maestro 2021.3 has been installed on Puhti and set as the default module. The [extended
+Maestro instructions](../tutorials/power-maestro.md#quantum-espresso) have been appended with a
+section on how to speed up Quantum Espresso jobs. A bug in the script that generates the
+`schrodinger.hosts` file has also been fixed by setting the `parallel` HOST entry to use the
+`large` Slurm partition as intended.
 
 ## Turbomole 7.5.1, 25.8.2021
 
-Turbomole 7.5.1 is now available and the default module on Puhti. The most important change with this version is that the `ricc2` module for performing 2nd order approximate coupled cluster calculations works appropriately, while older versions on Puhti have been recently reported to suffer from numerical instabilities. These issues do not apply to TM v7.5 installed on Mahti.
+Turbomole 7.5.1 is now available and the default module on Puhti. The most important change
+with this version is that the `ricc2` module for performing 2nd order approximate coupled
+cluster calculations works appropriately, while older versions on Puhti have been recently
+reported to suffer from numerical instabilities. These issues do not apply to TM v7.5 installed
+on Mahti.
 
 ## CP2K 8.2, 13.8.2021
 
-CP2K version 8.2 has been installed on Mahti and is available with `module load cp2k/8.2-omp`. This requires that `gcc/10.3.0` and `openmpi/4.1.0` are first loaded. Version `7.1-elpa` will remain the default module for now, but will be changed to `8.2-omp` in the near future (despite the name, the ELPA diagonalization library is also linked to the new 8.2 version). The `cp2k.psmp` binary of version `8.2-omp` has been tested and is roughly as efficient as `7.1-elpa`.
+CP2K version 8.2 has been installed on Mahti and is available with `module load cp2k/8.2-omp`.
+This requires that `gcc/10.3.0` and `openmpi/4.1.0` are first loaded. Version `7.1-elpa` will
+remain the default module for now, but will be changed to `8.2-omp` in the near future (despite
+the name, the ELPA diagonalization library is also linked to the new 8.2 version). The `cp2k.psmp`
+binary of version `8.2-omp` has been tested and is roughly as efficient as `7.1-elpa`.
 
-A list of new features and changes is found on the [CP2K website](https://www.cp2k.org/version_history). Note that some keywords, such as `MAP_CONSISTENT` in the `QS` section, have been deprecated.
+A list of new features and changes is found on the [CP2K website](https://www.cp2k.org/version_history).
+Note that some keywords, such as `MAP_CONSISTENT` in the `QS` section, have been deprecated.
 
 ## AMS 2021.102, 13.8.2021
 
-AMS has been updated to version 2021.102 on both Mahti and Puhti and set as the default module. The [AMS documentation](../../apps/ams.md) has been updated accordingly to cover version 2021.102.
+AMS has been updated to version 2021.102 on both Mahti and Puhti and set as the default module. The
+[AMS documentation](../../apps/ams.md) has been updated accordingly to cover version 2021.102.
 
 ## Molpro 2021.2, 10.8.2021
 

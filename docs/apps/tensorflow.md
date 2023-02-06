@@ -21,7 +21,7 @@ Deep learning framework for Python.
 
     **4.2.2022** All old TensorFlow versions which were based on direct Conda
     installations have been deprecated, and we encourage users to move to newer
-    versions. Read more on our separate [Conda deprecation page](../support/deprecate-conda.md).
+    versions. Read more on our separate [Conda deprecation page](../support/tutorials/conda.md).
 
 
 ## Available
@@ -96,7 +96,7 @@ module load tensorflow
 To access TensorFlow on LUMI:
 
 ```text
-module use /appl/local/csc/soft/ai/modulefiles/
+module use /appl/local/csc/modulefiles/
 module load tensorflow
 ```
 
@@ -178,7 +178,7 @@ a single node:
     #SBATCH --mem=64G
     #SBATCH --time=1:00:00
     
-    module use /appl/local/csc/soft/ai/modulefiles/
+    module use /appl/local/csc/modulefiles/
     module load tensorflow/2.10
     srun python3 myprog.py <options>
     ```

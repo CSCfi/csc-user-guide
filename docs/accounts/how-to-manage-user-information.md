@@ -23,8 +23,8 @@ In our example we will link CSC user account to MyAccessID but this method is si
 1. Choose _Profile_ in the navigation menu on the left.
 1. Select 'MyAccessID' on the 'Login Methods' panel
 1. When asked for confirmation to do the linking, click 'Confirm'
-1. You're now transferred to MyAccessID login page and you must provide your home orgazation to the search field
-1. When you've selected your home orgazation you're transferred to your login page and need authenticate
+1. You're now transferred to MyAccessID login page and you must provide your home organization to the search field
+1. When you've selected your home organization you're transferred to your login page and need authenticate
 1. After successful authentication your CSC user account is now linked with MyAccessID
 
 ### You do not have a MyAccessID available

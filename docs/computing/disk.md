@@ -19,7 +19,7 @@ is available.
 |------------|--------|--------------------|---------------------|-------------------------|----------------|
 |**home**    |Personal|`${HOME}`           |`/users/<user-name>` |No                       |No              |
 |**projappl**|Project |Not available       |`/projappl/<project>`|No                       |No              |
-|**scratch** |Project |Not available       |`/scratch/<project>` |Not yet - will be 90 days|No              |
+|**scratch** |Project |Not available       |`/scratch/<project>` |180 days on Puhti        |No              |
 
 These disk areas have quotas for both the amount of data and total number of files:
 

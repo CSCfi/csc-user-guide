@@ -16,8 +16,9 @@
         [See here for more information and connection details](https://ssl.eventilla.com/event/PP4WB).
 
 !!! info "LUMI User Support Team"
-    If your support request concerns the LUMI supercomputer, please [contact the LUMI User
-    Support Team](https://docs.lumi-supercomputer.eu/helpdesk/).
+    Support requests pertaining to software under `/appl/local/csc` on LUMI should
+    be directed to CSC Service Desk. In other LUMI-related issues, please [contact
+    the LUMI User Support Team](https://docs.lumi-supercomputer.eu/helpdesk/).
 
 ## How to write good support requests
 

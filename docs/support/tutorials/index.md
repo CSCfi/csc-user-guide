@@ -59,6 +59,7 @@
 ## Geoinformatics
 * [GDAL tutorial](gis/gdal.md)
 * [Virtual rasters](gis/virtual-rasters.md)
+* [Earth Observation (EO) guide](gis/eo_guide.md)
 
 ## Pouta - cloud
 * [cPouta and ePouta related videos](../../cloud/pouta/pouta-videos.md)
@@ -76,6 +77,7 @@
 * [How to transfer data to Rahti?](../../cloud/rahti/tutorials/transfer_data_rahti.md)
 * [How to add docker hub credentials to a project](../../cloud/rahti/tutorials/docker_hub_login.md)
 * [How to manually cache images in Rahti's registry](../../cloud/rahti/tutorials/docker_hub_manual_caching.md)
+* [How to package a Kubernetes application with Helm?](../../cloud/rahti/tutorials/helm.md)
 * [Accessing databases on Rahti from CSC supercomputers](../../cloud/rahti/tutorials/connect-database-hpc.md)
 
 ## Visualisation

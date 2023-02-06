@@ -27,7 +27,8 @@ module load lazypipe
 Now lazypipe starts with commands:
 
 ```text
-cp /appl/soft/bio/lazypipe/2.0/lazypipe/default.config.yaml config.yaml
+cp /appl/soft/bio/lazypipe/2.1/lazypipe/config.yaml config.yaml
+echo tmpdir: \"$(pwd)\" >> config.yaml
 lazypipe.pl
 ```
 
@@ -67,7 +68,7 @@ use if no new value is defined):
 
    *   accounting project
    *   maximum duration of the job (default 24 hours )
-   *   memory reservation ( default 8G)
+   *   memory reservation ( default 32G)
    *   number of computing cores to use ( default 8 )
    *   email notifications
    
