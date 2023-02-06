@@ -122,7 +122,7 @@ Be aware that this version is frequently updated. If you have User Functions as 
     echo "done"
     ```    
 
-Instructions on how to submit and monitor jobs can be found [here](../computing/running/submitting-jobs.md) in CSC docs, and [here](https://docs.lumi-supercomputer.eu/runjobs/scheduled-jobs/slurm-quickstart/) in LUMI docs.
+Instructions on how to submit and monitor jobs can be found in [CSC docs](../computing/running/submitting-jobs.md) and in [LUMI docs](https://docs.lumi-supercomputer.eu/runjobs/scheduled-jobs/slurm-quickstart/).
 
 It can be advantageous to utilize fewer cores per node as available, which can increase performance in certain Elmer cases. See the example on [undersubscribing](../computing/running/creating-job-scripts-mahti.md#undersubscribing-nodes).
 
