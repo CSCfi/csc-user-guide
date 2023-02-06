@@ -38,7 +38,6 @@ Using CSC computing services requires basic Linux skills and ability to use some
 What to consider when chosing data:
 
 * Sensor
-    * Optical
     * Multispectal
     * Hyperspectral
     * RADAR (Radio Detection and Ranging), SAR (Synthetic Aperture Radar)
@@ -66,7 +65,7 @@ What to consider when chosing data:
 
 |Name|Max resolution, m|Revisit time, days|Years of operation|Open data|
 |--------------|------------|-----|---------|---------|
-|**Optical, multispectral**|
+|**Multispectral**|
 |**[ESA, Sentinel-2](https://sentinel.esa.int/web/sentinel/missions/sentinel-2)**|10-60|5|2015->|Yes|
 |**[NASA, Landsat](https://landsat.gsfc.nasa.gov/)**|15-120|8|1972->|Yes|
 |[ESA, Proba-V](https://earth.esa.int/eogateway/catalog/proba-v-1km-333m-and-100m-products)|100-1000|1-2|2013->|Yes|
