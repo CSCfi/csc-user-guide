@@ -32,6 +32,7 @@ On Puhti and Mahti, the Elmer versions available can be listed using the command
 ```bash
 module avail elmer
 ```
+
 On LUMI, one needs to first take into use the module files of CSC installed software:
 
 ```bash
@@ -39,7 +40,7 @@ module use /appl/local/csc/modulefiles/
 module avail elmer
 ```
 
-The default version of Elmer is taken into use by
+The default version of Elmer is loaded with
 
 ```bash
 module load elmer/latest
@@ -52,7 +53,7 @@ Be aware that this version is frequently updated. If you have User Functions as 
 ### Example parallel batch script
 
 === "Puhti"
-    This is a basic script for a 30 minute single full node job using all 40 cores and reserving 2 GB memory for each core, where the Elmer input file is `myrun.sif`.
+    This is a basic script for a 30 minute single node job using all 40 cores and reserving 2 GB memory for each core, where the Elmer input file is `myrun.sif`.
 
     ```bash
     #!/bin/bash 
@@ -76,7 +77,7 @@ Be aware that this version is frequently updated. If you have User Functions as 
     ```
 
 === "Mahti"
-    The main difference on mahti is, that only complete nodes can be allocated. A single node contains 128 cores (we do _not_ recommend to use [multithreading](../computing/running/creating-job-scripts-mahti.md#hybrid-batch-jobs-with-simultaneous-multithreading-smt)). The following script submits a 6 hour job using 4 nodes and all 128 cores per node (hence in total 512).
+    The main difference on Mahti is that only full nodes can be allocated. A single node contains 128 cores (we do _not_ recommend to use [multithreading](../computing/running/creating-job-scripts-mahti.md#hybrid-batch-jobs-with-simultaneous-multithreading-smt)). The following script submits a 6 hour job using 4 nodes and all 128 cores per node (hence in total 512).
 
     ```bash
     #!/bin/bash 
@@ -100,7 +101,7 @@ Be aware that this version is frequently updated. If you have User Functions as 
     ```
 
 === "LUMI"
-    Basic script for a 1 hour job using 4 nodes and 128 cores in total, where the Elmer input file is myrun.sif.
+    Basic script for a 1 hour job using 4 nodes and 128 cores in total, where the Elmer input file is `myrun.sif`.
 
     ```bash
     #!/bin/bash 
@@ -125,7 +126,7 @@ Be aware that this version is frequently updated. If you have User Functions as 
 
 Instructions on how to submit and monitor jobs can be found in [CSC docs](../computing/running/submitting-jobs.md) and in [LUMI docs](https://docs.lumi-supercomputer.eu/runjobs/scheduled-jobs/slurm-quickstart/).
 
-It can be advantageous to utilize fewer cores per node as available, which can increase performance in certain Elmer cases. See the example on [undersubscribing](../computing/running/creating-job-scripts-mahti.md#undersubscribing-nodes).
+It can be advantageous to utilize fewer cores per node than available to increase performance in certain Elmer cases. See the example on [undersubscribing](../computing/running/creating-job-scripts-mahti.md#undersubscribing-nodes).
 
 ## More information
 
