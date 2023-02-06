@@ -13,6 +13,7 @@ This guide aims to help researchers to work with Earth Observation (EO) data usi
 !!! default "Raster data format"
 
     Most EO data is available in <a href="https://towardsdatascience.com/the-ultimate-beginners-guide-to-geospatial-raster-data-feb7673f6db0" aria-label="Towards data science guide to raster data">raster format</a>. The most common file formats are <a href="https://en.wikipedia.org/wiki/GeoTIFF" aria-label="GeoTiff data format description">GeoTiff</a> and <a href="http://giswiki.org/wiki/GeoJPEG2000" aria-label="GeoJPEG2000 data format description">GeoJPEG2000</a>.
+
 ## Why should I use CSC computing resources for EO?
 
 For working with EO data in general, there are three main options:
@@ -115,7 +116,9 @@ Some Finnish EO datasets are available locally at CSC. A STAC catalog for all sp
 
 **[SYKE/FMI, Finnish image mosaics](https://www.syke.fi/fi-FI/Tutkimus__kehittaminen/Tutkimus_ja_kehittamishankkeet/Hankkeet/Paikkatietoalusta_PTA)** : Sentinel-1, Sentinel-2 and Landsat mosaics, for several time periods per year. Some of them are available in Puhti, but not all. [FMI provides also a STAC catalog for these mosaics](https://pta.data.lit.fmi.fi/stac/root.json)
 
-[**European Space Agency's SciHub**](https://scihub.copernicus.eu/dhus/#/home) provides worldwide main products for Sentinel-1, -2 and -3. It requires free registration. Big part of the data is in the "Long term archive" and cannot be downloaded directly, but needs to be requested first. Download is limited to 2 concurrent processes per user. Please note that between end of January and July 2023 this system is being updated to become the [Copernicus Space Ecosystem](https://medium.com/sentinel-hub/new-copernicus-data-access-service-to-support-the-ecosystem-for-earth-observation-412f829355a3). 
+[**European Space Agency's SciHub**](https://scihub.copernicus.eu/dhus/#/home) provides worldwide main products for Sentinel-1, -2 and -3. It requires free registration. Big part of the data is in the "Long term archive" and cannot be downloaded directly, but needs to be requested first. Download is limited to 2 concurrent processes per user. Please note that between end of January and July 2023 this system is being updated to become the [Copernicus Space Ecosystem](https://medium.com/sentinel-hub/new-copernicus-data-access-service-to-support-the-ecosystem-for-earth-observation-412f829355a3). SciHub will continue its full operations until the end of June 2023.
+
+[**Copernicus Data Space Ecosystem**](https://dataspace.copernicus.eu/) provides access to all Sentinel data with new features for visualisation and data processing. Please stay tuned to the news for latest information on the services available and the [Copernicus Data Space Ecosystem roadmap](https://documentation.dataspace.copernicus.eu/#/Roadmap) for the full release of all functionalities.
 
 [**FinHub**](https://finhub.nsdc.fmi.fi/#/home) is the Finnish national mirror of SciHub; other national mirrors also exist. It covers Finland and the Baltics and offers Sentinel-2 L1C (but not L2A) and Sentinel 1 SLC, GRD and OCN products and requires own registration. Finhub does not have concurrent download limitations nor a "Long term archive".
 
@@ -201,7 +204,7 @@ Below is a list of alternative EO processing services that might be useful, when
 
 **[Microsoft planetary computer](https://planetarycomputer.microsoft.com)** offers JupyterHub together with Dask Gateway, both CPUs and GPUs are available. It is currently available in preview.
 
- **[Data and Information Access Services (DIAS)](https://www.copernicus.eu/en/access-data/dias)** offer cloud based Virtual Machines (VMs), dedicated baremetal servers, containers, operating system and software images. These services are specialized in EO and have user support available. All of them are commercial services. 
+ **[Data and Information Access Services (DIAS)](https://www.copernicus.eu/en/access-data/dias)** offer cloud based Virtual Machines (VMs), dedicated baremetal servers, containers, operating system and software images. These services are specialized in EO and have user support available. All of them are commercial services. The new [Copernicus Data Space Ecosystem](https://dataspace.copernicus.eu/) will combine some of the DIASes into one, including then also free trials of the service. See the [Copernicus Data Space Ecosystem roadmap](https://documentation.dataspace.copernicus.eu/#/Roadmap) for the full release of all functionalities.
  
 [**Sentinelhub**](https://www.sentinel-hub.com/explore/) is a commercial service that offers several different APIs.
 
