@@ -89,7 +89,7 @@ What to consider when chosing data:
 |[NASA, ICESat2](https://icesat-2.gsfc.nasa.gov/)|13|91|2019->|Yes|
 |[NADA, GEDI](https://gedi.umd.edu/)|25|-|2018->|Yes|
 
-> * See [Planets page for education and research](https://www.planet.com/markets/education-and-research/) for limited, non-commercial access to PlanetScope and RapidEye imagery.
+> \* See [Planets page for education and research](https://www.planet.com/markets/education-and-research/) for limited, non-commercial access to PlanetScope and RapidEye imagery.
 
 !!! default "EO database"
 
