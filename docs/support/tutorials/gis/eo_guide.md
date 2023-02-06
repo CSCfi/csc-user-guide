@@ -220,6 +220,10 @@ You can find all the ways that you can get help from CSC specialists via [CSC co
 
 This guide was developed in cooperation with the [Finnish Environment Institute, SYKE](https://www.syke.fi/), as part of the [Geoportti project](https://www.geoportti.fi/).
 
+## Contributions welcome
+
+If you find any mistakes or outdated links, have improvement suggestions or want to add more information about a certain topic, please add them to our [Github issue for improving the EO guide](https://github.com/CSCfi/csc-user-guide/issues/1549), send a pull request to our [CSC documentation on github](https://github.com/CSCfi/csc-user-guide/) or contact us via any of the ways mentioned in [CSC contact page](../../contact.md). Thank you!
+
 ## Resources and further reading
 
 If you are interested in the fundamentals of EO, take a look at these excellent resources:
