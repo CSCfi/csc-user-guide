@@ -70,7 +70,7 @@ What to consider when chosing data:
 |**[NASA, Landsat](https://landsat.gsfc.nasa.gov/)**|15-120|8|1972->|Yes|
 |[ESA, Proba-V](https://earth.esa.int/eogateway/catalog/proba-v-1km-333m-and-100m-products)|100-1000|1-2|2013->|Yes|
 |[Airbus, Spot](https://www.intelligence-airbusds.com/imagery/constellation/spot/)|1.5|-|1986->|No|
-|[Planet, several satellites ](https://www.planet.com/products/planet-imagery/)|0.5-5|-|2009-> |No|
+|[Planet, several satellites ](https://www.planet.com/products/planet-imagery/)|0.5-5|-|2009-> |No*|
 |[DigitalGlobe, WorldView](http://worldview3.digitalglobe.com/)|0.3-30|-|1997->|No|
 |[Airbus, Pleiades](https://pleiades.cnes.fr/en/PLEIADES/index.htm)|0.3-0.5|-|2012->|No|
 ||||||
@@ -87,6 +87,8 @@ What to consider when chosing data:
 |**LiDAR**|Footprint size||||
 |[NASA, ICESat2](https://icesat-2.gsfc.nasa.gov/)|13|91|2019->|Yes|
 |[NADA, GEDI](https://gedi.umd.edu/)|25|-|2018->|Yes|
+
+> * See [Planets page for education and research](https://www.planet.com/markets/education-and-research/) for limited, non-commercial access to PlanetScope and RapidEye imagery.
 
 !!! default "EO database"
 
