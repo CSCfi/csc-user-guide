@@ -30,6 +30,14 @@ To use a Python installation from a module that is not provided in the app form 
 You can also use it to load different versions of the modules provided by the form.
 If the *Custom Python module* field is left blank, the system Python will be used. Note that this requires using virtual environments.
 
+
+### Tykky installations
+
+To use a Tykky installations throught the Jupyter app, select the option `Custom path` from the Python menu. 
+Then just enter the full path to the python interpreter for your installation. So if you created an installation with the command
+`conda-containerize new --prefix=/scratch/proj/myInst env.yml` then the path to enter would be `/scratch/proj/myInst/bin/python`.
+![Custom path selected in the menu](/img/tykky_selection_jupyter.png)
+
 ### Virtual environment
 
 You can create a virtual environment by enabling the virtual environment in the app form and providing a path under `/scratch` or `/projappl` to where you want to store the environment.  

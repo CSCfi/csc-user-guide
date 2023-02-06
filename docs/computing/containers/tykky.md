@@ -97,6 +97,11 @@ export PATH="<install_dir>/bin:$PATH"
 5) Now you can call `python` and any other executables Conda has installed in the same
    way as if you had activated the environment.
 
+!!! info
+	To use a Tykky installations throught the Jupyter app in the puhti.csc.fi webinterface, select the option `Custom path` from the Python menu. 
+	Then just enter the full path to the python interpreter for your installation. So if you created an installation with the command
+	`conda-containerize new --prefix=/scratch/proj/myInst env.yml` then the path to enter would be `/scratch/proj/myInst/bin/python`.
+
 ### Pip with Conda
 
 To install some additional pip packages, add the `-r <req_file>` argument, e.g.:
