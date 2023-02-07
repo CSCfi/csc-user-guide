@@ -75,7 +75,7 @@ Currently, the only possible operating system is Linux CentOS 7. Assigning a des
 
 2. _Select a desktop from the pre-built options_. Based on the computing needs, choose one of the pre-built options (Light, Small, Medium, or Heavy computing).
 
-3. _Add external volume (optional)_. Each desktop's default disk (or storage) space is 80 GB. With this option, you can extend the disk space up to 200 GB, adding an external volume where you can save your files. You can add a new volume clicking on the field _Volume size_  and in the field _Volume name_.  Note: you can't extend the disk space after you have created the virtual desktop. Additional disk space can be required by writing to servicedesk@csc.fi (subject: Sensitive data). You can also detach and attach a volume from your virtual desktop. This operation corresponds to connecting or disconnecting a hard drive to your laptop. For more informations see: [Managing volume and desktops](./sd_desktop.md#managing-volumes-and-virtual-desktops)
+3. _Add external volume (optional)_. Each desktop's default disk (or storage) space is 80 GB. With this option, you can extend the disk space up to 200 GB, adding an external volume where you can save your files. You can add a new volume clicking on the field _Volume size_  and in the field _Volume name_.  Note: you can't extend the disk space after you have created the virtual desktop. Additional disk space can be requested by writing to servicedesk@csc.fi (subject: Sensitive data). You can also detach and attach a volume from your virtual desktop. This operation corresponds to connecting or disconnecting a hard drive to your laptop. For more informations see: [Managing volume and desktops](./sd_desktop.md#managing-volumes-and-virtual-desktops)
 
 4. Finally, press on _Create desktop_. The operation is entirely automated and can take up to 30 minutes. If you try accessing the virtual desktop during this process, an error message will be displayed asking you to return later.
 
@@ -442,7 +442,7 @@ For more information and support, write to servicedesk@csc.fi (email subject Sen
 
 With the SD Desktop service, you can easily manage volumes and pause, reboot, rebuild or delete your virtual desktops. Below we illustrate the main available options.
 
-### Detaching and reattaching  a volume
+### Detaching and reattaching a volume 
 
 With the option  _Detach volume_, you can easily detach a volume from your virtual desktop. The volume and its content will be stored in the same CSC project where it was initially created. You can compare this operation to detaching or attaching an hard drive to your laptop.
 
