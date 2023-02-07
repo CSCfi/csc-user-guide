@@ -113,7 +113,7 @@ Here you can specify several parameters:
 
 * **Assign a name for your virtual Desktop**. It is good practice to assign a descriptive name for a Desktop so that all project members can easily identify it later on.
 
-* Choose one of the **virtual Desktop** pre-built options (Light, Small, Medium or Heavy computing), based on your computing and memory needs. The default disk (or storage) space for all Desktop is 80 GB. You can extend your Desktop disk space by selecting option: **add an external disk**. You can add up to 200 GB. Note: you can't extend the disk space after you have launched the virtual Desktop. Additional disk space later on can be required writing at servicedesk@csc.fi (subject: Sensitive data);
+* Choose one of the **virtual Desktop** pre-built options (Light, Small, Medium or Heavy computing), based on your computing and memory needs. The default disk (or storage) space for all Desktop is 80 GB. You can extend your Desktop disk space by selecting option: **add an external disk**. You can add up to 200 GB. Note: you can't extend the disk space after you have launched the virtual Desktop. Additional disk space later on can be requested writing at servicedesk@csc.fi (subject: Sensitive data);
 
 When all the settings are done, press the **Launch Desktop** button. The launch operation is entirely automated and can take **up to 30 minutes**. If you try to access the virtual Desktop and see a black screen, come back later. 
 
