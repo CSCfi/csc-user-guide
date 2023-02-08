@@ -37,6 +37,7 @@ If the *Custom Python module* field is left blank, the system Python will be use
 To use a Tykky installation with Jupyter, first [include Jupyter packages in your Tykky installation](../containers/tykky.md#using-jupyter-with-a-tykky-installation). Then open Puhti web interface and Jupyter app page. There select the option `Custom path` from the Python menu. 
 Then enter the full path to the python interpreter of your Tykky installation. So if you created an installation with the command
 `conda-containerize new --prefix=/scratch/proj/myInst env.yml` then the path to enter would be `/scratch/proj/myInst/bin/python`.
+
 ![Custom path selected in the menu](/img/tykky_selection_jupyter.png)
 
 ### Virtual environment
