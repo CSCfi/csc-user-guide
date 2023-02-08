@@ -27,27 +27,18 @@ credentials `Testing application credentials $TODAYS_DATE`.
 6. Secret should be a long random string that you should keep secret.
 7. It is a good idea to put an expiration date especially if you are testing the credentials only
 for today.
-8. Choosing a role, you should choose `member`. The `reader` role does not work as one would expect
+<!-- 8. Choosing a role, you should choose `member`. The `reader` role does not work as one would expect
 at the point of writing there is no difference between reader and member role when it comes to
 managing your databases at the moment. In the future the reader role might become a read-only user
-role.
-<!---
- There are two roles `reader` and `member`.
-    * `reader` role d can only collect data
-from your project but not make any changes, this is good if you want to create a script that check
-the state of your services. Sometimes it is nice to have a default reader account that you user for
-day-to-day operation, when you collect information so that you can be sure that you can't do any
-destructive commands.
-    * `member` role is the normal user role it can do everything that the `reader` role but it can
-also make changes to the system. When you log into the web-interface you have the `member` role
-enabled.
--->
+role. -->
+8. There are two roles `reader` and `member`. Usually you want to use the `member` role you can find
+out more in the [Using roles sections](#Using-roles).
 9. Access rules this is useful when you want to make credentials with fine grained permissions
 this is super useful if you want to build a lot of automation around your databases. For example
 you can make a script that is only allowed to modify the users of a specific database or a
 credentials that is only allowed to create new instances. You probably want to start using these
 when you start to build automation around your databases. You can find more information about the
-options in other sections of this documentation.
+options in [Using access rules sections](#Using-access-rules).
 <!--- TODO Add section
  -->
 
@@ -74,6 +65,22 @@ export OS_APPLICATION_CREDENTIAL_SECRET=xxxxxxxxxxxxxxxxxxx
 
 13. If you source the file you can use it together with with [OpenStack command line tools](cli.md)
 .
+14. It is a good idea to test that the application credentials is allowed to do what you expect it
+to be able to do. It is also a good idea to verify that it is NOT allowed to do what you expect it
+not be allowed to do.
+
+## Using roles
+There are two roles available `reader` and `member`. The reader roles is a read-only role while the
+member role is allowed to make changes to your project.
+
+    * `reader` role can only collect data
+from your project but not make any changes, this is good if you want to create a script that check
+the state of your services. Sometimes it is nice to have a default reader account that you user for
+day-to-day operation, when you collect information so that you can be sure that you can't do any
+destructive commands.
+    * `member` role is the normal user role it can do everything that the `reader` role but it can
+also make changes to the system. When you log into the web-interface you have the `member` role
+enabled.
 
 ## Using access rules 
 
