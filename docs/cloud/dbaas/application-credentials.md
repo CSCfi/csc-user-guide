@@ -24,7 +24,8 @@ is removed from the project the users credentials will stop working.
 5. It is a good idea to choose a descriptive name an description. Otherwise you might get confused
 in the future why the application credentials exists. It might be a good idea to name your first 
 credentials `Testing application credentials $TODAYS_DATE`.
-6. Secret should be a long random string that you should keep secret.
+6. Secret should be a long random string that you should keep secret. If you leave this empty the
+service will create a secret for you, this is probably the prefered method.
 7. It is a good idea to put an expiration date especially if you are testing the credentials only
 for today.
 <!-- 8. Choosing a role, you should choose `member`. The `reader` role does not work as one would expect
@@ -126,32 +127,4 @@ would need to do an application credential like this:
 
 There are a lot of other permissions that might be interesting to you:
 [OpenStack Database API](https://docs.openstack.org/api-ref/database/).
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!--
-## Using the reader and member roles
-
-NOTE: The reader role does not work as expected. ATM the services does not differiate between
-reader and member you should 
-
-
-
-When your create the applicaiton credentials you
-
-TODO reader role does not work in Trove! The trove/policies/base.py probably needs to be updated
-and all polices that uses `admin_or_owner` We probably want to use something like: `project_reader_or_admin`
-and `project_member_api` as in nova/policies/base.py
--->
-
 
