@@ -33,8 +33,9 @@ If the *Custom Python module* field is left blank, the system Python will be use
 
 ### Tykky installations
 
-To use a Tykky installations throught the Jupyter app, select the option `Custom path` from the Python menu. 
-Then just enter the full path to the python interpreter for your installation. So if you created an installation with the command
+
+To use a Tykky installation with Jupyter, first [include Jupyter packages in your Tykky installation](../containers/tykky.md#using-jupyter-with-a-tykky-installation). Then open Puhti web interface and Jupyter app page. There select the option `Custom path` from the Python menu. 
+Then enter the full path to the python interpreter of your Tykky installation. So if you created an installation with the command
 `conda-containerize new --prefix=/scratch/proj/myInst env.yml` then the path to enter would be `/scratch/proj/myInst/bin/python`.
 ![Custom path selected in the menu](/img/tykky_selection_jupyter.png)
 
