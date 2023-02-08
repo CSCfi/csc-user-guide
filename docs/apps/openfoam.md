@@ -24,12 +24,14 @@ After login on to the server, give the command
 ```bash
 module spider openfoam
 ```
-On LUMI, you need first load the module environment
+
+On LUMI, you need to first load the module environment
 
 ```bash
 module use /appl/local/csc/modulefiles
 module spider openfoam
 ```
+
 The command lists available OpenFOAM versions on the server. To get more information about a specific version, for example about OpenFOAM Foundation's version 10, use the command
 
 ```bash
@@ -93,7 +95,7 @@ IO operations in the collated method are based on threaded sub-processes, and th
 
 #### Example batch job scipts for collated method usage on Mahti
 
-The example scripts for separate batch runs for decomposition, solver and reconstruction are in folder (`module load` command should have been given)
+The example scripts for separate batch runs for decomposition, solver and reconstruction are in the folder (`module load` command should have been given)
 
 ```bash
 $WM_PROJECT_INST_DIR/batch_script_examples
