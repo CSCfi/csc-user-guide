@@ -24,7 +24,12 @@ After login on to the server, give the command
 ```bash
 module spider openfoam
 ```
+On LUMI, you need first load the module environment
 
+```bash
+module use /appl/local/csc/modulefiles
+module spider openfoam
+```
 The command lists available OpenFOAM versions on the server. To get more information about a specific version, for example about OpenFOAM Foundation's version 10, use the command
 
 ```bash
