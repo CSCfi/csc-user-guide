@@ -51,7 +51,7 @@ module load openfoam/v2206
 Example files for a batch job script are available on the servers. After giving the launch command (`module load`, see above), the example script is the file
 
 ```bash
-$WM_PROJECT_INST_DIR/parjob_openfoam_<server>
+$WM_PROJECT_INST_DIR/batch_script_examples/parjob_openfoam_<server>
 ```
 
 where `<server>` is either `puhti`, `mahti` or `lumi`. Copy that into your working directory for further modifications.
@@ -93,10 +93,10 @@ IO operations in the collated method are based on threaded sub-processes, and th
 
 #### Example batch job scipts for collated method usage on Mahti
 
-The example scripts for separate batch runs for decomposition, solver and reconstruction are in folder
+The example scripts for separate batch runs for decomposition, solver and reconstruction are in folder (`module load` command should have been given)
 
 ```bash
-/appl/soft/eng/OpenFOAM/batch_script_examples
+$WM_PROJECT_INST_DIR/batch_script_examples
 ```
 
 Notice that on Mahti decomposition and reconstruction must be done in `interactive` queue,
