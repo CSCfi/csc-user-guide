@@ -24,7 +24,7 @@ Collection of Python libraries for data analytics and machine learning.
 
     **4.2.2022** All old Python Data versions which were based on direct Conda
     installations have been deprecated, and we encourage users to move to newer
-    versions. Read more on our separate [Conda deprecation page](../support/deprecate-conda.md).
+    versions. Read more on our separate [Conda deprecation page](../tutorials/conda.md).
 
 
 ## Available

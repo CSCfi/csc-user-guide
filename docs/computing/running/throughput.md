@@ -209,7 +209,7 @@ workflows.
 [Singularity container]: ../containers/run-existing.md
 [mount your datasets with SquashFS]: ../containers/run-existing.md#mounting-datasets-with-squashfs
 [file striping]: ../lustre.md#file-striping-and-alignment
-[CSC has deprecated the direct usage of Conda environments]: ../../support/deprecate-conda.md
+[CSC has deprecated the direct usage of Conda environments]: ../../tutorials/conda.md
 [container wrapper tool Tykky]: ../containers/tykky.md
 [how to work efficiently with Lustre are documented here]: ../lustre.md#best-practices
 [Data storage guide for machine learning]: ../../tutorials/ml-data.md

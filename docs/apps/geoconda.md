@@ -74,7 +74,7 @@ If you think that some important GIS package for Python is missing from here, yo
 
 ## Available
 
-The `geoconda` module is available in Puhti:
+The `geoconda` module is available in Puhti and Mahti:
 
 * 3.10.6
 

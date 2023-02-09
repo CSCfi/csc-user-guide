@@ -28,9 +28,9 @@ The web interfaces of the Pouta clouds are available at following addresses:
 
 This _OpenStack Horizon_ based interface allows you do basic cloud computing management operations such as launch a new virtual machine and manage security settings. To use this service, you need a CSC account and a cPouta/ePouta project at CSC.
 
-There are two options for logging in the cPouta's Dashboard: CSC username and password, or Haka username and password. If needed, old accounts can be linked at [My CSC](https://my.csc.fi/) and logging in with Haka credentials. You will be asked to give your CSC username and password.
+You can log in to cPouta using several accounts. In addition to your CSC account (CSC username and password), you can also use Haka, VIRTU, and Life Science AAI accounts. The Haka, VIRTU and Life Science AAI accounts will work only if they are linked to your CSC account. Accounts can be linked at [My CSC](https://my.csc.fi/).
 
-For ePouta dashboard, you can only login using the CSC username and password.
+You can log in to ePouta only using your CSC account.
 
 ## Preparatory steps
 
