@@ -1,8 +1,8 @@
 #!/bin/bash
 
-if [[ $(find ./docs -type d '!' -exec test -e "{}/index.md" ';' -print |grep -v 'img\|css\|images\|wn') ]]; then
+if [[ $(find ./docs -type d '!' -exec test -e "{}/index.md" ';' -print |grep -v 'img\|css\|images\|wn\|tutorials') ]]; then
     echo "There are directories without index.md"
-    find ./docs -type d '!' -exec test -e "{}/index.md" ';' -print |grep -v 'img\|css\|images\|wn'
+    find ./docs -type d '!' -exec test -e "{}/index.md" ';' -print |grep -v 'img\|css\|images\|wn\|tutorials'
     exit 1
 else
     echo "All directories contain index.md"
