@@ -97,6 +97,12 @@ export PATH="<install_dir>/bin:$PATH"
 5) Now you can call `python` and any other executables Conda has installed in the same
    way as if you had activated the environment.
 
+### Using Jupyter with a Tykky installation
+
+To use a Tykky installation with Jupyter, include correct conda package in your Conda environment file: `jupyter` for Jupyter Notebooks or `jupyterlab` for Jupyter Lab. Also additional JupyterLab extensions can be installed, for example [jupyterlab-git](https://github.com/jupyterlab/jupyterlab-git) or [dask-labextension](https://github.com/dask/dask-labextension). 
+
+The best way to use Jupyter in Puhti is with [Puhti webinterface](../webinterface/index.md). See [Jupyter application page](../webinterface/jupyter.md#tykky-installations) for details how to use your own Tykky installation with Puhti web interface Jupyter.
+
 ### Pip with Conda
 
 To install some additional pip packages, add the `-r <req_file>` argument, e.g.:
