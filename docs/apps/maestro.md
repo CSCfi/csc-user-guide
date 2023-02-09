@@ -17,17 +17,19 @@ and run Desmond MD simulations easily.
 
 ## Available
 
-* Puhti: 2020.4, 2021.3, 2021.4, 2022.1, 2022.2, 2022.3, 2022.4
-* Mahti: 2021.4, 2022.1, 2022.2
+* Puhti: 2020.4, 2021.3, 2021.4, 2022.1, 2022.2, 2022.3, 2022.4, 2023.1
+* Mahti: 2021.4, 2022.1, 2022.2, 2022.3, 2022.4, 2023.1
 
-!!! info "Incompatibility issue with latest versions on Mahti"
+!!! info "Pay attention to performance on Mahti"
 
-    Versions 2022.3 and later are incompatible with Mahti. If you intend to run
-    jobs on Mahti, don't upgrade your local installation beyond 2022.2! We're
-    looking for a workaround.
-    
     Note that Mahti is mostly suitable for running Desmond MD simulations on GPUs.
     Most other jobs do not scale to full nodes, so please use Puhti instead for these.
+
+!!! info "Warnings thrown by Maestro v2023.1"
+
+    Note that the `maestro/2023.1` module may print warnings about missing graphics libraries.
+    These warnings should be harmless. Nonetheless, if you would encounter unfamiliar issues
+    using this Maestro version, please [contact CSC Service Desk](../support/contact.md).
 
 ## License
 
