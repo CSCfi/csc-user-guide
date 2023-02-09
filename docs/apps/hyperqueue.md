@@ -191,7 +191,7 @@ hq worker wait "${SLURM_NTASKS}"
 # Parallelized with HyperQueue (not restricted to a single node):
 
 for f in $(find . -maxdepth 1 -type f) ; do
-    hq submit --cpus 1 --stdout $f.sha256 sha256sum $f
+    hq submit --cpus 1 --stdout $f.sha256 sha256sum $f &
 done
 
 # Wait until all jobs have finished, shut down the HyperQueue workers and server
