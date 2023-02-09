@@ -141,6 +141,8 @@ You can close the connection to your virtual desktop in two ways:
 
 2. If you initiated an analysis programmatically (running a script), you can close the browser window. This doesn't interfere with the processes running. Thus, when you reconnect to your desktop, all your tools and interfaces are still open and you can continue working. However, log out from the desktop once the analysis is finished. If you leave more than ten connections open, you will be unable to re-access the services. 
 
+!!! Note
+    SD Desktop only supports ten simultaneous connections. You will be automatically logged out from the virtual desktop if a connection has been left accidentally active for two days.
  
  
  [![Access-virtual-Desktop](images/desktop/desktop-access.png)](images/desktop/desktop-access.png)
@@ -440,7 +442,10 @@ For more information and support, write to servicedesk@csc.fi (email subject Sen
 
 ## Managing volumes and virtual desktops
 
-With the SD Desktop service, you can easily manage volumes and pause, reboot, rebuild or delete your virtual desktops. Below we illustrate the main available options.
+With the SD Desktop service, you can easily manage volumes and pause, reboot, rebuild or delete your virtual desktops. Below we illustrate the main available options. 
+
+!!! Note
+These options are available only on virtual desktop created after February 2, 2023. Please conttact us at servicedesk@csc.fi if you are working with older desktops. 
 
 ### Detaching and reattaching a volume 
 
@@ -492,11 +497,17 @@ To pause the desktop:
 
 4. A message will ask to confirm the operation, which can take up to 30 minutes.
 
-You can restart the virtual desktop at any time from the same page. Alsoin this case, the restart processes can take up to 30 minutes. This option is available only for active CSC projects with available billing units. 
+You can restart the virtual desktop at any time from the same page. Also in this case, the restart processes can take up to 30 minutes. 
 
-### Rebooting or rebuilding a virtual desktop
+!!! Note
+    This option is available only for active CSC projects with available Billing Units. 
+
+### Rebooting or rebuilding a desktop
 
 If the virtual desktop or software has become unresponsive, you can use this option to reboot (or restart) your desktop. All the files/ software saved in the virtual desktop will remain available after the reboot. 
+
+!!! Note
+    If the Data Gateway application becomes unresponsive (for example because old sessions are still running in the background) you don't need to rebbot your desktop. You can use the terminal to check the ID number of the running process and stop it with the following commands: _ps -edalf | grep sda-fuse_ and _kill -9 process-id_ or contact us at servicedesk@csc.fi for support. 
 
 To reboot a virtual machine:
 
@@ -512,7 +523,7 @@ To reboot a virtual machine:
 If the virtual desktop or software has become obsolete, you can use this option to rebuild your virtual desktop. 
 
 !!! Note
-    This operation will delete all the files/software or scripts imported into the virtual desktop. Only the files saved in the volume will still be available. As a result, you will delete the entire virtual workspace. For this reason, please contact all the CSC project members before rebuilding a virtual desktop.
+    This operation will delete all the files/software or scripts imported into the virtual desktop and you will delete the entire virtual workspace. Only the files saved in the volume will still be available. Please contact us at servicedesk@csc.fi before using this option.
 
 To reboot a virtual desktop:
 
@@ -524,7 +535,7 @@ To reboot a virtual desktop:
 
 
 
-### Deleting a  virtual desktop
+### Deleting a desktop
 
 You can delete your virtual desktop, external volume and all files saved in it at the end of your analysis. You cannot undo this action:
 
