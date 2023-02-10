@@ -20,7 +20,7 @@ and run Desmond MD simulations easily.
 * Puhti: 2020.4, 2021.3, 2021.4, 2022.1, 2022.2, 2022.3, 2022.4, 2023.1
 * Mahti: 2021.4, 2022.1, 2022.2, 2022.3, 2022.4, 2023.1
 
-!!! info "Pay attention to performance on Mahti"
+!!! info "Pay attention to efficiency on Mahti"
 
     Note that Mahti is mostly suitable for running Desmond MD simulations on GPUs.
     Most other jobs do not scale to full nodes, so please use Puhti instead for these.
