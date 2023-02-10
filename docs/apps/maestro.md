@@ -25,11 +25,12 @@ and run Desmond MD simulations easily.
     Note that Mahti is mostly suitable for running Desmond MD simulations on GPUs.
     Most other jobs do not scale to full nodes, so please use Puhti instead for these.
 
-!!! info "Warnings thrown by Maestro v2023.1"
+!!! info "Module cleaning policy"
 
-    Note that the `maestro/2023.1` module may print warnings about missing graphics libraries.
-    These warnings should be harmless. Nonetheless, if you would encounter unfamiliar issues
-    using this Maestro version, please [contact CSC Service Desk](../support/contact.md).
+    A two-year cleaning cycle is applied on the Maestro modules on CSC supercomputers.
+    Specifically, this means that module versions older than two years will be removed.
+    This policy is enforced to free up disk space and encourage use of the latest versions
+    which tend to be more performant and have less bugs.
 
 ## License
 
@@ -127,7 +128,7 @@ The scripts tend to be somewhat complicated, so it's best to write them out from
 Maestro GUI as explained above. Please also have a look at the [additional flags we
 recommend to use](../support/tutorials/power-maestro.md).
 
-To submit such a script in Puhti, you need to first load Maestro and then run the script:
+To submit such a script in Puhti, you need to first load Maestro and then run the script
 
 ```bash
 module load maestro
@@ -152,11 +153,15 @@ The following tutorial video walks you through the process:
     Replace the backslashes `\` with `/` in the path to the Maestro binary
     (right after `$SCHRODINGER` in the script).
 
-!!! info "Hosts file under `$HOME`"
+!!! info "Some notes about warnings"
 
     Maestro gives a warning for using a `schrodinger.hosts` file from your home directory. This is
     **not an issue**: that file cannot be made available in the installation directory, so please
     ignore the warning, but consider any others you may see.
+
+    Also, the `maestro/2023.1` module may print warnings about missing graphics libraries.
+    These warnings should be harmless. Nonetheless, if you would encounter unfamiliar issues
+    using this Maestro version, please [contact CSC Service Desk](../support/contact.md).
 
 ## References
 
