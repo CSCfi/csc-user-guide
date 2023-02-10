@@ -138,3 +138,5 @@ plugins:
         'support/wn/comp-new.md': 'wn/comp-new.md'
         'support/wn/data-new.md': 'wn/data-new.md'
         'support/wn/training-new.md': 'wn/training-new.md'
+
+        'support/whats-new.md': 'whats-new.md'
