@@ -1,12 +1,13 @@
 {%- if page %}
     {# Breadcrumbs must be defined literally for pages that don't have ancestors #}
-    {% set parent_url = "/" + "/".join(page.url.split("/")[:-2]) + "/" %}
+    {% set parent_url = ("/" + "/".join(page.url.split("/")[:-2]) + "/")
+        |replace("/wn/", "/whats-new/") %}
     {% set sections = {
         "/tutorials/": "Tutorials",
         "/tutorials/env-guide/": "Linux tutorials",
         "/tutorials/gis/": "Geoinformatics tutorials",
         "/faq/": "FAQ",
-        "/wn/": "What's new",
+        "/whats-new/": "What's new",
     } %}
     <nav class="csc-breadcrumbs">
         {% if not page.is_homepage %}
