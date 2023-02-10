@@ -3,10 +3,10 @@
     {% set parent_url = ("/" + "/".join(page.url.split("/")[:-2]) + "/")
         |replace("/wn/", "/whats-new/") %}
     {% set sections = {
+        "/faq/": "FAQ",
         "/tutorials/": "Tutorials",
         "/tutorials/env-guide/": "Linux tutorials",
         "/tutorials/gis/": "Geoinformatics tutorials",
-        "/faq/": "FAQ",
         "/whats-new/": "What's new",
     } %}
     <nav class="csc-breadcrumbs">
