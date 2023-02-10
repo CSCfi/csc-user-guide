@@ -1,5 +1,16 @@
 # Applications
 
+## Schrödinger Maestro 2023.1 and module removal policy, 10.2.2023
+
+* The latest version of [Schrödinger Maestro](../../apps/maestro.md) (v2023.1)
+  has been installed and set as the default module on CSC supercomputers.
+  See [release notes](https://www.schrodinger.com/releases/new-features/)
+  for a list of new features and improvements.
+* Henceforth, a two-year cleaning cycle is applied on the Maestro modules on CSC
+  supercomputers. Specifically, module versions older than two years will be removed
+  in order to free up disk space and encourage use of the latest versions which tend
+  to be more performant and have less bugs.
+
 ## CSC software collection on LUMI, 31.1.2023
 
 Applications pre-installed by CSC on the LUMI supercomputer can now be viewed in the
