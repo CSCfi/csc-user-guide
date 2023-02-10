@@ -2,7 +2,7 @@
 
 ## Schrödinger Maestro 2023.1 and module removal policy, 10.2.2023
 
-* The latest version of [Schrödinger Maestro](../../apps/maestro.md) (v2023.1)
+* The latest version of [Schrödinger Maestro](../apps/maestro.md) (v2023.1)
   has been installed and set as the default module on CSC supercomputers.
   See [release notes](https://www.schrodinger.com/releases/new-features/)
   for a list of new features and improvements.
