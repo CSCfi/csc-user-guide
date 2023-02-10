@@ -14,13 +14,23 @@ The PALM model system has been mainly developed and is maintained by the ​PALM
 The PALM model system is free software. It can be redistributed and/or modified under the terms of the GNU General Public License (v3). 
 ## Available
 
-At CSC - IT Center for Science PALM is installed on [Puhti and Mahti](../computing/available-systems.md) servers.  Versions available are listed when running the installation script, see below.
+At CSC - IT Center for Science PALM is installed on [Puhti, Mahti and LUMI](../computing/available-systems.md) servers.  Versions available are listed when running the installation script, see below.
 
 ## Usage
 
 After login on the server, give command
 
-    module load palm
+    module spider palm
+
+This gives you a list of installed versions.  To load of the version of your choice, give command
+
+    module load palm/<version>
+    
+On LUMI you need to load first the module environment
+  
+    module use /appl/local/csc/modulefiles
+    module spider palm
+    module load palm/<version>
 
 Link for to read the instruction file is created,
 
