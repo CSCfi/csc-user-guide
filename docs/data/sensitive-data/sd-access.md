@@ -48,16 +48,17 @@ with any modern web-browser (Note: private browsing is not supported using Firef
 
 ## Processing register data under the Act on Secondary Use
 
-Analysing register data differs from the process mentioned above. In this case, CSC's helpdesk manages user's access to the SD Desktop computing environment in compliance with the Finnish Act on the Secondary Use of Health and Social data and the Findata authority's regulation.
+Analysing register data differs from the process mentioned above. In this case, CSC's helpdesk manages user's access to the SD Desktop computing environment in compliance with the Finnish Act on the Secondary Use of Health and Social data and the Findata Authority's Regulation.
 
-Register data can only be provided by the Fidata authority and accessed via the SD Desktop service. For more information about data provided by single registers, contact us at: servicedesk@csc.fi.
+Register data can only be provided by the Fidata Authority and accessed via the SD Desktop service. For more information about data provided by single registers, contact us at: servicedesk@csc.fi.
 
 !!! Note
     Register data processing is subject to several limitations. Therefore, we recommend contacting us at servicedesk@csc.fi (subject: sensitive data) before applying for a data permit to verify if the service matches your needs. 
 
 To access and analyse register data via the SD Desktop service:
 
- 1. Create [a CSC account](../../accounts/how-to-create-new-user-account.md) by logging in at the [My CSC portal](https://my.csc.fi) with your Haka account. If  your organization is not a member of the Haka or Virtu federation, contact us at servicedesk@csc.fi. Additional steps will be necessary to verify your identity.
+ 1. Create [a CSC account](../../accounts/how-to-create-new-user-account.md) by logging in at the [My CSC portal](https://my.csc.fi) with your Haka or Virtu account. Additional steps might be necessary to verify your identity.If  your organization is not a member of the Haka or Virtu federation, contact us at servicedesk@csc.fi.
+
 
 2. Next, apply for a CSC project writing to servicedesk@csc.fi (subject: sensitive data) providing: - a copy of the data permit issued by the Findata authority; - a short description of your research project (name and research field are sufficient); - a list of all the project members, added in cc to the email (please use only organizational email addresses).
   
