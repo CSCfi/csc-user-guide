@@ -96,3 +96,8 @@ Similarly, the pre-installed R module provided by CSC is a containerized environ
 containing more than 1300 packages. If these do not satisfy your needs, you can install your
 own packages into a project-specific location under `/projappl` and add this to your library
 trees in R. [See here for specific details](../../apps/r-env.md#r-package-installations).
+
+## More information
+
+- [Installing your own software](https://csc-training.github.io/csc-env-eff/#8-installing-your-own-software)
+  (CSC Computing Environment slides and tutorials)
