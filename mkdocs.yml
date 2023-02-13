@@ -122,37 +122,37 @@ nav:
       - Compiling on Mahti: computing/installing/compiling-mahti.md
       - Compiling on LUMI: computing/installing/compiling-lumi.md
       - High performance libraries: computing/installing/hpc-libraries.md
-      - Debugging: computing/debugging.md
-      - Performance analysis: computing/performance.md
-      - Containers:
-        - computing/containers/index.md
-        - Running containers: computing/containers/run-existing.md
-        - Creating containers: computing/containers/creating.md
-        - Container wrapper (Tykky): computing/containers/tykky.md
-      - Web interface:
-        - computing/webinterface/index.md
-        - Overview: computing/webinterface/index.md
-        - Interactive apps:
-          - Accelerated visualization: computing/webinterface/accelerated-visualization.md
-          - Desktop: computing/webinterface/desktop.md
-          - Jupyter: computing/webinterface/jupyter.md
-          - Jupyter for courses: computing/webinterface/jupyter-for-courses.md
-          - MATLAB: computing/webinterface/matlab.md
-          - RStudio: computing/webinterface/rstudio.md
-          - TensorBoard: computing/webinterface/tensorboard.md
-          - Visual Studio Code: computing/webinterface/vscode.md
-      - Quantum computing:
-        - computing/quantum-computing/index.md
-        - Kvasi QLM:
-          - computing/quantum-computing/kvasi/index.md
-          - Kvasi Billing: computing/quantum-computing/kvasi/kvasi-billing.md
-        - Helmi:
-          - computing/quantum-computing/helmi/index.md
-          - Access Helmi through LUMI: computing/quantum-computing/helmi/helmi-from-lumi.md
-          - First quantum job: computing/quantum-computing/helmi/first-quantum-job.md
-          - Technical details: computing/quantum-computing/helmi/helmi-specs.md
-          - FiQCI partition: computing/quantum-computing/helmi/fiqci-partition.md
-          - Running on Helmi: computing/quantum-computing/helmi/running-on-helmi.md
+    - Debugging: computing/debugging.md
+    - Performance analysis: computing/performance.md
+    - Containers:
+      - computing/containers/index.md
+      - Running containers: computing/containers/run-existing.md
+      - Creating containers: computing/containers/creating.md
+      - Container wrapper (Tykky): computing/containers/tykky.md
+    - Web interface:
+      - computing/webinterface/index.md
+      - Overview: computing/webinterface/index.md
+      - Interactive apps:
+        - Accelerated visualization: computing/webinterface/accelerated-visualization.md
+        - Desktop: computing/webinterface/desktop.md
+        - Jupyter: computing/webinterface/jupyter.md
+        - Jupyter for courses: computing/webinterface/jupyter-for-courses.md
+        - MATLAB: computing/webinterface/matlab.md
+        - RStudio: computing/webinterface/rstudio.md
+        - TensorBoard: computing/webinterface/tensorboard.md
+        - Visual Studio Code: computing/webinterface/vscode.md
+    - Quantum computing:
+      - computing/quantum-computing/index.md
+      - Kvasi QLM:
+        - computing/quantum-computing/kvasi/index.md
+        - Kvasi Billing: computing/quantum-computing/kvasi/kvasi-billing.md
+      - Helmi:
+        - computing/quantum-computing/helmi/index.md
+        - Access Helmi through LUMI: computing/quantum-computing/helmi/helmi-from-lumi.md
+        - First quantum job: computing/quantum-computing/helmi/first-quantum-job.md
+        - Technical details: computing/quantum-computing/helmi/helmi-specs.md
+        - FiQCI partition: computing/quantum-computing/helmi/fiqci-partition.md
+        - Running on Helmi: computing/quantum-computing/helmi/running-on-helmi.md
   - Cloud:
     - cloud/index.md
     - Rahti:
