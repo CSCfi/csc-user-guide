@@ -15,6 +15,17 @@ plugins:
   - section-index
   - redirects:
       redirect_maps:
+        # renamed files, e.g. overview.md --> index.md
+        'computing/overview.md': 'computing/index.md'
+        'computing/running/getting-started.md': 'computing/running/index.md'
+        'computing/containers/overview.md': 'computing/containers/index.md'
+
+        'cloud/concepts.md': 'cloud/index.md'
+        'cloud/rahti/images/overview.md': 'cloud/rahti/images/index.md'
+
+        'data/datasets/dataset-sources.md': 'data/datasets/index.md'
+        'data/kaivos/overview.md': 'data/kaivos/index.md'
+
         # support/faq --> faq/*
         'support/faq/can-i-have-a-personal-project-or-bucket-in-allas.md': 'faq/can-i-have-a-personal-project-or-bucket-in-allas.md'
         'support/faq/can-i-run-mpi-applications-on-pouta.md': 'faq/can-i-run-mpi-applications-on-pouta.md'
