@@ -3,7 +3,7 @@
 If you cannot find a software suitable for your needs from the [list of pre-installed
 applications](../../apps/index.md) or using `module spider`, it is possible to install
 own software on CSC supercomputers. The installation procedure will vary based on your
-specific application. There are, however, some universal rules you should be mindful of:
+specific application. There are, however, some general rules you should be mindful of:
 
 - You cannot use `sudo`, i.e. typical `sudo apt` or `sudo yum` commands you might find
   online will not work on CSC supercomputers.
@@ -18,7 +18,7 @@ specific application. There are, however, some universal rules you should be min
 - New software are not automatically added to your `$PATH`. To access the software,
   either provide the full path or add with `export PATH=/path/to/my/app/bin:$PATH`.
 
-!!! info "Note"
+!!! info "Help is available!"
     Don't hesitate to contact [CSC Service Desk](../../support/contact.md) if you
     encounter issues with installing your own software.
 
@@ -32,10 +32,10 @@ application, and is recommended especially for software with few or no dependenc
 
 ### Compiling
 
-HPC software written using languages such as C, C++ or Fortran need to be compiled before
-installing. Guidelines on compiling software on CSC supercomputer can be find from the
-links below. A list of available HPC libraries that may need to be linked upon compiling
-is also provided.
+HPC software written using programming languages such as C, C++ or Fortran need to be
+compiled before installing. Guidelines on compiling software on CSC supercomputer can
+be found from the links below. A list of available HPC libraries that may need to be
+linked upon compiling is also provided.
 
 - [Compiling on Puhti](compiling-puhti.md)
 - [Compiling on Mahti](compiling-mahti.md)
@@ -43,6 +43,19 @@ is also provided.
 - [HPC libraries](hpc-libraries.md)
 
 ### Spack
+
+[Spack](https://spack.io) is a flexible package manager that can be used to install
+software on supercomputers and Linux and macOS systems. The basic module tree including
+compilers, MPI libraries and many of the available software on CSC supercomputers have
+been installed using Spack. Spack is similar to the [EasyBuild package manager extensively
+used on LUMI](https://docs.lumi-supercomputer.eu/software/installing/easybuild/).
+
+CSC provides user Spack modules on Puhti and Mahti that can be used to build software
+on top of the available compilers and libraries using Spack. It is also possible to
+install different customized versions of packages available in the module tree for
+special use cases. [See here for a short tutorial on how to install software on CSC
+supercomputers using Spack](../../tutorials/user-spack.md). Spack is also available
+on [LUMI](https://docs.lumi-supercomputer.eu/software/installing/spack/).
 
 ### Ready-made binaries
 
@@ -53,6 +66,34 @@ serial or threaded application, you can try running it directly.
 
 ## Containers
 
+Containerizing applications can be a very efficient way to install software and libraries,
+especially if the application has complex dependencies such as most Python environments
+([see below](#pythonr-environments)). CSC supercomputers support Apptainer/Singularity
+containers, which are similar to Docker, but better suited for multi-user HPC systems. In
+most cases, ready-made Docker containers can be easily converted into an Apptainer image.
+Another option is to build your own container from scratch. More details on working with
+containers in CSC's computing environment can be found from the links below:
+
+- [Overview of containers](../containers/index.md)
+- [Running containers](../containers/run-existing.md)
+- [Creating containers](../containers/creating.md)
+- [Tykky container wrapper](../containers/tykky.md)
+
 ## Python/R environments
 
-## More information
+Best practice guidelines on installing own Python and R packages can be found in
+our Python, R and Tykky container wrapper pages below.
+
+- [Installing Python packages and environments](../../apps/python.md)
+- [Containerizing Conda and pip environments with Tykky](../containers/tykky.md)
+- [R package installations](../../apps/r-env.md#r-package-installations)
+
+Briefly, individual Python packages with no/few dependencies can be installed
+alongside CSC's pre-installed Python modules with `pip install --user <package>`.
+More complicated environments should always be containerized. This is accomplished
+easily with [Tykky](../containers/tykky.md).
+
+Similarly, the R module provided by CSC is a containerized environment containing more
+than 1300 packages. If these do not satisfy your needs, you can install your own packages
+into a project-specific location under `/projappl` and add this to your library trees
+in R. [See here for specific details](../../apps/r-env.md#r-package-installations).
