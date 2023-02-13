@@ -1,9 +1,9 @@
 # Overview
 
-If you cannot find a software suitable for your needs from the [list of pre-installed
-applications](../../apps/index.md) or using `module spider`, it is possible to install
-own software on CSC supercomputers. The installation procedure will vary based on your
-specific application. There are, however, some general rules you should be mindful of:
+It is possible to install own software on CSC supercomputers if you cannot find a software
+suitable for your needs from the [list of pre-installed applications](../../apps/index.md)
+or using `module spider`. The installation procedure will vary based on your specific
+application. There are, however, some general rules you should be mindful of:
 
 - You cannot use `sudo`, i.e. typical `sudo apt` or `sudo yum` commands you might find
   online will not work on CSC supercomputers.
@@ -33,7 +33,7 @@ application, and is recommended especially for software with few or no dependenc
 ### Compiling
 
 HPC software written using programming languages such as C, C++ or Fortran need to be
-compiled before installing. Guidelines on compiling software on CSC supercomputer can
+compiled before installing. Guidelines on compiling software on CSC supercomputers can
 be found from the links below. A list of available HPC libraries that may need to be
 linked upon compiling is also provided.
 
@@ -50,18 +50,17 @@ compilers, MPI libraries and many of the available software on CSC supercomputer
 been installed using Spack. Spack is similar to the [EasyBuild package manager extensively
 used on LUMI](https://docs.lumi-supercomputer.eu/software/installing/easybuild/).
 
-CSC provides user Spack modules on Puhti and Mahti that can be used to build software
-on top of the available compilers and libraries using Spack. It is also possible to
-install different customized versions of packages available in the module tree for
-special use cases. [See here for a short tutorial on how to install software on CSC
-supercomputers using Spack](../../tutorials/user-spack.md). Spack is also available
-on [LUMI](https://docs.lumi-supercomputer.eu/software/installing/spack/).
+CSC provides user Spack modules on Puhti and Mahti that can be used to build software on top of the
+available compilers and libraries. It is also possible to install different customized versions of
+packages available in the module tree for special use cases. [See here for a short tutorial on how
+to install software on CSC supercomputers using Spack](../../tutorials/user-spack.md). Spack is
+also available on [LUMI](https://docs.lumi-supercomputer.eu/software/installing/spack/).
 
 ### Ready-made binaries
 
 Ready-made binaries typically exhibit optimal performance only on the system on which
 they have been compiled on. This applies especially for MPI codes, which should always
-be re-compiled for best performance. However, if the binary you want to run is a simple
+be re-compiled for best performance. However, if the binary you want to use is a simple
 serial or threaded application, you can try running it directly.
 
 ## Containers
@@ -82,7 +81,7 @@ containers in CSC's computing environment can be found from the links below:
 ## Python/R environments
 
 Best practice guidelines on installing own Python and R packages can be found in
-our Python, R and Tykky container wrapper pages below.
+the Python, R and Tykky container wrapper pages below.
 
 - [Installing Python packages and environments](../../apps/python.md)
 - [Containerizing Conda and pip environments with Tykky](../containers/tykky.md)
@@ -93,7 +92,7 @@ alongside CSC's pre-installed Python modules with `pip install --user <package>`
 More complicated environments should always be containerized. This is accomplished
 easily with [Tykky](../containers/tykky.md).
 
-Similarly, the R module provided by CSC is a containerized environment containing more
-than 1300 packages. If these do not satisfy your needs, you can install your own packages
-into a project-specific location under `/projappl` and add this to your library trees
-in R. [See here for specific details](../../apps/r-env.md#r-package-installations).
+Similarly, the pre-installed R module provided by CSC is a containerized environment
+containing more than 1300 packages. If these do not satisfy your needs, you can install your
+own packages into a project-specific location under `/projappl` and add this to your library
+trees in R. [See here for specific details](../../apps/r-env.md#r-package-installations).
