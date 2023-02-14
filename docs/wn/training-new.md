@@ -1,5 +1,9 @@
 # Training & tutorials
 
+## Changes in navigation on Docs CSC, 14.02.2023
+
+Some changes have been made to how the sidebar navigation works on Docs CSC. Parts of it are still a work in progress.
+
 ## New guide for working with Earth Observation data, 19.01.2023
 
 The [Earth Observation guide](../tutorials/gis/eo_guide.md) aims to help researchers to work with Earth Observation (EO) data by giving an overview of available data and tools for raster data based EO tasks. The focus of the guide is on using CSC computing resources for EO data processing and analysis. However, it also includes some information of non CSC related options for processing and download of EO data.
