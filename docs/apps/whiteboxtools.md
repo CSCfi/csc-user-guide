@@ -5,20 +5,27 @@ tags:
 
 # WhiteboxTools
 
-[WhiteboxTools](https://www.whiteboxgeo.com/manual/wbt_book/intro.html) is an advanced geospatial data analysis platform which includes more than 480 tools. Many tools operate in parallel, taking full advantage of your multi-core processor.
+[WhiteboxTools](https://www.whiteboxgeo.com/manual/wbt_book/intro.html) is an advanced geospatial data analysis platform which includes more than 450 tools. Many tools operate in parallel, taking full advantage of your multi-core processor.
 
 ## Available
 
-WhiteboxTools is available in Puhti with following versions:
+Only WhiteboxTools Open Core tools are available on Puhti. WhiteboxTools is available with following versions:
 
-* 2.1.0. Only WhiteboxTools Open Core tools are available on Puhti.
+* 2.2.0 in the **geoconda** module
+* 2.1.0 in the **WhiteboxTools** module 
 
 ## Usage
 
-WhiteboxTools is available in the __WhiteboxTools__ module and can be loaded with
+Load a module, select module based on version:
 
 ```
-module load whiteboxtools
+module load geoconda
+```
+
+Or `module load whiteboxtools` if you want to use the older version.
+
+To check whiteboxtools version
+```
 whitebox_tools --version
 ```
 
