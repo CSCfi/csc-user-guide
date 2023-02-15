@@ -24,8 +24,7 @@ In the usage plot, you can:
     Computing, Cloud and Data for instructions how the remaining quotas
     can be followed up in each service.
 
-You can often see usage information of an 'unknown' user. You and the other
-members of the project are responsible also for this use. See the explanation
+You can often see usage information of an 'other' user. See the explanation
 in FAQ:
 
 * [Who 'unknown' is using our resources](../support/faq/who-unknown-is-using-our-resources.md)
