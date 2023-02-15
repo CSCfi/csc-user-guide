@@ -75,6 +75,8 @@ SSH keys provide more secure authentication and can be enabled with a two-step p
    you are using to connect to CSC supercomputers.
 2. **Copy public key from local PC to supercomputer**  
    Only the _public key_ should be copied, don't copy the private key.
+   For LUMI, the public key should be uploaded via MyCSC, [see
+   below](../connecting/#setting-up-your-ssh-keys-in-mycsc-portal).
 
 !!! error "Important!"
     The private key should **never** be shared with anyone, not even with

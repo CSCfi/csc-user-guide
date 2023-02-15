@@ -9,14 +9,17 @@ The Amsterdam Modeling Suite offers DFT, semi-empirical, reactive force fields a
 
 ## Available
 
--   Puhti: AMS2022, ADF2022, BAND2022, DFTB2022, MOPAC2022, ReaxFF2022 , Version 2022.103
--   Mahti: AMS2022, ADF2022, BAND2022, DFTB2022, MOPAC2022, ReaxFF2022 , Version 2022.103
+Starting February 2023, we are only offering ADF and AMS-GUI. 
+
+-   Puhti: ADF, Version 2022.103
+-   Mahti: ADF, Version 2022.103
 
 ## License
 -  The license entitles software usage by any academic researcher or student of an academic institute where "Academic" means "belonging to a degree-granting institute". 
 -  The license does not include the right for employees of government labs or other non-academic non-profit research institutes to use the software. 
 -  The license only allows non-profit non-commercial use. 
 -  The license excludes all forms of contract research, royalty-bearing activities and other activities leading to monetary benefits.
+-  Research groups which need other modules of the AMS suite can obtain a licence for themselves to run the programs on the CSC computers. 
 
 ## Usage
 
