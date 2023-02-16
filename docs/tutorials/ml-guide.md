@@ -55,8 +55,8 @@ If you are a new user, please read [how to access Puhti and
 Mahti](../computing/index.md), and [how to submit computing
 jobs](../computing/running/index.md).
 
-New users may in particular be interested in [Puhti's web
-interface](https://docs.csc.fi/computing/webinterface/), which can be accessed
+New users may in particular be interested in
+[Puhti's web interface](../computing/webinterface/index.md), which can be accessed
 at [www.puhti.csc.fi](https://www.puhti.csc.fi). Via the web interface, one can
 easily launch for example a Jupyter Notebook session with TensorFlow or PyTorch.
 

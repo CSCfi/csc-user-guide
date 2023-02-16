@@ -239,7 +239,6 @@ interface.  The profilers can be used to identify resource consumption
 and to resolve performance bottlenecks, in particular the data input
 pipeline.
 
-See also [how to launch TensorBoard using the Puhti web
-interface](https://docs.csc.fi/computing/webinterface/apps/). The
-TensorFlow module `tensorflow/2.8` or later is required to use the
-profilers.
+See also
+[how to launch TensorBoard using the Puhti web interface](../computing/webinterface/apps.md).
+The TensorFlow module `tensorflow/2.8` or later is required to use the profilers.

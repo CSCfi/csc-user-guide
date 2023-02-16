@@ -216,8 +216,8 @@ we can actually log into the virtual machine.
 
 2) Once the virtual machine is up and running, we copy the OpenStack 
 RC File v3 for accessing to cPouta/ePouta in the virtual machine. If you 
-do not have such file yet, please refer to [this 
-guide](https://docs.csc.fi/cloud/pouta/install-client/#configure-your-terminal-environment-for-openstack) 
+do not have such file yet, please refer to
+[this guide](install-client.md#configure-your-terminal-environment-for-openstack)
 to obtain a copy.
 
     scp <project_name_here>-openrc.sh cloud-user@<floating_ip>:/home/cloud-user/
@@ -227,10 +227,9 @@ credentials.
 
     source <project_name_here>-openrc.sh
 
-3) In order to host the image obtained from the snapshot, we need to 
-initialize properly the ephemeral storage. To do so, please refer to [our 
-guide](https://docs.csc.fi/cloud/pouta/ephemeral-storage/). After this 
-step, we assume the ephemeral disk is mounted in _/mnt_.
+3) In order to host the image obtained from the snapshot, we need to initialize properly the
+ephemeral storage. To do so, please refer to [our guide](ephemeral-storage.md). After this step,
+we assume the ephemeral disk is mounted in _/mnt_.
 
 4) Next, we need to equip the virtual machine with some basic tools we 
 will need.
