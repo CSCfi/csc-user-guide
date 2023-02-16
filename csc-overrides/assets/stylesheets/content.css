@@ -13,6 +13,10 @@
     font-weight: var(--csc-font-weight--regular);
 }
 
+.md-typeset abbr {
+    border-bottom: .05rem dotted currentColor;
+}
+
 /* The pencil icon for 'Edit this page' */
 .md-typeset .md-content__button {
     color: var(--md-default-fg-color--light);
