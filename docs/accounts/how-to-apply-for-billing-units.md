@@ -1,5 +1,8 @@
 # Applying for billing units
 
+**Billing Units** (BUs) are used to allocate resources to users' projects. You can apply for Billing Units in [MyCSC](https://my.csc.fi) portal and CSC grants BUs to projects. [Usage consumes billing units](billing.md) but **no actual payment** is required.
+However, the amount of billing units must always remain positive.
+
 Submit a resource application:
 
 1. Login to [MyCSC](https://my.csc.fi).
