@@ -145,6 +145,10 @@ Installing new packages to your HOME directory, see [Python](python.md#installin
 singularity_wrapper exec pip <NEW-PACKAGE-NAME> --user
 ```
 
+## Updating SNAP
+
+SNAP minor and module updates are stored in the `$HOME/.snap` directory. This means that all minor updates need to be installed by the user. You can either do this in SNAP Desktop by following the instructions in the pop-up at start up, or for SNAP 9 by running `source update` after loading the SNAP module in the terminal.
+
 ## License and acknowledgement
 
 All SNAP software is published under the [GPL-3](https://www.gnu.org/licenses/gpl.html) license and its sources are available on [GitHub](https://github.com/senbox-org/).
