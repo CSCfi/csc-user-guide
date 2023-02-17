@@ -787,7 +787,7 @@ citation("package") # for citing R packages
 
 ## Further information
 
-- [r-env container recipes](https://github.com/CSCfi/singularity-recipes/tree/main/r-env) (link to public GitHub repository)
+- [r-env container recipes](https://github.com/CSCfi/singularity-recipes/tree/main/r-env-singularity) (link to public GitHub repository)
 
 - [Tutorial on parallel R](../support/tutorials/parallel-r.md)
 
