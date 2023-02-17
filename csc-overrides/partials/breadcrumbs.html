@@ -4,21 +4,21 @@
     {# Breadcrumbs are defined literally for pages that don't have ancestors: #}
     {% set breadcrumbs = {
         "/faq/": [
-            { "url": "/faq/", "text": "FAQ" }
+            { "url": "/faq/", "title": "FAQ" }
         ],
         "/tutorials/": [
-            { "url": "/tutorials/", "text": "Tutorials" }
+            { "url": "/tutorials/", "title": "Tutorials" }
         ],
         "/tutorials/env-guide/": [
-            { "url": "/tutorials/", "text": "Tutorials" },
-            { "url": "/tutorials/env-guide/", "text": "Linux tutorials" }
+            { "url": "/tutorials/", "title": "Tutorials" },
+            { "url": "/tutorials/env-guide/", "title": "Linux tutorials" }
         ],
         "/tutorials/gis/": [
-            { "url": "/tutorials/", "text": "Tutorials" },
-            { "url": "/tutorials/gis/", "text": "Geoinformatics tutorials" }
+            { "url": "/tutorials/", "title": "Tutorials" },
+            { "url": "/tutorials/gis/", "title": "Geoinformatics tutorials" }
         ],
         "/whats-new/": [
-            { "url": "/whats-new/", "text": "What's new" }
+            { "url": "/whats-new/", "title": "What's new" }
         ],
     } %}
     <nav class="csc-breadcrumbs">
@@ -32,7 +32,7 @@
         {%- endfor -%}
         {% if not page.ancestors and parent_url in breadcrumbs %}
             {% for breadcrumb in breadcrumbs[parent_url] %}
-                <a class="csc-breadcrumbs__link" href="{{ breadcrumb['url'] }}">{{ breadcrumb['text'] }}</a>
+                <a class="csc-breadcrumbs__link" href="{{ breadcrumb['url'] }}">{{ breadcrumb['title'] }}</a>
             {% endfor %}
         {% endif %}
         {% if not page.is_homepage %}
