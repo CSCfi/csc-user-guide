@@ -11,7 +11,7 @@ tags:
 
 __SNAP__ is available in Puhti with following versions:
 
-* 9.0 (without Python interfaces)
+* 9.0 (wrapped singularity container with Python 3.6.9 including snappy and snapista)
 * 8.0 (Singularity container with snappy 8.0.3 and Python 3.6.9)
 
 ### Installed toolboxes
@@ -113,7 +113,25 @@ gpt <snap-operator> -h
 
 ### Using SNAP with the Python library snappy
 
-It is also possible to access SNAP functionalities from Python with the __snappy__ library.
+It is also possible to access SNAP functionalities from Python with the __snappy__ and __snapista__(only SNAP 9) library.
+
+__SNAP 9.0__
+
+Running snappy/snapista scripts with batch jobs:
+```
+python3 <YOUR-PYTHON-SCRIPT>
+```
+
+See available packages:
+```
+pip list
+```
+
+Installing new packages to your HOME directory, see [Python](python.md#installing-python-packages-to-existing-modules) instructions how to change installation directory.
+
+```
+pip <NEW-PACKAGE-NAME> --user
+```
 
 __SNAP 8.0__
 
