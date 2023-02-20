@@ -113,5 +113,5 @@ For further guidance, check at the beginning of the user guide:
 
 * [applying for billing units](../../accounts/how-to-apply-for-billing-units.md) 
 
-* and [increasing quotas](how-to-increase-disk-quotas.md)).
+* and [increasing quotas](how-to-increase-disk-quotas.md).
 
