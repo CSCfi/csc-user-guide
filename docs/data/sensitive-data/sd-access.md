@@ -48,19 +48,19 @@ with any modern web-browser (Note: private browsing is not supported using Firef
 
 ## Processing register data under the Act on Secondary Use
 
-Analysing register data differs from the process mentioned above. In this case, CSC's helpdesk manages user's access to the SD Desktop computing environment in compliance with the Finnish Act on the Secondary Use of Health and Social data and the Findata Authority's Regulation.
+Analysing register data differs from the process mentioned above. In this case, CSC's helpdesk manages users' access to the SD Desktop computing environment in compliance with the Finnish Act on the Secondary Use of Health and Social data and the Findata Authority's Regulation.
 
 Register data can only be provided by the Fidata Authority and accessed via the SD Desktop service. For more information about data provided by single registers, contact us at: servicedesk@csc.fi.
 
 !!! Note
-    Register data processing is subject to several limitations. Therefore, we recommend contacting us at servicedesk@csc.fi (subject: sensitive data) before applying for a data permit to verify if the service matches your needs. 
+    Register data processing is subject to several limitations. Therefore, we recommend contacting us at servicedesk@csc.fi (subject: Sensitive data) before applying for a data permit to verify if the service matches your needs. 
 
 To access and analyse register data via the SD Desktop service:
 
- 1. Create [a CSC account](../../accounts/how-to-create-new-user-account.md) by logging in at the [My CSC portal](https://my.csc.fi) with your Haka or Virtu account. Additional steps might be necessary to verify your identity.If  your organization is not a member of the Haka or Virtu federation, contact us at servicedesk@csc.fi.
+ 1. Create [a CSC account](../../accounts/how-to-create-new-user-account.md) by logging in at the [My CSC portal](https://my.csc.fi) with your Haka or Virtu account. Additional steps might be necessary to verify your identity. If your organization is not a Haka or Virtu federation member, contact us at servicedesk@csc.fi.
 
 
-2. Next, apply for a CSC project writing to servicedesk@csc.fi (subject: sensitive data) providing: - a copy of the data permit issued by the Findata authority; - a short description of your research project (name and research field are sufficient); - a list of all the project members, added in cc to the email (please use only organizational email addresses).
+2. Next, apply for a CSC project by writing to servicedesk@csc.fi (subject: Sensitive data) providing: - a copy of the data permit issued by the Findata authority; - a short description of your research project (name and research field are sufficient); - a list of all the project members, added in cc to the email (please use only organizational email addresses).
   
 3. Each project member should activate the account's additional security verification (or Multi-factor Authentication) by scanning the QR code provided under _My profile_ in the MyCSC portal. For further instructions, see the [MFA paragraph](../../accounts/mfa.md) under the Account section on the CSC user guide;
 
@@ -76,7 +76,7 @@ To access and analyse register data via the SD Desktop service:
  	 
 For specific guidance regarding these steps, check the [Accounts](../../accounts/index.md) paragraph at the beginning of this user guide.	 
   
-Note that you need to use your CSC username and password when you access data from your virtual desktop. If you don't remember your CSC password, you can [reset it](../../accounts/how-to-change-password.md) using the MyCSC portal.
+Note that you need to use your CSC username and password when accessing data from your virtual desktop. If you don't remember your CSC password, you can [reset it](../../accounts/how-to-change-password.md) using the MyCSC portal.
   
  	 
 ## Default storage space and billing units consumption
@@ -87,31 +87,31 @@ Using SD Connect and SD Desktop is free of charge for research purposes, accordi
 
 * and quota for storage space allocation.
 
-**A new CSC project includes about 10,000 billing units.** You can find out how many billing units your CSC project will consume with this [calculator](https://research.csc.fi/pricing). Here you can estimate the cost in billing units or euros. Once you have calculated how many billing units your project needs yearly, you can apply for more resources.
+**A new CSC project includes about 10,000 billing units.** You can find out how many billing units (BU) your CSC project will consume with this [calculator](https://research.csc.fi/pricing). Here you can estimate the cost in billing units or euros. Once you have calculated how many billing units your project needs yearly, you can apply for more resources.
 
 ### SD Connect
 
 When you apply for a new CSC project, the default quota (or storage space) for SD Connect/Allas is 10 TB, which can be increased to 200 TB if needed. If you work with larger datasets and your project requires additional storage space, contact us for support at servicedesk@csc.fi (subject: sensitive data). Storing data in SD Connect/Allas consumes billing units. 
 
-The rate is: 1 units/TiBh, i.e. 1 TB of data stored in Allas consumes 24 Billing units in a day and 8760 BU in a year.
+The rate is: 1 unit/TB, i.e. 1 TB of data stored in Allas consumes 24 billing units daily and 8760 billing units per year.
 
 ### SD Desktop
 
-The default disk space (or storage space) in SD Desktop is 80 GB and can be increased to 280 GB by adding an external volume during virtual desktop creation. If you need additional storage space for data analysis, contact us for support at servicedesk@csc.fi (subject: sensitive data). 
+The default disk space (or storage space) in SD Desktop is 80 GB and can be increased to 280 GB by adding an external volume during virtual desktop creation. If you need additional storage space for data analysis, contact us for support at servicedesk@csc.fi (subject: Sensitive data). 
 Analysing data in SD Desktop consumes billing units based on the type of virtual desktop you are using. The rate is:
 
-* Light computation, billing units; 1.3 units/h;
+* Light computation: 1.3 billing units/h;
 
-* Small computation, billing Units: 5.2 units/h;
+* Small computation: 5.2 billing units/h;
 
-* Medium computation, billing Units: 10.4 units/h;
+* Medium computation: 10.4 billing units/h;
 
-* Heavy computation, billing Units: 52 units/h.
+* Heavy computation: 52 billing units/h.
 
 
-For further guidance on applying for additional quota or billing units, check the [Accounts](../../accounts/index.md) paragraph at the beginning of the user guide:
+For further guidance, check at the beginning of the user guide:
 
 * [applying for billing units](../../accounts/how-to-apply-for-billing-units.md) 
 
-* and [increasning quotas](how-to-increase-disk-quotas.md)).
+* and [increasing quotas](how-to-increase-disk-quotas.md)).
 
