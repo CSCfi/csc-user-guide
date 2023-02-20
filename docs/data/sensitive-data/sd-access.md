@@ -101,13 +101,13 @@ The rate is: 1 unit/TB, i.e. 1 TB of data stored in Allas consumes 24 billing un
 The default disk space (or storage space) in SD Desktop is 80 GB and can be increased to 280 GB by adding an external volume during virtual desktop creation. If you need additional storage space for data analysis, contact us for support at servicedesk@csc.fi (subject: Sensitive data). 
 Analysing data in SD Desktop consumes billing units based on the type of virtual desktop you are using. The rate is:
 
-* Light computation: 1.3 billing units/h;
+* Light computation: 1.3 billing units/hour;
 
-* Small computation: 5.2 billing units/h;
+* Small computation: 5.2 billing units/hour;
 
-* Medium computation: 10.4 billing units/h;
+* Medium computation: 10.4 billing units/hour;
 
-* Heavy computation: 52 billing units/h.
+* Heavy computation: 52 billing units/hour.
 
 
 For further guidance, check at the beginning of the user guide:
