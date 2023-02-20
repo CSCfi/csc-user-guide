@@ -47,7 +47,7 @@ Page introduced by a plugin we use called
 that makes the sections in the navigation sidebar clickable. Every section should have a
 SectionPage that acts as the index for the section. The breadcrumbs navigation on the top of every
 page relies on the existence of a SectionPage. Without it, a level of navigation will be missing
-its breadcrumb.
+its breadcrumb. (See [Breadcrumbs debugging](#breadcrumbs-debugging))
 
 If an existing page is selected as the SectionPage like so,
 
@@ -169,6 +169,22 @@ for s in scripts/*.sh; do bash $s; done
 ```
 
 Keep in mind, though, that the tests are meant to be run _before_ the scripts, so make sure to restore any files the scripts edit/create before re-running the tests. (Or just ignore the new errors/warnings that resulted from running the scripts.)
+
+#### Breadcrumbs debugging
+
+A debugging view for the breadcrumbs navigation can be activated with an environment variable `DEBUG` set to `true`:
+
+```
+DEBUG=true mkdocs serve
+```
+
+A debugging view will then be rendered right under the breadcrumbs on every page.
+
+For pages included in the `nav` structure, a breadcrumb is only rendered for ancestor sections where
+`is_page=true`. These are the so-called [SectionPages](#sectionpage). The debugging view lists all of
+the page's ancestor sections.
+
+Pages that are not in the `nav`, such as pages under _FAQ_ and _Tutorials_, have their breadcrumbs defined literally in [breadcrumbs.html](csc-overrides/partials/breadcrumbs.html). On these pages, the debugging view lists the literal breadcrumbs.
 
 ## How and who should I ask to review my PR?
 
