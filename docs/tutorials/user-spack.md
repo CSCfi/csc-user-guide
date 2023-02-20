@@ -114,7 +114,7 @@ is then performed via the `spack install` command.
     a specific version, perhaps using a specific compiler and with some optional
     installation flags (e.g. a GPU-enabled version of the software). Spack uses
     a special syntax for specifying this information as explained in the [official
-    documentation](https://spack.readthedocs.../latest/basic_usage.html#specs-dependencies).
+    documentation](https://spack.readthedocs.io/en/latest/basic_usage.html#specs-dependencies).
 
 ## Using modules with user Spack installations
 
@@ -150,6 +150,6 @@ searched and loaded with:
 
 ## Further reading
 
-- [Official Spack documentation](https://spack.readthedocs.../latest/index.html)
-- [Spack tutorial](https://spack.readthedocs.../latest/tutorial.html)
+- [Official Spack documentation](https://spack.readthedocs.io/en/latest/index.html)
+- [Spack tutorial](https://spack.readthedocs.io/en/latest/tutorial.html)
 - [Spack GitHub repository](https://github.com/spack/spack)

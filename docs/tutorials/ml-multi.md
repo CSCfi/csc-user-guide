@@ -604,8 +604,7 @@ documentation](https://horovod.readthedocs.io/), for example:
 
 TensorFlow also has its own [built-in mechanisms for distributed
 training](https://www.tensorflow.org/guide/distributed_training) in
-the [`tf.distribute.Strategy`
-API](https://www.tensorflow.org/api_docs/pyth../distribute/Strategy).
+the [`tf.distribute.Strategy` API](https://www.tensorflow.org/api_docs/python/tf/distribute/Strategy).
 
 
 

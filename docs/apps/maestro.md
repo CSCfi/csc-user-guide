@@ -38,7 +38,7 @@ Maestro is available for all academic users in Finland: staff and students, for 
 purposes. Please consult the [EULA](https://www.schrodinger.com/maestro-academic-eula)
 for the exact definition. Using Maestro means that you accept the EULA linked to above.
 The Maestro license consists of floating licenses and tokens. If licenses run out, contact
-us via [ServiceDesk../../support/contact/).
+us via [Service Desk](../support/contact.md).
 
 ## Usage
 
@@ -73,7 +73,7 @@ you're at the university or connected to it via VPN from home.
      We mainly recommend using Puhti to run your Maestro jobs. If running on
      Mahti, you must ensure that your jobs are able to utilize full nodes
      (128 CPU cores). Preferably, run only Desmond MD simulations on GPUs
-     because most other jobs do not scale. If in doubt, [contact us../../support/contact/).
+     because most other jobs do not scale. If in doubt, [contact us](../support/contact.md).
 
 It is possible to run heavier computations on Puhti. Here, a brief overview is given.
 Additional details and some diagnostics tips are explained in our [Maestro power usage
@@ -182,5 +182,5 @@ Jaguar, version 7.6, Schrödinger, LLC, New York, NY, 2009.
    * [Short videos on 11 features](https://www.schrodinger.com/training/videos/maestro/all)
    * [Downloadable tutorials section](https://www.schrodinger.com/training/tutorials)
 * Search the [Schrödinger KnowledgeBase](https://www.schrodinger.com/kb) for solutions
-* Issues on how to run Maestro on CSC environment: [contact ServiceDesk../../support/contact/)
+* Issues on how to run Maestro on CSC environment: [contact Service Desk](../support/contact.md)
 * Scientific questions related to Maestro modules: [help@schrodinger.com](mailto:help@schrodinger.com)
