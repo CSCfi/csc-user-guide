@@ -1,8 +1,18 @@
 # Training & tutorials
 
-## Changes in navigation on Docs CSC, 14.02.2023
+## Changes in navigation on Docs CSC, 20.02.2023
 
-Some changes have been made to how the sidebar navigation works on Docs CSC. Parts of it are still a work in progress.
+Some changes have been made to how the sidebar navigation works on Docs CSC. Many of the sections
+have had pages like _Overview_, _Contents_ or other index-like pages moved under the section
+headings themselves, which are now links:
+
+| Before | After |
+|-|-|
+| ![Navigation before changes](../img/nav-whats-new/nav-before.png) | ![Navigation after changes](../img/nav-whats-new/nav-after.png) |
+
+In addition, `support/FAQ/` and `support/tutorials/` have been moved to `FAQ/` and `tutorials/`
+respectively. This change should be transparent in the user interface, but may lead to some
+incoming links malfunctioning.
 
 ## New guide for working with Earth Observation data, 19.01.2023
 
