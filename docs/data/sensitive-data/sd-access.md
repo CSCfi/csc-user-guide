@@ -83,13 +83,11 @@ Note that you need to use your CSC username and password when accessing data fro
 
 Using SD Connect and SD Desktop is free of charge for research purposes, according to [CSC's general terms of use](https://research.csc.fi/free-of-charge-use-cases). However, CSC's services consume resources: 
 
-* billing units for their use;
+* billing units (BUs) for their use;
 
 * and quota for storage space allocation.
 
-**A new CSC project includes about 10,000 billing units.** You can find out how many billing units (BU) your CSC project will consume with the calculator below and apply for more resources.
-
-<iframe srcdoc="https://my.csc.fi/buc" style="width: 100%; height: 1300px; border: 0"></iframe>
+**A new CSC project includes about 10,000 billing units.** You can find out how many billing units your CSC project will consume with the calculator below and apply for more resources.
 
 
 ### SD Connect
@@ -117,4 +115,8 @@ For further guidance, check at the beginning of the user guide:
 * [applying for billing units](../../accounts/how-to-apply-for-billing-units.md) 
 
 * and [increasing quotas](how-to-increase-disk-quotas.md).
+
+### Billing units calculator
+
+<iframe srcdoc="https://my.csc.fi/buc" style="width: 100%; height: 1300px; border: 0"></iframe>
 
