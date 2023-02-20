@@ -20,7 +20,7 @@ You can browse the guide using the navigation bar on the right side of this page
   
 To access SD Connect and SD Desktop for storing, sharing or analysing sensitive research data:
 
-1. Create a [CSC account](../../accounts/how-to-create-new-user-account.md) by logging in at the [My CSC portal](https://my.csc.fi).
+1. Create a [CSC account](../../accounts/how-to-create-new-user-account.md) by logging in at the [MyCSC portal](https://my.csc.fi).
 
 2. Create or join a CSC project and add project members.
 
@@ -57,7 +57,7 @@ Register data can only be provided by the Fidata Authority and accessed via the 
 
 To access and analyse register data via the SD Desktop service:
 
- 1. Create a [CSC account](../../accounts/how-to-create-new-user-account.md) by logging in at the [My CSC portal](https://my.csc.fi) with your Haka or Virtu account. Additional steps might be necessary to verify your identity. If your organization is not a Haka or Virtu federation member, contact us at servicedesk@csc.fi.
+ 1. Create a [CSC account](../../accounts/how-to-create-new-user-account.md) by logging in at the [MyCSC portal](https://my.csc.fi) with your Haka or Virtu account. Additional steps might be necessary to verify your identity. If your organization is not a Haka or Virtu federation member, contact us at servicedesk@csc.fi.
 
 
 2. Next, apply for a CSC project by writing to servicedesk@csc.fi (subject: Sensitive data) providing: - a copy of the data permit issued by the Findata authority; - a short description of your research project (name and research field are sufficient); - a list of all the project members, added in cc to the email (please use only organizational email addresses).
@@ -92,7 +92,7 @@ Using SD Connect and SD Desktop is free of charge for research purposes, accordi
 
 ### SD Connect
 
-When you apply for a new CSC project, the default quota (or storage space) for SD Connect/Allas is 10 TB, which can be increased to 200 TB if needed. If you work with larger datasets and your project requires additional storage space, contact us for support at servicedesk@csc.fi (subject: sensitive data). Storing data in SD Connect/Allas consumes billing units. 
+When you apply for a new CSC project, the default quota (or storage space) for SD Connect/Allas is 10 TB, which can be increased to 200 TB if needed. If you work with larger datasets and your project requires additional storage space, contact us for support at servicedesk@csc.fi (subject: Sensitive data). Storing data in SD Connect/Allas consumes billing units. 
 
 The rate is: 1 unit/TB, i.e. 1 TB of data stored in Allas consumes 24 billing units daily and 8760 billing units per year.
 
