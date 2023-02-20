@@ -87,7 +87,7 @@ Using SD Connect and SD Desktop is free of charge for research purposes, accordi
 
 * and quota for storage space allocation.
 
-**A new CSC project includes about 10,000 billing units.** You can find out how many billing units your CSC project will consume with the calculator below and apply for more resources.
+**A new CSC project includes about 10,000 billing units.** With the calculator below, you can find out how many billing units your CSC project will consume and apply for more resources.
 
 
 ### SD Connect
