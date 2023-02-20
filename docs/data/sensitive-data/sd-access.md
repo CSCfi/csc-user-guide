@@ -81,7 +81,7 @@ Note that you need to use your CSC username and password when accessing data fro
  	 
 ## Default storage space and billing units consumption
 
-Using SD Connect and SD Desktop is free of charge for research purposes, according to [CSC's general terms of use](https://research.csc.fi/free-of-charge-use-cases). However, CSC service consumes resources: 
+Using SD Connect and SD Desktop is free of charge for research purposes, according to [CSC's general terms of use](https://research.csc.fi/free-of-charge-use-cases). However, CSC's services consume resources: 
 
 * billing units for their use;
 
