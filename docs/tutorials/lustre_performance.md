@@ -58,7 +58,7 @@ In addition, environment variable `ROMIO_HINTS` needs to be set in your
 batch job script:
 
 ```
-export ROMIO_HINTS=/pa../file_with_hints
+export ROMIO_HINTS=/path/to/file_with_hints
 ```
 
 Hints can be set also in the application code:

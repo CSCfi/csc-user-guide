@@ -33,7 +33,7 @@ Please do the following tasks:
   A tutorial for data transfer is available at [allas-examples](../data/Allas/allas-examples.md).
 * **Archive files** that should be available longer than the lifetime of compute projects.
   Options for this can be for example your organizations own storage systems, or
-  [IDA safe storage for research data](https://www.fairdata.../).
+  [IDA safe storage for research data](https://www.fairdata.fi/en/).
 
 ## Identifying where you have data
 
@@ -211,8 +211,8 @@ to take place. If you are happy with purging all of the files that were listed i
 # Start a screen session
 screen
 # Delete all of the files on your purge list:
-# Replace the "/pa../my/path_summary.txt" with the path to your project's path_summary.txt
-lcleaner -0 /pa../my/path_summary.txt | xargs -0 -n 50 rm -vf --
+# Replace the "/path/to/my/path_summary.txt" with the path to your project's path_summary.txt
+lcleaner -0 /path/to/my/path_summary.txt | xargs -0 -n 50 rm -vf --
 # Then you can press "Ctrl + a" and then "d" to disconnect from the screen and keep
 # the deletion running in the background.
 # Run "screen -r" to reattach your screen.
@@ -224,7 +224,7 @@ example use a command like this:
 
 ```bash
 # Delete only files on the list which are inside /scratch/$my_project/delete-this-dir/
-screen lcleaner -0 /pa../my/path_summary.txt | grep -zZ "/scratch/${my_project:?}/delete-this-dir/" | xargs -0 -n 50 rm -vf --
+screen lcleaner -0 /path/to/my/path_summary.txt | grep -zZ "/scratch/${my_project:?}/delete-this-dir/" | xargs -0 -n 50 rm -vf --
 # Ctrl + a, d to detach from the screen.
 ```
 
@@ -306,7 +306,7 @@ why the command examples above are architected the way they are.
   The errors indicate which line number the problematic text was on, so you can go
   and check it manually.
     - Tip: To print only a specific line, e.g., line 123 of the `path_summary.txt`, you can use
-      this command: `sed -n 123p /pa../path_summary.txt`
+      this command: `sed -n 123p /path/to/path_summary.txt`
 - To capture the logging of `lcleaner`, you can redirect the standard error output stream into
   a file. This may be useful if you experience problems, and would like help to troubleshoot
   the situation.

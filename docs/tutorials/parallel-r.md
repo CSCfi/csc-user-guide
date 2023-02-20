@@ -30,7 +30,7 @@ Moreover, R processes are often split into a **master** process and **worker** p
 
 **Multithreading**
 
-The default behaviour of R is to use a single thread at a time. However, R can be separately configured to use BLAS/LAPACK libraries that can utilise multiple cores via *multithreading*. Multithreading can help speed up certain (e.g. linear algebra) routines. The R installation in `r-env` has been linked with [Intel® OneMKL](https://www.intel.com/content/w../en/developer/tools/oneapi/onemkl.html) to enable support for multithreading.
+The default behaviour of R is to use a single thread at a time. However, R can be separately configured to use BLAS/LAPACK libraries that can utilise multiple cores via *multithreading*. Multithreading can help speed up certain (e.g. linear algebra) routines. The R installation in `r-env` has been linked with [Intel® OneMKL](https://www.intel.com/content/www/us/en/developer/tools/oneapi/onemkl.html) to enable support for multithreading.
 
 While `r-env` is linked with OneMKL, the module is configured to use a single thread unless the user specifies otherwise. In multithreaded analyses, the number of threads is typically matched with the number of cores using the environment variable `OMP_NUM_THREADS`. More information can be found in the [`r-env` documentation](../apps/r-env.md#improving-performance-using-threading).
 

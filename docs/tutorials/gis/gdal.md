@@ -178,7 +178,7 @@ From batch file:
 
 *   Change working directory and list contents of it. DOS: [cd](http://www.computerhope.com/cdhlp.htm) and [dir](http://www.computerhope.com/dirhlp.htm). Linux: [cd](http://www.computerhope.com/unix/ucd.htm) and [ls](http://www.computerhope.com/unix/uls.htm).
 *   Copy the folder hierarchy (without the files)
-    *   Windows: [xcopy](https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/xcopy) source destinatio../e (give the command in the folder, where source is)
+    *   Windows: [xcopy](https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/xcopy) source destination /t /e (give the command in the folder, where source is)
     *   Linux: find -type d -exec [mkdir](http://www.computerhope.com/unix/umkdir.htm) ../compress95/{} \; (give the command in the folder from where you want to make the copy of)
 *   Copy and delete files: DOS: [copy](https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/copy) and [del](https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/del). Linux: [cp](http://www.computerhope.com/unix/ucp.htm) and [rm](http://www.computerhope.com/unix/urm.htm).
 

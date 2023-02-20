@@ -473,7 +473,7 @@ First copy the input file to your working directory:
 
 ```
 module load cp2k`
-cp $CP2K_DATA_DIR/tes../benchmark/H2O-32.inp .
+cp $CP2K_DATA_DIR/tests/QS/benchmark/H2O-32.inp .
 ```
 
 Then create a batch script and submit it with `sbatch`

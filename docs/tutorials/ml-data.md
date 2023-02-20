@@ -69,7 +69,7 @@ TFRecord](https://www.tensorflow.org/tutorials/load_data/tfrecord) and
 [WebDataset](https://webdataset.github.io/webdataset/) for PyTorch.
 Other examples include using
 [HDF5](https://towardsdatascience.com/hdf5-datasets-for-pytorch-631ff1d750f5),
-or [LMDB](http://deepdish.io/20../28/creating-lmdb-in-python/)
+or [LMDB](http://deepdish.io/2015/04/28/creating-lmdb-in-python/)
 formats, or even humble ZIP-files, e.g., via Python's
 [zipfile](https://docs.python.org/3/library/zipfile.html) library.
 See also [an example of creating TFRecord files from an image

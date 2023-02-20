@@ -596,8 +596,8 @@ appropriate module, and modify your program according to the
 instructions in [Horovod's
 documentation](https://horovod.readthedocs.io/), for example:
 
-* [Horovod with PyTorch](https://horovod.readthedocs.../latest/pytorch.html)
-* [Horovod with TensorFlow](https://horovod.readthedocs.../stable/tensorflow.html) and [Keras](https://horovod.readthedocs.../stable/keras.html)
+* [Horovod with PyTorch](https://horovod.readthedocs.io/en/latest/pytorch.html)
+* [Horovod with TensorFlow](https://horovod.readthedocs.io/en/stable/tensorflow.html) and [Keras](https://horovod.readthedocs.io/en/stable/keras.html)
 
 
 ### TensorFlow's `tf.distribute.Strategy`

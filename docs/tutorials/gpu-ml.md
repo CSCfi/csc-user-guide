@@ -67,7 +67,7 @@ default in the module system. These have been made available due to user
 requests, but with limited support. You can enable them by running:
 
 ```bash
-module use /appl/so../singularity/modulefiles/
+module use /appl/soft/ai/singularity/modulefiles/
 ```
 
 ### Installing your own software

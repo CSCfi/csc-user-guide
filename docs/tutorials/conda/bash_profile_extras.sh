@@ -62,7 +62,7 @@ boxprint <<EOF
 Environment for Conda admin work for user '$(whoami)':
 \    Module list:  $(module list 2>&1 | head -1)
 \    UMASK:        $(umask)
-\    PATH:         $(printf '%s\n\\                  ' ${PA../ } | head -n -1)
+\    PATH:         $(printf '%s\n\\                  ' ${PATH//:/ } | head -n -1)
 \    Group:        $(id -gn)
 
 Setgid bit $(tsetgid $condaroot && echo is || echo is not) set for \

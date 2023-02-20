@@ -424,7 +424,7 @@ _postmortem_ step below.
 
 ## Asking for support
 
-Maestro has a tool called [postmortem](https://www.schrodinger.c../1692)
+Maestro has a tool called [postmortem](https://www.schrodinger.com/kb/1692)
 that can be used to create a zip file containing the details of a failed job
 and the Maestro environment. Please add that to your support request to help
 us analyse your issue. On Puhti, first use

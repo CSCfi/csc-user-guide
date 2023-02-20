@@ -98,7 +98,7 @@ is then performed via the `spack install` command.
 [+] /appl/spack/v018/install-tree/gcc-11.3.0/ncurses-6.2-n4phtn
 ==> Installing kakoune-2021.11.08-yh4nmfid4st4l7gsmuzqv43o6qt6ckrm
 ==> No binary for kakoune-2021.11.08-yh4nmfid4st4l7gsmuzqv43o6qt6ckrm found: installing from source
-==> Using cached archive: /local_scratch/maijam/spack-build-project_2002567/source-cache/_source-cache/archi../aa30889d9da11331a243a8f40fe4f6a8619321b19217debac8f565e06eddb5f4.tar.bz2
+==> Using cached archive: /local_scratch/maijam/spack-build-project_2002567/source-cache/_source-cache/archive/aa/aa30889d9da11331a243a8f40fe4f6a8619321b19217debac8f565e06eddb5f4.tar.bz2
 ==> No patches needed for kakoune
 ==> kakoune: Executing phase: 'edit'
 ==> kakoune: Executing phase: 'build'
