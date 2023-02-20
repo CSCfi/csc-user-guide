@@ -214,7 +214,7 @@ Once the SSH keys and security groups are set, you can launch a new virtual mach
 
     !!! Warning "Please note"
 
-        The "Boot from image (creates a new volume)" approach creates an additional volume which is billed normally as mentioned on our [pricing](https://research.csc.fi/pricing-of-computing-services) page.
+        The "Boot from image (creates a new volume)" approach creates an additional volume which is billed normally as mentioned on our [pricing](https://research.csc.fi/billing-units) page.
 
 
 1. **Image Name**, this decides which Linux distribution to use. You can select the image that fits more your use case. The images provided by Pouta by default are regularly maintained up to date.

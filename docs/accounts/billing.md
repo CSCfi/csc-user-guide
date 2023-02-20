@@ -2,7 +2,7 @@
 
 CSC's services are free of charge for academic research, teaching or training for members of Finnish higher education institutions and state research institutes.
 
-See the [Billing unit and price calculator](https://research.csc.fi/billing-and-monitoring#buc){:target="_blank"}
+See the [Billing unit and price calculator](https://research.csc.fi/billing-units#buc){:target="_blank"}
 at research.csc.fi.
 
 ## Puhti
