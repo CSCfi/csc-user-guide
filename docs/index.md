@@ -36,7 +36,7 @@
 
     !!! warning-label
 
-        Navigation has changed on 20.02.2023, see [Changes in navigation on Docs CSC](wn/training-new.md#changes-in-navigation-on-docs-csc-20022023)
+        Navigation has changed on 21.02.2023, see [Changes in navigation on Docs CSC](wn/training-new.md#changes-in-navigation-on-docs-csc-21022023)
 
 <!--- Placeholder for a possible banner in the future
 

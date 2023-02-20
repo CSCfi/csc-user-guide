@@ -1,6 +1,6 @@
 # Training & tutorials
 
-## Changes in navigation on Docs CSC, 20.02.2023
+## Changes in navigation on Docs CSC, 21.02.2023
 
 Some changes have been made to how the sidebar navigation works on Docs CSC. Many of the sections
 have had pages like _Overview_, _Contents_ or other index-like pages moved under the section
