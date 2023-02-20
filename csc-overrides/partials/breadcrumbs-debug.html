@@ -8,15 +8,26 @@
   color: white;
 ">
   <p style="text-decoration: underline;">{{ page }}</p>
-  {% if parent_url in sections %}
-    <p>parent_url: {{ parent_url }}</p>
-    <p>sections[parent_url]: {{ sections[parent_url] }}</p>
+  {% if parent_url in breadcrumbs %}
+    <p>breadcrumbs:</p>
+    <ul>
+      {% for breadcrumb in breadcrumbs[parent_url] %}
+        <li style="color: yellow;">title='{{ breadcrumb['title'] }}', url='{{ breadcrumb['url'] }}'</li>
+      {% endfor %}
+    </ul>
   {% endif %}
   {% if page.ancestors %}
     <p>ancestors:</p>
     <ul>
       {% for anc in page.ancestors %}
-        <li>{{ anc }}</li>
+        <li>
+          {{ anc }}
+          {% if anc.is_page %}
+            <span style="color: lightgreen;">is_page=true</span>
+          {% else %}
+            <span style="color: lightcoral;">is_page=false</span>
+          {% endif %}
+        </li>
       {% endfor %}
     </ul>
   {% endif %}
