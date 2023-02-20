@@ -116,7 +116,7 @@ For further guidance, check at the beginning of the user guide:
 
 * and [increasing quotas](how-to-increase-disk-quotas.md).
 
-### Billing units calculator
+### Billing unit calculator
 
 <iframe srcdoc="https://my.csc.fi/buc" style="width: 100%; height: 1300px; border: 0"></iframe>
 
