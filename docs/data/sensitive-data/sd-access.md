@@ -44,7 +44,7 @@ Once you have completed these steps, you can log in with identity federation sys
 
 with any modern web-browser (Note: private browsing is not supported using Firefox).
 
-[![Project](images/connect/project.png)](images/connect/project.png)
+[![Project](images/connect/reasearchdata.png)](images/connect/reasearchdata.png)
 
 ## Processing register data under the Act on Secondary Use
 
@@ -76,7 +76,7 @@ To access and analyse register data via the SD Desktop service:
  	 
 For specific guidance regarding these steps, check the [Accounts](../../accounts/index.md) paragraph at the beginning of this user guide.	 
 
-[![Project-resgiter](images/connect/projectregister.png)](images/connect/projectregister.png)
+[![Project-resgiter](images/connect/secondaryuse.png)](images/connect/secondaryuse.png)
   
  	 
 ## Default storage space and billing units consumption
