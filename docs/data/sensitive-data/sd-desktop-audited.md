@@ -360,4 +360,4 @@ If you are still waiting for a decision about your amendment application when th
 
 ## Troubleshooting
 
-Find solutions to common problems in the [Troubleshooting paragraph](#troubleshooting) under SD Desktop.
+Find solutions to common problems in the [Troubleshooting paragraph](../sensitive-data/sd_desktop.md#troubleshooting) under SD Desktop.
