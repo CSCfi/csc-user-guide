@@ -44,6 +44,7 @@ Once you have completed these steps, you can log in with identity federation sys
 
 with any modern web-browser (Note: private browsing is not supported using Firefox).
 
+[![Project](images/connect/project.png)](images/connect/project.png)
 
 ## Processing register data under the Act on Secondary Use
 
@@ -74,8 +75,8 @@ To access and analyse register data via the SD Desktop service:
   
  	 
 For specific guidance regarding these steps, check the [Accounts](../../accounts/index.md) paragraph at the beginning of this user guide.	 
-  
-Note that you need to use your CSC username and password when accessing data from your virtual desktop. If you don't remember your CSC password, you can [reset it](../../accounts/how-to-change-password.md) using the MyCSC portal.
+
+[![Project-resgiter](images/connect/projectregister.png)](images/connect/projectregister.png)
   
  	 
 ## Default storage space and billing units consumption
