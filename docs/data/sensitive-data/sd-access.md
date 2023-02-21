@@ -28,12 +28,12 @@ To access SD Connect and SD Desktop for storing, sharing or analysing sensitive 
 
 4. All project members should add service access to Allas (to use SD Connect) and SD Desktop, accepting the terms of use. 
 
-5. All project members should activate their account's additional security verification (or Multi-factor Authentication) by scanning the QR code with an application (e.g. Google Authenticator).
+5. All project members should activate their account's additional security verification (or Multi-factor Authentication) by scanning the QR code with a mobile application (e.g. Google Authenticator).
 
 6. Apply for billing units or disk quota.
 
 
-For video tutorials and further guidance, check the [Accounts](../../accounts/index.md) paragraph at the beginning of this user guide.
+For video tutorials and further guidance, check the [Accounts](../../accounts/index.md) section at the beginning of this manual.
 
 Once you have completed these steps, you can log in with identity federation systems (Haka, Virtu, CSC Login, or LSLogin) at:
 
@@ -62,7 +62,7 @@ To access and analyse register data via the SD Desktop service:
 
 2. Next, apply for a CSC project by writing to servicedesk@csc.fi (subject: Sensitive data) providing: - a copy of the data permit issued by the Findata authority; - a short description of your research project (name and research field are sufficient); - a list of all the project members, added in cc to the email (please use only organizational email addresses).
   
-3. Each project member should activate the account's additional security verification (or Multi-factor Authentication) by scanning the QR code provided under _My profile_ in the MyCSC portal. For further instructions, see the [MFA paragraph](../../accounts/mfa.md) under the Account section on the CSC user guide;
+3. Each project member should activate the account's additional security verification (or Multi-factor Authentication) by scanning the QR code provided under _My profile_ in the MyCSC portal. For further instructions, see the [MFA paragraph](../../accounts/mfa.md) under the Account section;
 
 
 4. Each project member should join the CSC project via the invitation link provided by the service desk and wait for approval;
@@ -74,7 +74,7 @@ To access and analyse register data via the SD Desktop service:
 6. All project members should approve [the terms and conditions of SD Desktop service](../../accounts/how-to-add-service-access-for-project.md#member);	 
   
  	 
-For specific guidance regarding these steps, check the [Accounts](../../accounts/index.md) paragraph at the beginning of this user guide.	 
+For specific guidance regarding these steps, see the [Accounts](../../accounts/index.md) section at the beginning of this manual.	 
 
 [![Project-resgiter](images/connect/secondaryuse.png)](images/connect/secondaryuse.png)
   
@@ -113,7 +113,7 @@ Analysing data in SD Desktop consumes billing units based on the type of virtual
 * Heavy computation: 52 billing units/hour.
 
 
-For more information, see the specific pages: 
+For more information, see the specific sections: 
 
 * [applying for billing units](../../accounts/how-to-apply-for-billing-units.md) 
 
