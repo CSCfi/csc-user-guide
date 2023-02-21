@@ -62,7 +62,7 @@ More information about using Allas can be found from the Allas documentation:
 
 The Allas documentation includes two tutorials that are especially designed for Puhti and Mahti users:
 
-* [Examples for using Allas in CSC supercomputers](../../data/Allas/allas-examples)
+* [Examples for using Allas in CSC supercomputers](../data/Allas/allas-examples.md)
 
 * [Using Allas in batch jobs](../../data/Allas/allas_batchjobs/)
 
