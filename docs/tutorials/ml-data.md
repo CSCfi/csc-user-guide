@@ -108,9 +108,8 @@ srun python3 myprog.py --input_data=$LOCAL_SCRATCH <options>
 ```
 
 Note that you need to communicate somehow to your own program where to find the
-dataset, for example with a command line argument. Also see our [general
-instructions on how to take the fast local storage into
-use](../computing/running/creating-job-scripts-puhti/#local-storage).
+dataset, for example with a command line argument. Also see our
+[general instructions on how to take the fast local storage into use](../computing/running/creating-job-scripts-puhti.md#local-storage).
 
 If you are running a [multi-node job](ml-multi.md), you need to modify the `tar`
 line so that it is performed on each node separately:

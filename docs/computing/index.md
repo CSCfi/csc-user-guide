@@ -74,8 +74,8 @@ available at [www.puhti.csc.fi](https://www.puhti.csc.fi).
 Don't allocate more resources to your job than it can use efficiently. This
 needs to be verified for each new code and job type (different input) by a
 scaling test. The policy is that the job should be **at least 1.5 times faster**
-when you double the resources (cores). [Instructions for performing a scalability
-test](../../tutorials/cmdline-handson/#scaling-test-for-an-mpi-parallel-job).
+when you double the resources (cores).
+[Instructions for performing a scalability test](../tutorials/cmdline-handson.md#scaling-test-for-an-mpi-parallel-job).
 Please also consider [other important factors related to performance.](performance.md)
 
 ## Projects and quotas
