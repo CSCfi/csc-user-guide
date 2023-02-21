@@ -5,7 +5,7 @@ CSC's Sensitive Data (SD) services are available to researchers and students aff
 !!! Note
     The legal basis for data processing determines which service component you can access and use. For example, you can directly manage research data access, uploads, or data export using SD Connect and SD Desktop. In contrast, access to register data via SD Desktop is operated by CSC's helpdesk, based on the data permit issued by the Fidata authority and in compliance with Finnish regulations. 
 
-Below is more information on the steps required to access the services:
+Below you can find more information on the steps required to access the services:
 
 * for processing research data;
 * for processing register data under the Act on Secondary Use;
@@ -29,7 +29,6 @@ To access SD Connect and SD Desktop for storing, sharing or analysing sensitive 
 4. All project members should add service access to Allas (to use SD Connect) and SD Desktop, accepting the terms of use. 
 
 5. All project members should activate their account's additional security verification (or Multi-factor Authentication) by scanning the QR code with an application (e.g. Google Authenticator).
-
 
 6. Apply for billing units or disk quota.
 
