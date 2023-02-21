@@ -92,13 +92,16 @@ Using SD Connect and SD Desktop is free of charge for research purposes, accordi
 
 ### SD Connect
 
-When you apply for a new CSC project, the default quota (or storage space) for SD Connect/Allas is 10 TB, which can be increased to 200 TB if needed. If you work with larger datasets and your project requires additional storage space, contact us for support at servicedesk@csc.fi (subject: Sensitive data). Storing data in SD Connect/Allas consumes billing units. 
+When you apply for a new CSC project, the default quota (or storage space) for SD Connect/Allas is 10 TB, which can be increased up to 200 TB if needed. If your project requires additional storage space, contact us for support at servicedesk@csc.fi (subject: Sensitive data). 
 
-The rate is: 1 unit/TB, i.e. 1 TB of data stored in Allas consumes 24 billing units daily and 8760 billing units per year.
+Storing data in SD Connect/Allas consumes billing units. The rate is: 
+
+1 billing unit/TB, i.e. 1 TB of data stored in Allas consumes 24 billing units daily and 8760 billing units per year.
 
 ### SD Desktop
 
-The default disk space (or storage space) in SD Desktop is 80 GB and can be increased to 280 GB by adding an external volume during virtual desktop creation. If you need additional storage space for data analysis, contact us for support at servicedesk@csc.fi (subject: Sensitive data). 
+The default disk space (or storage space) in SD Desktop is 80 GB and can be increased up to 280 GB by adding an external volume during virtual desktop creation. If you need additional storage space for data analysis, contact us for support at servicedesk@csc.fi (subject: Sensitive data). 
+
 Analysing data in SD Desktop consumes billing units based on the type of virtual desktop you are using. The rate is:
 
 * Light computation: 1.3 billing units/hour;
@@ -110,7 +113,7 @@ Analysing data in SD Desktop consumes billing units based on the type of virtual
 * Heavy computation: 52 billing units/hour.
 
 
-For further guidance, check at the beginning of the user guide:
+For more information, see the specific pages: 
 
 * [applying for billing units](../../accounts/how-to-apply-for-billing-units.md) 
 
