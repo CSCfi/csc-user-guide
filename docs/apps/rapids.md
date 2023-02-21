@@ -86,9 +86,8 @@ list-packages
 ### Local storage
 
 The GPU nodes have fast local storage which is useful for IO-intensive
-applications. See our [general instructions on how to take the fast local
-storage into
-use](../computing/running/creating-job-scripts-puhti/#local-storage).
+applications. See our
+[general instructions on how to take the fast local storage into use](../computing/running/creating-job-scripts-puhti.md#local-storage).
 
 ## More information
 
