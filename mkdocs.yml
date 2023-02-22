@@ -131,10 +131,11 @@ nav:
         - High throughput: computing/running/throughput.md
         - Interactive usage: computing/running/interactive-usage.md
         - Performance checklist: computing/running/performance-checklist.md
-     - Compiling:
-        - Puhti: computing/compiling-puhti.md
-        - Mahti: computing/compiling-mahti.md
-        - LUMI: computing/compiling-lumi.md
+     - Installing software:
+        - computing/installing.md
+        - Compiling on Puhti: computing/compiling-puhti.md
+        - Compiling on Mahti: computing/compiling-mahti.md
+        - Compiling on LUMI: computing/compiling-lumi.md
         - High performance libraries: computing/hpc-libraries.md
      - Debugging: computing/debugging.md
      - Performance analysis: computing/performance.md
@@ -167,7 +168,7 @@ nav:
            - FiQCI partition: computing/quantum-computing/helmi/fiqci-partition.md
            - Running on Helmi: computing/quantum-computing/helmi/running-on-helmi.md
   - Cloud:
-     - Concepts of cloud computing: cloud/concepts.md
+     - cloud/concepts.md
      - Rahti:
        - cloud/rahti/index.md
        - What is Rahti: cloud/rahti/rahti-what-is.md
@@ -252,13 +253,14 @@ nav:
      - data/index.md
 #    - Datasets: data/datasets.md
      - Working with data:
-        - Contents: data/datasets/dataset-sources.md
+        - data/datasets/dataset-sources.md
         - Tips for data management: data/datasets/datamanagement.md
         - Metadata and data documentation: data/datasets/metadata-and-documentation.md
         - Dataset sources: data/datasets/sourcing-datasets.md
         - Storing data at CSC: data/datasets/hosting-datasets-at-CSC.md
         - Publishing datasets: data/datasets/publishing-datasets.md
      - Moving data:
+        - data/moving/index.md
         - Copying files using scp: data/moving/scp.md
         - Moving files using the Puhti web interface: data/moving/web-interface.md
         - Graphical file transfer tools: data/moving/graphical_transfer.md
