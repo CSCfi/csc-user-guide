@@ -508,6 +508,8 @@ You can restart the virtual desktop at any time from the same page. Also, in thi
 !!! Note
     This option is available only for active CSC projects with available billing units. 
 
+[![Desktop-volume](images/desktop/pause.png)](images/desktop/pause.png)
+
 ### Rebooting or rebuilding a desktop
 
 If the virtual desktop or software has become unresponsive, you can use this option to reboot (or restart) your desktop. All the files/ software saved on the virtual desktop will remain available after the reboot. 
@@ -539,7 +541,7 @@ To reboot a virtual desktop:
 
 3. A message will ask to confirm the operation, which can take up to 30 minutes. 
 
- [![Desktop-volume](images/desktop/reboot-rebuilt.png)](images/desktop/reboot-rebuilt.png)
+ [![Desktop-volume](images/desktop/desktop-reboot-rebuilt.png)](images/desktop/desktop-reboot-rebuilt.png)
 
 ### Deleting a desktop
 
