@@ -98,7 +98,7 @@ You can choose between four different pre-built virtual desktop options:
 
 The following paragraphs will discuss how to work with your virtual desktop, which software is available, and how to customize your workspace.
 
-[![Launch](images/desktop/desktop_launch.png)](images/desktop/desktop_launch.png)
+[![Launch](images/desktop/desktop_creation.png)](images/desktop/desktop_creation.png)
 
 
 
