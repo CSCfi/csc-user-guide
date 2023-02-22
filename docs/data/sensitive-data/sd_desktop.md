@@ -24,21 +24,21 @@ You can browse the main topics of this section using the navigation bar on the r
 
 * Accessible from any operating system (Mac, Linux or Windows) via a web browser (e.g., Google Chrome, Firefox) from the public internet (without the need to install a client or use a VPN).
 
-* Only the same CSC project members can access the same virtual desktop. Currently, it is possible to launch three virtual desktops (or computing environments) for each CSC project. In addition, each CSC project has its private desktop, which is isolated from other CSC projects or CSC accounts unless you authorize it.
+* Only members of the same CSC project can access the virtual desktop. One CSC project can create up to three desktops. 
 
-* After login into SD Desktop, the user can start a pre-built computing environment (Linux OS), on-demand; available options offer the capability of doing simple statistical analysis to machine learning and work with any data: text files, images, audio files, video, and genetic data. Further customization is possible by writing to servicedesk@csc.fi (subject: Sensitive data);
+* Four pre-built computing options (Linux OS) are available (for simple statistical analysis and machine learning).  Supports analysis of any data type: text files, images, audio files, video, and genetic data. Further customisation is possible by writing to servicedesk@csc.fi (subject: Sensitive data);
 
-* Virtual desktops are not connected to the internet: the only way to import and export data is SD Connect service;
+* The secure analysis environment is isolated from the internet: the only way to import and export data is via the SD Connect service.
 
 
 **Limitations**:
 
 * The project manager's or group leader's responsibility is to frequently review the list of members belonging to a project in MyCSC and verify who can access SD Desktop or SD Connect. Remove the project members who do not need access to the data when their contribution is no longer needed.
 
-* Only open-source software is available. We do not provide virtual desktop with GPUs, Windows, or Linux Ubuntu operating systems. 
+* Only open-source software is available. We do not provide virtual desktops with GPUs, Windows, or Linux Ubuntu operating systems. 
 
 !!! Note 
-    The standard SD Desktop service is unsuitable for data processing under the Secondary Use of Health and Social Data Act. Please check this manual: [SD Desktop for secondary use](./sd-desktop-audited.md) to learn about the precise requirements to access datasets approved by the Findata authority.
+    The standard SD Desktop service is unsuitable for data processing under the Secondary Use of Health and Social Data Act. Please check this manual: [SD Desktop for secondary use](./sd-desktop-audited.md) to learn about the precise requirements and access datasets approved by the Findata authority.
 
 
 
@@ -50,9 +50,9 @@ Login to SD Desktop is possible with identity federation systems (Haka, Virtu, C
 
 from any modern web-browser.
 
-After entering your username and password, you need to  verify your identity with a second verification step (or Multi-factor Authentication, MFA). Enter the verification code provided via mobile application and press on _Continue_.
+After entering your username and password, you need to verify your identity with a second verification step (or Multi-factor Authentication, MFA). Enter the verification code provided via mobile application and press on _Continue_.
 
-For specific guidance regarding activating the second verification step on your CSC account, see the [MFA paragraph](../../accounts/mfa.md).
+For specific guidance, see the [MFA section](../../accounts/mfa.md).
 
 [![Authentication](images/desktop/desktop_login-mfa1.png)](images/desktop/desktop_login-mfa1.png)
 
