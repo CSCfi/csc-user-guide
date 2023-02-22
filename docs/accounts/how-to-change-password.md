@@ -1,7 +1,7 @@
 # How to change password
 
 You can change your password in two ways: Using the current password or with a
-password reset link ordered to your email. You can follow the instructions below or watch the guided video.
+password reset link ordered to your email. You can follow the instructions below.
 
 ## Using current password
 
@@ -10,7 +10,7 @@ password reset link ordered to your email. You can follow the instructions below
 
 ![Landing page](images/small/landing-page-mid.png)
 
-* Go to _My Profile_ and click _Change password_.
+* Go to _Profile_ and click _Change password_.
 
 ![My profile](images/small/my-profile-mid.png)
 
@@ -18,10 +18,6 @@ password reset link ordered to your email. You can follow the instructions below
 
 ![Change password](images/small/change-password-mid.png)
 
-
-<figure class="video_container">
-<iframe width="560" height="315" srcdoc="https://www.youtube.com/embed/i8Y98ANQh-Q" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-</figure>
 
 
 *****
@@ -51,9 +47,6 @@ password reset link ordered to your email. You can follow the instructions below
 
 ![Forgot password](images/small/forgot-password-mid.png)
  
-<figure class="video_container">
-<iframe width="560" height="315" srcdoc="https://www.youtube.com/embed/2QH86rtI4FI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-</figure>   
 
 ## Password requirements
 

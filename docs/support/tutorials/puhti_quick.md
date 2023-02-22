@@ -118,5 +118,5 @@ for efficiently querying how much data/files you have in a directory.
 ## Linux basics Tutorial for CSC
 
 If you are new to Linux command line or using supercomputers, please consult
-[this tutorial section](env-guide/overview.md)! See also the materials of the
+[this tutorial section](env-guide/index.md)! See also the materials of the
 [CSC Computing Environment self-learning course](https://csc-training.github.io/csc-env-eff/).
