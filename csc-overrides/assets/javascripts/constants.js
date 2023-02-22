@@ -37,7 +37,7 @@ const dropdownSites = [
   {
     name: 'Docs CSC',
     description: 'user guides',
-    url: 'https://docs.csc.fi',
+    url: '/',
     external: false,
     active: true
   }
