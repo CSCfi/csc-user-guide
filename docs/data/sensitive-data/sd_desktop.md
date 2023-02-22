@@ -7,7 +7,7 @@ Sensitive Data (SD) Desktop allows you to analyze sensitive research data from y
 
 [![Desktop-overview](images/desktop/desktop_overviewnew1.png)](images/desktop/desktop_overviewnew1.png)
 
-In the following user guide, you can learn how to:
+In the following manual, you can learn how to:
 
 * Create and set up your virtual desktop;
 
@@ -17,7 +17,7 @@ In the following user guide, you can learn how to:
 
 * Export non-sensitive results.
 
-You can browse through the main topics of the manual using the navigation bar on the left side of this page or the search function.
+You can browse the main topics of this section using the navigation bar on the right side of this page or the search function.
 
 
 ### Key features
@@ -38,7 +38,7 @@ You can browse through the main topics of the manual using the navigation bar on
 * Only open-source software is available. We do not provide virtual desktop with GPUs, Windows, or Linux Ubuntu operating systems. 
 
 !!! Note 
-    The standard SD Desktop service is unsuitable for data processing under the Secondary Use of Health and Social Data Act. Please check this specific user guide:     [SD Desktop for secondary use](./sd-desktop-audited.md) to learn about the precise requirements to access datasets approved by the Findata authority.
+    The standard SD Desktop service is unsuitable for data processing under the Secondary Use of Health and Social Data Act. Please check this manual: [SD Desktop for secondary use](./sd-desktop-audited.md) to learn about the precise requirements to access datasets approved by the Findata authority.
 
 
 
