@@ -6,7 +6,7 @@
 A CSC user account is required for creating new projects.
 
 1. Login to [MyCSC](http://my.csc.fi).
-2. Choose _My projects_ in the navigation menu on the left.
+2. Choose _Projects_ in the navigation menu on the left.
 3. Scroll down to the end of the page and choose _Create a new
 project_.
 4. Fill in the project name and description.
@@ -20,8 +20,6 @@ have read and accepted the General Terms of Use for..._
     If your work belongs to any of the [free-of-charge use cases](https://research.csc.fi/free-of-charge-use-cases){:target="_blank"} , select Academic as the project type. Academic projects can be opened only by members of Finnish higher education institutions, state research institutes and CSC. 
 
 Projects are usually valid for one year at a time, but they can be extended. To extend a project, please see page [How to manage your project](how-to-manage-your-project.md).
-
-<iframe width="560" height="315" srcdoc="https://www.youtube.com/embed/rHVaZD9zwnk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ## How to create Finnish LUMI projects
 
