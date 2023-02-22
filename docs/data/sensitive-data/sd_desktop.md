@@ -558,7 +558,7 @@ You can delete your virtual desktop, external volume, and all files saved at the
 
 
 
- [![Desktop-delete](images/desktop/desktop-delete.png)](images/desktop/desktop-delete.png)
+ [![Desktop-delete](images/desktop/desktop-deleting.png)](images/desktop/desktop-deleting.png)
 
 
 
