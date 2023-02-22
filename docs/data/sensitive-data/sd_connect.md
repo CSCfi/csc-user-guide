@@ -221,7 +221,7 @@ The necessary steps for encryption with Cryp4GH application and upload with SD C
 
 1- First, download the encryption application specific to your operating system from the [GitHub repository](https://github.com/CSCfi/crypt4gh-gui/releases/tag/sds-v1.0.0):
 
-* [Mac](https://github.com/CSCfi/crypt4gh-gui/releases/download/sds-v1.0.0/crypt4sds-python3.7-macos-amd64.zip)
+* [Mac](https://purkki.csc.fi/s/zQfpLQwjksekjJd/download/crypt4gh_gui%20%28for%20macOS%20Ventura%2013.2%29)
 
 * [Windows](https://github.com/CSCfi/crypt4gh-gui/releases/download/sds-v1.0.0/crypt4sds-python3.7-windows-amd64.zip)
 
@@ -270,7 +270,7 @@ CSC has developed a simple application that will allow you to generate your encr
 Download the version specific to your operating system from the [GitHub repository](https://github.com/CSCfi/crypt4gh-gui/releases):  
 
   - [Linux](https://github.com/CSCfi/crypt4gh-gui/releases/download/v1.2.0/crypt4gh-gui-python3.8-linux-amd64.zip)
-   - [Mac](https://github.com/CSCfi/crypt4gh-gui/releases/download/v1.2.0/crypt4gh-gui-python3.8-macos-amd64.zip)
+   - [Mac](https://purkki.csc.fi/s/zQfpLQwjksekjJd/download/crypt4gh_gui%20%28for%20macOS%20Ventura%2013.2%29)
    - [Windows](https://github.com/CSCfi/crypt4gh-gui/releases/download/v1.2.0/crypt4gh-gui-python3.8-windows-amd64.zip)
 
 
