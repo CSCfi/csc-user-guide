@@ -171,6 +171,8 @@ You can also run the tests locally with
 bash tests/run_tests.sh
 ```
 
+The tests depend on the Conda environment, so remember to activate it before running them.
+
 #### Scripts
 
 If you're adding entries to the _What's new_ or _Applications_ sections and want to check that they are generated correctly, you can run the scripts with
