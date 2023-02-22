@@ -487,6 +487,7 @@ Limitations:
 
 - Volumes can not be moved or transferred between CSC projects for security reasons.
 
+[![Desktop-volume](images/desktop/volume.png)](images/desktop/volume.png)
 
 ### Pausing or restarting a virtual desktop
 
@@ -538,7 +539,7 @@ To reboot a virtual desktop:
 
 3. A message will ask to confirm the operation, which can take up to 30 minutes. 
 
-
+ [![Desktop-volume](images/desktop/reboot-rebuilt.png)](images/desktop/reboot-rebuilt.png)
 
 ### Deleting a desktop
 
