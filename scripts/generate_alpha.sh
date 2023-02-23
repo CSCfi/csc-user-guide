@@ -1,5 +1,12 @@
 #!/bin/sh
 app_dir="docs/apps"
-ignores="--exclude-from=scripts/skip_alpha.txt"
-echo -e "<h1> Applications in alphabetical order</h1>\n" > $app_dir/alpha.md
-grep \* $app_dir/index.md | sort -f | uniq >> $app_dir/alpha.md
+generated_file="$app_dir/index.md"
+
+echo -e "# Applications\n" > $generated_file
+
+echo -e "- [By discipline](by_discipline.md)" >> $generated_file
+echo -e "- [By availability](by_system.md)" >> $generated_file
+echo -e "- [By license](by_license.md)" >> $generated_file
+
+echo -e "## Applications in alphabetical order\n" >> $generated_file
+grep \* $app_dir/by_discipline.md | sort -f | uniq >> $generated_file
