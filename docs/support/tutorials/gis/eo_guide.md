@@ -178,7 +178,7 @@ You can find information about geocomputing using CSC resources and how to get s
 [**Python**](../../../apps/python.md)
 
 * The [geoconda module](../../../apps/geoconda.md) provides many useful Python packages for raster data processing and analysis, such as `rasterio`, `rasterstats`, `scimage`, `sentinelsat`, `xarray` and tools for working with STAC.
-* [Machine learning modules](../../../apps/index.md#data-analytics-and-machine-learning) provide some common machine learning frameworks, also for deep learning..
+* [Machine learning modules](../../../apps/by_discipline.md#data-analytics-and-machine-learning) provide some common machine learning frameworks, also for deep learning..
 
 [**QGIS**](../../../apps/qgis.md) - open source tool with GUI for working with spatial data including limited multispectral image processing capabilities.  GUI with batch processing possibility and Python interface. Used for example for visualization, map algebra and other raster processing. Many plug-ins available, for EO data processing, check out the [QGIS Semi-automatic classification plugin](https://fromgistors.blogspot.com/p/semi-automatic-classification-plugin.html).
 
