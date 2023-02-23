@@ -4,6 +4,7 @@ The [contributing guide](CONTRIBUTING.md) outlines the basic steps of starting c
 
 - [Frequently asked questions](#frequently-asked-questions)
   - [How to include my new page in the navigation panel?](#how-to-include-my-new-page-in-the-navigation-panel)
+    - [SectionPage](#sectionpage)
   - [How to add an image?](#how-to-add-an-image)
   - [How to embed an external video?](#how-to-embed-an-external-video)
   - [How to add links?](#how-to-add-links)
@@ -11,6 +12,9 @@ The [contributing guide](CONTRIBUTING.md) outlines the basic steps of starting c
   - [How can I preview my edits?](#how-can-i-preview-my-edits)
     - [Using the preview feature for active branches hosted on Rahti](#using-the-preview-feature-for-active-branches-hosted-on-rahti)
     - [Locally using the MkDocs tool](#locally-using-the-mkdocs-tool)
+      - [Tests](#tests)
+      - [Scripts](#scripts)
+      - [Breadcrumbs debugging](#breadcrumbs-debugging)
   - [How and who should I ask to review my PR?](#how-and-who-should-i-ask-to-review-my-pr)
   - [I was asked to review a PR, what should I do?](#i-was-asked-to-review-a-pr-what-should-i-do)
   - [When reviewing a PR, how to leave comments/suggest changes so that they appear as a diff in the conversation tab?](#when-reviewing-a-pr-how-to-leave-commentssuggest-changes-so-that-they-appear-as-a-diff-in-the-conversation-tab)
@@ -153,7 +157,7 @@ mkdocs serve
 
 * This will start a web server on your computer listening on port 8000. Go to the url [http://127.0.0.1:8000/](http://127.0.0.1:8000/) or [http://localhost:8000/](http://localhost:8000/) with your browser to get a preview of the documentation.
 * Note, some parts of the website will not be properly formatted in a local build, for example the What's new section, as there are some scripts that are automatically run only when the commits are pushed.
-* To speed up the loading of a page you've changed, start the MkDocs server with the `--dirtyreload` flag. (Mind the warning about "a 'dirty' build being performed" that will "likely lead to inaccurate navigation and other links [...]".):
+* To speed up the reloading of a page you've changed, start the MkDocs server with the `--dirtyreload` flag. (Mind the warning about "a 'dirty' build being performed" that will "likely lead to inaccurate navigation and other links [...]".):
 
 ```bash
 mkdocs serve --dirtyreload
@@ -166,6 +170,8 @@ You can also run the tests locally with
 ```bash
 bash tests/run_tests.sh
 ```
+
+The tests depend on the Conda environment, so remember to activate it before running them.
 
 #### Scripts
 
