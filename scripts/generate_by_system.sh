@@ -27,7 +27,7 @@ fi
 
 for i in $( seq 0 $(($num_systems-1)) )
 do
-    echo "- [ Available on ${system_name[$i]}](by_system.md#${system_name[$i],,}), ${system_desc[$i]}" >> $generated_file
+    echo "- [Available on ${system_name[$i]}](by_system.md#${system_name[$i],,}), ${system_desc[$i]}" >> $generated_file
 done
 
 for i in $( seq 0 $(($num_systems-1)) )
