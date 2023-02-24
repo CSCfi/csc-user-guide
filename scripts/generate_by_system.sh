@@ -33,7 +33,7 @@ done
 for i in $( seq 0 $(($num_systems-1)) )
 do
     ignores=$(cat <(grep -i SKIP_ALL $ignore_file ) <(grep -i SKIP_${system_key[$i]} $ignore_file ) | awk  '{ print $2 }')
-    files=$(grep --exclude-from=<(echo "$ignores") -wi ${system_key[$i]} $app_dir/*.md | awk -F ":" '{print $1}' | sort | uniq | sed s%docs/apps/%%)
+    files=$(grep --exclude-from=<(echo "$ignores") -wirl ${system_key[$i]} $app_dir | sort | uniq | sed s%docs/apps/%%)
     software=$(grep -f <(echo "$files") $app_dir/index.md)
     echo -e "\n## ${system_name[$i]} \n" >> $generated_file
     if [[ "${system_name[$i]}" == "LUMI" ]]; then
