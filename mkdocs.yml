@@ -7,6 +7,7 @@ site_description: Instructions and user guides for the CSC supercomputers, cloud
 extra:
   announcement_visible: true # Controls the visibility of the announcement bar
   mkdocs_env: !ENV MKDOCS_ENV # Used when building on Rahti to enable Matomo web analytics
+  breadcrumbs_debug: !ENV DEBUG # Renders a debug view for breadcrumbs navigation
   matomo_url: "docs-design-matomo.rahtiapp.fi"
   matomo_site_id: "1"
 
@@ -24,6 +25,10 @@ plugins:
         - apps/by_system.md
         - apps/alpha.md
         - apps/by_license.md
+  - section-index
+  - redirects:
+      redirect_maps:
+        'support/tutorials/env-guide/overview.md': 'support/tutorials/env-guide/index.md'
 
 markdown_extensions:
   - admonition
@@ -85,7 +90,7 @@ extra_javascript:
 nav:
   - Home: index.md
   - Accounts:
-     - Overview: accounts/index.md
+     - accounts/index.md
      - Creating a new user account: accounts/how-to-create-new-user-account.md
      - Changing your password: accounts/how-to-change-password.md
      - Managing user information: accounts/how-to-manage-user-information.md
@@ -102,21 +107,21 @@ nav:
      - Multi-factor Authentication: accounts/mfa.md
      - FMI: accounts/fmi.md
   - Computing:
-     - Overview: computing/overview.md
+     - computing/overview.md
      - Usage policy: computing/usage-policy.md
      - Systems:
-        - Available systems: computing/available-systems.md
+        - computing/available-systems.md
         - Puhti: computing/systems-puhti.md
         - Mahti: computing/systems-mahti.md
         - LUMI: "https://docs.lumi-supercomputer.eu/hardware/"
      - Connecting: computing/connecting.md
      - Supercomputer storage:
-        - Disk areas: computing/disk.md
+        - computing/disk.md
         - Lustre filesystem: computing/lustre.md
         - Allas object storage: computing/allas.md
      - Module environment: computing/modules.md
      - Running jobs:
-        - Getting started: computing/running/getting-started.md
+        - computing/running/getting-started.md
         - Create Puhti batch jobs: computing/running/creating-job-scripts-puhti.md
         - Puhti example scripts: computing/running/example-job-scripts-puhti.md
         - Create Mahti batch jobs: computing/running/creating-job-scripts-mahti.md
@@ -126,20 +131,21 @@ nav:
         - High throughput: computing/running/throughput.md
         - Interactive usage: computing/running/interactive-usage.md
         - Performance checklist: computing/running/performance-checklist.md
-     - Compiling:
-        - Puhti: computing/compiling-puhti.md
-        - Mahti: computing/compiling-mahti.md
-        - LUMI: computing/compiling-lumi.md
+     - Installing software:
+        - computing/installing.md
+        - Compiling on Puhti: computing/compiling-puhti.md
+        - Compiling on Mahti: computing/compiling-mahti.md
+        - Compiling on LUMI: computing/compiling-lumi.md
         - High performance libraries: computing/hpc-libraries.md
      - Debugging: computing/debugging.md
      - Performance analysis: computing/performance.md
      - Containers:
-        - Overview: computing/containers/overview.md
+        - computing/containers/overview.md
         - Running containers: computing/containers/run-existing.md
         - Creating containers: computing/containers/creating.md
         - Container wrapper (Tykky): computing/containers/tykky.md
      - Web interface:
-       - Overview: computing/webinterface/index.md
+       - computing/webinterface/index.md
        - Interactive apps:
          - Accelerated visualization: computing/webinterface/accelerated-visualization.md
          - Desktop: computing/webinterface/desktop.md
@@ -150,7 +156,7 @@ nav:
          - TensorBoard: computing/webinterface/tensorboard.md
          - Visual Studio Code: computing/webinterface/vscode.md
      - Quantum computing:
-       - Overview: computing/quantum-computing/overview.md
+       - computing/quantum-computing/overview.md
        - Kvasi QLM:
            - Accessing Kvasi: computing/quantum-computing/kvasi/kvasi.md
            - Kvasi Billing: computing/quantum-computing/kvasi/kvasi-billing.md
@@ -162,9 +168,9 @@ nav:
            - FiQCI partition: computing/quantum-computing/helmi/fiqci-partition.md
            - Running on Helmi: computing/quantum-computing/helmi/running-on-helmi.md
   - Cloud:
-     - Concepts of cloud computing: cloud/concepts.md
+     - cloud/concepts.md
      - Rahti:
-       - Contents: cloud/rahti/index.md
+       - cloud/rahti/index.md
        - What is Rahti: cloud/rahti/rahti-what-is.md
        - Containers & their Orchestration: cloud/rahti/containers.md
        - Kubernetes and OpenShift concepts: cloud/rahti/concepts.md
@@ -194,12 +200,12 @@ nav:
          - Accessing databases on Rahti from CSC supercomputers: cloud/rahti/tutorials/connect-database-hpc.md
          - Multi stage builds: cloud/rahti/tutorials/multi-stage-builds.md
        - Storage in Rahti:
-         - Available storage options: cloud/rahti/storage/index.md
+         - cloud/rahti/storage/index.md
          - Persistent volumes: cloud/rahti/storage/persistent.md
          - Ephemeral storage: cloud/rahti/storage/ephemeral.md
          - Expand a volume: cloud/rahti/storage/expand-volumes.md
        - Images:
-         - Overview: cloud/rahti/images/overview.md
+         - cloud/rahti/images/overview.md
          - Creating an image: cloud/rahti/images/creating.md
          - Keeping docker images small: cloud/rahti/images/keeping_docker_images_small.md
        - GPU in Rahti: cloud/rahti/gpu.md
@@ -208,7 +214,7 @@ nav:
        - Billing: cloud/rahti/billing.md
        - External documentation: cloud/rahti/ext_docs.md
      - Pouta:
-        - Contents: cloud/pouta/index.md
+        - cloud/pouta/index.md
         - What is Pouta: cloud/pouta/pouta-what-is.md
         - Security Guidelines for Pouta: cloud/pouta/security.md
         - Pouta Accounting Principles and Quotas: cloud/pouta/accounting.md
@@ -221,12 +227,12 @@ nav:
             - API Access to Pouta: cloud/pouta/api-access.md  
             - Virtual machine lifecycle & saving billing units: cloud/pouta/vm-lifecycle.md
         - Storage in Pouta:
-            - Available storage options: cloud/pouta/storage.md
+            - cloud/pouta/storage.md
             - Ephemeral storage: cloud/pouta/ephemeral-storage.md
             - Persistent volumes: cloud/pouta/persistent-volumes.md
             - Snapshots: cloud/pouta/snapshots.md
         - Images:
-            - Basic information about images: cloud/pouta/images.md
+            - cloud/pouta/images.md
             - Creating, Converting, Uploading and Sharing virtual machine images: cloud/pouta/adding-images.md
         - Orchestration with Heat: cloud/pouta/heat-orchestration.md
         - Application Development Practises in Pouta: cloud/pouta/application-dev.md
@@ -237,22 +243,24 @@ nav:
      - Grid computing:
         - The Grid Monitor: cloud/grid/grid-monitor.md
      - CSC Notebooks:
-       - Overview: cloud/csc_notebooks/index.md
+       - cloud/csc_notebooks/index.md
        - Guide for students: cloud/csc_notebooks/guide_for_students.md
        - Guide for teachers: cloud/csc_notebooks/guide_for_teachers.md
        - Concepts: cloud/csc_notebooks/concepts.md
        - Data persistence: cloud/csc_notebooks/data_persistence.md
        - What is new: cloud/csc_notebooks/what_is_new.md
   - Data:
+     - data/index.md
 #    - Datasets: data/datasets.md
      - Working with data:
-        - Contents: data/datasets/dataset-sources.md
+        - data/datasets/dataset-sources.md
         - Tips for data management: data/datasets/datamanagement.md
         - Metadata and data documentation: data/datasets/metadata-and-documentation.md
         - Dataset sources: data/datasets/sourcing-datasets.md
         - Storing data at CSC: data/datasets/hosting-datasets-at-CSC.md
         - Publishing datasets: data/datasets/publishing-datasets.md
      - Moving data:
+        - data/moving/index.md
         - Copying files using scp: data/moving/scp.md
         - Moving files using the Puhti web interface: data/moving/web-interface.md
         - Graphical file transfer tools: data/moving/graphical_transfer.md
@@ -263,15 +271,27 @@ nav:
         - Remote disk mounts: data/moving/disk_mount.md
         - Copying data between Allas and IDA via Puhti: data/moving/copy_allas_ida.md
      - Allas object storage:
-        - Overview: data/Allas/index.md
+        - data/Allas/index.md
         - Introduction to Allas Storage service: data/Allas/introduction.md
         - Accessing Allas: data/Allas/accessing_allas.md
         - Common Use Cases: data/Allas/using_allas/common_use_cases.md
         - Common Error Messages: data/Allas/using_allas/error_messages.md
         - Allas object storage related terms and concepts: data/Allas/terms_and_concepts.md
+        - Allas clients:
+          - a-command: data/Allas/using_allas/a_commands.md
+          - a-backup: data/Allas/using_allas/a_backup.md
+          - Cyberduck: data/Allas/using_allas/cyberduck.md
+          - Python Library: data/Allas/using_allas/python_library.md
+          - Rclone from Computing environment: data/Allas/using_allas/rclone.md
+          - Rclone form Workstation: data/Allas/using_allas/rclone_local.md
+          - Swift: data/Allas/using_allas/swift_client.md
+          - S3cmd: data/Allas/using_allas/s3_client.md
+          - Web GUI: data/Allas/using_allas/web_client.md
+# data/Allas/using_allas/directory_object_error.md is not linked in this structure
      - Sensitive data:
-        - Contents: data/sensitive-data/index.md
+        - data/sensitive-data/index.md
         - Introduction: data/sensitive-data/intro.md
+        - Accessing SD Services: data/sensitive-data/sd-access.md
         - Store with SD Connect: data/sensitive-data/sd_connect.md
         - Analyse with SD Desktop: data/sensitive-data/sd_desktop.md
         - SD Desktop for secondary use: data/sensitive-data/sd-desktop-audited.md
@@ -281,7 +301,7 @@ nav:
 #       - Containers: data/sensitive-data/creating_containers.md
 
      - Kaivos database service:
-        - Kaivos overview: data/kaivos/overview.md
+        - data/kaivos/overview.md
         - Getting a database account: data/kaivos/kaivos-account.md
         - MySQL client programs at CSC: data/kaivos/kaivos_client_in_puhti.md
         - Data import and export: data/kaivos/kaivos_import.md
@@ -290,6 +310,7 @@ nav:
         - Using Perl MySQL API at CSC: data/kaivos/kaivos_perl.md
         # Python MySQL API at CSC:
   - Applications:
+     - apps/index.md
      - In alphabetical order: apps/alpha.md
      - By discipline: apps/index.md
      - By availability: apps/by_system.md

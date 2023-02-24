@@ -86,9 +86,9 @@ More information about controlling hybrid applications can be found
 The **project based** shared storage can be found under
 `/scratch/<project>`.  Note that this folder is shared by **all
 users** in a project. This folder is not meant for long term data
-storage and files that have not been used for 90 days will be
-automatically removed. **This policy has not yet been fully implemented,
-but we plan to take this cleaning procedure fully in use later in 2022.**
+storage and files that have not been used for 180 days will be
+automatically removed. **Note that this policy is currently implemented
+only on Puhti.**
 
 The default quota for this folder is 1 TB. There is also a persistent
 **project based** storage with a default quota of 50 GB. It is located
@@ -128,7 +128,7 @@ for `rsync`.
 
 If you are new to supercomputers, or the details below are unfamiliar, you
 likely should start with [Puhti](puhti_quick.md) and some [introductory
-tutorials](env-guide/overview.md) first. In a nutshell, Mahti is meant for
+tutorials](env-guide/index.md) first. In a nutshell, Mahti is meant for
 large parallel jobs, and Puhti for a wide variety of small to medium sized
 jobs including special resources.
 

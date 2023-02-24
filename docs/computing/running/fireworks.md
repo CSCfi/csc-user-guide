@@ -33,7 +33,7 @@ pymongo==3.10.0
 
 !!! Note
     Please do not install FireWorks in a Conda environment that is sitting directly on the shared
-    Lustre file system. [CSC has deprecated the direct usage of Conda](../../support/deprecate-conda.md)
+    Lustre file system. [CSC has deprecated the direct usage of Conda](../../support/tutorials/conda.md)
     installations on our supercomputers to avoid performance issues due to the large number of files
     brought by Conda. For reference, a Conda installation of FireWorks contains more than 24000
     files, most of which are read each time the application is run. This causes startup delays and

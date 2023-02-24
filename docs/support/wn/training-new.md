@@ -1,5 +1,19 @@
 # Training & tutorials
 
+## Changes in navigation on Docs CSC, 22.02.2023
+
+Some changes have been made to how the sidebar navigation works on Docs CSC. Many of the sections
+have had pages like _Overview_, _Contents_ or other index-like pages moved under the section
+headings themselves, which are now links:
+
+| Before | After |
+|-|-|
+| ![Navigation before changes](../../img/nav-whats-new/nav-before.png) | ![Navigation after changes](../../img/nav-whats-new/nav-after.png) |
+
+## New guide for working with Earth Observation data, 19.01.2023
+
+The [Earth Observation guide](../tutorials/gis/eo_guide.md) aims to help researchers to work with Earth Observation (EO) data by giving an overview of available data and tools for raster data based EO tasks. The focus of the guide is on using CSC computing resources for EO data processing and analysis. However, it also includes some information of non CSC related options for processing and download of EO data.
+
 ## Training materials and sources from CSC and partners, 12.12.2022
 
 Check out this [concise table of training materials](../training-material.md#training-materials-and-sources-from-csc-and-partners)

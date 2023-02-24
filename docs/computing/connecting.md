@@ -27,7 +27,7 @@ Code to [edit and run code in Puhti/Mahti remotely](../support/tutorials/remote-
 
 Once the terminal connection to Puhti/Mahti is open you can start using it with the Linux command
 line tools (bash shell). An introduction to operating on the Linux command line can be found,
-for example, in our [Linux basics tutorial for CSC](../support/tutorials/env-guide/overview.md).
+for example, in our [Linux basics tutorial for CSC](../support/tutorials/env-guide/index.md).
 You can have several connections to CSC supercomputers open at the same time.
 
 By default, SSH access to Puhti/Mahti is authenticated with the password of your CSC user account.
@@ -75,6 +75,8 @@ SSH keys provide more secure authentication and can be enabled with a two-step p
    you are using to connect to CSC supercomputers.
 2. **Copy public key from local PC to supercomputer**  
    Only the _public key_ should be copied, don't copy the private key.
+   For LUMI, the public key should be uploaded via MyCSC, [see
+   below](../connecting/#setting-up-your-ssh-keys-in-mycsc-portal).
 
 !!! error "Important!"
     The private key should **never** be shared with anyone, not even with

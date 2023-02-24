@@ -153,15 +153,15 @@ computing project, you can do so by selecting the _Groups_ tab, clicking _Edit
 Membership_, and entering the name of the computing project and a role in the
 dropdown menu on the right for the members of that computing project.
 
-## Deleting a project
+## Deleting a Rahti project
 
-In order to delete a project, you need to go to the main landing page and click in the 3 vertical dots next to the name of the project. In the drop down menu, you will see the option "Delete Project"
+In order to delete a Rahti project, you need to go to the main landing page and click in the 3 vertical dots next to the name of the project. In the drop down menu, you will see the option "Delete Project".
 
-![Delete drop down](img/delete_project_menu.png)
+![Remove Rahti drop down](img/delete_project_menu.png)
 
-Then you will be asked to input the name of the project to prevent accidental deletions.
+Before the Rahti project is removed, you will be asked to input the name of the project to confirm that you really want to remove the Rahti project and prevent accidents.
 
-!!! note
+!!! warning
     After the project has been confirmed for deletion, all resources will be deleted and there will be no way to restore them, including the data stored in the persistent volumes.
 
 ![Project name dialog](img/delete_project_name.png)
