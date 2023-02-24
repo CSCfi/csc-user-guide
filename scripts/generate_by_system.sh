@@ -25,12 +25,10 @@ if [[ "$num_keys" -ne "$num_systems" ]]; then
     exit 1;
 fi
 
-echo -e "\n" >> $generated_file
 for i in $( seq 0 $(($num_systems-1)) )
 do
     echo "- [ Available on ${system_name[$i]}](by_system.md#${system_name[$i],,}), ${system_desc[$i]}" >> $generated_file
 done
-echo -e "\n" >> $generated_file
 
 for i in $( seq 0 $(($num_systems-1)) )
 do
