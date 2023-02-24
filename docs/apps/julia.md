@@ -53,7 +53,7 @@ srun --ntasks=1 --time=00:10:00 --mem=4G --pty --account=project_id --partition=
 
 ### Installing packages
 
-You can access to the package manager by pressing "]" during the interactive session. The packages are added to the project with an 'add' command.
+You can access to the package manager by pressing `]` during the interactive session. The packages are added to the project with an `add` command.
 
 ```bash
 julia> ]
@@ -67,7 +67,7 @@ After adding a package, it can be loaded in Julia:
 julia> using Example
 ```
 
-Packages are by default installed in the directory '~/.julia/', but the target can be changed with an environmental variable `JULIA_DEPOT_PATH`.
+Packages are by default installed in the directory `~/.julia/`, but the target can be changed with an environmental variable `JULIA_DEPOT_PATH`.
 
 ```bash
 export JULIA_DEPOT_PATH=/your/directory
