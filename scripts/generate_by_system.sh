@@ -5,6 +5,12 @@ ignore_file="scripts/skip_system.txt"
 generated_file="docs/apps/by_system.md"
 echo -e "# Applications by availability\n" > $generated_file
 
+# If you are adding another system, make sure to add a heading for
+# it into the file pointed to by the variable $generated_file above.
+# While this script rewrites the whole file, the link tests are
+# executed before that when deploying and may thus falsely report
+# broken links.
+
 # Case sensitive, the title for the system category
 system_name=("Mahti" "Puhti" "LUMI")
 # Not case sensitive, the keyword to grep to determine if a software is available on a system
