@@ -67,10 +67,10 @@ After adding a package, it can be loaded in Julia:
 julia> using Example
 ```
 
-Packages are by default installed in the directory '~/.julia/', but the target can be changed with an environmental variable 'JULIA_PKGDIR'.
+Packages are by default installed in the directory '~/.julia/', but the target can be changed with an environmental variable `JULIA_DEPOT_PATH`.
 
 ```bash
-export JULIA_PKGDIR=/your/directory
+export JULIA_DEPOT_PATH=/your/directory
 ```
 
 **NOTE:** Packages that work for one version of Julia might not work at all for another. Check the required version number.
@@ -136,7 +136,7 @@ julia = "1.8"
 ```
 
 In Puhti and Mahti, it is best practice to place the project under a subdirectory in Projappl.
-Furthermore, to install our Julia package and its dependencies to a specific directory, we must set two environment variables, `JULIA_PKGDIR` and `JULIA_DEPOT_PATH`.
+Furthermore, to install our Julia package and its dependencies to a specific directory, we must set the `JULIA_DEPOT_PATH` environment variable.
 We should also point them to a subdirectory in Projappl.
 We can use the following structure:
 
@@ -152,11 +152,10 @@ Now, we can write our environment as a shell script, such as `scripts/env.sh`.
 
 ```bash
 # Set the environment variables.
-export JULIA_PKGDIR="/projappl/project_<id>/<subdirectory>/.julia"
-export JULIA_DEPOT_PATH="$JULIA_PKGDIR"
+export JULIA_DEPOT_PATH="/projappl/project_<id>/<subdirectory>/.julia"
 
 # Create the directory path if it does not exist.
-mkdir -p "$JULIA_PKGDIR"
+mkdir -p "/projappl/project_<id>/<subdirectory>/"
 
 # Load the Julia module.
 module load julia
