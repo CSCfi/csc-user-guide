@@ -115,7 +115,7 @@ For more information, see the specific sections:
 
 * [applying for billing units](../../accounts/how-to-apply-for-billing-units.md) 
 
-* and [increasing quotas](how-to-increase-disk-quotas.md).
+* and [increasing quotas](../../accounts/how-to-increase-disk-quotas.md).
 
 
 ### Billing unit calculator
