@@ -133,9 +133,9 @@ You can choose between **four different pre-built virtual Desktop options**:
 
 !!! Note
         If you don't know the best Desktop option for your needs, please contact us at servicedesk@csc.fi (email subject: Sensitive Data). 
-        
-[![Launch](images/desktop/desktop_launch.png)](images/desktop/desktop_launch.png)
 
+[![Launch](images/desktop/desktop_creation.png)](images/desktop/desktop_creation.png)
+      
 Unfortunately, we are not yet providing a virtual Desktop with GPUs or Windows, Linux Ubuntu operating systems. However, we are working on it, and you can find more information on the future developments of the services on our webpage. 
 
 In the following paragraphs, we will discuss how to work with a virtual Desktop, which software is available and what limitations there are in the secondary use environment.
@@ -336,18 +336,23 @@ All the content in the “Results” folder will be exported to the data permit 
 
 ## Deleting your virtual Desktop
   
-At the end of your analysis, you can delete your virtual Desktop and all the files in it.
+### Deleting a desktop
 
-You cannot undo this action:
-  
-* On SD Desktop Homepage, click on **Go to SD Desktop Management page**. 
-* Here, under **Available Desktops** click on **Delete Desktop**. 
+At the end of your analysis, you can delete your virtual desktop, including the external volume and all files saved in it. You cannot undo this action:
 
+1- On SD Desktop Homepage, click on _Go to SD Desktop Management page_.
+
+2- Under _Available desktops_  select the correct virtual desktop.
+
+3- On the same raw, on the right side, click on _Options_ and on _Delete_.
 
 !!! Note
-    The desktop **should not be deleted before all the results have been exported**. All the data present in the computing environment will be deleted, and it will not be possible to retrieve them. You will delete the entire virtual workspace, and your colleagues (or the other CCS project members) will lose their results and data imported to it. For this reason, please get in touch with all the project members and send a request to export all the results of your analysis from the virtual workspace, before deleting a virtual Desktop.
+     The desktop **should not be deleted before all the results have been exported**. Please contact all the project members before deleting a virtual desktop. With this action, you will delete the entire workspace, including all files saved in the virtual desktop or external volume by other project members. 
 
-[![Desktop-delete](images/desktop/desktop-delete.png)](images/desktop/desktop-delete.png)
+
+[![Desktop-delete](images/desktop/desktop-deleting.png)](images/desktop/desktop-deleting.png)
+
+
 
 
 ## End of data access and data deletion policies
