@@ -197,9 +197,15 @@ A debugging view will then be rendered right under the breadcrumbs on every page
 
 For pages included in the `nav` structure, a breadcrumb is only rendered for ancestor sections where
 `is_page=true`. These are the so-called [SectionPages](#sectionpage). The debugging view lists all of
-the page's ancestor sections.
+the page's ancestor sections:
 
-Pages that are not in the `nav`, such as pages under _FAQ_ and _Tutorials_, have their breadcrumbs defined literally in [breadcrumbs.html](csc-overrides/partials/breadcrumbs.html). On these pages, the debugging view lists the literal breadcrumbs.
+![debugging pages with ancestors](docs/img/breadcrumbs-debugging/breadcrumbs-debugging-is_page.png)
+
+Pages that are not in the `nav`, such as pages under _FAQ_ and _Tutorials_, have their breadcrumbs
+defined literally in [breadcrumbs.html](csc-overrides/partials/breadcrumbs.html). On these pages,
+the debugging view lists the literal breadcrumbs:
+
+![debugging the literal breadcrumbs](docs/img/breadcrumbs-debugging/breadcrumbs-debugging-literal.png)
 
 ## How and who should I ask to review my PR?
 
