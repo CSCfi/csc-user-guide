@@ -22,8 +22,9 @@ plugins:
       exclude:
         - index.md
         - support/whats-new.md
+        - apps/index.md
+        - apps/by_discipline.md
         - apps/by_system.md
-        - apps/alpha.md
         - apps/by_license.md
   - section-index
   - redirects:
