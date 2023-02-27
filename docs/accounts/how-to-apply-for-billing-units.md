@@ -6,7 +6,7 @@ However, the amount of billing units must always remain positive.
 Submit a resource application:
 
 1. Login to [MyCSC](https://my.csc.fi).
-1. Choose _My Projects_ in the navigation menu on the left.
+1. Choose _Projects_ in the navigation menu on the left.
 1. Choose a project.
 1. Under _Resource Applications_, click _Apply for Resources_.
 1. Fill in the application and click _Apply_.
@@ -27,4 +27,3 @@ Billing unit applications cannot be edited after submission, but you
 can ask us to reject them, after which you can submit another
 application. Our email address is servicedesk@csc.fi.
 
-<iframe width="560" height="315" srcdoc="https://www.youtube.com/embed/AS27dYEgNA4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>

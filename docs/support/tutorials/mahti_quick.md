@@ -128,7 +128,7 @@ for `rsync`.
 
 If you are new to supercomputers, or the details below are unfamiliar, you
 likely should start with [Puhti](puhti_quick.md) and some [introductory
-tutorials](env-guide/overview.md) first. In a nutshell, Mahti is meant for
+tutorials](env-guide/index.md) first. In a nutshell, Mahti is meant for
 large parallel jobs, and Puhti for a wide variety of small to medium sized
 jobs including special resources.
 

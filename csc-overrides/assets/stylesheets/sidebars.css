@@ -193,6 +193,27 @@
     {
         color: var(--csc-nav--level3-hover);
     }
+
+    [data-md-level="0"]
+    .md-nav__toggle:is(:checked, :indeterminate)~
+    .md-nav__link.md-nav__link--index.md-nav__link--active {
+        color: var(--csc-nav--level1-active) !important;
+        background-color: var(--csc-nav-bg--level1-active) !important;
+    }
+
+    [data-md-level="1"]
+    .md-nav__toggle:is(:checked, :indeterminate)~
+    .md-nav__link.md-nav__link--index.md-nav__link--active {
+        color: var(--csc-nav--level2-active) !important;
+        background-color: var(--csc-nav-bg--level2-active) !important;
+    }
+
+    [data-md-level="2"]
+    .md-nav__toggle:is(:checked, :indeterminate)~
+    .md-nav__link.md-nav__link--index.md-nav__link--active {
+        color: var(--csc-nav--level3-active) !important;
+        background-color: var(--csc-nav-bg--level3-active) !important;
+    }
 }
 
 /* When repository link, search and TOC are visible */

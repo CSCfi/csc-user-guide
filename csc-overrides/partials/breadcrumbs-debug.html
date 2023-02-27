@@ -1,0 +1,34 @@
+<div style="
+  padding: 0.5rem;
+  margin: 0.5rem;
+  border-radius: 0.5rem;
+  font-family: monospace;
+  font-size: large;
+  background-color: black;
+  color: white;
+">
+  <p style="text-decoration: underline;">{{ page }}</p>
+  {% if parent_url in breadcrumbs %}
+    <p>breadcrumbs:</p>
+    <ul>
+      {% for breadcrumb in breadcrumbs[parent_url] %}
+        <li style="color: yellow;">title='{{ breadcrumb['title'] }}', url='{{ breadcrumb['url'] }}'</li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+  {% if page.ancestors %}
+    <p>ancestors:</p>
+    <ul>
+      {% for anc in page.ancestors %}
+        <li>
+          {{ anc }}
+          {% if anc.is_page %}
+            <span style="color: lightgreen;">is_page=true</span>
+          {% else %}
+            <span style="color: lightcoral;">is_page=false</span>
+          {% endif %}
+        </li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+</div>
