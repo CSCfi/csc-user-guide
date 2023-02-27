@@ -45,9 +45,9 @@ software supported.
 
 ## Available machine learning software
 
-We support [a number of
-applications](../../apps/index.md#data-analytics-and-machine-learning) for
-GPU-accelerated machine learning on CSC's supercomputers, including
+We support
+[a number of applications](../../apps/by_discipline.md#data-analytics-and-machine-learning)
+for GPU-accelerated machine learning on CSC's supercomputers, including
 [TensorFlow](../../apps/tensorflow.md) and [PyTorch](../../apps/pytorch.md).
 Please read the detailed instructions for the specific application that you are
 interested in.

@@ -8,14 +8,6 @@
   color: white;
 ">
   <p style="text-decoration: underline;">{{ page }}</p>
-  {% if parent_url in breadcrumbs %}
-    <p>breadcrumbs:</p>
-    <ul>
-      {% for breadcrumb in breadcrumbs[parent_url] %}
-        <li style="color: yellow;">title='{{ breadcrumb['title'] }}', url='{{ breadcrumb['url'] }}'</li>
-      {% endfor %}
-    </ul>
-  {% endif %}
   {% if page.ancestors %}
     <p>ancestors:</p>
     <ul>
@@ -30,5 +22,13 @@
         </li>
       {% endfor %}
     </ul>
+  {% endif %}
+  {% if not page.ancestors and parent_url in breadcrumbs %}
+  <p>breadcrumbs:</p>
+  <ul>
+    {% for breadcrumb in breadcrumbs[parent_url] %}
+      <li style="color: yellow;">title='{{ breadcrumb['title'] }}', url='{{ breadcrumb['url'] }}'</li>
+    {% endfor %}
+  </ul>
   {% endif %}
 </div>

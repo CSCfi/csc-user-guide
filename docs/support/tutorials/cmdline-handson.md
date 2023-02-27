@@ -3,7 +3,7 @@
 The next few exercises take you through submitting your first batch jobs on Puhti.
 We've used R and HMMER as examples, but the principles are the same for other
 applications as well. However, please always consult the [application specific
-page](../../apps/alpha.md) if it exists. It may have a tailored template for you.
+page](../../apps/index.md) if it exists. It may have a tailored template for you.
 
 ## Get the exercise files
 ### a) Log in to Puhti from a terminal
@@ -479,7 +479,7 @@ cp $CP2K_DATA_DIR/tests/QS/benchmark/H2O-32.inp .
 Then create a batch script and submit it with `sbatch`
 !!! Tip
     Remember to check the CSC software pages for [application specific
-    examples for batch jobs:](../../apps/alpha.md)
+    examples for batch jobs:](../../apps/index.md)
 
 For the first job, ask minimal resources (copy the rest of the
 batch script contents from CSC's CP2k page):
