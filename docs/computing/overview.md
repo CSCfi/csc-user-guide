@@ -19,7 +19,7 @@ for details on the systems and [this page for an outline of differences between 
 Mahti](lumi-vs-mahti.md).
 
 CSC supercomputers use the Linux operating system and we recommend that you are familiar with
-basics of [Linux command line usage](../support/tutorials/env-guide/overview.md) before starting.
+basics of [Linux command line usage](../support/tutorials/env-guide/index.md) before starting.
 
 ## Accessing Puhti and Mahti
 
@@ -132,9 +132,10 @@ csc-workspaces
 * [Applications](../apps/index.md): Application specific instructions.
 * [Running jobs](running/getting-started.md): How to run programs on the
   supercomputers
-* Using compilers and building your applications:
-    * [Puhti](compiling-puhti.md)
-    * [Mahti](compiling-mahti.md)
+* Installing and compiling your applications:
+    * [Installing software](installing.md)
+    * [Compiling on Puhti](compiling-puhti.md)
+    * [Compiling on Mahti](compiling-mahti.md)
 * [Debugging applications](debugging.md): How to debug your applications
 * [Performance analysis](performance.md): How to understand the performance of
   your applications
