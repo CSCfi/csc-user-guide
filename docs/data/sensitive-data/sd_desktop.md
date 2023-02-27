@@ -531,7 +531,7 @@ To reboot a virtual machine:
 If the virtual desktop or software has become obsolete, you can use this option to rebuild your virtual desktop. 
 
 !!! Note
-    This operation will delete all the files/software or scripts imported into the virtual desktop, and you will delete the entire virtual workspace. Only the files saved in the volume will still be available. Please contact us at servicedesk@csc.fi before using this option.
+    This operation will delete all the files/software or scripts imported into the virtual desktop, and you will delete the entire virtual workspace. Only       the files saved in the volume will still be available. Please contact us at servicedesk@csc.fi before using this option.
 
 To reboot a virtual desktop:
 
@@ -545,13 +545,13 @@ To reboot a virtual desktop:
 
 ### Deleting a desktop
 
-You can delete your virtual desktop, external volume, and all files saved at the end of your analysis. You cannot undo this action:
+At the end of your analysis, you can delete your virtual desktop, including the external volume and all files saved in it. You cannot undo this action:
 
 1- On SD Desktop Homepage, click on _Go to SD Desktop Management page_.
 
 2- Under _Available desktops_  select the correct virtual desktop.
 
-3- On the same raw, on the right side, click on _Options _ and select _Delete_.
+3- On the same raw, on the right side, click on _Options_ and on _Delete_.
 
 !!! Note
     Please contact all the project members before deleting a virtual desktop. With this action, you will delete the entire workspace, including all files saved in the virtual desktop or external volume by other project members. 
