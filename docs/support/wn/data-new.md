@@ -2,9 +2,10 @@
 
 ## Technical issues on SD Connect: follow up 2.2.2023
 
-Files uploaded using the SD Connect automated encryption option between November 2, 2022, and December 20, 2022, might be corrupted. This is because during the upload phase, files are split into short segments, and in some cases, due to a technical issue, the correct segment's order has been lost, making the files unreadable. Therefore, if you have used this function, we advise you to upload a new copy of the files. If this is impossible, don't hesitate to contact us at servicedesk@csc.fi. 
+Files uploaded using the SD Connect automated encryption option between November 2, 2022, and December 20, 2022, might be corrupted. 
+During the upload phase files are split into short segments, and in some cases, due to a technical issue, the correct segment's order has been lost, making the files unreadable. Therefore, if you have used this function, we advise you to upload a new copy of the files. If this is not possible, don't hesitate to contact us at servicedesk@csc.fi. We will evaluate individual cases to determine if the files can be retrieved.
 
-We will evaluate individual cases to determine if the files can be retrieved. Currently, SD Connect automated encryption is supported only for files < 1GB. 
+Currently, SD Connect automated encryption is supported only for files < 1GB. 
 Larger files can be encrypted following this workflow:
 
 * [Sensitive data encryption and upload for analysis, up to 100 GB](../../data/sensitive-data/sd_connect.md#sensitive-data-encryption-and-upload-for-analysis-up-to-100-gb)
