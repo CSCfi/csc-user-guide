@@ -94,7 +94,7 @@ Using SD Connect and SD Desktop is free of charge for research purposes, accordi
 
 Storing data in SD Connect/Allas consumes billing units. The rate is: 
 
-* 1 billing unit/TB.
+* 1 billing unit/TBh.
 
 i.e. 1 TB of data stored in Allas consumes 24 billing units daily and 8760 billing units per year.
 
