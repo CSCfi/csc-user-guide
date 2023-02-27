@@ -64,7 +64,7 @@ More information about [building](../../computing/compiling-puhti.md#building-mp
 
 ## Applications
 
-More information about specific applications can be found [here](../../apps/alpha.md)
+More information about specific applications can be found [here](../../apps/index.md)
 
 !!! Python
     System Python is available by default both in Puhti and Mahti without loading any module. Python 3
