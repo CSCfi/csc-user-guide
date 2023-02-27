@@ -101,6 +101,7 @@ Links are added using the markdown syntax `[This is my link text](link url or pa
 * **Always add a descriptive link text to make the content accessible.** Plain URLs without link text are not acceptable! Screen readers will read it as h-t-t-p-s-colon-slash-slash...
   * `[Read more here](gromacs.md#usage)` is not accessible. `[Read more about Gromacs usage](gromacs.md#usage)` is better.
   * If, for some rare reason, writing a descriptive link text is not possible, you can use html and aria-label: `<a href="https://code.visualstudio.com" aria-label="This is readable by screen readers">Visual Studio Code</a>`. This label is read by the screen readers but is not visible to others.
+* For external links, make sure to include a `target` attribute with the value `"_blank"` to open them in a new tab: `[example](https://example.com){ target="_blank" }`
 
 Common issues:
 
