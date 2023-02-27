@@ -55,7 +55,7 @@ information about libraries](../../computing/hpc-libraries.md).
 
 ## Applications
 
-More information about specific applications can be found [here](../../apps/alpha.md).
+More information about specific applications can be found [here](../../apps/index.md).
 Note, the pre-installed selection is not as large as on Puhti.
 
 ## Running jobs

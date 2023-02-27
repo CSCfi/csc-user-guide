@@ -186,9 +186,8 @@ that you are installing on a personal computer**.
 
 **CSC provides many pre-installed Python environments for popular frameworks and
 libraries**. It's usually a good idea to use these as a starting point, even if
-they don't contain all the packages you need. Check the list of [data analytics
-and machine learning modules provided on CSC's
-supercomputers](../../apps/index.md#data-analytics-and-machine-learning). 
+they don't contain all the packages you need. Check the list of
+[data analytics and machine learning modules provided on CSC's supercomputers](../../apps/by_discipline.md#data-analytics-and-machine-learning).
 
 For example [PyTorch](../../apps/pytorch.md) and
 [TensorFlow](../../apps/tensorflow.md) have their own dedicated modules, while

@@ -22,13 +22,15 @@ plugins:
       exclude:
         - index.md
         - support/whats-new.md
+        - apps/index.md
+        - apps/by_discipline.md
         - apps/by_system.md
-        - apps/alpha.md
         - apps/by_license.md
   - section-index
   - redirects:
       redirect_maps:
         'support/tutorials/env-guide/overview.md': 'support/tutorials/env-guide/index.md'
+        'apps/alpha.md': 'apps/index.md'
 
 markdown_extensions:
   - admonition
@@ -311,8 +313,7 @@ nav:
         # Python MySQL API at CSC:
   - Applications:
      - apps/index.md
-     - In alphabetical order: apps/alpha.md
-     - By discipline: apps/index.md
+     - By discipline: apps/by_discipline.md
      - By availability: apps/by_system.md
      - By license: apps/by_license.md
   - FAQ: support/faq/index.md
