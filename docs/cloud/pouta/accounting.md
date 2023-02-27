@@ -9,7 +9,8 @@ ministry's paid-for allocation, CSC has billing unit packages for
 purchase.
 
 For more information about which category your project falls into,
-please see [Accounts and projects].
+please see
+[Accounts and projects](https://research.csc.fi/accounts-and-projects){ target="_blank" }.
 
 [TOC]
 
