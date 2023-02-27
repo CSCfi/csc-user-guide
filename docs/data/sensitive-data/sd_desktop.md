@@ -249,7 +249,7 @@ The files are automatically decrypted by the Data Gateway application during the
  [![Desktop-data-import](images/desktop/desktop-gateway-import.png)](images/desktop/desktop-gateway-import.png)
 
 
-###  Accessing published data for reuse via SD Apply
+### Accessing published data for reuse via SD Apply
 
 <iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/1cF_NQV6vyk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
@@ -449,7 +449,7 @@ For more information and support, write to servicedesk@csc.fi (email subject Sen
 With the SD Desktop service, you can easily manage volumes and pause, reboot, rebuild or delete your virtual desktops. Below we illustrate the main available options. 
 
 !!! Note
-These options are available only on virtual desktops created after February 2, 2023. Please contact us at servicedesk@csc.fi if you are working with older desktops. 
+    These options are available only on virtual desktops created after February 2, 2023. Please contact us at servicedesk@csc.fi if you are working with older desktops. 
 
 
 ### Detaching and reattaching a volume 
