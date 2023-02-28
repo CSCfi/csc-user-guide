@@ -1,9 +1,13 @@
 # Reference card
-!!! info "Documentation"
+!!! default "Documentation"
 
     Docs CSC is based on *Material for MkDocs*. Note that not all (by far) features are supported.
 
     [Reference - Material for MkDocs](https://squidfunk.github.io/mkdocs-material/reference/){ .md-button target=_blank }
+
+!!! info "Source"
+
+    This page is more useful when viewed side-by-side with [the Markdown source at GitHub](https://github.com/CSCfi/csc-user-guide/blob/master/docs/ref.md?plain=1){ target=_blank }.
 
 This page contains some elements that are available in Docs CSC. For example, here we have some
 body text [with an external link](https://example.com){ target=_blank }. **Some of it is

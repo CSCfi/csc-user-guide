@@ -101,6 +101,7 @@ Links are added using the markdown syntax `[This is my link text](link url or pa
 * **Always add a descriptive link text to make the content accessible.** Plain URLs without link text are not acceptable! Screen readers will read it as h-t-t-p-s-colon-slash-slash...
   * `[Read more here](gromacs.md#usage)` is not accessible. `[Read more about Gromacs usage](gromacs.md#usage)` is better.
   * If, for some rare reason, writing a descriptive link text is not possible, you can use html and aria-label: `<a href="https://code.visualstudio.com" aria-label="This is readable by screen readers">Visual Studio Code</a>`. This label is read by the screen readers but is not visible to others.
+* For external links, make sure to include a `target` attribute with the value `"_blank"` to open them in a new tab: `[example](https://example.com){ target="_blank" }`
 
 Common issues:
 
@@ -197,9 +198,15 @@ A debugging view will then be rendered right under the breadcrumbs on every page
 
 For pages included in the `nav` structure, a breadcrumb is only rendered for ancestor sections where
 `is_page=true`. These are the so-called [SectionPages](#sectionpage). The debugging view lists all of
-the page's ancestor sections.
+the page's ancestor sections:
 
-Pages that are not in the `nav`, such as pages under _FAQ_ and _Tutorials_, have their breadcrumbs defined literally in [breadcrumbs.html](csc-overrides/partials/breadcrumbs.html). On these pages, the debugging view lists the literal breadcrumbs.
+![debugging pages with ancestors](docs/img/breadcrumbs-debugging/breadcrumbs-debugging-is_page.png)
+
+Pages that are not in the `nav`, such as pages under _FAQ_ and _Tutorials_, have their breadcrumbs
+defined literally in [breadcrumbs.html](csc-overrides/partials/breadcrumbs.html). On these pages,
+the debugging view lists the literal breadcrumbs:
+
+![debugging the literal breadcrumbs](docs/img/breadcrumbs-debugging/breadcrumbs-debugging-literal.png)
 
 ## How and who should I ask to review my PR?
 
