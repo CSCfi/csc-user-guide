@@ -18,6 +18,7 @@
 * [How backup a Postgres DB into Allas](backup-postgres-allas.md)
 * [How to add docker hub credentials to a project](docker_hub_login.md)
 * [How to manually cache images in Rahti's registry](docker_hub_manual_caching.md)
+* [How to package a Kubernetes application with Helm?](helm.md)
 * [How to run an ad-hoc interactive container](oc-run.md)
 * [How to transfer data to Rahti?](transfer_data_rahti.md)
 * [Multi stage builds](multi-stage-builds.md)
