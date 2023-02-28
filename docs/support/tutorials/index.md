@@ -3,12 +3,13 @@
 ## General
 * [Getting started with Puhti](puhti_quick.md)
 * [Getting started with Mahti](mahti_quick.md)
+* [Getting started with Helmi](../../computing/quantum-computing/helmi/helmi-from-lumi.md)
 * [Managing data on Puhti and Mahti scratch disks](clean-up-data.md)
 * [Conda best practices](conda.md)
 * [Using NoMachine](nomachine-usage.md)
 * [CSC Quick reference (pdf)](../../img/csc-quick-reference/csc-quick-reference.pdf)
 * [How to run existing containers in Puhti](../../computing/containers/run-existing.md)
-* [Linux basics for CSC](env-guide/overview.md)
+* [Linux basics for CSC](env-guide/index.md)
 * [Interactive and batch job hands-on in Puhti](cmdline-handson.md)
 * [Using csc-env command](using_csc_env.md)
 * [Developing scripts remotely](remote-dev.md)
@@ -24,6 +25,7 @@
 * [Running Nextflow workflows using HyperQueue](nextflow-hq.md)
 * [FireWorks workflow manager](../../computing/running/fireworks.md)
 * [How to run many short jobs with GNU Parallel](many.md)
+* [HyperQueue meta-scheduler](../../apps/hyperqueue.md)
 
 ## Allas
 * [Using Allas interactively in Puhti and Mahti](../../data/Allas/allas-examples.md)
@@ -44,6 +46,7 @@
 * [Running your first job on Puhti](biojobs-on-puhti.md)
 
 ## Chemistry
+* [Farming Gaussian jobs with HyperQueue](https://csc-training.github.io/csc-env-eff/hands-on/throughput/gaussian_hq.html)
 * [Using Gabedit for Gaussian jobs on Puhti](gabedit_gaussian.md)
 
 ## Data analysis and machine learning
@@ -56,31 +59,26 @@
 ## Geoinformatics
 * [GDAL tutorial](gis/gdal.md)
 * [Virtual rasters](gis/virtual-rasters.md)
+* [Earth Observation (EO) guide](gis/eo_guide.md)
 
 ## Pouta - cloud
 * [cPouta and ePouta related videos](../../cloud/pouta/pouta-videos.md)
 * [Learn cloud computing by developing and deploying a web application](cloud.md)
 
 ## Rahti - container cloud
-
-* [Accessing databases on Rahti from CSC supercomputers](../../cloud/rahti/tutorials/connect-database-hpc.md)
-* [Annotations](../../cloud/rahti/tutorials/annotations.md)
-* [CI/CD on Rahti](../../cloud/rahti/tutorials/ci_cd_introduction.md)
-* [Configuration, ConfigMaps and Secrets](../../cloud/rahti/tutorials/configuration.md)
-* [Custom domain names and secure transport](../../cloud/rahti/tutorials/custom-domain.md)
-* [Deploying a static web server using the command line](../../cloud/rahti/tutorials/elemental_tutorial.md)
+* [Core objects](../../cloud/rahti/concepts.md)
 * [Deploying a static web server using the web interface](../../cloud/rahti/tutorials/basic-console.md)
-* [How backup a Postgres DB into Allas](../../cloud/rahti/tutorials/backup-postgres-allas.md)
+* [Deploying a static web server using the command line](../../cloud/rahti/tutorials/elemental_tutorial.md)
+* [Custom domain names and secure transport](../../cloud/rahti/tutorials/custom-domain.md)
+* [Configuration, ConfigMaps and Secrets](../../cloud/rahti/tutorials/configuration.md)
+* [Webhooks](../../cloud/rahti/tutorials/webhooks.md)
+* [Reverse proxy authentication using a sidecar container](../../cloud/rahti/tutorials/sidecar_proxy_authentication.md)
+* [Short introduction to YAML](../../cloud/rahti/tutorials/yaml_introduction.md)
+* [How to transfer data to Rahti?](../../cloud/rahti/tutorials/transfer_data_rahti.md)
 * [How to add docker hub credentials to a project](../../cloud/rahti/tutorials/docker_hub_login.md)
 * [How to manually cache images in Rahti's registry](../../cloud/rahti/tutorials/docker_hub_manual_caching.md)
-* [How to run an ad-hoc interactive container](../../cloud/rahti/tutorials/oc-run.md)
-* [How to transfer data to Rahti?](../../cloud/rahti/tutorials/transfer_data_rahti.md)
-* [Multi stage builds](../../cloud/rahti/tutorials/multi-stage-builds.md)
-* [Reverse proxy authentication using a sidecar container](../../cloud/rahti/tutorials/sidecar_proxy_authentication.md)
-* [Sending e-mail from Rahti](../../cloud/rahti/tutorials/email.md)
-* [Short introduction to YAML](../../cloud/rahti/tutorials/yaml_introduction.md)
-* [Webhooks](../../cloud/rahti/tutorials/webhooks.md)
-
+* [How to package a Kubernetes application with Helm?](../../cloud/rahti/tutorials/helm.md)
+* [Accessing databases on Rahti from CSC supercomputers](../../cloud/rahti/tutorials/connect-database-hpc.md)
 
 ## Visualisation
 * [Blender tutorial](blender-tutorial.md)
