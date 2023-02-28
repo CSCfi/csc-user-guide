@@ -1,4 +1,5 @@
 SKIP_ALL index.md 
-SKIP_ALL alpha.md 
 SKIP_ALL by_system.md
+SKIP_ALL by_discipline.md
+SKIP_ALL by_license.md
 SKIP_puhti arcgis.md

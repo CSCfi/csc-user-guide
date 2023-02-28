@@ -49,7 +49,7 @@ Puhti](../../computing/systems-puhti.md).
 
 Puhti has a selection of commonly used bioscience software
 available. You can check the listing in
-[Applications](../../apps/index.md).
+[Applications](../../apps/by_discipline.md#biosciences).
 
 The application listing may not be quite up to date, so it is a good
 idea to use **module spider** command to see if a software (and which
