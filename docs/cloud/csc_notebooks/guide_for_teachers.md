@@ -15,7 +15,7 @@ Instead of a course you can also use CSC Notebooks for collaboration. The workfl
    [see the instructions on how to create new user account](../../../accounts/how-to-create-new-user-account/).
 * Send email to <notebooks@csc.fi> to request workspace owner rights. Please include your CSC user account in the mail. 
    We will add the capability to create your own workspaces to your account.
-* Login to [CSC Notebooks](https://notebooks-beta.rahtiapp.fi/welcome) and check that you got workspace owner rights. 
+* Login to [CSC Notebooks](https://notebooks.rahtiapp.fi/welcome) and check that you got workspace owner rights. 
 It worked, if you see `Manage workspaces` tab in the left panel. 
 * Create a new workspace.
  
