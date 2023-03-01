@@ -283,6 +283,12 @@ you define the content.
 Try adding a `&nbsp;` if inline admonitions give you trouble. Example found right above this line
 in markdown source.
 
+## Images
+Here's an image of the Reference card with an image of the Reference card with...
+![image of an image of an image...](img/ref/image.png)
+
+
+
 ## Embedded videos
 At the moment, to avoid setting cookies, embedded videos are rendered only as an image with a link
 to the video in question. For example: Behold! Here is a video of a horse kicking a tree, farting
