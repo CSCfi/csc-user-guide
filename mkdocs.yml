@@ -29,6 +29,7 @@ plugins:
   - section-index
   - redirects:
       redirect_maps:
+        'computing/overview.md': 'computing/index.md'
         'support/tutorials/env-guide/overview.md': 'support/tutorials/env-guide/index.md'
         'apps/alpha.md': 'apps/index.md'
 
@@ -109,7 +110,7 @@ nav:
      - Multi-factor Authentication: accounts/mfa.md
      - FMI: accounts/fmi.md
   - Computing:
-     - computing/overview.md
+     - computing/index.md
      - Usage policy: computing/usage-policy.md
      - Systems:
         - computing/available-systems.md
