@@ -384,7 +384,7 @@ These instances are also tightly tied to the hardware. You may expect
 downtime of instances during the maintenance of the hardware.
 
 Users also have the possibility to use NVIDIA Volta V100 GPGPUs in the
-batch system on Puhti-AI: <https://research.csc.fi/techspecs>.
+batch system on [Technical details about Puhti](/computing/systems-puhti/).
 
 **cPouta flavor characteristics:**
 
