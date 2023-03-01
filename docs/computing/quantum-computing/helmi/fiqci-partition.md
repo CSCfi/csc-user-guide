@@ -22,7 +22,7 @@ need to apply for quantum resources in addition to CPU, GPU, and storage.
 Access to Helmi is only available through the FiQCI partition on LUMI, which provides a direct connection between a LUMI-C
 node (with 128 cores and 256 GB RAM) and Helmi.
 
-* [Further details on LUMI nodes](https://docs.lumi-supercomputer.eu/computing/systems/lumic/)
+* [Further details on LUMI nodes](https://docs.lumi-supercomputer.eu/hardware/compute/lumic/)
 
 There is one queue in the Helmi partition corresponding to FiQCI projects: `q_fiqci`. 
 Currently, the maximum run time of a quantum job is 15 minutes.

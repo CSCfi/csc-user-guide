@@ -30,7 +30,6 @@ module load r-env
 * [ggmap](https://cran.r-project.org/web/packages/ggmap/index.html) - map visualizations with `ggplot2`. As background map various online sources can be ued (e.g Google Maps and Stamen Maps). It includes tools also for geocoding and routing
 * [gstat](https://cran.r-project.org/web/packages/gstat/index.html) - spatial and spatio-temporal geostatistical modelling, prediction and simulation. Variogram modelling; simple, ordinary and universal point or block (co)kriging; spatio-temporal kriging; sequential Gaussian or indicator (co)simulation; variogram and variogram map plotting utility functions
 * [GWmodel](https://cran.r-project.org/web/packages/GWmodel/index.html) - geographically-weighted models: GW summary statistics, GW principal components analysis, GW discriminant analysis and various forms of GW regression
-* [gstat](https://cran.r-project.org/web/packages/gstat/index.html) - functions for variogram modelling and kriging data 
 * [lidR](https://cran.r-project.org/web/packages/lidR/index.html) - LiDAR data manipulation and visualization (for forestry applications), computation of metrics in area based approach, point filtering, artificial point reduction, classification from geographic data, normalization, individual tree segmentation and other manipulations
 * [lidRtRee](https://cran.r-project.org/web/packages/lidaRtRee/index.html) - forest analysis with airborne laser scanning (LiDAR) data
 * [mapedit](https://cran.r-project.org/web/packages/mapedit/index.html) - interactive editing of sf objects
