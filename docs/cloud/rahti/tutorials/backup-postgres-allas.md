@@ -17,7 +17,7 @@ This is a simple example, the backup SQL file is not compressed, the checksums a
 pip install python-openstackclient
 ```
 
-Then go to [Access & Security](https://pouta.csc.fi/dashboard/project/access_and_security/), download the OpenStack RC File v2.0, source it, and input your password when prompted:
+Then go to [OpenRC download](https://pouta.csc.fi/dashboard/project/api_access/openrc/), download the OpenStack RC File v2.0, source it, and input your password when prompted:
 
 ```bash
 $ source ~/Downloads/project_XXXXXXX-openrc.sh
