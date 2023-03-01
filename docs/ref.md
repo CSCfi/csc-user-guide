@@ -304,6 +304,10 @@ on some dogs, and then running away:
     allowfullscreen>
 </iframe>
 
+### Animations
+If you don't need sound, you can use animations as an alternative for embedded videos. They are
+used just like [static images](#images). Both `.gif` and `.png` files work.
+
 ## Mermaid
 ```mermaid
 %%{init: {'theme': 'neutral' }}%%
