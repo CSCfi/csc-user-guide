@@ -48,16 +48,16 @@ For most machine learning needs
 are the way to go. Both are clusters of
 hundreds of computers, some of which offer GPU-acceleration. The supercomputers
 are multi-user systems, so individual users have limited rights to install
-software, and as with any shared resource one must follow the [usage
-policy](../../computing/overview.md#usage-policy) so that the service can remain
-usable.
+software, and as with any shared resource one must follow the
+[usage policy](../../computing/usage-policy.md)
+so that the service can remain usable.
 
 If you are a new user, please read
 [how to access Puhti and Mahti](../../computing/index.md#accessing-puhti-and-mahti), and
 [how to submit computing jobs](../../computing/running/getting-started.md).
 
-New users may in particular be interested in [Puhti's web
-interface](https://docs.csc.fi/computing/webinterface/), which can be accessed
+New users may in particular be interested in
+[Puhti's web interface](../../computing/webinterface/index.md), which can be accessed
 at [www.puhti.csc.fi](https://www.puhti.csc.fi). Via the web interface, one can
 easily launch for example a Jupyter Notebook session with TensorFlow or PyTorch.
 

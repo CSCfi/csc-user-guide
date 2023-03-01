@@ -33,8 +33,8 @@ The main GPU-related statistics are summarized in the table below.
     above shows the GPU die specific numbers, MI250x card specific numbers
     are shown in parenthesis.
 
-Please read our [usage policy for the GPU
-nodes](../../computing/overview.md#gpu-nodes). Also consider that the Slurm
+Please read our
+[usage policy for the GPU nodes](../../computing/usage-policy.md#gpu-nodes). Also consider that the Slurm
 queuing situation may vary between Puhti and Mahti at different times. However,
 note that Puhti and Mahti have distinct file systems, so you need to manually
 copy your files if you wish to change the system. **In case you are unsure which
@@ -239,7 +239,7 @@ interface.  The profilers can be used to identify resource consumption
 and to resolve performance bottlenecks, in particular the data input
 pipeline.
 
-See also [how to launch TensorBoard using the Puhti web
-interface](https://docs.csc.fi/computing/webinterface/apps/). The
-TensorFlow module `tensorflow/2.8` or later is required to use the
+See also
+[how to launch TensorBoard using the Puhti web interface](../../computing/webinterface/apps.md).
+The TensorFlow module `tensorflow/2.8` or later is required to use the
 profilers.
