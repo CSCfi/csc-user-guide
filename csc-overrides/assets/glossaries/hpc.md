@@ -33,3 +33,5 @@
 *[VM]: Virtual Machine
 *[PI]: Principal Investigator
 *[PM]: Project Manager
+*[PRACE]: Partnership for Advanced Computing in Europe
+*[MOOC]: Massive Open Online Course
