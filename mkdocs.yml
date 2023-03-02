@@ -21,6 +21,7 @@ plugins:
       timezone: Europe/Helsinki
       exclude:
         - index.md
+        - support/glossary.md
         - support/whats-new.md
         - apps/index.md
         - apps/by_discipline.md
