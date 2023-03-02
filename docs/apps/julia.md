@@ -62,16 +62,17 @@ After adding a package, it can be loaded in Julia:
 julia> using Example
 ```
 
-By default, Julia's package manager install packages to the `$HOME/.julia` directory.
-We can change the directory by prepending a path to different directory in the `JULIA_DEPOT_PATH` environment variable.
+By default, Julia's package manager installs packages to the `$HOME/.julia` directory.
+We can change the directory by prepending a path ending with a colon to a different directory using the `JULIA_DEPOT_PATH` environment variable.
+The colon instructs Julia to automatically append the default locations to the path when running Julia.
 
 ```bash
-export JULIA_DEPOT_PATH="/your/directory:$JULIA_DEPOT_PATH"
+export JULIA_DEPOT_PATH="/projappl/project_???/<user>/.julia:"
 ```
 
 **NOTE:** Packages that work for one version of Julia might not work at all for another. Check the required version number.
 
-More information about Julia's package manager you can found from its [documentation](https://julialang.github.io/Pkg.jl/v1/).
+More information about Julia's package manager you can be found in its [documentation](https://julialang.github.io/Pkg.jl/v1/).
 
 ### Serial batch job
 Sample single-processor Julia batch job on Puhti
@@ -89,7 +90,7 @@ module load julia
 srun julia my_script.jl
 ```
 
-This runs the script `my_script.jl` one time using one cpu-core. You can find more information about batch jobs on Puhti from the [user guide](../computing/running/getting-started.md).
+This runs the script `my_script.jl` one time using one CPU-core. You can find more information about batch jobs on Puhti from the [user guide](../computing/running/getting-started.md).
 
 
 ### Running a package as a batch job
@@ -109,7 +110,7 @@ In this example, we place scripts for activating the project environment and run
 └── Project.toml   # configurations and dependencies
 ```
 
-The `src/<package>.jl` file must define `module` keyword with the package name.
+The `src/<package>.jl` file must define the `module` keyword with the package name.
 
 ```julia
 module <package>
@@ -146,7 +147,7 @@ Now, we can write our environment as a shell script, such as `scripts/env.sh`.
 
 ```bash
 # Set the environment variables.
-export JULIA_DEPOT_PATH="/projappl/project_<id>/<subdirectory>/.julia:$JULIA_DEPOT_PATH"
+export JULIA_DEPOT_PATH="/projappl/project_<id>/<subdirectory>/.julia:"
 
 # Create the directory path if it does not exist.
 mkdir -p "/projappl/project_<id>/<subdirectory>/"
