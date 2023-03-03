@@ -124,8 +124,6 @@ rm -f  ${SLURM_SUBMIT_DIR}/mpirun
     Please remember to adjust `%pal nproc` in your input file according to the total number of
     requested MPI tasks (`--nodes` * `--ntasks-per-node`).
 
-- You should not use the SLURM parameter `--cpus-per-task` in your batch job script. It is not
-  intended for code parallelized with MPI.
 - You can find a few additional example jobs in the directory:
 
 ```console
