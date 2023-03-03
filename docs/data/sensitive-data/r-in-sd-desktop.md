@@ -7,7 +7,7 @@ are nearly 20 000 libraries in the CRAN repository and over 2000 libraries in th
 repository, it is quite common that some library that you would like to use, is not included in the default selection.
 
 This document describes the usage of help tools that you can use to add Rstudio 4.2.2 and missing R libraries to your SD Desktop environment. 
-The process described heres is a first prototype implementation of this service and it is likely the change in the future.
+The process described here is the first prototype implementation of this service and it is likely the change in the future.
 
 ## Requirements ##
 
