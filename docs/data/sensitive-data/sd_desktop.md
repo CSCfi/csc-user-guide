@@ -319,7 +319,7 @@ Each virtual Desktop (or virtual computer) is pre-built and contains a limited s
       * CUDA drivers 
       * TensorFlow (used with R TensorFlow back-end)
       * R + RStudio Server versions matched with Puhti r-env-singularity module (R 4.0.5 + RStudio Server 1.4.1106, MRAN, Bioconductor 3.12) 
-
+      * Rstudio 4.2.2 and all CRAN and Bioconductor libraries can be added with SD-software-installer
 
 ### Software customisation
 
