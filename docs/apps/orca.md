@@ -17,29 +17,29 @@ for academic use at academic institutions.
 
 ## Available
 
--   Puhti: 5.0.3
--   Mahti: 5.0.3
+- Puhti: 5.0.3
+- Mahti: 5.0.3
 
 Note that due to licensing issues every user has to install their own copy of the program.
 
 ## License
- 
+
 ORCA users should register, agree to the EULA , download and install a private copy of the program
-(via [https://orcaforum.kofo.mpg.de/app.php/portal](https://orcaforum.kofo.mpg.de/app.php/portal))
-The free version is available only for academic use at academic institutions.
+(via [the ORCA forum website](https://orcaforum.kofo.mpg.de/app.php/portal)). The free version is
+available only for academic use at academic institutions.
 
 ## Usage
 
 - Download the ORCA 5.0.3, Linux, x86-64, shared-version, `orca_5_0_3_linux_x86-64_shared_openmpi411.tar.xz`
-- Move the downloaded file to your computing project's application area (/projappl/<proj\>) on Puhti
+- Move the downloaded file to your computing project's application area (`/projappl/<proj>`) on Puhti
 - Unpack the package, `tar xf orca_5_0_3_linux_x86-64_shared_openmpi411.tar.xz`
 
-!!! note
+!!! info "Note"
     Wave function-based correlations methods, both single and multireference, often create a
     substantial amount of disk I/O. In order to achieve maximal performance for the job and to
     avoid excess load on the Lustre parallel file system it is advisable to use the local disk.  
 
-- Example batch script for Puhti using local disk
+### Example batch script for Puhti using local disk
 
 ```bash
 #!/bin/bash
@@ -73,8 +73,7 @@ rm -f  ${SLURM_SUBMIT_DIR}/mpirun
 cp -r $ORCA_TMPDIR $SLURM_SUBMIT_DIR
 ```
 
-- Example batch script for Puhti (using parallel disk and hence suitable for "standard"
-  DFT calculations)
+### Example batch script for Puhti (using parallel disk and hence suitable for "standard" DFT calculations)
 
 ```bash
 #!/bin/bash
@@ -96,7 +95,7 @@ $ORCADIR/orca orca_5.0.3.inp > orca_5.0.3.out
 rm -f  ${SLURM_SUBMIT_DIR}/mpirun
 ```
 
-- Example batch script for Mahti
+### Example batch script for Mahti
 
 ```bash
 #!/bin/bash
@@ -121,22 +120,25 @@ $ORCADIR/orca orca_5.0.3.inp > orca_5.0.3.out
 rm -f  ${SLURM_SUBMIT_DIR}/mpirun
 ```
 
-!!! note
-    Please remember to adjust %pal nproc in your input file according to the total number of
-    requested MPI tasks (nodes * ntasks-per-node).
+!!! info "Note"
+    Please remember to adjust `%pal nproc` in your input file according to the total number of
+    requested MPI tasks (`--nodes` * `--ntasks-per-node`).
 
-
-- You should not use the SLURM parameter cpus-per-task in your batch job script. It is not intended for code parallelized with MPI. 
+- You should not use the SLURM parameter `--cpus-per-task` in your batch job script. It is not
+  intended for code parallelized with MPI.
 - You can find a few additional example jobs in the directory:
 
 ```console
 /appl/soft/chem/orca
 ```
 
-!!! note
-    If you come across an error related to oversubscribed resources, you need to call your calculation as
-    
+!!! info "Note"
+    If you come across an error related to oversubscribed resources, you need
+    to call your calculation as
+
+    ```bash
     $ORCADIR/orca file.inp --oversubscribe > file.out
+    ```
 
 ## References
 
@@ -152,7 +154,8 @@ your studies! The publications that describe the functionality implemented in OR
 given in the manual.
 
 ## More information
--   [ORCA Forum (login with the same credentials as you used for downloading)](https://orcaforum.kofo.mpg.de/app.php/portal)
--   [ORCA Tutorials](https://www.orcasoftware.de/tutorials_orca/)
--   [ORCA Input Library, containing example inputs](https://sites.google.com/site/orcainputlibrary/home)
--   [Release notes](https://orcaforum.kofo.mpg.de/viewforum.php?f=56)
+
+- [ORCA Forum (login with the same credentials as you used for downloading)](https://orcaforum.kofo.mpg.de/app.php/portal)
+- [ORCA Tutorials](https://www.orcasoftware.de/tutorials_orca/)
+- [ORCA Input Library, containing example inputs](https://sites.google.com/site/orcainputlibrary/home)
+- [Release notes](https://orcaforum.kofo.mpg.de/viewforum.php?f=56)
