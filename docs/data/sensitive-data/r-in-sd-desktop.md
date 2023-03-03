@@ -25,13 +25,14 @@ Log in to your SD Desktop and open **Data Gateway**. If the software installatio
 **tools-for-sd-desktop** included in the directory that Data Gateway created ( in Projects/SD Coonnect/_your-project-name_).
 Open _tools-for-sd-desktop_ folder and from there, drag/copy file **sd-installer.desktop** to your desktop.
 
-Figure 1. Copy sd-installer.desktop file to your desktop
+[![Installing-sd-installer](images/desktop/sd-installer1.png)](images/desktop/sd-installer1.png)
+**Figure 1.** Copying sd-installer.desktop file to SD desktop.
  
 Double click the copy of _sd-installer.desktop_ to start the software installation tool. Use this tool to install _Rstudio 4.2.2_ 
 to your SD Desktop virtual machine if you have not yet done so. The installation takes several minutes. 
 
 
-
+[![sd-installer](images/desktop/sd-installer2.png)](images/desktop/sd-installer2.png)
 Figure 2. SD software installation tool
 
 Once the installation is done you can start Rstudio by clicking  the  Rstudio icon in the desktop or by executing command:
