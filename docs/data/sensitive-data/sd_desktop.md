@@ -308,7 +308,7 @@ Each virtual Desktop (or virtual computer) is pre-built and contains a limited s
  
 ### Scientific software 
 
-   * Python 3.7.9 including following packages:      
+   * Python 3.9.15 including following packages:      
         * tensorflow nltk spacy scikit-learn seaborn plotly bokeh pydot xgboost lightgbm catboost eli5 torch keras dist-keras elephas gensim scrapy beautifulsoup4 numpy scipy pandas statsmodels matplotlib pyfuse3 crypt4gh trio httpx qrcode 
    * R / RStudio Server
 
@@ -319,7 +319,7 @@ Each virtual Desktop (or virtual computer) is pre-built and contains a limited s
       * CUDA drivers 
       * TensorFlow (used with R TensorFlow back-end)
       * R + RStudio Server versions matched with Puhti r-env-singularity module (R 4.0.5 + RStudio Server 1.4.1106, MRAN, Bioconductor 3.12) 
-      * Rstudio 4.2.2 and all CRAN and Bioconductor libraries can be added with SD-software-installer
+      * [Rstudio 4.2.2 and all CRAN and Bioconductor libraries can be added with SD-software-installer](./r-in-sd-desktop.md)
 
 ### Software customisation
 
