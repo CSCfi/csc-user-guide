@@ -11,8 +11,8 @@ The developers tend to recommend the SMP paralellization for most routine calcul
 
 ## Available
 
-*   Puhti: 7.5.1, 7.6
-*   Mahti: 7.6
+*   Puhti: 7.5.1, 7.6, 7.7
+*   Mahti: 7.6, 7.7
 
 ## License
 
@@ -26,7 +26,7 @@ The developers tend to recommend the SMP paralellization for most routine calcul
 Initialise Turbomole environment:
 
 ```bash
-module load turbomole/7.6
+module load turbomole/7.7
 ```
 
 ### Batch script example for Puhti using MPI parallelization
@@ -39,7 +39,7 @@ module load turbomole/7.6
 #SBATCH --account=<project>  # insert here the project to be billed 
 #SBATCH --time=00:10:00           # time as `hh:mm:ss`
 export PARA_ARCH=MPI         # use MPI 
-module load turbomole/7.5.1
+module load turbomole/7.7
 export SLURM_CPU_BIND=none
 # This setting of TURBOTMPDIR assumes that the job is 
 # submitted from a directory below /scratch/<project>
@@ -60,7 +60,7 @@ jobex -ri -c 300 > jobex.out
 #SBATCH --account=<project>  # insert here the project to be billed
 #SBATCH --time=00:10:00      # time as `hh:mm:ss`
 export PARA_ARCH=SMP         # use SMP threads   
-module load turbomole/7.5.1
+module load turbomole/7.7
 # This setting of TURBOTMPDIR assumes that the job is 
 # submitted from a directory below /scratch/<project>
 export TURBOTMPDIR=`echo $PWD |cut -d'/' -f1-3`"/TM_TMPDIR/"$SLURM_JOB_ID
@@ -91,7 +91,7 @@ jobex -ri -c 300 > jobex.out
 #SBATCH --time=00:10:00      # time as `hh:mm:ss`
 #SBATCH --gres=nvme:100      # requested local disk in GB
 export PARA_ARCH=MPI         # use MPI
-module load turbomole/7.5.1
+module load turbomole/7.7
 export SLURM_CPU_BIND=none
 # define local disk as scratch
 export TURBOTMPDIR=$LOCAL_SCRATCH/$SLURM_JOBID
@@ -112,7 +112,7 @@ ccsdf12 > ccsdt.out
 #SBATCH --account=<project>   # insert here the project to be billed
 #SBATCH --time=00:60:00       # time as `hh:mm:ss`
 export PARA_ARCH=MPI          # use MPI
-module load turbomole/7.5.1
+module load turbomole/7.7
 export SLURM_CPU_BIND=none
 # This setting of TURBOTMPDIR assumes that the job is 
 # submitted from a directory below /scratch/<project>
@@ -146,7 +146,7 @@ NumForce -ri -central -mfile $HOSTS_FILE > NumForce.out
 Please quote the usage of the program package under consideration of the version
 number:
 
--   TURBOMOLE V7.6 2022, a development of University of Karlsruhe andForschungszentrum Karlsruhe GmbH, 1989-2007,TURBOMOLE GmbH, since 2007; available from https://www.turbomole.org
+-   TURBOMOLE V7.7, a development of University of Karlsruhe and Forschungszentrum Karlsruhe GmbH, 1989-2007, TURBOMOLE GmbH, since 2007; available from https://www.turbomole.org
 -    A review article should be mentioned, as well: https://doi.org/10.1063/5.0004635
 -    Scientific publications require proper citation of methods and procedures employed.
 The output headers of TURBOMOLE modules include the relevant papers. 
