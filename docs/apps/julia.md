@@ -5,19 +5,15 @@ tags:
 
 # Julia
 ## Description
-Julia is a high-level, high-performance dynamic programming language for
-numerical computing. It provides a sophisticated compiler, distributed
-parallel execution, numerical accuracy, and an extensive mathematical
-function library.
-
-See here for a [quick introduction and tutorial](https://github.com/csc-training/julia-introduction).
+Julia is a high-level, high-performance dynamic programming language for numerical computing.
+It provides a sophisticated compiler, distributed parallel execution, numerical accuracy, and an extensive mathematical function library.
 
 [TOC]
 
 
 ## Available
-- Puhti: 1.8.1 compiled with Intel Math Kernel Library (MKL)
-- Mahti: 1.7.2 compiled with OpenBLAS
+- Puhti has Julia v1.8.5 compiled with OpenBLAS
+- Mahti has Julia v1.7.2 compiled with OpenBLAS
 
 
 ## License
@@ -25,30 +21,36 @@ Free and open source under [MIT license](https://github.com/JuliaLang/julia/blob
 
 
 ## Usage
-### Loading Modules
-To load a module for a stable version of Julia, use the following command
+### Loading modules
+We can load the Julia module using the following command.
 
 ```bash
 module load julia
 ```
 
+By default it loads the latest stable version.
+
+
 ### Interactive use
-After loading the Julia module, it can be run interactively simply by
-typing
+After loading the Julia module, we can run it interactively with the following command.
 
 ```bash
 julia
 ```
 
-If more resources are required, one can request an interactive node
-directly on Puhti with
+If we need more resources, we can request an interactive node directly on Puhti as follows.
 
 ```bash
 srun --ntasks=1 --time=00:10:00 --mem=4G --pty --account=project_id --partition=small julia
 ```
 
-### Installing packages
-You can access to the package manager by pressing `]` during the interactive session. The packages are added to the project with an `add` command.
+
+### Installing packages and using environments
+Julia has an built-in package manager called `Pkg`.
+During an interactive session, we can access it by pressing `]`.
+Within scripts, we can use the package manager in the same way as other packages via `using Pkg`.
+
+The packages are added to the project with an `add` command.
 
 ```bash
 julia> ]
@@ -56,10 +58,17 @@ julia> ]
 (v1.8) pkg> add Example
 ```
 
+We can do the same in a script.
+
+```julia
+using Pkg
+Pkg.add("Example")
+```
+
 After adding a package, it can be loaded in Julia:
 
-```bash
-julia> using Example
+```julia
+using Example
 ```
 
 By default, Julia's package manager installs packages to the `$HOME/.julia` directory.
@@ -67,12 +76,13 @@ We can change the directory by prepending a path ending with a colon to a differ
 The colon instructs Julia to automatically append the default locations to the path when running Julia.
 
 ```bash
-export JULIA_DEPOT_PATH="/projappl/project_???/<user>/.julia:"
+export JULIA_DEPOT_PATH="/projappl/project_id/.julia:"
 ```
 
 **NOTE:** Packages that work for one version of Julia might not work at all for another. Check the required version number.
 
 More information about Julia's package manager you can be found in its [documentation](https://julialang.github.io/Pkg.jl/v1/).
+
 
 ### Serial batch job
 Sample single-processor Julia batch job on Puhti
@@ -177,6 +187,7 @@ julia --project=. src/cli.jl  # <cli-arguments>
 ```
 
 To run a batch job, we can write a batch script, such as `scripts/batch.sh`, as below.
+We should set the `--threads` argument to the number of available threads.
 
 ```bash
 #!/bin/bash
@@ -188,7 +199,7 @@ To run a batch job, we can write a batch script, such as `scripts/batch.sh`, as 
 #SBATCH --mem-per-cpu=10
 
 source scripts/env.sh
-srun julia --project=. src/cli.jl  # <cli-arguments>
+srun julia --project=. --threads 1 src/cli.jl  # <cli-arguments>
 ```
 
 You can test it by submitting the script to the Slurm scheduler.
@@ -202,3 +213,5 @@ sbatch scripts/batch.sh
 
 - [Julia home page](https://julialang.org )
 - [Documentation](https://docs.julialang.org)
+
+See here for a [quick introduction and tutorial](https://github.com/csc-training/julia-introduction).
