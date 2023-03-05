@@ -11,13 +11,13 @@ It provides a sophisticated compiler, distributed parallel execution, numerical 
 [TOC]
 
 
-## Available
-- Puhti has Julia v1.8.5 compiled with OpenBLAS
-- Mahti has Julia v1.7.2 compiled with OpenBLAS
-
-
 ## License
 Free and open source under [MIT license](https://github.com/JuliaLang/julia/blob/master/LICENSE.md).
+
+
+## Available
+- Puhti has Julia v1.8.5 with OpenBLAS
+- Mahti has Julia v1.7.2 with OpenBLAS
 
 
 ## Usage
@@ -45,43 +45,72 @@ srun --ntasks=1 --time=00:10:00 --mem=4G --pty --account=project_id --partition=
 ```
 
 
-### Installing packages and using environments
+### Installing packages
 Julia has an built-in package manager called `Pkg`.
 During an interactive session, we can access it by pressing `]`.
-Within scripts, we can use the package manager in the same way as other packages via `using Pkg`.
+In scripts, we can use the package manager in the same way as other Julia packages.
 
 The packages are added to the project with an `add` command.
+On julia REPL we can do it as follows.
 
-```bash
+```julia-repl
 julia> ]
 (v1.8) pkg>
 (v1.8) pkg> add Example
 ```
 
-We can do the same in a script.
+The package is added to the active environment, in this case, the default environemnt `(v1.8)`.
+By default, Julia's package manager installs packages to the `$HOME/.julia` directory.
+
+We can do the same in a Julia script.
 
 ```julia
 using Pkg
 Pkg.add("Example")
 ```
 
-After adding a package, it can be loaded in Julia:
+After adding a package, we can load it in Julia.
 
 ```julia
 using Example
 ```
 
-By default, Julia's package manager installs packages to the `$HOME/.julia` directory.
-We can change the directory by prepending a path ending with a colon to a different directory using the `JULIA_DEPOT_PATH` environment variable.
-The colon instructs Julia to automatically append the default locations to the path when running Julia.
-
-```bash
-export JULIA_DEPOT_PATH="/projappl/project_id/.julia:"
-```
-
 **NOTE:** Packages that work for one version of Julia might not work at all for another. Check the required version number.
 
 More information about Julia's package manager you can be found in its [documentation](https://julialang.github.io/Pkg.jl/v1/).
+
+
+## Using a custom environment
+We can manage dependencies of Julia project by using a custom environment instead of the default environment.
+The easiest way to use an environment is to use the `--project=<path>` option when starting julia to active an environment in the `<path>`.
+For example, we can use the command `julia --project=.` to start an environemnt in the current working directory.
+If we now add new package, they will be written to the `Project.toml` file.
+Furhermore, the full list of all dependencies will be written to the `Manifest.toml` file.
+Both of these files are created automatically if they don't exist.
+
+Let's consider a Julia project structured as follows.
+
+```
+.
+├── script.jl
+├── Project.toml
+└── Manifest.toml
+```
+
+We can run the script using the project's environment as follows.
+
+```bash
+julia --project=. script.jl
+```
+
+Activating an environment does not automatically install the packages defined by `Manifest.toml` or `Project.toml`.
+We can install packages using the `instantiate` function from `Pkg` as follows.
+
+```bash
+julia --project=. -e 'using Pkg; Pkg.instantiate()'
+```
+
+This is common operation when using a Julia environment for the first time.
 
 
 ### Serial batch job
@@ -90,7 +119,7 @@ Sample single-processor Julia batch job on Puhti
 ```bash
 #!/bin/bash 
 #SBATCH --job-name=julia_serial
-#SBATCH --account=<project>
+#SBATCH --account=project_<id>
 #SBATCH --partition=small
 #SBATCH --time=0:10:0
 #SBATCH --ntasks=1
@@ -100,7 +129,37 @@ module load julia
 srun julia my_script.jl
 ```
 
-This runs the script `my_script.jl` one time using one CPU-core. You can find more information about batch jobs on Puhti from the [user guide](../computing/running/getting-started.md).
+This runs the script `my_script.jl` one time using one CPU-core.
+You can find more information about batch jobs on Puhti from the [user guide](../computing/running/getting-started.md).
+
+
+### Multi-core batch job
+Sample of multi-core Julia batch job on Puhti.
+We can start julia with multiple threads using the `--threads` option.
+
+```bash
+#!/bin/bash 
+#SBATCH --job-name=julia_serial
+#SBATCH --account=project_<id>
+#SBATCH --partition=small
+#SBATCH --time=0:10:0
+#SBATCH --ntasks=2
+#SBATCH --mem-per-cpu=1000
+
+module load julia
+srun julia --threads 2 my_script.jl
+```
+
+
+## Changing installation location
+We can change the directory by prepending a path ending with a colon to a different directory using the `JULIA_DEPOT_PATH` environment variable.
+The colon instructs Julia to automatically append the default locations to the path when running Julia.
+
+```bash
+export JULIA_DEPOT_PATH="/projappl/project_id/.julia:"
+```
+
+You can run `julia -E 'DEPOT_PATH` to see all the locations.
 
 
 ### Running a package as a batch job
@@ -210,8 +269,8 @@ sbatch scripts/batch.sh
 
 
 ## More information
+- [Julia website](https://julialang.org )
+- [Julia documentation](https://docs.julialang.org)
+- [Package manager documentation](https://pkgdocs.julialang.org/v1/)
 
-- [Julia home page](https://julialang.org )
-- [Documentation](https://docs.julialang.org)
-
-See here for a [quick introduction and tutorial](https://github.com/csc-training/julia-introduction).
+See here for a [quick introduction and tutorial](https://github.com/csc-training/julia-introduction) on CSC training.
