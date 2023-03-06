@@ -185,35 +185,38 @@ You can run `julia -E 'DEPOT_PATH` to see the full path used at runtime.
 
 ### Packaging code
 Packaging your code instead of running standalone scripts is a best practice.
-The standard Julia package includes, at minimum, `src/<package>.jl` and `Project.toml` files.
+The standard Julia package includes the module file, such as `src/Hello.jl`, and the `Project.toml` file.
 Including a command line interface in your program, such as `src/cli.jl`, is also a good idea.
 
 ```text
-<package>.jl/         # the package directory
-├── src/              # directory for source files
-│   ├── <package>.jl  # package module
-│   └── cli.jl        # command-line interface
-└── Project.toml      # configurations and dependencies
+Hello.jl/         # the package directory
+├── src/          # directory for source files
+│   ├── Hello.jl  # package module
+│   └── cli.jl    # command-line interface
+└── Project.toml  # configurations and dependencies
 ```
 
-The `src/<package>.jl` file must define the `module` keyword with the package name.
+The `src/Hello.jl` file must define the `module` keyword with the package name.
 
 ```julia
-module <package>
-# your code and exports
+module Hello
+
+say(s) = println(s)
+export say
+
 end
 ```
 
 The `Project.toml` file defines configuration and dependencies like the following example.
 
 ```toml
-name = "<package>"
-uuid = "<uuid>"
+name = "Hello"
+uuid = "d39f8c29-790d-4dca-9a6b-e0bca2099731"
 authors = ["author <email>"]
 version = "0.1.0"
 
 [deps]
-ArgParse = ...
+ArgParse = "c7e460c6-2fb9-53a9-8c5b-16f535851c63"
 
 [compat]
 julia = "1.8"
@@ -223,15 +226,22 @@ We can use `ArgParse` package to create a command-line client `src/cli.jl` for t
 
 ```
 using ArgParse
-using <package>
+using Hello
 
-# cli ...
+s = ArgParseSettings()
+@add_arg_table! s begin
+    "--say"
+        help = "an option with an argument"
+end
+args = parse_args(s)
+
+say(args["say"])
 ```
 
 We can also test the application by running it from the command line.
 
 ```bash
-julia --project=. src/cli.jl <arguments>
+julia --project=. src/cli.jl --say "Hello world"
 ```
 
 
