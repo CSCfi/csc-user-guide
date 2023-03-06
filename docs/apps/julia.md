@@ -114,26 +114,26 @@ An easy way to do it is using the following command.
 julia --project=. -e 'using Pkg; Pkg.instantiate()'
 ```
 
-This is a common operation when using a new Julia environment for the first time.
+Instantiating an environment is a common operation when using a new Julia environment for the first time.
 
 
-### Interactive job
+### Interactive job on Puhti
 We can request an interactive node directly on Puhti as follows.
 
 ```bash
-srun --ntasks=1 --time=00:10:00 --mem=4G --pty --account=project_<id> --partition=small julia
+srun --ntasks=1 --time=00:10:00 --mem=4G --pty --account=<project> --partition=small julia
 ```
 
 
-### Serial batch job
+### Serial batch job on Puhti
 A sample of a single-core Julia batch job on Puhti
 
 ```bash
 #!/bin/bash 
-#SBATCH --job-name=julia_serial
-#SBATCH --account=project_<id>
+#SBATCH --job-name=example
+#SBATCH --account=<project>
 #SBATCH --partition=small
-#SBATCH --time=0:10:0
+#SBATCH --time=00:10:00
 #SBATCH --ntasks=1
 #SBATCH --mem-per-cpu=1000
 
@@ -145,21 +145,26 @@ The above batch job runs the Julia script `my_script.jl` using one CPU core.
 You can find more information about batch jobs on Puhti from the [user guide](../computing/running/getting-started.md).
 
 
-### Multi-core batch job
+### Multi-core batch job on Puhti
 A sample of a multi-core Julia batch job on Puhti.
-We can start Julia with multiple threads using the `--threads` option.
+We can start Julia with multiple threads by setting the `JULIA_NUM_THREADS` environment variable.
+Alternatively, we can use the `--threads` option.
 
 ```bash
 #!/bin/bash 
-#SBATCH --job-name=julia_serial
-#SBATCH --account=project_<id>
+#SBATCH --job-name=example
+#SBATCH --account=<project>
 #SBATCH --partition=small
-#SBATCH --time=0:10:0
-#SBATCH --ntasks=2
+#SBATCH --time=00:10:00
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=2
 #SBATCH --mem-per-cpu=1000
 
+# set the number of threads based on --cpus-per-task
+export JULIA_NUM_THREADS="$SLURM_CPUS_PER_TASK"
+
 module load julia
-srun julia --threads 2 my_script.jl
+srun julia my_script.jl
 ```
 
 The above batch job runs the Julia script `my_script.jl` using two CPU cores.
@@ -167,21 +172,21 @@ The above batch job runs the Julia script `my_script.jl` using two CPU cores.
 
 ### Changing installation location
 The package manager installs packages to the `$HOME/.julia` directory by default.
-We can change the directory by prepending a path ending with a colon to a different directory using the `JULIA_DEPOT_PATH` environment variable.
-The colon instructs Julia to automatically append the default locations to the path when running Julia.
+We can change the directory by prepending the `JULIA_DEPOT_PATH` environment variable with a different directory.
 
 ```bash
-export JULIA_DEPOT_PATH="/projappl/project_<id>/.julia:"
+export JULIA_DEPOT_PATH="/projappl/<project>/.julia:$JULIA_DEPOT_PATH"
 ```
 
+Julia automatically appends the default locations to the path when colon `:` is present in the path while running Julia.
 In Puhti and Mahti, it is best practice to point the directory to Projappl.
-You can run `julia -E 'DEPOT_PATH` to see all the locations.
+You can run `julia -E 'DEPOT_PATH` to see the full path used at runtime.
 
 
 ### Packaging code
-It is a best practice to package your code instead of running standalone scripts.
+Packaging your code instead of running standalone scripts is a best practice.
 The standard Julia package includes, at minimum, `src/<package>.jl` and `Project.toml` files.
-Including a command line interface in your program, such as `cli.jl`, is also a good idea.
+Including a command line interface in your program, such as `src/cli.jl`, is also a good idea.
 
 ```text
 <package>.jl/         # the package directory
@@ -199,7 +204,7 @@ module <package>
 end
 ```
 
-The `Project.toml` file defines configuration and dependencies similar to the following example.
+The `Project.toml` file defines configuration and dependencies like the following example.
 
 ```toml
 name = "<package>"
@@ -214,7 +219,7 @@ ArgParse = ...
 julia = "1.8"
 ```
 
-We can use `ArgParse.jl` to create a command-line client `src/cli.jl` for the package.
+We can use `ArgParse` package to create a command-line client `src/cli.jl` for the package.
 
 ```
 using ArgParse
@@ -226,7 +231,7 @@ using <package>
 We can also test the application by running it from the command line.
 
 ```bash
-julia --project=. src/cli.jl [args...]
+julia --project=. src/cli.jl <arguments>
 ```
 
 
