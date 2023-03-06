@@ -39,7 +39,7 @@ Without arguments, it starts an interactive Julia REPL.
 julia
 ```
 
-For available command-line options, we can read the manual.
+For available command line options, we can read the manual.
 
 ```sh
 man julia
@@ -173,14 +173,16 @@ The above batch job runs the Julia script `my_script.jl` using two CPU cores.
 ### Changing installation location
 The package manager installs packages to the `$HOME/.julia` directory by default.
 We can change the directory by prepending the `JULIA_DEPOT_PATH` environment variable with a different directory.
+In Puhti and Mahti, it is best practice to point the directory to Projappl as follows.
 
 ```bash
 export JULIA_DEPOT_PATH="/projappl/<project>/.julia:$JULIA_DEPOT_PATH"
 ```
 
 Julia automatically appends the default locations to the path when colon `:` is present in the path while running Julia.
-In Puhti and Mahti, it is best practice to point the directory to Projappl.
 You can run `julia -E 'DEPOT_PATH` to see the full path used at runtime.
+In the future, the default paths are required for using shared packages specific to Puhti and Mahti.
+You can read more from the documentation [`JULIA_DEPOT_PATH`](https://docs.julialang.org/en/v1/manual/environment-variables/#JULIA_DEPOT_PATH) and [`DEPOT_PATH`](https://docs.julialang.org/en/v1/base/constants/#Base.DEPOT_PATH).
 
 
 ### Packaging code
@@ -192,19 +194,8 @@ Including a command line interface in your program, such as `src/cli.jl`, is als
 Hello.jl/         # the package directory
 ├── src/          # directory for source files
 │   ├── Hello.jl  # package module
-│   └── cli.jl    # command-line interface
+│   └── cli.jl    # command line interface
 └── Project.toml  # configurations and dependencies
-```
-
-The `src/Hello.jl` file must define the `module` keyword with the package name.
-
-```julia
-module Hello
-
-say(s) = println(s)
-export say
-
-end
 ```
 
 The `Project.toml` file defines configuration and dependencies like the following example.
@@ -220,18 +211,30 @@ ArgParse = "c7e460c6-2fb9-53a9-8c5b-16f535851c63"
 
 [compat]
 julia = "1.8"
+ArgParse = "1.1"
 ```
 
-We can use `ArgParse` package to create a command-line client `src/cli.jl` for the package.
+The `src/Hello.jl` file must define the `module` keyword with the package name.
 
+```julia
+module Hello
+
+say(s) = println(s)
+export say
+
+end
 ```
+
+We can use `ArgParse` package to create a command line interface `src/cli.jl` for the package.
+
+```julia
 using ArgParse
 using Hello
 
 s = ArgParseSettings()
 @add_arg_table! s begin
     "--say"
-        help = "an option with an argument"
+        help = "say something"
 end
 args = parse_args(s)
 
