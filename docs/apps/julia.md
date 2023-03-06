@@ -46,6 +46,59 @@ man julia
 ```
 
 
+### Interactive job on Puhti
+We can request an interactive node directly on Puhti as follows.
+
+```bash
+srun --ntasks=1 --time=00:10:00 --mem=4G --pty --account=<project> --partition=small julia
+```
+
+
+### Serial batch job on Puhti
+A sample of a single-core Julia batch job on Puhti
+
+```bash
+#!/bin/bash 
+#SBATCH --job-name=example
+#SBATCH --account=<project>
+#SBATCH --partition=small
+#SBATCH --time=00:10:00
+#SBATCH --ntasks=1
+#SBATCH --mem-per-cpu=1000
+
+module load julia
+srun julia my_script.jl
+```
+
+The above batch job runs the Julia script `my_script.jl` using one CPU core.
+You can find more information about batch jobs on Puhti from the [user guide](../computing/running/getting-started.md).
+
+
+### Multi-core batch job on Puhti
+A sample of a multi-core Julia batch job on Puhti.
+We can start Julia with multiple threads by setting the `JULIA_NUM_THREADS` environment variable.
+Alternatively, we can use the `--threads` option.
+
+```bash
+#!/bin/bash 
+#SBATCH --job-name=example
+#SBATCH --account=<project>
+#SBATCH --partition=small
+#SBATCH --time=00:10:00
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=2
+#SBATCH --mem-per-cpu=1000
+
+# set the number of threads based on --cpus-per-task
+export JULIA_NUM_THREADS="$SLURM_CPUS_PER_TASK"
+
+module load julia
+srun julia my_script.jl
+```
+
+The above batch job runs the Julia script `my_script.jl` using two CPU cores.
+
+
 ### Installing packages
 Julia has a built-in package manager named `Pkg`.
 During an interactive session, we can access it by pressing `]`.
@@ -115,59 +168,6 @@ julia --project=. -e 'using Pkg; Pkg.instantiate()'
 ```
 
 Instantiating an environment is a common operation when using a new Julia environment for the first time.
-
-
-### Interactive job on Puhti
-We can request an interactive node directly on Puhti as follows.
-
-```bash
-srun --ntasks=1 --time=00:10:00 --mem=4G --pty --account=<project> --partition=small julia
-```
-
-
-### Serial batch job on Puhti
-A sample of a single-core Julia batch job on Puhti
-
-```bash
-#!/bin/bash 
-#SBATCH --job-name=example
-#SBATCH --account=<project>
-#SBATCH --partition=small
-#SBATCH --time=00:10:00
-#SBATCH --ntasks=1
-#SBATCH --mem-per-cpu=1000
-
-module load julia
-srun julia my_script.jl
-```
-
-The above batch job runs the Julia script `my_script.jl` using one CPU core.
-You can find more information about batch jobs on Puhti from the [user guide](../computing/running/getting-started.md).
-
-
-### Multi-core batch job on Puhti
-A sample of a multi-core Julia batch job on Puhti.
-We can start Julia with multiple threads by setting the `JULIA_NUM_THREADS` environment variable.
-Alternatively, we can use the `--threads` option.
-
-```bash
-#!/bin/bash 
-#SBATCH --job-name=example
-#SBATCH --account=<project>
-#SBATCH --partition=small
-#SBATCH --time=00:10:00
-#SBATCH --ntasks=1
-#SBATCH --cpus-per-task=2
-#SBATCH --mem-per-cpu=1000
-
-# set the number of threads based on --cpus-per-task
-export JULIA_NUM_THREADS="$SLURM_CPUS_PER_TASK"
-
-module load julia
-srun julia my_script.jl
-```
-
-The above batch job runs the Julia script `my_script.jl` using two CPU cores.
 
 
 ### Changing installation location
@@ -241,11 +241,13 @@ args = parse_args(s)
 say(args["say"])
 ```
 
-We can also test the application by running it from the command line.
+We can use the command line interface as follows.
 
 ```bash
 julia --project=. src/cli.jl --say "Hello world"
 ```
+
+Creating and using a command line interface with batch scripts is the best practice compared to hard-coding values to the scripts.
 
 
 ## More information
