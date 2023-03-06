@@ -49,9 +49,9 @@ man julia
 ### Installing packages
 Julia has a built-in package manager named `Pkg`.
 During an interactive session, we can access it by pressing `]`.
-In scripts, we can load and use the package manager like other Julia packages.
+We can load and use the package manager in scripts like other Julia packages.
 
-The packages are added to the project with an `add` command.
+We can add packages to the active environment using the `add` function.
 On the Julia REPL, we can do it as follows.
 
 ```julia-repl
@@ -60,9 +60,7 @@ julia> ]
 (v1.8) pkg> add Example
 ```
 
-The package is added to the active environment.
 The default environment is `v1.8`, as shown in the REPL.
-
 We can do the same in a Julia script by loading `Pkg` and using the `add` function.
 
 ```julia
@@ -76,19 +74,22 @@ After adding a package, we can load it in Julia.
 using Example
 ```
 
-**NOTE:** Packages for one version of Julia might not work for another.
+Packages for one version of Julia might not work for another.
 Check the required version number.
 
-You can find more information about Julia's package manager in its [documentation](https://julialang.github.io/Pkg.jl/v1/).
+You can find more information about Julia's package manager in its [documentation](https://pkgdocs.julialang.org/v1/).
 
 
 ### Using environments
-We can manage the dependencies of different Julia projects separately by using a new environment instead of the default environment.
-The easiest way to use an environment is to use the `--project=<path>` option when starting Julia to activate an environment in the `<path>`.
-For example, we can use the command `julia --project=.` to start an environment in the current working directory.
-If we add a new package, it will be written to the `./Project.toml` file.
-Furthermore, the full list of all dependencies will be written to the `./Manifest.toml` file.
-Both of these files are created if they don't exist.
+We can manage the dependencies of different Julia projects separately by using a different environment instead of the default environment.
+The easiest way to use an environment is to use the `--project` option when starting Julia.
+For example, we can use `julia --project=.` to activate an environment in the current working directory.
+Alternatively, we can use the `Pkg.activate` function.
+
+We define project metadata and dependencies in `Project.toml` file.
+Adding or removing packages using the package manager manipulates the `Project.toml` file in the active environment.
+Furthermore, the package manager maintains a full list of dependencies in `Manifest.toml` file.
+It creates both of these files if they don't exist.
 
 Let's consider a Julia project structured as follows.
 
@@ -120,12 +121,12 @@ This is a common operation when using a new Julia environment for the first time
 We can request an interactive node directly on Puhti as follows.
 
 ```bash
-srun --ntasks=1 --time=00:10:00 --mem=4G --pty --account=project_id --partition=small julia
+srun --ntasks=1 --time=00:10:00 --mem=4G --pty --account=project_<id> --partition=small julia
 ```
 
 
 ### Serial batch job
-Sample single-processor Julia batch job on Puhti
+A sample of a single-core Julia batch job on Puhti
 
 ```bash
 #!/bin/bash 
@@ -140,12 +141,12 @@ module load julia
 srun julia my_script.jl
 ```
 
-This runs the script `my_script.jl` one time using one CPU core.
+The above batch job runs the Julia script `my_script.jl` using one CPU core.
 You can find more information about batch jobs on Puhti from the [user guide](../computing/running/getting-started.md).
 
 
 ### Multi-core batch job
-Sample of multi-core Julia batch job on Puhti.
+A sample of a multi-core Julia batch job on Puhti.
 We can start Julia with multiple threads using the `--threads` option.
 
 ```bash
@@ -161,14 +162,16 @@ module load julia
 srun julia --threads 2 my_script.jl
 ```
 
+The above batch job runs the Julia script `my_script.jl` using two CPU cores.
+
 
 ### Changing installation location
-By default, the package manager installs packages to the `$HOME/.julia` directory.
+The package manager installs packages to the `$HOME/.julia` directory by default.
 We can change the directory by prepending a path ending with a colon to a different directory using the `JULIA_DEPOT_PATH` environment variable.
 The colon instructs Julia to automatically append the default locations to the path when running Julia.
 
 ```bash
-export JULIA_DEPOT_PATH="/projappl/project_id/.julia:"
+export JULIA_DEPOT_PATH="/projappl/project_<id>/.julia:"
 ```
 
 You can run `julia -E 'DEPOT_PATH` to see all the locations.
