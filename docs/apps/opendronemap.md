@@ -11,13 +11,14 @@ tags:
 
 __OpenDroneMap__ is available in Puhti with following versions:
 
+* 3.0.4
 * 2.8.8
 
 ## Usage
 OpenDroneMap is available in Puhti as a [Singularity](../computing/containers/run-existing.md) container
 
 To run OpenDroneMap: 
-1) Copy your images to Puhti. OpenDroneMap requires the folder names to end with `code/images`, for example `/scratch/project_2000XXX/odm/code/images`.
+1) Copy your aerial images to Puhti. OpenDroneMap requires the folder names to end with `code/images`, for example `/scratch/project_2000XXX/odm/code/images`.
 2) Write a batch job script (see below)
 3) Submit your OpenDroneMap batch job. 
 
