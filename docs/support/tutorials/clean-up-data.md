@@ -111,7 +111,7 @@ If you want a quick, copy-pasteable solution, use the small script below:
 # Check all of the projects you belong to in one go:
 
 for g in $(/usr/bin/groups) ; do
-  if [ -d "/scratch/$g" ]; then
+  if [ -d "/scratch/$g" -a ! -L "/scratch/$g" ]; then
     dir="/scratch/purge_lists/$g" ;
   elif [ -d "/fmi/scratch/$g" ]; then
     dir="/fmi/scratch/purge_lists/$g";
