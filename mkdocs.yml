@@ -39,6 +39,7 @@ plugins:
         'faq.md': 'support/faq/index.md'
         'tutorials.md': 'support/tutorials/index.md'
         'training-material.md': 'support/training-material.md'
+        'contact.md': 'support/contact.md'
         'whats-new.md': 'support/whats-new.md'
 
 markdown_extensions:
