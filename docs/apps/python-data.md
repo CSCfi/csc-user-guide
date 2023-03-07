@@ -68,6 +68,18 @@ that some machine learning frameworks have their own specific modules,
 for example: [PyTorch](pytorch.md), [TensorFlow](tensorflow.md),
 [JAX](jax.md), and [RAPIDS](rapids.md).
 
+!!! info "Note about multi-threading"
+
+    Loading the `python-data` module will set the environment variable
+    `OMP_NUM_THREADS=1`, which essentially disables OpenMP multi-threading
+    support. This is a reasonable setting in most cases, and fixes some
+    issues related to multi-processing runs. If you know that you need to
+    use OpenMP multi-threading, please set this variable manually, for
+    example in your Slurm job script:
+
+        export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
+
+
 ## License
 
 All packages are licensed under various free and open source licenses (FOSS).
