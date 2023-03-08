@@ -38,4 +38,4 @@
 *[PCI]: Peripheral Component Interconnect
 *[PCIe]: Peripheral Component Interconnect express
 *[GUI]: Graphical User Interface
-*[DFT]: Discrete Fourier Transform / Density Functional Theory
+*[DFT]: 1. Discrete Fourier Transform, 2. Density Functional Theory
