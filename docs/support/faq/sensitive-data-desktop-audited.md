@@ -18,7 +18,7 @@ In a project using secondary use health and social data, all the data processed 
 
 ## Is it possible to install software to SD Desktop when processing secondary use data?
 
-The programs available on the Desktop are [listed in the user guide](../../data/sensitive-data/sd_desktop.md#default-programs-available-on-sd-desktop). Only Findata can provide additional file/software/script to CSC, where you can access then in SD Desktop.
+The programs available on the Desktop are [listed in the user guide](../../data/sensitive-data/sd-desktop-audited.md#default-programs-available-on-the-desktop-and-software-customisation). Only Findata can provide additional file/software/script to CSC, where you can access then in SD Desktop.
 If the software you need is not pre-installed on SD Desktop, you need to 1) contact our service desk (servicedesk@csc.fi) to check if the program is compatible with the service, and 2) request Findata to import the files to your Desktop. Read more on [Findata website](https://findata.fi/en/permits/#selecting-and-completing-an-application-form).
 
 ## How can I export my results from SD Desktop?

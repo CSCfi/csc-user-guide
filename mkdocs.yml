@@ -30,8 +30,18 @@ plugins:
   - section-index
   - redirects:
       redirect_maps:
-        'support/tutorials/env-guide/overview.md': 'support/tutorials/env-guide/index.md'
+        # renamed files:
+        'computing/overview.md': 'computing/index.md'
+        'cloud/concepts.md': 'cloud/index.md'
         'apps/alpha.md': 'apps/index.md'
+        'support/tutorials/env-guide/overview.md': 'support/tutorials/env-guide/index.md'
+        # for URL consistency:
+        'applications.md': 'apps/index.md'
+        'faq.md': 'support/faq/index.md'
+        'tutorials.md': 'support/tutorials/index.md'
+        'training-material.md': 'support/training-material.md'
+        'contact.md': 'support/contact.md'
+        'whats-new.md': 'support/whats-new.md'
 
 markdown_extensions:
   - admonition
@@ -110,7 +120,7 @@ nav:
      - Multi-factor Authentication: accounts/mfa.md
      - FMI: accounts/fmi.md
   - Computing:
-     - computing/overview.md
+     - computing/index.md
      - Usage policy: computing/usage-policy.md
      - Systems:
         - computing/available-systems.md
@@ -171,7 +181,7 @@ nav:
            - FiQCI partition: computing/quantum-computing/helmi/fiqci-partition.md
            - Running on Helmi: computing/quantum-computing/helmi/running-on-helmi.md
   - Cloud:
-     - cloud/concepts.md
+     - cloud/index.md
      - Rahti:
        - cloud/rahti/index.md
        - What is Rahti: cloud/rahti/rahti-what-is.md
