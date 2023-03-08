@@ -18,7 +18,7 @@ have read and accepted the General Terms of Use for..._
 8. Click _Create project_.
 
 !!! Note
-    If your work belongs to any of the [free-of-charge use cases](https://research.csc.fi/free-of-charge-use-cases){:target="_blank"} , select Academic as the project type. Academic projects can be opened only by members of Finnish higher education institutions, state research institutes and CSC. 
+    If your work belongs to any of the [free-of-charge use cases](https://research.csc.fi/free-of-charge-use-cases){:target="_blank"} , select Academic as the project type. Academic projects can be created  only by members of Finnish higher education institutions, state research institutes and CSC. 
 
 Projects are usually valid for one year at a time, but they can be extended. To extend a project, please see page [How to manage your project](how-to-manage-your-project.md).
 
@@ -46,3 +46,5 @@ LUMI services are free of charge for academic research for members of Finnish hi
 12. [Invite the project members](how-to-add-members-to-project.md) after creating a project.
 13. Your LUMI project application will be sent to be CSC Resource allocation administration to be processed. The CSC Resource allocation group has meetings [every three weeks](https://research.csc.fi/applying-for-computing-resources).
 14. Please note that LUMI access is provided only with SSH keys, not with passwords. After you have received an acceptance confirmation email for your LUMI project request, please [upload your public SSH key to MyCSC according to the instructions](../computing/connecting.md#setting-up-ssh-keys).
+
+For further information on LUMI projects please visit [this document](https://www.lumi-supercomputer.eu/get-started-2021/users-in-finland/){:target="_blank"}
