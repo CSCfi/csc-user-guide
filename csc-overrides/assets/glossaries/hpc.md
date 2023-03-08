@@ -35,3 +35,7 @@
 *[PM]: Project Manager
 *[PRACE]: Partnership for Advanced Computing in Europe
 *[MOOC]: Massive Open Online Course
+*[PCI]: Peripheral Component Interconnect
+*[PCIe]: Peripheral Component Interconnect express
+*[GUI]: Graphical User Interface
+*[DFT]: Discrete Fourier Transform
