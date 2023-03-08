@@ -100,7 +100,6 @@ extra_javascript:
   - assets/javascripts/dropdown.js
   - assets/javascripts/layout.js
   - assets/javascripts/extra.js
-  - "https://unpkg.com/mermaid/dist/mermaid.min.js"
 
 nav:
   - Home: index.md
