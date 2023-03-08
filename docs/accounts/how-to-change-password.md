@@ -10,14 +10,12 @@ password reset link ordered to your email. You can follow the instructions below
 
 * Go to _Profile_ and click _Change password_.
 
-* Enter your current password and the new password twice. Click _Save_.
+* Enter your current password and the new password twice. Click _Change_.
 
 
 *****
 
 ## Using password reset link
-
-
 
 
 
@@ -27,8 +25,7 @@ password reset link ordered to your email. You can follow the instructions below
 
 * Click _Forgot your password?_
 
-* Enter your CSC username and click _Next_. Instructions are sent to the email
-   address associated with your CSC user account.
+* Enter your CSC username and click _Next_. Instructions are sent to the email address associated with your CSC user account.
 
 
 
