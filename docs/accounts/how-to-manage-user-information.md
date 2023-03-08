@@ -39,5 +39,5 @@ In our example we will link CSC user account to MyAccessID but this method is si
 
 !!! Note
 
-    If you're invited to a EHPC LUMI project or you're a a EHPC PI you must link your CSC user account with MyAccessID.
+    If you're invited to a Euro HPC LUMI project or you're a a Euro HPC Project manager you must link your CSC user account with MyAccessID.
     Otherwise you will end up with 2 separate CSC user accounts.
