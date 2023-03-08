@@ -21,7 +21,7 @@ Project Identifier in the **User information** view.
 
 ## Installing Rstudio 4.2.2 ##
 
-Log in to your SD Desktop and open **Data Gateway**. If the software installation help tools are enabled for your project, the you should have folder: 
+Log in to your SD Desktop and open **Data Gateway**. If the software installation help tools are enabled for your project, then you should have folder: 
 **tools-for-sd-desktop** included in the directory that Data Gateway created ( in Projects/SD Coonnect/_your-project-name_).
 Open _tools-for-sd-desktop_ folder and from there, drag/copy file **sd-installer.desktop** to your desktop.
 
