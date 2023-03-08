@@ -39,7 +39,6 @@ CSC has added [virtual rasters](../../support/tutorials/gis/virtual-rasters.md) 
 2.  The **hierarchical** virtual raster is mainly for **viewing** purposes for example with QGIS. It has a hierarchical structure where a virtual raster for each folder contains all the data stored in that folder and it's subfolders. The hierarchical file structure also contains statistics (min, max, mean, stddev) and overviews for each vrt file, which enables a fairly responsive viewing of the entire DEM dataset for example in QGIS. This way the whole dataset can be easily viewed at different zoom levels. You may use the lowest level virtual raster (for example M41 in the 2m DEM) also in scripts, higher level virtual rasters may cause computational errors.
 
     *   2m DEM: `/appl/data/geo/mml/dem2m/dem2m_hierarchical.vrt`
-    *   10m DEM: `/appl/data/geo/mml/dem10m/dem10m_hierarchical.vrt`
 
 #### Puhti: create virtual rasters of DEM for custom area
 
