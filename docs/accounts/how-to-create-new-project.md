@@ -9,7 +9,7 @@ A CSC user account is required for creating new projects.
 
 1. Login to [MyCSC](http://my.csc.fi).
 2. Choose _Projects_ in the navigation menu on the left.
-3. Click on _+ New project_ on right top corner.
+3. Click on **+ New project** on right top corner.
 4. Fill in the project name and description.
 5. Select the project type.
 6. Does your project handle personal data? Select _Yes_ or _No_. Read more about [handling personal data in your project](../accounts/when-your-project-handles-personal-data.md).
