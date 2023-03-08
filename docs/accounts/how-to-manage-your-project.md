@@ -22,7 +22,7 @@ If you want to close your Project, change your account email address or change t
 You can apply for an initial project lifetime extension of one year.
 
 1. Login to [MyCSC](https://my.csc.fi).
-1. Choose _My Projects_ in the navigation menu on the left.
+1. Choose _Projects_ in the navigation menu on the left.
 1. Choose the project you want to extend
 1. Click on the 'Extend' button
 1. Accept the changes by clicking the 'Apply' button
