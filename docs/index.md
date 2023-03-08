@@ -52,7 +52,7 @@
       <a class="quick-link" target="_self" href="accounts/">CSC Accounts and Projects</a>
     </div>
     <div class="quick-links-item">
-      <a class="quick-link" target="_self" href="computing/overview/">Puhti and Mahti Overview</a>
+      <a class="quick-link" target="_self" href="computing/">Puhti and Mahti Overview</a>
     </div>
     <div class="quick-links-item">
       <a class="quick-link" target="_self" href="support/tutorials/puhti_quick/">Getting started with Puhti</a>
