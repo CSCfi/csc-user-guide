@@ -33,3 +33,9 @@
 *[VM]: Virtual Machine
 *[PI]: Principal Investigator
 *[PM]: Project Manager
+*[PRACE]: Partnership for Advanced Computing in Europe
+*[MOOC]: Massive Open Online Course
+*[PCI]: Peripheral Component Interconnect
+*[PCIe]: Peripheral Component Interconnect express
+*[GUI]: Graphical User Interface
+*[DFT]: 1. Discrete Fourier Transform, 2. Density Functional Theory
