@@ -21,6 +21,7 @@ plugins:
       timezone: Europe/Helsinki
       exclude:
         - index.md
+        - support/glossary.md
         - support/whats-new.md
         - apps/index.md
         - apps/by_discipline.md
@@ -41,6 +42,8 @@ plugins:
         'training-material.md': 'support/training-material.md'
         'contact.md': 'support/contact.md'
         'whats-new.md': 'support/whats-new.md'
+        # for convenience:
+        'glossary.md': 'support/glossary.md'
 
 markdown_extensions:
   - admonition
@@ -97,7 +100,6 @@ extra_javascript:
   - assets/javascripts/dropdown.js
   - assets/javascripts/layout.js
   - assets/javascripts/extra.js
-  - "https://unpkg.com/mermaid/dist/mermaid.min.js"
 
 nav:
   - Home: index.md

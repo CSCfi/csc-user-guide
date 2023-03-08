@@ -249,7 +249,7 @@ This will run a job in the `gputest` partition, with 10 CPU cores, 32GB memory
 and one NVIDIA V100 GPU. The job's maximum run time is 15 minutes. In fact, 15
 minutes is the maximum run time that you can request in the `gputest` partition
 as it is meant for short testing runs only. Finally, the `nvme:10` text in the
-`gres` options requests 10GB of the fast local drive (called "NVME").
+`gres` options requests 10GB of the fast local drive (called "NVMe").
 
 Below the `#SBATCH` options, you can see the actual commands. Our script does
 three things:
@@ -268,7 +268,7 @@ three things:
 
 !!! note
 
-    You don't need to use the fast local NVME drive like we do in this example, 
+    You don't need to use the fast local NVMe drive like we do in this example,
     but it is a good practice to do so as reading a large number of files from
     the shared file system (such as scratch and projappl) can cause a poor
     performance, and in extreme cases degrade the performance for all users.

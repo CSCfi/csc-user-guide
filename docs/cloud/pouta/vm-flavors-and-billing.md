@@ -421,7 +421,7 @@ batch system on [Technical details about Puhti](/computing/systems-puhti/).
 -   Redundant power
 -   CPU: AMD EPYC 7402 24-Core Processor
 -   Network: Redundant 10 Gb/s
--   Flavor disk: Local NVME disks
+-   Flavor disk: Local NVMe disks
 -   Instance can be lost due to a single-node or disk failure.
 -   Multi-Instance GPU (MIG) is supported
 
