@@ -257,7 +257,16 @@ Have a look at [the reference card](https://docs.csc.fi/ref).
 
 ## How do I add definitions to the glossary / display definitions as tooltips?
 
-There is a file that contains acronym-definition pairs at [csc-overrides/assets/glossaries/hpc.md](csc-overrides/assets/glossaries/hpc.md). The pairs are in the format `*[Acronym]: Definition`. The `Acronym` part is case-sensitive, so if you'd add the definition `*[PCIe]: Peripheral Component Interconnect express`, instances of `PCIE` in the text would not get the tooltip (in this case the definition is correct, so text would have to be corrected). New pairs may be added to the file, or a new file may be created within the same directory. The new file must then be introduced in [mkdocs.yml](mkdocs.yml). An example is found in [the reference card](https://docs.csc.fi/ref#glossary).
+There are `.md` files that contain acronym-definition pairs in
+[csc-overrides/assets/glossaries/](csc-overrides/assets/glossaries/). The pairs are in the format
+`*[Acronym]: Definition`. The `Acronym` part is case-sensitive, so if you'd add the definition
+`*[PCIe]: Peripheral Component Interconnect express`, instances of `PCIE` in the text would not get
+the tooltip (in this case the definition is correct, so text would have to be corrected). If the
+acronym you wish to define already exists, please use the following format to add an additional
+definition: `*[DFT]: 1. Discrete Fourier Transform, 2. Density Functional Theory`. New
+acronym-definition pairs may be added to an existing file, or a new file may be created within the
+same directory. The new file must then be introduced in [mkdocs.yml](mkdocs.yml). An example is
+found in [the reference card](https://docs.csc.fi/ref#glossary).
 
 The glossary is also viewable as a page at [docs.csc.fi/glossary](https://docs.csc.fi/glossary/).
 

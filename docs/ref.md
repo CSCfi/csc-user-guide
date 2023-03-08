@@ -31,6 +31,7 @@ markdown file, like so:
 
     ```markdown
     *[GNU]: GNU's not Unix!
+    *[DFT]: 1. Discrete Fourier Transform, 2. Density Functional Theory
     ```
 
 === "mkdocs.yml"
