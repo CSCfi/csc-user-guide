@@ -42,6 +42,8 @@ plugins:
         'training-material.md': 'support/training-material.md'
         'contact.md': 'support/contact.md'
         'whats-new.md': 'support/whats-new.md'
+        # for convenience:
+        'glossary.md': 'support/glossary.md'
 
 markdown_extensions:
   - admonition
