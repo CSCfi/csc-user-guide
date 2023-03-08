@@ -24,13 +24,14 @@ enim. Laboriosam autem vel vel aut quod.
 ## Glossary
 There is a glossary of HPC-related acronyms that get highlighted automatically. For example: CPU,
 GPU, QPU, etc. The acronyms are defined in the markdown file
-`csc-overrides/assets/glossaries/hpc.md`. More acronyms/terms can be added there or to another
+`csc-overrides/assets/glossaries/hpc.md`. More acronyms (case-sensitive) can be added there or into another
 markdown file, like so:
 
 === "another_glossary.md"
 
     ```markdown
     *[GNU]: GNU's not Unix!
+    *[DFT]: 1. Discrete Fourier Transform, 2. Density Functional Theory
     ```
 
 === "mkdocs.yml"
@@ -45,6 +46,8 @@ markdown file, like so:
         - another_glossary.md
     - ...
     ```
+
+The glossary is also viewable as a page at [docs.csc.fi/glossary](support/glossary.md).
 
 ## Headings
 The heading for Headings is a heading of a heading level 2. Remember to only use one heading level

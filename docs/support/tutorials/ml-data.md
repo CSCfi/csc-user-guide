@@ -29,12 +29,12 @@ should be copied back to Allas. The scratch disk area will be
 regularly cleaned of old files, and should not be used to store
 anything important long-term.
 
-Some CPU nodes and all GPU nodes also have fast local NVME drives with at least
+Some CPU nodes and all GPU nodes also have fast local NVMe drives with at least
 3.6 TB disk space. This space is available only during the execution of the
 Slurm job, and is cleaned up afterwards. For data intensive jobs it is often
-worthwhile to copy the data to the NVME at the start of the job and then to
+worthwhile to copy the data to the NVMe at the start of the job and then to
 store the final results on the scratch drive at the end of the job. [See below
-for more information on how to use the fast local NVME
+for more information on how to use the fast local NVMe
 drive](#fast-local-drive).
 
 
@@ -84,7 +84,7 @@ to access your data more efficiently.
 
 ### Fast local drive
 
-If you really need to access the individual small files, you can use the fast NVME
+If you really need to access the individual small files, you can use the fast NVMe
 local drive that is present in every GPU node. In brief, you just need to add
 `nvme:<number-of-GB>` to the `--gres` flag in your submission script, and then
 the fast local storage will be available in the location specified by the

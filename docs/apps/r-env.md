@@ -572,7 +572,7 @@ if test -f ~/.Renviron; then
     sed -i '/TMPDIR/d' ~/.Renviron
 fi
 
-# Specify NVME temp folder path
+# Specify NVMe temp folder path
 echo "TMPDIR=$TMPDIR" >> ~/.Renviron
 
 # Run the R script

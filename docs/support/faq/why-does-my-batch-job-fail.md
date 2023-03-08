@@ -53,5 +53,5 @@ sbatch: error: Batch job submission failed: Requested node configuration is not 
 The most common causes are:
 
 
-* Requesting e.g. a GPU or NVME in a partition that does not have them. See [Puhti partitions](../../computing/running/batch-job-partitions.md) for available resources.
+* Requesting e.g. a GPU or NVMe in a partition that does not have them. See [Puhti partitions](../../computing/running/batch-job-partitions.md) for available resources.
 
