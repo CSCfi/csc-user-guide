@@ -283,6 +283,12 @@ you define the content.
 Try adding a `&nbsp;` if inline admonitions give you trouble. Example found right above this line
 in markdown source.
 
+## Images
+Here's an image of the Reference card with an image of the Reference card with...
+![image of an image of an image...](img/ref/image.png)
+
+
+
 ## Embedded videos
 At the moment, to avoid setting cookies, embedded videos are rendered only as an image with a link
 to the video in question. For example: Behold! Here is a video of a horse kicking a tree, farting
@@ -297,6 +303,10 @@ on some dogs, and then running away:
     allow="accelerometer; autoplay; clipboard-write; encrypted-media;gyroscope; picture-in-picture"
     allowfullscreen>
 </iframe>
+
+### Animations
+If you don't need sound, you can use animations as an alternative for embedded videos. They are
+used just like [static images](#images). Both `.gif` and `.png` files work.
 
 ## Mermaid
 ```mermaid
