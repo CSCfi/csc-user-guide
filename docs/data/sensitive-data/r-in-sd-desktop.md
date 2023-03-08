@@ -15,7 +15,7 @@ In order to get access to the installation tool, you need to **send a request to
 In the request, indicate that you wish that the SD Desktop software installation help tools would be made available for your project. 
 You must also include to the message the  **Project identifier string** of your project.
 
-You can check this random string for example in the https://sd-connect.csc.fi service. There you find the 
+You can check this random string for example in the [SD Connect service](https://sd-conenct.csc.fi). There you find the 
 Project Identifier in the **User information** view. 
 
 
@@ -78,7 +78,7 @@ all the users of the virtual machine. This is not a default location of R librar
 R code with command:
 
 ```text
-.libPaths(”shared-directory/sd-tools/apps/R/lib/”)
+.libPaths(”/shared-directory/sd-tools/apps/R/lib/”)
 ```
 
 After that you can take the library in use. e.g.
