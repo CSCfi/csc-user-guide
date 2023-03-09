@@ -7,7 +7,7 @@ The intended audience of this document is end users who want to store sensitive 
 data services for research.
 
 Scientific research data may contain also sensitive data. There is no single simple definition of
-sensitive data but rather it is derived from national and EU legislations [^1]. The data owner
+sensitive data but rather it is derived from national and EU legislations.[^1] The data owner
 &ndash; this means the customer, i.e. usually the research project or a researcher &ndash; is
 responsible for knowing if the data is sensitive or not and handling it appropriately. In case of
 using CSC's data services for research the question about sensitivity of the data must be resolved
@@ -57,7 +57,7 @@ service, this document assumes that all the necessary safeguards at the customer
 policies, procedures, practises, etc. &ndash; are already in place.
 
 Classified data, which requires separation by the service other than access control is out of the
-scope of this document. [^7]
+scope of this document.[^7]
 
 Computational processing of data (for instance in the CSC's supercomputing environment) is out of
 the scope of this document, as this document simply describes the best practises for storing
@@ -95,10 +95,10 @@ From the customer's perspective, protecting data at rest on a remote service is 
 protecting it with client-side encryption and not exposing the encryption related keys to the
 storage service. Client-side encryption is a method where customer encrypts the data at customer's
 own environment before transferring it to the service. When using client-side encryption and not
-exposing the keys, the customer is the only party who controls exposing the content of the data [^4]
-[^6]. Even with this, it is good to remember that encryption should not be the only protection;
+exposing the keys, the customer is the only party who controls exposing the content of the
+data.[^4] [^6] Even with this, it is good to remember that encryption should not be the only protection;
 storing securely at remote location should always be a layered approach with more than one measure,
-i.e. clear user roles and access control definitions, least privileges principle, etc. [^5]
+i.e. clear user roles and access control definitions, least privileges principle, etc.[^5]
 
 The data which is stored at CSC's data service should not be the only existing copy of the data.
 
@@ -107,26 +107,28 @@ randomise such names or create a package &ndash; for instance zip or tar &ndash;
 files/directories and then encrypt the whole package.
 
 ### Standards and Algorithms
+
 *Symmetric encryption algorithm* to use is AES (either in CBC or CTR mode, but never in ECB) with
 minimum key length of 256 bits, thus an AES-256 encryption.
 
 AES-128 and AES-192 are also currently considered to be strong enough, but as performance penalty
 is rather small between those and AES-256, and with the fact that switching later to a stronger
-version of AES would mean re-encrypting all the data, it is better to start straight with AES-256.
-[^2] [3]
+version of AES would mean re-encrypting all the data, it is better to start straight with
+AES-256.[^2] [^3]
 
-*Asymmetric encryption algorithm* to use is RSA and the minimum key length is 4096 bits. [^2] [3]
+*Asymmetric encryption algorithm* to use is RSA and the minimum key length is 4096 bits.[^2] [^3]
 
 Symmetric encryption software usually gives an option to use a passphrase as a "user friendly key".
 The actual encryption key is then derived from this passphrase using a key derivation algorithm.
 The key derivation algorithm must also be strong enough, preferred ones are scrypt, bcrypt, or
-PBKDF2 (with high iteration count, for instance 100 000). [^2] [8]
+PBKDF2 (with high iteration count, for instance 100 000).[^2] [^8]
 
 ### Key management
+
 Symmetric encryption software usually gives an option to use a password, or a passphrase as a "user
 friendly key". In those cases, the protection of your data is only as good as the encryption
 password is; encryption does not help if you use a weak or an easy to guess password. Guidance on
-how to create strong passwords can be found for instance in references [^9].
+how to create strong passwords can be found for instance in references.[^9]
 
 Leaking a symmetric or asymmetric decryption passphrase/key means you must encrypt the original
 content with a new passphrase/key, and replace all stored old passphrase/key encrypted data with
