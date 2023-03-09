@@ -95,4 +95,4 @@ for them has been allocated.
 [Flavors]:vm-flavors-and-billing.md
 [Virtual machine lifecycle]:vm-lifecycle.md
 [TebiByte]:https://en.wikipedia.org/wiki/Tebibyte
-[Resource calculator]:https://research.csc.fi/billing-units
+[Billing unit and price calculator]:https://research.csc.fi/billing-units/#buc
