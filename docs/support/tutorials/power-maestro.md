@@ -318,7 +318,7 @@ and waiting in the queue have been in for nothing.
 The Schrödinger HOSTs in Puhti have not been configured to use the [NVMe local
 disk](../../../computing/running/creating-job-scripts-puhti/#local-storage),
 which is available only on some of the compute nodes. Since most jobs don't
-gain speed advantage from NVME disk, you'll likely queue less by not asking
+gain speed advantage from NVMe disk, you'll likely queue less by not asking
 for it. If your job requires a lot or random I/O, please contact [CSC Service
 Desk](../contact.md) on how to request it. The only disk available for the jobs
 is the same where your input files already are. Hence, it does not make sense

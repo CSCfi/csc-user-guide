@@ -1,3 +1,0 @@
-index.md 
-alpha.md 
-by_system.md

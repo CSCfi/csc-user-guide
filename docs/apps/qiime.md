@@ -50,7 +50,7 @@ Please check Qiime2 home page for more instructions.
 
 Note that many Qiime tasks involve heavy computing. Thus, these tasks should be executed as
 batch jobs. Qiime needs to have access to a local node specific file system for handling temporary data.
-This kind of directory is available on the NVME nodes of Puhti. Therefore, you must include a request for NVME space
+This kind of directory is available on the NVMe nodes of Puhti. Therefore, you must include a request for NVMe space
 in your batch job file.
 
 The easiest way to start using Qiime is to use command `sinteractive` to launch an interactive batch job:
@@ -67,13 +67,13 @@ module load qiime2
 
 Interactive batch jobs include local temporary disk that is mandatory for running Qiime. 
 
-In case of normal batch jobs, you must reserve NVME disk area that will be used as $TMPDIR area.
+In case of normal batch jobs, you must reserve NVMe disk area that will be used as $TMPDIR area.
 
 For example, to reserve 100 GB of local disk space:
 ```
 #SBATCH --gres=nvme:100
 ```
-In addition you must define that the NVME space (LOCAL_SCRATCH) is used as temporary storage area (TMPDIR).
+In addition you must define that the NVMe space (LOCAL_SCRATCH) is used as temporary storage area (TMPDIR).
 ```text
 export TMPDIR="$LOCAL_SCRATCH"
 ```

@@ -59,8 +59,8 @@ single directory well below one thousand, and organize your data into multiple
 directories. Also, use command `csc-workspaces` to monitor that the total number
 of files in your projects stays well below the limits. If most of the files are
 temporary, or there simply is too many of them, using the fast local SSD disks
-in the [I/O
-nodes](https://docs.csc.fi/computing/running/creating-job-scripts/#local-storage)
+in the
+[I/O nodes](../../computing/running/creating-job-scripts-puhti.md#local-storage)
 can solve the problem. You can pack small files into a bigger archive file with
 the `tar` command. Most importantly, if there are output files that you do not need,
 find out how to turn off writing those in the first place.
