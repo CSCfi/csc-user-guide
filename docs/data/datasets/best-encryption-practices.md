@@ -155,7 +155,10 @@ encrypted data.
 
 For a small group of parties also a face-to-face data decryption key transport can be an option.
 
-Storing and retrieving encrypted data from the CSC's service can also be arranged at the customer's local environment so that the trusted local environment has a service that takes care of accessing the CSC's storage service on behalf of the end user. So, only that local trusted service needs to know the keys instead of the local end users.
+Storing and retrieving encrypted data from the CSC's service can also be arranged at the customer's
+local environment so that the trusted local environment has a service that takes care of accessing
+the CSC's storage service on behalf of the end user. So, only that local trusted service needs to
+know the keys instead of the local end users.
 
 There is unfortunately a bit too much flexibility in the ways different applications behave when
 encrypting files — not in the actual encryption per se, but for instance in how they store the
@@ -167,6 +170,7 @@ encryption software to use and how to use it in your project before you start st
 data in to CSC's data services for research.
 
 ### Notes on specific software
+
 #### GnuPG2
 
 GnuPG version 2 is likely the most widely used good free of charge and open source suite of
