@@ -131,18 +131,18 @@ __SNAP 8.0__
 
 Running snappy scripts with batch jobs:
 ```
-singularity_wrapper exec python3 <YOUR-PYTHON-SCRIPT>
+apptainer_wrapper exec python3 <YOUR-PYTHON-SCRIPT>
 ```
 
 See available packages:
 ```
-singularity_wrapper exec pip list
+apptainer_wrapper exec pip list
 ```
 
 Installing new packages to your HOME directory, see [Python](python.md#installing-python-packages-to-existing-modules) instructions how to change installation directory.
 
 ```
-singularity_wrapper exec pip <NEW-PACKAGE-NAME> --user
+apptainer_wrapper exec pip <NEW-PACKAGE-NAME> --user
 ```
 
 ## Updating SNAP
