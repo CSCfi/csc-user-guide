@@ -131,3 +131,7 @@
     color: currentColor;
     background-color: var(--csc-lightest-grey);
 }
+
+.md-typeset .footnote > ol > li:target {
+    font-weight: var(--csc-font-weight--bold);
+}
