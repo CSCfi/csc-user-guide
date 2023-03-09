@@ -39,3 +39,13 @@
 *[PCIe]: Peripheral Component Interconnect express
 *[GUI]: Graphical User Interface
 *[DFT]: 1. Discrete Fourier Transform, 2. Density Functional Theory
+*[AES]: Advanced Encryption Standard
+*[CBC]: Cipher Block Chaining
+*[CTR]: Counter
+*[ECB]: Electronic Codebook
+*[RSA]: Rivest-Shamir-Adleman
+*[PBKDF1]: Password-Based Key Derivation Function 1
+*[PBKDF2]: Password-Based Key Derivation Function 2
+*[TLS]: Transport Layer Security
+*[HTTP]: Hypertext Transfer Protocol
+*[HTTPS]: Hypertext Transfer Protocol Secure
