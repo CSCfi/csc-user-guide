@@ -14,6 +14,7 @@ and platforms by CSC and partners!
 * [Linux 3: Scripting course material](https://www.csc.fi/web/training/-/linux3_spring_2019)
 * [MPI: A Short Introduction to One-sided Communication](https://www.futurelearn.com/courses/mpi-one-sided) PRACE MOOC
 * [Using CSC HPC Environment Efficiently](https://a3s.fi/CSC_training/csc-env.html) Slides, tutorials and exercises about the CSC environment
+* [HPC Glossary](glossary.md) All of the tooltipped acronyms (such as "HPC") as a single page.
 
 ## CSC cloud resources, cPouta, ePouta and Rahti
 

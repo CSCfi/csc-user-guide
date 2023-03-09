@@ -29,7 +29,7 @@ The applications mentioned above have a direct shortcut on desktop.
 For starting any other software available in Puhti:
 
 1. Open terminal
-2. Start the software as described in [Applications section](../../apps/alpha.md), usually `module load XX` and `<start_command_for_XX>`.
+2. Start the software as described in [Applications section](../../apps/index.md), usually `module load XX` and `<start_command_for_XX>`.
 
 (The applications menu in desktop does not include Puhti scientific applications, just basic Linux tools.)
 

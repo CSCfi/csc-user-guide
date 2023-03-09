@@ -384,7 +384,7 @@ These instances are also tightly tied to the hardware. You may expect
 downtime of instances during the maintenance of the hardware.
 
 Users also have the possibility to use NVIDIA Volta V100 GPGPUs in the
-batch system on Puhti-AI: <https://research.csc.fi/techspecs>.
+batch system on [Technical details about Puhti](/computing/systems-puhti/).
 
 **cPouta flavor characteristics:**
 
@@ -421,7 +421,7 @@ batch system on Puhti-AI: <https://research.csc.fi/techspecs>.
 -   Redundant power
 -   CPU: AMD EPYC 7402 24-Core Processor
 -   Network: Redundant 10 Gb/s
--   Flavor disk: Local NVME disks
+-   Flavor disk: Local NVMe disks
 -   Instance can be lost due to a single-node or disk failure.
 -   Multi-Instance GPU (MIG) is supported
 

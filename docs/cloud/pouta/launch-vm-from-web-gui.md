@@ -10,7 +10,7 @@ This document explains a simple way to launch a virtual machine in the
 Pouta service. Any CSC user with a computing project can request
 access to the service as described in [Applying for Pouta access].
 To use Pouta, you need to have applied Pouta access for your project first.
-Please make sure you are familiar with the [concepts](../concepts.md) and
+Please make sure you are familiar with the [concepts](../index.md) and
 [security issues](security.md) first. You might also want to take a
 look at the [webinar](https://www.youtube.com/watch?v=CIO8KRbgDoI).
 
@@ -214,7 +214,7 @@ Once the SSH keys and security groups are set, you can launch a new virtual mach
 
     !!! Warning "Please note"
 
-        The "Boot from image (creates a new volume)" approach creates an additional volume which is billed normally as mentioned on our [pricing](https://research.csc.fi/pricing-of-computing-services) page.
+        The "Boot from image (creates a new volume)" approach creates an additional volume which is billed normally as mentioned on our [pricing](https://research.csc.fi/billing-units) page.
 
 
 1. **Image Name**, this decides which Linux distribution to use. You can select the image that fits more your use case. The images provided by Pouta by default are regularly maintained up to date.

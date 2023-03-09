@@ -8,11 +8,11 @@ If you cannot find a pre-built container, one option is to build your own. If a 
 
 If you already have an existing Docker container, in many cases it can easily be converted to an Apptainer image. Docker container images can be found in public repositories such as [Docker Hub](https://hub.docker.com/), but **please take care to only use images uploaded from reputable sources** as these images can easily be a source of security vulnerabilities or even contain malicious code.
 
-GPU-optimized containers can also be found in [NVIDIA's GPU cloud (NGC)](https://ngc.nvidia.com/). These containers have been prepared by NVIDIA, and should thus be safe.
+GPU-optimized containers can also be found in [NVIDIA's GPU cloud (NGC)](https://catalog.ngc.nvidia.com/). These containers have been prepared by NVIDIA, and should thus be safe.
 
 Further [information about converting Docker containers can be found in the Apptainer documentation](https://apptainer.org/docs/user/main/docker_and_oci.html).
 
-Here is an example of how to build an Apptainer image on Puhti from [NVIDIA's PyTorch Docker image](https://ngc.nvidia.com/catalog/containers/nvidia:pytorch). We'll use `sinteractive` as heavy processing should not be done in the login nodes.
+Here is an example of how to build an Apptainer image on Puhti from [NVIDIA's PyTorch Docker image](https://catalog.ngc.nvidia.com/orgs/nvidia/containers/pytorch). We'll use `sinteractive` as heavy processing should not be done in the login nodes.
 
 ```bash
 # Let's start a 1 hour interactive job with enough memory and local scratch space

@@ -75,6 +75,12 @@ you're at the university or connected to it via VPN from home.
      (128 CPU cores). Preferably, run only Desmond MD simulations on GPUs
      because most other jobs do not scale. If in doubt, [contact us](/support/contact/).
 
+!!! info "Use Maestro 2021.4 or older for Jaguar NBO analyses"
+
+    Due to changed license requirements, the NBO analysis feature of Jaguar does not currently
+    work with Maestro versions 2022.1 and later. Please use 2021.4 or older if you wish to run
+    NBO analyses using Jaguar.
+
 It is possible to run heavier computations on Puhti. Here, a brief overview is given.
 Additional details and some diagnostics tips are explained in our [Maestro power usage
 tutorial](../support/tutorials/power-maestro.md). See also the video below.

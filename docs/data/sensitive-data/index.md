@@ -13,7 +13,7 @@ This guide, in CSC Docs, introduces CSC's Sensitive Data (SD) services. To navig
   * [Useful terminology](./intro.md#useful-terminology)
 
 
-## [Applying for SD services access](./sd-access.md)
+## [Accessing SD Services](./sd-access.md)
 
 * [For research data processing](./sd-access.md#processing-sensitive-research-data)
 * [For register data processing under the Act on Secondary use](./sd-access.md#processing-register-data-under-the-act-on-secondary-use)

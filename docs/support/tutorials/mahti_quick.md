@@ -2,8 +2,8 @@
 
 This is a quick start guide for Mahti users. It is assumed that you
 have previously used CSC supercomputing resources like Puhti, Sisu
-or Taito. If not, you can start by looking at [overview of CSC
-supercomputers](../../computing/overview.md).
+or Taito. If not, you can start by looking at
+[overview of CSC supercomputers](../../computing/index.md).
 
 **Go to [MyCSC](https://my.csc.fi) to apply for access to Mahti or
 view your projects and their project numbers if you already have
@@ -55,7 +55,7 @@ information about libraries](../../computing/hpc-libraries.md).
 
 ## Applications
 
-More information about specific applications can be found [here](../../apps/alpha.md).
+More information about specific applications can be found [here](../../apps/index.md).
 Note, the pre-installed selection is not as large as on Puhti.
 
 ## Running jobs
