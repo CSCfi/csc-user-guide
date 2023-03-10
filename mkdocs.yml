@@ -46,6 +46,7 @@ plugins:
         'glossary.md': 'support/glossary.md'
 
 markdown_extensions:
+  - footnotes
   - admonition
   - abbr
   - attr_list
