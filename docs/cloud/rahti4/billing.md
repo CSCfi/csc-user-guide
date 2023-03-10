@@ -1,4 +1,3 @@
-
 # Rahti billing
 
 ## Terminology
@@ -10,38 +9,50 @@ services which are available for use.
 
 ## Billing model
 
-Billing units are calculated by scraping usage data from all of the OpenShift projects owned by the user.
+Billing units are calculated by scraping the usage data from all of the OpenShift projects owned by the user.
 These calculations are based on:
 
-* Pod core usage (per core hour)
-* Pod memory usage (per RAM GB hour)
-* Persistent volumes (per TiB hour)
+* Pod core.
+* Pod memory.
+* Persistent volumes.
+
+If the curent usage is lower that the minimum requested resource, the requested resource is used instead for the calculations.
 
 The rate at which billing units are consumed depends on the size of the
 resources. Billing units are consumed as follows:
 
 | Resource         | Billing units |
 |------------------|---------------|
-| Pod core hour    | 0,5           |
-| Pod RAM GB hour  | 1             |
-| Storage TiB hour | 3             |
+| Pod core hour    | 2             |
+| Pod RAM GB hour  | 2             |
+| Storage TiB hour | 5             |
 
-------------------------------------------------------------------------------------------------------------------------
-Cost will be calculated based on actual resources request with cpu, ram and storage rather than actual usage.
-Currently, Rahti does not bill for the stored images.
-------------------------------------------------------------------------------------------------------------------------
 
-For example, let's say you create a pod with the following specs:
+!!! info
+    Currently, Rahti does not bill for the stored images.
 
-* 0.2 cores
+Let's see an example. You create a pod with the following specs:
+
+* 1 core
 * 512 MiB RAM
+
+and the current real usage is:
+
+* 0.5 cores
+* 1 GiB RAM
 
 You also create a persistent volume of size 10 GiB and attach it to the pod. The
 cost in BUs can be calculated as follows:
 
+The core usage is 0.5 cores and the request is 1 cores. 1 > 0.5 so 1 is used.
+
+The memory usage is 1 GiB and the request is 512 MiB. 1 GiB > 512 MiB so 1 GiB is used
+
 ![BU calculation](img/BU-calculation.drawio.svg)
 
-[Billing Unit calculator](https://my.csc.fi/buc)
+## Billing unit calculator
+
+For an estimate of the billing units the services you plan on using will consume, please refer to the
+billing unit calculator below. The [billing unit calculator can also be found at MyCSC](https://my.csc.fi/buc/).
 
 <iframe srcdoc="https://my.csc.fi/buc" style="width: 100%; height: 1300px; border: 0"></iframe>
-
