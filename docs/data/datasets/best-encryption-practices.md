@@ -1,7 +1,7 @@
 # Best Practices for Client Side Encryption
 v1.0 19.12.2019
 
-## 1. Introduction
+## Introduction
 
 The intended audience of this document is end users who want to store sensitive data in to CSC's
 data services for research.
@@ -23,7 +23,7 @@ Generic examples of use cases where CSC's services might be used with encrypted 
 Some use cases may not be applicable to all CSC's data services, please see the Terms and
 Conditions and Service Description of each service itself.
 
-## 2. Encryption
+## Encryption
 
 Protecting data with encryption has been around for a long time and the basics of secure encryption
 are well understood. This document gives some best practises on how to encrypt the data once the
@@ -45,7 +45,7 @@ asymmetric public key to encrypt, or actually encrypt the recipient specific sym
 The key management is more flexible with asymmetric encryption but the drawback is that there is a
 copy of the data for each recipient.
 
-## 3. Scope
+## Scope
 
 This document gives some best practises on how to encrypt data if storing it in to CSC's data
 services for research. The decision whether encryption is appropriate means to protect the data
@@ -65,7 +65,7 @@ sensitive data. You can access CSC's data services for research directly from yo
 just like from CSC's supercomputing environment, from the point of view of service there is no
 difference from where the data is transferred to it.
 
-## 4. Risks of encryption
+## Risks of encryption
 
 Using encryption to protect data reduces the risk to expose the data content to unwanted parties,
 but it also introduces some new risks which need to be considered. This chapter highlights the main
@@ -84,7 +84,7 @@ deliberate attack targeted to data which is considered important enough to be en
 [Standards and algorithms](#standards-and-algorithms) and
 [Notes on specific software](#notes-on-specific-software).
 
-## 5. Best practises
+## Best practises
 
 Copying sensitive data from customer's own protected environment to CSC's data service requires
 protecting the data both in transit and at rest on CSC's data service.
