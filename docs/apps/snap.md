@@ -118,7 +118,7 @@ python3 <YOUR-PYTHON-SCRIPT>
 
 See available packages:
 ```
-pip list
+pip3 list
 ```
 
 Installing new packages to your HOME directory, see [Python](python.md#installing-python-packages-to-existing-modules) instructions how to change installation directory.
