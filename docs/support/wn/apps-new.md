@@ -1,5 +1,10 @@
 # Applications
 
+## Turbomole 7.7, 3.3.2023
+
+[Turbomole](../../apps/turbomole.md) 7.7 has been installed and set as the default module on Puhti
+and Mahti. [See release notes here](https://www.turbomole.org/turbomole/release-notes-turbomole-7-7/).
+
 ## Schrödinger Maestro 2023.1 and module removal policy, 10.2.2023
 
 * The latest version of [Schrödinger Maestro](../../apps/maestro.md) (v2023.1)

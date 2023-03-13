@@ -204,4 +204,4 @@ Request both GPU and local storage:
 --gres=gpu:v100:<number_of_gpus_per_node>,nvme:<local_storage_space_per_node>
 ```
 
-For example, to request 1 GPU and 10 GB of NVME storage the option would be `--gres=gpu:v100:1,nvme:10`.
+For example, to request 1 GPU and 10 GB of NVMe storage the option would be `--gres=gpu:v100:1,nvme:10`.

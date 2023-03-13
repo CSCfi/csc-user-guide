@@ -34,6 +34,10 @@
       the left hand side of the navigation bar
     * Or use the search functionality
 
+    !!! warning-label
+
+        Navigation has changed on 22.02.2023, see [Changes in navigation on Docs CSC](support/wn/training-new.md#changes-in-navigation-on-docs-csc-22022023)
+
 <!--- Placeholder for a possible banner in the future
 
 [![CSC Summer School in High-Performance Computing 2022](img/banneri__summerhpc_800x164px_csc.fi.png 'CSC Summer School in High-Performance Computing 2022')](https://ssl.eventilla.com/summerschool)
@@ -48,7 +52,7 @@
       <a class="quick-link" target="_self" href="accounts/">CSC Accounts and Projects</a>
     </div>
     <div class="quick-links-item">
-      <a class="quick-link" target="_self" href="computing/overview/">Puhti and Mahti Overview</a>
+      <a class="quick-link" target="_self" href="computing/">Puhti and Mahti Overview</a>
     </div>
     <div class="quick-links-item">
       <a class="quick-link" target="_self" href="support/tutorials/puhti_quick/">Getting started with Puhti</a>
