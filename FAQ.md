@@ -23,6 +23,7 @@ The [contributing guide](CONTRIBUTING.md) outlines the basic steps of starting c
   - [How do I add definitions to the glossary / display definitions as tooltips?](#how-do-i-add-definitions-to-the-glossary--display-definitions-as-tooltips)
   - [How do I use the announcement bar?](#how-do-i-use-the-announcement-bar)
   - [How do I add a license tag to an application page?](#how-do-I-add-a-license-tag-to-an-application-page)
+  - [How do I make footnotes?](#how-do-i-make-footnotes)
 
 
 ## How to include my new page in the navigation panel?
@@ -293,3 +294,8 @@ where `<license>` is one of the predefined license categories: `Academic`, `Free
 `Other`; case sensitive, without the angle brackets.
 
 The application will then be included on the Applications by license page automatically.
+
+## How do I add footnotes?
+
+Usage of the footnotes feature is described
+[here](https://squidfunk.github.io/mkdocs-material/reference/footnotes/#usage).

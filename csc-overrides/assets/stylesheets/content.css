@@ -123,3 +123,15 @@
 .md-typeset .git-revision-date-localized-plugin {
     color: var(--csc-mid-grey--wcag);
 }
+
+.md-typeset .footnote-ref {
+    font-size: 14px;
+    font-weight: 400;
+    text-decoration: none;
+    color: currentColor;
+    background-color: var(--csc-lightest-grey);
+}
+
+.md-typeset .footnote > ol > li:target {
+    font-weight: var(--csc-font-weight--bold);
+}
