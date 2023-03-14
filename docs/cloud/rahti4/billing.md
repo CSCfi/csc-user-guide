@@ -16,7 +16,7 @@ These calculations are based on:
 * Pod memory.
 * Persistent volumes.
 
-If the curent usage is lower that the minimum requested resource, the requested resource is used instead for the calculations.
+If the current usage is lower than the minimum requested resource, the requested resource is used for the calculations.
 
 The rate at which billing units are consumed depends on the size of the
 resources. Billing units are consumed as follows:
@@ -44,9 +44,9 @@ and the current real usage is:
 You also create a persistent volume of size 10 GiB and attach it to the pod. The
 cost in BUs can be calculated as follows:
 
-The core usage is 0.5 cores and the request is 1 cores. 1 > 0.5 so 1 is used.
+The core usage is 0.5 cores and the request is 1 cores. According to the BU consumption rate 1 > 0.5 so 1 is used.
 
-The memory usage is 1 GiB and the request is 512 MiB. 1 GiB > 512 MiB so 1 GiB is used
+The memory usage is 1 GiB and the request is 512 MiB. The same goes for memory usage 1 GiB > 512 MiB so 1 GiB is used
 
 ![BU calculation](img/BU-calculation.drawio.svg)
 
