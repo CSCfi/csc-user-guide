@@ -7,15 +7,16 @@ The intended audience of this document is end users who want to store sensitive 
 data services for research.
 
 Scientific research data may contain also sensitive data. There is no single simple definition of
-sensitive data but rather it is derived from national and EU legislations.[^1] The data owner
+sensitive data but rather it is derived from national and EU legislations.[^1] The **data controller**
 &ndash; this means the customer, i.e. usually the research project or a researcher &ndash; is
 responsible for knowing if the data is sensitive or not and handling it appropriately. In case of
 using CSC's data services for research the question about sensitivity of the data must be resolved
-by the customer already before transferring the data to CSC's services, which acts just as one more
-storage location for the data.
+by the customer already before transferring the data to CSC's services, which acts as **data processor** 
+that perovides storage and computing resources for the data controller.
 
 Generic examples of use cases where CSC's services might be used with encrypted sensitive data are:
 
+   - Using CSC sensitive data services for analysing data
    - Distributing sensitive research data to customer's partner organisations
    - Disaster recovery copy of customer's local sensitive research data
    - Sharing sensitive research data within a research group
@@ -23,15 +24,27 @@ Generic examples of use cases where CSC's services might be used with encrypted 
 Some use cases may not be applicable to all CSC's data services, please see the Terms and
 Conditions and Service Description of each service itself.
 
+CSC provides a set of services that are intended to support management of sensitive data. 
+Currently these servises include:
+
+   - [SD Connect](../sensitive-data/sd_connect.md) : A service for storing and sharing sensitive data
+   - [SD Desktop](../sensitive-data/sd_connect.md) : A service for prosessing sensitive data
+
+These services provide secure and easy to use tools and protocols that CSC recommends to be used for sensitive data.
+However, the you can store sensitive data to CSC also by using other tools too, as long as the processes follow
+the general guidelines described below.
+
+
+
 ## Encryption
 
 Protecting data with encryption has been around for a long time and the basics of secure encryption
 are well understood. This document gives some best practises on how to encrypt the data once the
 customer has decided that encryption is an appropriate means to protect the data content.
 
-There are two main encryption methods, symmetric and asymmetric encryption. In symmetric
+There are two main encryption methods, _symmetric_ and _asymmetric_ encryption. In symmetric
 encryption, same key is used for encrypting and decrypting the data. In basic asymmetric
-encryption, there are two keys, private key and public key. Data encrypted with public key can be
+encryption, there are two keys, a _private key_ and a _public key_. Data encrypted with public key can be
 decrypted only with private key. For verifying the origin of data, the data (normally a hash of the
 data) signed with private key can be verified with public key.
 
@@ -59,7 +72,7 @@ policies, procedures, practises, etc. &ndash; are already in place.
 Classified data, which requires separation by the service other than access control is out of the
 scope of this document.[^7]
 
-Computational processing of data (for instance in the CSC's supercomputing environment) is out of
+Computational processing of data is out of
 the scope of this document, as this document simply describes the best practises for storing
 sensitive data. You can access CSC's data services for research directly from your own environment
 just like from CSC's supercomputing environment, from the point of view of service there is no
@@ -84,6 +97,10 @@ deliberate attack targeted to data which is considered important enough to be en
 [Standards and algorithms](#standards-and-algorithms) and
 [Notes on specific software](#notes-on-specific-software).
 
+The SD Connect service mitigates these risks by applying automatically strong asymmetric encryption 
+for the stored data. The service also adds a CSC hosted encryption key to the data. This can be used 
+in cases where the users own encryption key is lost.
+
 ## Best practises
 
 Copying sensitive data from customer's own protected environment to CSC's data service requires
@@ -105,6 +122,8 @@ The data which is stored at CSC's data service should not be the only existing c
 Make sure you don't leak sensitive information in file or directory names. Either anonymise or
 randomise such names or create a package &ndash; for instance zip or tar &ndash; of the
 files/directories and then encrypt the whole package.
+
+
 
 ### Standards and Algorithms
 
@@ -211,6 +230,14 @@ Verifying - enter aes-256-cbc encryption password:
 
 If you choose to generate the actual random binary key and initialisation vector yourself then you
 can also use older versions than 1.1.1 of openssl.
+
+#### Crypt4GH 
+
+Crypt4gt is an asymmetric encryption tool that is desinged for encrypring large datasets. This
+tool is recommended by Global Alliance for Genomics and Health, and it is used as the encryption tool
+of CSC sensitive data services. More detailed description of this encryption tool can be found from
+the [SD Connect instuctions](../sensitive_data/sd_connect.md).
+
 
 #### Cyberduck (cryptomator)
 
