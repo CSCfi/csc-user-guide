@@ -28,7 +28,7 @@ CSC provides a set of services that are intended to support management of sensit
 Currently these servises include:
 
    - [SD Connect](../sensitive-data/sd_connect.md) : A service for storing and sharing sensitive data
-   - [SD Desktop](../sensitive-data/sd_connect.md) : A service for prosessing sensitive data
+   - [SD Desktop](../sensitive-data/sd_desktop.md) : A service for prosessing sensitive data
 
 These services provide secure and easy to use tools and protocols that CSC recommends to be used for sensitive data.
 However, the you can store sensitive data to CSC also by using other tools too, as long as the processes follow
