@@ -236,7 +236,7 @@ can also use older versions than 1.1.1 of openssl.
 Crypt4gt is an asymmetric encryption tool that is desinged for encrypring large datasets. This
 tool is recommended by Global Alliance for Genomics and Health, and it is used as the encryption tool
 of CSC sensitive data services. More detailed description of this encryption tool can be found from
-the [SD Connect instuctions](../sensitive_data/sd_connect.md).
+the [SD Connect instuctions](../sensitive-data/sd_connect.md).
 
 
 #### Cyberduck (cryptomator)
