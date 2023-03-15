@@ -3,7 +3,7 @@
 CSC's Sensitive Data (SD) services are available to researchers and students affiliated with Finnish higher education institutions (universities, universities of applied sciences) or a state research institute and their international collaborators.
 
 !!! Note
-    The legal basis for data processing determines which service component you can access and use. For example, you can directly manage research data access, uploads, or data export using SD Connect and SD Desktop. In contrast, access to register data via SD Desktop is operated by CSC's helpdesk, based on the data permit issued by the Finsdata authority and in compliance with Finnish regulations. 
+    The legal basis for data processing determines which service component you can access and use. For example, you can directly manage research data access, uploads, or data export using SD Connect and SD Desktop. In contrast, access to register data via SD Desktop is operated by CSC's helpdesk, based on the data permit issued by the Findata Authority and in compliance with Finnish regulations. 
 
 Below you can find more information on the steps required to access the services:
 
@@ -50,7 +50,7 @@ with any modern web-browser (Note: private browsing is not supported using Firef
 
 Analysing register data differs from the process mentioned above. In this case, CSC's helpdesk manages users' access to the SD Desktop computing environment in compliance with the Finnish Act on the Secondary Use of Health and Social data and the Findata Authority's Regulation.
 
-Register data can only be provided by the Fidata Authority and accessed via the SD Desktop service. For more information about data provided by single registers, contact us at: servicedesk@csc.fi.
+Register data can only be provided by the Findata Authority and accessed via the SD Desktop service. For more information about data provided by single registers, contact us at: servicedesk@csc.fi.
 
 !!! Note
     Register data processing is subject to several limitations. Therefore, we recommend contacting us at servicedesk@csc.fi (subject: Sensitive data) before applying for a data permit to verify if the service matches your needs. 
