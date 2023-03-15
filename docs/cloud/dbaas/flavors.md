@@ -1,4 +1,8 @@
 # DBaaS flavors and prices
+!!! error "Closed Beta"
+    Pukki DBaaS is in closed beta. This means that services is probably not suitable for most users
+    and there might be breaking changes. If you are still interested in using the service you can
+    contact service-desk too see if the service would be suitable for you.
 
 The database instances are hosted on top of cPouta. The billing is based on the Flavor (database instances size), how big volume for the database and how much backup you are using.
 

@@ -1,4 +1,8 @@
 # Using DBaaS with CLI
+!!! error "Closed Beta"
+    Pukki DBaaS is in closed beta. This means that services is probably not suitable for most users
+    and there might be breaking changes. If you are still interested in using the service you can
+    contact service-desk too see if the service would be suitable for you.
 
 The DBaaS is using openstack on the backend this means that you can use the openstack CLI in a similar way as in Pouta. It is important to note that even if Pouta uses the same command line it does not mean that you are connecting to Pouta. This is especially important if you are automating stuff in both Pouta and DBaaS since you need to connect to different Keystone endpoints.
 
@@ -64,21 +68,7 @@ Remember that you can use the help command like: `openstack help database` and t
 
 	What `username` and `password` you want to use. (In this example we will use `databaseuser` and `myPassword568`
 
-<<<<<<< HEAD
 1. Once you gather the data you want to use to crate your database you can do it by running the following command. Please update the variables how you see fit, especially `MY_IP` . You can also use the flag `--allowed-cidr` multiple times to add multiple IP-addresses.
-=======
-```
-openstack database instance create my_database_instance \
---flavor standard.small \
---databases my_first_database \
---users databaseuser:myPassword568 \
---datastore postgresql \
---datastore-version 14.2 \
---is-public \
---size 1 \
---allowed-cidr ${MY_IP}/32
-```
->>>>>>> 55e8f995 (try again)
 
 	```sh
 	openstack database instance create my_database_instance \

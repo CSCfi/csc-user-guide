@@ -1,4 +1,8 @@
 ## What is DBaaS
+!!! error "Closed Beta"
+    Pukki DBaaS is in closed beta. This means that services is probably not suitable for most users
+    and there might be breaking changes. If you are still interested in using the service you can
+    contact service-desk too see if the service would be suitable for you.
 
 Database as a Service (DBaaS) is a self service on-demand database service, this means that you can launch a new database "at a push of a button". The goal with the DBaaS is to automate away the database maintenance and administrative tasks of other services so that the  developers/administrators can focus on the stuff that actually brings "value" to the services.
 

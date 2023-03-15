@@ -1,4 +1,8 @@
 <h1>Pukki - Database as a Service (internal beta)</h1>
+!!! error "Closed Beta"
+    Pukki DBaaS is in closed beta. This means that services is probably not suitable for most users
+    and there might be breaking changes. If you are still interested in using the service you can
+    contact service-desk too see if the service would be suitable for you.
 
 * [What is Database as a Service](what-is-dbaas.md)
 
