@@ -22,11 +22,11 @@ Now you can define what settings you want for your database
 On the next page `Database access`
 
 7. `Is public` - You need to check the public checkbox.
-8. `Allowed CIDRs` - Here you want to add your allowed IP-addresses in the format `$IP/32` if you want to allow multiple IP-address you need to separate them by a comma `,` .
+8. `Allowed CIDRs` - Here you want to add your allowed IP-addresses in the format `$IP/32` if you want to allow multiple IP-address. You need to separate them by a comma `,` .
 
 You don't need to use the `Intialize Databases` tab. It is not recommended to create an admin user.
 
-If you have a backup that you want to restore from you can do it from the `Advance` tab. Then you choose the `Source for Initial State` -> `Restore from Backup` and then choose `Backup name`
+If you have a backup that you want to restore, you can do it from the `Advanced` tab. Then you choose the `Source for Initial State` -> `Restore from Backup` and then choose `Backup name`
 
 9. Now you can press `Launch`
 

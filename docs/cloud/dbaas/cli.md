@@ -68,7 +68,7 @@ Remember that you can use the help command like: `openstack help database` and t
 
 	What `username` and `password` you want to use. (In this example we will use `databaseuser` and `myPassword568`
 
-1. Once you gather the data you want to use to crate your database you can do it by running the following command. Please update the variables how you see fit, especially `MY_IP` . You can also use the flag `--allowed-cidr` multiple times to add multiple IP-addresses.
+1. Once you gather the data you want to use to create your database you can do it by running the following command. Please update the variables how you see fit, especially `MY_IP` . You can also use the flag `--allowed-cidr` multiple times to add multiple IP-addresses.
 
 	```sh
 	openstack database instance create my_database_instance \

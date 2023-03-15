@@ -12,7 +12,15 @@ Popular tool for working with PostgreSQL is [pgAdmin that can be found here](htt
 ## Command line
 1. First you need to install postgresql command line tool. Note that if you are using Linux your distribution are usually shipped with an ancient version of postgresql so make sure that you install the most recent major version. For all operating system you can find instruction for installation here: https://www.postgresql.org/download/ 
 
-2. Once you have installed the postgresql-client you should be able to log into the database. You can find the `public` IP from the `Overview` tab or `openstack database instance list` . The command that you normally want to use from an Linux CLI is to connect to your database is: `psql --user ${USERNAME} --host ${PUBLIC_IP} ${DATABASE_NAME}`. The syntax normally used in configuration files are `psql postgresql://${USERNAME}:${PASSWORD}@{PUBLIC_IP}:5432/${DATABASE_NAME}` , note that if you use this syntax to login to the database it will not return column names when you do queries. 
+2. Once you have installed the postgresql-client you should be able to log into the database. You can find the `public` IP from the `Overview` tab or `openstack database instance list` . The command that you normally want to use from an Linux CLI is to connect to your database is: 
+```
+psql --user ${USERNAME} --host ${PUBLIC_IP} ${DATABASE_NAME}
+``` 
+The syntax normally used in configuration files is: 
+```
+psql postgresql://${USERNAME}:${PASSWORD}@{PUBLIC_IP}:5432/${DATABASE_NAME}
+```
+note that if you use this syntax to login to the database it will not return column names when you do queries. 
 
 The most common issues when accessing the database from the CLI are the following:
 
@@ -22,13 +30,13 @@ The most common issues when accessing the database from the CLI are the followin
 3. Now you should be able to use the database.
 
 ## How is DBaaS PostgreSQL different from an normal PostgreSQL
-There are a couple difference from installing PostgreSQL yourself and using DBaaS. Even if you can get admin permission of the database it is not recommend. It is recommend to manage the users and database access from the DBaaS interface. By following these guidelines you have lower risks for shooting yourself in the foot. There is an `openstack database root enable` command, this can be useful in an education environment if a teacher want all the students to get admin permissions in their database.
+There are a couple difference from installing PostgreSQL yourself and using DBaaS. Even if you can get admin permission of the database it is not recommend. It is better to manage the users and database access from the DBaaS interface. By following these guidelines you have lower risks for shooting yourself in the foot. There is an `openstack database root enable` command, this can be useful in an education environment if a teacher wants all the students to get admin permissions in their database.
 
 ## Parameters that users can modify
 
 The DBaaS allows users to modify some of the parameters. 
-If there are some parameter that you think you should be able to modify please contact servicedesk@csc.fi and let's see if we can make it possible. 
-By default we assume that default parameters are sane and that users should not under normal circumstances need to modify any of these parameters.
+If there are some parameters that you think you should be able to modify please contact servicedesk@csc.fi and let's see if we can make it possible. 
+By default we assume that default parameters are sane and that users should not, under normal circumstances, modify any of these parameters.
 
 | Parameters       | Default | Comments |
 |:--- |:---:|:---|
@@ -78,7 +86,7 @@ This will show each column of the record on its own rows. This is especially use
 
     SELECT * FROM table1 LIMIT 1 \gx
 
-#### Import database dump
+##### Import database dump
 
 If you have a database dump you can import it with the following command. Be aware that this might overwrite what ever you already have in the database
 

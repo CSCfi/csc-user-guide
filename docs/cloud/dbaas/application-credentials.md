@@ -103,11 +103,11 @@ your instances you can add the permission:
   path: /v1.0/*/instances
 ```
 
-(note: that the wildcard `*` can if you like be changed to your project-id)
+(note: that the wildcard `*` can, if you like, be changed to your project-id)
 
 
-With this permission you are only allowed to do `openstack database instance list`. If you would
-also would like to do both. An application credential can how as many permissions as you like.
+With this permission, you are only allowed to do `openstack database instance list`. If you would
+also like to do both. An application credential can how as many permissions as you like.
 So if you would like to be able to "create", "list", "show" and "delete" database instances you
 would need to do an application credential like this:
 
