@@ -22,7 +22,7 @@ CSC Notebooks provides different ways of sharing (e.g. course contents) and stor
 
 ## Summary of changes and improvements since previous major version
 
-See the separate [what is new](what_is_new.md) document.
+See the ["What's new" section for cloud services](../../support/whats-new.md#cloud-services).
 
 ## References
 
