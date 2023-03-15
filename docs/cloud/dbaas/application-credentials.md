@@ -25,12 +25,12 @@ is removed from the project the users credentials will stop working.
 1. Go to the web-interface.
 2. Choose witch project you want to use.
 3. Go to `Identitiy` -> `Application Credentials`
-4. Press `Create Applicaiton Credential`
+4. Press `Create Application Credential`
 5. It is a good idea to choose a descriptive name an description. Otherwise you might get confused
 in the future why the application credentials exists. It might be a good idea to name your first 
 credentials `Testing application credentials $TODAYS_DATE`.
 6. Secret should be a long random string that you should keep secret. If you leave this empty the
-service will create a secret for you, this is probably the prefered method.
+service will create a secret for you, this is probably the preferred method.
 7. It is a good idea to put an expiration date especially if you are testing the credentials only
 for today.
 <!-- 8. Choosing a role, you should choose `member`. The `reader` role does not work as one would expect
@@ -38,13 +38,13 @@ at the point of writing there is no difference between reader and member role wh
 managing your databases at the moment. In the future the reader role might become a read-only user
 role. -->
 8. There are two roles `reader` and `member`. Usually you want to use the `member` role you can find
-out more in the [Using roles sections](#Using-roles).
+out more in the [Using roles sections](#using-roles).
 9. Access rules this is useful when you want to make credentials with fine grained permissions
 this is super useful if you want to build a lot of automation around your databases. For example
 you can make a script that is only allowed to modify the users of a specific database or a
 credentials that is only allowed to create new instances. You probably want to start using these
 when you start to build automation around your databases. You can find more information about the
-options in [Using access rules sections](#Using-access-rules).
+options in [Using access rules sections](#using-access-rules).
 <!--- TODO Add section
  -->
 
