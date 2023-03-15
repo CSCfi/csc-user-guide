@@ -4,30 +4,11 @@
 
 ## Introduction to the user guide
 
-In this user guide, you can find:
-
-* an overview and **key features** of each service;
-
-* step-by-step instructions on accessing and setting up the services; technical knowledge or expertise are not required to use the services.  Specific paragraphs are marked as *advanced* if technical and coding skills are necessary;
-
-* quick technical suggestions in the **troubleshooting table**;
-
-* video tutorials helpful to get started. 
-
-For general information, see the [Sensitive Data (SD) services webpage](https://research.csc.fi/sensitive-data-services-for-research), [FAQs](../../support/faq/index.md#sensitive-data-services-for-research), and services descriptions in [CSC's service catalog](https://research.csc.fi/service-catalog).
-
-You can also learn more from example cases for:
-
-* [sensitive data analysis](https://research.csc.fi/example-case-5-sensitive-data-analysis);
-
-* [sensitive data storage, collection and transfer](https://research.csc.fi/example-case-6-sensitive-data-storage-and-transfer);
-
-* [sensitive data reuse](https://research.csc.fi/example-case-7-sensitive-data-reuse).
+In this user guide, you can find: an overview and **key features** of each service; step-by-step instructions on accessing and setting up the services; technical knowledge or expertise are not required to use the services and specific sections are marked as *advanced* if technical and coding skills are necessary; quick technical suggestions in the **troubleshooting table**; **video tutorials** helpful to get started. 
 
 <iframe width="280" height="155"srcdoc="https://www.youtube.com/embed/U74CvhPR16E" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ## Introduction to the services
-
 
 Sensitive Data (SD) services for research provide CSC customers a secure workspace, accessible via a web browser, that can be used for processing sensitive data according to [CSC General terms of use ](https://research.csc.fi/general-terms-of-use).
 
