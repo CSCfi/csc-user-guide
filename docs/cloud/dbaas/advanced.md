@@ -2,11 +2,11 @@
 !!! error "Closed Beta"
     Pukki DBaaS is in closed beta. This means that services is probably not suitable for most users
     and there might be breaking changes. If you are still interested in using the service you can
-    contact service-desk too see if the service would be suitable for you.
+    contact service-desk to see if the service would be suitable for you.
 
 ## Application credentials
 
-You can create application credentials instead of using username and passwords. This is especially useful if you want to automate your database management. This could be used in a CI/CD environment where you might want to create a new database for each commit. Application credentials could also be used if you are build in a services that uses the DBaaS as a backend component for example creates new database users on-demand for new users.
+You can create application credentials instead of using username and passwords. This is especially useful if you want to automate your database management. This could be used in a CI/CD environment where you might want to create a new database for each commit. Application credentials could also be used if you are building a services that uses the DBaaS as a backend component for example creates new database users on-demand for new users.
 
 ## Configuration groups
 

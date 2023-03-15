@@ -2,7 +2,7 @@
 !!! error "Closed Beta"
     Pukki DBaaS is in closed beta. This means that services is probably not suitable for most users
     and there might be breaking changes. If you are still interested in using the service you can
-    contact service-desk too see if the service would be suitable for you.
+    contact service-desk to see if the service would be suitable for you.
 
 ## Firewalls
 All database instances have their own firewalls. Users are responsible for making sure that the firewall rules are strict. The firewall rules should only be open to does IP-address that are absolutely needed. Relaxed firewall rules are probably the biggest security risks and you need to take it seriously. Even if you don't have any "secret" data in your database you are not allowed to have it open to the world. If you want to share your data you should do it through a proxy or other services that might use the database on the backend. An open database port on the internet is very easy way to attract hackers. 

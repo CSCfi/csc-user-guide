@@ -2,7 +2,7 @@
 !!! error "Closed Beta"
     Pukki DBaaS is in closed beta. This means that services is probably not suitable for most users
     and there might be breaking changes. If you are still interested in using the service you can
-    contact service-desk too see if the service would be suitable for you.
+    contact service-desk to see if the service would be suitable for you.
 
 The DBaaS is using openstack on the backend this means that you can use the openstack CLI in a similar way as in Pouta. It is important to note that even if Pouta uses the same command line it does not mean that you are connecting to Pouta. This is especially important if you are automating stuff in both Pouta and DBaaS since you need to connect to different Keystone endpoints.
 
