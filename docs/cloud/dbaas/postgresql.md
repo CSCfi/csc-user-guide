@@ -10,7 +10,7 @@ This documentation provides some hints how to get started with PostgreSQL and so
 Popular tool for working with PostgreSQL is [pgAdmin that can be found here](https://www.pgadmin.org/) . Note that the application can not be installed on the database instance, it needs to be installed on your computer or server that you control. The DBaaS team does not provide support for this application, we are also more comfortable using the CLI tools.
 
 ## Command line
-1. First you need to install postgresql command line tool. Note that if you are using Linux your distribution are usually shipped with an ancient version of postgresql so make sure that you install the most recent major version. For all operating system you can find instruction for installation here: https://www.postgresql.org/download/ 
+1. First you need to install postgresql command line tool. Note that if you are using Linux your distribution are usually shipped with an ancient version of postgresql so make sure that you install the most recent major version. For all operating system you can find instruction for installation here: https://www.postgresql.org/download/
 
 2. Once you have installed the postgresql-client you should be able to log into the database. You can find the `public` IP from the `Overview` tab or `openstack database instance list` . The command that you normally want to use from an Linux CLI is to connect to your database is: 
 ```
@@ -44,6 +44,84 @@ By default we assume that default parameters are sane and that users should not,
 | max_connections      | 100  | It is usually recommended to use connection pools instead of modify this value |
 | work_mem             | 4MB  | |
 
+## Postgresql extensions
+
+It is not possible for users to add additional extensions that is not already installed. If there
+are some extensions you would like to see available in Pukki please be in contact with
+[service-desk](mailto:servicedesk@csc.fi)
+
+1. To enable extensions you need to first enable root for the database instance and log in as root.
+
+```
+openstack database root enable $INSTNACE_ID
+```
+
+2. After you have logged in as root you can enable the extension of your choice by
+
+```
+CREATE EXTENSION $EXTENSION_NAME
+```
+
+3. After you have enable your extension of choice you can log out and disable root.
+
+```
+openstack database root disable $INSTANCE_ID
+```
+
+
+### Currently available extensions
+
+| Name               | Comment |
+|:--- |:--- |
+| moddatetime        | functions for tracking last modification time                           |
+| earthdistance      | calculate great-circle distances on the surface of the Earth            |
+| pgrowlocks         | show row-level locking information                                      |
+| autoinc            | functions for autoincrementing fields                                   |
+| dict_int           | text search dictionary template for integers                            |
+| pg_visibility      | examine the visibility map (VM) and page-level visibility info          |
+| btree_gist         | support for indexing common datatypes in GiST                           |
+| pageinspect        | inspect the contents of database pages at a low level                   |
+| tsm_system_time    | TABLESAMPLE method which accepts time in milliseconds as a limit        |
+| sslinfo            | information about SSL certificates                                      |
+| hstore             | data type for storing sets of (key, value) pairs                        |
+| amcheck            | functions for verifying relation integrity                              |
+| pg_surgery         | extension to perform surgery on a damaged relation                      |
+| intagg             | integer aggregator and enumerator (obsolete)                            |
+| tsm_system_rows    | TABLESAMPLE method which accepts number of rows as a limit              |
+| dict_xsyn          | text search dictionary template for extended synonym processing         |
+| old_snapshot       | utilities in support of old_snapshot_threshold                          |
+| isn                | data types for international product numbering standards                |
+| btree_gin          | support for indexing common datatypes in GIN                            |
+| uuid-ossp          | generate universally unique identifiers (UUIDs)                         |
+| pgstattuple        | show tuple-level statistics                                             |
+| xml2               | XPath querying and XSLT                                                 |
+| pgcrypto           | cryptographic functions                                                 |
+| pg_freespacemap    | examine the free space map (FSM)                                        |
+| intarray           | functions, operators, and index support for 1-D arrays of integers      |
+| plpgsql            | PL/pgSQL procedural language                                            |
+| insert_username    | functions for tracking who changed a table                              |
+| tablefunc          | functions that manipulate whole tables, including crosstab              |
+| pg_prewarm         | prewarm relation data                                                   |
+| tcn                | Triggered change notifications                                          |
+| postgres_fdw       | foreign-data wrapper for remote PostgreSQL servers                      |
+| dblink             | connect to other PostgreSQL databases from within a database            |
+| seg                | data type for representing line segments or floating-point intervals    |
+| lo                 | Large Object maintenance                                                |
+| adminpack          | administrative functions for PostgreSQL                                 |
+| pg_trgm            | text similarity measurement and index searching based on trigrams       |
+| pg_buffercache     | examine the shared buffer cache                                         |
+| citext             | data type for case-insensitive character strings                        |
+| bloom              | bloom access method - signature file based index                        |
+| cube               | data type for multidimensional cubes                                    |
+| fuzzystrmatch      | determine similarities and distance between strings                     |
+| unaccent           | text search dictionary that removes accents                             |
+| pg_stat_statements | track planning and execution statistics of all SQL statements executed  |
+| refint             | functions for implementing referential integrity (obsolete)             |
+| ltree              | data type for hierarchical tree-like structures                         |
+| file_fdw           | foreign-data wrapper for flat file access                               |
+
+
+
 
 
 ## Some useful commands
@@ -54,7 +132,7 @@ By default we assume that default parameters are sane and that users should not,
 
 ##### List tables
 
-    \d 
+    \d
 
 ##### Show table descriptions
 
@@ -74,7 +152,7 @@ note that this is the same command as creating a new database if it does not exi
 
     SHOW ALL;
 
-##### Show all users 
+##### Show all users
 
     select * from pg_user;
 

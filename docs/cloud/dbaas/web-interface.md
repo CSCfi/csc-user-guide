@@ -4,7 +4,7 @@
     and there might be breaking changes. If you are still interested in using the service you can
     contact service-desk to see if the service would be suitable for you.
 
-You can log into DBaaS by going to https://pukki.dbaas.csc.fi .
+You can log into DBaaS by going to [pukki.dbaas.csc.fi](https://pukki.dbaas.csc.fi) .
 
 
 ## Creating a new database instance
