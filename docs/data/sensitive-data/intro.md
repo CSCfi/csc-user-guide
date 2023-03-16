@@ -51,21 +51,33 @@ Sensitive data includes:
 Sensitive data is only accessible with appropriate authorization, rights, or permission to view it. With SD services, access permissions are always managed by the Data Controller via specific service components and in compliance with the GDPR, the legal bases for data processing and national regulations.
 
 
-* Consented reaserch data processing via SD Connect and SD Desktop:
-
-
-
-* Consented research data publishing and reuse via SD Submit Sd Apply and Federated EGA:
-
-
-
-* Register data reuse:
+* Access of consented human data and other sensitive data via SD Connect and SD Desktop:
 
 
 
 
 
-## Legal agreements
+
+* Access of secondary use of health and social data via SD Desktop:
+
+
+
+
+
+* Access from non EU/EEA countries:
+
+Access to sensitive data via SD services (e.g. also in read only mode using SD Desktop) from a non EU/EEA country is also qualified bu the GDPR as a transfer from  one controller to another. In this case, the data controller needs to make an agreement for international data transfers using EU's standard contractual clauses (SCCs) and make a transfer impact assessment to assessed:
+
+* that the state (where the researcher ooperates) provides adequate level of data protection and safeguards are in place 
+
+* that there is has a lawful base for international transfer (such as data subjects have given explicit consents).
+
+
+
+
+
+
+## Data Protection Impact Assesment
 
 The General Data Protection Regulation and Finnish national laws regulate sensitive personal data processing. To comply with these regulations, specific data processing and framework agreements between the Data Controllers (academic organization) and CSC (as the Data Processor) must be in place. 
 
@@ -89,7 +101,6 @@ When a researcher is from a non EU/EEA country, access to data stored in CSC (vi
 
 make a transfer impact assessment: has assessed that the state (where the researcher ooperates) provides adequate level of data protection and safeguards are in place 
 has a lawful base for international transfer (such as data subjects have given explicit consents).
-
 
 
 
