@@ -9,8 +9,8 @@ extra:
   breadcrumbs_debug: !ENV DEBUG # Renders a debug view for breadcrumbs navigation
   analytics:
     provider: custom
-    matomo_site_id: !ENV MATOMO_SITE_ID
-    matomo_url: !ENV MATOMO_URL
+    matomo_site_id: !ENV [MATOMO_SITE_ID, ""]
+    matomo_url: !ENV [MATOMO_URL, ""]
 
 plugins:
   - tags:
