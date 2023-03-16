@@ -7,11 +7,11 @@ Sensitive Data (SD) services for research provide CSC customers a secure workspa
 
 Sensitive Data services for research consist of five components:
 
-* Sensitive Data Connect ([service description](https://research.csc.fi/-/sd-connect)): a user interface for importing and storing sensitive data to CSC's cloud storage solution (Allas). SD Connect also facilitates sharing or transferring encrypted sensitive data during the active phases of research projects. 
+* Sensitive Data Connect ([service description on research.csc.fi](https://research.csc.fi/-/sd-connect)): a user interface for importing and storing sensitive data to CSC's cloud storage solution (Allas). SD Connect also facilitates sharing or transferring encrypted sensitive data during the active phases of research projects. 
 
-* Sensitive Data Desktop ([service description](https://research.csc.fi/-/sd-desktop)): a user interface that provides access to a secure virtual computer (or virtual Desktop). It enables secure computation and analysis of sensitive data. In addition, a restricted version of SD Desktop is provided for processing registry data (secondary use of health and social data). The limitations are described in a separate user guide (see: SD Desktop for secondary use).
+* Sensitive Data Desktop ([service description research.csc.fi](https://research.csc.fi/-/sd-desktop)): a user interface that provides access to a secure virtual computer (or virtual Desktop). It enables secure computation and analysis of sensitive data. In addition, a restricted version of SD Desktop is provided for processing registry data (secondary use of health and social data). The limitations are described in a separate user guide (see: SD Desktop for secondary use).
 
-* Sensitive Data Submit and Federated EGA ([service description](https://research.csc.fi/-/fega)) (*pilot phase*): allow publishing of sensitive and biomedical data under controlled access. 
+* Sensitive Data Submit and Federated EGA ([service description research.csc.fi](https://research.csc.fi/-/fega)) (*pilot phase*): allow publishing of sensitive and biomedical data under controlled access. 
 
 * Sensitive Data Apply (*pilot phase*): promotes data reuse allowing data owners to manage access to published datasets via a simple user interface.
 
@@ -20,9 +20,50 @@ Sensitive Data services for research consist of five components:
 
 In this user guide, you can find: 
 
-an overview and **key features** of each service; step-by-step instructions on accessing and setting up the services; technical knowledge or expertise are not required to use the services and specific sections are marked as *advanced* if technical and coding skills are necessary; quick technical suggestions in the **troubleshooting table**; **video tutorials** helpful to get started. 
+* an overview and **key features** of each service; 
+
+* step-by-step instructions on accessing and setting up the services; 
+
+* technical knowledge or expertise are not required to use the services and specific sections are marked as *advanced* if technical and coding skills are necessary; 
+
+* quick technical suggestions in the **troubleshooting table**; **video tutorials** helpful to get started. 
 
 <iframe width="280" height="155"srcdoc="https://www.youtube.com/embed/U74CvhPR16E" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+
+## Sensitive data
+
+Sensitive data is data that needs to be protected against unauthorized access. Protection of data may be required due to legal or ethical reasons, issues pertaining to personal privacy, and proprietary considerations.
+
+Sensitive data includes:
+
+* Human data (e.g. health, genetic and personal information, racial or ethnic origin, political opinions, religious or philosophical beliefs, or trade union membership, genetic data, biometric data for the purpose of uniquely identifying a natural person, data concerning health, data concerning a natural person's sex life or sexual orientation, data relating to criminal convictions and offences or related security measures, data that may identify a person)
+
+* Ecological data (e.g. location of endangered species or other conservation efforts)
+
+* Confidential data (e.g. trade secrets)
+
+* Data that is otherwise deemed sensitive.
+
+
+## Accesse management using SD services
+
+Sensitive data is only accessible with appropriate authorization, rights, or permission to view it. With SD services, access permissions are always managed by the Data Controller via specific service components and in compliance with the GDPR, the legal bases for data processing and national regulations.
+
+
+* Consented reaserch data processing via SD Connect and SD Desktop:
+
+
+
+* Consented research data publishing and reuse via SD Submit Sd Apply and Federated EGA:
+
+
+
+* Register data reuse:
+
+
+
+
 
 ## Legal agreements
 
@@ -44,6 +85,10 @@ You can then download these documents and share them with the legal services in 
 
 
 
+When a researcher is from a non EU/EEA country, access to data stored in CSC (via data streaming) is also qualified as a transfer from GDPR from one controller to another. In this case, the data controller needs to make an agreement for international data transfers using EU's standard contractual clauses (SCCs) and
+
+make a transfer impact assessment: has assessed that the state (where the researcher ooperates) provides adequate level of data protection and safeguards are in place 
+has a lawful base for international transfer (such as data subjects have given explicit consents).
 
 
 
