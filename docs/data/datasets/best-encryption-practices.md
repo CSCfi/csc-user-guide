@@ -1,5 +1,4 @@
 # Best Practices for Client Side Encryption
-v1.0 19.12.2019
 
 ## Introduction
 
