@@ -32,6 +32,7 @@ plugins:
   - redirects:
       redirect_maps:
         # renamed files:
+        'cloud/csc_notebooks/what_is_new.md': 'support/whats-new.md#cloud-services'
         'computing/overview.md': 'computing/index.md'
         'cloud/concepts.md': 'cloud/index.md'
         'apps/alpha.md': 'apps/index.md'
@@ -264,7 +265,6 @@ nav:
        - Guide for teachers: cloud/csc_notebooks/guide_for_teachers.md
        - Concepts: cloud/csc_notebooks/concepts.md
        - Data persistence: cloud/csc_notebooks/data_persistence.md
-       - What is new: cloud/csc_notebooks/what_is_new.md
   - Data:
      - data/index.md
 #    - Datasets: data/datasets.md
