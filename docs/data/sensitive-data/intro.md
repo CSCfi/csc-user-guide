@@ -1,14 +1,7 @@
 
 # Sensitive Data (SD) Services for research
 
-
-## Introduction to the user guide
-
-In this user guide, you can find: an overview and **key features** of each service; step-by-step instructions on accessing and setting up the services; technical knowledge or expertise are not required to use the services and specific sections are marked as *advanced* if technical and coding skills are necessary; quick technical suggestions in the **troubleshooting table**; **video tutorials** helpful to get started. 
-
-<iframe width="280" height="155"srcdoc="https://www.youtube.com/embed/U74CvhPR16E" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-## Introduction to the services
+## Introduction 
 
 Sensitive Data (SD) services for research provide CSC customers a secure workspace, accessible via a web browser, that can be used for processing sensitive data according to [CSC General terms of use ](https://research.csc.fi/general-terms-of-use).
 
@@ -18,13 +11,18 @@ Sensitive Data services for research consist of five components:
 
 * Sensitive Data Desktop ([service description](https://research.csc.fi/-/sd-desktop)): a user interface that provides access to a secure virtual computer (or virtual Desktop). It enables secure computation and analysis of sensitive data. In addition, a restricted version of SD Desktop is provided for processing registry data (secondary use of health and social data). The limitations are described in a separate user guide (see: SD Desktop for secondary use).
 
-* Sensitive Data Submit and Federated EGA ([service description](https://research.csc.fi/-/fega)) (pilot phase): allow publishing of sensitive and biomedical data under controlled access. 
+* Sensitive Data Submit and Federated EGA ([service description](https://research.csc.fi/-/fega)) (*pilot phase*): allow publishing of sensitive and biomedical data under controlled access. 
 
-* Sensitive Data Apply (pilot phase): promotes data reuse allowing data owners to manage access to published datasets via a simple user interface.
+* Sensitive Data Apply (*pilot phase*): promotes data reuse allowing data owners to manage access to published datasets via a simple user interface.
 
 <iframe width="280" height="155"srcdoc="https://www.youtube.com/embed/YcgeuatWf9g" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 
+In this user guide, you can find: 
+
+an overview and **key features** of each service; step-by-step instructions on accessing and setting up the services; technical knowledge or expertise are not required to use the services and specific sections are marked as *advanced* if technical and coding skills are necessary; quick technical suggestions in the **troubleshooting table**; **video tutorials** helpful to get started. 
+
+<iframe width="280" height="155"srcdoc="https://www.youtube.com/embed/U74CvhPR16E" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ## Legal agreements
 
@@ -43,6 +41,36 @@ You can then download these documents and share them with the legal services in 
 
 
 <iframe width="280" height="155"srcdoc="https://www.youtube.com/embed/1LHpDiap5Lo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 ## Useful terminology
@@ -71,35 +99,5 @@ You can then download these documents and share them with the legal services in 
 
 
 
-# Applying for SD services access
 
-Sensitive Data Services are available for all CSC customers. To access CSC's services for sensitive data using [MyCSC](https://my.csc.fi) portal:
-
-   1. Create a user account.
-
-   3. Create or join a CSC project and add project members.
-
-   4. Fill in the Description of processing activities form and accepct CSC's Data processing agreement.
-    
-   5. Each project member needs to **add service access to Allas and  SD Desktop**.
-
-   6. Activate the additional security verification (or Multi-factor Authentication) on your account by **scanning the QR code with an application** (e.g. Google Authenticator).
-
-   7. Apply for billing units or disk quota.
-
-For video tutorials and guidance regarding these steps, check the [Accounts](../../accounts/index.md) paragraph at the beginning of this user guide.
-
-
-!!! Note
-    Applying access to the SD Desktop environment for secondary use differs from the abovementioned process. See instructions in [the specific user guide SD Desktop for secondary use](./sd-desktop-audited.md#service-access).
-
-Once you have completed these steps, you can log in to SD services with identity federation systems (Haka, Virtu, CSC Login, or LSLogin) at:
-
-   * [https://sd-connect.csc.fi](https://sd-connect.csc.fi) 
-   * [https://sd-desktop.csc.fi](https://sd-desktop.csc.fi)
-
-with any modern web-browser.
-
-!!! Note
-    LSLogin (LifeScience login, previously known as ELIXIR login) is available only after linking your CSC account to your LifeScience account (under your profile in MyCSC).
   
