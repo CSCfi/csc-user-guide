@@ -27,7 +27,6 @@ plugins:
         - apps/by_discipline.md
         - apps/by_system.md
         - apps/by_license.md
-  - section-index
   - redirects:
       redirect_maps:
         # renamed files:

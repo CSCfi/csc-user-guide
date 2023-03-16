@@ -47,8 +47,8 @@ If you intend to make substantial changes to the navigation menu, please communi
 ### SectionPage
 
 The first item under 'Accounts' above is a so-called SectionPage. It is a hybrid of Section and
-Page introduced by a plugin we use called
-[mkdocs-section-index](https://github.com/oprypin/mkdocs-section-index)
+Page introduced by a feature in Material for MkDocs we use called
+[Section index pages](https://squidfunk.github.io/mkdocs-material/setup/setting-up-navigation/#section-index-pages)
 that makes the sections in the navigation sidebar clickable. Every section should have a
 SectionPage that acts as the index for the section. The breadcrumbs navigation on the top of every
 page relies on the existence of a SectionPage. Without it, a level of navigation will be missing
@@ -147,7 +147,7 @@ You can preview how the Docs CSC page would look like with your changes included
 * This user guide uses [MkDocs](https://www.mkdocs.org/) to generate documentation pages. You can install it on your local computer by following the instructions given in the [MkDocs documentation](https://www.mkdocs.org/user-guide/installation/), or with [Conda](https://docs.conda.io/en/latest/miniconda.html):
 
 ```bash
-conda env create -f docs/support/tutorials/conda/conda-docs-env-1.2.yaml
+conda env create -f docs/support/tutorials/conda/conda-docs-env-1.3.yaml
 conda activate docs-env
 ```
 
