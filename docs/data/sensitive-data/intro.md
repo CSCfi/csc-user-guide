@@ -44,17 +44,17 @@ According to the GDPR, a data controller is an individual or organization that d
 In the following paragraphs, we summarise the main aspect and processes that need to be considered when accessing SD service. 
 
 
-###  Compliance when processing research data, ecological data, and confidential data
+### Permission management: research data, ecological data, and confidential data
 
 SD Connect and SD Desktop usage is based on CSC projects. Access to the services is managed directly by the CSC project manager (e.g. research project's principal investigator, group leader, or postdoc) using the MyCSC portal. The CSC project manager can add members with equal access rights to the same project. They can all upload encrypted data to SD Connect and analyze it using the SD Desktop services. However, only the project manager can export non-sensitive results from the secure computing environment. During CSC account and project creation, users are guided to view and accept CSC's Data Processing Agreement. As the data controller employs the project manager, they act as the data controller's representative and the Data Processing Agreement becomes valid between the academic organization (the data controller) and CSC (data processor). 
 
 
-### Compliance when processing health and social data under the Act on Secondary Use
+### Permission management: health and social data under the Act on Secondary Use
 
 The Finnish Act on Secondary Use of health and social data regulates register data processing. Therefore, register data can only be provided by the Findata Authority and accessed via the SD Desktop service. CSC's helpdesk manages users' access to and results export from the SD Desktop service based on the data permit.
 
 
-### Access from non-EU/EEA countries:
+### Access from non-EU/EEA countries
 
 Access to sensitive data via SD services from a non-EU/EEA country is qualified by the GDPR as a transfer from one data controller to another. In this case, the data controller needs to make an agreement for international data transfers using the EU's standard contractual clauses (SCCs) and make a transfer impact assessment to assess that the state (where the researcher operates) provides an adequate level of data protection and safeguards are in place and that there is has a lawful base for international transfer (such as data subjects have given explicit consents). This is also valid when a collaborator is analysing files using the SD Desktop via data streaming. 
 
