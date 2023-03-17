@@ -17,12 +17,12 @@ Sensitive Data services for research consist of five components:
 
 <iframe width="280" height="155"srcdoc="https://www.youtube.com/embed/U74CvhPR16E" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-In each section of this manual, you can find an overview of each service's key features and limitations. Technical knowledge or expertise is optional for SD services, and step-by-step instructions and video tutorials are provided. Specific sections are marked as *advanced* if programming skills are required. Quick technical suggestions are available in the troubleshooting table. 
+You can find an overview of each service's key features and limitations in each section of this manual. Technical knowledge or expertise is optional for SD services, and step-by-step instructions and video tutorials are provided. Specific sections are marked as *advanced* if programming skills are required. Quick technical suggestions are available in the troubleshooting table. 
 
 
 ## Compliance with data protection regulations
 
-Sensitive data is data that needs to be protected against unauthorized access. Protection of data may be required due to legal or ethical reasons, issues pertaining to personal privacy, and proprietary considerations. 
+Sensitive data is data that needs to be protected against unauthorized access. Data protection may be required due to legal or ethical reasons, personal privacy, and proprietary considerations. 
 
 Sensitive data includes:
 
@@ -36,18 +36,18 @@ Sensitive data includes:
 
 The General Data Protection Regulation (GDPR) and Finnish national laws regulate sensitive personal data processing. 
 
-According the the GDPR, a data controller is an individual or organisation that determines the purposes and means of the processing of personal data and it is usualy the academic organization. A data processor is an individual or organisation that processes personal data on the controller's behalf, for example an IT service provider, in this case CSC. The terms of data processing such as duration, scope and purpose, and relationship between the data controller and CSC are defined in a legalling biding documenta called Data Protection Agrement (DPA). 
+According to the GDPR, a data controller is an individual or organization that determines the purposes and means of processing sensitive personal data, and it is usually an academic organization. On the other hand, a data processor is an individual or organization that processes personal data on the controller's behalf, for example, an IT service provider, in this case, CSC. Data processing terms such as duration, scope, and purpose, and the relationship between the data controller and CSC are defined in a legally biding document called Data Protection Agreement (DPA). 
 
 
 !!! Note
     Sensitive data is only accessible with appropriate authorization, rights, or permission. With SD services, access is always managed by the data controller via specific service components in compliance with the GDPR and national regulations.
     
-In the following paragprah we summarise the main aspect and processes that needs to be comsidered when accessing SD service. 
+In the following paragraphs, we summarise the main aspect and processes that need to be considered when accessing SD service. 
 
 
-###  Complaince when processing research data, ecological data, and confidential data
+###  Compliance when processing research data, ecological data, and confidential data
 
-SD Connect and SD Desktop usage is based on CSC projects. Access to the services is managed directly by the CSC project manager (e.g. research project's principal investigator, group leader, or postdoc) using the MyCSC portal. The CSC project manager can add members who have equal access rights to the same project. They can all upload encrypted data to SD Connect and analyse it using the SD Desktop services. However, only the project manager can export non-sensitive results from the secure computing environment. During CSC account and project creation, users are guided to view and accept CSC's Data Processing Agreement. As the data controller employs the project manager, they act as the data controller's representative and the Data Processing Agreement becomes valid between the academic organization (data controller) and CSC (data processor). 
+SD Connect and SD Desktop usage is based on CSC projects. Access to the services is managed directly by the CSC project manager (e.g. research project's principal investigator, group leader, or postdoc) using the MyCSC portal. The CSC project manager can add members with equal access rights to the same project. They can all upload encrypted data to SD Connect and analyze it using the SD Desktop services. However, only the project manager can export non-sensitive results from the secure computing environment. During CSC account and project creation, users are guided to view and accept CSC's Data Processing Agreement. As the data controller employs the project manager, they act as the data controller's representative and the Data Processing Agreement becomes valid between the academic organization (the data controller) and CSC (data processor). 
 
 
 ### Compliance when processing health and social data under the Act on Secondary Use
@@ -62,7 +62,7 @@ Access to sensitive data via SD services from a non-EU/EEA country is qualified 
 
 ### Data Protection Impact assessment
 
-When creating a CSC project using the MyCSC portal, you are guided to the "Description of processing activities" form, where you describe the data type you are processing. This document will guida you in identifing a data controller, 
+When creating a CSC project using the MyCSC portal, you are guided to the "Description of processing activities" form, where you describe the data type you are processing. This document will guide you in identifying a data controller, 
 
 
 
