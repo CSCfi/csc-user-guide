@@ -20,7 +20,7 @@ Sensitive Data services for research consist of five components:
 In each section of this manual, you can find an overview of each service's key features and limitations. Technical knowledge or expertise is optional for SD services, and step-by-step instructions and video tutorials are provided. Specific sections are marked as *advanced* if programming skills are required. Quick technical suggestions are available in the troubleshooting table. 
 
 
-## Sensitive data processing in compliance with data protection regluations
+## Sensitive data processing in compliance with data protection regulations
 
 Sensitive data is data that needs to be protected against unauthorized access. Protection of data may be required due to legal or ethical reasons, issues pertaining to personal privacy, and proprietary considerations. 
 
@@ -110,4 +110,4 @@ For further information, see also:
 
 
   
--
+
