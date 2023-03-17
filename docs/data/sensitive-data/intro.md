@@ -15,15 +15,14 @@ Sensitive Data services for research consist of five components:
 
 * Sensitive Data Apply (*pilot phase*): promotes data reuse allowing data owners to manage access to published datasets via a simple user interface.
 
+<iframe width="280" height="155"srcdoc="https://www.youtube.com/embed/U74CvhPR16E" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 In each section of this manual, you can find an overview of each service's key features and limitations. Technical knowledge or expertise is optional for SD services, and step-by-step instructions and video tutorials are provided. Specific sections are marked as *advanced* if programming skills are required. Quick technical suggestions are available in the troubleshooting table. 
 
-<iframe width="280" height="155"srcdoc="https://www.youtube.com/embed/U74CvhPR16E" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
+## Sensitive data processing in compliance with data protection regluations
 
-## What is sensitive data, and who can access my data via SD service
-
-Sensitive data is data that needs to be protected against unauthorized access. Protection of data may be required due to legal or ethical reasons, issues pertaining to personal privacy, and proprietary considerations. The General Data Protection Regulation (GDPR) and Finnish national laws regulate sensitive personal data processing. 
+Sensitive data is data that needs to be protected against unauthorized access. Protection of data may be required due to legal or ethical reasons, issues pertaining to personal privacy, and proprietary considerations. 
 
 Sensitive data includes:
 
@@ -34,6 +33,14 @@ Sensitive data includes:
 * Confidential data (e.g. trade secrets)
 
 * Data that is otherwise deemed sensitive.
+
+The General Data Protection Regulation (GDPR) and Finnish national laws regulate sensitive personal data processing. 
+
+A data controller is an individual or organisation that determines the purposes and means of the processing of personal data and it is usualy the academic organization
+
+A processor is an individual or organisation that processes personal data on behalf of a controller. A processor can be a marketing agency taking care of another company’s marketing or an IT service provider with access to the personal data collected by the controller.
+
+According to Article 4 of the EU GDPR, a data controller is the entity (person, organization, etc.) that determines the why and the how for processing personal data. A data processor, on the other hand, is the entity that actually performs the data processing on the controller's behalf.
 
 Sensitive data is only accessible with appropriate authorization, rights, or permission. With SD services, access is always managed by the data controller via specific service components in compliance with the GDPR and national regulations.
 
