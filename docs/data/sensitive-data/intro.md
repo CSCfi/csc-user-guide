@@ -36,23 +36,21 @@ Sensitive data includes:
 
 The General Data Protection Regulation (GDPR) and Finnish national laws regulate sensitive personal data processing. 
 
-A data controller is an individual or organisation that determines the purposes and means of the processing of personal data and it is usualy the academic organization. A data processor is an individual or organisation that processes personal data on behalf of a controller, for example an IT service provider with access to the personal data collected by the controller. In this case, CSC is the data processor.
+According the the GDPR, a data controller is an individual or organisation that determines the purposes and means of the processing of personal data and it is usualy the academic organization. A data processor is an individual or organisation that processes personal data on the controller's behalf, for example an IT service provider, in this case CSC. The terms of data processing such as duration, scope and purpose, and relationship between the data controller and CSC are defined in a legalling biding documenta called Data Protection Agrement (DPA). 
 
 
-
-According to the GDPR, a data controller is the entity (person, organization, etc.) that determines the why and the how for processing personal data, and usually this cossisponds to an academic organization. During CSC account and project creation, users are guided to view and accept CSC's Data Processing Agreement. As the data controller employs the project manager, they act as the data controller's representative. The Data Processing Agreement becomes valid between the academic organization (data controller) and CSC (data processor). 
-
-
-A data processor, on the other hand, is the entity that actually performs the data processing on the controller's behalf.
-
-Sensitive data is only accessible with appropriate authorization, rights, or permission. With SD services, access is always managed by the data controller via specific service components in compliance with the GDPR and national regulations.
-
-###  Access to consented data for research use, ecological data, and confidential data
-
-SD Connect and SD Desktop usage is based on CSC projects. Access to the services is managed directly by the CSC project manager (e.g. research project's principal investigator, group leader, or postdoc) using the MyCSC portal. The CSC project manager can add members who have equal access rights to the same project. They can all upload encrypted data to SD Connect and analyse it using the SD Desktop services. However, only the project manager can export non-sensitive results from the secure computing environment. During CSC account and project creation, users are guided to view and accept CSC's Data Processing Agreement. As the data controller employs the project manager, they act as the data controller's representative. The Data Processing Agreement becomes valid between the academic organization (data controller) and CSC (data processor). 
+!!! Note
+    Sensitive data is only accessible with appropriate authorization, rights, or permission. With SD services, access is always managed by the data controller via specific service components in compliance with the GDPR and national regulations.
+    
+In the following paragprah we summarise the main aspect and processes that needs to be comsidered when accessing SD service. 
 
 
-### Access to health and social data under the Act on Secondary Use
+###  Complaince when processing research data, ecological data, and confidential data
+
+SD Connect and SD Desktop usage is based on CSC projects. Access to the services is managed directly by the CSC project manager (e.g. research project's principal investigator, group leader, or postdoc) using the MyCSC portal. The CSC project manager can add members who have equal access rights to the same project. They can all upload encrypted data to SD Connect and analyse it using the SD Desktop services. However, only the project manager can export non-sensitive results from the secure computing environment. During CSC account and project creation, users are guided to view and accept CSC's Data Processing Agreement. As the data controller employs the project manager, they act as the data controller's representative and the Data Processing Agreement becomes valid between the academic organization (data controller) and CSC (data processor). 
+
+
+### Compliance when processing health and social data under the Act on Secondary Use
 
 The Finnish Act on Secondary Use of health and social data regulates register data processing. Therefore, register data can only be provided by the Findata Authority and accessed via the SD Desktop service. CSC's helpdesk manages users' access to and results export from the SD Desktop service based on the data permit.
 
@@ -61,9 +59,17 @@ The Finnish Act on Secondary Use of health and social data regulates register da
 
 Access to sensitive data via SD services from a non-EU/EEA country is qualified by the GDPR as a transfer from one data controller to another. In this case, the data controller needs to make an agreement for international data transfers using the EU's standard contractual clauses (SCCs) and make a transfer impact assessment to assess that the state (where the researcher operates) provides an adequate level of data protection and safeguards are in place and that there is has a lawful base for international transfer (such as data subjects have given explicit consents). This is also valid when a collaborator is analysing files using the SD Desktop via data streaming. 
 
+
 ### Data Protection Impact assessment
 
-When creating a CSC project using the MyCSC portal, you are guided to the "Description of processing activities" form, where you describe the data type you are processing. You can then download these documents and share them with the legal services in your organisation or the data controller's representative. 
+When creating a CSC project using the MyCSC portal, you are guided to the "Description of processing activities" form, where you describe the data type you are processing. This document will guida you in identifing a data controller, 
+
+
+
+
+
+
+You can then download these documents and share them with the legal services in your organisation or the data controller's representative. 
 
 In this table, you can find the legal office contact and material from several Finnish academic organizations:
 
