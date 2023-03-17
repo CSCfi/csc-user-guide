@@ -20,7 +20,7 @@ Sensitive Data services for research consist of five components:
 In each section of this manual, you can find an overview of each service's key features and limitations. Technical knowledge or expertise is optional for SD services, and step-by-step instructions and video tutorials are provided. Specific sections are marked as *advanced* if programming skills are required. Quick technical suggestions are available in the troubleshooting table. 
 
 
-## Sensitive data processing in compliance with data protection regulations
+## Compliance with data protection regulations
 
 Sensitive data is data that needs to be protected against unauthorized access. Protection of data may be required due to legal or ethical reasons, issues pertaining to personal privacy, and proprietary considerations. 
 
@@ -36,11 +36,14 @@ Sensitive data includes:
 
 The General Data Protection Regulation (GDPR) and Finnish national laws regulate sensitive personal data processing. 
 
-A data controller is an individual or organisation that determines the purposes and means of the processing of personal data and it is usualy the academic organization
+A data controller is an individual or organisation that determines the purposes and means of the processing of personal data and it is usualy the academic organization. A data processor is an individual or organisation that processes personal data on behalf of a controller, for example an IT service provider with access to the personal data collected by the controller. In this case, CSC is the data processor.
 
-A processor is an individual or organisation that processes personal data on behalf of a controller. A processor can be a marketing agency taking care of another company’s marketing or an IT service provider with access to the personal data collected by the controller.
 
-According to Article 4 of the EU GDPR, a data controller is the entity (person, organization, etc.) that determines the why and the how for processing personal data. A data processor, on the other hand, is the entity that actually performs the data processing on the controller's behalf.
+
+According to the GDPR, a data controller is the entity (person, organization, etc.) that determines the why and the how for processing personal data, and usually this cossisponds to an academic organization. During CSC account and project creation, users are guided to view and accept CSC's Data Processing Agreement. As the data controller employs the project manager, they act as the data controller's representative. The Data Processing Agreement becomes valid between the academic organization (data controller) and CSC (data processor). 
+
+
+A data processor, on the other hand, is the entity that actually performs the data processing on the controller's behalf.
 
 Sensitive data is only accessible with appropriate authorization, rights, or permission. With SD services, access is always managed by the data controller via specific service components in compliance with the GDPR and national regulations.
 
