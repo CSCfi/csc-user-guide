@@ -37,6 +37,9 @@ The General Data Protection Regulation (GDPR) and Finnish national laws regulate
 
 According to the GDPR, a data controller is an individual or organization that determines the purposes and means of processing sensitive personal data, and it is usually an academic organization. On the other hand, a data processor is an individual or organization that processes personal data on the controller's behalf, for example, an IT service provider, in this case, CSC. Data processing terms such as duration, scope, and purpose, and the relationship between the data controller and CSC are defined in a legally biding document called Data Protection Agreement (DPA). 
 
+The Finnish Act on Secondary Use of Health and Social Data applies when health and social information is collected and saved in a register (for example, during examination in health care services, or while applying for social benefits), and then the original information is used for a different purpose, for example reaserch. In this case a data permit authority, Findata,  or the register in question issues data permits and processing is possible only in a certified processing environment.
+
+
 
 !!! Note
     Sensitive data is only accessible with appropriate authorization, rights, or permission. With SD services, access is always managed by the data controller via specific service components in compliance with the GDPR and national regulations.
