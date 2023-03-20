@@ -16,9 +16,12 @@ Sensitive Data services for research consist of five components:
 
 * Sensitive Data Apply (*pilot phase*): promotes data reuse allowing data owners to manage access to published datasets via a simple user interface.
 
-<iframe width="280" height="155"srcdoc="https://www.youtube.com/embed/U74CvhPR16E" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+In this manual you can find:
 
-You can find an overview of each service's key features and limitations in each section of this manual. Technical knowledge or expertise is optional for SD services, and step-by-step instructions and video tutorials are provided. Specific sections are marked as *advanced* if programming skills are required. Quick technical suggestions are available in the troubleshooting table. 
+* an overview of each service's key features and limitations;
+* technical knowledge or expertise is optional for SD services, 
+* step-by-step instructions and video tutorials (specific sections are marked as *advanced* if programming espertise are required);
+* quick technical suggestions are  in the troubleshooting table. 
 
 
 
@@ -52,7 +55,7 @@ The Finnish Act on Secondary Use of Health and Social Data applies when health a
 [![Permissions-management](images/introduction/SD_permissions.png)](images/introduction/SD_permissions.png)
 
 
-### Research data, ecological data, and confidential data: access management
+**Research data, ecological data, and confidential data**
 
 SD Connect and SD Desktop usage is based on CSC projects. Access to the services is managed directly by the CSC project manager (e.g. research project's principal investigator, group leader, or postdoc) using the MyCSC portal. The CSC project manager can add members which will have equal access permissions to the same project. They can all upload encrypted data to SD Connect and analyze it using the SD Desktop services. However, only the project manager can export non-sensitive results from the secure computing environment. During CSC account and project creation, users are guided to view CSC's Data Processing Agreement (DPA). As the CSC project manager is employed by the data cobntroller they also act as it's representative and the DPA becomes valid between the academic organization (the data controller) and CSC (data processor). 
 
@@ -61,23 +64,23 @@ In this table, you can find the legal office contact and material from several F
 
 
 
-### Health and social data under the Act on Secondary Use: access management 
+**Health and social data under the Act on Secondary Use**
 
 The Finnish Act on Secondary Use of health and social data regulates register data processing. Therefore, register data can only be provided by the Findata Authority and accessed via the SD Desktop service. CSC's helpdesk manages users' access to  SD Desktop and results export based on the data permit.
 
 
 
-### Reaserch data reuse: access management
+**Reaserch data reuse**
 
 
 
 
-### Access  to SD services from non-EU/EEA countries
+## Access  to SD services from non-EU/EEA countries
 
 Access to sensitive data via SD services from a non-EU/EEA country is qualified by the GDPR as a transfer from one data controller to another. In this case, the data controller needs to make an agreement for international data transfers using the EU's standard contractual clauses (SCCs) and make a transfer impact assessment to assess that the state (where the researcher operates) provides an adequate level of data protection and safeguards are in place and that there is has a lawful base for international transfer (such as data subjects have given explicit consents). This is also valid when a collaborator is analysing files using the SD Desktop via data streaming. Please contac your organization legal services for advice and support. You can also write at servicedeskcsc.fi (subjuect: sensitive data). 
 
 
-### Data Protection Impact assessment
+## Data Protection Impact assessment
 
 When creating a CSC project using the MyCSC portal, you are guided to the "Description of processing activities" form, where you describe the data type you are processing. This document will guide you in identifying a data controller, 
 
@@ -91,7 +94,7 @@ You can then download these documents and share them with the legal services in 
 In this table, you can find the legal office contact and material from several Finnish academic organizations:
 
 
-
+## Academic organizations contacts and legal support
 
 
 
