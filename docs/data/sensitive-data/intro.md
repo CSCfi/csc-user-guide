@@ -19,7 +19,7 @@ Sensitive Data services for research consist of five components:
 You can find an overview of each service's key features and limitations in each section of this manual. Technical knowledge or expertise is optional for SD services, and step-by-step instructions and video tutorials are provided. Specific sections are marked as *advanced* if programming skills are required. Quick technical suggestions are available in the troubleshooting table. 
 
 
-## Compliance with data protection regulations
+## Compliance with data protection regulations and permission management 
 
 Sensitive data is data that needs to be protected against unauthorized access. Data protection may be required due to legal or ethical reasons, personal privacy, and proprietary considerations. 
 
@@ -41,12 +41,8 @@ The Finnish Act on Secondary Use of Health and Social Data applies when health a
 
 
 !!! Note
-    Sensitive data is only accessible with appropriate authorization, rights, or permission. With SD services, access is always managed by the data controller via specific service components in compliance with the GDPR and national regulations.
+    Sensitive data is only accessible with appropriate authorization, rights, or permission. With SD services, access is always managed by the data controller via specific service components in compliance with the GDPR and national regulations. In the following paraghraph you can find an overview of permission management via SD services and summary of the main documentation that should be considered. 
     
-
-In the following paragraphs, we summarise 
-
-
 
 
 
@@ -158,7 +154,7 @@ The Finnish Act on Secondary Use of health and social data regulates register da
 
 ### Access from non-EU/EEA countries:
 
-Access to sensitive data via SD services from a non-EU/EEA country is qualified by the GDPR as a transfer from one data controller to another. In this case, the data controller needs to make an agreement for international data transfers using the EU's standard contractual clauses (SCCs) and make a transfer impact assessment to assess that the state (where the researcher operates) provides an adequate level of data protection and safeguards are in place and that there is has a lawful base for international transfer (such as data subjects have given explicit consents). This is also valid when a collaborator is analysing files using the SD Desktop via data streaming. 
+Access to sensitive data from a non-EU/EEA country is qualified by the GDPR as a transfer from one data controller to another. In this case, the data controller needs to make an agreement for international data transfers using the EU's standard contractual clauses (SCCs) and make a transfer impact assessment to assess that the state (where the researcher operates) provides an adequate level of data protection and safeguards are in place and that there is has a lawful base for international transfer (such as data subjects have given explicit consents). This is also valid when a collaborator is analysing files using the SD Desktop via data streaming. 
 
 
 ### Data Protection Impact assessment
