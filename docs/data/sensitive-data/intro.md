@@ -19,6 +19,9 @@ Sensitive Data services for research consist of five components:
 You can find an overview of each service's key features and limitations in each section of this manual. Technical knowledge or expertise is optional for SD services, and step-by-step instructions and video tutorials are provided. Specific sections are marked as *advanced* if programming skills are required. Quick technical suggestions are available in the troubleshooting table. 
 
 
+[![Desktop-overview](images/desktop/desktop_overviewnew1.png)](images/desktop/desktop_overviewnew1.png)
+
+
 ## Compliance with data protection regulations and permission management 
 
 Sensitive data is data that needs to be protected against unauthorized access. Data protection may be required due to legal or ethical reasons, personal privacy, and proprietary considerations. 
@@ -44,6 +47,7 @@ The Finnish Act on Secondary Use of Health and Social Data applies when health a
     Sensitive data is only accessible with appropriate authorization, rights, or permission. With SD services, access is always managed by the data controller via specific service components in compliance with the GDPR and national regulations. In the following paraghraph you can find an overview of permission management via SD services and summary of the main documentation that should be considered. 
     
 
+[![Desktop-overview](images/desktop/desktop_overviewnew1.png)](images/desktop/desktop_overviewnew1.png)
 
 
 ### Permission management: research data, ecological data, and confidential data
