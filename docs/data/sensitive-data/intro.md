@@ -37,19 +37,26 @@ The General Data Protection Regulation (GDPR) and Finnish national laws regulate
 
 According to the GDPR, a data controller is an individual or organization that determines the purposes and means of processing sensitive personal data, and it is usually an academic organization. On the other hand, a data processor is an individual or organization that processes personal data on the controller's behalf, for example, an IT service provider, in this case, CSC. Data processing terms such as duration, scope, and purpose, and the relationship between the data controller and CSC are defined in a legally biding document called Data Protection Agreement (DPA). 
 
-The Finnish Act on Secondary Use of Health and Social Data applies when health and social information is collected and saved in a register (for example, during examination in health care services, or while applying for social benefits), and then the original information is used for a different purpose, for example reaserch. In this case a data permit authority, Findata,  or the register in question issues data permits and processing is possible only in a certified processing environment.
-
+The Finnish Act on Secondary Use of Health and Social Data applies when health and social information is collected and saved in a register (for example, during examination in health care services, or while applying for social benefits), and then the original information is used for a different purpose, for example research. In this case a data permit authority, Findata, or the register in question issues data permits and processing is possible only in a certified processing environment in compliance with the Finnish Act on the Secondary Use and the Findata Authority's Regulationn. 
 
 
 !!! Note
     Sensitive data is only accessible with appropriate authorization, rights, or permission. With SD services, access is always managed by the data controller via specific service components in compliance with the GDPR and national regulations.
     
-In the following paragraphs, we summarise the main aspect and processes that need to be considered when accessing SD service. 
+
+In the following paragraphs, we summarise 
+
+
+
 
 
 ### Permission management: research data, ecological data, and confidential data
 
-SD Connect and SD Desktop usage is based on CSC projects. Access to the services is managed directly by the CSC project manager (e.g. research project's principal investigator, group leader, or postdoc) using the MyCSC portal. The CSC project manager can add members with equal access rights to the same project. They can all upload encrypted data to SD Connect and analyze it using the SD Desktop services. However, only the project manager can export non-sensitive results from the secure computing environment. During CSC account and project creation, users are guided to view and accept CSC's Data Processing Agreement. As the data controller employs the project manager, they act as the data controller's representative and the Data Processing Agreement becomes valid between the academic organization (the data controller) and CSC (data processor). 
+SD Connect and SD Desktop usage is based on CSC projects. Access to the services is managed directly by the CSC project manager (e.g. research project's principal investigator, group leader, or postdoc) using the MyCSC portal. The CSC project manager can add members with equal access rights to the same project. They can all upload encrypted data to SD Connect and analyze it using the SD Desktop services. However, only the project manager can export non-sensitive results from the secure computing environment. During CSC account and project creation, users are guided to view CSC's Data Processing Agreement (DPA). As the CSC project manager is emplyed by the data cobntroller they also act as it's representative and the DPA becomes valid between the academic organization (the data controller) and CSC (data processor). 
+
+You can then download these documents and share them with the legal services in your organisation or the data controller's representative. 
+In this table, you can find the legal office contact and material from several Finnish academic organizations:
+
 
 
 ### Permission management: health and social data under the Act on Secondary Use
@@ -59,7 +66,7 @@ The Finnish Act on Secondary Use of health and social data regulates register da
 
 ### Access from non-EU/EEA countries
 
-Access to sensitive data via SD services from a non-EU/EEA country is qualified by the GDPR as a transfer from one data controller to another. In this case, the data controller needs to make an agreement for international data transfers using the EU's standard contractual clauses (SCCs) and make a transfer impact assessment to assess that the state (where the researcher operates) provides an adequate level of data protection and safeguards are in place and that there is has a lawful base for international transfer (such as data subjects have given explicit consents). This is also valid when a collaborator is analysing files using the SD Desktop via data streaming. 
+Access to sensitive data via SD services from a non-EU/EEA country is qualified by the GDPR as a transfer from one data controller to another. In this case, the data controller needs to make an agreement for international data transfers using the EU's standard contractual clauses (SCCs) and make a transfer impact assessment to assess that the state (where the researcher operates) provides an adequate level of data protection and safeguards are in place and that there is has a lawful base for international transfer (such as data subjects have given explicit consents). This is also valid when a collaborator is analysing files using the SD Desktop via data streaming. Please contac your organization legal services for advice and support. You can also write at servicedeskcsc.fi (subjuect: sensitive data). 
 
 
 ### Data Protection Impact assessment
