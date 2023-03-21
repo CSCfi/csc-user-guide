@@ -258,10 +258,11 @@ nav:
              - Pouta videos: cloud/pouta/pouta-videos.md
              - Known problems and limitations: cloud/pouta/known-problems.md
      - Pukki (DBaaS):
-        - Contents: cloud/dbaas/index.md
+        - cloud/dbaas/index.md
         - What is DBaaS: cloud/dbaas/what-is-dbaas.md
         - Security Guides: cloud/dbaas/security-guides.md
         - Getting started with DBaaS:
+             - cloud/dbaas/getting-started.md
              - Web interface: cloud/dbaas/web-interface.md
              - Command Line tools: cloud/dbaas/cli.md
              - Database Operations: cloud/dbaas/operations.md
@@ -269,6 +270,7 @@ nav:
         - Database sizes and prices: cloud/dbaas/flavors.md
         - Backups: cloud/dbaas/backups.md
         - Databases:
+             - cloud/dbaas/databases.md
              - PostgreSQL: cloud/dbaas/postgresql.md
         - More advanced features: cloud/dbaas/advanced.md
      - Grid computing:
