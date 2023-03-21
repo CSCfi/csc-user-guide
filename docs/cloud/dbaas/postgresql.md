@@ -1,4 +1,5 @@
-# Postgresql
+# PostgreSQL
+
 !!! error "Closed Beta"
     Pukki DBaaS is in closed beta. This means that services is probably not suitable for most users
     and there might be breaking changes. If you are still interested in using the service you can
@@ -44,7 +45,7 @@ By default we assume that default parameters are sane and that users should not,
 | max_connections      | 100  | It is usually recommended to use connection pools instead of modify this value |
 | work_mem             | 4MB  | |
 
-## Postgresql extensions
+## PostgreSQL extensions
 
 It is not possible for users to add additional extensions that is not already installed. If there
 are some extensions you would like to see available in Pukki please be in contact with

@@ -18,4 +18,4 @@
 * [Database operations](operations.md)
 
 <h2>Database types</h2>
-* [Postgresql](postgresql.md)
+* [PostgreSQL](postgresql.md)

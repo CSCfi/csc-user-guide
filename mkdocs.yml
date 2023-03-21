@@ -269,7 +269,7 @@ nav:
         - Database sizes and prices: cloud/dbaas/flavors.md
         - Backups: cloud/dbaas/backups.md
         - Databases:
-             - Postgresql: cloud/dbaas/postgresql.md
+             - PostgreSQL: cloud/dbaas/postgresql.md
         - More advanced features: cloud/dbaas/advanced.md
      - Grid computing:
         - The Grid Monitor: cloud/grid/grid-monitor.md
