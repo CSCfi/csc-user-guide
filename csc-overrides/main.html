@@ -1,10 +1,4 @@
 {% extends "base.html" %}
-{% block extrahead %}
-    {{ super () }}
-    {% if config.extra.mkdocs_env == "production" %}
-        {% include "partials/matomo.html" %}
-    {% endif %}
-{% endblock extrahead %}
 {% block announce %}
     {% if config.extra.announcement_visible is not true %}
     <style>
