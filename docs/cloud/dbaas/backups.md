@@ -2,7 +2,7 @@
 !!! error "Closed Beta"
     Pukki DBaaS is in closed beta. This means that services is probably not suitable for most users
     and there might be breaking changes. If you are still interested in using the service you can
-    contact service-desk to see if the service would be suitable for you.
+    [contact us](../../support/contact.md) to see if the service would be suitable for you.
 
 All databases in DBaaS gets automatically backed up about every 24 hours. Users can also manually
 backup their instances but that means that the next automatic backup will be taken about 24 hours
