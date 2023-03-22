@@ -24,6 +24,7 @@ The [contributing guide](CONTRIBUTING.md) outlines the basic steps of starting c
   - [How do I use the announcement bar?](#how-do-i-use-the-announcement-bar)
   - [How do I add a license tag to an application page?](#how-do-I-add-a-license-tag-to-an-application-page)
   - [How do I make footnotes?](#how-do-i-make-footnotes)
+  - [How do I improve search results?](#how-do-i-improve-search-results)
 
 
 ## How to include my new page in the navigation panel?
@@ -299,3 +300,18 @@ The application will then be included on the Applications by license page automa
 
 Usage of the footnotes feature is described
 [here](https://squidfunk.github.io/mkdocs-material/reference/footnotes/#usage).
+
+## How do I improve search results?
+
+You can boost a page to be on top of the results by adding the following lines at the top of the Markdown file:
+```yaml
+---
+search:
+  boost: 2
+---
+
+# Document title
+...
+```
+Start with low values.  
+More information [here](https://squidfunk.github.io/mkdocs-material/setup/setting-up-site-search/#rank-up)
