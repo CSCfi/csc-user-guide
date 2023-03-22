@@ -64,5 +64,5 @@ parameters that are not directly available as profile options should be given as
 ## More Information
 
 * [VisIt homepage (source code, binaries, manuals and tutorials, example data
-  files)](https://wci.llnl.gov/simulation/computer-codes/visit/)
+  files)](https://visit-dav.github.io/visit-website/)
 * [User community web site](http://visitusers.org)

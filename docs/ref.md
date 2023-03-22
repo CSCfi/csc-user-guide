@@ -1,3 +1,8 @@
+---
+search:
+  boost: 0.1
+---
+
 # Reference card
 !!! default "Documentation"
 
@@ -20,6 +25,8 @@ like to imagine it's what a typewriter would dream.
 > Vel suscipit quia voluptates quis. Rerum sequi voluptatem in non ipsam tempora quod natus. Soluta
 perferendis illo saepe sint ipsa vitae provident non. Et qui quaerat et rerum libero officia omnis
 enim. Laboriosam autem vel vel aut quod.
+
+Here's a reference to a footnote:[^1]
 
 ## Glossary
 There is a glossary of HPC-related acronyms that get highlighted automatically. For example: CPU,
@@ -358,3 +365,8 @@ for MkDocs) is called 'outlined' in the CSC Design System. -->
 
         === "But possible, nonetheless"
             I would recommend against it, though.
+
+[^1]: This is the footnote ...and here's a shoenote for the footnote: 👞🎵
+[^2]:
+    Here's another footnote. Though, this one's a _barefootnote_!  
+    Get it? 'Cause it's got no shoenote! Ahuehuehuehue!

@@ -11,7 +11,7 @@ tags:
 
 __SNAP__ is available in Puhti with following versions:
 
-* 9.0 (without Python interfaces)
+* 9.0 (wrapped singularity container with Python 3.6.9 including snappy and snapista)
 * 8.0 (Singularity container with snappy 8.0.3 and Python 3.6.9)
 
 ### Installed toolboxes
@@ -37,15 +37,8 @@ This loads the newest available version. You can load an older version with:
 
 The easiest option for using SNAP is to open it in [Puhti web interface as Desktop app](../computing/webinterface/desktop.md).
 
-1. Log in to [Puhti web interface](https://puhti.csc.fi). [Puhti web interface documentation](../computing/webinterface/desktop.md).
-2. Start SNAP: Apps -> Desktop, choose Desktop: 'single application' and App: 'SNAP'
-3. The SNAP GUI is started automatically when the Desktop is launched. 
- 
-
-Alternatively, especially if you want to use SNAP together with some other GUI tool, want to user older version of SNAP or want to increase the default Java memory allocaiton, SNAP can be started in Puhti web interface with remote desktop:
-
 1. Log in to [Puhti web interface](https://puhti.csc.fi).
-2. Open Remote desktop: Apps -> Desktop, choose Desktop: `mate` or `xfce`. 
+2. Open Remote desktop: Apps -> Desktop, choose Desktop: `xfce`. 
 3. After launcing the remote desktop, double-click SNAP icon OR open `Host Terminal` (Desktop icon) and start SNAP:
 
 ```
@@ -75,6 +68,7 @@ This scripts sets also Java temporary folder, it is set to be snap/temp subfolde
         The graphical user interface does not follow snap.userdir setting, but it notices the Java setting. Using SNAP GUI will create a __.snap__ folder inside your HOME directory and fill it. Empty it if you run out of space in your HOME directory.
 
 #### Java memory settings
+
 __By default SNAP/8.0 in Puhti uses only up to 2 Gb memory for Java.__ To increase this, add `-J-xmx10G` or similar setting to `snap` or `gpt` command. `-J-xmx10G` extends the Java maximum memory to 10Gb. Adjust this according to your needs and job memory reservation. Compared to your job memory reservation use for Java a few Gb less.
 
 ### Using SNAP with Graph Processing Tool (gpt) command
@@ -111,27 +105,49 @@ gpt <snap-operator> -h
 * [Full examples how to run GPT in Puhti in GitHub](https://github.com/csc-training/geocomputing/tree/master/snap). The examples include both a simple job with one GPT graph and an [array job](../computing/running/array-jobs.md) where the same graph is computed for several input images.
 
 
-### Using SNAP with the Python library snappy
+### Using SNAP with the Python interfaces
 
-It is also possible to access SNAP functionalities from Python with the __snappy__ library.
+It is also possible to access SNAP functionalities from Python with the __snappy__ and __snapista__(only SNAP 9) library.
 
-__SNAP 8.0__
+__SNAP 9.0__
 
-Running snappy scripts with batch jobs:
+Running snappy/snapista scripts with batch jobs:
 ```
-singularity_wrapper exec python3 <YOUR-PYTHON-SCRIPT>
+python3 <YOUR-PYTHON-SCRIPT>
 ```
 
 See available packages:
 ```
-singularity_wrapper exec pip list
+pip3 list
 ```
 
 Installing new packages to your HOME directory, see [Python](python.md#installing-python-packages-to-existing-modules) instructions how to change installation directory.
 
 ```
-singularity_wrapper exec pip <NEW-PACKAGE-NAME> --user
+pip <NEW-PACKAGE-NAME> --user
 ```
+
+__SNAP 8.0__
+
+Running snappy scripts with batch jobs:
+```
+apptainer_wrapper exec python3 <YOUR-PYTHON-SCRIPT>
+```
+
+See available packages:
+```
+apptainer_wrapper exec pip list
+```
+
+Installing new packages to your HOME directory, see [Python](python.md#installing-python-packages-to-existing-modules) instructions how to change installation directory.
+
+```
+apptainer_wrapper exec pip <NEW-PACKAGE-NAME> --user
+```
+
+## Updating SNAP
+
+SNAP minor and module updates are stored in the `$HOME/.snap` directory. This means that all minor updates need to be installed by the user. You can either do this in SNAP Desktop by following the instructions in the pop-up at start up, or for SNAP 9 by running `source update_snap` after loading the SNAP module in the terminal.
 
 ## License and acknowledgement
 

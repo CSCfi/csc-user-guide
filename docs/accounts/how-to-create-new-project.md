@@ -1,3 +1,8 @@
+---
+search:
+  boost: 2
+---
+
 # Creating a new project
 
 !!! Note
