@@ -1,3 +1,8 @@
+---
+search:
+  boost: 0.1
+---
+
 # CSC Quick Reference
 
 Contact: @attesillanpaa @JMuff22 @joonas-somero
@@ -10,4 +15,4 @@ Simply `latexmk -pdf --shell-escape "csc-quick-reference.tex"`. Latexmk ships wi
 
 ## Word Doc
 
-Open the word doc (`.docx`) in Microsoft word, edit and save as pdf. 
+Open the word doc (`.docx`) in Microsoft word, edit and save as pdf.
