@@ -1,3 +1,8 @@
+---
+search:
+  boost: 0.1
+---
+
 # CSC Quick Reference
 
 Contact: @attesillanpaa @JMuff22 @joonas-somero
