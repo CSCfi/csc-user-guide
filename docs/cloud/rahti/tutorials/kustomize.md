@@ -163,7 +163,7 @@ To apply an overlay, use this command:
 oc apply -k overlays/production
 ```
 
-It aslo possible to delete everything created by an overlay using this command:
+It also possible to delete everything created by an overlay using this command:
 
 ```sh
 oc delete -k overlays/production
