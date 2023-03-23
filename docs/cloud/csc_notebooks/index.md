@@ -1,3 +1,8 @@
+---
+search:
+  boost: 2
+---
+
 # CSC Notebooks
 
 [CSC Notebooks](https://notebooks.csc.fi){target="_blank"} offers web applications for self-learning, hosting courses 
