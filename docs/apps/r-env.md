@@ -395,7 +395,7 @@ plan(cluster, workers = cl)
 stopCluster(cl)
 ```
 
-For practical examples of jobs using `plan(cluster)` and `plan(multicore)` with raster data, [see this page](https://github.com/csc-training/geocomputing/tree/master/R/puhti/05_parallel_future). 
+For practical examples of jobs using `plan(cluster)` and `plan(multicore)` with raster data, [see this page](https://github.com/csc-training/geocomputing/tree/master/R/puhti/02_parallel_future). 
 
 *Jobs using `pbdMPI`*
 
