@@ -156,7 +156,7 @@ spec:
 +  host: t-test-kustomize.2.rahtiapp.fi
 ```
 What does this mean?  
-You can see by applying **overlays** you'll patch your files without editing the originals. The only thing to do is to add different values for what you want to be changed and apply the overlays.  
+You can see by applying **overlays** you'll patch your files without editing the originals. The only thing to do is to add different values on what you want to be changed and apply the overlays.  
 With **overlays** you can have several files ordered into folders. For example, if you need to modify some values inside a yaml file for a production environment, you can easily do it by using **overlays** without affecting your main files. You can also create another folder `nightly` for beta testing and put there different values.  
 
 To apply an overlay, use this command:
