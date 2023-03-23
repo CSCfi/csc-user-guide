@@ -10,18 +10,17 @@ Sensitive Data services for research consist of five components:
 
 * Sensitive Data Connect: a user interface for importing and storing sensitive data to CSC's cloud storage solution (Allas). SD Connect also facilitates sharing or transferring encrypted sensitive data during the active phases of research projects ([service description on research.csc.fi](https://research.csc.fi/-/sd-connect)). 
 
-* Sensitive Data Desktop: a user interface that provides access to a secure virtual computer (or virtual Desktop). It enables secure computation and analysis of sensitive data. In addition, a restricted version of SD Desktop is provided for processing registry data (secondary Use of health and social data). The limitations are described in a separate user guide (see: SD Desktop for secondary Use) ([service description research.csc.fi](https://research.csc.fi/-/sd-desktop)).
+* Sensitive Data Desktop: a user interface that provides access to a secure virtual computer (or virtual Desktop). It enables secure computation and analysis of sensitive data. In addition, a restricted version of SD Desktop is provided for processing register data and the limitations are described in a separate user guide (see: SD Desktop for secondary Use) ([service description research.csc.fi](https://research.csc.fi/-/sd-desktop)).
 
-* Sensitive Data Submit and Federated EGA (*pilot phase*): allow publishing of sensitive and biomedical data under controlled access ([service description research.csc.fi](https://research.csc.fi/-/fega)). 
+* Sensitive Data Submit and Federated EGA (*pilot phase*): allows publishing of sensitive and biomedical data under controlled access ([service description research.csc.fi](https://research.csc.fi/-/fega)). 
 
 * Sensitive Data Apply (*pilot phase*): promotes data reuse allowing data owners to manage access to published datasets via a simple user interface.
 
 In this manual you can find:
 
 * an overview of each service's key features and limitations;
-* technical knowledge or expertise is optional for SD services, 
-* step-by-step instructions and video tutorials (specific sections are marked as *advanced* if programming espertise are required);
-* quick technical suggestions are  in the troubleshooting table. 
+* step-by-step instructions and video tutorials (specific sections are marked as *advanced* if technical espertise are required);
+* quick technical suggestions in the troubleshooting table. 
 
 
 
