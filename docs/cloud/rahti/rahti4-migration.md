@@ -75,10 +75,10 @@ In Rahti4 the default limits are lower than the default quota:
     - resources:
         limits:
           cpu: 500m
-          memory: 500Mi
+          memory: 1Gi
         requests:
           cpu: 50m
-          memory: 100Mi
+          memory: 500Mi
 ```
 
 This change helps lowering the default costs for the user, gives the administrators a better understanding of the total resource usage and needs, and improves loadbalancing.

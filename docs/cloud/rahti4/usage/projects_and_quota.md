@@ -119,24 +119,17 @@ clicking the question mark symbol in the top bar and selecting "About".
 
 ## Project quotas
 
-Two kinds of quota are applied in OpenShift:
-
-* Total number of projects per user
-* Resources created inside a project
-
-By default, users can create **up to five projects**. Each of them has its
-own quota for the following resources:
+Each project has its own quota. Initial quota is the following:
 
 | Resource                         | Default |
 |----------------------------------|---------|
-| Pods                             | ??      |
-| Virtual cores per pod            | 4       |
-| Virtual cores per container      | 4       |
-| RAM per pod                      | 16 GiB  |
-| RAM per container                | 16 GiB  |
+| Virtual cores                    | 4       |
+| RAM                              | 16 GiB  |
 | Storage                          | 100 GiB |
-| Number of image streams          | 20      |
+| Number of image streams (images) | 20      |
 | Size of each registry images     | 5 GiB   |
+
+This means that your project can use up to 4 cores and 16GiB in total.
 
 You can find the resource usage and quota of a project in the project view in
 the web interface under **Administration -> ResourceQuota** and **Administration -> LimitRanges** in the `Administrator` menu.
@@ -162,12 +155,12 @@ The user can set the limits explicitly within the available quota, but if no lim
 
 |Type|CPU|Memory|
 |:-:|:-:|:-:|
-|limits|500m|500Mi|
-|requests|50m|100Mi|
+|limits|500m|1Gi|
+|requests|50m|500Mi|
 
 Note: `m` stands for milicores. `500m` will be the equivalent of 0.5 cores, or in other words half of the time of a CPU core.
 
-Rahti4 will enforce a maximum limit/request ratio of 10. This means that the CPU or memory `limits` cannot be more than 10 times the `request`. So if the CPU request is 50m, the CPU limit cannot be higher than 500m. And if we wanted to increase the CPU limit to 1, we will have to increase aswell the request to at least 100m. 
+Rahti4 will enforce a maximum limit/request ratio of 5. This means that the CPU or memory `limits` cannot be more than 5 times the `request`. So if the CPU request is 50m, the CPU limit cannot be higher than 500m. And if we wanted to increase the CPU limit to 1, we will have to increase aswell the request to at least 100m. 
 
 ## Sharing projects with other users
 

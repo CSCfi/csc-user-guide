@@ -11,7 +11,7 @@ Rahti4 is the next version of OpenShift OKD running in CSC. The underlining vers
 There are few breaking changes to take into account.
 
 1. [Storage](/cloud/rahti4/rahti4-migration/#how-to-use-storage), ReadWriteMany (RWX) is no longer supported.
-1. [Default limits](/cloud/rahti4/rahti4-migration/#what-are-the-default-limits), the default limits are much lower (`{"cpu": 500m, "memory": 500Mi}`). Most deployments will need explicit cpu and memory limits. 
+1. [Default limits](/cloud/rahti4/rahti4-migration/#what-are-the-default-limits), the default limits are much lower (`{"cpu": 500m, "memory": 1Gi}`). Most deployments will need explicit cpu and memory limits.
 
 More information can be obtained by following the links.
 
@@ -84,13 +84,13 @@ In Rahti4 the default limits are lower than the default quota:
     - resources:
         limits:
           cpu: 500m
-          memory: 500Mi
+          memory: 1Gi
         requests:
           cpu: 50m
-          memory: 100Mi
+          memory: 500Mi
 ```
 
-In addition, Rahti4 will enforce a maximum limit/request ratio of 10. This means that the CPU or memory `limits` cannot be more than 10 times the `request`. So if the CPU request is 50m, the CPU limit cannot be higher than 500m. And if we wanted to increase the CPU limit to 1, we will have to increase aswell the request to at least 100m. 
+In addition, Rahti4 will enforce a maximum limit/request ratio of 5. This means that the CPU or memory `limits` cannot be more than 5 times the `request`. So if the CPU request is 50m, the CPU limit cannot be higher than 500m. And if we wanted to increase the CPU limit to 1, we will have to increase aswell the request to at least 500m.
 
 This change helps lowering the default costs for the user, gives the administrators a better understanding of the total resource usage and needs, and improves loadbalancing.
 
