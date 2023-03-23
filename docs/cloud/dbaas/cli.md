@@ -196,7 +196,7 @@ These are the available commands at the moment
 | openstack database instance update 			| Supported 	|	Subset of the flags are supported. Flags that are supported: --name , --allowed-cidr|
 | openstack database instance upgrade 			| Supported 	| 	Upgrading the database instance. This command will cause downtime. |
 | openstack database limit list 			| Supported 	||
-| openstack database log list 				| Not available ||
+| openstack database log list 				| Supported     |	Allows to view instance logs. This API is unstable and might get changed, it does not do the same thing as upstream |
 | openstack database log save 				| Not available ||
 | openstack database log set 				| Not available ||
 | openstack database log show 				| Not available ||
