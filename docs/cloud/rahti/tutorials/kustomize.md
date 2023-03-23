@@ -119,7 +119,6 @@ spec:
 -      storage: 500Mi
 status: {}
 
----
 
 apiVersion: v1
 kind: PersistentVolumeClaim
@@ -148,7 +147,6 @@ spec:
 status:
   ingress: []
 
----
 
 apiVersion: route.openshift.io/v1
 kind: Route
