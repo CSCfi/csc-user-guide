@@ -8,25 +8,26 @@ To navigate the user guide, click on the topics on the left-hand side of the pag
 
 
 
-## Sensitive research data processing
-
+### Sensitive research data processing
 
 
 ### [Introduction](./intro.md)
 
-A general overview of the services for managing sensitive research data. Includes and a quick introduction to compliance with data protection regulations and contacts to academic organizations legal support services. Please check this section if you are accessing the service for the first time.
+A general overview of SD services for managing sensitive research data. Includes and a quick introduction to compliance with data protection regulations and contacts to academic organizations' legal support services. Please check this section if you are accessing the services for the first time.
 
 
 ### [Accessing SD Services](./sd-access.md)
-CSC's Sensitive Data (SD) services are available to researchers and students affiliated with Finnish higher education institutions (universities, universities of applied sciences) or a state research institute and their international collaborators. Access to the service is managed using the mycsc.fi portal. Using the servces consumersresources (Billing Unites and quotas). 
+Using the my.csc.fi portal set up a user account and complete the following steps to access the services. 
 
 
 ### [Store and share with SD Connect](./sd_connect.md)
 
+SD Connect allows you to store sensitive research data in the CSC's cloud storage solution Allas. With this user interface, you can easily encrypt and upload files from your web browser. As a result, SD Connect can serve as a workspace for collaborative research projects, facilitating data collection and sharing. Data upload is also possible programmatically. Encrypted files stored in SD Connect are directly available for analysis, annotiation or editing via the SD Desktop service. 
 
 
 ### [Analyse and compute with SD Desktop](./sd_desktop.md)
 
+Sensitive Data (SD) Desktop allows you to analyze sensitive research data from your web browser securely. With this user interface, you can easily manage (start, use, delete) a virtual computer (here called desktop, technically defined as virtual machine). In addition, SD Desktop provides a secure workspace for collaborative research projects. 
 
 
 
