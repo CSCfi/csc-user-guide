@@ -1,8 +1,6 @@
 # Sensitive Data (SD) Services for research: user guide
 
-This manual, in CSC Docs, introduces CSC's Sensitive Data (SD) services. 
-
-Below is an overview of the contents organized into distinct sections for processing sensitive research data (SD Connect and SD Desktop, standard service) or register data (SD Desktop for secondary use, limited version). 
+This manual, in CSC Docs, introduces CSC's Sensitive Data (SD) services. Below is an overview of the contents organized into distinct sections for processing sensitive research data (SD Connect and SD Desktop, standard service) or register data (SD Desktop for secondary use, limited version). 
 To navigate the user guide, click on the topics on the left-hand side of the page in the navigation bar, or use the search functionality. Next, browse the paragraphs inside each section using the navigation bar on the right side of each page.
 
 
@@ -11,33 +9,30 @@ To navigate the user guide, click on the topics on the left-hand side of the pag
 ### Sensitive research data processing
 
 
-### [Introduction](./intro.md)
+#### [Introduction](./intro.md)
 
 A general overview of SD services for managing sensitive research data. Includes and a quick introduction to compliance with data protection regulations and contacts to academic organizations' legal support services. Please check this section if you are accessing the services for the first time.
 
 
-### [Accessing SD Services](./sd-access.md)
+#### [Accessing SD Services](./sd-access.md)
 Using the my.csc.fi portal set up a user account and complete the following steps to access the services. 
 
 
-### [Store and share with SD Connect](./sd_connect.md)
+#### [Store and share with SD Connect](./sd_connect.md)
+SD Connect allows you to store sensitive research data in the CSC's cloud storage solution and share them with your collaborators. Encrypted data upload is possible via your web-browser or programmatically.
 
-SD Connect allows you to store sensitive research data in the CSC's cloud storage solution Allas. With this user interface, you can easily encrypt and upload files from your web browser. As a result, SD Connect can serve as a workspace for collaborative research projects, facilitating data collection and sharing. Data upload is also possible programmatically. Encrypted files stored in SD Connect are directly available for analysis, annotiation or editing via the SD Desktop service. 
-
-
-### [Analyse and compute with SD Desktop](./sd_desktop.md)
-
-Sensitive Data (SD) Desktop allows you to analyze sensitive research data from your web browser securely. With this user interface, you can easily manage (start, use, delete) a virtual computer (here called desktop, technically defined as virtual machine). In addition, SD Desktop provides a secure workspace for collaborative research projects. 
+#### [Analyse and compute with SD Desktop](./sd_desktop.md)
+Set up yoru virtual Desktop to analyze sensitive research data from your web browser securely.
 
 
 
-## Register data processing under the Act on Secondary Use
+### Register data processing under the Act on Secondary Use
 
 
-### [SD Desktop for secondary use of health and social data](./sd-desktop-audited.md)
+#### [SD Desktop for secondary use of health and social data](./sd-desktop-audited.md)
 
 
-### Guidelines for data controllers/ registers
+#### Guidelines for data controllers/ registers
 
 
 
