@@ -13,19 +13,19 @@ To navigate the user guide, click on the topics on the left-hand side of the pag
 ### 1. Sensitive research data processing
 
 
-#### 1.1 [Introduction](./intro.md)
+#### [Introduction](./intro.md)
 
 A general overview of SD services for managing sensitive research data. Includes and a quick introduction to compliance with data protection regulations and contacts to academic organizations' legal support services. Please check this section if you are accessing the services for the first time.
 
 
-#### 1.2 [Accessing SD Services](./sd-access.md)
+#### [Accessing SD Services](./sd-access.md)
 Using the my.csc.fi portal set up a user account and complete the following steps to access the services. 
 
 
-#### 1.3 [Store and share with SD Connect](./sd_connect.md)
+#### [Store and share with SD Connect](./sd_connect.md)
 SD Connect allows you to store sensitive research data in the CSC's cloud storage solution and share them with your collaborators. Encrypted data upload is possible via your web-browser or programmatically.
 
-#### 1.4 [Analyse and compute with SD Desktop](./sd_desktop.md)
+####  [Analyse and compute with SD Desktop](./sd_desktop.md)
 Set up yoru virtual Desktop to analyze sensitive research data from your web browser securely.
 
 
@@ -33,10 +33,10 @@ Set up yoru virtual Desktop to analyze sensitive research data from your web bro
 ### 2. Register data processing under the Act on Secondary Use
 
 
-#### 2.1 [SD Desktop for secondary use of health and social data](./sd-desktop-audited.md)
+#### [SD Desktop for secondary use of health and social data](./sd-desktop-audited.md)
 
 
-#### 2.2 Guidelines for data controllers/ registers
+####  Guidelines for data controllers/ registers
 
 
 
