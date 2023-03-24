@@ -11,33 +11,27 @@ To navigate the user guide, click on the topics on the left-hand side of the pag
 
 
 
-### 1. Sensitive research data processing
+#### 1. Sensitive research data processing
 
 
-#### [Introduction](./intro.md)
+* **[Introduction](./intro.md)** Overview of SD services, with a quick introduction to compliance with data protection regulations and contacts to academic organizations' legal support services. Please check this section if you are accessing the services for the first time.
 
-Overview of SD services, with a quick introduction to compliance with data protection regulations and contacts to academic organizations' legal support services. Please check this section if you are accessing the services for the first time.
-
-
-#### [Accessing SD Services](./sd-access.md)
-Using the my.csc.fi portal set up a user account and complete the following steps to access the services. 
+*  **[Accessing SD Services](./sd-access.md)** Using the my.csc.fi portal set up a user account and complete the following steps to access the services. 
 
 
-#### [Store and share with SD Connect](./sd_connect.md)
-Access SD Connect to store encrypted sensitive research data in the CSC's cloud storage solution or share it with your collaborators. Encrypted data upload is possible via web-browser or programmatically.
+* **[Store and share with SD Connect](./sd_connect.md)** Access SD Connect to store encrypted sensitive research data in the CSC's cloud storage solution or share it with your collaborators. Encrypted data upload is possible via web-browser or programmatically.
 
-####  [Analyse and compute with SD Desktop](./sd_desktop.md)
-Set up your virtual Desktop to analyse sensitive data securely from your web-browser. 
+* **[Analyse and compute with SD Desktop](./sd_desktop.md)** Set up your virtual Desktop to analyse sensitive data securely from your web-browser. 
 
 
 
-### 2. Register data processing under the Act on Secondary Use
+#### 2. Register data processing under the Act on Secondary Use
 
 
-#### [SD Desktop for secondary use of health and social data](./sd-desktop-audited.md)
+* **[SD Desktop for secondary use of health and social data](./sd-desktop-audited.md)
 
 
-####  Guidelines for data controllers/ registers
+* **Guidelines for data controllers/ registers**
 
 
 
@@ -53,119 +47,3 @@ Set up your virtual Desktop to analyse sensitive data securely from your web-bro
 
 
 
-
-## [Introduction](./intro.md)
-  * [Introduction to the user guide](./intro.md#introduction-to-the-user-guide)
-  * [Introduction to the services](./intro.md#introduction-to-the-services)
-  * [Legal agreements](./intro.md#legal-agreements)
-  * [Useful terminology](./intro.md#useful-terminology)
-
-
-## [Accessing SD Services](./sd-access.md)
-
-* [For research data processing](./sd-access.md#processing-sensitive-research-data)
-* [For register data processing under the Act on Secondary use](./sd-access.md#processing-register-data-under-the-act-on-secondary-use)
-* [Default storage space and billing units consumption](./sd-access.md#default-storage-space-and-billing-units-consumption)
-
-  
-## [Store and share with SD Connect](./sd_connect.md)
-   
-   * [Overview](./sd_connect.md#overview)
-
-  * [Key features](./sd_connect.md)
-  
-  * [Authentication](./sd_connect.md#authentication)
-
-  * [User Interface](./sd_connect.md#user-interface)
-  
-  * [Introduction to data encryption compatible with sensitive data services](./sd_connect.md#introduction-to-data-encryption-compatible-with-sensitive-data-services)
- 
- * [Data encryption and upload for analysis (less than 1 GB)](./sd_connect.md#sensitive-data-encryption-and-upload-for-analysis-less-than-1-gb) (Default analysis)
-
-* [Data encryption and upload for analysis (up to 100 GB)](./sd_connect.md#sensitive-data-encryption-and-upload-for-analysis-up-to-100-gb)
- 
-* [Data encryption and upload for storage and sharing (less than 1 GB)](./sd_connect.md#sensitive-data-encryption-and-upload-for-storage-and-sharing-less-than-1-gb) (Data storage and transfer)
- 
-
- * [Data sharing](./sd_connect.md#data-sharing) 
- 
- * [Data download and decryption](./sd_connect.md#data-download-and-decryption) (Data storage and transfer)
- 
- * [Command Line Interface: data encryption and upload](./sd_connect.md#command-line-interface-data-encryption-and-upload) (Advanced)
- 
- 
- * [Command Line Interface: data encryption for data sharing](./sd_connect.md#command-line-interface-encryption-for-data-sharing) (Advanced)
- 
- * [Troubleshooting](./sd_connect.md#troubleshooting)
-
-
-  
- 
-
-  
-
-## [Analyse and compute with SD Desktop](./sd_desktop.md)
-
-  * [Overview](./sd_desktop.md#overview) 
-
-  * [Key features](./sd_desktop.md)
-  
-  * [Authentication](./sd_desktop.md#authentication) 
-
-  * [Creating your virtual desktop](./sd_desktop.md#creating-your-virtual-desktop) (Default analysis)
-
-  * [Working with your desktop](./sd_desktop.md#working-with-your-virtual-desktop)(Default analysis)
-  
-  * [Accessing encrypted sensitive data within SD Desktop](./sd_desktop.md#accessing-encrypted-sensitive-data-within-sd-desktop) (Default analysis)
-
-  * [Default programs available on SD Desktop](./sd_desktop.md#default-programs-available-on-sd-desktop) (Default analysis)
-  
-  * [Software customization](./sd_desktop.md#software-customisation) (Advanced)
-
-  * [Data export](./sd_desktop.md#data-export-from-sd-desktop)
-
-  * [Managing volumes and desktops](./sd_desktop.md#managing-volumes-and-virtual-desktops)
-  
-  * [Troubleshooting](./sd_desktop.md#troubleshooting)
-  
-  
-## [SD Desktop for secondary use of health and social data](./sd-desktop-audited.md)
-Access to this service requires a Findata permit. There are also [instructions](./single-register-submission.md) for single registers to submit secondary use data for research use in SD services.
-  
-  * [Key features](./sd-desktop-audited.md#key-features)
-
-  * [Before you start](./sd-desktop-audited.md#before-you-start) 
-  
-  * [Overview](./sd-desktop-audited.md#overview) 
- 
-  * [Service access](./sd-desktop-audited.md#service-access)  
-  
-  * [Authentication](./sd-desktop-audited.md#authentication) 
-
-  * [Setting up a virtual Desktop](./sd-desktop-audited.md#setting-up-a-virtual-desktop) 
-
-  * [Working with your virtual Desktop](./sd-desktop-audited.md#working-with-your-virtual-desktop)
-
-  * [Accessing sensitive register data within SD Desktop](./sd-desktop-audited.md#accessing-sensitive-register-data-within-sd-desktop)
-
-  * [Default programs available on the Desktop and software customisation](./sd-desktop-audited.md#default-programs-available-on-the-desktop-and-software-customisation)
-
-  * [Data export from the Desktop](./sd-desktop-audited.md#data-export-from-the-desktop)
-  
-  * [Deleting your virtual Desktop](./sd-desktop-audited.md#deleting-your-virtual-desktop)
-
-  * [End of data access and data deletion policies](./sd-desktop-audited.md#end-of-data-access-and-data-deletion-policies)
-  
-  * [Troubleshooting](./sd-desktop-audited.md#troubleshooting)
-  
-
-## **Services in the pilot phase:**
-
-  
-### [Publish biomedical data with the Finnish Federated EGA](./federatedega.md)
-Preliminary guide.
- 
-  
-### [Reuse with SD Apply](./sd-apply.md)
-Preliminary guide. 
- 
