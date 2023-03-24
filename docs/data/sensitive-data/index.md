@@ -37,7 +37,7 @@ Set up your virtual Desktop to analyse sensitive data securely from your web-bro
 
 2.1  **Accessing register data**
 
-2.2 **[SD Desktop for secondary use of health and social data](./sd-desktop-audited.md)
+2.2 **[SD Desktop for secondary use of health and social data](./sd-desktop-audited.md)**
 
 2.3 **Guidelines for data controllers/ registers**
 
