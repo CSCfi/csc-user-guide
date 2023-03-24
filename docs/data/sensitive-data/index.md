@@ -1,10 +1,9 @@
 # Sensitive Data (SD) Services for research: user guide
 
-This manual, in CSC Docs, introduces CSC's Sensitive Data (SD) services. below, you can find an overview of the contents organized into distinct sections for processing sensitive research data (SD Connect and SD Desktop, standard service) or register data (SD Desktop for secondary use, limited version). If you are unfamiliar with this terminology or you are accessing the service for the first time, please check the introduction paragraph. To navigate the user guide, click on the topics on the left-hand side of the navigation bar or use the search functionality. 
+This manual, in CSC Docs, introduces CSC's Sensitive Data (SD) services. 
 
-!!! Note
-    **Do you have any questions? Would you like to discuss a specific project?** Don't hesitate to contact us at servicedesk@csc.fi (subject: Sensitive Data) or join the [CSC Research User Support Coffee - Every Wednesday at 14:00](https://ssl.eventilla.com/usersupportcoffee). Our team is here to help.
-
+Below is an overview of the contents organized into distinct sections for processing sensitive research data (SD Connect and SD Desktop, standard service) or register data (SD Desktop for secondary use, limited version). 
+To navigate the user guide, click on the topics on the left-hand side of the page in the navigation bar, or use the search functionality. Next, browse the paragraphs inside each section using the navigation bar on the right side of each page.
 
 
 
@@ -12,11 +11,14 @@ This manual, in CSC Docs, introduces CSC's Sensitive Data (SD) services. below, 
 ## Sensitive research data processing
 
 
+
 ### [Introduction](./intro.md)
+
+A general overview of the services for managing sensitive research data. Includes and a quick introduction to compliance with data protection regulations and contacts to academic organizations legal support services. Please check this section if you are accessing the service for the first time.
 
 
 ### [Accessing SD Services](./sd-access.md)
-
+CSC's Sensitive Data (SD) services are available to researchers and students affiliated with Finnish higher education institutions (universities, universities of applied sciences) or a state research institute and their international collaborators. Access to the service is managed using the mycsc.fi portal. Using the servces consumersresources (Billing Unites and quotas). 
 
 
 ### [Store and share with SD Connect](./sd_connect.md)
@@ -28,16 +30,19 @@ This manual, in CSC Docs, introduces CSC's Sensitive Data (SD) services. below, 
 
 
 
-## Resgiter data processing under the act on Seconday use
+## Register data processing under the Act on Secondary Use
 
 
 ### [SD Desktop for secondary use of health and social data](./sd-desktop-audited.md)
 
 
-### Guidilines for data controllers/ registers
+### Guidelines for data controllers/ registers
 
 
 
+
+!!! Note
+    **Do you have any questions? Would you like to discuss a specific project?** Don't hesitate to contact us at servicedesk@csc.fi (subject: Sensitive Data) or join the [CSC Research User Support Coffee - Every Wednesday at 14:00](https://ssl.eventilla.com/usersupportcoffee). Our team is here to help.
 
 
 
