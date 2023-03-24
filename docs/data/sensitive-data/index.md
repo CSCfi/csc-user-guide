@@ -14,24 +14,32 @@ To navigate the user guide, click on the topics on the left-hand side of the pag
 #### 1. Sensitive research data processing
 
 
-* **[Introduction](./intro.md)** Overview of SD services, with a quick introduction to compliance with data protection regulations and contacts to academic organizations' legal support services. Please check this section if you are accessing the services for the first time.
+1.1 **[Introduction](./intro.md)** 
 
-*  **[Accessing SD Services](./sd-access.md)** Using the my.csc.fi portal set up a user account and complete the following steps to access the services. 
+Overview of SD services, with a quick introduction to compliance with data protection regulations and contacts to academic organizations' legal support services. Please check this section if you are accessing the services for the first time.
+
+1.2  **[Accessing SD Services](./sd-access.md)** 
+
+Using the my.csc.fi portal set up a user account and complete the following steps to access the services. 
 
 
-* **[Store and share with SD Connect](./sd_connect.md)** Access SD Connect to store encrypted sensitive research data in the CSC's cloud storage solution or share it with your collaborators. Encrypted data upload is possible via web-browser or programmatically.
+1.3 **[Store and share with SD Connect](./sd_connect.md)** 
 
-* **[Analyse and compute with SD Desktop](./sd_desktop.md)** Set up your virtual Desktop to analyse sensitive data securely from your web-browser. 
+Access SD Connect to store encrypted sensitive research data in the CSC's cloud storage solution or share it with your collaborators. Encrypted data upload is possible via web-browser or programmatically.
+
+1.4 **[Analyse and compute with SD Desktop](./sd_desktop.md)** 
+
+Set up your virtual Desktop to analyse sensitive data securely from your web-browser. 
 
 
 
 #### 2. Register data processing under the Act on Secondary Use
 
+2.1  **Accessing register data**
 
-* **[SD Desktop for secondary use of health and social data](./sd-desktop-audited.md)
+2.2 **[SD Desktop for secondary use of health and social data](./sd-desktop-audited.md)
 
-
-* **Guidelines for data controllers/ registers**
+2.3 **Guidelines for data controllers/ registers**
 
 
 
