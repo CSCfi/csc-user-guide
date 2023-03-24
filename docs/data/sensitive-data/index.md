@@ -27,7 +27,7 @@ Using the my.csc.fi portal set up a user account and complete the following step
 Access SD Connect to store encrypted sensitive research data in the CSC's cloud storage solution or share it with your collaborators. Encrypted data upload is possible via web-browser or programmatically.
 
 ####  [Analyse and compute with SD Desktop](./sd_desktop.md)
-Set up your virtual Desktop to analyse from your webbrowser sensitive data stored in SD Connect or via Sd Apply for reuse. 
+Set up your virtual Desktop to analyse sensitive data securely from your web-browser. 
 
 
 
