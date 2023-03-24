@@ -1,9 +1,9 @@
 # How to add members to project
 
-There are two ways to add users to a project. You can either add them directly
-or give them an invitation link. Users are added automatically to projects, but
-they need to [select services](how-to-add-service-access-for-project.md) they
-want to use with their account.
+Project manager is the only person who can add project members. There are two ways to add users to a project. You can either add them directly
+or give them an invitation link. Invited users are added automatically to projects, but
+they need to [select services](how-to-add-service-access-for-project.md) they want to use within the
+selected project.
 
 ## Adding members directly
 
@@ -14,15 +14,13 @@ Only existing users can be added this way.
 1. Choose _Projects_ in the navigation menu on the left.
 1. Choose the project you want new persons to join.
 1. Under _Members_, in the _Current_ tab, fill in the username of the first new
-   member.
+   member you wish to add.
 1. Click the _plus_ button.
 1. Repeat the last two steps for each new member.
 
 A user can be removed from a project by clicking the _X_ button next to the username.
 
 !!! Note
-
-    Project manager is the only person who can add project members.
 
     Project members receive notifications when they are added to projects,
     but no notifications are sent when they are removed.

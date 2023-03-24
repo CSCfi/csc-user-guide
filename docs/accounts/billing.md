@@ -1,3 +1,8 @@
+---
+search:
+  boost: 2
+---
+
 # Billing
 
 CSC's services are free of charge for academic research, teaching or training for members of Finnish higher education institutions and state research institutes.

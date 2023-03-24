@@ -39,7 +39,10 @@ jobs).
 !!! info "Python modules"
     Please use the Amber22 modules on Puhti/Mahti if you intend to run the Python
     scripts distributed with AmberTools. These are not available in the older modules,
-    nor on LUMI.
+    nor on LUMI. As AmberTools is also distributed through Conda, another alternative
+    is to install and create a containerized environment for the scripts yourself using
+    [Tykky](../computing/containers/tykky.md) or the
+    [LUMI container wrapper](https://docs.lumi-supercomputer.eu/software/installing/container-wrapper/).
 
 Molecular dynamics jobs are best run with `pmemd.cuda`. They are much faster
 on GPUs than on CPUs. Please note that using `pmemd.cuda` requires a module
