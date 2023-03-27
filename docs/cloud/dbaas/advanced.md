@@ -23,40 +23,46 @@ group for. In this example we will use datastore `postgresql` and datastore-vers
 example.
 
 2. Figure out which parameters that can be modified:
-```
-openstack database configuration parameter list --datastore postgresql 14.4
-```
-Note that some parameters will require to restart the database instance.
+    
+    ```
+    openstack database configuration parameter list --datastore postgresql 14.4
+    ```
+    
+    Note that some parameters will require to restart the database instance.
 
 3. Create a configuration group. We want to call this group "group-name" and we want to modify
 `max_connections` to `234`.
-```
-openstack database configuration create group-name --datastore postgresql --datastore-version 14.4 '{"max_connections": 200 }'
-```
+
+    ```
+    openstack database configuration create group-name --datastore postgresql --datastore-version 14.4 '{"max_connections": 200 }'
+    ```
 
 4. You can see the configuration group by
-```
-openstack database configuration show group-name
-```
+
+    ```
+    openstack database configuration show group-name
+    ```
 
 5. You can also update the configuration group. But note that you need to use the group's `ID` and
 you also need to define all parameters otherwise the old parameters will be removed. This might be
 easier to modify from the WEB-GUI.
-```
-openstack database configuration set $GROUP_ID '{"min_wal_size": 160, "max_connections": 234 }'
-```
+
+    ```
+    openstack database configuration set $GROUP_ID '{"min_wal_size": 160, "max_connections": 234 }'
+    ```
 
 6. Once you are happy with your configuration group you can attach it to an instance.
-```
-openstack database configuration attach $INSTANCE_ID $CONFIGURATION_GROUP_ID
-```
+
+    ```
+    openstack database configuration attach $INSTANCE_ID $CONFIGURATION_GROUP_ID
+    ```
 
 7. If your configuration group contained changes that requires a restart you will need to restart
 your database instance. Note that you won't be able to attach a new configuration group before
 restarting the instance if you detached a configuration that requires restart. Also only one
 configuration group can be attach at the same time. Note that no new backups will be taken of the
 instance before the restart have been done.
-```
-openstack database instance restart $INSTANCE_ID
-```
 
+    ```
+    openstack database instance restart $INSTANCE_ID
+    ```

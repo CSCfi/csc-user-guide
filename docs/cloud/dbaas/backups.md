@@ -29,18 +29,18 @@ Be aware the backup feature is still in the development phase and should not be 
 Backups can be taken manually. 
 
 1. Creating a backup
-
-    openstack database backup create --instance $INSTANCE_ID $USER_FRIENDLY_NAME_OF_BACKUP
-
-(suitable name might be the name of the instance)
-
+    ```
+    openstack database backup create --instance $INSTANCE_ID $USER_FRIENDLY_NAME_OF_BACKUP  # suitable name might be the name of the instance
+    ```
 2. Now you can list all your backups
-
+    ```
      openstack database backup list
+    ```
+3. You can also show more information about the backup
 
-You can also show more information about the backup,
-
+    ```
     openstack database backup show $BACKUP_ID
+    ```
 
 ## Restoring and/or verify backup
 

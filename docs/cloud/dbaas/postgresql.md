@@ -14,14 +14,18 @@ Popular tool for working with PostgreSQL is [pgAdmin that can be found here](htt
 1. First you need to install postgresql command line tool. Note that if you are using Linux your distribution are usually shipped with an ancient version of postgresql so make sure that you install the most recent major version. For all operating system you can find instruction for installation here: https://www.postgresql.org/download/
 
 2. Once you have installed the postgresql-client you should be able to log into the database. You can find the `public` IP from the `Overview` tab or `openstack database instance list` . The command that you normally want to use from an Linux CLI is to connect to your database is: 
-```
-psql --user ${USERNAME} --host ${PUBLIC_IP} ${DATABASE_NAME}
-``` 
-The syntax normally used in configuration files is: 
-```
-psql postgresql://${USERNAME}:${PASSWORD}@{PUBLIC_IP}:5432/${DATABASE_NAME}
-```
-note that if you use this syntax to login to the database it will not return column names when you do queries. 
+
+    ```
+    psql --user ${USERNAME} --host ${PUBLIC_IP} ${DATABASE_NAME}
+    ``` 
+
+    The syntax normally used in configuration files is: 
+
+    ```
+    psql postgresql://${USERNAME}:${PASSWORD}@{PUBLIC_IP}:5432/${DATABASE_NAME}
+    ```
+    
+    note that if you use this syntax to login to the database it will not return column names when you do queries. 
 
 The most common issues when accessing the database from the CLI are the following:
 
@@ -49,25 +53,25 @@ By default we assume that default parameters are sane and that users should not,
 
 It is not possible for users to add additional extensions that is not already installed. If there
 are some extensions you would like to see available in Pukki please be in contact with
-[service-desk](mailto:servicedesk@csc.fi)
+[CSC Service Desk](../../support/contact.md)
 
 1. To enable extensions you need to first enable root for the database instance and log in as root.
 
-```
-openstack database root enable $INSTNACE_ID
-```
+    ```
+    openstack database root enable $INSTNACE_ID
+    ```
 
 2. After you have logged in as root you can enable the extension of your choice by
 
-```
-CREATE EXTENSION $EXTENSION_NAME
-```
+    ```
+    CREATE EXTENSION $EXTENSION_NAME
+    ```
 
 3. After you have enable your extension of choice you can log out and disable root.
 
-```
-openstack database root disable $INSTANCE_ID
-```
+    ```
+    openstack database root disable $INSTANCE_ID
+    ```
 
 
 ### Currently available extensions
@@ -121,52 +125,66 @@ openstack database root disable $INSTANCE_ID
 | ltree              | data type for hierarchical tree-like structures                         |
 | file_fdw           | foreign-data wrapper for flat file access                               |
 
-
-
-
-
 ## Some useful commands
 
-##### List databases
+### List databases
 
-    \l
+```sql
+\l
+```
 
-##### List tables
+### List tables
 
-    \d
+```sql
+\d
+```
 
-##### Show table descriptions
+### Show table descriptions
 
-    \d $TABEL_NAME
+```sql
+\d $TABEL_NAME
+```
 
-##### Change database
+### Change database
 
-    \c $DATABASE_NAME
+```sql
+\c $DATABASE_NAME
+```
 
 note that this is the same command as creating a new database if it does not exist (and you have given yourself root permission).
 
-##### Example query
+### Example query
 
-    SELECT row1, row2 FROM table1 ORDER_BY row3 DESC LIMIT 2;
+```sql
+SELECT row1, row2 FROM table1 ORDER_BY row3 DESC LIMIT 2;
+```
 
-##### Show all database settings
+### Show all database settings
 
-    SHOW ALL;
+```sql
+SHOW ALL;
+```
 
-##### Show all users
+### Show all users
 
-    select * from pg_user;
+```sql
+select * from pg_user;
+```
 
 This is also visible from the web interface or the openstack CLI. Note that the PostgreSQL user is an services user that is the user that the DBaaS uses to communicate with your database.
 
-##### Extended display
+### Extended display
 
 This will show each column of the record on its own rows. This is especially useful when you want to inspect a single record.
 
-    SELECT * FROM table1 LIMIT 1 \gx
+```sql
+SELECT * FROM table1 LIMIT 1 \gx
+```
 
-##### Import database dump
+### Import database dump
 
 If you have a database dump you can import it with the following command. Be aware that this might overwrite what ever you already have in the database
 
-    psql -h $FLOATING_IP -d $DATABASE -U USERNAME -f file.sql
+```bash
+psql -h $FLOATING_IP -d $DATABASE -U USERNAME -f file.sql
+```

@@ -33,10 +33,6 @@ credentials `Testing application credentials $TODAYS_DATE`.
 service will create a secret for you, this is probably the preferred method.
 7. It is a good idea to put an expiration date especially if you are testing the credentials only
 for today.
-<!-- 8. Choosing a role, you should choose `member`. The `reader` role does not work as one would expect
-at the point of writing there is no difference between reader and member role when it comes to
-managing your databases at the moment. In the future the reader role might become a read-only user
-role. -->
 8. There are two roles `reader` and `member`. Usually you want to use the `member` role you can find
 out more in the [Using roles sections](#using-roles).
 9. Access rules this is useful when you want to make credentials with fine grained permissions
@@ -45,46 +41,45 @@ you can make a script that is only allowed to modify the users of a specific dat
 credentials that is only allowed to create new instances. You probably want to start using these
 when you start to build automation around your databases. You can find more information about the
 options in [Using access rules sections](#using-access-rules).
-<!--- TODO Add section
- -->
-
-10. The `Unrestricted (dangerous)` check-box. This will allow your application credentials to
+10.  The `Unrestricted (dangerous)` check-box. This will allow your application credentials to
 create new application credentials, this might be useful if you are a power-user of the CLI but you
 should probably not give an application or automation credentials that have this permission.
-11. Once you have created the application credentials you can either download the credentials as 
+11.  Once you have created the application credentials you can either download the credentials as 
 file that you can source or .yaml file or alternatively add the secret to your secret manager. The
 secret key will not be possible to read once you have completed the credential created process.
+12.  If you download the application credentials you will get a file that contains something like this:
 
-12. If you download the application credentials you will get a file that contains something like this:
+    ```bash
+    #!/usr/bin/env bash
 
-```
-#!/usr/bin/env bash
+    export OS_AUTH_TYPE=v3applicationcredential
+    export OS_AUTH_URL=https://pukki.dbaas.csc.fi:5000/v3
+    export OS_IDENTITY_API_VERSION=3
+    export OS_REGION_NAME="pukki_dbaas"
+    export OS_INTERFACE=public
+    export OS_APPLICATION_CREDENTIAL_ID=xxxxxxxxxxxxxxxxxxxxxx
+    export OS_APPLICATION_CREDENTIAL_SECRET=xxxxxxxxxxxxxxxxxxx
+    ```
 
-export OS_AUTH_TYPE=v3applicationcredential
-export OS_AUTH_URL=https://pukki.dbaas.csc.fi:5000/v3
-export OS_IDENTITY_API_VERSION=3
-export OS_REGION_NAME="pukki_dbaas"
-export OS_INTERFACE=public
-export OS_APPLICATION_CREDENTIAL_ID=xxxxxxxxxxxxxxxxxxxxxx
-export OS_APPLICATION_CREDENTIAL_SECRET=xxxxxxxxxxxxxxxxxxx
-```
-
-13. If you source the file you can use it together with with [OpenStack command line tools](cli.md)
-.
-14. It is a good idea to test that the application credentials is allowed to do what you expect it
+13.  If you source the file you can use it together with with [OpenStack command line tools](cli.md).
+14.  It is a good idea to test that the application credentials is allowed to do what you expect it
 to be able to do. It is also a good idea to verify that it is NOT allowed to do what you expect it
 not be allowed to do.
+
+<!-- 8. Choosing a role, you should choose `member`. The `reader` role does not work as one would expect
+at the point of writing there is no difference between reader and member role when it comes to
+managing your databases at the moment. In the future the reader role might become a read-only user
+role. -->
 
 ## Using roles
 There are two roles available `reader` and `member`. The reader roles is a read-only role while the
 member role is allowed to make changes to your project.
 
-    * `reader` role can only collect data
-from your project but not make any changes, this is good if you want to create a script that check
-the state of your services. Sometimes it is nice to have a default reader account that you user for
-day-to-day operation, when you collect information so that you can be sure that you can't do any
-destructive commands.
-    * `member` role is the normal user role it can do everything that the `reader` role but it can
+* `reader` role can only collect data from your project but not make any changes, this is good if you
+want to create a script that check the state of your services. Sometimes it is nice to have a default
+reader account that you user for day-to-day operation, when you collect information so that you can be
+sure that you can't do any destructive commands.
+* `member` role is the normal user role it can do everything that the `reader` role but it can
 also make changes to the system. When you log into the web-interface you have the `member` role
 enabled.
 
