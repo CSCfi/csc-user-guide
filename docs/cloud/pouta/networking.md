@@ -22,7 +22,7 @@ When done, click on **Next**. It will open the next tab regarding the subnet.
 **Subnet Name** - Specify a name for your subnet  
 **Network Address** - Specify a network in CIDR format. Here a [link](https://www.calculator.net/ip-subnet-calculator.html) that could help you to calculate the network address.  
 **IP Version** - You can leave IPv4  
-**Gateway IP** - Optionally you can choose the gateway IP. If it's not filled in, one will be choosen automatically.  
+**Gateway IP** - Optionally you can choose the gateway IP. If it's not filled in, one will be chosen automatically.  
 
 You can click on **Next**.
 
