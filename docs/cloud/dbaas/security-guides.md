@@ -23,6 +23,6 @@ The DBaaS admins are allowed to shutdown, lock, or firewall database instances t
 ## Backups
 
 Backups are taken automatically once a day. Users are not allowed to delete their own backups.
-Backups are deleted automatically after 90 days. Backups are stored encrypted in Allas therefor if
+Backups are deleted automatically after 90 days. Backups are stored encrypted in Allas. Therefore, if
 you want to store additional backups of your database it is advised to use other services than
 Allas and cPouta. [More information about backups can be found in the backup section](backups.md)
