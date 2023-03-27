@@ -1,5 +1,13 @@
 # Applications
 
+## PyTorch 2.0 and TensorFlow 2.12, 27.3.2023
+
+[PyTorch](../../apps/pytorch.md) 2.0 and
+[TensorFlow](../../apps/tensorflow.md) 2.12 are now available on Puhti and Mahti. 
+See [PyTorch 2.0 blog post](https://pytorch.org/blog/pytorch-2.0-release/) or the
+[TensorFlow 2.12 release notes](https://github.com/tensorflow/tensorflow/releases/tag/v2.12.0).
+
+
 ## Turbomole 7.7, 3.3.2023
 
 [Turbomole](../../apps/turbomole.md) 7.7 has been installed and set as the default module on Puhti
