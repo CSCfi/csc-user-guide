@@ -8,16 +8,9 @@ password reset link ordered to your email. You can follow the instructions below
 
 * Login to [MyCSC](http://my.csc.fi).
 
-![Landing page](images/small/landing-page-mid.png)
-
 * Go to _Profile_ and click _Change password_.
 
-![My profile](images/small/my-profile-mid.png)
-
-* Enter your current password and the new password twice. Click _Save_.
-
-![Change password](images/small/change-password-mid.png)
-
+* Enter your current password and the new password twice. Click _Change_.
 
 
 *****
@@ -26,27 +19,15 @@ password reset link ordered to your email. You can follow the instructions below
 
 
 
-
-
 * Go to [MyCSC](http://my.csc.fi). Click _Log in_.
-
-![Landing page](images/small/landing-page-mid.png)
-
 
 * Choose _CSC login_.
 
-![virtu, Haka or CSC](images/small/authentication-method-mid.png)
-
 * Click _Forgot your password?_
 
-![CSC login](images/small/csc-login-mid.png)
+* Enter your CSC username and click _Next_. Instructions are sent to the email address associated with your CSC user account.
 
 
-* Enter your CSC username and click _Next_. Instructions are sent to the email
-   address associated with your CSC user account.
-
-![Forgot password](images/small/forgot-password-mid.png)
- 
 
 ## Password requirements
 

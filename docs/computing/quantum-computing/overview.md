@@ -1,3 +1,8 @@
+---
+search:
+  boost: 4
+---
+
 # Overview
 
 !!! success "Helmi Pilot Phase is now open!"
