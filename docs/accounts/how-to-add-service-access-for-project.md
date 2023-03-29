@@ -21,7 +21,7 @@ the service for the project and (2) members approve it for themselves.
 1. Under _Services_, choose the service.
 1. Read and accept the terms of service.
 Click _Apply for Access_.
-1. A message will be sent to the e-mail address associated with your CSC
+1. A message will be sent to the email address associated with your CSC
 user account when the service access has been granted.
 
 ## Member

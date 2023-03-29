@@ -1,3 +1,8 @@
+---
+search:
+  boost: 2
+---
+
 ## What is Pouta?
 
 cPouta and ePouta are the IaaS cloud services at CSC. The cPouta

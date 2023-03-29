@@ -1,3 +1,8 @@
+---
+search:
+  boost: 0.1
+---
+
 # Reference card
 !!! default "Documentation"
 
