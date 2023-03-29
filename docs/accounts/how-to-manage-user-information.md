@@ -11,6 +11,12 @@ Edit profile information:
 
     You cannot change your username or primary email address. If your email
     address changes, please contact us at _servicedesk@csc.fi_.
+    
+### When you change your organisation
+
+When you are changing your organisation please send us the email address of your new organisation to servicedesk@csc.fi.
+We will reply and send you the instructions on how to link the new Haka or Virtu-ID with your user account. 
+
 
 ## How to link your CSC user account to external authentication sources
 
