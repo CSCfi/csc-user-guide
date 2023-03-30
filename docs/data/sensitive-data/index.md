@@ -1,7 +1,8 @@
 # Sensitive Data (SD) Services for research: user guide
 
 This manual, in CSC Docs, introduces CSC's Sensitive Data (SD) services. Below is an overview of the contents organized into distinct sections for 1)
-processing sensitive research data or 2) processing of register data under the Finnish Act of Secondary Use of Heath and Social Data (SD Desktop for secondary use, limited version). 
+processing sensitive research data or 2) processing of register data under the Finnish Act of Secondary Use of Heath and Social Data (SD Desktop for secondary use, limited version). If you access SD services for the first time, please refer to the introduction for more information. 
+
 To navigate the user guide, click on the topics on the left-hand side of the page in the navigation bar, or use the search functionality. Next, browse the  section using the navigation bar on the right side of each page.
 
 !!! Note
