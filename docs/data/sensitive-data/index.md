@@ -10,7 +10,7 @@ To navigate the user guide, click on the topics on the left-hand side of the pag
 
 
 
-1.1 **[Introduction](./intro.md)** 
+#### **[Introduction](./intro.md)** 
 
 Overview of SD services, with a quick introduction to sensitive data, register data processing, and compliance with data protection regulations.
 Please check this section if you are accessing the services for the first time.
