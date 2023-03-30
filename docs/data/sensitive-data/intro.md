@@ -2,7 +2,7 @@
 
 ## Introduction 
 
-Sensitive Data (SD) services for research provide CSC customers with a secure workspace accessible via a web browser that can be used for processing sensitive data according to CSC's General Terms of Use.
+Sensitive Data (SD) services for research provide CSC customers with a secure workspace accessible via a web browser that can be used for processing sensitive data according to CSC's General Terms of Use along all pahses of reaserch.
 
 Sensitive Data services for research consist of five components:
 
@@ -15,6 +15,16 @@ Sensitive Data services for research consist of five components:
 * Sensitive Data Submit and Federated EGA (*pilot phase*): allows publishing of sensitive and biomedical data under controlled access ([service description research.csc.fi](https://research.csc.fi/-/fega)). 
 
 * Sensitive Data Apply (*pilot phase*): promotes data reuse allowing data owners to manage access to published datasets via a simple user interface.
+
+
+
+
+
+
+
+
+
+
 
 In this manual you can find an overview of each service's key features and limitations, step-by-step instructions and video tutorials (specific sections are marked as *advanced* if technical expertise are required) and quick solutions in the troubleshooting table. In addition, guidance for accessing the services and permission management is provided based on the data type and the legal bases for data processing. 
 
