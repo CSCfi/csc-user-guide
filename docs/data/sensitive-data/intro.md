@@ -10,23 +10,27 @@ Sensitive Data services for research consist of five components:
 
 * Sensitive Data Connect: a user interface for importing and storing sensitive data to CSC's cloud storage solution (Allas). SD Connect also facilitates sharing or transferring encrypted sensitive data during the active phases of research projects ([service description on research.csc.fi](https://research.csc.fi/-/sd-connect)). 
 
-* Sensitive Data Desktop: a user interface that provides access to a secure virtual computer (or virtual Desktop). It enables secure computation and analysis of sensitive data. In addition, a restricted version of SD Desktop is provided for processing register data and the limitations are described in a separate user guide (see: SD Desktop for secondary Use) ([service description research.csc.fi](https://research.csc.fi/-/sd-desktop)).
+* Sensitive Data Desktop: a user interface that provides access to a secure virtual computer (or virtual Desktop). It enables secure computation and analysis of sensitive data. 
 
 * Sensitive Data Submit and Federated EGA (*pilot phase*): allows publishing of sensitive and biomedical data under controlled access ([service description research.csc.fi](https://research.csc.fi/-/fega)). 
 
 * Sensitive Data Apply (*pilot phase*): promotes data reuse allowing data owners to manage access to published datasets via a simple user interface.
 
-
-
-
-
-
-
-
-
-
-
+These services are suitable to process sensitive reaserch data along all phases of reaserch and in compliace with the General Data Protection Regulation. 
 In this manual you can find an overview of each service's key features and limitations, step-by-step instructions and video tutorials (specific sections are marked as *advanced* if technical expertise are required) and quick solutions in the troubleshooting table. In addition, guidance for accessing the services and permission management is provided based on the data type and the legal bases for data processing. 
+
+In fact, a restricted version of SD Desktop is provided for processing register based reasearch under the Finnish Act on Seconday Use of health and Social data, that applies when health and social information is collected and saved in a register (for example, during examination in health care services, or while applying for social benefits), and then the original information is used for a different purpose, for example research. In this case processing is possible only in a certified computing environment in compliance with Act on the Secondary Use and the Findata Authority's Regulation. 
+The limitations are described in the SD Desktop ([service description  on research.csc.fi](https://research.csc.fi/-/sd-desktop)) and guidance is provided in a specific section on the user guide. See: 
+
+
+
+!!! Note
+    Sensitive data is only accessible with appropriate authorization, rights, or permission. With SD services, access is always managed by the data controller via specific service components in compliance with the GDPR and national regulations. In the following section of this user guide you can find an overview of permission management via SD services. Below a summary of the main documentation that should be considered. 
+    
+
+
+
+
 
 ## Compliance with data protection regulations 
 
