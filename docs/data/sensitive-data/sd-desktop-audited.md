@@ -2,15 +2,35 @@
 # Sensitive Data Desktop for secondary use of health and social data 
 
 Sensitive Data (SD) Desktop is a registered environment for secondary use of health and social data (register data). Access to the service requires a permit from the Findata authority. SD Desktop is a web-user interface that allows you to manage (start, use, delete) a virtual computer (here called desktop, technically defined as a virtual machine) from your web browser. With the virtual desktop, you can access the authorised datasets. No previous knowledge of cloud computing or programming expertise is required to use the service.
-In the following user guide, you can learn how to:
 
-* apply for service access;
-* set up your virtual desktop;
-* analyze data authorised by Findata;
-* request export of non-sensitive results from the secure desktop.
 
-!!! Note 
-    We apologise for any confusion caused by the previous name of the service. You can apply to use SD Desktop by sending an application to Findata. This is a restricted version of the service compared to standard SD Desktop.
+ * [Key features](./sd-desktop-audited.md#key-features)
+
+ * [Before you start](./sd-desktop-audited.md#before-you-start) 
+  
+ * [Overview](./sd-desktop-audited.md#overview) 
+ 
+ * [Service access](./sd-desktop-audited.md#service-access)  
+  
+ * [Authentication](./sd-desktop-audited.md#authentication) 
+
+ * [Setting up a virtual Desktop](./sd-desktop-audited.md#setting-up-a-virtual-desktop) 
+
+ * [Working with your virtual Desktop](./sd-desktop-audited.md#working-with-your-virtual-desktop)
+
+ * [Accessing sensitive register data within SD Desktop](./sd-desktop-audited.md#accessing-sensitive-register-data-within-sd-desktop)
+
+ * [Default programs available on the Desktop and software customisation](./sd-desktop-audited.md#default-programs-available-on-the-desktop-and-software-customisation)
+
+ * [Data export from the Desktop](./sd-desktop-audited.md#data-export-from-the-desktop)
+  
+ * [Deleting your virtual Desktop](./sd-desktop-audited.md#deleting-your-virtual-desktop)
+
+ * [End of data access and data deletion policies](./sd-desktop-audited.md#end-of-data-access-and-data-deletion-policies)
+  
+ * [Troubleshooting](./sd-desktop-audited.md#troubleshooting)
+  
+
 
     
 ## Key features
