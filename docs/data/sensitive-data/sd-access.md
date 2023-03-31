@@ -14,7 +14,7 @@ To access SD Connect and SD Desktop for storing, sharing or analysing sensitive 
 
 2. Create or join a CSC project and add project members.
 
-3. Fill in the _Description of processing activities form_ and accept _CSC's Data Processing Agreement_. As the CSC project manager is employed by the data cobntroller they also act as it's representative and the DPA becomes valid between the academic organization (the data controller) and CSC (data processor). 
+3. Fill in the _Description of processing activities form_ and accept _CSC's Data Processing Agreement_.  
 
 4. All project members should add service access to Allas (to use SD Connect) and SD Desktop, accepting the terms of use. 
 
