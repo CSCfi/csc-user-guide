@@ -24,7 +24,7 @@ In this manual, you can find an overview of each service's key features and limi
 
 
 !!! Note
-    Sensitive data is only accessible with appropriate authorization, rights, or permission. With SD services, access is always managed by the data controller via specific service components in compliance with the GDPR and national regulations. The following section of this user guide provides an overview of permission management via SD services and asummary of the main documentation that should be considered. 
+    Sensitive data is only accessible with appropriate authorization, rights, or permission. With SD services, access is always managed by the data controller via specific service components in compliance with the GDPR and national regulations. For example, you can directly manage research data access, uploads, or data export using SD Connect and SD Desktop. In contrast, access to register data via SD Desktop is operated by CSC's helpdesk, based on the data permit issued by the Findata Authority and in compliance with Finnish regulations. The following section of this user guide provides an overview of permission management via SD services and asummary of the main documentation that should be considered. 
     
 
 
