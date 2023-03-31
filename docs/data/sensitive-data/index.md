@@ -7,40 +7,35 @@ This manual, in CSC Docs, introduces CSC's Sensitive Data (SD) services. Below i
 
 
 
-#### **[Introduction](./intro.md)** 
+### **[Introduction](./intro.md)** 
 
 Overview of SD services, with a quick introduction to sensitive data, register data processing, and compliance with data protection regulations.
 Please check this section if you are accessing the services for the first time.
 
+### **[Accessing SD Services](./sd-access.md)** 
+
+With my.csc.fi portal, set up a user account, and complete the following steps to access the services.
+
+### 1. Sensitive research data processing
 
 
-#### 1. Sensitive research data processing
-
-
-1.2  **[Accessing SD Services](./sd-access.md)** 
-
-With my.csc.fi portal, set up a user account, and complete the following steps to access the services. 
-
-
-1.3 **[Store and share with SD Connect](./sd_connect.md)** 
+1.1 **[Store and share with SD Connect](./sd_connect.md)** 
 
 Access SD Connect to store encrypted sensitive research data in the CSC's cloud storage solution or share it with your collaborators. Encrypted data upload is possible via a web browser or programmatically.
 
-1.4 **[Analyse and compute with SD Desktop](./sd_desktop.md)** 
+1.2 **[Analyse and compute with SD Desktop](./sd_desktop.md)** 
 
 Set up your virtual Desktop to analyse sensitive data securely from your web browser. 
 
 
 
-#### 2. Register data processing under the Act on Secondary Use
+### 2. Register data processing under the Act on Secondary Use
 
-2.1  **Accessing register data provided by Findata**
-Access to register data requires a Findata permit, and the CSC service desk directly manages access to the computing environment. 
 
-2.2 **[SD Desktop for secondary use of health and social data](./sd-desktop-audited.md)**
+2.1 **[SD Desktop for secondary use of health and social data](./sd-desktop-audited.md)**
 Set up your virtual Desktop to analyse register data securely from your web browser. 
 
-2.3 **Guidelines for data controllers/registers**
+2.2 **Guidelines for data controllers/registers**
 The service will also be available for accessing data provided by single registers. It requires a service agreement between the data controller and CSC. The service is currently in the test phase. 
 
 
