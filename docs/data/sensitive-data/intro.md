@@ -2,7 +2,7 @@
 
 ## Introduction 
 
-Sensitive Data (SD) services for research provide CSC customers with a secure workspace accessible via a web browser that can be used for processing sensitive data according to CSC's General Terms of Use along all pahses of reaserch.
+Sensitive Data (SD) services for research provide CSC customers with a secure workspace accessible via a web browser that can be used for processing sensitive data according to CSC's General Terms of Use.
 
 Sensitive Data services for research consist of five components:
 
@@ -16,16 +16,15 @@ Sensitive Data services for research consist of five components:
 
 * Sensitive Data Apply (*pilot phase*): promotes data reuse allowing data owners to manage access to published datasets via a simple user interface.
 
-These services are suitable to process sensitive reaserch data along all phases of reaserch and in compliace with the General Data Protection Regulation. 
-In this manual you can find an overview of each service's key features and limitations, step-by-step instructions and video tutorials (specific sections are marked as *advanced* if technical expertise are required) and quick solutions in the troubleshooting table. In addition, guidance for accessing the services and permission management is provided based on the data type and the legal bases for data processing. 
+These services are suitable for processing sensitive research data in compliance with the General Data Protection Regulation. 
 
-In fact, a restricted version of SD Desktop is provided for processing register based reasearch under the Finnish Act on Seconday Use of health and Social data, that applies when health and social information is collected and saved in a register (for example, during examination in health care services, or while applying for social benefits), and then the original information is used for a different purpose, for example research. In this case processing is possible only in a certified computing environment in compliance with Act on the Secondary Use and the Findata Authority's Regulation. 
-The limitations are described in the SD Desktop ([service description  on research.csc.fi](https://research.csc.fi/-/sd-desktop)) and guidance is provided in a specific section on the user guide. See: 
+A restricted version of SD Desktop is provided for processing register-based research under the Finnish Act on Secondary Use of Health and Social data. The regulation applies when health and social information is collected and saved in a register, for example, during examination in health care services or while applying for social benefits, and in a second moment, the original information is used for a different purpose, for example, research. In this case, the processing is possible only in a certified computing environment in compliance with Act on the Secondary Use and the Findata Authority's Regulation. The limitations are described in the SD Desktop ([service description on research.csc.fi](https://research.csc.fi/-/sd-desktop)), and guidance is provided in a specific section on the user guide. See: 
 
+In this manual, you can find an overview of each service's key features and limitations, step-by-step instructions and video tutorials (specific sections are marked as *advanced* if technical expertise is required), and quick solutions in the troubleshooting table. In addition, guidance for accessing the services and permission management is provided based on the data type and the legal bases for data processing. 
 
 
 !!! Note
-    Sensitive data is only accessible with appropriate authorization, rights, or permission. With SD services, access is always managed by the data controller via specific service components in compliance with the GDPR and national regulations. In the following section of this user guide you can find an overview of permission management via SD services. Below a summary of the main documentation that should be considered. 
+    Sensitive data is only accessible with appropriate authorization, rights, or permission. With SD services, access is always managed by the data controller via specific service components in compliance with the GDPR and national regulations. The following section of this user guide provides an overview of permission management via SD services and asummary of the main documentation that should be considered. 
     
 
 
