@@ -1,16 +1,20 @@
-# Accessing Sensitive Data (SD) services for processing research data
+# Accessing Sensitive Data (SD) services 
   
 CSC's Sensitive Data (SD) services are available to researchers and students affiliated with Finnish higher education institutions (universities, universities of applied sciences) or a state research institute and their international collaborators.
 
-Access to the service is managed by 	 
-  
+
+
+## Processing sensitive reaserch data
+
+Access to the services is managed directly by the CSC project manager (e.g. research project's principal investigator, group leader, or postdoc) using the MyCSC portal and it is based on a CSC project. The CSC project manager can add members which will have equal access permissions to the same project. They can  upload encrypted data to SD Connect and analyze it using the SD Desktop services. However, only the project manager can export non-sensitive results from the secure computing environment. 
+
 To access SD Connect and SD Desktop for storing, sharing or analysing sensitive research data:
 
 1. Create a [CSC account](../../accounts/how-to-create-new-user-account.md) by logging in at the [MyCSC portal](https://my.csc.fi).
 
 2. Create or join a CSC project and add project members.
 
-3. Fill in the _Description of processing activities form_ and accept _CSC's Data Processing Agreement_.
+3. Fill in the _Description of processing activities form_ and accept _CSC's Data Processing Agreement_. As the CSC project manager is employed by the data cobntroller they also act as it's representative and the DPA becomes valid between the academic organization (the data controller) and CSC (data processor). 
 
 4. All project members should add service access to Allas (to use SD Connect) and SD Desktop, accepting the terms of use. 
 
@@ -34,9 +38,8 @@ with any modern web-browser (Note: private browsing is not supported using Firef
 
 ## Processing register data under the Act on Secondary Use
 
-Analysing register data differs from the process mentioned above. In this case, CSC's helpdesk manages users' access to the SD Desktop computing environment in compliance with the Finnish Act on the Secondary Use of Health and Social data and the Findata Authority's Regulation.
+The Finnish Act on Secondary Use of health and social data regulates register data processing. Therefore, register data can only be provided by the Findata Authority and accessed via the SD Desktop service. CSC's helpdesk manages users' access to  SD Desktop and results export based on the data permit.
 
-Register data can only be provided by the Findata Authority and accessed via the SD Desktop service. For more information about data provided by single registers, contact us at: servicedesk@csc.fi.
 
 !!! Note
     Register data processing is subject to several limitations. Therefore, we recommend contacting us at servicedesk@csc.fi (subject: Sensitive data) before applying for a data permit to verify if the service matches your needs. 
@@ -107,4 +110,6 @@ For more information, see the specific sections:
 ### Billing unit calculator
 
 <iframe srcdoc="https://my.csc.fi/buc" style="width: 100%; height: 1300px; border: 0"></iframe>
+
+
 
