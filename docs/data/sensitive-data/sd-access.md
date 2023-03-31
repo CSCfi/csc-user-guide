@@ -1,22 +1,8 @@
-# Accessing Sensitive Data (SD) services for research
+# Accessing Sensitive Data (SD) services for processing research data
   
 CSC's Sensitive Data (SD) services are available to researchers and students affiliated with Finnish higher education institutions (universities, universities of applied sciences) or a state research institute and their international collaborators.
 
-!!! Note
-    The legal basis for data processing determines which service component you can access and use. For example, you can directly manage research data access, uploads, or data export using SD Connect and SD Desktop. In contrast, access to register data via SD Desktop is operated by CSC's helpdesk, based on the data permit issued by the Findata Authority and in compliance with Finnish regulations. 
-
-Below you can find more information on the steps required to access the services:
-
-* for processing research data;
-* for processing register data under the Act on Secondary Use;
-* storage space (or quota) availability and resource (or billing units) consumption.
-
-You can browse the guide using the navigation bar on the right side of this page or the search function.
- 
- 
-
-## Processing sensitive research data
- 	 
+Access to the service is managed by 	 
   
 To access SD Connect and SD Desktop for storing, sharing or analysing sensitive research data:
 
