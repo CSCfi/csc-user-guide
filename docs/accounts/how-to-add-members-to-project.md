@@ -36,9 +36,8 @@ They do not even have to be registered yet.
 1. Login to [MyCSC](http://my.csc.fi).
 1. Choose _Projects_ in the navigation menu on the left.
 1. Choose the project you want new persons to join.
-1. Under _Project information_ there is an item _Invitation link_. Click
-   _Generate_.
-1. Send the link to the members.
+1. Under _Members_ click on the Invite.
+1. Copy the invitation link and send it to the members.
 
 ### Member
 
@@ -52,9 +51,7 @@ They do not even have to be registered yet.
 1. Login to MyCSC if you have logged out.
 1. Choose _Projects_ in the navigation menu on the left.
 1. Choose the project to which you have invited new members.
-1. Under _Members_, in the _Waiting approval_ tab, you can find the list of
-   users. Approve them with the _check_ button or reject them with the _X_
-   button.
+1. Under Members, click on the Waiting approval. Accept or deny new users. 
 
 !!! Note
 
