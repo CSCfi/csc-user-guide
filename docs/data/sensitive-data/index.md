@@ -1,6 +1,6 @@
 # Sensitive Data (SD) Services for research: user guide
 
-This manual, in CSC Docs, introduces CSC's Sensitive Data (SD) services. If you access SD services for the first time, please refer to the introduction for more information. To navigate the user guide, click on the topics on the left-hand side of the page in the navigation bar, or use the search functionality. Next, browse the section using the navigation bar on the right side of each page.
+This manual, in CSC Docs, introduces CSC's Sensitive Data (SD) services. To navigate the user guide, click on the topics on the left-hand side of the page in the navigation bar, or use the search functionality. Next, browse the section using the navigation bar on the right side of each page.
 
 !!! Note
     **Do you have any questions? Would you like to discuss a specific project?** Don't hesitate to contact us at servicedesk@csc.fi (subject: Sensitive Data) or join the [CSC Research User Support Coffee - Every Wednesday at 14:00](https://ssl.eventilla.com/usersupportcoffee). Our team is here to help and we offer direct support. 
@@ -13,7 +13,7 @@ Overview of SD services, user guide and information on permissions management. P
 
 ### **[Accessing SD Services](./sd-access.md)** 
 
-With my.csc.fi portal, set up a user account, and complete the following steps to access the services for sensitive reasearch data processing or accessing register data under the Act on Secondary Use. 
+With my.csc.fi portal, set up a user account, and complete the following steps to access the services for [sensitive reasearch data processing](./sd-access.md#processing-sensitive-reaserch-data) or accessing [register data under the Act on Secondary Use](./sensitive-data/sd-access.md#processing-register-data-under-the-act-on-secondary-use). 
 
 ### 1. Sensitive research data processing
 
