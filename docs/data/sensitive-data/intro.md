@@ -23,53 +23,8 @@ A restricted version of SD Desktop is provided for processing register-based res
 In this manual, you can find an overview of each service's key features and limitations, step-by-step instructions and video tutorials (specific sections are marked as *advanced* if technical expertise is required), and quick solutions in the troubleshooting table. 
 
 !!! Note
-    Sensitive data is only accessible with appropriate authorization, rights, or permission. With SD services, access is always managed by the data controller via specific service components in compliance with the GDPR and national regulations. For example, you can directly manage research data access, uploads, or data export using SD Connect and SD Desktop. In contrast, access to register data via SD Desktop is operated by CSC's helpdesk, based on the data permit issued by the Findata Authority and in compliance with Finnish regulations. The following section of this user guide provides an overview of permission management via SD services and asummary of the main documentation that should be considered. 
+    Sensitive data is only accessible with appropriate authorization, rights, or permission. With SD services, access is always managed by the data controller via specific service components in compliance with the GDPR and national regulations. For example, you can directly manage research data access, uploads, or data export using SD Connect and SD Desktop. In contrast, access to register data via SD Desktop is operated by CSC's helpdesk, based on the data permit issued by the Findata Authority and in compliance with Finnish regulations. The following section of this user guide provides an overview of permission management via SD services based on the data type and legal bases for data processing and asummary of the main documentation that should be considered. 
     
-
-
-
-
-
-## Compliance with data protection regulations 
-
-Sensitive data is data that needs to be protected against unauthorized access. Data protection may be required due to legal or ethical reasons, personal privacy and proprietary considerations. 
-
-Sensitive data includes:
-
-* Personal sensitive data (e.g. health, genetic and personal information, racial or ethnic origin, political opinions, religious or philosophical beliefs, or trade union membership, genetic data, biometric data for the purpose of uniquely identifying a natural person, data concerning health, data concerning a natural person's sex life or sexual orientation, data relating to criminal convictions and offenses or related security measures, data that may identify a person)
-
-* Ecological data (e.g. location of endangered species or other conservation efforts)
-
-* Confidential data (e.g. trade secrets)
-
-* Data that is otherwise deemed sensitive.
-
-The General Data Protection Regulation (GDPR) and Finnish national laws regulate sensitive personal data processing. (but not only)
-
-According to the GDPR, a data controller is an individual or organization that determines the purposes and means of processing sensitive personal data, and it is usually an academic organization. On the other hand, a data processor is an individual or organization that processes personal data on the controller's behalf, for example, an IT service provider, in this case, CSC. Data processing terms such as duration, scope, and purpose, and the relationship between the data controller and CSC are defined in a legally biding document called Data Protection Agreement (DPA). Morever, the GDPR requires data controllers to carry out a Data Protection Impact Assessment (DPIA) for operations that are 'likely to result in a high risk to the rights and freedoms of natural persons.' 
-
-The Finnish Act on Secondary Use of Health and Social Data applies when health and social information is collected and saved in a register (for example, during examination in health care services, or while applying for social benefits), and then the original information is used for a different purpose, for example research. In this case processing is possible only in a certified computing environment in compliance with the Finnish Act on the Secondary Use and the Findata Authority's Regulation and guidace is provided in this paragraph: SD Desktop for secondary use. 
-
-
-!!! Note
-    Sensitive data is only accessible with appropriate authorization, rights, or permission. With SD services, access is always managed by the data controller via specific service components in compliance with the GDPR and national regulations. In the following section of this user guide you can find an overview of permission management via SD services. Below a summary of the main documentation that should be considered. 
-    
-
-When creating a CSC project using the MyCSC portal, you are guided to the **"Description of processing activities" form**. This form will support you in identifying the data controller, the type of sentivie data you handle in your research project and what type of security meansures you are adopting. Moreover, you will be guided to view CSC's General Terms of Useand Data Processing Agreement. As you are employed by the academic organization which usually acts as the data controller, during this process you act as it's representative and when you accept the DPA, it becomes valid also between the academic organization and CSC (data processor). You can download these documents and share them with the legal services in your organisation or the data controller's representative for support. 
-
-When researchers affiliated with an academic organization in a non-EU/EEA country want to access sensitive data stored in Finland (e.g., via data streaming through their web browser), additional agreements are required. **Accessing sensitive data from a non-EU/EEA country** is qualified by the GDPR as a data transfer from one data controller (Finnish academic organization) to another. In this case, the data controller needs to make an agreement for international data transfers (EU's standard contractual clauses) and make a transfer impact assessment to evaluate that the state where the collaborator operates provides an adequate level of data protection and that safeguards are in place and that there is a lawful base for international transfer (e.g.data subjects have given explicit consents). Also in this case, please contact your organization's legal services or Data Protection Officer for advice and support.
-
-In this table, you can find the contact information and support material provided by of the several Finnish academic organizations: 
-
-
-
-
-
-
-
-
-
-
 
 
 
