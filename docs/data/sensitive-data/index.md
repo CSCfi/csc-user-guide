@@ -34,9 +34,9 @@ Set up your virtual Desktop to analyse sensitive data securely from your web bro
 
 Set up your virtual Desktop to analyse register data securely from your web browser. Access to this service requires a permit provided by the Findata authority. 
 
-2.2 **Guidelines for data controllers/registers**
+2.2 **[Guidelines for data controllers/registers](./single-register-submission.md) **
 
-The service will also be available for accessing data provided by single registers. It requires a service agreement between the data controller and CSC. The service is currently in the test phase. 
+The service will also be available for accessing data provided by single registers. It requires a service agreement between the data controller and CSC. The service is currently in the test phase and here are also to submit secondary use data for research use in SD services.
 
 
 
