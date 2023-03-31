@@ -13,7 +13,7 @@ Overview of SD services, user guide and information on permissions management. P
 
 ### **[Accessing SD Services](./sd-access.md)** 
 
-With my.csc.fi portal, set up a user account, and complete the following steps to access the services for [sensitive reasearch data processing](./sd-access.md#processing-sensitive-reaserch-data) or accessing [register data under the Act on Secondary Use](./sensitive-data/sd-access.md#processing-register-data-under-the-act-on-secondary-use). 
+With my.csc.fi portal, set up a user account, and complete the following steps to access the services for [sensitive reasearch data processing](./sd-access.md#processing-sensitive-reaserch-data) or accessing [register data under the Act on Secondary Use](./sd-access.md#processing-register-data-under-the-act-on-secondary-use). 
 
 ### 1. Sensitive research data processing
 
