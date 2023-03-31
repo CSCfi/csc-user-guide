@@ -7,15 +7,25 @@ Sensitive Data (SD) Desktop allows you to analyze sensitive research data from y
 
 [![Desktop-overview](images/desktop/desktop_overviewnew1.png)](images/desktop/desktop_overviewnew1.png)
 
-In the following manual, you can learn how to:
+ * [Key features](./sd_desktop.md)
+  
+ * [Authentication](./sd_desktop.md#authentication) 
 
-* Create and set up your virtual desktop;
+ * [Creating your virtual desktop](./sd_desktop.md#creating-your-virtual-desktop) (Default analysis)
 
-* Analyse encrypted data uploaded and stored in SD Connect;
+ * [Working with your desktop](./sd_desktop.md#working-with-your-virtual-desktop)(Default analysis)
+  
+ * [Accessing encrypted sensitive data within SD Desktop](./sd_desktop.md#accessing-encrypted-sensitive-data-within-sd-desktop) (Default analysis)
 
-* Reuse published research data stored under controlled access via SD Apply (pilot phase);
+ * [Default programs available on SD Desktop](./sd_desktop.md#default-programs-available-on-sd-desktop) (Default analysis)
+  
+ * [Software customization](./sd_desktop.md#software-customisation) (Advanced)
 
-* Export non-sensitive results.
+ * [Data export](./sd_desktop.md#data-export-from-sd-desktop)
+
+ * [Managing volumes and desktops](./sd_desktop.md#managing-volumes-and-virtual-desktops)
+  
+ * [Troubleshooting](./sd_desktop.md#troubleshooting)
 
 You can browse the main topics of this section using the navigation bar on the right side of this page or the search function.
 
