@@ -9,11 +9,11 @@ This manual, in CSC Docs, introduces CSC's Sensitive Data (SD) services. To navi
 
 ### **[Introduction](./intro.md)** 
 
-Overview of SD services, user guide and information on permissions management. Please check this section if you are accessing the services for the first time.
+Overview of SD services.
 
 ### **[Accessing SD Services](./sd-access.md)** 
 
-With my.csc.fi portal, set up a user account, and complete the following steps to access the services for [sensitive reasearch data processing](./sd-access.md#processing-sensitive-reaserch-data) or accessing [register data under the Act on Secondary Use](./sd-access.md#processing-register-data-under-the-act-on-secondary-use). 
+With my.csc.fi portal, set up a user account, and complete the following steps to access the services for [sensitive reasearch data processing](./sd-access.md#processing-sensitive-reaserch-data) or [register-based research under the Act on Secondary Use](./sd-access.md#processing-register-data-under-the-act-on-secondary-use). Next, apply for billing units and storage space. 
 
 ### 1. Sensitive research data processing
 
