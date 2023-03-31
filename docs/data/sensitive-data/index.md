@@ -31,8 +31,7 @@ Set up your virtual Desktop to analyse sensitive data securely from your web bro
 
 
 2.1 **[SD Desktop for secondary use of health and social data](./sd-desktop-audited.md)**
-S
-et up your virtual Desktop to analyse register data securely from your web browser. Access to this service requires a permit provided by the Findata authority. 
+Set up your virtual Desktop to analyse register data securely from your web browser. Access to this service requires a permit provided by the Findata authority. 
 
 2.2 **Guidelines for data controllers/registers**
 The service will also be available for accessing data provided by single registers. It requires a service agreement between the data controller and CSC. The service is currently in the test phase. 
