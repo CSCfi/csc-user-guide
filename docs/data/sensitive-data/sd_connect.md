@@ -8,6 +8,8 @@ Sensitive Data (SD) Connect allows you to store sensitive research data in the C
 
 [![SDConnect-overview](images/connect/connect_overviewnew.png)](images/connect/connect_overviewnew.png)
 
+Contents:
+
 * [Key features](./sd_connect.md)
   
 * [Authentication](./sd_connect.md#authentication)
