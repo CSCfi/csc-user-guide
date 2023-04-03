@@ -38,10 +38,10 @@ Using CSC computing services requires basic Linux skills and ability to use some
 
 When starting a task that requires EO data, there are multiple factors to consider. What are the most important factors, depends heavily on the task and the resources available.
 
-What to consider when chosing data:
+What to consider when choosing data:
 
 * Sensor: Different sensors cover different intervals of the electromagnetic spectrum and with that show different properties of the observed areas, they can be active or passive:
-    * Multispectal: multiple intervals around the visible spectrum of the EM are observed at the same time
+    * Multispectral: multiple intervals around the visible spectrum of the EM are observed at the same time
     * Hyperspectral: more but usually shorter intervals of the EM are observed at the same time
     * RADAR (Radio Detection and Ranging), SAR (Synthetic Aperture Radar), active sensing in the microwave/radio frequencies of the EM spectrum
     * LiDAR (Light Detection and Ranging), using a laser as energy source in the optical part of the EM spectrum 
@@ -118,7 +118,7 @@ Some Finnish EO datasets are available locally at CSC. A STAC catalog for all sp
 
 **[SYKE/FMI, Finnish image mosaics](https://www.syke.fi/fi-FI/Tutkimus__kehittaminen/Tutkimus_ja_kehittamishankkeet/Hankkeet/Paikkatietoalusta_PTA)** : Sentinel-1, Sentinel-2 and Landsat mosaics, for several time periods per year. Some of them are available in Puhti, but not all. [FMI provides also a STAC catalog for these mosaics](https://pta.data.lit.fmi.fi/stac/root.json)
 
-[**European Space Agency's SciHub**](https://scihub.copernicus.eu/dhus/#/home) provides worldwide main products for Sentinel-1, -2 and -3. It requires free registration. Big part of the data is in the "Long term archive" and cannot be downloaded directly, but needs to be requested first. Download is limited to 2 concurrent processes per user. Please note that between end of January and July 2023 this system is being updated to become the [Copernicus Space Ecosystem](https://medium.com/sentinel-hub/new-copernicus-data-access-service-to-support-the-ecosystem-for-earth-observation-412f829355a3). SciHub will continue its full operations until the end of June 2023.
+[**European Space Agency's SciHub**](https://scihub.copernicus.eu/dhus/#/home) provides worldwide main products for Sentinel-1, -2 and -3. It requires free registration. Big part of the data is in the "Long term archive" and cannot be downloaded directly, but needs to be requested first (some tools can do that automatically, please check the documentation for the tool of your choice). Download is limited to 2 concurrent processes per user. Please note that between end of January and July 2023 this system is being updated to become the [Copernicus Space Ecosystem](https://medium.com/sentinel-hub/new-copernicus-data-access-service-to-support-the-ecosystem-for-earth-observation-412f829355a3). SciHub will continue its full operations until the end of June 2023.
 
 [**Copernicus Data Space Ecosystem**](https://dataspace.copernicus.eu/) provides access to all Sentinel data with new features for visualisation and data processing. Please stay tuned to the news for latest information on the services available and the [Copernicus Data Space Ecosystem roadmap](https://documentation.dataspace.copernicus.eu/#/Roadmap) for the full release of all functionalities.
 
@@ -149,11 +149,13 @@ You can find information about geocomputing using CSC resources and how to get s
 
 ### What to consider when choosing a software?
 
+There is no single software perfect for every task and taste. The right software depends as much on the task to be worked on, as on the taste and skillset of the user. 
+
 * Functionality
 * Interaction type:
     * Graphical User Interface (GUI)
     * Command Line Interface (CLI)
-    * Scripting
+    * Scripting 
 * Technical aspects:
     * Reproducibility
     * Supported operating systems
@@ -184,7 +186,7 @@ You can find information about geocomputing using CSC resources and how to get s
 
 [**QGIS**](../../../apps/qgis.md) - open source tool with GUI for working with spatial data including limited multispectral image processing capabilities.  GUI with batch processing possibility and Python interface. Used for example for visualization, map algebra and other raster processing. Many plug-ins available, for EO data processing, check out the [QGIS Semi-automatic classification plugin](https://fromgistors.blogspot.com/p/semi-automatic-classification-plugin.html).
 
-[**R**](../../../apps/r-env-for-gis.md) - Puhti R installation includes a lot of geospatial packages, includeing serveral useful for EO data processing, such as `terra`, `CAST`, `raster` and `spacetime`, also `rstac` for working with STAC catalogs.
+[**R**](../../../apps/r-env-for-gis.md) - Puhti R installation includes a lot of geospatial packages, including several useful for EO data processing, such as `terra`, `CAST`, `raster` and `spacetime`, also `rstac` for working with STAC catalogs.
 
 [**Sen2Cor**](../../../apps/sen2cor.md) - a command-line tool for Sentinel-2 Level 2A product generation and formatting.
 
