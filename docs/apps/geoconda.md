@@ -25,6 +25,7 @@ includes following python packages:
 -   [geopy](https://geopy.readthedocs.io/) - client for several popular geocoding web services. NEW 2023
 -   **[jupyter]** - Jupyter Notebooks and JupyterLab, best to use with [Puhti web interface](../computing/webinterface/index.md) and [Jupyter](../computing/webinterface/jupyter.md)
 -   [laspy](https://pythonhosted.org/laspy/) - for reading, modifying, and creating .LAS LIDAR files. 
+-   [landsatlinks](https://github.com/ernstste/landsatlinks) - download Landsat Collection 2 Level 1. NEW 2023
 -   [leafmap](https://leafmap.org/) - for geospatial analysis and interactive mapping in a Jupyter environment.  NEW 2023
 -   [lidar](https://lidar.gishub.org/) - for delineating the nested hierarchy of surface depressions in digital elevation models (DEMs).
 -   [metpy](https://unidata.github.io/MetPy/latest/index.html) - reading, visualizing, and performing calculations with weather data. NEW 2022
@@ -81,8 +82,8 @@ If you think that some important GIS package for Python is missing from here, yo
 
 The `geoconda` module is available:
 
-* 3.10.9 (created February 2023), in Puhti.
-* 3.10.6 (created September 2022), in Puhti and Mahti.
+* 3.10.9 (Python 3.10.9, PDAL 2.5.2, GDAL 3.6.2, created March 2023), in Puhti.
+* 3.10.6 (Python 3.10.6, PDAL 2.4.1, GDAL 3.5.0, created September 2022), in Puhti and Mahti.
 
 Version number is the same as the Python version.
 
@@ -112,8 +113,8 @@ You can edit your Python code in Puhti with:
 To open Spyder in Puhti web interface with remote desktop:
 
 1. Log in to [Puhti web interface](https://puhti.csc.fi).
-2. Open Remote desktop: Apps -> Desktop, choose Desktop: `mate` or `xfce`. 
-3. After launcing the remote desktop open `Host Terminal` (Desktop icon) and start Spyder:
+2. Open Remote desktop: Apps -> Desktop. 
+3. After launcing the remote desktop open `Terminal` (Desktop icon) and start Spyder:
 
 ```
 module geoconda

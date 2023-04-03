@@ -33,6 +33,6 @@ specific to CUDA debugging:
 * Focus Commands: Commands to query or switch the focus of the debugger
 * Configuration Commands: Commands to configure the CUDA-specific commands
 
-Memory leaks of device code can be checked inside the debugger by activating
+Out of bonds accesses can be checked inside the debugger by activating
 the memory checker with `set cuda memcheck on`. Alternatively the `cuda-memcheck` or [`compute-sanitizer`](compute-san.md)
 tool can be used outside of the debugger (`cuda-memcheck ./cuda_program` or `compute-sanitizer ./cuda_program`).
