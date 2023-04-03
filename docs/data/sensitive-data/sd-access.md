@@ -45,7 +45,7 @@ with any modern web-browser (Note: private browsing is not supported using Firef
 
 ## Processing register data under the Act on Secondary Use
 
-The Finnish Act on Secondary Use of health and social data regulates register data processing. Therefore, register data can only be provided by the Findata Authority and accessed via the SD Desktop service. CSC's helpdesk manages users' access to  SD Desktop and results export based on the data permit.
+The Finnish Act on Secondary Use of Health and Social data regulates register data processing. Therefore, register data can only be provided by the Findata Authority and accessed via the SD Desktop service. CSC's helpdesk manages users' access to  SD Desktop for secondary use and results export based on the data permit.
 
 
 !!! Note
@@ -71,6 +71,9 @@ To access and analyse register data via the SD Desktop service:
   
  	 
 For specific guidance regarding these steps, see the [Accounts](../../accounts/index.md) section at the beginning of this manual.	 
+
+
+
 
 [![Project-resgiter](images/connect/secondaryuse.png)](images/connect/secondaryuse.png)
   
