@@ -1,3 +1,4 @@
+*[CLI]: Command-Line Interface 
 *[CPU]: Central Processing Unit
 *[GPU]: Graphics Processing Unit
 *[QPU]: Quantum Processing Unit
@@ -50,3 +51,4 @@
 *[TLS]: Transport Layer Security
 *[HTTP]: Hypertext Transfer Protocol
 *[HTTPS]: Hypertext Transfer Protocol Secure
+*[SQL]: Structured Query Language
