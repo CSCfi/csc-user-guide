@@ -4,7 +4,7 @@ CSC's Sensitive Data (SD) services are available to researchers and students aff
 
 Contents:
 
- * [Processing research data](./sd-access.md#processing-sensitive-reaserch-data);
+ * [Processing research data](./sd-access.md#processing-sensitive-research-data);
  * [Processing register data under the Act on Secondary Use](./sensitive-data/sd-access.md#processing-register-data-under-the-act-on-secondary-use);
  * [Default storage space and billing units consumption](./sd-access.md#default-storage-space-and-billing-units-consumption);
  * [Billing units calculator](./sd-access.md#default-storage-space-and-billing-units-consumption);
