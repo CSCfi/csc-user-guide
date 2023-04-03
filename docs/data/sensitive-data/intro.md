@@ -26,11 +26,3 @@ In this manual, you can find an overview of each service's key features and limi
     Sensitive data is only accessible with appropriate authorization, rights, or permission. With SD services, access is always managed by the data controller via specific service components in compliance with the GDPR and national regulations. For example, you can directly manage research data access, uploads, or data export using SD Connect and SD Desktop. In contrast, access to register data via SD Desktop is operated by CSC's helpdesk, based on the data permit issued by the Findata Authority, and in compliance with Finnish regulations. The following section of this user guide provides an overview of permission management via SD services based on the data type and legal bases for data processing and a summary of the main documentation that should be considered. 
     
 
-
-For further information, see also on CSC's website:
-
-* [CSC General Terms of Use](https://research.csc.fi/general-terms-of-use);
-* [CSC Data Processing Agreement](https://research.csc.fi/data-processing-agreement);
-* [Definition of sensitive data](https://research.csc.fi/definition-of-sensitive-data);
-* [Technical and organizational security measures for protecting sensitive data in CSC Sensitive Data service](./technical-organisational-sec-measures.pdf).
-
