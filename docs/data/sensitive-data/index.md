@@ -13,13 +13,13 @@ Refer to this section for an overview of SD services and user guide.
 
 ### **[Accessing SD Services](./sd-access.md)** 
 
-With my.csc.fi portal, set up a user account, and complete the following steps to access SD services for [sensitive reasearch data processing](./sd-access.md#processing-sensitive-reaserch-data) or [register-based research under the Act on Secondary Use](./sd-access.md#processing-register-data-under-the-act-on-secondary-use). Next, apply for billing units and storage space. 
+With my.csc.fi portal set up a user account, and complete the following steps to access SD services for [sensitive research data processing](./sd-access.md#processing-sensitive-reaserch-data) or [register-based research under the Act on Secondary Use](./sd-access.md#processing-register-data-under-the-act-on-secondary-use). Next, apply for billing units and storage space. 
 
 ### 1. Sensitive research data processing
 
 1.1 **[Store and share with SD Connect](./sd_connect.md)** 
 
-With SD Connect you can store encrypted sensitive research data in the CSC's cloud storage solution or share it with your collaborators. Encrypted data upload is possible via a web browser (1<GB) or programmatically.
+With SD Connect, you can store encrypted sensitive research data in the CSC's cloud storage solution or share it with your collaborators. Encrypted data upload is possible via a web browser (1<GB) or programmatically.
 
 1.2 **[Analyse and compute with SD Desktop](./sd_desktop.md)** 
 
@@ -32,12 +32,14 @@ Set up your virtual Desktop to analyse sensitive data securely from your web bro
 
 2.1 **[SD Desktop for secondary use of health and social data](./sd-desktop-audited.md)**
 
-Set up your virtual Desktop to analyse register data securely from your web browser. Access to this service requires a permit provided by the Findata authority. 
+Set up your virtual Desktop to analyse and register data securely from your web browser. Access to this service requires a permit provided by the Findata authority. 
 
 2.2 **[Guidelines for data controllers/registers](./single-register-submission.md)**
 
-The service will also be available for accessing data provided by single registers. It requires a service agreement between the data controller and CSC. The service is currently in the test phase and here are also to submit secondary use data for research use in SD services.
+The service will also be available for accessing data provided by single registers. It requires a service agreement between the data controller and CSC. The service is currently in the test phase, and here are also to submit secondary use data for research use in SD services.
 
+### 3. Support materials 
 
+3.1 Powerpoint presentations intriducing SD services.
 
-
+3.2 Services in the pilot phase.
