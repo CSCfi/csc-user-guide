@@ -1,6 +1,6 @@
 # Earth Observation guide
 
-This guide aims to help researchers to work with Earth Observation (EO) data using CSC's computing resources. The purpose of this guide is to give an overview of available options, so it would be easier to decide if CSC has suitable services for your EO reseach. It also helps you find the right data and tools for raster data based EO tasks. This guide focuses on spaceborne platforms. However, many tools and concepts also apply to airborne platforms. If you are interested in the fundamentals of EO, please check the [resources and further reading section](#resources-and-further-reading).
+This guide aims to help researchers to work with Earth Observation (EO) data using CSC's computing resources. The purpose of this guide is to give an overview of available options, so it would be easier to decide if CSC has suitable services for your EO research. It also helps you find the right data and tools for raster data based EO tasks. This guide focuses on spaceborne platforms. However, many tools and concepts also apply to airborne platforms. If you are interested in the fundamentals of EO, please check the [resources and further reading section](#resources-and-further-reading).
 
 **What are the benefits of using EO data?**
 
@@ -18,11 +18,11 @@ This guide aims to help researchers to work with Earth Observation (EO) data usi
 
 For working with EO data in general, there are three main options:
 
-1) **EO specific services**, which provide both data and advanced ready-to-use processing environments. Usually these give better user experience and efficiency, but the services might be limited in computing power, available tools and options for adding own data. Often these have fees for using.
+1) **EO specific services**, which provide both data and advanced ready-to-use processing environments. Usually these give better user experience and efficiency, but the services might be limited in computing power, available tools and options for adding own data. Often these have fees for using. Examples are [Google Earth Engine](https://earthengine.google.com/) and [Microsoft Planetary Computer](https://planetarycomputer.microsoft.com).
 
-2) **Cloud services** with access to EO data. Practically, the data is often stored in object-storage and can be accessed as independent service. They  also provide general computing services, such as virtual machines, to which EO  tools need to be installed by the end-user. These options usually have some fees, mainly for processing. The data download may be free of charge or have a small cost, depending on the amount of data needed. 
+2) **Cloud services** with access to EO data. Practically, the data is often stored in object-storage and can be accessed as independent service. They  also provide general computing services, such as virtual machines, to which EO  tools need to be installed by the end-user. These options usually have some fees, mainly for processing. The data download may be free of charge or have a small cost, depending on the amount of data needed. Examples are [Data and Information Access Services (DIAS)](https://www.copernicus.eu/en/access-data/dias) and [Amazon Web Services](https://registry.opendata.aws/).
 
-3) **Own computing environment** - PC, local cluster. Data needs to be downloaded and all tools must be installed to this system. On the other hand, it gives more freedom to select the tools and set-up. Usually this does not cause any extra costs, but the computing power is usually rather limited.
+3) **Own computing environment** - PC, local cluster, virtual machines. Data needs to be downloaded and all tools must be installed to this system. On the other hand, it gives more freedom to select the tools and set-up. Usually this does not cause any extra costs, but the computing power is usually rather limited.
 
 CSC services do not fit well in this categorization, as they provide some features from all of these. **CSC computing services provide a lot of computing power and storage space, and they are free of charge** for Finnish researchers for academic or educational use. 
 
@@ -32,17 +32,19 @@ Puhti has also a lot of [pre-installed applications](#what-applications-are-avai
 
 At CSC, [some Finnish EO datasets](#eo-data-at-csc) are available for direct use. In many cases, however, downloading EO data from other services (see [list of EO data download services](#eo-data-download-services)) is a required step of the process. Puhti and cPouta provide local storage of ~1-20 Tb. For more storage space,  [Allas object storage](../../../data/Allas/index.md) can be used.
 
-Using CSC computing services requires basic Linux skills and ability to use some scripting language or command-line tools. In addition, supercomputers and virtual machines require you to understand some specific concepts, so it takes a few hours to get started. The new Puhti web interface makes the start considerably easier, providing a desktop environment in the web browser, which enables the use of tools with Graphical User Interfaces (GUI) and also tools like R Studio and JupyterLab for an easy start with R, Python and Julia.
+Using CSC computing services requires basic Linux skills and ability to use some scripting language (for example Python, R, Julia) or command-line tools. In addition, supercomputers and virtual machines require you to understand some specific concepts, so it takes a few hours to get started. The [Puhti web interface](https://www.puhti.csc.fi/) makes the start considerably easier, providing a desktop environment in the web browser, which enables the use of tools with Graphical User Interfaces (GUI) and also tools like R Studio and JupyterLab for an easy start with R, Python and Julia.
 
 ## What data do I need?
 
+When starting a task that requires EO data, there are multiple factors to consider. What are the most important factors, depends heavily on the task and the resources available.
+
 What to consider when chosing data:
 
-* Sensor
-    * Multispectal
-    * Hyperspectral
-    * RADAR (Radio Detection and Ranging), SAR (Synthetic Aperture Radar)
-    * LiDAR (Light Detection and Ranging)
+* Sensor: Different sensors cover different intervals of the electromagnetic spectrum and with that show different properties of the observed areas, they can be active or passive:
+    * Multispectal: multiple intervals around the visible spectrum of the EM are observed at the same time
+    * Hyperspectral: more but usually shorter intervals of the EM are observed at the same time
+    * RADAR (Radio Detection and Ranging), SAR (Synthetic Aperture Radar), active sensing in the microwave/radio frequencies of the EM spectrum
+    * LiDAR (Light Detection and Ranging), using a laser as energy source in the optical part of the EM spectrum 
     * Note that depending on the wavelengths observed, clouds, ground conditions and atmospheric artifacts may result in data gaps
 * Resolution
     * Temporal: when and how often a certain area is revisited
