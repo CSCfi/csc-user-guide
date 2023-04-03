@@ -1,74 +1,71 @@
 # Using DBaaS with CLI
+
 !!! error "Closed Beta"
-    Pukki DBaaS is in closed beta. This means that services is probably not suitable for most users
+    Pukki DBaaS is in closed beta. This means that the service is probably not suitable for most users
     and there might be breaking changes. If you are still interested in using the service you can
     [contact us](../../support/contact.md) to see if the service would be suitable for you.
 
-The DBaaS is using openstack on the backend this means that you can use the openstack CLI in a similar way as in Pouta. It is important to note that even if Pouta uses the same command line it does not mean that you are connecting to Pouta. This is especially important if you are automating stuff in both Pouta and DBaaS since you need to connect to different Keystone endpoints.
+The DBaaS is using OpenStack on the backend, which means that you can use the OpenStack CLI in a similar way as in Pouta. It is important to note that even if Pouta uses the same command-line it does not mean that you are connected to Pouta. This is especially important if you are automating things in both Pouta and DBaaS since you need to connect to different Keystone endpoints.
 
 ## Getting started
 
 1. First make sure that you have `python3` installed.
-1. Then install the command line tools
+2. Then, install the command-line tools:
 
 	```sh
 	pip3 install python-openstackclient python-troveclient
 	```
 
-1. You need to download your openrc file from the https://pukki.dbaas.csc.fi and choose correct project number then go to `API Access` and `Download OpenStack RC file` choose `OpenStack RC file`.
-1. Once you have downloaded the file you can source it by running
+3. You need to download your `openrc` file from [Pukki](https://pukki.dbaas.csc.fi) and choose the correct project number. Then, go to `API Access` and `Download OpenStack RC file` and choose `OpenStack RC file`.
+4. Once you have downloaded the file you can source it by running:
 
 	```sh
 	source $FILENAME
 	```
 
-1. After that you should be able to verify that it works by listing available datastores (available types of databases)
+5. After that you should be able to verify that it works by listing available datastores (available types of databases):
 
 	```sh
 	openstack datastore list
 	```
 
-Remember that you can use the help command like: `openstack help database` and the flag `--help` to find out more about the different commands.
+Remember that you can use the help command as `openstack help database` and the flag `--help` to find out more about the different commands.
 
-## Creating a  database instances
+## Creating a database instance
 
-1. Make sure that you have sourced the openrc file that you downloaded from <https://pukki.dbaas.csc.fi>
+1. Make sure that you have sourced the openrc file that you downloaded from [Pukki](https://pukki.dbaas.csc.fi).
+2. Before creating a database it is a good idea to know what kind of settings you want to use. These are the main things that you want to collect:
+	* The `name` of your new database instance. In this example we will use `my_database_instance`.
+	* What `databases` you want to create. In this example we will just use `my_first_database`.
+	* `IP addresses` from where you would like to access your database. You can usually find out your IP by googling what is my IP or using a homepage like this from CLI:
 
-1. Before creating a database it is a good idea to know what kind of setting you want to use. These are the main things that you want to collect:
+		```sh
+		curl ifconfig.me
+		```
 
-	The `name` of your new database instance. (In this example we will use `my_database_instance`)
+	* `Flavor`, for example `standard.small` . You can list available flavors with:
 
-	What `databases` you want to create (in this example we will just use `my_first_database`)
+		```sh
+		openstack database flavor list
+		```
 
-	`IP addresses` form where you would like to access your database. You can usually find out your IP by googling what is my IP or using a homepage like this from CLI
+	* `Datastore`, suggestion: `postgresql`. You can find datastores with:
 
-	```sh
-	curl ifconfig.me
-	```
+		```sh
+		openstack datastore list
+		```
 
-	`Flavor` for example `standard.small` . You can list available flavors by:
+	* `datastore version`. This depends on the datastore you have chosen and you should usually choose the latest. If you use PostgreSQL you can probably use `14.2`. You can find out the available datastore versions with:
 
-	```sh
-	openstack database flavor list
-	```
+		```sh
+		openstack datastore version list postgresql
+		```
 
-	`Datastore` Suggestion: `postgresql` You can find datastores by:
+	* How large `volume` in GiB you want to use to store your database. If this is your first time testing DBaaS you will get by with `1` GiB.
 
-	```sh
-	openstack datastore list
-	```
+	* What `username` and `password` you want to use. In this example we will use `databaseuser` and `myPassword568`.
 
-	`datastore version` This depends on the datastore you have chosen and you should usually choose the latest. If you use PostgreSQL you can probably use `14.2`. You can find out the available datastore versions by:
-
-	```sh
-	openstack datastore version list postgresql
-	```
-
-	How big `volume` in GiB you want to use to store your database. If this is your first time testing DBaaS you will get by `1` GiB.
-
-	What `username` and `password` you want to use. (In this example we will use `databaseuser` and `myPassword568`
-
-1. Once you gather the data you want to use to create your database you can do it by running the following command. Please update the variables how you see fit, especially `MY_IP` . You can also use the flag `--allowed-cidr` multiple times to add multiple IP-addresses.
+3. Once you've gathered the data you want to use to create your database you can do it by running the following command. Please update the variables how you see fit, especially `MY_IP`. You can also use the flag `--allowed-cidr` multiple times to add multiple IP-addresses.
 
 	```sh
 	openstack database instance create my_database_instance \
@@ -84,61 +81,73 @@ Remember that you can use the help command like: `openstack help database` and t
 
 	If you have any issues don't hesitate using the `openstack database instance create --help` command.
 
-1. Now you need to wait a couple of minutes until the database instances have been created and received a public IP. Once the instances have received an `HEALTHY` state the public IP should be visible. (note that it will show you a private and public IP you are only interested in the public IP). The following command will show you info about the instance:
+4. Now you need to wait a couple of minutes until the database instances have been created and received a public IP. Once the instances have received a `HEALTHY` state the public IP should be visible. Note that it will show you a private and public IP, you are only interested in the public IP. The following command will show you info about the instance:
 
 	```sh
 	openstack database instance show $INSTANCE_ID
 	```
 
-9. If you are not happy with the firewalls ( `--allowed-cidr` ) you can update them by:
+5. If you are not happy with the firewalls (`--allowed-cidr`) you can update them with:
 
 	```sh
 	openstack database instance update $INSTANCE_ID --allowed-cidr $NEW_IP_RANGE
 	```
 
-It is a good idea to check out what the command options are by `openstack database instance update --help`
+It is a good idea to check out what the command options are with `openstack database instance update --help`.
 
-
-More information about how to connect to database can be found in the `Databases` section on the left hand side.
+More information about how to connect to databases can be found in the `Databases` section in the left hand side navigation.
 
 ### Restoring from backups
 
-You can use the same command as when creating an backup but you need to use the flag and the backup id you want to use for restoring the backup `--backup $BACKUP_ID`
+You can use the same command as when creating a backup, but you need to use the flag and the backup id you want to use for restoring the backup, `--backup $BACKUP_ID`.
 
-##  Additional useful commands
+###  Additional useful commands
 
-##### Create additional database in database instance
+#### Create additional database in database instance
+
 This is similar to do a `CREATE DATABASE db_name;`
 
-    openstack database db create $INSTANCE_ID $DB_NAME
+```
+openstack database db create $INSTANCE_ID $DB_NAME
+```
 
-##### Add user to your database and update permissions
+#### Add user to your database and update permissions
 
-List existing users in the database
+List existing users in the database:
 
-    openstack database user list $INSTANCE_ID
+```
+openstack database user list $INSTANCE_ID
+```
 
-Create user (--databases is not necessary)
+Create user (`--databases` is not necessary):
 
-    openstack database $INSTANCE_ID $USER_NAME $PASSWORD --databases $DATABASE_NAME
+```
+openstack database $INSTANCE_ID $USER_NAME $PASSWORD --databases $DATABASE_NAME
+```
 
-Add access to database (you can add multiple databases or remove)
+Add access to database (you can add multiple databases or remove):
 
-    openstack database $INSTNACE_ID $USER_NAME $DATABASE_NAME
+```
+openstack database $INSTNACE_ID $USER_NAME $DATABASE_NAME
+```
 
-##### Delete instance
+#### Delete instance
 
-Figure out what database instance you would like to delete
+Figure out what database instance you would like to delete:
 
-    openstack database instance list
+```
+openstack database instance list
+```
 
-Delete the instances
+Delete the instances:
 
-    openstack database instance delete $INSTANCE_ID
+```
+openstack database instance delete $INSTANCE_ID
+```
 
-##### Supported functionality
+#### Supported functionality
 
-These are the available commands at the moment
+These are the available commands at the moment:
 
 | Openstack command | status | Comments |
 |--- |:---:|:---|
