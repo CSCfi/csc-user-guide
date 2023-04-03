@@ -43,7 +43,7 @@ The service will also be available for accessing data provided by single registe
 3.1 Services in the pilot phase: [Publish biomedical data with the Finnish Federated EGA](./federatedega.md)
 preliminary guide; [Reuse with SD Apply](./sd-apply.md) preliminary guide. 
 
-3.2 [FAQs](../support/faq/index.md#sensitive-data-services-for-research)
+3.2 [FAQs](./index.md#sensitive-data-services-for-research)
 
 
  
