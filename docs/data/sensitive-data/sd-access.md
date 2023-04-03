@@ -2,18 +2,20 @@
   
 CSC's Sensitive Data (SD) services are available to researchers and students affiliated with Finnish higher education institutions (universities, universities of applied sciences) or a state research institute and their international collaborators.
 
- * [Processing reasearch data](./sd-access.md#processing-sensitive-reaserch-data);
+Contents:
+
+ * [Processing research data](./sd-access.md#processing-sensitive-reaserch-data);
  * [Processing register data under the Act on Secondary Use](./sensitive-data/sd-access.md#processing-register-data-under-the-act-on-secondary-use);
  * [Default storage space and billing units consumption](./sd-access.md#default-storage-space-and-billing-units-consumption);
  * [Billing units calculator](./sd-access.md#default-storage-space-and-billing-units-consumption);
 
 
 
-## Processing sensitive reaserch data
+## Processing sensitive research data
 
-Access to the services is managed directly by the CSC project manager (e.g. research project's principal investigator, group leader, or postdoc) using the MyCSC portal and it is based on a CSC project. The CSC project manager can add members which will have equal access permissions to the same project. They can  upload encrypted data to SD Connect and analyze it using the SD Desktop services. However, only the project manager can export non-sensitive results from the secure computing environment. 
+Access to the services is managed directly by the CSC project manager (e.g. research project's principal investigator, group leader, or postdoc) using the MyCSC portal, and it is based on a CSC project. The CSC project manager can add members with equal access permissions to the same project. They can upload encrypted data to SD Connect and analyze it using the SD Desktop services. However, only the project manager can export non-sensitive results from the secure computing environment. 
 
-To access SD Connect and SD Desktop for storing, sharing or analysing sensitive research data:
+To access SD Connect and SD Desktop for storing, sharing or analyzing sensitive research data:
 
 1. Create a [CSC account](../../accounts/how-to-create-new-user-account.md) by logging in at the [MyCSC portal](https://my.csc.fi).
 
@@ -75,7 +77,7 @@ For specific guidance regarding these steps, see the [Accounts](../../accounts/i
  	 
 ## Default storage space and billing units consumption
 
-Using SD Connect and SD Desktop is free of charge for research purposes, according to [CSC's general terms of use](https://research.csc.fi/free-of-charge-use-cases). However, CSC's services consume resources: 
+Using SD Connect and SD Desktop is free for research purposes, according to [CSC's general terms of use](https://research.csc.fi/free-of-charge-use-cases). However, CSC's services consume resources: 
 
 * billing units (BUs) for their use;
 
@@ -115,6 +117,4 @@ For more information, see the specific sections:
 ### Billing unit calculator
 
 <iframe srcdoc="https://my.csc.fi/buc" style="width: 100%; height: 1300px; border: 0"></iframe>
-
-
 
