@@ -203,7 +203,7 @@ Creating and using a command line interface with batch scripts is the best pract
 
 
 ### Running jobs
-We explain how to run jobs on Puhti and Mahti in the [Running Julia jobs](../support/tutorials/julia.md) tutorial.
+We explain how to run jobs on Puhti and Mahti in the [**Running Julia jobs**](../support/tutorials/julia.md) tutorial.
 
 
 ## Resources
