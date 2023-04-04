@@ -99,7 +99,7 @@ Let's consider a Julia project structured as follows.
 
 ```
 .
-├── my_script.jl
+├── script.jl
 ├── Project.toml
 └── Manifest.toml
 ```
@@ -107,7 +107,7 @@ Let's consider a Julia project structured as follows.
 We can run the script using the project's environment as follows.
 
 ```bash
-julia --project=. my_script.jl
+julia --project=. script.jl
 ```
 
 Activating an environment does not automatically install the packages defined by `Manifest.toml` or `Project.toml`.

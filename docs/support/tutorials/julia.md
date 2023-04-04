@@ -3,8 +3,8 @@ Instructions for running different Julia jobs on Puhti and Mahti.
 
 
 ## Prerequisites
-These intructions are adapted from the general intructions of [running jobs](../../computing/running/getting-started.md) on Puhti and Mahti.
-Furthermore, we assume general knowledge about the [Julia Language](../../apps/julia.md) environment.
+These intructions are adapted from the general intructions of [**running jobs**](../../computing/running/getting-started.md) on Puhti and Mahti.
+Furthermore, we assume general knowledge about the [**Julia Language**](../../apps/julia.md) environment.
 
 The following Julia job use a simple project structure as follows:
 
@@ -25,7 +25,7 @@ julia --project=. -e 'using Pkg; Pkg.instantiate()'
 Now we can explore what project files may contain.
 
 
-## Serial batch job
+## Serial job
 A sample of a single-core Julia batch job on Puhti
 
 ```bash
@@ -45,7 +45,7 @@ srun julia --project=. script.jl
 The above batch job runs the Julia script `script.jl` using one CPU core.
 
 
-## Batch job with multiple threads on single node
+## Single node job with multiple threads
 A sample of a multi-core Julia batch job on Puhti.
 We can start Julia with multiple threads by setting the `JULIA_NUM_THREADS` environment variable.
 Alternatively, we can use the `--threads` option.
@@ -77,7 +77,7 @@ using Base.Threads
 ```
 
 
-## Batch job with multiple processes on single node
+## Single node job with multiple processes
 
 ```bash
 #!/bin/bash
@@ -117,7 +117,7 @@ Distributed = "8ba89e20-285c-5b6f-9357-94700520ee1b"
 ```
 
 
-## Batch job with MPI on multiple nodes
+## Multi-node job with MPI
 
 ```bash
 #!/bin/bash
@@ -154,7 +154,7 @@ MPI = "=0.20.8"
 ```
 
 
-## Batch job with GPU on single node
+## Single node job with GPU
 
 ```bash
 #!/bin/bash
