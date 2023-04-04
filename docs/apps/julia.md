@@ -4,8 +4,7 @@ tags:
 ---
 
 # Julia
-## Description
-Julia is a high-level, high-performance dynamic programming language for numerical computing.
+[Julia language](https://julialang.org) is a high-level, high-performance dynamic programming language for numerical computing.
 It provides a sophisticated compiler, distributed parallel execution, numerical accuracy, and an extensive mathematical function library.
 
 [TOC]
@@ -16,8 +15,11 @@ Free and open source under [MIT license](https://github.com/JuliaLang/julia/blob
 
 
 ## Available
-- Puhti has Julia v1.8.5 with OpenBLAS
-- Mahti has Julia v1.8.5 with OpenBLAS
+Julia is available on Puhti and Mahti.
+
+```bash
+module avail julia
+```
 
 
 ## Usage
@@ -45,58 +47,7 @@ For available command line options, we can read the manual.
 man julia
 ```
 
-
-### Interactive job on Puhti
-We can request an interactive node directly on Puhti as follows.
-
-```bash
-srun --ntasks=1 --time=00:10:00 --mem=4G --pty --account=<project> --partition=small julia
-```
-
-
-### Serial batch job on Puhti
-A sample of a single-core Julia batch job on Puhti
-
-```bash
-#!/bin/bash 
-#SBATCH --job-name=example
-#SBATCH --account=<project>
-#SBATCH --partition=small
-#SBATCH --time=00:10:00
-#SBATCH --ntasks=1
-#SBATCH --mem-per-cpu=1000
-
-module load julia
-srun julia my_script.jl
-```
-
-The above batch job runs the Julia script `my_script.jl` using one CPU core.
-You can find more information about batch jobs on Puhti from the [user guide](../computing/running/getting-started.md).
-
-
-### Multi-core batch job on Puhti
-A sample of a multi-core Julia batch job on Puhti.
-We can start Julia with multiple threads by setting the `JULIA_NUM_THREADS` environment variable.
-Alternatively, we can use the `--threads` option.
-
-```bash
-#!/bin/bash 
-#SBATCH --job-name=example
-#SBATCH --account=<project>
-#SBATCH --partition=small
-#SBATCH --time=00:10:00
-#SBATCH --ntasks=1
-#SBATCH --cpus-per-task=2
-#SBATCH --mem-per-cpu=1000
-
-# set the number of threads based on --cpus-per-task
-export JULIA_NUM_THREADS="$SLURM_CPUS_PER_TASK"
-
-module load julia
-srun julia my_script.jl
-```
-
-The above batch job runs the Julia script `my_script.jl` using two CPU cores.
+You can find answers to most questions relating the Julia language's features from the official [documentation](https://docs.julialang.org) or the [discourse](https://discourse.julialang.org/).
 
 
 ### Installing packages
@@ -130,7 +81,7 @@ using Example
 Packages for one version of Julia might not work for another.
 Check the required version number.
 
-You can find more information about Julia's package manager in its [documentation](https://pkgdocs.julialang.org/v1/).
+You can find more information about how to use Julia's package manager from its [documentation](https://pkgdocs.julialang.org/v1/).
 
 
 ### Using environments
@@ -250,9 +201,11 @@ julia --project=. src/cli.jl --say "Hello world"
 Creating and using a command line interface with batch scripts is the best practice compared to hard-coding values to the scripts.
 
 
-## More information
-- [Julia website](https://julialang.org )
-- [Julia documentation](https://docs.julialang.org)
-- [Package manager documentation](https://pkgdocs.julialang.org/v1/)
+### Running batch jobs
+We explain how to run batch jobs on Puhti and Mahti in the [tutorial](../support/tutorials/julia.md).
+
+
+## Resources
+For further reading about parallel and high-performance computing with Julia, we recommend the [Julia for high-performance scientific computing](https://enccs.github.io/Julia-for-HPC) from ENCCS and the [A brief tour of Julia for high-performance computing](https://forem.julialang.org/wikfeldt/a-brief-tour-of-julia-for-high-performance-computing-5deb) written by Kjartan Thor Wikfeldt.
 
 See here for a [quick introduction and tutorial](https://github.com/csc-training/julia-introduction) on CSC training.
