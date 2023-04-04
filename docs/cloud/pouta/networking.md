@@ -1,9 +1,12 @@
 # Networking in Pouta
 Every cPouta project comes with a default network and router configuration enough for most purposes. Most often, you don't need to worry about the network or router configuration and you can create virtual machines using the defaults.
 
-In the situation that your project is missing a default network you will not be able to create a virtual machine. And if you are missing a router, you will not be able to assign ports in your machine for example to a floating IP.
+In the situation that your project is missing a default network you will not be able to create a virtual machine. And if you are missing a router, you will not be able to assign ports* in your machine for example to a floating IP.
 
-If you find yourself in the need of creating a network and or router, you can recreate the default settings via the web interface with the following instructions.
+If you find yourself in the need of creating a network and or router, you can recreate the default settings via the web interface with the following instructions.  
+
+*A port is a connection point for attaching a single device to a network.*  
+
 ## Create a network
 
 Open [cPouta](https://pouta.csc.fi) and navigate to **Network > Networks**.  
@@ -11,10 +14,10 @@ Click on **Create Network** button on the upper right. A new window will open.
 
 
 ![Create network on Pouta](../../img/pouta-network-1.png)
-**Network Name** - Specify a name for your network  
-**Enable Admin State** - Enable the network  
-**Create Subnet** - Leave check if you want to create a subnet  
-**Availabity Zone Hints** - Select your availability zone.  
+**Network Name** - Specify a name for your network.  
+**Enable Admin State** - Enable the network.  
+**Create Subnet** - Leave check if you want to create a subnet.  
+**Availabity Zone Hints** - Leave "nova" by default.  
 
 When done, click on **Next**. It will open the next tab regarding the subnet.
 
