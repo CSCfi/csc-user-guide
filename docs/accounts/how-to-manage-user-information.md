@@ -11,6 +11,12 @@ Edit profile information:
 
     You cannot change your username or primary email address. If your email
     address changes, please contact us at _servicedesk@csc.fi_.
+    
+### When you change your organisation
+
+When you are changing your organisation please send us the email address of your new organisation to servicedesk@csc.fi.
+We will reply and send you the instructions on how to link the new Haka or Virtu-ID with your user account. 
+
 
 ## How to link your CSC user account to external authentication sources
 
@@ -39,5 +45,5 @@ In our example we will link CSC user account to MyAccessID but this method is si
 
 !!! Note
 
-    If you're invited to a EHPC LUMI project or you're a a EHPC PI you must link your CSC user account with MyAccessID.
+    If you're invited to a Euro HPC LUMI project or you're a a Euro HPC Project manager you must link your CSC user account with MyAccessID.
     Otherwise you will end up with 2 separate CSC user accounts.
