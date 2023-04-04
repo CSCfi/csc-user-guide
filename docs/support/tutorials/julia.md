@@ -1,18 +1,6 @@
-# Julia
-Tutorial for running Julia code as batch jobs on Puhti and Mahti.
-
-
-## Batch jobs
-You can find more information about batch jobs on Puhti from the [user guide](../computing/running/getting-started.md).
-
-
-## Interactive job on Puhti
-We can request an interactive node directly on Puhti as follows.
-
-```bash
-srun --ntasks=1 --time=00:10:00 --mem=4G --pty --account=<project> --partition=small julia
-```
-
+# Running Julia jobs
+Instructions for running different Julia jobs on Puhti and Mahti.
+Adapted from the general intructions of [running jobs](../../computing/running/getting-started.md).
 
 ## Serial batch job
 A sample of a single-core Julia batch job on Puhti
@@ -34,7 +22,7 @@ srun julia my_script.jl
 The above batch job runs the Julia script `my_script.jl` using one CPU core.
 
 
-## Multithreading batch job
+## Multithreaded batch job
 A sample of a multi-core Julia batch job on Puhti.
 We can start Julia with multiple threads by setting the `JULIA_NUM_THREADS` environment variable.
 Alternatively, we can use the `--threads` option.
@@ -58,4 +46,12 @@ srun julia my_script.jl
 ```
 
 The above batch job runs the Julia script `my_script.jl` using two CPU cores.
+
+
+## Interactive job
+We can request an interactive node directly on Puhti as follows.
+
+```bash
+srun --ntasks=1 --time=00:10:00 --mem=4G --pty --account=<project> --partition=small julia
+```
 

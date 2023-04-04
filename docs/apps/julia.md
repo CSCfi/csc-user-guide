@@ -3,7 +3,7 @@ tags:
   - Free
 ---
 
-# Julia
+# Julia Language
 [Julia language](https://julialang.org) is a high-level, high-performance dynamic programming language for numerical computing.
 It provides a sophisticated compiler, distributed parallel execution, numerical accuracy, and an extensive mathematical function library.
 
@@ -121,10 +121,11 @@ julia --project=. -e 'using Pkg; Pkg.instantiate()'
 Instantiating an environment is a common operation when using a new Julia environment for the first time.
 
 
-### Changing installation location
+### Setting depot and load paths
 The package manager installs packages to the `$HOME/.julia` directory by default.
+On Puhti and Mahti, the home directory has a fixed quota.
+To avoid running out of quota, we recommend changing the directory to a directory under Projappl.
 We can change the directory by prepending the `JULIA_DEPOT_PATH` environment variable with a different directory.
-In Puhti and Mahti, it is best practice to point the directory to Projappl as follows.
 
 ```bash
 export JULIA_DEPOT_PATH="/projappl/<project>/.julia:$JULIA_DEPOT_PATH"
@@ -201,8 +202,8 @@ julia --project=. src/cli.jl --say "Hello world"
 Creating and using a command line interface with batch scripts is the best practice compared to hard-coding values to the scripts.
 
 
-### Running batch jobs
-We explain how to run batch jobs on Puhti and Mahti in the [tutorial](../support/tutorials/julia.md).
+### Running jobs
+We explain how to run jobs on Puhti and Mahti in the [Running Julia jobs](../support/tutorials/julia.md) tutorial.
 
 
 ## Resources
