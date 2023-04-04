@@ -201,27 +201,39 @@ And logs in with her CSC account. Once the web interface of Puhti is open she op
 
 **Tools/Login node shell**
 
-This tool provides terminal connection to Puhti. In the terminal, Tiina activates connection to Allas:
+This tool provides terminal connection to Puhti.
+
+In the terminal, Tiina activates connection to Allas:
 ```text
 module load allas
 allas-conf
 ```
+Then she creates a new shared bucket with commad:
+
+```text
+make-shared-bucket
+```
+The command asks first the name of the bucket to be cretaed.
+In this case, Tiina uses bucketname:
+```text
+make-shared-bucket 
+```
+This tool creates a new bucket and shares it with the collaborator.
+The command asks first for the name of the bucket to be created. In this
+case Tiina uses bucket name _animine_data_import_1_.        
+
+Then the comand ask for the name of the project who should have access to the the bucket:
+The project name of data producer is in this example _project_2000111_.
 
 Then she downloads the public key to Puhti:
 
 ```text
 a-get animine_pub/data/animine_crypt4gh.pub
 ```
+And uploads the key to the shared bucket:
 
-And upload the key to a new bucket:
 ```text
 a-put animine_crypt4gh.pub -b animine_data_import_1
-```
-Then she shares this bucket with a data producer. 
-The project name of data producer is in this example _project_2000111_.
-
-```text
-a-access +rw project_2000111 animine_data_import_1
 ```
 
 Finally Tiina sends the name of the shared bucket to the data producer 
