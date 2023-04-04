@@ -2,18 +2,35 @@
 
 [Kustomize](https://kustomize.io) is similar to [Helm](helm.md), both are good for bundling kubernetes elements such as services, deployments, etc...  
 Helm can act as a package manager for kubernetes/oc as well as apt or yum can do for Debian, RedHat.  
-The main difference is Helm uses **Templates** whereas Kustomize uses **Overlays**. Kustomize is also developed by the kubernetes teams, you can build a project using this command:
+The main difference is Helm uses **Templates** whereas Kustomize uses **Overlays**. Kustomize is also developed by the Kubernetes teams and it is built in recent version of `oc` and `kubectl`. You can build a project using this command:
 
 ```sh
 oc kustomize build FOLDER
 ```
 
-However some features are missing with the built-in tool, you can install the [tool](https://kubectl.docs.kubernetes.io/installation/kustomize/) separately. The command to build with `kustomize` is:
+However some features are missing with the built-in tool, here is a list of the commands available with `kustomize`:  
+-  **build**                     Build a kustomization target from a directory or URL
+-  **cfg**                       Commands for reading and writing configuration
+-  **completion**                Generate shell completion script
+-  **create**                    Create a new kustomization in the current directory
+-  **edit**                      Edits a kustomization file
+-  **fn**                        Commands for running functions against configuration
+-  **help**                      Help about any command
+-  **localize**                  [Alpha] Creates localized copy of target kustomization root at destination
+-  **version**                   Prints the kustomize version
+
+You can install the [tool](https://kubectl.docs.kubernetes.io/installation/kustomize/) separately. The command to build with `kustomize` is:
 
 ```sh
 kustomize build FOLDER
 ```
-A build won't apply, it will only output to `stdout`.
+
+A build won't apply, it will only output to `stdout`.  
+If you want to apply your kustomize build, you can use this command:  
+
+```sh
+kustomize build FOLDER | oc apply -f -
+```
 
 Here is a table that compares both solutions:
 
@@ -23,10 +40,10 @@ Here is a table that compares both solutions:
 |Cons   |- More abstraction layers <br>- Less readable templates <br>- Require an external dependency <br>- Folder structure |- The strength of Helm is to be used as a package manager <br>- Does not follow the [DRY](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself) principle |
 
 ## When using Kustomize?
-It can be harsh to use Helm in a way that your applications will have more curly brackets than nouns.  Kustomize allows you to work with a bunch of YAML files. It can be a good alternative by using **overlays** instead of **templates**.
+It can be harsh to use Helm in a way that your applications will contains more curly brackets than nouns in your YAML files.  Kustomize allows you to work with a bunch of YAML files. It can be a good alternative by using **overlays** instead of **templates**.
 
 ## What are overlays?
-Overlays are a kustomization (*kustomization.yaml*) that depend on another kustomization. They can include new resource manifests, or patches for existing resources.
+Overlays are a kustomization (*kustomization.yaml*) that can depend on another kustomization. They can include new resource manifests, or patches for existing ones.
 
 ## Example
 Let's see an example on how kustomize works. We'll take this repo: [https://github.com/lvarin/kustomize-openshift](https://github.com/lvarin/kustomize-openshift)
@@ -75,7 +92,7 @@ resources:
 ```
 
 You will notice a **resources** key, with different yaml files as values. A resource is a root relative path to a YAML or JSON file describing a k8s API object.  
-And now, let's have a look of the content at `kustomization.yaml` file inside `overlays/production`:
+And now, let's have a look to the content of the `kustomization.yaml` file inside `overlays/production`:
 
 ```yaml
 resources:
