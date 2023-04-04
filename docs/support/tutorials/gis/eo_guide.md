@@ -38,7 +38,7 @@ Using CSC computing services requires basic Linux skills and ability to use some
 
 When starting a task that requires EO data, there are multiple factors to consider. The decision on what are the most important factors depends heavily on the task and the resources available. The following list summarizes what one needs to consider when defining the data needs:
 
-* Sensor: Different sensors cover different intervals of the electromagnetic spectrum and with that show different properties of the observed areas, they can be active or passive:
+* Sensor: Different sensors cover different intervals of the electromagnetic (EM) spectrum and with that show different properties of the observed areas, they can be active or passive:
     * Multispectral: multiple intervals around the visible spectrum of the EM are observed at the same time
     * Hyperspectral: more but usually shorter intervals of the EM are observed at the same time
     * RADAR (Radio Detection and Ranging), SAR (Synthetic Aperture Radar), active sensing in the microwave/radio frequencies of the EM spectrum
@@ -155,7 +155,7 @@ There is no single software perfect for every task and taste. The right software
     * Command Line Interface (CLI)
     * Scripting 
 * Technical aspects:
-    * Reproducibility: Doe the tool provide the possibility to record work steps?
+    * Reproducibility: Does the tool provide the possibility to record work steps?
     * Supported operating systems: Can the tool be installed to the operating system available to you?
     * Automation possibility: Can the tool execution be automatized for big data processing, if needed?
     * Combination possibility: Can you combine the tool with other tools?
