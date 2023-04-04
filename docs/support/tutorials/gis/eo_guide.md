@@ -36,9 +36,7 @@ Using CSC computing services requires basic Linux skills and ability to use some
 
 ## What data do I need?
 
-When starting a task that requires EO data, there are multiple factors to consider. What are the most important factors, depends heavily on the task and the resources available.
-
-What to consider when choosing data:
+When starting a task that requires EO data, there are multiple factors to consider. The decision on what are the most important factors depends heavily on the task and the resources available. The following list summarizes what one needs to consider when defining the data needs:
 
 * Sensor: Different sensors cover different intervals of the electromagnetic spectrum and with that show different properties of the observed areas, they can be active or passive:
     * Multispectral: multiple intervals around the visible spectrum of the EM are observed at the same time
@@ -149,19 +147,19 @@ You can find information about geocomputing using CSC resources and how to get s
 
 ### What to consider when choosing a software?
 
-There is no single software perfect for every task and taste. The right software depends as much on the task to be worked on, as on the taste and skillset of the user. 
+There is no single software perfect for every task and taste. The right software depends as much on the task to be worked on, as on the taste and skillset of the user. The following list sunmmarizes things that need to be considered when choosing a software. 
 
-* Functionality
-* Interaction type:
+* Functionality: Does the software provide the tools you need to reach your goal?
+* Interaction type: How do you want to interact with the software?
     * Graphical User Interface (GUI)
     * Command Line Interface (CLI)
     * Scripting 
 * Technical aspects:
-    * Reproducibility
-    * Supported operating systems
-    * Automation possibility
-    * Combination possibility
-    * Computational efficiency
+    * Reproducibility: Doe the tool provide the possibility to record work steps?
+    * Supported operating systems: Can the tool be installed to the operating system available to you?
+    * Automation possibility: Can the tool execution be automatized for big data processing, if needed?
+    * Combination possibility: Can you combine the tool with other tools?
+    * Computational efficiency: Does the tool make good use of the available computational resources (especially GPUs)?
     * Support for parallel computing or batch processing
 * Open source vs proprietary
     * Proprietary tools need licenses which may be expensive and/or limiting the use of the tool
