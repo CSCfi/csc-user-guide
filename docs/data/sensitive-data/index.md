@@ -9,7 +9,7 @@ This manual, in CSC Docs, introduces CSC's Sensitive Data (SD) services. To navi
 
 ### **[Introduction](./intro.md)** 
 
-Refer to this section for an overview of SD services, technical and data protection terminology recap.
+Refer to this section for an overview of SD services, including a technical and data protection terminology recap.
 
 ### **[Accessing SD Services](./sd-access.md)** 
 
@@ -43,5 +43,3 @@ The service will also be available for accessing data provided by single registe
 3.1 Services in the pilot phase: [Publish biomedical data with the Finnish Federated EGA](./federatedega.md)
 preliminary guide; [Reuse with SD Apply](./sd-apply.md) preliminary guide. 
 
-
- 
