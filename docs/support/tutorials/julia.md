@@ -4,29 +4,32 @@ Instructions for running different Julia jobs on Puhti and Mahti.
 
 ## Prerequisites
 These intructions are adapted from the general intructions of [**running jobs**](../../computing/running/getting-started.md) on Puhti and Mahti.
-Furthermore, we assume general knowledge about the [**Julia Language**](../../apps/julia.md) environment.
+Furthermore, we assume general knowledge about the [**Julia environment**](../../apps/julia.md).
 
-The following Julia job use a simple project structure as follows:
+We use the following Julia project structure in the example jobs.
+We also assume that it is our working directory when running the commands.
 
 ```
 .
-├── Manifest.toml
-├── Project.toml
-├── batch.sh
-└── script.jl
+├── Manifest.toml  # Automatically created list of all dependencies
+├── Project.toml   # Julia environment and dependencies
+├── puhti.sh       # Puhti batch script
+├── mahti.sh       # Mahti batch script
+└── script.jl      # Julia script
 ```
 
-Furthermore, we have to instantiate the project before running the batch script.
+We have to instantiate the project before running batch scripts.
 
 ```bash
 julia --project=. -e 'using Pkg; Pkg.instantiate()'
 ```
 
-Now we can explore what project files may contain.
+Now we can explore project files for different types of jobs.
 
 
 ## Serial job
-A sample of a single-core Julia batch job on Puhti
+An example of a single-core Julia batch job on Puhti
+An example of `puhti.sh` batch script contains the following:
 
 ```bash
 #!/bin/bash
@@ -36,19 +39,30 @@ A sample of a single-core Julia batch job on Puhti
 #SBATCH --time=00:15:00
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=1
+#SBATCH --cpus-per-task=1
 #SBATCH --mem-per-cpu=1000
 
 module load julia
 srun julia --project=. script.jl
 ```
 
-The above batch job runs the Julia script `script.jl` using one CPU core.
+The `script.jl` prints `Hello world!` text.
+
+```julia
+println("Hello world!")
+```
 
 
-## Single node job with multiple threads
-A sample of a multi-core Julia batch job on Puhti.
-We can start Julia with multiple threads by setting the `JULIA_NUM_THREADS` environment variable.
-Alternatively, we can use the `--threads` option.
+## Job with multiple threads
+An example of a multi-core Julia batch job on Puhti.
+
+We can use the `Base.Threads` library for multithreading in Julia.
+We don't need to include libraries in `Base` to `Project.toml`.
+We can start Julia with multiple threads by setting the `JULIA_NUM_THREADS` environment variable or use the `--threads` option.
+Julia's thread count should equal to the value of `--cpus-per-task` which sets the amount of CPU cores on Slurm.
+We can access the value using the `SLURM_CPUS_PER_TASK` enviroment variable.
+
+`puhti.sh`
 
 ```bash
 #!/bin/bash
@@ -61,23 +75,31 @@ Alternatively, we can use the `--threads` option.
 #SBATCH --cpus-per-task=2
 #SBATCH --mem-per-cpu=1000
 
-# set the number of threads based on --cpus-per-task
 export JULIA_NUM_THREADS="$SLURM_CPUS_PER_TASK"
-
 module load julia
-srun julia script.jl
+srun julia --project=. script.jl
 ```
 
-The above batch job runs the Julia script `script.jl` using two CPU cores.
+`script.jl`
 
 ```julia
 using Base.Threads
 
+println(nthreads())
 ...
 ```
 
 
 ## Single node job with multiple processes
+We can use `Distributed` which is a standard library for using multiple processes in Julia.
+When we add `Distributed`, the `Project.toml` file will look as follows.
+
+```toml
+[deps]
+Distributed = "8ba89e20-285c-5b6f-9357-94700520ee1b"
+```
+
+`puhti.sh`
 
 ```bash
 #!/bin/bash
@@ -91,8 +113,11 @@ using Base.Threads
 #SBATCH --mem-per-cpu=1000
 
 module load julia
+# We don't use srun here!
 julia --project=. script.jl
 ```
+
+`script.jl`
 
 ```julia
 using Distributed
@@ -100,24 +125,33 @@ using Distributed
 nprocs = parse(Int, ENV["SLURM_NTASKS_PER_NODE"]) - 1
 addprocs(nprocs)
 
-@everywhere task() = (myid(), gethostname(), getpid())
+@everywhere function task()
+    return (myid(), gethostname(), getpid())
+end
+
 futures = [@spawnat i task() for i in workers()]
 outputs = fetch.(futures)
 
 println(task())
 println.(outputs)
 
-# The Slurm resource allocation is released when all the workers have exited
 rmprocs.(workers())
-```
-
-```toml
-[deps]
-Distributed = "8ba89e20-285c-5b6f-9357-94700520ee1b"
 ```
 
 
 ## Multi-node job with MPI
+
+`Project.toml`
+
+```toml
+[deps]
+MPI = "da04e1cc-30fd-572f-bb4f-1f8673147195"
+
+[compat]
+MPI = "=0.20.8"
+```
+
+`puhti.sh`
 
 ```bash
 #!/bin/bash
@@ -134,6 +168,8 @@ module load julia
 srun julia --project=. script.jl
 ```
 
+`script.jl`
+
 ```julia
 using MPI
 
@@ -145,16 +181,20 @@ println("Hello from process $(rank) out of $(size)")
 MPI.Barrier(comm)
 ```
 
+
+## Job with GPU
+
+`Project.toml`
+
 ```toml
 [deps]
-MPI = "da04e1cc-30fd-572f-bb4f-1f8673147195"
+CUDA = "052768ef-5323-5732-b1bb-66c8b64840ba"
 
 [compat]
-MPI = "=0.20.8"
+CUDA = "=4.0.1"
 ```
 
-
-## Single node job with GPU
+`puhti.sh`
 
 ```bash
 #!/bin/bash
@@ -172,6 +212,8 @@ module load julia
 srun julia --project=. script.jl
 ```
 
+`script.jl`
+
 ```julia
 using CUDA
 
@@ -183,11 +225,7 @@ y .+= x
 println(all(Array(y) .== 3.0f0))
 ```
 
-```toml
-[deps]
-CUDA = "052768ef-5323-5732-b1bb-66c8b64840ba"
 
-[compat]
-CUDA = "=4.0.1"
-```
+## Hybrid Jobs
+What we can combine?
 

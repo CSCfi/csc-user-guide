@@ -23,7 +23,7 @@ module avail julia
 
 
 ## Usage
-### Loading modules
+### Loading the Julia module
 We can load the Julia module using the following command.
 
 ```bash
@@ -47,50 +47,18 @@ For available command line options, we can read the manual.
 man julia
 ```
 
-You can find answers to most questions relating the Julia language's features from the official [documentation](https://docs.julialang.org) or the [discourse](https://discourse.julialang.org/).
-
-
-### Installing packages
-Julia has a built-in package manager named `Pkg`.
-During an interactive session, we can access it by pressing `]`.
-We can load and use the package manager in scripts like other Julia packages.
-
-We can add packages to the active environment using the `add` function.
-On the Julia REPL, we can do it as follows.
-
-```julia-repl
-julia> ]
-(v1.8) pkg>
-(v1.8) pkg> add Example
-```
-
-The default environment is `v1.8`, as shown in the REPL.
-We can do the same in a Julia script by loading `Pkg` and using the `add` function.
-
-```julia
-using Pkg
-Pkg.add("Example")
-```
-
-After adding a package, we can load it in Julia.
-
-```julia
-using Example
-```
-
-Packages for one version of Julia might not work for another.
-Check the required version number.
-
-You can find more information about how to use Julia's package manager from its [documentation](https://pkgdocs.julialang.org/v1/).
+You can find answers to most questions relating the Julia language's features from the official [Julialang documentation](https://docs.julialang.org) or the [discourse](https://discourse.julialang.org/).
+The `Base` contains the features that are included in the Julia language.
+The standard library contains various packages that are included in the Julia installation.
+Two important packages from the standard library are the Julia REPL and Julia's package manager named Pkg.
+The package manager also has a REPL which we can access from the Julia REPL by pressing `]`.
+You can find more information about how to use Julia's package manager from the [Pkg documentation](https://pkgdocs.julialang.org/v1/).
 
 
 ### Using environments
-We can manage the dependencies of different Julia projects separately by using a different environment instead of the default environment.
-The easiest way to use an environment is to use the `--project` option when starting Julia.
-For example, we can use `julia --project=.` to activate an environment in the current working directory.
-Alternatively, we can use the `Pkg.activate` function.
-
-We define project metadata and dependencies in `Project.toml` file.
+Julia manages dependecies of projects using environments.
+An environment consists of two files, `Project.toml` and `Manifest.toml`, which specify dependecies for the environment.
+We define project metadata, dependencies and compatibility constraints in `Project.toml` file.
 Adding or removing packages using the package manager manipulates the `Project.toml` file in the active environment.
 Furthermore, the package manager maintains a full list of dependencies in `Manifest.toml` file.
 It creates both of these files if they don't exist.
@@ -98,43 +66,77 @@ It creates both of these files if they don't exist.
 Let's consider a Julia project structured as follows.
 
 ```
-.
+MyProject.jl
 ├── script.jl
 ├── Project.toml
 └── Manifest.toml
 ```
 
-We can run the script using the project's environment as follows.
+We can activate an environment using the `--project` option when starting Julia or we can use the `Pkg.activate` function.
+For example, we can open the Julia REPL with the project's environment active as follows:
 
 ```bash
-julia --project=. script.jl
+julia --project=.
 ```
 
 Activating an environment does not automatically install the packages defined by `Manifest.toml` or `Project.toml`.
-We can install packages using the `instantiate` function from `Pkg`.
-An easy way to do it is using the following command.
+For that, we need to invoke the `Pkg.instantiate` function with the project's environment active as follows:
 
 ```bash
 julia --project=. -e 'using Pkg; Pkg.instantiate()'
 ```
 
-Instantiating an environment is a common operation when using a new Julia environment for the first time.
+Now, we can run the script using the project's environment as follows:
+
+```bash
+julia --project=. script.jl
+```
+
+If we don't specify an environment, Julia will activate the default environment.
+We should always use unique environment for Julia projects instead of using the default environment.
+That way, we can manage the dependencies of different Julia projects separately.
 
 
-### Setting depot and load paths
+### Adding packages and compatibilities
+On the Julia REPL, we can use the package manager by importing it.
+
+```julia
+using Pkg
+```
+
+We can add packages to the active environment using the `Pkg.add` function.
+For example, we can add `ArgParse` package as follows.
+
+```julia
+Pkg.add("ArgParse")
+```
+
+Furthermore, we can set compatibility constraints to a package version.
+For example, we can add compatibility to `ArgParse` as follows.
+
+```julia
+Pkg.compat("ArgParse", "1.1")
+```
+
+We can also set compatibility constraint to Julia version.
+
+```julia
+Pkg.compat("julia", "1.8")
+```
+
+
+### Depot and load paths
 The package manager installs packages to the `$HOME/.julia` directory by default.
 On Puhti and Mahti, the home directory has a fixed quota.
 To avoid running out of quota, we recommend changing the directory to a directory under Projappl.
 We can change the directory by prepending the `JULIA_DEPOT_PATH` environment variable with a different directory.
+For example, we can use the following:
 
 ```bash
-export JULIA_DEPOT_PATH="/projappl/<project>/.julia:$JULIA_DEPOT_PATH"
+export JULIA_DEPOT_PATH="/projappl/<project>/$USER/.julia:$JULIA_DEPOT_PATH"
 ```
 
-Julia automatically appends the default locations to the path when colon `:` is present in the path while running Julia.
-You can run `julia -E 'DEPOT_PATH` to see the full path used at runtime.
-In the future, the default paths are required for using shared packages specific to Puhti and Mahti.
-You can read more from the documentation [`JULIA_DEPOT_PATH`](https://docs.julialang.org/en/v1/manual/environment-variables/#JULIA_DEPOT_PATH) and [`DEPOT_PATH`](https://docs.julialang.org/en/v1/base/constants/#Base.DEPOT_PATH).
+You can read more from the documentation [`DEPOT_PATH`](https://docs.julialang.org/en/v1/base/constants/#Base.DEPOT_PATH) and [`LOAD_PATH`](https://docs.julialang.org/en/v1/base/constants/#Base.LOAD_PATH).
 
 
 ### Packaging code
@@ -208,5 +210,4 @@ We explain how to run jobs on Puhti and Mahti in the [**Running Julia jobs**](..
 
 ## Resources
 For further reading about parallel and high-performance computing with Julia, we recommend the [Julia for high-performance scientific computing](https://enccs.github.io/Julia-for-HPC) from ENCCS and the [A brief tour of Julia for high-performance computing](https://forem.julialang.org/wikfeldt/a-brief-tour-of-julia-for-high-performance-computing-5deb) written by Kjartan Thor Wikfeldt.
-
-See here for a [quick introduction and tutorial](https://github.com/csc-training/julia-introduction) on CSC training.
+CSC training also has a [quick introduction and tutorial](https://github.com/csc-training/julia-introduction) to Julia.
