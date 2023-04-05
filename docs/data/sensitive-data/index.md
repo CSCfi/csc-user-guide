@@ -9,7 +9,7 @@ This manual, in CSC Docs, introduces CSC's Sensitive Data (SD) services. To navi
 
 ### **[Introduction](./intro.md)** 
 
-Refer to this section for an overview of SD services and terminology.
+Refer to this section for an overview of SD services, technical and data protection terminology recap.
 
 ### **[Accessing SD Services](./sd-access.md)** 
 
