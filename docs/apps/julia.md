@@ -64,7 +64,7 @@ It creates both of these files if they don't exist.
 Let's consider a Julia project structured as follows.
 
 ```
-MyProject.jl
+project
 ├── script.jl
 ├── Project.toml
 └── Manifest.toml
@@ -141,9 +141,10 @@ export JULIA_DEPOT_PATH="/projappl/<project>/$USER/.julia:$JULIA_DEPOT_PATH"
 
 
 ### Packaging code
-Packaging your code instead of running standalone scripts is a best practice.
-The standard Julia package includes the module file, such as `src/Hello.jl`, and the `Project.toml` file.
-Including a command line interface in your program, such as `src/cli.jl`, is also a good idea.
+We should package the code as a code base grows instead of running standalone scripts.
+A Julia package includes a module file, such as `src/Hello.jl`, and the `Project.toml` file.
+Including a command line interface in your program, such as `src/cli.jl` is also wise.
+Let's consider a project structured as below.
 
 ```text
 Hello.jl/         # the package directory
@@ -170,6 +171,8 @@ ArgParse = "1.1"
 ```
 
 The `src/Hello.jl` file must define the `module` keyword with the package name.
+It also exports the functions and variables we want to expose in its API.
+For example, the `Hello` module below defines and exports the `say` function.
 
 ```julia
 module Hello
@@ -181,6 +184,7 @@ end
 ```
 
 We can use `ArgParse` package to create a command line interface `src/cli.jl` for the package.
+For example, the command line interface below defines an option `--say` whose value is parsed into a string and supplied to the `say` function imported from the `Hello` module.
 
 ```julia
 using ArgParse
@@ -202,7 +206,7 @@ We can use the command line interface as follows.
 julia --project=. src/cli.jl --say "Hello world"
 ```
 
-Creating and using a command line interface with batch scripts is the best practice compared to hard-coding values to the scripts.
+We should define and use a command line interface because it is more flexible than hard-coding values to the scripts.
 
 
 ### Running jobs
