@@ -11,7 +11,7 @@ It provides a sophisticated compiler, distributed parallel execution, numerical 
 
 
 ## License
-Julia language is free and open source under [MIT license](https://github.com/JuliaLang/julia/blob/master/LICENSE.md).
+Julia language licensed under free and open source [MIT license](https://github.com/JuliaLang/julia/blob/master/LICENSE.md).
 
 
 ## Available
@@ -47,12 +47,11 @@ For available command line options, we can read the manual.
 man julia
 ```
 
-You can find answers to most questions relating to the Julia language's features from the official [Julialang documentation](https://docs.julialang.org) or the [discourse](https://discourse.julialang.org/).
-The `Base` contains the features that are included in the Julia language.
-The standard library contains various packages that are included in the Julia installation.
-Two important packages from the standard library are the Julia REPL and Julia's package manager named Pkg.
-The package manager also has a REPL which we can access from the Julia REPL by pressing `]`.
-You can find more information about how to use Julia's package manager from the [Pkg documentation](https://pkgdocs.julialang.org/).
+The official [Julialang documentation](https://docs.julialang.org) or the [discourse](https://discourse.julialang.org/) can answer most questions regarding the features of the Julia language.
+The Julia language includes the standard language features in Base.
+Additionally, it includes various packages in the Julia installation as part of the standard library.
+Julia's REPL and Pkg, the package manager, are two important packages within the standard library. Pressing ] in the Julia REPL will allow access to the package manager's REPL.
+The [Pkg documentation](https://pkgdocs.julialang.org/) provides more information on how to use Julia's package manager.
 
 
 ### Using environments
@@ -125,9 +124,9 @@ Pkg.compat("julia", "1.8")
 
 
 ### Depot and load paths
-The directories where Julia can load code are controlled by the constants [`Base.DEPOT_PATH`](https://docs.julialang.org/en/v1/base/constants/#Base.DEPOT_PATH) and [`Base.LOAD_PATH`](https://docs.julialang.org/en/v1/base/constants/#Base.LOAD_PATH).
-In the shell, we can set them via the `JULIA_DEPOT_PATH` and `JULIA_LOAD_PATH` environment variables.
-Loading the Julia module automatically appends the default depot and load paths such that the standard library and shared libraries are available.
+The Julia constants [`Base.DEPOT_PATH`](https://docs.julialang.org/en/v1/base/constants/#Base.DEPOT_PATH) and [`Base.LOAD_PATH`](https://docs.julialang.org/en/v1/base/constants/#Base.LOAD_PATH) control the directories where Julia loads code.
+We use the `JULIA_DEPOT_PATH` and `JULIA_LOAD_PATH` environment variables to set them via the shell.
+The Julia module automatically appends the default depot and load paths to ensure that the standard library and shared libraries are available.
 
 The first directory on the depot path controls where Julia stores installed packages, compiled files, log files, and other depots.
 The directory is `$HOME/.julia` by default.
