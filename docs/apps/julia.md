@@ -11,7 +11,7 @@ It provides a sophisticated compiler, distributed parallel execution, numerical 
 
 
 ## License
-Free and open source under [MIT license](https://github.com/JuliaLang/julia/blob/master/LICENSE.md).
+Julia language is free and open source under [MIT license](https://github.com/JuliaLang/julia/blob/master/LICENSE.md).
 
 
 ## Available
@@ -47,22 +47,21 @@ For available command line options, we can read the manual.
 man julia
 ```
 
-You can find answers to most questions relating the Julia language's features from the official [Julialang documentation](https://docs.julialang.org) or the [discourse](https://discourse.julialang.org/).
+You can find answers to most questions relating to the Julia language's features from the official [Julialang documentation](https://docs.julialang.org) or the [discourse](https://discourse.julialang.org/).
 The `Base` contains the features that are included in the Julia language.
 The standard library contains various packages that are included in the Julia installation.
 Two important packages from the standard library are the Julia REPL and Julia's package manager named Pkg.
 The package manager also has a REPL which we can access from the Julia REPL by pressing `]`.
-You can find more information about how to use Julia's package manager from the [Pkg documentation](https://pkgdocs.julialang.org/v1/).
+You can find more information about how to use Julia's package manager from the [Pkg documentation](https://pkgdocs.julialang.org/).
 
 
 ### Using environments
-Julia manages dependecies of projects using environments.
-An environment consists of two files, `Project.toml` and `Manifest.toml`, which specify dependecies for the environment.
-We define project metadata, dependencies and compatibility constraints in `Project.toml` file.
+Julia manages dependencies of projects using environments.
+An environment consists of two files, `Project.toml` and `Manifest.toml`, which specify dependencies for the environment.
+We define project metadata, dependencies, and compatibility constraints in `Project.toml` file.
 Adding or removing packages using the package manager manipulates the `Project.toml` file in the active environment.
 Furthermore, the package manager maintains a full list of dependencies in `Manifest.toml` file.
 It creates both of these files if they don't exist.
-
 Let's consider a Julia project structured as follows.
 
 ```
@@ -72,7 +71,7 @@ MyProject.jl
 └── Manifest.toml
 ```
 
-We can activate an environment using the `--project` option when starting Julia or we can use the `Pkg.activate` function.
+We can activate an environment using the `--project` option when starting Julia or the `Pkg.activate` function.
 For example, we can open the Julia REPL with the project's environment active as follows:
 
 ```bash
@@ -92,8 +91,8 @@ Now, we can run the script using the project's environment as follows:
 julia --project=. script.jl
 ```
 
-If we don't specify an environment, Julia will activate the default environment.
-We should always use unique environment for Julia projects instead of using the default environment.
+Julia will activate the default environment if we don't specify an environment.
+We should always use a unique environment for Julia projects instead of the default environment.
 That way, we can manage the dependencies of different Julia projects separately.
 
 
@@ -118,7 +117,7 @@ For example, we can add compatibility to `ArgParse` as follows.
 Pkg.compat("ArgParse", "1.1")
 ```
 
-We can also set compatibility constraint to Julia version.
+We can also set compatibility constraints to the Julia version.
 
 ```julia
 Pkg.compat("julia", "1.8")
@@ -126,17 +125,20 @@ Pkg.compat("julia", "1.8")
 
 
 ### Depot and load paths
-The package manager installs packages to the `$HOME/.julia` directory by default.
-On Puhti and Mahti, the home directory has a fixed quota.
-To avoid running out of quota, we recommend changing the directory to a directory under Projappl.
-We can change the directory by prepending the `JULIA_DEPOT_PATH` environment variable with a different directory.
-For example, we can use the following:
+The directories where Julia can load code are controlled by the constants [`Base.DEPOT_PATH`](https://docs.julialang.org/en/v1/base/constants/#Base.DEPOT_PATH) and [`Base.LOAD_PATH`](https://docs.julialang.org/en/v1/base/constants/#Base.LOAD_PATH).
+In the shell, we can set them via the `JULIA_DEPOT_PATH` and `JULIA_LOAD_PATH` environment variables.
+Loading the Julia module automatically appends the default depot and load paths such that the standard library and shared libraries are available.
+
+The first directory on the depot path controls where Julia stores installed packages, compiled files, log files, and other depots.
+The directory is `$HOME/.julia` by default.
+However, the home directory has a fixed quota for Puhti and Mahti.
+We recommend changing the directory to a directory under Projappl or Scratch to avoid running out of quota.
+We can change the directory by prepending the `JULIA_DEPOT_PATH` with a different directory.
+For example, we can use the following by replacing the `<project>` with your CSC project.
 
 ```bash
 export JULIA_DEPOT_PATH="/projappl/<project>/$USER/.julia:$JULIA_DEPOT_PATH"
 ```
-
-You can read more from the documentation [`DEPOT_PATH`](https://docs.julialang.org/en/v1/base/constants/#Base.DEPOT_PATH) and [`LOAD_PATH`](https://docs.julialang.org/en/v1/base/constants/#Base.LOAD_PATH).
 
 
 ### Packaging code
@@ -210,4 +212,4 @@ We explain how to run jobs on Puhti and Mahti in the [**Running Julia jobs**](..
 
 ## Resources
 For further reading about parallel and high-performance computing with Julia, we recommend the [Julia for high-performance scientific computing](https://enccs.github.io/Julia-for-HPC) from ENCCS and the [A brief tour of Julia for high-performance computing](https://forem.julialang.org/wikfeldt/a-brief-tour-of-julia-for-high-performance-computing-5deb) written by Kjartan Thor Wikfeldt.
-CSC training also has a [quick introduction and tutorial](https://github.com/csc-training/julia-introduction) to Julia.
+CSC training also has a [quick introduction and tutorial](https://github.com/csc-training/julia-introduction).

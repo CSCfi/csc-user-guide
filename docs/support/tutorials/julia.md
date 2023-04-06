@@ -5,7 +5,6 @@ Instructions for running different Julia jobs on Puhti and Mahti.
 ## Prerequisites
 These intructions are adapted from the general intructions of [**running jobs**](../../computing/running/getting-started.md) on Puhti and Mahti.
 Furthermore, we assume general knowledge about the [**Julia environment**](../../apps/julia.md).
-
 We use the following Julia project structure in the example jobs.
 We also assume that it is our working directory when running the commands.
 
@@ -46,7 +45,7 @@ module load julia
 srun julia --project=. script.jl
 ```
 
-The `script.jl` prints `Hello world!` text.
+The `script.jl` prints "Hello world!" text.
 
 ```julia
 println("Hello world!")
