@@ -27,7 +27,6 @@ Now we can explore project files for different types of jobs.
 
 
 ## Serial job
-An example of a single-core Julia batch job on Puhti
 An example of `puhti.sh` batch script contains the following:
 
 ```bash
@@ -52,9 +51,7 @@ println("Hello world!")
 ```
 
 
-## Job with multiple threads
-An example of a multi-core Julia batch job on Puhti.
-
+## Single node job with multiple threads
 We can use the `Base.Threads` library for multithreading in Julia.
 We don't need to include libraries in `Base` to `Project.toml`.
 We can start Julia with multiple threads by setting the `JULIA_NUM_THREADS` environment variable or use the `--threads` option.
@@ -71,10 +68,12 @@ We can access the value using the `SLURM_CPUS_PER_TASK` enviroment variable.
 #SBATCH --time=00:15:00
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=1
-#SBATCH --cpus-per-task=2
+#SBATCH --cpus-per-task=3
 #SBATCH --mem-per-cpu=1000
 
-export JULIA_NUM_THREADS="$SLURM_CPUS_PER_TASK"
+export JULIA_CPU_THREADS=$SLURM_CPUS_PER_TASK
+export JULIA_NUM_THREADS=$SLURM_CPUS_PER_TASK
+
 module load julia
 srun julia --project=. script.jl
 ```
@@ -107,13 +106,15 @@ Distributed = "8ba89e20-285c-5b6f-9357-94700520ee1b"
 #SBATCH --partition=test
 #SBATCH --time=00:15:00
 #SBATCH --nodes=1
-#SBATCH --ntasks-per-node=3
-#SBATCH --cpus-per-task=1
+#SBATCH --ntasks-per-node=1
+#SBATCH --cpus-per-task=3
 #SBATCH --mem-per-cpu=1000
 
+export JULIA_CPU_THREADS=$SLURM_CPUS_PER_TASK
+export JULIA_NUM_THREADS=$SLURM_CPUS_PER_TASK
+
 module load julia
-# We don't use srun here!
-julia --project=. script.jl
+srun julia --project=. script.jl
 ```
 
 `script.jl`
@@ -121,14 +122,18 @@ julia --project=. script.jl
 ```julia
 using Distributed
 
-nprocs = parse(Int, ENV["SLURM_NTASKS_PER_NODE"]) - 1
-addprocs(nprocs)
+# Add new workers before using @everywhere macros, otherwise the code won't be included to the new processes.
+addprocs(Sys.CPU_THREADS)
 
+# We must use @everywhere macro to include the task function to the worker processes.
 @everywhere function task()
     return (myid(), gethostname(), getpid())
 end
 
-futures = [@spawnat i task() for i in workers()]
+# We run the task function in each worker process.
+futures = [@spawnat id task() for id in workers()]
+
+# Then, we fetch the output from the processes.
 outputs = fetch.(futures)
 
 println(task())
@@ -181,7 +186,7 @@ MPI.Barrier(comm)
 ```
 
 
-## Job with GPU
+## GPU job
 
 `Project.toml`
 
@@ -223,8 +228,4 @@ y = CUDA.fill(2.0f0, n)
 y .+= x
 println(all(Array(y) .== 3.0f0))
 ```
-
-
-## Hybrid Jobs
-What we can combine?
 
