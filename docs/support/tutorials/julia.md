@@ -3,14 +3,14 @@ Instructions for running different Julia jobs on Puhti and Mahti.
 
 
 ## Prerequisites
-These intructions are adapted from the general intructions of [**running jobs**](../../computing/running/getting-started.md) on Puhti and Mahti.
+These instructions are adapted from the general instructions of [**running jobs**](../../computing/running/getting-started.md) on Puhti and Mahti.
 Furthermore, we assume general knowledge about the [**Julia environment**](../../apps/julia.md).
 We use the following Julia project structure in the example jobs.
 We also assume that it is our working directory when running the commands.
 
 ```
 .
-├── Manifest.toml  # Automatically created list of all dependencies
+├── Manifest.toml  # Automatically created a list of all dependencies
 ├── Project.toml   # Julia environment and dependencies
 ├── puhti.sh       # Puhti batch script
 ├── mahti.sh       # Mahti batch script
@@ -25,6 +25,13 @@ julia --project=. -e 'using Pkg; Pkg.instantiate()'
 
 Now we can explore project files for different types of jobs.
 
+Julia has some important [environment variables for parallelization](https://docs.julialang.org/en/v1/manual/environment-variables/#Parallelization).
+Because we use Slurm to reserve resources on Puhti and Mahti, we need to set the `JULIA_CPU_THREADS` and `JULIA_NUM_THREADS` environment variables to the number of reserved CPU cores.
+The Julia module sets these environment variables the value of `--cpus-per-task` option using the `SLURM_CPUS_PER_TASK` environment variable.
+If that option is not defined, for example, on login nodes, it sets the thread count to one.
+
+<!-- TODO: explore `JULIA_EXCLUSIVE` for thread pinning -->
+
 
 ## Serial job
 An example of `puhti.sh` batch script contains the following:
@@ -33,7 +40,7 @@ An example of `puhti.sh` batch script contains the following:
 #!/bin/bash
 #SBATCH --job-name=example
 #SBATCH --account=<project>
-#SBATCH --partition=test
+#SBATCH --partition=small
 #SBATCH --time=00:15:00
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=1
@@ -54,9 +61,6 @@ println("Hello world!")
 ## Single node job with multiple threads
 We can use the `Base.Threads` library for multithreading in Julia.
 We don't need to include libraries in `Base` to `Project.toml`.
-We can start Julia with multiple threads by setting the `JULIA_NUM_THREADS` environment variable or use the `--threads` option.
-Julia's thread count should equal to the value of `--cpus-per-task` which sets the amount of CPU cores on Slurm.
-We can access the value using the `SLURM_CPUS_PER_TASK` enviroment variable.
 
 `puhti.sh`
 
@@ -64,15 +68,12 @@ We can access the value using the `SLURM_CPUS_PER_TASK` enviroment variable.
 #!/bin/bash
 #SBATCH --job-name=example
 #SBATCH --account=<project>
-#SBATCH --partition=test
+#SBATCH --partition=small
 #SBATCH --time=00:15:00
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=1
 #SBATCH --cpus-per-task=3
 #SBATCH --mem-per-cpu=1000
-
-export JULIA_CPU_THREADS=$SLURM_CPUS_PER_TASK
-export JULIA_NUM_THREADS=$SLURM_CPUS_PER_TASK
 
 module load julia
 srun julia --project=. script.jl
@@ -82,14 +83,18 @@ srun julia --project=. script.jl
 
 ```julia
 using Base.Threads
-
-println(nthreads())
-...
+n = nthreads()
+ids = zeros(Int, 10*n)
+@threads for i in eachindex(ids)
+    ids[i] = threadid()
+end
+println(n)
+println(ids)
 ```
 
 
 ## Single node job with multiple processes
-We can use `Distributed` which is a standard library for using multiple processes in Julia.
+We can use `Distributed`, a standard library for multiple processes in Julia.
 When we add `Distributed`, the `Project.toml` file will look as follows.
 
 ```toml
@@ -103,15 +108,12 @@ Distributed = "8ba89e20-285c-5b6f-9357-94700520ee1b"
 #!/bin/bash
 #SBATCH --job-name=example
 #SBATCH --account=<project>
-#SBATCH --partition=test
+#SBATCH --partition=small
 #SBATCH --time=00:15:00
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=1
 #SBATCH --cpus-per-task=3
 #SBATCH --mem-per-cpu=1000
-
-export JULIA_CPU_THREADS=$SLURM_CPUS_PER_TASK
-export JULIA_NUM_THREADS=$SLURM_CPUS_PER_TASK
 
 module load julia
 srun julia --project=. script.jl
@@ -161,7 +163,7 @@ MPI = "=0.20.8"
 #!/bin/bash
 #SBATCH --job-name=example
 #SBATCH --account=<project>
-#SBATCH --partition=test
+#SBATCH --partition=large
 #SBATCH --time=00:15:00
 #SBATCH --nodes=2
 #SBATCH --ntasks-per-node=2
@@ -204,11 +206,11 @@ CUDA = "=4.0.1"
 #!/bin/bash
 #SBATCH --job-name=example
 #SBATCH --account=<project>
-#SBATCH --partition=gputest
+#SBATCH --partition=gpu
 #SBATCH --time=00:15:00
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=1
-#SBATCH --cpus-per-task=1
+#SBATCH --cpus-per-task=10
 #SBATCH --mem=4000
 #SBATCH --gres=gpu:v100:1
 
