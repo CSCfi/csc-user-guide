@@ -179,6 +179,8 @@ a single node:
     #SBATCH --mem=64G
     #SBATCH --time=1:00:00
     
+    export SRUN_CPUS_PER_TASK=$SLURM_CPUS_PER_TASK
+
     module use /appl/local/csc/modulefiles/
     module load tensorflow/2.10
     srun python3 myprog.py <options>
