@@ -30,10 +30,14 @@ Because we use Slurm to reserve resources on Puhti and Mahti, we need to set the
 The Julia module sets these environment variables the value of `--cpus-per-task` option using the `SLURM_CPUS_PER_TASK` environment variable.
 If that option is not defined, for example, on login nodes, it sets the thread count to one.
 
-<!-- TODO: explore `JULIA_EXCLUSIVE` for thread pinning -->
-
 
 ## Serial job
+`Project.toml`
+
+```toml
+# empty
+```
+
 An example of `puhti.sh` batch script contains the following:
 
 ```bash
@@ -51,7 +55,7 @@ module load julia
 srun julia --project=. script.jl
 ```
 
-The `script.jl` prints "Hello world!" text.
+`script.jl`
 
 ```julia
 println("Hello world!")
@@ -60,7 +64,12 @@ println("Hello world!")
 
 ## Single node job with multiple threads
 We can use the `Base.Threads` library for multithreading in Julia.
+
 We don't need to include libraries in `Base` to `Project.toml`.
+
+```toml
+# empty
+```
 
 `puhti.sh`
 
@@ -79,18 +88,43 @@ module load julia
 srun julia --project=. script.jl
 ```
 
+`mahti.sh`
+
+```bash
+#!/bin/bash
+#SBATCH --job-name=example
+#SBATCH --account=<project>
+#SBATCH --partition=medium
+#SBATCH --time=00:15:00
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=1
+#SBATCH --cpus-per-task=128
+
+module load julia
+srun julia --project=. script.jl
+```
+
 `script.jl`
 
 ```julia
 using Base.Threads
+
+# Number of threads
 n = nthreads()
+
+# Lets fill the id of each thread to the ids array.
 ids = zeros(Int, 10*n)
 @threads for i in eachindex(ids)
     ids[i] = threadid()
 end
+
+# Print the outputs.
 println(n)
 println(ids)
 ```
+
+!!! note
+    `LinearAlgebra` backend such as OpenBlas and MKL have their own threading support which controlled by `BLAS.set_num_threads` not `Base.Threads`.
 
 
 ## Single node job with multiple processes
@@ -119,6 +153,22 @@ module load julia
 srun julia --project=. script.jl
 ```
 
+`mahti.sh`
+
+```bash
+#!/bin/bash
+#SBATCH --job-name=example
+#SBATCH --account=<project>
+#SBATCH --partition=medium
+#SBATCH --time=00:15:00
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=1
+#SBATCH --cpus-per-task=128
+
+module load julia
+srun julia --project=. script.jl
+```
+
 `script.jl`
 
 ```julia
@@ -138,10 +188,12 @@ futures = [@spawnat id task() for id in workers()]
 # Then, we fetch the output from the processes.
 outputs = fetch.(futures)
 
+# Remove processes after we are done.
+rmprocs.(workers())
+
+# Print the outputs.
 println(task())
 println.(outputs)
-
-rmprocs.(workers())
 ```
 
 
@@ -174,6 +226,22 @@ module load julia
 srun julia --project=. script.jl
 ```
 
+`mahti.sh`
+
+```bash
+#!/bin/bash
+#SBATCH --job-name=example
+#SBATCH --account=<project>
+#SBATCH --partition=medium
+#SBATCH --time=00:15:00
+#SBATCH --nodes=2
+#SBATCH --ntasks-per-node=128
+#SBATCH --cpus-per-task=1
+
+module load julia
+srun julia --project=. script.jl
+```
+
 `script.jl`
 
 ```julia
@@ -183,7 +251,7 @@ MPI.Init()
 comm = MPI.COMM_WORLD
 rank = MPI.Comm_rank(comm)
 size = MPI.Comm_size(comm)
-println("Hello from process $(rank) out of $(size)")
+println("Hello from rank $(rank) out of $(size) from host $(gethostname()) and process $(getpid()).")
 MPI.Barrier(comm)
 ```
 
@@ -213,6 +281,23 @@ CUDA = "=4.0.1"
 #SBATCH --cpus-per-task=10
 #SBATCH --mem=4000
 #SBATCH --gres=gpu:v100:1
+
+module load julia
+srun julia --project=. script.jl
+```
+
+`mahti.sh`
+
+```bash
+#!/bin/bash
+#SBATCH --job-name=example
+#SBATCH --account=<project>
+#SBATCH --partition=gpusmall
+#SBATCH --time=00:15:00
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=1
+#SBATCH --cpus-per-task=32
+#SBATCH --gres=gpu:a100:1
 
 module load julia
 srun julia --project=. script.jl
