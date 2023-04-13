@@ -11,7 +11,7 @@ It provides a sophisticated compiler, distributed parallel execution, numerical 
 
 
 ## License
-Julia language licensed under free and open source [MIT license](https://github.com/JuliaLang/julia/blob/master/LICENSE.md).
+Julia language is licensed under free and open source [MIT license](https://github.com/JuliaLang/julia/blob/master/LICENSE.md).
 
 
 ## Available
@@ -70,7 +70,7 @@ project
 └── Manifest.toml
 ```
 
-We can activate an environment using the `--project` option when starting Julia or the `Pkg.activate` function.
+We can activate an environment using the `--project` option when starting Julia or use the `Pkg.activate` function in existing Julia session.
 For example, we can open the Julia REPL with the project's environment active as follows:
 
 ```bash
@@ -125,10 +125,10 @@ Pkg.compat("julia", "1.8")
 
 ### Depot and load paths
 The Julia constants [`Base.DEPOT_PATH`](https://docs.julialang.org/en/v1/base/constants/#Base.DEPOT_PATH) and [`Base.LOAD_PATH`](https://docs.julialang.org/en/v1/base/constants/#Base.LOAD_PATH) control the directories where Julia loads code.
-We use the `JULIA_DEPOT_PATH` and `JULIA_LOAD_PATH` environment variables to set them via the shell.
-The Julia module automatically appends the default depot and load paths to ensure that the standard library and shared depots are available.
-The CSC specific shared depots are installed to `JULIA_CSC_DEPOT` directory and the shared environment to `JULIA_CSC_ENVIRONMENT` directory.
-We can look up the shared packages and their versions using the package manager as follows.
+To set them via the shell, we use the `JULIA_DEPOT_PATH` and `JULIA_LOAD_PATH` environment variables.
+The Julia module automatically appends the default depot and load paths to ensure the standard library and shared depots are available.
+The CSC-specific shared depots are installed in the `JULIA_CSC_DEPOT` directory, and the shared environment is in the `JULIA_CSC_ENVIRONMENT` directory.
+We can look up the shared packages and their versions using the package manager as follows:
 
 ```bash
 julia --project="$JULIA_CSC_ENVIRONMENT" -e 'using Pkg; Pkg.status()'
@@ -149,7 +149,7 @@ export JULIA_DEPOT_PATH="/projappl/<project>/$USER/.julia:$JULIA_DEPOT_PATH"
 ### Packaging code
 We should package the code as a code base grows instead of running standalone scripts.
 A Julia package includes a module file, such as `src/Hello.jl`, and the `Project.toml` file.
-Including a command line interface in your program, such as `src/cli.jl` is also wise.
+Including a command line interface in your program, such as `src/cli.jl`, is also wise.
 Let's consider a project structured as below.
 
 ```text

@@ -1,5 +1,5 @@
 # Running Julia jobs
-Instructions for running serial, parallel and GPU jobs with Julia on Puhti and Mahti.
+Instructions for running serial, parallel, and GPU jobs with Julia on Puhti and Mahti.
 
 [TOC]
 
@@ -71,7 +71,7 @@ module load julia
 srun julia --project=. script.jl
 ```
 
-Mahti is intended for parallel computing, therefore we do not include a Batch script for Mahti.
+Mahti is intended for parallel computing; therefore, we do not include a Batch script for Mahti.
 
 An example of a `script.jl` Julia code.
 
@@ -144,7 +144,7 @@ println(ids)
 ```
 
 !!! note
-    `LinearAlgebra` backend such as OpenBlas and MKL have their own threading support which controlled by `BLAS.set_num_threads` not `Base.Threads`.
+    `LinearAlgebra` backend, such as OpenBlas and MKL, have their own threading support, controlled by `BLAS.set_num_threads`, not `Base.Threads`.
 
 
 ## Single node job with multiple processes
@@ -199,10 +199,10 @@ An example of a `script.jl` Julia code.
 ```julia
 using Distributed
 
-# Add new workers before using @everywhere macros, otherwise the code won't be included to the new processes.
+# Add new workers before using @everywhere macros; otherwise the code won't be included in the new processes.
 addprocs(Sys.CPU_THREADS)
 
-# We must use @everywhere macro to include the task function to the worker processes.
+# We must use the @everywhere macro to include the task function in the worker processes.
 @everywhere function task()
     return (myid(), gethostname(), getpid())
 end
@@ -223,11 +223,11 @@ println.(outputs)
 
 
 ## Multi-node job with MPI
-We can use `MPI.jl` package to use MPI for multi-node parallelism.
+We can use the `MPI.jl` package to use MPI for multi-node parallelism.
 In Puhti and Mahti it uses OpenMPI.
-We have installed specific version of `MPI.jl` to the shared environment.
-We recommend that you that version because it is tested to work.
-You can find the version by activating the shared environment and running `Pkg.status` as follows.
+We have installed a specific version of `MPI.jl` to the shared environment.
+We recommend that you use that version because it has been tested to work.
+You can find the version by activating the shared environment and running `Pkg.status` as follows:
 
 ```bash
 julia --project="$JULIA_CSC_ENVIRONMENT" -e 'using Pkg; Pkg.status("MPI")'
@@ -294,9 +294,9 @@ MPI.Barrier(comm)
 ## Single GPU job
 Puhti and Mahti contain NVidia GPUs.
 We can use them via the `CUDA.jl` package.
-We have installed specific version of `CUDA.jl` to the shared environment.
-We recommend that you that version because it is tested to work.
-You can find the version by activating the shared environment and running `Pkg.status` as follows.
+We have installed a specific version of `CUDA.jl` to the shared environment.
+We recommend that you use that version because it has been tested to work.
+You can find the version by activating the shared environment and running `Pkg.status` as follows:
 
 ```bash
 julia --project="$JULIA_CSC_ENVIRONMENT" -e 'using Pkg; Pkg.status("CUDA")'
