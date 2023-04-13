@@ -33,7 +33,7 @@ module load julia
 By default, it loads the latest stable version.
 
 
-### Using Julia
+### Using Julia on the command line
 After loading the Julia module, we can use Julia with the `julia` command.
 Without arguments, it starts an interactive Julia REPL.
 
@@ -126,7 +126,13 @@ Pkg.compat("julia", "1.8")
 ### Depot and load paths
 The Julia constants [`Base.DEPOT_PATH`](https://docs.julialang.org/en/v1/base/constants/#Base.DEPOT_PATH) and [`Base.LOAD_PATH`](https://docs.julialang.org/en/v1/base/constants/#Base.LOAD_PATH) control the directories where Julia loads code.
 We use the `JULIA_DEPOT_PATH` and `JULIA_LOAD_PATH` environment variables to set them via the shell.
-The Julia module automatically appends the default depot and load paths to ensure that the standard library and shared libraries are available.
+The Julia module automatically appends the default depot and load paths to ensure that the standard library and shared depots are available.
+The CSC specific shared depots are installed to `JULIA_CSC_DEPOT` directory and the shared environment to `JULIA_CSC_ENVIRONMENT` directory.
+We can look up the shared packages and their versions using the package manager as follows.
+
+```bash
+julia --project="$JULIA_CSC_ENVIRONMENT" -e 'using Pkg; Pkg.status()'
+```
 
 The first directory on the depot path controls where Julia stores installed packages, compiled files, log files, and other depots.
 The directory is `$HOME/.julia` by default.

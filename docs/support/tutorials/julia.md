@@ -1,6 +1,8 @@
 # Running Julia jobs
 Instructions for running serial, parallel and GPU jobs with Julia on Puhti and Mahti.
 
+[TOC]
+
 
 ## Prerequisites
 These instructions are adapted from the general instructions of [**running jobs**](../../computing/running/getting-started.md) on Puhti and Mahti.
@@ -20,6 +22,7 @@ We also assume that it is our working directory when running the commands.
 We have to instantiate the project before running batch scripts.
 
 ```bash
+module load julia
 julia --project=. -e 'using Pkg; Pkg.instantiate()'
 ```
 
@@ -222,6 +225,13 @@ println.(outputs)
 ## Multi-node job with MPI
 We can use `MPI.jl` package to use MPI for multi-node parallelism.
 In Puhti and Mahti it uses OpenMPI.
+We have installed specific version of `MPI.jl` to the shared environment.
+We recommend that you that version because it is tested to work.
+You can find the version by activating the shared environment and running `Pkg.status` as follows.
+
+```bash
+julia --project="$JULIA_CSC_ENVIRONMENT" -e 'using Pkg; Pkg.status("MPI")'
+```
 
 An example of a `Project.toml` project file.
 
@@ -284,6 +294,13 @@ MPI.Barrier(comm)
 ## Single GPU job
 Puhti and Mahti contain NVidia GPUs.
 We can use them via the `CUDA.jl` package.
+We have installed specific version of `CUDA.jl` to the shared environment.
+We recommend that you that version because it is tested to work.
+You can find the version by activating the shared environment and running `Pkg.status` as follows.
+
+```bash
+julia --project="$JULIA_CSC_ENVIRONMENT" -e 'using Pkg; Pkg.status("CUDA")'
+```
 
 An example of a `Project.toml` project file.
 
