@@ -178,6 +178,7 @@ For example, the `Hello` module below defines and exports the `say` function.
 module Hello
 
 say(s) = println(s)
+
 export say
 
 end

@@ -1,5 +1,5 @@
 # Running Julia jobs
-Instructions for running different Julia jobs on Puhti and Mahti.
+Instructions for running serial, parallel and GPU jobs with Julia on Puhti and Mahti.
 
 
 ## Prerequisites
@@ -29,16 +29,29 @@ Julia has some important [environment variables for parallelization](https://doc
 Because we use Slurm to reserve resources on Puhti and Mahti, we need to set the `JULIA_CPU_THREADS` and `JULIA_NUM_THREADS` environment variables to the number of reserved CPU cores.
 The Julia module sets these environment variables the value of `--cpus-per-task` option using the `SLURM_CPUS_PER_TASK` environment variable.
 If that option is not defined, for example, on login nodes, it sets the thread count to one.
+The effect is the same as sourcing the following exports in shell.
+
+```bash
+export JULIA_CPU_THREADS=${SLURM_CPUS_PER_TASK:-1}
+export JULIA_NUM_THREADS=${SLURM_CPUS_PER_TASK:-1}
+```
+
+If you need to start a julia process with different number of threads than `JULIA_NUM_THREADS`, we recommend using the `--threads` option as follows.
+
+```bash
+julia --threads 2  # using two threads regardless of JULIA_NUM_THREADS value
+```
 
 
 ## Serial job
-`Project.toml`
+An example of a `Project.toml` project file.
 
 ```toml
-# empty
+[compat]
+julia = "1.8"
 ```
 
-An example of `puhti.sh` batch script contains the following:
+An example of a `puhti.sh` Puhti batch script.
 
 ```bash
 #!/bin/bash
@@ -55,7 +68,9 @@ module load julia
 srun julia --project=. script.jl
 ```
 
-`script.jl`
+Mahti is intended for parallel computing, therefore we do not include a Batch script for Mahti.
+
+An example of a `script.jl` Julia code.
 
 ```julia
 println("Hello world!")
@@ -64,14 +79,16 @@ println("Hello world!")
 
 ## Single node job with multiple threads
 We can use the `Base.Threads` library for multithreading in Julia.
+We don't need to include libraries in `Base` in dependencies.
 
-We don't need to include libraries in `Base` to `Project.toml`.
+An example of a `Project.toml` project file.
 
 ```toml
-# empty
+[compat]
+julia = "1.8"
 ```
 
-`puhti.sh`
+An example of a `puhti.sh` Puhti batch script.
 
 ```bash
 #!/bin/bash
@@ -88,7 +105,7 @@ module load julia
 srun julia --project=. script.jl
 ```
 
-`mahti.sh`
+An example of a `mahti.sh` Mahti batch script.
 
 ```bash
 #!/bin/bash
@@ -104,7 +121,7 @@ module load julia
 srun julia --project=. script.jl
 ```
 
-`script.jl`
+An example of a `script.jl` Julia code.
 
 ```julia
 using Base.Threads
@@ -131,12 +148,17 @@ println(ids)
 We can use `Distributed`, a standard library for multiple processes in Julia.
 When we add `Distributed`, the `Project.toml` file will look as follows.
 
+An example of a `Project.toml` project file.
+
 ```toml
 [deps]
 Distributed = "8ba89e20-285c-5b6f-9357-94700520ee1b"
+
+[compat]
+julia = "1.8"
 ```
 
-`puhti.sh`
+An example of a `puhti.sh` Puhti batch script.
 
 ```bash
 #!/bin/bash
@@ -153,7 +175,7 @@ module load julia
 srun julia --project=. script.jl
 ```
 
-`mahti.sh`
+An example of a `mahti.sh` Mahti batch script.
 
 ```bash
 #!/bin/bash
@@ -169,7 +191,7 @@ module load julia
 srun julia --project=. script.jl
 ```
 
-`script.jl`
+An example of a `script.jl` Julia code.
 
 ```julia
 using Distributed
@@ -198,18 +220,21 @@ println.(outputs)
 
 
 ## Multi-node job with MPI
+We can use `MPI.jl` package to use MPI for multi-node parallelism.
+In Puhti and Mahti it uses OpenMPI.
 
-`Project.toml`
+An example of a `Project.toml` project file.
 
 ```toml
 [deps]
 MPI = "da04e1cc-30fd-572f-bb4f-1f8673147195"
 
 [compat]
+julia = "1.8"
 MPI = "=0.20.8"
 ```
 
-`puhti.sh`
+An example of a `puhti.sh` Puhti batch script.
 
 ```bash
 #!/bin/bash
@@ -226,7 +251,7 @@ module load julia
 srun julia --project=. script.jl
 ```
 
-`mahti.sh`
+An example of a `mahti.sh` Mahti batch script.
 
 ```bash
 #!/bin/bash
@@ -242,7 +267,7 @@ module load julia
 srun julia --project=. script.jl
 ```
 
-`script.jl`
+An example of a `script.jl` Julia code.
 
 ```julia
 using MPI
@@ -256,19 +281,22 @@ MPI.Barrier(comm)
 ```
 
 
-## GPU job
+## Single GPU job
+Puhti and Mahti contain NVidia GPUs.
+We can use them via the `CUDA.jl` package.
 
-`Project.toml`
+An example of a `Project.toml` project file.
 
 ```toml
 [deps]
 CUDA = "052768ef-5323-5732-b1bb-66c8b64840ba"
 
 [compat]
+julia = "1.8"
 CUDA = "=4.0.1"
 ```
 
-`puhti.sh`
+An example of a `puhti.sh` Puhti batch script.
 
 ```bash
 #!/bin/bash
@@ -286,7 +314,7 @@ module load julia
 srun julia --project=. script.jl
 ```
 
-`mahti.sh`
+An example of a `mahti.sh` Mahti batch script.
 
 ```bash
 #!/bin/bash
@@ -303,7 +331,7 @@ module load julia
 srun julia --project=. script.jl
 ```
 
-`script.jl`
+An example of a `script.jl` Julia code.
 
 ```julia
 using CUDA
