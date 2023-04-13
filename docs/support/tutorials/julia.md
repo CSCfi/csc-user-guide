@@ -143,9 +143,6 @@ println(n)
 println(ids)
 ```
 
-!!! note
-    `LinearAlgebra` backend, such as OpenBlas and MKL, have their own threading support, controlled by `BLAS.set_num_threads`, not `Base.Threads`.
-
 
 ## Single node job with multiple processes
 We can use `Distributed`, a standard library for multiple processes in Julia.
