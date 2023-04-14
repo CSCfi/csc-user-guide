@@ -30,7 +30,8 @@ Currently supported TensorFlow versions:
 
 | Version | Module               | Puhti | Mahti | LUMI | Notes           |
 |:--------|:---------------------|:-----:|:-----:|:----:|-----------------|
-| 2.11.0  | `tensorflow/2.11`    | X     | X     | X*   | default version |
+| 2.12.0  | `tensorflow/2.12`    | X     | X     | -    | default version |
+| 2.11.0  | `tensorflow/2.11`    | X     | X     | X*   |                 |
 | 2.10.0  | `tensorflow/2.10`    | X     | X     | X*   |                 |
 | 2.9.0   | `tensorflow/2.9`     | X     | X     | X*   |                 |
 | 2.8.0   | `tensorflow/2.8`     | X     | X     | X*   |                 |
@@ -178,6 +179,8 @@ a single node:
     #SBATCH --mem=64G
     #SBATCH --time=1:00:00
     
+    export SRUN_CPUS_PER_TASK=$SLURM_CPUS_PER_TASK
+
     module use /appl/local/csc/modulefiles/
     module load tensorflow/2.10
     srun python3 myprog.py <options>
