@@ -58,6 +58,12 @@ Click on **Add Interface**
 Now you attached your interface to the router and able to connect to the external network. You can see a graph by clicking on **Network > Network Topology** and select the tab **Graph**
 ![Network topology in Pouta](../../img/pouta-network-topo-1.png)
 
+
+*NOTES:  
+If you want to access your instances from the external, you need to associate a [floating IP](launch-vm-from-web-gui.md/#post-creation-step).  
+A floating IP sticks with your instance until you decide to release it.*
+
+
 If you want to use the CLI command:
 ```sh
 $ openstack network create test-network
