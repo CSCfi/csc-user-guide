@@ -128,3 +128,19 @@ Initially, Helmi provides 5 physical qubits. You can also test and run algorithm
 When you are ready to run your circuits on Helmi it is recommended that you read the [Getting started guide](../helmi-from-lumi/), which covers the prerequisites for submitting your first job. 
 
 A set of Qiskit and Cirq examples and scripts for guidance in using the LUMI-Helmi partition are also available. [You can find these here](https://github.com/FiQCI/helmi-examples). 
+
+## Figures of Merit
+
+Users can use the `helmi-info` command once you have loaded either `helmi_qiskit` or `helmi_cirq` environments on LUMI. With the `-p` flag the figures of merit will be printed as a table. If you pass the `--output` flag and a location you can save the figures of merit in a `json` file format. 
+
+| Figure                              | Description                                                                                                                                                                                                          |     |     |
+| ----------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --- | --- |
+| T1 Time (μs)                        | The T1 time is called the longitudinal relaxation rate and describes<br>how quickly the excited state of the qubit returns to its ground state.                                                                      |     |     |
+| T2 Time (μs)                        | The T2 time is called the transverse relaxation rate and describes loss of coherence of a superposition state.                                                                                                       |     |     |
+| T2 Echo Time (μs)                   | The T2 echo time shows the dephasing rate of the qubit, however it is <br>less sensitive to low-frequency noise  The T2 Echo time is the time between an initial pulse and a refocusing pulse                        |     |     |
+| Fidelity 1QB gates averaged (%)     | This is calculated from Standard Randomized Benchmarking and describes the average gate fidelity<br> when a random sequence of single qubit Clifford gates is applied.                                               |     |     |
+| Single shot RO fidelity (%)         | This describes the fidelity when performing single shot readouts of the qubit state.                                                                                                                                 |     |     |
+| Fidelity 2qb Cliffords averaged (%) | This is calculated from Standard Randomized Benchmarking, showing the average Clifford gate fidelity.                                                                                                                |     |     |
+| Fidelity per gate (%)               | This is calculated from interleaved 2-qubit Randomized Benchmarking and described the fidelity <br>between the target qubit and the control qubit with an interleaved gate in the random sequence of Clifford gates. |     |     |
+
+For further information on the figures of merit contact the [CSC Service Desk](../../../../support/contact/), reachable at servicedesk@csc.fi.
