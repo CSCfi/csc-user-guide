@@ -288,7 +288,7 @@ MPI.Barrier(comm)
 ```
 
 
-## Single GPU job
+## Single node job with one GPU
 Puhti and Mahti contain NVidia GPUs.
 We can use them via the `CUDA.jl` package.
 We have installed a specific version of `CUDA.jl` to the shared environment.
