@@ -133,7 +133,7 @@ A set of Qiskit and Cirq examples and scripts for guidance in using the LUMI-Hel
 
 The figures of merit may be necessary for publishing work produced on Helmi. It also gives an idea as to the current status of Helmi.
 
-Users can use the `helmi-info` command once you have loaded either `helmi_qiskit` or `helmi_cirq` environments on LUMI. With the `-p` flag the figures of merit will be printed as a table. If you pass the `--output` flag and a location you can save the figures of merit in a `json` file format. 
+Users can use the `helmi-info` command once you have loaded either `helmi_qiskit` or `helmi_cirq` environments on LUMI. With the `-p` flag the figures of merit will be printed as a table. If you pass the `--output` flag and a location you can save the figures of merit in a `json` file format. Passing the `--date yyyy-mm-dd` flag will load the figures of merit from that date. For example: `helmi-info --date 2023-04-12 -p` or `helmi-info --output figures-of-merit.json --date 2023-04-12` will save the figures of merit from the date specified into a location specified. 
 
 | Figure                              | Description                                                                                                                                                                                                      |     |     |
 | ----------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --- | --- |
