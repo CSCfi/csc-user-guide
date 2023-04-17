@@ -147,7 +147,7 @@ export OMP_NUM_THREADS=1
 srun gmx_mpi mdrun -s topol -maxh 0.2
 ```
 
-### Example GPU script for Puhti
+### Example GPU batch script for Puhti
 
 ```bash
 #!/bin/bash
@@ -221,6 +221,36 @@ module load gromacs-env
 export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
 
 srun gmx_mpi mdrun -s topol -maxh 0.2 -dlb yes
+```
+
+### Example GPU batch script for LUMI
+
+!!! info "Note"
+    Gromacs multi-GPU simulations benefit greatly from GPU-aware MPI. However,
+    as Gromacs might not recognize that the underlying MPI is GPU-aware, one
+    needs to force it with `export GMX_FORCE_CUDA_AWARE_MPI=true` (see below).
+
+```bash
+#!/bin/bash
+#SBATCH --partition=standard-g
+#SBATCH --account=<project>
+#SBATCH --time=01:00:00
+#SBATCH --nodes=1
+#SBATCH --gpus-per-node=8
+#SBATCH --ntasks-per-node=8
+#SBATCH --cpus-per-task=7     # Only 63 cores per GPU node available on LUMI for computation
+
+module use /appl/local/csc/modulefiles
+module load gromacs/2023-dev-rocm
+
+export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
+export MPICH_GPU_SUPPORT_ENABLED=1
+
+export GMX_FORCE_UPDATE_DEFAULT_GPU=true
+export GMX_ENABLE_DIRECT_GPU_COMM=true
+export GMX_FORCE_CUDA_AWARE_MPI=true
+
+srun gmx_mpi mdrun -s topol -pin on -nb gpu -bonded gpu -pme gpu -npme 1 -gpu_id 01234567
 ```
 
 ### High-throughput computing with Gromacs
