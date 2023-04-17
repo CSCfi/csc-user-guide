@@ -11,13 +11,13 @@ mysqlimport -h kaivos.csc.fi -u db_user_account --local --compress --password da
 Downloading complete tables or databases from the database can be done with command `mysqldump`. This command was developed for making backup copies of MySQL databases. In the case of `kaivos.csc.fi`, backup copies are not needed as the database is automatically backup copied by CSC.  Instead `mysqldump` offers an easy way to make a copy of your database so that you can move both the data content and structure of your database to another SQL server. You can make a copy of the whole database:
 
 ```bash
-mysqldump --set-gtid-purged=OFF -u db_user_account -h kaivos.csc.fi -p database > database_dump.txt
+mysqldump -u db_user_account -h kaivos.csc.fi -p database > database_dump.txt
 ```
 
 or just from one or more tables:
 
 ```bash
-mysqldump --set-gtid-purged=OFF -u db_user_account -h kaivos.csc.fi -p database table_name > table_dump.txt
+mysqldump -u db_user_account -h kaivos.csc.fi -p database table_name > table_dump.txt
 ```
 
 When `mysqldump` is used with the default settings, the result files contain MySQL commands that are needed to create and populate the selected database tables. `mysqldump` locks the table in the beginning of the copying. Because of this only the `dbname_admin` user account of the database can launch the command by default. In the case of other user accounts (`dbname_read` or `dbname_user`)  `--skip-lock-tables` option should be added to the `mysqldump` command.
