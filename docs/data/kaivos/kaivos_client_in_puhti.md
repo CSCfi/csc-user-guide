@@ -68,19 +68,9 @@ Graphical MySQL interfaces have not been installed to Puhti. However graphical d
 
 ## Following the disk usage in kaivos.csc.fi
 
-Each user has only limited disk space available in the kaivos.csc.fi server. If the database reaches the disk quota, the database users can no longer write to the database. In these cases the users should clean up the database to reduce the size or apply more disk space from CSC. You can check the database quota and usage with the Kaivos Status tool or with command:
+Each user has only limited disk space available in the kaivos.csc.fi server. If the database reaches the disk quota, the database users can no longer write to the database. In these cases the users should clean up the database to reduce the size or apply more disk space from CSC. You can check the database quota and usage in MySQL terminal session. 
 
-```bash
-mysql_quota
-```
-
-or
-
-```bash
-mysql_quota -u db_user_account -p db_password
-```
-
-The situation can also be checked during the MySQL terminal session. To see the disk quota in kaivos.csc.fi, give the MySQL command:
+To see the disk quota in kaivos.csc.fi, give the MySQL command:
 
 ```sql
 CALL quotadb.quota();
