@@ -1,3 +1,13 @@
+---
+title: Getting started with machine learning at CSC
+---
+
+!!! note "Practical Deep Learning, May 3-5" 
+    The popular Practical Deep Learning course by CSC will be held again
+    May 3-5. The course gives an introduction to deep learning and how to
+    do machine learning on Puhti and LUMI supercomputers. 
+    [Registration is now open!](https://ssl.eventilla.com/event/8aPek)
+
 # Getting started with machine learning at CSC
 
 *You have some machine learning code in Python running on your laptop, but it's
