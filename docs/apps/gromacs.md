@@ -88,6 +88,8 @@ The most important aspects to consider are:
   for mdrun
 - For large jobs, use full nodes (multiples of 40 cores on Puhti or multiples
   of 128 cores on Mahti), see example below.
+- Performance with GPU depends on what you offload and the optimium depends on many factors.
+  Please consult the [excellent ENCCS online materials](https://enccs.github.io/gromacs-gpu-performance/)
 
 For a more complete description, consult the [mdrun performance checklist] on the
 Gromacs page.
@@ -373,7 +375,7 @@ for methods applied in your setup.
   Gromacs pages
 - Gromacs [documentation] and [mdrun performance checklist]
 - [The PRODRG Server] for online creation of small molecule topology
-- [2021 Advanced Gromacs Workshop materials](https://enccs.github.io/gromacs-gpu-performance/)
+- [Advanced Gromacs Workshop materials](https://enccs.github.io/gromacs-gpu-performance/)
 
   [mdrun performance checklist]: https://manual.gromacs.org/current/user-guide/mdrun-performance.html
   [documentation]: http://manual.gromacs.org/documentation
