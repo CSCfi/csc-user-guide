@@ -1,7 +1,14 @@
 ---
+title: PyTorch
 tags:
   - Free
 ---
+
+!!! note "Practical Deep Learning, May 3-5" 
+    The popular Practical Deep Learning course by CSC will be held again
+    May 3-5. The course gives an introduction to deep learning and how to
+    do machine learning on Puhti and LUMI supercomputers. 
+    [Registration is now open!](https://ssl.eventilla.com/event/8aPek)
 
 # PyTorch
 
@@ -178,6 +185,8 @@ proportion of the available CPU cores in a single node:
     #SBATCH --mem=64G
     #SBATCH --time=1:00:00
     
+    export SRUN_CPUS_PER_TASK=$SLURM_CPUS_PER_TASK
+
     module use /appl/local/csc/modulefiles/
     module load pytorch/1.13
     srun python3 myprog.py <options>

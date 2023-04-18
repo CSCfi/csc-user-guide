@@ -1,123 +1,45 @@
 # Sensitive Data (SD) Services for research: user guide
 
-This guide, in CSC Docs, introduces CSC's Sensitive Data (SD) services. To navigate the CSC user guide, click on the topics on the left-hand side of the navigation bar or use the search functionality. Below you can find an overview of the contents related to Sensitive Data Services.
+This manual, in CSC Docs, introduces CSC's Sensitive Data (SD) services. To navigate the user guide, click on the topics on the left-hand side of the page in the navigation bar, or use the search functionality. Next, browse the section using the navigation bar on the right side of each page.
 
 !!! Note
-    **Do you have any questions? Would you like to discuss a specific project?** Don't hesitate to contact us at servicedesk@csc.fi (subject: Sensitive Data) or join the [CSC Research User Support Coffee - Every Wednesday at 14:00](https://ssl.eventilla.com/usersupportcoffee). Our team is here to help.
+    **Do you have any questions? Would you like to discuss a specific project?** Don't hesitate to contact us at servicedesk@csc.fi (subject: Sensitive Data) or join the [CSC Research User Support Coffee - Every Wednesday at 14:00](https://ssl.eventilla.com/usersupportcoffee). Our team is here to help, and we offer direct support. 
 
 
-## [Introduction](./intro.md)
-  * [Introduction to the user guide](./intro.md#introduction-to-the-user-guide)
-  * [Introduction to the services](./intro.md#introduction-to-the-services)
-  * [Legal agreements](./intro.md#legal-agreements)
-  * [Useful terminology](./intro.md#useful-terminology)
+
+### **[Introduction](./intro.md)** 
+
+Refer to this section for an overview of SD services, including a technical and data protection terminology recap.
+
+### **[Accessing SD Services](./sd-access.md)** 
+
+With the MyCSC portal, set up a user account, and complete the following steps to access SD services for [sensitive research data processing](./sd-access.md#processing-sensitive-research-data) or [register-based research under the Act on Secondary Use](./sd-access.md#processing-register-data-under-the-act-on-secondary-use). Next, apply for billing units and storage space. 
+
+### 1. Sensitive research data processing
+
+1.1 **[Store and share with SD Connect](./sd_connect.md)** 
+
+With SD Connect, you can store encrypted sensitive data in CSC's cloud storage solution (Allas) or share it with your collaborators. Encrypted data upload is possible via a web browser (1<GB) or programmatically.
+
+1.2 **[Analyse and compute with SD Desktop](./sd_desktop.md)** 
+
+Set up your virtual Desktop to analyse sensitive data securely from your web browser. 
 
 
-## [Accessing SD Services](./sd-access.md)
 
-* [For research data processing](./sd-access.md#processing-sensitive-research-data)
-* [For register data processing under the Act on Secondary use](./sd-access.md#processing-register-data-under-the-act-on-secondary-use)
-* [Default storage space and billing units consumption](./sd-access.md#default-storage-space-and-billing-units-consumption)
-
-  
-## [Store and share with SD Connect](./sd_connect.md)
-   
-   * [Overview](./sd_connect.md#overview)
-
-  * [Key features](./sd_connect.md)
-  
-  * [Authentication](./sd_connect.md#authentication)
-
-  * [User Interface](./sd_connect.md#user-interface)
-  
-  * [Introduction to data encryption compatible with sensitive data services](./sd_connect.md#introduction-to-data-encryption-compatible-with-sensitive-data-services)
- 
- * [Data encryption and upload for analysis (less than 1 GB)](./sd_connect.md#sensitive-data-encryption-and-upload-for-analysis-less-than-1-gb) (Default analysis)
-
-* [Data encryption and upload for analysis (up to 100 GB)](./sd_connect.md#sensitive-data-encryption-and-upload-for-analysis-up-to-100-gb)
- 
-* [Data encryption and upload for storage and sharing (less than 1 GB)](./sd_connect.md#sensitive-data-encryption-and-upload-for-storage-and-sharing-less-than-1-gb) (Data storage and transfer)
- 
-
- * [Data sharing](./sd_connect.md#data-sharing) 
- 
- * [Data download and decryption](./sd_connect.md#data-download-and-decryption) (Data storage and transfer)
- 
- * [Command Line Interface: data encryption and upload](./sd_connect.md#command-line-interface-data-encryption-and-upload) (Advanced)
- 
- 
- * [Command Line Interface: data encryption for data sharing](./sd_connect.md#command-line-interface-encryption-for-data-sharing) (Advanced)
- 
- * [Troubleshooting](./sd_connect.md#troubleshooting)
+### 2. Register data processing under the Act on Secondary Use
 
 
-  
- 
+2.1 **[SD Desktop for secondary use](./sd-desktop-audited.md)**
 
-  
+Set up your virtual Desktop to analyse register data securely from your web browser. Access to this service requires a permit provided by the Findata authority. 
 
-## [Analyse and compute with SD Desktop](./sd_desktop.md)
+2.2 **[Guidelines for data controllers/registers](./single-register-submission.md)**
 
-  * [Overview](./sd_desktop.md#overview) 
+The service will also be available for accessing data provided by single registers and requires a service agreement between the data controller and CSC. 
 
-  * [Key features](./sd_desktop.md)
-  
-  * [Authentication](./sd_desktop.md#authentication) 
+### 3. Support materials 
 
-  * [Creating your virtual desktop](./sd_desktop.md#creating-your-virtual-desktop) (Default analysis)
+3.1 Services in the pilot phase: [Publish biomedical data with the Finnish Federated EGA](./federatedega.md)
+preliminary guide; [Reuse with SD Apply](./sd-apply.md) preliminary guide. 
 
-  * [Working with your desktop](./sd_desktop.md#working-with-your-virtual-desktop)(Default analysis)
-  
-  * [Accessing encrypted sensitive data within SD Desktop](./sd_desktop.md#accessing-encrypted-sensitive-data-within-sd-desktop) (Default analysis)
-
-  * [Default programs available on SD Desktop](./sd_desktop.md#default-programs-available-on-sd-desktop) (Default analysis)
-  
-  * [Software customization](./sd_desktop.md#software-customisation) (Advanced)
-
-  * [Data export](./sd_desktop.md#data-export-from-sd-desktop)
-
-  * [Managing volumes and desktops](./sd_desktop.md#managing-volumes-and-virtual-desktops)
-  
-  * [Troubleshooting](./sd_desktop.md#troubleshooting)
-  
-  
-## [SD Desktop for secondary use of health and social data](./sd-desktop-audited.md)
-Access to this service requires a Findata permit. There are also [instructions](./single-register-submission.md) for single registers to submit secondary use data for research use in SD services.
-  
-  * [Key features](./sd-desktop-audited.md#key-features)
-
-  * [Before you start](./sd-desktop-audited.md#before-you-start) 
-  
-  * [Overview](./sd-desktop-audited.md#overview) 
- 
-  * [Service access](./sd-desktop-audited.md#service-access)  
-  
-  * [Authentication](./sd-desktop-audited.md#authentication) 
-
-  * [Setting up a virtual Desktop](./sd-desktop-audited.md#setting-up-a-virtual-desktop) 
-
-  * [Working with your virtual Desktop](./sd-desktop-audited.md#working-with-your-virtual-desktop)
-
-  * [Accessing sensitive register data within SD Desktop](./sd-desktop-audited.md#accessing-sensitive-register-data-within-sd-desktop)
-
-  * [Default programs available on the Desktop and software customisation](./sd-desktop-audited.md#default-programs-available-on-the-desktop-and-software-customisation)
-
-  * [Data export from the Desktop](./sd-desktop-audited.md#data-export-from-the-desktop)
-  
-  * [Deleting your virtual Desktop](./sd-desktop-audited.md#deleting-your-virtual-desktop)
-
-  * [End of data access and data deletion policies](./sd-desktop-audited.md#end-of-data-access-and-data-deletion-policies)
-  
-  * [Troubleshooting](./sd-desktop-audited.md#troubleshooting)
-  
-
-## **Services in the pilot phase:**
-
-  
-### [Publish biomedical data with the Finnish Federated EGA](./federatedega.md)
-Preliminary guide.
- 
-  
-### [Reuse with SD Apply](./sd-apply.md)
-Preliminary guide. 
- 
