@@ -39,6 +39,7 @@ export POSTGRES_USER=pguser
 export POSTGRES_PASSWORD=pg123
 export POSTGRES_DB=mydb
 export POSTGRES_INITDB_ARGS="--encoding=UTF-8"
+
 ```
 
 Then save and exit nano.
