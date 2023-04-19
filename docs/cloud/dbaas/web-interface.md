@@ -26,7 +26,7 @@ On the next page `Database access`:
 3. You don't need to use the `Intialize Databases` tab. It is not recommended to create an admin user.
 4. If you have a backup that you want to restore, you can do it from the `Advanced` tab. Then you choose the `Source for Initial State` -> `Restore from Backup` and then choose `Backup name`
 5. Now you can press `Launch`
-6. Once the database instance has launched. You can press on the name of the database instance. 
+6. Once the database instance has launched. You can press on the name of the database instance.
 7.  From here you can choose the `Database` tab and press `+ Create Database` and fill in the Name and possible collection, and Character Set and press `Create Database`
 8.  Then you can go to the `Users` tab to create a new database user. The database user needs a name and a strong password. It is recommended that you generate a long random password. You can also specify from which Host the user is allowed to access the database instance from. You should also specify to which databases the users should have access to. When you are done you can press `Create user`
 9.  Now you can go to the database specific documentation to find out further instructions on how to use the database:
