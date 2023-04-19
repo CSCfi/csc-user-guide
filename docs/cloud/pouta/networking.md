@@ -60,7 +60,7 @@ Now you attached your interface to the router and able to connect to the externa
 
 
 *NOTES:  
-If you want to access your instances from the external, you need to associate a [floating IP](launch-vm-from-web-gui.md#post-creation-step).  
+If you want to access your instances from an external network, you need to associate a [floating IP](launch-vm-from-web-gui.md#post-creation-step).  
 A floating IP sticks with your instance until you decide to release it.*
 
 
