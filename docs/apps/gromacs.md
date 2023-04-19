@@ -14,24 +14,46 @@ systems. It also comes with plenty of analysis scripts.
 
 ## Available
 
-- Puhti: 2020-2022 releases with regularly updated minor versions, one with plumed,
-  four with CUDA
-- Mahti: 2020-2022 releases with regularly updated minor versions, two with plumed,
-  two with CP2K, three with CUDA
-- Check recommended version(s) with `module avail gromacs-env`
-- If you want to use command-line [plumed tools](plumed.md), load the plumed module.
+=== "Puhti"
+    | Version | Available modules | Notes |
+    |:-------:|:------------------|:-----:|
+    |2020.5   |`gromacs/2020.5`
+    |2020.7   |`gromacs/2020.7`
+    |2021.4   |`gromacs/2021.4-plumed`|Module with Plumed available
+    |2021.5   |`gromacs/2021.5`<br>`gromacs/2021.5-cuda`|GPU-enabled module available
+    |2021.6   |`gromacs/2021.6`
+    |2022.2   |`gromacs/2022.2`<br>`gromacs/2022.2-cuda`|GPU-enabled module available
+    |2022.3   |`gromacs/2022.3`<br>`gromacs/2022.3-cuda`|GPU-enabled module available
+    |2022.4   |`gromacs/2022.4`<br>`gromacs/2022.4-cuda`|GPU-enabled module available
+
+=== "Mahti"
+    | Version | Available modules | Notes |
+    |:-------:|:------------------|:-----:|
+    |2020.4   |`gromacs/2020.4-plumed`|Module with Plumed available
+    |2020.5   |`gromacs/2020.5`
+    |2021.3   |`gromacs/2021.3`
+    |2021.4   |`gromacs/2021.4-plumed`|Module with Plumed available
+    |2021.5   |`gromacs/2021.5`
+    |2022     |`gromacs/2022`<br>`gromacs/2022-cp2k`|Module with CP2K available for QM/MM
+    |2022.1   |`gromacs/2022.1`<br>`gromacs/2022.1-cp2k`|Module linked with CP2K available for QM/MM
+    |2022.2   |`gromacs/2022.2`<br>`gromacs/2022.2-cuda`|GPU-enabled module available
+    |2022.3   |`gromacs/2022.3`<br>`gromacs/2022.3-cuda`|GPU-enabled module available
+    |2022.4   |`gromacs/2022.4`<br>`gromacs/2022.4-cuda`|GPU-enabled module available
+
+=== "LUMI"
+    | Version | Available modules | Notes |
+    |:-------:|:------------------|:-----:|
+    |2022.5   |`gromacs/2022.5`<br>`gromacs/2022.5-plumed`|Module with Plumed available
+    |2023     |`gromacs/2023-dev-rocm`|Unofficial GPU-enabled fork developed by AMD
+
+- Puhti and Mahti also have `gromacs-env/<year>` modules for loading the recommended latest minor version from each year (replace `<year>` accordingly).
+- To access modules on LUMI, first load the CSC module tree into use with `module use /appl/local/csc/modulefiles`
+- If you want to use command-line [Plumed tools](plumed.md), load the Plumed module.
 
 !!! info
     We only provide the parallel version `gmx_mpi`, but it can
     be used for grompp, editconf etc. similarly to the serial version.
-    Instead of `gmx grompp ...` give `gmx_mpi grompp`
-
-!!! info
-    CP2K 9.1 has been linked to Gromacs 2022.1 for QM/MM in the module `gromacs-env/2022-cp2k`
-    on Mahti. This option was previously available under the CP2K module `cp2k/8.1-gmx`,
-    which has now been deprecated. Please use `gromacs-env/2022-cp2k` for QM/MM simulations
-    from now on. [See the official documentation for more
-    details](https://manual.gromacs.org/documentation/2022/reference-manual/special/qmmm.html).
+    Instead of `gmx grompp ...`, give `gmx_mpi grompp`.
 
 ## License
 
@@ -66,6 +88,8 @@ The most important aspects to consider are:
   for mdrun
 - For large jobs, use full nodes (multiples of 40 cores on Puhti or multiples
   of 128 cores on Mahti), see example below.
+- Performance with GPU depends on what you offload and the optimium depends on many factors.
+  Please consult the [excellent ENCCS online materials](https://enccs.github.io/gromacs-gpu-performance/)
 
 For a more complete description, consult the [mdrun performance checklist] on the
 Gromacs page.
@@ -125,7 +149,7 @@ export OMP_NUM_THREADS=1
 srun gmx_mpi mdrun -s topol -maxh 0.2
 ```
 
-### Example GPU script for Puhti
+### Example GPU batch script for Puhti
 
 ```bash
 #!/bin/bash
@@ -200,6 +224,45 @@ export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
 
 srun gmx_mpi mdrun -s topol -maxh 0.2 -dlb yes
 ```
+
+### Example GPU batch script for LUMI
+
+!!! info "Note"
+    Gromacs multi-GPU simulations benefit greatly from GPU-aware MPI. However,
+    as Gromacs might not recognize that the underlying MPI is GPU-aware, one
+    needs to force it with `export GMX_FORCE_CUDA_AWARE_MPI=true` (see below).
+
+```bash
+#!/bin/bash
+#SBATCH --partition=standard-g
+#SBATCH --account=<project>
+#SBATCH --time=01:00:00
+#SBATCH --nodes=1
+#SBATCH --gpus-per-node=8     # 8 GCDs per node on LUMI (interpreted as separate GPUs by Slurm)
+#SBATCH --ntasks-per-node=8
+#SBATCH --cpus-per-task=7     # Only 63 cores per GPU node available on LUMI for computation
+
+module use /appl/local/csc/modulefiles
+module load gromacs/2023-dev-rocm
+
+export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
+export MPICH_GPU_SUPPORT_ENABLED=1
+
+export GMX_FORCE_UPDATE_DEFAULT_GPU=true
+export GMX_ENABLE_DIRECT_GPU_COMM=true
+export GMX_FORCE_CUDA_AWARE_MPI=true
+
+srun gmx_mpi mdrun -s topol -pin on -nb gpu -bonded gpu -pme gpu -npme 1 -gpu_id 01234567
+```
+
+Below is an example of the GPU performance using the STMV benchmark. Note that running
+Gromacs with GPU-aware MPI is currently possible only on LUMI. Please consider also the
+size of your system when using GPUs – the STMV benchmark contains more than 1 million
+atoms. Smaller systems are typically best run using just a single GPU. If possible,
+use [`multidir` ensemble simulations](#high-throughput-computing-with-gromacs) for
+accelerated sampling.
+
+![Gromacs scaling on GPUs on Mahti and LUMI](../img/gmx-gpu.png 'Gromacs scaling on GPUs on Mahti and LUMI')
 
 ### High-throughput computing with Gromacs
 
@@ -321,7 +384,7 @@ for methods applied in your setup.
   Gromacs pages
 - Gromacs [documentation] and [mdrun performance checklist]
 - [The PRODRG Server] for online creation of small molecule topology
-- [2021 Advanced Gromacs Workshop materials](https://enccs.github.io/gromacs-gpu-performance/)
+- [Advanced Gromacs Workshop materials](https://enccs.github.io/gromacs-gpu-performance/)
 
   [mdrun performance checklist]: https://manual.gromacs.org/current/user-guide/mdrun-performance.html
   [documentation]: http://manual.gromacs.org/documentation
