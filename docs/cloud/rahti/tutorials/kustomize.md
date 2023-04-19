@@ -9,6 +9,7 @@ oc kustomize build FOLDER
 ```
 
 However some features are missing with the built-in tool, here is a list of the commands available with `kustomize`:  
+
 -  **build**                     Build a kustomization target from a directory or URL
 -  **cfg**                       Commands for reading and writing configuration
 -  **completion**                Generate shell completion script
