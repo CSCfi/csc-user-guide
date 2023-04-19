@@ -20,7 +20,9 @@ cd /media/volume/psql
 
 2. Import Apptainer container containing PostreSQL
 
+```text
  cp $HOME/Projects/SD\ connect/*/tools-for-sd-desktop/apptainer/postgres_14.2-alpine3.15.sif ./
+```
 
 3. Create PostgreSQL environment file (pg.env) to be used.
 
@@ -37,6 +39,7 @@ export POSTGRES_USER=pguser
 export POSTGRES_PASSWORD=pg123
 export POSTGRES_DB=mydb
 export POSTGRES_INITDB_ARGS="--encoding=UTF-8"
+```
 
 Then save and exit nano.
 
@@ -83,5 +86,3 @@ For example
 psql -h localhost -p 5432 -d mydb -U pguser f psql_dump_file.sql
 ```
 
-
-.... and then the psql command to print out the data in the format you want to use.
