@@ -6,7 +6,6 @@ LUMI project. All LUMI projects require a Principal Investigator serving as the 
 A LUMI Project Manager is typically a leader of a research team or other senior researcher. 
 
 **The connection to Helmi through LUMI is now accepting pilot phase projects**. 
-The pilot phase opened 1 November 2022 and is expected to run for three months.
 
 !!! info "Open Call for pilot phase projects"
 	Pilot phase projects for researchers in Finnish higher-education institutions and research organisations is now open.
