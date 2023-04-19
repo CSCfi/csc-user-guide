@@ -81,11 +81,11 @@ In Rahti4 the default limits are lower than the default quota:
           memory: 500Mi
 ```
 
-This change helps lowering the default costs for the user, gives the administrators a better understanding of the total resource usage and needs, and improves loadbalancing.
+This change helps lowering the default costs for the user, gives the administrators a better understanding of the total resource usage and needs, and improves load balancing.
 
 ## How to create routes?
 
-!!! info "Default URLs sufix have changed"
+!!! info "Default URLs suffix have changed"
 
     In Rahti3 default URLs were `<whatever>.rahtiapp.fi` meanwhile in Rahti4 it will be `<whatever>.2.rahtiapp.fi`
 
