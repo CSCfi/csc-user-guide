@@ -256,7 +256,9 @@ proc_env = [
 ]
 
 # We add worker processes.
-addprocs(proc_num; env=proc_env)
+addprocs(proc_num;
+         env=proc_env,
+         exeflags="--project=.")
 
 # We use the `@everywhere` macro to include the task function in the worker processes.
 # We must call `@everwhere` after adding worker processes; otherwise the code won't be included in the new processes.
@@ -356,12 +358,15 @@ nodes = readlines(`scontrol show hostnames $(ENV["SLURM_JOB_NODELIST"])`)
 local_node = first(split(gethostname(), '.'; limit=2))
 
 # We add worker processes to the local node using LocalManager.
-addprocs(proc_num; env=proc_env)
+addprocs(proc_num;
+         env=proc_env,
+         exeflags="--project=.")
 
 # We add worker processes to the other nodes with SSHManager.
 addprocs([(node, proc_num) for node in nodes if node != local_node];
          tunnel=true,
-         env=proc_env)
+         env=proc_env,
+         exeflags="--project=.")
 
 # We use the `@everywhere` macro to include the task function in the worker processes.
 # We must call `@everwhere` after adding worker processes; otherwise the code won't be included in the new processes.
@@ -458,12 +463,16 @@ nodes = readlines(`scontrol show hostnames $(ENV["SLURM_JOB_NODELIST"])`)
 local_node = first(split(gethostname(), '.'; limit=2))
 
 # We add worker processes to the local node using LocalManager.
-addprocs(proc_num; env=proc_env, enable_threaded_blas=true)
+addprocs(proc_num;
+         env=proc_env,
+         exeflags="--project=.",
+         enable_threaded_blas=true)
 
 # We add worker processes to the other nodes with SSHManager.
 addprocs([(node, proc_num) for node in nodes if node != local_node];
          tunnel=true,
          env=proc_env,
+         exeflags="--project=.",
          enable_threaded_blas=true)
 
 # We use the `@everywhere` macro to include the task function in the worker processes.
