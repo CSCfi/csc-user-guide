@@ -1,3 +1,13 @@
+---
+title: GPU-accelerated machine learning
+---
+
+!!! note "Practical Deep Learning, May 3-5" 
+    The popular Practical Deep Learning course by CSC will be held again
+    May 3-5. The course gives an introduction to deep learning and how to
+    do machine learning on Puhti and LUMI supercomputers. 
+    [Registration is now open!](https://ssl.eventilla.com/event/8aPek)
+
 # GPU-accelerated machine learning
 
 This guide explains the basics of using GPUs in CSC's supercomputers. It is part
