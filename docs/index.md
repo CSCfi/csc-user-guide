@@ -26,6 +26,10 @@
     >User guides and tutorials</h2>
 </div>
 
+<center>
+[![CSC Summer School in High-Performance Computing 2023](img/kesakoulu-2023_banner.png 'CSC Summer School in High-Performance Computing 2023')](https://ssl.eventilla.com/summerschool2023)
+</center>
+
 !!! default "Overview"
 
     Docs CSC contains user guides, [FAQs](support/faq/index.md) and [tutorials](support/tutorials/index.md) related to CSC services.
@@ -33,16 +37,6 @@
     * In order to navigate across the CSC user guide, click on the topics on
       the left hand side of the navigation bar
     * Or use the search functionality
-
-    !!! warning-label
-
-        Navigation has changed on 22.02.2023, see [Changes in navigation on Docs CSC](support/wn/training-new.md#changes-in-navigation-on-docs-csc-22022023)
-
-<!--- Placeholder for a possible banner in the future
-
-[![CSC Summer School in High-Performance Computing 2022](img/banneri__summerhpc_800x164px_csc.fi.png 'CSC Summer School in High-Performance Computing 2022')](https://ssl.eventilla.com/summerschool)
-
--->
 
 <div class="quick-links-container">
 
