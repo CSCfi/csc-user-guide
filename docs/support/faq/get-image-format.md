@@ -43,7 +43,7 @@ When an old client is used to try to pull a image with the newer format, the cli
 buildah bud -t image/name:tag --format=docker
 ```
 
-* [Skopeo](https://github.com/containers/skopeo) is an utility that performs various oeprations on container images and image repositories.  
+* [Skopeo](https://github.com/containers/skopeo) is an utility that performs various operations on container images and image repositories.
 You can use it to copy from DockerHub to Rahti internal registry and it will automatically convert the image in the `docker` format. Here is an example:  
 
 First, you need your Rahti login. After being connected, type this command to get it:
