@@ -1,12 +1,19 @@
 # Applications
 
+## Gromacs and CP2K installed on LUMI, 19.4.2023
+
+CPU and GPU-enabled versions of [Gromacs](../../apps/gromacs.md) and [CP2K](../../apps/cp2k.md)
+have been installed on LUMI. Before loading the modules, first take the CSC module tree into
+use with `module use /appl/local/csc/modulefiles`. Note that the GPU-enabled Gromacs version
+is an unofficial HIPified fork of the software by AMD and hence unsupported by the upstream
+developers.
+
 ## PyTorch 2.0 and TensorFlow 2.12, 27.3.2023
 
 [PyTorch](../../apps/pytorch.md) 2.0 and
 [TensorFlow](../../apps/tensorflow.md) 2.12 are now available on Puhti and Mahti. 
 See [PyTorch 2.0 blog post](https://pytorch.org/blog/pytorch-2.0-release/) or the
 [TensorFlow 2.12 release notes](https://github.com/tensorflow/tensorflow/releases/tag/v2.12.0).
-
 
 ## Turbomole 7.7, 3.3.2023
 

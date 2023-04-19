@@ -238,7 +238,7 @@ srun gmx_mpi mdrun -s topol -maxh 0.2 -dlb yes
 #SBATCH --account=<project>
 #SBATCH --time=01:00:00
 #SBATCH --nodes=1
-#SBATCH --gpus-per-node=8
+#SBATCH --gpus-per-node=8     # 8 GCDs per node on LUMI (interpreted as separate GPUs by Slurm)
 #SBATCH --ntasks-per-node=8
 #SBATCH --cpus-per-task=7     # Only 63 cores per GPU node available on LUMI for computation
 
@@ -254,6 +254,15 @@ export GMX_FORCE_CUDA_AWARE_MPI=true
 
 srun gmx_mpi mdrun -s topol -pin on -nb gpu -bonded gpu -pme gpu -npme 1 -gpu_id 01234567
 ```
+
+Below is an example of the GPU performance using the STMV benchmark. Note that running
+Gromacs with GPU-aware MPI is currently possible only on LUMI. Please consider also the
+size of your system when using GPUs – the STMV benchmark contains more than 1 million
+atoms. Smaller systems are typically best run using just a single GPU. If possible,
+use [`multidir` ensemble simulations](#high-throughput-computing-with-gromacs) for
+accelerated sampling.
+
+![Gromacs scaling on GPUs on Mahti and LUMI](../img/gmx-gpu.png 'Gromacs scaling on GPUs on Mahti and LUMI')
 
 ### High-throughput computing with Gromacs
 
