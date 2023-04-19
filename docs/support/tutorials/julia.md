@@ -22,7 +22,7 @@ We also assume that it is our working directory when running the commands.
 We have to instantiate the project before running batch scripts.
 
 ```bash
-module load julia
+module load julia/1.8
 julia --project=. -e 'using Pkg; Pkg.instantiate()'
 ```
 
@@ -67,7 +67,7 @@ An example of a `puhti.sh` Puhti batch script.
 #SBATCH --cpus-per-task=1
 #SBATCH --mem-per-cpu=1000
 
-module load julia
+module load julia/1.8
 srun julia --project=. script.jl
 ```
 
@@ -104,7 +104,7 @@ An example of a `puhti.sh` Puhti batch script.
 #SBATCH --cpus-per-task=3
 #SBATCH --mem-per-cpu=1000
 
-module load julia
+module load julia/1.8
 srun julia --project=. script.jl
 ```
 
@@ -120,7 +120,7 @@ An example of a `mahti.sh` Mahti batch script.
 #SBATCH --ntasks-per-node=1
 #SBATCH --cpus-per-task=128
 
-module load julia
+module load julia/1.8
 srun julia --project=. script.jl
 ```
 
@@ -218,7 +218,7 @@ An example of a `puhti.sh` Puhti batch script.
 #SBATCH --cpus-per-task=3
 #SBATCH --mem-per-cpu=1000
 
-module load julia
+module load julia/1.8
 srun julia --project=. script.jl
 ```
 
@@ -234,7 +234,7 @@ An example of a `mahti.sh` Mahti batch script.
 #SBATCH --ntasks-per-node=1
 #SBATCH --cpus-per-task=128
 
-module load julia
+module load julia/1.8
 srun julia --project=. script.jl
 ```
 
@@ -312,7 +312,7 @@ An example of a `puhti.sh` Puhti batch script.
 #SBATCH --cpus-per-task=3
 #SBATCH --mem-per-cpu=1000
 
-module load julia
+module load julia/1.8
 julia --project=. script.jl
 ```
 
@@ -328,7 +328,7 @@ An example of a `mahti.sh` Mahti batch script.
 #SBATCH --ntasks-per-node=1
 #SBATCH --cpus-per-task=128
 
-module load julia
+module load julia/1.8
 julia --project=. script.jl
 ```
 
@@ -353,7 +353,7 @@ proc_env = [
 nodes = readlines(`scontrol show hostnames $(ENV["SLURM_JOB_NODELIST"])`)
 
 # Retrieve the node name of the master process.
-local_node = gethostname()
+local_node = first(split(gethostname(), '.'; limit=2))
 
 # We add worker processes to the local node using LocalManager.
 addprocs(proc_num; env=proc_env)
@@ -414,7 +414,7 @@ An example of a `puhti.sh` Puhti batch script.
 #SBATCH --cpus-per-task=3
 #SBATCH --mem-per-cpu=1000
 
-module load julia
+module load julia/1.8
 julia --project=. script.jl
 ```
 
@@ -430,9 +430,11 @@ An example of a `mahti.sh` Mahti batch script.
 #SBATCH --ntasks-per-node=1
 #SBATCH --cpus-per-task=128
 
-module load julia
+module load julia/1.8
 julia --project=. script.jl
 ```
+
+An example of a `script.jl` Julia code.
 
 ```julia
 using Distributed
@@ -453,7 +455,7 @@ proc_env = [
 nodes = readlines(`scontrol show hostnames $(ENV["SLURM_JOB_NODELIST"])`)
 
 # Retrieve the node name of the master process.
-local_node = gethostname()
+local_node = first(split(gethostname(), '.'; limit=2))
 
 # We add worker processes to the local node using LocalManager.
 addprocs(proc_num; env=proc_env, enable_threaded_blas=true)
@@ -470,7 +472,7 @@ addprocs([(node, proc_num) for node in nodes if node != local_node];
 @everywhere using Base.Threads
 
 @everywhere function task_threads()
-    ids = zeros(Int, 10*n)
+    ids = zeros(Int, 2*nthreads())
     @threads for i in eachindex(ids)
         ids[i] = threadid()
     end
@@ -538,7 +540,7 @@ An example of a `puhti.sh` Puhti batch script.
 #SBATCH --cpus-per-task=1
 #SBATCH --mem-per-cpu=1000
 
-module load julia
+module load julia/1.8
 srun julia --project=. script.jl
 ```
 
@@ -554,7 +556,7 @@ An example of a `mahti.sh` Mahti batch script.
 #SBATCH --ntasks-per-node=128
 #SBATCH --cpus-per-task=1
 
-module load julia
+module load julia/1.8
 srun julia --project=. script.jl
 ```
 
@@ -608,7 +610,7 @@ An example of a `puhti.sh` Puhti batch script.
 #SBATCH --mem=4000
 #SBATCH --gres=gpu:v100:1
 
-module load julia
+module load julia/1.8
 srun julia --project=. script.jl
 ```
 
@@ -625,7 +627,7 @@ An example of a `mahti.sh` Mahti batch script.
 #SBATCH --cpus-per-task=32
 #SBATCH --gres=gpu:a100:1
 
-module load julia
+module load julia/1.8
 srun julia --project=. script.jl
 ```
 
