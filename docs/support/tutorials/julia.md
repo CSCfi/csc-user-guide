@@ -144,9 +144,56 @@ println(ids)
 ```
 
 
+## Linear algebra backends and threading
+The default `LinearAlgebra` backend on Julia is OpenBLAS.
+If we want to, we can use MKL instead of OpenBLAS.
+MKL is often faster than OpenBLAS, especially on Puhti, when using multiple threads.
+We should load the `MKL` library before other linear algebra libraries.
+
+```julia
+using MKL
+```
+
+The Julia module sets the number of threads for OpenBLAS and MKL backends to the number of CPU threads.
+
+```bash
+export OPENBLAS_NUM_THREADS=$JULIA_CPU_THREADS
+export MKL_NUM_THREADS=$JULIA_CPU_THREADS
+```
+
+We must be careful not to oversubscribe cores when using BLAS operations within Julia threads or processes.
+We can change the amount of BLAS threads at runtime using the `BLAS.set_num_threads` function.
+
+```julia
+using Base.Threads
+using LinearAlgebra
+
+# Number of threads
+n = nthreads()
+
+# Define a matrix
+X = rand(1000, 1000)
+
+# Set the number of threads to one before performing BLAS operations of multiple Julia threads.
+BLAS.set_num_threads(1)
+Y = zeros(n)
+@threads for i in 1:n  # uses n Julia threads
+    Y[i] = sum(X * X)  # uses one BLAS thread
+end
+
+# Set the number of threads back to the default when performing BLAS operation on a single Julia Thread.
+BLAS.set_num_threads(n)
+Z = zeros(n)
+for i in 1:n           # uses one Julia thread
+    Z[i] = sum(X * X)  # uses n BLAS threads
+end
+```
+
+There are [caveats](https://discourse.julialang.org/t/matrix-multiplication-is-slower-when-multithreading-in-julia/56227/12?u=carstenbauer) for using different numbers than one or all cores of BLAS threads on OpenBLAS and MKL.
+
+
 ## Single node job with multiple processes
 We can use `Distributed`, a standard library for multiple processes in Julia.
-When we add `Distributed`, the `Project.toml` file will look as follows.
 
 An example of a `Project.toml` project file.
 
@@ -196,12 +243,31 @@ An example of a `script.jl` Julia code.
 ```julia
 using Distributed
 
-# Add new workers before using @everywhere macros; otherwise the code won't be included in the new processes.
-addprocs(Sys.CPU_THREADS)
+# We set one worker process per core.
+proc_num = Sys.CPU_THREADS
 
-# We must use the @everywhere macro to include the task function in the worker processes.
+# Environment variables that we pass to the worker processes.
+# We set the thread count to one since each process uses one core.
+proc_env = [
+    "JULIA_NUM_THREADS"=>"1",
+    "JULIA_CPU_THREADS"=>"1",
+    "OPENBLAS_NUM_THREADS"=>"1",
+    "MKL_NUM_THREADS"=>"1",
+]
+
+# We add worker processes.
+addprocs(proc_num; env=proc_env)
+
+# We use the `@everywhere` macro to include the task function in the worker processes.
+# We must call `@everwhere` after adding worker processes; otherwise the code won't be included in the new processes.
 @everywhere function task()
-    return (myid(), gethostname(), getpid())
+    (
+        id=myid(),
+        hostname=gethostname(),
+        pid=getpid(),
+        nthreads=Base.Threads.nthreads(),
+        cputhreads=Sys.CPU_THREADS
+    )
 end
 
 # We run the task function in each worker process.
@@ -213,7 +279,225 @@ outputs = fetch.(futures)
 # Remove processes after we are done.
 rmprocs.(workers())
 
-# Print the outputs.
+# Print the outputs of master and worker processes.
+println(task())
+println.(outputs)
+```
+
+
+## Multi-node job with multiple processes
+The multi-node job with multiple processes is similar to the single-node example except that we use multiple nodes and we add processes to the other nodes using `SSHManager` instead of `LocalManager`.
+We also do not use `srun` in the batch script, otherwise Slurm will start the Julia script on all nodes.
+
+An example of a `Project.toml` project file.
+
+```toml
+[deps]
+Distributed = "8ba89e20-285c-5b6f-9357-94700520ee1b"
+
+[compat]
+julia = "1.8"
+```
+
+An example of a `puhti.sh` Puhti batch script.
+
+```bash
+#!/bin/bash
+#SBATCH --job-name=example
+#SBATCH --account=<project>
+#SBATCH --partition=large
+#SBATCH --time=00:15:00
+#SBATCH --nodes=2
+#SBATCH --ntasks-per-node=1
+#SBATCH --cpus-per-task=3
+#SBATCH --mem-per-cpu=1000
+
+module load julia
+julia --project=. script.jl
+```
+
+An example of a `mahti.sh` Mahti batch script.
+
+```bash
+#!/bin/bash
+#SBATCH --job-name=example
+#SBATCH --account=<project>
+#SBATCH --partition=medium
+#SBATCH --time=00:15:00
+#SBATCH --nodes=2
+#SBATCH --ntasks-per-node=1
+#SBATCH --cpus-per-task=128
+
+module load julia
+julia --project=. script.jl
+```
+
+An example of a `script.jl` Julia code.
+
+```julia
+using Distributed
+
+# We set one worker process per core.
+proc_num = Sys.CPU_THREADS
+
+# Environment variables that we pass to the worker processes.
+# We set the thread count to one since each process uses one core.
+proc_env = [
+    "JULIA_NUM_THREADS"=>"1",
+    "JULIA_CPU_THREADS"=>"1",
+    "OPENBLAS_NUM_THREADS"=>"1",
+    "MKL_NUM_THREADS"=>"1",
+]
+
+# Read the list of nodenames allocated by Slurm.
+nodes = readlines(`scontrol show hostnames $(ENV["SLURM_JOB_NODELIST"])`)
+
+# Retrieve the node name of the master process.
+local_node = gethostname()
+
+# We add worker processes to the local node using LocalManager.
+addprocs(proc_num; env=proc_env)
+
+# We add worker processes to the other nodes with SSHManager.
+addprocs([(node, proc_num) for node in nodes if node != local_node];
+         tunnel=true,
+         env=proc_env)
+
+# We use the `@everywhere` macro to include the task function in the worker processes.
+# We must call `@everwhere` after adding worker processes; otherwise the code won't be included in the new processes.
+@everywhere function task()
+    (
+        id=myid(),
+        hostname=gethostname(),
+        pid=getpid(),
+        nthreads=Base.Threads.nthreads(),
+        cputhreads=Sys.CPU_THREADS
+    )
+end
+
+# We run the task function in each worker process.
+futures = [@spawnat id task() for id in workers()]
+
+# Then, we fetch the output from the processes.
+outputs = fetch.(futures)
+
+# Remove processes after we are done.
+rmprocs.(workers())
+
+# Print the outputs of master and worker processes.
+println(task())
+println.(outputs)
+```
+
+
+## Multi-node job with multiple processes and threads
+An example of a `Project.toml` project file.
+
+```toml
+[deps]
+Distributed = "8ba89e20-285c-5b6f-9357-94700520ee1b"
+
+[compat]
+julia = "1.8"
+```
+
+An example of a `puhti.sh` Puhti batch script.
+
+```bash
+#!/bin/bash
+#SBATCH --job-name=example
+#SBATCH --account=<project>
+#SBATCH --partition=large
+#SBATCH --time=00:15:00
+#SBATCH --nodes=2
+#SBATCH --ntasks-per-node=1
+#SBATCH --cpus-per-task=3
+#SBATCH --mem-per-cpu=1000
+
+module load julia
+julia --project=. script.jl
+```
+
+An example of a `mahti.sh` Mahti batch script.
+
+```bash
+#!/bin/bash
+#SBATCH --job-name=example
+#SBATCH --account=<project>
+#SBATCH --partition=medium
+#SBATCH --time=00:15:00
+#SBATCH --nodes=2
+#SBATCH --ntasks-per-node=1
+#SBATCH --cpus-per-task=128
+
+module load julia
+julia --project=. script.jl
+```
+
+```julia
+using Distributed
+
+# We set one worker process per node.
+proc_num = 1
+
+# Environment variables that we pass to the worker processes.
+# We set the thread count to CPU_THREADS such that each worker uses all reserved cores in the node.
+proc_env = [
+    "JULIA_NUM_THREADS"=>"$(Sys.CPU_THREADS)",
+    "JULIA_CPU_THREADS"=>"$(Sys.CPU_THREADS)",
+    "OPENBLAS_NUM_THREADS"=>"$(Sys.CPU_THREADS)",
+    "MKL_NUM_THREADS"=>"$(Sys.CPU_THREADS)",
+]
+
+# Read the list of nodenames allocated by Slurm.
+nodes = readlines(`scontrol show hostnames $(ENV["SLURM_JOB_NODELIST"])`)
+
+# Retrieve the node name of the master process.
+local_node = gethostname()
+
+# We add worker processes to the local node using LocalManager.
+addprocs(proc_num; env=proc_env, enable_threaded_blas=true)
+
+# We add worker processes to the other nodes with SSHManager.
+addprocs([(node, proc_num) for node in nodes if node != local_node];
+         tunnel=true,
+         env=proc_env,
+         enable_threaded_blas=true)
+
+# We use the `@everywhere` macro to include the task function in the worker processes.
+# We must call `@everwhere` after adding worker processes; otherwise the code won't be included in the new processes.
+
+@everywhere using Base.Threads
+
+@everywhere function task_threads()
+    ids = zeros(Int, 10*n)
+    @threads for i in eachindex(ids)
+        ids[i] = threadid()
+    end
+    return ids
+end
+
+@everywhere function task()
+    (
+        id=myid(),
+        hostname=gethostname(),
+        pid=getpid(),
+        nthreads=nthreads(),
+        cputhreads=Sys.CPU_THREADS,
+        thread_ids=task_threads()
+    )
+end
+
+# We run the task function in each worker process.
+futures = [@spawnat id task() for id in workers()]
+
+# Then, we fetch the output from the processes.
+outputs = fetch.(futures)
+
+# Remove processes after we are done.
+rmprocs.(workers())
+
+# Print the outputs of master and worker processes.
 println(task())
 println.(outputs)
 ```
@@ -357,52 +641,4 @@ y = CUDA.fill(2.0f0, n)
 y .+= x
 println(all(Array(y) .== 3.0f0))
 ```
-
-
-## Linear algebra backends and threading
-The default `LinearAlgebra` backend on Julia is OpenBLAS.
-If we want to, we can use MKL instead of OpenBLAS.
-MKL is often faster than OpenBLAS, especially on Puhti, when using multiple threads.
-We should load the `MKL` library before other linear algebra libraries.
-
-```julia
-using MKL
-```
-
-The Julia module sets the number of threads for OpenBLAS and MKL backends to the number of CPU threads.
-
-```bash
-export OPENBLAS_NUM_THREADS=$JULIA_CPU_THREADS
-export MKL_NUM_THREADS=$JULIA_CPU_THREADS
-```
-
-We must be careful not to oversubscribe cores when using BLAS operations within Julia threads or processes.
-We can change the amount of BLAS threads at runtime using the `BLAS.set_num_threads` function.
-
-```julia
-using Base.Threads
-using LinearAlgebra
-
-# Number of threads
-n = nthreads()
-
-# Define a matrix
-X = rand(1000, 1000)
-
-# Set the number of threads to one before performing BLAS operations of multiple Julia threads.
-BLAS.set_num_threads(1)
-Y = zeros(n)
-@threads for i in 1:n  # uses n Julia threads
-    Y[i] = sum(X * X)  # uses one BLAS thread
-end
-
-# Set the number of threads back to the default when performing BLAS operation on a single Julia Thread.
-BLAS.set_num_threads(n)
-Z = zeros(n)
-for i in 1:n           # uses one Julia thread
-    Z[i] = sum(X * X)  # uses n BLAS threads
-end
-```
-
-There are [caveats](https://discourse.julialang.org/t/matrix-multiplication-is-slower-when-multithreading-in-julia/56227/12?u=carstenbauer) for using different numbers than one or all cores of BLAS threads on OpenBLAS and MKL.
 
