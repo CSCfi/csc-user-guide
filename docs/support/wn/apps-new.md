@@ -1,6 +1,6 @@
 # Applications
 
-## Gromacs and CP2K installed on LUMI, 19.4.2023
+## Gromacs and CP2K now available on LUMI, 19.4.2023
 
 CPU and GPU-enabled versions of [Gromacs](../../apps/gromacs.md) and [CP2K](../../apps/cp2k.md)
 have been installed on LUMI. Before loading the modules, first take the CSC module tree into
