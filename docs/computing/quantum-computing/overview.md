@@ -5,9 +5,6 @@ search:
 
 # Overview
 
-!!! success "Helmi Pilot Phase is now open!"
-    The Helmi Pilot Phase is now open! [More details about the Pilot Phase](../helmi/helmi-projects/).
-
 Quantum computers differ from their classical counterparts when it comes to the basic 
 computational operators. Before QPUs can be utilized, they require tailor-made programs 
 and algorithms. The [Finnish Quantum-Computing Infrastructure](https://fiqci.fi) FiQCI provides access to
