@@ -67,7 +67,7 @@ space for the data that is used in the supercomputer. The scratch
 directory is not intended for long-term data storage. To ensure that
 the disks do not fill up CSC will regularly delete files that have not
 been accessed in a long time. In Puhti the current policy is to remove
-files that have not been accessed for more than 12 months. In Mahti a
+files that have not been accessed for more than 6 months. In Mahti a
 similar cleaning procedure will be introduced, but is not yet
 active. See [Usage policy](../../computing/usage-policy) page for details on the current
 policy.
