@@ -21,31 +21,34 @@ is removed from the project the user's credentials will stop working.
 
 ## Creating application credentials
 
-1. Go to the web-interface.
-2. Choose which project you want to use.
+1. Go to [Pukki's web-interface](https://pukki.dbaas.csc.fi/).
+2. Choose which project you want to use. (You will only see the projects that have DBaaS activated in [my.csc.fi](https://my.csc.fi).)
 3. Go to `Identitiy` -> `Application Credentials`.
-4. Press `Create Application Credential`.
-5. It is a good idea to choose a descriptive name and description. Otherwise you might get confused
+4. Press `Create Application Credential`. A dialog will open.
+
+    ![Create Application Credential](/img/Create Application Credential.png)
+
+5. It is a good idea to choose a descriptive `name` and `description`. Otherwise you might get confused
 in the future why the application credentials exist. It might be a good idea to name your first 
 credentials `Testing application credentials $TODAYS_DATE`.
 6. `Secret` should be a long random string that you should keep secret. If you leave this empty the
 service will create a secret for you, this is probably the preferred method.
-7. It is a good idea to put an expiration date especially if you are testing the credentials only
+7. It is a good idea to put an `expiration date` especially if you are testing the credentials only
 for today.
 8. There are two roles, `reader` and `member`. Usually you want to use the `member` role. You can find
 out more in the [Using roles sections](#using-roles).
-9. Access rules are useful when you want to make credentials with fine-grained permissions.
+9. `Access rules` are useful when you want to make credentials with fine-grained permissions.
 This is particularly useful if you want to build a lot of automation around your databases. For example,
 you can make a script that is only allowed to modify the users of a specific database or
 credentials that are only allowed to create new instances. You can find more information about the
 options in the [Using access rules section](#using-access-rules).
-10. The `Unrestricted (dangerous)` check-box. This will allow your application credentials to
+10. The `Unrestricted (dangerous)` check-box will allow your application credentials to
 create new application credentials. This might be useful if you are a power-user of the CLI, but you
 should probably not give an application or automation credentials that have this permission.
 11.  Once you have created the application credentials you can either download the credentials as a 
 file that you can source or `.yaml` file, or alternatively add the secret to your secret manager. The
 secret key will not be possible to be read once you have completed the credential creation process.
-12.  If you download the application credentialsm you will get a file that contains something like this:
+    If you download the application credentials you will get a file that contains something like this:
 
     ```bash
     #!/usr/bin/env bash
@@ -59,9 +62,10 @@ secret key will not be possible to be read once you have completed the credentia
     export OS_APPLICATION_CREDENTIAL_SECRET=xxxxxxxxxxxxxxxxxxx
     ```
 
-13. If you source the file you can use it together with with [OpenStack command-line tools](cli.md).
+    If you source the file you can use it together with with [OpenStack command-line tools](cli.md).
+
 14. It is a good idea to test that the application credentials are allowed to do what you expect them
-to be able to do. It is also a good idea to verify that they are *NOT* allowed to do what you expect them
+to be able to do. It is also a good idea to verify that they are **NOT** allowed to do what you expect them
 not to be allowed to do.
 
 <!-- 8. Choosing a role, you should choose `member`. The `reader` role does not work as one would expect
