@@ -37,7 +37,7 @@ export JULIA_CPU_THREADS=${SLURM_CPUS_PER_TASK:-1}
 export JULIA_NUM_THREADS=$JULIA_CPU_THREADS
 ```
 
-If you need to start a julia process with different number of threads than `JULIA_NUM_THREADS`, we recommend using the `--threads` option as follows.
+If you need to start a julia process with different number of threads than `JULIA_NUM_THREADS` you can use the `--threads` option as follows.
 
 ```bash
 julia --threads 2  # using two threads regardless of JULIA_NUM_THREADS value
@@ -52,6 +52,12 @@ An example of a `Project.toml` project file.
 ```toml
 [compat]
 julia = "1.8"
+```
+
+An example of a `script.jl` Julia code.
+
+```julia
+println("Hello world!")
 ```
 
 An example of a `puhti.sh` Puhti batch script.
@@ -73,22 +79,38 @@ srun julia --project=. script.jl
 
 Mahti is intended for parallel computing; therefore, we do not include a Batch script for Mahti.
 
-An example of a `script.jl` Julia code.
-
-```julia
-println("Hello world!")
-```
-
 
 ## Single node job with multiple threads
 We can use the `Base.Threads` library for multithreading in Julia.
-We don't need to include libraries in `Base` in dependencies.
+Libraries from `Base` are automatically included in the runtime.
 
 An example of a `Project.toml` project file.
 
 ```toml
 [compat]
 julia = "1.8"
+```
+
+An example of a `script.jl` Julia code.
+
+```julia
+# Number of threads
+n = Threads.nthreads()
+println(n)
+
+# Lets fill the id of each thread to the ids array.
+ids = zeros(Int, n)
+Threads.@threads for i in eachindex(ids)
+    ids[i] = Threads.threadid()
+end
+println(ids)
+
+# Alternatively, we can use the @spawn macro to run task on threads.
+ids = zeros(Int, n)
+@sync for i in eachindex(ids)
+    Threads.@spawn ids[i] = Threads.threadid()
+end
+println(ids)
 ```
 
 An example of a `puhti.sh` Puhti batch script.
@@ -122,25 +144,6 @@ An example of a `mahti.sh` Mahti batch script.
 
 module load julia/1.8
 srun julia --project=. script.jl
-```
-
-An example of a `script.jl` Julia code.
-
-```julia
-using Base.Threads
-
-# Number of threads
-n = nthreads()
-
-# Lets fill the id of each thread to the ids array.
-ids = zeros(Int, 10*n)
-@threads for i in eachindex(ids)
-    ids[i] = threadid()
-end
-
-# Print the outputs.
-println(n)
-println(ids)
 ```
 
 
@@ -165,11 +168,10 @@ We must be careful not to oversubscribe cores when using BLAS operations within 
 We can change the amount of BLAS threads at runtime using the `BLAS.set_num_threads` function.
 
 ```julia
-using Base.Threads
 using LinearAlgebra
 
 # Number of threads
-n = nthreads()
+n = Threads.nthreads()
 
 # Define a matrix
 X = rand(1000, 1000)
@@ -177,15 +179,15 @@ X = rand(1000, 1000)
 # Set the number of threads to one before performing BLAS operations of multiple Julia threads.
 BLAS.set_num_threads(1)
 Y = zeros(n)
-@threads for i in 1:n  # uses n Julia threads
-    Y[i] = sum(X * X)  # uses one BLAS thread
+Threads.@threads for i in 1:n  # uses n Julia threads
+    Y[i] = sum(X * X)          # uses one BLAS thread
 end
 
 # Set the number of threads back to the default when performing BLAS operation on a single Julia Thread.
 BLAS.set_num_threads(n)
 Z = zeros(n)
-for i in 1:n           # uses one Julia thread
-    Z[i] = sum(X * X)  # uses n BLAS threads
+for i in 1:n                   # uses one Julia thread
+    Z[i] = sum(X * X)          # uses n BLAS threads
 end
 ```
 
@@ -203,39 +205,6 @@ Distributed = "8ba89e20-285c-5b6f-9357-94700520ee1b"
 
 [compat]
 julia = "1.8"
-```
-
-An example of a `puhti.sh` Puhti batch script.
-
-```bash
-#!/bin/bash
-#SBATCH --job-name=example
-#SBATCH --account=<project>
-#SBATCH --partition=small
-#SBATCH --time=00:15:00
-#SBATCH --nodes=1
-#SBATCH --ntasks-per-node=1
-#SBATCH --cpus-per-task=3
-#SBATCH --mem-per-cpu=1000
-
-module load julia/1.8
-srun julia --project=. script.jl
-```
-
-An example of a `mahti.sh` Mahti batch script.
-
-```bash
-#!/bin/bash
-#SBATCH --job-name=example
-#SBATCH --account=<project>
-#SBATCH --partition=medium
-#SBATCH --time=00:15:00
-#SBATCH --nodes=1
-#SBATCH --ntasks-per-node=1
-#SBATCH --cpus-per-task=128
-
-module load julia/1.8
-srun julia --project=. script.jl
 ```
 
 An example of a `script.jl` Julia code.
@@ -267,7 +236,7 @@ addprocs(proc_num;
         id=myid(),
         hostname=gethostname(),
         pid=getpid(),
-        nthreads=Base.Threads.nthreads(),
+        nthreads=Threads.nthreads(),
         cputhreads=Sys.CPU_THREADS
     )
 end
@@ -286,6 +255,39 @@ println(task())
 println.(outputs)
 ```
 
+An example of a `puhti.sh` Puhti batch script.
+
+```bash
+#!/bin/bash
+#SBATCH --job-name=example
+#SBATCH --account=<project>
+#SBATCH --partition=small
+#SBATCH --time=00:15:00
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=1
+#SBATCH --cpus-per-task=3
+#SBATCH --mem-per-cpu=1000
+
+module load julia/1.8
+srun julia --project=. script.jl
+```
+
+An example of a `mahti.sh` Mahti batch script.
+
+```bash
+#!/bin/bash
+#SBATCH --job-name=example
+#SBATCH --account=<project>
+#SBATCH --partition=medium
+#SBATCH --time=00:15:00
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=1
+#SBATCH --cpus-per-task=128
+
+module load julia/1.8
+srun julia --project=. script.jl
+```
+
 
 ## Multi-node job with multiple processes
 The multi-node job with multiple processes is similar to the single-node example except that we use multiple nodes and we add processes to the other nodes using `SSHManager` instead of `LocalManager`.
@@ -299,39 +301,6 @@ Distributed = "8ba89e20-285c-5b6f-9357-94700520ee1b"
 
 [compat]
 julia = "1.8"
-```
-
-An example of a `puhti.sh` Puhti batch script.
-
-```bash
-#!/bin/bash
-#SBATCH --job-name=example
-#SBATCH --account=<project>
-#SBATCH --partition=large
-#SBATCH --time=00:15:00
-#SBATCH --nodes=2
-#SBATCH --ntasks-per-node=1
-#SBATCH --cpus-per-task=3
-#SBATCH --mem-per-cpu=1000
-
-module load julia/1.8
-julia --project=. script.jl
-```
-
-An example of a `mahti.sh` Mahti batch script.
-
-```bash
-#!/bin/bash
-#SBATCH --job-name=example
-#SBATCH --account=<project>
-#SBATCH --partition=medium
-#SBATCH --time=00:15:00
-#SBATCH --nodes=2
-#SBATCH --ntasks-per-node=1
-#SBATCH --cpus-per-task=128
-
-module load julia/1.8
-julia --project=. script.jl
 ```
 
 An example of a `script.jl` Julia code.
@@ -375,7 +344,7 @@ addprocs([(node, proc_num) for node in nodes if node != local_node];
         id=myid(),
         hostname=gethostname(),
         pid=getpid(),
-        nthreads=Base.Threads.nthreads(),
+        nthreads=Threads.nthreads(),
         cputhreads=Sys.CPU_THREADS
     )
 end
@@ -392,18 +361,6 @@ rmprocs.(workers())
 # Print the outputs of master and worker processes.
 println(task())
 println.(outputs)
-```
-
-
-## Multi-node job with multiple processes and threads
-An example of a `Project.toml` project file.
-
-```toml
-[deps]
-Distributed = "8ba89e20-285c-5b6f-9357-94700520ee1b"
-
-[compat]
-julia = "1.8"
 ```
 
 An example of a `puhti.sh` Puhti batch script.
@@ -437,6 +394,18 @@ An example of a `mahti.sh` Mahti batch script.
 
 module load julia/1.8
 julia --project=. script.jl
+```
+
+
+## Multi-node job with multiple processes and threads
+An example of a `Project.toml` project file.
+
+```toml
+[deps]
+Distributed = "8ba89e20-285c-5b6f-9357-94700520ee1b"
+
+[compat]
+julia = "1.8"
 ```
 
 An example of a `script.jl` Julia code.
@@ -478,29 +447,27 @@ addprocs([(node, proc_num) for node in nodes if node != local_node];
 # We use the `@everywhere` macro to include the task function in the worker processes.
 # We must call `@everwhere` after adding worker processes; otherwise the code won't be included in the new processes.
 
-@everywhere using Base.Threads
-
 @everywhere function task_threads()
-    ids = zeros(Int, 2*nthreads())
-    @threads for i in eachindex(ids)
-        ids[i] = threadid()
+    ids = zeros(Int, Threads.nthreads())
+    Threads.@threads for i in eachindex(ids)
+        ids[i] = Threads.threadid()
     end
     return ids
 end
 
-@everywhere function task()
+@everywhere function task_proc()
     (
         id=myid(),
         hostname=gethostname(),
         pid=getpid(),
-        nthreads=nthreads(),
+        nthreads=Threads.nthreads(),
         cputhreads=Sys.CPU_THREADS,
         thread_ids=task_threads()
     )
 end
 
 # We run the task function in each worker process.
-futures = [@spawnat id task() for id in workers()]
+futures = [@spawnat id task_proc() for id in workers()]
 
 # Then, we fetch the output from the processes.
 outputs = fetch.(futures)
@@ -509,8 +476,41 @@ outputs = fetch.(futures)
 rmprocs.(workers())
 
 # Print the outputs of master and worker processes.
-println(task())
+println(task_proc())
 println.(outputs)
+```
+
+An example of a `puhti.sh` Puhti batch script.
+
+```bash
+#!/bin/bash
+#SBATCH --job-name=example
+#SBATCH --account=<project>
+#SBATCH --partition=large
+#SBATCH --time=00:15:00
+#SBATCH --nodes=2
+#SBATCH --ntasks-per-node=1
+#SBATCH --cpus-per-task=3
+#SBATCH --mem-per-cpu=1000
+
+module load julia/1.8
+julia --project=. script.jl
+```
+
+An example of a `mahti.sh` Mahti batch script.
+
+```bash
+#!/bin/bash
+#SBATCH --job-name=example
+#SBATCH --account=<project>
+#SBATCH --partition=medium
+#SBATCH --time=00:15:00
+#SBATCH --nodes=2
+#SBATCH --ntasks-per-node=1
+#SBATCH --cpus-per-task=128
+
+module load julia/1.8
+julia --project=. script.jl
 ```
 
 
@@ -534,6 +534,19 @@ MPI = "da04e1cc-30fd-572f-bb4f-1f8673147195"
 [compat]
 julia = "1.8"
 MPI = "=0.20.8"
+```
+
+An example of a `script.jl` Julia code.
+
+```julia
+using MPI
+
+MPI.Init()
+comm = MPI.COMM_WORLD
+rank = MPI.Comm_rank(comm)
+size = MPI.Comm_size(comm)
+println("Hello from rank $(rank) out of $(size) from host $(gethostname()) and process $(getpid()).")
+MPI.Barrier(comm)
 ```
 
 An example of a `puhti.sh` Puhti batch script.
@@ -569,19 +582,6 @@ module load julia/1.8
 srun julia --project=. script.jl
 ```
 
-An example of a `script.jl` Julia code.
-
-```julia
-using MPI
-
-MPI.Init()
-comm = MPI.COMM_WORLD
-rank = MPI.Comm_rank(comm)
-size = MPI.Comm_size(comm)
-println("Hello from rank $(rank) out of $(size) from host $(gethostname()) and process $(getpid()).")
-MPI.Barrier(comm)
-```
-
 
 ## Single node job with one GPU
 Puhti and Mahti contain NVidia GPUs.
@@ -603,6 +603,19 @@ CUDA = "052768ef-5323-5732-b1bb-66c8b64840ba"
 [compat]
 julia = "1.8"
 CUDA = "=4.0.1"
+```
+
+An example of a `script.jl` Julia code.
+
+```julia
+using CUDA
+
+@show CUDA.versioninfo()
+n = 2^20
+x = CUDA.fill(1.0f0, n)
+y = CUDA.fill(2.0f0, n)
+y .+= x
+println(all(Array(y) .== 3.0f0))
 ```
 
 An example of a `puhti.sh` Puhti batch script.
@@ -638,18 +651,5 @@ An example of a `mahti.sh` Mahti batch script.
 
 module load julia/1.8
 srun julia --project=. script.jl
-```
-
-An example of a `script.jl` Julia code.
-
-```julia
-using CUDA
-
-@show CUDA.versioninfo()
-n = 2^20
-x = CUDA.fill(1.0f0, n)
-y = CUDA.fill(2.0f0, n)
-y .+= x
-println(all(Array(y) .== 3.0f0))
 ```
 
