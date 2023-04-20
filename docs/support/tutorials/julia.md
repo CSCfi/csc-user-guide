@@ -46,7 +46,55 @@ julia --threads 2  # using two threads regardless of JULIA_NUM_THREADS value
 Now we can explore project files for different types of jobs.
 
 
-## Serial job
+## Linear algebra backends and threading
+The default `LinearAlgebra` backend on Julia is OpenBLAS.
+If we want to, we can use MKL instead of OpenBLAS.
+MKL is often faster than OpenBLAS, especially on Puhti, when using multiple threads.
+We should load the `MKL` library before other linear algebra libraries.
+
+```julia
+using MKL
+```
+
+The Julia module sets the number of threads for OpenBLAS and MKL backends to the number of CPU threads.
+
+```bash
+export OPENBLAS_NUM_THREADS=$JULIA_CPU_THREADS
+export MKL_NUM_THREADS=$JULIA_CPU_THREADS
+```
+
+We must be careful not to oversubscribe cores when using BLAS operations within Julia threads or processes.
+We can change the amount of BLAS threads at runtime using the `BLAS.set_num_threads` function.
+
+```julia
+using LinearAlgebra
+
+# Number of threads
+n = Threads.nthreads()
+
+# Define a matrix
+X = rand(1000, 1000)
+
+# Set the number of threads to one before performing BLAS operations of multiple Julia threads.
+BLAS.set_num_threads(1)
+Y = zeros(n)
+Threads.@threads for i in 1:n  # uses n Julia threads
+    Y[i] = sum(X * X)          # uses one BLAS thread
+end
+
+# Set the number of threads back to the default when performing BLAS operation on a single Julia Thread.
+BLAS.set_num_threads(n)
+Z = zeros(n)
+for i in 1:n                   # uses one Julia thread
+    Z[i] = sum(X * X)          # uses n BLAS threads
+end
+```
+
+There are [caveats](https://discourse.julialang.org/t/matrix-multiplication-is-slower-when-multithreading-in-julia/56227/12?u=carstenbauer) for using different numbers than one or all cores of BLAS threads on OpenBLAS and MKL.
+
+
+## Single node jobs
+### Serial
 An example of a `Project.toml` project file.
 
 ```toml
@@ -80,7 +128,7 @@ srun julia --project=. script.jl
 Mahti is intended for parallel computing; therefore, we do not include a Batch script for Mahti.
 
 
-## Single node job with multiple threads
+### Multiple threads
 We can use the `Base.Threads` library for multithreading in Julia.
 Libraries from `Base` are automatically included in the runtime.
 
@@ -147,54 +195,7 @@ srun julia --project=. script.jl
 ```
 
 
-## Linear algebra backends and threading
-The default `LinearAlgebra` backend on Julia is OpenBLAS.
-If we want to, we can use MKL instead of OpenBLAS.
-MKL is often faster than OpenBLAS, especially on Puhti, when using multiple threads.
-We should load the `MKL` library before other linear algebra libraries.
-
-```julia
-using MKL
-```
-
-The Julia module sets the number of threads for OpenBLAS and MKL backends to the number of CPU threads.
-
-```bash
-export OPENBLAS_NUM_THREADS=$JULIA_CPU_THREADS
-export MKL_NUM_THREADS=$JULIA_CPU_THREADS
-```
-
-We must be careful not to oversubscribe cores when using BLAS operations within Julia threads or processes.
-We can change the amount of BLAS threads at runtime using the `BLAS.set_num_threads` function.
-
-```julia
-using LinearAlgebra
-
-# Number of threads
-n = Threads.nthreads()
-
-# Define a matrix
-X = rand(1000, 1000)
-
-# Set the number of threads to one before performing BLAS operations of multiple Julia threads.
-BLAS.set_num_threads(1)
-Y = zeros(n)
-Threads.@threads for i in 1:n  # uses n Julia threads
-    Y[i] = sum(X * X)          # uses one BLAS thread
-end
-
-# Set the number of threads back to the default when performing BLAS operation on a single Julia Thread.
-BLAS.set_num_threads(n)
-Z = zeros(n)
-for i in 1:n                   # uses one Julia thread
-    Z[i] = sum(X * X)          # uses n BLAS threads
-end
-```
-
-There are [caveats](https://discourse.julialang.org/t/matrix-multiplication-is-slower-when-multithreading-in-julia/56227/12?u=carstenbauer) for using different numbers than one or all cores of BLAS threads on OpenBLAS and MKL.
-
-
-## Single node job with multiple processes
+### Multiple processes
 We can use `Distributed`, a standard library for multiple processes in Julia.
 
 An example of a `Project.toml` project file.
@@ -289,7 +290,79 @@ srun julia --project=. script.jl
 ```
 
 
-## Multi-node job with multiple processes
+### Single GPU
+Puhti and Mahti contain NVidia GPUs.
+We can use them via the `CUDA.jl` package.
+We have installed a specific version of `CUDA.jl` to the shared environment.
+We recommend that you use that version because it has been tested to work.
+You can find the version by activating the shared environment and running `Pkg.status` as follows:
+
+```bash
+julia --project="$JULIA_CSC_ENVIRONMENT" -e 'using Pkg; Pkg.status("CUDA")'
+```
+
+An example of a `Project.toml` project file.
+
+```toml
+[deps]
+CUDA = "052768ef-5323-5732-b1bb-66c8b64840ba"
+
+[compat]
+julia = "1.8"
+CUDA = "=4.0.1"
+```
+
+An example of a `script.jl` Julia code.
+
+```julia
+using CUDA
+
+@show CUDA.versioninfo()
+n = 2^20
+x = CUDA.fill(1.0f0, n)
+y = CUDA.fill(2.0f0, n)
+y .+= x
+println(all(Array(y) .== 3.0f0))
+```
+
+An example of a `puhti.sh` Puhti batch script.
+
+```bash
+#!/bin/bash
+#SBATCH --job-name=example
+#SBATCH --account=<project>
+#SBATCH --partition=gpu
+#SBATCH --time=00:15:00
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=1
+#SBATCH --cpus-per-task=10
+#SBATCH --mem=4000
+#SBATCH --gres=gpu:v100:1
+
+module load julia/1.8
+srun julia --project=. script.jl
+```
+
+An example of a `mahti.sh` Mahti batch script.
+
+```bash
+#!/bin/bash
+#SBATCH --job-name=example
+#SBATCH --account=<project>
+#SBATCH --partition=gpusmall
+#SBATCH --time=00:15:00
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=1
+#SBATCH --cpus-per-task=32
+#SBATCH --gres=gpu:a100:1
+
+module load julia/1.8
+srun julia --project=. script.jl
+```
+
+
+## Multi-node jobs
+### Multiple processes
 The multi-node job with multiple processes is similar to the single-node example except that we use multiple nodes and we add processes to the other nodes using `SSHManager` instead of `LocalManager`.
 We also do not use `srun` in the batch script, otherwise Slurm will start the Julia script on all nodes.
 
@@ -397,7 +470,7 @@ julia --project=. script.jl
 ```
 
 
-## Multi-node job with multiple processes and threads
+### Multiple processes and threads
 An example of a `Project.toml` project file.
 
 ```toml
@@ -514,7 +587,7 @@ julia --project=. script.jl
 ```
 
 
-## Multi-node job with MPI
+### MPI
 We can use the `MPI.jl` package to use MPI for multi-node parallelism.
 In Puhti and Mahti it uses OpenMPI.
 We have installed a specific version of `MPI.jl` to the shared environment.
@@ -582,74 +655,4 @@ module load julia/1.8
 srun julia --project=. script.jl
 ```
 
-
-## Single node job with one GPU
-Puhti and Mahti contain NVidia GPUs.
-We can use them via the `CUDA.jl` package.
-We have installed a specific version of `CUDA.jl` to the shared environment.
-We recommend that you use that version because it has been tested to work.
-You can find the version by activating the shared environment and running `Pkg.status` as follows:
-
-```bash
-julia --project="$JULIA_CSC_ENVIRONMENT" -e 'using Pkg; Pkg.status("CUDA")'
-```
-
-An example of a `Project.toml` project file.
-
-```toml
-[deps]
-CUDA = "052768ef-5323-5732-b1bb-66c8b64840ba"
-
-[compat]
-julia = "1.8"
-CUDA = "=4.0.1"
-```
-
-An example of a `script.jl` Julia code.
-
-```julia
-using CUDA
-
-@show CUDA.versioninfo()
-n = 2^20
-x = CUDA.fill(1.0f0, n)
-y = CUDA.fill(2.0f0, n)
-y .+= x
-println(all(Array(y) .== 3.0f0))
-```
-
-An example of a `puhti.sh` Puhti batch script.
-
-```bash
-#!/bin/bash
-#SBATCH --job-name=example
-#SBATCH --account=<project>
-#SBATCH --partition=gpu
-#SBATCH --time=00:15:00
-#SBATCH --nodes=1
-#SBATCH --ntasks-per-node=1
-#SBATCH --cpus-per-task=10
-#SBATCH --mem=4000
-#SBATCH --gres=gpu:v100:1
-
-module load julia/1.8
-srun julia --project=. script.jl
-```
-
-An example of a `mahti.sh` Mahti batch script.
-
-```bash
-#!/bin/bash
-#SBATCH --job-name=example
-#SBATCH --account=<project>
-#SBATCH --partition=gpusmall
-#SBATCH --time=00:15:00
-#SBATCH --nodes=1
-#SBATCH --ntasks-per-node=1
-#SBATCH --cpus-per-task=32
-#SBATCH --gres=gpu:a100:1
-
-module load julia/1.8
-srun julia --project=. script.jl
-```
 
