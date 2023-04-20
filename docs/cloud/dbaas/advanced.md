@@ -32,7 +32,8 @@ group for. In this example we will use datastore `postgresql` and datastore-vers
 `max_connections` to `234`.
 
     ```
-    openstack database configuration create group-name --datastore postgresql --datastore-version 14.4 '{"max_connections": 234 }'
+    openstack database configuration create group-name --datastore postgresql \
+        --datastore-version 14.4 '{"max_connections": 234 }'
     ```
 
 4. You can see the configuration group with:
@@ -56,11 +57,14 @@ easier to modify from the web-GUI.
     ```
 
 2. If your configuration group contained changes that require a restart, you will need to restart
-your database instance. Note that you won't be able to attach a new configuration group before
-restarting the instance if you detached a configuration that requires a restart. Also, only one
-configuration group can be attach at the same time. Note that no new backups will be taken of the
-instance before the restart has been done.
+your database instance.
 
     ```
     openstack database instance restart $INSTANCE_ID
     ```
+
+    !!! info "Note"
+        You will not be able to attach a new configuration group before restarting the instance if you detached a configuration that requires a restart. Also, only one configuration group can be attached at the same time.
+
+    !!! info "Note"
+        No new backups will be taken of the instance before the restart has been done.
