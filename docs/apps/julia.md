@@ -4,8 +4,9 @@ tags:
 ---
 
 # Julia Language
-[Julia language](https://julialang.org) is a high-level, high-performance dynamic programming language for numerical computing.
-It provides a sophisticated compiler, distributed parallel execution, numerical accuracy, and an extensive mathematical function library.
+[Julia language](https://julialang.org) is a high-performance, dynamic programming language.
+Julia is excellent for scientific computing because it can compile efficient native code using LLVM and includes mathematical functions, parallel computing capabilities, and a package manager in the standard library.
+Furthermore, Julia has intuitive syntax and allows writing composable code in the multiple-dispatch paradigm.
 
 [TOC]
 
@@ -217,9 +218,21 @@ We should define and use a command line interface because it is more flexible th
 
 
 ### Running jobs
-We explain how to run jobs on Puhti and Mahti in the [**Running Julia jobs**](../support/tutorials/julia.md) tutorial.
+We explain how to run serial, parallel and GPU jobs with Julia on Puhti and Mahti in the [**Running Julia jobs**](../support/tutorials/julia.md) section.
+
+
+<!--
+### Jupyter and VSCode on the web interface
+We can also use Julia on the [**web interface**](../computing/webinterface/index.md).
+
+The web interface has a separate Jupyter installation for Julia named `Julia-Jupyter`.
+We can select is from the menu.
+
+We can use Julia on VSCode via the Julia extension.
+We need to start VSCode with the julia module by setting to the name of the Julia module, such as `julia/1.8.5`, to `Modules` section.
+-->
 
 
 ## Resources
 For further reading about parallel and high-performance computing with Julia, we recommend the [Julia for high-performance scientific computing](https://enccs.github.io/Julia-for-HPC) from ENCCS and the [A brief tour of Julia for high-performance computing](https://forem.julialang.org/wikfeldt/a-brief-tour-of-julia-for-high-performance-computing-5deb) written by Kjartan Thor Wikfeldt.
-CSC training also has a [quick introduction and tutorial](https://github.com/csc-training/julia-introduction).
+CSC training also has a [quick introduction and tutorial](https://github.com/csc-training/julia-introduction) to Julia.
