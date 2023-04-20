@@ -13,7 +13,7 @@ In the column on the left hand side you can go to `Database` -> `Instances` and 
 Now you can define what settings you want for your database:
 
 1. `Instance name` - What ever you want to name the instance.
-2. `Volume size` - How much disk space you will need for your database. If you just want to test the DBaaS then 1 GiB is probably enough. To increase the disk size later, downtime is require for the database. If you already know how much data you will use then it is easy to estimate how large volume you need. 
+2. `Volume size` - How much disk space you will need for your database. If you just want to test the DBaaS then 1 GiB is probably enough. To increase the disk size later, downtime is required for the database. If you already know how much data you will use then it is easy to estimate how large volume you need. 
 3. `Volume type` - This can be left empty.
 4. `Datastore` - What type of database you want. It is recommend to use the latest version of your preferred database, if you don't have a specific reason for using an older version. PostgreSQL is the only available database at the moment.
 5. `Flavor` - How large database instances you want. For small use cases the `standard.small` is probably enough. If you later find out that it is not large enough you can always change it later. Changing flavor will require downtime.
