@@ -49,18 +49,21 @@ Then save and exit nano.
 ```text
   mkdir pgdata
   mkdir pgrun
+  
 ```
 
 6. Start a screen session in your terminal session and launch database server using the container:
 
 ```text
-  screen
-  apptainer run -B pgdata:/var/lib/postgresql/data -B pgrun:/var/run/postgresql -e -C --env-file pg.env postgres_14.2-alpine3.15.sif
+screen
+apptainer run -B pgdata:/var/lib/postgresql/data -B pgrun:/var/run/postgresql -e -C --env-file pg.env postgres_14.2-alpine3.15.sif
+
 ```
 Then leave the screen session by pressing:
 
 ```text
-   Ctrl-a-d
+Ctrl-a-d
+
 ```
 
 The server should now continue running in the screen session.
@@ -70,7 +73,7 @@ The server should now continue running in the screen session.
 
 ```text
 apptainer shell -B /shared-directory:/shared-directory postgres_14.2-alpine3.15.sif
-```text
+```
 
 
 Inside container, move to your data directory and star working wit your database:
