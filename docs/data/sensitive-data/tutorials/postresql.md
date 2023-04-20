@@ -39,7 +39,6 @@ export POSTGRES_USER=pguser
 export POSTGRES_PASSWORD=pg123
 export POSTGRES_DB=mydb
 export POSTGRES_INITDB_ARGS="--encoding=UTF-8"
-
 ```
 
 Then save and exit nano.
@@ -48,8 +47,7 @@ Then save and exit nano.
 
 ```text
   mkdir pgdata
-  mkdir pgrun
-  
+  mkdir pgrun 
 ```
 
 6. Start a screen session in your terminal session and launch database server using the container:
@@ -63,7 +61,6 @@ Then leave the screen session by pressing:
 
 ```text
 Ctrl-a-d
-
 ```
 
 The server should now continue running in the screen session.
@@ -76,7 +73,7 @@ apptainer shell -B /shared-directory:/shared-directory postgres_14.2-alpine3.15.
 ```
 
 
-Inside container, move to your data directory and star working wit your database:
+Inside container, move to your data directory and star working with your database:
 
 ```text
 cd  /shared-directory
