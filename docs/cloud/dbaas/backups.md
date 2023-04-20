@@ -32,7 +32,8 @@ Backups can be taken manually.
 1. Creating a backup:
 
     ```
-    openstack database backup create --instance $INSTANCE_ID $USER_FRIENDLY_NAME_OF_BACKUP  # suitable name might be the name of the instance
+    openstack database backup create --instance $INSTANCE_ID $USER_FRIENDLY_NAME_OF_BACKUP
+       # suitable name might be the name of the instance
     ```
 
 2. Now you can list all your backups:
