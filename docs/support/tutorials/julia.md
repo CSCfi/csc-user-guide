@@ -26,6 +26,11 @@ module load julia/1.8
 julia --project=. -e 'using Pkg; Pkg.instantiate()'
 ```
 
+The example jobs demonstrate project files for different types of jobs.
+
+
+## Parallel computing
+### Environment variables
 Julia has some important [environment variables for parallelization](https://docs.julialang.org/en/v1/manual/environment-variables/#Parallelization).
 Because we use Slurm to reserve resources on Puhti and Mahti, we need to set the `JULIA_CPU_THREADS` and `JULIA_NUM_THREADS` environment variables to the number of reserved CPU cores.
 The Julia module sets these environment variables the value of `--cpus-per-task` option using the `SLURM_CPUS_PER_TASK` environment variable.
@@ -37,13 +42,58 @@ export JULIA_CPU_THREADS=${SLURM_CPUS_PER_TASK:-1}
 export JULIA_NUM_THREADS=$JULIA_CPU_THREADS
 ```
 
+### Multi-threading
 If you need to start a julia process with different number of threads than `JULIA_NUM_THREADS` you can use the `--threads` option as follows.
 
 ```bash
 julia --threads 2  # using two threads regardless of JULIA_NUM_THREADS value
 ```
 
-Now we can explore project files for different types of jobs.
+We can use the `Base.Threads` library for multithreading in Julia.
+Libraries from `Base` are automatically included in the runtime.
+
+### Distributed
+We can use `Distributed`, a standard library for multiple processes in Julia.
+The multi-node job with multiple processes is similar to the single-node example except that we use multiple nodes and we add processes to the other nodes using `SSHManager` instead of `LocalManager`.
+We also do not use `srun` in the batch script, otherwise Slurm will start the Julia script on all nodes.
+
+```julia
+# Read the list of nodenames allocated by Slurm.
+nodes = readlines(`scontrol show hostnames $(ENV["SLURM_JOB_NODELIST"])`)
+```
+
+```julia
+# Retrieve the node name of the master process.
+local_node = first(split(gethostname(), '.'; limit=2))
+```
+
+### CUDA.jl
+The GPU nodes on Puhti and Mahti contain NVidia GPUs which can be programmed with CUDA.
+We can use them via the `CUDA.jl` package.
+For programming, we recommend reading the [CUDA.jl documentation](https://cuda.juliagpu.org/stable/).
+We have installed a specific version of `CUDA.jl` to the shared environment.
+We recommend that you use that version because it has been tested to work.
+You can find the version by activating the shared environment and running `Pkg.status` as follows:
+
+```bash
+julia --project="$JULIA_CSC_ENVIRONMENT" -e 'using Pkg; Pkg.status("CUDA")'
+```
+
+TODO: cuda preferences and module
+
+### MPI.jl
+We can use the `MPI.jl` package to use MPI for multi-node parallelism.
+For programming, we recommend reading the [MPI.jl documentation](https://juliaparallel.org/MPI.jl/stable/).
+In Puhti and Mahti MPI.jl uses OpenMPI.
+We have installed a specific version of `MPI.jl` to the shared environment.
+We recommend that you use that version because it has been tested to work.
+You can find the version by activating the shared environment and running `Pkg.status` as follows:
+
+```bash
+julia --project="$JULIA_CSC_ENVIRONMENT" -e 'using Pkg; Pkg.status("MPI")'
+```
+
+TODO: mpi preferences and module
 
 
 ## Linear algebra backends and threading
@@ -129,9 +179,6 @@ Mahti is intended for parallel computing; therefore, we do not include a Batch s
 
 
 ### Multiple threads
-We can use the `Base.Threads` library for multithreading in Julia.
-Libraries from `Base` are automatically included in the runtime.
-
 An example of a `Project.toml` project file.
 
 ```toml
@@ -196,8 +243,6 @@ srun julia --project=. script.jl
 
 
 ### Multiple processes
-We can use `Distributed`, a standard library for multiple processes in Julia.
-
 An example of a `Project.toml` project file.
 
 ```toml
@@ -225,7 +270,7 @@ proc_env = [
     "MKL_NUM_THREADS"=>"1",
 ]
 
-# We add worker processes.
+# We add worker processes to the local node using LocalManager.
 addprocs(proc_num;
          env=proc_env,
          exeflags="--project=.")
@@ -291,16 +336,6 @@ srun julia --project=. script.jl
 
 
 ### Single GPU
-Puhti and Mahti contain NVidia GPUs.
-We can use them via the `CUDA.jl` package.
-We have installed a specific version of `CUDA.jl` to the shared environment.
-We recommend that you use that version because it has been tested to work.
-You can find the version by activating the shared environment and running `Pkg.status` as follows:
-
-```bash
-julia --project="$JULIA_CSC_ENVIRONMENT" -e 'using Pkg; Pkg.status("CUDA")'
-```
-
 An example of a `Project.toml` project file.
 
 ```toml
@@ -363,9 +398,6 @@ srun julia --project=. script.jl
 
 ## Multi-node jobs
 ### Multiple processes
-The multi-node job with multiple processes is similar to the single-node example except that we use multiple nodes and we add processes to the other nodes using `SSHManager` instead of `LocalManager`.
-We also do not use `srun` in the batch script, otherwise Slurm will start the Julia script on all nodes.
-
 An example of a `Project.toml` project file.
 
 ```toml
@@ -588,16 +620,6 @@ julia --project=. script.jl
 
 
 ### MPI
-We can use the `MPI.jl` package to use MPI for multi-node parallelism.
-In Puhti and Mahti it uses OpenMPI.
-We have installed a specific version of `MPI.jl` to the shared environment.
-We recommend that you use that version because it has been tested to work.
-You can find the version by activating the shared environment and running `Pkg.status` as follows:
-
-```bash
-julia --project="$JULIA_CSC_ENVIRONMENT" -e 'using Pkg; Pkg.status("MPI")'
-```
-
 An example of a `Project.toml` project file.
 
 ```toml
