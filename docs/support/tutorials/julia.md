@@ -1,5 +1,5 @@
-# Running Julia jobs
-Instructions for running serial, parallel, and GPU jobs with Julia on Puhti and Mahti.
+# Running Julia jobs on CSC's HPC clusters
+Instructions for running serial, parallel, and GPU jobs with Julia on Puhti and Mahti clusters.
 
 [TOC]
 
@@ -26,87 +26,52 @@ module load julia/1.8
 julia --project=. -e 'using Pkg; Pkg.instantiate()'
 ```
 
-The example jobs demonstrate project files for different types of jobs.
+The example jobs demonstrate project files for different single and multi-node jobs.
 
 
 ## Parallel computing
 ### Environment variables
-Julia has some important [environment variables for parallelization](https://docs.julialang.org/en/v1/manual/environment-variables/#Parallelization).
-Because we use Slurm to reserve resources on Puhti and Mahti, we need to set the `JULIA_CPU_THREADS` and `JULIA_NUM_THREADS` environment variables to the number of reserved CPU cores.
-The Julia module sets these environment variables the value of `--cpus-per-task` option using the `SLURM_CPUS_PER_TASK` environment variable.
-If that option is not defined, for example, on login nodes, it sets the thread count to one.
-The effect is the same as sourcing the following exports in shell.
+On compute nodes, we set the [`JULIA_CPU_THREADS`](https://docs.julialang.org/en/v1/manual/environment-variables/#JULIA_CPU_THREADS) and [`JULIA_NUM_THREADS`](https://docs.julialang.org/en/v1/manual/environment-variables/#JULIA_NUM_THREADS) environment variables to the number of reserved CPU cores via Slurm, that is, the value of `--cpus-per-task` option.
+On login, we set them to one.
+The Julia module sets them automatically when loaded using the `SLURM_CPUS_PER_TASK` environment variable.
+The effect is the same as setting the following environment variables in a shell.
 
 ```bash
+# Sets the value to SLURM_CPUS_PER_TASK if defined, otherwise 1
 export JULIA_CPU_THREADS=${SLURM_CPUS_PER_TASK:-1}
 export JULIA_NUM_THREADS=$JULIA_CPU_THREADS
 ```
 
-### Multi-threading
-If you need to start a julia process with different number of threads than `JULIA_NUM_THREADS` you can use the `--threads` option as follows.
+We can start a Julia process with a different number of threads than `JULIA_NUM_THREADS` using the `--threads` option as follows:
 
 ```bash
 julia --threads 2  # using two threads regardless of JULIA_NUM_THREADS value
 ```
 
-We can use the `Base.Threads` library for multithreading in Julia.
-Libraries from `Base` are automatically included in the runtime.
-
-### Distributed
-We can use `Distributed`, a standard library for multiple processes in Julia.
-The multi-node job with multiple processes is similar to the single-node example except that we use multiple nodes and we add processes to the other nodes using `SSHManager` instead of `LocalManager`.
-We also do not use `srun` in the batch script, otherwise Slurm will start the Julia script on all nodes.
-
-```julia
-# Read the list of nodenames allocated by Slurm.
-nodes = readlines(`scontrol show hostnames $(ENV["SLURM_JOB_NODELIST"])`)
-```
-
-```julia
-# Retrieve the node name of the master process.
-local_node = first(split(gethostname(), '.'; limit=2))
-```
-
-### CUDA.jl
-The GPU nodes on Puhti and Mahti contain NVidia GPUs which can be programmed with CUDA.
-We can use them via the `CUDA.jl` package.
-For programming, we recommend reading the [CUDA.jl documentation](https://cuda.juliagpu.org/stable/).
-We have installed a specific version of `CUDA.jl` to the shared environment.
-We recommend that you use that version because it has been tested to work.
-You can find the version by activating the shared environment and running `Pkg.status` as follows:
-
-```bash
-julia --project="$JULIA_CSC_ENVIRONMENT" -e 'using Pkg; Pkg.status("CUDA")'
-```
-
-TODO: cuda preferences and module
-
-### MPI.jl
-We can use the `MPI.jl` package to use MPI for multi-node parallelism.
-For programming, we recommend reading the [MPI.jl documentation](https://juliaparallel.org/MPI.jl/stable/).
-In Puhti and Mahti MPI.jl uses OpenMPI.
-We have installed a specific version of `MPI.jl` to the shared environment.
-We recommend that you use that version because it has been tested to work.
-You can find the version by activating the shared environment and running `Pkg.status` as follows:
-
-```bash
-julia --project="$JULIA_CSC_ENVIRONMENT" -e 'using Pkg; Pkg.status("MPI")'
-```
-
-TODO: mpi preferences and module
+We can access environment variables in the Julia session using the [`ENV`](https://docs.julialang.org/en/v1/base/base/#Base.ENV) constant.
 
 
-## Linear algebra backends and threading
-The default `LinearAlgebra` backend on Julia is OpenBLAS.
-If we want to, we can use MKL instead of OpenBLAS.
-MKL is often faster than OpenBLAS, especially on Puhti, when using multiple threads.
+### Linear algebra backends
+OpenBLAS is the default `LinearAlgebra` backend in Julia.
+We can also use MKL, which is often faster than OpenBLAS when using multiple threads, especially on Puhti.
 We should load the `MKL` library before other linear algebra libraries.
 
 ```julia
 using MKL
+using LinearAlgebra
+A = rand(100, 100)
+B = A * A
 ```
 
-The Julia module sets the number of threads for OpenBLAS and MKL backends to the number of CPU threads.
+
+### Multi-threading
+We can use the `Base.Threads` library for multi-threading in Julia.
+It is automatically loaded and available as `Threads` in the Julia session.
+The Julia manual contains more detailed information about [multi-threading](https://docs.julialang.org/en/v1/manual/multi-threading/).
+
+External linear algebra backends such as OpenBLAS and MKL use internal threading.
+We can set their thread counts using `OPENBLAS_NUM_THREADS` and `MKL_NUM_THREADS` environment variables.
+The Julia module sets them to the number of CPU threads.
 
 ```bash
 export OPENBLAS_NUM_THREADS=$JULIA_CPU_THREADS
@@ -141,6 +106,73 @@ end
 ```
 
 There are [caveats](https://discourse.julialang.org/t/matrix-multiplication-is-slower-when-multithreading-in-julia/56227/12?u=carstenbauer) for using different numbers than one or all cores of BLAS threads on OpenBLAS and MKL.
+
+
+
+### Distributed
+We can use `Distributed`, a standard library for multiple processes in Julia.
+The Julia manual has a section about  [distributed computing](https://docs.julialang.org/en/v1/manual/distributed-computing/) explaining Julia's distributed programming.
+Later we also discuss how to use MPI.
+
+Regarding the usage in the CSC cluster, we need to know how to add processes in a cluster environment.
+Distributed has two built-in cluster managers, `LocalManager` for processes that communicate using Localhost and `SSHManager` for processes that communicate via SSH.
+We can add processes to the same node as the Julia job is started using `LocalManager` and the `SSHManager` to add processes to other nodes.
+
+```julia
+using Distributed
+
+# Implicitly adds 2 processes using LocalManager
+addprocs(2)
+
+# Implicitly adds 2 processes to node1 and 3 processes to node2 using SSHManager
+addprocs([(2, "node1"), (3, "node2")])
+```
+
+When adding processes, we can also pass various key values, such as environment variables and options for Julia.
+We demonstrate them in the examples.
+
+We can find the node name in the Julia process using the following:
+
+```julia
+local_node = first(split(gethostname(), '.'; limit=2))
+```
+
+We can read the names of the nodes that slurm allocated for a job using `SLURM_JOB_NODELIST` environment variable and expanding it using `scontrol show hostnames <nodelist>` command as follows:
+
+```julia
+nodes = readlines(`scontrol show hostnames $(ENV["SLURM_JOB_NODELIST"])`)
+```
+
+We can use these nodenames when adding processes using `SSHManager`.
+
+
+### CUDA.jl
+The GPU nodes on Puhti and Mahti contain NVidia GPUs.
+We can use them with `CUDA.jl` package in Julia.
+For programming, we recommend reading the [CUDA.jl documentation](https://cuda.juliagpu.org/stable/).
+We have installed CUDA.jl, which uses the local CUDA installation, in the shared environment.
+We recommend you use the version in the shared environment because we have tested it.
+You can find the version by activating the shared environment and running `Pkg.status` as follows:
+
+```bash
+julia --project="$JULIA_CSC_ENVIRONMENT" -e 'using Pkg; Pkg.status("CUDA")'
+```
+
+Furthermore, the Julia module automatically loads the correct CUDA module.
+
+
+### MPI.jl
+We can use MPI for multi-node parallel computing in Julia on Puhti and Mahti using the `MPI.jl` package.
+For programming, we recommend reading the [MPI.jl documentation](https://juliaparallel.org/MPI.jl/stable/).
+We have installed MPI.jl, which uses the local OpenMPI installation, in the shared environment.
+We recommend you use the version in the shared environment because we have tested it.
+You can find the version by activating the shared environment and running `Pkg.status` as follows:
+
+```bash
+julia --project="$JULIA_CSC_ENVIRONMENT" -e 'using Pkg; Pkg.status("MPI")'
+```
+
+Furthermore, the Julia module automatically loads the correct OpenMPI module.
 
 
 ## Single node jobs
@@ -482,6 +514,7 @@ An example of a `puhti.sh` Puhti batch script.
 #SBATCH --mem-per-cpu=1000
 
 module load julia/1.8
+# We do not use srun! Otherwise, slurm runs the script on all tasks.
 julia --project=. script.jl
 ```
 
@@ -498,6 +531,7 @@ An example of a `mahti.sh` Mahti batch script.
 #SBATCH --cpus-per-task=128
 
 module load julia/1.8
+# We do not use srun! Otherwise, slurm runs the script on all tasks.
 julia --project=. script.jl
 ```
 
@@ -599,6 +633,7 @@ An example of a `puhti.sh` Puhti batch script.
 #SBATCH --mem-per-cpu=1000
 
 module load julia/1.8
+# We do not use srun! Otherwise, slurm runs the script on all tasks.
 julia --project=. script.jl
 ```
 
@@ -615,6 +650,7 @@ An example of a `mahti.sh` Mahti batch script.
 #SBATCH --cpus-per-task=128
 
 module load julia/1.8
+# We do not use srun! Otherwise, slurm runs the script on all tasks.
 julia --project=. script.jl
 ```
 

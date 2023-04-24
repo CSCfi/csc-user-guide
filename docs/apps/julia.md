@@ -16,7 +16,7 @@ Julia language is licensed under free and open source [MIT license](https://gith
 
 
 ## Available
-Julia is available on Puhti and Mahti.
+Julia language is available on Puhti and Mahti using the [module system](../computing/modules.md).
 
 ```bash
 module avail julia
