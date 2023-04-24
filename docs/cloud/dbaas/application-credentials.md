@@ -26,7 +26,7 @@ is removed from the project the user's credentials will stop working.
 3. Go to `Identitiy` -> `Application Credentials`.
 4. Press `Create Application Credential`. A dialog will open.
 
-    ![Create Application Credential](/img/Create Application Credential.png)
+    ![Create Application Credential](../../img/create-application-credential.png)
 
 5. It is a good idea to choose a descriptive `name` and `description`. Otherwise you might get confused
 in the future why the application credentials exist. It might be a good idea to name your first 
