@@ -1,4 +1,4 @@
-# Running Julia jobs on CSC's HPC clusters
+# Running Julia jobs on Puhti and Mahti clusters
 Instructions for running serial, parallel, and GPU jobs with Julia on Puhti and Mahti clusters.
 
 [TOC]

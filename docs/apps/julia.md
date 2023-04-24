@@ -6,7 +6,7 @@ tags:
 # Julia Language
 [Julia language](https://julialang.org) is a high-performance, dynamic programming language.
 Julia is excellent for scientific computing because it can compile efficient native code using LLVM and includes mathematical functions, parallel computing capabilities, and a package manager in the standard library.
-Furthermore, Julia has intuitive syntax and allows writing composable code in the multiple-dispatch paradigm.
+Furthermore, Julia's syntax is intuitive and easy to learn, the multiple-dispatch paradigm allows writing composable code, increasing the ability to reuse existing code, and environments enable executing code in a reproducible way.
 
 [TOC]
 
