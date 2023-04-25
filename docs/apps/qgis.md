@@ -32,6 +32,7 @@ module load qgis/3.22
 qgis
 ```
 
+SagaGIS tools are not available by default with QGIS 3.31 in Processing Toolbox, but can be added with installing `Saga Next Gen` plug-in. This is a new plug-in and all tools might not work yet.  
 
 ### PyQGIS
 
