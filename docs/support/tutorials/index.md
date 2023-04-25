@@ -6,7 +6,6 @@
 * [Getting started with Helmi](../../computing/quantum-computing/helmi/helmi-from-lumi.md)
 * [Managing data on Puhti and Mahti scratch disks](clean-up-data.md)
 * [Conda best practices](conda.md)
-* [Using NoMachine](nomachine-usage.md)
 * [CSC Quick reference (pdf)](../../img/csc-quick-reference/csc-quick-reference.pdf)
 * [How to run existing containers in Puhti](../../computing/containers/run-existing.md)
 * [Linux basics for CSC](env-guide/index.md)
