@@ -1,4 +1,4 @@
----
+
 tags:
   - Free
 ---
@@ -96,7 +96,7 @@ We should always use a unique environment for Julia projects instead of the defa
 That way, we can manage the dependencies of different Julia projects separately.
 
 
-### Adding packages and compatibilities
+### Adding packages to an environment
 On the Julia REPL, we can use the package manager by importing it.
 
 ```julia
@@ -125,7 +125,7 @@ Pkg.compat("julia", "1.8")
 
 
 ### Depot and load paths
-The Julia constants [`Base.DEPOT_PATH`](https://docs.julialang.org/en/v1/base/constants/#Base.DEPOT_PATH) and [`Base.LOAD_PATH`](https://docs.julialang.org/en/v1/base/constants/#Base.LOAD_PATH) control the directories where Julia loads code.
+The Julia constants [`Base.DEPOT_PATH`](https://docs.julialang.org/en/v1/base/constants/#Base.DEPOT_PATH) and [`Base.LOAD_PATH`](https://docs.julialang.org/en/v1/base/constants/#Base.LOAD_PATH) constants control the directories where Julia loads code.
 To set them via the shell, we use the `JULIA_DEPOT_PATH` and `JULIA_LOAD_PATH` environment variables.
 The Julia module automatically appends the default depot and load paths to ensure the standard library and shared depots are available.
 The CSC-specific shared depots are installed in the `JULIA_CSC_DEPOT` directory, and the shared environment is in the `JULIA_CSC_ENVIRONMENT` directory.
@@ -136,9 +136,13 @@ julia --project="$JULIA_CSC_ENVIRONMENT" -e 'using Pkg; Pkg.status()'
 ```
 
 The first directory on the depot path controls where Julia stores installed packages, compiled files, log files, and other depots.
-The directory is `$HOME/.julia` by default.
-However, the home directory has a fixed quota for Puhti and Mahti.
-We recommend changing the directory to a directory under Projappl or Scratch to avoid running out of quota.
+
+!!! warning "Changing the default depot directory"
+    The default depot directory is `$HOME/.julia`.
+    However, the home directory has a fixed quota for Puhti and Mahti.
+    Therefore, we recommend changing the directory to a directory under Projappl or Scratch to avoid running out of quota because some packages install a large amounts of files.
+    You can safely remove the the default depot directory using `rm -r $HOME/.julia`.
+
 We can change the directory by prepending the `JULIA_DEPOT_PATH` with a different directory.
 For example, we can use the following by replacing the `<project>` with your CSC project.
 
@@ -147,7 +151,7 @@ export JULIA_DEPOT_PATH="/projappl/<project>/$USER/.julia:$JULIA_DEPOT_PATH"
 ```
 
 
-### Packaging code
+### Creating a package with command line interface
 We should package the code as a code base grows instead of running standalone scripts.
 A Julia package includes a module file, such as `src/Hello.jl`, and the `Project.toml` file.
 Including a command line interface in your program, such as `src/cli.jl`, is also wise.
@@ -217,8 +221,8 @@ julia --project=. src/cli.jl --say "Hello world"
 We should define and use a command line interface because it is more flexible than hard-coding values to the scripts.
 
 
-### Running jobs
-We explain how to run serial, parallel and GPU jobs with Julia on Puhti and Mahti in the [**Running Julia jobs**](../support/tutorials/julia.md) section.
+### Running Julia jobs on Puhti and Mahti
+We explain how to run serial, parallel and GPU jobs with Julia on Puhti and Mahti in the [**Running Julia jobs on Puhti and Mahti clusters**](../support/tutorials/julia.md) section.
 
 
 <!--
@@ -232,7 +236,3 @@ We can use Julia on VSCode via the Julia extension.
 We need to start VSCode with the julia module by setting to the name of the Julia module, such as `julia/1.8.5`, to `Modules` section.
 -->
 
-
-## Resources
-For further reading about parallel and high-performance computing with Julia, we recommend the [Julia for high-performance scientific computing](https://enccs.github.io/Julia-for-HPC) from ENCCS and the [A brief tour of Julia for high-performance computing](https://forem.julialang.org/wikfeldt/a-brief-tour-of-julia-for-high-performance-computing-5deb) written by Kjartan Thor Wikfeldt.
-CSC training also has a [quick introduction and tutorial](https://github.com/csc-training/julia-introduction) to Julia.

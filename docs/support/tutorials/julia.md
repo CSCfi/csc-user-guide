@@ -4,9 +4,14 @@ Instructions for running serial, parallel, and GPU jobs with Julia on Puhti and 
 [TOC]
 
 
-## Prerequisites
+## Introduction
 These instructions are adapted from the general instructions of [**running jobs**](../../computing/running/getting-started.md) on Puhti and Mahti.
-Furthermore, we assume general knowledge about the [**Julia environment**](../../apps/julia.md).
+Furthermore, we assume general knowledge about the [**Julia Language**](../../apps/julia.md) environment.
+For further reading about parallel and high-performance computing with Julia, we recommend the [Julia for high-performance scientific computing](https://enccs.github.io/Julia-for-HPC) from ENCCS and the [A brief tour of Julia for high-performance computing](https://forem.julialang.org/wikfeldt/a-brief-tour-of-julia-for-high-performance-computing-5deb) written by Kjartan Thor Wikfeldt.
+CSC training also has a [quick introduction and tutorial](https://github.com/csc-training/julia-introduction) to Julia.
+
+
+### Project structure
 We use the following Julia project structure in the example jobs.
 We also assume that it is our working directory when running the commands.
 
@@ -22,7 +27,6 @@ We also assume that it is our working directory when running the commands.
 The example jobs demonstrate project files for different single and multi-node jobs.
 
 
-## Parallel computing
 ### Environment variables
 On compute nodes, we set the [`JULIA_CPU_THREADS`](https://docs.julialang.org/en/v1/manual/environment-variables/#JULIA_CPU_THREADS) and [`JULIA_NUM_THREADS`](https://docs.julialang.org/en/v1/manual/environment-variables/#JULIA_NUM_THREADS) environment variables to the number of reserved CPU cores via Slurm, that is, the value of `--cpus-per-task` option.
 On login, we set them to one.
