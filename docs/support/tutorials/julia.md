@@ -19,13 +19,6 @@ We also assume that it is our working directory when running the commands.
 └── script.jl      # Julia script
 ```
 
-We have to instantiate the project before running batch scripts.
-
-```bash
-module load julia/1.8
-julia --project=. -e 'using Pkg; Pkg.instantiate()'
-```
-
 The example jobs demonstrate project files for different single and multi-node jobs.
 
 
@@ -204,6 +197,7 @@ An example of a `puhti.sh` Puhti batch script.
 #SBATCH --mem-per-cpu=1000
 
 module load julia/1.8
+julia --project=. -e 'using Pkg; Pkg.instantiate()'
 srun julia --project=. script.jl
 ```
 
@@ -254,6 +248,7 @@ An example of a `puhti.sh` Puhti batch script.
 #SBATCH --mem-per-cpu=1000
 
 module load julia/1.8
+julia --project=. -e 'using Pkg; Pkg.instantiate()'
 srun julia --project=. script.jl
 ```
 
@@ -270,6 +265,7 @@ An example of a `mahti.sh` Mahti batch script.
 #SBATCH --cpus-per-task=128
 
 module load julia/1.8
+julia --project=. -e 'using Pkg; Pkg.instantiate()'
 srun julia --project=. script.jl
 ```
 
@@ -347,6 +343,7 @@ An example of a `puhti.sh` Puhti batch script.
 #SBATCH --mem-per-cpu=1000
 
 module load julia/1.8
+julia --project=. -e 'using Pkg; Pkg.instantiate()'
 srun julia --project=. script.jl
 ```
 
@@ -363,6 +360,7 @@ An example of a `mahti.sh` Mahti batch script.
 #SBATCH --cpus-per-task=128
 
 module load julia/1.8
+julia --project=. -e 'using Pkg; Pkg.instantiate()'
 srun julia --project=. script.jl
 ```
 
@@ -407,6 +405,7 @@ An example of a `puhti.sh` Puhti batch script.
 #SBATCH --gres=gpu:v100:1
 
 module load julia/1.8
+julia --project=. -e 'using Pkg; Pkg.instantiate()'
 srun julia --project=. script.jl
 ```
 
@@ -424,6 +423,7 @@ An example of a `mahti.sh` Mahti batch script.
 #SBATCH --gres=gpu:a100:1
 
 module load julia/1.8
+julia --project=. -e 'using Pkg; Pkg.instantiate()'
 srun julia --project=. script.jl
 ```
 
@@ -514,6 +514,7 @@ An example of a `puhti.sh` Puhti batch script.
 #SBATCH --mem-per-cpu=1000
 
 module load julia/1.8
+julia --project=. -e 'using Pkg; Pkg.instantiate()'
 # We do not use srun! Otherwise, slurm runs the script on all tasks.
 julia --project=. script.jl
 ```
@@ -531,6 +532,7 @@ An example of a `mahti.sh` Mahti batch script.
 #SBATCH --cpus-per-task=128
 
 module load julia/1.8
+julia --project=. -e 'using Pkg; Pkg.instantiate()'
 # We do not use srun! Otherwise, slurm runs the script on all tasks.
 julia --project=. script.jl
 ```
@@ -633,6 +635,7 @@ An example of a `puhti.sh` Puhti batch script.
 #SBATCH --mem-per-cpu=1000
 
 module load julia/1.8
+julia --project=. -e 'using Pkg; Pkg.instantiate()'
 # We do not use srun! Otherwise, slurm runs the script on all tasks.
 julia --project=. script.jl
 ```
@@ -650,6 +653,7 @@ An example of a `mahti.sh` Mahti batch script.
 #SBATCH --cpus-per-task=128
 
 module load julia/1.8
+julia --project=. -e 'using Pkg; Pkg.instantiate()'
 # We do not use srun! Otherwise, slurm runs the script on all tasks.
 julia --project=. script.jl
 ```
@@ -694,6 +698,7 @@ An example of a `puhti.sh` Puhti batch script.
 #SBATCH --mem-per-cpu=1000
 
 module load julia/1.8
+julia --project=. -e 'using Pkg; Pkg.instantiate()'
 srun julia --project=. script.jl
 ```
 
@@ -710,6 +715,7 @@ An example of a `mahti.sh` Mahti batch script.
 #SBATCH --cpus-per-task=1
 
 module load julia/1.8
+julia --project=. -e 'using Pkg; Pkg.instantiate()'
 srun julia --project=. script.jl
 ```
 
