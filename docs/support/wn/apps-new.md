@@ -1,5 +1,9 @@
 # Applications
 
+## NoMachine will no longer be available on CSC's supercomputers, FIXME
+
+Starting from 25.5.2023, NoMachine FIXME
+
 ## Gromacs and CP2K now available on LUMI, 19.4.2023
 
 CPU and GPU-enabled versions of [Gromacs](../../apps/gromacs.md) and [CP2K](../../apps/cp2k.md)
