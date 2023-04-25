@@ -28,9 +28,8 @@ The example jobs demonstrate project files for different single and multi-node j
 
 
 ### Environment variables
-On compute nodes, we set the [`JULIA_CPU_THREADS`](https://docs.julialang.org/en/v1/manual/environment-variables/#JULIA_CPU_THREADS) and [`JULIA_NUM_THREADS`](https://docs.julialang.org/en/v1/manual/environment-variables/#JULIA_NUM_THREADS) environment variables to the number of reserved CPU cores via Slurm, that is, the value of `--cpus-per-task` option.
-On login, we set them to one.
-The Julia module sets them automatically when loaded using the `SLURM_CPUS_PER_TASK` environment variable.
+The Julia module sets the [`JULIA_CPU_THREADS`](https://docs.julialang.org/en/v1/manual/environment-variables/#JULIA_CPU_THREADS) and [`JULIA_NUM_THREADS`](https://docs.julialang.org/en/v1/manual/environment-variables/#JULIA_NUM_THREADS) environment variables to the number of reserved CPU cores when loaded in a Slurm job; otherwise, the module sets them to one.
+We use the value of the `--cpus-per-task` option, which populates the `SLURM_CPUS_PER_TASK` environment variable, to detect the number of CPU cores.
 The effect is the same as setting the following environment variables in a shell.
 
 ```bash
