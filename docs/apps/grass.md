@@ -11,6 +11,7 @@ tags:
 
 __GRASS__ is available in Puhti with following versions:
 
+* GRASS 7.8.7 with qgis/3.31 module
 * GRASS 7.8.5 with qgis/3.22 module
 
 
@@ -25,17 +26,13 @@ In Puhti, GRASS GIS is included in [QGIS module](qgis.md). GRASS GIS command lin
 The easiest option for using GRASS GIS is to open it in [Puhti web interface as Desktop app](../computing/webinterface/desktop.md).
 
 1. Log in to [Puhti web interface](https://puhti.csc.fi). 
-2. Start SNAP: Apps -> Desktop, choose Desktop: 'single application' and App: 'GRASS GIS'
-3. GRASS GIS is started automatically when the Desktop is launched. 
-
-Alternatively, especially if you want to use GRASS GIS together with some other GUI tool or want to user older version, GRASS GIS can be started in Puhti web interface with remote desktop:
-
-1. Log in to [Puhti web interface](https://puhti.csc.fi).
-2. Open Remote desktop: Apps -> Desktop, choose Desktop: `mate` or `xfce`. 
-3. After launcing the remote desktop, double-click GRASS GIS icon OR open `Host Terminal` (Desktop icon) and start GRASS GIS:
+2. Open Remote desktop: Apps -> Desktop, choose Desktop: `xfce`. 
+3. After launcing the remote desktop, double-click GRASS GIS icon for the newest version.
+ 
+If you want to use older version, open `Host Terminal` (Desktop icon) and start GRASS GIS:
 
 ```
-module load qgis
+module load qgis/3.22
 grass
 ```
 
@@ -51,3 +48,4 @@ As an example, you can write "The authors wish to thank CSC - IT Center for Scie
 * [GRASS GIS homepage](https://grass.osgeo.org/)
 * [GRASS GIS manuals](https://grass.osgeo.org/learn/manuals/)
 * [GRASS GIS tutorials](https://grass.osgeo.org/learn/tutorials/)
+* [GRASS database, location, mapset and region](https://grass.osgeo.org/grass79/manuals/grass_database.html), the basic concepts always needed with GRASS GIS. 
