@@ -1,5 +1,9 @@
 # Computing environment
 
+## Puhti web interface updated to release 15, 27.4.2023
+
+* FIXME
+
 ## Puhti web interface updated to release 14, 2.2.2023
 
 * Xfce is now the main desktop alternative and other options are being deprecated
