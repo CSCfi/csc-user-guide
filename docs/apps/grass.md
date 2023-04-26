@@ -19,7 +19,7 @@ __GRASS__ is available in Puhti with following versions:
 
 ### GRASS GIS Command Line Interface 
 
-In Puhti, GRASS GIS is included in [QGIS module](qgis.md). GRASS GIS command line tools can be used in an [interactive session](../computing/running/interactive-usage.md) or [batch jobs](../computing/running/getting-started.md). For using GRASS GIS, see [exmples for using GRASS GIS commands in Puhti with GRASS bash scripting, Python scripting or PyGRASS](https://github.com/csc-training/geocomputing/tree/master/grass).
+In Puhti, GRASS GIS is included in [QGIS module](qgis.md). GRASS GIS command line tools can be used in an [interactive session](../computing/running/interactive-usage.md) or [batch jobs](../computing/running/getting-started.md). See [exmples for using GRASS GIS commands in Puhti with GRASS bash scripting, Python scripting or PyGRASS](https://github.com/csc-training/geocomputing/tree/master/grass). See also the references section at the end of this page.
 
 ### GRASS GIS Graphical User Interface
 
@@ -47,5 +47,8 @@ As an example, you can write "The authors wish to thank CSC - IT Center for Scie
 
 * [GRASS GIS homepage](https://grass.osgeo.org/)
 * [GRASS GIS manuals](https://grass.osgeo.org/learn/manuals/)
+  * [Parellel GRASS jobs](https://grasswiki.osgeo.org/wiki/Parallel_GRASS_jobs)
 * [GRASS GIS tutorials](https://grass.osgeo.org/learn/tutorials/)
 * [GRASS database, location, mapset and region](https://grass.osgeo.org/grass79/manuals/grass_database.html), the basic concepts always needed with GRASS GIS. 
+In case of using parallel computation, be extra careful with `region`.
+* [Anna Petrasova, GRASS GIS workshop at FOSS4G, part 5: parallelization](https://github.com/ncsu-geoforall-lab/grass-gis-workshop-foss4g-2022/blob/main/workshop_part_5_parallelization.ipynb)
