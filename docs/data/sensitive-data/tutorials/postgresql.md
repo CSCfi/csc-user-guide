@@ -2,7 +2,7 @@
 
 
 
-0. Request access to the tools-for-sd-connect or upload your own PostgreSQL singularity container to SD Connect. Start a SD Desktop Vitrual Machine that has data volume that is big enough for your data. 
+0. Request access to the tools-for-sd-connect or upload your own PostgreSQL singularity container to SD Connect. Start a SD Desktop Vitrtual Machine that has data volume that is big enough for your data. 
 
 Login to your SD Desktop, open DataGateway connection to SD Connect and open a terminal session.
 
