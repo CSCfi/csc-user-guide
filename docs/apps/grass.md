@@ -43,7 +43,7 @@ Geographic Resources Analysis Support System (GRASS) is Copyright, 1999-2020 GRA
 Please acknowledge CSC and Geoportti in your publications, it is important for project continuation and funding reports.
 As an example, you can write "The authors wish to thank CSC - IT Center for Science, Finland (urn:nbn:fi:research-infras-2016072531) and the Open Geospatial Information Infrastructure for Research (Geoportti, urn:nbn:fi:research-infras-2016072513) for computational resources and support".
 
-### References
+## References
 
 * [GRASS GIS homepage](https://grass.osgeo.org/)
 * [GRASS GIS manuals](https://grass.osgeo.org/learn/manuals/)
@@ -52,3 +52,8 @@ As an example, you can write "The authors wish to thank CSC - IT Center for Scie
 * [GRASS database, location, mapset and region](https://grass.osgeo.org/grass79/manuals/grass_database.html), the basic concepts always needed with GRASS GIS. 
 In case of using parallel computation, be extra careful with `region`.
 * [Anna Petrasova, GRASS GIS workshop at FOSS4G, part 5: parallelization](https://github.com/ncsu-geoforall-lab/grass-gis-workshop-foss4g-2022/blob/main/workshop_part_5_parallelization.ipynb)
+
+## Installation details
+
+* Version 3.31. The installation is based on [QGIS Docker image](https://hub.docker.com/r/qgis/qgis) and was done using [Tykky](../computing/containers/tykky.md) on 24.4.2023. The resulting files are available as [zip-package](https://gis-containers.a3s.fi/qgis_3_31_tykky.zip). 
+* Version 2.22. The installation is based on this [Singularity recipy](https://github.com/CSCfi/singularity-recipes/blob/main/qgis/qgis_plus_grass.def). [The resulting Singularity image](https://gis-containers.a3s.fi/qgis_3_22_grass_7_8_5.sif).
