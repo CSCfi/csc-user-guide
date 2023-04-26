@@ -82,7 +82,7 @@
 ## Senistive Data
 * [Using Allas to transport sensitive data](../../data/sensitive-data/sequencing_center_tutorial.md)
 * [Running temporary PostgreSQL database in SD Desktop](../../data/sensitive-data/tutorials/postgresql.md)
-
+ 
 ## Visualisation
 * [Blender tutorial](blender-tutorial.md)
 
