@@ -141,7 +141,7 @@ The first directory on the depot path controls where Julia stores installed pack
     The default depot directory is `$HOME/.julia`.
     However, the home directory has a fixed quota for Puhti and Mahti.
     Therefore, we recommend changing the directory to a directory under Projappl or Scratch to avoid running out of quota because some packages install a large amounts of files.
-    You can safely remove the the default depot directory using `rm -r $HOME/.julia`.
+    Afterwards, you can safely remove the default depot directory using `rm -r $HOME/.julia`.
 
 We can change the directory by prepending the `JULIA_DEPOT_PATH` with a different directory.
 For example, we can use the following by replacing the `<project>` with your CSC project.
