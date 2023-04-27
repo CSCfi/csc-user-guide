@@ -3,25 +3,27 @@ tags:
   - Free
 ---
 
-# Julia
-## Description
-Julia is a high-level, high-performance dynamic programming language for numerical computing.
+# Julia Language
+[Julia language](https://julialang.org) is a high-level, high-performance dynamic programming language for numerical computing.
 It provides a sophisticated compiler, distributed parallel execution, numerical accuracy, and an extensive mathematical function library.
 
 [TOC]
 
 
 ## License
-Free and open source under [MIT license](https://github.com/JuliaLang/julia/blob/master/LICENSE.md).
+Julia language is licensed under free and open source [MIT license](https://github.com/JuliaLang/julia/blob/master/LICENSE.md).
 
 
 ## Available
-- Puhti has Julia v1.8.5 with OpenBLAS
-- Mahti has Julia v1.8.5 with OpenBLAS
+Julia is available on Puhti and Mahti.
+
+```bash
+module avail julia
+```
 
 
 ## Usage
-### Loading modules
+### Loading the Julia module
 We can load the Julia module using the following command.
 
 ```bash
@@ -31,7 +33,7 @@ module load julia
 By default, it loads the latest stable version.
 
 
-### Using Julia
+### Using Julia on the command line
 After loading the Julia module, we can use Julia with the `julia` command.
 Without arguments, it starts an interactive Julia REPL.
 
@@ -45,150 +47,110 @@ For available command line options, we can read the manual.
 man julia
 ```
 
-
-### Interactive job on Puhti
-We can request an interactive node directly on Puhti as follows.
-
-```bash
-srun --ntasks=1 --time=00:10:00 --mem=4G --pty --account=<project> --partition=small julia
-```
-
-
-### Serial batch job on Puhti
-A sample of a single-core Julia batch job on Puhti
-
-```bash
-#!/bin/bash 
-#SBATCH --job-name=example
-#SBATCH --account=<project>
-#SBATCH --partition=small
-#SBATCH --time=00:10:00
-#SBATCH --ntasks=1
-#SBATCH --mem-per-cpu=1000
-
-module load julia
-srun julia my_script.jl
-```
-
-The above batch job runs the Julia script `my_script.jl` using one CPU core.
-You can find more information about batch jobs on Puhti from the [user guide](../computing/running/getting-started.md).
-
-
-### Multi-core batch job on Puhti
-A sample of a multi-core Julia batch job on Puhti.
-We can start Julia with multiple threads by setting the `JULIA_NUM_THREADS` environment variable.
-Alternatively, we can use the `--threads` option.
-
-```bash
-#!/bin/bash 
-#SBATCH --job-name=example
-#SBATCH --account=<project>
-#SBATCH --partition=small
-#SBATCH --time=00:10:00
-#SBATCH --ntasks=1
-#SBATCH --cpus-per-task=2
-#SBATCH --mem-per-cpu=1000
-
-# set the number of threads based on --cpus-per-task
-export JULIA_NUM_THREADS="$SLURM_CPUS_PER_TASK"
-
-module load julia
-srun julia my_script.jl
-```
-
-The above batch job runs the Julia script `my_script.jl` using two CPU cores.
-
-
-### Installing packages
-Julia has a built-in package manager named `Pkg`.
-During an interactive session, we can access it by pressing `]`.
-We can load and use the package manager in scripts like other Julia packages.
-
-We can add packages to the active environment using the `add` function.
-On the Julia REPL, we can do it as follows.
-
-```julia-repl
-julia> ]
-(v1.8) pkg>
-(v1.8) pkg> add Example
-```
-
-The default environment is `v1.8`, as shown in the REPL.
-We can do the same in a Julia script by loading `Pkg` and using the `add` function.
-
-```julia
-using Pkg
-Pkg.add("Example")
-```
-
-After adding a package, we can load it in Julia.
-
-```julia
-using Example
-```
-
-Packages for one version of Julia might not work for another.
-Check the required version number.
-
-You can find more information about Julia's package manager in its [documentation](https://pkgdocs.julialang.org/v1/).
+The official [Julialang documentation](https://docs.julialang.org) or the [discourse](https://discourse.julialang.org/) can answer most questions regarding the features of the Julia language.
+The Julia language includes the standard language features in Base.
+Additionally, it includes various packages in the Julia installation as part of the standard library.
+Julia's REPL and Pkg, the package manager, are two important packages within the standard library. Pressing ] in the Julia REPL will allow access to the package manager's REPL.
+The [Pkg documentation](https://pkgdocs.julialang.org/) provides more information on how to use Julia's package manager.
 
 
 ### Using environments
-We can manage the dependencies of different Julia projects separately by using a different environment instead of the default environment.
-The easiest way to use an environment is to use the `--project` option when starting Julia.
-For example, we can use `julia --project=.` to activate an environment in the current working directory.
-Alternatively, we can use the `Pkg.activate` function.
-
-We define project metadata and dependencies in `Project.toml` file.
+Julia manages dependencies of projects using environments.
+An environment consists of two files, `Project.toml` and `Manifest.toml`, which specify dependencies for the environment.
+We define project metadata, dependencies, and compatibility constraints in `Project.toml` file.
 Adding or removing packages using the package manager manipulates the `Project.toml` file in the active environment.
 Furthermore, the package manager maintains a full list of dependencies in `Manifest.toml` file.
 It creates both of these files if they don't exist.
-
 Let's consider a Julia project structured as follows.
 
 ```
-.
-├── my_script.jl
+project
+├── script.jl
 ├── Project.toml
 └── Manifest.toml
 ```
 
-We can run the script using the project's environment as follows.
+We can activate an environment using the `--project` option when starting Julia or use the `Pkg.activate` function in existing Julia session.
+For example, we can open the Julia REPL with the project's environment active as follows:
 
 ```bash
-julia --project=. my_script.jl
+julia --project=.
 ```
 
 Activating an environment does not automatically install the packages defined by `Manifest.toml` or `Project.toml`.
-We can install packages using the `instantiate` function from `Pkg`.
-An easy way to do it is using the following command.
+For that, we need to invoke the `Pkg.instantiate` function with the project's environment active as follows:
 
 ```bash
 julia --project=. -e 'using Pkg; Pkg.instantiate()'
 ```
 
-Instantiating an environment is a common operation when using a new Julia environment for the first time.
-
-
-### Changing installation location
-The package manager installs packages to the `$HOME/.julia` directory by default.
-We can change the directory by prepending the `JULIA_DEPOT_PATH` environment variable with a different directory.
-In Puhti and Mahti, it is best practice to point the directory to Projappl as follows.
+Now, we can run the script using the project's environment as follows:
 
 ```bash
-export JULIA_DEPOT_PATH="/projappl/<project>/.julia:$JULIA_DEPOT_PATH"
+julia --project=. script.jl
 ```
 
-Julia automatically appends the default locations to the path when colon `:` is present in the path while running Julia.
-You can run `julia -E 'DEPOT_PATH` to see the full path used at runtime.
-In the future, the default paths are required for using shared packages specific to Puhti and Mahti.
-You can read more from the documentation [`JULIA_DEPOT_PATH`](https://docs.julialang.org/en/v1/manual/environment-variables/#JULIA_DEPOT_PATH) and [`DEPOT_PATH`](https://docs.julialang.org/en/v1/base/constants/#Base.DEPOT_PATH).
+Julia will activate the default environment if we don't specify an environment.
+We should always use a unique environment for Julia projects instead of the default environment.
+That way, we can manage the dependencies of different Julia projects separately.
+
+
+### Adding packages and compatibilities
+On the Julia REPL, we can use the package manager by importing it.
+
+```julia
+using Pkg
+```
+
+We can add packages to the active environment using the `Pkg.add` function.
+For example, we can add `ArgParse` package as follows.
+
+```julia
+Pkg.add("ArgParse")
+```
+
+Furthermore, we can set compatibility constraints to a package version.
+For example, we can add compatibility to `ArgParse` as follows.
+
+```julia
+Pkg.compat("ArgParse", "1.1")
+```
+
+We can also set compatibility constraints to the Julia version.
+
+```julia
+Pkg.compat("julia", "1.8")
+```
+
+
+### Depot and load paths
+The Julia constants [`Base.DEPOT_PATH`](https://docs.julialang.org/en/v1/base/constants/#Base.DEPOT_PATH) and [`Base.LOAD_PATH`](https://docs.julialang.org/en/v1/base/constants/#Base.LOAD_PATH) control the directories where Julia loads code.
+To set them via the shell, we use the `JULIA_DEPOT_PATH` and `JULIA_LOAD_PATH` environment variables.
+The Julia module automatically appends the default depot and load paths to ensure the standard library and shared depots are available.
+The CSC-specific shared depots are installed in the `JULIA_CSC_DEPOT` directory, and the shared environment is in the `JULIA_CSC_ENVIRONMENT` directory.
+We can look up the shared packages and their versions using the package manager as follows:
+
+```bash
+julia --project="$JULIA_CSC_ENVIRONMENT" -e 'using Pkg; Pkg.status()'
+```
+
+The first directory on the depot path controls where Julia stores installed packages, compiled files, log files, and other depots.
+The directory is `$HOME/.julia` by default.
+However, the home directory has a fixed quota for Puhti and Mahti.
+We recommend changing the directory to a directory under Projappl or Scratch to avoid running out of quota.
+We can change the directory by prepending the `JULIA_DEPOT_PATH` with a different directory.
+For example, we can use the following by replacing the `<project>` with your CSC project.
+
+```bash
+export JULIA_DEPOT_PATH="/projappl/<project>/$USER/.julia:$JULIA_DEPOT_PATH"
+```
 
 
 ### Packaging code
-Packaging your code instead of running standalone scripts is a best practice.
-The standard Julia package includes the module file, such as `src/Hello.jl`, and the `Project.toml` file.
-Including a command line interface in your program, such as `src/cli.jl`, is also a good idea.
+We should package the code as a code base grows instead of running standalone scripts.
+A Julia package includes a module file, such as `src/Hello.jl`, and the `Project.toml` file.
+Including a command line interface in your program, such as `src/cli.jl`, is also wise.
+Let's consider a project structured as below.
 
 ```text
 Hello.jl/         # the package directory
@@ -215,17 +177,21 @@ ArgParse = "1.1"
 ```
 
 The `src/Hello.jl` file must define the `module` keyword with the package name.
+It also exports the functions and variables we want to expose in its API.
+For example, the `Hello` module below defines and exports the `say` function.
 
 ```julia
 module Hello
 
 say(s) = println(s)
+
 export say
 
 end
 ```
 
 We can use `ArgParse` package to create a command line interface `src/cli.jl` for the package.
+For example, the command line interface below defines an option `--say` whose value is parsed into a string and supplied to the `say` function imported from the `Hello` module.
 
 ```julia
 using ArgParse
@@ -247,12 +213,13 @@ We can use the command line interface as follows.
 julia --project=. src/cli.jl --say "Hello world"
 ```
 
-Creating and using a command line interface with batch scripts is the best practice compared to hard-coding values to the scripts.
+We should define and use a command line interface because it is more flexible than hard-coding values to the scripts.
 
 
-## More information
-- [Julia website](https://julialang.org )
-- [Julia documentation](https://docs.julialang.org)
-- [Package manager documentation](https://pkgdocs.julialang.org/v1/)
+### Running jobs
+We explain how to run jobs on Puhti and Mahti in the [**Running Julia jobs**](../support/tutorials/julia.md) tutorial.
 
-See here for a [quick introduction and tutorial](https://github.com/csc-training/julia-introduction) on CSC training.
+
+## Resources
+For further reading about parallel and high-performance computing with Julia, we recommend the [Julia for high-performance scientific computing](https://enccs.github.io/Julia-for-HPC) from ENCCS and the [A brief tour of Julia for high-performance computing](https://forem.julialang.org/wikfeldt/a-brief-tour-of-julia-for-high-performance-computing-5deb) written by Kjartan Thor Wikfeldt.
+CSC training also has a [quick introduction and tutorial](https://github.com/csc-training/julia-introduction).

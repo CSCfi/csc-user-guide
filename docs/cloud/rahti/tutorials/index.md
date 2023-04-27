@@ -11,4 +11,5 @@
 * [How to add docker hub credentials to a project](/cloud/rahti/tutorials/docker_hub_login/)
 * [How to manually cache images in Rahti's registry](/cloud/rahti/tutorials/docker_hub_manual_caching/)
 * [How to package a Kubernetes application with Helm?](/cloud/rahti/tutorials/helm/)
+* [Kustomize](/cloud/rahti/tutorials/kustomize/)
 * [Annotations](/cloud/rahti/tutorials/annotations/)

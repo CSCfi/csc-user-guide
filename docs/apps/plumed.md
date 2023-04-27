@@ -15,6 +15,7 @@ in molecular dynamics. It can be used with several MD codes.
 
 -   Puhti: 2.7.4, 2.8.0
 -   Mahti: 2.6.3, 2.7.2
+-   LUMI: 2.8.2
 
 ## License
 
@@ -28,8 +29,10 @@ to locate all versions and their library dependencies:
 
 ```bash
 module spider plumed
-module load <modules reveled by the spider command> plumed/<version>
+module load <dependencies reported by the spider command> plumed/<version>
 ```
+
+On LUMI, you need to first load the CSC module tree into use with `module use /appl/local/csc/modulefiles`.
 
 If you want to run molecular dynamics with plumed, either compile your MD engine of
 choice with plumed (see [selection e.g. here](https://www.plumed.org/)), or use e.g.
