@@ -225,14 +225,5 @@ We should define and use a command line interface because it is more flexible th
 We explain how to run serial, parallel and GPU jobs with Julia on Puhti and Mahti in the [**Running Julia jobs on Puhti and Mahti clusters**](../support/tutorials/julia.md) section.
 
 
-<!--
-### Jupyter and VSCode on the web interface
-We can also use Julia on the [**web interface**](../computing/webinterface/index.md).
-
-The web interface has a separate Jupyter installation for Julia named `Julia-Jupyter`.
-We can select is from the menu.
-
-We can use Julia on VSCode via the Julia extension.
-We need to start VSCode with the julia module by setting to the name of the Julia module, such as `julia/1.8.5`, to `Modules` section.
--->
-
+### Using Julia on Jupyter and VSCode
+Julia is also available on the web interface via [**Jupyter**](../computing/webinterface/julia-on-jupyter.md) and [**VSCode**](../computing/webinterface/vscode.md#julia-language).
