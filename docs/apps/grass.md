@@ -11,6 +11,7 @@ tags:
 
 __GRASS__ is available in Puhti with following versions:
 
+* GRASS 7.8.7 with qgis/3.31 module
 * GRASS 7.8.5 with qgis/3.22 module
 
 
@@ -18,24 +19,20 @@ __GRASS__ is available in Puhti with following versions:
 
 ### GRASS GIS Command Line Interface 
 
-In Puhti, GRASS GIS is included in [QGIS module](qgis.md). GRASS GIS command line tools can be used in an [interactive session](../computing/running/interactive-usage.md) or [batch jobs](../computing/running/getting-started.md). For using GRASS GIS, see [exmples for using GRASS GIS commands in Puhti with GRASS bash scripting, Python scripting or PyGRASS](https://github.com/csc-training/geocomputing/tree/master/grass).
+In Puhti, GRASS GIS is included in [QGIS module](qgis.md). GRASS GIS command line tools can be used in an [interactive session](../computing/running/interactive-usage.md) or [batch jobs](../computing/running/getting-started.md). See [examples for using GRASS GIS commands in Puhti with GRASS bash scripting, Python scripting or PyGRASS](https://github.com/csc-training/geocomputing/tree/master/grass). See also the references section at the end of this page.
 
 ### GRASS GIS Graphical User Interface
 
 The easiest option for using GRASS GIS is to open it in [Puhti web interface as Desktop app](../computing/webinterface/desktop.md).
 
 1. Log in to [Puhti web interface](https://puhti.csc.fi). 
-2. Start SNAP: Apps -> Desktop, choose Desktop: 'single application' and App: 'GRASS GIS'
-3. GRASS GIS is started automatically when the Desktop is launched. 
-
-Alternatively, especially if you want to use GRASS GIS together with some other GUI tool or want to user older version, GRASS GIS can be started in Puhti web interface with remote desktop:
-
-1. Log in to [Puhti web interface](https://puhti.csc.fi).
-2. Open Remote desktop: Apps -> Desktop, choose Desktop: `mate` or `xfce`. 
-3. After launcing the remote desktop, double-click GRASS GIS icon OR open `Host Terminal` (Desktop icon) and start GRASS GIS:
+2. Open Remote desktop: Apps -> Desktop, choose Desktop: `xfce`. 
+3. After launcing the remote desktop, double-click GRASS GIS icon for the newest version.
+ 
+If you want to use older version, open `Host Terminal` (Desktop icon) and start GRASS GIS:
 
 ```
-module load qgis
+module load qgis/3.22
 grass
 ```
 
@@ -46,8 +43,12 @@ Geographic Resources Analysis Support System (GRASS) is Copyright, 1999-2020 GRA
 Please acknowledge CSC and Geoportti in your publications, it is important for project continuation and funding reports.
 As an example, you can write "The authors wish to thank CSC - IT Center for Science, Finland (urn:nbn:fi:research-infras-2016072531) and the Open Geospatial Information Infrastructure for Research (Geoportti, urn:nbn:fi:research-infras-2016072513) for computational resources and support".
 
-### References
+## References
 
 * [GRASS GIS homepage](https://grass.osgeo.org/)
 * [GRASS GIS manuals](https://grass.osgeo.org/learn/manuals/)
+  * [Parellel GRASS jobs](https://grasswiki.osgeo.org/wiki/Parallel_GRASS_jobs)
 * [GRASS GIS tutorials](https://grass.osgeo.org/learn/tutorials/)
+* [GRASS database, location, mapset and region](https://grass.osgeo.org/grass79/manuals/grass_database.html), the basic concepts always needed with GRASS GIS. 
+In case of using parallel computation, be extra careful with `region`.
+* [Anna Petrasova, GRASS GIS workshop at FOSS4G, part 5: parallelization](https://github.com/ncsu-geoforall-lab/grass-gis-workshop-foss4g-2022/blob/main/workshop_part_5_parallelization.ipynb)
