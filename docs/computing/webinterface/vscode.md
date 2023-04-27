@@ -28,6 +28,10 @@ The compiler used can be selected when launching the interactive app.
 Changing compiler between the Intel compiler and gcc in the workspace may cause issues.
 Most of the problems can be solved by removing the launch and build configurations and creating them again.
 
+## Julia Language
+We can use the [**Julia Language**](../../apps/julia.md) by loading a Julia module, such as `julia/1.8.5`, when starting the VSCode session.
+CSC has installed the [Julia for Visual Studio Code](https://www.julia-vscode.org/) extension to support Julia language features.
+
 ## Troubleshooting
 If VSCode does not work properly you can clear the settings and launch the application again.
 This can be done done by deleting the folder `~/.local/share/csc-vscode`.
