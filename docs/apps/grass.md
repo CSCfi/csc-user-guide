@@ -19,7 +19,7 @@ __GRASS__ is available in Puhti with following versions:
 
 ### GRASS GIS Command Line Interface 
 
-In Puhti, GRASS GIS is included in [QGIS module](qgis.md). GRASS GIS command line tools can be used in an [interactive session](../computing/running/interactive-usage.md) or [batch jobs](../computing/running/getting-started.md). See [exmples for using GRASS GIS commands in Puhti with GRASS bash scripting, Python scripting or PyGRASS](https://github.com/csc-training/geocomputing/tree/master/grass). See also the references section at the end of this page.
+In Puhti, GRASS GIS is included in [QGIS module](qgis.md). GRASS GIS command line tools can be used in an [interactive session](../computing/running/interactive-usage.md) or [batch jobs](../computing/running/getting-started.md). See [examples for using GRASS GIS commands in Puhti with GRASS bash scripting, Python scripting or PyGRASS](https://github.com/csc-training/geocomputing/tree/master/grass). See also the references section at the end of this page.
 
 ### GRASS GIS Graphical User Interface
 
