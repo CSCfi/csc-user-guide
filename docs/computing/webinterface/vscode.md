@@ -29,7 +29,7 @@ Changing compiler between the Intel compiler and gcc in the workspace may cause 
 Most of the problems can be solved by removing the launch and build configurations and creating them again.
 
 ## Julia Language
-We can use the [**Julia Language**](../../apps/julia.md) by loading a Julia module, such as `julia/1.8.5`, when starting VSCode session.
+We can use the [**Julia Language**](../../apps/julia.md) by loading a Julia module, such as `julia/1.8.5`, when starting the VSCode session.
 CSC has installed the [Julia for Visual Studio Code](https://www.julia-vscode.org/) extension to support Julia language features.
 
 ## Troubleshooting
