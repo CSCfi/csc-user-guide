@@ -5,36 +5,34 @@ tags:
 
 # QGIS
 
-[QGIS](https://qgis.org/en/site/) is a free and open source GIS application that can be used for viewing, editing and analysing geospatial data. QGIS supports a very wide range of vector and raster formats and also common API protocols like WMS, WMTS, WCS and WFS.
+[QGIS](https://qgis.org/en/site/) is a free and open source GIS application that can be used for viewing, editing and analysing geospatial data. QGIS supports a very wide range of vector and raster formats and also common API protocols like WMS, WMTS, WCS and WFS. 
 
-In Puhti, QGIS could be used for example to visualize the resulting files from other sources (lastools, R, python)
+In Puhti, QGIS could be used for example to visualize the resulting files from processing with other tools: lastools, R, Python etc.
+
 
 ## Available
 
 __QGIS__ is available in Puhti with following versions:
 
+* 3.31
 * 3.22
 
 ## Usage
 
-The easiest option for using QGIS is to open it in [Puhti web interface as Desktop app](../computing/webinterface/desktop.md).
+The easiest option for using  QGIS is to open it in [Puhti web interface as Desktop app](../computing/webinterface/desktop.md).
 
 1. Log in to [Puhti web interface](https://puhti.csc.fi). 
-2. Start QGIS: Apps -> Desktop, choose Desktop: 'single application' and App: 'QGIS'
-3. QGIS is started automatically when the Desktop is launched. 
+2. Open Remote desktop: Apps -> Desktop, choose Desktop: `xfce`. 
+3. After launcing the remote desktop, double-click QGIS icon for the newest version.
 
-
-Alternatively, especially if you want to use QGIS together with some other Graphical User Interface (GUI) tool or want to use data from Allas, QGIS can be started in Puhti web interface with remote desktop:
-
-1. Log in to [Puhti web interface](https://puhti.csc.fi).
-2. Open Remote desktop: Apps -> Desktop, choose Desktop: `mate` or `xfce`. 
-3. After launcing the remote desktop, double-click QGIS icon OR open `Host Terminal` (Desktop icon) and start QGIS:
+If you want to use older version, open `Host Terminal` (Desktop icon) and start QGIS:
 
 ```
-module load qgis
+module load qgis/3.22
 qgis
 ```
 
+SagaGIS tools are not available by default with QGIS 3.31 in Processing Toolbox, but can be added with installing `Saga Next Gen` plug-in. This is a new plug-in and all tools might not work yet.  
 
 ### PyQGIS
 
@@ -57,3 +55,8 @@ As an example, you can write "The authors wish to thank CSC - IT Center for Scie
 * [QGIS tutorials](https://www.qgistutorials.com/en/)
 * [Free QGIS training material](https://qgis.org/en/site/forusers/trainingmaterial/index.html)
 * [PyQGIS cookbook](https://docs.qgis.org/testing/en/docs/pyqgis_developer_cookbook/)
+
+## Installation details
+
+* Version 3.31. The installation is based on [QGIS Docker image](https://hub.docker.com/r/qgis/qgis) and was done using [Tykky](../computing/containers/tykky.md) on 24.4.2023. The resulting files are available as [zip-package](https://gis-containers.a3s.fi/qgis_3_31_tykky.zip). 
+* Version 2.22. The installation is based on this [Singularity recipe](https://github.com/CSCfi/singularity-recipes/blob/main/qgis/qgis_plus_grass.def). [The resulting Singularity image](https://gis-containers.a3s.fi/qgis_3_22_grass_7_8_5.sif).
