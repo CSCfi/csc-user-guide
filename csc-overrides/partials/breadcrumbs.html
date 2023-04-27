@@ -1,0 +1,47 @@
+{%- if page %}
+    {% set parent_url = ("/" + "/".join(page.url.split("/")[:-2]) + "/")
+        |replace("/support/wn/", "/support/whats-new/") %}
+    {# Breadcrumbs are defined literally for pages that don't have ancestors: #}
+    {% set breadcrumbs = {
+        "/support/faq/": [
+            { "url": "/support/faq/", "title": "FAQ" }
+        ],
+        "/support/tutorials/": [
+            { "url": "/support/tutorials/", "title": "Tutorials" }
+        ],
+        "/support/tutorials/env-guide/": [
+            { "url": "/support/tutorials/", "title": "Tutorials" },
+            { "url": "/support/tutorials/env-guide/", "title": "Linux tutorials" }
+        ],
+        "/support/tutorials/gis/": [
+            { "url": "/support/tutorials/", "title": "Tutorials" },
+        ],
+        "/support/whats-new/": [
+            { "url": "/support/whats-new/", "title": "What's new" }
+        ],
+        "/apps/": [
+            { "url": "/apps/", "title": "Applications" }
+        ]
+    } %}
+    <nav class="csc-breadcrumbs">
+        {% if not page.is_homepage %}
+            <a class="csc-breadcrumbs__link" href="{{ base_url }}">Docs CSC</a>
+        {% endif %}
+        {%- for ancestor in page.ancestors[::-1] -%}
+            {% if ancestor.is_page %}
+                <a class="csc-breadcrumbs__link" href="/{{ ancestor.url }}">{{ ancestor.title }}</a>
+            {% endif %}
+        {%- endfor -%}
+        {% if not page.ancestors and parent_url in breadcrumbs %}
+            {% for breadcrumb in breadcrumbs[parent_url] %}
+                <a class="csc-breadcrumbs__link" href="{{ breadcrumb['url'] }}">{{ breadcrumb['title'] }}</a>
+            {% endfor %}
+        {% endif %}
+        {% if not page.is_homepage %}
+            {{ page.title }}
+        {% endif %}
+    </nav>
+    {% if config.extra.breadcrumbs_debug %}
+        {% include "partials/breadcrumbs-debug.html" %}
+    {% endif %}
+{%- endif %}

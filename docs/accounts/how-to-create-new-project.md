@@ -1,14 +1,20 @@
+---
+search:
+  boost: 2
+---
+
 # Creating a new project
 
 !!! Note
     Access to LUMI requires creating a separate LUMI-specific project. [How to create Finnish LUMI projects](how-to-create-new-project.md#how-to-create-finnish-lumi-projects) is detailed below.
 
+## How to create a CSC project
+
 A CSC user account is required for creating new projects.
 
 1. Login to [MyCSC](http://my.csc.fi).
-2. Choose _My projects_ in the navigation menu on the left.
-3. Scroll down to the end of the page and choose _Create a new
-project_.
+2. Choose _Projects_ in the navigation menu on the left.
+3. Click on **+ New project** on right top corner.
 4. Fill in the project name and description.
 5. Select the project type.
 6. Does your project handle personal data? Select _Yes_ or _No_. Read more about [handling personal data in your project](../accounts/when-your-project-handles-personal-data.md).
@@ -17,11 +23,9 @@ have read and accepted the General Terms of Use for..._
 8. Click _Create project_.
 
 !!! Note
-    If your work belongs to any of the [free-of-charge use cases](https://research.csc.fi/free-of-charge-use-cases){:target="_blank"} , select Academic as the project type. Academic projects can be opened only by members of Finnish higher education institutions, state research institutes and CSC. 
+    If your work belongs to any of the [free-of-charge use cases](https://research.csc.fi/free-of-charge-use-cases){:target="_blank"} , select Academic as the project type. Academic projects can be created  only by members of Finnish higher education institutions, state research institutes and CSC. 
 
 Projects are usually valid for one year at a time, but they can be extended. To extend a project, please see page [How to manage your project](how-to-manage-your-project.md).
-
-<iframe width="560" height="315" srcdoc="https://www.youtube.com/embed/rHVaZD9zwnk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ## How to create Finnish LUMI projects
 
@@ -34,11 +38,11 @@ LUMI services are free of charge for academic research for members of Finnish hi
 ### Creating a LUMI project and applying for resources
 
 1. Login to [MyCSC](http://my.csc.fi/) with your CSC user account or Haka/Virtu account
-2. Choose **My projects** in the navigation menu on the left.
-3. Scroll down to the end of the page and choose **Create a new project**.
-4. Fill in the **project name** and **description.**
-5. Select LUMI as the **project type**.
-6. Select LUMI **access mode** (Regular, Benchmark, or Development)
+2. Choose **Projects** in the navigation menu on the left.
+3. On the top of the page choose **+ New project**.
+4. Fill in the **Project name** and **Project description.**
+5. Select **LUMI** from the Project category list.
+6. Select LUMI **Access mode** (Regular, Benchmark, or Development)
 7. Fill in the **resources**: CPU core hours, GPU hours, Storage hours, and all the **text fields** carefully below. If the data is incomplete or insufficient, the application will be rejected. For Regular Access applications, a list of prior publications and a proper research plan are required. For Benchmark Access, a plan of how the resources will be used for the benchmarks is required, and for Development Access a description of program codes, methods and development objectives is required.
 8. Select the **Field of Science**, and fill in the **Keywords**.
 9. Does your project handle personal data? Please note: **LUMI projects are not allowed to handle personal data at present**.
@@ -47,3 +51,5 @@ LUMI services are free of charge for academic research for members of Finnish hi
 12. [Invite the project members](how-to-add-members-to-project.md) after creating a project.
 13. Your LUMI project application will be sent to be CSC Resource allocation administration to be processed. The CSC Resource allocation group has meetings [every three weeks](https://research.csc.fi/applying-for-computing-resources).
 14. Please note that LUMI access is provided only with SSH keys, not with passwords. After you have received an acceptance confirmation email for your LUMI project request, please [upload your public SSH key to MyCSC according to the instructions](../computing/connecting.md#setting-up-ssh-keys).
+
+For further information on LUMI projects please visit [Users in Finland](https://www.lumi-supercomputer.eu/get-started-2021/users-in-finland/){:target="_blank"}

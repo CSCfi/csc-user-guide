@@ -39,12 +39,12 @@ In the interactive session run:
 
 **RStudio**
 ```text
-module load r-env-singularity
+module load r-env
 start-rstudio-server
 ```
-This set up works with any [r-env-singularity module](../../apps/r-env-singularity.md).
+This set up works with any [r-env module](../../apps/r-env.md).
 It is also possible to launch a multi-threaded RStudio session using `start-rstudio-server-multithread`, if you have specified multiple cores when starting an interactive session. 
-Details on using threading with R can be found on the [r-env-singularity main page](../../apps/r-env-singularity.md#improving-performance-using-threading).
+Details on using threading with R can be found on the [r-env main page](../../apps/r-env.md#improving-performance-using-threading).
 
 **Jupyter**
 
@@ -72,7 +72,7 @@ This will start the RStudio, Jupyter Notebook or JupyterLab server on the comput
 Keep this terminal open as long as you are working, to keep the RStudio or Jupyter Notebook server running.
 
 ### 3. Create SSH tunnel from your PC to Puhti compute node
-* With Linux, MacOS ja MobaXterm, open a second SSH terminal on your local machine (do not connect to Puhti yet) and 
+* With Linux, MacOS and MobaXterm, open a second SSH terminal on your local machine (do not connect to Puhti yet) and 
 run the SSH tunnelling command printed out by the RStudio or Jupyter Notebook start-up script. 
 For example `ssh -N -L 8787:localhost:42896 -J john@puhti.csc.fi john@r07c49.bullx`
 * With PuTTy see the [SSH tunnelling with PuTTy](#ssh-tunnelling-with-putty) instructions.

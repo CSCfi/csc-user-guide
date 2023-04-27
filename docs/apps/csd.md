@@ -1,3 +1,8 @@
+---
+tags:
+  - Academic
+---
+
 # CSD
 
 The Cambridge Structural Database is a collection of small-molecule
@@ -20,7 +25,7 @@ Using the CSD components requires adhering [to these conditions](../img/CSDLicen
 
 ## Available
 
-- Puhti: 2021
+- Puhti: 2022
 - Download and install locally
 
 ## Usage
@@ -37,7 +42,7 @@ Software to access and analyse CSD entries:
 -   [ConQuest] search and retrieval software
 -   [Mercury] graphical display, analysis and visualisation of data
 -   [Hermes] Main graphical interface to analysis tools
--   [PreQuest] In-house database creation tools
+-   [CSD-Editor] In-house database creation tools (previously PreQuest)
 -   [IsoStar] A Knowledge Base of Intermolecular Interactions (not
     available on Puhti, please install locally, or use from CCDC)
 -   [Mogul] A Knowledge Base of Molecular Geometry
@@ -102,15 +107,14 @@ FAQs and useful tutorials can be found at [the CSD website](https://www.ccdc.cam
 
   [CSD]: http://www.ccdc.cam.ac.uk/products/csd_system
   [License agreement]: https://research.csc.fi/documents/48467/73370/CCDC+License+Agreement+Template.pdf/bea49ea1-a6ee-4e7e-94d3-9b7ef8e3a361
-  [ConQuest]: http://www.ccdc.cam.ac.uk/Solutions/CSDSystem/Pages/ConQuest.aspx
-  [Mercury]: https://www.ccdc.cam.ac.uk/solutions/csd-system/components/mercury/
-  [Hermes]: https://www.ccdc.cam.ac.uk/support-and-resources/ccdcresources/Hermes_User_Guide.pdf
-  [PreQuest]: http://www.ccdc.cam.ac.uk/Solutions/CSDSystem/Pages/PreQuest.aspx
-  [IsoStar]: http://www.ccdc.cam.ac.uk/Solutions/CSDSystem/Pages/IsoStar.aspx
-  [Mogul]: http://www.ccdc.cam.ac.uk/Solutions/CSDSystem/Pages/Mogul.aspx
-  [SuperStar]: http://www.ccdc.cam.ac.uk/Solutions/LifeSciences/Pages/SuperStar.aspx
-  [WebCSD]: http://www.ccdc.cam.ac.uk/Solutions/CSDSystem/Pages/WebCSD.aspx
-  [SolidFormModule]: http://www.ccdc.cam.ac.uk/Solutions/CSDSolidFormSuite/Pages/SolidFormModule.aspx
-  [CrossMiner]: https://www.ccdc.cam.ac.uk/solutions/csd-discovery/components/CSD-CrossMiner/
-  [DASH]: http://www.ccdc.cam.ac.uk/Solutions/PowderDiffraction/Pages/DASH.aspx
+  [ConQuest]: https://www.ccdc.cam.ac.uk/solutions/software/conquest/
+  [Mercury]: https://www.ccdc.cam.ac.uk/solutions/software/mercury/
+  [Hermes]: https://www.ccdc.cam.ac.uk/solutions/software/hermes/
+  [CSD-Editor]: https://www.ccdc.cam.ac.uk/solutions/software/csd-editor/
+  [IsoStar]: https://www.ccdc.cam.ac.uk/solutions/software/isostar/
+  [Mogul]: https://www.ccdc.cam.ac.uk/solutions/software/mogul/
+  [SuperStar]: https://www.ccdc.cam.ac.uk/solutions/software/superstar/
+  [WebCSD]: https://www.ccdc.cam.ac.uk/solutions/software/webcsd/
+  [CrossMiner]: https://www.ccdc.cam.ac.uk/solutions/software/csd-crossminer/
+  [DASH]: https://www.ccdc.cam.ac.uk/open-source-products/dash-software/
 

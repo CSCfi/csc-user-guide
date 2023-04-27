@@ -3,12 +3,12 @@
 The next few exercises take you through submitting your first batch jobs on Puhti.
 We've used R and HMMER as examples, but the principles are the same for other
 applications as well. However, please always consult the [application specific
-page](../../apps/alpha.md) if it exists. It may have a tailored template for you.
+page](../../apps/index.md) if it exists. It may have a tailored template for you.
 
 ## Get the exercise files
 ### a) Log in to Puhti from a terminal
 
-`ssh your-username@puhti.csc.fi`
+`ssh your-username@puhti.csc.fi` or if you don't have an ssh client available, you can log in via the [Puhti web interface](../../computing/webinterface/index.md) using your web browser and open a terminal there.
 
 ### b) Go to scratch directory and download the exercises file
 
@@ -107,9 +107,9 @@ If the job failed, please check which project you had in the batch script `--acc
 
 Run a simple R job from a script. The script will fit a straight line
 through a file containing some x,y value pairs. More info on
-[running R in the CSC environment](../../apps/r-env-singularity.md)
+[running R in the CSC environment](../../apps/r-env.md)
 
-### a) Set up an interactive batch job and initialize R-environment
+### a) Set up an interactive batch job and initialize R environment
 
 As we now plan to run an application interactively, we'll ask for an interactive
 batch job and work there, instead of the login node. The following
@@ -119,7 +119,7 @@ command will set it up (use the same _project_ as in the batch script above):
 sinteractive --account <project> --mem 4000 --tmp 10 --time 2:00:00
 ```
 
-Give `module load r-env-singularity` to initialize the R-environment.
+Give `module load r-env` to initialize the R environment.
 
 - **How do you know if it is already loaded?**
 
@@ -178,7 +178,7 @@ You should see three lines with the R commands.
 ### c) Run the script interactively
 
 ```
-singularity_wrapper exec Rscript --no-save --no-restore -f fit.R
+apptainer_wrapper exec Rscript --no-save --no-restore -f fit.R
 ```
 
 ### d) Results
@@ -191,7 +191,7 @@ Now run the previous R script as a batch job.
 
 ### a) Create a batch job script, which will submit the job to the queue.
 
-Copy the *serial batch script* template from [CSC's R-env-singularity page](../../../apps/r-env-singularity/#serial-batch-jobs)
+Copy the *serial batch script* template from [CSC's R-env page](../../../apps/r-env/#serial-batch-jobs)
 into a file called _batch.sh_
 
 In addition to setting up the computing requirements, this script
@@ -273,7 +273,7 @@ files to go to their own *directories* and files by editing/adding
 
 Change the SLURM partition to be used (`--partition=`) from _test_ to _small_.
 
-Before the line with `srun singularity_wrapper...`, add the following line
+Before the line with `srun apptainer_wrapper...`, add the following line
 
 ```
 dataname=$(sed -n "$SLURM_ARRAY_TASK_ID"p datanames.txt)
@@ -282,7 +282,7 @@ dataname=$(sed -n "$SLURM_ARRAY_TASK_ID"p datanames.txt)
 and edit the line to run the R command into:
 
 ```
-srun singularity_wrapper exec Rscript --no-save modelscript.R $dataname
+srun apptainer_wrapper exec Rscript --no-save modelscript.R $dataname
 ```
 
 You should now have:
@@ -306,7 +306,7 @@ You should get the fit coefficients in separate files in the
 Note, plotting will work only if you have 
 [remote X11 forwarding](../../../computing/connecting/#using-graphical-applications).
 Actually, for R, there is even a tailored remote setup using 
-[RStudio Server](../../apps/r-env-singularity.md),
+[RStudio Server](../../apps/r-env.md),
 and you're welcome to use that, but in this tutorial, the key point is to 
 demonstrate the general approach.
 
@@ -479,7 +479,7 @@ cp $CP2K_DATA_DIR/tests/QS/benchmark/H2O-32.inp .
 Then create a batch script and submit it with `sbatch`
 !!! Tip
     Remember to check the CSC software pages for [application specific
-    examples for batch jobs:](../../apps/alpha.md)
+    examples for batch jobs:](../../apps/index.md)
 
 For the first job, ask minimal resources (copy the rest of the
 batch script contents from CSC's CP2k page):

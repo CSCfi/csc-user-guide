@@ -6,7 +6,9 @@ The desktop can be launched as:
 * **`Mate` or `Xfce` desktop**, where one or several applications can be started. The applications mentioned below have been tested to work. Also other graphical tools available in Puhti could work.
 * **Single application**, currently are supported: [COMSOL](../../apps/comsol.md), [Grace](../../apps/grace.md), [GRASS GIS](../../apps/grass.md), [Maestro](../../apps/maestro.md), [MATLAB](../../apps/matlab.md), [ParaView](../../apps/paraview.md), [QGIS](../../apps/qgis.md), [SAGA GIS](../../apps/saga-gis.md), [SNAP](../../apps/snap.md), [Visit](../../apps/visit.md) and [VMD](../../apps/vmd.md).
 
-At the moment, only CPU rendering is supported in the graphical applications.
+Only CPU rendering is supported in the graphical applications launched from the desktop.
+See [here how to enable GPU-accelerated visualization](accelerated-visualization.md)
+for selected applications.
 
 ## Launching
 1. Open `Desktop` page under Apps 
@@ -22,12 +24,12 @@ There are two options for connecting to the remote desktop:
 2. **With VNC client**. For better performance you can use a native VNC client, such as RealVNC or TigerVNC. Native VNC client may also be a good alternative if experiencing issues with clipboard integration between remote desktop and local host with the browser connection. Instructions for native VNC clients can be found in the Native instructions tab. This requires installing the VNC client on your local machine.
 
 ## Using the desktop
-The applications mentioned above have a direct shortcuts on desktop.
+The applications mentioned above have a direct shortcut on desktop.
 
 For starting any other software available in Puhti:
 
 1. Open terminal
-2. Start the software as described in [Applications section](../../apps/alpha.md), usually `module load XX` and `<start_command_for_XX>`.
+2. Start the software as described in [Applications section](../../apps/index.md), usually `module load XX` and `<start_command_for_XX>`.
 
 (The applications menu in desktop does not include Puhti scientific applications, just basic Linux tools.)
 

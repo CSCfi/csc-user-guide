@@ -42,7 +42,7 @@ Data, just like other research outputs, should undergo some level of quality con
 
 ### Use standard, open data formats
 
-Every researcher has their own favorite tools for storing and analysing data. To make your data easy to use it is best to store it in a standard and open file format which can be used by various software and remains accessible over time (e.g. CSV, XML). These types of data formats are also good candidates for the digital preservation of data.
+Every researcher has their own favorite tools for storing and analysing data. To make your data easy to use it is best to store it in a standard and open [file format](metadata-and-documentation.md#files-and-file-formats) which can be used by various software and remains accessible over time (e.g. CSV, XML). These types of data formats are also good candidates for the digital preservation of data.
 
 ### Use good variable names and null values
 
@@ -51,6 +51,10 @@ Be consistent when naming variables and record enough information in order to ma
 ### Document your data processing
 
 Remember to record and report how your research data is analysed and processed. This is essential for both reproducibility and assessment of research quality. Lack of good [data documentation](metadata-and-documentation.md#data-documentation-also-called-detailed-descriptive-metadata-or-data-level-metadata) often leads to data loss. To keep [data and documentation well-organized](metadata-and-documentation.md#data-organization) you should also have a version control (manual or automatic) system in use. 
+
+### Reproducibility
+
+Reproducibility is an important part of providing evidence of the correctness of research results. Other researchers should be able to inspect the workflow and evaluate all of the steps that have been taken during the analysis and repeat them. Reproducibility is defined as the possibility to obtain consistent results using the same data and code as the original study (computational reproducibility). Replicability means obtaining consistent results across studies aimed at answering the same scientific question using new data or other new computational methods. In this case new data is collected or created. [Documenting and sharing](metadata-and-documentation.md#versioning) research software and workflows are crucial elements of reproducibility.
 
 ### Provide metadata
 
@@ -75,6 +79,24 @@ Data sharing is increasingly required by funding agencies and journals as it ben
     - The ELIXIR Research Data Management Kit, [RDMkit](https://rdmkit.elixir-europe.org/), is an online guide containing good data management practices throughout the data life cycle
     - [FAIRsharing.org](https://fairsharing.org/) A curated, informative and educational resource on data and metadata standards, interrelated to databases and data policies.
     - [CSC's videos on Research Data Management](https://video.csc.fi/playlist/details/0_xtsuml9w)  
+
+
+## Budgeting Research Data Management
+
+The processes of data management may incur costs. Researchers should plan to address these costs and the allocation of resources in the early planning phases of the project. The majority of funders accept data management as a legitimate cost that can and should be accounted for in the project budget.
+
+Estimate the resources needed to manage, share and preserve the data. Consider the additional computational facilities and resources that need to be accessed.
+
+Budgeting and costing for your project is often dependent upon institutional resources, services, and policies. Remember to consult your organisation’s data support office.
+
+!!! note "Examples of possible data management costs"
+    
+    - Will there be costs involved in storing the data? Will you need additional server space or tailored solutions?
+    - Are you planning to use commercial services for example for anonymising data, transcribing audio material, or using an electronic laboratory notebook?
+    - Will you need additional paid help for organising and documenting data; are your data files, sheets etc. stored in uniform format and clearly named and well organised and understandable? Higher costs will apply if organising data has been neglected during the project. 
+    - When you archive and open data, will there be costs involved?
+
+Read more about [CSC free-of-charge use cases and pricing](https://research.csc.fi/pricing-and-resources).
 
 
 ## How to manage sensitive data

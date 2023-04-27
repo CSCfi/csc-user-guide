@@ -1,50 +1,107 @@
----
-template: main-index.html
----
+<div style="margin-bottom: 2rem;">
+    <img
+      src="assets/images/logo.png"
+      alt="CSC logo"
+      style="
+        float: left;
+        height: 62px;
+        width: auto;
+        margin-right: 10px;
+      "
+    />
+    <h1
+      style="
+        margin: unset;
+        line-height: 1;
+        font-size: 42px;
+      "
+    >Docs CSC</h1>
+    <h2
+      style="
+        margin: unset;
+        line-height: 1;
+        font-size: 20px;
+        font-weight: var(--csc-font-weight--body);
+      "
+    >User guides and tutorials</h2>
+</div>
 
-<h1 id="welcometext"> Welcome to Docs CSC! </h1>
+<center>
+[![CSC Summer School in High-Performance Computing 2023](img/kesakoulu-2023_banner.png 'CSC Summer School in High-Performance Computing 2023')](https://ssl.eventilla.com/summerschool2023)
+</center>
 
+!!! default "Overview"
 
-<!--- Placeholder for a possible banner in the future
-
-[![CSC Summer School in High-Performance Computing 2022](img/banneri__summerhpc_800x164px_csc.fi.png 'CSC Summer School in High-Performance Computing 2022')](https://ssl.eventilla.com/summerschool)
--->
-
-!!! Overview
-    
     Docs CSC contains user guides, [FAQs](support/faq/index.md) and [tutorials](support/tutorials/index.md) related to CSC services.
 
     * In order to navigate across the CSC user guide, click on the topics on
       the left hand side of the navigation bar
     * Or use the search functionality
 
+<div class="quick-links-container">
 
-<h1 id="quicklinktitle"> Quick links </h1>
-<span class="index-quicklinks">
-[Puhti and Mahti Overview](computing/overview.md) 
-</span><br>
-<span class="index-quicklinks">
-[LUMI User Guide](https://docs.lumi-supercomputer.eu/) 
-</span><br>
-<span class="index-quicklinks">
-[Allas User Guide](data/Allas/index.md)
-</span><br>
-<span class="index-quicklinks">
-[Kvasi QLM Guide](computing/available-systems.md#kvasi)
-</span><br>
-<span class="index-quicklinks">
-[Getting started with Puhti](support/tutorials/puhti_quick.md)
-</span><br>
-<span class="index-quicklinks">
-[Getting started with Mahti](support/tutorials/mahti_quick.md)
-</span><br>
-<span class="index-quicklinks">
-[Getting started with LUMI](https://docs.lumi-supercomputer.eu/firststeps/getstarted/)
-</span><br>
-<span class="index-quicklinks">
-[Sensitive Data services User Guide](data/sensitive-data/index.md) 
-</span>
+  <div class="quick-links-topic">
+    <span class="quick-links-title"><h2>Getting started</h2></span>
+    <div class="quick-links-item">
+      <a class="quick-link" target="_self" href="accounts/">CSC Accounts and Projects</a>
+    </div>
+    <div class="quick-links-item">
+      <a class="quick-link" target="_self" href="computing/">Puhti and Mahti Overview</a>
+    </div>
+    <div class="quick-links-item">
+      <a class="quick-link" target="_self" href="support/tutorials/puhti_quick/">Getting started with Puhti</a>
+    </div>
+    <div class="quick-links-item">
+      <a class="quick-link" target="_self" href="support/tutorials/mahti_quick/">Getting started with Mahti</a>
+    </div>
+    <div class="quick-links-item">
+      <a class="quick-link" target="_blank" href="https://docs.lumi-supercomputer.eu/firststeps/getstarted/">Getting started with LUMI</a><sup>&#128279;</sup>
+    </div>
+  </div>
 
-# What's new
+  <div class="quick-links-topic">
+    <span class="quick-links-title"><h2>User guides</h2></span>
+    <div class="quick-links-item">
+      <a class="quick-link" target="_blank" href="https://docs.lumi-supercomputer.eu/">LUMI User Guide</a><sup>&#128279;</sup>
+    </div>
+    <div class="quick-links-item">
+      <a class="quick-link" target="_self" href="data/Allas/">Allas User Guide</a>
+    </div>
+    <div class="quick-links-item">
+      <a class="quick-link" target="_self" href="computing/quantum-computing/overview/">Quantum Computing Guide</a>
+    </div>
+    <div class="quick-links-item">
+      <a class="quick-link" target="_self" href="support/tutorials/ml-guide/">Machine Learning Guide</a>
+    </div>
+    <div class="quick-links-item">
+      <a class="quick-link" target="_self" href="data/sensitive-data/">Sensitive Data Services Guide</a>
+    </div>
+    <div class="quick-links-item">
+      <a class="quick-link" target="_blank" href="https://www.fairdata.fi/en/fairdata-quick-guide/">Fairdata Services Guides</a><sup>&#128279;</sup>
+    </div>
+  </div>
+
+  <div class="quick-links-topic">
+    <span class="quick-links-title"><h2>Tutorials/courses</h2></span>
+    <div class="quick-links-item">
+      <a class="quick-link" target="_blank" href="https://csc-training.github.io/csc-env-eff/">CSC Computing Environment</a><sup>&#128279;</sup>
+    </div>
+      <div class="quick-links-item">
+      <a class="quick-link" target="_blank" href="https://edukamu.fi/elements-of-supercomputing/">Elements of Supercomputing</a><sup>&#128279;</sup>
+    </div>
+    <div class="quick-links-item">
+      <a class="quick-link" target="_self" href="support/tutorials/env-guide/overview/">Linux basics for CSC</a>
+    </div>
+    <div class="quick-links-item">
+      <a class="quick-link" target="_self" href="computing/running/throughput/">High-throughput computing</a>
+    </div>
+    <div class="quick-links-item">
+      <a class="quick-link" target="_self" href="support/tutorials/clean-up-data/">Managing data on scratch</a>
+    </div>
+  </div>
+
+</div>
+
+## What's new
 
 <!-- Content will be generated here, do not EDIT manually -->  

@@ -1,87 +1,89 @@
-# Using Linux in command line
+# Using Linux from the command line
 
 ## Files and directories in Linux
 
-The file systems in Linux machines are based on hierarchical directory
-tree. There is one *root directory* in to which you can refer with
-*slash sign* (/). All the files and directories locate in the
-subdirectories of this directory so that each file has a unique
-combination of name and directory path. Also the commands that user
-gives are executed in a directory in which user currently is
-called *current working directory*.
+The file systems in Linux machines are based on a hierarchical directory
+tree. There is one *root directory* which you can refer to with the
+*forward slash symbol* (/). All the files and directories are located in the
+subdirectories of this directory, so that each file has a unique
+combination of a name and a directory path. Also, the commands that the user
+gives are executed in the directory that the user currently is. It is
+called the *current working directory*.
 
-Normally you do not need to know the explicit directory paths when you
+Normally, you do not need to know the explicit directory paths when you
 work in the CSC environment. It is enough to know the locations of the
-files in users own disk areas. The user and project specific disk areas
+files in the user's own disk areas. The user- and the project-specific disk areas
 are presented in chapter 3. However, you should remember that many disk
-areas in CSC environment can be accessed from several different servers
-(e.g. the users home directory) while some areas are server specific. In
-the case of shared disk areas the path to a certain file may be
-different in different servers.
+areas in the CSC environment can be accessed from several different servers
+(e.g., from the user's home directory) while some areas are server-specific. In
+the case of shared disk areas, the path to a certain file may be
+different on different servers.
 
-## Structure of linux commands
+## Structure of Linux commands
 
-Once the terminal connection to CSC, e.g. to [Puhti-shell], has been
-opened, the remote server is used with Linux commands. The standard
+Once the terminal connection to CSC, e.g., to [Puhti-shell], has been
+opened, the remote server is operated by using Linux commands. The standard
 structure of a command is:
 
 `command -options argument1 argument2 ...`
 
 The command is executed by pressing the *return key (Enter)*. The names
-and functions of options and arguments depend on the linux command. In
-many cases you can run the command without any options and arguments.
+and functions of the options and the arguments depend on the Linux command. In
+many cases, you can run the command without any options and arguments.
 Options are used to modify the actions that the command performs.
 Arguments are used to define the files, directories and values that are
 used as input parameters and to define where the output is written.
 
-For example command `ls` can be used as such or with several options
-and arguments. Running plane command `ls` lists the content of a
+For example, the command `ls` can be used as such or with several options
+and arguments. Running a plain command `ls` lists the content of a
 directory in alphabetical order. You can modify the output of the
-command for example by using option `-t`. With this option the
-directory content list is ordered by the age of the file (time stamp).
-If no argument is given, `ls` prints out the content of the current
-working directory. By giving an argument to the `ls` command, user can
-define a directory which content should be listed. For example command:
+command, for example, by using the option `-t`. With this option, the
+directory content list is ordered according to the age of the file (timestamp).
+If no argument is given, `ls` prints the content of the current
+working directory. By giving an argument to the `ls` command, the user can
+define a directory whose content should be listed. For example, the command
 
 `ls -t /scratch/project_2979797`
 
-will list the content of directory */scratch/project_2979797*. In case the command,
-argument or options contain errors, the command will not be executed
-when the return key is pressed. Instead an error message is printed to
-the screen. Thus having errors in the command normally does not cause
-any major problems. The output of commands depends on the command but in
+will list the content of directory */scratch/project_2979797*. In case there aer errors in the command,
+the arguments or the options, the command will not be executed
+when the return key is pressed. Instead, an error message is printed to
+the screen. Thus, having errors in the command often does not cause
+any major problems. Issues may arise when using undefined shell variables. 
+The output of commands vary from one command to the other but in
 many cases, no output means that command was successfully executed.
 
 Most of the Linux commands have their own manual page that can be
-studied with `man` command. For example the manual page of `ls`
-command could be studied with command:
+studied using the `man` command. For example the manual page of `ls`
+command is shown using the command
 
-    man ls
+    `man ls`
 
-The manual pages can be very detailed and technical. However, often you
-do not need to read and understand all the details on the manual pages,
-but instead you can just see what command line options are available for
-the given command, which are of interest for you and then start
+Manual pages can be very detailed and technical. However, often you
+do not need to read and understand all the details given there,
+but instead, you can just see what command-line options are available for
+the particular command, which are of interest to you and then start
 testing/using them in practice.
 
-Often the most difficult thing in using Linux is knowing the name of
-suitable command. Below we introduce to the most frequently used linux
-commands. You can also use command `apropos` to find suitable
-command. Apropos lists those Linux commands whose short description
-lines match the text that is given as a command argument. For example to
-look for commands that are processing *pdf* files you could give
-command:
+There are thousands of Linux commands, though, you do not need to know 
+the majority of them in order to get started. 
+Below, we introduce the most frequently used ones. You can also use 
+the command `apropos` to find a suitable command. 
+Apropos lists those Linux commands whose short description
+lines match the text that is given as a command argument. For example, 
+if you want to look for commands that are processing *pdf* files, you 
+could type
 
-    apropos pdf
+    `apropos pdf`
 
-Note that the listing that apropos prints out includes only linux
-commands but not application program names. Thus, the sample command
-above would produce a list that contain many pdf conversion commands but
-not the pdf viewing programs like `acroread` or `evince`.
+Note that the listing that apropos prints includes only Linux
+commands but not program names. Thus, the sample command
+above would produce a list that contains many pdf conversion commands but
+no pdf viewers such as `acroread` or `evince`.
 
 ## Basic commands for using directories
 
-Table below lists the commands that are most frequently used for moving in
+The table below lists the commands that are most frequently used for moving in
 the directory hierarchy and managing it. Below are some examples of
 directory related commands.
 
@@ -90,25 +92,25 @@ Basic directory commands
 | Name      | Argument    | Description                                           |
 |-----------|-------------|-------------------------------------------------------|
 | **cd**    | *directory* | Change current working directory                      |
-| **ls**    | *directory* | Lists the content of a directory                      |
+| **ls**    | *directory* | List the content of a directory                       |
 | **pwd**   |             | Print the directory path of current working directory |
 | **mkdir** | *directory* | Create a new directory                                |
 | **rmdir** | *directory* | Remove a directory                                    |
 
-When you log in to a server at CSC, you will first locate in your home
-directory. You can check your location i.e. the path of the current
-working directory with command `pwd` (abbreviation from Print
+When you log in to a server at CSC, you will be taken to your home
+directory. You can check your location, i.e., the path of the current
+working directory with the command `pwd` (abbreviation from Print
 current Working Directory). However, you do not have to remember the
-location of your home directory (see `cd` command).
+location of your home directory (see the `cd` command).
 
-The content of the directory can be listed with a command `ls`.
-Plain `ls` command just lists the names of the files and directories in
+The content of the directory can be listed with the `ls` command.
+The plain `ls` command just lists the names of the files and directories in
 your current directory. You can get more information about the files and
-directories with command `ls -la`. The `-l` option produces long
-directory listing that in addition to the name contains also information
-of accession settings, size and the modification dates of the files and
+directories with command `ls -la`. The `-l` option produces a long
+directory listing that, in addition to the name, contains also information
+about the access permissions, the size and the modification time of files and
 directories. The option `-a` defines that all files, including also
-the settings files that start with dot (.) character, are listed. Below
+hidden files that start with dot (.) character, are listed. Below
 is a sample output for `ls -la` command:
 
 ~~~~
@@ -129,31 +131,31 @@ drwxr-xr-x+ 2  kkayttaj csc          2 Dec 22 09:11 project1
 
 The first output *row: total 26914* tells that the total size of the
 files in the directory is 26914 KB. In the list, the first character
-tells if the item is a file (*-)* or directory(*d*). The next nine
+tells if the item is a file (*-)* or a directory(*d*). The next nine
 characters display the *access permissions* of the files (see the
 `chmod` command for more details). The next columns show the number of
 links pointing to the item, owner, user group, size in bytes,
-modification time and finally the name of the file or directory.
+modification time and the name of the file or directory.
 
-By default the files are presented in alphabetical order. You can order
-the results by the modification time with option `-t` or by size with
-option `-S` (note: upper case S, not lower case s). Two other
+By default, files are presented in an alphabetical order. You can order
+the results by modification time with the option `-t` or by size with the
+option `-S` (note: uppercase S, not lowercase s). Two other
 frequently used options are `-h` (Human readable) which prints out the
-sizes of larger files in megabytes or gigabytes and `-r` which means
-reverse sorting order. For example command:
+sizes of large files in megabytes or gigabytes, and `-r` which means
+reverse sorting order. For example, the command:
 
 ```bash
 ls -ltrh
 ```
 
 is very handy when you want to check what files have recently been
-modified or created. `ls` and `pwd` commands do not modify your files in
+modified or created. The `ls` and `pwd` commands do not modify files in
 any way so you can use them always when you want to know where you are
-and what files your current directory includes.
+and what files your current directory contains.
 
-Command `cd` ***directory\_name*** moves you from the current
-directory to a directory you specified. For example the user *kkayttaj*
-could go to his local temporary directory with command:
+The command `cd` ***directory\_name*** moves you from the current
+directory to a directory you specified. For example, the user *kkayttaj*
+could go to his local temporary directory using the command
 
 ```bash
 cd /local_scratch/kkayttaj
@@ -165,68 +167,74 @@ or
 cd $TMPDIR
 ```
 
-In the latter command automatically defined *environment variable*
-$TMPDIR, that contains the explicit directory path, is used to define
+In the latter command, the automatically defined *environment variable*
+$TMPDIR that contains the explicit directory path is used to define
 the target directory.
 
-New directories can be created with a command `mkdir`
-***directory\_name***. For example command:
+New directories can be created with the command `mkdir`
+***directory\_name***. For example, the command:
 
+```
     mkdir project1 
+```
 
-Creates a new directory called *project1*. You can use `ls` command to
+Creates a new directory called *project1*. You can use the `ls` command to
 check that the directory was created. Now you can go to this directory
-with command:
+with the command
 
+```
     cd project1 
+```
 
-You can come back from the project1 directory with command:
+You can come back from the *project1* directory using the command
 
+```
     cd .. 
+```
 
 Note the space between `cd` and the dots in the command. One dot (`.`) and
-two dots (`..`) have special meaning in the Linux commands. One dot (`.`)
-means the *current directory* and two dots (`..`) mean the directory that
-is one step lower in the directory tree i.e. the directory where current
-directory locates. Executing the `cd` command without any arguments will
-always move you back to your home directory, regardless where you are in
-the directory tree. An empty directory can be removed with command
+two dots (`..`) have a special meaning in Linux. One dot (`.`)
+means the *current directory*, and two dots (`..`) mean the directory that
+is one level up in the directory tree, i.e., the directory where the current
+directory resides. Executing the `cd` command without any arguments will
+always move you back to your home directory, regardless of where you are in
+the directory tree. An empty directory can be removed with the command
 `rmdir` *directory\_name*. For example:
 
-    rmdir project1 
+    `rmdir project1`
 
 ## Basic commands for files
 
-In a very basic level a file in a Linux system is just a string of
-bytes, were a byte consists of eight bits. So called text files the
-contain only bytes that can be interpreted as text characters using
-ASCII coding. Thus these files can be considered to consist of lines of
-text. In so called binary files, also non-ASCII bytes are used and the
-text can't and is not intended to be converted to text. Typical examples
+On a fundamental level, a file in a Linux system is just a string of
+bytes, were a byte consists of eight bits. So-called text files
+contain only bytes that can be interpreted as text characters using the
+ASCII encoding rules. Thus, these files can be considered as consisting of lines of
+text. In the so-called binary files, also non-ASCII bytes are used, and 
+they cannot and are not intended to be convertible to readable text. Typical examples
 of binary files are compiled programs, images or compressed files.
-Normally users work mostly with text files and also in the examples of
-this guide we normally assume that the files contain some kind of text
+Normally, users work mostly with text files, and also in the examples of
+this guide, we normally assume that the files contain some kind of text
 data: letters or numbers.
 
-Each file has a name. Name can in principle be any combination of
-characters. However, several characters have special meaning e.g.
-`?, * and #`, see [below](#special-characters) and
-thus using these characters in file names may cause problems. We
-recommend that you use only normal letters (lower or upper case),
-numbers, dot (`.`), dash (`-`) or under score (`_`) characters in
-file and directory names at CSC. Also the space characters in file names
-cause often problems. We recommend that the space characters are
-replaced with underscores, for example: *new\_file.txt*. Note that Linux
-is case sensitive: lower and upper case characters are not considered
-equal and for example names *New\_File.txt* and *new\_file.txt* refer to
+Each file has a name. The name can, in principle, be any combination of
+characters. However, several characters have a special meaning, e.g.,
+`?`, `*` and `#`, see [below](#special-characters) and
+thus, using these characters in filenames may cause problems. We
+recommend that you only use ordinary letters (lower- or uppercase),
+numbers, dots (`.`), dashes (`-`) or underscores (`_`) in
+file- and directory names. Also, using space characters in filenames 
+may cause problems. We recommend that space characters are
+replaced by underscores, for example, *new\_file.txt* instead of *new file.txt* . Note that Linux
+is case-sensitive: lower- and uppercase characters are not considered
+equal unlike in Windows computers, and, e.g., the names *New\_File.txt* and *new\_file.txt* refer to
 different files.
 
-In linux, usage of name extensions like .doc or .txt is not obligatory.
-Most of the linux tools do not require specific extensions to be used.
-However, on the long run, using systematic naming conventions, including
-illustrative name extensions, makes the file management easier.
+In Linux, the usage of filename extensions such as .doc or .txt is not obligatory.
+Most Linux tools do not require an extension to be specified.
+However, in the long run, using systematic naming conventions, including
+illustrative name extensions, makes file management easier.
 
-File related commands:
+File-processing commands:
 
 <table>
 <colgroup>
@@ -300,60 +308,68 @@ File related commands:
 </tbody>
 </table>
 
-You can study the content of text files with commands `cat`,
+You can explore the content of text files using the commands `cat`,
 `more` and `less`. These commands are safe to use as
-they don't modify the files in any way. For example you could study the
-*.bashrc* file in your home directory with commands:
+they do not modify the files in any way. For example, you could read the
+*.bashrc* file in your home directory with the commands
 
     cat .bashrc
     more .bashrc
     less .bashrc 
 
-`cat` command (abbreviation from concatenate) prints the content of
-the specified file or files to the *standard output* that by default
-means your screen. Pager programs `less` and `more` are often more
-useful tools for studying text files as they allow user to study the
-file one screenfull at a time. In both `more` and `less` programs you
-can move forward one line at a time by pressing *Return key* or one
-screenfull at a time by pressing *Space*. You can stop viewing the file
+The `cat` command (abbreviation from concatenate) prints the content of
+the specified file or files to the *standard output* which by default
+means your screen. The pager programs `less` and `more` are often more
+useful tools for studying text files as they allow the user to see the
+content of the file one screenfull at a time. In both programs, `more` and `less`, you
+can move forward one line at a time by pressing the *Return key* or one
+screenfull at a time by pressing *Space*. You can exit from the file preview
 by pressing `q`.
 
-The `less` pager program is more advanced than `more`. `Less` can browse
-the text also backwards either one row at a time by pressing `k` or
+The `less` pager program is more advanced than `more`. For example, `less` can browse 
+text also backwards, either one row at a time by pressing `k` or
 one screenfull at a time by pressing `b`. You can also search a text
 string from the document by using slash (`/`) character. For example,
-to locate a string *ABC* from the file in *less* program type `/ABC`
-and the press *Return*. `man` command uses `less` program as its pager.
+to locate the string *ABC* in a file opened with `less`, type `/ABC`
+and the press *Return*. Actually, the `man` command uses `less` as its pager.
 
-Commands `head` and `tail` can be used to see just the
-first or last rows of a file, respectively. By default these commands
-print out 10 lines, but you can change this by giving the number of rows
-to be printed as an option to a `head` or `tail` command. For example,
-to check the 30 last rows of a file called *run1.log* give command:
+The commands `head` and `tail` can be used to see just the
+first and the last rows of a file, respectively. By default, these commands
+print 10 lines, but you can change this by giving the number of rows
+to be printed as an argument to a `head` or `tail` command. For example,
+to check the last 30 rows of a file called *run1.log*, give the command
 
     tail -30 run1.log 
 
-Copying files to a new file or to another directory is done with command
-`cp` (copy). Find below two examples of copy commands:
+Copying files to a new file or to another directory is done using the command
+`cp` (copy). Below you can find two examples of copy commands:
 
 `cp output.dat output_copy.dat`  
 `cp output1.dat output2.dat results/ `
 
 The first command makes a copy of file *output.dat* to a new file called
-*output\_copy.dat*. In the second example the two files: *output1.dat*
+*output\_copy.dat*. In the second example, the files *output1.dat*
 and *output2.dat* are copied to an existing directory called *results*.
-Command `mv` (move) is used to rename or move the files to
+The command `mv` (move) is used to rename or move a file to
 another location. For example:
 
+```
     mv output.dat output_copy.dat
     mv output1.dat output2.dat results/ 
+```
 
-would create the same new files as `cp` sample commands. However in the
-case of `mv` the original files *output.dat*, *output1.dat* and
-*output2.dat*, would be removed from the current working directory.
+would create the same new files as the `cp` example commands. However, in the
+case of `mv`, the original files *output.dat*, *output1.dat* and
+*output2.dat* would be removed from the current working directory.
 
-Files are removed with command `rm file-name`. In the CSC environment, 
-the `rm` command used to ask the user to confirm that he/she really wants to remove the
+Files are removed using the command `rm filename`. By default, the file is deleted immediately.
+If you would like to first confirm file deletion, you can add a parameter to the command: `rm -i`. 
+To make this behaviour permanent, you can set an alias in your *.bashrc*:
+
+`alias rm="rm -i"`
+
+Note that after editting your *.bashrc* file, you need to use the `source ~/.bashrc` command or open a new shell.  
+After that, the `rm` command will always ask the user to confirm that he/she really wants to remove the
 file:
 
     kkayttaj@c305:~>rm output_copy.dat
@@ -362,21 +378,21 @@ file:
 You can answer *y* (yes) or *n* (no). Note that this confirmation step
 is not necessary in use in your local Linux environment or currently in Puhti.
 You can skip
-the confirmation query with option `-f`. However you should use this
+the confirmation query using the option `-f`, standing for *force*. However, you should use this
 option with caution as the `rm` command will remove the file immediately
 and permanently.  
 
 ## Special characters
 
 Some characters have special functions in Linux. In the following
-paragraphs we present characters that are used for redirecting standard
-input and output or used as so called *wildcard characters*.
+paragraphs, we present the characters that are used for redirecting standard
+input and output or used as the so-called *wildcard characters*.
 
-The `$` sign, that is used as an indicator of a variable name, `\#`
-mark that is used to place comments and different kind of quotation
-marks are discussed later on in the [linux scripting chapter].
+The `$` sign, that serves as an indicator of a variable name, the `#`
+symbol that is used to place comments, and the different kind of quotation
+marks are discussed later on in the [linux scripting chapter](linux-bash-scripts.md).
 
-Commonly used special characters
+### Commonly used special characters
 
 | Character    | Function                                                        |
 |--------------|-----------------------------------------------------------------|
@@ -394,55 +410,72 @@ Commonly used special characters
 
 ### Wildcard characters
 
-In Linux, question mark (`?`) and asterisk (`*`) are used as so
-called wildcard characters. They can be used to define arguments that
-match many files or directories. When used in the command arguments, the
+In Linux, a question mark (`?`) and an sterisk (`*`) are used as the so-called 
+wildcard characters. They can be used to define arguments that
+match many files or directories. When given as command arguments, the
 `?` sign is interpreted as *any single character* and `*` sign as *any
-string of characters*. For example command:
+string of characters*. For example,
 
     ls test?.input 
 
-Would produce a list of files that has a name: test*any
-character*.input. Thus files with names *testA.input* and *test4.input*
-would be listed, but file names like *test10.input* or *testOld.input*
-would be ignored. Instead, command:
+would produce a list of files that has a name: test*character*.input. 
+Thus, the files with names *testA.input* and *test4.input*
+would be listed, but filenames like *test10.input* or *testOld.input*
+would be ignored. Instead, the command
 
     ls test*.input 
 
 would list all of the files mentioned above as `*` matches any string.
-Now the only limitations would be that the command must start with
+Here, the only limitations would be that the command must start with the
 string *test* and end with string *.input*.
 
 ### Redirecting standard input and output
 
-Characters less than (`<`), greater than (`>`), `>>`
-and pipe (`|`) are used to control the standard input and output. The
-less than (`<`) instructs the command to read data for standard input
-from a file defined after that &lt; character instead of the keyboard.
+The characters *less than* (`<`), *greater than* (`>`), `>>`
+and *pipe* (`|`) are used to control the standard input and output. The
+*less than* symbol (`<`) instructs the command to read data 
+from a file defined after that &lt; character instead of reading from the keyboard.
 
-The greater than character ('>') would direct the standard output of to
-a new file instead of the display. For example command:
+The *greater than* character ('>') would redirect the output of a command to
+a new file instead of the display (standard output). For example, the command
 
 `ls test*.input > input_files `
 
 would produce a new file called *input\_files* that would contain the
-names of files that start with string *test* and end with *.input*.
-Using two greater than signs with no space between them (`>>`)
+names of files that start with the string *test* and end with *.input*.
+Using two *greater than* signs with no space between them (`>>`)
 would append the results of a command to the end of an existing file or,
-if the file does not yet exist, direct the output to a new file.
+if the file does not exist yet, direct the output to a new file with the specified filename.
 
-The pipe character (`|`) directs the standard output of the command
-to the standard input of the next command. With this function you can
-combine several linux commands into a command chain. For example if your
+The pipe character (`|`) redirects the output of the command
+as input for the next command. In this way, you can
+combine several Linux commands into a command chain. For example, if your
 file listing does not fit to one screen, you could redirect it to `less`
-command so that you can study and browse it one screenfull at a time.
-This kind of redirecting could be done with command:
+so that you can browse it one screenfull at a time.
+This kind of redirecting could be done like this:
 
+```
     ls -l | less 
+```
 
-As another example, we could use `grep` command as a post processor for
-`ls` command and pick for example those files that have been created on
-August 14th :
+As another example, we could use the `grep` command as a postprocessor for
+the output of the `ls` command and pick, e.g., those files that have been created on
+August 14th:
 
+```
     ls -l | grep "Aug 14"
+```
+
+## Further practice
+
+We recommend that you look up examples of the practical usage of Linux commands
+online. There are lots of resources showing efficient use of the toolset that
+comes with Linux, so that you can save your time and produce neat results
+faster.
+
+Defining own aliases is one of the ways of speeding up your work, and they are
+recommended. However, sometimes there might be name clashes and some commands
+might end up behaving unexpectedly. We have the tool called `csc-env` which
+shows how your environment differs from the default one. For more information,
+[check this documentation entry](../using_csc_env.md). 
 

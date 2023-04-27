@@ -1,3 +1,8 @@
+---
+tags:
+  - Free
+---
+
 # BWA
 
 Burrows-Wheeler Aligner (BWA) is an efficient program that aligns relatively short nucleotide sequences against a long reference sequence such as the human genome. It implements three algorithms, BWA-MEM (`mem`), BWA-Backtrack (`aln`) and BWA-SW (`bwasw`). BWA-Backtrack works for query sequences shorter than 200bp. The other two algorithms are used longer reads up to around 100kbp. BWA-MEM is recommend for reads longer than 70 gb.  All algorithms do gapped alignment.

@@ -1,3 +1,8 @@
+---
+tags:
+  - Other
+---
+
 # LAStools
 
 [LAStools](https://rapidlasso.com/lastools) is a collection of tools for LiDAR data processing. 
@@ -8,8 +13,7 @@
 
 LAStools is included in following modules:
 
-* lastools: 2021
-* [geoconda](geoconda.md): 3.7 and 3.8
+* lastools: 2022 (more exactly 220613)
 
 Load one of these modules, for example:
 
@@ -103,7 +107,7 @@ Now you can submit the job with
 
 ## License and acknowledgement
 
-For information on the legal use and licensing of LAStools, please read the [LAStools LICENSE](http://lastools.org/LICENSE.txt).
+For information on the legal use and licensing of LAStools, please read the [LAStools LICENSE](https://lastools.github.io/LICENSE.txt).
 
 Please acknowledge CSC and Geoportti in your publications, it is important for project continuation and funding reports.
 As an example, you can write "The authors wish to thank CSC - IT Center for Science, Finland (urn:nbn:fi:research-infras-2016072531) and the Open Geospatial Information Infrastructure for Research (Geoportti, urn:nbn:fi:research-infras-2016072513) for computational resources and support".

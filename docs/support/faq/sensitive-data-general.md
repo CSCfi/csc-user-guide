@@ -16,28 +16,26 @@ Briefly,
 
 * with SD Desktop, you can access a set of pre-built secure cloud computing environments via the public internet. You can carry out simple statistical analysis or complex computing in your private workspace. Once the analysis is finalized, you can quickly delete the Desktop.
 
-*  with SD Submit you can publish under control access any data up to 200 TB. If your project requires larger storage space, contact us at servicedesk@csc.fi.
-
 
 
 ## I am not an expert on cloud services and computing; where should I start?
 Get in touch with us. We can point out the correct documentation and discuss your needs in detail. Write at servicedesk@csc.fi (email subject: Sensitive Data). 
 
 ## What type of data can I process using the services?
-The data can be stored in SD Connect, analyzed in SD Desktop, and published via SD Submit in any format: simple text or spreadsheet files, complex genetic datasets, video or audio files, and images.
+The data can be stored in SD Connect, analyzed in SD Desktop in any format: simple text or spreadsheet files, complex genetic datasets, video or audio files, and images.
 
 ## Do you provide a backup service?
-There is no backup service available for SD Connect (storage and share) and SD Desktop (compute). However, SD Connect uses an object storage system that is fails to tolerate disk breaks. SD Submit (publish) will always maintain a second copy of the stored data.
+There is no backup service available for SD Connect (storage and share) and SD Desktop (compute). However, SD Connect uses an object storage system that is fails to tolerate disk breaks. 
 
 
 ## Are CSC Sensitive Data service free of charge?
-The Sensitive Data Services are free of charge for Finnish academics, according to CSC[ General Terms of use](https://research.csc.fi/general-terms-of-use). However, each service consumes resources: billing units for their use and quota for storage space allocation. 
+The Sensitive Data Services are free of charge for Finnish academics, according to CSC [General Terms of use](https://research.csc.fi/general-terms-of-use). However, each service consumes resources: billing units for their use and quota for storage space allocation. 
 
 **Billing units:**
 
 * When you create a new CSC project, you have about 10.000 billing units. 
 
-* You can find out how many billing units SD Desktop and Allas (for SD Connect) will use based on your needs with this [calculator](https://research.csc.fi/pricing). Here you can estimate the services usage cost in billing units or in euros.
+* You can find out how many billing units SD Desktop and Allas (for SD Connect) will use based on your needs with this [calculator](https://research.csc.fi/billing-units#buc). Here you can estimate the services usage cost in billing units or in euros.
 
 * Once you have estimated how many billing units your project would need every year, you can apply for more resources following these [instructions](../../accounts/how-to-apply-for-billing-units.md). If your projects last up to 5 years, a separate discussion and an agreement are needed. 
 

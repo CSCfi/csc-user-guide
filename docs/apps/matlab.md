@@ -1,3 +1,8 @@
+---
+tags:
+  - Academic
+---
+
 # MATLAB
 
 MATLAB is a high-level technical computing language and interactive environment for algorithm development, data visualization, data analysis, and numeric computation.
@@ -14,11 +19,11 @@ MATLAB is a high-level technical computing language and interactive environment 
 
 ## Available
 
-- Puhti: R2021b, R2021a, R2020b,R2020a, R2019b, R2019a, R2018b, R2018a, R2017b
+- Puhti: R2021b
 
 ## License
 
-Proprietary software. The terms of use of this software allow its use for only the affiliates (staff and students) of Finnish higher education institutions. **NB** If you are an user from a commercial company or Finnish research institute, please contact CSC servicedesk for further instructions.
+Proprietary software. The terms of use of this software allow its use for only the affiliates (staff and students) of Finnish higher education institutions. **NB** If you are an user from a commercial company or Finnish research institute, please [contact CSC Service Desk](../support/contact.md) for further instructions.
 
 ## Usage
 
@@ -27,20 +32,14 @@ At CSC, MATLAB is available both interactive and batch jobs. The interactive ses
 ### Interactive MATLAB Sessions on Puhti
 <div id="interactive-matlab" />
 
-There are four interactive MATLAB licenses with **two Parallel Computing Toolbox** and **two Compiler SDK** licenses available for temporary interactive academic use. We recommend to use [the Puhti web interface remote desktop](../computing/webinterface/desktop.md) for the sessions. After logging in to the web interface, MATLAB can be launched as follows:
-
-* Select "Desktop" from the "Apps"-view and specify your resource requirements
-* To only run the MATLAB app, select the `Desktop > single application` and `App > MATLAB` settings. 
-* To launch the full desktop, select either `mate` or `xfce` and run MATLAB from the host terminal or by clicking the desktop icon. If using the host terminal, open MATLAB with:
-
-```bash
-module load matlab/r2021b
-matlab
-```
+There are four interactive MATLAB licenses with **two Parallel Computing Toolbox** and **two Compiler SDK** licenses
+available for temporary interactive academic use. We recommend using [the Puhti web interface](../computing/webinterface/index.md)
+for the sessions. After logging in to the web interface, MATLAB can be launched by selecting it from the "Apps"-view
+and specifying your resource requirements.
 
 ### Getting Started with MATLAB Parallel Server on Puhti
 
-The use of MATLAB on Puhti is possible with the MATLAB Parallel Server product and is available for both academic and commercial users, who have their own license of MATLAB. CSC's MPS license makes possible parallel computing runs using up to 500 (academic) or 32 (commercial) cores. With MPS, users can submit jobs from their local MATLAB's GUI directly to the batch job system of Puhti. Before starting using MPS, it is strongly recommend to read the 'Computing' section in [Puhti User Guide](/computing/overview).
+The use of MATLAB on Puhti is possible with the MATLAB Parallel Server product and is available for both academic and commercial users, who have their own license of MATLAB. CSC's MPS license makes possible parallel computing runs using up to 500 (academic) or 32 (commercial) cores. With MPS, users can submit jobs from their local MATLAB's GUI directly to the batch job system of Puhti. Before starting using MPS, it is strongly recommend to read the 'Computing' section in [Puhti User Guide](../computing/index.md).
 
 #### Installing the Tool Scripts
 
@@ -64,7 +63,7 @@ Prior to submitting the batch job, we have to specify at least
 
 - Wall time (WallTime)
 - Memory reservation (MemUsage)
-- Billing project (AccountName)
+- Billing project (ComputingProject)
 - [Partition on Puhti](/computing/running/batch-job-partitions/) (QueueName)
 
 Optionally, we can configure also
@@ -73,19 +72,19 @@ Optionally, we can configure also
 - Working directory with a 'CurrentFolder' attribute
 
 ```bash
->> c = parcluster
->> c.AdditionalProperties.WallTime = '0:10:0'
->> c.AdditionalProperties.MemUsage = '2g'
->> c.AdditionalProperties.QueueName = 'small'
->> c.AdditionalProperties.AccountName = 'project_<id>'
+>> c = parcluster;
+>> c.AdditionalProperties.WallTime = '0:10:0';
+>> c.AdditionalProperties.MemUsage = '2g';
+>> c.AdditionalProperties.QueueName = 'small';
+>> c.AdditionalProperties.ComputingProject = 'project_<id>';
 >> % Check configured values
 >> c.AdditionalProperties
->> c.saveProfile
+>> c.saveProfile;
 ```
 
 To clear a value of a property, assign an empty value ('', [], or false), or execute `configCluster` to clear all values. For example, to turn off email notifications
 ```bash
->> c.AdditionalProperties.EmailAddress = ''
+>> c.AdditionalProperties.EmailAddress = '';
 ```
 
 #### Submitting a Simple Serial Job
@@ -93,7 +92,7 @@ To clear a value of a property, assign an empty value ('', [], or false), or exe
 We start by defining a handle to the cluster on your MATLAB's command window
 
 ```bash
->> c = parcluster
+>> c = parcluster;
 ```
 The first time you submit a job to Puhti, the system will prompt whether to use your CSC password or a ssh-key pair for authentication on the computing server. By answering 'No', the CSC's username and password will be asked. If you choose to use a ssh-key pair instead, the location of the key file will be asked next. The key will be stored by MPS, so that it will not be asked at a later time.
 
@@ -106,10 +105,7 @@ additionalSubmitArgs =
 
     '--ntasks=1 --licenses=mdcs:1'
 
->> % Wait for the job to finish before fetching the results.
->> j.wait
->>
->> % Now that the job has completed, fetch the results.
+>> %When the job has completed, fetch the results.
 >> j.fetchOutputs
 ```
 
@@ -117,9 +113,9 @@ additionalSubmitArgs =
 
 To retrieve a list of currently running or completed jobs, use
 ```bash
->> jobs = c.Jobs
+>> jobs = c.Jobs;
 >> % Get a handle to the job with sequence number 2
->> j2 = c.Jobs(2)
+>> j2 = c.Jobs(2);
 >> % Fetch results
 >> fetchOutputs(j2)
 ```
@@ -152,7 +148,7 @@ We'll use the batch command again, but since we're running a parallel job, we'll
 
 ```bash
 >> % Submitting a parallel job to 8 cores.
->> j = batch(c, @parallel_example, 1, {}, 'pool', 8, CurrentFolder','.', 'AutoAddClientPath',false)
+>> j = batch(c, @parallel_example, 1, {}, 'Pool', 8, CurrentFolder','.', 'AutoAddClientPath',false)
 ```
 
 At first, a parallel pool with eight cores will be constructed. Note that these jobs will always request n+1 CPU cores, since one core is required to manage the batch job and pool of cores. For example, a job that needs eight cores will consume nine CPU cores in total.
@@ -168,10 +164,10 @@ Once we have a handle to the cluster, we'll call the `findJob` method to search 
 #### Using GPUs
 
 ```bash
->> c = parcluster
->> c.AdditionalProperties.QueueName = 'gpu'
->> c.AdditionalProperties.GpuCard = 'v100'
->> c.AdditionalProperties.GpusPerNode = 1
+>> c = parcluster;
+>> c.AdditionalProperties.QueueName = 'gpu';
+>> c.AdditionalProperties.GpuCard = 'v100';
+>> c.AdditionalProperties.GpusPerNode = 1;
 >> j = batch(c, @gpuDevice, 1, {}, 'CurrentFolder', '.', 'AutoAddClientPath',false)
 ```
 
@@ -193,7 +189,4 @@ Documentation and manuals for MATLAB and related products is available via the D
 - [Parallel Computing Tutorials](http://www.mathworks.com/products/parallel-computing/tutorials.html)
 - [Parallel Computing Videos](http://www.mathworks.com/products/parallel-computing/videos.html)
 - [Parallel Computing Webinars](http://www.mathworks.com/products/parallel-computing/webinars.html)
-- [Puhti User Guide](/computing/overview/)
-
-
-
+- [Puhti User Guide](../computing/index.md)

@@ -7,13 +7,13 @@ workloads that can utilize both efficiently. At the same time their
 hardware is different, and this makes some worklods uniquely suitable
 for either Puhti or Mahti.
 
-In addition to the national resources, CSC's data center in Kajaani hosts the pan-European pre-exascale supercomputer LUMI. The CPU-partition of LUMI has been available since early 2022, while the largest partition of the system consisting of GPU-accelerated nodes is projected to be available in autumn 2022.
+In addition to the national resources, CSC's data center in Kajaani hosts the pan-European pre-exascale supercomputer LUMI. The CPU-partition of LUMI has been available since early 2022, while the largest partition of the system consisting of GPU-accelerated nodes is projected to be available in late 2022.
 
 ## LUMI
 
 LUMI is one of the three European pre-exascale supercomputers. It's an HPE Cray EX supercomputer consisting of several partitions targeted for different use cases. The largest partition of the system is the "LUMI-G" partition consisting of GPU accelerated nodes using a future-generation AMD Instinct GPUs. In addition to this, there is a smaller CPU-only partition, "LUMI-C" that features AMD EPYC "Milan" CPUs and an auxiliary partition for data analytics with large memory nodes and some GPUs for data visualization. Besides partitions dedicated to computation, LUMI also offers several storage partitions for a total of 117 PB of storage space.
 
-[A more technical description about LUMI](https://docs.lumi-supercomputer.eu/generic/overview/).
+[A more technical description about LUMI](https://docs.lumi-supercomputer.eu/hardware/).
 
 [How does LUMI-C differ from Mahti?](lumi-vs-mahti.md)
 
@@ -57,23 +57,3 @@ The selection of installed [scientific software](../apps/by_system.md#mahti) in
 Mahti is more limited than in Puhti.
 
 [A more technical description about Mahti](systems-mahti.md).
-
-
-## Kvasi
-
-**The Quantum Learning Machine**
-
-Quantum computers differ from their classical counterparts when it comes to the basic 
-computational operators. Before QPUs can be utilized, they require tailor-made programs 
-and algorithms. With Kvasi, the user can explore and develop algorithms 
-for quantum computers. Read here [detailed instructions on how to access](kvasi.md)
-
-Kvasi provides an ecosystem for developing and simulating quantum algorithms in both 
-ideal, and realistic, noisy conditions. With Kvasi, you can optimize your algorithm 
-for a specific hardware (QPU), with specific connections and basic gate operations.
-
-The algorithms can be developed either at a level close to the hardware, using 
-the Atos Quantum Assembler (AQASM) language, or using a higher level, Python based 
-language and ready-made libraries. The QLM comes with several ready-made examples.
-You can also download and run locally [myQLM](./kvasi.md#myqlm) - a light-weight version of the 
-QLM ecosystem.

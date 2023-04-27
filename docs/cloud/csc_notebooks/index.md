@@ -1,14 +1,14 @@
+---
+search:
+  boost: 2
+---
+
 # CSC Notebooks
 
 [CSC Notebooks](https://notebooks.csc.fi){target="_blank"} offers web applications for self-learning, hosting courses 
 and collaboration. The applications are accessed through a web browser and run in CSC cloud. You can log
 in with your Haka/Virtu/CSC customer account. We support Jupyter and RStudio based applications, with more options to 
 come in the future.
-
-!!!Note 
-
-    This documentation describes the upcoming new release that is currently available as **public beta** at
-    [notebooks-beta.rahtiapp.fi](https://notebooks-beta.rahtiapp.fi){target="_blank"}
 
 ## Who and how can CSC notebooks be used?
 
@@ -18,15 +18,16 @@ come in the future.
 
 ## Concepts
 
-To better understand the CSC Notebooks environment, we have collected all terms and concepts in a separate [concepts](concepts.md) document.
+To better understand the CSC Notebooks environment, we have collected all terms and concepts in 
+a separate [concepts](concepts.md) document.
 
 ## Data persistence
 
 CSC Notebooks provides different ways of sharing (e.g. course contents) and storing (e.g. students own progress) data. For an explanation of the different possibilities, see the separate document on [data persistence](data_persistence.md).
 
-## Summary of changes and improvements in beta
+## Summary of changes and improvements since previous major version
 
-See the separate [migration to beta](migration_to_beta.md) document.
+See the ["What's new" section for cloud services](../../support/whats-new.md).
 
 ## References
 

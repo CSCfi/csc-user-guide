@@ -10,6 +10,7 @@
 * [How can I move data between CSC and my local computer?](../../data/moving)
 * [Disk quota exceeded](disk-quota-exceeded.md)
 * [I need a Database, where can I deploy it?](database.md)
+* [Is there a glossary of the acronyms you keep using?](is-there-a-glossary-of-the-acronyms-you-keep-using.md)
 
 ## Batch jobs
 * [Why does my batch job fail?](why-does-my-batch-job-fail.md)
@@ -52,11 +53,12 @@
 * [How to use cPouta for Remote Desktop](how-to-use-pouta-for-remote-desktop.md)
 * [How to create default network and router in a Pouta project](how-to-create-default-network-and-router-in-pouta.md)
 * [How to use cPouta GPU for rendering](how-to-use-cpouta-gpu-for-rendering.md)
-* [How to mount my Pouta Object Storage bucket to a VM running in cPouta](how-to-mount-os-bucket-for-cpouta.md)
+* [How to mount my Allas S3 bucket to a VM running in cPouta](how-to-mount-os-bucket-for-cpouta.md)
 * [Do you offer SSL certificates?](do-you-offer-ssl-certificates.md)
 * [Can I run MPI applications on pouta?](can-i-run-mpi-applications-on-pouta.md)
 * [How fast is the Pouta network?](how-fast-is-the-pouta-network.md)
 * [Why can't I connect to my VM in Pouta?](why-cant-i-connect-to-my-vm-in-pouta.md)
+* [How can I give access to other people to my VM in Pouta?](how-can-I-give-access-to-other-people-to-my-vm-in-pouta.md)
 * [Can I access my CSC home/wrkdir/scratch/project directories from Pouta?](how-to-access-home-wrkdir-projdir-from-epouta.md)
 * [What are volumes? How do I use them?](what-are-volumes-and-how-to-use.md)
 * [Is Pouta backed up?](is-pouta-backed-up.md)
@@ -73,7 +75,7 @@
 * [Does Rahti support UDP connections?](rahti-udp.md)
 * [Why my SSH key does not work in Rahti?](ssh-clone.md)
 * [Why Rahti cannot find this docker image?](get-image-format.md)
-
+* [How to open a terminal to a Pod?](terminal-rahti-pod.md)
 
 
 ## Sensitive Data Services for research
@@ -146,29 +148,12 @@
 * [Can I have root or sudo access to a virtual machine running in SD Desktop?](sensitive-data-desktop.md#can-i-have-root-or-sudo-access-to-a-virtual-machine-running-in-sd-desktop)
 * [Why do I see the word guacamole in the URL next to sd-desktop.CSC.fi?](sensitive-data-desktop.md#why-do-i-see-the-word-guacamole-in-the-url-next-to-sd-desktopcscfi)
 
-### SD Desktop Limited Edition
+### SD Desktop for secondary use of health and social data (register data)
 
-* [What is SD Desktop Limited Edition for?](sensitive-data-desktop-le.md#what-is-sd-desktop-limited-edition-for)
-* [What is the difference between standard SD Desktop and SD Desktop Limited Edition?](sensitive-data-desktop-le.md#what-is-the-difference-between-standard-sd-desktop-and-sd-desktop-limited-edition)
-* [How can I access my dataset with SD Desktop Limited Edition?](sensitive-data-desktop-le.md#how-can-i-access-my-dataset-with-sd-desktop-limited-edition)
-* [Can I combine my own data with registry data in SD Desktop Limited Edition?](sensitive-data-desktop-le.md#can-i-combine-my-own-data-with-registry-data-in-sd-desktop-limited-edition)
-* [Is it possible to install software to SD Desktop Limited Edition?](sensitive-data-desktop-le.md#is-it-possible-to-install-software-to-sd-desktop-limited-edition)
-* [How can I export my results from the Desktop?](sensitive-data-desktop-le.md#how-can-i-export-my-results-from-the-desktop)
-* [What will happen to my data after the data permit expires?](sensitive-data-desktop-le.md#what-will-happen-to-my-data-after-the-data-permit-expires)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+* [What is SD Desktop for seconday use?](sensitive-data-desktop-audited.md#what-is-the-sd-desktop-for-secondary-use)
+* [How does processing secondary use data on SD Desktop differ from standard use of Sensitive Data services?](sensitive-data-desktop-audited.md#how-does-processing-secondary-use-data-on-sd-desktop-differ-from-standard-use-of-sensitive-data-services)
+* [How can I access register data with SD Desktop?](sensitive-data-desktop-audited.md#how-can-i-access-register-data-with-sd-desktop)
+* [Can I combine my own data with register data on SD Desktop?](sensitive-data-desktop-audited.md#can-i-combine-my-own-data-with-register-data-on-sd-desktop)
+* [Is it possible to install software to SD Desktop when processing secondary use data?](sensitive-data-desktop-audited.md#is-it-possible-to-install-software-to-sd-desktop-when-processing-secondary-use-data)
+* [How can I export my results from the Desktop?](sensitive-data-desktop-audited.md#how-can-i-export-my-results-from-sd-desktop)
+* [What will happen to my data after the secondary use data permit expires?](sensitive-data-desktop-audited.md#what-will-happen-to-my-data-after-the-secondary-use-data-permit-expires)

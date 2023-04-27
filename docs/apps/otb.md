@@ -1,3 +1,8 @@
+---
+tags:
+  - Free
+---
+
 # Orfeo ToolBox (Open Source processing of remote sensing images) 
 
 [Orfeo ToolBox](https://www.orfeo-toolbox.org/) or OTB is an open source application for processing high resolution optical, multispectral and radar images at the terabyte scale.
@@ -6,7 +11,7 @@
 
 Orfeo ToolBox is available in the following versions:
 
-* 7.2.0
+* 8.0.1
 
 ## Usage
 
@@ -14,7 +19,7 @@ Orfeo ToolBox is available in the following versions:
 
 Orfeo ToolBox can be loaded with
 
-`module load otb`
+`module load orfeotoolbox`
 
 ### Using the command line tools
 
@@ -44,6 +49,13 @@ app.SetParameterString("out", out)
 app.ExecuteAndWriteOutput()
 ```
 
+### Using the graphical tools
+
+Start [Monteverdi](https://www.orfeo-toolbox.org/CookBook/Monteverdi.html):
+```
+monteverdi
+```
+Also other graphical tools available, see 'ls /appl/soft/geo/orfeotoolbox/8.0.1/bin/otbgui*' for full list. 
 
 ### Running OTB applications in parallel 
 

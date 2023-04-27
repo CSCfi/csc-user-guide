@@ -8,7 +8,7 @@
 
 [Store and Share Data](https://research.csc.fi/storage)
 
-[Storage Comparison Table](https://research.csc.fi/storage-comparison-table)
+[Storage Comparison Table](#storage-comparison-table)
 
 [Services for Sensitive Data](../sensitive-data/index.md)
 
@@ -39,7 +39,6 @@ When you are looking for a place where to store data during your research projec
 - how big are the individual files (e.g. it is not sensible to store too small files or too big files)
 - should the file transfer be automated e.g. with a script
 - do you need to store metadata with your data and what type of metadata
-- does the data contain personal information and/or sensitive data
 - what level of security does your data require
 
 After you have decided which storage solution to use, you should think through how you [organize your data](metadata-and-documentation.md#data-organization).
@@ -80,12 +79,12 @@ It is also worth noting that transferring large amounts of data takes time. For 
 
 **File size units from the smallest to the largest:**
 
-1 byte (B) = the basic unit of digital information
-1 kibibyte (KiB) = 1024 bytes
-1 mebibyte (MiB) = 1024 kibibytes
-1 gibibyte (GiB) = 1024 mebibytes
-1 tebibyte (TiB) = 1024 gibibytes
-1 pebibyte (PiB) = 1024 tebibytes 
+ -  1 byte (B) = the basic unit of digital information
+ -  1 kibibyte (KiB) = 1024 bytes
+ -  1 mebibyte (MiB) = 1024 kibibytes
+ -  1 gibibyte (GiB) = 1024 mebibytes
+ -  1 tebibyte (TiB) = 1024 gibibytes
+ -  1 pebibyte (PiB) = 1024 tebibytes 
 
 **Example file sizes for different types of data**
 
@@ -104,3 +103,23 @@ Note that file sizes can vary a lot, depending for example on the quality of an 
 |Human genome sequence                  |60 GiB           |0                       |0                        |17                      |
 
 **Average file size** is based on data from 14,000 word processing files, 1,000 presentation graphics files, 4 million JPEG images, 27,000 PDF files, and 7,000 MPEG files related to the study, as well as data from 5 non-study 30-minute HD h264 videos. 
+
+## Storage Comparison Table
+
+We provide multiple storage options for research purposes. You can find the right storage solution for you in the comparison table below. We recommend [creating a data management plan](datamanagement.md) when you consider data storage options. If you have questions, our service desk (<mailto:servicedesk@csc.fi>) will provide personal guidance and expert support in choosing the right storage solution for your data.
+
+ -  We also provision storage capacity (CEPH/NFS) on request.
+
+
+| Service                                    | Intended purpose                                               | Currently available quotas*                                | Interfaces                                                             | Single user or project based access | Additional features                                                                 | Service offered by                |
+|:------------------------------------------:|:--------------------------------------------------------------:|:----------------------------------------------------------:|:----------------------------------------------------------------------:|:-----------------------------------:|:-----------------------------------------------------------------------------------:|:---------------------------------:|
+| [**Allas object storage**](../Allas/index.md)                  | platform independent data storage and sharing                  | 10 TB (more on request)                                    | S3 and Swift clients. OpenStack Horizon web interface.                 | project group                       | enables sharing data from the service                                               | CSC                               |
+| [**Fairdata IDA storage service**](https://www.fairdata.fi/en/services/ida/)              | store, share and publish research data                                | granted based on application  (from 1 GB to around 100 TB) | browser, CLI                                                           | project group                       | users commit to publishing the stored data in Fairdata Etsin service                       |  MINEDU (service produced by CSC) |
+| [**Storage in CSC cloud environments**](../../cloud/pouta/storage.md)| temporary or persistent storage resources via virtual machines | 1 TB (more on request)                                     | block storage via virtual machine, big data frameworks (Hadoop, Spark) | project group                       |                                                                             | CSC                               |
+|  [**Project directories in Puhti supercomputer**](../../computing/disk.md) | disk areas for processing data                                 | 50GB, 1 TB short term (more on request)                    | file system                                                            | project group                       |                                                                             | CSC                               |
+| [**EUDAT B2DROP**](http://www.eudat.eu/services/b2drop) | storing, sharing and syncing files                             | 20 GB                                                      | browser, desktop                                                       | single user                         | enables sharing data from the service, and publishing data in EUDAT B2SHARE service | EUDAT                             |
+| [**Kaivos relational database service**](../kaivos/overview.md) | data for applications utilizing relational databases           | up to tens of GBs                                          | MariaDB database                                                       | project group                       |                                                                           | CSC                               |
+| [**Sensitive Data (SD) Connect**](../sensitive-data/sd_connect.md) | Store, collect and share encrypted research data              | 10 TB (more on request)                                        | Browser and CLI                                                      | project group                       | Enables sharing data from the service. Enables analysing encrypted data from the SD Desktop service. [More info on SD services](https://research.csc.fi/sensitive-data-services-for-research)| CSC                               |
+
+
+* For more detailed information about available storage capacity, see the [information on default quotas](https://research.csc.fi/quotas).

@@ -1,3 +1,8 @@
+---
+tags:
+  - Other
+---
+
 # ArcGIS
 
 [ArcGIS software] covers a wide range of sophisticated GIS
@@ -13,8 +18,8 @@ To the members of ArcGIS software consortium these products are available (for d
 -   ArcGIS Online
 -   ArcGIS Pro and Desktop.
 -   ArcGIS Enterprise 
+-   ArcGIS Drone2map, NEW 2022
 -   Esri CityEngine
--   ArcPad
 -   ArcGIS Monitor
 -   ArcGIS Hub Premium
 -   ArcGIS Developer Subscription
@@ -76,9 +81,9 @@ License is borrowed with [ArcGIS Administrator](http://desktop.arcgis.com/en/arc
 
 ------------------------------------------------------------------------
 
-## ArcGIS Server, ArcPad 
+## ArcGIS Server 
 
-These do not use license server, they need registration code for
+It does not use license server and needs a registration code for
 installation, these are available from University's contact persons.
 
 ------------------------------------------------------------------------
@@ -125,9 +130,8 @@ for it from CSC.
 ------------------------------------------------------------------------
 ## ArcGIS in CSC's computing environment
 
-*   ArcGIS desktop tools ArcGIS Pro and ArcMap support only Windows operating system, which makes installing them impossible in CSC's Puhti supercomputer and very difficult in cPouta cloud, because of limited support of Windows in cPouta.
+*   ArcGIS desktop tools ArcGIS Pro and ArcMap support only Windows operating system, which makes installing them impossible in CSC's supercomputers and very difficult in cPouta cloud, because of limited support of Windows in cPouta.
 *   ESRI provides [a wide range of server products](https://enterprise.arcgis.com/en/server/latest/get-started/windows/about-arcgis-server-licensing-roles.htm) for big scale spatial data analysis. These ArcGIS server products usually support Linux operating system can in principle be installed to cPouta cloud.
-*   Puhti has [ArcGIS Python API](https://developers.arcgis.com/python/) in [geoconda](geoconda.md) module, that can be used also for data analysis. [ArcGIS Python API has Apache 2.0 license](https://github.com/Esri/arcgis-python-api/blob/master/LICENSE).
 *   For running ArcPy scripts in CSC computing environment, the best option is to install ArcGIS Server with ArcPy to cPouta. ArcGIS Server ArcPy might be slightly different than ArcGIS desktop ArcPy. The installation instructions can be found from [GitHub](https://github.com/csc-training/geocomputing/tree/master/pouta/arcpy).
 
 ------------------------------------------------------------------------
@@ -147,17 +151,16 @@ for it from CSC.
 |-------------------------|--------------------------------------|
 | Aalto university        | Pekka Karppinen                      |
 | University of Helsinki  | helpdesk at helsinki.fi              |
-| HAMK                    | Kirsi Laaksonen                         |
+| HAMK                    | Esa Lientola                |
 | UEF                     | Sonja Kivinen                       |
 | University of Jyväskylä | Juha Alioravainen, Anssi Lensu       |
 | Karelia AMK             | Antti Lajunen                        |
 | Lapin AMK               | lisenssit at lapinamk.fi             |
-| Laurea AMK              | servicedesk at laurea.fi             |
 | Kaakkois-Suomen AMK     | Pertti Kilpeläinen                   |
 | Novia AMK               | Stefan Heinänen         |
 | University of Oulu      | Lauri Aho                            |
 | TUT, Tampere AMK        | it-helpdesk at tuni.fi               |
-| University of Turku      | Leena Laurila |
+| University of Turku      | Leena Laurila                       |
 | Åbo Akademi             | Mårten Hedman                         |
 
 

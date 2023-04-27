@@ -1,23 +1,50 @@
+---
+title: GPU-accelerated machine learning
+---
+
+!!! note "Practical Deep Learning, May 3-5" 
+    The popular Practical Deep Learning course by CSC will be held again
+    May 3-5. The course gives an introduction to deep learning and how to
+    do machine learning on Puhti and LUMI supercomputers. 
+    [Registration is now open!](https://ssl.eventilla.com/event/8aPek)
+
 # GPU-accelerated machine learning
 
 This guide explains the basics of using GPUs in CSC's supercomputers. It is part
 of our [Machine learning guide](ml-guide.md).
 
 
-## Puhti or Mahti?
+## Puhti, Mahti or LUMI?
 
-Puhti and Mahti are CSC's two supercomputers. Puhti has the largest number of
-GPUs (V100) and offers the widest selection of installed software, while Mahti
-has a smaller number of faster newer generation A100 GPUs. The main GPU-related
-statistics are summarized in the table below.
+Puhti and Mahti are CSC's two national supercomputers. Puhti has the
+largest number of GPUs (V100) and offers the widest selection of
+installed software, while Mahti has a smaller number of faster newer
+generation A100 GPUs.
 
-|       | GPU type           | GPU memory | GPU nodes | GPUs/node | Total GPUs |
-|-------|--------------------|------------|-----------|-----------|------------|
-| Puhti | NVIDIA Volta V100  | 32 GB      | 80        | 4         | 320        |
-| Mahti | NVIDIA Ampere A100 | 40 GB      | 24        | 4         | 96         |
+The CSC-hosted European supercomputer
+[LUMI](https://docs.lumi-supercomputer.eu/hardware/) will
+provide a massive GPU resource once it's up and running. Currently,
+only a [small early access
+platform](https://docs.lumi-supercomputer.eu/hardware/compute/eap/) is available for
+testing code compatibility.
 
-Please read our [usage policy for the GPU
-nodes](../../computing/overview.md#gpu-nodes). Also consider that the Slurm
+The main GPU-related statistics are summarized in the table below.
+
+|       | GPU type           | GPU memory  | GPU nodes | GPUs/node | Total GPUs    |
+|-------|--------------------|-------------|-----------|-----------|---------------|
+| Puhti | NVIDIA Volta V100  | 32 GB       | 80        | 4         | 320           |
+| Mahti | NVIDIA Ampere A100 | 40 GB       | 24        | 4         | 96            |
+| LUMI  | AMD MI250x         | 64 (128) GB | 2560      | 8 (4)     | 20480 (10240) |
+
+!!! info "Note"
+
+    Each LUMI node has 4 MI250x GPUs, however 8 GPUs will be available
+    through Slurm as the MI250x card features 2 GPU dies (GCDs). The table
+    above shows the GPU die specific numbers, MI250x card specific numbers
+    are shown in parenthesis.
+
+Please read our
+[usage policy for the GPU nodes](../../computing/usage-policy.md#gpu-nodes). Also consider that the Slurm
 queuing situation may vary between Puhti and Mahti at different times. However,
 note that Puhti and Mahti have distinct file systems, so you need to manually
 copy your files if you wish to change the system. **In case you are unsure which
@@ -25,11 +52,12 @@ supercomputer to use, Puhti is a good default** as it has a wider set of
 software supported.
 
 
+
 ## Available machine learning software
 
-We support [a number of
-applications](../../apps/index.md#data-analytics-and-machine-learning) for
-GPU-accelerated machine learning on CSC's supercomputers, including
+We support
+[a number of applications](../../apps/by_discipline.md#data-analytics-and-machine-learning)
+for GPU-accelerated machine learning on CSC's supercomputers, including
 [TensorFlow](../../apps/tensorflow.md) and [PyTorch](../../apps/pytorch.md).
 Please read the detailed instructions for the specific application that you are
 interested in.
@@ -221,7 +249,7 @@ interface.  The profilers can be used to identify resource consumption
 and to resolve performance bottlenecks, in particular the data input
 pipeline.
 
-See also [how to launch TensorBoard using the Puhti web
-interface](https://docs.csc.fi/computing/webinterface/apps/). The
-TensorFlow module `tensorflow/2.8` or later is required to use the
+See also
+[how to launch TensorBoard using the Puhti web interface](../../computing/webinterface/apps.md).
+The TensorFlow module `tensorflow/2.8` or later is required to use the
 profilers.

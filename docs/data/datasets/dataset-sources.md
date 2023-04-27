@@ -7,7 +7,9 @@
 
   - [Overview](datamanagement.md#overview)
   - [Best practices](datamanagement.md#best-practices)
+  - [Budgeting Research Data Management](datamanagement.md#budgeting-research-data-management)
   - [How to manage sensitive data](datamanagement.md#how-to-manage-sensitive-data)
+  - [Best Practices for Client Side Encryption](best-encryption-practices.md)
 
 ## [Metadata and Data Documentation](metadata-and-documentation.md)
 
@@ -32,6 +34,7 @@
   - [When the research project ends](hosting-datasets-at-CSC.md#when-the-research-project-ends)
   - [Preservation](hosting-datasets-at-CSC.md#preservation)
   - [How much storage space is needed](hosting-datasets-at-CSC.md#how-much-storage-space-is-needed)
+  - [Storage comparison table](hosting-datasets-at-CSC.md#storage-comparison-table)
 
 ## [Publishing Datasets](publishing-datasets.md)
 

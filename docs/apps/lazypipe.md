@@ -1,3 +1,8 @@
+---
+tags:
+  - Free
+---
+
 # Lazypipe
 
 ## Description 
@@ -15,22 +20,23 @@ Free to use and open source under [MIT License](https://raw.githubusercontent.co
 All components of Lazypipe pipeline are available in Puhti. The [Lazypipe home page](https://www.helsinki.fi/en/projects/lazypipe) provides detailed instruction how to set up your own Lazypipe environment to Puhti, but this is not needed if you use the Lazypipe module that is loaded with commands:
 
 ```text
-module load r-env-deprecated
+module load r-env-singularity
 module load biokit
-module load biopythontools
 module load lazypipe
 ```
-Now lazypipe starts with command:
+Now lazypipe starts with commands:
 
 ```text
-pipeline.pl
+cp /appl/soft/bio/lazypipe/2.1/lazypipe/config.yaml config.yaml
+echo tmpdir: \"$(pwd)\" >> config.yaml
+lazypipe.pl
 ```
 
-Normally you need to use the _pipeline.pl_ command only for testing. For real analysis tasks lazypipe module includes `sbatch-lazypipe` command that you can use instead. 
+Normally you need to use the _lazypipe.pl_ command only for testing. For real analysis tasks lazypipe module includes `sbatch-lazypipe` command that you can use instead. 
 
-_sbatch-lazypipe_ is a help tool that automatically generates a batch job file for a Lazypipe run 
-and submits it to batch job system of Puhti. The command uses the same command line options 
-as the _pipeline.pl_ command. In addition _sbatch-lazypipe_ asks user to define batch job resources
+_sbatch-lazypipe_ is a help tool that automatically generates a configuration file and a batch job file for a Lazypipe run 
+and submits the job to batch job system of Puhti. The command uses the same command line options 
+as the _lazypipe.pl_ command. In addition _sbatch-lazypipe_ asks user to define batch job resources
 (account, run time, memory, number of cores).
 
 For example to execute the [Example 1]( https://www.helsinki.fi/en/projects/lazypipe/examples) from the
@@ -50,13 +56,11 @@ When you have the data available you can submit the task with commands:
 
 ```text
 cd /scratch/my_project
-module load r-env-deprecated
+module load r-env-singularity
 module load biokit
-module load biopythontools
 module load lazypipe
-sbatch-lazypipe -1 data/M15/M15_R1.fastq \
---hostgen genomes_host/GCA_900108605.1_NNQGG.v01_genomic.fna.gz \
---res results --label M15  --inlen 300 --pipe 1:7,9:11
+sbatch-lazypipe -1 data/M15/M15_R1.fastq -S M15 -p main \
+--hostgen genomes_host/GCA_900108605.1_NNQGG.v01_genomic.fna.gz
 ```
 When the _sbatch-lazypipe_ is executed, it interactively asks information that is
 needed to construct a batch job. This includes following items (default values in brackets will be
@@ -64,7 +68,7 @@ use if no new value is defined):
 
    *   accounting project
    *   maximum duration of the job (default 24 hours )
-   *   memory reservation ( default 8G)
+   *   memory reservation ( default 32G)
    *   number of computing cores to use ( default 8 )
    *   email notifications
    

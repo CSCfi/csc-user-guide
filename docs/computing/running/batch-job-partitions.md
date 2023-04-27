@@ -1,7 +1,7 @@
 # Available batch job partitions
 
 !!! Note
-    The available LUMI batch job partitions are found in [the LUMI documentation](https://docs.lumi-supercomputer.eu/computing/jobs/partitions/).
+    The available LUMI batch job partitions are found in [the LUMI documentation](https://docs.lumi-supercomputer.eu/runjobs/scheduled-jobs/partitions/).
 
 ## Puhti partitions
 

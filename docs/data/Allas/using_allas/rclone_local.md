@@ -10,7 +10,7 @@ Once you have Rclone installed you still need to configure the connection to All
 command line application so both configurarion and actual usage is normally done in a command 
 line: _Terminal_ in Mac and Linux, _Command prompt_ or _Powershell_ in Windows.
 
-## Configuring Allas connection in Mac and Linux (SWIFT and S3)
+## Configuring Allas connection in Mac and Linux (Swift and S3)
 
 If you are using Rclone in a local **Linux** or **Mac machine**, you can download 
 the `allas_conf` script to set up the connection to your Allas project.
@@ -25,13 +25,13 @@ define the CSC project you want to use. For example:
 ```text
 source allas_conf -u kkayttaj -p project_2001234
 ```
-The command above defines a connection that uses SWIFT protocol and is valid in the current
+The command above defines a connection that uses Swift protocol and is valid in the current
 terminal session for 8 hours. The Rclone _remote_ site name is in this case _allas_. After 
 configuration you can for example list your buckets in Allas with command:
 ```text
 rclone lsd allas:
 ```
-If you want to use S3 protocol in setad of SWIFT, add option _-m S3_ to the configuration command. 
+If you want to use S3 protocol instead of Swift, add option _-m S3_ to the configuration command. 
 ```text
 source allas_conf -u kkayttaj -p project_2001234 -m S3
 ```
@@ -63,9 +63,9 @@ You can use this command also in other machines where _allas_conf_ is not availa
 The command above launches a configration process that you can use to define new Rclone 
 connetion. In Rclone these defined connections are called as _remotes_. 
 
-Below we describe how to create SWIFT and S3 connections to Allas.
+Below we describe how to create Swift and S3 connections to Allas.
 
-#### Configuring SWIFT connection in Windows
+#### Configuring Swift connection in Windows
 
 Start the process by executing command:
 
@@ -82,12 +82,12 @@ _OpenStack Swift (Rackspace Cloud Files, Memset Memstore, OVH)_
    5. After that select the default _blank_ setting for all the remaining settings until you are back in the starting menu of the confguration process. 
    6. Finally, choose **q** to stop the configuration process.
  
-In the case of SWIFT you need to do this configuration only once. In the configuration 
+In the case of Swift you need to do this configuration only once. In the configuration 
 it is now defined that in case of _allas_, all data for the connection is red from environment variables.
 
 If you have access to [Puhti](https://puhti.csc.fi), then the easiest way to check the values of the variables needed is to open terminal connection to it and activate there connection to the Allas project you wish to use. Another option is to use a utility program [allas-get-swift-token-win.zip](https://github.com/CSCfi/allas-get-swift-token/releases/download/v1.0.0/allas-get-swift-token-win.zip). If you choose to use the utility program, you (or your local it-support) may have to configure your anti-virus etc software to allow running it.
 
-This SWIFT access is done in Puhti with commands:
+This Swift access is done in Puhti with commands:
 
 ```text
 module load allas
@@ -98,13 +98,14 @@ After that you can check the variable values with commands:
 ```text
 echo $variable_name
 ```
-The variables required for the Allas SWIFT access are:
+The variables required for the Allas Swift access are:
 
    * **OS_STORAGE_URL**, Check this value in Puhti with commad  _echo $OS_STORAGE_URL_ .
    * **OS_AUTH_TOKEN**, Check this value in Puhti with commad  _echo $OS_AUTH_TOKEN_ .
 
 The value in the variable OS_STORAGE_URL stays the same as long as you are accessing the same project.
-OS_AUTH_TOKEN variable contains the actual authentication token. This token is valid only for 8 hours so you typically need to generate and check it each time you start using Rclone in your computer.
+OS_AUTH_TOKEN variable contains the actual authentication token. This token is valid only for 8 hours 
+so you typically need to generate and check it each time you start using Rclone in your computer.
 
 At the moment we don't have a tool for generating this value in Windows so you need to 
 use Puhti (or some other machine that can run allas_conf tool) to generate this project 

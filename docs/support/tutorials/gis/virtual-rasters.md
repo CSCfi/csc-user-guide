@@ -21,6 +21,14 @@ With **GDAL** it is easy to crop a small part out of the big virtual raster:
 
 **R**:
 
+Terra:
+```
+library(terra)  
+vrt <- rast("test.vrt")  
+data = crop(vrt , ext(614500, 644500, 6640500, 6668500))
+```
+
+Raster:
 ```
 library(raster)  
 vrt <- raster("test.vrt")  
@@ -57,12 +65,12 @@ It is worth noting that while running some analysis on a 2m DEM covering whole F
 Following tools support creating virtual rasters:
 
 *   [GDAL gdalbuildvrt](https://gdal.org/programs/gdalbuildvrt.html) commandline tool.
-*   [Python](https://gdal.org/python/osgeo.gdal-module.html#BuildVRT) and [R](https://www.rdocumentation.org/packages/gdalUtils/versions/2.0.3.2/topics/gdalbuildvrt) have wrappers for GDAL gdalbuildvrt.
+*   [Python](https://gdal.org/api/python/osgeo.gdal.html#osgeo.gdal.BuildVRT) and [R](https://rdrr.io/cran/terra/man/vrt.html) have wrappers for GDAL gdalbuildvrt, for [longer example for R see StackOverflow's answer](https://stackoverflow.com/questions/68332846/improving-computational-speed-of-zonal-statistics-on-150gb-of-raster-tiles-in-r).
 *   [QGIS,](https://docs.qgis.org/3.10/en/docs/user_manual/processing_algs/gdal/rastermiscellaneous.html?highlight=virtual#build-virtual-raster) [GrassGIS](https://grass.osgeo.org/grass79/manuals/r.buildvrt.html) and [SagaGIS](http://www.saga-gis.org/saga_tool_doc/7.5.0/io_gdal_12.html) provide graphical interface for gdalbuildvrt
 *   [lidR](https://cran.r-project.org/web/packages/lidR/index.html) supports writing lidar data analysis results directly as virtual raster
 * [vrt_creator.py](../../../data/datasets/spatial-data-in-csc-computing-env.md) in Puhti for custom areas with 2m or 10m DEM
 
-In Puhti glalbuildvrt is included in all [modules including GDAL](../../../apps/gdal.md), Python BuildVRT and QGIS in [geoconda](../../../apps/geoconda.md), R gdalUtils and lidR in [r-singularity-env](../../../apps/r-env-singularity.md) modules.
+In Puhti glalbuildvrt is included in all [modules including GDAL](../../../apps/gdal.md), Python BuildVRT in [geoconda](../../../apps/geoconda.md), QGIS in [QGIS](../../../apps/qgis.md), R terra and lidR in [r-env](../../../apps/r-env.md) module.
 
 ### Creating virtual raster with GDAL gdalbuildvrt
 

@@ -1,3 +1,8 @@
+---
+tags:
+  - Free
+---
+
 # Spark
 
 [Apache Spark](https://spark.apache.org/) is a popular, high-performance distributed computing framework. Spark is excellent tool for data analysis and machine learning tasks when dataset grows too big for single machine to handle. 

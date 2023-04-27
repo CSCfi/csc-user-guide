@@ -22,7 +22,7 @@ Following sample command would look for file called *dataset27.dat* from
 the current directory. In this case, the file is found from a sub
 directory *dataset3*.
 
-    kkayttaj@puhti-login1:~> find ./ -name dataset27.txt
+    kkayttaj@puhti-login11:~> find ./ -name dataset27.txt
     ./dataset3/dataset27.txt
 
 You can also use *wildcards* in the name search conditions. Note
@@ -65,7 +65,7 @@ recognized by the *file* command, it is reported to be a *data* file.
 In the example below, file types of all the files in the current working
 directory are listed.
 
-    kkayttaj@puhti-login1:~> file ./*
+    kkayttaj@puhti-login11:~> file ./*
     ./a.out:                   ELF 64-bit MSB MIPS-IV executable, MIPS, version 1
     ./common.py:               a python script text executable .
     /data_old.gz:              gzip compressed data, from Unix
@@ -134,7 +134,7 @@ An md5 checksum for a file is calculated with command:
     md5sum file_name
 
     For example:
-    kkayttaj@puhti-login1:~> md5sum poster1.pdf
+    kkayttaj@puhti-login11:~> md5sum poster1.pdf
     cc494699398122a6b6d93a5a69bd2667 poster1.pdf
 
 You can easily store the checksum to a file by redirecting the output of
@@ -153,7 +153,7 @@ Checking a set of files against an md5 sum list is done by using option
 For example to check validity of file *poster1.pdf* with the previously
 created checksum file *poster1.pdf.md5* could be done with command:
 
-    kkayttaj@puhti-login1:~> md5sum -c poster1.pdf.md5
+    kkayttaj@puhti-login11:~> md5sum -c poster1.pdf.md5
     poster1.pdf: OK
 
 ## Encrypting files with gpg
@@ -208,7 +208,7 @@ asks you to confirm the password:
 When the encryption is finished, the we now have two files: the original
 file and and its' encrypted version that has an extension *.gpg*.
 
-    kkayttaj@puhti-login1:~> ls  -l
+    kkayttaj@puhti-login11:~> ls  -l
     -rw-------+ 1 kkayttaj csc 1291176 Feb 11 15:57 patients.txt
     -rw-------+ 1 kkayttaj csc  313848 Feb 11 16:05 patients.txt.gpg
 
@@ -302,7 +302,7 @@ members to read file *Test.txt* you should give command:
 
 You can check the effect with **ls -l** command:
 
-    kkayttaj@puhti-login1:~>ls -l Test.txt
+    kkayttaj@puhti-login11:~>ls -l Test.txt
     -rw-r-----+  1 kkayttaj csc       48 Dec 22 09:05 Test.txt 
 
 You can define several user categories and permissions in the same time.

@@ -1,6 +1,13 @@
+---
+search:
+  boost: 2
+---
+
 # Billing
 
-See the [Billing unit and price calculator](https://research.csc.fi/billing-and-monitoring#buc)
+CSC's services are free of charge for academic research, teaching or training for members of Finnish higher education institutions and state research institutes.
+
+See the [Billing unit and price calculator](https://research.csc.fi/billing-units#buc){:target="_blank"}
 at research.csc.fi.
 
 ## Puhti
@@ -66,7 +73,7 @@ Usage up to 50 GiB is free of charge.
 
 The Allas object storage is charged:
 
-* 1 TiB consumes **1** BU per hour.
+* 1 TiB consumes **1** BU per hour. Only actual data stored in Allas is billed.
 
 ## cPouta and ePouta
 
@@ -77,7 +84,7 @@ The Allas object storage is charged:
 * See [Rahti billing](../cloud/rahti/billing.md).
 
 ## Kvasi
-* See [Kvasi billing](../computing/kvasi-billing.md)
+* See [Kvasi billing](../computing/quantum-computing/kvasi/kvasi-billing.md)
 
 
 ## Monitoring billing unit consumption

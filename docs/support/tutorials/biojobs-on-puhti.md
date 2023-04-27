@@ -30,7 +30,7 @@ are meant for things like moving data and setting up and managing your
 batch jobs. You should not run actual jobs on the login nodes. There
 are only two login nodes and they are shared by everybody. Running big
 jobs on them can make the system slow and unresponsive for all
-(More details in our [usage policy](../../../computing/overview/#usage-policy)).
+(More details in our [usage policy](../../../computing/usage-policy)).
 
 Jobs should be run in the compute nodes. This is done using the *batch
 job system* also called a *scheduler* or a *workload manager*. The
@@ -49,7 +49,7 @@ Puhti](../../computing/systems-puhti.md).
 
 Puhti has a selection of commonly used bioscience software
 available. You can check the listing in
-[Applications](../../apps/index.md).
+[Applications](../../apps/by_discipline.md#biosciences).
 
 The application listing may not be quite up to date, so it is a good
 idea to use **module spider** command to see if a software (and which

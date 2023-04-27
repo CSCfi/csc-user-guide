@@ -1,3 +1,8 @@
+---
+tags:
+  - Free
+---
+
 # Trinity
 
 ## Description
@@ -19,7 +24,7 @@ Free to use and open source under [Broad Institute License]https://github.com/ge
 ## Available
 Version on CSC's Servers
 
-Puhti: 2.14.0, 2.13.2, 2.11.0, 2.8.5
+Puhti: 2.15.1, 2.14.0, 2.13.2, 2.11.0, 2.8.5
 
 
 ## Using Trinity 
@@ -94,13 +99,20 @@ Please check the Trinity site to get hints for estimating the required resources
 ## Using autoTrinotate
 
 You can analyse the results of your Trinity job with `autoTrininotate`. You need two files, resulting from a successful Trinity assembly.
-    1. Fasta formatted nucleotide sequence file containing the final contigs created by Trinity (Trinity.fasta)
-    2. gene-to-trans map for the input fasta file (Trinity.fasta.gene_to_trans_map)
+    1. Fasta formatted nucleotide sequence file containing the final contigs created by Trinity (`Trinity.fasta`)
+    2. gene-to-trans map for the input fasta file (`Trinity.fasta.gene_to_trans_map`)
+Note that depending on Trinity version, these names may have a prefix as defined with the `--output` option (e.g. `trinity_run_out.Trinity.fasta`).    
 
-You can launch autoTrinotate with command:
+Copy a template sqlite database for your analysis:
 
 ```bash
-$TRINOTATE_HOME/auto/autoTrinotate.pl --Trinotate_sqlite $TRINOTATE_HOME/databases/Trinotate.sqlite --transcripts Trinity.fasta --gene_to_trans_map  Trinity.fasta.gene_to_trans_map --conf $TRINOTATE_HOME/auto/conf.txt --CPU  $SLURM_CPUS_PER_TASK
+cp $TRINOTATE_HOME/databases/Trinotate.sqlite mydb.sqlite
+```
+
+You can then launch autoTrinotate with command:
+
+```bash
+$TRINOTATE_HOME/auto/autoTrinotate.pl --Trinotate_sqlite mydb.sqlite --transcripts Trinity.fasta --gene_to_trans_map  Trinity.fasta.gene_to_trans_map --conf $TRINOTATE_HOME/auto/conf.txt --CPU  $SLURM_CPUS_PER_TASK
 ```
 
 !!! Note

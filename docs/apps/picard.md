@@ -1,3 +1,8 @@
+---
+tags:
+  - Free
+---
+
 # Picard Tools
 
 ## Description
@@ -15,7 +20,7 @@ Free to use and open source under [MIT License](https://github.com/broadinstitut
 ## Available
 
 Version on CSC's Servers
-- Puhti:  2.26.8
+- Puhti:  2.27.4
 
 ## Usage
 

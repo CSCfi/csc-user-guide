@@ -12,7 +12,7 @@ in place, the steps are the same for all systems.
     see the instructions about [virtual environments](#optional-installation-in-a-python-virtual-environment).
 
 Installing in Windows is also possible, but it is beyond the scope
-of this guide. Rackspace maintains a guide for [installing the python-novaclient on Windows](http://www.rackspace.com/knowledge_center/article/installing-python-novaclient-on-windows).
+of this guide. Rackspace maintains a guide for [installing the python-novaclient on Windows](https://docs.rackspace.com/support/how-to/install-python-novaclient-on-windows/).
 
 We recommend first familiarizing yourself with the [Pouta web GUI](launch-vm-from-web-gui.md) and the main concepts.
 
@@ -226,12 +226,11 @@ environment variables:
 
     source <project_name_here>-openrc.sh
 
-You will be asked to type in a password. Use the password of your CSC
-account. Note that using Haka credentials in the command  line
-interface is not yet supported. After doing this, the current terminal
-session  will have the proper environment variables for using the
-command line tools. You need to do this again if you open a new
-terminal.
+You will be asked to type in a password. *Please use the password of your CSC
+account* because the command line interface does not support yet the usage of
+credentials from linked accounts, such as Haka or Virtu. After doing this, the
+current terminal session will have the proper environment variables for using
+the command line tools. You need to do this again if you open a new terminal.
 
   [install it first]: http://docs.python-guide.org/en/latest/starting/installation/
   [SoftwareCollections.org]: https://www.softwarecollections.org/en/

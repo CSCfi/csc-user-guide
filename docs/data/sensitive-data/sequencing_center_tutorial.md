@@ -70,7 +70,7 @@ consisting of _secret key_ and _public key_ for your own use. You can use the sa
 several times and normally it is practical to use the same keys for all data of a project so that 
 key management does not get too complicated. 
 
-Instructions for creating a _crypt4gh_ compatible keys can be found [here](./sd_connect.md#sensitive-data-encryption-and-upload-with-multiple-encryption-keys-less-than-100-gb).
+Instructions for creating a _crypt4gh_ compatible keys can be found [here](./sd_connect.md#sensitive-data-encryption-and-upload-for-storage-and-sharing-less-than-1-gb).
 (The key generation processes are described in the second steps of graphical user 
 interface and command line client instructions).
 Once the keys have been generated, you can send the public key to all data producers, 
@@ -148,16 +148,20 @@ Keys are used with crypt4gh encryption tool.
 Public key:   animine_crypt4gh.pub
 Secret key:   animine_crypt4gh.key
 The password of the secret key is:  H8koGN3lzkke
-Note that the secret key and password should never be given or shown to users that are not members of this project.
+Note that the secret key and password should never be given or shown to 
+users that are not members of this project.
 
 You can find a readable copy of the public key in SD Connect in location
     animine_pub/animine_crypt4gh.pub
 
-You can freely download and send this public key to persons and organizations that provide data for AniMINE project. 
-If you want to use data, that has been protected using this key pair, locally, please contact project manager 
-Tiina Tutkija to get your own copy of the secret key and instructions for local decryption.
-Please use this document, that is readable only in the SD Desktop environment of this project, 
-as the only written reference for the password. 
+You can freely download and send this public key to persons and organizations 
+that provide data for AniMINE project. If you want to use data, that has 
+been protected using this key pair, locally, please contact project manager 
+Tiina Tutkija to get your own copy of the secret key and instructions for 
+local decryption. Please use this document, that is readable only in the 
+SD Desktop environment of this project, as the only written reference 
+for the password. 
+
 Delete the local copy of the secret key when it is no longer actively used. 
 ------------------------------------------------
 ```
@@ -240,7 +244,11 @@ Finally Tiina sends the name of the shared bucket to the data producer
 and ask them to encrypt the data to be uploaded with both the public key 
 that they can find form the bucket and the CSC public key.
 
-Once all data has been imported, Tiina can close remove the external access rights from the bucket with command:
+### 4.2 Revoke bucket sharing after data transport
+
+Moving large datasets (several terabytes) of data to Allas can take a long time. 
+Aftwer few days data produces tells Tiina that all data has been imported to the shared _animine_data_import_i1_ bucket in Allas. 
+Tiina can now remove the external access rights from the bucket with command:
 
 ```text
 a-access -rw project_2000111 animine_data_import_1

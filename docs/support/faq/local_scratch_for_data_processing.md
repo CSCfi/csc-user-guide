@@ -1,6 +1,7 @@
-# What directory I shouild use to analyse a large numbers of small files?
+# What directory I should use to analyse a large numbers of small files?
                    
 An interactive batch job Puhti allows you to have a Puhti session that can have up to:
+
 *   4 cores
 *   64 GB of memory
 *   7 days of run time
@@ -13,7 +14,7 @@ sinteractive -i
 One of the useful features of interactive batch jobs is the **fast local scratch area ($LOCAL_SCRATCH)**. The “normal” Lustre based project specific directories, *scratch* and *projappl*, can store large amounts of data and make it accessible to all the nodes of Puhti. However these directories are not good for managing a large number of files. 
 
 Generally you should avoid work flows that require creating thousands of small files. If you anyhow need to work with a huge number of files, 
-you should consider using the NVME based local temporary scratch directories, either through normal or interactive batch jobs.
+you should consider using the NVMe based local temporary scratch directories, either through normal or interactive batch jobs.
 The local scratch area is visible only for the specific batch job and it is erased when the batch job ends. 
 Because of that you always first need to import your data set to the local scratch and when you finish, copy the data you want to preserve back to some more 
 permanent storage place like scratch or Allas.

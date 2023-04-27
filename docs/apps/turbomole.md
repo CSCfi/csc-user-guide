@@ -1,12 +1,18 @@
+---
+tags:
+  - Academic
+---
+
 # Turbomole
 
-TURBOMOLE is a modular program suite for ab initio quantum-chemical and condensed-matter simulations 
-It includes most standard and state of the art methods for ground state calculations. Properties both for ground and excited states can be obtained. TURBOMOLE has been designed for efficient study of large systems.
+TURBOMOLE is a modular program suite for *ab initio* quantum-chemical and condensed-matter simulations. 
+It includes most standard and state-of-the-art methods for ground-state calculations. Properties both for ground and excited states can be obtained. TURBOMOLE has been designed for efficient study of large systems. 
+The developers tend to recommend the SMP paralellization for most routine calculations. 
 
 ## Available
 
-*   Puhti: 7.5.1
-*   Mahti: 7.5.1
+*   Puhti: 7.5.1, 7.6, 7.7
+*   Mahti: 7.6, 7.7
 
 ## License
 
@@ -20,13 +26,12 @@ It includes most standard and state of the art methods for ground state calculat
 Initialise Turbomole environment:
 
 ```bash
-module load turbomole/7.5.1
+module load turbomole/7.7
 ```
-
 
 ### Batch script example for Puhti using MPI parallelization
 
-```
+```bash
 #!/bin/bash
 #SBATCH --partition=test
 #SBATCH --nodes=2
@@ -34,7 +39,7 @@ module load turbomole/7.5.1
 #SBATCH --account=<project>  # insert here the project to be billed 
 #SBATCH --time=00:10:00           # time as `hh:mm:ss`
 export PARA_ARCH=MPI         # use MPI 
-module load turbomole/7.5.1
+module load turbomole/7.7
 export SLURM_CPU_BIND=none
 # This setting of TURBOTMPDIR assumes that the job is 
 # submitted from a directory below /scratch/<project>
@@ -47,7 +52,7 @@ jobex -ri -c 300 > jobex.out
 
 ### Batch script example for Puhti using SMP parallelization
 
-```
+```bash
 #!/bin/bash
 #SBATCH --partition=test
 #SBATCH --nodes=1            # for SMP only 1 is possible
@@ -55,7 +60,7 @@ jobex -ri -c 300 > jobex.out
 #SBATCH --account=<project>  # insert here the project to be billed
 #SBATCH --time=00:10:00      # time as `hh:mm:ss`
 export PARA_ARCH=SMP         # use SMP threads   
-module load turbomole/7.5.1
+module load turbomole/7.7
 # This setting of TURBOTMPDIR assumes that the job is 
 # submitted from a directory below /scratch/<project>
 export TURBOTMPDIR=`echo $PWD |cut -d'/' -f1-3`"/TM_TMPDIR/"$SLURM_JOB_ID
@@ -72,16 +77,12 @@ jobex -ri -c 300 > jobex.out
 ```
 
 !!! note
-    Second-order approximate coupled cluster calculations using the `ricc2` module have been reported to suffer from numerical errors resulting in crashed jobs. This applies to Turbomole versions 7.5 and older on Puhti. For reliable performance, we suggest running `ricc2` calculations using Turbomole 7.5.1.
-
-!!! note
     Particularly some of the wavefunction-based electron correlation methods can be very disk I/O intensive. Such jobs benefit from using the fast local storage on Puhti. Using local disk for such jobs will also reduce the load on the Lustre parallel file system.
  
 
-   
 ### Batch script example for Puhti using MPI parallelization and local disk
 
-```
+```bash
 #!/bin/bash
 #SBATCH --partition=small
 #SBATCH --nodes=1
@@ -90,7 +91,7 @@ jobex -ri -c 300 > jobex.out
 #SBATCH --time=00:10:00      # time as `hh:mm:ss`
 #SBATCH --gres=nvme:100      # requested local disk in GB
 export PARA_ARCH=MPI         # use MPI
-module load turbomole/7.5.1
+module load turbomole/7.7
 export SLURM_CPU_BIND=none
 # define local disk as scratch
 export TURBOTMPDIR=$LOCAL_SCRATCH/$SLURM_JOBID
@@ -103,7 +104,7 @@ ccsdf12 > ccsdt.out
 
 ### Batch script example for Mahti using MPI parallelization
 
-```
+```bash
 #!/bin/bash
 #SBATCH --partition=medium
 #SBATCH --nodes=2
@@ -111,7 +112,7 @@ ccsdf12 > ccsdt.out
 #SBATCH --account=<project>   # insert here the project to be billed
 #SBATCH --time=00:60:00       # time as `hh:mm:ss`
 export PARA_ARCH=MPI          # use MPI
-module load turbomole/7.5.1
+module load turbomole/7.7
 export SLURM_CPU_BIND=none
 # This setting of TURBOTMPDIR assumes that the job is 
 # submitted from a directory below /scratch/<project>
@@ -125,13 +126,13 @@ jobex -ri -c 300 > jobex.out
 ### NumForce calculations
 
 NumForce is a tool that can be used to calculate second derivatives (molecular Hessian) for all methods
-for which analytic gradients are available in `TURBOMOLE`.   
+for which analytic gradients are available in `TURBOMOLE`.
 A NumForce job spawns `3*N*2` (`N` = number of atoms ) independent gradient calculations. 
 Usually it is most efficient that the single gradient calculations are run as serial (`unset PARA_ARCH`). Each serial calculation is expected to take roughly the same time, hence optimally the total number of gradient calculations should be an integer multiple of the allocated cores.
 
 A NumForce step in a job file:
 
-```
+```bash
 unset PARA_ARCH
 export HOSTS_FILE=$PWD/turbomole.machines
 rm -f $HOSTS_FILE
@@ -145,11 +146,14 @@ NumForce -ri -central -mfile $HOSTS_FILE > NumForce.out
 Please quote the usage of the program package under consideration of the version
 number:
 
--   TURBOMOLE V7.5.1 2021, a development of University of Karlsruhe andForschungszentrum Karlsruhe GmbH, 1989-2007,TURBOMOLE GmbH, since 2007; available from https://www.turbomole.org
+-   TURBOMOLE V7.7, a development of University of Karlsruhe and Forschungszentrum Karlsruhe GmbH, 1989-2007, TURBOMOLE GmbH, since 2007; available from https://www.turbomole.org
+-    A review article should be mentioned, as well: https://doi.org/10.1063/5.0004635
 -    Scientific publications require proper citation of methods and procedures employed.
 The output headers of TURBOMOLE modules include the relevant papers. 
 
 ## More information
 -   [TURBOMOLE GmbH](https://www.turbomole.org/turbomole/turbomole-documentation/) 
 -   [Read About TURBOMOLE](https://aip.scitation.org/doi/10.1063/5.0004635 ) 
+-   [TURBOMOLE tutorial](https://www.turbomole.org/wp-content/uploads/2019/10/Tutorial_7-4.pdf)
+
 

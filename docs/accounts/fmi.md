@@ -36,9 +36,9 @@ between __projappl__ and __scratch__:
 
 !!! Note
     All FMI projects share the same global quota and should therefore strive to good practices in data storage.
-    Per project usage is tracked, and per project quotas may be imposed at a later date.
+    Per project usage is tracked.
 
-**A cleaning script is run periodically on `/fmi/scratch`. The cleaning removes any unused files older than 90 days.**
+**A cleaning script is run periodically on `/fmi/scratch` (FMI projects) the same way as on `/scratch` (Academic projects). The cleaning removes any unused files older than 180 days. You can ask for white listing your project's `/fmi/scratch` directory. Automatic cleaning is convenient, so ask white listing only if really necessary.**
 
 ## Usage
 

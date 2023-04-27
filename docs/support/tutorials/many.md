@@ -45,13 +45,13 @@ large scheduling overhead in the batch system.
 
 Parallel file systems work poorly when a single client (application program)
 tries to perform too many file operations. Such cases can be e.g. applications
-installed with the Conda package manager. One miniconda environment is easily over
-20000 files and Anaconda distribution is much worse. Many of these files need to
-be opened everytime a Conda application is launched. When running many,
-relatively short jobs, avoid running applications installed with Conda. Instead,
-if your application requires a complex environment, use applications packed into
-Singularity containers, which are single files from the perspective of the file
-system.
+installed with the Conda package manager directly on the shared file system. 
+One miniconda environment is easily over 20000 files and Anaconda distribution
+is much worse. Many of these files need to be opened every time a Conda application
+is launched. When running many, relatively short jobs, avoid running applications installed with Conda. However, if your application requires a complex environment,
+use applications packed into Singularity containers, which are single files from
+the perspective of the file system. To easily containerize a Conda environment,
+see the [Tykky container wrapper tool](../../computing/containers/tykky.md)
 
 "Too many files" issues are also often encountered with workflows consisting of
 thousands of small runs. As a general guide, keep the number of files in a
@@ -59,8 +59,8 @@ single directory well below one thousand, and organize your data into multiple
 directories. Also, use command `csc-workspaces` to monitor that the total number
 of files in your projects stays well below the limits. If most of the files are
 temporary, or there simply is too many of them, using the fast local SSD disks
-in the [I/O
-nodes](https://docs.csc.fi/computing/running/creating-job-scripts/#local-storage)
+in the
+[I/O nodes](../../computing/running/creating-job-scripts-puhti.md#local-storage)
 can solve the problem. You can pack small files into a bigger archive file with
 the `tar` command. Most importantly, if there are output files that you do not need,
 find out how to turn off writing those in the first place.

@@ -15,7 +15,7 @@ Finally, the project needs to have [access to the services](../../accounts/how-t
 
 Below is a short glossary of CSC's services that are most relevant for data analysis.
 
-[**Puhti**](../../computing/overview.md) is CSC's supercomputer where most computing should be done.  [Puhti has a large set of pre-installed applications](../../apps/index.md), and scales up to very computing heavy tasks, including GPU-based processing.
+[**Puhti**](../../computing/index.md) is CSC's supercomputer where most computing should be done.  [Puhti has a large set of pre-installed applications](../../apps/index.md), and scales up to very computing heavy tasks, including GPU-based processing.
 
 [**Allas**](../../data/Allas/index.md) is CSC's data storage service.  If you have big datasets or need to share data with people outside of your project, you should consider using Allas.
 
@@ -50,9 +50,9 @@ We also have [instructions on how to use the Allas object storage from RStudio](
 
 *You have been running analyses in R or Python for some time already, but you have reached the limits of your own laptop or desktop computer. Perhaps you need more memory or faster processing?*
 
-In most cases, the next step would be to move to CSC's supercomputer Puhti, which is a high performance computing (HPC) cluster. That means it's not one computer, but a collection of many computers. Users access the front-end server (login node) of Puhti, where they can submit computing jobs to a queuing system which takes care of distributing them to the cluster's different computers (compute nodes).  Please read the [instructions on how to access Puhti](../../computing/overview.md), and [how to submit computing jobs to Puhti's queuing system](../../computing/running/getting-started.md).
+In most cases, the next step would be to move to CSC's supercomputer Puhti, which is a high performance computing (HPC) cluster. That means it's not one computer, but a collection of many computers. Users access the front-end server (login node) of Puhti, where they can submit computing jobs to a queuing system which takes care of distributing them to the cluster's different computers (compute nodes).  Please read the [instructions on how to access Puhti](../../computing/index.md), and [how to submit computing jobs to Puhti's queuing system](../../computing/running/getting-started.md).
 
-Puhti has a [large selection of scientific computing applications pre-installed](../../apps/index.md), including [R and RStudio Server](../../apps/r-env-singularity.md), and [Python libraries for data analysis](../../apps/python-data.md).  If you find something missing, don't hesitate to contact our [Service Desk](https://www.csc.fi/contact-info).
+Puhti has a [large selection of scientific computing applications pre-installed](../../apps/index.md), including [R and RStudio Server](../../apps/r-env.md), and [Python libraries for data analysis](../../apps/python-data.md).  If you find something missing, don't hesitate to contact our [Service Desk](https://www.csc.fi/contact-info).
 
 As Puhti is a shared computing environment, users are restricted in what they can do, for example when it comes to installing customized software or processing sensitive data.  In some cases, it might make sense to instead use [**Pouta**](../../cloud/pouta/index.md) to create your own virtual server.  This gives you more control over the computing environment, but may not be suitable for very heavy computing tasks.  Another option is [**Rahti**](../../cloud/rahti/index.md), where you can create virtual applications based on container images. See some examples of [how to deploy machine learning models on Rahti](https://github.com/CSCfi/rahti-ml-examples).
 
@@ -62,13 +62,13 @@ As Puhti is a shared computing environment, users are restricted in what they ca
 
 If you need to heavily parallelize your computing, or for example use GPU-accelerated processing, Puhti is the right answer (see instructions in the above section).
 
-For GPU-accelerated machine learning, we support [TensorFlow](../../apps/tensorflow.md), [PyTorch](../../apps/pytorch.md), [JAX](../../apps/jax.md), [MXNET](../../apps/mxnet.md) and [RAPIDS](../../apps/rapids.md). 
+For GPU-accelerated machine learning, we support [TensorFlow](../../apps/tensorflow.md), [PyTorch](../../apps/pytorch.md), [JAX](../../apps/jax.md) and [RAPIDS](../../apps/rapids.md). 
 
 For more information:
 
 - [CSC's machine learning guide](ml-guide.md)
 
-If you are using R for data analysis, we also support [parallel batch jobs in R](../../apps/r-env-singularity.md#parallel-batch-jobs). Depending on your needs, many types of parallel computing are possible using R. Further to jobs employing multiple processors (cores) and threads, it is possible to run array jobs where an analysis is split into many subtasks. For analyses requiring multiple nodes, R also supports several types of Message Passing Interface (MPI)-based jobs.
+If you are using R for data analysis, we also support [parallel batch jobs in R](../../apps/r-env.md#parallel-batch-jobs). Depending on your needs, many types of parallel computing are possible using R. Further to jobs employing multiple processors (cores) and threads, it is possible to run array jobs where an analysis is split into many subtasks. For analyses requiring multiple nodes, R also supports several types of Message Passing Interface (MPI)-based jobs.
 
 
 <!-- ### Big data processing (advanced)

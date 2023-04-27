@@ -1,3 +1,8 @@
+---
+tags:
+  - Free
+---
+
 # OpenDroneMap (ODM)
 
 [OpenDroneMap](https://www.opendronemap.org/) (ODM) is an open source command line toolkit for processing aerial images. It is used for instance in making DEMs, DSMs, point clouds and orthophotos photogrammetrically.
@@ -6,14 +11,14 @@
 
 __OpenDroneMap__ is available in Puhti with following versions:
 
-* 2.8.3
-* 2.5.7
+* 3.0.4
+* 2.8.8
 
 ## Usage
 OpenDroneMap is available in Puhti as a [Singularity](../computing/containers/run-existing.md) container
 
 To run OpenDroneMap: 
-1) Copy your images to Puhti. OpenDroneMap requires the folder names to end with `code/images`, for example `/scratch/project_2000XXX/odm/code/images`.
+1) Copy your aerial images to Puhti. OpenDroneMap requires the folder names to end with `code/images`, for example `/scratch/project_2000XXX/odm/code/images`.
 2) Write a batch job script (see below)
 3) Submit your OpenDroneMap batch job. 
 
@@ -33,7 +38,7 @@ Below you can find an example batch job script. Adjust `--account`, `--cpus-per-
 #SBATCH --mem-per-cpu=3G
 
 module load opendronemap
-singularity_wrapper run --project-path /scratch/project_2000XXX/odm --max-concurrency $SLURM_CPUS_PER_TASK
+apptainer_wrapper run --project-path /scratch/project_2000XXX/odm --max-concurrency $SLURM_CPUS_PER_TASK
 ```
 
 3) Outputs are available in `code`-folder, for example `/scratch/project_2000XXX/odm/code`
@@ -58,7 +63,7 @@ echo "Copying input images from Puhti scratch to compute node local disk"
 rsync -r $odm_dir/code $LOCAL_SCRATCH
 
 module load opendronemap
-singularity_wrapper run --project-path $LOCAL_SCRATCH --max-concurrency $SLURM_CPUS_PER_TASK
+apptainer_wrapper run --project-path $LOCAL_SCRATCH --max-concurrency $SLURM_CPUS_PER_TASK
 
 echo "Copying outputs from Puhti scratch to compute node local disk"
 rsync -r $LOCAL_SCRATCH/* $odm_dir
