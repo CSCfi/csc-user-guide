@@ -5,7 +5,7 @@
 * A new [Julia-Jupyter app](../../../computing/webinterface/julia-on-jupyter/) is now available.
 * More Puhti usage metrics are now visible.
 * VSCode 1.76.1 is now available.
-* Open onDemand version updated to 2.0.32.
+* Open OnDemand version updated to 2.0.32.
 
 ## Puhti web interface updated to release 14, 2.2.2023
 
