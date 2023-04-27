@@ -34,15 +34,15 @@ spec:
       storage: 1Gi' | oc create -f -
 ```
 
-* Mount the PVC into a POD with `rsync` installed. It is possible to use any image that has the command `rsync` installed. If you have no access to such an image, `oc rsync` will work also with an image with `tar` installed (`centos` and `ubuntu ` images come with `tar installed).
+* Mount the PVC into a POD with `rsync` installed. It is possible to use any image that has the command `rsync` installed. If you have no access to such an image, `oc rsync` will work also with an image with `tar` installed (`centos` and `ubuntu ` images come with `tar` installed).
 
-* Finally, use `oc rsync` to synchronize a local directory with a directory in the pod:
+* Finally, use `oc rsync` to synchronize a local directory with a directory in the pod (replace POD with your pod name):
 
 ```bash
 oc rsync ./local/dir/ POD:/remote/dir
 ```
 
-If the local data changes, you may just run the same command again. If the image has `rsync installed, only the data that has changed will be copied over to the PVC.
+If the local data changes, you may just run the same command again. If the image has `rsync` installed, only the data that has changed will be copied over to the PVC.
 
 ## to Allas object storage
 
