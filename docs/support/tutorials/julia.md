@@ -307,7 +307,7 @@ addprocs(proc_num;
          exeflags="--project=.")
 
 # We use the `@everywhere` macro to include the task function in the worker processes.
-# We must call `@everwhere` after adding worker processes; otherwise the code won't be included in the new processes.
+# We must call `@everywhere` after adding worker processes; otherwise the code won't be included in the new processes.
 @everywhere function task()
     (
         id=myid(),
@@ -478,7 +478,7 @@ addprocs([(node, proc_num) for node in nodes if node != local_node];
          exeflags="--project=.")
 
 # We use the `@everywhere` macro to include the task function in the worker processes.
-# We must call `@everwhere` after adding worker processes; otherwise the code won't be included in the new processes.
+# We must call `@everywhere` after adding worker processes; otherwise the code won't be included in the new processes.
 @everywhere function task()
     (
         id=myid(),
@@ -589,7 +589,7 @@ addprocs([(node, proc_num) for node in nodes if node != local_node];
          enable_threaded_blas=true)
 
 # We use the `@everywhere` macro to include the task function in the worker processes.
-# We must call `@everwhere` after adding worker processes; otherwise the code won't be included in the new processes.
+# We must call `@everywhere` after adding worker processes; otherwise the code won't be included in the new processes.
 
 @everywhere function task_threads()
     ids = zeros(Int, Threads.nthreads())
