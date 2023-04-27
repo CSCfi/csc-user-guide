@@ -32,7 +32,6 @@
 * [Using Allas in batch jobs](../../data/Allas/allas_batchjobs.md)
 * [Using Allas to host a dataset for a research project](../../data/Allas/allas_project_example.md)
 * [Tools for client side encryption for Allas](../../data/Allas/allas_encryption.md)
-* [Using Allas to transport sensitive data](../../data/sensitive-data/sequencing_center_tutorial.md)
 * [Using Allas from LUMI supercomputer](../../data/Allas/allas_lumi.md)
 
 ## Bioinformatics
@@ -80,6 +79,10 @@
 * [How to package a Kubernetes application with Helm?](../../cloud/rahti/tutorials/helm.md)
 * [Accessing databases on Rahti from CSC supercomputers](../../cloud/rahti/tutorials/connect-database-hpc.md)
 
+## Senistive Data
+* [Using Allas to transport sensitive data](../../data/sensitive-data/sequencing_center_tutorial.md)
+* [Running temporary PostgreSQL database in SD Desktop](../../data/sensitive-data/tutorials/postgresql.md)
+ 
 ## Visualisation
 * [Blender tutorial](blender-tutorial.md)
 
