@@ -205,27 +205,39 @@ And logs in with her CSC account. Once the web interface of Puhti is open she op
 
 **Tools/Login node shell**
 
-This tool provides terminal connection to Puhti. In the terminal, Tiina activates connection to Allas:
+This tool provides terminal connection to Puhti.
+
+In the terminal, Tiina activates connection to Allas:
 ```text
 module load allas
 allas-conf
 ```
+Then she creates a new shared bucket with commad:
+
+```text
+make-shared-bucket
+```
+The command asks first the name of the bucket to be cretaed.
+In this case, Tiina uses bucketname:
+```text
+make-shared-bucket 
+```
+This tool creates a new bucket and shares it with the collaborator.
+The command asks first for the name of the bucket to be created. In this
+case Tiina uses bucket name _animine_data_import_1_.        
+
+Then the comand ask for the name of the project who should have access to the the bucket:
+The project name of data producer is in this example _project_2000111_.
 
 Then she downloads the public key to Puhti:
 
 ```text
 a-get animine_pub/data/animine_crypt4gh.pub
 ```
+And uploads the key to the shared bucket:
 
-And upload the key to a new bucket:
 ```text
 a-put animine_crypt4gh.pub -b animine_data_import_1
-```
-Then she shares this bucket with a data producer. 
-The project name of data producer is in this example _project_2000111_.
-
-```text
-a-access +rw project_2000111 animine_data_import_1
 ```
 
 Finally Tiina sends the name of the shared bucket to the data producer 
@@ -262,13 +274,12 @@ Tiina can now use [SD Connect](https://sd-connect.csc.fi) to download this file 
 
    * First Tiina checks the _Project Identifier_ string of her project and copies it to the clip board. 
 
-   * Then on the _Browser_ view of SD Connect she presses the _Share_ buttonm of the bucket (animine_data_import_1). This opens the Bucket sharing page. Here Tiina turns on _read_ and _write_ permissions and adds her Project Identifier to the field:
-_Project Identifiers to share with_. The sharing is activated by cliking the _Share_ button.
+   *    Then on the _Browser_ view of SD Connect she presses the _Share_ button of the bucket (animine_data_import_1). This opens the Bucket sharing page. Here Tiina turns on _read_ and _write_ permissions and adds her Project Identifier ( shown in the user information page of SD Connect) to the field: Project Identifiers to share with. The sharing is activated by cliking the Share button.
 
    * Next Tiina moves to the _Shared to the project_ view which now includes bucket _animine_data_import_1_. 
 She can now open the bucket and start downloading the data.
 
-However, after download the file  is still in ecrypted format. To decrypt the file Tiina opens the  _[cryp4gh-gui](https://github.com/CSCfi/crypt4gh-gui/blob/master/README.md)_ encryption tool that she previously installed to her computer to create 
+However, after download the file is still in ecrypted format. To decrypt the file Tiina opens the  _[cryp4gh-gui](https://github.com/CSCfi/crypt4gh-gui/blob/master/README.md)_ encryption tool that she previously installed to her computer to create 
 the encryption keys. 
 
 Now she uses this tool to decrypt the data. In crypt4gh interfave she first clicks _Load My Private Key_ and the selects the _animine_crypt4gh.key_ that is the secret key used by her research project. Then se uses _Select File_ to select the file _run_12_R1.fastq.c4gh_ she just downloaded to her computer. Next she clicks _Decrypt File_ boutton. _crypt4gh-gui_ will now
