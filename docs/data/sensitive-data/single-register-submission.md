@@ -43,9 +43,9 @@ Before the data transfer, the data must be encrypted with a [CSC public key](htt
 
 The representative of the data controller sends the encrypted data via SFTP to a directory which must be named according to the journal number from the data permit. The final dataset ID will be a combination of the organization’s identifier and the journal number (e.g. org.fi/example_dataset_123). Name the file to be uploaded with the journal number.
 
-**With the GUI tool**, the user needs to add the [CSC public key](https://admin.sd.csc.fi/publickey/?instance=single%20registry), the file they want to upload, and their SSH key (SFTP key) to the interface. They also need to fill in their username (*username(a)org.fi*) and the SFTP server: porin.lega.csc.fi:50527
+**With the GUI tool**, the user adds the [CSC public key](https://admin.sd.csc.fi/publickey/?instance=single%20registry), the file they want to upload, and their SSH key (SFTP key) to the interface. They also need to fill in their username (*username(a)org.fi*) and the SFTP server: porin.lega.csc.fi:50527
 
-**With the CLI tool**, the user needs to add the following command to the command line (replace *example_dataset_123* with the journal number, *username(a)org.fi* with their credentials, and *X:\folder\filename.key* with the location of their SSH key):
+**With the CLI tool**, the user adds the following command to the command line (replacing *example_dataset_123* with the journal number, *username(a)org.fi* with their credentials, and *X:\folder\filename.key* with the location of their SSH key):
 
 ```
 sdacli example_dataset_123 -host porin.lega.csc.fi -p 50527 -u username@org.fi -i X:\folder\filename.key -pub registry.pub
