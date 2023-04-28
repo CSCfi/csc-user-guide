@@ -26,7 +26,9 @@ The owner of the organization profile can then create a workflow, form and licen
 Next, the representative of the data controller, who will do the data submission, logs in to the [user administration portal](https://admin.sd.csc.fi/). In the administration portal, they must
 
 1. add the IP address from which the data will be transferred (IP address can be checked with [CSC’s My IP app](https://apps.csc.fi/myip/)), and
-2. add their public SSH key. With this information, the CSC service desk will make the necessary preparations for data submission from the SD service side.
+2. add their public SSH key.
+
+With this information, the CSC service desk will make the necessary preparations for data submission from the SD service side.
 
 After the service desk has confirmed that the preparations are done, the representative of the data controller can test the SFTP connection. This can be done with the following command (replace *username(a)org.fi* with your credentials and *X:\folder\filename.key* with the location of your SSH key):
 
