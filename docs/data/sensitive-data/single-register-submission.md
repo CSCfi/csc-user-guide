@@ -53,7 +53,7 @@ The representative of the data controller sends the encrypted data via SFTP to a
 sdacli example_dataset_123 -host porin.lega.csc.fi -p 50527 -u username@org.fi -i X:\folder\filename.key -pub registry.pub
 ```
 
-After a successful upload, the data will be visible in SD Apply.
+After a successful upload, the dataset can be found in SD Apply.
 
 ## Data access management
 
