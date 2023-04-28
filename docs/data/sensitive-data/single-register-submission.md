@@ -25,7 +25,7 @@ The owner of the organization profile can then create a workflow, form and licen
 
 Next, the representative of the data controller, who will do the data submission, logs in to the [user administration portal](https://admin.sd.csc.fi/). In the administration portal, they must **1)** add the IP address from which the data will be transferred (IP address can be checked with [CSC’s My IP app](https://apps.csc.fi/myip/)) and **2)** add their public SSH key. With this information, the CSC service desk will make the necessary preparations for data submission from the SD service side.
 
-After the service desk has confirmed that the preparations are done, the representative of the data controller can test the SFTP connection. This can be done with the following command (replace *username@org.fi* with your credentials and *X:\folder\filename.key* with the location of your SSH key):
+After the service desk has confirmed that the preparations are done, the representative of the data controller can test the SFTP connection. This can be done with the following command (replace *username(a)org.fi* with your credentials and *X:\folder\filename.key* with the location of your SSH key):
 
 ```
 sftp -i X:\folder\filename.key -P 50527 username@org.fi@porin.lega.csc.fi
@@ -34,13 +34,13 @@ exit
 
 ## Step 4: Data encryption and upload 
 
-Before the data transfer, the data must be encrypted with a [CSC public key](https://admin.sd.csc.fi/publickey/?instance=single%20registry). CSC provides a convenience tool that encrypts and uploads data automatically. This SDA Uploader tool is available on [GitHub](https://github.com/CSCfi/sda-uploader/releases), and has both graphical user interface (GUI) and command line (CLI) options.
+Before the data transfer, the data must be encrypted with a [CSC public key](https://admin.sd.csc.fi/publickey/?instance=single%20registry). CSC provides a convenience tool that encrypts and uploads data automatically. This SDA Uploader tool is available on [GitHub](https://github.com/CSCfi/sda-uploader/releases), and has both graphical user interface (GUI) and command line (CLI) options for Linux, Mac and Windows.
 
 The representative of the data controller sends the encrypted data via SFTP to a directory which must be named according to the journal number from the data permit. The final dataset ID will be a combination of the organization’s identifier and the journal number (e.g. org.fi/example_dataset_123). Name the file to be uploaded with the journal number.
 
 **With the GUI tool**, the user needs to add the [CSC public key](https://admin.sd.csc.fi/publickey/?instance=single%20registry), the file they want to upload, and their SSH key (SFTP key) to the interface. They also need to fill in their username (*username@org.fi*) and the SFTP server: porin.lega.csc.fi:50527
 
-**With the CLI tool**, the user needs to add the following command to the command line (replace *example_dataset_123* with the journal number, *username@org.fi* with their credentials, and *X:\folder\filename.key* with the location of their SSH key):
+**With the CLI tool**, the user needs to add the following command to the command line (replace *example_dataset_123* with the journal number, *username(a)org.fi* with their credentials, and *X:\folder\filename.key* with the location of their SSH key):
 
 ```
 sdacli example_dataset_123 -host porin.lega.csc.fi -p 50527 -u username@org.fi -i X:\folder\filename.key -pub registry.pub
