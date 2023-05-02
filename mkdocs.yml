@@ -170,6 +170,7 @@ nav:
          - Accelerated visualization: computing/webinterface/accelerated-visualization.md
          - Desktop: computing/webinterface/desktop.md
          - Jupyter: computing/webinterface/jupyter.md
+         - Julia on Jupyter: computing/webinterface/julia-on-jupyter.md
          - Jupyter for courses: computing/webinterface/jupyter-for-courses.md
          - MATLAB: computing/webinterface/matlab.md
          - RStudio: computing/webinterface/rstudio.md
