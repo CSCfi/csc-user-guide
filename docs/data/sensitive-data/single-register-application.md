@@ -65,7 +65,7 @@ You can follow the approval process and read the possible comments from the "Eve
 
 - **Rejected**. To see why your application was rejected, navigate the application and select View. Data controller comments will be shown in the Events section.
 
-- **Returned**. If the data controller needs additional information regarding your application or if the , they can return your application to you. To edit the application, follow the link in the email or log in to SD Apply, navigate to the application, and select *View*. You can see the comments of the data controller in the Events section. Then, make the changes and select *Send application*.
+- **Returned**. If some of the required information is missing from your application, the data controller can return your application to you. To edit the application, follow the link in the email or log in to SD Apply, navigate to the application, and select *View*. You can see the comments of the data controller in the Events section. Then, make the changes and select *Send application*.
 
 - **Revoked**. Your Application, and thus your access rights, have been revoked by the data controller.
 
