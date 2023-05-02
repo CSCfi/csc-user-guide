@@ -30,7 +30,7 @@ After you have been set as the owner of the organization profile, you can create
 2. To the form, you add all the information needed for access applications. This information will be shown to the applicants in SD Apply. To the form, you can also add fields for the applicant to fill, e.g. ask them to confirm the journal number by submitting it via the form.
 3. License specifies the terms of use for the data, which the applicants need to approve when they fill in the access application form. In the license, you can for example refer to the terms specified in the data permit.
 
-The forms and licenses are public in SD Apply, so these should not include any sensitive information.
+The forms and licenses are public in SD Apply, so these should not include sensitive information.
 
 ### Step 3: Preparations for the data transfer
 
