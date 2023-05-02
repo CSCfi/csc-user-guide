@@ -1,8 +1,14 @@
 # Applications
 
-## NoMachine will no longer be available on CSC's supercomputers, FIXME
+## NoMachine will no longer be available on CSC's supercomputers, 2.5.2023
 
-Starting from 25.5.2023, NoMachine FIXME
+The NoMachine remote desktop service will be discontinued on 25th May 2023, at the end of the
+current licensing period. The service is superseded by web interfaces on CSC's supercomputers. The
+first of them, [Puhti web interface](../../computing/webinterface/index.md), has been liked by the
+researchers, the number of users is still rapidly increasing and now represents 36% of all users.
+Similar web interfaces will be opened for both Mahti and LUMI, in the near future. For replacements
+in specific use cases, please see
+[the application page for NoMachine](../../apps/nomachine.md#replacements).
 
 ## Gromacs and CP2K now available on LUMI, 19.4.2023
 
