@@ -36,7 +36,11 @@ Set up your virtual Desktop to analyse register data securely from your web brow
 
 2.2 **[Guidelines for data controllers/registers](./single-register-submission.md)**
 
-The service will also be available for accessing data provided by single registers and requires a service agreement between the data controller and CSC. 
+The service will also be available for accessing data provided by single registers and requires a service agreement between the data controller and CSC.
+
+2.3 **[Guidelines for single register data access](./single-register-application.md)**
+
+Users who have a data permit directly from a single public register issued for SD Desktop need to confirm the data access in SD Apply.
 
 ### 3. Support materials 
 
