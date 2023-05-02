@@ -1,10 +1,13 @@
 # Computing environment
 
-## Puhti web interface updated to release 15, 27.4.2023
+## Puhti web interface updated to release 15, 2.5.2023
 
-* A new [Julia-Jupyter app](../../../computing/webinterface/julia-on-jupyter/) is now available.
-* More Puhti usage metrics are now visible.
-* VSCode 1.76.1 is now available.
+* A new [Julia-Jupyter app](../../computing/webinterface/julia-on-jupyter.md) is now available.
+* Visual Studio Code app has received updates.
+    * Support for [Julia language features](../../computing/webinterface/vscode.md#julia-language) was added.
+    * VSCode version 1.76.1 is now available.
+    * Version may be selected when launching the app.
+* Puhti usage metrics now include history (expand by clicking the chevron).
 * Open OnDemand version updated to 2.0.32.
 
 ## Puhti web interface updated to release 14, 2.2.2023
