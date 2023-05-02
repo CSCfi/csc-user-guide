@@ -11,7 +11,7 @@ After the process is established for the first time, the representative of the d
 
 ### Step 1: CSC account and organizational profile in SD Apply
 
-Create [CSC account]((../../accounts/how-to-create-new-user-account.md) by logging in with Haka or Virtu credentials at the [My CSC portal](https://my.csc.fi/). If you don't have Haka or Virtu credentials, you need to request an account from the service desk (servicedesk@csc.fi, subject: Sensitive Data).
+Create [CSC account](../../accounts/how-to-create-new-user-account.md) by logging in with Haka or Virtu credentials at the [My CSC portal](https://my.csc.fi/). If you don't have Haka or Virtu credentials, you need to request an account from the service desk (servicedesk@csc.fi, subject: Sensitive Data).
 
 When you have created an CSC account, you can log in to [SD Apply service](https://sd-apply.csc.fi/).
 
