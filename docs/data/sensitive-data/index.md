@@ -40,7 +40,7 @@ The service will also be available for accessing data provided by single registe
 
 2.3 **[Guidelines for single register data access](./single-register-application.md)**
 
-Users who have a data permit directly from a single public register issued for SD Desktop need to confirm the data access in SD Apply.
+Projects that have a data permit directly from a single public register issued for SD Desktop need to confirm the data access in SD Apply.
 
 ### 3. Support materials 
 
