@@ -71,7 +71,7 @@ For further information on LUMI projects please visit [Users in Finland](https:/
 
 **Invite participants to your project**
 
-1. You can create your [invitation link](https://docs.csc.fi/accounts/how-to-add-members-to-project/#using-invitation-link) to the course project in my.csc.fi
+1. You can create your [invitation link](how-to-add-members-to-project.md#using-invitation-link) to the course project in my.csc.fi
 2. Please provide this invitation link to your course participants
 3. If the student does not yet have a CSC user account they will be guided to create a CSC user account. 
 4. Users must accept the CSC Terms of use of the services which are used during the course
