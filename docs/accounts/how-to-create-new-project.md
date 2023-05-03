@@ -67,17 +67,17 @@ For further information on LUMI projects please visit [Users in Finland](https:/
 
 **Add services to your project**
 
-1. Please add the services (Puhti, Mahti, cPouta, etc.) to your project you wish to use during your course.
+* Please add the services (Puhti, Mahti, cPouta, etc.) to your project you wish to use during your course.
 
 **Invite participants to your project**
 
-1. You can create your invitation link to the course project in my.csc.fi (linkki?, https://docs.csc.fi/accounts/how-to-add-members-to-project/#using-invitation-link)
+1. You can create your [invitation link](https://docs.csc.fi/accounts/how-to-add-members-to-project/#using-invitation-link) to the course project in my.csc.fi
 2. Please provide this invitation link to your course participants
 3. If the student does not yet have a CSC user account they will be guided to create a CSC user account. 
 4. Users must accept the CSC Terms of use of the services which are used during the course
 
 **Project lifecycle**
 
-1. Course projects are valid for maximum 6 months
-2. Projects cannot be extended
-3. Project data will be deleted when the project has ended
+* Course projects are valid for maximum 6 months
+* Projects cannot be extended
+* Project data will be deleted when the project has ended
