@@ -59,7 +59,7 @@ CSC does not provide temporary training specific user accounts for courses anymo
 
 Please read carefully our guidance if you wish to have a course for your students using CSC's services. We request that you will create the project well in advance as soon as you have the list of the participants. And when the project is ready you are able to start sending out the invitations to your participants. 
 
-Please see instructions on how to create the course project (https://docs.csc.fi/accounts/how-to-create-new-project/#how-to-create-a-course-project)
+Please see instructions on [how to create the course project](https://docs.csc.fi/accounts/how-to-create-new-project/#how-to-create-a-course-project)
 
 
 ## Getting a machine-to-machine robot account
