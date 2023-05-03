@@ -48,8 +48,6 @@ this way.
     about your use case, and we will check your eligibility.
 
 ## Getting student accounts for courses
-vai
-## Setting up a course project
 
 If you are a teacher and you are organising a course for your students, please read these instructions carefully.
 
