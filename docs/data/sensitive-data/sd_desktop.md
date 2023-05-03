@@ -3,7 +3,7 @@
 
 ## Overview
 
-Sensitive Data (SD) Desktop allows you to analyze sensitive research data from your web browser securely. With this user interface, you can easily manage (start, use, delete) a virtual computer (here called desktop, technically defined as virtual machine). In addition, SD Desktop provides a secure workspace for collaborative research projects. 
+Sensitive Data (SD) Desktop allows you to analyse sensitive research data from your web browser securely. With this user interface, you can easily manage (start, use, delete) a virtual computer (here called desktop, technically defined as virtual machine). In addition, SD Desktop provides a secure workspace for collaborative research projects. 
 
 [![Desktop-overview](images/desktop/desktop_overviewnew1.png)](images/desktop/desktop_overviewnew1.png)
 
@@ -38,7 +38,7 @@ You can browse the main topics of this section using the navigation bar on the r
 
 * Only members of the same CSC project can access the virtual desktop. One CSC project can create up to three desktops. 
 
-* Four pre-built computing options (Linux OS) are available (for simple statistical analysis and machine learning).  Supports analysis of any data type: text files, images, audio files, video, and genetic data. Further customisation is possible by writing to servicedesk@csc.fi (subject: Sensitive data);
+* Three pre-built computing options (Linux OS) are available (for simple statistical analysis and machine learning).  Supports analysis of any data type: text files, images, audio files, video, and genetic data. Further customisation is possible by writing to servicedesk@csc.fi (subject: Sensitive data);
 
 * The secure analysis environment is isolated from the internet: the only way to import and export data is via the SD Connect service.
 
@@ -107,8 +107,7 @@ You can choose between three different pre-built virtual desktop options:
     
 
 !!! Note
-   As each virtual desktop consumes resources. Please delete your desktop if it is no longer needed after testing the SD Desktop service or the analysis phase. Please consider exporting all the necessary results, disconnecting any volumes that may contain important files for future use, and then deleting the desktop after
-notifying the other CSC project members. For more informations see [Managing volumes and desktops](./sd_desktop.md#managing-volumes-and-virtual-desktops).
+   As each virtual desktop consumes resources, please delete your desktop if it is no longer needed (e.g. after testing the SD Desktop service or the analysis phase). Please consider exporting all the necessary results, disconnecting any volumes that may contain important files for future use, and then deleting the desktop after notifying the other CSC project members. For more informations see [Managing volumes and desktops](./sd_desktop.md#managing-volumes-and-virtual-desktops).
     
 
 The following paragraphs will discuss how to work with your virtual desktop, which software is available, and how to customize your workspace.
