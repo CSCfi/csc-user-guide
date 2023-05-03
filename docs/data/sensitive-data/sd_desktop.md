@@ -107,7 +107,7 @@ You can choose between three different pre-built virtual desktop options:
     
 
 !!! Note
-   As each virtual desktop consumes resources, please delete your desktop if it is no longer needed (e.g. after testing the SD Desktop service or the analysis phase). Please consider exporting all the necessary results, disconnecting any volumes that may contain important files for future use, and then deleting the desktop after notifying the other CSC project members. For more informations see [Managing volumes and desktops](./sd_desktop.md#managing-volumes-and-virtual-desktops).
+    As each virtual desktop consumes resources, please delete your desktop if it is no longer needed (e.g. after testing the SD Desktop service or the analysis phase). Please consider exporting all the necessary results, disconnecting any volumes that may contain important files for future use, and then deleting the desktop after notifying the other CSC project members. For more informations see [Managing volumes and desktops](./sd_desktop.md#managing-volumes-and-virtual-desktops).
     
 
 The following paragraphs will discuss how to work with your virtual desktop, which software is available, and how to customize your workspace.
