@@ -48,23 +48,15 @@ this way.
     about your use case, and we will check your eligibility.
 
 ## Getting student accounts for courses
+vai
+## Setting up a course project
 
-If you are a teacher and you wish to have course accounts for your
-students, please send the following information to servicedesk@csc.fi. You must be a
-registered CSC user before course accounts can be created.
+If you are a teacher and you are organising a course for your students, please read these instructions carefully.
 
-* Start and end date of the course
-* Username of the teacher (responsible for the accounts)
-* Teacher's mobile number (to which the passwords are sent via SMS)
-* The number of accounts needed
+CSC does not provide training specific user accounts for courses. Each participant will create their own personal CSC user account and you can add them to your course project. If you're not able to create CSC user accounts please contact servicedesk@csc.fi.
 
-You will receive the accounts' information via email and SMS.
+Please read carefully our guidance if you wish to have a course for your students using CSC's services. We request that you will create the project well in advance as soon as you have the list of the participants. And when the project is ready you are able to start sending out the invitations to your participants. 
 
-!!! Note
-
-    Student accounts are only valid during the
-    course. Please request the accounts in advance, at least one week before
-    the course begins. Also please note that student accounts do not work on Puhti Web interface, only via SSH terminal sessions.
 
 ## Getting a machine-to-machine robot account
 
