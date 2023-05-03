@@ -47,13 +47,19 @@ this way.
     program. Contact servicedesk@csc.fi and provide details
     about your use case, and we will check your eligibility.
 
-## Getting student accounts for courses
+## User accounts for courses
 
-If you are a teacher and you are organising a course for your students, please read these instructions carefully.
+### For participants
 
-CSC does not provide training specific user accounts for courses. Each participant will create their own personal CSC user account and you can add them to your course project. If you're not able to create CSC user accounts please contact servicedesk@csc.fi.
+If you are attending a course which is utilising CSC's services you need to create your own CSC user account with Haka or Virtu if you don't yet have one. Please see instructions above. 
+
+### For organisers/teachers
+
+CSC does not provide temporary training specific user accounts for courses anymore. If the participant does not yet have a user account, it needs to be created. The course organiser can then invite participants to the course project. If you're not able to create CSC user accounts please contact servicedesk@csc.fi.
 
 Please read carefully our guidance if you wish to have a course for your students using CSC's services. We request that you will create the project well in advance as soon as you have the list of the participants. And when the project is ready you are able to start sending out the invitations to your participants. 
+
+Please see instructions on how to create the course project (https://docs.csc.fi/accounts/how-to-create-new-project/#how-to-create-a-course-project)
 
 
 ## Getting a machine-to-machine robot account
