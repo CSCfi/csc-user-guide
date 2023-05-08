@@ -70,7 +70,7 @@ After the data has been submitted, it is discoverable in SD Apply with the datas
 
 The researcher who has received the data permit can contact the CSC service desk and ask for a CSC project with the data permit. After the project has been established, they can log in to SD Apply and apply for data access.
 
-The assigned representatives of the data controller will receive a notification of the application via email. They can review and approve the application and set an end date for the data access in SD Apply. The permission can also be revoked manually in the future, but automated end date is preferred to avoid unauthorised access after the data permit has expired.
+The assigned representatives of the data controller will receive a notification of the application via email. They can review and approve the application and set an end date for the data access in SD Apply. The access right can also be cancelled manually in the future, but automated end date is preferred to avoid unauthorised access after the data permit has expired.
 
 ### Step 1: Confirm availability
 
