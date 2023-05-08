@@ -18,9 +18,11 @@ The service is superseded by web interfaces on CSC's supercomputers:
 interface.
 * Available as interactive applications.
     * [Jupyter](../computing/webinterface/jupyter.md)
+    * [Julia-Jupyter](../computing/webinterface/julia-on-jupyter.md)
     * [MATLAB](../computing/webinterface/matlab.md)
     * [RStudio](../computing/webinterface/rstudio.md)
     * [TensorBoard](../computing/webinterface/tensorboard.md)
+    * [Visual Studio Code](../computing/webinterface/vscode.md)
 * Some applications are available with GPU acceleration. See
 [Accelerated visualization](../computing/webinterface/accelerated-visualization.md).
 * A [login or compute node shell](../computing/webinterface/index.md#shell) can be launched from the web interface.
