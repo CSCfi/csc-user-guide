@@ -1,3 +1,4 @@
+*[CLI]: Command-Line Interface 
 *[CPU]: Central Processing Unit
 *[GPU]: Graphics Processing Unit
 *[QPU]: Quantum Processing Unit
@@ -30,6 +31,7 @@
 *[IaaS]: Infrastructure-as-a-Service
 *[PaaS]: Platform-as-a-Service
 *[SaaS]: Software-as-a-Service
+*[DBaaS]: Database-as-a-Service
 *[VM]: Virtual Machine
 *[PI]: Principal Investigator
 *[PM]: Project Manager
@@ -49,3 +51,4 @@
 *[TLS]: Transport Layer Security
 *[HTTP]: Hypertext Transfer Protocol
 *[HTTPS]: Hypertext Transfer Protocol Secure
+*[SQL]: Structured Query Language
