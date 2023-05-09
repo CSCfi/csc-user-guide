@@ -1,12 +1,12 @@
 # How can I mount my Allas S3 bucket to a VM running in cPouta
 
-Combining cPouta cloud environment and Allas storage environment allows you to build scalable data management environments. This document shows one example how you can combine these two services by mounting a bucket from Allas to an Ubuntu or a Centos7 based virtual machine running in cPouta.
+Combining cPouta cloud environment and Allas storage environment allows you to build scalable data management environments. This document shows one example how you can combine these two services by mounting a bucket from Allas to an Ubuntu 22.04 or a Centos7 based virtual machine running in cPouta.
 
 [TOC]
 
 ## Installing OpenStack, s3cmd and s3fs
 
-### In Ubuntu
+### In Ubuntu 22.04 LTS
 
 * After launching an Ubuntu based virtual machine in cPouta, open a terminal connection to the VM and update it with the command:
 
@@ -20,7 +20,7 @@ Combining cPouta cloud environment and Allas storage environment allows you to b
 * Then install OpenStack client by:
 
 	```sh
-	sudo apt install python3-pip python3-dev python3-setuptools
+	sudo apt install python3-pip python3-dev
 	sudo pip install --upgrade pip
 	sudo pip install python-openstackclient
 	```
@@ -31,7 +31,7 @@ Combining cPouta cloud environment and Allas storage environment allows you to b
 	sudo apt install s3cmd s3fs
 	```
 
-### In Centos7
+### In Centos7 (Maintenance Updates EOL 2024-06-30)
 
 * After launching a Centos7 based virtual machine in cPouta, open a terminal connection to the VM and update it with the command:
 
@@ -42,30 +42,16 @@ Combining cPouta cloud environment and Allas storage environment allows you to b
 * OpenStack and s3cmd can then be installed by:
 
 	```sh
-	sudo yum install python-pip python-devel wget
-	sudo pip install python-openstackclient
-	sudo pip install --upgrade \
-	    --requirement https://raw.githubusercontent.com/platform9/support-locker/master/openstack-clients/requirements.txt \
-	    --constraint https://raw.githubusercontent.com/openstack/requirements/stable/pike/upper-constraints.txt
+	sudo yum install python3 python3-devel wget
+	sudo python3 -m pip install --upgrade pip
+	sudo python3 -m pip install python-openstackclient
 	sudo yum install s3cmd
 	```
 
-* In the case of Centos7, s3fs needs to be compiled locally. To do this we need to first to intall some tools needed for compilation:
+* s3fs-fuse can be installed using this command:
 
 	```sh
-	sudo yum install automake fuse fuse-devel gcc-c++ git libcurl-devel libxml2-devel make openssl-devel
-	```
-
-* Then download the s3fs-fuse from the git repository and install it:
-
-	```sh
-	git clone https://github.com/s3fs-fuse/s3fs-fuse.git
-	cd s3fs-fuse/
-	./autogen.sh
-	./configure
-	make
-	make  all-recursive
-	sudo make install
+	sudo yum install s3fs-fuse
 	```
 
 ## Configuring and using Allas
@@ -127,7 +113,7 @@ This is the **recommended way** to use Allas with the S3 protocol from the comma
 	!!! info
 	    Any empty directory can be used as a mount point
 
-1. Create a `.passwd-s3fs` file in your home directory. The format of the file must be: `ACCESS_KEY_ID:SECRET_ACCESS_KEY` and have _600_ permissions.
+1. Create a `.passwd-s3fs` file in your home directory. The format of the file must be: `ACCESS_KEY_ID:SECRET_ACCESS_KEY` and have _600_ permissions. (Your project must be sourced: `source project_xxxxxxx`)
 
 	```sh
 	$ openstack ec2 credentials list -f value | grep $OS_PROJECT_ID | tail -1 |\
@@ -157,9 +143,11 @@ This is the **recommended way** to use Allas with the S3 protocol from the comma
 
 	The output should be the same as with `s3cmd ls s3://case_1`
 
+	!!! info 
+	    You can also check the mount by typing the command `df -h`
+
 1. When you are done you can unmount the folder by:
 
 	```sh
 	sudo umount os_case_1
 	```
-
