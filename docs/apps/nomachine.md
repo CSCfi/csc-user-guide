@@ -16,6 +16,7 @@ The service is superseded by web interfaces on CSC's supercomputers:
 * For a generic graphical remote desktop, the
 [Desktop application](../computing/webinterface/desktop.md) can be launched from the web
 interface.
+* For a shell (e.g. a persistent shell on a compute node), have a look at [the shell applications](../computing/webinterface/index.md#shell) on the web interface.
 * Available as interactive applications.
     * [Jupyter](../computing/webinterface/jupyter.md)
     * [Julia-Jupyter](../computing/webinterface/julia-on-jupyter.md)
@@ -25,7 +26,6 @@ interface.
     * [Visual Studio Code](../computing/webinterface/vscode.md)
 * Some applications are available with GPU acceleration. See
 [Accelerated visualization](../computing/webinterface/accelerated-visualization.md).
-* A [login or compute node shell](../computing/webinterface/index.md#shell) can be launched from the web interface.
 
 **If you have difficulties in migrating to use the web interfaces, please don't hesitate to
 [contact us](../support/contact.md)!**
