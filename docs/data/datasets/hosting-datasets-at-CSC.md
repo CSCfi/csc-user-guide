@@ -122,4 +122,4 @@ We provide multiple storage options for research purposes. You can find the righ
 | [**Sensitive Data (SD) Connect**](../sensitive-data/sd_connect.md) | Store, collect and share encrypted research data              | 10 TB (more on request)                                        | Browser and CLI                                                      | project group                       | Enables sharing data from the service. Enables analysing encrypted data from the SD Desktop service. [More info on SD services](https://research.csc.fi/sensitive-data-services-for-research)| CSC                               |
 
 
-* For more detailed information about available storage capacity, see the [information on default quotas](https://research.csc.fi/en/applying-for-computing-resources).
+* For more detailed information about available storage capacity, see the [information on default quotas](https://research.csc.fi/quotas).

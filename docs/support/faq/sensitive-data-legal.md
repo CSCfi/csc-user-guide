@@ -69,13 +69,11 @@ In GDPR terms, CSC is always a data processor acting on behalf of a data control
 You can write to  servicedesk@csc.fi (email subject: Sensitive Data) describing your research and the data you are working with (e.g. providing your Data Management Plan, DMP). You can also contact the legal services or Data Protection Officer in your own organization. They can give you more details about your organization's policies.
 
 ## What type of sensitive data can I process with CSC Sensitive Data Services?
-Any type of sensitive data consented for research. Note: currently, it is not possible to process registry data as CSC Sensitive Data Services have not yet been certified to fulfill the Finnish Health and Social Data Permit Authority Findata. 
+Any type of sensitive data consented for research. Processing register data under the Act on Secondary us of Health and Social data is possible only with a Findata permit and using a restricted version of the SD Desktop service (see: Sd Desktop for secondary use).
 
 ## What type of documentation do I need to provide to use CSC Sensitive Data Services?
 
-You need to have a CSC project with specific settings to use our services. 
-When creating a new project in MyCSC, you are guided to sign a Data Processing Agreement (DPA) and describe the type of data you are processing in the description of processing activities form.
-You can also download the DPA and share it with the legal services in your organization or the Data Controller's legal representative. 
+When creating a CSC account and CSC project in MyCSC, you are guided to view and accept CSC's Data Processing Agreement (DPA) and describe the type of data you are processing in the description of processing activities form. 
 If you have any questions about these documents or addittional legal agreements are needed between your organization and CSC, write to servicedesk@csc.fi (email subject: Sensitive Data).
 
 

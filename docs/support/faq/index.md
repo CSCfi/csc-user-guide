@@ -4,12 +4,12 @@
 * [I'm a new CSC user. How to get started?](how-to-get-started-at-CSC.md)
 * [X11 remote graphics does not work](x11-graphics.md)
 * [How to get access to Puhti](how-to-get-puhti-access.md)
-* [I cannot login to Puhti from NoMachine](cannot-login-from-nomachine.md)
 * [How to cite CSC in a paper?](how-to-cite-csc.md)
 * [Can I still use CSC services if I'm moving abroad?](can-i-use-csc-services-abroad.md)
 * [How can I move data between CSC and my local computer?](../../data/moving)
 * [Disk quota exceeded](disk-quota-exceeded.md)
 * [I need a Database, where can I deploy it?](database.md)
+* [Is there a glossary of the acronyms you keep using?](is-there-a-glossary-of-the-acronyms-you-keep-using.md)
 
 ## Batch jobs
 * [Why does my batch job fail?](why-does-my-batch-job-fail.md)

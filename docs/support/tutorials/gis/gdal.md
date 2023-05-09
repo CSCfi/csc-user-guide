@@ -30,7 +30,7 @@ The easiest way for defining a coordinate system with GDAL is to use EPSG codes.
 4326 WGS-84
 ```
 
-*   More Finnish EPSG codes can be found from [JHS-recommendatation](http://www.jhs-suositukset.fi/c/document_library/get_file?uuid=f94eb443-9b4d-4598-98a3-02c71859237b&groupId=14).
+*   More Finnish EPSG codes can be found from [JHS-recommendatation](https://www.suomidigi.fi/sites/default/files/2020-07/JHS197_liite10.doc).
 *   [Database of all EPSG codes](https://epsg.org/home.html).
 
 ## Examples

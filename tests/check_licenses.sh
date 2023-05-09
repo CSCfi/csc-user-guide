@@ -6,12 +6,13 @@ directory="docs/apps"
 APPS_WITHOUT_LICENSE=$(grep -r -L \
     --include "$file_type" \
     --exclude index.md \
-    --exclude alpha.md \
+    --exclude by_discipline.md \
     --exclude by_system.md \
     --exclude by_license.md \
     --exclude bioconda.md \
     --exclude discovery-studio.md \
     --exclude materialsstudio.md \
+    --exclude nomachine.md \
     -- \
     "$regex" $directory)
 

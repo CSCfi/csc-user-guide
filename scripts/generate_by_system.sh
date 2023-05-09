@@ -5,6 +5,12 @@ ignore_file="scripts/skip_system.txt"
 generated_file="docs/apps/by_system.md"
 echo -e "# Applications by availability\n" > $generated_file
 
+# If you are adding another system, make sure to add a heading for
+# it into the file pointed to by the variable $generated_file above.
+# While this script rewrites the whole file, the link tests are
+# executed before that when deploying and may thus falsely report
+# broken links.
+
 # Case sensitive, the title for the system category
 system_name=("Mahti" "Puhti" "LUMI")
 # Not case sensitive, the keyword to grep to determine if a software is available on a system
@@ -25,18 +31,16 @@ if [[ "$num_keys" -ne "$num_systems" ]]; then
     exit 1;
 fi
 
-echo -e "\n" >> $generated_file
 for i in $( seq 0 $(($num_systems-1)) )
 do
-    echo "- [ Available on ${system_name[$i]}](by_system.md#${system_name[$i],,}), ${system_desc[$i]}" >> $generated_file
+    echo "- [Available on ${system_name[$i]}](by_system.md#${system_name[$i],,}), ${system_desc[$i]}" >> $generated_file
 done
-echo -e "\n" >> $generated_file
 
 for i in $( seq 0 $(($num_systems-1)) )
 do
     ignores=$(cat <(grep -i SKIP_ALL $ignore_file ) <(grep -i SKIP_${system_key[$i]} $ignore_file ) | awk  '{ print $2 }')
-    files=$(grep --exclude-from=<(echo "$ignores") -wi ${system_key[$i]} $app_dir/*.md | awk -F ":" '{print $1}' | sort | uniq | sed s%docs/apps/%%)
-    software=$(grep -f <(echo "$files") $app_dir/alpha.md)
+    files=$(grep --exclude-from=<(echo "$ignores") -wirl ${system_key[$i]} $app_dir | sort | uniq | sed s%docs/apps/%%)
+    software=$(grep -f <(echo "$files") $app_dir/index.md)
     echo -e "\n## ${system_name[$i]} \n" >> $generated_file
     if [[ "${system_name[$i]}" == "LUMI" ]]; then
         echo -e "!!! info \"Note\"" >> $generated_file

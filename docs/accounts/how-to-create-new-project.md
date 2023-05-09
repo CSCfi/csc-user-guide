@@ -1,14 +1,20 @@
+---
+search:
+  boost: 2
+---
+
 # Creating a new project
 
 !!! Note
     Access to LUMI requires creating a separate LUMI-specific project. [How to create Finnish LUMI projects](how-to-create-new-project.md#how-to-create-finnish-lumi-projects) is detailed below.
 
+## How to create a CSC project
+
 A CSC user account is required for creating new projects.
 
 1. Login to [MyCSC](http://my.csc.fi).
-2. Choose _My projects_ in the navigation menu on the left.
-3. Scroll down to the end of the page and choose _Create a new
-project_.
+2. Choose _Projects_ in the navigation menu on the left.
+3. Click on **+ New project** on right top corner.
 4. Fill in the project name and description.
 5. Select the project type.
 6. Does your project handle personal data? Select _Yes_ or _No_. Read more about [handling personal data in your project](../accounts/when-your-project-handles-personal-data.md).
@@ -17,11 +23,9 @@ have read and accepted the General Terms of Use for..._
 8. Click _Create project_.
 
 !!! Note
-    If your work belongs to any of the [free-of-charge use cases](https://research.csc.fi/free-of-charge-use-cases){:target="_blank"} , select Academic as the project type. Academic projects can be opened only by members of Finnish higher education institutions, state research institutes and CSC. 
+    If your work belongs to any of the [free-of-charge use cases](https://research.csc.fi/free-of-charge-use-cases){:target="_blank"} , select Academic as the project type. Academic projects can be created  only by members of Finnish higher education institutions, state research institutes and CSC. 
 
 Projects are usually valid for one year at a time, but they can be extended. To extend a project, please see page [How to manage your project](how-to-manage-your-project.md).
-
-<iframe width="560" height="315" srcdoc="https://www.youtube.com/embed/rHVaZD9zwnk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ## How to create Finnish LUMI projects
 
@@ -47,3 +51,33 @@ LUMI services are free of charge for academic research for members of Finnish hi
 12. [Invite the project members](how-to-add-members-to-project.md) after creating a project.
 13. Your LUMI project application will be sent to be CSC Resource allocation administration to be processed. The CSC Resource allocation group has meetings [every three weeks](https://research.csc.fi/applying-for-computing-resources).
 14. Please note that LUMI access is provided only with SSH keys, not with passwords. After you have received an acceptance confirmation email for your LUMI project request, please [upload your public SSH key to MyCSC according to the instructions](../computing/connecting.md#setting-up-ssh-keys).
+
+For further information on LUMI projects please visit [Users in Finland](https://www.lumi-supercomputer.eu/get-started-2021/users-in-finland/){:target="_blank"}
+
+## How to create a course project
+
+1. Login to [MyCSC](http://my.csc.fi/)
+2. Choose **Projects** in the navigation menu on the left.
+3. On the top right corner choose **New project**.
+4. Fill in the project name and description.
+5. Select the project category Course project.
+6. Fill in the course dates and field of science. 
+7. Read through and confirm the Terms of use and Export restriction policy. 
+8. Click Create project.
+
+**Add services to your project**
+
+* Please add the services (Puhti, Mahti, cPouta, etc.) to your project you wish to use during your course.
+
+**Invite participants to your project**
+
+1. You can create your [invitation link](how-to-add-members-to-project.md#using-invitation-link) to the course project in my.csc.fi
+2. Please provide this invitation link to your course participants
+3. If the student does not yet have a CSC user account they will be guided to create a CSC user account. 
+4. Users must accept the CSC Terms of use of the services which are used during the course
+
+**Project lifecycle**
+
+* Course projects are valid for maximum 6 months
+* Projects cannot be extended
+* Project data will be deleted when the project has ended

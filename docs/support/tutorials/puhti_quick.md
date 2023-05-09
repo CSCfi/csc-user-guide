@@ -2,7 +2,7 @@
 
 This is a quick start guide for Puhti users. It is assumed that you have previously
 used CSC cluster resources like Taito/Sisu. If not, you can start by looking at
-[overview of CSC supercomputers](../../computing/overview.md).
+[overview of CSC supercomputers](../../computing/index.md).
 
 **Go to [MyCSC](https://my.csc.fi) to apply for access to Puhti or view your projects
 and their project numbers if you already have access.** You can also use the command
@@ -64,7 +64,7 @@ More information about [building](../../computing/compiling-puhti.md#building-mp
 
 ## Applications
 
-More information about specific applications can be found [here](../../apps/alpha.md)
+More information about specific applications can be found [here](../../apps/index.md)
 
 !!! Python
     System Python is available by default both in Puhti and Mahti without loading any module. Python 3
@@ -118,5 +118,5 @@ for efficiently querying how much data/files you have in a directory.
 ## Linux basics Tutorial for CSC
 
 If you are new to Linux command line or using supercomputers, please consult
-[this tutorial section](env-guide/overview.md)! See also the materials of the
+[this tutorial section](env-guide/index.md)! See also the materials of the
 [CSC Computing Environment self-learning course](https://csc-training.github.io/csc-env-eff/).

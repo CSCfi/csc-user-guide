@@ -145,7 +145,7 @@ In the above example, one task (`--ntasks=1`) is executed with 1 GB of memory (`
 
 The `r-env` module can be used for parallel computing in several ways. These include multi-core and array submissions, as well as MPI (Message Passing Interface)-based jobs. The module comes with several packages that support multi-node communication via MPI: `doMPI` (used with `foreach`), `future`, `lidR`, `pbdMPI` and `snow`.
 
-Further to the following examples, please see our separate [tutorial for parallel R jobs](../support/tutorials/parallel-r.md). There is also [separate documentation on MPI jobs](../computing/running/creating-job-scripts-puhti.md#mpi-based-batch-jobs). You may also wish to check the relevant R package manuals and [this page](https://github.com/csc-training/geocomputing/tree/master/R/puhti/05_parallel_future) for examples of parallel computing using the `raster` package.
+Further to the following examples, please see our separate [tutorial for parallel R jobs](../support/tutorials/parallel-r.md). There is also [separate documentation on MPI jobs](../computing/running/creating-job-scripts-puhti.md#mpi-based-batch-jobs). You may also wish to check the relevant R package manuals and [this page](https://github.com/csc-training/geocomputing/tree/master/R/puhti/02_parallel_future) for examples of parallel computing using the `raster` package.
 
 !!! note
     For jobs employing the Rmpi package, please use snow (which is built on top of Rmpi). Jobs using Rmpi alone are unavailable due to compatibility issues.
@@ -395,7 +395,7 @@ plan(cluster, workers = cl)
 stopCluster(cl)
 ```
 
-For practical examples of jobs using `plan(cluster)` and `plan(multicore)` with raster data, [see this page](https://github.com/csc-training/geocomputing/tree/master/R/puhti/05_parallel_future). 
+For practical examples of jobs using `plan(cluster)` and `plan(multicore)` with raster data, [see this page](https://github.com/csc-training/geocomputing/tree/master/R/puhti/02_parallel_future). 
 
 *Jobs using `pbdMPI`*
 
@@ -572,7 +572,7 @@ if test -f ~/.Renviron; then
     sed -i '/TMPDIR/d' ~/.Renviron
 fi
 
-# Specify NVME temp folder path
+# Specify NVMe temp folder path
 echo "TMPDIR=$TMPDIR" >> ~/.Renviron
 
 # Run the R script
@@ -589,7 +589,7 @@ Sys.getenv("LOCAL_SCRATCH")
 
 The `r-env` module supports GPU-accelerated TensorFlow jobs using the [R interface to TensorFlow](https://tensorflow.rstudio.com/). If you only require TensorFlow without access to R, please use one of the available [TensorFlow modules on Puhti](tensorflow.md). For general information on submitting GPU jobs, [see this tutorial](../support/tutorials/gpu-ml.md). Note that `r-env` includes CUDA and cuDNN libraries, so there is no need to load CUDA and cuDNN modules separately.
 
-To submit a GPU job using the R interface to TensorFlow, you need to use the GPU partition and specify the type and number of GPUs using the `--gres` flag. The rest is handled by the R script (see [this page for examples](https://keras.rstudio.com/articles/examples/index.html)). In the script below, we would reserve a single GPU and 10 CPUs in a single node:
+To submit a GPU job using the R interface to TensorFlow, you need to use the GPU partition and specify the type and number of GPUs using the `--gres` flag. The rest is handled by the R script (see [this page for examples](https://tensorflow.rstudio.com/examples/). In the script below, we would reserve a single GPU and 10 CPUs in a single node:
 
 ```bash
 #!/bin/bash -l
@@ -787,7 +787,7 @@ citation("package") # for citing R packages
 
 ## Further information
 
-- [r-env container recipes](https://github.com/CSCfi/singularity-recipes/tree/main/r-env) (link to public GitHub repository)
+- [r-env container recipes](https://github.com/CSCfi/singularity-recipes/tree/main/r-env-singularity) (link to public GitHub repository)
 
 - [Tutorial on parallel R](../support/tutorials/parallel-r.md)
 

@@ -1,3 +1,13 @@
+---
+title: Machine learning guide
+---
+
+!!! note "Practical Deep Learning, May 3-5" 
+    The popular Practical Deep Learning course by CSC will be held again
+    May 3-5. The course gives an introduction to deep learning and how to
+    do machine learning on Puhti and LUMI supercomputers. 
+    [Registration is now open!](https://ssl.eventilla.com/event/8aPek)
+
 # Machine learning guide
 
 This guide aims to help users who wish to do machine learning using CSC's
@@ -18,7 +28,7 @@ In addition to this page, this guide contains the following subsections:
 
 CSC offers several services which might be relevant for machine learning users:
 
-- [Supercomputers, Puhti and Mahti](../../computing/overview.md) are multi-user
+- [Supercomputers, Puhti and Mahti](../../computing/index.md) are multi-user
   clusters and offer the highest computing performance, including GPU
   acceleration in a centrally controlled software environment,
 
@@ -43,20 +53,21 @@ service desk](../contact.md) and explain your computing needs.
 
 ## CSC's supercomputers
 
-For most machine learning needs [CSC's supercomputers, Puhti and
-Mahti](../../computing/overview.md), are the way to go. Both are clusters of
+For most machine learning needs
+[CSC's supercomputers, Puhti and Mahti](../../computing/index.md),
+are the way to go. Both are clusters of
 hundreds of computers, some of which offer GPU-acceleration. The supercomputers
 are multi-user systems, so individual users have limited rights to install
-software, and as with any shared resource one must follow the [usage
-policy](../../computing/overview.md#usage-policy) so that the service can remain
-usable.
+software, and as with any shared resource one must follow the
+[usage policy](../../computing/usage-policy.md)
+so that the service can remain usable.
 
-If you are a new user, please read [how to access Puhti and
-Mahti](../../computing/overview.md), and [how to submit computing
-jobs](../../computing/running/getting-started.md).
+If you are a new user, please read
+[how to access Puhti and Mahti](../../computing/index.md#accessing-puhti-and-mahti), and
+[how to submit computing jobs](../../computing/running/getting-started.md).
 
-New users may in particular be interested in [Puhti's web
-interface](https://docs.csc.fi/computing/webinterface/), which can be accessed
+New users may in particular be interested in
+[Puhti's web interface](../../computing/webinterface/index.md), which can be accessed
 at [www.puhti.csc.fi](https://www.puhti.csc.fi). Via the web interface, one can
 easily launch for example a Jupyter Notebook session with TensorFlow or PyTorch.
 

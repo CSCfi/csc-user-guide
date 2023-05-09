@@ -4,6 +4,7 @@ The [contributing guide](CONTRIBUTING.md) outlines the basic steps of starting c
 
 - [Frequently asked questions](#frequently-asked-questions)
   - [How to include my new page in the navigation panel?](#how-to-include-my-new-page-in-the-navigation-panel)
+    - [SectionPage](#sectionpage)
   - [How to add an image?](#how-to-add-an-image)
   - [How to embed an external video?](#how-to-embed-an-external-video)
   - [How to add links?](#how-to-add-links)
@@ -11,6 +12,9 @@ The [contributing guide](CONTRIBUTING.md) outlines the basic steps of starting c
   - [How can I preview my edits?](#how-can-i-preview-my-edits)
     - [Using the preview feature for active branches hosted on Rahti](#using-the-preview-feature-for-active-branches-hosted-on-rahti)
     - [Locally using the MkDocs tool](#locally-using-the-mkdocs-tool)
+      - [Tests](#tests)
+      - [Scripts](#scripts)
+      - [Breadcrumbs debugging](#breadcrumbs-debugging)
   - [How and who should I ask to review my PR?](#how-and-who-should-i-ask-to-review-my-pr)
   - [I was asked to review a PR, what should I do?](#i-was-asked-to-review-a-pr-what-should-i-do)
   - [When reviewing a PR, how to leave comments/suggest changes so that they appear as a diff in the conversation tab?](#when-reviewing-a-pr-how-to-leave-commentssuggest-changes-so-that-they-appear-as-a-diff-in-the-conversation-tab)
@@ -19,6 +23,8 @@ The [contributing guide](CONTRIBUTING.md) outlines the basic steps of starting c
   - [How do I add definitions to the glossary / display definitions as tooltips?](#how-do-i-add-definitions-to-the-glossary--display-definitions-as-tooltips)
   - [How do I use the announcement bar?](#how-do-i-use-the-announcement-bar)
   - [How do I add a license tag to an application page?](#how-do-I-add-a-license-tag-to-an-application-page)
+  - [How do I make footnotes?](#how-do-i-make-footnotes)
+  - [How do I improve search results?](#how-do-i-improve-search-results)
 
 
 ## How to include my new page in the navigation panel?
@@ -29,15 +35,43 @@ If you add a new page that you want to appear in the left-hand-side navigation p
 nav:
   - Home: index.md
   - Accounts:
-     - Overview: accounts/index.md
-     - How to create new user account: accounts/how-to-create-new-user-account.md
-     - How to change password: accounts/how-to-change-password.md
+    - accounts/index.md
+    - Creating a new user account: accounts/how-to-create-new-user-account.md
+    - Changing your password: accounts/how-to-change-password.md
      ...
 ```
 
-To include your page in the navigation, add a new key/value pair corresponding to a title followed by the path to your file, for example `- My title: path/to/my-page.md`. Make sure that you include these under the correct section, i.e. mind the indentation. Also, don't refer to the same page twice in `mkdocs.yml` as this will break things. 
+To include your page in the navigation, add a new key/value pair corresponding to a title followed by the path to your file, for example `- My title: path/to/my-page.md`. Make sure that you include these under the correct section, i.e. mind the indentation. Also, don't refer to the same page twice in `mkdocs.yml` as this will break things (an exception to this are the [SectionPages](#sectionpage)).
 
 If you intend to make substantial changes to the navigation menu, please communicate this for example in the RC-channel #docs.csc.fi and/or #research.csc.fi as big changes may break some links used elsewhere.
+
+### SectionPage
+
+The first item under 'Accounts' above is a so-called SectionPage. It is a hybrid of Section and
+Page introduced by a plugin we use called
+[mkdocs-section-index](https://github.com/oprypin/mkdocs-section-index)
+that makes the sections in the navigation sidebar clickable. Every section should have a
+SectionPage that acts as the index for the section. The breadcrumbs navigation on the top of every
+page relies on the existence of a SectionPage. Without it, a level of navigation will be missing
+its breadcrumb. (See [Breadcrumbs debugging](#breadcrumbs-debugging).) SectionPage for a section
+is defined in [mkdocs.yml](mkdocs.yml):
+
+```yaml
+    - Section:                         # Section
+      - path/to/file.md                # SectionPage
+      - Page: path/to/another-file.md  # Page
+```
+
+If an existing page is selected as the SectionPage for a section like so,
+
+```yaml
+    - Section:
+      - path/to/file.md
+      - Page: path/to/file.md
+```
+
+the page in question will be opened and highlighted when clicking on the section name in the
+sidebar.
 
 ## How to add an image?
 
@@ -69,6 +103,7 @@ Links are added using the markdown syntax `[This is my link text](link url or pa
 * **Always add a descriptive link text to make the content accessible.** Plain URLs without link text are not acceptable! Screen readers will read it as h-t-t-p-s-colon-slash-slash...
   * `[Read more here](gromacs.md#usage)` is not accessible. `[Read more about Gromacs usage](gromacs.md#usage)` is better.
   * If, for some rare reason, writing a descriptive link text is not possible, you can use html and aria-label: `<a href="https://code.visualstudio.com" aria-label="This is readable by screen readers">Visual Studio Code</a>`. This label is read by the screen readers but is not visible to others.
+* For external links, make sure to include a `target` attribute with the value `"_blank"` to open them in a new tab: `[example](https://example.com){ target="_blank" }`
 
 Common issues:
 
@@ -113,7 +148,7 @@ You can preview how the Docs CSC page would look like with your changes included
 * This user guide uses [MkDocs](https://www.mkdocs.org/) to generate documentation pages. You can install it on your local computer by following the instructions given in the [MkDocs documentation](https://www.mkdocs.org/user-guide/installation/), or with [Conda](https://docs.conda.io/en/latest/miniconda.html):
 
 ```bash
-conda env create -f docs/support/tutorials/conda/conda-docs-env-1.1.yaml
+conda env create -f docs/support/tutorials/conda/conda-docs-env-1.2.yaml
 conda activate docs-env
 ```
 
@@ -125,7 +160,7 @@ mkdocs serve
 
 * This will start a web server on your computer listening on port 8000. Go to the url [http://127.0.0.1:8000/](http://127.0.0.1:8000/) or [http://localhost:8000/](http://localhost:8000/) with your browser to get a preview of the documentation.
 * Note, some parts of the website will not be properly formatted in a local build, for example the What's new section, as there are some scripts that are automatically run only when the commits are pushed.
-* To speed up the loading of a page you've changed, start the MkDocs server with the `--dirtyreload` flag. (Mind the warning about "a 'dirty' build being performed" that will "likely lead to inaccurate navigation and other links [...]".):
+* To speed up the reloading of a page you've changed, start the MkDocs server with the `--dirtyreload` flag. (Mind the warning about "a 'dirty' build being performed" that will "likely lead to inaccurate navigation and other links [...]".):
 
 ```bash
 mkdocs serve --dirtyreload
@@ -139,6 +174,8 @@ You can also run the tests locally with
 bash tests/run_tests.sh
 ```
 
+The tests depend on the Conda environment, so remember to activate it before running them.
+
 #### Scripts
 
 If you're adding entries to the _What's new_ or _Applications_ sections and want to check that they are generated correctly, you can run the scripts with
@@ -148,6 +185,30 @@ for s in scripts/*.sh; do bash $s; done
 ```
 
 Keep in mind, though, that the tests are meant to be run _before_ the scripts, so make sure to restore any files the scripts edit/create before re-running the tests. (Or just ignore the new errors/warnings that resulted from running the scripts.)
+
+Also, remember **not to commit the files generated by the scripts**!
+
+#### Breadcrumbs debugging
+
+A debugging view for the breadcrumbs navigation can be activated with an environment variable `DEBUG` set to `true`:
+
+```bash
+DEBUG=true mkdocs serve
+```
+
+A debugging view will then be rendered right under the breadcrumbs on every page.
+
+For pages included in the `nav` structure, a breadcrumb is only rendered for ancestor sections where
+`is_page=true`. These are the so-called [SectionPages](#sectionpage). The debugging view lists all of
+the page's ancestor sections:
+
+![debugging pages with ancestors](docs/img/breadcrumbs-debugging/breadcrumbs-debugging-is_page.png)
+
+Pages that are not in the `nav`, such as pages under _FAQ_ and _Tutorials_, have their breadcrumbs
+defined literally in [breadcrumbs.html](csc-overrides/partials/breadcrumbs.html). On these pages,
+the debugging view lists the literal breadcrumbs:
+
+![debugging the literal breadcrumbs](docs/img/breadcrumbs-debugging/breadcrumbs-debugging-literal.png)
 
 ## How and who should I ask to review my PR?
 
@@ -198,7 +259,18 @@ Have a look at [the reference card](https://docs.csc.fi/ref).
 
 ## How do I add definitions to the glossary / display definitions as tooltips?
 
-There is a file that contains acronym-definition pairs at [csc-overrides/assets/glossaries/hpc.md](csc-overrides/assets/glossaries/hpc.md). The pairs are in the format `*[Acronym]: Definition`. New pairs may be added to the file, or a new file may be created within the same directory. The new file must then be introduced in [mkdocs.yml](mkdocs.yml). An example is found in [the reference card](https://docs.csc.fi/ref#glossary).
+There are `.md` files that contain acronym-definition pairs in
+[csc-overrides/assets/glossaries/](csc-overrides/assets/glossaries/). The pairs are in the format
+`*[Acronym]: Definition`. The `Acronym` part is case-sensitive, so if you'd add the definition
+`*[PCIe]: Peripheral Component Interconnect express`, instances of `PCIE` in the text would not get
+the tooltip (in this case the definition is correct, so text would have to be corrected). If the
+acronym you wish to define already exists, please use the following format to add an additional
+definition: `*[DFT]: 1. Discrete Fourier Transform, 2. Density Functional Theory`. New
+acronym-definition pairs may be added to an existing file, or a new file may be created within the
+same directory. The new file must then be introduced in [mkdocs.yml](mkdocs.yml). An example is
+found in [the reference card](https://docs.csc.fi/ref#glossary).
+
+The glossary is also viewable as a page at [docs.csc.fi/glossary](https://docs.csc.fi/glossary/).
 
 ## How do I use the announcement bar?
 
@@ -223,3 +295,23 @@ where `<license>` is one of the predefined license categories: `Academic`, `Free
 `Other`; case sensitive, without the angle brackets.
 
 The application will then be included on the Applications by license page automatically.
+
+## How do I add footnotes?
+
+Usage of the footnotes feature is described
+[here](https://squidfunk.github.io/mkdocs-material/reference/footnotes/#usage).
+
+## How do I improve search results?
+
+You can boost a page to be on top of the results by adding the following lines at the top of the Markdown file:
+```yaml
+---
+search:
+  boost: 2
+---
+
+# Document title
+...
+```
+Start with low values.  
+More information [here](https://squidfunk.github.io/mkdocs-material/setup/setting-up-site-search/#rank-up)

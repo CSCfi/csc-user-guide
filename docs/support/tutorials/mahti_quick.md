@@ -2,8 +2,8 @@
 
 This is a quick start guide for Mahti users. It is assumed that you
 have previously used CSC supercomputing resources like Puhti, Sisu
-or Taito. If not, you can start by looking at [overview of CSC
-supercomputers](../../computing/overview.md).
+or Taito. If not, you can start by looking at
+[overview of CSC supercomputers](../../computing/index.md).
 
 **Go to [MyCSC](https://my.csc.fi) to apply for access to Mahti or
 view your projects and their project numbers if you already have
@@ -55,7 +55,7 @@ information about libraries](../../computing/hpc-libraries.md).
 
 ## Applications
 
-More information about specific applications can be found [here](../../apps/alpha.md).
+More information about specific applications can be found [here](../../apps/index.md).
 Note, the pre-installed selection is not as large as on Puhti.
 
 ## Running jobs
@@ -128,7 +128,7 @@ for `rsync`.
 
 If you are new to supercomputers, or the details below are unfamiliar, you
 likely should start with [Puhti](puhti_quick.md) and some [introductory
-tutorials](env-guide/overview.md) first. In a nutshell, Mahti is meant for
+tutorials](env-guide/index.md) first. In a nutshell, Mahti is meant for
 large parallel jobs, and Puhti for a wide variety of small to medium sized
 jobs including special resources.
 

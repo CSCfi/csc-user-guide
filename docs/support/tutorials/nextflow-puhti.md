@@ -63,7 +63,7 @@ You can also use [cPouta](../../cloud/pouta/launch-vm-from-web-gui.md) environme
 
 ## 2. Login to Puhti supercomputer
 
-SSH into the login node of Puhti cluster (See instructions [here](../../computing/overview.md))
+SSH into the login node of Puhti cluster (See instructions [here](../../computing/index.md#connecting-to-the-supercomputers))
 
 ```
 ssh yourcscusername@puhti.csc.fi

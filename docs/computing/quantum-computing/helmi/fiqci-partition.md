@@ -1,6 +1,6 @@
 # Specific instructions for the FiQCI partition on LUMI
 
-The FiQCI partition of LUMI provides access to the Helmi quantum computer. Acces is granted for users belonging to projects that have been granted QPU resources. In addition to running jobs on Helmi via LUMI, users can also use the general LUMI system and software stack including using simulators. 
+The FiQCI partition of LUMI provides access to the Helmi quantum computer. Access is granted for users belonging to projects that have been granted QPU resources. In addition to running jobs on Helmi via LUMI, users can also use the general LUMI system and software stack including using simulators. 
 
 !!! info "Opening Hours"
 	Helmi is available daily 13:00-8:00 (Finnish time zone). 
@@ -19,10 +19,14 @@ need to apply for quantum resources in addition to CPU, GPU, and storage.
 
 ## The FiQCI partition `q_fiqci`
 
+!!! success "Users can now query Helmi Figures of Merit"
+    To get the latest figures of merit: Use `helmi-info -h` for more details!
+	For a description of the figures see [here](../helmi/running-on-helmi.md#figures-of-merit).
+
 Access to Helmi is only available through the FiQCI partition on LUMI, which provides a direct connection between a LUMI-C
 node (with 128 cores and 256 GB RAM) and Helmi.
 
-* [Further details on LUMI nodes](https://docs.lumi-supercomputer.eu/computing/systems/lumic/)
+* [Further details on LUMI nodes](https://docs.lumi-supercomputer.eu/hardware/lumic/)
 
 There is one queue in the Helmi partition corresponding to FiQCI projects: `q_fiqci`. 
 Currently, the maximum run time of a quantum job is 15 minutes.
@@ -56,6 +60,9 @@ Quantum computing projects work similarly to the regular LUMI system. The main d
 4. The LUMI-Helmi software stack has to be loaded separately. See [Running on Helmi](../running-on-helmi/) for details.
 
 Presently, running through the `q_fiqci` queue will consume QPU minutes for the amount of wall-time spent running in the `q_fiqci` queue.
+
+!!! success "Querying your used QPUs"
+    You can check your used QPUs using the `lumi-allocations` tool. 
 
 Storage is billed by volume as well as time. The billing units are TB-hours. For the regular scratch file system, 1 TB that stays for 1 hour on the filesystem, consumes 1 TB-hour.
 

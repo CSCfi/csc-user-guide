@@ -1,3 +1,8 @@
+---
+search:
+  boost: 4
+---
+
 # Technical details about Mahti
 
 ## Compute nodes

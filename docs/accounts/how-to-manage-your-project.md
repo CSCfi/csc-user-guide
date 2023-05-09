@@ -22,15 +22,12 @@ If you want to close your Project, change your account email address or change t
 You can apply for an initial project lifetime extension of one year.
 
 1. Login to [MyCSC](https://my.csc.fi).
-1. Choose _My Projects_ in the navigation menu on the left.
+1. Choose _Projects_ in the navigation menu on the left.
 1. Choose the project you want to extend
 1. Click on the 'Extend' button
 1. Accept the changes by clicking the 'Apply' button
 1. Your project lifetime is now extended by one year.
 
-![Information on specific project](images/small/project_extension2.png 'Information on specific project')
-
-![Extend your project lifetime by pressing apply](images/small/project_extension1.png 'Extend your project lifetime by pressing apply') 
 
 ## Project closure
 
@@ -40,8 +37,17 @@ Project Manager can close the Project earlier in [MyCSC](https://my.csc.fi) port
 
 #### When the Project is closed
 
-* All content in services will be deleted.
-* Users are not able to use the services which have been applied for the Project.
+Users are not able to use the services which have been applied for the Project.
+
+| Service | What happens when Project is closed |
+| -- | -- |
+| Allas, Fairdata IDA, SD Connect | Project is disabled, and users will not be able to use the service in the context of the Project. |
+| Mahti and Puhti | No new Slurm jobs can be submitted. Users cannot access the Project data anymore. |
+| cPouta and ePouta | Project is disabled, and users will not be able to use the service in the context of the Project. All virtual machines of the Project will be powered off. |
+| Rahti | Project pod quota is set to 0 and all workloads are stopped. |
+| SD Desktop | Desktops are paused, Project can't launch new desktops. |
+
+All content in services will be deleted 90 days after Project closure.
 
 If you need a confirmation after all content has been deleted from services, please contact Service Desk.
 

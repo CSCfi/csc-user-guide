@@ -8,15 +8,34 @@ Sensitive Data (SD) Connect allows you to store sensitive research data in the C
 
 [![SDConnect-overview](images/connect/connect_overviewnew.png)](images/connect/connect_overviewnew.png)
 
-In the following user guide, you can learn how to:
+Contents:
 
-* Use SD Connect default options to automatically encrypt and upload sensitive data for analysis with SD Desktop (limited to files <1GB);
+* [Key features](./sd_connect.md)
+  
+* [Authentication](./sd_connect.md#authentication)
 
-* Use the Crypt4GH application to encrypt files and upload them using SD Connect (up to 100 GB);
+* [User Interface](./sd_connect.md#user-interface)
+  
+* [Introduction to data encryption compatible with sensitive data services](./sd_connect.md#introduction-to-data-encryption-compatible-with-sensitive-data-services)
+ 
+ * [Data encryption and upload for analysis (less than 1 GB)](./sd_connect.md#sensitive-data-encryption-and-upload-for-analysis-less-than-1-gb) (Default analysis)
 
-* Encrypt, upload and download sensitive data for data transfer and storage;
+* [Data encryption and upload for analysis (up to 100 GB)](./sd_connect.md#sensitive-data-encryption-and-upload-for-analysis-up-to-100-gb)
+ 
+* [Data encryption and upload for storage and sharing (less than 1 GB)](./sd_connect.md#sensitive-data-encryption-and-upload-for-storage-and-sharing-less-than-1-gb) (Data storage and transfer)
+ 
 
-* Encrypt and upload sensitive data programmatically (advanced).
+* [Data sharing](./sd_connect.md#data-sharing) 
+ 
+* [Data download and decryption](./sd_connect.md#data-download-and-decryption) (Data storage and transfer)
+ 
+* [Command Line Interface: data encryption and upload](./sd_connect.md#command-line-interface-data-encryption-and-upload) (Advanced)
+ 
+ 
+* [Command Line Interface: data encryption for data sharing](./sd_connect.md#command-line-interface-encryption-for-data-sharing) (Advanced)
+ 
+* [Troubleshooting](./sd_connect.md#troubleshooting)
+
 
 You can browse through the main topics of the manual using the navigation bar on the left side of this page or the search function.
 
@@ -58,7 +77,7 @@ After creating a CSC account, a CCS project and appling for Allas service access
 
 
 !!! Note
-    The interface is compatible with all modern web browsers but does not support firefox private browsing (incognito mode). 
+    The interface is compatible with all modern web browsers but does not support Firefox private browsing (incognito mode). 
 
 [![SDConnect-login](images/connect/SDConnect-login.png)](images/connect/SDConnect-login.png)
 
@@ -219,13 +238,13 @@ As the workflow described above is still being developed, files up to 100 GB can
 
 The necessary steps for encryption with Cryp4GH application and upload with SD Connect are the following: 
 
-1- First, download the encryption application specific to your operating system from the [GitHub repository](https://github.com/CSCfi/crypt4gh-gui/releases/tag/sds-v1.0.0):
+1- First, download the encryption application specific to your operating system from the [GitHub repository](https://github.com/CSCfi/crypt4gh-gui):
 
-* [Mac](https://github.com/CSCfi/crypt4gh-gui/releases/download/sds-v1.0.0/crypt4sds-python3.7-macos-amd64.zip)
+* [Mac](https://github.com/CSCfi/crypt4gh-gui/releases/download/v1.3.0/crypt4gh-gui-python3.10-macos-amd64.zip)
 
-* [Windows](https://github.com/CSCfi/crypt4gh-gui/releases/download/sds-v1.0.0/crypt4sds-python3.7-windows-amd64.zip)
+* [Windows](https://github.com/CSCfi/crypt4gh-gui/releases/download/v1.3.0/crypt4gh-gui-python3.10-windows-amd64.zip)
 
-* [Linux](https://github.com/CSCfi/crypt4gh-gui/releases/download/sds-v1.0.0/crypt4sds-python3.7-linux-amd64.zip)
+* [Linux](https://github.com/CSCfi/crypt4gh-gui/releases/download/v1.3.0/crypt4gh-gui-python3.10-linux-amd64.zip)
 
 2- After downloading and unzipping the  Crypt4GH application, you can find it in your download folder. When you open it, you might encounter an error message. In this case, click on _More info_ and verify that the publisher is CSC-IT Center for Science (or in Finnish CSC-Tieteen tietotekniikan keskus Oy) and click on _Run anyway_.
 
@@ -267,11 +286,14 @@ Using the SD Connect, you can simultaneously encrypt your files ith multiple enc
 1-Install the Crypt4GH application:
 
 CSC has developed a simple application that will allow you to generate your encryption keys and decrypt files when necessary. 
-Download the version specific to your operating system from the [GitHub repository](https://github.com/CSCfi/crypt4gh-gui/releases):  
+Download the version specific to your operating system from the [GitHub repository](https://github.com/CSCfi/crypt4gh-gui):
 
-  - [Linux](https://github.com/CSCfi/crypt4gh-gui/releases/download/v1.2.0/crypt4gh-gui-python3.8-linux-amd64.zip)
-   - [Mac](https://github.com/CSCfi/crypt4gh-gui/releases/download/v1.2.0/crypt4gh-gui-python3.8-macos-amd64.zip)
-   - [Windows](https://github.com/CSCfi/crypt4gh-gui/releases/download/v1.2.0/crypt4gh-gui-python3.8-windows-amd64.zip)
+* [Mac](https://github.com/CSCfi/crypt4gh-gui/releases/download/v1.3.0/crypt4gh-gui-python3.10-macos-amd64.zip)
+
+* [Windows](https://github.com/CSCfi/crypt4gh-gui/releases/download/v1.3.0/crypt4gh-gui-python3.10-windows-amd64.zip)
+
+* [Linux](https://github.com/CSCfi/crypt4gh-gui/releases/download/v1.3.0/crypt4gh-gui-python3.10-linux-amd64.zip)
+
 
 
 You might encounter an error message when you open the application for the first time. In this case, click on _More info_ and verify that the publisher is CSC-IT Center for Science (or Finnish CSC-Tieteen tietotekniikan keskus Oy) and then click on _Run anyway_.

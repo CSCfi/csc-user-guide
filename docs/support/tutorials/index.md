@@ -6,10 +6,9 @@
 * [Getting started with Helmi](../../computing/quantum-computing/helmi/helmi-from-lumi.md)
 * [Managing data on Puhti and Mahti scratch disks](clean-up-data.md)
 * [Conda best practices](conda.md)
-* [Using NoMachine](nomachine-usage.md)
-* [CSC Quick reference (pdf)](../../img/csc-quick-reference.pdf)
+* [CSC Quick reference (pdf)](../../img/csc-quick-reference/csc-quick-reference.pdf)
 * [How to run existing containers in Puhti](../../computing/containers/run-existing.md)
-* [Linux basics for CSC](env-guide/overview.md)
+* [Linux basics for CSC](env-guide/index.md)
 * [Interactive and batch job hands-on in Puhti](cmdline-handson.md)
 * [Using csc-env command](using_csc_env.md)
 * [Developing scripts remotely](remote-dev.md)
@@ -17,6 +16,7 @@
 * [Building Singularity containers from scratch](singularity-scratch.md)
 * [Getting disk usage using Lue](lue.md)
 * [Installing software with Spack](user-spack.md)
+* [Running Julia jobs on Puhti and Mahti clusters](julia.md)
 
 ## Performance and high-throughput workflows
 * [Optimising parallel I/O](lustre_performance.md)
@@ -32,7 +32,6 @@
 * [Using Allas in batch jobs](../../data/Allas/allas_batchjobs.md)
 * [Using Allas to host a dataset for a research project](../../data/Allas/allas_project_example.md)
 * [Tools for client side encryption for Allas](../../data/Allas/allas_encryption.md)
-* [Using Allas to transport sensitive data](../../data/sensitive-data/sequencing_center_tutorial.md)
 * [Using Allas from LUMI supercomputer](../../data/Allas/allas_lumi.md)
 
 ## Bioinformatics
@@ -80,6 +79,10 @@
 * [How to package a Kubernetes application with Helm?](../../cloud/rahti/tutorials/helm.md)
 * [Accessing databases on Rahti from CSC supercomputers](../../cloud/rahti/tutorials/connect-database-hpc.md)
 
+## Senistive Data
+* [Using Allas to transport sensitive data](../../data/sensitive-data/sequencing_center_tutorial.md)
+* [Running temporary PostgreSQL database in SD Desktop](../../data/sensitive-data/tutorials/postgresql.md)
+ 
 ## Visualisation
 * [Blender tutorial](blender-tutorial.md)
 

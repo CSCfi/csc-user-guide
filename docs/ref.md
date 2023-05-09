@@ -1,9 +1,18 @@
+---
+search:
+  boost: 0.1
+---
+
 # Reference card
-!!! info "Documentation"
+!!! default "Documentation"
 
     Docs CSC is based on *Material for MkDocs*. Note that not all (by far) features are supported.
 
     [Reference - Material for MkDocs](https://squidfunk.github.io/mkdocs-material/reference/){ .md-button target=_blank }
+
+!!! info "Source"
+
+    This page is more useful when viewed side-by-side with [the Markdown source at GitHub](https://github.com/CSCfi/csc-user-guide/blob/master/docs/ref.md?plain=1){ target=_blank }.
 
 This page contains some elements that are available in Docs CSC. For example, here we have some
 body text [with an external link](https://example.com){ target=_blank }. **Some of it is
@@ -17,16 +26,19 @@ like to imagine it's what a typewriter would dream.
 perferendis illo saepe sint ipsa vitae provident non. Et qui quaerat et rerum libero officia omnis
 enim. Laboriosam autem vel vel aut quod.
 
+Here's a reference to a footnote:[^1]
+
 ## Glossary
 There is a glossary of HPC-related acronyms that get highlighted automatically. For example: CPU,
 GPU, QPU, etc. The acronyms are defined in the markdown file
-`csc-overrides/assets/glossaries/hpc.md`. More acronyms/terms can be added there or to another
+`csc-overrides/assets/glossaries/hpc.md`. More acronyms (case-sensitive) can be added there or into another
 markdown file, like so:
 
 === "another_glossary.md"
 
     ```markdown
     *[GNU]: GNU's not Unix!
+    *[DFT]: 1. Discrete Fourier Transform, 2. Density Functional Theory
     ```
 
 === "mkdocs.yml"
@@ -41,6 +53,8 @@ markdown file, like so:
         - another_glossary.md
     - ...
     ```
+
+The glossary is also viewable as a page at [docs.csc.fi/glossary](support/glossary.md).
 
 ## Headings
 The heading for Headings is a heading of a heading level 2. Remember to only use one heading level
@@ -279,6 +293,12 @@ you define the content.
 Try adding a `&nbsp;` if inline admonitions give you trouble. Example found right above this line
 in markdown source.
 
+## Images
+Here's an image of the Reference card with an image of the Reference card with...
+![image of an image of an image...](img/ref/image.png)
+
+
+
 ## Embedded videos
 At the moment, to avoid setting cookies, embedded videos are rendered only as an image with a link
 to the video in question. For example: Behold! Here is a video of a horse kicking a tree, farting
@@ -293,6 +313,10 @@ on some dogs, and then running away:
     allow="accelerometer; autoplay; clipboard-write; encrypted-media;gyroscope; picture-in-picture"
     allowfullscreen>
 </iframe>
+
+### Animations
+If you don't need sound, you can use animations as an alternative for embedded videos. They are
+used just like [static images](#images). Both `.gif` and `.png` files work.
 
 ## Mermaid
 ```mermaid
@@ -341,3 +365,8 @@ for MkDocs) is called 'outlined' in the CSC Design System. -->
 
         === "But possible, nonetheless"
             I would recommend against it, though.
+
+[^1]: This is the footnote ...and here's a shoenote for the footnote: 👞🎵
+[^2]:
+    Here's another footnote. Though, this one's a _barefootnote_!  
+    Get it? 'Cause it's got no shoenote! Ahuehuehuehue!

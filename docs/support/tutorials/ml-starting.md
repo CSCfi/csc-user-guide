@@ -1,3 +1,13 @@
+---
+title: Getting started with machine learning at CSC
+---
+
+!!! note "Practical Deep Learning, May 3-5" 
+    The popular Practical Deep Learning course by CSC will be held again
+    May 3-5. The course gives an introduction to deep learning and how to
+    do machine learning on Puhti and LUMI supercomputers. 
+    [Registration is now open!](https://ssl.eventilla.com/event/8aPek)
+
 # Getting started with machine learning at CSC
 
 *You have some machine learning code in Python running on your laptop, but it's
@@ -28,7 +38,7 @@ getting access to Finland's most powerful GPU resource for researchers!
     While this guide tries to explain every step carefully, it is still recommended
     to have at least a basic familiarity with the Linux command line, as you will
     need to use that for a few of the steps. You can, for example, take a look at
-    the first section of our [Linux basics tutorial](env-guide/overview.md).
+    the first section of our [Linux basics tutorial](env-guide/index.md).
 
 
 ## Step 1: Get a CSC user account
@@ -186,9 +196,8 @@ that you are installing on a personal computer**.
 
 **CSC provides many pre-installed Python environments for popular frameworks and
 libraries**. It's usually a good idea to use these as a starting point, even if
-they don't contain all the packages you need. Check the list of [data analytics
-and machine learning modules provided on CSC's
-supercomputers](../../apps/index.md#data-analytics-and-machine-learning). 
+they don't contain all the packages you need. Check the list of
+[data analytics and machine learning modules provided on CSC's supercomputers](../../apps/by_discipline.md#data-analytics-and-machine-learning).
 
 For example [PyTorch](../../apps/pytorch.md) and
 [TensorFlow](../../apps/tensorflow.md) have their own dedicated modules, while
@@ -250,7 +259,7 @@ This will run a job in the `gputest` partition, with 10 CPU cores, 32GB memory
 and one NVIDIA V100 GPU. The job's maximum run time is 15 minutes. In fact, 15
 minutes is the maximum run time that you can request in the `gputest` partition
 as it is meant for short testing runs only. Finally, the `nvme:10` text in the
-`gres` options requests 10GB of the fast local drive (called "NVME").
+`gres` options requests 10GB of the fast local drive (called "NVMe").
 
 Below the `#SBATCH` options, you can see the actual commands. Our script does
 three things:
@@ -269,7 +278,7 @@ three things:
 
 !!! note
 
-    You don't need to use the fast local NVME drive like we do in this example, 
+    You don't need to use the fast local NVMe drive like we do in this example,
     but it is a good practice to do so as reading a large number of files from
     the shared file system (such as scratch and projappl) can cause a poor
     performance, and in extreme cases degrade the performance for all users.
