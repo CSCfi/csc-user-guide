@@ -31,6 +31,9 @@ plugins:
   - section-index
   - redirects:
       redirect_maps:
+        # deprecation:
+        'support/tutorials/nomachine-usage.md': 'apps/nomachine.md'
+        'support/faq/cannot-login-from-nomachine.md': 'apps/nomachine.md'
         # renamed files:
         'cloud/csc_notebooks/what_is_new.md': 'support/whats-new.md#cloud-services'
         'computing/overview.md': 'computing/index.md'
