@@ -32,7 +32,7 @@ On the third page `Intialize Databases:
 
 On the fourth page `Advanced`:
 
-12. You don't need to do anything but it is possible to launch a new database from a backup. If you choose to launch a database from a backup you don't need to specify `Intial Admin User`, `Passowrd`, or `Intial Databases`
+12. You don't need to do anything but it is possible to launch a new database from a backup. If you choose to launch a database from a backup you don't need to specify `Initial Admin User`, `Passowrd`, or `Initial Databases`
 13. Now you can press `Launch`
 14. Once the database instance has launched. You can press on the name of the database instance and manage additional Users, databases backups a.s.o. but it might take a couple minutes before the instance is up and running.
 15.  Now you can go to the database specific documentation to find out further instructions on how to use the database:
