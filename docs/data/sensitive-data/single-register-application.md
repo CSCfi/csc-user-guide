@@ -4,7 +4,7 @@ These instructions are for researchers who have received a permit for the second
 
 After receiving the permit from the data controller, you need to apply for access to the correct dataset in SD Apply. This is a technical security step and does not affect the permission granted in the data permit. All the project members need to be added to the application in order to be able to access the data on SD Desktop.
 
-First, you need to set up a [CSC account](https://docs.csc.fi/accounts/how-to-create-new-user-account/) with Haka credentials using the [My CSC portal](https://my.csc.fi/). In addition to sending this application in SD Apply, the project PI needs to request a CSC project from the CSC service desk, more instructions on [user guide for SD Desktop for secondary use](./sd-desktop-audited/#service-access).
+First, you need to set up a [CSC account](https://docs.csc.fi/accounts/how-to-create-new-user-account/) with Haka credentials using the [My CSC portal](https://my.csc.fi/). In addition to sending this application in SD Apply, the project PI needs to request a CSC project from the CSC service desk, more instructions on [user guide for SD Desktop for secondary use](./sensitive-data/sd-desktop-audited#service-access).
 
 ## Application process
 
