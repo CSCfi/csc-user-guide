@@ -1,12 +1,12 @@
 # How can I mount my Allas S3 bucket to a VM running in cPouta
 
-Combining cPouta cloud environment and Allas storage environment allows you to build scalable data management environments. This document shows one example how you can combine these two services by mounting a bucket from Allas to an Ubuntu 22.04 or a Centos7 based virtual machine running in cPouta.
+Combining cPouta cloud environment and Allas storage environment allows you to build scalable data management environments. This document shows one example how you can combine these two services by mounting a bucket from Allas to a Ubuntu 22.04 (also tested with Ubuntu 20.04 and 18.04) or a Centos7 based virtual machine running in cPouta.
 
 [TOC]
 
 ## Installing OpenStack, s3cmd and s3fs
 
-### In Ubuntu 22.04 LTS
+### In Ubuntu 22.04 LTS (works for Ubuntu 20.04 and 18.04 as well)
 
 * After launching an Ubuntu based virtual machine in cPouta, open a terminal connection to the VM and update it with the command:
 
@@ -20,10 +20,24 @@ Combining cPouta cloud environment and Allas storage environment allows you to b
 * Then install OpenStack client by:
 
 	```sh
-	sudo apt install python3-pip python3-dev
+	sudo apt install python3-pip python3-dev python3-setuptools
 	sudo pip install --upgrade pip
 	sudo pip install python-openstackclient
 	```
+
+	!!! info
+		For Ubuntu 18.04, type those commands:  
+		```sh
+		sudo apt install python3-pip python3-dev python3-setuptools
+		sudo pip3 install --upgrade pip
+		sudo pip install python-openstackclient --ignore-installed PyYAML
+		```
+		
+		If you omit `--ignore-installed PyYAML`, you will receive an error message:  
+		```
+		Cannot uninstall 'PyYAML'. It is a distutils installed project and thus we cannot accurately determine which files belong to it which would lead to only a partial uninstall.
+		```
+		It should be installed by **distutils**, so the removal process cannot confirm which files belong to it.
 
 * Next, install  **s3cmd** and **s3fs** commands to your VM.
 
@@ -101,7 +115,7 @@ s3cmd put file2.txt s3://case_1/
 
 This is the **recommended way** to use Allas with the S3 protocol from the command line. However, it is also possible to mount the bucket to your VM so that it is shown as  "mounted disk". You can use `s3fs` for that.
 
-### Use s3fs to mount a folder intyo your VM
+### Use s3fs to mount a folder into your VM
 
 
 1. To do this, create first an empty directory (like **os_case_1**) to be used as a mount point:
