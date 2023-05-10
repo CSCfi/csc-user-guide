@@ -13,7 +13,7 @@ In the column on the left hand side you can go to `Database` -> `Instances` and 
 Now you can define what settings you want for your database:
 
 1. `Instance name` - What ever you want to name the instance.
-2. `Volume size` - How much disk space you will need for your database. If you just want to test the DBaaS then 1 GiB is probably enough. To increase the disk size later, downtime is required for the database. If you already know how much data you will use then it is easy to estimate how large volume you need. 
+2. `Volume size` - How much disk space you will need for your database. If you just want to test the DBaaS then 1 GiB is probably enough. To increase the disk size later, downtime is required for the database. If you already know how much data you will use then it is easy to estimate how large volume you need.
 3. `Volume type` - This can be left empty.
 4. `Datastore` - What type of database you want. It is recommend to use the latest version of your preferred database, if you don't have a specific reason for using an older version. PostgreSQL is the only available database at the moment.
 5. `Flavor` - How large database instances you want. For small use cases the `standard.small` is probably enough. If you later find out that it is not large enough you can always change it later. Changing flavor will require downtime.
@@ -21,15 +21,21 @@ Now you can define what settings you want for your database:
 
 On the next page `Database access`:
 
-1. `Is public` - You need to check the public checkbox.
-2. `Allowed CIDRs` - Here you want to add your allowed IP-addresses in the format `$IP/32` if you want to allow multiple IP-addresses. You need to separate them by a comma `,`.
-3. You don't need to use the `Intialize Databases` tab. It is not recommended to create an admin user.
-4. If you have a backup that you want to restore, you can do it from the `Advanced` tab. Then you choose the `Source for Initial State` -> `Restore from Backup` and then choose `Backup name`
-5. Now you can press `Launch`
-6. Once the database instance has launched. You can press on the name of the database instance.
-7.  From here you can choose the `Database` tab and press `+ Create Database` and fill in the Name and possible collection, and Character Set and press `Create Database`
-8.  Then you can go to the `Users` tab to create a new database user. The database user needs a name and a strong password. It is recommended that you generate a long random password. You can also specify from which Host the user is allowed to access the database instance from. You should also specify to which databases the users should have access to. When you are done you can press `Create user`
-9.  Now you can go to the database specific documentation to find out further instructions on how to use the database:
+7. `Allowed CIDRs` - Here you want to add your allowed IP-addresses in the format `$IP/32` if you want to allow multiple IP-addresses. You need to separate them by a comma `,`.
+
+On the third page `Intialize Databases:
+
+8. In the `Initial Databases` field you can write what databases should be initialized. You can add additional database after the instance have started.
+9. `Initial Admin User` adding first user that you want to use to connect to the database. You can add more user accounts after the database instance have started.
+10. `Password` for the you first user. Please make sure that this password is not used anywhere else.
+11. `Allowed Host (optional)` , this feature is not supported at the moment but in the future it will possible to limit users access based on IP.
+
+On the fourth page `Advanced`:
+
+12. You don't need to do anything but it is possible to launch a new database from a backup. If you choose to launch a database from a backup you don't need to specify `Intial Admin User`, `Passowrd`, or `Intial Databases`
+13. Now you can press `Launch`
+14. Once the database instance has launched. You can press on the name of the database instance and manage additional Users, databases backups a.s.o. but it might take a couple minutes before the instance is up and running.
+15.  Now you can go to the database specific documentation to find out further instructions on how to use the database:
 
 	* [PostgreSQL](postgresql.md)
 

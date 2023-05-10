@@ -8,7 +8,7 @@
 The database instances are hosted on top of cPouta. The billing is based on the flavor (database instance size), volume size of the database and how much backup you are using.
 
 !!! warning "Note"
-    The prices have not been decided on, in internal beta the service is free.
+    The prices have not yet been decided on, and the prices will be finalized before public beta.
 
 ## Flavor types
 
