@@ -44,7 +44,7 @@ From here you can browse your files on Puhti, start a shell, view running jobs o
 
 ### Shell
 
-The shell apps can be found at the bottom of the page or on the top navbar under the _Tools_ section.
+The shell apps can be found under Pinned apps or on the top navbar under the _Tools_ section.
 There are two different shells.
 
 The _Login node shell_ launches a normal linux shell on one of the Puhti login nodes.

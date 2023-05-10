@@ -31,6 +31,9 @@ plugins:
   - section-index
   - redirects:
       redirect_maps:
+        # deprecation:
+        'support/tutorials/nomachine-usage.md': 'apps/nomachine.md'
+        'support/faq/cannot-login-from-nomachine.md': 'apps/nomachine.md'
         # renamed files:
         'cloud/csc_notebooks/what_is_new.md': 'support/whats-new.md#cloud-services'
         'computing/overview.md': 'computing/index.md'
@@ -261,6 +264,22 @@ nav:
         - Self study and troubleshooting:
              - Pouta videos: cloud/pouta/pouta-videos.md
              - Known problems and limitations: cloud/pouta/known-problems.md
+     - Pukki (DBaaS):
+        - cloud/dbaas/index.md
+        - What is DBaaS: cloud/dbaas/what-is-dbaas.md
+        - Security Guides: cloud/dbaas/security-guides.md
+        - Getting started with DBaaS:
+             - cloud/dbaas/getting-started.md
+             - Web interface: cloud/dbaas/web-interface.md
+             - Command Line tools: cloud/dbaas/cli.md
+             - Database Operations: cloud/dbaas/operations.md
+             - Application Credentials: cloud/dbaas/application-credentials.md
+        - Database sizes and prices: cloud/dbaas/flavors.md
+        - Backups: cloud/dbaas/backups.md
+        - Databases:
+             - cloud/dbaas/databases.md
+             - PostgreSQL: cloud/dbaas/postgresql.md
+        - More advanced features: cloud/dbaas/advanced.md
      - Grid computing:
         - The Grid Monitor: cloud/grid/grid-monitor.md
      - CSC Notebooks:
