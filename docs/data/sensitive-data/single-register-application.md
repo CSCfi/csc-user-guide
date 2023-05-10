@@ -79,4 +79,4 @@ Once your application has been approved, you will receive a notification and fur
 
 ### Step 6: Set up your Desktop to access the data
 
-When you have received confirmation that all of these steps are completed, and SD Desktop service has been added to your project, you can access the data on SD Desktop. You can continue following the instructions on [user guide for SD Desktop for secondary use](./sensitive-data/sd-desktop-audited#service-access).
+When you have received confirmation that all of these steps are completed, and SD Desktop service has been added to your project, you can access the data on SD Desktop. You can continue following the instructions on [user guide for SD Desktop for secondary use](./sd-desktop-audited#service-access).
