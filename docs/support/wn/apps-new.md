@@ -1,12 +1,29 @@
 # Applications
 
+## NoMachine will no longer be available on CSC's supercomputers, 9.5.2023
+
+The NoMachine remote desktop service will be discontinued on 25th May 2023, at the end of the
+current licensing period. The service is superseded by web interfaces on CSC's supercomputers. The
+first of them, [Puhti web interface](../../computing/webinterface/index.md), has been liked by the
+researchers, the number of users is still rapidly increasing and now represents 36% of all users.
+Similar web interfaces will be opened for both Mahti and LUMI, in the near future. For replacements
+in specific use cases, please see
+[the application page for NoMachine](../../apps/nomachine.md#replacements).
+
+## Gromacs and CP2K now available on LUMI, 19.4.2023
+
+CPU and GPU-enabled versions of [Gromacs](../../apps/gromacs.md) and [CP2K](../../apps/cp2k.md)
+have been installed on LUMI. Before loading the modules, first take the CSC module tree into
+use with `module use /appl/local/csc/modulefiles`. Note that the GPU-enabled Gromacs version
+is an unofficial HIPified fork of the software by AMD and hence unsupported by the upstream
+developers.
+
 ## PyTorch 2.0 and TensorFlow 2.12, 27.3.2023
 
 [PyTorch](../../apps/pytorch.md) 2.0 and
 [TensorFlow](../../apps/tensorflow.md) 2.12 are now available on Puhti and Mahti. 
 See [PyTorch 2.0 blog post](https://pytorch.org/blog/pytorch-2.0-release/) or the
 [TensorFlow 2.12 release notes](https://github.com/tensorflow/tensorflow/releases/tag/v2.12.0).
-
 
 ## Turbomole 7.7, 3.3.2023
 

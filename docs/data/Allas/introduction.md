@@ -41,6 +41,8 @@ In the request, define what Allas project you are using, how large storage space
 | Buckets per project | 1 000 |
 | Objects per bucket | 500 000 |
 
+The maximum for the "Objects per bucket" quota is 500 000. By exeeding the limit you might get your bucket in a situation where you can't make any operations. If you need more objects than this, please plan on spreading the objects across multiple buckets. Spreading data to multiple buckets will give a better performance whenever writing objects.
+
 Storing data in Allas consumes _billing units_. In Allas, billing is based on the amount of data stored. The rate is 1 BU/TiBh, i.e. 1 TB of data stored in Allas consumes 24 BU in a day and 8760 BU in a year.
 
 Unlike most other object storage providers, CSC does <u>not</u> charge for object storage network transfers or API calls.

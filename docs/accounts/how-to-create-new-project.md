@@ -53,3 +53,31 @@ LUMI services are free of charge for academic research for members of Finnish hi
 14. Please note that LUMI access is provided only with SSH keys, not with passwords. After you have received an acceptance confirmation email for your LUMI project request, please [upload your public SSH key to MyCSC according to the instructions](../computing/connecting.md#setting-up-ssh-keys).
 
 For further information on LUMI projects please visit [Users in Finland](https://www.lumi-supercomputer.eu/get-started-2021/users-in-finland/){:target="_blank"}
+
+## How to create a course project
+
+1. Login to [MyCSC](http://my.csc.fi/)
+2. Choose **Projects** in the navigation menu on the left.
+3. On the top right corner choose **New project**.
+4. Fill in the project name and description.
+5. Select the project category Course project.
+6. Fill in the course dates and field of science. 
+7. Read through and confirm the Terms of use and Export restriction policy. 
+8. Click Create project.
+
+**Add services to your project**
+
+* Please add the services (Puhti, Mahti, cPouta, etc.) to your project you wish to use during your course.
+
+**Invite participants to your project**
+
+1. You can create your [invitation link](how-to-add-members-to-project.md#using-invitation-link) to the course project in my.csc.fi
+2. Please provide this invitation link to your course participants
+3. If the student does not yet have a CSC user account they will be guided to create a CSC user account. 
+4. Users must accept the CSC Terms of use of the services which are used during the course
+
+**Project lifecycle**
+
+* Course projects are valid for maximum 6 months
+* Projects cannot be extended
+* Project data will be deleted when the project has ended

@@ -193,7 +193,7 @@ docker run -p 8888:8787 <yourimagename>
 
 * Push your docker image to Rahti registry:
 ```
-docker push docker-registry.rahti.csc.fi/<yourrahtiproject>/<yourimagename>:v0.1
+sudo docker push docker-registry.rahti.csc.fi/<yourrahtiproject>/<yourimagename>:v0.1
 ```
 
 * The new image should become visible in Rahti registry, see the ´Images´ tab. Now everything should be ready continuing from step 3 above.

@@ -14,12 +14,20 @@ parallel quantum chemistry calculations, in particular for AIMD.
 
 * Puhti: 9.1, 2022.2, 2023.1
 * Mahti: 8.2, 9.1, 2022.2, 2023.1
+* LUMI: 2023.1, 2023.1-gpu
 
 ## License
 
 CP2K is freely available under the GPL license.
 
 ## Usage
+
+!!! info "LUMI"
+    To access CSC modules on LUMI, remember to first load the CSC module tree into use with
+
+    ```
+    module use /appl/local/csc/modulefiles
+    ```
 
 Check which versions can be loaded directly:
 

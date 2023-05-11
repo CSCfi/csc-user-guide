@@ -1,4 +1,5 @@
 ---
+title: PyTorch
 tags:
   - Free
 ---

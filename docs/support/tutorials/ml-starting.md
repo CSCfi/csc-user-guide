@@ -1,3 +1,7 @@
+---
+title: Getting started with machine learning at CSC
+---
+
 # Getting started with machine learning at CSC
 
 *You have some machine learning code in Python running on your laptop, but it's

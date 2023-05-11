@@ -1,3 +1,7 @@
+---
+title: GPU-accelerated machine learning
+---
+
 # GPU-accelerated machine learning
 
 This guide explains the basics of using GPUs in CSC's supercomputers. It is part

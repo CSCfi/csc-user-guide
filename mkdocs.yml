@@ -31,6 +31,9 @@ plugins:
   - section-index
   - redirects:
       redirect_maps:
+        # deprecation:
+        'support/tutorials/nomachine-usage.md': 'apps/nomachine.md'
+        'support/faq/cannot-login-from-nomachine.md': 'apps/nomachine.md'
         # renamed files:
         'cloud/csc_notebooks/what_is_new.md': 'support/whats-new.md#cloud-services'
         'computing/overview.md': 'computing/index.md'
@@ -167,6 +170,7 @@ nav:
          - Accelerated visualization: computing/webinterface/accelerated-visualization.md
          - Desktop: computing/webinterface/desktop.md
          - Jupyter: computing/webinterface/jupyter.md
+         - Julia on Jupyter: computing/webinterface/julia-on-jupyter.md
          - Jupyter for courses: computing/webinterface/jupyter-for-courses.md
          - MATLAB: computing/webinterface/matlab.md
          - RStudio: computing/webinterface/rstudio.md
@@ -209,6 +213,7 @@ nav:
          - How to add docker hub credentials to a project: cloud/rahti/tutorials/docker_hub_login.md
          - How to manually cache images in Rahti's registry: cloud/rahti/tutorials/docker_hub_manual_caching.md
          - How to package a Kubernetes application with Helm?: cloud/rahti/tutorials/helm.md
+         - Kustomize: cloud/rahti/tutorials/kustomize.md
          - CI/CD on Rahti: cloud/rahti/tutorials/ci_cd_introduction.md
          - How to run an ad-hoc interactive container: cloud/rahti/tutorials/oc-run.md
          - How backup a Postgres DB into Allas: cloud/rahti/tutorials/backup-postgres-allas.md
@@ -251,12 +256,30 @@ nav:
         - Images:
             - cloud/pouta/images.md
             - Creating, Converting, Uploading and Sharing virtual machine images: cloud/pouta/adding-images.md
+        - Networking:
+            - cloud/pouta/networking.md
         - Orchestration with Heat: cloud/pouta/heat-orchestration.md
         - Application Development Practises in Pouta: cloud/pouta/application-dev.md
         - Additional services in Pouta (email, dns): cloud/pouta/additional-services.md
         - Self study and troubleshooting:
              - Pouta videos: cloud/pouta/pouta-videos.md
              - Known problems and limitations: cloud/pouta/known-problems.md
+     - Pukki (DBaaS):
+        - cloud/dbaas/index.md
+        - What is DBaaS: cloud/dbaas/what-is-dbaas.md
+        - Security Guides: cloud/dbaas/security-guides.md
+        - Getting started with DBaaS:
+             - cloud/dbaas/getting-started.md
+             - Web interface: cloud/dbaas/web-interface.md
+             - Command Line tools: cloud/dbaas/cli.md
+             - Database Operations: cloud/dbaas/operations.md
+             - Application Credentials: cloud/dbaas/application-credentials.md
+        - Database sizes and prices: cloud/dbaas/flavors.md
+        - Backups: cloud/dbaas/backups.md
+        - Databases:
+             - cloud/dbaas/databases.md
+             - PostgreSQL: cloud/dbaas/postgresql.md
+        - More advanced features: cloud/dbaas/advanced.md
      - Grid computing:
         - The Grid Monitor: cloud/grid/grid-monitor.md
      - CSC Notebooks:

@@ -1,3 +1,7 @@
+---
+title: Machine learning guide
+---
+
 # Machine learning guide
 
 This guide aims to help users who wish to do machine learning using CSC's
