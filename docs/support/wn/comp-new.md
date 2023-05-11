@@ -1,5 +1,13 @@
 # Computing environment
 
+## New policy for projects with no billing units on Puhti and Mahti, 15.5
+
+In addition to limiting access to compute resources, now also access
+to storage access will be limited on Puhti and Mahti. Please read [running out of billing
+units](../../computing/usage-policy.md#running-out-of-billing-units)
+for more details.
+
+
 ## Puhti web interface updated to release 15, 2.5.2023
 
 * A new [Julia-Jupyter app](../../computing/webinterface/julia-on-jupyter.md) is now available.
