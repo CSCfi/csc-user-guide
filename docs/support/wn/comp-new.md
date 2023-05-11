@@ -1,11 +1,18 @@
 # Computing environment
 
-## New policy for projects with no billing units on Puhti and Mahti, 15.5
+## New policy on Puhti and Mahti for projects that have run out of billing units, 15.5.2023
 
 In addition to limiting access to compute resources, now also access
-to storage access will be limited on Puhti and Mahti. Please read [running out of billing
+to storage access will be limited on Puhti and Mahti. Please read
+[running out of billing
 units](../../computing/usage-policy.md#running-out-of-billing-units)
-for more details.
+for more details. To give all projects time to react, the policy will
+be enforced starting June 14, 2023. Please log in to mycsc to check if
+you have projects that have negative amount of billing units. When
+logging in to Puhti using ssh or using the web interface you will also
+receive warnings, and information on how much time remains before
+access is removed. 
+
 
 
 ## Puhti web interface updated to release 15, 2.5.2023
