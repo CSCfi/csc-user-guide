@@ -1,6 +1,6 @@
 # How can I mount my Allas S3 bucket to a VM running in cPouta
 
-Combining cPouta cloud environment and Allas storage environment allows you to build scalable data management environments. This document shows one example how you can combine these two services by mounting a bucket from Allas to a Ubuntu 22.04 (also tested with Ubuntu 20.04 and 18.04) or a Centos7 based virtual machine running in cPouta.
+Combining cPouta cloud environment and Allas storage environment allows you to build scalable data management environments. This document shows one example how you can combine these two services by mounting a bucket from Allas to an Ubuntu 22.04 (also tested with Ubuntu 20.04 and 18.04) or a Centos7 based virtual machine running in cPouta.
 
 [TOC]
 
