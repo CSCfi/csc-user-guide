@@ -26,9 +26,11 @@
     >User guides and tutorials</h2>
 </div>
 
+<!--
 <center>
 [![CSC Summer School in High-Performance Computing 2023](img/kesakoulu-2023_banner.png 'CSC Summer School in High-Performance Computing 2023')](https://ssl.eventilla.com/summerschool2023)
 </center>
+-->
 
 !!! default "Overview"
 

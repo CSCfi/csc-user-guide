@@ -79,7 +79,7 @@
 * [How to package a Kubernetes application with Helm?](../../cloud/rahti/tutorials/helm.md)
 * [Accessing databases on Rahti from CSC supercomputers](../../cloud/rahti/tutorials/connect-database-hpc.md)
 
-## Senistive Data
+## Sensitive Data
 * [Using Allas to transport sensitive data](../../data/sensitive-data/sequencing_center_tutorial.md)
 * [Running temporary PostgreSQL database in SD Desktop](../../data/sensitive-data/tutorials/postgresql.md)
  
