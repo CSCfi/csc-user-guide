@@ -248,6 +248,7 @@ Tykky installations can also be moved:
 
 1) Inside the same supercomputer, from folder to folder, move the <install_dir> folder with `mv` to new location. 
 2) Between Puhti and Mahti use `rsync`. For copying to Mahti, log in to Mahti and change to the folder where you want to move the Tykky installation, then use: 
+
 ```
 rsync -al <username>@puhti.csc.fi:<install_dir> .
 ```
