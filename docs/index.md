@@ -26,11 +26,10 @@
     >User guides and tutorials</h2>
 </div>
 
-<!--
 <center>
-[![CSC Summer School in High-Performance Computing 2023](img/kesakoulu-2023_banner.png 'CSC Summer School in High-Performance Computing 2023')](https://ssl.eventilla.com/summerschool2023)
+  [![BioExcel Summer School on Biomolecular Simulations 2023](img/banners/bioexcel-summer-school-on-biomolecular-simulations-2023.png){ width=75% }
+  ](https://bioexcel.eu/events/bioexcel-summer-school-on-biomolecular-simulations-2023/){ target=_blank }
 </center>
--->
 
 !!! default "Overview"
 
