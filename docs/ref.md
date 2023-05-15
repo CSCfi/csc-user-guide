@@ -28,6 +28,42 @@ enim. Laboriosam autem vel vel aut quod.
 
 Here's a reference to a footnote:[^1]
 
+## Banners
+
+The front page can be fitted with a banner to promote a course for example.
+
+![Banners at Docs](img/ref/screenshot-of-reference-banner.png)
+
+There is currently no special mechanism in place for controlling banners.
+
+=== "index.md"
+
+     There is a `<center>` block in `index.md` to hold the banner. The images themselves
+     should go to `docs/img/banners/`. The width of the image can be controlled with a
+     `width` attribute. A `target=_blank` attribute should be present when a link
+     is pointing outside of Docs.
+
+    ```html
+    <center>
+      [![A description of the banner](img/banners/banner-filename.png){ width=80% }
+      ](https://example.org/courses/example-course/){ target=_blank }
+    </center>
+    ```
+
+=== "Show/hide"
+
+    To hide the banner, it can just be commented out (mind that the commented-out `<center>`
+    block will still be visible in the HTML source of the page):
+
+    ```html
+    <!--
+    <center>
+      [![A description of the banner](img/banners/banner-filename.png){ width=80% }
+      ](https://example.org/courses/example-course/){ target=_blank }
+    </center>
+    -->
+    ```
+
 ## Glossary
 There is a glossary of HPC-related acronyms that get highlighted automatically. For example: CPU,
 GPU, QPU, etc. The acronyms are defined in the markdown file
