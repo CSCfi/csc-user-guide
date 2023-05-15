@@ -28,7 +28,7 @@
 
 <center>
   [![BioExcel Summer School on Biomolecular Simulations 2023](img/banners/bioexcel-summer-school-on-biomolecular-simulations-2023.png){ width=75% }
-  ](https://bioexcel.eu/events/bioexcel-summer-school-on-biomolecular-simulations-2023/){ target=_blank }
+  ](https://ssl.eventilla.com/bioexcel_summer_school2023/){ target=_blank }
 </center>
 
 !!! default "Overview"
