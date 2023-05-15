@@ -1,12 +1,12 @@
 # Backup server for SD Desktop
 
 For security reasons only the Project Manager can export data from SD Desktop. Thus normal SD desktop users can not 
-make backup copiens of the data that they have in SD Desktop. This tutorial demonstartes the usage of backup_server.sh 
+make backup copiens of the data that they have in SD Desktop. This tutorial demonstrates the usage of backup_server.sh 
 process and sd-backup commands that provide a way for SD Users to backup their data to SD Connect.
 
 ## Installation 
 
-The tools for running backup process are not by default installed in SD Desktop Virtual Machines. Thus the firts step is that the Projet 
+The tools for running backup process are not by default installed in SD Desktop Virtual Machines. Thus the first step is that the Projet 
 manager installs the **SD Backup tool** package using the **SD-tools-installer**. 
 
 Log in to your SD Desktop and open **Data Gateway**. If the software installation help tools are enabled for your project, then you should have folder: 
@@ -69,7 +69,7 @@ In SD Connect a timestamp is added to the file name in order to make the file na
 created. This file contains information about the user who requested the backup, original host and location of the file. If backup is done for 
 a directory, then the content of the directory is stored as one tar-archive file and the metadatafile will contain list of the backuped files. 
  
-For example, for a file called _my_data.csv_ that locates in SD Desktiop virtual machine called _secserver-1683868755_, a backup command:
+For example, for a file called _my_data.csv_ that locates in SD Desktop virtual machine called _secserver-1683868755_, a backup command:
 
 ```text
 sd-backup  my_data.csv
@@ -79,4 +79,4 @@ Will create a backupfile that will be available through Data-gateway in path:
 Projects/SD-Connect/project_number/sdd-backup-secserver-1683868755/my_data.csv-2023-05-15-07:41
 ```
 
-Note that you have to refresh the Data Gateway conenction in order to see the changes in SD Connect.
+Note that you have to refresh the Data Gateway connection in order to see the changes in SD Connect.
