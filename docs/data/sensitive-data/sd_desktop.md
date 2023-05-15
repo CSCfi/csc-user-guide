@@ -163,7 +163,7 @@ You can close the connection to your virtual desktop in two ways:
 
      
 
-### Accesing RStudio 
+### Accessing RStudio 
 
 Open the terminal and launch RStudio with:
 

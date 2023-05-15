@@ -1,61 +1,31 @@
----
-tags:
-  - Free
----
+# NoMachine
 
-## NoMachine
+!!! warning "NoMachine at CSC discontinued on 25th of May 2023"
 
-!!! Note
-    CSC does not anymore recommend the usage of NoMachine for running remote graphics on CSC supercomputers. Instead, please use [the Puhti web interface](../computing/webinterface/index.md).
-
-The NoMachine Client enables remote graphical work on CSC supercomputers
-from your local computer. The speedup vs.
-X11 (native or emulated) can be many fold, so you will experience
-substantial improvement. Note that with NoMachine you don't need
-X-emulators or X-term (in Linux).
-
-[TOC]
-
-![NoMachine sketch - full description below image](../img/nomachine.svg "NoMachine sketch")
-
-A NoMachine client installed on your local machine is used to connect to
-NoMachine server in Kajaani, which is then used to make a fast local connection
-to CSC Supercomputer. This enables fast remote graphics.
-
-## Available
-
-The client is installed on your local machine, and the version 6 NoMachine
-Enterprise Terminal Server runs on nxkajaani.csc.fi.
-
-## License
-
-The NoMachine *client* is free and access to nxkajaani.csc.fi is
-allowed for all CSC users. 
-
-## Usage
-
-NoMachine is used to connect from your local computer
-to nxkajaani.csc.fi, a gateway running a NoMachine server. There a simple 
-Desktop enables you to ssh to CSC supercomputers. A NoMachine client
-is available for Win, Mac, Linux.
+    The NoMachine remote desktop service will be discontinued at CSC on 25th May 2023,
+    at the end of the current licensing period.
 
 
-1.  You will need a user account at CSC (on the server where you run
-    applications). If you don't have one, consult [how to get a user account](/accounts/how-to-create-new-user-account).
-2.  [Download the latest NoMachine Client](https://www.nomachine.com/download-enterprise#NoMachine-Enterprise-Client) (win, mac, linux) from the
-    NoMachine site. Don't download the _Desktop_.
-3.  Install and configure your NoMachine client. See [CSC NoMachine Tutorial]
-4.  Start the NoMachine client and log on to nxkajaani.csc.fi.
-5.  Right click in the Desktop and choose the CSC server you want to use
-    (opens an ssh terminal).
-6.  Start working on great science.
-7.  When you're done, disconnect or terminate the connection from the
-    Desktop top right corner (peel menu). The number of overall sessions,
-    including suspended ones, is limited to one per user.
+The service is superseded by web interfaces on CSC's supercomputers:
 
-## More Information
+* [Puhti web interface](../computing/webinterface/index.md)
+* Similar web interfaces will be opened for both Mahti and LUMI, in the near future.
 
-* NoMachine [knowledge base](https://www.nomachine.com/knowledge-base)
-* User support via CSC through servicedesk@csc.fi
+## Replacements
 
-  [CSC NoMachine Tutorial]: /support/tutorials/nomachine-usage
+* For a generic graphical remote desktop, the
+[Desktop application](../computing/webinterface/desktop.md) can be launched from the web
+interface.
+* For a shell (e.g. a persistent shell on a compute node), have a look at [the shell applications](../computing/webinterface/index.md#shell) on the web interface.
+* Available as interactive applications.
+    * [Jupyter](../computing/webinterface/jupyter.md)
+    * [Julia-Jupyter](../computing/webinterface/julia-on-jupyter.md)
+    * [MATLAB](../computing/webinterface/matlab.md)
+    * [RStudio](../computing/webinterface/rstudio.md)
+    * [TensorBoard](../computing/webinterface/tensorboard.md)
+    * [Visual Studio Code](../computing/webinterface/vscode.md)
+* Some applications are available with GPU acceleration. See
+[Accelerated visualization](../computing/webinterface/accelerated-visualization.md).
+
+**If you have difficulties in migrating to use the web interfaces, please don't hesitate to
+[contact us](../support/contact.md)!**
