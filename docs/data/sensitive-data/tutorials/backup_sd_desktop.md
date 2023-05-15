@@ -19,7 +19,7 @@ Project Identifier in the **User information** view.
 
 Open _tools-for-sd-desktop_ folder and from there, drag/copy file **sd-installer.desktop** to your desktop.
 
-[![Installing-sd-installer](../images/desktop/sd-installer1.png)](./images/desktop/sd-installer1.png)
+[![Installing-sd-installer](../images/desktop/sd-installer1.png)](../images/desktop/sd-installer1.png)
 
 **Figure 1.** Copying sd-installer.desktop file to SD desktop.
  
