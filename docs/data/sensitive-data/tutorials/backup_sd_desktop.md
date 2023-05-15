@@ -23,12 +23,12 @@ Open _tools-for-sd-desktop_ folder and from there, drag/copy file **sd-installer
 
 **Figure 1.** Copying sd-installer.desktop file to SD desktop.
  
-Double click the copy of _sd-installer.desktop_ to start the software installation tool. Use this tool to install _sd-help-tools_ 
+Double click the copy of _sd-installer.desktop_ to start the software installation tool. Use this tool to install _SD Backup_ tool
 to your SD Desktop virtual machine if you have not yet done so. 
 
 ## Project Mangers Starts backup server
 
-When the sd-help-tools are installed, the Project Manager should start new terminal session, and there start a virtual terminal session with command:
+When the SD Backup tool is installed, the Project Manager should start new terminal session, and there start a virtual terminal session with command:
 
 ```text
 screen
@@ -49,10 +49,10 @@ The actual server process is very simple. It checks the content of the backup di
 to a bucket in SD Connect. The data is encrypted with CSC public key only so that the backups can be used only in SD Desktop environment.
 The default backup directory is _/shared-data/auto-backup_ and taget bucket in SD Connect is sdd-backup-_vitual-machine-name_. 
 
-Note that the server is not able to check if the given password was correct. If wrong password was given then backup requests will fail. 
+Note that the server is not able to check if the given password was correct. If a wrong password was given then backup requests will fail. 
 Thus it may be good to test the backup process once the server is running.
 
-## Users can do backups
+## Doing backups
 
 When the backup server is running, all users of the VM can use command _sd-backup_ to make a backup copy of the dataset to SD Connect.
 The syntax of the sd-backup command is:
@@ -64,17 +64,17 @@ or
 ```text
 sd-backup directory
 ```
-The command copies the given file or directory to the backup directory from where the server process is able to move it to SD Desktop.
-The a timestamp is added to the file name in order to make the file name uniq. In addition a metadata file is
+The command copies the given file or directory to the backup directory from where the server process is able to move it to SD Connect.
+In SD Connect a timestamp is added to the file name in order to make the file name unique. In addition a metadata file is
 created. This file contains information about the user who requested the backup, original host and location of the file. If backup is done for 
-a directory, then the content of the directory is stored as one tar-archive file and the metadatafile will contain list of the backuped file. 
+a directory, then the content of the directory is stored as one tar-archive file and the metadatafile will contain list of the backuped files. 
  
-For example, for a file called _my_data.csv_ that loctes in SD Desktiop virtual machine called _secserver-1683868755_, a bacup command:
+For example, for a file called _my_data.csv_ that locates in SD Desktiop virtual machine called _secserver-1683868755_, a backup command:
 
 ```text
 sd-backup  my_data.csv
 ```
-Will create a backupfile tha will be available through Data-gateway in path:
+Will create a backupfile that will be available through Data-gateway in path:
 ```text
 Projects/SD-Connect/project_number/sdd-backup-secserver-1683868755/my_data.csv-2023-05-15-07:41
 ```
