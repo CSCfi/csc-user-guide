@@ -451,6 +451,13 @@ airlock-client cscuser  analysis-2022  results-03.csv.c4gh
 
 Press enter and add your password. Note: if you try to upload an unencrypted file, the airlock client will automatically encrypt it with the Sensitive Data public key for security reasons and export it to SD Connect. Here, you will be able to download the file but you will not be able to decrypt it.
 
+The fact that only project manager can export data from SD Desktop, making back-up copies of important file is difficult for normal user. 
+If need, the project manger can launch a back-up server process that normal users can utilize to do back-ups. For details, see:
+
+   * [SD Desktop Back-up server tutorial](tutorials/backup_sd_desktop.md)
+ 
+
+
 6- Download and decrypt the files.
 
 The exported file is now available in SD Connect/Allas. After downloading the file in your local environment, you can decrypt it with your secret encryption key, using the Crypt4GH application or programmatically. For specific guidance check the following [paragraph](./sd_connect.md#data-download-and-decryption).
