@@ -244,17 +244,13 @@ conda-containerize new --prefix <install_dir> env.yml
 
 For deleting a Tykky installation, remove the <install_dir> folder.
 
-Tykky installations can also be moved. 
+Tykky installations can also be moved:
 
-* Inside the same supercomputer, move the <install_dir> folder with `mv` to new location. 
-* To move Tykky installation from one (super)computer to another, use: `
+1) Inside the same supercomputer, from folder to folder, move the <install_dir> folder with `mv` to new location. 
+2) Between Puhti and Mahti use `rsync`. For copying to Mahti, log in to Mahti and change to the folder where you want to move the Tykky installation, then use: 
 ```
-# log in to the other computer and change to the folder where you want to move the Tykky installation
 rsync -al <username>@puhti.csc.fi:<install_dir> .
 ```
-
-Tykky installations require Apptainer, so the destination computer must have it installed. Tykky installations work in Puhti, Mahti and LUMI.
-
 
 ## More complicated example
 
