@@ -454,7 +454,7 @@ Press enter and add your password. Note: if you try to upload an unencrypted fil
 The fact that only project manager can export data from SD Desktop, making back-up copies of important file is difficult for normal user. 
 If need, the project manger can launch a back-up server process that normal users can utilize to do back-ups. For details, see:
 
-   * [SD Desktiop Back-up server tutorial](tutorials/backuping_sd_desktop.md)
+   * [SD Desktiop Back-up server tutorial](tutorials/backu_sd_desktop.md)
  
 
 
