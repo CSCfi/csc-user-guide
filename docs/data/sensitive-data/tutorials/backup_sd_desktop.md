@@ -38,7 +38,7 @@ An then launch the backup process with command:
 ```text
 sd-backup-server.sh
 ```
-When launched _sd-backup-server.sh_ asks for the CSC password of the Project Manger. 
+When launched _sd-backup-server.sh_ asks for the CSC password of the Project Manager. 
 
 After that the project manager can leave the virtual session running in background by pressing:
 __Ctrl+a+d__.
