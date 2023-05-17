@@ -1,5 +1,16 @@
 # Computing environment
 
+## New policy on Puhti and Mahti for projects that have run out of billing units, 17.5.2023
+
+In addition to limiting access to compute resources upon running out of billing
+units, now also access to storage will be limited on Puhti and Mahti. Please read
+[running out of billing units](../../computing/usage-policy.md#running-out-of-billing-units)
+for more details. To give all projects time to react, the policy will be enforced
+starting June 14, 2023. Please login to MyCSC to check if you have projects that
+have a negative amount of billing units. When logging in to Puhti using ssh or
+the web interface you will also receive warnings and information on how much time
+remains before access is removed.
+
 ## Puhti web interface updated to release 15, 2.5.2023
 
 * A new [Julia-Jupyter app](../../computing/webinterface/julia-on-jupyter.md) is now available.
