@@ -80,3 +80,30 @@ Projects/SD-Connect/project_number/sdd-backup-secserver-1683868755/my_data.csv-2
 ```
 
 Note that you have to refresh the Data Gateway connection in order to see the changes in SD Connect.
+
+
+## Enabling automatic data export
+
+In addition to the backup server, an export server process can activated with option _-e_. 
+In this case the project manager must define a publick keys that are used to encrypt the data 
+before it is exported to SD Connect service. An encrypiton key is defined with option _-k_. 
+The server launch command can have multple -k options that use mutiple encryption keys.
+
+A sample command that lauches both backup and export services:
+
+```text
+backup_server.sh -e -k your-public-key.pub 
+```
+
+When servise is running, users can use _sd-export_ command to export files from SD Desktop.
+For example:
+
+```text
+sd-export file.txt
+```
+
+When the the export server is running, the command above will encrypt the file.txt with the public key defined to the backup_server.sh with option -k. After that  the
+servr process push the data to the export bucket in SD Connect. The default export bucket is: _project-number_-export.
+
+
+
