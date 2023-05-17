@@ -227,7 +227,10 @@ You can click **Launch** to start the Virtual Machine creation.
 
 ## Post creation step
 
-When a virtual machine is launched, it only gets a **private IP** (`192.168.XXX.XXX`). This means that meanwhile the machine can access the internet and other virtual machines in the same project, it can not be accessed from outside the project. To be able to access your virtual machine, you need to attach a **public IP address** to it.
+When a virtual machine is launched, it only gets a **private IP** (`192.168.XXX.XXX`). This means that meanwhile the machine can access the internet and other virtual machines in the same project, it can not be accessed from outside the project. To be able to access your virtual machine, you need to attach a **public IP address** to it.  
+
+!!! info
+    Associate a floating IP is only available on cPouta instances
 
 1. Go to **Compute > Instances**, you should see your Virtual machine listed.
 
