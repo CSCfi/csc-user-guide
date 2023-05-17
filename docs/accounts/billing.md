@@ -22,7 +22,7 @@ at research.csc.fi.
 
 !!! info "Note"
 
-    For LUMI billing, [see the LUMI documentation](https://docs.lumi-supercomputer.eu/runjobs/lumi_env/billing/).
+    For LUMI billing, [see the LUMI documentation](https://docs.lumi-supercomputer.eu/runjobs/lumi_env/billing/){ target=_blank }.
 
 ## Monitoring billing unit consumption
 
