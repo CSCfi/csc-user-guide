@@ -129,6 +129,7 @@ nav:
   - Computing:
      - computing/index.md
      - Usage policy: computing/usage-policy.md
+     - Billing: computing/hpc-billing.md
      - Systems:
         - computing/available-systems.md
         - Puhti: computing/systems-puhti.md
