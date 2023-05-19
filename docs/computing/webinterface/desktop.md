@@ -11,7 +11,7 @@ See [here how to enable GPU-accelerated visualization](accelerated-visualization
 for selected applications.
 
 In the Mahti web interface, only the `Xfce` desktop is available and no other options can be selected.
-The applications available in the desktop on Mahti are [Maestro](../../apps/maestro.md) and [VMD](../../vmd.md)
+The applications available in the desktop on Mahti are [Maestro](../../apps/maestro.md) and [VMD](../../apps/vmd.md)
 
 ## Launching
 1. Open `Desktop` page under Apps 
