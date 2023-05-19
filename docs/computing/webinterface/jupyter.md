@@ -3,7 +3,7 @@ The Jupyter interactive app launches a Jupyter notebook that is accessible throu
 
 In the app form you can select Python environment, Jupyter notebook type, working directory and some more advanced settings.
 
-For more information about the Python environments in Puhti see the [documentation about Python](/apps/python). Note that the modules listed there are not guaranteed to work in the web interface and the installation of Python packages in Jupyter in the web interface works differently.
+For more information about the Python environments on Puhti and Mahti, see the [documentation about Python](/apps/python). Note that the modules listed there are not guaranteed to work in the web interface and the installation of Python packages in Jupyter in the web interface works differently.
 
 ### Currently supported Python environments
  - geoconda

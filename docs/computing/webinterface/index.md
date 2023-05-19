@@ -1,9 +1,11 @@
-# Puhti web interface
+# Web interfaces for Puhti and Mahti
 
 ## Intro
 
-The Puhti web interface at [www.puhti.csc.fi](https://www.puhti.csc.fi) can be used to access the Puhti supercomputer 
-using only a web browser. With the web interface you can:
+The web interfaces for Puhti and Mahti at [www.puhti.csc.fi](https://www.puhti.csc.fi) and
+[www.mahti.csc.fi](https://www.mahti.csc.fi) can be used to access the supercomputers using only a
+web browser.
+With the web interface you can:
 
 - View, download and upload files
 - Launch common graphical applications and connect to them directly from the browser
@@ -21,13 +23,14 @@ using only a web browser. With the web interface you can:
 - Open a persistent shell on a compute node
 - View running batch jobs
 
-Everything still runs directly on Puhti, giving you all the resources and power
+Everything still runs directly on the supercomputers, giving you all the resources and power
 of a supercomputer, but easily accessible using only a web browser.
+Note that some of the features are not available in both the Puhti and Mahti web interfaces.
 
 
 ## Connecting
 
-Using a web browser, go to [www.puhti.csc.fi](https://www.puhti.csc.fi). On the landing page, click on "Log in to Puhti" and select an appropriate authentication provider. When logging in using your CSC user account, select CSC as the authentication provider and use the same username and password you use when connecting with `ssh`.
+Using a web browser, go to [www.puhti.csc.fi](https://www.puhti.csc.fi) or [www.mahti.csc.fi](https://www.mahti.csc.fi). On the landing page, click on "Log in" and select an appropriate authentication provider. When logging in using your CSC user account, select CSC as the authentication provider and use the same username and password you use when connecting with `ssh`.
 &nbsp;
 
 ![Puhti web interface login page](../../img/ood_login.png)
@@ -37,7 +40,7 @@ After successful authentication, you will see the dashboard.
 
 ![Puhti web interface front page](../../img/ood_main.png)
 
-From here you can browse your files on Puhti, start a shell, view running jobs or start one of the many available applications. The dashboard also contains some important system information.
+From here you can browse your files on the supercomputer, start a shell, view running jobs or start one of the many available applications. The dashboard also contains some important system information.
 
 
 ## Available features
@@ -47,7 +50,7 @@ From here you can browse your files on Puhti, start a shell, view running jobs o
 The shell apps can be found under Pinned apps or on the top navbar under the _Tools_ section.
 There are two different shells.
 
-The _Login node shell_ launches a normal linux shell on one of the Puhti login nodes.
+The _Login node shell_ launches a normal linux shell on one of the login nodes.
 Any command that is running when the login shell browser tab is closed will stop.
 Note that the same rules apply here as during a normal ssh session.
 **Login nodes are only for light pre/postprocessing** (see [Usage policy](/computing/usage-policy)).
@@ -102,4 +105,4 @@ For a list of applications and specific instructions see [apps](apps.md).
 ### Project view
 
 Using the project view under the _Tools_ section on the top navbar, you can view 
-current disk and project billing unit quotas on Puhti. For more information see [project-view](project-view.md).
+current disk and project billing unit quotas on the supercomputers. For more information see [project-view](project-view.md).
