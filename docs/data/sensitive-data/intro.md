@@ -68,4 +68,4 @@ The following section of this manual provides an overview of permission manageme
 * Personal sensitive data (e.g. health, genetic and personal information, racial or ethnic origin, political opinions, religious or philosophical beliefs, or trade union membership, genetic data, biometric data for the purpose of uniquely identifying a natural person, data concerning health, data concerning a natural person's sex life or sexual orientation, data relating to criminal convictions and offenses or related security measures, data that may identify a person)
 * Ecological data (e.g. location of endangered species or other conservation efforts)
 * Confidential data (e.g. trade secrets)
-* Data that is otherwise deemed sensitive.
+* Data that is otherwise deemed sensitive
