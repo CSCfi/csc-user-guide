@@ -77,6 +77,21 @@ The file browser comes with a basic text editor. Some important notes on that:
 - There is no _save-as_ feature
 - If a read-only file is opened no indication will be given to the user but no changes will be applied
 
+#### Using Allas
+
+In the Mahti web interface, the [Allas object storage service](../../computing/allas) can be accessed using the file browser.
+Currently, only the S3 protocol for accessing Allas is supported. For more details about the difference, see [Allas protocols](../../data/Allas/introduction/#protocols).
+This means that the the _allas-conf_ command must be run with the _s3cmd_ mode:
+```
+module load allas
+allas-conf --mode s3cmd
+```
+After running the command, the web interface server must be restarted, which can be done by clicking _Restart web server_ in the _Help_ menu in top right section of the navbar.
+Once the server has been restarted, the `s3allas` remote will be available in the _Files_ dropdown in the navbar and in the file browser.
+If you have previously used Allas on Mahti, there will be an `allas` remote visible, but it can not be used.
+
+The file browser works the same way when accessing Allas as it does when accessing the shared filesystem on Mahti.
+Note that uploading large files from your local computer to Allas is currently not recommended due to technical limitations.
 
 ### Active jobs
 
