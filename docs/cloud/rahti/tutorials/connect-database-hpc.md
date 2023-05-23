@@ -37,8 +37,7 @@ Configuring MongoDB and WebSocat on Rahti can be done either through the web int
 - An [OpenShift template](https://github.com/CSCfi/websocat-template/blob/main/websocat-template.yaml) is needed to configure WebSocat on Rahti. Download or copy this YAML file to your clipboard. Note that this is an unsupported beta template
 - On the Rahti web interface front page, select Import YAML/JSON and add the WebSocat template to the same project as the MongoDB (upload by dragging & dropping, selecting it, or pasting from the clipboard). Do not edit the template!
 - Select Create, process the template and input the above hostname and target port in the requested database service name and database port fields
-- Select the created project, navigate to `Applications > Services` and select the WebSocat service. Remember the
-    - Route hostname (of the form `websocat-<project name>.rahtiapp.fi`)
+- Select the created project, navigate to `Applications > Services` and select the WebSocat service. Remember the route hostname (of the form `websocat-<project_name>.rahtiapp.fi`)
 
 ### Option 2: Using the `oc` command line tool
 
@@ -78,7 +77,7 @@ MongoDB and WebSocat have now been set up on Rahti and you should have the follo
 - [Download `websocat` from GitHub](https://github.com/vi/websocat/releases) and add it to your `PATH`. For example:
 
 ```bash
-wget -O websocat https://github.com/vi/websocat/releases/download/v1.8.0/websocat_amd64-linux-static
+wget -O websocat https://github.com/vi/websocat/releases/download/v1.11.0/websocat.x86_64-unknown-linux-musl
 export PATH=$PATH:$PWD
 ```
 
@@ -96,6 +95,9 @@ echo "Got target port $(cat /tmp/$USER/${SLURM_JOB_ID}_rahtidb_port)"
     If you want to access your database within a batch job, run `websocat` within your batch script. You can utilize the same obtained target port if you're submitting your job from an interactive session in which `websocat` is already running, `websocat -b tcp-l:127.0.0.1:<port> wss://websocat-<project name>.rahtiapp.fi -E &`. Otherwise, pass 0 as the target port and check which one it gets handed using `lsof`.
 
 - Now `websocat` is running in the interactive session/batch job and you may connect to your MongoDB database on Rahti using the obtained target port. You can verify the connection with e.g. Python. Note that the username and password below refer to the created database service, not your CSC credentials
+
+!!! info  
+    PyMongo version 3.13.0 must be installed otherwise the driver is too new for the MongoDB server. (More information: https://pymongo.readthedocs.io/en/stable/common-issues.html#server-reports-wire-version-x-pymongo-requires-y)
 
 ```python
 # module load python-data
