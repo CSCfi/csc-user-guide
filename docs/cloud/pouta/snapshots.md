@@ -1,7 +1,8 @@
+Table of Contents
+[TOC]
+
 This article describes how to use [snapshots](https://docs.openstack.org/arch-design/common/glossary.html#term-snapshot){target="_blank"} to capture and store 
 the file system state of a Pouta virtual machine.
-
-[TOC]
 
 ### Types of snapshots
 
