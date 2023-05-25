@@ -7,7 +7,7 @@ Contents:
  * [Processing research data](./sd-access.md#processing-sensitive-research-data);
  * [Processing register data under the Act on Secondary Use](./sd-access.md#processing-register-data-under-the-act-on-secondary-use);
  * [Default storage space and billing units consumption](./sd-access.md#default-storage-space-and-billing-units-consumption);
- * [Service usage restrictions when billing units run out](./);
+ * [Service usage restrictions when billing units run out](./sd-access.md#restricted-service-access-when-billing-units-have-been-consumed);
  * [Billing units calculator](./sd-access.md#default-storage-space-and-billing-units-consumption);
 
 
