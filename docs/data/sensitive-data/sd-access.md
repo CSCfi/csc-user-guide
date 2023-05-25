@@ -125,7 +125,7 @@ When all billing units in your CSC project have been consumed, SD Desktop servic
 You will receive a notification via email, and you can regain access to your virtual Desktop by following these steps: 
 
 1- Please apply for additional billing units using the MYCSC portal (to obtain a positive saldo);
-2- Log in to SD Desktop and restart the virtual Desktop. For more guidance, see intructions in the service [user guide](../data/sensitive-data/sd_desktop.md#pausing-or-restarting-a-virtual-desktop). 
+2- Log in to SD Desktop and restart the virtual Desktop. For more guidance, see intructions in the service [user guide](../../data/sensitive-data/sd_desktop.md#pausing-or-restarting-a-virtual-desktop). 
 
 
 
