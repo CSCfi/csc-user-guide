@@ -21,7 +21,7 @@ You can not use your CSC account to authenticate to your databases. The database
 
 All database instances are running in their dedicated virtual machines. The reason for this is to minimize the risks careless users pose on other users that take their security seriously.
 
-The DBaaS admins are allowed to shutdown, lock, or firewall database instances that are suspected to be used maliciously, as well as users from using the service.
+The DBaaS admins are allowed to shutdown, lock, or firewall database instances that are suspected to be used maliciously, as well as disable user access to the service.
 
 ## Backups
 

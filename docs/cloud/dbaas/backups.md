@@ -22,12 +22,12 @@ Be aware that the backup feature is still in development and should not be used 
 * Backups are stored encrypted in Allas. This is worth to keep in mind if you want to take your own backup (you should probably store them somewhere else than Allas nor cPouta).
 * When "restoring" a backup it will create a new instance with a new IP. So be aware that you might need to update your egress firewalls in your service.
 * If you have any concerns, do not hesitate to contact [CSC Service Desk](../../support/contact.md).
-* All your database data and backups are stored in the CSC Kajaani datacenter. If the datacenter "implode" you will lose all your data.
+* All your database data and backups are stored in the CSC Kajaani datacenter. If the datacenter has catastrophic data loss, you may lose all your data.
 * If you are using the DBaaS service for really important projects/data, it is worth considering to also take your own backups that are stored somewhere else than CSC in case of disaster.
 
 ## Manual backups
 
-Backups can be taken manually.
+Backups can be made manually.
 
 1. Creating a backup:
 
