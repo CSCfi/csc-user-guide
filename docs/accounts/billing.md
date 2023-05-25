@@ -44,6 +44,7 @@ No data is deleted when the total amount of billing units is zero or negative. Y
 
 Limitations for the services consuming billing units are the following: 
 * [Puhti and Mahti](../computing/usage-policy.md#running-out-of-billing-units)
+* [Sensitive Data (SD) Desktop](..data/sensitive-data/sd-access.md#restricted-service-access-when-billing-units-have-been-consumed)
 
 
 
