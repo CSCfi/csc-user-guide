@@ -19,7 +19,9 @@ at research.csc.fi.
 * [Pouta billing](../cloud/pouta/accounting.md)
 * [Rahti billing](../cloud/rahti/billing.md)
 * [Kvasi billing](../computing/quantum-computing/kvasi/kvasi-billing.md)
-* [SD Connect and SD Desktop billing](../sensitive-data/sd-access.md)
+* [SD Connect and SD Desktop billing](../data/sensitive-data/sd-access.md#default-storage-space-and-billing-units-consumption)
+
+
 
 !!! info "Note"
 
