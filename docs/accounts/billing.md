@@ -19,7 +19,7 @@ at research.csc.fi.
 * [Pouta billing](../cloud/pouta/accounting.md)
 * [Rahti billing](../cloud/rahti/billing.md)
 * [Kvasi billing](../computing/quantum-computing/kvasi/kvasi-billing.md)
-* [SD Connect and SD Desktop billing](../data/sensitive-data/sd-access.md#default-storage-space-and-billing-units-consumption)
+* [SD Connect and SD Desktop billing](../../data/sensitive-data/sd-access.md#default-storage-space-and-billing-units-consumption)
 
 
 
@@ -44,7 +44,7 @@ No data is deleted when the total amount of billing units is zero or negative. Y
 
 Limitations for the services consuming billing units are the following: 
 * [Puhti and Mahti](../computing/usage-policy.md#running-out-of-billing-units)
-* [Sensitive Data (SD) Desktop](..data/sensitive-data/sd-access.md#restricted-service-access-when-billing-units-have-been-consumed)
+* [Sensitive Data (SD) Desktop](../../data/sensitive-data/sd-access.md#restricted-service-access-when-billing-units-have-been-consumed)
 
 
 
