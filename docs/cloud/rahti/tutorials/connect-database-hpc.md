@@ -1,5 +1,8 @@
 # Accessing databases on Rahti from CSC supercomputers
 
+!!! infos
+    This tutorial can also be applied if you are running websocat locally or in a cPouta instance for other purposes.
+
 Many HPC workflows require a database. Running these on the login node poses several issues and running on Pouta brings administration overhead. Rahti is a good candidate, but one obstacle is that Rahti does not support non-HTTP traffic from external sources.
 
 A workaround for this problem is to establish a TCP tunnel over an HTTP-compatible WebSocket connection. This can be achieved using a command-line client for connecting to and serving WebSockets called [WebSocat](https://github.com/vi/websocat). Here, a WebSocat instance running on Puhti/Mahti translates a database request coming from a workflow to an HTTP-compatible WebSocket protocol. Once the traffic enters Rahti we use another WebSocat instance running inside Rahti to translate back the WebSocket connection to a TCP connection over the original port the database is configured to receive traffic. A drawing of the process is shown below.
@@ -87,7 +90,7 @@ export PATH=$PATH:$PWD
 websocat -b tcp-l:127.0.0.1:0 wss://websocat-<project name>.rahtiapp.fi -E &
 ws_pid=$!  # $! contains the process ID of the most recently executed background command
 mkdir -p /tmp/$USER
-lsof -i -p $ws_pid 2>/dev/null | grep TCP | grep -oE "localhost:[0-9]*" | cut -d ":" -f2 > /tmp/$USER/${SLURM_JOB_ID}_rahtidb_port
+lsof -Pa -p $ws_pid -i -sTCP:LISTEN | grep -v ^COMMAND | sed -e 's#.*TCP\s*\S*:\([0-9]*\).*#\1#' > /tmp/$USER/${SLURM_JOB_ID}_rahtidb_port
 echo "Got target port $(cat /tmp/$USER/${SLURM_JOB_ID}_rahtidb_port)"
 ```
 
