@@ -14,18 +14,18 @@ A popular tool for working with PostgreSQL is [pgAdmin that can be found here](h
 ## Command-line
 
 1. First you need to install the `postgresql` command line tool. Note that if you are using Linux, your distributions are usually shipped with an ancient version of PostgreSQL, so make sure that you install the most recent major version. For all operating systems you can [find instructions for installation here](https://www.postgresql.org/download/).
-2. Once you have installed the PostgreSQL client you should be able to login into the database. You can find the `public` IP from the `Overview` tab or `openstack database instance list`. The command that you normally want to use from a Linux CLI to connect to your database is: 
+2. Once you have installed the PostgreSQL client you should be able to login into the database. You can find the `public` IP from the `Overview` tab or `openstack database instance list`. The command that you normally want to use from a Linux CLI to connect to your database is:
 
     ```
     psql --user ${USERNAME} --host ${PUBLIC_IP} ${DATABASE_NAME}
-    ``` 
+    ```
 
-    The syntax normally used in configuration files is: 
+    The syntax normally used in configuration files is:
 
     ```
     psql postgresql://${USERNAME}:${PASSWORD}@{PUBLIC_IP}:5432/${DATABASE_NAME}
     ```
-    
+
     Note that if you use this syntax to login to the database it will not return column names when you do queries.
 
 3. The most common issues when accessing the database from the CLI are the following:
@@ -40,20 +40,23 @@ There are a couple differences from installing PostgreSQL yourself and using DBa
 ## Parameters that users can modify
 
 The DBaaS allows users to modify some of the parameters.
-If there are some parameters that you think you should be able to modify, [please contact us](../../support/contact.md) and we'll see if we can make it possible. 
+If there are some parameters that you think you should be able to modify, [please contact us](../../support/contact.md) and we'll see if we can make it possible.
 By default, we assume that default parameters are sane and that users should not, under normal circumstances, modify any of these parameters.
 
-| Parameters       | Default | Comments |
+| Parameters       | Default | Requires restart | Comments |
 |:--- |:---:|:---|
-| maintenance_work_mem | 64MB | |
-| max_connections      | 100  | It is usually recommended to use connection pools instead of modifying this value |
-| work_mem             | 4MB  | |
+| maintenance_work_mem | 64MB | No | |
+| max_connections      | 100  | Yes |It is usually recommended to use connection pools instead of modifying this value |
+| work_mem             | 4MB  | No |
+| log_statement        | false | No | This is useful if you want to figure out more how your database is utilized |
+| log_statement_stats  | false | No |This will also collect stats from your database, this is recommended to keep as false since it might affect performance |
 
 ## PostgreSQL extensions
 
 It is not possible for users to add additional extensions that are not already installed. If there
 are some extensions you would like to see available in Pukki, please be in contact with
-[CSC Service Desk](../../support/contact.md).
+[CSC Service Desk](../../support/contact.md). Note that extensions are not very well tested by the
+DBaaS-admin.
 
 1. To enable extensions, you need to first enable root for the database instance and log in as root:
 
