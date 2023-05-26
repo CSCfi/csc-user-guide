@@ -1,5 +1,11 @@
 # Applications
 
+## Schrödinger Maestro 2023.2, 25.5.2023
+
+Schrödinger Maestro version 2023.2 has been installed and set as the default module on
+Puhti and Mahti. See [release notes](https://www.schrodinger.com/releases/new-features/)
+for a list of new features and improvements.
+
 ## NoMachine will no longer be available on CSC's supercomputers, 9.5.2023
 
 The NoMachine remote desktop service will be discontinued on 25th May 2023, at the end of the
