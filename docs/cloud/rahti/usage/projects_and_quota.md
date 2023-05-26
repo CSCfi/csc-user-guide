@@ -148,6 +148,17 @@ web interface or the command line:
    that has the login command.
 2. If you have an active command line session, you can use the command `oc whoami`.
 
+Here is a table that summarize the main different roles:  
+
+| Roles        | Description 
+|--------------|-------------
+| admin        | A project manager. An admin has rights to view and modify any resource in the project. (Except for quota).
+| basic-user   | A user that can get basic information about projects and users.
+| edit         | A user that can modify most objects in a project but does not have the power to view or modify roles or bindings.
+| view         | A user who cannot make any modifications, but can see most objects in a project. They cannot view or modify roles or bindings.
+
+If you want a user to have minimum view on a project, select **view** role. **Basic user** won't be enough to see a project details.   
+
 If you would like to share a project you have created with members of the same CSC
 computing project, you can do so by selecting the _Groups_ tab, clicking _Edit
 Membership_, and entering the name of the computing project and a role in the
