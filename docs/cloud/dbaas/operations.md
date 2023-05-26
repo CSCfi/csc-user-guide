@@ -7,7 +7,7 @@
 
 ## Keeping your database up to date
 
-The DBaaS service provides tools for you to upgrade your database yourself. Before you do an upgrade you need to be aware of the risks and implications. Upgrading the database will cause a short downtime. The downtime might depend on the version upgrade and how large database you have. It might be a good idea to test the upgrade first from a backup. This allows you to better understand the implications. 
+The DBaaS service provides tools for you to upgrade your database yourself. Before you do an upgrade you need to be aware of the risks and implications. Upgrading the database will cause a short downtime. The downtime might depend on the version upgrade and how large database you have. It is a good idea to test the upgrade first by creating a new database instance from a backup and upgrade the new database instance first, or just continue using the new database instance. This allows you to better understand the implications.
 
 When you do a database upgrade,
 
