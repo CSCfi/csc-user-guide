@@ -751,7 +751,7 @@ To use R packages installed in `/projappl`, add the following to the beginning o
 .libPaths(c("/projappl/<project>/project_rpackages_<rversion>", .libPaths()))
 ```
 
-Alternatively, you can add the desired changes to an `.Renviron` file (only in non-interactive jobs or when using the R console):
+Alternatively, you can add the desired changes to an `.Renviron` file (only when not using RStudio):
 
 ```bash
 echo "R_LIBS=/projappl/<project>/project_rpackages_<rversion>" >> ~/.Renviron
