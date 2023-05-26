@@ -8,7 +8,13 @@ tags:
 
 Machine learning framework for Python.
 
-!!! info "News"
+!!! info "News" 
+    **23.5.2023** Modules `pytorch/2.0` and `pytorch/1.13` have been
+    updated so that [Python virtual
+    environments](https://packaging.python.org/en/latest/guides/installing-using-pip-and-virtual-environments/#creating-a-virtual-environment)
+    should now work with them. To create a virtual environment use the
+    command `python3 -m venv --system-site-packages venv`.
+    
     **5.10.2022** Due to Puhti's update to Red Hat Enterprise Linux 8
     (RHEL8), **the number of fully supported PyTorch versions has been
     reduced. Previously deprecated conda-based versions have been
