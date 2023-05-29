@@ -1,7 +1,7 @@
 ## Adding missing Python libraries to Pythion in SD Desktop
 
 SD Desktop virtual machines have Pyhthon 2.7.5 (_python_) and Pyhthon 3.9.16 (_python3.9_).
-As Python 2 is mostly outdated, we recommed that you use python3.9 whenever possible and
+As Python 2 is mostly outdated, we recommend that you use python3.9 whenever possible and
 also this tutorial focuses on that version only.
 
 The Pyhton3.9 in SD Desktop includes vide selection of commonly used libraries like _pandas_,  _numpy_ and _scipy_
@@ -15,7 +15,7 @@ If you plan to use a complex pyhton environment in Puhti, it may be most effecti
 include all the Python libraries you need, and import that container to SD Desktop.
 
 However, if you would need to add just few missing libraries to the Pyhton 3.9 in SD Desktop, you could Python virtual environments
-to import and use these libraries. This tutorial demonstartes how you can import and install missing libraries to SD desktop. 
+to import and use these libraries. This tutorial demonstrates how you can import and install missing libraries to SD desktop. 
 As an example we usr SciKit-Optimize library (https://scikit-optimize.github.io).
 
 
