@@ -39,6 +39,7 @@ qgis
 Until LUMI web interface is available, QGIS needs to be used with [SSH X11 forwarding](../computing/connecting.md#using-graphical-applications).
 
 ```
+module use /appl/local/csc/modulefiles
 module load qgis
 qgis
 ```
