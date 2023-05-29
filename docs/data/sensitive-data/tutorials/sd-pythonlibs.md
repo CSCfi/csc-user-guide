@@ -20,14 +20,14 @@ As an example we usr SciKit-Optimize library (https://scikit-optimize.github.io)
 
 
 
-## 1. Building an installation file out side SD Deesktop
+## 1. Building an installation file for SD Desktop
 
 The first thing to do is to build a pip installation pakage file for the library you want to use.
-This you can do out sede of SD Desktop, in a machine that has intrnet access and Python and  _pip_ commans installed 
-(if possible use Python version that matches well the Pythonm version in SD Dektop).
+This you must do outside of SD Desktop, in a machine that has intrnet access and  _python_ and _pip_ commands installed 
+(if possible use Python version that matches well with the Pythonm version in SD Dektop).
 
 In this machine create a new directory, use _pip download_ to download the intallataion files and then package 
-this directory for transportation. In the case of user _asund_ in a Linux or Mac, _SciKit-Optimize_ could be packaged 
+this directory for transportation. In the case of user _asund_ in a Linux or Mac, _SciKit-Optimize_ library could be packaged 
 with commands:
 
 ```text
