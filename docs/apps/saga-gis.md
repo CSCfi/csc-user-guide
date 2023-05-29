@@ -9,11 +9,13 @@ tags:
 
 ## Available
 
-__SAGA GIS__ is available in Puhti in [r-env module  with different versions](r-env-for-gis.md).
+__SAGA GIS__ is available:
+* [r-env module with different versions](r-env-for-gis.md) in Puhti
+* 7.3.0 - [qgis module](qgis.md) in Puhti and LUMI
 
 ## Usage 
 
-### SAGA GIS command line interface
+### SAGA GIS command line interface with r-env module
 
 `r-env` is an Apptainer container, which means the commands are slightly different compared normal installations, basically all commands need to have `apptainer_wrapper exec` before the usual command.
 
@@ -27,6 +29,10 @@ apptainer_wrapper exec saga_cmd -h
 ```
 
 For more information on running R jobs on Puhti, please see the [`r-env` documentation](r-env.md).
+
+### SAGA GIS command line interface with QGIS module
+
+
 
 ### SAGA GIS Graphical User Interface
 
