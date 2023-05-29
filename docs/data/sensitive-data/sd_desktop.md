@@ -322,6 +322,8 @@ Each virtual Desktop (or virtual computer) is pre-built and contains a limited s
 
    * Python 3.9.15 including following packages:      
         * tensorflow nltk spacy scikit-learn seaborn plotly bokeh pydot xgboost lightgbm catboost eli5 torch keras dist-keras elephas gensim scrapy beautifulsoup4 numpy scipy pandas statsmodels matplotlib pyfuse3 crypt4gh trio httpx qrcode 
+        * [Instructions for adding Python libraries](./tutotrials/sd-pythonlibs.md)
+        
    * R / RStudio Server
 
       * Installation matching the `r-env-singularity/4.0.5` module on Puhti (R 4.0.5 + RStudio Server 1.4.1106, Bioconductor 3.12)
@@ -335,7 +337,7 @@ Each virtual Desktop (or virtual computer) is pre-built and contains a limited s
 
 ### Software customisation
 
-Users can install their user-level software to SD Desktop, but this requires technical expertise. As SD Desktop is isolated from the internet, you can't use installation tools like _git_, _coda_, _cpan_ or _pip_ dependent on internet connections to external repositories. Further, SD Desktop users can't do any operation that needs superuser access.
+Users can install their user-level software to SD Desktop, but this requires technical expertise. As SD Desktop is isolated from the internet, you can't directly use installation tools like _git_, _coda_, _cpan_ or _pip_ as they are dependent on internet connections to external repositories. Further, SD Desktop users can't do any operation that needs superuser access.
 
 The most convenient way to add new software to your SD Desktop is to build a Singularity container outside SD Desktop and then import the Singularity image through SD Connect to SD Desktop. The two documents below describe two sample cases on adding software with containers.
 
