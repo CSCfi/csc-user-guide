@@ -11,15 +11,18 @@ tags:
 
 PDAL is available in the following versions:
 
-* 2.4.1 in geoconda-3.10.6 module
+* 2.4.1 - [geoconda-3.10.6 module](geoconda.md) in Puhti
+* 2.3.0 - [QGIS-3.31 module](qgis.md) in Puhti and LUMI
 
 ## Usage
 
 ### Using pdal
 
-PDAL and pdal Python library are included in the [geoconda](../apps/geoconda.md) module and can be loaded with
+PDAL and pdal Python library are included in the [geoconda](geoconda.md) module and can be loaded with
 
 `module load geoconda`
+
+PDAL in [QGIS module](qgis.md) does not include pdal Python library.
 
 You can test if pdal loaded successfully with following
 
