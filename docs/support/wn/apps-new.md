@@ -1,5 +1,9 @@
 # Applications
 
+## R 4.2.2 in r-env, 26.5.2023
+	
+R version 4.2.2 is now available in `r-env` and is set as the default version. The new version will also be available in RStudio in the Puhti web interface shortly.
+
 ## Schrödinger Maestro 2023.2, 25.5.2023
 
 Schrödinger Maestro version 2023.2 has been installed and set as the default module on

@@ -18,7 +18,9 @@ Find, under **Instance name**, the Virtual Machine that you want to connect to.
 
 * The **Power State** must be `Running`
 
-* It must have a `Floating IP` attached, write it down.
+* It must have a `Floating IP` attached, write it down.  
+!!! info
+    To access an ePouta instance, you can ssh on the private IP (ssh cloud-user@private-ip).
 
 * Check the name of the key under **Key Pair**. You will need the corresponding SSH secret key installed in your computer.
 
