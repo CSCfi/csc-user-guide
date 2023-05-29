@@ -32,40 +32,52 @@ with commands:
 
 ```text
 mkdir scikit-optimize
-pip download skopt  -d "/home/aviuser/scikit-optimize"
+pip download scikit-optimize -d "/home/asund/scikit-optimize"
 tar cvfz scikit-optimize.tgz scikit-optimize
 ```
+Next you should upload the installation package (_scikit-optimize.tgz_) to one of 
+your data buckets in [SD Connect](https://sd-connect.csc.fi).
+
+
 ## 2. Installing the library
 
-In your SD desktop VM:
+After uploading the installation package to SD Connect, you will do rest of the installation steps
+in your SD Desktop environment.
 
-1. Create python virtual environment with command
-(this needs to be done only once)
+1. Open terminal sessiona and create a python virtual environment with command
+(this needs to be done only once):
 
+```text
 python3.9 -m venv $HOME/my-python
-
+```
 
 2. Activate your python virtual environment and add the location of defaul python libraries to PYTHONPATH environment variable: 
 (this you must do each time you start a new terminal session)
 
+```text
 source $HOME/my-python/bin/activate
 export PYTHONPATH=/usr/local/lib/python3.9/site-packages
+```
 
-3. Copy scikit-optiomize.tgz to your local disk
-
-cp Projects/SD-Connect/project_*/tools-for-sd-desktop/apps/python/lib/scikit-optimize.tgz ./
+3. Open or refresh your DataGateway connection and copy _scikit-optiomize.tgz_ to your local disk.
 
 4. Uncompress the package
 
+```text
 tar zxvf scikit-optimize.tgz
+```
 
 5. Move to the new directory:
 
+```text
 cd scikit-optimize
+```
 
 6. Install the package:
 
+```text
 pip install scikit_optimize-0.9.0-py2.py3-none -any-whl -f ./ --no-index --no-debs
+```
 
 Now python (pointing to $HOME/my-python/bin/python) should contain
-scikit_optimize library.
+_scikit_optimize_ library.
