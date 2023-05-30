@@ -12,7 +12,7 @@ tags:
 PDAL is available in the following versions:
 
 * 2.4.1 - [geoconda-3.10.6 module](geoconda.md) with pdal Python library, in Puhti
-* 2.3.0 - [QGIS-3.31 module](qgis.md) without pdal Python libraryin, in Puhti and LUMI
+* 2.3.0 - [QGIS-3.31 module](qgis.md) without pdal Python library, in Puhti and LUMI
 
 ## Usage
 
