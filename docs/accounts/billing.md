@@ -19,6 +19,9 @@ at research.csc.fi.
 * [Pouta billing](../cloud/pouta/accounting.md)
 * [Rahti billing](../cloud/rahti/billing.md)
 * [Kvasi billing](../computing/quantum-computing/kvasi/kvasi-billing.md)
+* [SD Connect and SD Desktop billing](../data/sensitive-data/sd-access.md#default-storage-space-and-billing-units-consumption)
+
+
 
 !!! info "Note"
 
@@ -29,5 +32,23 @@ at research.csc.fi.
 In the _My Projects_ page in [MyCSC](https://my.csc.fi) you can study the
 billing unit consumption and apply for more billing units. There you can easily
 check who consumed the billing units, when they were consumed and in which
-service. Note that storage-related billing unit consumption (in Scratch and
+service. Note that storage-related billing unit consumption (in Puhti/Mahti Scratch folders and in
 Allas) is not linked to a specific user account and is reported as "other".
+
+
+
+## Restricted service access when billing units have been consumed
+
+When all billing units in your CSC Project have been consumed, service usage can be limited in services that consume billing units. You can track your CSC Project's billing unit usage via MyCSC as described above. You can regain full access to your services by applying for additional billing units using the MyCSC portal.
+
+Detailed information on how services are currently limiting the use when billing units run out:
+
+* [Puhti and Mahti](../computing/usage-policy.md#running-out-of-billing-units)
+
+
+
+
+
+
+
+
