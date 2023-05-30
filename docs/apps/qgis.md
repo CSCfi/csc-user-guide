@@ -14,14 +14,14 @@ In supercomputers, QGIS could be used for example to visualize the resulting fil
 
 __QGIS__ is available with following versions:
 
-* 3.31 in Puhti and LUMI, inlcudes also [GDAL](gdal.md), [GrassGIS](grass.md), [PDAL](pdal.md) and [SagaGIS](saga-gis.md). 
+* 3.31 in Puhti and LUMI, includes also [GDAL](gdal.md), [GrassGIS](grass.md), [PDAL](pdal.md) and [SagaGIS](saga-gis.md). 
 * 3.22 in Puhti
 
 ## Usage
 
 ### QGIS in Puhti
 
-The easiest option for using  QGIS is to open it in [Puhti web interface as Desktop app](../computing/webinterface/desktop.md).
+The easiest option for using QGIS is to open it in [Puhti web interface as Desktop app](../computing/webinterface/desktop.md).
 
 1. Log in to [Puhti web interface](https://puhti.csc.fi). 
 2. Open Remote desktop: Apps -> Desktop, choose Desktop: `xfce`. 
