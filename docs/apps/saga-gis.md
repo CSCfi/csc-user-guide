@@ -5,36 +5,46 @@ tags:
 
 # SAGA GIS
 
-[Saga GIS](http://www.saga-gis.org/) (System for Automated Geoscientific Analyses) is a GIS application for spatial data editing and GIS analyses. It can be used with a graphical user interface, command line tools or through the R package `Rsagacmd` or `RSAGA`. Since the `RSAGA` package is no longer actively maintained and has not been tested on newer SAGA GIS versions, we recommend using `Rsagacmd` with SAGA GIS 7.9.0 and higher.
+[Saga GIS](http://www.saga-gis.org/) (System for Automated Geoscientific Analyses) is a GIS application for spatial data editing and GIS analyses. 
 
 ## Available
 
 __SAGA GIS__ is available:
-* [r-env module with different versions](r-env-for-gis.md) in Puhti
-* 7.3.0 - [qgis module](qgis.md) in Puhti and LUMI
+* [r-env module with different versions](r-env-for-gis.md) with SagaGIS R packages, only in Puhti
+* 7.3.0 - [qgis module](qgis.md) without SagaGIS R packages, in Puhti and LUMI
 
 ## Usage 
 
-### SAGA GIS command line interface with r-env module
+It can be used with a graphical user interface, command line tools or through the R package `Rsagacmd` or `RSAGA`. Since the `RSAGA` package is no longer actively maintained and has not been tested on newer SAGA GIS versions, we recommend using `Rsagacmd` with SAGA GIS 7.9.0 and higher. For more information on running R jobs on Puhti or using RStudio, please see the [`r-env` documentation](r-env.md).
 
-`r-env` is an Apptainer container, which means the commands are slightly different compared normal installations, basically all commands need to have `apptainer_wrapper exec` before the usual command.
+For using SagaGIS, any of the modules listed about must be activated first, check the linked pages for details.
 
+
+### SAGA GIS command line interface 
 SAGA GIS command line tools can be used in an [interactive session](../computing/running/interactive-usage.md) or [batch jobs](../computing/running/getting-started.md).
+
+#### SAGA GIS command line interface with r-env module
+
+`r-env` is an Apptainer container, which means the commands are slightly different compared to normal installations, basically all commands need to have `apptainer_wrapper exec` before the usual command.
 
 You can test that SAGA GIS loaded successfully and print the command line tools help information with
 
 ```
-module load r-env
 apptainer_wrapper exec saga_cmd -h
 ```
 
-For more information on running R jobs on Puhti, please see the [`r-env` documentation](r-env.md).
+#### SAGA GIS command line interface with qgis module
 
-### SAGA GIS command line interface with QGIS module
+With `qgis` module SagaGIS commands can be used normally, for example:
 
+```
+saga_cmd -h
+```
 
 
 ### SAGA GIS Graphical User Interface
+
+#### SAGA GIS Graphical User Interface in Puhti
 
 The easiest option for using SAGA GIS is to open it in [Puhti web interface as Desktop app](../computing/webinterface/desktop.md).
 
@@ -53,6 +63,17 @@ Alternatively, especially if you want to use SAGA GIS together with some other G
 module load r-env
 apptainer_wrapper exec saga_gui
 ```
+
+#### SAGA GIS Graphical User Interface in LUMI
+
+Until LUMI web interface is available, SagaGIS needs to be used with [SSH X11 forwarding](../computing/connecting.md#using-graphical-applications).
+
+```
+module use /appl/local/csc/modulefiles
+module load qgis
+saga_gui
+```
+
 
 ## License and acknowledgement
 

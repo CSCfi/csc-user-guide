@@ -14,7 +14,7 @@ In supercomputers, QGIS could be used for example to visualize the resulting fil
 
 __QGIS__ is available with following versions:
 
-* 3.31 in Puhti and LUMI
+* 3.31 in Puhti and LUMI, inlcudes also [GDAL](gdal.md), [GrassGIS](grass.md), [PDAL](pdal.md) and [SagaGIS](saga-gis.md). 
 * 3.22 in Puhti
 
 ## Usage
@@ -44,7 +44,7 @@ module load qgis
 qgis
 ```
 
-### SagaGIS
+### SagaGIS toolbox in QGIS
 
 SagaGIS tools are not available by default with QGIS 3.31 in Processing Toolbox, but can be added with installing `Saga Next Gen` plug-in. This is a new plug-in and all tools might not work yet.  
 
