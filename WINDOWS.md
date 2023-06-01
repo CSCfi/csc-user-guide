@@ -4,8 +4,6 @@ The procedure described in this file aims to set up the necessary tools on Windo
 
 **Before starting, make sure you have a secure place to store a passphrase for an SSH key you'll be creating. A password manager called _KeePass_ will be used for that in this tutorial.**
 
-[TOC]
-
 
 ## Conda
 
