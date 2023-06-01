@@ -105,7 +105,7 @@ Image snapshots hold the state of a given instance's root disk, and
 can typically be used as bootable images.
 
 !!! warning
-    Possible [ephemeral disk](../ephemeral-storage) is not included in the snapshot.
+    Possible [ephemeral disk](ephemeral-storage.md) is not included in the snapshot.
 
 ### Launching a snapshot from the web interface
 
