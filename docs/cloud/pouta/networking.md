@@ -59,9 +59,9 @@ Now you attached your interface to the router and able to connect to the externa
 ![Network topology in Pouta](../../img/pouta-network-topo-1.png)
 
 
-*NOTES:  
-If you want to access your instances from an external network, you need to associate a [floating IP](launch-vm-from-web-gui.md#post-creation-step).  
-A floating IP sticks with your instance until you decide to release it.*
+!!! info  
+    If you want to access your instances from an external network, you need to associate a [floating IP](launch-vm-from-web-gui.md#post-creation-step).  
+    A floating IP sticks with your instance until you decide to release it.
 
 
 If you want to use the CLI command:
