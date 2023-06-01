@@ -38,3 +38,10 @@ Advance the installer through the following steps by clicking the "Next" button.
 - Configuring the terminal emulator to use with Git Bash
   + Select "Use MinTTY (the default terminal of MSYS2)".
 - Choose the default behaviour of \`git pull\`
+  + Default is fine.
+- Choose a credential helper
+  + Select "None". We're going to set up SSH keys in a moment.
+- Configuring extra options
+  + No changes needed.
+- Configuring experimental options
+  + Leave everything unchecked.
