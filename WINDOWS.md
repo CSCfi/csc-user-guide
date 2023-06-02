@@ -2,7 +2,7 @@
 
 The procedure described in this file aims to set up the necessary tools on Windows to support [a basic command line workflow](CONTRIBUTING.md#making-pull-requests-on-the-command-line) without the need for a system administrator account.
 
-**Before starting, make sure you have a secure place to store a passphrase for an SSH key you'll be creating. A password manager called _KeePass_ will be used for that in this tutorial.**
+**Before starting, make sure you have a secure place to store a passphrase for an SSH key you'll be creating. A password manager called _KeePass 2_ will be used for that in this tutorial.**
 
 
 ## Conda
@@ -18,7 +18,7 @@ A Python program called _MkDocs_ is used to generate the Docs CSC website from d
 
 1. Once the download has completed, open the File Explorer, navigate to Downloads and double click on the downloaded executable to launch the installer.
 
-    A security warning dialog will most likely pop up asking for confirmation on running the file. Confirm that the digital signature of the file is OK by clicking the publisher name.
+    A security warning dialog will most likely pop up asking for confirmation on running the file. Confirm that the digital signature of the file is OK on the _Digital Signature Details_ opened by clicking the publisher name on the warning dialog.
 
     ![Digital Signature Details](docs/img/windows/digital_signature_details.png)
 
@@ -97,9 +97,111 @@ You can find a shortcut for Git Bash in the Start menu. If you don't see it unde
 ![Git Bash](docs/img/windows/git_bash.png)
 
 
-### SSH keys
+#### Hotkeys
 
-#### Passphrase
+If you're used to using the clipboard with the hotkeys _Ctrl+C_ and _Ctrl+V_, these won't work in Git Bash. The corresponding hotkeys in Git Bash are _Ctrl+Insert_ for copy and _Shift+Insert_ for paste. **If you accidentally input _Ctrl+V_ in Git Bash with the intention of pasting text from the clipboard, you should hit the backspace key a couple of times before using the correct hotkey!** _Ctrl+C_, on the other hand, will send a keyboard interrupt signal that is often used to stop a running program, for example the MkDocs development server. You can access the context menu for clipboard copy and paste by clicking on Git Bash with the right mouse button.
+
+
+#### Setting up SSH authentication with GitHub
+
+##### Storing your passphrase in KeePass 2
+
+If you don't yet have a database for KeePass, you can create one by selecting _File -> New..._ and following the instructions there. To add a passphrase into your database, select _Entry -> Add entry..._ and input a "Title" (no need to input anything in the "User name" field). The "Password" field will hold your passphrase that KeePass has automatically generated one for you.
+
+![KeePass 2 Add Entry](docs/img/windows/keepass_add_entry.png)
+
+To make it even easier to input the passphrase on Git Bash, you can edit the auto-type sequence on the Auto-type tab: select "Override default sequence" and remove the `{USERNAME}{TAB}` part, leaving only `{PASSWORD}{ENTER}` as the sequence.
+
+![KeePass 2 Auto-type](docs/img/windows/keepass_auto-type.png)
+
+After clicking "OK", the entry is added to your database. Remember to select _File -> Save_ to save the changes to disk.
+
+
+##### Generating an SSH key
+
+Git Bash should start in your home folder by default, but you can navigate there with the command `cd ~`, or just simply `cd`. We want to use the default location for SSH keys (`/c/Users/<your username>/.ssh`, AKA `~/.ssh`), but it doesn't exist yet. Input (remember the [note about hotkeys](#hotkeys) if copy-pasting) the command `mkdir .ssh` into Git Bash. Then, to generate an SSH key, input the command `ssh-keygen -t ed25519` and press _Enter_ without inputting anything when prompted for a "file in which to save the key" to use the default location. You'll now be prompted to enter a passphrase. Open KeePass 2 (it is important to make sure Git Bash was the active window right before KeePass, i.e. pressing _Alt+Tab_ would switch to Git Bash) and highlight the entry holding the generated passphrase from before by clicking on it, select _Entry -> Perform Auto-type_ and KeePass will automatically switch to the previously active window, hopefully Git Bash, then "auto-type" the passphrase followed by the _Enter_ key. You're then prompted to repeat the passphrase, so switch straight back to KeePass and have it perform the auto-type again.
+
+If everything worked, ssh-keygen will tell you (along with some other things) that
+
+```text
+Your identification has been saved in /c/Users/<your username>/.ssh/id_ed25519
+Your public key has been saved in /c/Users/<your username>/.ssh/id_ed25519.pub
+```
+
+of which the latter contains your _public key_ we'll be adding to your GitHub account momentarily. As a reminder, the former contains the _private key_ which should be kept secret at all times.
+
+
+##### Adding an SSH key to GitHub account
+
+For instructions on how to add the generated key&mdash;for authentication that is&mdash;to your GitHub account, see [instructions at GitHub Docs](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account). Note that the instructions use the convention of prefixing commands with a `$` to denote a prompt. That is to be left out when copy-pasting the command since it's already there in Git Bash, waiting for your command. In fact, there is only the one command in step 1, so we can just copy it here: `clip < ~/.ssh/id_ed25519.pub`.
+
+We'll be testing the SSH connection to GitHub after we set up something called `ssh-agent`.
+
+
+#### Setting up `ssh-agent` and Conda
+
+Next, we'll follow [GitHub's instructions to set up `ssh-agent`](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/working-with-ssh-key-passphrases#auto-launching-ssh-agent-on-git-for-windows) so that you only need to input your passphrase when you open Git Bash. `ssh-agent` will then hold onto your passphrase for you for as long as it (`ssh-agent.exe`) is running. In addition, we need to set up Conda by running the `conda.sh` script from Conda's installation folder. If you didn't install Conda into the default folder, you need to edit the corresponding line. The following lines should go into a `.profile` file in the home folder. Now, input the command `notepad .profile`, click "Yes" if Notepad asks to create the file, copy-paste the following lines into the file and save it:
+
+```bash
+# Auto-launching ssh-agent on Git for Windows
+
+env=~/.ssh/agent.env
+
+agent_load_env () { test -f "$env" && . "$env" >| /dev/null ; }
+
+agent_start () {
+    (umask 077; ssh-agent >| "$env")
+    . "$env" >| /dev/null ; }
+
+agent_load_env
+
+# agent_run_state: 0=agent running w/ key; 1=agent w/o key; 2=agent not running
+agent_run_state=$(ssh-add -l >| /dev/null 2>&1; echo $?)
+
+if [ ! "$SSH_AUTH_SOCK" ] || [ $agent_run_state = 2 ]; then
+    agent_start
+    ssh-add
+elif [ "$SSH_AUTH_SOCK" ] && [ $agent_run_state = 1 ]; then
+    ssh-add
+fi
+
+unset env
+
+
+# Run Conda script
+
+username=$(whoami)
+
+. "/c/Users/$username/AppData/Local/miniconda3/etc/profile.d/conda.sh"
+
+unset username
+
+```
+
+You should now either "source" the file with the command `source .profile` or close and then reopen Git Bash. `ssh-agent` will prompt for the passphrase, so have KeePass perform the auto-type again, just as before. If it worked, `ssh-agent` will inform you that
+
+```text
+Identity added: /c/Users/<your username>/.ssh/id_ed25519 (<your username>@<your computer>)
+```
+
+and will now remember the passphrase so you don't have to keep getting it from KeePass every time you connect to GitHub with SSH while using Git. If you want to make `ssh-agent` forget your passphrase, you can simply end the task (`ssh-agent.exe`) in Task Manager.
+
+You should now confirm that Conda is working with the command `conda --version` that outputs the version number. And, that SSH authentication for GitHub is working by following the instructions on a [GitHub Docs article](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/testing-your-ssh-connection) on the subject. Again, there's only a single command: `ssh -T git@github.com`.
+
+
+## Docs CSC
+
+### Cloning the repository
+
+We're now ready to clone the repository onto your computer using Git. 
+FIXME
+
+### Creating Conda environment
+
+FIXME
+
+
+### MkDocs development server
 
 FIXME
 
