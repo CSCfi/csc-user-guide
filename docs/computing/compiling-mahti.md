@@ -11,8 +11,7 @@
 ## Building MPI applications
 
 C/C++ and Fortran applications can be built with
-[GNU](https://gcc.gnu.org), [AMD](https://developer.amd.com/amd-aocc/), 
-or [Intel](https://software.intel.com/en-us/parallel-studio-xe/documentation/get-started)
+[GNU](https://gcc.gnu.org) or [AMD](https://developer.amd.com/amd-aocc/)
 compiler suites. The GNU compilers are loaded by default. AMD compilers can be
 loaded using the [Modules](modules.md) system with the command:
 ```
@@ -34,15 +33,15 @@ while making sure the results are  correct and the program's
 performance has improved. 
 
 
-| Optimisation level | GNU               | Intel                        | AMD (clang) |
-| :----------------- | :---------------- | :--------------------------- | :----------- |
-| **Safe**           | -O2 -march=native | -O2 -fp-model precise | -O2 -march=native  |
-| **Intermediate**   | -O3 -march=native | -O2                    | -O3 -march=native |
-| **Aggressive**     | -O3 -march=native -ffast-math -funroll-loops | -O3 -fp-model fast=2 -no-prec-div -fimf-use-svml=true | -O3 -march=native -ffast-math -funroll-loops |
+| Optimisation level | GNU               | AMD (clang) |
+| :----------------- | :---------------- | :----------- |
+| **Safe**           | -O2 -march=native | -O2 -march=native  |
+| **Intermediate**   | -O3 -march=native | -O3 -march=native |
+| **Aggressive**     | -O3 -march=native -ffast-math -funroll-loops | -O3 -march=native -ffast-math -funroll-loops |
 
 
-A detailed list of options for the Intel and GNU compilers can be found on the _man_
-pages (`man gcc/gfortran`, `man icc/ifort`)  when the corresponding programming
+A detailed list of options for the GNU and AMD compilers can be found on the _man_
+pages (`man gcc/gfortran`)  when the corresponding programming
 environment is loaded, or in the compiler manuals (see the links above).
 
 List all available versions of the compiler suites:
@@ -50,6 +49,17 @@ List all available versions of the compiler suites:
 module spider gcc
 module spider aocc
 ```
+
+### Intel compilers
+
+Support for Intel compilers may be somewhat limited and may lack certain functionalities. For more detailed information, it is recommended to contact the CSC service desk. Access to the Intel compilers can be obtained by loading the .unsupported modules:
+
+```
+module load .unsupported
+module load intel-oneapi-compilers/2021.4.0
+```
+
+Comprehensive information about flags and optimization options that can be used with the compiler can be found in the manual pages, accessible with `man icc/ifort`.
 
 ## Building OpenMP and hybrid applications
 
@@ -74,29 +84,18 @@ specific compiler command:
 ## Building GPU applications
 
 The CUDA, OpenACC and OpenMP Offloading (for C++ codes) programming 
-models are supported on Mahti. Specific modules have to be loaded 
-in order to use them.
-
-For example, to load the NVIDIA HPC SDK 22.3 environment:
-```bash
-module load .unsupported
-module load nvhpc/22.3
-```
-
-For more detailed information about the available modules, please see `module
-spider nvhpc`.
+models are provided on Mahti by the NVIDIA HPC compilers:
 
 Compilers:
-* The (`nvc`) is a C11 compiler that supports OpenACC for NVIDIA  GPUs while  OpenACC and OpenMP for multicore CPUs.
 
-* The compiler (`nvc++`) is a C++17 compiler which supports GPU programming with C++17 parallel algorithms, OpenACC, and OpenMP
+- The (`nvc`) is a C11 compiler that supports OpenACC for NVIDIA  GPUs while  OpenACC and OpenMP for multicore CPUs.
+
+- The compiler (`nvc++`) is a C++17 compiler which supports GPU programming with C++17 parallel algorithms, OpenACC, and OpenMP
 Offloading on NVIDIA GPUs. It does not support yet C++ CUDA codes.
 
-* The (`nvcc`) is the CUDA C and CUDA C++ compiler driver for NVIDIA GPUs.
+- The (`nvcc`) is the CUDA C and CUDA C++ compiler driver for NVIDIA GPUs.
 
-* The (`nvfortran`) is the CUDA Fortran compiler driver for NVIDIA GPUs, it supports OpenACC as also multicore for OpenACC and OpenMP.
-
-
+- The (`nvfortran`) is the CUDA Fortran compiler driver for NVIDIA GPUs, it supports OpenACC as also multicore for OpenACC and OpenMP.
 
 ### CUDA
 
@@ -116,6 +115,22 @@ nvfortran -gpu=cc80 example.cuf
 ```
 
 ### OpenACC
+
+!!! warning
+    OpenACC support is provided through the NVIDIA `nvc` and `nvc++` compilers.
+    However, it is important to note that the support can be somewhat 
+    limited and may lack certain functionalities, such as MPI 
+    parallelization. For additional information about OpenACC support, 
+    the CSC service desk should be contacted.
+
+The compilers can be accessed through the NVIDIA HPC SDK module:
+```bash
+module load .unsupported
+module load nvhpc/22.3
+```
+
+For more detailed information about the available modules, please see `module
+spider nvhpc`.
 
 To enable OpenACC support, one needs to give `-acc` flag to the compiler.
 
@@ -167,12 +182,12 @@ for such case you can compile with:
 nvc++ -stdpar -acc -mp=gpu example.cpp -gpu=cc80
 ```
 
-For MPI, load the module
+<!-- For MPI, load the module
 ```bash
-module load openmpi/4.0.5
+module load openmpi/4.1.2
 ```
 
-The use of the wrappers `mpicc`, `mpic++`, `mpif90`, executes the corresponding `nvc`,`nvc++`,`nvfortran` respectively.
+The use of the wrappers `mpicc`, `mpic++`, `mpif90`, executes the corresponding `nvc`,`nvc++`,`nvfortran` respectively. -->
 
 ## Building software using Spack
 
