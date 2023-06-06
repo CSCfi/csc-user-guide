@@ -12,21 +12,26 @@ The database instances are hosted on top of cPouta. The billing is based on the 
 
 ## Flavor types
 
-| Flavor | Cores | Memory<br/>(GiB) | Billing Units / hour |
+| Flavor | Cores | Memory (GiB) | Billing Units / hour |
 |--- |:---:|:---:|:---:|
-| standard.small   | 2 | 2   | 2 |
-| standard.medium  | 3 | 4   | 4 |
-| standard.large   | 4 | 7   | 7 |
+| standard.small   | 2 | 1.9  | 2 |
+| standard.medium  | 3 | 3.9 | 4 |
+| standard.large   | 4 | 7.8 | 7 |
 | standard.xlarge  | 6 | 15  | 13 |
-| standard.xxlarge | 8 | 30  | 25 |
-| standard.3xlarge | 8 | 60  | 50 |
-| hpc.5.16core    | 16 | 55  | 60 |
-<!-- should this flavor exist here: | hpc.6.32core    | 32 | 110 | 120 | -->
+| standard.xxlarge | 8 | 31  | 25 |
+| standard.3xlarge | 8 | 62  | 50 |
+| hpc.5.16core    | 16 | 58  | 60 |
+<!-- should this flavor exist here: | hpc.6.32core    | 32 | 116 | 120 | -->
 <!--- We should probably remove standard.3xlarge in favor of supporting hpc.5.16core -->
 
 ## Other resources
 
 | Resource type | Unit | Billing Units / GiB hour |
-|--- |--- |--- |
+|--- |:---:|:---:|
 | Volumes | GiB reserved | 0.01 |
 | Backups | GiB usage | 0.003 |
+
+Note that backups are taken automatically once a day and are stored for 90 days. This means that
+after 90 days you will have consistently 90 backups per instance. This means that each backup
+will in practice cost 6.48 Billing Units / GiB. Another way of thinking about it is that having
+backups costs 0.27 BU per hour if your average backup size is 1 GiB.
