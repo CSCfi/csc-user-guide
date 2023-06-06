@@ -1,5 +1,26 @@
 # Computing environment
 
+## New policy on Puhti and Mahti for projects that have run out of billing units, 22.5.2023
+
+In addition to limiting access to compute resources upon running out of billing
+units, now also access to storage will be limited on Puhti and Mahti. Please read
+[running out of billing units](../../computing/usage-policy.md#running-out-of-billing-units)
+for more details. To give all projects time to react, the policy will be enforced
+starting June 21, 2023. Please login to MyCSC to check if you have projects that
+have a negative amount of billing units. When logging in to Puhti using ssh or
+the web interface you will also receive warnings and information on how much time
+remains before access is removed.
+
+## Puhti web interface updated to release 15, 2.5.2023
+
+* A new [Julia-Jupyter app](../../computing/webinterface/julia-on-jupyter.md) is now available.
+* Visual Studio Code app has received updates.
+    * Support for [Julia language features](../../computing/webinterface/vscode.md#julia-language) was added.
+    * VSCode version 1.76.1 is now available.
+    * Version may be selected when launching the app.
+* Puhti usage metrics now include history (expand by clicking the chevron).
+* Open OnDemand version updated to 2.0.32.
+
 ## Puhti web interface updated to release 14, 2.2.2023
 
 * Xfce is now the main desktop alternative and other options are being deprecated

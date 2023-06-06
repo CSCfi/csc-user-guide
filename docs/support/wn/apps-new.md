@@ -1,5 +1,25 @@
 # Applications
 
+## R 4.2.2 in r-env, 26.5.2023
+	
+R version 4.2.2 is now available in `r-env` and is set as the default version. The new version will also be available in RStudio in the Puhti web interface shortly.
+
+## Schrödinger Maestro 2023.2, 25.5.2023
+
+Schrödinger Maestro version 2023.2 has been installed and set as the default module on
+Puhti and Mahti. See [release notes](https://www.schrodinger.com/releases/new-features/)
+for a list of new features and improvements.
+
+## NoMachine will no longer be available on CSC's supercomputers, 9.5.2023
+
+The NoMachine remote desktop service will be discontinued on 25th May 2023, at the end of the
+current licensing period. The service is superseded by web interfaces on CSC's supercomputers. The
+first of them, [Puhti web interface](../../computing/webinterface/index.md), has been liked by the
+researchers, the number of users is still rapidly increasing and now represents 36% of all users.
+Similar web interfaces will be opened for both Mahti and LUMI, in the near future. For replacements
+in specific use cases, please see
+[the application page for NoMachine](../../apps/nomachine.md#replacements).
+
 ## Gromacs and CP2K now available on LUMI, 19.4.2023
 
 CPU and GPU-enabled versions of [Gromacs](../../apps/gromacs.md) and [CP2K](../../apps/cp2k.md)

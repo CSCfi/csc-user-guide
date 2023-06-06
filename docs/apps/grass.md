@@ -9,10 +9,10 @@ tags:
 
 ## Available
 
-__GRASS__ is available in Puhti with following versions:
+__GRASS__ is available with following versions:
 
-* GRASS 7.8.7 with qgis/3.31 module
-* GRASS 7.8.5 with qgis/3.22 module
+* GRASS 7.8.7 with [qgis/3.31 module](qgis.md) in Puhti and LUMI
+* GRASS 7.8.5 with [qgis/3.22 module](qgis.md) in Puhti
 
 
 ## Usage
@@ -22,6 +22,8 @@ __GRASS__ is available in Puhti with following versions:
 In Puhti, GRASS GIS is included in [QGIS module](qgis.md). GRASS GIS command line tools can be used in an [interactive session](../computing/running/interactive-usage.md) or [batch jobs](../computing/running/getting-started.md). See [examples for using GRASS GIS commands in Puhti with GRASS bash scripting, Python scripting or PyGRASS](https://github.com/csc-training/geocomputing/tree/master/grass). See also the references section at the end of this page.
 
 ### GRASS GIS Graphical User Interface
+
+#### GRASS in Puhti
 
 The easiest option for using GRASS GIS is to open it in [Puhti web interface as Desktop app](../computing/webinterface/desktop.md).
 
@@ -33,6 +35,16 @@ If you want to use older version, open `Host Terminal` (Desktop icon) and start 
 
 ```
 module load qgis/3.22
+grass
+```
+
+#### GRASS in LUMI
+
+Until LUMI web interface is available, GRASS needs to be used with [SSH X11 forwarding](../computing/connecting.md#using-graphical-applications).
+
+```
+module use /appl/local/csc/modulefiles
+module load qgis
 grass
 ```
 

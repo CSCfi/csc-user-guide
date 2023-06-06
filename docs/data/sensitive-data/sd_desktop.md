@@ -163,7 +163,7 @@ You can close the connection to your virtual desktop in two ways:
 
      
 
-### Accesing RStudio 
+### Accessing RStudio 
 
 Open the terminal and launch RStudio with:
 
@@ -322,6 +322,8 @@ Each virtual Desktop (or virtual computer) is pre-built and contains a limited s
 
    * Python 3.9.15 including following packages:      
         * tensorflow nltk spacy scikit-learn seaborn plotly bokeh pydot xgboost lightgbm catboost eli5 torch keras dist-keras elephas gensim scrapy beautifulsoup4 numpy scipy pandas statsmodels matplotlib pyfuse3 crypt4gh trio httpx qrcode 
+        * [Instructions for adding Python libraries](./tutorials/sd-pythonlibs.md)
+        
    * R / RStudio Server
 
       * Installation matching the `r-env-singularity/4.0.5` module on Puhti (R 4.0.5 + RStudio Server 1.4.1106, Bioconductor 3.12)
@@ -335,7 +337,7 @@ Each virtual Desktop (or virtual computer) is pre-built and contains a limited s
 
 ### Software customisation
 
-Users can install their user-level software to SD Desktop, but this requires technical expertise. As SD Desktop is isolated from the internet, you can't use installation tools like _git_, _coda_, _cpan_ or _pip_ dependent on internet connections to external repositories. Further, SD Desktop users can't do any operation that needs superuser access.
+Users can install their user-level software to SD Desktop, but this requires technical expertise. As SD Desktop is isolated from the internet, you can't directly use installation tools like _git_, _coda_, _cpan_ or _pip_ as they are dependent on internet connections to external repositories. Further, SD Desktop users can't do any operation that needs superuser access.
 
 The most convenient way to add new software to your SD Desktop is to build a Singularity container outside SD Desktop and then import the Singularity image through SD Connect to SD Desktop. The two documents below describe two sample cases on adding software with containers.
 
@@ -450,6 +452,13 @@ airlock-client cscuser  analysis-2022  results-03.csv.c4gh
 ```
 
 Press enter and add your password. Note: if you try to upload an unencrypted file, the airlock client will automatically encrypt it with the Sensitive Data public key for security reasons and export it to SD Connect. Here, you will be able to download the file but you will not be able to decrypt it.
+
+The fact that only project manager can export data from SD Desktop, making back-up copies of important file is difficult for normal user. 
+If need, the project manger can launch a back-up server process that normal users can utilize to do back-ups. For details, see:
+
+   * [SD Desktop Back-up server tutorial](tutorials/backup_sd_desktop.md)
+ 
+
 
 6- Download and decrypt the files.
 

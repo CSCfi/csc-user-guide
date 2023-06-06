@@ -4,17 +4,17 @@ tags:
   - Free
 ---
 
-!!! note "Practical Deep Learning, May 3-5" 
-    The popular Practical Deep Learning course by CSC will be held again
-    May 3-5. The course gives an introduction to deep learning and how to
-    do machine learning on Puhti and LUMI supercomputers. 
-    [Registration is now open!](https://ssl.eventilla.com/event/8aPek)
-
 # TensorFlow
 
 Deep learning framework for Python.
 
 !!! info "News"
+
+    **23.5.2023** The module `tensorflow/2.12` has been updated so that
+    [Python virtual
+    environments](https://packaging.python.org/en/latest/guides/installing-using-pip-and-virtual-environments/#creating-a-virtual-environment)
+    should now work. To create a virtual environment use the command
+    `python3 -m venv --system-site-packages venv`.
 
     **5.10.2022** Due to Puhti's update to Red Hat Enterprise Linux 8
     (RHEL8), **the number of fully supported TensorFlow versions has been

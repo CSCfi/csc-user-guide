@@ -73,3 +73,23 @@ Conda environments you intend to use must be installed within a container. See
 !!! info "Tykky"
     Please consider the [Tykky container wrapper](containers/tykky.md) for easy
     containerization of Conda and pip environments.
+
+## Running out of billing units
+
+In Puhti and Mahti the users need billing units to use the services. When a
+project runs out of billing units the ability to use the service will be
+limited in two phases. Immediately after running out of billing units no new
+jobs can be submitted. Jobs that are running are not interrupted and will run
+until completion/timeout. After a 30-day grace period the access to `/projappl`
+and `/scratch` folders will be disabled. No data is deleted, it is only access
+that is disabled. Data will, however, still be removed from `/scratch` in the
+[normal cleaning process](#disk-cleaning).
+
+If you are not using a project actively we encourage you to migrate
+any data that you still need within the 30-day grace period and then
+[close the project](../accounts/how-to-manage-your-project.md#project-closure)
+in MyCSC.
+
+If you are still actively using the project you can gain access to the compute
+resources and storage by [applying](../accounts/how-to-apply-for-billing-units.md)
+for more billing units.
