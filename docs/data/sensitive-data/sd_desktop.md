@@ -320,8 +320,11 @@ Each virtual Desktop (or virtual computer) is pre-built and contains a limited s
  
 ### Scientific software 
 
-   * Python 3.9.15 including following packages:      
+   * Python 3.9.15 including following packages:    
+   *   
         * tensorflow nltk spacy scikit-learn seaborn plotly bokeh pydot xgboost lightgbm catboost eli5 torch keras dist-keras elephas gensim scrapy beautifulsoup4 numpy scipy pandas statsmodels matplotlib pyfuse3 crypt4gh trio httpx qrcode 
+        * [Instructions for adding Python libraries](./tutorials/sd-pythonlibs.md)
+        
    * R / RStudio Server
 
       * Installation matching the `r-env-singularity/4.0.5` module on Puhti (R 4.0.5 + RStudio Server 1.4.1106, Bioconductor 3.12)
