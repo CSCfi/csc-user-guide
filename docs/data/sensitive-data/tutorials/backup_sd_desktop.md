@@ -1,8 +1,9 @@
 # Backup server for SD Desktop
 
 For security reasons only the Project Manager can export data from SD Desktop. Thus normal SD desktop users can not 
-make backup copiens of the data that they have in SD Desktop. This tutorial demonstrates the usage of backup_server.sh 
-process and sd-backup commands that provide a way for SD Users to backup their data to SD Connect.
+make backup copiens of the data that they have in SD Desktop. This tutorial demonstrates the usage of **backup_server.sh** 
+process and related **sd-backup** and **sd-export** commands that the project manager can activate to provide a way for normal
+users to backup or export their data to SD Connect.
 
 ## Installation 
 
@@ -11,13 +12,12 @@ manager installs the **SD Backup tool** package using the **SD-tools-installer**
 
 Log in to your SD Desktop and open **Data Gateway**. If the software installation help tools are enabled for your project, then you should have folder: 
 **tools-for-sd-desktop** included in the directory that Data Gateway created ( in Projects/SD-Connect/_your-project-name_). If you don't find _tools-for-sd-desktop_ 
-directory through data gateway **send a request to servicedesk@csc.fi**. In the request, indicate that you wish that the SD Desktop software installation help tools would 
+directory through the Data Gateway, **send a request to servicedesk@csc.fi**. In the request, indicate that you wish that the SD Desktop software installation help tools would 
 be made available for your project.  You must also include to the message the  **Project identifier string** of your project.
 You can check this random string for example in the [SD Connect service](https://sd-conenct.csc.fi). There you find the 
 Project Identifier in the **User information** view. 
 
-
-Open _tools-for-sd-desktop_ folder and from there, drag/copy file **sd-installer.desktop** to your desktop.
+When you have accsss to these tools, open _tools-for-sd-desktop_ folder and from there, drag/copy file **sd-installer.desktop** to your desktop.
 
 [![Installing-sd-installer](../images/desktop/sd-installer1.png)](../images/desktop/sd-installer1.png)
 
@@ -57,7 +57,7 @@ Thus it may be good to test the backup process once the server is running.
 When the backup server is running, all users of the VM can use command _sd-backup_ to make a backup copy of the dataset to SD Connect.
 The syntax of the sd-backup command is:
 
-```t
+```text
 sd-backup file.csv
 ```
 or
@@ -78,16 +78,15 @@ Will create a backupfile that will be available through Data-gateway in path:
 ```text
 Projects/SD-Connect/project_number/sdd-backup-secserver-1683868755/my_data.csv-2023-05-15-07:41
 ```
-
 Note that you have to refresh the Data Gateway connection in order to see the changes in SD Connect.
 
 
 ## Enabling automatic data export
 
-In addition to the backup server, an export server process can activated with option _-e_. 
-In this case the project manager must define a publick keys that are used to encrypt the data 
+In addition to the backup server, an export server process can activated with option _-e_.
+In this case the project manager must define a public keys that are used to encrypt the data 
 before it is exported to SD Connect service. An encrypiton key is defined with option _-k_. 
-The server launch command can have multple -k options that use mutiple encryption keys.
+The launch command can have multple -k options that use mutiple encryption keys.
 
 A sample command that lauches both backup and export services:
 
@@ -102,8 +101,9 @@ For example:
 sd-export file.txt
 ```
 
-When the the export server is running, the command above will encrypt the file.txt with the public key defined to the backup_server.sh with option -k. After that  the
-servr process push the data to the export bucket in SD Connect. The default export bucket is: _project-number_-export.
+When the the export server is running, the command above will encrypt the file.txt with the public keys defined to the backup_server.sh with option -k. After that the server process push the data to the export bucket in SD Connect. The default export bucket is: _project-number_-export.
+
+Note that _backup_server.sh_ command always lauches a backup server process. Thus if you aready have a the backup_server.sh process running, you must remove the old process before you execute the command that launches the export server and backup server.
 
 
 
