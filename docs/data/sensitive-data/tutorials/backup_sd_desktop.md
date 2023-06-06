@@ -103,7 +103,7 @@ sd-export file.txt
 
 When the the export server is running, the command above will encrypt the file.txt with the public keys defined to the backup_server.sh with option -k. After that the server process push the data to the export bucket in SD Connect. The default export bucket is: _project-number_-export.
 
-Note that _backup_server.sh_ command always lauches a backup server process. Thus if you already have a the backup_server.sh process running, you must remove the old process before you execute the command that launches the export server and backup server.
+Note that _backup_server.sh_ command always lauches a backup server process. Thus if you already have a the backup_server.sh process running, you must remove the old process before you execute the command that launches the export server and backup server. 
 
 
 
