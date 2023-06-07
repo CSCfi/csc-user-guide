@@ -294,8 +294,8 @@ srun --cpu-bind=$CPU_BIND ./select_gpu gmx_mpi mdrun -s topol -nb gpu -bonded gp
 
     ```
     export MPICH_GPU_SUPPORT_ENABLED=1
-    export GMX_ENABLE_DIRECT_GPU_COMM=true
-    export GMX_FORCE_GPU_AWARE_MPI=true
+    export GMX_ENABLE_DIRECT_GPU_COMM=1
+    export GMX_FORCE_GPU_AWARE_MPI=1
     ```
 
 !!! info "CPU-GPU binding"
