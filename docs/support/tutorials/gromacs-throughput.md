@@ -15,11 +15,12 @@ you're running high-throughput workflows or enhanced sampling jobs such as repli
 exchange or free energy simulations using ensemble-based distance or orientation
 restraints.
 
-Another utility of `multidir` is that it can be used to increase the GPU efficiency
-of small systems. By launching multiple trajectories per GPU, the combined throughput
-of each independent simulation will increase due to better GPU utilization. This is
-especially useful to maximize the performance for small systems on LUMI-G, as well on
-Mahti where only full CPU nodes can be reserved.
+Another utility of `multidir` is that it can be used to increase the parallel
+efficiency of small systems. By launching multiple trajectories per GPU (or CPU
+node), the combined throughput of each independent simulation will increase due
+to better resource utilization. This is especially useful for maximizing the
+performance of small systems on LUMI-G, as well on Mahti where only full CPU
+nodes can be reserved.
 
 ## Example batch script for Mahti
 
