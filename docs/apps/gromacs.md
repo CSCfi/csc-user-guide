@@ -299,14 +299,14 @@ srun --cpu-bind=$CPU_BIND ./select_gpu gmx_mpi mdrun -s topol -nb gpu -bonded gp
     export GMX_FORCE_GPU_AWARE_MPI=true
     ```
 
-!!! info "GPU binding"
+!!! info "CPU-GPU binding"
     To get the best performance out of multi-GPU simulations it is important to make
     sure that CPU cores are bound to GPUs in the right way. Why this matters is because
     only certain CPU cores are directly linked to a specific GPU. The example above takes
     care of this and excludes the first core from each group of 8 cores since the first
     core of the node is reserved for the operating system. In other words, there are only
     63 cores available per node, which is the reason why we run 7 threads per MPI rank, not 8.
-    **Note that GPU-binding works only when reserving full nodes (`standard-g` or `--exclusive`)**
+    **Please note that CPU-GPU binding works only when reserving full nodes (`standard-g` or `--exclusive`).**
 
     See more details in LUMI Docs: [LUMI-G hardware](https://docs.lumi-supercomputer.eu/hardware/lumig/),
     [LUMI-G examples](https://docs.lumi-supercomputer.eu/runjobs/scheduled-jobs/lumig-job/),
