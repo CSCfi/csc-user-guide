@@ -167,10 +167,10 @@ module load gromacs-env/2022-gpu
 
 export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
 
-srun gmx_mpi mdrun -s verlet -dlb yes
+srun gmx_mpi mdrun -s topol -dlb yes
 
 # additional flags, like these, may be useful - test!
-# srun gmx_mpi mdrun -pin on -pme gpu -pmefft gpu -nb gpu -bonded gpu -update gpu -nstlist 200 -s verlet -dlb yes
+# srun gmx_mpi mdrun -pin on -pme gpu -pmefft gpu -nb gpu -bonded gpu -update gpu -nstlist 200 -s topol -dlb yes
 ```
 
 !!! info "Note"
@@ -224,12 +224,33 @@ export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
 srun gmx_mpi mdrun -s topol -maxh 0.2 -dlb yes
 ```
 
-### Example GPU batch script for LUMI
+### Example batch script for LUMI – single GCD
+
+```bash
+#!/bin/bash
+#SBATCH --partition=small-g
+#SBATCH --account=<project>
+#SBATCH --time=01:00:00
+#SBATCH --nodes=1
+#SBATCH --gpus-per-node=1
+#SBATCH --ntasks-per-node=1
+#SBATCH --cpus-per-task=7
+
+module use /appl/local/csc/modulefiles
+module load gromacs/2023.1-hipsycl
+
+export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
+
+srun gmx_mpi mdrun -s topol -nb gpu -bonded gpu -pme gpu -update gpu
+```
+
+### Example batch script for LUMI – full GPU node
 
 !!! info "Note"
-    Gromacs multi-GPU simulations benefit greatly from GPU-aware MPI. However,
-    as Gromacs might not recognize that the underlying MPI is GPU-aware, one
-    needs to force it with `export GMX_FORCE_CUDA_AWARE_MPI=true` (see below).
+    Each GPU on LUMI is composed of two AMD Graphics Compute Dies (GCD). Since
+    there are four GPUs per node and Slurm interprets each GCD as a separate GPU,
+    you can reserve up to 8 "GPUs" per node. See more details in
+    [LUMI Docs](https://docs.lumi-supercomputer.eu/hardware/lumig/).
 
 ```bash
 #!/bin/bash
@@ -237,31 +258,76 @@ srun gmx_mpi mdrun -s topol -maxh 0.2 -dlb yes
 #SBATCH --account=<project>
 #SBATCH --time=01:00:00
 #SBATCH --nodes=1
-#SBATCH --gpus-per-node=8     # 8 GCDs per node on LUMI (interpreted as separate GPUs by Slurm)
+#SBATCH --gpus-per-node=8
 #SBATCH --ntasks-per-node=8
-#SBATCH --cpus-per-task=7     # Only 63 cores per GPU node available on LUMI for computation
 
 module use /appl/local/csc/modulefiles
-module load gromacs/2023-dev-rocm
+module load gromacs/2023.1-hipsycl
 
-export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
+export OMP_NUM_THREADS=7
+
 export MPICH_GPU_SUPPORT_ENABLED=1
+export GMX_ENABLE_DIRECT_GPU_COMM=1
+export GMX_FORCE_GPU_AWARE_MPI=1
 
-export GMX_FORCE_UPDATE_DEFAULT_GPU=true
-export GMX_ENABLE_DIRECT_GPU_COMM=true
-export GMX_FORCE_CUDA_AWARE_MPI=true
+cat << EOF > select_gpu
+#!/bin/bash
 
-srun gmx_mpi mdrun -s topol -pin on -nb gpu -bonded gpu -pme gpu -npme 1 -gpu_id 01234567
+export ROCR_VISIBLE_DEVICES=\$SLURM_LOCALID
+exec \$*
+EOF
+
+chmod +x ./select_gpu
+
+CPU_BIND="mask_cpu:fe000000000000,fe00000000000000"
+CPU_BIND="${CPU_BIND},fe0000,fe000000"
+CPU_BIND="${CPU_BIND},fe,fe00"
+CPU_BIND="${CPU_BIND},fe00000000,fe0000000000"
+
+srun --cpu-bind=$CPU_BIND ./select_gpu gmx_mpi mdrun -s topol -nb gpu -bonded gpu -pme gpu -update gpu -npme 1
 ```
 
-Below is an example of the GPU performance using the STMV benchmark. Note that running
-Gromacs with GPU-aware MPI is currently possible only on LUMI. Please consider also the
-size of your system when using GPUs – the STMV benchmark contains more than 1 million
-atoms. Smaller systems are typically best run using just a single GPU. If possible,
-use [`multidir` ensemble simulations](#high-throughput-computing-with-gromacs) for
-accelerated sampling.
+!!! info "Direct GPU communication and GPU-aware MPI"
+    Instead of communicating between GPUs through the CPU, direct GPU communication
+    will bring significant performance benefits when running on multiple GPUs. Enabling
+    this requires adding the `-update gpu` flag and exporting the following environment
+    variables:
 
-![Gromacs scaling on GPUs on Mahti and LUMI](../img/gmx-gpu.png 'Gromacs scaling on GPUs on Mahti and LUMI')
+    ```
+    export MPICH_GPU_SUPPORT_ENABLED=1
+    export GMX_ENABLE_DIRECT_GPU_COMM=true
+    export GMX_FORCE_GPU_AWARE_MPI=true
+    ```
+
+!!! info "CPU-GPU binding"
+    To get the best performance out of multi-GPU simulations it is important to make
+    sure that CPU cores are bound to GPUs in the right way. Why this matters is because
+    only certain CPU cores are directly linked to a specific GPU. The example above takes
+    care of this and excludes the first core from each group of 8 cores since the first
+    core of the node is reserved for the operating system. In other words, there are only
+    63 cores available per node, which is the reason why we run 7 threads per MPI rank, not 8.
+
+    See more details in LUMI Docs: [LUMI-G hardware](https://docs.lumi-supercomputer.eu/hardware/lumig/),
+    [LUMI-G examples](https://docs.lumi-supercomputer.eu/runjobs/scheduled-jobs/lumig-job/),
+    [GPU binding](https://docs.lumi-supercomputer.eu/runjobs/scheduled-jobs/distribution-binding/#gpu-binding)
+
+Below is a comparison of the performance of Gromacs 2023.1 on Mahti (CPUs and GPUs)
+and LUMI-G using the STMV benchmark (1067k atoms). This is a large system which scales
+very well also on GPUs. The performance on a single LUMI GCD (half a GPU) is almost as
+good as on a full Nvidia A100 GPU on Mahti, and much better than on a single 128-core CPU
+node. Importantly, the amount of GPU nodes on LUMI is massively larger than on Mahti
+(2560 vs. 24).
+
+![Gromacs scaling on GPUs on Mahti and LUMI](../img/stmv.png 'Gromacs scaling on GPUs on Mahti and LUMI')
+
+!!! info "Small systems on LUMI-G and high-throughput simulations"
+    While medium-sized and large systems (100k–1M+ atoms) such as the STMV benchmark
+    above are likely to be able to utilize multiple GPUs very well, small systems
+    (less than 100k atoms) are typically best run on just a single GCD. A good way
+    to increase the GPU utilization and efficiency of small simulations is to run
+    many trajectories per GCD. This can be accomplished using the built-in multidir
+    feature of Gromacs. For more details about GPU-sharing and aggregate sampling, see our
+    [tutorial on high-throughput simulations with Gromacs](../support/tutorials/gromacs-throughput.md).
 
 ### Visualizing trajectories and graphs
 
