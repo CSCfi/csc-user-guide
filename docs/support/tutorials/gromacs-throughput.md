@@ -8,6 +8,10 @@ which decreases the load on the batch queue system. Please consider this option 
 you're running high-throughput workflows or jobs such as replica exchange, umbrella
 sampling or adaptive weight histogram (AWH) free energy simulations using Gromacs.
 
+Another utility of `multidir` is that it can be used to increase the GPU efficiency
+of small systems. By launching multiple trajectories per GPU, the combined throughput
+
+
 An example `multidir.sh` batch script for running a `multidir` Gromacs job is
 provided below. This example adapts the production part of the
 [lysozyme tutorial](http://www.mdtutorials.com/gmx/lysozyme/) by considering 8
@@ -62,6 +66,6 @@ As the systems were initialized with different velocities, we obtain 8 distinct 
 and an improved sampling of the phase space (see RMSD analysis below). This is a great option
 for enhanced sampling when your system does not scale beyond a certain core count.
 
-![Root-mean-squared-deviations of the simulated replicas](../img/multidir-rmsd.svg 'Root-mean-squared-deviations of the simulated replicas')
+![Root-mean-squared-deviations of the simulated replicas](../../img/multidir-rmsd.svg 'Root-mean-squared-deviations of the simulated replicas')
 
 For further details on running Gromacs multi-simulations, see the [official Gromacs documentation].
