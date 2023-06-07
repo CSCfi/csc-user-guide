@@ -128,7 +128,7 @@ srun --cpu-bind=$CPU_BIND ./select_gpu gmx_mpi mdrun -s topol -nb gpu -bonded gp
 Note that the number of MPI tasks you request should be a multiple of the number of independent
 inputs, in this case 1 task per input. Since there are only 63 cores available per LUMI-G
 node, we use just a single thread per task. For details on the CPU-GPU binding, see the
-[Gromacs application page](../../apps/gromacs.md#example-batch-script-for-lumi-–-full-gpu-node)
+[Gromacs application page](../../apps/gromacs/#example-batch-script-for-lumi-full-gpu-node)
 as well as [LUMI Docs](https://docs.lumi-supercomputer.eu/runjobs/scheduled-jobs/distribution-binding/).
 
 The plot below shows the total combined throughput obtained when running multiple
