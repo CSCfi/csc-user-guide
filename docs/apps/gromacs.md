@@ -290,8 +290,7 @@ srun --cpu-bind=$CPU_BIND ./select_gpu gmx_mpi mdrun -s topol -nb gpu -bonded gp
 !!! info "Direct GPU communication and GPU-aware MPI"
     Instead of communicating between GPUs through the CPU, direct GPU communication
     will bring significant performance benefits when running on multiple GPUs. Enabling
-    this requires adding the `-update gpu` flag and exporting the following environment
-    variables:
+    this requires exporting the following environment variables:
 
     ```
     export MPICH_GPU_SUPPORT_ENABLED=1
