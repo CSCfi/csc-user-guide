@@ -1,5 +1,11 @@
 # High-throughput computing with Gromacs
 
+!!! info "Note"
+    High-throughput simulations can easily produce *a lot* of data, so please
+    plan your data management (data flow, storage needs) and analysis pipelines
+    beforehead. Don't hesitate to [contact CSC Service Desk](../contact.md) if
+    you're unsure about any aspect of your workflow.
+
 Gromacs comes with a built-in `multidir` functionality, which allows users to run
 multiple concurrent simulations within one Slurm allocation. This is an excellent
 option for high-throughput use cases, where the aim is to run several similar, but
@@ -73,8 +79,68 @@ to accelerate sampling if your system does not scale to a full Mahti node.
 
 ## Example batch script for LUMI
 
+Medium-sized and large systems (100k–1M+ atoms) are typically able to utilize multiple
+GPUs on LUMI efficiently. Many smaller use cases run also well on a single GCD (half a GPU),
+but the smaller the system gets, the poorer it will be able to utilize the full capacity
+of the accelerator.
 
+The `multidir` feature can be used to increase the GPU utilization of small systems by
+running multiple trajectories per GCD. Below is an example batch script that launches
+4 trajectories per GCD in a resource allocation of two GPU nodes (16 GCDs). Each of the
+64 `.tpr` files are organized into separate directories `run1` through `run64`, similar
+to the Mahti example above.
+
+```bash
+!/bin/bash
+#SBATCH --partition=standard-g
+#SBATCH --account=<project>
+#SBATCH --time=01:00:00
+#SBATCH --nodes=2
+#SBATCH --gpus-per-node=8
+#SBATCH --ntasks-per-node=32
+
+module use /appl/local/csc/modulefiles
+module load gromacs/2023.1-hipsycl
+
+export OMP_NUM_THREADS=1
+
+export MPICH_GPU_SUPPORT_ENABLED=1
+export GMX_ENABLE_DIRECT_GPU_COMM=1
+export GMX_FORCE_GPU_AWARE_MPI=1
+
+cat << EOF > select_gpu
+#!/bin/bash
+
+export ROCR_VISIBLE_DEVICES=\$((SLURM_LOCALID%SLURM_GPUS_PER_NODE))
+exec \$*
+EOF
+
+chmod +x ./select_gpu
+
+CPU_BIND="mask_cpu:fe000000000000,fe00000000000000"
+CPU_BIND="${CPU_BIND},fe0000,fe000000"
+CPU_BIND="${CPU_BIND},fe,fe00"
+CPU_BIND="${CPU_BIND},fe00000000,fe0000000000"
+
+srun --cpu-bind=$CPU_BIND ./select_gpu gmx_mpi mdrun -s topol -nb gpu -bonded gpu -pme gpu -update gpu -multidir run*
+```
+
+Note that the number of MPI tasks you request should be a multiple of the number of independent
+inputs, in this case 1 task per input. Since there are only 63 cores available per LUMI-G
+node, we use just a single thread per task. For details on the CPU-GPU binding, see the
+[Gromacs application page](../../apps/gromacs.md#example-batch-script-for-lumi-–-full-gpu-node)
+as well as [LUMI Docs](https://docs.lumi-supercomputer.eu/runjobs/scheduled-jobs/distribution-binding/).
+
+The plot below shows the total combined throughput obtained when running multiple
+simulations of the 96k atom alcohol dehydrogenase (ADH) benchmark on two LUMI-G nodes.
+When the number of trajectories per GCD is increased from one to four, the overall
+performance (sum of each independent trajectory) increases by about one microsecond per
+day due to better GPU utilization. Since each simulation is independent, one could
+scale this use case to a huge number of nodes for maximal throughput.
+
+![GCD-sharing on LUMI-G using multidir](../../img/adh.png 'GCD-sharing on LUMI-G using multidir')
 
 ## More information
 
-* [Gromacs manual: Running multi-simulations](https://manual.gromacs.org/current/user-guide/mdrun-features.html#running-multi-simulations)
+* [Gromacs application page](../../apps/gromacs.md)
+* [Official Gromacs documentation: Running multi-simulations](https://manual.gromacs.org/current/user-guide/mdrun-features.html#running-multi-simulations)
