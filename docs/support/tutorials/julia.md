@@ -1,11 +1,11 @@
-# Running Julia jobs on Puhti and Mahti clusters
-Instructions for running serial, parallel, and GPU jobs with Julia on Puhti and Mahti clusters.
+# Running Julia jobs on Puhti, Mahti and LUMI clusters
+Instructions for running serial, parallel, and GPU jobs with Julia on Puhti, Mahti and LUMI clusters.
 
 [TOC]
 
 
 ## Introduction
-These instructions are adapted from the general instructions of [**running jobs**](../../computing/running/getting-started.md) on Puhti and Mahti.
+These instructions are adapted from the general instructions of running jobs on [Puhti and Mahti](../../computing/running/getting-started.md) and on [LUMI](https://docs.lumi-supercomputer.eu/runjobs/).
 Furthermore, we assume general knowledge about the [**Julia Language**](../../apps/julia.md) environment.
 For further reading about parallel and high-performance computing with Julia, we recommend the [Julia for high-performance scientific computing](https://enccs.github.io/Julia-for-HPC) from ENCCS and the [A brief tour of Julia for high-performance computing](https://forem.julialang.org/wikfeldt/a-brief-tour-of-julia-for-high-performance-computing-5deb) written by Kjartan Thor Wikfeldt.
 CSC training also has a [quick introduction and tutorial](https://github.com/csc-training/julia-introduction) to Julia.
@@ -27,7 +27,7 @@ The example jobs demonstrate project files for different single and multi-node j
 
 
 ### Environment variables
-The Julia module sets the [`JULIA_CPU_THREADS`](https://docs.julialang.org/en/v1/manual/environment-variables/#JULIA_CPU_THREADS) and [`JULIA_NUM_THREADS`](https://docs.julialang.org/en/v1/manual/environment-variables/#JULIA_NUM_THREADS) environment variables to the number of reserved CPU cores when loaded in a Slurm job; otherwise, the module sets them to one.
+The `julia` module sets the [`JULIA_CPU_THREADS`](https://docs.julialang.org/en/v1/manual/environment-variables/#JULIA_CPU_THREADS) and [`JULIA_NUM_THREADS`](https://docs.julialang.org/en/v1/manual/environment-variables/#JULIA_NUM_THREADS) environment variables to the number of reserved CPU cores when loaded in a Slurm job; otherwise, the module sets them to one.
 We use the value of the `--cpus-per-task` option, which populates the `SLURM_CPUS_PER_TASK` environment variable, to detect the number of CPU cores.
 The effect is the same as setting the following environment variables in a shell.
 
@@ -66,7 +66,7 @@ The Julia manual contains more detailed information about [multi-threading](http
 
 External linear algebra backends such as OpenBLAS and MKL use internal threading.
 We can set their thread counts using `OPENBLAS_NUM_THREADS` and `MKL_NUM_THREADS` environment variables.
-The Julia module sets them to the number of CPU threads.
+The `julia` module sets them to the number of CPU threads.
 
 ```bash
 export OPENBLAS_NUM_THREADS=$JULIA_CPU_THREADS
@@ -108,8 +108,6 @@ There are [caveats](https://discourse.julialang.org/t/matrix-multiplication-is-s
 We can use `Distributed`, a standard library for multiple processes in Julia.
 The Julia manual has a section about  [distributed computing](https://docs.julialang.org/en/v1/manual/distributed-computing/) explaining Julia's distributed programming.
 Later we also discuss how to use MPI.
-
-Regarding the usage in the CSC cluster, we need to know how to add processes in a cluster environment.
 Distributed has two built-in cluster managers, `LocalManager` for processes that communicate using Localhost and `SSHManager` for processes that communicate via SSH.
 We can add processes to the same node as the Julia job is started using `LocalManager` and the `SSHManager` to add processes to other nodes.
 
@@ -140,20 +138,8 @@ nodes = readlines(`scontrol show hostnames $(ENV["SLURM_JOB_NODELIST"])`)
 
 We can use these nodenames when adding processes using `SSHManager`.
 
-
-### CUDA.jl
-The GPU nodes on Puhti and Mahti contain NVidia GPUs.
-We can use them with `CUDA.jl` package in Julia.
-For programming, we recommend reading the [CUDA.jl documentation](https://cuda.juliagpu.org/stable/).
-We have installed CUDA.jl, which uses the local CUDA installation, in the shared environment.
-We recommend you use the version in the shared environment because we have tested it.
-You can find the version by activating the shared environment and running `Pkg.status` as follows:
-
-```bash
-julia --project="$CSC_JULIA_ENVIRONMENT_DIR" -e 'using Pkg; Pkg.status("CUDA")'
-```
-
-Furthermore, the Julia module automatically loads the correct CUDA module.
+!!! info "LUMI does not have SSH between compute nodes"
+    Currently, LUMI does not have SSH between compute notes, hence we cannot add processes to other nodes via SSHManager.
 
 
 ### MPI.jl
@@ -167,18 +153,41 @@ You can find the version by activating the shared environment and running `Pkg.s
 julia --project="$CSC_JULIA_ENVIRONMENT_DIR" -e 'using Pkg; Pkg.status("MPI")'
 ```
 
-Furthermore, the Julia module automatically loads the correct OpenMPI module.
+Furthermore, the `julia` module automatically loads the correct OpenMPI module.
+
+
+### CUDA.jl
+The GPU nodes on Puhti and Mahti contain GPUs for NVidia.
+We can use them with `CUDA.jl` package in Julia.
+For programming, we recommend reading the [CUDA.jl documentation](https://cuda.juliagpu.org/stable/).
+We have installed CUDA.jl, which uses the local CUDA installation, in the shared environment.
+We recommend you use the version in the shared environment because we have tested it.
+You can find the version by activating the shared environment and running `Pkg.status` as follows:
+
+```bash
+julia --project="$CSC_JULIA_ENVIRONMENT_DIR" -e 'using Pkg; Pkg.status("CUDA")'
+```
+
+Furthermore, the `julia-cuda` module automatically loads the correct CUDA module.
+
+
+### AMDGPU.jl
+The GPU nodes on LUMI contain GPUs for AMD.
+We can use them with `AMDGPU.jl` package in Julia.
+For programming, we recommend reading the [AMDGPU.jl documentation](https://amdgpu.juliagpu.org/stable/).
+We have installed AMDGPU.jl, which uses the local ROCm installation, in the shared environment.
+We recommend you use the version in the shared environment because we have tested it.
+You can find the version by activating the shared environment and running `Pkg.status` as follows:
+
+```bash
+julia --project="$CSC_JULIA_ENVIRONMENT_DIR" -e 'using Pkg; Pkg.status("AMDGPU")'
+```
+
+Furthermore, the `julia-amdgpu` module automatically loads the correct AMD programming environment and ROCm module.
 
 
 ## Single node jobs
 ### Serial
-An example of a `Project.toml` project file.
-
-```toml
-[compat]
-julia = "1.8"
-```
-
 An example of a `script.jl` Julia code.
 
 ```julia
@@ -186,7 +195,15 @@ println("Hello world!")
 ```
 
 === "Puhti"
+    An example of a `Project.toml` project file.
+
+    ```toml
+    [compat]
+    julia = "1.8"
+    ```
+
     An example of a `batch.sh` Puhti batch script.
+
     ```bash
     #!/bin/bash
     #SBATCH --job-name=example
@@ -207,14 +224,34 @@ println("Hello world!")
     Mahti is intended for parallel computing; therefore, we do not include a Batch script for Mahti.
 
 
+=== "LUMI"
+    An example of a `Project.toml` project file.
+
+    ```toml
+    [compat]
+    julia = "1.9"
+    ```
+
+    An example of a `batch.sh` LUMI batch script.
+
+    ```bash
+    #!/bin/bash
+    #SBATCH --job-name=example
+    #SBATCH --account=<project>
+    #SBATCH --partition=small
+    #SBATCH --time=00:15:00
+    #SBATCH --nodes=1
+    #SBATCH --ntasks-per-node=1
+    #SBATCH --cpus-per-task=1
+    #SBATCH --mem-per-cpu=1000
+
+    module load julia/1.9
+    julia --project=. -e 'using Pkg; Pkg.instantiate()'
+    srun julia --project=. script.jl
+    ```
+
+
 ### Multiple threads
-An example of a `Project.toml` project file.
-
-```toml
-[compat]
-julia = "1.8"
-```
-
 An example of a `script.jl` Julia code.
 
 ```julia
@@ -238,7 +275,15 @@ println(ids)
 ```
 
 === "Puhti"
+    An example of a `Project.toml` project file.
+
+    ```toml
+    [compat]
+    julia = "1.8"
+    ```
+
     An example of a `batch.sh` Puhti batch script.
+
     ```bash
     #!/bin/bash
     #SBATCH --job-name=example
@@ -256,7 +301,15 @@ println(ids)
     ```
 
 === "Mahti"
+    An example of a `Project.toml` project file.
+
+    ```toml
+    [compat]
+    julia = "1.8"
+    ```
+
     An example of a `batch.sh` Mahti batch script.
+
     ```bash
     #!/bin/bash
     #SBATCH --job-name=example
@@ -273,18 +326,34 @@ println(ids)
     srun julia --project=. script.jl
     ```
 
+=== "LUMI"
+    An example of a `Project.toml` project file.
+
+    ```toml
+    [compat]
+    julia = "1.9"
+    ```
+
+    An example of a `batch.sh` LUMI batch script.
+
+    ```bash
+    #!/bin/bash
+    #SBATCH --job-name=example
+    #SBATCH --account=<project>
+    #SBATCH --partition=small
+    #SBATCH --time=00:15:00
+    #SBATCH --nodes=1
+    #SBATCH --ntasks-per-node=1
+    #SBATCH --cpus-per-task=3
+    #SBATCH --mem-per-cpu=1000
+
+    module load julia/1.9
+    julia --project=. -e 'using Pkg; Pkg.instantiate()'
+    srun julia --project=. script.jl
+    ```
+
 
 ### Multiple processes
-An example of a `Project.toml` project file.
-
-```toml
-[deps]
-Distributed = "8ba89e20-285c-5b6f-9357-94700520ee1b"
-
-[compat]
-julia = "1.8"
-```
-
 An example of a `script.jl` Julia code.
 
 ```julia
@@ -334,7 +403,18 @@ println.(outputs)
 ```
 
 === "Puhti"
+    An example of a `Project.toml` project file.
+
+    ```toml
+    [deps]
+    Distributed = "8ba89e20-285c-5b6f-9357-94700520ee1b"
+
+    [compat]
+    julia = "1.8"
+    ```
+
     An example of a `batch.sh` Puhti batch script.
+
     ```bash
     #!/bin/bash
     #SBATCH --job-name=example
@@ -352,6 +432,16 @@ println.(outputs)
     ```
 
 === "Mahti"
+    An example of a `Project.toml` project file.
+
+    ```toml
+    [deps]
+    Distributed = "8ba89e20-285c-5b6f-9357-94700520ee1b"
+
+    [compat]
+    julia = "1.8"
+    ```
+
     An example of a `batch.sh` Mahti batch script.
 
     ```bash
@@ -370,34 +460,76 @@ println.(outputs)
     srun julia --project=. script.jl
     ```
 
+=== "LUMI"
+    An example of a `Project.toml` project file.
+
+    ```toml
+    [deps]
+    Distributed = "8ba89e20-285c-5b6f-9357-94700520ee1b"
+
+    [compat]
+    julia = "1.9"
+    ```
+
+    An example of a `batch.sh` LUMI batch script.
+
+    ```bash
+    #!/bin/bash
+    #SBATCH --job-name=example
+    #SBATCH --account=<project>
+    #SBATCH --partition=small
+    #SBATCH --time=00:15:00
+    #SBATCH --nodes=1
+    #SBATCH --ntasks-per-node=1
+    #SBATCH --cpus-per-task=3
+    #SBATCH --mem-per-cpu=1000
+
+    module load julia/1.9
+    julia --project=. -e 'using Pkg; Pkg.instantiate()'
+    srun julia --project=. script.jl
+    ```
+
 
 ### Single GPU
-An example of a `Project.toml` project file.
+=== "CUDA.jl"
+    An example of a `script.jl` Julia code.
 
-```toml
-[deps]
-CUDA = "052768ef-5323-5732-b1bb-66c8b64840ba"
+    ```julia
+    using CUDA
 
-[compat]
-julia = "1.8"
-CUDA = "=4.0.1"
-```
+    @show CUDA.versioninfo()
+    n = 2^20
+    x = CUDA.fill(1.0f0, n)
+    y = CUDA.fill(2.0f0, n)
+    y .+= x
+    println(all(Array(y) .== 3.0f0))
+    ```
 
-An example of a `script.jl` Julia code.
+=== "AMDGPU.jl"
+    An example of a `script.jl` Julia code.
 
-```julia
-using CUDA
+    ```julia
+    using AMDGPU
 
-@show CUDA.versioninfo()
-n = 2^20
-x = CUDA.fill(1.0f0, n)
-y = CUDA.fill(2.0f0, n)
-y .+= x
-println(all(Array(y) .== 3.0f0))
-```
+    ...
+    ```
+
+---
 
 === "Puhti"
+    An example of a `Project.toml` project file.
+
+    ```toml
+    [deps]
+    CUDA = "052768ef-5323-5732-b1bb-66c8b64840ba"
+
+    [compat]
+    julia = "1.8"
+    CUDA = "=4.0.1"
+    ```
+
     An example of a `batch.sh` Puhti batch script.
+
     ```bash
     #!/bin/bash
     #SBATCH --job-name=example
@@ -416,7 +548,19 @@ println(all(Array(y) .== 3.0f0))
     ```
 
 === "Mahti"
+    An example of a `Project.toml` project file.
+
+    ```toml
+    [deps]
+    CUDA = "052768ef-5323-5732-b1bb-66c8b64840ba"
+
+    [compat]
+    julia = "1.8"
+    CUDA = "=4.0.1"
+    ```
+
     An example of a `batch.sh` Mahti batch script.
+
     ```bash
     #!/bin/bash
     #SBATCH --job-name=example
@@ -434,20 +578,40 @@ println(all(Array(y) .== 3.0f0))
     srun julia --project=. script.jl
     ```
 
+=== "LUMI"
+    An example of a `Project.toml` project file.
+
+    ```toml
+    [deps]
+    AMDGPU = "21141c5a-9bdb-4563-92ae-f87d6854732e"
+
+    [compat]
+    julia = "1.9"
+    AMDGPU = "=0.4.13"
+    ```
+
+    An example of a `batch.sh` LUMI batch script.
+
+    ```bash
+    #!/bin/bash
+    #SBATCH --job-name=example
+    #SBATCH --account=<project>
+    #SBATCH --partition=small-g
+    #SBATCH --time=00:15:00
+    #SBATCH --nodes=1
+    #SBATCH --ntasks-per-node=1
+    #SBATCH --cpus-per-task=16
+    #SBATCH --gpus-per-task=1
+    #SBATCH --mem-per-cpu=1750
+
+    module load julia-amdgpu/1.9
+    julia --project=. -e 'using Pkg; Pkg.instantiate()'
+    srun julia --project=. script.jl
+    ```
+
 
 ## Multi-node jobs
 ### MPI
-An example of a `Project.toml` project file.
-
-```toml
-[deps]
-MPI = "da04e1cc-30fd-572f-bb4f-1f8673147195"
-
-[compat]
-julia = "1.8"
-MPI = "=0.20.8"
-```
-
 An example of a `script.jl` Julia code.
 
 ```julia
@@ -462,7 +626,19 @@ MPI.Barrier(comm)
 ```
 
 === "Puhti"
+    An example of a `Project.toml` project file.
+
+    ```toml
+    [deps]
+    MPI = "da04e1cc-30fd-572f-bb4f-1f8673147195"
+
+    [compat]
+    julia = "1.8"
+    MPI = "=0.20.8"
+    ```
+
     An example of a `batch.sh` Puhti batch script.
+
     ```bash
     #!/bin/bash
     #SBATCH --job-name=example
@@ -481,7 +657,19 @@ MPI.Barrier(comm)
     ```
 
 === "Mahti"
+    An example of a `Project.toml` project file.
+
+    ```toml
+    [deps]
+    MPI = "da04e1cc-30fd-572f-bb4f-1f8673147195"
+
+    [compat]
+    julia = "1.8"
+    MPI = "=0.20.8"
+    ```
+
     An example of a `batch.sh` Mahti batch script.
+
     ```bash
     #!/bin/bash
     #SBATCH --job-name=example
@@ -499,18 +687,39 @@ MPI.Barrier(comm)
     srun julia --project=. script.jl
     ```
 
+=== "LUMI"
+    An example of a `Project.toml` project file.
+
+    ```toml
+    [deps]
+    MPI = "da04e1cc-30fd-572f-bb4f-1f8673147195"
+
+    [compat]
+    julia = "1.9"
+    MPI = "=0.20.8"
+    ```
+
+    An example of a `batch.sh` LUMI batch script.
+
+    ```bash
+    #!/bin/bash
+    #SBATCH --job-name=example
+    #SBATCH --account=<project>
+    #SBATCH --partition=standard
+    #SBATCH --time=00:15:00
+    #SBATCH --nodes=2
+    #SBATCH --ntasks-per-node=128
+    #SBATCH --cpus-per-task=1
+    #SBATCH --mem-per-cpu=0
+
+    module load julia/1.9
+    julia --project=. -e 'using Pkg; Pkg.instantiate()'
+    # Running MPI requires using srun
+    srun julia --project=. script.jl
+    ```
+
 
 ### Multiple processes
-An example of a `Project.toml` project file.
-
-```toml
-[deps]
-Distributed = "8ba89e20-285c-5b6f-9357-94700520ee1b"
-
-[compat]
-julia = "1.8"
-```
-
 An example of a `script.jl` Julia code.
 
 ```julia
@@ -572,7 +781,18 @@ println.(outputs)
 ```
 
 === "Puhti"
+    An example of a `Project.toml` project file.
+
+    ```toml
+    [deps]
+    Distributed = "8ba89e20-285c-5b6f-9357-94700520ee1b"
+
+    [compat]
+    julia = "1.8"
+    ```
+
     An example of a `batch.sh` Puhti batch script.
+
     ```bash
     #!/bin/bash
     #SBATCH --job-name=example
@@ -591,7 +811,18 @@ println.(outputs)
     ```
 
 === "Mahti"
+    An example of a `Project.toml` project file.
+
+    ```toml
+    [deps]
+    Distributed = "8ba89e20-285c-5b6f-9357-94700520ee1b"
+
+    [compat]
+    julia = "1.8"
+    ```
+
     An example of a `batch.sh` Mahti batch script.
+
     ```bash
     #!/bin/bash
     #SBATCH --job-name=example
@@ -611,16 +842,6 @@ println.(outputs)
 
 
 ### Multiple processes and threads
-An example of a `Project.toml` project file.
-
-```toml
-[deps]
-Distributed = "8ba89e20-285c-5b6f-9357-94700520ee1b"
-
-[compat]
-julia = "1.8"
-```
-
 An example of a `script.jl` Julia code.
 
 ```julia
@@ -694,7 +915,18 @@ println.(outputs)
 ```
 
 === "Puhti"
+    An example of a `Project.toml` project file.
+
+    ```toml
+    [deps]
+    Distributed = "8ba89e20-285c-5b6f-9357-94700520ee1b"
+
+    [compat]
+    julia = "1.8"
+    ```
+
     An example of a `batch.sh` Puhti batch script.
+
     ```bash
     #!/bin/bash
     #SBATCH --job-name=example
@@ -713,7 +945,18 @@ println.(outputs)
     ```
 
 === "Mahti"
+    An example of a `Project.toml` project file.
+
+    ```toml
+    [deps]
+    Distributed = "8ba89e20-285c-5b6f-9357-94700520ee1b"
+
+    [compat]
+    julia = "1.8"
+    ```
+
     An example of a `batch.sh` Mahti batch script.
+
     ```bash
     #!/bin/bash
     #SBATCH --job-name=example
