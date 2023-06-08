@@ -221,7 +221,30 @@ println("Hello world!")
     ```
 
 === "Mahti"
-    Mahti is intended for parallel computing; therefore, we do not include a Batch script for Mahti.
+    An example of a `Project.toml` project file.
+
+    ```toml
+    [compat]
+    julia = "1.8"
+    ```
+
+    An example of a `batch.sh` Puhti batch script.
+
+    ```bash
+    #!/bin/bash
+    #SBATCH --job-name=example
+    #SBATCH --account=<project>
+    #SBATCH --partition=interactive
+    #SBATCH --time=00:15:00
+    #SBATCH --nodes=1
+    #SBATCH --ntasks-per-node=1
+    #SBATCH --cpus-per-task=1
+    #SBATCH --mem-per-cpu=1875
+
+    module load julia/1.8
+    julia --project=. -e 'using Pkg; Pkg.instantiate()'
+    srun julia --project=. script.jl
+    ```
 
 
 === "LUMI"
