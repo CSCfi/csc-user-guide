@@ -76,7 +76,7 @@ cd scikit-optimize
 6. Install the package:
 
 ```text
-pip install scikit_optimize-0.9.0-py2.py3-none -any-whl -f ./ --no-index --no-debs
+pip install scikit_optimize-0.9.0-py2.py3-none -any-whl -f ./ --no-index --no-deps
 ```
 
 Now python (pointing to $HOME/my-python/bin/python) should contain
