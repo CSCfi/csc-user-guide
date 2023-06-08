@@ -497,12 +497,9 @@ println.(outputs)
     ```julia
     using CUDA
 
-    @show CUDA.versioninfo()
-    n = 2^20
-    x = CUDA.fill(1.0f0, n)
-    y = CUDA.fill(2.0f0, n)
-    y .+= x
-    println(all(Array(y) .== 3.0f0))
+    A = rand(2^9, 2^9)
+    A_d = CuArray(A)
+    B_d = $A_d * $A_d
     ```
 
 === "AMDGPU.jl"
@@ -511,7 +508,9 @@ println.(outputs)
     ```julia
     using AMDGPU
 
-    ...
+    A = rand(2^9, 2^9)
+    A_d = ROCArray(A)
+    B_d = $A_d * $A_d
     ```
 
 ---
