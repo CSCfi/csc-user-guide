@@ -16,7 +16,15 @@ Julia language is licensed under free and open source [MIT license](https://gith
 
 
 ## Available
-Julia language is available on Puhti and Mahti using the [module system](../computing/modules.md).
+Julia language is available on Puhti, Mahti, and LUMI using the [module system](../computing/modules.md).
+On Puhti and Mahti, the Julia module is included on the modulepath by default.
+On LUMI, we must add the modulefiles under CSC's local directory to the modulepath as follows.
+
+```bash
+module use /appl/local/csc/modulefiles
+```
+
+We can check the available versions as follows.
 
 ```bash
 module avail julia
@@ -103,6 +111,12 @@ On the Julia REPL, we can use the package manager by importing it.
 using Pkg
 ```
 
+We can activate a Julia environment on the current working directory as follows.
+
+```julia
+Pkg.activate(".")
+```
+
 We can add packages to the active environment using the `Pkg.add` function.
 For example, we can add `ArgParse` package as follows.
 
@@ -128,11 +142,11 @@ Pkg.compat("julia", "1.8")
 The Julia constants [`Base.DEPOT_PATH`](https://docs.julialang.org/en/v1/base/constants/#Base.DEPOT_PATH) and [`Base.LOAD_PATH`](https://docs.julialang.org/en/v1/base/constants/#Base.LOAD_PATH) constants control the directories where Julia loads code.
 To set them via the shell, we use the `JULIA_DEPOT_PATH` and `JULIA_LOAD_PATH` environment variables.
 The Julia module automatically appends the default depot and load paths to ensure the standard library and shared depots are available.
-The CSC-specific shared depots are installed in the `JULIA_CSC_DEPOT` directory, and the shared environment is in the `JULIA_CSC_ENVIRONMENT` directory.
+The CSC-specific shared depots are installed in the `CSC_JULIA_DEPOT_DIR` directory, and the shared environment is in the `CSC_JULIA_ENVIRONMENT_DIR` directory.
 We can look up the shared packages and their versions using the package manager as follows:
 
 ```bash
-julia --project="$JULIA_CSC_ENVIRONMENT" -e 'using Pkg; Pkg.status()'
+julia --project="$CSC_JULIA_ENVIRONMENT_DIR" -e 'using Pkg; Pkg.status()'
 ```
 
 The first directory on the depot path controls where Julia stores installed packages, compiled files, log files, and other depots.
