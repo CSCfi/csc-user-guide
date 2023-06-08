@@ -228,7 +228,7 @@ println("Hello world!")
     julia = "1.8"
     ```
 
-    An example of a `batch.sh` Puhti batch script.
+    An example of a `batch.sh` Mahti batch script.
 
     ```bash
     #!/bin/bash
