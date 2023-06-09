@@ -44,8 +44,10 @@ systems. It also comes with plenty of analysis scripts.
     | Version | Available modules | Notes |
     |:-------:|:------------------|:-----:|
     |2022.5   |`gromacs/2022.5`<br>`gromacs/2022.5-plumed`|Module with Plumed available
-    |2023     |`gromacs/2023-dev-rocm`|Unofficial GPU-enabled fork developed by AMD
-    |2023.1   |`gromacs/2023.1`<br>`gromacs/2023.1-hipsycl`|GPU-enabled module available
+    |2023     |`gromacs/2023-dev-rocm`|Unofficial GPU-enabled fork developed by AMD[^1]
+    |2023.1   |`gromacs/2023.1`<br>`gromacs/2023.1-hipsycl`|Official GPU-enabled module available (hipSYCL)
+
+    [^1]: This module is unvalidated, unmaintained and unsupported by the Gromacs team. Proceed with caution!
 
 - Puhti and Mahti have also `gromacs-env/<year>` modules for loading the recommended
   latest minor version from each year (replace `<year>` accordingly).
