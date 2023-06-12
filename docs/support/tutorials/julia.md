@@ -46,7 +46,7 @@ julia --threads 2  # using two threads regardless of JULIA_NUM_THREADS value
 We can access environment variables in the Julia session using the [`ENV`](https://docs.julialang.org/en/v1/base/base/#Base.ENV) constant.
 
 
-### Linear algebra backends
+### Linear algebra
 OpenBLAS is the default `LinearAlgebra` backend in Julia.
 We can also use MKL, which is often faster than OpenBLAS when using multiple threads, especially on Puhti.
 We should load the `MKL` library before other linear algebra libraries.
@@ -562,7 +562,7 @@ println.(outputs)
     #SBATCH --ntasks-per-node=1
     #SBATCH --cpus-per-task=10
     #SBATCH --gres=gpu:v100:1
-    #SBATCH --mem=4000
+    #SBATCH --mem-per-cpu=8000
 
     module load julia-cuda/1.8
     julia --project=. -e 'using Pkg; Pkg.instantiate()'

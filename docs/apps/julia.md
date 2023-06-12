@@ -50,6 +50,12 @@ Without arguments, it starts an interactive Julia REPL.
 julia
 ```
 
+We can print information about the Julia version in the REPL as follows.
+
+```julia
+versioninfo()
+```
+
 For available command line options, we can read the manual.
 
 ```sh
@@ -235,8 +241,8 @@ julia --project=. src/cli.jl --say "Hello world"
 We should define and use a command line interface because it is more flexible than hard-coding values to the scripts.
 
 
-### Running Julia jobs on Puhti and Mahti
-We explain how to run serial, parallel and GPU jobs with Julia on Puhti and Mahti in the [**Running Julia jobs on Puhti and Mahti clusters**](../support/tutorials/julia.md) section.
+### Running Julia jobs on Puhti, Mahti and LUMI clusters
+We explain how to run serial, parallel and GPU jobs with Julia on Puhti, Mahti and LUMI in the [**Running Julia jobs on Puhti, Mahti and LUMI clusters**](../support/tutorials/julia.md) tutorial.
 
 
 ### Using Julia on Jupyter and VSCode
