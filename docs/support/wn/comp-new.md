@@ -9,7 +9,7 @@ Apps available in the [Mahti web interface](https://www.mahti.csc.fi):
 * Compute and Login node shell
 * Desktop with Maestro and VMD
 * Disk quotas and Project view
-* File browser with support for Allas
+* File browser with [support for Allas](../../computing/webinterface/#using-allas)
 * Jupyter, Julia-Jupyter and Jupyter for courses
 * TensorBoard
 * Visual Studio Code

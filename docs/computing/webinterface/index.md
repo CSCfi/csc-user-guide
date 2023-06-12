@@ -88,7 +88,6 @@ allas-conf --mode s3cmd
 ```
 After running the command, the web interface server must be restarted, which can be done by clicking _Restart web server_ in the _Help_ menu in top right section of the navbar.
 Once the server has been restarted, the `s3allas` remote will be available in the _Files_ dropdown in the navbar and in the file browser.
-If you have previously used Allas on Mahti, there will be an `allas` remote visible, but it can not be used.
 
 The file browser works the same way when accessing Allas as it does when accessing the shared filesystem on Mahti.
 Note that uploading large files from your local computer to Allas is currently not recommended due to technical limitations.
