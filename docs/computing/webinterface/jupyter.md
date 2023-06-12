@@ -3,7 +3,7 @@ The Jupyter interactive app launches a Jupyter notebook that is accessible throu
 
 In the app form you can select Python environment, Jupyter notebook type, working directory and some more advanced settings.
 
-For more information about the Python environments on Puhti and Mahti, see the [documentation about Python](/apps/python). Note that the modules listed there are not guaranteed to work in the web interface and the installation of Python packages in Jupyter in the web interface works differently.
+For more information about the Python environments on Puhti and Mahti, see the [documentation about Python](../../apps/python.md). Note that the modules listed there are not guaranteed to work in the web interface and the installation of Python packages in Jupyter in the web interface works differently.
 
 ### Currently supported Python environments
  - geoconda
@@ -37,7 +37,8 @@ If the *Custom Python module* field is left blank, the system Python will be use
 To use a Tykky installation with Jupyter, first [include Jupyter packages in your Tykky installation](../containers/tykky.md#using-jupyter-with-a-tykky-installation). Then open Puhti web interface and Jupyter app page. There select the option `Custom path` from the Python menu. 
 Then enter the full path to the python interpreter of your Tykky installation. So if you created an installation with the command
 `conda-containerize new --prefix=/scratch/proj/myInst env.yml` then the path to enter would be `/scratch/proj/myInst/bin/python`.
-![Custom path selected in the menu](/img/tykky_selection_jupyter.png)
+
+![Custom path selected in the menu](../../img/tykky_selection_jupyter.png)
 
 ### Virtual environment
 

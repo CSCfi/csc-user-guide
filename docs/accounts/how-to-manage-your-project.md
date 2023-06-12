@@ -37,7 +37,7 @@ Project Manager can close the Project earlier in [MyCSC](https://my.csc.fi) port
 
 #### When the Project is closed
 
-Users are not able to use the services which have been applied for the Project.
+Users are not able to use the services which have been applied for the Project and all content in services will be deleted 90 days after Project closure.
 
 | Service | What happens when Project is closed |
 | -- | -- |
@@ -47,8 +47,10 @@ Users are not able to use the services which have been applied for the Project.
 | Rahti | Project pod quota is set to 0 and all workloads are stopped. |
 | SD Desktop | Desktops are paused, Project can't launch new desktops. |
 
-All content in services will be deleted 90 days after Project closure.
 
-If you need a confirmation after all content has been deleted from services, please contact Service Desk.
+
+!!! Note 
+    
+    All content in services will be deleted 90 days after Project closure. If you need a confirmation after all content has been deleted from services, please contact Service Desk.
 
 

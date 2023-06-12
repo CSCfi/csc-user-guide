@@ -1,4 +1,4 @@
-# Pukki - Database as a Service (internal beta)
+# Pukki - Database as a Service
 
 !!! error "Closed Beta"
     Pukki DBaaS is in closed beta. This means that the service is probably not suitable for most users

@@ -1,5 +1,25 @@
 # Applications
 
+## Gromacs 2023.1 available on LUMI, 7.6.2023
+
+CPU and GPU versions of Gromacs 2023.1 have been installed on LUMI. Notably, the
+GPU-enabled module is the official hipSYCL version, which has improved significantly
+in terms of performance since the previous releases. The LUMI-G instructions on the
+[Gromacs application page](../../../apps/gromacs/#example-batch-script-for-lumi-single-gcd)
+have also been updated and the
+[tutorial on running multi-simulations](../tutorials/gromacs-throughput.md)
+using the built-in `multidir` feature extended and adapted for LUMI-G.
+
+## R 4.2.2 in r-env, 26.5.2023
+	
+R version 4.2.2 is now available in `r-env` and is set as the default version. The new version will also be available in RStudio in the Puhti web interface shortly.
+
+## Schrödinger Maestro 2023.2, 25.5.2023
+
+Schrödinger Maestro version 2023.2 has been installed and set as the default module on
+Puhti and Mahti. See [release notes](https://www.schrodinger.com/releases/new-features/)
+for a list of new features and improvements.
+
 ## NoMachine will no longer be available on CSC's supercomputers, 9.5.2023
 
 The NoMachine remote desktop service will be discontinued on 25th May 2023, at the end of the
