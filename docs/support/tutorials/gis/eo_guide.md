@@ -102,7 +102,7 @@ Commercial datasets are usually available from data provider, while open dataset
 
 !!! default "STAC"
 
-    Many data providers provide a Spatio Temporal Asset Catalog (STAC) of their datasets. These catalogs help in finding available data based on time and location with the possibility for multiple additional filters, such as cloud cover and resolution. The [STAC Index](https://www.stacindex.org/) provides a nice overview of available catalogs from all over the world, inlcluding [Paituli STAC](https://stacindex.org/catalogs/paituli-stac-finland#/). The STAC Index page also includes many resources for learning and utilizing STAC. Check out also CSC's [examples for utilizing STAC from Python](https://github.com/csc-training/geocomputing/blob/master/python/STAC) and [examples for utilizing STAC from R](https://github.com/csc-training/geocomputing/tree/master/R/STAC).
+    Many data providers provide a Spatio Temporal Asset Catalog (STAC) of their datasets. These catalogs help in finding available data based on time and location with the possibility for multiple additional filters, such as cloud cover and resolution. The [STAC Index](https://www.stacindex.org/) provides a nice overview of available catalogs from all over the world, including [Paituli STAC](https://stacindex.org/catalogs/paituli-stac-finland#/). The STAC Index page also includes many resources for learning and utilizing STAC. Check out also CSC's [examples for utilizing STAC from Python](https://github.com/csc-training/geocomputing/blob/master/python/STAC) and [examples for utilizing STAC from R](https://github.com/csc-training/geocomputing/tree/master/R/STAC).
 
 ### EO data at CSC
 
