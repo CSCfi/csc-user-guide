@@ -1,5 +1,19 @@
 # Computing environment
 
+## Mahti web interface available, 13.6.2023
+
+The [web interface](../../computing/webinterface), previously available for
+Puhti only, is now available also for Mahti at [www.mahti.csc.fi](https://www.mahti.csc.fi).
+Apps available in the [Mahti web interface](https://www.mahti.csc.fi):
+* Active Jobs
+* Compute and Login node shell
+* Desktop with Maestro and VMD
+* Disk quotas and Project view
+* File browser with support for Allas
+* Jupyter, Julia-Jupyter and Jupyter for courses
+* TensorBoard
+* Visual Studio Code
+
 ## New policy on Puhti and Mahti for projects that have run out of billing units, 22.5.2023
 
 In addition to limiting access to compute resources upon running out of billing
