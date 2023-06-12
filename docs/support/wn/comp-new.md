@@ -2,7 +2,7 @@
 
 ## Mahti web interface available, 13.6.2023
 
-The [web interface](../../computing/webinterface), previously available for
+The [web interface](../../computing/webinterface/), previously available for
 Puhti only, is now available also for Mahti at [www.mahti.csc.fi](https://www.mahti.csc.fi).
 Apps available in the [Mahti web interface](https://www.mahti.csc.fi):
 * Active Jobs
