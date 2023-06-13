@@ -274,7 +274,12 @@ Run the corresponding executable to uninstall Conda or Git for Windows:
 
 Have a look at a [relevant xkcd](https://xkcd.com/1597/) for steps to take if something goes wrong.
 
-Clone the Docs repository (if not cloned yet):
+Documentation on Git is available at [www.git-scm.com/doc](https://www.git-scm.com/doc). The Git commands introduced in this tutorial come with a link to the corresponding documentation page.
+
+
+### Obtaining a local copy, i.e. _cloning_ the repository
+
+Clone the Docs repository (if not cloned yet) with [git-clone](https://git-scm.com/docs/git-clone):
 
 ```bash
 git clone git@github.com:CSCfi/csc-user-guide.git
@@ -285,6 +290,9 @@ Navigate to the folder:
 ```bash
 cd csc-user-guide
 ```
+
+
+### Setting up the Conda environment for running MkDocs
 
 Create the Conda environment (if not created yet):
 
@@ -298,6 +306,9 @@ Activate the environment:
 conda activate docs-env
 ```
 
+
+### Previewing your changes locally
+
 Run the development server:
 
 ```bash
@@ -310,43 +321,53 @@ or
 mkdocs serve --dirtyreload
 ```
 
-Point a web browser to `localhost:8000`.
+If you wish to shut down the server, perhaps to restart it with `--dirtyreload` enabled, simply hit _Ctrl+C_.
 
-If you want to leave MkDocs running, open a new Git Bash window and again navigate to the folder:
+With the server running, you can point a web browser to `localhost:8000` for a preview.
+
+If you want to leave MkDocs running while continuing to work on the command line, open a new Git Bash window and again navigate to the cloned folder:
 
 ```bash
 cd csc-user-guide
 ```
 
-Check that you are on the _master_ branch with git-status:
+
+### Creating a new branch for your work
+
+Check that you are on the _master_ branch using [git-status](https://git-scm.com/docs/git-status):
 
 ```bash
 git status
 ```
 
-and `git switch master` if not and you wish to work on a new branch.
+and `git switch master` if not and you wish to create a new branch to work on.
 
-Fast-forward the master branch to the latest commit:
+Fast-forward the master branch to the latest commit with [git-pull](https://git-scm.com/docs/git-pull):
 
 ```bash
 git pull origin master
 ```
 
-Branch off of the latest commit on master with Git switch (replace `my-branch-name`):
+Branch off of the latest commit on master using [git-switch](https://git-scm.com/docs/git-switch) (replace `my-branch-name`):
 
 ```bash
 git switch --create my-branch-name
 ```
 
-The main point of this is to edit the files using the tools you prefer and that if you left MkDocs running, it will reload the when you save a file you've edited. This happens quicker with the `--dirtyreload` option enabled.
+### Working on your contribution
 
-Check which files you've changed:
+The main point of this tutorial is to be able to work on the files using the tools you prefer and that if you left MkDocs running, it will reload the preview when you save a file you've edited. This happens quicker with the `--dirtyreload` option enabled, but is in any case quicker and more convenient than waiting for the Rahti preview to rebuild a branch.
+
+
+### Sending your work to the repository
+
+Check which files you've changed, and that you are on the correct branch using [git-status](https://git-scm.com/docs/git-status):
 
 ```bash
 git status
 ```
 
-Check what you changed in the files:
+Check what you changed in the files using [git-diff](https://git-scm.com/docs/git-diff):
 
 ```bash
 git diff
@@ -358,7 +379,17 @@ or, for a single file (replace `path/to/file`):
 git diff path/to/file
 ```
 
-Stage the changes you've made:
+For example, if you'd have changed the file you are reading right now, you'd see what you changed with a
+
+```bash
+git diff WINDOWS.md
+```
+
+The actual content is under the _docs_ folder, so `path/to/file` for, say, the _Linux basics for CSC_ tutorial would be `docs/support/tutorials/env-guide/index.md`.
+
+If the so called _diff_ is long, it will be shown inside something called _less_. You can move up and down using arrow keys and _Page Up_ / _Page Down_. Hit _Q_ to quit less and return to the prompt.
+
+Stage the changes you've made using [git-add](https://git-scm.com/docs/git-add):
 
 ```bash
 git add .
@@ -370,27 +401,27 @@ or, just a single file (replace `path/to/file`):
 git add path/to/file
 ```
 
-Check which changes you've staged:
+Check which changes you've staged using [git-status](https://git-scm.com/docs/git-status):
 
 ```bash
 git status
 ```
 
-Check what the staged changes were:
+Check what the staged changes were using [git-diff](https://git-scm.com/docs/git-diff):
 
 ```bash
 git diff --staged
 ```
 
-Unstage file (replace `path/to/file`):
+If you staged something you didn't intend to, unstage a file (replace `path/to/file`) with [git-restore](https://git-scm.com/docs/git-restore):
 
 ```bash
 git restore --staged path/to/file
 ```
 
-Be careful with Git restore without the `--staged` option and. You can lose your unstaged changes.
+Be careful with Git restore without the `--staged` option. If you restore an unstaged file, you will lose your changes.
 
-Commit the staged changes (replace `Why I made these changes`):
+Commit the staged changes (replace `Why I made these changes`) with [git-commit](https://git-scm.com/docs/git-commit):
 
 ```bash
 git commit -m "Why I made these changes"
@@ -402,18 +433,27 @@ or, to write the commit message with the default editor:
 git commit
 ```
 
-then save the file and exit the editor to input your commit message.
+then save the file and exit the editor to input the commit message you typed into the file.
 
-Check what happened to the branch with Git log (replace the `9` in `-9` to get more/less commits or remove `--oneline` to increase verbosity):
+Check what happened to the branch using [git-log](https://git-scm.com/docs/git-log) (replace the `9` in `-9` to get more/less commits or remove `--oneline` to increase verbosity):
 
 ```bash
 git log --oneline -9
 ```
 
-Push your branch to GitHub (replace `my-branch-name`):
+Push your branch to GitHub (replace `my-branch-name`) using [git-push]((https://git-scm.com/docs/git-push)):
 
 ```bash
 git push origin my-branch-name
 ```
 
-Look for your [branch on Travis CI](https://app.travis-ci.com/github/CSCfi/csc-user-guide/branches) or create a pull request on GitHub and look for your [pull request on Travis CI](https://app.travis-ci.com/github/CSCfi/csc-user-guide/pull_requests). Local tests don't work in Git Bash without further configuration.
+
+### Checking the status of the tests
+
+Every time a push is made, _Travis CI_ will automatically run the tests defined in the _tests_ folder.
+
+Look for your
+  - [branch on Travis CI](https://app.travis-ci.com/github/CSCfi/csc-user-guide/branches) or create a pull request on GitHub and look for your
+  - [pull request on Travis CI](https://app.travis-ci.com/github/CSCfi/csc-user-guide/pull_requests).
+
+Note that local tests don't work in Git Bash without further configuration.
