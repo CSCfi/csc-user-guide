@@ -280,7 +280,7 @@ Clone the Docs repository (if not cloned yet):
 git clone git@github.com:CSCfi/csc-user-guide.git
 ```
 
-Navigate to the directory:
+Navigate to the folder:
 
 ```bash
 cd csc-user-guide
@@ -312,7 +312,7 @@ mkdocs serve --dirtyreload
 
 Point a web browser to `localhost:8000`.
 
-If you want to leave MkDocs running, open a new Git Bash window and again navigate to the directory:
+If you want to leave MkDocs running, open a new Git Bash window and again navigate to the folder:
 
 ```bash
 cd csc-user-guide
