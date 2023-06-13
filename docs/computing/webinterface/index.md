@@ -92,18 +92,33 @@ The file browser comes with a basic text editor. Some important notes on that:
 
 #### Using Allas
 
-In the Mahti web interface, the [Allas object storage service](../../computing/allas) can be accessed using the file browser.
-Currently, only the S3 protocol for accessing Allas is supported. For more details about the difference, see [Allas protocols](../../data/Allas/introduction/#protocols).
-This means that the the _allas-conf_ command must be run with the _s3cmd_ mode:
+In the Mahti web interface, the [Allas object storage service](../../computing/allas) can be
+accessed using the file browser.
+
+Currently, only the S3 protocol for accessing Allas is supported.
+For more details about the difference, see [Allas protocols](../../data/Allas/introduction/#protocols).
+Note that the Swift and S3 protocols are not fully compatible with each other, particularly with
+files larger than 5 GB.
+To configure authentication for Allas with the S3 protocol, _allas-conf_ must be run with the
+_s3cmd_ mode:
 ```
 module load allas
 allas-conf --mode s3cmd
 ```
-After running the command, the web interface server must be restarted, which can be done by clicking _Restart web server_ in the _Help_ menu in top right section of the navbar.
-Once the server has been restarted, the `s3allas` remote will be available in the _Files_ dropdown in the navbar and in the file browser.
+After running the command, the web interface server must be restarted, which can be done by clicking
+_Restart web server_ in the _Help_ menu in top right section of the navbar.
+Once the server has been restarted, the `s3allas` remote will be available in the _Files_ dropdown
+in the navbar and in the file browser.
+Additionally, LUMI-O is also supported for use through the file browser and can be configured by
+running _allas-conf_ as `allas-conf --lumi` instead.
 
-The file browser works the same way when accessing Allas as it does when accessing the shared filesystem on Mahti.
-Note that uploading large files from your local computer to Allas is currently not recommended due to technical limitations.
+Configured remotes that are not accessible, for example, due to expired authentication or network
+connection issues, are not be visible in the dropdown menu.
+
+The file browser works the same way when accessing Allas as it does when accessing the shared
+filesystem on Mahti.
+Note that uploading large files from your local computer to Allas is currently not recommended due
+to technical limitations.
 
 ### Active jobs
 
