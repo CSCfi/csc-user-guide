@@ -4,11 +4,11 @@ The desktop enables using graphical applications on a Puhti or Mahti compute nod
 In the Puhti web interface, the desktop can be launched as:
 
 * **`Mate` or `Xfce` desktop**, where one or several applications can be started. The applications mentioned below have been tested to work. Also other graphical tools available in Puhti could work.
-* **Single application**, currently are supported: [COMSOL](../../apps/comsol.md), [Grace](../../apps/grace.md), [GRASS GIS](../../apps/grass.md), [Maestro](../../apps/maestro.md), [MATLAB](../../apps/matlab.md), [ParaView](../../apps/paraview.md), [QGIS](../../apps/qgis.md), [SAGA GIS](../../apps/saga-gis.md), [SNAP](../../apps/snap.md), [Visit](../../apps/visit.md) and [VMD](../../apps/vmd.md).
+* **Single application**, currently are supported: [CloudCompare](../../apps/cloudcompare.md), [Grace](../../apps/grace.md), [GRASS GIS](../../apps/grass.md), [Maestro](../../apps/maestro.md), [MATLAB](../../apps/matlab.md), [QGIS](../../apps/qgis.md), [SAGA GIS](../../apps/saga-gis.md), [SNAP](../../apps/snap.md) and [VMD](../../apps/vmd.md).
 
 Only CPU rendering is supported in the graphical applications launched from the desktop.
 See [here how to enable GPU-accelerated visualization](accelerated-visualization.md)
-for selected applications.
+for selected applications on Puhti.
 
 In the Mahti web interface, only the `Xfce` desktop is available and no other options can be selected.
 The applications available in the desktop on Mahti are [Maestro](../../apps/maestro.md) and [VMD](../../apps/vmd.md)
