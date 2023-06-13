@@ -43,20 +43,7 @@ We can start a Julia process with a different number of threads than `JULIA_NUM_
 julia --threads 2  # using two threads regardless of JULIA_NUM_THREADS value
 ```
 
-We can access environment variables in the Julia session using the [`ENV`](https://docs.julialang.org/en/v1/base/base/#Base.ENV) constant.
-
-
-### Linear algebra
-OpenBLAS is the default `LinearAlgebra` backend in Julia.
-We can also use MKL, which is often faster than OpenBLAS when using multiple threads, especially on Puhti.
-We should load the `MKL` library before other linear algebra libraries.
-
-```julia
-using MKL
-using LinearAlgebra
-A = rand(100, 100)
-B = A * A
-```
+We can interact with environment variables in the Julia session using the [`ENV`](https://docs.julialang.org/en/v1/base/base/#Base.ENV) constant.
 
 
 ### Multi-threading
@@ -64,13 +51,13 @@ We can use the `Base.Threads` library for multi-threading in Julia.
 It is automatically loaded and available as `Threads` in the Julia session.
 The Julia manual contains more detailed information about [multi-threading](https://docs.julialang.org/en/v1/manual/multi-threading/).
 
-External linear algebra backends such as OpenBLAS and MKL use internal threading.
-We can set their thread counts using `OPENBLAS_NUM_THREADS` and `MKL_NUM_THREADS` environment variables.
+Julia uses OpenBLAS as the default `LinearAlgebra` backend.
+External linear algebra backends such as OpenBLAS use internal threading.
+We can set their thread counts using environment variables.
 The `julia` module sets them to the number of CPU threads.
 
 ```bash
 export OPENBLAS_NUM_THREADS=$JULIA_CPU_THREADS
-export MKL_NUM_THREADS=$JULIA_CPU_THREADS
 ```
 
 We must be careful not to oversubscribe cores when using BLAS operations within Julia threads or processes.
@@ -100,8 +87,23 @@ for i in 1:n                   # uses one Julia thread
 end
 ```
 
-There are [caveats](https://discourse.julialang.org/t/matrix-multiplication-is-slower-when-multithreading-in-julia/56227/12?u=carstenbauer) for using different numbers than one or all cores of BLAS threads on OpenBLAS and MKL.
+Alternatively, we can use MKL backend via [MKL.jl](https://github.com/JuliaLinearAlgebra/MKL.jl) as linear algebra backend.
+MKL is often faster than OpenBLAS when using multiple threads on Intel CPUs such as those on Puhti.
+We can set MKL thread count as follows.
 
+```bash
+export MKL_NUM_THREADS=$JULIA_CPU_THREADS
+```
+
+If we use MKL, we should load it before other linear algebra libraries.
+
+```julia
+using MKL
+using LinearAlgebra
+# your code ...
+```
+
+There are [caveats](https://discourse.julialang.org/t/matrix-multiplication-is-slower-when-multithreading-in-julia/56227/12?u=carstenbauer) for using different numbers than one or all cores of BLAS threads on OpenBLAS and MKL.
 
 
 ### Distributed
