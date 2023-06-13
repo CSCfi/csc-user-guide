@@ -2,6 +2,8 @@
 
 The procedure described in this file aims to set up the necessary tools on Windows to support [a basic command line workflow](CONTRIBUTING.md#making-pull-requests-on-the-command-line) without the need for a system administrator account.
 
+For beginners, [a simple Git workflow example](#a-simple-git-workflow-example) is described.
+
 **Before starting, make sure you have a secure place to store a passphrase for an SSH key you'll be creating. A password manager called _KeePass 2_ will be used for that in this tutorial.**
 
 
@@ -272,7 +274,9 @@ Run the corresponding executable to uninstall Conda or Git for Windows:
 
 ## A simple Git workflow example
 
-Have a look at a [relevant xkcd](https://xkcd.com/1597/) for steps to take if something goes wrong.
+Have a look at a [relevant xkcd](https://xkcd.com/1597/).
+
+The part about memorizing some shell commands is what this tutorial is about. The steps to take if something goes wrong you probably already know, but are in any case [described below](#starting-over).
 
 Documentation on Git is available at [www.git-scm.com/doc](https://www.git-scm.com/doc). The Git commands introduced in this tutorial come with a link to the corresponding documentation page.
 
@@ -306,10 +310,16 @@ Activate the environment:
 conda activate docs-env
 ```
 
+The environment can be deactivated with a
+
+```bash
+conda deactivate
+```
+
 
 ### Previewing your changes locally
 
-Run the development server:
+Run the development server (with the Conda environment activated):
 
 ```bash
 mkdocs serve
@@ -359,7 +369,20 @@ git switch --create my-branch-name
 The main point of this tutorial is to be able to work on the files using the tools you prefer and that if you left MkDocs running, it will reload the preview when you save a file you've edited. This happens quicker with the `--dirtyreload` option enabled, but is in any case quicker and more convenient than waiting for the Rahti preview to rebuild a branch.
 
 
-### Sending your work to the repository
+### Getting your work to the repository
+
+#### Starting over
+
+Remember the relevant xkcd? If you run into a problem with Git, you really can just
+  1. copy the files you've worked on into some _other folder_ (`git status` to see which files)
+  1. delete the repository folder
+  1. clone the repository anew and
+  1. copy your work from the _other folder_ into the newly cloned folder
+
+
+#### Staging your changes
+
+Selecting specific changes that you want to include in a so called _commit_ is done by staging.
 
 Check which files you've changed, and that you are on the correct branch using [git-status](https://git-scm.com/docs/git-status):
 
@@ -401,25 +424,28 @@ or, just a single file (replace `path/to/file`):
 git add path/to/file
 ```
 
-Check which changes you've staged using [git-status](https://git-scm.com/docs/git-status):
-
-```bash
-git status
-```
-
-Check what the staged changes were using [git-diff](https://git-scm.com/docs/git-diff):
-
-```bash
-git diff --staged
-```
-
 If you staged something you didn't intend to, unstage a file (replace `path/to/file`) with [git-restore](https://git-scm.com/docs/git-restore):
 
 ```bash
 git restore --staged path/to/file
 ```
 
-Be careful with Git restore without the `--staged` option. If you restore an unstaged file, you will lose your changes.
+Be careful with git-restore without the `--staged` option. It is used to restore _unstaged_ files to how they were before you changed them.
+
+
+#### Committing the staged changes
+
+Check which changes you've staged with [git-status](https://git-scm.com/docs/git-status):
+
+```bash
+git status
+```
+
+Check what the staged changes were with [git-diff](https://git-scm.com/docs/git-diff):
+
+```bash
+git diff --staged
+```
 
 Commit the staged changes (replace `Why I made these changes`) with [git-commit](https://git-scm.com/docs/git-commit):
 
@@ -427,21 +453,32 @@ Commit the staged changes (replace `Why I made these changes`) with [git-commit]
 git commit -m "Why I made these changes"
 ```
 
-or, to write the commit message with the default editor:
+or, to write the commit message using the default editor:
 
 ```bash
 git commit
 ```
 
-then save the file and exit the editor to input the commit message you typed into the file.
+then save the file, exit the editor and Git will read the commit message you typed into the file.
 
-Check what happened to the branch using [git-log](https://git-scm.com/docs/git-log) (replace the `9` in `-9` to get more/less commits or remove `--oneline` to increase verbosity):
+
+#### Pushing the commits to GitHub
+
+Check what happened to the branch with [git-log](https://git-scm.com/docs/git-log) (replace the `9` in `-9` to get more/less commits or remove `--oneline` to increase verbosity):
 
 ```bash
 git log --oneline -9
 ```
 
-Push your branch to GitHub (replace `my-branch-name`) using [git-push]((https://git-scm.com/docs/git-push)):
+Check the latest commit with [git-show](https://www.git-scm.com/docs/git-show):
+
+```bash
+git show HEAD
+```
+
+Again, if the diff is long it'll be shown with _less_, so move with arrow keys and _Page Up_ / _Page Down_, then _Q_ to quit.
+
+Push your branch to GitHub (replace `my-branch-name`) with [git-push]((https://git-scm.com/docs/git-push)):
 
 ```bash
 git push origin my-branch-name
