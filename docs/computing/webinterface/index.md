@@ -139,7 +139,8 @@ If the interactive app does not start or does not work as expected you can delet
 
 The interactive apps can be found in the navigation bar under _Apps_, or on _My Interactive Sessions_ page.
 After selecting an interactive app from the list you will be presented with a form to configure the session.
-After submitting the app form the app will be started and you will be able to connect to the application on the _My Interactive Sessions_ page.
+After submitting the app form, and the Slurm job for the app has finished queuing, the app will be
+started and you will be able to connect to the application on the _My Interactive Sessions_ page.
 
 For a list of applications and specific instructions see [apps](apps.md).
 
