@@ -5,27 +5,40 @@
 The web interfaces for Puhti and Mahti at [www.puhti.csc.fi](https://www.puhti.csc.fi) and
 [www.mahti.csc.fi](https://www.mahti.csc.fi) can be used to access the supercomputers using only a
 web browser.
-With the web interface you can:
+
+**Features available in both the Puhti and Mahti web interfaces:**
 
 - View, download and upload files
-- Launch common graphical applications and connect to them directly from the browser
+- Open a shell on the login node
+- Open a persistent shell on a compute node
+- View running batch jobs
+- View disk quotas and project status
+- Launch interactive apps and connect to them directly from the browser:
+    - Desktop with apps such as Maestro and VMD
+    - Julia-Jupyter
     - Jupyter
     - Jupyter for courses: An interactive Jupyter session specifically for courses
-    - RStudio
+    - TensorBoard
     - Visual Studio Code
-    - and more
-- Launch an interactive GPU accelerated visualization session for applications such as
+
+
+**Features available in Mahti only:**
+
+- View, download, upload and move files between Allas, Mahti and your local computer
+
+
+**Apps available in Puhti only:**
+
+- Accelerated visualization with applications:
     - Blender
     - COMSOL
     - ParaView
     - VMD
-- Open a shell on the login node
-- Open a persistent shell on a compute node
-- View running batch jobs
+- RStudio
+- MATLAB
 
 Everything still runs directly on the supercomputers, giving you all the resources and power
 of a supercomputer, but easily accessible using only a web browser.
-Note that some of the features are not available in both the Puhti and Mahti web interfaces.
 
 
 ## Connecting
