@@ -337,7 +337,7 @@ nav:
         - Using Perl MySQL API at CSC: data/kaivos/kaivos_perl.md
         # Python MySQL API at CSC:
   # data/Allas/using_allas/directory_object_error.md is not linked in this structure
-  - Sensitive data:
+  - Sensitive data TEST:
      - sensitive-data/index.md
      - Introduction: sensitive-data/intro.md
      - Accessing SD Services: sensitive-data/sd-access.md
