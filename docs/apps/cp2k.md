@@ -16,6 +16,10 @@ parallel quantum chemistry calculations, in particular for AIMD.
 * Mahti: 8.2, 9.1, 2022.2, 2023.1
 * LUMI: 2023.1, 2023.1-gpu
 
+!!! warning "Version 2023.1-gpu is experimental"
+    Please check your results and consult
+    [CSC Service Desk](../suppot/contact.md) if in doubt.
+   
 ## License
 
 CP2K is freely available under the GPL license.
