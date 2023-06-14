@@ -35,7 +35,9 @@ fi
 
 for i in $( seq 0 $(($num_systems-1)) )
 do
-    echo "- [Available on ${system_name[$i]}](by_system.md#${system_name[$i],,}), ${system_desc[$i]}" >> $generated_file
+    system_name_lower_case=${system_name[$i],,}
+    system_anchor="#${system_name_lower_case//\ /-}"
+    echo "- [Available on ${system_name[$i]}](by_system.md$system_anchor), ${system_desc[$i]}" >> $generated_file
 done
 
 for i in $( seq 0 $(($num_systems-1)) )
