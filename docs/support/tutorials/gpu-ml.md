@@ -167,18 +167,22 @@ it might because of several reasons:
 
 - You may have have a processing bottle-neck, for example you should
   use a data loading framework (and reserve enough CPU cores for it)
-  to be able to feed the GPU with data fast enough
+  to be able to feed the GPU with data fast enough. [See our
+  documentation on using multiple CPU cores for data
+  loading](#using-multiple-cpus-for-data-pre-processing).
   
-- The computational problem is "too small" for the GPU, for example if
-  the neural network is relatively simple. This is not a problem as
-  such, but if your utilization is really low, you might consider if
-  using CPUs would be more cost efficient.
+- Alternatively, it might simply be the case that the computational
+  problem is "too small" for the GPU, for example if the neural
+  network is relatively simple. This is not a problem as such, but if
+  your utilization is really low, you might consider if using CPUs
+  would be more cost efficient.
 
 As always, don't hesitate to [contact our service desk](../contact.md)
 if you have any questions regarding GPU utilization.
 
+### Tools for monitoring GPU utilization
 
-### `seff` command for a completed job (Puhti and Mahti)
+#### `seff` command for a completed job (Puhti and Mahti)
 
 The easiest way to check the GPU utilization on a completed job is to
 use the `seff` command:
@@ -187,7 +191,8 @@ use the `seff` command:
 seff <job_id>
 ```
 
-In this example we can see that maximum utilization is 100%, but average is 92%.
+In this example we can see that maximum utilization is 100%, but
+average is 92% (this is a good level):
 
 ```
 GPU load 
@@ -199,7 +204,7 @@ GPU memory
        r01g07             0         16.72          1.74         16.91 
 ```
 
-### `nvidia-smi` for a running job (Puhti and Mahti)
+#### `nvidia-smi` for a running job (Puhti and Mahti)
 
 When the job is running you can run `nvidia-smi` over `ssh` on the
 node where it is running. You can check the node's hostname with the
@@ -211,10 +216,11 @@ node where it is running. You can check the node's hostname with the
 ```
 
 You can see the node's hostname from the `NODELIST` column, in this
-case it's `r01g06`. You can now check the GPU utilization with:
+case it's `r01g06`. You can now check the GPU utilization with
+(replace `<nodename>` with the actual node's hostname in your case):
 
 ```bash
-ssh r01g06 nvidia-smi
+ssh <nodename> nvidia-smi
 ```
 
 The output will look something like this:
@@ -254,7 +260,7 @@ ssh r01g06 -t watch nvidia-smi
 This will update every 2 seconds, press Ctrl-C to exit.
 
 
-### `rocm-smi` for a running job (LUMI)
+#### `rocm-smi` for a running job (LUMI)
 
 The LUMI supercomputer uses AMD GPUs, and hence the command is a bit
 different: `rocm-smi`. On [LUMI you need to use `srun` to log in to a node where you have a running job](https://docs.lumi-supercomputer.eu/runjobs/scheduled-jobs/interactive/#using-srun-to-check-running-jobs):
@@ -269,14 +275,16 @@ Replace `<jobid>` with the actual Slurm job ID. You can also use
    
 ### Using multiple CPUs for data pre-processing
 
-One common reason for the GPU utilization being low is when the CPU cannot load
-and pre-process the data fast enough, and the GPU has to wait for the next batch
-to process. It is then a common practice to reserve more CPUs to perform data
-loading and pre-processing in several parallel threads or processes. A good rule
-of thumb in Puhti is to **reserve 10 CPUs per GPU** (as there are 4 GPUs and 40
-CPUs on each node). On Mahti you can reserve up to 32 cores, as that corresponds to
-1/4 of the node. **Remember that CPUs are a much cheaper resource than the
-GPU!**
+One common reason for the GPU utilization being low is when the CPU
+cannot load and pre-process the data fast enough, and the GPU has to
+wait for the next batch to process. It is then a common practice to
+reserve more CPUs to perform data loading and pre-processing in
+several parallel threads or processes. A good rule of thumb in Puhti
+is to **reserve 10 CPUs per GPU** (as there are 4 GPUs and 40 CPUs on
+each node). On Mahti you can reserve up to 32 cores, as that
+corresponds to 1/4 of the node. On LUMI we recommend using 7 CPU
+cores, as there are 63 cores for 8 GPUs. **Remember that CPUs are a
+much cheaper resource than the GPU!**
 
 You might have noticed that we have already followed this advice in our example
 job scripts:
