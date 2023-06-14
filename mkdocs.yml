@@ -338,16 +338,20 @@ nav:
         # Python MySQL API at CSC:
   # data/Allas/using_allas/directory_object_error.md is not linked in this structure
   - Sensitive data:
-     - sensitive-data/index.md
      - Sensitive research data: 
        - Introduction: sensitive-data/intro.md
        - Accessing SD Services: sensitive-data/sd-access.md
        - Store with SD Connect: sensitive-data/sd_connect.md
        - Analyse with SD Desktop: sensitive-data/sd_desktop.md
+       - Publish genetic data with Federated EGA: sensitive-data/intro.md
+       - Tutorials: sensitive-data/intro.md
      - Secondary use of health and social data:
-       - SD Desktop for secondary use: sensitive-data/sd-desktop-audited.md
-#     	- SD Apply for secondary use: data/sensitive-data/single-register-submission.md
-#     	- Federated EGA: data/sensitive-data/federatedega.md
+       - Findata permit: sensitive-data/intro.md
+       - Single register data: sensitive-data/intro.md
+       - SD Desktop: sensitive-data/sd-desktop-audited.md
+       - Instructions for data controllers: sensitive-data/intro.md
+#      - SD Apply for secondary use: data/sensitive-data/single-register-submission.md
+#      - Federated EGA: data/sensitive-data/federatedega.md
 #	- SD Apply: data/sensitive-data/sd-apply.md
 #	- Containers: data/sensitive-data/creating_containers.md
   - Applications:
