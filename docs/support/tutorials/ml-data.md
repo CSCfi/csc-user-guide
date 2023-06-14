@@ -15,6 +15,13 @@ logs and calculation outputs in **scratch**. The **home** directory is
 not intended for data analysis and computing, and you should only
 store small personal files there.
 
+In addition, [LUMI has a shared **flash** storage
+area](https://docs.lumi-supercomputer.eu/storage/) which is faster to
+access than scratch. Flash is meant only for temporary storing the
+data for processing, and the [flash area has higher cost than using
+normal scratch
+storage](https://docs.lumi-supercomputer.eu/runjobs/lumi_env/billing/#flash-storage-lumi-f-billing).
+
 It is recommended to store big datasets in the [Allas object
 store](../../data/Allas/index.md), and download them to your project's
 scratch directory prior to starting your computation. For example:
