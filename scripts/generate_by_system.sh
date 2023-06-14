@@ -33,11 +33,13 @@ if [[ "$num_keys" -ne "$num_systems" ]]; then
     exit 1;
 fi
 
+echo -e "Applications available on\n" >> $generated_file
+
 for i in $( seq 0 $(($num_systems-1)) )
 do
     system_name_lower_case=${system_name[$i],,}
     system_anchor="#${system_name_lower_case//\ /-}"
-    echo "- [Available on ${system_name[$i]}](by_system.md$system_anchor), ${system_desc[$i]}" >> $generated_file
+    echo "- [${system_name[$i]}](by_system.md$system_anchor), ${system_desc[$i]}" >> $generated_file
 done
 
 for i in $( seq 0 $(($num_systems-1)) )
