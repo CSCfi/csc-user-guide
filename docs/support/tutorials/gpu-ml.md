@@ -11,16 +11,11 @@ of our [Machine learning guide](ml-guide.md).
 ## Puhti, Mahti or LUMI?
 
 Puhti and Mahti are CSC's two national supercomputers. Puhti has the
-largest number of GPUs (V100) and offers the widest selection of
-installed software, while Mahti has a smaller number of faster newer
-generation A100 GPUs.
-
-The CSC-hosted European supercomputer
-[LUMI](https://docs.lumi-supercomputer.eu/hardware/) will
-provide a massive GPU resource once it's up and running. Currently,
-only a [small early access
-platform](https://docs.lumi-supercomputer.eu/hardware/compute/eap/) is available for
-testing code compatibility.
+largest number of GPUs (NVIDIA V100) and offers the widest selection
+of installed software, while Mahti has a smaller number of faster
+newer generation NVIDIA A100 GPUs. The CSC-hosted European
+supercomputer [LUMI](https://docs.lumi-supercomputer.eu/hardware/)
+provides a massive GPU resource based on AMD GPUs.
 
 The main GPU-related statistics are summarized in the table below.
 
@@ -37,24 +32,27 @@ The main GPU-related statistics are summarized in the table below.
     above shows the GPU die specific numbers, MI250x card specific numbers
     are shown in parenthesis.
 
-Please read our
-[usage policy for the GPU nodes](../../computing/usage-policy.md#gpu-nodes). Also consider that the Slurm
-queuing situation may vary between Puhti and Mahti at different times. However,
-note that Puhti and Mahti have distinct file systems, so you need to manually
-copy your files if you wish to change the system. **In case you are unsure which
-supercomputer to use, Puhti is a good default** as it has a wider set of
-software supported.
+Please read our [usage policy for the GPU
+nodes](../../computing/usage-policy.md#gpu-nodes). Also consider that
+the Slurm queuing situation may vary between the different
+supercomputers at different times, so it may be worth checking out all
+the options. For example LUMI has a huge number of GPUs available, and
+queuing times are very short (as of summer 2023).
 
+Note that all supercomputers have distinct file systems, so you need
+to manually copy your files if you wish to change the system. **In
+case you are unsure which supercomputer to use, Puhti is a good
+default** as it has a wider set of software supported.
 
 
 ## Available machine learning software
 
-We support
-[a number of applications](../../apps/by_discipline.md#data-analytics-and-machine-learning)
-for GPU-accelerated machine learning on CSC's supercomputers, including
-[TensorFlow](../../apps/tensorflow.md) and [PyTorch](../../apps/pytorch.md).
-Please read the detailed instructions for the specific application that you are
-interested in.
+We support [a number of
+applications](../../apps/by_discipline.md#data-analytics-and-machine-learning)
+for GPU-accelerated machine learning on CSC's supercomputers,
+including [TensorFlow](../../apps/tensorflow.md) and
+[PyTorch](../../apps/pytorch.md).  Please read the detailed
+instructions for the specific application that you are interested in.
 
 You need to use the [module system](../../computing/modules.md) to
 load the application you want, for example:
