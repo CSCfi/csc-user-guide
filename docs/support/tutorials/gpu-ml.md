@@ -10,12 +10,13 @@ of our [Machine learning guide](ml-guide.md).
 
 ## Puhti, Mahti or LUMI?
 
-Puhti and Mahti are CSC's two national supercomputers. Puhti has the
-largest number of GPUs (NVIDIA V100) and offers the widest selection
-of installed software, while Mahti has a smaller number of faster
-newer generation NVIDIA A100 GPUs. The CSC-hosted European
-supercomputer [LUMI](https://docs.lumi-supercomputer.eu/hardware/)
-provides a massive GPU resource based on AMD GPUs.
+Puhti and Mahti are CSC's two national supercomputers. Of the two,
+Puhti has the larger number of GPUs (NVIDIA V100) and offers the
+widest selection of installed software, while Mahti has a smaller
+number of faster newer generation NVIDIA A100 GPUs. The CSC-hosted
+European supercomputer
+[LUMI](https://docs.lumi-supercomputer.eu/hardware/) provides a
+massive GPU resource based on AMD GPUs.
 
 The main GPU-related statistics are summarized in the table below.
 
