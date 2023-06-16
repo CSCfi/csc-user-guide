@@ -10,17 +10,13 @@ of our [Machine learning guide](ml-guide.md).
 
 ## Puhti, Mahti or LUMI?
 
-Puhti and Mahti are CSC's two national supercomputers. Puhti has the
-largest number of GPUs (V100) and offers the widest selection of
-installed software, while Mahti has a smaller number of faster newer
-generation A100 GPUs.
-
-The CSC-hosted European supercomputer
-[LUMI](https://docs.lumi-supercomputer.eu/hardware/) will
-provide a massive GPU resource once it's up and running. Currently,
-only a [small early access
-platform](https://docs.lumi-supercomputer.eu/hardware/compute/eap/) is available for
-testing code compatibility.
+Puhti and Mahti are CSC's two national supercomputers. Of the two,
+Puhti has the larger number of GPUs (NVIDIA V100) and offers the
+widest selection of installed software, while Mahti has a smaller
+number of faster newer generation NVIDIA A100 GPUs. The CSC-hosted
+European supercomputer
+[LUMI](https://docs.lumi-supercomputer.eu/hardware/) provides a
+massive GPU resource based on AMD GPUs.
 
 The main GPU-related statistics are summarized in the table below.
 
@@ -37,34 +33,43 @@ The main GPU-related statistics are summarized in the table below.
     above shows the GPU die specific numbers, MI250x card specific numbers
     are shown in parenthesis.
 
-Please read our
-[usage policy for the GPU nodes](../../computing/usage-policy.md#gpu-nodes). Also consider that the Slurm
-queuing situation may vary between Puhti and Mahti at different times. However,
-note that Puhti and Mahti have distinct file systems, so you need to manually
-copy your files if you wish to change the system. **In case you are unsure which
-supercomputer to use, Puhti is a good default** as it has a wider set of
-software supported.
+Please read our [usage policy for the GPU
+nodes](../../computing/usage-policy.md#gpu-nodes). Also consider that
+the Slurm queuing situation may vary between the different
+supercomputers at different times, so it may be worth checking out all
+the options. For example LUMI has a huge number of GPUs available, and
+queuing times are very short (as of summer 2023).
 
+Note that all supercomputers have distinct file systems, so you need
+to manually copy your files if you wish to change the system. **In
+case you are unsure which supercomputer to use, Puhti is a good
+default** as it has a wider set of software supported.
 
 
 ## Available machine learning software
 
-We support
-[a number of applications](../../apps/by_discipline.md#data-analytics-and-machine-learning)
-for GPU-accelerated machine learning on CSC's supercomputers, including
-[TensorFlow](../../apps/tensorflow.md) and [PyTorch](../../apps/pytorch.md).
-Please read the detailed instructions for the specific application that you are
-interested in.
+We support [a number of
+applications](../../apps/by_discipline.md#data-analytics-and-machine-learning)
+for GPU-accelerated machine learning on CSC's supercomputers,
+including [TensorFlow](../../apps/tensorflow.md) and
+[PyTorch](../../apps/pytorch.md).  Please read the detailed
+instructions for the specific application that you are interested in.
 
 You need to use the [module system](../../computing/modules.md) to
 load the application you want, for example:
 
 ```bash
-module load tensorflow/2.7
+module load tensorflow/2.12
 ```
 
 Please note that our modules already include CUDA and cuDNN libraries, so there
 is no need to load cuda and cudnn modules separately!
+
+On LUMI you need to first enable the module repository for CSC's installations:
+
+```bash
+module use /appl/local/csc/modulefiles/
+```
 
 Finally, on Puhti, we provide some special applications which are not shown by
 default in the module system. These have been made available due to user
@@ -81,21 +86,22 @@ packages are missing. In this case you can often load the appropriate module and
 then [install additional packages for personal use with the `pip` package
 manager](../../apps/python.md#installing-python-packages-to-existing-modules).
 
-For more complex software requirements, we recommend using Singularity
-containers. These are similar to Docker containers, and are well supported in
-CSC's supercomputers, in fact many of our own modules are based on Singularity.
-See our [documentation on how to run Singularity
-containers](../../computing/containers/run-existing.md), and [how to create your
-own containers](../../computing/containers/creating.md).
+For more complex software requirements, we recommend using
+[tykky](../../computing/containers/tykky.md) or [creating your own
+Apptainer container](../../computing/containers/creating.md).
 
 
 ## Running GPU jobs
 
 To submit a GPU job to the Slurm workload manager, you need to use the `gpu`
 partition on Puhti or `gpusmall` or `gpumedium` on Mahti, and specify the type
-and number of GPUs required using the `--gres` flag. Below are example batch
-scripts for reserving one GPU and a corresponding 1/4 of the CPU cores of a
-single node:
+and number of GPUs required using the `--gres` flag. 
+
+On LUMI you need to use one of the GPU-partitions such as `dev-g`,
+`small-g` or `standard-g`.
+
+Below are example batch scripts for reserving one GPU and a
+corresponding proportion of the CPU cores and memory of a single node:
 
 === "Puhti"
     ```bash
@@ -126,53 +132,66 @@ single node:
     srun python3 myprog.py <options>
     ```
 
+=== "LUMI"
+    ```bash
+    #!/bin/bash
+    #SBATCH --account=<project>
+    #SBATCH --partition=small-g
+    #SBATCH --ntasks=1
+    #SBATCH --cpus-per-task=7
+    #SBATCH --gpus-per-node=1
+    #SBATCH --mem=64G
+    #SBATCH --time=1:00:00
+    
+    srun python3 myprog.py <options>
+    ```
+
+
 Mahti's `gpusmall` partition supports only jobs with 1-2 GPUs. If you need more
 GPUs, use the `gpumedium` queue. You can read more about [multi-GPU and
 multi-node jobs in our separate tutorial](ml-multi.md).
 
 For more detailed information about the different partitions, see our page about
 [the available batch job partitions on CSC's
-supercomputers](../../computing/running/batch-job-partitions.md).
+supercomputers](../../computing/running/batch-job-partitions.md) and [Slurm partitions on LUMI](https://docs.lumi-supercomputer.eu/runjobs/scheduled-jobs/partitions/).
 
 ## GPU utilization
 
-GPUs are an expensive resource compared to CPUs ([60 times more
-BUs!](../../accounts/billing.md)). Hence, ideally, a GPU should be maximally
-utilized once it has been reserved.
+GPUs are a very expensive resource compared to CPUs, hence, GPUs
+should be maximally utilized once they have been allocated. We provide
+some tools to monitor the utilization of GPU jobs on different
+supercomputers. The GPU utilization, should ideally be close to
+100%. If your utilization is consistently low (for example under 50%)
+it might because of several reasons:
 
-You can check the current GPU utilization of a running job by `ssh`ing to the
-node where it is running and running `nvidia-smi`. You should be able to
-identify your run from the process name or the process id, and check the
-corresponding "GPU-Util" column. Ideally it should be above 90%.
+- You may have have a processing bottle-neck, for example you should
+  use a data loading framework (and reserve enough CPU cores for it)
+  to be able to feed the GPU with data fast enough. [See our
+  documentation on using multiple CPU cores for data
+  loading](#using-multiple-cpus-for-data-pre-processing).
+  
+- Alternatively, it might simply be the case that the computational
+  problem is "too small" for the GPU, for example if the neural
+  network is relatively simple. This is not a problem as such, but if
+  your utilization is really low, you might consider if using CPUs
+  would be more cost efficient.
 
-For example, from the following excerpts we can see that on GPU 0 a `python3`
-job is running which uses roughly 17 GB of GPU memory and the current GPU
-utilization is 99% (i.e., very good).
+As always, don't hesitate to [contact our service desk](../contact.md)
+if you have any questions regarding GPU utilization.
 
-```
-| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
-| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
-|===============================+======================+======================|
-|   0  Tesla V100-SXM2...  On   | 00000000:61:00.0 Off |                    0 |
-| N/A   51C    P0   247W / 300W |  17314MiB / 32510MiB |     99%      Default |
-```
+### Tools for monitoring GPU utilization
 
-```
-| Processes:                                                       GPU Memory |
-|  GPU       PID   Type   Process name                             Usage      |
-|=============================================================================|
-|    0    122956      C   python3                                    17301MiB |
-```
+#### `seff` command for a completed job (Puhti and Mahti)
 
-
-Alternatively, you can use `seff` which shows GPU utilization statistics for the
-whole running time.
+The easiest way to check the GPU utilization on a completed job is to
+use the `seff` command:
 
 ```bash
 seff <job_id>
 ```
 
-In this example we can see that maximum utilization is 100%, but average is 92%.
+In this example we can see that maximum utilization is 100%, but
+average is 92% (this is a good level):
 
 ```
 GPU load 
@@ -184,20 +203,87 @@ GPU memory
        r01g07             0         16.72          1.74         16.91 
 ```
 
-As always, don't hesitate to [contact our service desk](../contact.md) if you
-need advice on how to improve you GPU utilization.
+#### `nvidia-smi` for a running job (Puhti and Mahti)
+
+When the job is running you can run `nvidia-smi` over `ssh` on the
+node where it is running. You can check the node's hostname with the
+`squeue --me` command. The output can look something like this:
+
+```
+   JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+17273947       gpu puhti-gp mvsjober  R       0:07      1 r01g06
+```
+
+You can see the node's hostname from the `NODELIST` column, in this
+case it's `r01g06`. You can now check the GPU utilization with
+(replace `<nodename>` with the actual node's hostname in your case):
+
+```bash
+ssh <nodename> nvidia-smi
+```
+
+The output will look something like this:
+
+```
+Wed Jun 14 09:53:11 2023
++-----------------------------------------------------------------------------+
+| NVIDIA-SMI 515.105.01   Driver Version: 515.105.01   CUDA Version: 11.7     |
+|-------------------------------+----------------------+----------------------+
+| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
+|                               |                      |               MIG M. |
+|===============================+======================+======================|
+|   0  Tesla V100-SXM2...  On   | 00000000:89:00.0 Off |                    0 |
+| N/A   57C    P0   232W / 300W |   5222MiB / 32768MiB |    100%      Default |
+|                               |                      |                  N/A |
++-------------------------------+----------------------+----------------------+
+
++-----------------------------------------------------------------------------+
+| Processes:                                                                  |
+|  GPU   GI   CI        PID   Type   Process name                  GPU Memory |
+|        ID   ID                                                   Usage      |
+|=============================================================================|
+|    0   N/A  N/A   2312753      C   /appl/soft/ai/bin/python3        5219MiB |
++-----------------------------------------------------------------------------+
+```
+
+From this we can see that our process is using around 5GB (out of 32GB) of GPU memory, and the current GPU utilization is 100% (which is very good).
+
+
+If you want a continually updating view:
+
+```bash
+ssh r01g06 -t watch nvidia-smi
+```
+
+This will update every 2 seconds, press Ctrl-C to exit.
+
+
+#### `rocm-smi` for a running job (LUMI)
+
+The LUMI supercomputer uses AMD GPUs, and hence the command is a bit
+different: `rocm-smi`. On [LUMI you need to use `srun` to log in to a node where you have a running job](https://docs.lumi-supercomputer.eu/runjobs/scheduled-jobs/interactive/#using-srun-to-check-running-jobs):
+
+```bash
+srun --interactive --pty --jobid=<jobid> rocm-smi
+```
+
+Replace `<jobid>` with the actual Slurm job ID. You can also use
+`watch rocm-smi` to get the continually updated view.
 
    
 ### Using multiple CPUs for data pre-processing
 
-One common reason for the GPU utilization being low is when the CPU cannot load
-and pre-process the data fast enough, and the GPU has to wait for the next batch
-to process. It is then a common practice to reserve more CPUs to perform data
-loading and pre-processing in several parallel threads or processes. A good rule
-of thumb in Puhti is to **reserve 10 CPUs per GPU** (as there are 4 GPUs and 40
-CPUs on each node). On Mahti you can reserve up to 32 cores, as that corresponds to
-1/4 of the node. **Remember that CPUs are a much cheaper resource than the
-GPU!**
+One common reason for the GPU utilization being low is when the CPU
+cannot load and pre-process the data fast enough, and the GPU has to
+wait for the next batch to process. It is then a common practice to
+reserve more CPUs to perform data loading and pre-processing in
+several parallel threads or processes. A good rule of thumb in Puhti
+is to **reserve 10 CPUs per GPU** (as there are 4 GPUs and 40 CPUs on
+each node). On Mahti you can reserve up to 32 cores, as that
+corresponds to 1/4 of the node. On LUMI we recommend using 7 CPU
+cores, as there are 63 cores for 8 GPUs. **Remember that CPUs are a
+much cheaper resource than the GPU!**
 
 You might have noticed that we have already followed this advice in our example
 job scripts:
