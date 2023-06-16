@@ -339,17 +339,17 @@ nav:
   # data/Allas/using_allas/directory_object_error.md is not linked in this structure
   - Sensitive data:
      - Sensitive research data: 
-       - Introduction: sensitive-data/intro.md
-       - Accessing SD Services: sensitive-data/sd-access.md
-       - Store with SD Connect: sensitive-data/sd_connect.md
-       - Analyse with SD Desktop: sensitive-data/sd_desktop.md
-       - Publish genetic data with Federated EGA: sensitive-data/intro.md
-       - Tutorials: sensitive-data/intro.md
+       - Introduction: data/sensitive-data/intro.md
+       - Accessing SD Services: data/sensitive-data/sd-access.md
+       - Store with SD Connect: data/sensitive-data/sd_connect.md
+       - Analyse with SD Desktop: data/sensitive-data/sd_desktop.md
+       - Publish genetic data with Federated EGA: data/sensitive-data/intro.md
+       - Tutorials: data/sensitive-data/intro.md
      - Secondary use of health and social data:
-       - Findata permit: sensitive-data/intro.md
-       - Single register data: sensitive-data/intro.md
-       - SD Desktop: sensitive-data/sd-desktop-audited.md
-       - Instructions for data controllers: sensitive-data/intro.md
+       - Findata permit: data/sensitive-data/intro.md
+       - Single register data: data/sensitive-data/intro.md
+       - SD Desktop: data/sensitive-data/sd-desktop-audited.md
+       - Instructions for data controllers: data/sensitive-data/intro.md
 #      - SD Apply for secondary use: data/sensitive-data/single-register-submission.md
 #      - Federated EGA: data/sensitive-data/federatedega.md
 #	- SD Apply: data/sensitive-data/sd-apply.md
