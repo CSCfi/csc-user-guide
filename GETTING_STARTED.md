@@ -1,18 +1,19 @@
-# Setting up a development environment on Windows
+# Getting started on contributing to Docs using command line tools
 
-The procedure described in this file aims to set up the necessary tools on Windows to support [a basic command line workflow](CONTRIBUTING.md#making-pull-requests-on-the-command-line) without the need for a system administrator account.
+The procedure described in this file aims to set up the necessary tools on Windows without the need for a system administrator account. However, the [simple Git workflow example](#a-simple-git-workflow-example) that follows the Windows-specific instructions doesn't make any particular assumptions on the operating system used.
 
-For beginners, [a simple Git workflow example](#a-simple-git-workflow-example) is described.
+
+## Setting up a development environment on Windows
 
 **Before starting, make sure you have a secure place to store a passphrase for an SSH key you'll be creating. A password manager called _KeePass 2_ will be used for that in this tutorial.**
 
 
-## Conda
+### Conda
 
 A Python program called _MkDocs_ is used to generate the Docs CSC website from documentation files written in a markup language called _Markdown_. To run a local development server for an instant preview of your work, MkDocs and all the software it depends on&mdash;all the way to Python itself&mdash;needs to be available on your computer. This is conveniently accomplished with a package and environment management system called _Conda_.
 
 
-### Installation
+#### Installation
 
 1. Download a minimal installer for Conda, called _Miniconda_, from [docs.conda.io/en/latest/miniconda.html](https://docs.conda.io/en/latest/miniconda.html). Scroll down to _Windows installers_ and on the row _Python 3.8_, click the hyperlink "Miniconda3 Windows 64-bit".
 
@@ -42,12 +43,12 @@ A Python program called _MkDocs_ is used to generate the Docs CSC website from d
 
     Click "Install" and after it's completed click "Next". Then, unless you'd like to have the corresponding web pages opened for you ([this](https://conda.io/projects/conda/en/latest/user-guide/getting-started.html) and [this](https://www.anaconda.com/installation-success?source=installer), respectively), uncheck "Getting started with Conda" and "Welcome to Anaconda" before clicking "Finish".
 
-## Git for Windows
+### Git for Windows
 
 In order to "clone" the Docs CSC repository from (and later, to "push" your work back to) GitHub onto your computer, a tool called _Git_ is needed. For Windows, there exists a port of Git called _Git for Windows_.
 
 
-### Installation
+#### Installation
 
 1. Download the latest version of Git for Windows from [gitforwindows.org](https://gitforwindows.org/) by clicking the large button labeled "Download" on the front page.
 
@@ -92,21 +93,21 @@ In order to "clone" the Docs CSC repository from (and later, to "push" your work
     Click "Install" and after the installation has completed, uncheck "View Release Notes", then click "Finish".
 
 
-### Git Bash
+#### Git Bash
 
 You can find a shortcut for Git Bash in the Start menu. If you don't see it under Recently added, simply start typing `git bash` and sooner or later Windows will find it for you.
 
 ![Git Bash](docs/img/windows/git_bash.png)
 
 
-#### Hotkeys
+##### Hotkeys
 
 If you're used to using the clipboard with the hotkeys _Ctrl+C_ and _Ctrl+V_, these won't work in Git Bash. The corresponding hotkeys in Git Bash are _Ctrl+Insert_ for copy and _Shift+Insert_ for paste. **If you accidentally input _Ctrl+V_ in Git Bash with the intention of pasting text from the clipboard, you should hit the backspace key a couple of times before using the correct hotkey!** _Ctrl+C_, on the other hand, will send a keyboard interrupt signal that is often used to stop a running program, for example the MkDocs development server. You can access the context menu for clipboard copy and paste by clicking on Git Bash with the right mouse button.
 
 
-#### Setting up SSH authentication with GitHub
+##### Setting up SSH authentication with GitHub
 
-##### Storing your passphrase in KeePass 2
+###### Storing your passphrase in KeePass 2
 
 If you don't yet have a database for KeePass, you can create one by selecting _File -> New..._ and following the instructions there. To add a passphrase into your database, select _Entry -> Add entry..._ and input a "Title" (no need to input anything in the "User name" field). The "Password" field will hold your passphrase that KeePass has automatically generated one for you.
 
@@ -119,7 +120,7 @@ To make it even easier to input the passphrase on Git Bash, you can edit the aut
 After clicking "OK", the entry is added to your database. Remember to select _File -> Save_ to save the changes to disk.
 
 
-##### Generating an SSH key
+###### Generating an SSH key
 
 Git Bash should start in your home folder by default, but you can navigate there with the command (remember the [note about hotkeys](#hotkeys) if copy-pasting) 
 
@@ -157,7 +158,7 @@ Your public key has been saved in /c/Users/<your username>/.ssh/id_ed25519.pub
 of which the latter contains your _public key_ we'll be adding to your GitHub account momentarily. As a reminder, the former contains the _private key_ which should be kept secret at all times.
 
 
-##### Adding an SSH key to GitHub account
+###### Adding an SSH key to GitHub account
 
 For instructions on how to add the generated key&mdash;for authentication that is&mdash;to your GitHub account, see [instructions at GitHub Docs](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account?platform=windows&tool=webui). Note that the instructions use the convention of prefixing commands with a `$` to denote a prompt. That is to be left out when copy-pasting the command since it's already there in Git Bash, waiting for your command. In fact, there is only the one command in step 1, so we can just copy it here:
 
@@ -167,7 +168,7 @@ clip < ~/.ssh/id_ed25519.pub
 
 We'll be testing the SSH connection to GitHub after we set up something called `ssh-agent`.
 
-#### Associating your commits with your GitHub account
+##### Associating your commits with your GitHub account
 
 Follow the instructions at GitHub Docs for
 
@@ -175,7 +176,7 @@ Follow the instructions at GitHub Docs for
 - [Setting your username in Git](https://docs.github.com/en/get-started/getting-started-with-git/setting-your-username-in-git?platform=windows).
 
 
-#### Setting up `ssh-agent` and Conda
+##### Setting up `ssh-agent` and Conda
 
 Next, we'll follow [GitHub's instructions to set up `ssh-agent`](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/working-with-ssh-key-passphrases#auto-launching-ssh-agent-on-git-for-windows) so that you only need to input your passphrase when you open Git Bash. `ssh-agent` will then hold onto your passphrase for you for as long as it (`ssh-agent.exe`) is running. In addition, we need to set up Conda by running the `conda.sh` script from Conda's installation folder. If you didn't install Conda into the default folder, you need to edit the corresponding line. The following lines should go into a `.profile` file in the home folder. Now, run the command
 
@@ -247,7 +248,7 @@ ssh -T git@github.com
 ```
 
 
-## Running a local development server
+### Running a local development server
 
 The purpose of all of the above was to allow you to do the following. Start by "cloning" the Docs CSC GitHub repository onto your computer with
 
@@ -261,10 +262,10 @@ and then, navigate to the cloned repository
  cd csc-user-guide
  ```
 
-You should now be ready to follow the instructions on previewing your work [Locally using the MkDocs tool](FAQ.md#locally-using-the-mkdocs-tool).
+You should now be ready to follow the instructions on previewing your work [Locally using the MkDocs tool](FAQ.md#locally-using-the-mkdocs-tool) and other such documentation found at the root of this repository.
 
 
-## Uninstallation
+### Uninstallation
 
 Run the corresponding executable to uninstall Conda or Git for Windows:
 
@@ -405,7 +406,7 @@ git diff path/to/file
 For example, if you'd have changed the file you are reading right now, you'd see what you changed with a
 
 ```bash
-git diff WINDOWS.md
+git diff GETIING_STARTED.md
 ```
 
 The actual content is under the _docs_ folder, so `path/to/file` for, say, the _Linux basics for CSC_ tutorial would be `docs/support/tutorials/env-guide/index.md`.
@@ -485,7 +486,7 @@ git push origin my-branch-name
 ```
 
 
-### Checking the status of the tests
+#### Checking the status of the tests
 
 Every time a push is made, _Travis CI_ will automatically run the tests defined in the _tests_ folder.
 
