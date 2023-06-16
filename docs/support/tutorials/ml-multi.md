@@ -97,8 +97,18 @@ that you should now see statistics for more than one GPU.
 
 === "LUMI"
 
-    LUMI example coming soon!
-
+    ```bash
+    #!/bin/bash
+    #SBATCH --account=<project>
+    #SBATCH --partition=small-g
+    #SBATCH --ntasks=1
+    #SBATCH --cpus-per-task=15
+    #SBATCH --gpus-per-node=2
+    #SBATCH --mem=64G
+    #SBATCH --time=1:00:00
+    
+    srun python3 myprog.py <options>
+    ```
 
 The example above can be easily changed to more than 2 GPUs by
 changing the number specified in the `--gres` option (Puhti and Mahti)
@@ -149,8 +159,19 @@ exact).
 
 === "LUMI"
 
-    LUMI example coming soon!
-
+    ```bash
+    #!/bin/bash
+    #SBATCH --account=<project>
+    #SBATCH --partition=standard-g
+    #SBATCH --nodes=1
+    #SBATCH --ntasks-per-node=8
+    #SBATCH --cpus-per-task=7
+    #SBATCH --gpus-per-node=8
+    #SBATCH --mem=0
+    #SBATCH --time=1:00:00
+    
+    srun python3 myprog.py <options>
+    ```
 
 The option `--mem=0` means to reserve all memory in that node.
 
@@ -190,8 +211,19 @@ The option `--mem=0` means to reserve all memory in that node.
 
 === "LUMI"
 
-    LUMI example coming soon!
-
+    ```bash
+    #!/bin/bash
+    #SBATCH --account=<project>
+    #SBATCH --partition=standard-g
+    #SBATCH --nodes=2
+    #SBATCH --ntasks-per-node=1
+    #SBATCH --cpus-per-task=63
+    #SBATCH --gpus-per-node=8
+    #SBATCH --mem=0
+    #SBATCH --time=1:00:00
+    
+    srun python3 myprog.py <options>
+    ```
 
 Note that the `--gres` option always specifies the number of GPUs on a
 *single-node*, even in the multi-node case. So if we are reserving 8
@@ -234,8 +266,19 @@ GPUs across 2 nodes in Puhti, that is 4 GPUs on each node, i.e,
 
 === "LUMI"
 
-    LUMI example coming soon!
-
+    ```bash
+    #!/bin/bash
+    #SBATCH --account=<project>
+    #SBATCH --partition=standard-g
+    #SBATCH --nodes=2
+    #SBATCH --ntasks-per-node=8
+    #SBATCH --cpus-per-task=7
+    #SBATCH --gpus-per-node=8
+    #SBATCH --mem=0
+    #SBATCH --time=1:00:00
+    
+    srun python3 myprog.py <options>
+    ```
 
 ## Available frameworks
 
@@ -253,8 +296,8 @@ depending on if you are running a single- or multi-node job.
 
 All frameworks should use
 [NCCL](https://docs.nvidia.com/deeplearning/nccl/user-guide/docs/overview.html)
-(or [RCCL](https://github.com/ROCmSoftwarePlatform/rccl) for AMD) for
-fast inter-GPU communication, even if MPI is used to set up the
+(NVIDIA) or [RCCL](https://github.com/ROCmSoftwarePlatform/rccl) (AMD)
+for fast inter-GPU communication, even if MPI is used to set up the
 connections.
 
 
@@ -309,6 +352,26 @@ Example Slurm batch job for running PyTorch DDP on a single full node:
     module load pytorch
 
     srun python3 -m torch.distributed.run --standalone --nnodes=1 --nproc_per_node=4 \
+        myprog.py <options>
+    ```
+
+=== "LUMI"
+
+    ```bash
+    #!/bin/bash
+    #SBATCH --account=<project>
+    #SBATCH --partition=standard-g
+    #SBATCH --ntasks=1
+    #SBATCH --cpus-per-task=63
+    #SBATCH --gpus-per-node=8
+    #SBATCH --mem=0
+    #SBATCH --time=1:00:00
+    
+    module purge
+    module use /appl/local/csc/modulefiles
+    module load pytorch
+    
+    srun python3 -m torch.distributed.run --standalone --nnodes=1 --nproc_per_node=8 \
         myprog.py <options>
     ```
 
@@ -370,6 +433,42 @@ Example of running PyTorch DDP on 2 full nodes:
         myprog.py <options>
     ```
 
+=== "LUMI"
+
+    ```bash
+    #!/bin/bash
+    #SBATCH --account=<project>
+    #SBATCH --partition=standard-g
+    #SBATCH --nodes=2
+    #SBATCH --ntasks-per-node=1
+    #SBATCH --cpus-per-task=63
+    #SBATCH --gpus-per-node=8
+    #SBATCH --mem=0
+    #SBATCH --time=1:00:00
+    
+    export RDZV_HOST=$(hostname)
+    export RDZV_PORT=29400
+    
+    module purge
+    module use /appl/local/csc/modulefiles
+    module load pytorch
+
+    srun python3 -m torch.distributed.run \
+        --nnodes=$SLURM_JOB_NUM_NODES \
+        --nproc_per_node=8 \
+        --rdzv_id=$SLURM_JOB_ID \
+        --rdzv_backend=c10d \
+        --rdzv_endpoint="$RDZV_HOST:$RDZV_PORT" \
+        myprog.py <options>
+    ```
+
+If you are not using our PyTorch module on LUMI, you might need to set
+environment variable `NCCL_SOCKET_IFNAME=hsn` and some other settings
+to get optimal performance. See the [PyTorch example in the LUMI
+documentation for all the environment
+variables](https://docs.lumi-supercomputer.eu/software/packages/pytorch/#example). These
+are set automatically in the CSC PyTorch module.
+
 
 If you are converting an old PyTorch script there are a few steps that you need to do:
 
@@ -415,6 +514,163 @@ repository](https://github.com/CSCfi/pytorch-ddp-examples):
   shows the same for two full nodes, with a total of 8 GPUs
 
 
+### PyTorch Lightning with DDP
+
+[PyTorch Lightning](https://lightning.ai/) is a popular higher-level
+framework designed to make using PyTorch easier. Running multi-GPU and
+multi-node jobs with Lightning is quite easy. If you wish to convert
+your existing PyTorch script to Lightning, we will refer you to the
+[official PyTorch Lightning
+documentation](https://lightning.ai/docs/pytorch/stable/).
+
+
+We recommend using DistributedDataParallel (DDP) for multi-GPU and
+multi-node usage. You just need to add these options to your Lightning
+Trainer:
+
+```python
+trainer = pl.Trainer(devices=args.gpus,
+                     num_nodes=args.nodes,
+                     accelerator='gpu',
+                     strategy='ddp',
+                     ...)
+```
+
+You need to give appropriate values for `devices` (number of GPUs *per
+node*) and `num_nodes`. We suggest giving these are command line arguments:
+
+```python
+def main():
+    parser = argparse.ArgumentParser()
+
+    parser.add_argument('--gpus', default=1, type=int,
+                        help='number of GPUs per node')
+    parser.add_argument('--nodes', default=1, type=int,
+                        help='number of nodes')
+    # any other command line arguments here
+    args = parser.parse_args()
+```
+
+PyTorch Lightning Slurm script for single node using all GPUs:
+
+=== "Puhti"
+
+    ```bash
+    #!/bin/bash
+    #SBATCH --account=<project>
+    #SBATCH --partition=gpu
+    #SBATCH --nodes=1
+    #SBATCH --ntasks-per-node=4
+    #SBATCH --cpus-per-task=10
+    #SBATCH --mem=0
+    #SBATCH --time=1:00:00
+    #SBATCH --gres=gpu:v100:4
+    
+    module purge
+    module load pytorch
+
+    srun python3 myprog.py --gpus=4 --nodes=1 <options>
+    ```
+
+=== "Mahti"
+
+    ```bash
+    #!/bin/bash
+    #SBATCH --account=<project>
+    #SBATCH --partition=gpumedium
+    #SBATCH --nodes=1
+    #SBATCH --ntasks-per-node=4
+    #SBATCH --cpus-per-task=32
+    #SBATCH --time=1:00:00
+    #SBATCH --gres=gpu:a100:4
+
+    module purge
+    module load pytorch
+    
+    srun python3 myprog.py --gpus=4 --nodes=1 <options>
+    ```
+
+=== "LUMI"
+
+    ```bash
+    #!/bin/bash
+    #SBATCH --account=<project>
+    #SBATCH --partition=standard-g
+    #SBATCH --nodes=1
+    #SBATCH --ntasks-per-node=8
+    #SBATCH --cpus-per-task=7
+    #SBATCH --gpus-per-node=8
+    #SBATCH --mem=0
+    #SBATCH --time=1:00:00
+
+    module purge
+    module use /appl/local/csc/modulefiles
+    module load pytorch
+
+    srun python3 myprog.py --gpus=8 --nodes=1 <options>
+    ```
+
+<br/>
+PyTorch Lightning Slurm script for two full nodes using all GPUs:
+
+=== "Puhti"
+
+    ```bash
+    #!/bin/bash
+    #SBATCH --account=<project>
+    #SBATCH --partition=gpu
+    #SBATCH --nodes=2
+    #SBATCH --ntasks-per-node=4
+    #SBATCH --cpus-per-task=10
+    #SBATCH --mem=0
+    #SBATCH --time=1:00:00
+    #SBATCH --gres=gpu:v100:4
+    
+    module purge
+    module load pytorch
+    
+    srun python3 myprog.py --gpus=4 --nodes=2 <options>
+    ```
+
+=== "Mahti"
+
+    ```bash
+    #!/bin/bash
+    #SBATCH --account=<project>
+    #SBATCH --partition=gpumedium
+    #SBATCH --nodes=2
+    #SBATCH --ntasks-per-node=4
+    #SBATCH --cpus-per-task=32
+    #SBATCH --time=1:00:00
+    #SBATCH --gres=gpu:a100:4
+    
+    module purge
+    module load pytorch
+
+    srun python3 myprog.py --gpus=4 --nodes=2 <options>
+    ```
+
+=== "LUMI"
+
+    ```bash
+    #!/bin/bash
+    #SBATCH --account=<project>
+    #SBATCH --partition=standard-g
+    #SBATCH --nodes=2
+    #SBATCH --ntasks-per-node=8
+    #SBATCH --cpus-per-task=7
+    #SBATCH --gpus-per-node=8
+    #SBATCH --mem=0
+    #SBATCH --time=1:00:00
+    
+    module purge
+    module use /appl/local/csc/modulefiles
+    module load pytorch
+
+    srun python3 myprog.py --gpus=8 --nodes=2 <options>
+    ```
+
+
 ### DeepSpeed
 
 [DeepSpeed](https://www.deepspeed.ai/) is an optimization software
@@ -441,7 +697,7 @@ Example of running DeepSpeed on a single full node using the
     module purge
     module load pytorch
     
-    srun singularity_wrapper exec deepspeed myprog.py \
+    srun apptainer_wrapper exec deepspeed myprog.py \
         --deepspeed --deepspeed_config my_ds_config.json \
         <further options>
     ```
@@ -458,6 +714,27 @@ Example of running DeepSpeed on a single full node using the
     #SBATCH --gres=gpu:a100:4
 
     module purge
+    module load pytorch
+
+    srun apptainer_wrapper exec deepspeed myprog.py \
+        --deepspeed --deepspeed_config my_ds_config.json \
+        <further options>
+    ```
+
+=== "LUMI"
+
+    ```bash
+    #!/bin/bash
+    #SBATCH --account=<project>
+    #SBATCH --partition=standard-g
+    #SBATCH --ntasks=1
+    #SBATCH --cpus-per-task=63
+    #SBATCH --gpus-per-node=8
+    #SBATCH --mem=0
+    #SBATCH --time=1:00:00
+
+    module purge
+    module use /appl/local/csc/modulefiles
     module load pytorch
 
     srun singularity_wrapper exec deepspeed myprog.py \
@@ -510,6 +787,29 @@ separate task for each GPU:
         --deepspeed --deepspeed_config my_ds_config.json \
         <further options>
     ```
+
+=== "LUMI"
+
+    ```bash
+    #!/bin/bash
+    #SBATCH --account=<project>
+    #SBATCH --partition=standard-g
+    #SBATCH --nodes=2
+    #SBATCH --ntasks-per-node=8
+    #SBATCH --cpus-per-task=7
+    #SBATCH --gpus-per-node=8
+    #SBATCH --mem=0
+    #SBATCH --time=1:00:00
+
+    module purge
+    module use /appl/local/csc/modulefiles
+    module load pytorch
+
+    srun python3 myprog.py \
+        --deepspeed --deepspeed_config my_ds_config.json \
+        <further options>
+    ```
+
 
 If you are converting an old PyTorch script there are a few steps that
 you need to do:
