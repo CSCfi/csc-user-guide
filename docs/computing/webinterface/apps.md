@@ -10,10 +10,3 @@ On that page you will be able to connect to the app.
 Note that apps keep running and consuming resources even if you close the tab for the app session.
 To stop the app you can delete the session in the interactive sessions page.
 
-## Available apps
- - [Desktop](./desktop.md)
- - [Jupyter](./jupyter.md)
- - [MATLAB](./matlab.md)
- - [RStudio](./rstudio.md)
- - [TensorBoard](./tensorboard.md)
- - [Visual Studio Code](./vscode.md)
