@@ -6,16 +6,25 @@ guide](ml-guide.md).
 
 ## Where to store data?
 
-Puhti and Mahti have three types of shared disk areas: **home**, **projappl**
-and **scratch**. You can [read more about the disk areas
-here](../../computing/disk.md). In general, keep your code and software in
-**projappl** and datasets, logs and calculation outputs in **scratch**. The
-**home** directory is not intended for data analysis and computing, and you
-should only store small personal files there.
+CSC's supercomputers have three types of shared disk areas: **home**,
+**projappl** and **scratch**. You can [read more about the disk areas
+here](../../computing/disk.md). For [LUMI check the data storage
+section here](https://docs.lumi-supercomputer.eu/storage/). In
+general, keep your code and software in **projappl** and datasets,
+logs and calculation outputs in **scratch**. The **home** directory is
+not intended for data analysis and computing, and you should only
+store small personal files there.
+
+In addition, [LUMI has a shared **flash** storage
+area](https://docs.lumi-supercomputer.eu/storage/) which is faster to
+access than scratch. Flash is meant only for temporary storing the
+data for processing, and the [flash area has higher cost than using
+normal scratch
+storage](https://docs.lumi-supercomputer.eu/runjobs/lumi_env/billing/#flash-storage-lumi-f-billing).
 
 It is recommended to store big datasets in the [Allas object
-store](../../data/Allas/index.md), and download them to your project's scratch
-directory prior to starting your computation. For example:
+store](../../data/Allas/index.md), and download them to your project's
+scratch directory prior to starting your computation. For example:
 
 ```bash
 module load allas
@@ -25,16 +34,17 @@ swift download <bucket-name> your-dataset.tar
 ```
 
 Anything that needs to be stored for a longer time (project life-time)
-should be copied back to Allas. The scratch disk area will be
-regularly cleaned of old files, and should not be used to store
+should be copied back to Allas. The [scratch disk area will be
+regularly cleaned of old files](clean-up-data.md), and should not be used to store
 anything important long-term.
 
-Some CPU nodes and all GPU nodes also have fast local NVMe drives with at least
-3.6 TB disk space. This space is available only during the execution of the
-Slurm job, and is cleaned up afterwards. For data intensive jobs it is often
-worthwhile to copy the data to the NVMe at the start of the job and then to
-store the final results on the scratch drive at the end of the job. [See below
-for more information on how to use the fast local NVMe
+Some CPU nodes and all GPU nodes on Puhti and Mahti (but *not* LUMI)
+also have fast local NVMe drives with at least 3.6 TB disk space. This
+space is available only during the execution of the Slurm job, and is
+cleaned up afterwards. For data intensive jobs it is often worthwhile
+to copy the data to the NVMe at the start of the job and then to store
+the final results on the scratch drive at the end of the job. [See
+below for more information on how to use the fast local NVMe
 drive](#fast-local-drive).
 
 
@@ -82,15 +92,16 @@ much more efficient to access and read sequentially. Don't hesitate to
 to access your data more efficiently.
 
 
-### Fast local drive
+### Fast local drive (Puhti and Mahti only)
 
-If you really need to access the individual small files, you can use the fast NVMe
-local drive that is present in every GPU node. In brief, you just need to add
-`nvme:<number-of-GB>` to the `--gres` flag in your submission script, and then
-the fast local storage will be available in the location specified by the
-environment variable `$LOCAL_SCRATCH`. Here is an example run that reserves 100
-GB of the fast local drive and extracts the dataset tar-package on that drive
-before launching the computation:
+If you really need to access the individual small files, you can use
+the fast NVMe local drive that is present in GPU nodes on Puhti and
+Mahti. In brief, you just need to add `nvme:<number-of-GB>` to the
+`--gres` flag in your submission script, and then the fast local
+storage will be available in the location specified by the environment
+variable `$LOCAL_SCRATCH`. Here is an example run that reserves 100 GB
+of the fast local drive and extracts the dataset tar-package on that
+drive before launching the computation:
 
 ```bash
 #!/bin/bash
