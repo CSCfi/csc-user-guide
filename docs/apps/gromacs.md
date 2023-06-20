@@ -45,7 +45,7 @@ systems. It also comes with plenty of analysis scripts.
     |:-------:|:------------------|:-----:|
     |2022.5   |`gromacs/2022.5`<br>`gromacs/2022.5-plumed`|Module with Plumed available
     |2023     |`gromacs/2023-dev-rocm`|Unofficial GPU-enabled fork developed by AMD[^1]
-    |2023.1   |`gromacs/2023.1`<br>`gromacs/2023.1-hipsycl`|Official GPU-enabled module available (hipSYCL)
+    |2023.1   |`gromacs/2023.1`<br>`gromacs/2023.1-hipsycl`<br>`gromacs/2023.1-heffte`|Official GPU-enabled module available (hipSYCL)
 
     [^1]: This module is unvalidated, unmaintained and unsupported by the Gromacs team. Proceed with caution!
 
@@ -330,6 +330,21 @@ node. Importantly, the amount of GPU nodes on LUMI is massively larger than on M
     many trajectories per GCD. This can be accomplished using the built-in multidir
     feature of Gromacs. For more details about GPU-sharing and aggregate sampling, see our
     [tutorial on high-throughput simulations with Gromacs](../support/tutorials/gromacs-throughput.md).
+
+#### PME decomposition
+
+Scaling of huge systems with several millions atoms may be limited by single GPU PME. To
+significantly improve the scaling, PME decomposition to multiple GPUs is enabled in the
+`gromacs/2023.1-heffte` module with the [HeFFTe library](https://icl-utk-edu.github.io/heffte/)
+linked. Add the following exports to the batch script above:
+
+```bash
+export GMX_GPU_PME_DECOMPOSITION=1
+export GMX_PMEONEDD=1
+```
+
+The number of PME ranks to use depends on the system, but 1 or 2 per GPU *node* should
+be a reasonable starting point. So for 16 LUMI-G nodes, use `-npme 16` or `-npme 32`.
 
 ### Visualizing trajectories and graphs
 

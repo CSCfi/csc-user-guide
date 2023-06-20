@@ -52,3 +52,5 @@
 *[HTTP]: Hypertext Transfer Protocol
 *[HTTPS]: Hypertext Transfer Protocol Secure
 *[SQL]: Structured Query Language
+*[GCD]: Graphics Compute Die
+*[PME]: Particle-Mesh Ewald
