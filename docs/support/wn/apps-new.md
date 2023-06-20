@@ -1,5 +1,9 @@
 # Applications
 
+## R 4.3.0 in r-env, 20.6.2023
+	
+R version 4.3.0 is now available in `r-env` and is set as the default version. The new version will also be available in RStudio in the Puhti web interface shortly.
+
 ## Gromacs 2023.1 available on LUMI, 7.6.2023
 
 CPU and GPU versions of Gromacs 2023.1 have been installed on LUMI. Notably, the
