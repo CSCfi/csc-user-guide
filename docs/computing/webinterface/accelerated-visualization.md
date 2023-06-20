@@ -7,7 +7,6 @@ The Accelerated visualization app enables using visualization applications with 
 * [Blender](../../../support/tutorials/blender-tutorial/)
 * [COMSOL](../../apps/comsol.md)
 * [ParaView](../../apps/paraview.md)
-* [Visit](../../apps/visit.md)
 * [VMD](../../apps/vmd.md)
 
 ## Launching

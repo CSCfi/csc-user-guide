@@ -1,6 +1,6 @@
 # MATLAB
 
-The app will start a MATLAB session with the specified resources.
+The app will start a MATLAB session on Puhti with the specified resources.
 Currently, only the R2021b release with Parallel Computing and Compiler SDK toolboxes is installed.
 
 In addition to computing resources, partition and project, there is an **optional** "License file" field.

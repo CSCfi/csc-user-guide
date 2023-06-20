@@ -268,3 +268,152 @@ Run the corresponding executable to uninstall Conda or Git for Windows:
 
 - `C:\Users\<your username>\AppData\Local\miniconda3\Uninstall-Miniconda3.exe`
 - `C:\Users\<your username>\AppData\Local\Programs\Gitunins000.exe`
+
+
+## A simple Git workflow example
+
+Have a look at a [relevant xkcd](https://xkcd.com/1597/) for steps to take if something goes wrong.
+
+Clone the Docs repository (if not cloned yet):
+
+```bash
+git clone git@github.com:CSCfi/csc-user-guide.git
+```
+
+Navigate to the directory:
+
+```bash
+cd csc-user-guide
+```
+
+Create the Conda environment (if not created yet):
+
+```bash
+conda env create -f docs/support/tutorials/conda/conda-docs-env-1.2.yaml
+```
+
+Activate the environment:
+
+```bash
+conda activate docs-env
+```
+
+Run the development server:
+
+```bash
+mkdocs serve
+```
+
+or
+
+```bash
+mkdocs serve --dirtyreload
+```
+
+Point a web browser to `localhost:8000`.
+
+If you want to leave MkDocs running, open a new Git Bash window and again navigate to the directory:
+
+```bash
+cd csc-user-guide
+```
+
+Check that you are on the _master_ branch with git-status:
+
+```bash
+git status
+```
+
+and `git switch master` if not and you wish to work on a new branch.
+
+Fast-forward the master branch to the latest commit:
+
+```bash
+git pull origin master
+```
+
+Branch off of the latest commit on master with Git switch (replace `my-branch-name`):
+
+```bash
+git switch --create my-branch-name
+```
+
+The main point of this is to edit the files using the tools you prefer and that if you left MkDocs running, it will reload the when you save a file you've edited. This happens quicker with the `--dirtyreload` option enabled.
+
+Check which files you've changed:
+
+```bash
+git status
+```
+
+Check what you changed in the files:
+
+```bash
+git diff
+```
+
+or, for a single file (replace `path/to/file`):
+
+```bash
+git diff path/to/file
+```
+
+Stage the changes you've made:
+
+```bash
+git add .
+```
+
+or, just a single file (replace `path/to/file`):
+
+```bash
+git add path/to/file
+```
+
+Check which changes you've staged:
+
+```bash
+git status
+```
+
+Check what the staged changes were:
+
+```bash
+git diff --staged
+```
+
+Unstage file (replace `path/to/file`):
+
+```bash
+git restore --staged path/to/file
+```
+
+Be careful with Git restore without the `--staged` option and. You can lose your unstaged changes.
+
+Commit the staged changes (replace `Why I made these changes`):
+
+```bash
+git commit -m "Why I made these changes"
+```
+
+or, to write the commit message with the default editor:
+
+```bash
+git commit
+```
+
+then save the file and exit the editor to input your commit message.
+
+Check what happened to the branch with Git log (replace the `9` in `-9` to get more/less commits or remove `--oneline` to increase verbosity):
+
+```bash
+git log --oneline -9
+```
+
+Push your branch to GitHub (replace `my-branch-name`):
+
+```bash
+git push origin my-branch-name
+```
+
+Look for your [branch on Travis CI](https://app.travis-ci.com/github/CSCfi/csc-user-guide/branches) or create a pull request on GitHub and look for your [pull request on Travis CI](https://app.travis-ci.com/github/CSCfi/csc-user-guide/pull_requests). Local tests don't work in Git Bash without further configuration.
