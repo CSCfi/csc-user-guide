@@ -626,7 +626,7 @@ println.(outputs)
     #SBATCH --nodes=1
     #SBATCH --ntasks-per-node=1
     #SBATCH --cpus-per-task=16
-    #SBATCH --gpus-per-task=1
+    #SBATCH --gpus-per-node=1
     #SBATCH --mem-per-cpu=1750
 
     module load julia-amdgpu/1.9
