@@ -53,4 +53,3 @@
 *[HTTPS]: Hypertext Transfer Protocol Secure
 *[SQL]: Structured Query Language
 *[REPL]: Read–eval–print loop
-*[LLVM]: A collection of modular and reusable compiler and toolchain technologies
