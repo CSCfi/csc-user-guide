@@ -38,6 +38,7 @@
 * [What directory I should use to analyse a large numbers of small files?](local_scratch_for_data_processing.md)
 * [How can I install my own software?](how-to-install-own-software.md)
 * [How do the project and scratch file permissions work?](how-do-the-project-file-permissions-work.md)
+* [How does LUMI-C differ from Mahti?](../../computing/lumi-vs-mahti.md)
 
 ## Allas
 

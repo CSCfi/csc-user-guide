@@ -1,5 +1,5 @@
 # Visual Studio Code
-The Visual Studio Code interactive app can be used for editing and running code on Puhti.
+The Visual Studio Code interactive app can be used for editing and running code on Puhti or Mahti.
 Make sure to load the correct modules before launching the session for the debugger to work correctly.
 
 ## Extensions
@@ -17,7 +17,7 @@ To install the extension:
 
 1. Download the extension `.vsix` from [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools).
 Select the *Linux x64* version.
-2. Upload `ms-vscode.cpptools-1.x.x@linux-x64.vsix` to Puhti, for example using the file browser in the web interface.
+2. Upload `ms-vscode.cpptools-1.x.x@linux-x64.vsix` to Puhti or Mahti, for example using the file browser in the web interface.
 3. In the extensions tab in VS Code, click the three dots at the top to open a menu.
 4. Click *Install from VSIX...*  
 ![](../../img/ood-vscode-install-cpptools.png).

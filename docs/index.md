@@ -26,10 +26,12 @@
     >User guides and tutorials</h2>
 </div>
 
+<!--
 <center>
-  [![BioExcel Summer School on Biomolecular Simulations 2023](img/banners/bioexcel-summer-school-on-biomolecular-simulations-2023.png){ width=75% }
-  ](https://ssl.eventilla.com/bioexcel_summer_school2023/){ target=_blank }
+  [![A description of the banner](img/banners/example-banner.png){ width=80% }
+  ](https://example.org/courses/example-course/){ target=_blank }
 </center>
+-->
 
 !!! default "Overview"
 

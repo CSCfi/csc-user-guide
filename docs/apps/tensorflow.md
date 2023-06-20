@@ -157,7 +157,7 @@ a single node:
     #SBATCH --time=1:00:00
     #SBATCH --gres=gpu:v100:1
     
-    module load tensorflow/2.10
+    module load tensorflow/2.12
     srun python3 myprog.py <options>
     ```
     
@@ -171,7 +171,7 @@ a single node:
     #SBATCH --time=1:00:00
     #SBATCH --gres=gpu:a100:1
     
-    module load tensorflow/2.10
+    module load tensorflow/2.12
     srun python3 myprog.py <options>
     ```
 
@@ -181,15 +181,13 @@ a single node:
     #SBATCH --account=<project>
     #SBATCH --partition=small-g
     #SBATCH --ntasks=1
-    #SBATCH --cpus-per-task=8
+    #SBATCH --cpus-per-task=7
     #SBATCH --gpus-per-node=1
     #SBATCH --mem=64G
     #SBATCH --time=1:00:00
     
-    export SRUN_CPUS_PER_TASK=$SLURM_CPUS_PER_TASK
-
     module use /appl/local/csc/modulefiles/
-    module load tensorflow/2.10
+    module load tensorflow/2.11
     srun python3 myprog.py <options>
     ```
 

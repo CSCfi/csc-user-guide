@@ -9,11 +9,12 @@ tags:
 
 ## Available
 
-GDAL is available in Puhti with following versions:
+GDAL is available with following versions:
 
-* 3.5.0 - [geoconda-3.10.6](geoconda.md)
-* 3.4.3 stand-alone: `gdal`
-* Also in: [r-env](r-env-for-gis.md#gdal-and-saga-gis-support) and [OrfeoToolBox](otb.md)
+* 3.5.0 - [geoconda-3.10.6](geoconda.md) in Puhti
+* 3.4.3 stand-alone: `gdal` in Puhti
+* 3.4.1 - [QGIS-3.31 module](qgis.md) in Puhti and LUMI
+* Also in Puhti: [r-env](r-env-for-gis.md#gdal-and-saga-gis-support) and [OrfeoToolBox](otb.md)
 
 !!! note
     The stand-alone version doesn't have python bindings installed so e.g __gdal_calc__ works only in the geoconda installations. Also, the supported file formats vary slightly between the GDAL installations. For instance, the PostGIS driver is not available in stand-alone gdal but is included in the geoconda versions.
@@ -22,9 +23,7 @@ GDAL is available in Puhti with following versions:
 
 ### Using GDAL
 
-GDAL is included in the modules listed above, so it can be used when any of these modules is loaded, or it can be loaded separately with:
-
-`module load geoconda`
+GDAL is included in the modules listed above, so it can be used when any of these modules is loaded.
 
 If you need to use a stand-alone version of GDAL or plan to build software on top of GDAL, you can load GDAL with
 
@@ -51,16 +50,16 @@ It is possible to __read__ files from Allas directly with GDAL, but not to write
  * [R](r-env-for-gis.md): sf, raster. [Example](https://github.com/csc-training/geocomputing/blob/master/R/allas/working_with_allas_from_R_S3.R). 
  * [QGIS](qgis.md)
 
-Reading data directly from Allas is slower than reading from scratch or other Puhti lustre disks, for example reading a ~500 Mb files from scratch takes ~1 second, but from Allas ~10 seconds. In most cases still comapered to full duration of an analysis in Puhti, these seconds are not important.
+Reading data directly from Allas is slower than reading from scratch or other supercomputer lustre disks, for example reading a ~500 Mb files from scratch takes ~1 second, but from Allas ~10 seconds. In most cases still compared to full duration of an analysis, these seconds are not important.
 
 __Public files__ in Allas can be read with [`vsicurl`](https://gdal.org/user/virtual_file_systems.html#vsicurl):  
 ```
 gdalinfo /vsicurl/https://a3s.fi/<name_of_your_bucket>/<name_of_your_file>
 ```
 
-__Private files__ can be read by SWIFT or S3 API. SWIFT is more secure, but the credetials need to be updated after 8 hours. S3 has permanent keys, is therefore little bit easier to use, but less secure. Both of these have a random reading and streaming API.
+__Private files__ can be read by SWIFT or S3 API. SWIFT is more secure, but the credentials need to be updated after 8 hours. S3 has permanent keys, and is therefore little bit easier to use, but less secure. Both of these have a random reading and streaming API.
 
-__SWIFT.__ Set up the connection in Puhti and then read the files  with [`vsiswift`-driver](https://gdal.org/user/virtual_file_systems.html#vsiswift-openstack-swift-object-storage-random-reading):
+__SWIFT.__ Set up the connection in Puhti and then read the files with [`vsiswift`-driver](https://gdal.org/user/virtual_file_systems.html#vsiswift-openstack-swift-object-storage-random-reading):
 
 ```
 module load allas
