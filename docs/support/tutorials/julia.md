@@ -1,5 +1,5 @@
-# Running Julia jobs on Puhti, Mahti and LUMI clusters
-Instructions for running serial, parallel, and GPU jobs with Julia on Puhti, Mahti and LUMI clusters.
+# Running Julia jobs on Puhti, Mahti, and LUMI clusters
+Instructions for running serial, parallel, and GPU jobs with Julia on Puhti, Mahti, and LUMI clusters.
 
 [TOC]
 
@@ -87,9 +87,9 @@ for i in 1:n                   # uses one Julia thread
 end
 ```
 
-Alternatively, we can use MKL backend via [MKL.jl](https://github.com/JuliaLinearAlgebra/MKL.jl) as linear algebra backend.
-MKL is often faster than OpenBLAS when using multiple threads on Intel CPUs such as those on Puhti.
-We can set MKL thread count as follows.
+Alternatively, we can use the MKL backend via [MKL.jl](https://github.com/JuliaLinearAlgebra/MKL.jl) as a linear algebra backend.
+MKL is often faster than OpenBLAS when using multiple threads on Intel CPUs, such as those on Puhti.
+We can set the MKL thread count as follows.
 
 ```bash
 export MKL_NUM_THREADS=$JULIA_CPU_THREADS
@@ -140,8 +140,9 @@ nodes = readlines(`scontrol show hostnames $(ENV["SLURM_JOB_NODELIST"])`)
 
 We can use these nodenames when adding processes using `SSHManager`.
 
-!!! info "LUMI does not have SSH between compute nodes"
-    Currently, LUMI does not have SSH between compute notes, hence we cannot add processes to other nodes via SSHManager.
+!!! info "LUMI does not have SSH between compute nodes."
+    Currently, LUMI does not have SSH between compute notes.
+    Hence we cannot add processes to other nodes via SSHManager.
 
 
 ### MPI.jl
