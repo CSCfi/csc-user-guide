@@ -292,8 +292,8 @@ a-flip copies a file to Allas into a bucket that can be publicly accessed. Thus,
 uploaded data object can read and download the data with a web browser or tools like _wget_ and _curl_. 
 a-flip works similarly to a-publish with some differences:
 
-    1) Only the predefined bucket name (_username-projectNumber_-flip) can be used.
-    2) Upon execution, it checks the content of the flip bucket and deletes objects that are older than two days.
+1. Only the predefined bucket name (_username-projectNumber_-flip) can be used.
+1. Upon execution, it checks the content of the flip bucket and deletes objects that are older than two days.
 
 The basic syntax:
 ```text
