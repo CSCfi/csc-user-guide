@@ -130,8 +130,8 @@ for it from CSC.
 ------------------------------------------------------------------------
 ## ArcGIS in CSC's computing environment
 
-*   ArcGIS desktop tools ArcGIS Pro and ArcMap are available only for Windows operating system, which makes installing them impossible in CSC's supercomputers and very difficult in cPouta cloud, because of limited support of Windows in cPouta.
-*   ESRI provides [a wide range of server products](https://enterprise.arcgis.com/en/server/latest/get-started/windows/about-arcgis-server-licensing-roles.htm) for big scale spatial data analysis. These ArcGIS server products usually support Linux operating system can be installed to cPouta.
+*   ArcGIS desktop tools ArcGIS Pro and ArcMap are available only for Windows operating system, which makes installing them impossible in CSC's supercomputers and very difficult in cPouta cloud, which has limited support for Windows.
+*   ESRI provides [a wide range of server products](https://enterprise.arcgis.com/en/server/latest/get-started/windows/about-arcgis-server-licensing-roles.htm) for large scale spatial data analysis. These ArcGIS server products usually support Linux operating system and can be installed to cPouta.
 *   For running [ArcPy scripts](https://pro.arcgis.com/en/pro-app/latest/arcpy/get-started/what-is-arcpy-.htm) in CSC computing environment, the best option is to install ArcGIS Server with ArcPy to cPouta. ArcGIS Server ArcPy might be slightly different than ArcGIS desktop ArcPy. The installation instructions can be found from [GitHub](https://github.com/csc-training/geocomputing/tree/master/pouta/arcpy).
 *   [ArcGIS Python API](https://developers.arcgis.com/python/) is available in Puhti as module `arcgis-python-api`. The module is based on [ESRI's arcgis_learn metapackage](https://developers.arcgis.com/python/guide/deep-learning) and includes also packages for deep learning. See [ESRI's ArcGIS Python API samples](https://developers.arcgis.com/python/samples/) for ideas and code examples. Some parts of ArcGIS Python API require logging in to your home organization's ArcGIS Online.
 
