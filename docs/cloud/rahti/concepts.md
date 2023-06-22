@@ -116,6 +116,36 @@ pods at all times.
 
 ![Deployment](img/deployment.png)
 
+*`deployment.yaml`*:
+```yaml
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: deployment-name
+spec:
+  selector:
+    matchLabels:
+      app: deployment-name
+  template:
+    metadata:
+      labels:
+        app: deployment-labels
+    spec:
+      containers:
+      - name: pod
+        image: <your_image>
+      volumeMounts:
+      - mountPath: /path/to/folder/
+        name: pvc
+      ports:
+      - containerPort: xx
+        protocol: TCP
+      volumes:
+      - name: vol
+        persistentVolumeClaim:
+          claimName: pvc
+```
+
 ### InitContainer
 
 _InitContainer_ is a container in a pod that is intended run to completion before
