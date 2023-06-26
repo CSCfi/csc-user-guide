@@ -226,7 +226,7 @@ export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
 srun gmx_mpi mdrun -s topol -maxh 0.2 -dlb yes
 ```
 
-### Example batch script for LUMI – single GCD
+### Example batch script for LUMI – single GCD <a name="lumi"></a>
 
 ```bash
 #!/bin/bash
