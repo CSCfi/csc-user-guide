@@ -340,7 +340,7 @@ nav:
   - Sensitive data:
      - Sensitive research data: 
        - Introduction: data/sensitive-data/intro.md
-          - Overview:
+          - Overview: data/sensitive-data/intro.md
           - Terminology:
        - Accessing SD Services: data/sensitive-data/sd-access.md
           - Creating a project:
