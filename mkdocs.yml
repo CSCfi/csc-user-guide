@@ -341,36 +341,39 @@ nav:
      - Sensitive research data: 
        - Introduction: data/sensitive-data/intro.md
           - Overview: data/sensitive-data/intro.md
-          - Terminology:
+          - Terminology: data/sensitive-data/intro.md
        - Accessing SD Services: data/sensitive-data/sd-access.md
-          - Creating a project:
-          - Billing units:
+          - Creating a project: data/sensitive-data/intro.md
+          - Billing units: data/sensitive-data/intro.md
        - Store with SD Connect: data/sensitive-data/sd_connect.md
-          - Overview:
+          - Overview: data/sensitive-data/intro.md
           ## + key features + authentication
-          - Page map:
-          - Data encryption and upload:
+          ## legal agreements, data retention policy??
+          - Page map: data/sensitive-data/intro.md
+          - Data encryption and upload: data/sensitive-data/intro.md
           ## Less than 1 GB of data (ecryption and upload for analysys, encryption ans upload for storage and sharing) Up to 100 GB of data
           ## Command line encryption and upload, data encryption and upload with allas help tool: a-put
-          - Data sharing:
-          - Data decryption and download:
-          - Storage space:
-          ## alunperin introssa
-          - Troubleshooting:
+          - Data management: data/sensitive-data/intro.md
+          ##Data decryption and download, sharing, search, own encryption keys, Storage space
+          - Programmatic??: data/sensitive-data/intro.md
+          ##upload, download, share, crypt4gh CLI??
+          - Troubleshooting: data/sensitive-data/intro.md
        - Analyse with SD Desktop: data/sensitive-data/sd_desktop.md
-          - Overview: ## authentication + key features
-          - Creating a virtual desktop:
-          - Working with a virtual desktop:
-          - managing a virtual deskop: 
+          - Overview: data/sensitive-data/intro.md
+          ## authentication + key features
+          - Creating a virtual desktop: data/sensitive-data/intro.md
+          - Working with a virtual desktop:data/sensitive-data/intro.md
           ## pausing and restarting, rebooting and restarting, detaching and reattaching a volume, deleting a desktop
-          - Accessing encrypted sensitive data from SD Connect:
+          - Accessing data from SD Connect: data/sensitive-data/intro.md
           ## Data gateway, importing data, Reuse published sata via SD Apply
-          - Accessing RStrudio:
-          - Available programs:
-          ## Pre-installed software, scientific software, software customisation
-          - data export:
-          - troubleshooting:
-       - Publish genetic data with Federated EGA: data/sensitive-data/intro.md
+          - Accessing RStrudio: data/sensitive-data/intro.md
+          - Available programs: data/sensitive-data/intro.md
+          ## Pre-installed software, scientific software, software customisation with containers/interface??
+          - HPC???: data/sensitive-data/intro.md
+          - data export: data/sensitive-data/intro.md
+          - troubleshooting: data/sensitive-data/intro.md
+       - Publish genetic data with FEGA: data/sensitive-data/intro.md
+       - SD Apply: data/sensitive-data/intro.md
        - Tutorials: data/sensitive-data/intro.md
      - Secondary use of health and social data:
        - Findata permit: data/sensitive-data/intro.md
