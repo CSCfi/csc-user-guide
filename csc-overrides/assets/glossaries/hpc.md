@@ -52,5 +52,6 @@
 *[HTTP]: Hypertext Transfer Protocol
 *[HTTPS]: Hypertext Transfer Protocol Secure
 *[SQL]: Structured Query Language
+*[REPL]: Read–Eval–Print Loop
 *[GCD]: Graphics Compute Die
 *[PME]: Particle-Mesh Ewald
