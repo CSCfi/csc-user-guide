@@ -365,8 +365,8 @@ nav:
        - SD Desktop: 
           - Overview: data/sensitive-data/intro.md
           ## authentication + key features
-          - Create: data/sensitive-data/intro.md
-          - Manage: data/sensitive-data/intro.md
+          - Create desktop: data/sensitive-data/intro.md
+          - Manage desktop: data/sensitive-data/intro.md
           ## pausing and restarting, rebooting and restarting, detaching and reattaching a volume, deleting a desktop
           - Access data: data/sensitive-data/intro.md
           ## Data gateway, importing data, Reuse published sata via SD Apply
