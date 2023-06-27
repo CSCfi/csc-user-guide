@@ -106,6 +106,9 @@ If you're used to using the clipboard with the hotkeys _Ctrl+C_ and _Ctrl+V_, th
 
 You can change the default behaviour by right-clicking on the Window title and selecting Options. Click on Mouse in the left pane where you could, e.g., set thePaste to occur upon right clicking in the terminal. Note that selecting any text in the terminal automatically copies it, so you do not actually need to explicitly use the Copy hotkey. 
 
+    ![Git for Windows - mouse settings](docs/img/windows/git_for_windows_mouse.png)
+
+
 ##### Setting up SSH authentication with GitHub
 
 ###### Storing your passphrase in KeePass 2
