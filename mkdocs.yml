@@ -338,30 +338,31 @@ nav:
         # Python MySQL API at CSC:
   # data/Allas/using_allas/directory_object_error.md is not linked in this structure
   - Sensitive data:
-     - Sensitive research data: 
-       - Introduction:
+     - Introduction: 
           - data/sensitive-data/sd_connect.md
           - Overview: data/sensitive-data/sd_connect.md
           - Terminology: data/sensitive-data/intro.md
+     - Sensitive research data: 
        - Accessing SD Services: 
           - data/sensitive-data/sd_connect.md
           - Creating a project: data/sensitive-data/intro.md
           - Billing units: data/sensitive-data/intro.md
-       - Store with SD Connect: 
+       - SD Connect: 
           - data/sensitive-data/sd_connect.md
           - Overview: data/sensitive-data/intro.md
           ## + key features + authentication
           ## legal agreements, data retention policy??
           - Page map: data/sensitive-data/intro.md
-          - Data encryption and upload: data/sensitive-data/intro.md
+          - Data upload: data/sensitive-data/intro.md
           ## Less than 1 GB of data (ecryption and upload for analysys, encryption ans upload for storage and sharing) Up to 100 GB of data
-          ## Command line encryption and upload, data encryption and upload with allas help tool: a-put
-          - Data management: data/sensitive-data/intro.md
-          ##Data decryption and download, sharing, search, own encryption keys, Storage space
-          - Programmatic??: data/sensitive-data/intro.md
+          ##sharing, search, own encryption keys, Storage space
+          - Data download: data/sensitive-data/intro.md
+          ##Data decryption and download,
+          - Command line: data/sensitive-data/intro.md
           ##upload, download, share, crypt4gh CLI??
+          ## Command line encryption and upload, data encryption and upload with allas help tool: a-put
           - Troubleshooting: data/sensitive-data/intro.md
-       - Analyse with SD Desktop: 
+       - SD Desktop: 
           - Overview: data/sensitive-data/intro.md
           ## authentication + key features
           - Creating a virtual desktop: data/sensitive-data/intro.md
@@ -369,15 +370,14 @@ nav:
           ## pausing and restarting, rebooting and restarting, detaching and reattaching a volume, deleting a desktop
           - Accessing data from SD Connect: data/sensitive-data/intro.md
           ## Data gateway, importing data, Reuse published sata via SD Apply
-          - Accessing RStrudio: data/sensitive-data/intro.md
           - Available programs: data/sensitive-data/intro.md
-          ## Pre-installed software, scientific software, software customisation with containers/interface??
-          - HPC???: data/sensitive-data/intro.md
+          ## Pre-installed software, rstudio, scientific software, software customisation with containers/interface??
+          - HPC: data/sensitive-data/intro.md
           - data export: data/sensitive-data/intro.md
           - troubleshooting: data/sensitive-data/intro.md
-       - Publish genetic data with FEGA: data/sensitive-data/intro.md
+       - FEGA: data/sensitive-data/intro.md
        - SD Apply: data/sensitive-data/intro.md
-       - Tutorials: data/sensitive-data/intro.md
+       - Tutorials and quick quides: data/sensitive-data/intro.md
      - Secondary use of health and social data:
        - Findata permit: data/sensitive-data/intro.md
        - Single register data: data/sensitive-data/intro.md
@@ -385,6 +385,7 @@ nav:
        - Instructions for data controllers: data/sensitive-data/intro.md
 #      - SD Apply for secondary use: data/sensitive-data/single-register-submission.md
 #      - Federated EGA: data/sensitive-data/federatedega.md
+     
 #	- SD Apply: data/sensitive-data/sd-apply.md
 #	- Containers: data/sensitive-data/creating_containers.md
   - Applications:
