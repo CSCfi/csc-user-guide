@@ -365,12 +365,12 @@ nav:
        - SD Desktop: 
           - Overview: data/sensitive-data/intro.md
           ## authentication + key features
-          - Creating a virtual desktop: data/sensitive-data/intro.md
-          - Working with a virtual desktop:data/sensitive-data/intro.md
+          - Create: data/sensitive-data/intro.md
+          - Manage: data/sensitive-data/intro.md
           ## pausing and restarting, rebooting and restarting, detaching and reattaching a volume, deleting a desktop
-          - Accessing data from SD Connect: data/sensitive-data/intro.md
+          - Access data: data/sensitive-data/intro.md
           ## Data gateway, importing data, Reuse published sata via SD Apply
-          - Available programs: data/sensitive-data/intro.md
+          - Programs: data/sensitive-data/intro.md
           ## Pre-installed software, rstudio, scientific software, software customisation with containers/interface??
           - HPC: data/sensitive-data/intro.md
           - data export: data/sensitive-data/intro.md
