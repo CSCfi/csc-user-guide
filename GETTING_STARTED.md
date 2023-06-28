@@ -186,6 +186,7 @@ clip < ~/.ssh/id_ed25519.pub
 
 We'll be testing the SSH connection to GitHub after we set up something called `ssh-agent`.
 
+
 ##### Setting up `ssh-agent` and Conda
 
 Next, we'll set up `ssh-agent` so that you only need to input your passphrase when you open Git Bash. `ssh-agent` will then hold onto your passphrase for you for as long as it (`ssh-agent.exe`) is running. In addition, we need to set up Conda by running the `conda.sh` script from Conda's installation folder. If you didn't install Conda into the default folder, you need to edit the corresponding line. The following lines should go into a `.profile` file in the home folder. Now, run the command
@@ -226,7 +227,6 @@ fi
 
 unset env
 
-
 ```
 
 It is a good practice to end text files with an empty line. Close Notepad to return to the prompt. You should now either "source" the file with the command
@@ -234,6 +234,7 @@ It is a good practice to end text files with an empty line. Close Notepad to ret
 ```bash
 source ~/.profile
 ```
+
 or close and then reopen Git Bash. `ssh-agent` will prompt for the passphrase, so have KeePass perform the auto-type again, just as before. If it worked, `ssh-agent` will inform you that
 
 ```text
@@ -253,14 +254,14 @@ that outputs the version number. And, that SSH authentication for GitHub is work
 ```bash
 ssh -T git@github.com
 ```
+
+
 ##### Associating your commits with your GitHub account
 
 Follow the instructions at GitHub Docs for
 
 - [Setting your commit email address](https://docs.github.com/en/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/setting-your-commit-email-address?platform=windows) and
 - [Setting your username in Git](https://docs.github.com/en/get-started/getting-started-with-git/setting-your-username-in-git?platform=windows).
-
-
 
 
 ### Running a local development server
