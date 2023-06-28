@@ -103,8 +103,11 @@ secret_access_key = yyyyyyyyyyyyyyyyyyyyyyyyyyyyyy
 endpoint = yourotherendpoint.com
 acl = private
 ```
+The configuration for Allas is added automatically when configuring Allas in s3 mode 
 
-After creating this file, Rclone can be used to copy files
+`source allas_conf --mode s3cmd` .
+
+After creating/updating this file, Rclone can be used to copy files
 
 `rclone copy otherobjectstorage:bucket-x/object-y  s3allas:bucket-z/object-a`
 
