@@ -80,6 +80,38 @@ For example following tools can be used:
 
 The list above is not complete or exclusive. Any tool that supports Swift or S3 protocols can in principle use Allas.
 
+## Copying files directly between object storages
+
+Rclone can also be used to directly copy files from another object storage (e.g. [Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.html), [Google cloud](https://cloud.google.com/learn/what-is-object-storage), [CREODIAS](https://creodias.eu/cloud/cloudferro-cloud/storage-2/object-storage/),...) to Allas. For this both credentials need to be stored in a Rclone configuration file in the users home directory (`.config/rclone/rclone.conf`). An example is shown below:
+
+```
+[s3allas]
+type = s3
+provider = Other
+env_auth = false
+access_key_id = xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+secret_access_key = xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+endpoint = a3s.fi
+acl = private
+
+[otherobjectstorage]
+type = s3
+provider = Other
+env_auth = false
+access_key_id = yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy
+secret_access_key = yyyyyyyyyyyyyyyyyyyyyyyyyyyyyy
+endpoint = yourotherendpoint.com
+acl = private
+```
+
+After creating this file, Rclone can be used to copy files
+
+`rclone copy otherobjectstorage:bucket-x/object-y  s3allas:bucket-z/object-a`
+
+or list files from either Allas or the other object storage by using the respective name
+
+`rclone lsf otherobjectstorage: `.
+
 ## Other ways of accessing Allas
 
 * [Python](using_allas/python_library.md) Programmatic access to Allas.
