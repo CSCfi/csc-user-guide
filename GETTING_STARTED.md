@@ -191,7 +191,7 @@ We'll be testing the SSH connection to GitHub after we set up something called `
 Next, we'll set up `ssh-agent` so that you only need to input your passphrase when you open Git Bash. `ssh-agent` will then hold onto your passphrase for you for as long as it (`ssh-agent.exe`) is running. In addition, we need to set up Conda by running the `conda.sh` script from Conda's installation folder. If you didn't install Conda into the default folder, you need to edit the corresponding line. The following lines should go into a `.profile` file in the home folder. Now, run the command
 
 ```bash
-notepad .profile
+notepad ~/.profile
 ```
 
 clicking "Yes" if Notepad asks to create the file. Then, copy-paste the following lines (the part about auto-launching has been copied from [GitHub's tutorial](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/working-with-ssh-key-passphrases#auto-launching-ssh-agent-on-git-for-windows)) into Notepad and save the file:
@@ -232,7 +232,7 @@ unset env
 It is a good practice to end text files with an empty line. Close Notepad to return to the prompt. You should now either "source" the file with the command
 
 ```bash
-source .profile
+source ~/.profile
 ```
 or close and then reopen Git Bash. `ssh-agent` will prompt for the passphrase, so have KeePass perform the auto-type again, just as before. If it worked, `ssh-agent` will inform you that
 
