@@ -99,14 +99,41 @@ You can find a shortcut for Git Bash in the Start menu. If you don't see it unde
 
 ![Git Bash](docs/img/windows/git_bash.png)
 
+Before we start executing commands and editing configuration files, there are just a few things to keep in mind when starting to learn the command line after using only graphical interfaces.
 
-##### Hotkeys
 
-If you're used to using the clipboard with the hotkeys _Ctrl+C_ and _Ctrl+V_, these won't work in Git Bash. The corresponding hotkeys in Git Bash are _Ctrl+Insert_ for copy and _Shift+Insert_ for paste. **If you accidentally input _Ctrl+V_ in Git Bash with the intention of pasting text from the clipboard, you should hit the backspace key a couple of times before using the correct hotkey!** _Ctrl+C_, on the other hand, will send a keyboard interrupt signal that is often used to stop a running program, for example the MkDocs development server. You can access the context menu for clipboard copy and paste by clicking on Git Bash with the right mouse button.
+##### Tab completion
 
-You can change the default behaviour by right-clicking on the Window title and selecting Options. Click on Mouse in the left pane where you could, e.g., set thePaste to occur upon right clicking in the terminal. Note that selecting any text in the terminal automatically copies it, so you do not actually need to explicitly use the Copy hotkey. 
+If you've never used a command line interface before, having to type everything letter-to-letter might seem tedious compared to clicking or tapping on things in a graphical user interface. Fortunately, something called _tab completion_ can be used to conveniently fill in commands, file or folder names, Git branch names and the like. There are differences on how it works exactly between different shells (like Bash, PowerShell, cmd and so on), but **all you need to remember** is, as the name of the concept suggests, the _tabulator_  AKA _tab_ key, usually marked on the keyboard with the word 'tab' or the symbol ↹.
 
-    ![Git for Windows - mouse settings](docs/img/windows/git_for_windows_mouse.png)
+This incredibly simple yet powerful concept is best explained by example, and in [an article on the subject](https://en.wikipedia.org/wiki/Command-line_completion), Wikipedia provides one (they call it "Command-line completion" and you can [skip straight to the example](https://en.wikipedia.org/wiki/Command-line_completion#Example)).
+
+
+##### Command history
+
+In addition to tab completion, the command history is among one of the most useful features of shells like Bash. Again, simple yet powerful:
+
+- Browse through previously entered commands with the up and down arrow keys. (The trick is to insist on finding some command you remember using ages ago, when it would clearly be quicker to just type it again! 😅)
+- Search for matches in the command history with _Ctrl+R_. (_Ctrl+R_ again to browse through matches.)
+
+Many times you'll want to execute a command that is almost the same as a command in your history. You can, using the above methods, browse to the command in question and use it as a template for your new command.
+
+- Move the cursor with the left and right arrow keys. (As you would in a graphical text editor.)
+- Holding down _Ctrl_ will move the cursor over a whole _word_ instead of only a single character. (This also works with the _Delete_ key, but not _Backspace_.)
+- _Ctrl+A_ moves the cursor to the beginning, _Ctrl+E_ to the end.
+
+
+##### Clipboard copy/paste and keyboard shortcuts
+
+If you're accustomed to using the clipboard with the keyboard shortcuts _Ctrl+C_ and _Ctrl+V_, remember that these won't work in Git Bash. The corresponding shortcuts in Git Bash are _Ctrl+Insert_ for copy and _Shift+Insert_ for paste. **If you accidentally input _Ctrl+V_ in Git Bash with the intention of pasting text from the clipboard, you should hit the backspace key a couple of times before using the correct shortcut!** _Ctrl+C_, on the other hand, will send a keyboard interrupt signal that is often used to stop a running program, for example the MkDocs development server. You can access the context menu for clipboard copy and paste by clicking on the terminal with the right mouse button.
+
+You can change the default behaviour by right-clicking on the title bar, selecting _Options_ and then _Mouse_ in the left pane. There you can, e.g., set "Paste" to occur upon right-clicking on the terminal. Note that selecting any text in the terminal automatically copies it to the clipboard (this behaviour can be changed under _Selection_), so you do not actually need to explicitly use the copy/paste shortcuts nor the context menu.
+
+![Git for Windows - mouse settings](docs/img/windows/git_for_windows_mouse.png)
+
+Also, while some websites might show commands or snippets of code/script in a box with a button for copying the snippet onto the clipboard, **the result might not always be what the author of the tutorial intended**. A snippet with multiple lines can get copied as only a single long line, or a command that is intended to be edited first can get executed straight away when pasting. To avoid this, instead of clicking the button, it is recommended to select ("paint") the text and copy it using either _Ctrl+C_, the context menu accessed by right-clicking, or even by selecting _Edit -> Copy_ from the web browser's menu bar.
+
+**Keyboard shortcuts in general may produce unexpected results** for users accustomed to graphical interfaces. Historically, somewhat like _Shift_ is used for uppercase characters, _Ctrl_ has been used as a modifier key for sending _control characters_ to computer terminals. Only to mention, as you have just installed a terminal _emulator_ called MinTTY to use with Git Bash.
 
 
 ##### Setting up SSH authentication with GitHub
