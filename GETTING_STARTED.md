@@ -21,7 +21,7 @@ A Python program called _MkDocs_ is used to generate the Docs CSC website from d
 
 1. Once the download has completed, open the File Explorer, navigate to Downloads and double click on the downloaded executable to launch the installer.
 
-    A security warning dialog will most likely pop up asking for confirmation on running the file. Confirm that the digital signature of the file is OK on the _Digital Signature Details_ opened by clicking the publisher name on the warning dialog.
+    A security warning dialog will most likely pop up (if not, just proceed with the installation) asking for confirmation on running the file. Confirm that the digital signature of the file is OK on the _Digital Signature Details_ opened by clicking the publisher name on the warning dialog.
 
     ![Digital Signature Details](docs/img/windows/digital_signature_details.png)
 
@@ -54,7 +54,7 @@ In order to "clone" the Docs CSC repository from (and later, to "push" your work
 
     ![gitforwindows.org](docs/img/windows/git_for_windows_org.png)
 
-1. Once the download has completed, navigate to Downloads using the File Explorer. Double click on the downloaded executable, again confirming that the digital signature is OK, and click "Run".
+1. Once the download has completed, navigate to Downloads using the File Explorer. Double click on the downloaded executable, again (if the warning pops up) confirming that the digital signature is OK, and click "Run".
 
     ![Git 2.40.1 Setup](docs/img/windows/git_for_windows_setup.png)
 
@@ -133,7 +133,7 @@ You can change the default behaviour by right-clicking on the title bar, selecti
 
 Also, while some websites might show commands or snippets of code/script in a box with a button for copying the snippet onto the clipboard, **the result might not always be what the author of the tutorial intended**. A snippet with multiple lines can get copied as only a single long line, or a command that is intended to be edited first can get executed straight away when pasting. To avoid this, instead of clicking the button, it is recommended to select ("paint") the text and copy it using either _Ctrl+C_, the context menu accessed by right-clicking, or even by selecting _Edit -> Copy_ from the web browser's menu bar.
 
-**Keyboard shortcuts in general may produce unexpected results** for users accustomed to graphical interfaces. Historically, somewhat like _Shift_ is used for uppercase characters, _Ctrl_ has been used as a modifier key for sending _control characters_ to computer terminals. Only to mention, as you have just installed a terminal _emulator_ called MinTTY to use with Git Bash.
+**Keyboard shortcuts in general may produce unexpected results** for users accustomed to graphical interfaces. Historically, somewhat like _Shift_ is used for uppercase characters, _Ctrl_ has been used as a modifier key for sending _control characters_ to computer terminals. Only to mention this, as you have just installed a terminal _emulator_ called MinTTY to use with Git Bash.
 
 
 ##### Setting up SSH authentication with GitHub
@@ -178,11 +178,7 @@ of which the latter contains your _public key_ we'll be adding to your GitHub ac
 
 ###### Adding an SSH key to GitHub account
 
-For instructions on how to add the generated key&mdash;for authentication that is&mdash;to your GitHub account, see [instructions at GitHub Docs](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account?platform=windows&tool=webui). Note that the instructions use the convention of prefixing commands with a `$` to denote a prompt. That is to be left out when copy-pasting the command since it's already there in Git Bash, waiting for your command. In fact, there is only the one command in step 1, so we can just copy it here:
-
-```bash
-clip < ~/.ssh/id_ed25519.pub
-```
+For instructions on how to add the generated key&mdash;for authentication that is&mdash;to your GitHub account, see [instructions at GitHub Docs](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account?platform=windows&tool=webui). Note that the instructions use the convention of prefixing commands with a `$` to denote a prompt. That is to be left out when copy-pasting the command since it's already there in Git Bash, waiting for your command.
 
 We'll be testing the SSH connection to GitHub after we set up something called `ssh-agent`.
 
@@ -249,11 +245,7 @@ You should now confirm that Conda is working with the command
 conda --version
 ```
 
-that outputs the version number. And, that SSH authentication for GitHub is working by following the instructions on a [GitHub Docs article](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/testing-your-ssh-connection) on the subject. Again, there's only a single command:
-
-```bash
-ssh -T git@github.com
-```
+that should output the version number. To test the SSH connection, follow the instructions on [another GitHub tutorial](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/testing-your-ssh-connection).
 
 
 ##### Associating your commits with your GitHub account
@@ -278,15 +270,15 @@ and then, navigate to the cloned repository
  cd csc-user-guide
  ```
 
-You should now be ready to follow the instructions on previewing your work [Locally using the MkDocs tool](FAQ.md#locally-using-the-mkdocs-tool) and other such documentation found at the root of this repository.
+You should now be ready to follow the instructions on previewing your work [Locally using the MkDocs tool](FAQ.md#locally-using-the-mkdocs-tool). **A more detailed Git workflow example is provided below.**
 
 
 ### Uninstallation
 
-Run the corresponding executable to uninstall Conda or Git for Windows:
+If you need to, run the corresponding executable to uninstall Conda or Git for Windows:
 
 - `C:\Users\<your username>\AppData\Local\miniconda3\Uninstall-Miniconda3.exe`
-- `C:\Users\<your username>\AppData\Local\Programs\Gitunins000.exe`
+- `C:\Users\<your username>\AppData\Local\Programs\Git\unins000.exe`
 
 
 ## A simple Git workflow example
@@ -295,7 +287,7 @@ Have a look at a [relevant xkcd](https://xkcd.com/1597/).
 
 The part about memorizing some shell commands is what this tutorial is about. The steps to take if something goes wrong you probably already know, but are in any case [described below](#starting-over).
 
-Documentation on Git is available at [www.git-scm.com/doc](https://www.git-scm.com/doc). The Git commands introduced in this tutorial come with a link to the corresponding documentation page.
+Documentation on Git, with a reference manual, videos and an external links section is available at [www.git-scm.com/doc](https://www.git-scm.com/doc). The Git commands introduced in this tutorial come with a link to the corresponding page of the reference manual.
 
 
 ### Obtaining a local copy, i.e. _cloning_ the repository
@@ -327,7 +319,7 @@ Activate the environment:
 conda activate docs-env
 ```
 
-The environment can be deactivated with a
+The environment can be deactivated with
 
 ```bash
 conda deactivate
@@ -348,9 +340,9 @@ or
 mkdocs serve --dirtyreload
 ```
 
-If you wish to shut down the server, perhaps to restart it with `--dirtyreload` enabled, simply hit _Ctrl+C_.
+It will take a moment for MkDocs to build and serve the site. You can ignore the long list of pages that "exist in the docs directory, but are not included in the "nav" configuration" MkDocs will show you. If you wish to shut down the server (even when its building), perhaps to restart it with `--dirtyreload` enabled, simply hit _Ctrl+C_.
 
-With the server running, you can point a web browser to `localhost:8000` for a preview.
+When MkDocs tells you it is serving on an address, you can point a web browser to the address for a preview. The default is [127.0.0.1:8000](http://127.0.0.1:8000/) AKA [localhost:8000](http://localhost:8000/).
 
 If you want to leave MkDocs running while continuing to work on the command line, open a new Git Bash window and again navigate to the cloned folder:
 
@@ -419,7 +411,7 @@ or, for a single file (replace `path/to/file`):
 git diff path/to/file
 ```
 
-For example, if you'd have changed the file you are reading right now, you'd see what you changed with a
+For example, if you'd have changed the file you are reading right now, you'd see what you changed with
 
 ```bash
 git diff GETIING_STARTED.md
@@ -464,7 +456,7 @@ Check what the staged changes were with [git-diff](https://git-scm.com/docs/git-
 git diff --staged
 ```
 
-Commit the staged changes (replace `Why I made these changes`) with [git-commit](https://git-scm.com/docs/git-commit):
+Commit the staged changes (replace `Why I made these changes`, but _do_ include the quotation marks) with [git-commit](https://git-scm.com/docs/git-commit):
 
 ```bash
 git commit -m "Why I made these changes"
