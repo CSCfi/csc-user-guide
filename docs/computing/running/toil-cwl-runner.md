@@ -87,7 +87,7 @@ The `sbatch` file `workflow.sh` will reference the `CWL` file `workflow.cwl` whe
 #SBATCH --mem-per-cpu=1G
 #SBATCH --nodes=1
 #SBATCH --cpus-per-task=2
-#SBATCH --partition=<partition name>
+#SBATCH --partition=small
 
 source /projappl/<project_nnnnnnn>/venv/bin/activate
 
@@ -98,7 +98,7 @@ export TOIL_SLURM_ARGS="--account=project_nnnnnnn --partition=small"
 export CWL_SINGULARITY_CACHE=$WORKDIR/singularity
 unset XDG_RUNTIME_DIR
 
-TOIL_SLURM_ARGS="--account=<project_nnnnnnn> --partition=<partition name>" toil-cwl-runner \
+TOIL_SLURM_ARGS="--account=<project_nnnnnnn> --partition=small" toil-cwl-runner \
     --jobStore $WORKDIR/<job store name> \
     --workDir $SCRATCH/<work dir name> \
     --tmpdir-prefix $TMPDIR/<tmp name> \
