@@ -99,7 +99,43 @@ You can find a shortcut for Git Bash in the Start menu. If you don't see it unde
 
 ![Git Bash](docs/img/windows/git_bash.png)
 
-Before we start executing commands and editing configuration files, there are just a few things to keep in mind when starting to learn the command line after using only graphical interfaces.
+Before we proceed further with setting up the tools, there are just a few things to keep in mind when starting to learn the command line after using only graphical interfaces.
+
+
+##### Commands
+
+In addition to the `git` command, just to illustrate some basic principles without going too much into detail, here are a few essential commands. Feel free to try them in Git Bash.
+
+- `pwd`
+  * Print working directory: Shows you your current location (the _folder_ AKA _directory_) in the file system.
+
+- `ls`
+  * List directory contents: View the contents of the current location.
+
+Usually, the behaviour of a command can be altered in some way by giving it _options_. One useful option that almost all commands have is `--help`:
+
+- `ls --help`
+  * Let `ls` itself tell you how to use it.
+
+As you can see from the output of `ls --help`, some options have a short and a long form. Long form is prefixed with `--` and short with `-`. When giving multiple options in one command, short form options can be grouped together. For example, `ls --all --human-readable --reverse` can be shortened to `ls -ahr` (though, short form is _not_ always the first letter of long, like in this example). Some options also take arguments: `ls --sort=size` (or `ls --sort size`).
+
+Many commands need _operands_ to be useful, or to even do anything at all. Some commands will just tell you how to use them (as if given the `--help` option) if no operands are given. The command
+
+- `cd`
+  * Change directory: Navigate to another location in the file system.
+
+_does_ work without operands (it navigates to the home directory), but it is commonly used with a path as its operand. Assuming the current location contains a directory named, say "example", it could be navigated to with `cd example`. Some locations can even be accessed with a shortcut:
+
+- `.`
+  * The current directory.
+
+- `..`
+  * The parent directory, i.e. the directory that contains the current directory.
+
+- `~`
+  * The (current user's) home directory.
+
+As we'll see later, these aren't only used with `cd`, as in `cd ..` or `cd ~`.
 
 
 ##### Tab completion
