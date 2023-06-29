@@ -1,6 +1,8 @@
 # Running CWL workflows on Puhti with `toil-cwl-runner`
 
-[Common Workflow Language](https://www.commonwl.org/) is a popular set of open standards implemented by several workflow runners and platforms.
+<img src="https://github.com/common-workflow-language/cwl-website/blob/main/content/assets/img/CWL-Logo-HD-cropped2.png" width="50%" title="CWL Logo"/>
+
+The [Common Workflow Language](https://www.commonwl.org/) is a popular set of open standards implemented by several workflow runners and platforms.
 The CWL standards are targeted at creating portable workflows made of command line programs. The steps can be written in any compiled or interpreted language.
 Sub-workflows, optional steps, scatter-gather, and implicit parallelism are just some of the features.
 
