@@ -24,6 +24,7 @@
 * [General high-throughput guidelines](../../computing/running/throughput.md)
 * [Running Nextflow workflows using HyperQueue](nextflow-hq.md)
 * [FireWorks workflow manager](../../computing/running/fireworks.md)
+* [Toil CWL workflow manager](../../computing/running/toil-cwl-runner.md)
 * [How to run many short jobs with GNU Parallel](many.md)
 * [HyperQueue meta-scheduler](../../apps/hyperqueue.md)
 
