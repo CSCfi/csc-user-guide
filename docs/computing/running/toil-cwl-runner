@@ -1,0 +1,23 @@
+# Running CWL workflows on Puhti with `toil-cwl-runner`
+
+## Strengths of the Common Workflow Language standards
+
+## Strengths of `toil-cwl-runner`
+
+## Disadvantages for using CWL
+
+## Disadvantages for using `toil-cwl-runner`
+
+## Installing `toil-cwl-runner`
+
+(and nodejs)
+
+## Defining CWL workflows
+
+(link to existing docs)
+
+## Running CWL workflows with `toil-cwl-runner`
+
+(use sbatch to submit toil-cwl-runner job to submit further jobs)
+
+## Monitoring a running workflow
