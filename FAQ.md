@@ -297,7 +297,7 @@ where `<license>` is one of the predefined license categories: `Academic`, `Free
 
 The application will then be included on the Applications by license page automatically.
 
-## How do I tag an application as available in a web interface?
+## How do I tag an application as available under a web interface?
 
 As with [adding a license tag](#how-do-I-add-a-license-tag-to-an-application-page), an application
 can be tagged as available in a particular web interface. The application will then be listed under
