@@ -75,6 +75,9 @@ mkdir /projappl/project_nnnnnnn/<tmp name>
 ### Creating the sbatch file
 The `sbatch` file `workflow.sh` will reference the `CWL` file `workflow.cwl` where you have described your workflow steps.
 
+!!! Note
+    See [batch documentation](./creating-job-scripts-puhti.md) on how to fill out the `#SBATCH` values.
+
 `workflow.sh`
 ```bash
 #!/bin/sh
