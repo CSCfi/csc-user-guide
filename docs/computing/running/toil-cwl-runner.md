@@ -33,8 +33,13 @@ This page describes how run CWL worklflows on Puhti using `toil-cwl-runner`, inc
 
 Install `toil` with `CWL` plugin.
 ```
+cd /projappl/<project_nnnnnnn>
+python -m venv venv
+source venv/bin/activate
+
 pip install -U setuptools wheel
 pip install toil[cwl]
+
 toil-cwl-runner --version
 ```
 
@@ -80,6 +85,8 @@ The `sbatch` file `workflow.sh` will reference the `CWL` file `workflow.cwl` whe
 #SBATCH --nodes=1
 #SBATCH --cpus-per-task=2
 #SBATCH --partition=<partition name>
+
+source /projappl/<project_nnnnnnn>/venv/bin/activate
 
 WORKDIR=/projappl/project_nnnnnnn
 SCRATCH=/scratch/project_nnnnnnn
