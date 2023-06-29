@@ -31,7 +31,20 @@ This page describes how run CWL worklflows on Puhti using `toil-cwl-runner`, inc
 
 ## Installing `toil-cwl-runner`
 
-(and nodejs)
+Install `toil` with `CWL` plugin.
+```
+pip install -U setuptools wheel
+pip install toil[cwl]
+toil-cwl-runner --version
+```
+
+Install `nodejs` which provides helpful tools for debugging `toil` internals.
+```
+cd /projappl/project_nnnnnnn
+wget https://nodejs.org/dist/v18.16.1/node-v18.16.1-linux-x64.tar.xz
+tar -xf node-v18.16.1-linux-x64.tar.xz
+export PATH=$PATH:/projappl/project_nnnnnnn/node-v18.16.1-linux-x64/bin
+```
 
 ## Defining CWL workflows
 
@@ -41,6 +54,52 @@ Learning resources
 
 ## Running CWL workflows with `toil-cwl-runner`
 
-(use sbatch to submit toil-cwl-runner job to submit further jobs)
+!!! Note
+    Singularity containers can't be run in the **login node** or in an **interactive session** due to network constraints.
+
+When you have defined a workflow with `CWL`, you can send it to the cluster using `sbatch`, and then `toil` will start new jobs for each item in the workflow description.
+
+### Preliminary Steps
+Create working directories for `toil`.
+```
+mkdir /projappl/project_nnnnnnn/<job store name>
+mkdir /projappl/project_nnnnnnn/<work dir name>
+mkdir /projappl/project_nnnnnnn/<tmp name>
+```
+
+### Creating the sbatch file
+The `sbatch` file `workflow.sh` will reference the `CWL` file `workflow.cwl` where you have described your workflow steps.
+
+`workflow.sh`
+```bash
+#!/bin/sh
+#SBATCH --job-name=<job name here>
+#SBATCH --account=<project_number here>
+#SBATCH --time=01:00:00
+#SBATCH --mem-per-cpu=1G
+#SBATCH --nodes=1
+#SBATCH --cpus-per-task=2
+#SBATCH --partition=<partition name>
+
+WORKDIR=/projappl/project_nnnnnnn
+SCRATCH=/scratch/project_nnnnnnn
+export TMPDIR=$WORKDIR/tmp
+export TOIL_SLURM_ARGS="--account=project_nnnnnnn --partition=small"
+export CWL_SINGULARITY_CACHE=$WORKDIR/singularity
+unset XDG_RUNTIME_DIR
+
+TOIL_SLURM_ARGS="--account=<project_nnnnnnn> --partition=<partition name>" toil-cwl-runner \
+    --jobStore $WORKDIR/<job store name> \
+    --workDir $SCRATCH/<work dir name> \
+    --tmpdir-prefix $TMPDIR/<tmp name> \
+    --batchSystem slurm \
+    $WORKDIR/workflow.cwl \
+    --message "message for job"
+```
+
+Send your workflow to the cluster.
+```
+sbatch workflow.sh
+```
 
 ## Monitoring a running workflow
