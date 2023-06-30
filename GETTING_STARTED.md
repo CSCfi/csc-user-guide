@@ -1,4 +1,4 @@
-# Getting started on contributing to Docs using command line tools
+# Getting started on contributing to Docs CSC using command line tools
 
 The procedure described in this file aims to set up the necessary tools on Windows without the need for a system administrator account. However, the [simple Git workflow example](#a-simple-git-workflow-example) that follows the Windows-specific instructions doesn't make any particular assumptions on the operating system used.
 
@@ -117,14 +117,14 @@ Usually, the behaviour of a command can be altered in some way by giving it _opt
 - `ls --help`
   * Let `ls` itself tell you how to use it.
 
-As you can see from the output of `ls --help`, some options have a short and a long form. Long form is prefixed with `--` and short with `-`. When giving multiple options in one command, short form options can be grouped together. For example, `ls --all --human-readable --reverse` can be shortened to `ls -ahr` (though, short form is _not_ always the first letter of long, like in this example). Some options also take arguments: `ls --sort=size` (or `ls --sort size`).
+As you can see from the output of `ls --help`, some options have a short and a long form. Long form is prefixed with `--` and short with `-`. When giving multiple options in one command, short form options can be grouped together. For example, `ls --all --human-readable --reverse` can be shortened to `ls -ahr` (though, short form is _not_ always the first letter of long, contrary to this example). Some options also take arguments: `ls --sort=size` (or `ls --sort size`).
 
 Many commands need _operands_ to be useful, or to even do anything at all. Some commands will just tell you how to use them (as if given the `--help` option) if no operands are given. The command
 
 - `cd`
   * Change directory: Navigate to another location in the file system.
 
-_does_ work without operands (it navigates to the home directory), but it is commonly used with a path as its operand. Assuming the current location contains a directory named, say "example", it could be navigated to with `cd example`. Some locations can even be accessed with a shortcut:
+_does_ work without operands (it navigates to the home directory), but it is commonly used with a path as its operand. Assuming the current location contains a directory named, say "example", this directory could then be navigated to with `cd example/`. Some locations can even be accessed with a shortcut:
 
 - `.`
   * The current directory.
@@ -161,15 +161,15 @@ Many times you'll want to execute a command that is almost the same as a command
 
 ##### Clipboard copy/paste and keyboard shortcuts
 
-If you're accustomed to using the clipboard with the keyboard shortcuts _Ctrl+C_ and _Ctrl+V_, remember that these won't work in Git Bash. The corresponding shortcuts in Git Bash are _Ctrl+Insert_ for copy and _Shift+Insert_ for paste. **If you accidentally input _Ctrl+V_ in Git Bash with the intention of pasting text from the clipboard, you should hit the backspace key a couple of times before using the correct shortcut!** _Ctrl+C_, on the other hand, will send a keyboard interrupt signal that is often used to stop a running program, for example the MkDocs development server. You can access the context menu for clipboard copy and paste by clicking on the terminal with the right mouse button.
+If you're accustomed to using the clipboard with the keyboard shortcuts _Ctrl+C_ and _Ctrl+V_, remember that these won't work in Git Bash. The corresponding shortcuts in Git Bash are (by default) _Ctrl+Insert_ for copy and _Shift+Insert_ for paste. **If you accidentally input _Ctrl+V_ in Git Bash with the intention of pasting text from the clipboard, you should hit the backspace key a couple of times before using the correct shortcut!** _Ctrl+C_, on the other hand, will send a keyboard interrupt signal that is often used to stop a running program, for example the MkDocs development server. You can access the context menu for clipboard copy and paste by clicking on the terminal with the right mouse button.
 
-You can change the default behaviour by right-clicking on the title bar, selecting _Options_ and then _Mouse_ in the left pane. There you can, e.g., set "Paste" to occur upon right-clicking on the terminal. Note that selecting any text in the terminal automatically copies it to the clipboard (this behaviour can be changed under _Selection_), so you do not actually need to explicitly use the copy/paste shortcuts nor the context menu.
+You can change the default behaviour by right-clicking on the title bar, selecting _Options..._ and then _Mouse_ in the left pane. There you can, e.g., set "Paste" to occur upon right-clicking on the terminal. Note that selecting any text in the terminal automatically copies it to the clipboard (this behaviour can be changed under _Selection_), so you do not actually need to rely on the keyboard shortcuts nor the context menu for copying/pasting.
 
 ![Git for Windows - mouse settings](docs/img/windows/git_for_windows_mouse.png)
 
 Also, while some websites might show commands or snippets of code/script in a box with a button for copying the snippet onto the clipboard, **the result might not always be what the author of the tutorial intended**. A snippet with multiple lines can get copied as only a single long line, or a command that is intended to be edited first can get executed straight away when pasting. To avoid this, instead of clicking the button, it is recommended to select ("paint") the text and copy it using either _Ctrl+C_, the context menu accessed by right-clicking, or even by selecting _Edit -> Copy_ from the web browser's menu bar.
 
-**Keyboard shortcuts in general may produce unexpected results** for users accustomed to graphical interfaces. Historically, somewhat like _Shift_ is used for uppercase characters, _Ctrl_ has been used as a modifier key for sending _control characters_ to computer terminals. Only to mention this, as you have just installed a terminal _emulator_ called MinTTY to use with Git Bash.
+**Keyboard shortcuts in general may produce unexpected results** for users accustomed to graphical interfaces. Historically, somewhat like _Shift_ is used for uppercase characters, _Ctrl_ has been used as a modifier key for sending _control characters_ to computer terminals. Only to mention this, as you _have_ just installed a _terminal emulator_ called MinTTY to use with Git Bash.
 
 
 ##### Setting up SSH authentication with GitHub
@@ -209,10 +209,10 @@ Your identification has been saved in /c/Users/<your username>/.ssh/id_ed25519
 Your public key has been saved in /c/Users/<your username>/.ssh/id_ed25519.pub
 ```
 
-of which the latter contains your _public key_ we'll be adding to your GitHub account momentarily. As a reminder, the former contains the _private key_ which should be kept secret at all times.
+of which the latter contains your _public key_ we'll be adding to your GitHub account momentarily. The former contains the _private key_ which **should be kept secret at all times**.
 
 
-###### Adding an SSH key to GitHub account
+###### Adding an SSH key to your GitHub account
 
 For instructions on how to add the generated key&mdash;for authentication that is&mdash;to your GitHub account, see [instructions at GitHub Docs](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account?platform=windows&tool=webui). Note that the instructions use the convention of prefixing commands with a `$` to denote a prompt. That is to be left out when copy-pasting the command since it's already there in Git Bash, waiting for your command.
 
@@ -334,10 +334,10 @@ Clone the Docs repository (if not cloned yet) with [git-clone](https://git-scm.c
 git clone git@github.com:CSCfi/csc-user-guide.git
 ```
 
-Navigate to the folder:
+Navigate to the folder (remember [tab completion](#tab-completion)):
 
 ```bash
-cd csc-user-guide
+cd csc-user-guide/
 ```
 
 
@@ -376,14 +376,14 @@ or
 mkdocs serve --dirtyreload
 ```
 
-It will take a moment for MkDocs to build and serve the site. You can ignore the long list of pages that "exist in the docs directory, but are not included in the "nav" configuration" MkDocs will show you. If you wish to shut down the server (even when its building), perhaps to restart it with `--dirtyreload` enabled, simply hit _Ctrl+C_.
+It will take a moment for MkDocs to build and serve the site. You can ignore the long list of pages that "exist in the docs directory, but are not included in the "nav" configuration" MkDocs will show you. If you wish to shut down the server (even when its building)&ndash;perhaps to restart it with `--dirtyreload` enabled&ndash;simply hit _Ctrl+C_.
 
 When MkDocs tells you it is serving on an address, you can point a web browser to the address for a preview. The default is [127.0.0.1:8000](http://127.0.0.1:8000/) AKA [localhost:8000](http://localhost:8000/).
 
 If you want to leave MkDocs running while continuing to work on the command line, open a new Git Bash window and again navigate to the cloned folder:
 
 ```bash
-cd csc-user-guide
+cd csc-user-guide/
 ```
 
 
@@ -418,7 +418,7 @@ The main point of this tutorial is to be able to work on the files using the too
 
 #### Starting over
 
-Remember the relevant xkcd? If you run into a problem with Git, you really can just
+Remember the relevant xkcd? If you run into a problem with Git, you really _can_ just
   1. copy the files you've worked on into some _other folder_ (`git status` to see which files)
   1. delete the repository folder
   1. clone the repository anew and
