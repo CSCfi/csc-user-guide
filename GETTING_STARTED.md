@@ -298,23 +298,6 @@ Follow the instructions at GitHub Docs for
 - [Setting your username in Git](https://docs.github.com/en/get-started/getting-started-with-git/setting-your-username-in-git?platform=windows).
 
 
-### Running a local development server
-
-The purpose of all of the above was to allow you to do the following. Start by "cloning" the Docs CSC GitHub repository onto your computer with
-
- ```bash
- git clone git@github.com:CSCfi/csc-user-guide.git
- ```
-
-and then, navigate to the cloned repository
-
- ```bash
- cd csc-user-guide
- ```
-
-You should now be ready to follow the instructions on previewing your work [Locally using the MkDocs tool](FAQ.md#locally-using-the-mkdocs-tool). **A more detailed Git workflow example is provided below.**
-
-
 ### Uninstallation
 
 If you need to, run the corresponding executable to uninstall Conda or Git for Windows:
