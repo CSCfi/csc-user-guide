@@ -176,7 +176,9 @@ Also, while some websites might show commands or snippets of code/script in a bo
 
 ###### Storing your passphrase in KeePass 2
 
-If you don't yet have a database for KeePass, you can create one by selecting _File -> New..._ and following the instructions there. To add a passphrase into your database, select _Entry -> Add entry..._ and input a "Title" (no need to input anything in the "User name" field). The "Password" field will hold your passphrase that KeePass has automatically generated one for you.
+If you don't yet have a database for KeePass, you can create one by selecting _File -> New..._ and following the instructions there. To add a passphrase into your database, select _Entry -> Add entry..._ and input a "Title" (no need to input anything in the "User name" field). The "Password" field will hold your passphrase that KeePass has already automatically generated for you.
+
+If you wish, you can try KeePass 2's password generator&ndash;accessed by clicking the button next to the "Repeat" field and selecting _Open Password Generator..._&ndash;for more options. Just remember to use _at least_ 20 characters. The 128 bits of entropy [recommended at SSH.com](https://www.ssh.com/academy/ssh/passphrase-generator#how-complex-does-a-passphrase-need-to-be?) isn't quite reached with the default setting (20 chars of A-Z or a-z), but it will certainly be over the 80 bits of entropy they state as the minimum. As the point of using a password manager like KeePass 2 is _not_ having to remember anything but the master password, why not go for something like the built-in profile "Hex Key - 256-Bit"?
 
 ![KeePass 2 Add Entry](docs/img/windows/keepass_add_entry.png)
 
@@ -185,6 +187,8 @@ To make it even easier to input the passphrase on Git Bash, you can edit the aut
 ![KeePass 2 Auto-type](docs/img/windows/keepass_auto-type.png)
 
 After clicking "OK", the entry is added to your database. Remember to select _File -> Save_ to save the changes to disk.
+
+It is important to have a backup copy of the database file (`.kdbx`)! The recommendation is to have one backup copy on a separate device (such as an external hard drive) and another off-premises (like a cloud file storage). Although, if the _only_ thing you have in the database is the passphrase and something goes wrong, you can just start over (see the note at [Adding an SSH key to your GitHub account](#adding-an-ssh-key-to-your-github-account)).
 
 
 ###### Generating an SSH key
@@ -217,6 +221,8 @@ of which the latter contains your _public key_ we'll be adding to your GitHub ac
 For instructions on how to add the generated key&mdash;for authentication that is&mdash;to your GitHub account, see [instructions at GitHub Docs](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account?platform=windows&tool=webui). Note that the instructions use the convention of prefixing commands with a `$` to denote a prompt. That is to be left out when copy-pasting the command since it's already there in Git Bash, waiting for your command.
 
 We'll be testing the SSH connection to GitHub after we set up something called `ssh-agent`.
+
+Note that if you lose your private key or the passphrase, you can just remove the public key from your GitHub account and start over by generating a new key pair (and a passphrase).
 
 
 ##### Setting up `ssh-agent` and Conda
