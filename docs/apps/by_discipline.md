@@ -176,3 +176,10 @@
 * [ParaView](paraview.md) Free open-source visualization application
 * [VisIt](visit.md) Free open-source visualization application
 * [HyperQueue](hyperqueue.md) Scheduler for sub-node tasks
+* [Visual Studio Code](vscode.md) Source code editor
+* [Desktop](desktop.md) Remote desktop environment
+* [Accelerated visualization](accelerated-visualization.md) A selection of GPU accelerated visualization applications
+* [Julia-Jupyter](julia-jupyter.md) Interactive computational environment with Julia
+* [Jupyter](jupyter.md) Interactive computational environment with Python
+* [Jupyter for courses](jupyter-for-courses.md) A version of the Jupyter app for course environments
+* [TensorBoard](tensorboard.md) The visualization toolkit for TensorFlow

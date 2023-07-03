@@ -315,6 +315,20 @@ system:
 where `<system1>` or `<system2>` is one of the systems where a web interface is available, for
 example (prefixed with `www-`) `mahti` or `puhti`.
 
+As a temporary workaround, to prevent an application getting listed under a system for merely
+mentioning the system , edit the [skip_system.txt](scripts/skip_system.txt) file.
+
+```text
+Workaround:
+
+...
+
+SKIP_<system1> application.md
+SKIP_<system2> application.md
+```
+
+where `<system1>` and `<system2>` are as above.
+
 ## How do I add footnotes?
 
 Usage of the footnotes feature is described
