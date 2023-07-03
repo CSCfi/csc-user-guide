@@ -4,6 +4,7 @@
 
 * RStudio now has r-env 4.3.0 available.
 * Blender updated to 3.6.0 with added support for add-on installation.
+* Web interface session lifetime has been increased to 12h from the previous 8h.
 
 ## Mahti web interface available, 13.6.2023
 
