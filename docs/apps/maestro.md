@@ -2,9 +2,6 @@
 tags:
   - Academic
 description: Schrodinger Maestro usage instructions on CSC supercomputer Puhti
-system:
-  - www-mahti
-  - www-puhti
 ---
 # Maestro
 

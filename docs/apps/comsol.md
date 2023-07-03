@@ -1,8 +1,6 @@
 ---
 tags:
   - Academic
-system:
-  - www-puhti
 ---
 
 # COMSOL Multiphysics
