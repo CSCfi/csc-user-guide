@@ -1,5 +1,10 @@
 # Computing environment
 
+## Puhti web interface updated to release 16, 4.7.2023
+
+* RStudio now has r-env 4.3.0 available.
+* Blender updated to 3.6.0 with added support for add-on installation.
+
 ## Mahti web interface available, 13.6.2023
 
 The [web interface](../../../computing/webinterface/), previously available for
