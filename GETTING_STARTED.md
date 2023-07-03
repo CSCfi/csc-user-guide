@@ -1,4 +1,4 @@
-# Getting started on contributing to Docs CSC using command line tools
+# Getting started on contributing to the CSC Docs pages using command line tools
 
 The procedure described in this file aims to set up the necessary tools on Windows without the need for a system administrator account. However, the [simple Git workflow example](#a-simple-git-workflow-example) that follows the Windows-specific instructions doesn't make any particular assumptions on the operating system used.
 
@@ -124,7 +124,7 @@ Many commands need _operands_ to be useful, or to even do anything at all. Some 
 - `cd`
   * Change directory: Navigate to another location in the file system.
 
-_does_ work without operands (it navigates to the home directory), but it is commonly used with a path as its operand. Assuming the current location contains a directory named, say "example", this directory could then be navigated to with `cd example/`. Some locations can even be accessed with a shortcut:
+_does_ work without operands (it navigates to the home directory), but it is commonly used with a path as its operand. Assuming the current location contains a directory named, say "example", this directory could then be navigated to using `cd example/`. Some locations can even be accessed with a shortcut:
 
 - `.`
   * The current directory.
@@ -149,7 +149,7 @@ This incredibly simple yet powerful concept is best explained by example, and in
 
 In addition to tab completion, the command history is among one of the most useful features of shells like Bash. Again, simple yet powerful:
 
-- Browse through previously entered commands with the up and down arrow keys. (The trick is to insist on finding some command you remember using ages ago, when it would clearly be quicker to just type it again! 😅)
+- Browse through previously entered commands with the up and down arrow keys. (The trick is to insist on finding some command you remember using ages ago, when it would clearly be quicker to just type it again!)
 - Search for matches in the command history with _Ctrl+R_. (_Ctrl+R_ again to browse through matches.)
 
 Many times you'll want to execute a command that is almost the same as a command in your history. You can, using the above methods, browse to the command in question and use it as a template for your new command.
@@ -161,16 +161,15 @@ Many times you'll want to execute a command that is almost the same as a command
 
 ##### Clipboard copy/paste and keyboard shortcuts
 
-If you're accustomed to using the clipboard with the keyboard shortcuts _Ctrl+C_ and _Ctrl+V_, remember that these won't work in Git Bash. The corresponding shortcuts in Git Bash are (by default) _Ctrl+Insert_ for copy and _Shift+Insert_ for paste. **If you accidentally input _Ctrl+V_ in Git Bash with the intention of pasting text from the clipboard, you should hit the backspace key a couple of times before using the correct shortcut!** _Ctrl+C_, on the other hand, will send a keyboard interrupt signal that is often used to stop a running program, for example the MkDocs development server. You can access the context menu for clipboard copy and paste by clicking on the terminal with the right mouse button.
+If you're accustomed to using the clipboard with the keyboard shortcuts _Ctrl+C_ and _Ctrl+V_, remember that these won't work in Git Bash. The corresponding shortcuts in Git Bash are (by default) _Ctrl+Insert_ for copy and _Shift+Insert_ for paste. **If you accidentally input _Ctrl+V_ in Git Bash with the intention of pasting text from the clipboard, you should hit the backspace key a couple of times before using the correct shortcut!** _Ctrl+C_, on the other hand, will send a keyboard interrupt signal that is often used to stop a running program, for example, the MkDocs development server. You can access the context menu for clipboard copy and paste by clicking on the terminal with the right mouse button.
 
-You can change the default behaviour by right-clicking on the title bar, selecting _Options..._ and then _Mouse_ in the left pane. There you can, e.g., set "Paste" to occur upon right-clicking on the terminal. Note that selecting any text in the terminal automatically copies it to the clipboard (this behaviour can be changed under _Selection_), so you do not actually need to rely on the keyboard shortcuts nor the context menu for copying/pasting.
+You can change the default behaviour by right-clicking on the title bar, selecting _Options..._ and then _Mouse_ in the left pane. There you can, e.g., set "Paste" to occur upon right-clicking on the terminal. Note that selecting any text in the terminal automatically copies it to the clipboard (this behaviour can be changed under _Selection_), so you do not actually need to rely on keyboard shortcuts or the context menu for copying/pasting.
 
 ![Git for Windows - mouse settings](docs/img/windows/git_for_windows_mouse.png)
 
-Also, while some websites might show commands or snippets of code/script in a box with a button for copying the snippet onto the clipboard, **the result might not always be what the author of the tutorial intended**. A snippet with multiple lines can get copied as only a single long line, or a command that is intended to be edited first can get executed straight away when pasting. To avoid this, instead of clicking the button, it is recommended to select ("paint") the text and copy it using either _Ctrl+C_, the context menu accessed by right-clicking, or even by selecting _Edit -> Copy_ from the web browser's menu bar.
+Also, while some websites might show commands or snippets of code/script in a box with a button for copying the snippet onto the clipboard, **the result might not always be what the author of the tutorial intended**. A snippet with multiple lines can get copied as only a single long line, or a command that is intended to be edited first can get executed straight away when pasting. To avoid this, instead of clicking the button, it is recommended to select (highlight) the text and copy it using either _Ctrl+C_, the context menu accessed by right-clicking, or even by selecting _Edit -> Copy_ from the web browser's menu bar.
 
-**Keyboard shortcuts in general may produce unexpected results** for users accustomed to graphical interfaces. Historically, somewhat like _Shift_ is used for uppercase characters, _Ctrl_ has been used as a modifier key for sending _control characters_ to computer terminals. Only to mention this, as you _have_ just installed a _terminal emulator_ called MinTTY to use with Git Bash.
-
+**Keyboard shortcuts in general may produce unexpected results** for users accustomed to graphical interfaces. Similarly to how _Shift_ modifies the behaviour of the keys to produce uppercase characters, _Ctrl_ has been used as a modifier key for sending _control characters_ to computer terminals in the past. You _have_ just installed a _terminal emulator_ called MinTTY to use with Git Bash. In the early days of computer technology, there was a physical terminal to interact with the computer. 
 
 ##### Setting up SSH authentication with GitHub
 
@@ -300,7 +299,9 @@ Follow the instructions at GitHub Docs for
 
 ### Uninstallation
 
-If you need to, run the corresponding executable to uninstall Conda or Git for Windows:
+Miniconda and Git for Windows can be uninstalled like any other program by going to Add or remove programs and selecting them from the list of installed applications. 
+
+Alternatively, you can run the corresponding executable to uninstall Conda or Git for Windows:
 
 - `C:\Users\<your username>\AppData\Local\miniconda3\Uninstall-Miniconda3.exe`
 - `C:\Users\<your username>\AppData\Local\Programs\Git\unins000.exe`
@@ -494,6 +495,8 @@ git commit
 ```
 
 then save the file, exit the editor and Git will read the commit message you typed into the file.
+
+If you forget to give a message with the -m argument, you can enter it when the text editor opens to confirm the commit operation. 
 
 
 #### Pushing the commits to GitHub
