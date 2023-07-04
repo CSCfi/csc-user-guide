@@ -21,7 +21,7 @@ Now you can define what settings you want for your database:
 
 On the next page `Database access`:
 
-7. `Allowed CIDRs` - Here you want to add your allowed IP-addresses in the format `$IP/32` if you want to allow multiple IP-addresses. You need to separate them by a comma `,`.
+7. `Allowed CIDRs` - Here you want to add your allowed IP-addresses in the format `$IP/32` if you want to allow multiple IP-addresses. You need to separate them by a comma `,`. By default the database are created without any `Allowed CIDRs` which means that you won't be able to connect to your database.
 
 On the third page `Intialize Databases:
 
