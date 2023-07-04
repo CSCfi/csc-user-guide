@@ -108,8 +108,8 @@
 
 ## Data Analytics and Machine Learning
 
-* [Python Data](python-data.md) Collection of Python libraries for data analytics and machine learning
 * [JAX](jax.md) Autograd and XLA, brought together for high-performance machine learning
+* [Python Data](python-data.md) Collection of Python libraries for data analytics and machine learning
 * [PyTorch](pytorch.md) Machine learning framework for Python
 * [RAPIDS](rapids.md) Suite of libraries for data analytics and machine learning on GPUs
 * [Spark](spark.md) High-performance distributed computing framework
@@ -143,8 +143,8 @@
 ## Language Research and Other Digital Humanities and Social Sciences
 
 * [eBay's tsv-tools](http://urn.fi/urn:nbn:fi:lb-202006081) Utilities for manipulating large tabular data files
-* [finnish-parse](http://urn.fi/urn:nbn:fi:lb-2017030801) Dependency Parser for Finnish
 * [Finnish Tagtools](http://urn.fi/urn:nbn:fi:lb-201908161) Finnish Tagtools
+* [finnish-parse](http://urn.fi/urn:nbn:fi:lb-2017030801) Dependency Parser for Finnish
 * [HFST](http://urn.fi/urn:nbn:fi:lb-20140730183) Helsinki Finite-State Transducer Technology
 * [HFST-fi](http://urn.fi/urn:nbn:fi:lb-201509034) Helsinki Finite-State Technology for Finnish
 * [HFST-sv](http://urn.fi/urn:nbn:fi:lb-201509035) Helsinki Finite-State Technology for Swedish
@@ -171,15 +171,15 @@
 
 ## Miscellaneous
 
-* [DDT](ddt.md) Parallel debugger
-* [MySQL](../data/kaivos/overview.md) MySQL database client.
-* [ParaView](paraview.md) Free open-source visualization application
-* [VisIt](visit.md) Free open-source visualization application
-* [HyperQueue](hyperqueue.md) Scheduler for sub-node tasks
-* [Visual Studio Code](vscode.md) Source code editor
-* [Desktop](desktop.md) Remote desktop environment
 * [Accelerated visualization](accelerated-visualization.md) A selection of GPU accelerated visualization applications
+* [DDT](ddt.md) Parallel debugger
+* [Desktop](desktop.md) Remote desktop environment
+* [HyperQueue](hyperqueue.md) Scheduler for sub-node tasks
 * [Julia-Jupyter](julia-jupyter.md) Interactive computational environment with Julia
 * [Jupyter](jupyter.md) Interactive computational environment with Python
 * [Jupyter for courses](jupyter-for-courses.md) A version of the Jupyter app for course environments
+* [MySQL](../data/kaivos/overview.md) MySQL database client.
+* [ParaView](paraview.md) Free open-source visualization application
 * [TensorBoard](tensorboard.md) The visualization toolkit for TensorFlow
+* [VisIt](visit.md) Free open-source visualization application
+* [Visual Studio Code](vscode.md) Source code editor
