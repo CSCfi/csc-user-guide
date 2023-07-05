@@ -155,7 +155,7 @@ You can choose between **four different pre-built virtual Desktop options**:
 !!! Note
         If you don't know the best Desktop option for your needs, please contact us at servicedesk@csc.fi (email subject: Sensitive Data). 
 
-[![Launch](images/desktop/desktop_creation.png)](images/desktop/desktop_creation.png)
+[![Launch](images/desktop/desktop_launch.png)](images/desktop/desktop_launch.png)
       
 Unfortunately, we are not yet providing a virtual Desktop with GPUs or Windows, Linux Ubuntu operating systems. However, we are working on it, and you can find more information on the future developments of the services on our webpage. 
 
