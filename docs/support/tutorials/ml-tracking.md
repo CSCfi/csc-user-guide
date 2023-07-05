@@ -22,25 +22,23 @@ pre-installed modules][ml-apps], such as `pytorch`, `tensorflow` and
 Enabling MLflow tracking in your Python code is easy. Some libraries
 support [automatic logging with MLflow][autolog], but even if the
 library you are using does not, logging can be added with just a few
-lines of code. Here is an example for PyTorch:
+lines of code. For example:
 
 ```python
 import mlflow
-
 mlflow.set_tracking_uri("/scratch/project_2001234/mlruns")
-
 mlflow.start_run(run_name=os.getenv("SLURM_JOB_ID"))
 ```
 
-With `set_tracking_uri` we set the location where the MLflow files
-should be stored, replace `<project>` with your own project code. If
-you don't set a location it will create a directory called `mlruns` in
-you current working directory.
+With `mlflow.set_tracking_uri()` we set the location where the MLflow
+files should be stored, replace with the appropriate path for your own
+project in the example. If you don't set a location it will create a
+directory called `mlruns` in you current working directory.
 
 Instead of a directory, you can also use an SQLite database, just start the tracking location with `sqlite://`, for example:
 
 ```python
-mlflow.set_tracking_uri("sqlite:////scratch/project_2001234/mlruns.db/scratch/mlruns.db")
+mlflow.set_tracking_uri("sqlite:////scratch/project_2001234/mlruns.db")
 ```
 
 It is not mandatory to set a name for the run, but in the example
@@ -68,7 +66,7 @@ To launch it, log in to the web interface at
 <https://www.puhti.csc.fi/> and select "MLflow" from the "Apps"
 menu. In the submission form you need to select where the MLflow files
 are stored. This is the same path that you used for the
-`set_tracking_uri` command, i.e., typically:
+`mlflow.set_tracking_uri()` method, i.e., typically:
 
 - a directory like `/scratch/<project>/mlruns/`, or
 - an SQLite database like `sqlite:////scratch/<project>/mlruns.db`
