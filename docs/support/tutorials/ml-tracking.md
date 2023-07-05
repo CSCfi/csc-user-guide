@@ -35,7 +35,8 @@ files should be stored, replace with the appropriate path for your own
 project in the example. If you don't set a location it will create a
 directory called `mlruns` in you current working directory.
 
-Instead of a directory, you can also use an SQLite database, just start the tracking location with `sqlite://`, for example:
+Instead of a directory, you can also use an SQLite database, just
+start the tracking location with `sqlite://`, for example:
 
 ```python
 mlflow.set_tracking_uri("sqlite:////scratch/project_2001234/mlruns.db")
