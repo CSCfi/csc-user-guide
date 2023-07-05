@@ -87,10 +87,53 @@ of that metric over time:
 ### MLflow tracking server
 
 For more advanced use cases you may want to use an [MLflow remote
-tracking server][tracking-server]. This can be set up using CSC's
-Rahti service.
+tracking server][tracking-server]. For this the tracking UI in the
+Puhti web interface is not suitable, as it cannot be accessed over the
+network, and it would typically not be running all the time when you
+need to store data to it.
 
-TODO: notes here about MLflow + Rahti
+A more suitable platform for running an MLflow tracking server is
+CSC's Rahti service.  We have provided a ready-made MLflow template in
+Rahti's service catalog which makes starting an MLflow tracking server
+easy. See our [user guide on how to start your own MLflow tracking
+server on Rahti][mlflow-rahti]. There's even a [nice
+video!](https://video.csc.fi/media/t/0_2frjyzz9).
+
+You can also set it up to use Allas for storing artifacts.
+
+Once you have your server running on Rahti you can access the web user
+interface. The address can be found from Rahti (Applications → Routes
+→ mlflow-ui-route) and will be something similar to
+`https://your-mlflow-app.rahtiapp.fi`, depending on what name you gave
+the application in the setup. Also the username and password will be
+the same ones given in the setup phase.
+
+Next, change your Python script to point to the new MLflow tracking
+server:
+
+```python
+mlflow.set_tracking_uri("https://your-mlflow-app.rahtiapp.fi/")
+```
+
+Again, the URL depends on what name you gave to the application in
+Rahti. In addition, you need to set two environment variables with the
+username and password that you gave when creating the Rahti
+application, for example:
+
+```sh
+export MLFLOW_TRACKING_USERNAME=mlflow
+ export MLFLOW_TRACKING_PASSWORD=secretPassword123
+```
+
+!!! info "Note"
+
+    It is not very secure to store the password in a plain text file, like
+    the Slurm job scrip.  One option is to give the password on the
+    command line before launching the job. If you prefix the command with
+    a single space (as above) the bash shell will not store the command in
+    its history.
+
+
 
 ## Weights & Biases
 
@@ -109,3 +152,4 @@ TODO: adapt https://docs.wandb.ai/quickstart for Puhti usage
 [webui]: ../../computing/webinterface/index.md
 [log-func]: https://www.mlflow.org/docs/latest/tracking.html#logging-data-to-runs
 [tracking-server]: https://www.mlflow.org/docs/latest/tracking.html#mlflow-tracking-servers
+[mlflow-rahti]: https://github.com/CSCfi/mlflow-openshift/blob/master/docs/USER_GUIDE.md
