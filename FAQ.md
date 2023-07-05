@@ -316,7 +316,7 @@ where `<system1>` or `<system2>` is one of the systems where a web interface is 
 example (prefixed with `www-`) `mahti` or `puhti`.
 
 As a temporary workaround, to prevent an application getting listed under a system for merely
-mentioning the system , edit the [skip_system.txt](scripts/skip_system.txt) file.
+mentioning the system, edit the [skip_system.txt](scripts/skip_system.txt) file.
 
 ```text
 Workaround:
