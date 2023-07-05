@@ -1,5 +1,8 @@
 # Accessing databases on Rahti from CSC supercomputers
 
+!!! infos
+    This tutorial can also be applied if you are running websocat locally or in a cPouta instance for other purposes.
+
 Many HPC workflows require a database. Running these on the login node poses several issues and running on Pouta brings administration overhead. Rahti is a good candidate, but one obstacle is that Rahti does not support non-HTTP traffic from external sources.
 
 A workaround for this problem is to establish a TCP tunnel over an HTTP-compatible WebSocket connection. This can be achieved using a command-line client for connecting to and serving WebSockets called [WebSocat](https://github.com/vi/websocat). Here, a WebSocat instance running on Puhti/Mahti translates a database request coming from a workflow to an HTTP-compatible WebSocket protocol. Once the traffic enters Rahti we use another WebSocat instance running inside Rahti to translate back the WebSocket connection to a TCP connection over the original port the database is configured to receive traffic. A drawing of the process is shown below.
@@ -37,8 +40,7 @@ Configuring MongoDB and WebSocat on Rahti can be done either through the web int
 - An [OpenShift template](https://github.com/CSCfi/websocat-template/blob/main/websocat-template.yaml) is needed to configure WebSocat on Rahti. Download or copy this YAML file to your clipboard. Note that this is an unsupported beta template
 - On the Rahti web interface front page, select Import YAML/JSON and add the WebSocat template to the same project as the MongoDB (upload by dragging & dropping, selecting it, or pasting from the clipboard). Do not edit the template!
 - Select Create, process the template and input the above hostname and target port in the requested database service name and database port fields
-- Select the created project, navigate to `Applications > Services` and select the WebSocat service. Remember the
-    - Route hostname (of the form `websocat-<project name>.rahtiapp.fi`)
+- Select the created project, navigate to `Applications > Services` and select the WebSocat service. Remember the route hostname (of the form `websocat-<project_name>.rahtiapp.fi`)
 
 ### Option 2: Using the `oc` command line tool
 
@@ -78,7 +80,7 @@ MongoDB and WebSocat have now been set up on Rahti and you should have the follo
 - [Download `websocat` from GitHub](https://github.com/vi/websocat/releases) and add it to your `PATH`. For example:
 
 ```bash
-wget -O websocat https://github.com/vi/websocat/releases/download/v1.8.0/websocat_amd64-linux-static
+wget -O websocat https://github.com/vi/websocat/releases/download/v1.11.0/websocat.x86_64-unknown-linux-musl
 export PATH=$PATH:$PWD
 ```
 
@@ -88,7 +90,7 @@ export PATH=$PATH:$PWD
 websocat -b tcp-l:127.0.0.1:0 wss://websocat-<project name>.rahtiapp.fi -E &
 ws_pid=$!  # $! contains the process ID of the most recently executed background command
 mkdir -p /tmp/$USER
-lsof -i -p $ws_pid 2>/dev/null | grep TCP | grep -oE "localhost:[0-9]*" | cut -d ":" -f2 > /tmp/$USER/${SLURM_JOB_ID}_rahtidb_port
+lsof -Pa -p $ws_pid -i -sTCP:LISTEN | grep -v ^COMMAND | sed -e 's#.*TCP\s*\S*:\([0-9]*\).*#\1#' > /tmp/$USER/${SLURM_JOB_ID}_rahtidb_port
 echo "Got target port $(cat /tmp/$USER/${SLURM_JOB_ID}_rahtidb_port)"
 ```
 
@@ -96,6 +98,9 @@ echo "Got target port $(cat /tmp/$USER/${SLURM_JOB_ID}_rahtidb_port)"
     If you want to access your database within a batch job, run `websocat` within your batch script. You can utilize the same obtained target port if you're submitting your job from an interactive session in which `websocat` is already running, `websocat -b tcp-l:127.0.0.1:<port> wss://websocat-<project name>.rahtiapp.fi -E &`. Otherwise, pass 0 as the target port and check which one it gets handed using `lsof`.
 
 - Now `websocat` is running in the interactive session/batch job and you may connect to your MongoDB database on Rahti using the obtained target port. You can verify the connection with e.g. Python. Note that the username and password below refer to the created database service, not your CSC credentials
+
+!!! info  
+    PyMongo version 3.13.0 must be installed otherwise the driver is too new for the MongoDB server. (More information: https://pymongo.readthedocs.io/en/stable/common-issues.html#server-reports-wire-version-x-pymongo-requires-y)
 
 ```python
 # module load python-data

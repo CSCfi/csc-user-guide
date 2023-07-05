@@ -4,17 +4,17 @@ tags:
   - Free
 ---
 
-!!! note "Practical Deep Learning, May 3-5" 
-    The popular Practical Deep Learning course by CSC will be held again
-    May 3-5. The course gives an introduction to deep learning and how to
-    do machine learning on Puhti and LUMI supercomputers. 
-    [Registration is now open!](https://ssl.eventilla.com/event/8aPek)
-
 # PyTorch
 
 Machine learning framework for Python.
 
-!!! info "News"
+!!! info "News" 
+    **23.5.2023** Modules `pytorch/2.0` and `pytorch/1.13` have been
+    updated so that [Python virtual
+    environments](https://packaging.python.org/en/latest/guides/installing-using-pip-and-virtual-environments/#creating-a-virtual-environment)
+    should now work with them. To create a virtual environment use the
+    command `python3 -m venv --system-site-packages venv`.
+    
     **5.10.2022** Due to Puhti's update to Red Hat Enterprise Linux 8
     (RHEL8), **the number of fully supported PyTorch versions has been
     reduced. Previously deprecated conda-based versions have been
@@ -34,17 +34,18 @@ Machine learning framework for Python.
 
 Currently supported PyTorch versions:
 
-| Version | Module         | Puhti | Mahti | LUMI | Notes           |
-|:--------|----------------|:-----:|:-----:|------|:----------------|
-| 2.0.0   | `pytorch/2.0`  | X     | X     | X*   | default version |
-| 1.13.1  | `pytorch/1.13` | -     | -     | X*   |                 |
-| 1.13.0  | `pytorch/1.13` | X     | X     | -    |                 |
-| 1.12.0  | `pytorch/1.12` | X     | X     | -    |                 |
-| 1.11.0  | `pytorch/1.11` | X     | X     | -    |                 |
-| 1.10.0  | `pytorch/1.10` | (x)   | (x)   | -    |                 |
-| 1.9.0   | `pytorch/1.9`  | (x)   | (x)   | -    |                 |
-| 1.8.1   | `pytorch/1.8`  | (x)   | (x)   | -    |                 |
-| 1.7.1   | `pytorch/1.7`  | (x)   | -     | -    |                 |
+| Version | Module         | Puhti | Mahti | LUMI | Notes                      |
+|:--------|----------------|:-----:|:-----:|------|:---------------------------|
+| 2.0.1   | `pytorch/2.0`  | -     | -     | X    | default version            |
+| 2.0.0   | `pytorch/2.0`  | X     | X     | -    | default version            |
+| 1.13.1  | `pytorch/1.13` | -     | -     | X    | limited multi-node support |
+| 1.13.0  | `pytorch/1.13` | X     | X     | -    |                            |
+| 1.12.0  | `pytorch/1.12` | X     | X     | -    |                            |
+| 1.11.0  | `pytorch/1.11` | X     | X     | -    |                            |
+| 1.10.0  | `pytorch/1.10` | (x)   | (x)   | -    |                            |
+| 1.9.0   | `pytorch/1.9`  | (x)   | (x)   | -    |                            |
+| 1.8.1   | `pytorch/1.8`  | (x)   | (x)   | -    |                            |
+| 1.7.1   | `pytorch/1.7`  | (x)   | -     | -    |                            |
 
 All modules include [PyTorch](https://pytorch.org/) and related libraries with
 GPU support via CUDA/ROCm.
@@ -54,10 +55,6 @@ Versions marked with "(x)" are based on old Red Hat Enterprise Linux 7
 and Horovod are not expected to work anymore with these modules. If
 you still wish to access these versions, you need to enable old RHEL7
 modules by `module use /appl/soft/ai/rhel7/modulefiles/`.
-
-**Versions in LUMI, marked as "X*" are still experimental with limited
-support.** They are still subject to change at any time without notice,
-and for example multi-node jobs are know not to work properly yet.
 
 If you find that some package is missing, you can often install it yourself with
 `pip install --user`. See [our Python
@@ -156,7 +153,7 @@ proportion of the available CPU cores in a single node:
     #SBATCH --time=1:00:00
     #SBATCH --gres=gpu:v100:1
         
-    module load pytorch/1.13
+    module load pytorch/2.0
     srun python3 myprog.py <options>
     ```
 
@@ -170,7 +167,7 @@ proportion of the available CPU cores in a single node:
     #SBATCH --time=1:00:00
     #SBATCH --gres=gpu:a100:1
     
-    module load pytorch/1.13
+    module load pytorch/2.0
     srun python3 myprog.py <options>
     ```
 
@@ -180,15 +177,13 @@ proportion of the available CPU cores in a single node:
     #SBATCH --account=<project>
     #SBATCH --partition=small-g
     #SBATCH --ntasks=1
-    #SBATCH --cpus-per-task=8
+    #SBATCH --cpus-per-task=7
     #SBATCH --gpus-per-node=1
     #SBATCH --mem=64G
     #SBATCH --time=1:00:00
     
-    export SRUN_CPUS_PER_TASK=$SLURM_CPUS_PER_TASK
-
     module use /appl/local/csc/modulefiles/
-    module load pytorch/1.13
+    module load pytorch/2.0
     srun python3 myprog.py <options>
     ```
 

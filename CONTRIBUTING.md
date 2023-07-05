@@ -180,6 +180,8 @@ Pull requests can be created as follows:
 
 See the [FAQ](FAQ.md#how-can-i-preview-my-edits) for how to preview the Docs CSC website locally using MkDocs.
 
+A newbie-friendly guide on how to set up the necessary tools on Windows is available [here](GETTING_STARTED.md).
+
 ## Building the website using the included Dockerfile
 
 You can also create a Docker container to host the docs. First build

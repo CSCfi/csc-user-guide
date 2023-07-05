@@ -1,33 +1,49 @@
-# Puhti web interface
+# Web interfaces for Puhti and Mahti
 
 ## Intro
 
-The Puhti web interface at [www.puhti.csc.fi](https://www.puhti.csc.fi) can be used to access the Puhti supercomputer 
-using only a web browser. With the web interface you can:
+The web interfaces for Puhti and Mahti at [www.puhti.csc.fi](https://www.puhti.csc.fi) and
+[www.mahti.csc.fi](https://www.mahti.csc.fi) can be used to access the supercomputers using only a
+web browser.
+
+**Features available in both the Puhti and Mahti web interfaces:**
 
 - View, download and upload files
-- Launch common graphical applications and connect to them directly from the browser
+- Open a shell on the login node
+- Open a persistent shell on a compute node
+- View running batch jobs
+- View disk quotas and project status
+- Launch interactive apps and connect to them directly from the browser:
+    - Desktop with apps such as Maestro and VMD
+    - Julia-Jupyter
     - Jupyter
     - Jupyter for courses: An interactive Jupyter session specifically for courses
-    - RStudio
+    - TensorBoard
     - Visual Studio Code
-    - and more
-- Launch an interactive GPU accelerated visualization session for applications such as
+
+
+**Features available in Mahti only:**
+
+- View, download, upload and move files between Allas, Mahti and your local computer
+
+
+**Apps available in Puhti only:**
+
+- Accelerated visualization with applications:
     - Blender
     - COMSOL
     - ParaView
     - VMD
-- Open a shell on the login node
-- Open a persistent shell on a compute node
-- View running batch jobs
+- RStudio
+- MATLAB
 
-Everything still runs directly on Puhti, giving you all the resources and power
+Everything still runs directly on the supercomputers, giving you all the resources and power
 of a supercomputer, but easily accessible using only a web browser.
 
 
 ## Connecting
 
-Using a web browser, go to [www.puhti.csc.fi](https://www.puhti.csc.fi). On the landing page, click on "Log in to Puhti" and select an appropriate authentication provider. When logging in using your CSC user account, select CSC as the authentication provider and use the same username and password you use when connecting with `ssh`.
+Using a web browser, go to [www.puhti.csc.fi](https://www.puhti.csc.fi) or [www.mahti.csc.fi](https://www.mahti.csc.fi). On the landing page, click on "Log in" and select an appropriate authentication provider. When logging in using your CSC user account, select CSC as the authentication provider and use the same username and password you use when connecting with `ssh`.
 &nbsp;
 
 ![Puhti web interface login page](../../img/ood_login.png)
@@ -37,17 +53,17 @@ After successful authentication, you will see the dashboard.
 
 ![Puhti web interface front page](../../img/ood_main.png)
 
-From here you can browse your files on Puhti, start a shell, view running jobs or start one of the many available applications. The dashboard also contains some important system information.
+From here you can browse your files on the supercomputer, start a shell, view running jobs or start one of the many available applications. The dashboard also contains some important system information.
 
 
 ## Available features
 
 ### Shell
 
-The shell apps can be found at the bottom of the page or on the top navbar under the _Tools_ section.
+The shell apps can be found under Pinned apps or on the top navbar under the _Tools_ section.
 There are two different shells.
 
-The _Login node shell_ launches a normal linux shell on one of the Puhti login nodes.
+The _Login node shell_ launches a normal linux shell on one of the login nodes.
 Any command that is running when the login shell browser tab is closed will stop.
 Note that the same rules apply here as during a normal ssh session.
 **Login nodes are only for light pre/postprocessing** (see [Usage policy](/computing/usage-policy)).
@@ -74,6 +90,35 @@ The file browser comes with a basic text editor. Some important notes on that:
 - There is no _save-as_ feature
 - If a read-only file is opened no indication will be given to the user but no changes will be applied
 
+#### Using Allas
+
+In the Mahti web interface, the [Allas object storage service](../../computing/allas) can be
+accessed using the file browser.
+
+Currently, only the S3 protocol for accessing Allas is supported.
+For more details about the difference, see [Allas protocols](../../data/Allas/introduction/#protocols).
+Note that the Swift and S3 protocols are not fully compatible with each other, particularly with
+files larger than 5 GB.
+To configure authentication for Allas with the S3 protocol, _allas-conf_ must be run with the
+_s3cmd_ mode:
+```
+module load allas
+allas-conf --mode s3cmd
+```
+After running the command, the web interface server must be restarted, which can be done by clicking
+_Restart web server_ in the _Help_ menu in top right section of the navbar.
+Once the server has been restarted, the `s3allas` remote will be available in the _Files_ dropdown
+in the navbar and in the file browser.
+Additionally, LUMI-O is also supported for use through the file browser and can be configured by
+running _allas-conf_ as `allas-conf --lumi` instead.
+
+Configured remotes that are not accessible, for example, due to expired authentication or network
+connection issues, are not be visible in the dropdown menu.
+
+The file browser works the same way when accessing Allas as it does when accessing the shared
+filesystem on Mahti.
+Note that uploading large files from your local computer to Allas is currently not recommended due
+to technical limitations.
 
 ### Active jobs
 
@@ -94,7 +139,8 @@ If the interactive app does not start or does not work as expected you can delet
 
 The interactive apps can be found in the navigation bar under _Apps_, or on _My Interactive Sessions_ page.
 After selecting an interactive app from the list you will be presented with a form to configure the session.
-After submitting the app form the app will be started and you will be able to connect to the application on the _My Interactive Sessions_ page.
+After submitting the app form, and the Slurm job for the app has finished queuing, the app will be
+started and you will be able to connect to the application on the _My Interactive Sessions_ page.
 
 For a list of applications and specific instructions see [apps](apps.md).
 
@@ -102,4 +148,4 @@ For a list of applications and specific instructions see [apps](apps.md).
 ### Project view
 
 Using the project view under the _Tools_ section on the top navbar, you can view 
-current disk and project billing unit quotas on Puhti. For more information see [project-view](project-view.md).
+current disk and project billing unit quotas on the supercomputers. For more information see [project-view](project-view.md).

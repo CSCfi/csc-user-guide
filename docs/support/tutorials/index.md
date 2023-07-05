@@ -6,7 +6,6 @@
 * [Getting started with Helmi](../../computing/quantum-computing/helmi/helmi-from-lumi.md)
 * [Managing data on Puhti and Mahti scratch disks](clean-up-data.md)
 * [Conda best practices](conda.md)
-* [Using NoMachine](nomachine-usage.md)
 * [CSC Quick reference (pdf)](../../img/csc-quick-reference/csc-quick-reference.pdf)
 * [How to run existing containers in Puhti](../../computing/containers/run-existing.md)
 * [Linux basics for CSC](env-guide/index.md)
@@ -48,6 +47,7 @@
 ## Chemistry
 * [Farming Gaussian jobs with HyperQueue](https://csc-training.github.io/csc-env-eff/hands-on/throughput/gaussian_hq.html)
 * [Using Gabedit for Gaussian jobs on Puhti](gabedit_gaussian.md)
+* [High-throughput computing with Gromacs](gromacs-throughput.md)
 
 ## Data analysis and machine learning
 
@@ -80,7 +80,7 @@
 * [How to package a Kubernetes application with Helm?](../../cloud/rahti/tutorials/helm.md)
 * [Accessing databases on Rahti from CSC supercomputers](../../cloud/rahti/tutorials/connect-database-hpc.md)
 
-## Senistive Data
+## Sensitive Data
 * [Using Allas to transport sensitive data](../../data/sensitive-data/sequencing_center_tutorial.md)
 * [Running temporary PostgreSQL database in SD Desktop](../../data/sensitive-data/tutorials/postgresql.md)
  

@@ -191,7 +191,7 @@ documentation.
 
 ### High-throughput computing with Amber
 
-Similar to [Gromacs multidir](gromacs.md#high-throughput-computing-with-gromacs),
+Similar to [Gromacs multidir](../support/tutorials/gromacs-throughput.md),
 Amber has a built-in "multi-pmemd" functionality, which allows you to run multiple
 MD simulations within a single Slurm allocation. This is an efficient option in cases
 where you want to run many similar, but independent, simulations. Typical use cases

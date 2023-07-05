@@ -1,5 +1,47 @@
 # Computing environment
 
+## Puhti web interface updated to release 16, 4.7.2023
+
+* RStudio now has r-env 4.3.0 available.
+* Blender updated to 3.6.0 with added support for add-on installation.
+* Web interface session lifetime has been increased to 12h from the previous 8h.
+
+## Mahti web interface available, 13.6.2023
+
+The [web interface](../../../computing/webinterface/), previously available for
+Puhti only, is now available also for Mahti at [www.mahti.csc.fi](https://www.mahti.csc.fi).
+Apps available in the [Mahti web interface](https://www.mahti.csc.fi):
+
+* Active Jobs
+* Compute and Login node shell
+* Desktop with Maestro and VMD
+* Disk quotas and Project view
+* File browser with [support for Allas](../../../computing/webinterface/#using-allas)
+* Jupyter, Julia-Jupyter and Jupyter for courses
+* TensorBoard
+* Visual Studio Code
+
+## New policy on Puhti and Mahti for projects that have run out of billing units, 22.5.2023
+
+In addition to limiting access to compute resources upon running out of billing
+units, now also access to storage will be limited on Puhti and Mahti. Please read
+[running out of billing units](../../computing/usage-policy.md#running-out-of-billing-units)
+for more details. To give all projects time to react, the policy will be enforced
+starting June 21, 2023. Please login to MyCSC to check if you have projects that
+have a negative amount of billing units. When logging in to Puhti using ssh or
+the web interface you will also receive warnings and information on how much time
+remains before access is removed.
+
+## Puhti web interface updated to release 15, 2.5.2023
+
+* A new [Julia-Jupyter app](../../computing/webinterface/julia-on-jupyter.md) is now available.
+* Visual Studio Code app has received updates.
+    * Support for [Julia language features](../../computing/webinterface/vscode.md#julia-language) was added.
+    * VSCode version 1.76.1 is now available.
+    * Version may be selected when launching the app.
+* Puhti usage metrics now include history (expand by clicking the chevron).
+* Open OnDemand version updated to 2.0.32.
+
 ## Puhti web interface updated to release 14, 2.2.2023
 
 * Xfce is now the main desktop alternative and other options are being deprecated

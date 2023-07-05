@@ -8,7 +8,6 @@ tags:
 VisIt is an open source, versatile software for scientific visualization.
 VisIt is available on Puhti and we recommend [the Puhti web interface remote
 desktop](../computing/webinterface/desktop.md) for running the GUI.
-[NoMachine](nomachine.md) can be used as a fallback option.
 
 !!! Note
     You can now also enable [interactive visualization with GPU
