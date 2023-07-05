@@ -84,6 +84,14 @@ of that metric over time:
 ![MLflow plot showing the loss metric over time](../../img/mlflow-metrics.png)
 
 
+### MLflow tracking server
+
+For more advanced use cases you may want to use an [MLflow remote
+tracking server][tracking-server]. This can be set up using CSC's
+Rahti service.
+
+TODO: notes here about MLflow + Rahti
+
 ## Weights & Biases
 
 TODO: adapt https://docs.wandb.ai/quickstart for Puhti usage
@@ -100,3 +108,4 @@ TODO: adapt https://docs.wandb.ai/quickstart for Puhti usage
 [mlflow-app]: ../../computing/webinterface/mlflow.md
 [webui]: ../../computing/webinterface/index.md
 [log-func]: https://www.mlflow.org/docs/latest/tracking.html#logging-data-to-runs
+[tracking-server]: https://www.mlflow.org/docs/latest/tracking.html#mlflow-tracking-servers
