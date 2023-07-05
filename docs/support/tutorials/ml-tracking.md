@@ -121,17 +121,17 @@ username and password that you gave when creating the Rahti
 application, for example:
 
 ```sh
-export MLFLOW_TRACKING_USERNAME=mlflow
+ export MLFLOW_TRACKING_USERNAME=mlflow
  export MLFLOW_TRACKING_PASSWORD=secretPassword123
 ```
 
-!!! info "Note"
+!!! warning ""
 
-    It is not very secure to store the password in a plain text file, like
-    the Slurm job scrip.  One option is to give the password on the
-    command line before launching the job. If you prefix the command with
-    a single space (as above) the bash shell will not store the command in
-    its history.
+    It is not very secure to store the password in a plain text file such as
+    the Slurm job script. One option is to give the password on the
+    command line before launching the job. If you **prefix the export
+    command with a single space** (as above) the bash shell will not store
+    the command (including the password) in its history.
 
 
 
