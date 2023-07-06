@@ -9,6 +9,9 @@ Collection of Python libraries for data analytics and machine learning.
 
 !!! info "News"
 
+     **4.7.2023** Installed `python-data/3.10-23.07` with newer packages of popular Python 
+     modules.
+
     **28.10.2022** Module `python-data/3.8` was added for those who
     specifically need Python 3.8.
 
@@ -37,9 +40,12 @@ allow.
 
 Current versions are:
 
-- `python-data/3.10-22.09` or `python-data/3.10`: installed in
-  September 2022, includes for example Scikit-learn 1.1.2, SciPy
-  1.9.1, Pandas 1.4.4 and JupyterLab 3.4.6.
+- `python-data/3.10-23.07`: installed in July 2023, includes for
+  example Scikit-learn 1.2.2, SciPy 1.11.1, Pandas 2.0.3 and JupyterLab
+  4.0.2.
+- (default version) `python-data/3.10-22.09` or `python-data/3.10`:
+  installed in September 2022, includes for example Scikit-learn
+  1.1.2, SciPy 1.9.1, Pandas 1.4.4 and JupyterLab 3.4.6.
 - `python-data/3.9-22.04` or `python-data/3.9`: installed in April
   2022, includes for example Scikit-learn 1.0.2, SciPy 1.8.0, Pandas
   1.4.2 and JupyterLab 3.3.4.
