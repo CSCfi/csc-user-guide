@@ -6,13 +6,15 @@ const selectors = {
   repository: "div.md-header__source"
 }
 
-const headerElement = document.querySelector(selectors.header)
-const searchElement = headerElement.querySelector(selectors.search)
-const repositoryElement = headerElement.querySelector(selectors.repository)
-const sidebarElement = document.querySelector(selectors.sidebar)
-const navListElement = sidebarElement.querySelector(selectors.navList)
+export const headerElement = document.querySelector(selectors.header)
+export const searchElement = headerElement.querySelector(selectors.search)
+export const repositoryElement = headerElement.querySelector(selectors.repository)
+export const sidebarElement = document.querySelector(selectors.sidebar)
+export const navListElement = sidebarElement.querySelector(selectors.navList)
 
-const dropdownSites = [
+export const iframeElements = Array.from(document.getElementsByTagName('iframe'))
+
+export const dropdownSites = [
   {
     name: 'CSC.fi',
     description: 'main site',

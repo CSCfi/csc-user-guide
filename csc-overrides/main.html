@@ -1,4 +1,11 @@
 {% extends "base.html" %}
+{% block libs %}
+    {{ super() }}
+    <link rel="modulepreload" href="{{ base_url }}/assets/javascripts/modules/constants.js" />
+    <link rel="modulepreload" href="{{ base_url }}/assets/javascripts/modules/dropdown.js" />
+    <link rel="modulepreload" href="{{ base_url }}/assets/javascripts/modules/utils.js" />
+    <link rel="modulepreload" href="{{ base_url }}/assets/javascripts/modules/layout.js" />
+{% endblock libs %}
 {% block announce %}
     {% if config.extra.announcement_visible is not true %}
     <style>

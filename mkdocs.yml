@@ -102,9 +102,6 @@ extra_css:
   - "https://use.typekit.net/csv4mjm.css" # Museo Sans font
 
 extra_javascript:
-  - assets/javascripts/constants.js # Constants need to be loaded first since the other scripts depend on them
-  - assets/javascripts/dropdown.js
-  - assets/javascripts/layout.js
   - assets/javascripts/extra.js
 
 nav:

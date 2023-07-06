@@ -43,11 +43,11 @@ const generateButton = () => {
   return button
 }
 
-const generateDropdown = () => {
+export const generateDropdown = sites => {
   const dropdown = document.createElement('nav')
   dropdown.classList.add('csc-dropdown')
   dropdown.appendChild(generateButton())
-  const dropdownAnchors = dropdownSites.map(site => generateAnchor(site))
+  const dropdownAnchors = sites.map(site => generateAnchor(site))
   const dropdownItems = dropdownAnchors.map(anchor => anchorToItem(anchor))
   const dropdownContent = generateContent(dropdownItems)
   dropdown.appendChild(dropdownContent)
