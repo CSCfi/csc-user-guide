@@ -42,6 +42,14 @@ start the tracking location with `sqlite://`, for example:
 mlflow.set_tracking_uri("sqlite:////scratch/project_2001234/mlruns.db")
 ```
 
+Instead of setting the tracking URI in the Python code, you can also
+set it using an environment variable, for example in the Slurm job
+script:
+
+```bash
+export MLFLOW_TRACKING_URI=/scratch/project_2001234/mlruns
+```
+
 It is not mandatory to set a name for the run, but in the example
 above we show how to use the Slurm job id for the name.
 
@@ -121,7 +129,7 @@ Rahti. In addition, you need to set two environment variables with the
 username and password that you gave when creating the Rahti
 application, for example:
 
-```sh
+```bash
  export MLFLOW_TRACKING_USERNAME=mlflow
  export MLFLOW_TRACKING_PASSWORD=secretPassword123
 ```
