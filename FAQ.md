@@ -23,6 +23,7 @@ The [contributing guide](CONTRIBUTING.md) outlines the basic steps of starting c
   - [How do I add definitions to the glossary / display definitions as tooltips?](#how-do-i-add-definitions-to-the-glossary--display-definitions-as-tooltips)
   - [How do I use the announcement bar?](#how-do-i-use-the-announcement-bar)
   - [How do I add a license tag to an application page?](#how-do-I-add-a-license-tag-to-an-application-page)
+  - [How do I tag an application as available under a web interface?](#how-do-i-tag-an-application-as-available-under-a-web-interface)
   - [How do I make footnotes?](#how-do-i-make-footnotes)
   - [How do I improve search results?](#how-do-i-improve-search-results)
 
@@ -295,6 +296,38 @@ where `<license>` is one of the predefined license categories: `Academic`, `Free
 `Other`; case sensitive, without the angle brackets.
 
 The application will then be included on the Applications by license page automatically.
+
+## How do I tag an application as available under a web interface?
+
+As with [adding a license tag](#how-do-I-add-a-license-tag-to-an-application-page), an application
+can be tagged as available in a particular web interface. The application will then be listed under
+that web interface on the _Applications by availability_ page. The tags for web interfaces that an
+application is available on are added under the `system` key in the front matter.
+
+```yaml
+---
+system:
+  - www-<system1>
+  - www-<system2>
+---
+```
+
+where `<system1>` or `<system2>` is one of the systems where a web interface is available, for
+example (prefixed with `www-`) `mahti` or `puhti`.
+
+As a temporary workaround, to prevent an application getting listed under a system for merely
+mentioning the system, edit the [skip_system.txt](scripts/skip_system.txt) file.
+
+```text
+Workaround:
+
+...
+
+SKIP_<system1> application.md
+SKIP_<system2> application.md
+```
+
+where `<system1>` and `<system2>` are as above.
 
 ## How do I add footnotes?
 
