@@ -46,8 +46,7 @@ There is currently no special mechanism in place for controlling banners.
 
     There is a `<center>` block in _index.md_ to hold the banner. The images themselves
     should go to _docs/img/banners/_. The width of the image can be controlled with a
-    `width` attribute. A `target=_blank` attribute should be present when a link
-    is pointing outside of Docs.
+    `width` attribute.
 
     ```html
     <center>
@@ -359,7 +358,6 @@ you define the content.
 
     `info inline end`
 
-
 ```bash
 a="unexpected"
 b="results"
@@ -373,6 +371,7 @@ fi
 
 Try adding a `&nbsp;` if inline admonitions give you trouble. Example found right above this line
 in [the Markdown source](https://github.com/CSCfi/csc-user-guide/blob/master/docs/ref.md?plain=1).
+
 
 
 ## Images
@@ -398,10 +397,12 @@ on some dogs, and then running away:
 ></iframe>
 
 
+
 ### Animations
 
 If you don't need sound (or controls), you can use animations as an alternative for embedded videos. They are
 used just like [static images](#images). Both _.gif_ and _.png_ files work.
+
 
 
 ## Mermaid
