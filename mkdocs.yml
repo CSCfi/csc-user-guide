@@ -168,6 +168,7 @@ nav:
      - Web interface:
        - computing/webinterface/index.md
        - Interactive apps:
+         - computing/webinterface/apps.md
          - Accelerated visualization: computing/webinterface/accelerated-visualization.md
          - Desktop: computing/webinterface/desktop.md
          - Jupyter: computing/webinterface/jupyter.md
