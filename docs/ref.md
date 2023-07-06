@@ -197,6 +197,10 @@ def main():
 // Here's a JavaScript comment with a loooooooooooooooooooooooooooooooong line. You know, for testing purposes. Tell you what, let's make it just a bit longer still.
 ```
 
+Remember to leave an empty line after the ` ``` ` in a source code box. Failing to do so can leave
+any immediately following text as "loose", i.e., outside of an HTML paragraph (`<p>`).
+
+
 ## Tables
 | This | Table | Has | Five | Columns |
 |-|-|-|-|-|
@@ -351,7 +355,8 @@ on some dogs, and then running away:
 </iframe>
 
 ### Animations
-If you don't need sound, you can use animations as an alternative for embedded videos. They are
+
+If you don't need sound (or controls), you can use animations as an alternative for embedded videos. They are
 used just like [static images](#images). Both `.gif` and `.png` files work.
 
 ## Mermaid
