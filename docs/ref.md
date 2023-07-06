@@ -4,6 +4,7 @@ search:
 ---
 
 # Reference card
+
 !!! default "Documentation"
 
     Docs CSC is based on *Material for MkDocs*. Note that not all (by far) features are supported.
@@ -28,6 +29,7 @@ enim. Laboriosam autem vel vel aut quod.
 
 Here's a reference to a footnote:[^1]
 
+
 ## Banners
 
 The front page can be fitted with a banner to promote a course for example.
@@ -38,10 +40,10 @@ There is currently no special mechanism in place for controlling banners.
 
 === "index.md"
 
-     There is a `<center>` block in `index.md` to hold the banner. The images themselves
-     should go to `docs/img/banners/`. The width of the image can be controlled with a
-     `width` attribute. A `target=_blank` attribute should be present when a link
-     is pointing outside of Docs.
+    There is a `<center>` block in `index.md` to hold the banner. The images themselves
+    should go to `docs/img/banners/`. The width of the image can be controlled with a
+    `width` attribute. A `target=_blank` attribute should be present when a link
+    is pointing outside of Docs.
 
     ```html
     <center>
@@ -64,7 +66,9 @@ There is currently no special mechanism in place for controlling banners.
     -->
     ```
 
+
 ## Glossary
+
 There is a glossary of HPC-related acronyms that get highlighted automatically. For example: CPU,
 GPU, QPU, etc. The acronyms are defined in the markdown file
 `csc-overrides/assets/glossaries/hpc.md`. More acronyms (case-sensitive) can be added there or into another
@@ -92,23 +96,35 @@ markdown file, like so:
 
 The glossary is also viewable as a page at [docs.csc.fi/glossary](support/glossary.md).
 
+
 ## Headings
+
 The heading for Headings is a heading of a heading level 2. Remember to only use one heading level
 1 heading on your page and to keep the heading hierarchy intact. So no skipping levels.
 
+
 ### This is a heading level 3 heading
+
 That one's a level 3. Here is some text under it.
 
+
 #### Now for a level 4 heading
+
 Some text _four_ it here.
 
+
 ##### Level 5 heading: `now with added monospace`
+
 No text this time.
 
+
 ###### Level 6
+
 More text coming up next in Text.
 
+
 ## Text
+
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nulla ex, elementum ultrices
 tempor quis, commodo sit amet quam. Sed accumsan placerat nunc. Suspendisse elementum augue et est
 tempor lacinia. Pellentesque vel ante id nunc luctus euismod id non est. Vivamus porttitor dui et
@@ -150,22 +166,29 @@ Mauris turpis felis, molestie eget ipsum ac, fringilla euismod risus. Phasellus 
 eu enim dui. Quisque eu hendrerit magna. Donec ac elit laoreet, mattis tortor et, feugiat nisl.
 Duis maximus ultrices elit, quis hendrerit orci.
 
+
 ## Lists
+
 ### Unordered list
+
 Here is an unordered list:
 
 - It has an item
 - Another item
 - And yet another item
 
+
 ### Ordered list
+
 Let's make an ordered list:
 
 1. An item on a list
 1. Another item
 1. Even a third item
 
+
 ## Source code
+
 ```python
 # Here is a box with some syntax highlighted Python
 
@@ -202,6 +225,7 @@ any immediately following text as "loose", i.e., outside of an HTML paragraph (`
 
 
 ## Tables
+
 | This | Table | Has | Five | Columns |
 |-|-|-|-|-|
 | and | | | | |
@@ -210,8 +234,11 @@ any immediately following text as "loose", i.e., outside of an HTML paragraph (`
 | | | | five | |
 | | | | | rows |
 
+
 ## Admonitions
+
 ### The fallback style
+
 !!! note "Here we have an important announcement"
 
     Make sure you read this note inside this very important-looking box, since this is the fallback
@@ -233,9 +260,11 @@ any immediately following text as "loose", i.e., outside of an HTML paragraph (`
 !!! note ""
     Title may be removed with `note ""`.
 
+
 ### Styles available with type qualifiers
 
 #### Alert style
+
 !!! default "Nothing special"
 
     Type qualifier: `default`.
@@ -260,7 +289,9 @@ any immediately following text as "loose", i.e., outside of an HTML paragraph (`
 
     Type qualifier: `error`
 
+
 #### With the title removed
+
 !!! default ""
 
     Type qualifier: `default ""`
@@ -281,7 +312,9 @@ any immediately following text as "loose", i.e., outside of an HTML paragraph (`
 
     Type qualifier: `error ""`
 
+
 #### Label style
+
 !!! default-label
 
     Label type available with type qualifier `default-label`.
@@ -302,7 +335,9 @@ any immediately following text as "loose", i.e., outside of an HTML paragraph (`
 
     Label type available with type qualifier `error-label`.
 
+
 #### Inline admonitions
+
 For inline admonitions, you first define the admonition as either `inline` or `inline end`. Then,
 you define the content.
 
@@ -318,7 +353,6 @@ you define the content.
 
     `info inline end`
 
-
 ```bash
     a="unexpected"
     b="results"
@@ -333,13 +367,15 @@ you define the content.
 Try adding a `&nbsp;` if inline admonitions give you trouble. Example found right above this line
 in markdown source.
 
+
 ## Images
+
 Here's an image of the Reference card with an image of the Reference card with...
 ![image of an image of an image...](img/ref/image.png)
 
 
-
 ## Embedded videos
+
 At the moment, to avoid setting cookies, embedded videos are rendered only as an image with a link
 to the video in question. For example: Behold! Here is a video of a horse kicking a tree, farting
 on some dogs, and then running away:
@@ -354,12 +390,15 @@ on some dogs, and then running away:
     allowfullscreen>
 </iframe>
 
+
 ### Animations
 
 If you don't need sound (or controls), you can use animations as an alternative for embedded videos. They are
 used just like [static images](#images). Both `.gif` and `.png` files work.
 
+
 ## Mermaid
+
 ```mermaid
 %%{init: {'theme': 'neutral' }}%%
 graph TD
@@ -368,15 +407,22 @@ graph TD
     C --> |What? No, you can't just... Oh.| B
 ```
 
+
 ## Buttons
+
 Docs CSC supports two button variants from the CSC Design System.
+
+
 ### Default button
+
 <!-- This is called a 'default' button in the CSC Design System and a 'primary' button in Material
 for MkDocs (notice the two classes '.md-button' AND '.md-button--primary'. Also, don't forget to
 include the 'target=_blank' attribute for links pointing outside of Docs)... -->
 [Default](https://example.com/Default){ .md-button .md-button--primary target=_blank }
 
+
 ### Outlined button
+
 <!-- ...and the one you'd think would be the 'default' (without the '--primary' suffix in Material
 for MkDocs) is called 'outlined' in the CSC Design System. -->
 [Outlined](https://example.com/Outlined){ .md-button target=_blank }
@@ -384,7 +430,9 @@ for MkDocs) is called 'outlined' in the CSC Design System. -->
 <!-- So, to recap, if you wan't a 'normal' filled-in button (called 'default'), you must add the
 '.md-button--primary' class to the attribute list. -->
 
+
 ## Tabbed content
+
 === "First tab"
     Content can be divided into tabs. The first one is visible by default.
 
@@ -406,6 +454,7 @@ for MkDocs) is called 'outlined' in the CSC Design System. -->
 
         === "But possible, nonetheless"
             I would recommend against it, though.
+
 
 [^1]: This is the footnote ...and here's a shoenote for the footnote: 👞🎵
 [^2]:
