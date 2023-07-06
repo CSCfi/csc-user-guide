@@ -105,11 +105,13 @@ Now you can submit the job with
 
 `sbatch las2las_test.sh lazfilepaths.txt`
 
-## License and acknowledgement
+## License 
 
 For information on the legal use and licensing of LAStools, please read the [LAStools LICENSE](https://lastools.github.io/LICENSE.txt).
 
-Please acknowledge CSC and Geoportti in your publications, it is important for project continuation and funding reports.
+## Acknowledgement
+
+If you use this software on Puhti, please acknowledge CSC and Geoportti in your publications, it is important for project continuation and funding reports.
 As an example, you can write "The authors wish to thank CSC - IT Center for Science, Finland (urn:nbn:fi:research-infras-2016072531) and the Open Geospatial Information Infrastructure for Research (Geoportti, urn:nbn:fi:research-infras-2016072513) for computational resources and support".
 
 ## Citation
