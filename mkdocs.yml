@@ -84,22 +84,7 @@ theme:
 #    - announce.dismiss
 
 extra_css:
-  - assets/stylesheets/variables.css
-  - assets/stylesheets/scheme.css
-  - assets/stylesheets/landing.css
-  - assets/stylesheets/admonition.css
-  - assets/stylesheets/announcement.css
-  - assets/stylesheets/breadcrumbs.css
-  - assets/stylesheets/code.css
-  - assets/stylesheets/content.css
-  - assets/stylesheets/dropdown.css
-  - assets/stylesheets/footer.css
-  - assets/stylesheets/header.css
-  - assets/stylesheets/sidebars.css
-  - assets/stylesheets/table.css
-  - assets/stylesheets/tags.css
-  - assets/stylesheets/video.css
-  - "https://use.typekit.net/csv4mjm.css" # Museo Sans font
+  - assets/stylesheets/extra.css
 
 extra_javascript:
   - assets/javascripts/extra.js
