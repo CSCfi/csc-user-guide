@@ -93,6 +93,6 @@ When your CSC project reaches its expiration date or is closed, there are a few 
 
 ### Billing unit calculator
 
-<iframe srcdoc="https://my.csc.fi/buc" style="width: 100%; height: 1300px; border: 0"></iframe>
+<iframe title="Billing unit calculator" srcdoc="https://my.csc.fi/buc" style="width: 100%; height: 1300px; border: 0"></iframe>
 
 
