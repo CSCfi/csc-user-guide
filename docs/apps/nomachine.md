@@ -8,8 +8,8 @@
 
 The service is superseded by web interfaces on CSC's supercomputers:
 
-* [Puhti web interface](../computing/webinterface/index.md)
-* Similar web interfaces will be opened for both Mahti and LUMI, in the near future.
+* [Web interfaces for Puhti and Mahti](../computing/webinterface/index.md)
+* Similar web interface will be opened for LUMI in the near future.
 
 ## Replacements
 

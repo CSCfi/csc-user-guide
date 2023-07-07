@@ -65,7 +65,7 @@ Remember that you can use the help command as `openstack help database` and the 
 
 	* What `username` and `password` you want to use. In this example we will use `databaseuser` and `myPassword568`.
 
-3. Once you've gathered the data you want to use to create your database you can do it by running the following command. Please update the variables how you see fit, especially `MY_IP`. You can also use the flag `--allowed-cidr` multiple times to add multiple IP-addresses.
+3. Once you've gathered the data you want to use to create your database you can do it by running the following command. Please update the variables how you see fit, especially `MY_IP`. You can also use the flag `--allowed-cidr` multiple times to add multiple IP-addresses. By default the database instance are created without any `allowed-cidr` which means that you won't be able to connect to your database.
 
 	```sh
 	openstack database instance create my_database_instance \

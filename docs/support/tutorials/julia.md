@@ -274,6 +274,8 @@ println("Hello world!")
     module load julia/1.9
     julia --project=. -e 'using Pkg; Pkg.instantiate()'
     julia --project=. script.jl
+    srun julia --project=. script.jl
+>>>>>>> master
     ```
 
 
