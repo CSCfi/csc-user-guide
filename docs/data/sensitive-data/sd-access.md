@@ -131,5 +131,5 @@ You will receive a notification via email, and you can regain access to your vir
 
 ### Billing unit calculator
 
-<iframe srcdoc="https://my.csc.fi/buc" style="width: 100%; height: 1300px; border: 0"></iframe>
+<iframe title="Billing unit calculator" srcdoc="https://my.csc.fi/buc" style="width: 100%; height: 1300px; border: 0"></iframe>
 
