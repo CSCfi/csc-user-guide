@@ -34,7 +34,7 @@ through `Application wizard` or `Application form`-buttons.
 
 **Application template** Template provides the base features for your application. Most of the templates are based on
 container images maintained by Notebooks team. Take a look at the 
-[image sources in notebook-images repository](https://github.com/CSCfi/notebooks-public-images). 
+[image sources in notebooks-public-images repository](https://github.com/CSCfi/notebooks-public-images). 
 If you intend to use your own custom image, you can choose any template that matches your application type (Jupyter/RStudio).
 
 **Application name** Give a valid meaningful name. This is the name under which participants will see the application.
