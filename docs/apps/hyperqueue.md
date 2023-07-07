@@ -164,10 +164,11 @@ Structure
 ```text
 .             # Current working directory
 ├── batch.sh  # Batch script for HyperQueue server and workers
-└── job       # Executable job script for HyperQueue
+└── task      # Executable task script for HyperQueue
 ```
 
-HyperQueue job, we want to compute multiple independent jobs
+HyperQueue task.
+We want to compute multiple independent tasks.
 
 ```bash
 #!/bin/bash
@@ -225,16 +226,16 @@ TOTAL_MEM_BYTES=$((SLURM_CPUS_PER_TASK * SLURM_MEM_PER_CPU * 1000000))  # Bytes
         --resource "mem=sum($TOTAL_MEM_BYTES)" &
 )
 
-# Wait until all worker have started
+# Wait until all workers have started
 hq worker wait "$SLURM_NTASKS"
 
-# Submit jobs to workers
+# Submit tasks to workers
 NUM_JOBS=1000
 for _ in seq $NUM_JOBS ; do
-    hq submit --stdout=none --stderr=none --cpus=1 ./job &
+    hq submit --stdout=none --stderr=none --cpus=1 ./task &
 done
 
-# Wait for all the jobs to finish
+# Wait for all the tasks to finish
 hq job wait all
 
 # Shut down the workers and server
@@ -298,16 +299,16 @@ until hq job list &>/dev/null ; do sleep 1 ; done
         --cpus="$SLURM_CPUS_PER_TASK" &
 )
 
-# Wait until all worker have started
+# Wait until all workers have started
 hq worker wait "$SLURM_NTASKS"
 
-# Submit jobs to workers
+# Submit tasks to workers
 NUM_JOBS=1000
 for _ in seq $NUM_JOBS ; do
-    hq submit --stdout=none --stderr=none --cpus=1 ./job &
+    hq submit --stdout=none --stderr=none --cpus=1 ./task &
 done
 
-# Wait for all the jobs to finish
+# Wait for all the tasks to finish
 hq job wait all
 
 # Shut down the workers and server
