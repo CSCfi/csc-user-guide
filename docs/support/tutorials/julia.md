@@ -220,7 +220,7 @@ println("Hello world!")
 
     module load julia/1.8
     julia --project=. -e 'using Pkg; Pkg.instantiate()'
-    srun julia --project=. script.jl
+    julia --project=. script.jl
     ```
 
 === "Mahti"
@@ -246,7 +246,7 @@ println("Hello world!")
 
     module load julia/1.8
     julia --project=. -e 'using Pkg; Pkg.instantiate()'
-    srun julia --project=. script.jl
+    julia --project=. script.jl
     ```
 
 
@@ -273,7 +273,7 @@ println("Hello world!")
 
     module load julia/1.9
     julia --project=. -e 'using Pkg; Pkg.instantiate()'
-    srun julia --project=. script.jl
+    julia --project=. script.jl
     ```
 
 
@@ -323,7 +323,7 @@ println(ids)
 
     module load julia/1.8
     julia --project=. -e 'using Pkg; Pkg.instantiate()'
-    srun julia --project=. script.jl
+    julia --project=. script.jl
     ```
 
 === "Mahti"
@@ -349,7 +349,7 @@ println(ids)
 
     module load julia/1.8
     julia --project=. -e 'using Pkg; Pkg.instantiate()'
-    srun julia --project=. script.jl
+    julia --project=. script.jl
     ```
 
 === "LUMI"
@@ -375,7 +375,7 @@ println(ids)
 
     module load julia/1.9
     julia --project=. -e 'using Pkg; Pkg.instantiate()'
-    srun julia --project=. script.jl
+    julia --project=. script.jl
     ```
 
 
@@ -454,7 +454,7 @@ println.(outputs)
 
     module load julia/1.8
     julia --project=. -e 'using Pkg; Pkg.instantiate()'
-    srun julia --project=. script.jl
+    julia --project=. script.jl
     ```
 
 === "Mahti"
@@ -483,7 +483,7 @@ println.(outputs)
 
     module load julia/1.8
     julia --project=. -e 'using Pkg; Pkg.instantiate()'
-    srun julia --project=. script.jl
+    julia --project=. script.jl
     ```
 
 === "LUMI"
@@ -512,7 +512,7 @@ println.(outputs)
 
     module load julia/1.9
     julia --project=. -e 'using Pkg; Pkg.instantiate()'
-    srun julia --project=. script.jl
+    julia --project=. script.jl
     ```
 
 
@@ -569,7 +569,7 @@ println.(outputs)
 
     module load julia-cuda/1.8
     julia --project=. -e 'using Pkg; Pkg.instantiate()'
-    srun julia --project=. script.jl
+    julia --project=. script.jl
     ```
 
 === "Mahti"
@@ -600,7 +600,7 @@ println.(outputs)
 
     module load julia-cuda/1.8
     julia --project=. -e 'using Pkg; Pkg.instantiate()'
-    srun julia --project=. script.jl
+    julia --project=. script.jl
     ```
 
 === "LUMI"
@@ -631,7 +631,7 @@ println.(outputs)
 
     module load julia-amdgpu/1.9
     julia --project=. -e 'using Pkg; Pkg.instantiate()'
-    srun julia --project=. script.jl
+    julia --project=. script.jl
     ```
 
 
