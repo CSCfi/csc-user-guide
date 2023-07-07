@@ -157,48 +157,164 @@ The number of commands in the file can (usually should) be much larger than the 
 that can fit running simultaneously in the reserved nodes. See `sbatch-hq --help` for more details
 on usage and input options.
 
-### Full example
+
+### Batch jobs
+Structure
+
+```text
+.             # Current working directory
+├── batch.sh  # Batch script for HyperQueue server and workers
+└── job       # Executable job script for HyperQueue
+```
+
+HyperQueue job, we want to compute multiple independent jobs
 
 ```bash
 #!/bin/bash
-#SBATCH --partition=test       # Queue name
-#SBATCH --account=<project>    # Billing project
-#SBATCH --nodes=1              # Number of nodes
-#SBATCH --cpus-per-task=<n>    # CPUs per task (40 on Puhti, 128 on Mahti)
-#SBATCH --ntasks-per-node=1    # Tasks per node
-#SBATCH --time=00:30:00        # Time limit
+echo "$HQ_TASK_ID"
+sleep 1
+```
 
+#### Sub-node manual allocation
+HyperQueue server and workers
+
+=== "Puhti (small)"
+    ```bash
+    #!/bin/bash
+    #SBATCH --partition=small
+    #SBATCH --ntasks=1
+    #SBATCH --cpus-per-task=10
+    #SBATCH --mem-per-cpu=1000
+    #SBATCH --time=00:15:00
+    ```
+
+=== "Puhti (large)"
+    ```bash
+    #!/bin/bash
+    #SBATCH --partition=large
+    #SBATCH --ntasks=2
+    #SBATCH --cpus-per-task=10
+    #SBATCH --mem-per-cpu=1000
+    #SBATCH --time=00:15:00
+    ```
+
+```bash
+# Load dependencies
 module load hyperqueue
 
-# Specify a location for the HyperQueue server
-export HQ_SERVER_DIR=${PWD}/hq-server-${SLURM_JOB_ID}
-mkdir -p "${HQ_SERVER_DIR}"
+# Specify a location for the server
+export HQ_SERVER_DIR=$PWD/.hq-server/$SLURM_JOB_ID
 
-# Start the server in the background (&) and wait until it has started
+# Create a directory for the server
+mkdir -p "$HQ_SERVER_DIR"
+
+# Start the server in the background
 hq server start &
+
+# Wait until the server has started
 until hq job list &>/dev/null ; do sleep 1 ; done
 
-# Start the workers (one per node, in the background) and wait until they have started
-srun --exact --cpu-bind=none --mpi=none hq worker start --cpus=${SLURM_CPUS_PER_TASK} &
-hq worker wait "${SLURM_NTASKS}"
+# Start the workers in a subshell in the background
+TOTAL_MEM_BYTES=$((SLURM_CPUS_PER_TASK * SLURM_MEM_PER_CPU * 1000000))  # Bytes
+(
+    srun --overlap --cpu-bind=none --mpi=none hq worker start \
+        --manager slurm \
+        --idle-timeout 5m \
+        --on-server-lost finish-running \
+        --cpus="$SLURM_CPUS_PER_TASK" \
+        --resource "mem=sum($TOTAL_MEM_BYTES)" &
+)
 
-# Simple example workflow. Compute the checksums of all files in the current
-# directory. For small files you would do this very simply in a single
-# interactive compute node, right ;)
-#
-#     sha256sum $(find . -maxdepth 1 -type f) > checksums.txt
-#
-# Parallelized with HyperQueue (not restricted to a single node):
+# Wait until all worker have started
+hq worker wait "$SLURM_NTASKS"
 
-for f in $(find . -maxdepth 1 -type f) ; do
-    hq submit --cpus 1 --stdout $f.sha256 sha256sum $f &
+# Submit jobs to workers
+NUM_JOBS=1000
+for _ in seq $NUM_JOBS ; do
+    hq submit --stdout=none --stderr=none --cpus=1 ./job &
 done
 
-# Wait until all jobs have finished, shut down the HyperQueue workers and server
+# Wait for all the jobs to finish
 hq job wait all
+
+# Shut down the workers and server
 hq worker stop all
 hq server stop
 ```
+
+#### Full node manual allocation
+=== "Puhti (small)"
+    ```bash
+    #!/bin/bash
+    #SBATCH --partition=small
+    #SBATCH --nodes=1
+    #SBATCH --tasks-per-node=1
+    #SBATCH --cpus-per-task=40
+    #SBATCH --time=00:15:00
+    ```
+
+=== "Puhti (large)"
+    ```bash
+    #!/bin/bash
+    #SBATCH --partition=large
+    #SBATCH --nodes=2
+    #SBATCH --tasks-per-node=1
+    #SBATCH --cpus-per-task=40
+    #SBATCH --time=00:15:00
+    ```
+
+=== "Mahti (medium)"
+    ```bash
+    #!/bin/bash
+    #SBATCH --partition=medium
+    #SBATCH --nodes=1
+    #SBATCH --tasks-per-node=1
+    #SBATCH --cpus-per-task=128
+    #SBATCH --time=00:15:00
+    ```
+
+```bash
+# Load dependencies
+module load hyperqueue
+
+# Specify a location for the server
+export HQ_SERVER_DIR=$PWD/.hq-server/$SLURM_JOB_ID
+
+# Create a directory for the server
+mkdir -p "$HQ_SERVER_DIR"
+
+# Start the server in the background
+hq server start &
+
+# Wait until the server has started
+until hq job list &>/dev/null ; do sleep 1 ; done
+
+# Start the workers in a subshell in the background
+(
+    srun --overlap --cpu-bind=none --mpi=none hq worker start \
+        --manager slurm \
+        --idle-timeout 5m \
+        --on-server-lost finish-running \
+        --cpus="$SLURM_CPUS_PER_TASK" &
+)
+
+# Wait until all worker have started
+hq worker wait "$SLURM_NTASKS"
+
+# Submit jobs to workers
+NUM_JOBS=1000
+for _ in seq $NUM_JOBS ; do
+    hq submit --stdout=none --stderr=none --cpus=1 ./job &
+done
+
+# Wait for all the jobs to finish
+hq job wait all
+
+# Shut down the workers and server
+hq worker stop all
+hq server stop
+```
+
 
 ### With other workflow managers
 
