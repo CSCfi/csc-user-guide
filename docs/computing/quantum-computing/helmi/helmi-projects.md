@@ -1,7 +1,7 @@
 # Helmi Projects on LUMI 
 
 Helmi is accessed through the LUMI environment. Users accessing Helmi need to be part of a 
-LUMI project with allocated quantum computing resources. The first step is thus to create a 
+LUMI project with allocated quantum computing resources. The first step is to create a 
 LUMI project. All LUMI projects require a Principal Investigator serving as the Project Manager. 
 A LUMI Project Manager is typically a leader of a research team or other senior researcher. 
 
