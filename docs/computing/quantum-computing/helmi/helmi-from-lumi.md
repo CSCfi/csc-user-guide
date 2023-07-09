@@ -6,17 +6,17 @@ This page goes through the steps required for setting up an account on LUMI for 
 
 You first need to create a Helmi project according to the instructions here: [Helmi Projects on LUMI](../helmi-projects/).
 
-After creation of a project, the PI/PM can invite additional standard users to the project:
+After creation of a project, the PI can invite additional standard users to the project:
 
 * [How to add members to project](../../../../accounts/how-to-add-members-to-project)
 
-**Note the special restrictions on project members for projects with access to Helmi!** During the pilot phase, access is, for example, limited to academic non-commercial use for users affiliated with a Finnish higher education institution or research organisation. The project PI is responsible for ensuring that the Helmi Terms of Use are followed.
-
+**Note the special restrictions on project members for projects with access to Helmi!** During the pilot phase, access is limited to academic non-commercial use for users affiliated with a Finnish higher education institution or research organisation. The project PI is responsible for ensuring that the [Helmi Terms of Use](https://a3s.fi/FiQCI/Helmi-Terms-of-Use-2022.pdf) are followed.
 
 ## Connecting to LUMI
 
-Details for connecting to LUMI can be read through the [LUMI Documentation page](https://docs.lumi-supercomputer.eu/firststeps/)
+Details for connecting to LUMI can be read through the [LUMI Documentation page](https://docs.lumi-supercomputer.eu/firststeps/).
 
+Details for running jobs on Helmi through lumi can found in the [Running on Helmi](../running-on-helmi/) page.
 
 ## Support channels
 
