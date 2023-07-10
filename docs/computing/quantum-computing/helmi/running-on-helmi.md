@@ -117,7 +117,7 @@ A set of Qiskit and Cirq examples and scripts for guidance in using the LUMI-Hel
 
 ## Job Metadata
 
-The figures of merit (or quality metrics set) may be necessary for publishing work produced on Helmi. It also gives an idea as to the current status of Helmi. In `helmi-examples` there is a helper script to get the calibration data including the figures of merit. The script can be found [here](https://github.com/FiQCI/helmi-examples/tree/main/scripts).
+The figures of merit (or quality metrics set) may be necessary for publishing work produced on Helmi. It also gives an idea as to the current status of Helmi. In `helmi-examples` there is a helper script to get the calibration data including the figures of merit. The script can be found [here](https://github.com/FiQCI/helmi-examples/tree/main/scripts). Note that querying the latest calibration data may given an incomplete set of figures of merit. Therefore calibration set IDs should be saved along with Job IDs. 
 
 Additional metadata about your job can be queried directly with Qiskit. For example:
 

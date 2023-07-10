@@ -211,9 +211,9 @@ result = job.result()
 exp_result = job.result()._get_experiment(circuit)
 # You can retrieve the job at a later date with backend.retrieve_job(job_id)
 # Uncomment the following lines to get more information about your submitted job
-print("Job ID: ", job.job_id())
+# print("Job ID: ", job.job_id())
 # print(result.request.circuits)
-print("Calibration Set ID: ", exp_result.calibration_set_id)
+# print("Calibration Set ID: ", exp_result.calibration_set_id)
 # print(result.request.qubit_mapping)
 # print(result.request.shots)
 
