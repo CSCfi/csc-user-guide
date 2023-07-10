@@ -248,11 +248,11 @@ mkdir -p "$HQ_SERVER_DIR"
 hq server start &
 
 # Wait until the server has started
-until hq job list &>/dev/null ; do sleep 1 ; done
+until hq job list &> /dev/null ; do sleep 1 ; done
 
 # Set memory for workers in bytes according to SLURM_MEM_PER_CPU if greater than zero.
 # Otherwise, leave unset which uses all the memory of the node.
-if [[ $SLURM_MEM_PER_CPU -qt 0 ]]; then
+if [[ ${SLURM_MEM_PER_CPU:-0} -qt 0 ]]; then
     TOTAL_MEM_BYTES=$((SLURM_CPUS_PER_TASK * SLURM_MEM_PER_CPU * 1000000))
     TOTAL_MEM_OPT="--resource mem=sum($TOTAL_MEM_BYTES)"
 else
