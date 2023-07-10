@@ -2,7 +2,7 @@
 
 ## Architecture and Topology
 
-Helmi is a 5-qubit quantum Computer co-developed by VTT and IQM using superconducting qubits. 
+Helmi is a 5-qubit quantum computer co-developed by VTT and IQM using superconducting qubits. 
 The qubits are arranged in a **star shaped** topology, with the central qubit being Qubit 3 (QB3) connected to the other 4 qubits. 
 This means that any two-qubit gate will work most efficiently between QB3 and any other qubit, 
 whereas one-qubit gates can be mapped to any of the 4 surrounding qubits. 
@@ -13,7 +13,7 @@ whereas one-qubit gates can be mapped to any of the 4 surrounding qubits.
 
 ### Native Gates
 
-Helmi's native gates are the two-qubit Controlled-Z gate and the one-qubit phased x-rotation gate.
+Helmi's native gates are the two-qubit controlled-z gate and the one-qubit phased x-rotation gate.
 
 ### Defining topology and gates in Qiskit and Cirq
 

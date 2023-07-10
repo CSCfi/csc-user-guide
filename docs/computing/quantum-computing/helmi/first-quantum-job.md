@@ -44,7 +44,7 @@ from qiskit_iqm import IQMProvider
 
 ### Creating the circuit
 
-The quantum circuit is created by defining our `QuantumRegister` which hold our qubits and classical bits respectively. As this circuit only requires 2 qubits we only create a `QuantumRegister` of size 2. The number of shots is also defined here. The number of shots is the number of repetitions of a quantum circuit. We do this because quantum computers are probabilistic machines and by repeating the result many times we can get close to a deterministic result to be able to draw conclusions from. A good number of shots for your first quantum job is `shots = 1000`. Increasing the shots will increase the precision of your results. 
+The quantum circuit is created by defining a `QuantumRegister` which hold our qubits and classical bits respectively. As this circuit only requires 2 qubits we only create a `QuantumRegister` of size 2. The number of shots is also defined here. The number of shots is the number of times a quantum circuit is executed. We do this because quantum computers are probabilistic machines and by repeating the experiment many times we can get close to a deterministic result to be able to draw conclusions from. A good number of shots for your first quantum job is `shots = 1000`. Increasing the shots will increase the precision of your results. 
 
 ```python
 
@@ -54,7 +54,7 @@ qreg = QuantumRegister(2, "qB")
 circuit = QuantumCircuit(qreg, name='Bell pair circuit')
 ```
 
-Now we actually add some gates to the circuit. Here a Hadamard gate is added to the first qubit or the first qubit in the quantum register. Then a Controlled-X gate is added with two arguments as it is a two qubit gate. 
+Now we actually add some gates to the circuit. Here a Hadamard gate is added to the first qubit or the first qubit in the quantum register. Then a controlled-x gate is added with two arguments as it is a two qubit gate. 
 
 ```python
 circuit.h(qreg[0])  # Hadamard gate on the first qubit in the Quantum Register
@@ -62,13 +62,13 @@ circuit.cx(qreg[1], qreg[0])  # Controlled-X gate between the second qubit and f
 circuit.measure_all()  # Measure all qubits in the Quantum Register.
 ```
 
-Note that `measure_all()` creates it's own ClassicalRegister!
+Note that [`measure_all()`](https://qiskit.org/documentation/stubs/qiskit.circuit.QuantumCircuit.measure_all.html) creates it's own [`ClassicalRegister`](https://qiskit.org/documentation/stubs/qiskit.circuit.ClassicalRegister.html)! 
 
 Now the circuit is created! If you wish you can see what your circuit looks like by adding a print statement `print(circuit.draw())` and quickly running the python script. 
 
 ## Setting the backend
 
-First we need to set our provider and backend. The provider is the service which gives an interface to the quantum computer and the backend provides the tools necessary to submitting the quantum job. 
+First we need to set our provider and backend. The provider is the service which gives an interface to the quantum computer and the backend provides the tools necessary to submitting the quantum job. The `HELMI_CORTEX_URL` is the endpoint to reach Helmi and is only reachable inside the `q_fiqci` partition. This environment variable is set automatically when loading the `helmi_qiskit` module. 
 
 ```python
 HELMI_CORTEX_URL = os.getenv('HELMI_CORTEX_URL')
@@ -80,7 +80,7 @@ backend = provider.get_backend()
 ```
 ### Decomposing the circuit (*Optional*)
 
-The next step is optional and where the quantum circuit into you've just created into it's *basis gates*. These basis gates are the actual quantum gates on the quantum computer. The process of decomposition involves turning the above Hadamard and Controlled-X gates into something that can be physically run on the quantum computer. Helmi's basis gates are the two-qubit Control-Z and a the one-qubit rotational gate around the x-y plane. In Qiskit these are defined in the backend and can be printed with `backend.operation_names`. 
+The next step is optional and where the quantum circuit into you've just created into it's *basis gates*. These basis gates are the actual quantum gates on the quantum computer. The process of decomposition involves turning the above Hadamard and controlled-x gates into something that can be physically run on the quantum computer. Helmi's basis gates are the two-qubit controlled-z and a the one-qubit rotational gate around the x-y plane. In Qiskit these are defined in the backend and can be printed with `backend.operation_names`. 
 
 ```python
 circuit_decomposed = transpile(circuit, backend=backend)
@@ -89,7 +89,7 @@ You can also print your circuit like before with `print(circuit_decomposed.draw(
 
 ### *Optional* Qubit Mapping
 
-This is an optional step but may be useful to extracting the best out of the quantum computer. This is a python dictionary which simply states which qubits in the Quantum register should be mapped to which *real* qubit.
+This is an optional step but may be useful to extracting the best out of the quantum computer. This is a python dictionary which simply states which qubits in the Quantum register should be mapped to which *physical* qubit.
 
 ```python
 qubit_mapping = {
@@ -98,7 +98,7 @@ qubit_mapping = {
             }
 ```
 
-Here we are mapping the first qubit in the Quantum register to the first of Helmi's qubits, QB1, located at the zeroth location due to Qiskit's use of zero-indexing. The second qubit is then mapped to QB3. This is where we have made use of Helmi's topology. 
+Here we are mapping the first qubit in the quantum register to the first of Helmi's qubits, QB1, located at the zeroth location due to Qiskit's use of zero-indexing. The second qubit is then mapped to QB3. This is where we have made use of Helmi's topology. 
 
 <p align="center">
     <img src="../../../../img/helmi_mapping.png" alt="Helmi's node mapping">
