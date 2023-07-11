@@ -39,17 +39,12 @@ started on compute nodes and execute commands which the client submitted to the 
 resembles a Slurm within a Slurm, but you have to start the server and workers yourself.
 
 ### Starting the server
-
-!!! info "Note"
-    The following instructions apply for Slurm job scripts where only full nodes
-    are allocated. [A full example](#creating-a-batch-job) can be found at the bottom.
-
 Specify where on the file system the HyperQueue server should be placed. All `hq` commands
 respect this variable so make sure it's set before you call any `hq` commands. The server
-location can also be placed using the command line flag `--server-dir /server/location/on/lustre`.
+location can also be placed using the command line flag `--server-dir "$PWD/.hq-server"`.
 
 ```bash
-export HQ_SERVER_DIR=/server/location/on/lustre
+export HQ_SERVER_DIR="$PWD/.hq-server"
 ```
 
 If the server directory is not specified it will default to the user home directory. In this case
@@ -178,23 +173,18 @@ sleep 1
 ```
 
 In a Slurm batch job each Slurm task correspond to one HyperQueue worker.
-
-In a partial node allocation we reserve a fraction of the CPUs and memory on a node.
-We can increase the available CPUs by increasing the number of Slurm tasks.
-
-In a full node allocation we reserve all the CPUs and memory on a node.
-We can increase the available CPUs by increasing the number of reserved nodes.
-
+We can increase the amount of workers by increasing the number of Slurm tasks.
+In a partial node allocation we reserve a fraction of the CPUs and memory on a node per worker.
+In a full node allocation we reserve all the CPUs and memory on a node per worker.
 Example of a `batch.sh` script that starts the server and workers, and then submits tasks.
-
 
 === "Puhti partial single node"
     ```bash
     #!/bin/bash
-    #SBATCH --partition=small   # single node partition
-    #SBATCH --ntasks=1          # one HyperQueue worker
-    #SBATCH --cpus-per-task=10  # one or more cpus per worker
-    #SBATCH --mem-per-cpu=1000  # desired amount of memory
+    #SBATCH --partition=small    # single node partition
+    #SBATCH --ntasks=1           # one HyperQueue worker
+    #SBATCH --cpus-per-task=10   # one or more cpus per worker
+    #SBATCH --mem-per-cpu=1000   # desired amount of memory
     #SBATCH --time=00:15:00
     ```
 
