@@ -57,12 +57,22 @@ It is also possible to access QGIS functionalities from Python without an graphi
 
 QGIS can __read__ files directly from Allas, either using S3 or SWIFT API. Before starting QGIS set up the connection as described in on [GDAL](gdal.md) page.
 
-## License and acknowledgement
+## License 
 
 QGIS is licensed under the GNU General Public License. QGIS is an official project of the Open Source Geospatial Foundation (OSGeo).
 
+## Citation
+
+```QGIS.org, 2023. QGIS Geographic Information System. QGIS Association. http://www.qgis.org```
+
+## Acknowledgement
+
 Please acknowledge CSC and Geoportti in your publications, it is important for project continuation and funding reports.
 As an example, you can write "The authors wish to thank CSC - IT Center for Science, Finland (urn:nbn:fi:research-infras-2016072531) and the Open Geospatial Information Infrastructure for Research (Geoportti, urn:nbn:fi:research-infras-2016072513) for computational resources and support".
+
+## Installation
+
+QGIS was installed on Puhti with Singularity using the [Docker image provided by QGIS on Dockerhub](https://hub.docker.com/r/qgis/qgis). The container was then wrapped with [Tykky](../computing/containers/tykky.md).
 
 ### References
 
@@ -71,7 +81,3 @@ As an example, you can write "The authors wish to thank CSC - IT Center for Scie
 * [Free QGIS training material](https://qgis.org/en/site/forusers/trainingmaterial/index.html)
 * [PyQGIS cookbook](https://docs.qgis.org/testing/en/docs/pyqgis_developer_cookbook/)
 
-## Installation details
-
-* Version 3.31. The installation is based on [QGIS Docker image](https://hub.docker.com/r/qgis/qgis) and was done using [Tykky](../computing/containers/tykky.md) on 24.4.2023. The resulting QGIS Puhti files are available as [zip-package](https://gis-containers.a3s.fi/qgis_3_31_tykky.zip). 
-* Version 2.22. The installation is based on this [Singularity recipe](https://github.com/CSCfi/singularity-recipes/blob/main/qgis/qgis_plus_grass.def). [The resulting Singularity image](https://gis-containers.a3s.fi/qgis_3_22_grass_7_8_5.sif).

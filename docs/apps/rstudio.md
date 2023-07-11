@@ -1,6 +1,8 @@
 ---
 tags:
   - Other
+system:
+  - www-puhti
 ---
 
 # RStudio IDE

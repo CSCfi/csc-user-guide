@@ -56,6 +56,7 @@ must use pull requests.
         - Please add a link to the rahtiapp-preview page `https://csc-guide-preview.rahtiapp.fi/origin/<your-branch-name>/rest-of-url/`) in the Pull Request description to help reviewer.
     - You can also add a label to your PR. For example, if your edit is minor (e.g. fixed link or typo), you can add the label "trivial change" to expedite the reviewing process.
     - Pull requests which do not meet the requirements will not be accepted. Note that you can keep committing to a pull request after it has been submitted.
+        - If your commits aren't showing up on the pull request, i.e., the pull request isn't updating when making new commits, try switching the base branch ('Edit' button, top-right) from `master` to something else and then back again.
     - Write meaningful pull request messages, so it is easier for reviewers to do their job.
     - Communicate! Use "WIP" (= Work In Progress) in your pull request title, if you don't wish the branch to be merged to master (i.e. you want to continue working with it).
  - Once your PR has been accepted, remove the temporary branch (if not deleted by an admin at merge)
@@ -180,7 +181,7 @@ Pull requests can be created as follows:
 
 See the [FAQ](FAQ.md#how-can-i-preview-my-edits) for how to preview the Docs CSC website locally using MkDocs.
 
-A newbie-friendly guide on how to set up the necessary tools on Windows is available [here](WINDOWS.md).
+A newbie-friendly guide on how to set up the necessary tools on Windows is available [here](GETTING_STARTED.md).
 
 ## Building the website using the included Dockerfile
 

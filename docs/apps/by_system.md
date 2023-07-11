@@ -11,3 +11,7 @@ These headings are needed by the tests:
 ## Puhti
 
 ## LUMI
+
+## Mahti web interface
+
+## Puhti web interface

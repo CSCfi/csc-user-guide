@@ -33,12 +33,22 @@ If working interactively, you can also start a shell inside the container with
 
 We have an example of running L1 to L2 pipeline for Sentinel images in [our Github examples](https://github.com/csc-training/geocomputing/tree/master/force)
 
-## License and acknowledgement
+## License 
 
-FORCE is licensed under [the GNU GPL License](https://github.com/davidfrantz/force/blob/master/LICENSE))
+FORCE is licensed under [the GNU GPL License](https://github.com/davidfrantz/force/blob/master/LICENSE).
+
+## Citation
+
+This software can be cited by citing the [appropriate publication](https://force-eo.readthedocs.io/en/latest/refs.html).
+
+## Acknowledgement
 
 Please acknowledge CSC and Geoportti in your publications, it is important for project continuation and funding reports.
 As an example, you can write "The authors wish to thank CSC - IT Center for Science, Finland (urn:nbn:fi:research-infras-2016072531) and the Open Geospatial Information Infrastructure for Research (Geoportti, urn:nbn:fi:research-infras-2016072513) for computational resources and support".
+
+## Installation
+
+FORCE was installed on Puhti with Singularity using the [Docker image provided by the author on Dockerhub](https://hub.docker.com/r/davidfrantz/force). The container was then wrapped with [Tykky](../computing/containers/tykky.md).
 
 ### References
 
