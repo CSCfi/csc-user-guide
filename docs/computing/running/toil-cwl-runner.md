@@ -1,6 +1,6 @@
 # Running CWL workflows on Puhti with `toil-cwl-runner`
 
-<img src="https://github.com/common-workflow-language/cwl-website/blob/main/content/assets/img/CWL-Logo-HD-cropped2.png" width="50%" title="CWL Logo"/>
+![CWL Logo](https://raw.githubusercontent.com/common-workflow-language/cwl-website/main/content/assets/img/CWL-Logo-HD-cropped2.png){ width=50% }
 
 The [Common Workflow Language](https://www.commonwl.org/) is a popular set of open standards implemented by several workflow runners and platforms.
 The CWL standards are targeted at creating portable workflows made of command line programs. The steps can be written in any compiled or interpreted language.
@@ -12,7 +12,7 @@ This page describes how run CWL worklflows on Puhti using `toil-cwl-runner`, inc
 
 ## Strengths of the Common Workflow Language standards
 
-- Open standard (free to read, free to contribute to) governed by a [not-for-profit charity which is legally obligated to work in the public interest]([https://sfconservancy.org/](https://sfconservancy.org/news/2018/apr/11/cwl-new-member-project/)).
+- Open standard (free to read, free to contribute to) governed by a [not-for-profit charity which is legally obligated to work in the public interest](https://sfconservancy.org/news/2018/apr/11/cwl-new-member-project/).
 - [Multiple implementations](https://www.commonwl.org/implementations/) of the CWL standards
 - Used in many [different fields of research](https://www.commonwl.org/gallery/)
 - YAML based syntax with [special support in many IDEs](https://www.commonwl.org/tools/#editors)
@@ -54,6 +54,7 @@ export PATH=$PATH:/projappl/project_nnnnnnn/node-v18.16.1-linux-x64/bin
 ## Defining CWL workflows
 
 Learning resources
+
 - [Novice CWL tutorial](https://carpentries-incubator.github.io/cwl-novice-tutorial/), includes detailed setup instructions for local editing and running on Microsoft Windows, macOS, and Linux
 - <https://www.commonwl.org/user_guide/>
 
