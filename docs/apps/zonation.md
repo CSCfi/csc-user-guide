@@ -64,12 +64,22 @@ cd /scratch/<your_project>/manual_and_example_setups/example\ setups\ and\ data/
 srun z5 -w --mode=ABF minimal_settings.z5 <path_to_where_you_want_to_store_the_result>/example1_out
 ```
 
-## License and acknowledgement
+## License 
 
 Zonation 5 is distributed as is, freely under [GNU General Public License (GPL) version 3 (#GNUGPL) (#GNUGPLv3) license.](https://www.gnu.org/licenses/gpl-3.0.html)
 
+## Citation
+
+```Moilanen, A., Lehtinen, P., Kohonen, I., Virtanen, E., Jalkanen, J. and Kujala, H. 2022. Novel methods for spatial prioritization with applications in conservation, land use planning and ecological impact avoidance. Methods in Ecology and Evolution```
+
+## Acknowledgement
+
 Please acknowledge CSC and Geoportti in your publications, it is important for project continuation and funding reports.
 As an example, you can write "The authors wish to thank CSC - IT Center for Science, Finland (urn:nbn:fi:research-infras-2016072531) and the Open Geospatial Information Infrastructure for Research (Geoportti, urn:nbn:fi:research-infras-2016072513) for computational resources and support".
+
+## Installation
+
+Zonation was installed to Puhti via Singularity. The Singularity definition file is available on [CSCs 'singularity-recipes' repository](https://raw.githubusercontent.com/CSCfi/singularity-recipes/main/zonation/zonation5.def) .
 
 ### References
 
