@@ -21,10 +21,10 @@ This page describes how run CWL worklflows on Puhti using `toil-cwl-runner`, inc
 
 ## Strengths of `toil-cwl-runner`
 - Supports sending jobs to Slurm, translating CWL resource requirements to Slurm resources specifications.
+- Even when using Slurm, (sub-)tasks do not have to have identical resource requirements.
 - Can also run on other batch systems: Grid Engine, Torque, LSF, HTCondor.
-- Launches and monitors Slurm jobs for you. Also constructs the apptainer commands.
-
-## Disadvantages for using CWL
+- Launches and monitors Slurm jobs for you. Also constructs the `apptainer` commands (or some other software container engine as appropriate: `docker`, `podman`, `singularity`, `udocker`).
+- No database needs to be setup.
 
 ## Disadvantages for using `toil-cwl-runner`
 - Just a workflow runner. Won't manage your data, or keep track of previous workflow runs.
@@ -114,3 +114,6 @@ sbatch workflow.sh
 ```
 
 ## Monitoring a running workflow
+
+Check the output logs from the main Toil job or
+run `toil status $WORKDIR/<job store name>`.
