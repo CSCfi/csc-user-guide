@@ -40,9 +40,6 @@ Here you can adjust it to your needs using any editor and add it to the call: `L
 
 Sen2Cor is published under the [GPL-3](https://www.gnu.org/licenses/gpl.html) license.
 
-## Citation
-
-``` M. Main-Knorn, B. Pflug, J. Louis, V. Debaecker, U. Müller-Wilm, F. Gascon, "Sen2Cor for Sentinel-2", Proc. SPIE 10427, Image and Signal Processing for Remote Sensing XXIII, 1042704 (2017)```
 
 ## Acknowledgement
 

@@ -68,9 +68,6 @@ srun z5 -w --mode=ABF minimal_settings.z5 <path_to_where_you_want_to_store_the_r
 
 Zonation 5 is distributed as is, freely under [GNU General Public License (GPL) version 3 (#GNUGPL) (#GNUGPLv3) license.](https://www.gnu.org/licenses/gpl-3.0.html)
 
-## Citation
-
-```Moilanen, A., Lehtinen, P., Kohonen, I., Virtanen, E., Jalkanen, J. and Kujala, H. 2022. Novel methods for spatial prioritization with applications in conservation, land use planning and ecological impact avoidance. Methods in Ecology and Evolution```
 
 ## Acknowledgement
 

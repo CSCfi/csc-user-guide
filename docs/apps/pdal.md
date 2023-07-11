@@ -30,9 +30,6 @@ You can test if pdal loaded successfully with following
 
 PDAL is licensed with the BSD open source license. The full licence can be found [here](https://pdal.io/copyright.html)
 
-## Citation
-
-```  PDAL contributors (2022). PDAL: The Point Data Abstraction Library, DOI: 10.5281/zenodo.2616780  ```
 
 ## Acknowledgement
 

@@ -85,9 +85,6 @@ otbcli_RadiometricIndices -in test_vrt.vrt -channels.nir 1 -channels.red 2 -list
 
 Orfeo ToolBox is licensed under the Apache License, Version 2.0. The full licence can be found [here](https://github.com/orfeotoolbox/OTB/tree/develop/Copyright)
 
-## Citation
-
-```Grizonnet, M., Michel, J., Poughon, V. et al. Orfeo ToolBox: open source processing of remote sensing images. Open geospatial data, softw. stand. 2, 15 (2017). https://doi.org/10.1186/s40965-017-0031-6```
 
 ## Acknowledgement
 

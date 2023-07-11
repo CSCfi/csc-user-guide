@@ -37,10 +37,6 @@ We have an example of running L1 to L2 pipeline for Sentinel images in [our Gith
 
 FORCE is licensed under [the GNU GPL License](https://github.com/davidfrantz/force/blob/master/LICENSE).
 
-## Citation
-
-This software can be cited by citing the [appropriate publication](https://force-eo.readthedocs.io/en/latest/refs.html).
-
 ## Acknowledgement
 
 Please acknowledge CSC and Geoportti in your publications, it is important for project continuation and funding reports.

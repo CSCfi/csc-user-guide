@@ -91,9 +91,6 @@ With large quantities of raster data (also in Allas), the most convenient method
 
 GDAL is licensed under an [MIT/X style license](https://gdal.org/license.html)
 
-## Citation
-
-```GDAL/OGR contributors (2022). GDAL/OGR Geospatial Data Abstraction software Library. Open Source Geospatial Foundation. URL https://gdal.org, DOI: 10.5281/zenodo.5884351 ```
 
 ## Acknowledgement
 

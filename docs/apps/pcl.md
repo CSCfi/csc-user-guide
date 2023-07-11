@@ -41,9 +41,6 @@ Note, that PCL/1.9.1 includes less PCL modules.
 
 PCL is released under the terms of the BSD license, and thus free for commercial and research use.
 
-## Citation
-
-```Radu Bogdan Rusu and Steve Cousins, 2011: "3D is here: Point Cloud Library (PCL)" in IEEE International Conference on Robotics and Automation (ICRA)```
 
 ## Acknowledgement
 

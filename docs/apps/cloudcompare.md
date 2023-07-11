@@ -43,13 +43,6 @@ CloudCompare is published under the [GNU General Public License](https://github.
 
 You are free to use CloudCompare for any purpose, including commercially or for education. 
 
-## Citation
-
-```
-CloudCompare (version 2.10.3) [GPL software]. (2021). Retrieved from <a href="http://www.cloudcompare.org/" aria-label="CloudCompare homepage">CloudCompare</a>
-```
-
-If you used a [plugin](http://www.cloudcompare.org/doc/wiki/index.php?title=Plugins), also cite the plugin authors.
 
 ## Acknowledgement
 
