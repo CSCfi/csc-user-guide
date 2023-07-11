@@ -158,6 +158,8 @@ on usage and input options.
 
 
 ### Creating a batch job
+You can copy the following example and run it as given and then modify it to suit your needs.
+
 Directory structure
 
 ```text
@@ -166,7 +168,8 @@ Directory structure
 └── task      # Executable task script for HyperQueue
 ```
 
-Example of a simple `task` script.
+We assume that HyperQueue tasks are independent and run on a single node.
+Example of a simple, executable `task` script.
 
 ```bash
 #!/bin/bash
@@ -174,15 +177,16 @@ echo "$HQ_TASK_ID"
 sleep 1
 ```
 
-HyperQueue tasks are independent and run on a single node.
+In a Slurm batch job each Slurm task correspond to one HyperQueue worker.
 
-- In a Slurm batch job each Slurm task correspond to one HyperQueue worker.
-- In a partial node allocation we should reserve a fraction of the CPUs and memory on a node.
-  We can increase the available CPUs by increasing the number of Slurm tasks.
-- In a full node allocation we reserve all the CPUs and memory on a node.
-  We can increase the available CPUs by increasing the number of reserved nodes.
+In a partial node allocation we reserve a fraction of the CPUs and memory on a node.
+We can increase the available CPUs by increasing the number of Slurm tasks.
+
+In a full node allocation we reserve all the CPUs and memory on a node.
+We can increase the available CPUs by increasing the number of reserved nodes.
 
 Example of a `batch.sh` script that starts the server and workers, and then submits tasks.
+
 
 === "Puhti partial single node"
     ```bash
@@ -239,7 +243,7 @@ Example of a `batch.sh` script that starts the server and workers, and then subm
 module load hyperqueue
 
 # Specify a location for the server
-export HQ_SERVER_DIR=$PWD/.hq-server/$SLURM_JOB_ID
+export HQ_SERVER_DIR="$PWD/.hq-server/$SLURM_JOB_ID"
 
 # Create a directory for the server
 mkdir -p "$HQ_SERVER_DIR"
@@ -252,7 +256,8 @@ until hq job list &> /dev/null ; do sleep 1 ; done
 
 # Set memory for workers in bytes according to SLURM_MEM_PER_CPU if greater than zero.
 # Otherwise, leave unset which uses all the memory of the node.
-if [[ ${SLURM_MEM_PER_CPU:-0} -qt 0 ]]; then
+if [[ "${SLURM_MEM_PER_CPU:-0}" -gt 0 ]]; then
+    # Calculate the total memory reservation and convert from megabytes to bytes.
     TOTAL_MEM_BYTES=$((SLURM_CPUS_PER_TASK * SLURM_MEM_PER_CPU * 1000000))
     TOTAL_MEM_OPT="--resource mem=sum($TOTAL_MEM_BYTES)"
 else
@@ -275,7 +280,7 @@ hq worker wait "$SLURM_NTASKS"
 # Submit tasks to workers
 NUM_TASKS=1000
 for ((i=1; i<=NUM_TASKS; i++)); do
-    hq submit --stdout=none --stderr=none --cpus=1 ./task &
+    hq submit --stdout=none --stderr=none --cpus=1 ./task
 done
 
 # Wait for all the tasks to finish
