@@ -34,7 +34,7 @@ This page describes how run CWL worklflows on Puhti using `toil-cwl-runner`, inc
 Install `toil` with `CWL` plugin.
 ```
 cd /projappl/<project_nnnnnnn>
-python -m venv venv
+python3 -m venv venv
 source venv/bin/activate
 
 pip install -U setuptools wheel
