@@ -138,6 +138,10 @@ Please see the above linked package pages for citation information per package.
 Please acknowledge CSC and Geoportti in your publications, it is important for project continuation and funding reports.
 As an example, you can write "The authors wish to thank CSC - IT Center for Science, Finland (urn:nbn:fi:research-infras-2016072531) and the Open Geospatial Information Infrastructure for Research (Geoportti, urn:nbn:fi:research-infras-2016072513) for computational resources and support".
 
+## Installation
+
+Geoconda was installed on Puhti using [Tykkys conda-containerize functionality](../computing/containers/tykky.md). The environment file is available in [CSCs geocomputing repository](https://raw.githubusercontent.com/csc-training/geocomputing/master/puhti_geoconda_environment.yml). Note that for reproducibility, you'll need to define the package versions in the environment file, which can be checked on Puhti using `list-packages` command after loading the `geoconda` module.
+
 ### References
 
 -   [CSC Python parallelisation examples]
