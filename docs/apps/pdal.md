@@ -41,7 +41,7 @@ As an example, you can write "The authors wish to thank CSC - IT Center for Scie
 
 ## Installation
 
-Please see the respectives versions module page: [Geoconda](../geoconda.md) , [QGIS](../qgis.md).
+Please see the respectives versions module page: [Geoconda](./geoconda.md) , [QGIS](./qgis.md).
 
 ### References
 
