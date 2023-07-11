@@ -194,17 +194,17 @@ Example of a `batch.sh` script that starts the server and workers, and then subm
     #SBATCH --partition=small   # single node partition
     #SBATCH --ntasks=1          # one HyperQueue worker
     #SBATCH --cpus-per-task=10  # one or more cpus per worker
-    #SBATCH --mem-per-cpu=1000  # desired amount of memory per task
+    #SBATCH --mem-per-cpu=1000  # desired amount of memory
     #SBATCH --time=00:15:00
     ```
 
 === "Puhti partial multinode"
     ```bash
     #!/bin/bash
-    #SBATCH --partition=large   # multi node partition
-    #SBATCH --ntasks=2          # two or more HyperQueue workers
-    #SBATCH --cpus-per-task=10  # one or more cpus per worker
-    #SBATCH --mem-per-cpu=1000
+    #SBATCH --partition=large    # multi node partition
+    #SBATCH --ntasks=2           # two or more HyperQueue workers
+    #SBATCH --cpus-per-task=10   # one or more cpus per worker
+    #SBATCH --mem-per-cpu=1000   # desired amount of memory
     #SBATCH --time=00:15:00
     ```
 
@@ -212,9 +212,9 @@ Example of a `batch.sh` script that starts the server and workers, and then subm
     ```bash
     #!/bin/bash
     #SBATCH --partition=small
-    #SBATCH --nodes=1            # one node
-    #SBATCH --tasks-per-node=1   # one workers per node
+    #SBATCH --ntasks=1           # one worker node
     #SBATCH --cpus-per-task=40   # all cpus on a node
+    #SBATCH --mem-per-cpu=0      # reserve all memory on a node
     #SBATCH --time=00:15:00
     ```
 
@@ -222,9 +222,9 @@ Example of a `batch.sh` script that starts the server and workers, and then subm
     ```bash
     #!/bin/bash
     #SBATCH --partition=large
-    #SBATCH --nodes=2            # two or more nodes
-    #SBATCH --tasks-per-node=1   # one worker per node
-    #SBATCH --cpus-per-task=40   # all cpus on a node
+    #SBATCH --ntasks=2           # two or more worker nodes
+    #SBATCH --cpus-per-task=40   # reserve all cpus on a node
+    #SBATCH --mem-per-cpu=0      # reserve all memory on a node
     #SBATCH --time=00:15:00
     ```
 
@@ -232,9 +232,9 @@ Example of a `batch.sh` script that starts the server and workers, and then subm
     ```bash
     #!/bin/bash
     #SBATCH --partition=medium
-    #SBATCH --nodes=1            # one or more nodes
-    #SBATCH --tasks-per-node=1   # one worker per node
+    #SBATCH --ntasks=1           # one or more worker nodes
     #SBATCH --cpus-per-task=128  # all cpus on a node
+    #SBATCH --mem-per-cpu=0      # reserve all memory on a node
     #SBATCH --time=00:15:00
     ```
 
@@ -264,15 +264,13 @@ else
     TOTAL_MEM_OPT=""
 fi
 
-# Start the workers in a subshell in the background
-(
-    srun --overlap --cpu-bind=none --mpi=none hq worker start \
-        --manager slurm \
-        --idle-timeout 5m \
-        --on-server-lost finish-running \
-        --cpus="$SLURM_CPUS_PER_TASK" \
-        $TOTAL_MEM_OPT &
-)
+# Start the workers in the background
+srun --overlap --cpu-bind=none --mpi=none hq worker start \
+    --manager slurm \
+    --idle-timeout 5m \
+    --on-server-lost finish-running \
+    --cpus="$SLURM_CPUS_PER_TASK" \
+    $TOTAL_MEM_OPT &
 
 # Wait until all workers have started
 hq worker wait "$SLURM_NTASKS"
