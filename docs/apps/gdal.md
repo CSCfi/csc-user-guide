@@ -87,12 +87,20 @@ gdalinfo /vsis3/<name_of_your_bucket>/<name_of_your_file>
 
 With large quantities of raster data (also in Allas), the most convenient method of accessing them might be [GDAL virtual rasters](../support/tutorials/gis/virtual-rasters.md). 
 
-## License and acknowledgement
+## License 
 
 GDAL is licensed under an [MIT/X style license](https://gdal.org/license.html)
 
+## Citation
+
+```GDAL/OGR contributors (2022). GDAL/OGR Geospatial Data Abstraction software Library. Open Source Geospatial Foundation. URL https://gdal.org, DOI: 10.5281/zenodo.5884351 ```
+
+## Acknowledgement
+
 Please acknowledge CSC and Geoportti in your publications, it is important for project continuation and funding reports.
 As an example, you can write "The authors wish to thank CSC - IT Center for Science, Finland (urn:nbn:fi:research-infras-2016072531) and the Open Geospatial Information Infrastructure for Research (Geoportti, urn:nbn:fi:research-infras-2016072513) for computational resources and support".
+
+
 
 ## References
 
