@@ -22,7 +22,7 @@ It worked, if you see `Manage workspaces` tab in the left panel.
 ### 2. Find or create custom images
 
 * The easiest is to use an existing Docker image, look these repositories for suitable images:
-    * [Docker image sources in notebook-images repository.](https://github.com/CSCfi/notebook-images/tree/master/builds)
+    * [Docker image sources in notebooks-public-images repository.](https://github.com/CSCfi/notebooks-public-images)
     * [Rocker images](https://hub.docker.com/u/rocker) for different RStudio set-ups.
     * If you would need a few R/Python packages extra compared to existing images, it likely is easiest to add them run-time by the user.
 * To create your own custom image, see [Creating custom Docker images](#creating-custom-docker-images) below.
@@ -34,7 +34,7 @@ through `Application wizard` or `Application form`-buttons.
 
 **Application template** Template provides the base features for your application. Most of the templates are based on
 container images maintained by Notebooks team. Take a look at the 
-[image sources in notebook-images repository](https://github.com/CSCfi/notebook-images/tree/master/builds). 
+[image sources in notebooks-public-images repository](https://github.com/CSCfi/notebooks-public-images). 
 If you intend to use your own custom image, you can choose any template that matches your application type (Jupyter/RStudio).
 
 **Application name** Give a valid meaningful name. This is the name under which participants will see the application.
