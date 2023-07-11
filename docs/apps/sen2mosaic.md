@@ -52,7 +52,7 @@ Sen2mosaic is published under the [GNU,GPL v3](https://github.com/smfm-project/s
 
 Sen2mosaic does not provide any preferred citation information.
 
-```Sen2mosaic v.0.2: https://github.com/smfm-project/sen2mosaic , last accessed on {date}.```
+```Samuel Bowers: Sen2mosaic v.0.2. https://github.com/smfm-project/sen2mosaic , last accessed on {date}.```
 
 ## Acknowledgement
 
