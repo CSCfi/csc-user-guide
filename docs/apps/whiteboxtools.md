@@ -65,9 +65,6 @@ The WhiteboxTools open-core platform is distributed under the [MIT license](http
 Please acknowledge CSC and Geoportti in your publications, it is important for project continuation and funding reports.
 As an example, you can write "The authors wish to thank CSC - IT Center for Science, Finland (urn:nbn:fi:research-infras-2016072531) and the Open Geospatial Information Infrastructure for Research (Geoportti, urn:nbn:fi:research-infras-2016072513) for computational resources and support".
 
-## Installation
-
-Please see the [Geoconda page](./geoconda.md).
 
 ### References
 

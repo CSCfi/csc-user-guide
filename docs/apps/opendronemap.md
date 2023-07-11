@@ -83,9 +83,6 @@ OpenDroneMap is distributed under the GNU General Public License (GPL) version 3
 Please acknowledge CSC and Geoportti in your publications, it is important for project continuation and funding reports.
 As an example, you can write "The authors wish to thank CSC - IT Center for Science, Finland (urn:nbn:fi:research-infras-2016072531) and the Open Geospatial Information Infrastructure for Research (Geoportti, urn:nbn:fi:research-infras-2016072513) for computational resources and support".
 
-## Installation
-
-Opendronemap was installed on Puhti with Singularity using the [Docker image provided by Opendronemap](https://hub.docker.com/r/opendronemap/odm). The container was then wrapped with [Tykky](../computing/containers/tykky.md).
 
 ### References
 

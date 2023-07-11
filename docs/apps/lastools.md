@@ -122,9 +122,6 @@ Citation of the software depends on which license was used:
 * M. Isenburg, "LAStools - efficient LiDAR processing software" (version 220613, unlicensed), obtained from http://rapidlasso.com/LAStools
 * rapidlasso GmbH, "LAStools - efficient LiDAR processing software" (version 220613, commercial), obtained from http://rapidlasso.com/LAStools
 
-## Installation
-
-Lastools was installed on Puhti with Singularity using the [Docker image from Dockerhub](https://hub.docker.com/r/pydo/lastools). The container was then wrapped with [Tykky](../computing/containers/tykky.md).
 
 ### References
 

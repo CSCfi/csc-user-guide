@@ -55,9 +55,6 @@ If you used a [plugin](http://www.cloudcompare.org/doc/wiki/index.php?title=Plug
 
 Please acknowledge CSC and Geoportti in your publications, it is important for project continuation and funding reports. As an example, you can write "The authors wish to thank CSC - IT Center for Science, Finland (urn:nbn:fi:research-infras-2016072531) and the Open Geospatial Information Infrastructure for Research (Geoportti, urn:nbn:fi:research-infras-2016072513) for computational resources and support".
 
-## Installation
-
-Cloudcompare was installed to Puhti via Singularity. The Singularity definition file is available on [CSCs 'singularity-recipes' repository](https://github.com/CSCfi/singularity-recipes/blob/main/cloudcompare/cloudcompare.def).
 
 ## References
 

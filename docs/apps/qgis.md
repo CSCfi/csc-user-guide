@@ -70,9 +70,6 @@ QGIS is licensed under the GNU General Public License. QGIS is an official proje
 Please acknowledge CSC and Geoportti in your publications, it is important for project continuation and funding reports.
 As an example, you can write "The authors wish to thank CSC - IT Center for Science, Finland (urn:nbn:fi:research-infras-2016072531) and the Open Geospatial Information Infrastructure for Research (Geoportti, urn:nbn:fi:research-infras-2016072513) for computational resources and support".
 
-## Installation
-
-QGIS was installed on Puhti with Singularity using the [Docker image provided by QGIS on Dockerhub](https://hub.docker.com/r/qgis/qgis). The container was then wrapped with [Tykky](../computing/containers/tykky.md).
 
 ### References
 

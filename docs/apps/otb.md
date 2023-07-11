@@ -94,9 +94,6 @@ Orfeo ToolBox is licensed under the Apache License, Version 2.0. The full licenc
 Please acknowledge CSC and Geoportti in your publications, it is important for project continuation and funding reports.
 As an example, you can write "The authors wish to thank CSC - IT Center for Science, Finland (urn:nbn:fi:research-infras-2016072531) and the Open Geospatial Information Infrastructure for Research (Geoportti, urn:nbn:fi:research-infras-2016072513) for computational resources and support".
 
-## Installation
-
-OTB was installed on Puhti with Singularity using the [Docker image provided by OTB](https://hub.docker.com/r/orfeotoolbox/otb). The container was then wrapped with [Tykky](../computing/containers/tykky.md).
 
 ### References
 
