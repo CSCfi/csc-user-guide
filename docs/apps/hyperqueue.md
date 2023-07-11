@@ -153,9 +153,11 @@ on usage and input options.
 
 
 ### Creating a batch job
+This examples consists of a batch script and an executable task script.
+The batch script start the HyperQueue server, workers and submits tasks to the workers.
+The task script is an executable script that we submit to the workers.
 You can copy the following example and run it as given and then modify it to suit your needs.
-
-Directory structure
+The directory structure looks as follows:
 
 ```text
 .             # Current working directory
@@ -164,7 +166,7 @@ Directory structure
 ```
 
 We assume that HyperQueue tasks are independent and run on a single node.
-Example of a simple, executable `task` script.
+Example of a simple, executable `task` script written in Bash.
 
 ```bash
 #!/bin/bash
@@ -278,7 +280,6 @@ hq job wait all
 hq worker stop all
 hq server stop
 ```
-
 
 ### With other workflow managers
 
