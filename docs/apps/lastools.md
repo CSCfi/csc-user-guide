@@ -116,11 +116,15 @@ As an example, you can write "The authors wish to thank CSC - IT Center for Scie
 
 ## Citation
 
-Depends on license used:
+Citation of the software depends on which license was used:
 
 * LAStools, "Efficient LiDAR Processing Software" (version 220613, academic), obtained from http://rapidlasso.com/LAStools
 * M. Isenburg, "LAStools - efficient LiDAR processing software" (version 220613, unlicensed), obtained from http://rapidlasso.com/LAStools
 * rapidlasso GmbH, "LAStools - efficient LiDAR processing software" (version 220613, commercial), obtained from http://rapidlasso.com/LAStools
+
+## Installation
+
+Lastools was installed on Puhti with Singularity using the [Docker image from Dockerhub](https://hub.docker.com/r/pydo/lastools). The container was then wrapped with [Tykky](../computing/containers/tykky.md).
 
 ### References
 
