@@ -67,7 +67,7 @@ As an example, you can write "The authors wish to thank CSC - IT Center for Scie
 
 ## Installation
 
-Please see the [Geoconda page](../geoconda.md).
+Please see the [Geoconda page](./geoconda.md).
 
 ### References
 
