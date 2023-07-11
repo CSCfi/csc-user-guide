@@ -81,7 +81,3 @@ QGIS was installed on Puhti with Singularity using the [Docker image provided by
 * [Free QGIS training material](https://qgis.org/en/site/forusers/trainingmaterial/index.html)
 * [PyQGIS cookbook](https://docs.qgis.org/testing/en/docs/pyqgis_developer_cookbook/)
 
-## Installation details
-
-* Version 3.31. The installation is based on [QGIS Docker image](https://hub.docker.com/r/qgis/qgis) and was done using [Tykky](../computing/containers/tykky.md) on 24.4.2023. The resulting QGIS Puhti files are available as [zip-package](https://gis-containers.a3s.fi/qgis_3_31_tykky.zip). 
-* Version 2.22. The installation is based on this [Singularity recipe](https://github.com/CSCfi/singularity-recipes/blob/main/qgis/qgis_plus_grass.def). [The resulting Singularity image](https://gis-containers.a3s.fi/qgis_3_22_grass_7_8_5.sif).
