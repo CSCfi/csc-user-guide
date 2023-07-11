@@ -55,7 +55,7 @@ As an example, you can write "The authors wish to thank CSC - IT Center for Scie
 
 ## Installation
 
-Sen2mosaic was installed on top of [sen2cor](../sen2cor.md) and [geoconda](../geoconda.md) modules using pip and the [sen2mosaic github repository](https://github.com/smfm-project/sen2mosaic).   
+Sen2mosaic was installed on top of [sen2cor](./sen2cor.md) and [geoconda](./geoconda.md) modules using pip and the [sen2mosaic github repository](https://github.com/smfm-project/sen2mosaic).   
 
 ### References
 
