@@ -48,6 +48,12 @@ Copy it to your `$HOME` directory, adjust it to your needs and add it to the cal
 
 Sen2mosaic is published under the [GNU,GPL v3](https://github.com/smfm-project/sen2mosaic/blob/master/LICENSE.md) license.
 
+## Citation
+
+Sen2mosaic does not provide any preferred citation information.
+
+```Sen2mosaic v.0.2: https://github.com/smfm-project/sen2mosaic , last accessed on {date}.```
+
 ## Acknowledgement
 
 Please acknowledge CSC and Geoportti in your publications, it is important for project continuation and funding reports.
