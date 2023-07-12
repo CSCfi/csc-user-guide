@@ -4,12 +4,14 @@
 
 The GDAL command line tool can only __read__ files from external location, but not write. If you want to write files to Allas, you can still save them first to the supercomputer, virtual machine or own computer and move them to Allas later. In R and Python it is possible also to __write__ to Allas directly from script. We have tested successfully:
 
- * [Python](../../../apps/geoconda.md): gdal, geopandas, fiona and rasterio. [Example](https://github.com/csc-training/geocomputing/blob/master/python/allas/working_with_allas_from_Python_S3.py). 
- * [R](../../../apps/r-env-for-gis.md): sf, raster. [Example](https://github.com/csc-training/geocomputing/blob/master/R/allas/working_with_allas_from_R_S3.R). 
+ * [Python](../../../apps/geoconda.md): gdal, geopandas, fiona and rasterio. [Example codes on CSCs github repository](https://github.com/csc-training/geocomputing/blob/master/python/allas/working_with_allas_from_Python_S3.py). 
+ * [R](../../../apps/r-env-for-gis.md): sf, raster. [Example codes on CSCs github repository](https://github.com/csc-training/geocomputing/blob/master/R/allas/working_with_allas_from_R_S3.R). 
  * [QGIS](../../../apps/qgis.md)
 
  
 Reading data directly from an external service, like Allas or other object storage is slower than reading from local disks, for example reading a ~500 Mb files from your scratch directory on Puhti takes ~1 second, reading the same file from Allas takes ~10 seconds. In many cases, these seconds are negligible compared to the full duration of an analysis.
+
+All examples below show usage with `gdalinfo`, however the links to the data and configuration of the connection are the same, no matter if you use the links with `gdal`, `Python`, `R` or `QGIS`. 
 
 ## Public files
 
