@@ -69,7 +69,7 @@ Follow the instructions provided in [CSCs Allas command line interface utilities
 
 #### Access from any Linux computing environment to external cloud storage private files
 
-You will need to manually make your cloud storage credentials available to the tools you want to use, e.g. by adding them to the `.aws/credentials` file. Check your cloud storage providers manuals.
+You will need to manually make your cloud storage credentials available to the tools you want to use, e.g. by adding them to the `.aws/credentials` file. Check your cloud storage providers manuals and [GDAL virtual file systems documentation](https://gdal.org/user/virtual_file_systems.html#).
 
 
 
