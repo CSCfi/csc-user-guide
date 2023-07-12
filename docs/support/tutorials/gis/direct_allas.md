@@ -9,7 +9,7 @@ The GDAL command line tool can only __read__ files from external location, but n
  * [QGIS](../../../apps/qgis.md)
 
  
-Reading data directly from an external service, like Allas or other object storage is slower than reading from local disks, for example reading a ~500 Mb files from your scratch directory on Puhti takes ~1 second, reading the same file from Allas takes ~10 seconds. In many cases, these seconds are negligible compared to the full duration of an analysis.
+Reading data directly from an external service, like Allas or other object storage is slower than reading from local disks, for example reading a ~500 Mb file from your scratch directory on Puhti takes ~1 second, reading the same file from Allas takes ~10 seconds. In many cases, these seconds are negligible compared to the full duration of an analysis.
 
 All examples below show usage with `gdalinfo`, however the links to the data and configuration of the connection are the same, no matter if you use the links with `gdal`, `Python`, `R` or `QGIS`. 
 
