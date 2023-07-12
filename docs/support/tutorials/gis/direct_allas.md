@@ -9,7 +9,7 @@ The GDAL command line tool can only __read__ files from external location, but n
  * [QGIS](../../../apps/qgis.md)
 
  
-Reading data directly from Allas is slower than reading from local disks, for example reading a ~500 Mb files from your scratch directory on Puhti takes ~1 second, reading the same file from Allas takes ~10 seconds. In many cases, these seconds are negligable compared to the full duration of an analysis.
+Reading data directly from Allas is slower than reading from local disks, for example reading a ~500 Mb files from your scratch directory on Puhti takes ~1 second, reading the same file from Allas takes ~10 seconds. In many cases, these seconds are negligible compared to the full duration of an analysis.
 
 __Public files__ in Allas can be read with [`vsicurl`](https://gdal.org/user/virtual_file_systems.html#vsicurl):  
 ```
