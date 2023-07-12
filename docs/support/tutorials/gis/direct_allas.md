@@ -1,4 +1,4 @@
-# Using geospatial files directly from Allas
+# Using geospatial files directly from (cloud) object storage
 
 [GDAL](../../../apps/gdal.md) and other GDAL-based tools can read and partly also write files directly from Allas and other external locations, which eliminates the need to download the files.
 
