@@ -5,8 +5,9 @@ tags:
 
 # HyperQueue
 [HyperQueue (HQ)](https://github.com/It4innovations/hyperqueue) is an efficient sub-node task scheduler.
-Instead of submitting each of your computational tasks as a separate Slurm jobs or job steps, you can allocate a large resource block and then use HyperQueue to submit your tasks to this allocation.
+Instead of submitting each of your computational tasks as separate Slurm jobs or job steps, you can allocate a large resource block and then use HyperQueue to submit your tasks to this allocation.
 A single resource allocation will be much less stressful for the batch queue system and is the recommended way to run your high-throughput computing use cases.
+We can use HyperQueue instead of Slurm as the task executor for other workflow managers, such as Snakemake and Nextflow.
 
 
 ## License
@@ -20,29 +21,34 @@ Free to use and open source under [MIT License](https://github.com/It4innovation
 
 ## Usage
 ### Task-farming with sbatch-hq tool
-For simple task-farming workflows, where you only want to run many similar, independent and non-MPI parallel programs, you can use the CSC utility tool `sbatch-hq`.
+For simple task-farming workflows, where you only want to run many similar, independent, and non-MPI parallel programs, you can use the CSC utility tool `sbatch-hq`.
 Just specify the list of commands to run in a file, one command per line.
 The tool `sbatch-hq` will create and launch a batch job that starts running commands from the file using HyperQueue.
 You can specify how many nodes you want to run the commands on, and `sbatch-hq` will keep executing the commands until all are done or the batch job time limit is reached.
 
-!!! info "Note"
-    Do not include `srun` in the commands you want to run.
-    HyperQueue will launch the tasks using the allocated resources as requested.
+Let's assume we have a `tasks` file with a list of commands we want to run using eight threads each.
+**Do not use `srun` in the commands!**
+HyperQueue will launch the tasks using the allocated resources as requested.
+For example, 
 
-Let's assume we have a file named `commandlist` with a list of commands that we want to
-run using eight threads each.
-For example, let's reserve 1 compute node for the whole job, which means we could run either 5 task simulaneously using Puhti or 16 tasks simulaneously using Mahti.
+```text
+command1 arguments1
+command2 arguments2
+# and so on
+```
+
+For example, let's reserve one compute node for the whole job, which means we could run either five tasks simultaneously using Puhti or 16 tasks simultaneously using Mahti.
 
 ```bash
 module load sbatch-hq
-sbatch-hq --cores=8 --nodes=1 --account=<project> --partition=test --time=00:15:00 commandlist
+sbatch-hq --cores=8 --nodes=1 --account=<project> --partition=test --time=00:15:00 tasks
 ```
 
-The number of commands in the file can (usually should) be much larger than the number of commands that can fit running simultaneously in the reserved nodes.
+The number of commands in the file can (usually should) be much larger than the number of tasks that can fit running simultaneously in the reserved nodes.
 See `sbatch-hq --help` for more details on usage and input options.
 
 
-### Using HyperQueue in a Slurm job
+### Using HyperQueue in a Slurm batch job
 HyperQueue works on a worker-server-client basis.
 The server manages connections between workers and the client.
 The client submits tasks to the server, which sends them to the available workers.
@@ -53,7 +59,7 @@ We recommend reading the official [HyperQueue documentation](https://it4innovati
 This example consists of a batch script and an executable task script.
 The batch script starts the HyperQueue server and workers and submits tasks to the workers.
 The task script is an executable script that we submit to the workers.
-You can copy the following example, run it as given, and then modify it to suit your needs.
+You can copy the following example, run it as given, and modify it to suit your needs.
 The directory structure looks as follows:
 
 ```text
@@ -62,9 +68,10 @@ The directory structure looks as follows:
 └── task      # Executable task script for HyperQueue
 ```
 
+#### Task
 We assume that HyperQueue tasks are independent and run on a single node.
 Example of a simple, executable `task` script written in Bash.
-HyperQueue enumerates all the tasks and we can access the value using the `HQ_TASK_ID` environment variable.
+HyperQueue enumerates all the tasks, and we can access the value using the `HQ_TASK_ID` environment variable.
 
 ```bash
 #!/bin/bash
@@ -72,6 +79,7 @@ echo "$HQ_TASK_ID"
 sleep 1
 ```
 
+#### Batch job
 In a Slurm batch job, each Slurm task corresponds to one HyperQueue worker.
 We can increase the number of workers by increasing the number of Slurm tasks.
 We reserve a fraction of the CPUs and memory on a node per worker in a partial node allocation and all the CPUs and memory on a node per worker in a full node allocation.
@@ -80,6 +88,7 @@ Example of a `batch.sh` script that starts the server and workers and then submi
 === "Puhti partial single node"
     ```bash
     #!/bin/bash
+    #SBATCH --account=<project>
     #SBATCH --partition=small    # single node partition
     #SBATCH --ntasks=1           # one HyperQueue worker
     #SBATCH --cpus-per-task=10   # one or more cpus per worker
@@ -90,6 +99,7 @@ Example of a `batch.sh` script that starts the server and workers and then submi
 === "Puhti partial multinode"
     ```bash
     #!/bin/bash
+    #SBATCH --account=<project>
     #SBATCH --partition=large    # multi node partition
     #SBATCH --ntasks=2           # two or more HyperQueue workers
     #SBATCH --cpus-per-task=10   # one or more cpus per worker
@@ -100,6 +110,7 @@ Example of a `batch.sh` script that starts the server and workers and then submi
 === "Puhti full single node"
     ```bash
     #!/bin/bash
+    #SBATCH --account=<project>
     #SBATCH --partition=small
     #SBATCH --ntasks=1           # one worker node
     #SBATCH --cpus-per-task=40   # all cpus on a node
@@ -110,6 +121,7 @@ Example of a `batch.sh` script that starts the server and workers and then submi
 === "Puhti full multinode"
     ```bash
     #!/bin/bash
+    #SBATCH --account=<project>
     #SBATCH --partition=large
     #SBATCH --ntasks=2           # two or more worker nodes
     #SBATCH --cpus-per-task=40   # reserve all cpus on a node
@@ -120,6 +132,7 @@ Example of a `batch.sh` script that starts the server and workers and then submi
 === "Mahti full node"
     ```bash
     #!/bin/bash
+    #SBATCH --account=<project>
     #SBATCH --partition=medium
     #SBATCH --ntasks=1           # one or more worker nodes
     #SBATCH --cpus-per-task=128  # all cpus on a node
@@ -127,14 +140,16 @@ Example of a `batch.sh` script that starts the server and workers and then submi
     #SBATCH --time=00:15:00
     ```
 
+#### Module
 We load the HyperQueue module to make the `hq` command available.
 
 ```bash
 module load hyperqueue
 ```
 
+#### Server
 Next, we specify where HyperQueue places the server files.
-All `hq` commands respect this variable, so we set before using any `hq` commands.
+All `hq` commands respect this variable, so we set it before using any `hq` commands.
 If a server directory is not specified, it will default to the user's home directory.
 In this case, one has to be careful not to mix up separate computations. We recommend starting one server per job in a job-specific directory for simple cases that fit inside one Slurm job.
 
@@ -146,7 +161,8 @@ export HQ_SERVER_DIR="$PWD/.hq-server/$SLURM_JOB_ID"
 mkdir -p "$HQ_SERVER_DIR"
 ```
 
-Here, the server is placed in the background (`&`) so that we can continue.
+Now, we start the server in the background and wait for it to start.
+The server keeps running until we stop it; therefore, we place it in the background so it does not block the execution of the rest of the script.
 
 ```bash
 # Start the server in the background
@@ -156,9 +172,11 @@ hq server start &
 until hq job list &> /dev/null ; do sleep 1 ; done
 ```
 
-We manually start HyperQueue workers in the background with the appropriate number of CPUs and amount of memory.
+#### Workers
+Next, we start HyperQueue workers in the background with the number of CPUs and the amount of memory defined in the batch script.
+We access those values using the `SLURM_CPU_PER_TASK` and `SLURM_MEM_PER_CPU` environment variables.
+By starting the workers using the `srun` command, we create one worker per Slurm task.
 We also wait for all workers to connect, which is generally good practice as we can notice issues with the workers early.
-If you need HQ to be aware of other resources, e.g., memory, local disk, or GPUS, see the [Generic resource section](https://it4innovations.github.io/hyperqueue/v0.11.0/jobs/gresources/) in the official documentation.
 
 ```bash
 # Set memory for workers in bytes according to SLURM_MEM_PER_CPU if greater than zero.
@@ -171,7 +189,7 @@ else
     TOTAL_MEM_OPT=""
 fi
 
-# Start the workers in the background
+# Start the workers in the background.
 srun --overlap --cpu-bind=none --mpi=none hq worker start \
     --manager slurm \
     --idle-timeout 5m \
@@ -183,10 +201,12 @@ srun --overlap --cpu-bind=none --mpi=none hq worker start \
 hq worker wait "$SLURM_NTASKS"
 ```
 
-Now we can submit tasks with `hq submit`, a non-blocking command.
-By default, HQ creates one folder for each job where output is redirected.
-To change this behavior, you can use the `--log`, `-stdout`, and `--stderr` flags.
-Note that it's impossible to direct output from multiple jobs into the same file, as each submission will clear the file.
+#### Computing tasks
+Now we can submit tasks with `hq submit` to the server, which executes them on the available workers.
+It is a non-blocking command; thus, we do not need to run it in the background.
+Regarding file I/O, we turn off output by setting `--stdout=none` and `--stderr=none`.
+Otherwise, HyperQueue will create output files for each task, which can create excess I/O on the parallel filesystem when there are many tasks.
+After submitting all the tasks, we wait for them to complete to synchronize the script.
 
 ```bash
 # Submit tasks to workers
@@ -194,16 +214,13 @@ NUM_TASKS=1000
 for ((i=1; i<=NUM_TASKS; i++)); do
     hq submit --stdout=none --stderr=none --cpus=1 ./task
 done
-```
 
-When we submit everything we want, we must wait for the jobs to finish.
-
-```bash
 # Wait for all the tasks to finish
 hq job wait all
 ```
 
-Once we are done running all of our jobs, we shut down the workers and server to avoid a false error from Slurm when the job ends.
+#### Stopping the workers and the server
+Once we are done running all of our tasks, we shut down the workers and server to avoid a false error from Slurm when the job ends.
 
 ```bash
 # Shut down the workers and server
@@ -213,7 +230,8 @@ hq server stop
 
 
 <!--
-### Submitting jobs
+If you need HQ to be aware of other resources, e.g., memory, local disk, or GPUS, see the [Generic resource section](https://it4innovations.github.io/hyperqueue/v0.11.0/jobs/gresources/) in the official documentation.
+
 !!! warning "Autoallocation"
     The auto allocation feature available in HQ is still under development and buggy, don't use it, as it's very likely that the job queue will be filled with idling workers, which wastes resources.
 
@@ -225,10 +243,7 @@ hq submit --array 1-10 --cpus <n> <COMMAND>
 -->
 
 
-### Using HyperQueue with other workflow managers
-If your workflow manager is using `sbatch` for each process execution and you have many short processes, it's advisable to switch to HyperQueue to improve throughput and decrease the load on the system batch scheduler.
-
-#### Snakemake
+### Using HyperQueue with Snakemake
 Using Snakemake's `--cluster` flag, we can use `hq submit` instead of `sbatch`:
 
 ```bash
@@ -237,7 +252,8 @@ snakemake --cluster "hq submit --cpus <threads> ..."
 
 If you are porting a more complicated workflow from Slurm, you can do argument parsing and transformations programmatically using Snakemake's [job properties](https://snakemake.readthedocs.io/en/stable/executing/cluster.html#job-properties)
 
-#### Nextflow
+
+### Using HyperQueue with Nextflow
 See a [separate tutorial](../support/tutorials/nextflow-hq.md) for instructions on using HyperQueue as an executor for Nextflow workflows.
 
 
@@ -246,6 +262,5 @@ See a [separate tutorial](../support/tutorials/nextflow-hq.md) for instructions 
     Although HyperQueue does not do MPI execution out of the box, it's possible using a combination of the HQ feature [Multinode Tasks](https://it4innovations.github.io/hyperqueue/stable/jobs/multinode/) and `orterun`, `hydra` or `prrte`.
     This way, one can schedule MPI tasks at a node-level granularity.
 
-* [Full documentation for HQ](https://it4innovations.github.io/hyperqueue/v0.11.0/)
 * [Using HyperQueue and local disk to process many files](https://csc-training.github.io/csc-env-eff/hands-on/throughput/hyperqueue.html)
 * [Farming Gaussian jobs with sbatch-hq](https://csc-training.github.io/csc-env-eff/hands-on/throughput/gaussian_hq.html)
