@@ -1,13 +1,13 @@
 # SD Desktop tool installer
 
-As SD desktop virtual machiens are isolated from internet, installing additional software and libraries 
+As SD desktop virtual machines are isolated from internet, installing additional software and libraries 
 to your virtual machine is not straight forward. Adding extra software is possible, but it requires that 
 you convert the installation processes into files that can be uploaded to SD Connect and from there 
 copied to your SD Desktop environment for installation and usage.
 
 In generally, we recommend using Apptainer containers for importing the software you need.
 
-To make additional sofware installations easier, CSC has created **SD Software installer**, 
+To make additional software installations easier, CSC has created **SD Software installer**, 
 that provides an easy way to add few commonly used software packages and help tools to your Virtual machine. 
 This document describes the usage of this help tool.
 
