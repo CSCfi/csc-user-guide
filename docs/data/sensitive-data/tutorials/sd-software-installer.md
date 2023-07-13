@@ -73,4 +73,4 @@ Notes about the available tools. Note that this document may be out-dated:
 * [Whisper](whisper.md) Automatic speech recognintion
 
 ### Geosciences
-*  [QGis 3.1.1](https://qgis.org/en/site/) [QGis at CSC servers](../../../../apps/qgis.md)
+*  [QGis 3.1.1](https://qgis.org/en/site/)  [QGis at CSC servers](../../../apps/qgis.md)
