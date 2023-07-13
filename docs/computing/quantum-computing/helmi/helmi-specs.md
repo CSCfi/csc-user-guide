@@ -2,7 +2,7 @@
 
 ## Architecture and Topology
 
-Helmi is a 5-qubit quantum Computer co-developed by VTT and IQM using superconducting qubits. 
+Helmi is a 5-qubit quantum computer co-developed by VTT and IQM using superconducting qubits. 
 The qubits are arranged in a **star shaped** topology, with the central qubit being Qubit 3 (QB3) connected to the other 4 qubits. 
 This means that any two-qubit gate will work most efficiently between QB3 and any other qubit, 
 whereas one-qubit gates can be mapped to any of the 4 surrounding qubits. 
@@ -13,29 +13,36 @@ whereas one-qubit gates can be mapped to any of the 4 surrounding qubits.
 
 ### Native Gates
 
-Helmi's native gates are the two-qubit Control-Z and a the one-qubit rotational gate around the x-y plane. 
+Helmi's native gates are the two-qubit controlled-z gate and the one-qubit phased x-rotation gate.
 
 ### Defining topology and gates in Qiskit and Cirq
 
-To define the features of Helmi in Qiskit and Circ, for example for transpiling, use the following definitions:
+The topology, supported instructions and backend specific metadata can be queried directly with [Qiskit on IQM](https://iqm-finland.github.io/qiskit-on-iqm/) or [Cirq on IQM](https://iqm-finland.github.io/cirq-on-iqm/). For example:
 
+```python
+# Qiskit
+from qiskit_iqm import IQMProvider
+provider = IQMProvider(iqm_server_url)
+backend = provider.get_backend()
+print(f'Native operations of the backend: {backend.operation_names}')
+print(f'Coupling map of the backend: {backend.coupling_map}')
+```
 
-|              |      Helmi      |                                                   Qiskit                                                   |                                 Cirq                                 |
-|--------------|:---------------:|:----------------------------------------------------------------------------------------------------------:|:--------------------------------------------------------------------:|
-| Basis Gates  | CZ + Rx, Ry, Rz |                                          `basis_gates=['r', 'cz']`                                         |   `NATIVE_GATES=ops.PhasedXPowGate, ops.XPowGate, ops.YPowGate, ops.CZPowGate()`  |
-| Connectivity | Star Shaped     |                                     `coupling_map=[[2, 0], [2, 1], [2, 3], [2, 4]]`                                     |                  `CONNECTIVITY=({1, 3}, {2, 3}, {4, 3}, {5, 3})`                  |
-| Mapping      |                 | `virtual_qubits=circuit_decomposed.qubits`<br>`qubit_mapping={virtual_qubits[0]:'QB1',virtual_qubits[1]:'QB3'}` | Dictionary `qubit_mapping={'NamedQubit1':'QB1','NamedQubit2':'QB3'}` |
-
-
-With Qiskit you will need to decompose your circuit with the basis gate and define your qubit mapping before running. With Cirq this is not necessary. 
-
-
-(Note that native gates and basis gates are interchangeable.)
+```python
+# Cirq
+from cirq_iqm import Adonis
+adonis = Adonis()
+print(adonis.metadata.qubit_set)
+print(adonis.metadata.gateset)
+print(adonis.metadata.nx_graph)
+```
 
 
 ## Further Reading
 
 * [Specific instructions for the LUMI Helmi partition](../fiqci-partition/)
+* [Qiskit adapter for IQM devices](https://iqm-finland.github.io/qiskit-on-iqm/)
+* [Cirq adapter for IQM devices](https://iqm-finland.github.io/cirq-on-iqm/)
 
 
 
