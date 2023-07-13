@@ -63,14 +63,18 @@ the installaled software should work also when Data Gateway has not been opened.
 Notes about the available tools. Note that this document may be out-dated:
 
 ### Statistics
-* [Rstudio 4.2.2](rstudio.md)
-* [PSPP](https://www.gnu.org/software/pspp/)
+*  [Rstudio 4.2.2](rstudio.md)
+*  [PSPP](https://www.gnu.org/software/pspp/)
 
 ### Imaging and vidos
-* [Audacity](https://www.audacityteam.org/). Sound editor.
-* [OpenShot 3.1.1](https://www.openshot.org/). Video editor. This tool works only in Ubuntu22 based VMs. After installation, right click the OpenShot desktop icon and selesc _Run as a program_
-* [QuPath 0.4.2](https://github.com/qupath/qupath/). Software for bioimage analysis
-* [Whisper](whisper.md) Automatic speech recognintion
+*  [Audacity](https://www.audacityteam.org/). Sound editor.
+*  [OpenShot 3.1.1](https://www.openshot.org/). Video editor. This tool works only in Ubuntu22 based VMs. After installation, right click the OpenShot desktop icon and selesc _Run as a program_
+*  [QuPath 0.4.2](https://github.com/qupath/qupath/). Software for bioimage analysis
+*  [Whisper](whisper.md) Automatic speech recognintion
 
 ### Geosciences
-*  [QGis 3.1.1](https://qgis.org/en/site/)  [QGis at CSC servers](../../../apps/qgis.md)
+*  [QGis 3.1.1](https://qgis.org/en/site/)
+   *   [QGis at CSC servers](../../../apps/qgis.md)
+
+
+
