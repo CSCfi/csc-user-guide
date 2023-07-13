@@ -7,7 +7,7 @@ tags:
 [HyperQueue (HQ)](https://github.com/It4innovations/hyperqueue) is an efficient sub-node task scheduler.
 Instead of submitting each of your computational tasks as separate Slurm jobs or job steps, you can allocate a large resource block and then use HyperQueue to submit your tasks to this allocation.
 A single resource allocation will be much less stressful for the batch queue system and is the recommended way to run your high-throughput computing use cases.
-We can use HyperQueue instead of Slurm as the task executor for other workflow managers, such as Snakemake and Nextflow.
+Furthermore, we can use HyperQueue instead of Slurm as the task executor for other workflow managers, such as Snakemake and Nextflow.
 
 
 ## License
