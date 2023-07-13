@@ -36,7 +36,10 @@ Open _tools-for-sd-desktop_ folder and from there, drag/copy file **sd-installer
  
 Double click the copy of _sd-installer.desktop_ to start the software installation tool. 
 
-[![sd-installer](./images/desktop/sd-installer2.png)](./images/desktop/sd-installer2.png)
+[![sd-installer](../images/desktop/sd-installer2.png)](../images/desktop/sd-installer2.png)
+
+**Figure 2.** SD Software installer
+
 
 ## Usage ##
 
@@ -57,10 +60,15 @@ the installaled software should work also when Data Gateway has not been opened.
 
 ## Tool selection ##
 
-Notes about the available tools. Note that this document may be out dated:
+Notes about the available tools. Note that this document may be out-dated:
 
+###Statistics
 * [Rstudio 4.2.2](rstudio.md)
+* [PSPP](https://www.gnu.org/software/pspp/)
 
-
-
+###Imaging and vidos
+* [Audacity](https://www.audacityteam.org/). Sound editor.
+* [OpenShot 3.1.1](https://www.openshot.org/). Video editor. This tool works only in Ubuntu22 based VMs. After installation, right click the OpenShot desktop icon and selesc _Run as a program_
+* [QuPath 0.4.2](https://github.com/qupath/qupath/). Software for bioimage analysis
+* [Whisper](whisper.md) The installation in SD Desktop is based on [WhisperDO](https://github.com/nicholasgcotton/WhisperDO)
 
