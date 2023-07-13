@@ -86,7 +86,7 @@ Notes about the available tools. Note that this list may be out-dated:
 *  [Salmon 1.9.0](https://combine-lab.github.io/salmon/)
    *   [Salmon 1.9.0 at CSC servers](../../../apps/salmon.md)
 
-### Micallenius
+### Miscallenius
 *   [auto-apptainer](./auto-apptainer.md) Tool to add command line applications using a Apptainer container library provided by CSC.
 *   [VS Code 1.78.2](./vscode.md) Code editor
 *   [Crypt4gh-gui](../sd_connect.md#sensitive-data-encryption-and-upload-for-analysis-up-to-100-gb) Encryption tool
