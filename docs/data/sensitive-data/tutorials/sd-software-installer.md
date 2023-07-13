@@ -83,7 +83,7 @@ Notes about the available tools. Note that this list may be out-dated:
    *   [GATK at CSC servers](../../../apps/gatk.md)
 *  [MultiQC 1.10](https://multiqc.info/)
    *   [MultiOC at CSC servers](../../../apps/multiqc.md)
-*  [Salmon 1.9.0][
+*  [Salmon 1.9.0](https://combine-lab.github.io/salmon/)
    *   [Salmon 1.9.0 at CSC servers](../../../apps/salmon.md)
 
 ### Micallenius
