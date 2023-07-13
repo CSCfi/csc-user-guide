@@ -63,8 +63,8 @@ the installaled software should work also when Data Gateway has not been opened.
 Notes about the available tools. Note that this list may be out-dated:
 
 ### Statistics
-*  [Rstudio 4.2.2](rstudio.md)
-*  [PSPP](https://www.gnu.org/software/pspp/) Open Source alternamtive for SPSS statistics tool
+*  [Rstudio 4.2.2](rstudio.md) R statistics tool with graphcal user interface and help tools for adding libraries.
+*  [PSPP](https://www.gnu.org/software/pspp/) Open Source alternative for SPSS statistics tool.
 
 ### Imaging and vidos
 *  [Audacity](https://www.audacityteam.org/). Sound editor.
@@ -75,7 +75,7 @@ Notes about the available tools. Note that this list may be out-dated:
 *  [Whisper](whisper.md) Automatic speech recognition.
   
 ### Geosciences
-*  [QGis 3.1.1](https://qgis.org/en/site/) A Free and Open Source Geographic Information System 
+*  [QGis 3.1.1](https://qgis.org/en/site/) A Free and Open Source Geographic Information System. 
    *   [QGis at CSC servers](../../../apps/qgis.md)
 
 ### Biosciences
