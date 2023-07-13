@@ -72,14 +72,14 @@ Notes about the available tools. Note that this list may be out-dated:
    *  This tool works only in Ubuntu22 based VMs.
    *  After installation, right click the OpenShot desktop icon and selesc _Run as a program_
 *  [QuPath 0.4.2](https://github.com/qupath/qupath/). Software for bioimage analysis.GATL
-*  [Whisper](whisper.md) Automatic speech recognintion
-
+*  [Whisper](whisper.md) Automatic speech recognition.
+  
 ### Geosciences
-*  [QGis 3.1.1](https://qgis.org/en/site/)
+*  [QGis 3.1.1](https://qgis.org/en/site/) A Free and Open Source Geographic Information System 
    *   [QGis at CSC servers](../../../apps/qgis.md)
 
 ### Biosciences
-*  [GATK](https://gatk.broadinstitute.org/hc/en-us)
+*  [GATK](https://gatk.broadinstitute.org/hc/en-us) A genomic analysis toolkit focused on variant discovery.
    *   [GATK at CSC servers](../../../apps/gatk.md)
 *  [MultiQC 1.10](https://multiqc.info/)
    *   [MultiOC at CSC servers](../../../apps/multiqc.md)
@@ -88,7 +88,7 @@ Notes about the available tools. Note that this list may be out-dated:
 
 ### Micallenius
 *   [auto-apptainer](./auto-apptainer.md) Tool to add command line applications using a Apptainer container library provided by CSC.
-*   [VS Code 1.78.2](./vscode.md)
-*   [Crypt4gh-gui](../sd_connect.md#sensitive-data-encryption-and-upload-for-analysis-up-to-100-gb)
-*   [Backup tool](./backup_sd_desktop.md)
+*   [VS Code 1.78.2](./vscode.md) Code editor
+*   [Crypt4gh-gui](../sd_connect.md#sensitive-data-encryption-and-upload-for-analysis-up-to-100-gb) Encryption tool
+*   [Backup tool](./backup_sd_desktop.md) Help tool to automiatize backup and export in SD Desktop.
 
