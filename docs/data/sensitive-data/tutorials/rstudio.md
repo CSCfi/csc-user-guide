@@ -3,7 +3,7 @@
 Using R and Rstudio in SD Desktop virtual machines is based on a singularity container that 
 contains R and Rsudio installations and over 1000 commonly used R libraries. However, as there 
 are nearly 20 000 libraries in the CRAN repository and over 2000 libraries in the Bioconductor 
-repository, it is quite common that some library that you would like to use, is not included in the default selection.
+repository, it is quite common that some library that you would like to use, is not included in the default selection. 
 
 This document describes the usage of help tools that you can use to add Rstudio 4.2.2 and missing R libraries to your SD Desktop environment. 
 The process described here is the first prototype implementation of this service and it is likely the change in the future.
