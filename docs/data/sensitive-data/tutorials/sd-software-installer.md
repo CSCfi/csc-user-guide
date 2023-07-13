@@ -60,7 +60,7 @@ the installaled software should work also when Data Gateway has not been opened.
 
 ## Tool selection ##
 
-Notes about the available tools. Note that this document may be out-dated:
+Notes about the available tools. Note that this list may be out-dated:
 
 ### Statistics
 *  [Rstudio 4.2.2](rstudio.md)
@@ -79,9 +79,16 @@ Notes about the available tools. Note that this document may be out-dated:
    *   [QGis at CSC servers](../../../apps/qgis.md)
 
 ### Biosciences
-*  [GATK](
-   *   [GATK at CSC servers](../../../apps/qgis.md)
+*  [GATK](https://gatk.broadinstitute.org/hc/en-us)
+   *   [GATK at CSC servers](../../../apps/gatk.md)
+*  [MultiQC 1.10](https://multiqc.info/)
+   *   [MultiOC at CSC servers](../../../apps/multiqc.md)
+*  [Salmon 1.9.0][
+   *   [Salmon 1.9.0 at CSC servers](../../../apps/salmon.md)
 
-
-
+### Micallenius
+*   [auto-apptainer](./auto-apptainer.md) Tool to add command line applications using a Apptainer container library provided by CSC.
+*   [VS Code 1.78.2](./vscode.md)
+*   [Crypt4gh-gui](../sd_connect.md#sensitive-data-encryption-and-upload-for-analysis-up-to-100-gb)
+*   [Backup tool](./backup_sd_desktop.md)
 
