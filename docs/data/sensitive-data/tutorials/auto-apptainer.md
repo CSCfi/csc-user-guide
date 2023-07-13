@@ -3,7 +3,7 @@
 Auto-apptainer is a help tool that can be used to add software to a SD Desktop virtual machine. It utilizes a library of
 of Apptainer based software contaners, pre-loaded by CSC. You can suggest a container to be added to the library.
 
-Auto apptainer is not available by default, but you must install it first using [SD Software installer](./sd-installer.md).
+Auto apptainer is not available by default, but you must install it first using [SD Software installer](./sd-software-installer.md).
 After that you can lauch the tool with command:
 
 ```test
