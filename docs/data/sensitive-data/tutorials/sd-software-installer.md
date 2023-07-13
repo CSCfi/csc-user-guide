@@ -30,7 +30,7 @@ then you should have folder **tools-for-sd-desktop** included in the directory t
 
 Open _tools-for-sd-desktop_ folder and from there, drag/copy file **sd-installer.desktop** to your desktop.
 
-[![Installing-sd-installer](../images/desktop/sd-installer1.png)](./images/desktop/sd-installer1.png)
+[![Installing-sd-installer](../images/desktop/sd-installer1.png)](../images/desktop/sd-installer1.png)
 
 **Figure 1.** Copying sd-installer.desktop file to SD desktop.
  
@@ -80,9 +80,7 @@ Notes about the available tools. Note that this list may be out-dated:
 
 ### Biosciences
 *  [GATK](https://gatk.broadinstitute.org/hc/en-us) A genomic analysis toolkit focused on variant discovery.
-   *   [GATK at CSC servers](../../../apps/gatk.md)
 *  [MultiQC 1.10](https://multiqc.info/)
-   *   [MultiOC at CSC servers](../../../apps/multiqc.md)
 *  [Salmon 1.9.0](https://combine-lab.github.io/salmon/)
    *   [Salmon 1.9.0 at CSC servers](../../../apps/salmon.md)
 
