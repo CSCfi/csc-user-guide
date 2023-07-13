@@ -34,8 +34,8 @@
   margin-bottom: 1rem;
 }
 
-.csc-footer__body .twemoji :is(svg) {
-  height: 1em;
+.csc-footer__icon :is(svg) {
+    height: 1em;
 }
 
 .csc-footer__link {
