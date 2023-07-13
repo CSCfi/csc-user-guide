@@ -26,6 +26,10 @@ We also assume that it is our working directory when running the commands.
 The example jobs demonstrate project files for different single and multi-node jobs.
 
 
+### Slurm
+TODO: Julia, MPI and `srun` in batch jobs, local preferences and Julia's mpiexec function, environment variables, remove srun from MPI examples
+
+
 ### Environment variables
 The `julia` module sets the [`JULIA_CPU_THREADS`](https://docs.julialang.org/en/v1/manual/environment-variables/#JULIA_CPU_THREADS) and [`JULIA_NUM_THREADS`](https://docs.julialang.org/en/v1/manual/environment-variables/#JULIA_NUM_THREADS) environment variables to the number of reserved CPU cores when loaded in a Slurm job; otherwise, the module sets them to one.
 We use the value of the `--cpus-per-task` option, which populates the `SLURM_CPUS_PER_TASK` environment variable, to detect the number of CPU cores.
@@ -202,14 +206,13 @@ println("Hello world!")
 
     ```toml
     [compat]
-    julia = "1.8"
+    julia = "1.9"
     ```
 
     An example of a `batch.sh` Puhti batch script.
 
     ```bash
     #!/bin/bash
-    #SBATCH --job-name=example
     #SBATCH --account=<project>
     #SBATCH --partition=small
     #SBATCH --time=00:15:00
@@ -218,7 +221,7 @@ println("Hello world!")
     #SBATCH --cpus-per-task=1
     #SBATCH --mem-per-cpu=1000
 
-    module load julia/1.8
+    module load julia/1.9
     julia --project=. -e 'using Pkg; Pkg.instantiate()'
     julia --project=. script.jl
     ```
@@ -228,14 +231,13 @@ println("Hello world!")
 
     ```toml
     [compat]
-    julia = "1.8"
+    julia = "1.9"
     ```
 
     An example of a `batch.sh` Mahti batch script.
 
     ```bash
     #!/bin/bash
-    #SBATCH --job-name=example
     #SBATCH --account=<project>
     #SBATCH --partition=interactive
     #SBATCH --time=00:15:00
@@ -244,7 +246,7 @@ println("Hello world!")
     #SBATCH --cpus-per-task=1
     #SBATCH --mem-per-cpu=1875
 
-    module load julia/1.8
+    module load julia/1.9
     julia --project=. -e 'using Pkg; Pkg.instantiate()'
     julia --project=. script.jl
     ```
@@ -262,7 +264,6 @@ println("Hello world!")
 
     ```bash
     #!/bin/bash
-    #SBATCH --job-name=example
     #SBATCH --account=<project>
     #SBATCH --partition=small
     #SBATCH --time=00:15:00
@@ -274,8 +275,6 @@ println("Hello world!")
     module load julia/1.9
     julia --project=. -e 'using Pkg; Pkg.instantiate()'
     julia --project=. script.jl
-    srun julia --project=. script.jl
->>>>>>> master
     ```
 
 
@@ -307,14 +306,13 @@ println(ids)
 
     ```toml
     [compat]
-    julia = "1.8"
+    julia = "1.9"
     ```
 
     An example of a `batch.sh` Puhti batch script.
 
     ```bash
     #!/bin/bash
-    #SBATCH --job-name=example
     #SBATCH --account=<project>
     #SBATCH --partition=small
     #SBATCH --time=00:15:00
@@ -323,7 +321,7 @@ println(ids)
     #SBATCH --cpus-per-task=3
     #SBATCH --mem-per-cpu=1000
 
-    module load julia/1.8
+    module load julia/1.9
     julia --project=. -e 'using Pkg; Pkg.instantiate()'
     julia --project=. script.jl
     ```
@@ -333,14 +331,13 @@ println(ids)
 
     ```toml
     [compat]
-    julia = "1.8"
+    julia = "1.9"
     ```
 
     An example of a `batch.sh` Mahti batch script.
 
     ```bash
     #!/bin/bash
-    #SBATCH --job-name=example
     #SBATCH --account=<project>
     #SBATCH --partition=medium
     #SBATCH --time=00:15:00
@@ -349,7 +346,7 @@ println(ids)
     #SBATCH --cpus-per-task=128
     #SBATCH --mem-per-cpu=0
 
-    module load julia/1.8
+    module load julia/1.9
     julia --project=. -e 'using Pkg; Pkg.instantiate()'
     julia --project=. script.jl
     ```
@@ -366,7 +363,6 @@ println(ids)
 
     ```bash
     #!/bin/bash
-    #SBATCH --job-name=example
     #SBATCH --account=<project>
     #SBATCH --partition=small
     #SBATCH --time=00:15:00
@@ -438,14 +434,13 @@ println.(outputs)
     Distributed = "8ba89e20-285c-5b6f-9357-94700520ee1b"
 
     [compat]
-    julia = "1.8"
+    julia = "1.9"
     ```
 
     An example of a `batch.sh` Puhti batch script.
 
     ```bash
     #!/bin/bash
-    #SBATCH --job-name=example
     #SBATCH --account=<project>
     #SBATCH --partition=small
     #SBATCH --time=00:15:00
@@ -454,7 +449,7 @@ println.(outputs)
     #SBATCH --cpus-per-task=3
     #SBATCH --mem-per-cpu=1000
 
-    module load julia/1.8
+    module load julia/1.9
     julia --project=. -e 'using Pkg; Pkg.instantiate()'
     julia --project=. script.jl
     ```
@@ -467,14 +462,13 @@ println.(outputs)
     Distributed = "8ba89e20-285c-5b6f-9357-94700520ee1b"
 
     [compat]
-    julia = "1.8"
+    julia = "1.9"
     ```
 
     An example of a `batch.sh` Mahti batch script.
 
     ```bash
     #!/bin/bash
-    #SBATCH --job-name=example
     #SBATCH --account=<project>
     #SBATCH --partition=medium
     #SBATCH --time=00:15:00
@@ -483,7 +477,7 @@ println.(outputs)
     #SBATCH --cpus-per-task=128
     #SBATCH --mem-per-cpu=0
 
-    module load julia/1.8
+    module load julia/1.9
     julia --project=. -e 'using Pkg; Pkg.instantiate()'
     julia --project=. script.jl
     ```
@@ -503,7 +497,6 @@ println.(outputs)
 
     ```bash
     #!/bin/bash
-    #SBATCH --job-name=example
     #SBATCH --account=<project>
     #SBATCH --partition=small
     #SBATCH --time=00:15:00
@@ -551,7 +544,7 @@ println.(outputs)
     CUDA = "052768ef-5323-5732-b1bb-66c8b64840ba"
 
     [compat]
-    julia = "1.8"
+    julia = "1.9"
     CUDA = "=4.0.1"
     ```
 
@@ -559,7 +552,6 @@ println.(outputs)
 
     ```bash
     #!/bin/bash
-    #SBATCH --job-name=example
     #SBATCH --account=<project>
     #SBATCH --partition=gpu
     #SBATCH --time=00:15:00
@@ -582,7 +574,7 @@ println.(outputs)
     CUDA = "052768ef-5323-5732-b1bb-66c8b64840ba"
 
     [compat]
-    julia = "1.8"
+    julia = "1.9"
     CUDA = "=4.0.1"
     ```
 
@@ -590,7 +582,6 @@ println.(outputs)
 
     ```bash
     #!/bin/bash
-    #SBATCH --job-name=example
     #SBATCH --account=<project>
     #SBATCH --partition=gpusmall
     #SBATCH --time=00:15:00
@@ -621,7 +612,6 @@ println.(outputs)
 
     ```bash
     #!/bin/bash
-    #SBATCH --job-name=example
     #SBATCH --account=<project>
     #SBATCH --partition=small-g
     #SBATCH --time=00:15:00
@@ -660,7 +650,7 @@ MPI.Barrier(comm)
     MPI = "da04e1cc-30fd-572f-bb4f-1f8673147195"
 
     [compat]
-    julia = "1.8"
+    julia = "1.9"
     MPI = "=0.20.8"
     ```
 
@@ -668,7 +658,6 @@ MPI.Barrier(comm)
 
     ```bash
     #!/bin/bash
-    #SBATCH --job-name=example
     #SBATCH --account=<project>
     #SBATCH --partition=large
     #SBATCH --time=00:15:00
@@ -677,9 +666,8 @@ MPI.Barrier(comm)
     #SBATCH --cpus-per-task=1
     #SBATCH --mem-per-cpu=1000
 
-    module load julia/1.8
+    module load julia/1.9
     julia --project=. -e 'using Pkg; Pkg.instantiate()'
-    # Running MPI requires using srun
     srun julia --project=. script.jl
     ```
 
@@ -691,7 +679,7 @@ MPI.Barrier(comm)
     MPI = "da04e1cc-30fd-572f-bb4f-1f8673147195"
 
     [compat]
-    julia = "1.8"
+    julia = "1.9"
     MPI = "=0.20.8"
     ```
 
@@ -699,7 +687,6 @@ MPI.Barrier(comm)
 
     ```bash
     #!/bin/bash
-    #SBATCH --job-name=example
     #SBATCH --account=<project>
     #SBATCH --partition=medium
     #SBATCH --time=00:15:00
@@ -708,9 +695,8 @@ MPI.Barrier(comm)
     #SBATCH --cpus-per-task=1
     #SBATCH --mem-per-cpu=0
 
-    module load julia/1.8
+    module load julia/1.9
     julia --project=. -e 'using Pkg; Pkg.instantiate()'
-    # Running MPI requires using srun
     srun julia --project=. script.jl
     ```
 
@@ -730,7 +716,6 @@ MPI.Barrier(comm)
 
     ```bash
     #!/bin/bash
-    #SBATCH --job-name=example
     #SBATCH --account=<project>
     #SBATCH --partition=standard
     #SBATCH --time=00:15:00
@@ -741,7 +726,6 @@ MPI.Barrier(comm)
 
     module load julia/1.9
     julia --project=. -e 'using Pkg; Pkg.instantiate()'
-    # Running MPI requires using srun
     srun julia --project=. script.jl
     ```
 
@@ -815,14 +799,13 @@ println.(outputs)
     Distributed = "8ba89e20-285c-5b6f-9357-94700520ee1b"
 
     [compat]
-    julia = "1.8"
+    julia = "1.9"
     ```
 
     An example of a `batch.sh` Puhti batch script.
 
     ```bash
     #!/bin/bash
-    #SBATCH --job-name=example
     #SBATCH --account=<project>
     #SBATCH --partition=large
     #SBATCH --time=00:15:00
@@ -831,9 +814,8 @@ println.(outputs)
     #SBATCH --cpus-per-task=3
     #SBATCH --mem-per-cpu=1000
 
-    module load julia/1.8
+    module load julia/1.9
     julia --project=. -e 'using Pkg; Pkg.instantiate()'
-    # We do not use srun! Otherwise, slurm runs the script on all tasks.
     julia --project=. script.jl
     ```
 
@@ -845,14 +827,13 @@ println.(outputs)
     Distributed = "8ba89e20-285c-5b6f-9357-94700520ee1b"
 
     [compat]
-    julia = "1.8"
+    julia = "1.9"
     ```
 
     An example of a `batch.sh` Mahti batch script.
 
     ```bash
     #!/bin/bash
-    #SBATCH --job-name=example
     #SBATCH --account=<project>
     #SBATCH --partition=medium
     #SBATCH --time=00:15:00
@@ -861,9 +842,8 @@ println.(outputs)
     #SBATCH --cpus-per-task=128
     #SBATCH --mem-per-cpu=0
 
-    module load julia/1.8
+    module load julia/1.9
     julia --project=. -e 'using Pkg; Pkg.instantiate()'
-    # We do not use srun! Otherwise, slurm runs the script on all tasks.
     julia --project=. script.jl
     ```
 
@@ -949,14 +929,13 @@ println.(outputs)
     Distributed = "8ba89e20-285c-5b6f-9357-94700520ee1b"
 
     [compat]
-    julia = "1.8"
+    julia = "1.9"
     ```
 
     An example of a `batch.sh` Puhti batch script.
 
     ```bash
     #!/bin/bash
-    #SBATCH --job-name=example
     #SBATCH --account=<project>
     #SBATCH --partition=large
     #SBATCH --time=00:15:00
@@ -965,9 +944,8 @@ println.(outputs)
     #SBATCH --cpus-per-task=3
     #SBATCH --mem-per-cpu=1000
 
-    module load julia/1.8
+    module load julia/1.9
     julia --project=. -e 'using Pkg; Pkg.instantiate()'
-    # We do not use srun! Otherwise, slurm runs the script on all tasks.
     julia --project=. script.jl
     ```
 
@@ -979,14 +957,13 @@ println.(outputs)
     Distributed = "8ba89e20-285c-5b6f-9357-94700520ee1b"
 
     [compat]
-    julia = "1.8"
+    julia = "1.9"
     ```
 
     An example of a `batch.sh` Mahti batch script.
 
     ```bash
     #!/bin/bash
-    #SBATCH --job-name=example
     #SBATCH --account=<project>
     #SBATCH --partition=medium
     #SBATCH --time=00:15:00
@@ -995,9 +972,7 @@ println.(outputs)
     #SBATCH --cpus-per-task=128
     #SBATCH --mem-per-cpu=0
 
-    module load julia/1.8
+    module load julia/1.9
     julia --project=. -e 'using Pkg; Pkg.instantiate()'
-    # We do not use srun! Otherwise, slurm runs the script on all tasks.
     julia --project=. script.jl
     ```
-
