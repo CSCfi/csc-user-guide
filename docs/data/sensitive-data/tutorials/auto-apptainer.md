@@ -9,7 +9,7 @@ After that you can lauch the tool with command:
 ```test
 auto-apptainer
 ```
-By deafault, this lists all the Apptainer packages availabe. From the list you can select the backage to be installed.
+By deafault, this lists all the Apptainer packages available. From the list you can select the backage to be installed.
 
 Alternatively you can add a fltering criteria to the command. In this case only those containers whose name or one 
 of commands that the container provides, matches the search creiteria, are listed.
