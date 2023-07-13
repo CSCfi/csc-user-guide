@@ -6,7 +6,7 @@ Auto apptainer is not available by default, but you must install it first using 
 After that you can lauch the tool with command:
 
 ```test
-auto-appttainer
+auto-apptainer
 ```
 By deafault, this lists all the Apptainer pacages availabe. From the list you can select the backage to be installed.
 
@@ -16,7 +16,7 @@ of commands that the container provides, matches the search creiteria, are liste
 For example command 
 
 ```test
-auto-appttainer bam
+auto-apptainer bam
 ```
 
 asks the user to choose from two contaiers; bamtools and bedtools. Bedtools is included as it provides commands bamToBed and bamToFasta
