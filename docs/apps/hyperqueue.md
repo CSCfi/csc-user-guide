@@ -15,8 +15,8 @@ Free to use and open source under [MIT License](https://github.com/It4innovation
 
 
 ## Available
-* Puhti: 0.11.0, 0.13.0
-* Mahti: 0.11-dev, 0.13.0, 0.15.0
+* Puhti: 0.13.0, 0.15.0, 0.16.0
+* Mahti: 0.13.0, 0.15.0, 0.16.0
 
 
 ## Usage
@@ -70,20 +70,20 @@ The directory structure looks as follows:
 
 #### Task
 We assume that HyperQueue tasks are independent and run on a single node.
-Example of a simple, executable `task` script written in Bash.
-HyperQueue enumerates all the tasks, and we can access the value using the `HQ_TASK_ID` environment variable.
+Here is an example of a simple, executable `task` script written in Bash.
 
 ```bash
 #!/bin/bash
-echo "$HQ_TASK_ID"
 sleep 1
 ```
+
+The overhead per task is around 0.1 milliseconds.
+Therefore, we can efficiently execute even very small tasks.
 
 #### Batch job
 In a Slurm batch job, each Slurm task corresponds to one HyperQueue worker.
 We can increase the number of workers by increasing the number of Slurm tasks.
 We reserve a fraction of the CPUs and memory on a node per worker in a partial node allocation and all the CPUs and memory on a node per worker in a full node allocation.
-Example of a `batch.sh` script that starts the server and workers and then submits tasks.
 
 === "Puhti partial single node"
     ```bash
@@ -210,14 +210,13 @@ After submitting all the tasks, we wait for them to complete to synchronize the 
 
 ```bash
 # Submit tasks to workers
-NUM_TASKS=1000
-for ((i=1; i<=NUM_TASKS; i++)); do
-    hq submit --stdout=none --stderr=none --cpus=1 ./task
-done
+hq submit --stdout=none --stderr=none --cpus=1 --array=1-1000 ./task
 
 # Wait for all the tasks to finish
 hq job wait all
 ```
+
+<!-- TODO: task arrays, snakemake, nextflow, `--each-line <entries.txt>` -->
 
 #### Stopping the workers and the server
 Once we are done running all of our tasks, we shut down the workers and server to avoid a false error from Slurm when the job ends.
@@ -227,20 +226,6 @@ Once we are done running all of our tasks, we shut down the workers and server t
 hq worker stop all
 hq server stop
 ```
-
-
-<!--
-If you need HQ to be aware of other resources, e.g., memory, local disk, or GPUS, see the [Generic resource section](https://it4innovations.github.io/hyperqueue/v0.11.0/jobs/gresources/) in the official documentation.
-
-!!! warning "Autoallocation"
-    The auto allocation feature available in HQ is still under development and buggy, don't use it, as it's very likely that the job queue will be filled with idling workers, which wastes resources.
-
-HyperQueue is not limited to running a single execution per submission. Using the `--array 1-N` flag, we can start a program *N* times similar to how Slurm array jobs work.
-
-```bash
-hq submit --array 1-10 --cpus <n> <COMMAND>
-```
--->
 
 
 ### Using HyperQueue with Snakemake
@@ -257,10 +242,11 @@ If you are porting a more complicated workflow from Slurm, you can do argument p
 See a [separate tutorial](../support/tutorials/nextflow-hq.md) for instructions on using HyperQueue as an executor for Nextflow workflows.
 
 
-## More information
-!!!info "MPI"
-    Although HyperQueue does not do MPI execution out of the box, it's possible using a combination of the HQ feature [Multinode Tasks](https://it4innovations.github.io/hyperqueue/stable/jobs/multinode/) and `orterun`, `hydra` or `prrte`.
-    This way, one can schedule MPI tasks at a node-level granularity.
+### Multinode tasks
+Although HyperQueue does not do MPI execution out of the box, it's possible using a combination of the HQ feature [Multinode Tasks](https://it4innovations.github.io/hyperqueue/stable/jobs/multinode/) and `orterun`, `hydra` or `prrte`.
+This way, one can schedule MPI tasks at a node-level granularity.
 
+
+## More information
 * [Using HyperQueue and local disk to process many files](https://csc-training.github.io/csc-env-eff/hands-on/throughput/hyperqueue.html)
 * [Farming Gaussian jobs with sbatch-hq](https://csc-training.github.io/csc-env-eff/hands-on/throughput/gaussian_hq.html)
