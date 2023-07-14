@@ -68,7 +68,8 @@ The directory structure looks as follows:
 └── task      # Executable task script for HyperQueue
 ```
 
-#### Task
+**Task**
+
 We assume that HyperQueue tasks are independent and run on a single node.
 Here is an example of a simple, executable `task` script written in Bash.
 
@@ -80,7 +81,8 @@ sleep 1
 The overhead per task is around 0.1 milliseconds.
 Therefore, we can efficiently execute even very small tasks.
 
-#### Batch job
+**Batch job**
+
 In a Slurm batch job, each Slurm task corresponds to one HyperQueue worker.
 We can increase the number of workers by increasing the number of Slurm tasks.
 We reserve a fraction of the CPUs and memory on a node per worker in a partial node allocation and all the CPUs and memory on a node per worker in a full node allocation.
@@ -140,14 +142,16 @@ We reserve a fraction of the CPUs and memory on a node per worker in a partial n
     #SBATCH --time=00:15:00
     ```
 
-#### Module
+**Module**
+
 We load the HyperQueue module to make the `hq` command available.
 
 ```bash
 module load hyperqueue
 ```
 
-#### Server
+**Server**
+
 Next, we specify where HyperQueue places the server files.
 All `hq` commands respect this variable, so we set it before using any `hq` commands.
 If a server directory is not specified, it will default to the user's home directory.
@@ -172,7 +176,8 @@ hq server start &
 until hq job list &> /dev/null ; do sleep 1 ; done
 ```
 
-#### Workers
+**Workers**
+
 Next, we start HyperQueue workers in the background with the number of CPUs and the amount of memory defined in the batch script.
 We access those values using the `SLURM_CPU_PER_TASK` and `SLURM_MEM_PER_CPU` environment variables.
 By starting the workers using the `srun` command, we create one worker per Slurm task.
@@ -201,7 +206,8 @@ srun --overlap --cpu-bind=none --mpi=none hq worker start \
 hq worker wait "$SLURM_NTASKS"
 ```
 
-#### Computing tasks
+**Computing tasks**
+
 Now we can submit tasks with `hq submit` to the server, which executes them on the available workers.
 It is a non-blocking command; thus, we do not need to run it in the background.
 Regarding file I/O, we turn off output by setting `--stdout=none` and `--stderr=none`.
@@ -218,7 +224,8 @@ hq job wait all
 
 <!-- TODO: task arrays, snakemake, nextflow, `--each-line <entries.txt>` -->
 
-#### Stopping the workers and the server
+**Stopping the workers and the server**
+
 Once we are done running all of our tasks, we shut down the workers and server to avoid a false error from Slurm when the job ends.
 
 ```bash
