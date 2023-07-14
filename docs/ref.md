@@ -86,7 +86,7 @@ There is currently no special mechanism in place for controlling banners.
 
 === "Show/hide"
 
-    To hide the banner, it can just be commented out (mind that the commented-out `<center>`
+    To hide the banner, it can just be commented out (mind that the commented-out _center_
     block will still be visible in the HTML source of the page):
 
     ```html
@@ -103,7 +103,7 @@ There is currently no special mechanism in place for controlling banners.
 
 There is a glossary of HPC-related acronyms that get highlighted automatically. For example: CPU,
 GPU, QPU, etc. The acronyms are defined in the markdown file
-`csc-overrides/assets/glossaries/hpc.md`. More acronyms (case-sensitive) can be added there or into another
+_csc-overrides/assets/glossaries/hpc.md_. More acronyms (case-sensitive) can be added there or into another
 markdown file, like so:
 
 === "another_glossary.md"
@@ -397,7 +397,7 @@ you define the content.
 &nbsp;
 
 Try adding a `&nbsp;` if inline admonitions give you trouble. Example found right above this line
-in markdown source.
+in [the Markdown source](https://github.com/CSCfi/csc-user-guide/blob/master/docs/ref.md?plain=1).
 
 
 ## Images
@@ -419,14 +419,14 @@ on some dogs, and then running away:
     title="Horse kicks tree, farts on dogs then runs away."
     frameborder="0"
     allow="accelerometer; autoplay; clipboard-write; encrypted-media;gyroscope; picture-in-picture"
-    allowfullscreen>
-</iframe>
+    allowfullscreen
+></iframe>
 
 
 ### Animations
 
 If you don't need sound (or controls), you can use animations as an alternative for embedded videos. They are
-used just like [static images](#images). Both `.gif` and `.png` files work.
+used just like [static images](#images). Both _.gif_ and _.png_ files work.
 
 
 ## Mermaid
