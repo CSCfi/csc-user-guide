@@ -234,7 +234,7 @@ LIST = [1, 2, "three"]
 class PythonClass:
     def __init__(self):
         self.__property = "A string property"
-    
+
     @property
     def property(self):
         return __property
@@ -290,6 +290,7 @@ any immediately following text as "loose", i.e., outside of an HTML paragraph (`
     Perhaps a suitable one would just simply be: `note`.
 
 !!! note ""
+
     Title may be removed with `note ""`.
 
 
@@ -300,9 +301,9 @@ any immediately following text as "loose", i.e., outside of an HTML paragraph (`
 !!! default "Nothing special"
 
     Type qualifier: `default`.
-    
+
     !!! default-label
-    
+
         This isn't the actual default (fallback) admonition for legacy reasons.
 
 !!! info "Information available"
@@ -467,5 +468,5 @@ graph TD
 
 [^1]: This is the footnote ...and here's a shoenote for the footnote: 👞🎵
 [^2]:
-    Here's another footnote. Though, this one's a _barefootnote_!  
+    Here's another footnote. Though, this one's a _barefootnote_!
     Get it? 'Cause it's got no shoenote! Ahuehuehuehue!
