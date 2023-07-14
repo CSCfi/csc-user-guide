@@ -335,11 +335,15 @@ Each virtual Desktop (or virtual computer) is pre-built and contains a limited s
       * R + RStudio Server versions matched with Puhti r-env-singularity module (R 4.0.5 + RStudio Server 1.4.1106, MRAN, Bioconductor 3.12) 
       * [Rstudio 4.2.2 and all CRAN and Bioconductor libraries can be added with SD-software-installer](./r-in-sd-desktop.md)
 
+### SD Software installer
+
+[SD Software installer](./tutorials/sd-software-installer.md) provides easy-to-use tool to add some commonly used software to SD Desktop.
+
 ### Software customisation
 
-Users can install their user-level software to SD Desktop, but this requires technical expertise. As SD Desktop is isolated from the internet, you can't directly use installation tools like _git_, _coda_, _cpan_ or _pip_ as they are dependent on internet connections to external repositories. Further, SD Desktop users can't do any operation that needs superuser access.
+Users can install their own software to SD Desktop, but this requires technical expertise. As SD Desktop is isolated from the internet, you can't directly use installation tools like _git_, _coda_, _cpan_ or _pip_ as they are dependent on internet connections to external repositories. Further, SD Desktop users can't do any operation that needs superuser access.
 
-The most convenient way to add new software to your SD Desktop is to build a Singularity container outside SD Desktop and then import the Singularity image through SD Connect to SD Desktop. The two documents below describe two sample cases on adding software with containers.
+If you want to add new software to your virtual machine independently, the most convenient way to add new software to your SD Desktop is to build a Singularity container outside SD Desktop and then import the Singularity image through SD Connect to SD Desktop. The two documents below describe two sample cases on adding software with containers.
 
    1. [Importing ready-made software containers from a public repository to SD Desktop](./sd-desktop-singularity.md)
    2. [Creating you own Singularity container and importing it to SD Desktop](./creating_containers.md)
