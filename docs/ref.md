@@ -90,7 +90,7 @@ There is currently no special mechanism in place for controlling banners.
 
 === "Show/hide"
 
-    To hide the banner, it can just be commented out (mind that the commented-out `<center>`
+    To hide the banner, it can just be commented out (mind that the commented-out _center_
     block will still be visible in the HTML source of the page):
 
     ```html
@@ -406,7 +406,6 @@ Try adding a `&nbsp;` if inline admonitions give you trouble. Example found righ
 in [the Markdown source](https://github.com/CSCfi/csc-user-guide/blob/master/docs/ref.md?plain=1).
 
 
-
 ## Images
 
 Here's an image of the Reference card with an image of the Reference card with...
@@ -430,12 +429,10 @@ on some dogs, and then running away:
 ></iframe>
 
 
-
 ### Animations
 
 If you don't need sound (or controls), you can use animations as an alternative for embedded videos. They are
 used just like [static images](#images). Both _.gif_ and _.png_ files work.
-
 
 
 ## Mermaid

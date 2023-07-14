@@ -48,8 +48,8 @@ export const disableSearchShortcuts = () => {
   // Disable shortcut keys for search as they mess with assistive technology apparently
   document.onkeydown = event => {
     if (["s","f","/"].includes(event.key) && !document.activeElement?.form) {
-      event.preventDefault();
-      event.stopPropagation();
+      event.preventDefault()
+      event.stopPropagation()
     }
   }
 }
