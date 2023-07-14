@@ -53,7 +53,7 @@ users of the virtual machine.
 
 In case of some applications, part of the installation process occurs only when the application is started for the first time.
 Thus you should start the application once after the installation, to make sure that the prcess is completed. After that
-the installaled software should work also when Data Gateway conenction has not been opened.
+the installaled software should work also when Data Gateway connection has not been opened.
 
 
 ## Tool selection ##
