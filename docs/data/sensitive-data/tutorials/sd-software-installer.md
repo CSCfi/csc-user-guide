@@ -1,4 +1,4 @@
-# SD Desktop tool installer
+# SD Desktop Software Installer
 
 As SD desktop virtual machines are isolated from internet, installing additional software and libraries 
 to your virtual machine is not straight forward. Adding extra software is possible, but it requires that 
@@ -7,8 +7,8 @@ copied to your SD Desktop environment for installation and usage.
 
 In generally, we recommend using Apptainer containers for importing the software you need.
 
-To make additional software installations easier, CSC has created **SD Software installer**, 
-that provides an easy way to add few commonly used software packages and help tools to your Virtual machine. 
+To make additional software installations easier, CSC has created **SD Software Installer** tool,
+that provides an easy way to add few commonly used software packages and help tools to your virtual machine. 
 This document describes the usage of this help tool.
 
 
@@ -16,13 +16,11 @@ This document describes the usage of this help tool.
 
 In order to get access to the installation tool, you need to **send a request to servicedesk@csc.fi**.
 In the request, indicate that you wish that the SD software installer would be 
-made available for your project. You must include to the message the  **Project identifier string** of your project.
+made available for your project. You must include the  **Project identifier string** of your project to the request.
+You can check this 32 characters long random string for example in the [SD Connect service](https://sd-conenct.csc.fi). 
+There you find the Project Identifier in the **User information** view. 
 
-You can check this 32 characters long random string for example in 
-the [SD Connect service](https://sd-conenct.csc.fi). There you find the 
-Project Identifier in the **User information** view. 
-
-## Installing SD Software installer ##
+## Installing the SD Software Installer ##
 
 Log in to your SD Desktop and open **Data Gateway**. If the software installation help tools are enabled for your project,
 then you should have folder **tools-for-sd-desktop** included in the directory that Data Gateway created 
@@ -34,7 +32,8 @@ Open _tools-for-sd-desktop_ folder and from there, drag/copy file **sd-installer
 
 **Figure 1.** Copying sd-installer.desktop file to SD desktop.
  
-Double click the copy of _sd-installer.desktop_ to start the software installation tool. 
+Double click the copy of _sd-installer.desktop_ to start the software installation tool. In Ubuntu based VMs you
+need to right-click the and select _Allow Launching_ before  you can use the _sd-installer.desktop_.
 
 [![sd-installer](../images/desktop/sd-installer2.png)](../images/desktop/sd-installer2.png)
 
@@ -44,18 +43,17 @@ Double click the copy of _sd-installer.desktop_ to start the software installati
 ## Usage ##
 
 In order to use the installer, you must have an active Data Gateway connection running and 
-mounting the SD Conncect data to the default location in the file system 
-(_Projects_ in the users home directory). 
+mounting of the SD Conncect data should be done through the default location in the file system 
+(_Projects_ directory in the users home directory). 
 
-The installer shows a panels of buttons that allow you to install a software by just cliking the button.
-
+The installer shows a panel of buttons that allow you to install a software by just cliking the button.
 The available software include graphical and command line applications. For graphical applications, a launching icon is added 
-to the desktop. All software is installed to directory _/shared-directory/sd-tools/_ where the installaion is availale of all the
+to the desktop. All software is installed to directory _/shared-directory/sd-tools/_ where the installaion is availale for all the
 users of the virtual machine.
 
 In case of some applications, part of the installation process occurs only when the application is started for the first time.
-Thus you should start the application immediately after the installation, to make sure that the prcess is completed. After that
-the installaled software should work also when Data Gateway has not been opened.
+Thus you should start the application once after the installation, to make sure that the prcess is completed. After that
+the installaled software should work also when Data Gateway conenction has not been opened.
 
 
 ## Tool selection ##
@@ -70,7 +68,7 @@ Notes about the available tools. Note that this list may be out-dated:
 *  [Audacity](https://www.audacityteam.org/). Sound editor.
 *  [OpenShot 3.1.1](https://www.openshot.org/). Video editor.
    *  This tool works only in Ubuntu22 based VMs.
-   *  After installation, right click the OpenShot desktop icon and selesc _Run as a program_
+   *  After installation, right click the OpenShot desktop icon and select: _Run as a program_.
 *  [QuPath 0.4.2](https://github.com/qupath/qupath/). Software for bioimage analysis.GATL
 *  [Whisper](whisper.md) Automatic speech recognition.
   
@@ -80,13 +78,13 @@ Notes about the available tools. Note that this list may be out-dated:
 
 ### Biosciences
 *  [GATK](https://gatk.broadinstitute.org/hc/en-us) A genomic analysis toolkit focused on variant discovery.
-*  [MultiQC 1.10](https://multiqc.info/)
-*  [Salmon 1.9.0](https://combine-lab.github.io/salmon/)
+*  [MultiQC 1.10](https://multiqc.info/) NGS Read quolity checking tool.
+*  [Salmon 1.9.0](https://combine-lab.github.io/salmon/) Program to produce transcript-level quantification estimates from RNA-seq data
    *   [Salmon 1.9.0 at CSC servers](../../../apps/salmon.md)
 
 ### Miscallenius
-*   [auto-apptainer](./auto-apptainer.md) Tool to add command line applications using a Apptainer container library provided by CSC.
-*   [VS Code 1.78.2](./vscode.md) Code editor
-*   [Crypt4gh-gui](../sd_connect.md#sensitive-data-encryption-and-upload-for-analysis-up-to-100-gb) Encryption tool
+*   [auto-apptainer](./auto-apptainer.md) Tool to add command line applications using the Apptainer container library provided by CSC.
+*   [VS Code 1.78.2](./vscode.md) Code editor.
+*   [Crypt4gh-gui](../sd_connect.md#sensitive-data-encryption-and-upload-for-analysis-up-to-100-gb) Encryption tool.
 *   [Backup tool](./backup_sd_desktop.md) Help tool to automiatize backup and export in SD Desktop.
 
