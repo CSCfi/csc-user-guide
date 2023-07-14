@@ -93,22 +93,25 @@
   --csc-nav-border-radius--top: 4px 0 0 0;
   --csc-nav-border-radius--bottom: 0 0 0 4px;
 
-  --csc-admonition-border-left-width: 14px;
-  --csc-admonition--fg: #806420;
-  --csc-admonition--bg: #FDF3D1;
-  --csc-admonition-default--border: #006778;
-  --csc-admonition-default-label--fg: #006778;
-  --csc-admonition-default-label--bg: #E5EFF1;
-  --csc-admonition-info--border: #025b97;
-  --csc-admonition-info-label--fg: #002F5F;
-  --csc-admonition-info-label--bg: #EEF2F8;
-  --csc-admonition-success--border: #51A808;
-  --csc-admonition-success-label--fg: #3A7A06;
-  --csc-admonition-success-label--bg: #E5F2DA;
-  --csc-admonition-warning--border: #FF5800;
-  --csc-admonition-warning-label--fg: #C74600;
-  --csc-admonition-warning-label--bg: #FFF7E3;
-  --csc-admonition-error--border: #E71D32;
-  --csc-admonition-error-label--fg: #B90729;
-  --csc-admonition-error-label--bg: #F8E5E9;
+    --csc-admonition-border-left-width: 14px;
+    --csc-admonition--fg: #806420;
+    --csc-admonition--bg: #FDF3D1;
+    --csc-admonition-default--border: #006778;
+    --csc-admonition-default-label--fg: #006778;
+    --csc-admonition-default-label--bg: #E5EFF1;
+    --csc-admonition-info--border: #025b97;
+    --csc-admonition-info-label--fg: #002F5F;
+    --csc-admonition-info-label--bg: #EEF2F8;
+    --csc-admonition-success--border: #51A808;
+    --csc-admonition-success-label--fg: #3A7A06;
+    --csc-admonition-success-label--bg: #E5F2DA;
+    --csc-admonition-warning--border: #FF5800;
+    --csc-admonition-warning-label--fg: #C74600;
+    --csc-admonition-warning-label--bg: #FFF7E3;
+    --csc-admonition-error--border: #E71D32;
+    --csc-admonition-error-label--fg: #B90729;
+    --csc-admonition-error-label--bg: #F8E5E9;
+
+    /* Material Design icon "open-in-new", https://pictogrammers.com/library/mdi/icon/open-in-new/ */
+    --csc-external-link-icon: url("data:image/svg+xml; utf8, <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path d='M14,3V5H17.59L7.76,14.83L9.17,16.24L19,6.41V10H21V3M19,19H5V5H12V3H5C3.89,3 3,3.9 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V12H19V19Z' /></svg>");
 }

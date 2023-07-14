@@ -13,25 +13,58 @@ search:
 
 !!! info "Source"
 
-    This page is more useful when viewed side-by-side with [the Markdown source at GitHub](https://github.com/CSCfi/csc-user-guide/blob/master/docs/ref.md?plain=1){ target=_blank }.
+    This page is more useful when viewed side-by-side with [the Markdown source at GitHub](https://github.com/CSCfi/csc-user-guide/blob/master/docs/ref.md?plain=1).
 
 This page contains some elements that are available in Docs CSC. For example, here we have some
-body text [with an external link](https://example.com){ target=_blank }. **Some of it is
-boldfaced**, *some italicized*. `Some might be monospaced`. Some acronyms, like HPC, are
-defined automatically (see: [Glossary](#glossary)).
+body text [with an external link](https://example.com). **Some of it is
+boldfaced**, _some italicized_. `Some might be monospaced`. Some acronyms, like HPC, have
+their definitions added automatically (see: [Glossary](#glossary)).
 
 > There's even text in a blockquote. The blockquote has some filler text after an empty line. I
-like to imagine it's what a typewriter would dream.
+> like to imagine it's what a typewriter would dream.
 >
 > Vel suscipit quia voluptates quis. Rerum sequi voluptatem in non ipsam tempora quod natus. Soluta
-perferendis illo saepe sint ipsa vitae provident non. Et qui quaerat et rerum libero officia omnis
-enim. Laboriosam autem vel vel aut quod.
+> perferendis illo saepe sint ipsa vitae provident non. Et qui quaerat et rerum libero officia omnis
+> enim. Laboriosam autem vel vel aut quod.
 
 Here's a reference to a footnote:[^1]
 
 As you can see here:
 in some cases [external links](https://example.com){ target=_blank } followed by text _italicized_
 using underscores will produce unwanted results. *Italicize* with asterisks instead.
+
+
+## Hyperlinks
+
+[Internal links](index.md) look like regular hyperlinks.
+
+[External links](https://example.com), i.e. hyperlinks pointing outside of Docs CSC, will
+automatically get their _target_ attribute set to `_blank` (unless explicitly set to something
+else) so that they'll&mdash;by default, at least in most browsers&mdash;open in a new browser tab.
+They're also suffixed with a <span class="csc-external-link"></span> icon to indicate this behaviour.
+
+
+## Buttons
+
+In addition to hyperlinks, Docs CSC supports two button variants. With button links, the inclusion
+of the _target_ attribute and/or the icon is left to the author. Attributes and HTML classes are
+defined inside curly brackets. For example, the external link icon is added by including the
+class _csc-external-link_ like so: `{ .csc-external-link }`. While class names are prefixed with a `.`,
+attribute names are not. For example, the _target_ attribute is set to `_blank` with
+`{ target=_blank }`.
+
+The two visual variants are the
+[Default button](index.md){ .md-button .md-button--primary } and the
+[Outlined button](index.md){ .md-button }.
+<!--
+The button called 'default' in the CSC Design System is called 'primary' button in Material
+for MkDocs (notice the two classes '.md-button' AND '.md-button--primary') and the one you'd think
+would be the 'default' (without the '--primary' suffix in Material for MkDocs) is called 'outlined'
+in the CSC Design System.
+
+So, to recap, if you wan't a 'normal' filled-in button (called 'default'), you must include both
+the '.md-button' AND the '.md-button--primary' classes.
+-->
 
 
 ## Banners
@@ -51,7 +84,7 @@ There is currently no special mechanism in place for controlling banners.
     ```html
     <center>
       [![A description of the banner](img/banners/example-banner.png){ width=80% }
-      ](https://example.org/courses/example-course/){ target=_blank }
+      ](https://example.org/courses/example-course/)
     </center>
     ```
 
@@ -64,7 +97,7 @@ There is currently no special mechanism in place for controlling banners.
     <!--
     <center>
       [![A description of the banner](img/banners/example-banner.png){ width=80% }
-      ](https://example.org/courses/example-course/){ target=_blank }
+      ](https://example.org/courses/example-course/)
     </center>
     -->
     ```

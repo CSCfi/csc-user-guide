@@ -6,13 +6,22 @@ const selectors = {
   repository: "div.md-header__source"
 }
 
+export const anchorTargetAttributeName = "target"
+export const anchorTargetAttributeKeyword = "_blank"
+
+export const buttonElementClassNames = ["md-button", "md-content__button"]
+export const textOnlyAnchorNodeNames = ["#text", "ABBR", "CODE", "EM", "STRONG"]
+
 export const headerElement = document.querySelector(selectors.header)
 export const searchElement = headerElement.querySelector(selectors.search)
 export const repositoryElement = headerElement.querySelector(selectors.repository)
 export const sidebarElement = document.querySelector(selectors.sidebar)
 export const navListElement = sidebarElement.querySelector(selectors.navList)
 
-export const iframeElements = Array.from(document.getElementsByTagName('iframe'))
+export const iframeElements = Array.from(document.getElementsByTagName("iframe"))
+export const articleAnchorElements = Array.from(
+  document.getElementsByTagName("article")[0]
+          .getElementsByTagName("a"))
 
 export const dropdownSites = [
   {

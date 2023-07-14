@@ -1,4 +1,11 @@
-import { iframeElements } from "./constants.js"
+import {
+  iframeElements,
+  anchorTargetAttributeName,
+  anchorTargetAttributeKeyword,
+  buttonElementClassNames,
+  textOnlyAnchorNodeNames,
+  articleAnchorElements
+} from "./constants.js"
 
 const getIdIndex = url => 1 + url.findIndex(a => a === "embed")
 
@@ -45,4 +52,28 @@ export const disableSearchShortcuts = () => {
       event.stopPropagation();
     }
   }
+}
+
+export const decorateExternalLinks = () => {
+  const hasHost = a => !!a.host
+  const hasNoTarget = a => !a.hasAttribute(anchorTargetAttributeName)
+  const notButton = a => buttonElementClassNames.every(className => !a.classList.contains(className))
+  const isExternal = a => a.host !== window.location.host
+  const isTextOnly = a => Array.from(a.childNodes)
+    .map(node => node.nodeName)
+    .every(nodeName => textOnlyAnchorNodeNames.includes(nodeName))
+
+  const anchorFilterTests = [
+    hasHost,
+    isExternal,
+    notButton,
+    (a) => hasNoTarget(a) || isTextOnly(a),
+  ]
+
+  articleAnchorElements
+    .filter(a => anchorFilterTests.every(t => t(a)))
+    .forEach(a => {
+      a.setAttribute(anchorTargetAttributeName, anchorTargetAttributeKeyword)
+      if (isTextOnly(a)) a.classList.add("csc-external-link")
+    })
 }

@@ -46,60 +46,60 @@
   <div class="quick-links-topic">
     <span class="quick-links-title"><h2>Getting started</h2></span>
     <div class="quick-links-item">
-      <a class="quick-link" target="_self" href="accounts/">CSC Accounts and Projects</a>
+      <a class="quick-link" href="accounts/">CSC Accounts and Projects</a>
     </div>
     <div class="quick-links-item">
-      <a class="quick-link" target="_self" href="computing/">Puhti and Mahti Overview</a>
+      <a class="quick-link" href="computing/">Puhti and Mahti Overview</a>
     </div>
     <div class="quick-links-item">
-      <a class="quick-link" target="_self" href="support/tutorials/puhti_quick/">Getting started with Puhti</a>
+      <a class="quick-link" href="support/tutorials/puhti_quick/">Getting started with Puhti</a>
     </div>
     <div class="quick-links-item">
-      <a class="quick-link" target="_self" href="support/tutorials/mahti_quick/">Getting started with Mahti</a>
+      <a class="quick-link" href="support/tutorials/mahti_quick/">Getting started with Mahti</a>
     </div>
     <div class="quick-links-item">
-      <a class="quick-link" target="_blank" href="https://docs.lumi-supercomputer.eu/firststeps/getstarted/">Getting started with LUMI</a><sup>&#128279;</sup>
+      <a class="quick-link" href="https://docs.lumi-supercomputer.eu/firststeps/getstarted/">Getting started with LUMI</a>
     </div>
   </div>
 
   <div class="quick-links-topic">
     <span class="quick-links-title"><h2>User guides</h2></span>
     <div class="quick-links-item">
-      <a class="quick-link" target="_blank" href="https://docs.lumi-supercomputer.eu/">LUMI User Guide</a><sup>&#128279;</sup>
+      <a class="quick-link" href="https://docs.lumi-supercomputer.eu/">LUMI User Guide</a>
     </div>
     <div class="quick-links-item">
-      <a class="quick-link" target="_self" href="data/Allas/">Allas User Guide</a>
+      <a class="quick-link" href="data/Allas/">Allas User Guide</a>
     </div>
     <div class="quick-links-item">
-      <a class="quick-link" target="_self" href="computing/quantum-computing/overview/">Quantum Computing Guide</a>
+      <a class="quick-link" href="computing/quantum-computing/overview/">Quantum Computing Guide</a>
     </div>
     <div class="quick-links-item">
-      <a class="quick-link" target="_self" href="support/tutorials/ml-guide/">Machine Learning Guide</a>
+      <a class="quick-link" href="support/tutorials/ml-guide/">Machine Learning Guide</a>
     </div>
     <div class="quick-links-item">
-      <a class="quick-link" target="_self" href="data/sensitive-data/">Sensitive Data Services Guide</a>
+      <a class="quick-link" href="data/sensitive-data/">Sensitive Data Services Guide</a>
     </div>
     <div class="quick-links-item">
-      <a class="quick-link" target="_blank" href="https://www.fairdata.fi/en/fairdata-quick-guide/">Fairdata Services Guides</a><sup>&#128279;</sup>
+      <a class="quick-link" href="https://www.fairdata.fi/en/fairdata-quick-guide/">Fairdata Services Guides</a>
     </div>
   </div>
 
   <div class="quick-links-topic">
     <span class="quick-links-title"><h2>Tutorials/courses</h2></span>
     <div class="quick-links-item">
-      <a class="quick-link" target="_blank" href="https://csc-training.github.io/csc-env-eff/">CSC Computing Environment</a><sup>&#128279;</sup>
+      <a class="quick-link" href="https://csc-training.github.io/csc-env-eff/">CSC Computing Environment</a>
     </div>
       <div class="quick-links-item">
-      <a class="quick-link" target="_blank" href="https://edukamu.fi/elements-of-supercomputing/">Elements of Supercomputing</a><sup>&#128279;</sup>
+      <a class="quick-link" href="https://edukamu.fi/elements-of-supercomputing/">Elements of Supercomputing</a>
     </div>
     <div class="quick-links-item">
-      <a class="quick-link" target="_self" href="support/tutorials/env-guide/overview/">Linux basics for CSC</a>
+      <a class="quick-link" href="support/tutorials/env-guide/overview/">Linux basics for CSC</a>
     </div>
     <div class="quick-links-item">
-      <a class="quick-link" target="_self" href="computing/running/throughput/">High-throughput computing</a>
+      <a class="quick-link" href="computing/running/throughput/">High-throughput computing</a>
     </div>
     <div class="quick-links-item">
-      <a class="quick-link" target="_self" href="support/tutorials/clean-up-data/">Managing data on scratch</a>
+      <a class="quick-link" href="support/tutorials/clean-up-data/">Managing data on scratch</a>
     </div>
   </div>
 
