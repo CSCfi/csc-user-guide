@@ -261,8 +261,8 @@ julia --project=. src/cli.jl --say "Hello world"
 We should define and use a command line interface because it is more flexible than hard-coding values to the scripts.
 
 
-### Running Julia jobs on Puhti, Mahti, and LUMI clusters
-We explain how to run serial, parallel, and GPU jobs with Julia on Puhti, Mahti, and LUMI in the [**Running Julia jobs on Puhti, Mahti, and LUMI clusters**](../support/tutorials/julia.md) tutorial.
+### Using Julia on Puhti, Mahti, and LUMI clusters
+We explain how to run serial, parallel, and GPU batch jobs with Julia on Puhti, Mahti, and LUMI in the [**Using Julia on Puhti, Mahti, and LUMI clusters**](../support/tutorials/julia.md) tutorial.
 
 
 ### Using Julia on Jupyter and VSCode

@@ -1,4 +1,4 @@
-# Running Julia jobs on Puhti, Mahti, and LUMI clusters
+# Using Julia on Puhti, Mahti, and LUMI clusters
 Instructions for running serial, parallel, and GPU jobs with Julia on Puhti, Mahti, and LUMI clusters.
 
 [TOC]
@@ -27,7 +27,7 @@ The example jobs demonstrate project files for different single and multi-node j
 
 
 ### Slurm
-TODO: Julia, MPI and `srun` in batch jobs, local preferences and Julia's mpiexec function, environment variables, remove srun from MPI examples
+TODO: Julia, MPI and `srun` in batch jobs, local preferences and Julia's mpiexec function, environment variables, remove srun from MPI examples, use Julia to create new processes
 
 
 ### Environment variables
@@ -150,9 +150,9 @@ We can use these nodenames when adding processes using `SSHManager`.
 
 
 ### MPI.jl
-We can use MPI for multi-node parallel computing in Julia on Puhti and Mahti using the `MPI.jl` package.
+We can use MPI for multi-node parallel computing in Julia on Puhti, Mahti and LUMI using the `MPI.jl` package.
 For programming, we recommend reading the [MPI.jl documentation](https://juliaparallel.org/MPI.jl/stable/).
-We have installed MPI.jl, which uses the local OpenMPI installation, in the shared environment.
+We have installed MPI.jl, which uses the local MPI installation, in the shared environment.
 We recommend you use the version in the shared environment because we have tested it.
 You can find the version by activating the shared environment and running `Pkg.status` as follows:
 
@@ -160,7 +160,7 @@ You can find the version by activating the shared environment and running `Pkg.s
 julia --project="$CSC_JULIA_ENVIRONMENT_DIR" -e 'using Pkg; Pkg.status("MPI")'
 ```
 
-Furthermore, the `julia` module automatically loads the correct OpenMPI module.
+Furthermore, the `julia` module automatically loads the correct MPI module.
 
 
 ### CUDA.jl
