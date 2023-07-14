@@ -26,10 +26,6 @@ We also assume that it is our working directory when running the commands.
 The example jobs demonstrate project files for different single and multi-node jobs.
 
 
-### Slurm
-TODO: Julia, MPI and `srun` in batch jobs, local preferences and Julia's mpiexec function, environment variables, remove srun from MPI examples, use Julia to create new processes
-
-
 ### Environment variables
 The `julia` module sets the [`JULIA_CPU_THREADS`](https://docs.julialang.org/en/v1/manual/environment-variables/#JULIA_CPU_THREADS) and [`JULIA_NUM_THREADS`](https://docs.julialang.org/en/v1/manual/environment-variables/#JULIA_NUM_THREADS) environment variables to the number of reserved CPU cores when loaded in a Slurm job; otherwise, the module sets them to one.
 We use the value of the `--cpus-per-task` option, which populates the `SLURM_CPUS_PER_TASK` environment variable, to detect the number of CPU cores.
@@ -194,6 +190,10 @@ Furthermore, the `julia-amdgpu` module automatically loads the correct AMD progr
 
 
 ## Single node jobs
+!!! info "Julia and srun"
+    We do not use `srun` to run Julia scripts except MPI scripts due to the Slurm MPI integration.
+    Instead we use Julia to manage resources and processes.
+
 ### Serial
 An example of a `script.jl` Julia code.
 
@@ -630,6 +630,16 @@ println.(outputs)
 ## Multi-node jobs
 ### MPI
 An example of a `script.jl` Julia code.
+We use the `mpiexec` wrapper function which launches the MPI program, `prog.jl`, using `mpirun` command from local preferences, `srun` in Puhti, Mahti and LUMI.
+The wrapper makes the code more portable and flexible.
+For example, performing non-MPI tasks before and after the MPI code.
+
+```julia
+using MPI
+mpiexec(mpirun -> run(`$mpirun julia --project=. prog.jl`))
+```
+
+An example of a `prog.jl` Julia MPI code.
 
 ```julia
 using MPI
@@ -668,7 +678,7 @@ MPI.Barrier(comm)
 
     module load julia/1.9
     julia --project=. -e 'using Pkg; Pkg.instantiate()'
-    srun julia --project=. script.jl
+    julia --project=. script.jl
     ```
 
 === "Mahti"
@@ -697,7 +707,7 @@ MPI.Barrier(comm)
 
     module load julia/1.9
     julia --project=. -e 'using Pkg; Pkg.instantiate()'
-    srun julia --project=. script.jl
+    julia --project=. script.jl
     ```
 
 === "LUMI"
@@ -726,7 +736,7 @@ MPI.Barrier(comm)
 
     module load julia/1.9
     julia --project=. -e 'using Pkg; Pkg.instantiate()'
-    srun julia --project=. script.jl
+    julia --project=. script.jl
     ```
 
 
