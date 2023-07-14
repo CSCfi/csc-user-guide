@@ -36,8 +36,8 @@ export const fixYoutube = () => {
           z-index: 1;
         }
       </style>
-      <a href=${youtube_link} target="_blank"><img src=https://img.youtube.com/vi/${youtube_id}/0.jpg width=${iframe.width} height=${iframe.height} ></a>
-      <a href=${youtube_link} target="_blank"><img class="top" width=${logo_w} src=https://www.pngkit.com/png/full/2-21145_youtube-logo-transparent-png-pictures-transparent-background-youtube.png></a>
+      <a href=${youtube_link} ${anchorTargetAttributeName}="${anchorTargetAttributeKeyword}"><img src=https://img.youtube.com/vi/${youtube_id}/0.jpg width=${iframe.width} height=${iframe.height}></a>
+      <a href=${youtube_link} ${anchorTargetAttributeName}="${anchorTargetAttributeKeyword}"><img class="top" width=${logo_w} src=https://www.pngkit.com/png/full/2-21145_youtube-logo-transparent-png-pictures-transparent-background-youtube.png></a>
     `
 
     iframe.srcdoc = content
