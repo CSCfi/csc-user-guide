@@ -296,6 +296,7 @@ any immediately following text as "loose", i.e., outside of an HTML paragraph (`
     Perhaps a suitable one would just simply be: `note`.
 
 !!! note ""
+
     Title may be removed with `note ""`.
 
 
@@ -306,9 +307,9 @@ any immediately following text as "loose", i.e., outside of an HTML paragraph (`
 !!! default "Nothing special"
 
     Type qualifier: `default`.
-    
+
     !!! default-label
-    
+
         This isn't the actual default (fallback) admonition for legacy reasons.
 
 !!! info "Information available"
@@ -555,5 +556,5 @@ More examples (untested in Docs CSC) can be found in [PyMdown Extensions Documen
 
 [^1]: This is the footnote ...and here's a shoenote for the footnote: 👞🎵
 [^2]:
-    Here's another footnote. Though, this one's a _barefootnote_!  
+    Here's another footnote. Though, this one's a _barefootnote_!
     Get it? 'Cause it's got no shoenote! Ahuehuehuehue!
