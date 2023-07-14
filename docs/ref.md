@@ -13,12 +13,12 @@ search:
 
 !!! info "Source"
 
-    This page is more useful when viewed side-by-side with [the Markdown source at GitHub](https://github.com/CSCfi/csc-user-guide/blob/master/docs/ref.md?plain=1){ target=_blank }.
+    This page is more useful when viewed side-by-side with [the Markdown source at GitHub](https://github.com/CSCfi/csc-user-guide/blob/master/docs/ref.md?plain=1).
 
 This page contains some elements that are available in Docs CSC. For example, here we have some
-body text [with an external link](https://example.com){ target=_blank }. **Some of it is
-boldfaced**, *some italicized*. `Some might be monospaced`. Some acronyms, like HPC, are
-defined automatically (see: [Glossary](#glossary)).
+body text [with an external link](https://example.com). **Some of it is
+boldfaced**, _some italicized_. `Some might be monospaced`. Some acronyms, like HPC, have
+their definitions added automatically (see: [Glossary](#glossary)).
 
 > There's even text in a blockquote. The blockquote has some filler text after an empty line. I
 like to imagine it's what a typewriter would dream.
@@ -28,6 +28,39 @@ perferendis illo saepe sint ipsa vitae provident non. Et qui quaerat et rerum li
 enim. Laboriosam autem vel vel aut quod.
 
 Here's a reference to a footnote:[^1]
+
+
+## Hyperlinks
+
+[Internal links](index.md) look like regular hyperlinks.
+
+[External links](https://example.com), i.e. hyperlinks pointing outside of Docs CSC, will
+automatically get their _target_ attribute set to `_blank` (unless explicitly set to something
+else) so that they'll&mdash;by default, at least in most browsers&mdash;open in a new browser tab.
+They're also suffixed with a <span class="csc-external-link"></span> icon to indicate this behaviour.
+
+
+## Buttons
+
+In addition to hyperlinks, Docs CSC supports two button variants. With button links, the inclusion
+of the _target_ attribute and/or the icon is left to the author. Attributes and HTML classes are
+defined inside curly brackets. For example, the external link icon is added by including the
+class _csc-external-link_ like so: `{ .csc-external-link }`. While class names are prefixed with a `.`,
+attribute names are not. For example, the _target_ attribute is set to `_blank` with
+`{ target=_blank }`.
+
+The two visual variants are the
+[Default button](index.md){ .md-button .md-button--primary } and the
+[Outlined button](index.md){ .md-button }.
+<!--
+The button called 'default' in the CSC Design System is called 'primary' button in Material
+for MkDocs (notice the two classes '.md-button' AND '.md-button--primary') and the one you'd think
+would be the 'default' (without the '--primary' suffix in Material for MkDocs) is called 'outlined'
+in the CSC Design System.
+
+So, to recap, if you wan't a 'normal' filled-in button (called 'default'), you must include both
+the '.md-button' AND the '.md-button--primary' classes.
+-->
 
 
 ## Banners
@@ -40,15 +73,14 @@ There is currently no special mechanism in place for controlling banners.
 
 === "index.md"
 
-    There is a `<center>` block in `index.md` to hold the banner. The images themselves
-    should go to `docs/img/banners/`. The width of the image can be controlled with a
-    `width` attribute. A `target=_blank` attribute should be present when a link
-    is pointing outside of Docs.
+    There is a _center_ block in _index.md_ to hold the banner. The images themselves
+    should go to _docs/img/banners/_. The width of the image can be controlled with the
+    _width_ attribute.
 
     ```html
     <center>
       [![A description of the banner](img/banners/example-banner.png){ width=80% }
-      ](https://example.org/courses/example-course/){ target=_blank }
+      ](https://example.org/courses/example-course/)
     </center>
     ```
 
@@ -61,7 +93,7 @@ There is currently no special mechanism in place for controlling banners.
     <!--
     <center>
       [![A description of the banner](img/banners/example-banner.png){ width=80% }
-      ](https://example.org/courses/example-course/){ target=_blank }
+      ](https://example.org/courses/example-course/)
     </center>
     -->
     ```
@@ -406,29 +438,6 @@ graph TD
     A -->|No| C(Yes, it does.)
     C --> |What? No, you can't just... Oh.| B
 ```
-
-
-## Buttons
-
-Docs CSC supports two button variants from the CSC Design System.
-
-
-### Default button
-
-<!-- This is called a 'default' button in the CSC Design System and a 'primary' button in Material
-for MkDocs (notice the two classes '.md-button' AND '.md-button--primary'. Also, don't forget to
-include the 'target=_blank' attribute for links pointing outside of Docs)... -->
-[Default](https://example.com/Default){ .md-button .md-button--primary target=_blank }
-
-
-### Outlined button
-
-<!-- ...and the one you'd think would be the 'default' (without the '--primary' suffix in Material
-for MkDocs) is called 'outlined' in the CSC Design System. -->
-[Outlined](https://example.com/Outlined){ .md-button target=_blank }
-
-<!-- So, to recap, if you wan't a 'normal' filled-in button (called 'default'), you must add the
-'.md-button--primary' class to the attribute list. -->
 
 
 ## Tabbed content

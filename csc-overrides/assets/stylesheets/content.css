@@ -66,6 +66,18 @@
     background-color: var(--md-typeset-a-bg-color);
 }
 
+.csc-external-link::after {
+    display: inline-block;
+    width: .9em;
+    height: .9em;
+    position: relative;
+    bottom: .1em;
+    mask-image: var(--csc-external-link-icon);
+    -webkit-mask-image: var(--csc-external-link-icon);
+    background-color: currentColor;
+    content: "";
+}
+
 .md-typeset strong {
     font-weight: var(--csc-font-weight--bold);
 }

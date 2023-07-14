@@ -11,6 +11,7 @@ const main = async () => {
 
   utils.disableSearchShortcuts()
   utils.fixYoutube()
+  utils.decorateExternalLinks()
 }
 
 window.addEventListener('load', main, false)
