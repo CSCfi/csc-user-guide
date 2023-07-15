@@ -1,5 +1,9 @@
 # Running on Helmi
 
+!!! info "Give feedback!"
+	**All feedback is highly appreciated**, please comment on your
+	experience to [fiqci-feedback@postit.csc.fi](mailto:fiqci-feedback@postit.csc.fi).
+
 ## Running Jobs
 
 Jobs can be submitted to the `q_fiqci` queue by specifying `--partition=q_fiqci` in batch scripts. 
