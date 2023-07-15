@@ -170,4 +170,4 @@ Here is a brief description of the figures which are given when querying:
 | CZ gate fidelity                | The controlled-z gate fidelity calculated through interleaved randomized benchmarking.                                                                                                |   |   |
 
 
-For further information on the figures of merit contact the [CSC Service Desk](../../../../support/contact/), reachable at servicedesk@csc.fi.
+For further information on the figures of merit contact the [CSC Service Desk](../../../../support/contact/), reachable at [servicedesk@csc.fi](mailto:servicedesk@csc.fi).
