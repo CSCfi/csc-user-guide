@@ -121,8 +121,6 @@ A set of Qiskit and Cirq examples and scripts for guidance in using the LUMI-Hel
 
 ## Job Metadata
 
-The figures of merit (or quality metrics set) may be necessary for publishing work produced on Helmi. It also gives an idea as to the current status of Helmi. In `helmi-examples` there is a helper script to get the calibration data including the figures of merit. The script can be found [here](https://github.com/FiQCI/helmi-examples/tree/main/scripts). Note that querying the latest calibration data may given an incomplete set of figures of merit. Therefore calibration set IDs should be saved along with Job IDs. 
-
 Additional metadata about your job can be queried directly with Qiskit. For example:
 
 ```python
@@ -151,6 +149,25 @@ print(result.request.shots)  # Retrieving the number of requested shots.
 !!! info "Save your Job ID!"
 	Note that there is currently no method to list previous Job ID's therefore it is recommended to always print your Job ID after job submission and save it somewhere!
 	The same applies for the calibration set id. 
+
+
+## Figures of Merit
+
+The figures of merit (or quality metrics set) may be necessary for publishing work produced on Helmi. It also gives an idea as to the current status of Helmi. In `helmi-examples` there is a helper script to get the calibration data including the figures of merit. The script can be found [here](https://github.com/FiQCI/helmi-examples/blob/main/scripts/get_calibration_data.py). This file can bea dded to your own python scripts and will return data in json format. Note that querying the latest calibration data may given an incomplete or outdated set of figures. Therefore calibration set IDs should be saved along with Job IDs. 
+
+Here is a brief description of the figures which are given when querying:
+
+| Figure                          | Description                                                                                                                                                                           |   |   |
+|---------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---|---|
+| T1 Time (s)                     | The T1 time is called the longitudinal relaxation rate and describes how quickly the excited state of the qubit returns to its ground state.                                          |   |   |
+| T2 Time (s)                     | The T2 time is called the transverse relaxation rate and describes loss of coherence of a superposition state.                                                                        |   |   |
+| T2 Echo Time (s)                | The T2 echo time describes the loss of coherence of the superposition state of the qubit. It is more precise than the T2 Time as it is less susceptible to low-frequency noise.       |   |   |
+| Single shot readout fidelity    | This describes the fidelity when performing single shot readouts of the qubit state. Single-shot readout prepares 50% of the qubit states in the excited and 50% in the ground state. |   |   |
+| Single shot readout 01 error    | The error in assigning an excited state ('1') when the state is in the ground state ('0').                                                                                            |   |   |
+| Single shot readout 10 error    | The error in assigning a ground state ('0') when the state is in the excited state ('1').                                                                                             |   |   |
+| Fidelity 1QB gates averaged     | This is calculated from standard Randomized Benchmarking and describes the average gate fidelity when a random sequence of single qubit Clifford gates is applied.                    |   |   |
+| Fidelity 2QB Cliffords averaged | This is calculated from interleaved Randomized Benchmarking, showing the average Clifford gate fidelity.                                                                              |   |   |
+| CZ gate fidelity                | The controlled-z gate fidelity calculated through interleaved randomized benchmarking.                                                                                                |   |   |
 
 
 For further information on the figures of merit contact the [CSC Service Desk](../../../../support/contact/), reachable at servicedesk@csc.fi.
