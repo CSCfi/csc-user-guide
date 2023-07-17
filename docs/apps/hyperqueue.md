@@ -235,6 +235,22 @@ hq server stop
 ```
 
 
+### Working with local disk
+A HyperQueue task may run on any of the allocated nodes.
+Therefore, we must copy all the files to the local disk of each allocated node.
+We can run an `<executable>` on each node as a Slurm job step as follows:
+
+```bash
+srun -m arbitrary -w "$SLURM_JOB_NODELIST" <executable>
+```
+
+Common operations on the local disk are copying and extracting an archive to the local disk before running HyperQueue tasks or archiving an copying files from the local disk after running HyperQueue tasks.
+
+
+### Automatic worker allocation
+TODO
+
+
 ### Using HyperQueue with Snakemake
 Using Snakemake's `--cluster` flag, we can use `hq submit` instead of `sbatch`:
 
