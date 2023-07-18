@@ -222,7 +222,8 @@ hq submit --stdout=none --stderr=none --cpus=1 --array=1-1000 ./task
 hq job wait all
 ```
 
-<!-- TODO: task arrays, snakemake, nextflow, `--each-line <entries.txt>` -->
+It is worth reading the sections about [Job and Tasks](https://it4innovations.github.io/hyperqueue/stable/jobs/jobs/) and [Task arrays](https://it4innovations.github.io/hyperqueue/stable/jobs/arrays/) to understand the different ways to run computation with HyperQueue.
+For more complex task dependencies, we can use HyperQueue as the executor for other workflow managers, such as [Snakemake](#using-snakemake-with-hyperqueue) or [Nextflow](#using-nextflow-with-hyperqueue).
 
 **Stopping the workers and the server**
 
