@@ -235,7 +235,7 @@ hq server stop
 ```
 
 
-### Working with local disks
+### Using local disks with HyperQueue
 We can use [temporary local disk areas](../computing/disk.md#temporary-local-disk-areas) with HyperQueue to perform I/O intensive tasks.
 Since a HyperQueue task can run on any allocated node, the local disk of each node must have a copy of all the files that the task may use.
 A typical workflow consists of
@@ -253,7 +253,7 @@ srun -m arbitrary -w "$SLURM_JOB_NODELIST" <executable>
 Without the options, `srun` would run the executable on every Slurm task, which could be on the same node.
 
 
-### Using HyperQueue with Snakemake
+### Using Snakemake with HyperQueue
 Using Snakemake's `--cluster` flag, we can use `hq submit` instead of `sbatch`:
 
 ```bash
@@ -263,17 +263,19 @@ snakemake --cluster "hq submit --cpus <threads> ..."
 If you are porting a more complicated workflow from Slurm, you can do argument parsing and transformations programmatically using Snakemake's [job properties](https://snakemake.readthedocs.io/en/stable/executing/cluster.html#job-properties)
 
 
-### Using HyperQueue with Nextflow
+### Using Nextflow with HyperQueue
 See a [separate tutorial](../support/tutorials/nextflow-hq.md) for instructions on using HyperQueue as an executor for Nextflow workflows.
-
-
-### Automatic worker allocation
-TODO
 
 
 ### Multinode tasks
 Although HyperQueue does not do MPI execution out of the box, it's possible using a combination of the HQ feature [Multinode Tasks](https://it4innovations.github.io/hyperqueue/stable/jobs/multinode/) and `orterun`, `hydra` or `prrte`.
 This way, one can schedule MPI tasks at a node-level granularity.
+
+
+### Automatic worker allocation
+We recommend avoiding using the automatic allocator.
+It automatically generates and submits batch scripts to start workers, which adds unnecessary complexity.
+Also, the automatically generated batch scripts have some issues and could be more flexible.
 
 
 ## More information
