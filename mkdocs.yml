@@ -338,46 +338,47 @@ nav:
         # Python MySQL API at CSC:
   # data/Allas/using_allas/directory_object_error.md is not linked in this structure
   - Sensitive data:
+     - data/sensitive-data/vk-sds-landing.md
      - Introduction: 
-          - data/sensitive-data/sd_connect.md
-          - Overview: data/sensitive-data/sd_connect.md
-          - Terminology: data/sensitive-data/intro.md
+          - data/sensitive-data/intro.md
+          - Overview: data/sensitive-data/vk-sds-overview.md
+          - Terminology: data/sensitive-data/vk-sds-terminology.md
      - Sensitive research data: 
        - Accessing SD Services: 
-          - data/sensitive-data/sd_connect.md
-          - Creating a project: data/sensitive-data/intro.md
-          - Billing units: data/sensitive-data/intro.md
+          - data/sensitive-data/vk-srd-accessing.md
+          - Creating a project: data/sensitive-data/vk-srd-a-creating.md
+          - Billing units: data/sensitive-data/vk-srd-a-billing.md
        - SD Connect: 
-          - data/sensitive-data/sd_connect.md
-          - Overview: data/sensitive-data/intro.md
+          - data/sensitive-data/vk-srd-sd-connect.md
+          - Overview: data/sensitive-data/vk-srd-c-overview.md
           ## + key features + authentication
           ## legal agreements, data retention policy??
-          - Page map: data/sensitive-data/intro.md
-          - Data upload: data/sensitive-data/intro.md
+          - Page map: data/sensitive-data/vk-srd-c-pagemap.md
+          - Data upload: data/sensitive-data/vk-srd-c-upload.md
           ## Less than 1 GB of data (ecryption and upload for analysys, encryption ans upload for storage and sharing) Up to 100 GB of data
           ##sharing, search, own encryption keys, Storage space
-          - Data download: data/sensitive-data/intro.md
+          - Data download: data/sensitive-data/vk-srd-c-download.md
           ##Data decryption and download,
-          - Command line: data/sensitive-data/intro.md
+          - Command line: data/sensitive-data/vk-srd-c-command.md
           ##upload, download, share, crypt4gh CLI??
           ## Command line encryption and upload, data encryption and upload with allas help tool: a-put
-          - Troubleshooting: data/sensitive-data/intro.md
+          - Troubleshooting: data/sensitive-data/vk-srd-c-trouble.md
        - SD Desktop: 
-          - Overview: data/sensitive-data/intro.md
+          - Overview: data/sensitive-data/vk-srd-sd-desktop.md
           ## authentication + key features
-          - Create desktop: data/sensitive-data/intro.md
-          - Manage desktop: data/sensitive-data/intro.md
+          - Create desktop: data/sensitive-data/vk-srd-d-create.md
+          - Manage desktop: data/sensitive-data/vk-srd-d-manage.md
           ## pausing and restarting, rebooting and restarting, detaching and reattaching a volume, deleting a desktop
-          - Access data: data/sensitive-data/intro.md
+          - Access data: data/sensitive-data/vk-srd-d-access.md
           ## Data gateway, importing data, Reuse published sata via SD Apply
-          - Programs: data/sensitive-data/intro.md
+          - Programs: data/sensitive-data/vk-srd-d-programs.md
           ## Pre-installed software, rstudio, scientific software, software customisation with containers/interface??
-          - HPC: data/sensitive-data/intro.md
-          - data export: data/sensitive-data/intro.md
-          - troubleshooting: data/sensitive-data/intro.md
-       - FEGA: data/sensitive-data/intro.md
-       - SD Apply: data/sensitive-data/intro.md
-       - Tutorials and quick quides: data/sensitive-data/intro.md
+          - HPC: data/sensitive-data/vk-srd-d-hpc.md
+          - data export: data/sensitive-data/vk-srd-d-export.md
+          - troubleshooting: data/sensitive-data/vk-srd-d-export.md
+       - FEGA: data/sensitive-data/vk-srd-fega.md
+       - SD Apply: data/sensitive-data/vk-srd-apply.md
+       - Tutorials and quick quides: data/sensitive-data/vk-srd-tutorials.md
      - Secondary use of health and social data:
        - Findata permit: data/sensitive-data/mk-findata.md
        - Single register data: data/sensitive-data/mk-single-register.md
