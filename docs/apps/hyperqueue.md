@@ -235,20 +235,22 @@ hq server stop
 ```
 
 
-### Working with local disk
-A HyperQueue task may run on any of the allocated nodes.
-Therefore, we must copy all the files to the local disk of each allocated node.
-We can run an `<executable>` on each node as a Slurm job step as follows:
+### Working with local disks
+We can use [temporary local disk areas](../computing/disk.md#temporary-local-disk-areas) with HyperQueue to perform I/O intensive tasks.
+Since a HyperQueue task can run on any allocated node, the local disk of each node must have a copy of all the files that the task may use.
+A typical workflow consists of
+
+1. Copying and extracting archived input files from the parallel files system to the local disk.
+2. Computing the HyperQueue tasks that use the local disk.
+3. Archiving and copying the output files from the local disk to the parallel file system.
+
+For steps 1 and 3, we can run an `<executable>` on each allocated node as a Slurm job step as follows:
 
 ```bash
 srun -m arbitrary -w "$SLURM_JOB_NODELIST" <executable>
 ```
 
-Common operations on the local disk are copying and extracting an archive to the local disk before running HyperQueue tasks or archiving an copying files from the local disk after running HyperQueue tasks.
-
-
-### Automatic worker allocation
-TODO
+Without the options, `srun` would run the executable on every Slurm task, which could be on the same node.
 
 
 ### Using HyperQueue with Snakemake
@@ -263,6 +265,10 @@ If you are porting a more complicated workflow from Slurm, you can do argument p
 
 ### Using HyperQueue with Nextflow
 See a [separate tutorial](../support/tutorials/nextflow-hq.md) for instructions on using HyperQueue as an executor for Nextflow workflows.
+
+
+### Automatic worker allocation
+TODO
 
 
 ### Multinode tasks
