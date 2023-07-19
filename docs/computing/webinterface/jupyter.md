@@ -46,18 +46,15 @@ Then enter the full path to the python interpreter of your Tykky installation. S
 
 ### Virtual environment
 
-To create a virtual environment, connect to Puhti from your terminal and then navigate to either `/scratch` or `/projappl` folder and then create the environment with a command:   
+You can create a virtual environment by enabling the virtual environment in the app form and providing desired path of your virtual environment to *advanced settings*. The path should be under either `/scratch` or `/projappl`. For example `/scratch/<project>/<username>/<venv>`. 
+
+You can also create the virtual environment with your terminal by navigating to either `/scratch` or `/projappl` folder and then creating the environment with a command:   
 `python -m venv --system-site-packages <venv>`      
 Make sure to load the module you are planning to use before creating the virtual environment.
 
-You also can create a virtual environment by enabling the virtual environment in the app form and providing a path under `/scratch` or `/projappl` to where you want to store the environment.
-
-To launch a created virtual environment later you need to select the same Python module and virtual environment path as when creating the environment. This can be done from the *advanced settings* by providing the path of the virtual environment, for example `/scratch/<project>/<username>/<venv>`.
-
-In Jupyter you can check the virtual environment you are currently using by running a command `!echo $VIRTUAL_ENV` in your notebook.
+To launch a created virtual environment later you need to select the same Python module and provide the same virtual environment path as when creating the environment. In Jupyter you can check the virtual environment you are currently using by running a command `!echo $VIRTUAL_ENV` in your notebook.
 
 To install packages in your virtual environment you can run the command `!{sys.executable} -m pip install <package>` in your Jupyter notebook.
-
 The virtual environments are currently not completely isolated as they use packages from the loaded modules.
 
 
