@@ -197,7 +197,6 @@ fi
 # Start the workers in the background.
 srun --overlap --cpu-bind=none --mpi=none hq worker start \
     --manager slurm \
-    --idle-timeout 5m \
     --on-server-lost finish-running \
     --cpus="$SLURM_CPUS_PER_TASK" \
     $TOTAL_MEM_OPT &
