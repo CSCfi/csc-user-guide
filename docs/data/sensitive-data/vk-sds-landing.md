@@ -1,4 +1,9 @@
-## [Working with data]
+
+This manual introduces CSC's Sensitive Data (SD) services. To navigate the user guide, click on the topics in the boxes or the left-hand side of the page in the navigation bar. Next, browse the section using the table of contents on the right side of each page. The search tool is also available.
+
+!!! Note
+    **Do you have any questions? Would you like to discuss a specific project?** Don't hesitate to contact us at servicedesk@csc.fi (subject: Sensitive Data) or join the [CSC Research User Support Coffee - Every Wednesday at 14:00](https://ssl.eventilla.com/usersupportcoffee). Our team is here to help, and we offer direct support. 
+
 
 <div class="quick-links-container">
 
