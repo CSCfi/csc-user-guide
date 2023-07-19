@@ -344,9 +344,8 @@ nav:
           - Overview: data/sensitive-data/vk-sds-overview.md
           - Terminology: data/sensitive-data/vk-sds-terminology.md
      - Sensitive research data: 
-       - Accessing SD Services: 
-          - data/sensitive-data/vk-srd-accessing.md
-          - Creating a project: data/sensitive-data/vk-srd-a-creating.md
+       - Creating an SD project: 
+          - data/sensitive-data/vk-srd-a-creating.md
           - Billing units: data/sensitive-data/vk-srd-a-billing.md
        - SD Connect: 
           - data/sensitive-data/vk-srd-sd-connect.md

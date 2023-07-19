@@ -21,7 +21,7 @@ This manual introduces CSC's Sensitive Data (SD) services. To navigate the user 
   <div class="quick-links-topic">
     <span class="quick-links-title"><h2>Sensitive research data</h2></span>
     <div class="quick-links-item">
-      <a class="quick-link" target="_self" href="data/sensitive-data/vk-srd-accessing/">Accessing SD Services</a>
+      <a class="quick-link" target="_self" href="data/sensitive-data/vk-srd-a-creating.md">Creating an SD project</a>
     </div>
     <div class="quick-links-item">
       <a class="quick-link" target="_self" href="data/sensitive-data/vk-srd-sd-connect/">SD Connect</a>
