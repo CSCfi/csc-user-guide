@@ -62,3 +62,13 @@ This manual introduces CSC's Sensitive Data (SD) services. To navigate the user 
     </div>
   </div>
 </div>
+
+## Links to services
+
+We kindly request that users carefully read the manual before proceeding to use the services to ensure a smooth experience. 
+
+[https://my.csc.fi/](https://my.csc.fi/welcome)
+[https://sd-connect.csc.fi/](https://sd-connect.csc.fi/)
+[https://sd-desktop.csc.fi](https://sd-desktop.csc.fi)
+[FEGA]()
+[SD Apply]()
