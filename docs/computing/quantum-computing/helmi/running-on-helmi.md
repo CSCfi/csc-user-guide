@@ -71,6 +71,7 @@ In Qiskit python scripts you will need to include the following:
 
 ```python
 import os
+from qiskit import QuantumCircuit, execute
 from qiskit_iqm import IQMProvider
 
 HELMI_CORTEX_URL = os.getenv('HELMI_CORTEX_URL')  # This is set when loading the module
@@ -81,6 +82,13 @@ backend = provider.get_backend()
 shots = 1000  # Set the number of shots you wish to run with
 
 # Create your quantum circuit.
+# Here is an example
+circuit = QuantumCircuit(2, 2)
+circuit.h(0)
+circuit.cx(0, 1)
+circuit.measure_all()
+
+print(circuit.draw(output='text'))
 
 job = execute(circuit, backend, shots=shots)  # execute your quantum circuit
 counts = job.result().get_counts()
@@ -93,7 +101,11 @@ To load the Cirq module use `module load helmi_cirq`.
 
 ```python
 import os
+from cirq_iqm import Adonis
 from cirq_iqm.iqm_sampler import IQMSampler
+import cirq
+
+adonis = Adonis()
 
 HELMI_CORTEX_URL = os.getenv('HELMI_CORTEX_URL')  # This is set when loading the module
 
@@ -101,8 +113,25 @@ sampler = IQMSampler(HELMI_CORTEX_URL)
 
 shots = 1000
 
-result = sampler.run(circuit, repetitions=shots)
+# Create your quantum circuit
+# Here is an example
+q1, q2 = cirq.NamedQubit('QB1'), cirq.NamedQubit('QB2')
+circuit = cirq.Circuit()
+circuit.append(cirq.H(q1))
+circuit.append(cirq.CNOT(q1, q2))
+circuit.append(cirq.measure(q1, q2, key='m'))
+print(circuit)
 
+decomposed_circuit = adonis.decompose_circuit(circuit)
+routed_circuit, initial_mapping, final_mapping = adonis.route_circuit(decomposed_circuit)
+
+# Optionally print mapping
+# print(routed_circuit)
+# print(initial_mapping)
+# print(final_mapping)
+
+result = sampler.run(routed_circuit, repetitions=shots)
+print(result.histogram(key='m'))
 ```
 
 ## Additional examples
