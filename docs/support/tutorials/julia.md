@@ -190,10 +190,6 @@ Furthermore, the `julia-amdgpu` module automatically loads the correct AMD progr
 
 
 ## Single node jobs
-!!! info "Julia and srun"
-    We do not use `srun` to run Julia scripts except MPI scripts due to the Slurm MPI integration.
-    Instead we use Julia to manage resources and processes.
-
 ### Serial
 An example of a `script.jl` Julia code.
 
@@ -561,7 +557,7 @@ println.(outputs)
     #SBATCH --gres=gpu:v100:1
     #SBATCH --mem-per-cpu=8000
 
-    module load julia-cuda/1.8
+    module load julia-cuda/1.9
     julia --project=. -e 'using Pkg; Pkg.instantiate()'
     julia --project=. script.jl
     ```
@@ -591,7 +587,7 @@ println.(outputs)
     #SBATCH --gres=gpu:a100:1
     #
 
-    module load julia-cuda/1.8
+    module load julia-cuda/1.9
     julia --project=. -e 'using Pkg; Pkg.instantiate()'
     julia --project=. script.jl
     ```
@@ -629,10 +625,12 @@ println.(outputs)
 
 ## Multi-node jobs
 ### MPI
+We launch the MPI program using Julia's `mpiexec` wrapper function.
+The wrapper function substitutes the correct command from local preferences to the `mpirun` variable to run the MPI program.
+The command is `srun` in Puhti, Mahti, and LUMI.
+The wrapper allows us to write more flexible code, such as mixing MPI and non-MPI code, and more portable code because the command to run MPI programs can vary across platforms.
+
 An example of a `script.jl` Julia code.
-We use the `mpiexec` wrapper function which launches the MPI program, `prog.jl`, using `mpirun` command from local preferences, `srun` in Puhti, Mahti and LUMI.
-The wrapper makes the code more portable and flexible.
-For example, performing non-MPI tasks before and after the MPI code.
 
 ```julia
 using MPI
