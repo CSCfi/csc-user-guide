@@ -11,22 +11,7 @@ For further reading about parallel and high-performance computing with Julia, we
 CSC training also has a [quick introduction and tutorial](https://github.com/csc-training/julia-introduction) to Julia.
 
 
-### Project structure
-We use the following Julia project structure in the example jobs.
-We also assume that it is our working directory when running the commands.
-
-```
-.
-├── Manifest.toml  # Automatically created a list of all dependencies
-├── Project.toml   # Julia environment and dependencies
-├── batch.sh       # Slurm batch script
-└── script.jl      # Julia script
-```
-
-The example jobs demonstrate project files for different single and multi-node jobs.
-
-
-### Environment variables
+### Julia environment
 The `julia` module sets the [`JULIA_CPU_THREADS`](https://docs.julialang.org/en/v1/manual/environment-variables/#JULIA_CPU_THREADS) and [`JULIA_NUM_THREADS`](https://docs.julialang.org/en/v1/manual/environment-variables/#JULIA_NUM_THREADS) environment variables to the number of reserved CPU cores when loaded in a Slurm job; otherwise, the module sets them to one.
 We use the value of the `--cpus-per-task` option, which populates the `SLURM_CPUS_PER_TASK` environment variable, to detect the number of CPU cores.
 The effect is the same as setting the following environment variables in a shell.
@@ -189,8 +174,25 @@ julia --project="$CSC_JULIA_ENVIRONMENT_DIR" -e 'using Pkg; Pkg.status("AMDGPU")
 Furthermore, the `julia-amdgpu` module automatically loads the correct AMD programming environment and ROCm module.
 
 
-## Single node jobs
-### Serial
+## Example jobs
+We use the following Julia project structure in the example jobs.
+We also assume that it is our working directory when running the commands.
+
+```
+.
+├── Manifest.toml  # Automatically created a list of all dependencies
+├── Project.toml   # Julia environment and dependencies
+├── batch.sh       # Slurm batch script
+└── script.jl      # Julia script
+```
+
+The example jobs demonstrate project files for different single and multi-node jobs.
+
+We do not use `srun` to start processes from the batch script.
+
+
+### Single node jobs
+#### Serial
 An example of a `script.jl` Julia code.
 
 ```julia
@@ -274,7 +276,7 @@ println("Hello world!")
     ```
 
 
-### Multiple threads
+#### Multiple threads
 An example of a `script.jl` Julia code.
 
 ```julia
@@ -373,7 +375,7 @@ println(ids)
     ```
 
 
-### Multiple processes
+#### Multiple processes
 An example of a `script.jl` Julia code.
 
 ```julia
@@ -507,7 +509,7 @@ println.(outputs)
     ```
 
 
-### Single GPU
+#### Single GPU
 === "CUDA.jl"
     An example of a `script.jl` Julia code.
 
@@ -623,8 +625,8 @@ println.(outputs)
     ```
 
 
-## Multi-node jobs
-### MPI
+### Multi-node jobs
+#### MPI
 We launch the MPI program using Julia's `mpiexec` wrapper function.
 The wrapper function substitutes the correct command from local preferences to the `mpirun` variable to run the MPI program.
 The command is `srun` in Puhti, Mahti, and LUMI.
@@ -738,7 +740,7 @@ MPI.Barrier(comm)
     ```
 
 
-### Multiple processes
+#### Multiple processes
 An example of a `script.jl` Julia code.
 
 ```julia
@@ -856,7 +858,7 @@ println.(outputs)
     ```
 
 
-### Multiple processes and threads
+#### Multiple processes and threads
 An example of a `script.jl` Julia code.
 
 ```julia
