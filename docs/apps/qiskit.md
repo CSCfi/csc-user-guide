@@ -100,4 +100,4 @@ Submit the script with `sbatch <script_name>.sh`
 
 ## More information
 
-- Qiskit documentation [https://qiskit.org/](https://qiskit.org/)
+- [Qiskit documentation](https://qiskit.org/)
