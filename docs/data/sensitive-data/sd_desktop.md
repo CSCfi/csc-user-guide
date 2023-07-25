@@ -21,7 +21,7 @@ Contents:
 
  * [Default programs available on SD Desktop](./sd_desktop.md#default-programs-available-on-sd-desktop) (Default analysis)
   
- * [Software customization](./sd_desktop.md#software-customisation) (Advanced)
+ * [Software customization](./sd-software-installer) (Advanced)
 
  * [Data export](./sd_desktop.md#data-export-from-sd-desktop)
 
