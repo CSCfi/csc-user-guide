@@ -353,7 +353,7 @@ The `future` package provides an API for R jobs using futures (see the [future C
 
 For analyses requiring a single node, `plan(multisession)` and `plan(multicore)` are suitable. The former spawns multiple independent R processes and the latter forks an existing R process. Using `plan(cluster)` is suitable for work using multiple nodes.
 
-To submit a job involving multisession or multicore futures, one should specify a single node (`--nodes=1`) and the number of tasks (`--ntasks=x`; 40 is the maximum on a single node). For guidelines on designing batch job files, see other examples on this page.
+To submit a job involving multisession or multicore futures, one should specify a single node (`--nodes=1`), a single task (`--ntasks=1`), and the number of cores (`--cpus-per-task=x`; 40 is the maximum on a single node). By default, the number of workers is the number of cores given by `availableCores()`. For guidelines on designing batch job files, see other examples on this page.
 
 The R script below could be used to compare analysis times using sequential, multisession and multicore strategies. 
 
@@ -363,11 +363,11 @@ library(tictoc)
 library(furrr)
 
 # Different future plans (choose one) 
-# (Note: three workers used for parallel options)
+# (Note: three cores and thus three workers were used in this example)
 
 # plan(sequential)
-# plan(multisession, workers = 3)
-# plan(multicore, workers = 3)
+# plan(multisession)
+# plan(multicore)
 
 # Analysis timing
 
