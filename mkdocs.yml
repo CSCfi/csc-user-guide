@@ -349,11 +349,10 @@ nav:
           - Billing units: data/sensitive-data/vk-srd-a-billing.md
        - SD Connect: 
           - data/sensitive-data/vk-srd-sd-connect.md
-          - Overview: data/sensitive-data/vk-srd-c-overview.md
           ## + key features + authentication
           ## legal agreements, data retention policy??
           - Page map: data/sensitive-data/vk-srd-c-pagemap.md
-          - Data upload: data/sensitive-data/vk-srd-c-upload.md
+          - Data upload and sharing: data/sensitive-data/vk-srd-c-upload.md
           ## Less than 1 GB of data (ecryption and upload for analysys, encryption ans upload for storage and sharing) Up to 100 GB of data
           ##sharing, search, own encryption keys, Storage space
           - Data download: data/sensitive-data/vk-srd-c-download.md
