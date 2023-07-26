@@ -340,11 +340,11 @@ Each virtual Desktop (or virtual computer) is pre-built and contains a limited s
 
 [SD Software installer](./tutorials/sd-software-installer.md) provides easy-to-use tool to add some commonly used software to SD Desktop.
 
-### Software customisation
+### Software customisation with Apptainer and Podman
 
 Users can install their own software to SD Desktop, but this requires technical expertise. As SD Desktop is isolated from the internet, you can't directly use installation tools like _git_, _coda_, _cpan_ or _pip_ as they are dependent on internet connections to external repositories. Further, SD Desktop users can't do any operation that needs superuser access.
 
-If you want to add new software to your virtual machine independently, the most convenient way to add new software to your SD Desktop is to build a Singularity container outside SD Desktop and then import the Singularity image through SD Connect to SD Desktop. The two documents below describe two sample cases on adding software with containers.
+If you want to add new software to your virtual machine independently, the most convenient way to add new software to your SD Desktop is to build a Apptainer container outside SD Desktop and then import the container through SD Connect to SD Desktop. The two documents below describe two sample cases on adding software with containers.
 
    1. [Importing ready-made software containers from a public repository to SD Desktop](./sd-desktop-singularity.md)
    2. [Creating you own Singularity container and importing it to SD Desktop](./creating_containers.md)
@@ -352,6 +352,11 @@ If you want to add new software to your virtual machine independently, the most 
 
 !!! Note
     Please don't hesitate to contact us at servicedesk@csc.fi (subject: Sensitive Data). We can support you in your Desktop customization. 
+
+In Ubuntu22 based virtual machines you can use also Podman container manager. One of the benefits of Podman is that can utilize Docker containers too.
+
+    * [Using Podman in SD Desktop](tutorials/podman-in-sd-desktop.md)
+    
 
 ##  Data export from SD Desktop
 
