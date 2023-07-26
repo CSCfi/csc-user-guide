@@ -18,7 +18,7 @@ sudo docker save -o trimmomatic.docker 932a84b67790
 ```
 Here the last command uses container ID (932a84b67790) that was checked with the _docker images_ command.
 
-The Docker file needs to be uploaded to SD Connect from were is can be copied to a SD Desktop virtual machine.
+The Docker file needs to be uploaded to SD Connect from were it can be copied to a SD Desktop virtual machine.
 In this example the Docker file _trimmomatic.docker_ is uploaded to SD Connect using _a-put_ command:
 ```text
 a-put --sdx trimmomatic.docker -b 2000123_docker  
