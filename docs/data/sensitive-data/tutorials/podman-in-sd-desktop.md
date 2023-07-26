@@ -1,23 +1,49 @@
 # Unsing Podman in SD Desktop
 
-[Podman](https://podman.io/) contrainer and Pod manger is available in Ubuntu22 based SD Desktop virtual machines.
+[Podman](https://podman.io/) container manger is available in Ubuntu22 based SD Desktop virtual machines.
 As Podman is able to use Docker containers, it can be user to replace Docker in you workflows.
 
 As SD Desktop don't have access to software container repositories, 
-you must save the container you wish to use into a file. The file needs to be uploaded to SD Connect from were is can 
-be copied to a SD Desktop virtual machine.
+you must save the container you wish to use into a file in some other environment where you have Podman or Docker.
+This file must then be moved to SD Desktop through SD Connect.
 
-To use the copied container, open a terminal window in your SD Dekstop virtual machine and load the container file 
-to your Podman environment with command:
+For example to use _Trimmomatic_ software in SD Desktop of CSC-project: _project_2000123_, you could use following procedure.
+In a linux server where your have Docker available, you can create aDocker container file, that includes Trimmomaitc software, with commands:
 ```text
-podman image load -i your-podman-imade
+sudo docker pull staphb/trimmomatic:latest
+sudo docker images
+sudo docker save -o trimmomatic.docker 932a84b67790
 ```
-After that you can check your readu podman images with command:
+Here the last command uses container ID (932a84b67790) that was checked with _docker images_ command.
+
+The Docker file needs to be uploaded to SD Connect from were is can be copied to a SD Desktop virtual machine.
+In this example the Docker file _trimmomatic.docker_ is uploaded to SD Connect using _a-put_ command:
 ```text
-podman image list
+a-put --sdx trimmomatic.docker -b 2000123_docker  
+```
+To use the copied container, open a terminal window in your SD Desktop virtual machine. Copy the docker file to the local disk of your SD Desktop and load the container file to your Podman environment. Remember to update your DataGateway connection before you try to access newly added files in SD Coonect
+
+In this example you could do this with commands :
+
+```text
+cp Projects/SD-Connect/project_2000123/2000123_docker/trimmomatic.docker ./
+podman image load -i trimmomatic.docker
+podman image list 
+podman image tag 932a84b67790 trimmomatic
 ```
 
-You must add options _--cgroup-manager cgroupfs_ When running your run a container
+In SD Desktop you must always add options _--cgroup-manager cgroupfs_ When running your Podman container.
+For example, using container to run Trimmomatic filtering for file _/media/volume/rawdata.fastq_ could be now done
+with command 
+ 
 ```text
-podman run --cgroup-manager cgroupfs containe-id
+podman --cgroup-manager cgroupfs run -v /media/volume:/media/volume trimmomatic:latest trimmomatic SE /media/volume/rawdata.fastq  /media/volume/flitered.fastq MINLEN:100
+```
+In the command above part:
+```text
+podman --cgroup-manager cgroupfs run -v /media/volume:/media/volume trimmomatic:latest
+```
+is the podman definitio and the actual trimmomatic command that does the analysis is:
+```text
+trimmomatic SE /media/volume/rawdata.fastq  /media/volume/flitered.fastq MINLEN:100
 ```
