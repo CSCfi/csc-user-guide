@@ -23,7 +23,9 @@ In this example the Docker file _trimmomatic.docker_ is uploaded to SD Connect u
 ```text
 a-put --sdx trimmomatic.docker -b 2000123_docker  
 ```
-To use the copied container, open a terminal window in your SD Desktop virtual machine. Copy the Docker file to the local disk of your SD Desktop and load the Docker container to your Podman environment. Remember to update your DataGateway connection before you try to access newly added files in SD Connect.
+The comman above encrypts the data (--sdx) and stores it to SD Commect bucket _2000123_docker_.
+
+To use the copied container, open or reftesh the DataGateway connection in your SD Desktop virtual machine. Then open a terminal window and copy the Docker file to the local disk of your virtual machine. Now ýou can load the Docker container to your Podman environment. 
 
 In the case of the Trimmomatic container you could do the container import with commands :
 
@@ -34,18 +36,18 @@ podman image list
 podman image tag 932a84b67790 trimmomatic
 ```
 
-In SD Desktop you must always add definitio _--cgroup-manager cgroupfs_ when running a Podman container.
+In SD Desktop you must always add definition _--cgroup-manager cgroupfs_ when running a Podman container.
 For example, using the imported container to run Trimmomatic filtering for file _/media/volume/rawdata.fastq_ could be now done
-with command 
+with command: 
  
 ```text
 podman --cgroup-manager cgroupfs run -v /media/volume:/media/volume trimmomatic:latest trimmomatic SE /media/volume/rawdata.fastq  /media/volume/flitered.fastq MINLEN:100
 ```
-In the command above the first part of the command is the actual podman command:
+In the command above the first part of the command is the actual podman command that defines the Podman operation (_run_), and mounting between loval and containres environments (_-v_).
 ```text
 podman --cgroup-manager cgroupfs run -v /media/volume:/media/volume trimmomatic:latest
 ```
-The actula trimmomatic command, that defines the analysis, is:
+Rest of the command defines the actual trimmomatic analysis command:
 ```text
 trimmomatic SE /media/volume/rawdata.fastq  /media/volume/flitered.fastq MINLEN:100
 ```
