@@ -355,7 +355,7 @@ If you want to add new software to your virtual machine independently, the most 
 
 In Ubuntu22 based virtual machines you can use also Podman container manager. One of the benefits of Podman is that can utilize Docker containers too.
 
-    *  [Using Podman in SD Desktop](./tutorials/podman-in-sd-desktop.md)
+*   [Using Podman in SD Desktop](./tutorials/podman-in-sd-desktop.md)
     
 
 ##  Data export from SD Desktop
