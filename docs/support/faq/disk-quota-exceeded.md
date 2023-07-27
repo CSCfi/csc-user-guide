@@ -1,6 +1,7 @@
 # Disk quota exceeded
 
-This warning means that you have exceeded your disk space quota or have too many files on the disk area. To see which quota is used up, type:
+This warning means that you have exceeded your disk space quota or have too many
+files on the disk area. To see which quota is used up, type:
 
 ```
 csc-workspaces
@@ -27,15 +28,14 @@ new files in this file area, delete or re-arrange files or apply for more
 quota.
 
 !!! warning "Note"
-     If you exceed disk quota in your HOME or PROJAPPL directory upon Conda-based
-     installations of your software on Puhti/Mahti, we recommend using containerised 
-     applications instead. The Conda-based installations unfortunately result in 
-     the creation of excessive number of files which can cause extra overhead on 
-     Lustre parallel file system in HPC environment. In some cases, you can clearly 
-     see the inordinate delays in the activation time of Conda environment. Please
-     adapt container-based installation as the choice of installation method for
-     better performance. We support HPC-compliant Singularity containers on
-     Puhti/Mahti. To easily containerize your Conda environments, please see the
+     A common reason for exceeding your `$HOME` or `/projappl` disk quota is the
+     usage of Conda-based installations. Conda environments result in the creation
+     of excessive numbers of files which cause extra overhead on the Lustre parallel
+     file system used in the HPC environment. This manifests as prolonged startup
+     times and disk slowness affecting all users. If you need to use Conda on CSC
+     supercomputers, we require that you containerize your environment, see
+     [usage policy](../../computing/usage-policy.md#conda-installations).
+     To easily containerize your Conda environments, please see the
      [Tykky container wrapper tool](../../computing/containers/tykky.md).
 
 If you are new to the concept of containers, you can consult the following relevant 
