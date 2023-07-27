@@ -1,10 +1,8 @@
 # Accessing Data with a Findata Permit
 
-Accessing secondary use health or social data on SD Desktop requires a permit from the Findata authority. You need to have a data permit before starting the service access process at CSC. When everything is set up according to this guide, you can access the data through the Data Gateway application on your SD Desktop.
+Accessing secondary use health or social data from public registries requires a permit from the Findata authority. You can apply for the data permit by logging in to Findata’s e-service. Instructions for applying for the data permit can be found on [Findata's website](https://findata.fi/en/permits/).
 
-You can apply for the permit for the secondary use of social and health data by logging in to Findata’s e-service. Instructions for applying for the data permit can be found on Findata's website.
-
-After acquiring the permit, you can start the service access process at CSC. Next, we will walk you through the steps that need to be completed in order to access the sensitive data on SD Desktop.
+After acquiring the permit, you can start the service access process at CSC. Next, we will walk you through the steps that need to be completed in order to access the dataset on SD Desktop.
 
 ## Service Access: How to Start Using SD Desktop
 
@@ -58,7 +56,7 @@ Once you sign in to your virtual Desktop, you can access the data by following t
 
 [![Desktop-register-access](images/desktop/desktop-register-gateway.png)](images/desktop/desktop-register-gateway.png)
 
-### If You Need to Edit the Files/Data
+### If You Need to Edit the Files/data
 
  * Access the files of interest in the Project folder using **Data Gateway**;
  * Select all the necessary files from the Project folder, make a **copy** and save it in the virtual Desktop **home directory** (the files will be visible only from your browser) or in the **shared folder** (in this case, the files will be accessible also by all the CSC project members).
