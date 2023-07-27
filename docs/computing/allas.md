@@ -38,7 +38,7 @@ By default the _allas-conf_ activates tools that use Allas with **swift protocol
 You can alternatively use S3 protocol too, however in this document we 
 discuss only _swift_ based Allas usage. 
 
-Authentication is a session specific and valid for eight hours at a time.
+Authentication is session specific and valid for eight hours at a time.
 You can be connected to only one Allas project at a time in one terminal session. However, simutaneous terminal sessions
 can use different Allas projects. The project you are using in Allas does not need to match the project you are using in 
 Puhti or Mahti. You can refresh the authentication or change the target project at any time my running _allas-conf_ again. 
