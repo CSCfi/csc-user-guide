@@ -45,7 +45,7 @@ We have an example of running L1 to L2 pipeline for Sentinel images in [our Gith
 
 ## License 
 
-FORCE is licensed under [the GNU GPL License](https://github.com/davidfrantz/force/blob/master/LICENSE).
+[FORCE is licensed under the GNU GPL License](https://github.com/davidfrantz/force/blob/master/LICENSE).
 
 ## Citation
 
