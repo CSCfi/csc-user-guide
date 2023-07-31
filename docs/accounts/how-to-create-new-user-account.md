@@ -3,14 +3,14 @@ search:
   boost: 2
 ---
 
-# How to create new user account
+# How to create new CSC user account
 
-There are three different types of CSC user accounts: ordinary accounts for general use (which you can get with or
-without Haka or Virtu), student accounts for courses, and machine-to-machine robot accounts for managing services.
+There are two different types of CSC user accounts: ordinary accounts for general use (which you can get with or
+without Haka or Virtu) and machine-to-machine robot accounts for managing services.
 
 !!! Note
 
-    **Haka** is the identity federation of the Finnish universities, polytechnics and research institutions. Users are able to access federation services using a single user account and password. User identities are provided by the users home organizations
+    **Haka** is the identity federation of the Finnish universities, polytechnics and research institutions. Users are able to access federation services using a single user account and password. User identities are provided by the users home organizations.
     
     **Virtu** is a convenient and fast single sign-on for browser-enabled systems across organisational boundaries. Virtu is used by Finnish government agencies.
 
