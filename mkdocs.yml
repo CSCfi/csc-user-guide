@@ -340,8 +340,7 @@ nav:
   - Sensitive data:
      - data/sensitive-data/vk-sds-landing.md
      - Introduction: 
-          - data/sensitive-data/vk-sds-intro.md
-          - Overview: data/sensitive-data/vk-sds-overview.md
+          - data/sensitive-data/vk-sds-overview.md
           - Terminology: data/sensitive-data/vk-sds-terminology.md
      - Sensitive research data: 
        - Creating an SD project: 
