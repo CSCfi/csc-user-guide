@@ -37,6 +37,7 @@ it with:
 ```text
 module load cuda-quantum
 ```
+
 If you wish to have a specific version ([see above for available
 versions](#available)), use:
 ```text
@@ -50,6 +51,7 @@ To compile and run a cpp program using the `nvq++` compiler:
 nvq++ static_kernel.cpp -o ghz.x
 execute ./ghz.x # Or apptainer_wrapper exec ./ghz.x
 ```
+
 More examples of CUDA Quantum can be found from the 
 [CUDA Quantum by Example](https://nvidia.github.io/cuda-quantum/latest/using/examples.html) and [CUDA Quantum Github](https://github.com/NVIDIA/cuda-quantum/tree/main/docs/sphinx/examples).
 
