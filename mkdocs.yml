@@ -361,7 +361,7 @@ nav:
           ## Command line encryption and upload, data encryption and upload with allas help tool: a-put
           - Troubleshooting: data/sensitive-data/vk-srd-c-trouble.md
        - SD Desktop: 
-          - data/sentitive-data/vk-srd-sd-desktop.md
+          - data/sensitive-data/vk-srd-sd-desktop.md
           - Create desktop: data/sensitive-data/vk-srd-d-create.md
           - Manage desktop: data/sensitive-data/vk-srd-d-manage.md
           ## pausing and restarting, rebooting and restarting, detaching and reattaching a volume, deleting a desktop
