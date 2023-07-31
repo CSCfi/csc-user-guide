@@ -46,7 +46,7 @@ module load cuda-quantum/0.4.0
 After that you can use commands `python` and `nvq++` to run codes that include a cudaq package. 
 
 To compile and run a cpp program using the `nvq++` compiler:
-```python
+```bash
 nvq++ static_kernel.cpp -o ghz.x
 execute ./ghz.x # Or apptainer_wrapper exec ./ghz.x
 ```
