@@ -8,33 +8,6 @@ Sensitive Data (SD) Connect allows you to store sensitive research data in the C
 
 [![SDConnect-overview](images/connect/connect_overviewnew.png)](images/connect/connect_overviewnew.png)
 
-Contents:
-
-* [Key features](./sd_connect.md)
-  
-* [Authentication](./sd_connect.md#authentication)
-
-* [User Interface](./sd_connect.md#user-interface)
-  
-* [Introduction to data encryption compatible with sensitive data services](./sd_connect.md#introduction-to-data-encryption-compatible-with-sensitive-data-services)
- 
- * [Data encryption and upload for analysis (less than 1 GB)](./sd_connect.md#sensitive-data-encryption-and-upload-for-analysis-less-than-1-gb) (Default analysis)
-
-* [Data encryption and upload for analysis (up to 100 GB)](./sd_connect.md#sensitive-data-encryption-and-upload-for-analysis-up-to-100-gb)
- 
-* [Data encryption and upload for storage and sharing (less than 1 GB)](./sd_connect.md#sensitive-data-encryption-and-upload-for-storage-and-sharing-less-than-1-gb) (Data storage and transfer)
- 
-
-* [Data sharing](./sd_connect.md#data-sharing) 
- 
-* [Data download and decryption](./sd_connect.md#data-download-and-decryption) (Data storage and transfer)
- 
-* [Command Line Interface: data encryption and upload](./sd_connect.md#command-line-interface-data-encryption-and-upload) (Advanced)
- 
- 
-* [Command Line Interface: data encryption for data sharing](./sd_connect.md#command-line-interface-encryption-for-data-sharing) (Advanced)
- 
-* [Troubleshooting](./sd_connect.md#troubleshooting)
 
 
 You can browse through the main topics of the manual using the navigation bar on the left side of this page or the search function.
