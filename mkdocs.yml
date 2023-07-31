@@ -371,7 +371,7 @@ nav:
           ## Pre-installed software, rstudio, scientific software, software customisation with containers/interface??
           - HPC: data/sensitive-data/vk-srd-d-hpc.md
           - data export: data/sensitive-data/vk-srd-d-export.md
-          - troubleshooting: data/sensitive-data/vk-srd-d-export.md
+          - troubleshooting: data/sensitive-data/vk-srd-d-trouble.md
        - FEGA: data/sensitive-data/vk-srd-fega.md
        - SD Apply: data/sensitive-data/vk-srd-apply.md
        - Tutorials and quick quides: data/sensitive-data/vk-srd-tutorials.md
