@@ -10,9 +10,7 @@ The process described here is the first prototype implementation of this service
 
 ## Requirements ##
 
-In order to get access to the installation tool, you need to **send a request to servicedesk@csc.fi**.
-In the request, indicate that you wish that the SD Desktop software installation help tools would be made available for your project. 
-You must also include to the message the  **Project identifier string** of your project.
+In order to get access to the [SD software installer](./sd-software-installer.md), you need to **send a request to servicedesk@csc.fi**. In the request, indicate that you wish that the SD Desktop software installation help tools would be made available for your project. You must also include to the message the  **Project identifier string** of your project.
 
 You can check this random string for example in the [SD Connect service](https://sd-conenct.csc.fi). There you find the 
 Project Identifier in the **User information** view. 
