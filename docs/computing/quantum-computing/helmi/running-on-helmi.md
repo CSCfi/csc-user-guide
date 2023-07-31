@@ -1,5 +1,9 @@
 # Running on Helmi
 
+!!! info "Give feedback!"
+	**All feedback is highly appreciated**, please comment on your
+	experience to [fiqci-feedback@postit.csc.fi](mailto:fiqci-feedback@postit.csc.fi).
+
 ## Running Jobs
 
 Jobs can be submitted to the `q_fiqci` queue by specifying `--partition=q_fiqci` in batch scripts. 
@@ -67,6 +71,7 @@ In Qiskit python scripts you will need to include the following:
 
 ```python
 import os
+from qiskit import QuantumCircuit, execute
 from qiskit_iqm import IQMProvider
 
 HELMI_CORTEX_URL = os.getenv('HELMI_CORTEX_URL')  # This is set when loading the module
@@ -77,6 +82,13 @@ backend = provider.get_backend()
 shots = 1000  # Set the number of shots you wish to run with
 
 # Create your quantum circuit.
+# Here is an example
+circuit = QuantumCircuit(2, 2)
+circuit.h(0)
+circuit.cx(0, 1)
+circuit.measure_all()
+
+print(circuit.draw(output='text'))
 
 job = execute(circuit, backend, shots=shots)  # execute your quantum circuit
 counts = job.result().get_counts()
@@ -89,7 +101,11 @@ To load the Cirq module use `module load helmi_cirq`.
 
 ```python
 import os
+from cirq_iqm import Adonis
 from cirq_iqm.iqm_sampler import IQMSampler
+import cirq
+
+adonis = Adonis()
 
 HELMI_CORTEX_URL = os.getenv('HELMI_CORTEX_URL')  # This is set when loading the module
 
@@ -97,8 +113,25 @@ sampler = IQMSampler(HELMI_CORTEX_URL)
 
 shots = 1000
 
-result = sampler.run(circuit, repetitions=shots)
+# Create your quantum circuit
+# Here is an example
+q1, q2 = cirq.NamedQubit('QB1'), cirq.NamedQubit('QB2')
+circuit = cirq.Circuit()
+circuit.append(cirq.H(q1))
+circuit.append(cirq.CNOT(q1, q2))
+circuit.append(cirq.measure(q1, q2, key='m'))
+print(circuit)
 
+decomposed_circuit = adonis.decompose_circuit(circuit)
+routed_circuit, initial_mapping, final_mapping = adonis.route_circuit(decomposed_circuit)
+
+# Optionally print mapping
+# print(routed_circuit)
+# print(initial_mapping)
+# print(final_mapping)
+
+result = sampler.run(routed_circuit, repetitions=shots)
+print(result.histogram(key='m'))
 ```
 
 ## Additional examples
@@ -116,8 +149,6 @@ As quantum resources can be scarce, it is recommended that you prepare the codes
 A set of Qiskit and Cirq examples and scripts for guidance in using the LUMI-Helmi partition are also available. [You can find these here](https://github.com/FiQCI/helmi-examples). 
 
 ## Job Metadata
-
-The figures of merit (or quality metrics set) may be necessary for publishing work produced on Helmi. It also gives an idea as to the current status of Helmi. In `helmi-examples` there is a helper script to get the calibration data including the figures of merit. The script can be found [here](https://github.com/FiQCI/helmi-examples/tree/main/scripts). Note that querying the latest calibration data may given an incomplete set of figures of merit. Therefore calibration set IDs should be saved along with Job IDs. 
 
 Additional metadata about your job can be queried directly with Qiskit. For example:
 
@@ -149,4 +180,23 @@ print(result.request.shots)  # Retrieving the number of requested shots.
 	The same applies for the calibration set id. 
 
 
-For further information on the figures of merit contact the [CSC Service Desk](../../../../support/contact/), reachable at servicedesk@csc.fi.
+## Figures of Merit
+
+The figures of merit (or quality metrics set) may be necessary for publishing work produced on Helmi. It also gives an idea as to the current status of Helmi. In `helmi-examples` there is a helper script to get the calibration data including the figures of merit. The script can be found [here](https://github.com/FiQCI/helmi-examples/blob/main/scripts/get_calibration_data.py). This file can bea dded to your own python scripts and will return data in json format. Note that querying the latest calibration data may given an incomplete or outdated set of figures. Therefore calibration set IDs should be saved along with Job IDs. 
+
+Here is a brief description of the figures which are given when querying:
+
+| Figure                          | Description                                                                                                                                                                           |   |   |
+|---------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---|---|
+| T1 Time (s)                     | The T1 time is called the longitudinal relaxation rate and describes how quickly the excited state of the qubit returns to its ground state.                                          |   |   |
+| T2 Time (s)                     | The T2 time is called the transverse relaxation rate and describes loss of coherence of a superposition state.                                                                        |   |   |
+| T2 Echo Time (s)                | The T2 echo time describes the loss of coherence of the superposition state of the qubit. It is more precise than the T2 Time as it is less susceptible to low-frequency noise.       |   |   |
+| Single shot readout fidelity    | This describes the fidelity when performing single shot readouts of the qubit state. Single-shot readout prepares 50% of the qubit states in the excited and 50% in the ground state. |   |   |
+| Single shot readout 01 error    | The error in assigning an excited state ('1') when the state is in the ground state ('0').                                                                                            |   |   |
+| Single shot readout 10 error    | The error in assigning a ground state ('0') when the state is in the excited state ('1').                                                                                             |   |   |
+| Fidelity 1QB gates averaged     | This is calculated from standard Randomized Benchmarking and describes the average gate fidelity when a random sequence of single qubit Clifford gates is applied.                    |   |   |
+| Fidelity 2QB Cliffords averaged | This is calculated from interleaved Randomized Benchmarking, showing the average Clifford gate fidelity.                                                                              |   |   |
+| CZ gate fidelity                | The controlled-z gate fidelity calculated through interleaved randomized benchmarking.                                                                                                |   |   |
+
+
+For further information on the figures of merit contact the [CSC Service Desk](../../../../support/contact/), reachable at [servicedesk@csc.fi](mailto:servicedesk@csc.fi).

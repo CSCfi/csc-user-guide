@@ -23,3 +23,14 @@
 ## How to write good support requests
 
 * [13 point list to speed up resolving your issue](./support-howto.md)
+
+## Mailing list archives
+
+Having trouble finding an email sent to you by CSC? Browse the mailing list
+archives:
+
+* [puhti-users](https://postit.csc.fi/sympa/arc/puhti-users/)
+* [mahti-users](https://postit.csc.fi/sympa/arc/mahti-users/)
+* [lumi-users](https://postit.csc.fi/sympa/arc/lumi-users/)
+* [pouta-users](https://postit.csc.fi/sympa/arc/pouta-users/)
+* [rahti-users](https://postit.csc.fi/sympa/arc/rahti-users/)

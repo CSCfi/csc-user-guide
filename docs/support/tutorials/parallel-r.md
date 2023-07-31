@@ -68,12 +68,10 @@ Multinode analyses will give you access to more resources than a single-node ana
 
 **4. Reserving more resources does not necessarily mean faster analyses.** Finding an optimal number of cores and/or threads is usually a case of trial and error. Often there is a threshold after which only marginal benefits are obtained in relation to the resources you reserve. Also, the more resources one reserves, the longer the wait until they become available.
 
-**5. Make use of `future::availableCores()`**. There are a couple of ways to detect the number of available cores using R. On Puhti, using `parallel::detectCores()` will always give 40 as the result. That is, the function detects how many cores are present on the node, regardless of how many you have reserved. Much more often, the goal is to detect the number of reserved cores. To do this, one can use the package `future`:
+**5. Make use of `parallelly::availableCores()`**. There are a couple of ways to detect the number of available cores using R. On Puhti, using `parallel::detectCores()` will always give 40 as the result. That is, the function detects how many cores are present on the node, regardless of how many you have reserved. Much more often, the goal is to detect the number of reserved cores. To do this, one can use the package `parallelly` (or the package `future` that imports `parallelly`):
 
 ```r
-library(future)
-options(future.availableCores.methods = "Slurm")
-availableCores()
+parallelly::availableCores()
 ```
 **6. Remember that parallelisation support is limited in RStudio**. Forked processes are considered unstable when running R from RStudio. Because of this, certain options for parallelisation (e.g. `plan(multicore)` in the package `future`) are unavailable when using RStudio. If you wish to use multiprocessing while working with RStudio, socket clusters are a more stable option. However, heavier parallel scripts are best submitted as non-interactive batch jobs.
 
