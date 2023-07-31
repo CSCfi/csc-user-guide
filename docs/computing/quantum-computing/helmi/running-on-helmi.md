@@ -1,5 +1,9 @@
 # Running on Helmi
 
+!!! info "Give feedback!"
+	**All feedback is highly appreciated**, please comment on your
+	experience to [fiqci-feedback@postit.csc.fi](mailto:fiqci-feedback@postit.csc.fi).
+
 ## Running Jobs
 
 Jobs can be submitted to the `q_fiqci` queue by specifying `--partition=q_fiqci` in batch scripts. 
@@ -13,17 +17,33 @@ To submit and run jobs on Helmi you need to use the correct environment on LUMI.
 	* `module load helmi_cirq`
 
 
+`helmi_qiskit` and `helmi_cirq` provide pre-made python environments to directly run on Helmi. 
+If you wish to add your own python packages to the pre-made python environment you can do so with `python -m pip install --user package`. 
+
+
+!!! info "Creating your own python environment"
+	Users can create their own python environment if they wish. The only prerequisite is to load the `helmi_standard` module. 
+	To create your own environment the [container wrapper tool](https://docs.lumi-supercomputer.eu/software/installing/container-wrapper/) is recommended.
+
+The current support software versions on helmi are:
+
 ```bash
-#!/bin/bash -l
+Cirq on IQM 	cirq_iqm 	>= 11.9, < 12.0  # helmi_cirq has 11.9
+Qiskit on IQM 	qiskit_iqm 	>= 8.3, < 9.0  # helmi_qiskit has 9.0
+IQM client 	iqm_client 	>= 12.5, < 13.0
+```
+
+Here is an example batch script to submit jobs on Helmi
+
+```bash
+#!/bin/bash
  
 #SBATCH --job-name=helmijob   # Job name
-#SBATCH --output=helmijob.o%j # Name of stdout output file
-#SBATCH --error=helmijob.e%j  # Name of stderr error file
+#SBATCH --account=project_<id>  # Project for billing
 #SBATCH --partition=q_fiqci   # Partition (queue) name
 #SBATCH --ntasks=1              # One task (process)
 #SBATCH --cpus-per-task=1     # Number of cores (threads)
 #SBATCH --time=00:15:00         # Run time (hh:mm:ss)
-#SBATCH --account=project_<id>  # Project for billing
 
 module use /appl/local/quantum/modulefiles
 
@@ -41,7 +61,7 @@ The batch script can then be submitted with `sbatch`. You can also submit intera
 srun --account=project_<id> -t 00:15:00 -c 1 -n 1 --partition q_fiqci python your_python_script.py
 ```
 
-The `helmi_*` module sets up the correct python environment to use Qiskit or Cirq in conjunction with Helmi. A set of Quantum Tools are also set up via `import csc_qu_tools`. The tools provide additional help in submitting jobs to Helmi. 
+The `helmi_*` module sets up the correct python environment to use Qiskit or Cirq in conjunction with Helmi.
 
 ### Qiskit
 
@@ -50,99 +70,133 @@ To load the Qiskit module use `module load helmi_qiskit`.
 In Qiskit python scripts you will need to include the following:
 
 ```python
-from csc_qu_tools.qiskit import Helmi as helmi
-provider = helmi()
-backend = provider.set_backend()
-basis_gates = provider.basis_gates
- 
-circuit_decomposed = transpile(qc, basis_gates=basis_gates) # Decompose circuit into native basis gates
- 
-virtual_qubits = circuit_decomposed.qubits # Get the virtual qubits
-qubit_mapping = {virtual_qubits[0]: 'QB1',
-                 virtual_qubits[1]: 'QB2',
-                 virtual_qubits[2]: 'QB3'
-                 virtual_qubits[3]: 'QB4',
-                 virtual_qubits[4]: 'QB5'  } # Set Helmi qubit mapping. This will need to be changed based on where your 2 qubit gates are in your circuit.
-job = backend.run(circuit_decomposed, shots=, qubit_mapping=qubit_mapping) # Run with decomposed circuit and qubit mapping
+import os
+from qiskit import QuantumCircuit, execute
+from qiskit_iqm import IQMProvider
+
+HELMI_CORTEX_URL = os.getenv('HELMI_CORTEX_URL')  # This is set when loading the module
+
+provider = IQMProvider(HELMI_CORTEX_URL)
+backend = provider.get_backend()
+
+shots = 1000  # Set the number of shots you wish to run with
+
+# Create your quantum circuit.
+# Here is an example
+circuit = QuantumCircuit(2, 2)
+circuit.h(0)
+circuit.cx(0, 1)
+circuit.measure_all()
+
+print(circuit.draw(output='text'))
+
+job = execute(circuit, backend, shots=shots)  # execute your quantum circuit
+counts = job.result().get_counts()
+print(counts)
 ```
-
-
-Helmi currently uses the `qiskit-iqm==2.0` environment. From this, you can make your own container wrapper if you require additional python packages in your workflow. Instructions can be found in the [LUMI container wrapper](../../../containers/tykky/) documentation.
 
 ### Cirq
 
 To load the Cirq module use `module load helmi_cirq`.
 
-Also Cirq requires `csc_qu_tools` to load the Helmi device. In Cirq decomposition 
-
 ```python
-from csc_qu_tools.cirq import Helmi
+import os
+from cirq_iqm import Adonis
+from cirq_iqm.iqm_sampler import IQMSampler
 import cirq
 
-backend = Helmi().set_helmi()
+adonis = Adonis()
+
+HELMI_CORTEX_URL = os.getenv('HELMI_CORTEX_URL')  # This is set when loading the module
+
+sampler = IQMSampler(HELMI_CORTEX_URL)
+
+shots = 1000
+
+# Create your quantum circuit
+# Here is an example
+q1, q2 = cirq.NamedQubit('QB1'), cirq.NamedQubit('QB2')
+circuit = cirq.Circuit()
+circuit.append(cirq.H(q1))
+circuit.append(cirq.CNOT(q1, q2))
+circuit.append(cirq.measure(q1, q2, key='m'))
+print(circuit)
+
+decomposed_circuit = adonis.decompose_circuit(circuit)
+routed_circuit, initial_mapping, final_mapping = adonis.route_circuit(decomposed_circuit)
+
+# Optionally print mapping
+# print(routed_circuit)
+# print(initial_mapping)
+# print(final_mapping)
+
+result = sampler.run(routed_circuit, repetitions=shots)
+print(result.histogram(key='m'))
 ```
-
-
-Helmi currently uses `cirq-iqm==4.1` environment. From this, you can make your own container wrapper if you require additional python packages in your workflow. Instructions can be found in the [LUMI container wrapper](../../../containers/tykky/) documentation.
-
-### OpenQASM
-
-Submission of OpenQASM formatted files is not currently supported on Helmi. You can convert your OpenQASM circuits to Cirq or Qiskit and submit them.
-
-* On Qiskit this can be done with `QuantumCircuit.from_qasm_file('my_circuit.qasm')`.
-* On Cirq, create the circuit from a string using  `circuit_from_qasm(""" Qasm_string """)`. 
-
-
-## Creating Circuits for Helmi
-
-To make the most efficient use of Helmi, some knowledge of the underlying system architecture and topology is needed. 
-[Helmi's topology is described here](../helmi-specs/) and the examples below show how this topology is utilised to improve results. 
 
 ## Additional examples
 
 An additional [set of examples can be found here](https://github.com/FiQCI/helmi-examples). 
 The examples emphasize the difference between running on a simulator and a real physical quantum computer, 
 and how to construct your circuits for optimum results on Helmi. The repository also contains some useful 
-scripts for submitting jobs. Currently, **Qiskit** examples are available.
-
-The `csc_qu_tools` python file contains all the necessary functions and classes needed for using Helmi via LUMI. 
-This tool is not required for Qiskit usage as it provide much of the same functionality as `qiskit-iqm`. 
-The Cirq class is required for Helmi specific functionality, therefore we recommend users to use this for submitting jobs to Helmi. 
-
-### Quantum Tools
-
-A python package to help interfacing with Helmi via LUMI is provided. The `csc_qu_tools` python package provides everything necessary to connect and submit jobs to Helmi via LUMI. Users can use the tool set for both Qiskit and Cirq. 
-
-The package can be accessed after loading one of the `helmi` modules, by `import csc_qu_tools`. 
-
-* For Qiskit `import csc_qu_tools.qiskit`
-* For Cirq `import csc_qu_tools.cirq`
+scripts for submitting jobs.
 
 
 ## Simulated test runs
 
-As quantum resources can be scarce, it is recommended that you prepare the codes and algorithms you intend to run on Helmi in advance. To help with this process, a `FakeHelmi()` backend is available. The `FakeHelmi()` backend uses Qiskit's Aer simulator to mimic the backend properties of Helmi, allowing you to run using a simulator and receive a noise model similar to what Helmi would produce. To use it simply import it with `from csc_qu_tools.qiskit.mock import FakeHelmi()` and set the backend as `backend = FakeHelmi()`. This backend supports the same workflow as using real Helmi in Qiskit, therefore, you can set the same mapping as with Helmi and add it to the run commands. For example: `job = backend.run(circuit, shots=1000, qubit_mapping=qubit_mapping)`.
-
-Initially, Helmi provides 5 physical qubits. You can also test and run algorithms on your local computer(s), using local simulators. For Qiskit, the python environment can be installed via `pip install qiskit-iqm==2.0`, for Cirq, `pip install cirq-iqm==4.1`.
-
-When you are ready to run your circuits on Helmi it is recommended that you read the [Getting started guide](../helmi-from-lumi/), which covers the prerequisites for submitting your first job. 
+As quantum resources can be scarce, it is recommended that you prepare the codes and algorithms you intend to run on Helmi in advance. To help with this process, [`qiskit-on-iqm` provides a fake noise model backend](https://iqm-finland.github.io/qiskit-on-iqm/user_guide.html#noisy-simulation-of-quantum-circuit-execution). You can run the fake noise model backend locally on your laptop for simulation and testing. 
 
 A set of Qiskit and Cirq examples and scripts for guidance in using the LUMI-Helmi partition are also available. [You can find these here](https://github.com/FiQCI/helmi-examples). 
 
+## Job Metadata
+
+Additional metadata about your job can be queried directly with Qiskit. For example:
+
+```python
+
+provider = IQMProvider(HELMI_CORTEX_URL)
+backend = provider.get_backend()
+
+#Retrieving backend information
+print(f'Native operations: {backend.operation_names}')
+print(f'Number of qubits: {backend.num_qubits}')
+print(f'Coupling map: {backend.coupling_map}')
+
+job = execute(circuit, backend, shots=shots)
+result = job.result()
+exp_result = result._get_experiment(circuit)
+
+print("Job ID: ", job.job_id())  # Retrieving the submitted job id
+print(result.request.circuits)  # Retrieving the circuit request sent
+print("Calibration Set ID: ", exp_result.calibration_set_id)  # Retrieving the current calibration set id. 
+print(result.request.qubit_mapping)  # Retrieving the qubit mapping
+print(result.request.shots)  # Retrieving the number of requested shots. 
+
+# retrieve a job using the job_id from a previous session
+#old_job = backend.retrieve_job(job_id)
+```
+!!! info "Save your Job ID!"
+	Note that there is currently no method to list previous Job ID's therefore it is recommended to always print your Job ID after job submission and save it somewhere!
+	The same applies for the calibration set id. 
+
+
 ## Figures of Merit
 
-The figures of merit may be necessary for publishing work produced on Helmi. It also gives an idea as to the current status of Helmi.
+The figures of merit (or quality metrics set) may be necessary for publishing work produced on Helmi. It also gives an idea as to the current status of Helmi. In `helmi-examples` there is a helper script to get the calibration data including the figures of merit. The script can be found [here](https://github.com/FiQCI/helmi-examples/blob/main/scripts/get_calibration_data.py). This file can bea dded to your own python scripts and will return data in json format. Note that querying the latest calibration data may given an incomplete or outdated set of figures. Therefore calibration set IDs should be saved along with Job IDs. 
 
-Users can use the `helmi-info` command once you have loaded either `helmi_qiskit` or `helmi_cirq` environments on LUMI. With the `-p` flag the figures of merit will be printed as a table. If you pass the `--output` flag and a location you can save the figures of merit in a `json` file format. Passing the `--date yyyy-mm-dd` flag will load the figures of merit from that date. For example: `helmi-info --date 2023-04-12 -p` or `helmi-info --output figures-of-merit.json --date 2023-04-12` will save the figures of merit from the date specified into a location specified. 
+Here is a brief description of the figures which are given when querying:
 
-| Figure                              | Description                                                                                                                                                                                                      |     |     |
-| ----------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --- | --- |
-| T1 Time (μs)                        | The T1 time is called the longitudinal relaxation rate and describes how quickly the excited state of the qubit returns to its ground state.                                                                     |     |     |
-| T2 Time (μs)                        | The T2 time is called the transverse relaxation rate and describes loss of coherence of a superposition state.                                                                                                   |     |     |
-| T2 Echo Time (μs)                   | The T2 echo time describes the loss of coherence of the superposition state of the qubit. It is more precise than the T2 Time as it is less susceptible to low-frequency noise.                                  |     |     |
-| Fidelity 1QB gates averaged (%)     | This is calculated from Standard Randomized Benchmarking and describes the average gate fidelity when a random sequence of single qubit Clifford gates is applied.                                               |     |     |
-| Single shot RO fidelity (%)         | This describes the fidelity when performing single shot readouts of the qubit state. Single-shot readout prepares 50% of the qubit states in the excited and 50% in the ground state.                            |     |     |
-| Fidelity 2QB Cliffords averaged (%) | This is calculated from Standard Randomized Benchmarking, showing the average Clifford gate fidelity.                                                                                                            |     |     |
-| Fidelity per gate (%)               | This is calculated from interleaved 2-qubit Randomized Benchmarking and describes the fidelity between the target qubit and the control qubit with an interleaved gate in the random sequence of Clifford gates. |     |     |
+| Figure                          | Description                                                                                                                                                                           |   |   |
+|---------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---|---|
+| T1 Time (s)                     | The T1 time is called the longitudinal relaxation rate and describes how quickly the excited state of the qubit returns to its ground state.                                          |   |   |
+| T2 Time (s)                     | The T2 time is called the transverse relaxation rate and describes loss of coherence of a superposition state.                                                                        |   |   |
+| T2 Echo Time (s)                | The T2 echo time describes the loss of coherence of the superposition state of the qubit. It is more precise than the T2 Time as it is less susceptible to low-frequency noise.       |   |   |
+| Single shot readout fidelity    | This describes the fidelity when performing single shot readouts of the qubit state. Single-shot readout prepares 50% of the qubit states in the excited and 50% in the ground state. |   |   |
+| Single shot readout 01 error    | The error in assigning an excited state ('1') when the state is in the ground state ('0').                                                                                            |   |   |
+| Single shot readout 10 error    | The error in assigning a ground state ('0') when the state is in the excited state ('1').                                                                                             |   |   |
+| Fidelity 1QB gates averaged     | This is calculated from standard Randomized Benchmarking and describes the average gate fidelity when a random sequence of single qubit Clifford gates is applied.                    |   |   |
+| Fidelity 2QB Cliffords averaged | This is calculated from interleaved Randomized Benchmarking, showing the average Clifford gate fidelity.                                                                              |   |   |
+| CZ gate fidelity                | The controlled-z gate fidelity calculated through interleaved randomized benchmarking.                                                                                                |   |   |
 
-For further information on the figures of merit contact the [CSC Service Desk](../../../../support/contact/), reachable at servicedesk@csc.fi.
+
+For further information on the figures of merit contact the [CSC Service Desk](../../../../support/contact/), reachable at [servicedesk@csc.fi](mailto:servicedesk@csc.fi).

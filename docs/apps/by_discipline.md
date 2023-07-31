@@ -167,7 +167,7 @@
 ## Physics
 
 * [VASP](vasp.md) Ab initio DFT electronic structures
-
+* [Qiskit](qiskit.md) open-source toolkit for useful quantum computing
 
 ## Miscellaneous
 
