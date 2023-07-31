@@ -28,7 +28,7 @@ You can test if pdal loaded successfully with following
 
 ## License 
 
-PDAL is licensed with the BSD open source license. The full licence can be found [here](https://pdal.io/copyright.html)
+PDAL is licensed with the BSD open source license. The full licence can be found from the [PDAL webpage](https://pdal.io/copyright.html)
 
 ## Citation
 

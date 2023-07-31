@@ -83,7 +83,7 @@ otbcli_RadiometricIndices -in test_vrt.vrt -channels.nir 1 -channels.red 2 -list
 
 ## License 
 
-Orfeo ToolBox is licensed under the Apache License, Version 2.0. The full licence can be found [here](https://github.com/orfeotoolbox/OTB/tree/develop/Copyright)
+Orfeo ToolBox is licensed under the Apache License, Version 2.0. The full licence can be found from the [Orfeo ToolBox github repository](https://github.com/orfeotoolbox/OTB/tree/develop/Copyright)
 
 ## Citation
 

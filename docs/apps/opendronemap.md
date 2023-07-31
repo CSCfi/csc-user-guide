@@ -72,7 +72,7 @@ rsync -r $LOCAL_SCRATCH/* $odm_dir
 
 ## License 
 
-OpenDroneMap is distributed under the GNU General Public License (GPL) version 3. Full license [here](https://github.com/OpenDroneMap/ODM/blob/master/LICENSE)
+OpenDroneMap is distributed under the GNU General Public License (GPL) version 3. Full license from the [OpenDroneMap github repository](https://github.com/OpenDroneMap/ODM/blob/master/LICENSE)
 
 ## Citation
 

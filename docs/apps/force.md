@@ -49,7 +49,7 @@ FORCE is licensed under [the GNU GPL License](https://github.com/davidfrantz/for
 
 ## Citation
 
-This software can be cited by citing the [appropriate publication](https://force-eo.readthedocs.io/en/latest/refs.html).
+This software can be cited by citing the appropriate [FORCE publication](https://force-eo.readthedocs.io/en/latest/refs.html).
 
 ## Acknowledgement
 
