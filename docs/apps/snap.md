@@ -153,7 +153,7 @@ SNAP minor and module updates are stored in the `$HOME/.snap` directory. This me
 
 ## License
 
-All SNAP software is published under the [GPL-3](https://www.gnu.org/licenses/gpl.html) license and its sources are available on [GitHub](https://github.com/senbox-org/).
+All SNAP software is published under the [GPL-3](https://www.gnu.org/licenses/gpl.html) license.
 
 ## Citation
 

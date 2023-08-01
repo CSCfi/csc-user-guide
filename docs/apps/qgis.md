@@ -59,7 +59,7 @@ QGIS can __read__ files directly from Allas, either using S3 or SWIFT API. Befor
 
 ## License 
 
-QGIS is licensed under the GNU General Public License. QGIS is an official project of the Open Source Geospatial Foundation (OSGeo).
+QGIS is licensed under the GNU General Public License.
 
 ## Citation
 

@@ -54,11 +54,11 @@ whitebox_tools -r=Hillshade -v -i=/appl/data/geo/mml/dem10m/2019/M3/M34/M3444.ti
 
 ## License 
 
-The WhiteboxTools open-core platform is distributed under the [MIT license](https://www.whiteboxgeo.com/manual/wbt_book/license.html)
+The WhiteboxTools open-core platform is distributed under the MIT license. [The full WhiteboxTools license](https://www.whiteboxgeo.com/manual/wbt_book/license.html)
 
 ## Citation
 
-```Lindsay, J.B. (2014) The Whitebox Geospatial Analysis Tools project and open-access GIS, Proceedings of the GIS Research UK 22nd Annual Conference, The University of Glasgow, 16-18 April, DOI: 10.13140/RG.2.1.1010.8962.```
+`Lindsay, J.B. (2014) The Whitebox Geospatial Analysis Tools project and open-access GIS, Proceedings of the GIS Research UK 22nd Annual Conference, The University of Glasgow, 16-18 April, DOI: 10.13140/RG.2.1.1010.8962.`
 
 ## Acknowledgement
 
