@@ -14,6 +14,8 @@ __SNAP__ is available in Puhti with following versions:
 * 9.0 (wrapped singularity container with Python 3.6.9 including snappy and snapista)
 * 8.0 (Singularity container with snappy 8.0.3 and Python 3.6.9)
 
+In addition we provide the module `snap/jupyter` which has SNAP 9.0 (wrapped singularity container with Python 3.6.9 including snappy and snapista) and jupyter installed. You can for example use it in the Jupyter application in the Puhti webinterface via the **custom module** option.
+
 ### Installed toolboxes
 
 * Sentinel toolboxes (1,2,3) 
