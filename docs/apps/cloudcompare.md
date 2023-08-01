@@ -43,17 +43,17 @@ CloudCompare is published under the [GNU General Public License](https://github.
 
 You are free to use CloudCompare for any purpose, including commercially or for education. 
 
-
-
 ## Citation
 
 ```
-CloudCompare (version 2.10.3) [GPL software]. (2021). Retrieved from <a href="http://www.cloudcompare.org/" aria-label="CloudCompare homepage">CloudCompare</a>
+CloudCompare (version 2.10.3) [GPL software]. (2021). Retrieved from http://www.cloudcompare.org.
 ```
 
-Also cite the plugin authors, if you used a [plugin](http://www.cloudcompare.org/doc/wiki/index.php?title=Plugins).
+If you used a [CloudCompare plugin](http://www.cloudcompare.org/doc/wiki/index.php?title=Plugins), also cite the plugin authors.
 
-In your publications please acknowledge also Geoportti and CSC, for example “The authors wish to acknowledge for computational resources CSC – IT Center for Science, Finland (urn:nbn:fi:research-infras-2016072531) and the Open Geospatial Information Infrastructure for Research (oGIIR, urn:nbn:fi:research-infras-2016072513).”
+## Acknowledgement
+
+Please acknowledge CSC and Geoportti in your publications, it is important for project continuation and funding reports. As an example, you can write "The authors wish to thank CSC - IT Center for Science, Finland (urn:nbn:fi:research-infras-2016072531) and the Open Geospatial Information Infrastructure for Research (Geoportti, urn:nbn:fi:research-infras-2016072513) for computational resources and support".
 
 
 ## References

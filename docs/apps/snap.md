@@ -151,12 +151,19 @@ apptainer_wrapper exec pip <NEW-PACKAGE-NAME> --user
 
 SNAP minor and module updates are stored in the `$HOME/.snap` directory. This means that all minor updates need to be installed by the user. You can either do this in SNAP Desktop by following the instructions in the pop-up at start up, or for SNAP 9 by running `source update_snap` after loading the SNAP module in the terminal.
 
-## License and acknowledgement
+## License
 
-All SNAP software is published under the [GPL-3](https://www.gnu.org/licenses/gpl.html) license and its sources are available on [GitHub](https://github.com/senbox-org/).
+All SNAP software is published under the [GPL-3](https://www.gnu.org/licenses/gpl.html) license.
+
+## Citation
+
+```SNAP - ESA Sentinel Application Platform v{VERSION}, http://step.esa.int```
+
+##  Acknowledgement
 
 Please acknowledge CSC and Geoportti in your publications, it is important for project continuation and funding reports.
 As an example, you can write "The authors wish to thank CSC - IT Center for Science, Finland (urn:nbn:fi:research-infras-2016072531) and the Open Geospatial Information Infrastructure for Research (Geoportti, urn:nbn:fi:research-infras-2016072513) for computational resources and support".
+
 
 ### References
 
