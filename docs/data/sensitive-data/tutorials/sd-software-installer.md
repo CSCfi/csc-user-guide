@@ -7,9 +7,9 @@ copied to your SD Desktop environment for installation and usage.
 
 In generally, we recommend using Apptainer containers for importing the software you need.
 
-To make additional software installations easier, CSC has created **SD Software Installer** tool,
+To make additional software installations easier, CSC has created a **SD Software Installer** tool,
 that provides an easy way to add few commonly used software packages and help tools to your virtual machine. 
-This document describes the usage of this help tool.
+This document describes the usage of this tool.
 
 
 ## Requirements ##

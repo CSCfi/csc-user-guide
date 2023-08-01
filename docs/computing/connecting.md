@@ -20,7 +20,7 @@ Where `yourcscusername` is the username you get from CSC.
 
 In Linux, macOS, Windows PowerShell and [MobaXterm](https://mobaxterm.mobatek.net/)
 the `ssh` command can be given in the terminal. To connect with [PuTTY](https://putty.org/)
-in Windows, specify **puhti.csc.fi** as _Host Name_ (using the default port 22 and SSH
+in Windows, specify **puhti.csc.fi** or **mahti.csc.fi** as _Host Name_ (using the default port 22 and SSH
 connection type). Clicking the _Open_ button starts a new terminal session and asks for
 your CSC username and password. You can also use some code editors like Visual Studio
 Code to [edit and run code in Puhti/Mahti remotely](../support/tutorials/remote-dev.md).
@@ -43,10 +43,10 @@ supercomputers.
 
 ## Using graphical applications
 
-The [Puhti web interface](webinterface/index.md) is a good platform for using most graphical
-applications, such as Jupyter notebooks and RStudio, in Puhti. Additionally, you can launch
+The [Puhti and Mahti web interfaces](webinterface/index.md) are good platforms for using most graphical
+applications, such as Jupyter notebooks and RStudio, in Puhti and Mahti. Additionally, you can launch
 a [remote desktop](webinterface/desktop.md) for running various graphical user interfaces.
-The Puhti web interface allows you also to open a persistent shell on a compute node which
+With the web interface you can also open a persistent shell on a compute node which
 will keep running even if you would close your browser or lose internet connection.
 
 If you for some reason want to use a slower, X11 based graphical connection, your local computer
@@ -196,7 +196,7 @@ guide](../../cloud/pouta/launch-vm-from-web-gui/#setting-up-ssh-keys).
    [`PuTTYgen`](https://www.puttygen.com/#How_to_use_PuTTYgen). Optionally,
    if you created the keys using Powershell or `ssh-keygen`, convert the private
    key to PuTTY's format (_Load an existing private key file, Save private key_).
-2. [Copy the public key to Puhti manually](#manual-copying-of-public-ssh-key-from-local-pc-to-supercomputer).
+2. [Copy the public key to Puhti/Mahti manually](#manual-copying-of-public-ssh-key-from-local-pc-to-supercomputer).
 3. When starting a connection with `PuTTY`, select the private key file in
    **Connection > SSH > Auth**. Save the session so that the settings can be
    utilized automatically each time you connect.
