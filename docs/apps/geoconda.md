@@ -129,6 +129,10 @@ There are two Python libraries installed in Geoconda that can interact with Alla
 
 All packages are licensed under various free and open source licenses (FOSS), see the linked pages above for exact details.
 
+## Citation
+
+Please see the above linked package pages for citation information per package.
+
 ##  Acknowledgement
 
 Please acknowledge CSC and Geoportti in your publications, it is important for project continuation and funding reports.

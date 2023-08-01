@@ -48,14 +48,24 @@ Copy it to your `$HOME` directory, adjust it to your needs and add it to the cal
 
 Sen2mosaic is published under the [GNU,GPL v3](https://github.com/smfm-project/sen2mosaic/blob/master/LICENSE.md) license.
 
+
+## Citation
+
+Sen2mosaic does not provide any preferred citation information.
+
+```Samuel Bowers: Sen2mosaic v.0.2. https://github.com/smfm-project/sen2mosaic , last accessed on {date}.```
+
+
 ## Acknowledgement
 
 Please acknowledge CSC and Geoportti in your publications, it is important for project continuation and funding reports.
 As an example, you can write "The authors wish to thank CSC - IT Center for Science, Finland (urn:nbn:fi:research-infras-2016072531) and the Open Geospatial Information Infrastructure for Research (Geoportti, urn:nbn:fi:research-infras-2016072513) for computational resources and support".
 
+
 ## Installation
 
 Sen2mosaic was installed on top of [sen2cor](./sen2cor.md) and [geoconda](./geoconda.md) modules using pip and the [sen2mosaic github repository](https://github.com/smfm-project/sen2mosaic).   
+
 
 ### References
 

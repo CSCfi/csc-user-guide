@@ -153,7 +153,13 @@ SNAP minor and module updates are stored in the `$HOME/.snap` directory. This me
 
 ## License
 
-All SNAP software is published under the [GPL-3](https://www.gnu.org/licenses/gpl.html) license and its sources are available on [GitHub](https://github.com/senbox-org/).
+All SNAP software is published under the [GPL-3](https://www.gnu.org/licenses/gpl.html) license.
+
+## Citation
+
+```SNAP - ESA Sentinel Application Platform v{VERSION}, http://step.esa.int```
+
+##  Acknowledgement
 
 
 ##  Acknowledgement
@@ -161,9 +167,11 @@ All SNAP software is published under the [GPL-3](https://www.gnu.org/licenses/gp
 Please acknowledge CSC and Geoportti in your publications, it is important for project continuation and funding reports.
 As an example, you can write "The authors wish to thank CSC - IT Center for Science, Finland (urn:nbn:fi:research-infras-2016072531) and the Open Geospatial Information Infrastructure for Research (Geoportti, urn:nbn:fi:research-infras-2016072513) for computational resources and support".
 
+
 ## Installation
 
 SNAP was installed on Puhti with Singularity using the [Docker image provided by mundialis on Dockerhub](https://hub.docker.com/r/mundialis/esa-snap) with some small additions to provide snappy and snapista Python interfaces. The Singularity definition file can be found in [CSCs singularity-recipes reposiory](https://raw.githubusercontent.com/CSCfi/singularity-recipes/main/snap/snap_py.def). The container was then wrapped with [Tykky](../computing/containers/tykky.md).
+
 
 ### References
 

@@ -45,7 +45,11 @@ We have an example of running L1 to L2 pipeline for Sentinel images in [our Gith
 
 ## License 
 
-FORCE is licensed under [the GNU GPL License](https://github.com/davidfrantz/force/blob/master/LICENSE).
+[FORCE is licensed under the GNU GPL License](https://github.com/davidfrantz/force/blob/master/LICENSE).
+
+## Citation
+
+This software can be cited by citing the appropriate [FORCE publication](https://force-eo.readthedocs.io/en/latest/refs.html).
 
 ## Acknowledgement
 
@@ -54,7 +58,8 @@ As an example, you can write "The authors wish to thank CSC - IT Center for Scie
 
 ## Installation
 
-FORCE was installed on Puhti with Singularity using the [Docker image provided by the author on Dockerhub](https://hub.docker.com/r/davidfrantz/force). The container was then wrapped with [Tykky](../computing/containers/tykky.md).
+FORCE was installed on Puhti with Singularity using the [Docker image provided by the FORCE author on Dockerhub](https://hub.docker.com/r/davidfrantz/force). The container was then wrapped with [Tykky](../computing/containers/tykky.md).
+
 
 ### References
 
