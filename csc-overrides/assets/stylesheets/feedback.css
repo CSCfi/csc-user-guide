@@ -1,0 +1,44 @@
+.csc-feedback {
+  --button-positive--fg: var(--csc-admonition-success-label--fg);
+  --button-positive--bg: var(--csc-admonition-success-label--bg);
+  --button-negative--fg: var(--csc-admonition-error-label--fg);
+  --button-negative--bg: var(--csc-admonition-error-label--bg);
+}
+
+.csc-feedback fieldset {
+  border: unset;
+  max-width: fit-content;
+  margin: 0 auto 1rem auto;
+}
+
+.csc-feedback fieldset legend {
+  margin: 0 auto;
+}
+
+.csc-feedback .csc-feedback-content {
+  display: flex;
+  justify-content: center;
+}
+
+.csc-feedback .csc-feedback-button {
+  border: 0;
+  scale: 0.9;
+}
+
+.csc-feedback .csc-feedback-button--positive {
+  color: var(--button-positive--fg);
+  background-color: var(--button-positive--bg);
+}
+
+.csc-feedback .csc-feedback-button--positive:hover {
+  background-color: var(--csc-success);
+}
+
+.csc-feedback .csc-feedback-button--negative {
+  color: var(--button-negative--fg);
+  background-color: var(--button-negative--bg);
+}
+
+.csc-feedback .csc-feedback-button--negative:hover {
+  background-color: var(--csc-error);
+}

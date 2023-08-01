@@ -11,6 +11,27 @@ extra:
     provider: custom
     matomo_site_id: !ENV [MATOMO_SITE_ID, ""]
     matomo_url: !ENV [MATOMO_URL, ""]
+    feedback:
+      title: Do you find this page useful?
+      ratings:
+        - name: "Yes"
+          type: positive
+          description: Yes! I do find this page useful.
+          note: >-
+            Thank you!
+        - name: "No"
+          type: negative
+          description: No! This page needs to be improved.
+          note: >-
+            You can improve this page by
+            submitting a pull request.
+      exclude: [
+        /,
+        apps/,
+        apps/by_discipline/,
+        apps/by_system/,
+        apps/by_license/,
+      ]
 
 plugins:
   - tags:
@@ -93,6 +114,7 @@ extra_css:
   - assets/stylesheets/code.css
   - assets/stylesheets/content.css
   - assets/stylesheets/dropdown.css
+  - assets/stylesheets/feedback.css
   - assets/stylesheets/footer.css
   - assets/stylesheets/header.css
   - assets/stylesheets/sidebars.css
@@ -106,6 +128,7 @@ extra_javascript:
   - assets/javascripts/dropdown.js
   - assets/javascripts/layout.js
   - assets/javascripts/extra.js
+  - assets/javascripts/feedback.js
 
 nav:
   - Home: index.md

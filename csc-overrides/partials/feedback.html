@@ -1,0 +1,20 @@
+{% set feedback = config.extra.analytics.feedback %}
+{% if not page.is_homepage and page.url not in feedback.exclude %}
+<form class="csc-feedback" name="feedback">
+  <fieldset>
+    <legend>{{ feedback.title }}</legend>
+    <div class="csc-feedback-content">
+      {% for rating in feedback.ratings %}
+      <button
+        class="md-button md-button--primary csc-feedback-button csc-feedback-button--{{ rating.type }}"
+        type="submit"
+        title="{{ rating.description }}"
+        value="{{ rating.type }}"
+      >
+        {{ rating.name }}
+      </button>
+      {% endfor %}
+    </div>
+  </fieldset>
+</form>
+{% endif %}
