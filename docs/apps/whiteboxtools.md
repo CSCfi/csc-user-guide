@@ -52,12 +52,19 @@ module load whiteboxtools
 whitebox_tools -r=Hillshade -v -i=/appl/data/geo/mml/dem10m/2019/M3/M34/M3444.tif -o=test_hillshade.tif --azimuth=315.0 --altitude=30.0
 ```
 
-## License and acknowledgement
+## License 
 
-The WhiteboxTools open-core platform is distributed under the [MIT license](https://www.whiteboxgeo.com/manual/wbt_book/license.html)
+The WhiteboxTools open-core platform is distributed under the MIT license. [The full WhiteboxTools license](https://www.whiteboxgeo.com/manual/wbt_book/license.html)
+
+## Citation
+
+`Lindsay, J.B. (2014) The Whitebox Geospatial Analysis Tools project and open-access GIS, Proceedings of the GIS Research UK 22nd Annual Conference, The University of Glasgow, 16-18 April, DOI: 10.13140/RG.2.1.1010.8962.`
+
+## Acknowledgement
 
 Please acknowledge CSC and Geoportti in your publications, it is important for project continuation and funding reports.
 As an example, you can write "The authors wish to thank CSC - IT Center for Science, Finland (urn:nbn:fi:research-infras-2016072531) and the Open Geospatial Information Infrastructure for Research (Geoportti, urn:nbn:fi:research-infras-2016072513) for computational resources and support".
+
 
 ### References
 

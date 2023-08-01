@@ -53,11 +53,15 @@ The [parallel_stereo](https://stereopipeline.readthedocs.io/en/latest/tools/para
 Ames Stereo Pipeline supports also multi-node batch jobs, see its [PBS and SLURM documentation](https://stereopipeline.readthedocs.io/en/latest/examples.html#using-pbs-and-slurm) for details; please notice that in Puhti, in addition to the mentioned arguments, you need to provide the `--account` argument and use the correct [`--partion`-names](../computing/running/batch-job-partitions.md).
 
 
-## License and acknowledgement
+## License 
 
 NASA Ames Stereo Pipeline (ASP) is distributed under [Apache-2 license](https://www.apache.org/licenses/LICENSE-2.0).
 
+## Citation
+
 [Citing the Ames Stereo Pipeline in your work](https://stereopipeline.readthedocs.io/en/latest/introduction.html#citing-the-ames-stereo-pipeline-in-your-work). 
+
+## Acknowledgement
 
 Please acknowledge CSC and Geoportti in your publications, it is important for project continuation and funding reports. As an example, you can write "The authors wish to thank CSC - IT Center for Science, Finland (urn:nbn:fi:research-infras-2016072531) and the Open Geospatial Information Infrastructure for Research (Geoportti, urn:nbn:fi:research-infras-2016072513) for computational resources and support".
 
