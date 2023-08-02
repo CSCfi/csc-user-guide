@@ -64,7 +64,7 @@ As an example, you can write "The authors wish to thank CSC - IT Center for Scie
 
 ## Installation
 
-Sen2mosaic was installed on top of [sen2cor](./sen2cor.md) and [geoconda](./geoconda.md) modules using pip and the [sen2mosaic github repository](https://github.com/smfm-project/sen2mosaic).   
+Almost all dependencies for Sen2mosaic are available from the [sen2cor](./sen2cor.md) and [geoconda](./geoconda.md) modules, so Sen2mosaic was installed on top of them using `pip install --user opencv-python git+https://github.com/smfm-project/sen2mosaic.git`, while both modules were loaded (remember to set the installation directory first with `export PYTHONUSERBASE=/path/to/sen2mosaic/install/directory`. For shorter command line calls, the commands `s2m_download` ,`s2m_preprocess` and `s2m_mosaic` were created to shorten the original `python3 /path/to/sen2mosaic/cli/download.py` commands. This last step is not necessary for usability.  
 
 
 ### References
