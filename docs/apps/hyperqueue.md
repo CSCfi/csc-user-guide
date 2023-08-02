@@ -332,8 +332,10 @@ File: `extract`
 
 ```bash
 #!/bin/bash
-cp data.tar.gz "$LOCAL_SCRATCH"
+cp input.tar.gz "$LOCAL_SCRATCH"
+cd "$LOCAL_SCRATCH"
 tar xf input.tar.gz
+mkdir -p output
 ```
 
 File: `task`
@@ -341,8 +343,7 @@ File: `task`
 ```bash
 #!/bin/bash
 cd "$LOCAL_SCRATCH"
-mkdir -p output
-# convert files in `input` directory to output in `output` directory
+# convert one `input` file to one `output` file
 ```
 
 File: `archive`
