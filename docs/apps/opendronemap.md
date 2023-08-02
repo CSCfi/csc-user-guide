@@ -78,13 +78,20 @@ OpenDroneMap is distributed under the GNU General Public License (GPL) version 3
 
 `OpenDroneMap Authors, ODM - A command line toolkit to generate maps, point clouds, 3D models and DEMs from drone, balloon or kite images. OpenDroneMap/ODM GitHub Page 2020; https://github.com/OpenDroneMap/ODM`
 
+
+
 ## Acknowledgement
 
 Please acknowledge CSC and Geoportti in your publications, it is important for project continuation and funding reports.
 As an example, you can write "The authors wish to thank CSC - IT Center for Science, Finland (urn:nbn:fi:research-infras-2016072531) and the Open Geospatial Information Infrastructure for Research (Geoportti, urn:nbn:fi:research-infras-2016072513) for computational resources and support".
 
 
-### References
+## Installation
+
+OpenDroneMap was installed to Puhti with Apptrainer using the [OpenDroneMap Docker image from Dockerhub provided by OpenDroneMap community](https://hub.docker.com/r/opendronemap/odm). OpenDroneMap commands have not been wrapped with Tykky, because mapping of folders is always needed at run-time.
+
+
+## References
 
 * [OpenDroneMap homepage](https://opendronemap.org)
 * [OpenDroneMap Docs](https://docs.opendronemap.org/)

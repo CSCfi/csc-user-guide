@@ -34,13 +34,20 @@ PDAL is licensed with the BSD open source license. [The full PDAL licence](https
 
 ```  PDAL contributors (2022). PDAL: The Point Data Abstraction Library, DOI: 10.5281/zenodo.2616780  ```
 
+
+
 ## Acknowledgement
 
 Please acknowledge CSC and Geoportti in your publications, it is important for project continuation and funding reports.
 As an example, you can write "The authors wish to thank CSC - IT Center for Science, Finland (urn:nbn:fi:research-infras-2016072531) and the Open Geospatial Information Infrastructure for Research (Geoportti, urn:nbn:fi:research-infras-2016072513) for computational resources and support".
 
 
-### References
+## Installation
+
+Please see the respectives versions module page: [Geoconda](./geoconda.md) , [QGIS](./qgis.md).
+
+
+## References
 
 * [PDAL homepage](https://pdal.io/)
 * [LAS file example](https://pdal.io/tutorial/las.html)

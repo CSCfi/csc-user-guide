@@ -56,8 +56,14 @@ This software can be cited by citing the appropriate [FORCE publication](https:/
 Please acknowledge CSC and Geoportti in your publications, it is important for project continuation and funding reports.
 As an example, you can write "The authors wish to thank CSC - IT Center for Science, Finland (urn:nbn:fi:research-infras-2016072531) and the Open Geospatial Information Infrastructure for Research (Geoportti, urn:nbn:fi:research-infras-2016072513) for computational resources and support".
 
+## Installation
 
-### References
+FORCE was installed to Puhti with [Tykky's wrap-container functionality](../computing/containers/tykky.md#container-based-installations) using the [Docker image provided by the FORCE author on Dockerhub](https://hub.docker.com/r/davidfrantz/force). 
+
+`wrap-container -w /home/docker/bin docker://davidfrantz/force:latest --prefix install_dir`
+
+
+## References
 
 * [CSC Example](https://github.com/csc-training/geocomputing/tree/master/force)
 * [FORCE github](https://github.com/davidfrantz/force)

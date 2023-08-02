@@ -65,6 +65,10 @@ NASA Ames Stereo Pipeline (ASP) is distributed under [Apache-2 license](https://
 
 Please acknowledge CSC and Geoportti in your publications, it is important for project continuation and funding reports. As an example, you can write "The authors wish to thank CSC - IT Center for Science, Finland (urn:nbn:fi:research-infras-2016072531) and the Open Geospatial Information Infrastructure for Research (Geoportti, urn:nbn:fi:research-infras-2016072513) for computational resources and support".
 
-### References
+## Installation
+
+Ames Stereo Pipeline was installed on Puhti using [Tykky's conda-containerize functionality](../computing/containers/tykky.md), using this [Ames Stereo Pipeline conda environment file](https://github.com/csc-training/geocomputing/blob/master/supercomputer_installations/ames-stereo_3.2.0.yml).
+
+## References
 
 * [Ames Stereo Pipeline documentation](https://stereopipeline.readthedocs.io/)

@@ -65,13 +65,22 @@ QGIS is licensed under the GNU General Public License.
 
 ```QGIS.org, 2023. QGIS Geographic Information System. QGIS Association. http://www.qgis.org```
 
+
+
 ## Acknowledgement
 
 Please acknowledge CSC and Geoportti in your publications, it is important for project continuation and funding reports.
 As an example, you can write "The authors wish to thank CSC - IT Center for Science, Finland (urn:nbn:fi:research-infras-2016072531) and the Open Geospatial Information Infrastructure for Research (Geoportti, urn:nbn:fi:research-infras-2016072513) for computational resources and support".
 
 
-### References
+## Installation
+
+QGIS was installed to Puhti and LUMI with [Tykky's wrap-container functionality](../computing/containers/tykky.md#container-based-installations) using the [QGIS Docker image from Dockerhub provided by QGIS community](https://hub.docker.com/r/qgis/qgis). In LUMI `Tykky` is named `Container wrapper`.
+
+`wrap-container -w /usr/bin docker://qgis/qgis:latest --prefix install_dir`
+
+
+## References
 
 * [QGIS homepage](https://www.qgis.org/)
 * [QGIS tutorials](https://www.qgistutorials.com/en/)

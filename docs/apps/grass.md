@@ -52,14 +52,21 @@ grass
 
 Geographic Resources Analysis Support System (GRASS) is Copyright, 1999-2020 GRASS Development Team, and licensed under the terms of the GNU General Public License (GPL). This includes all software, documentation, and associated materials. [Full GRASS GIS license](https://grass.osgeo.org/about/license/)
 
+
 ## Citation
 
 This software can be cited by chosing the appropriate citation from the [GRASS citation repository](https://grasswiki.osgeo.org/wiki/GRASS_Citation_Repository). 
+
 
 ## Acknowledgement
 
 Please acknowledge CSC and Geoportti in your publications, it is important for project continuation and funding reports.
 As an example, you can write "The authors wish to thank CSC - IT Center for Science, Finland (urn:nbn:fi:research-infras-2016072531) and the Open Geospatial Information Infrastructure for Research (Geoportti, urn:nbn:fi:research-infras-2016072513) for computational resources and support".
+
+
+## Installation
+
+GRASS was installed to Puhti and LUMI as part of [QGIS installation](qgis.md#installation).
 
 
 ## References
