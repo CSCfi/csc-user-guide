@@ -87,7 +87,7 @@ Zonation was installed to Puhti with Apptainer using [Zonation Apptainer definit
 The container was finally wrapped with [Tykky's wrap-container functionality](../computing/containers/tykky.md#container-based-installations): `wrap-container -w /usr/bin/z5 --prefix install_dir z5.sif`
 
 
-### References
+## References
 
 * [Zonation homepage](https://zonationteam.github.io/Zonation5/)
 * [Zonation Github](https://github.com/zonationteam/Zonation5)

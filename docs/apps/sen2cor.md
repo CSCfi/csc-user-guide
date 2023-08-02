@@ -57,7 +57,7 @@ As an example, you can write "The authors wish to thank CSC - IT Center for Scie
 Sen2cor was installed on Puhti using [ESAs standalone Sen2cor installer for Linux](https://step.esa.int/main/snap-supported-plugins/sen2cor/).
 
 
-### References
+## References
 
 * [Sen2Cor user manual](https://step.esa.int/thirdparties/sen2cor/2.10.0/docs/S2-PDGS-MPC-L2A-SRN-V2.10.0.pdf)
 * [Sen2Cor v2.10 release notes ](http://step.esa.int/thirdparties/sen2cor/2.10.0/docs/S2-PDGS-MPC-L2A-SRN-V2.10.0.pdf)

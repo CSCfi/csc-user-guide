@@ -65,7 +65,6 @@ QGIS is licensed under the GNU General Public License.
 
 ```QGIS.org, 2023. QGIS Geographic Information System. QGIS Association. http://www.qgis.org```
 
-## Acknowledgement
 
 
 ## Acknowledgement
@@ -81,7 +80,7 @@ QGIS was installed to Puhti and LUMI with [Tykky's wrap-container functionality]
 `wrap-container -w /usr/bin docker://qgis/qgis:latest --prefix install_dir`
 
 
-### References
+## References
 
 * [QGIS homepage](https://www.qgis.org/)
 * [QGIS tutorials](https://www.qgistutorials.com/en/)

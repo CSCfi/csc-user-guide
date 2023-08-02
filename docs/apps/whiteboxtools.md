@@ -60,7 +60,6 @@ The WhiteboxTools open-core platform is distributed under the MIT license. [The 
 
 `Lindsay, J.B. (2014) The Whitebox Geospatial Analysis Tools project and open-access GIS, Proceedings of the GIS Research UK 22nd Annual Conference, The University of Glasgow, 16-18 April, DOI: 10.13140/RG.2.1.1010.8962.`
 
-## Acknowledgement
 
 
 ## Acknowledgement
@@ -74,7 +73,7 @@ As an example, you can write "The authors wish to thank CSC - IT Center for Scie
 Whiteboxtools are part of [Geoconda installation](./geoconda.md#installation).
 
 
-### References
+## References
 
 * [WhiteboxTools User Manual](https://www.whiteboxgeo.com/manual/wbt_book/intro.html)
 * [Whitebox Geospatial Inc](https://www.whiteboxgeo.com/)

@@ -147,7 +147,7 @@ Geoconda was installed to Puhti and Mahti using [Tykkys conda-containerize funct
 Geoconda conda environment files and `download_wbt` and `start_wbt.py` needed for WhiteboxTools are available in [CSCs geocomputing repository](https://github.com/csc-training/geocomputing/tree/master/supercomputer_installations/geoconda). Note that for reproducibility, you'll need to define the package versions in the environment file, which can be checked on Puhti and Mahti using `list-packages` command after loading the `geoconda` module.
 
 
-### References
+## References
 
 -   [CSC Python parallelisation examples]
 -   [Python spatial] libraries

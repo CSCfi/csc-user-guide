@@ -98,7 +98,6 @@ Open Source Geospatial Foundation.
 URL https://gdal.org, 
 DOI: 10.5281/zenodo.5884351
 
-## Acknowledgement
 
 
 ## Acknowledgement

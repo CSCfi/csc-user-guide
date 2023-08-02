@@ -69,6 +69,6 @@ Please acknowledge CSC and Geoportti in your publications, it is important for p
 
 Ames Stereo Pipeline was installed on Puhti using [Tykky's conda-containerize functionality](../computing/containers/tykky.md), using this [Ames Stereo Pipeline conda environment file](https://github.com/csc-training/geocomputing/blob/master/supercomputer_installations/ames-stereo_3.2.0.yml).
 
-### References
+## References
 
 * [Ames Stereo Pipeline documentation](https://stereopipeline.readthedocs.io/)

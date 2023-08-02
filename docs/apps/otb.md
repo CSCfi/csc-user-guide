@@ -89,7 +89,6 @@ Orfeo ToolBox is licensed under the Apache License, Version 2.0. [The full Orfeo
 
 `Grizonnet, M., Michel, J., Poughon, V. et al. Orfeo ToolBox: open source processing of remote sensing images. Open geospatial data, softw. stand. 2, 15 (2017). https://doi.org/10.1186/s40965-017-0031-6`
 
-## Acknowledgement
 
 
 ## Acknowledgement
@@ -105,7 +104,7 @@ Orfeo Toolbox was installed to Puhti with [Tykky's wrap-container functionality]
 `wrap-container -w /opt/otb/bin,/usr/bin/python3 docker://orfeotoolbox/otb:8.0.1 --prefix install_dir`
 
 
-### References
+## References
 
 * [Orfeo ToolBox homepage](https://www.orfeo-toolbox.org/)
 * [Orfeo ToolBox general documentation](https://www.orfeo-toolbox.org/CookBook/)

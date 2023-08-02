@@ -63,7 +63,7 @@ FORCE was installed to Puhti with [Tykky's wrap-container functionality](../comp
 `wrap-container -w /home/docker/bin docker://davidfrantz/force:latest --prefix install_dir`
 
 
-### References
+## References
 
 * [CSC Example](https://github.com/csc-training/geocomputing/tree/master/force)
 * [FORCE github](https://github.com/davidfrantz/force)

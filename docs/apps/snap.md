@@ -159,7 +159,6 @@ All SNAP software is published under the [GPL-3](https://www.gnu.org/licenses/gp
 
 ```SNAP - ESA Sentinel Application Platform v{VERSION}, http://step.esa.int```
 
-##  Acknowledgement
 
 
 ##  Acknowledgement
@@ -175,7 +174,7 @@ SNAP was installed to Puhti with Singularity using the [SNAP Docker image provid
 The full [SNAP Singularity definition file](https://raw.githubusercontent.com/CSCfi/singularity-recipes/main/snap/snap_py.def). 
 
 
-### References
+## References
 
 * [SNAP homepage](http://step.esa.int/main/toolboxes/snap/)
 * [SNAP CSC example](https://github.com/csc-training/geocomputing/tree/master/snap)

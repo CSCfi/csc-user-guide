@@ -57,7 +57,7 @@ As an example, you can write "The authors wish to thank CSC - IT Center for Scie
 
 PCL was installed to Puhti with Apptainer, using this [PCL Apptainer definition file](https://github.com/CSCfi/singularity-recipes/blob/main/pcl/pcl_from_ubuntu.def).
 
-### References
+## References
 
 * [PCL homepage](https://pointclouds.org/)
 * [PCL Documentation and tutorials](https://pcl.readthedocs.io)

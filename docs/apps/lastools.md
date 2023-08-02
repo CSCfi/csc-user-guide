@@ -130,7 +130,7 @@ LAStools was installed to Puhti with [Tykky's wrap-container functionality](../c
 `wrap-container -w /opt/LAStools docker//:pydo/lastools:latest --prefix install_dir`
 
 
-### References
+## References
 
 * [LAStools homepage](https://rapidlasso.com/lastools/)
 * [LAStools Github](https://github.com/LAStools/LAStools)
