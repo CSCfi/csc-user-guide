@@ -159,7 +159,7 @@ In this case, one has to be careful not to mix up separate computations. We reco
 
 ```bash
 # Specify a location for the server
-export HQ_SERVER_DIR="$PWD/.hq-server/$SLURM_JOB_ID"
+export HQ_SERVER_DIR="$PWD/hq-server/$SLURM_JOB_ID"
 
 # Create a directory for the server
 mkdir -p "$HQ_SERVER_DIR"
@@ -178,6 +178,7 @@ until hq job list &> /dev/null ; do sleep 1 ; done
 
 **Workers**
 
+</--
 Next, we start HyperQueue workers in the background with the number of CPUs and the amount of memory defined in the batch script.
 We access those values using the `SLURM_CPU_PER_TASK` and `SLURM_MEM_PER_CPU` environment variables.
 By starting the workers using the `srun` command, we create one worker per Slurm task.
@@ -200,6 +201,22 @@ srun --overlap --cpu-bind=none --mpi=none hq worker start \
     --on-server-lost finish-running \
     --cpus="$SLURM_CPUS_PER_TASK" \
     $TOTAL_MEM_OPT &
+
+# Wait until all workers have started
+hq worker wait "$SLURM_NTASKS"
+```
+-->
+
+Next, we start HyperQueue workers in the background with the number of CPUs defined in the batch script using the `SLURM_CPU_PER_TASK` environment variable.
+By starting the workers using the `srun` command, we create one worker per Slurm task.
+We also wait for all workers to connect, which is generally good practice as we can notice issues with the workers early.
+
+```bash
+# Start the workers in the background.
+srun --overlap --cpu-bind=none --mpi=none hq worker start \
+    --manager slurm \
+    --on-server-lost finish-running \
+    --cpus="$SLURM_CPUS_PER_TASK" &
 
 # Wait until all workers have started
 hq worker wait "$SLURM_NTASKS"
@@ -251,6 +268,144 @@ srun -m arbitrary -w "$SLURM_JOB_NODELIST" <executable>
 ```
 
 Without the options, `srun` would run the executable on every Slurm task, which could be on the same node.
+
+
+### Example scripts
+#### Batch job
+File: `task`
+
+```bash
+#!/bin/bash
+sleep 1
+```
+
+File: `batch.sh`
+
+```bash
+#!/bin/bash
+#SBATCH --account=<project>
+#SBATCH --partition=small
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=10
+#SBATCH --mem-per-cpu=1000
+#SBATCH --time=00:15:00
+
+module load hyperqueue
+
+# Specify a location for the server
+export HQ_SERVER_DIR="$PWD/hq-server/$SLURM_JOB_ID"
+
+# Create a directory for the server
+mkdir -p "$HQ_SERVER_DIR"
+
+# Start the server in the background
+hq server start &
+
+# Wait until the server has started
+until hq job list &> /dev/null ; do sleep 1 ; done
+
+# Start the workers in the background.
+srun --overlap --cpu-bind=none --mpi=none hq worker start \
+    --manager slurm \
+    --on-server-lost finish-running \
+    --cpus="$SLURM_CPUS_PER_TASK" &
+
+# Wait until all workers have started
+hq worker wait "$SLURM_NTASKS"
+
+# Submit tasks to workers
+hq submit --stdout=none --stderr=none --cpus=1 --array=1-1000 ./task
+
+# Wait for all the tasks to finish
+hq job wait all
+
+# Shut down the workers and server
+hq worker stop all
+hq server stop
+```
+
+
+#### Local disk
+We assume that an archive named `input.tar.gz` extracts into `input` directory.
+
+File: `extract`
+
+```bash
+#!/bin/bash
+cp data.tar.gz "$LOCAL_SCRATCH"
+tar xf input.tar.gz
+```
+
+File: `task`
+
+```bash
+#!/bin/bash
+cd "$LOCAL_SCRATCH"
+mkdir -p output
+# convert files in `input` directory to output in `output` directory
+```
+
+File: `archive`
+
+```bash
+#!/bin/bash
+ARCHIVE="$LOCAL_SCRATCH/output-$HOSTNAME.tar.gz"
+tar czf "$ARCHIVE" "$LOCAL_SCRATCH/output"
+cp "$ARCHIVE" "$PWD"
+```
+
+File: `batch.sh`
+
+```bash
+#!/bin/bash
+#SBATCH --account=<project>
+#SBATCH --partition=small
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=10
+#SBATCH --mem-per-cpu=1000
+#SBATCH --time=00:15:00
+#SBATCH --gres=nvme:1
+
+module load hyperqueue
+
+# Specify a location for the server
+export HQ_SERVER_DIR="$PWD/hq-server/$SLURM_JOB_ID"
+
+# Create a directory for the server
+mkdir -p "$HQ_SERVER_DIR"
+
+# Start the server in the background
+hq server start &
+
+# Wait until the server has started
+until hq job list &> /dev/null ; do sleep 1 ; done
+
+# Start the workers in the background.
+srun --overlap --cpu-bind=none --mpi=none hq worker start \
+    --manager slurm \
+    --on-server-lost finish-running \
+    --cpus="$SLURM_CPUS_PER_TASK" &
+
+# Wait until all workers have started
+hq worker wait "$SLURM_NTASKS"
+
+# Local disk
+srun -m arbitrary -w "$SLURM_JOB_NODELIST" ./extract
+
+# Submit tasks to workers
+hq submit --stdout=none --stderr=none --cpus=1 --array=1-1000 ./task
+
+# Wait for all the tasks to finish
+hq job wait all
+
+# Local disk
+srun -m arbitrary -w "$SLURM_JOB_NODELIST" ./archive
+
+# Shut down the workers and server
+hq worker stop all
+hq server stop
+```
+
 
 
 ### Using Snakemake with HyperQueue
