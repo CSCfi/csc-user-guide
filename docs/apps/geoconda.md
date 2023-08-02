@@ -140,7 +140,12 @@ As an example, you can write "The authors wish to thank CSC - IT Center for Scie
 
 ## Installation
 
-Geoconda was installed on Puhti using [Tykkys conda-containerize functionality](../computing/containers/tykky.md). The environment file is available in [CSCs geocomputing repository](https://raw.githubusercontent.com/csc-training/geocomputing/master/puhti_geoconda_environment.yml). Note that for reproducibility, you'll need to define the package versions in the environment file, which can be checked on Puhti using `list-packages` command after loading the `geoconda` module.
+Geoconda was installed to Puhti and Mahti using [Tykkys conda-containerize functionality](../computing/containers/tykky.md). The WhiteboxTools conda package installs only WhiteboxTools installer, therefore for proper installation of Whiteboxtools required additional post installation command and folder to wrap commandline tools.
+
+'conda-containerize new --mamba --prefix install_dir --post download_wbt -w miniconda/envs/env1/lib/python3.10/site-packages/whitebox/WBT/whitebox_tools geoconda_3.10.9.yml'
+
+Geoconda conda environment files and `download_wbt` and `start_wbt.py` needed for WhiteboxTools are available in [CSCs geocomputing repository](https://github.com/csc-training/geocomputing/tree/master/supercomputer_installations/geoconda). Note that for reproducibility, you'll need to define the package versions in the environment file, which can be checked on Puhti and Mahti using `list-packages` command after loading the `geoconda` module.
+
 
 ### References
 

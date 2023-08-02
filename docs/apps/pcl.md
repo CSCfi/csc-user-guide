@@ -55,7 +55,7 @@ As an example, you can write "The authors wish to thank CSC - IT Center for Scie
 
 ## Installation
 
-PCL was installed to Puhti via Singularity. The Singularity definition file is available on [CSCs 'singularity-recipes' repository](https://github.com/CSCfi/singularity-recipes/blob/main/pcl/pcl_from_ubuntu.def).
+PCL was installed to Puhti with Apptainer, using this [PCL Apptainer definition file](https://github.com/CSCfi/singularity-recipes/blob/main/pcl/pcl_from_ubuntu.def).
 
 ### References
 

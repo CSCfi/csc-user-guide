@@ -58,7 +58,9 @@ As an example, you can write "The authors wish to thank CSC - IT Center for Scie
 
 ## Installation
 
-FORCE was installed on Puhti with Singularity using the [Docker image provided by the FORCE author on Dockerhub](https://hub.docker.com/r/davidfrantz/force). The container was then wrapped with [Tykky](../computing/containers/tykky.md).
+FORCE was installed to Puhti with [Tykky's wrap-container functionality](../computing/containers/tykky.md#container-based-installations) using the [Docker image provided by the FORCE author on Dockerhub](https://hub.docker.com/r/davidfrantz/force). 
+
+`wrap-container -w /home/docker/bin docker://davidfrantz/force:latest --prefix install_dir`
 
 
 ### References

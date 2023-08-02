@@ -66,7 +66,7 @@ As an example, you can write "The authors wish to thank CSC - IT Center for Scie
 
 ## Installation
 
-GRASS was installed on Puhti together with QGIS with Singularity using the [Docker image provided by QGIS on Dockerhub](https://hub.docker.com/r/qgis/qgis). The container was then wrapped with [Tykky](../computing/containers/tykky.md).
+GRASS was installed to Puhti and LUMI as part of [QGIS installation](qgis.md#installation).
 
 
 ## References

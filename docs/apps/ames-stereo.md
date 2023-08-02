@@ -67,7 +67,7 @@ Please acknowledge CSC and Geoportti in your publications, it is important for p
 
 ## Installation
 
-Ames Stereo Pipeline was installed on Puhti using [Tykkys conda-containerize functionality](../computing/containers/tykky.md). The package `stereo-pipeline` is available from conda channels: nasa-ames-stereo-pipelin, usgs-astrogeology and conda-forge (all three must be added to channels!). 
+Ames Stereo Pipeline was installed on Puhti using [Tykky's conda-containerize functionality](../computing/containers/tykky.md), using this [Ames Stereo Pipeline conda environment file](https://github.com/csc-training/geocomputing/blob/master/supercomputer_installations/ames-stereo_3.2.0.yml).
 
 ### References
 

@@ -57,7 +57,7 @@ Please acknowledge CSC and Geoportti in your publications, it is important for p
 
 ## Installation
 
-Cloudcompare was installed to Puhti via Singularity. The Singularity definition file is available on [CSCs 'singularity-recipes' repository](https://github.com/CSCfi/singularity-recipes/blob/main/cloudcompare/cloudcompare.def).
+CloudCompare was installed to Puhti with Singularity, using this [CloudCompare Singularity definition file](https://github.com/CSCfi/singularity-recipes/blob/main/cloudcompare/cloudcompare.def).
 
 ## References
 

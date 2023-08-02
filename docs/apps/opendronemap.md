@@ -89,7 +89,7 @@ As an example, you can write "The authors wish to thank CSC - IT Center for Scie
 
 ## Installation
 
-Opendronemap was installed on Puhti with Singularity using the [Docker image provided by Opendronemap](https://hub.docker.com/r/opendronemap/odm). The container was then wrapped with [Tykky](../computing/containers/tykky.md).
+OpenDroneMap was installed to Puhti with Apptrainer using the [OpenDroneMap Docker image from Dockerhub provided by OpenDroneMap community](https://hub.docker.com/r/opendronemap/odm). OpenDroneMap commands have not been wrapped with Tykky, because mapping of folders is always needed at run-time.
 
 
 ### References

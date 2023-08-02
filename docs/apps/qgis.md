@@ -76,7 +76,9 @@ As an example, you can write "The authors wish to thank CSC - IT Center for Scie
 
 ## Installation
 
-QGIS was installed on Puhti with Singularity using the [Docker image provided by QGIS on Dockerhub](https://hub.docker.com/r/qgis/qgis). The container was then wrapped with [Tykky](../computing/containers/tykky.md).
+QGIS was installed to Puhti and LUMI with [Tykky's wrap-container functionality](../computing/containers/tykky.md#container-based-installations) using the [QGIS Docker image from Dockerhub provided by QGIS community](https://hub.docker.com/r/qgis/qgis). In LUMI `Tykky` is named `Container wrapper`.
+
+`wrap-container -w /usr/bin docker://qgis/qgis:latest --prefix install_dir`
 
 
 ### References

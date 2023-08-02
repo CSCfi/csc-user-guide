@@ -100,7 +100,9 @@ As an example, you can write "The authors wish to thank CSC - IT Center for Scie
 
 ## Installation
 
-OTB was installed on Puhti with Singularity using the [Docker image provided by OTB](https://hub.docker.com/r/orfeotoolbox/otb). The container was then wrapped with [Tykky](../computing/containers/tykky.md).
+Orfeo Toolbox was installed to Puhti with [Tykky's wrap-container functionality](../computing/containers/tykky.md#container-based-installations) using the [Orfeo Toolbox Docker image from Dockerhub provided by OTB community](https://hub.docker.com/r/orfeotoolbox/otb). 
+
+`wrap-container -w /opt/otb/bin,/usr/bin/python3 docker://orfeotoolbox/otb:8.0.1 --prefix install_dir`
 
 
 ### References

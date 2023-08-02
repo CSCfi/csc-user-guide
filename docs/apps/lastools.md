@@ -125,7 +125,9 @@ Citation of the software depends on which license was used:
 
 ## Installation
 
-Lastools was installed on Puhti with Singularity using the [Docker image from Dockerhub](https://hub.docker.com/r/pydo/lastools). The container was then wrapped with [Tykky](../computing/containers/tykky.md).
+LAStools was installed to Puhti with [Tykky's wrap-container functionality](../computing/containers/tykky.md#container-based-installations) using the [LAStools Docker image from Dockerhub](https://hub.docker.com/r/pydo/lastools). 
+
+`wrap-container -w /opt/LAStools docker//:pydo/lastools:latest --prefix install_dir`
 
 
 ### References
