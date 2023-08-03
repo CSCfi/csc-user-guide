@@ -54,7 +54,7 @@ The most common causes are:
 
 
 * Requesting e.g. a GPU or NVMe in a partition that does not have them.
-* Requesting e.g. more memory or time than the chosen partition has to offer.
+* Requesting e.g. more memory or time than the chosen partition has to offer; especially in cases with more than one ntasks, where memory is calculated `ntasks * mem_per_cpu`, which needs to be smaller than maximum available memory for the chosen partition.
 
 See [Puhti partitions](../../computing/running/batch-job-partitions.md) for available resources.
 
