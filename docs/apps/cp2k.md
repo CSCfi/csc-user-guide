@@ -14,7 +14,7 @@ parallel quantum chemistry calculations, in particular for AIMD.
 
 * Puhti: 9.1, 2022.2, 2023.1
 * Mahti: 8.2, 9.1, 2022.2, 2023.1
-* LUMI: 2023.1, 2023.1-gpu
+* LUMI: 2023.1, 2023.1-gpu, 2023.2, 2023.2-gpu
 
 ## License
 
@@ -84,11 +84,65 @@ export OMP_PLACES=cores
 srun cp2k.psmp H2O-64.inp > H2O-64.out
 ```
 
+### Example batch script for LUMI-G using a full GPU node
+
+!!! info "Note"
+    Each GPU on LUMI is composed of two AMD Graphics Compute Dies (GCD). Since
+    there are four GPUs per node and Slurm interprets each GCD as a separate GPU,
+    you can reserve up to 8 "GPUs" per node. See more details in
+    [LUMI Docs](https://docs.lumi-supercomputer.eu/hardware/lumig/).
+
+```bash
+#!/bin/bash
+#SBATCH --partition=standard-g
+#SBATCH --account=<project>
+#SBATCH --time=00:30:00
+#SBATCH --nodes=1
+#SBATCH --gpus-per-node=8
+#SBATCH --ntasks-per-node=8
+
+export OMP_NUM_THREADS=7
+
+module use /appl/local/csc/modulefiles
+module load cp2k/2023.2-gpu
+
+export MPICH_GPU_SUPPORT_ENABLED=1
+
+cat << EOF > select_gpu
+#!/bin/bash
+
+export ROCR_VISIBLE_DEVICES=\$SLURM_LOCALID
+exec \$*
+EOF
+
+chmod +x ./select_gpu
+
+CPU_BIND="mask_cpu:fe000000000000,fe00000000000000"
+CPU_BIND="${CPU_BIND},fe0000,fe000000"
+CPU_BIND="${CPU_BIND},fe,fe00"
+CPU_BIND="${CPU_BIND},fe00000000,fe0000000000"
+
+srun --cpu-bind=$CPU_BIND ./select_gpu cp2k.psmp H2O-dft-ls.inp > H2O-dft-ls.out
+```
+
+!!! info "CPU-GPU binding"
+    To get the best performance out of multi-GPU simulations it is important to make
+    sure that CPU cores are bound to GPUs in the right way. Why this matters is because
+    only certain CPU cores are directly linked to a specific GPU. The example above takes
+    care of this and excludes the first core from each group of 8 cores since the first
+    core of the node is reserved for the operating system. In other words, there are only
+    63 cores available per node, which is the reason why we run 7 threads per MPI rank, not 8.
+    **Please note that CPU-GPU binding works only when reserving full nodes (`standard-g` or `--exclusive`).**
+
+    See more details in LUMI Docs: [LUMI-G hardware](https://docs.lumi-supercomputer.eu/hardware/lumig/),
+    [LUMI-G examples](https://docs.lumi-supercomputer.eu/runjobs/scheduled-jobs/lumig-job/),
+    [GPU binding](https://docs.lumi-supercomputer.eu/runjobs/scheduled-jobs/distribution-binding/#gpu-binding)
+
 ### Performance notes
 
 **Mahti:**
 
-The following table shows the total execution time [s] for the [H2O-64
+The following table shows the total execution time [s] of the [H2O-64
 benchmark](https://github.com/cp2k/cp2k/blob/master/benchmarks/QS/H2O-64.inp)
 in Mahti using cp2k/9.1. The column headers show how many omp-threads were used
 per mpi-task.
@@ -110,6 +164,20 @@ Nodes|d1|d2|d4|d8
   50% depending on the system). A good example are metallic systems that may
   converge poorly with the orbital transformation (OT) method and thus demand a standard
   diagonalization of the Kohn-Sham matrix.
+
+**LUMI:**
+
+The following plot shows the total execution time of the
+[linear scaling SCF benchmark](https://github.com/cp2k/cp2k/tree/master/benchmarks/QS_DM_LS)
+(2048 water molecules) on Mahti (CPU), LUMI-C and LUMI-G. When CPU-GPU binding is properly
+done ([see example above](#example-batch-script-for-lumi-g-using-a-full-gpu-node)), LUMI-G
+is almost twice as performant as Mahti/LUMI-C when comparing GPU nodes vs. CPU nodes.
+Since not all routines of CP2K have been ported to GPUs, make sure to always check the
+performance and scaling of your system and method -- some simulations (e.g. standard SCF)
+are better run on CPUs while others are substantially faster on GPUs (e.g. linear scaling SCF,
+post HF methods). For more details, see the [CP2K website](https://www.cp2k.org/gpu).
+
+![CP2K scaling on Mahti and LUMI](../img/cp2k-lumi.png 'CP2K scaling on Mahti and LUMI')
 
 ### High-throughput computing with CP2K
 
