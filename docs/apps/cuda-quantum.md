@@ -34,26 +34,29 @@ CUDA Quantum is licensed under
 To use the default version of CUDA Quantum on Puhti or Mahti, initialize
 it with:
 
-```text
+```bash
 module load cuda-quantum
 ```
 
 If you wish to have a specific version ([see above for available
 versions](#available)), use:
-```text
+
+```bash
 module load cuda-quantum/0.4.0
 ```
 
 After that you can use commands `python` and `nvq++` to run codes that include a cudaq package. 
 
 To compile and run a cpp program using the `nvq++` compiler:
+
 ```bash
 nvq++ static_kernel.cpp -o ghz.x
 execute ./ghz.x # Or apptainer_wrapper exec ./ghz.x
 ```
 
 More examples of CUDA Quantum can be found from the 
-[CUDA Quantum by Example](https://nvidia.github.io/cuda-quantum/latest/using/examples.html) and [CUDA Quantum Github](https://github.com/NVIDIA/cuda-quantum/tree/main/docs/sphinx/examples).
+[CUDA Quantum by Example](https://nvidia.github.io/cuda-quantum/latest/using/examples.html) and
+[CUDA Quantum Github](https://github.com/NVIDIA/cuda-quantum/tree/main/docs/sphinx/examples).
 
 ### Example batch script
 
@@ -91,7 +94,6 @@ Example batch script for reserving one GPU and two CPU cores in a single node:
     srun nvq++ ghz.cpp <options>
     srun execute ./a.out
     ```
-
 
 Submit the script with `sbatch <script_name>.sh`
 
