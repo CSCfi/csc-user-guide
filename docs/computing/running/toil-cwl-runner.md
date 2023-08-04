@@ -29,28 +29,41 @@ This page describes how run CWL worklflows on Puhti using `toil-cwl-runner`, inc
 ## Disadvantages for using `toil-cwl-runner`
 - Just a workflow runner. Won't manage your data, or keep track of previous workflow runs.
 
-## Installing `toil-cwl-runner`
+## Installing `toil-cwl-runner` using Tykky
 
-Install `toil` with `CWL` plugin.
+Create a containerized installation of `toil` with `CWL` plugin, along with `nodejs` to provide helpful tools for debugging `toil` internals.
+
+The Conda environment to be containerized is defined in the file `environment.yml`.
+```yaml
+channels:
+  - conda-forge
+dependencies:
+  - python=3.10
+  - pip
+  - pip:
+    - toil[cwl]
+  - nodejs
+
 ```
-module load python-data
 
-cd /projappl/<project_nnnnnnn>
-python -m venv venv
-source venv/bin/activate
+Use the [Tykky](../containers/tykky.md) command `conda-containerize` to create an installation into the [project application directory](../disk.md#projappl-directory).
 
-pip install -U setuptools wheel
-pip install toil[cwl]
+```bash
+module purge
+module load tykky
+
+install_dir=/projappl/<project_xxxxxxx>/<install dir name>
+mkdir $install_dir
+
+conda-containerize new --prefix $install_dir environment.yml
+```
+
+Add the `bin` directory to the PATH to call the executables as with a virtual environment.
+
+```bash
+export PATH="$install_dir/bin:$PATH"
 
 toil-cwl-runner --version
-```
-
-Install `nodejs` which provides helpful tools for debugging `toil` internals.
-```
-cd /projappl/project_nnnnnnn
-wget https://nodejs.org/dist/v18.16.1/node-v18.16.1-linux-x64.tar.xz
-tar -xf node-v18.16.1-linux-x64.tar.xz
-export PATH=$PATH:/projappl/project_nnnnnnn/node-v18.16.1-linux-x64/bin
 ```
 
 ## Defining CWL workflows
@@ -68,11 +81,9 @@ Learning resources
 When you have defined a workflow with `CWL`, you can send it to the cluster using `sbatch`, and then `toil` will start new jobs for each item in the workflow description.
 
 ### Preliminary Steps
-Create working directories for `toil`.
-```
-mkdir /projappl/project_nnnnnnn/<job store name>
-mkdir /projappl/project_nnnnnnn/<work dir name>
-mkdir /projappl/project_nnnnnnn/<tmp name>
+Create a working directory for `toil` inside the [scratch directory](../disk.md#scratch-directory).
+```bash
+mkdir /scratch/<project_xxxxxxx>/<work dir name>
 ```
 
 ### Creating the sbatch file
@@ -92,21 +103,18 @@ The `sbatch` file `workflow.sh` will reference the `CWL` file `workflow.cwl` whe
 #SBATCH --cpus-per-task=2
 #SBATCH --partition=small
 
-source /projappl/<project_nnnnnnn>/venv/bin/activate
+work_dir=/scratch/<project_xxxxxxx>/<work dir name>
 
-WORKDIR=/projappl/project_nnnnnnn
-SCRATCH=/scratch/project_nnnnnnn
-export TMPDIR=$WORKDIR/tmp
 export TOIL_SLURM_ARGS="--account=project_nnnnnnn --partition=small"
-export CWL_SINGULARITY_CACHE=$WORKDIR/singularity
+export CWL_SINGULARITY_CACHE=$work_dir/singularity
 unset XDG_RUNTIME_DIR
 
-TOIL_SLURM_ARGS="--account=<project_nnnnnnn> --partition=small" toil-cwl-runner \
-    --jobStore $WORKDIR/<job store name> \
-    --workDir $SCRATCH/<work dir name> \
-    --tmpdir-prefix $TMPDIR/<tmp name> \
+toil-cwl-runner \
+    --jobStore $work_dir/<job store name> \
+    --workDir $work_dir \
+    --tmpdir-prefix $work_dir/<tmp name> \
     --batchSystem slurm \
-    $WORKDIR/workflow.cwl \
+    ~/workflow.cwl \
     --message "message for job"
 ```
 
@@ -118,4 +126,4 @@ sbatch workflow.sh
 ## Monitoring a running workflow
 
 Check the output logs from the main Toil job or
-run `toil status $WORKDIR/<job store name>`.
+run `toil status /scratch/<project_xxxxxxx>/<work dir name>/<job store name>`.
