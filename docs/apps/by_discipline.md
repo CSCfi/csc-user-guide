@@ -167,12 +167,12 @@
 ## Physics
 
 * [VASP](vasp.md) Ab initio DFT electronic structures
-* [Qiskit](qiskit.md) open-source toolkit for useful quantum computing
-* [CUDA Quantum](cuda-quantum.md) open-source platform for hybrid quantum-classical computing
+
 
 ## Miscellaneous
 
 * [Accelerated visualization](accelerated-visualization.md) A selection of GPU accelerated visualization applications
+* [CUDA Quantum](cuda-quantum.md) open-source platform for hybrid quantum-classical computing
 * [DDT](ddt.md) Parallel debugger
 * [Desktop](desktop.md) Remote desktop environment
 * [HyperQueue](hyperqueue.md) Scheduler for sub-node tasks
@@ -181,6 +181,7 @@
 * [Jupyter for courses](jupyter-for-courses.md) A version of the Jupyter app for course environments
 * [MySQL](../data/kaivos/overview.md) MySQL database client.
 * [ParaView](paraview.md) Free open-source visualization application
+* [Qiskit](qiskit.md) open-source toolkit for useful quantum computing
 * [TensorBoard](tensorboard.md) The visualization toolkit for TensorFlow
 * [VisIt](visit.md) Free open-source visualization application
 * [Visual Studio Code](vscode.md) Source code editor
