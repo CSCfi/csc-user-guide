@@ -99,9 +99,9 @@ srun cp2k.psmp H2O-64.inp > H2O-64.out
 #SBATCH --time=00:30:00
 #SBATCH --nodes=1
 #SBATCH --gpus-per-node=8
-#SBATCH --ntasks-per-node=8
+#SBATCH --ntasks-per-node=16  # Run two tasks per GCD, in this case more efficient
 
-export OMP_NUM_THREADS=7
+export OMP_NUM_THREADS=3
 
 module use /appl/local/csc/modulefiles
 module load cp2k/2023.2-gpu
@@ -111,7 +111,7 @@ export MPICH_GPU_SUPPORT_ENABLED=1
 cat << EOF > select_gpu
 #!/bin/bash
 
-export ROCR_VISIBLE_DEVICES=\$SLURM_LOCALID
+export ROCR_VISIBLE_DEVICES=\$((SLURM_LOCALID%SLURM_GPUS_PER_NODE))
 exec \$*
 EOF
 
@@ -122,7 +122,7 @@ CPU_BIND="${CPU_BIND},fe0000,fe000000"
 CPU_BIND="${CPU_BIND},fe,fe00"
 CPU_BIND="${CPU_BIND},fe00000000,fe0000000000"
 
-srun --cpu-bind=$CPU_BIND ./select_gpu cp2k.psmp H2O-dft-ls.inp > H2O-dft-ls.out
+srun --cpu-bind=$CPU_BIND ./select_gpu cp2k.psmp H2O-dft-ls.inp >> H2O-dft-ls.out
 ```
 
 !!! info "CPU-GPU binding"
@@ -131,7 +131,7 @@ srun --cpu-bind=$CPU_BIND ./select_gpu cp2k.psmp H2O-dft-ls.inp > H2O-dft-ls.out
     only certain CPU cores are directly linked to a specific GPU. The example above takes
     care of this and excludes the first core from each group of 8 cores since the first
     core of the node is reserved for the operating system. In other words, there are only
-    63 cores available per node, which is the reason why we run 7 threads per MPI rank, not 8.
+    63 cores available per node, which is the reason why we run 3 threads per MPI rank, not 4.
     **Please note that CPU-GPU binding works only when reserving full nodes (`standard-g` or `--exclusive`).**
 
     See more details in LUMI Docs: [LUMI-G hardware](https://docs.lumi-supercomputer.eu/hardware/lumig/),
