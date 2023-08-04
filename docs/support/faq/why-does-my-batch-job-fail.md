@@ -7,7 +7,7 @@ to fix them.
 
 The complete error message is as shown below:
 
-```
+```text
 sbatch: error: Batch job submission failed: Invalid account or account/partition combination specified
 ```
 
@@ -27,7 +27,7 @@ This error message refers to Slurm options `--account=<project>` and
 
 The complete error message is as shown below:
 
-```
+```text
 sbatch: error: AssocMaxSubmitJobLimit
 sbatch: error: Batch job submission failed: Job violates accounting/QOS policy (job submit limit, user's size and/or time limits)
 ```
@@ -46,12 +46,17 @@ The most common causes are:
 
 The complete error message is as shown below:
 
-```
+```text
 sbatch: error: Batch job submission failed: Requested node configuration is not available
 ```
 
 The most common causes are:
 
+* Requesting e.g. a GPU or NVMe in a partition that does not have them.
+* Requesting e.g. more memory or time than the chosen partition has to offer. Especially if
+  using the `--mem-per-cpu` flag to specify memory, note that this will be multiplied by the
+  number or requested CPUs (1 per task by default) and the result must be within the limits
+  of the chosen partition.
 
-* Requesting e.g. a GPU or NVMe in a partition that does not have them. See [Puhti partitions](../../computing/running/batch-job-partitions.md) for available resources.
-
+See [batch job partitions](../../computing/running/batch-job-partitions.md) for more details
+on the resources available in each queue.
