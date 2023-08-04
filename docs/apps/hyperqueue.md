@@ -207,7 +207,7 @@ hq worker wait "$SLURM_NTASKS"
 ```
 -->
 
-Next, we start HyperQueue workers in the background with the number of CPUs defined in the batch script using the `SLURM_CPU_PER_TASK` environment variable.
+Next, we start HyperQueue workers in the background with the number of CPUs defined in the batch script using the `SLURM_CPUS_PER_TASK` environment variable.
 By starting the workers using the `srun` command, we create one worker per Slurm task.
 We also wait for all workers to connect, which is generally good practice as we can notice issues with the workers early.
 
