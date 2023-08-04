@@ -1,6 +1,6 @@
 # Applications
 
-# Gromacs 2023.2 and CP2K 2023.2 available on LUMI, 4.8.2023
+## Gromacs 2023.2 and CP2K 2023.2 available on LUMI, 4.8.2023
 
 CPU and GPU versions of [Gromacs](../../apps/gromacs.md) 2023.2 and [CP2K](../../apps/gromacs.md)
 2023.2 have been installed on LUMI. For release notes and more details about the version, see
