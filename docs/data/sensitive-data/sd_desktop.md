@@ -545,22 +545,22 @@ You can restart the virtual desktop at any time from the same page. Also, in thi
 ### Rebooting or rebuilding a desktop
 
 
-**Restarting a desktop**
+**Reebooting a desktop**
 
-If your virtual desktop or software becomes unresponsive, you can restart it. After the restart, all files and software saved on the virtual desktop will remain accessible.
+If your virtual desktop or software becomes unresponsive, you can reboot (restart) it. After the reboot, all files and software saved on the virtual desktop will remain accessible.
 
 !!! Note
     If the Data Gateway application becomes unresponsive due to old sessions running in the background, there's no need to restart your desktop. Instead, you can utilize the terminal to identify and halt the process. For assistance, please contact us at servicedesk@csc.fi , subject "Sensitive data."
 
-To Restart a Virtual Desktop:
+To reboot a  desktop:
 
-    1- Close all programs and ensure you save/close any files to prevent data corruption.
+    1. Close all programs and ensure you save/close any files to prevent data corruption.
     
-    2- Go to the SD Desktop homepage and select "Go To SD Desktop Management."
+    2. Go to the SD Desktop homepage and select "Go To SD Desktop Management."
     
-    3- Under "Available desktops," choose the relevant virtual desktop. On the right side of the same row, click "Options" and then select "Reboot."
+    3. Under "Available desktops," choose the relevant virtual desktop. On the right side of the same row, click "Options" and then select "Reboot."
     
-    4- Confirm the operation when prompted. The process may take up to 30 minutes.
+    4. Confirm the operation when prompted. The process may take up to 30 minutes.
 
 **Rebuilding a desktop**
 
@@ -571,11 +571,11 @@ If your virtual desktop or software is outdated, you have the option to rebuild 
 
 To Rebuild a Virtual Desktop:
 
-    1- On the SD Desktop homepage, click "Go To SD Desktop Management."
+    1. On the SD Desktop homepage, click "Go To SD Desktop Management."
     
-    2- From the list of "Available desktops," select the appropriate virtual desktop. On the right side of that row, click "Options" and choose "Rebuild."
+    2. From the list of "Available desktops," select the appropriate virtual desktop. On the right side of that row, click "Options" and choose "Rebuild."
     
-    3- Confirm the operation when prompted. The process may take up to 30 minutes.
+    3. Confirm the operation when prompted. The process may take up to 30 minutes.
 
 
 
