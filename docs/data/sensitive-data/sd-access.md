@@ -7,7 +7,8 @@ Contents:
  * [Processing research data](./sd-access.md#processing-sensitive-research-data);
  * [Processing register data under the Act on Secondary Use](./sd-access.md#processing-register-data-under-the-act-on-secondary-use);
  * [Default storage space and billing units consumption](./sd-access.md#default-storage-space-and-billing-units-consumption);
- * [Service usage restrictions when billing units run out](./sd-access.md#restricted-service-access-when-billing-units-have-been-consumed);
+ * [Service usage restrictions when billing units have been consumed](./sd-access.md#restricted-service-access-when-billing-units-have-been-consumed);
+ * [Data retention when CSC project expires or is closed](./sd-access.md#restricted-service-access-when-billing-units-have-been-consumed);
  * [Billing units calculator](./sd-access.md#default-storage-space-and-billing-units-consumption);
 
 
@@ -118,7 +119,7 @@ For more information, see the specific sections:
 * and [increasing quotas](../../accounts/how-to-increase-disk-quotas.md).
 
 
-## Restricted service access when billing units have been consumed
+## Service access when billing units have been consumed and data retention policy when the CSC project is closed
 
 When all billing units in your CSC project have been consumed, SD Desktop service usage will be limited: all running virtual Desktops will be automatically paused, and it will not be possible to access their content. No data is deleted when the total amount of billing units is zero or negative. 
 
