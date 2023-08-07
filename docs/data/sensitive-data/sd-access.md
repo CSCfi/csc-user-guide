@@ -8,9 +8,8 @@ Contents:
  * [Processing register data under the Act on Secondary Use](./sd-access.md#processing-register-data-under-the-act-on-secondary-use);
  * [Default storage space and billing units consumption](./sd-access.md#default-storage-space-and-billing-units-consumption);
  * [Service usage restrictions when billing units have been consumed](./sd-access.md#service-usage-restrictions-when-billing-units-have-been-consumed);
- * [What happens to your data when your CSC project expires or is closed](./sd-access.md#what-happens-to-your-data-when-your-csc-project-expires-or-is-closed)
- * [Billing units calculator](./sd-access.md#default-storage-space-and-billing-units-consumption);
-
+ * [What happens to your data when your CSC project expires or is closed](./sd-access.md#what-happens-to-your-data-when-your-csc-project-expires-or-is-closed);
+ * [Billing units calculator](./sd-access.md#default-storage-space-and-billing-units-consumption).
 
 
 ## Processing sensitive research data
