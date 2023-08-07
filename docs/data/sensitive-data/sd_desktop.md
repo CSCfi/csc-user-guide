@@ -519,7 +519,7 @@ Limitations:
 
 [![Desktop-volume](images/desktop/volume.png)](images/desktop/volume.png)
 
-### Pausing or restarting a virtual desktop
+### Pausing or unpausing a virtual desktop
 
 You can pause a virtual desktop. In this manner, the desktop will stop consuming billing units. 
 
@@ -533,10 +533,10 @@ To pause the desktop:
 
 4. A message will ask to confirm the operation, which can take up to 30 minutes.
 
-You can restart the virtual desktop at any time from the same page. Also, in this case, the restart processes can take up to 30 minutes. 
+You can unpause the virtual desktop at any time from the same page. Also, in this case, the restart processes can take up to 30 minutes. 
 
 !!! Note
-    This option is available only for active CSC projects with available billing units. 
+    Restarting a paused desktop is only possible for active CSC projects with available billing units. 
 
 [![Desktop-volume](images/desktop/pause.png)](images/desktop/pause.png)
 
