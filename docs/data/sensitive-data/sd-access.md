@@ -123,16 +123,16 @@ For more information, see the specific sections:
 
 Once all the billing units for your CSC project have been used up, your access to the SD Desktop service will be restricted. This means that all virtual Desktops currently running will automatically be paused, and you won't be able to access their content. It's important to note that the your data remains unaffected and will not be deleted, even in cases where the total billing units reach zero or enter negative values.
 
-**Regaining Access to Your Virtual Desktop**:
+**Regaining access to your virtual desktop**:
 
-You'll be notified via email when your usage limit is reached. To regain access to your virtual Desktop, just follow these easy steps:
+You'll be notified via email when your billing units have been consumed. To regain access to your virtual Desktop, just follow these easy steps:
 
 * **Step 1**: Apply for more billing units by visiting the [MyCSC portal](https://my.csc.fi) This will give you a positive balance to continue using the service.
 
 * **Step 2**: Log in to SD Desktop and restart your virtual Desktop. For detailed instructions, consult the [SD Desktop service user guide](../../data/sensitive-data/sd_desktop.md#pausing-or-restarting-a-virtual-desktop). 
 
 
-## What Happens to Your Data When Your CSC Project Expires or is Closed
+## What happens to your data when your CSC project expires or is closed
 
 When your CSC project reaches its expiration date or is closed, there are a few important things to know about your data:
 
@@ -143,7 +143,7 @@ When your CSC project reaches its expiration date or is closed, there are a few 
 * **Notification**: We'll keep you informed about the status of your project. You'll receive an email notification when your project is about to expire, so you can plan accordingly. For example, you can apply for an initial project lifetime extension of one year loggin in to [MyCSC portal](https://my.csc.fi).
 
 Note!!!
-   Please be aware that all content within the services will be permanently deleted 90 days after the project is closed. Once deleted, this content cannot be retrieved or recovered.
+    Please be aware that all content within the services will be permanently deleted 90 days after the project is closed. Once deleted, this content cannot be retrieved or recovered.
 
 
 ### Billing unit calculator
