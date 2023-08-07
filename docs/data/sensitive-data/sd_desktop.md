@@ -544,36 +544,45 @@ You can restart the virtual desktop at any time from the same page. Also, in thi
 
 ### Rebooting or rebuilding a desktop
 
-If the virtual desktop or software has become unresponsive, you can use this option to reboot (or restart) your desktop. All the files/ software saved on the virtual desktop will remain available after the reboot. 
+
+**Restarting a desktop**
+
+If your virtual desktop or software becomes unresponsive, you can restart it. After the restart, all files and software saved on the virtual desktop will remain accessible.
 
 !!! Note
-    You don't need to reboot your desktop if the Data Gateway application becomes unresponsive (for example, because old sessions are still running in the background). Instead, you can use the terminal to check the ID number of the running process and stop it. Contact us at servicedesk@csc.fi (subject: Sensitive data) for support. 
+    If the Data Gateway application becomes unresponsive due to old sessions running in the background, there's no need to restart your desktop. Instead, you can utilize the terminal to identify and halt the process. For assistance, please contact us at servicedesk@csc.fi , subject "Sensitive data."
 
-To reboot a virtual machine:
+To Restart a Virtual Desktop:
 
-1- Close all the programs, save/close all the files and log out from the virtual desktop to prevent data corruption.
+    1- Close all programs and ensure you save/close any files to prevent data corruption.
+    
+    2- Go to the SD Desktop homepage and select "Go To SD Desktop Management."
+    
+    3- Under "Available desktops," choose the relevant virtual desktop. On the right side of the same row, click "Options" and then select "Reboot."
+    
+    4- Confirm the operation when prompted. The process may take up to 30 minutes.
 
-2-  On the SD Desktop homepage, click on _Go To SD Desktop Management_;
+**Rebuilding a desktop**
 
-3- Here, under _Available desktops_  select the correct virtual desktop, and in the same raw, on the right side, click _Options _ and select _Reboot_.
-
-4- A message will ask to confirm the operation, which can take up to 30 minutes.
-
-
-If the virtual desktop or software has become obsolete, you can use this option to rebuild your virtual desktop. 
+If your virtual desktop or software is outdated, you have the option to rebuild it.
 
 !!! Note
-    This operation will delete all the files/software or scripts imported into the virtual desktop, and you will delete the entire virtual workspace. Only       the files saved in the volume will still be available. Please contact us at servicedesk@csc.fi before using this option.
+    Rebuilding the virtual desktop will erase all files, software, or scripts imported into it. The entire virtual workspace will be reset, excluding files saved in the volume. Please reach out to us at servicedesk@csc.fi before proceeding.
 
-To reboot a virtual desktop:
+To Rebuild a Virtual Desktop:
 
-1. On the SD Desktop homepage, click on _Go To SD Desktop Management_;
+    1- On the SD Desktop homepage, click "Go To SD Desktop Management."
+    
+    2- From the list of "Available desktops," select the appropriate virtual desktop. On the right side of that row, click "Options" and choose "Rebuild."
+    
+    3- Confirm the operation when prompted. The process may take up to 30 minutes.
 
-2. Here, under _Available desktops_  select the correct virtual desktop, and in the same raw, on the right side, click on _Options _ and select _Rebuilt_.
 
-3. A message will ask to confirm the operation, which can take up to 30 minutes. 
 
  [![Desktop-volume](images/desktop/desktop-reboot-rebuilt.png)](images/desktop/desktop-reboot-rebuilt.png)
+
+
+
 
 ### Deleting a desktop
 
