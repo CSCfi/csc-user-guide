@@ -552,13 +552,13 @@ If your virtual desktop or software becomes unresponsive, you can reboot (restar
 
 To reboot a  desktop:
 
-    1. Close all programs and ensure you save/close any files to prevent data corruption.
+1. Close all programs and ensure you save/close any files to prevent data corruption.
     
-    2. Go to the SD Desktop homepage and select "Go To SD Desktop Management."
+2. Go to the SD Desktop homepage and select "Go To SD Desktop Management."
     
-    3. Under "Available desktops," choose the relevant virtual desktop. On the right side of the same row, click "Options" and then select "Reboot."
+3. Scroll to the end of the page. Here, under "Available desktops," choose the relevant virtual desktop. On the right side of the same row, click "Options" and then select "Reboot."
     
-    4. Confirm the operation when prompted. The process may take up to 30 minutes.
+4. Confirm the operation when prompted. The process may take up to 30 minutes.
 
 **Rebuilding a desktop**
 
@@ -569,11 +569,11 @@ If your virtual desktop or software is outdated, you have the option to rebuild 
 
 To Rebuild a Virtual Desktop:
 
-    1. On the SD Desktop homepage, click "Go To SD Desktop Management."
+1. On the SD Desktop homepage, click "Go To SD Desktop Management."
     
-    2. From the list of "Available desktops," select the appropriate virtual desktop. On the right side of that row, click "Options" and choose "Rebuild."
+2. From the list of "Available desktops," select the appropriate virtual desktop. On the right side of that row, click "Options" and choose "Rebuild."
     
-    3. Confirm the operation when prompted. The process may take up to 30 minutes.
+3. Confirm the operation when prompted. The process may take up to 30 minutes.
 
 
 
