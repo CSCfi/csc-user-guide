@@ -29,6 +29,8 @@
 *[AVX]: Advanced Vector eXtensions
 *[BU]: Billing Unit
 *[IaaS]: Infrastructure-as-a-Service
+*[IaC]: Infrastructure-as-Code
+*[SPoF]: Single point of Failure
 *[PaaS]: Platform-as-a-Service
 *[SaaS]: Software-as-a-Service
 *[DBaaS]: Database-as-a-Service
