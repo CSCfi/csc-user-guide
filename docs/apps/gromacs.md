@@ -78,18 +78,27 @@ Use `module spider` to locate other versions. To load these modules, you
 need to first load its dependencies, which are shown with
 `module spider gromacs/<version>`.
 
+!!! info "Note"
+    Please use the `-maxh` flag for `mdrun`. Setting this equal to or slightly less
+    than the requested time limit (in hours) will ensure that there's time for your
+    simulation to write a final checkpoint and end gracefully before the scheduler
+    terminates the job. If left unspecified, there's a chance that the job will
+    crash the node(s) it is running on.
+
 ### Notes about performance
 
+!!! warning "Note"
+    Please minimize unnecessary disk I/O – never run simulations using `mdrun -v`
+    (the verbose flag)!
+
 It is important to set up the simulations properly to use resources efficiently.
-The most important aspects to consider are:
+The most important aspects to consider (in addition to avoiding `-v`) are:
 
 - If you run in parallel, make a scaling test for each system - don't use more cores/GPUs
   than is efficient. Scaling depends on many aspects of your system and used algorithms,
   not just size.
 - Use a recent version – there has been significant speedup and bug fixes over the years.
   If you switch the major version, remember to check that the results are comparable.
-- Minimize unnecessary disk I/O – never run batch jobs with `-v` (the verbose flag)
-  for `mdrun`.
 - For large jobs, use full nodes (multiples of 40 cores on Puhti or multiples
   of 128 cores on Mahti), see example below.
 - Performance on GPUs depends on what you offload and the optimium depends on many factors.
@@ -160,7 +169,7 @@ srun gmx_mpi mdrun -s topol -maxh 0.2
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=10
 #SBATCH --gres=gpu:v100:1
-#SBATCH --time=00:10:00
+#SBATCH --time=00:15:00
 #SBATCH --partition=gpu
 #SBATCH --account=<project>
 ##SBATCH --mail-type=END #uncomment to get mail
@@ -170,7 +179,7 @@ module load gromacs-env/2022-gpu
 
 export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
 
-srun gmx_mpi mdrun -s topol -dlb yes
+srun gmx_mpi mdrun -s topol -maxh 0.2 -dlb yes
 
 # additional flags, like these, may be useful - test!
 # srun gmx_mpi mdrun -pin on -pme gpu -pmefft gpu -nb gpu -bonded gpu -update gpu -nstlist 200 -s topol -dlb yes
@@ -233,7 +242,7 @@ srun gmx_mpi mdrun -s topol -maxh 0.2 -dlb yes
 #!/bin/bash
 #SBATCH --partition=small-g
 #SBATCH --account=<project>
-#SBATCH --time=01:00:00
+#SBATCH --time=00:15:00
 #SBATCH --nodes=1
 #SBATCH --gpus-per-node=1
 #SBATCH --ntasks-per-node=1
@@ -244,7 +253,7 @@ module load gromacs/2023.1-hipsycl
 
 export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
 
-srun gmx_mpi mdrun -s topol -nb gpu -bonded gpu -pme gpu -update gpu
+srun gmx_mpi mdrun -s topol -nb gpu -bonded gpu -pme gpu -update gpu -maxh 0.2
 ```
 
 ### Example batch script for LUMI – full GPU node
@@ -259,7 +268,7 @@ srun gmx_mpi mdrun -s topol -nb gpu -bonded gpu -pme gpu -update gpu
 #!/bin/bash
 #SBATCH --partition=standard-g
 #SBATCH --account=<project>
-#SBATCH --time=01:00:00
+#SBATCH --time=00:15:00
 #SBATCH --nodes=1
 #SBATCH --gpus-per-node=8
 #SBATCH --ntasks-per-node=8
@@ -287,7 +296,7 @@ CPU_BIND="${CPU_BIND},fe0000,fe000000"
 CPU_BIND="${CPU_BIND},fe,fe00"
 CPU_BIND="${CPU_BIND},fe00000000,fe0000000000"
 
-srun --cpu-bind=$CPU_BIND ./select_gpu gmx_mpi mdrun -s topol -nb gpu -bonded gpu -pme gpu -update gpu -npme 1
+srun --cpu-bind=$CPU_BIND ./select_gpu gmx_mpi mdrun -s topol -nb gpu -bonded gpu -pme gpu -update gpu -npme 1 -maxh 0.2
 ```
 
 !!! info "Direct GPU communication and GPU-aware MPI"
