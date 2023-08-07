@@ -119,15 +119,31 @@ For more information, see the specific sections:
 * and [increasing quotas](../../accounts/how-to-increase-disk-quotas.md).
 
 
-## Service access when billing units have been consumed and data retention policy when the CSC project is closed
+## Service usage restrictions when billing units have been consumed
 
-When all billing units in your CSC project have been consumed, SD Desktop service usage will be limited: all running virtual Desktops will be automatically paused, and it will not be possible to access their content. No data is deleted when the total amount of billing units is zero or negative. 
+Once all the billing units for your CSC project have been used up, your access to the SD Desktop service will be restricted. This means that all virtual Desktops currently running will automatically be paused, and you won't be able to access their content. It's important to note that the your data remains unaffected and will not be deleted, even in cases where the total billing units reach zero or enter negative values.
 
-You will receive a notification via email, and you can regain access to your virtual Desktop by following these steps: 
+**Regaining Access to Your Virtual Desktop**:
 
-1- Please apply for additional billing units using the MYCSC portal (to obtain a positive saldo);
-2- Log in to SD Desktop and restart the virtual Desktop. For more guidance, see intructions in the service [user guide](../../data/sensitive-data/sd_desktop.md#pausing-or-restarting-a-virtual-desktop). 
+You'll be notified via email when your usage limit is reached. To regain access to your virtual Desktop, just follow these easy steps:
 
+* **Step 1**: Apply for more billing units by visiting the [MyCSC portal](https://my.csc.fi) This will give you a positive balance to continue using the service.
+
+* **Step 2**: Log in to SD Desktop and restart your virtual Desktop. For detailed instructions, consult the [SD Desktop service user guide](../../data/sensitive-data/sd_desktop.md#pausing-or-restarting-a-virtual-desktop). 
+
+
+## What Happens to Your Data When Your CSC Project Expires or is Closed
+
+When your CSC project reaches its expiration date or is closed, there are a few important things to know about your data:
+
+* **Service Discontinuation**: both SD Connect and SD Desktop services will be disabled, and you won't be able to access them anymore.
+
+* **Data Deletion**: Any data stored within these services, including files, virtual Desktops, and volumes, will be permanently removed after 90 days from the project's closure. This measure is in place to ensure the secure handling of your data, aligning with CSC's policies.
+
+* **Notification**: We'll keep you informed about the status of your project. You'll receive an email notification when your project is about to expire, so you can plan accordingly. For example, you can apply for an initial project lifetime extension of one year loggin in to [MyCSC portal](https://my.csc.fi).
+
+Note!!!
+   Please be aware that all content within the services will be permanently deleted 90 days after the project is closed. Once deleted, this content cannot be retrieved or recovered.
 
 
 ### Billing unit calculator
