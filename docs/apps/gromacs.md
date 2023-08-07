@@ -44,8 +44,9 @@ systems. It also comes with plenty of analysis scripts.
     | Version | Available modules | Notes |
     |:-------:|:------------------|:-----:|
     |2022.5   |`gromacs/2022.5`<br>`gromacs/2022.5-plumed`|Module with Plumed available
-    |2023     |`gromacs/2023-dev-rocm`|Unofficial GPU-enabled fork developed by AMD[^1]
-    |2023.1   |`gromacs/2023.1`<br>`gromacs/2023.1-hipsycl`<br>`gromacs/2023.1-heffte`|Official GPU-enabled modules available (hipSYCL)<br>Module linked to HeFFTe available for GPU PME decomposition
+    |2023     |`gromacs/2023-plumed`<br>`gromacs/2023-dev-rocm`|GPU-enabled module (hipSYCL) with Plumed available<br>`dev-rocm` module is an unofficial GPU-enabled fork developed by AMD[^1]
+    |2023.1   |`gromacs/2023.1`<br>`gromacs/2023.1-hipsycl`<br>`gromacs/2023.1-heffte`|GPU-enabled module available (hipSYCL)<br>Module linked to HeFFTe available for GPU PME decomposition
+    |2023.2   |`gromacs/2023.2`<br>`gromacs/2023.2-hipsycl`|GPU-enabled module available (hipSYCL)
 
     [^1]: This module is unvalidated, unmaintained and unsupported by the Gromacs team. Proceed with caution!
 

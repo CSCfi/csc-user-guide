@@ -1,5 +1,12 @@
 # Applications
 
+## Gromacs 2023.2 and CP2K 2023.2 available on LUMI, 4.8.2023
+
+CPU and GPU versions of [Gromacs](../../apps/gromacs.md) 2023.2 and [CP2K](../../apps/cp2k.md)
+2023.2 have been installed on LUMI. For release notes and more details about the version, see
+the [GROMACS manual](https://manual.gromacs.org/2023.2/release-notes/2023/2023.2.html) and
+[the CP2K website](https://www.cp2k.org/version_history#section20232).
+
 ## R 4.3.0 in r-env, 20.6.2023
 	
 R version 4.3.0 is now available in `r-env` and is set as the default version. The new version will also be available in RStudio in the Puhti web interface shortly.
