@@ -13,8 +13,7 @@ Also note that:
   CSC has allocated more quota than there is space, hence it is not even possible for all users
   to use their `scratch` folders for longer term storage.
 * There are **no backups** of `scratch` disk area. Do not trust it to store all of your research data.
-* Removing files decreases the BU consumption of your project, since you are billed for disk
-  usage and not quota as before 2022.
+* Removing files decreases the BU consumption of your project, since you are billed for disk usage
 
 We kindly ask all users to help to keep disk usage manageable, and performance reasonable.
 Please do the following tasks:
