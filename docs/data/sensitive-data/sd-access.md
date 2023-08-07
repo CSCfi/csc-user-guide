@@ -103,8 +103,6 @@ i.e. 1 TB of data stored in Allas consumes 24 billing units daily and 8760 billi
 
 Analysing data in SD Desktop consumes billing units based on the type of virtual desktop you are using. The rate is:
 
-* Light computation: 1.3 billing units/hour;
-
 * Small computation: 5.2 billing units/hour;
 
 * Medium computation: 10.4 billing units/hour;
