@@ -8,7 +8,7 @@ Contents:
  * [Processing register data under the Act on Secondary Use](./sd-access.md#processing-register-data-under-the-act-on-secondary-use);
  * [Default storage space and billing units consumption](./sd-access.md#default-storage-space-and-billing-units-consumption);
  * [Service usage restrictions when billing units have been consumed](./sd-access.md#service-usage-restrictions-when-billing-units-have-been-consumed);
- * [What Happens to Your Data When Your CSC Project Expires or is Closed](./sd-access.md#what-happens-to-your-data-when-your-csc-project-expires-or-is-closed)
+ * [What happens to your data when your CSC project expires or is closed](./sd-access.md#what-happens-to-your-data-when-your-csc-project-expires-or-is-closed)
  * [Billing units calculator](./sd-access.md#default-storage-space-and-billing-units-consumption);
 
 
@@ -127,7 +127,7 @@ You'll be notified via email when your billing units have been consumed. To rega
 
 * **Step 1**: Apply for more billing units by visiting the [MyCSC portal](https://my.csc.fi) This will give you a positive balance to continue using the service.
 
-* **Step 2**: Log in to SD Desktop and restart your virtual Desktop. For detailed instructions, consult the [SD Desktop service user guide](../../data/sensitive-data/sd_desktop.md#pausing-or-restarting-a-virtual-desktop). 
+* **Step 2**: Log in to SD Desktop and restart your virtual desktop. For detailed instructions, consult the [SD Desktop service user guide](../../data/sensitive-data/sd_desktop.md#pausing-or-restarting-a-virtual-desktop). 
 
 
 ## What happens to your data when your CSC project expires or is closed
@@ -136,12 +136,12 @@ When your CSC project reaches its expiration date or is closed, there are a few 
 
 * **Service Discontinuation**: both SD Connect and SD Desktop services will be disabled, and you won't be able to access them anymore.
 
-* **Data Deletion**: Any data stored within these services, including files, virtual Desktops, and volumes, will be permanently removed after 90 days from the project's closure. This measure is in place to ensure the secure handling of your data, aligning with CSC's policies.
+* **Data Deletion**: Any data stored within these services, including files, virtual desktops, and volumes, will be permanently removed after 90 days from the project's closure. This measure is in place to ensure the secure handling of your data, aligning with CSC's policies.
 
 * **Notification**: We'll keep you informed about the status of your project. You'll receive an email notification when your project is about to expire, so you can plan accordingly. For example, you can apply for an initial project lifetime extension of one year loggin in to [MyCSC portal](https://my.csc.fi).
 
-Note!!!
-    Please be aware that all content within the services will be permanently deleted 90 days after the project is closed. Once deleted, this content cannot be retrieved or recovered.
+!!! Note
+    Please note that all content within the services will be permanently deleted 90 days after the project is closed, and once deleted, it cannot be restored or recovered.
 
 
 ### Billing unit calculator
