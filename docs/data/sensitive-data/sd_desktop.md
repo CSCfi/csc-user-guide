@@ -106,6 +106,12 @@ You can choose between three different pre-built virtual desktop options:
 !!! Note
     For support in choosing the correct desktop option for your needs, don't hesitate to contact us at servicedesk@csc.fi (email subject: Sensitive data). 
 
+
+!!! Note
+    As each virtual desktop consumes resources, it's advisable to delete your desktop when it's no longer necessary (for instance, after testing the SD Desktop service or completing the analysis phase). All project members will receive email notifications if a desktop remains unused for at least 14 days. Before deletion, make sure to export all essential results and disconnect any volumes containing important files for future use and notifying the other CSC project members. For further details, refer to Managing Volumes and Desktops [Managing volumes and desktops](./sd_desktop.md#managing-volumes-and-virtual-desktops).
+    
+
+
 The following paragraphs will discuss how to work with your virtual desktop, which software is available, and how to customize your workspace.
 
 [![Launch](images/desktop/desktop_creation.png)](images/desktop/desktop_creation.png)
