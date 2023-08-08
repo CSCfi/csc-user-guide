@@ -1,6 +1,6 @@
 # Accessing Sensitive Data (SD) services 
   
-CSC's Sensitive Data (SD) services are available to researchers and students affiliated with Finnish higher education institutions (universities, universities of applied sciences) or a state research institute and their international collaborators.
+CSC's Sensitive Data (SD) services are available to researchers and students affiliated with Finnish higher education institutions (universities, universities of applied sciences) or a state research institute and their international collaborators. In this section, discover how to access services for processing research or register data. Learn to manage billing unit consumption and gain insights into CSC's data deletion policies upon billing units depletion and project closure.
 
 Contents:
 
@@ -44,6 +44,7 @@ with any modern web-browser (Note: private browsing is not supported using Firef
 
 [![Project](images/connect/reasearchdata.png)](images/connect/reasearchdata.png)
 
+
 ## Processing register data under the Act on Secondary Use
 
 The Finnish Act on Secondary Use of Health and Social data regulates register data processing. Therefore, register data can only be provided by the Findata Authority and accessed via the SD Desktop service. CSC's helpdesk manages users' access to  SD Desktop for secondary use and results export based on the data permit.
@@ -74,20 +75,12 @@ To access and analyse register data via the SD Desktop service:
 For specific guidance regarding these steps, see the [Accounts](../../accounts/index.md) section at the beginning of this manual.	 
 
 
-
-
 [![Project-resgiter](images/connect/secondaryuse.png)](images/connect/secondaryuse.png)
   
- 	 
 ## Default storage space and billing units consumption
 
-Using SD Connect and SD Desktop is free for research purposes, according to [CSC's general terms of use](https://research.csc.fi/free-of-charge-use-cases). However, CSC's services consume resources: 
-
-* billing units (BUs) for their use;
-
-* and quota for storage space allocation.
-
-**A new CSC project includes about 10,000 billing units.** With the calculator below, you can determine how many billing units your CSC project will consume and apply for more resources.
+Using SD Connect and SD Desktop is free of charge for research purposes, according to [CSC's general terms of use](https://research.csc.fi/free-of-charge-use-cases). However, it's important to plan ahead for your CSC project's resource usage. 
+This includes considering the billing units (BUs) used during service and the storage space, called quota, for your data.  Typically, when you start a new project with CSC, you receive around 10,000 billing units. Below, there's a calculator that helps you determine how many billing units your CSC project will require, so you can request more if needed.
 
 
 **SD Connect**: when you apply for a new CSC project, the default quota (or storage space) for SD Connect/Allas is 10 TB, which can be increased up to 200 TB if needed. If your project requires additional storage space, contact us for support at servicedesk@csc.fi (subject: Sensitive data). 
