@@ -1,6 +1,6 @@
 # Accessing Sensitive Data (SD) services 
   
-CSC's Sensitive Data (SD) services are available to researchers and students affiliated with Finnish higher education institutions (universities, universities of applied sciences) or a state research institute and their international collaborators. In this section, discover how to access services for processing research or register data. Learn to manage billing unit consumption and gain insights into CSC's data deletion policies upon billing units depletion and project closure.
+CSC's Sensitive Data (SD) services are available to researchers and students affiliated with Finnish higher education institutions (universities, universities of applied sciences) or a state research institute and their international collaborators. In this section, discover how to access services for processing research or register data. Learn to manage billing unit consumption and what happens to your data upon project closure.
 
 Contents:
 
@@ -83,24 +83,22 @@ Using SD Connect and SD Desktop is free of charge for research purposes, accordi
 This includes considering the billing units (BUs) used during service and the storage space, called quota, for your data.  Typically, when you start a new project with CSC, you receive around 10,000 billing units. Below, there's a calculator that helps you determine how many billing units your CSC project will require, so you can request more if needed.
 
 
-**SD Connect**: when you apply for a new CSC project, the default quota (or storage space) for SD Connect/Allas is 10 TB, which can be increased up to 200 TB if needed. If your project requires additional storage space, contact us for support at servicedesk@csc.fi (subject: Sensitive data). 
+**SD Connect billing and quota**
 
-Storing data in SD Connect/Allas consumes billing units. The rate is: 
+When you apply for a new CSC project, the default quota (storage space) for SD Connect/Allas is 10 TB, which can be expanded up to 200 TB as needed. If you require additional storage capacity, please reach out for support at servicedesk@csc.fi (subject: Sensitive data).
 
-* 1 billing unit/TBh.
+Storing data in SD Connect/Allas consumes billing units at a rate of 1 billing unit per TB per hour. This means that storing 1 TB of data in Allas consumes 24 billing units daily and 8760 billing units annually.
 
-i.e. 1 TB of data stored in Allas consumes 24 billing units daily and 8760 billing units per year.
+**SD Desktop billing and quota**
 
-**SD Desktop**: the default disk space (or storage space) in SD Desktop is 80 GB and can be increased up to 280 GB by adding an external volume during virtual desktop creation. If you need additional storage space for data analysis, contact us for support at servicedesk@csc.fi (subject: Sensitive data). 
+By default, the disk space in SD Desktop is 80 GB, and you have the option to increase it to 280 GB by adding an external volume during the creation of a virtual desktop. If you require more storage for data analysis, reach out for support at servicedesk@csc.fi (subject: Sensitive data).
+When applying for a new CSC project, the default quota (storage space) for SD Connect/Allas is 10 TB, expandable up to 200 TB as required. For additional storage needs, contact us for support at servicedesk@csc.fi (subject: Sensitive data).
 
-Analysing data in SD Desktop consumes billing units based on the type of virtual desktop you are using. The rate is:
+Analyzing data in SD Desktop consumes billing units based on the type of virtual desktop used. The rates are as follows:
 
-* Small computation: 5.2 billing units/hour;
-
-* Medium computation: 10.4 billing units/hour;
-
-* Heavy computation: 52 billing units/hour.
-
+* Small computation: 5.2 billing units per hour;
+* Medium computation: 10.4 billing units per hour;
+* Heavy computation: 52 billing units per hour.
 
 For more information, see the specific sections: 
 
@@ -117,9 +115,9 @@ Once all the billing units for your CSC project have been used up, your access t
 
 You'll be notified via email when your billing units have been consumed. To regain access to your virtual Desktop, just follow these easy steps:
 
-* **Step 1**: Apply for more billing units by visiting the [MyCSC portal](https://my.csc.fi) This will give you a positive balance to continue using the service.
+1. Apply for more billing units by visiting the [MyCSC portal](https://my.csc.fi) This will give you a positive balance to continue using the service.
 
-* **Step 2**: Log in to SD Desktop and restart your virtual desktop. For detailed instructions, consult the [SD Desktop service user guide](../../data/sensitive-data/sd_desktop.md#pausing-or-restarting-a-virtual-desktop). 
+2. Log in to SD Desktop and restart your virtual desktop. For detailed instructions, consult the [SD Desktop service user guide](../../data/sensitive-data/sd_desktop.md#pausing-or-restarting-a-virtual-desktop). 
 
 
 ## What happens to your data when your CSC project expires or is closed
