@@ -53,6 +53,7 @@ When all the settings are done, press the **Launch Desktop** button. The launch 
 Once your private virtual computer (Desktop) is launched, each CSC project member can securely access it from their browser at any time.
 
 When you log in to SD Desktop **Homepage**, you will be able to access your virtual Desktop in:
+
 * **Recent connections**, by clicking on the image of your Desktop (visible only if you recently accessed it)
 * **All connections** if you click on + you can see all the connections associated with each project (e.g. project_NNNNN_NNNN). If you click on the connection ID you will also access your Desktop.
 
@@ -61,10 +62,12 @@ When you open the connection, a virtual computing environment (Linux Centos oper
 You can work with this virtual Desktop like in a standard computing environment. From the *Applications* menu bar (top left corner) you can access several pre-installed programs. Examples include Open Office, image viewing applications, video and audio players, Jupiter Notebook etc. You can also open a terminal and use Linux from the command line. To start using R-Studio please check the following paragraph.
 
 Security-related features of the audited SD Desktop include:
+
 * the computing environment is **isolated from the internet**. You can, for example, open a Firefox web browser, but you are not able to access any site on the internet. You will also not be able to access any repositories directly.
 * the copy-paste function from your computer/laptop to the browser visualizing your virtual Desktop is entirely disabled for security reasons. You can anyhow use this function inside your browser.
 
 You can close your connection to your virtual Desktop in two ways:
+
 1. **Log out** from your Desktop (in the workspace view, top right corner of the browser, select your *username* and *log out*). This will close all applications in your virtual Desktop and disconnect the work session. You will be able to access the virtual Desktop at any time after logging in to the services.
 2. If you started a data analysis programmatically (you are running a script) you can close the browser window. This doesn't interfere with the processes running. Thus, when you reconnect to your Desktop, you have all your tools and interfaces still open and can continue working. However, remember to log out from the Desktop once the analysis is finished. If you leave more than ten connections open, you will be unable to re-access the services.
 
@@ -72,6 +75,31 @@ You can close your connection to your virtual Desktop in two ways:
     **Never use the lock or reboot buttons** in SD Desktop as you will not be able to connect to the Desktop again after that.
 
 [![Access-virtual-Desktop](images/desktop/desktop-access.png)](images/desktop/desktop-access.png)
+
+
+## Accessing Data Using Data Gateway
+
+Once you sign in to your virtual Desktop, you can access the data by following these steps:
+
+1. Open **Data Gateway** (you can find the application on your desktop);
+2. Select SD Apply;
+3. Click on **Continue**;
+4. In the new window, under the second step, click on **Create**. The application will create a new folder called **Projects** accessible from your Desktop or programmatically through the terminal.
+5. Click on **Open folder**.
+6. The files have been encrypted using the sensitive data public encryption key, and you will be able to access their content in *read-only mode*. The current streaming speed can be up to 50 MB/s.
+
+!!! Note
+    The Projects folder is **available only when the Data Gateway application is open**. If you close or disconnect the application, you will not be able to access the data stored in the data service unless you previously made a full copy of it inside your Desktop. Thus, Data Gateway needs to be open and connected during data processing in streaming mode.
+
+[![Desktop-register-access](images/desktop/desktop-register-gateway.png)](images/desktop/desktop-register-gateway.png)
+
+### If You Need to Edit the Files/data
+
+ * Access the files of interest in the Project folder using **Data Gateway**;
+ * Select all the necessary files from the Project folder, make a **copy** and save it in the virtual Desktop **home directory** (the files will be visible only from your browser) or in the **shared folder** (in this case, the files will be accessible also by all the CSC project members).
+
+[![Desktop-data-import](images/desktop/desktop-gateway-import.png)](images/desktop/desktop-gateway-import.png)
+
 
 ## Default Programs Available on the Desktop and Software Customisation
 
