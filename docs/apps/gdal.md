@@ -42,11 +42,11 @@ With `r-env` gdal commands can be used as:
 `apptainer_wrapper exec gdalinfo --version`
 
 
-### Using files directly from Allas
+#### Using files directly from object storage services or cloud, inc Allas
 
-It is possible to __read__ files from Allas directly with GDAL, but not to write. Please check our [tutorial page](../support/tutorials/gis/direct_allas.md) for instructions and examples.
+GDAL supports virtual [network based file systems](https://gdal.org/user/virtual_file_systems.html#network-based-file-systems) for reading and sometimes writing from several cloud storage systems, inc CSC Allas, Amazon S3, Google Cloud, Microsoft Azure etc. Please check our [GDAL cloud tutorial](../support/tutorials/gis/gdal_cloud.md) for instructions and examples.
 
-### Virtual rasters
+#### Virtual rasters
 
 With large quantities of raster data (also in Allas), the most convenient method of accessing them might be [GDAL virtual rasters](../support/tutorials/gis/virtual-rasters.md). 
 
