@@ -162,11 +162,8 @@ The following paragraphs will discuss how to work with your virtual desktop, whi
 
 [![Launch](images/desktop/desktop_launch.png)](images/desktop/desktop_launch.png)
 
-        
-
-[![Launch](images/desktop/desktop_creation.png)](images/desktop/desktop_creation.png)
       
-Unfortunately, we are not yet providing a virtual Desktop with GPUs or Windows, Linux Ubuntu operating systems. However, we are working on it, and you can find more information on the future developments of the services on our webpage. 
+Unfortunately, we are not yet providing a virtual Desktop with GPUs or Windows operating systems. However, we are working on it, and you can find more information on the future developments of the services on our webpage. 
 
 In the following paragraphs, we will discuss how to work with a virtual Desktop, which software is available and what limitations there are in the secondary use environment.
 
