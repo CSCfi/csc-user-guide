@@ -111,9 +111,9 @@ For more information, see the specific sections:
 
 Once all the billing units for your CSC project have been used up, your access to the SD Desktop service will be restricted. This means that all virtual Desktops currently running will automatically be paused, and you won't be able to access their content. It's important to note that the your data remains unaffected and will not be deleted, even in cases where the total billing units reach zero or enter negative values.
 
-**Regaining access to your virtual desktop**:
-
-You'll be notified via email when your billing units have been consumed. To regain access to your virtual Desktop, just follow these easy steps:
+* **Notification**: You'll be notified via email when your billing units have been consumed.
+  
+* **Regaining access to your virtual desktop**: To regain access to your virtual Desktop, just follow these easy steps:
 
 1. Apply for more billing units by visiting the [MyCSC portal](https://my.csc.fi) This will give you a positive balance to continue using the service.
 
