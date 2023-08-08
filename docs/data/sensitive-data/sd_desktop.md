@@ -108,7 +108,7 @@ You can choose between three different pre-built virtual desktop options:
 
 
 !!! Note
-    As each virtual desktop consumes resources, it's advisable to delete your desktop when it's no longer necessary (for instance, after testing the SD Desktop service or completing the analysis phase). All project members will receive email notifications if a desktop remains unused for at least 14 days. Before deletion, make sure to export all essential results and disconnect any volumes containing important files for future use and notifying the other CSC project members. For further details, refer to Managing Volumes and Desktops [Managing volumes and desktops](./sd_desktop.md#managing-volumes-and-virtual-desktops).
+    As each virtual desktop consumes resources, it's advisable to delete your desktop when it's no longer necessary (for instance, after testing the SD Desktop service or completing the analysis phase). All project members will receive email notifications if a desktop remains unused for at least 14 days. Before deletion, make sure to export all essential results and disconnect any volumes containing important files for future use and notifying the other CSC project members. For further details, refer to [Managing volumes and desktops](./sd_desktop.md#managing-volumes-and-virtual-desktops).
     
 
 
