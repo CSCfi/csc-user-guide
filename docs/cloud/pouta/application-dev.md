@@ -31,7 +31,7 @@ minimize the impact of failures. If the underlining hardware suddenly fails, dat
 
 * It will be then less complex to horizontally **scale up and down** the application. If the computing and the data are not hardly coupled, the design will allow adding or removing Virtual machine replicas (horizontal scaling). Having more replicas allows to spread the computation nodes across the computer center and minimizes (even more) the impact of individual failures, again lowering the number of SPoF.
 
-![Stateless VM](/img/stateless_VM.drawio.png)
+![Stateless VM](../../../img/stateless_VM.drawio.png)
 
 ## Version control code management.
 
@@ -46,7 +46,7 @@ This helps you to:
 
 And much more.
 
-![Git](/img/git.drawio.png)
+![Git](../../../img/git.drawio.png)
 
 ## Configuration management
 
@@ -81,7 +81,7 @@ It is advisable to design an application that allows **horizontal** scaling, i.e
 !!! info "autoscale"
     In Pouta clouds, you could also programmatically scale your Heat stack using [OpenStack Heat resources] like *OS::Heat::ResourceGroup*,*OS::Heat::AutoScalingGroup* and *OS::Heat::ScalingPolicy*.
 
-![scale](/img/scale.drawio.png)
+![scale](../../../img/scale.drawio.png)
 
 ## Use Infrastructure as Code
 
@@ -93,7 +93,7 @@ There are some options for Infrastructure as Code (IaC) tools. These tools are s
 
 You can see above three examples, one for for each tool. All of them aim to get the same result: One or more VMs with nginx installed and few local files deployed. In order to choose which one to use, you will need to consider the up and downs of the tools and use the one that fits more your use case. For example, if you think about support. Both Heat and Ansible are developed by the OpenStack team and the Terraform provider is a community written software. In addition, Heat is provided together with OpenStack and can  be used via command line or the web interface. Finally Heat is the only one that the Pouta team fully supports.
 
-![Heat webUI](/img/heat-web-ui.png)
+![Heat webUI](../../../img/heat-web-ui.png)
 
 !!! warning "Tools evolve"
     Keep in mind that the situations for these (and most) tools evolve over time, support may get better or dropped altogether.
@@ -118,7 +118,7 @@ Backups are critical to any application. They protect data against _accidental d
 
 One common backup strategy is the 3-2-1 rule. 3 copies of the data (including the original production one), 2 different media of storage and 1 offsite backup. Other basic backup principle is that copies cannot be deleted or corrupted from the original source (this is to prevent accidents and ransomware). Using a dedicated backup tool is recommended, these tools allow to easily create immutable copies that are properly dated and scheduled. They also facilitate other secondary aspects like encryption and older backups deletion. It is also very important to validate that the backups are indeed valid and that it is possible to recover the data as intended.
 
-![3-2-1](/img/3-2-1.drawio.png)
+![3-2-1](../../../img/3-2-1.drawio.png)
 
   [practices]: https://12factor.net/
   [code repositories]: https://github.com/CSCfi
