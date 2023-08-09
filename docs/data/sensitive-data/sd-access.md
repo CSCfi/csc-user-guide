@@ -116,7 +116,14 @@ Once all the billing units for your CSC project have been used up, your access t
 
 1. Apply for more billing units by visiting the [MyCSC portal](https://my.csc.fi). This will give you a positive balance to continue using the service.
 
-2. Log in to SD Desktop and restart your virtual desktop. For detailed instructions, consult the [SD Desktop service user guide](../../data/sensitive-data/sd_desktop.md#pausing-or-unpausing-a-virtual-desktop).
+2. Log in to SD Desktop and unpause your virtual desktop. On the SD Desktop homepage, click on _Go To SD Desktop Management_; Here, under _Available desktops_  select the correct virtual desktop, and in the same raw, on the right side, click on _Resume_.
+
+!!! Note
+    Restarting a paused desktop is only possible for active CSC projects with available billing units. 
+
+
+[![Desktop-volume](images/desktop/pause.png)](images/desktop/pause.png)
+
 
 
 ## What happens to your data when your CSC project expires or is closed
