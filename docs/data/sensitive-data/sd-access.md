@@ -122,8 +122,6 @@ Once all the billing units for your CSC project have been used up, your access t
     Restarting a paused desktop is only possible for active CSC projects with available billing units. 
 
 
-[![Desktop-volume](images/desktop/pause.png)](images/desktop/pause.png)
-
 
 
 ## What happens to your data when your CSC project expires or is closed
