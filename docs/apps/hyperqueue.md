@@ -103,7 +103,7 @@ allocation.
     #!/bin/bash
     #SBATCH --account=<project>
     #SBATCH --partition=small    # single node partition
-    #SBATCH --nodes=1
+    #SBATCH --nodes=1            # one compute node
     #SBATCH --ntasks-per-node=1  # one HyperQueue worker
     #SBATCH --cpus-per-task=10   # one or more cpus per worker
     #SBATCH --mem-per-cpu=1000   # desired amount of memory per cpu
@@ -115,8 +115,8 @@ allocation.
     #!/bin/bash
     #SBATCH --account=<project>
     #SBATCH --partition=large    # multi node partition
-    #SBATCH --nodes=2
-    #SBATCH --ntasks-per-node=1  # two or more HyperQueue workers
+    #SBATCH --nodes=2            # two or more nodes
+    #SBATCH --ntasks-per-node=1  # one HyperQueue worker per node
     #SBATCH --cpus-per-task=10   # one or more cpus per worker
     #SBATCH --mem-per-cpu=1000   # desired amount of memory per cpu
     #SBATCH --time=00:15:00
@@ -126,9 +126,9 @@ allocation.
     ```bash
     #!/bin/bash
     #SBATCH --account=<project>
-    #SBATCH --partition=small
-    #SBATCH --nodes=1
-    #SBATCH --ntasks-per-node=1  # one worker node
+    #SBATCH --partition=small    # single node partition
+    #SBATCH --nodes=1            # one compute node
+    #SBATCH --ntasks-per-node=1  # one HyperQueue worker
     #SBATCH --cpus-per-task=40   # all cpus on a node
     #SBATCH --mem=0              # reserve all memory on a node
     #SBATCH --time=00:15:00
@@ -138,9 +138,9 @@ allocation.
     ```bash
     #!/bin/bash
     #SBATCH --account=<project>
-    #SBATCH --partition=large
-    #SBATCH --nodes=2
-    #SBATCH --ntasks-per-node=1  # two or more worker nodes
+    #SBATCH --partition=large    # multi node partition
+    #SBATCH --nodes=2            # two or more nodes
+    #SBATCH --ntasks-per-node=1  # one HyperQueue worker per node
     #SBATCH --cpus-per-task=40   # reserve all cpus on a node
     #SBATCH --mem=0              # reserve all memory on a node
     #SBATCH --time=00:15:00
@@ -150,9 +150,9 @@ allocation.
     ```bash
     #!/bin/bash
     #SBATCH --account=<project>
-    #SBATCH --partition=medium
-    #SBATCH --nodes=1
-    #SBATCH --ntasks-per-node=1  # one or more worker nodes
+    #SBATCH --partition=medium   # multi node partition
+    #SBATCH --nodes=1            # one or more nodes
+    #SBATCH --ntasks-per-node=1  # one HyperQueue worker per node
     #SBATCH --cpus-per-task=128  # all cpus on a node
     #SBATCH --mem=0              # reserve all memory on a node
     #SBATCH --time=00:15:00
@@ -389,7 +389,7 @@ is requested.
     #!/bin/bash
     cd "$LOCAL_SCRATCH"
     tar czf "output-$SLURMD_NODENAME.tar.gz" output
-    cp output-$SLURMD_NODENAME.tar.gz $SLURM_SUBMIT_DIR
+    cp "output-$SLURMD_NODENAME.tar.gz" "$SLURM_SUBMIT_DIR"
     ```
 
     File: `batch.sh`
@@ -436,7 +436,7 @@ is requested.
     # Wait for all tasks to finish
     hq job wait all
 
-    # Create archives on Lustre for the outputs on each local disk
+    # Archive and copy output from each local disk to working directory on Lustre
     srun -m arbitrary -w "$SLURM_JOB_NODELIST" ./archive
 
     # Shut down the workers and server
