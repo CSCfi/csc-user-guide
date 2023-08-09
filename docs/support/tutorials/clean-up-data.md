@@ -93,7 +93,7 @@ $ date +%F
 2023-08-04
 ```
 
-Another file which is put into each project's purge_lists directory is the `total_size.txt` file.
+Another file which is put into each project's `purge_lists` directory is the `total_size.txt` file.
 This file contains a precalculated size estimate based on the numbers inside the `path_summary.txt`
 files. This file exists for every project, and is created automatically when the purge lists are
 generated. The file might look like this:
@@ -104,7 +104,7 @@ Total size: 798343125192 bytes = 743.515 GiB = 0.726 TiB
 ```
 
 With this information, you are able to estimate how much time might be required to back up the
-data elsewhere, if you want to keep everything on the purge list outside of Puhti's Scratch file
+data elsewhere, if you want to keep everything on the purge list outside of Puhti's `scratch` file
 system.
 The file system tools which CSC uses to generate the list of files to remove will output files
 which are quite verbose and difficult to read. By using the LCleaner tool described in the next section,
@@ -350,4 +350,4 @@ why the command examples above are architected the way they are.
 
 ### Troubleshooting LCleaner
 
-If you notice any bugs, please report them to CSC's Service Desk.
+If you notice any bugs, please report them to [CSC Service Desk](../contact.md).
