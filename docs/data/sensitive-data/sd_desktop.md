@@ -539,12 +539,18 @@ To pause the desktop:
 
 4. A message will ask to confirm the operation, which can take up to 30 minutes.
 
-You can unpause the virtual desktop at any time from the same page. Also, in this case, the restart processes can take up to 30 minutes. 
+You can unpause the virtual desktop at any time from the same page. Also, in this case, the restart processes can take up to 30 minutes:
+
+2. On the SD Desktop homepage, click on _Go To SD Desktop Management_;
+
+3. Here, under _Available desktops_  select the correct virtual desktop, and in the same raw, on the right side, click on _Resume_. 
+
 
 !!! Note
     Restarting a paused desktop is only possible for active CSC projects with available billing units. 
 
 [![Desktop-volume](images/desktop/pause.png)](images/desktop/pause.png)
+
 
 ### Rebooting or rebuilding a desktop
 
