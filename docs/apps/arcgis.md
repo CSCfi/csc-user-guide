@@ -179,5 +179,5 @@ for it from CSC.
   [ArcGIS software]: http://www.esri.com/software/arcgis
   [Additional information and data download]: 
   [ArcGIS Online]: http://www.arcgis.com/features/
-  [Esri-helpdesk]: http://www.esri.fi/kayttajatuki/
+  [Esri-helpdesk]: https://www.esri.fi/fi-fi/tuki/intro
   [GIS-analyysimenetelmät ArcGIS 10.2.1 -ohjelmistolla]: http://jultika.oulu.fi/Record/isbn978-952-62-0788-9

@@ -18,8 +18,8 @@ perform mixed quantum-mechanics and molecular-mechanics simulations.
 
 ## License
 
-- The code is distributed as open-source under the terms of the [Educational Community
-  License version 2.0 (ECL 2.0)](https://opensource.org/licenses/ecl2.php ).
+- The code is distributed as open-source under the terms of the
+[Educational Community License version 2.0 (ECL 2.0)](https://opensource.org/license/ecl-2-0/).
 
 ## Usage
 
