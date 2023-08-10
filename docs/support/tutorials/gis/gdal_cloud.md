@@ -1,12 +1,10 @@
-# Using geospatial files directly from cloud
+# Using geospatial files directly from cloud, inc Allas
 
-[GDAL](../../../apps/gdal.md) can read directly from an URL or cloud storage services, which eliminates the need to download the files manually before data analysis. It can also write files to cloud storage services. Several cloud storage APIs are supported, inc CSC Allas, Amazon S3, Google Cloud Storage, Microsoft Azure etc. Reading data directly from an external service is usually slower than reading from local disks, but in many cases, these seconds are negligible compared to the full duration of an analysis.
+[GDAL](../../../apps/gdal.md) is the main open-source libary for reading and writing geospatial data and many more advanced tools rely on GDAL, including QGIS, Python, R etc. GDAL on most tools depending on it can read directly from an URL or cloud storage services, which eliminates the need to download the files manually before data analysis. It can also write files to cloud storage services. Several cloud storage APIs are supported, inc CSC Allas, Amazon S3, Google Cloud Storage, Microsoft Azure etc. Reading data directly from an external service is usually slower than reading from local disks, but in many cases, these seconds are negligible compared to the full duration of an analysis.
 
 GDAL has several virtual [network based files systems](https://gdal.org/user/virtual_file_systems.html#network-based-file-systems), that are meant for different storage services or use cases. CSC Allas supports both SWIFT or S3 API. SWIFT is more secure, but the credentials need to be updated after 8 hours. S3 has permanent keys, and is therefore little bit easier to use. Both of these have a random reading and streaming API. 
 
 Below are described in more detail how to use GDAL with public files from URL (VSICURL), private files in S3 (VSIS3) or SWIFT (VSISWIFT) storage.
-
-Many other tools rely on GDAL for data reading and writing, usually also these support the same options, for example QGIS, Python, R etc.
 
 ## VSICURL, reading public files from URL or cloud storage service
 
