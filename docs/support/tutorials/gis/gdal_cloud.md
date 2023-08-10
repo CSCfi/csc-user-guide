@@ -1,10 +1,10 @@
 # Using geospatial files directly from cloud, inc Allas
 
-[GDAL](../../../apps/gdal.md) is the main open-source libary for reading and writing geospatial data and many more advanced tools rely on GDAL, including QGIS, Python, R etc. GDAL and most tools depending on it can read directly from an public URL or cloud storage services, which eliminates the need to download the files manually before data analysis. It can also write files to cloud storage services. Several cloud storage APIs are supported, inc CSC Allas, Amazon S3, Google Cloud Storage, Microsoft Azure etc. Reading data directly from an external service is usually slower than reading from local disks, but in many cases, these seconds are negligible compared to the full duration of an analysis, but it is important to have good Internet connection.
+[GDAL](../../../apps/gdal.md) is the main open-source libary for reading and writing geospatial data and many more advanced tools rely on GDAL, including QGIS, ArcGIS, Python, R etc. GDAL and most tools depending on it can read directly from an public URL or cloud storage services, which eliminates the need to download the files manually before data analysis. It can also write files to cloud storage services. Several cloud storage services are supported, inc CSC [Allas](../../../data/Allas/index.md), [LUMI-O](https://docs.lumi-supercomputer.eu/storage/lumio/), [Amazon S3](https://aws.amazon.com/pm/serv-s3/), [Google Cloud Storage](https://cloud.google.com/storage), [Microsoft Azure Blob Storage](https://azure.microsoft.com/en-us/products/storage/blobs/) etc. Reading data directly from an external service is usually slower than reading from local disks, but in many cases, these seconds are negligible compared to the full duration of an analysis, but it is important to have good Internet connection.
 
 GDAL has several virtual [network based files systems](https://gdal.org/user/virtual_file_systems.html#network-based-file-systems), that are meant for different storage services or use cases. CSC Allas supports both SWIFT or S3 API. SWIFT is more secure, but the credentials need to be updated after 8 hours. S3 has permanent keys, and is therefore little bit easier to use. Both of these have a random reading and streaming API. 
 
-Below are described in more detail how to use GDAL with public files from URL (VSICURL), private files in S3 (VSIS3) or SWIFT (VSISWIFT) storage, but also other object storage services are supported.
+Below are described in more detail how to use GDAL with public files from URL (VSICURL), private files in S3 (VSIS3) or SWIFT (VSISWIFT) storage, but also other object storage services are supported. Special attention is on CSC Allas service and supercomputers.
 
 ## VSICURL, reading public files from URL or cloud storage service
 
@@ -19,6 +19,7 @@ gdalinfo /vsicurl/https://www.nic.funet.fi/index/geodata/mml/orto/normal_color_3
 
 # CSC Allas
 gdalinfo /vsicurl/https://a3s.fi/bucket_name/object_name
+# OR alternatively
 gdalinfo /vsicurl/https://bucket_name.a3s.fi/object_name
 
 # Amazon S3 (us-west-2)
@@ -53,8 +54,8 @@ allas-conf --mode s3cmd
 
 If you are using also CSC supercomputers, then the easiest is to set up S3 connection on a supercomputer and then:
 
-1) Copy your `~/.aws/credentials` file from supercomputer to the other machine, `C:\Users\username\.aws\credentials` on Windows or `~/.aws/credentials` on Mac or Linux. 
-2) Set also AWS_S3_ENDPOINT environment variable to `a3s.fi`. Windows command shell: `set AWS_S3_ENDPOINT=a3s.fi` or Linux/Max: `export AWS_S3_ENDPOINT=a3s.fi`
+1. Copy your `~/.aws/credentials` file from supercomputer to the other machine, `C:\Users\username\.aws\credentials` on Windows or `~/.aws/credentials` on Mac or Linux. 
+2. Set also AWS_S3_ENDPOINT environment variable to `a3s.fi`. Windows command shell: `set AWS_S3_ENDPOINT=a3s.fi` or Linux/Max: `export AWS_S3_ENDPOINT=a3s.fi`
 
 If you are not using also CSC supercomputers, you can install `allas-conf` to your Linux/Mac machine, follow the instructions in [CSC's Allas command line interface utilities repository](https://github.com/CSCfi/allas-cli-utils). 
 
