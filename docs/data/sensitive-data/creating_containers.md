@@ -2,7 +2,7 @@
 
 In this tutorial we use cPouta to create a Apptainer containers to import new software to SD Desktop.
 
-**Steps 1 ja 2** describe how to setup you own Virtual Machine with singularity environment to cPouta. This is 
+**Steps 1 ja 2** describe how to setup you own Virtual Machine with Apptainer environment to cPouta. This is 
 not the only option and if you have already a Apptainer installed elsewhere, you can skip these steps and 
 use your own Apptainer environment.
 
@@ -12,7 +12,7 @@ use your own Apptainer environment.
 
 **Step 5** describes how the software installed in a container can be usen in SD Desktop.
 
-## 1. Creating your own singularity workbench to cPouta.
+## 1. Creating your own Apptainer workbench to cPouta.
 
 In order to utilize all features of Apptainer you must run it in an environment where you have administrator level access rights. At CSC, you can have administrator level access in virtual machines running in cPouta. Using cPouta for the building process adds a bit of extra steps into the process: you have to know how to launch and access virtual machines in cPouta. On the other hand cPouta has a fast connection to the Allas service that is used to import the ready made containers to SD Desktop.
 
@@ -32,7 +32,7 @@ In this tutorial we use a virtual machine that was launched using:
 
 ## 2. Installing singularity and Allas tools to Ubuntu 22.04 server
 
-Here we start from a situation where we have logged in to our freshly started virtual machine for the first time. As preparatory steps we need to install to our virtual machine **Singularity** to create new software containers and **allas tools** to upload the containers we will create to Allas.
+Here we start from a situation where we have logged in to our freshly started virtual machine for the first time. As preparatory steps we need to install to our virtual machine **Apptainer** to create new software containers and **allas tools** to upload the containers we will create to Allas.
 
 
 The singularity installation is done with commands:
@@ -62,7 +62,7 @@ Note that this installation process needs to be done only once for a virtual mac
 
 ## 3. Creating a Apptainer container
 
-There are many ways to create new Apptainer containers. You can crate the a container by creating a _sandbox_ in to which you log in and add content by typing installation commands. Alternatively you can automatize the installation process so that you collect all the commands and settings to a _singularity definition_ file that instructs the installation process. A detailed view to the container building can be four from the [Apptainer user guide](https://apptainer.org/docs/user/main/build_a_container.html).
+There are many ways to create new Apptainer containers. You can crate the a container by creating a _sandbox_ in to which you log in and add content by typing installation commands. Alternatively you can automatize the installation process so that you collect all the commands and settings to a _apptainer definition_ file that instructs the installation process. A detailed view to the container building can be four from the [Apptainer user guide](https://apptainer.org/docs/user/main/build_a_container.html).
 
 Here we use a mixture of these two approaches. We first use a simple definition file to create a new container sandbox that contains a set of tools for software installation. Then we open a shell session to the container sandbox and do the actual software installations manually.
 
@@ -125,7 +125,7 @@ When the sandbox is ready we open a shell session into it. Option _-w_ enables u
 ```text
 sudo apptainer shell -w sd_sandbox_1
 ```
-Now we are inside the singularity sandbox and we can start installing software we need.
+Now we are inside the apptainer sandbox and we can start installing software we need.
 We have already available Conda that will provide a handy way to install many software tools.
 For example, following commands install _bamtools_ into conda environment called _biotools_. 
 
@@ -179,11 +179,11 @@ After this, file listing (```ls -lh```) shows that the current directory has a s
 drwxr-xr-x. 18 root   root   4.0K Sep 27 12:56 sd_sandbox_1
 -rwxr-xr-x   1 ubuntu ubuntu 419M Sep 27 13:43 sd_tools_1.sif
 ```
-Note that both the sandbox and singularity image file can be used to execute the commands we just installed. For example we can print out _samtools_ help message with both commands below:
+Note that both the sandbox and apptainer image file can be used to execute the commands we just installed. For example we can print out _samtools_ help message with both commands below:
 
 ```text
-singularity exec sd_sandbox_1 samtools 
-singularity exec sd_tools_1.sif samtools
+apptainer exec sd_sandbox_1 samtools 
+apptainer exec sd_tools_1.sif samtools
 ```
 
 ## 4. Uploading container to Allas/SD Connect
@@ -213,18 +213,18 @@ a-put --sdx sd_tools_1.sif -b 2000123_apptainer_sd -m "SD Compatible. Contains b
 In the command above option _--sdx_ is used to encrypt the container with CSC public key. The encrypted container will be stored to bucket _2000123_apptainer_sd_. Here the bucket name contains the project number (2000123) to ensure uniqueness and _sd_ is used to indicate that this bucket contains SD Desktop compatible data. Option _-m_ is used to add a description line to the metadata object that a-put creates.
 
 
-## 5. Using singularity containers in SD Desktop
+## 5. Using Apptainer containers in SD Desktop
 
-In order to use the singularity container you have created you need first download a copy of the container to the SD Desktop with _Data Gateway_ tool. First login to [SD Desktop](https://sd-desktop.csc.fi) and connect to the Virtual Desktop that you want to use. Open Data Gateway, navigate the to the right project (project_2000123) and bucket (2000123_singularity_sd), and download the singularity image file (sd_tools_1.sif) to the SD Desktop.
+In order to use the apptainer container you have created you need first download a copy of the container to the SD Desktop with _Data Gateway_ tool. First login to [SD Desktop](https://sd-desktop.csc.fi) and connect to the Virtual Desktop that you want to use. Open Data Gateway, navigate the to the right project (project_2000123) and bucket (2000123_apptainer_sd), and download the apptainer image file (sd_tools_1.sif) to the SD Desktop.
 
-After that, open a Linux terminal in the SD Desktop. In the terminal, move the singularity file to the location you want to use it. In this example that could be done with command:
+After that, open a Linux terminal in the SD Desktop. In the terminal, move the apptainer file to the location you want to use it. In this example that could be done with command:
 ```text
-cp /home/kkayttaj/Projects/SD\ connect/project_2000123/2000123_sigularity_sd/sd_tools_1.sif ./
+cp /home/kkayttaj/Projects/SD\ connect/project_2000123/2000123_apptainer_sd/sd_tools_1.sif ./
 ```
 Now we could execute for example the samtools command that is installed in the container.
 
 ```text
-singularity exec sd_tools_1.sif samtools
+apptainer exec sd_tools_1.sif samtools
 ```
 The command above prints out the help for samtools version 1.10 that is installed in the container. Note that another version of samtools, version 1.9, is installed in the SD Desktop, so the command below would work too, but it would print help of the older samtools version:
 ```text
