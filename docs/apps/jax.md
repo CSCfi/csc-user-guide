@@ -23,7 +23,8 @@ Currently supported JAX versions:
 | Version | Module       | Puhti | Mahti | Notes           |
 |:-------:|--------------|:-----:|:-----:|-----------------|
 | 0.3.13  | `jax/0.3.13` | X     | X     |                 |
-| 0.4.1   | `jax/0.4.1`  | X     | X     | default version |
+| 0.4.1   | `jax/0.4.1`  | X     | X     |                 |
+| 0.4.14  | `jax/0.4.14` | X     | X     | default version |
 
 The modules contain [JAX](https://github.com/google/jax/) for Python
 with GPU support via CUDA. 
