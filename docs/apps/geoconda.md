@@ -125,7 +125,7 @@ spyder
 
 There are two Python libraries installed in Geoconda that can interact with Allas. __Swiftclient__ uses the swift protocol and __boto3__ uses S3 protocol. You can find CSC examples how to use both [here](https://github.com/csc-training/geocomputing/tree/master/python/allas). 
 
-It is also possible to __read__ and __write__ files from and to Allas or other cloud object storage directly with GDAL-based packages such as `gdal`, `geopandas` and `rasterio`. Please check our [tutorial page](../support/tutorials/gis/direct_allas.md) for instructions and examples.
+It is also possible to __read__ and __write__ files from and to Allas or other cloud object storage directly with GDAL-based packages such as `geopandas` and `rasterio`. Please check our [tutorial page](../support/tutorials/gis/gdal_cloud.md) for instructions and examples.
 
 With large quantities of data in Allas, virtual rasters should be considered. More information on how to create and use virtual rasters can be found [here](https://research.csc.fi/virtual_rasters).
 
