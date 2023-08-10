@@ -21,7 +21,7 @@ Contents:
 
  * [Default programs available on SD Desktop](./sd_desktop.md#default-programs-available-on-sd-desktop) (Default analysis)
   
- * [Software customization](./sd_desktop.md#software-customisation) (Advanced)
+ * [Software customization](./sd_desktop.md#sd-software-installer) (Advanced)
 
  * [Data export](./sd_desktop.md#data-export-from-sd-desktop)
 
@@ -73,7 +73,7 @@ For specific guidance, see the [MFA section](../../accounts/mfa.md).
 
 <iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/t6xXKPTB6H0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-Once you can access the service, you can create your virtual computer (desktop), choosing between four pre-built options. This operation can be carried out with a few simple steps and does not require any technical expertise. The services will automatically start your virtual desktop (or, in technical terms: launch a virtual machine) and create a secure connection between CSC and your browser. After this operation, your virtual desktop will be directly available whenever you log in to the service and will consume billing units (or resources) from your CSC project until paused or deleted.
+Once you can access the service, you can create your virtual computer (desktop), choosing between three pre-built options. This operation can be carried out with a few simple steps and does not require any technical expertise. The services will automatically start your virtual desktop (or, in technical terms: launch a virtual machine) and create a secure connection between CSC and your browser. After this operation, your virtual desktop will be directly available whenever you log in to the service and will consume billing units (or resources) from your CSC project until paused or deleted.
 
 Each CSC project supports the launch of 3 virtual Desktops. In addition, each desktop supports the simultaneous connection of 10 project members. Therefore, all project members can connect to the virtual desktop and access the data stored in your project. Furthermore, all the desktops are provided with the same open-source software (pre-installed and managed by CSC). The complete and updated list can be found in the following paragraph.
 
@@ -85,7 +85,7 @@ Here you can specify several parameters:
 1. _Select CSC project, operating system and desktop name_.
 Currently, the only possible operating system is Linux CentOS 7. Assigning a descriptive name for a Desktop so that all project members can quickly identify it, later on is good practice.
 
-2. _Select a desktop from the pre-built options_. Based on the computing needs, choose one of the pre-built options (Light, Small, Medium, or Heavy computing).
+2. _Select a desktop from the pre-built options_. Based on the computing needs, choose one of the pre-built options (Small, Medium, or Heavy computation).
 
 3. _Add external volume (optional)_. Each desktop's default disk (or storage) space is 80 GB. With this option, you can extend the disk space up to 200 GB, adding an external volume where you can save your files. You can add a new volume by selecting the  _Volume size_  and add a name in the field _Volume name_. **It is a good practice to save a copy of your analysis or important file on the volume that can also have a backup function in case the virtual desktop becomes unresponsive.** Note: you can't extend the disk space after you have created the virtual desktop. Additional disk space can be requested by writing to servicedesk@csc.fi (subject: Sensitive data). 
 You can detach and attach a volume from your virtual desktop. This operation corresponds to connecting or disconnecting a hard drive to your laptop and is availale only on desktops created after February 2023. For more informations see: [Managing volume and desktops](./sd_desktop.md#managing-volumes-and-virtual-desktops).
@@ -93,9 +93,7 @@ You can detach and attach a volume from your virtual desktop. This operation cor
 4. Finally, press on _Create desktop_. The operation is entirely automated and can take up to 30 minutes. If you try accessing the virtual desktop during this process, an error message will be displayed asking you to return later.
 
 
-You can choose between four different pre-built virtual desktop options:
-
-*  **Light computation**. Technical specifications: _Core:3; memory 4 GiB; Root disk: 80 GB; Correspondent Pouta Flavour: standard.medium; Billing Units: 1.3 units/h_. This option is ideal for testing the services (for example: starting a virtual desktop, accessing data stored in SD Connect, and deleting the desktop). For this reason, we advise you to start this option only for testing purposes and delete it when the testing is completed. 
+You can choose between three different pre-built virtual desktop options:
 
 * **Small computation**. Technical specifications: _Core:6; memory 15 GiB; Root disk: 80 GB; Correspondent Pouta Flavour: standard.xlarge; Billing Units: 5.2 units/h_. This option is ideal for analyzing sensitive data using office software (for example: similar to simple statistical analysis with Excel, watching videos, listening to audio files, and working on text files). You can compare this desktop to your laptop. 
 
@@ -108,9 +106,15 @@ You can choose between four different pre-built virtual desktop options:
 !!! Note
     For support in choosing the correct desktop option for your needs, don't hesitate to contact us at servicedesk@csc.fi (email subject: Sensitive data). 
 
+
+!!! Note
+    As each virtual desktop consumes resources, it's advisable to delete your desktop when it's no longer necessary (for instance, after testing the SD Desktop service or completing the analysis phase). All project members will receive email notifications if a desktop remains unused for at least 14 days. Before deletion, make sure to export all essential results and disconnect any volumes containing important files for future use and notifying the other CSC project members. For further details, refer to [Managing volumes and desktops](./sd_desktop.md#managing-volumes-and-virtual-desktops).
+    
+
+
 The following paragraphs will discuss how to work with your virtual desktop, which software is available, and how to customize your workspace.
 
-[![Launch](images/desktop/desktop_creation.png)](images/desktop/desktop_creation.png)
+[![Launch](images/desktop/desktop_launch.png)](images/desktop/desktop_launch.png)
 
 
 
@@ -320,7 +324,8 @@ Each virtual Desktop (or virtual computer) is pre-built and contains a limited s
  
 ### Scientific software 
 
-   * Python 3.9.15 including following packages:      
+   * Python 3.9.15 including following packages:
+        
         * tensorflow nltk spacy scikit-learn seaborn plotly bokeh pydot xgboost lightgbm catboost eli5 torch keras dist-keras elephas gensim scrapy beautifulsoup4 numpy scipy pandas statsmodels matplotlib pyfuse3 crypt4gh trio httpx qrcode 
         * [Instructions for adding Python libraries](./tutorials/sd-pythonlibs.md)
         
@@ -335,11 +340,15 @@ Each virtual Desktop (or virtual computer) is pre-built and contains a limited s
       * R + RStudio Server versions matched with Puhti r-env-singularity module (R 4.0.5 + RStudio Server 1.4.1106, MRAN, Bioconductor 3.12) 
       * [Rstudio 4.2.2 and all CRAN and Bioconductor libraries can be added with SD-software-installer](./r-in-sd-desktop.md)
 
-### Software customisation
+### SD Software installer
 
-Users can install their user-level software to SD Desktop, but this requires technical expertise. As SD Desktop is isolated from the internet, you can't directly use installation tools like _git_, _coda_, _cpan_ or _pip_ as they are dependent on internet connections to external repositories. Further, SD Desktop users can't do any operation that needs superuser access.
+[SD Software installer](./tutorials/sd-software-installer.md) provides easy-to-use tool to add some commonly used software to SD Desktop.
 
-The most convenient way to add new software to your SD Desktop is to build a Singularity container outside SD Desktop and then import the Singularity image through SD Connect to SD Desktop. The two documents below describe two sample cases on adding software with containers.
+### Software customisation with Apptainer and Podman
+
+Users can install their own software to SD Desktop, but this requires technical expertise. As SD Desktop is isolated from the internet, you can't directly use installation tools like _git_, _coda_, _cpan_ or _pip_ as they are dependent on internet connections to external repositories. Further, SD Desktop users can't do any operation that needs superuser access.
+
+If you want to add new software to your virtual machine independently, the most convenient way to add new software to your SD Desktop is to build a Apptainer container outside SD Desktop and then import the container through SD Connect to SD Desktop. The two documents below describe two sample cases on adding software with containers.
 
    1. [Importing ready-made software containers from a public repository to SD Desktop](./sd-desktop-singularity.md)
    2. [Creating you own Singularity container and importing it to SD Desktop](./creating_containers.md)
@@ -347,6 +356,11 @@ The most convenient way to add new software to your SD Desktop is to build a Sin
 
 !!! Note
     Please don't hesitate to contact us at servicedesk@csc.fi (subject: Sensitive Data). We can support you in your Desktop customization. 
+
+In Ubuntu22 based virtual machines you can use also Podman container manager. One of the benefits of Podman is that can utilize Docker containers too.
+
+*   [Using Podman in SD Desktop](./tutorials/podman-in-sd-desktop.md)
+    
 
 ##  Data export from SD Desktop
 
@@ -457,6 +471,7 @@ The fact that only project manager can export data from SD Desktop, making back-
 If need, the project manger can launch a back-up server process that normal users can utilize to do back-ups. For details, see:
 
    * [SD Desktop Back-up server tutorial](tutorials/backup_sd_desktop.md)
+     
  
 
 
@@ -510,7 +525,7 @@ Limitations:
 
 [![Desktop-volume](images/desktop/volume.png)](images/desktop/volume.png)
 
-### Pausing or restarting a virtual desktop
+### Pausing or unpausing a virtual desktop
 
 You can pause a virtual desktop. In this manner, the desktop will stop consuming billing units. 
 
@@ -524,45 +539,60 @@ To pause the desktop:
 
 4. A message will ask to confirm the operation, which can take up to 30 minutes.
 
-You can restart the virtual desktop at any time from the same page. Also, in this case, the restart processes can take up to 30 minutes. 
+You can unpause the virtual desktop at any time from the same page. Also, in this case, the restart processes can take up to 30 minutes:
+
+2. On the SD Desktop homepage, click on _Go To SD Desktop Management_;
+
+3. Here, under _Available desktops_  select the correct virtual desktop, and in the same raw, on the right side, click on _Resume_. 
+
 
 !!! Note
-    This option is available only for active CSC projects with available billing units. 
+    Restarting a paused desktop is only possible for active CSC projects with available billing units. 
 
 [![Desktop-volume](images/desktop/pause.png)](images/desktop/pause.png)
 
+
 ### Rebooting or rebuilding a desktop
 
-If the virtual desktop or software has become unresponsive, you can use this option to reboot (or restart) your desktop. All the files/ software saved on the virtual desktop will remain available after the reboot. 
+
+**Reebooting a desktop**
+
+If your virtual desktop or software becomes unresponsive, you can reboot (restart) it. After the reboot, all files and software saved on the virtual desktop will remain accessible.
 
 !!! Note
-    You don't need to reboot your desktop if the Data Gateway application becomes unresponsive (for example, because old sessions are still running in the background). Instead, you can use the terminal to check the ID number of the running process and stop it. Contact us at servicedesk@csc.fi (subject: Sensitive data) for support. 
+    If the Data Gateway application becomes unresponsive due to old sessions running in the background, there's no need to restart your desktop. Instead, you can utilize the terminal to identify and halt the process. For assistance, please contact us at servicedesk@csc.fi , subject "Sensitive data."
 
-To reboot a virtual machine:
+To reboot a  desktop:
 
-1- Close all the programs, save/close all the files and log out from the virtual desktop to prevent data corruption.
+1. Close all programs and ensure you save/close any files to prevent data corruption.
+    
+2. Go to the SD Desktop homepage and select "Go To SD Desktop Management."
+    
+3. Scroll to the end of the page. Here, under "Available desktops," choose the relevant virtual desktop. On the right side of the same row, click "Options" and then select "Reboot."
+    
+4. Confirm the operation when prompted. The process may take up to 30 minutes.
 
-2-  On the SD Desktop homepage, click on _Go To SD Desktop Management_;
+**Rebuilding a desktop**
 
-3- Here, under _Available desktops_  select the correct virtual desktop, and in the same raw, on the right side, click _Options _ and select _Reboot_.
-
-4- A message will ask to confirm the operation, which can take up to 30 minutes.
-
-
-If the virtual desktop or software has become obsolete, you can use this option to rebuild your virtual desktop. 
+If your virtual desktop or software is outdated, you have the option to rebuild it.
 
 !!! Note
-    This operation will delete all the files/software or scripts imported into the virtual desktop, and you will delete the entire virtual workspace. Only       the files saved in the volume will still be available. Please contact us at servicedesk@csc.fi before using this option.
+    Rebuilding the virtual desktop will erase all files, software, or scripts imported into it. The entire virtual workspace will be reset, excluding files saved in the volume. Please reach out to us at servicedesk@csc.fi before proceeding.
 
-To reboot a virtual desktop:
+To Rebuild a Virtual Desktop:
 
-1. On the SD Desktop homepage, click on _Go To SD Desktop Management_;
+1. On the SD Desktop homepage, click "Go To SD Desktop Management."
+    
+2. From the list of "Available desktops," select the appropriate virtual desktop. On the right side of that row, click "Options" and choose "Rebuild."
+    
+3. Confirm the operation when prompted. The process may take up to 30 minutes.
 
-2. Here, under _Available desktops_  select the correct virtual desktop, and in the same raw, on the right side, click on _Options _ and select _Rebuilt_.
 
-3. A message will ask to confirm the operation, which can take up to 30 minutes. 
 
  [![Desktop-volume](images/desktop/desktop-reboot-rebuilt.png)](images/desktop/desktop-reboot-rebuilt.png)
+
+
+
 
 ### Deleting a desktop
 

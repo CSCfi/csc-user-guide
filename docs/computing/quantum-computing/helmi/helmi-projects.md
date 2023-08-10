@@ -25,7 +25,7 @@ Detailed instructions on the process of creating a general LUMI project via MyCS
 Note that during the pilot phase, access is provided "as is", without guarantees of any specific functionality.
 One aim of the pilot phase is to, together with the users, develop the service further and make it
 as usable and powerful as possible. **All feedback is highly appreciated**, please comment on your
-experience to fiqci-feedback@postit.csc.fi
+experience to [fiqci-feedback@postit.csc.fi](mailto:fiqci-feedback@postit.csc.fi).
 
 !!! info "Getting Started"
 	To get started with Helmi see

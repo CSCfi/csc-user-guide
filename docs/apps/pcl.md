@@ -37,16 +37,27 @@ ls /appl/soft/geo/pcl/1.9.1/bin
 
 Note, that PCL/1.9.1 includes less PCL modules.
 
-## License and acknowledgement
+## License 
 
 PCL is released under the terms of the BSD license, and thus free for commercial and research use.
 
-[PCL citation](https://pointclouds.org/about/)
+
+## Citation
+
+`Radu Bogdan Rusu and Steve Cousins, 2011: "3D is here: Point Cloud Library (PCL)" in IEEE International Conference on Robotics and Automation (ICRA)`
+
+
+## Acknowledgement
 
 Please acknowdlege CSC and Geoportti in your publications, it is important for project continuation and funding reports.
 As an example, you can write "The authors wish to thank CSC - IT Center for Science, Finland (urn:nbn:fi:research-infras-2016072531) and the Open Geospatial Information Infrastructure for Research (Geoportti, urn:nbn:fi:research-infras-2016072513) for computational resources and support".
 
-### References
+
+## Installation
+
+PCL was installed to Puhti with Apptainer, using this [PCL Apptainer definition file](https://github.com/CSCfi/singularity-recipes/blob/main/pcl/pcl_from_ubuntu.def).
+
+## References
 
 * [PCL homepage](https://pointclouds.org/)
 * [PCL Documentation and tutorials](https://pcl.readthedocs.io)

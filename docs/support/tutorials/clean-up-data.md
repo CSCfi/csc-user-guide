@@ -11,10 +11,9 @@ Also note that:
 * A Lustre parallel file system starts to lose performance when more than approximately 70% of
   disk space is used, and the more the disks fill up, the slower the performance will get.
   CSC has allocated more quota than there is space, hence it is not even possible for all users
-  to use their `scratch` folders for longer term storage. 
-* There are no backups of `scratch` disk area. Do not trust it to store all of your research data.
-* Removing files decreases the BU consumption of your project, since you are billed for disk
-  usage and not quota as before 2022. 
+  to use their `scratch` folders for longer term storage.
+* There are **no backups** of `scratch` disk area. Do not trust it to store all of your research data.
+* Removing files may decrease the BU consumption of your project, since you are billed for excess disk usage beyond 1 TiB.
 
 We kindly ask all users to help to keep disk usage manageable, and performance reasonable.
 Please do the following tasks:
@@ -75,8 +74,40 @@ the clean-up criteria, and thus nothing will be deleted from it. To indicate tha
 intentionally missing, CSC will place a file named `nothing-to-remove-for-your-project` in your
 project's purge_lists subdirectory, so check for the existence of this file as well.
 
+As part of the automated cleaning process, the files will change names. Before the cleaning has
+begun, each project that is part of the clean-up will have a file named `path_summary.txt`.
+In special cases where a project is exempt from the upcoming cleaning, or requires more time to
+transfer files, the administrators will rename the file to something else, usually
+`path_summary.txt-later-delete`. Once a project has been processed by the automated cleaning,
+the file will be renamed to `path_summary.txt-stashed`. These files are still readable to projects,
+so that it is possible to refer to the list also after the cleaning is performed.
+The previous round's files will be archived when the next round of cleaning is about to begin.
+You can check whether your project's purge list has been updated recently by checking its last
+modification date. In the example below, the file is a few months old, so it is clearly from
+the prior round of cleaning:
+
+```bash
+$ stat -c %y /scratch/purge_lists/project_2001659/path_summary.txt-stashed
+2023-05-23 00:35:28.000000000 +0300
+$ date +%F
+2023-08-04
+```
+
+Another file which is put into each project's `purge_lists` directory is the `total_size.txt` file.
+This file contains a precalculated size estimate based on the numbers inside the `path_summary.txt`
+files. This file exists for every project, and is created automatically when the purge lists are
+generated. The file might look like this:
+
+```bash
+$ cat /scratch/purge_lists/project_2001659/total_size.txt
+Total size: 798343125192 bytes = 743.515 GiB = 0.726 TiB
+```
+
+With this information, you are able to estimate how much time might be required to back up the
+data elsewhere, if you want to keep everything on the purge list outside of Puhti's `scratch` file
+system.
 The file system tools which CSC uses to generate the list of files to remove will output files
-which are quite verbose and difficult to read. By using the LCleaner tool described in the next section, 
+which are quite verbose and difficult to read. By using the LCleaner tool described in the next section,
 users can get the relevant information in a more user-friendly format.
 
 ## Using LCleaner to check which files will be automatically removed
@@ -313,3 +344,10 @@ why the command examples above are architected the way they are.
     - `lcleaner --log-level debug path_summary.txt 2> ~/lcleaner-debug-$(date +%s).log`
 - The use of `-0` both with `lcleaner` and `xargs` in the example commands on this page is
   recommended in order to avoid problems with file names that include whitespace.
+- LCleaner also has some administrative functionality, which is not intended and in some cases
+  will not work for unprivileged users. Anything which mentions the `--admin-mode` flag can safely
+  be ignored.
+
+### Troubleshooting LCleaner
+
+If you notice any bugs, please report them to [CSC Service Desk](../contact.md).
