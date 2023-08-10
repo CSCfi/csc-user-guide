@@ -55,7 +55,9 @@ It is also possible to access QGIS functionalities from Python without an graphi
 
 ### Puhti QGIS and Allas
 
-QGIS can __read__ files directly from Allas, either using S3 or SWIFT API. Before starting QGIS set up the connection as described in on [GDAL](gdal.md) page.
+QGIS can __read__ files directly from Allas, either using S3 or SWIFT API. Before starting QGIS set up the connection as described in [Using geospatial files directly from cloud, inc Allas tutorial](../support/tutorials/gis/gdal_cloud.md).
+
+With large quantities of data in Allas, consider using [virtual rasters](https://research.csc.fi/virtual_rasters). 
 
 ## License 
 
