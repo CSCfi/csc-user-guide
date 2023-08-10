@@ -1,10 +1,10 @@
 # Using geospatial files directly from cloud, inc Allas
 
-[GDAL](../../../apps/gdal.md) is the main open-source libary for reading and writing geospatial data and many more advanced tools rely on GDAL, including QGIS, Python, R etc. GDAL on most tools depending on it can read directly from an URL or cloud storage services, which eliminates the need to download the files manually before data analysis. It can also write files to cloud storage services. Several cloud storage APIs are supported, inc CSC Allas, Amazon S3, Google Cloud Storage, Microsoft Azure etc. Reading data directly from an external service is usually slower than reading from local disks, but in many cases, these seconds are negligible compared to the full duration of an analysis.
+[GDAL](../../../apps/gdal.md) is the main open-source libary for reading and writing geospatial data and many more advanced tools rely on GDAL, including QGIS, Python, R etc. GDAL and most tools depending on it can read directly from an public URL or cloud storage services, which eliminates the need to download the files manually before data analysis. It can also write files to cloud storage services. Several cloud storage APIs are supported, inc CSC Allas, Amazon S3, Google Cloud Storage, Microsoft Azure etc. Reading data directly from an external service is usually slower than reading from local disks, but in many cases, these seconds are negligible compared to the full duration of an analysis, but it is important to have good Internet connection.
 
 GDAL has several virtual [network based files systems](https://gdal.org/user/virtual_file_systems.html#network-based-file-systems), that are meant for different storage services or use cases. CSC Allas supports both SWIFT or S3 API. SWIFT is more secure, but the credentials need to be updated after 8 hours. S3 has permanent keys, and is therefore little bit easier to use. Both of these have a random reading and streaming API. 
 
-Below are described in more detail how to use GDAL with public files from URL (VSICURL), private files in S3 (VSIS3) or SWIFT (VSISWIFT) storage.
+Below are described in more detail how to use GDAL with public files from URL (VSICURL), private files in S3 (VSIS3) or SWIFT (VSISWIFT) storage, but also other object storage services are supported.
 
 ## VSICURL, reading public files from URL or cloud storage service
 
@@ -36,29 +36,27 @@ gdalinfo URL
 
 ### S3 settings
 
-For accessing the data from S3 services are needed a few settings that can be given as environment variables or saved to `credentials` file. See the GDAL page for details.
+For accessing the data from S3 services are needed a few settings that can be given as environment variables or saved to `credentials` file. See the GDAL [VSIS3](https://gdal.org/user/virtual_file_systems.html#vsis3-aws-s3-files) page and the cloud storage documentation for details. Below are more detailed instructions for using CSC Allas object storage with GDAL or GDAL-based tools.
   
-#### Allas S3 settings with CSC supercomputers
-Setting up Allas S3 connection is easiest with CSC supercomputers.
-
-CSC supercomputers have [`allas-conf` command for setting up Allas connection](https://docs.csc.fi/data/Allas/using_allas/s3_client/#configuring-s3-connection-in-supercomputers) in the `allas` module.: 
+#### S3 settings for Allas with CSC supercomputers
+Setting up Allas S3 connection is easiest with CSC supercomputers. CSC supercomputers have [`allas-conf`](https://docs.csc.fi/data/Allas/using_allas/s3_client/#configuring-s3-connection-in-supercomputers) command for setting up Allas connection in the `allas` module.: 
 
 ```
 module load allas
 allas-conf --mode s3cmd
 ```
 
-* `module load allas` sets AWS_S3_ENDPOINT environment variable, which needs to be run each time S3 is used.
+* `module load allas` makes other Allas tools available and sets AWS_S3_ENDPOINT environment variable, which needs to be run each time S3 is used.
 * `allas-conf --mode s3cmd` must be run only when first setting up the connection or if starting to work with different CSC project.
 
-#### Allas S3 settings in general
+#### S3 settings for Allas in general
 
 If you are using also CSC supercomputers, then the easiest is to set up S3 connection on a supercomputer and then:
 
-1) Copy your `~/.aws/credentials file from supercomputer to the other machine, `C:\Users\username\.aws\credentials` on Windows or `~/.aws/credentials` on Mac or Linux. 
+1) Copy your `~/.aws/credentials` file from supercomputer to the other machine, `C:\Users\username\.aws\credentials` on Windows or `~/.aws/credentials` on Mac or Linux. 
 2) Set also AWS_S3_ENDPOINT environment variable to `a3s.fi`. Windows command shell: `set AWS_S3_ENDPOINT=a3s.fi` or Linux/Max: `export AWS_S3_ENDPOINT=a3s.fi`
 
-If you are not using also CSC supercomputers, you can install `allas-conf` to your Linux/Max machine, follow the instructions in [CSC's Allas command line interface utilities repository](https://github.com/CSCfi/allas-cli-utils). 
+If you are not using also CSC supercomputers, you can install `allas-conf` to your Linux/Mac machine, follow the instructions in [CSC's Allas command line interface utilities repository](https://github.com/CSCfi/allas-cli-utils). 
 
 ### Using S3 
 
@@ -69,11 +67,11 @@ gdalinfo /vsis3/<name_of_your_bucket>/<name_of_your_file>
 # Writing data
 export CPL_VSIL_USE_TEMP_FILE_FOR_RANDOM_WRITE=YES
 gdal_translate /vsis3/<name_of_your_bucket>/<name_of_your_input_file> /vsis3/<name_of_your_bucket>/<name_of_your_output_file> -of COG
-
+```
 
 ## VSISWIFT, reading and writing files from/to SWIFT services
 
-[VSISWIFT](https://gdal.org/user/virtual_file_systems.html#vsiswift-openstack-swift-object-storage) is suitable for working with SWIFT services, for example CSC Allas. For setting up the connection in Puhti or Mahti supercomputer:
+[VSISWIFT](https://gdal.org/user/virtual_file_systems.html#vsiswift-openstack-swift-object-storage) is suitable for working with SWIFT services, for example CSC Allas. For setting up the connection use allas-conf. For example in Puhti or Mahti supercomputer:
 
 ```
 module load allas
@@ -87,8 +85,11 @@ The export commands are needed because GDAL is looking for different environment
 
 
 ## Other tools
-In CSC geocomputing examples Github repo are provided also example for working with Allas from R and Python.
- * [Python](../../../apps/geoconda.md): gdal, geopandas, fiona and rasterio. [Example codes on CSCs github repository](https://github.com/csc-training/geocomputing/blob/master/python/allas/working_with_allas_from_Python_S3.py). 
- * [R](../../../apps/r-env-for-gis.md): sf, raster. [Example codes on CSCs github repository](https://github.com/csc-training/geocomputing/blob/master/R/allas/working_with_allas_from_R_S3.R). 
 
-All examples above show usage with `GDAL`, however the links to the data and configuration of the connection are the same, no matter if you use the links with `GDAL`, `Python`, `R` or `QGIS`. 
+ * [ArcGIS Pro, connect to cloud storage](https://pro.arcgis.com/en/pro-app/latest/help/projects/connect-to-cloud-stores.htm). Only for rasters and reading.
+	* ArcGIS Pro asks for all connection details while setting up Cloud storage connection, so the `credential` file or environment variables are not needed.
+ * [QGIS, open file from cloud storage](https://docs.qgis.org/3.28/en/docs/user_manual/managing_data_source/opening_data.html?highlight=s3#loading-a-layer-from-a-file). Both rasters and vectors, only reading.
+	* For S3 keys add the `credentials` file as described above, or use the environment variables.
+	* QGIS connects by default to Amazon S3, for connecting to Allas S3 add to Settings -> Options -> Variables new variable with name AWS_S3_ENDPOINT and value `a3s.fi`.
+ * [Example Python code for working with Allas and rasterio and geopandas](https://github.com/csc-training/geocomputing/blob/master/python/allas). 
+ * [Example R code for workign with Allas and terra and sf](https://github.com/csc-training/geocomputing/blob/master/R/allas/working_with_allas_from_R_S3.R). 
