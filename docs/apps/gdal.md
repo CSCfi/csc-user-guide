@@ -44,7 +44,7 @@ With `r-env` gdal commands can be used as:
 
 #### Using files directly from object storage services or cloud, inc Allas
 
-GDAL supports virtual [network based file systems](https://gdal.org/user/virtual_file_systems.html#network-based-file-systems) for reading and sometimes writing from several cloud storage systems, inc CSC Allas, Amazon S3, Google Cloud, Microsoft Azure etc. Please check our [GDAL cloud tutorial](../support/tutorials/gis/gdal_cloud.md) for instructions and examples.
+GDAL supports virtual [network based file systems](https://gdal.org/user/virtual_file_systems.html#network-based-file-systems) for reading and sometimes writing from several cloud storage systems, inc CSC Allas, Amazon S3, Google Cloud Storage, Microsoft Azure etc. Please check CSC's [Using geospatial files directly from cloud, inc Allas tutorial](../support/tutorials/gis/gdal_cloud.md) for instructions and examples.
 
 #### Virtual rasters
 
