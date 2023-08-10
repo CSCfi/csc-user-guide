@@ -40,7 +40,7 @@ gdalinfo URL
 For accessing the data from S3 services are needed a few settings that can be given as environment variables or saved to `credentials` file. See the GDAL [VSIS3](https://gdal.org/user/virtual_file_systems.html#vsis3-aws-s3-files) page and the cloud storage documentation for details. Below are more detailed instructions for using CSC Allas object storage with GDAL or GDAL-based tools.
   
 #### S3 settings for Allas with CSC supercomputers
-Setting up Allas S3 connection is easiest with CSC supercomputers. CSC supercomputers have [`allas-conf`](../../../data/Allas/using_allas/s3_client/#configuring-s3-connection-in-supercomputers) command for setting up Allas connection in the `allas` module.: 
+Setting up Allas S3 connection is easiest with CSC supercomputers. CSC supercomputers have [`allas-conf`](../../../data/Allas/using_allas/s3_client.md#configuring-s3-connection-in-supercomputers) command for setting up Allas connection in the `allas` module.: 
 
 ```
 module load allas
