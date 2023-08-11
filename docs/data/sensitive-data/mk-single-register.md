@@ -1,4 +1,4 @@
-# Accessing Data From a Single Register
+# Accessing the Service with a Permit from a Single Register
 
 These instructions are for researchers who have received a permit for the secondary use of social and health data **directly from a single public register**. In other words, the permit is not from Findata, and the permit is issued for SD Desktop.
 

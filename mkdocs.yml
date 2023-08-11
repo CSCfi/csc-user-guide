@@ -376,10 +376,10 @@ nav:
        - FEGA: data/sensitive-data/vk-srd-fega.md
        - SD Apply: data/sensitive-data/vk-srd-apply.md
      - Secondary use of health and social data:
-       - Accessing data with a Findata permit: data/sensitive-data/mk-findata.md
-       - Accessing data from a single register: data/sensitive-data/mk-single-register.md
+       - Accessing the service with a Findata permit: data/sensitive-data/mk-findata.md
+       - Accessing the service with a permit from a single register: data/sensitive-data/mk-single-register.md
        - SD Desktop for secondary use: data/sensitive-data/mk-desktop.md
-       - Instructions for data controllers: data/sensitive-data/mk-data-controllers.md
+       - Submitting secondary use data: data/sensitive-data/mk-data-controllers.md
 #      - SD Apply for secondary use: data/sensitive-data/single-register-submission.md
 #      - Federated EGA: data/sensitive-data/federatedega.md
      
