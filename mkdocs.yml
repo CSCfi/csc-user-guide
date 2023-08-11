@@ -342,19 +342,19 @@ nav:
      - Introduction: 
           - data/sensitive-data/vk-sds-overview.md
           - Terminology: data/sensitive-data/vk-sds-terminology.md
-     - Sensitive research data: 
-       - Creating an SD project: 
-          - data/sensitive-data/vk-srd-a-creating.md
           - Billing units: data/sensitive-data/vk-srd-a-billing.md
+     - Store and analyze sensitive data: 
+       - Creating a project: 
+          - data/sensitive-data/vk-srd-a-creating.md
        - SD Connect: 
           - data/sensitive-data/vk-srd-sd-connect.md
           ## + key features + authentication
           ## legal agreements, data retention policy??
           - Page map: data/sensitive-data/vk-srd-c-pagemap.md
-          - Data upload and sharing: data/sensitive-data/vk-srd-c-upload.md
+          - Data upload for analysis: data/sensitive-data/vk-srd-c-upload.md
           ## Less than 1 GB of data (ecryption and upload for analysys, encryption ans upload for storage and sharing) Up to 100 GB of data
           ##sharing, search, own encryption keys, Storage space
-          - Data download: data/sensitive-data/vk-srd-c-download.md
+          - Data upload for storage and sharing: data/sensitive-data/vk-srd-c-download.md
           ##Data decryption and download,
           - Command line: data/sensitive-data/vk-srd-c-command.md
           ##upload, download, share, crypt4gh CLI??
@@ -369,12 +369,12 @@ nav:
           ## Data gateway, importing data, Reuse published sata via SD Apply
           - Programs: data/sensitive-data/vk-srd-d-programs.md
           ## Pre-installed software, rstudio, scientific software, software customisation with containers/interface??
-          - HPC: data/sensitive-data/vk-srd-d-hpc.md
           - data export: data/sensitive-data/vk-srd-d-export.md
           - troubleshooting: data/sensitive-data/vk-srd-d-trouble.md
+       - Tutorials and quick quides: data/sensitive-data/vk-srd-tutorials.md
+     - Analyse and publish sensitive data:
        - FEGA: data/sensitive-data/vk-srd-fega.md
        - SD Apply: data/sensitive-data/vk-srd-apply.md
-       - Tutorials and quick quides: data/sensitive-data/vk-srd-tutorials.md
      - Secondary use of health and social data:
        - Accessing data with a Findata permit: data/sensitive-data/mk-findata.md
        - Accessing data from a single register: data/sensitive-data/mk-single-register.md

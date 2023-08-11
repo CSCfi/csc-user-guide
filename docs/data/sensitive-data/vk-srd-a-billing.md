@@ -37,6 +37,21 @@ For more information, see the specific sections:
 
 * and [increasing quotas](../../accounts/how-to-increase-disk-quotas.md).
 
+## What happens to your data when your CSC project expires or is closed
+
+When your CSC project reaches its expiration date or is closed, there are a few important things to know about your data:
+
+* **Service Discontinuation**: both SD Connect and SD Desktop services will be disabled, and you won't be able to access them anymore.
+
+* **Data Deletion**: Any data stored within these services, including files, virtual desktops, and volumes, will be permanently removed after 90 days from the project's closure. This measure is in place to ensure the secure handling of your data, aligning with CSC's policies.
+
+* **Notification**: We'll keep you informed about the status of your project. You'll receive an email notification when your project is about to expire, so you can plan accordingly. For example, you can apply for a project lifetime extension of one year loggin in to [MyCSC portal](https://my.csc.fi).
+
+!!! Note
+    Please note that all content within the services will be permanently deleted 90 days after the project is closed, and once deleted, it cannot be restored or recovered.
+
+
+
 
 ## Restricted service access when billing units have been consumed
 
