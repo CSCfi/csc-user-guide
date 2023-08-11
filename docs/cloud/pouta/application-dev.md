@@ -1,10 +1,10 @@
 # Application development practices (in Pouta)
 
-This article discusses the best practices for developers
+This article discusses some best practices for developers
 to follow while creating or deploying their application in
 Pouta, and how Pouta can help on following them. Pouta clouds ([cPouta] and [ePouta]), like other IaaS clouds, offer more flexibility than traditional bare metal computing environments do, allowing new and better designs.
 
-The recommendations listed below are focused on what Pouta provides to you and how your applications can profit from it. Is not an exhaustive list of all best practices. You can additionally follow a larger set of [practices] as mentioned by the Cloud Native Computing Foundation, various online literature on
+The recommendations listed below are focused on what Pouta provides to you and how your applications can profit from it. Is not an exhaustive list of all best practices. You can additionally follow a larger set of [practices] as mentioned by the [Cloud Native Computing Foundation], various online literature on
 OpenStack such as its technical blogs, user guides, user stories etc. In real scenarios, some of these practices may not be applicable to your application, but applying practices that are suitable is the key takeaway of this article.
 
 ## Stateless and disposable Virtual Machine nodes
@@ -21,9 +21,9 @@ The application will be more **resilient**. Running stateless VMs where the data
 
 *Stateless VMs*</center>
 
-## Readily scalable (horizontal v vertical)
+## Readily scalable (horizontal vs vertical)
 
-If an application follows the _microservice_ approach, it will allow easy **horizontal** scaling, i.e. add or remove replicas of the same VM. This approach is sometimes more complex, as you will need to use a suitable design that allows distributed computing. A load balancer of some kind will also be needed to distribute work among the VMs.
+If an application follows the _microservice_ approach (mentioned in the previous topic), it will allow easy **horizontal** scaling, i.e. add or remove replicas of the same VM. This approach is sometimes more complex, as you will need to use a suitable design that allows distributed computing. A load balancer of some kind will also be needed to distribute work among the VMs.
 
 After that hurdle is passed, it will be then less complex to horizontally **scale up and down** the application. If the computing and the data are not hardly coupled, the design will allow adding or removing Virtual machine replicas. Having more replicas also allows to spread the computation nodes across the computer center and minimizes (even more) the impact of individual failures, again lowering the number of SPoF. As already mentioned, the scale up and down is done in a matter of minutes thanks to the nature of Pouta.
 
@@ -31,7 +31,7 @@ For applications that do not allow the _microservice_ approach, Pouta allows eas
 
 <center>![scale](../../../img/scale.drawio.png)
 
-*Horizontal v Vertical scaling*</center>
+*Horizontal vs Vertical scaling*</center>
 
 !!! info "auto scale"
     In Pouta clouds, you could also programmatically scale your Heat stack using [OpenStack Heat resources] like *OS::Heat::ResourceGroup*,*OS::Heat::AutoScalingGroup* and *OS::Heat::ScalingPolicy*.
@@ -59,9 +59,25 @@ One common backup strategy is the 3-2-1 rule. 3 copies of the data (including th
 
 *3-2-1 strategy*</center>
 
-## Devops tools
+### Use Continuous Integration and Continuous Delivery
 
-### Use Infrastructure as Code tools
+The application you develop, the IaC code that deploys its infrastructure, and the configuration management code that configures it, should be tracked by a version control system of your choice, the most popular and de facto standard is [GIT]. Once the code of the application is in Version control, the next step is to use Continuous Integration (CI) and Continuous Delivery (CD).
+
+<center>![Git](../../../img/git.drawio.png)
+
+*Git development and collaboration*</center>
+
+Once the code of the application is in Version control, the next step is to use Continuous Integration (CI) and Continuous Delivery (CD).
+
+CI is when each change committed to your **codebase** is automatically **built** and **tested**. This allows to find issues sooner and systematically. The kind of tests that can be added could be generic, like code analysis tools, or purpose written tests that check the functionality of the code, preventing bug regressions and so. Finally it is also common, to have internal procedure checks, like make sure every new branch has a ticket associated with it. Experience with these kind of practices show that time and effort is saved by teams when using CI. There are some well known CI services online such as [Travis CI], [Circle CI] and [Github actions], that have a very low barrier of entry and give right away added value.
+
+CD is when the **release** of specific versions of the software is done automatically. And more importantly, the **deployment** of those validated versions is also automatic. So if a change passes both all the automatic tests and the review of other members of the coding team, the change is deployed automatically. This degree of automation also requires a solid deployment process that does not require downtime and confident in the whole process. New deployed versions will be **monitored**, this information will probably lead to **planning** of new versions. 
+
+<center>![CI CD](../../../img/ci-cd.drawio.png)</center>
+
+## Use Devops tools
+
+### Infrastructure as Code tools
 
 Infrastructure as Code (IaC) tools are very useful, as they allow to specify complex application infrastructures (VM, networking, storage, ...) using text files (code) known as templates. Then the tool will use the API of the cloud provider to automatically create/configure/delete the corresponding infrastructure. Some IaC tools which are stable and widely used are:
 
@@ -78,7 +94,7 @@ You can see above three examples, one for for each tool. All of them aim to get 
 !!! warning "Tools evolve"
     Keep in mind that the situations for these (and most) tools evolve over time, support may get better or dropped altogether, features and bugs may be fixed, ...
 
-### Configuration management
+### Configuration management tools
 
 Every application you build has some dependencies in the form of software libraries and their specific versions.
 In order for your application to work, these dependencies should be explicitly defined and installed automatically. A configuration management tool like **Ansible** or **Puppet** is the best way to achieve this. Using a configuration management tool to define and install dependencies automatically makes the deployments more reproducible and predictable. In the Ansible example below, a task called "Install dependencies" will install few tools:
@@ -102,31 +118,6 @@ These principles also apply to configuration. When possible, you should use upst
 
 Configuration management tools integrate very well with Pouta clouds. As they are able to read and use specific deployment values of the VMs, like IP addresses, host names, etc...  This means that these variables do not need to be hardwired into the system and will always be kept up to date. For example, we have a load balancer and few worker nodes, the load balancer needs to have a list of worker node IPs. A configuration management tool will be able to generate automatically the load balancer configuration using the information it gets from OpenStack's API. The final product is hands-off installation and upgrade process, where the configuration management does all the work and no manual work is necessary.
 
-### Version control tools
-
-The application you develop, the IaC code that deploys its infrastructure, and the configuration management code that configures it, should be tracked by a version control system of your choice, the most popular and de facto standard is GIT. This is not something related with cloud computing, but a general good practice that everyone should follow. This helps you to:
-
-* collaborate with others,
-* track code base changes,
-* have a backed up copy of the code,
-* easily coordinate and deploy multiple environments (test/pre-production/production).
-
-And much more.
-
-<center>![Git](../../../img/git.drawio.png)
-
-*Git development and collaboration*</center>
-
-### Use Continuous Integration and Continuous Delivery
-
-Once the code of the application is in Version control, the next step is to use Continuous Integration (CI) and Continuous Delivery (CD).
-
-CI is when each change committed to your **codebase** is automatically **built** and **tested**. This allows to find issues sooner and systematically. The kind of tests that can be added could be generic, like code analysis tools, or purpose written tests that check the functionality of the code, preventing bug regressions and so. Finally it is also common, to have internal procedure checks, like make sure every new branch has a ticket associated with it. Experience with these kind of practices show that time and effort is saved by teams when using CI. There are some well known CI services online such as [Travis CI], [Circle CI] and [Github actions], that have a very low barrier of entry and give right away added value.
-
-CD is when the **release** of specific versions of the software is done automatically. And more importantly, the **deployment** of those validated versions is also automatic. So if a change passes both all the automatic tests and the review of other members of the coding team, the change is deployed automatically. This degree of automation also requires a solid deployment process that does not require downtime and confident in the whole process. New deployed versions will be **monitored**, this information will probably lead to **planning** of new versions. 
-
-<center>![CI CD](../../../img/ci-cd.drawio.png)</center>
-
   [practices]: https://12factor.net/
   [code repositories]: https://github.com/CSCfi
   [code repository]: http://https://github.com/CSCfi/etherpad-deployment-demo
@@ -146,3 +137,5 @@ CD is when the **release** of specific versions of the software is done automati
   [flavor]: https://docs.csc.fi/cloud/pouta/vm-flavors-and-billing/
   [OpenStack provider]: https://registry.terraform.io/providers/terraform-provider-openstack/openstack/latest/docs
   [Cisa]: https://www.cisa.gov/sites/default/files/publications/data_backup_options.pdf
+  [Cloud Native Computing Foundation]: https://www.cncf.io/
+  [GIT]: https://git-scm.com/

@@ -28,9 +28,11 @@
 *[GCC]: GNU Compiler Collection
 *[AVX]: Advanced Vector eXtensions
 *[BU]: Billing Unit
+*[API]: Application programming interface
 *[IaaS]: Infrastructure-as-a-Service
 *[IaC]: Infrastructure-as-Code
 *[SPoF]: Single point of Failure
+*[IP]: Internet Protocol
 *[PaaS]: Platform-as-a-Service
 *[SaaS]: Software-as-a-Service
 *[DBaaS]: Database-as-a-Service
