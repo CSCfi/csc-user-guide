@@ -72,11 +72,11 @@ Show the details of the newly created stack among other existing stacks, type th
     +--------------------------------------+---------------+-----------------+----------------------+--------------+
 
 ### Explanations
-A template is composed of two major sections: 
+A template is composed of two major sections:  
 - The version used (`heat_template_version`)
 - The resource(s) (`resources`)
 
-There are also optional sections like:
+There are also optional sections like:  
 - The description (`description`)
 - The parameter group(s) (`parameter_groups`)
 - The parameter(s) (`parameters`)
@@ -86,7 +86,7 @@ There are also optional sections like:
 Here is a detail of each sections:  
 
 `heat_template_version`  
-&nbsp;&nbsp;&nbsp;&nbsp; Indicates that the YAML document is a HOT template of the specified version.
+&nbsp;&nbsp;&nbsp;&nbsp; Indicates that the YAML document is a HOT (Heat Orchestration Template) template of the specified version.
 
 `description`  
 &nbsp;&nbsp;&nbsp;&nbsp; Allows for giving a description of the template.
