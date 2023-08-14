@@ -73,15 +73,15 @@ Show the details of the newly created stack among other existing stacks, type th
 
 ### Explanations
 A template is composed of two major sections:  
-- The version used (`heat_template_version`)
-- The resource(s) (`resources`)
+- The version used (`heat_template_version`)  
+- The resource(s) (`resources`)  
 
 There are also optional sections like:  
-- The description (`description`)
-- The parameter group(s) (`parameter_groups`)
-- The parameter(s) (`parameters`)
-- The output(s) (`outputs`)
-- The condition(s) (`conditions`)
+- The description (`description`)  
+- The parameter group(s) (`parameter_groups`)  
+- The parameter(s) (`parameters`)  
+- The output(s) (`outputs`)  
+- The condition(s) (`conditions`)  
 
 Here is a detail of each sections:  
 
