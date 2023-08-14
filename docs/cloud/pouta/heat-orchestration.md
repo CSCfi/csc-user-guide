@@ -234,4 +234,4 @@ If you delete the stack, all the resources created from it will be deleted as we
 ### Heat guidelines and command references
 
 For more information, visit the OpenStack [Heat wiki](https://wiki.openstack.org/wiki/Heat). For a full reference to the OpenStack command line client, see the [command line reference](http://docs.openstack.org/cli-reference/openstack.html).  
-Here is an example on our GitHub to deploy one or several instances with nginx: (https://github.com/CSCfi/heat-openstack-example)
+Here is an example on our GitHub to deploy one or several instances with nginx [Read more about the GitHub repo](https://github.com/CSCfi/heat-openstack-example){ target="_blank" }
