@@ -45,9 +45,10 @@ CSC Notebooks is a CSC cloud service for interactive web based applications
 ## Workspace shared folder
 
 - Shared directory available to all users in a Workspace
-- Is writable by Workspace manager
+- Is writable only by Workspace manager
 - Is tied to a workspace
 - Has lifetime tied to a Workspace
+- Note that notebook files should not be executed within "shared" but rather moved to "my-work" folder
 
 ## Join code
 

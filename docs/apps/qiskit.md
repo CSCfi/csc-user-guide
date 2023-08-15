@@ -20,7 +20,7 @@ Currently supported Qiskit versions:
 |:--------|:---------------------|:-----:|:-----:|-----------------|
 | 0.43.2  | `qiskit/0.43.2`      | X     | X     | default version |
 
-Includes all the major Qiskit packages (Terra, Aer, etc.) and GPU support for the
+Includes all the major Qiskit packages (Terra, Nature, Aer, etc.) and GPU support for the
 CUDA-accerelerated simulation methods. The `qiskit/0.43.2` package includes
 `qiskit-aer 0.13.0` as it is build from source. 
 
@@ -98,6 +98,32 @@ Example batch script for reserving one GPU and two CPU cores in a single node:
 
 Submit the script with `sbatch <script_name>.sh`
 
+### Small code example
+
+Do note that this code is just to highlight the syntax.
+
+```Python
+import qiskit
+from qiskit_aer import AerSimulator
+
+# Generate 3-qubit GHZ state
+circ = qiskit.QuantumCircuit(3)
+circ.h(0)
+circ.cx(0, 1)
+circ.cx(1, 2)
+circ.measure_all()
+
+# Construct an ideal simulator that uses GPU
+simulator = AerSimulator(method="statevector", device="GPU")
+
+# Execute the circuit with cuStateVec enabled. 
+result_ideal = qiskit.execute(circ, simulator, cuStateVec_enable=True).result()
+
+counts_ideal = result_ideal.get_counts(0)
+print('Counts(ideal):', counts_ideal)
+```
+
 ## More information
 
-- [Qiskit documentation](https://qiskit.org/)
+- [Qiskit documentation](https://qiskit.org/documentation/getting_started.html)
+- [Qiskit-aer documentation](https://qiskit.org/ecosystem/aer/tutorials/index.html)
