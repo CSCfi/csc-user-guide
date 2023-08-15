@@ -69,7 +69,7 @@ Currently available:
 
 1.  **[Sentinel2 2A level images](https://a3s.fi/sentinel-readme/README.txt)**. Maria Yli-Heikkilä (LUKE) has downloaded data of Finland from vegetation period (ca 10.5.-1.9.) in 2016-2020. 
 
-For using data in Allas, see [CSC webinar about Allas and geospatial data](https://youtu.be/mnFXe2-dJ_g) and [GDAL Allas documentation](../../apps/gdal.md#using-files-directly-from-allas).
+For using data in Allas, see [CSC webinar about Allas and geospatial data](https://youtu.be/mnFXe2-dJ_g) and [Using geospatial files directly from cloud, inc Allas tutorial](../../support/tutorials/gis/gdal_cloud.md).
 
 ## License and acknowledgement
 

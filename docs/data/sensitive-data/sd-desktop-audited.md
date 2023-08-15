@@ -134,15 +134,12 @@ Here you can specify several parameters:
 
 * **Assign a name for your virtual Desktop**. It is good practice to assign a descriptive name for a Desktop so that all project members can easily identify it later on.
 
-* Choose one of the **virtual Desktop** pre-built options (Light, Small, Medium or Heavy computing), based on your computing and memory needs. The default disk (or storage) space for all Desktop is 80 GB. You can extend your Desktop disk space by selecting option: **add an external disk**. You can add up to 200 GB. Note: you can't extend the disk space after you have launched the virtual Desktop. Additional disk space later on can be requested writing at servicedesk@csc.fi (subject: Sensitive data);
+* Choose one of the **virtual Desktop** pre-built options ( Small, Medium or Heavy computation), based on your computing and memory needs. The default disk (or storage) space for all Desktop is 80 GB. You can extend your Desktop disk space by selecting option: **add an external disk**. You can add up to 200 GB. Note: you can't extend the disk space after you have launched the virtual Desktop. Additional disk space later on can be requested writing at servicedesk@csc.fi (subject: Sensitive data);
 
 When all the settings are done, press the **Launch Desktop** button. The launch operation is entirely automated and can take **up to 30 minutes**. If you try to access the virtual Desktop and see a black screen, come back later. 
 
 
-You can choose between **four different pre-built virtual Desktop options**:
-
-
-*  **Light computation**. Technical specifications: **Core:3; memory 4 GB; Root disk: 80 GB; Correspondent Pouta Flavour: standard.medium; Billing Units: 1.3 units/h**. This option is ideal for testing the services (for example, test how to start a Desktop, check out how it looks and which applications are available). You can compare this Desktop to a laptop with limited capacities, which probably freezes when you open too much software or more than three colleagues connect to it simultaneously. For this reason, we advise you to start this type of Desktop only for testing purposes and delete it when the testing is completed. 
+You can choose between three different pre-built virtual Desktop options:
 
 * **Small computation**. Technical specifications: **Core:6; memory 15 GB; Root disk: 80 GB; Correspondent Pouta Flavour: standar.xlarge; Billing Units: 5.2 units/h**. This option is ideal for analysing sensitive data using office software (for example: similar to simple statistical analysis, watching videos, listening to audio files, working on text files). You can compare this Desktop to your working laptop. 
 
@@ -154,10 +151,19 @@ You can choose between **four different pre-built virtual Desktop options**:
 
 !!! Note
         If you don't know the best Desktop option for your needs, please contact us at servicedesk@csc.fi (email subject: Sensitive Data). 
+        
 
-[![Launch](images/desktop/desktop_creation.png)](images/desktop/desktop_creation.png)
+!!! Note
+    As each virtual desktop consumes resources, it's advisable to delete your desktop when it's no longer necessary (for instance, after testing the SD Desktop service or completing the analysis phase). All project members will receive email notifications if a desktop remains unused for at least 14 days. Before deletion, make sure to export all essential results and disconnect any volumes containing important files for future use and notifying the other CSC project members. For further details, refer to [Managing volumes and desktops](./sd_desktop.md#managing-volumes-and-virtual-desktops).
+    
+
+
+The following paragraphs will discuss how to work with your virtual desktop, which software is available, and how to customize your workspace.
+
+[![Launch](images/desktop/desktop_launch.png)](images/desktop/desktop_launch.png)
+
       
-Unfortunately, we are not yet providing a virtual Desktop with GPUs or Windows, Linux Ubuntu operating systems. However, we are working on it, and you can find more information on the future developments of the services on our webpage. 
+Unfortunately, we are not yet providing a virtual Desktop with GPUs or Windows operating systems. However, we are working on it, and you can find more information on the future developments of the services on our webpage. 
 
 In the following paragraphs, we will discuss how to work with a virtual Desktop, which software is available and what limitations there are in the secondary use environment.
 

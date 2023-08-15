@@ -55,23 +55,37 @@ It is also possible to access QGIS functionalities from Python without an graphi
 
 ### Puhti QGIS and Allas
 
-QGIS can __read__ files directly from Allas, either using S3 or SWIFT API. Before starting QGIS set up the connection as described in on [GDAL](gdal.md) page.
+QGIS can __read__ files directly from Allas, either using S3 or SWIFT API. Before starting QGIS set up the connection as described in [Using geospatial files directly from cloud, inc Allas tutorial](../support/tutorials/gis/gdal_cloud.md).
 
-## License and acknowledgement
+With large quantities of data in Allas, consider using [virtual rasters](https://research.csc.fi/virtual_rasters). 
 
-QGIS is licensed under the GNU General Public License. QGIS is an official project of the Open Source Geospatial Foundation (OSGeo).
+## License 
+
+QGIS is licensed under the GNU General Public License.
+
+## Citation
+
+```QGIS.org, 2023. QGIS Geographic Information System. QGIS Association. http://www.qgis.org```
+
+
+
+## Acknowledgement
 
 Please acknowledge CSC and Geoportti in your publications, it is important for project continuation and funding reports.
 As an example, you can write "The authors wish to thank CSC - IT Center for Science, Finland (urn:nbn:fi:research-infras-2016072531) and the Open Geospatial Information Infrastructure for Research (Geoportti, urn:nbn:fi:research-infras-2016072513) for computational resources and support".
 
-### References
+
+## Installation
+
+QGIS was installed to Puhti and LUMI with [Tykky's wrap-container functionality](../computing/containers/tykky.md#container-based-installations) using the [QGIS Docker image from Dockerhub provided by QGIS community](https://hub.docker.com/r/qgis/qgis). In LUMI `Tykky` is named `Container wrapper`.
+
+`wrap-container -w /usr/bin docker://qgis/qgis:latest --prefix install_dir`
+
+
+## References
 
 * [QGIS homepage](https://www.qgis.org/)
 * [QGIS tutorials](https://www.qgistutorials.com/en/)
 * [Free QGIS training material](https://qgis.org/en/site/forusers/trainingmaterial/index.html)
 * [PyQGIS cookbook](https://docs.qgis.org/testing/en/docs/pyqgis_developer_cookbook/)
 
-## Installation details
-
-* Version 3.31. The installation is based on [QGIS Docker image](https://hub.docker.com/r/qgis/qgis) and was done using [Tykky](../computing/containers/tykky.md) on 24.4.2023. The resulting QGIS Puhti files are available as [zip-package](https://gis-containers.a3s.fi/qgis_3_31_tykky.zip). 
-* Version 2.22. The installation is based on this [Singularity recipe](https://github.com/CSCfi/singularity-recipes/blob/main/qgis/qgis_plus_grass.def). [The resulting Singularity image](https://gis-containers.a3s.fi/qgis_3_22_grass_7_8_5.sif).
