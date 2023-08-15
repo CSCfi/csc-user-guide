@@ -49,8 +49,8 @@ module load tykky
 First, make sure that you have read and understood the license terms for Miniconda
 and any used channels before using the command.
 
-- [Miniconda end-user license agreement](https://www.anaconda.com/end-user-license-agreement-miniconda).
-- [Anaconda terms of service](https://www.anaconda.com/terms-of-service).
+- [Miniconda end-user license agreement](https://legal.anaconda.com/policies/en?name=offering-specific-terms#miniconda).
+- [Anaconda terms of service](https://legal.anaconda.com/policies/en/?name=terms-of-service#terms-of-service).
 - [A blog entry on Anaconda commercial edition](https://www.anaconda.com/blog/anaconda-commercial-edition-faq).
 
 1) Create a **Conda environment file** `env.yml`:
