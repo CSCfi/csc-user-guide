@@ -1,96 +1,108 @@
-## Pouta security guidelines
+# Security Guidelines for Pouta
 
-!!! warning
-    The users are responsible for managing
-    the security of their virtual machines as they are in control of the
-    firewalls, user accounts and all other access control methods of
-    their virtual machines. The users are also responsible for maintaining
-    the operating system and application security. 
+!!! warning "Security responsibility"
+    Users are responsible of the security of the resources and infrastructure under their control. This includes, but it is not limited to: **virtual machines**, **network configuration**, **user accounts**, ...
 
-The virtual machines
-running in cPouta can be connected to the public internet by the
-users. The users should use strict firewall rules for
-securing their virtual machines.
+!!! info "Security reports"
+    If you have discovered a critical security flaw or believe your machine has been compromised, please contact us immediately at <servicedesk@csc.fi>.
 
-We recommend the following guidelines for all Pouta users to follow, to
-ensure the safe running of virtual machines. If
-you have discovered a critical security flaw or believe your machine
-has been compromised, please contact us immediately at
-<servicedesk@csc.fi>.
+This list of security guidelines is not meant to cover all the possible cases and scenarios, but to serve as a starting point for keeping everyone secure. 
 
-[TOC]
+## Network
 
-#### Enable automatic updates
+It is very important to keep your network configuration as secure as possible, as it is the gate any intruder will use to enter in your system. It is relatively simple to apply some good practises that will give a good extra security layer. Few strategies are advisable. 
 
-All operating systems have the ability to apply updates automatically,
-and it is easy to turn this on. Please do so, and ask us if you need
-help.
+### Restrictive firewall (white listing)
 
-#### No Mail Servers
+Your virtual machine instances should be configured so that they allow the minimum required access to run your application. By default, virtual machines have no external access, this means no single port is opened by default to the public Internet. In order to connect to them, or to provide any kind of service, access has to be explicitly added. It is important to only open the ports that need to be opened and only open it for the least amount of IPs possible.
 
-We hate spam as much as you do. Unfortunately, it is very easy to
-configure a mail server so that it can be used by spammers. So, please
-instead use an existing SMTP server outside the cloud (see
-section 6.1).
+Every virtual machine running in Pouta comes with two firewalls: the firewall of the virtual machine itself (netfilter/iptables) and Pouta Security groups. We are only going to focus on Pouta security groups, as they are the easiest way to apply a set of complex firewall rules to a set of virtual machines. This is an example of a security group that gives access to port 22/SSH to only 4 subnets:
 
-#### Upgrade your kernel
+![Restricted-SSH](../../../img/restricted-ssh-security-group.png)
 
-Some updates, such as kernel upgrades, require rebooting the
-virtual machines. Please schedule this into your regular maintenance.
+These 4 subnets could be the 4 public ranges that your organization uses in its office network.
 
-#### Subscribe to security announcements for your OS
+Security groups are easy to configure and easy to visualize. This is the view from a virtual machine's instance page:
 
-If there is a security problem in your operating system, you need to
-find it out as soon as possible. Find the appropriate mailing list and
-keep an eye out for anything that requires urgent action.
+![Resticted API SSH](../../../img/restricted-api-ssh.png)
 
-#### Run a restrictive firewall
+you can see that every single opening is shown there. 
 
-Your instances should be configured so that they allow the minimum
-access required to run the service. Please use a host-based firewall,
-in conjunction with the cloud-provided firewall to manage access.
+### Disable unneeded services
 
-#### Disable/remove unneeded accounts
+Do not run unnecessary services on your VM, even if they are not accessible from the outside. The more services you run, the more attack surface you will have top intruders to exploit. For example, do not deploy your own mail server. If you need to send email from cPouta, use [Pouta's SMTP server](/cloud/pouta/additional-services/#sending-e-mail-from-cpouta). If this SMTP server does not cover your use case, please contact <servicedesk@csc.fi>.
 
-Keep an eye on the user accounts enabled in your system. Some
-applications create default accounts which are insecure. An ideal
-scenario might be three accounts: root (with ssh disabled), a user
-account for a sysadmin (key login only) and a user-level account for a
-service (login disabled).
+### Use secure protocols
 
-#### Disable password login – use keys
+Wherever possible, use encrypted and secure communication protocols to avoid man in the middle attacks, this is when someone get access to your communications and can read the data going through like in a public WIFI. For example: Do not use HTTP, use instead HTTPS. Do not use FTP to transfer files, use instead FTPS, SFTP or S3.
 
-Passwords can be, with enough time and compute power, attacked with brute force. 
-The average SSH server deals with thousands of
-such attacks every week, so use keys to have one less worry.
+### Use intrusion detection software
 
-#### Do not store keys on the image
+Tools such as [denyhosts](https://github.com/denyhosts/denyhosts) or [Fail2ban](https://en.wikipedia.org/wiki/Fail2ban) will analyse log files and ban IP addresses that are attempting to make brute-force attacks to your application. They are very powerful tools, but they have to be used used with care as they can lead to false positives, i.e. Banning IPs that should not be banned. 
 
-The cloud provides a metadata service so that you can download keys on
-boot. This is recommended. It ensures that if your key is compromised, not
-all running instances of that image are compromised.
+## Software
 
-#### Use tools like denyhosts
+Running secure software is also very important. It is not a trivial task to develop fully secure software, but there are some simple strategies that will help with the task. 
 
-Tools such as _denyhosts_, which look at log files for attempted breaches
-and then firewall out IP addresses, can take your security approach to
-a more active level.
+### Only install from reputable sources
 
-#### Disable unneeded services
+Be mindful of the sources for the software you install. Only install software from reputable sources. If possible, use the distribution's package manager (`yum`, `dnf`, `apt`, ...). Packages managers make it easy to install software, keep it updated, and uninstall it. If the desired software it not available in the distribution package manager repository, an official source must be used. Follow the instructions on the official website of the software you need. If more than one source is offered, think about using the one that provides an easier life-cycle (install/update/uninstall/...), like [snap](https://en.wikipedia.org/wiki/Snap_(software)) or [flatpak](https://en.wikipedia.org/wiki/Flatpak).
 
-Know what services run on your image and disable the unnecessary ones
-before you upload it. This reduces the attack surface.
+### Automatic software updates
 
-#### Use encrypted communications
+All operating systems have the ability to apply updates automatically. If you run regular updates, you are less exposed to known security problems. It is common that the fix is available before the security problem is published.
 
-Wherever possible, use encrypted communications to avoid attacks which
-intercept data.
+In Centos 8 and newer, you have `dnf-automatic`:
 
-#### Use the best practices for logging
+```yaml
+sudo yum install dnf-automatic -y
+systemctl enable --now dnf-automatic-install.timer
+```
 
-Make sure that the services are logging to a secure location, that is as
-tamper-proof as possible. Keep the logs for a reasonably long. 
-Consider logging to a remote server as well.
+`yum-cron` for Centos 7:
+
+```yaml
+sudo yum install yum-cron -y
+sudo systemctl enable yum-cron.service
+sudo systemctl start yum-cron.service
+```
+
+`unattended-upgrades` for Ubuntu:
+
+```yml
+sudo apt install unattended-upgrades
+```
+
+Each OS version will have its own way to activate this.
+
+!!! info "Kernel updates" 
+    Some updates, such as kernel upgrades, require rebooting the virtual machines. Please schedule this into your regular maintenance.
+
+If your use case does not support automatic updates, which is common for highly available setups, please make sure to schedule regular maintenance windows where the software upgrade is scheduled.
+
+* **Subscribe to security announcements for your OS**, if there is a security problem in your operating system, you need to find it out as soon as possible. You can subscribe to an appropriate mailing list, RSS feed, ... to keep an eye out for anything that requires urgent action.
+
+### Be mindful about the user accounts in the VM
+
+Keep an eye on the user accounts enabled in your system. Some applications create default accounts which are unnecessary or even directly insecure. An ideal scenario might be three accounts:
+
+* `root` with ssh disabled and no password. This is the default in [Pouta VM images](/cloud/pouta/images/).
+* A user account for a sysadmin that can only be accessed via ssh keys and has sudo access. Pouta VM images provide this user preconfigured as well, the name of the user depends on the distribution (`cloud-user`, `centos` or `ubuntu`), see the documentation above for more reference.
+* and add user-level accounts that run a single service and have no login possible, neither remote nor local access. 
+
+Do not enable password login, **use SSH keys** instead. Passwords can be, with enough time and compute power, guessed with brute force. The average SSH server deals with thousands of such attacks every week. When using SSH keys, challenge-response authentication is used instead. This means that for each login a different challenge is asked and a different response is the correct one. No secret (password or key) ever travels across the network 
+
+Password protect your SSH keys and make sure your key never leaves the hardware where it was created.
+
+* Do not store public keys (much less private) on the image used to create the VM. Pouta clouds provide a metadata service so that you can download public keys on boot. This is recommended as it ensures that if your key is compromised, access from that key can be removed from all running instances and no new one will ever have this public key.
+
+### Keep logs of your applications
+
+Use the best practices for logging:
+
+- Make sure that the services are logging to a secure location, that is as tamper-proof as possible.
+- Keep the logs for a reasonably long amount of time.
+- Consider logging to a remote server as well.
 
 *Reused with kind permission from <a
 href="https://support.ehelp.edu.au/support/solutions"
