@@ -98,7 +98,7 @@ Example batch script for reserving one GPU and two CPU cores in a single node:
 
 Submit the script with `sbatch <script_name>.sh`
 
-### Small GPU example
+### Small code example
 
 Do note that this code is just to highlight the syntax.
 
@@ -113,10 +113,10 @@ circ.cx(0, 1)
 circ.cx(1, 2)
 circ.measure_all()
 
-# Construct an ideal simulator with GPU
+# Construct an ideal simulator that uses GPU
 simulator = AerSimulator(method="statevector", device="GPU")
 
-# Enable cuStateVec 
+# Execute the circuit with cuStateVec enabled. 
 result_ideal = qiskit.execute(circ, simulator, cuStateVec_enable=True).result()
 
 counts_ideal = result_ideal.get_counts(0)
