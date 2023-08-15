@@ -10,7 +10,7 @@ With the SD Desktop service, you can easily manage volumes and pause, reboot, re
 
 With the option  _Detach volume_, you can easily disconnect a volume from your virtual desktop. The volume and its content will be stored in the same CSC project where it was initially created. You can compare this operation to disconnecting or attaching a hard drive to your laptop.
 
-To detach a volume from your virtual desktop:
+**To detach a volume from your virtual desktop:**
 
 1. Save and close all the files on the volume to prevent data corruption and log out from the virtual desktop.
 
@@ -20,7 +20,7 @@ To detach a volume from your virtual desktop:
 A message will ask to confirm the operation.
 
 
-When you want to access the data saved in the detached volume, you can reattach it to a new desktop:
+**When you want to access the data saved in the detached volume, you can reattach it to a new desktop:**
 
 1. From the SD Desktop homepage, click on  _SD Desktop management page_.
 
@@ -31,7 +31,7 @@ When you want to access the data saved in the detached volume, you can reattach 
 4. Click on _Create desktop_
 
 
-Limitations:
+**Limitations:**
 
 - A detached volume can not be reattached to an existing virtual desktop, only to new virtual desktops during creation phase. 
 
@@ -47,7 +47,7 @@ Limitations:
 
 You can pause a virtual desktop. In this manner, the desktop will stop consuming billing units. 
 
-To pause the desktop:
+**To pause the desktop:**
 
 1. Close all the programs, save/close all the files, and log out from the virtual desktop to prevent data corruption.
 
@@ -71,13 +71,13 @@ If the virtual desktop or software has become unresponsive, you can use this opt
 !!! Note
     You don't need to reboot your desktop if the Data Gateway application becomes unresponsive (for example, because old sessions are still running in the background). Instead, you can use the terminal to check the ID number of the running process and stop it. Contact us at servicedesk@csc.fi (subject: Sensitive data) for support. 
 
-To reboot a virtual machine:
+**To reboot a virtual machine:**
 
 1- Close all the programs, save/close all the files and log out from the virtual desktop to prevent data corruption.
 
 2-  On the SD Desktop homepage, click on _Go To SD Desktop Management_;
 
-3- Here, under _Available desktops_  select the correct virtual desktop, and in the same raw, on the right side, click _Options _ and select _Reboot_.
+3- Here, under _Available desktops_  select the correct virtual desktop, and in the same raw, on the right side, click _Options_ and select _Reboot_.
 
 4- A message will ask to confirm the operation, which can take up to 30 minutes.
 
@@ -87,11 +87,11 @@ If the virtual desktop or software has become obsolete, you can use this option 
 !!! Note
     This operation will delete all the files/software or scripts imported into the virtual desktop, and you will delete the entire virtual workspace. Only       the files saved in the volume will still be available. Please contact us at servicedesk@csc.fi before using this option.
 
-To reboot a virtual desktop:
+**To reboot a virtual desktop:**
 
 1. On the SD Desktop homepage, click on _Go To SD Desktop Management_;
 
-2. Here, under _Available desktops_  select the correct virtual desktop, and in the same raw, on the right side, click on _Options _ and select _Rebuilt_.
+2. Here, under _Available desktops_  select the correct virtual desktop, and in the same raw, on the right side, click on _Options_ and select _Rebuilt_.
 
 3. A message will ask to confirm the operation, which can take up to 30 minutes. 
 
