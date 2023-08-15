@@ -32,7 +32,7 @@ Find, under **Instance name**, the Virtual Machine that you want to connect to.
 
         This is useful to be sure which private key corresponds to which public one configured in Pouta.
 
-* Click in the machine name and check that there is a security group that allow SSH connections from your current IP. See the [security group](../launch-vm-from-web-gui/#firewalls-and-security-groups) article for more information on how to create a SSH security group.
+* Click in the machine name and check that there is a security group that allow SSH connections from your current IP. See the [security group](../launch-vm-from-web-gui.md#firewalls-and-security-groups) article for more information on how to create a SSH security group.
 
 * Now you need to know which user name is configured in the Virtual Machine to let your SSH keypair to log in. Different distributions/images have different user names. Third-party images can use any user name, please check the respective documentation. For the default images provided by Pouta CSC, have a look to the [Images](./images.md#images) documentation article, the information there is kept up to date with any addition or change.
 
@@ -152,7 +152,7 @@ In order to be able to use the console, **you need to set up a password-based us
 
 * Connected through SSH to your Virtual Machine instance
 * You can use [useradd](https://linux.die.net/man/8/useradd) and or [passwd](https://linux.die.net/man/1/passwd) to set up the account. 
-* As indicated in our [security guidelines](../security/#disable-password-login-use-keys), please **do not enable remote login** for this **password-based account**, but rather use it only in case you need to access the instance though the console.
+* As indicated in our [security guidelines](../security.md#disable-password-login-use-keys), please **do not enable remote login** for this **password-based account**, but rather use it only in case you need to access the instance though the console.
 
 Once there is a password based account, with no remote login allowed:
 

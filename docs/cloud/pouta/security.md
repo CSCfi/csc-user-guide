@@ -18,13 +18,13 @@ Your virtual machine instances should be configured so that they allow the minim
 
 Every virtual machine running in Pouta comes with two firewalls: the firewall of the virtual machine itself (netfilter/iptables) and Pouta Security groups. We are only going to focus on Pouta security groups, as they are the easiest way to apply a set of complex firewall rules to a set of virtual machines. This is an example of a security group that gives access to port 22/SSH to only 4 subnets:
 
-![Restricted-SSH](../../../img/restricted-ssh-security-group.png)
+![Restricted-SSH](../../img/restricted-ssh-security-group.png)
 
 These 4 subnets could be the 4 public ranges that your organization uses in its office network.
 
 Security groups are easy to configure and easy to visualize. This is the view from a virtual machine's instance page:
 
-![Restricted API SSH](../../../img/restricted-api-ssh.png)
+![Restricted API SSH](../../img/restricted-api-ssh.png)
 
 you can see that every single opening is shown there. 
 
