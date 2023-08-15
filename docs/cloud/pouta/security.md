@@ -24,7 +24,7 @@ These 4 subnets could be the 4 public ranges that your organization uses in its 
 
 Security groups are easy to configure and easy to visualize. This is the view from a virtual machine's instance page:
 
-![Resticted API SSH](../../../img/restricted-api-ssh.png)
+![Restricted API SSH](../../../img/restricted-api-ssh.png)
 
 you can see that every single opening is shown there. 
 
