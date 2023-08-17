@@ -11,23 +11,25 @@ so that users can pick and choose what fits their needs best.
 ## MLflow
 
 [MLflow][MLflow] is an open source tool for tracking experiments and
-models in machine learning projects. You can easily install MLflow
-yourself with `pip` (see [our documentation on how to install Python
-packages][own-install]) but it should be included in most of [our
-pre-installed modules][ml-apps], such as `pytorch`, `tensorflow` and
-`python-data`.
+models in machine learning projects. It is included in most of [our
+pre-installed modules for machine learning][ml-apps], such as
+`pytorch`, `tensorflow` and `python-data`. You can also easily install
+MLflow yourself with `pip` (see [our documentation on how to install
+Python packages][own-install]).
 
-We document two ways to use MLflow on CSC's supercomputers:
+We document **two ways to use MLflow on CSC's supercomputers**:
 
-1. Storing the tracking data in the supercomputer filesystem (e.g., on
-   `/scratch/`) and viewing the results via the 
-   [MLflow tracking UI](#mlflow-tracking-ui) in the Puhti web interface
+1. Storing the tracking data on the supercomputer's filesystem (e.g.,
+   on `/scratch/`) and viewing the results via the [MLflow tracking
+   UI](#mlflow-tracking-ui) in the web interface. (This is currently
+   only supported on Puhti.)
    
 2. Using your own [MLflow tracking server](#mlflow-tracking-server),
-   for example running on [CSC's Rahti service](../../cloud/rahti/index.md).
+   for example running on [CSC's Rahti
+   service](../../cloud/rahti/index.md).
    
-Option 1. is simpler to get started with, just add a few lines in your
-code and click the MLflow UI open in the web interface, however it may
+Option 1 is simpler to get started with - just add a few lines in
+your code and open the MLflow UI in the web interface - however it may
 not scale up very well to hundreds of runs or multiple users. For more
 advanced use cases we recommend Option 2.
 
