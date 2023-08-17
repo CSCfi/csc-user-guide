@@ -8,37 +8,37 @@ Below you can find step-by-step instructions to encrypt and export data from SD 
 [![Data-export](images/desktop/airlock.png)](images/desktop/airlock.png)
 
 
-1- Generate your encryption key pair (secret key and public key) with the Crypt4GH application (you can skip this paragraph if you already have a key pair).
+### 1. Generate your encryption key pair (secret key and public key) with the Crypt4GH application (you can skip this paragraph if you already have a key pair).
 
-* Install the Crypt4GH application:
+1. To get started, install the Crypt4GH application:
 
-CSC has developed a simple application that will allow you to generate your encryption keys and decrypt data when necessary. 
-Download the version specific to your operating system from the [GitHub repository](https://github.com/CSCfi/crypt4gh-gui):
+   CSC has developed a simple application that will allow you to generate your encryption keys and decrypt data when necessary. 
+   Download the version specific to your operating system from the [GitHub repository](https://github.com/CSCfi/crypt4gh-gui):
 
-* [Mac](https://github.com/CSCfi/crypt4gh-gui/releases/download/v1.3.0/crypt4gh-gui-python3.10-macos-amd64.zip)
+      * [Mac](https://github.com/CSCfi/crypt4gh-gui/releases/download/v1.3.0/crypt4gh-gui-python3.10-macos-amd64.zip)
 
-* [Windows](https://github.com/CSCfi/crypt4gh-gui/releases/download/v1.3.0/crypt4gh-gui-python3.10-windows-amd64.zip)
+      * [Windows](https://github.com/CSCfi/crypt4gh-gui/releases/download/v1.3.0/crypt4gh-gui-python3.10-windows-amd64.zip)
 
-* [Linux](https://github.com/CSCfi/crypt4gh-gui/releases/download/v1.3.0/crypt4gh-gui-python3.10-linux-amd64.zip)
+      * [Linux](https://github.com/CSCfi/crypt4gh-gui/releases/download/v1.3.0/crypt4gh-gui-python3.10-linux-amd64.zip)
 
 
-Please check that the tool for Windows has been digitally signed by CSC - IT Center for Science. After the download, you can find the Crypt4GH application in your downloads folder.
+   Please check that the tool for Windows has been digitally signed by CSC - IT Center for Science. After the download, you can find the Crypt4GH application in your downloads folder.
 
-* When you open the application for the first time, you might encounter an error message. In this case, click on _More info_ and verify that the publisher is CSC-IT Center for Science (or in Finnish CSC-Tieteen tietotekniikan keskus Oy) and then click on _Run anyway_.
+2. When you open the application for the first time, you might encounter an error message. In this case, click on _More info_ and verify that the publisher is CSC-IT Center for Science (or in Finnish CSC-Tieteen tietotekniikan keskus Oy) and then click on _Run anyway_.
+   
+3. Generate your encryption keys:
 
-* Generate your encryption keys:
+   * Open the Crypt4GH application and click on _Generate Keys_ (on the top right corner).
+   * The tool will open a new window and ask you to insert a password (_Private Key Passphrase_). This password will be associated with your secret key. Please, use a strong password.
+   * When you click on _OK_, the tool will generate a key pair consisting of a secret key (your username_crypt4gh.key) and a public key (your username_crypt4gh.pub).
+   * The keys/file names will be displayed in the Activity Log with the following message:
 
-- Open the Crypt4GH application and click on _Generate Keys_ (on the top right corner).
-- The tool will open a new window and ask you to insert a password (_Private Key Passphrase_). This password will be associated with your secret key. Please, use a strong password.
-- When you click on _OK_, the tool will generate a key pair consisting of a secret key (your username_crypt4gh.key) and a public key (your username_crypt4gh.pub).
-- The keys/file names will be displayed in the Activity Log with the following message:
-
-```
-Key pair has been generated, your private key will be auto-loaded the next time you launch this tool:
-Private key: username_crypt4gh.key
-Public key: username_crypt4gh.pub
-All the fields must be filled before file encryption will be started
-```
+   ```
+   Key pair has been generated, your private key will be auto-loaded the next time you launch this tool:
+   Private key: username_crypt4gh.key
+   Public key: username_crypt4gh.pub
+   All the fields must be filled before file encryption will be started
+   ```
 
 The keys will be generated and saved to the same folder in which the application resides.
 
@@ -48,26 +48,24 @@ The keys will be generated and saved to the same folder in which the application
     * You need to **create your keys only once** and use them for all your encryption needs, but you can of course, choose to generate separate keys for encryption as you wish.
 
 
-2- Upload the public key to SD Connect. 
+### 2. Upload the public key to SD Connect
 
-* You can easily upload the public key to SD Connect via drag and drop. You will be **redirected to a new window displaying the default encryption options**. 
-
-* Next, you can specify the bucket's name to which the public encryption key should be uploaded. If you don't fill in a specific term, the user interface will automatically create a bucket named with a 13 digit number (based on creation time). 
-
-* Click on _Encrypt and upload_: the public key will be encrypted and uploaded to the bucket in SD Connect. Only encrypted files are visible and accessible via SD Desktop; thus, even your public encryption key must be encrypted during upload.
+1. You can easily upload the public key to SD Connect via drag and drop. You will be **redirected to a new window displaying the default encryption options**.
+2. Next, you can specify the bucket's name to which the public encryption key should be uploaded. If you don't fill in a specific term, the user interface will automatically create a bucket named with a 13 digit number (based on creation time).
+3. Click on _Encrypt and upload_: the public key will be encrypted and uploaded to the bucket in SD Connect. Only encrypted files are visible and accessible via SD Desktop; thus, even your public encryption key must be encrypted during upload.
 
 <img width="960" alt="export" src="https://user-images.githubusercontent.com/83574067/160693019-e0bafc69-7bc6-4cb4-bca4-37db0e124b63.png">
 
 
 
-3- Import the public key inside the virtual desktop.
+### 3. Import the public key inside the virtual desktop
 
-Once the upload process is completed, you can access your virtual Desktop. Using the Data Gateway application, access the bucket with the public key. You can now import a copy of your public key inside the virtual Desktop (via copy/paste function). 
+Once the upload process is completed, you can access your virtual Desktop. Using the _Data Gateway_ application, access the bucket with the public key. You can now import a copy of your public key inside the virtual Desktop (via copy/paste function). 
 
 
-4- Encrypt the results.
+### 4. Encrypt the results
 
-Open the terminal (right-click) and encrypt with your public key the files you want to export. Crypt4GH is already installed on each Desktop and accessible programmatically. 
+Open the terminal (right-click) and encrypt all the files you want to export with your public key. Crypt4GH is already installed on each Desktop and accessible programmatically. 
 
 The syntax of the encryption command is:
 
@@ -75,7 +73,7 @@ The syntax of the encryption command is:
 crypt4gh encrypt --recipient_pk public-key < input > output
 ```
 
-Where public-key is your public key (username.pub), input is the file you want to export (my_results.csv), and output is the encrypted file (my_results.csv.c4gh)
+Where *public-key* is your public key (username.pub), *input* is the file you want to export (my_results.csv), and *output* is the encrypted file (my_results.csv.c4gh)
 
 For example:
 
@@ -83,7 +81,7 @@ For example:
 crypt4gh encrypt --recipient_pk your-username.pub < my_results.csv > my_results.csv.c4gh
 ```
 
-5- Exporting the results from the private desktop.
+### 5. Exporting the results from the private desktop
 
 Once the results are encrypted, only the CSC project manager can export the files with the Airlock client. 
 
@@ -101,17 +99,21 @@ For example:
 airlock-client cscuser  analysis-2022  results-03.csv.c4gh
 ```
 
-Press enter and add your password. Note: if you try to upload an unencrypted file, the airlock client will automatically encrypt it with the Sensitive Data public key for security reasons and export it to SD Connect. Here, you will be able to download the file but you will not be able to decrypt it.
+Press enter and add your password. 
 
-The fact that only project manager can export data from SD Desktop, making back-up copies of important file is difficult for normal user. 
-If need, the project manger can launch a back-up server process that normal users can utilize to do back-ups. For details, see:
+!!! Note: 
+    If you try to upload an unencrypted file, the airlock client will automatically encrypt it with the Sensitive Data public key for security reasons and export it to SD Connect. Here, you will be able to download the file but you will not be able to decrypt it.
+
+Due to the fact that only the project manager can export data from SD Desktop, making back-up copies of important files is typically difficult for users. 
+If needed, the project manager can launch a back-up server process that other users can utilize to make back-ups. For details, see:
 
    * [SD Desktop Back-up server tutorial](tutorials/backup_sd_desktop.md)
      
  
+### 6. Download and decrypt the files
 
+The exported file is now available in SD Connect/Allas. 
 
-6- Download and decrypt the files.
+After downloading the file in your local environment, you can decrypt it with your secret encryption key by using the Crypt4GH application or programmatically. For specific guidance check the following [paragraph](./sd_connect.md#data-download-and-decryption).
 
-The exported file is now available in SD Connect/Allas. After downloading the file in your local environment, you can decrypt it with your secret encryption key, using the Crypt4GH application or programmatically. For specific guidance check the following [paragraph](./sd_connect.md#data-download-and-decryption).
-For more information and support, write to servicedesk@csc.fi (email subject Sensitive Data).
+For more information and support, we encourage you to write to servicedesk@csc.fi (email subject: *Sensitive Data*).
