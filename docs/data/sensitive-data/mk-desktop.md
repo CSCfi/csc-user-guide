@@ -12,10 +12,10 @@ Each CSC project supports the launch of *up to three* virtual Desktops. In addit
 To start your virtual Desktop, log in to the services at [sd-desktop.csc.fi](sd-desktop.csc.fi) and click on **Go to SD Desktop Management page**.
 
 Here you can specify several parameters:
-* **Select your CSC project.**
-* **Choose the operating system.** Currently the only possible operating system is Linux CentOS 7 but in the future, there will be other options too.
-* **Assign a name for your virtual Desktop.** It is good practice to assign a descriptive name for a Desktop so that all project members can easily identify it later on.
-* Choose one of the **virtual Desktop pre-built options** (Light, Small, Medium or Heavy computing), based on your computing and memory needs. The default disk (or storage) space for all Desktops is 80 GB. You can extend your Desktop disk space by selecting option: *add an external disk*. You can add up to 200 GB.
+ * **Select your CSC project.**
+ * **Choose the operating system.** Currently the only possible operating system is Linux CentOS 7 but in the future, there will be other options too.
+ * **Assign a name for your virtual Desktop.** It is good practice to assign a descriptive name for a Desktop so that all project members can easily identify it later on.
+ * Choose one of the **virtual Desktop pre-built options** (Light, Small, Medium or Heavy computing), based on your computing and memory needs. The default disk (or storage) space for all Desktops is 80 GB. You can extend your Desktop disk space by selecting option: *add an external disk*. You can add up to 200 GB.
 
 !!! Note 
     You can't extend the disk space after you have launched the virtual Desktop. Additional disk space later on can be requested writing at servicedesk@csc.fi (subject: Sensitive data);
@@ -61,12 +61,12 @@ When you open the connection, a virtual computing environment (Linux Centos oper
 
 You can work with this virtual Desktop like in a standard computing environment. From the *Applications* menu bar (top left corner) you can access several pre-installed programs. Examples include Open Office, image viewing applications, video and audio players, Jupiter Notebook etc. You can also open a terminal and use Linux from the command line. To start using R-Studio please check the following paragraph.
 
-Security-related features of the audited SD Desktop include:
+**Security-related features of the audited SD Desktop include:**
 
 * the computing environment is **isolated from the internet**. You can, for example, open a Firefox web browser, but you are not able to access any site on the internet. You will also not be able to access any repositories directly.
 * the copy-paste function from your computer/laptop to the browser visualizing your virtual Desktop is entirely disabled for security reasons. You can anyhow use this function inside your browser.
 
-You can close your connection to your virtual Desktop in two ways:
+**You can close your connection to your virtual Desktop in two ways:**
 
 1. **Log out** from your Desktop (in the workspace view, top right corner of the browser, select your *username* and *log out*). This will close all applications in your virtual Desktop and disconnect the work session. You will be able to access the virtual Desktop at any time after logging in to the services.
 2. If you started a data analysis programmatically (you are running a script) you can close the browser window. This doesn't interfere with the processes running. Thus, when you reconnect to your Desktop, you have all your tools and interfaces still open and can continue working. However, remember to log out from the Desktop once the analysis is finished. If you leave more than ten connections open, you will be unable to re-access the services.
@@ -124,16 +124,16 @@ If you need a specific program that is not pre-installed, it is recommended to c
 
 ### Scientific software
 **Python 3.7.9** including following packages:
-* Beautiful Soup, Bokeh, CatBoost, crypt4gh, Distributed Keras, Elephas, ELI5, Gensim, HTTPX, Keras, LightGBM, Matplotlib, NLTK, NumPy, pandas, Plotly, pydot, pyfuse3, PyTorch, QRcode, Scikit-learn, SciPy, Scrapy, Seaborn, spaCy, Statsmodels, TensorFlow, Trio, XGBoost.
+ * Beautiful Soup, Bokeh, CatBoost, crypt4gh, Distributed Keras, Elephas, ELI5, Gensim, HTTPX, Keras, LightGBM, Matplotlib, NLTK, NumPy, pandas, Plotly, pydot, pyfuse3, PyTorch, QRcode, Scikit-learn, SciPy, Scrapy, Seaborn, spaCy, Statsmodels, TensorFlow, Trio, XGBoost.
 
 **R / RStudio Server** with the following properties:
-* Installation matching the `r-env-singularity/4.0.5` module on Puhti (R 4.0.5 + RStudio Server 1.4.1106, Bioconductor 3.12)
-* 1000+ pre-installed R packages
-* Intel® oneAPI Math Kernel Library (oneMKL)
-* GIS software (PROJ, GDAL, SAGA)
-* CUDA drivers
-* TensorFlow (used with R TensorFlow back-end)
-* R + RStudio Server versions matched with Puhti r-env-singularity module (R 4.0.5 + RStudio Server 1.4.1106, MRAN, Bioconductor 3.12)
+ * Installation matching the `r-env-singularity/4.0.5` module on Puhti (R 4.0.5 + RStudio Server 1.4.1106, Bioconductor 3.12)
+ * 1000+ pre-installed R packages
+ * Intel® oneAPI Math Kernel Library (oneMKL)
+ * GIS software (PROJ, GDAL, SAGA)
+ * CUDA drivers
+ * TensorFlow (used with R TensorFlow back-end)
+ * R + RStudio Server versions matched with Puhti r-env-singularity module (R 4.0.5 + RStudio Server 1.4.1106, MRAN, Bioconductor 3.12)
 
 ### RStudio on SD Desktop
 
@@ -161,8 +161,8 @@ To stop RStudio Server: Ctrl+C
 ```
 
 Next:
-* **paste** the URL in Firefox
-* after a few seconds, you can **input the username and password** (given by the terminal) and access the server.
+ * **paste** the URL in Firefox
+ * after a few seconds, you can **input the username and password** (given by the terminal) and access the server.
 
 !!! Note
     When using RStudio, you need to save your data in **Shared-directory** if your colleagues need to work on the same files.
@@ -189,11 +189,12 @@ Lastly, we are not yet providing a virtual Desktop with Windows or Linux Ubuntu 
 Your virtual Desktop is completely isolated from the internet and other services for information security reasons. Only the CSC project manager can export non-sensitive results from the secure workspace.
 
 In order to export the results at the end of your analysis, you need to:
-* Make sure your results **do not contain any sensitive data**;
-* Collect all the results into a same folder and name it as **Results**;
-* Place the Results folder into the **shared-directory** on your Desktop;
-* **Send a request to servicedesk@csc.fi** to export your results.
-* All the content in the “Results” folder will be exported to the data permit authority, and it will be available for you after their scrutiny. During the export, you will not be able to access your virtual Desktop. All the project members have to be removed from the CSC project for the duration of the data export. Afterwards, you will be invited back to the CSC project, if your project is still ongoing.
+
+ * Make sure your results **do not contain any sensitive data**;
+ * Collect all the results into a same folder and name it as **Results**;
+ * Place the Results folder into the **shared-directory** on your Desktop;
+ * **Send a request to servicedesk@csc.fi** to export your results.
+ * All the content in the “Results” folder will be exported to the data permit authority, and it will be available for you after their scrutiny. During the export, you will not be able to access your virtual Desktop. All the project members have to be removed from the CSC project for the duration of the data export. Afterwards, you will be invited back to the CSC project, if your project is still ongoing.
 
 [![Desktop-register-export](images/desktop/desktop-register-exp.png)](images/desktop/desktop-register-exp.png)
 
@@ -203,8 +204,9 @@ In order to export the results at the end of your analysis, you need to:
 ### Deleting a Desktop
 
 At the end of your analysis, you can delete your virtual desktop, including the external volume and all files saved in it. You cannot undo this action:
-1. On SD Desktop Homepage (sd-desktop.csc.fi), click on **Go to SD Desktop Management**.
-2. Under *Available desktops* select the correct virtual desktop. On the right side, click on **Options** and on **Delete Desktop**.
+
+ 1. On SD Desktop Homepage (sd-desktop.csc.fi), click on **Go to SD Desktop Management**.
+ 2. Under *Available desktops* select the correct virtual desktop. On the right side, click on **Options** and on **Delete Desktop**.
 
 [![Desktop-delete](images/desktop/desktop-deleting.png)](images/desktop/desktop-deleting.png)
 
