@@ -19,14 +19,10 @@ need to apply for quantum resources in addition to CPU, GPU, and storage.
 
 ## The FiQCI partition `q_fiqci`
 
-!!! success "Users can now query Helmi Figures of Merit"
-    To get the latest figures of merit: Use `helmi-info -h` for more details!
-	For a description of the figures see [here](../helmi/running-on-helmi.md#figures-of-merit).
-
 Access to Helmi is only available through the FiQCI partition on LUMI, which provides a direct connection between a LUMI-C
 node (with 128 cores and 256 GB RAM) and Helmi.
 
-* [Further details on LUMI nodes](https://docs.lumi-supercomputer.eu/hardware/lumic/)
+* [Further details on LUMI nodes](https://docs.lumi-supercomputer.eu/hardware/)
 
 There is one queue in the Helmi partition corresponding to FiQCI projects: `q_fiqci`. 
 Currently, the maximum run time of a quantum job is 15 minutes.
@@ -50,16 +46,18 @@ The Helmi partition uses the same storage policies as LUMI.
 * Your project persistent storage is used to share data amongst the members of a project and is located at `/project/project_<project-number>`. **The project persistent directory is purged once the project expires.**
 * Your project scratch is intended as temporary storage for input, output or checkpoint data of your application. Please remove the files that are no longer needed by your project on a regular basis.
 
+* [Further details on LUMI Storage](https://docs.lumi-supercomputer.eu/storage/)
+
 ## Usage and Billing
 
 Quantum computing projects work similarly to the regular LUMI system. The main differences are:
 
 1. FiQCI projects use the `--partition=q_fiqci` partition instead of the regular LUMI-C `--partition=standard` and `--partition=small`.
 2. The maximum job walltime is **15 mins**.
-3. Usage is billed as QPU minutes **QPUm** in `q_fiqci`. 
-4. The LUMI-Helmi software stack has to be loaded separately. See [Running on Helmi](../running-on-helmi/) for details.
+3. Usage is billed as QPU seconds **QPUs** in `q_fiqci`. 
+4. The LUMI-Helmi computing environment has to be loaded separately. See [Running on Helmi](../running-on-helmi/) for details.
 
-Presently, running through the `q_fiqci` queue will consume QPU minutes for the amount of wall-time spent running in the `q_fiqci` queue.
+Presently, running through the `q_fiqci` queue will consume QPU seconds for the amount of wall-time spent running in the `q_fiqci` queue.
 
 !!! success "Querying your used QPUs"
     You can check your used QPUs using the `lumi-allocations` tool. 

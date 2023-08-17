@@ -82,7 +82,7 @@ When starting a task that requires EO data, there are multiple factors to consid
 |**Radar, SAR**|||||
 |**[ESA, Sentinel 1](https://sentinel.esa.int/web/sentinel/missions/sentinel-1)**|5|6|2014->|Yes|
 |[ESA, Radarsat](https://www.asc-csa.gc.ca/eng/satellites/radarsat/)|1-100|24|1995->|Yes|
-|[TanDEM-X](https://www.dlr.de/content/en/missions/tandem-x.html)/[TerraSAR-X](https://www.dlr.de/content/en/missions/terrasar-x.html)|0.25-40|-|2010->|No|
+|[TanDEM-X](https://www.dlr.de/en/research-and-transfer/projects-and-missions/tandem-x)/[TerraSAR-X](https://www.dlr.de/en/research-and-transfer/projects-and-missions/terrasar-x)|0.25-40|-|2010->|No|
 |[ICEYE](https://www.iceye.com/)|0.5-2.5|1|2018->|No|
 ||||||
 |**LiDAR**|Footprint size||||

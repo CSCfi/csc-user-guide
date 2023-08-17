@@ -105,7 +105,7 @@ Program specific references can be found in each of the
 
 FAQs and useful tutorials can be found at [the CSD website](https://www.ccdc.cam.ac.uk/support-and-resources) and e.g. in the [FAQ](https://www.ccdc.cam.ac.uk/support-and-resources/Support/search?c=Product+Reference).
 
-  [CSD]: http://www.ccdc.cam.ac.uk/products/csd_system
+  [CSD]: https://www.ccdc.cam.ac.uk/solutions/software/csd/
   [License agreement]: https://research.csc.fi/documents/48467/73370/CCDC+License+Agreement+Template.pdf/bea49ea1-a6ee-4e7e-94d3-9b7ef8e3a361
   [ConQuest]: https://www.ccdc.cam.ac.uk/solutions/software/conquest/
   [Mercury]: https://www.ccdc.cam.ac.uk/solutions/software/mercury/
