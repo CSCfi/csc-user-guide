@@ -17,6 +17,23 @@ packages][own-install]) but it should be included in most of [our
 pre-installed modules][ml-apps], such as `pytorch`, `tensorflow` and
 `python-data`.
 
+We document two ways to use MLflow on CSC's supercomputers:
+
+1. Storing the tracking data in the supercomputer filesystem (e.g., on
+   `/scratch/`) and viewing the results via the 
+   [MLflow tracking UI](#mlflow-tracking-ui) in the Puhti web interface
+   
+2. Using your own [MLflow tracking server](#mlflow-tracking-server),
+   for example running on [CSC's Rahti service](../../cloud/rahti/index.md).
+   
+Option 1. is simpler to get started with, just add a few lines in your
+code and click the MLflow UI open in the web interface, however it may
+not scale up very well to hundreds of runs or multiple users. For more
+advanced use cases we recommend Option 2.
+
+First we'll explain how to modify your code to enable MLflow tracking.
+
+
 ### Tracking runs
 
 Enabling MLflow tracking in your Python code is easy. Some libraries
@@ -141,14 +158,6 @@ application, for example:
     command line before launching the job. If you **prefix the export
     command with a single space** (as above) the bash shell will not store
     the command (including the password) in its history.
-
-
-
-## Weights & Biases
-
-TODO: adapt https://docs.wandb.ai/quickstart for Puhti usage
-
-
 
 
 [MLflow]: https://www.mlflow.org/
