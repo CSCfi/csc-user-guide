@@ -357,7 +357,7 @@ nav:
           ##sharing, search, own encryption keys, Storage space
           - Data upload for storage and sharing: data/sensitive-data/vk-srd-c-download.md
           ##Data decryption and download,
-          - Command line: data/sensitive-data/vk-srd-c-command.md
+          - Command line interface: data/sensitive-data/vk-srd-c-command.md
           ##upload, download, share, crypt4gh CLI??
           ## Command line encryption and upload, data encryption and upload with allas help tool: a-put
           - Troubleshooting: data/sensitive-data/vk-srd-c-trouble.md
@@ -370,8 +370,8 @@ nav:
           ## Data gateway, importing data, Reuse published sata via SD Apply
           - Programs: data/sensitive-data/vk-srd-d-programs.md
           ## Pre-installed software, rstudio, scientific software, software customisation with containers/interface??
-          - data export: data/sensitive-data/vk-srd-d-export.md
-          - troubleshooting: data/sensitive-data/vk-srd-d-trouble.md
+          - Data export: data/sensitive-data/vk-srd-d-export.md
+          - Troubleshooting: data/sensitive-data/vk-srd-d-trouble.md
        - Tutorials and quick quides: data/sensitive-data/vk-srd-tutorials.md
      - Publish and reuse sensitive research data:
        - Federated EGA: data/sensitive-data/vk-srd-fega.md
