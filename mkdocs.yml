@@ -339,14 +339,16 @@ nav:
   # data/Allas/using_allas/directory_object_error.md is not linked in this structure
   - Sensitive data:
      - data/sensitive-data/vk-sds-landing.md
-     - Introduction: 
+     - Getting started: 
           - data/sensitive-data/vk-sds-overview.md
+          - Introduction: data/sensitive-data/vk-sds-terminology.md
+          - Which service should I use?: data/sensitive-data/vk-sds-terminology.md
+          - Maximize your CSC project's resources: data/sensitive-data/vk-srd-a-billing.md
           - Terminology: data/sensitive-data/vk-sds-terminology.md
-          - Billing units: data/sensitive-data/vk-srd-a-billing.md
-     - Store and analyze sensitive data: 
+     - Store and analyze sensitive research data: 
        - Creating a project: 
           - data/sensitive-data/vk-srd-a-creating.md
-       - SD Connect: 
+       - Store with SD Connect: 
           - data/sensitive-data/vk-srd-sd-connect.md
           ## + key features + authentication
           ## legal agreements, data retention policy??
@@ -359,7 +361,7 @@ nav:
           ##upload, download, share, crypt4gh CLI??
           ## Command line encryption and upload, data encryption and upload with allas help tool: a-put
           - Troubleshooting: data/sensitive-data/vk-srd-c-trouble.md
-       - SD Desktop: 
+       - Analyse with SD Desktop: 
           - data/sensitive-data/vk-srd-sd-desktop.md
           - Create desktop: data/sensitive-data/vk-srd-d-create.md
           - Manage desktop: data/sensitive-data/vk-srd-d-manage.md
@@ -371,12 +373,13 @@ nav:
           - data export: data/sensitive-data/vk-srd-d-export.md
           - troubleshooting: data/sensitive-data/vk-srd-d-trouble.md
        - Tutorials and quick quides: data/sensitive-data/vk-srd-tutorials.md
-     - Analyse and publish sensitive data:
-       - FEGA: data/sensitive-data/vk-srd-fega.md
-       - SD Apply: data/sensitive-data/vk-srd-apply.md
+     -  Publish and reuse sensitive research data:
+       - data/sd-desktop-register-data-intro.md#sd-desktop-for-secondary-use-of-health-and-social-data
+       - Publich with Federated EGA: data/sensitive-data/vk-srd-fega.md
+       - Reuse with SD Apply: data/sensitive-data/vk-srd-apply.md
      - Secondary use of health and social data:
-       - Accessing the service with a Findata permit: data/sensitive-data/mk-findata.md
-       - Accessing the service with a permit from a single register: data/sensitive-data/mk-single-register.md
+       - Accessing register data with a Findata permit: data/sensitive-data/mk-findata.md
+       - Accessing register data with a register permit: data/sensitive-data/mk-single-register.md
        - SD Desktop for secondary use: data/sensitive-data/mk-desktop.md
        - Submitting secondary use data: data/sensitive-data/mk-data-controllers.md
 #      - SD Apply for secondary use: data/sensitive-data/single-register-submission.md
