@@ -59,7 +59,7 @@ One common backup strategy is the 3-2-1 rule. 3 copies of the data (including th
 
 *3-2-1 strategy*</center>
 
-### Use Continuous Integration and Continuous Delivery
+## Use Continuous Integration and Continuous Delivery
 
 The application you develop, the IaC code that deploys its infrastructure, and the configuration management code that configures it, should be tracked by a version control system of your choice, the most popular and de facto standard is [GIT]. Once the code of the application is in Version control, the next step is to use Continuous Integration (CI) and Continuous Delivery (CD).
 
@@ -117,6 +117,30 @@ manually, instead automate their installation. This helps reproducibility (all s
 These principles also apply to configuration. When possible, you should use upstream modules to handle the configuration of the software installed. Modules often isolate you from platform and version differences, i.e. you will write the same configuration definition for different versions of the software and different flavors of the operating systems and the module will translate that for you.
 
 Configuration management tools integrate very well with Pouta clouds. As they are able to read and use specific deployment values of the VMs, like IP addresses, host names, etc...  This means that these variables do not need to be hardwired into the system and will always be kept up to date. For example, we have a load balancer and few worker nodes, the load balancer needs to have a list of worker node IPs. A configuration management tool will be able to generate automatically the load balancer configuration using the information it gets from OpenStack's API. The final product is hands-off installation and upgrade process, where the configuration management does all the work and no manual work is necessary.
+
+## Research alternatives before you develop and deploy
+
+Before you start to develop and deploy a new service, it is advisable to explore if existing services and software already cover your use case. You should try to avoid falling into the "[not invented here syndrome](https://en.wikipedia.org/wiki/Not_invented_here)", where internally developed services and products are unfairly favored. It changes from case to case, as sometimes the project needs cannot be covered by existing solutions. CSC provides some service solutions that you should be aware of:
+
+### CSC Notebooks
+
+If you need Jupyter or RStudio notebook, CSC provides a [notebook service](../csc_notebooks/). It is a mature service provided by a dedicated team of professionals.
+
+### Rahti
+
+If you need to deploy Docker containers on a cluster like Kubernetes, CSS provides [Rahti](../rahti/). Rahti is a OpenShift okd developed by RedHat.
+
+### Pukki
+
+If you need a database, you should take a look to [Pukki](../dbaas/what-is-dbaas/), CSC's Database as a Service offering (**currently in a closed beta**).
+
+
+!!! info "contact us"
+    If any of these services interest you, but they do not cover 100% your needs, please contact us at <servicedesk@csc.fi> and we will study your case.
+
+## Summary
+
+Pouta offers few useful tools and resources that will make it easier to develop more reliable applications. Cloud deployments work very well when the application follow the idea of disposable microservices that are prepared to scale up and down transparently and are designed to respond well to unexpected failures. Pouta gives the flexibility of easily deploying isolated development environments. In addition, the API gives all the power of automation to you, and thanks to Devops tools it is simple to use that power. And of course never forget to backup your data.
 
   [practices]: https://12factor.net/
   [code repositories]: https://github.com/CSCfi
