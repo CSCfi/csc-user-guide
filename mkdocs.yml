@@ -375,7 +375,7 @@ nav:
        - Tutorials and quick quides: data/sensitive-data/vk-srd-tutorials.md
      -  Publish and reuse sensitive research data:
        - data/sd-desktop-register-data-intro.md#sd-desktop-for-secondary-use-of-health-and-social-data
-       - Publich with Federated EGA: data/sensitive-data/vk-srd-fega.md
+       - Publish with Federated EGA: data/sensitive-data/vk-srd-fega.md
        - Reuse with SD Apply: data/sensitive-data/vk-srd-apply.md
      - Secondary use of health and social data:
        - Accessing register data with a Findata permit: data/sensitive-data/mk-findata.md
