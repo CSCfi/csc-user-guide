@@ -373,7 +373,7 @@ nav:
           - data export: data/sensitive-data/vk-srd-d-export.md
           - troubleshooting: data/sensitive-data/vk-srd-d-trouble.md
        - Tutorials and quick quides: data/sensitive-data/vk-srd-tutorials.md
-     -  Publish and reuse sensitive research data:
+     - Publish and reuse sensitive research data:
        - data/sd-desktop-register-data-intro.md#sd-desktop-for-secondary-use-of-health-and-social-data
        - Publish with Federated EGA: data/sensitive-data/vk-srd-fega.md
        - Reuse with SD Apply: data/sensitive-data/vk-srd-apply.md
