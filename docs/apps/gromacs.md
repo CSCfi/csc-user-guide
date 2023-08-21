@@ -40,6 +40,7 @@ systems. It also comes with plenty of analysis scripts.
     |2022.2   |`gromacs/2022.2`<br>`gromacs/2022.2-cuda`|GPU-enabled module available
     |2022.3   |`gromacs/2022.3`<br>`gromacs/2022.3-cuda`|GPU-enabled module available
     |2022.4   |`gromacs/2022.4`<br>`gromacs/2022.4-cuda`|GPU-enabled module available
+    |2023.1   |`gromacs/2023.1`
     |2023.2   |`gromacs/2023.2`
 
 === "LUMI"
