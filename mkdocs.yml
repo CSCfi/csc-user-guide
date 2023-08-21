@@ -381,7 +381,7 @@ nav:
        - Accessing register data with a Findata permit: data/sensitive-data/mk-findata.md
        - Accessing register data with a register permit: data/sensitive-data/mk-single-register.md
        - Analyse with SD Desktop for secondary use: data/sensitive-data/mk-desktop.md
-       - Submitting secondary use data: data/sensitive-data/mk-data-controllers.md
+       - Submitting secondary use data: data/sensitive-data/sd-desktop-register-controllers.md
 #      - SD Apply for secondary use: data/sensitive-data/single-register-submission.md
 #      - Federated EGA: data/sensitive-data/federatedega.md
      
