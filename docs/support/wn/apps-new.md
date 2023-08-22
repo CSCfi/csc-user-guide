@@ -1,5 +1,11 @@
 # Applications
 
+## Gromacs 2023.2 available on Puhti and Mahti, 21.8.2023
+
+[Gromacs](../../apps/gromacs.md) 2023.2 has been installed and set as the default module on
+Puhti and Mahti.
+[See release notes here](https://manual.gromacs.org/2023.2/release-notes/2023/2023.2.html).
+
 ## Gromacs 2023.2 and CP2K 2023.2 available on LUMI, 4.8.2023
 
 CPU and GPU versions of [Gromacs](../../apps/gromacs.md) 2023.2 and [CP2K](../../apps/cp2k.md)
