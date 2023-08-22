@@ -33,7 +33,9 @@ GOLD can be used either from the command-line or via a graphical user interface
 [Puhti web interface desktop](../computing/webinterface/desktop.md). To set up
 the GOLD interactive environment, open a terminal and run:
 
-`module load ccdc`
+```bash
+module load ccdc
+```
 
 This will load the latest version of CSD and GOLD. To run GOLD you can either
 enter `hermes` and navigate to the GOLD tab, or alternatively run `gold` which
