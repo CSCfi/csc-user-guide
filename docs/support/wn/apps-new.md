@@ -1,5 +1,11 @@
 # Applications
 
+## CSD 2023.2 available on Puhti, 22.8.2023
+
+Version 2023.2 of the [Cambridge Structural Database (CSD)](../../apps/csd.md) software
+suite (including [GOLD](../../apps/gold.md)) has been installed and set as the default
+module on Puhti. [See release notes here](https://www.ccdc.cam.ac.uk/solutions/whats-new/).
+
 ## Gromacs 2023.2 available on Puhti and Mahti, 21.8.2023
 
 [Gromacs](../../apps/gromacs.md) 2023.2 has been installed and set as the default module on
