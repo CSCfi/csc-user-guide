@@ -50,16 +50,19 @@ module spider gcc
 module spider aocc
 ```
 
-### Intel compilers
+<!-- ### Intel compilers
 
-Support for Intel compilers may be somewhat limited and may lack certain functionalities. For more detailed information, it is recommended to contact the CSC service desk. Access to the Intel compilers can be obtained by loading the .unsupported modules:
+!!! warning
+    Support for Intel compilers may be somewhat limited and may lack certain functionalities. For more detailed information, it is recommended to contact the CSC service desk.
+
+Access to the Intel compilers can be obtained by loading the .unsupported modules:
 
 ```
 module load .unsupported
 module load intel-oneapi-compilers/2021.4.0
 ```
 
-Comprehensive information about flags and optimization options that can be used with the compiler can be found in the manual pages, accessible with `man icc/ifort`.
+Comprehensive information about flags and optimization options that can be used with the compiler can be found in the manual pages, accessible with `man icc/ifort`. -->
 
 ## Building OpenMP and hybrid applications
 
