@@ -339,13 +339,13 @@ nav:
   # data/Allas/using_allas/directory_object_error.md is not linked in this structure
   - Sensitive data:
      - data/sensitive-data/vk-sds-landing.md
-     - Getting started: 
+     - Before starting: 
           - data/sensitive-data/vk-sds-overview.md
-          - Introduction: data/sensitive-data/vk-sds-terminology.md
           - Which service should I use?: data/sensitive-data/vk-sds-terminology.md
-          - Maximize your CSC project's resources: data/sensitive-data/vk-srd-a-billing.md
+          - What are Billing units and storage space ?: data/sensitive-data/vk-srd-a-billing.md
+          - What happens after the project expires ?: data/sensitive-data/vk-srd-a-billing.md
           - Terminology: data/sensitive-data/vk-sds-terminology.md
-     - Store and analyze sensitive research data: 
+     - Store and analyze: 
        - Creating a project: 
           - data/sensitive-data/vk-srd-a-creating.md
        - Store with SD Connect: 
@@ -373,13 +373,13 @@ nav:
           - Data export: data/sensitive-data/vk-srd-d-export.md
           - Troubleshooting: data/sensitive-data/vk-srd-d-trouble.md
        - Tutorials and quick quides: data/sensitive-data/vk-srd-tutorials.md
-     - Publish and reuse sensitive research data:
+     - Publish and reuse:
        - Federated EGA: data/sensitive-data/vk-srd-fega.md
        - Reuse with SD Apply: data/sensitive-data/vk-srd-apply.md
      - Secondary use of health and social data:
        - data/sensitive-data/sd-desktop-register-data-intro.md
-       - Accessing register data with a Findata permit: data/sensitive-data/mk-findata.md
-       - Accessing register data with a register permit: data/sensitive-data/mk-single-register.md
+       - Findata permit: data/sensitive-data/mk-findata.md
+       - Register permit: data/sensitive-data/mk-single-register.md
        - Analyse with SD Desktop for secondary use: data/sensitive-data/mk-desktop.md
        - Submitting secondary use data: data/sensitive-data/sd-desktop-register-controllers.md
 
