@@ -341,9 +341,9 @@ nav:
      - data/sensitive-data/vk-sds-landing.md
      - Before starting: 
           - data/sensitive-data/vk-sds-overview.md
-          - Which service should I use?: data/sensitive-data/vk-sds-terminology.md
-          - What are Billing units and storage space ?: data/sensitive-data/vk-srd-a-billing.md
-          - What happens after the project expires ?: data/sensitive-data/vk-srd-a-billing.md
+          - Choose services: data/sensitive-data/vk-sds-terminology.md
+          - Plan resources : data/sensitive-data/vk-srd-a-billing.md
+          - Manage project lifetime: data/sensitive-data/vk-srd-a-billing.md
           - Terminology: data/sensitive-data/vk-sds-terminology.md
      - Store and analyze: 
        - Creating a project: 
