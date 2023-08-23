@@ -161,4 +161,4 @@ Another option would be to use [Jupyter opened the SSH tunnelling way](rstudio-o
 - [Dask examples](https://examples.dask.org/)
 - [Full examples of Dask used in Puhti](https://github.com/csc-training/geocomputing/tree/master/python/puhti/05_parallel_dask)
 - [CECAM, High Throughput Computing with Dask course materials](https://www.cecam.org/workshop-details/1022)
-- [ENCCS Dask for scalable analytics lesson](https://enccs.github.io/HPDA-Python/dask/)
+- [ENCCS Dask for scalable analytics lesson](https://enccs.github.io/hpda-python/dask/)

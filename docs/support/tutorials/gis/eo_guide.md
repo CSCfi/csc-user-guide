@@ -82,7 +82,7 @@ When starting a task that requires EO data, there are multiple factors to consid
 |**Radar, SAR**|||||
 |**[ESA, Sentinel 1](https://sentinel.esa.int/web/sentinel/missions/sentinel-1)**|5|6|2014->|Yes|
 |[ESA, Radarsat](https://www.asc-csa.gc.ca/eng/satellites/radarsat/)|1-100|24|1995->|Yes|
-|[TanDEM-X](https://www.dlr.de/content/en/missions/tandem-x.html)/[TerraSAR-X](https://www.dlr.de/content/en/missions/terrasar-x.html)|0.25-40|-|2010->|No|
+|[TanDEM-X](https://www.dlr.de/en/research-and-transfer/projects-and-missions/tandem-x)/[TerraSAR-X](https://www.dlr.de/en/research-and-transfer/projects-and-missions/terrasar-x)|0.25-40|-|2010->|No|
 |[ICEYE](https://www.iceye.com/)|0.5-2.5|1|2018->|No|
 ||||||
 |**LiDAR**|Footprint size||||
@@ -102,11 +102,11 @@ Commercial datasets are usually available from data provider, while open dataset
 
 !!! default "STAC"
 
-    Many data providers provide a Spatio Temporal Asset Catalog (STAC) of their datasets. These catalogs help in finding available data based on time and location with the possibility for multiple additional filters, such as cloud cover and resolution. The [STAC Index](https://www.stacindex.org/) provides a nice overview of available catalogs from all over the world. The STAC Index page also includes many resources for learning and utilizing STAC. Check out also CSC's [examples for utilizing STAC from Python](https://github.com/csc-training/geocomputing/blob/master/python/STAC).
+    Many data providers provide a Spatio Temporal Asset Catalog (STAC) of their datasets. These catalogs help in finding available data based on time and location with the possibility for multiple additional filters, such as cloud cover and resolution. The [STAC Index](https://www.stacindex.org/) provides a nice overview of available catalogs from all over the world, including [Paituli STAC](https://stacindex.org/catalogs/paituli-stac-finland#/). The STAC Index page also includes many resources for learning and utilizing STAC. Check out also CSC's [examples for utilizing STAC from Python](https://github.com/csc-training/geocomputing/blob/master/python/STAC) and [examples for utilizing STAC from R](https://github.com/csc-training/geocomputing/tree/master/R/STAC).
 
 ### EO data at CSC
 
-Some Finnish EO datasets are available locally at CSC. A STAC catalog for all spatial data available at CSC is coming in 2023.
+Some Finnish EO datasets are available locally at CSC. A STAC catalog for all spatial data available at CSC is currently in progress. You can find more information about it and its current content from the [Paituli STAC page](https://paituli.csc.fi/stac.html).
 
 * **Sentinel and Landsat mosaics** of Finland in Puhti. Accessing data in Puhti requires CSC user account with a project where Puhti service is enabled. All Puhti users have **read** access to these datasets. You do not need to move the files: they can be used directly, unless you need to modify them, which requires you to make your own copy.
 * **Sentinel-2 L2A data** of Finland in Allas. These files are public, so anybody can download them, also from own computer or other services.

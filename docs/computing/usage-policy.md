@@ -57,9 +57,9 @@ GPUs against CPUs and select the one using less.
 
 For Puhti and Mahti, this means that a full node of CPU cores roughly equals
 one GPU. However, since Puhti and Mahti have more CPU capacity than GPU, you
-might get access to CPUs with less queuing. Note that [LUMI has a lot of GPU
-capacity](https://docs.lumi-supercomputer.eu/hardware/compute/lumig/) which is
-also "cheaper" as measured in BUs, and on LUMI it's better to use GPUs if
+might get access to CPUs with less queuing. Note that
+[LUMI has a lot of GPU capacity](https://docs.lumi-supercomputer.eu/hardware/lumig/)
+which is also "cheaper" as measured in BUs, and on LUMI it's better to use GPUs if
 possible for your research. In any case, always make sure you use resources
 efficiently.
 

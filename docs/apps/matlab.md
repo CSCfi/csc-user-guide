@@ -1,6 +1,8 @@
 ---
 tags:
   - Academic
+system:
+  - www-puhti
 ---
 
 # MATLAB
@@ -19,7 +21,8 @@ MATLAB is a high-level technical computing language and interactive environment 
 
 ## Available
 
-- Puhti: R2021b
+- Puhti interactive: R2021b
+- Puhti via MPS: R2021b, R2022b, R2023a
 
 ## License
 

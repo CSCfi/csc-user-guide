@@ -3,7 +3,7 @@ The Jupyter interactive app launches a Jupyter notebook that is accessible throu
 
 In the app form you can select Python environment, Jupyter notebook type, working directory and some more advanced settings.
 
-For more information about the Python environments in Puhti see the [documentation about Python](../../apps/python.md). Note that the modules listed there are not guaranteed to work in the web interface and the installation of Python packages in Jupyter in the web interface works differently.
+For more information about the Python environments on Puhti and Mahti, see the [documentation about Python](../../apps/python.md). Note that the modules listed there are not guaranteed to work in the web interface and the installation of Python packages in Jupyter in the web interface works differently.
 
 ### Currently supported Python environments
  - geoconda
@@ -14,8 +14,12 @@ For more information about the Python environments in Puhti see the [documentati
 ## Installing packages
 It is possible to install packages in the Jupyter notebook using `pip`.
 To install packages to your user packages directory use the following command in the notebook:  
-`!{sys.executable} -m pip install --user <package>`  
-Note that you should set the *User packages path* in the advanced settings if you use this option as the default is to install to your home directory, which is not recommended.
+```python
+import sys 
+!{sys.executable} -m pip install --user <package>
+```
+
+Note that when creating the Jupyter session you should set the *User packages path* in the advanced settings if you use this option as the default is to install to your home directory, which is not recommended.
 
 To install packages to a virtual environment you can use the command:  
 `!{sys.executable} -m pip install <package>`
@@ -42,8 +46,24 @@ Then enter the full path to the python interpreter of your Tykky installation. S
 
 ### Virtual environment
 
-You can create a virtual environment by enabling the virtual environment in the app form and providing a path under `/scratch` or `/projappl` to where you want to store the environment.  
-To launch a created virtual environment later you need to select the same Python module and virtual environment path as when creating the environment.
-The virtual environments are currently not completely isolated as they use packages from the loaded modules.
+You can create a virtual environment by enabling the virtual environment in the app form and providing desired path of your virtual environment to *advanced settings*. The path should be under either `/scratch` or `/projappl`. For example `/scratch/<project>/<username>/<venv>`. 
+
+You can also create the virtual environment with your terminal by navigating to either `/scratch` or `/projappl` folder and then creating the environment with a command:   
+`python -m venv --system-site-packages <venv>`      
+Make sure to load the module you are planning to use before creating the virtual environment.
+
+To launch a created virtual environment later you need to select the same Python module and provide the same virtual environment path as when creating the environment. In Jupyter you can check the virtual environment you are currently using by running a command `!echo $VIRTUAL_ENV` in your notebook.
 
 To install packages in your virtual environment you can run the command `!{sys.executable} -m pip install <package>` in your Jupyter notebook.
+The virtual environments are currently not completely isolated as they use packages from the loaded modules.
+
+
+
+### Useful Jupyter commands
+Remember to run `import sys` first.
+
+| Functionality    | Command |
+| -------- | ------- |
+| Install package to user directory  | `!{sys.executable} -m pip install --user <package>`    |
+| Install package to virtual environment | `!{sys.executable} -m pip install <package>`     |
+| Check current venv    | `!echo $VIRTUAL_ENV`    |

@@ -21,6 +21,7 @@ Current modules and versions supported on Puhti:
 
 | Module name (R version) | CRAN package dating | Bioconductor version | RStudio Server version | oneMKL version  | TensorFlow version | CmdStan version |
 | ----------------------- | ------------------- | -------------------- | ---------------------- | ----------------| ------------------ | --------------- |
+| r-env/430               | June 07 2023        | 3.17                 | 2023.06.0-421          | 2023.1.0        | 2.9.1              | 2.32.2          |
 | r-env/422               | March 06 2023       | 3.16                 | 2023.03.0-386          | 2023.1.0        | 2.9.1              | 2.32.1          |
 | r-env/421               | June 29 2022        | 3.15                 | 2022.02.3-492          | 2022.1.0        | 2.9.1              | 2.30.1          |
 
@@ -352,23 +353,21 @@ The `future` package provides an API for R jobs using futures (see the [future C
 
 For analyses requiring a single node, `plan(multisession)` and `plan(multicore)` are suitable. The former spawns multiple independent R processes and the latter forks an existing R process. Using `plan(cluster)` is suitable for work using multiple nodes.
 
-To submit a job involving multisession or multicore futures, one should specify a single node (`--nodes=1`) and the number of tasks (`--ntasks=x`; 40 is the maximum on a single node). For guidelines on designing batch job files, see other examples on this page.
+To submit a job involving multisession or multicore futures, one should specify a single node (`--nodes=1`), a single task (`--ntasks=1`), and the number of cores (`--cpus-per-task=x`; 40 is the maximum on a single node). By default, the number of workers is the number of cores given by `availableCores()`. For guidelines on designing batch job files, see other examples on this page.
 
-The R script below could be used to compare analysis times using sequential, multisession and multicore strategies. Note that we need to separately specify `options(future.availableCores.methods = "Slurm")` for worker allocation to proceed as expected.
+The R script below could be used to compare analysis times using sequential, multisession and multicore strategies. 
 
 ```r
 library(future)
 library(tictoc)
 library(furrr)
 
-options(future.availableCores.methods = "Slurm")
-
 # Different future plans (choose one) 
-# (Note: three workers used for parallel options)
+# (Note: three cores and thus three workers were used in this example)
 
 # plan(sequential)
-# plan(multisession, workers = 3)
-# plan(multicore, workers = 3)
+# plan(multisession)
+# plan(multicore)
 
 # Analysis timing
 
@@ -385,8 +384,6 @@ For multi-node analyses using `plan(cluster)`, the job can be submitted using th
 
 ```r
 library(future)
-
-options(future.availableCores.methods = "Slurm")
 
 cl <- getMPIcluster()
 plan(cluster, workers = cl)
@@ -453,7 +450,7 @@ By default, `r-env` is single-threaded. While users may set a desired number of 
 
 The module uses OpenMP threading technology and the number of threads can be controlled using the environment variable `OMP_NUM_THREADS`. In practice, the number of threads is set to match the number of cores used for the job. Because `r-env` is based on an Apptainer container, when specifying the number of OpenMP threads we need to use the environment variable `APPTAINERENV_OMP_NUM_THREADS`.
 
-An example batch job script can be found below. Here we submit a job using eight cores (and therefore eight threads) on a single node. Notice how we match the number of threads and cores using `APPTAINERENV_OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK`. By using `APPTAINERENV_OMP_PLACES=cores`, we bind each thread to a single core. We also use `APPTAINERENV_OMP_PROC_BIND=close` to ensure that threads are placed as closely as possible (to allow faster communication between threads). Note that [other options](https://pages.tacc.utexas.edu/~eijkhout/pcse/html/omp-affinity.html) for controlling thread affinity are also available, depending on your analysis.
+An example batch job script can be found below. Here we submit a job using eight cores (and therefore eight threads) on a single node. Notice how we match the number of threads and cores using `APPTAINERENV_OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK`. By using `APPTAINERENV_OMP_PLACES=cores`, we bind each thread to a single core. We also use `APPTAINERENV_OMP_PROC_BIND=close` to ensure that threads are placed as closely as possible (to allow faster communication between threads). Note that [other options](https://theartofhpc.com/pcse/omp-affinity.html) for controlling thread affinity are also available, depending on your analysis.
 
 ```bash
 #!/bin/bash -l
@@ -665,17 +662,17 @@ The `r-env` module includes several packages that make use of [Stan](https://mc-
 *Using R with the CmdStan backend* 
 
 The `r-env` module comes with a separate [CmdStan](https://github.com/stan-dev/cmdstan) installation that is specific to each module version.
-To use it, one must set the correct path to CmdStan using `cmdstanr`. For example, for `r-env/422` this would be done as follows:
+To use it, one must set the correct path to CmdStan using `cmdstanr`. For example, for `r-env/430` this would be done as follows:
 
 ```r
-cmdstanr::set_cmdstan_path("/appl/soft/math/r-env/422-stan/cmdstan-2.32.1")
+cmdstanr::set_cmdstan_path("/appl/soft/math/r-env/430-stan/cmdstan-2.32.2")
 ```
 
 If you are using CmdStan in an interactive session, the above command will work directly. For non-interactive batch jobs, the path to CmdStan needs to be separately set in the batch job file. This is done by including the following commands further to your other batch job file contents: 
 
 ```r
 # Set R version
-export RVER=422
+export RVER=430
 
 # Launch R after binding CmdStan
 SING_FLAGS="$SING_FLAGS -B /appl/soft/math/r-env/${RVER}-stan:/appl/soft/math/r-env/${RVER}-stan"

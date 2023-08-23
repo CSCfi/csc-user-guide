@@ -1,5 +1,26 @@
 # Computing environment
 
+## Puhti web interface updated to release 16, 4.7.2023
+
+* RStudio now has r-env 4.3.0 available.
+* Blender updated to 3.6.0 with added support for add-on installation.
+* Web interface session lifetime has been increased to 12h from the previous 8h.
+
+## Mahti web interface available, 13.6.2023
+
+The [web interface](../../../computing/webinterface/), previously available for
+Puhti only, is now available also for Mahti at [www.mahti.csc.fi](https://www.mahti.csc.fi).
+Apps available in the [Mahti web interface](https://www.mahti.csc.fi):
+
+* Active Jobs
+* Compute and Login node shell
+* Desktop with Maestro and VMD
+* Disk quotas and Project view
+* File browser with [support for Allas](../../../computing/webinterface/#using-allas)
+* Jupyter, Julia-Jupyter and Jupyter for courses
+* TensorBoard
+* Visual Studio Code
+
 ## New policy on Puhti and Mahti for projects that have run out of billing units, 22.5.2023
 
 In addition to limiting access to compute resources upon running out of billing
