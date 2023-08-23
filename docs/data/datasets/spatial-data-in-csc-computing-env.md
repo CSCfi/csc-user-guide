@@ -3,7 +3,7 @@
 
 Puhti has following datasets:
 
-*   **Paituli data**. Paituli includes datasets from Finnish Digital and Population Data Services Agency, Finnish Food Agency, Finnish Meteorological Institute, Finnish Transport Infrastructure Agency, Institute for the languages of Finland, Karelia UAS, National Land Survey of Finland, Natural resource institute Finland, Statistics Finland and University of Helsinki..
+*   **Paituli data**. Paituli includes datasets from Finnish Digital and Population Data Services Agency, Finnish Food Agency, Finnish Meteorological Institute, Finnish Transport Infrastructure Agency, Institute for the languages of Finland, Karelia UAS, National Land Survey of Finland, Natural resource institute Finland, Statistics Finland and University of Helsinki.. Weekly updates. 
     -   [Full list of Paituli datasets](https://paituli.csc.fi/metadata.html)
     -   All Paituli datasets have a readme-file with a link to Etsin dataset descriptions and terms of use.
     -   If in trouble finding some file, you can also use Paituli download page as help. You can see the dataset path under links (crop the beginning) or you can download the file list with "Download list of files" if the dataset has a lot of mapsheets.
@@ -13,9 +13,13 @@ Puhti has following datasets:
         +   Stereoclassified lidar data has been slightly modified. The original NLS data had mistakes in headers, these have been fixed. Additionally lax-index files have been added.
         + Automatically classified lidar data, only data of year 2019
 *   **LUKE, multi-source national forest inventory**, 2013, 2015, 2017, 2019 and 2021. LUKE license changed in Aug 2019 to CC BY 4.0.
-*   **SYKE, All open spatial datasets** available from [SYKE open data service](https://www.syke.fi/fi-FI/Avoin_tieto/Paikkatietoaineistot/Ladattavat_paikkatietoaineistot).
-*   **Finnish Forest Centre, [Canopy height model, 2021](https://www.paikkatietohakemisto.fi/geonetwork/srv/fin/catalog.search#/metadata/0e7ad446-2999-4c94-ad0d-095991d8f80a)**, CC BY 4.0 license, **added in 2022**   
-*   **Satellite mosaics produced by SYKE and FMI** in Paikkatietoalusta project,
+*   **SYKE, All open spatial datasets** available from [SYKE open data service](https://www.syke.fi/fi-FI/Avoin_tieto/Paikkatietoaineistot/Ladattavat_paikkatietoaineistot).  Weekly updates. 
+*   **Finnish Forest Centre**, CC BY 4.0 license, **updated in 8/2023**
+    * [Canopy height model](https://www.paikkatietohakemisto.fi/geonetwork/srv/fin/catalog.search#/metadata/0e7ad446-2999-4c94-ad0d-095991d8f80a)
+    * [Gridcells](http://www.paikkatietohakemisto.fi/geonetwork/srv/fin/catalog.search#/metadata/3fa1beeb-ea6b-42b1-8e76-eb2bc8ac6d24)
+    * [Forest mask](https://www.paikkatietohakemisto.fi/geonetwork/srv/fin/catalog.search#/metadata/df99fbd3-44b3-4ffc-b84a-9459f318d545)
+    * [Forest resource plots](http://www.paikkatietohakemisto.fi/geonetwork/srv/fin/catalog.search#/metadata/332e5abf-63c2-4723-9c2d-4a926bbe587a)
+*   **Satellite mosaics produced by SYKE and FMI** in Paikkatietoalusta project, weekly updates. 
     -   [Sentinel1 SAR mosaics](https://ckan.ymparisto.fi/dataset/sentinel-1-sar-image-mosaic-s1sar-sentinel-1-sar-kuvamosaiikki-s1sar): 10/2019 ->, 3 mosaics per month
     -   [Sentinel2 index mosaics](https://ckan.ymparisto.fi/dataset/sentinel-2-image-index-mosaics-s2ind-sentinel-2-kuvamosaiikit-s2ind): 2018 ->, 2 mosaics per month, only during vegetation period, NDVI, NDBI, NDMI, NDTI, META.
     -   [Historical Landsat satellite image mosaics](https://ckan.ymparisto.fi/dataset/historical-landsat-satellite-image-mosaics-href-historialliset-landsat-kuvamosaiikit-href): 1985, 1990, 1995
