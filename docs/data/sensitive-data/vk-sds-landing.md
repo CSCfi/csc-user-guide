@@ -8,9 +8,9 @@ This manual introduces CSC's Sensitive Data (SD) services. To navigate the user 
 <div class="quick-links-container">
 
   <div class="quick-links-topic">
-    <span class="quick-links-title"><h2>Introduction</h2></span>
-    <div class="quick-links-item">
-      <a class="quick-link" target="_self" href="data/sensitive-data/vk-sds-overview/">Overview</a>
+    <span class="quick-links-title"><h2>Before starting</h2></span>
+     <div class="quick-links-item">
+      <a class="quick-link" target="_self" href="data/sensitive-data/vk-sds-terminology/">Choose services</a>
     </div>
     <div class="quick-links-item">
       <a class="quick-link" target="_self" href="data/sensitive-data/vk-sds-terminology/">Terminology</a>
@@ -19,24 +19,28 @@ This manual introduces CSC's Sensitive Data (SD) services. To navigate the user 
   
  
   <div class="quick-links-topic">
-    <span class="quick-links-title"><h2>Sensitive research data</h2></span>
+    <span class="quick-links-title"><h2>Store and analyse</h2></span>
     <div class="quick-links-item">
-      <a class="quick-link" target="_self" href="data/sensitive-data/vk-srd-a-creating.md">Creating an SD project</a>
+      <a class="quick-link" target="_self" href="data/sensitive-data/vk-srd-a-creating.md">Creating a project</a>
     </div>
     <div class="quick-links-item">
-      <a class="quick-link" target="_self" href="data/sensitive-data/vk-srd-sd-connect/">SD Connect</a>
+      <a class="quick-link" target="_self" href="data/sensitive-data/vk-srd-sd-connect/">Store with SD Connect</a>
     </div>
     <div class="quick-links-item">
-      <a class="quick-link" target="_self" href="data/sensitive-data/v-srd-sd-desktop/">SD Desktop</a>
-    </div>
-    <div class="quick-links-item">
-      <a class="quick-link" target="_self" href="data/sensitive-data/vk-srd-fega/">FEGA</a>
-    </div>
-    <div class="quick-links-item">
-      <a class="quick-link" target="_self" href="data/sensitive-data/vk-srd-apply/">SD Apply</a>
+      <a class="quick-link" target="_self" href="data/sensitive-data/vk-srd-sd-desktop/">Analyse with SD Desktop</a>
     </div>
     <div class="quick-links-item">
       <a class="quick-link" target="_self" href="data/sensitive-data/vk-srd-tutorials/">Tutorials and quick quides</a>
+    </div>
+  </div>
+
+  <div class="quick-links-topic">
+    <span class="quick-links-title"><h2>Publish and reuse</h2></span>
+    <div class="quick-links-item">
+      <a class="quick-link" target="_self" href="data/sensitive-data/vk-srd-fega/">Federated EGA</a>
+    </div>
+    <div class="quick-links-item">
+      <a class="quick-link" target="_self" href="data/sensitive-data/vk-srd-apply/">Reuse with SD Apply</a>
     </div>
   </div>
 
@@ -46,19 +50,13 @@ This manual introduces CSC's Sensitive Data (SD) services. To navigate the user 
       <a class="quick-link" target="_self" href="data/sensitive-data/mk-findata/">Findata permit</a>
     </div>
     <div class="quick-links-item">
-      <a class="quick-link" target="_self" href="data/sensitive-data/mk-single-register/">Single register data</a>
+      <a class="quick-link" target="_self" href="data/sensitive-data/mk-single-register/">Register permit</a>
     </div>
     <div class="quick-links-item">
-      <a class="quick-link" target="_self" href="data/sensitive-data/mk-desktop/">SD Desktop</a>
+      <a class="quick-link" target="_self" href="data/sensitive-data/mk-desktop/">Analyse with SD Desktop for secondary use</a>
     </div>
     <div class="quick-links-item">
-      <a class="quick-link" target="_self" href="data/sensitive-data/mk-data-controllers/">Instructions for data controllers</a>
-    </div>
-    <div class="quick-links-item">
-      <a class="quick-link" target="_self" href="data/sensitive-data/vk-srd-apply/">SD Apply</a>
-    </div>
-    <div class="quick-links-item">
-      <a class="quick-link" target="_self" href="data/sensitive-data/vk-srd-tutorials/">Tutorials and quick quides</a>
+      <a class="quick-link" target="_self" href="data/sensitive-data/mk-data-controllers/">Submitting secondary use data</a>
     </div>
   </div>
 </div>

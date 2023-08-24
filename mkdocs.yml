@@ -342,12 +342,11 @@ nav:
      - Before starting: 
           - data/sensitive-data/vk-sds-overview.md
           - Choose services: data/sensitive-data/vk-sds-terminology.md
-          - Plan resources : data/sensitive-data/vk-srd-a-billing.md
-          - Manage project lifetime: data/sensitive-data/vk-srd-a-billing.md
           - Terminology: data/sensitive-data/vk-sds-terminology.md
-     - Store and analyze: 
+     - Store and analyse: 
        - Creating a project: 
           - data/sensitive-data/vk-srd-a-creating.md
+          - Resources and billing units: data/sensitive-data/vk-srd-a-billing.md
        - Store with SD Connect: 
           - data/sensitive-data/vk-srd-sd-connect.md
           ## + key features + authentication
