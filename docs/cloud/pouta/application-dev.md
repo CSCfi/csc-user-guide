@@ -17,7 +17,7 @@ offer _Object storage_ ([Allas]) and _Volume storage_ ([Cinder]).
 
 The application will be more **resilient**. Running stateless VMs where the data is stored in redundant services like [Cinder] or [Allas] (managed by a dedicated teams of professionals), minimizes the impact of failures. If the hardware that runs the VM suddenly fails, data will not be lost. This removes single points of failure (SPoF).
 
-<center>![Stateless VM](../../../img/stateless_VM.drawio.png)
+<center>![Stateless VM](../../img/stateless_VM.drawio.png)
 
 *Stateless VMs*</center>
 
@@ -29,7 +29,7 @@ After that hurdle is passed, it will be then less complex to horizontally **scal
 
 For applications that do not allow the _microservice_ approach, Pouta allows easy **vertical** scaling, i.e. *VM resize* to change the VM [flavor] and add or remove compute resources (CPUs, RAM, disk etc.). It is very fast as it requires only a short reboot. The software running in the VM will transparently see more resources after the reboot. It is not necessary to reinstall the software. This is a complement (or alternative) to horizontal scaling (replication).
 
-<center>![scale](../../../img/scale.drawio.png)
+<center>![scale](../../img/scale.drawio.png)
 
 *Horizontal vs Vertical scaling*</center>
 
@@ -55,7 +55,7 @@ Backups are critical to any application. They protect data against _accidental d
 
 One common backup strategy is the 3-2-1 rule. 3 copies of the data (including the original production one), 2 different media of storage and 1 offsite backup. Other basic backup principle is that copies cannot be deleted or corrupted from the original source (this is to prevent accidents and ransomware). Using a dedicated backup tool is recommended, these tools allow to easily create immutable copies that are properly dated and scheduled. They also facilitate other secondary aspects like encryption and older backups deletion. It is also very important to validate that the backups are indeed valid and that it is possible to recover the data as intended.
 
-<center>![3-2-1](../../../img/3-2-1.drawio.png)
+<center>![3-2-1](../../img/3-2-1.drawio.png)
 
 *3-2-1 strategy*</center>
 
@@ -63,7 +63,7 @@ One common backup strategy is the 3-2-1 rule. 3 copies of the data (including th
 
 The application you develop, the IaC code that deploys its infrastructure, and the configuration management code that configures it, should be tracked by a version control system of your choice, the most popular and de facto standard is [GIT]. Once the code of the application is in Version control, the next step is to use Continuous Integration (CI) and Continuous Delivery (CD).
 
-<center>![Git](../../../img/git.drawio.png)
+<center>![Git](../../img/git.drawio.png)
 
 *Git development and collaboration*</center>
 
@@ -73,7 +73,7 @@ CI is when each change committed to your **codebase** is automatically **built**
 
 CD is when the **release** of specific versions of the software is done automatically. And more importantly, the **deployment** of those validated versions is also automatic. So if a change passes both all the automatic tests and the review of other members of the coding team, the change is deployed automatically. This degree of automation also requires a solid deployment process that does not require downtime and confident in the whole process. New deployed versions will be **monitored**, this information will probably lead to **planning** of new versions. 
 
-<center>![CI CD](../../../img/ci-cd.drawio.png)</center>
+<center>![CI CD](../../img/ci-cd.drawio.png)</center>
 
 ## Use Devops tools
 
@@ -87,7 +87,7 @@ Infrastructure as Code (IaC) tools are very useful, as they allow to specify com
 
 You can see above three examples, one for for each tool. All of them aim to get the same result: One or more VMs with nginx installed and few local files deployed. In order to choose which one to use, you will need to consider the up and downs of the tools and use the one that fits more your use case. For example, if you think about support. Both Heat and Ansible are developed by the OpenStack team and the Terraform provider is a community written software. In addition, Heat is provided together with OpenStack and can  be used via command line or the web interface. Finally Heat is the only one that the Pouta team fully supports. On the other hand, Terraform is more widely used and will be easier to find examples and help than the other two tools.
 
-<center>![Heat webUI](../../../img/heat-web-ui.png)
+<center>![Heat webUI](../../img/heat-web-ui.png)
 *Heat web UI*
 </center>
 
@@ -124,15 +124,15 @@ Before you start to develop and deploy a new service, it is advisable to explore
 
 ### CSC Notebooks
 
-If you need Jupyter or RStudio notebook, CSC provides a [notebook service](../csc_notebooks/). It is a mature service provided by a dedicated team of professionals.
+If you need Jupyter or RStudio notebook, CSC provides a [notebook service](../csc_notebooks/index.md). It is a mature service provided by a dedicated team of professionals.
 
 ### Rahti
 
-If you need to deploy Docker containers on a cluster like Kubernetes, CSS provides [Rahti](../rahti/). Rahti is a OpenShift okd developed by RedHat.
+If you need to deploy Docker containers on a cluster like Kubernetes, CSS provides [Rahti](../rahti/index.md). Rahti is a OpenShift okd developed by RedHat.
 
 ### Pukki
 
-If you need a database, you should take a look to [Pukki](../dbaas/what-is-dbaas/), CSC's Database as a Service offering (**currently in a closed beta**).
+If you need a database, you should take a look to [Pukki](../dbaas/what-is-dbaas.md), CSC's Database as a Service offering (**currently in a closed beta**).
 
 
 !!! info "contact us"
