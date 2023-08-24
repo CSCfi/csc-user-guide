@@ -21,7 +21,7 @@ This manual introduces CSC's Sensitive Data (SD) services. To navigate the user 
   <div class="quick-links-topic">
     <span class="quick-links-title"><h2>Store and analyse</h2></span>
     <div class="quick-links-item">
-      <a class="quick-link" target="_self" href="data/sensitive-data/vk-srd-a-creating.md">Creating a project</a>
+      <a class="quick-link" target="_self" href="data/sensitive-data/vk-srd-a-creating/">Creating a project</a>
     </div>
     <div class="quick-links-item">
       <a class="quick-link" target="_self" href="data/sensitive-data/vk-srd-sd-connect/">Store with SD Connect</a>
