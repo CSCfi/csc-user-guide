@@ -502,8 +502,8 @@ run them (`$SLURM_NPROCS`). Instead of the small partition you can
 also use the `test` partition. If you ask for more than 40 cores (in Puhti), you
 need to switch to `large` partition. In multinode jobs, always 
 limit the number of *Nodes*, so that the job is not spread onto
-more nodes than necessary as it [creates unwanted communication overhead and
-fragments the allocations on the system](../../computing/running/performance-checklist-md)).
+more nodes than necessary as it
+[creates unwanted communication overhead and fragments the allocations on the system](../../computing/running/performance-checklist.md).
 
 With the following command you can sum the time spent at different steps
 for each job.

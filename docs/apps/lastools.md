@@ -5,7 +5,7 @@ tags:
 
 # LAStools
 
-[LAStools](https://rapidlasso.com/lastools) is a collection of tools for LiDAR data processing. 
+[LAStools](https://lastools.github.io/) is a collection of tools for LiDAR data processing.
 
 ## Usage
 
@@ -132,6 +132,6 @@ LAStools was installed to Puhti with [Tykky's wrap-container functionality](../c
 
 ## References
 
-* [LAStools homepage](https://rapidlasso.com/lastools/)
+* [LAStools homepage](https://lastools.github.io/)
 * [LAStools Github](https://github.com/LAStools/LAStools)
-* [LAStools examples and tutorials](https://rapidlasso.com/category/tutorials/)
+* [LAStools examples and tutorials](https://rapidlasso.de/knowledge/)

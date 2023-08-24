@@ -1,6 +1,6 @@
 # How does LUMI-C differ from Mahti?
 
-[LUMI-C](https://docs.lumi-supercomputer.eu/hardware/compute/lumic/) consists of 1536 AMD CPU nodes (2x64 cores each) with a theoretical performance of 7.7 petaflops. The node count of [Mahti](systems-mahti.md) is similar, 1404 AMD CPU nodes (2x64 cores each) corresponding to a theoretical performance of 7.5 Petaflops. Although the systems are very alike based on CPU-hardware, core count and performance, there are important differences which are highlighted on this page.
+[LUMI-C](https://docs.lumi-supercomputer.eu/hardware/lumic/) consists of 1536 AMD CPU nodes (2x64 cores each) with a theoretical performance of 7.7 petaflops. The node count of [Mahti](systems-mahti.md) is similar, 1404 AMD CPU nodes (2x64 cores each) corresponding to a theoretical performance of 7.5 Petaflops. Although the systems are very alike based on CPU-hardware, core count and performance, there are important differences which are highlighted on this page.
 
 ## GPUs and memory
 
