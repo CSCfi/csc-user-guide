@@ -56,13 +56,16 @@ correct and the program's performance has improved.
 | **Intermediate**   | -O2 -xHost                   | -O3 -march=native |
 | **Aggressive**     | -O3 -xHost -fp-model fast=2 -no-prec-div -fimf-use-svml=true -qopt-zmm-usage=high| -O3 -march=native -ffast-math -funroll-loops -mprefer-vector-width=512|
 
-Please note that not all applications benefit from the AVX-512 vector set
-(`-xHost` or `-march=native`). It may be a good idea to also test AVX2
-(`-xCORE-AVX2` or `-mavx2`) and compare the performance.
-
 A detailed list of options for the Intel and GNU compilers can be found on the _man_
 pages (`man icc/ifort`, `man gcc/gfortran` when the corresponding programming
 environment is loaded, or in the compiler manuals (see the links above).
+
+Please note that some flags, for example `-no-prec-div` and `-qopt-zmm-usage`, are currently supported only by the intel classic compilers (`icc`/`icpx`/`ifort`). More information about the current and planned flags support for the intel compilers can be checked with `icx -qnextgen-diag` or in the manuals.
+
+Also, not all applications benefit from the AVX-512 vector set
+(`-xHost` or `-march=native`). It may be a good idea to also test AVX2
+(`-xCORE-AVX2` or `-mavx2`) and compare the performance.
+
 
 List all available versions of the compiler suites:
 
@@ -71,35 +74,28 @@ module spider intel-oneapi-compilers
 module spider gcc
 ```
 
-## Building GPU applications
+## Building GPU Applications
 
-!!! warning
-    Notes concerning OpenACC in this section are outdated as OpenACC does not currently
-    work on Puhti RHEL8. We're working on a fix and will update this section once we
-    have found a solution.
+GPU support in Puhti is provided through NVIDIA compilers:
 
-Both the CUDA and OpenACC programming models are supported on Puhti.
-Specific modules have to be loaded in order to use them.
+- The `nvc` compiler is a C11 compiler that supports OpenACC for NVIDIA GPUs, and OpenACC and OpenMP for multicore CPUs.
 
-For example, to load the CUDA 11.7 environment:
+- The `nvc++` compiler is a C++17 compiler that supports GPU programming with C++17 parallel algorithms, OpenACC, and OpenMP offloading on NVIDIA GPUs. However, it does not currently support C++ CUDA codes.
 
-```bash
-module load gcc/11.3.0 cuda/11.7.0
-```
+- The `nvcc` compiler is the CUDA C and CUDA C++ compiler driver for NVIDIA GPUs.
 
-Or to load the PGI compiler for OpenACC:
+- The `nvfortran` compiler is the CUDA Fortran compiler driver for NVIDIA GPUs, supporting both OpenACC and multicore processing for OpenACC and OpenMP.
 
-```bash
-module load pgi
-```
-
-For more detailed information about the available modules, please see `module
-spider cuda` or `module spider pgi`.
+Specific instructions on how to load and use these compilers are provided in the following sections.
 
 ### CUDA
 
 The CUDA compiler (`nvcc`) takes care of compiling the CUDA code for the target
-GPU device and passing on the rest to a non-CUDA compiler (`gcc`).
+GPU device and passing on the rest to a non-CUDA compiler (i.e. `gcc`). For example, to load the CUDA 11.7 environment together with the GNU compiler:
+
+```bash
+module load gcc/11.3.0 cuda/11.7.0
+```
 
 To generate code for a given target device, tell the CUDA
 compiler what compute capability the target device supports. On Puhti, the
@@ -118,21 +114,27 @@ not necessary on Puhti, since there is only one type of GPU.
 
 ### OpenACC
 
-OpenACC is supported with the PGI compilers (`pgcc`, `pgfortran`).
-To enable OpenACC support, one needs to give `-acc` flag to the compiler.
+!!! warning
+    OpenACC support is provided through the NVIDIA `nvc` and `nvc++` compilers.
+    However, it is important to note that the support can be somewhat 
+    limited and may lack certain functionalities, such as MPI 
+    parallelization. For additional information about OpenACC support, 
+    the CSC service desk should be contacted.
+    
+The compilers can be accessed through the NVIDIA HPC SDK module:
 
-To generate code for a given target device, tell the compiler
-what compute capability the target device supports. On Puhti, the GPUs (Volta
-V100) support compute capability 7.0. Specify it with `-ta=tesla:cc70`.
-
-For example, to compiling C code that uses OpenACC directives (`example.c`):
-
-```bash
-pgcc -acc -ta=tesla:cc70 example.c
+```
+module load .unsupported
+module load nvhpc/22.7
 ```
 
-For information about what the compiler actually does with the OpenACC
-directives, use `-Minfo=all`.
+Enabling OpenACC support requires providing the `-acc` flag to the compiler. For Fortran codes, this can be achieved as follows:
+
+```
+nvfortran -acc example.F90 -gpu=cc70
+```
+
+For information about what the compiler actually does with the OpenACC directives, use `-Minfo=all`.
 
 ## Building MPI applications
 
@@ -140,8 +142,7 @@ There are currently two MPI environments available: `openmpi` and `intel-oneapi-
 also recommended to begin with.
 
 If `openmpi` is incompatible with your application or delivers insufficient performance,
-please try another environment. The PGI
-compiler cannot presently be used with MPI. The MPI environments can be used
+please try another environment. The MPI environments can be used
 via `module load`, i.e.
 
 ```bash
