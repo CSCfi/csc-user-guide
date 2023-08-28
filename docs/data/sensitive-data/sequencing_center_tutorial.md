@@ -176,6 +176,7 @@ Now the bucket _animine_keys_ contain objects:
    * data/animine_key_instructions.txt.c4gh
 
 And bucket _animine_pub_ contains object:
+
    * data/animine_crypt4gh.pub
 
 
