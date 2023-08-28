@@ -189,7 +189,7 @@ resources:
     properties:
       count: { get_param: count }
       resource_def:
-        type: heat_stack_vm.yaml # We define our previous template for the type.
+        type: heat_stack_vm.yaml # We defined our previous template.
         properties:
           vm_name: test-stack-%index% # Value %index% will be increased if more than one vm is created.
 
