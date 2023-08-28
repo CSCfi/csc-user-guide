@@ -108,10 +108,10 @@ Here is a detail of each sections:
 
 
 ### Advanced example: create a template to build one or more instances
-The plan here is:
-- Create a parameter file for Openstack Heat.
-- Create two Openstack Heat templates: one for the number of instance(s) (OS::Heat::ResourceGroup) and the other for the specification of the deployment.
-- Create an ansible script to automate the deployment.
+The plan here is:  
+- Create a parameter file for Openstack Heat.  
+- Create two Openstack Heat templates: one for the number of instance(s) (OS::Heat::ResourceGroup) and the other for the specification of the deployment.  
+- Create an ansible script to automate the deployment.  
 
 !!! note
     The following tools must be installed:  
@@ -158,7 +158,7 @@ resources:
   instance:
     type: OS::Nova::Server
     properties:
-      name: { get_param: vm_name } # This is value will be retrieved from servers_group.yaml file. See after.
+      name: { get_param: vm_name } # This value will be retrieved from servers_group.yaml file. See after.
       image: { get_param: vm_image }
       flavor: { get_param: vm_flavor }
       key_name: { get_param: ssh_key_name }
@@ -189,7 +189,7 @@ resources:
     properties:
       count: { get_param: count }
       resource_def:
-        type: heat_stack_vm.yaml # We define our previous template for the type.
+        type: heat_stack_vm.yaml # We defined our previous template.
         properties:
           vm_name: test-stack-%index% # Value %index% will be increased if more than one vm is created.
 
