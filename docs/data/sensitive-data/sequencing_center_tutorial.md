@@ -170,6 +170,7 @@ She uploads this text file to the _animine_keys_ bucket with
 the default encryption option on and then deletes the file from her local computer.
 
 Now the bucket _animine_keys_ contain objects:
+
    * data/animine_crypt4gh.pub.c4gh
    * data/animine_crypt4gh.key.c4gh
    * data/animine_key_instructions.txt.c4gh
