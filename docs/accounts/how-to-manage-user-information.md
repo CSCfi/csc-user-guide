@@ -25,7 +25,7 @@ In our example we will link CSC user account to MyAccessID but this method is si
 
 ### You already have a MyAccessID available
 
-1. Login to [MyCSC](http://my.csc.fi).
+1. Login to [MyCSC](http://my.csc.fi) with your CSC user account.
 1. Choose _Profile_ in the navigation menu on the left.
 1. Select 'MyAccessID' on the 'Login Methods' panel
 1. When asked for confirmation to do the linking, click 'Confirm'
@@ -35,7 +35,7 @@ In our example we will link CSC user account to MyAccessID but this method is si
 
 ### You do not have a MyAccessID available
 
-1. Login to [MyCSC](http://my.csc.fi).
+1. Login to [MyCSC](http://my.csc.fi) with your CSC user account.
 1. Choose _Profile_ in the navigation menu on the left.
 1. Select 'MyAccessID' on the 'Login Methods' panel
 1. When asked for confirmation to do the linking, click 'Confirm'
