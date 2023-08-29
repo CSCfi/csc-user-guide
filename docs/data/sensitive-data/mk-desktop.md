@@ -1,6 +1,6 @@
 # Sensitive Data (SD) Desktop
 
-Once you have access to the service, you can launch your virtual computer, choosing between **four pre-built options** (Light, Small, Medium or Heavy computing). This operation can be carried out with a few simple steps and does not require any technical expertise. 
+Once you have access to the service, you can launch your virtual computer, choosing between **three pre-built options** (Small, Medium or Heavy computing). This operation can be carried out with a few simple steps and does not require any technical expertise. 
 
 Next, the services will start your virtual Desktop (or, in technical terms: launch a virtual machine) and create a secure connection between CSC and your browser. After launch, your virtual Desktop will be directly available for use every time you log in to the service. Moreover, the running Desktop will consume *billing units* (or resources) from your CSC project until it is deleted.
 
@@ -15,7 +15,7 @@ Here you can specify several parameters:
  * **Select your CSC project.**
  * **Choose the operating system.** Currently the only possible operating system is Linux CentOS 7 but in the future, there will be other options too.
  * **Assign a name for your virtual Desktop.** It is good practice to assign a descriptive name for a Desktop so that all project members can easily identify it later on.
- * Choose one of the **virtual Desktop pre-built options** (Light, Small, Medium or Heavy computing), based on your computing and memory needs. The default disk (or storage) space for all Desktops is 80 GB. You can extend your Desktop disk space by selecting option: *add an external disk*. You can add up to 200 GB.
+ * Choose one of the **virtual Desktop pre-built options** (Small, Medium or Heavy computing), based on your computing and memory needs. The default disk (or storage) space for all Desktops is 80 GB. You can extend your Desktop disk space by selecting option: *add an external disk*. You can add up to 200 GB.
 
 !!! Note 
     You can't extend the disk space after you have launched the virtual Desktop. Additional disk space later on can be requested writing at servicedesk@csc.fi (subject: Sensitive data);
@@ -25,10 +25,6 @@ When all the settings are done, press the **Launch Desktop** button. The launch 
 
 ## Pre-built Virtual Desktop Options
 
-#### Light Computation
- * Technical specifications: **Core: 3; memory 4 GB; Root disk: 80 GB; Correspondent Pouta Flavour: standard.medium; Billing Units: 1.3 units/h.**
- * This option is ideal for testing the services (for example, test how to start a Desktop, check out how it looks and which applications are available).
- * You can compare this Desktop to a laptop with limited capacities, which probably freezes when you open too much software or more than three colleagues connect to it simultaneously. For this reason, we advise you to start this type of Desktop only for testing purposes and delete it when the testing is completed.
 #### Small Computation
  * Technical specifications: **Core: 6; memory 15 GB; Root disk: 80 GB; Correspondent Pouta Flavour: standar.xlarge; Billing Units: 5.2 units/h.**
  * This option is ideal for analysing sensitive data using office software (for example: similar to simple statistical analysis, watching videos, listening to audio files, working on text files).
@@ -42,7 +38,8 @@ When all the settings are done, press the **Launch Desktop** button. The launch 
  * This option is ideal for running non-interactive programmatic analysis (for example, machine learning) that require heavy computation.
  * Please do not choose this option for simple analysis, as it consumes much resources.
 
-[![Launch](images/desktop/desktop_creation.png)](images/desktop/desktop_creation.png)
+[![Launch](images/desktop/desktop_launch.png)](images/desktop/desktop_launch.png)
+
 
 !!! Note
     If you don't know the best Desktop option for your needs, please contact us at servicedesk@csc.fi (email subject: Sensitive Data).
