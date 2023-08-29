@@ -43,7 +43,7 @@ any memory) can be done on the login node as well. Heavier analyses can be run
     [Conda](https://anaconda.org/conda-forge/ambertools), you can easily create a
     containerized environment containing these scripts yourself using
     [Tykky](../computing/containers/tykky.md) or the
-    [LUMI container wrapper](https://docs.lumi-supercomputer.eu/software/installing/container-wrapper/). 
+    [LUMI container wrapper](https://docs.lumi-supercomputer.eu/software/installing/container-wrapper/).
 
 Molecular dynamics jobs are best run with `pmemd.cuda` as they are much faster
 on GPUs than on CPUs. Please note that using `pmemd.cuda` requires a module
