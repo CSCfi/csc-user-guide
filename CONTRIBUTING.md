@@ -15,6 +15,7 @@
   - [Previewing the website using MkDocs](#previewing-the-website-using-mkdocs)
   - [Building the website using the included Dockerfile](#building-the-website-using-the-included-dockerfile)
   - [Hosting the website on OpenShift](#hosting-the-website-on-openshift)
+  - [Finding pages that might be outdated](#finding-pages-that-might-be-outdated)
 
 ## Starting as a writer
 
@@ -255,4 +256,19 @@ delete your project or clean it with `oc delete`:
 
 ```bash
 oc delete all -l app=csc-user-guide-feature-a
+```
+
+## Finding pages that might be outdated
+
+Each page in Docs CSC shows a "Last update" timestamp. To ensure that content stays
+up to date and valid, it is good practice to search for and check files that have
+not been updated in a long time. A script for this purpose `scripts/last_update.sh`
+is provided that goes through the git log and prints a sorted list of files/pages
+that have been last edited by you. Especially if you're a regular contributor,
+consider running the script from time to time and check files that have been
+touched in, say, 1-2 years since your last edit. Run the script in the root of
+the repository as
+
+```bash
+bash scripts/last_update.sh
 ```
