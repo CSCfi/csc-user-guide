@@ -179,7 +179,7 @@ proportion of the available CPU cores in a single node:
     #SBATCH --ntasks=1
     #SBATCH --cpus-per-task=7
     #SBATCH --gpus-per-node=1
-    #SBATCH --mem=64G
+    #SBATCH --mem=60G
     #SBATCH --time=1:00:00
     
     module use /appl/local/csc/modulefiles/
