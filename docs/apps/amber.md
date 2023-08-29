@@ -32,19 +32,20 @@ module spider amber
 ```
 
 The `module load` command will set `$AMBERHOME` and put the AmberTools binaries
-in the path. Run Amber production jobs in the batch queues, see below. Lightweight
-system preparation can be done on the login node as well (short serial AmberTools
-jobs).
+in the path. Run Amber production jobs in the batch queues, see below. Very light
+system preparation (serial AmberTools jobs lasting a few seconds and using barely
+any memory) can be done on the login node as well. Heavier analyses can be run
+*e.g.* in an [interactive compute session](#interactive-jobs).
 
 !!! info "Python modules"
-    Please use the Amber22 modules on Puhti/Mahti if you intend to run the Python
-    scripts distributed with AmberTools. These are not available in the older modules,
-    nor on LUMI. As AmberTools is also distributed through Conda, another alternative
-    is to install and create a containerized environment for the scripts yourself using
+    Python scripts distributed with AmberTools are only available in the Amber22
+    modules on Puhti/Mahti. However, since AmberTools is also distributed through
+    [Conda](https://anaconda.org/conda-forge/ambertools), you can easily create a
+    containerized environment containing these scripts yourself using
     [Tykky](../computing/containers/tykky.md) or the
-    [LUMI container wrapper](https://docs.lumi-supercomputer.eu/software/installing/container-wrapper/).
+    [LUMI container wrapper](https://docs.lumi-supercomputer.eu/software/installing/container-wrapper/). 
 
-Molecular dynamics jobs are best run with `pmemd.cuda`. They are much faster
+Molecular dynamics jobs are best run with `pmemd.cuda` as they are much faster
 on GPUs than on CPUs. Please note that using `pmemd.cuda` requires a module
 with the `-cuda` extension. Similarly, on LUMI one should use `pmemd.hip` (or
 `pmemd.hip.MPI` for multi-GPU simulations), which requires loading a module
@@ -55,9 +56,10 @@ with the `-gpu` extension.
     check with `seff <slurm_jobid>` that GPUs *were* used and that the job
     was significantly faster than without GPUs.
 
+### Example GPU batch script for Puhti
+
 Our tests show that for medium-sized systems the most efficient setup
-is one GPU card and one CPU core. An example batch script for Puhti
-would be:
+is one GPU card and one CPU core.
 
 ```bash
 #!/bin/bash -l
@@ -78,23 +80,24 @@ srun pmemd.cuda -O -i mdin -r restrt -x mdcrd -o mdout
 ```
 
 !!! info "Note"
-    If you want to use more than one GPU, perform scaling tests to verify that the
-    jobs really become faster and use a binary with `.cuda.MPI` or `.hip.MPI` extension.
-    The rule of thumb is that when you double the resources, the job duration should
-    decrease at least 1.5-fold. For overall performance info, consult the [Amber benchmark
-    scaling details](http://ambermd.org/GPUPerformance.php). Typically, best efficiency
-    is achieved with 1 GPU. For example, the Cellulose NPT benchmark does not scale well
-    to multiple GPUs, but it is still massively faster on a single GPU than the CPU
-    version (see diagram below).
+    If you want to use more than one GPU, perform scaling tests to verify that
+    the jobs really become faster and use a binary with `.cuda.MPI` or `.hip.MPI`
+    extension. The rule of thumb is that when you double the resources, the job
+    duration should decrease at least 1.5-fold. For overall performance info, consult
+    the [Amber benchmark scaling details](http://ambermd.org/GPUPerformance.php).
+    Typically, the best efficiency is achieved with 1 GPU.
 
-You can find example inputs from the Amber20 tests directory:
+You can find example inputs in the Amber20 tests directory on Puhti:
 
 ```bash
+module load amber/20-cuda
 ls $AMBERHOME/test
 ```
 
+### Example CPU batch script for Puhti
+
 The non-GPU aware binaries, *e.g.* AmberTools, can be run as batch jobs in the
-following way (on Puhti):
+following way:
 
 ```bash
 #!/bin/bash -l
@@ -115,18 +118,22 @@ srun paramfit -i Job_Control.in -p prmtop -c mdcrd -q QM_data.dat
 !!! info "Note"
     `pmemd.cuda` and `pmemd.hip` are way faster than `pmemd.MPI`, so use a
     CPU-version only in case you cannot use the GPU-version. If Amber performance
-    is not fast enough, consider using [Gromacs](gromacs.md), which can make use
-    of more CPU cores (*i.e.* scales further). In particular, for large scale or
-    very long MD simulations consider using a better scaling MD engine. An alternative
-    is to [run ensemble simulations using multi-pmemd](#high-throughput-computing-with-amber).
+    is not fast enough, consider using [Gromacs](gromacs.md), which is typically
+    able to scale further (*i.e.* make use of more CPU and/or GPU resources).
+    
+    Consider also whether you really need speed or just a lot of sampling. Accelerated
+    sampling can also be achieved through ensemble simulations, where multiple
+    independent trajectories (*e.g.* the same system equilibrated from different
+    initial velocities) are run at the same time. For more details, see the section on
+    [high-throughput simulations with Amber](#high-throughput-computing-with-amber).
 
 ### Interactive jobs
 
 Sometimes it is more convenient to run small jobs, like system preparations,
-interactively. To prevent excessive load on the login node, these kinds of jobs
-should be run as interactive batch jobs. You can request a shell on a compute
-node from the [Puhti Web Interface](../computing/webinterface/index.md), from the
-command line with [sinteractive](../computing/running/interactive-usage.md),
+interactively. Interactive batch jobs prevent excessive load on the login node
+and should be used in these kinds of cases. You can request a shell on a compute
+node from the [Puhti/Mahti web interface](../computing/webinterface/index.md),
+from the command line with [sinteractive](../computing/running/interactive-usage.md),
 or manually access to a single core with:
 
 ```bash
@@ -140,7 +147,7 @@ the `paramfit` task directly with:
 paramfit -i Job_Control.in -p prmtop -c mdcrd -q QM_data.dat
 ```
 
-### Amber on LUMI
+### Example GPU batch scripts for LUMI
 
 Amber can be loaded into use on LUMI with:
 
@@ -155,7 +162,7 @@ module load amber/22-cpu
     You need to run the `module use` command to modify your `$MODULEPATH`,
     otherwise modules pre-installed by CSC cannot be accessed.
 
-Example batch job script for LUMI-G:
+Example batch job script for LUMI-G using a single GCD (half a GPU):
 
 ```bash
 #!/bin/bash -l
@@ -166,26 +173,63 @@ Example batch job script for LUMI-G:
 #SBATCH --time=01:00:00
 #SBATCH --account=<project>
 
-module purge
 module use /appl/local/csc/modulefiles
 module load amber/22-gpu
 
-srun pmemd.hip.MPI -O -i mdin.GPU -o mdout.GPU -p Cellulose.prmtop -c Cellulose.inpcrd
+srun pmemd.hip -O -i mdin.GPU -o mdout.GPU -p Cellulose.prmtop -c Cellulose.inpcrd
 ```
 
-A performance comparison of Amber on CPUs and GPUs on Puhti, Mahti and LUMI is shown
-in the bar plot below. Note how the performance of a single GPU on all systems is an
+Example batch job script for LUMI-G using a full GPU node (8 GCDs / 4 GPUs):
+
+```bash
+#!/bin/bash -l
+#SBATCH --partition=standard-g
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=8
+#SBATCH --gpus-per-node=8
+#SBATCH --time=01:00:00
+#SBATCH --account=<project>
+
+module use /appl/local/csc/modulefiles
+module load amber/22-gpu
+
+export MPICH_GPU_SUPPORT_ENABLED=1
+
+cat << EOF > select_gpu
+#!/bin/bash
+
+export ROCR_VISIBLE_DEVICES=\$SLURM_LOCALID
+exec \$*
+EOF
+
+chmod +x ./select_gpu
+
+CPU_BIND="mask_cpu:fe000000000000,fe00000000000000"
+CPU_BIND="${CPU_BIND},fe0000,fe000000"
+CPU_BIND="${CPU_BIND},fe,fe00"
+CPU_BIND="${CPU_BIND},fe00000000,fe0000000000"
+
+srun --cpu-bind=$CPU_BIND ./select_gpu pmemd.hip.MPI -O -i mdin.GPU -o mdout.GPU -p Cellulose.prmtop -c Cellulose.inpcrd
+```
+
+A performance comparison of Amber on CPUs (Mahti) and GPUs (Puhti, Mahti, LUMI) is shown
+in the bar plot below. Notice how the performance of a single GPU on all systems is an
 order of magnitude better than a full Mahti CPU node (128 cores).
 
 ![Amber scaling on GPUs and CPUs on Puhti, Mahti and LUMI](../img/cellulose-amber.png 'Amber
 scaling on GPUs and CPUs on Puhti, Mahti and LUMI')
 
 !!! info "GPU binding on LUMI"
-    For best performance, *multi-GPU* simulations on LUMI-G are likely to
-    benefit from GPU binding. For background and instructions, see the
-    [LUMI documentation](https://docs.lumi-supercomputer.eu/runjobs/scheduled-jobs/distribution-binding/#gpu-binding).
+    Running on multiple GPUs on LUMI will benefit from GPU binding. In the example
+    above, a bitmask is used to bind CPU cores to optimal (linked) GPUs as well as
+    exclude the first CPU core in each group of 8 cores (these are reserved for
+    the operating system and thus not available for computing). For background and
+    further instructions, see the
+    [LUMI documentation](https://docs.lumi-supercomputer.eu/runjobs/scheduled-jobs/distribution-binding/).
+    **Note that CPU/GPU binding is only possible when reserving full nodes (`standard-g`
+    or `--exclusive`).**
 
-General batch script examples for [LUMI-G](https://docs.lumi-supercomputer.eu/runjobs/scheduled-jobs/lumig-job/)
+Generic batch script examples for [LUMI-G](https://docs.lumi-supercomputer.eu/runjobs/scheduled-jobs/lumig-job/)
 and [LUMI-C](https://docs.lumi-supercomputer.eu/runjobs/scheduled-jobs/lumic-job/) are available in the LUMI
 documentation.
 
@@ -195,15 +239,17 @@ Similar to [Gromacs multidir](../support/tutorials/gromacs-throughput.md),
 Amber has a built-in "multi-pmemd" functionality, which allows you to run multiple
 MD simulations within a single Slurm allocation. This is an efficient option in cases
 where you want to run many similar, but independent, simulations. Typical use cases
-are enhanced sampling methods such as umbrella sampling or replica exchange MD. Also,
-since Amber simulations do not scale that well to multiple GPUs, multi-pmemd can be
-used as a straightforward method to accelerate sampling by launching several differently
-initialized copies of your system, all running simultaneously on a single GPU each.
+are enhanced sampling methods such as replica exchange MD. Also, since Amber simulations
+do not typically scale that well to multiple GPUs, multi-simulations can be used as a
+straightforward method to accelerate sampling by launching several differently
+initialized copies of your system, all running simultaneously on a single GCD each.
+If your system is very small and hence unable to utilize the full capacity of a GCD,
+it might even make sense to run multiple replicas on the same GCD to maximize efficiency.
 
 !!! info "Note"
     GPU resources on Puhti and Mahti are scarce, so we recommend running large-scale multi-pmemd
-    simulations only on LUMI. LUMI-G has a massive GPU capacity available, which is also [more
-    affordable in terms of BUs](https://docs.lumi-supercomputer.eu/runjobs/lumi_env/billing/)
+    simulations only on LUMI. LUMI-G has a massive GPU capacity available, which is also
+    [more affordable in terms of BUs](https://docs.lumi-supercomputer.eu/runjobs/lumi_env/billing/)
     compared to Puhti and Mahti.
 
 An example multi-pmemd batch script for LUMI-G is provided below.
@@ -217,17 +263,32 @@ An example multi-pmemd batch script for LUMI-G is provided below.
 #SBATCH --time=01:00:00
 #SBATCH --account=<project>
 
-module purge
 module use /appl/local/csc/modulefiles
 module load amber/22-gpu
 
-srun pmemd.hip.MPI -ng 16 -groupfile groupfile
+export MPICH_GPU_SUPPORT_ENABLED=1
+
+cat << EOF > select_gpu
+#!/bin/bash
+
+export ROCR_VISIBLE_DEVICES=\$SLURM_LOCALID
+exec \$*
+EOF
+
+chmod +x ./select_gpu
+
+CPU_BIND="mask_cpu:fe000000000000,fe00000000000000"
+CPU_BIND="${CPU_BIND},fe0000,fe000000"
+CPU_BIND="${CPU_BIND},fe,fe00"
+CPU_BIND="${CPU_BIND},fe00000000,fe0000000000"
+
+srun --cpu-bind=$CPU_BIND ./select_gpu pmemd.hip.MPI -ng 16 -groupfile groupfile
 ```
 
 In this example, 16 copies of a system are run concurrently within a single Amber job,
-each using 1 GPU. From the perspective of Slurm, each node on LUMI-G contains 8 GPUs,
-so 2 nodes are requested in total. The input, output, topology and coordinate files
-for the respective simulations are defined in a so-called `groupfile`:
+each using 1 GCD. 2 nodes are requested in total as each node on LUMI-G contains 8 GCDs
+(4 GPUs). The input, output, topology and coordinate files for the respective simulations
+are defined in a so-called `groupfile`:
 
 ```bash
 -O -i mdin.GPU -o mdout000.GPU -p system000.prmtop -c system000.inpcrd
