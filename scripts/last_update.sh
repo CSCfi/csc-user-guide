@@ -2,7 +2,7 @@
 set -e
 
 usage="Usage: $(basename "${0}") [-h] [-n \"NAME\"]
-Print last update timestamp and most recent committer for each file.
+Print last update timestamp and most recent committer for each page.
 
 Options:
     -h  show this help text
@@ -29,7 +29,7 @@ while read -r line ; do
     fi
 done < <(git log --format='/%H %ai %an' --name-only)
 
-git ls-files | while read f ; do
+git ls-files '*.md' | while read f ; do
     f=${f#./}
     printf '%s %s\n' "${seen[$f]}" "$f"
 done | sort -r | grep "$NAME"

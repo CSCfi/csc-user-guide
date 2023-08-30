@@ -261,11 +261,11 @@ oc delete all -l app=csc-user-guide-feature-a
 ## Finding pages that might be outdated
 
 Each page in Docs CSC shows a "Last update" timestamp. To ensure that content
-stays up to date and valid, it is good practice to search for and check files
+stays up to date and valid, it is good practice to search for and check pages
 that have not been updated in a long time. A script `scripts/last_update.sh` is provided for this purpose that goes through the git log and prints for each
-file its last update timestamp and who made the most recent commit. Especially
-if you're a regular contributor, consider using the script from time to time
-and check for files that have been touched in, say, 1-2 years.
+`.md` file its last update timestamp and who made the most recent commit.
+Especially if you're a regular contributor, consider using the script from time
+to time and check for pages that have been touched in, say, 1-2 years.
 
 Run the script in the root of the repository as
 
@@ -274,7 +274,7 @@ bash scripts/last_update.sh
 ```
 
 You can also filter based on user using the `-n` option if you, for example,
-only want to see files that have been most recently edited by you. The username
+only want to see pages that have been most recently edited by you. The username
 is the name you have defined in your git config (see `git config user.name`).
 
 ```bash
