@@ -10,6 +10,7 @@ organic and organometallic crystal structures determined by X-ray and
 neutron diffraction techniques.
 
 ## License
+
 CSC provides a national license
 which allows unlimited installations for **academic usage** at universities
 and non-profit research institutes, as well as,
@@ -21,63 +22,66 @@ university or research institute added, fill in the
 [License agreement](../img/CSDLicenseAgreementTemplateNAC.pdf) 
 and [contact us via Service Desk](../support/contact.md)
 
-Using the CSD components requires adhering [to these conditions](../img/CSDLicenseAgreementTemplateNAC.pdf).
+Using the CSD components requires adhering
+[to these conditions](../img/CSDLicenseAgreementTemplateNAC.pdf).
 
 ## Available
 
-- Puhti: 2022
+- Puhti: 2022.2, 2023.2
 - Download and install locally
+
+Run `module spider ccdc` to see module versions and how to load them.
 
 ## Usage
 
 The **Cambridge Structural Database System** has two major components:
 
--   The Cambridge Structural *Database* ([CSD])
--   *Software* for search, retrieval, display and analysis of CSD
-    contents: ConQuest, VISTA, PreQuest, Superstar, Mercury, GOLD, and
-    CSD-CrossMiner.
+- The Cambridge Structural *Database* ([CSD])
+- *Software* for search, retrieval, display and analysis of CSD
+  contents: ConQuest, VISTA, PreQuest, Superstar, Mercury, GOLD, and
+  CSD-CrossMiner.
 
 Software to access and analyse CSD entries:
 
--   [ConQuest] search and retrieval software
--   [Mercury] graphical display, analysis and visualisation of data
--   [Hermes] Main graphical interface to analysis tools
--   [CSD-Editor] In-house database creation tools (previously PreQuest)
--   [IsoStar] A Knowledge Base of Intermolecular Interactions (not
-    available on Puhti, please install locally, or use from CCDC)
--   [Mogul] A Knowledge Base of Molecular Geometry
--   [SuperStar]
-    Predicting Protein-Ligand interactions using experimental
-    knowledge-base data
--   [WebCSD] browser access to the CSD database
--   [CrossMiner] interactive versatile pharmacophore query tool (not available on Puhti)
--   [DASH] Solving crystal structures from powder diffraction data
-    interactively (only for Windows)
+- [ConQuest] search and retrieval software
+- [Mercury] graphical display, analysis and visualisation of data
+- [Hermes] Main graphical interface to analysis tools
+- [CSD-Editor] In-house database creation tools (previously PreQuest)
+- [IsoStar] A Knowledge Base of Intermolecular Interactions
+- [Mogul] A Knowledge Base of Molecular Geometry
+- [SuperStar] Predicting Protein-Ligand interactions using experimental knowledge-base data
+- [WebCSD] browser access to the CSD database
+- [CrossMiner] interactive versatile pharmacophore query tool
+- [DASH] Solving crystal structures from powder diffraction data interactively (only for Windows)
 
 There are three ways to access the CSD System:
 
--   Local installation (Windows or Linux, takes up a lot of disk space)
--   Using the CSD System via the [Puhti web interface](../computing/webinterface/index.md)
--   WebCSD (limited functionality), point your browser to [CCDC webserver](http://webcsd.ccdc.cam.ac.uk/)
+- Local installation (Windows or Linux, takes up a lot of disk space)
+- Using the CSD System via the [Puhti web interface](../computing/webinterface/index.md)
+- WebCSD (limited functionality), point your browser to
+  [CCDC webserver](http://webcsd.ccdc.cam.ac.uk/)
 
 ### Using CSD as a local installation
 
 The installation media can be downloaded from the CCDC website, but
 needs the site number and confirmation code of your university. After
-installation you need to activate the product. To obtain the required
+installation, you need to activate the product. To obtain the required
 codes, contact either [CSC Service Desk](../support/contact.md)
 or the local CSD administrator at your university. This is the
 recommended way for power users. The full installation requires ~18 GB of disk space.
 
 ### Using CSD on Puhti
 
-[Open the Puhti web interface](https://puhti.csc.fi/) using a web browser and login using your CSC user account.
+[Open the Puhti web interface](https://puhti.csc.fi/) using a web browser and login
+using your CSC user account.
 
 1. From there, [launch a Desktop](../computing/webinterface/desktop.md#launching).
-2. Open a `Host Terminal` and  move to a suitable working directory.
-3. Load the CSD module with `module load ccdc/2021`.
+2. Open a terminal and move to a suitable working directory.
+3. Load the CSD module with `module load ccdc`.
 
-Now you have access to the programs ConQuest, Hermes, Mercury and Mogul. Run them by typing `cq`, `hermes`, `mercury`, or `mogul` in the terminal, respectively. Note that the GUI performance can be somewhat slow as the Puhti web interface does not yet provide accelerated graphics.
+Now you have access to CSD programs, e.g. ConQuest, Hermes, Mercury and Mogul. Run them
+by typing `cq`, `hermes`, `mercury`, or `mogul` in the terminal, respectively. Note that
+the GUI performance can be somewhat slow compared to a local installation.
 
 [GOLD](gold.md) has its own entry in Docs CSC.
 
@@ -85,7 +89,7 @@ Now you have access to the programs ConQuest, Hermes, Mercury and Mogul. Run the
 
 The [WebCSD service](https://www.ccdc.cam.ac.uk/structures) 
 provides most of the search capabilities directly via a browser from
-the computers within the licensed university's IP range. Access does not need
+computers within the licensed university's IP range. Access does not need
 further authentication. If there are problems, [contact CSC
 Service Desk](../support/contact.md).
 
@@ -102,8 +106,8 @@ Program specific references can be found in each of the
 
 ## More information
 
-
-FAQs and useful tutorials can be found at [the CSD website](https://www.ccdc.cam.ac.uk/support-and-resources) and e.g. in the [FAQ](https://www.ccdc.cam.ac.uk/support-and-resources/Support/search?c=Product+Reference).
+Product specific [FAQs](https://www.ccdc.cam.ac.uk/support-and-resources/Support/search?c=Product+Reference) and 
+[useful manuals, tutorials etc.](https://www.ccdc.cam.ac.uk/support-and-resources) available at CSD website.
 
   [CSD]: https://www.ccdc.cam.ac.uk/solutions/software/csd/
   [License agreement]: https://research.csc.fi/documents/48467/73370/CCDC+License+Agreement+Template.pdf/bea49ea1-a6ee-4e7e-94d3-9b7ef8e3a361
@@ -117,4 +121,3 @@ FAQs and useful tutorials can be found at [the CSD website](https://www.ccdc.cam
   [WebCSD]: https://www.ccdc.cam.ac.uk/solutions/software/webcsd/
   [CrossMiner]: https://www.ccdc.cam.ac.uk/solutions/software/csd-crossminer/
   [DASH]: https://www.ccdc.cam.ac.uk/open-source-products/dash-software/
-

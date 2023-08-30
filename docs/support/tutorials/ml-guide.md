@@ -70,10 +70,11 @@ jobs](../../computing/running/getting-started.md). If you have opted
 for LUMI read the [LUMI Get Started
 page](https://docs.lumi-supercomputer.eu/firststeps/).
 
-New users may in particular be interested in [Puhti's web
-interface](../../computing/webinterface/index.md), which can be
-accessed at [www.puhti.csc.fi](https://www.puhti.csc.fi). Via the web
-interface, one can easily launch for example a Jupyter Notebook
+Both [Puhti and Mahti have a web
+interface](../../computing/webinterface/index.md) which can be
+accessed via [www.puhti.csc.fi](https://www.puhti.csc.fi) and
+[www.mahti.csc.fi](https://www.mahti.csc.fi), respectively. Via the
+web interface, one can easily launch for example a Jupyter Notebook
 session with TensorFlow or PyTorch.
 
 Also check the subsections related to [efficient GPU
@@ -109,8 +110,10 @@ access](../../cloud/pouta/index.md).
 
 ### Rahti
 
-For model deployment, the [**Rahti**](../../cloud/rahti/index.md) container
-cloud service might be used. However, it currently doesn't offer GPU support.
+For model deployment, the [**Rahti**](../../cloud/rahti/index.md)
+container cloud service might be used. [Rahti has a very limited
+amount of GPU resources](../../cloud/rahti/gpu.md) that can be
+requested from servicedesk.
 
 Below are a few examples of how Rahti can be used for machine learning tasks:
 
