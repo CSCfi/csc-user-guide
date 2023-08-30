@@ -1,10 +1,25 @@
 #!/bin/bash
+set -e
+
+usage="Usage: $(basename "${0}") [-h] [-n \"NAME\"]
+Print last update timestamp and most recent committer for each file.
+
+Options:
+    -h  show this help text
+    -n  filter based on user"
+
+while getopts "hn:" option; do
+  case "${option}" in
+    n) NAME="${OPTARG}";; 
+    h) echo "${usage}"; exit;;
+    *) echo "${usage}"; exit;;
+  esac
+done
 
 declare -A seen
 
 while read -r line ; do
     if [[ $line = /* ]] ; then
-        hash=${line%% *}
         date=${line#* }
         date=${date:0:25}
         committer=${line#* }
@@ -14,7 +29,7 @@ while read -r line ; do
     fi
 done < <(git log --format='/%H %ai %an' --name-only)
 
-find -name .git -prune -or -print | while read f ; do
+git ls-files | while read f ; do
     f=${f#./}
     printf '%s %s\n' "${seen[$f]}" "$f"
-done | sort | grep "$(git config user.name)"
+done | sort -r | grep "$NAME"
