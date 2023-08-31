@@ -74,3 +74,6 @@ We kindly request that users carefully read the manual before proceeding to use 
 [FEGA]()
 <br/>
 [SD Apply]()
+
+## Terminology
+[Useful terminology]()

@@ -344,8 +344,7 @@ nav:
      - Store and analyse: 
        - data/sensitive-data/vk-sds-overview.md
        - Start here: 
-          - data/sensitive-data/vk-sds-overview.md
-          - Creating a project: data/sensitive-data/vk-srd-a-creating.md
+          - data/sensitive-data/vk-srd-a-creating.md
           - Resources and billing units: data/sensitive-data/vk-srd-a-billing.md
        - Store with SD Connect: 
           - data/sensitive-data/vk-srd-sd-connect.md
@@ -382,7 +381,6 @@ nav:
        - Register permit: data/sensitive-data/mk-single-register.md
        - Analyse with SD Desktop for secondary use: data/sensitive-data/mk-desktop.md
        - Submitting secondary use data: data/sensitive-data/sd-desktop-register-controllers.md
-     - Terminology: data/sensitive-data/vk-sds-terminology.md
   - Applications:
      - apps/index.md
      - By discipline: apps/by_discipline.md
