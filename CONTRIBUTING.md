@@ -265,7 +265,7 @@ stays up to date and valid, it is good practice to search for and check pages
 that have not been updated in a long time. A script `scripts/last_update.sh`
 is provided for this purpose that goes through the git log and prints for each
 `.md` file its last update timestamp and who made the most recent commit.
-Consider using the script from time to time to check pages that have been
+Consider using the script from time to time to check pages that have not been
 touched in a while, say, 1-2 years.
 
 Run the script in the root of the repository as
