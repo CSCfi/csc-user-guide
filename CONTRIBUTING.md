@@ -262,10 +262,11 @@ oc delete all -l app=csc-user-guide-feature-a
 
 Each page in Docs CSC shows a "Last update" timestamp. To ensure that content
 stays up to date and valid, it is good practice to search for and check pages
-that have not been updated in a long time. A script `scripts/last_update.sh` is provided for this purpose that goes through the git log and prints for each
+that have not been updated in a long time. A script `scripts/last_update.sh`
+is provided for this purpose that goes through the git log and prints for each
 `.md` file its last update timestamp and who made the most recent commit.
-Especially if you're a regular contributor, consider using the script from time
-to time and check for pages that have been touched in, say, 1-2 years.
+Consider using the script from time to time to check pages that have been
+touched in a while, say, 1-2 years.
 
 Run the script in the root of the repository as
 
@@ -273,10 +274,22 @@ Run the script in the root of the repository as
 bash scripts/last_update.sh
 ```
 
-You can also filter based on user using the `-n` option if you, for example,
-only want to see pages that have been most recently edited by you. The username
-is the name you have defined in your git config (see `git config user.name`).
+You can also filter out pages that no one has touched after you using the `-u`
+option. The search pattern used here corresponds to your git username as
+defined in your git config (see `git config user.name`). 
 
 ```bash
-bash scripts/last_update.sh -n "<name>"
+bash scripts/last_update.sh -u
+```
+
+Note that if you've changed your git username recently, the results may be
+incomplete and you might need to manually grep for your commits.
+
+If you find something worth updating, please do so and create a PR to help us
+maintain Docs. If nothing needs to be modified, one way to update the timestamp
+without actually making any visible changes is to add a comment in the file
+using HTML tags, e.g.
+
+```
+<!-- Page OK, add comment to update timestamp -->
 ```
