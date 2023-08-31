@@ -339,18 +339,18 @@ nav:
   # data/Allas/using_allas/directory_object_error.md is not linked in this structure
   - Sensitive data:
      - data/sensitive-data/vk-sds-landing.md
-     - Before starting: 
-          - data/sensitive-data/vk-sds-overview.md
-          - Choose services: data/sensitive-data/vk-sds-terminology.md
-          - Terminology: data/sensitive-data/vk-sds-terminology.md
+     - Choose services:
+       - data/sensitive-data/vk-sds-terminology.md
      - Store and analyse: 
-       - Creating a project: 
-          - data/sensitive-data/vk-srd-a-creating.md
+       - data/sensitive-data/vk-sds-overview.md
+       - Start here: 
+          - data/sensitive-data/vk-sds-overview.md
+          - Creating a project: data/sensitive-data/vk-srd-a-creating.md
           - Resources and billing units: data/sensitive-data/vk-srd-a-billing.md
        - Store with SD Connect: 
           - data/sensitive-data/vk-srd-sd-connect.md
           ## + key features + authentication
-          ## legal agreements, data retention policy??
+          ## legal agreements, data retention policy
           - Data upload for analysis: data/sensitive-data/vk-srd-c-upload.md
           ## Less than 1 GB of data (ecryption and upload for analysys, encryption ans upload for storage and sharing) Up to 100 GB of data
           ##sharing, search, own encryption keys, Storage space
@@ -365,10 +365,11 @@ nav:
           - Create desktop: data/sensitive-data/vk-srd-d-create.md
           - Manage desktop: data/sensitive-data/vk-srd-d-manage.md
           ## pausing and restarting, rebooting and restarting, detaching and reattaching a volume, deleting a desktop
-          - Access data: data/sensitive-data/vk-srd-d-access.md
+          - Access data and work: data/sensitive-data/vk-srd-d-access.md
           ## Data gateway, importing data, Reuse published sata via SD Apply
           - Programs: data/sensitive-data/vk-srd-d-programs.md
           ## Pre-installed software, rstudio, scientific software, software customisation with containers/interface??
+          - Customization: data/sensitive-data/vk-srd-d-programs.md
           - Data export: data/sensitive-data/vk-srd-d-export.md
           - Troubleshooting: data/sensitive-data/vk-srd-d-trouble.md
        - Tutorials and quick quides: data/sensitive-data/vk-srd-tutorials.md
@@ -381,7 +382,7 @@ nav:
        - Register permit: data/sensitive-data/mk-single-register.md
        - Analyse with SD Desktop for secondary use: data/sensitive-data/mk-desktop.md
        - Submitting secondary use data: data/sensitive-data/sd-desktop-register-controllers.md
-
+     - Terminology: data/sensitive-data/vk-sds-terminology.md
   - Applications:
      - apps/index.md
      - By discipline: apps/by_discipline.md
