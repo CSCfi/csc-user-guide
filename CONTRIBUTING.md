@@ -15,6 +15,7 @@
   - [Previewing the website using MkDocs](#previewing-the-website-using-mkdocs)
   - [Building the website using the included Dockerfile](#building-the-website-using-the-included-dockerfile)
   - [Hosting the website on OpenShift](#hosting-the-website-on-openshift)
+  - [Finding pages that might be outdated](#finding-pages-that-might-be-outdated)
 
 ## Starting as a writer
 
@@ -255,4 +256,40 @@ delete your project or clean it with `oc delete`:
 
 ```bash
 oc delete all -l app=csc-user-guide-feature-a
+```
+
+## Finding pages that might be outdated
+
+Each page in Docs CSC shows a "Last update" timestamp. To ensure that content
+stays up to date and valid, it is good practice to search for and check pages
+that have not been updated in a long time. A script `scripts/last_update.sh`
+is provided for this purpose that goes through the git log and prints for each
+`.md` file its last update timestamp and who made the most recent commit.
+Consider using the script from time to time to check pages that have not been
+touched in a while, say, 1-2 years.
+
+Run the script in the root of the repository as
+
+```bash
+bash scripts/last_update.sh
+```
+
+You can also filter out pages that no one has touched after you using the `-u`
+option. The search pattern used here corresponds to your git username as
+defined in your git config (see `git config user.name`). 
+
+```bash
+bash scripts/last_update.sh -u
+```
+
+Note that if you've changed your git username recently, the results may be
+incomplete and you might need to manually grep for your commits.
+
+If you find something worth updating, please do so and create a PR to help us
+maintain Docs. If nothing needs to be modified, one way to update the timestamp
+without actually making any visible changes is to add a comment in the file
+using HTML tags, e.g.
+
+```
+<!-- Page OK, add comment to update timestamp -->
 ```
