@@ -5,7 +5,7 @@ tags:
 
 # LAStools
 
-[LAStools](https://rapidlasso.com/lastools) is a collection of tools for LiDAR data processing. 
+[LAStools](https://lastools.github.io/) is a collection of tools for LiDAR data processing.
 
 ## Usage
 
@@ -105,15 +105,33 @@ Now you can submit the job with
 
 `sbatch las2las_test.sh lazfilepaths.txt`
 
-## License and acknowledgement
+## License 
 
 For information on the legal use and licensing of LAStools, please read the [LAStools LICENSE](https://lastools.github.io/LICENSE.txt).
 
-Please acknowledge CSC and Geoportti in your publications, it is important for project continuation and funding reports.
+## Acknowledgement
+
+If you use this software on Puhti, please acknowledge CSC and Geoportti in your publications, it is important for project continuation and funding reports.
 As an example, you can write "The authors wish to thank CSC - IT Center for Science, Finland (urn:nbn:fi:research-infras-2016072531) and the Open Geospatial Information Infrastructure for Research (Geoportti, urn:nbn:fi:research-infras-2016072513) for computational resources and support".
 
-### References
 
-* [LAStools homepage](https://rapidlasso.com/lastools/)
+## Citation
+
+Citation of the software depends on which license was used:
+
+* LAStools, "Efficient LiDAR Processing Software" (version 220613, academic), obtained from http://rapidlasso.com/LAStools
+* M. Isenburg, "LAStools - efficient LiDAR processing software" (version 220613, unlicensed), obtained from http://rapidlasso.com/LAStools
+* rapidlasso GmbH, "LAStools - efficient LiDAR processing software" (version 220613, commercial), obtained from http://rapidlasso.com/LAStools
+
+## Installation
+
+LAStools was installed to Puhti with [Tykky's wrap-container functionality](../computing/containers/tykky.md#container-based-installations) using the [LAStools Docker image from Dockerhub](https://hub.docker.com/r/pydo/lastools). 
+
+`wrap-container -w /opt/LAStools docker//:pydo/lastools:latest --prefix install_dir`
+
+
+## References
+
+* [LAStools homepage](https://lastools.github.io/)
 * [LAStools Github](https://github.com/LAStools/LAStools)
-* [LAStools examples and tutorials](https://rapidlasso.com/category/tutorials/)
+* [LAStools examples and tutorials](https://rapidlasso.de/knowledge/)

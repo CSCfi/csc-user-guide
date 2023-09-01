@@ -79,7 +79,11 @@ It is possible to use [RStudio with an interactive session](../support/tutorials
 
 ## Using Allas from R
 
-You can use Allas from R with the package __aws.s3__. You can find CSC examples how to use it [here](https://github.com/csc-training/geocomputing/blob/master/R/allas/working_with_allas_from_R_S3.R). It is possible to [use files directly](gdal.md#using-files-directly-from-allas) from Allas with libraries like __sf__ and __raster__. With large quantities of data in Allas, virtual rasters should be considered. More information on how to create and use virtual rasters can be found [here.](https://research.csc.fi/virtual_rasters)
+You can use Allas from R with the package __aws.s3__. You can find CSC examples how to use it [here](https://github.com/csc-training/geocomputing/blob/master/R/allas/working_with_allas_from_R_S3.R). 
+
+It is also possible to __read__ and __write__ files from and to Allas or other cloud object storage directly with GDAL-based packages such as `sf` and `terra`. Please check our [Using geospatial files directly from cloud, inc Allas tutorial](../support/tutorials/gis/gdal_cloud.md) for instructions and examples.
+
+With large quantities of data in Allas, consider using [virtual rasters](https://research.csc.fi/virtual_rasters). 
 
 ## License and acknowledgement
 

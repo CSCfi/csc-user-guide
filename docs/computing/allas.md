@@ -1,10 +1,9 @@
 # Using Allas object storage service from CSC Supercomputing environment
 
 The disk environments of CSC supercomputers, Puhti and Mahti, are not intended for storing research data that is 
-not actively used for computing. The data that needs to be stored for a longer time than just few weeks, 
-should be copied to Allas object storage service. 
+not actively used for computing. The data that needs to be stored for a longer time than just few weeks should be copied to Allas object storage service. 
 
-Allas provides a platform that you can use to store your data as long as you CSC project is active. 
+Allas provides a platform that you can use to store your data as long as your CSC project is active. 
 In addition to storing, Allas can be used for transporting data between different servers and sharing data
 with other users.
 
@@ -36,7 +35,7 @@ allas-conf project_name
 The _allas-conf_ command prompts for your CSC password. It lists your Allas projects and asks you to define a project (if not already defined as an argument). After that _allas-conf_ generates configuration files for several Allas clients and authenticates connection to Allas for the selected project. 
 
 By default the _allas-conf_ activates tools that use Allas with **swift protocol**. 
-You can alternatively use S3 proptocol too, however in this document we 
+You can alternatively use S3 protocol too, however in this document we 
 discuss only _swift_ based Allas usage. 
 
 Authentication is session specific and valid for eight hours at a time.

@@ -25,10 +25,30 @@ smtp.pouta.csc.fi:25
 
 The server does not require authentication.
 
+```python
+import smtplib
+
+sender = 'sender@domain.com'
+receivers = ['destination@domain.com']
+
+message = """From: SENDER NAME <%s>
+To: DESTINATION NAME <%s>
+Subject: SMTP e-mail test
+
+This is a test e-mail message.
+""" % (sender, receivers[0])
+
+try:
+   smtpObj = smtplib.SMTP('smtp.pouta.csc.fi')
+   smtpObj.sendmail(sender, receivers, message)
+   print("Successfully sent email")
+except SMTPException:
+   print("Error: unable to send email")
+```
+
 When sending e-mail, you need a valid _Sender_ address in your e-mails,
 such as your university e-mail address, since this will be validated by
-the SMTP server. Please note that this is a different e-mail header
-attribute from the _From_ attribute.
+the SMTP server.
 
 If you want to set up any services on cPouta that generate a large
 amount of SMTP traffic (e.g. public mailing lists), please contact

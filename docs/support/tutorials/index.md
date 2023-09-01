@@ -57,9 +57,10 @@
 * [Starting with parallel R](parallel-r.md)
 
 ## Geoinformatics
+* [Earth Observation (EO) guide](gis/eo_guide.md)
+* [Using geospatial files directly from cloud, inc Allas](gis/gdal_cloud.md)
 * [GDAL tutorial](gis/gdal.md)
 * [Virtual rasters](gis/virtual-rasters.md)
-* [Earth Observation (EO) guide](gis/eo_guide.md)
 
 ## Pouta - cloud
 * [cPouta and ePouta related videos](../../cloud/pouta/pouta-videos.md)
