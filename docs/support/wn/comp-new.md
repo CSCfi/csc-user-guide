@@ -1,5 +1,15 @@
 # Computing environment
 
+## Puhti web interface updated to release 17, 8.9.2023
+
+* [MLflow Tracking](../../../computing/webinterface/mlflow/) is now available as an interactive app.
+* Jupyter now has the [qiskit](../../../apps/qiskit/) module available.
+* Changes in the Desktop app:
+    * The desktop configuration is now saved between sessions.
+    * The MATE desktop environment and single application launch has been removed.
+* MATLAB updated to r2023a.
+* VSCode updated to 1.80.2.
+
 ## Puhti web interface updated to release 16, 4.7.2023
 
 * RStudio now has r-env 4.3.0 available.
