@@ -7,8 +7,6 @@ search:
 
 A [CSC user account](how-to-create-new-user-account.md#getting-an-account-with-haka-or-virtu) is required for creating new projects.
 
-![New Project creation view.](../img/mycsc-create-new-project.png)
-
 1. Login to [MyCSC](http://my.csc.fi/) with your CSC user account or Haka/Virtu account.
 2. Choose **Projects** in the navigation menu on the left.
 3. On the top of the page choose **+ New project**.
@@ -19,6 +17,8 @@ A [CSC user account](how-to-create-new-user-account.md#getting-an-account-with-h
 	* [Course](how-to-create-new-project.md#course)
 	* [LUMI](how-to-create-new-project.md#how-to-create-finnish-lumi-projects)
 	* [Student](how-to-create-new-project.md#student)
+
+![New Project creation view.](../img/mycsc-create-new-project.png)
 ## Academic
 
 Academic project category is reserved for [free-of-charge use cases](https://research.csc.fi/free-of-charge-use-cases){:target="_blank"} and they can be created only by members of Finnish higher education institutions, state research institutes and CSC.
