@@ -113,6 +113,9 @@ If you are not able to connect to your VM, the first thing to double check are t
 
 If the problem persists you may check the firewall setup of your local institution.
 
+!!! info "Permission denied"
+    Incorrectly configured Security Groups, can lead to permissions denied errors due to the fact that the VM needs to fetch the public SSH keys on its first start. If the network is not configured properly, the public key may not be added and no access will be configured.
+
 ### REMOTE HOST IDENTIFICATION HAS CHANGED
 
 Sometimes Floating IPs are reused with different Virtual Machines at different times. By default SSH will have `stricthostkeychecking=yes` configured, and will show you the error message:
