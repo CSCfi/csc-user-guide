@@ -67,8 +67,10 @@ Notes about the available tools. Note that this list may be out-dated:
 ### Imaging and vidos
 *  [Audacity](https://www.audacityteam.org/). Sound editor.
 *  [OpenShot 3.1.1](https://www.openshot.org/). Video editor.
+  
    *  This tool works only in Ubuntu22 based VMs.
    *  After installation, right click the OpenShot desktop icon and select: _Run as a program_.
+
 *  [QuPath 0.4.2](https://github.com/qupath/qupath/). Software for bioimage analysis.GATL
 *  [Whisper](whisper.md) Automatic speech recognition.
   
