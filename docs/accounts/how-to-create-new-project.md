@@ -5,27 +5,51 @@ search:
 
 # Creating a new project
 
+A [CSC user account](how-to-create-new-user-account.md#getting-an-account-with-haka-or-virtu) is required for creating new projects.
+
+![New Project creation view.](../img/mycsc-create-new-project.png)
+
+1. Login to [MyCSC](http://my.csc.fi/) with your CSC user account or Haka/Virtu account.
+2. Choose **Projects** in the navigation menu on the left.
+3. On the top of the page choose **+ New project**.
+4. Fill in the **Project name** and **Project description.**
+5. Choose the **Project category**. Available categories are:
+	* [Academic](how-to-create-new-project.md#academic)
+	* [Commercial](how-to-create-new-project.md#commercial)
+	* [Course](how-to-create-new-project.md#course)
+	* [LUMI](how-to-create-new-project.md#how-to-create-finnish-lumi-projects)
+	* [Student](how-to-create-new-project.md#student)
+## Academic
+
+Academic project category is reserved for [free-of-charge use cases](https://research.csc.fi/free-of-charge-use-cases){:target="_blank"} and they can be created only by members of Finnish higher education institutions, state research institutes and CSC.
+
 !!! Note
-    Access to LUMI requires creating a separate LUMI-specific project. [How to create Finnish LUMI projects](how-to-create-new-project.md#how-to-create-finnish-lumi-projects) is detailed below.
+    If you are an educator and need resources for a course, check out the [Course](how-to-create-new-project.md#course) project category. If you are a student, have a look at the [Student](how-to-create-new-project.md#student) project category.
 
-## How to create a CSC project
+6. Please select the **Field of Science** and **Sub Science Area** of the type of research being carried out in the project.
+7. Select _Yes_ or _No_ according to whether personal data will be handled in your project. Read more about [handling personal data in your project](../accounts/when-your-project-handles-personal-data.md).
+8. Please have a look at our terms and conditions and confirm your acceptance.
+9. Click **Create project**.
 
-A CSC user account is required for creating new projects.
+Academic projects are usually valid for one year at a time, but they can be extended. To extend a project, please see page [How to manage your project](how-to-manage-your-project.md).
 
-1. Login to [MyCSC](http://my.csc.fi).
-2. Choose _Projects_ in the navigation menu on the left.
-3. Click on **+ New project** on right top corner.
-4. Fill in the project name and description.
-5. Select the project type.
-6. Does your project handle personal data? Select _Yes_ or _No_. Read more about [handling personal data in your project](../accounts/when-your-project-handles-personal-data.md).
-7. Tick the boxes _I am eligible to be a project manager..._ and _I
-have read and accepted the General Terms of Use for..._
-8. Click _Create project_.
+## Commercial
 
-!!! Note
-    If your work belongs to any of the [free-of-charge use cases](https://research.csc.fi/free-of-charge-use-cases){:target="_blank"} , select Academic as the project type. Academic projects can be created  only by members of Finnish higher education institutions, state research institutes and CSC. 
+Commercial projects are currently only available through the Service Desk. Please contact servicedesk@csc.fi for more information.
 
-Projects are usually valid for one year at a time, but they can be extended. To extend a project, please see page [How to manage your project](how-to-manage-your-project.md).
+## Student
+
+The student project is identical to the course project except that a student can be the project manager of the student project. Please read the [instructions for the Student Project](#) carefully and then you can continue with the instructions for the [Course Project](how-to-create-new-project#course).
+
+## Course
+
+Similar to the Academic project category, the Course category is reserved for [free-of-charge](https://research.csc.fi/free-of-charge-use-cases){:target="_blank"} use cases. The main difference is that the course project is a fixed time (maximum of 6 months, non-extendable), fixed resource and is designed to deliver a course once. Re-delivering the course requires a new project. Please note, that all data is deleted at the end of the project.
+
+6. Fill in the course dates and field of science. 
+8. Please have a look at our terms and conditions and confirm your acceptance.
+9. Click **Create project**.
+
+The easiest way to add students to a course project is to use an [invitation link](how-to-add-members-to-project.md#using-invitation-link).
 
 ## How to create Finnish LUMI projects
 
@@ -37,47 +61,16 @@ LUMI services are free of charge for academic research for members of Finnish hi
 
 ### Creating a LUMI project and applying for resources
 
-1. Login to [MyCSC](http://my.csc.fi/) with your CSC user account or Haka/Virtu account
-2. Choose **Projects** in the navigation menu on the left.
-3. On the top of the page choose **+ New project**.
-4. Fill in the **Project name** and **Project description.**
-5. Select **LUMI** from the Project category list.
-6. Select LUMI **Access mode** (Regular, Benchmark, or Development)
-7. Fill in the **resources**: CPU core hours, GPU hours, Storage hours, and all the **text fields** carefully below. If the data is incomplete or insufficient, the application will be rejected. For Regular Access applications, a list of prior publications and a proper research plan are required. For Benchmark Access, a plan of how the resources will be used for the benchmarks is required, and for Development Access a description of program codes, methods and development objectives is required.
-8. Select the **Field of Science**, and fill in the **Keywords**.
-9. Does your project handle personal data? Please note: **LUMI projects are not allowed to handle personal data at present**.
-10. Tick the box I have read and accepted the LUMI General Terms of Use.
-11. Click **Create project**.
-12. [Invite the project members](how-to-add-members-to-project.md) after creating a project.
-13. Your LUMI project application will be sent to be CSC Resource allocation administration to be processed. The CSC Resource allocation group has meetings [every three weeks](https://research.csc.fi/applying-for-computing-resources).
-14. Please note that LUMI access is provided only with SSH keys, not with passwords. After you have received an acceptance confirmation email for your LUMI project request, please [upload your public SSH key to MyCSC according to the instructions](../computing/connecting.md#setting-up-ssh-keys).
+6. Select **LUMI** from the Project category list.
+7. Select LUMI **Access mode** (Regular, Benchmark, or Development)
+8. Fill in the **resources**: CPU core hours, GPU hours, Storage hours, and all the **text fields** carefully below. If the data is incomplete or insufficient, the application will be rejected. For Regular Access applications, a list of prior publications and a proper research plan are required. For Benchmark Access, a plan of how the resources will be used for the benchmarks is required, and for Development Access a description of program codes, methods and development objectives is required.
+9. Select the **Field of Science**, and fill in the **Keywords**.
+10. Does your project handle personal data? Please note: **LUMI projects are not allowed to handle personal data at present**.
+11. Tick the box I have read and accepted the LUMI General Terms of Use.
+12. Click **Create project**.
+
+Once you have created the project, [invite the project members](how-to-add-members-to-project.md). Your LUMI project application will be sent to be CSC Resource allocation administration to be processed. The CSC Resource allocation group has meetings [every three weeks](https://research.csc.fi/applying-for-computing-resources).
+
+Please note that LUMI access is provided only with SSH keys, not with passwords. After you have received an acceptance confirmation email for your LUMI project request, please [upload your public SSH key to MyCSC according to the instructions](../computing/connecting.md#setting-up-ssh-keys).
 
 For further information on LUMI projects please visit [Users in Finland](https://www.lumi-supercomputer.eu/get-started-2021/users-in-finland/){:target="_blank"}
-
-## How to create a course project
-
-1. Login to [MyCSC](http://my.csc.fi/)
-2. Choose **Projects** in the navigation menu on the left.
-3. On the top right corner choose **New project**.
-4. Fill in the project name and description.
-5. Select the project category Course project.
-6. Fill in the course dates and field of science. 
-7. Read through and confirm the Terms of use and Export restriction policy. 
-8. Click Create project.
-
-**Add services to your project**
-
-* Please add the services (Puhti, Mahti, cPouta, etc.) to your project you wish to use during your course.
-
-**Invite participants to your project**
-
-1. You can create your [invitation link](how-to-add-members-to-project.md#using-invitation-link) to the course project in my.csc.fi
-2. Please provide this invitation link to your course participants
-3. If the student does not yet have a CSC user account they will be guided to create a CSC user account. 
-4. Users must accept the CSC Terms of use of the services which are used during the course
-
-**Project lifecycle**
-
-* Course projects are valid for maximum 6 months
-* Projects cannot be extended
-* Project data will be deleted when the project has ended
