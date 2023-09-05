@@ -105,30 +105,38 @@ Open Putty, after following the instructions at [windows-putty](/cloud/pouta/lau
 
 Next time you need to use Putty to connect this instance, you will just need to **Load** the corresponding saved session and click **Open**.
 
-!!! error "REMOTE HOST IDENTIFICATION HAS CHANGED"
+## Troubleshooting
 
-    Sometimes Floating IPs are reused with different Virtual Machines at different times. By default SSH will have `stricthostkeychecking=yes` configured, and will show you the error message:
+### port 22: Connection timed out
 
-    ```sh
-    $ ssh cloud-user@86.50.xxx.xxx
-    @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-    @    WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!     @
-    @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-    IT IS POSSIBLE THAT SOMEONE IS DOING SOMETHING NASTY!
-    Someone could be eavesdropping on you right now (man-in-the-middle attack)!
-    It is also possible that a host key has just been changed.
-    The fingerprint for the ECDSA key sent by the remote host is
-    SHA256:JURkzITHXHGavwz6fAahou5g4ii1q9CVuzLyImH5+tI.
-    Please contact your system administrator.
-    Add correct host key in /home/yyyy/.ssh/known_hosts to get rid of this message.
-    Offending ECDSA key in /home/yyyy/.ssh/known_hosts:28
-      remove with:
-      ssh-keygen -f "/home/yyyy/.ssh/known_hosts" -R "86.50.xxx.xxx"
-    ECDSA host key for 86.50.xxx.xxx has changed and you have requested strict checking.
-    Host key verification failed.
-    ```
+If you are not able to connect to your VM, the first thing to double check are the security groups, in the [Firewalls and security groups](../launch-vm-from-web-gui/#firewalls-and-security-groups) article there is a guide on how to set them up correctly.
 
-    You can safely do as it suggests and remove the entry. But only if you are **sure** that it is the first time you connect to said IP since it has been **assigned to a new instance**, or since the instance has been **reinstalled**.
+If the problem persists you may check the firewall setup of your local institution.
+
+### REMOTE HOST IDENTIFICATION HAS CHANGED
+
+Sometimes Floating IPs are reused with different Virtual Machines at different times. By default SSH will have `stricthostkeychecking=yes` configured, and will show you the error message:
+
+```sh
+$ ssh cloud-user@86.50.xxx.xxx
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@    WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!     @
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+IT IS POSSIBLE THAT SOMEONE IS DOING SOMETHING NASTY!
+Someone could be eavesdropping on you right now (man-in-the-middle attack)!
+It is also possible that a host key has just been changed.
+The fingerprint for the ECDSA key sent by the remote host is
+SHA256:JURkzITHXHGavwz6fAahou5g4ii1q9CVuzLyImH5+tI.
+Please contact your system administrator.
+Add correct host key in /home/yyyy/.ssh/known_hosts to get rid of this message.
+Offending ECDSA key in /home/yyyy/.ssh/known_hosts:28
+  remove with:
+  ssh-keygen -f "/home/yyyy/.ssh/known_hosts" -R "86.50.xxx.xxx"
+ECDSA host key for 86.50.xxx.xxx has changed and you have requested strict checking.
+Host key verification failed.
+```
+
+You can safely do as it suggests and remove the entry. But only if you are **sure** that it is the first time you connect to said IP since it has been **assigned to a new instance**, or since the instance has been **reinstalled**.
 
 ## `root` administrator access on a virtual machine
 
