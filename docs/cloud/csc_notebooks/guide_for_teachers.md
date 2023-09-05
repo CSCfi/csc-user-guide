@@ -171,6 +171,15 @@ R -e "source('/path/of/myscript.R')"
 docker build -t "<yourimagename>" -f <yourimagename>.dockerfile .
 ```
 
+Note that with Mac, or on any ARM host, you need to tell docker to build x64 images so that they are compatible
+with our cloud hosts. This can be done using "docker buildx".
+
+```
+docker buildx build --platform linux/amd64 ....
+```
+
+Another alternative is to build the image on an x64 VM, for example on pouta.csc.fi.
+
 * Test your image. 
     * `-p 8888:8787` means bind Docker port 8787 to host port 8888.
     * If using cPouta, you need to open the host port also from Security groups. 
