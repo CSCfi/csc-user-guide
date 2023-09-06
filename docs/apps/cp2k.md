@@ -12,8 +12,8 @@ parallel quantum chemistry calculations, in particular for AIMD.
 
 ## Available
 
-* Puhti: 9.1, 2022.2, 2023.1
-* Mahti: 8.2, 9.1, 2022.2, 2023.1
+* Puhti: 9.1, 2022.2, 2023.1, 2023.2
+* Mahti: 8.2, 9.1, 2022.2, 2023.1, 2023.2
 * LUMI: 2023.1, 2023.1-gpu, 2023.2, 2023.2-gpu
 
 ## License
@@ -58,7 +58,7 @@ the number of cores the calculation should be at least 1.5 times faster.
 
 module purge
 module load intel-oneapi-compilers-classic/2021.6.0 intel-oneapi-mpi/2021.6.0
-module load cp2k/9.1
+module load cp2k/2023.2
 
 srun cp2k.popt H2O-64.inp > H2O-64.out
 ```
@@ -76,7 +76,7 @@ srun cp2k.popt H2O-64.inp > H2O-64.out
 
 module purge
 module load gcc/9.4.0 openmpi/4.1.2
-module load cp2k/9.1
+module load cp2k/2023.2
 
 export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
 export OMP_PLACES=cores
@@ -245,7 +245,7 @@ are provided below. Note that `RUN_TYPE` is set to `NONE` in the `&GLOBAL` secti
 #SBATCH --account=<project>
 
 module purge
-module load gcc/9.4.0 openmpi/4.1.2 cp2k/9.1
+module load gcc/9.4.0 openmpi/4.1.2 cp2k/2023.2
 
 srun cp2k.psmp farming.inp >> farming.out
 ```
