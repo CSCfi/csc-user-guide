@@ -56,11 +56,11 @@ which makes it even more important to use a strong username and password for you
 More information can be found in [Rahti security guide](../rahti/security-guide.md)
 
 
-<!--
-### Notebooks
 
-TODO
--->
+### Notebooks
+If you need to access your Pukki database instance from Notebooks then you need to allow this IP
+`193.167.189.137` . Note that all other Notebook users will be able to access your database
+instances as well so it is important to use strong passwords for your database user.
 
 ### Puhti
 
