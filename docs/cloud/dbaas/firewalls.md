@@ -34,18 +34,18 @@ This is done by allowing some subnets.
 (public ip) you want to allow that IP in Pukki.
 * If your server does not have a floating ip you need to allow the routers "External Fixed IPs".
 You can find the IP from the Pouta web interface under Network -> Routers -> The specific router ->
-"External Fixed IPs" 
+"External Fixed IPs"
 
 
 ### ePouta
 
 It is important to remember that all traffic from ePouta to Pukki will be going over "the internet"
-which might be in conflict with why you have choosen to use ePouta in first place.
+which might be in conflict with why you have chosen to use ePouta in first place.
 
-1. If you still want to allow access to Pukki. You must ensure that your home organisation firewalls
+1. If you still want to allow access to Pukki. You must ensure that your home organization firewalls
 will allow traffic to your database instance in Pukki.
 2. If you are using a "public ip range" in ePouta then you can just update your database instance
-with the new ip address with the "CIDR notation" (suffix) `/32`  
+with the new ip address with the "CIDR notation" (suffix) `/32`.
 
 ### Rahti
 
@@ -67,7 +67,7 @@ TODO
 Accessing your Pukki database from login and compute nodes you can allow this:
 
 ```
-86.50.164.176/28 
+86.50.164.176/28
 ```
 
 <!--
@@ -83,14 +83,14 @@ Accessing your Pukki database from Mahti from both login nodes and compute node 
 86.50.165.192/27
 ```
 
-<!-- 
+<!--
 Some alternatives:
 86.50.165.192/27
 86.50.165.200/30 + 86.50.165.208/28
 86.50.165.200/30 + 86.50.165.208/29 + 86.50.165.216/32
-86.50.165.200/30 + 86.50.165.211/32 + 86.50.165.212/30 + 86.50.165.216/32  
+86.50.165.200/30 + 86.50.165.211/32 + 86.50.165.212/30 + 86.50.165.216/32
 -->
-### LUMI 
+### LUMI
 
 Accessing your Pukki database from LUMI you need to allow the follow CIDR:
 
