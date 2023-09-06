@@ -274,6 +274,7 @@ nav:
              - cloud/dbaas/getting-started.md
              - Web interface: cloud/dbaas/web-interface.md
              - Command Line tools: cloud/dbaas/cli.md
+             - Firewalls: cloud/dbaas/firewalls.md
              - Database Operations: cloud/dbaas/operations.md
              - Application Credentials: cloud/dbaas/application-credentials.md
         - Database sizes and prices: cloud/dbaas/flavors.md

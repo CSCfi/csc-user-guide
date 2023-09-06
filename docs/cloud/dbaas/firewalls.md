@@ -1,0 +1,99 @@
+# Using Firewalls in Pukki
+
+!!! error "Closed Beta"
+    Pukki DBaaS is in closed beta. This means that the service is probably not suitable for most users
+    and there might be breaking changes. If you are still interested in using the service you can
+    [contact us](../../support/contact.md) to see if the service would be suitable for you.
+
+
+All database instances have their own firewalls. Users are responsible for making sure that the firewall rules are strict. The firewall rules should only be open to those IP-addresses that is needed. Relaxed firewall rules are probably some of the largest security risks and you need to take it seriously. Even if you don't have any "secret" data in your database, you are not allowed to have it open to the world. If you want to share your data, you should do it through a proxy or other services that might use the database as a backend. Leaving a database port open on the internet is an sure-fire way to attract malicious actors to target your database.
+
+## How to manage firewalls
+
+You can change the firewalls from the [web interface](https://pukki.dbaas.csc.fi) on existing
+instances by pressing the "Update Instance".
+
+With the [openstack CLI](cli.md) tool you can use the `opsenstack database instance update --help` command.
+Note that the command override the existing firewalls rules which means that you need to set all
+the firewall opening each time you update the firewalls for an instance with `--allowed-cidr` flag.
+
+## Single IP or subnet
+
+It is possible to allowed a single IP by adding the "CIDR notion" `/32` suffix to each IP. It is
+also possible to add bigger subnets for example `/24` if you have a bigger subnet you want to give
+access to. Note that allowing access from the whole world `0.0.0.0/0` is not allowed.
+
+## Firewall openings from other CSC-services
+
+To be able to access your database from other CSC services you need to allow some ingress traffic.
+This is done by allowing some subnets.
+
+### cPouta
+
+* If your server from where you want to connect to your database instances have a "floating ip"
+(public ip) you want to allow that IP in Pukki.
+* If your server does not have a floating ip you need to allow the routers "External Fixed IPs".
+You can find the IP from the Pouta web interface under Network -> Routers -> The specific router ->
+"External Fixed IPs" 
+
+
+### ePouta
+
+It is important to remember that all traffic from ePouta to Pukki will be going over "the internet"
+which might be in conflict with why you have choosen to use ePouta in first place.
+
+1. If you still want to allow access to Pukki. You must ensure that your home organisation firewalls
+will allow traffic to your database instance in Pukki.
+2. If you are using a "public ip range" in ePouta then you can just update your database instance
+with the new ip address with the "CIDR notation" (suffix) `/32`  
+
+### Rahti
+
+Rahti is using a `193.167.189.25/32` as a shared outgoing IP address. Note that if you are using
+Rahti with the shared outgoing IP-address all other Rahti customers can access to your database
+which makes it even more important to use a strong username and password for your database.
+
+More information can be found in [Rahti security guide](../rahti/security-guide.md)
+
+
+<!--
+### Notebooks
+
+TODO
+-->
+
+### Puhti
+
+Accessing your Pukki database from login and compute nodes you can allow this:
+
+```
+86.50.164.176/28 
+```
+
+<!--
+If one would like to have even strictre rules one could limit it only these
+puhti-nat-[1,2].csc.fi and puhti-login[11-15].csc.fi
+-->
+
+### Mahti
+
+Accessing your Pukki database from Mahti from both login nodes and compute node you can allow this:
+
+```
+86.50.165.192/27
+```
+
+<!-- 
+Some alternatives:
+86.50.165.192/27
+86.50.165.200/30 + 86.50.165.208/28
+86.50.165.200/30 + 86.50.165.208/29 + 86.50.165.216/32
+86.50.165.200/30 + 86.50.165.211/32 + 86.50.165.212/30 + 86.50.165.216/32  
+-->
+### LUMI 
+
+Accessing your Pukki database from LUMI you need to allow the follow CIDR:
+
+```
+193.167.209.160/28
+```
