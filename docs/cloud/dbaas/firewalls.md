@@ -59,7 +59,7 @@ More information can be found in [Rahti security guide](../rahti/security-guide.
 
 ### Notebooks
 If you need to access your Pukki database instance from Notebooks then you need to allow this IP
-`193.167.189.137` . Note that all other Notebook users will be able to access your database
+`193.167.189.137/32` . Note that all other Notebook users will be able to access your database
 instances as well so it is important to use strong passwords for your database user.
 
 ### Puhti
