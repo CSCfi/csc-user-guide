@@ -89,6 +89,10 @@ Note that the root disks of the hpc-gen2.24core and the hpc-gen2.48core flavors 
 | io.160GB | 4  | 19 | 20 | 160 | 180 | 4.7   |![](/img/circle_icons/p100.svg)![](/img/circle_icons/r0.svg)![](/img/circle_icons/e0.svg)![](/img/circle_icons/n100.svg)| 6  |
 | io.340GB | 8  | 39 | 20 | 340 | 360 | 4.8 |![](/img/circle_icons/p100.svg)![](/img/circle_icons/r0.svg)![](/img/circle_icons/e0.svg)![](/img/circle_icons/n100.svg)| 12 |
 | io.700GB | 16 | 78 | 20 | 700 | 720 | 4.8 |![](/img/circle_icons/p100.svg)![](/img/circle_icons/r0.svg)![](/img/circle_icons/e0.svg)![](/img/circle_icons/n100.svg)| 24 |
+| io.2.80GB  | 2  | 12,7 | 80 | 80  | 160  | 6.3 |![](/img/circle_icons/p100.svg)![](/img/circle_icons/r50.svg)![](/img/circle_icons/e50.svg)![](/img/circle_icons/n100.svg)| 6  |
+| io.2.240GB  | 4 | 26 | 80 | 240  | 320  | 6.6 |![](/img/circle_icons/p100.svg)![](/img/circle_icons/r50.svg)![](/img/circle_icons/e50.svg)![](/img/circle_icons/n100.svg)| 12  |
+| io.2.550GB  | 8  | 54 | 80 | 550  | 630  | 6.7 |![](/img/circle_icons/p100.svg)![](/img/circle_icons/r50.svg)![](/img/circle_icons/e50.svg)![](/img/circle_icons/n100.svg)| 24  |
+| io.2.1200GB  | 16  | 107 | 80 | 1200  | 1280  | 6.7 |![](/img/circle_icons/p100.svg)![](/img/circle_icons/r50.svg)![](/img/circle_icons/e50.svg)![](/img/circle_icons/n100.svg)| 48  |
 
 Note that both the root and the ephemeral disks of all I/O flavors are hosted on solid-state drives (SSDs).
 
@@ -287,17 +291,11 @@ Typical use cases:
 -   Clustered databases
 
 I/O flavors are intended to provide the best I/O performance on the
-virtual machine root and ephemeral disks. They are backed by local
-SSDs on the servers they run on. The SSDs are configured in a RAID-0
-configuration for maximal performance. This means there is an
-increased risk of loss of a virtual machine in case of hardware
-problems. The risk of disk failure is larger than in the other
-flavors, so it is especially important to be aware of the risks of
-data loss with these flavors.
+virtual machine root and ephemeral disks. 
 
 As these instances are also tightly tied to the hardware, you may
 expect downtime of instances during the maintenance of the hardware.
-The resize/migration functionalities do not work for these instances.
+
 The bulk of the storage is available as an ephemeral disk, typically
 in /dev/vdb.
 
@@ -313,7 +311,10 @@ performance is significantly better.
 
 **cPouta IO flavor characteristics:**
 
-**io.\*:**
+**io.70GB-700GB:**
+
+NOTE! These servers have non-redundant disks, and you may expect data loss in case of disk failure.
+NOTE! These virtual machines can not be migrated nor resized.
 
 -   Redundant power
 -   CPU: Intel(R) Xeon(R) CPU E5-2680 v3, with hyper-threading
@@ -321,9 +322,22 @@ performance is significantly better.
 -   Flavor disk: Local SSD disks, RAID-0
 -   Instances can be lost due to a single-node or disk failure.
 
+**io.2.\*:**
+NOTE! These virtual machines can not be resized.
+
+-   Redundant power
+-   CPU: AMD EPYC 7282 16-Core Processor
+-   Network: Redundant 25 Gb/s
+-   Flavor disk: Local NVMe disk, RAID-1
+-   Instance can be lost due to a single-node or multiple simultaneous disk failures.
+
+
 **ePouta IO flavor characteristics:**
 
 **io.haswell.\*:**
+
+NOTE! These servers have non-redundant disks, and you may expect data loss in case of disk failure.
+NOTE! These virtual machines can not be migrated nor resized.
 
 -   Redundant power
 -   CPU: Intel(R) Xeon(R) CPU E5-2680 v3, with hyper-threading
