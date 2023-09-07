@@ -19,8 +19,9 @@ the firewall opening each time you update the firewalls for an instance with `--
 
 ## Single IP or subnet
 
-It is possible to allowed a single IP by adding the "CIDR notion" `/32` suffix to each IP. It is
-also possible to add bigger subnets for example `/24` if you have a bigger subnet you want to give
+By adding the "CIDR notion" `/32` to the end of an IP like `192.168.0.1/32` it means that you only
+allow that specific IP.
+It is also possible to add bigger subnets for example `/24` if you have a bigger subnet you want to give
 access to. Note that allowing access from the whole world `0.0.0.0/0` is not allowed.
 
 ## Firewall openings from other CSC-services
