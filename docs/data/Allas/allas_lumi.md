@@ -24,7 +24,7 @@ command line tools include:
 
 ## Using Lumi-O with Allas tools
 
-The tools provided by [allas-cli-utils](https://github.com/CSCfi/allas-cli-utils/) can be used to upload and donwload data from
+The tools provided by [allas-cli-utils](https://github.com/CSCfi/allas-cli-utils/) can be used to upload and download data from
 Lumi-O. Running command _allas-conf_ in Puhti, Mahti or Lumi starts normal configuration process for a swift based connetion to Allas:
 
 ```text
