@@ -12,12 +12,12 @@ In the Puhti web interface, the following applications are available in the desk
 * [QGIS](../../apps/qgis.md)
 * [SAGA GIS](../../apps/saga-gis.md)
 * [SNAP](../../apps/snap.md)
-* [VMD](../../apps/vmd.md).
+* [VMD](../../apps/vmd.md)
 
 On Mahti, the following applications are available:
 
 * [Maestro](../../apps/maestro.md)
-* [VMD](../../apps/vmd.md).
+* [VMD](../../apps/vmd.md)
 
 Only CPU rendering is supported in the graphical applications launched from the desktop.
 See [here how to enable GPU-accelerated visualization](accelerated-visualization.md)
