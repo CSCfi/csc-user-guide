@@ -40,7 +40,7 @@ and run Desmond MD simulations easily.
 
     Also, starting from module version `maestro/2023.1` you might get warnings about missing
     libraries. These warnings should be harmless. Nonetheless, if you would encounter unfamiliar
-    issues using this Maestro version, please [contact CSC Service Desk](../support/contact.md).
+    issues using these Maestro versions, please [contact CSC Service Desk](../support/contact.md).
 
 ## License
 
