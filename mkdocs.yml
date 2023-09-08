@@ -175,6 +175,7 @@ nav:
          - Julia on Jupyter: computing/webinterface/julia-on-jupyter.md
          - Jupyter for courses: computing/webinterface/jupyter-for-courses.md
          - MATLAB: computing/webinterface/matlab.md
+         - MLflow: computing/webinterface/mlflow.md
          - RStudio: computing/webinterface/rstudio.md
          - TensorBoard: computing/webinterface/tensorboard.md
          - Visual Studio Code: computing/webinterface/vscode.md
@@ -274,6 +275,7 @@ nav:
              - cloud/dbaas/getting-started.md
              - Web interface: cloud/dbaas/web-interface.md
              - Command Line tools: cloud/dbaas/cli.md
+             - Firewalls: cloud/dbaas/firewalls.md
              - Database Operations: cloud/dbaas/operations.md
              - Application Credentials: cloud/dbaas/application-credentials.md
         - Database sizes and prices: cloud/dbaas/flavors.md

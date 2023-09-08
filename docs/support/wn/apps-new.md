@@ -1,5 +1,17 @@
 # Applications
 
+## Schrödinger Maestro 2023.3, 8.9.2023
+
+Schrödinger Maestro version 2023.3 has been installed and set as the default module on
+Puhti and Mahti. See [release notes](https://www.schrodinger.com/releases/new-features/)
+for a list of new features and improvements.
+
+## CP2K 2023.2 available on Puhti and Mahti, 1.9.2023
+
+[CP2K](../../apps/cp2k.md) 2023.2 has been installed and set as the default
+module on Puhti and Mahti. For release notes and more details about the version,
+see [the CP2K website](https://www.cp2k.org/version_history#section20232).
+
 ## CSD 2023.2 available on Puhti, 22.8.2023
 
 Version 2023.2 of the [Cambridge Structural Database (CSD)](../../apps/csd.md) software
