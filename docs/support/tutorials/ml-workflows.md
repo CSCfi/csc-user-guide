@@ -80,7 +80,7 @@ mlflow.log_metric("loss", loss)
 ```
 
 For a full example for PyTorch see [mnist_ddp_mlflow.py][pytorch-ex]
-or [mnist_lightning_ddp.py](lightning-ex) for PyTorch Lightning.
+or [mnist_lightning_ddp.py][lightning-ex] for PyTorch Lightning.
 
 In addition to metrics you can also log parameters and artifacts. See
 the [MLflow documentation for a list of logging functions][log-func].
