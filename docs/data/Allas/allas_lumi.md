@@ -40,8 +40,7 @@ If you have allas-cli-utils installed in your local environment, the configurati
 source allas-cli-utils/allas_conf --lumi
 ```
 
-The cofiguratio asks you to connect with your browser to Lumi-O configuration sever, create credentials there and the copy the project nunber 
-and keys for the setup tool. The setup process for Lumi-O will create environment variables needed for _S3_ command and confuguration files for _s3cmd_ and _rclone_. In addition you can define that _a-commands_ will use by default Lumi-O storage server in stead of Allas. After that commands like _a-list_, _a-put_ or _a-get_ will use your Lumi-O storage. If you don't set Lumi-O as the default storage service, you can add option _--lumi_ to a-commands to use Lumi-O instead of Allas. 
+The cofiguration process asks you to connect with your browser to Lumi-O configuration sever, create credentials there and then copy the project nunber and keys for the setup tool. The setup process for Lumi-O will create environment variables needed for _S3_ command and confuguration files for _s3cmd_ and _rclone_. In addition you can define that _a-commands_ will use by default Lumi-O storage server in stead of Allas. After that commands like _a-list_, _a-put_ or _a-get_ will use your Lumi-O storage. If you don't set Lumi-O as the default storage service, you can add option _--lumi_ to a-commands to use Lumi-O instead of Allas. 
 
 For _rclone_,  Lumi-O configuration provides two _rclone remotes_: _lumi-o:_ and _lumi-pub:_ . The buckets used by _lumi-pub_ will be publicly visible in URL: https://_project-number_.lumidata.eu/_bucket_name_.
 
