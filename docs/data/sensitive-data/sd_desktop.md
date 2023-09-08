@@ -83,7 +83,7 @@ To start your virtual desktop, log in to the services and on the _Connection_ pa
 Here you can specify several parameters:
 
 1. _Select CSC project, operating system and desktop name_.
-Currently, the only possible operating system is Linux CentOS 7. Assigning a descriptive name for a Desktop so that all project members can quickly identify it, later on is good practice.
+Possible operating system are Linux CentOS 7 and Linux Ubuntu. Assigning a descriptive name for a Desktop so that all project members can quickly identify it, later on is good practice.
 
 2. _Select a desktop from the pre-built options_. Based on the computing needs, choose one of the pre-built options (Small, Medium, or Heavy computation).
 
