@@ -64,7 +64,7 @@ Notes about the available tools. Note that this list may be out-dated:
 *  [Rstudio 4.2.2](rstudio.md) R statistics tool with graphcal user interface and help tools for adding libraries.
 *  [PSPP](https://www.gnu.org/software/pspp/) Open Source alternative for SPSS statistics tool.
 
-### Imaging and vidos
+### Imaging and viedos
 *  [Audacity](https://www.audacityteam.org/). Sound editor.
 *  [OpenShot 3.1.1](https://www.openshot.org/). Video editor.
   
