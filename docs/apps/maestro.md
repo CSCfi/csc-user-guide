@@ -32,6 +32,16 @@ and run Desmond MD simulations easily.
     This policy is enforced to free up disk space and encourage use of the latest versions
     which tend to be more performant and have less bugs.
 
+!!! info "Some notes about warnings"
+
+    Maestro gives a warning for using a `schrodinger.hosts` file from your home directory. This is
+    **not an issue**: that file cannot be made available in the installation directory, so please
+    ignore the warning, but consider any others you may see.
+
+    Also, starting from module version `maestro/2023.1` you might get warnings about missing
+    libraries. These warnings should be harmless. Nonetheless, if you would encounter unfamiliar
+    issues using this Maestro version, please [contact CSC Service Desk](../support/contact.md).
+
 ## License
 
 Maestro is available for all academic users in Finland: staff and students, for academic
@@ -152,16 +162,6 @@ The following tutorial video walks you through the process:
     **Windows** users may need to edit the script created by the GUI a little.
     Replace the backslashes `\` with `/` in the path to the Maestro binary
     (right after `$SCHRODINGER` in the script).
-
-!!! info "Some notes about warnings"
-
-    Maestro gives a warning for using a `schrodinger.hosts` file from your home directory. This is
-    **not an issue**: that file cannot be made available in the installation directory, so please
-    ignore the warning, but consider any others you may see.
-
-    Also, the `maestro/2023.1` module may print warnings about missing graphics libraries.
-    These warnings should be harmless. Nonetheless, if you would encounter unfamiliar issues
-    using this Maestro version, please [contact CSC Service Desk](../support/contact.md).
 
 ## References
 
