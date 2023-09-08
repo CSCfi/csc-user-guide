@@ -130,7 +130,7 @@ Here you can specify several parameters:
 
 * **Select your CSC project**.
 
-* **Choose the operating system**. Possible operating system are Linux CentOS 7 and Linux Ubuntu.
+* **Choose the operating system**. Possible operating system are Linux CentOS 7 and Linux Ubuntu 22.
 
 * **Assign a name for your virtual Desktop**. It is good practice to assign a descriptive name for a Desktop so that all project members can easily identify it later on.
 
