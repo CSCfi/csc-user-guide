@@ -13,13 +13,13 @@ To ensure that you are well-informed about these changes and your account status
 
 For additional information, please refer to the following links:
 
-* [SD Desktop and SD Connect default storage and billing units consumption](../data/sensitive-data/sd-access.md#processing-sensitive-research-data)
+* [SD Desktop and SD Connect default storage and billing units consumption](../../data/sensitive-data/sd-access.md#processing-sensitive-research-data)
     
-* [SD Desktop: service usage restrictions](../data/sensitive-data/sd-access.md#/#service-usage-restrictions-when-billing-units-have-been-consumed)
+* [SD Desktop: service usage restrictions](../../data/sensitive-data/sd-access.md#/#service-usage-restrictions-when-billing-units-have-been-consumed)
 
-* [Applying for billing units](../accounts/how-to-apply-for-billing-units.md#applying-for-billing-units)
+* [Applying for billing units](../../accounts/how-to-apply-for-billing-units.md#applying-for-billing-units)
 
-* [Project lifetime extension](../accounts/how-to-manage-your-project.md/#project-lifetime-extension)
+* [Project lifetime extension](../../accounts/how-to-manage-your-project.md/#project-lifetime-extension)
 
 
 ## SD Desktop: Unbuntu OS now available (September 2023)
