@@ -10,6 +10,7 @@ For more information about the Python environments on Puhti and Mahti, see the [
  - python-data
  - pytorch
  - tensorflow
+ - qiskit
 
 ## Installing packages
 It is possible to install packages in the Jupyter notebook using `pip`.
