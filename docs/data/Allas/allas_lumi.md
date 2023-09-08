@@ -44,9 +44,9 @@ If you have allas-cli-utils installed in your local environment, the configurati
 source allas-cli-utils/allas_conf --lumi
 ```
 
-The cofiguration process asks you to connect with your browser to LUMI-O configuration sever, create credentials there and then copy the project number and keys for the setup tool. The setup process for LUMI-O will create environment variables needed for `S3` command and confuguration files for `s3cmd` and `rclone`. In addition you can define that `a-commands` will use by default LUMI-O storage server instead of Allas. After that commands like `a-list`, `a-put` or `a-get` will use your LUMI-O storage. If you don't set LUMI-O as the default storage service, you can add option `--lumi` to a-commands to use LUMI-O instead of Allas. 
+The configuration process asks you to connect with your browser to LUMI-O configuration sever, create credentials there and then copy the project number and keys for the setup tool. The setup process for LUMI-O will create environment variables needed for _S3_ command and configuration files for `s3cmd` and `rclone`. In addition you can define that `a-commands` will use by default LUMI-O storage server instead of Allas. After that commands like `a-list`, `a-put` or `a-get` will use your LUMI-O storage. If you don't set LUMI-O as the default storage service, you can add option `--lumi` to a-commands to use LUMI-O instead of Allas. 
 
-For `rclone`,  LUMI-O configuration provides two _rclone remotes_: _lumi-o:_ and _lumi-pub:_ . The buckets used by _lumi-pub_ will be publicly visible in URL: `https://<project-number>.lumidata.eu/<bucket_name>`.
+For `rclone`,  LUMI-O configuration provides two _rclone remotes_: _lumi-o:_ and _lumi-pub:_. The buckets used by _lumi-pub_ will be publicly visible in URL: `https://<project-number>.lumidata.eu/<bucket_name>`.
 
 Note that you can have an active connection to both LUMI-O and Allas at the same time.
 
@@ -62,7 +62,7 @@ And then open LUMI-O connection with:
 allas-conf --lumi
 ```
 
-When running the latter command we accept that LUMI-O will be the default server for a-commands.
+(When running the latter command we accept that LUMI-O will be the default server for a-commands.)
 
 Now you can list the buckets available in LUMI-O with commands:
 
