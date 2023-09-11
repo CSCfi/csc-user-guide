@@ -8,12 +8,12 @@
 All databases in DBaaS get automatically backed up about every 24 hours. Users can also manually
 backup their instances but that means that the next automatic backup will be taken about 24 hours
 after the last backup. All backups are stored for 90 days after which they get automatically
-deleted (not yet implemented). In the future, it will only be possible to delete backups automatically,
-users will not be able to manually delete their own backups.
+deleted, backups can not be manually delete by the user.
 
 The backups are stored encrypted in Allas.
 
-You can manage your backups from the CLI and the web-interface.
+The web interface is currently only showing the latest 20 backups. If you want to see all your
+backups you need to use the CLI-tool.
 
 ## Risks
 
