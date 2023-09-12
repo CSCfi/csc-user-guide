@@ -9,6 +9,7 @@
   - [Julia on Jupyter](julia-on-jupyter.md)
   - [Jupyter for courses](jupyter-for-courses.md)
   - [MATLAB](matlab.md)
+  - [MLflow](mlflow.md)
   - [RStudio](rstudio.md)
   - [TensorBoard](tensorboard.md)
   - [Visual Studio Code](vscode.md)

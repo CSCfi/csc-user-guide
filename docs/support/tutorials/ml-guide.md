@@ -16,7 +16,7 @@ In addition to this page, this guide contains the following subsections:
 - [**Data storage for machine learning**](ml-data.md)
 - [**Multi-GPU and multi-node machine learning**](ml-multi.md)
 - [**Hyperparameter search**](hyperparameter_search.md)
-
+- [**Managing machine learning workflows on CSC's supercomputers**](ml-workflows.md)
 
 ## What CSC service to use?
 
