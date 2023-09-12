@@ -64,25 +64,23 @@ Notes about the available tools. Note that this list may be out-dated:
 *  [Rstudio 4.2.2](rstudio.md) R statistics tool with graphcal user interface and help tools for adding libraries.
 *  [PSPP](https://www.gnu.org/software/pspp/) Open Source alternative for SPSS statistics tool.
 
-### Imaging and viedos
+### Imaging and videos
 *  [Audacity](https://www.audacityteam.org/). Sound editor.
 *  [OpenShot 3.1.1](https://www.openshot.org/). Video editor.
-  
-   *  This tool works only in Ubuntu22 based VMs.
-   *  After installation, right click the OpenShot desktop icon and select: _Run as a program_.
-
+    *  This tool works only in Ubuntu22 based VMs.
+    *  After installation, right click the OpenShot desktop icon and select: _Run as a program_.
 *  [QuPath 0.4.2](https://github.com/qupath/qupath/). Software for bioimage analysis.GATL
 *  [Whisper](whisper.md) Automatic speech recognition.
   
 ### Geosciences
 *  [QGis 3.1.1](https://qgis.org/en/site/) A Free and Open Source Geographic Information System. 
-   *   [QGis at CSC servers](../../../apps/qgis.md)
+    *   [QGis at CSC servers](../../../apps/qgis.md)
 
 ### Biosciences
 *  [GATK](https://gatk.broadinstitute.org/hc/en-us) A genomic analysis toolkit focused on variant discovery.
 *  [MultiQC 1.10](https://multiqc.info/) NGS Read quolity checking tool.
 *  [Salmon 1.9.0](https://combine-lab.github.io/salmon/) Program to produce transcript-level quantification estimates from RNA-seq data
-   *   [Salmon 1.9.0 at CSC servers](../../../apps/salmon.md)
+    *   [Salmon 1.9.0 at CSC servers](../../../apps/salmon.md)
 
 ### Miscallenius
 *   [auto-apptainer](./auto-apptainer.md) Tool to add command line applications using the Apptainer container library provided by CSC.
