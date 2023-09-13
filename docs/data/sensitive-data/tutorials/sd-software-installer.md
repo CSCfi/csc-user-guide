@@ -33,7 +33,7 @@ Select the version that matches the operating system of your SD Desktop.
 
 **Figure 1.** Copying sd-installer.desktop file to SD desktop.
  
-Double click the copy of the installer tool in your dekstop to start the software installation tool. In Ubuntu based VMs you
+Double click the copy of the installer tool in your desktop to start the software installation tool. In Ubuntu based VMs you
 need to right-click the and select _Allow Launching_ before  you can use the installer.
 
 [![sd-installer](../images/desktop/sd-installer2.png)](../images/desktop/sd-installer2.png)
