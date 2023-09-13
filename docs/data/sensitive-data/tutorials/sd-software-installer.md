@@ -26,14 +26,15 @@ Log in to your SD Desktop and open **Data Gateway**. If the software installatio
 then you should have folder **tools-for-sd-desktop** included in the directory that Data Gateway created 
 ( in Projects/SD-Connect/_your-project-name_).
 
-Open _tools-for-sd-desktop_ folder and from there, drag/copy file **sd-installer.desktop** to your desktop.
+Open _tools-for-sd-desktop_ folder and from there, drag/copy file **sd-installer-centos7.desktop** or  **sd-installer-ubuntu22.desktop** to your desktop.
+Select the version that matches the operating system of your SD Desktop.
 
 [![Installing-sd-installer](../images/desktop/sd-installer1.png)](../images/desktop/sd-installer1.png)
 
 **Figure 1.** Copying sd-installer.desktop file to SD desktop.
  
-Double click the copy of _sd-installer.desktop_ to start the software installation tool. In Ubuntu based VMs you
-need to right-click the and select _Allow Launching_ before  you can use the _sd-installer.desktop_.
+Double click the copy of the installer tool in your dekstop to start the software installation tool. In Ubuntu based VMs you
+need to right-click the and select _Allow Launching_ before  you can use the installer.
 
 [![sd-installer](../images/desktop/sd-installer2.png)](../images/desktop/sd-installer2.png)
 
