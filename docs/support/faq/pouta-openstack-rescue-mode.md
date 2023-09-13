@@ -62,17 +62,38 @@ Note that there are always several ways to fix any problem, this FAQ is mainly m
 
 1. You need to have installed the [OpenStack command line tools](/cloud/pouta/install-client/). And you have to login, and see [Configure your terminal environment for OpenStack](/cloud/pouta/install-client/#configure-your-terminal-environment-for-openstack) for reference.
 
-1. Get the server's ID, and store it in an environment variable called: `INSTANCE_UUID` :
+1. Get the server's ID, and store it in an environment variable called: `INSTANCE_UUID`:
 
 	```sh
 	$ openstack server list
 	+--------------------------------------+-----------+--------+----------------------------+-------+----------------+
 	| ID                                   | Name      | Status | Networks                   | Image | Flavor         |
 	+--------------------------------------+-----------+--------+----------------------------+-------+----------------+
-	| 55555566-ffff-4a52-5735-356251902325 | comp1  | ACTIVE | net=192.168.211.211  |       | standard.small |
+	| 55555566-ffff-4a52-5735-356251902325 | comp1     | ACTIVE | net=192.168.211.211        |       | standard.small |
 	+--------------------------------------+-----------+--------+----------------------------+-------+----------------+
 
 	```
+
+1. Get the image ID. You can store the ID into an environment variable `IMAGE_UUID`. You can use `CirrOS` or the same image as your instance: (The ID may vary from the example below)
+
+	```sh
+	$ openstack image list
+	+--------------------------------------+----------------------+--------+
+    | ID                                   | Name                 | Status |
+	+--------------------------------------+----------------------+--------+
+	| 56b70226-0c52-48c6-973f-3f726b5e7dc0 | CentOS-7             | active |
+	| 2d20266d-43f7-499e-b6e6-090b09416b16 | CentOS-7-Cuda        | active |
+	| c80adfec-05a8-4c42-8922-4bccdf90df40 | CentOS-8-Stream      | active |
+	| fcf7bffe-1df8-4c18-8cc4-39b1e39be01e | Cirros-0.5.1         | active |
+	| 2ca237c5-bd0a-4469-ae9f-20878dd288a9 | Fedora Cloud Base 31 | active |
+	| ee19819d-17d5-4f71-ac38-e024d046eb6a | Ubuntu-18.04         | active |
+	| 668d235f-e6e4-421d-964c-0016f9560206 | Ubuntu-20.04         | active |
+	| aea0bf58-85fb-4f9c-b2ea-ffa6c7a07c02 | Ubuntu-22.04         | active |
+	| 3a9aad67-0f9c-4493-b574-17fe28d40afc | cirros               | active |
+	+--------------------------------------+----------------------+--------+
+	```
+	!!! info "Cirros"
+	    Cirros is a small image designed for rescue operations when access was lost. It provides a default username and password that can be used in Pouta's web console
 
 1. Shutdown the instance:
 
@@ -81,38 +102,26 @@ Note that there are always several ways to fix any problem, this FAQ is mainly m
 	```
 
 1. Check that the VM is stopped:
-
+	
 	```sh
-	openstack server show $INSTANCE_UUID
+	openstack server list
 	```
 
-    The power_state should be `Shutdown`.
+	The Status should be `SHUTOFF`
 
-1. You are now ready to launch the rescue of the instances:
-
-	```sh
-	nova rescue $INSTANCE_UUID --image <image-name>
-	```
-
-	Ignore the password the command shows, the ssh password login is disabled in all our images.
-
-	!!! warning
-    	    There is also a command named `openstack server rescue` which is almost the same as `nova rescue` but is missing the `--image` flag which is almost *always* required when rescuing servers.
-
-    In this step, you should use the same image as your instance. You can get a list of images available by:
+1. You are now ready to launch the rescue of the instance:
 
 	```sh
-	openstack image list
+	openstack server rescue --image $IMAGE_UUID $INSTANCE_UUID
 	```
-
-	!!! info "Cirros"
-	    Cirros is a small image designed for rescue operations when access was lost. It provides a default username and password that can be used in Pouta's web console
 
 1. Make sure that the instance is in rescue mode with:
 
 	```sh
-	openstack server show $INSTANCE_UUID
+	openstack server list
 	```
+
+	The Status should be `RESCUE`
 
 ## Connecting
 
@@ -187,7 +196,7 @@ The `chroot` has now changed your root folder `/` to `/tmp/mnt/` (your VM's disk
 1. Log out from the instances and `unrescue` the instance:
 
 	```sh
-	nova unrescue $INSTANCE_UUID
+	openstack server unrescue $INSTANCE_UUID
 	```
 
 1. It would be a good idea to verify that a restart works after the kernel reinstallation:
