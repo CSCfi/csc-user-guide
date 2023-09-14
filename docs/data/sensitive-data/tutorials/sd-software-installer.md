@@ -1,14 +1,14 @@
 # SD Desktop Software Installer
 
-As SD desktop virtual machines are isolated from internet, installing additional software and libraries 
-to your virtual machine is not straight forward. Adding extra software is possible, but it requires that 
+As SD desktop virtual desktops are isolated from internet, installing additional software and libraries 
+to your virtual desktop is not straight forward. Adding extra software is possible, but it requires that 
 you convert the installation processes into files that can be uploaded to SD Connect and from there 
 copied to your SD Desktop environment for installation and usage.
 
 In generally, we recommend using Apptainer containers for importing the software you need.
 
 To make additional software installations easier, CSC has created a **SD Software Installer** tool,
-that provides an easy way to add few commonly used software packages and help tools to your virtual machine. 
+that provides an easy way to add few commonly used software packages and help tools to your virtual desktop. 
 This document describes the usage of this tool.
 
 
@@ -33,7 +33,7 @@ Select the version that matches the operating system of your SD Desktop.
 
 **Figure 1.** Copying sd-installer.desktop file to SD desktop.
  
-Double click the copy of the installer tool in your desktop to start the software installation tool. In Ubuntu based VMs you
+Double click the copy of the installer tool in your desktop to start the software installation tool. In Ubuntu based virtual desktops you
 need to right-click the and select _Allow Launching_ before  you can use the installer.
 
 [![sd-installer](../images/desktop/sd-installer2.png)](../images/desktop/sd-installer2.png)
@@ -50,7 +50,7 @@ mounting of the SD Conncect data should be done through the default location in 
 The installer shows a panel of buttons that allow you to install a software by just cliking the button.
 The available software include graphical and command line applications. For graphical applications, a launching icon is added 
 to the desktop. All software is installed to directory _/shared-directory/sd-tools/_ where the installaion is availale for all the
-users of the virtual machine.
+users of the virtual desktop.
 
 In case of some applications, part of the installation process occurs only when the application is started for the first time.
 Thus you should start the application once after the installation, to make sure that the prcess is completed. After that
@@ -68,7 +68,7 @@ Notes about the available tools. Note that this list may be out-dated:
 ### Imaging and vidos
 *  [Audacity](https://www.audacityteam.org/). Sound editor.
 *  [OpenShot 3.1.1](https://www.openshot.org/). Video editor.
-   *  This tool works only in Ubuntu22 based VMs.
+   *  This tool works only in Ubuntu22 based virtual desktops.
    *  After installation, right click the OpenShot desktop icon and select: _Run as a program_.
 *  [QuPath 0.4.2](https://github.com/qupath/qupath/). Software for bioimage analysis.GATL
 *  [Whisper](whisper.md) Automatic speech recognition.
