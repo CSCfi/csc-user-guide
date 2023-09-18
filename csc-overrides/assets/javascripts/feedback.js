@@ -42,10 +42,6 @@ const handleSubmit = rating => {
 const setForm = () => {
   if (ratingExists()) {
     const rating = getRating()
-
-    const feedbackFormElement = document.querySelector(".csc-feedback")
-    feedbackFormElement.classList.add("csc-submitted")
-
     const feedbackFormContentElement = document.querySelector(".csc-feedback-content")
     feedbackFormContentElement.classList.add("csc-rated", `csc-rated--${rating}`)
   }

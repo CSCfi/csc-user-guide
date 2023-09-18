@@ -47,11 +47,11 @@
     background-color: var(--csc-error);
   }
 
-  & .csc-rated>.csc-feedback-button {
+  & .csc-rated > .csc-feedback-button {
     display: none;
   }
 
-  & .csc-feedback-content:not(.csc-rated)>.csc-feedback-note {
+  & .csc-feedback-content:not(.csc-rated) > .csc-feedback-note {
     display: none;
   }
 
@@ -62,8 +62,4 @@
   & .csc-rated--negative .csc-feedback-note--positive {
     display: none;
   }
-}
-
-.csc-feedback.csc-submitted legend {
-  display: none;
 }
