@@ -1,6 +1,7 @@
 {% set feedback = config.extra.analytics.feedback %}
+{% set edited = page.meta.git_revision_date_localized_raw_custom|string %}
 {% if not page.is_homepage and page.url not in feedback.exclude %}
-<form class="csc-feedback" name="feedback">
+<form class="csc-feedback" name="feedback" data-source-edited="{{ edited[:-2]+':00' }}">
   <fieldset>
     <legend>{{ feedback.title }}</legend>
     <div class="csc-feedback-content">
@@ -13,6 +14,9 @@
       >
         {{ rating.name }}
       </button>
+      <div class="csc-feedback-note csc-feedback-note--{{ rating.type }}">
+        {{ rating.note }}
+      </div>
       {% endfor %}
     </div>
   </fieldset>

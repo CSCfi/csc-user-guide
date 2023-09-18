@@ -18,7 +18,7 @@ extra:
           type: positive
           description: Yes! I do find this page useful.
           note: >-
-            Thank you!
+            Thank you for your feedback!
         - name: "No"
           type: negative
           description: No! This page needs to be improved.
@@ -39,6 +39,7 @@ plugins:
   - search
   - git-revision-date-localized:
       type: date
+      custom_format: "%Y-%m-%dT%H:%M:%S%z" # Used with feedback buttons
       locale: en
       timezone: Europe/Helsinki
       exclude:
