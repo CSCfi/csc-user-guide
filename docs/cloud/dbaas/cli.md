@@ -119,16 +119,16 @@ List existing users in the database:
 openstack database user list $INSTANCE_ID
 ```
 
-Create a user (`--databases` is not necessary):
+Create a new user (`--databases` is optional):
 
 ```
 openstack database user create $INSTANCE_ID $USER_NAME $PASSWORD --databases $DATABASE_NAME
 ```
 
-Give database access to an existing user.:
+Give database access to an existing user.
 
 ```
-openstack database user grant access  $INSTNACE_ID $USER_NAME $DATABASE_NAME
+openstack database user grant access $INSTNACE_ID $USER_NAME $DATABASE_NAME
 ```
 
 
