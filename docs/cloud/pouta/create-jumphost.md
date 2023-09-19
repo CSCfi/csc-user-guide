@@ -14,7 +14,7 @@ Keep in mind that we provide a basic template. You can clone and edit it for ful
 ## Explanations  
 Two extra folders need to be created: `files` and `keys`.  
 
-In the `files` folder, you need to copy your public key used to connect the instances. It can be the public key you use every time in cPouta or it can be a new key. Don't forget to upload it to your cPouta project.  
+In the `files` folder, you need to copy your public key used to connect to the instances. It can be the public key you use every time in cPouta or it can be a new key. Don't forget to upload it to your cPouta project.  
 
 In the `keys` folder, you need to copy all the public keys you want to authorize to connect to the different instances. Ansible will look to the `keys` folder.  
 
