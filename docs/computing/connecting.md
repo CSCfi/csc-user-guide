@@ -124,8 +124,9 @@ You can set up your SSH keys in the MyCSC portal by following these steps
 1. Click 'Add'
 1. You should now see your new key listed under 'SSH PUBLIC KEYS'
 
-!!! success "Your updated SSH keys will be active shortly"
-    Please note: A brief delay is expected during this update.
+!!! success "Note"
+    It might take up to one hour before your new SSH key will become active. If it
+    takes longer than this, please [contact CSC Service Desk](../support/contact.md).
 
 ### Using `ssh-copy-id` to copy public SSH key from local PC to supercomputer
 
