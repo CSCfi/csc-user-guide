@@ -3,63 +3,63 @@
   --button-positive--bg: var(--csc-admonition-success-label--bg);
   --button-negative--fg: var(--csc-admonition-error-label--fg);
   --button-negative--bg: var(--csc-admonition-error-label--bg);
+}
 
-  & fieldset {
-    border: unset;
-    max-width: fit-content;
-    margin: 0 auto 1rem auto;
-  }
+.csc-feedback fieldset {
+  border: unset;
+  max-width: fit-content;
+  margin: 0 auto 1rem auto;
+}
 
-  & fieldset legend {
-    margin: 0 auto;
-  }
+.csc-feedback fieldset legend {
+  margin: 0 auto;
+}
 
-  & .csc-feedback-content {
-    display: flex;
-    justify-content: center;
-  }
+.csc-feedback .csc-feedback-content {
+  display: flex;
+  justify-content: center;
+}
 
-  & .csc-feedback-button {
-    border: 0;
-    scale: 0.9;
-  }
+.csc-feedback .csc-feedback-button {
+  border: 0;
+  scale: 0.9;
+}
 
-  & .csc-feedback-note {
-    font-size: var(--csc-font-size--large);
-    font-weight: var(--csc-font-weight--bold);
-  }
+.csc-feedback .csc-feedback-note {
+  font-size: var(--csc-font-size--large);
+  font-weight: var(--csc-font-weight--bold);
+}
 
-  & .csc-feedback-button--positive {
-    color: var(--button-positive--fg);
-    background-color: var(--button-positive--bg);
-  }
+.csc-feedback .csc-feedback-button--positive {
+  color: var(--button-positive--fg);
+  background-color: var(--button-positive--bg);
+}
 
-  & .csc-feedback-button--positive:is(:hover, :focus) {
-    background-color: var(--csc-success);
-  }
+.csc-feedback .csc-feedback-button--positive:is(:hover, :focus) {
+  background-color: var(--csc-success);
+}
 
-  & .csc-feedback-button--negative {
-    color: var(--button-negative--fg);
-    background-color: var(--button-negative--bg);
-  }
+.csc-feedback .csc-feedback-button--negative {
+  color: var(--button-negative--fg);
+  background-color: var(--button-negative--bg);
+}
 
-  & .csc-feedback-button--negative:is(:hover, :focus) {
-    background-color: var(--csc-error);
-  }
+.csc-feedback .csc-feedback-button--negative:is(:hover, :focus) {
+  background-color: var(--csc-error);
+}
 
-  & .csc-rated > .csc-feedback-button {
-    display: none;
-  }
+.csc-feedback .csc-rated > .csc-feedback-button {
+  display: none;
+}
 
-  & .csc-feedback-content:not(.csc-rated) > .csc-feedback-note {
-    display: none;
-  }
+.csc-feedback .csc-feedback-content:not(.csc-rated) > .csc-feedback-note {
+  display: none;
+}
 
-  & .csc-rated--positive .csc-feedback-note--negative {
-    display: none;
-  }
+.csc-feedback .csc-rated--positive .csc-feedback-note--negative {
+  display: none;
+}
 
-  & .csc-rated--negative .csc-feedback-note--positive {
-    display: none;
-  }
+.csc-feedback .csc-rated--negative .csc-feedback-note--positive {
+  display: none;
 }
