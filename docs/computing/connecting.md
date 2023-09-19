@@ -68,14 +68,14 @@ In `PuTTY`, X11 forwarding is enabled in the connection settings (Connection -> 
 
 SSH keys provide more secure authentication and can be enabled with a two-step process:
 
-1. **Generate SSH keys on your local PC**
+1. **Generate SSH keys on your local PC**  
    The SSH keys are always generated in pairs, one _public key_ and
    one _private key_. These keys should be generated on the computer
    you are using to connect to CSC supercomputers.
 
     * See [_Generating an SSH key pair_](#generating-an-ssh-key-pair) for instructions.
 
-1. **Copy public key from local PC to supercomputer**
+1. **Copy public key from local PC to supercomputer**  
    Only the _public key_ should be copied, **not** the private key.
    The recommended way is to add the public key via MyCSC.
 
