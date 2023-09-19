@@ -30,9 +30,8 @@ line tools (bash shell). An introduction to operating on the Linux command line 
 for example, in our [Linux basics tutorial for CSC](../support/tutorials/env-guide/index.md).
 You can have several connections to CSC supercomputers open at the same time.
 
-By default, SSH access to Puhti/Mahti is authenticated with the password of your CSC user account.
-You can [set up also SSH keys](#setting-up-ssh-keys) for easier and more secure connecting to CSC
-supercomputers.
+For now, SSH access to Puhti/Mahti can be authenticated using the password of your CSC user account, but
+for increased security (and convenience) you should [set up SSH keys](#setting-up-ssh-keys) as your primary method for authentication.
 
 !!! warning "Login nodes: important note for Puhti and Mahti"
     The login nodes can be used for **light** pre- and postprocessing, compiling
@@ -69,19 +68,24 @@ In `PuTTY`, X11 forwarding is enabled in the connection settings (Connection -> 
 
 SSH keys provide more secure authentication and can be enabled with a two-step process:
 
-1. **Generate SSH Keys on your local PC**  
-   The SSH Keys are always generated in pairs, one _public key_ and
+1. **Generate SSH keys on your local PC**
+   The SSH keys are always generated in pairs, one _public key_ and
    one _private key_. These keys should be generated on the computer
    you are using to connect to CSC supercomputers.
-2. **Copy public key from local PC to supercomputer**  
-   Only the _public key_ should be copied, don't copy the private key.
-   For LUMI, the public key should be uploaded via MyCSC, [see
-   below](../connecting/#setting-up-your-ssh-keys-in-mycsc-portal).
 
-!!! error "Important!"
-    The private key should **never** be shared with anyone, not even with
-    CSC staff. It should be also stored only on the local computer (public key
-    can be safely stored in cloud services).
+    * See [_Generating an SSH key pair_](#generating-an-ssh-key-pair) for instructions.
+
+1. **Copy public key from local PC to supercomputer**
+   Only the _public key_ should be copied, **not** the private key.
+   The recommended way is to add the public key via MyCSC.
+
+    * See [_Adding a public key in MyCSC portal_](#adding-a-public-key-in-mycsc-portal) for instructions.
+
+!!! error-label
+    The private key should **never** be shared with anyone, not even with  CSC staff. It should<br>
+    be stored only on the local computer (public key can be safely stored in cloud services).
+
+### Generating an SSH key pair
 
 An SSH key pair can be generated in the Linux, macOS, Windows PowerShell and MobaXterm
 terminals as follows. For PuTTY, see [PuTTY SSH keys instructions](#ssh-keys-with-putty)
@@ -105,8 +109,25 @@ Next, you will be asked for a passphrase. Please choose a secure
 passphrase. It should be at least 8 characters long and should contain
 numbers, letters and special characters.
 
-!!! error "Important!"
+!!! error-label
     Never leave the passphrase empty when generating an SSH key pair!
+
+### Adding a public key in MyCSC portal
+
+You can set up your SSH keys in the MyCSC portal by following these steps
+
+1. Login to [MyCSC](https://my.csc.fi) with your CSC or Haka/Virtu credentials
+1. From the dropdown menu at top right, select 'My Profile'
+1. In the section 'SSH PUBLIC KEYS', click 'Add key' (you'll be prompted to "re-login in order to add SSH Keys")
+1. Enter a 'Title', e.g. _my-ssh-key_, for your key
+1. Paste your **public** SSH key into the 'Key' field. Supported keys are: RSA 2048, ECDSA 521, ED25519 256.
+1. Click 'Add'
+1. You should now see your new key listed under 'SSH PUBLIC KEYS'
+
+!!! success "Your updated SSH keys will be active shortly"
+    Please note: A brief delay is expected during this update.
+
+### Using `ssh-copy-id` to copy public SSH key from local PC to supercomputer
 
 In Linux, macOS and MobaXterm the public key can be copied with
 `ssh-copy-id`. For example, in order to copy the key to Puhti use:
@@ -162,23 +183,6 @@ rm ~/.ssh/mypubkey.pub
     * If you want to copy the public key from a public key file created by PuTTYgen, then
       edit the file first so that everything is on one row only and does not include
       any spaces in the key itself.
-
-### Setting up your SSH keys in MyCSC portal
-
-!!! warning "Note"
-    Setting up your SSH keys in the [MyCSC](https://my.csc.fi) portal is currently
-    available only for the [LUMI environment](https://docs.lumi-supercomputer.eu/).
-
-You can set up your SSH keys in the MyCSC portal by following these steps
-
-1. Login to [MyCSC](https://my.csc.fi) with your CSC or HAKA/VIRTU credentials
-2. Proceed to 'My profile' section (top right)
-3. Scroll down to the end of the page where you find the section 'SSH PUBLIC KEYS'
-4. Click 'Modify' and select 'Add new...' to add your SSH key
-5. Paste your **public** SSH key to the text field. Supported keys are: RSA 2048,
-   ECDSA 521, ED25519 256.
-6. Click 'Add' and then 'Confirm' which will trigger re-authentication to the portal
-7. Now you can see your SSH key stored to your profile
 
 ### SSH keys with MobaXterm
 
