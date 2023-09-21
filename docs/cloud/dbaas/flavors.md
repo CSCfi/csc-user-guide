@@ -24,14 +24,38 @@ The database instances are hosted on top of cPouta. The billing is based on the 
 <!-- should this flavor exist here: | hpc.6.32core    | 32 | 116 | 120 | -->
 <!--- We should probably remove standard.3xlarge in favor of supporting hpc.5.16core -->
 
-## Other resources
+
+## Volumes
 
 | Resource type | Unit | Billing Units / GiB hour |
 |--- |:---:|:---:|
 | Volumes | GiB reserved | 0.01 |
+
+
+
+
+## Backups
+| Resource type | Unit | Billing Units / GiB hour |
+|--- |:---:|:---:|
 | Backups | GiB usage | 0.003 |
+
 
 Note that backups are taken automatically once a day and are stored for 90 days. This means that
 after 90 days you will have consistently 90 backups per instance. This means that each backup
 will in practice cost 6.48 Billing Units / GiB. Another way of thinking about it is that having
 backups costs 0.27 BU per hour if your average backup size is 1 GiB.
+
+
+## Quotas
+
+Defaults Quotas
+
+| Resource type | Amount |
+|--- |:---:|
+| Maximum manual backups               | 1000      |
+| Maximum number of database instances  | 5         |
+| Maximum memory usage                 | 20000 MiB |
+| Maximum volume reservation           | 50 GiB    |
+
+If you need to run more or bigger database than what the default quota allows you can always send a
+request to [ServiceDesk](mailto:servicedesk@csc.fi) .
