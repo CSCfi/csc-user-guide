@@ -261,8 +261,9 @@ nav:
             - Creating, Converting, Uploading and Sharing virtual machine images: cloud/pouta/adding-images.md
         - Networking:
             - cloud/pouta/networking.md
-        - Orchestration with Heat: cloud/pouta/heat-orchestration.md
         - Application Development Practises in Pouta: cloud/pouta/application-dev.md
+        - Orchestration with Heat: cloud/pouta/heat-orchestration.md
+        - Jumphost in cPouta: cloud/pouta/create-jumphost.md
         - Additional services in Pouta (email, dns): cloud/pouta/additional-services.md
         - Self study and troubleshooting:
              - Pouta videos: cloud/pouta/pouta-videos.md
