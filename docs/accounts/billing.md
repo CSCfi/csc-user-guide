@@ -27,6 +27,8 @@ at research.csc.fi.
 
     For LUMI billing, [see the LUMI documentation](https://docs.lumi-supercomputer.eu/runjobs/lumi_env/billing/){ target=_blank }.
 
+    The use of Fairdata IDA and Kaivos doesn't consume billing units.
+
 ## Monitoring billing unit consumption
 
 In the _My Projects_ page in [MyCSC](https://my.csc.fi) you can study the
