@@ -17,7 +17,7 @@ The database instances are hosted on top of cPouta. The billing is based on the 
 | standard.small   | 2 | 2000  | 2  |
 | standard.medium  | 3 | 4000  | 4  |
 | standard.large   | 4 | 8000  | 7  |
-| standard.xlarge  | 6 | 1600  | 13 |
+| standard.xlarge  | 6 | 16000 | 13 |
 | standard.xxlarge | 8 | 32000 | 25 |
 | standard.3xlarge | 8 | 64000 | 50 |
 | hpc.5.16core    | 16 | 59392 | 60 |
