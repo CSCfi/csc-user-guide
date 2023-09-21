@@ -39,11 +39,7 @@ The database instances are hosted on top of cPouta. The billing is based on the 
 |--- |:---:|:---:|
 | Backups | GiB usage | 0.003 |
 
-
-Note that backups are taken automatically once a day and are stored for 90 days. This means that
-after 90 days you will have consistently 90 backups per instance. This means that each backup
-will in practice cost 6.48 Billing Units / GiB. Another way of thinking about it is that having
-backups costs 0.27 BU per hour if your average backup size is 1 GiB.
+Automatic daily backups are stored for 90 days and they consume billing units based on total backup usage.
 
 
 ## Quotas
