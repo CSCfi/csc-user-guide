@@ -346,6 +346,7 @@ nav:
        - Start here: 
           - data/sensitive-data/vk-srd-a-creating.md
           - Resources and billing units: data/sensitive-data/vk-srd-a-billing.md
+          - Terminology: data/sensitive-data/vk-sds-terminology.md
        - Store with SD Connect: 
           - data/sensitive-data/vk-srd-sd-connect.md
           ## + key features + authentication
