@@ -9,9 +9,11 @@ Schrödinger Maestro is a versatile molecular modeling environment. It has modul
 *drug design* and *materials science*. It can be used to build, edit, run and analyze
 chemical model systems.
 
-Schrödinger Maestro provides access to the Desmond molecular dynamics engine, which
-runs **very well** on GPUs. We recommend watching the video below on how to set up
-and run Desmond MD simulations easily.
+Schrödinger Maestro provides access to the Desmond molecular dynamics engine,
+which runs **very well** on GPUs. We recommend watching the
+[video below](#video-how-to-run-a-desmond-simulation-on-puhti) on how to set up
+and run Desmond MD simulations easily. See also the
+[bottom of this page](#more-information) for links to further self-learning materials.
 
 [TOC]
 
@@ -147,10 +149,6 @@ module load maestro
 bash your_script_name.sh
 ```
 
-The following tutorial video walks you through the process:
-
-[![Maestro Standalone](http://img.youtube.com/vi/Aj205UDcWFE/0.jpg)](http://www.youtube.com/watch?v=Aj205UDcWFE "Maestro Standalone")
-
 !!! warning "Maestro GUI"
 
     We do **not** recommend running the Maestro GUI remotely on Puhti. It *can* be done via
@@ -165,6 +163,12 @@ The following tutorial video walks you through the process:
     Replace the backslashes `\` with `/` in the path to the Maestro binary
     (right after `$SCHRODINGER` in the script).
 
+#### Video: How to run a Desmond simulation on Puhti
+
+The following tutorial video walks you through the process:
+
+[![Maestro Standalone](http://img.youtube.com/vi/Aj205UDcWFE/0.jpg)](http://www.youtube.com/watch?v=Aj205UDcWFE "Maestro Standalone")
+
 ## References
 
 Please cite the Maestro modules in all published work as described
@@ -175,14 +179,15 @@ Jaguar, version 7.6, Schrödinger, LLC, New York, NY, 2009.
 ## More information
 
 * [Tutorial and tips for power usage on Puhti](../support/tutorials/power-maestro.md)
-* Manual including tutorials come with the Maestro GUI.
-* The [Schrödinger website](http://www.schrodinger.com/support) has an extensive collection of
-  videos, tutorials, online courses, etc.
-   * [A 3 min overview video](https://www.youtube.com/watch?v=NkM8jjHr7f4)
-   * [Learn Maestro in 40 minutes](https://www.schrodinger.com/seminars/archives/1338/6th-life-science-bootcamp)
-     Requires registration, which may take a while to complete.
-   * [Short videos on 11 features](https://www.schrodinger.com/training/videos/maestro/all)
-   * [Downloadable tutorials section](https://www.schrodinger.com/training/tutorials)
-* Search the [Schrödinger KnowledgeBase](https://www.schrodinger.com/kb) for solutions
-* Issues on how to run Maestro on CSC environment: [contact ServiceDesk](/support/contact/)
-* Scientific questions related to Maestro modules: [help@schrodinger.com](mailto:help@schrodinger.com)
+* Manual including tutorials come with the Maestro GUI
+* The [Schrödinger knowledge base](https://support.schrodinger.com/s/) has an
+  extensive collection of articles
+* Video materials (some require registration at the [Schrödinger website](https://www.schrodinger.com/)):
+     * [Schrödinger training materials overview](https://www.schrodinger.com/learn/training)
+     * [Getting Going with Maestro](https://www.schrodinger.com/sites/default/files/s3/release/current/Getting-Going-With-Video-Series/Maestro/Get-Going-Maestro-VS/Content/maestro/Page-Topics-m/01-Course-Intro-Get-Going.htm)
+     * [Getting Going with Materials Science Maestro](https://www.schrodinger.com/sites/default/files/s3/release/current/Getting-Going-With-Video-Series/MS_Maestro/Get-Going-MS-VS/Content/maestro-ms/Page-Topics-ms/01-Course-Intro-Get-Going-ms.htm)
+     * [Learn Maestro in 40 minutes](https://www.schrodinger.com/seminars/archives/1338/6th-life-science-bootcamp)
+     * [Short videos on different features](https://www.schrodinger.com/training/videos/maestro/all)
+     * [Schrödinger YouTube channel](https://www.youtube.com/@SchrodingerTV)
+* Issues on how to run Maestro in CSC environment: [contact CSC Service Desk](../support/contact.md)
+* Scientific questions related to Maestro modules: [contact Schrödinger Support](https://support.schrodinger.com/s/contactsupport)
