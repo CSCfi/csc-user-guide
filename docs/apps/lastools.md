@@ -24,7 +24,9 @@ You can test LAStools loaded successfully with
 
 `lasinfo -h`
 
-The 2023 version of LAStools is based on the new native Linux version of LAStools and requires `64` at the end of all tools, for example: `lasinfo64 -h`
+The 2023 version of LAStools is based on the new native Linux version of LAStools and requires `64` at the end of all tools, for example: 
+
+`lasinfo64 -h`
 
 ### LAStools commands
 
@@ -71,7 +73,10 @@ The Finnish national [lidar data](https://www.maanmittauslaitos.fi/en/maps-and-s
 
 ### LAStools with many files
 
-If you are processing large number of lidar files with LAStools, it is possible in Puhti to process the files in parallel. For using up to 40 cores (=1 node in Puhti), the best option would be using GNU parallel - see [CSC GDAL parallel example](https://github.com/csc-training/geocomputing/tree/master/gdal) for details. For multi-node usage, see [Tutorial: GNU Parallel workflow for many small, independent runs](../support/tutorials/many.md).
+If you are processing large number of lidar files with LAStools, it is possible in Puhti to process the files in parallel. 
+
+* For using up to 40 cores (=1 node in Puhti), the best option would be using GNU parallel - see [CSC GDAL parallel example](https://github.com/csc-training/geocomputing/tree/master/gdal) for details.
+* For multi-node usage, see [Tutorial: GNU Parallel workflow for many small, independent runs](../support/tutorials/many.md).
 
 ## License 
 
@@ -92,13 +97,11 @@ Citation of the software depends on which license was used:
 * rapidlasso GmbH, "LAStools - efficient LiDAR processing software" (version 220613, commercial), obtained from http://rapidlasso.com/LAStools
 
 ## Installation
-### 2023
-2023 version was installed to Puhti using Singularity container based on [CSC's LasTools Apptrainer recipy](https://github.com/CSCfi/singularity-recipes/blob/main/lastools/lastools_2023.def) and [Tykky's wrap-container functionality](../computing/containers/tykky.md#container-based-installations).
+**2023 version** was installed to Puhti using Singularity container based on [CSC's LasTools Apptrainer recipy](https://github.com/CSCfi/singularity-recipes/blob/main/lastools/lastools_2023.def) and [Tykky's wrap-container functionality](../computing/containers/tykky.md#container-based-installations).
 
 `wrap-container -w /opt/LAStools lastools.sif --prefix 2023`
 
-### 2022
-2022 version was installed to Puhti with [Tykky's wrap-container functionality](../computing/containers/tykky.md#container-based-installations) using the [LAStools Docker image from Dockerhub](https://hub.docker.com/r/pydo/lastools). 
+**2022 version** was installed to Puhti with [Tykky's wrap-container functionality](../computing/containers/tykky.md#container-based-installations) using the [LAStools Docker image from Dockerhub](https://hub.docker.com/r/pydo/lastools). 
 
 `wrap-container -w /opt/LAStools docker//:pydo/lastools:latest --prefix 2022`
 
