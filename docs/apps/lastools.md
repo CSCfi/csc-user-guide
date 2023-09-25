@@ -13,7 +13,8 @@ tags:
 
 LAStools is included in following modules:
 
-* lastools: 2022 (more exactly 220613)
+* lastools: 2023 (more exactly 230914) and 2022 (220613)
+* geoconda: 3.10.9 and 3.10.6 (both with older 20171231)
 
 Load one of these modules, for example:
 
@@ -23,9 +24,11 @@ You can test LAStools loaded successfully with
 
 `lasinfo -h`
 
+The 2023 version of LAStools is based on the new native Linux version of LAStools and requires `64` at the end of all tools, for example: `lasinfo64 -h`
+
 ### LAStools commands
 
-Puhti installation includes only the open source tools of LAStools.
+All lastool installations in Puhti include the open source tools of LAStools.
 
 * las2las - extracts last returns, clips, subsamples, translates, etc ...
 * las2txt - turns LAS into human-readable and easy-to-parse ASCII
@@ -36,6 +39,8 @@ Puhti installation includes only the open source tools of LAStools.
 * lasprecision - analyses the actual precision of the LIDAR points
 * laszip - compresses the LAS files in a completely lossless manner
 * txt2las - converts LIDAR data from ASCII text to binary LAS format
+
+The 2023 version includes also: `lasoptimize64, las2dem64, las2iso64, las2shp64, las2tin64, las3dpoly64, lasboundary64, lascanopy64, lasclassify64, lasclip64, lascolor64, lascontrol64, lascopy64, lasdatum64, lasdistance64, lasduplicate64, lasgrid64, lasground64, lasground_new64, lasheight64, lasintensity64, laslayers64, lasnoise64, lasoverage64, lasoverlap64, lasreturn64, lassort64, lassplit64, lasthin64, lastile64, lastrack64, lasvdatum64, lasvoxel64`. See the License for terms of use for these tools.
 
 ### Using a licensed version
 
@@ -58,52 +63,15 @@ module load wine
 wine64 lasinfo64.exe -i <LAS file>
 ```
 
+If you want to use the new native Linux tools with own license, contact CSC.
+
 ### Finnish National Land Survey's lidar data in Puhti
 
 The Finnish national [lidar data](https://www.maanmittauslaitos.fi/en/maps-and-spatial-data/expert-users/product-descriptions/laser-scanning-data) is already stored in Puhti. You can find it from filepath: __/appl/data/geo/mml/laserkeilaus__. [More info](https://research.csc.fi/gis_data_in_csc_computing_env).
 
-### LAStools and array jobs
+### LAStools with many files
 
-If you are processing large number of lidar files with LAStools, the best practice would be to use an [batch array job](../computing/running/array-jobs.md)
-
-First create a text file with filepaths to the lidar files. This is one way of doing it
-
-```
-cd folder_with_laz_files
-ls -d -1 "$PWD/"*.laz > lazfilepaths.txt
-```
-
-Create an batch array job script that takes this list as an argument. This example had 12 files
-
-```
-#!/bin/bash -l
-#SBATCH --account=<YOUR_PROJECT>
-#SBATCH --job-name las2las_test
-#SBATCH --output array_job_out_%A_%a.txt
-#SBATCH --error array_job_err_%A_%a.txt
-#SBATCH --time 00:10:00
-#SBATCH --ntasks 1
-#SBATCH --mem-per-cpu=1000
-#SBATCH --array=1-12
-#SBATCH --partition small
-
-### load geoconda that has the open source lastools commands
-module load lastools
-
-### read a filepath to the .laz file given in the list of files
-inputfilepath=$(sed -n "$SLURM_ARRAY_TASK_ID"p $1)
-
-### retrieve just the filename from the filepath and remove extension
-outputfilename="${filepath##*/}"
-outputfilename="${filename%.*}"
-
-### extract the first returns only and save to a .las file in directory out/ (needs to exist)
-las2las -i $inputfilepath -o out/$outputfilename.las -first_only
-```
-
-Now you can submit the job with 
-
-`sbatch las2las_test.sh lazfilepaths.txt`
+If you are processing large number of lidar files with LAStools, it is possible in Puhti to process the files in parallel. For using up to 40 cores (=1 node in Puhti), the best option would be using GNU parallel - see [CSC GDAL parallel example](https://github.com/csc-training/geocomputing/tree/master/gdal) for details. For multi-node usage, see [Tutorial: GNU Parallel workflow for many small, independent runs](../support/tutorials/many.md).
 
 ## License 
 
@@ -124,10 +92,15 @@ Citation of the software depends on which license was used:
 * rapidlasso GmbH, "LAStools - efficient LiDAR processing software" (version 220613, commercial), obtained from http://rapidlasso.com/LAStools
 
 ## Installation
+### 2023
+2023 version was installed to Puhti using Singularity container based on [CSC's LasTools Apptrainer recipy](https://github.com/CSCfi/singularity-recipes/blob/main/lastools/lastools_2023.def) and [Tykky's wrap-container functionality](../computing/containers/tykky.md#container-based-installations).
 
-LAStools was installed to Puhti with [Tykky's wrap-container functionality](../computing/containers/tykky.md#container-based-installations) using the [LAStools Docker image from Dockerhub](https://hub.docker.com/r/pydo/lastools). 
+`wrap-container -w /opt/LAStools lastools.sif --prefix 2023`
 
-`wrap-container -w /opt/LAStools docker//:pydo/lastools:latest --prefix install_dir`
+### 2022
+2022 version was installed to Puhti with [Tykky's wrap-container functionality](../computing/containers/tykky.md#container-based-installations) using the [LAStools Docker image from Dockerhub](https://hub.docker.com/r/pydo/lastools). 
+
+`wrap-container -w /opt/LAStools docker//:pydo/lastools:latest --prefix 2022`
 
 
 ## References
