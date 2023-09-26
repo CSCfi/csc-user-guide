@@ -42,11 +42,21 @@ All lastool installations in Puhti include the open source tools of LAStools.
 * laszip - compresses the LAS files in a completely lossless manner
 * txt2las - converts LIDAR data from ASCII text to binary LAS format
 
-The 2023 version includes also: `lasoptimize64, las2dem64, las2iso64, las2shp64, las2tin64, las3dpoly64, lasboundary64, lascanopy64, lasclassify64, lasclip64, lascolor64, lascontrol64, lascopy64, lasdatum64, lasdistance64, lasduplicate64, lasgrid64, lasground64, lasground_new64, lasheight64, lasintensity64, laslayers64, lasnoise64, lasoverage64, lasoverlap64, lasreturn64, lassort64, lassplit64, lasthin64, lastile64, lastrack64, lasvdatum64, lasvoxel64`. See the License for terms of use for these tools.
+The 2023 version includes also: `lasoptimize64, las2dem64, las2iso64, las2shp64, las2tin64, las3dpoly64, lasboundary64, lascanopy64, lasclassify64, lasclip64, lascolor64, lascontrol64, lascopy64, lasdatum64, lasdistance64, lasduplicate64, lasgrid64, lasground64, lasground_new64, lasheight64, lasintensity64, laslayers64, lasnoise64, lasoverage64, lasoverlap64, lasreturn64, lassort64, lassplit64, lasthin64, lastile64, lastrack64, lasvdatum64, lasvoxel64`. See the License for terms of use for these tools. [The native Linux version of LAStools](https://rapidlasso.de/release-of-lastoolslinux/) does not currently support multi-core processing.
+
+In Puhti, only the command-line tools work, not the graphical interface. 
 
 ### Using a licensed version
 
-Not open source LasTools tools are available only as .exe files, so they have to be run with wine (Windows emulator). Only the command-line tools work, not the graphical interface. If you have a LAStools license, you can install the .exe files easily yourself for your project. Download and unzip __LAStools__ to your [projappl disk area](../computing/disk.md).
+CSC provides only the "free" version of LAStools. If you have own license for LAStools, it can be used also in Puhti. 
+
+For using the 2023 native Linux version, copy the license file to Puhti projappl and give the license file location as environment variable before using the tools.
+
+```
+export LAStoolsLicenseFile=/projappl/project_200xxxx/yyy/lastoolslicense.txt
+```
+
+Also using the licensed Windows version is possible with wine (Windows emulator). You can install the .exe files easily yourself for your project. Download and unzip __LAStools__ to your [projappl disk area](../computing/disk.md).
 
 ```
 cd /projappl/<your_project>
@@ -65,7 +75,6 @@ module load wine
 wine64 lasinfo64.exe -i <LAS file>
 ```
 
-If you want to use the new native Linux tools with own license, contact CSC.
 
 ### Finnish National Land Survey's lidar data in Puhti
 
