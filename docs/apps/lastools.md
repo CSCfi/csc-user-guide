@@ -48,7 +48,7 @@ In Puhti, only the command-line tools work, not the graphical interface.
 
 ### Using a licensed version
 
-CSC provides only the "free" version of LAStools. If you have own license for LAStools, it can be used also in Puhti. 
+CSC provides only the "free" version of LAStools. If you have your own license for LAStools, it can be used also in Puhti. 
 
 For using the 2023 native Linux version, copy the license file to Puhti projappl and give the license file location as environment variable before using the tools.
 
