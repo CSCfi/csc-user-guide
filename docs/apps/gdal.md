@@ -71,7 +71,7 @@ As an example, you can write "The authors wish to thank CSC - IT Center for Scie
 
 ## Installation 
 
-Standalone GDAL was installed to Puhti using [Spack and its GDAL package definition](https://spack.readthedocs.io/en/latest/package_list.html#gdal). For other installations, see respective application page.
+Standalone GDAL was installed to Puhti using [Spack and its GDAL package definition](https://spack.readthedocs.io/en/latest/package_list.html#gdal) FIXME. For other installations, see respective application page.
 
 
 ## References

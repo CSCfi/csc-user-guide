@@ -32,7 +32,7 @@ Installing packages from Octave Forge for current user
 > pkg install -forge -local <pkg_name>
 ```
 
-Packages ['Structure Handling'](https://octave.sourceforge.io/struct/index.html) and ['Parallel Computing'](https://octave.sourceforge.io/parallel/index.html) have been installed for all users by default.
+Packages ['Structure Handling'](https://octave.sourceforge.io/struct/index.html) and ['Parallel Computing'](https://octave.sourceforge.io/parallel/index.html) FIXME have been installed for all users by default.
 
 ### Octave batch jobs
 
