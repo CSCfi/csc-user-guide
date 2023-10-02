@@ -20,7 +20,7 @@ In general Application credentials give the power and flexibility to allow a saf
 3. Go to `Identitiy` -> `Application Credentials`.
 4. Press `Create Application Credential`. A dialog will open.
 
-    ![Create Application Credential ePouta](../../img/create-application-credential-epouta.png)
+    ![Create Application Credential cPouta](../../img/create-application-credential-cpouta.png)
 
 5. It is a good idea to choose a descriptive `name` and `description`. Otherwise you might get confused
 in the future why the application credentials exist. It might be a good idea to name your first 
@@ -29,7 +29,7 @@ credentials `Testing application credentials $TODAYS_DATE`.
 service will create a secret for you, this is probably the preferred method.
 7. It is a good idea to put an `expiration date` especially if you are testing the credentials only
 for today.
-8. There are three roles, `member`, `heat_stack_owner` and `reader`. Usually you want to use the `member` role. You can find
+8. There are four roles in cPouta, `member`, `heat_stack_owner`, `object_store_user` and `creator`. Usually you want to use the `member` role. You can find
 out more in the [Using roles sections](#using-roles).
 9. The `Unrestricted (dangerous)` check-box will allow your application credentials to
 create new application credentials. You should never give an application or automation any credentials that have this permission.
@@ -44,7 +44,7 @@ file that you can source, a YAML file that can be used directly by the CLI, or a
     export OS_AUTH_TYPE=v3applicationcredential
     export OS_AUTH_URL=https://pouta.csc.fi:5001/v3
     export OS_IDENTITY_API_VERSION=3
-    export OS_REGION_NAME="esp-prod"
+    export OS_REGION_NAME="regionOne" # Depends if you are using cPouta or ePouta
     export OS_INTERFACE=public
     export OS_APPLICATION_CREDENTIAL_ID=xxxxxxxxxxxxxxxxxxxxxx
     export OS_APPLICATION_CREDENTIAL_SECRET=xxxxxxxxxxxxxxxxxxx
@@ -76,7 +76,7 @@ file that you can source, a YAML file that can be used directly by the CLI, or a
           
         regions:
             
-        - esp-prod
+        - regionOne # Depends if you are using cPouta or ePouta
             
           
         interface: "public"
@@ -91,13 +91,25 @@ file that you can source, a YAML file that can be used directly by the CLI, or a
 
 ## Using roles
 
-There are three roles available: `reader`, `member` and `heat_stack_owner`. The reader role is a read-only role while the
-member role is allowed to make changes to your project.
+In cPouta, there are four roles available: `member`, `heat_stack_owner`, `object_store_user` and `creator`. The reader role is a read-only role while the member role is allowed to make changes to your project.
+
+* `member` role is the normal user role. It can make changes to the system. When you login into the web-interface you have the `member` role
+enabled.
+
+* `heat_stack_owner` can operate over Heat stacks, that is create, modify and delete infrastructure. This is useful for using it in a `IaC` setup. 
+
+* `object_store_user` can operate over Allas and Objects Store.
+
+* `creator` can create secrets such as passwords, encryption keys.
+
+
+If you are using Applications credentials in ePouta, it's slighty different. There are three roles available: `reader`, `member` and `heat_stack_owner`. The reader role is a read-only role while the member role is allowed to make changes to your project.
 
 * `reader` role can only collect data from your project but not make any changes. This is good if you
 want to create a script that checks the state of your services. Sometimes it is nice to have a default
 reader account that you use for day-to-day operations when you collect information so that you can be
 sure that you can't do any destructive commands.
+
 * `member` role is the normal user role. It can do everything that the `reader` role can, but it can
 also make changes to the system. When you login into the web-interface you have the `member` role
 enabled.
