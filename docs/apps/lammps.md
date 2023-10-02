@@ -63,8 +63,7 @@ export PATH=$PATH:/path/to/lmp_puhti
 srun lmp_puhti -in loop.lammps -partition 24x5
 ```
 
-The above example runs an umbrella sampling simulation of ethanol adsorption on a NaCl surface in
-accordance with [this LAMMPS tutorial](https://lammpstutorials.github.io/tutorials/tutorial06.html) FIXME.
+The above example runs an umbrella sampling simulation of ethanol adsorption on a NaCl surface.
 The simulation consists of 24 iterations where the ethanol molecule is gradually pulled closer to
 the surface. These 24 iterations are all run concurrently using 5 MPI tasks each, which is specified
 in the batch script as `-partition 24x5`. The number of processors must add up to the amount
