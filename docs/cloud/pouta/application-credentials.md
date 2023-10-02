@@ -103,7 +103,7 @@ enabled.
 * `creator` can create secrets such as passwords, encryption keys.
 
 
-If you are using Applications credentials in ePouta, it's slighty different. There are three roles available: `reader`, `member` and `heat_stack_owner`. The reader role is a read-only role while the member role is allowed to make changes to your project.
+If you are using Applications credentials in ePouta, it's slightly different. There are three roles available: `reader`, `member` and `heat_stack_owner`. The reader role is a read-only role while the member role is allowed to make changes to your project.
 
 * `reader` role can only collect data from your project but not make any changes. This is good if you
 want to create a script that checks the state of your services. Sometimes it is nice to have a default
