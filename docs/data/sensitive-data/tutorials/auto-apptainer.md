@@ -30,3 +30,22 @@ Bamtools can be startted with command:
 bamtools
 ```
 
+List of software that can be installed with auto-apptainer. The list can be outdated. You can get a
+more recent list by running command _auto-apptainer_ in SD Desktop.
+
+*  bamtools_2.5.2--hd03093a_1
+*  bedtools_2.31.0
+*  deepvariant_1.5.0
+*  hisat2_2.2.1--h87f3376_5
+*  regenie_3.0.1
+*  samtools_1.17-2023-06
+*  seqtk_v1.3-1-deb_cv1
+*  stringtie_2.2.0--ha025227_1
+*  taguette.info
+*  vcftools_v0.1.16-1
+*  vsearch_2.23.0--h6a68c12_0
+*  weeder_2.0--h9f5acd7_7
+
+
+
+
