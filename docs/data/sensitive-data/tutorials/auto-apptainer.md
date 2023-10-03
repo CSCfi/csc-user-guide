@@ -22,7 +22,7 @@ auto-apptainer bam
 
 asks the user to choose from two contaiers: _bamtools_ and _bedtools_. Bedtools is included as it provides commands _bamToBed_ and _bamToFasta_ that match the serach criteria in this case.
 
-Once a container is selected, one more apptainer warpper based commands are created to drectory: _/shared-directory/sd-tools/bin_.
+Once a container is selected, one or more apptainer warpper based commands are created to drectory: _/shared-directory/sd-tools/bin_.
 These commands can mostly be used like natively installed commands. For example after installing the Bamtools container, 
 Bamtools can be startted with command:
 
@@ -30,8 +30,8 @@ Bamtools can be startted with command:
 bamtools
 ```
 
-List of software that can be installed with auto-apptainer. The list can be outdated. You can get a
-more recent list by running command _auto-apptainer_ in SD Desktop.
+Below you can fins a list of software that can be installed with auto-apptainer. The list can be outdated. You can get an up-to-date
+list by running command _auto-apptainer_ in SD Desktop.
 
 *  bamtools_2.5.2--hd03093a_1
 *  bedtools_2.31.0
@@ -41,7 +41,7 @@ more recent list by running command _auto-apptainer_ in SD Desktop.
 *  samtools_1.17-2023-06
 *  seqtk_v1.3-1-deb_cv1
 *  stringtie_2.2.0--ha025227_1
-*  taguette.info
+*  taguette
 *  vcftools_v0.1.16-1
 *  vsearch_2.23.0--h6a68c12_0
 *  weeder_2.0--h9f5acd7_7
