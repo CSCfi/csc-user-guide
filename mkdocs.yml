@@ -340,13 +340,13 @@ nav:
   - Sensitive data:
      - data/sensitive-data/vk-sds-landing.md
      - Choose services:
-       - data/sensitive-data/vk-sds-terminology.md
+       - data/sensitive-data/vk-sds-overview.md
+       - Terminology: data/sensitive-data/vk-sds-terminology.md
      - Store and analyse: 
        - data/sensitive-data/vk-sds-overview.md
        - Start here: 
           - data/sensitive-data/vk-srd-a-creating.md
           - Resources and billing units: data/sensitive-data/vk-srd-a-billing.md
-          - Terminology: data/sensitive-data/vk-sds-terminology.md
        - Store with SD Connect: 
           - data/sensitive-data/vk-srd-sd-connect.md
           ## + key features + authentication
