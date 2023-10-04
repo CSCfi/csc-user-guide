@@ -7,7 +7,7 @@ You can access this feature in the web user interface's left hand panel or using
 ### Orchestration via the web user interface
 
 !!! note
-    You should use "2018-03-02" ("rocky") or older as the [Heat template
+    You should use "2018-08-31" ("rocky") or older as the [Heat template
     version](https://docs.openstack.org/heat/latest/template_guide/hot_spec.html#rocky). Features in newer template versions may not be supported. 
 
 
