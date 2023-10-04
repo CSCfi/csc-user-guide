@@ -13,27 +13,42 @@ CSC - IT Center for Science has no own Star-CCM+ licenses available for customer
 
 ## Available
 
-Several versions of Star-CCM+ are available on [Puhti and Mahti](../computing/available-systems.md) servers. Use command
+Several versions of Star-CCM+ are available on [Puhti, Mahti and LUMI](../computing/available-systems.md) servers. Use command
 
-    ls /appl/soft/eng/starccm+/ | grep '^[0-9]'
+```bash
+module spider starccm+
+```
 
-on the server to check the installed versions. The double precision version will have the -R8 suffix on the end of the module version number.
+on the server to check the installed versions. The double precision version will have the `-R8` suffix on the end of the module version number.
+
+On LUMI, you need to first load the module environment, and then give module spider command
+
+```bash
+module use /appl/local/csc/modulefiles
+module spider starccm+
+```
 
 ## Usage
 
-There is an example of **batch job script** available on the servers:
+There is a **batch job script** example available on the Puhti and Mahti servers in:
 
-    /appl/soft/eng/starccm+/parjob_starccm+
+```bash
+/appl/soft/eng/starccm+/parjob_starccm+
+```
 
-Copy the file and modify it for your own use. Further instructions are given in the file.  How to submit a batch job on CSC's servers, see the user guide *CSCDocs*, page [Getting started](../computing/running/getting-started.md).
+On LUMI, the example batch job file is available here:
 
+```bash
+/pfs/lustrep3/appl/local/csc/soft/eng/starccm+/parjob_starccm_lumi
+```
+
+Copy the file and modify it for your own use. Further instructions are given in the file and the documentations of the platforms.
 
 ## Support
 
-In a problem situation, send an email to servicedesk@csc.fi.
+In a problem situation, please [contact CSC Service Desk](../support/contact.md).
 
 ## More information
 
 * [Simcenter STAR-CCM+](https://www.plm.automation.siemens.com/global/en/products/simcenter/STAR-CCM.html)
-
 * [Simcenter STAR-CCM+ Power On Demand licensing](https://www.dex.siemens.com/plm/simcenter-on-the-cloud/simcenter-star-ccm-power-on-demand)
