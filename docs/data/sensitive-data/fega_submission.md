@@ -10,7 +10,7 @@
 
 Submission to the Finnish FEGA service starts with contacting the Finnish FEGA helpdesk and providing the basic information of the submission.
 
-To begin the submission process, please fill in the [basic information form](./fega-application.docx) with contact information, details about the data submission type and information about the data controller, or provide the same information in an email message. Send the required information via email to servicedesk@csc.fi (subject: Federated EGA). You will receive further instructions.
+To begin the submission process, please fill in the [basic information form](./fega-basic-information.docx) with contact information, details about the data submission type and information about the data controller, or provide the same information in an email message. Send the required information via email to servicedesk@csc.fi (subject: Federated EGA). You will receive further instructions.
 
 !!! note
 
