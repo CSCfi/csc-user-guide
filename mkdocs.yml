@@ -378,10 +378,24 @@ nav:
        - Reuse with SD Apply: data/sensitive-data/vk-srd-apply.md
      - Secondary use of health and social data:
        - data/sensitive-data/sd-desktop-register-data-intro.md
-       - Findata permit: data/sensitive-data/mk-findata.md
-       - Register permit: data/sensitive-data/mk-single-register.md
-       - Analyse with SD Desktop for secondary use: data/sensitive-data/mk-desktop.md
-       - Submitting secondary use data: data/sensitive-data/sd-desktop-register-controllers.md
+       - Findata permit: 
+          - data/sensitive-data/mk-findata.md
+          - sivu 1: data/sensitive-data/mk-sivu1.md
+          - sivu 2: data/sensitive-data/mk-sivu2.md
+          - sivu 3: data/sensitive-data/mk-sivu3.md
+       - Register permit: 
+          - data/sensitive-data/mk-single-register.md
+          - sivu 4: data/sensitive-data/mk-sivu4.md
+          - sivu 5: data/sensitive-data/mk-sivu5.md
+       - Analyse with SD Desktop for secondary use: 
+          - data/sensitive-data/mk-desktop.md
+          - sivu 6: data/sensitive-data/mk-sivu6.md
+          - sivu 7: data/sensitive-data/mk-sivu7.md
+          - sivu 8: data/sensitive-data/mk-sivu8.md
+       - Submitting secondary use data: 
+          - data/sensitive-data/sd-desktop-register-controllers.md
+          - sivu 9: data/sensitive-data/mk-sivu9.md
+          - sivu 10: data/sensitive-data/mk-sivu10.md
   - Applications:
      - apps/index.md
      - By discipline: apps/by_discipline.md
