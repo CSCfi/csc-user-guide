@@ -341,7 +341,7 @@ nav:
         - Analyse with SD Desktop: data/sensitive-data/sd_desktop.md
         - SD Desktop for secondary use: data/sensitive-data/sd-desktop-audited.md
 #       - SD Apply for secondary use: data/sensitive-data/single-register-submission.md
-#       - Federated EGA: data/sensitive-data/federatedega.md
+        - Publish with Federated EGA: data/sensitive-data/federatedega.md
 #       - SD Apply: data/sensitive-data/sd-apply.md
 #       - Containers: data/sensitive-data/creating_containers.md
 
