@@ -36,7 +36,7 @@ IQM client 	iqm_client 	>= 12.5, < 13.0
 Here is an example batch script to submit jobs on Helmi
 
 ```bash
-#!/bin/bash
+#!/bin/bash -l
  
 #SBATCH --job-name=helmijob   # Job name
 #SBATCH --account=project_<id>  # Project for billing
@@ -200,3 +200,4 @@ Here is a brief description of the figures which are given when querying:
 
 
 For further information on the figures of merit contact the [CSC Service Desk](../../../../support/contact/), reachable at [servicedesk@csc.fi](mailto:servicedesk@csc.fi).
+
