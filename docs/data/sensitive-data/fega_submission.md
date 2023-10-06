@@ -188,6 +188,6 @@ To finalise your submission, write to servicedesk@csc.fi to confirm that the sub
 
 - Dataset Accession number (EGAD)
 
-- Appropriate Data Use Ontology codes (DUO). You can find more information in Data Use Conditions on EGA webpage. 
+- Appropriate Data Use Ontology codes (DUO). You can find more information in Data Use Conditions on [EGA webpage](https://ega-archive.org/access/data-access-committee/data-use-ontology/). 
 
 CSC helpdesk will complete the release process. You will receive confirmation of successful submission and accessions suitable for publication, grants, etc. from the CSC helpdesk.
