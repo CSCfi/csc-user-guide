@@ -18,21 +18,19 @@ module. Python 3 (= 3.6.8) is available as `python3`. The default system Python 
 include any optional Python packages. However, you can [install simple packages for
 yourself by the methods explained below](python.md#installing-python-packages-to-existing-modules).
 
-In Puhti there are several Python modules available that include different sets
-of scientific libraries:
+In Puhti and Mahti there are several Python modules available that
+include different sets of scientific libraries:
 
 * [python-data](python-data.md) - for data analytics and machine learning
 * [PyTorch](pytorch.md) - PyTorch deep learning framework
-* [RAPIDS](rapids.md) - for data analytics and machine learning on GPUs
 * [TensorFlow](tensorflow.md) - TensorFlow deep learning framework
 * [JAX](jax.md) - Autograd and XLA for high-performance machine learning
-* [BioPython](biopython.md) - biopython and other bioinformatics related Python libraries
 * [geoconda](geoconda.md) - for spatial data anlysis
 * and several other modules may include Python...
 
-In Mahti:
+In Puhti only:
 
-* [python-data](python-data.md) - for data analytics and machine learning
+* [BioPython](biopython.md) - biopython and other bioinformatics related Python libraries
 
 To use any of the above mentioned modules, just load the appropriate module, for
 example:
