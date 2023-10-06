@@ -25,7 +25,7 @@ Lazypipe 3.0 is available in Puhti.
 All components of Lazypipe pipeline are available in Puhti. The [Lazypipe home page](https://www.helsinki.fi/en/projects/lazypipe) provides detailed instruction how to set up your own Lazypipe environment to Puhti, but this is not needed if you use the Lazypipe module that is activated with commands:
 
 ```text
-module load r-env-singularity
+module load r-env
 module load biokit
 module load lazypipe
 ```
