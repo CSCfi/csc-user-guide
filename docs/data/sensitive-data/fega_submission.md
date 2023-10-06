@@ -113,7 +113,7 @@ pip install crypt4gh
 $ crypt4gh encrypt  --recipient_pk fega-pubkey-c4gh.pub < example_file.txt > example_file.txt.c4gh
 ```
 
-Where the syntax *--recipient_pk* defines the public key used to encrypt the data. In this case, Finnish FEGA public key *example_file.txt.c4gh* defines the input file and output encrypted file. 
+Where the syntax *--recipient_pk* defines the public key used to encrypt the data. In this case, Finnish FEGA public key. *example_file.txt.c4gh* defines the input file and output encrypted file. 
 
 **Data upload with sfpt CLI (default in Linux and Mac OS)**:
 
