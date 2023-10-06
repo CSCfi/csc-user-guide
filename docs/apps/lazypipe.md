@@ -15,21 +15,27 @@ Lazypipe is a stand-alone pipeline for identifying viruses in host-associated or
 
 Free to use and open source under [MIT License](https://raw.githubusercontent.com/OverZealous/lazypipe/master/LICENSE).
 
+## Version
+
+Lazypipe 3.0 is available in Puhti.
+
+
 ## Usage
 
-All components of Lazypipe pipeline are available in Puhti. The [Lazypipe home page](https://www.helsinki.fi/en/projects/lazypipe) provides detailed instruction how to set up your own Lazypipe environment to Puhti, but this is not needed if you use the Lazypipe module that is loaded with commands:
+All components of Lazypipe pipeline are available in Puhti. The [Lazypipe home page](https://www.helsinki.fi/en/projects/lazypipe) provides detailed instruction how to set up your own Lazypipe environment to Puhti, but this is not needed if you use the Lazypipe module that is activated with commands:
 
 ```text
 module load r-env-singularity
 module load biokit
 module load lazypipe
 ```
-Now lazypipe starts with commands:
+Now Lazypipe starts with commands:
 
 ```text
-cp /appl/soft/bio/lazypipe/2.1/lazypipe/config.yaml config.yaml
-echo tmpdir: \"$(pwd)\" >> config.yaml
-lazypipe.pl
+cp /appl/soft/bio/lazypipe/3.0/lazypipe/config.yaml config.yaml
+echo tmpdir: \"$(pwd)/tmpdir\" >> config.yaml
+echo res: \"$(pwd)/tmpdir\" >> config.yaml
+lazypipe.pl -h
 ```
 
 Normally you need to use the _lazypipe.pl_ command only for testing. For real analysis tasks lazypipe module includes `sbatch-lazypipe` command that you can use instead. 
