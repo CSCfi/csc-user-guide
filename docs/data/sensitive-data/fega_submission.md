@@ -117,15 +117,15 @@ Where the syntax *--recipient_pk* defines the public key used to encrypt the dat
 
 **Data upload with sfpt CLI (default in Linux and Mac OS)**:
 
-Open a terminal and transfer the encrypted files or directory with the following syntax, where <ega_user> is the EGA credentials username (usually this is your email address):
+1. Open a terminal and transfer the encrypted files or directory with the following syntax, where <ega_user> is the EGA credentials username (usually this is your email address):
 
 ```
 sftp -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -P 50529 <ega_user>@admin.sd.csc.fi
 ```
 
-For the password, use your Central EGA account password. Data upload can take minutes or up to several hours, depending on the size of the dataset
+2. For the password, use your Central EGA account password. Data upload can take minutes or up to several hours, depending on the size of the dataset
 
-Please inform the Finnish FEGA helpdesk via email (servicedesk@csc.fi) when you have completed the data encryption and upload to Finnish FEGA. You will receive further instructions for the metadata submission.
+3. Please inform the Finnish FEGA helpdesk via email (servicedesk@csc.fi) when you have completed the data encryption and upload to Finnish FEGA. You will receive further instructions for the metadata submission.
 
 ## Step 6: Data Access Committee and Policy registration
 
