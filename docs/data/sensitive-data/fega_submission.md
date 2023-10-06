@@ -151,7 +151,7 @@ Next, you can describe all the information related to your study, i.e. metadata,
 
 You can get an introduction to the submitter portal from the video below or by taking the tour available in the portal by clicking the yellow book icon in the top right corner while you are logged in.
 
-<iframe width="280" height="155" srcdoc="https://www.youtube-nocookie.com/embed/eDTNIE8Ex0g?si=vUe7Mjq8H2LE2h7G" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/eDTNIE8Ex0g?si=vUe7Mjq8H2LE2h7G" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 Log in to the submitter portal using the EGA credentials (username: usually your email address, and password).
 
