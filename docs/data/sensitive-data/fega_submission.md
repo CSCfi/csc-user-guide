@@ -167,7 +167,7 @@ Using the submitter portal, you can register the following metadata objects:
 
 - **Analysis**. References the analysis (BAM) files. Associated with samples and study. Analysis should be only be used for BAM/BAI pair, VCF and phenotype linkage to samples. The analysis is an EGA specific metadata object that links Samples, to Files.
 
-- **Dataset**. Contains the collection of runs/analysis data files to be subject to controlled access. Associated with Policy, which is created in the EGA DAC portal.
+- **Dataset**. Contains the collection of runs/analysis data files to be subject to controlled access. Associated with Policy, which is created by CSC helpdesk.
 
 After data release, each of these objects will be assigned with a permanent identifier or unique accession number.
 
