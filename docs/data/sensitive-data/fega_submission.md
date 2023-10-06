@@ -75,7 +75,7 @@ You can carry out the encryption and upload steps using:
 
 or
 
-- **Option 2 - Command-line interface**. Data encryption with crypt4gh CLI and data upload with sftp CLI. If you prefer to use the command-line interface, you can find information on the encryption and upload step below. 
+- **Option 2 - Command-line interface**. Data encryption with crypt4gh CLI and data upload with sftp CLI. If you prefer to use the command-line interface, you can find information on the encryption and upload steps below. 
 
 ### Option 1 - Fi-FEGA upload application
 
@@ -122,6 +122,8 @@ Open a terminal and transfer the encrypted files or directory with the following
 ```
 sftp -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -P 50529 <ega_user>@admin.sd.csc.fi
 ```
+
+For the password, use your Central EGA account password. Data upload can take minutes or up to several hours, depending on the size of the dataset
 
 Please inform the Finnish FEGA helpdesk via email (servicedesk@csc.fi) when you have completed the data encryption and upload to Finnish FEGA. You will receive further instructions for the metadata submission.
 
