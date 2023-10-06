@@ -143,7 +143,7 @@ To register DAC and Policy for your dataset, contact servicedesk@csc.fi. For reg
 After uploading the data to Finnish FEGA, you will receive a dataset application link for each dataset via email from the CSC helpdesk.
 
 !!! note
-    If someone wants to apply access to your dataset stored in Finnish FEGA, they must click the dataset application link on the EGA website. The link will direct the user to the application form in SD Apply. SD Apply is a service for applying access rights to sensitive datasets stored at CSC.
+    If someone wants to apply access to your dataset stored in Finnish FEGA, they must click the dataset application link on the EGA website. The link will direct the user to the application form in SD Apply. SD Apply is a service for applying access rights to sensitive datasets stored at CSC. There is a separate [guide](./fega_application.md) for applying data access.
 
 ## Step 7: Metadata submission
 
