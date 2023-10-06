@@ -173,7 +173,7 @@ After data release, each of these objects will be assigned with a permanent iden
 
 !!! note
     
-    - **Data Access Committee (DAC)** and **Policy** need to be created in the EGA DAC portal before they can be added to the metadata in the submitter portal. DAC is always associated with a Policy, and by selecting a Policy for a dataset in the metadata submitter portal, you also select the DAC linked to that specific Policy.
+    - **Data Access Committee (DAC)** and **Policy** need to be created by CSC helpdesk before they can be added to the metadata in the submitter portal. DAC is always associated with a Policy, and by selecting a Policy for a dataset in the metadata submitter portal, you also select the DAC linked to that specific Policy.
     
     - **Study**, **Samples**, and **Experiment** metadata can be registered before uploading files, while **Run** and **Analysis** objects cannot be registered before the files have been uploaded to Finnish FEGA. You can choose **Policy** for your submission only after you have registered all the other metadata, when you are registering **Dataset** metadata.
     
