@@ -46,17 +46,15 @@ as the _lazypipe.pl_ command. In addition _sbatch-lazypipe_ asks user to define 
 (account, run time, memory, number of cores).
 
 For example to execute the [Example 1]( https://www.helsinki.fi/en/projects/lazypipe/examples) from the
-Lazypipe home page, you would first need to download the reads and reference genome to your scratch directory in Puhti
+Lazypipe User manual, you would first need to download the reads and reference genome to your scratch directory in Puhti
 (in real cases you will get these input files from your own sources):
 
 ```text
 mkdir /scratch/my_project/data
-mkdir /scratch/my_project/genomes_host
-cd /scratch/my_project/data/
-wget https://bitbucket.org/plyusnin/lazypipe/downloads/M15.tar.gz
-tar -xzvf M15.tar.gz 
-cd /scratch/my_project/genomes_host
-wget https://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/900/108/605/GCA_900108605.1_NNQGG.v01/GCA_900108605.1_NNQGG.v01_genomic.fna.gz
+mkdir /scratch/my_project/hostgen
+cp /appl/soft/bio/lazypipe/3.0/lazypipe/data/samples/M15small_R*.fastq /scratch/my_project/data
+wget https://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/900/108/605/GCA_900108605.1_NNQGG.v01/GCA_900108605.1_NNQGG.v01_genomic.fna.gz -P /scratch/my_project/hostgen/
+
 ```
 When you have the data available you can submit the task with commands:
 
@@ -65,8 +63,8 @@ cd /scratch/my_project
 module load r-env-singularity
 module load biokit
 module load lazypipe
-sbatch-lazypipe -1 data/M15/M15_R1.fastq -S M15 -p main \
---hostgen genomes_host/GCA_900108605.1_NNQGG.v01_genomic.fna.gz
+sbatch-lazypipe -1 data/M15/M15small_R1.fastq -S M15 -p main --anns norm\
+--hostgen genomes_host/GCA_900108605.1_NNQGG.v01_genomic.fna.gz -v
 ```
 When the _sbatch-lazypipe_ is executed, it interactively asks information that is
 needed to construct a batch job. This includes following items (default values in brackets will be
@@ -84,5 +82,6 @@ After that your Lazypipe task is submitted to the batch job system for execution
 ## More information
 
 *   [Lazypipe home page](https://www.helsinki.fi/en/projects/lazypipe)
+*   [Lazypipe UserGuide](https://bitbucket.org/plyusnin/lazypipe/wiki/UserGuide.v3.0)
 
 
