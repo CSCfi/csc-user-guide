@@ -3,7 +3,7 @@
 Below, you will find step-by-step instructions for uploading, describing, and publishing biomedical data via the Finnish Federated EGA. Please be aware that this process can be lengthy (anywhere between one to four months), but we will support you at every step. Requests will be processed in the order they are received. 
 
 !!! Note
-Before you begin, it's crucial to ensure that a service agreement specific to the Federated EGA service is in place between CSC (as data processor) and your home organization (or data controller). Please make sure, before starting to submit any data, that all the legal agreements are in place. You can do so by contacting us at servicedesk@csc.fi (subject:sensitive data) or your home organization's legal services.
+    Before you begin, it's crucial to ensure that a service agreement specific to the Federated EGA service is in place between CSC (as data processor) and your home organization (or data controller). Please make sure, before starting to submit any data, that all the legal agreements are in place. You can do so by contacting us at servicedesk@csc.fi (subject:sensitive data) or your home organization's legal services.
 
 ## Submission process overview 
 [![FEGA submission process overview](images/fega/fega_submission_overview.png)](images/fega/fega_submission_overview.png)
@@ -34,8 +34,6 @@ Data deposition to the Finnish Federated EGA requires a series of legal agreemen
 
 !!! Note
     Please be aware that your organization might already have the necessary agreements in place with CSC, or templates for Data Access Agreements available. We are here to provide support if additional information is required (subject: Fedearedt EGA). 
-
-
 
 
 ## Step 3: Credentials
