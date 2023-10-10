@@ -30,7 +30,9 @@ Data deposition to the Finnish Federated EGA requires a series of legal agreemen
 
 * **Data Access Agreement**: The Data Access Agreement (DAA) is a contract between the Data Access Committee (DAC) and an applicant seeking access to the data for reuse. Through the DAA, you can define conditions and restrictions for data reuse, including policies governing data use, publication, download, and access. Each submitted dataset will be linked to this agreement (refer to Step 6: Data Access Committee and Policy Registration below). The DAA might also include a data transfer agreement, necessary when researchers from non-EU/non-EEA regions access the data via SD Desktop. For further information, please contact your home organization's legal services. You can find an example template [here](https://ega-archive.org/assets/files/Example_DAA.doc).
 
-<iframe width="280" height="155" srcdoc="https://youtu.be/XXOph-0wacc?si=9NWFpr-LjF_d4f2W" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+<iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/XXOph-0wacc?si=9NWFpr-LjF_d4f2W" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 
 !!! Note
     Please be aware that your organization might already have the necessary agreements in place with CSC, or templates for Data Access Agreements available. We are here to provide support if additional information is required (subject: Federated EGA). 
@@ -156,7 +158,8 @@ Next, you can describe all the information related to your study, non-sensitive 
 
 You can get an introduction to the submitter portal from the video below or by taking the tour available in the portal by clicking the yellow book icon in the top right corner while you are logged in.
 
-<iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/eDTNIE8Ex0g?si=QJlYwfAGERAHN-e9" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+<iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/eDTNIE8Ex0g?si=QJlYwfAGERAHN-e9" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 Log in to the submitter portal using the EGA credentials (username: usually your email address, and password).
 
