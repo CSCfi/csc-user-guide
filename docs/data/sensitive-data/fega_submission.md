@@ -24,17 +24,17 @@ To begin the submission process, please fill in the [basic information form](./f
     
 ## Step 2: Legal agreements 
 
-The data deposition to FEGA requires a series of legal agreements:  
+Data deposition to the Finnish Federated EGA requires a series of legal agreements: a Service Argeemnet for Federated EGA and a data Access Agreement. The required legal documents state the roles of a data processor and a data controller, which are defined in the General Data Protection Regulation (GDPR). CSC acts always as a data processor. In most research projects, the data controller is an academic organisation or other legal entity. The ownership of the data does not change by using this service.
 
-*  **Service agreement for Federated EGA**.  Your home organization (or data controller) must have a **service agreement** specific to FEGA service with CSC (data processor) before the service can be accessed. The service agreement includes the Data Processing Agreement (DPA), which regulates the particularities of data processing – such as its scope and purpose – as well as the rights and duties between the controller and the processor. Your home organization legal service will support you in outlineing the necesary agreements. To facilitate the process, contact us at servicedes@csc.fi providing a contact from your organization legal representative.
+* **Service Agreement for Federated EGA**: your home organization (or data controller) must have a specific service agreement with CSC (data processor) before accessing the FEGA service. This service agreement includes the Data Processing Agreement (DPA), which outlines the specifics of data processing, such as its scope and purpose, as well as the rights and duties between the controller and the processor. Your home organization's legal service will assist you in outlining these necessary agreements. If more support is needed, please contact us at servicedes@csc.fi (subject: Fedearedt EGA) and provide the contact information for your organization's legal representative.
 
-*  **Data Access Agrement** The Data Access Agreement (DAA), is a contract between the Data Access Committee ([DAC]([https://ega-archive.org/submission/data_access_committee](https://ega-archive.org/access/data-access-committee/what-is-dac/) and an applicant applying access to the data for reuse. With the DAA, you can define conditions and restrictions for the data reuse. The document includes all the policies regulating data reuse (e.g. data use, publication, download, or access) and it will be linked to each submitted dataset (see below, Step 6: Data Access Committee and Policy registration). The DAA  might also include a data transfer agreement (needed when researcher from non-EU/non-EEA are accessing the data via SD Desktop). For more information, contact the legal services of your home organisation providing this [example template](https://ega-archive.org/assets/files/Example_DAA.doc).
+* **Data Access Agreement**: The Data Access Agreement (DAA) is a contract between the Data Access Committee (DAC) and an applicant seeking access to the data for reuse. Through the DAA, you can define conditions and restrictions for data reuse, including policies governing data use, publication, download, and access. Each submitted dataset will be linked to this agreement (refer to Step 6: Data Access Committee and Policy Registration below). The DAA might also include a data transfer agreement, necessary when researchers from non-EU/non-EEA regions access the data via SD Desktop. For further information, please contact your home organization's legal services. You can find an example template [here](https://ega-archive.org/assets/files/Example_DAA.doc).
 
-  
 <iframe width="280" height="155" srcdoc="https://youtu.be/XXOph-0wacc?si=9NWFpr-LjF_d4f2W" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 !!! Note
-    Please note that your organisation may already have required agreements with CSC in place or Data Access Aagreemetns templates available. We will provide support if additional support in needed. 
+    Please be aware that your organization might already have the necessary agreements in place with CSC, or templates for Data Access Agreements available. We are here to provide support if additional information is required (subject: Fedearedt EGA). 
+
 
 
 
