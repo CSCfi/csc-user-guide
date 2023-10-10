@@ -1,12 +1,9 @@
 # Data submission
 
-!!! Note 
-    We will process submissions in the order we have received the support requests. In addition to the legal agreements listed on this page, there needs to be a service agreement between CSC and the data controller specific for FEGA service. Make sure before starting submitting any data that all these legal agreements are in place.
-
 Below, you will find step-by-step instructions for uploading, describing, and publishing biomedical data via the Finnish Federated EGA. Please be aware that this process can be lengthy (anywhere between one to four months), but we will support you at every step. Requests will be processed in the order they are received. 
 
 !!! Note
-Before you begin, it's crucial to ensure that a service agreement specific to the Federated EGA services is in place between CSC and your home organization (or the data controller). Please make sure, before starting to submit any data, that all the legal agreements are in place. You can do so by contacting us at servicedesk@csc.fi (subject:sensitive data) or your home organization's legal services."
+Before you begin, it's crucial to ensure that a service agreement specific to the Federated EGA service is in place between CSC (as data processor) and your home organization (or data controller). Please make sure, before starting to submit any data, that all the legal agreements are in place. You can do so by contacting us at servicedesk@csc.fi (subject:sensitive data) or your home organization's legal services.
 
 ## Submission process overview 
 [![FEGA submission process overview](images/fega/fega_submission_overview.png)](images/fega/fega_submission_overview.png)
@@ -27,14 +24,19 @@ To begin the submission process, please fill in the [basic information form](./f
     
 ## Step 2: Legal agreements 
 
-The data deposition to FEGA requires a series of legal agreements. The necessary documentation is introduced below. The agreements concerning the data controller need to be discussed with the legal service of your home organisation. Please note that your organisation may already have some required agreements in place with CSC. We will provide support if additional agreements are needed. Please confirm that all the necessary agreements are in place before starting the submission by replying to the previous email you received from the CSC helpdesk (servicedesk@csc.fi).
+The data deposition to FEGA requires a series of legal agreements:  
 
-!!! note
-    The required legal documents state the roles of a data processor and a data controller, which are defined in the General Data Protection Regulation (GDPR). CSC acts always as a data processor. In most research projects, the data controller is an academic organisation or other legal entity. The ownership of the data does not change by using this service.
+*  **Service agreement for Federated EGA**.  Your home organization (or data controller) must have a **service agreement** specific to FEGA service with CSC (data processor) before the service can be accessed. The service agreement includes the Data Processing Agreement (DPA), which regulates the particularities of data processing – such as its scope and purpose – as well as the rights and duties between the controller and the processor. Your home organization legal service will support you in outlineing the necesary agreements. To facilitate the process, contact us at servicedes@csc.fi providing a contact from your organization legal representative.
 
-The Data Controller must have a **service agreement** specific to FEGA service with CSC before the data can be transferred. The service agreement includes the **Data Processing Agreement (DPA)**, which regulates the particularities of data processing – such as its scope and purpose – as well as the rights and duties between the controller and the processor. [CSC’s general DPA](https://research.csc.fi/data-processing-agreement) is available on the CSC website. Also, **[CSC General terms of use](https://research.csc.fi/general-terms-of-use)** and **[Description of the data processing activities](./data-processing-form.docx)** are included in the service agreement.
+*  **Data Access Agrement** The Data Access Agreement (DAA), is a contract between the Data Access Committee ([DAC]([https://ega-archive.org/submission/data_access_committee](https://ega-archive.org/access/data-access-committee/what-is-dac/) and an applicant applying access to the data for reuse. With the DAA, you can define conditions and restrictions for the data reuse. The document includes all the policies regulating data reuse (e.g. data use, publication, download, or access) and it will be linked to each submitted dataset (see below, Step 6: Data Access Committee and Policy registration). The DAA  might also include a data transfer agreement (needed when researcher from non-EU/non-EEA are accessing the data via SD Desktop). For more information, contact the legal services of your home organisation providing this [example template](https://ega-archive.org/assets/files/Example_DAA.doc).
 
-In addition to the legal agreements between the Data Controller and Data Processor, you need a **Data Access Agreement (DAA)**. The DAA is a contract between the Data Access Committee ([DAC]([https://ega-archive.org/submission/data_access_committee](https://ega-archive.org/access/data-access-committee/what-is-dac/))) and an applicant applying access to the data. With the DAA, you can define conditions and restrictions for the data reuse. The document includes all the policies regulating data reuse (e.g. data use, publication, download, or access) and it will be linked to each submitted dataset. It might also include a data transfer agreement (needed when researcher from non-EU/non-EEA are accessing the data via SD Desktop). For more information, contact the legal services of your home organisation.
+  
+<iframe width="280" height="155" srcdoc="https://youtu.be/XXOph-0wacc?si=9NWFpr-LjF_d4f2W" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+!!! Note
+    Please note that your organisation may already have required agreements with CSC in place or Data Access Aagreemetns templates available. We will provide support if additional support in needed. 
+
+
 
 ## Step 3: Credentials
 
@@ -152,11 +154,11 @@ After uploading the data to Finnish FEGA, you will receive a dataset application
 
 ## Step 7: Metadata submission
 
-Next, you can describe all the information related to your study, i.e. metadata, using the [Finnish FEGA submitter portal](https://submission.finland.ega-archive.org/) or programmatically. The public metadata will be published on the EGA website to facilitate data discovery and re-use.
+Next, you can describe all the information related to your study, non-sensitive public metadata, using the [Finnish FEGA submitter portal](https://submission.finland.ega-archive.org/) or programmatically. The public metadata will be published on the EGA website to facilitate data discovery and re-use.
 
 You can get an introduction to the submitter portal from the video below or by taking the tour available in the portal by clicking the yellow book icon in the top right corner while you are logged in.
 
-<iframe width="280" height="155" srcdoc="https://youtu.be/eDTNIE8Ex0g?si=SK6J8_OWBKUzaQmt;start=134" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe width="280" height="155" srcdoc="https://youtu.be/eDTNIE8Ex0g?si=SK6J8_OWBKUzaQmt" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 Log in to the submitter portal using the EGA credentials (username: usually your email address, and password).
 
