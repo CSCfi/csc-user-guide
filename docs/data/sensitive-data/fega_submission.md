@@ -156,7 +156,7 @@ Next, you can describe all the information related to your study, non-sensitive 
 
 You can get an introduction to the submitter portal from the video below or by taking the tour available in the portal by clicking the yellow book icon in the top right corner while you are logged in.
 
-<iframe width="280" height="155" srcdoc="https://youtu.be/eDTNIE8Ex0g?si=SK6J8_OWBKUzaQmt" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/eDTNIE8Ex0g?si=QJlYwfAGERAHN-e9" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 Log in to the submitter portal using the EGA credentials (username: usually your email address, and password).
 
