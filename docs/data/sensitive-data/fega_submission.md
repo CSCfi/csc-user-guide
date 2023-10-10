@@ -8,11 +8,11 @@ Before you begin, it's crucial to ensure that a service agreement specific to th
 ## Submission process overview 
 [![FEGA submission process overview](images/fega/fega_submission_overview.png)](images/fega/fega_submission_overview.png)
 
-## Step 1: Basic information of the submission
+## Step 1: General information of the submission
 
-Submission to the Finnish Federated EGA service starts with contacting the Finnish FEGA helpdesk and providing the basic information of the submission.
+Submission to the Finnish Federated EGA service starts with contacting the Finnish FEGA helpdesk and providing the general information of the submission.
 
-To begin the submission process, please fill in the [basic information form](./fega-basic-information.docx) with contact information, details about the data submission type and information about the data controller, or provide the same information in an email message. Send the required information via email to servicedesk@csc.fi (subject: Federated EGA). You will receive further instructions.
+To begin the submission process, please fill in the [general information form](./fega-general-information.docx) with contact information, details about the data submission type and information about the data controller, or provide the same information in an email message. Send the required information via email to servicedesk@csc.fi (subject: Federated EGA). You will receive further instructions.
 
 !!! note
 
