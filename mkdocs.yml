@@ -15,23 +15,18 @@ extra:
       title: Do you find this page useful?
       ratings:
         - name: "Yes"
-          type: positive
+          type: Positive
           description: Yes! I do find this page useful.
           note: >-
             Thank you for your feedback!
         - name: "No"
-          type: negative
+          type: Negative
           description: No! This page needs to be improved.
           note: >-
             You can improve this page by
             submitting a pull request.
-      exclude: [
-        /,
-        apps/,
-        apps/by_discipline/,
-        apps/by_system/,
-        apps/by_license/,
-      ]
+      exclude:
+        - ref.md
 
 plugins:
   - tags:
