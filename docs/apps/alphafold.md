@@ -45,7 +45,7 @@ or:
 python3 $ALPHAFOLD_DIR/run_singularity.py --helpfull
 ```
 
-There are exanple batch job scripts available:
+There are example batch job scripts available:
 
 ```text
 $ALPHAFOLD_DIR/alphafold_cpu.slurm
@@ -60,10 +60,10 @@ AlphaFold analysis consists of three stages:
   - Structure prediction (GPU enabled)
   - Optional: Chain relaxation (GPU enabled)
 
-Building the MSAs takes a considerable amount of time, and in case of short and
-simple sequences using GPU will only speed up the overall time a litle. In these
-cases you will probably get better throughput using the CPU version, as there are 
-more CPU resources available.
+Building the multiple sequen alignments takes a considerable amount of time, and in 
+case of short and simple sequences using GPU will only speed up the overall time a 
+litle. In these cases you will probably get better throughput using the CPU version, 
+as there are more CPU resources available.
 
 In case of longer and more complex strutures GPU will speed up the process
 considerably. 
@@ -99,8 +99,9 @@ AlphaFold is very disk I/O heavy, so for use the databases should be copied to
 $LOCAL_SCRATCH. Even if copying takes some time (depends on file system load on
 Puhti, but typically ~1 h) the net gain on run time is considerable.
 
-When copying, you should avoid overloading the file system on /scratch, so aggressive
-multi-threaded copying approaches should be avoided.
+When copying databases from /scratch to $LOCAL_SCRATCH, you should avoid overloading 
+the file system on /scratch, so aggressive multi-threaded copying approaches should 
+be avoided.
 
 Use for example:
 
