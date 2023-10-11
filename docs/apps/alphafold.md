@@ -17,7 +17,7 @@ Free to use and open source under [Apache License 2.0](https://www.apache.org/li
 
 ## Available
 
-###Version on CSC's Servers
+### Version on CSC's Servers
 
 -   Puhti: 2.0.1, 2.3.0, 2.3.2-1
 
@@ -95,14 +95,14 @@ You can follow the [download instructions](https://github.com/google-deepmind/al
 apptainer exec --bind /scratch $SING_IMAGE /scripts/download_all_data.sh <DOWNLOAD_DIR>
 ```
 
-AlphaFold is very disk I/O heavy, so for use the database should be copied to 
+AlphaFold is very disk I/O heavy, so for use the databases should be copied to 
 $LOCAL_SCRATCH. Even if copying takes some time (depends on file system load on
 Puhti, but typically ~1 h) the net gain on run time is considerable.
 
-When copying, you should avoid overloading the file system on /scratch so aggressive
+When copying, you should avoid overloading the file system on /scratch, so aggressive
 multi-threaded copying approaches should be avoided.
 
-For example:
+Use for example:
 
 ```
 cd $LOCAL_SCRATCH
