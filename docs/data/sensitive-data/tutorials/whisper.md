@@ -13,7 +13,7 @@ After installation Whisper is available as a command line tool in SD Desktop.
 Sample command:
 
 ```text
-   whisper audio.mp3 --model medium
+   whisper audio.mp3 --model medium --threads 4
 ```
 
  
