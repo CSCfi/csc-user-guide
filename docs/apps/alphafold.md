@@ -99,8 +99,9 @@ AlphaFold is very disk I/O heavy, so for use the databases should be copied to
 $LOCAL_SCRATCH. Even if copying takes some time (depends on file system load on
 Puhti, but typically ~1 h) the net gain on run time is considerable.
 
-When copying, you should avoid overloading the file system on /scratch, so aggressive
-multi-threaded copying approaches should be avoided.
+When copying databases from /scratch to $LOCAL_SCRATCH, you should avoid overloading 
+the file system on /scratch, so aggressive multi-threaded copying approaches should 
+be avoided.
 
 Use for example:
 
