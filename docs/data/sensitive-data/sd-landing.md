@@ -4,7 +4,7 @@ This manual introduces CSC's Sensitive Data (SD) services. To navigate the user 
 !!! Note
     **Do you have any questions? Would you like to discuss a specific project?** Don't hesitate to contact us at servicedesk@csc.fi (subject: Sensitive Data) or join the [CSC Research User Support Coffee - Every Wednesday at 14:00](https://ssl.eventilla.com/usersupportcoffee). Our team is here to help, and we offer direct support. 
 
-Our user guide is currently undergoing improvements to provide you with an even better experience – thank you for your patience!
+This guide is currently undergoing improvements to provide you with an even better experience.
 
 
 <div class="quick-links-container">
