@@ -1,7 +1,7 @@
 # Utilizing singularity containers in SD-Desktop
 
 As the SD Desktop is not directly connected internet, you can't use tools like Git, Conda or Pip to install new software there.
-In stead, you can use Singularity [Singularity](https://sylabs.io/guides/3.8/user-guide/) software container tool to add new software to your SD Desktop environment. However, you have to first build  or download a singularity container elsewhere, and then use _Allas/SD Connect_ to import the container to SD Desktop.
+In stead, you can use [Singularity](https://sylabs.io/guides/3.8/user-guide/) software container tool to add new software to your SD Desktop environment. However, you have to first build  or download a singularity container elsewhere, and then use _Allas/SD Connect_ to import the container to SD Desktop.
 
 If you have a root access to a machine with singularity, you can build your own container, that contains exactly the software and
 datasets you need. Many software are also available as ready made Singularity containers or as Docker containers that can be converted into
