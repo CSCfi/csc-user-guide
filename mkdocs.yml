@@ -338,51 +338,44 @@ nav:
         # Python MySQL API at CSC:
   # data/Allas/using_allas/directory_object_error.md is not linked in this structure
   - Sensitive data:
-     - data/sensitive-data/vk-sds-landing.md
+     - data/sensitive-data/sd-landing.md
      - Choose services:
-       - data/sensitive-data/vk-sds-overview.md
-       - Terminology: data/sensitive-data/vk-sds-terminology.md
+       - data/sensitive-data/sd-choose-services.md
+       - Terminology: data/sensitive-data/sd-terminology.md
      - Store and analyse: 
-       - data/sensitive-data/vk-sds-overview.md
        - Start here: 
-          - data/sensitive-data/vk-srd-a-creating.md
-          - Resources and billing units: data/sensitive-data/vk-srd-a-billing.md
+          - data/sensitive-data/sd-start-here.md
+          - Resources and billing units: data/sensitive-data/sd-recources.md
        - Store with SD Connect: 
-          - data/sensitive-data/vk-srd-sd-connect.md
-          ## + key features + authentication
-          ## legal agreements, data retention policy
-          - Data upload for analysis: data/sensitive-data/vk-srd-c-upload.md
-          ## Less than 1 GB of data (ecryption and upload for analysys, encryption ans upload for storage and sharing) Up to 100 GB of data
-          ##sharing, search, own encryption keys, Storage space
-          - Data upload for storage and sharing: data/sensitive-data/vk-srd-c-download.md
-          ##Data decryption and download,
-          - Command line interface: data/sensitive-data/vk-srd-c-command.md
-          ##upload, download, share, crypt4gh CLI??
-          ## Command line encryption and upload, data encryption and upload with allas help tool: a-put
-          - Troubleshooting: data/sensitive-data/vk-srd-c-trouble.md
+          - data/sensitive-data/sd-connect.md
+        
+          - Data upload for analysis: data/sensitive-data/sd-connect-analysis.md
+       
+          - Data upload for storage and sharing: data/sensitive-data/sd-connect-storage.md
+         
+          - Command line interface: data/sensitive-data/sd-connect-command.md
+        
+          - Troubleshooting: data/sensitive-data/sd-connect-trouble.md
        - Analyse with SD Desktop: 
-          - data/sensitive-data/vk-srd-sd-desktop.md
-          - Create desktop: data/sensitive-data/vk-srd-d-create.md
-          - Manage desktop: data/sensitive-data/vk-srd-d-manage.md
-          ## pausing and restarting, rebooting and restarting, detaching and reattaching a volume, deleting a desktop
-          - Access data and work: data/sensitive-data/vk-srd-d-access.md
-          ## Data gateway, importing data, Reuse published sata via SD Apply
-          - Programs: data/sensitive-data/vk-srd-d-programs.md
-          ## Pre-installed software, rstudio, scientific software, software customisation with containers/interface??
-          - Customization: data/sensitive-data/vk-srd-d-programs.md
-          - Data export: data/sensitive-data/vk-srd-d-export.md
-          - Troubleshooting: data/sensitive-data/vk-srd-d-trouble.md
-       - Tutorials and quick quides: data/sensitive-data/vk-srd-tutorials.md
+          - data/sensitive-data/sd-desktop.md
+          - Create desktop: data/sensitive-data/sd-desktop-create.md
+          - Manage desktop: data/sensitive-data/sd-desktop-manage.md
+          
+          - Access data and work: data/sensitive-data/sd-desktop-access.md
+         
+          - Programs: data/sensitive-data/sd-desktop-programs.md
+          
+          ##- Customization:
+          - Data export: data/sensitive-data/sd-desktop-export.md
+          - Troubleshooting: data/sensitive-data/sd-desktop-trouble.md
+       - Tutorials and quick quides: data/sensitive-data/sd-tutorials.md
      - Publish and reuse:
-       - Federated EGA: data/sensitive-data/vk-srd-fega.md
-       - Reuse with SD Apply: data/sensitive-data/vk-srd-apply.md
+       - Federated EGA: data/sensitive-data/sd-fega.md
+       - Reuse with SD Apply: data/sensitive-data/sd-apply.md
      - Secondary use of health and social data:
        - data/sensitive-data/sd-desktop-register-data-intro.md
        - Findata permit: 
           - data/sensitive-data/mk-findata.md
-          - sivu 1: data/sensitive-data/mk-sivu1.md
-          - sivu 2: data/sensitive-data/mk-sivu2.md
-          - sivu 3: data/sensitive-data/mk-sivu3.md
        - Register permit: 
           - data/sensitive-data/mk-single-register.md
           - sivu 4: data/sensitive-data/mk-sivu4.md
