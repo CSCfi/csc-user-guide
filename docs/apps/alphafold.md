@@ -26,7 +26,7 @@ Free to use and open source under [Apache License 2.0](https://www.apache.org/li
 
 To initialize in Puhti use:
 
-```text
+```bash
 module load alphafold
 ```
 
@@ -35,13 +35,13 @@ see the help message printed out by `module load` command.
 
 To see available command line options run:
 
-```
+```bash
 python3 $ALPHAFOLD_DIR/run_singularity.py --helpshort
 ```
 
 or:
 
-```
+```bash
 python3 $ALPHAFOLD_DIR/run_singularity.py --helpfull
 ```
 
@@ -82,7 +82,7 @@ AlphaFold. Databases are mounted on all compute nodes in path `/mnt/datasets/alp
 The path to databases is set with variable `$ALPHAFOLD_DATADIR`. See example batch
 job scripts for usage.
 
-```
+```bash
 export ALPHAFOLD_DATADIR=/mnt/datasets/alphafold
 ```
 
@@ -91,7 +91,7 @@ you need a different version, you will need to download your own copy.
 
 You can follow the [download instructions](https://github.com/google-deepmind/alphafold#genetic-databases) on the AlphaFold home page.
 
-```
+```bash
 apptainer exec --bind /scratch $SING_IMAGE /scripts/download_all_data.sh <DOWNLOAD_DIR>
 ```
 
@@ -105,7 +105,7 @@ be avoided.
 
 Use for example:
 
-```
+```bash
 cd $LOCAL_SCRATCH
 cp -r /scratch/project_12345/alphafold_db .
 export ALPHAFOLD_DATADIR=$LOCAL_SCRATCH/alphafold_db
