@@ -33,16 +33,11 @@ module load alphafold
 The following instructions are for versions starting from 2.3.2-1. For older versions
 see the help message printed out by `module load` command.
 
-To see available command line options run:
+Loading the AlphaFold module will print out commands you can use to check the available
+command line options, e.g:
 
 ```bash
 python3 $ALPHAFOLD_DIR/run_singularity.py --helpshort
-```
-
-or:
-
-```bash
-python3 $ALPHAFOLD_DIR/run_singularity.py --helpfull
 ```
 
 There are example batch job scripts available:
