@@ -67,13 +67,12 @@ This guide is currently undergoing improvements to provide you with an even bett
 
 We kindly request that users carefully read the manual before proceeding to use the services to ensure a smooth experience. 
 
-[https://my.csc.fi/](https://my.csc.fi/welcome)
+
+MyCSC portal: [https://my.csc.fi/](https://my.csc.fi/welcome)
 <br/>
-[https://sd-connect.csc.fi/](https://sd-connect.csc.fi/)
+Sensitive Data (SD) Connect: [https://sd-connect.csc.fi/](https://sd-connect.csc.fi/)
 <br/>
-[https://sd-desktop.csc.fi](https://sd-desktop.csc.fi)
+Sensitive Data (SD) Desktop: [https://sd-desktop.csc.fi](https://sd-desktop.csc.fi)
 <br/>
-[FEGA]()
-<br/>
-[SD Apply]()
+Sensitive Data (SD) Apply: [https://sd-apply.csc.fi/](https://sd-apply.csc.fi/)
 
