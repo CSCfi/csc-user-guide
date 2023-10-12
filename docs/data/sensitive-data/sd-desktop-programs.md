@@ -1,10 +1,10 @@
 
 ## Default programs available on SD Desktop
 
-Each virtual Desktop (or virtual computer) is pre-built and contains a limited set of default open-source software (listed below). 
+Each virtual desktop (or virtual computer) is pre-built and contains a limited set of default open-source software (listed below). Additionally, you can find step-by-step guidance below on customizing your virtual desktop using the [SD Software installer](./tutorials/sd-software-installer.md), an easy-to-use tool that allows you to add commonly used software. It is also possible to customize the virtual desktop with Apptainer and Podman (advanced).
 
 !!! Note
-    If the list below is not clear or you need specific software to analyze your data, please don't hesitate to contact us at servicedesk@csc.fi (subject: Sensitive Data). We can support you in your Desktop customization. Moreover, we are working on developing our services to provide proprietary software. Follow our webpage for constant updates. 
+If the list below is unclear, or if you need specific software to analyze your data that is not yet available in this user guide, please do not hesitate to contact us at servicedesk@csc.fi (subject: Sensitive Data). We can assist you in customizing your virtual desktop.
 
 
 ### Pre-installed software:
