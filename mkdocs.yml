@@ -375,20 +375,20 @@ nav:
      - Secondary use of health and social data:
        - data/sensitive-data/sd-desktop-register-data-intro.md
        - Findata permit: 
-          - data/sensitive-data/mk-findata.md
+          - data/sensitive-data/findata-permit.md
        - Register permit: 
-          - data/sensitive-data/mk-single-register.md
-          - sivu 4: data/sensitive-data/mk-sivu4.md
-          - sivu 5: data/sensitive-data/mk-sivu5.md
+          - data/sensitive-data/single-register-permit.md
+          - Service access: data/sensitive-data/service-access-with-register-permit.md
+          - Apply for access with SD Apply: data/sensitive-data/apply-for-access-to-single-register-data.md
        - Analyse with SD Desktop for secondary use: 
-          - data/sensitive-data/mk-desktop.md
-          - sivu 6: data/sensitive-data/mk-sivu6.md
-          - sivu 7: data/sensitive-data/mk-sivu7.md
-          - sivu 8: data/sensitive-data/mk-sivu8.md
+          - data/sensitive-data/analyse-with-sd-desktop-for-secondary-use.md
+          - Setting up a virtual desktop: data/sensitive-data/setting-up-a-virtual-desktop.md
+          - Working with your virtual desktop: data/sensitive-data/working-with-your-virtual-desktop.md
+          - After completing your analysis: data/sensitive-data/after-completing-your-analysis.md
        - Submitting secondary use data: 
-          - data/sensitive-data/sd-desktop-register-controllers.md
-          - sivu 9: data/sensitive-data/mk-sivu9.md
-          - sivu 10: data/sensitive-data/mk-sivu10.md
+          - data/sensitive-data/single-register-submitting-secondary-use-data.md
+          - Data submission: data/sensitive-data/single-register-data-submission.md
+          - Data access management: data/sensitive-data/single-register-data-access-management.md
   - Applications:
      - apps/index.md
      - By discipline: apps/by_discipline.md
