@@ -1,7 +1,5 @@
 # Data submission
 
-# Data submission
-
 Below, you will find step-by-step instructions for uploading, describing, and publishing biomedical data via the Finnish Federated EGA. Please be aware that this process can be lengthy (anywhere between one to four months), but we will support you at every step. Requests will be processed in the order they are received. 
 
 !!! Note
