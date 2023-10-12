@@ -6,7 +6,7 @@ Below, you will find step-by-step instructions for uploading, describing, and pu
     Before you begin, it's crucial to ensure that a service agreement specific to the Federated EGA service is in place between CSC (as data processor) and your home organization (or data controller). Please make sure, before starting to submit any data, that all the legal agreements are in place. You can do so by contacting us at servicedesk@csc.fi (subject:sensitive data) or your home organization's legal services.
 
 ## Submission process overview 
-[![FEGA submission process overview](images/fega/fega_submission_overview.png)](images/fega/fega_submission_overview.png)
+[![FEGA submission process overview](images/fega/fega_submission_overview-up.png)](images/fega/fega_submission_overview-up.png)
 
 ## Step 1: General information of the submission
 
