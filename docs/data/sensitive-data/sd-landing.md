@@ -47,16 +47,16 @@ This manual introduces CSC's Sensitive Data (SD) services. To navigate the user 
    <div class="quick-links-topic">
     <span class="quick-links-title"><h2>Secondary use of health and social data</h2></span>
     <div class="quick-links-item">
-      <a class="quick-link" target="_self" href="../mk-findata/">Findata permit</a>
+      <a class="quick-link" target="_self" href="../findata-permit/">Findata permit</a>
     </div>
     <div class="quick-links-item">
-      <a class="quick-link" target="_self" href="../mk-single-register/">Register permit</a>
+      <a class="quick-link" target="_self" href="../single-register-permit/">Register permit</a>
     </div>
     <div class="quick-links-item">
-      <a class="quick-link" target="_self" href="../mk-desktop/">Analyse with SD Desktop for secondary use</a>
+      <a class="quick-link" target="_self" href="../analyse-with-sd-desktop-for-secondary-use/">Analyse with SD Desktop for secondary use</a>
     </div>
     <div class="quick-links-item">
-      <a class="quick-link" target="_self" href="../mk-data-controllers/">Submitting secondary use data</a>
+      <a class="quick-link" target="_self" href="../single-register-submitting-secondary-use-data/">Submitting secondary use data</a>
     </div>
   </div>
 </div>
