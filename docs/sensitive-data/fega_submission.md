@@ -6,7 +6,7 @@
 <iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/eg9YRFgT_5w" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ## Submission process overview 
-[![FEGA submission process overview](images/fega/fega_submission_overview.png)](images/fega/fega_submission_overview.png)
+[![FEGA submission process overview](images/fega/fega_submission_overview-up.png)](images/fega/fega_submission_overview-up.png)
 
 ## Step 1: Application form
 
