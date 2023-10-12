@@ -88,6 +88,7 @@ sidebar.
 
 * You need to use the `<iframe>` HTML element, for example, `<iframe width="560" height="315" frameborder="0" srcdoc="https://www.youtube.com/embed/PrgMFna3DKw" title="Adding and removing project members" allow="autoplay; encrypted-media" allowfullscreen></iframe>`
 * Note, a `www.youtube.com/embed/...` style URL is required to appropriately embed the video, the normal URL will not work. You can right-click the video in YouTube to copy the normal URL, then just add `/embed/`. It's also possible to right-click the video to copy the embed code directly, but it needs to be edited a bit before it can be used, see below.
+  * Remove any remaining search parameters present in the URL. In the example above, if the embed URL was formed by editing `https://www.youtube.com/watch?v=PrgMFna3DKw`, the first parameter would be the video ID as the key=value pair `v=PrgMFna3DKw` and prefixed with a "`?`". Any remaining search parameters would be prefixed with a "`&`" and should be removed. For example `https://www.youtube.com/watch?v=PrgMFna3DKw&si=a-nasty-looking-tracking-identifier` would need to be trimmed down to `https://www.youtube.com/watch?v=PrgMFna3DKw` before replacing `watch?v=` with `embed/`.
   * Edit `width` and `height` to match the example above.
   * Use the `title` to describe the content of the video.
   * Use of `srcdoc` is also required instead of plain `src` to avoid cookies if consent has not been granted.

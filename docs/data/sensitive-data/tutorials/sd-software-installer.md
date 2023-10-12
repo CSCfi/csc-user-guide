@@ -17,7 +17,7 @@ This document describes the usage of this tool.
 In order to get access to the installation tool, you need to **send a request to servicedesk@csc.fi**.
 In the request, indicate that you wish that the SD software installer would be 
 made available for your project. You must include the  **Project identifier string** of your project to the request.
-You can check this 32 characters long random string for example in the [SD Connect service](https://sd-conenct.csc.fi). 
+You can check this 32 characters long random string for example in the [SD Connect service](https://sd-connect.csc.fi). 
 There you find the Project Identifier in the **User information** view. 
 
 ## Installing the SD Software Installer ##
