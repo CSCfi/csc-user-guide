@@ -31,9 +31,9 @@ For the power provisioning of the node hosting the virtual machine, there are tw
 
 Within each virtual machine, the customer data is stored in a root disk (R) and possibly in an [ephemeral disk (E)](ephemeral-storage.md).
 For customer data, there are three possible values of redundancy.
+We also offer the possibility to store the data in a [persistent volume](persistent-volumes.md)
 
 * ![](/img/circle_icons/r0.svg)![](/img/circle_icons/e0.svg) **NONE** - The disk is stored only in the node running the virtual machine and it is not backed up (RAID-0 or LVM striping). **A fault in one of the disks of the node might corrupt the data of the virtual machine**. Moreover, **a fault in the node hosting the virtual machine might make the virtual machine not usable until the fault is fixed**.  
-If you want persistent data after a failure, take a look at our documentation regarding [persistent volumes](persistent-volumes.md)
 * ![](/img/circle_icons/r50.svg)![](/img/circle_icons/e50.svg) **BASIC** - The disk is stored only in the node running the virtual machine and it is mirrored within the same node (RAID-1). A fault in a single disk of the node does not compromise the data of the virtual machine. **Simultaneous faults in multiple disks of the node might corrupt the data of the virtual machine**. Moreover, **a fault in the node hosting the virtual machine might make the virtual machine not usable until the fault is fixed**.
 * ![](/img/circle_icons/r100.svg)![](/img/circle_icons/e100.svg) **FULL** - The disk is stored using multiple nodes in a fault-tolerant fashion (Ceph), so the customer data is not tied to any specific node. In case of a fault in a node used by the customer, it is possible to re-spawn the virtual machine of the customer using an alternative node.
 
