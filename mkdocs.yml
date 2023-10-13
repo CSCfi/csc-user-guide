@@ -345,7 +345,7 @@ nav:
      - Store and analyse: 
        - Start here: 
           - data/sensitive-data/sd-start-here.md
-          - Resources and billing units: data/sensitive-data/sd-recources.md
+          - Resources and billing units: data/sensitive-data/sd-resources.md
        - Store with SD Connect: 
           - data/sensitive-data/sd-connect.md
           - Data upload for analysis: data/sensitive-data/sd-connect-analysis.md
