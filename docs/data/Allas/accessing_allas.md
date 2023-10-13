@@ -19,7 +19,7 @@ The OpenStack Horizon web interface in **cPouta** provides easy-to-use basic fun
 * [Web client – OpenStack Horizon Dashboard](./using_allas/web_client.md)
 
 **SD Connect** provides sensitive data oriented web interface for Allas. By default this interface encrypts the uploaded data 
-so that it can be used in [SD Desktop](../data/sensitive-data/sd-desktop.md#) service. You can use SD Connect for non-sensitive data too, if you switch off the encryption, however, not encyrpted data are not visible via SD Desktop.   
+so that it can be used in [SD Desktop](../../data/sensitive-data/sd-desktop.md) service. You can use SD Connect for non-sensitive data too, if you switch off the encryption, however, not encyrpted data are not visible via SD Desktop.   
 
 * [SD Connect](https://sd-connect.csc.fi) ([instructions](../sensitive-data/sd_connect.md))
 
