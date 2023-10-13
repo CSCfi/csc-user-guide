@@ -1,3 +1,46 @@
+### Working with your virtual desktop
+
+
+<iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/EhuAYNLS90g" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+
+
+Once a virtual desktop has been created, each CSC project member can securely access it from their browser.
+
+When you log in to SD Desktop **Homepage**,  you will be able to access your virtual computing environment from:
+
+* **Recent connections**. Click on your desktop's image (visible only if recently accessed).
+
+* **All connections**. Click on + next to the CSC  project ID (e.g. project_NNNNN): this allows you to visualize and access all the desktops associated with the project (desktopname-NNNNNNNNNN) via a secure connection. 
+
+
+When you open the connection, a virtual computing environment (Linux operating system) will open in your browser. If you are accessing the virtual desktop for the first time, you will see the panel getting started, from which you can, for example, adjust the screen resolution.
+
+You can work with the desktop like in a standard computing environment, accessing several pre-installed programs from the applications menu bar (top left corner). Examples include Open Office, image viewing applications, video and audio players, Jupiter Notebook etc. You can also open a terminal and use Linux from the command line. For more information on accessing R-Studio, please check the paragraph below.
+
+Security-related features of SD Desktop include:
+
+1. The computing environment (visible from your browser) is isolated from the internet. So you can, for example, open a Firefox web browser but not access any site online. At this moment, you will also not be able to access any repositories directly.
+
+2. You can access or import files into the computing environment only using the Data Gateway application (see below for more information);
+
+3. Unencrypted files are not visible via the SD Desktop service. You can access and visualize only encrypted files (uploaded to CSC using SD Connect or encrypted programmatically with the service's public encryption key). 
+
+4. The copy-paste function from your computer/laptop to the browser visualizing your secure desktop is entirely disabled for security reasons. However, you can use this function inside the virtual desktop.
+
+5. Only files saved in the shared-directory or the external volume are accessible to all project members via the virtual desktop. 
+
+You can close the connection to your virtual desktop in two ways:
+
+1. _Log out_ from the desktop (in the workspace view, top right corner of the browser, select your _username_ and _log out_). This will close all applications and disconnect the work session. You can access the same desktop anytime after logging in to the services.
+
+2. If you initiated an analysis programmatically (running a script), you can close the browser window. This doesn't interfere with the processes running. Thus, when you reconnect to your desktop, all your tools and interfaces are still open and you can continue working. However, log out from the desktop once the analysis is finished. If you leave more than ten connections open, you will be unable to re-access the services. 
+
+!!! Note
+    Each virtual desktop only supports ten simultaneous connections, for a total of 30 connections for each CSC project. You will be automatically logged out from the virtual desktop if a connection has been left accidentally active for two days.
+ 
+ 
+ [![Access-virtual-Desktop](images/desktop/desktop-access.png)](images/desktop/desktop-access.png)
 
 
 ## Accessing encrypted sensitive data within SD Desktop

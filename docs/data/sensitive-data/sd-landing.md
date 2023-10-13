@@ -4,6 +4,8 @@ This manual introduces CSC's Sensitive Data (SD) services. To navigate the user 
 !!! Note
     **Do you have any questions? Would you like to discuss a specific project?** Don't hesitate to contact us at servicedesk@csc.fi (subject: Sensitive Data) or join the [CSC Research User Support Coffee - Every Wednesday at 14:00](https://ssl.eventilla.com/usersupportcoffee). Our team is here to help, and we offer direct support. 
 
+This guide is currently undergoing improvements to provide you with an even better experience.
+
 
 <div class="quick-links-container">
 
@@ -65,13 +67,12 @@ This manual introduces CSC's Sensitive Data (SD) services. To navigate the user 
 
 We kindly request that users carefully read the manual before proceeding to use the services to ensure a smooth experience. 
 
-[https://my.csc.fi/](https://my.csc.fi/welcome)
+
+MyCSC portal: [https://my.csc.fi/](https://my.csc.fi/welcome)
 <br/>
-[https://sd-connect.csc.fi/](https://sd-connect.csc.fi/)
+Sensitive Data (SD) Connect: [https://sd-connect.csc.fi/](https://sd-connect.csc.fi/)
 <br/>
-[https://sd-desktop.csc.fi](https://sd-desktop.csc.fi)
+Sensitive Data (SD) Desktop: [https://sd-desktop.csc.fi](https://sd-desktop.csc.fi)
 <br/>
-[FEGA]()
-<br/>
-[SD Apply]()
+Sensitive Data (SD) Apply: [https://sd-apply.csc.fi/](https://sd-apply.csc.fi/)
 
