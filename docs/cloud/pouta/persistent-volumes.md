@@ -8,7 +8,7 @@ removed. They can be attached to or detached from virtual machines
 while they are running.
 
 Persistent volumes are using CEPH cluster. Regarding I/O performance, you should not use this kind of volume.
-It will use network access to the volume thus latency.
+It will use network access to the volume therefore latency.
 
 ## Creating and attaching volumes in the Pouta web interface
 

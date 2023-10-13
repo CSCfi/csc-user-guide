@@ -30,8 +30,8 @@ For the power provisioning of the node hosting the virtual machine, there are tw
 ### Data redundancy
 
 Within each virtual machine, the customer data is stored in a root disk (R) and possibly in an [ephemeral disk (E)](ephemeral-storage.md).
-For customer data, there are three possible values of redundancy.
-We also offer the possibility to store the data in a [persistent volume](persistent-volumes.md)
+For customer data, there are three possible values of redundancy.  
+We also offer the possibility to store the data in a [persistent volume (FULL)](persistent-volumes.md)
 
 * ![](/img/circle_icons/r0.svg)![](/img/circle_icons/e0.svg) **NONE** - The disk is stored only in the node running the virtual machine and it is not backed up (RAID-0 or LVM striping). **A fault in one of the disks of the node might corrupt the data of the virtual machine**. Moreover, **a fault in the node hosting the virtual machine might make the virtual machine not usable until the fault is fixed**.  
 * ![](/img/circle_icons/r50.svg)![](/img/circle_icons/e50.svg) **BASIC** - The disk is stored only in the node running the virtual machine and it is mirrored within the same node (RAID-1). A fault in a single disk of the node does not compromise the data of the virtual machine. **Simultaneous faults in multiple disks of the node might corrupt the data of the virtual machine**. Moreover, **a fault in the node hosting the virtual machine might make the virtual machine not usable until the fault is fixed**.
