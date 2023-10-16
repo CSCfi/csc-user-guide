@@ -350,8 +350,8 @@ nav:
       - Introduction: data/sensitive-data/intro.md
       - Accessing SD Services: data/sensitive-data/sd-access.md
       - Store with SD Connect: 
-          - data/sensitive-data/sd-connect.md
-          - Data upload for analysis: data/sensitive-data/upload-for-analysis.md
+          - Test: data/sensitive-data/sd-connect.md
+          - Data upload for analysis: data/sensitive-data/sd-connect-upload-for-analysis.md
       - Analyse with SD Desktop: data/sensitive-data/sd_desktop.md
       - SD Desktop for secondary use: data/sensitive-data/sd-desktop-audited.md
 #     - SD Apply for secondary use: data/sensitive-data/single-register-submission.md
