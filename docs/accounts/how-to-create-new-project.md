@@ -35,19 +35,15 @@ Academic projects are usually valid for one year at a time, but they can be exte
 
 ## Commercial
 
-Commercial projects are currently only available through the Service Desk. Please contact servicedesk@csc.fi for more information.
-
-## Student
-
-The student project is identical to the course project except that a student can be the project manager of the student project. Please read the [instructions for the Student Project](#) carefully and then you can continue with the instructions for the [Course Project](how-to-create-new-project#course).
+Commercial projects are currently only available through the Service Desk. Please contact <servicedesk@csc.fi> for more information.
 
 ## Course
 
-Similar to the Academic project category, the Course category is reserved for [free-of-charge](https://research.csc.fi/free-of-charge-use-cases){:target="_blank"} use cases. The main difference is that the course project is a fixed time (maximum of 6 months, non-extendable), fixed resource and is designed to deliver a course once. Re-delivering the course requires a new project. Please note, that all data is deleted at the end of the project.
+The course category is reserved for [free-of-charge](https://research.csc.fi/free-of-charge-use-cases){:target="_blank"} use cases. This category project is a fixed time (maximum of 6 months, non-extendable), fixed resource and is designed to deliver a course once. Re-delivering the course requires a new project. Please note, that all data is deleted at the end of the project.
 
 6. Fill in the course dates and field of science. 
-8. Please have a look at our terms and conditions and confirm your acceptance.
-9. Click **Create project**.
+7. Please have a look at our terms and conditions and confirm your acceptance.
+8. Click **Create project**.
 
 The easiest way to add students to a course project is to use an [invitation link](how-to-add-members-to-project.md#using-invitation-link).
 
@@ -74,3 +70,15 @@ Once you have created the project, [invite the project members](how-to-add-membe
 Please note that LUMI access is provided only with SSH keys, not with passwords. After you have received an acceptance confirmation email for your LUMI project request, please [upload your public SSH key to MyCSC according to the instructions](../computing/connecting.md#setting-up-ssh-keys).
 
 For further information on LUMI projects please visit [Users in Finland](https://www.lumi-supercomputer.eu/get-started-2021/users-in-finland/){:target="_blank"}
+
+## Student
+
+A student can be the project manager of the student project. Please read the [Getting started with the Student Project](../support/tutorials/student_quick.md) carefully and then you can continue with the instructions below.
+
+The student category is reserved for [free-of-charge](https://research.csc.fi/free-of-charge-use-cases){:target="_blank"} use cases. This category project is a fixed time (maximum of 6 months, non-extendable), fixed resource and is designed to support student's work with higher educational institutes' courses. Please note, that all data is deleted at the end of the project.
+
+6. Fill in the course dates and field of science. 
+7. Please have a look at our terms and conditions and confirm your acceptance.
+8. Click **Create project**.
+
+The easiest way to add possible other students to a student project is to use an [invitation link](how-to-add-members-to-project.md#using-invitation-link).
