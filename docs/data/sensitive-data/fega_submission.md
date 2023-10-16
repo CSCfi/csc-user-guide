@@ -124,7 +124,7 @@ Where the syntax *--recipient_pk* defines the public key used to encrypt the dat
 
 **Data upload with sfpt CLI (default in Linux and Mac OS)**:
 
-1. Open a terminal and open the sftp connetion with the following syntax, where _ega_user_ is the EGA credentials username (usually this is your email address):
+1. Open a terminal and open the sftp connection with the following syntax, where _ega_user_ is the EGA credentials username (usually this is your email address):
 
 ```
 sftp -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -P 50529 ega_user@admin.sd.csc.fi
