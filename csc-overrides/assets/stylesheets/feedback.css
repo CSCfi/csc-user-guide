@@ -63,3 +63,8 @@
 .csc-feedback .csc-rated--negative .csc-feedback-note--positive {
   display: none;
 }
+
+.csc-feedback .csc-feedback-instructions {
+  margin: 1rem auto;
+  max-width: 66%;
+}

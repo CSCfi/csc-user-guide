@@ -23,8 +23,7 @@ extra:
           type: Negative
           description: No! This page needs to be improved.
           note: >-
-            You can improve this page by
-            submitting a pull request.
+            Thank you! Your feedback is appreciated.
       exclude:
         - ref.md
 

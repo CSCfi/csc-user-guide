@@ -14,7 +14,16 @@
         {{ rating.name }}
       </button>
       <div class="csc-feedback-note csc-feedback-note--{{ rating.type|lower }}">
-        {{ rating.note }}
+        <div style="text-align: center;">{{ rating.note }}</div>
+        {% if rating.type == "Negative" %}
+        {% set issue_url = "https://github.com/CSCfi/csc-user-guide/issues/new" %}
+        <div class="csc-feedback-instructions admonition note">
+          <p>Please let us know how we could improve this page by
+          <a href="{{ base_url }}/support/contact/">contacting us</a> or by
+          <a href="{{ issue_url }}">creating an issue in GitHub</a>. You can also
+          <a href="{{ page.edit_url }}">edit this page yourself</a> and contribute your improvements by creating a pull request.</p>
+        </div>
+        {% endif %}
       </div>
       {% endfor %}
     </div>
