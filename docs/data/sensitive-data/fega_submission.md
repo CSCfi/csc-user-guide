@@ -117,22 +117,32 @@ pip install crypt4gh
 3.	To encrypt a file with the [Finnish FEGA public encryption key](https://a3s.fi/fega-public-keys/fega-pubkey-c4gh.pub) use ```crypt4gh encrypt``` command:
  
 ```
-$ crypt4gh encrypt  --recipient_pk fega-pubkey-c4gh.pub <example_file.txt> example_file.txt.c4gh
+$ crypt4gh encrypt  --recipient_pk fega-pubkey-c4gh.pub < example_file.txt > example_file.txt.c4gh
 ```
 
-Where the syntax *--recipient_pk* defines the public key used to encrypt the data. In this case, Finnish FEGA public key. *example_file.txt.c4gh* defines the input file and output encrypted file. 
+Where the syntax *--recipient_pk* defines the public key used to encrypt the data. In this case, Finnish FEGA public key. _example_file.txt_ defines the input file and _example_file.txt.c4gh_ output encrypted file. 
 
 **Data upload with sfpt CLI (default in Linux and Mac OS)**:
 
-1. Open a terminal and transfer the encrypted files or directory with the following syntax, where <ega_user> is the EGA credentials username (usually this is your email address):
+1. Open a terminal and open the sftp connection with the following syntax, where _ega_user_ is the EGA credentials username (usually this is your email address):
 
 ```
-sftp -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -P 50529 <ega_user>@admin.sd.csc.fi
+sftp -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -P 50529 ega_user@admin.sd.csc.fi
 ```
 
-2. For the password, use your Central EGA account password. Data upload can take minutes or up to several hours, depending on the size of the dataset
+For the password, use your Central EGA account password.
 
-3. Please inform the Finnish FEGA helpdesk via email (servicedesk@csc.fi) when you have completed the data encryption and upload to Finnish FEGA. You will receive further instructions for the metadata submission.
+2. Transfer the encrypted files or directory with the *put* command, when you are connected to sftp.
+
+```
+sftp> put example_file.txt.c4gh
+```
+
+Data upload can take minutes or up to several hours, depending on the size of the dataset.
+
+3. Wait for the process the be completed before closing the connection. When the process is complete, you should see the files in the [submitter portal](https://submission.finland.ega-archive.org/) by going to Files from the menu. After you have confirmed that the process has completed, you can close the sftp connection with _exit_ command. It is important to disconnect when you have finished the upload.
+
+4. Please inform the Finnish FEGA helpdesk via email (servicedesk@csc.fi) when you have completed the data encryption and upload to Finnish FEGA. You will receive further instructions for the metadata submission.
 
 ## Step 6: Data Access Committee and Policy registration
 
