@@ -4,6 +4,4 @@
 
 ## [Allas object storage](Allas/index.md)
 
-## [Sensitive data](sensitive-data/index.md)
-
 ## [Kaivos database service](kaivos/overview.md)
