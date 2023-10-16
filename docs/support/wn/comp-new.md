@@ -1,5 +1,16 @@
 # Computing environment
 
+## Mahti web interface updated to release 2, 13.10.2023
+
+* [MLflow Tracking](../../computing/webinterface/mlflow.md) is now available as an interactive app.
+- An [Allas configuration tool](../../computing/webinterface/index.md#using-allas) has been added for configuring a connection to Allas.
+- [IDA](../../data/ida/using_ida.md) is now supported in the file browser.
+- The Desktop app configuration and icons are now saved between sessions.
+- VSCode updated to 1.82.2.
+- Jupyter notebooks in VSCode now work.
+- Usage metrics now include a description.
+- Open OnDemand updated to version 3.0.3.
+
 ## Puhti web interface updated to release 17, 8.9.2023
 
 * [MLflow Tracking](../../computing/webinterface/mlflow.md) is now available as an interactive app.
