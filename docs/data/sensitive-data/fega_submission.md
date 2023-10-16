@@ -140,7 +140,7 @@ sftp> put example_file.txt.c4gh
 
 Data upload can take minutes or up to several hours, depending on the size of the dataset.
 
-3. Wait for the process the be completed before closing the connection. When the process is complete, you should see the files in the [submitter portal](https://submission.finland.ega-archive.org/) by going to Files from the menu. After you have confirmed that the process has completed, you can close the sftp connection with _exit_ command. It is important to disconnect when you have finished the transfer.
+3. Wait for the process the be completed before closing the connection. When the process is complete, you should see the files in the [submitter portal](https://submission.finland.ega-archive.org/) by going to Files from the menu. After you have confirmed that the process has completed, you can close the sftp connection with _exit_ command. It is important to disconnect when you have finished the upload.
 
 4. Please inform the Finnish FEGA helpdesk via email (servicedesk@csc.fi) when you have completed the data encryption and upload to Finnish FEGA. You will receive further instructions for the metadata submission.
 
