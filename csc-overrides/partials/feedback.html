@@ -1,6 +1,10 @@
 {% set feedback = config.extra.analytics.feedback %}
 {% set edited = page.meta.git_revision_date_localized_raw_custom|string %}
 {% set source = page.file.src_path %}
+{% set contact_url = base_url ~ "/support/contact/" %}
+{% set issue_title = "Feedback on " ~ source %}
+{% set issue_parameters = ["labels=feedback", "title=" ~ issue_title|replace(" ", "+")|escape]|join("&") %}
+{% set issue_url = config.repo_url ~ "issues/new?" ~ issue_parameters %}
 {% if not page.is_homepage and source not in feedback.exclude %}
 <form name="feedback" class="csc-feedback"
   data-source-edited="{{ edited[:-2]+':00' }}"
@@ -16,10 +20,9 @@
       <div class="csc-feedback-note csc-feedback-note--{{ rating.type|lower }}">
         <div style="text-align: center;">{{ rating.note }}</div>
         {% if rating.type == "Negative" %}
-        {% set issue_url = "https://github.com/CSCfi/csc-user-guide/issues/new" %}
         <div class="csc-feedback-instructions admonition note">
           <p>Please let us know how we could improve this page by
-          <a href="{{ base_url }}/support/contact/">contacting us</a> or by
+          <a href="{{ contact_url }}">contacting us</a> or by
           <a href="{{ issue_url }}">creating an issue in GitHub</a>. You can also
           <a href="{{ page.edit_url }}">edit this page yourself</a> and contribute your improvements by creating a pull request.</p>
         </div>
