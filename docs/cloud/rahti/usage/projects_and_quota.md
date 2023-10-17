@@ -6,7 +6,7 @@
 Click the blue "Create Project" button to create a project, and you will be
 presented with the following view:
 
-![OpenShift new project dialog](img/new_project_dialog_3.7.png)
+![OpenShift new project dialog](../../img/new_project_dialog_3.7.png)
 
 1. You *need* to pick a **unique name** that is not in use by any other project
 in the system.
@@ -168,13 +168,13 @@ dropdown menu on the right for the members of that computing project.
 
 In order to delete a Rahti project, you need to go to the main landing page and click in the 3 vertical dots next to the name of the project. In the drop down menu, you will see the option "Delete Project".
 
-![Remove Rahti drop down](img/delete_project_menu.png)
+![Remove Rahti drop down](../../img/delete_project_menu.png)
 
 Before the Rahti project is removed, you will be asked to input the name of the project to confirm that you really want to remove the Rahti project and prevent accidents.
 
 !!! warning
     After the project has been confirmed for deletion, all resources will be deleted and there will be no way to restore them, including the data stored in the persistent volumes.
 
-![Project name dialog](img/delete_project_name.png)
+![Project name dialog](../../img/delete_project_name.png)
 
 After that, Rahti will start to delete all the resources of the project. It could take only few seconds or up to a minute, it depends of amount of resources the project had. After that Rahti will liberate the project name, and it will be possible to create an empty project with the same name.

@@ -45,7 +45,7 @@ For example, let's say you create a pod with the following specs:
 You also create a persistent volume of size 10 GiB and attach it to the pod. The
 cost in BUs can be calculated as follows:
 
-![BU calculation](img/BU-calculation.drawio.svg)
+![BU calculation](../img/BU-calculation.drawio.svg)
 
 ## Billing unit calculator
 

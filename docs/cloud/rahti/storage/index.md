@@ -4,7 +4,7 @@ This article introduces the storage options available in CSC's Rahti environment
 
 One of the pillars of Docker is the immutability of images, once they are built, docker images never change. The issue for most of the applications is that it is necessary to store, update and later retrieve application data. In docker, this is solved by the concept of volumes, an external filesystem (to docker) that is mounted in the internal filesystem of a container. In Kubernetes, and by extension OpenShift, this problem can be solved in several ways.
 
-![Storage options](../img/storage-options.drawio.svg)
+![Storage options](../../img/storage-options.drawio.svg)
 
 ## Persistent storage
 

@@ -35,14 +35,14 @@ It should show the list of all available commands.
 Instructions for downloading the oc tool and logging in via the command line
 can be found in the "Command Line Tools" page in the web interface:
 
-![Command line tools](img/cli_help_menu_3.7.png)
+![Command line tools](../../img/cli_help_menu_3.7.png)
 
 ## How to login with `oc`?
 
 The oc login command to login can be found in one of the fields on the page. There is a
 button next to it for copying the command to the clipboard:
 
-![OpenShift Command Line Tools page](img/openshift_cli_dialog_3.7.png)
+![OpenShift Command Line Tools page](../../img/openshift_cli_dialog_3.7.png)
 
 Copy the command and paste it in a terminal to start using OpenShift via the
 command line.
@@ -95,7 +95,7 @@ oc login https://rahti.csc.fi:8443 --token=<secret access token>
 This command can be obtained by clicking your usename and "Copy Login Command"
 in the web console:
 
-![copy login](../tutorials/img/copy-login.png)
+![copy login](../../img/copy-login.png)
 
 Show projects:
 

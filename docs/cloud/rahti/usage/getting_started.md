@@ -14,6 +14,6 @@ primitives described in the [background](/cloud/rahti/concepts/) chapter.
 Log in at <https://rahti.csc.fi:8443> (see [Getting access](/cloud/rahti/access)
 for instructions). After logging in, you should see a page like this:
 
-![OpenShift main page](img/openshift_main_page_3.7.png)
+![OpenShift main page](../../img/openshift_main_page_3.7.png)
 
 Proceed to [create a project](/cloud/rahti/usage/projects_and_quota/) for running your applications.
