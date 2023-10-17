@@ -353,6 +353,7 @@ nav:
           - data/sensitive-data/sd-connect.md
           - Data upload for analysis: data/sensitive-data/sd-connect-upload-for-analysis.md
           - Data upload for storage and sharing: data/sensitive-data/sd-connect-upload-for-storage-and-sharing.md
+          - Command line interface: data/sensitive-data/sd-connect-command-line-interface.md
       - Analyse with SD Desktop: data/sensitive-data/sd_desktop.md
       - SD Desktop for secondary use: data/sensitive-data/sd-desktop-audited.md
 #     - SD Apply for secondary use: data/sensitive-data/single-register-submission.md
