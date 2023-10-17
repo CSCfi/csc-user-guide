@@ -348,7 +348,7 @@ nav:
   - Sensitive data:
       - data/sensitive-data/index.md
       - Terminology: data/sensitive-data/sd-terminology.md
-      - Store and analyze:
+      - Store and analyse:
         - Start here: data/sensitive-data/sd-access.md
         - Store with SD Connect: 
             - data/sensitive-data/sd_connect.md
