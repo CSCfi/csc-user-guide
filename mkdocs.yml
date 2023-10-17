@@ -350,7 +350,7 @@ nav:
       - Introduction: data/sensitive-data/intro.md
       - Accessing SD Services: data/sensitive-data/sd-access.md
       - Store with SD Connect: 
-          - data/sensitive-data/sd-connect.md
+          - data/sensitive-data/sd_connect.md
           - Data upload for analysis: data/sensitive-data/sd-connect-upload-for-analysis.md
           - Data upload for storage and sharing: data/sensitive-data/sd-connect-upload-for-storage-and-sharing.md
           - Command line interface: data/sensitive-data/sd-connect-command-line-interface.md
