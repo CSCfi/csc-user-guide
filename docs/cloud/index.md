@@ -24,7 +24,7 @@ More information about using Pouta may be found from [here](pouta/).
 
 ### Pukki - Database as a Service
 
-Something about Pukki - Database as a Service.
+Pukki is a service that provides on demand databases with automatic backups and maintenance. If you have a CSC-account you should be able to get your first database within 15 minutes and your second database within five. If you are doing research, arranging courses or building a new services that needs databases you probably want to check out this service before you start setting up manually your own database.
 
 More information about using Pukki may be found from [here](dbaas/).
 
