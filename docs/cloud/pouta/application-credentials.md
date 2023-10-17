@@ -91,7 +91,7 @@ file that you can source, a YAML file that can be used directly by the CLI, or a
 
 ## Using roles
 
-In cPouta, there are four roles available: `member`, `heat_stack_owner`, `object_store_user` and `creator`. The reader role is a read-only role while the member role is allowed to make changes to your project.
+In cPouta, there are four roles available: `member`, `heat_stack_owner`, `object_store_user` and `creator`.
 
 * `member` role is the normal user role. It can make changes to the system. When you login into the web-interface you have the `member` role
 enabled.
@@ -102,17 +102,9 @@ enabled.
 
 * `creator` can create secrets such as passwords, encryption keys.
 
+If you are using Applications credentials in ePouta, it's slightly different. There are three roles available: `member` and `heat_stack_owner`.
 
-If you are using Applications credentials in ePouta, it's slightly different. There are three roles available: `reader`, `member` and `heat_stack_owner`. The reader role is a read-only role while the member role is allowed to make changes to your project.
-
-* `reader` role can only collect data from your project but not make any changes. This is good if you
-want to create a script that checks the state of your services. Sometimes it is nice to have a default
-reader account that you use for day-to-day operations when you collect information so that you can be
-sure that you can't do any destructive commands.
-
-* `member` role is the normal user role. It can do everything that the `reader` role can, but it can
-also make changes to the system. When you login into the web-interface you have the `member` role
-enabled.
+* `member` role is the normal user role. When you login into the web-interface you have the `member` role enabled.
 
 * `heat_stack_owner` can operate over Heat stacks, that is create, modify and delete infrastructure. This is useful for using it in a `IaC` setup. 
 
