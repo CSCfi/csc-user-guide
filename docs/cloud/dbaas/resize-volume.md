@@ -11,7 +11,7 @@ When you first create a database instance, you specify the size of the volume th
 
 Resizing the volume should not affect your data, but you can make a backup of your instance manually before resizing to prevent any data loss.
 
-See the steps to take manual backups in [Backups](backups.md).
+See the steps to make `manual backups` in [Backups](backups.md).
 
 
 ## Resize volume from the Web interface
