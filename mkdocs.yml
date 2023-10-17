@@ -361,31 +361,7 @@ nav:
             - data/sensitive-data/sd-desktop.md
             - Create desktop: data/sensitive-data/sd-desktop-create.md
             - Manage desktop: data/sensitive-data/sd-desktop-manage.md
-            - Access data and work: data/sensitive-data/sd-desktop-access.md
-            - Software: data/sensitive-data/sd-desktop-programs.md
-            - Export data: data/sensitive-data/sd-desktop-export.md
-            - Troubleshooting: data/sensitive-data/sd-desktop-trouble.md
-       - Tutorials and quick quides: data/sensitive-data/sd-tutorials.md
-   - Publish and reuse:
-       - Federated EGA: data/sensitive-data/sd-fega.md
-       - Reuse with SD Apply: data/sensitive-data/sd-apply.md
-     - Secondary use of health and social data:
-       - data/sensitive-data/sd-desktop-register-data-intro.md
-       - Findata permit: 
-          - data/sensitive-data/findata-permit.md
-       - Register permit: 
-          - data/sensitive-data/single-register-permit.md
-          - Service access: data/sensitive-data/service-access-with-register-permit.md
-          - Apply for access with SD Apply: data/sensitive-data/apply-for-access-to-single-register-data.md
-       - Analyse with SD Desktop for secondary use: 
-          - data/sensitive-data/analyse-with-sd-desktop-for-secondary-use.md
-          - Setting up a virtual desktop: data/sensitive-data/setting-up-a-virtual-desktop.md
-          - Working with your virtual desktop: data/sensitive-data/working-with-your-virtual-desktop.md
-          - After completing your analysis: data/sensitive-data/after-completing-your-analysis.md
-       - Submitting secondary use data: 
-          - data/sensitive-data/single-register-submitting-secondary-use-data.md
-          - Data submission: data/sensitive-data/single-register-data-submission.md
-          - Data access management: data/sensitive-data/single-register-data-access-management.md
+
   
   
   - Applications:
