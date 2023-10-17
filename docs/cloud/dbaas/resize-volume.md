@@ -11,8 +11,9 @@ When you first create an instance, you specify the size of the volume the instan
 
 ### From web interface
 
-In the column on the left hand side you can go to `Database` -> `Instances` and press
-the arrow icon next to `Create Backup` -button that can be found on the right hand side of the select instance, and select `Resize Volume` from the drop-down list.  
+In the column on the left hand side you can go to `Database` -> `Instances` and locate the instance you want to resize the volume of.  
+
+On the right hand side of the select row, next to `Create Backup` -button, press the `arrow icon` to open up a drop-down list, and select `Resize Volume`.
 
 From there you can specify the new volume size for the database instance. Note that the new value must be greater than the existing volume size.
 
