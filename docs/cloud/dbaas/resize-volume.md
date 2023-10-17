@@ -13,7 +13,6 @@ Resizing the volume should not affect your data, but you can make a backup of yo
 
 See the steps to make `manual backups` in [Backups](backups.md).
 
-
 ## Resize volume from the Web interface
 
 1. In the column on the left hand side you can go to `Database` -> `Instances` and locate the instance you want to resize the volume of.  
@@ -56,3 +55,7 @@ Note that the new value must be greater than the existing volume size.
 
 ## I'm having problems with resizing the volume  
 
+### Status stuck on RESIZING  
+
+Make sure you have tried to `reload the web interface page` or ran `openstack database instance show $INSTANCE_ID` command after 5 minutes of resizing the volume.
+If the status of instance is `RESIZING` after 5 minutes, please [contact us](../../support/contact.md).  
