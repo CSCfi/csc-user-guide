@@ -7,6 +7,13 @@
 
 When you first create a database instance, you specify the size of the volume the instance has in use. If you later on notice that the size is not enough, you can resize the volume either from the web interface or from the CLI. Note that you can only increase the size of the volume, not decrease.  
 
+## Precautions  
+
+Resizing the volume should not affect your data, but you can make a backup of your instance manually before resizing to prevent any data loss.
+
+See the steps to take manual backups in [Backups](backups.md).
+
+
 ## Resize volume from the Web interface
 
 1. In the column on the left hand side you can go to `Database` -> `Instances` and locate the instance you want to resize the volume of.  
@@ -20,7 +27,7 @@ Note that the new value must be greater than the existing volume size.
 
 5. The change should take 1-2 minutes. If the web interface does not automatically update the status from `Resizing` to `Active`, try to reload the page.  
 
-    If the status is `Resizing` for over 5 minutes, check the `I'm having problems with resizing the volume`.  
+    If the status is `Resizing` for over 5 minutes, check the `I'm having problems with resizing the volume` below.  
 
 ## Resize volume from the CLI
 
@@ -45,4 +52,7 @@ Note that the new value must be greater than the existing volume size.
         openstack database instance show $INSTANCE_ID
     ```  
 
-    If the status is `Resizing` for over 5 minutes, check the `I'm having problems with resizing the volume`.  
+    If the status is `Resizing` for over 5 minutes, check the `I'm having problems with resizing the volume` below.  
+
+## I'm having problems with resizing the volume  
+
