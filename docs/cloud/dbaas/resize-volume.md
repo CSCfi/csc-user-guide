@@ -40,8 +40,11 @@ If the status is `Resizing` for over 5 minutes, check the `I'm having problems w
     for example:  
     openstack database instance resize volume `f37a8ea6-5ed7-4982-8a71-9131756f04ae` `5`
 
-3. You can check the `status of instance`:
+3. You can check the `status of the instance`:
 
     ```sh
     openstack database instance show $INSTANCE_ID
     ```  
+
+    After 1-2 minutes, the command should return the status as `ACTIVE`  
+    If the status is `Resizing` for over 5 minutes, check the `I'm having problems with resizing the volume`.  
