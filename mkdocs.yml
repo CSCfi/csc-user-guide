@@ -358,7 +358,7 @@ nav:
             - Command line interface: data/sensitive-data/sd-connect-command-line-interface.md
             - Troubleshooting: data/sensitive-data/sd-connect-troubleshooting.md
         - Analyse with SD Desktop: 
-            - data/sensitive-data/sd-desktop.md
+            - data/sensitive-data/sd_desktop.md
             - Create desktop: data/sensitive-data/sd-desktop-create.md
             - Manage desktop: data/sensitive-data/sd-desktop-manage.md
 
