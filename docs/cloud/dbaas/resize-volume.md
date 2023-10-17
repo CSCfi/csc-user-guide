@@ -22,3 +22,26 @@ Confirm the change with `Resize Database Volume`.
 The change should take 1-2 minutes, if the web interface does not automatically update the status from `Resizing` to `Active`, try to reload the page.
 
 If the status is `Resizing` for over 5 minutes, check the `I'm having problems with resizing the volume`.  
+
+### From the CLI
+
+1. Locate the `instance ID` for the instance you want to resize the volume of:
+
+    ```sh
+    openstack database instance list
+    ```
+
+2. `Resize the volume` of the instance:
+
+    ```sh
+    openstack database instance resize volume $INSTANCE_ID $NEW_VOLUME_SIZE
+    ```
+
+    for example:  
+    openstack database instance resize volume `f37a8ea6-5ed7-4982-8a71-9131756f04ae` `5`
+
+3. You can check the `status of instance`:
+
+    ```sh
+    openstack database instance show $INSTANCE_ID
+    ```  
