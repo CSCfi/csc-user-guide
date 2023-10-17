@@ -347,7 +347,6 @@ nav:
   
   - Sensitive data:
       - data/sensitive-data/index.md
-      - Accessing SD Services: data/sensitive-data/sd-access.md
       - Store with SD Connect: 
           - data/sensitive-data/sd_connect.md
           - Start here: data/sensitive-data/sd-start-here.md
