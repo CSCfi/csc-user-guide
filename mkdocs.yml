@@ -191,7 +191,7 @@ nav:
            - Technical details: computing/quantum-computing/helmi/helmi-specs.md
            - FiQCI partition: computing/quantum-computing/helmi/fiqci-partition.md
            - Running on Helmi: computing/quantum-computing/helmi/running-on-helmi.md
-  - Cloud:
+  - Cloud Services:
      - cloud/index.md
      - Pouta:
         - cloud/pouta/index.md
