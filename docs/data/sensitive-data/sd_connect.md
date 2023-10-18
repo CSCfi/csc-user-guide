@@ -47,20 +47,6 @@ You can browse through the main topics of the manual using the navigation bar on
     SD Connect is unsuitable for data processing under the Act on the Secondary Use of Health and Social Data. Please check [SD Desktop for secondary use](./sd-desktop-audited.md) to learn about the precise requirements.
 
 
-
-## Authentication
-
-After creating a CSC account, a CCS project and appling for Allas service access, login to SD Connect is currently possible only with CSC credentials and  Haka (a user identity federation system) at:
-
-   * [https://sd-connect.csc.fi](https://sd-connect.csc.fi) 
-
-
-!!! Note
-    The interface is compatible with all modern web browsers but does not support Firefox private browsing (incognito mode). 
-
-[![SDConnect-login](images/connect/SDConnect-login.png)](images/connect/SDConnect-login.png)
-
-
 ## User Interface 
 
 As SD Connect is a service based on a cloud object storage solution, all files uploaded to CSC are stored in buckets or containers. Buckets are the main folder that holds your data. All buckets are associated with a CSC project. You can use buckets to organize data and control access via your CSC project or the share-bukcet functionality. However, you can not merge buckets or change the order of the folders and subfolders stored in them. You can edit buckets or folder content only by making a complete copy inside the SD Desktop service or downloading the encrypted files back to your organization's secure computing environment for decryption. 
