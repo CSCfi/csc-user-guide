@@ -10,11 +10,6 @@ Contents:
  * [Before you start](./sd-desktop-audited.md#before-you-start) 
   
  * [Overview](./sd-desktop-audited.md#overview) 
- 
- * [Service access](./sd-desktop-audited.md#service-access)  
-  
- * [Authentication](./sd-desktop-audited.md#authentication) 
-
 
     
 ## Key features
