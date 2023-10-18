@@ -8,7 +8,7 @@ CSC Cloud Services consists of Pouta hardware virtualisation service, Rahti appl
 
 ### Pouta
 
-The Pouta service is a cloud computing infrastructure based on the OpenStack Rocky release. It provides virtual computer hardware platforms, storage and computer network resources.
+The Pouta service is a cloud computing infrastructure based on the OpenStack. It provides virtual computer hardware platforms, storage and computer network resources.
 
 If you need a full access to your virtual machines, storage and virtual network devices, choose [Pouta](pouta/).
 
@@ -16,11 +16,11 @@ If you need a full access to your virtual machines, storage and virtual network 
 
 Pukki is a cloud database service that provides on demand databases with automatic backups and maintenance. If you have a CSC-account you should be able to get your first database within 15 minutes and your second database within five. If you are doing research, arranging courses or building a new services that needs databases you probably want to check out this service before you start setting up manually your own database.
 
-If you need a managed database server with backups, choose [Pukki](dbaas/).
+If you need a self-service database with backups, choose [Pukki](dbaas/).
 
 ### Rahti
 
-Rahti is a containerisation service based on Red Hat OKD version 3.11. It provides application level virtualisation where software applications can run in isolated user spaces without root access.
+Rahti is a containerisation service based on Red Hat OKD. It provides application level virtualisation where software applications can run in isolated user spaces without root access.
 
 If you need an environment to run a containerised software application that does not require root privileges, choose [Rahti](rahti/).
 

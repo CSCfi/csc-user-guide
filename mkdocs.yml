@@ -195,35 +195,41 @@ nav:
      - cloud/index.md
      - Pouta:
         - cloud/pouta/index.md
-        - What is Pouta: cloud/pouta/pouta-what-is.md
-        - Security Guidelines for Pouta: cloud/pouta/security.md
-        - Pouta Accounting Principles and Quotas: cloud/pouta/accounting.md
-        - Virtual machine flavors and Billing Unit rates: cloud/pouta/vm-flavors-and-billing.md
-        - Getting started with Pouta:
-            - Creating a virtual machine in Pouta: cloud/pouta/launch-vm-from-web-gui.md
-            - Connecting to your virtual machine: cloud/pouta/connecting-to-vm.md
-            - Install command line tools: cloud/pouta/install-client.md
-            - Command line client tools: cloud/pouta/command-line-tools.md
-            - Application credentials: cloud/pouta/application-credentials.md
-            - API Access to Pouta: cloud/pouta/api-access.md
-            - Virtual machine lifecycle & saving billing units: cloud/pouta/vm-lifecycle.md
-        - Storage in Pouta:
-            - cloud/pouta/storage.md
-            - Ephemeral storage: cloud/pouta/ephemeral-storage.md
-            - Persistent volumes: cloud/pouta/persistent-volumes.md
-            - Snapshots: cloud/pouta/snapshots.md
-        - Images:
-            - cloud/pouta/images.md
-            - Creating, Converting, Uploading and Sharing virtual machine images: cloud/pouta/adding-images.md
-        - Networking:
-            - cloud/pouta/networking.md
-        - Application Development Practises in Pouta: cloud/pouta/application-dev.md
-        - Orchestration with Heat: cloud/pouta/heat-orchestration.md
-        - Jumphost in cPouta: cloud/pouta/create-jumphost.md
-        - Additional services in Pouta (email, dns): cloud/pouta/additional-services.md
-        - Self study and troubleshooting:
-             - Pouta videos: cloud/pouta/pouta-videos.md
-             - Known problems and limitations: cloud/pouta/known-problems.md
+       # - What is Pouta: cloud/pouta/pouta-what-is.md
+       # - Security Guidelines for Pouta: cloud/pouta/security.md
+       # - Pouta Accounting Principles and Quotas: cloud/pouta/accounting.md
+       # - Virtual machine flavors and Billing Unit rates: cloud/pouta/vm-flavors-and-billing.md
+        - Getting started:
+           - cloud/pouta/getting-started.md
+           - Creating a virtual machine: cloud/pouta/launch-vm-from-web-gui.md
+           - Connecting the virtual machine: cloud/pouta/connecting-to-vm.md
+        - Configuration:
+           - cloud/pouta/configuration.md
+           - Command line:
+             - cloud/pouta/command-line-tools.md
+             - Install: cloud/pouta/install-client.md
+           - Images:
+             - cloud/pouta/images.md
+             - Creating, Converting, Uploading and Sharing virtual machine images: cloud/pouta/adding-images.md
+           - Networking:
+             - cloud/pouta/networking.md
+           - Storage:
+             - cloud/pouta/storage.md
+             - Ephemeral storage: cloud/pouta/ephemeral-storage.md
+             - Persistent volumes: cloud/pouta/persistent-volumes.md
+             - Snapshots: cloud/pouta/snapshots.md
+        - Advanced:
+           - cloud/pouta/advanced.md
+           - Additional services (email, dns): cloud/pouta/additional-services.md
+           - API Access: cloud/pouta/api-access.md
+           - Application credentials: cloud/pouta/application-credentials.md
+           - Application Development Practises: cloud/pouta/application-dev.md
+           - Orchestration with Heat: cloud/pouta/heat-orchestration.md
+           - Virtual machine lifecycle & saving billing units: cloud/pouta/vm-lifecycle.md
+        # - Jumphost in cPouta: cloud/pouta/create-jumphost.md
+        # - Self study and troubleshooting:
+        #     - Pouta videos: cloud/pouta/pouta-videos.md
+        #     - Known problems and limitations: cloud/pouta/known-problems.md
      - Pukki:
         - cloud/dbaas/index.md
         - What is DBaaS: cloud/dbaas/what-is-dbaas.md
