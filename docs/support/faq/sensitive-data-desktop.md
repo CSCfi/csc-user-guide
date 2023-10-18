@@ -35,7 +35,7 @@ Any type: text, video, audio, images, genetic data, questionnaires.
 ## What software is available on SD Desktop?
 
 We currently provide only Linux Ubuntu22 computing environments with a limited amount of open-source software installed, including Libre Office (with LibreOffice Calc, a spreadsheet program similar to Microsoft Excel, and LibreOffice Writer,  a word processor similar to Microsoft Word), R Studio and Python. We are not providing proprietary software, but we could help you install on your private desktop an open-source version. 
-For further information see and customisation see: [Default programs available on SD Desktop](../../data/sensitive-data/sd-desktop-software.md).  
+For further information and for desktop customisation see: [Default programs available on SD Desktop](../../data/sensitive-data/sd-desktop-software.md).  
 Don't hesitate to get in touch with us at servicedesk@csc.fi for specific technical support.
 
 ## Who can access my private computing environment in SD Desktop?
