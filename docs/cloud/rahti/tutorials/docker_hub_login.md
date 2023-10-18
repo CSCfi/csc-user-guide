@@ -28,7 +28,7 @@ The solution involves using both the Web UI and the client:
 
 **Note**: Leave "Link secret to a service account." empty, we'll do this on command line.
 
-![create secret](/cloud/rahti/img/create_docker_hub_secret.png)
+![create secret](../../img/create_docker_hub_secret.png)
 
 * Verify values are correct and select "Create".
 
