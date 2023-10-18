@@ -86,7 +86,7 @@ Notes about the available tools. Note that this list may be out-dated:
 ### Miscellaneous
 *   [auto-apptainer](./auto-apptainer.md) Tool to add command line applications using the Apptainer container library provided by CSC.
 *   [VS Code 1.78.2](./vscode.md) Code editor.
-*   [Crypt4gh-gui](../sd_connect.md#sensitive-data-encryption-and-upload-for-analysis-up-to-100-gb) Encryption tool.
+*   [Crypt4gh-gui](../sd-connect-upload-for-analysis.md#sensitive-data-encryption-and-upload-for-analysis-up-to-100-gb) Encryption tool.
 *   [Backup tool](./backup_sd_desktop.md) Help tool to automiatize backup and export in SD Desktop.
 *   [WEKA 3-8-6](https://www.cs.waikato.ac.nz/ml/index.html)
 
