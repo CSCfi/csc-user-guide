@@ -372,12 +372,15 @@ nav:
         - Start here:
             - Access with Findata permit: data/sensitive-data/findata-permit.md
             - Access with register permit: data/sensitive-data/single-register-permit.md
-        - Analyse with SD Desktop: 
-            - data/sensitive-data/sd_desktop.md
+        - Analyse with SD Desktop for secondary use: 
+            - data/sensitive-data/sd_desktop-secondary.md
             - Create desktop: data/sensitive-data/sd-desktop-create.md
             - Manage desktop: data/sensitive-data/sd-desktop-manage.md
             - Access data and work: data/sensitive-data/sd-desktop-secondary-access.md
             - Export data: data/sensitive-data/sd-desktop-secondary-export.md
+        - Submit with SD Apply:
+        
+          
 
       
 
