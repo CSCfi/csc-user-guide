@@ -113,5 +113,5 @@ If need, the project manger can launch a back-up server process that normal user
 
 6- Download and decrypt the files.
 
-The exported file is now available in SD Connect/Allas. After downloading the file in your local environment, you can decrypt it with your secret encryption key, using the Crypt4GH application or programmatically. For specific guidance check the following [paragraph](./sd_connect.md#data-download-and-decryption).
+The exported file is now available in SD Connect/Allas. After downloading the file in your local environment, you can decrypt it with your secret encryption key, using the Crypt4GH application or programmatically. For specific guidance check the following [paragraph](./sd-connect-upload-for-storage-and-sharing.md#data-download-and-decryption).
 For more information and support, write to servicedesk@csc.fi (email subject Sensitive Data).
