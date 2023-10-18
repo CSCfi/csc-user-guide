@@ -11,8 +11,8 @@ Sensitive Data (SD) Connect allows you to store sensitive research data in the C
 Contents:
 
 * [Key features](./sd_connect.md)
-  
-* [Authentication](./sd_connect.md#authentication)
+
+* [Limitations](./sd_connect.md#limitations)
 
 * [User Interface](./sd_connect.md#user-interface)
 
@@ -27,7 +27,7 @@ You can browse through the main topics of the manual using the navigation bar on
 * Supports encryption and storage of any file type: text files, images, audio files, video, and genetic data (default space 10 TB, additional space required contact servicedesk@csc.fi). In addition, you can describe or organize each file or bucket with specific tags. 
 
 
-**Limitations**:
+## Limitations
 
 * SD Connect is based on an object storage solution. Files are called objects, they are stored as file segments and can not be directly edited. All files (sensitive or non-sensitive, e.g. scripts) stored in SD Connect must be encrypted. 
 
@@ -47,7 +47,7 @@ You can browse through the main topics of the manual using the navigation bar on
     SD Connect is unsuitable for data processing under the Act on the Secondary Use of Health and Social Data. Please check [SD Desktop for secondary use](./sd-desktop-audited.md) to learn about the precise requirements.
 
 
-## User Interface 
+## User interface 
 
 As SD Connect is a service based on a cloud object storage solution, all files uploaded to CSC are stored in buckets or containers. Buckets are the main folder that holds your data. All buckets are associated with a CSC project. You can use buckets to organize data and control access via your CSC project or the share-bukcet functionality. However, you can not merge buckets or change the order of the folders and subfolders stored in them. You can edit buckets or folder content only by making a complete copy inside the SD Desktop service or downloading the encrypted files back to your organization's secure computing environment for decryption. 
 
