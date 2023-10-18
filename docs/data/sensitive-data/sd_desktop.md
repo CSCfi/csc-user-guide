@@ -37,20 +37,3 @@ You can browse the main topics of this section using the navigation bar on the r
     The standard SD Desktop service is unsuitable for data processing under the Secondary Use of Health and Social Data Act. Please check this manual: [SD Desktop for secondary use](./sd-desktop-audited.md) to learn about the precise requirements and access datasets approved by the Findata authority.
 
 
-
-### Authentication
-
-Login to SD Desktop is possible with identity federation systems (Haka, Virtu, CSCLogin or LSLogin) at:
-
-[**https://sd-desktop.csc.fi**](https://sd-desktop.csc.fi)
-
-from any modern web-browser.
-
-After entering your username and password, you need to verify your identity with a second verification step (or Multi-factor Authentication, MFA). Enter the verification code provided via mobile application and press on _Continue_.
-
-For specific guidance, see the [MFA section](../../accounts/mfa.md).
-
-[![Authentication](images/desktop/desktop_login-mfa1.png)](images/desktop/desktop_login-mfa1.png)
-
-
-
