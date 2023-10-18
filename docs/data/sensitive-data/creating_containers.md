@@ -2,7 +2,7 @@
 
 In this tutorial we use cPouta to create a Apptainer containers to import new software to SD Desktop.
 
-**Steps 1 ja 2** describe how to setup you own Virtual Machine with Apptainer environment to cPouta. This is 
+**Steps 1 and 2** describe how to setup you own Virtual Machine with Apptainer environment to cPouta. This is 
 not the only option and if you have already a Apptainer installed elsewhere, you can skip these steps and 
 use your own Apptainer environment.
 
