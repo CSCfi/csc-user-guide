@@ -5,7 +5,7 @@ Accessing secondary use health or social data from public registries requires a 
 After acquiring the permit, you can start the service access process at CSC. Next, we will walk you through the steps that need to be completed in order to access the dataset on SD Desktop.
 
 Note!!!
-Sensitive Data (SD) Connect, a service used for storing sensitive research data, is not accessible for registry data processing. It is not possible to directly import any addittional data, script, or software into the virtual Desktop, but this needs to be done via FIndata. 
+    Sensitive Data (SD) Connect, a service used for storing sensitive research data, is not accessible for registry data processing. It is not possible to directly import any addittional data, script, or software into the virtual Desktop, but this needs to be done via FIndata. 
 
 ## Service access: How to start using SD Desktop
 
