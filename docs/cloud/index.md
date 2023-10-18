@@ -4,50 +4,28 @@ title: Cloud Services
 
 # Overview
 
-CSC offers a variety of cloud computing services: Pouta services (cPouta and ePouta) and Rahti container cloud service.
-
-Pouta services are provided in a Infrastructure-as-a-Service model. Using Pouta services, you can can take control of your IT infrastructure, manage it in a flexible fashion, and automate it as you require. You can launch and manage virtual machines, deploy storage, and create networks for your needs. cPouta is targeted towards generic cloud needs, while ePouta is mainly used for handling sensitive data. Taking ePouta into use requires more set-up and always involves your organization's IT department.
-
-Rahti makes the deployment of applications a breeze. This is a higher level service than Pouta services, and Rahti automatically takes care of a lot of the lower level management, so that you don't have to. Rahti is based on Red Hat's OKD, which is a distribution of Kubernetes. It uses Docker containers to run applications.[^1]
+CSC Cloud Services consists of Pouta hardware virtualisation service, Rahti application containerisation service, Pukki cloud database service and CSC Notebooks web application course hosting service. CSC hosts all services itself, with data centres in Finland.
 
 ### Pouta
 
-With Pouta services, you can can take control of your IT infrastructure, manage it in a flexible fashion, and automate it as you require. You can launch and manage virtual machines, deploy storage, and create networks for your needs. This infrastructure can be used for anything you need or can imagine.[^2]
+The Pouta service is a cloud computing infrastructure based on the OpenStack Rocky release. It provides virtual computer hardware platforms, storage and computer network resources.
 
-<iframe
-    width="400"
-    height="300"
-    srcdoc="https://www.youtube.com/embed/2opuVIBSPgw"
-    title="CSC's Pouta Cloud Services"
-    frameborder="0"
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media;gyroscope; picture-in-picture"
-    allowfullscreen>
-</iframe>
+If you need a full access to your virtual machines, storage and virtual network devices, choose [Pouta](pouta/).
 
-More information about using Pouta may be found from [here](pouta/).
+### Pukki
 
-### Pukki - Database as a Service
+Pukki is a cloud database service that provides on demand databases with automatic backups and maintenance. If you have a CSC-account you should be able to get your first database within 15 minutes and your second database within five. If you are doing research, arranging courses or building a new services that needs databases you probably want to check out this service before you start setting up manually your own database.
 
-Pukki is a service that provides on demand databases with automatic backups and maintenance. If you have a CSC-account you should be able to get your first database within 15 minutes and your second database within five. If you are doing research, arranging courses or building a new services that needs databases you probably want to check out this service before you start setting up manually your own database.
-
-More information about using Pukki may be found from [here](dbaas/).
+If you need a managed database server with backups, choose [Pukki](dbaas/).
 
 ### Rahti
 
-Rahti makes the deployment of applications a breeze. This is a higher level service than Pouta services, and Rahti automatically takes care of a lot of the lower level management, so that you don't have to.
+Rahti is a containerisation service based on Red Hat OKD version 3.11. It provides application level virtualisation where software applications can run in isolated user spaces without root access.
 
-Like cPouta, Rahti is a generic platform that can run many different kinds of applications from web servers and databases to complex scientific software stacks and data analysis pipelines. However, in contrast to cPouta where you manage infrastructure like virtual machines and networks, in Rahti you manage applications directly. You can think of it as a big computer where you launch applications, whereas cPouta is like a data center where you add your own computers.[^2]
-
-More information about using Rahti may be found from [here](rahti/).
+If you need an environment to run a containerised software application that does not require root privileges, choose [Rahti](rahti/).
 
 ### CSC Notebooks
 
-Notebooks is a cloud platform instantly ready for use. It is especially well-suited for teaching and research. Notebooks provides easy-to-use environments for programming and working with data. 
+CSC Notebooks is a hosted platform for teaching and research. It provides a technical environment for hosting e.g. Jupyter Notebook, RStudio Server and Apache Spark environments combined with user management.
 
-Different environments based on Jupyter Notebook, RStudio Server and Apache Spark are available via Notebooks.[^3]
-
-More information about using Notebooks may be found from [here](csc_notebooks/).
-
-[^1]: https://research.csc.fi/computing#cloud-computing
-[^2]: https://research.csc.fi/cloud-computing
-[^3]: https://research.csc.fi/-/notebooks
+If you need a turnkey solution for listed environments, choose [CSC Notebooks](csc_notebooks/).
