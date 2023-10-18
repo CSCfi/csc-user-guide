@@ -365,9 +365,11 @@ nav:
             - Software in desktop: data/sensitive-data/sd-desktop-software.md
             - Export data: data/sensitive-data/sd-desktop-export.md
             - Troubleshooting: data/sensitive-data/sd-desktop-troubleshooting.md
-        - Publish and resuse:
+        - Publish and reuse:
             - Federated EGA: data/sensitive-data/federatedega.md
             - SD Apply: data/sensitive-data/sd-apply.md
+        - Secondary use of health and social data:
+            - Findata permit: data/sensitive-data/findata-permit.md
 
 
 
