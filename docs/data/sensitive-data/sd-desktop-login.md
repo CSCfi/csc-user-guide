@@ -1,5 +1,5 @@
 
-# Authentication
+# Login to SD Desktop
 
 Login to SD Desktop is possible with identity federation systems (Haka, Virtu, CSCLogin or LSLogin) at:
 
