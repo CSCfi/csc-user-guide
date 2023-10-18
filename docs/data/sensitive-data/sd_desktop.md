@@ -7,12 +7,6 @@ Sensitive Data (SD) Desktop allows you to analyze sensitive research data from y
 
 [![Desktop-overview](images/desktop/desktop_overviewnew1.png)](images/desktop/desktop_overviewnew1.png)
 
-Contents:
-
- * [Key features](./sd_desktop.md)
-  
- * [Authentication](./sd_desktop.md#authentication) 
-
 You can browse the main topics of this section using the navigation bar on the right side of this page or the search function.
 
 
@@ -27,7 +21,7 @@ You can browse the main topics of this section using the navigation bar on the r
 * The secure analysis environment is isolated from the internet: the only way to import and export data is via the SD Connect service.
 
 
-**Limitations**:
+### Limitations:
 
 * The project manager's or group leader's responsibility is to frequently review the list of members belonging to a project in MyCSC and verify who can access SD Desktop or SD Connect. Remove the project members who do not need access to the data when their contribution is no longer needed.
 
