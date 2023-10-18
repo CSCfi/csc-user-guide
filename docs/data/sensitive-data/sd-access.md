@@ -41,13 +41,13 @@ For video tutorials and further guidance, check the [Accounts](../../accounts/in
 Using SD Connect and SD Desktop is free of charge for research purposes, according to [CSC's general terms of use](https://research.csc.fi/free-of-charge-use-cases). However, it's important to plan ahead for your CSC project's resource usage. 
 This includes considering the billing units (BUs) used during service and the storage space, called quota, for your data.  Typically, when you start a new project with CSC, you receive around 10,000 billing units. Below, there's a calculator that helps you determine how many billing units your CSC project will require, so you can request more if needed. For further information on this step, see the specific sections [applying for billing units](../../accounts/how-to-apply-for-billing-units.md) and [increasing quotas](../../accounts/how-to-increase-disk-quotas.md).
 
-* **SD Connect billing and quota**
+### SD Connect billing and quota
 
 When you apply for a new CSC project, the default quota (storage space) for SD Connect/Allas is 10 TB, which can be expanded up to 200 TB as needed. If you require additional storage capacity, please reach out for support at servicedesk@csc.fi (subject: Sensitive data).
 
 Storing data in SD Connect/Allas consumes billing units at a rate of 1 billing unit per TB per hour. This means that storing 1 TB of data in Allas consumes 24 billing units daily and 8760 billing units annually.
 
-* **SD Desktop billing and quota**
+### SD Desktop billing and quota
 
 By default, the disk space in SD Desktop is 80 GB, and you have the option to increase it to 280 GB by adding an external volume during the creation of a virtual desktop. If you need more storage for data analysis, reach out for support at servicedesk@csc.fi (subject: Sensitive data).
 
