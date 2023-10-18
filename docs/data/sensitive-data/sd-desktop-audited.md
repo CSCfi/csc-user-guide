@@ -7,6 +7,8 @@ Contents:
 
  * [Key features](./sd-desktop-audited.md#key-features)
 
+ * [Limitations](./sd-desktop-audited.md#limitations)
+
  * [Before you start](./sd-desktop-audited.md#before-you-start) 
   
  * [Overview](./sd-desktop-audited.md#overview) 
@@ -27,7 +29,7 @@ Contents:
 * SD Desktop can be used to work with any type of data: text files, images, audio files, video, and genetic data. However, the virtual Desktop includes [a limited set of pre-installed software](../../data/sensitive-data/sd-desktop-audited.md#default-programs-available-on-the-desktop-and-software-customisation) (open source). Only the permit authority can approve the use of additional software/files/scripts and import them into your virtual Desktop.
 
 
-## Limitations to SD Desktop
+## Limitations
 
 To comply with the regulation, SD Desktop for secondary use is **completely isolated from the internet and other services**. You can, for example, open a Firefox web browser, but you are not able to access any site on the internet.
 
