@@ -29,19 +29,11 @@ To access SD Connect and SD Desktop for storing, sharing or analyzing sensitive 
 
 6. Apply for billing units or disk quota.
 
+[![Project](images/connect/reasearchdata.png)](images/connect/reasearchdata.png)
 
 For video tutorials and further guidance, check the [Accounts](../../accounts/index.md) section at the beginning of this manual.
 
-Once you have completed these steps, you can log in with identity federation systems (Haka, Virtu, CSC Login, or LSLogin) at:
 
-* [https://sd-connect.csc.fi](https://sd-connect.csc.fi) 	 
-  
-* [https://sd-desktop.csc.fi](https://sd-desktop.csc.fi)	 
-  
-
-with any modern web-browser (Note: private browsing is not supported using Firefox).
-
-[![Project](images/connect/reasearchdata.png)](images/connect/reasearchdata.png)
 
   
 ## Default storage space and billing units consumption
