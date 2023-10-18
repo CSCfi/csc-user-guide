@@ -1,4 +1,4 @@
-
+fea
 # Store and share with Sensitive Data Connect
 
 
@@ -10,11 +10,11 @@ Sensitive Data (SD) Connect allows you to store sensitive research data in the C
 
 Contents:
 
-* [Key features](./sd_connect.md)
+* [Key features](./sd_connect.md#key-features)
 
 * [Limitations](./sd_connect.md#limitations)
 
-* [User Interface](./sd_connect.md#user-interface)
+* [User interface](./sd_connect.md#user-interface)
 
 You can browse through the main topics of the manual using the navigation bar on the left side of this page or the search function.
 
