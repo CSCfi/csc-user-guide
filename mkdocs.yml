@@ -352,6 +352,7 @@ nav:
         - Start here: data/sensitive-data/sd-access.md
         - Store with SD Connect: 
             - data/sensitive-data/sd_connect.md
+            - Login to SD Connect: data/sensitive-data/sd-connect-login.md
             - Introduction to data upload and encryption: data/sensitive-data/sd-connect-introduction-to-data-encryption.md
             - Data upload for analysis: data/sensitive-data/sd-connect-upload-for-analysis.md
             - Data upload for storage and sharing: data/sensitive-data/sd-connect-upload-for-storage-and-sharing.md
