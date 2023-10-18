@@ -19,13 +19,13 @@ Your virtual desktop is completely isolated from the internet and other services
 
 At the end of your analysis, you can delete your virtual desktop, including the external volume and all files saved in it. You cannot undo this action:
 
- 1. On SD Desktop Homepage ([sd-desktop.csc.fi](sd-desktop.csc.fi)), click on **Go to SD Desktop management**.
+ 1. On SD Desktop Homepage ([https://sd-desktop.csc.fi](https://sd-desktop.csc.fi), click on **Go to SD Desktop management**.
  2. Under *Available desktops* select the correct virtual Desktop. On the right side, click on **Options** and on **Delete Desktop**.
 
 [![Desktop-delete](images/desktop/desktop-deleting.png)](images/desktop/desktop-deleting.png)
 
 !!! Note
-    The desktop **should not be deleted before all the results have been exported.** Please contact all the project members before deleting a virtual desktop. With this action, you will delete the entire workspace, including all files saved on the virtual desktop or on the external volume by other project members.
+    The virtual desktop **should not be deleted before all the results have been exported.** Please contact all the project members before deleting a virtual desktop. With this action, you will delete the entire workspace, including all files saved on the virtual desktop or on the external volume by other project members.
 
 ### End of data access and data deletion policies
 
