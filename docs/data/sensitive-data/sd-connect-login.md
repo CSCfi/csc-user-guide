@@ -1,4 +1,4 @@
-## Authentication
+# Login to SD Connect
 
 After creating a CSC account, a CCS project and applying for Allas service access, login to SD Connect is currently possible only with CSC credentials and  Haka (a user identity federation system) at:
 
