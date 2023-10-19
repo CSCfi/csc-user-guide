@@ -18,7 +18,7 @@ When you are processing secondary use data from a public registry, access to SD 
 3. Activate the **Multi-Factor Authentication (MFA)** on your account by scanning the QR-code with a specific application (e.g. Google Authenticator). For further instructions see the [MFA paragraph](../../accounts/mfa.d), under the *Account*-section on the CSC user guide;
 4. Join a CSC project via an invitation link and wait for an approval from the service desk;
 5. Fill in the [description of data processing activities form](../../accounts/when-your-project-handles-personal-data.md);
-6. Approve [the terms and conditions of SD Desktop service](./accounts/how-to-add-service-access-for-project/#member);
+6. Approve [the terms and conditions of SD Desktop service](../../accounts/how-to-add-service-access-for-project.md#member);
 
 For specific guidance regarding these steps check the [Accounts](./account.md) paragraph at the beginning of this user guide. Note that you always need to use your CSC username and password when you access data from your virtual Desktop. If you don't remember your CSC password, you can [reset it](./accounts/how-to-change-password/).
 
