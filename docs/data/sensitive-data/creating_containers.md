@@ -2,7 +2,7 @@
 
 In this tutorial we use cPouta to create a Apptainer containers to import new software to SD Desktop.
 
-**Steps 1 ja 2** describe how to setup you own Virtual Machine with Apptainer environment to cPouta. This is 
+**Steps 1 and 2** describe how to setup you own Virtual Machine with Apptainer environment to cPouta. This is 
 not the only option and if you have already a Apptainer installed elsewhere, you can skip these steps and 
 use your own Apptainer environment.
 
@@ -16,7 +16,8 @@ use your own Apptainer environment.
 
 In order to utilize all features of Apptainer you must run it in an environment where you have administrator level access rights. At CSC, you can have administrator level access in virtual machines running in cPouta. Using cPouta for the building process adds a bit of extra steps into the process: you have to know how to launch and access virtual machines in cPouta. On the other hand cPouta has a fast connection to the Allas service that is used to import the ready made containers to SD Desktop.
 
-As a first step launch virtual machine in cPouta as described in'cPouta user guide 
+As a first step, launch a virtual machine in cPouta, as described in the cPouta user guide:
+
 *  [Launching a virtual machine with the cPouta web interface](../../cloud/pouta/launch-vm-from-web-gui.md)
 
 and for example these tutorial videos:
