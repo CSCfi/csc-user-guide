@@ -6,16 +6,6 @@ This manual introduces CSC's Sensitive Data (SD) services. To navigate the user 
 
 
 <div class="quick-links-container">
-
-  <div class="quick-links-topic">
-    <span class="quick-links-title"><h2>Before starting</h2></span>
-     <div class="quick-links-item">
-      <a class="quick-link" target="_self" href="../sd-choose-services/">Choose services</a>
-    </div>
-    <div class="quick-links-item">
-      <a class="quick-link" target="_self" href="../sd-terminology/">Terminology</a>
-    </div>
-  </div>
   
  
   <div class="quick-links-topic">
