@@ -369,7 +369,12 @@ nav:
             - Troubleshooting: data/sensitive-data/sd-desktop-troubleshooting.md
       - Publish and reuse:
         - Federated EGA: data/sensitive-data/federatedega.md
+            - Access data: data/sensitive-data/federatedega.md
+            - Approve data access: data/sensitive-data/federatedega.md
+            - Submit data: data/sensitive-data/federatedega.md
         - SD Apply: data/sensitive-data/sd-apply.md
+            - Access data: data/sensitive-data/sd-apply.md
+            - Approve data access: data/sensitive-data/sd-apply.md
       - Secondary use of health and social data:
         - Start here:
             - Access with Findata permit: data/sensitive-data/findata-permit.md
