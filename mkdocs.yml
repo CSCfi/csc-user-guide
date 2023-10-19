@@ -380,10 +380,7 @@ nav:
             - Access virtual desktop and data: data/sensitive-data/sd-desktop-secondary-access.md
             - Export data: data/sensitive-data/sd-desktop-secondary-export.md
             - Troubleshooting: data/sensitive-data/sd-desktop-troubleshooting.md
-        - Instructions for registers:
-            - data/sensitive-data/single-register-submission.md
-            - Submit data: data/sensitive-data/single-register-submission.md
-            - Manage data access: data/sensitive-data/single-register-submission.md
+        - Instructions for registers: data/sensitive-data/single-register-submission.md
       - Terminology: data/sensitive-data/sd-terminology.md
           
           
