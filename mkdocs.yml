@@ -381,7 +381,10 @@ nav:
             - Access virtual desktop and data: data/sensitive-data/sd-desktop-secondary-access.md
             - Export data: data/sensitive-data/sd-desktop-secondary-export.md
             - Troubleshooting: data/sensitive-data/sd-desktop-troubleshooting.md
-   
+        - Submit with SD Apply for secondary use
+            - data/sensitive-data/single-register-submission.md
+    
+          
           
 
       
