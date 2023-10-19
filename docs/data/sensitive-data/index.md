@@ -9,17 +9,17 @@ This manual introduces CSC's Sensitive Data (SD) services. To navigate the user 
 
 SD services offer a secure web-based workspace for processing sensitive data, following CSC's Terms of Use. Components include:
 
-* Sensitive Data Connect: Import, store, and share encrypted sensitive data.
-  
-* Sensitive Data Desktop: Access a secure virtual environment for data analysis.
-  
-* Sensitive Data Submit and Federated EGA (pilot phase): Publish sensitive  biomedical data under controlled access.
-  
-* Sensitive Data Apply (pilot phase): Manage access to published datasets easily.
+[![SD-service-overview](images/introduction/icons.png)](images/introduction/icons.png)
 
-These services are designed for handling sensitive research data, including a restricted version of SD Desktop for processing register-based research under Finnish law. This regulation applies when health and social data collected in registers are later used for research purposes. Processing is allowed only in certified environments per the Act on Secondary Use and the Findata Authority's Regulation, detailed in SD Desktop (service description on research.csc.fi).
+* SD Connect: Import, store, and share encrypted sensitive data.
+  
+* SD Desktop: Secure computation and analysis of sensitive data. 
+  
+* SD Submit and Federated EGA (pilot phase): Publish sensitive biomedical data under controlled access.
+  
+* SD Apply (pilot phase): Manage or apply for access to published datasets .
 
-The manual offers insights into each service's features and limitations, along with step-by-step instructions and video tutorials. Technical sections are marked advanced. Sensitive data access is strictly regulated, managed by data controllers via specific service components in compliance with GDPR and national laws. For instance, research data access is directly managed via SD Connect and SD Desktop, while access to register data via SD Desktop is handled by CSC's helpdesk, following Finnish regulations and data permits from the Findata Authority. The manual also covers permission management based on data type and legal bases, emphasizing compliance with relevant documentation.
+These services are designed for **handling sensitive research data**, including a restricted version of SD Desktop for processing register-based research under Finnish law. 
 
 
 <div class="quick-links-container">
