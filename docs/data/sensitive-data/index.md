@@ -5,23 +5,6 @@ This manual introduces CSC's Sensitive Data (SD) services. To navigate the user 
     **Do you have any questions? Would you like to discuss a specific project?** Don't hesitate to contact us at servicedesk@csc.fi (subject: Sensitive Data) or join the [CSC Research User Support Coffee - Every Wednesday at 14:00](https://ssl.eventilla.com/usersupportcoffee). Our team is here to help, and we offer direct support. 
 
 
-## Introduction 
-
-SD services offer a secure web-based workspace for processing sensitive data, following CSC's Terms of Use. Components include:
-
-[![SD-service-overview](images/introduction/icons.png)](images/introduction/icons.png)
-
-* SD Connect: Import, store, and share encrypted sensitive data.
-  
-* SD Desktop: Secure computation and analysis of sensitive data. 
-  
-* SD Submit and Federated EGA (pilot phase): Publish sensitive biomedical data under controlled access.
-  
-* SD Apply (pilot phase): Manage or apply for access to published datasets .
-
-These services are designed for **handling sensitive research data**, including a restricted version of SD Desktop for processing register-based research under Finnish law. 
-
-
 <div class="quick-links-container">
 
   <div class="quick-links-topic">
