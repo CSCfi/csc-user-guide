@@ -1,9 +1,73 @@
 ## Default software available on SD Desktop
 
-Each virtual Desktop (or virtual computer) is pre-built and contains a limited set of default open-source software (listed below). 
+Upon logging in to teh virtual desktop, you'll find a standard set of software ready to use. This foundational toolkit ensures you can start working immediately and is based on  a limited set of default open-source software. However, the virtual desktop can also become a versatile research workspace designed to adapt to your specific needs via aspecific customisation with:
+
+
+* SD Installer: A simple application for easy software additions.
+  
+* Apptainer and Podman: For those with technical expertise, create customised containers for specialized software setups.
+
+### Pre-installed software:
+
+
+
+
+
+2. Customizing Your Workspace:
+
+    SD Installer: Use this straightforward application for hassle-free software additions.
+    Apptainers: Advanced users can craft customized containers externally and import them seamlessly into SD Desktop. This method offers intricate customization for specific research needs.
 
 !!! Note
     If the list below is not clear or you need specific software to analyze your data, please don't hesitate to contact us at servicedesk@csc.fi (subject: Sensitive Data). We can support you in your Desktop customization. Moreover, we are working on developing our services to provide proprietary software. Follow our webpage for constant updates. 
+
+
+
+| ### Pre-installed software: | ### Scientific Software |
+| --------------------------- | ------------------------ |
+| - CentOS7                   | - **Python 3.9.15**
+| - Emacs                     |   - Packages:
+| - htlib                     |     - tensorflow
+| - LibreOffice               |     - nltk
+| - miniconda                 |     - spacy
+| - minimap2                  |     - scikit-learn
+| - pigz                      |     - seaborn
+| - pyro.ai                   |     - plotly
+| - Python                    |     - bokeh
+| - R + R studio              |     - pydot
+| - samtools                  |     - xgboost
+| - nextflow                  |     - lightgbm
+| - golang                    |     - catboost
+|                             |     - eli5
+|                             |     - torch
+|                             |     - keras
+|                             |     - dist-keras
+|                             |     - elephas
+|                             |     - gensim
+|                             |     - scrapy
+|                             |     - beautifulsoup4
+|                             |     - numpy
+|                             |     - scipy
+|                             |     - pandas
+|                             |     - statsmodels
+|                             |     - matplotlib
+|                             |     - pyfuse3
+|                             |     - crypt4gh
+|                             |     - trio
+|                             |     - httpx
+|                             |     - qrcode
+|                             |   - [Instructions for adding Python libraries](./tutorials/sd-pythonlibs.md)
+|                             | - **R / RStudio Server**
+|                             |   - Installation matching the `r-env-singularity/4.0.5` module on Puhti
+
+
+
+
+
+
+
+
+
 
 
 ### Pre-installed software:
