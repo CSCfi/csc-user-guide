@@ -383,7 +383,8 @@ nav:
             - Troubleshooting: data/sensitive-data/sd-desktop-troubleshooting.md
         - Submit with SD Apply for secondary use:
             - data/sensitive-data/single-register-submission.md
-    
+            - Submit data: data/sensitive-data/single-register-submission.md
+            - Manage data access: data/sensitive-data/single-register-submission.md
           
           
 
