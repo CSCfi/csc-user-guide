@@ -20,7 +20,7 @@ When you are processing secondary use data from a public registry, access to SD 
 5. Fill in the [description of data processing activities form](../../accounts/when-your-project-handles-personal-data.md);
 6. Approve [the terms and conditions of SD Desktop service](../../accounts/how-to-add-service-access-for-project.md#member);
 
-For specific guidance regarding these steps check the [Accounts](./account.md) paragraph at the beginning of this user guide. Note that you always need to use your CSC username and password when you access data from your virtual Desktop. If you don't remember your CSC password, you can [reset it](./accounts/how-to-change-password/).
+For specific guidance regarding these steps check the [Accounts](../../accounts/index.md) paragraph at the beginning of this user guide. Note that you always need to use your CSC username and password when you access data from your virtual Desktop. If you don't remember your CSC password, you can [reset it](./accounts/how-to-change-password/).
 
 ## Applying for access to secondary use single register data with SD Apply
 
