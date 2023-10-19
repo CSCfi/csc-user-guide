@@ -1,6 +1,6 @@
 ## Default software available on SD Desktop
 
-Upon logging in to teh virtual desktop, you'll find a standard set of software ready to use. This foundational toolkit ensures you can start working immediately and is based on  a limited set of default open-source software. However, the virtual desktop can also become a versatile research workspace designed to adapt to your specific needs **via customisation with**:
+Upon logging in to the virtual desktop, you'll find a standard set of software ready to use. This foundational toolkit ensures you can start working immediately and is based on  a limited set of default open-source software. However, the virtual desktop can also become a versatile research workspace designed to adapt to your specific needs **via customisation with**:
 
 * SD Installer: A simple application for easy software additions.
   
