@@ -367,7 +367,7 @@ nav:
             - Export data: data/sensitive-data/sd-desktop-export.md
             - Troubleshooting: data/sensitive-data/sd-desktop-troubleshooting.md
       - Publish and reuse:
-        - Federated EGA:  data/sensitive-data/federatedega.md
+        - Federated EGA: data/sensitive-data/federatedega.md
         - SD Apply: data/sensitive-data/sd-apply.md
       - Secondary use of health and social data:
         - Start here:
