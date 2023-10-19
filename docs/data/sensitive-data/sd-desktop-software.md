@@ -26,6 +26,23 @@ Upon logging in to teh virtual desktop, you'll find a standard set of software r
 | ### Pre-installed software: | ### Scientific Software |
 | --------------------------- | ------------------------ |
 | - CentOS7                   | - **Python 3.9.15**
+| - Emacs                     |   - Packages: tensorflow, nltk, spacy, scikit-learn, seaborn, plotly, bokeh, pydot, xgboost, lightgbm, catboost, eli5, torch, keras, dist-keras, elephas, gensim, scrapy, beautifulsoup4, numpy, scipy, pandas, statsmodels, matplotlib, pyfuse3, crypt4gh, trio, httpx, qrcode
+| - htlib                     |   - [Instructions for adding Python libraries](./tutorials/sd-pythonlibs.md)
+| - LibreOffice               | - **R / RStudio Server**
+| - miniconda                 |   - Installation matching the `r-env-singularity/4.0.5` module on Puhti (R 4.0.5 + RStudio Server 1.4.1106, Bioconductor 3.12)
+| - minimap2                  |   - 1000+ pre-installed R packages (versions available on Apr 20, 2021)
+| - pigz                      |   - Intel® oneAPI Math Kernel Library (oneMKL)
+| - pyro.ai                   |   - GIS software (PROJ, GDAL, SAGA)
+| - Python                    |   - CUDA drivers
+| - R + R studio              |   - TensorFlow (used with R TensorFlow back-end)
+| - samtools                  |   - R + RStudio Server versions matched with Puhti r-env-singularity module (R 4.0.5 + RStudio Server 1.4.1106, MRAN, Bioconductor 3.12)
+| - nextflow                  |   - [Rstudio 4.2.2 and all CRAN and Bioconductor libraries can be added with SD-software-installer](./r-in-sd-desktop.md)
+| - golang                    |
+
+
+| ### Pre-installed software: | ### Scientific Software |
+| --------------------------- | ------------------------ |
+| - CentOS7                   | - **Python 3.9.15**
 | - Emacs                     |   - Packages:
 | - htlib                     |     - tensorflow
 | - LibreOffice               |     - nltk
