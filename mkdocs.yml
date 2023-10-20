@@ -375,11 +375,11 @@ nav:
             - Access with register permit: data/sensitive-data/single-register-permit.md
         - Analyse with SD Desktop for secondary use: 
             - data/sensitive-data/sd-desktop-audited.md
-            - Create virtual desktop: data/sensitive-data/sd-desktop-create.md
-            - Manage virtual desktop: data/sensitive-data/sd-desktop-manage.md
+            - Create virtual desktop: data/sensitive-data/sd-desktop-secondary-create.md
+            - Manage virtual desktop: data/sensitive-data/sd-desktop-secondary-manage.md
             - Access virtual desktop and data: data/sensitive-data/sd-desktop-secondary-access.md
             - Export data: data/sensitive-data/sd-desktop-secondary-export.md
-            - Troubleshooting: data/sensitive-data/sd-desktop-troubleshooting.md
+            - Troubleshooting: data/sensitive-data/sd-desktop-secondary-troubleshooting.md
         - Instructions for registers: data/sensitive-data/single-register-submission.md
       - Terminology: data/sensitive-data/sd-terminology.md
           
