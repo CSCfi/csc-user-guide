@@ -1,48 +1,15 @@
-# Creating a virtual machine in Pouta
-
-!!! Warning
-
-    You should familiarize yourself with the security instructions and
-    terms of Pouta accounting before launching your first virtual
-    machine.
-
 This document explains a simple way to launch a virtual machine in the
-Pouta service. Any CSC user with a computing project can request
-access to the service as described in [Applying for Pouta access].
-To use Pouta, you need to have applied Pouta access for your project first.
-Please make sure you are familiar with the [concepts](../index.md) and
-[security issues](security.md) first. You might also want to take a
-look at the [webinar](https://www.youtube.com/watch?v=CIO8KRbgDoI).
+Pouta service. 
 
 [TOC]
-
-
-<!--TOC is to get the table of contents -->
-
-The web interfaces of the Pouta clouds are available at following addresses:
-
-| URL           | Service name           | Access |
-| :------------- |:-------------| :-----|
-| [https://pouta.csc.fi](https://pouta.csc.fi)       | cPouta web interface | Accessible on the internet |
-| [https://epouta.csc.fi](https://epouta.csc.fi)     | ePouta web interface      |  Accessible only from IPs provided for accessing the management interfaces of ePouta |
-
-This _OpenStack Horizon_ based interface allows you do basic cloud computing management operations such as launch a new virtual machine and manage security settings. To use this service, you need a CSC account and a cPouta/ePouta project at CSC.
-
-You can log in to cPouta using several accounts. In addition to your CSC account (CSC username and password), you can also use Haka, VIRTU, and Life Science AAI accounts. The Haka, VIRTU and Life Science AAI accounts will work only if they are linked to your CSC account. Accounts can be linked at [My CSC](https://my.csc.fi/).
-
-You can log in to ePouta only using your CSC account.
 
 ## Preparatory steps
 
 Before creating a Virtual Machine you must do these 3 steps:
 
-1. Select the correct **CSC project**.
-
-1. Create and setup a **SSH key pair**.
-
-1. Setting a **security group** to control the firewall.
-
-Before starting your first virtual machine in cPouta/ePouta, you must first set up a SSH key pair and modify the security settings so that you will be able to connect to your virtual machine.
+1. Choose the **CSC project**.
+2. Add an **SSH key pair**.
+3. Configure a **security group** to control the firewall.
 
 ### Selecting the CSC project
 
@@ -55,13 +22,17 @@ Back in Pouta's interface, make sure that you select the correct project. There 
 * A project is a sandbox which contains resources like Virtual Machines and networks, and anyone with access to that project will be able to see and administer all these resources. They may not be able to access a Virtual Machine, as this is determinated by the SSH keys configured in the machine, but they will be able to **delete**, **reboot**, ... etc.
 * Projects are used to determinate billing. Make sure that the costs will go to the correct billing project.
 
-
 ### Setting up SSH keys
+
+!!! info-label
+
+    This section is mostly removed and rewritten. Content is moved to an ssh tutorial and will be linked from here.
+
 
 To open a connection to your virtual machines in cPouta/ePouta, you first need to prove your identity to the Virtual and for that need SSH keys. This is the default (and more secure) way to access Virtual Machines. You only need to set up your SSH keys once per project.
 
-!!! info "Import puyblic keys"
-    If you are already familiar with SSH keys, you can use your existing SSH keys to access the virtual machines. In the web interface, go to the **Compute > Key Pairs** section, and select **Import Public Key**. You need to name your key, keep in mind you will need to use this name when creating Virtual Machines, so the recomendation is to keep it short and informative of the intended use. Secondly paste your public key, it must be in a single line and be in the form of `key-type hash comment`, for example a RSA key from `person@doamin.name`:
+!!! info "Import public keys"
+    If you are already familiar with SSH keys, you can use your existing SSH keys to access the virtual machines. In the web interface, go to the **Compute > Key Pairs** section, and select **Import Public Key**. You need to name your key, keep in mind you will need to use this name when creating Virtual Machines, so the recommendation is to keep it short and informative of the intended use. Secondly paste your public key, it must be in a single line and be in the form of `key-type hash comment`, for example a RSA key from `person@doamin.name`:
 
     `ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAAAQQCo9+BpMRYQ/dL3DS2CyJxRF+j6ctbT3/Qp84+KeFhnii7NT7fELilKUSnxS30WAvQCCo2yU1orfgqr41mM70MB person@domain.name`
 

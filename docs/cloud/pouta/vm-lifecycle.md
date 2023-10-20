@@ -1,5 +1,3 @@
-# Virtual machine lifecycle and saving billing units
-
 This article explains the different states that virtual machine instances
 can have and their effect on resource usage.
 

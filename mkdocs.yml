@@ -205,12 +205,7 @@ nav:
            - Connecting the virtual machine: cloud/pouta/connecting-to-vm.md
         - Configuration:
            - cloud/pouta/configuration.md
-           - Command line:
-             - cloud/pouta/command-line-tools.md
-             - Install: cloud/pouta/install-client.md
-           - Images:
-             - cloud/pouta/images.md
-             - Creating, Converting, Uploading and Sharing virtual machine images: cloud/pouta/adding-images.md
+           - VM lifecycle & saving BUs: cloud/pouta/vm-lifecycle.md
            - Networking:
              - cloud/pouta/networking.md
            - Storage:
@@ -220,13 +215,17 @@ nav:
              - Snapshots: cloud/pouta/snapshots.md
         - Advanced:
            - cloud/pouta/advanced.md
+           - Command line:
+             - cloud/pouta/command-line-tools.md
+             - Install: cloud/pouta/install-client.md
+           - Images:
+             - cloud/pouta/images.md
+             - Creating, Converting, Uploading and Sharing virtual machine images: cloud/pouta/adding-images.md
            - Additional services (email, dns): cloud/pouta/additional-services.md
            - API Access: cloud/pouta/api-access.md
            - Application credentials: cloud/pouta/application-credentials.md
            - Application Development Practises: cloud/pouta/application-dev.md
            - Orchestration with Heat: cloud/pouta/heat-orchestration.md
-           - Virtual machine lifecycle & saving billing units: cloud/pouta/vm-lifecycle.md
-        # - Jumphost in cPouta: cloud/pouta/create-jumphost.md
         # - Self study and troubleshooting:
         #     - Pouta videos: cloud/pouta/pouta-videos.md
         #     - Known problems and limitations: cloud/pouta/known-problems.md
@@ -258,26 +257,6 @@ nav:
          - Getting access: cloud/rahti/access.md
          - Using the web interface: cloud/rahti/usage/getting_started.md
          - Command line tool installation and usage: cloud/rahti/usage/cli.md
-       - Rahti Tutorials:
-         - Deploying a static web server using the web interface: cloud/rahti/tutorials/basic-console.md
-         - Deploying a static web server using the command line: cloud/rahti/tutorials/elemental_tutorial.md
-         - Custom domain names and secure transport: cloud/rahti/tutorials/custom-domain.md
-         - Configuration, ConfigMaps and Secrets: cloud/rahti/tutorials/configuration.md
-         - Webhooks: cloud/rahti/tutorials/webhooks.md
-         - Reverse proxy authentication using a sidecar container: cloud/rahti/tutorials/sidecar_proxy_authentication.md
-         - Short introduction to YAML: cloud/rahti/tutorials/yaml_introduction.md
-         - How to transfer data to Rahti?: cloud/rahti/tutorials/transfer_data_rahti.md
-         - How to add docker hub credentials to a project: cloud/rahti/tutorials/docker_hub_login.md
-         - How to manually cache images in Rahti's registry: cloud/rahti/tutorials/docker_hub_manual_caching.md
-         - How to package a Kubernetes application with Helm?: cloud/rahti/tutorials/helm.md
-         - Kustomize: cloud/rahti/tutorials/kustomize.md
-         - CI/CD on Rahti: cloud/rahti/tutorials/ci_cd_introduction.md
-         - How to run an ad-hoc interactive container: cloud/rahti/tutorials/oc-run.md
-         - How backup a Postgres DB into Allas: cloud/rahti/tutorials/backup-postgres-allas.md
-         - Annotations: cloud/rahti/tutorials/annotations.md
-         - Sending e-mail from Rahti: cloud/rahti/tutorials/email.md
-         - Accessing databases on Rahti from CSC supercomputers: cloud/rahti/tutorials/connect-database-hpc.md
-         - Multi stage builds: cloud/rahti/tutorials/multi-stage-builds.md
        - Storage in Rahti:
          - cloud/rahti/storage/index.md
          - Persistent volumes: cloud/rahti/storage/persistent.md
@@ -298,6 +277,8 @@ nav:
        - Guide for teachers: cloud/csc_notebooks/guide_for_teachers.md
        - Concepts: cloud/csc_notebooks/concepts.md
        - Data persistence: cloud/csc_notebooks/data_persistence.md
+     - Cloud Tutorials:
+       - cloud/tutorials.md
   - Data:
      - data/index.md
 #    - Datasets: data/datasets.md
