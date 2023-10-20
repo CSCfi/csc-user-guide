@@ -43,13 +43,13 @@ The DBaaS allows users to modify some of the parameters.
 If there are some parameters that you think you should be able to modify, [please contact us](../../support/contact.md) and we'll see if we can make it possible.
 By default, we assume that default parameters are sane and that users should not, under normal circumstances, modify any of these parameters.
 
-| Parameters       | Default | Requires restart | Comments |
-|:--- |:---:|:---|
-| maintenance_work_mem | 64MB | No | |
-| max_connections      | 100  | Yes |It is usually recommended to use connection pools instead of modifying this value |
-| work_mem             | 4MB  | No |
-| log_statement        | false | No | This is useful if you want to figure out more how your database is utilized |
-| log_statement_stats  | false | No |This will also collect stats from your database, this is recommended to keep as false since it might affect performance |
+| Parameters           | Default | Requires restart | Comments |
+|:--- |:---:|:---|:---|
+| maintenance_work_mem | 64MB  | No  | |
+| max_connections      | 100   | Yes |It is usually recommended to use connection pools instead of modifying this value |
+| work_mem             | 4MB   | No  | |
+| log_statement        | false | No  | This is useful if you want to figure out more how your database is utilized |
+| log_statement_stats  | false | No  |This will also collect stats from your database, this is recommended to keep as false since it might affect performance |
 
 ## PostgreSQL extensions
 
