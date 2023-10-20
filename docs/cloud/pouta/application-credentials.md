@@ -102,7 +102,7 @@ enabled.
 
 * `creator` can create secrets such as passwords, encryption keys.
 
-If you are using Applications credentials in ePouta, it's slightly different. There are three roles available: `member` and `heat_stack_owner`.
+If you are using Applications credentials in ePouta, it's slightly different. There are two roles available: `member` and `heat_stack_owner`.
 
 * `member` role is the normal user role. When you login into the web-interface you have the `member` role enabled.
 
