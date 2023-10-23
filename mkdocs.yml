@@ -41,6 +41,7 @@ plugins:
         'apps/alpha.md': 'apps/index.md'
         'support/tutorials/env-guide/overview.md': 'support/tutorials/env-guide/index.md'
         # for URL consistency:
+        'sensitive-data.md': 'data/sensitive-data/index.md'
         'applications.md': 'apps/index.md'
         'faq.md': 'support/faq/index.md'
         'tutorials.md': 'support/tutorials/index.md'
