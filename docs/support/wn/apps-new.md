@@ -1,5 +1,10 @@
 # Applications
 
+## AlphaFold Genetic databases available on Puhti, 20.10.2023
+
+Genetic databases for AlphaFold 2.3.2-1 now available on Puhti. See
+[AlphaFold application page](../../apps/alphafold.md) for details.
+
 ## Schrödinger Maestro 2023.3, 8.9.2023
 
 Schrödinger Maestro version 2023.3 has been installed and set as the default module on
