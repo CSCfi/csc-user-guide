@@ -1,7 +1,7 @@
 # Adding service access for a project
 
 Access can be granted to the following services: supercomputers **Puhti** and
-**Mahti**; cloud services **ePouta**, **cPouta** and **Rahti**; storage services **Allas**
+**Mahti**; cloud services **cPouta** and **Rahti**; storage services **Allas**
 and **IDA**; sensitive data services **SD Services**; and database service **Kaivos**.
 
 Service access has a two-step approval: (1) The project manager approves
