@@ -84,7 +84,7 @@ Once the co-instructors/co-organizers/collaborators have signed in, you can find
 Co-owners can do everything the owner can, except demoting the owner or deleting the workspace. For collaboration purposes, all collaborators should have co-owner rights, to be able to write to the shared folder in the workspace.
 
 ## Creating custom Docker images
-If you cannot find a suitable image for your intended application, you will need to create and publish your own custom image for Notebooks. Image can be created on your own computer or for example [cPouta](../pouta) instance.
+If you cannot find a suitable image for your intended application, you will need to create and publish your own custom image for Notebooks. Image can be created on your own computer or for example [cPouta](../pouta/index.md) instance.
 
 Requirements: 
 

@@ -277,8 +277,8 @@ nav:
        - Guide for teachers: cloud/csc_notebooks/guide_for_teachers.md
        - Concepts: cloud/csc_notebooks/concepts.md
        - Data persistence: cloud/csc_notebooks/data_persistence.md
-     - Cloud Tutorials:
-       - cloud/tutorials.md
+     - Cloud Tutorials: cloud/tutorials/index.md
+       
   - Data:
      - data/index.md
 #    - Datasets: data/datasets.md

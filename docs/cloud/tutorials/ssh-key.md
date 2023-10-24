@@ -4,14 +4,9 @@
 
     WIP: Moved from another place, not reviewed yet
 
-To open a connection to your virtual machines in cPouta/ePouta, you first need to prove your identity to the Virtual and for that need SSH keys. This is the default (and more secure) way to access Virtual Machines. You only need to set up your SSH keys once per project.
+## Creating an SSH key in OpenStack
 
-!!! info "Import puyblic keys"
-    If you are already familiar with SSH keys, you can use your existing SSH keys to access the virtual machines. In the web interface, go to the **Compute > Key Pairs** section, and select **Import Public Key**. You need to name your key, keep in mind you will need to use this name when creating Virtual Machines, so the recomendation is to keep it short and informative of the intended use. Secondly paste your public key, it must be in a single line and be in the form of `key-type hash comment`, for example a RSA key from `person@doamin.name`:
-
-    `ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAAAQQCo9+BpMRYQ/dL3DS2CyJxRF+j6ctbT3/Qp84+KeFhnii7NT7fELilKUSnxS30WAvQCCo2yU1orfgqr41mM70MB person@domain.name`
-
-If you have not used SSH keypairs before, you need to create one. The web interface can take care of this for you:
+This tutorial will walk you through creating an SSH keypair in the OpenStack web interface. You must be signed in to one of the Pouta services.
 
 1. Go to the **Compute > Key Pairs** section, and select **Create Key Pair**.
 

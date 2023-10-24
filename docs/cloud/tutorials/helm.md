@@ -1,4 +1,4 @@
-# How to package a Kubernetes application with Helm?
+# How to package a Kubernetes application with Helm
 
 [Helm](https://helm.sh/) is the "The package manager for Kubernetes", it allows the management of the life-cycle of a Kubernetes application (deploy, configure, upgrade, retire, ...). It is an **Infrastructure as Code** (IaC) tool, so it allows us to version control an application and follow its evolution along time, make identical copies (prod, preprod, dev, ...) and predictable upgrades, and of course share and publish the application. It is one of the main tools used upstream, if a tool has a "Kubernetes deployment" it is most likely going to be using Helm.
 

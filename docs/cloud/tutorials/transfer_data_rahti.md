@@ -1,4 +1,4 @@
-# How to transfer data to Rahti?
+# How to transfer data to Rahti
 
 As discussed in the [available storage options](/cloud/rahti/storage/) article, it is possible store data using a persistent volume, or using a object storage service like [Allas](/data/Allas/).
 
