@@ -4,8 +4,11 @@ This article describes one of the options to store data in Pouta which
 survive turning off the virtual machine.
 
 Persistent volumes, as the name says, remain even when instances are
-removed. They  an be  attached to  or detached  from virtual machines
+removed. They can be attached to or detached from virtual machines
 while they are running.
+
+Persistent volumes are using CEPH cluster. Regarding I/O performance, you should not use this kind of volume.
+It will use network access to the volume therefore latency.
 
 ## Creating and attaching volumes in the Pouta web interface
 
