@@ -5,7 +5,7 @@ More information about [Allas](../../../data/Allas/index.md)
 ## Backup to Allas
 
 There are different ways to backup to Allas from Rahti. We will show you two examples:  
-  - The first one is using another pod to copy the content of your persistent volume to Allas.
+  - The first one is using another pod to copy the content of your persistent volume to Allas.  
   - The second one is a bash script that you have to execute from your local machine.
 
 ## First example: using another pod
@@ -189,6 +189,6 @@ spec:
 
 The pod will run and backup the content of your PVC to Allas. Don't forget to scale up your origin deployment (`oc scale --replicas=1 deploy/nginx`)
 
-There are PROS and CONS with this solution:
-- PROS: You run the pod in your Rahti project
+There are PROS and CONS with this solution:  
+- PROS: You run the pod in your Rahti project  
 - CONS: If your PVC is `ReadWriteOnce`, a downtime is necessary.  
