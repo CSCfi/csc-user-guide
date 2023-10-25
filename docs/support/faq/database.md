@@ -3,7 +3,7 @@
 If you need a Database that needs to be accesible from other systems (like Puhti or Mahti), the best option is to deploy it in the cPouta cloud. You can request a Virtual machine and then just follow the instructions provided by the database of your choice. Then you just need to use security groups to give network access to your database.
 
 !!! Warning
-    Pay special attention to when using the [security groups](/cloud/pouta/launch-vm-from-web-gui.md#configure-a-security-group-to-control-the-firewall) to open only the necessary port(s) to the necessary IP(s).
+    Pay special attention to when using the [security groups](/cloud/pouta/launch-vm-from-web-gui/#configure-a-security-group-to-control-the-firewall) to open only the necessary port(s) to the necessary IP(s).
 
 ## When is Rahti a good place to deploy a Database?
 

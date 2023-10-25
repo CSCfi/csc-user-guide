@@ -23,7 +23,7 @@ server running:
 
 ## Preparation
 
-Make sure you have the `oc` command line installed, and that you are logged in. Please check the [command line tool installation](/cloud/rahti/usage/cli/) if you need help on that.
+Make sure you have the `oc` command line installed, and that you are logged in. Please check the [command line tool installation](../rahti/usage/cli.md) if you need help on that.
 
 ## Projects
 
@@ -113,7 +113,7 @@ The field `metadata.labels.pool` is an arbitrary key-value pair that enables
 the pods to be grouped and referred by e.g. _services_.
 
 The Kubernetes API objects are represented in the YAML format.
-[Short introduction to YAML](/cloud/tutorials/yaml_introduction.md).
+[Short introduction to YAML](yaml_introduction.md).
 
 Pods and other Kubernetes/OpenShift API objects are created with the `oc`
 command line utility:

@@ -6,7 +6,7 @@ All networking in Rahti uses [IPv4](https://en.wikipedia.org/wiki/IPv4). All IPs
 
 ## Namespaces
 
-Rahti is divided in **Namespaces**. Depending on the context, namespaces can be referred as **Projects**. Every object in Rahti must belong to and run inside a namespace. From a networking point of view, namespaces provide an isolated **VLAN** to everything that runs inside it, notably to [Pods](/cloud/rahti/concepts/#pod), [Services](/cloud/rahti/concepts/#service) and [Routes](/cloud/rahti/concepts/#route).
+Rahti is divided in **Namespaces**. Depending on the context, namespaces can be referred as **Projects**. Every object in Rahti must belong to and run inside a namespace. From a networking point of view, namespaces provide an isolated **VLAN** to everything that runs inside it, notably to [Pods](concepts.md#pod), [Services](concepts.md#service) and [Routes](concepts.md#route).
 
 ![Rahti Networking](../img/rahti-network.drawio.svg)
 
@@ -68,7 +68,7 @@ Any other domain name is possible, but the DNS and the certificates must be mana
 
 * For the DNS, a `CNAME` pointing to `rahtiapp.fi` or in cases that this is not possible, directly the `A` record containing the IP of `rahtiapp.fi` has to be configured. The way this needs to be configured depends on the register of the DNS record.
 
-* Any certificate provider can be used, like for example use the free certificates provided by the [Let's Encrypt controller](/cloud/rahti/tutorials/custom-domain/#lets-encrypt).
+* Any certificate provider can be used, like for example use the free certificates provided by the [Let's Encrypt controller](../tutorials/custom-domain.md#lets-encrypt).
 
 Another aspect of routes is the IP white listing feature, ie: only allowing a range of IPs to access the route. This is controlled by creating an annotation in the Route object with the key `haproxy.router.openshift.io/ip_whitelist`, and by setting the value to a space separated list of IPs and or IP ranges.
 

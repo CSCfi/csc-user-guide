@@ -93,7 +93,7 @@ Check the manual page of [ssh_config](https://linux.die.net/man/5/ssh_config) fo
 
 ### Putty
 
-Open Putty, after following the instructions at [windows-putty](/cloud/tutorials/ssh-key.md#windows-putty) you should have a saved session with the private key stored on it.
+Open Putty, after following the instructions at [windows-putty](../tutorials/ssh-key.md#windows-putty) you should have a saved session with the private key stored on it.
 
 * Load the saved session.
 

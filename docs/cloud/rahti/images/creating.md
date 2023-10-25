@@ -158,7 +158,7 @@ A new build can be triggered in the command line:
 oc start-build os-sample-python
 ```
 
-Or using [webhooks](/cloud/rahti/tutorials/webhooks/)
+Or using [webhooks](../../tutorials/webhooks.md)
 
 ## Using the inline Dockerfile method
 

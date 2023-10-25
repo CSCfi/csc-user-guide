@@ -1,6 +1,6 @@
 # Sending e-mail from Rahti
 
-The procedure is the same as for [sending an e-mail from cPouta](/cloud/pouta/additional-services/).
+The procedure is the same as for [sending an e-mail from cPouta](../pouta/additional-services.md).
 
 you need to configure your mail transfer agent (MTA) to use the following SMTP relay server (a.k.a. smarthost):
 

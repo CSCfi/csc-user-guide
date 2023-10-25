@@ -65,7 +65,7 @@ explicitly specify one.
 * If you would like to know which CSC computing project an OpenShift project is
 associated with, you can do so using the _oc_ command line tool. You can find
 instructions for setting up oc in the [command line tool usage
-instructions ](/cloud/rahti/usage/cli). For example, if your OpenShift project is called
+instructions ](cli.md). For example, if your OpenShift project is called
 *my-openshift-project*, you would run:
 
 ```bash

@@ -4,7 +4,7 @@
 
 ## Introduction
 
-Helm packages applications into Charts. A Helm chart is a collection of `YAML` templates. In order to create a chart, one must first [install the Helm](https://helm.sh/docs/intro/install/) command line tool and install the [oc command line](/cloud/rahti/usage/cli/) tool. Once done, to continue:
+Helm packages applications into Charts. A Helm chart is a collection of `YAML` templates. In order to create a chart, one must first [install the Helm](https://helm.sh/docs/intro/install/) command line tool and install the [oc command line](../rahti/usage/cli.md) tool. Once done, to continue:
 
 Make sure you are logged in:
 
