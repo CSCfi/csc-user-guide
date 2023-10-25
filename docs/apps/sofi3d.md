@@ -219,7 +219,7 @@ Where the input file is sofi3D.json defined as:
 
 ## License
 
-SOFI3D is a free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, version 2.0 of the License only. Link to license info: [License info link](https://gitlab.kit.edu/kit/gpi/ag/software/sofi3d/-/blob/master/LICENSE.info)
+SOFI3D is a free software: you can redistribute it and/or modify it under the terms of the [GNU General Public License](https://gitlab.kit.edu/kit/gpi/ag/software/sofi3d/-/blob/master/LICENSE.info) as published by the Free Software Foundation, version 2.0 of the License only.
 
 ## Citation
 
