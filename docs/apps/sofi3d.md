@@ -232,7 +232,7 @@ As an example, you can write "The authors wish to thank CSC - IT Center for Scie
 
 ## Installation
 
-SOFI3D was installed on Puhti following the [general installation instructions](https://git.scc.kit.edu/GPIAG-Software/SOFI3D/uploads/5b905f0a3d91d643394bc300f805bb60/guide_sofi3D.pdf).
+SOFI3D was installed on Puhti following the general installation instructions: [User's Guide](https://git.scc.kit.edu/GPIAG-Software/SOFI3D/uploads/5b905f0a3d91d643394bc300f805bb60/guide_sofi3D.pdf).
 
 ## References
 
