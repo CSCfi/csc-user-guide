@@ -61,7 +61,7 @@ name.
 If you are a member of multiple CSC projects with access to Rahti, the description of the
 project must contain `csc_project: #######`, where `#######` is the project
 that should be billed (see
-[Projects and quota](../rahti/usage/projects_and_quota/)).
+[Projects and quota](../rahti/usage/projects_and_quota.md)).
 The description can be included in the `new-project` command:
 
 ```bash

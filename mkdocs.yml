@@ -228,7 +228,7 @@ nav:
            - Orchestration with Heat: cloud/pouta/heat-orchestration.md
         # - Self study and troubleshooting:
         #     - Pouta videos: cloud/pouta/pouta-videos.md
-        #     - Known problems and limitations: cloud/pouta/known-problems.md
+           - Known problems and limitations: cloud/pouta/known-problems.md
      - Pukki:
         - cloud/dbaas/index.md
         - What is DBaaS: cloud/dbaas/what-is-dbaas.md
