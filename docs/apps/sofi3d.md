@@ -208,7 +208,7 @@ Where the input file is sofi3D.json defined as:
 
 ## Common errors
 
-* The variables NPROCX, NPROCY and NPROCZ can be found under Domain Decomposition in the json file. Their product has to be equal to the --ntasks option, otherwise the program will stop. So NPROCX*NPROCY*NPROCZ=16 in the example run.
+* The variables NPROCX, NPROCY and NPROCZ can be found under Domain Decomposition in the json file. Their product has to be equal to the --ntasks option, otherwise the program will stop. So NPROCX\*NPROCY\*NPROCZ=8 in the example run.
 
 * A json file must be provided otherwise the application would try to read a default sofi3D.json file located in the current directory.
 `sofi3D my_file.json`
