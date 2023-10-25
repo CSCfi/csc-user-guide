@@ -7,6 +7,19 @@ tags:
 
 [SOFI3D](https://gitlab.kit.edu/kit/gpi/ag/software/sofi3d) is an application for 3D Finite-Difference Seismic Wave Simulation.
 
+## Available
+
+These tools are available on Puhti:
+* partmodel
+* seismerge
+* snapmerge
+* sofi3D
+* sofi3D_acoustic
+
+## License
+
+SOFI3D is a free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, version 2.0 of the License only.
+
 ## Usage
 
 The SOFI3D module is available on Puhti and can be loaded using the following command:
@@ -16,14 +29,6 @@ The SOFI3D module is available on Puhti and can be loaded using the following co
 The application can be run with:
 
 `sofi3D`
-
-## Available tools
-
-* partmodel
-* seismerge
-* snapmerge
-* sofi3D
-* sofi3D_acoustic
 
 ## Example batch job
 
@@ -215,9 +220,6 @@ Where the input file is sofi3D.json defined as:
 
 * The output from different workers have to be accessible to each other, as one worker will merge the results from the other workers otherwise it will fail.
 
-## License
-
-SOFI3D is a free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, version 2.0 of the License only.
 
 ## Acknowledgement
 
