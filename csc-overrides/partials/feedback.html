@@ -1,0 +1,35 @@
+{% set feedback = config.extra.analytics.feedback %}
+{% set edited = page.meta.git_revision_date_localized_raw_custom|string %}
+{% set source = page.file.src_path %}
+{% set contact_url = base_url ~ "/support/contact/" %}
+{% set issue_title = "Feedback on " ~ source %}
+{% set issue_parameters = ["labels=feedback", "title=" ~ issue_title|replace(" ", "+")|escape]|join("&") %}
+{% set issue_url = config.repo_url ~ "issues/new?" ~ issue_parameters %}
+{% if not page.is_homepage and source not in feedback.exclude %}
+<form name="feedback" class="csc-feedback"
+  data-source-edited="{{ edited[:-2]+':00' }}"
+  data-source-path="{{ source }}">
+  <fieldset>
+    <legend>{{ feedback.title }}</legend>
+    <div class="csc-feedback-content">
+      {% for rating in feedback.ratings %}
+      <button class="md-button md-button--primary csc-feedback-button csc-feedback-button--{{ rating.type|lower }}"
+        type="submit" title="{{ rating.description }}" value="{{ rating.type }}">
+        {{ rating.name }}
+      </button>
+      <div class="csc-feedback-note csc-feedback-note--{{ rating.type|lower }}">
+        <div style="text-align: center;">{{ rating.note }}</div>
+        {% if rating.type == "Negative" %}
+        <div class="csc-feedback-instructions admonition note">
+          <p>Please let us know how we could improve this page by
+          <a href="{{ contact_url }}">contacting us</a> or by
+          <a href="{{ issue_url }}">creating an issue in GitHub</a>. You can also
+          <a href="{{ page.edit_url }}">edit this page yourself</a> and contribute your improvements by creating a pull request.</p>
+        </div>
+        {% endif %}
+      </div>
+      {% endfor %}
+    </div>
+  </fieldset>
+</form>
+{% endif %}
