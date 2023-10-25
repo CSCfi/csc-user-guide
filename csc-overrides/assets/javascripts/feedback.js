@@ -1,5 +1,5 @@
 const RatingStorage = class {
-  static #disabled
+  static #disabled = false
   static #storage = window.localStorage
   static #key = "pageRatings"
   static {
@@ -8,10 +8,9 @@ const RatingStorage = class {
         this.#storage.setItem(this.#key, JSON.stringify({}))
       }
     } catch(exception) {
-      console.error(exception)
+      console.error("Error initializing localStorage for pageRatings:", exception)
       this.#disabled = true
     }
-    this.#disabled = false
   }
   static get disabled() {
     return this.#disabled
@@ -25,7 +24,7 @@ const RatingStorage = class {
     try {
       this.#storage.setItem(this.#key, JSON.stringify(ratings))
     } catch(exception) {
-      console.error(exception)
+      console.error("Error saving ratings to localStorage:", exception)
       this.#disabled = true
     }
   }
@@ -75,6 +74,7 @@ const PageRating = class {
   #removeRating() {
     const ratings = this.#storage.getRatings()
     delete ratings[PageRating.#itemKey]
+    this.#storage.setRatings(ratings); // Update the local storage after deletion ???
   }
   #newRating(type) {
     return ({ date: Date.now(), source: this.#sourcePath, type })
