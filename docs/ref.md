@@ -354,6 +354,73 @@ on some dogs, and then running away:
 If you don't need sound, you can use animations as an alternative for embedded videos. They are
 used just like [static images](#images). Both `.gif` and `.png` files work.
 
+## These things here
+Whatever these are called:
+
+<div class="quick-links-container">
+
+  <div class="quick-links-topic">
+    <span class="quick-links-title"><h2>Ears</h2></span>
+    <div class="quick-links-item">
+      <a class="quick-link" target="_self" href="#">Left ear</a>
+    </div>
+    <div class="quick-links-item">
+      <a class="quick-link" target="_self" href="#">Right ear</a>
+    </div>
+    <div class="quick-links-item">
+      <a class="quick-link" target="_self" href="#">Are there other ears?</a>
+    </div>
+    <div class="quick-links-item">
+      <a class="quick-link" target="_self" href="#">I guess that's all the ears</a>
+    </div>
+    <div class="quick-links-item">
+      <a class="quick-link" target="_blank" href="https://en.wikipedia.org/wiki/Ear">No, wait! There's like a bunch of ears!</a><sup>&#128279;</sup>
+    </div>
+  </div>
+
+  <div class="quick-links-topic">
+    <span class="quick-links-title"><h2>Other ears</h2></span>
+    <div class="quick-links-item">
+      <a class="quick-link" target="_blank" href="#">Inner ear</a>
+    </div>
+    <div class="quick-links-item">
+      <a class="quick-link" target="_blank" href="#">Outer ear</a>
+    </div>
+    <div class="quick-links-item">
+      <a class="quick-link" target="_blank" href="#">Elephant ear</a>
+    </div>
+    <div class="quick-links-item">
+      <a class="quick-link" target="_self" href="#">Fennec ear</a>
+    </div>
+    <div class="quick-links-item">
+      <a class="quick-link" target="_self" href="#">Arctic fox ear</a>
+    </div>
+    <div class="quick-links-item">
+      <a class="quick-link" target="_self" href="#">Rabbit ear! That's a good one!</a>
+    </div>
+  </div>
+
+  <div class="quick-links-topic">
+    <span class="quick-links-title"><h2>Knees</h2></span>
+    <div class="quick-links-item">
+      <a class="quick-link" target="_blank" href="#">Regular, like a 'leg knee' or something</a>
+    </div>
+    <div class="quick-links-item">
+      <a class="quick-link" target="_blank" href="#">Elbow</a>
+    </div>
+    <div class="quick-links-item">
+      <a class="quick-link" target="_blank" href="#">Toe</a>
+    </div>
+    <div class="quick-links-item">
+      <a class="quick-link" target="_self" href="#">Thumb</a>
+    </div>
+    <div class="quick-links-item">
+      <a class="quick-link" target="_self" href="#">That's probably all the knees</a>
+    </div>
+  </div>
+
+</div>
+
 ## Mermaid
 ```mermaid
 %%{init: {'theme': 'neutral' }}%%
