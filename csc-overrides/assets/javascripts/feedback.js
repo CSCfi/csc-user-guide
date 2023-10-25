@@ -74,7 +74,7 @@ const PageRating = class {
   #removeRating() {
     const ratings = this.#storage.getRatings()
     delete ratings[PageRating.#itemKey]
-    this.#storage.setRatings(ratings); // Update the local storage after deletion ???
+    this.#storage.setRatings(ratings)
   }
   #newRating(type) {
     return ({ date: Date.now(), source: this.#sourcePath, type })
