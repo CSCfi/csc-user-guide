@@ -19,7 +19,7 @@ server running:
     tutorial. Instead, it is meant for learning the core concepts of
     Kubernetes.
 
-![Network](../../img/routeServicePod.drawio.svg)
+![Network](../img/routeServicePod.drawio.svg)
 
 ## Preparation
 
@@ -61,7 +61,7 @@ name.
 If you are a member of multiple CSC projects with access to Rahti, the description of the
 project must contain `csc_project: #######`, where `#######` is the project
 that should be billed (see
-[Projects and quota](../../usage/projects_and_quota/)).
+[Projects and quota](../rahti/usage/projects_and_quota/)).
 The description can be included in the `new-project` command:
 
 ```bash
@@ -113,7 +113,7 @@ The field `metadata.labels.pool` is an arbitrary key-value pair that enables
 the pods to be grouped and referred by e.g. _services_.
 
 The Kubernetes API objects are represented in the YAML format.
-[Short introduction to YAML](/cloud/rahti/tutorials/yaml_introduction/).
+[Short introduction to YAML](/cloud/tutorials/yaml_introduction.md).
 
 Pods and other Kubernetes/OpenShift API objects are created with the `oc`
 command line utility:
@@ -299,11 +299,11 @@ spec:
 ```
 
 The ReplicationControllers are functionally close to ReplicaSets, discussed
-in the chapter "[Kubernetes and OpenShift concepts](../concepts.md#replicaset)".
+in the chapter "[Kubernetes and OpenShift concepts](../rahti/concepts.md#replicaset)".
 A ReplicationController can be transformed into a ReplicaSet by
 changing `spec.selector` to `spec.selector.matchLabels` and setting
 `kind: ReplicaSet`. The motivation to understand the ReplicationController
-object is that [DeploymentConfig](../concepts.md#deploymentconfig)
+object is that [DeploymentConfig](../rahti/concepts.md#deploymentconfig)
 objects generate ReplicationControllers.
 
 !!! Note

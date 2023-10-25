@@ -31,7 +31,7 @@ To open a connection to your virtual machines in cPouta/ePouta, you first need t
 
     `ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAAAQQCo9+BpMRYQ/dL3DS2CyJxRF+j6ctbT3/Qp84+KeFhnii7NT7fELilKUSnxS30WAvQCCo2yU1orfgqr41mM70MB person@domain.name`
 
-If you have not used SSH keypairs before, you need to create one. Tutorial about [SSH keypair](ssh-key.md) might be helpful.
+If you have not used SSH keypairs before, you need to create one. Tutorial about [SSH keypair](../tutorials/ssh-key.md) might be helpful.
 
 ### Configure a security group to control the firewall
 
