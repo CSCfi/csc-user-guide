@@ -30,7 +30,7 @@ The application can be run with:
 
 SOFI3D creates many auxiliary files, so in this example subdirectories are used to reduce clutter.
 
-```
+```bash
 #!/bin/bash
 #SBATCH --account=<your-project-unix-id>
 #SBATCH --ntasks=8
@@ -84,7 +84,7 @@ rm -r sources receiver log model snap su tmp
 
 Where the input file is sofi3D.json defined as:
 
-```
+```json
 #-----------------------------------------------------------------
 #      JSON PARAMETER FILE FOR SOFI3D
 #-----------------------------------------------------------------
