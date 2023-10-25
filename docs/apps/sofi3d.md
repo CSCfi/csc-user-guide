@@ -219,7 +219,7 @@ Where the input file is sofi3D.json defined as:
 
 ## License
 
-SOFI3D is a free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, version 2.0 of the License only.
+SOFI3D is a free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, version 2.0 of the License only. Link to license info: [License info link](https://gitlab.kit.edu/kit/gpi/ag/software/sofi3d/-/blob/master/LICENSE.info)
 
 ## Citation
 
@@ -232,7 +232,7 @@ As an example, you can write "The authors wish to thank CSC - IT Center for Scie
 
 ## Installation
 
-SOFI3D was installed on Puhti following the general installation instructions: [Users Guide](https://git.scc.kit.edu/GPIAG-Software/SOFI3D/uploads/5b905f0a3d91d643394bc300f805bb60/guide_sofi3D.pdf).
+SOFI3D was installed on Puhti following the general installation instructions: [SOFI3D Users Guide](https://git.scc.kit.edu/GPIAG-Software/SOFI3D/uploads/5b905f0a3d91d643394bc300f805bb60/guide_sofi3D.pdf).
 
 ## References
 
