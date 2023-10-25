@@ -226,5 +226,5 @@ As an example, you can write "The authors wish to thank CSC - IT Center for Scie
 
 ## References
 
-* [Sofi3D homepage](https://git.scc.kit.edu/GPIAG-Software/SOFI3D)
-* [Sofi3D manual](https://git.scc.kit.edu/GPIAG-Software/SOFI3D/wikis/home)
+* [SOFI3D homepage](https://git.scc.kit.edu/GPIAG-Software/SOFI3D)
+* [SOFI3D manual](https://git.scc.kit.edu/GPIAG-Software/SOFI3D/wikis/home)
