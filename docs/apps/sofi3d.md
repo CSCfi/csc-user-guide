@@ -17,10 +17,6 @@ These tools are available on Puhti:
 * sofi3D
 * sofi3D_acoustic
 
-## License
-
-SOFI3D is a free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, version 2.0 of the License only.
-
 ## Usage
 
 The SOFI3D module is available on Puhti and can be loaded using the following command:
@@ -221,13 +217,24 @@ Where the input file is sofi3D.json defined as:
 
 * The output from different workers have to be accessible to each other, as one worker will merge the results from the other workers otherwise it will fail.
 
+## License
+
+SOFI3D is a free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, version 2.0 of the License only.
+
+## Citation
+
+`Bohlen, T. (2002). Parallel 3-D viscoelastic finite difference seismic modelling. Computers & Geosciences, 28(8), 887-899.`
 
 ## Acknowledgement
 
 Please acknowledge CSC and Geoportti in your publications, it is important for project continuation and funding reports.
 As an example, you can write "The authors wish to thank CSC - IT Center for Science, Finland (urn:nbn:fi:research-infras-2016072531) and the Open Geospatial Information Infrastructure for Research (Geoportti, urn:nbn:fi:research-infras-2016072513) for computational resources and support".
 
+## Installation
+
+SOFI3D was installed on Puhti following the [general installation instructions](https://git.scc.kit.edu/GPIAG-Software/SOFI3D/uploads/5b905f0a3d91d643394bc300f805bb60/guide_sofi3D.pdf).
+
 ## References
 
-* [SOFI3D homepage](https://git.scc.kit.edu/GPIAG-Software/SOFI3D)
-* [SOFI3D manual](https://git.scc.kit.edu/GPIAG-Software/SOFI3D/wikis/home)
+* [SOFI3D homepage and source code](https://gitlab.kit.edu/kit/gpi/ag/software/sofi3d)
+* [SOFI3D manual](https://git.scc.kit.edu/GPIAG-Software/SOFI3D/uploads/5b905f0a3d91d643394bc300f805bb60/guide_sofi3D.pdf)
