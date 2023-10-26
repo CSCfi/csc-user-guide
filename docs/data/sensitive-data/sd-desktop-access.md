@@ -1,25 +1,22 @@
 
-### Working with your virtual desktop
+# Working with your virtual desktop
 
 
 <iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/EhuAYNLS90g" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 Once a virtual desktop has been created, each CSC project member can securely access it from their browser.
 
+## Access virtual desktop
 
-### Access virtual desktop
-
-When you log in to SD Desktop **Homepage**,  you will be able to access your virtual computing environment from:
+When you log in to SD Desktop **Homepage**, you will be able to access your virtual computing environment from:
 
 * **Recent connections**. Click on your desktop's image (visible only if recently accessed).
 
-* **All connections**. Click on + next to the CSC  project ID (e.g. project_NNNNN): this allows you to visualize and access all the desktops associated with the project (desktopname-NNNNNNNNNN) via a secure connection. 
+* **All connections**. Click on + next to the CSC project ID (e.g. `project_NNNNN`): this allows you to visualize and access all the desktops associated with the project (`desktopname-NNNNNNNNNN`) via a secure connection. 
 
+When you open the connection, a virtual computing environment (Linux CentOS operating system) will open in your browser. If you are accessing the virtual desktop for the first time, you will see the panel getting started, from which you can, for example, adjust the screen resolution.
 
-When you open the connection, a virtual computing environment (Linux Centos operating system) will open in your browser. If you are accessing the virtual desktop for the first time, you will see the panel getting started, from which you can, for example, adjust the screen resolution.
-
-You can work with the desktop like in a standard computing environment, accessing several pre-installed programs from the applications menu bar (top left corner). Examples include Open Office, image viewing applications, video and audio players, Jupiter Notebook etc. You can also open a terminal and use Linux from the command line. For more information on accessing R-Studio, please check the paragraph below.
-
+You can work with the desktop like in a standard computing environment, accessing several pre-installed programs from the applications menu bar (top left corner). Examples include Open Office, image-viewing applications, video and audio players, Jupyter Notebooks etc. You can also open a terminal and use Linux from the command line. For more information on accessing R-Studio, please [check the paragraph below](#accessing-rstudio).
 
 Security-related features of SD Desktop include:
 
@@ -33,7 +30,6 @@ Security-related features of SD Desktop include:
 
 5. Only files saved in the shared-directory or the external volume are accessible to all project members via the virtual desktop. 
 
-
 You can close the connection to your virtual desktop in two ways:
 
 1. _Log out_ from the desktop (in the workspace view, top right corner of the browser, select your _username_ and _log out_). This will close all applications and disconnect the work session. You can access the same desktop anytime after logging in to the services.
@@ -46,9 +42,6 @@ You can close the connection to your virtual desktop in two ways:
  
  [![Access-virtual-Desktop](images/desktop/desktop-access.png)](images/desktop/desktop-access.png)
 
-
-     
-
 ### Accessing RStudio 
 
 Open the terminal and launch RStudio with:
@@ -59,7 +52,7 @@ start-rstudio-server
 
 This will return a URL and a service-specific password:
 
-```
+```text
 RStudio Server - Sensitive Data Desktop Edition
 ---------------------------------------------------------------------------------------
 Copy/Paste this URL into Firefox:
@@ -80,7 +73,7 @@ Next:
 * after a few seconds, you can input the username and password (service-specific) and access the server.
 
 !!! Note
-    Only file saved in shared-directory or external volume are accessible to other project memebers using RSudio.
+    Only files saved in shared-directory or external volume are accessible to other project members using RStudio.
 
 
 [![Desktop-rstudio](images/desktop/desktop-rstudio.png)](images/desktop/desktop-rstudio.png)
@@ -92,10 +85,11 @@ Next:
 As the virtual desktop is isolated from the internet, the only way to access data for analysis is by utilizing a specific application called _Data Gateway_.
 
 This application will allow you to establish a secure connection with two other Sensitive Data Service components and:
-Access and analyse encrypted files directly uploaded via SD Connect by any of the project members;
-  Reuse published data under controlled access via the Sensitive Data  (SD) Apply service.
 
-Encrypted files are visible in read-only mode (similar to opening a pdf file or streaming a YouTube video). This solution allows you to process large amounts of data without storing additional copies on your virtual desktop. 
+* Access and analyze encrypted files directly uploaded via SD Connect by any of the project members
+* Reuse published data under controlled access via the Sensitive Data (SD) Apply service.
+
+Encrypted files are visible in read-only mode (similar to opening a PDF file or streaming a YouTube video). This solution allows you to process large amounts of data without storing additional copies on your virtual desktop. 
 
 !!! Note
     In SD Desktop, you can access only encrypted files. Accessing unencrypted data or files encrypted only with your public encryption key will result in an error. 
@@ -107,15 +101,15 @@ Encrypted files are visible in read-only mode (similar to opening a pdf file or 
 
 You can access encrypted data stored in SD Connect by following these steps:
 
-1. Open _Data Gateway_ (you can find the application on your desktop);
+1. Open _Data Gateway_ (you can find the application on your desktop)
 
-2.Select _SD Connect_;
+2. Select _SD Connect_
 
-3.Add your CSC credentials (username and password. Note: we disabled the copy/paste options for security reasons; thus, you need to type in your password);
+3. Add your CSC credentials (username and password). Note: we disabled the copy/paste options for security reasons; thus, you need to type in your password
 
-4.Click on _Login_ and next click on _Continue_;
+4. Click on _Login_ and next click on _Continue_
 
-5.In the new window, under _ Create secure access_ click on  _Create_. The application will create a secure connection with SD Connect, and a new folder called _Projects_  will be accessible from your desktop or programmatically from the terminal. Next, click on _Open folder_.
+5. In the new window, under _Create secure access_ click on _Create_. The application will create a secure connection with SD Connect, and a new folder called _Projects_ will be accessible from your desktop or programmatically from the terminal. Next, click on _Open folder_.
 
  
  [![Data-gateway1](images/desktop/desktop-gateway-part1.png)](images/desktop/desktop-gateway-part1.png)
@@ -133,7 +127,7 @@ You can directly access all the files stored in SD Connect in read-only mode fro
 
 If during the analysis phase you need to edit or annotate files, you make a full copy of it on your virtual desktop following these steps: 
 
- 1. Access the files of interest in the _Project folder_ using _Data Gateway_;
+ 1. Access the files of interest in the _Project folder_ using _Data Gateway_
  
  2. Select the files from the Project folder, make a copy and paste it in the virtual desktop home directory (the files will be visible only from your browser) or in the shared folder (in this case, the files will be accessible also by all the CSC project members). 
 
@@ -161,4 +155,4 @@ You will encounter an error message if you still need to apply for access or if 
  [![Desktop-apply](images/desktop/desktop-apply.png)](images/desktop/desktop-apply.png)
 
 
-SD Apply is currently in the pilot phase. Don't hesitate to contact us at servidesk@csc.fi (subject: sensitive data) for more information.
+SD Apply is currently in the pilot phase. Don't hesitate to [contact CSC Service Desk](../../support/contact.md) (subject: sensitive data) for more information.

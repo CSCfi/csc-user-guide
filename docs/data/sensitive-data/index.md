@@ -16,9 +16,6 @@ This manual introduces CSC's Sensitive Data (SD) services. To navigate the user 
     <div class="quick-links-item">
       <a class="quick-link" target="_self" href="sd_desktop/">Analyse with SD Desktop</a>
     </div>
-    <div class="quick-links-item">
-      <a class="quick-link" target="_self" href="../sd-tutorials/">Tutorials and quick quides</a>
-    </div>
   </div>
   <div class="quick-links-topic">
     <span class="quick-links-title"><h2>Publish and reuse</h2></span>

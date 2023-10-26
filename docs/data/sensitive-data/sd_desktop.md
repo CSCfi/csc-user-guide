@@ -1,5 +1,5 @@
 
-# Analyse and compute with Sensitive Data Desktop
+# Analyze and compute with Sensitive Data Desktop
 
 ## Overview
 
@@ -16,7 +16,7 @@ You can browse the main topics of this section using the navigation bar on the r
 
 * Only members of the same CSC project can access the virtual desktop. One CSC project can create up to three desktops. 
 
-* Four pre-built computing options (Linux OS) are available (for simple statistical analysis and machine learning).  Supports analysis of any data type: text files, images, audio files, video, and genetic data. Further customisation is possible by writing to servicedesk@csc.fi (subject: Sensitive data);
+* Four pre-built computing options (Linux OS) are available (for simple statistical analysis and machine learning).  Supports analysis of any data type: text files, images, audio files, video, and genetic data. Further customization is possible by writing to [CSC Service Desk](../../support/contact.md) (subject: Sensitive data);
 
 * The secure analysis environment is isolated from the internet: the only way to import and export data is via the SD Connect service.
 

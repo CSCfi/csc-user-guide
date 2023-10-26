@@ -1,6 +1,5 @@
 # Store and share with Sensitive Data Connect
 
-
 ## Overview
 
 Sensitive Data (SD) Connect allows you to store sensitive research data in the CSC's cloud storage solution Allas. With this user interface, you can easily encrypt and upload files from your web browser. As a result, SD Connect can serve as a workspace for collaborative research projects, facilitating data collection and sharing.  In addition, encrypted files stored in SD Connect are directly available for analysis, annotiation or editing via the SD Desktop service. 
@@ -23,7 +22,7 @@ You can browse through the main topics of the manual using the navigation bar on
 
 * Automated encryption and data upload via a web browser for small files (1<GB). Larger files (100<GB) can be encrypted using an application and uploaded to the web browser or programmatically (100>GB).
 
-* Supports encryption and storage of any file type: text files, images, audio files, video, and genetic data (default space 10 TB, additional space required contact servicedesk@csc.fi). In addition, you can describe or organize each file or bucket with specific tags. 
+* Supports encryption and storage of any file type: text files, images, audio files, video, and genetic data (default space 10 TB, additional space required contact [CSC Service Desk](../../support/contact.md)). In addition, you can describe or organize each file or bucket with specific tags. 
 
 
 ## Limitations
@@ -39,7 +38,7 @@ You can browse through the main topics of the manual using the navigation bar on
 * CSC does not provide backups of the data stored in SD Connect. Therefore, we advise you to maintain **backups** of important datasets.
 
 !!! Note
-    Files uploaded using the automated encryption option between November 2, 2022, and December 2022 might be corrupted. This is because during data upload, files are split into short segments, and in some cases, the correct segment's order has been lost, making the files unreadable. Therefore, if you have used this function and can not re-upload a copy of the same data, don't hesitate to contact us at servicedesk@csc.fi. We need to evaluate individual cases to determine if the files can be retrieved. Currently, SD Connect automated encryption is supported only for files <1GB.
+    Files uploaded using the automated encryption option between November 2, 2022, and December 2022 might be corrupted. This is because during data upload, files are split into short segments, and in some cases, the correct segment's order has been lost, making the files unreadable. Therefore, if you have used this function and can not re-upload a copy of the same data, don't hesitate to contact us at [CSC Service Desk](../../support/contact.md). We need to evaluate individual cases to determine if the files can be retrieved. Currently, SD Connect automated encryption is supported only for files <1GB.
 
 
 !!! Note
@@ -53,14 +52,14 @@ As SD Connect is a service based on a cloud object storage solution, all files u
 Once you log in to SD Connect, you can access three main pages: 
 
 * The default _Browser page_, where are listed the buckets (or main folders) in which your encrypted files are stored;
-* The _Shared_page_ , where you can manage shared buckets;
+* The _Shared_page_, where you can manage shared buckets;
 * The _User information_ page, where you can visualise the resources consumed by your CSC project and the Project Identifier.
 
 
 ### Browser page
 
 
-On the _Browser page_ , you can :
+On the _Browser page_, you can :
 
 * View all the buckets available in your CSC project, where you can store encrypted data.
 

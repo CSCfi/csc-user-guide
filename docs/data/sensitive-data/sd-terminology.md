@@ -8,14 +8,14 @@
 
 **CSC Project**: using CSC services is based on projects: all your data in CSC belong to a project. Each project has a primary user, the CSC project manager, who can add members and manages access to the services. A project manager is responsible for the project's activities and acts as the data controller (or academic organization) representative. They, for example, need to describe which type of sensitive data the project is processing.
 
-**Disk quota**:  storage space available to CSC's services users. SD Connect has a default quota of 10 TB. You can apply for more storage space by writing to servicedesk@csc.fi. 
+**Disk quota**: storage space available to CSC's services users. SD Connect has a default quota of 10 TB. You can apply for more storage space by writing to [CSC Service Desk](../../support/contact.md). 
 
 
 **Multi-factor Authentication**: When you log in to the SD Desktop service, you must undergo an extra verification step next to provide a username and password. In this way, your account is more secure. The extra verification step is called: "Two-Step Verification" or "Multifactor Authentication", because you are proving your identity via a different method. In this case, you need to type in a one-time code (6 digits) obtained by opening a mobile app. The code is unique and valid for a limited amount of time.
 
-**Object**: the technical name for a file stored in a cloud object storage like Allas (or uploaded to CSC via SD Connect). This definition underlines that files stored in SD Connect /  Allas can not be directly modified unless transferred or copied into a computing environment. Still, they can be accessed in read-only mode from a cloud computing environment (e.g. SD Desktop). 
+**Object**: the technical name for a file stored in a cloud object storage like Allas (or uploaded to CSC via SD Connect). This definition underlines that files stored in SD Connect / Allas can not be directly modified unless transferred or copied into a computing environment. Still, they can be accessed in read-only mode from a cloud computing environment (e.g. SD Desktop). 
 
-**Project Identifier**: a synonym of CSC Project ID when using the command-line tool. The SD Connect user interface is displayed under User Information> Project usage and displayed as a series of 32 numbers and letters: e.g. AUTH_3a66dbf90b2940dc9c651362af595b23.
+**Project Identifier**: a synonym of CSC Project ID when using the command-line tool. The SD Connect user interface is displayed under User Information> Project usage and displayed as a series of 32 numbers and letters: e.g. `AUTH_3a66dbf90b2940dc9c651362af595b23`.
 
 
 **Virtual machine (VM) or virtual desktop**: a virtual computing environment (or virtual computer) that works as a physical computer. It has a processor, memory, and operating system but exists only as a code or a partition of the host computer in CSC's data center. The virtual machines used for Sensitive Data services are entirely isolated from the internet for security reasons.
@@ -28,7 +28,7 @@
 **Data Controller and Data Processor** According to the GDPR, a data controller is an individual or organization that determines the purposes and means of processing sensitive personal data, and it is usually an academic organization. On the other hand, a data processor is an individual or organization that processes personal data on the controller's behalf, for example, an IT service provider, in this case, CSC.
 
 
-**Data Processing Agreement (DPA)**: a data processing agreement (DPA) is a contract between the Data Controller and the Data Processor. It regulates the particularities of data processing – such as its scope and purpose – as well as the relationship between the controller and the processor. For more information, see the section [when your project handles personal data](../../accounts/when-your-project-handles-personal-data.md#data-processing-agreement) at the beginning of this user guide and [CSC General terms of use](https://research.csc.fi/general-terms-of-use) and [CSC Data Processing Agreement](https://research.csc.fi/data-processing-agreement) on research.csc.fi. 
+**Data Processing Agreement (DPA)**: a data processing agreement (DPA) is a contract between the Data Controller and the Data Processor. It regulates the particularities of data processing – such as its scope and purpose – as well as the relationship between the controller and the processor. For more information, see the section [when your project handles personal data](../../accounts/when-your-project-handles-personal-data.md#data-processing-agreement) at the beginning of this user guide and [CSC General terms of use](https://research.csc.fi/general-terms-of-use) and [CSC Data Processing Agreement](https://research.csc.fi/data-processing-agreement) in research.csc.fi. 
 
 
 **Data Protection Impact Assessment (DPIA)**: A Data Protection Impact Assessment (DPIA) is required under the GDPR for operations that are 'likely to result in a high risk to the rights and freedoms of natural persons'. More information is provided [here](https://tietosuoja.fi/en/list-of-processing-operations-which-require-dpia) by the Finnish Office of the Data Protection Ombudsman and specific support by your home organization's legal office. 
