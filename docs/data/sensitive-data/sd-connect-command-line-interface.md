@@ -2,7 +2,7 @@
 
 For documentation and more information, you can check the [Crypt4GH Encryption Utility](https://github.com/EGA-archive/crypt4gh.git) page.
 
-In this example, we first generate your key pair (a password-protected private key and a public key that can be shared with collaborators). Next, we encrypt a file with your private key and the public keys of two different collaborators (research group A and research group B).
+In this example, we first generate your key pair (a password-protected private key and a public key that can be shared with collaborators). Next, we encrypt a file with public keys of two different collaborators (research group A and research group B).
 
 **Python 3.6+ is required** to use the Crypt4GH encryption utility. If you need help installing Python, please follow [these instructions](https://www.python.org/downloads/release/python-3810/).
 
@@ -81,23 +81,19 @@ where `--sk mykey.sec` is your private (secret, sk) key and `--pk mykey.pub` is 
 
 3- Encrypt a file
 
-To ecrypt files you will need 1) your private and public keys, and 2) your recipients' public keys. As stated before, in this example we are sharing the data with two recipients (research groups A and B) and hence, we have received their public keys somehow (e.g. via email). To encrypt a file you use `crypt4gh encrypt` command:
+To encrypt files you will need the public keys of the recipients of the data. In this example we are sharing the data with two recipients: yourself and research group A. Your own public key (_mykey.pub_) was created in the previous step,  and the public key of research group A (_groupA.pub_) we have received somehow (e.g. via email). To encrypt a file you use `crypt4gh encrypt` command:
 
 ```bash
-$ crypt4gh encrypt --sk mykey.sec --recipient_pk groupA.pub --recipient_pk groupB.pub <dog.jpg >dog.jpg.c4gh
+$ crypt4gh encrypt --recipient_pk mykey.pub --recipient_pk groupA.pub <dog.jpg >dog.jpg.c4gh
 Passphrase for mykey.sec: 
 ```
 
-where `--sk mykey.sec` is your private key, `--recipient_pk groupA.pub` is the research group A's public key, and `--recipient_pk groupB.pub` is the research group B's public key. The `crypt4gh` command uses only standard input (stdin) and standard output (stdout) so you must use shell redirections: `<` denotes an input file and `>` and denotes an output file, hence `<dog.jpg` reads in a file called _dog.jpg_ and `>dog.jpg.c4gh` writes out an encrypted file named _dog.jpg.c4gh`.
+The `crypt4gh` command uses only standard input (stdin) and standard output (stdout) so you must use shell redirections: `<` denotes an input file and `>` and denotes an output file, hence `<dog.jpg` reads in a file called _dog.jpg_ and `>dog.jpg.c4gh` writes out an encrypted file named _dog.jpg.c4gh`.
 
-The command will ask you to enter the password (passphrase) of your private key. For security reasons, the password is not displayed when you type it.
-
-!!! Note
-    If you want to be able to decrypt the file yourself you must add your own public key also as a recipient.
 
 4- Decrypt a file
 
-To decypt a file you will need a private key which corresponds to one of the public keys used in encryption phase. Let's assume in our example that the research group A is decrypting a file you've sent them. To decrypt a file you use `crypt4gh decrypt` command:
+To decypt a file you will need a private key which corresponds to one of the public keys used in encryption phase. Let's assume in our example that the research group A is decrypting a file you've sent them. To decrypt a file they use `crypt4gh decrypt` command:
 
 ```bash
 crypt4gh decrypt --sk groupA.sec <dog.jpg.c4gh >dog.jpg
@@ -106,7 +102,7 @@ Passphrase for groupA.sec:
 
 where `--sk groupA.sec` is a corresponding private key to one of the public keys used in the encryption. The `crypt4gh` command uses only standard input (stdin) and standard output (stdout) so you must use shell redirections: `<` denotes an input file and `>` and denotes an output file, hence `<dog.jpg.c4gh` reads in an ecrypted file called _dog.jpg.c4gh_ and `>dog.jpg` writes out a decrypted file named _dog.jpg_.
 
-The command will ask you to enter the password (passphrase) of your private key. For security reasons the password is not displayed when you type it.
+The command will ask the user to enter the password (passphrase) of your private key. For security reasons the password is not displayed when you type it.
 
 !!! Note
     In case you are decrypting the file in SD Desktop and the CSC Sensitive Data public key has been used in encryption, decryption will be done automatically and you do not need to specify any decryption keys.
