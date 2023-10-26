@@ -11,6 +11,21 @@ extra:
     provider: custom
     matomo_site_id: !ENV [MATOMO_SITE_ID, ""]
     matomo_url: !ENV [MATOMO_URL, ""]
+    feedback:
+      title: Do you find this page useful?
+      ratings:
+        - name: "Yes"
+          type: Positive
+          description: Yes! I do find this page useful.
+          note: >-
+            Thank you for your feedback!
+        - name: "No"
+          type: Negative
+          description: No! This page needs to be improved.
+          note: >-
+            Thank you! Your feedback is appreciated.
+      exclude:
+        - ref.md
 
 plugins:
   - tags:
@@ -18,6 +33,7 @@ plugins:
   - search
   - git-revision-date-localized:
       type: date
+      custom_format: "%Y-%m-%dT%H:%M:%S%z" # Used with feedback buttons
       locale: en
       timezone: Europe/Helsinki
       exclude:
@@ -94,6 +110,7 @@ extra_css:
   - assets/stylesheets/code.css
   - assets/stylesheets/content.css
   - assets/stylesheets/dropdown.css
+  - assets/stylesheets/feedback.css
   - assets/stylesheets/footer.css
   - assets/stylesheets/header.css
   - assets/stylesheets/sidebars.css
@@ -107,6 +124,7 @@ extra_javascript:
   - assets/javascripts/dropdown.js
   - assets/javascripts/layout.js
   - assets/javascripts/extra.js
+  - assets/javascripts/feedback.js
 
 nav:
   - Home: index.md
@@ -397,3 +415,4 @@ nav:
   - Training material: support/training-material.md
   - Contact: support/contact.md
   - What's new: support/whats-new.md
+
