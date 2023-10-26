@@ -45,7 +45,7 @@ module load openmpi/4.1.4
 module load sofi3d
  
 # Move to working directory
-cd /scratch/<your-project-unix-id>
+cd /scratch/<project>/<some_dir>
  
 # Create folders for output
 # The folder names and locations can be configured in the json file
