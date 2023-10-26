@@ -149,7 +149,7 @@ proportion of the available CPU cores in a single node:
     #SBATCH --partition=gpu
     #SBATCH --ntasks=1
     #SBATCH --cpus-per-task=10
-    #SBATCH --mem=64G
+    #SBATCH --mem=80G
     #SBATCH --time=1:00:00
     #SBATCH --gres=gpu:v100:1
         
