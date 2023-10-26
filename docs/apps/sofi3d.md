@@ -33,7 +33,7 @@ SOFI3D creates many auxiliary files, so in this example subdirectories are used 
 
 ```bash
 #!/bin/bash
-#SBATCH --account=<your-project-unix-id>
+#SBATCH --account=<project>
 #SBATCH --ntasks=8
 #SBATCH --mem=2G
 #SBATCH --time=00:05:00
