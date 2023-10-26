@@ -52,8 +52,7 @@ Lastly, we are not yet providing a virtual Desktop with Windows operating system
 * After your data permit expires, you will no longer have access to your virtual Desktop. To continue working with the same project, you need to send an amendment application to Findata. Otherwise, make sure to request to export all your results before the validity period of your data permit ends. The expired project and all the data will be deleted after 90 days according to CSC's data retention policy.
 
 !!! Note
-    We recommend you to **contact us at servicedesk@csc.fi well in advance**, even before applying for a data permit from Findata, if you need **software that is not available** on the Desktop as a default.
-
+    We recommend you to **[contact CSC Service Desk](../../support/contact.md) well in advance**, even before applying for a data permit from Findata, if you need **software that is not available** on the Desktop as a default.
 
 ## Overview
 

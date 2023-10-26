@@ -5,7 +5,7 @@ Once your virtual Desktop is launched, each CSC project member can securely acce
 When you log in to SD Desktop **Homepage**, you will be able to access your virtual Desktop in:
 
 * **Recent connections**, by clicking on the image of your Desktop (visible only if you have recently accessed it)
-* **All connections**, if you click on the "+"-icon you can see all the connections associated with each project (e.g. project_NNNNN_NNNN). You can access your virtual Desktop by clicking on the connection ID.
+* **All connections**, if you click on the "+"-icon you can see all the connections associated with each project (e.g. `project_NNNNN_NNNN`). You can access your virtual Desktop by clicking on the connection ID.
 
 When you open the connection, a virtual computing environment will open into your browser. When you access the virtual Desktop for the first time, you will see a *getting started* panel, from which you can, for example, adjust the screen resolution.
 
@@ -39,7 +39,7 @@ Once you sign in to your virtual Desktop, you can access the data by following t
 6. The files have been encrypted using the sensitive data public encryption key, and you will be able to access their content in *read-only mode*. The current streaming speed can be up to 50 MB/s.
 
 !!! Note
-    The Projects folder is **available only when the Data Gateway application is open**. If you close or disconnect the application, you will not be able to access the data stored in the data service unless you previously made a full copy of it inside your Desktop. Thus, Data Gateway needs to be open and connected during data processing.
+    The _Projects_ folder is **available only when the Data Gateway application is open**. If you close or disconnect the application, you will not be able to access the data stored in the data service unless you previously made a full copy of it inside your Desktop. Thus, Data Gateway needs to be open and connected during data processing.
 
 [![Desktop-register-access](images/desktop/desktop-register-gateway.png)](images/desktop/desktop-register-gateway.png)
 
@@ -55,7 +55,7 @@ Once you sign in to your virtual Desktop, you can access the data by following t
 
 Each virtual Desktop is pre-built and contains a limited set of default open-source software (listed below). The virtual Desktop is isolated from the internet and **importing of software is restricted**, as required by the data permit authority. Thus, users cannot directly import software/scripts or other files on to their virtual Desktop when working with secondary use data. 
 
-If you need a specific program that is not pre-installed, it is recommended to contact us at servicedesk@csc.fi, **before applying for the data permit**. This way, we can figure out if it is possible to customise your virtual Desktop. If the program is compatible with the computing environment, you need to specify in your permit application the list of additional software, which will be provided directly by Findata.
+If you need a specific program that is not pre-installed, it is recommended to [contact CSC Service Desk](../../support/contact.md) **before applying for the data permit**. This way, we can figure out if it is possible to customise your virtual Desktop. If the program is compatible with the computing environment, you need to specify in your permit application the list of additional software, which will be provided directly by Findata.
 
 ### Pre-installed software:
 
@@ -115,6 +115,7 @@ To stop RStudio Server: Ctrl+C
 ```
 
 Next:
+
  * **paste** the URL in Firefox
  * after a few seconds, you can **input the username and password** (given by the terminal) and access the server.
 
