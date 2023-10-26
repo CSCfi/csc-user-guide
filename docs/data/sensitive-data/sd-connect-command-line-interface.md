@@ -87,7 +87,7 @@ To encrypt files you will need the public keys of the recipients of the data. In
 $ crypt4gh encrypt --recipient_pk mykey.pub --recipient_pk groupA.pub <dog.jpg >dog.jpg.c4gh
 ```
 
-The `crypt4gh` command uses only standard input (stdin) and standard output (stdout) so you must use shell redirections: `<` denotes an input file and `>` and denotes an output file, hence `<dog.jpg` reads in a file called _dog.jpg_ and `>dog.jpg.c4gh` writes out an encrypted file named _dog.jpg.c4gh`.
+The `crypt4gh` command uses only standard input (stdin) and standard output (stdout) so you must use shell redirections: `<` denotes an input file and `>` and denotes an output file, hence `<dog.jpg` reads in a file called _dog.jpg_ and `>dog.jpg.c4gh` writes out an encrypted file named `dog.jpg.c4gh`.
 
 
 4- Decrypt a file
