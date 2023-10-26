@@ -146,7 +146,7 @@ Pouta offers few useful tools and resources that will make it easier to develop 
   [code repositories]: https://github.com/CSCfi
   [code repository]: http://https://github.com/CSCfi/etherpad-deployment-demo
   [Etherpad code example]: https://github.com/CSCfi/etherpad-deployment-demo
-  [OpenStack Heat resources]: https://docs.openstack.org/heat/queens/template_guide/openstack.html
+  [OpenStack Heat resources]: https://docs.openstack.org/heat/rocky/template_guide/openstack.html
   [Ansible playbooks]: https://github.com/CSCfi/spark-openstack
   [Travis CI]: https://travis-ci.org
   [Circle CI]: https://circleci.com/

@@ -1,22 +1,32 @@
 # Desktop
 The desktop enables using graphical applications on a Puhti or Mahti compute node.
 
-In the Puhti web interface, the desktop can be launched as:
+In the Puhti web interface, the following applications are available in the desktop:
 
-* **`Mate` or `Xfce` desktop**, where one or several applications can be started. The applications mentioned below have been tested to work. Also other graphical tools available in Puhti could work.
-* **Single application**, currently are supported: [CloudCompare](../../apps/cloudcompare.md), [Grace](../../apps/grace.md), [GRASS GIS](../../apps/grass.md), [Maestro](../../apps/maestro.md), [MATLAB](../../apps/matlab.md), [QGIS](../../apps/qgis.md), [SAGA GIS](../../apps/saga-gis.md), [SNAP](../../apps/snap.md) and [VMD](../../apps/vmd.md).
+* [COMSOL](../../apps/comsol.md)
+* [CloudCompare](../../apps/cloudcompare.md)
+* [GRASS GIS](../../apps/grass.md)
+* [Grace](../../apps/grace.md)
+* [MATLAB](../../apps/matlab.md)
+* [Maestro](../../apps/maestro.md)
+* [QGIS](../../apps/qgis.md)
+* [SAGA GIS](../../apps/saga-gis.md)
+* [SNAP](../../apps/snap.md)
+* [VMD](../../apps/vmd.md)
+
+On Mahti, the following applications are available:
+
+* [Maestro](../../apps/maestro.md)
+* [VMD](../../apps/vmd.md)
 
 Only CPU rendering is supported in the graphical applications launched from the desktop.
 See [here how to enable GPU-accelerated visualization](accelerated-visualization.md)
 for selected applications on Puhti.
 
-In the Mahti web interface, only the `Xfce` desktop is available and no other options can be selected.
-The applications available in the desktop on Mahti are [Maestro](../../apps/maestro.md) and [VMD](../../apps/vmd.md)
 
 ## Launching
 1. Open `Desktop` page under Apps 
 2. Specify the needed resources. Desktop is run as [batch job](../running/getting-started.md) as anything else on the supercomputers, so the required resources need to be defined before launching the desktop. The recommended partiotion is [interactive](../running/interactive-usage.md), so that the job could start as soon as possible, but if more resources are needed also other partitions are available.
-3. Puhti only: select Desktop `Mate`, `Xfce` or 'None'. Use 'None', if starting single application.
 
 
 ## Connecting

@@ -9,15 +9,15 @@ options to come in the future. The intended workflow is that you create one work
 exercises in one or more applications in that workspace.
 Instead of a course you can also use CSC Notebooks for collaboration. The workflow is similar to creating a course environment and is described below.
 
-### 1. Become a workspace owner and creating a workspace
-* Login to CSC Notebooks using your CSC account. Make note of your user account on the bottom of the left navigation
-   bar. It starts with csc/<youraccountname>. If you don't have a CSC account yet, 
-   [see the instructions on how to create new user account](../../../accounts/how-to-create-new-user-account/).
-* Login to CSC Notebooks using your CSC account. Send email to <notebooks@csc.fi> to request workspace owner rights. Please include your CSC user account in the mail. 
-   We will add the capability to create your own workspaces to your account.
-* Login to [CSC Notebooks](https://notebooks.rahtiapp.fi/welcome) using your CSC account and check that you got workspace owner rights. 
-It worked, if you see `Manage workspaces` tab in the left panel. 
-* Create a new workspace.
+### 1. Become a workspace owner and create a workspace
+* Login to CSC Notebooks using your CSC account by choosing 'CSC Login' option after clicking 'Login'.
+  If you don't have a CSC account yet, [see the instructions on how to create new user account](../../../accounts/how-to-create-new-user-account/).
+* Open `Manage workspaces` from the left panel and create a new workspace.
+* If you don't see `Manage workspaces` option, please
+    * Check that you logged in using your CSC account. Your user account on the bottom of the left navigation
+      should look like 'csc/youraccountname'
+    * Reload your browser
+    * If the issue persists, contact CSC Notebooks support at servicedesk@csc.fi
  
 ### 2. Find or create custom images
 
@@ -170,6 +170,15 @@ R -e "source('/path/of/myscript.R')"
 ```
 docker build -t "<yourimagename>" -f <yourimagename>.dockerfile .
 ```
+
+Note that with Mac, or on any ARM host, you need to tell docker to build x64 images so that they are compatible
+with our cloud hosts. This can be done using "docker buildx".
+
+```
+docker buildx build --platform linux/amd64 ....
+```
+
+Another alternative is to build the image on an x64 VM, for example on pouta.csc.fi.
 
 * Test your image. 
     * `-p 8888:8787` means bind Docker port 8787 to host port 8888.

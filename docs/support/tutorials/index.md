@@ -65,6 +65,8 @@
 ## Pouta - cloud
 * [cPouta and ePouta related videos](../../cloud/pouta/pouta-videos.md)
 * [Learn cloud computing by developing and deploying a web application](cloud.md)
+* [Orchestration with Heat](../../cloud/pouta/heat-orchestration.md)
+* [Create a jumphost in cPouta](../../cloud/pouta/create-jumphost.md)
 
 ## Rahti - container cloud
 * [Core objects](../../cloud/rahti/concepts.md)

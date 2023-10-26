@@ -6,7 +6,7 @@ and resetting the login environment on CSC supercomputers.
 The tool does the reset in a non-destructive manner by saving a copy of the current settings which 
 can then be later restored.  
 
-- **login-settings** -> The following files: `.bashrs`, `.bash_profile` and `.bash_logout` in the users home directory
+- **login-settings** -> The following files: `.bashrc`, `.bash_profile` and `.bash_logout` in the users home directory
 
 Incorrect or extra variables in the login-settings are a common cause for strange and hard to track down issues.
 CSC support staff also can't see a users login-settings, so catching issues here is difficult unless the user 

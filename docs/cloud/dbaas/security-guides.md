@@ -9,6 +9,8 @@
 
 All database instances have their own firewalls. Users are responsible for making sure that the firewall rules are strict. The firewall rules should only be open to those IP-addresses that is needed. Relaxed firewall rules are probably some of the largest security risks and you need to take it seriously. Even if you don't have any "secret" data in your database, you are not allowed to have it open to the world. If you want to share your data, you should do it through a proxy or other services that might use the database as a backend. Leaving a database port open on the internet is an sure-fire way to attract malicious actors to target your database.
 
+You can find out more about how to use firewalls in the [Firewall section](firewalls.md)
+
 ## Authentication
 
 You can log in to the DBaaS service with many different authentication methods as long as you have a [CSC account](../../../accounts/how-to-create-new-user-account/) and belong to a project that has applied for DBaaS access.

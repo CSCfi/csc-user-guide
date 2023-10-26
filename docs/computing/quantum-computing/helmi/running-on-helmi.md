@@ -182,7 +182,7 @@ print(result.request.shots)  # Retrieving the number of requested shots.
 
 ## Figures of Merit
 
-The figures of merit (or quality metrics set) may be necessary for publishing work produced on Helmi. It also gives an idea as to the current status of Helmi. In `helmi-examples` there is a helper script to get the calibration data including the figures of merit. The script can be found [here](https://github.com/FiQCI/helmi-examples/blob/main/scripts/get_calibration_data.py). This file can bea dded to your own python scripts and will return data in json format. Note that querying the latest calibration data may given an incomplete or outdated set of figures. Therefore calibration set IDs should be saved along with Job IDs. 
+The figures of merit (or quality metrics set) may be necessary for publishing work produced on Helmi. It also gives an idea as to the current status of Helmi. In `helmi-examples` there is a helper script to get the calibration data including the figures of merit. The script can be found [here](https://github.com/FiQCI/helmi-examples/blob/main/scripts/get_calibration_data.py). This file can be added to your own python scripts and will return data in json format. Note that querying the latest calibration data may give an incomplete or outdated set of figures. Therefore calibration set IDs should be saved along with Job IDs. 
 
 Here is a brief description of the figures which are given when querying:
 

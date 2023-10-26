@@ -1,15 +1,15 @@
-# Unsing Podman in SD Desktop
+# Using Podman in SD Desktop
 
-[Podman](https://podman.io/) container manger is available in Ubuntu22 based SD Desktop virtual machines.
+The [Podman](https://podman.io/) container manager is available in Ubuntu 22 -based SD Desktop virtual machines.
 Podman is able to use Docker containers and thus it can be used to replace Docker in your SD Desktop workflows.
 
-As SD Desktop don't have access to software container repositories, 
+As SD Desktop doesn't have access to software container repositories, 
 you must save the container you wish to use into a _Docker archive file_ in some other environment where you have Podman or Docker.
 This file must then be imported to SD Desktop through SD Connect.
 
-For example to use _Trimmomatic_ software in SD Desktop of CSC project: _project_2000123_, you could use following procedure.
+For example, to use _Trimmomatic_ software in SD Desktop of CSC project: _project_2000123_, you could use following procedure.
 
-In a linux server where your have Docker available, create a Docker container file, that includes Trimmomaitc software.
+In a Linux server with Docker available, create a Docker container file that includes Trimmomaitc.
 This can be done with commands:
 ```text
 sudo docker pull staphb/trimmomatic:latest

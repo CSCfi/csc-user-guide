@@ -10,12 +10,6 @@ Deep learning framework for Python.
 
 !!! info "News"
 
-    **23.5.2023** The module `tensorflow/2.12` has been updated so that
-    [Python virtual
-    environments](https://packaging.python.org/en/latest/guides/installing-using-pip-and-virtual-environments/#creating-a-virtual-environment)
-    should now work. To create a virtual environment use the command
-    `python3 -m venv --system-site-packages venv`.
-
     **5.10.2022** Due to Puhti's update to Red Hat Enterprise Linux 8
     (RHEL8), **the number of fully supported TensorFlow versions has been
     reduced. Previously deprecated conda-based versions have been
@@ -37,7 +31,8 @@ Currently supported TensorFlow versions:
 
 | Version | Module               | Puhti | Mahti | LUMI | Notes           |
 |:--------|:---------------------|:-----:|:-----:|:----:|-----------------|
-| 2.12.0  | `tensorflow/2.12`    | X     | X     | -    | default version |
+| 2.13.0  | `tensorflow/2.13`    | X     | X     | -    | default version |
+| 2.12.0  | `tensorflow/2.12`    | X     | X     | -    |                 |
 | 2.11.0  | `tensorflow/2.11`    | X     | X     | X*   |                 |
 | 2.10.0  | `tensorflow/2.10`    | X     | X     | X*   |                 |
 | 2.9.0   | `tensorflow/2.9`     | X     | X     | X*   |                 |
@@ -65,11 +60,16 @@ support.** They are still subject to change at any time without notice,
 and for example multi-node jobs are know not to work properly yet.
 
 If you find that some package is missing, you can often install it yourself with
-`pip install --user`. See [our Python
+`pip3 install --user`. See [our Python
 documentation](python.md#installing-python-packages-to-existing-modules) for
 more information on how to install packages yourself. If you think that some
 important TensorFlow-related package should be included in the module provided
 by CSC, please [contact our servicedesk](../support/contact.md).
+
+With recent modules it is also possible to use [Python virtual
+environments](https://packaging.python.org/en/latest/guides/installing-using-pip-and-virtual-environments/#creating-a-virtual-environment). To
+create a virtual environment use the command
+`python3 -m venv --system-site-packages venv`.
 
 All modules are based on containers using Apptainer (previously known
 as Singularity). Wrapper scripts have been provided so that common
@@ -116,7 +116,7 @@ If you wish to have a specific version ([see above for available
 versions](#available)), use:
 
 ```text
-module load tensorflow/2.9
+module load tensorflow/2.12
 ```
 
 Please note that the module already includes CUDA and cuDNN libraries, so
@@ -157,7 +157,7 @@ a single node:
     #SBATCH --time=1:00:00
     #SBATCH --gres=gpu:v100:1
     
-    module load tensorflow/2.12
+    module load tensorflow/2.13
     srun python3 myprog.py <options>
     ```
     
@@ -171,7 +171,7 @@ a single node:
     #SBATCH --time=1:00:00
     #SBATCH --gres=gpu:a100:1
     
-    module load tensorflow/2.12
+    module load tensorflow/2.13
     srun python3 myprog.py <options>
     ```
 

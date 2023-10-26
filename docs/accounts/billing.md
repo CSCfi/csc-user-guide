@@ -27,6 +27,8 @@ at research.csc.fi.
 
     For LUMI billing, [see the LUMI documentation](https://docs.lumi-supercomputer.eu/runjobs/lumi_env/billing/){ target=_blank }.
 
+    The use of Fairdata IDA and Kaivos doesn't consume billing units.
+
 ## Monitoring billing unit consumption
 
 In the _My Projects_ page in [MyCSC](https://my.csc.fi) you can study the
@@ -44,6 +46,7 @@ When all billing units in your CSC Project have been consumed, service usage can
 Detailed information on how services are currently limiting the use when billing units run out:
 
 * [Puhti and Mahti](../computing/usage-policy.md#running-out-of-billing-units)
+* [Sensitive Data Desktop](../data/sensitive-data/sd-access.md#service-usage-restrictions-when-billing-units-have-been-consumed)
 
 
 

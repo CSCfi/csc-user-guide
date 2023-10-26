@@ -11,6 +11,21 @@ extra:
     provider: custom
     matomo_site_id: !ENV [MATOMO_SITE_ID, ""]
     matomo_url: !ENV [MATOMO_URL, ""]
+    feedback:
+      title: Do you find this page useful?
+      ratings:
+        - name: "Yes"
+          type: Positive
+          description: Yes! I do find this page useful.
+          note: >-
+            Thank you for your feedback!
+        - name: "No"
+          type: Negative
+          description: No! This page needs to be improved.
+          note: >-
+            Thank you! Your feedback is appreciated.
+      exclude:
+        - ref.md
 
 plugins:
   - tags:
@@ -18,6 +33,7 @@ plugins:
   - search
   - git-revision-date-localized:
       type: date
+      custom_format: "%Y-%m-%dT%H:%M:%S%z" # Used with feedback buttons
       locale: en
       timezone: Europe/Helsinki
       exclude:
@@ -93,6 +109,7 @@ extra_css:
   - assets/stylesheets/code.css
   - assets/stylesheets/content.css
   - assets/stylesheets/dropdown.css
+  - assets/stylesheets/feedback.css
   - assets/stylesheets/footer.css
   - assets/stylesheets/header.css
   - assets/stylesheets/sidebars.css
@@ -106,6 +123,7 @@ extra_javascript:
   - assets/javascripts/dropdown.js
   - assets/javascripts/layout.js
   - assets/javascripts/extra.js
+  - assets/javascripts/feedback.js
 
 nav:
   - Home: index.md
@@ -175,6 +193,7 @@ nav:
          - Julia on Jupyter: computing/webinterface/julia-on-jupyter.md
          - Jupyter for courses: computing/webinterface/jupyter-for-courses.md
          - MATLAB: computing/webinterface/matlab.md
+         - MLflow: computing/webinterface/mlflow.md
          - RStudio: computing/webinterface/rstudio.md
          - TensorBoard: computing/webinterface/tensorboard.md
          - Visual Studio Code: computing/webinterface/vscode.md
@@ -248,7 +267,8 @@ nav:
             - Connecting to your virtual machine: cloud/pouta/connecting-to-vm.md
             - Install command line tools: cloud/pouta/install-client.md
             - Command line client tools: cloud/pouta/command-line-tools.md
-            - API Access to Pouta: cloud/pouta/api-access.md  
+            - Application credentials: cloud/pouta/application-credentials.md
+            - API Access to Pouta: cloud/pouta/api-access.md
             - Virtual machine lifecycle & saving billing units: cloud/pouta/vm-lifecycle.md
         - Storage in Pouta:
             - cloud/pouta/storage.md
@@ -260,8 +280,9 @@ nav:
             - Creating, Converting, Uploading and Sharing virtual machine images: cloud/pouta/adding-images.md
         - Networking:
             - cloud/pouta/networking.md
-        - Orchestration with Heat: cloud/pouta/heat-orchestration.md
         - Application Development Practises in Pouta: cloud/pouta/application-dev.md
+        - Orchestration with Heat: cloud/pouta/heat-orchestration.md
+        - Jumphost in cPouta: cloud/pouta/create-jumphost.md
         - Additional services in Pouta (email, dns): cloud/pouta/additional-services.md
         - Self study and troubleshooting:
              - Pouta videos: cloud/pouta/pouta-videos.md
@@ -274,6 +295,7 @@ nav:
              - cloud/dbaas/getting-started.md
              - Web interface: cloud/dbaas/web-interface.md
              - Command Line tools: cloud/dbaas/cli.md
+             - Firewalls: cloud/dbaas/firewalls.md
              - Database Operations: cloud/dbaas/operations.md
              - Application Credentials: cloud/dbaas/application-credentials.md
         - Database sizes and prices: cloud/dbaas/flavors.md
@@ -337,7 +359,7 @@ nav:
         - Analyse with SD Desktop: data/sensitive-data/sd_desktop.md
         - SD Desktop for secondary use: data/sensitive-data/sd-desktop-audited.md
 #       - SD Apply for secondary use: data/sensitive-data/single-register-submission.md
-#       - Federated EGA: data/sensitive-data/federatedega.md
+        - Publish with Federated EGA: data/sensitive-data/federatedega.md
 #       - SD Apply: data/sensitive-data/sd-apply.md
 #       - Containers: data/sensitive-data/creating_containers.md
 
@@ -360,3 +382,4 @@ nav:
   - Training material: support/training-material.md
   - Contact: support/contact.md
   - What's new: support/whats-new.md
+
