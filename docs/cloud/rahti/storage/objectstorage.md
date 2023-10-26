@@ -192,3 +192,89 @@ The pod will run and backup the content of your PVC to Allas. Don't forget to sc
 There are PROS and CONS with this solution:  
 - PROS: You run the pod in your Rahti project  
 - CONS: If your PVC is `ReadWriteOnce`, a downtime is necessary.  
+
+## Second example: using bash script
+
+For the following script to work, we assume that you have the `rclone` command-line program installed and Allas bucket name is created. The `rclone.conf` should be set on your local system like described above example. For example, `rclone.conf` path could be located in `~/.config/rclone/rclone.conf`. More information on creating [Allas bucket](https://docs.csc.fi/data/Allas/using_allas/rclone/). This script will buckup an application deployed in Rahti and the application has the `volumeMounts` `mountPath` name `/backup` as an example.
+
+
+```bash
+#!/bin/env bash
+
+# Set your pod name, source directory, and destination directory
+POD_NAME="backup-volume" # Your pod anme 
+SOURCE_DIR="/backup"
+TIMESTAMP=$(date '+%Y%m%d%H%M%S') # Generate a timestamp
+DEST_DIR="/tmp/pvc_backup_$TIMESTAMP.tar.gz" # Include the timestamp in the filename
+RCLONE_CONFIG_PATH="your/path/to/rclone.conf" 
+S3_BUCKET="pvc-test-allas" # Your bucket name
+
+# Echo function to display task messages
+echo_task() {
+  echo "$(date '+%Y-%m-%d %H:%M:%S') - $1"
+}
+
+# Function to handle errors
+handle_error() {
+  echo_task "Error: $1"
+  exit 1
+}
+
+# Check if the pod exists
+oc get pod "$POD_NAME" &>/dev/null
+if [ $? -ne 0 ]; then
+  echo_task "Pod $POD_NAME not found. Aborting backup."
+  exit 1
+fi
+
+# Create a tar archive within the pod
+echo_task "Creating a tar archive within the pod..."
+oc exec "$POD_NAME" -- /bin/sh -c "tar -czf /tmp/pvc_backup.tar.gz -C $SOURCE_DIR ."
+if [ $? -ne 0 ]; then
+  handle_error "Failed to create a tar archive in the pod. Aborting backup."
+fi
+
+# Copy the tar archive to the local machine
+echo_task "Copying the tar archive to the local machine..."
+oc cp "$POD_NAME:/tmp/pvc_backup.tar.gz" "$DEST_DIR"
+if [ $? -ne 0 ]; then
+  handle_error "Failed to copy the tar archive to the local machine. Aborting backup."
+fi
+echo_task "Backup completed successfully. The archive is stored in $DEST_DIR."
+
+# Use Rclone to sync the tarball to S3
+echo_task "Syncing the tarball to S3..."
+rclone --config "$RCLONE_CONFIG_PATH" sync "$DEST_DIR" default:"$S3_BUCKET"
+if [ $? -ne 0 ]; then
+  handle_error "Failed to upload tarball to S3"
+fi
+echo_task "Backup completed successfully. The archive is stored in $S3_BUCKET$DEST_DIR"
+
+exit 0
+
+```
+
+If you need to clean up the tar archive files, you can add the following script after storing to Allas.
+
+```bash
+# Clean up the tar archive in the pod
+oc exec "$POD_NAME" -- /bin/sh -c "rm /tmp/pvc_backup.tar.gz"
+
+# Clean up temporary files 
+rm -rf /tmp/pvc_backup*
+or
+rm "$DEST_DIR"
+
+```
+
+There are PROS and CONS with this solution:
+
+Pros:
+
+  - Simplicity: You're essentially treating the volume just like any other directory. It's straightforward to copy data from a directory to Allas.
+  - Flexibility: You can select specific files or directories within the mount to copy to Allas and ideal for small size files.
+  
+Cons:
+
+  - Performance: This method can be slower, especially if the volume has a large number files.
+
