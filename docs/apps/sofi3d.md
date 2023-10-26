@@ -31,7 +31,8 @@ The application can be run with:
 
 SOFI3D creates many auxiliary files, so in this example subdirectories are used to reduce clutter.
 
-!!! info "Reminder" Remember to replace the <project> and <some_dir> placeholders before trying the example batch job. <project> is the project name of the project you want to use in the style of project_200xxxx.
+!!! warning "Reminder" 
+  Remember to replace the <project> and <some_dir> placeholders before trying the example batch job. <project> is the project name of the project you want to use in the style of project_200xxxx.
 
 ```bash
 #!/bin/bash
