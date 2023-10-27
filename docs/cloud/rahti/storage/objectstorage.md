@@ -8,11 +8,13 @@ There are different ways to backup to Allas from Rahti. We will show you two exa
   - The first one is using another pod to copy the content of your persistent volume to Allas.  
   - The second one is a bash script that you have to execute from your local machine.
 
-## First example: using another pod
+For this first example, we will deploy a `nginx` deployment running with a `PersistentVolumeClaim`. We provide the files for testing purposes.
 
-For this first example, we assume that we have a `nginx` deployment running with a `PersistentVolumeClaim`. We provide the files for testing purposes.
+## Preparing a NGINX deployment
 
-First, we build a nginx image with this Dockerfile: (since it's not possible to use the regular `nginx` image in OpenShift)  
+First, for our tutorial, we will build and deploy a NGINX server.  
+
+We [build](../images/creating.md) our nginx image with this Dockerfile: (since it's not possible to use the regular `nginx` image in OpenShift)  
 
 ```Dockerfile
 FROM nginx:stable
@@ -31,7 +33,7 @@ RUN sed -i.bak 's/^user/#user/' /etc/nginx/nginx.conf
 EXPOSE 8080
 ```
 
-Then you can deploy this `nginx` with this Deployment file:   
+You can deploy this `nginx` server with this Deployment:  
 
 ```yaml
 apiVersion: apps/v1
@@ -52,7 +54,7 @@ spec:
     spec:
       containers:
       - name: nginx
-        image: <your_custom_nginx_image>
+        image: <our_custom_nginx_image>
         resources:
           limits:
             memory: "128Mi"
@@ -107,9 +109,12 @@ spec:
   storageClassName: standard-rwo
 ```
 
+Save the file and use this command to deploy it: `oc apply -f {name_of_yaml_file}`  
 The deployment is using a `PersistentVolumeClaim` for our example.  
 
-Now we have our running `nginx` pod, we want want to copy the content of the PVC to Allas. We will use a new deployment with a `rclone` Docker image.  
+Now we have our running `nginx` pod, we want want to copy the content of the PVC to Allas. We will use a new deployment with a `rclone` Docker image.    
+
+## First example: using another pod  
 
 Create a `rclone.conf` with your `access_key_id` and `secret_access_key`.  
 
@@ -156,7 +161,8 @@ COPY rclone.sh /usr/local/bin/
 RUN chmod +x /usr/local/bin/rclone.sh
 ```
 
-Once all this done, you can deploy your `rclone` pod. You can use this example:  
+Once all this done, you can deploy your `rclone` pod.   
+You can use this example:  
 
 ```yaml
 apiVersion: v1
@@ -181,13 +187,15 @@ spec:
       claimName: nginx-pvc # Must match the PVC name that you want to backup
 ```
 
+Save the file and use this command: `oc apply -f {name_of_yaml_file}`.  
+
 !!! Warning  
     If your `PersistentVolumeClaim` is `ReadWriteOnce`, you have to scale down the `nginx` deployment to let the pod running rclone mount the volume.  
     Use this command to proceed: `oc scale --replicas=0 deploy/nginx`  
     If your `PersistentVolumeClaim` is `ReadWriteMany`, there is no need to scale down your deployment.  
     You can verify with this command: `oc get pvc`. You should see either `RWO` or `RWX`.
 
-The pod will run and backup the content of your PVC to Allas. Don't forget to scale up your origin deployment (`oc scale --replicas=1 deploy/nginx`)
+The pod will run and backup the content of your PVC to Allas. Don't forget to scale up your origin deployment (`oc scale --replicas=1 deploy/nginx`) after the copy finished.  
 
 There are PROS and CONS with this solution:  
 - PROS: You run the pod in your Rahti project  
@@ -202,8 +210,8 @@ For the following script to work, we assume that you have the `rclone` command-l
 #!/bin/env bash
 
 # Set your pod name, source directory, and destination directory
-POD_NAME="backup-volume" # Your pod name 
-SOURCE_DIR="/backup"
+POD_NAME="nginx" # Your pod name (Here 'nginx')
+SOURCE_DIR="/mnt" # The 'mountPath' that matches the data that you want to backup (Here '/mnt/')
 TIMESTAMP=$(date '+%Y%m%d%H%M%S') # Generate a timestamp
 DEST_DIR="/tmp/pvc_backup_$TIMESTAMP.tar.gz" # Include the timestamp in the filename
 RCLONE_CONFIG_PATH="your/path/to/rclone.conf" 
