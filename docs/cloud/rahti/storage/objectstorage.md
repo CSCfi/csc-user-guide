@@ -195,14 +195,14 @@ There are PROS and CONS with this solution:
 
 ## Second example: using bash script
 
-For the following script to work, we assume that you have the `rclone` command-line program installed and Allas bucket name is created. The `rclone.conf` should be set on your local system like described above example. For example, `rclone.conf` path could be located in `~/.config/rclone/rclone.conf`. More information on creating [Allas bucket](https://docs.csc.fi/data/Allas/using_allas/rclone/). This script will buckup an application deployed in Rahti and the application has the `volumeMounts` `mountPath` name `/backup` as an example.
+For the following script to work, we assume that you have the `rclone` command-line program installed and Allas bucket name is created. The `rclone.conf` should be set on your local system like described above example. For example, `rclone.conf` path could be located in `~/.config/rclone/rclone.conf`. More information on creating [Allas bucket](../../../data/Allas/using_allas/rclone.md). This script will buckup an application deployed in Rahti and the application has the `volumeMounts` `mountPath` name `/backup` as an example.
 
 
 ```bash
 #!/bin/env bash
 
 # Set your pod name, source directory, and destination directory
-POD_NAME="backup-volume" # Your pod anme 
+POD_NAME="backup-volume" # Your pod name 
 SOURCE_DIR="/backup"
 TIMESTAMP=$(date '+%Y%m%d%H%M%S') # Generate a timestamp
 DEST_DIR="/tmp/pvc_backup_$TIMESTAMP.tar.gz" # Include the timestamp in the filename
