@@ -1,7 +1,7 @@
 # Adding RStudio and R libraries to SD Desktop
 
 Using R and RStudio in SD Desktop virtual machines is based on an Apptainer/Singularity container that 
-contains R and Rsudio installations and over 1000 commonly used R libraries. However, as there 
+contains R and RStudio installations and over 1000 commonly used R libraries. However, as there 
 are nearly 20 000 libraries in the CRAN repository and over 2000 libraries in the Bioconductor 
 repository, it is quite common that some library that you would like to use is not included in the default selection.
 

@@ -47,13 +47,13 @@ with command:
 podman --cgroup-manager cgroupfs run -v /media/volume:/media/volume trimmomatic:latest trimmomatic SE /media/volume/rawdata.fastq  /media/volume/flitered.fastq MINLEN:100
 ```
 
-In the command above the first part of the command is the actual podman command that defines the Podman operation (`run`), and mounting between loval and containres environments (`-v`).
+In the command above the first part of the command is the actual `podman` command that defines the Podman operation (`run`), and mounting between local and container environments (`-v`).
 
 ```text
 podman --cgroup-manager cgroupfs run -v /media/volume:/media/volume trimmomatic:latest
 ```
 
-Rest of the command defines the actual trimmomatic analysis command:
+Rest of the command defines the actual `trimmomatic` analysis command:
 
 ```text
 trimmomatic SE /media/volume/rawdata.fastq  /media/volume/flitered.fastq MINLEN:100

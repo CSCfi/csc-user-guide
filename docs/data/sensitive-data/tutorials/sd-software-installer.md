@@ -16,7 +16,7 @@ This document describes the usage of this tool.
 
 In order to get access to the installation tool, you need to **[send a request to CSC Service Desk](../../../support/contact.md)**.
 In the request, indicate that you wish that the SD software installer would be 
-made available for your project. You must include the  **Project identifier string** of your project to the request.
+made available for your project. You must include the **Project identifier string** of your project to the request.
 You can check this 32 characters long random string for example in the [SD Connect service](https://sd-connect.csc.fi). 
 There you find the Project Identifier in the **User information** view. 
 
@@ -62,15 +62,15 @@ the installed software should work also when Data Gateway connection has not bee
 Notes about the available tools. Note that this list may be outdated:
 
 ### Statistics
-*  [Rstudio 4.2.2](rstudio.md) R statistics tool with graphcal user interface and help tools for adding libraries.
+*  [Rstudio 4.2.2](rstudio.md) R statistics tool with graphical user interface and help tools for adding libraries.
 *  [PSPP](https://www.gnu.org/software/pspp/) Open Source alternative for SPSS statistics tool.
 
 ### Imaging and videos
 *  [Audacity](https://www.audacityteam.org/). Sound editor.
 *  [OpenShot 3.1.1](https://www.openshot.org/). Video editor.
     *  This tool works only in Ubuntu22 based virtual desktops.
-    *  After installation, right click the OpenShot desktop icon and select: _Run as a program_.
-*  [QuPath 0.4.2](https://github.com/qupath/qupath/). Software for bioimage analysis.GATL
+    *  After installation, right-click the OpenShot desktop icon and select: _Run as a program_.
+*  [QuPath 0.4.2](https://github.com/qupath/qupath/). Software for bioimage analysis.
 *  [Whisper](whisper.md) Automatic speech recognition.
   
 ### Geosciences
@@ -79,7 +79,7 @@ Notes about the available tools. Note that this list may be outdated:
 
 ### Biosciences
 *  [GATK](https://gatk.broadinstitute.org/hc/en-us) A genomic analysis toolkit focused on variant discovery.
-*  [MultiQC 1.10](https://multiqc.info/) NGS Read quolity checking tool.
+*  [MultiQC 1.10](https://multiqc.info/) NGS Read quality checking tool.
 *  [Salmon 1.9.0](https://combine-lab.github.io/salmon/) Program to produce transcript-level quantification estimates from RNA-seq data
     *   [Salmon 1.9.0 at CSC servers](../../../apps/salmon.md)
 
@@ -87,6 +87,6 @@ Notes about the available tools. Note that this list may be outdated:
 *   [auto-apptainer](./auto-apptainer.md) Tool to add command line applications using the Apptainer container library provided by CSC.
 *   [VS Code 1.78.2](./vscode.md) Code editor.
 *   [Crypt4gh-gui](../sd-connect-upload-for-analysis.md#sensitive-data-encryption-and-upload-for-analysis-up-to-100-gb) Encryption tool.
-*   [Backup tool](./backup_sd_desktop.md) Help tool to automiatize backup and export in SD Desktop.
+*   [Backup tool](./backup_sd_desktop.md) Help tool to automatize backup and export in SD Desktop.
 *   [WEKA 3-8-6](https://www.cs.waikato.ac.nz/ml/index.html)
 
