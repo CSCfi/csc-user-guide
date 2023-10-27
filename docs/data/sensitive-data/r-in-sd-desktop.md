@@ -10,7 +10,7 @@ The process described here is the first prototype implementation of this service
 
 ## Requirements
 
-In order to get access to the installation tool, you need to **send a request to [CSC Service desk](../../support/contact.md)**.
+In order to get access to the installation tool, you need to **send a request to [CSC Service desk](/support/contact/)**.
 In the request, indicate that you wish that the SD Desktop software installation help tools would be made available for your project. 
 You must also include to the message the **Project identifier string** of your project.
 
@@ -23,14 +23,14 @@ Log in to your SD Desktop and open **Data Gateway**. If the software installatio
 `tools-for-sd-desktop` included in the directory that Data Gateway created (in `Projects/SD Connect/your-project-name`).
 Open `tools-for-sd-desktop` folder and from there, drag/copy file `sd-installer.desktop` to your desktop.
 
-[![Installing-sd-installer](./images/desktop/sd-installer1.png)](./images/desktop/sd-installer1.png)
+[![Installing-sd-installer](/data/sensitive-data/images/desktop/sd-installer1.png)](/data/sensitive-data/images/desktop/sd-installer1.png)
 
 **Figure 1.** Copying `sd-installer.desktop` file to SD desktop.
  
 Double click the copy of `sd-installer.desktop` to start the software installation tool. Use this tool to install _RStudio 4.2.2_ 
 to your SD Desktop virtual machine if you have not yet done so. The installation takes several minutes. 
 
-[![sd-installer](./images/desktop/sd-installer2.png)](./images/desktop/sd-installer2.png)
+[![sd-installer](/data/sensitive-data/images/desktop/sd-installer2.png)](/data/sensitive-data/images/desktop/sd-installer2.png)
 
 **Figure 2.** SD software installation tool.
 
