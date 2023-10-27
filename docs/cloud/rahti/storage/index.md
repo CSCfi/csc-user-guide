@@ -24,4 +24,4 @@ In case you need to store large volumes of data, or you need that your data can 
 
 At CSC, we offer Allas as our object storage solution. You can find additional information on the [Allas page](../../../data/Allas/index.md).
 
-You can find additional examples on how to backup to Allas [here](objectstorage).
+You can find additional examples on how to backup to Allas [here](/cloud/rahti/storage/objectstorage/).
