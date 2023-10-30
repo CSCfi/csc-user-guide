@@ -1,3 +1,11 @@
+<style>
+.admonition-title { background-color: rgba(255, 145, 0, 0.1) !important; }
+.admonition { background-color: white !important; }
+</style>
+!!! Attention "⚠️ Rahti 3 is deprecated"
+
+    This page is about a deprecated version of Rahti, please consult the [updated documentation article](../../../rahti4/storage/expand-volumes/)
+
 # Expand a volume
 
 ## Non dynamically
@@ -42,7 +50,7 @@ spec:
         deploymentconfig: two-volumes
     spec:
         containers:
-        - image: lvarin/nginx-okd:plus
+        - image: cscfi/nginx-okd:plus
           imagePullPolicy: IfNotPresent
           name: two-volumes
           resources: {}

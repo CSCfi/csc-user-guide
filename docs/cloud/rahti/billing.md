@@ -1,3 +1,11 @@
+<style>
+.admonition-title { background-color: rgba(255, 145, 0, 0.1) !important; }
+.admonition { background-color: white !important; }
+</style>
+!!! Attention "⚠️ Rahti 3 is deprecated"
+
+    This page is about a deprecated version of Rahti, please consult the [updated documentation article](../../rahti4/billing/)
+
 # Rahti billing
 
 ## Terminology
@@ -14,7 +22,6 @@ services which are available for use.
 **NOTE**: Starting from 1.02.2020, using Rahti consumes **CSC Billing Units**.
 
 ------------------------------------------------------------------------------------------------------------------------
-
 
 Billing units are calculated by scraping usage data from all of the OpenShift projects owned by the user.
 These calculations are based on:

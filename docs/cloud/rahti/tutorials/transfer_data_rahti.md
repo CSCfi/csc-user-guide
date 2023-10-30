@@ -1,3 +1,11 @@
+<style>
+.admonition-title { background-color: rgba(255, 145, 0, 0.1) !important; }
+.admonition { background-color: white !important; }
+</style>
+!!! Attention "⚠️ Rahti 3 is deprecated"
+
+    This page is about a deprecated version of Rahti, please consult the [updated documentation article](../../../rahti4/tutorials/transfer_data_rahti/)
+
 # How to transfer data to Rahti?
 
 As discussed in the [available storage options](/cloud/rahti/storage/) article, it is possible store data using a persistent volume, or using a object storage service like [Allas](/data/Allas/).

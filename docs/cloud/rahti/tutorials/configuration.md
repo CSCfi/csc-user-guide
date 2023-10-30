@@ -1,16 +1,23 @@
+<style>
+.admonition-title { background-color: rgba(255, 145, 0, 0.1) !important; }
+.admonition { background-color: white !important; }
+</style>
+!!! Attention "⚠️ Rahti 3 is deprecated"
 
-In general, applications require some sort of contextual information as input. 
-Such contexts are often provided in the form of configuration files, command-line 
-arguments, and environment variables. Therefore, when containerizing applications 
-and creating images we need to decouple the generic image content from the 
-customizable configuration information. This is mainly done to keep the 
-containerized applications portable. Kubernetes and Openshift have two types 
-of abstractions called Secrets and ConfigMaps that can be used to inject 
-contextual information (configuration) into containers during startup and 
-avoid hardcoding them in images. A good example use case for ConfigMaps and 
-Secrets are application (service) admin passwords and their configuration files. 
-Service passwords can be set as Secrets and added to containers as environment 
-variables, and configuration files can be stored as ConfigMaps that can be 
+    This page is about a deprecated version of Rahti, please consult the [updated documentation article](../../../rahti4/tutorials/configuration/)
+
+In general, applications require some sort of contextual information as input.
+Such contexts are often provided in the form of configuration files, command-line
+arguments, and environment variables. Therefore, when containerizing applications
+and creating images we need to decouple the generic image content from the
+customizable configuration information. This is mainly done to keep the
+containerized applications portable. Kubernetes and Openshift have two types
+of abstractions called Secrets and ConfigMaps that can be used to inject
+contextual information (configuration) into containers during startup and
+avoid hardcoding them in images. A good example use case for ConfigMaps and
+Secrets are application (service) admin passwords and their configuration files.
+Service passwords can be set as Secrets and added to containers as environment
+variables, and configuration files can be stored as ConfigMaps that can be
 mounted under containers as files on startup.
 
 !!! Note
@@ -42,14 +49,13 @@ data:
 
 ### Create a ConfigMap
 
-ConfigMaps can be created in various ways. If we have a ConfigMap object definition 
-as listed above in `configmap.yaml`, then, an instance of it can be created using 
-the `oc create -f configmap.yaml` command. You can also use the more specific 
-command `oc create configmap <configmap_name> [options]` to create an instance 
-of a ConfigMap from directories, specific files, or literal values. 
-For example, if you have a directory with files containing the data needed to 
-populate a ConfigMap as follows: 
-
+ConfigMaps can be created in various ways. If we have a ConfigMap object definition
+as listed above in `configmap.yaml`, then, an instance of it can be created using
+the `oc create -f configmap.yaml` command. You can also use the more specific
+command `oc create configmap <configmap_name> [options]` to create an instance
+of a ConfigMap from directories, specific files, or literal values.
+For example, if you have a directory with files containing the data needed to
+populate a ConfigMap as follows:
 
 ```sh
 $ ls example-dir
@@ -58,15 +64,14 @@ data.prop.b
 data.prop.long
 ```
 
-You can then create a ConfigMap similar to the one difined in `configmap.yaml` as: 
+You can then create a ConfigMap similar to the one difined in `configmap.yaml` as:
 
 ```sh
 oc create configmap my-config-map \
     --from-file=example-dir/
 ```
 
-This command also works with files instead of directories. 
-
+This command also works with files instead of directories.
 
 ### Use a ConfigMap
 
@@ -109,7 +114,7 @@ spec:
       mountPath: /etc/my-config
 ```
 
-The output log, provided with the command `oc logs confmap-cont` of this container,
+The output log, provided with the command `oc logs my-config-map-pod` of this container,
 should be:
 
 ```
@@ -120,7 +125,7 @@ DATA_PROP_A=hello
 
 ## Secret
 
-Secrets behave much like ConfigMaps, with the difference that once created they are stored in _base64_ encoded form, and their contents are not displayed by default in the command line or in the web interface.
+Secrets behave much like ConfigMaps, with the difference that once created they are stored in *base64* encoded form, and their contents are not displayed by default in the command line or in the web interface.
 
 *`secret.yml`*:
 
@@ -136,13 +141,13 @@ metadata:
 
 ### Create a secret
 
-As with any other OpenShift/Kubernetes objects, Secrets can also be created from a Secret object definition. 
-For the definition listed above as `secret.yaml`, a Secret instance can be created using 
-the `oc create -f secret.yaml` command. You can also use the more specific command `oc create secret [flags] <secret_name> [options]` 
-to create an instance of a Secret from directories, specific files, or literal values. 
-For example, if you have a file  called `WebHookSecretKey` containing a secret key  you can 
-use it to create an instance of a secret similar to the one specified in the previous `secret.yaml` file 
-as follows: 
+As with any other OpenShift/Kubernetes objects, Secrets can also be created from a Secret object definition.
+For the definition listed above as `secret.yaml`, a Secret instance can be created using
+the `oc create -f secret.yaml` command. You can also use the more specific command `oc create secret [flags] <secret_name> [options]`
+to create an instance of a Secret from directories, specific files, or literal values.
+For example, if you have a file  called `WebHookSecretKey` containing a secret key  you can
+use it to create an instance of a secret similar to the one specified in the previous `secret.yaml` file
+as follows:
 
 ```sh
 oc create secret generic webhooksecret \
@@ -156,14 +161,14 @@ The process to edit a secret is not trivial. The idea is to retrieve the secret 
 * First you need to retrieve the different files/secrets inside the secret (the examples use jq to process the JSON files, but it can be done without it):
 
 ```sh
-oc get secrets $SECRET_NAME -o json | jq ' .data | keys '
+oc get secrets <SECRET_NAME> -o json | jq ' .data | keys '
 ```
 
 * Then choose one of the options and get the file/secret itself:
 
 ```sh
-oc get secrets $SECRET_NAME -o json >secret.json
-jq '.data.$KEY_NAME ' secret.json | base64 -d >$KEY_NAME.file
+oc get secrets <SECRET_NAME> -o json >secret.json
+jq '.data.<KEY_NAME>' -r secret.json | base64 -d > <KEY_NAME>.file
 ```
 
 * Edit the file with any editor.
@@ -171,10 +176,9 @@ jq '.data.$KEY_NAME ' secret.json | base64 -d >$KEY_NAME.file
 * Encode the new file and replace the previous value in the JSON file:
 
 ```sh
-B64=$(base64 $KEY_NAME.file -w0)
-jq " .data.$KEY_NAME = \"$B64\" " secret.json
+B64=$(base64 <KEY_NAME>.file -w0)
+jq " .data.<KEY_NAME> = \"$B64\" " secret.json
 oc replace -f secret.json
 ```
 
 As you can see the process can be a bit obfuscated.
-

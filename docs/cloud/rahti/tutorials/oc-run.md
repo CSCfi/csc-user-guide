@@ -1,3 +1,11 @@
+<style>
+.admonition-title { background-color: rgba(255, 145, 0, 0.1) !important; }
+.admonition { background-color: white !important; }
+</style>
+!!! Attention "⚠️ Rahti 3 is deprecated"
+
+    This page is about a deprecated version of Rahti, please consult the [updated documentation article](../../../rahti4/tutorials/oc-run/)
+
 # How to run an ad-hoc interactive container
 
 It is sometimes useful to be able to run a random container image for debugging inside a project. `oc run` allows it by running in a single command:
@@ -13,4 +21,4 @@ bash-4.2$
 * `--rm` will make the Pod to be deleted after the session is over.
 * `--image=bash` is the name of the image, in this case [library/bash](https://hub.docker.com/_/bash). It can be any given image, either public library image like `bash`, or a purpose build private image.
 * `--restart=Never` will tell OpenShift to not restart the Pod when the session is over.
-* If you would like to start a Pod with a different command than its default, you can do so by adding `-- [COMMAND] [args...] [flags]` at the end (e.g. `oc run pod-name  -it --rm --image=python --restart=Never -- bash`). 
+* If you would like to start a Pod with a different command than its default, you can do so by adding `-- [COMMAND] [args...] [flags]` at the end (e.g. `oc run pod-name  -it --rm --image=python --restart=Never -- bash`).

@@ -1,8 +1,3 @@
----
-search:
-  boost: 2
----
-
 # What is Rahti
 
 ## What is Rahti?

@@ -1,3 +1,11 @@
+<style>
+.admonition-title { background-color: rgba(255, 145, 0, 0.1) !important; }
+.admonition { background-color: white !important; }
+</style>
+!!! Attention "⚠️ Rahti 3 is deprecated"
+
+    This page is about a deprecated version of Rahti, please consult the [updated documentation article](../../../rahti4/tutorials/docker_hub_login/)
+
 # How to add docker hub credentials to a project
 
 Since 2nd November 2020, docker hub has imposed a rate limit for image pulls. For Rahti this means a
