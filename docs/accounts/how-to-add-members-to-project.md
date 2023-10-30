@@ -8,7 +8,7 @@ selected project.
 ## Adding members directly
 
 Direct addition is the best method if you have a small number of users to add.
-Only existing users can be added this way.
+Only existing users **from your own home organization** can be added this way.
 
 1. Login to [MyCSC](http://my.csc.fi).
 1. Choose _Projects_ in the navigation menu on the left.
