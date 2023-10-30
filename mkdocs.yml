@@ -77,9 +77,9 @@ markdown_extensions:
   - pymdownx.tabbed:
       alternate_style: true
   - pymdownx.snippets:
-      base_path: csc-overrides/assets/glossaries
+      base_path: csc-overrides/assets/snippets
       auto_append:
-        - hpc.md
+        - glossaries/hpc.md
   - pymdownx.superfences:
       custom_fences:
         - name: mermaid
