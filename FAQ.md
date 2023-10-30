@@ -252,7 +252,7 @@ A good way to highlight a new update is to add an entry to the What's new -secti
     * If these categories do not match your update, you can add a new file with similar structure as the above ones. It is also a good idea to consult #docs.csc.fi RC channel first.
 2. At the top of the file, add a new level 2 heading (##) for your update including a descriptive title followed by the current date.
    * For example, `## SoftwareX v1.2.3 installed on Puhti, 31.3.2022`
-3. Under this heading, describe the update with a few sentences. Include links to appropriate pages elsewhere in docs, as well as external links to e.g. release notes/changelog if applicable.
+3. Under this heading, describe the update with a few sentences. Include links to appropriate pages elsewhere in docs, as well as external links to e.g. release notes/changelog if applicable. If you need to add an image, you can put it in `docs/img/whats-new/`.
 4. Commit your changes and when the PR gets merged a script will automatically add your updates to the docs landing page.
 
 ## Which Markdown features/extensions are available?
