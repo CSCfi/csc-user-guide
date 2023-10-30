@@ -1,5 +1,13 @@
 # Training & tutorials
 
+## New way to provide feedback on pages in Docs CSC, 30.10.2023
+
+Docs CSC now features feedback buttons at the bottom of every page.
+
+>![Feedback buttons](../../img/whats-new/feedback-buttons.png)
+
+The buttons present a quick and easy way of providing feedback on a particular page.
+
 ## Changes in navigation on Docs CSC, 22.02.2023
 
 Some changes have been made to how the sidebar navigation works on Docs CSC. Many of the sections
@@ -8,7 +16,7 @@ headings themselves, which are now links:
 
 | Before | After |
 |-|-|
-| ![Navigation before changes](../../img/nav-whats-new/nav-before.png) | ![Navigation after changes](../../img/nav-whats-new/nav-after.png) |
+| ![Navigation before changes](../../img/whats-new/nav-before.png) | ![Navigation after changes](../../img/whats-new/nav-after.png) |
 
 ## New guide for working with Earth Observation data, 19.01.2023
 
