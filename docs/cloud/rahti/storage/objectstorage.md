@@ -203,15 +203,23 @@ There are PROS and CONS with this solution:
 
 ## Second example: using bash script
 
-For the following script to work, we assume that you have the `rclone` command-line program installed and Allas bucket name is created. The `rclone.conf` should be set on your local system like described above example. For example, `rclone.conf` path could be located in `~/.config/rclone/rclone.conf`. More information on creating [Allas bucket](../../../data/Allas/using_allas/rclone.md). This script will buckup an application deployed in Rahti and the application has the `volumeMounts` `mountPath` name `/backup` as an example.
+For the following script to work, we assume that you have the `rclone` command-line program installed and Allas bucket name is created. The `rclone.conf` should be set on your local system like described above example. For example, `rclone.conf` path could be located in `~/.config/rclone/rclone.conf`. More information on creating [Allas bucket](https://docs.csc.fi/data/Allas/using_allas/rclone/). This script will backup an application deployed in Rahti. The application has, for example the name `/backup`, as the `volumeMounts` `mountPath`.
 
 
 ```bash
 #!/bin/env bash
 
 # Set your pod name, source directory, and destination directory
-POD_NAME="nginx" # Your pod name (Here 'nginx')
-SOURCE_DIR="/mnt" # The 'mountPath' that matches the data that you want to backup (Here '/mnt/')
+if [[ -z $1 ]];
+then 
+    echo "No Podname parameter passed."
+    exit 22
+else
+     echo "The POD_NAME = $1 is set."
+fi
+
+POD_NAME=$1 
+SOURCE_DIR="/backup"
 TIMESTAMP=$(date '+%Y%m%d%H%M%S') # Generate a timestamp
 DEST_DIR="/tmp/pvc_backup_$TIMESTAMP.tar.gz" # Include the timestamp in the filename
 RCLONE_CONFIG_PATH="your/path/to/rclone.conf" 
@@ -273,6 +281,11 @@ rm -rf /tmp/pvc_backup*
 or
 rm "$DEST_DIR"
 
+```
+The script can be run as follows, assuming the script name is `push_to_allas.sh` and it is executable:
+
+```bash
+./push_to_allas.sh "mypod-vol"
 ```
 
 There are PROS and CONS with this solution:
