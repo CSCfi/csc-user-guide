@@ -6,7 +6,7 @@ This manual introduces CSC's Sensitive Data (SD) services. To navigate the user 
 
 <div class="quick-links-container">
   <div class="quick-links-topic">
-    <span class="quick-links-title"><h2>Store and analyse research data</h2></span>
+    <span class="quick-links-title"><h2>Store and analyse</h2></span>
     <div class="quick-links-item">
       <a class="quick-link" target="_self" href="sd-access/">Start here</a>
     </div>
@@ -18,7 +18,7 @@ This manual introduces CSC's Sensitive Data (SD) services. To navigate the user 
     </div>
   </div>
   <div class="quick-links-topic">
-    <span class="quick-links-title"><h2>Publish and reuse biomedical data</h2></span>
+    <span class="quick-links-title"><h2>Publish and reuse</h2></span>
     <div class="quick-links-item">
       <a class="quick-link" target="_self" href="federatedega/">Federated EGA</a>
     </div>
