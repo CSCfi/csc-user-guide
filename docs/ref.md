@@ -404,6 +404,61 @@ for MkDocs) is called 'outlined' in the CSC Design System. -->
         === "But possible, nonetheless"
             I would recommend against it, though.
 
+## Snippets
+
+Files under `csc-overrides/assets/snippets/` may be added as snippets on the current page.
+
+Suppose we have two Markdown files, _a.md_ and _b.md_ with the content
+``` title="a.md"
+Yes, this is `a.md`.
+
+```
+
+and
+``` title="b.md"
+Hello from `b.md`!
+
+```
+
+The file `ref/a.md` (relative to the base path above) added as a snippet with
+```
+;--8<-- "ref/a.md"
+```
+
+would look like this:
+
+--8<-- "ref/a.md"
+
+And `ref/a.md` and `ref/b.md` added using
+```
+;--8<--
+ref/a.md
+ref/b.md
+;--8<--
+```
+
+would look like this:
+
+--8<--
+ref/a.md
+ref/b.md
+--8<--
+
+Snippets also work inside the source code boxes. For example
+````
+```
+;--8<-- "ref/a.md"
+```
+````
+
+would produce
+```
+--8<-- "ref/a.md"
+```
+
+More examples (untested in Docs CSC) can be found in [PyMdown Extensions Documentation](https://facelessuser.github.io/pymdown-extensions/extensions/snippets/).
+
+
 [^1]: This is the footnote ...and here's a shoenote for the footnote: 👞🎵
 [^2]:
     Here's another footnote. Though, this one's a _barefootnote_!  
