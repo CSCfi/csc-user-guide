@@ -173,27 +173,29 @@ from somewhere import some_code
 
 
 NUMBER = 42
-LIST = [1, 2, "three"]
+LIST = [1, 2, 'three']
 
 
 class PythonClass:
-    def __init__(self):
-        self.__property = "A string property"
+    def __init__(self) -> None:
+        self.__property = 'A string property'
     
     @property
-    def property(self):
-        return __property
+    def property(self) -> str:
+        return self.__property
 
-    @classmethod
-    def method(parameter):
-        return [None] * parameter + NUMBER
+    @staticmethod
+    def method(parameter: int = 1) -> list[None]:
+        return [None] * (parameter + NUMBER)
 
 def main():
     string = f'Length of list is {len(LIST)}.'
     print(string)
 ```
 
-```javascript
+The code boxes can have a title:
+
+```javascript title="looong_comment.js"
 // Here's a JavaScript comment with a loooooooooooooooooooooooooooooooong line. You know, for testing purposes. Tell you what, let's make it just a bit longer still.
 ```
 
