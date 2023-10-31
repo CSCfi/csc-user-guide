@@ -269,6 +269,7 @@ nav:
      - Rahti:
         - cloud/rahti/index.md
         - What is Rahti: cloud/rahti/rahti-what-is.md
+        - Moving into Rahti: cloud/rahti/moving-into.md
         - Containers & their Orchestration: cloud/rahti/containers.md
         - Kubernetes and OpenShift concepts: cloud/rahti/concepts.md
         - Networking: cloud/rahti/networking.md
