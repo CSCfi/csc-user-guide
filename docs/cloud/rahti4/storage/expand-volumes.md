@@ -1,5 +1,3 @@
-# Expand a volume
-
 ## Non dynamically
 
 When dynamic volume expansion is not activated, the command line will give an error like:

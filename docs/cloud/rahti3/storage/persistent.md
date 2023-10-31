@@ -1,6 +1,4 @@
 --8<-- "rahtibeta_announcement.md"
-# Persistent volumes
-
 **Persistent volumes** are storage which persist during & after pod's lifetime.
 
 Persistent volumes in Rahti are stored in a resilient storage such as CEPH, NFS or

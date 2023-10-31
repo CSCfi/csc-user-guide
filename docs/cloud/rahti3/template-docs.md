@@ -1,6 +1,4 @@
 --8<-- "rahtibeta_announcement.md"
-# Rahti Templates
-
 Rahti supports templating service deployment code allowing its re-use. The
 templates documented here are available to be launched on the Rahti Service
 Catalog.

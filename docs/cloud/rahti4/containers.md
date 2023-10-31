@@ -1,5 +1,3 @@
-# Containers & Container Orchestration
-
 ## Containers
 
 Containers are a technology based on operating system kernel features

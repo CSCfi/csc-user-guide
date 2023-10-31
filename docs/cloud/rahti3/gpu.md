@@ -1,6 +1,4 @@
 --8<-- "rahtibeta_announcement.md"
-# GPU usage in Rahti
-
 Kubernetes and by extension Rahti do not support GPUs and other external devices natively. Instead,
 they allow access to such extended resources through custom device plugins which are responsible for
 handling the advertisement and allocation setup of these extended resources.

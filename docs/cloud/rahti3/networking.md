@@ -1,6 +1,4 @@
 --8<-- "rahtibeta_announcement.md"
-# Networking
-
 ## Ipv4
 
 All networking in Rahti uses [IPv4](https://en.wikipedia.org/wiki/IPv4). All IPs in this document and Rahti's system itself are ipv4 only, no ipv6 IP is used.
