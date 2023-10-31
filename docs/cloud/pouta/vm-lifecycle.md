@@ -1,5 +1,3 @@
-# Virtual machine lifecycle and saving billing units
-
 This article explains the different states that virtual machine instances
 can have and their effect on resource usage.
 
@@ -94,7 +92,7 @@ In the above section, we discussed the main states of virtual
 machines in Pouta. Theoretically, there are other states as well.
 The full list of states and their behaviors: [OpenStack documentation](https://developer.openstack.org/api-guide/compute/server_concepts.html).
 
-In order to transition between states, you have two main options, use the [Command line client tools](/cloud/pouta/command-line-tools/), or use the webinterface.
+In order to transition between states, you have two main options, use the [Command line client tools](command-line-tools.md), or use the webinterface.
 From the web interface you can transition your VM to all these states. In the main page of the Pouta web interface, open the **Instances** view. Under the **Actions** column, you will be able to see a drop-down menu with all the possible options.
 
 ![Save your billing units](/img/Save-Your-billing-units.png)

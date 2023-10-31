@@ -1,0 +1,54 @@
+<style>
+.admonition-title { background-color: rgba(255, 145, 0, 0.1) !important; }
+.admonition { background-color: white !important; }
+</style>
+!!! Attention "⚠️ Rahti 3 is deprecated"
+
+    This page is about a deprecated version of Rahti, please consult the [updated documentation article](../../../rahti4/tutorials/email/)
+
+# Sending e-mail from Rahti
+
+The procedure is the same as for [sending an e-mail from cPouta](../pouta/additional-services.md).
+
+you need to configure your mail transfer agent (MTA) to use the following SMTP relay server (a.k.a. smarthost):
+
+```
+smtp.pouta.csc.fi:25
+```
+
+The server does not require authentication.
+
+When sending e-mail, you need a valid `Sender` address in your e-mails, such as your university e-mail address, since this will be validated by the SMTP server. Please note that this is a different e-mail header attribute from the `From` attribute.
+
+If you want to set up any services on _Rahti_ that generate a large amount of SMTP traffic (e.g. public mailing lists), please contact the CSC Service Desk to coordinate this.
+
+## Example
+
+This python script could be used:
+
+```python
+#!/usr/bin/env python
+
+import smtplib
+
+sender = 'sender@domain.com'
+receivers = ['destination@domain.com']
+
+message = """From: SENDER NAME <%s>
+To: DESTINATION NAME <%s>
+Subject: SMTP e-mail test
+
+This is a test e-mail message.
+""" % (sender, receivers[0])
+
+try:
+   smtpObj = smtplib.SMTP('smtp.pouta.csc.fi')
+   smtpObj.sendmail(sender, receivers, message)
+   print("Successfully sent email")
+except SMTPException:
+   print("Error: unable to send email")
+```
+
+* You should replace `sender@domain.com` with your email, or the email you want to receive replies to.
+* You should replace as well `destination@domain.com` with the destination email.
+

@@ -153,12 +153,12 @@ Pouta offers few useful tools and resources that will make it easier to develop 
   [Github actions]: https://github.com/features/actions
   [cPouta]: https://pouta.csc.fi
   [ePouta]: http://epouta.csc.fi
-  [Allas]: /data/Allas/
-  [Cinder]: /cloud/pouta/persistent-volumes/
+  [Allas]: ../../data/Allas/
+  [Cinder]: persistent-volumes.md
   [ansible-openstack-example]: https://github.com/cscfi/ansible-openstack-example
   [heat-openstack-example]: https://github.com/cscfi/heat-openstack-example
   [terraform-openstack-example]: https://github.com/cscfi/terraform-openstack-example
-  [flavor]: https://docs.csc.fi/cloud/pouta/vm-flavors-and-billing/
+  [flavor]: vm-flavors-and-billing.md
   [OpenStack provider]: https://registry.terraform.io/providers/terraform-provider-openstack/openstack/latest/docs
   [Cisa]: https://www.cisa.gov/sites/default/files/publications/data_backup_options.pdf
   [Cloud Native Computing Foundation]: https://www.cncf.io/
