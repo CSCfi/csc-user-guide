@@ -115,14 +115,14 @@ key:
 ```bash
 $ pip show yq  
 Name: yq
-Version: 2.10.0
+Version: 3.0.2
 Summary: Command-line YAML/XML processor - jq wrapper for YAML/XML documents
 Home-page: https://github.com/kislyuk/yq
 Author: Andrey Kislyuk
 Author-email: kislyuk@gmail.com
 License: Apache Software License
-Location: /usr/local/lib/python3.6/site-packages
-Requires: PyYAML, setuptools, xmltodict, argcomplete
+Location: /home/jtahir/Documents/csc-stuff/osclient/lib/python3.6/site-packages
+Requires: argcomplete, PyYAML, toml, xmltodict
 Required-by: 
 ```
 

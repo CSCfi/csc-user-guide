@@ -1,55 +1,35 @@
 # Webhooks
 
-Webhooks are URLs that allow triggering actions in a system. Rahti supports webhooks to trigger rebuilds. This means that each BuildConfig is listening to a particular URL that includes a secret (more about that later), and that when this URL is called, a build will be triggered. There few types of formats supported: Generic, GitHub, GitLab and Bitbucket. This means that if the source code of the application is in Gitlab, the Gitlab URL type is the one that should be filled in in Gitlab's side.
+Webhooks are URLs that allow triggering actions in a system. Rahti supports webhooks to trigger rebuilds. This means that each BuildConfig is listening to a particular URL that includes a secret (more about that later), and that when this URL is called, a build will be triggered. There are few types of formats supported: Generic, GitHub, GitLab and Bitbucket. This means that if the source code of the application is in Gitlab, the Gitlab URL type must be selected.
 
 ![Triggers](../img/trigger.drawio.svg)
 
-## Using the command line
-First, it is necessary to find the secret, in the BuildConfig (in this case called `serveimg-generate`) look for the GitHub secret:
+In this example we will use the GitHub type.
 
-```bash
-oc get bc/serveimg-generate -o yaml
-```
+## Creating a secret
 
+In the `Developer` menu, go to the **Secrets** page. Click in **Create -> Webhook secret**. Write any sensible name. And click in Generate. Write down the generated secret. And **Save**.
 
-```yaml
-...
-spec:
-...
-  triggers:
-  - github:
-      secret: <secret>
-    type: GitHub
-...
-```
+![CreateWebhookSecret](../img/CreateWebhookSecret.png)
 
-When the BuildConfig is configured to be triggered by the webhook, and the
-corresponding secret exists, the webhook URL can be found by using the command `oc describe`:
+## Getting the URL
 
-```bash
-$ oc describe bc/serveimg-generate
-Name:                serveimg-generate
-.
-.
-.
-Webhook GitHub:
-        URL:        https://rahti.csc.fi:8443/apis/build.openshift.io/v1/.../<secret>/github
-.
-.
-.
-```
+You need an already created `BuildConfig` object, or create a new one. In order to create a new BuildConfig, check out the [Creating an image](../../images/creating/) article.
 
-## Using the web interface
-In the Application Console, go to **Builds > Builds**, select your build and go to the **Configuration tab**. Find the GitHub URL and copy it:  
+Now you need to edit the build config (**Actions -> Edit BuildConfig**), and add a trigger. To do this, click in "Trigger", in the bottom of the edit page, in the "Advanced options" section. Then, click in "Add trigger". The new trigger must have a type, in our case it will be "GitHub". It also needs a secret, select the secret you created in the previous step.
 
-![OKD Triggers](../img/triggers.png)
+![Edit BuildConfig](../img/editBuildConfig.png)
 
-## Set Webhooks in GitHub
+When the `BuildConfig` is configured, you can get the URL via the webinterface. Using the `Developer` menu, go to the **Builds** page, and select the `BuildConfig`. In the `Webhooks` section, you will see "Copy URL with Secret". Click on it, and the URL will be in your clipboard.
 
-Finally, go to [GitHub](https:///github.com), go to the repository where the code is, and in Settings > Webhooks, click on "Add webhook".
+![Copy URL with Secret](../img/webhooks.png)
 
-![GitHub Webhooks](../img/GitHubWebhook.png) 
+## GitHub
 
-The GitHub WebHook payload URL is the URL above with `<secret>` replaced with the value of `spec.triggers.github[secret]` above, and the content type is `application/json`. Leave the filed `Secret` empty.
+Once you got the URL and the secret, go to <https://github.com>. There you should go to the repository where the code is, and in **Settings -> Webhooks**, click in "Add webhook".
+
+![GitHub Webhooks](../img/GitHubWebhook.png)
+
+You just need to fill up the "Payload URL" and the "Secret", and change the content type to `Application/json`.
 
 ![Add webhook](../img/Addwebhook.png)

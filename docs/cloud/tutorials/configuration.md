@@ -1,3 +1,4 @@
+
 In general, applications require some sort of contextual information as input.
 Such contexts are often provided in the form of configuration files, command-line
 arguments, and environment variables. Therefore, when containerizing applications
@@ -14,8 +15,8 @@ mounted under containers as files on startup.
 
 !!! Note
 
-    It is highly recommended to check out the basic [Kubernetes and Openshift concepts](../rahti/concepts.md) 
-    before moving on, especially if you are not familiar with them already. You can also practice [deploying a simple static webserver](elemental_tutorial.md) 
+    It is highly recommended to check out the basic [Kubernetes and Openshift concepts](../../concepts/) 
+    before moving on, especially if you are not familiar with them already. You can also practice [deploying a simple static webserver](../elemental_tutorial/) 
     to get some hands-on experience. 
 
 ## ConfigMap
@@ -56,7 +57,7 @@ data.prop.b
 data.prop.long
 ```
 
-You can then create a ConfigMap similar to the one difined in `configmap.yaml` as:
+You can then create a ConfigMap similar to the one defined in `configmap.yaml` as:
 
 ```sh
 oc create configmap my-config-map \
@@ -106,7 +107,7 @@ spec:
       mountPath: /etc/my-config
 ```
 
-The output log, provided with the command `oc logs my-config-map-pod` of this container,
+Deploy the pod using `oc create -f configmap-pod.yaml` command. The output log, provided with the command `oc logs my-config-map-pod` of this container,
 should be:
 
 ```

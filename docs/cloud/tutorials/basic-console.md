@@ -1,26 +1,23 @@
 # Static web server
 
-How to set up a static web server in Rahti.
+How to set up a static web server in Rahti4.
 
-1.  Create a project. [Instructions](../rahti/usage/projects_and_quota.md)
+1. Create a project. [Instructions](../../usage/projects_and_quota/)
 
-2.  In the catalog view, select _Apache HTTP Server_.
+2. In the Openshift Rahti4 web console, switch to the Developer perspective. Select _Add_ from the navigation panel. To create an application, under Developer Catalog list Select _All services_ and then search for _Apache HTTP Server_, Click the _Apache HTTP Server_, and Select _Instantiate Template_ on the pop-up window on the right.
     ![Select-httpd](../img/select-http.png)
+    ![Instantiate-template](../img/click-template.png)
 
 3. Type in the source Git repository containing the content to be
-    served. Here, the sample content is used, and the application
-    is created in the project _http-test-project_.
+    served. Click _Create_ . Here, the sample content is used, and the application is created in the project _http-test-project_.
     ![type-in-git](../img/type-git.png)
 
-4.  Click _Create_. Navigate to the newly created
-    project: ![new-project](../img/click-project.png)
+4. Select _Topology_ from the navigation panel to Navigate to the newly created project and Click name of the project from the _DeploymentConfigs_ list. Select _Details_ on the pop-up window on the right. Now, the OpenShift dashboard should display information about the application.
+    ![new-project-deployment-config](../img/click-deploymentConfig.png)
 
-    Select _Overview_ in the menu on the left.
-
-5.  Now, the OpenShift dashboard should display information about the application.
-    This application is available at 
-    [httpd-example-http-test-project.rahtiapp.fi](http://httpd-example-http-test-project.rahtiapp.fi)
-    ![new-app-info](../img/new-app-info.png)
+ This application is available at Select _Resources_ on the pop-up window on the right under the _Routes_ list.
+ [httpd-example-http-test-project.2.rahtiapp.fi](http://httpd-example-http-test-project.2.rahtiapp.fi)
+ ![new-app-info](../img/new-app-info.png)
 
 OpenShift processed a template that provisioned
 various objects, such as _Pods_, _Services_, _Routes_, _DeploymentConfigs_, and
@@ -30,5 +27,5 @@ For deeper insight in to the created objects, please see:
 
 * [Core objects](elemental_tutorial.md) for introduction to the fundamental objects on
   which OpenShift/Kubernetes applications are built upon.
-* Kubernetes and OpenShift [Concepts](../rahti/concepts.md) for how managing applications in
+* Kubernetes and OpenShift [Concepts](../concepts.md) for how managing applications in
   OpenShift/Kubernetes is further streamlined using higher abstraction level objects.

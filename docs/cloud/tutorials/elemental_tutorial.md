@@ -11,7 +11,7 @@ server running:
 1. A pod that runs the container.
 1. A service that exposes the pod internally and gives it a predictable name.
 1. A route that will expose the service to the internet by redirecting
-   traffic from `<myservice>.rahtiapp.fi` to the service object.
+   traffic from `<myservice>.2.rahtiapp.fi` to the service object.
 
 !!! Note
 
@@ -19,11 +19,11 @@ server running:
     tutorial. Instead, it is meant for learning the core concepts of
     Kubernetes.
 
-![Network](../img/routeServicePod.drawio.svg)
+![Network](../../rahti4/tutorials/img/routeServicePod.drawio.svg)
 
 ## Preparation
 
-Make sure you have the `oc` command line installed, and that you are logged in. Please check the [command line tool installation](../rahti/usage/cli.md) if you need help on that.
+Make sure you have the `oc` command line installed, and that you are logged in. Please check the [command line tool installation](../../usage/cli/) if you need help on that.
 
 ## Projects
 
@@ -37,7 +37,7 @@ project <projectname>':
     someone-elses-public-project
   * my-project-with-unique-name
 
-Using project "my-project-with-unique-name" on server "https://rahti.csc.fi:8443".
+Using project "my-project-with-unique-name" on server "(https://landing.2.rahti.csc.fi/)".
 ```
 
 !!! Note
@@ -61,7 +61,7 @@ name.
 If you are a member of multiple CSC projects with access to Rahti, the description of the
 project must contain `csc_project: #######`, where `#######` is the project
 that should be billed (see
-[Projects and quota](../rahti/usage/projects_and_quota.md)).
+[Projects and quota](../../usage/projects_and_quota/)).
 The description can be included in the `new-project` command:
 
 ```bash
@@ -113,7 +113,7 @@ The field `metadata.labels.pool` is an arbitrary key-value pair that enables
 the pods to be grouped and referred by e.g. _services_.
 
 The Kubernetes API objects are represented in the YAML format.
-[Short introduction to YAML](yaml_introduction.md).
+[Short introduction to YAML](../yaml_introduction/).
 
 Pods and other Kubernetes/OpenShift API objects are created with the `oc`
 command line utility:
@@ -235,7 +235,7 @@ metadata:
   annotations:
     haproxy.router.openshift.io/ip_whitelist: 192.168.1.0/24 10.0.0.1
 spec:
-  host: <myservice>.rahtiapp.fi
+  host: <myservice>.2.rahtiapp.fi
   to:
     kind: Service
     name: serve
@@ -256,7 +256,7 @@ internet.
     and allow all traffic.
 
 By default, the hostname is `metadata.name` + `-` + project name
-+ `.rahtiapp.fi` unless otherwise specified in `spec.host`.
++ `.2.rahtiapp.fi` unless otherwise specified in `spec.host`.
 
 So far we have set up a pod, a service and a route. If the physical server
 where the pod lives gets shut down, you have to manually restart the pod using
@@ -299,11 +299,12 @@ spec:
 ```
 
 The ReplicationControllers are functionally close to ReplicaSets, discussed
-in the chapter "[Kubernetes and OpenShift concepts](../rahti/concepts.md#replicaset)".
+in the chapter "[Kubernetes and OpenShift
+concepts](../../concepts/)".
 A ReplicationController can be transformed into a ReplicaSet by
 changing `spec.selector` to `spec.selector.matchLabels` and setting
 `kind: ReplicaSet`. The motivation to understand the ReplicationController
-object is that [DeploymentConfig](../rahti/concepts.md#deploymentconfig)
+object is that [DeploymentConfig](../../concepts/#deploymentconfig)
 objects generate ReplicationControllers.
 
 !!! Note

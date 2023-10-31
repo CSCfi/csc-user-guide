@@ -5,7 +5,7 @@ It is sometimes useful to be able to run a random container image for debugging 
 ```
 $ oc run pod-name -it --rm --image=bash --restart=Never
 If you do not see a command prompt, try pressing enter.
-bash-4.2$
+bash-5.1$
 ```
 
 * `pod-name` can be any given name that does not exist already in the namespace.

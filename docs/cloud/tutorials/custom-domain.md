@@ -4,7 +4,7 @@ Custom domain names and HTTPS secure data transport are implemented in the
 route object level. They are controlled with the keywords `spec.host` and
 `spec.tls`.
 
-The public DNS CNAME record of the custom domain name should point to `rahtiapp.fi`,
+The public DNS CNAME record of the custom domain name should point to `router.2.rahtiapp.fi`,
 and the custom DNS name is placed in the `spec.host` entry of the route object:
 
 *`route-with-dns.yaml`*:
