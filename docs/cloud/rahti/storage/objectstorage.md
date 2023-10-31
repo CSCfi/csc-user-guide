@@ -203,7 +203,7 @@ There are PROS and CONS with this solution:
 
 ## Second example: using bash script
 
-For the following script to work, we assume that you have the `rclone` command-line program installed and Allas bucket name is created. The `rclone.conf` should be set on your local system like described above example. For example, `rclone.conf` path could be located in `~/.config/rclone/rclone.conf`. More information on creating [Allas bucket](../../../data/Allas/using_allas/rclone). This script will backup an application deployed in Rahti. The application has, for example the name `/backup`, as the `volumeMounts` `mountPath`.
+For the following script to work, we assume that you have the `rclone` command-line program installed and Allas bucket name is created. The `rclone.conf` should be set on your local system like described above example. For example, `rclone.conf` path could be located in `~/.config/rclone/rclone.conf`. More information on creating [Allas bucket](../../../data/Allas/using_allas/rclone.md). This script will backup an application deployed in Rahti. The application has, for example the name `/backup`, as the `volumeMounts` `mountPath`.
 
 
 ```bash
