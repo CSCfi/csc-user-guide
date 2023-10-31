@@ -267,30 +267,30 @@ nav:
              - PostgreSQL: cloud/dbaas/postgresql.md
         - More advanced features: cloud/dbaas/advanced.md
      - Rahti:
-        - cloud/rahtiprod/index.md
-        - What is Rahti: cloud/rahtiprod/rahti-what-is.md
-        - Containers & their Orchestration: cloud/rahtiprod/containers.md
-        - Kubernetes and OpenShift concepts: cloud/rahtiprod/concepts.md
-        - Networking: cloud/rahtiprod/networking.md
-        - Security guide: cloud/rahtiprod/security-guide.md
+        - cloud/rahti/index.md
+        - What is Rahti: cloud/rahti/rahti-what-is.md
+        - Containers & their Orchestration: cloud/rahti/containers.md
+        - Kubernetes and OpenShift concepts: cloud/rahti/concepts.md
+        - Networking: cloud/rahti/networking.md
+        - Security guide: cloud/rahti/security-guide.md
         - Getting Started:
-           - Getting access: cloud/rahtiprod/access.md
-           - Using the web interface: cloud/rahtiprod/usage/getting_started.md
-           - Command line tool installation and usage: cloud/rahtiprod/usage/cli.md
+           - Getting access: cloud/rahti/access.md
+           - Using the web interface: cloud/rahti/usage/getting_started.md
+           - Command line tool installation and usage: cloud/rahti/usage/cli.md
         - Storage in Rahti:
-           - cloud/rahtiprod/storage/index.md
-           - Persistent volumes: cloud/rahtiprod/storage/persistent.md
-           - Ephemeral storage: cloud/rahtiprod/storage/ephemeral.md
-           - Expand a volume: cloud/rahtiprod/storage/expand-volumes.md
+           - cloud/rahti/storage/index.md
+           - Persistent volumes: cloud/rahti/storage/persistent.md
+           - Ephemeral storage: cloud/rahti/storage/ephemeral.md
+           - Expand a volume: cloud/rahti/storage/expand-volumes.md
         - Images:
-           - cloud/rahtiprod/images/overview.md
-           - Creating an image: cloud/rahtiprod/images/creating.md
-           - Keeping docker images small: cloud/rahtiprod/images/keeping_docker_images_small.md
-        - GPU in Rahti: cloud/rahtiprod/gpu.md
-        - Rahti Templates: cloud/rahtiprod/template-docs.md
-        - Projects and quota: cloud/rahtiprod/usage/projects_and_quota.md
-        - Billing: cloud/rahtiprod/billing.md
-        - External documentation: cloud/rahtiprod/ext_docs.md
+           - cloud/rahti/images/overview.md
+           - Creating an image: cloud/rahti/images/creating.md
+           - Keeping docker images small: cloud/rahti/images/keeping_docker_images_small.md
+        - GPU in Rahti: cloud/rahti/gpu.md
+        - Rahti Templates: cloud/rahti/template-docs.md
+        - Projects and quota: cloud/rahti/usage/projects_and_quota.md
+        - Billing: cloud/rahti/billing.md
+        - External documentation: cloud/rahti/ext_docs.md
      - Rahti Beta:
         - cloud/rahtibeta/index.md
         - What is Rahti: cloud/rahtibeta/rahti-what-is.md
@@ -302,7 +302,7 @@ nav:
            - Getting access: cloud/rahtibeta/access.md
            - Using the web interface: cloud/rahtibeta/usage/getting_started.md
            - Command line tool installation and usage: cloud/rahtibeta/usage/cli.md
-        - Migration to Rahti: cloud/rahtibeta/rahti4-migration.md
+        - Migration to Rahti: cloud/rahtibeta/rahti-migration.md
         - Storage in Rahti:
            - cloud/rahtibeta/storage/index.md
            - Persistent volumes: cloud/rahtibeta/storage/persistent.md

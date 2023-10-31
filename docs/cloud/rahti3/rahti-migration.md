@@ -10,10 +10,10 @@ Rahti production is the next version of OpenShift OKD running in CSC. The underl
 
 Go to [Rahti](https://landing.2.rahti.csc.fi/), click in `Login` and then choose the `oidcidp` option, it stands for OpenID Connect identity provider:
 
-![Rahti login](img/rahti_login2.png)
+![Rahti login](../img/rahti_login2.png)
 
 
-![Rahti login](img/rahti_login.png){: style="width:400px"}
+![Rahti login](../img/rahti_login.png){: style="width:400px"}
 
 You will be then served with a page with all the authentication options that Rahti accepts. Choose the one that is more convenient for you, all your identities should be linked to the same Rahti account.
 
@@ -21,17 +21,17 @@ You will be then served with a page with all the authentication options that Rah
 
 In order to get the "login command", once you have logged in the web interface, click on your name and then in "Copy Login Command". For security reasons, you will be required to login again, after that you will be served the page the login command you can copy to the clipboard and paste it in any terminal running on your system.
 
-![Copy Login Command](img/CopyLoginCommand.png)
+![Copy Login Command](../img/CopyLoginCommand.png)
 
 ## How to create a project?
 
 There are few places in th web interface where a project can be created. One of the paths to create a project is to go to `Administrator` > `Home` > `Projects`
 
-![page1](img/create_project1.png)
+![page1](../img/create_project1.png)
 
 Then click in "Create Project".
 
-![page1](img/create_project2.png)
+![page1](../img/create_project2.png)
 
 The fields are the same as with Rahti Beta had:
 
@@ -47,11 +47,11 @@ The fields are the same as with Rahti Beta had:
 
 The quota and limits of a given project can be found in the bottom of the project details page 
 
-![Project page](img/project_page.png)
+![Project page](../img/project_page.png)
 
 If you click in "quota"
 
-![Quota details](img/quota_details.png)
+![Quota details](../img/quota_details.png)
 
 ## What are the default limits?
 
@@ -91,11 +91,11 @@ This change helps lowering the default costs for the user, gives the administrat
 
 A Route can be created by going to the project details page, and click in Routes.
 
-![Project page](img/project_page2.png)
+![Project page](../img/project_page2.png)
 
 And then click in "Create Route"
 
-![Create Route](img/create_route.png)
+![Create Route](../img/create_route.png)
 
 A Route has two compulsory parameters:
 
@@ -122,7 +122,7 @@ spec:
 
 Where `Redirect` tells the route to redirect users from http to https automatically.
 
-![Route modes](/cloud/rahti/img/route-modes.drawio.svg)
+![Route modes](../img/route-modes.drawio.svg)
 
 ## What changes must be made in firewalls?
 
@@ -140,7 +140,7 @@ Rahti will synchronize the Rahti project members with the CSC project members. A
 In the project details page select "Project access".
 It is also possible to add permissions manually to specific users that are not member of the CSC project and maybe that we do not want to make Admins. In the **Project** page in the Developer section, select "Project access".
 
-![Manage users](img/manage_users.png)
+![Manage users](../img/manage_users.png)
 
 You just need to write the user's user name, and a role level: `admin`, `Edit` or `View`. To save the changes, just click in `Save`. The different access that each role level has can be checked out in the linked documentation in the page itself.
 
@@ -148,7 +148,7 @@ You just need to write the user's user name, and a role level: `admin`, `Edit` o
 
 A project can be deleted from the Project details page (`Developer` > `Project`), by selecting `Actions` > `Delete project`. A dialog to confirm the deletion will appear:
 
-![Delete Project](img/delete_project.png)
+![Delete Project](../img/delete_project.png)
 
 The name of the project (`app-config` in this example) has to be inputted before the project is deleted. This is just to avoid accidental deletion.
 
@@ -156,7 +156,7 @@ The name of the project (`app-config` in this example) has to be inputted before
 
 In the Project details page (`Developer` > `Project`), click `PersistentVolumeClaims` and then click in `Create PersistentVolumeClaim`.
 
-![Create PersistentVolumeClaim](img/Create_PersistentVolumeClaim.png)
+![Create PersistentVolumeClaim](../img/Create_PersistentVolumeClaim.png)
 
 * For the moment only a single type of `StorageClass` can be used. It corresponds to `Cinder` volumes, which can only be read or write by a single Pod.
 
