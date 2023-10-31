@@ -9,7 +9,7 @@ and accelerate the speed at which they can deploy new code and become more agile
 
 In this tutorial, we will set up a simple CI/CD pipeline using the Kubernetes concepts
 such as _ImageStream_, _BuildConfig_, and _DeploymentConfig_. Please refer to these Kubernetes
-concepts in [Kubernetes and OpenShift concepts](../../concepts/).
+concepts in [Kubernetes and OpenShift concepts](../rahti/concepts.md).
 
 !!! Note
 
@@ -21,7 +21,7 @@ concepts in [Kubernetes and OpenShift concepts](../../concepts/).
 ## Preparation
 
 Make sure you have the `oc` command line installed, and that you are logged in. Please
-check the [command line tool installation](../../usage/cli/) if you need help on that.
+check the [command line tool installation](../rahti/usage/cli.md) if you need help on that.
 
 ## Quick Start
 

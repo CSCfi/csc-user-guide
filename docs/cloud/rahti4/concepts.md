@@ -289,13 +289,13 @@ OpenShift includes all Kubernetes objects, plus some extensions:
 * **ImageStream** objects abstract images and
   enrich them to streams that emit signals when they see that a new image is
   uploaded into them by e.g. BuildConfig.
-* **DeploymentConfig** objects create new [**ReplicationControllers**](../tutorials/elemental_tutorial/#replicationcontroller) based on the new images.
+* **DeploymentConfig** objects create new [**ReplicationControllers**](../tutorials/elemental_tutorial.md#replicationcontroller) based on the new images.
 * **Route** objects connects a **Service** with the internet using _HTTP_.
 
 ### DeploymentConfig
 
 DeploymentConfigs are objects that create
-[ReplicationControllers](../tutorials/elemental_tutorial/#replicationcontroller) according to
+[ReplicationControllers](../tutorials/elemental_tutorial.md#replicationcontroller) according to
 `spec.template`. They differ from ReplicationControllers in the sense that 
 DeploymentConfig objects may start new ReplicationControllers based on the state of
 `spec.triggers`. In the example below, the DeploymentConfig performs
@@ -309,7 +309,7 @@ chapter [deployment](#deployment) except that deployments
 trigger updates only when `spec.template` is changed. Furthermore, deployment
 is a pure Kubernetes concept, and DeploymentConfig is an OpenShift extension.
 
-Recall that [ReplicationControllers](../tutorials/elemental_tutorial/#replicationcontroller)
+Recall that [ReplicationControllers](../tutorials/elemental_tutorial.md#replicationcontroller)
 are objects that make sure that a requested number of replicas of the pod defined in the
 `spec.template` is running.
 
@@ -441,7 +441,7 @@ This will redirect any traffics coming to `<host.name.dom>` to the service `name
 * `insecureEdgeTerminationPolicy` is set to `Redirect`. This means that any traffic coming to port 80 (HTTP) will be redirected to port 443 (HTTPS).
 * `termination` is set to `edge`, This means that the route will manage the TLS certificate and decrypt the traffic sending it to the service in clear text. Other options for `termination` include `passthrough` or `reencrypt`.
 
-Every host with the pattern `*.2.rahtiapp.fi` will automatically have a **DNS record** and a valid **TLS certificate**. It is possible to configure a Route with any given hostname, but a `CNAME` pointing to `router.2.rahtiapp.fi` must be configured, and a **TLS certificate** must be provided. See the [Custom domain names and secure transport](../tutorials/custom-domain/) article for more information.
+Every host with the pattern `*.2.rahtiapp.fi` will automatically have a **DNS record** and a valid **TLS certificate**. It is possible to configure a Route with any given hostname, but a `CNAME` pointing to `router.2.rahtiapp.fi` must be configured, and a **TLS certificate** must be provided. See the [Custom domain names and secure transport](../tutorials/custom-domain.md) article for more information.
 
 It is possible to use annotations to enable **IP whitelisting**, where only a few IP ranges are allowed to get through the **route** and the rest of the internet is blocked. Security-wise, it is highly encouraged to utilize IP whitelisting for services that are not meant to be visible to the entire internet. In order to add it to a route do:
 

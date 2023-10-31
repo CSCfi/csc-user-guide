@@ -153,7 +153,7 @@ A new build can be triggered in the command line:
 oc start-build nodejs-16-rahti-example
 ```
 
-Or using [webhooks](../../../rahti4/tutorials/webhooks/)
+Or using [webhooks](../../tutorials/webhooks.md)
 
 ### Using the inline Dockerfile method
 

@@ -1,6 +1,6 @@
 # How to transfer data to Rahti?
 
-As discussed in the [available storage options](../../storage/) article, it is possible store data using a persistent volume, or using a object storage service like [Allas](/data/Allas/).
+As discussed in the [available storage options](../rahti/storage/index.md) article, it is possible store data using a persistent volume, or using a object storage service like [Allas](../../data/Allas/index.md).
 
 ## to a Persistent Volume
 
@@ -15,7 +15,7 @@ using the rsync command from your OS. To ensure optimum performance, install rsy
 systems, use your package manager. In Windows, install cwRsync from https://www.itefix.net/cwrsync.
 ```
 
-First of all, it is required to [install oc](../../usage/cli/).
+First of all, it is required to [install oc](../rahti/usage/cli.md).
 
 Once `oc` is installed, the process is:
 
@@ -46,5 +46,5 @@ If the local data changes, you may just run the same command again. If the image
 
 ## to Allas object storage
 
-See [using Allas with Rclone](/data/Allas/using_allas/rclone/) for a guide on how to copy the data to Allas. Once the data is in Allas, you can use any *Swift* or *S3* compatible client or library, like `rclone`, to use the data in you application.
+See [using Allas with Rclone](../../data/Allas/using_allas/rclone.md) for a guide on how to copy the data to Allas. Once the data is in Allas, you can use any *Swift* or *S3* compatible client or library, like `rclone`, to use the data in you application.
 

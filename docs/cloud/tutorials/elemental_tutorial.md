@@ -23,7 +23,7 @@ server running:
 
 ## Preparation
 
-Make sure you have the `oc` command line installed, and that you are logged in. Please check the [command line tool installation](../../usage/cli/) if you need help on that.
+Make sure you have the `oc` command line installed, and that you are logged in. Please check the [command line tool installation](../rahti/usage/cli.md) if you need help on that.
 
 ## Projects
 
@@ -61,7 +61,7 @@ name.
 If you are a member of multiple CSC projects with access to Rahti, the description of the
 project must contain `csc_project: #######`, where `#######` is the project
 that should be billed (see
-[Projects and quota](../../usage/projects_and_quota/)).
+[Projects and quota](../rahti/usage/projects_and_quota.md)).
 The description can be included in the `new-project` command:
 
 ```bash
@@ -304,7 +304,7 @@ concepts](../../concepts/)".
 A ReplicationController can be transformed into a ReplicaSet by
 changing `spec.selector` to `spec.selector.matchLabels` and setting
 `kind: ReplicaSet`. The motivation to understand the ReplicationController
-object is that [DeploymentConfig](../../concepts/#deploymentconfig)
+object is that [DeploymentConfig](../rahti/concepts.md#deploymentconfig)
 objects generate ReplicationControllers.
 
 !!! Note
