@@ -17,7 +17,7 @@ search:
 
 This page contains some elements that are available in Docs CSC. For example, here we have some
 body text [with an external link](https://example.com){ target=_blank }. **Some of it is
-boldfaced**, _some italicized_. `Some might be monospaced`. Some acronyms, like HPC, are
+boldfaced**, *some italicized*. `Some might be monospaced`. Some acronyms, like HPC, are
 defined automatically (see: [Glossary](#glossary)).
 
 > There's even text in a blockquote. The blockquote has some filler text after an empty line. I
@@ -28,6 +28,10 @@ perferendis illo saepe sint ipsa vitae provident non. Et qui quaerat et rerum li
 enim. Laboriosam autem vel vel aut quod.
 
 Here's a reference to a footnote:[^1]
+
+As you can see here:
+in some cases [external links](https://example.com){ target=_blank } followed by text _italicized_
+using underscores will produce unwanted results. *Italicize* with asterisks instead.
 
 
 ## Banners
