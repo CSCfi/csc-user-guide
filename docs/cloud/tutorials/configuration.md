@@ -1,11 +1,3 @@
-<style>
-.admonition-title { background-color: rgba(255, 145, 0, 0.1) !important; }
-.admonition { background-color: white !important; }
-</style>
-!!! Attention "⚠️ Rahti 3 is deprecated"
-
-    This page is about a deprecated version of Rahti, please consult the [updated documentation article](../../../rahti4/tutorials/configuration/)
-
 In general, applications require some sort of contextual information as input.
 Such contexts are often provided in the form of configuration files, command-line
 arguments, and environment variables. Therefore, when containerizing applications

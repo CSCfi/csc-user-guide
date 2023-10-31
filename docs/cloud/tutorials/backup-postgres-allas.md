@@ -1,11 +1,3 @@
-<style>
-.admonition-title { background-color: rgba(255, 145, 0, 0.1) !important; }
-.admonition { background-color: white !important; }
-</style>
-!!! Attention "⚠️ Rahti 3 is deprecated"
-
-    This page is about a deprecated version of Rahti, please consult the [updated documentation article](../../../rahti4/tutorials/backup-postgres-allas/)
-
 # How to backup a Postgres DB into Allas
 
 In this tutorial we are going to show how to backup a PostgreSQL DB running in Rahti into Allas. The general idea is to use a `CronJob` that will create a dump file of the database and upload it to Allas.
