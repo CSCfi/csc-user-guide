@@ -4,7 +4,7 @@ Many HPC workflows require a database. Running these on the login node poses sev
 
 A workaround for this problem is to establish a TCP tunnel over an HTTP-compatible WebSocket connection. This can be achieved using a command-line client for connecting to and serving WebSockets called [WebSocat](https://github.com/vi/websocat). Here, a WebSocat instance running on Puhti/Mahti translates a database request coming from a workflow to an HTTP-compatible WebSocket protocol. Once the traffic enters Rahti we use another WebSocat instance running inside Rahti to translate back the WebSocket connection to a TCP connection over the original port the database is configured to receive traffic. A drawing of the process is shown below.
 
-![Image illustrating a WebSocket connection bridging CSC's HPC environment and a database service on Rahti](../../../img/websocat-diagram-4.drawio.png)
+![Image illustrating a WebSocket connection bridging CSC's HPC environment and a database service on Rahti](../../img/websocat-diagram-4.drawio.png)
 
 This tutorial outlines the steps to achieve this using MariaDB as an example database.
 
@@ -16,14 +16,14 @@ This tutorial outlines the steps to achieve this using MariaDB as an example dat
 
 ## Step 1: Setting up MariaDB and WebSocat on Rahti
 
-Configuring MariaDB and WebSocat on Rahti can be done either through the web interface or using the `oc` command line tool. Notice that your CSC project must have access to the Rahti service. See here [how to add service access for a project](../../../accounts/how-to-add-service-access-for-project.md).
+Configuring MariaDB and WebSocat on Rahti can be done either through the web interface or using the `oc` command line tool. Notice that your CSC project must have access to the Rahti service. See here [how to add service access for a project](../../accounts/how-to-add-service-access-for-project.md).
 
 !!! Note
-    Mind the difference between [persistent](../storage/index.md#persistent-storage) and [ephemeral storage](../storage/index.md#ephemeral-storage) when creating a new database in Rahti. Ephemeral databases are meant for temporary storage and should not be considered reliable. If the [Pod](../networking.md#pods) in which your database is running is deleted or restarted you will lose all your data! To avoid this, create a database with a persistent volume and make sure to also perform regular backups to for example [Allas](../../../data/Allas/index.md).
+    Mind the difference between [persistent](../rahti/storage/index.md#persistent-storage) and [ephemeral storage](../rahti/storage/index.md#ephemeral-storage) when creating a new database in Rahti. Ephemeral databases are meant for temporary storage and should not be considered reliable. If the [Pod](../rahti/networking.md#pods) in which your database is running is deleted or restarted you will lose all your data! To avoid this, create a database with a persistent volume and make sure to also perform regular backups to for example [Allas](../../data/Allas/index.md).
 
 ### Option 1: Using the Rahti web interface
 
-- Log in to the [Rahti web interface](https://rahti.csc.fi:8443). See [Getting access](../../access/) for instructions.
+- Log in to the [Rahti web interface](https://rahti.csc.fi:8443). See [Getting access](../rahti/access.md) for instructions.
 - Deploy MariaDB from the "Developer Catalog". You will find the developer catalog in the **+Add** section of the `Developer` menu.
 - Configure the database. You need to at least select or create a Rahti project to which you want to add the database. If creating a new project, make sure to include your CSC project number in the project description in the form `csc_project: 2001234`
 - Create the database and remember the
@@ -42,7 +42,7 @@ Configuring MariaDB and WebSocat on Rahti can be done either through the web int
 
 ### Option 2: Using the `oc` command line tool
 
-- See [Command line tool usage](../usage/cli.md) for basic instructions
+- See [Command line tool usage](../rahti/usage/cli.md) for basic instructions
 - Login using your CSC username and password
 
 ```bash
