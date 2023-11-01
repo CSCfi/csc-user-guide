@@ -183,7 +183,7 @@ The tests depend on the Conda environment, so remember to activate it before run
 If you're adding entries to the _What's new_ or _Applications_ sections and want to check that they, and the glossary page (only the page at _/glossary_ is affected by these scripts), are generated correctly, you can run the scripts with
 
 ```bash
-for s in scripts/*.sh; do bash $s; done
+for s in scripts/generate_*.sh; do bash $s; done
 ```
 
 Keep in mind, though, that the tests are meant to be run _before_ the scripts, so make sure to restore any files the scripts edit/create before re-running the tests. (Or just ignore the new errors/warnings that resulted from running the scripts.)
