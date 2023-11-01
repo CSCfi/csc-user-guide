@@ -1,5 +1,4 @@
 ---
-sudo: false
 dist: focal
 addons:
   apt:
