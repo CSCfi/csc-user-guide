@@ -180,7 +180,7 @@ The tests depend on the Conda environment, so remember to activate it before run
 
 #### Scripts
 
-If you're adding entries to the _What's new_ or _Applications_ sections and want to check that they are generated correctly, you can run the scripts with
+If you're adding entries to the _What's new_ or _Applications_ sections and want to check that they, and the glossary page (only the page at _/glossary_ is affected by these scripts), are generated correctly, you can run the scripts with
 
 ```bash
 for s in scripts/*.sh; do bash $s; done
