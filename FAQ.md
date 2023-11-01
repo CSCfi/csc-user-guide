@@ -262,7 +262,7 @@ Have a look at [the reference card](https://docs.csc.fi/ref).
 ## How do I add definitions to the glossary / display definitions as tooltips?
 
 There are `.md` files that contain acronym-definition pairs in
-[csc-overrides/assets/glossaries/](csc-overrides/assets/glossaries/). The pairs are in the format
+[csc-overrides/assets/snippets/glossaries/](csc-overrides/assets/glossaries/). The pairs are in the format
 `*[Acronym]: Definition`. The `Acronym` part is case-sensitive, so if you'd add the definition
 `*[PCIe]: Peripheral Component Interconnect express`, instances of `PCIE` in the text would not get
 the tooltip (in this case the definition is correct, so text would have to be corrected). If the

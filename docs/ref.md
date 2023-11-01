@@ -91,10 +91,10 @@ markdown file, like so:
     markdown_extensions:
     - ...
     - pymdownx.snippets:
-        base_path: csc-overrides/assets/glossaries
+        base_path: csc-overrides/assets/snippets
         auto_append:
-        - hpc.md
-        - another_glossary.md
+        - glossaries/hpc.md
+        - glossaries/another_glossary.md
     - ...
     ```
 
