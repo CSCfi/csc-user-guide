@@ -43,6 +43,7 @@ A Python program called _MkDocs_ is used to generate the Docs CSC website from d
 
     Click "Install" and after it's completed click "Next". Then, unless you'd like to have the corresponding web pages opened for you ([this](https://conda.io/projects/conda/en/latest/user-guide/getting-started.html) and [this](https://www.anaconda.com/installation-success?source=installer), respectively), uncheck "Getting started with Conda" and "Welcome to Anaconda" before clicking "Finish".
 
+
 ### Git for Windows
 
 In order to "clone" the Docs CSC repository from (and later, to "push" your work back to) GitHub onto your computer, a tool called _Git_ is needed. For Windows, there exists a port of Git called _Git for Windows_.
@@ -170,6 +171,7 @@ You can change the default behaviour by right-clicking on the title bar, selecti
 Also, while some websites might show commands or snippets of code/script in a box with a button for copying the snippet onto the clipboard, **the result might not always be what the author of the tutorial intended**. A snippet with multiple lines can get copied as only a single long line, or a command that is intended to be edited first can get executed straight away when pasting. To avoid this, instead of clicking the button, it is recommended to select (highlight) the text and copy it using either _Ctrl+C_, the context menu accessed by right-clicking, or even by selecting _Edit -> Copy_ from the web browser's menu bar.
 
 **Keyboard shortcuts in general may produce unexpected results** for users accustomed to graphical interfaces. Similarly to how _Shift_ modifies the behaviour of the keys to produce uppercase characters, _Ctrl_ has been used as a modifier key for sending _control characters_ to computer terminals in the past. You _have_ just installed a _terminal emulator_ called MinTTY to use with Git Bash. In the early days of computer technology, there was a physical terminal to interact with the computer. 
+
 
 ##### Setting up SSH authentication with GitHub
 
@@ -398,6 +400,7 @@ Branch off of the latest commit on master using [git-switch](https://git-scm.com
 ```bash
 git switch --create my-branch-name
 ```
+
 
 ### Working on your contribution
 
