@@ -16,4 +16,4 @@ for instructions). After logging in, you should see a page like this:
 
 ![OpenShift main page](../../img/openshift_main_page_4.png)
 
-Proceed to [create a project](../projects_and_quota.md) for running your applications.
+Proceed to [create a project](projects_and_quota.md) for running your applications.
