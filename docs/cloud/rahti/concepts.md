@@ -5,13 +5,13 @@ The power of Kubernetes (and OpenShift) is in the relatively simple abstractions
 
 These abstractions are objects, persistent entities in the Kubernetes system. These entities are used to represent the desired state of the project (also called namespace in Kubernetes). Most of the objects are common to both plain Kubernetes and OpenShift, but OpenShift also introduces some of its own extra objects.
 
-![Kubernetes full picture](img/Kubernetes.drawio.svg)
+![Kubernetes full picture](../img/Kubernetes.drawio.svg)
 
 ## Kubernetes concepts
 
 ### Namespace
 
-Every Kubernetes object is created inside a **Namespace**. It is just a sandbox where all the other objects are contained and separated from objects belonging to other namespaces. In Openshift they are referred as **Projects**. The two names (project and namespace) are very common words in computing so referring to them can sometimes be confusing. In order to create a project, please go to the [Creating a project](../usage/projects_and_quota/#creating-a-project) documentation.
+Every Kubernetes object is created inside a **Namespace**. It is just a sandbox where all the other objects are contained and separated from objects belonging to other namespaces. In Openshift they are referred as **Projects**. The two names (project and namespace) are very common words in computing so referring to them can sometimes be confusing. In order to create a project, please go to the [Creating a project](usage/projects_and_quota.md#creating-a-project) documentation.
 
 ### Pod
 
@@ -24,7 +24,7 @@ case, a pod contains one container and perhaps one or a few different volumes.
 
 Pods are intended to be _expendable_, i.e. they may be killed at any time and a "cloud native" application must be able to continue working and show no sign of interruption to the user. It must recover automatically. Any data that needs to persist after a pod is killed should be stored on a volume attached to the pod.
 
-![Pod](img/pods.png)
+![Pod](../img/pods.png)
 
 The abstractions in Kubernetes/OpenShift are described using YAML or JSON. YAML
 and JSON are so-called data serialization languages that provide a way to
@@ -70,7 +70,7 @@ A **service** provides a stable virtual IP, a port and a DNS name for one or
 more pods. They act as **load balancers**, directing traffic to a group of pods
 that all serve the same application.
 
-![Service](img/service.png)
+![Service](../img/service.png)
 
 *`service.yaml`*:
 
@@ -102,7 +102,7 @@ pods dies, the ReplicaSet ensures that a new one is created in its place. They
 are typically not used on their own but rather as part of a **Deployment**
 (explained next).
 
-![ReplicaSet](img/replicaset.png)
+![ReplicaSet](../img/replicaset.png)
 
 ### Deployment
 
@@ -114,7 +114,7 @@ will perform a rolling update to kill all pods one by one and replace them with
 newer ones while making sure that end user traffic is directed towards working
 pods at all times.
 
-![Deployment](img/deployment.png)
+![Deployment](../img/deployment.png)
 
 ### InitContainer
 

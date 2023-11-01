@@ -10,11 +10,11 @@ Then a more artisanal procedure must be followed:
 
 * Create a new volume with the desired size
 
-![Create a new volume](img/Create-new-volume.png)
+![Create a new volume](../../img/Create-new-volume.png)
 
 * Scale down the deployment that mounts the volume that is being resized.
 
-![Scale down](img/Scale-down.png)
+![Scale down](../../img/Scale-down.png)
 
 * Mount the old and new volume in another Pod. The best option is to create a new deployment, create a file called `two-volumes.yaml` and replace the names of both volumes:
 

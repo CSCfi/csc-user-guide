@@ -219,7 +219,7 @@ after logging in:
 To download this in the web interface, navigate to the
 *API Access* section, and press *Download OpenStack RC File v3.*
 
-![RC file example](/img/pouta-openrc.png)
+![RC file example](../../img/pouta-openrc.png)
 
 Once you have the openrc script from the web UI, you can add the
 environment variables:

@@ -95,7 +95,7 @@ Unfortunately, this information is not available via a web interface yet.
 Click the blue "Create Project" button to create a project, and you will be
 presented with the following view:
 
-![OpenShift new project dialog](img/new_project_dialog_4.png)
+![OpenShift new project dialog](../../img/new_project_dialog_4.png)
 
 1. You *need* to pick a **unique name** that is not in use by any other project
 in the system.
@@ -104,7 +104,7 @@ in the system.
 
 > csc_project: XXXXXXX
 
-![OpenShift Create Project](img/create_project_dialog_4.png)
+![OpenShift Create Project](../../img/create_project_dialog_4.png)
 
 See the section about [accounts](../../../accounts/index.md).
 
@@ -172,7 +172,7 @@ users and groups in the system for collaboration.
 You can edit project memberships in the web interface via **User Management ->
 RoleBindings**, in the `Administrator` menu. You can either give access rights to individual users, groups or Service Accounts by selecting either the _Users_,  _Groups_ or ServiceAccount.
 
-![Create Role Binding](img/Create_role_binding.png)
+![Create Role Binding](../../img/Create_role_binding.png)
 
 Note that it is important to use correct usernames when sharing projects
 with others. OpenShift allows you to freely enter any username and will not notify
@@ -183,13 +183,13 @@ You can find out your username in OpenShift via the command line, by using the c
 
 In order to delete a project, you need to go to the main landing page and click in the 3 vertical dots next to the name of the project. In the drop down menu, you will see the option "Delete Project"
 
-![Delete drop down](img/delete_project_menu.png)
+![Delete drop down](../../img/delete_project_menu.png)
 
 Then you will be asked to input the name of the project to prevent accidental deletions.
 
 !!! note
     After the project has been confirmed for deletion, all resources will be deleted and there will be no way to restore them, including the data stored in the persistent volumes.
 
-![Project name dialog](img/delete_project_name.png)
+![Project name dialog](../../img/delete_project_name.png)
 
 After that, Rahti will start to delete all the resources of the project. It could take only few seconds or up to a minute, it depends of amount of resources the project had. After that Rahti will liberate the project name, and it will be possible to create an empty project with the same name.

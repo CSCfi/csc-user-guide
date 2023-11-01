@@ -14,6 +14,6 @@ primitives described in the [background](../concepts.md) chapter.
 Log in at <https://landing.2.rahti.csc.fi/> (see [Getting access](../access.md)
 for instructions). After logging in, you should see a page like this:
 
-![OpenShift main page](img/openshift_main_page_4.png)
+![OpenShift main page](../../img/openshift_main_page_4.png)
 
 Proceed to [create a project](../projects_and_quota.md) for running your applications.

@@ -4,9 +4,9 @@ All networking in Rahti uses [IPv4](https://en.wikipedia.org/wiki/IPv4). All IPs
 
 ## Namespaces
 
-Rahti is divided in **Namespaces**. Depending on the context, namespaces can be referred as **Projects**. Every object in Rahti must belong to and run inside a namespace. From a networking point of view, namespaces provide an isolated **VLAN** to everything that runs inside it, notably to [Pods](../concepts/#pod), [Services](../concepts/#service) and [Routes](../concepts/#route).
+Rahti is divided in **Namespaces**. Depending on the context, namespaces can be referred as **Projects**. Every object in Rahti must belong to and run inside a namespace. From a networking point of view, namespaces provide an isolated **VLAN** to everything that runs inside it, notably to [Pods](concepts.md#pod), [Services](concepts.md#service) and [Routes](concepts.md#route).
 
-![Rahti Networking](img/rahti-network.drawio.svg)
+![Rahti Networking](../img/rahti-network.drawio.svg)
 
 ## Pods
 
@@ -28,7 +28,7 @@ In the same manner than Pods, Rahti Services can only be reached from inside the
 
 Services can be used for internal connections. For example, if we have one or more MongoDB database replicas running in the `fenic` namespace, each in a different pod, and they export port `27017`. We can create a service called `mongo` associated with the pods under the same name. Then we can launch `nginx` Pods that run a Python application which will use the URL `<mongo:27017` to connect to the database. When connections to the service are attempted, one of the mongo pods will be selected to serve the data request.
 
-![nginx and Mongo](img/mongo-nginx-app.drawio.svg)
+![nginx and Mongo](../img/mongo-nginx-app.drawio.svg)
 
 ## Routes
 
@@ -38,7 +38,7 @@ Services can be used for internal connections. For example, if we have one or mo
 * **Passthrough** is when the encryption is delegated to the pod, which must listen for TLS/HTTPS traffic and provide the certificate the client will receive.
 * **Re-encrypt**, this is a mixture of two previous options, the Route will provide a certificate, but it will connect to the Pod using TLS/HTTPS and expect a valid certificate for the domain name of the service. The client will still get the certificate stored by the Route. This is for example used when the internal network between nodes in the cluster is not considered secure enough and we still want the Route to control the certificates that the client will get. Also in some rare applications is not possible to disable TLS in the Pods.
 
-![Route Options](img/route-modes.drawio.svg)
+![Route Options](../img/route-modes.drawio.svg)
 
 A Route can also be configured to (1) provide a HTTP/302 redirection from port `80` to `443`. It is also possible to (2) serve the same content in both ports, or to (3) not serve anything at all in the un secure `80` port.
 
