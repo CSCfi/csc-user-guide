@@ -6,15 +6,15 @@ One of the pillars of Docker is the immutability of images, once they are built,
 
 ## Persistent storage
 
-The solution more similar to Docker volumes is a [Persistent volume](persistent/). This is a volume located in an external storage, that is mounted directly into the filesystem of the container like an additional hard disk would. This is the best solution for a seamless storage solution. You can also unmount it from the Pods it is attached to and attach it to another set of Pods. Moreover, persistent volumes represent a reliable storage option as the data in them is replicated.
+The solution more similar to Docker volumes is a [Persistent volume](persistent.md). This is a volume located in an external storage, that is mounted directly into the filesystem of the container like an additional hard disk would. This is the best solution for a seamless storage solution. You can also unmount it from the Pods it is attached to and attach it to another set of Pods. Moreover, persistent volumes represent a reliable storage option as the data in them is replicated.
 
-You can find additional information on the [Persistent volume](persistent/) page.
+You can find additional information on the [Persistent volume](persistent.md) page.
 
 ## Ephemeral storage
 
 Other solution is to use ephemeral storage, called in Kubernetes an _Empty dir_. This is only meant for storing intermediate or temporal data, that needs fast read write access by the applications running inside the containers. The same _Empty dir_ can be mounted in every container inside a Pod. The data in the ephemeral storage is lost when the Pod is deleted. Given that the data in the ephemeral you should not store any persistent data there, and the ephemeral storage should not be considered reliable.
 
-You can find additional information on the [Ephemeral storage](ephemeral/) page.
+You can find additional information on the [Ephemeral storage](ephemeral.md) page.
 
 ## Object storage
 

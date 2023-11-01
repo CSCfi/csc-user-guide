@@ -67,4 +67,4 @@ spec:
 ```
 
 !!! warning
-    When a Persistent Volume is deleted, the corresponding data is deleted **permanently**. It is highly recommended to make regular and versioned copies of the data to an independent storage system like [Allas](/data/Allas/using_allas/a_backup/).
+    When a Persistent Volume is deleted, the corresponding data is deleted **permanently**. It is highly recommended to make regular and versioned copies of the data to an independent storage system like [Allas](../../../data/Allas/using_allas/a_backup.md).

@@ -50,7 +50,7 @@ billing project by going to [Your Profile page](https://my.csc.fi/myProfile).
 If you would like to know which CSC computing project an OpenShift project is
 associated with, you can do so using the _oc_ command line tool. You can find
 instructions for setting up oc in the [command line tool usage
-instructions ](../cli/). For example, if your OpenShift project is called
+instructions ](cli.md). For example, if your OpenShift project is called
 *my-openshift-project*, you would run:
 
 ```bash
@@ -87,7 +87,7 @@ Unfortunately, this information is not available via a web interface yet.
 !!! note
     It is not possible for normal users to change the *csc_project* label
     after a project has been created. If you would like to change the label for
-    an existing project, please [contact the support](/support/contact/). You can also create
+    an existing project, please [contact the support](../../../support/contact.md). You can also create
     a completely new project if you want to use a different label.
 
 ## Creating a project
@@ -106,7 +106,7 @@ in the system.
 
 ![OpenShift Create Project](img/create_project_dialog_4.png)
 
-See the section about [accounts](/accounts/).
+See the section about [accounts](../../../accounts/index.md).
 
 Once you have filled in the fields, click "Create", and you will see the application
 catalog where you can pick an application template or import your
@@ -143,7 +143,7 @@ oc describe limitranges
 
 If you need to create more projects or you need more resources in a project for
 your application, you can apply for more quota by contacting the Rahti
-support. See the [Contact page](/support/contact/) for instructions. Quota requests are
+support. See the [Contact page](../../../support/contact.md) for instructions. Quota requests are
 handled on a case-by-case basis depending on the currently available resources
 in Rahti and the use case.
 

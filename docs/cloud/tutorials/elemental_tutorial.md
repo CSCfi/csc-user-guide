@@ -113,7 +113,7 @@ The field `metadata.labels.pool` is an arbitrary key-value pair that enables
 the pods to be grouped and referred by e.g. _services_.
 
 The Kubernetes API objects are represented in the YAML format.
-[Short introduction to YAML](../yaml_introduction/).
+[Short introduction to YAML](yaml_introduction.md).
 
 Pods and other Kubernetes/OpenShift API objects are created with the `oc`
 command line utility:
@@ -300,7 +300,7 @@ spec:
 
 The ReplicationControllers are functionally close to ReplicaSets, discussed
 in the chapter "[Kubernetes and OpenShift
-concepts](../../concepts/)".
+concepts](../rahti/concepts.md)".
 A ReplicationController can be transformed into a ReplicaSet by
 changing `spec.selector` to `spec.selector.matchLabels` and setting
 `kind: ReplicaSet`. The motivation to understand the ReplicationController

@@ -40,10 +40,10 @@ The web interfaces of the Pouta clouds are available at following addresses:
 | [https://pouta.csc.fi](https://pouta.csc.fi) | cPouta web interface | Accessible on the internet using Haka, Virtu, etc. |
 | [https://epouta.csc.fi](https://epouta.csc.fi) | ePouta web interface | Accessible only from IPs provided for accessing the management interfaces of ePouta using CSC account. |
 
-Login is available for [supported account types](../../accounts/how-to-create-new-user-account/) like Haka and Virtu.
+Login is available for [supported account types](../../accounts/how-to-create-new-user-account.md) like Haka and Virtu.
 
 ![Pouta web login page](../img/pouta_overview_web_login.png)
 
-Once you have successfully logged in, you can continue with the [Getting Started Guide](getting-started/).
+Once you have successfully logged in, you can continue with the [Getting Started Guide](getting-started.md).
 
-If you are already familiar with the basics of OpenStack, please go directly to the [Configuration](configuration/) and [Advanced](advanced/) sections of the Pouta documentation.
+If you are already familiar with the basics of OpenStack, please go directly to the [Configuration](configuration.md) and [Advanced](advanced.md) sections of the Pouta documentation.

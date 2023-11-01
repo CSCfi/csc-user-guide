@@ -1,6 +1,6 @@
 # Connecting to your virtual machine
 
-This article describes several ways to connect to a running virtual machine. In order to create a Virtual Machine, check out [Creating a virtual machine in Pouta](../launch-vm-from-web-gui/).
+This article describes several ways to connect to a running virtual machine. In order to create a Virtual Machine, check out [Creating a virtual machine in Pouta](launch-vm-from-web-gui.md).
 
 !!! info "Password access disabled"
 
@@ -34,7 +34,7 @@ Find, under **Instance name**, the Virtual Machine that you want to connect to.
 
 * Click in the machine name and check that there is a security group that allow SSH connections from your current IP. See the [security group](launch-vm-from-web-gui.md#configure-a-security-group-to-control-the-firewall) article for more information on how to create a SSH security group.
 
-* Now you need to know which user name is configured in the Virtual Machine to let your SSH keypair to log in. Different distributions/images have different user names. Third-party images can use any user name, please check the respective documentation. For the default images provided by Pouta CSC, have a look to the [Images](./images.md#images) documentation article, the information there is kept up to date with any addition or change.
+* Now you need to know which user name is configured in the Virtual Machine to let your SSH keypair to log in. Different distributions/images have different user names. Third-party images can use any user name, please check the respective documentation. For the default images provided by Pouta CSC, have a look to the [Images](images.md#images) documentation article, the information there is kept up to date with any addition or change.
 
 !!! Info
 
@@ -109,7 +109,7 @@ Next time you need to use Putty to connect this instance, you will just need to 
 
 ### port 22: Connection timed out
 
-If you are not able to connect to your VM, the first thing to double check are the security groups, in the [Firewalls and security groups](../launch-vm-from-web-gui/#configure-a-security-group-to-control-the-firewall) article there is a guide on how to set them up correctly.
+If you are not able to connect to your VM, the first thing to double check are the security groups, in the [Firewalls and security groups](launch-vm-from-web-gui.md#configure-a-security-group-to-control-the-firewall) article there is a guide on how to set them up correctly.
 
 If the problem persists you may check the firewall setup of your local institution.
 

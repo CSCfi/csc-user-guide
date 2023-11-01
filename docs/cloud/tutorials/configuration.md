@@ -15,8 +15,8 @@ mounted under containers as files on startup.
 
 !!! Note
 
-    It is highly recommended to check out the basic [Kubernetes and Openshift concepts](../../concepts/) 
-    before moving on, especially if you are not familiar with them already. You can also practice [deploying a simple static webserver](../elemental_tutorial/) 
+    It is highly recommended to check out the basic [Kubernetes and Openshift concepts](../rahti/concepts.md) 
+    before moving on, especially if you are not familiar with them already. You can also practice [deploying a simple static webserver](elemental_tutorial.md) 
     to get some hands-on experience. 
 
 ## ConfigMap
