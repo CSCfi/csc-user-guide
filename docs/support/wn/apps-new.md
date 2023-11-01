@@ -2,10 +2,10 @@
 
 ## Molpro 2023.2 is available on Puhti, 31.10.2023
 
-The new [Molpro 2023.2](../../apps/molpro.md) includes new features
-like unrestricted coupled cluster and the PQS geometry optimizer.
-Check the [Recent changes](https://www.molpro.net/manual/doku.php?id=recent_changes ) for 
-a detailed list of new features and improvements.
+The new [Molpro 2023.2](../../apps/molpro.md) includes new features like
+unrestricted coupled cluster and the PQS geometry optimizer. Check the
+[Recent changes](https://www.molpro.net/manual/doku.php?id=recent_changes)
+for a detailed list of new features and improvements.
 
 ## AlphaFold Genetic databases available on Puhti, 20.10.2023
 
