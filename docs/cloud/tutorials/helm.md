@@ -59,6 +59,7 @@ Before we can start the process, we need to "clean up" the current Helm example 
 1. Edit `Chart.yaml` and fill up the values as needed.
 
 !!! info "helm lint"
+
     The helm tool provides a `lint` command that will report any syntaxt issue with the current template.
     ```sh
     $ helm lint example

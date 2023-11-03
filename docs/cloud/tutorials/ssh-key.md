@@ -25,6 +25,7 @@ This tutorial will walk you through creating an SSH keypair in the OpenStack web
 In order to install the key you downloaded in the previous step (_keyname.pem_ or _keyname.cer_), you must run this commmands:
 
 !!! info "For MacOS"
+
     If you are using Chrome browser in Mac OS X Monterey, you will get keyname.cer instead of keyname.pem. The following procedure will remain same.
 
 ```bash
@@ -35,6 +36,7 @@ chmod 400 ~/.ssh/keyname.pem
 ```
 
 !!! info "400 = Only owner can read"
+
     When a file in Unix has 400 permissions, it translates to:
     `r-- --- ---`
 

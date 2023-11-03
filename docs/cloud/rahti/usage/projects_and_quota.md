@@ -2,15 +2,12 @@
 
 ## OpenShift projects and CSC computing projects
 
-!!! note
+!!! info
+
     Projects in OpenShift are separate from CSC computing projects. A single CSC
     computing project can have access to multiple projects in OpenShift.
     Each CSC computing project with access to Rahti receives a *group* in
     OpenShift.
-
-!!! note
-    Rahti can be used free of charge for open research and
-    education in Finnish universities and polytechnics.
 
 All projects in OpenShift must be mapped to a CSC computing project. This
 mapping is used to determine which CSC computing project a given resource
@@ -84,7 +81,8 @@ In the output above, you can find the associated CSC computing project under
 `metadata.labels.csc_project`. In this case, the project is `1000123`.
 Unfortunately, this information is not available via a web interface yet.
 
-!!! note
+!!! info
+
     It is not possible for normal users to change the *csc_project* label
     after a project has been created. If you would like to change the label for
     an existing project, please [contact the support](../../../support/contact.md). You can also create
@@ -187,7 +185,8 @@ In order to delete a project, you need to go to the main landing page and click 
 
 Then you will be asked to input the name of the project to prevent accidental deletions.
 
-!!! note
+!!! warning
+
     After the project has been confirmed for deletion, all resources will be deleted and there will be no way to restore them, including the data stored in the persistent volumes.
 
 ![Project name dialog](../../img/delete_project_name.png)

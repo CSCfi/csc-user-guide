@@ -1,9 +1,11 @@
 # Security Guidelines for Pouta
 
 !!! warning "Security responsibility"
+
     Users are responsible of the security of the resources and infrastructure under their control. This includes, but it is not limited to: **virtual machines**, **network configuration**, **user accounts**, ...
 
 !!! info "Security reports"
+
     If you have discovered a critical security flaw or believe your machine has been compromised, please contact us immediately at <servicedesk@csc.fi>.
 
 This list of security guidelines is not meant to cover all the possible cases and scenarios, but to serve as a starting point for keeping everyone secure. 
@@ -76,6 +78,7 @@ sudo apt install unattended-upgrades
 Each OS version will have its own way to activate this.
 
 !!! info "Kernel updates" 
+
     Some updates, such as kernel upgrades, require rebooting the virtual machines. Please schedule this into your regular maintenance.
 
 If your use case does not support automatic updates, which is common for highly available setups, please make sure to schedule regular maintenance windows where the software upgrade is scheduled.

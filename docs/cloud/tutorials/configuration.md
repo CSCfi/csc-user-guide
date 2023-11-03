@@ -13,7 +13,7 @@ Service passwords can be set as Secrets and added to containers as environment
 variables, and configuration files can be stored as ConfigMaps that can be
 mounted under containers as files on startup.
 
-!!! Note
+!!! info
 
     It is highly recommended to check out the basic [Kubernetes and Openshift concepts](../rahti/concepts.md) 
     before moving on, especially if you are not familiar with them already. You can also practice [deploying a simple static webserver](elemental_tutorial.md) 

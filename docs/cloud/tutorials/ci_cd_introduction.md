@@ -11,7 +11,7 @@ In this tutorial, we will set up a simple CI/CD pipeline using the Kubernetes co
 such as _ImageStream_, _BuildConfig_, and _DeploymentConfig_. Please refer to these Kubernetes
 concepts in [Kubernetes and OpenShift concepts](../rahti/concepts.md).
 
-!!! Note
+!!! info
 
     In practice, CI/CD pipelines for complex applications involve the use of dedicated resources
     and tools such as Tekton and Jenkins. However, simple applications can be deployed the way

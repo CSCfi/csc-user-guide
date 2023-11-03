@@ -8,17 +8,20 @@ A workaround for this problem is to establish a TCP tunnel over an HTTP-compatib
 
 This tutorial outlines the steps to achieve this using MariaDB as an example database.
 
-!!! Note
+!!! info
+
     The OpenShift template used below to configure WebSocat on Rahti is an unsupported beta version!
 
-!!! Note
+!!! info
+
     This solution is suitable for computationally light use cases. Reasonable scaling can be expected for up to ~100 processes simultaneously accessing a database on Rahti. Exceeding this limit is not advised and may result in performance degradation.
 
 ## Step 1: Setting up MariaDB and WebSocat on Rahti
 
 Configuring MariaDB and WebSocat on Rahti can be done either through the web interface or using the `oc` command line tool. Notice that your CSC project must have access to the Rahti service. See here [how to add service access for a project](../../accounts/how-to-add-service-access-for-project.md).
 
-!!! Note
+!!! info
+
     Mind the difference between [persistent](../rahti/storage/index.md#persistent-storage) and [ephemeral storage](../rahti/storage/index.md#ephemeral-storage) when creating a new database in Rahti. Ephemeral databases are meant for temporary storage and should not be considered reliable. If the [Pod](../rahti/networking.md#pods) in which your database is running is deleted or restarted you will lose all your data! To avoid this, create a database with a persistent volume and make sure to also perform regular backups to for example [Allas](../../data/Allas/index.md).
 
 ### Option 1: Using the Rahti web interface
@@ -108,12 +111,14 @@ lsof -i -p $ws_pid 2>/dev/null | grep TCP | grep -oE "localhost:[0-9]*" | \
 echo "Got target port $(cat /tmp/$USER/${SLURM_JOB_ID}_rahtidb_port)"
 ```
 
-!!! Note
+!!! info
+
     If you want to access your database within a batch job, run `websocat` within your batch script. You can utilize the same obtained target port if you're submitting your job from an interactive session in which `websocat` is already running, `websocat -b tcp-l:127.0.0.1:<port> wss://websocat-<project name>.rahtiapp.fi -E &`. Otherwise, pass 0 as the target port and check which one it gets handed using `lsof`.
 
 - Now `websocat` is running in the interactive session/batch job and you may connect to your MariaDB database on Rahti using the obtained target port. You can verify the connection with e.g. Python. Note that the username and password below refer to the created database service, not your CSC credentials
 
-!!! Note
+!!! info
+
     For this example to work, you need to install the mariadb python module. At the time of writing this the command to use is:
     `pip3 install mariadb=1.0.11`
     This is due to the fact that the current last version of the module is broken for the platforms we tested this with. See the upstream documentation for more information: <https://mariadb-corporation.github.io/mariadb-connector-python/install.html>

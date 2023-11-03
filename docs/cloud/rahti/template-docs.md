@@ -29,6 +29,7 @@ oc new-app --template=httpd-example \
 ## Templates
 
 !!! warning
+
     Not all Rahti Beta templates have been ported to Rahti.
 
     The process of adapting and testing the templates to Rahti is labor intensive and not in the top of our task list. If you have any special interest on the functionality provided by a Rahti Beta template that is missing in Rahti, please let us know (servicedesk@csc.fi).

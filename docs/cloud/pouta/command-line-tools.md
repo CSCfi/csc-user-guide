@@ -35,7 +35,8 @@ that uses the common OpenStack command line tool.
 
 More information: [OpenStackClient pip module](https://pypi.org/project/python-openstackclient/)  
 
-!!! Note  
+!!! info
+
     You can install the latest versions of the OpenStackClient pip module since they are backwards compatible.
 
 ##### Openstack commands and help
@@ -83,7 +84,8 @@ cores, how much memory, and so on.
 This command has the minimum amount of information for launching a
 functioning virtual machine.
 
-!!! Note
+!!! info
+
     The output of the command "openstack server create" shows also a 
     password called adminPass. You do not need to store this password as
     is not used when connecting to the virtual machine. The virtual 

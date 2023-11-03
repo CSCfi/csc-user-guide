@@ -449,5 +449,6 @@ It is possible to use annotations to enable **IP whitelisting**, where only a fe
 oc annotate route <route_name> haproxy.router.openshift.io/ip_whitelist='192.168.1.0/24 10.0.0.1'
 ```
 
-!!! Caution
+!!! warning
+
     If the whitelist entry is malformed, OpenShift will discard the whitelist and allow all traffic.

@@ -34,6 +34,7 @@ For applications that do not allow the _microservice_ approach, Pouta allows eas
 *Horizontal vs Vertical scaling*</center>
 
 !!! info "auto scale"
+
     In Pouta clouds, you could also programmatically scale your Heat stack using [OpenStack Heat resources] like *OS::Heat::ResourceGroup*,*OS::Heat::AutoScalingGroup* and *OS::Heat::ScalingPolicy*.
 
 ## Isolated deployments for testing and production
@@ -41,6 +42,7 @@ For applications that do not allow the _microservice_ approach, Pouta allows eas
 You **must** have several isolated deployment environments, at least **testing** and **production**. Even though the names might vary, and more environments might be suitable. There must be a **testing** environment where you and your teammates will experiment with changes and validate that they work as designed. And a **Production** environment which is dedicated to your users. Issues should be found and solved in **testing** before they can get to **production**. Pouta allows you to request several computing projects that will be isolated among themselves by construction. 
 
 !!! info "Common saying"
+
     Everybody has a testing environment. Some people are lucky enough enough to have a totally separate environment to run production in.
 
 Other common deployment types include:
@@ -92,6 +94,7 @@ You can see above three examples, one for for each tool. All of them aim to get 
 </center>
 
 !!! warning "Tools evolve"
+
     Keep in mind that the situations for these (and most) tools evolve over time, support may get better or dropped altogether, features and bugs may be fixed, ...
 
 ### Configuration management tools
@@ -136,6 +139,7 @@ If you need a database, you should take a look to [Pukki](../dbaas/what-is-dbaas
 
 
 !!! info "contact us"
+
     If any of these services interest you, but they do not cover 100% your needs, please contact us at <servicedesk@csc.fi> and we will study your case.
 
 ## Summary

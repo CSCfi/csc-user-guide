@@ -122,7 +122,8 @@ volume):
 openstack server add volume <virtual machine> <volume>
 ```
 
-!!! note
+!!! info
+
     A volume can only be attached to one virtual machine at a time.
 
 When you no longer need the volume to be attached, you can detach

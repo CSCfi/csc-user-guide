@@ -19,12 +19,14 @@ Find, under **Instance name**, the Virtual Machine that you want to connect to.
 * The **Power State** must be `Running`
 
 * It must have a `Floating IP` attached, write it down.  
+
 !!! info
+
     To access an ePouta instance, you can ssh on the private IP (ssh cloud-user@private-ip).
 
 * Check the name of the key under **Key Pair**. You will need the corresponding SSH secret key installed in your computer.
 
-    !!! Info "Generate SSH public key from a SSH private key"
+    !!! info "Generate SSH public key from a SSH private key"
 
         If you have access to a SSH private key, it is possible to generate the corresponding public key by:
 
@@ -36,7 +38,7 @@ Find, under **Instance name**, the Virtual Machine that you want to connect to.
 
 * Now you need to know which user name is configured in the Virtual Machine to let your SSH keypair to log in. Different distributions/images have different user names. Third-party images can use any user name, please check the respective documentation. For the default images provided by Pouta CSC, have a look to the [Images](images.md#images) documentation article, the information there is kept up to date with any addition or change.
 
-!!! Info
+!!! info
 
     It is a common practise for images, when you try to login as `root`, to get a message back telling you which username to use instead.
 
@@ -76,7 +78,8 @@ IdentityFile <private_key_with_path>
 
 Check the manual page of [ssh_config](https://linux.die.net/man/5/ssh_config) for more information.
 
-!!! Info "Agent forwarding"
+!!! info "Agent forwarding"
+
     You can enable *agent forwarding* when connecting through SSH to a virtual machine by using the *-A* flag.
 
         ssh -A cloud-user@public-ip
@@ -114,6 +117,7 @@ If you are not able to connect to your VM, the first thing to double check are t
 If the problem persists you may check the firewall setup of your local institution.
 
 !!! info "Permission denied"
+
     Incorrectly configured Security Groups, can lead to permissions denied errors due to the fact that the VM needs to fetch the public SSH keys on its first start. If the network is not configured properly, the public key may not be added and no access will be configured.
 
 ### REMOTE HOST IDENTIFICATION HAS CHANGED
@@ -178,6 +182,7 @@ Once there is a password based account, with no remote login allowed:
 * Log in with the user account and password you have created.
 
 !!! warning "Non ASCII characters problems"
+
     *Umlaut* characters, such as *ä* or *ö*, do not work in the virtual 
     console for most keymaps.
 

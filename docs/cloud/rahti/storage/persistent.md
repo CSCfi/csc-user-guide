@@ -3,7 +3,8 @@
 Persistent volumes in Rahti are stored in a resilient storage such as CEPH. They are created by using a **PersistentVolumeClaim**. When a
 new claim is made, and **a Pod mounts it**, a new volume space will be created.
 
-!!! info "Change from Rahti Beta version"
+!!! info "A change from Rahti Beta version"
+
     In production Rahti, a new persistent volume will remain in **"⏳ Pending"** until any Pod mounts it. This is a change from Rahti Beta where the volume was crested right away.
 
 There is one storage classes available in Rahti:
@@ -37,6 +38,7 @@ mode by a single node.
 Persistent storage can be requested also via the web console.
 
 !!! warning
+
     When a volume contains a high amount of files (>15 000), the time it takes to mount and be available can be higher than 5 minutes. The more files, the more time it takes to be available.
 
 The persistent volume can be used in a pod by specifying `spec.volumes`
@@ -67,4 +69,5 @@ spec:
 ```
 
 !!! warning
+
     When a Persistent Volume is deleted, the corresponding data is deleted **permanently**. It is highly recommended to make regular and versioned copies of the data to an independent storage system like [Allas](../../../data/Allas/using_allas/a_backup.md).

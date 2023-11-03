@@ -78,7 +78,7 @@ oc annotate route <route_name> haproxy.router.openshift.io/ip_whitelist='193.166
 
 The IP for all outgoing customer traffic is `86.50.229.150`. Any pod that runs in Rahti will use by default this IP to reach anything located outside Rahti or a Route. It is possible, for selected namespaces that need it, to configure a dedicated IP. Each request is reviewed individually due to the fact that there is a limited pool of virtual IPs available.
 
-!!! warning "egress IP may change"
+!!! warning "Egress IP may change"
 
     The egress IP of Rahti might change in the future. For example, if several versions of Rahti are run in parallel each will have a different IP. Or if a major change in the underlining network infrastructure happens.
 

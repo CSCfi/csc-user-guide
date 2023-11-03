@@ -33,7 +33,8 @@ button next to it for copying the command to the clipboard:
 Copy the command and paste it in a terminal to start using OpenShift via the
 command line.
 
-!!! note
+!!! info
+
     If you open multiple terminals, the login session for oc will be active in
     all of them.
 

@@ -13,7 +13,7 @@ server running:
 1. A route that will expose the service to the internet by redirecting
    traffic from `<myservice>.2.rahtiapp.fi` to the service object.
 
-!!! Note
+!!! info
 
     In practice, you should not deploy applications the way described in this
     tutorial. Instead, it is meant for learning the core concepts of
@@ -40,7 +40,7 @@ project <projectname>':
 Using project "my-project-with-unique-name" on server "(https://landing.2.rahti.csc.fi/)".
 ```
 
-!!! Note
+!!! info
 
     The listing may include projects that other users have created to host
     public Docker images. While it is possible to switch to these projects, you
@@ -250,7 +250,7 @@ the IP `10.0.0.1`. Security-wise, it is highly encouraged to utilize IP
 whitelisting for services that are not meant to be visible to the entire
 internet.
 
-!!! Caution
+!!! warning
 
     If the whitelist entry is malformed, OpenShift will discard the whitelist
     and allow all traffic.
@@ -307,7 +307,7 @@ changing `spec.selector` to `spec.selector.matchLabels` and setting
 object is that [DeploymentConfig](../rahti/concepts.md#deploymentconfig)
 objects generate ReplicationControllers.
 
-!!! Note
+!!! info
 
     A central Kubernetes' concept coined *reconciliation loop* manifests in the
     ReplicationControllers. The reconciliation loop is a mechanism that measures

@@ -27,6 +27,7 @@ Back in Pouta's interface, make sure that you select the correct project. There 
 To open a connection to your virtual machines in cPouta/ePouta, you first need to prove your identity to the Virtual and for that need SSH keys. This is the default (and more secure) way to access Virtual Machines. You only need to set up your SSH keys once per project.
 
 !!! info "Import public keys"
+
     If you are already familiar with SSH keys, you can use your existing SSH keys to access the virtual machines. In the web interface, go to the **Compute > Key Pairs** section, and select **Import Public Key**. You need to name your key, keep in mind you will need to use this name when creating Virtual Machines, so the recommendation is to keep it short and informative of the intended use. Secondly paste your public key, it must be in a single line and be in the form of `key-type hash comment`, for example a RSA key from `person@doamin.name`:
 
     `ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAAAQQCo9+BpMRYQ/dL3DS2CyJxRF+j6ctbT3/Qp84+KeFhnii7NT7fELilKUSnxS30WAvQCCo2yU1orfgqr41mM70MB person@domain.name`
@@ -40,6 +41,7 @@ Security groups are sets of firewall rules which limit access to your machines. 
 A security group can be edited or created in any moment of the Virtual Machine life-cycle. Any change applied to a security group assigned to a Virtual Machine, will be applied instantly to the Virtual Machine.
 
 !!! warning "Do not edit the default security group"
+
     As a good practice, we discourage changing the "Default" security group. We recommend instead that you create specific security groups for specific purposes and name them accordingly. For example create a security group called "SSH-VPN" to allow computers from the VPN to SSH/22 to the machines on that security group.
 
 In order to create a new security group:
@@ -55,13 +57,14 @@ In order to create a new security group:
 1. In order to find out your IP you can use services like <https://apps.csc.fi/myip>.
 
 !!! warning
+
     Your network situation might more complicated than that. You may be behind a proxy. In that case, consult with your network support.
 
 !!! error
+
     You can also open ports to all possible IP addresses by using `0.0.0.0/0` as CIDR, but doing this is a bad security practise.
 
-!!! Tip
-    **Please note:**
+!!! info "Please note:"
 
     *   **Deleting the default egress rules (allow any protocol to 0.0.0.0/0 and ::/0) in cPouta will cause disruption in the metadata service responsible for SSH key injections. If you want to limit egress traffic, you should at least allow outbound traffic to IP 169.254.169.254, TCP port 80, for SSH key injections to work.**
     *   **Even though the ePouta virtual machines are only accessible via the customer's network, they also need to have security groups configured for them. Otherwise they can not be accessed.**
@@ -86,11 +89,11 @@ Once the SSH keys and security groups are set, you can launch a new virtual mach
 
 1. **Instance Boot Source**. Select "Boot from image" in the drop down menu.
 
-    !!! Info "Cloud-native"
+    !!! info "Cloud-native"
 
         In case you want to be more cloud-native, you can select the "Boot from image (creates a new volume)" option. This option creates a new persistent volume for your instance. In the event you accidentally delete your instance or it enters an unrecoverable state, the file system of your instance will be saved in this volume. You can later use this volume to boot up a new instance with the same filesystem state as the previous instance.
 
-    !!! Warning "Please note"
+    !!! warning "Please note"
 
         The "Boot from image (creates a new volume)" approach creates an additional volume which is billed normally as mentioned on our [pricing](https://research.csc.fi/billing-units) page.
 
@@ -108,6 +111,7 @@ You can click **Launch** to start the Virtual Machine creation.
 When a virtual machine is launched, it only gets a **private IP** (`192.168.XXX.XXX`). This means that meanwhile the machine can access the internet and other virtual machines in the same project, it can not be accessed from outside the project. To be able to access your virtual machine, you need to attach a **public IP address** to it.  
 
 !!! info
+
     Associate a floating IP is only available for cPouta instances.
 
 1. Go to **Compute > Instances**, you should see your Virtual machine listed.

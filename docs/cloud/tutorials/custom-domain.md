@@ -67,7 +67,7 @@ to be non-encrypted (the `spec.tls.termination: edge`). Other termination polici
   pod and forward the encrypted traffic.
 * `reencrypt`: Terminate the TLS connection in the router and open another secure connection that must be terminated at the pod.
 
-!!! Caution
+!!! warning
 
     Always treat the contents of the field `spec.tls.key` in the route objects with
     special care, since the private TLS key should be never exposed to

@@ -29,6 +29,7 @@ because active/powered off virtual machines consume the same computing
 resources on one of our compute nodes as explained in [Pouta flavors and billing](vm-flavors-and-billing.md).
 
 !!! warning
+
     A *shut off* virtual machine still consumes billing units. To stop
     consuming, select the *shelved* state.
 
@@ -130,7 +131,8 @@ and a new flavor. This makes it possible to easily scale
 from a smaller virtual machine flavor to the biggest virtual machine
 flavors.
 
-!!! note
+!!! info
+
     This type of scaling is not recommended for the IO,
     GPU or TB flavors since ephemeral storage data is lost in this
     process.

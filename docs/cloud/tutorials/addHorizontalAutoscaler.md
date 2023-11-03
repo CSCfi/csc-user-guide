@@ -3,6 +3,7 @@
 Rahti allows automatic Horizontal auto-scaling based on CPU and Memory consumption. This means that the platform can be configured to add more copies of an application (scale up) when the current copies are consuming too much CPU and/or Memory, and to remove copies of the application (scale down) when the consumption of CPU and/or memory is too low and a lower amount of copies can cope with the current load. 
 
 !!! info "Horizontal/Vertical scaling"
+
     Horizontal scaling is when more copies or replicas of an application are added. For Kubernetes this means more Pods running with the same container and parameters. For virtual machines this means to add more virtual machines with the same flavor and image.
 
     Vertical scaling is when more resources are added to the current copy. For Kubernetes this means setting higher CPU or memory limits. For virtual machines it means to recreate the machine with a bigger flavor with more CPU or memory.
@@ -90,6 +91,7 @@ At this moment, we should have only one single Pod with almost zero CPU usage an
 ![Pods](../img/podsAutoscaler.png)
 
 !!! info "Using the CLI"
+
     You can use the command line interface to get the current status of the autoscaler:
     ```
     $ oc get HorizontalPodAutoscaler example   
