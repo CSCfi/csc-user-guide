@@ -19,10 +19,15 @@ See the steps to make `manual backups` in [Backups](backups.md).
 
 2. On the right hand side of the select row, next to Create Backup -button, press the `arrow icon` to open up a drop-down list, and select `Resize Volume`.
 
+    ![Select 'Resize volume'](../img/cloud_dbaas_resize_volume_1.png "Resize volume")
+
+
 3. From there you can specify the `new size` for the database instance in GB.  
 Note that the new value must be greater than the existing volume size.
 
 4. Confirm the change with `Resize Database Volume`.
+
+    ![Select 'Resize volume'](../img/cloud_dbaas_resize_volume_2.png "Resize volume")
 
 5. The change should take 1-2 minutes. If the web interface does not automatically update the status from `Resizing` to `Active`, try to reload the page.  
 
