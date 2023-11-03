@@ -25,7 +25,7 @@ Both versions of CloudCompare are available in [Puhti web interface](https://puh
 GPU-accelerated CloudCompare is available with [Accelerated visualization app](../computing/webinterface/accelerated-visualization.md)
    
 ### Basic CloudCompare
-Basic CloudCompare is available via [Desktop app](../computing/webinterface/desktop.md). After launcing the remote desktop, double-click CloudCompare icon OR open `Host Terminal` (Desktop icon) and start CloudCompare:
+Basic CloudCompare is available via [Desktop app](../computing/webinterface/desktop.md). After launcing the remote desktop, double-click CloudCompare icon OR open `Terminal` (Desktop icon) and start CloudCompare:
 
 ```
 module load cloudcompare
