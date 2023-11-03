@@ -27,7 +27,7 @@ For using QGIS, open it in Puhti web interface:
 2. Open [Desktop app](../computing/webinterface/desktop.md). 
 3. After launcing the Desktop, double-click QGIS icon for the newest version.
 
-If you want to use older version, open `Host Terminal` (Desktop icon) and start QGIS:
+If you want to use older version, open `Terminal` (Desktop icon) and start QGIS:
 
 ```
 module load qgis/3.22
