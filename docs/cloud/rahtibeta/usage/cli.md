@@ -1,5 +1,4 @@
 --8<-- "rahtibeta_announcement.md"
-# Command line tool usage
 
 Rahti can be used via the command line either with OpenShift's _oc_ tool
 or with the _kubectl_ tool from Kubernetes. Certain features specific to OpenShift

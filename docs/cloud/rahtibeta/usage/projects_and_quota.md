@@ -1,6 +1,4 @@
 --8<-- "rahtibeta_announcement.md"
-# Projects and quota
-
 
 ## Creating a project
 
