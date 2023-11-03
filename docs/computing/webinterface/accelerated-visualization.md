@@ -5,6 +5,7 @@ The Accelerated visualization app enables using visualization applications with 
 * [Abaqus CAE](../../apps/abaqus.md)
 * [Ansys Workbench](../../apps/ansys.md)
 * [Blender](../../../support/tutorials/blender-tutorial/)
+* [CloudCompare](../../apps/cloudcompare.md)
 * [COMSOL](../../apps/comsol.md)
 * [ParaView](../../apps/paraview.md)
 * [VMD](../../apps/vmd.md)
@@ -14,6 +15,13 @@ The Accelerated visualization app enables using visualization applications with 
 2. Specify the needed resources. One GPU will be reserved.
 3. Select visualization application.
 4. Launch the app.
+
+!!! Note
+
+Considerations about GPU partitions:
+* `gputest` has 15 minute time limit, but should usually be available immediately or very soon.
+* `gpu` enables longer usage of application, but might have also longer wait time in the queue.
+* GPU computing time is ~60x more expensive in billing units, so please keep the accelerated visualization application open only when you are actually using it. Use the `Delete` button on `My interactive Sessions` page to finish working.
 
 ## Connecting
 There are two options for connecting to the Accelerated Visualization app:
@@ -32,3 +40,4 @@ The selected visualization application will launch automatically.
 
 A menu with settings and a shortcut to the terminal (xterm) can be found by right clicking the background in the app session.
 If the application windows do not behave as expected or menus in the application appear in the wrong place, it can usually be fixed by clicking `Restart Fluxbox` in the menu.
+
