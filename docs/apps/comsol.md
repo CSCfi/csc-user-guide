@@ -40,10 +40,8 @@ desktop application](../computing/webinterface/desktop.md). In the web interface
 select `Desktop` from the `Apps` view and specify the required resources (cores,
 execution time and memory). Remember to add your billing project, too.
 
-To run the COMSOL GUI only, launch the session with the `Desktop > single application`
-and `App > COMSOL` settings. For the full desktop, select `mate` or `xfce`. Wait
-for a while as your interactive job sits in the queue and after that you can start
-COMSOL (tick the box if you want to receive an email when your session starts).
+Wait for a while as your interactive job sits in the queue and after that you can start
+COMSOL with double-clinking its icon (tick the box if you want to receive an email when your session starts).
 
 !!! Note
     You can now also enable [interactive visualization with GPU
@@ -53,15 +51,13 @@ COMSOL (tick the box if you want to receive an email when your session starts).
 
 Sometimes, you may encounter errors relating to OpenGL rendering during
 the launch. The solution is to force COMSOL to start with software
-rendering from the command-line using
+rendering from Desktop app `Host terminal` using
 
 ```bash
 module load comsol
 comsol -3drend sw
 ```
 
-For this purpose, you need to launch a full desktop session without the `single
-application` setting and launch COMSOL through a host terminal.
 
 ## More information
 
