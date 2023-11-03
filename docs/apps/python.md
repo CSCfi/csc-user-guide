@@ -26,7 +26,7 @@ modules](python.md#installing-python-packages-to-existing-modules).
 ## Using science area-specific Python modules
 
 If you need a newer version of Python, or a wider set of Python
-packages, Puhti and Mahti has several pre-installed modules containing
+packages, Puhti and Mahti have several pre-installed modules containing
 Python environments made for different science areas:
 
 * [python-data](python-data.md) - for data analytics and machine learning
