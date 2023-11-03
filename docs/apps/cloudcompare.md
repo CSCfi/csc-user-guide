@@ -19,7 +19,7 @@ The following versions of CloudCompare are available in **Puhti**:
 GPU version is faster, but consumes also a lot more billing units. Also queues to GPU partitions may be longer.
 
 ## Usage
-Both versions of CloudCompare are availabe in [Puhti web interface](https://puhti.csc.fi).
+Both versions of CloudCompare are available in [Puhti web interface](https://puhti.csc.fi).
 
 ### GPU-accelerated CloudCompare
 GPU-accelerated CloudCompare is available with [Accelerated visualization app](../computing/webinterface/accelerated-visualization.md)
