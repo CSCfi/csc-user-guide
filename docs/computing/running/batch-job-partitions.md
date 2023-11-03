@@ -11,20 +11,20 @@ normal (CPU) nodes:
 
 | Partition       | Time<br>limit | Max<br>tasks | Max<br>nodes             | [Node types](../systems-puhti.md)   | Max<br>memory  | Max<br>local storage<br>[(nvme)](../creating-job-scripts-puhti/#local-storage) |  
 |-----------------|---------------|--------------|--------------------------|------------------------------|----------|----------|
-| test            | 15 minutes    | 80           |   2                      |  M                           | 190 GiB  |          |
+| test            | 15 minutes    | 80           |   2                      |  M                           | 185 GiB  |          |
 | [interactive](interactive-usage.md)     | 7 days        | 8            |   1                      |  IO  | 76 GiB   | 720 GiB  |
-| small           | 3 days        | 40           |   1                      |  M, L, IO                    | 382 GiB  | 3600 GiB |
-| large           | 3 days        | 1040         |   26                     |  M, L, IO                    | 382 Gib  | 3600 GiB | 
-| longrun         | 14 days       | 40           |   1                      |  M, L, IO                    | 382 GiB  | 3600 GiB | 
-| hugemem         | 3 days        | 160          |   4                      |  XL, BM                      | 1534 GiB |         |
-| hugemem_longrun | 14 days       | 40           |   1                      |  XL, BM                      | 1534 GiB |         |
+| small           | 3 days        | 40           |   1                      |  M, L, IO                    | 373 GiB  | 3600 GiB |
+| large           | 3 days        | 1040         |   26                     |  M, L, IO                    | 373 Gib  | 3600 GiB | 
+| longrun         | 14 days       | 40           |   1                      |  M, L, IO                    | 373 GiB  | 3600 GiB | 
+| hugemem         | 3 days        | 160          |   4                      |  XL, BM                      | 1496 GiB |         |
+| hugemem_longrun | 14 days       | 40           |   1                      |  XL, BM                      | 1496 GiB |         |
 
 The following partitions are available on GPU nodes. Note that for each GPU, you should reserve at most 10 cores/task.
 
 | Partition       | Time<br>limit | Max<br>GPUs | Max<br>nodes | [Node types](../systems-puhti.md) | Max<br>memory | Max<br>local storage (nvme) |
 |-----------------|---------------|-------------|--------------|----------------------------|---------------|-----------------------------|
-| gputest         | 15 minutes    | 8           | 2            | GPU                        | 382 GiB       | 3600 GiB                    |
-| gpu             | 3 days        | 80          | 20           | GPU                        | 382 GiB       | 3600 GiB                    |
+| gputest         | 15 minutes    | 8           | 2            | GPU                        | 373 GiB       | 3600 GiB                    |
+| gpu             | 3 days        | 80          | 20           | GPU                        | 373 GiB       | 3600 GiB                    |
 
 
 Information about the partition:
