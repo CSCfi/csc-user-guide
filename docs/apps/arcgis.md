@@ -161,7 +161,7 @@ for it from CSC.
 | Novia AMK               | Stefan Heinänen         |
 | University of Oulu      | Lauri Aho                            |
 | TUT, Tampere AMK        | it-helpdesk at tuni.fi               |
-| University of Turku      | Leena Laurila                       |
+| University of Turku      | Elina Kasvi                       |
 | Åbo Akademi             | Mårten Hedman                         |
 
 
