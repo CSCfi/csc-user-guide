@@ -47,18 +47,11 @@ saga_cmd -h
 
 #### SAGA GIS Graphical User Interface in Puhti
 
-The easiest option for using SAGA GIS is to open it in [Puhti web interface as Desktop app](../computing/webinterface/desktop.md).
-
-1. Log in to [Puhti web interface](https://puhti.csc.fi). 
-2. Start SNAP: Apps -> Desktop, choose Desktop: 'single application' and App: 'SAGA GIS'
-3. The SNAP GUI is started automatically when the Desktop is launched. 
-
-
-Alternatively, especially if you want to use SAGA GIS together with some other GUI tool or want to user older version, SAGA GIS can be started in Puhti web interface with remote desktop:
+For using SAGA GIS is to open it in Puhti web interface.
 
 1. Log in to [Puhti web interface](https://puhti.csc.fi).
-2. Open Remote desktop: Apps -> Desktop, choose Desktop: `mate` or `xfce`. 
-3. After launcing the remote desktop, double-click SAGA GIS icon OR open `Host Terminal` (Desktop icon) and start SAGA GIS:
+2. Open [Desktop app](../computing/webinterface/desktop.md). 
+3. After launcing the Desktop, double-click SAGA GIS icon OR open `Host Terminal` (Desktop icon) and start SAGA GIS:
 
 ```
 module load r-env
