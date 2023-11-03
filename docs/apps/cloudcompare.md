@@ -13,24 +13,19 @@ The main purpose of CloudCompare on Puhti is to serve as a tool for visualizing 
 
 The following versions of CloudCompare are available in **Puhti**:
 
-- Cloudcompare 2.10.3
+- CloudCompare 2.12.4 for GPU partitions. Plugins: qEDL, qPDALIO, qAnimation and qPCV.
+- CloudCompare 2.10.3 for CPU partitions with more plugins than the GPU version.
+
+GPU version is faster, but consumes also a lot more billing units. Also queues to GPU partitions may be longer.
 
 ## Usage
+Both versions of CloudCompare are availabe in [Puhti web interface](https://puhti.csc.fi).
 
-### Puhti web interface
-
-The easiest option for using CloudCompare is to open it in [Puhti web interface as Desktop app](../computing/webinterface/desktop.md).
-
-1. Log in to [Puhti web interface](https://puhti.csc.fi). 
-2. Start CloudCompare: Apps -> Desktop, choose Desktop: 'single application' and App: 'CloudCompare'
-3. CloudCompare is started automatically when the Desktop is launched. 
-
-
-Alternatively, especially if you want to use CloudCompare together with some other Graphical User Interface (GUI) tool or want to use data from Allas, CloudCompare can be started in Puhti web interface with remote desktop:
-
-1. Log in to [Puhti web interface](https://puhti.csc.fi).
-2. Open Remote desktop: Apps -> Desktop, choose Desktop: `mate` or `xfce`. 
-3. After launcing the remote desktop, double-click CloudCompare icon OR open `Host Terminal` (Desktop icon) and start CloudCompare:
+### GPU-accelerated CloudCompare
+GPU-accelerated CloudCompare is available with [Accelerated visualization app](../computing/webinterface/accelerated-visualization.md)
+   
+### Basic CloudCompare
+Basic CloudCompare is available via [Desktop app](../computing/webinterface/desktop.md). After launcing the remote desktop, double-click CloudCompare icon OR open `Host Terminal` (Desktop icon) and start CloudCompare:
 
 ```
 module load cloudcompare
@@ -57,7 +52,7 @@ Please acknowledge CSC and Geoportti in your publications, it is important for p
 
 ## Installation
 
-CloudCompare was installed to Puhti with Singularity, using this [CloudCompare Singularity definition file](https://github.com/CSCfi/singularity-recipes/blob/main/cloudcompare/cloudcompare.def).
+CloudCompare was installed to Puhti with Apptainer. The basic version was installed using this [CloudCompare Apptainer definition file](https://github.com/CSCfi/singularity-recipes/blob/main/cloudcompare/cloudcompare.def).
 
 ## References
 
