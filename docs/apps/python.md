@@ -13,41 +13,100 @@ Puhti and Mahti.
 * Puhti: 3.x versions
 * Mahti: 3.x versions
 
-System Python is available by default both in Puhti and Mahti without loading any
-module. Python 3 (= 3.6.8) is available as `python3`. The default system Python does not
-include any optional Python packages. However, you can [install simple packages for
-yourself by the methods explained below](python.md#installing-python-packages-to-existing-modules).
+The basic system Python (`/usr/bin/python3`) available by default on
+both Puhti and Mahti (without loading any modules) is **Python version
+3.6.8**.  This can be launched simply by `python3`, but does not
+contain any optional Python packages. You can install simple packages
+yourself with the `pip3` command, see the section below [explaining
+how to install packages to existing
+modules](python.md#installing-python-packages-to-existing-modules).
+
+
+## Using science area-specific Python modules
 
 In Puhti and Mahti there are several Python modules available that
-include different sets of scientific libraries:
+contain different sets of scientific libraries, including:
 
 * [python-data](python-data.md) - for data analytics and machine learning
 * [PyTorch](pytorch.md) - PyTorch deep learning framework
 * [TensorFlow](tensorflow.md) - TensorFlow deep learning framework
 * [JAX](jax.md) - Autograd and XLA for high-performance machine learning
 * [geoconda](geoconda.md) - for spatial data anlysis
-* and several other modules may include Python...
+* [BioPython](biopython.md) (Puhti only) - biopython and other
+  bioinformatics related Python libraries
 
-In Puhti only:
-
-* [BioPython](biopython.md) - biopython and other bioinformatics related Python libraries
-
-To use any of the above mentioned modules, just load the appropriate module, for
-example:
+To use any of the above mentioned modules, just load the appropriate
+module, for example:
 
 ```bash
 module load python-data
 ```
 
-Typically, after activating the module, you can continue using the commands
-`python` and/or `python3` but these will now point to different versions of
-Python with a wider set of Python packages available. For more details, check
-the corresponding application documentation (when available).
+For more details about the best way to use a package and a list of
+available versions and packages, check the corresponding application
+documentation.
+
+Typically, after activating a Python-based module, you can continue
+using the `python3` command but this will now point to a newer version
+of Python with a wider set of Python packages available. You can
+always check the Python version with the command `python3 --version`,
+and the full path of the command with `which python3`.
+
 
 ## Installing Python packages to existing modules
 
-If you find that some package is missing from an existing module, you can often
-install it yourself with: `pip install <newPythonPackageName> --user`
+If there is a CSC-provided module that covers _almost_ everything you
+need, but it is missing a few Python packages, you may be able to
+install those yourself with the Pip package manager.
+
+If you think that some important package should be included in a
+module provided by CSC, don't hesistate to contact our [Service
+Desk](../support/contact.md).
+
+
+### Using `venv`
+
+The recommended way to add packages on top of an existing environment
+is to use [venv](https://docs.python.org/3/tutorial/venv.html), which
+is a standard Python module for creating a lightweight "virtual
+environment". You can have multiple virtual enviroments, for example
+one for each project.
+
+For example to install a package called `whatsapp` on top of the
+CSC-provided [python-data](python-data.md) module:
+
+```bash
+cd /projappl/<your_project>  # change this to the appropriate path for your project
+module load python-data
+python3 -m venv --system-site-packages my-venv
+source venv/bin/activate
+pip install whatsapp
+```
+
+!!! warning
+
+    Don't forget to use the `--system-site-packages` flags when creating
+    the virtual environment, otherwise the environment will not find the
+    pre-installed packages from the base module (for example numpy from
+    python-data).
+
+
+Later when you wish to use the virtual environment you only need to
+load the module and activate the environment:
+
+```bash
+module load python-data
+source /projappl/<your_project>/venv/bin/activate
+```
+
+**Note:** some older CSC installations are not compatible with Python
+virtual environments. We are still working to update those. For these
+you need to use the `pip install --user` approach described next.
+
+
+### Using `pip install --user`
+
+Another approach is to use the command `pip install --user`.
 
 The packages are by default installed to your home directory under
 `.local/lib/pythonx.y/site-packages` (where `x.y` is the version of Python being
@@ -76,32 +135,24 @@ export PYTHONPATH=/projappl/<your_project>/my-python-env/lib/python3.9/site-pack
 python3 -c "import whatshap"  # this should now work!
 ```
 
-Note that if the package you installed also contains executable files these may
-not work as they refer to the Python path internal to the container (and most of
-our Python modules are installed with containers):
+Note that if the package you installed also contains executable files
+these may not work as they refer to the Python path internal to the
+container (and most of our Python modules are installed with
+containers):
 
 ```bash
 whatshap --help
 whatshap: /CSC_CONTAINER/miniconda/envs/env1/bin/python3.9: bad interpreter: No such file or directory
 ```
 
-You can fix this by either editing the first line of the executable to point to
-the real python interpreter (check with `which python3`) or by running it via
-the Python interpreter, for example:
+You can fix this by editing the first line of the executable (check
+with `which whatshap` in our example) to point to the real python
+interpreter (check with `which python3`). In our example we would edit
+the file `~/.local/bin/whatshap` to have this as the first line:
 
 ```bash
-python3 -m whatshap --help
+#!/appl/soft/ai/tykky/python-data-2022-09/bin/python3
 ```
-
-Alternatively you can create a separate virtual environment with
-[venv](https://docs.python.org/3/library/venv.html), however this approach
-doesn't work with modules installed with Apptainer, which is now the default
-approach at CSC. Note that [Singularity has been re-branded as
-Apptainer](https://apptainer.org/news/community-announcement-20211130) since the
-beginning of 2022.
-
-If you think that some important package should be included in a module provided
-by CSC, you can send an email to [Service Desk](../support/contact.md).
 
 ## Creating your own Python environments
 
