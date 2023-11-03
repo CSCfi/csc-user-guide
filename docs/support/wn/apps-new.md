@@ -1,5 +1,17 @@
 # Applications
 
+## Molpro 2023.2 is available on Puhti, 31.10.2023
+
+The new [Molpro 2023.2](../../apps/molpro.md) includes new features like
+unrestricted coupled cluster and the PQS geometry optimizer. Check the
+[Recent changes](https://www.molpro.net/manual/doku.php?id=recent_changes)
+for a detailed list of new features and improvements.
+
+## AlphaFold Genetic databases available on Puhti, 20.10.2023
+
+Genetic databases for AlphaFold 2.3.2-1 now available on Puhti. See
+[AlphaFold application page](../../apps/alphafold.md) for details.
+
 ## Schrödinger Maestro 2023.3, 8.9.2023
 
 Schrödinger Maestro version 2023.3 has been installed and set as the default module on

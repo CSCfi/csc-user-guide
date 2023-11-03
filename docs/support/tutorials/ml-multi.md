@@ -70,7 +70,7 @@ that you should now see statistics for more than one GPU.
     #SBATCH --partition=gpu
     #SBATCH --ntasks=1
     #SBATCH --cpus-per-task=20
-    #SBATCH --mem=190G
+    #SBATCH --mem=160G
     #SBATCH --time=1:00:00
     #SBATCH --gres=gpu:v100:2
         
@@ -139,7 +139,7 @@ GPU](https://lumi-supercomputer.github.io/LUMI-training-materials/User-Updates/U
     #SBATCH --nodes=1
     #SBATCH --ntasks-per-node=4
     #SBATCH --cpus-per-task=10
-    #SBATCH --mem=0
+    #SBATCH --mem=320G
     #SBATCH --time=1:00:00
     #SBATCH --gres=gpu:v100:4
     
@@ -177,7 +177,6 @@ GPU](https://lumi-supercomputer.github.io/LUMI-training-materials/User-Updates/U
     srun python3 myprog.py <options>
     ```
 
-The option `--mem=0` means to reserve all memory in that node.
 
 
 #### Multi-node with 2 full nodes, no MPI
@@ -191,7 +190,7 @@ The option `--mem=0` means to reserve all memory in that node.
     #SBATCH --nodes=2
     #SBATCH --ntasks-per-node=1
     #SBATCH --cpus-per-task=40
-    #SBATCH --mem=0
+    #SBATCH --mem=320G
     #SBATCH --time=1:00:00
     #SBATCH --gres=gpu:v100:4
     
@@ -246,7 +245,7 @@ GPUs across 2 nodes in Puhti, that is 4 GPUs on each node, i.e,
     #SBATCH --nodes=2
     #SBATCH --ntasks-per-node=4
     #SBATCH --cpus-per-task=10
-    #SBATCH --mem=0
+    #SBATCH --mem=320G
     #SBATCH --time=1:00:00
     #SBATCH --gres=gpu:v100:4
     
@@ -330,7 +329,7 @@ Example Slurm batch job for running PyTorch DDP on a single full node:
     #SBATCH --partition=gpu
     #SBATCH --ntasks=1
     #SBATCH --cpus-per-task=40
-    #SBATCH --mem=0
+    #SBATCH --mem=320G
     #SBATCH --time=1:00:00
     #SBATCH --gres=gpu:v100:4
     
@@ -391,7 +390,7 @@ Example of running PyTorch DDP on 2 full nodes:
     #SBATCH --nodes=2
     #SBATCH --ntasks-per-node=1
     #SBATCH --cpus-per-task=40
-    #SBATCH --mem=0
+    #SBATCH --mem=320G
     #SBATCH --time=1:00:00
     #SBATCH --gres=gpu:v100:4
     
@@ -566,7 +565,7 @@ PyTorch Lightning Slurm script for single node using all GPUs:
     #SBATCH --nodes=1
     #SBATCH --ntasks-per-node=4
     #SBATCH --cpus-per-task=10
-    #SBATCH --mem=0
+    #SBATCH --mem=320G
     #SBATCH --time=1:00:00
     #SBATCH --gres=gpu:v100:4
     
@@ -626,7 +625,7 @@ PyTorch Lightning Slurm script for two full nodes using all GPUs:
     #SBATCH --nodes=2
     #SBATCH --ntasks-per-node=4
     #SBATCH --cpus-per-task=10
-    #SBATCH --mem=0
+    #SBATCH --mem=320G
     #SBATCH --time=1:00:00
     #SBATCH --gres=gpu:v100:4
     
@@ -694,7 +693,7 @@ Example of running DeepSpeed on a single full node using the
     #SBATCH --partition=gpu
     #SBATCH --ntasks=1
     #SBATCH --cpus-per-task=40
-    #SBATCH --mem=0
+    #SBATCH --mem=320G
     #SBATCH --time=1:00:00
     #SBATCH --gres=gpu:v100:4
     
@@ -760,7 +759,7 @@ separate task for each GPU:
     #SBATCH --nodes=2
     #SBATCH --ntasks-per-node=4
     #SBATCH --cpus-per-task=10
-    #SBATCH --mem=0
+    #SBATCH --mem=320G
     #SBATCH --time=1:00:00
     #SBATCH --gres=gpu:v100:4
     
