@@ -305,6 +305,7 @@ nav:
              - cloud/dbaas/databases.md
              - PostgreSQL: cloud/dbaas/postgresql.md
         - More advanced features: cloud/dbaas/advanced.md
+        - Resizing database instance volume: cloud/dbaas/resize-volume.md
      - Grid computing:
         - The Grid Monitor: cloud/grid/grid-monitor.md
      - CSC Notebooks:
