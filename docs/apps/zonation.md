@@ -31,11 +31,11 @@ Alternatively, if you want to use the Zonation Graphical User Interface (GUI) to
 
 1. Log in to [Puhti web interface](https://puhti.csc.fi).
 2. Open [Desktop app](../computing/webinterface/desktop.md). 
-3. After launcing the Desktop, double-click Zonation icon.
+3. After launching the Desktop, double-click Zonation icon.
 
 ### Example
 
-Here is an example with the Zonation tutorial data .
+Here is an example with the Zonation tutorial data.
 
 
     

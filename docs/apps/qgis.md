@@ -25,7 +25,7 @@ For using QGIS, open it in Puhti web interface:
 
 1. Log in to [Puhti web interface](https://puhti.csc.fi). 
 2. Open [Desktop app](../computing/webinterface/desktop.md). 
-3. After launcing the Desktop, double-click QGIS icon for the newest version.
+3. After launching the Desktop, double-click QGIS icon for the newest version.
 
 If you want to use older version, open `Terminal` (Desktop icon) and start QGIS:
 
@@ -55,7 +55,7 @@ It is also possible to access QGIS functionalities from Python without an graphi
 
 ### Puhti QGIS and Allas
 
-QGIS can __read__ files directly from Allas, either using S3 or SWIFT API. Before starting QGIS set up the connection as described in [Using geospatial files directly from cloud, inc Allas tutorial](../support/tutorials/gis/gdal_cloud.md) and then start QGIS From Host terminal.
+QGIS can __read__ files directly from Allas, either using S3 or SWIFT API. Before starting QGIS set up the connection as described in [Using geospatial files directly from cloud, inc Allas tutorial](../support/tutorials/gis/gdal_cloud.md) and then start QGIS from Terminal.
 
 With large quantities of data in Allas, consider using [virtual rasters](https://research.csc.fi/virtual_rasters). 
 

@@ -47,11 +47,11 @@ saga_cmd -h
 
 #### SAGA GIS Graphical User Interface in Puhti
 
-For using SAGA GIS is to open it in Puhti web interface.
+To use SAGA GIS, open it in Puhti web interface:
 
 1. Log in to [Puhti web interface](https://puhti.csc.fi).
 2. Open [Desktop app](../computing/webinterface/desktop.md). 
-3. After launcing the Desktop, double-click SAGA GIS icon OR open `Host Terminal` (Desktop icon) and start SAGA GIS:
+3. After launching the Desktop, double-click SAGA GIS icon OR open `Terminal` (Desktop icon) and start SAGA GIS:
 
 ```
 module load r-env

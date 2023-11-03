@@ -41,7 +41,7 @@ The easiest option for using SNAP is to open it in Puhti web interface.
 
 1. Log in to [Puhti web interface](https://puhti.csc.fi).
 2. Open [Desktop app](../computing/webinterface/desktop.md). 
-3. After launcing the Desktop, double-click SNAP icon OR open `Host Terminal` (Desktop icon) and start SNAP:
+3. After launching the Desktop, double-click SNAP icon OR open `Terminal` (Desktop icon) and start SNAP:
 
 ```
 module load snap

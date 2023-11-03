@@ -29,7 +29,7 @@ The easiest option for using GRASS GIS is to open it in Puhti web interface.
 
 1. Log in to [Puhti web interface](https://puhti.csc.fi). 
 2. Open [Desktop app](../computing/webinterface/desktop.md). 
-3. After launcing the Desktop, double-click GRASS-GIS icon for the newest version.
+3. After launching the Desktop, double-click GRASS-GIS icon for the newest version.
  
 If you want to use older version, open `Terminal` (Desktop icon) and start GRASS GIS:
 
