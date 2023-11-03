@@ -3,8 +3,8 @@
 Persistent volumes in Rahti are stored in a resilient storage such as CEPH. They are created by using a **PersistentVolumeClaim**. When a
 new claim is made, and **a Pod mounts it**, a new volume space will be created.
 
-!!! Note "Change from previous Rahti version"
-    In Rahti4, a new persisnten volume will remain in **"⏳ Pending"** until any Pod mounts it. This is a change from previous versions of Rahti where the volume was crested right away.
+!!! info "Change from Rahti Beta version"
+    In production Rahti, a new persistent volume will remain in **"⏳ Pending"** until any Pod mounts it. This is a change from Rahti Beta where the volume was crested right away.
 
 There is one storage classes available in Rahti:
 

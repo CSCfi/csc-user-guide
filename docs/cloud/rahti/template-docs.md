@@ -28,10 +28,7 @@ oc new-app --template=httpd-example \
 
 ## Templates
 
-<style>
-.admonition-title { background-color: rgba(255, 0, 0, 0.15) !important; }
-.admonition { background-color: white !important; }
-</style>
-!!! Attention "⚠️ Not all Rahti3 templates have been ported to Rahti4"
+!!! warning
+    Not all Rahti Beta templates have been ported to Rahti.
 
-    The process of adapting and testing the templates to Rahti4 is labor intensive and not in the top of our task list. If you have any special interest on the functionality provided by a Rahti3 template that is missing in Rahti4, please let us know (servicedesk@csc.fi).
+    The process of adapting and testing the templates to Rahti is labor intensive and not in the top of our task list. If you have any special interest on the functionality provided by a Rahti Beta template that is missing in Rahti, please let us know (servicedesk@csc.fi).
