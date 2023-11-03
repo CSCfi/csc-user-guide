@@ -51,7 +51,7 @@ COMSOL with double-clinking its icon (tick the box if you want to receive an ema
 
 Sometimes, you may encounter errors relating to OpenGL rendering during
 the launch. The solution is to force COMSOL to start with software
-rendering from Desktop app `Host terminal` using
+rendering from Desktop app `Terminal` using
 
 ```bash
 module load comsol
