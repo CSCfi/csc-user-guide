@@ -26,7 +26,7 @@ Version on CSC's Servers
 
 !!! info "Pay attention to usage of Nextflow version"
 
-    Please note that nextflow version 23.04.3 only run for the nextflow pipelines build with DSL2 code.
+    Please note that nextflow version 23.04.3 can only be for pipelines built with DSL2
  
 
 ## Usage
