@@ -43,6 +43,9 @@ This manual introduces CSC's Sensitive Data (SD) services. To navigate the user 
   </div>
 </div>
 
+!!! Note
+    SD Desktop and SD Connect undergo regular maintenance on the first Wednesday of every month, as scheduled on our research website: https://research.csc.fi/service-breaks. Please note that occasional urgent maintenance may also be required for technical or security reasons. In such cases, we will notify you via email about the service break.
+
 ## Links to services
 
 We kindly request that users carefully read the manual before proceeding to use the services to ensure a smooth experience. 
