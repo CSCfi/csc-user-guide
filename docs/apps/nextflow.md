@@ -26,7 +26,7 @@ Version on CSC's Servers
 
 !!! info "Pay attention to usage of Nextflow version"
 
-    Please note that nextflow version 23.04.3 can only be for pipelines built with DSL2
+    Please note that nextflow version starting from 23.04.3 onwards can only be for pipelines built with DSL2. You can downgrade to lower versions for workflows that are built with DSL1
  
 
 ## Usage
@@ -36,6 +36,12 @@ In Puhti, Nextflow is activated by loading the nextflow module.
 ```text
 module load nextflow
 ```
+In order to use a specific version
+
+```text
+module load nextflow/22.04.5
+```
+
 For usage help use command:
 ```text
 nextflow -h
@@ -45,5 +51,9 @@ More detailed instructions can be found on [CSC documentation](https://docs.csc.
 ## Manual
 
 *   [Nextflow documentation](https://www.nextflow.io/docs/latest/index.html)
+
+## Support
+
+servicedesk@csc.fi
 
 
