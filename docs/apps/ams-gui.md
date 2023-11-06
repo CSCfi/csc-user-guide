@@ -19,7 +19,7 @@ See [the License section of AMS](ams.md#license).
 Go to [puhti.csc.fi](https://puhti.csc.fi/) using a web browser and login using your CSC user account.
 
 1. From there [launch a Desktop](../../computing/webinterface/desktop/#launching ). 
-2. Open a ```Host Terminal``` and  move to a suitable working directory.
+2. Open a ```Terminal``` and move to a suitable working directory.
 3. Load the AMS module ```module load ams/2022.103```.
 4. Start the input builder ```amsinput``` and construct your job.
 5. Save the job (```File-> Save As ...```).

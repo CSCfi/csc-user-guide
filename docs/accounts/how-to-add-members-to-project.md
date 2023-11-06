@@ -8,22 +8,21 @@ selected project.
 ## Adding members directly
 
 Direct addition is the best method if you have a small number of users to add.
-Only existing users can be added this way.
+Only existing users **from your own home organization** can be added this way.
 
 1. Login to [MyCSC](http://my.csc.fi).
 1. Choose _Projects_ in the navigation menu on the left.
 1. Choose the project you want new persons to join.
-1. Under _Members_, in the _Current_ tab, fill in the username of the first new
-   member you wish to add.
-1. Click the _plus_ button.
-1. Repeat the last two steps for each new member.
+1. Under _Members_, in the _Current_ tab, click Manage.
+1. Search users by name or username and click Add. 
+1. Repeat the last steps for each new member.
 
-A user can be removed from a project by clicking the _X_ button next to the username.
+If you need to remove a member go to Manage and Remove members.
 
 !!! Note
 
     Project members receive notifications when they are added to projects,
-    but no notifications are sent when they are removed.
+    and also when they are removed.
 
 ## Using invitation link
 

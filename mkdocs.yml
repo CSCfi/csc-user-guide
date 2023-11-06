@@ -11,6 +11,21 @@ extra:
     provider: custom
     matomo_site_id: !ENV [MATOMO_SITE_ID, ""]
     matomo_url: !ENV [MATOMO_URL, ""]
+    feedback:
+      title: Do you find this page useful?
+      ratings:
+        - name: "Yes"
+          type: Positive
+          description: Yes! I do find this page useful.
+          note: >-
+            Thank you for your feedback!
+        - name: "No"
+          type: Negative
+          description: No! This page needs to be improved.
+          note: >-
+            Thank you! Your feedback is appreciated.
+      exclude:
+        - ref.md
 
 plugins:
   - tags:
@@ -18,6 +33,7 @@ plugins:
   - search
   - git-revision-date-localized:
       type: date
+      custom_format: "%Y-%m-%dT%H:%M:%S%z" # Used with feedback buttons
       locale: en
       timezone: Europe/Helsinki
       exclude:
@@ -41,6 +57,7 @@ plugins:
         'apps/alpha.md': 'apps/index.md'
         'support/tutorials/env-guide/overview.md': 'support/tutorials/env-guide/index.md'
         # for URL consistency:
+        'sensitive-data.md': 'data/sensitive-data/index.md'
         'applications.md': 'apps/index.md'
         'faq.md': 'support/faq/index.md'
         'tutorials.md': 'support/tutorials/index.md'
@@ -93,6 +110,7 @@ extra_css:
   - assets/stylesheets/code.css
   - assets/stylesheets/content.css
   - assets/stylesheets/dropdown.css
+  - assets/stylesheets/feedback.css
   - assets/stylesheets/footer.css
   - assets/stylesheets/header.css
   - assets/stylesheets/sidebars.css
@@ -106,6 +124,7 @@ extra_javascript:
   - assets/javascripts/dropdown.js
   - assets/javascripts/layout.js
   - assets/javascripts/extra.js
+  - assets/javascripts/feedback.js
 
 nav:
   - Home: index.md
@@ -287,6 +306,7 @@ nav:
              - cloud/dbaas/databases.md
              - PostgreSQL: cloud/dbaas/postgresql.md
         - More advanced features: cloud/dbaas/advanced.md
+        - Resizing database instance volume: cloud/dbaas/resize-volume.md
      - Grid computing:
         - The Grid Monitor: cloud/grid/grid-monitor.md
      - CSC Notebooks:
@@ -334,17 +354,7 @@ nav:
           - S3cmd: data/Allas/using_allas/s3_client.md
           - Web GUI: data/Allas/using_allas/web_client.md
 # data/Allas/using_allas/directory_object_error.md is not linked in this structure
-     - Sensitive data:
-        - data/sensitive-data/index.md
-        - Introduction: data/sensitive-data/intro.md
-        - Accessing SD Services: data/sensitive-data/sd-access.md
-        - Store with SD Connect: data/sensitive-data/sd_connect.md
-        - Analyse with SD Desktop: data/sensitive-data/sd_desktop.md
-        - SD Desktop for secondary use: data/sensitive-data/sd-desktop-audited.md
-#       - SD Apply for secondary use: data/sensitive-data/single-register-submission.md
-        - Publish with Federated EGA: data/sensitive-data/federatedega.md
-#       - SD Apply: data/sensitive-data/sd-apply.md
-#       - Containers: data/sensitive-data/creating_containers.md
+  
 
      - Kaivos database service:
         - data/kaivos/overview.md
@@ -355,6 +365,48 @@ nav:
         - Using kaivos.csc.fi directly from your local computer: data/kaivos/kaivos_remote.md
         - Using Perl MySQL API at CSC: data/kaivos/kaivos_perl.md
         # Python MySQL API at CSC:
+  
+  - Sensitive data:
+      - data/sensitive-data/index.md
+      - Store and analyse:
+        - Start here: data/sensitive-data/sd-access.md
+        - Store with SD Connect: 
+            - data/sensitive-data/sd_connect.md
+            - Login to SD Connect: data/sensitive-data/sd-connect-login.md
+            - Data upload for analysis: data/sensitive-data/sd-connect-upload-for-analysis.md
+            - Data upload for storage and sharing: data/sensitive-data/sd-connect-upload-for-storage-and-sharing.md
+            - Command line interface: data/sensitive-data/sd-connect-command-line-interface.md
+            - Information about data encryption: data/sensitive-data/sd-connect-introduction-to-data-encryption.md
+            - Troubleshooting: data/sensitive-data/sd-connect-troubleshooting.md
+        - Analyse with SD Desktop: 
+            - data/sensitive-data/sd_desktop.md
+            - Login to SD Desktop: data/sensitive-data/sd-desktop-login.md
+            - Create virtual desktop: data/sensitive-data/sd-desktop-create.md
+            - Manage virtual desktop: data/sensitive-data/sd-desktop-manage.md
+            - Access virtual desktop and data: data/sensitive-data/sd-desktop-access.md
+            - Software in virtual desktop: data/sensitive-data/sd-desktop-software.md
+            - Export data: data/sensitive-data/sd-desktop-export.md
+            - Troubleshooting: data/sensitive-data/sd-desktop-troubleshooting.md
+      - Publish and reuse:
+        - Federated EGA: data/sensitive-data/federatedega.md
+        - SD Apply: data/sensitive-data/sd-apply.md
+      - Secondary use of health and social data:
+        - Start here:
+            - Access with Findata permit: data/sensitive-data/findata-permit.md
+            - Access with register permit: data/sensitive-data/single-register-permit.md
+        - Analyse with SD Desktop for secondary use: 
+            - data/sensitive-data/sd-desktop-audited.md
+            - Create virtual desktop: data/sensitive-data/sd-desktop-secondary-create.md
+            - Manage virtual desktop: data/sensitive-data/sd-desktop-secondary-manage.md
+            - Access virtual desktop and data: data/sensitive-data/sd-desktop-secondary-access.md
+            - Export data: data/sensitive-data/sd-desktop-secondary-export.md
+            - Troubleshooting: data/sensitive-data/sd-desktop-secondary-troubleshooting.md
+        - Instructions for registers: data/sensitive-data/single-register-submission.md
+      - Terminology: data/sensitive-data/sd-terminology.md
+          
+          
+  
+  
   - Applications:
      - apps/index.md
      - By discipline: apps/by_discipline.md
@@ -365,3 +417,4 @@ nav:
   - Training material: support/training-material.md
   - Contact: support/contact.md
   - What's new: support/whats-new.md
+

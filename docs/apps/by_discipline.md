@@ -137,6 +137,7 @@
 * [Sen2Cor](sen2cor.md) for atmospheric-, terrain and cirrus correction of the Sentinel-2 products
 * [Sen2mosaic](sen2mosaic.md) for download, preprocessing and mosaicing of Sentinel-2 products
 * [SNAP](snap.md) for remote sensing applications
+* [SOFI3D](sofi3d.md) for 3D finite-difference seismic wave simulation
 * [WhiteboxTools](whiteboxtools.md) an advanced geospatial data analysis platform
 * [Zonation](zonation.md) Spatial conservation prioritization framework
 
