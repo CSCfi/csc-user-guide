@@ -31,12 +31,12 @@ Version on CSC's Servers
 
 ## Usage
 
-In Puhti, Nextflow is activated by loading the nextflow module.
+In Puhti/Mahti, Nextflow is activated by loading nextflow module as below:
 
 ```text
 module load nextflow
 ```
-In order to use a specific version
+Usage of nextflow module with a specific version:
 
 ```text
 module load nextflow/22.04.5
