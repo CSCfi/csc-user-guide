@@ -10,7 +10,7 @@ After creation of a project, the PI can invite additional standard users to the 
 
 * [How to add members to project](../../../../accounts/how-to-add-members-to-project)
 
-**Note the special restrictions on project members for projects with access to Helmi!** During the pilot phase, access is limited to academic non-commercial use for users affiliated with a Finnish higher education institution or research organisation. The project PI is responsible for ensuring that the [Helmi Terms of Use](https://a3s.fi/FiQCI/Helmi-Terms-of-Use-2022.pdf) are followed.
+The project PI is responsible for ensuring that the [Helmi Terms of Use](https://a3s.fi/FiQCI/Helmi-Terms-of-Use-2022.pdf) are followed.
 
 ## Connecting to LUMI
 
