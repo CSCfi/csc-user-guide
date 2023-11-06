@@ -1,7 +1,7 @@
 
 This manual introduces CSC's Sensitive Data (SD) services. To navigate the user guide, click on the topics in the boxes or the left-hand side of the page in the navigation bar. Next, browse the section using the table of contents on the right side of each page. The search tool is also available. SD Desktop and SD Connect undergo regular maintenance on the first Wednesday of every month, as scheduled on our research website: https://research.csc.fi/service-breaks. Please note that occasional urgent maintenance may also be required for technical or security reasons. In such cases, we will notify you via email.
 
-!!! Support
+!!! info "Support"
     **Do you have any questions? Would you like to discuss a specific project?** Don't hesitate to [contact us](../../support/contact.md) (subject: Sensitive Data) or join the [CSC Research User Support Coffee - Every Wednesday at 14:00](https://ssl.eventilla.com/usersupportcoffee). Our team is here to help, and we offer direct support. 
     
   
