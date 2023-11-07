@@ -17,7 +17,7 @@ And  source openrc script file:
 source <project_name_here>-openrc.sh
 ```
 
-You will be prompted to enter your password. See [install OpenStack client](https://docs.csc.fi/cloud/pouta/install-client/) for other Operating Systems.
+You will be prompted to enter your password. See [install OpenStack client](install-client.md) for other Operating Systems.
 
 List the images/snapshots including the disk format that are available in your OpenStack project:
 
