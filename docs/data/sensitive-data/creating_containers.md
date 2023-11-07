@@ -232,7 +232,7 @@ In order to use the apptainer container you have created you need first download
 After that, open a Linux terminal in the SD Desktop. In the terminal, move the Apptainer file to the location you want to use it. In this example that could be done with command:
 
 ```text
-cp /home/kkayttaj/Projects/SD\ connect/project_2000123/2000123_apptainer_sd/sd_tools_1.sif ./
+cp /home/kkayttaj/Projects/SD-connect/project_2000123/2000123_apptainer_sd/sd_tools_1.sif ./
 ```
 
 Now we could execute for example the samtools command that is installed in the container.
