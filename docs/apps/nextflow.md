@@ -16,9 +16,9 @@ Versions available on CSC's servers
 
 * Puhti: 21.10.6, 22.04.5, 22.10.1, 23.04.3
 * Mahti: 22.05.0-edge
+* LUMI: 22.10.4
 
 !!! info "Pay attention to usage of Nextflow version"
-
     Please note that the nextflow version starting from 23.04.3 can only be
     used for pipelines built with DSL2. You can downgrade to lower versions
     for DSL1-compliant pipelines.
@@ -30,7 +30,15 @@ Nextflow is released under the
 
 ## Usage
 
-In Puhti/Mahti, Nextflow is activated by loading `nextflow` module as below:
+!!! info "Nextflow on LUMI"
+    To access CSC modules on LUMI, remember to first load the CSC module tree
+    into use with
+
+    ```bash
+    module use /appl/local/csc/modulefiles
+    ```
+
+Nextflow is activated by loading `nextflow` module as below:
 
 ```bash
 module load nextflow
