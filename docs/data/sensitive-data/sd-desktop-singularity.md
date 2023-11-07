@@ -1,18 +1,20 @@
-# Utilizing Singularity containers in SD-Desktop
+# Utilizing Apptainer containers in SD-Desktop
 
 As the SD Desktop is not directly connected internet, you can't use tools like Git, Conda or Pip to install new software there.
-Instead, you can use Singularity [Singularity](https://sylabs.io/guides/3.8/user-guide/) software container tool to add new software to your SD Desktop environment. However, you have to first build or download a Singularity container elsewhere, and then use _Allas/SD Connect_ to import the container to SD Desktop.
+Instead, you can use [Apptainer](https://apptainer.org/docs/user/latest/introduction.html) software container tool to add new software to your SD Desktop environment. However, you have to first build or download an Apptainer container elsewhere, and then use _Allas/SD Connect_ to import the container to SD Desktop.
+(Note: Apptainer is a fork on Singularty container system, so in many accaciosn instructions may refrer to Singularity. In most cases you can just replace Singularity with Apptainer).
 
-If you have root access to a machine with singularity, you can build your own container that contains exactly the software and
-datasets you need. Many software are also available as ready-made Singularity containers or as Docker containers that can be converted into
-Singularity containers. In this document we show how to import a ready-made Singularity container from a public repository to SD Desktop.
+
+If you have root access to a machine with Apptainer, you can build your own container that contains exactly the software and
+datasets you need. Many software are also available as ready-made Apptainer containers or as Docker containers that can be converted into
+Appainer containers. In this document we show how to import a ready-made Apptaner container from a public repository to SD Desktop.
 
 
 ## Importing ready-made container through Puhti
 
 
 In the example below we import [BETA Binding and Expression Target Analysis](https://cistrome.org/BETA/index.html) software to SD Desktop.
-This tool is available as a ready-made Singularity container in [Biocontainers](https://biocontainers.pro/registry) repository. You can find the tool
+This tool is available as a ready-made Apptainer container in [Biocontainers](https://biocontainers.pro/registry) repository. You can find the tool
 by searching for _Binding and Expression Target Analysis_ in the repository. When you open the detailed information of the resulting _cistrome_beta_ container, 
 you can see that the singularity module can be downloaded from URL: <https://depot.galaxyproject.org/singularity/cistrome_beta:1.0.7--py27heb79e2c_4>
 
@@ -36,7 +38,7 @@ unset XDG_RUNTIME_DIR
 Then download a local copy of the Beta container with command
 
 ```text
-singularity pull beta.sif https://depot.galaxyproject.org/singularity/cistrome_beta:1.0.7--py27heb79e2c_4
+apptainer pull beta.sif https://depot.galaxyproject.org/singularity/cistrome_beta:1.0.7--py27heb79e2c_4
 ```
 
 This creates a new singularity container file, `beta.sif`. From the home page of BETA software 
@@ -50,8 +52,6 @@ Then we upload these two files to Allas. In this example we use project _2012345
 
 ```text
 module load allas
-module load biokit
-module load biopythontools
 allas-conf project_2012345
 a-put --sdx beta.sif -b 2012345_beta
 a-put --sdx BETA_test_data.zip -b 2012345_beta
@@ -61,13 +61,13 @@ The commands above store the files into bucket `2012345_beta` in Allas. `a-put` 
 
 ## Using a container in SD desktop
 
-Once the `.sif` formatted singularity container file and the sample data has been uploaded to Allas, we can copy 
-them to SD Desktop. To do this open _Data Gateway_, in your session SD Desktop. After that copy the data to local disk in SD Desktop.
-You can do that using the graphical tools on the Desktop, or by using Linux command line: Open a Linux terminal in the SD-Desktop. In the terminal, move the singularity file and test data to your current locations:
+Once the `.sif` formatted Apptainer container file and the sample data has been uploaded to Allas, we can copy 
+them to SD Desktop. To do this open _DataGateway_, in your session SD Desktop. After that copy the data to local disk in SD Desktop.
+You can do that using the graphical tools on the Desktop, or by using Linux command line: Open a Linux terminal in the SD-Desktop. In the terminal, move the Apptainer file and test data to your current locations:
 
 ```text
-cp Projects/SD\ connect/project_201234/2012345_beta/beta.sif ./
-cp Projects/SD\ connect/project_201234/2012345_beta/BETA_test_data.zip ./
+cp Projects/SD-connect/project_201234/2012345_beta/beta.sif ./
+cp Projects/SD-connect/project_201234/2012345_beta/BETA_test_data.zip ./
 ```
 
 Unzip the test dataset:
@@ -76,18 +76,18 @@ Unzip the test dataset:
 unzip BETA_test_data.zip
 ```
 
-Now you can run BETA through singularity command. 
+Now you can run BETA through _apptainser_ command. 
 For example the _help_ of command _BETA minus_ is shown with command:
 
 ```text
-singularity exec beta.sif BETA minus -h
+apptainer exec beta.sif BETA minus -h
 ```
 
 And the analysis with sample data in directory `BETA_test_data` can
 be executed with commands like:
 
 ```text
-singularity exec beta.sif BETA minus -p BETA_test_data/3656_peaks.bed --bl -g hg19
+apptainer exec beta.sif BETA minus -p BETA_test_data/3656_peaks.bed --bl -g hg19
 ```
 
 In this example the results will be written to directory `BETA_OUTPUT`. 
