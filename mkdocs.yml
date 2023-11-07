@@ -247,6 +247,7 @@ nav:
          - cloud/rahti/storage/index.md
          - Persistent volumes: cloud/rahti/storage/persistent.md
          - Ephemeral storage: cloud/rahti/storage/ephemeral.md
+         - Object storage: cloud/rahti/storage/objectstorage.md
          - Expand a volume: cloud/rahti/storage/expand-volumes.md
        - Images:
          - cloud/rahti/images/overview.md
