@@ -5,55 +5,63 @@ tags:
 
 # Nextflow
 
-## Description
-
-Nextflow is a scientific workflow management system for creating scalable, portable, and reproducible workflows. 
+Nextflow is a scientific workflow management system for creating scalable,
+portable, and reproducible workflows. 
 
 [TOC]
 
-## License
-
-Nextflow is released under the [Apache 2.0 license](https://github.com/nextflow-io/nextflow/blob/master/COPYING).
-
 ## Available 
 
-Version on CSC's Servers
+Versions available on CSC's servers
 
-* Puhti: 21.10.6, 22.04.5, 22.10.1  and  23.04.3
-* Mahtii: 22.05.0-edge
-  <br>
-
+* Puhti: 21.10.6, 22.04.5, 22.10.1, 23.04.3
+* Mahti: 22.05.0-edge
 
 !!! info "Pay attention to usage of Nextflow version"
 
-    Please note that the nextflow version starting from 23.04.3 can only be used for pipelines built with DSL2. You can downgrade to lower versions for  DSL1-compliant pipelines.
- 
+    Please note that the nextflow version starting from 23.04.3 can only be
+    used for pipelines built with DSL2. You can downgrade to lower versions
+    for DSL1-compliant pipelines.
+
+## License
+
+Nextflow is released under the
+[Apache 2.0 license](https://github.com/nextflow-io/nextflow/blob/master/COPYING).
 
 ## Usage
 
-In Puhti/Mahti, Nextflow is activated by loading nextflow module as below:
+In Puhti/Mahti, Nextflow is activated by loading `nextflow` module as below:
 
-```text
+```bash
 module load nextflow
 ```
 
-Usage of nextflow module with a specific version:
+Example of loading `nextflow` module with a specific version:
 
-```text
+```bash
 module load nextflow/22.04.5
 ```
 
-For usage help use command:
-```text
+For usage help, use command:
+
+```bash
 nextflow -h
 ```
-More detailed instructions can be found on [CSC nextflow documentation](../support/tutorials/nextflow-puhti.md)
 
-## Manual
+More detailed instructions can be found in
+[CSC's Nextflow tutorial](../support/tutorials/nextflow-puhti.md).
 
-* [Nextflow home page documentation](https://www.nextflow.io/docs/latest/index.html)
+## References
 
-## Support
+If you use Nextflow in your work, please cite:
 
-servicedesk@csc.fi
+Di Tommaso, P., Chatzou, M., Floden, E. et al. Nextflow enables reproducible
+computational workflows. Nat. Biotechnol. 35, 316–319 (2017).
+<https://doi.org/10.1038/nbt.3820>
 
+## More information
+
+* [Nextflow documentation](https://www.nextflow.io/docs/latest/index.html)
+* [Running Nextflow on Puhti](../support/tutorials/nextflow-puhti.md)
+* [High-throughput Nextflow workflow using HyperQueue](../support/tutorials/nextflow-hq.md)
+* [Contact CSC Service Desk for technical support](../support/contact.md)
