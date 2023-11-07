@@ -29,8 +29,9 @@ For the power provisioning of the node hosting the virtual machine, there are tw
 
 ### Data redundancy
 
-Within each virtual machine, the customer data is stored in a root disk (R) and possibly in an ephemeral disk (E).
-For customer data, there are three possible values of redundancy.
+Within each virtual machine, the customer data is stored in a root disk (R) and possibly in an [ephemeral disk (E)](ephemeral-storage.md).
+For customer data, there are three possible values of redundancy.  
+We also offer the possibility to store the data in a [persistent volume (FULL)](persistent-volumes.md)
 
 * ![](/img/circle_icons/r0.svg)![](/img/circle_icons/e0.svg) **NONE** - The disk is stored only in the node running the virtual machine and it is not backed up (RAID-0 or LVM striping). **A fault in one of the disks of the node might corrupt the data of the virtual machine**. Moreover, **a fault in the node hosting the virtual machine might make the virtual machine not usable until the fault is fixed**.
 * ![](/img/circle_icons/r50.svg)![](/img/circle_icons/e50.svg) **BASIC** - The disk is stored only in the node running the virtual machine and it is mirrored within the same node (RAID-1). A fault in a single disk of the node does not compromise the data of the virtual machine. **Simultaneous faults in multiple disks of the node might corrupt the data of the virtual machine**. Moreover, **a fault in the node hosting the virtual machine might make the virtual machine not usable until the fault is fixed**.
@@ -69,7 +70,7 @@ flavors.
 |--- |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 | hpc.5.16core    | 16 | 58  | 80 | 0 | 80 | 3.6|![](/img/circle_icons/p100.svg)![](/img/circle_icons/r100.svg)![](/img/circle_icons/n100.svg)| 20 |
 | hpc.5.32core    | 32 | 116 | 80 | 0 | 80 | 3.6|![](/img/circle_icons/p100.svg)![](/img/circle_icons/r100.svg)![](/img/circle_icons/n100.svg)| 40 |
-| hpc.5.64 core   | 64 | 232 | 80 | 0 | 80 | 3.6|![](/img/circle_icons/p100.svg)![](/img/circle_icons/r100.svg)![](/img/circle_icons/n100.svg)| 80 |
+| hpc.5.64core   | 64 | 232 | 80 | 0 | 80 | 3.6|![](/img/circle_icons/p100.svg)![](/img/circle_icons/r100.svg)![](/img/circle_icons/n100.svg)| 80 |
 | hpc.5.128core   | 128| 464 | 80 | 0 | 80 | 3.6|![](/img/circle_icons/p100.svg)![](/img/circle_icons/r100.svg)![](/img/circle_icons/n100.svg)| 160 |
 | hpc.4.5core     | 5  | 21  | 80 | 0 | 80 | 4.2   |![](/img/circle_icons/p0.svg)![](/img/circle_icons/r100.svg)![](/img/circle_icons/n100.svg)| 6   |
 | hpc.4.10core    | 10 | 42  | 80 | 0 | 80 | 4.2   |![](/img/circle_icons/p0.svg)![](/img/circle_icons/r100.svg)![](/img/circle_icons/n100.svg)| 12  |
@@ -129,7 +130,7 @@ billing unit coefficients.
 |--- |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 | hpc.5.16core    | 16 | 58  | 80 | 0 | 80 | 3.6|![](/img/circle_icons/p100.svg)![](/img/circle_icons/r100.svg)![](/img/circle_icons/n100.svg)| 22.5 |
 | hpc.5.32core    | 32 | 116 | 80 | 0 | 80 | 3.6|![](/img/circle_icons/p100.svg)![](/img/circle_icons/r100.svg)![](/img/circle_icons/n100.svg)| 45 |
-| hpc.5.64 core   | 64 | 232 | 80 | 0 | 80 | 3.6|![](/img/circle_icons/p100.svg)![](/img/circle_icons/r100.svg)![](/img/circle_icons/n100.svg)| 90 |
+| hpc.5.64core   | 64 | 232 | 80 | 0 | 80 | 3.6|![](/img/circle_icons/p100.svg)![](/img/circle_icons/r100.svg)![](/img/circle_icons/n100.svg)| 90 |
 | hpc.5.128core   | 128| 464 | 80 | 0 | 80 | 3.6|![](/img/circle_icons/p100.svg)![](/img/circle_icons/r100.svg)![](/img/circle_icons/n100.svg)| 180 |
 | hpc.fullnode.haswell | 46 | 242 | 80 | 0 | 80 | 5.2 |![](/img/circle_icons/p100.svg)![](/img/circle_icons/r100.svg)![](/img/circle_icons/n100.svg)| 72  |
 | hpc.3.28core         | 28 | 120 | 80 | 0 | 80 | 4.2 |![](/img/circle_icons/p100.svg)![](/img/circle_icons/r100.svg)![](/img/circle_icons/n100.svg)| 48  |

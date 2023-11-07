@@ -3,7 +3,7 @@
 These instructions are for data controllers who have issued a data permit for a research project and need to make their data available on SD Desktop.
 
 !!! Note 
-    Before any data can be made available for researchers in the Sensitive Data services, you need to confirm that the necessary legal agreements are in place between the data controller and CSC. The first register data set must always be submitted in collaboration with the CSC Sensitive Data (SD) services team. You can start a conversation with the SD services team by sending a message to the CSC service desk (servicedesk@csc.fi, subject: Sensitive Data).
+    Before any data can be made available for researchers in the Sensitive Data services, you need to confirm that the necessary legal agreements are in place between the data controller and CSC. The first register data set must always be submitted in collaboration with the CSC Sensitive Data (SD) services team. You can start a conversation with the SD services team by sending a message to the [CSC Service Desk](../../support/contact.md) (subject: Sensitive Data).
 
 After the process is established for the first time, the representative of the data controller can manage the following data submissions on their own. Help is always available via the service desk. Below are the instructions for the data submission and access control.
 
@@ -11,7 +11,7 @@ After the process is established for the first time, the representative of the d
 
 ### Step 1: CSC account and organizational profile in SD Apply
 
-Create [CSC account](../../accounts/how-to-create-new-user-account.md) by logging in with Haka or Virtu credentials at the [My CSC portal](https://my.csc.fi/). If you don't have Haka or Virtu credentials, you need to request an account from the service desk (servicedesk@csc.fi, subject: Sensitive Data).
+Create [CSC account](../../accounts/how-to-create-new-user-account.md) by logging in with Haka or Virtu credentials at the [My CSC portal](https://my.csc.fi/). If you don't have Haka or Virtu credentials, you need to request an account from [CSC Service Desk](../../support/contact.md) (subject: Sensitive Data).
 
 When you have created an CSC account, you can log in to [SD Apply service](https://sd-apply.csc.fi/).
 
@@ -41,7 +41,7 @@ Next, you can log in to the [user administration portal](https://admin.sd.csc.fi
 
 With this information, the CSC service desk will make the necessary preparations for data submission from the CSC side.
 
-After the service desk has confirmed that the preparations are done, you can test the SFTP connection. This can be done with the following command (replace *username(a)org.fi* with your credentials and *X:\folder\filename.key* with the location of your SSH key):
+After the service desk has confirmed that the preparations are done, you can test the SFTP connection. This can be done with the following command (replace `username@org.fi` with your credentials and `X:\folder\filename.key` with the location of your SSH key):
 
 ```
 sftp -i X:\folder\filename.key -P 50527 username@org.fi@porin.lega.csc.fi
@@ -52,11 +52,11 @@ exit
 
 Before the data transfer, the data must be encrypted with a [CSC public key](https://admin.sd.csc.fi/publickey/?instance=single%20registry). CSC provides a convenience tool that encrypts and uploads data automatically. This SDA Uploader tool is available on [GitHub](https://github.com/CSCfi/sda-uploader/releases), and has both graphical user interface (GUI) and command line (CLI) options for Linux, Mac and Windows.
 
-The encrypted data is sent via SFTP to a directory which should be named according to the journal number of the data permit. The final dataset ID will be a combination of the organization’s identifier and the journal number (e.g. org.fi/example_dataset_123). The file to be uploaded should also be named with the journal number.
+The encrypted data is sent via SFTP to a directory which should be named according to the journal number of the data permit. The final dataset ID will be a combination of the organization’s identifier and the journal number (e.g. `org.fi/example_dataset_123`). The file to be uploaded should also be named with the journal number.
 
-**Option 1: With the GUI tool**, you add the [CSC public key](https://admin.sd.csc.fi/publickey/?instance=single%20registry), the file you want to upload, and your SSH key (SFTP key) to the interface. You also need to fill in your username (*username(a)org.fi*) and the SFTP server: ```porin.lega.csc.fi:50527```
+**Option 1: With the GUI tool**, you add the [CSC public key](https://admin.sd.csc.fi/publickey/?instance=single%20registry), the file you want to upload, and your SSH key (SFTP key) to the interface. You also need to fill in your username (`username@org.fi`) and the SFTP server: `porin.lega.csc.fi:50527`
 
-**Option 2: With the CLI tool**, you add the following command to the command line (replace *example_dataset_123* with the journal number, *username(a)org.fi* with your credentials, and *X:\folder\filename.key* with the location of your SSH key):
+**Option 2: With the CLI tool**, you add the following command to the command line (replace `example_dataset_123` with the journal number, `username@org.fi` with your credentials, and `X:\folder\filename.key` with the location of your SSH key):
 
 ```
 sdacli example_dataset_123 -host porin.lega.csc.fi -p 50527 -u username@org.fi -i X:\folder\filename.key -pub registry.pub
@@ -80,7 +80,7 @@ When a new dataset you are associated with is uploaded to CSC, you will receive 
 
 As a data access controller, you receive email notifications each time when an applicant applies for data access to the dataset you are associated with.
 
-To start processing applications, follow the link in your email or log in directly to SD Apply at <https://sd-apply.csc.fi/>. Login to SD Apply is possible either with user identity federation systems (Haka or Virtu login) or with CSC account.
+To start processing applications, follow the link in your email or log in directly to [SD Apply](https://sd-apply.csc.fi/). Login to SD Apply is possible either with user identity federation systems (Haka or Virtu login) or with CSC account.
 
 [![SD Apply login page](images/apply/apply_login.png)](images/apply/apply_login.png)
 
