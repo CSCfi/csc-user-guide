@@ -16,7 +16,7 @@ Appainer containers. In this document we show how to import a ready-made Apptane
 In the example below we import [BETA Binding and Expression Target Analysis](https://cistrome.org/BETA/index.html) software to SD Desktop.
 This tool is available as a ready-made Apptainer container in [Biocontainers](https://biocontainers.pro/registry) repository. You can find the tool
 by searching for _Binding and Expression Target Analysis_ in the repository. When you open the detailed information of the resulting _cistrome_beta_ container, 
-you can see that the singularity module can be downloaded from URL: <https://depot.galaxyproject.org/singularity/cistrome_beta:1.0.7--py27heb79e2c_4>
+you can see that the Singularity module can be downloaded from URL: <https://depot.galaxyproject.org/singularity/cistrome_beta:1.0.7--py27heb79e2c_4>
 
 As we don't need to build the container from scratch, we can use [puhti.csc.fi](../../computing/index.md) server to download the container
 image and push it to Allas.
