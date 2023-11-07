@@ -157,7 +157,7 @@ New version of samtools could be installed with command:
 
 ```text
 apt install samtools
-``
+```
 
 Pip can be used to add Python modules:
 
