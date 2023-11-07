@@ -47,7 +47,7 @@ The list is not complete and there are small diffenreces between different linux
 
 ## Adding software
 
-As SD desktop virtual desktops are isolated from internet, installing additional software and libraries to your virtual desktop is not straight forward. The lack of network connection means that you can't use installation tools like _git_, _coda_, _cpan_ or _pip_ in the normal fashion, as they are dependent on external repositories. Further, SD Desktop users can't do any operation that needs superuser access. Adding extra software is possible, but it requires that the installation processes is converted into files that can be uploaded to SD Connect and from there copied to your SD Desktop environment for installation and usage.
+As SD desktop virtual machines are isolated from internet, installing additional software and librariesis not straight forward. The lack of network connection means that you can't use installation tools like _git_, _coda_, _cpan_ or _pip_ in the normal fashion, as they are dependent on external repositories. Further, SD Desktop users can't do any operation that needs superuser access. Adding extra software is possible, but it requires that the installation processes is converted into files that can be uploaded to SD Connect and from there copied to your SD Desktop environment for installation and usage.
 
 In general, we recommend using Apptainer containers for importing the software you need, but apptainer is the only option.
 
