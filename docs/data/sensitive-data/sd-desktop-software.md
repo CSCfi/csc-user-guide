@@ -16,7 +16,7 @@ The list is not complete and there are small diffenreces between different linux
    - [LibreOffice](https://en.wikipedia.org/wiki/LibreOffice)
 
    ### Programming
-  - go
+  - [go](https://go.dev/)
   - Python3 including packages: tensorflow, nltk, spacy, scikit-learn, seaborn, plotly, bokeh, pydot, xgboost, lightgbm, catboost, eli5, torch, keras, dist-keras, elephas, gensim, scrapy, beautifulsoup4, numpy, scipy, pandas, statsmodels, matplotlib, pyfuse3, crypt4gh, trio, httpx, qrcode
   - R / RStudio Server
      - Matching the r-env-singularity/4.0.5 module on Puhti (R 4.0.5 + RStudio Server 1.4.1106, Bioconductor 3.12)
@@ -28,21 +28,21 @@ The list is not complete and there are small diffenreces between different linux
      - R + RStudio Server versions matched with Puhti r-env-singularity module (R 4.0.5 + RStudio Server 1.4.1106, MRAN, Bioconductor 3.12)  
 
    ### Workflow engines:
-   - Nextflow
-   - Snakemake
+   - [Nextflow](https://www.nextflow.io/)
+   - [Snakemake](https://snakemake.readthedocs.io/en/stable/)
 
    ### Software containers
-   - Apptainer
-   - Podman (Only in Ubuntu machines)
-
+   - [Apptainer](https://apptainer.org/)
+   - [Podman](https://podman.io/) Only in Ubuntu machines.
+   
    ### Scientific Software
    - plink
    - samtools
    - minimap2
 
    ### Terminals and interfaces
-   - Byobu
-   - Jupyter
+   - [Byobu](https://www.byobu.org/)
+   - [Jupyter](https://jupyter.org/)
 
 
 ## Adding software
