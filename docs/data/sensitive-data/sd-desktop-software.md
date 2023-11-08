@@ -17,8 +17,8 @@ The list is not complete and there are small diffenreces between different linux
 
    ### Programming
   - [go](https://go.dev/)
-  - *Python3* including packages: tensorflow, nltk, spacy, scikit-learn, seaborn, plotly, bokeh, pydot, xgboost, lightgbm, catboost, eli5, torch, keras, dist-keras, elephas, gensim, scrapy, beautifulsoup4, numpy, scipy, pandas, statsmodels, matplotlib, pyfuse3, crypt4gh, trio, httpx, qrcode
-  - *R / RStudio Server*
+  - **Python3** including packages: tensorflow, nltk, spacy, scikit-learn, seaborn, plotly, bokeh, pydot, xgboost, lightgbm, catboost, eli5, torch, keras, dist-keras, elephas, gensim, scrapy, beautifulsoup4, numpy, scipy, pandas, statsmodels, matplotlib, pyfuse3, crypt4gh, trio, httpx, qrcode
+  - **R / RStudio Server**
      - Matching the r-env-singularity/4.0.5 module on Puhti (R 4.0.5 + RStudio Server 1.4.1106, Bioconductor 3.12)
      - 1000+ pre-installed R packages (versions available on Apr 20, 2021)
      - Intel® oneAPI Math Kernel Library (oneMKL)
