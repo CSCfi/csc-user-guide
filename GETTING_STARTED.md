@@ -338,7 +338,7 @@ cd csc-user-guide/
 Create the Conda environment (if not created yet):
 
 ```bash
-conda env create -f docs/support/tutorials/conda/conda-docs-env-1.2.yaml
+conda env create -f docs/support/tutorials/conda/conda-docs-env-freeze.yaml
 ```
 
 Activate the environment:
