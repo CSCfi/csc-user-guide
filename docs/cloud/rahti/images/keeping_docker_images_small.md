@@ -35,28 +35,22 @@ RUN apt update && \
 * Use multi stage builds (This feature was introduced in docker v17.05). The idea behind multi stage builds is to have several `FROM` commands in the same `Dockerfile`, each `FROM` starts a new stage in the build and does not carry the files from the previous stage, but allows copying files from the previous stages. The pattern used here is, to build the application in the first stage, and then in the second stage copy only the compiled application, leaving behind the sources and other compilation sub-products that we do not need to run the application. For example:
 
 ```Dockerfile
-FROM golang:1.7.3
-WORKDIR /go/src/github.com/alexellis/href-counter/
-RUN go get -d -v golang.org/x/net/html
-COPY app.go .
-RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o app .
+FROM golang:1.21
+WORKDIR /src
 
-FROM alpine:latest
-RUN apk --no-cache add ca-certificates
-WORKDIR /root/
-COPY --from=0 /go/src/github.com/alexellis/href-counter/app .
-CMD ["./app"]
+RUN echo 'package main\n\
+\nimport "fmt"\nfunc main() {\nfmt.Println("hello, world")\n}' >main.go
+
+RUN go build -o /bin/hello ./main.go && cat main.go
+
+FROM scratch
+COPY --from=0 /bin/hello /bin/hello
+CMD ["/bin/hello"]
 ```
 
 The example was taken from the [Use multi-stage builds](https://docs.docker.com/develop/develop-images/multistage-build/) article in Docker's documentation.
 
-* Use [docker squash](https://github.com/jwilder/docker-squash). Docker squash is a user made tool to combine all layers that adds files into a single one:
-
-```sh
-docker save b7ec51bbc38f | sudo docker-squash -t squash -verbose | docker load
-```
-
-For more information, please check the documentation in the repository.
+* Use [docker build --squash](https://docs.docker.com/engine/reference/commandline/build/#squash). Docker will squash the image into a single layer. This means that if your `Dockerfile` produces multiple layers modifying the same files, only the final state of the files will be stored. Similarly, if a file is created in one layer and later deleted in another, the file will not be stored in the image.
 
 ## Use a small base image
 
