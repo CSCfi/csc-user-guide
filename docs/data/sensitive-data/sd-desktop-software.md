@@ -36,9 +36,9 @@ The list is not complete and there are small diffenreces between different linux
    - [Podman](https://podman.io/) Only in Ubuntu machines.
    
    ### Scientific Software
-   - plink
-   - samtools
-   - minimap2
+   - [Plink 1.9](https://www.cog-genomics.org/plink/)
+   - [Samtools 1.8](http://www.htslib.org/)
+   - [Minimap2 2.26](https://github.com/lh3/minimap2)
 
    ### Terminals and interfaces
    - [Byobu](https://www.byobu.org/)
