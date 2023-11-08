@@ -15,7 +15,7 @@ A Python program called _MkDocs_ is used to generate the Docs CSC website from d
 
 #### Installation
 
-1. Download a minimal installer for Conda, called _Miniconda_, from [docs.conda.io/en/latest/miniconda.html](https://docs.conda.io/en/latest/miniconda.html). Scroll down to _Windows installers_ and on the row _Python 3.8_, click the hyperlink "Miniconda3 Windows 64-bit".
+1. Download a minimal installer for Conda, called _Miniconda_, from [docs.conda.io/en/latest/miniconda.html](https://docs.conda.io/projects/miniconda/en/latest/). Scroll down to _Windows installers_ and on the row _Python 3.8_, click the hyperlink "Miniconda3 Windows 64-bit".
 
     ![Windows installers - Miniconda](docs/img/windows/miniconda_windows_installers.png)
 
