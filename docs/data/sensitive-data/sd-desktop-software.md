@@ -41,7 +41,7 @@ The list is not complete and there are small diffenreces between different linux
    - [Minimap2 2.26](https://github.com/lh3/minimap2)
 
    ### Terminals and interfaces
-   - [Byobu](https://www.byobu.org/)
+   - [Byobu](https://www.byobu.org/) (Only in Ubuntu machines.)
    - [Jupyter](https://jupyter.org/)
 
 
