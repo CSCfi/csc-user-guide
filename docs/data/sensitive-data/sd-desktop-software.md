@@ -12,10 +12,10 @@ However, the virtual desktop can also become a versatile research workspace desi
 Below we list some of the most commonly used tools that are by default installed in SD Desktop machines.
 The list is not complete and there are small diffenreces between different linux flavours.
 
-   ### Office tools:
+### Office tools:
    - [LibreOffice](https://en.wikipedia.org/wiki/LibreOffice)
 
-   ### Programming
+### Programming
   - [go](https://go.dev/)
   - [Python3](./tutorials/sd-pythonlibs.md) including packages: tensorflow, nltk, spacy, scikit-learn, seaborn, plotly, bokeh, pydot, xgboost, lightgbm, catboost, eli5, torch, keras, dist-keras, elephas, gensim, scrapy, beautifulsoup4, numpy, scipy, pandas, statsmodels, matplotlib, pyfuse3, crypt4gh, trio, httpx, qrcode
   - [R / RStudio Server](./sd-desktop-access.md#accessing-rstudio)
@@ -27,20 +27,20 @@ The list is not complete and there are small diffenreces between different linux
      - TensorFlow (used with R TensorFlow back-end)
      - R + RStudio Server versions matched with Puhti r-env-singularity module (R 4.0.5 + RStudio Server 1.4.1106, MRAN, Bioconductor 3.12)  
 
-   ### Workflow engines:
+### Workflow engines:
    - [Nextflow](https://www.nextflow.io/)
    - [Snakemake](https://snakemake.readthedocs.io/en/stable/)
 
-   ### Software containers
+### Software containers
    - [Apptainer](https://apptainer.org/)
    - [Podman](https://podman.io/) Only in Ubuntu machines.
    
-   ### Scientific Software
+### Scientific Software
    - [Plink 1.9](https://www.cog-genomics.org/plink/)
    - [Samtools 1.8](http://www.htslib.org/)
    - [Minimap2 2.26](https://github.com/lh3/minimap2)
 
-   ### Terminals and interfaces
+### Terminals and interfaces
    - [Byobu](https://www.byobu.org/) (Only in Ubuntu machines.)
    - [Jupyter](https://jupyter.org/)
 
