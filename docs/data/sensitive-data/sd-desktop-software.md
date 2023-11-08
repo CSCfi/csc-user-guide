@@ -12,7 +12,7 @@ However, the virtual desktop can also become a versatile research workspace desi
 Below we list some of the most commonly used tools that are by default installed in SD Desktop machines.
 The list is not complete and there are small diffenreces between different linux flavours.
 
-### Office tools:
+### Office tools
    - [LibreOffice](https://en.wikipedia.org/wiki/LibreOffice)
 
 ### Programming
@@ -27,7 +27,7 @@ The list is not complete and there are small diffenreces between different linux
      - TensorFlow (used with R TensorFlow back-end)
      - R + RStudio Server versions matched with Puhti r-env-singularity module (R 4.0.5 + RStudio Server 1.4.1106, MRAN, Bioconductor 3.12)  
 
-### Workflow engines:
+### Workflow engines
    - [Nextflow](https://www.nextflow.io/)
    - [Snakemake](https://snakemake.readthedocs.io/en/stable/)
 
