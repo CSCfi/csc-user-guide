@@ -4,14 +4,19 @@
 
     Please read this page carefully!
 
-This tutorial contains **all the information you need** to get started with using CSC services. 
+This tutorial contains **all the information you need** to get started with using CSC services.
+
+The easiest way for a student is to **create a student project**.
 
 ## Project Details
 
 - Student project is access to **a fixed amount of resources** for **a fixed period of time** for [selected CSC services](#available-services).
 - Its purpose is to help students with their studies **free of charge**[^1].
 - The services are provided through **the same infrastructure** used by researchers, teachers and other students at Finnish higher education institutions.[^2]
-  - So - please **be mindful** of your use of resources. Respect infrastructure and other users.[^3]
+
+!!! warning ""
+
+    So - please **be mindful** of your use of resources. Respect infrastructure and other users.[^3]
 
 ## Managing Project
 
@@ -42,6 +47,10 @@ Below's the life cycle of a student project:
 4. [Use the services](#available-services).
 5. Manage your data across multiple services and plan to **back it up** before the project ends.
 6. [Project ends](../../accounts/how-to-manage-your-project.md#when-the-project-is-closed)
+
+You can be a project manager for **one student project** at a time, but a member for many.
+
+You can create a new project (step 2) when your project ends.
 
 [^1]: [Free-of-charge use cases for students](https://research.csc.fi/free-of-charge-use-cases#2){:target="_blank"}
 [^2]: [Computing](https://research.csc.fi/computing){:target="_blank"}
