@@ -1,6 +1,6 @@
 # Software in SD Desktop
 
-Upon logging in to the virtual desktop, you start a graphical Linux enviroment (Ubuntu22 or CentOS 7) with a standard set of software ready to use. This basic toolkit provides you a rather limited set of open-source software. This document lists of most commonly used default software tools in SD Desktop and represents methods that can be used to expand the software selection
+Upon logging in to the virtual desktop, you start a graphical Linux environment (Ubuntu22 or CentOS 7) with a standard set of software ready to use. This basic toolkit provides you a rather limited set of open-source software. This document lists of most commonly used default software tools in SD Desktop and represents methods that can be used to expand the software selection
 
 Please don't hesitate to contact [CSC Service Desk](../../support/contact.md) if you have any queistions about the software selection (subject: Sensitive Data). We can support you in your Desktop customization. Moreover, we are working on developing our services to provide proprietary software. Follow our webpage for constant updates. 
 
