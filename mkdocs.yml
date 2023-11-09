@@ -247,6 +247,7 @@ nav:
          - cloud/rahti/storage/index.md
          - Persistent volumes: cloud/rahti/storage/persistent.md
          - Ephemeral storage: cloud/rahti/storage/ephemeral.md
+         - Object storage: cloud/rahti/storage/objectstorage.md
          - Expand a volume: cloud/rahti/storage/expand-volumes.md
        - Images:
          - cloud/rahti/images/overview.md
@@ -276,6 +277,7 @@ nav:
             - Ephemeral storage: cloud/pouta/ephemeral-storage.md
             - Persistent volumes: cloud/pouta/persistent-volumes.md
             - Snapshots: cloud/pouta/snapshots.md
+            - Snapshot using QEMU: cloud/pouta/qemu-vm.md
         - Images:
             - cloud/pouta/images.md
             - Creating, Converting, Uploading and Sharing virtual machine images: cloud/pouta/adding-images.md
@@ -305,6 +307,7 @@ nav:
              - cloud/dbaas/databases.md
              - PostgreSQL: cloud/dbaas/postgresql.md
         - More advanced features: cloud/dbaas/advanced.md
+        - Resizing database instance volume: cloud/dbaas/resize-volume.md
      - Grid computing:
         - The Grid Monitor: cloud/grid/grid-monitor.md
      - CSC Notebooks:
