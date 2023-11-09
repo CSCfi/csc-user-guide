@@ -2,7 +2,7 @@
 
 As the SD Desktop is not directly connected internet, you can't use tools like Git, Conda or Pip to install new software there.
 Instead, you can use [Apptainer](https://apptainer.org/docs/user/latest/introduction.html) software container tool to add new software to your SD Desktop environment. However, you have to first build or download an Apptainer container elsewhere, and then use _Allas/SD Connect_ to import the container to SD Desktop.
-(Note: Apptainer is a fork on Singularty container system, so in many occaciosn instructions may refrer to Singularity. In most cases you can just replace Singularity with Apptainer).
+(Note: Apptainer is a fork on Singularity container system, so in many occaciosn instructions may refrer to Singularity. In most cases you can just replace Singularity with Apptainer).
 
 
 If you have root access to a machine with Apptainer, you can build your own container that contains exactly the software and
