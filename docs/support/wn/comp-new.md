@@ -1,11 +1,10 @@
 # Computing environment
 
-## The LUMI web interface has been released,  9.11.2023
+## The LUMI web interface has been released, 9.11.2023
 
-The brand new LUMI web interface has been released at [www.lumi.csc.fi](https://www.lumi.csc.fi)
-The LUMI web interface offers the same capability as the Mahti and Puhti web interfaces  
-Read more in the [lumi documentation](https://docs.lumi-supercomputer.eu/runjobs/webui/)
-
+The brand new LUMI web interface has been released at [www.lumi.csc.fi](https://www.lumi.csc.fi)!
+The LUMI web interface offers the same capability as the Mahti and Puhti web interfaces.
+Read more in the [LUMI documentation](https://docs.lumi-supercomputer.eu/runjobs/webui/).
 
 ## Mahti web interface updated to release 2, 13.10.2023
 

@@ -17,8 +17,8 @@ without Haka or Virtu) and machine-to-machine robot accounts for managing servic
 ## Getting an account with Haka or Virtu
 
 !!! Note 
-    If you are trying to access the Lumi webinterface [www.lumi.csc.fi](https://www.lumi.csc.fi) or Lumi-o [www.auth.lumidata.eu](https://www.auth.lumidata.eu),
-    please see the [Lumi documentation](https://docs.lumi-supercomputer.eu/firststeps/accessLUMI/) on how to get an account
+    If you are trying to access the [LUMI web interface](https://www.lumi.csc.fi) or [LUMI-O](https://www.auth.lumidata.eu),
+    please see the [LUMI documentation](https://docs.lumi-supercomputer.eu/firststeps/accessLUMI/) on how to get an account.
 
 If your home organization is a member of the Haka or Virtu federation, you
 can create an account yourself.
