@@ -4,9 +4,9 @@
 
     Please read this page carefully!
 
-This tutorial contains **all the information you need** to get started with using CSC services.
+This tutorial gathers all the information you, as a student, need to get started with using CSC services.
 
-The easiest way for a student is to **create a student project**.
+The easiest way is to **create a student project**.
 
 ## Project Details
 
