@@ -3,7 +3,9 @@
 As dynamic volume expansion is not activated, if one edits directly in the `YAML` object the size of the volume, an error like this will be returned:
 
 ```sh
-error: persistentvolumeclaims "postgresql" could not be patched: persistentvolumeclaims "postgresql" is forbidden: only dynamically provisioned pvc can be resized and the storageclass that provisions the pvc must support resize
+(...)
+# * spec: Forbidden: spec is immutable after creation except resources.requests for bound claims
+(...)
 ```
 
 Then a more artisanal procedure must be followed:
