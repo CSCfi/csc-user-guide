@@ -1,4 +1,4 @@
-## Describe your changes
+## Proposed changes
 
 Briefly describe the changes you've made here. Remember to add a link to the [preview page](https://csc-guide-preview.rahtiapp.fi/origin/) of your branch.
 
