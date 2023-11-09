@@ -7,9 +7,9 @@ new claim is made, and **a Pod mounts it**, a new volume space will be created.
 
     In production Rahti, a new persistent volume will remain in **"⏳ Pending"** until any Pod mounts it. This is a change from Rahti Beta where the volume was crested right away.
 
-There is one storage classes available in Rahti:
+There is one storage class available in Rahti:
 
- * *standard-csi*. This is a "Read Write Once" (RWO) storage class, meaning that only one node can mount the volume (in read-write mode).
+ * *standard-csi*. This is a "Read Write Once" (RWO) storage class, meaning that only one pod can mount the volume (in read-write mode).
 
 More storage classes are on the work.
 
@@ -33,7 +33,7 @@ spec:
 ```
 
 The example above will request a 1 GiB persistent storage that can be mounted in read-write
-mode by a single node.
+mode by a single pod.
 
 Persistent storage can be requested also via the web console.
 
@@ -61,11 +61,11 @@ spec:
     image: "image-registry.openshift-image-registry.svc:5000/openshift/httpd"
     volumeMounts:
     - mountPath: /mountdata
-      name: smalldisk-vol
+      name: smalldisk-vol # Refers to your volume below
   volumes:
   - name: smalldisk-vol
     persistentVolumeClaim:
-      claimName: testing-pvc
+      claimName: testing-pvc # Refers to your PersistentVolumeClaim (pvc.yaml)
 ```
 
 !!! warning
