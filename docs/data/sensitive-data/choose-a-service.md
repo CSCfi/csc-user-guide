@@ -5,14 +5,16 @@ For data that is originally produced for your research (or primary use).
 
 <p float="left">
   <a href="creating_containers.md"><img src="./images/introduction/SD_ChooseService_SDConnect.svg" width="24%"></a>
-  <img src="./images/introduction/SD_ChooseService_SDConnect.png" width="24%" />
   <img src="images/cat.png" width="24%" />
   <img src="images/lizzard.png" width="24%" />
 </p>
 
 <a href="https://www.csc.fi" rel="some text">![Foo](http://www.google.com.au/images/nav_logo7.png)</a>
 
-<a href="https://www.csc.fi" rel="some text">![Foo](./images/introduction/SD_ChooseService_SDConnect.svg)</a>
+<a href="https://www.csc.fi" alt="Read more about SD Connect" >![Short info about SD Connect](./images/introduction/SD_ChooseService_SDConnect.svg 'SD Connect')</a>
+<a href="https://www.csc.fi" alt="Read more about SD Connect" >![Short info about SD Connect](./images/introduction/SD_ChooseService_SDConnect.svg 'SD Connect')</a>
+<a href="https://www.csc.fi" alt="Read more about SD Connect" >![Short info about SD Connect](./images/introduction/SD_ChooseService_SDConnect.svg 'SD Connect')</a>
+<a href="https://www.csc.fi" alt="Read more about SD Connect" >![Short info about SD Connect](./images/introduction/SD_ChooseService_SDConnect.svg 'SD Connect')</a>
 
 
 ## Services for secondary use data
