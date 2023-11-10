@@ -190,19 +190,19 @@ spec:
 Save the file and use this command: `oc apply -f {name_of_yaml_file}`.  
 
 !!! Warning  
-    Your `PersistentVolumeClaim` is `ReadWriteOnce`, you have to scale down the `nginx` deployment to let the pod running rclone mount the volume.  
+    If your `PersistentVolumeClaim` is `ReadWriteOnce`, you have to scale down the `nginx` deployment to let the pod running rclone mount the volume.  
     Use this command to proceed: `oc scale --replicas=0 deploy/nginx`  
+    If your `PersistentVolumeClaim` is `ReadWriteMany`, there is no need to scale down your deployment.  
+    You can verify with this command: `oc get pvc`. You should see either `RWO` or `RWX`.
+
 
 The pod will run and backup the content of your PVC to Allas. Don't forget to scale up your origin deployment (`oc scale --replicas=1 deploy/nginx`) after the copy finished.  
 
 There are PROS and CONS with this solution:  
-Pros:  
 
-  - You run the pod in your Rahti project.  
+- PROS: You run the pod in your Rahti project  
+- CONS: If your PVC is `ReadWriteOnce`, a downtime is necessary.  
 
-Cons:  
-
-  - A downtime is necessary.  
 
 ## Second example: using bash script
 

@@ -213,6 +213,7 @@ nav:
            - Running on Helmi: computing/quantum-computing/helmi/running-on-helmi.md
   - Cloud Services:
      - cloud/index.md
+
      - Pouta:
         - cloud/pouta/index.md
        # - What is Pouta: cloud/pouta/pouta-what-is.md
@@ -265,7 +266,7 @@ nav:
         - Databases:
              - cloud/dbaas/databases.md
              - PostgreSQL: cloud/dbaas/postgresql.md
-        - More advanced features: cloud/dbaas/advanced.md
+        - More advanced fea
      - Rahti:
         - cloud/rahti/index.md
         - What is Rahti: cloud/rahti/rahti-what-is.md
@@ -318,6 +319,7 @@ nav:
         - Projects and quota: cloud/rahtibeta/usage/projects_and_quota.md
         - Billing: cloud/rahtibeta/billing.md
         - External documentation: cloud/rahtibeta/ext_docs.md
+
      - CSC Notebooks:
         - cloud/csc_notebooks/index.md
         - Guide for students: cloud/csc_notebooks/guide_for_students.md
@@ -339,7 +341,7 @@ nav:
      - Moving data:
         - data/moving/index.md
         - Copying files using scp: data/moving/scp.md
-        - Moving files using the Puhti web interface: data/moving/web-interface.md
+        - Moving files using the HPC web interfaces: data/moving/web-interface.md
         - Graphical file transfer tools: data/moving/graphical_transfer.md
         - Using rsync for data transfer and synchronization: data/moving/rsync.md
         - Using wget to download data from web sites to CSC: data/moving/wget.md
