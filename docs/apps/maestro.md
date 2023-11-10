@@ -9,11 +9,14 @@ Schrödinger Maestro is a versatile molecular modeling environment. It has modul
 *drug design* and *materials science*. It can be used to build, edit, run and analyze
 chemical model systems.
 
-Schrödinger Maestro provides access to the Desmond molecular dynamics engine,
+Schrödinger Maestro provides access to the
+[Desmond molecular dynamics engine](https://video.csc.fi/media/t/0_3udcx6bk),
 which runs **very well** on GPUs. We recommend watching the
-[video below](#video-how-to-run-a-desmond-simulation-on-puhti) on how to set up
-and run Desmond MD simulations easily. See also the
-[bottom of this page](#more-information) for links to further self-learning materials.
+[video below](#video-how-to-run-a-desmond-simulation-on-puhti)
+on how to set up and run Desmond MD simulations on Puhti easily.
+
+See also the [bottom of this page](#more-information) for links to further
+self-learning materials.
 
 [TOC]
 
@@ -180,10 +183,11 @@ Jaguar, version 7.6, Schrödinger, LLC, New York, NY, 2009.
 
 * [Tutorial and tips for power usage on Puhti](../support/tutorials/power-maestro.md)
 * Manual including tutorials come with the Maestro GUI
+* [Schrödinger training materials overview](https://www.schrodinger.com/learn/training)
 * The [Schrödinger knowledge base](https://support.schrodinger.com/s/) has an
   extensive collection of articles
 * Video materials (some require registration at the [Schrödinger website](https://www.schrodinger.com/)):
-     * [Schrödinger training materials overview](https://www.schrodinger.com/learn/training)
+     * [Preparing, running and analyzing molecular dynamics simulations with Desmond](https://video.csc.fi/media/t/0_3udcx6bk)
      * [Getting Going with Maestro](https://www.schrodinger.com/sites/default/files/s3/release/current/Getting-Going-With-Video-Series/Maestro/Get-Going-Maestro-VS/Content/maestro/Page-Topics-m/01-Course-Intro-Get-Going.htm)
      * [Getting Going with Materials Science Maestro](https://www.schrodinger.com/sites/default/files/s3/release/current/Getting-Going-With-Video-Series/MS_Maestro/Get-Going-MS-VS/Content/maestro-ms/Page-Topics-ms/01-Course-Intro-Get-Going-ms.htm)
      * [Learn Maestro in 40 minutes](https://www.schrodinger.com/seminars/archives/1338/6th-life-science-bootcamp)
