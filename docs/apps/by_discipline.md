@@ -47,6 +47,7 @@
 * [Minimap2](minimap2.md) Short read aligner
 * [Mothur](mothur.md) Package for microbial community analysis of amplicon sequencing data
 * [MrBayes](mrbayes.md) Program for inferring phylogenies using Bayesian methods
+* [Nextflow](nextflow.md) Nextflow is a scientific workflow management system for creating scalable, portable, and reproducible workflows
 * [Pannzer](pannzer.md) Automatic protein annotation tool
 * [Picard](picard.md) Tools for working with SAM,BAM,CRAM and VCF files
 * [Prokka](prokka.md) Rapid prokaryotic genome annotation
