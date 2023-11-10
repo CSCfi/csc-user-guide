@@ -5,7 +5,7 @@ For data that is originally produced for your research (or primary use).
 
 <p float="left">
   <a href="creating_containers.md"><img src="./images/introduction/SD_ChooseService_SDConnect.svg" width="24%"></a>
-  <img src="./images/introduction/SD_ChooseService_SDConnect.svg" width="24%" />
+  <img src="./images/introduction/SD_ChooseService_SDConnect.png" width="24%" />
   <img src="images/cat.png" width="24%" />
   <img src="images/lizzard.png" width="24%" />
 </p>
