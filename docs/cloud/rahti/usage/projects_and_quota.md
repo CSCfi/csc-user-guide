@@ -41,8 +41,8 @@ or the OpenShift project creation will fail.
 
 If you would like to know which CSC computing projects you are a member of, you
 can view a list in the [My Projects
-tool](https://my.csc.fi/myProjects) of MyCSC. You can also set a default 
-billing project by going to [Your Profile page](https://my.csc.fi/myProfile). 
+tool](https://my.csc.fi/projects) of MyCSC. You can also set a default 
+billing project by going to [Your Profile page](https://my.csc.fi/profile). 
 
 If you would like to know which CSC computing project an OpenShift project is
 associated with, you can do so using the _oc_ command line tool. You can find
@@ -90,8 +90,9 @@ Unfortunately, this information is not available via a web interface yet.
 
 ## Creating a project
 
-Click the blue "Create Project" button to create a project, and you will be
-presented with the following view:
+First, click this [link](https://landing.2.rahti.csc.fi/) to access the homepage of Rahti and click **Login Page** under *OpenShift 4.11*.  
+
+After being logged in, click the blue "Create Project" button to create a project, and you will be presented with the following view:
 
 ![OpenShift new project dialog](../../img/new_project_dialog_4.png)
 
@@ -100,7 +101,7 @@ in the system.
 1. You *can* also enter a **human-readable display name** and.
 1. You *have to* also enter a **CSC computing project** in the _Description_ field. It must be a currently valid CSC project, that your account has access to. In order to view to which CSC projects you have access to, please check <https://my.csc.fi>. If you have access to no CSC project, you will not be able to create any Rahti project. If you have Rahti access via project_1000123, you would enter the following in the Description field:
 
-> csc_project: XXXXXXX
+> csc_project: 1000123
 
 ![OpenShift Create Project](../../img/create_project_dialog_4.png)
 
@@ -111,8 +112,7 @@ catalog where you can pick an application template or import your
 own one.
 
 For more information about using the web interface, refer to the
-[official OpenShift documentation](https://docs.okd.io/). You can find
-out which version of the documentation to look at in the web interface by
+[official OpenShift documentation](https://docs.okd.io/) (our current version is 4.11). You can find out which version of the documentation to look at in the web interface by
 clicking the question mark symbol in the top bar and selecting "About".
 
 ## Project quotas
