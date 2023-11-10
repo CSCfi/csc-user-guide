@@ -12,6 +12,8 @@ For data that is originally produced for your research (or primary use).
 
 <a href="https://www.csc.fi" rel="some text">![Foo](http://www.google.com.au/images/nav_logo7.png)</a>
 
+<a href="https://www.csc.fi" rel="some text">![Foo](./images/introduction/SD_ChooseService_SDConnect.svg)</a>
+
 
 ## Services for secondary use data
 Data is for secondary use when it is collected from public register to be used for example in research. There are specific regulations for processing of secondary use data.
