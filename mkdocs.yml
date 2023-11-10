@@ -233,6 +233,7 @@ nav:
              - Ephemeral storage: cloud/pouta/ephemeral-storage.md
              - Persistent volumes: cloud/pouta/persistent-volumes.md
              - Snapshots: cloud/pouta/snapshots.md
+             - Snapshot using QEMU: cloud/pouta/qemu-vm.md
         - Advanced:
            - cloud/pouta/advanced.md
            - Command line:
