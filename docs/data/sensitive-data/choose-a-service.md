@@ -27,7 +27,7 @@ Data is for secondary use when it is collected from public register to be used f
 
 
 
-| | SD Connect | SD Desktop | FEGA (Pilot) | SD Apply (Pilot) |
+|        | SD Connect | SD Desktop | FEGA (Pilot) | SD Apply (Pilot) |
 |-|-|-|-|-|
 | **Suitable research field** | Any | Any (Analysis limited to open source softwares | Genetics / Biomedicine | Any |
 | **Access to the service** | Self service via MyCSC | Self service via MyCSC | Managed by CSC helpdesk | Applicant: via CSC account. Data controller: self service |
