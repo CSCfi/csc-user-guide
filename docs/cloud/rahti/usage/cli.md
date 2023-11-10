@@ -6,7 +6,7 @@ are only available when using the oc tool.
 
 ## How to install the `oc` tool
 
-The oc tool is a single binary that only needs to be included in your _path_. You may download it from the [Getting started with the OpenShift CLI](https://docs.openshift.com/container-platform/4.10/cli_reference/openshift_cli/getting-started-cli.html) page in OpenShift's documentation. Follow the detailed instructions in the link.
+The oc tool is a single binary that only needs to be included in your _path_. You may download it from the [Getting started with the OpenShift CLI](https://docs.openshift.com/container-platform/4.11/cli_reference/openshift_cli/getting-started-cli.html) page in OpenShift's documentation. Follow the detailed instructions in the link.
 
 In order to test that it was properly installed, open a new terminal, go to any folder, and run:
 
@@ -18,20 +18,28 @@ It should show the list of all available commands.
 
 ## The "Command Line Tools" page in the OpenShift web UI
 
-Instructions for downloading the oc tool and logging in via the command line
-can be found in the "Command Line Tools" page in the web interface:
+Instructions for downloading the oc tool including the download link for several platforms and operating systems can be found in the "Command Line Tools" page in the web interface:
 
 ![Command line tools](../../img/cli_help_menu_4.png)
 
-## How to login with `oc`?
-
-The oc login command to login can be found in one of the fields on the page. There is a
-button next to it for copying the command to the clipboard:
+after clicking you will be welcomed with:
 
 ![OpenShift Command Line Tools page](../../img/openshift_cli_dialog_4.png)
 
-Copy the command and paste it in a terminal to start using OpenShift via the
-command line.
+## How to login with `oc`?
+
+The oc login command to login can be found in the dropdown menu next to your name. There is a
+button next to it for copying the command to the clipboard. Copy the command and paste it in a terminal to start using OpenShift via the
+command line. The command looks like:
+
+```bash
+oc login https://api.2.rahti.csc.fi --token=<secret access token>
+```
+
+This command can be obtained by clicking your usename and "Copy Login Command"
+in the web console:
+
+![copy login](../../img/CopyLoginCommand.png)
 
 !!! info
 
@@ -70,17 +78,6 @@ oc help <command>
 ```
 
 **Examples:**
-
-Authorize the CLI tool to the cluster:
-
-```bash
-oc login https://api.2.rahti.csc.fi --token=<secret access token>
-```
-
-This command can be obtained by clicking your usename and "Copy Login Command"
-in the web console:
-
-![copy login](../../img/CopyLoginCommand.png)
 
 Show projects:
 
