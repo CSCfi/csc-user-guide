@@ -15,9 +15,15 @@ For data that is originally produced for your research (or primary use).
 <a href="https://www.csc.fi" alt="Read more about SD Connect" >![Short info about SD Connect](./images/introduction/SD_ChooseService_SDConnect.svg 'SD Connect')</a>
 <a href="https://www.csc.fi" alt="Read more about SD Connect" >![Short info about SD Connect](./images/introduction/SD_ChooseService_SDConnect.svg 'SD Connect')</a>
 <a href="https://www.csc.fi" alt="Read more about SD Connect" >![Short info about SD Connect](./images/introduction/SD_ChooseService_SDConnect.svg 'SD Connect')</a>
+
 [Default](https://example.com/Default){ .md-button .md-button--primary target=_blank }[Default](https://example.com/Default){ .md-button .md-button--primary target=_blank }[Default](https://example.com/Default){ .md-button .md-button--primary target=_blank }[Default](https://example.com/Default){ .md-button .md-button--primary target=_blank }
 
-[Gromacs documentation](fega_dac.md)
+<div float="left">
+  <div width="24%">[Default](https://example.com/Default){ .md-button .md-button--primary target=_blank } <div/>
+  <div width="24%">[Default](https://example.com/Default){ .md-button .md-button--primary target=_blank } <div/>
+  <div width="24%">[Default](https://example.com/Default){ .md-button .md-button--primary target=_blank } <div/>
+  <div width="24%">[Default](https://example.com/Default){ .md-button .md-button--primary target=_blank } <div/>
+</div>
 
 ## Services for secondary use data
 Data is for secondary use when it is collected from public register to be used for example in research. There are specific regulations for processing of secondary use data.
