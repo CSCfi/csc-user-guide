@@ -66,7 +66,7 @@ plugins:
         'whats-new.md': 'support/whats-new.md'
         # for convenience:
         'glossary.md': 'support/glossary.md'
-        'support/tutorials/env-guide/overview.md': 'support/tutorials/env-guide/index.md'
+
 markdown_extensions:
   - footnotes
   - admonition
@@ -77,9 +77,9 @@ markdown_extensions:
   - pymdownx.tabbed:
       alternate_style: true
   - pymdownx.snippets:
-      base_path: csc-overrides/assets/snippets
+      base_path: csc-overrides/assets/glossaries
       auto_append:
-        - glossaries/hpc.md
+        - hpc.md
   - pymdownx.superfences:
       custom_fences:
         - name: mermaid
@@ -147,7 +147,6 @@ nav:
      - FMI: accounts/fmi.md
   - Computing:
      - computing/index.md
-     - Overview: computing/overview.md
      - Usage policy: computing/usage-policy.md
      - Billing: computing/hpc-billing.md
      - Systems:
@@ -266,7 +265,8 @@ nav:
         - Databases:
              - cloud/dbaas/databases.md
              - PostgreSQL: cloud/dbaas/postgresql.md
-        - More advanced fea
+        - More advanced features: cloud/dbaas/advanced.md
+        - Resizing database instance volume: cloud/dbaas/resize-volume.md
      - Rahti:
         - cloud/rahti/index.md
         - What is Rahti: cloud/rahti/rahti-what-is.md
@@ -423,7 +423,6 @@ nav:
   - Applications:
      - apps/index.md
      - By discipline: apps/by_discipline.md
-     - In alphabetical order: apps/alpha.md
      - By availability: apps/by_system.md
      - By license: apps/by_license.md
   - FAQ: support/faq/index.md
