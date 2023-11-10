@@ -11,7 +11,7 @@ For data that is originally produced for your research (or primary use).
 
 <a href="https://www.csc.fi" rel="some text">![Foo](http://www.google.com.au/images/nav_logo7.png)</a>
 
-<a href="https://www.csc.fi" alt="Read more about SD Connect" >![Short info about SD Connect](./images/introduction/SD_ChooseService_SDConnect.svg 'SD Connect')</a>
+<a href="fega_dac.md" alt="Read more about SD Connect" >![Short info about SD Connect](./images/introduction/SD_ChooseService_SDConnect.svg 'SD Connect')</a>
 <a href="https://www.csc.fi" alt="Read more about SD Connect" >![Short info about SD Connect](./images/introduction/SD_ChooseService_SDConnect.svg 'SD Connect')</a>
 <a href="https://www.csc.fi" alt="Read more about SD Connect" >![Short info about SD Connect](./images/introduction/SD_ChooseService_SDConnect.svg 'SD Connect')</a>
 <a href="https://www.csc.fi" alt="Read more about SD Connect" >![Short info about SD Connect](./images/introduction/SD_ChooseService_SDConnect.svg 'SD Connect')</a>
