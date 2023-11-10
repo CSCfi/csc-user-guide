@@ -54,8 +54,8 @@ Other things to keep in mind:
     This way, only essential pieces of the software are present in the
     final image.
   * If the application is written in an interpreted language, use language
-    based images. Instead of installing Node.js on top of the Debian image, use
-    e.g., `node:8-debian`.
+    based images. Instead of installing Node.js on top of the Alpine image, use
+    e.g., `node:21-alpine`.
 
 ## IP addresses for firewall openings
 
