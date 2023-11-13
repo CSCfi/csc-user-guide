@@ -1,14 +1,13 @@
 # Software in SD Desktop
 
-
-When you log into the virtual desktop, you are guided to a digital workspace that looks like a computer screen. This workspace is powered by a type of operating system called Linux, and you can choose between two versions: Ubuntu 22 (adivsed option) or CentOS 7 (will be dismissed in 2024). 
-The virtual desktop comes with some basic tools or programs that you can use right away (listed below). However, this basic toolkit provides you a rather limited set of open-source software. 
+When you log into the virtual desktop, you are guided to a digital workspace that looks like a computer screen. This workspace is powered by a type of operating system called Linux, and you can choose between two versions: Ubuntu 22 or CentOS 7 (dismissed in 2024). 
+The virtual desktop comes with some basic tools or software that you can use right away (listed below). However, this basic toolkit provides you a rather limited set of open-source software. 
 
 The virtual desktop can also become a versatile research workspace designed to adapt to your specific needs **via customization with**:
 
-* SD Software installer: A simple application for easy software additions and customization. 
+* [SD Software installer](./sensitive-data/sd-desktop-software.md#sd-software-installer): A simple application for easy software additions and customization. 
 
-* Apptainer and Podman: For those with technical expertise, create customized containers for specialized software setups (advanced). 
+* [Apptainer and Podman]/(./sensitive-data/sd-desktop-software.md#software-customisation-with-apptainer-and-podman): For those with technical expertise, create customized containers for specialized software setups (advanced). 
 
 Please don't hesitate to contact [CSC Service Desk](../../support/contact.md) if you have any questions about the software selection (subject: Sensitive Data). We can support you in your Desktop customization. Moreover, we are working on developing our services to provide proprietary software. Follow our webpage for constant updates. 
 
