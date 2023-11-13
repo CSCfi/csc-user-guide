@@ -12,7 +12,7 @@ From a networking point of view, namespaces can be configured to provide an isol
 
 !!! Warning "Open by default"
 
-    By default any new Namespace in Rahti will have a network opened by default. This means that by default any other Pod in any other namespace in the whole Rahti will be able to contact any Pod in the new namespace.
+    By default any new Namespace in Rahti will have its network opened by default. This means that by default any other Pod in any other namespace in the whole Rahti will be able to contact any Pod in the new namespace.
 
 If you want to isolate all Pods from traffic external to the Namespace you need to create this `NetworkPolicy`:
 
@@ -29,7 +29,7 @@ spec:
     - podSelector: {}
 ```
 
-Then, in order to allow traffic to a specific set of Pods (with label `app=etherpad`), you can do:
+Then, in order to allow traffic to a specific set of Pods (in the example below with label `app=etherpad`), you can do:
 
 ```yaml
 kind: NetworkPolicy
@@ -47,7 +47,7 @@ spec:
 
 !!! Info "Pod labels"
 
-    In order to get the label that is associated with a set of Pods, go to the `Service` page or run: `oc describe <service_name>
+    In order to get the label that is associated with a set of Pods, go to the `Service` page or run: `oc describe <service_name>`
 
     ```sh
     $ oc describe svc/etherpad
