@@ -47,7 +47,7 @@ The fields are the same as with Rahti Beta had:
 
 By default any new Namespace in Rahti will have a network opened by default. This means that by default any other Pod in any other namespace in the whole Rahti will be able to contact any Pod in the new namespace. This is different than with Rahti beta that had the opposite policy, closed by default.
 
-If you want to imitate the previous behaviour, i.e.: isolate all Pods from traffic external to the Namespace, please check out the [Networking page](../../rahti/networking.md).
+If you want to imitate the previous behaviour, i.e.: isolate all Pods from traffic external to the Namespace, please check out the [Networking page](../../rahti/networking/).
 
 ## How to see quota/limits?
 
