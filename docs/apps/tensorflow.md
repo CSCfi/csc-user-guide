@@ -31,8 +31,9 @@ Currently supported TensorFlow versions:
 
 | Version | Module               | Puhti | Mahti | LUMI | Notes           |
 |:--------|:---------------------|:-----:|:-----:|:----:|-----------------|
-| 2.13.0  | `tensorflow/2.13`    | X     | X     | -    | default version |
-| 2.12.0  | `tensorflow/2.12`    | X     | X     | -    |                 |
+| 2.14.0  | `tensorflow/2.14`    | X     | X     | -    | default version |
+| 2.13.0  | `tensorflow/2.13`    | X     | X     | -    |                 |
+| 2.12.0  | `tensorflow/2.12`    | X     | X     | X*   |                 |
 | 2.11.0  | `tensorflow/2.11`    | X     | X     | X*   |                 |
 | 2.10.0  | `tensorflow/2.10`    | X     | X     | X*   |                 |
 | 2.9.0   | `tensorflow/2.9`     | X     | X     | X*   |                 |
@@ -157,7 +158,7 @@ a single node:
     #SBATCH --time=1:00:00
     #SBATCH --gres=gpu:v100:1
     
-    module load tensorflow/2.13
+    module load tensorflow/2.14
     srun python3 myprog.py <options>
     ```
     
@@ -171,7 +172,7 @@ a single node:
     #SBATCH --time=1:00:00
     #SBATCH --gres=gpu:a100:1
     
-    module load tensorflow/2.13
+    module load tensorflow/2.14
     srun python3 myprog.py <options>
     ```
 
@@ -187,7 +188,7 @@ a single node:
     #SBATCH --time=1:00:00
     
     module use /appl/local/csc/modulefiles/
-    module load tensorflow/2.11
+    module load tensorflow/2.12
     srun python3 myprog.py <options>
     ```
 
