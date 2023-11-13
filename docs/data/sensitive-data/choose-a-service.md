@@ -12,7 +12,7 @@
 
 ## Services for secondary use data
 
-[![Short info about SD Connect for Secondary use data](./images/introduction/SD_ChooseService_SDDesktop2.svg 'SD Desktop for secondary use')]()
+[![Short info about SD Connect for Secondary use data](./images/introduction/SD_ChooseService_SDDesktop2.svg 'SD Desktop for secondary use')](sd-desktop-audited.md)
 [![Short info about SD Apply for Secondary use data](./images/introduction/SD_ChooseService_SDApply2.svg 'SD Apply for secondary use')](sd-apply.md)
 
 ## SD Services overview
@@ -27,3 +27,6 @@
 ### Introduction to CSC Sensitive Data Services
 
 <iframe width="560" height="315" frameborder="0" srcdoc="https://www.youtube.com/embed/YcgeuatWf9g" title="Introducing CSC Sensitive Data Services for Research" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+Note: 
+- SD Apply is in pilot phase
+- SD Submit = FEGA, is in pilot phase
