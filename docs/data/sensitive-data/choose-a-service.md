@@ -31,19 +31,3 @@ Note: SD Apply is in pilot phase. SD Submit = FEGA, is in pilot phase.
 
 
 
-<div class="quick-links-container">
-  <div class="quick-links-topic”>
-    [![Short info about SD Connect](./images/introduction/SD_ChooseService_SDConnect.svg 'SD Connect')](sd_connect.md)
-    <span class="quick-links-title"><h2>SD Connect</h2></span>
-    <div class="quick-links-item”>
-	<li>Text goes here</li>
-      <a class="quick-link" target="_self" href="sd-access/“>Read more</a>
-    </div>
-    <div class="quick-links-item">
-      <a class="quick-link" target="_self" href="sd_connect/">Store with SD Connect</a>
-    </div>
-    <div class="quick-links-item">
-      <a class="quick-link" target="_self" href="sd_desktop/">Analyse with SD Desktop</a>
-    </div>
-  </div>
-</div>
