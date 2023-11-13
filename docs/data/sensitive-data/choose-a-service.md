@@ -7,7 +7,7 @@
 ## Services for primary use data
 [![Short info about SD Connect](./images/introduction/SD_ChooseService_SDConnect.svg 'SD Connect')](sd_connect.md)
 [![Short info about SD Desktop](./images/introduction/SD_ChooseService_SDDesktop.svg 'SD Desktop')](sd_desktop.md)
-[![Short info about Fega](./images/introduction/SD_ChooseService_Fega.svg 'Fega')]()
+[![Short info about Fega](./images/introduction/SD_ChooseService_Fega.svg 'Fega')](federatedega.md)
 [![Short info about SD Apply](./images/introduction/SD_ChooseService_SDApply.svg 'SD Apply')](sd-apply.md)
 
 ## Services for secondary use data
@@ -21,5 +21,9 @@
 |-|-|-|-|-|-|-|-|
 | **[SD Connect](sd_connect.md)** | Store and share data | Any | Self service via MyCSC | Controlled by researcher via CSC project | Yes for files under 100GB | Yes for files over 100BG | CSC helpdesk. Zoom sessions available |
 | **[SD Desktop](sd_desktop.md)** | Analyse data in secure environment | Any (Analysis limited to open source softwares) | Self service via MyCSC | Controlled by researcher via CSC project (export limited) | Yes | Yes for customisation via containers | CSC helpdesk. Zoom sessions available |
-| **[FEGA (pilot)]()** | Publish biometrical data | Genetics / Biomedicine | Managed by Data Access Committee (DAC) | Managed by CSC helpdesk and access control (SD Apply) | Yes, for metadata submissions and access control (SD Apply) | No | N/A |
+| **[FEGA (pilot)](federatedega.md)** | Publish biometrical data | Genetics / Biomedicine | Managed by Data Access Committee (DAC) | Managed by CSC helpdesk and access control (SD Apply) | Yes, for metadata submissions and access control (SD Apply) | No | N/A |
 | **[SD Apply (pilot)](sd-apply.md)** | Apply or grant access to published data | Any | Applicant: via CSC account. Data controller: self service | N/A | Yes | No | N/A|
+
+## Introduction to CSC Sensitive Data Services
+
+<iframe width="560" height="315" frameborder="0" srcdoc="https://www.youtube.com/embed/watch?v=YcgeuatWf9g" title="Introducing CSC Sensitive Data Services for Research" allow="autoplay; encrypted-media" allowfullscreen></iframe>
