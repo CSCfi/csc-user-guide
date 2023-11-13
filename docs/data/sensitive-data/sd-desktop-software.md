@@ -7,7 +7,7 @@ The virtual desktop can also become a versatile research workspace designed to a
 
 * [SD Software installer](../../data/sensitive-data/sd-desktop-software.md#sd-software-installer): A simple application for easy software additions and customization. 
 
-* [Apptainer and Podman]/(../../data/sensitive-data/sd-desktop-software.md#software-customisation-with-apptainer-and-podman): For those with technical expertise, create customized containers for specialized software setups (advanced). 
+* [Apptainer and Podman](../../data/sensitive-data/sd-desktop-software.md#software-customisation-with-apptainer-and-podman): For those with technical expertise, create customized containers for specialized software setups (advanced). 
 
 Please don't hesitate to contact [CSC Service Desk](../../support/contact.md) if you have any questions about the software selection (subject: Sensitive Data). We can support you in your Desktop customization. Moreover, we are working on developing our services to provide proprietary software. Follow our webpage for constant updates. 
 
