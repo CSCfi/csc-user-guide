@@ -22,7 +22,7 @@
 | **SD Connect** | Store and share data | Any | Self service via MyCSC | Controlled by researcher via CSC project | Yes for files under 100GB | Yes for files over 100BG | CSC helpdesk. Zoom sessions available | [More about SD Connect](sd_connect.md) |
 | **SD Desktop** | Analyse data in secure environment | Any (Analysis limited to open source softwares | Self service via MyCSC | Controlled by researcher via CSC project (export limited) | Yes | Yes for customisation via containers | CSC helpdesk. Zoom sessions available | [More about SD Desktop](sd_desktop.md) |
 | **FEGA (Pilot)** | Publish biometrical data | Genetics / Biomedicine | Managed by Data Access Committee (DAC) | Managed by CSC helpdesk | Yes, for metadata submissions and access control (SD Apply) | No | N/A | [More about FEGA]() |
-| **SD Apply (Pilot)** | Apply or grant access to data | Any | Applicant: via CSC account. Data controller: self service | N/A | Yes | No | N/A| [More about SD Apply](sd-apply.md) |
+| **SD Apply (Pilot)** | Apply or grant access to published data | Any | Applicant: via CSC account. Data controller: self service | N/A | Yes | No | N/A| [More about SD Apply](sd-apply.md) |
 
 
 
