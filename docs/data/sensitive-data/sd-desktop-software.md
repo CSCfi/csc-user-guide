@@ -1,16 +1,23 @@
 # Software in SD Desktop
 
-Upon logging in to the virtual desktop, you start a graphical Linux environment (Ubuntu22 or CentOS 7) with a standard set of software ready to use. This basic toolkit provides you a rather limited set of open-source software. This document lists of most commonly used default software tools in SD Desktop and represents methods that can be used to expand the software selection
 
-Please don't hesitate to contact [CSC Service Desk](../../support/contact.md) if you have any queistions about the software selection (subject: Sensitive Data). We can support you in your Desktop customization. Moreover, we are working on developing our services to provide proprietary software. Follow our webpage for constant updates. 
+When you log into the virtual desktop, you are guided to a digital workspace that looks like a computer screen. This workspace is powered by a type of operating system called Linux, and you can choose between two versions: Ubuntu 22 (adivsed option) or CentOS 7 (will be dismissed in 2024). 
+The virtual desktop comes with some basic tools or programs that you can use right away (listed below). However, this basic toolkit provides you a rather limited set of open-source software. 
 
-However, the virtual desktop can also become a versatile research workspace designed to adapt to your specific needs **via customization with**
+The virtual desktop can also become a versatile research workspace designed to adapt to your specific needs **via customization with**:
+
+* SD Software installer: A simple application for easy software additions and customization. 
+
+* Apptainer and Podman: For those with technical expertise, create customized containers for specialized software setups (advanced). 
+
+Please don't hesitate to contact [CSC Service Desk](../../support/contact.md) if you have any questions about the software selection (subject: Sensitive Data). We can support you in your Desktop customization. Moreover, we are working on developing our services to provide proprietary software. Follow our webpage for constant updates. 
+
 
 
 ## Default software selection in SD Desktop
 
 Below we list some of the most commonly used tools that are by default installed in SD Desktop machines.
-The list is not complete and there are small diffenreces between different linux flavours.
+The list is not complete and there are small differences between different linux flavours.
 
 ### Office tools
    - [LibreOffice](https://en.wikipedia.org/wiki/LibreOffice)
@@ -45,15 +52,15 @@ The list is not complete and there are small diffenreces between different linux
    - [Jupyter](https://jupyter.org/)
 
 
-## Adding software
+## Adding software: backgound information. 
 
-As SD desktop virtual machines are isolated from internet, installing additional software and libraries is not straight forward. The lack of network connection means that you can't use installation tools like _git_, _coda_, _cpan_ or _pip_ in the normal fashion, as they are dependent on external repositories. Further, SD Desktop users can't do any operation that needs superuser access. Adding extra software is possible, but it requires that the installation processes is converted into files that can be uploaded to SD Connect and from there copied to your SD Desktop environment for installation and usage.
+The virtual desktops (or virtual machines) are intentionally isolated from the internet for security reasons. Consequently, the process of adding supplementary software and libraries is not straightforward. The absence of a network connection precludes the use of conventional installation tools such as _git_, _coda_, _cpan_ or _pip_ in their typical fashion, as these tools rely on external repositories. Furthermore, users on the SD Desktop do not possess the necessary superuser access to execute operations requiring elevated permissions.
+Adding extra software to SD Desktop is possible, but it involves converting the installation steps into special files. These files are then uploaded to SD Connect and copied to your SD Desktop for installation. For this process, we recommend using Apptainer containers for importing the software you need, but apptainer is the only option.
 
-In general, we recommend using Apptainer containers for importing the software you need, but apptainer is the only option.
 
 ### SD Software installer
 
-[SD Software installer](./tutorials/sd-software-installer.md) provides an easy-to-use tool to add some commonly used software to SD Desktop. (Eg. Rstudio 4.2.2, Whisper, VSCode and GATK). SD Software installer is based on installation scripts provided by CSC. Users can't add their own tools to the SD Software istaller, but you can send requests for new tools to be added. 
+[SD Software installer](./tutorials/sd-software-installer.md) provides an easy-to-use tool to add some commonly used software to SD Desktop (Eg. Rstudio 4.2.2, Whisper, VSCode and GATK). SD Software installer is based on installation scripts provided by CSC. Users can't add their own tools to the SD Software installer, but you can send requests for new tools to be added. 
    - [SD Software installer](./tutorials/sd-software-installer.md)
  
    
@@ -62,7 +69,7 @@ In general, we recommend using Apptainer containers for importing the software y
 If you want to add new software to your virtual machine independently, the most convenient way is to build an Apptainer container outside SD Desktop and then import the container through SD Connect to SD Desktop. The two documents below describe two sample cases on adding software with containers.
 
    1. [Importing ready-made Apptainer containers from a public repository to SD Desktop](./sd-desktop-singularity.md)
-   2. [Creating you own Apptainer container and importing it to SD Desktop](./creating_containers.md)
+   2. [Creating your own Apptainer container and importing it to SD Desktop](./creating_containers.md)
 
 In Ubuntu22-based virtual machines you can use also Podman container manager. One of the benefits of Podman is that it can utilize Docker containers too.
 
