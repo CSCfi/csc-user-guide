@@ -42,7 +42,7 @@ spec:
 oc rsync ./local/dir/ POD:/remote/dir
 ```
 
-If the local data changes, you may just run the same command again. If the image has `rsync installed, only the data that has changed will be copied over to the PVC.
+If the local data changes, you may just run the same command again. If the image has `rsync` installed, only the data that has changed will be copied over to the PVC.
 
 ## to Allas object storage
 
