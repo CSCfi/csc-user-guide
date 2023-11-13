@@ -113,6 +113,7 @@ should be:
 ```
 fo=bar
 baz=notbar
+
 DATA_PROP_A=hello
 ```
 
@@ -129,7 +130,6 @@ data:
   WebHookSecretKey: dGhpc19pc19hX2JhZF90b2tlbgo=
 metadata:
   name: webhooksecret
-  namespace: mynamespace     # set this to your project namespace
 ```
 
 ### Create a secret
