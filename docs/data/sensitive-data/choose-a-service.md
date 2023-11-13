@@ -15,7 +15,7 @@
 [![Short info about SD Connect for Secondary use data](./images/introduction/SD_ChooseService_SDDesktop2.svg 'SD Desktop for secondary use')](sd-desktop-audited.md)
 [![Short info about SD Apply for Secondary use data](./images/introduction/SD_ChooseService_SDApply2.svg 'SD Apply for secondary use')](sd-apply.md)
 
-## SD Services overview
+## Sensitive Data Services overview
 
 | Service | Use | Suitable research field | Access to the service | Access to the data | Graphic user interface available | Programming knowledge needed | Support |
 |-|-|-|-|-|-|-|-|
