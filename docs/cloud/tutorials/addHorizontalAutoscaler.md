@@ -33,7 +33,7 @@ spec:
     spec:
       containers:
         - name: httpd
-          image: lvarin/oom-killer
+          image: docker.io/lvarin/oom-killer
           command:
            - /app/app.py
            - '10'
@@ -86,7 +86,7 @@ We will not touch the CPU utilization.
 
 ## Test and monitor
 
-At this moment, we should have only one single Pod with almost zero CPU usage and 100MB of memory usage. You can check this in the `Pods` page (**Project > Pods** in the Developer page).
+After some minutes, we should have only one single Pod with almost zero CPU usage and 100MB of memory usage. The autoscaler waits up to 10 minutes to delete Pods to avoid flapping, see below for more information. You can check this in the `Pods` page (**Project > Pods** in the Developer page).
 
 ![Pods](../img/podsAutoscaler.png)
 
@@ -113,7 +113,8 @@ Monitor the situation and wait for the second Pod to be created. The resources c
 
 Afterwards, you can kill the process you created and see how the application is scaled down by killing the second Pod.
 
-Meanwhile the scale up is designed to be as fast as possible, the scale down will take up to 10 minutes. This is due to the stabilization window, from the [upstream kubernetes documentation](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/#stabilization-wind):
+!!! Info "Scale down delay"
+    Meanwhile the scale up is designed to be as fast as possible, the scale down will take up to 10 minutes. This is due to the stabilization window, from the [upstream kubernetes documentation](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/#stabilization-wind):
 
-> The stabilization window is used to restrict the flapping of replica count when the metrics used for scaling keep fluctuating. The autoscaling algorithm uses this window to infer a previous desired state and avoid unwanted changes to workload scale.
+    > The stabilization window is used to restrict the flapping of replica count when the metrics used for scaling keep fluctuating. The autoscaling algorithm uses this window to infer a previous desired state and avoid unwanted changes to workload scale.
 
