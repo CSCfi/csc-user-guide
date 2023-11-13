@@ -66,7 +66,7 @@ plugins:
         'whats-new.md': 'support/whats-new.md'
         # for convenience:
         'glossary.md': 'support/glossary.md'
-        'support/tutorials/env-guide/overview.md': 'support/tutorials/env-guide/index.md'
+
 markdown_extensions:
   - footnotes
   - admonition
@@ -147,7 +147,6 @@ nav:
      - FMI: accounts/fmi.md
   - Computing:
      - computing/index.md
-     - Overview: computing/overview.md
      - Usage policy: computing/usage-policy.md
      - Billing: computing/hpc-billing.md
      - Systems:
@@ -213,6 +212,7 @@ nav:
            - Running on Helmi: computing/quantum-computing/helmi/running-on-helmi.md
   - Cloud Services:
      - cloud/index.md
+
      - Pouta:
         - cloud/pouta/index.md
        # - What is Pouta: cloud/pouta/pouta-what-is.md
@@ -233,6 +233,7 @@ nav:
              - Ephemeral storage: cloud/pouta/ephemeral-storage.md
              - Persistent volumes: cloud/pouta/persistent-volumes.md
              - Snapshots: cloud/pouta/snapshots.md
+             - Snapshot using QEMU: cloud/pouta/qemu-vm.md
         - Advanced:
            - cloud/pouta/advanced.md
            - Command line:
@@ -266,6 +267,7 @@ nav:
              - cloud/dbaas/databases.md
              - PostgreSQL: cloud/dbaas/postgresql.md
         - More advanced features: cloud/dbaas/advanced.md
+        - Resizing database instance volume: cloud/dbaas/resize-volume.md
      - Rahti:
         - cloud/rahti/index.md
         - What is Rahti: cloud/rahti/rahti-what-is.md
@@ -282,6 +284,7 @@ nav:
            - cloud/rahti/storage/index.md
            - Persistent volumes: cloud/rahti/storage/persistent.md
            - Ephemeral storage: cloud/rahti/storage/ephemeral.md
+           - Object storage: cloud/rahti/storage/objectstorage.md
            - Expand a volume: cloud/rahti/storage/expand-volumes.md
         - Images:
            - cloud/rahti/images/overview.md
@@ -317,6 +320,7 @@ nav:
         - Projects and quota: cloud/rahtibeta/usage/projects_and_quota.md
         - Billing: cloud/rahtibeta/billing.md
         - External documentation: cloud/rahtibeta/ext_docs.md
+
      - CSC Notebooks:
         - cloud/csc_notebooks/index.md
         - Guide for students: cloud/csc_notebooks/guide_for_students.md
@@ -338,7 +342,7 @@ nav:
      - Moving data:
         - data/moving/index.md
         - Copying files using scp: data/moving/scp.md
-        - Moving files using the Puhti web interface: data/moving/web-interface.md
+        - Moving files using the HPC web interfaces: data/moving/web-interface.md
         - Graphical file transfer tools: data/moving/graphical_transfer.md
         - Using rsync for data transfer and synchronization: data/moving/rsync.md
         - Using wget to download data from web sites to CSC: data/moving/wget.md
@@ -420,7 +424,6 @@ nav:
   - Applications:
      - apps/index.md
      - By discipline: apps/by_discipline.md
-     - In alphabetical order: apps/alpha.md
      - By availability: apps/by_system.md
      - By license: apps/by_license.md
   - FAQ: support/faq/index.md
