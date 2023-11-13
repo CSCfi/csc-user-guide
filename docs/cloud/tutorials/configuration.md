@@ -99,7 +99,7 @@ spec:
     - name: DATA_PROP_A
       valueFrom:
         configMapKeyRef:
-          name: prop-a-config
+          name: my-config-map
           key: data.prop.a
           optional: true     # Run this pod even
     volumeMounts:            # if data.prop.a is not defined in configmap
