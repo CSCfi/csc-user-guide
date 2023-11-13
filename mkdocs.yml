@@ -247,6 +247,7 @@ nav:
          - cloud/rahti/storage/index.md
          - Persistent volumes: cloud/rahti/storage/persistent.md
          - Ephemeral storage: cloud/rahti/storage/ephemeral.md
+         - Object storage: cloud/rahti/storage/objectstorage.md
          - Expand a volume: cloud/rahti/storage/expand-volumes.md
        - Images:
          - cloud/rahti/images/overview.md
@@ -276,6 +277,7 @@ nav:
             - Ephemeral storage: cloud/pouta/ephemeral-storage.md
             - Persistent volumes: cloud/pouta/persistent-volumes.md
             - Snapshots: cloud/pouta/snapshots.md
+            - Snapshot using QEMU: cloud/pouta/qemu-vm.md
         - Images:
             - cloud/pouta/images.md
             - Creating, Converting, Uploading and Sharing virtual machine images: cloud/pouta/adding-images.md
@@ -327,7 +329,7 @@ nav:
      - Moving data:
         - data/moving/index.md
         - Copying files using scp: data/moving/scp.md
-        - Moving files using the Puhti web interface: data/moving/web-interface.md
+        - Moving files using the HPC web interfaces: data/moving/web-interface.md
         - Graphical file transfer tools: data/moving/graphical_transfer.md
         - Using rsync for data transfer and synchronization: data/moving/rsync.md
         - Using wget to download data from web sites to CSC: data/moving/wget.md
