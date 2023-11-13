@@ -4,7 +4,7 @@
 
 ## 1. Downloading a backup or snapshot
 
-Downloading a backup or snapshot image from cPouta to your local PC. To accomplish this, you need to have the OpenStack command-line client (`openstack`). Source your openrc script file to configure the necessary environment variables for authentication. If you don't have this file, you can download it from the web [UI](https://pouta.csc.fi/).
+Downloading a backup or snapshot image from cPouta to your local PC. To accomplish this, you need to have the OpenStack command-line client (`openstack`). Source your openrc script file to configure the necessary environment variables for authentication. If you don't have this file, you can download it from the web [UI](https://pouta.csc.fi/). For more information see [Installing the client tools using pip](install-client.md) and [Configure your terminal environment for OpenStack](install-client.md).
 
 For example, on a Debian/Ubuntu-based system, you can install these with:
 
@@ -17,7 +17,7 @@ And  source openrc script file:
 source <project_name_here>-openrc.sh
 ```
 
-You will be prompted to enter your password. See [install OpenStack client](install-client.md) for other Operating Systems.
+You will be prompted to enter your password. See [Install OpenStack client](install-client.md) for other Operating Systems.
 
 List the images/snapshots including the disk format that are available in your OpenStack project:
 
@@ -90,7 +90,7 @@ qemu-img info testCentOS.qcow2
 The downloaded backup or snapshot image from cPouta, which is typically in the `raw` format. Before executing it with QEMU, it's essential to convert this image to the `qcow2` format. Please refer to the previous section for steps on format conversion and verification. Before running the virtual machine locally, ensure that `cloud-utils` and `qemu-kvm` packages are installed. A step-by-step guide as follows:
 
 !!! Warning  
-    The image you downloaded from cPouta might be configured to run in a cloud environment and might not boot properly on your local PC without some modifications. Cloud images often expect a cloud-init datasource, and the networking might be set up differently than your local environment.
+    The image you downloaded from cPouta needs cloud-init and requires modification to function properly locally. The image downloaded may require configuration change on the networking setup locally.
 
 - Install necessary packages.
     
@@ -160,7 +160,7 @@ The downloaded backup or snapshot image from cPouta, which is typically in the `
     ```
 ## 5. Uploading a VM image to cPouta
 
-Uploading a VM image to cPouta can be done using either the Horizon web interface (WEB UI) or the OpenStack CLI.
+Uploading a VM image to cPouta can be done using either the Horizon web interface (WEB UI) or the OpenStack CLI. See more on [Adding Images](adding-images.md).
 
 - using OpenStack CLI, assuming you have sourced the OpenStack credentials as shown above.
 
