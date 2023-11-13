@@ -1,5 +1,12 @@
 # Applications
 
+## Schrödinger Maestro 2023.4, 10.11.2023
+
+[Schrödinger Maestro](../../apps/maestro.md) version 2023.4 has been installed
+and set as the default module on Puhti and Mahti. See
+[release notes](https://www.schrodinger.com/releases/new-features/) for a list
+of new features and improvements.
+
 ## Molpro 2023.2 is available on Puhti, 31.10.2023
 
 The new [Molpro 2023.2](../../apps/molpro.md) includes new features like
