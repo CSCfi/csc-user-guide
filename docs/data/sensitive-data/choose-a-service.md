@@ -27,6 +27,4 @@
 ### Introduction to CSC Sensitive Data Services
 
 <iframe width="560" height="315" frameborder="0" srcdoc="https://www.youtube.com/embed/YcgeuatWf9g" title="Introducing CSC Sensitive Data Services for Research" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-Note: 
-- SD Apply is in pilot phase
-- SD Submit = FEGA, is in pilot phase
+Note: SD Apply is in pilot phase. SD Submit = FEGA, is in pilot phase.
