@@ -114,7 +114,7 @@ To open Spyder in Puhti web interface with remote desktop:
 
 1. Log in to [Puhti web interface](https://puhti.csc.fi).
 2. Open Remote desktop: Apps -> Desktop. 
-3. After launcing the remote desktop open `Terminal` (Desktop icon) and start Spyder:
+3. After launching the remote desktop open `Terminal` (Desktop icon) and start Spyder:
 
 ```
 module geoconda
