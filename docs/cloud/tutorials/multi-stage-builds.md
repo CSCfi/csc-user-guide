@@ -12,7 +12,6 @@ First create a new go project or have an existing go initialize project.
 
 ```sh
 go mod init example.com/go-server
-go mod tidy
 ```
 
 Take this `Dockerfile`:
@@ -66,6 +65,7 @@ func main() {
     http.ListenAndServe(":8080", nil)
 }
 ```
+The run `go mod tidy`, which will download all the dependencies that are required in your source files and update `go.mod` file with that dependency. In this case it will download `github.com/pborman/uuid`.
 
 The `dockerfile` can be divided into two parts (or stages), each starting by the `FORM` instruction:
 
@@ -91,7 +91,7 @@ it should give you approximately 12MB, which is more than half (~7MB) is the com
 If you pull the image `golang:1.18.3-stretch` (the one we used for building the code) and check its size, you will see that it is approximately `890 MB`.
 
 ```sh
-$ docker images golang:1.12.6-stretch
+$ docker images golang:1.18.3-stretch
 REPOSITORY   TAG              IMAGE ID       CREATED       SIZE
 golang       1.18.3-stretch   6ee1deda35bd   12 days ago   890 MB
 ```
