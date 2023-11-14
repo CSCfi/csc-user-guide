@@ -67,10 +67,10 @@ more information on how to install packages yourself. If you think that some
 important TensorFlow-related package should be included in the module provided
 by CSC, please [contact our servicedesk](../support/contact.md).
 
-With recent modules it is also possible to use [Python virtual
+It is also possible to use [Python virtual
 environments](https://packaging.python.org/en/latest/guides/installing-using-pip-and-virtual-environments/#creating-a-virtual-environment). To
-create a virtual environment use the command
-`python3 -m venv --system-site-packages venv`.
+create a virtual environment use the command `python3 -m venv
+--system-site-packages venv`.
 
 All modules are based on containers using Apptainer (previously known
 as Singularity). Wrapper scripts have been provided so that common
