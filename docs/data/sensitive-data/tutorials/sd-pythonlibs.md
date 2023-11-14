@@ -1,10 +1,10 @@
 # Adding missing Python libraries to Pythion in SD Desktop
 
-By default, SD Desktop virtual machines have Python 2.7.5 (`python`) and Python 3.9.16 (`python3.9`) installed.
-As Python 2 is mostly outdated, we recommend that you use Python 3.9 whenever possible and
+By default, SD Desktop virtual machines have Python 2.7.5 (`python`) and Python 3.10.12 (`python3`) or Python 3.9.16 (`python3.9`) installed.
+As Python 2 is mostly outdated, we recommend that you use Python3 whenever possible and
 also this tutorial focuses on that version only.
 
-The Python 3.9 in SD Desktop includes a wide selection of commonly used libraries like _pandas_, _numpy_ and _scipy_
+The Python 3 in SD Desktop includes a wide selection of commonly used libraries like _pandas_, _numpy_ and _scipy_
 but as there is huge amount of python libraries available, you quite often would like to 
 use a library that is not available in SD Desktop.
 
@@ -46,7 +46,7 @@ in your SD Desktop environment.
 (this needs to be done only once):
 
     ```bash
-    python3.9 -m venv $HOME/my-python
+    python3 -m venv $HOME/my-python
     ```
 
 2. Activate your Python virtual environment and add the location of default python libraries to `PYTHONPATH` environment variable: 
