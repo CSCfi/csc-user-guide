@@ -1,5 +1,5 @@
 # Choose a service
-## Data origin defines, what services you can use
+## Data origin defines what services you can use
 - **Primary use data** is originally produced for your research.
 - **Secondary use data** is originally produced for some other purpose, than your research. For example data that is collected from a public register is secondary use data. You need a data permit for accessing secondary use data.
 - Read more: [Findata - Difference between primary and secondary use of health and social data](https://findata.fi/en/faq/what-is-the-difference-between-primary-and-secondary-use-of-health-and-social-data/){ target="_blank" }
