@@ -1,4 +1,4 @@
-# Choose a service
+# Choose service
 ## Data origin defines what services you can use
 - **Primary use data** is originally produced for your research.
 - **Secondary use data** is originally produced for some other purpose, than your research. For example data that is collected from a public register is secondary use data. You need a data permit for accessing secondary use data.
