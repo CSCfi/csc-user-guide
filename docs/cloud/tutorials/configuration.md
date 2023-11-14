@@ -99,7 +99,7 @@ spec:
     - name: DATA_PROP_A
       valueFrom:
         configMapKeyRef:
-          name: prop-a-config
+          name: my-config-map
           key: data.prop.a
           optional: true     # Run this pod even
     volumeMounts:            # if data.prop.a is not defined in configmap
@@ -113,6 +113,7 @@ should be:
 ```
 fo=bar
 baz=notbar
+
 DATA_PROP_A=hello
 ```
 
@@ -129,7 +130,6 @@ data:
   WebHookSecretKey: dGhpc19pc19hX2JhZF90b2tlbgo=
 metadata:
   name: webhooksecret
-  namespace: mynamespace     # set this to your project namespace
 ```
 
 ### Create a secret

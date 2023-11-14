@@ -96,7 +96,7 @@ metadata:
 spec:
   containers:
   - name: serve-cont
-    image: "docker-registry.default.svc:5000/openshift/httpd"
+    image: "image-registry.openshift-image-registry.svc:5000/openshift/httpd"
 ```
 
 This pod will run one container image specified in the field
@@ -157,7 +157,7 @@ metadata:
 spec:
   containers:
   - name: serve-cont
-    image: "docker-registry.default.svc:5000/openshift/httpd"
+    image: "image-registry.openshift-image-registry.svc:5000/openshift/httpd"
     resources:
       requests:
         memory: "200M"
@@ -208,13 +208,18 @@ The only required field in the `spec.ports` field is `port`. Omitting
 `protocol` defaults it to TCP, and omitting `targetPort` defaults to the
 value of `port`.
 
-Let us ensure that the service actually works by launching a remote shell in the
-container running in the pod `mypod` and pinging the service:
+Let us ensure that the service is defined by launching a remote shell in the
+container running in the pod `mypod` and querying the internal DNS service:
 
 ```bash
 $ oc rsh mypod
-sh-4.2$ ping serve
-PING serve.my-project-with-unique-name.svc.cluster.local (172.30.39.82) 56(84) bytes of data.
+sh-4.2$ nslookup serve
+Server:		172.30.0.10
+Address:	172.30.0.10#53
+
+Name:	serve.test-sidecar.svc.cluster.local
+Address: 172.30.103.178
+
 ```
 
 ## Route
@@ -226,7 +231,7 @@ connected to) to services in the OpenShift cluster.
 *`route.yaml`*:
 
 ```yaml
-apiVersion: v1
+apiVersion: route.openshift.io/v1
 kind: Route
 metadata:
   labels:
@@ -235,7 +240,7 @@ metadata:
   annotations:
     haproxy.router.openshift.io/ip_whitelist: 192.168.1.0/24 10.0.0.1
 spec:
-  host: <myservice>.2.rahtiapp.fi
+  host: <myroute>.2.rahtiapp.fi
   to:
     kind: Service
     name: serve
@@ -245,17 +250,25 @@ spec:
 This route redirects traffic from the internet to the service in the cluster
 whose `metadata.name` equals `spec.to.name`.
 
-This particular route also allows traffic only from the subnet `192.168.1.0/24` and
+* You need to replace `<myroute>` with any value that is a valid DNS name. The recommented is to use the project name.
+
+In the particular route also allows traffic only from the subnet `192.168.1.0/24` and
 the IP `10.0.0.1`. Security-wise, it is highly encouraged to utilize IP
 whitelisting for services that are not meant to be visible to the entire
 internet.
+
+* In order to be able to connect, you need to add (or replace) your own IP or a subnet mask that contains your IP. A second option is to delete the annotation altogether, this will allow anyone in the world to connect. 
+
+You can now go to your browser and type the address you set: `<myservice>.2.rahtiapp.fi`. It should return you the Apache test page:
+
+![Apache test page](../../img/Apache-test-page.png)
 
 !!! warning
 
     If the whitelist entry is malformed, OpenShift will discard the whitelist
     and allow all traffic.
 
-By default, the hostname is `metadata.name` + `-` + project name
+By default, the hostname is `metadata.name` + `-` + `project name`
 + `.2.rahtiapp.fi` unless otherwise specified in `spec.host`.
 
 So far we have set up a pod, a service and a route. If the physical server
@@ -295,7 +308,7 @@ spec:
     spec:
       containers:
       - name: serve-cont
-        image: "docker-registry.default.svc:5000/openshift/httpd"
+        image: "image-registry.openshift-image-registry.svc:5000/openshift/httpd"
 ```
 
 The ReplicationControllers are functionally close to ReplicaSets, discussed

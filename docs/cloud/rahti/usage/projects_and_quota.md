@@ -96,8 +96,9 @@ After being logged in, click the blue "Create Project" button to create a projec
 
 ![OpenShift new project dialog](../../img/new_project_dialog_4.png)
 
-If you are in "Developer" view, click on "Projects: All projects" located in the topbar and "Create Project":  
-![OpenShift new project dialog Developer](../../img/new_project_dialog_4_developer.png)
+If you are in "Developer" view, click on "Projects: All projects" located in the topbar and "Create Project":
+![OpenShift new project dialog Developer](../../img/new_project_dialog_4_developer.png)  
+
 1. You *need* to pick a **unique name** that is not in use by any other project
 in the system.
 1. You *can* also enter a **human-readable display name** and.
