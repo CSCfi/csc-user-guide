@@ -369,7 +369,7 @@ nav:
   
   - Sensitive data:
       - data/sensitive-data/index.md
-      - Choose a service: data/sensitive-data/choose-a-service.md
+      - Choose service: data/sensitive-data/choose-a-service.md
       - Store and analyse:
         - Start here: data/sensitive-data/sd-access.md
         - Store with SD Connect: 
