@@ -250,7 +250,7 @@ spec:
 This route redirects traffic from the internet to the service in the cluster
 whose `metadata.name` equals `spec.to.name`.
 
-* You need to replace `<myroute>` with any value that is a valid DNS name. The recommented is to use the project name.
+* You need to replace `<myroute>` with any value that is a valid DNS name (It is recommended is to use the project name).
 
 In the particular route also allows traffic only from the subnet `192.168.1.0/24` and
 the IP `10.0.0.1`. Security-wise, it is highly encouraged to utilize IP
@@ -261,7 +261,7 @@ internet.
 
 You can now go to your browser and type the address you set: `<myservice>.2.rahtiapp.fi`. It should return you the Apache test page:
 
-![Apache test page](../../img/Apache-test-page.png)
+![Apache test page](../img/Apache-test-page.png)
 
 !!! warning
 
