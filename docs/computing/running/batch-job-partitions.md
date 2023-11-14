@@ -1,6 +1,6 @@
 # Available batch job partitions
 
-!!! Note
+!!! info "Note"
     The available LUMI batch job partitions are found in [the LUMI documentation](https://docs.lumi-supercomputer.eu/runjobs/scheduled-jobs/partitions/).
 
 ## Puhti partitions
@@ -9,7 +9,7 @@ The following partitions (aka queues) are currently available in **Puhti** for
 normal (CPU) nodes:
 
 
-| Partition       | Time<br>limit | Max<br>tasks | Max<br>nodes             | [Node types](../systems-puhti.md)   | Max<br>memory  | Max<br>local storage<br>[(nvme)](../creating-job-scripts-puhti/#local-storage) |  
+| Partition       | Time<br>limit | Max<br>tasks | Max<br>nodes             | [Node types](../systems-puhti.md)   | Max<br>memory  | Max<br>local storage<br>[(NVMe)](../creating-job-scripts-puhti/#local-storage) |
 |-----------------|---------------|--------------|--------------------------|------------------------------|----------|----------|
 | test            | 15 minutes    | 80           |   2                      |  M                           | 185 GiB  |          |
 | [interactive](interactive-usage.md)     | 7 days        | 8            |   1                      |  IO  | 76 GiB   | 720 GiB  |
@@ -21,7 +21,7 @@ normal (CPU) nodes:
 
 The following partitions are available on GPU nodes. Note that for each GPU, you should reserve at most 10 cores/task.
 
-| Partition       | Time<br>limit | Max<br>GPUs | Max<br>nodes | [Node types](../systems-puhti.md) | Max<br>memory | Max<br>local storage (nvme) |
+| Partition       | Time<br>limit | Max<br>GPUs | Max<br>nodes | [Node types](../systems-puhti.md) | Max<br>memory | Max<br>local storage (NVMe) |
 |-----------------|---------------|-------------|--------------|----------------------------|---------------|-----------------------------|
 | gputest         | 15 minutes    | 8           | 2            | GPU                        | 373 GiB       | 3600 GiB                    |
 | gpu             | 3 days        | 80          | 20           | GPU                        | 373 GiB       | 3600 GiB                    |
@@ -40,7 +40,7 @@ scontrol show partition <partition_name>
 
 ```
 
-!!! note "Notes on partitions"
+!!! info "Notes on partitions"
 
     - ** Only request the memory you need **
         - The jobs will run sooner, since in each partition, most of the
@@ -72,7 +72,7 @@ The following partition is available for allocation by resources in **Mahti** on
 The following partitions are available on GPU nodes. Note that for each GPU, you can reserve at most 32 cores/task and for each GPU the job is allocated 122.5 GiB of memory.
 
 
-| Partition       | Time<br>limit | Max<br>GPUs | Max<br>nodes | [Node types](../systems-mahti.md) |  Max<br>local storage (nvme) |
+| Partition       | Time<br>limit | Max<br>GPUs | Max<br>nodes | [Node types](../systems-mahti.md) |  Max<br>local storage (NVMe) |
 |-----------------|---------------|-------------|--------------|----------------------------|-----------------------------|
 | gputest         | 15 minutes    | 4           | 1            | GPU                        | 3800 GiB                    |
 | gpusmall        | 36 hours      | 2           | 1            | GPU                        | 3800 GiB                    |
@@ -85,6 +85,6 @@ The basic CPU based HPC computing should be done in _medium_, _large_ or _gc_ pa
 gives better performance. In these partitions billing is based on the allocated nodes.
 
 The _large_ partition on Mahti is only accessible to projects that have done a
-[scalability test](../../accounts/how-to-access-mahti-large-partition.md) and shown good utilisation of the resources. The partition
+[scalability test](../../accounts/how-to-access-mahti-large-partition.md) and shown good utilization of the resources. The partition
 _gc_ is only accessible to [Grand Challenge projects](https://research.csc.fi/grand-challenge-proposals) and allows users to run extremely large simulations. 
 
