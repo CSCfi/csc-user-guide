@@ -65,7 +65,7 @@ func main() {
     http.ListenAndServe(":8080", nil)
 }
 ```
-The run `go mod tidy`, which will download all the dependencies that are required in your source files and update `go.mod` file with that dependency. In this case it will download `github.com/pborman/uuid`.
+Then run `go mod tidy`, which will download all the dependencies that are required in your source files and update `go.mod` file with that dependency. In this case it will download `github.com/pborman/uuid`.
 
 The `dockerfile` can be divided into two parts (or stages), each starting by the `FORM` instruction:
 
