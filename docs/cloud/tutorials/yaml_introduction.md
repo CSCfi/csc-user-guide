@@ -110,7 +110,7 @@ key:
 
 ## yq command line tool
 
-`yq` is a useful tool to work with `yaml`. It can be installed using `pip`:
+`yq` is a useful tool to work with `yaml`. It can be installed using [`pip`](https://pypi.org/project/yq/):
 
 ```bash
 $ pip show yq  
