@@ -22,12 +22,4 @@
 | **[SD Connect](sd_connect.md)** | Store and share data | Any | Self service via MyCSC | Controlled by researcher via CSC project | Yes for files under 100GB | Generally no. Yes for files over 100BG | CSC service desk. Zoom sessions available |
 | **[SD Desktop](sd_desktop.md)** | Analyse data in secure environment | Any (Analysis limited to open source softwares) | Self service via MyCSC | Controlled by researcher via CSC project (export limited) | Yes | Generally no. Yes for customisation via containers | CSC service desk. Zoom sessions available |
 | **[FEGA (pilot)](federatedega.md)** | Publish biometrical data | Genetics / Biomedicine | Managed by Data Access Committee (DAC) | Managed by CSC helpdesk and access control (SD Apply) | Yes, for metadata submissions and access control (SD Apply) | No | CSC service desk. Zoom sessions available |
-| **[SD Apply (pilot)](sd-apply.md)** | Apply or grant access to published data | Any | Applicant: via CSC account. Data controller: self service | N/A (SD Apply is used to manage data access) | Yes | No | CSC service desk. Zoom sessions available |
-
-### Introduction to CSC Sensitive Data Services
-
-<iframe width="560" height="315" frameborder="0" srcdoc="https://www.youtube.com/embed/YcgeuatWf9g" title="Introducing CSC Sensitive Data Services for Research" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-*Note: SD Apply and SD Submit are in pilot phase.*
-
-
-
+| **[SD Apply (pilot)](sd-apply.md)** | Apply or grant access to published data | Any | Applicant: via CSC account. Data controller: self service | N/A (Data access is managed with SD Apply) | Yes | No | CSC service desk. Zoom sessions available |
