@@ -12,12 +12,16 @@ How to set up a static web server in Rahti.
     served. Click _Create_ . Here, the sample content is used, and the application is created in the project _http-test-project_.
     ![type-in-git](../img/type-git.png)
 
-4. Select _Topology_ from the navigation panel to Navigate to the newly created project and Click name of the project from the _DeploymentConfigs_ list. Select _Details_ on the pop-up window on the right. Now, the OpenShift dashboard should display information about the application.
+4. Select _Topology_ from the navigation panel to Navigate to the newly created project and Click name of the project from the graphical map of running applications. Select _Details_ on the pop-up window on the right. Now, the OpenShift dashboard should display information about the application.
     ![new-project-deployment-config](../img/click-deploymentConfig.png)
 
  This application is available at Select _Resources_ on the pop-up window on the right under the _Routes_ list.
  [httpd-example-http-test-project.2.rahtiapp.fi](http://httpd-example-http-test-project.2.rahtiapp.fi)
  ![new-app-info](../img/new-app-info.png)
+
+!!! info ""
+
+    If the link did not work, make sure that the browser did not change the address to use `https` instead of intended `http`.
 
 OpenShift processed a template that provisioned
 various objects, such as _Pods_, _Services_, _Routes_, _DeploymentConfigs_, and
