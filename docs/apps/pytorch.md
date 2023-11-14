@@ -9,11 +9,6 @@ tags:
 Machine learning framework for Python.
 
 !!! info "News" 
-    **23.5.2023** Modules `pytorch/2.0` and `pytorch/1.13` have been
-    updated so that [Python virtual
-    environments](https://packaging.python.org/en/latest/guides/installing-using-pip-and-virtual-environments/#creating-a-virtual-environment)
-    should now work with them. To create a virtual environment use the
-    command `python3 -m venv --system-site-packages venv`.
     
     **5.10.2022** Due to Puhti's update to Red Hat Enterprise Linux 8
     (RHEL8), **the number of fully supported PyTorch versions has been
@@ -36,8 +31,9 @@ Currently supported PyTorch versions:
 
 | Version | Module         | Puhti | Mahti | LUMI | Notes                      |
 |:--------|----------------|:-----:|:-----:|------|:---------------------------|
+| 2.1.0   | `pytorch/2.1   | X     | X     | -    | default version            |
 | 2.0.1   | `pytorch/2.0`  | -     | -     | X    | default version            |
-| 2.0.0   | `pytorch/2.0`  | X     | X     | -    | default version            |
+| 2.0.0   | `pytorch/2.0`  | X     | X     | -    |                            |
 | 1.13.1  | `pytorch/1.13` | -     | -     | X    | limited multi-node support |
 | 1.13.0  | `pytorch/1.13` | X     | X     | -    |                            |
 | 1.12.0  | `pytorch/1.12` | X     | X     | -    |                            |
@@ -47,7 +43,7 @@ Currently supported PyTorch versions:
 | 1.8.1   | `pytorch/1.8`  | (x)   | (x)   | -    |                            |
 | 1.7.1   | `pytorch/1.7`  | (x)   | -     | -    |                            |
 
-All modules include [PyTorch](https://pytorch.org/) and related libraries with
+Includes [PyTorch](https://pytorch.org/) and related libraries with
 GPU support via CUDA/ROCm.
 
 Versions marked with "(x)" are based on old Red Hat Enterprise Linux 7
@@ -62,6 +58,11 @@ documentation](python.md#installing-python-packages-to-existing-modules) for
 more information on how to install packages yourself. If you think that some
 important PyTorch-related package should be included in the module provided by
 CSC, please [contact our servicedesk](../support/contact.md).
+
+It is also possible to use [Python virtual
+environments](https://packaging.python.org/en/latest/guides/installing-using-pip-and-virtual-environments/#creating-a-virtual-environment). To
+create a virtual environment use the command `python3 -m venv
+--system-site-packages venv`.
 
 All modules are based on containers using Apptainer (previously known
 as Singularity). Wrapper scripts have been provided so that common

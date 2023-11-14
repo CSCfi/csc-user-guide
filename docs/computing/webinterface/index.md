@@ -4,7 +4,8 @@
 
 The web interfaces for Puhti and Mahti at [www.puhti.csc.fi](https://www.puhti.csc.fi) and
 [www.mahti.csc.fi](https://www.mahti.csc.fi) can be used to access the supercomputers using only a
-web browser.
+web browser. A web interface for LUMI is also available at [www.lumi.csc.fi](https://www.lumi.csc.fi)
+(see the [LUMI documentation](https://docs.lumi-supercomputer.eu/runjobs/webui/) for more details).
 
 **Features available in both the Puhti and Mahti web interfaces:**
 
