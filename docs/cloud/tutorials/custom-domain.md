@@ -4,8 +4,7 @@ Custom domain names and HTTPS secure data transport are implemented in the
 route object level. They are controlled with the keywords `spec.host` and
 `spec.tls`.
 
-The public DNS CNAME record of the custom domain name should point to `router.2.rahtiapp.fi`,
-and the custom DNS name is placed in the `spec.host` entry of the route object:
+Let's say that you want to use `my-custom-dns-name.replace.this.com` as the custom domain. The public DNS CNAME record of the custom domain name (`my-custom-dns-name...`) should point to `router.2.rahtiapp.fi`. The update of the DNS entry is up to the customer and depends on the domain registar procedures. Then the custom DNS name itself is placed in the `spec.host` entry of the route object:
 
 *`route-with-dns.yaml`*:
 
@@ -23,6 +22,10 @@ spec:
     name: serve
     weight: 100
 ```
+
+!!! Info "Test DNS"
+
+    Before the  DNS record is updated and live, it is possible to use the [hosts file](https://en.wikipedia.org/wiki/Hosts_\(file\)) to create that DNS record into your own computer.
 
 The TLS certificates and private keys are placed in the `spec.tls` field, for
 example:
@@ -59,13 +62,14 @@ spec:
 This definition creates a route with the private key placed in
 `spec.tls.key` and the certificates placed in `spec.tls.certificate`. In this example,
 HTTP traffic is redirected to use the HTTPS protocol due to the `Redirect` setting in
-`spec.tls.insecureEdgeTerminationPolicy`, and the TLS termination is handled by the
-route object, in the sense that traffic coming from the service `serve` is assumed
-to be non-encrypted (the `spec.tls.termination: edge`). Other termination policies:
+`spec.tls.insecureEdgeTerminationPolicy`. The TLS termination is handled by the
+route object, in the sense that traffic coming to and from he service `serve` is going to be non-encrypted (the `spec.tls.termination: edge`). Other termination policies:
 
 * `passthrough`: Assume that the TLS connection is terminated internally in the
   pod and forward the encrypted traffic.
 * `reencrypt`: Terminate the TLS connection in the router and open another secure connection that must be terminated at the pod.
+
+See the explanation in the [Networking routes](../../rahti/networking/#routes) page.
 
 !!! warning
 

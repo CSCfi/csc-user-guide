@@ -59,5 +59,5 @@ $ oc process rclone \
     SCHEDULE="0 4 * * *" | oc create -f -
 ```
 
-This will run the backup process every day at 4:00 am. You may change the schedule, see <https://en.wikipedia.org/wiki/Cron> for reference.
+This will run the backup process every day at 4:00 am. You may change the schedule, see <https://en.wikipedia.org/wiki/Cron> or <https://crontab.guru/> for reference.
 

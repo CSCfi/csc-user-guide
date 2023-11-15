@@ -62,7 +62,7 @@ the installed software should work also when Data Gateway connection has not bee
 Notes about the available tools. Note that this list may be outdated:
 
 ### Statistics
-*  [Rstudio 4.2.2](rstudio.md) R statistics tool with graphical user interface and help tools for adding libraries.
+*  [Rstudio 4.2.2](../r-in-sd-desktop.md) R statistics tool with graphical user interface and help tools for adding libraries.
 *  [PSPP](https://www.gnu.org/software/pspp/) Open Source alternative for SPSS statistics tool.
 
 ### Imaging and videos
