@@ -1,6 +1,6 @@
 # SSH Key Pair
 
-The SSH key pair is very useful in many situations[^1] and is not limited to use in the OpenStack environment.
+The SSH key pair is very useful in [many situations](https://en.wikipedia.org/wiki/Secure_Shell#Use) and is not limited to use in the OpenStack environment.
 
 This tutorial covers the creation of an SSH key pair and a practical use case with OpenStack.
 
@@ -65,7 +65,7 @@ To do this, you need to be signed in to one of the Pouta services.
 1. Go to the **Compute > Key Pairs** section, and select **Import Public Key**.
 2. Give the key pair a name.
 3. Either use **Choose File** button and select **id_rsa.pub** file or copy + paste the content of it to the **Public Key** text area.
-4. Klick **Import Public Key** button.
+4. Click **Import Public Key** button.
 
 ![Importing an existing SSH key pair.](../img/cloud_tutorial_ssh_key_pair_import.png 'Import Public Key view in OpenStack')
 
@@ -162,5 +162,3 @@ Now we can use this new in Putty to connect to a Virtual Machine.
     ![Private key file for authentication](../../img/putty-key-file-authentication.png)
 
 1. Once the key is loaded, you will save the session. Go to the **Session** section and under **Saved Sessions** write the name of the new session and click save.
-
-[^1]: [Wikipedia: Secure Shell Use](https://en.wikipedia.org/wiki/Secure_Shell#Use)
