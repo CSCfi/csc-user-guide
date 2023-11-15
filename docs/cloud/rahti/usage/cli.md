@@ -33,7 +33,7 @@ button next to it for copying the command to the clipboard. Copy the command and
 command line. The command looks like:
 
 ```bash
-oc login https://api.2.rahti.csc.fi --token=<secret access token>
+oc login https://api.2.rahti.csc.fi:<port> --token=<secret access token>
 ```
 
 This command can be obtained by clicking your usename and "Copy Login Command"
