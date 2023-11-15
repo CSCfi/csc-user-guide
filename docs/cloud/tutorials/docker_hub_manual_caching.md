@@ -3,42 +3,26 @@
 It is possible to manually cache images in Rahti. This could be useful to remove
 an external dependency or improve performance.
 
-The process is simple, go to <https://landing.2.rahti.csc.fi/>, there you must take the follwowing
-actions:
+The process is simple:
 
-1. In administrator role, open ImageStreams page under Builds. Click "Create ImageStream" button on
-top right of the page.
+1. With a terminal, connect to the Rahti registry:  
+   ```sh
+   docker login -p $(oc whoami -t ) -u unused image-registry.apps.2.rahti.csc.fi
+   ```
 
-    ![Create Image](../img/create_image.png)
+2. Tag the image you want to push:
+   ```sh
+   docker tag centos:7 image-registry.apps.2.rahti.csc.fi/{YOUR_PROJECT_NAME}/centos:<tag>
+   ```
+   _Replace {YOUR_PROJECT_NAME} by the name of your project._
 
-1. Create an image stream in the project's space.
+3. Push your image:
+   ```sh
+   docker push image-registry.apps.2.rahti.csc.fi/{YOUR_PROJECT_NAME}/centos:<tag>
+   ```
 
-    ![Create Image II](../img/create_image2.png)
-
-
-1. After creating an image stream "ImageStream details"" page will open. Click the "Do you need to work with this ImageStream outside of the web console?" text to find appropriate commands to work with the image stream.
-
-    ![Create Image III](../img/create_image3.png)
-
-## Update the image
-
-* Pull the image from docker hub in your laptop, tag it with the name you just created, and push it
-to Rahti's registry. For example to cache `centos:7`:
-
-```
-docker pull centos:7
-docker tag centos:7 image-registry.apps.2.rahti.csc.fi/$PROJECT/centos:7
-```
-
-Befor pushing the image to Rahti's internal registry, you need to give it a tag. This can be done with `oc tag` command. Remember to authenticate to the internal registry before pushing the image to an image stream.
-
-```
-oc tag centos centos:7
-docker login -p $(oc whoami -t ) -u unused image-registry.apps.2.rahti.csc.fi
-docker push image-registry.apps.2.rahti.csc.fi/$PROJECT/centos:7
-```
-
-This has to be repeated for every time the upstream changes.
+You should be able to see your images in your project:  
+![Image Streams](../img/image_streams_rahti4.png)
 
 ## Use the image
 
