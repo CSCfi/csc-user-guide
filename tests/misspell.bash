@@ -10,7 +10,7 @@
 ##
 # -w there's also a -w argument to misspell, it fixes the errors instead of just 
 #   outputting them
-find . -type f -name '*.yml' -o -name '*.md'|xargs misspell -error
+find . -type f -name '*.yml' -o -name '*.md'|xargs ./bin/misspell -error
 if [ "$?" == 0 ]; then
   echo "No commonly misspelled English words found"
   exit 0
