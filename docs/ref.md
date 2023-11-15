@@ -465,18 +465,18 @@ for MkDocs) is called 'outlined' in the CSC Design System. -->
 
 ## Snippets
 
-Files under `csc-overrides/assets/snippets/` may be added as snippets on the current page.
+Files under _csc-overrides/assets/snippets/_ may be added as snippets on the current page.
 
 Suppose we have two Markdown files, _a.md_ and _b.md_ with the content
 
 ```markdown title="a.md"
-Yes, this is `a.md`.
+Yes, this is _a.md_.
 ```
 
 and
 
 ```markdown title="b.md"
-Hello from `b.md`!
+Hello from _b.md_!
 ```
 
 The file _ref/a.md_ (relative to the base path above) added as a snippet with
