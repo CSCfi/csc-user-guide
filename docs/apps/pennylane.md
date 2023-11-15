@@ -52,25 +52,23 @@ module avail pennylane-lightning-kokkos
 
 Example batch script for reserving one GPU and two CPU cores in a single node:
 
-=== "LUMI"
-    ```bash
-    #!/bin/bash
-    #SBATCH --account=<project>
-    #SBATCH --partition=dev-g
-    #SBATCH --nodes=1
-    #SBATCH --ntasks-per-node=1
-    #SBATCH --mem=128G
-    #SBATCH --time=0:10:00
-    #SBATCH --gpus=1
-    #SBATCH --job-name=pennylane-example
+```bash title="LUMI"
+#!/bin/bash
+#SBATCH --account=<project>
+#SBATCH --partition=dev-g
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=1
+#SBATCH --mem=128G
+#SBATCH --time=0:10:00
+#SBATCH --gpus=1
+#SBATCH --job-name=pennylane-example
 
-    # setting environment variables to specify how the OpenMP threads in a program are bound to processors
-    export OMP_PROC_BIND=spread  
-    export OMP_PLACES=threads
-        
-    module load pennylane-lightning-kokkos
-    python3 simple_test.py
-    ```
+# setting environment variables to specify how the OpenMP threads in a program are bound to processors
+export OMP_PROC_BIND=spread  
+export OMP_PLACES=threads
+
+module load pennylane-lightning-kokkos
+python3 simple_test.py
 
 Submit the script with `sbatch <script_name>.sh`
 
