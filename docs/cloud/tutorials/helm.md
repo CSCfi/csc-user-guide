@@ -488,7 +488,7 @@ Other values that might be interesting to configure:
 
 It is possible to have conditionals in the templates, based on capabilities of the cluster, or in a configuration option. For example to activate `tls` or not
 
-```sh
+```yaml
 apiVersion: route.openshift.io/v1
 kind: Route
 metadata:
@@ -664,3 +664,41 @@ storage:
   class: glusterfs-storage
 ```
 
+## Using online Helm Repo  
+### Adding a repo
+It's also possible to install `repository` and then use them for deploying applications.  
+For example [JupyterHub](https://z2jh.jupyter.org/en/stable/jupyterhub/installation.html), you can install the `repo` with this command:  
+```sh
+helm repo add jupyterhub https://hub.jupyter.org/helm-chart/
+```
+
+If you type this command:  
+```sh
+helm repo list   
+```
+You should see your newly added repostory.  
+
+It also possible to check for updates (and update your `repo`) with this command:  
+```sh
+helm repo update
+```
+
+You can search and check the packages available:  
+```sh
+helm search repo jupyterhub
+NAME                            CHART VERSION   APP VERSION     DESCRIPTION                    
+jupyterhub/jupyterhub           3.1.0           4.0.2           Multi-user Jupyter installation                   
+```
+### Check values
+When installing an online `repo`, you can check the default `values` used when you deploy it. For that, type the following command:  
+```sh
+helm show values jupyterhub/jupyterhub > values.yaml
+```
+[ArtifactHub](https://artifacthub.io/) is a good site where you can find packages
+
+### Edit and install from a repo  
+After exporting the default `values` you can edit or create a `config` file with your own values.  
+Then, you can install the `Chart` using this command:  
+```sh
+helm install my-jupyterhub jupyterhub/jupyterhub -f config.yaml
+```
