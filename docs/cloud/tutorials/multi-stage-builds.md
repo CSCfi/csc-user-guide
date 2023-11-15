@@ -67,7 +67,7 @@ func main() {
 ```
 Then run `go mod tidy`, which will download all the dependencies that are required in your source files and update `go.mod` file with that dependency. In this case it will download `github.com/pborman/uuid`.
 
-The `dockerfile` can be divided into two parts (or stages), each starting by the `FORM` instruction:
+The `dockerfile` can be divided into two parts (or stages), each starting by the `FROM` instruction:
 
 1. `FROM golang:1.18.3-stretch as builder`, uses the official golang image containing everything we need to compile the code. It is labeled as `builder`. We copy `go.mod and go.sum` and download the package dependencies to the "working directory". We copy the whole "working directory", including the code with `COPY . .`, and finally compile the code with `RUN CGO_ENABLED=0 go build server.go`.
 2. `FROM alpine:edge`, uses the minimal distribution `alpine`. In the line `COPY --from=builder /go/src/server/server /app/server` the compiled program and only the compiled program is copied from the previous stage (`build`).
