@@ -57,7 +57,7 @@ Example batch script for reserving one GPU and two CPU cores in a single node:
     #!/bin/bash
     #SBATCH --account=<project>
     #SBATCH --partition=dev-g
-    #SBATCH -N 1
+    #SBATCH --nodes=1
     #SBATCH --ntasks-per-node=1
     #SBATCH --mem=128G
     #SBATCH --time=0:10:00
