@@ -187,7 +187,7 @@ In order to create a new security group:
 
 ### Server Groups
 
-If you want a policy that allows your instances to run (or not) in the same host, you can setup server groups.
+If you want a policy that allows your instances to run (or not) on the same host, you can set up server groups.
 
 ![Server Groups](../../img/pouta-server-groups.png)
 
