@@ -381,7 +381,7 @@ nav:
         - SD Apply: 
             - data/sensitive-data/sd-apply.md
             - Data access for Data Applicant: data/sensitive-data/sd-apply_access.md
-            - Data approval for Data Access Committee (DAC):data/sensitive-data/sd-apply_approval.md
+            - Data approval for Data Access Committee (DAC): data/sensitive-data/sd-apply_approval.md
       - Secondary use of health and social data:
         - Start here:
             - Access with Findata permit: data/sensitive-data/findata-permit.md
