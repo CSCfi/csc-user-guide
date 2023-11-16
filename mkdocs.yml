@@ -373,8 +373,14 @@ nav:
             - Export data: data/sensitive-data/sd-desktop-export.md
             - Troubleshooting: data/sensitive-data/sd-desktop-troubleshooting.md
       - Publish and reuse:
-        - Federated EGA: data/sensitive-data/federatedega.md
-        - SD Apply: data/sensitive-data/sd-apply.md
+        - Federated EGA: 
+            - data/sensitive-data/federatedega.md
+            - Data access application: data/sensitive-data/fega_application.md
+            - DAC data access approval: data/sensitive-data/fega_dac.md
+            - Data submission: data/sensitive-data/fega_submission.md
+        - SD Apply: 
+            - data/sensitive-data/sd-apply.md
+            - 
       - Secondary use of health and social data:
         - Start here:
             - Access with Findata permit: data/sensitive-data/findata-permit.md
