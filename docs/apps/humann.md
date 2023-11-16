@@ -62,7 +62,7 @@ Example batch job script (use your actual project neame for `--account`)
 #SBATCH --time=01:00:00
 #SBATCH --ntasks=1  
 #SBATCH --cpus-per-task=1
-#SBATCH --mem=32000
+#SBATCH --mem=24000
 
 # Load HUMaN module
 module load humann
