@@ -28,7 +28,7 @@ full nodes:
 ```
 Since Puhti is currently fragmented, requesting full nodes may mean longer queuing
 time, but it may be regained by faster execution. If queuing times this way seem
-unaccecptable, you can still limit the maximum number of nodes the job can spread on.
+unacceptable, you can still limit the maximum number of nodes the job can spread on.
 For example, limiting the 200 task job (which optimally fits on 5 nodes) to a maximum
 of 10 nodes, you could use:
 
@@ -55,8 +55,7 @@ should be run in Mahti.
 
 Many HPC applications benefit from binding OpenMP threads to CPU cores
 which can be achieved by setting `export OMP_PLACES=cores` in the
-batch job script. Note! Due to bug in OpenBLAS thread binding should not be
-specified when using threaded OpenBLAS (openblas/0.3.10-omp module).
+batch job script.
 
 When starting new production runs it is also good
 practice to ensure correct thread affinity by adding to batch job
@@ -72,7 +71,7 @@ the same core, *i.e.*
 Process 164433 level 1 thread 000 affinity 0
 Process 164433 level 1 thread 001 affinity 0
 ```
-the performance might be detoriated and one should check the settings
+the performance might be deteriorated and one should check the settings
 in the batch script.
 
 
@@ -102,7 +101,7 @@ consider the following items to mitigate potential bottlenecks:
 
 * Use local storage for especially AI workloads instead of scratch. Only some
   nodes have [fast local disk](creating-job-scripts-puhti.md#local-storage),
-  but we've seen 10 fold performance improvement by switching to use it. Check
+  but we've seen 10-fold performance improvement by switching to use it. Check
   your performance: don't use the resource if it doesn't help.
   [AI batch job example](../../support/tutorials/ml-data.md#fast-local-drive-puhti-and-mahti-only)
 * Investigate if you can choose how your application does I/O (e.g. OpenFoam

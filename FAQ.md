@@ -147,22 +147,59 @@ You can preview how the Docs CSC page would look like with your changes included
 
 ### Locally using the MkDocs tool
 
-* This user guide uses [MkDocs](https://www.mkdocs.org/) to generate documentation pages. You can install it on your local computer by following the instructions given in the [MkDocs documentation](https://www.mkdocs.org/user-guide/installation/), or with [Conda](https://docs.conda.io/en/latest/miniconda.html):
+This user guide uses [MkDocs](https://www.mkdocs.org/) to generate documentation pages. MkDocs comes with it's own preview server for a quick local preview of your edits. You can install the requirements for running Docs CSC locally (all of the following commands are to be run while in the root directory of the cloned repository) with Pip or Conda (recommended).
+
+#### Venv
+
+If you have at least Python 3.8 (at the time of writing) installed (see other option, Conda, below if not), you can create a new virtual environment with
 
 ```bash
-conda env create -f docs/support/tutorials/conda/conda-docs-env-1.2.yaml
+python -m venv docs-env
+```
+
+activate it with
+
+```bash
+source docs-env/bin/activate
+```
+
+(on Windows, use `docs-env\Scripts\activate.bat` or `docs-env\Scripts\activate.ps1`) and upgrade Pip with
+
+```bash
+pip install --upgrade pip
+```
+
+Then, to install the requirements for Docs CSC, run the command
+
+```bash
+pip install -r requirements.txt
+```
+
+#### Conda
+
+Detailed instructions for installing Conda on Windows are found [here](GETTING_STARTED.md#setting-up-a-development-environment-on-windows), but the gist of it, regardless of the operating system used, is to install [Miniconda](https://docs.conda.io/projects/miniconda/en/latest/) and to use it to create the virtual environment. So, with Miniconda installed, an environment containing everything needed to run MkDocs can be created by running the command
+
+```bash
+conda env create -f docs/support/tutorials/conda/conda-docs-env-freeze.yaml
+```
+
+Add a `--force` flag if you already have a Conda environment named `docs-env` (you got `CondaValueError: prefix already exists: [...]`) and want to overwrite it. Activate the new environment with
+
+```bash
 conda activate docs-env
 ```
 
-* You can start a preview web server from the command line while in the root of the project directory:
+#### Preview server
+
+You can start a preview web server with the command
 
 ```bash
 mkdocs serve
 ```
 
-* This will start a web server on your computer listening on port 8000. Go to the url [http://127.0.0.1:8000/](http://127.0.0.1:8000/) or [http://localhost:8000/](http://localhost:8000/) with your browser to get a preview of the documentation.
-* Note, some parts of the website will not be properly formatted in a local build, for example the What's new section, as there are some scripts that are automatically run only when the commits are pushed.
-* To speed up the reloading of a page you've changed, start the MkDocs server with the `--dirtyreload` flag. (Mind the warning about "a 'dirty' build being performed" that will "likely lead to inaccurate navigation and other links [...]".):
+This will start a web server on your computer listening on port 8000. Go to the url [http://127.0.0.1:8000/](http://127.0.0.1:8000/) or [http://localhost:8000/](http://localhost:8000/) with your browser to get a preview of the documentation. Note, that
+* some parts of the website will not be properly formatted in a local build, for example the What's new section, as there are some scripts that are automatically run only when the commits are pushed.
+* to speed up the reloading of a page you've changed, you can start the MkDocs server with the `--dirtyreload` flag. (Mind the warning about "a 'dirty' build being performed" that will "likely lead to inaccurate navigation and other links [...]".):
 
 ```bash
 mkdocs serve --dirtyreload
@@ -180,10 +217,10 @@ The tests depend on the Conda environment, so remember to activate it before run
 
 #### Scripts
 
-If you're adding entries to the _What's new_ or _Applications_ sections and want to check that they are generated correctly, you can run the scripts with
+If you're adding entries to the _What's new_ or _Applications_ sections and want to check that they, and the glossary page (only the page at _/glossary_ is affected by these scripts), are generated correctly, you can run the scripts with
 
 ```bash
-for s in scripts/*.sh; do bash $s; done
+for s in scripts/generate_*.sh; do bash $s; done
 ```
 
 Keep in mind, though, that the tests are meant to be run _before_ the scripts, so make sure to restore any files the scripts edit/create before re-running the tests. (Or just ignore the new errors/warnings that resulted from running the scripts.)
@@ -262,7 +299,7 @@ Have a look at [the reference card](https://docs.csc.fi/ref).
 ## How do I add definitions to the glossary / display definitions as tooltips?
 
 There are `.md` files that contain acronym-definition pairs in
-[csc-overrides/assets/glossaries/](csc-overrides/assets/glossaries/). The pairs are in the format
+[csc-overrides/assets/snippets/glossaries/](csc-overrides/assets/glossaries/). The pairs are in the format
 `*[Acronym]: Definition`. The `Acronym` part is case-sensitive, so if you'd add the definition
 `*[PCIe]: Peripheral Component Interconnect express`, instances of `PCIE` in the text would not get
 the tooltip (in this case the definition is correct, so text would have to be corrected). If the
