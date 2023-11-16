@@ -45,23 +45,6 @@
             {{ page.title }}
         {% endif %}
     </nav>
-    {% if config.extra.breadcrumbs_debug %}
-        {% include "partials/breadcrumbs-debug.html" %}
-    {% endif %}
-    {%- for ancestor in page.ancestors[::-1] -%}
-      {% if ancestor.is_page %}
-        <a class="csc-breadcrumbs__link" href="/{{ ancestor.url }}">{{ ancestor.title }}</a>
-      {% endif %}
-      {%- endfor -%}
-    {% if not page.ancestors and parent_url in breadcrumbs %}
-      {% for breadcrumb in breadcrumbs[parent_url] %}
-        <a class="csc-breadcrumbs__link" href="{{ breadcrumb['url'] }}">{{ breadcrumb['title'] }}</a>
-      {% endfor %}
-    {% endif %}
-    {% if not page.is_homepage %}
-      {{ page.title }}
-    {% endif %}
-  </nav>
   {% if config.extra.breadcrumbs_debug %}
     {% include "partials/breadcrumbs-debug.html" %}
   {% endif %}
