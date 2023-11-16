@@ -58,8 +58,6 @@ srun myprog <options>
 
 ## MPI + OpenMP with thread binding
 
-Note! Due to bug in OpenBLAS, thread binding should not be used in applications
-utilizing threaded OpenBLAS (openblas/0.3.10-omp module)
 ```
 #!/bin/bash
 #SBATCH --job-name=example

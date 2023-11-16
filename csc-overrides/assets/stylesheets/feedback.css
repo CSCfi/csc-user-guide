@@ -48,11 +48,11 @@
   background-color: var(--csc-error);
 }
 
-.csc-feedback .csc-rated > .csc-feedback-button {
+.csc-feedback .csc-rated>.csc-feedback-button {
   display: none;
 }
 
-.csc-feedback .csc-feedback-content:not(.csc-rated) > .csc-feedback-note {
+.csc-feedback .csc-feedback-content:not(.csc-rated)>.csc-feedback-note {
   display: none;
 }
 

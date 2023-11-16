@@ -31,8 +31,9 @@ Currently supported TensorFlow versions:
 
 | Version | Module               | Puhti | Mahti | LUMI | Notes           |
 |:--------|:---------------------|:-----:|:-----:|:----:|-----------------|
-| 2.13.0  | `tensorflow/2.13`    | X     | X     | -    | default version |
-| 2.12.0  | `tensorflow/2.12`    | X     | X     | -    |                 |
+| 2.14.0  | `tensorflow/2.14`    | X     | X     | -    | default version |
+| 2.13.0  | `tensorflow/2.13`    | X     | X     | -    |                 |
+| 2.12.0  | `tensorflow/2.12`    | X     | X     | X*   |                 |
 | 2.11.0  | `tensorflow/2.11`    | X     | X     | X*   |                 |
 | 2.10.0  | `tensorflow/2.10`    | X     | X     | X*   |                 |
 | 2.9.0   | `tensorflow/2.9`     | X     | X     | X*   |                 |
@@ -66,10 +67,10 @@ more information on how to install packages yourself. If you think that some
 important TensorFlow-related package should be included in the module provided
 by CSC, please [contact our servicedesk](../support/contact.md).
 
-With recent modules it is also possible to use [Python virtual
+It is also possible to use [Python virtual
 environments](https://packaging.python.org/en/latest/guides/installing-using-pip-and-virtual-environments/#creating-a-virtual-environment). To
-create a virtual environment use the command
-`python3 -m venv --system-site-packages venv`.
+create a virtual environment use the command `python3 -m venv
+--system-site-packages venv`.
 
 All modules are based on containers using Apptainer (previously known
 as Singularity). Wrapper scripts have been provided so that common
@@ -153,11 +154,11 @@ a single node:
     #SBATCH --partition=gpu
     #SBATCH --ntasks=1
     #SBATCH --cpus-per-task=10
-    #SBATCH --mem=64G
+    #SBATCH --mem=80G
     #SBATCH --time=1:00:00
     #SBATCH --gres=gpu:v100:1
     
-    module load tensorflow/2.13
+    module load tensorflow/2.14
     srun python3 myprog.py <options>
     ```
     
@@ -171,7 +172,7 @@ a single node:
     #SBATCH --time=1:00:00
     #SBATCH --gres=gpu:a100:1
     
-    module load tensorflow/2.13
+    module load tensorflow/2.14
     srun python3 myprog.py <options>
     ```
 
@@ -187,7 +188,7 @@ a single node:
     #SBATCH --time=1:00:00
     
     module use /appl/local/csc/modulefiles/
-    module load tensorflow/2.11
+    module load tensorflow/2.12
     srun python3 myprog.py <options>
     ```
 

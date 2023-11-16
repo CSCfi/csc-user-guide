@@ -1,5 +1,26 @@
 # Applications
 
+## PyTorch 2.1 and TensorFlow 2.14, 13.11.2023
+
+[PyTorch](../../apps/pytorch.md) 2.1 and
+[TensorFlow](../../apps/tensorflow.md) 2.14 are now available on Puhti and Mahti. 
+See [PyTorch 2.1 blog post](https://pytorch.org/blog/pytorch-2-1/) or the
+[TensorFlow 2.14 release notes](https://github.com/tensorflow/tensorflow/releases/tag/v2.14.0).
+
+## Schrödinger Maestro 2023.4, 10.11.2023
+
+[Schrödinger Maestro](../../apps/maestro.md) version 2023.4 has been installed
+and set as the default module on Puhti and Mahti. See
+[release notes](https://www.schrodinger.com/releases/new-features/) for a list
+of new features and improvements.
+
+## Molpro 2023.2 is available on Puhti, 31.10.2023
+
+The new [Molpro 2023.2](../../apps/molpro.md) includes new features like
+unrestricted coupled cluster and the PQS geometry optimizer. Check the
+[Recent changes](https://www.molpro.net/manual/doku.php?id=recent_changes)
+for a detailed list of new features and improvements.
+
 ## AlphaFold Genetic databases available on Puhti, 20.10.2023
 
 Genetic databases for AlphaFold 2.3.2-1 now available on Puhti. See

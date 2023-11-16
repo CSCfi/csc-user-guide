@@ -15,7 +15,7 @@ A Python program called _MkDocs_ is used to generate the Docs CSC website from d
 
 #### Installation
 
-1. Download a minimal installer for Conda, called _Miniconda_, from [docs.conda.io/en/latest/miniconda.html](https://docs.conda.io/en/latest/miniconda.html). Scroll down to _Windows installers_ and on the row _Python 3.8_, click the hyperlink "Miniconda3 Windows 64-bit".
+1. Download a minimal installer for Conda, called _Miniconda_, from [docs.conda.io/en/latest/miniconda.html](https://docs.conda.io/projects/miniconda/en/latest/). Scroll down to _Windows installers_ and on the row _Python 3.8_, click the hyperlink "Miniconda3 Windows 64-bit".
 
     ![Windows installers - Miniconda](docs/img/windows/miniconda_windows_installers.png)
 
@@ -42,6 +42,7 @@ A Python program called _MkDocs_ is used to generate the Docs CSC website from d
         + If you have Python 3.8 installed through some other means and would like to keep that as the default on your system, uncheck "Register Miniconda3 as my default Python 3.8". For running MkDocs from Git Bash, this should have no effect.
 
     Click "Install" and after it's completed click "Next". Then, unless you'd like to have the corresponding web pages opened for you ([this](https://conda.io/projects/conda/en/latest/user-guide/getting-started.html) and [this](https://www.anaconda.com/installation-success?source=installer), respectively), uncheck "Getting started with Conda" and "Welcome to Anaconda" before clicking "Finish".
+
 
 ### Git for Windows
 
@@ -170,6 +171,7 @@ You can change the default behaviour by right-clicking on the title bar, selecti
 Also, while some websites might show commands or snippets of code/script in a box with a button for copying the snippet onto the clipboard, **the result might not always be what the author of the tutorial intended**. A snippet with multiple lines can get copied as only a single long line, or a command that is intended to be edited first can get executed straight away when pasting. To avoid this, instead of clicking the button, it is recommended to select (highlight) the text and copy it using either _Ctrl+C_, the context menu accessed by right-clicking, or even by selecting _Edit -> Copy_ from the web browser's menu bar.
 
 **Keyboard shortcuts in general may produce unexpected results** for users accustomed to graphical interfaces. Similarly to how _Shift_ modifies the behaviour of the keys to produce uppercase characters, _Ctrl_ has been used as a modifier key for sending _control characters_ to computer terminals in the past. You _have_ just installed a _terminal emulator_ called MinTTY to use with Git Bash. In the early days of computer technology, there was a physical terminal to interact with the computer. 
+
 
 ##### Setting up SSH authentication with GitHub
 
@@ -336,7 +338,7 @@ cd csc-user-guide/
 Create the Conda environment (if not created yet):
 
 ```bash
-conda env create -f docs/support/tutorials/conda/conda-docs-env-1.2.yaml
+conda env create -f docs/support/tutorials/conda/conda-docs-env-freeze.yaml
 ```
 
 Activate the environment:
@@ -398,6 +400,7 @@ Branch off of the latest commit on master using [git-switch](https://git-scm.com
 ```bash
 git switch --create my-branch-name
 ```
+
 
 ### Working on your contribution
 
