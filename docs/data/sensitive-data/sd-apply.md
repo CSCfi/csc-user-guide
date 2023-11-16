@@ -6,6 +6,6 @@ Each sensitive dataset that is published under controlled access is associated w
 
 The following is a step-by-step guide to SD Apply that illustrates: 
 
-- **[Data access for Data Applicant](./sd-apply_approval.md)**
-- **[Data approval for Data Access Committee (DAC)](./sd-apply_access.md)**
+- **[Data access for Data Applicant](./sd-apply_access.md)**
+- **[Data approval for Data Access Committee (DAC)](./sd-apply_approval.md)**
 
