@@ -12,7 +12,7 @@ For processing research data. Note: not suitable for register data processing [S
 <a href="..sd_ onnect/">
   <img
     alt="Short info about SD Connect"
-    scr="../images/introduction/SD_ChooseService_SDConnect.svg"
+    scr="./images/introduction/SD_ChooseService_SDConnect.svg"
     title="SD Connect"
     aria-description="Testitesti testinen.">
 </a>
