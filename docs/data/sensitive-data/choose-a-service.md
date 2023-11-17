@@ -9,7 +9,7 @@ For processing research data. Note: not suitable for register data processing [S
 
 [Start Here](sd-access.md)
 
-<a href="..sd_ onnect/">
+<a href="..sd_connect/">
   <img
     alt="Short info about SD Connect"
     scr="./images/introduction/SD_ChooseService_SDConnect.svg"
