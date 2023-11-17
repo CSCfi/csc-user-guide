@@ -2,7 +2,7 @@
 
 [Dask](https://dask.org/) is a versatile Python library for scalable analytics. When using Dask, two main decisions have to be made for running code in Parallel. 
 
-1) **How to make the code parallel?** Dask provides several options, inc [Dask DataFrames](https://docs.dask.org/en/stable/dataframe.html), [Dask Arrays](https://docs.dask.org/en/stable/array.html) and [Dask Delayed](https://docs.dask.org/en/stable/delayed.html). This decision depends on the type of analyzed data and already existing code. Additinally Dask has support for scalable machine learning with [DaskML](https://ml.dask.org/).
+1) **How to make the code parallel?** Dask provides several options, inc [Dask DataFrames](https://docs.dask.org/en/stable/dataframe.html), [Dask Arrays](https://docs.dask.org/en/stable/array.html) and [Dask Delayed](https://docs.dask.org/en/stable/delayed.html). This decision depends on the type of analyzed data and already existing code. Additionally Dask has support for scalable machine learning with [DaskML](https://ml.dask.org/).
 2) **How to run the parallel code?** Again Dask supports several options: default local cluster and many different [Distributed Clusters](https://distributed.dask.org/en/stable/) for [Cloud](https://docs.dask.org/en/latest/deploying-cloud.html), [Kubernetes](https://docs.dask.org/en/latest/deploying-kubernetes.html) and [supercomputers](https://docs.dask.org/en/latest/deploying-hpc.html) etc. This depends on available hardware. Changing from one cluster to another, is code-wise relatively easy. So when starting with Dask, it is recommended to first use local cluster and go to more advanced Distributed Clusters after understanding the basics.
 
 In this tutorial we use Delayed functions. Delayed functions are useful in parallelising existing code. This approach delays functions calls and creates a graph of the computing process. From the graph Dask can then divide the work tasks to different workers whenever parallel computing is possible. For running Dask clusters two options suitable for supercomputers are provided: single node using local cluster and multiple nodes using SLURMCluster.
@@ -82,7 +82,7 @@ module load python-data
 srun python dask_multinode.py <YOUR-PROJECT>
 ```
 
-The worker jobs are defined inside the Python file started by master SLURM job, for futher details see: [Dask Jobqueue configurations documentation](https://jobqueue.dask.org/en/latest/configuration-setup.html).
+The worker jobs are defined inside the Python file started by master SLURM job, for further details see: [Dask Jobqueue configurations documentation](https://jobqueue.dask.org/en/latest/configuration-setup.html).
 
 * `cores` - How many cores per node to use? In bigger jobs one worker SLURM job should fill the whole HPC node, ie 40 cores in Puhti.
 * `processes` - How many Python processes per node to use?
@@ -134,7 +134,7 @@ for dataset in datasets:
 ### This starts the execution with the resources available
 compute(list_of_delayed_functions)
 ```
-When the worker SLURM jobs finish, they will be displayd as CANCELLED on SLURM, which is intended, the master job cancels them.
+When the worker SLURM jobs finish, they will be displayed as CANCELLED on SLURM, which is intended, the master job cancels them.
 
 ## Dask with Jupyter 
 
