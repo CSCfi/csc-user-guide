@@ -6,7 +6,16 @@ To begin, select a service below and refer to the 'Start Here' section of the us
 
 ## Services for processing sensitive data
 For processing research data. Note: not suitable for register data processing [See bellow](##Services-for-secondary-use-of-health-and-social-data).
-[Start Here](sd-access.md).
+
+[Start Here](sd-access.md)
+
+<a href="..sd_ onnect/">
+  <img
+    alt="Short info about SD Connect"
+    scr="../images/introduction/SD_ChooseService_SDConnect.svg"
+    title="SD Connect"
+    aria-description="Testitesti testinen.">
+</a>
 
 [![Short info about SD Connect](./images/introduction/SD_ChooseService_SDConnect.svg 'SD Connect')](sd_connect.md)
 [![Short info about SD Desktop](./images/introduction/SD_ChooseService_SDDesktop.svg 'SD Desktop')](sd_desktop.md)
