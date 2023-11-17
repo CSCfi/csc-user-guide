@@ -132,7 +132,7 @@ Once the SSH keys and security groups are set, you can launch a new virtual mach
 
 1. **Image Name**, this decides which Linux distribution to use. You can select the image that fits more your use case. The images provided by Pouta by default are regularly maintained up to date.
 
-1. Under the **Access & Security** tab, you need to configure two options. First you need to choose the name of the *Key Pair* you have created in the **Preparatory Steps**. Secondly you need to select under the [**Security Groups**](#firewalls-and-security-groups) the security group previously created.
+1. Under the **Access & Security** tab, you need to configure two options. First you need to choose the name of the *Key Pair* you have created in the **Preparatory Steps**. Secondly you need to select under the [**Security Groups**](#configure-a-security-group-to-control-the-firewall) the security group previously created.
 
 1. The **Networking** tab, make sure that your own network (your project name) is selected.
 
