@@ -5,9 +5,9 @@ Discover our range of services for managing sensitive research data or register 
 To begin, select a service below and refer to the 'Start Here' section of the user guide for detailed instructions.
 
 ## Services for processing sensitive data
-For processing research data. Note: not suitable for register data processing [See bellow](##services-for-secondary-use-of-health-and-social-data).
+For processing research data. Note: not suitable for register data processing [See bellow](#services-for-secondary-use-of-health-and-social-data).
 
-<a href=".sd_connect.md">
+<a href="..sd_connect.md">
   <img
     alt="Short info about SD Connect"
     scr="./images/introduction/SD_ChooseService_SDConnect.svg"
@@ -21,7 +21,7 @@ For processing research data. Note: not suitable for register data processing [S
 [![Short info about SD Apply](./images/introduction/SD_ChooseService_SDApply.svg 'SD Apply')](sd-apply.md)
 
 ## Services for secondary use of health and social data
-For processing health and social data under the Act on Secondary Use. [Start Here](sd-access.md)
+For processing health and social data under the Act on Secondary Use.
 
 [![Short info about SD Connect for Secondary use data](./images/introduction/SD_ChooseService_SDDesktop2.svg 'SD Desktop for secondary use')](sd-desktop-audited.md)
 [![Short info about SD Apply for Secondary use data](./images/introduction/SD_ChooseService_SDApply2.svg 'SD Apply for secondary use')](sd-apply.md)
