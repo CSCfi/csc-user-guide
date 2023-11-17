@@ -49,7 +49,7 @@ includes following python packages:
     vector geometries. It includes functions for zonal statistics and
     interpolated point queries. [rasterstats example in CSC geocomputing Github](https://github.com/csc-training/geocomputing/tree/master/python/zonal_stats)
 -   [rtree] - spatial indexing and search.
--   [sentinelhub](https://sentinelhub-py.readthedocs.io/en/latest/index.html) - for working with new Sentinel Hub services NEW 2023
+-   [sentinelhub](https://sentinelhub-py.readthedocs.io/en/latest/index.html) - for working with new Sentinel Hub services. NEW 2023
 -   [sentinelsat] - downloading Sentinel images, [sentinelsat example in CSC geocomputing Github] (https://github.com/csc-training/geocomputing/tree/master/python/sentinel)
 -   [shapely] - manipulation and analysis of geometric objects in the Cartesian plane.
 -   [scipy](https://www.scipy.org/) - inc pandas, numpy, matplotlib etc
