@@ -8,7 +8,7 @@ In this example we will use the GitHub type.
 
 ## Creating a secret
 
-In the `Developer` menu, go to the **Secrets** page. Click in **Create -> Webhook secret**. Write any sensible name. And click in Generate. Write down the generated secret. And **Save**.
+In the `Developer` menu, go to the **Secrets** page. Make sure that you are in the right project and then click in **Create -> Webhook secret**. Write any sensible name. And click in Generate. Write down the generated secret. And **Save**.
 
 ![CreateWebhookSecret](../img/CreateWebhookSecret.png)
 
