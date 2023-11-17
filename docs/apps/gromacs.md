@@ -54,7 +54,7 @@ systems. It also comes with plenty of analysis scripts.
     |2023.2   |`gromacs/2023.2`<br>`gromacs/2023.2-gpu`|GPU-enabled module available
     |2023.3   |`gromacs/2023.3`<br>`gromacs/2023.3-gpu`|GPU-enabled module available
 
-    [^1]: This module is unvalidated, unmaintained and unsupported by the Gromacs team. Use at own risk!
+    [^1]: This module is unvalidated, unmaintained and unsupported by the Gromacs team. Use at your own risk!
 
 - Puhti and Mahti have also `gromacs-env/<year>` modules for loading the recommended
   latest minor version from each year (replace `<year>` accordingly).
