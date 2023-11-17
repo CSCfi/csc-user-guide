@@ -1,5 +1,14 @@
 # Applications
 
+## Gromacs 2023.3, 17.11.2023
+
+[Gromacs](../../apps/gromacs.md) 2023.3 is now available on Puhti, Mahti and
+LUMI. See [release notes](https://manual.gromacs.org/current/release-notes/2023/2023.3.html)
+for a list of new features and improvements. The naming of Gromacs modules on
+LUMI has also been changed due to hipSYCL changing its name to
+[AdaptiveCpp](https://github.com/AdaptiveCpp/AdaptiveCpp). Henceforth,
+GPU-enabled modules are simply suffixed with `-gpu` to avoid confusion.
+
 ## PyTorch 2.1 and TensorFlow 2.14, 13.11.2023
 
 [PyTorch](../../apps/pytorch.md) 2.1 and
