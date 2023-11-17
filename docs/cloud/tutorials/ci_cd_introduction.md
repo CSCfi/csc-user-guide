@@ -1,4 +1,4 @@
-# Introduction
+-# Introduction
 
 Nowadays agile software development methodologies are being used to satisfy
 the continuously changing requirements of a given software. The main aim of
@@ -38,7 +38,7 @@ cd rahti-bc-example/
 Login to Rahti if you haven't done so. You can copy your login command from the Rahti UI.
 
 ```
- oc login https://api.2.rahti.csc.fi --token=<your_token>
+ oc login https://api.2.rahti.csc.fi:6443 --token=<your_token>
 ```
 
 Make sure you are in the right project with `oc project` and if not you can create one
