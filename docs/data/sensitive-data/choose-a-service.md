@@ -1,16 +1,19 @@
-# Choose service
-## Data origin defines what services you can use
-- **Primary use data** is originally produced for your research.
-- **Secondary use data** is originally produced for some other purpose, than your research. For example data that is collected from a public register is secondary use data. You need a data permit for accessing secondary use data.
-- Read more: [Findata - Difference between primary and secondary use of health and social data](https://findata.fi/en/faq/what-is-the-difference-between-primary-and-secondary-use-of-health-and-social-data/){ target="_blank" }
+# Choose a service
 
-## Services for primary use research data
+Discover our range of services for managing sensitive research data or register data. These services are designed to work together seamlessly, and our support team is available to help you understand how they can be adapted to suit your project. 
+
+To begin, select a service below and refer to the 'Start Here' section of the user guide for detailed instructions.
+
+## Services for processing sensitive data
+For processing research data. Note: not suitable for register data processing [See bellow](#Services-for-secondary-use-of-health-and-social-data).
+
 [![Short info about SD Connect](./images/introduction/SD_ChooseService_SDConnect.svg 'SD Connect')](sd_connect.md)
 [![Short info about SD Desktop](./images/introduction/SD_ChooseService_SDDesktop.svg 'SD Desktop')](sd_desktop.md)
 [![Short info about Fega](./images/introduction/SD_ChooseService_Fega.svg 'Fega')](federatedega.md)
 [![Short info about SD Apply](./images/introduction/SD_ChooseService_SDApply.svg 'SD Apply')](sd-apply.md)
 
-## Services for secondary use data from public registers
+## Services for secondary use of health and social data
+For processing health and social data under the Act on Secondary Use. 
 
 [![Short info about SD Connect for Secondary use data](./images/introduction/SD_ChooseService_SDDesktop2.svg 'SD Desktop for secondary use')](sd-desktop-audited.md)
 [![Short info about SD Apply for Secondary use data](./images/introduction/SD_ChooseService_SDApply2.svg 'SD Apply for secondary use')](sd-apply.md)
