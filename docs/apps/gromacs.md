@@ -26,6 +26,7 @@ systems. It also comes with plenty of analysis scripts.
     |2022.3   |`gromacs/2022.3`<br>`gromacs/2022.3-cuda`|GPU-enabled module available
     |2022.4   |`gromacs/2022.4`<br>`gromacs/2022.4-cuda`|GPU-enabled module available
     |2023.2   |`gromacs/2023.2`
+    |2023.3   |`gromacs/2023.3`
 
 === "Mahti"
     | Version | Available modules | Notes |
@@ -36,22 +37,24 @@ systems. It also comes with plenty of analysis scripts.
     |2021.4   |`gromacs/2021.4-plumed`|Module with Plumed available
     |2021.5   |`gromacs/2021.5`
     |2022     |`gromacs/2022`<br>`gromacs/2022-cp2k`|Module with CP2K available for QM/MM
-    |2022.1   |`gromacs/2022.1`<br>`gromacs/2022.1-cp2k`|Module linked with CP2K available for QM/MM
+    |2022.1   |`gromacs/2022.1`<br>`gromacs/2022.1-cp2k`|Module with CP2K available for QM/MM
     |2022.2   |`gromacs/2022.2`<br>`gromacs/2022.2-cuda`|GPU-enabled module available
     |2022.3   |`gromacs/2022.3`<br>`gromacs/2022.3-cuda`|GPU-enabled module available
     |2022.4   |`gromacs/2022.4`<br>`gromacs/2022.4-cuda`|GPU-enabled module available
     |2023.1   |`gromacs/2023.1`
     |2023.2   |`gromacs/2023.2`
+    |2023.3   |`gromacs/2023.3`
 
 === "LUMI"
     | Version | Available modules | Notes |
     |:-------:|:------------------|:-----:|
-    |2022.5   |`gromacs/2022.5`<br>`gromacs/2022.5-plumed`|Module with Plumed available
-    |2023     |`gromacs/2023-plumed`<br>`gromacs/2023-dev-rocm`|GPU-enabled module (hipSYCL) with Plumed available<br>`dev-rocm` module is an unofficial GPU-enabled fork developed by AMD[^1]
-    |2023.1   |`gromacs/2023.1`<br>`gromacs/2023.1-hipsycl`<br>`gromacs/2023.1-heffte`|GPU-enabled module available (hipSYCL)<br>Module linked to HeFFTe available for GPU PME decomposition
-    |2023.2   |`gromacs/2023.2`<br>`gromacs/2023.2-hipsycl`|GPU-enabled module available (hipSYCL)
+    |2022.5   |`gromacs/2022.5`<br>`gromacs/2022.5-plumed_2.8.2`<br>`gromacs/2022.5-plumed_2.9.0`|Modules with Plumed available
+    |2023     |`gromacs/2023-gpu-plumed`<br>`gromacs/2023-dev-rocm`|GPU-enabled module with Plumed available<br>`dev-rocm` is an unsupported GPU-enabled fork developed by AMD[^1]
+    |2023.1   |`gromacs/2023.1`<br>`gromacs/2023.1-gpu`<br>`gromacs/2023.1-heffte`|GPU-enabled module available<br>Module with HeFFTe available for [GPU PME decomposition](#pme-decomposition)
+    |2023.2   |`gromacs/2023.2`<br>`gromacs/2023.2-gpu`|GPU-enabled module available
+    |2023.3   |`gromacs/2023.3`<br>`gromacs/2023.3-gpu`|GPU-enabled module available
 
-    [^1]: This module is unvalidated, unmaintained and unsupported by the Gromacs team. Proceed with caution!
+    [^1]: This module is unvalidated, unmaintained and unsupported by the Gromacs team. Use at your own risk!
 
 - Puhti and Mahti have also `gromacs-env/<year>` modules for loading the recommended
   latest minor version from each year (replace `<year>` accordingly).
@@ -252,7 +255,7 @@ srun gmx_mpi mdrun -s topol -maxh 0.2 -dlb yes
 #SBATCH --cpus-per-task=7
 
 module use /appl/local/csc/modulefiles
-module load gromacs/2023.1-hipsycl
+module load gromacs/2023.3-gpu
 
 export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
 
@@ -277,7 +280,7 @@ srun gmx_mpi mdrun -s topol -nb gpu -bonded gpu -pme gpu -update gpu -maxh 0.2
 #SBATCH --ntasks-per-node=8
 
 module use /appl/local/csc/modulefiles
-module load gromacs/2023.1-hipsycl
+module load gromacs/2023.3-gpu
 
 export OMP_NUM_THREADS=7
 
