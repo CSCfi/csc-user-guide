@@ -9,6 +9,11 @@ tags:
 Machine learning framework for Python.
 
 !!! info "News" 
+
+    **17.11.2023** PyTorch 2.1 added to Puhti, Mahti and LUMI. Horovod has
+    been removed, we recommend using [PyTorch DDP](../support/tutorials/ml-multi.md) 
+    instead. [PyTorch Geometric](https://pytorch-geometric.readthedocs.io/) was added to the
+    Puhti and Mahti version.
     
     **5.10.2022** Due to Puhti's update to Red Hat Enterprise Linux 8
     (RHEL8), **the number of fully supported PyTorch versions has been
@@ -31,8 +36,9 @@ Currently supported PyTorch versions:
 
 | Version | Module         | Puhti | Mahti | LUMI | Notes                      |
 |:--------|----------------|:-----:|:-----:|------|:---------------------------|
+| 2.1.1   | `pytorch/2.1`  | -     | -     | X    | default version            |
 | 2.1.0   | `pytorch/2.1   | X     | X     | -    | default version            |
-| 2.0.1   | `pytorch/2.0`  | -     | -     | X    | default version            |
+| 2.0.1   | `pytorch/2.0`  | -     | -     | X    |                            |
 | 2.0.0   | `pytorch/2.0`  | X     | X     | -    |                            |
 | 1.13.1  | `pytorch/1.13` | -     | -     | X    | limited multi-node support |
 | 1.13.0  | `pytorch/1.13` | X     | X     | -    |                            |
