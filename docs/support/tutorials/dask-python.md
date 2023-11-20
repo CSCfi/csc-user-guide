@@ -33,7 +33,7 @@ srun python dask_singlenode.py
 
 
 __simple python script__
-```
+```python
 from dask import delayed
 from dask import compute
 
@@ -90,7 +90,7 @@ The worker jobs are defined inside the Python file started by master SLURM job, 
 * `walltime` - Reserve enough time as one worker may handle several delayed functions, if the number of workers is smaller than the number of delayed functions.
 
 __simple python script__
-```
+```python
 import sys
 from dask_jobqueue import SLURMCluster
 from dask.distributed import Client
