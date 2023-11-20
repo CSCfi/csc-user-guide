@@ -60,7 +60,7 @@ Different distributions are configured with different defaults users. See here t
 
 It is a common practise for Pouta images, when you try to login as `root`, to get a message back telling you which username to use instead:
 
-```
+```sh
 $ ssh root@86.xxx.xxx.xxx               
 Please login as the user "cloud-user" rather than the user "root".
 ```
