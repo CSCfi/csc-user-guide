@@ -10,8 +10,8 @@ Machine learning framework for Python.
 
 !!! info "News" 
 
-    **17.11.2022** PyTorch 2.1 added to Puhti, Mahti and LUMI. Horovod has
-    been removed, we instead recommend using [PyTorch DDP](../support/tutorials/ml-multi.md) 
+    **17.11.2023** PyTorch 2.1 added to Puhti, Mahti and LUMI. Horovod has
+    been removed, we recommend using [PyTorch DDP](../support/tutorials/ml-multi.md) 
     instead. [PyTorch Geometric](https://pytorch-geometric.readthedocs.io/) was added to the
     Puhti and Mahti version.
     
