@@ -15,8 +15,8 @@ Currently supported pennylane versions:
 | Version | Module                               | LUMI  | Notes           |
 |:--------|:-------------------------------------|:-----:|-----------------|
 | 0.33.0  | `pennylane-lightning/0.33.0-gpu`     | X     | default version |
-| 0.32.0  | `pennylane-lightning-kokkos/0.32.0`  | X     | default version |
-| 0.31.0  | `pennylane-lightning-kokkos/0.31.0`  | X     | default version |
+| 0.32.0  | `pennylane-lightning-kokkos/0.32.0`  | X     |                 |
+| 0.31.0  | `pennylane-lightning-kokkos/0.31.0`  | X     |                 |
 
 All modules are based on tykky using LUMI-container-wrapper.
 Wrapper scripts have been provided so that common commands such as `python`,
@@ -37,7 +37,7 @@ module use /appl/local/quantum/modulefiles
 ```
 
 ```bash
-module load pennylane-lightning-kokkos
+module load pennylane-lightning
 ```
 If you wish to have a specific version ([see above for available
 versions](#available)), use:
@@ -45,6 +45,7 @@ versions](#available)), use:
 ```bash
 module load pennylane-lightning/0.33.0-gpu
 ```
+
 This command will also show all available versions:
 
 ```text
