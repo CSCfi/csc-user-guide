@@ -5,8 +5,7 @@ tags:
 
 # Pennylane
 
-PennyLane is an open-source GPU-enabled software framework for quantum machine learning, 
-quantum chemistry, and quantum computing.
+Pennylane is an open-source cross-platform Python library for quantum machine learning, quantum chemistry and quantum computing. Pennylane-lightning is a high-performance state-vector simulator for Pennylane. It is currently GPU enabled through the [Kokkos](https://kokkos.github.io/kokkos-core-wiki/) framework on LUMI.
 
 ## Available
 
@@ -32,9 +31,11 @@ Pennylane is licensed under
 
 To use the default version of Pennylane on LUMI, initialize
 it with:
+
 ```bash
 module use /appl/local/quantum/modulefiles
 ```
+and 
 
 ```bash
 module load pennylane-lightning
@@ -45,10 +46,11 @@ versions](#available)), use:
 ```bash
 module load pennylane-lightning/0.33.0-gpu
 ```
+where `0.33.0-gpu` is the specified version
 
 This command will also show all available versions:
 
-```text
+```bash
 module avail pennylane-lightning
 ```
 
@@ -80,3 +82,5 @@ Submit the script with `sbatch <script_name>.sh`
 ## More information
 
 - [Pennylane documentation](https://docs.pennylane.ai/en/stable/code/qml.html)
+- [Pennylane-lightning documentation](https://docs.pennylane.ai/projects/lightning/en/stable/)
+- [Pennylane-lightning-kokkos documentation](https://docs.pennylane.ai/projects/lightning-kokkos/en/latest/)
