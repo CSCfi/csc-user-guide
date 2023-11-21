@@ -15,7 +15,7 @@ in molecular dynamics. It can be used with several MD codes.
 
 -   Puhti: 2.7.4, 2.8.0
 -   Mahti: 2.6.3, 2.7.2
--   LUMI: 2.8.2
+-   LUMI: 2.8.2, 2.9.0
 
 ## License
 
