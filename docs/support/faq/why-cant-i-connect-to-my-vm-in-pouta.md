@@ -79,11 +79,11 @@ It could be that there is a public key configured in the instance, but you lack 
 
 1. Go to the [instance page](https://pouta.csc.fi/dashboard/project/instances/), find the row corresponding to your VM and write down the name of the key pair configured. Then go to the [Key Pairs](https://pouta.csc.fi/dashboard/project/key_pairs) page and find the key pair corresponding to the key pair you wrote earlier.
 
-    ![Key pair page](/cloud/img/key-pair-page.png)
+    ![Key pair page](../../cloud/img/key-pair-page.png)
 
 1. You can also see the finger print of the key from the Instance log. Go to [instance page](https://pouta.csc.fi/dashboard/project/instances/) and click in the name of the instance. Then click in the Log tab. You will need to find the lines that begin with `ci-info`. This is the output of the cloud init script.
 
-    ![Instance log](/cloud/img/log-instance.png)
+    ![Instance log](../../cloud/img/log-instance.png)
 
 You will be able to see the username, the file where the keys are configured and the list of finger prints of the configured keys.
 
