@@ -7,16 +7,13 @@ To begin, select a service below and refer to the 'Start Here' section of the us
 ## Services for processing sensitive data
 For processing research data. Note: not suitable for register data processing [See bellow](#services-for-secondary-use-of-health-and-social-data).
 
-[![Short info about SD Connect.](./images/introduction/SD_ChooseService_SDConnect.svg 'SD Connect'){ aria-description="Tähän selittävä teksti." }](sd_connect.md)
+[![Short info about SD Connect.](./images/introduction/SD_ChooseService_SDConnect.svg 'SD Connect'){ aria-description="SD Connect For researcher: Web based software for storing and sharing data. Automated data encryption (< 100 GB). Suitable for any data format and research field. Data stored in Finland. Command line interface available (advanced). Activate SD Connect in your MyCSC portal." }](sd_connect.md)
 [![Short info about SD Desktop.](./images/introduction/SD_ChooseService_SDDesktop.svg 'SD Desktop'){ aria-description="Tähän selittävä teksti." }](sd_desktop.md)
 [![Short info about Fega.](./images/introduction/SD_ChooseService_Fega.svg 'Fega'){ aria-description="Tähän selittävä teksti." }](federatedega.md)
 [![Short info about SD Apply.](./images/introduction/SD_ChooseService_SDApply.svg 'SD Apply'){ aria-description="Tähän selittävä teksti." }](sd-apply.md)
 
 ## Services for secondary use of health and social data
 For processing health and social data under the Act on Secondary Use.
-
-[![Short info about SD Connect for Secondary use data](./images/introduction/SD_ChooseService_SDDesktop2.svg 'SD Desktop for secondary use')](sd-desktop-audited.md)
-[![Short info about SD Apply for Secondary use data](./images/introduction/SD_ChooseService_SDApply2.svg 'SD Apply for secondary use')](sd-apply.md)
 
 [![Short info about SD Connect for Secondary use data.](./images/introduction/SD_ChooseService_SDDesktop2.svg 'SD Desktop for secondary use'){ aria-description="Tähän selittävä teksti." }](sd-desktop-audited.md)
 [![Short info about SD Apply for Secondary use data.](./images/introduction/SD_ChooseService_SDApply2.svg 'SD Apply for secondary use'){ aria-description="Tähän selittävä teksti." }](sd-apply.md)
