@@ -1,5 +1,28 @@
 # Applications
 
+## Gromacs 2023.3, 17.11.2023
+
+[Gromacs](../../apps/gromacs.md) 2023.3 is now available on Puhti, Mahti and
+LUMI. See [release notes](https://manual.gromacs.org/current/release-notes/2023/2023.3.html)
+for a list of new features and improvements. The naming of Gromacs modules on
+LUMI has also been changed due to hipSYCL changing its name to
+[AdaptiveCpp](https://github.com/AdaptiveCpp/AdaptiveCpp). Henceforth,
+GPU-enabled modules on LUMI are simply suffixed with `-gpu` to avoid confusion.
+
+## PyTorch 2.1 and TensorFlow 2.14, 13.11.2023
+
+[PyTorch](../../apps/pytorch.md) 2.1 and
+[TensorFlow](../../apps/tensorflow.md) 2.14 are now available on Puhti and Mahti. 
+See [PyTorch 2.1 blog post](https://pytorch.org/blog/pytorch-2-1/) or the
+[TensorFlow 2.14 release notes](https://github.com/tensorflow/tensorflow/releases/tag/v2.14.0).
+
+## Schrödinger Maestro 2023.4, 10.11.2023
+
+[Schrödinger Maestro](../../apps/maestro.md) version 2023.4 has been installed
+and set as the default module on Puhti and Mahti. See
+[release notes](https://www.schrodinger.com/releases/new-features/) for a list
+of new features and improvements.
+
 ## Molpro 2023.2 is available on Puhti, 31.10.2023
 
 The new [Molpro 2023.2](../../apps/molpro.md) includes new features like
