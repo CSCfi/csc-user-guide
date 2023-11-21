@@ -69,7 +69,7 @@ Please login as the user "cloud-user" rather than the user "root".
 
 It can happen that when the instance was created you forgot to add a key pair during the creation. This can be checked from the [instance page](https://pouta.csc.fi/dashboard/project/instances/).
 
-![Instance with no Key Pair](/cloud/img/instance-no-keypair.png)
+![Instance with no Key Pair](../../cloud/img/instance-no-keypair.png)
 
 The only solution for this issue is to recreate the instance, this time remember to add a key pair. See the [SSH Key Pair](/cloud/tutorials/ssh-key/) and the [Creating a virtual machine](/cloud/pouta/launch-vm-from-web-gui/) articles.
 
