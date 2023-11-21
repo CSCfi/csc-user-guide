@@ -6,7 +6,7 @@ There are several reasons that can cause problems when connecting to a VM. We wi
 
 ### Floating IP
 
-Before connecting to a cPouta VM, it is necessary to add a Floating IP. This step is not necessary in ePouta, indeed ePouta does not provide Virtual IPs, one must connect directly to the Private ip.
+Before connecting to a cPouta VM, it is necessary to add a Floating IP. This step is not necessary in ePouta, indeed ePouta does not provide Virtual IPs, one must connect directly to the Private IP.
 
 In order to add a virtual ip, follow the [Post creation step](/cloud/pouta/launch-vm-from-web-gui/#post-creation-step) guide.
 
