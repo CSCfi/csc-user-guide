@@ -5,7 +5,7 @@ tags:
 
 # Pennylane
 
-PennyLane is an open-source software framework for quantum machine learning, 
+PennyLane is an open-source GPU-enabled software framework for quantum machine learning, 
 quantum chemistry, and quantum computing.
 
 ## Available
@@ -14,9 +14,9 @@ Currently supported pennylane versions:
 
 | Version | Module                               | LUMI  | Notes           |
 |:--------|:-------------------------------------|:-----:|-----------------|
-| 0.33.0  | `pennylane-lightning-kokkos/0.33.0`  | X     | default version |
+| 0.33.0  | `pennylane-lightning/0.33.0-gpu`     | X     | default version |
 | 0.32.0  | `pennylane-lightning-kokkos/0.32.0`  | X     | default version |
-| 0.32.0  | `pennylane-lightning-kokkos/0.31.0`  | X     | default version |
+| 0.31.0  | `pennylane-lightning-kokkos/0.31.0`  | X     | default version |
 
 All modules are based on tykky using LUMI-container-wrapper.
 Wrapper scripts have been provided so that common commands such as `python`,
@@ -32,6 +32,9 @@ Pennylane is licensed under
 
 To use the default version of Pennylane on LUMI, initialize
 it with:
+```bash
+module use /appl/local/quantum/modulefiles
+```
 
 ```bash
 module load pennylane-lightning-kokkos
@@ -40,12 +43,12 @@ If you wish to have a specific version ([see above for available
 versions](#available)), use:
 
 ```bash
-module load pennylane-lightning-kokkos/0.33.0
+module load pennylane-lightning/0.33.0-gpu
 ```
 This command will also show all available versions:
 
 ```text
-module avail pennylane-lightning-kokkos
+module avail pennylane-lightning
 ```
 
 ### Example batch script
@@ -68,7 +71,8 @@ export OMP_PROC_BIND=spread
 export OMP_PLACES=threads
 
 module load pennylane-lightning-kokkos
-python3 simple_test.py
+python3 <file_name>.py
+```
 
 Submit the script with `sbatch <script_name>.sh`
 
