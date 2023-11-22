@@ -59,7 +59,7 @@ module avail pennylane-lightning
 
 ### Example batch script
 
-Example batch script for reserving one GPU and CPU cores in a single node:
+Example batch script for reserving one GPU and CPU core in a single node:
 
 ```bash title="LUMI"
 #!/bin/bash
