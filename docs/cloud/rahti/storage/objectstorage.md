@@ -1,20 +1,20 @@
 # Allas storage in Rahti
 
-More information about [Allas](../../../data/Allas/index.md)  
+More information about [Allas](../../../data/Allas/index.md)
 
 ## Backup to Allas
 
-There are different ways to backup to Allas from Rahti. We will show you two examples:  
-  - The first one is using another pod to copy the content of your persistent volume to Allas.  
+There are different ways to backup to Allas from Rahti. We will show you two examples:
+  - The first one is using another pod to copy the content of your persistent volume to Allas.
   - The second one is a bash script that you have to execute from your local machine.
 
 For this first example, we will deploy a `nginx` deployment running with a `PersistentVolumeClaim`. We provide the files for testing purposes.
 
-## Preparing a NGINX deployment
+### Preparing a NGINX deployment
 
-First, for our tutorial, we will build and deploy a NGINX server.  
+First, for our tutorial, we will build and deploy a NGINX server.
 
-We [build](../images/creating.md) our nginx image with this Dockerfile: (since it's not possible to use the regular `nginx` image in OpenShift)  
+We [build](../images/creating.md) our nginx image with this Dockerfile: (since it's not possible to use the regular `nginx` image in OpenShift)
 
 ```Dockerfile
 FROM nginx:stable
@@ -33,7 +33,7 @@ RUN sed -i.bak 's/^user/#user/' /etc/nginx/nginx.conf
 EXPOSE 8080
 ```
 
-You can deploy this `nginx` server with this Deployment:  
+You can deploy this `nginx` server with this Deployment:
 
 ```yaml
 apiVersion: apps/v1
@@ -109,16 +109,16 @@ spec:
   storageClassName: standard-rwo
 ```
 
-Save the file and use this command to deploy it: `oc apply -f {name_of_yaml_file}`  
-The deployment is using a `PersistentVolumeClaim` for our example.  
+Save the file and use this command to deploy it: `oc apply -f {name_of_yaml_file}`
+The deployment is using a `PersistentVolumeClaim` for our example.
 
-Now we have our running `nginx` pod, we want want to copy the content of the PVC to Allas. We will use a new deployment with a `rclone` Docker image.    
+Now we have our running `nginx` pod, we want want to copy the content of the PVC to Allas. We will use a new deployment with a `rclone` Docker image.
 
-## First example: using another pod  
+### First example: using another pod
 
-Create a `rclone.conf` with your `access_key_id` and `secret_access_key`.  
+Create a `rclone.conf` with your `access_key_id` and `secret_access_key`.
 
-If you don't have `access_key_id` and `secret_access_key`, you need to source your Pouta project and then use this command to create credentials:  
+If you don't have `access_key_id` and `secret_access_key`, you need to source your Pouta project and then use this command to create credentials:
 
 ```sh
 openstack ec2 credentials create
@@ -137,9 +137,9 @@ endpoint = a3s.fi
 acl = private
 ```
 
-_Replace `{ACCESS_KEY_ID}` and `{SECRET_ACCESS_KEY}` by your own credentilas._ 
+_Replace `{ACCESS_KEY_ID}` and `{SECRET_ACCESS_KEY}` by your own credentilas._
 
-Create a `rclone.sh` script:  
+Create a `rclone.sh` script:
 
 ```sh
 #!/bin/sh -e
@@ -149,9 +149,9 @@ rclone copy "/mnt/" "default:{BUCKET}"
 echo "Done!"
 ```
 
-_Replace `{BUCKET}` by the target bucket where you want to backup your files._  
+_Replace `{BUCKET}` by the target bucket where you want to backup your files._
 
-Then, you have to create your own custom `rclone` Docker image:  
+Then, you have to create your own custom `rclone` Docker image:
 
 ```Dockerfile
 FROM rclone/rclone
@@ -161,8 +161,8 @@ COPY rclone.sh /usr/local/bin/
 RUN chmod +x /usr/local/bin/rclone.sh
 ```
 
-Once all this done, you can deploy your `rclone` pod.   
-You can use this example:  
+Once all this done, you can deploy your `rclone` pod.
+You can use this example:
 
 ```yaml
 apiVersion: v1
@@ -187,21 +187,21 @@ spec:
       claimName: nginx-pvc # Must match the PVC name that you want to backup
 ```
 
-Save the file and use this command: `oc apply -f {name_of_yaml_file}`.  
+Save the file and use this command: `oc apply -f {name_of_yaml_file}`.
 
-!!! Warning  
-    If your `PersistentVolumeClaim` is `ReadWriteOnce`, you have to scale down the `nginx` deployment to let the pod running rclone mount the volume.  
-    Use this command to proceed: `oc scale --replicas=0 deploy/nginx`  
-    If your `PersistentVolumeClaim` is `ReadWriteMany`, there is no need to scale down your deployment.  
+!!! Warning
+    If your `PersistentVolumeClaim` is `ReadWriteOnce`, you have to scale down the `nginx` deployment to let the pod running rclone mount the volume.
+    Use this command to proceed: `oc scale --replicas=0 deploy/nginx`
+    If your `PersistentVolumeClaim` is `ReadWriteMany`, there is no need to scale down your deployment.
     You can verify with this command: `oc get pvc`. You should see either `RWO` or `RWX`.
 
-The pod will run and backup the content of your PVC to Allas. Don't forget to scale up your origin deployment (`oc scale --replicas=1 deploy/nginx`) after the copy finished.  
+The pod will run and backup the content of your PVC to Allas. Don't forget to scale up your origin deployment (`oc scale --replicas=1 deploy/nginx`) after the copy finished.
 
-There are PROS and CONS with this solution:  
-- PROS: You run the pod in your Rahti project  
-- CONS: If your PVC is `ReadWriteOnce`, a downtime is necessary.  
+There are PROS and CONS with this solution:
+- PROS: You run the pod in your Rahti project
+- CONS: If your PVC is `ReadWriteOnce`, a downtime is necessary.
 
-## Second example: using bash script
+### Second example: using bash script
 
 For the following script to work, we assume that you have the `rclone` command-line program installed and Allas bucket name is created. The `rclone.conf` should be set on your local system like described above example. For example, `rclone.conf` path could be located in `~/.config/rclone/rclone.conf`. More information on creating [Allas bucket](../../../data/Allas/using_allas/rclone.md). This script will backup an application deployed in Rahti. The application has, for example the name `/backup`, as the `volumeMounts` `mountPath`.
 
@@ -211,18 +211,18 @@ For the following script to work, we assume that you have the `rclone` command-l
 
 # Set your pod name, source directory, and destination directory
 if [[ -z $1 ]];
-then 
+then
     echo "No Podname parameter passed."
     exit 22
 else
      echo "The POD_NAME = $1 is set."
 fi
 
-POD_NAME=$1 
+POD_NAME=$1
 SOURCE_DIR="/backup"
 TIMESTAMP=$(date '+%Y%m%d%H%M%S') # Generate a timestamp
 DEST_DIR="/tmp/pvc_backup_$TIMESTAMP.tar.gz" # Include the timestamp in the filename
-RCLONE_CONFIG_PATH="your/path/to/rclone.conf" 
+RCLONE_CONFIG_PATH="your/path/to/rclone.conf"
 S3_BUCKET="pvc-test-allas" # Your bucket name
 
 # Echo function to display task messages
@@ -276,7 +276,7 @@ If you need to clean up the tar archive files, you can add the following script 
 # Clean up the tar archive in the pod
 oc exec "$POD_NAME" -- /bin/sh -c "rm /tmp/pvc_backup.tar.gz"
 
-# Clean up temporary files 
+# Clean up temporary files
 rm -rf /tmp/pvc_backup*
 or
 rm "$DEST_DIR"
