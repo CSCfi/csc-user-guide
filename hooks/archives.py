@@ -5,6 +5,7 @@ from logging import getLogger
 import feedparser
 
 
+PRODUCTION_ENVIRONMENT = "production"
 ENVIRONMENT_KEY = "environment"
 URL_KEY = "archive_feed"
 
@@ -97,16 +98,19 @@ class ArchiveHook:
         self.environment = config.extra[ENVIRONMENT_KEY]
 
     def on_page_markdown(self, markdown, page, config, files):
-        try:
-            archive_url = page.meta[URL_KEY]
-        except KeyError:
-            return None
+        if self.environment == PRODUCTION_ENVIRONMENT:
+            try:
+                archive_url = page.meta[URL_KEY]
+            except KeyError:
+                return None
+            else:
+                self.logger.info(f"Fetching archive from {archive_url}...")
+                archive = RSSArchive(archive_url)
+                self.__log_status(archive)
+                page.meta["title"] = archive.title
+                return self.__get_heading(markdown) + archive.markdown
         else:
-            self.logger.info(f"Fetching archive from {archive_url}...")
-            archive = RSSArchive(archive_url)
-            self.__log_status(archive)
-            page.meta["title"] = archive.title
-            return self.__get_heading(markdown) + archive.markdown
+            return None
 
 
 hook = ArchiveHook(getLogger("mkdocs"))
