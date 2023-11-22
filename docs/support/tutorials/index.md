@@ -67,6 +67,7 @@
 * [Learn cloud computing by developing and deploying a web application](cloud.md)
 * [Orchestration with Heat](../../cloud/pouta/heat-orchestration.md)
 * [Create a jumphost in cPouta](../../cloud/pouta/create-jumphost.md)
+* [SSH Key-pair](../../cloud/tutorials/ssh-key.md)
 
 ## Rahti - container cloud
 * [Core objects](../../cloud/rahti/concepts.md)

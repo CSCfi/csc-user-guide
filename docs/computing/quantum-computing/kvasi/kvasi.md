@@ -5,7 +5,7 @@ You first need a CSC userid for Puhti. If you do not have one, check out the
 
 In order to access Kvasi, your CSC userid needs to part of the `kvasi-users` group. Send a mail to servicedesk@csc.fi and ask to be added to the **kvasi-users** group.
 
-When you have been added, you can use SSH to login to kvasi.csc.fi directly. (Before August 2020, one had to go from/via Puhti, but not anymore)
+When you have been added, you can use SSH to login to kvasi.csc.fi directly.
 
 ## Setting up an SSH tunnel for the Jupyter web interface
 
