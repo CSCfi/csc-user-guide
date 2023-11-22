@@ -6,7 +6,7 @@ tags:
 # JAX
 
 JAX is Autograd and XLA, brought together for high-performance machine
-learning research. 
+learning research.
 
 !!! News
 
@@ -20,14 +20,22 @@ learning research.
 
 Currently supported JAX versions:
 
-| Version | Module       | Puhti | Mahti | Notes           |
-|:-------:|--------------|:-----:|:-----:|-----------------|
-| 0.3.13  | `jax/0.3.13` | X     | X     |                 |
-| 0.4.1   | `jax/0.4.1`  | X     | X     |                 |
-| 0.4.14  | `jax/0.4.14` | X     | X     | default version |
+| Version | Module       | Puhti | Mahti | LUMI | Notes           |
+|:-------:|--------------|:-----:|:-----:|:----:|-----------------|
+| 0.4.20  | `jax/0.4.20` | X     | X     | -    | default version |
+| 0.4.18  | `jax/0.4.18` | -     | -     | X*   |                 |
+| 0.4.14  | `jax/0.4.14` | X     | X     | -    |                 |
+| 0.4.13  | `jax/0.4.13` | X     | X     | -    |                 |
+| 0.4.1   | `jax/0.4.1`  | X     | X     | -    |                 |
+| 0.3.13  | `jax/0.3.13` | X     | X     | -    |                 |
 
 The modules contain [JAX](https://github.com/google/jax/) for Python
-with GPU support via CUDA. 
+with GPU support via CUDA/ROCm.
+
+**Versions in LUMI, marked as "X*" are still experimental with limited
+support.** They are subject to change at any time without notice. Note
+that JAX is also available in the [LUMI Software
+Library](https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/j/jax/).
 
 If you find that some package is missing, you can often install it
 yourself with `pip install --user`. See [our Python
@@ -37,11 +45,18 @@ that some important JAX-related package should be included in
 the modules provided by CSC, please [contact our
 servicedesk](../support/contact.md).
 
-The JAX modules are Apptainer (formerly Singularity)-based but wrapper
-scripts have been provided so that common commands such as `python`,
-`python3`, `pip` and `pip3` should work as normal. For more
-information, see [CSC's general instructions on how to run Apptainer
+All modules are based on containers using Apptainer (previously known
+as Singularity). Wrapper scripts have been provided so that common
+commands such as `python`, `python3`, `pip` and `pip3` should work as
+normal. For other commands, you need to prefix them with
+`apptainer_wrapper exec`. For more information, see [CSC's general
+instructions on how to run Apptainer
 containers](../computing/containers/run-existing.md).
+
+With recent modules it is also possible to use [Python virtual
+environments](https://packaging.python.org/en/latest/guides/installing-using-pip-and-virtual-environments/#creating-a-virtual-environment). To
+create a virtual environment use the command
+`python3 -m venv --system-site-packages venv`.
 
 ## License
 
@@ -50,17 +65,22 @@ JAX is licensed under [Apache License
 
 ## Usage
 
-To use this software on Puhti or Mahti, initialize it with:
+To use the default version on Puhti or Mahti, initialize it with:
 
 ```text
 module load jax
 ```
 
-to access the default version. 
+To access CSC-installed JAX on LUMI:
 
-Please note that the JAX modules already include CUDA and cuDNN
-libraries, so **there is no need to load cuda and cudnn modules
-separately!** 
+```text
+module use /appl/local/csc/modulefiles/
+module load jax
+```
+
+Please note that the JAX modules already include the corresponding
+CUDA and cuDNN or ROCm libraries, so **there is no need to load any
+cuda, cudnn, or rocm modules separately!**
 
 This will show all available versions of JAX:
 
@@ -69,19 +89,19 @@ module avail jax
 ```
 
 The JAX modules include several libraries from the JAX ecosystem
-(e.g. Haiku, Flax, Trax, Objax, and Elegy). To check the exact
-packages and versions included in the loaded module you can run: 
+(e.g. Haiku, Flax, and Objax). To check the exact packages and
+versions included in the loaded module you can run:
 
 ```text
 list-packages
 ```
 
-!!! note 
+!!! note
 
     Note that the login nodes are not intended for heavy computing,
     please use slurm batch jobs instead. See our [instructions on how
     to use the batch job
-    system](../computing/running/getting-started.md). 
+    system](../computing/running/getting-started.md).
 
 !!! note
 
@@ -93,5 +113,6 @@ list-packages
 ## More information
 
 - [CSC's Machine learning guide](../support/tutorials/ml-guide.md)
+- [JAX in LUMI Software Library](https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/j/jax/)
 - [JAX GitHub page](https://github.com/google/jax)
 - [JAX reference documentation](https://jax.readthedocs.io/en/latest/)

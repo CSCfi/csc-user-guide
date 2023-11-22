@@ -1,12 +1,15 @@
 # Dask tutorial
 
-[Dask](https://dask.org/) is a versatile Python library for scalable analytics. It provides multiple different ways of parallelisation for the most common analytics libraries like NumPy, pandas and scikit-learn. You can also parallelise other Python workflows with Dask.
+[Dask](https://dask.org/) is a versatile Python library for scalable analytics. When using Dask, two main decisions have to be made for running code in Parallel. 
 
-In this tutorial two different Puhti-tested approaches are explained in detail but be in mind that Dask provides other ways of parallelisation that might suit you better.
+1. **How to make the code parallel?** Dask provides several options, inc [Dask DataFrames](https://docs.dask.org/en/stable/dataframe.html), [Dask Arrays](https://docs.dask.org/en/stable/array.html) and [Dask Delayed](https://docs.dask.org/en/stable/delayed.html). This decision depends on the type of analyzed data and already existing code. Additionally Dask has support for scalable machine learning with [DaskML](https://ml.dask.org/).
+2. **How to run the parallel code?** Again Dask supports several options: default local cluster and many different [Distributed Clusters](https://distributed.dask.org/en/stable/) for [Cloud](https://docs.dask.org/en/latest/deploying-cloud.html), [Kubernetes](https://docs.dask.org/en/latest/deploying-kubernetes.html) and [supercomputers](https://docs.dask.org/en/latest/deploying-hpc.html) etc. This depends on available hardware. Changing from one cluster to another is code-wise relatively easy. So when starting with Dask, it is recommended to first use a local cluster and go to more advanced Distributed Clusters after understanding the basics.
 
-## Single-node parallellisation with delayed functions
+In this tutorial we use Delayed functions. Delayed functions are useful in parallelising existing code. This approach delays function calls and creates a graph of the computing process. From the graph, Dask can then divide the work tasks to different workers whenever parallel computing is possible. Two options suitable for supercomputers are provided for running Dask clusters: single node using a local cluster and multiple nodes using SLURMCluster.
 
-Delayed functions are useful in parallelising existing code. This approach delays functions calls and creates a graph of the computing process. From the graph Dask can then divide the work tasks to different workers whenever parallel computing is possible.
+Keep in mind that the other ways of code parallelisation might suit better in different use cases. For Dask DataFrames, see [CSC dask-geopandas example](https://github.com/csc-training/geocomputing/edit/master/python/dask_geopandas) and for Dask Arrays [CSC STAC example with Xarray](https://github.com/csc-training/geocomputing/edit/master/python/STAC). 
+
+## Single-node parallellisation with delayed functions and a local cluster
 
 This way you can utilize one full computing node's worth of CPUs (40 in Puhti)
 
@@ -30,7 +33,7 @@ srun python dask_singlenode.py
 
 
 __simple python script__
-```
+```python
 from dask import delayed
 from dask import compute
 
@@ -50,9 +53,16 @@ compute(list_of_delayed_functions)
 
 ```
 
-## Multi-node parallellisation with SlurmCluster
+## Multi-node parallellisation with delayed functions and SLURMCluster
 
-To achieve parallellisation over multiple computing nodes, you need to define a different kind of Dask cluster than a local one. A SLURMCluster is a viable option in Puhti as it uses Slurm as its queuing system. The workflow with this approach is that you first submit a master job with little resources and a lot of time, which then submits the worker jobs to the queuing system itself and waits for their results.
+To achieve parallellisation over multiple HPC computing nodes, use SLURMCluster from [Dask-Jobqueue library](https://jobqueue.dask.org/en/latest/).
+
+The workflow with this approach is that you first submit a master job, which then submits further worker SLURM jobs to the queuing system. 
+Once at least some worker SLURM jobs have started, the master sets up a Dask cluster with Dask workers. 
+It also distributes the work to the workers and waits for their results. Dask workers do the actual computing.
+In one worker SLURM job, Dask can have 1 or several workers.
+
+The master SLURM job can have limited resources (1 core, little memory), but it should reserve enough time for all analysis to end, plus potential queuing time for worker SLURM jobs. 
 
 __master job batch job file__
 ```
@@ -68,12 +78,19 @@ __master job batch job file__
 ### Load the python-data module
 module load python-data
 
-### Run the Dask example. We also give script the project name and number of worker jobs
-srun python dask_multinode.py <YOUR-PROJECT> 4
+### Run the Dask example. We also give script the project name and number of worker SLURM jobs
+srun python dask_multinode.py <YOUR-PROJECT>
 ```
 
+The worker jobs are defined inside the Python file started by master SLURM job, for further details see: [Dask Jobqueue configurations documentation](https://jobqueue.dask.org/en/latest/configuration-setup.html).
+
+* `cores` - How many cores per node to use? In bigger jobs one worker SLURM job should fill the whole HPC node, ie 40 cores in Puhti.
+* `processes` - How many Python processes per node to use?
+* `memory`- How much memory per node to use? This should be enough for all Dask workers in that node. If unsure, try with cores*6Gb.
+* `walltime` - Reserve enough time as one worker may handle several delayed functions, if the number of workers is smaller than the number of delayed functions.
+
 __simple python script__
-```
+```python
 import sys
 from dask_jobqueue import SLURMCluster
 from dask.distributed import Client
@@ -82,27 +99,25 @@ from dask import compute
 
 ### Input arguments
 project_name = sys.argv[1]
-num_of_worker_jobs = sys.argv[2]
 
-### Create the SLURMCluster and define what resources to ask for each of the worker job. 
-### Notice the local_directory and python, python path must be adjusted to used module.
-### To find out Python path, run: 
-### module load xx
-### which python
+# The number of SLURM worker jobs. Practically, how many nodes you want to use. 
+num_of_slurm_worker_jobs = sys.argv[2]
+
+### Create the SLURMCluster and define the resources for each of the SLURM worker jobs. 
+### Note, that this is the reservation for ONE SLURM worker job.
 
 cluster = SLURMCluster(
-    queue = "small",
-    project = project_name,
-    cores = 1,
-    memory = "8GB",
-    walltime = "00:10:00",
+    queue = "small", 
+    account = project_name,
+    cores = 4,
+    processes = 2, 
+    memory = "12GB",
+    walltime = "01:00:00", 
     interface = 'ib0',
-    local_directory = "/scratch/<YOUR-PROJECT>/temp",
-    python = "/appl/soft/ai/cont_conda/python-data-2022-04-ubi8.5/bin/python"
 )
 
-### This launches the cluster (submits the worker jobs)
-cluster.scale(number_of_workers)
+### This launches the cluster (submits the worker SLURM jobs)
+cluster.scale(num_of_slurm_worker_jobs)
 client = Client(cluster)
 
 list_of_delayed_functions = []
@@ -119,22 +134,23 @@ for dataset in datasets:
 ### This starts the execution with the resources available
 compute(list_of_delayed_functions)
 ```
+When the worker SLURM jobs finish, they will be displayed as CANCELLED on SLURM, which is intended as the master job cancels them.
 
 ## Dask with Jupyter 
 
 For better understanding of how Dask splits the computations internally, the computations can be followed from [Dask Dashboard](https://docs.dask.org/en/stable/diagnostics-distributed.html) or [JupyterLab Dask extension](https://github.com/dask/dask-labextension). Dask Dashboard should be available whenever Dask is available, JupyterLab Dask extension requires extra installations (in Puhti it is available in [geoconda](../../apps/geoconda.md) module). 
 
-Both `LocalCluster` and `SLURMCluster` type clusters work. When [startin JupyterLab session](../../computing/webinterface/jupyter.md) in Puhti web interface, pay attention to computing resource reservation: 
+Both `LocalCluster` and `SLURMCluster` type clusters work. When [starting JupyterLab session](../../computing/webinterface/jupyter.md) in Puhti web interface, pay attention to computing resource reservation: 
 
-* If using `LocalCluster`, reserve computing resources for it, notice the [interactive job](../../computing/running/interactive-usage.md) limits. Bigger requests are sent to usual queueing system. Max. 40 cores.
+* If using `LocalCluster`, reserve computing resources for it, notice the [interactive job](../../computing/running/interactive-usage.md) limits. Bigger resource requests are possible with `small` partition in Puhti. With `LocalCluster` maximum of one HPC node can be used, so 40 cores in Puhti.
 * If using `SLURMCluster`, at this phase only master node resources are reserved, 1 core should be enough.
 
 ### Dask Dashboard on separate browser tab
 
 * Create new cluster from Python code.
-* Open Dask Dashboard in a separate browser tab. The URL is something like this: `https://puhti.csc.fi/rnode/r07c51.bullx/8787/status`. Replace the node name (`r07c51.bullx`), with the node used in your job, visible in URL of your Jupyter page, and the port number (`8787`), given in the printout after cluster is created on Dashboard row.
+* Open [Dask Dashboard](https://docs.dask.org/en/latest/dashboard.html) in a separate browser tab. The URL is something like this: `https://puhti.csc.fi/rnode/r07c51.bullx/8787/status`. Replace the node name (`r07c51.bullx`), with the node used in your job, visible in URL of your Jupyter page, and the port number (`8787`), given in the printout after cluster is created on Dashboard row.
 
-Dask Dashboard Info tab does not work in this set-up.
+Info tab does not work in this set-up, but other tabs should work.
 
 ### JupyterLab Dask extension
 
@@ -158,7 +174,10 @@ Another option would be to use [Jupyter opened the SSH tunnelling way](rstudio-o
 ## References and further reading
 
 - [Dask homepage](https://dask.org/)
+- [Dask tutorials](https://tutorial.dask.org/index.html)
 - [Dask examples](https://examples.dask.org/)
-- [Full examples of Dask used in Puhti](https://github.com/csc-training/geocomputing/tree/master/python/puhti/05_parallel_dask)
+- [Full examples of Dask used in Puhti](https://github.com/csc-training/geocomputing/tree/master/python/puhti/06_parallel_dask)
 - [CECAM, High Throughput Computing with Dask course materials](https://www.cecam.org/workshop-details/1022)
 - [ENCCS Dask for scalable analytics lesson](https://enccs.github.io/hpda-python/dask/)
+- [NCAR Dask tutorial](https://ncar.github.io/dask-tutorial/README.html)
+
