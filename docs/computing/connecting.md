@@ -124,6 +124,15 @@ You can set up your SSH keys in the MyCSC portal by following these steps
 1. Click 'Add'
 1. You should now see your new key listed under 'SSH PUBLIC KEYS'
 
+!!! info "Please use OpenSSH compatible format when adding public keys in MyCSC"
+      Your public key must be provided in the OpenSSH format, e.g.
+
+      ```
+      ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDlapOdeoxNvz/1AZFRjGAPnPj8pzzz3skI+a+yJS5b7
+      ```
+
+      Otherwise the key will not be registered properly.
+
 !!! success "Note"
     It might take up to one hour before your new SSH key will become active. If it
     takes longer than this, please [contact CSC Service Desk](../support/contact.md).
