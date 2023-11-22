@@ -70,6 +70,38 @@ In order to create a new security group:
     *   **Even though the ePouta virtual machines are only accessible via the customer's network, they also need to have security groups configured for them. Otherwise they can not be accessed.**
     *   **It is possible to add and remove security groups on a running instance. This is done from the instances page.**
 
+### Server Groups
+
+If you want a policy that allows your instances to run (or not) on the same host, you can set up server groups.
+
+![Server Groups](../../img/pouta-server-groups.png)
+
+!!! Warning  
+    You can only add an instance to a server group at instance creation time. Not afterwards!
+
+After clicking on **Create Server Group**, a windows will open:  
+
+![Create Server Group](../../img/pouta-create-server-group.png)
+
+Give a name to your server group and select a policy. You will have the choice between **Affinity**, **Anti Affinity**, **Soft Affinity** and **Soft Anti Affinity**.  
+
+- **Affinity**: Instances within a server group with an affinity policy are scheduled to run on the same host whenever possible. The affinity policy aims to keep instances together on the same physical server, which can be beneficial for applications or services that require low-latency communication between instances.
+
+- **Anti Affinity**: Instances within a server group with an anti-affinity policy are scheduled to run on different hosts whenever possible. The anti-affinity policy enhances fault tolerance and availability by spreading instances across multiple physical servers. This helps minimize the impact of hardware failures on a single server.
+
+- **Soft Affinity**: Soft affinity is a variation of the affinity policy. In a server group with a soft affinity policy, the scheduler attempts to keep instances on the same host, but it is not a strict requirement. If constraints prevent the co-location of instances on the same host, the scheduler can still place them on different hosts. Soft affinity provides a more flexible approach compared to the strict affinity policy.
+
+- **Soft Anti-Affinity:** Soft anti-affinity is a variation of the anti-affinity policy. In a server group with a soft anti-affinity policy, the scheduler attempts to place instances on different hosts, but it is not a strict requirement. If constraints prevent the spread of instances across different hosts, the scheduler can still place them on the same host. Soft anti-affinity provides a more flexible approach compared to the strict anti-affinity policy.  
+
+To check if your instances are running on the same (or different) hosts, you can type this command:
+```sh
+openstack server show [INSTANCE_NAME | INSTANCE_ID] | grep HostId
+```
+
+!!! Note  
+    The "soft" variants allow for more flexibility in instance placement.  
+    Affinity or anti-affinity policies may not always be possible due to resource constraints or other scheduling limitations.
+
 ## Launching a virtual machine
 
 Once the SSH keys and security groups are set, you can launch a new virtual machine using the Pouta web interfaces.
@@ -100,9 +132,11 @@ Once the SSH keys and security groups are set, you can launch a new virtual mach
 
 1. **Image Name**, this decides which Linux distribution to use. You can select the image that fits more your use case. The images provided by Pouta by default are regularly maintained up to date.
 
-1. Under the **Access & Security** tab, you need to configure two options. First you need to choose the name of the *Key Pair* you have created in the **Preparatory Steps**. Secondly you need to select under the **Security Groups** the security group previously created.
+1. Under the **Access & Security** tab, you need to configure two options. First you need to choose the name of the *Key Pair* you have created in the **Preparatory Steps**. Secondly you need to select under the [**Security Groups**](#configure-a-security-group-to-control-the-firewall) the security group previously created.
 
-1. Finally on the **Networking** tab, make sure that your own network (your project name) is selected.
+1. The **Networking** tab, make sure that your own network (your project name) is selected.
+
+1. Finally, **Advanced Options** tab allows you to select a [**Server Group**](#server-groups)
 
 You can click **Launch** to start the Virtual Machine creation.
 

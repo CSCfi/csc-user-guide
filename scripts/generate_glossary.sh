@@ -1,5 +1,5 @@
 #!/bin/sh
-source_dir="csc-overrides/assets/glossaries"
+source_dir="csc-overrides/assets/snippets/glossaries"
 glossary_dir="docs/support"
 generated_file="$glossary_dir/glossary.md"
 
