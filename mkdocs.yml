@@ -27,6 +27,9 @@ extra:
       exclude:
         - ref.md
 
+hooks:
+  - hooks/archives.py
+
 plugins:
   - tags:
       tags_file: apps/by_license.md
