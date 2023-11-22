@@ -1,0 +1,9 @@
+.csc-sd-choose {
+  margin-right: 16px;
+}
+
+a:has(.csc-sd-choose):hover {
+    color: initial;
+    background-color: initial;
+    filter: brightness(1.05);
+}
