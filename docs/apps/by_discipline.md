@@ -184,6 +184,7 @@
 * [Jupyter for courses](jupyter-for-courses.md) A version of the Jupyter app for course environments
 * [MySQL](../data/kaivos/overview.md) MySQL database client.
 * [ParaView](paraview.md) Free open-source visualization application
+* [Pennylane](pennylane.md) Free open-source software framework for quantum machine learning and quantum computing
 * [Qiskit](qiskit.md) open-source toolkit for useful quantum computing
 * [TensorBoard](tensorboard.md) The visualization toolkit for TensorFlow
 * [VisIt](visit.md) Free open-source visualization application
