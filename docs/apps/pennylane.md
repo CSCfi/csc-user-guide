@@ -17,7 +17,7 @@ Currently supported pennylane versions:
 | 0.32.0  | `pennylane-lightning-kokkos/0.32.0`  | X     |                 |
 | 0.31.0  | `pennylane-lightning-kokkos/0.31.0`  | X     |                 |
 
-All modules are based on tykky using LUMI-container-wrapper.
+All modules are based on Tykky using LUMI-container-wrapper.
 Wrapper scripts have been provided so that common commands such as `python`,
 `python3`, `pip` and `pip3` should work as normal. For more information, see
 [LUMI container wrapper](https://docs.lumi-supercomputer.eu/software/installing/container-wrapper/).
@@ -35,17 +35,20 @@ it with:
 ```bash
 module use /appl/local/quantum/modulefiles
 ```
+
 and 
 
 ```bash
 module load pennylane-lightning
 ```
+
 If you wish to have a specific version ([see above for available
 versions](#available)), use:
 
 ```bash
 module load pennylane-lightning/0.33.0-gpu
 ```
+
 where `0.33.0-gpu` is the specified version
 
 This command will also show all available versions:
