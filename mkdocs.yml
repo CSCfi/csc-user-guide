@@ -42,6 +42,7 @@ plugins:
       timezone: Europe/Helsinki
       exclude:
         - index.md
+        - support/archives/*.md
         - support/glossary.md
         - support/whats-new.md
         - apps/index.md
@@ -70,6 +71,7 @@ plugins:
         'whats-new.md': 'support/whats-new.md'
         # for convenience:
         'glossary.md': 'support/glossary.md'
+        'archives.md': 'support/contact.md#archives'
 
 markdown_extensions:
   - footnotes
