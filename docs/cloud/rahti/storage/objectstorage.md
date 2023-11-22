@@ -294,8 +294,15 @@ Pros:
 
   - Simplicity: You're essentially treating the volume just like any other directory. It's straightforward to copy data from a directory to Allas.
   - Flexibility: You can select specific files or directories within the mount to copy to Allas and ideal for small size files.
-  
+
 Cons:
 
   - Performance: This method can be slower, especially if the volume has a large number files.
+
+!!! Warning "Storage performance"
+    Ther are several things to take into account when using Allas regarding performance:
+
+    - Small io kill storage performance. Given the same total size, a single big file will be faster than a bunch of small ones. A solution might me to collect all the small files into one archive file, like a `tar` file.
+    - As the storage pool is shared, latency might vary. Shared hardware means shared performance among different users.
+    - Single threaded io is slow, it is advisable to use multi threaded io when possible.
 
