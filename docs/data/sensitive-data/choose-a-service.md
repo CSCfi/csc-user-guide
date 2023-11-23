@@ -6,7 +6,7 @@ To begin, select a service below and refer to the 'Start Here' section of the us
 
 ## Services for processing sensitive data
 For processing research data. 
-Note: not suitable for secondary use data processing [See bellow](#services-for-secondary-use-of-health-and-social-data).
+Note: not suitable for secondary use data processing [See below](#services-for-secondary-use-of-health-and-social-data).
 
 [![Short info about SD Connect.](./images/introduction/SD_ChooseService_SDConnect.svg 'SD Connect'){ aria-description="SD Connect For researcher: Web based service for storing and sharing data. Automated data encryption (< 1 GB). Suitable for any data format and research field. Data stored in Finland. Command line interface available (advanced). Activate SD Connect in your MyCSC portal." }](sd_connect.md)
 [![Short info about SD Desktop.](./images/introduction/SD_ChooseService_SDDesktop.svg 'SD Desktop'){ aria-description="SD Desktop For researcher: Web based service for creating private workspaces for data analysis. Supports any research field, (only open source softwares available). Customization supported by service-desk or available via containers (advanced only). Activate SD Desktop in your MyCSC portal." }](sd_desktop.md)
