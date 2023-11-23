@@ -1,6 +1,6 @@
 # Choose a service
 
-Discover our range of services for managing sensitive research data or register data. These services are designed to work together seamlessly. Our support team is available to help you understand how they can be adapted to suit your project. 
+Discover our range of services for managing sensitive research data or secondary use data. These services are designed to work together seamlessly. Our support team is available to help you understand how they can be adapted to suit your project. 
 
 To begin, select a service below and refer to the 'Start Here' section of the user guide for detailed instructions.
 
@@ -9,7 +9,7 @@ For processing research data. Note: not suitable for register data processing [S
 
 [![Short info about SD Connect.](./images/introduction/SD_ChooseService_SDConnect.svg 'SD Connect'){ aria-description="SD Connect For researcher: Web based service for storing and sharing data. Automated data encryption (< 1 GB). Suitable for any data format and research field. Data stored in Finland. Command line interface available (advanced). Activate SD Connect in your MyCSC portal." }](sd_connect.md)
 [![Short info about SD Desktop.](./images/introduction/SD_ChooseService_SDDesktop.svg 'SD Desktop'){ aria-description="SD Desktop For researcher: Web based service for creating private workspaces for data analysis. Supports any research field, (only open source softwares available). Customization supported by service-desk or available via containers (advanced only). Activate SD Desktop in your MyCSC portal." }](sd_desktop.md)
-[![Short info about Fega](./images/introduction/SD_ChooseService_Fega.svg 'Fega')](federatedega.md)
+[![Short info about Fega.](./images/introduction/SD_ChooseService_Fega.svg 'Fega'){ aria-description="Fega, pilot phase, For researcher: Federated service for publishing biomedical data. Submitted data discoverable on EGA catalogue with accession number. Public metadata submitted to EGA. Sensitive data stored in Finland." }](federatedega.md)
 [![Short info about SD Apply.](./images/introduction/SD_ChooseService_SDApply.svg 'SD Apply'){ aria-description="SD Apply For researcher: Apply for access rights to data available in SD Apply. Once access to the data has been granted, you can access the data in SD Desktop. SD Apply For data controllers: Manage access rights to your sensitive datasets stored at CSC." }](sd-apply.md)
 
 ## Services for secondary use of health and social data
