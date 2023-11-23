@@ -18,12 +18,3 @@ For processing health and social data under the Act on Secondary Use.
 
 [![Short info about SD Desktop for Secondary use data.](./images/introduction/SD_ChooseService_SDDesktop2.svg 'SD Desktop for secondary use'){ aria-description="SD Desktop for data under the Act of Secondary Use. Limited version For researcher: When your data permit is from Findata or a single public register, like a wellbeing district. Access to the service is managed by CSC and based on a permit issued by the data controller. Data imports and exports are managed by CSC and the data controller. Other CSC services are disabled." }](sd-desktop-audited.md)
 [![Short info about SD Apply for Secondary use data.](./images/introduction/SD_ChooseService_SDApply2.svg 'SD Apply for secondary use'){ aria-description="SD Apply for secondary use data, pilot phase For researcher: When your permit is from a single public register. Apply access to the dataset as the data controller has instructed. Data controller approves the application, and the dataset will be automatically available in SD Desktop (restricted version). For data controllers: Transfer and manage secondary use data. Tools to manage access to the datasets directly in SD services. Tools to transfer data securely to SD Desktop." }](single-register-submission.md)
-
-## Sensitive Data Services overview
-
-| Service | Use | Suitable research field | Access to the service | Access to the data | Graphic user interface available | Linux command line needed | Support |
-|-|-|-|-|-|-|-|-|
-| **[SD Connect](sd_connect.md)** | Store and share data | Any | Self service via MyCSC | Controlled by researcher via CSC project | Yes for files under 1GB | Generally no. Yes for files over 1BG | CSC service desk. Zoom sessions available |
-| **[SD Desktop](sd_desktop.md)** | Analyse data in secure environment | Any (Analysis limited to Linux compatible open source softwares) | Self service via MyCSC | Controlled by researcher via CSC project (export limited) | Depends on the case| Depends on the case | CSC service desk. Zoom sessions available |
-| **[FEGA (pilot)](federatedega.md)** | Publish biometrical data | Genetics / Biomedicine | Managed by Data Access Committee (DAC) | Managed by CSC helpdesk and access control (SD Apply) | Yes | Yes | CSC service desk. Zoom sessions available |
-| **[SD Apply (pilot)](sd-apply.md)** | Apply or grant access to published data | Any | Applicant: via CSC account. Data controller: self service | N/A (Data access is managed with SD Apply) | Yes | Yes | CSC service desk. Zoom sessions available |
