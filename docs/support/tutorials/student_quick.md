@@ -1,5 +1,9 @@
 # Getting started with CSC services for students
 
+!!! info-label
+
+    This feature will be available in December 2023.
+
 !!! warning-label
 
     Please read this page carefully!
@@ -23,6 +27,7 @@ The easiest way is to **create a student project**.
 - Thanks to our updated terms and conditions, you - the student - can now be **the project manager** of the student project.
 - You will have **the same responsibilities** as any other CSC Project Manager.[^4]
 - As a project manager, you can **invite people** to your project[^5]. _(but you're also responsible for their actions in the project)_
+- Student projects are **not intended for sensitive data**[^6] and cannot store such data.
 
 ## Available Services
 
@@ -57,3 +62,4 @@ You can create a new project (step 2) when your project ends.
 [^3]: [General Terms of Use](https://research.csc.fi/general-terms-of-use){:target="_blank"}
 [^4]: [Prerequisites and Responsibilities for a Project Manager](https://research.csc.fi/prerequisites-for-a-project-manager){:target="_blank"}
 [^5]: [How to add members to project](../../accounts/how-to-add-members-to-project.md){:target="_blank"}
+[^6]: [Sensitive data](https://research.csc.fi/sensitive-data){:target="_blank"}

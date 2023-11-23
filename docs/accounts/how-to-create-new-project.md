@@ -16,9 +16,8 @@ A [CSC user account](how-to-create-new-user-account.md#getting-an-account-with-h
 	* [Commercial](how-to-create-new-project.md#commercial)
 	* [Course](how-to-create-new-project.md#course)
 	* [LUMI](how-to-create-new-project.md#how-to-create-finnish-lumi-projects)
-	* [Student](how-to-create-new-project.md#student)
 
-![New Project creation view.](../img/mycsc-create-new-project.png)
+![New Project creation view.](../img/mycsc-create-new-project.png){width=400}
 ## Academic
 
 Academic project category is reserved for [free-of-charge use cases](https://research.csc.fi/free-of-charge-use-cases){:target="_blank"} and they can be created only by members of Finnish higher education institutions, state research institutes and CSC.
@@ -73,12 +72,23 @@ For further information on LUMI projects please visit [Users in Finland](https:/
 
 ## Student
 
+!!! info-label
+
+    This feature will be available in December 2023.
+
 A student can be the project manager of the student project. Please read the [Getting started with the Student Project](../support/tutorials/student_quick.md) carefully and then you can continue with the instructions below.
 
-The student category is reserved for [free-of-charge](https://research.csc.fi/free-of-charge-use-cases){:target="_blank"} use cases. This category project is a fixed time (maximum of 6 months, non-extendable), fixed resource and is designed to support student's work with higher educational institutes' courses. Please note, that all data is deleted at the end of the project.
+The student category is reserved for [free-of-charge](https://research.csc.fi/free-of-charge-use-cases){:target="_blank"} use cases. This category project is a fixed time (maximum of 6 months, non-extendable), fixed resource and is designed to support student's work with higher educational institutes' courses and thesis work.
 
-6. Fill in the course dates and field of science. 
-7. Please have a look at our terms and conditions and confirm your acceptance.
-8. Click **Create project**.
+1. Login to [MyCSC](http://my.csc.fi/) with your CSC user account or Haka/Virtu account.
+2. Choose **Projects** in the navigation menu on the left.
+3. On the top of the page choose **+ New project**.
+4. In **the name field**, enter a descriptive name for your project. This could be the name of the course or the topic of your thesis work, for example.
+5. In **the description field**, please indicate whether this is a course-related project or a project related to your thesis work, for example.
+6. Select **the end date** of the resource need or course, but no more than six months from the project creation date.
+7. In **the comments field**, please fill in the university course code and title or name if available.
+8. Fill in **the field of your studies** - or the closest approximation.
+9. Please have a look at our **terms and conditions** and confirm your acceptance.
+10. Click **Create project**.
 
-The easiest way to add possible other students to a student project is to use an [invitation link](how-to-add-members-to-project.md#using-invitation-link).
+If you wish, you can add other members to your project. The easiest way to do so is to use an [invitation link](how-to-add-members-to-project.md#using-invitation-link).
