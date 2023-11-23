@@ -42,7 +42,7 @@ It is also possible to run jobs that combine multiprocessing and multithreading.
 
 ## Submitting concurrent jobs
 
-For this purpose, the recommended way is to submit an [array job](../../computing/running/array-jobs.md). Example batch job files can be found in the [`r-env` documentation](../../apps/r-env.md#parallel-batch-jobs) and [on GitHub](https://github.com/csc-training/geocomputing/tree/master/R/puhti/02_array). Array jobs are suitable for executing the same code using different parameters, or any other situation where the parallel tasks are independent (i.e. they do not need to communicate with one another).
+For this purpose, the recommended way is to submit an [array job](../../computing/running/array-jobs.md). Example batch job files can be found in the [`r-env` documentation](../../apps/r-env.md#parallel-batch-jobs) and [on GitHub](https://github.com/csc-training/geocomputing/tree/master/R/puhti/05_array). Array jobs are suitable for executing the same code using different parameters, or any other situation where the parallel tasks are independent (i.e. they do not need to communicate with one another).
 
 ## Multinode analyses
 
