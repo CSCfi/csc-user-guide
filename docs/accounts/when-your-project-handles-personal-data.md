@@ -42,3 +42,18 @@ Please refer to:
 - [The CSC Data Policy](https://www.csc.fi/en/data-policy)
 
 to find more detailed information on how we as data processor protect your personal data and you can assess the suitability of the service for the personal data processing activities you plan to do.
+
+## Contact information of Finnish universities legal offices
+
+| **University**  | **Contact information**  |
+|---|---|
+| Aalto University  | Data Protection Officer and Legal Counsel: Anni Tuomela \ anni.tuomela@aalto.fi \ tietosuojavastaava@aalto.fi  |
+| LUT University  | Data Protection Officer: Anne Himanka \ tietosuoja@lut.fi \ 0294462111  |
+| University of Eastern Finland  | Data Protection Officer: Helena Eronen \ helena.eronen@uef.fi \ +358 50 576 0282  |
+| University of Helsinki  | Legal Counsel, Data Protection Officer: Lotta Ylä-Sulkava \ lotta.yla-sulkava@helsinki.fi \ (tietosuoja@helsinki.fi) \ 0294140125 \ 0503450107  |
+| University of Jyväskylä  | Data Protection Officer: Riikka Valkonen \ riikka.h.valkonen@jyu.fi \ (tietosuoja@jyu.fi) \ +358408053297  |
+| University of Lapland  | Data Protection Officer: Jari Rantala \ jari.rantala@ulapland.fi \ (tietosuoja@ulapland.fi) \ +358 40 547 2583  |
+| University of Oulu  | Data Protection Officer: Jenny Mattila \ jenny.mattila@oulu.fi \ (dpo@oulu.fi) \ +358294484061  |
+| University of Tampere  | dpo@tuni.fi  |
+| University of Turku  | Data Protection Officer, Legal Affairs: Onerva Steudle \ onerva.steudle@utu.fi \ (dpo@utu.fi) \ +358 29 450 3009 \ +358 50 490 7736  |
+| University of Vaasa  | tietosuojavastaava@uwasa.fi  |
