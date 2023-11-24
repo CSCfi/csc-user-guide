@@ -14,7 +14,7 @@ It is possible to use the openstack API to get Allas S3 credentials (AWS_ACCESS_
         openstack ec2 credentials list
         ```
 
-        It will list the crdetials of every project, and you will see only the "Project ID" next to each credential pair. You can use `openstack project list` in order to see all the projects you have access, it will list the name and the id of each of them.
+        It will list the credetials of every project, and you will see only the "Project ID" next to each credential pair. You can use `openstack project list` in order to see all the projects you have access, it will list the name and the id of each of them.
 
     1. Create new credentials:
 
