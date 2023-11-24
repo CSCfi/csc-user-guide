@@ -87,6 +87,11 @@ Infrastructure as Code (IaC) tools are very useful, as they allow to specify com
 
 You can see above three examples, one for for each tool. All of them aim to get the same result: One or more VMs with nginx installed and few local files deployed. In order to choose which one to use, you will need to consider the up and downs of the tools and use the one that fits more your use case. For example, if you think about support. Both Heat and Ansible are developed by the OpenStack team and the Terraform provider is a community written software. In addition, Heat is provided together with OpenStack and can  be used via command line or the web interface. Finally Heat is the only one that the Pouta team fully supports. On the other hand, Terraform is more widely used and will be easier to find examples and help than the other two tools.
 
+!!! Info "Terraform license"
+
+    Terraform has changed its license (Summer 2023), [OpenTofu](https://opentofu.org/) is an alternative client created to avoid licensing issues that might be created. At this time Tofu is a drop in replacement, but it is expected to diverge with time. At this time there is no ansible module for Tofu.
+
+
 <center>![Heat webUI](../../img/heat-web-ui.png)
 *Heat web UI*
 </center>
