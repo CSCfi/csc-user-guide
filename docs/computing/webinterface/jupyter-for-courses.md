@@ -8,7 +8,7 @@ Default resources for the course Python environment can also be defined in the s
 ## Using the app
 In the form for launching the application:
 
- - Select the project and reservation used for the course
+ - Select the project and reservation used for the course. The reservation field will only be visible if you have an active reservation you have access to use.
  - Select the course module
  - Launch the application
 
