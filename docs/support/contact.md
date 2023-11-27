@@ -26,8 +26,6 @@
 
 ## Archives
 
->I'm putting a **FIXME** here, since the one in _mkdocs.yml_ isn't failing the tests.
-
 Having trouble finding an email or a newsletter sent to you by CSC? Browse the archives!
 
 ### Newsletters
