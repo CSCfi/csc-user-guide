@@ -50,7 +50,7 @@ In Puhti, only the command line tools are available, without the graphical user 
 
 CSC provides only the "free" version of LAStools. If you have your own license for LAStools, it can be used also in Puhti. 
 
-For using the 2023 native Linux version, copy the license file to your projects projappl directory in Puthi and provide the license file location as environment variable before using the tools as follows:
+For using the 2023 native Linux version, copy the license file to your projects projappl directory in Puhti and provide the license file location as environment variable before using the tools as follows:
 
 ```
 export LAStoolsLicenseFile=/projappl/project_200xxxx/yyy/lastoolslicense.txt
