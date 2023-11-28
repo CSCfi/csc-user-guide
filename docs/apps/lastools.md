@@ -16,17 +16,17 @@ LAStools is included in following modules:
 * lastools: 2023 (more exactly 230914) and 2022 (220613)
 * geoconda: 3.10.9 and 3.10.6 (both with older 20171231)
 
-Load one of these modules, for example:
+Load one of these modules, for example the newest version (default):
 
 `module load lastools` 
 
-You can test LAStools loaded successfully with
-
-`lasinfo -h`
-
-The 2023 version of LAStools is based on the new native Linux version of LAStools and requires `64` at the end of all tools, for example: 
+The 2023 version of LAStools is based on the new native Linux version of LAStools and requires `64` at the end of all tools. You can test that the LAStools module is loaded successfully with
 
 `lasinfo64 -h`
+
+For all older versions, for example in the **geoconda** module, you will need to omit the 64 at the end of the tool name, for example:
+
+`lasinfo -h`
 
 ### LAStools commands
 
@@ -44,19 +44,19 @@ All lastool installations in Puhti include the open source tools of LAStools.
 
 The 2023 version includes also: `lasoptimize64, las2dem64, las2iso64, las2shp64, las2tin64, las3dpoly64, lasboundary64, lascanopy64, lasclassify64, lasclip64, lascolor64, lascontrol64, lascopy64, lasdatum64, lasdistance64, lasduplicate64, lasgrid64, lasground64, lasground_new64, lasheight64, lasintensity64, laslayers64, lasnoise64, lasoverage64, lasoverlap64, lasreturn64, lassort64, lassplit64, lasthin64, lastile64, lastrack64, lasvdatum64, lasvoxel64`. See the License for terms of use for these tools. [The native Linux version of LAStools](https://rapidlasso.de/release-of-lastoolslinux/) does not currently support multi-core processing.
 
-In Puhti, only the command-line tools work, not the graphical interface. 
+In Puhti, only the command line tools are available, without the graphical user interface.
 
 ### Using a licensed version
 
 CSC provides only the "free" version of LAStools. If you have your own license for LAStools, it can be used also in Puhti. 
 
-For using the 2023 native Linux version, copy the license file to Puhti projappl and give the license file location as environment variable before using the tools.
+For using the 2023 native Linux version, copy the license file to your projects projappl directory in Puthi and provide the license file location as environment variable before using the tools as follows:
 
 ```
 export LAStoolsLicenseFile=/projappl/project_200xxxx/yyy/lastoolslicense.txt
 ```
 
-Also using the licensed Windows version is possible with wine (Windows emulator). You can install the .exe files easily yourself for your project. Download and unzip __LAStools__ to your [projappl disk area](../computing/disk.md).
+**Alternative:** Also using the licensed Windows version is possible with wine (Windows emulator). You can install the .exe files yourself for your project. Download and unzip __LAStools__ to your [projappl disk area](../computing/disk.md).
 
 ```
 cd /projappl/<your_project>
@@ -64,7 +64,7 @@ wget https://lastools.github.io/download/LAStools.zip
 unzip LAStools.zip
 ```
 
-Then just add your license file to the /bin folder and you can start running the __.exe__ files with __wine64__
+Then add your license file to the /bin folder and you can start running the __.exe__ files with __wine64__
 
 Notice you can only use the 64-bit versions of the tools with wine64
 
