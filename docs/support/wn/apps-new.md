@@ -1,5 +1,11 @@
 # Applications
 
+## Python Data 3.10-23.11, 28.11.2023
+
+A new version of [Python Data](../../apps/python-data.md)
+`python-data/3.10-23.11` has been installed, with the newest versions
+of popular data analytics packages.
+
 ## Gromacs 2023.3, 17.11.2023
 
 [Gromacs](../../apps/gromacs.md) 2023.3 is now available on Puhti, Mahti and
