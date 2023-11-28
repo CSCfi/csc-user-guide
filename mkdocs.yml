@@ -5,6 +5,7 @@ site_url: "https://docs.csc.fi/"
 site_description: Instructions and user guides for the CSC supercomputers, cloud services, storage and software, including FAQ and tutorials
 
 extra:
+  environment: !ENV [MKDOCS_ENV, "preview"]
   announcement_visible: true # Controls the visibility of the announcement bar
   breadcrumbs_debug: !ENV DEBUG # Renders a debug view for breadcrumbs navigation
   analytics:
@@ -27,6 +28,9 @@ extra:
       exclude:
         - ref.md
 
+hooks:
+  - hooks/archives.py
+
 plugins:
   - tags:
       tags_file: apps/by_license.md
@@ -38,6 +42,7 @@ plugins:
       timezone: Europe/Helsinki
       exclude:
         - index.md
+        - support/archives/*.md
         - support/glossary.md
         - support/whats-new.md
         - apps/index.md
@@ -66,6 +71,7 @@ plugins:
         'whats-new.md': 'support/whats-new.md'
         # for convenience:
         'glossary.md': 'support/glossary.md'
+        'archives.md': 'support/contact.md#archives'
 
 markdown_extensions:
   - footnotes
@@ -374,8 +380,15 @@ nav:
             - Export data: data/sensitive-data/sd-desktop-export.md
             - Troubleshooting: data/sensitive-data/sd-desktop-troubleshooting.md
       - Publish and reuse:
-        - Federated EGA: data/sensitive-data/federatedega.md
-        - SD Apply: data/sensitive-data/sd-apply.md
+        - Federated EGA: 
+            - data/sensitive-data/federatedega.md
+            - Data access application: data/sensitive-data/fega-application.md
+            - Data access approval for DAC: data/sensitive-data/fega-dac.md
+            - Data submission: data/sensitive-data/fega-submission.md
+        - SD Apply: 
+            - data/sensitive-data/sd-apply.md
+            - Data access for Data Applicant: data/sensitive-data/sd-apply-access.md
+            - Data approval for DAC: data/sensitive-data/sd-apply-approval.md
       - Secondary use of health and social data:
         - Start here:
             - Access with Findata permit: data/sensitive-data/findata-permit.md
