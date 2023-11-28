@@ -76,7 +76,7 @@ Example batch script for reserving one GPU and CPU core in a single node:
 export OMP_PROC_BIND=spread  
 export OMP_PLACES=threads
 
-module load pennylane-lightning-kokkos
+module load pennylane-lightning
 python3 <file_name>.py
 ```
 
