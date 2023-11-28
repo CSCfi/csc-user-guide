@@ -5,6 +5,7 @@ site_url: "https://docs.csc.fi/"
 site_description: Instructions and user guides for the CSC supercomputers, cloud services, storage and software, including FAQ and tutorials
 
 extra:
+  environment: !ENV [MKDOCS_ENV, "preview"]
   announcement_visible: true # Controls the visibility of the announcement bar
   breadcrumbs_debug: !ENV DEBUG # Renders a debug view for breadcrumbs navigation
   analytics:
@@ -27,6 +28,9 @@ extra:
       exclude:
         - ref.md
 
+hooks:
+  - hooks/archives.py
+
 plugins:
   - tags:
       tags_file: apps/by_license.md
@@ -38,6 +42,7 @@ plugins:
       timezone: Europe/Helsinki
       exclude:
         - index.md
+        - support/archives/*.md
         - support/glossary.md
         - support/whats-new.md
         - apps/index.md
@@ -66,6 +71,7 @@ plugins:
         'whats-new.md': 'support/whats-new.md'
         # for convenience:
         'glossary.md': 'support/glossary.md'
+        'archives.md': 'support/contact.md#archives'
 
 markdown_extensions:
   - footnotes
@@ -353,6 +359,7 @@ nav:
   
   - Sensitive data:
       - data/sensitive-data/index.md
+      - Choose service: data/sensitive-data/choose-a-service.md
       - Store and analyse:
         - Start here: data/sensitive-data/sd-access.md
         - Store with SD Connect: 
