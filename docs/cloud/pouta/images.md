@@ -84,7 +84,7 @@ CentOS-9-Stream.
 
 ### AlmaLinux-8 and AlmaLinux-9
 
-AlmaLinux is a linux distribution created in response to the premature abortion
+AlmaLinux is a linux distribution created in response to the abortion
 of CentOS-8 project and the fundamental change of CentOS building process, due
 to which CentOS' traditional stability was impacted. AlmaLinux aims to be fully
 binary-compatible with RedHat Enterprise Linux, and by doing so the linux
