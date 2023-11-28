@@ -35,12 +35,15 @@ keep the additional packages at a minimum.
 
 |Image|Username|Modified <br/>|
 |--- |:---:|:---:|
-|CentOS-7   |cloud-user | yes|
-|CentOS-7-cuda   |cloud-user |yes|
-|CentOS-8-Stream   |**centos** | no|
-|Ubuntu-22.04   |**ubuntu** | no |
-|Ubuntu-20.04   |**ubuntu** | no |
-|Ubuntu-18.04   |**ubuntu** | no |
+|CentOS-7        |cloud-user     |yes |
+|CentOS-7-cuda   |cloud-user     |yes |
+|CentOS-8-Stream |**centos**     |no  |
+|CentOS-9-Stream |**cloud-user** |no  |
+|AlmaLinux-8     |**almalinux**  |no  |
+|AlmaLinux-9     |**almalinux**  |no  |
+|Ubuntu-22.04    |**ubuntu**     |no  |
+|Ubuntu-20.04    |**ubuntu**     |no  |
+|Ubuntu-18.04    |**ubuntu**     |no  |
 
 ### CentOS-7
 CentOS is the community version of Red Hat Enterprise Linux (RHEL). CentOS-7
@@ -55,17 +58,18 @@ drivers installed, but sometimes we are lagging a bit behind. These images
 are huge, so you should use the normal CentOS-7 image if you are not
 using a GPU-flavor VM.
 
-### CentOS-8-Stream
+### CentOS-8-Stream and CentOS-9-Stream
 
 While CentOS-7 is still actively supported, [CentOS-8 has been declared end-of-life in December 2021](https://www.centos.org/centos-linux-eol/).
-The CentOS community is now actively maintaining CentOS-8-Stream instead. The
-key differences lay in the relationship between CentOS and RHEL, especially in
-how changes, i.e., new packages and updates, are deployed:
+The CentOS community is now actively maintaining CentOS-8-Stream and
+CentOS-9-Stream instead. The key differences lay in the relationship between
+CentOS and RHEL, especially in how changes, i.e., new packages and updates,
+are deployed:
 
 * with CentOS-7 RHEL is the upstream branch for CentOS, i.e., changes are first
 deployed for RHEL and then for CentOS
-* with CentOS-8-Stream CentOS is the upstream branch for RHEL, i.e., changes
-are first deployed for CentOS and then for RHEL
+* with CentOS-8-Stream or CentOS-9-Stream, CentOS is the upstream branch for
+RHEL, i.e., changes are first deployed for CentOS and then for RHEL
 
 The resulting operating system is thus possibly less stable compared to its
 previous version. The CentOS community [emphasizes](https://blog.centos.org/2020/12/future-is-centos-stream/)
@@ -75,7 +79,18 @@ for CentOS-8.
 
 Note that this is the upstream version of the image, i.e., we do not perform
 any change to the image before making it available on our services. The default
-username is `centos`.
+username is `centos` for CentOS-8-Stream and `cloud-user` for
+CentOS-9-Stream.
+
+### AlmaLinux-8 and AlmaLinux-9
+
+AlmaLinux is a linux distribution created in response to the termination
+of CentOS-8 project and the fundamental change of CentOS building process, due
+to which CentOS' traditional stability was impacted. AlmaLinux aims to be fully
+binary-compatible with RedHat Enterprise Linux, and by doing so the linux
+distribution effectively takes the role that CentOS used to have before the
+switch to the -Stream versions. Note that these are the upstream versions of the
+AlmaLinux images, and their default username is `almalinux` instead of `cloud-user`.
 
 ### Ubuntu-22.04, 20.04 and 18.04 LTS
 Some like chocolate, some like strawberry. This is the choice for those that
