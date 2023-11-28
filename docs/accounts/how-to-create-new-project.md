@@ -88,7 +88,7 @@ The student category is reserved for [free-of-charge](https://research.csc.fi/fr
 6. Select **the end date** of the resource need or course, but no more than six months from the project creation date.
 7. In **the comments field**, please fill in the university course code and title or name if available.
 8. Fill in **the field of your studies** - or the closest approximation.
-9. Please have a look at our **terms and conditions** and confirm your acceptance.
+9. Please read our **terms and conditions** and confirm your acceptance.
 10. Click **Create project**.
 
 If you wish, you can add other members to your project. The easiest way to do so is to use an [invitation link](how-to-add-members-to-project.md#using-invitation-link).
