@@ -20,7 +20,7 @@ Read more about the services: [Choose a service](choose-a-service.md)
 !!! info "Support"
     **Do you have any questions? Would you like to discuss a specific project?** 
        
-       - [contact us](../../support/contact.md) (subject: *Sensitive Data*) 
+       - [Contact us](../../support/contact.md), *subject: Sensitive Data*
        - Join the [CSC Research User Support Coffee - Every Wednesday at 14:00](https://ssl.eventilla.com/usersupportcoffee){ target="_blank" }. 
        - Our team is here to help, and we offer direct support. Don't hesitate to contact!
 
@@ -76,9 +76,9 @@ We kindly request that users carefully read the instructions before proceeding t
 
 !!! note "Service Breaks"
    
-      SD Desktop and SD Connect undergo regular maintenance on the first Wednesday of every month, as scheduled on [Service Breaks -website](https://research.csc.fi/service-breaks){      target="_blank" }. 
-      
-      Please note that occasional urgent maintenance may also be required for technical or security reasons. In such cases, we will notify you via email.
+      - SD Desktop and SD Connect undergo regular maintenance on the **first Wednesday of every month**
+      - Please note that occasional urgent maintenance may also be required for technical or security reasons. In such cases, we will notify you via email.
+      - All service breaks are scheduled on [Service Breaks -website](https://research.csc.fi/service-breaks){ target="_blank" }. 
 
 
 ### About this user guide
