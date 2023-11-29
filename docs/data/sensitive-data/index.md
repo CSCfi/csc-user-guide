@@ -24,7 +24,7 @@ Read more about the services: [Choose a service](choose-a-service.md)
        - Join the [CSC Research User Support Coffee - Every Wednesday at 14:00](https://ssl.eventilla.com/usersupportcoffee){ target="_blank" }. 
        - Our team is here to help, and we offer direct support. Don't hesitate to contact!
 
-## Quiklinks
+## Quik links
 
 <div class="quick-links-container">
   <div class="quick-links-topic">
