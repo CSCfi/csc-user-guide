@@ -20,9 +20,9 @@ Read more about the services: [Choose a service](choose-a-service.md)
 !!! info "Support"
     **Do you have any questions? Would you like to discuss a specific project?** 
        
-       Don't hesitate to [contact us](../../support/contact.md) (subject: *Sensitive Data*) or join the [CSC Research User Support Coffee - Every Wednesday at 14:00](https://ssl.eventilla.com/usersupportcoffee){ target="_blank" }. 
+       - Don't hesitate to [contact us](../../support/contact.md) (subject: *Sensitive Data*) or join the [CSC Research User Support Coffee - Every Wednesday at 14:00](https://ssl.eventilla.com/usersupportcoffee){ target="_blank" }. 
     
-       Our team is here to help, and we offer direct support: servicedesk@csc.fi 
+       - Our team is here to help, and we offer direct support: servicedesk@csc.fi 
 
 ## Quiklinks
 
@@ -69,14 +69,14 @@ Read more about the services: [Choose a service](choose-a-service.md)
 
 We kindly request that users carefully read the instructions before proceeding to use the services to ensure a smooth experience. 
 
-* [MyCSC portal](https://my.csc.fi/welcome)
-* [Sensitive Data (SD) Connect](https://sd-connect.csc.fi/)
-* [Sensitive Data (SD) Desktop](https://sd-desktop.csc.fi)
-* [Sensitive Data (SD) Apply](https://sd-apply.csc.fi/)
+* [MyCSC portal](https://my.csc.fi/welcome){ target="_blank" }
+* [Sensitive Data (SD) Connect](https://sd-connect.csc.fi/){ target="_blank" }
+* [Sensitive Data (SD) Desktop](https://sd-desktop.csc.fi){ target="_blank" }
+* [Sensitive Data (SD) Apply](https://sd-apply.csc.fi/){ target="_blank" }
 
-!!! note "Note"
+!!! note "Service Breaks"
    
-      SD Desktop and SD Connect undergo regular maintenance on the first Wednesday of every month, as scheduled on [CSC's research website](https://research.csc.fi/service-breaks){      target="_blank" }. 
+      SD Desktop and SD Connect undergo regular maintenance on the first Wednesday of every month, as scheduled on [Service Breaks -website](https://research.csc.fi/service-breaks){      target="_blank" }. 
       
       Please note that occasional urgent maintenance may also be required for technical or security reasons. In such cases, we will notify you via email.
 
