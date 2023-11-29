@@ -1,6 +1,6 @@
 ## Sensitive data (SD) services overview
 
-### What is sensitive data?
+### What is sensitive data
 Sensitive data is defined as any information that is protected against unwarranted disclosure. Protection of data may be required for legal or ethical reasons, for issues pertaining to personal privacy, or for proprietary considerations.
 [Read more about sensitive data](https://research.csc.fi/definition-of-sensitive-data){ target="_blank" }
 
@@ -20,7 +20,7 @@ Read more about the services: [Choose a service](choose-a-service.md)
 !!! info "Support"
     **Do you have any questions? Would you like to discuss a specific project?** 
        
-       - [Contact us](../../support/contact.md), *subject: Sensitive Data*
+       - [Contact us](../../support/contact.md), subject: *Sensitive Data*
        - Join the [CSC Research User Support Coffee - Every Wednesday at 14:00](https://ssl.eventilla.com/usersupportcoffee){ target="_blank" }. 
        - Our team is here to help, and we offer direct support. Don't hesitate to contact!
 
