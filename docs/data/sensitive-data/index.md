@@ -2,13 +2,18 @@ CSC's Sensitive Data (SD) services are available to:
 
 - Researchers and students affiliated with Finnish higher education institutions (universities, universities of applied sciences)
 - Research institutes and their international collaborators.
+- Using CSC services requires you to [register a CSC account](accounts.md#gettingaccess).
+
+[Definition of sensitve data](https://research.csc.fi/definition-of-sensitive-data){ target="_blank" }
 
 This manual introduces CSC's Sensitive Data (SD) services. To navigate the user guide, click on the topics in the boxes or the left-hand side of the page in the navigation bar. Next, browse the section using the table of contents on the right side of each page. The search tool is also available. 
 
 SD Desktop and SD Connect undergo regular maintenance on the first Wednesday of every month, as scheduled on [CSC's research website](https://research.csc.fi/service-breaks). Please note that occasional urgent maintenance may also be required for technical or security reasons. In such cases, we will notify you via email.
 
 !!! info "Support"
-    **Do you have any questions? Would you like to discuss a specific project?** Don't hesitate to [contact us](../../support/contact.md) (subject: Sensitive Data) or join the [CSC Research User Support Coffee - Every Wednesday at 14:00](https://ssl.eventilla.com/usersupportcoffee). Our team is here to help, and we offer direct support. 
+    **Do you have any questions? Would you like to discuss a specific project?** 
+    Don't hesitate to [contact us](../../support/contact.md) (subject: Sensitive Data) or join the [CSC Research User Support Coffee - Every Wednesday at 14:00](https://ssl.eventilla.com/usersupportcoffee). 
+    Our team is here to help, and we offer direct support. 
     
   
 
