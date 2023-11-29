@@ -20,9 +20,9 @@ Read more about the services: [Choose a service](choose-a-service.md)
 !!! info "Support"
     **Do you have any questions? Would you like to discuss a specific project?** 
        
-       - Don't hesitate to [contact us](../../support/contact.md) (subject: *Sensitive Data*) or join the [CSC Research User Support Coffee - Every Wednesday at 14:00](https://ssl.eventilla.com/usersupportcoffee){ target="_blank" }. 
-    
-       - Our team is here to help, and we offer direct support: servicedesk@csc.fi 
+       - [contact us](../../support/contact.md) (subject: *Sensitive Data*) 
+       - Join the [CSC Research User Support Coffee - Every Wednesday at 14:00](https://ssl.eventilla.com/usersupportcoffee){ target="_blank" }. 
+       - Our team is here to help, and we offer direct support. Don't hesitate to contact!
 
 ## Quiklinks
 
