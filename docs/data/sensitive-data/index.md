@@ -82,9 +82,9 @@ We kindly request that users carefully read the instructions before proceeding t
 
 
 ### About this user guide
-This manual introduces CSC's Sensitive Data (SD) services
+This user guide introduces CSC's Sensitive Data (SD) services
 
-1. To navigate the user guide, click on the topics in the boxes or the left-hand side of the page in the navigation bar.
+1. To navigate the user guide, click on the topics in the boxes or the left-hand side navigation bar.
 1. Browse the section using the table of contents on the right side of each page.
-1. The search tool is also available. 
+-  The search tool is also available. 
 
