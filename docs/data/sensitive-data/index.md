@@ -1,12 +1,16 @@
-## What is sensitive data?
-Sensitive data is defined as any information that is protected against unwarranted disclosure. Protection of data may be required for legal or ethical reasons, for issues pertaining to personal privacy, or for proprietary considerations.
-[Read more about sensitive data](https://research.csc.fi/definition-of-sensitive-data){ target="_blank" }
-
-### CSC's Sensitive data (SD) services are available to:
-
+## Who can Sensitive data (SD) services
+### CSC's SD services are available to:
 - Researchers and students affiliated with Finnish higher education institutions (universities, universities of applied sciences)
 - Research institutes and their international collaborators.
 - Using CSC services requires you to [register a CSC account](../../accounts/index.md#getting-access).
+
+### What is sensitive data?
+Sensitive data is defined as any information that is protected against unwarranted disclosure. Protection of data may be required for legal or ethical reasons, for issues pertaining to personal privacy, or for proprietary considerations.
+[Read more about sensitive data](https://research.csc.fi/definition-of-sensitive-data){ target="_blank" }
+
+### SD services overview
+
+<iframe width="560" height="315" frameborder="0" srcdoc="https://youtu.be/embed/YcgeuatWf9g" title="Introducing CSC Sensitive Data Services" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 
 ## Quiklinks to instructions
 
@@ -51,7 +55,7 @@ Sensitive data is defined as any information that is protected against unwarrant
 
 ## Links to services
 
-We kindly request that users carefully read the manual before proceeding to use the services to ensure a smooth experience. 
+We kindly request that users carefully read the instructions before proceeding to use the services to ensure a smooth experience. 
 
 * [MyCSC portal](https://my.csc.fi/welcome)
 * [Sensitive Data (SD) Connect](https://sd-connect.csc.fi/)
