@@ -2,15 +2,19 @@
 Sensitive data is defined as any information that is protected against unwarranted disclosure. Protection of data may be required for legal or ethical reasons, for issues pertaining to personal privacy, or for proprietary considerations.
 [Read more about sensitive data](https://research.csc.fi/definition-of-sensitive-data){ target="_blank" }
 
-## CSC's Sensitive Data (SD) services are available to:
+## CSC's Sensitive data (SD) services
+
+### SD services are available to:
 
 - Researchers and students affiliated with Finnish higher education institutions (universities, universities of applied sciences)
 - Research institutes and their international collaborators.
 - Using CSC services requires you to [register a CSC account](../../accounts/index.md#getting-access).
 
+### Quiklinks based on your usecases:
+
 <div class="quick-links-container">
   <div class="quick-links-topic">
-    <span class="quick-links-title"><h2>Store and analyse</h2></span>
+    <span class="quick-links-title"><h3>Store and analyse</h3></span>
     <div class="quick-links-item">
       <a class="quick-link" target="_self" href="sd-access/">Start here</a>
     </div>
@@ -47,6 +51,14 @@ Sensitive data is defined as any information that is protected against unwarrant
   </div>
 </div>
 
+### Links to services
+
+We kindly request that users carefully read the manual before proceeding to use the services to ensure a smooth experience. 
+
+* [MyCSC portal](https://my.csc.fi/welcome)
+* [Sensitive Data (SD) Connect](https://sd-connect.csc.fi/)
+* [Sensitive Data (SD) Desktop](https://sd-desktop.csc.fi)
+* [Sensitive Data (SD) Apply](https://sd-apply.csc.fi/)
 
 SD Desktop and SD Connect undergo regular maintenance on the first Wednesday of every month, as scheduled on [CSC's research website](https://research.csc.fi/service-breaks). Please note that occasional urgent maintenance may also be required for technical or security reasons. In such cases, we will notify you via email.
 
@@ -61,14 +73,7 @@ SD Desktop and SD Connect undergo regular maintenance on the first Wednesday of 
 
 
 
-## Links to services
 
-We kindly request that users carefully read the manual before proceeding to use the services to ensure a smooth experience. 
-
-* [MyCSC portal](https://my.csc.fi/welcome)
-* [Sensitive Data (SD) Connect](https://sd-connect.csc.fi/)
-* [Sensitive Data (SD) Desktop](https://sd-desktop.csc.fi)
-* [Sensitive Data (SD) Apply](https://sd-apply.csc.fi/)
 
 ## About this user guide
 This manual introduces CSC's Sensitive Data (SD) services
