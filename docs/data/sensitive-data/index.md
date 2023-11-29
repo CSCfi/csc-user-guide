@@ -16,7 +16,13 @@ Sensitive data is defined as any information that is protected against unwarrant
 
 Read more about the services: [Choose a service](choose-a-service.md)
 
-## Quiklinks to instructions
+
+!!! info "Support"
+    **Do you have any questions? Would you like to discuss a specific project?** 
+    Don't hesitate to [contact us](../../support/contact.md) (subject: Sensitive Data) or join the [CSC Research User Support Coffee - Every Wednesday at 14:00](https://ssl.eventilla.com/usersupportcoffee). 
+    Our team is here to help, and we offer direct support. 
+
+## Quiklinks
 
 <div class="quick-links-container">
   <div class="quick-links-topic">
@@ -57,7 +63,7 @@ Read more about the services: [Choose a service](choose-a-service.md)
   </div>
 </div>
 
-## Links to services
+### Links to services
 
 We kindly request that users carefully read the instructions before proceeding to use the services to ensure a smooth experience. 
 
@@ -66,22 +72,13 @@ We kindly request that users carefully read the instructions before proceeding t
 * [Sensitive Data (SD) Desktop](https://sd-desktop.csc.fi)
 * [Sensitive Data (SD) Apply](https://sd-apply.csc.fi/)
 
-SD Desktop and SD Connect undergo regular maintenance on the first Wednesday of every month, as scheduled on [CSC's research website](https://research.csc.fi/service-breaks). Please note that occasional urgent maintenance may also be required for technical or security reasons. In such cases, we will notify you via email.
+!!! note "Note"
 
-!!! info "Support"
-    **Do you have any questions? Would you like to discuss a specific project?** 
-    Don't hesitate to [contact us](../../support/contact.md) (subject: Sensitive Data) or join the [CSC Research User Support Coffee - Every Wednesday at 14:00](https://ssl.eventilla.com/usersupportcoffee). 
-    Our team is here to help, and we offer direct support. 
-    
-  
+   - SD Desktop and SD Connect undergo regular maintenance on the first Wednesday of every month, as scheduled on [CSC's research website](https://research.csc.fi/service-breaks){   target="_blank" }. 
+   - Please note that occasional urgent maintenance may also be required for technical or security reasons. In such cases, we will notify you via email.
 
 
-
-
-
-
-
-## About this user guide
+### About this user guide
 This manual introduces CSC's Sensitive Data (SD) services
 
 1. To navigate the user guide, click on the topics in the boxes or the left-hand side of the page in the navigation bar.
