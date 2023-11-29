@@ -1,8 +1,8 @@
-##What is sensitive data
+## What is sensitive data
 Sensitive data is defined as any information that is protected against unwarranted disclosure. Protection of data may be required for legal or ethical reasons, for issues pertaining to personal privacy, or for proprietary considerations.
 [Read more about sensitive data](https://research.csc.fi/definition-of-sensitive-data){ target="_blank" }
 
-##CSC's Sensitive Data (SD) services are available to:
+## CSC's Sensitive Data (SD) services are available to:
 
 - Researchers and students affiliated with Finnish higher education institutions (universities, universities of applied sciences)
 - Research institutes and their international collaborators.
