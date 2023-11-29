@@ -1,5 +1,7 @@
-## Who can Sensitive data (SD) services
-### CSC's SD services are available to:
+## Sensitive data (SD) services overview
+
+### CSC's sensitive data services are available to:
+
 - Researchers and students affiliated with Finnish higher education institutions (universities, universities of applied sciences)
 - Research institutes and their international collaborators.
 - Using CSC services requires you to [register a CSC account](../../accounts/index.md#getting-access).
@@ -10,7 +12,7 @@ Sensitive data is defined as any information that is protected against unwarrant
 
 ### SD services overview
 
-<iframe width="560" height="315" frameborder="0" srcdoc="https://youtu.be/embed/YcgeuatWf9g" title="Introducing CSC Sensitive Data Services" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+<iframe width="1280" height="720" srcdoc="https://www.youtube.com/embed/YcgeuatWf9g" title="Introducing CSC Sensitive Data Services" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 ## Quiklinks to instructions
 
