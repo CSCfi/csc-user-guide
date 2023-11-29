@@ -73,9 +73,9 @@ We kindly request that users carefully read the instructions before proceeding t
 * [Sensitive Data (SD) Apply](https://sd-apply.csc.fi/)
 
 !!! note "Note"
-
-   - SD Desktop and SD Connect undergo regular maintenance on the first Wednesday of every month, as scheduled on [CSC's research website](https://research.csc.fi/service-breaks){   target="_blank" }. 
-   - Please note that occasional urgent maintenance may also be required for technical or security reasons. In such cases, we will notify you via email.
+   
+   SD Desktop and SD Connect undergo regular maintenance on the first Wednesday of every month, as scheduled on [CSC's research website](https://research.csc.fi/service-breaks){      target="_blank" }. 
+   Please note that occasional urgent maintenance may also be required for technical or security reasons. In such cases, we will notify you via email.
 
 
 ### About this user guide
