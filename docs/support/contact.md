@@ -24,13 +24,19 @@
 
 * [13 point list to speed up resolving your issue](./support-howto.md)
 
-## Mailing list archives
+## Archives
 
-Having trouble finding an email sent to you by CSC? Browse the mailing list
-archives:
+Having trouble finding an email or a newsletter sent to you by CSC? Browse the archives!
 
-* [puhti-users](https://postit.csc.fi/sympa/arc/puhti-users/)
-* [mahti-users](https://postit.csc.fi/sympa/arc/mahti-users/)
-* [lumi-users](https://postit.csc.fi/sympa/arc/lumi-users/)
-* [pouta-users](https://postit.csc.fi/sympa/arc/pouta-users/)
-* [rahti-users](https://postit.csc.fi/sympa/arc/rahti-users/)
+### Newsletters
+
+* [Tutkimus / Research](archives/tutkimus-research.md)
+* [Asiakaskoulutus / Customer training](archives/asiakaskoulutus-customer-training.md)
+
+### Mailing lists
+
+* [puhti-users](archives/puhti-users.md)
+* [mahti-users](archives/mahti-users.md)
+* [lumi-users](archives/lumi-users.md)
+* [pouta-users](archives/pouta-users.md)
+* [rahti-users](archives/rahti-users.md)

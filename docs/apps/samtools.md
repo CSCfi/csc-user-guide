@@ -20,7 +20,7 @@ Free to use and open source under [MIT/Expat License](https://github.com/samtool
 
 Version on CSC's Servers
 
-Puhti: 1.9, 1.16
+Puhti: 1.9, 1.16, 1.18
 
 
 ## Usage
@@ -49,7 +49,7 @@ And the activate the version you want to use. For example:
 module load samtools/0.1.19
 ```
 
-Loading SAMtools 1.x also loads BDFtools and HTSlib.
+Loading SAMtools 1.x also loads BCFtools and HTSlib.
 
 Heavier SAMtool jobs should be executed as batch jobs. Below is a sample batch job file, 
 for running a SAMtools job in Puhti:

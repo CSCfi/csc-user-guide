@@ -18,7 +18,8 @@ Find, under **Instance name**, the Virtual Machine that you want to connect to.
 
 * The **Power State** must be `Running`
 
-* It must have a `Floating IP` attached, write it down.  
+* It must have a `Floating IP` attached, write it down.
+
 !!! info
     To access an ePouta instance, you can ssh on the private IP (ssh cloud-user@private-ip).
 
@@ -41,7 +42,7 @@ Find, under **Instance name**, the Virtual Machine that you want to connect to.
     It is a common practise for images, when you try to login as `root`, to get a message back telling you which username to use instead.
 
     ```sh
-    $ ssh root@86.xxx.xxx.xxx               
+    $ ssh root@86.xxx.xxx.xxx
     Please login as the user "cloud-user" rather than the user "root".
     ```
 
@@ -81,15 +82,15 @@ Check the manual page of [ssh_config](https://linux.die.net/man/5/ssh_config) fo
 
         ssh -A cloud-user@public-ip
 
-    By enabling agent forwarding, you enable the ssh agent running on the remote Virtual Machine to make use of the keys which are loaded in the ssh agent of your local workstation. You can use this feature to use the "Bastion host model", where only one single machine, the bastion host, in the cluster has Floating IP and outside access, and the rest of the machines are accessed through the bastion. 
-    
+    By enabling agent forwarding, you enable the ssh agent running on the remote Virtual Machine to make use of the keys which are loaded in the ssh agent of your local workstation. You can use this feature to use the "Bastion host model", where only one single machine, the bastion host, in the cluster has Floating IP and outside access, and the rest of the machines are accessed through the bastion.
+
     1. Assign a floating IP to one of your instances
     1. ssh to the instance enabling agent forwarding
     1. ssh from this instance to the other instances in the network using their private IP
-    
+
     Using these steps, you need only a single public IP instead of one public IP for each of the instances.
 
-    **Warning**: using agent forwarding has some [security implications](https://blog.wizardsoftheweb.pro/ssh-agent-forwarding-vulnerability-and-alternative/#thevulnerability) 
+    **Warning**: using agent forwarding has some [security implications](https://blog.wizardsoftheweb.pro/ssh-agent-forwarding-vulnerability-and-alternative/#thevulnerability)
 
 ### Putty
 
@@ -162,7 +163,7 @@ It is possible to access a machine using the Pouta Virtual console. This is only
 In order to be able to use the console, **you need to set up a password-based user account first**:
 
 * Connected through SSH to your Virtual Machine instance
-* You can use [useradd](https://linux.die.net/man/8/useradd) and or [passwd](https://linux.die.net/man/1/passwd) to set up the account. 
+* You can use [useradd](https://linux.die.net/man/8/useradd) and or [passwd](https://linux.die.net/man/1/passwd) to set up the account.
 * As indicated in our [security guidelines](security.md#be-mindful-about-the-user-accounts-in-the-vm), please **do not enable remote login** for this **password-based account**, but rather use it only in case you need to access the instance though the console.
 
 Once there is a password based account, with no remote login allowed:
@@ -178,6 +179,6 @@ Once there is a password based account, with no remote login allowed:
 * Log in with the user account and password you have created.
 
 !!! warning "Non ASCII characters problems"
-    *Umlaut* characters, such as *ä* or *ö*, do not work in the virtual 
+    *Umlaut* characters, such as *ä* or *ö*, do not work in the virtual
     console for most keymaps.
 
