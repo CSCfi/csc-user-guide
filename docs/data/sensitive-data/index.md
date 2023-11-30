@@ -7,8 +7,8 @@ Sensitive data is defined as any information that is protected against unwarrant
 ### CSC's sensitive data services are available to:
 
 - Researchers and students affiliated with Finnish higher education institutions (universities, universities of applied sciences)
-- Research institutes and their international collaborators.
-- Using CSC services requires you to [register a CSC account](../../accounts/index.md#getting-access).
+- Research institutes and their international collaborators
+- Using CSC services requires you to [register a CSC account](../../accounts/index.md#getting-access)
 
 ### Introduction to sensitive data services
 
