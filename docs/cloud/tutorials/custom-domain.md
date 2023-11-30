@@ -91,7 +91,7 @@ git clone https://github.com/tnozicka/openshift-acme.git
 
 ```sh
 cd openshift-acme
-oc apply -fdeploy/single-namespace/{role,serviceaccount,issuer-letsencrypt-live,deployment}.yaml
+oc apply -f deploy/single-namespace/{role,serviceaccount,issuer-letsencrypt-live,deployment}.yaml
 oc create rolebinding openshift-acme --role=openshift-acme --serviceaccount="$( oc project -q ):openshift-acme" --dry-run -o yaml | oc apply -f -
 ```
 
