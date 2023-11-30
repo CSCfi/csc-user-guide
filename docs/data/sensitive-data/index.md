@@ -14,10 +14,6 @@ Sensitive data is defined as any information that is protected against unwarrant
 
 <iframe width="560" height="315" srcdoc="https://www.youtube.com/embed/YcgeuatWf9g" title="Introducing CSC Sensitive Data Services" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
-
-
-<iframe width="560" height="315" srcdoc="https://www.youtube.com/embed/S4hpjPy-TDQ" title="SD Desktop software installer" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-
 Read more about the services: [Choose a service](choose-a-service.md)
 
 
@@ -85,10 +81,12 @@ We kindly request that users carefully read the instructions before proceeding t
       - All service breaks are scheduled on [Service Breaks -website](https://research.csc.fi/service-breaks){ target="_blank" }. 
 
 
-### About this user guide
+#### About this user guide
 This user guide introduces CSC's Sensitive Data (SD) services
 
-1. To navigate the user guide, click on the topics in the boxes or the left-hand side navigation bar.
-1. Browse the section using the table of contents on the right side of each page.
--  The search tool is also available. 
+1. To navigate the user guide, click on the [quik links](#quik-links) or the left-hand side navigation bar.
+1. Right side of each page has a table of content for faster browsing.
+1. The search tool is also available at the top bar.
+
+[Usefull terminology](sd-terminology.md)
 
