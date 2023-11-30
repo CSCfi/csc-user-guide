@@ -16,9 +16,9 @@ Sensitive data is defined as any information that is protected against unwarrant
 
 Read more about the services: [Choose a service](choose-a-service.md)
 
+### Support
 
-!!! info "Support"
-    **Do you have any questions? Would you like to discuss a specific project?** 
+!!! info "Do you have any questions? Would you like to discuss a specific project?"
        
        - [Contact us](../../support/contact.md), subject: *Sensitive Data*
        - Join the [CSC Research User Support Coffee - Every Wednesday at 14:00](https://ssl.eventilla.com/usersupportcoffee){ target="_blank" }. 
@@ -78,15 +78,15 @@ We kindly request that users carefully read the instructions before proceeding t
    
       - SD Desktop and SD Connect undergo regular maintenance on the **first Wednesday of every month**
       - Please note that occasional urgent maintenance may also be required for technical or security reasons. In such cases, we will notify you via email.
-      - All service breaks are scheduled on [Service Breaks -website](https://research.csc.fi/service-breaks){ target="_blank" }. 
+      - All service breaks are scheduled on [Service Breaks -website](https://research.csc.fi/service-breaks){ target="_blank" } 
 
 
 #### About this user guide
 This user guide introduces CSC's Sensitive Data (SD) services
 
-1. To navigate the user guide, click on the [quik links](#quik-links) or the left-hand side navigation bar.
-1. Right side of each page has a table of content for faster browsing.
-1. The search tool is also available at the top bar.
+1. To navigate the user guide, click on the [quik links](#quik-links) or the left-hand side navigation bar
+1. Right side of each page has a table of content for faster browsing
+1. The search tool is also available at the top bar
 
 [Usefull terminology](sd-terminology.md)
 
