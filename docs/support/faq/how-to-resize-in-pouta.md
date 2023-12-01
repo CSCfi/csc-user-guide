@@ -23,6 +23,11 @@ Click **Resize**
 
 Wait few minutes and during the process, it will ask you to confirm the resize:
 
+!!! error-label
+    When your instance is in `Confirm Resize/Migrate` it means that you can connect to your instance to check if everything is working fine because your instance is already converted into the new flavor.  
+    In the case that you spot something wrong, you can revert to the previous state with the `Revert Resize/Migrate` button in the drop menu.  
+    Be aware that an automatic confirm process will be triggered after three days of pending status `Confirm or Revert Resize/Migrate`
+
 ![confirm-resize](img/confirm_resize.png)
 
 After the process finished, you should have your instance with a flavor.
