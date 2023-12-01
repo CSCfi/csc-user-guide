@@ -163,7 +163,7 @@ virtual machine when it has less computational workload frees up
 compute resources and saves billing units. Later on,
 depending on your computational workload, you can scale up your virtual
 machines. Please note that you can resize to another flavor from another *family* but it's **highly not recommended!**.
-You may lost data during this process and CSC is not responsible. We recommend to only resize to the flavors of the
+You may lose data during this process and CSC is not responsible. We recommend to only resize to the flavors of the
 same *family*. For example, if you are using a standard
 family flavor, you can only resize it to another standard family
 flavor. When the resize is complete, the virtual machine status first

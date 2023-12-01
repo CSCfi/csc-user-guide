@@ -5,7 +5,7 @@ We might face performance issue with your initial instance and you'd like to run
 It's possible to proceed by taking a snapshot of your instance and then boot the new instance with the new flavor using the snapshot.  
 You can find more information about snapshot [here](../../cloud/pouta/snapshots.md) and how to proceed.
 
-### Using the resize functionnality 
+### Using the resize functionality 
 !!! Warning    
     I/O flavors [cannot be resized](../../cloud/pouta/vm-flavors-and-billing.md#io-flavors_2) to a different family flavors.  
     It's possible to resize from a `standard` flavor *family* to a `hpc` flavor *family*. Nothing will prevent you to do that but it's **highly not recommended!**  
@@ -30,7 +30,7 @@ After the process finished, you should have your instance with a flavor.
 
 ## Resize a volume
 !!! Notes  
-    You can only extend a volume. Currently, shrink a volume is not currently supported in Openstack.
+    You can only extend a volume. Currently, shrink a volume is not supported in Openstack.
 
 Pouta let you create [external volumes](../../cloud/pouta/storage.md). If your initial volume is too small, you can resize it.
 
