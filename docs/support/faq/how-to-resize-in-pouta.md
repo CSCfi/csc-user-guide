@@ -30,7 +30,7 @@ Wait few minutes and during the process, it will ask you to confirm the resize:
 
 ![confirm-resize](img/confirm_resize.png)
 
-After the process finished, you should have your instance with a flavor.
+After the process finished, you should have your instance with a new flavor.
 
 
 ## Resize a volume
