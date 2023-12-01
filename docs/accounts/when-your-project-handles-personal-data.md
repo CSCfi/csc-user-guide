@@ -47,13 +47,13 @@ to find more detailed information on how we as data processor protect your perso
 
 | **University**  | **Contact information**  |
 |---|---|
-| Aalto University  | Data Protection Officer and Legal Counsel: Anni Tuomela \ anni.tuomela@aalto.fi \ tietosuojavastaava@aalto.fi  |
-| LUT University  | Data Protection Officer: Anne Himanka \ tietosuoja@lut.fi \ 0294462111  |
-| University of Eastern Finland  | Data Protection Officer: Helena Eronen \ helena.eronen@uef.fi \ +358 50 576 0282  |
-| University of Helsinki  | Legal Counsel, Data Protection Officer: Lotta Ylä-Sulkava \ lotta.yla-sulkava@helsinki.fi \ (tietosuoja@helsinki.fi) \ 0294140125 \ 0503450107  |
-| University of Jyväskylä  | Data Protection Officer: Riikka Valkonen \ riikka.h.valkonen@jyu.fi \ (tietosuoja@jyu.fi) \ +358408053297  |
-| University of Lapland  | Data Protection Officer: Jari Rantala \ jari.rantala@ulapland.fi \ (tietosuoja@ulapland.fi) \ +358 40 547 2583  |
-| University of Oulu  | Data Protection Officer: Jenny Mattila \ jenny.mattila@oulu.fi \ (dpo@oulu.fi) \ +358294484061  |
+| Aalto University  | Data Protection Officer and Legal Counsel: Anni Tuomela <br />anni.tuomela@aalto.fi <br />tietosuojavastaava@aalto.fi  |
+| LUT University  | Data Protection Officer: Anne Himanka <br />tietosuoja@lut.fi <br />0294462111  |
+| University of Eastern Finland  | Data Protection Officer: Helena Eronen <br />helena.eronen@uef.fi <br />+358 50 576 0282  |
+| University of Helsinki  | Legal Counsel, Data Protection Officer: Lotta Ylä-Sulkava <br />lotta.yla-sulkava@helsinki.fi <br />(tietosuoja@helsinki.fi) <br />0294140125 <br />0503450107  |
+| University of Jyväskylä  | Data Protection Officer: Riikka Valkonen <br />riikka.h.valkonen@jyu.fi <br />(tietosuoja@jyu.fi) <br />+358408053297  |
+| University of Lapland  | Data Protection Officer: Jari Rantala <br />jari.rantala@ulapland.fi <br />(tietosuoja@ulapland.fi) <br />+358 40 547 2583  |
+| University of Oulu  | Data Protection Officer: Jenny Mattila <br />jenny.mattila@oulu.fi <br />(dpo@oulu.fi) <br />+358294484061  |
 | University of Tampere  | dpo@tuni.fi  |
-| University of Turku  | Data Protection Officer, Legal Affairs: Onerva Steudle \ onerva.steudle@utu.fi \ (dpo@utu.fi) \ +358 29 450 3009 \ +358 50 490 7736  |
+| University of Turku  | Data Protection Officer, Legal Affairs: Onerva Steudle <br />onerva.steudle@utu.fi <br />(dpo@utu.fi) <br />+358 29 450 3009 <br />+358 50 490 7736  |
 | University of Vaasa  | tietosuojavastaava@uwasa.fi  |
