@@ -22,7 +22,7 @@ needs a more or less customized version. Please read below how to create yours.
   `/appl/local/csc/soft/chem/lammps`
 
 !!! info "Note"
-    Don't use prebuilt binaries, but take a look at the instructions above for
+    Don't use prebuilt binaries, but take a look at the instructions below for
     configuring and compiling LAMMPS for optimal performance. Don't hesitate to
     [contact CSC Service Desk](../support/contact.md) if you encounter any
     problems!
@@ -40,7 +40,8 @@ Public License (GPL).
    `stable_2Aug2023.tar.gz`) or the LAMMPS version is not suitable, download it
    yourself from the [LAMMPS home page](https://lammps.org/download.html).
 3. Read the compilation instructions, e.g. `lammps-cpu-instruction.txt`.
-4. Select the packages you want to include and compile the software.
+4. Select the packages you want to include and compile the software following
+   the instructions.
 5. Example input and batch scripts are available in the `example` directory.
 
 !!! info "Compile using the fast local disk"
@@ -109,7 +110,7 @@ for Puhti below.
 module purge
 module load gcc/11.3.0 openmpi/4.1.4 fftw/3.3.10-mpi-omp
 
-export PATH=/path/to/your/lammps/bin:$PATH
+export PATH="/path/to/your/lammps/installation/bin:${PATH}"
 export OMP_NUM_THREADS=1
 
 srun lmp -in loop.lammps -partition 24x5
@@ -146,12 +147,11 @@ a GPU) among all 24 replicas could look like:
 #SBATCH --ntasks-per-node=24
 #SBATCH --gpus-per-node=1
 
-module load PrgEnv-amd craype-accel-amd-gfx90a rocm cray-fftw
+module load PrgEnv-amd craype-x86-trento craype-accel-amd-gfx90a rocm cray-fftw
 
-export PATH=/path/to/your/lammps/installation/bin:$PATH
-export OMP_NUM_THREADS=1
-
+export PATH="/path/to/your/lammps/installation/bin:${PATH}"
 export MPICH_GPU_SUPPORT_ENABLED=1
+export OMP_NUM_THREADS=1
 export OMP_PROC_BIND=spread
 export OMP_PLACES=threads
 
