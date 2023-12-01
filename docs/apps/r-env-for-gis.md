@@ -109,3 +109,4 @@ As an example, you can write "The authors wish to thank CSC - IT Center for Scie
 * [Spatial Modelling for Data Scientists](https://gdsl-ul.github.io/san/), Francisco Rowe, Dani Arribas-Bel
 * [Tutorial for geospatial R tools](https://datacarpentry.org/r-raster-vector-geospatial/)
 * [CSC course on spatial R](https://www.csc.fi/web/training/-/spatial-data-analysis-with-1), Marko Kallio, Juha Aalto
+* Free online book on [Geographic Data Science with R: Visualizing and Analyzing Environmental Change](https://bookdown.org/mcwimberly/gdswr-book/)
