@@ -21,19 +21,22 @@ the firewall opening each time you update the firewalls for an instance with `--
 
 By adding the "CIDR notion" `/32` to the end of an IP like `192.168.0.1/32` it means that you only
 allow that specific IP.
-It is also possible to add bigger subnets for example `/24` if you have a bigger subnet you want to give
-access to. Note that allowing access from the whole world `0.0.0.0/0` is not allowed.
+
+It is also possible to allow a subnet for example `/24` if you want to allow a whole network e.g.
+your office network. The smallest mask that is allowed is `/22` that is 1024 IP addresses.
+Pukki does not allow `0.0.0.0/0` since it would be too easy to set this value and forget that your
+database instance is accessible from the whole internet.
 
 ## Firewall openings from other CSC-services
 
 To be able to access your database from other CSC services you need to allow some ingress traffic.
-This is done by allowing some subnets.
+This is done by allowing subnets.
 
 ### cPouta
 
-* If your server from where you want to connect to your database instances have a "floating ip"
-(public ip) you want to allow that IP in Pukki.
-* If your server does not have a floating ip you need to allow the routers "External Fixed IPs".
+* If your server from where you want to connect to your database instances have a "floating IP"
+(public IP) you want to allow that IP in Pukki.
+* If your server does not have a floating IP you need to allow the routers "External Fixed IPs".
 You can find the IP from the Pouta web interface under Network -> Routers -> The specific router ->
 "External Fixed IPs"
 
@@ -45,8 +48,8 @@ which might be in conflict with why you have chosen to use ePouta in first place
 
 1. If you still want to allow access to Pukki. You must ensure that your home organization firewalls
 will allow traffic to your database instance in Pukki.
-2. If you are using a "public ip range" in ePouta then you can just update your database instance
-with the new ip address with the "CIDR notation" (suffix) `/32`.
+2. If you are using a "public IP range" in ePouta then you can just update your database instance
+with the new IP address with the "CIDR notation" (suffix) `/32`.
 
 ### Rahti
 
