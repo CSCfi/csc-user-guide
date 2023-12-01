@@ -9,7 +9,7 @@ You can find more information about snapshot [here](../../cloud/pouta/snapshots.
 !!! Warning    
     I/O flavors [cannot be resized](../../cloud/pouta/vm-flavors-and-billing.md#io-flavors_2) to a different family flavors.  
     It's possible to resize from a `standard` flavor *family* to a `hpc` flavor *family*. Nothing will prevent you to do that but it's **highly not recommended!**  
-    You may lost data during the process and CSC is not responsible. We recommend to only resize to the flavors of the same *family*
+    You may lose data during the process and CSC is not responsible. We recommend to only resize to the flavors of the same *family*
 
 In the **Actions** menu of your instance, choose **Resize** to begin the process:  
 
