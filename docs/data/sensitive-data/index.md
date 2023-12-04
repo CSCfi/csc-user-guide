@@ -1,11 +1,11 @@
 ## Introduction to sensitive data (SD) services
-<iframe width="560" height="315" srcdoc="https://www.youtube.com/embed/YcgeuatWf9g" title="Introducing CSC Sensitive Data Services" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe width="456" height="256" srcdoc="https://www.youtube.com/embed/YcgeuatWf9g" title="Introducing CSC Sensitive Data Services" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 Read more about the services: [Choose a service](choose-a-service.md)
 
 ### What is sensitive data
 Sensitive data is defined as any information that is protected against unwarranted disclosure. Protection of data may be required for legal or ethical reasons, for issues pertaining to personal privacy, or for proprietary considerations.
-[Read more about sensitive data](https://research.csc.fi/definition-of-sensitive-data){ target="_blank" }
+[Read more about sensitive data from research.csc.fi](https://research.csc.fi/definition-of-sensitive-data){ target="_blank" }
 
 ### CSC's sensitive data services are available to:
 
