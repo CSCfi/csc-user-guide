@@ -77,7 +77,7 @@ We kindly request that users carefully read the instructions before proceeding t
 !!! note "Service Breaks"
    
       - SD Desktop and SD Connect undergo regular maintenance on the **first Wednesday of every month**
-      - Please note that occasional urgent maintenance may also be required for technical or security reasons. In such cases, we will notify you via email.
+      - Please note that occasional urgent maintenance may also be required for technical or security reasons. In such cases, we will notify you via email
       - All service breaks are scheduled on [Service Breaks -website](https://research.csc.fi/service-breaks){ target="_blank" } 
 
 
