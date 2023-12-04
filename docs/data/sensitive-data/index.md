@@ -81,7 +81,7 @@ We kindly request that users carefully read the instructions before proceeding t
       - All service breaks are scheduled on [Service Breaks -website](https://research.csc.fi/service-breaks){ target="_blank" } 
 
 
-#### About this user guide
+### About this user guide
 This user guide introduces CSC's Sensitive Data (SD) services
 
 1. To navigate the user guide, click on the [quik links](#quik-links) or the left-hand side navigation bar
