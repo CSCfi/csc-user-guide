@@ -21,7 +21,7 @@ Sensitive data is defined as any information that is protected against unwarrant
        - Join the [CSC Research User Support Coffee - Every Wednesday at 14:00](https://ssl.eventilla.com/usersupportcoffee){ target="_blank" }. 
        - Our team is here to help, and we offer direct support. Don't hesitate to contact!
 
-## Quik links
+## Quick links
 
 <div class="quick-links-container">
   <div class="quick-links-topic">
@@ -81,7 +81,7 @@ We kindly request that users carefully read the instructions before proceeding t
 ### About this user guide
 This user guide introduces CSC's Sensitive Data (SD) services
 
-1. To navigate the user guide, click on the left-hand side navigation bar or the [quik links](#quik-links) from this page
+1. To navigate the user guide, click on the left-hand side navigation bar or the [quick links](#quick-links) from this page
 1. Right side of each page has a table of content for faster browsing
 1. The search tool is also available at the top bar
 
