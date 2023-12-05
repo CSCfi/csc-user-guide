@@ -65,7 +65,8 @@
 * [How can I store data on Pouta?](how-to-store-data-in-pouta.md)
 * [What does it cost to use Pouta?](what-does-it-cost-to-use-pouta.md)
 * [How to rescue a Pouta instance](pouta-openstack-rescue-mode.md)
-
+* [How to get Allas S3 credentials](how-to-get-Allas-s3-credentials.md)
+* [How to resize an instance or volume in Pouta?](how-to-resize-in-pouta.md)
 
 ## Rahti
 

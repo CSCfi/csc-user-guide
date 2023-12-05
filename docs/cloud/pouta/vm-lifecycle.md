@@ -162,7 +162,8 @@ down to other flavors. Scaling down your
 virtual machine when it has less computational workload frees up
 compute resources and saves billing units. Later on,
 depending on your computational workload, you can scale up your virtual
-machines. Please note that you can only resize to the flavors of the
+machines. Please note that you can resize to another flavor from another *family* but it's **highly not recommended!**.
+You may lose data during this process and CSC is not responsible. We recommend to only resize to the flavors of the
 same *family*. For example, if you are using a standard
 family flavor, you can only resize it to another standard family
 flavor. When the resize is complete, the virtual machine status first
@@ -173,7 +174,7 @@ been completed. Note that resizing is not as elegant as using the _boot
 from volume_ option explained above. If you know beforehand that you want change the
 size of the virtual machines at some point, using boot from
 volume when launching the virtual machine gives more
-flexibility.
-
+flexibility.  
+More information about how to resize an instance [here](../../support/faq/how-to-resize-in-pouta.md)
 
   [Pouta flavors and billing]: vm-flavors-and-billing.md
