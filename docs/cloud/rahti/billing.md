@@ -28,7 +28,7 @@ resources. Billing units are consumed as follows:
 
 !!! info
 
-    Currently, Rahti does not bill for the stored images.
+    Currently, Rahti 2 does not bill for the stored images.
 
 Let's see an example. You create a pod with the following specs:
 

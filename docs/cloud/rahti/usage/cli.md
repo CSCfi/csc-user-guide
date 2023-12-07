@@ -1,6 +1,6 @@
 # Command line tool usage
 
-Rahti can be used via the command line either with OpenShift's _oc_ tool
+Rahti 2 can be used via the command line either with OpenShift's _oc_ tool
 or with the _kubectl_ tool from Kubernetes. Certain features specific to OpenShift
 are only available when using the oc tool.
 
@@ -48,7 +48,7 @@ in the web console:
 
 ## How to login in the registry?
 
-In order to use Rahti internal container registry, it is necessary to login separately. Once you login, it is possible to use the client docker to `pull` and `push` from Rahti's registry.
+In order to use Rahti 2 internal container registry, it is necessary to login separately. Once you login, it is possible to use the client docker to `pull` and `push` from Rahti 2's registry.
 
 ### Using personal account
 
@@ -58,7 +58,7 @@ After login with `oc`, it is possible to use the command to generate a token (`o
 
 ### Using a service account token
 
-Rahti also offers the opportunity of using an internal service account to interact with the registry. This is recommended for automated procedures like a CI pipeline. Even though by default 3 internal service accounts are created in every Rahti namespace: builder, default and deployer, it is recommended to create a dedicated internal service account and assign to it the `system:image-pusher` role.
+Rahti 2 also offers the opportunity of using an internal service account to interact with the registry. This is recommended for automated procedures like a CI pipeline. Even though by default 3 internal service accounts are created in every Rahti 2 namespace: builder, default and deployer, it is recommended to create a dedicated internal service account and assign to it the `system:image-pusher` role.
 
 ```sh
 oc create serviceaccount pusher

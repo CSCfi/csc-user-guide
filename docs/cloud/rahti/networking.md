@@ -1,10 +1,10 @@
 ## Ipv4
 
-All networking in Rahti uses [IPv4](https://en.wikipedia.org/wiki/IPv4). All IPs in this document and Rahti's system itself are ipv4 only, no ipv6 IP is used.
+All networking in Rahti 2 uses [IPv4](https://en.wikipedia.org/wiki/IPv4). All IPs in this document and Rahti 2's system itself are ipv4 only, no ipv6 IP is used.
 
 ## Namespaces
 
-Rahti is divided in **Namespaces**. Depending on the context, namespaces can be referred as **Projects**. Every object in Rahti must belong to and run inside a namespace.
+Rahti 2 is divided in **Namespaces**. Depending on the context, namespaces can be referred as **Projects**. Every object in Rahti 2 must belong to and run inside a namespace.
 
 ## NetworkPolicy
 
@@ -12,7 +12,7 @@ From a networking point of view, namespaces can be configured to provide an isol
 
 !!! Warning "Open by default"
 
-    By default any new Namespace in Rahti will have its network opened by default. This means that by default any other Pod in any other namespace in the whole Rahti will be able to contact any Pod in the new namespace.
+    By default any new Namespace in Rahti 2 will have its network opened by default. This means that by default any other Pod in any other namespace in the whole Rahti 2 will be able to contact any Pod in the new namespace.
 
 If you want to isolate all Pods from traffic external to the Namespace you need to create this `NetworkPolicy`:
 
@@ -73,7 +73,7 @@ spec:
     In order to create these two network policies, create one YAML file for each and run `oc create -f <FILE_NAME>`
 
 
-![Rahti Networking](../img/rahti-network.drawio.svg)
+![Rahti 2 Networking](../img/rahti-network.drawio.svg)
 
 ## Pods
 
@@ -91,7 +91,7 @@ Services are built to export one or more ports, and they also provide an interna
 * `<service_name>.<namespace>`, e.g., ngin.fenic
 * and `<service_name>.<namespace>.svc.cluster.local`, e.g., nginx.fenic.svc.cluster.local.
 
-In the same manner than Pods, Rahti Services can only be reached from inside the namespace they run, any request from another namespace will be able to resolve the DNS into an IP, but it will never connect. Another feature of services is that they can forward requests from one port to another target port (ex: 80 to 8080). This is useful in Rahti as Pods cannot listen on privileged ports (`<1024`).
+In the same manner than Pods, Rahti 2 Services can only be reached from inside the namespace they run, any request from another namespace will be able to resolve the DNS into an IP, but it will never connect. Another feature of services is that they can forward requests from one port to another target port (ex: 80 to 8080). This is useful in Rahti 2 as Pods cannot listen on privileged ports (`<1024`).
 
 Services can be used for internal connections. For example, if we have one or more MongoDB database replicas running in the `fenic` namespace, each in a different pod, and they export port `27017`. We can create a service called `mongo` associated with the pods under the same name. Then we can launch `nginx` Pods that run a Python application which will use the URL `<mongo:27017` to connect to the database. When connections to the service are attempted, one of the mongo pods will be selected to serve the data request.
 
@@ -109,9 +109,9 @@ Services can be used for internal connections. For example, if we have one or mo
 
 A Route can also be configured to (1) provide a HTTP/302 redirection from port `80` to `443`. It is also possible to (2) serve the same content in both ports, or to (3) not serve anything at all in the un secure `80` port.
 
-An important limitation for Rahti is that **only the HTTP/80 and HTTPS/443 ports are exposed for incoming traffic**, and they only can serve **HTTPD protocol requests**. Internally to a namespace, any port and protocol is supported, this means we can connect an application to a database with no issues, but we will never be able to expose that database to outside traffic. This is due to the fact that the same incoming virtual IP is shared with all the incoming traffic in Rahti's HAProxy load balancers. [Name-based virtual hosts](https://en.wikipedia.org/wiki/Virtual_hosting#Name-based) are used to redirect the traffic to the correct Route. Other protocols that are not HTTPD, do not have this feature and will need a dedicated IP/port pair to work.
+An important limitation for Rahti 2 is that **only the HTTP/80 and HTTPS/443 ports are exposed for incoming traffic**, and they only can serve **HTTPD protocol requests**. Internally to a namespace, any port and protocol is supported, this means we can connect an application to a database with no issues, but we will never be able to expose that database to outside traffic. This is due to the fact that the same incoming virtual IP is shared with all the incoming traffic in Rahti 2's HAProxy load balancers. [Name-based virtual hosts](https://en.wikipedia.org/wiki/Virtual_hosting#Name-based) are used to redirect the traffic to the correct Route. Other protocols that are not HTTPD, do not have this feature and will need a dedicated IP/port pair to work.
 
-Rahti provides a range of pre-created domain names, `XXXX.2.rahtiapp.fi` where `XXXX` can be any combination of letters, numbers and dashes. These pre-created domain names also come with a valid TLS certificate.
+Rahti 2 provides a range of pre-created domain names, `XXXX.2.rahtiapp.fi` where `XXXX` can be any combination of letters, numbers and dashes. These pre-created domain names also come with a valid TLS certificate.
 
 Every single pre-created domain name is configured to point to the HAProxy load balancers.
 
@@ -143,9 +143,9 @@ oc annotate route <route_name> haproxy.router.openshift.io/ip_whitelist='193.166
 
 ## Egress IPs
 
-The IP for all outgoing customer traffic is `86.50.229.150`. Any pod that runs in Rahti will use by default this IP to reach anything located outside Rahti or a Route. It is possible, for selected namespaces that need it, to configure a dedicated IP. Each request is reviewed individually due to the fact that there is a limited pool of virtual IPs available.
+The IP for all outgoing customer traffic is `86.50.229.150`. Any pod that runs in Rahti 2 will use by default this IP to reach anything located outside Rahti 2 or a Route. It is possible, for selected namespaces that need it, to configure a dedicated IP. Each request is reviewed individually due to the fact that there is a limited pool of virtual IPs available.
 
 !!! warning "Egress IP may change"
 
-    The egress IP of Rahti might change in the future. For example, if several versions of Rahti are run in parallel each will have a different IP. Or if a major change in the underlining network infrastructure happens.
+    The egress IP of Rahti 2 might change in the future. For example, if several versions of Rahti 2 are run in parallel each will have a different IP. Or if a major change in the underlining network infrastructure happens.
 

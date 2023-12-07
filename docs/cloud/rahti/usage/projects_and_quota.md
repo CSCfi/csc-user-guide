@@ -6,7 +6,7 @@
 
     Projects in OpenShift are separate from CSC computing projects. A single CSC
     computing project can have access to multiple projects in OpenShift.
-    Each CSC computing project with access to Rahti receives a *group* in
+    Each CSC computing project with access to Rahti 2 receives a *group* in
     OpenShift.
 
 All projects in OpenShift must be mapped to a CSC computing project. This
@@ -18,7 +18,7 @@ when creating a new project in OpenShift. You can also enter other text in the
 description field if you want to have a human-readable description for
 the project you are creating.
 
-For example, if you have Rahti access via *project_1000123*, you would
+For example, if you have Rahti 2 access via *project_1000123*, you would
 enter the following in the _Description_ field:
 
 ```yaml
@@ -36,7 +36,7 @@ csc_project: 1000123
 
 This would make it so that any usage within that OpenShift project is billed
 to the billing unit quota of project_1000123. Note that project_1000123 must
-have Rahti access and you must be a member of that computing project,
+have Rahti 2 access and you must be a member of that computing project,
 or the OpenShift project creation will fail.
 
 If you would like to know which CSC computing projects you are a member of, you
@@ -90,7 +90,7 @@ Unfortunately, this information is not available via a web interface yet.
 
 ## Creating a project
 
-First, click this [link](https://landing.2.rahti.csc.fi/) to access the homepage of Rahti and click **Login Page** under *OpenShift 4.11*.  
+First, click this [link](https://landing.2.rahti.csc.fi/) to access the homepage of Rahti 2 and click **Login Page** under *OpenShift 4.11*.  
 
 After being logged in, click the blue "Create Project" button to create a project, and you will be presented with the following view:
 
@@ -102,7 +102,7 @@ If you are in "Developer" view, click on "Projects: All projects" located in the
 1. You *need* to pick a **unique name** that is not in use by any other project
 in the system.
 1. You *can* also enter a **human-readable display name** and.
-1. You *have to* also enter a **CSC computing project** in the _Description_ field. It must be a currently valid CSC project, that your account has access to. In order to view to which CSC projects you have access to, please check <https://my.csc.fi>. If you have access to no CSC project, you will not be able to create any Rahti project. If you have Rahti access via project_1000123, you would enter the following in the Description field:
+1. You *have to* also enter a **CSC computing project** in the _Description_ field. It must be a currently valid CSC project, that your account has access to. In order to view to which CSC projects you have access to, please check <https://my.csc.fi>. If you have access to no CSC project, you will not be able to create any Rahti 2 project. If you have Rahti 2 access via project_1000123, you would enter the following in the Description field:
 
 > csc_project: 1000123
 
@@ -143,10 +143,10 @@ oc describe limitranges
 ```
 
 If you need to create more projects or you need more resources in a project for
-your application, you can apply for more quota by contacting the Rahti
+your application, you can apply for more quota by contacting the Rahti 2
 support. See the [Contact page](../../../support/contact.md) for instructions. Quota requests are
 handled on a case-by-case basis depending on the currently available resources
-in Rahti and the use case.
+in Rahti 2 and the use case.
 
 ### Default Pod resource limits
 
@@ -161,7 +161,7 @@ The user can set the limits explicitly within the available quota, but if no lim
 
 Note: `m` stands for milicores. `500m` will be the equivalent of 0.5 cores, or in other words half of the time of a CPU core.
 
-Rahti will enforce a maximum limit/request ratio of 5. This means that the CPU or memory `limits` cannot be more than 5 times the `request`. So if the CPU request is 50m, the CPU limit cannot be higher than 500m. And if we wanted to increase the CPU limit to 1, we will have to increase as well the request to at least 100m.
+Rahti 2 will enforce a maximum limit/request ratio of 5. This means that the CPU or memory `limits` cannot be more than 5 times the `request`. So if the CPU request is 50m, the CPU limit cannot be higher than 500m. And if we wanted to increase the CPU limit to 1, we will have to increase as well the request to at least 100m.
 
 ## Sharing projects with other users
 
@@ -194,4 +194,4 @@ Then you will be asked to input the name of the project to prevent accidental de
 
 ![Project name dialog](../../img/delete_project_name.png)
 
-After that, Rahti will start to delete all the resources of the project. It could take only few seconds or up to a minute, it depends of amount of resources the project had. After that Rahti will liberate the project name, and it will be possible to create an empty project with the same name.
+After that, Rahti 2 will start to delete all the resources of the project. It could take only few seconds or up to a minute, it depends of amount of resources the project had. After that Rahti 2 will liberate the project name, and it will be possible to create an empty project with the same name.

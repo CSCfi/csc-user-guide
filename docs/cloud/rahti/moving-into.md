@@ -1,11 +1,11 @@
 ## When to migrate to Kubernetes
 
 When considering migrating your services from Pouta to Kubernetes (k8s), it’s important to consider the relative
-strengths of each platform. Both Pouta and Kubernetes-based platforms, such as Rahti, are Cloud
+strengths of each platform. Both Pouta and Kubernetes-based platforms, such as Rahti 2 are Cloud
 Computing platforms, but there are some important differences. Virtual machine based services, like
 cPouta, are classified as Infrastructure-as-a-Service (IAAS) cloud services. Kubernetes on the other
 hand provides a container cloud orchestration service. You can deploy services just by using
-Kubernetes, but typically it provides building blocks for developer platforms such as Rahti or
+Kubernetes, but typically it provides building blocks for developer platforms such as Rahti 2 or
 OpenShift OKD, which are a Platform-as-a-Service (PAAS) systems.
 
 The primary difference between IAAS and PAAS services is that with IAAS the user is responsible
@@ -19,15 +19,15 @@ fast, which gives them potential for great scalability. Since container deployme
 relatively easy, continuous deployment and integration practices work very well with container based
 approaches.
 
-Using a container orchestration service like Rahti, that is built on top of Kubernetes, makes the
-deployment of applications easy. In Rahti you can manage your applications directly using a web
-interface accessible through a web browser. Rahti provides a platform for you to host your own applications
-and make them accessible over the web. Rahti can run many different kinds of applications from web servers
+Using a container orchestration service like Rahti 2 that is built on top of Kubernetes, makes the
+deployment of applications easy. In Rahti 2 you can manage your applications directly using a web
+interface accessible through a web browser. Rahti 2 provides a platform for you to host your own applications
+and make them accessible over the web. Rahti 2 can run many different kinds of applications from web servers
 and databases to data analysis pipelines.
 
-Some example use cases that are well suited for Rahti include:
+Some example use cases that are well suited for Rahti 2 include:
 
-* Hosting an interactive web application or a regular website. Rahti comes with many of the most common
+* Hosting an interactive web application or a regular website. Rahti 2 comes with many of the most common
 features needed for web based applications
 * Complex prepackaged application like Apache Spark. It’s also easy to scale up applications for multiple
 users.
@@ -37,14 +37,14 @@ In other words, in cases where scalability is needed or you only want to manage 
 orchestration service might be the way to go.
 
 Containers are inherently not as secure as Virtual machines. With container orchestration services like
-Rahti and Openshift OKD containers aren’t allowed to run with root access, which may provide  some limitations
+Rahti 2 and Openshift OKD containers aren’t allowed to run with root access, which may provide  some limitations
 in certain circumstances. For sensitive data processing tasks ePouta should always be the preferred platform. It
 is specifically designed for high performance and high security tasks for sensitive data handling with variety
 of available resources.
 
 ### Additional information
 
-[What is Rahti?](rahti-what-is.md)
+[What is Rahti 2?](rahti-what-is.md)
 
 [Container clouds fundamentals](https://rahti-course.a3s.fi/basic.html#1)
 

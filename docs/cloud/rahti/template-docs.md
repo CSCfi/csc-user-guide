@@ -1,5 +1,5 @@
-Rahti supports templating service deployment code allowing its re-use. The
-templates documented here are available to be launched on the Rahti Service
+Rahti 2 supports templating service deployment code allowing its re-use. The
+templates documented here are available to be launched on the Rahti 2 Service
 Catalog.
 
 The Service Catalog also lists default templates bundled with OKD which are not
@@ -30,6 +30,6 @@ oc new-app --template=httpd-example \
 
 !!! warning
 
-    Not all Rahti Beta templates have been ported to Rahti.
+    Not all Rahti 1 templates have been ported to Rahti 2.
 
-    The process of adapting and testing the templates to Rahti is labor intensive and not in the top of our task list. If you have any special interest on the functionality provided by a Rahti Beta template that is missing in Rahti, please let us know (servicedesk@csc.fi).
+    The process of adapting and testing the templates to Rahti 2 is labor intensive and not in the top of our task list. If you have any special interest on the functionality provided by a Rahti 1 template that is missing in Rahti 2 please let us know (servicedesk@csc.fi).

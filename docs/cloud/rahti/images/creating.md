@@ -1,6 +1,6 @@
 There are several reasons to make your own docker image, but mostly there are two. The application you want to run does not have a docker image available, or there is an image available, but it is not working on OpenShift. Due to the fact that OpenShift is designed to be a shared cluster, where users from different teams will run applications in the same hardware, OpenShift has to add limitations and runs things differently than in a standard Kubernetes cluster.
 
-Rahti's registry has an image size limit of 5GB. The bigger is an image, the worse the experience is to work with it. It takes more time to pull, and it fills up the image's cache of the node faster. An image more than 1GB is already considered a very big image. See the article about [keeping docker images small](keeping_docker_images_small.md)
+Rahti 2's registry has an image size limit of 5GB. The bigger is an image, the worse the experience is to work with it. It takes more time to pull, and it fills up the image's cache of the node faster. An image more than 1GB is already considered a very big image. See the article about [keeping docker images small](keeping_docker_images_small.md)
 
 ## Building images locally
 
@@ -61,21 +61,21 @@ And finally, to publish the image:
 docker push docker.io/user/name:tag
 ```
 
-## Using Rahti to build container images
+## Using Rahti 2 to build container images
 
-The methods below use Rahti to build the images.
+The methods below use Rahti 2 to build the images.
 
 ### Using a local folder for building
 
-This method allows to build an image using a local folder containing a Dockerfile and the other required project files. It is useful when it is not possible or inconvenient to allow Rahti to clone a repository directly.
+This method allows to build an image using a local folder containing a Dockerfile and the other required project files. It is useful when it is not possible or inconvenient to allow Rahti 2 to clone a repository directly.
 
-This assumes that you have authorized a Rahti command line session and created
-a project in Rahti. Instructions for that are shown in Chapter [Command line
+This assumes that you have authorized a Rahti 2 command line session and created
+a project in Rahti 2. Instructions for that are shown in Chapter [Command line
 tool usage](../usage/cli.md#cli-cheat-sheet).
 
 **Steps:**
 
-Create Rahti specific definitions with `oc new-build` command. Be sure
+Create Rahti 2 specific definitions with `oc new-build` command. Be sure
 not to be in a directory under git version control:
 
 ```bash
@@ -100,7 +100,7 @@ The image will be visible to internet at
 `image-registry.apps.2.rahti.csc.fi/<project-name>/my-hello-image:devel` for docker
 compatible clients.
 
-For command-line usage with docker compatible clients, the docker repository password will be the access token shown when authorizing Rahti command line session and user name can be `unused`.
+For command-line usage with docker compatible clients, the docker repository password will be the access token shown when authorizing Rahti 2 command line session and user name can be `unused`.
 
 ```sh
 docker login -u g -p $(oc whoami -t) image-registry.apps.2.rahti.csc.fi

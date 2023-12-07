@@ -56,7 +56,7 @@ Status: Downloaded newer image for nginx:latest
 
 The name in this example is `nginx`, but as we can see, it is expanded first to `nginx:latest` and then to `library/nginx`, the different parts are:
 
-* If the domain name is not included, docker assumes it is default public docker registry, `docker.io`. But there are other registries, for example  `image-registry.apps.2.rahti.csc.fi` is Rahti's private docker registry.
+* If the domain name is not included, docker assumes it is default public docker registry, `docker.io`. But there are other registries, for example  `image-registry.apps.2.rahti.csc.fi` is Rahti 2's private docker registry.
 
 * Then it is the path for the image, in this case it is `/library`. Again docker is assuming it, this path is reserved to "official base images", or in other words common Linux distributions, from where other images are based on.
 

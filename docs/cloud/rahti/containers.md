@@ -15,7 +15,7 @@ kernels, while containers share the host system's kernel.
 While many operating systems have the container functionality, what we look at more
 specifically in this documentation is containers in the Linux operating system.
 Linux is the most popular operating system for running containers, and it is
-also the operating system used in the Rahti container cloud.
+also the operating system used in the Rahti 2 container cloud.
 
 In order to use the container functionality, a _runtime_ is needed. Currently, the most popular runtime in Linux is _Docker_, but [podman](https://podman.io/), [cri-o](https://cri-o.io/), and many others are getting more relevance. All of these runtime follows the guidelines of the [Open Container Initiative](https://opencontainers.org/) (OCI). A runtime provides
 a set of tools that makes it easier to use containers compared to using the
@@ -98,6 +98,6 @@ servers, directing traffic to the application instances, and providing persisten
 storage for databases.
 
 Currently, the most popular software for container orchestration is _Kubernetes_.
-It is based on earlier systems developed at Google over a decade. The Rahti
+It is based on earlier systems developed at Google over a decade. The Rahti 2
 system is based on a distribution of Kubernetes called _OpenShift_ made by
 Red Hat.

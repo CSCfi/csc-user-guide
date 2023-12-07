@@ -1,13 +1,13 @@
 **Persistent volumes** are storage which persist during & after pod's lifetime.
 
-Persistent volumes in Rahti are stored in a resilient storage such as CEPH. They are created by using a **PersistentVolumeClaim**. When a
+Persistent volumes in Rahti 2 are stored in a resilient storage such as CEPH. They are created by using a **PersistentVolumeClaim**. When a
 new claim is made, and **a Pod mounts it**, a new volume space will be created.
 
-!!! info "A change from Rahti Beta version"
+!!! info "A change from Rahti 1 version"
 
-    In production Rahti, a new persistent volume will remain in **"⏳ Pending"** until any Pod mounts it. This is a change from Rahti Beta where the volume was crested right away.
+    In production Rahti 2 a new persistent volume will remain in **"⏳ Pending"** until any Pod mounts it. This is a change from Rahti 1 where the volume was crested right away.
 
-There is one storage class available in Rahti:
+There is one storage class available in Rahti 2:
 
  * *standard-csi*. This is a "Read Write Once" (RWO) storage class, meaning that only one pod can mount the volume (in read-write mode).
 
