@@ -85,5 +85,5 @@ This user guide introduces CSC's Sensitive Data (SD) services
 1. Right side of each page has a table of content for faster browsing
 1. The search tool is also available at the top bar
 
-[Usefull terminology](sd-terminology.md)
+[Useful terminology](sd-terminology.md)
 
