@@ -1,20 +1,22 @@
-# Introduction to sensitive data (SD) services
+# Sensitive data
+
+## Introduction to sensitive data (SD) services
 
 <iframe width="400" height="225" srcdoc="https://www.youtube.com/embed/YcgeuatWf9g" title="Introducing CSC Sensitive Data Services" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 Read more about the services: [Choose a service](choose-a-service.md)
 
-## What is sensitive data
+### What is sensitive data
 Sensitive data is defined as any information that is protected against unwarranted disclosure. Protection of data may be required for legal or ethical reasons, for issues pertaining to personal privacy, or for proprietary considerations.
 [Read more about sensitive data from research.csc.fi](https://research.csc.fi/definition-of-sensitive-data){ target="_blank" }
 
-## CSC's sensitive data services are available to:
+### CSC's sensitive data services are available to:
 
 - Researchers and students affiliated with Finnish higher education institutions (universities, universities of applied sciences)
 - Research institutes and their international collaborators
 - Using CSC services requires you to [register a CSC account](../../accounts/index.md#getting-access)
 
-## Support
+### Support
 
 !!! info "Do you have any questions? Would you like to discuss a specific project?"
        
@@ -63,7 +65,7 @@ Sensitive data is defined as any information that is protected against unwarrant
   </div>
 </div>
 
-## Links to services
+### Links to services
 
 We kindly request that users carefully read the instructions before proceeding to use the services to ensure a smooth experience. 
 
@@ -79,7 +81,7 @@ We kindly request that users carefully read the instructions before proceeding t
       - All service breaks are scheduled on [Service Breaks -website](https://research.csc.fi/service-breaks){ target="_blank" } 
 
 
-## About this user guide
+### About this user guide
 
 This user guide introduces CSC's Sensitive Data (SD) services
 
