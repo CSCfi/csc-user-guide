@@ -1,17 +1,15 @@
+--8<-- "rahtibeta_announcement.md"
 **Persistent volumes** are storage which persist during & after pod's lifetime.
 
-Persistent volumes in Rahti 2 are stored in a resilient storage such as CEPH. They are created by using a **PersistentVolumeClaim**. When a
-new claim is made, and **a Pod mounts it**, a new volume space will be created.
+Persistent volumes in Rahti are stored in a resilient storage such as CEPH, NFS or
+GlusterFS. They are claimed by a pod using a **PersistentVolumeClaim**. When a
+new claim is made, this can mean that either an existing volume is claimed or a
+new one is created dynamically and given to the pod to use.
 
-!!! info "A change from Rahti 1 version"
+There are two storage classes available in Rahti:
 
-    In production Rahti 2 a new persistent volume will remain in **"⏳ Pending"** until any Pod mounts it. This is a change from Rahti 1 where the volume was crested right away.
-
-There is one storage class available in Rahti 2:
-
- * *standard-csi*. This is a "Read Write Once" (RWO) storage class, meaning that only one pod can mount the volume (in read-write mode).
-
-More storage classes are on the work.
+ * *glusterfs-storage*. This kind of volume is a "Read Write Many" (RWX) type storage, this means multiple nodes can mount it in read and write mode. This is the default class. It is the most flexible class, as allows any pod anywhere in the cluster to read and write files. The downside is a lower performance than the next class.
+ * *standard-rwo*. This kind is a "Read Write Once" (RWO), meaning that only one node can mount the volume (in read-write mode). It is faster than glusterfs, but it is limited to a single node.
 
 ![PersistentVolumeClaim](../../img/pods-and-storage-pvc.drawio.svg)
 
@@ -26,19 +24,18 @@ metadata:
   name: testing-pvc
 spec:
   accessModes:
-  - ReadWriteOnce
+  - ReadWriteMany
   resources:
     requests:
       storage: 1Gi
 ```
 
-The example above will request a 1 GiB persistent storage that can be mounted in read-write
-mode by a single pod.
+Above will request a 1 GiB persistent storage that can be mounted in read-write
+mode by multiple nodes. Other access modes are ReadWriteOnce (Only one node can mount it read-write) and ReadOnlyMany (Multiple nodes can mount read-only).
 
 Persistent storage can be requested also via the web console.
 
 !!! warning
-
     When a volume contains a high amount of files (>15 000), the time it takes to mount and be available can be higher than 5 minutes. The more files, the more time it takes to be available.
 
 The persistent volume can be used in a pod by specifying `spec.volumes`
@@ -58,16 +55,15 @@ metadata:
 spec:
   containers:
   - name: serve-cont
-    image: "image-registry.openshift-image-registry.svc:5000/openshift/httpd"
+    image: "docker-registry.default.svc:5000/openshift/httpd"
     volumeMounts:
     - mountPath: /mountdata
-      name: smalldisk-vol # Refers to your volume below
+      name: smalldisk-vol
   volumes:
   - name: smalldisk-vol
     persistentVolumeClaim:
-      claimName: testing-pvc # Refers to your PersistentVolumeClaim (pvc.yaml)
+      claimName: testing-pvc
 ```
 
 !!! warning
-
-    When a Persistent Volume is deleted, the corresponding data is deleted **permanently**. It is highly recommended to make regular and versioned copies of the data to an independent storage system like [Allas](../../../data/Allas/using_allas/a_backup.md).
+    When a Persistent Volume is deleted, the corresponding data is deleted **permanently**. It is highly recommended to make regular and versioned copies of the data to an independent storage system like [Allas](/data/Allas/using_allas/a_backup/).

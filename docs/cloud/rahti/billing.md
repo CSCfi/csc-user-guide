@@ -1,3 +1,4 @@
+--8<-- "rahtibeta_announcement.md"
 ## Terminology
 
 * Billing unit (BU): A unit used for billing at CSC - each resource consumes a given amount of BUs per hour.
@@ -7,45 +8,40 @@ services which are available for use.
 
 ## Billing model
 
-Billing units are calculated by scraping the usage data from all of the OpenShift projects owned by the user.
+------------------------------------------------------------------------------------------------------------------------
+
+**NOTE**: Starting from 1.02.2020, using Rahti consumes **CSC Billing Units**.
+
+------------------------------------------------------------------------------------------------------------------------
+
+Billing units are calculated by scraping usage data from all of the OpenShift projects owned by the user.
 These calculations are based on:
 
-* Pod core.
-* Pod memory.
-* Persistent volumes.
-
-If the current usage is lower than the minimum requested resource, the requested resource is used for the calculations.
+* Pod core usage (per core hour)
+* Pod memory usage (per RAM GB hour)
+* Persistent volumes (per TiB hour)
 
 The rate at which billing units are consumed depends on the size of the
 resources. Billing units are consumed as follows:
 
 | Resource         | Billing units |
 |------------------|---------------|
-| Pod core hour    | 4             |
-| Pod RAM GB hour  | 2             |
-| Storage TiB hour | 6             |
+| Pod core hour    | 0,5           |
+| Pod RAM GB hour  | 1             |
+| Storage TiB hour | 3             |
 
+------------------------------------------------------------------------------------------------------------------------
+Cost will be calculated based on actual resources request with cpu, ram and storage rather than actual usage.
+Currently, Rahti does not bill for the stored images.
+------------------------------------------------------------------------------------------------------------------------
 
-!!! info
+For example, let's say you create a pod with the following specs:
 
-    Currently, Rahti 2 does not bill for the stored images.
-
-Let's see an example. You create a pod with the following specs:
-
-* 1 core
+* 0.2 cores
 * 512 MiB RAM
-
-and the current real usage is:
-
-* 0.5 cores
-* 1 GiB RAM
 
 You also create a persistent volume of size 10 GiB and attach it to the pod. The
 cost in BUs can be calculated as follows:
-
-The core usage is 0.5 cores and the request is 1 cores. According to the BU consumption rate 1 > 0.5 so 1 is used.
-
-The memory usage is 1 GiB and the request is 512 MiB. The same goes for memory usage 1 GiB > 512 MiB so 1 GiB is used
 
 ![BU calculation](../img/BU-calculation.drawio.svg)
 

@@ -1,11 +1,10 @@
-# Expand a volume 
+--8<-- "rahtibeta_announcement.md"
+## Non dynamically
 
-As dynamic volume expansion is not activated, if one edits directly in the `YAML` object the size of the volume, an error like this will be returned:
+When dynamic volume expansion is not activated, the command line will give an error like:
 
 ```sh
-(...)
-# * spec: Forbidden: spec is immutable after creation except resources.requests for bound claims
-(...)
+error: persistentvolumeclaims "postgresql" could not be patched: persistentvolumeclaims "postgresql" is forbidden: only dynamically provisioned pvc can be resized and the storageclass that provisions the pvc must support resize
 ```
 
 Then a more artisanal procedure must be followed:
@@ -24,34 +23,50 @@ Then a more artisanal procedure must be followed:
 apiVersion: apps.openshift.io/v1
 kind: DeploymentConfig
 metadata:
+  labels:
+    app: two-volumes
   name: two-volumes
 spec:
   replicas: 1
   selector:
     app: two-volumes
+    deploymentconfig: two-volumes
+  strategy:
+    activeDeadlineSeconds: 21600
+    type: Rolling
   template:
     metadata:
       labels:
         app: two-volumes
+        deploymentconfig: two-volumes
     spec:
-      containers:
-      - image: cscfi/nginx-okd:plus
-        name: two-volumes
-        ports:
-        - containerPort: 8081
-          protocol: TCP
-        volumeMounts:
-        - mountPath: /new
-          name: new-volume
-        - mountPath: /old
-          name: old-volume
-      volumes:
-      - name: new-volume
-        persistentVolumeClaim:
-          claimName: new-volume
-      - name: old-volume
-        persistentVolumeClaim:
-          claimName: old-volume
+        containers:
+        - image: cscfi/nginx-okd:plus
+          imagePullPolicy: IfNotPresent
+          name: two-volumes
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          volumeMounts:
+            - mountPath: /old
+              name: old
+            - mountPath: /new
+              name: new
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext: {}
+        terminationGracePeriodSeconds: 30
+        volumes:
+          - name: old
+            persistentVolumeClaim:
+              claimName: <name of old volume>
+          - name: new
+            persistentVolumeClaim:
+              claimName: <name of new volume>
+  test: false
+  triggers: {}
+status: {}
 ```
 
 ```sh

@@ -1,9 +1,7 @@
---8<-- "rahtibeta_announcement.md"
-
 The power of Kubernetes (and OpenShift) is in the relatively simple abstractions that they provide for complex tasks such as load balancing, software updates for a distributed system, or autoscaling. Here we give a very brief overview of some of the most important abstractions, but we highly recommend that you read the concept documentation for Kubernetes and OpenShift as well:
 
 * [Kubernetes concepts](https://kubernetes.io/docs/concepts/)
-* [OpenShift concepts](https://docs.okd.io/3.11/architecture/core_concepts/index.html)
+* [OpenShift concepts](https://docs.openshift.com/container-platform/4.11/welcome/index.html)
 
 These abstractions are objects, persistent entities in the Kubernetes system. These entities are used to represent the desired state of the project (also called namespace in Kubernetes). Most of the objects are common to both plain Kubernetes and OpenShift, but OpenShift also introduces some of its own extra objects.
 
@@ -38,20 +36,22 @@ representation of a pod looks like in YAML:
 ---
 apiVersion: v1
 kind: Pod
+metadata:
+  name: name
 spec:
   containers:
   - name: webserver
-    image: registry.access.redhat.com/rhscl/nginx-112-rhel7
+    image: cscfi/nginx-okd
     ports:
     - containerPort: 8080
       protocol: TCP
     volumeMounts:
     - name: website-content-volume
       mountPath: /usr/share/nginx/html
-    volumes:
-    - name: website-content-volume
-      persistentVolumeClaim:
-        claimName: web-content-pvc
+  volumes:
+  - name: website-content-volume
+    persistentVolumeClaim:
+      claimName: web-content-pvc
 ```
 
 The above YAML representation describes a web server pod that has one container
@@ -67,7 +67,7 @@ are several of these unpredictable IP addresses to point to. Thus, pods alone
 are not enough to provide a predictable way to access an application.
 
 A **service** provides a stable virtual IP, a port and a DNS name for one or
-more pods. They act as load balancers, directing traffic to a group of pods
+more pods. They act as **load balancers**, directing traffic to a group of pods
 that all serve the same application.
 
 ![Service](../img/service.png)
@@ -116,36 +116,6 @@ pods at all times.
 
 ![Deployment](../img/deployment.png)
 
-*`deployment.yaml`*:
-```yaml
-apiVersion: extensions/v1beta1
-kind: Deployment
-metadata:
-  name: deployment-name
-spec:
-  selector:
-    matchLabels:
-      app: deployment-name
-  template:
-    metadata:
-      labels:
-        app: deployment-labels
-    spec:
-      containers:
-      - name: pod
-        image: <your_image>
-      volumeMounts:
-      - mountPath: /path/to/folder/
-        name: pvc
-      ports:
-      - containerPort: xx
-        protocol: TCP
-      volumes:
-      - name: vol
-        persistentVolumeClaim:
-          claimName: pvc
-```
-
 ### InitContainer
 
 _InitContainer_ is a container in a pod that is intended run to completion before
@@ -179,7 +149,7 @@ spec:
       name: sharevol
   containers:
   - name: serve-cont
-    image: docker-registry.default.svc:5000/openshift/httpd
+    image: image-registry.apps.2.rahti.csc.fi/openshift/httpd
     volumeMounts:
     - mountPath: /var/www/html
       name: sharevol
@@ -189,7 +159,7 @@ Here we run an init container that uses the `perl` image and writes text
 in the `index.html` file on the shared volume.
 
 The shared volume is defined in `spec.volumes` and "mounted" in
-`spec.initContainers.volumeMounts` and `spec.containers.volumeMounts`.
+`spec.initContainers[].volumeMounts` and `spec.containers[].volumeMounts`.
 
 ### StatefulSet
 
@@ -235,7 +205,7 @@ spec:
       name: www
     spec:
       accessModes: [ "ReadWriteOnce" ]
-      storageClassName: "standard-rwo"
+      storageClassName: "standard-csi"
       resources:
         requests:
           storage: 1Gi
@@ -308,9 +278,9 @@ this hello is from the initcontainer
 
 There may only be one object with a given name in the project namespace, thus the
 job cannot be run twice unless its first instance is removed. The pod,
-however, needs not be cleaned.
+however, does not need to be cleaned, it will be removed automatically in cascade after the Job is removed.
 
-## OpenShift extensions
+##  OpenShift extensions
 
 OpenShift includes all Kubernetes objects, plus some extensions:
 
@@ -331,11 +301,11 @@ DeploymentConfig objects may start new ReplicationControllers based on the state
 `spec.triggers`. In the example below, the DeploymentConfig performs
 an automatic rolling update when it gets triggered by an ImageStream named
 `serveimagestream:latest`. For other update strategies, see "[Deployment
-Strategies](https://docs.okd.io/3.11/dev_guide/deployments/deployment_strategies.html)"
+Strategies](https://docs.openshift.com/container-platform/4.11/applications/deployments/deployment-strategies.html)"
 in the OpenShift documentation.
 
 DeploymentConfig objects function similarly to deployments described in the
-chapter [concepts](concepts.md) except that deployments
+chapter [deployment](#deployment) except that deployments
 trigger updates only when `spec.template` is changed. Furthermore, deployment
 is a pure Kubernetes concept, and DeploymentConfig is an OpenShift extension.
 
@@ -430,7 +400,7 @@ spec:
       name: serveimagestream:latest
   source:
     dockerfile: |
-      FROM docker-registry.default.svc:5000/openshift/httpd
+      FROM image-registry.openshift-image-registry.svc:5000/openshift/httpd
   strategy:
     type: Docker
 ```
@@ -471,33 +441,14 @@ This will redirect any traffics coming to `<host.name.dom>` to the service `name
 * `insecureEdgeTerminationPolicy` is set to `Redirect`. This means that any traffic coming to port 80 (HTTP) will be redirected to port 443 (HTTPS).
 * `termination` is set to `edge`, This means that the route will manage the TLS certificate and decrypt the traffic sending it to the service in clear text. Other options for `termination` include `passthrough` or `reencrypt`.
 
-Every host with the pattern `*.rahtiapp.fi` will automatically have a **DNS record** and a valid **TLS certificate**. It is possible to configure a Route with any given hostname, but a `CNAME` pointing to `rahtiapp.fi` must be configured, and a **TLS certificate** must be provided. See the [Custom domain names and secure transport](../tutorials/custom-domain.md) article for more information.
+Every host with the pattern `*.2.rahtiapp.fi` will automatically have a **DNS record** and a valid **TLS certificate**. It is possible to configure a Route with any given hostname, but a `CNAME` pointing to `router.2.rahtiapp.fi` must be configured, and a **TLS certificate** must be provided. See the [Custom domain names and secure transport](../tutorials/custom-domain.md) article for more information.
 
-#### Annotations
+It is possible to use annotations to enable **IP whitelisting**, where only a few IP ranges are allowed to get through the **route** and the rest of the internet is blocked. Security-wise, it is highly encouraged to utilize IP whitelisting for services that are not meant to be visible to the entire internet. In order to add it to a route do:
 
-* It is possible to use annotations to enable **IP whitelisting**, where only a few IP ranges are allowed to get through the **route** and the rest of the internet is blocked. Security-wise, it is highly encouraged to utilize IP whitelisting for services that are not meant to be visible to the entire internet. In order to add it to a route do:
+```sh
+oc annotate route <route_name> haproxy.router.openshift.io/ip_whitelist='192.168.1.0/24 10.0.0.1'
+```
 
-    ```sh
-    oc annotate route <route_name> haproxy.router.openshift.io/ip_whitelist='192.168.1.0/24 10.0.0.1'
-    ```
+!!! warning
 
-!!! Caution
     If the whitelist entry is malformed, OpenShift will discard the whitelist and allow all traffic.
-
-* It is also possible to use annotations to [configure Route Timeouts](https://docs.openshift.com/container-platform/3.11/install_config/configuring_routing.html), as described in the upstream documentation.
-
-    A timeout from the LoadBalancer looks like:
-
-    ```html
-    <html><body><h1>504 Gateway Time-out</h1>
-    The server didn't respond in time.
-    </body></html>
-    ```
-
-    Any other kind of Timeout error, will more likely be not related to the LoadBalancers.
-
-    For example, to increase the timeout of route `myroute` to 60s give:
-
-    ```sh
-    oc annotate route myroute --overwrite haproxy.router.openshift.io/timeout=60s
-    ```

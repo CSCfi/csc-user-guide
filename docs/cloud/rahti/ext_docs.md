@@ -1,4 +1,4 @@
-
+--8<-- "rahtibeta_announcement.md"
 ## Platform documentation
 
 Both the OpenShift and the Kubernetes projects maintain extensive user
@@ -26,7 +26,7 @@ Knowing how to use Docker is also important when using container platforms:
 There is also a curated list of links about Docker called "Awesome Docker" that
 you may find interesting for gaining deeper knowledge about Docker:
 
-  * [Awesome Docker](https://awesome-docker.netlify.app/)
+  * [Awesome Docker](https://veggiemonk.github.io/awesome-docker/)
 
 ## Tutorials and courses
 

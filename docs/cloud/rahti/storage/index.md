@@ -1,4 +1,5 @@
-This article introduces the storage options available in CSC's Rahti 2 environment. Using the storage requires an account, a CSC project, a Rahti 2 Project, and at least a Pod. In Rahti 2 a project is a Kubernetes namespace with additional annotations.
+--8<-- "rahtibeta_announcement.md"
+This article introduces the storage options available in CSC's Rahti environment. Using the storage requires an account, a CSC project, a Rahti Namespace, and at least a Pod.
 
 One of the pillars of Docker is the immutability of images, once they are built, docker images never change. The issue for most of the applications is that it is necessary to store, update and later retrieve application data. In docker, this is solved by the concept of volumes, an external filesystem (to docker) that is mounted in the internal filesystem of a container. In Kubernetes, and by extension OpenShift, this problem can be solved in several ways.
 
@@ -21,5 +22,3 @@ You can find additional information on the [Ephemeral storage](ephemeral.md) pag
 In case you need to store large volumes of data, or you need that your data can be easily accessed over the Internet, e.g., using URLs, object storage is the storage solution you are looking for. By using object storage, you are free to create and delete your Pods as the object storage is not tied to any Pod. Moreover, your data is replicated, thus object storage represents a reliable long-term storage option.
 
 At CSC, we offer Allas as our object storage solution. You can find additional information on the [Allas page](../../../data/Allas/index.md).
-
-You can find additional examples on how to backup to Allas [here](objectstorage.md).
