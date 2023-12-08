@@ -8,7 +8,7 @@ image. It is not copied along with resizes or migrations. It is
 especially important to note regarding the io.\* flavors that the
 storage is based on RAID0 arrays optimized for performance, providing
 no redundancy whatsoever. Regarding io.2.\* flavors, the storage is based on RAID1, offering
-more security, avoiding the loss of files.
+more safety, avoiding the loss of files.
 
 The ephemeral storage is visible as an additional disk to the virtual
 machine (usually /dev/vdb). Depending on the image and metadata chosen
