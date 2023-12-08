@@ -16,7 +16,7 @@ kernels, while containers share the host system's kernel.
 While many operating systems have the container functionality, what we look at more
 specifically in this documentation is containers in the Linux operating system.
 Linux is the most popular operating system for running containers, and it is
-also the operating system used in the Rahti container cloud. Currently, the most
+also the operating system used in the Rahti 1 container cloud. Currently, the most
 popular method for using the container functionality in Linux is _Docker_. It provides
 a set of tools that makes it easier to use containers compared to using the
 kernel functionality directly:

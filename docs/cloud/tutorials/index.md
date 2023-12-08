@@ -1,4 +1,4 @@
-* [Accessing databases on Rahti from CSC supercomputers](connect-database-hpc.md)
+* [Accessing databases on Rahti 2 from CSC supercomputers](connect-database-hpc.md)
 * [Annotations](annotations.md)
 * [CI/CD on Rahti](ci_cd_introduction.md)
 * [Configuration, ConfigMaps and Secrets](configuration.md)

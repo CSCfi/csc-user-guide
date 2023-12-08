@@ -1,6 +1,6 @@
 --8<-- "rahtibeta_announcement.md"
-Rahti supports templating service deployment code allowing its re-use. The
-templates documented here are available to be launched on the Rahti Service
+Rahti 1 supports templating service deployment code allowing its re-use. The
+templates documented here are available to be launched on the Rahti 1 Service
 Catalog.
 
 The Service Catalog also lists default templates bundled with OKD which are not
@@ -43,7 +43,7 @@ Minio from [minio/minio](https://hub.docker.com/r/minio/minio) public container
 image. The application uses a persistent volume as a backend data storage. The
 volume size is provided as a template parameter for a newly created persistent
 volume. If an existing volume of the given name exists then a new one will not
-be created and Rahti will issue an error message but the Minio instance will
+be created and Rahti 1 will issue an error message but the Minio instance will
 still utilize the existing volume. Please follow
 [Minio User Guide](https://docs.min.io/docs/minio-quickstart-guide.html)
 for usage of Minio object store. And for documentation about the template itself, please go to <https://github.com/CSCfi/Minio-OpenShift/>.
@@ -70,7 +70,7 @@ Rocket.Chat is a Web Chat Server, developed in JavaScript, using the Meteor full
 
 ![Prometheus](../img/prometheus.png)
 
-The template deploys Prometheus and Grafana for monitoring pods running in the same Rahti namespace. Prometheus is a systems and service monitoring system. It collects metrics from configured targets at given intervals, evaluates rule expressions, displays the results, and can trigger alerts when specified conditions are observed. Grafana is an open source visualization and analytics software. It allows you to query, visualize, alert on, and explore your metrics no matter where they are stored. It provides tools to turn time-series database (TSDB) data into graphs and visualizations. The documentation is currently available at <https://github.com/CSCfi/grafana-prometheus-template>
+The template deploys Prometheus and Grafana for monitoring pods running in the same Rahti 1 namespace. Prometheus is a systems and service monitoring system. It collects metrics from configured targets at given intervals, evaluates rule expressions, displays the results, and can trigger alerts when specified conditions are observed. Grafana is an open source visualization and analytics software. It allows you to query, visualize, alert on, and explore your metrics no matter where they are stored. It provides tools to turn time-series database (TSDB) data into graphs and visualizations. The documentation is currently available at <https://github.com/CSCfi/grafana-prometheus-template>
 
 ### JupyterHub
 

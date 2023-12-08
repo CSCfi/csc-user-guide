@@ -5,7 +5,7 @@ an external dependency or improve performance.
 
 The process is simple:
 
-1. With a terminal, connect to the Rahti registry:  
+1. With a terminal, connect to the Rahti 2 registry:  
    ```sh
    docker login -p $(oc whoami -t ) -u unused image-registry.apps.2.rahti.csc.fi
    ```

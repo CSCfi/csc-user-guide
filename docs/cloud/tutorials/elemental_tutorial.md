@@ -53,7 +53,7 @@ new-project`:
 oc new-project my-project-with-unique-name
 ```
 
-The name of the project needs to be unique across the Rahti container cloud, and
+The name of the project needs to be unique across the Rahti 2 container cloud, and
 moreover, the name may only contain letters, digits and hyphen symbols, and it
 is not case sensitive. In essence, the name needs to be usable as part of a DNS
 name.

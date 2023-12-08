@@ -10,7 +10,7 @@ services which are available for use.
 
 ------------------------------------------------------------------------------------------------------------------------
 
-**NOTE**: Starting from 1.02.2020, using Rahti consumes **CSC Billing Units**.
+**NOTE**: Starting from 1.02.2020, using Rahti 1 consumes **CSC Billing Units**.
 
 ------------------------------------------------------------------------------------------------------------------------
 
@@ -32,7 +32,7 @@ resources. Billing units are consumed as follows:
 
 ------------------------------------------------------------------------------------------------------------------------
 Cost will be calculated based on actual resources request with cpu, ram and storage rather than actual usage.
-Currently, Rahti does not bill for the stored images.
+Currently, Rahti 1 does not bill for the stored images.
 ------------------------------------------------------------------------------------------------------------------------
 
 For example, let's say you create a pod with the following specs:

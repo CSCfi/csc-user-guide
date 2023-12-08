@@ -1,7 +1,7 @@
 --8<-- "rahtibeta_announcement.md"
 **Persistent volumes** are storage which persist during & after pod's lifetime.
 
-Persistent volumes in Rahti are stored in a resilient storage such as CEPH, NFS or
+Persistent volumes in Rahti 1 are stored in a resilient storage such as CEPH, NFS or
 GlusterFS. They are claimed by a pod using a **PersistentVolumeClaim**. When a
 new claim is made, this can mean that either an existing volume is claimed or a
 new one is created dynamically and given to the pod to use.

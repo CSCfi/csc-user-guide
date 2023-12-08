@@ -12,7 +12,7 @@ Make sure you are logged in:
 oc whoami
 ```
 
-this should return your Rahti username. Then create an example chart:
+this should return your Rahti 2 username. Then create an example chart:
 
 ```sh
 $ helm create example

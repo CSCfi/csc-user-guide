@@ -35,7 +35,7 @@ git clone https://github.com/CSCfi/rahti-bc-example.git
 cd rahti-bc-example/
 ```
 
-Login to Rahti if you haven't done so. You can copy your login command from the Rahti UI.
+Login to Rahti 2 if you haven't done so. You can copy your login command from the Rahti 2 UI.
 
 ```
  oc login https://api.2.rahti.csc.fi:6443 --token=<your_token>

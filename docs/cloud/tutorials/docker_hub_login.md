@@ -1,6 +1,6 @@
 # How to add docker hub credentials to a project
 
-Since 2nd November 2020, docker hub has imposed a rate limit for image pulls. For Rahti this means a
+Since 2nd November 2020, docker hub has imposed a rate limit for image pulls. For Rahti 2 this means a
 limit of 200 pulls every 6 hours. This limit can be easily reached and it prevents new applications to be deployed if the image is in docker hub.
 
 The error looks like this:

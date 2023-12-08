@@ -1,21 +1,21 @@
-# Rahti migration guide
+# Rahti 1 migration guide
 
-This guide is dedicated to answer te most frequent questions and provide procedures for the Rahti 1 to Rahti migration.
+This guide is dedicated to answer te most frequent questions and provide procedures for the Rahti 1 1 to Rahti 1 migration.
 
-Rahti 1 is the current deployed and used version of OpenShift OKD running in CSC. The exact version is `v3.11`, it is the last released version in the `3.XX` series. The underlining Kubernetes version is v1.11. Rahti 1 is in open beta, and was not meant to reach production status.
+Rahti 1 1 is the current deployed and used version of OpenShift OKD running in CSC. The exact version is `v3.11`, it is the last released version in the `3.XX` series. The underlining Kubernetes version is v1.11. Rahti 1 1 is in open beta, and was not meant to reach production status.
 
-Rahti production is the next version of OpenShift OKD running in CSC. The underlining version of Kubernetes is v1.22. This version uses [cri-o](https://cri-o.io/) as the container runtime. `CRI-o` it is a lightweight alternative to using Docker as the runtime for kubernetes, both are fully compatible with each other and follow the `OCI` standard. Due to the fact that OpenShift OKD v4 is a re-implementation, there is no upgrade path provided by the manufacturer for Rahti 1 (OKD v3.11) to become Rahti production (OKD 4.xx). So in other words, this means that every single application running in Rahti 1 needs to be migrated to production Rahti manually. The two versions will run in parallel for a certain amount of time, but all wanted applications should be migrated to new platform by the latest September 2024.
+Rahti 1 production is the next version of OpenShift OKD running in CSC. The underlining version of Kubernetes is v1.22. This version uses [cri-o](https://cri-o.io/) as the container runtime. `CRI-o` it is a lightweight alternative to using Docker as the runtime for kubernetes, both are fully compatible with each other and follow the `OCI` standard. Due to the fact that OpenShift OKD v4 is a re-implementation, there is no upgrade path provided by the manufacturer for Rahti 1 1 (OKD v3.11) to become Rahti 1 production (OKD 4.xx). So in other words, this means that every single application running in Rahti 1 1 needs to be migrated to production Rahti 1 manually. The two versions will run in parallel for a certain amount of time, but all wanted applications should be migrated to new platform by the latest September 2024.
 
 ## How to log in Rahti?
 
 Go to [Rahti](https://landing.2.rahti.csc.fi/), click in `Login` and then choose the `oidcidp` option, it stands for OpenID Connect identity provider:
 
-![Rahti login](../img/rahti_login2.png)
+![Rahti 1 login](../img/rahti_login2.png)
 
 
-![Rahti login](../img/rahti_login.png){: style="width:400px"}
+![Rahti 1 login](../img/rahti_login.png){: style="width:400px"}
 
-You will be then served with a page with all the authentication options that Rahti accepts. Choose the one that is more convenient for you, all your identities should be linked to the same Rahti account.
+You will be then served with a page with all the authentication options that Rahti 1 accepts. Choose the one that is more convenient for you, all your identities should be linked to the same Rahti 1 account.
 
 ### Command line login
 
@@ -33,19 +33,19 @@ Then click in "Create Project".
 
 ![page1](../img/create_project2.png)
 
-The fields are the same as with Rahti 1 had:
+The fields are the same as with Rahti 1 1 had:
 
 1. You need to pick a unique name that is not in use by any other project in the system.
     
 1. You can also enter a human-readable display name and.
     
-1. You have to also enter a CSC computing project in the Description field. It must be a currently valid CSC project, that your account has access to. In order to view to which CSC projects you have access to, please check https://my.csc.fi. If you have access to no CSC project, you will not be able to create any Rahti project. If you have Rahti access via project_1000123, you would enter the following in the Description field:
+1. You have to also enter a CSC computing project in the Description field. It must be a currently valid CSC project, that your account has access to. In order to view to which CSC projects you have access to, please check https://my.csc.fi. If you have access to no CSC project, you will not be able to create any Rahti 1 project. If you have Rahti 1 access via project_1000123, you would enter the following in the Description field:
 
 > csc_project: 1000123
 
 ## Network, opened by default
 
-By default any new Namespace in Rahti will have a network opened by default. This means that by default any other Pod in any other namespace in the whole Rahti will be able to contact any Pod in the new namespace. This is different than with Rahti beta that had the opposite policy, closed by default.
+By default any new Namespace in Rahti 1 2 will have a network opened by default. This means that by default any other Pod in any other namespace in the whole Rahti 1 2 will be able to contact any Pod in the new namespace. This is different than with Rahti 1 2 at had the opposite policy, closed by default.
 
 If you want to imitate the previous behaviour, i.e.: isolate all Pods from traffic external to the Namespace, please check out the [Networking page](../../rahti/networking/).
 
@@ -63,7 +63,7 @@ If you click in "quota"
 
 Every Pod needs to have lower and upper limits regarding resources, specifically for CPU and memory. The lower are called requests, and the upper are called limits. The requests sets the minimum resources needed for a Pod to run, and a Pod is not allowed to use more resources than the specified in limits. The user can set the limits explicitly within the available quota.
 
-In Rahti 1 the default limits were the same as the default quota:
+In Rahti 1 1 the default limits were the same as the default quota:
 
 ```yaml
       resources:
@@ -75,7 +75,7 @@ In Rahti 1 the default limits were the same as the default quota:
           memory: 200Mi
 ```
 
-In Rahti the default limits are lower than the default quota:
+In Rahti 1 the default limits are lower than the default quota:
 
 ```yaml
     - resources:
@@ -93,7 +93,7 @@ This change helps lowering the default costs for the user, gives the administrat
 
 !!! info "Default URLs suffix have changed"
 
-    In Rahti 1 default URLs were `<whatever>.rahtiapp.fi` meanwhile in Rahti it will be `<whatever>.2.rahtiapp.fi`
+    In Rahti 1 1 default URLs were `<whatever>.rahtiapp.fi` meanwhile in Rahti 1 it will be `<whatever>.2.rahtiapp.fi`
 
 A Route can be created by going to the project details page, and click in Routes.
 
@@ -111,7 +111,7 @@ A Route has two compulsory parameters:
 Other optional parameters are:
 
 * a `hostname`, which must be unique within Rahti. If none is provided, the hostname will be autogenerated by using the route `name` and the `project name`.
-* `Secure Route` can be activated to activate TLS encryption (Only TLS v1.3 and v1.2 are supported in Rahti, Rahti 1 only support TLS v1.2). The options are similar than in [Rahti 1 Routes](/cloud/rahtibeta/networking/#routes)
+* `Secure Route` can be activated to activate TLS encryption (Only TLS v1.3 and v1.2 are supported in Rahti, Rahti 1 1 only support TLS v1.2). The options are similar than in [Rahti 1 1 Routes](/cloud/rahtibeta/networking/#routes)
 
 ## How to edit a route?
 
@@ -132,17 +132,17 @@ Where `Redirect` tells the route to redirect users from http to https automatica
 
 ## What changes must be made in firewalls?
 
-The egress IP used in Rahti is different that for Rahti 1 had. This means that if you have a firewall rule opening for traffic coming from Rahti, the IP has to be updated. The Rahti 1 IP is `193.167.189.25` and the new one for Rahti is `86.50.229.150`.
+The egress IP used in Rahti 1 is different that for Rahti 1 1 had. This means that if you have a firewall rule opening for traffic coming from Rahti, the IP has to be updated. The Rahti 1 1 IP is `193.167.189.25` and the new one for Rahti 1 is `86.50.229.150`.
 
 !!! warning "egress IP may change"
 
-    The egress IP of Rahti might change in the future. For example, if several versions of Rahti are run in parallel each will have a different IP. Or if a major change in the underlining network infrastructure happens.
+    The egress IP of Rahti 1 might change in the future. For example, if several versions of Rahti 1 are run in parallel each will have a different IP. Or if a major change in the underlining network infrastructure happens.
 
-Some project with dedicated egress IPs will have to request a new dedicated IP in Rahti and update their firewalls accordingly.
+Some project with dedicated egress IPs will have to request a new dedicated IP in Rahti 1 and update their firewalls accordingly.
 
 ## How to manage users in project?
 
-Rahti will synchronize the Rahti project members with the CSC project members. Any member of the linked CSC project will get **Admin** access to the Rahti project. The membership of the CSC project can be then handled in <my.csc.fi>. For example, we have the CSC project 1000123, we can go to <my.csc.fi> and add or remove members. We can create few Rahti projects and link each of them to 1000123. A couple of minutes after creation, all members of the CSC project will be Admins of each of the Rahti projects.
+Rahti 1 will synchronize the Rahti 1 project members with the CSC project members. Any member of the linked CSC project will get **Admin** access to the Rahti 1 project. The membership of the CSC project can be then handled in <my.csc.fi>. For example, we have the CSC project 1000123, we can go to <my.csc.fi> and add or remove members. We can create few Rahti 1 projects and link each of them to 1000123. A couple of minutes after creation, all members of the CSC project will be Admins of each of the Rahti 1 projects.
 In the project details page select "Project access".
 It is also possible to add permissions manually to specific users that are not member of the CSC project and maybe that we do not want to make Admins. In the **Project** page in the Developer section, select "Project access".
 
@@ -172,4 +172,4 @@ In the Project details page (`Developer` > `Project`), click `PersistentVolumeCl
 
 * The Volume mode should be `Filesystem`.
 
-Once the volume is created, it can be mounted in a Pod as in `Rahti 1` or any other Kubernetes installation.
+Once the volume is created, it can be mounted in a Pod as in `Rahti 1 1` or any other Kubernetes installation.

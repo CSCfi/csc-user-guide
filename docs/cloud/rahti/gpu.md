@@ -1,16 +1,16 @@
 --8<-- "rahtibeta_announcement.md"
-Kubernetes and by extension Rahti do not support GPUs and other external devices natively. Instead,
+Kubernetes and by extension Rahti 1 do not support GPUs and other external devices natively. Instead,
 they allow access to such extended resources through custom device plugins which are responsible for
 handling the advertisement and allocation setup of these extended resources.
 
-The device plugin used in Rahti handles Nvidia GPU with the resource name `nvidia.com/gpu`. More on
+The device plugin used in Rahti 1 handles Nvidia GPU with the resource name `nvidia.com/gpu`. More on
 how it is used in practice later.
 
-Currently, Rahti has a very limited amount of A100/P100 GPUs. For this reason, your Rahti projects
+Currently, Rahti 1 has a very limited amount of A100/P100 GPUs. For this reason, your Rahti 1 projects
 will not have access to GPU by default. This means you will need to request a GPU quota by sending
-a request to servicedesk@csc.fi stating the Rahti project/namespace you need the quota for.
+a request to servicedesk@csc.fi stating the Rahti 1 project/namespace you need the quota for.
 
-The Rahti GPU comes with an Nvidia driver which includes the low-level shared libraries and headers
+The Rahti 1 GPU comes with an Nvidia driver which includes the low-level shared libraries and headers
 needed to access/program the GPU device as well as the Nvidia device monitoring tools such as Nvidia
 -smi which are useful for gathering information on the usage of GPUs. These libraries and tools will
 be mounted and be made available to the pod automatically by the system during its creation.
@@ -19,9 +19,9 @@ be mounted and be made available to the pod automatically by the system during i
 
 As a first example let's create a pod which runs `nvidia-smi` command line utility that is designed
 to be used for managing and monitoring NVIDIA GPU devices. This is the simplest example that can be
-used to demonstrate the availability of GPU in your Rahti project.
+used to demonstrate the availability of GPU in your Rahti 1 project.
 
-To run the example you need to login to Rahti and switch to the project that you have an approved
+To run the example you need to login to Rahti 1 and switch to the project that you have an approved
 GPU quota as:
 
 ```bash
@@ -114,9 +114,9 @@ oc process -f https://raw.githubusercontent.com/cscfi/rahti-ml-examples/tf2-imdb
 | oc create -f -
 ```
 
-You can then follow the deployment of the application and its components from the Rahti console or
+You can then follow the deployment of the application and its components from the Rahti 1 console or
 using `oc status`, and interact with the application using the UI at <your-application-route>/docs.
-The route your application has been deployed to can be found from the Rahti console or using `oc get routes`.
+The route your application has been deployed to can be found from the Rahti 1 console or using `oc get routes`.
 
 After exploring and testing the example deployment it should be cleaned up as:
 ```bash

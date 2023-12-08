@@ -62,21 +62,21 @@ And finally, to publish the image:
 docker push docker.io/user/name:tag
 ```
 
-## Using Rahti to build container images
+## Using Rahti 1 to build container images
 
-The methods below use Rahti to build the images.
+The methods below use Rahti 1 to build the images.
 
 ### Using a local folder for building
 
-This method allows to build an image using a local folder containing a Dockerfile and the other required project files. It is useful when it is not possible or inconvenient to allow Rahti to clone a repository directly.
+This method allows to build an image using a local folder containing a Dockerfile and the other required project files. It is useful when it is not possible or inconvenient to allow Rahti 1 to clone a repository directly.
 
-This assumes that you have authorized a Rahti command line session and created
+This assumes that you have authorized a Rahti 1 command line session and created
 a project in Rahti. Instructions for that are shown in Chapter [Command line
 tool usage](../usage/cli.md#cli-cheat-sheet).
 
 **Steps:**
 
-Create Rahti specific definitions with `oc new-build` command. Be sure
+Create Rahti 1 specific definitions with `oc new-build` command. Be sure
 not to be in a directory under git version control:
 
 ```bash
@@ -97,15 +97,15 @@ Then you need a `Dockerfile`, you can use any of the previous `Dockerfile` in th
 oc start-build my-hello --from-dir=./ -F
 ```
 
-The image will appear in the Rahti registry console
+The image will appear in the Rahti 1 registry console
 [registry-console.rahti.csc.fi/registry](https://registry-console.rahti.csc.fi),
 and it will be visible to internet at
 `docker-registry.rahti.csc.fi/<project-name>/my-hello:devel` for docker
 compatible clients.
 
-For command-line usage with docker compatible clients, the docker repository password will be the access token shown when authorizing Rahti command line session and user name can be `unused`.
+For command-line usage with docker compatible clients, the docker repository password will be the access token shown when authorizing Rahti 1 command line session and user name can be `unused`.
 
-The Docker CLI tool login instructions are also shown in the [Rahti registry
+The Docker CLI tool login instructions are also shown in the [Rahti 1 registry
 console](https://registry-console.rahti.csc.fi).
 
 ### Using the Source to Image mechanism
@@ -167,7 +167,7 @@ Or using [webhooks](../../tutorials/webhooks.md)
 
 ### Using the `Docker` strategy
 
-This is used in the same way as the Source to Image mechanism, `oc new-app URL#branch`. Rahti will then detect that there is a Dockerfile in the repository and build the image automatically. This is useful when we want to fine tune a build procedure, or when the base image is not know to Rahti. The example bellow uses `node:16` as a base, but Rahti 1 does not support node16 by default.
+This is used in the same way as the Source to Image mechanism, `oc new-app URL#branch`. Rahti 1 will then detect that there is a Dockerfile in the repository and build the image automatically. This is useful when we want to fine tune a build procedure, or when the base image is not know to Rahti. The example bellow uses `node:16` as a base, but Rahti 1 1 does not support node16 by default.
 
 ```sh
 $ oc new-app https://github.com/IBM/nodejs-express-app.git

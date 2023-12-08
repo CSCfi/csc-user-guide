@@ -1,3 +1,3 @@
 !!! warning-label
 
-    *This version of Rahti is deprecated.* The projects need to be migrated from Rahti Beta platform to the new Rahti production platform by September 2024. Please consult the [migration guide](/cloud/rahtibeta/rahti-migration/) for more information.
+    *This version of Rahti is deprecated.* The projects need to be migrated from Rahti 1 platform to the new Rahti 2 production platform by September 2024. Please consult the [migration guide](/cloud/rahti/rahti-migration/) for more information.

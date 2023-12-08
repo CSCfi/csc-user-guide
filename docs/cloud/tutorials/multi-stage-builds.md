@@ -107,9 +107,9 @@ oc new-build https://github.com/cscfi/multi-stage-build.git
 
 ```
 
-**NOTE**: The code must be in a git repository and Rahti must be able to clone it.
+**NOTE**: The code must be in a git repository and Rahti 2 must be able to clone it.
 
-The end result will be an image called `multi-stage-build` stored in the internal Rahti registry of the project you selected. This image can then be used in a Rahti deployment using the image stream option when deploying an image.
+The end result will be an image called `multi-stage-build` stored in the internal Rahti 2 registry of the project you selected. This image can then be used in a Rahti 2 deployment using the image stream option when deploying an image.
 
 ## Upstream documentation
 
