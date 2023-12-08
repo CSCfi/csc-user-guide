@@ -49,7 +49,7 @@ Configuring MariaDB and WebSocat on Rahti 2 can be done either through the web i
 - Login using your CSC username and password
 
 ```bash
-oc login https://api.2.rahti.csc.fi -u <username> -p <password>
+oc login https://api.2.rahti.csc.fi:6443 -u <username> -p <password>
 ```
 
 - Create a new project (namespace) or switch to existing one. If creating a new project, make sure to include your CSC project number in the project description in the form `csc_project: 2001234`
