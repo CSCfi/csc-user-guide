@@ -23,7 +23,7 @@ OpenShift provides these extra services over a standard Kubernetes offering:
 
 * Web UI: <https://landing.2.rahti.csc.fi/>
 
-![Rahti 2 WEB UI](../img/Rahti 2-landing.png)
+![Rahti 2 WEB UI](../img/Rahti-landing.png)
 
 * HTTP(s) load balancer (HAProxy). Using [Routes](networking.md#routes) instead of **Ingresses**, and only supporting HTTP (80) and HTTPS (443).
 
