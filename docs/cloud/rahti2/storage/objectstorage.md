@@ -198,8 +198,13 @@ Save the file and use this command: `oc apply -f {name_of_yaml_file}`.
 The pod will run and backup the content of your PVC to Allas. Don't forget to scale up your origin deployment (`oc scale --replicas=1 deploy/nginx`) after the copy finished.
 
 There are PROS and CONS with this solution:
-- PROS: You run the pod in your Rahti 2 project
-- CONS: If your PVC is `ReadWriteOnce`, a downtime is necessary.
+Pros: 
+
+  - You run the pod in your Rahti 2 project
+
+Cons: 
+
+  - The PVC is `ReadWriteOnce` hence a downtime is necessary.
 
 ### Second example: using bash script
 
