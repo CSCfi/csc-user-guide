@@ -23,7 +23,7 @@ server running:
 
 ## Preparation
 
-Make sure you have the `oc` command line installed, and that you are logged in. Please check the [command line tool installation](../rahti/usage/cli.md) if you need help on that.
+Make sure you have the `oc` command line installed, and that you are logged in. Please check the [command line tool installation](../rahti2/usage/cli.md) if you need help on that.
 
 ## Projects
 
@@ -58,10 +58,10 @@ moreover, the name may only contain letters, digits and hyphen symbols, and it
 is not case sensitive. In essence, the name needs to be usable as part of a DNS
 name.
 
-If you are a member of multiple CSC projects with access to Rahti, the description of the
+If you are a member of multiple CSC projects with access to Rahti 2, the description of the
 project must contain `csc_project: #######`, where `#######` is the project
 that should be billed (see
-[Projects and quota](../rahti/usage/projects_and_quota.md)).
+[Projects and quota](../rahti2/usage/projects_and_quota.md)).
 The description can be included in the `new-project` command:
 
 ```bash
@@ -313,11 +313,11 @@ spec:
 
 The ReplicationControllers are functionally close to ReplicaSets, discussed
 in the chapter "[Kubernetes and OpenShift
-concepts](../rahti/concepts.md)".
+concepts](../rahti2/concepts.md)".
 A ReplicationController can be transformed into a ReplicaSet by
 changing `spec.selector` to `spec.selector.matchLabels` and setting
 `kind: ReplicaSet`. The motivation to understand the ReplicationController
-object is that [DeploymentConfig](../rahti/concepts.md#deploymentconfig)
+object is that [DeploymentConfig](../rahti2/concepts.md#deploymentconfig)
 objects generate ReplicationControllers.
 
 !!! info

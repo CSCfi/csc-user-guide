@@ -9,7 +9,7 @@ and accelerate the speed at which they can deploy new code and become more agile
 
 In this tutorial, we will set up a simple CI/CD pipeline using the Kubernetes concepts
 such as _ImageStream_, _BuildConfig_, and _DeploymentConfig_. Please refer to these Kubernetes
-concepts in [Kubernetes and OpenShift concepts](../rahti/concepts.md).
+concepts in [Kubernetes and OpenShift concepts](../rahti2/concepts.md).
 
 !!! info
 
@@ -21,12 +21,12 @@ concepts in [Kubernetes and OpenShift concepts](../rahti/concepts.md).
 ## Preparation
 
 Make sure you have the `oc` command line installed, and that you are logged in. Please
-check the [command line tool installation](../rahti/usage/cli.md) if you need help on that.
+check the [command line tool installation](../rahti2/usage/cli.md) if you need help on that.
 
 ## Quick Start
 
 We have written a hello world web application and defined the necessary Kubernetes objects to build
-and deploy it to Rahti. The following steps will quickly get you started:
+and deploy it to Rahti 2. The following steps will quickly get you started:
 
 Clone the source repository for the sample application.
 
@@ -45,7 +45,7 @@ Make sure you are in the right project with `oc project` and if not you can crea
 with `oc new-project <your-new-project-name>`.
 
 We have all the necessary object definitions in the `rahti-bc-example` project under the `k8s-api-objs.yaml`.
-Please refer to [Kubernetes and OpenShift concepts](../rahti/concepts.md) to understand the objects
+Please refer to [Kubernetes and OpenShift concepts](../rahti2/concepts.md) to understand the objects
 defined under `k8s-api-objs.yaml`. You can easily create these objects necessary for our CI/CD pipeline using
 the `oc create` command as follows:
 

@@ -20,7 +20,7 @@ In the `Developer` menu, go to the **Secrets** page. Make sure that you are in t
 
 ## Getting the URL
 
-You need an already created `BuildConfig` object, or create a new one. In order to create a new BuildConfig, check out the [Creating an image](../rahti/images/creating.md) article.
+You need an already created `BuildConfig` object, or create a new one. In order to create a new BuildConfig, check out the [Creating an image](../rahti2/images/creating.md) article.
 
 Now you need to edit the build config (**Actions -> Edit BuildConfig**), and add a trigger. To do this, click in "Trigger", in the bottom of the edit page, in the "Advanced options" section. Then, click in "Add trigger". The new trigger must have a type, in our case it will be "GitHub". It also needs a secret, select the secret you created in the previous step.
 

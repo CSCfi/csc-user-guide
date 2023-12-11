@@ -1,4 +1,4 @@
-# Sending e-mail from Rahti
+# Sending e-mail from Rahti 2
 
 The procedure is the same as for [sending an e-mail from cPouta](../pouta/additional-services.md).
 
@@ -12,7 +12,7 @@ The server does not require authentication.
 
 When sending e-mail, you need a valid `Sender` address in your e-mails, such as your university e-mail address, since this will be validated by the SMTP server. Please note that this is a different e-mail header attribute from the `From` attribute.
 
-If you want to set up any services on _Rahti_ that generate a large amount of SMTP traffic (e.g. public mailing lists), please contact the CSC Service Desk to coordinate this.
+If you want to set up any services on _Rahti 2_ that generate a large amount of SMTP traffic (e.g. public mailing lists), please contact the CSC Service Desk to coordinate this.
 
 ## Example
 

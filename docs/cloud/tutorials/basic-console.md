@@ -2,7 +2,7 @@
 
 How to set up a static web server in Rahti.
 
-1. Create a project. [Instructions](../rahti/usage/projects_and_quota.md)
+1. Create a project. [Instructions](../rahti2/usage/projects_and_quota.md)
 
 2. In the Openshift web console, switch to the Developer perspective. Select _Add_ from the navigation panel. To create an application, under Developer Catalog list Select _All services_ and then search for _Apache HTTP Server_, Click the _Apache HTTP Server_, and Select _Instantiate Template_ on the pop-up window on the right.
     ![Select-httpd](../img/select-http.png)
@@ -31,5 +31,5 @@ For deeper insight in to the created objects, please see:
 
 * [Core objects](elemental_tutorial.md) for introduction to the fundamental objects on
   which OpenShift/Kubernetes applications are built upon.
-* Kubernetes and OpenShift [Concepts](../rahti/concepts.md) for how managing applications in
+* Kubernetes and OpenShift [Concepts](../rahti2/concepts.md) for how managing applications in
   OpenShift/Kubernetes is further streamlined using higher abstraction level objects.

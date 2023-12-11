@@ -1,6 +1,6 @@
-# How to manually cache images in Rahti
+# How to manually cache images in Rahti 2
 
-It is possible to manually cache images in Rahti. This could be useful to remove
+It is possible to manually cache images in Rahti 2. This could be useful to remove
 an external dependency or improve performance.
 
 The process is simple:

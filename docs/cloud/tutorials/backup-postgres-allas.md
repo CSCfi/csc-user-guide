@@ -6,10 +6,10 @@ This is a simple example, the backup SQL file is not compressed, the checksums a
 
 ## Prerequisites
 
-* A postgres DB. You need to have read access to it. To deploy a new DB in Rahti, you can use the Postgres template provided in the catalog. It is also possible to backup an external DB, but all instructions assume the DB is running in Rahti 2 in the same namespace as the backup process will be run.
+* A postgres DB. You need to have read access to it. To deploy a new DB in Rahti 2, you can use the Postgres template provided in the catalog. It is also possible to backup an external DB, but all instructions assume the DB is running in Rahti 2 in the same namespace as the backup process will be run.
 
 
-* A secret called `postgresql` with the following keys: `database-user`, `database-password`, and `database-name`. This secret is created by Postgres's template, but will need to be created manually if Postgres is running outside Rahti.
+* A secret called `postgresql` with the following keys: `database-user`, `database-password`, and `database-name`. This secret is created by Postgres's template, but will need to be created manually if Postgres is running outside Rahti 2.
 
 * The `ACCESS_KEY` and `SECRET_KEY` to access Allas. You may get them by doing:
 

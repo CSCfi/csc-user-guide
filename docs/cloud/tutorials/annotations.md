@@ -11,5 +11,5 @@ oc annotate <object_type> <object_name> <key>=<value>
 Here are some examples that use annotations:
 
 * [Protecting Against DDoS Attacks](../../support/faq/DDos.md)
-* [Route annotations](../rahti/concepts.md#route)
+* [Route annotations](../rahti2/concepts.md#route)
 * [Custom domain names and secure transport](custom-domain.md)

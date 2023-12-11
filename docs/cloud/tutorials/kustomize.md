@@ -154,7 +154,7 @@ kind: Route
 metadata:
   name: nginx
 spec:
--  host: example.rahtiapp.fi
+-  host: example.2.rahtiapp.fi
   tls:
     insecureEdgeTerminationPolicy: Redirect
     termination: edge
