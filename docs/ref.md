@@ -29,10 +29,6 @@ their definitions added automatically (see: [Glossary](#glossary)).
 
 Here's a reference to a footnote:[^1]
 
-As you can see here:
-in some cases [external links](https://example.com){ target=_blank } followed by text _italicized_
-using underscores will produce unwanted results. *Italicize* with asterisks instead.
-
 
 ## Hyperlinks
 
@@ -42,6 +38,10 @@ using underscores will produce unwanted results. *Italicize* with asterisks inst
 automatically get their _target_ attribute set to `_blank` (unless explicitly set to something
 else) so that they'll&mdash;by default, at least in most browsers&mdash;open in a new browser tab.
 They're also suffixed with a <span class="csc-external-link"></span> icon to indicate this behaviour.
+
+When explicitly setting the _target_ attribute, the underscore in the value can
+[get mixed up](https://example.com){ target=_blank } with the syntax for _italicized_ text,
+producing unwanted results. In that case, *italicize* with asterisks instead.
 
 
 ## Buttons
@@ -445,29 +445,6 @@ graph TD
     A -->|No| C(Yes, it does.)
     C --> |What? No, you can't just... Oh.| B
 ```
-
-
-## Buttons
-
-Docs CSC supports two button variants that try to recreate the look of CSC Design System.
-
-
-### Default button
-
-<!-- This is called a 'default' button in the CSC Design System and a 'primary' button in Material
-for MkDocs (notice the two classes '.md-button' AND '.md-button--primary'. Also, don't forget to
-include the 'target=_blank' attribute for links pointing outside of Docs)... -->
-[Default](https://example.com/Default){ .md-button .md-button--primary target=_blank }
-
-
-### Outlined button
-
-<!-- ...and the one you'd think would be the 'default' (without the '--primary' suffix in Material
-for MkDocs) is called 'outlined' in the CSC Design System. -->
-[Outlined](https://example.com/Outlined){ .md-button target=_blank }
-
-<!-- So, to recap, if you wan't a 'normal' filled-in button (called 'default'), you must add the
-'.md-button--primary' class to the attribute list. -->
 
 
 ## Tabbed content
