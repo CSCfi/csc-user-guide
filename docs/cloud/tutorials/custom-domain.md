@@ -69,7 +69,7 @@ route object, in the sense that traffic coming to and from he service `serve` is
   pod and forward the encrypted traffic.
 * `reencrypt`: Terminate the TLS connection in the router and open another secure connection that must be terminated at the pod.
 
-See the explanation in the [Networking routes](../../rahti2/networking.md#routes) page.
+See the explanation in the [Networking routes](../rahti2/networking.md#routes) page.
 
 !!! warning
 
