@@ -36,7 +36,7 @@ For more information about using the web interface, refer to the
 out which version of the documentation to look at in the web interface by
 clicking the question mark symbol in the top bar and selecting "About".
 
-### Extra information about CSC computing projects in Rahti
+### Extra information about CSC computing projects in Rahti 1
 
 Projects in OpenShift are separate from CSC computing projects. A single CSC
 computing project can have access to multiple projects in OpenShift.

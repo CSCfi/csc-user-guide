@@ -98,7 +98,7 @@ oc logs gpu-example-2
 oc delete pod gpu-example-2
 ```
 
-As a final example, we show how a more complete system that uses GPU resources can be deployed on Rahti.
+As a final example, we show how a more complete system that uses GPU resources can be deployed on Rahti 1.
 The example provides an API for training and deploying a text sentiment classification model. To
 facilitate easier deployment, we use various Kubernetes resource definitions and their explanation
 can be found in the general [Kubernetes basics page](../concepts/).  One of the main things to notice

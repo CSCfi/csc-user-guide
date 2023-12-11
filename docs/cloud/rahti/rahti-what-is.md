@@ -24,7 +24,7 @@ OpenShift provides these extra services over a standard Kubernetes offering:
 
 * Web UI: <https://rahti.csc.fi:8443/>
 
-![Rahti 1 WEB UI](../img/Rahti-landing.png)
+![Rahti 1 WEB UI](../img/openshift_main_page_3.7.png)
 
 * Internal private image registry: <https://registry-console.rahti.csc.fi/registry>
 
