@@ -360,7 +360,7 @@ Note that the GPU energy usage is counted only after the job has
 completed, so there is no intermediate value printed while it's
 running.
 
-In this example we have used a single node with 4 GPUs:
+Example output where we have used a single node with 4 GPUs:
 
 ```
 GPU energy
@@ -376,7 +376,7 @@ GPU energy
 
 LUMI does not have the `seff` command, but there is a preliminary tool
 that can be used to read the GPU energy counters found in the AMD GPU
-card. The tool and it's documentation can be found here:
+card. The tool and its documentation can be found here:
 <https://github.com/mvsjober/gpu-energy-amd>.
 
 It has been pre-installed on LUMI in the path `/appl/local/csc/soft/ai/bin/gpu-energy`.
@@ -401,7 +401,7 @@ GPU 6: 46.62 Wh, avg power: 377.62 W (444.43 s)
 TOTAL: 185.91 Wh
 ```
 
-See the [README.md file for more usage examples](https://github.com/mvsjober/gpu-energy-amd/blob/master/README.md).
+Note that it prints the energy only for even-numbered GCDs, this is because the AMD GPU energy counter only produces a single value for the whole MI250x card.
 
 !!! warning "Always measure GPU usage for a full node on LUMI!"
 
@@ -411,3 +411,6 @@ See the [README.md file for more usage examples](https://github.com/mvsjober/gpu
     MI250x. If you reserve a single GCD, another run may be using the
     other GCD. Reserving 2 GCDs, it's not possible to guarantee that you
     get them from the same card.
+
+See the [README.md file for more usage examples](https://github.com/mvsjober/gpu-energy-amd/blob/master/README.md).
+
