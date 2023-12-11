@@ -148,4 +148,4 @@ const FeedbackForm = class {
   }
 }
 
-window.addEventListener("load", () => FeedbackForm.init(document.forms.feedback))
+export const initialize = () => FeedbackForm.init(document.forms.feedback)

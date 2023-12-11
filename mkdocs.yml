@@ -111,7 +111,6 @@ extra_css:
 
 extra_javascript:
   - assets/javascripts/extra.js
-  - assets/javascripts/feedback.js
 
 nav:
   - Home: index.md
