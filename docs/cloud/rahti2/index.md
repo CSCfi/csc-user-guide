@@ -20,4 +20,4 @@ you could move directly to the instructions for getting started with Rahti 2 & i
   * [Project and Quota](usage/projects_and_quota.md)
   * [Billing](billing.md)
 
-Still have queries? Checkout our [Rahti 2 FAQs](../../support/faq/index.md#rahti) page or contact <servicedesk@csc.fi> for more info.
+Still have queries? Checkout our [Rahti 2 FAQs](../../support/faq/index.md#rahti-2) page or contact <servicedesk@csc.fi> for more info.
