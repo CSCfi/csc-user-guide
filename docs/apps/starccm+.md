@@ -9,7 +9,7 @@ Simcenter STAR-CCM+ is a commercial Computational Fluid Dynamics (CFD) based sim
 
 ## License
 
-CSC - IT Center for Science has no own Star-CCM+ licenses available for customer use on CSC's computing platforms.  Instead, user may purchase for her or his own use a *Power-On-Demand* (PoD) license to be used on the servers, for more information, see this [web page](https://www.dex.siemens.com/plm/simcenter-on-the-cloud/simcenter-star-ccm-power-on-demand).
+CSC - IT Center for Science has no own Star-CCM+ licenses available for customer use on CSC's computing platforms.  Instead, user may purchase for her or his own use a *Power-On-Demand* (PoD) license to be used on the servers, for more information, see this [web page](https://community.sw.siemens.com/s/question/0D54O000061xpm2SAA/simcenter-starccm-licensing-options-and-setup-installation-and-troubleshooting).
 
 ## Available
 
@@ -51,4 +51,4 @@ In a problem situation, please [contact CSC Service Desk](../support/contact.md)
 ## More information
 
 * [Simcenter STAR-CCM+](https://www.plm.automation.siemens.com/global/en/products/simcenter/STAR-CCM.html)
-* [Simcenter STAR-CCM+ Power On Demand licensing](https://www.dex.siemens.com/plm/simcenter-on-the-cloud/simcenter-star-ccm-power-on-demand)
+* [Simcenter STAR-CCM+ Power On Demand licensing](https://community.sw.siemens.com/s/question/0D54O000061xpm2SAA/simcenter-starccm-licensing-options-and-setup-installation-and-troubleshooting)
