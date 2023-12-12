@@ -1,5 +1,8 @@
 # Why my private SSH key does not work in Rahti 2?
 
+You may need a SSH key pair for the case of a build from a private GitHub repository.  
+This article can help you to debug why your keys are not working.
+
 ## Mismatched keys
 
 There are few reasons why a SSH key may not work, the simplest one is when the **private key** does not match the **public key**. In order to check this, you can re-generate the public key from the private one by doing:
@@ -31,14 +34,5 @@ The SSH key format is strict. A private SSH key can be considered invalid in the
 
 As a general rule, use `ssh-keygen -l -f <file>` to check the formatting of the key is correct.
 
-## New OpenSSH private key format used
-
-The most obscure reason is that Rahti expects the key to be provided in **PEM format**. PEM used to be the default key format for OpenSSH private keys, but now it is considered a legacy format. Newer versions of OpenSSH will generate keys in OpenSSH's own format that is not recognized by the current version of Rahti (v3.11). When generating keys to be used in Rahti using `ssh-keygen`, please use the parameter `-m PEM`. A complete example would be:
-
-```bash
-ssh-keygen -C "openshift-source-builder/repo" -f repo-openshift-builder -N '' -m PEM
-```
-
-This will generate two files `repo-openshift-builder` and `repo-openshift-builder.pub`.
 
 For a comprehensive guide of the whole process of using SSH keys to clone a private repository in Rahti, please follow: [Repository SSH Keys](https://cloud.redhat.com/blog/private-git-repositories-part-2a-repository-ssh-keys) guide.
