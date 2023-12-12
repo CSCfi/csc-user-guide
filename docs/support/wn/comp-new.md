@@ -7,7 +7,7 @@
     * All reservations can now be used on any app regardless of partition.
     * Reservation caching has been improved to be more up to date.
     * Job time is now limited by reservation length automatically.
-* Jupyper for Courses now allows specifying reservation for the module.
+* Jupyter for Courses now also allows specifying reservation in the course environment YAML.
 * Jupyter for Courses and TensorBoard now show errors if the module or log path are left empty.
 
 ## The LUMI web interface has been released, 9.11.2023
