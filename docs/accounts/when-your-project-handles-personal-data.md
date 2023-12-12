@@ -47,13 +47,13 @@ to find more detailed information on how we as data processor protect your perso
 
 | **University**  | **Contact information**  |
 |---|---|
-| Aalto University  | Data Protection Officer and Legal Counsel: Anni Tuomela <br />anni.tuomela@aalto.fi <br />tietosuojavastaava@aalto.fi  |
-| LUT University  | Data Protection Officer: Anne Himanka <br />tietosuoja@lut.fi <br />0294462111  |
-| University of Eastern Finland  | Data Protection Officer: Helena Eronen <br />helena.eronen@uef.fi <br />+358 50 576 0282  |
-| University of Helsinki  | Legal Counsel, Data Protection Officer: Lotta Ylä-Sulkava <br />lotta.yla-sulkava@helsinki.fi <br />(tietosuoja@helsinki.fi) <br />0294140125 <br />0503450107  |
-| University of Jyväskylä  | Data Protection Officer: Riikka Valkonen <br />riikka.h.valkonen@jyu.fi <br />(tietosuoja@jyu.fi) <br />+358408053297  |
-| University of Lapland  | Data Protection Officer: Jari Rantala <br />jari.rantala@ulapland.fi <br />(tietosuoja@ulapland.fi) <br />+358 40 547 2583  |
-| University of Oulu  | Data Protection Officer: Jenny Mattila <br />jenny.mattila@oulu.fi <br />(dpo@oulu.fi) <br />+358294484061  |
-| University of Tampere  | dpo@tuni.fi  |
-| University of Turku  | Data Protection Officer, Legal Affairs: Onerva Steudle <br />onerva.steudle@utu.fi <br />(dpo@utu.fi) <br />+358 29 450 3009 <br />+358 50 490 7736  |
-| University of Vaasa  | tietosuojavastaava@uwasa.fi  |
+| Aalto University  | tietosuojavastaava@aalto.fi <br />[Data Protection Policy](https://www.aalto.fi/en/services/aalto-university-data-protection-policy) |
+| LUT University  | dataprotection@lut.fi <br />tietosuoja@lut.fi <br />[Data protection policy](https://www.lut.fi/en/data-protection)  |
+| University of Eastern Finland  | tietosuoja@uef.fi <br />[Data protection policy](https://www.uef.fi/en/data-protection)  |
+| University of Helsinki  | tietosuoja@helsinki.fi <br />[Data protection policy](https://www.helsinki.fi/en/about-us/processing-data-university/data-protection) |
+| University of Jyväskylä  | tietosuoja@jyu.fi <br />[Data protection policy](https://www.jyu.fi/en/data-privacy-at-the-university-of-jyvaskyla) |
+| University of Lapland  | tietosuoja@ulapland.fi <br />[Data protection policy](https://www.ulapland.fi/EN/About-us/Our-principles/Data-protection) |
+| University of Oulu  | dpo@oulu.fi <br />[Data protection policy](https://www.oulu.fi/en/data-privacy-notice) |
+| University of Tampere  | dpo@tuni.fi <br />[Data protection policy](https://www.tuni.fi/en/research/responsible-science-and-research/data-protection) |
+| University of Turku  | dpo@utu.fi <br />tietosuoja@utu.fi <br />[Data protection policy](https://www.utu.fi/en/privacy/notice) |
+| University of Vaasa  | tietosuojavastaava@uwasa.fi <br />[Data protection policy](https://www.uwasa.fi/en/data-protection) |
