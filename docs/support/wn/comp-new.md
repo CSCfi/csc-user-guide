@@ -1,5 +1,15 @@
 # Computing environment
 
+## Mahti web interface updated to release 3, 12.12.2023
+
+* Handling of reservations has been improved.
+    * Future reservations are now shown.
+    * All reservations can now be used on any app regardless of partition.
+    * Reservation caching has been improved to be more up to date.
+    * Job time is now limited by reservation length automatically.
+* Jupyper for Courses now allows specifying reservation for the module.
+* Jupyter for Courses and TensorBoard now show errors if the module or log path are left empty.
+
 ## The LUMI web interface has been released, 9.11.2023
 
 The brand new LUMI web interface has been released at [www.lumi.csc.fi](https://www.lumi.csc.fi)!
