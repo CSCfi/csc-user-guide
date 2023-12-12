@@ -9,6 +9,9 @@
     * Job time is now limited by reservation length automatically.
 * Jupyter for Courses now also allows specifying reservation in the course environment YAML.
 * Jupyter for Courses and TensorBoard now show errors if the module or log path are left empty.
+* Web interface session lifetime has been increased to 12h from the previous 8h.
+* Umask is now set correctly. This affects files created using the file browser.
+* The browser cache is now validated more frequently to avoid issues after updates.
 
 ## The LUMI web interface has been released, 9.11.2023
 
