@@ -1,16 +1,18 @@
 # Store and share with Sensitive Data Connect
 
+
+
+!!! Note 
+    - A new version of SD Connect is now available for testing purposes. The updated user interface offers automated file encryption and decryption (up to 100 GB) along with key management. Additionally, three levels of sharing permissions are accessible across CSC projects. 
+    - This version is in Open Beta. Kindly use it for testing scenarios and avoid relying on it for storing critical data until it transitions to a stable release. Please provide feedback at servicedesk@csc.fi (subject: Sensitive Data) to contribute to service improvement.
+    - Overviw and intructions available in a preliminary user guide [here](../../data/sensitive-data/sd-connect-beta.md)
+    
+
 ## Overview
 
 Sensitive Data (SD) Connect allows you to store sensitive research data in the CSC's cloud storage solution Allas. With this user interface, you can easily encrypt and upload files from your web browser. As a result, SD Connect can serve as a workspace for collaborative research projects, facilitating data collection and sharing.  In addition, encrypted files stored in SD Connect are directly available for analysis, annotiation or editing via the SD Desktop service. 
 
 [![SDConnect-overview](images/connect/connect_overviewnew.png)](images/connect/connect_overviewnew.png)
-
-## SD Connect (Beta) now available  13.12.2023
-
-A new version of SD Connect is now available for testing purposes. The updated user interface offers automated file encryption and decryption (up to 100 GB) along with key management. Additionally, three levels of sharing permissions are accessible across CSC projects. This version is in Open Beta. Kindly use it for testing scenarios and avoid relying on it for storing critical data until it transitions to a stable release. Please provide feedback at servicedesk@csc.fi (subject: Sensitive Data) to contribute to service improvement.
-
-Preliminary user guide is available [here](../../data/sensitive-data/sd-connect-beta.md)
 
 
 
