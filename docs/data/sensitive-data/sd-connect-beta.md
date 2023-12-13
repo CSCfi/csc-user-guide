@@ -1,9 +1,8 @@
 # SD Connect (Beta)
 
-Welcome to the SD Connect (Beta) user guide, highlighting the latest features of the updated service. The new user-friendly interface improves your experience, with automated file encryption and decryption (up to 100 GB). Now, three levels of sharing permissions are available across CSC projects.
+The updated SD Connect user interface offers automated file encryption and decryption (up to 100 GB) along with key management. Additionally, three levels of sharing permissions are accessible across CSC projects. Files and subfolers uploaded via this user inerface will be encrypted and accessible for dowload and decrption to all CSC project members. 
 
-Note:
-This version is in Open Beta. While efforts have been made to enhance the user interface, occasional interruptions may occur. Please use this version for testing scenarios and avoid relying on it for storing critical data until it transitions to a stable release. Please, provide feedback at servicedesk@csc.fi (subject: Sensitive Data) to contribute to service improvement. Thank you for your cooperation.
+This version is in Open Beta, occasional service interruptions may occur. Please use this version for testing scenarios and avoid relying on it for storing critical data until it transitions to a stable release. Please, provide feedback at servicedesk@csc.fi (subject: Sensitive Data) to contribute to service improvement. Thank you for your cooperation.
 
 
 Content:
