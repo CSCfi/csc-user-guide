@@ -1,8 +1,22 @@
 # SD Connect (Beta)
 
-The updated SD Connect user interface offers automated file encryption and decryption (up to 100 GB) along with key management. Additionally, three levels of sharing permissions are accessible across CSC projects. Files and subfolers uploaded via this user inerface will be encrypted and accessible for dowload and decrption to all CSC project members. 
+The updated SD Connect user interface offers automated file encryption and decryption (up to 100 GB) along with key management. Additionally, three levels of sharing permissions are accessible across CSC projects. 
 
 This version is in Open Beta, occasional service interruptions may occur. Please use this version for testing scenarios and avoid relying on it for storing critical data until it transitions to a stable release. Please, provide feedback at servicedesk@csc.fi (subject: Sensitive Data) to contribute to service improvement. Thank you for your cooperation.
+
+
+Comparison between versions:
+
+
+| Feature                                             | SD Connect  (released 2022, available at sd-connect.csc.fi)                          | SD Connect (Beta)     ( available at sd-connect.sd.csc.fi)                         |
+|-----------------------------------------------------|---------------------------------------|------------------------------------------------|
+| User interface |         |      |   Redesigned (based on user's feedback)       |
+| Automated encryption and upload via browser          | Limited to small files (>1GB)         | Available for files up to 100 GB               |
+| Automated decryption during download via browser    | Not available                         | Available for downloading entire folders or single files. |
+| Key management                                      | Not available                        | Provided automatically by the service |    
+| Possibility to upload and store unencrypted files| Available as optional  |Not available, all files and subfolders are encrypted during upload|
+| Command line utility tool                           | Automated encryption and key management not available | In test pahse                                       |
+
 
 
 Content:
