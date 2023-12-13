@@ -5,12 +5,11 @@ The updated SD Connect user interface offers automated file encryption and decry
 This version is in Open Beta, occasional service interruptions may occur. Please use this version for testing scenarios and avoid relying on it for storing critical data until it transitions to a stable release. Please, provide feedback at servicedesk@csc.fi (subject: Sensitive Data) to contribute to service improvement. Thank you for your cooperation.
 
 
-
 Content:
 
 - [Overview updates](../../data/sensitive-data/sd-connect-beta.md#overview-updates)
 
-- [Service access via MyCSC](../../sensitive-data/sd-connect-beta.md#service-access-via-mycsc)
+- [Service access via MyCSC|(../../data/sensitive-data/sd-connect-beta.md#service-access-via-mycsc)
   
 - [Login](../../data/sensitive-data/sd-connect-beta.md#login)
   
@@ -23,28 +22,28 @@ Content:
 - [Data Deletion](../../data/sensitive-data/sd-connect-beta.md#data-deletion)
   
 
-Overview updates: 
+### Overview updates: 
 
 
 | Feature                                             | SD Connect                      | SD Connect (Beta)  NEW!                     |
 |-----------------------------------------------------|---------------------------------------|------------------------------------------------|
 | Url|  sd-connect.csc.fi (released April 2022)|  sd-connect.csc.sd.fi (available from Deceber 2023) |
-| Login|   Based on CSC account and project, requires Allas service access| Based on CSC account and project, requires SD Connect (Beta) service access, Requires multi-factor authentication |   
+| Service access|   Based on CSC account and project, requires Allas service access| Based on CSC account and project, requires SD Connect (Beta) service access, Requires multi-factor authentication |   
 | User interface |    -     |    Redesigned (based on user's feedback)    |  
 | Automated encryption and upload via browser          | Limited to small files (>1GB)         | Available for files up to 100 GB               |
-| Automated decryption during download via browser    | Not availavle                       | Available for downloading entire folders or single files for all project memebers |
+| Automated decryption during download via browser    | Not available                       | Available for downloading entire folders or single files for all project memebers |
 | Key management                                      | Not available                        | Provided automatically by the service |    
-| Possibility of uploading and storing unencrypted files| Available as optional  |Not available, all files and subfolders are encrypted during upload|
-| Folder sharing: read only | Available  | Avaulable|
+| Possibility of uploading and storing unencrypted files | Available as optional  |Not available, all files and subfolders are encrypted during upload|
+| Folder sharing: read only via SD Desktop | Available  | Available|
 | Folder sharing: data transfer | Manual encryption and decryption | Authomated encryption and decryption |
 | Folder sharing: data collection |Manual encryption and decryption   |  Authomated encryption and decryption   |
 | Command line utility tool                           | Automated encryption and key management not available | In test pahse                                       |
-| Compatibility with Allas| Files uplaoded in Allas are visible and can be downloaded via SD Connect | File uplaoded in Allas are visible, but can not be downloaded or decrypted via SD Connect, file size is not uncorrect|
+| Compatibility with Allas| Files uplaoded in Allas are visible and can be downloaded via SD Connect | File uplaoded in Allas are visible, but can not be downloaded or decrypted via SD Connect, file size is not correct|
 
 
 
 
-## Service access via MyCSC
+## Service access 
 
 To access SD Connect (Beta) for storing, sharing or analyzing sensitive research data:
 
@@ -67,11 +66,11 @@ For further guidance, check the [Accounts](../../accounts/index.md) section at t
 
 ## Login
 
-Due to an ongoing technical challenges, double login is required to access the service. We apologise for the complexity of this process. Please following these steps:
+Due to an ongoing technical challenges, double login is required. We apologise for the complexity of this process. Please following these steps:
 
-1. Navigate to https://sd-connect.sd.csc.fi  We suggest to use Google Chrome or Firefox for optimal service performance. Please, clear browser history and cookies if you have accessed the service before. 
+1. Navigate to https://sd-connect.sd.csc.fi  We suggest to use Google Chrome for optimal service performance, Firefox is also supported. Please, clear browser history and cookies if you have accessed the service before. 
    
-3. Choose your login method (CSC Login, HAKA) and click on *Login*. In the new page, enter your username and password, and clcik on *Login*.
+3. Choose the login method (CSC Login, HAKA) and click on *Login*. In the new page, enter username and password, and clcik on *Login*.
    
 5. Verify your identity with the temporary code (Multi-factor authentication); click on *Continue*.
    
@@ -83,7 +82,7 @@ Due to an ongoing technical challenges, double login is required to access the s
 
 ## Data uplaod 
 
-To automatically upload and encrypt files with SD Connect to a new destination folder, follow these steps:
+To upload and encrypt files with SD Connect to a new destination folder, follow these steps:
 
 1. **Select CSC Project**: Go to the SD Connect browser page and choose the relevant CSC project in the top left corner.
 
@@ -91,11 +90,11 @@ To automatically upload and encrypt files with SD Connect to a new destination f
    
 3. **Create a new folder**: In the new window, name the destination folder for your files. Please note that folder names cannot be modified after creation. Folder names must be unique across all existing folders in all projects in SD Connect and Allas (the cloud storage solution based on which SD Connect is developed). If you can't create a new folder, another project may already use the name you desire. To avoid this situation, it is good practice to include project-specific identifiers (e.g., project ID number or acronym) in the folder name. Avoid spaces and special characters; use Latin alphabets (a-z), numbers (0-9), dash (-), underscore (_), and dot (.). Remember, all folder names are public; please do not include any confidential information.
 
-4. **Select files to be uploaded**: Click the *Select Files* button to open a browser window and choose files for upload. If you want to upload folders, drag and drop them into the window.
+4. **Select files to be uploaded**: Click the *Select Files* button to open a browser window and choose files for upload. If you want to upload folders, drag and drop them into the window. Click the *Upload* button to initiate automatic encryption. Notifications about the upload status will be displayed and visible until the upload is completed. The notification also includes a link to the destination folder.
 
-5. **Start upload**: Click the *Upload* button to initiate automatic encryption and upload. Notifications about the upload status will be displayed and visible until the upload is completed. The notification also includes a link to the destination folder.
+Once the upload is finished, encrypted files are accessible for download via SD Connect or for analysis, editing, or annotation via the SD Desktop.
 
-Once the upload is finished, encrypted files are accessible for download or for analysis, editing, or annotation via the SD Desktop. To add files to an existing destination folder, simply access the folder (double-click on the correct folder) and click on *Upload*. The subsequent window will showcase the folder name, allowing you to proceed by clicking on *Select Files*.
+To add files to an existing destination folder, simply access the folder (double-click on the correct folder) and click on *Upload*. The subsequent window will showcase the folder name, allowing you to proceed by clicking on *Select Files*.
 
 !!! Note
     All members within the same CSC project can download decrypted data stored in SD Connect (Beta). However, this capability can be limited by sharing files in read-only mode. Please check the following paragraph for more details.
@@ -112,8 +111,6 @@ Once the upload is finished, encrypted files are accessible for download or for 
 
 ## Data downlaod
 
-!!! Note
-    All members within the same CSC project have access and can download decrypted data stored in SD Connect (Beta).
 
 ### To download the entire folder content:
 
@@ -144,8 +141,11 @@ Once the upload is finished, encrypted files are accessible for download or for 
 # Data sharing
 
 
-!!! Note
-    When transferring personal data **outside EU** under the General Data Protection Regulation (GDPR), please verify that the destination country or recipient organization offers an adequate level of data protection, as determined by the European Commission. For more information, [click here](https://commission.europa.eu/law/law-topic/data-protection/international-dimension-data-protection/adequacy-decisions_en). In the absence of an adequacy decision, alternative safeguards are necessary. Kindly consult your organization's legal office for guidance. Addittionally, CSC as the data processor needs to maintain accurate records of processing activities. Please contact us at servidesk@csc.fi (subject:sensitive data) to report international data transfers (this also includes **adding collaboratos affiliated to an internation organziation as a member of a CSC project**). 
+!!! note
+
+    - When transferring personal data **outside EU** under the General Data Protection Regulation (GDPR), please verify that the destination country or recipient organization offers an adequate level of data protection, as determined by the European Commission. For more information, [click here](https://commission.europa.eu/law/law-topic/data-protection/international-dimension-data-protection/adequacy-decisions_en).
+    - In the absence of an adequacy decision, alternative safeguards are necessary. Kindly consult your organization's legal office for guidance. 
+    - Addittionally, CSC as the data processor needs to maintain accurate records of processing activities. Please contact us at servidesk@csc.fi (subject:sensitive data) to report international data transfers (this also includes **adding collaboratos affiliated to an internation organziation as a member of a CSC project**). 
 
 
 With SD Connect, you can  share folders across different CSC projects. To initiate the sharing process, you'll need the Share ID—a 32-digit code associated with the target CSC project.  The recipient can copy the Share ID from the user interface and provide it to you via email. You can share a folder with multiple CSC projects by entering their respective Share IDs in the dedicated window.
