@@ -112,7 +112,7 @@ To add files to an existing destination folder, simply access the folder (double
 ## Data downlaod
 
 
-### To download the entire folder content:
+### Entire folder 
 
 1. **Select CSC project**: Navigate to the SD Connect browser page and choose the relevant CSC project in the top left corner.
 
@@ -124,7 +124,7 @@ To add files to an existing destination folder, simply access the folder (double
 
 [![Project](images/connect/beta-download.png)](images/connect/beta-download.png)
 
-### To download a single file:
+### Single file
 
 1. **Select CSC project**: Navigate to the SD Connect browser page and choose the relevant CSC project in the top left corner.
 
@@ -138,7 +138,7 @@ To add files to an existing destination folder, simply access the folder (double
     You can only download one file at a time. The file selection option (available on the right-side of the window) is available only for deleting files.
 
 
-# Data sharing
+## Data sharing
 
 
 !!! note
