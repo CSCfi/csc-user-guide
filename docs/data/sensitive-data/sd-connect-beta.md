@@ -200,11 +200,12 @@ To allow another CSC project memebrs to add files to one of your projects folder
 
 2. **Share folder**: In the *All folders* tab, find the correct folder and on the same row (right-side), click on *Share*. In the new window, input the Share ID of the recipient project and select the permission level: *manage*. Click on *Share* to proceed.
 
-Now, all the content within the folder is visible within to the recipient CSC projects. Project members can copy, download, and decrypt the folder's content. They can also upload or delete files within the shared folder, accessible to both projects. The folder's content remains accessible via SD Desktop.
+Now, the folder is visible within to the recipient CSC projects. Project members can copy, download, and decrypt the folder's content. They can also upload or delete files within the shared folder, accessible to both projects. The folder's content remains accessible via SD Desktop.
 
 
 
 ## Deleting encrypted files
+
 
 
 
