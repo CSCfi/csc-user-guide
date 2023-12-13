@@ -175,7 +175,7 @@ Now, all the content within the folder is visible within to the recipient CSC pr
 ## Comparison between service
 
 
-| Feature                                             | SD Connect                            | SD Connect (Beta)                              |
+| Feature                                             | SD Connect  (released 2022, available at sd-connect.csc.fi)                          | SD Connect (Beta)     ( available at sd-connect.sd.csc.fi)                         |
 |-----------------------------------------------------|---------------------------------------|------------------------------------------------|
 | Automated encryption and upload via browser          | Limited to small files (>1GB)         | Available for files up to 100 GB               |
 | Automated decryption during download via browser    | Not available                         | Available for downloading entire folders or single files. |
