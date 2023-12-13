@@ -35,11 +35,11 @@ For further guidance, check the [Accounts](../../accounts/index.md) section at t
 
 Due to an ongoing technical challenges, double login is required to access the service. We apologise for the complexity of this process. Please following these steps:
 
-1. Navigate to https://sd-connect.sd.csc.fi  We suggest to use Google Chrome for optimal service performance.
+1. Navigate to https://sd-connect.sd.csc.fi  We suggest to use Google Chrome or Firefox for optimal service performance. Please, clear browser history and cookies if you have accessed the service before. 
    
-3. Choose your login method (CSC Login, HAKA, or Virtu; for Life Science, link your accounts) and click on *Login*. In the new page, enter your username and password, and clcik on *Login*.
+3. Choose your login method (CSC Login, HAKA) and click on *Login*. In the new page, enter your username and password, and clcik on *Login*.
    
-5. Verify your identity with the temporary code; click on *Continue* (Multi-factor authentication).
+5. Verify your identity with the temporary code (Multi-factor authentication); click on *Continue*.
    
 7. You might now encounter an additional page stating that your account needs to go through identity verification. Please press on *Proceed* to continue at the bottom of the message.
    
