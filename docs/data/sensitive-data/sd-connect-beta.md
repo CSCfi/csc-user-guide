@@ -15,10 +15,12 @@ Content:
 - [Login](../../data/sensitive-data/sd-connect-beta.md#login)
   
 - [Data upload](../../data/sensitive-data/sd-connect-beta.md#data-uplaod)
-  
-- [Data sharing (read only, for transfer or collection)](../../data/sensitive-data/sd-connect-beta.md#data-downlaod)
 
-- [Data Deletion](../../data/sensitive-data/sd-connect-beta.md#data-sharing)
+- [Data download](../../data/sensitive-data/sd-connect-beta.md#data-downlaod)
+  
+- [Data sharing (read only, for transfer or collection)](../../data/sensitive-data/sd-connect-beta.md#data-sharing)
+
+- [Data Deletion](../../data/sensitive-data/sd-connect-beta.md#data-deletion)
   
 
 Overview updates: 
