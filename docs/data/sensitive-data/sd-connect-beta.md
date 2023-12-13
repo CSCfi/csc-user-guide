@@ -10,7 +10,7 @@ Comparison between versions:
 
 | Feature                                             | SD Connect  (released 2022, available at sd-connect.csc.fi)                          | SD Connect (Beta)     ( available at sd-connect.sd.csc.fi)                         |
 |-----------------------------------------------------|---------------------------------------|------------------------------------------------|
-| User interface |         |      |   Redesigned (based on user's feedback)       |
+| User interface |         |    Redesigned (based on user's feedback)    |  
 | Automated encryption and upload via browser          | Limited to small files (>1GB)         | Available for files up to 100 GB               |
 | Automated decryption during download via browser    | Not available                         | Available for downloading entire folders or single files. |
 | Key management                                      | Not available                        | Provided automatically by the service |    
