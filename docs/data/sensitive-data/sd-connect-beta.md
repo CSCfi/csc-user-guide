@@ -147,7 +147,7 @@ To add files to an existing destination folder, simply access the folder (double
     - In the absence of an adequacy decision, alternative safeguards are necessary. Kindly consult your organization's legal office for guidance. 
     - Addittionally, CSC as the data processor needs to maintain accurate records of processing activities. Please contact us at servidesk@csc.fi (subject:sensitive data) to report international data transfers (this also includes **adding collaboratos affiliated to an internation organziation as a member of a CSC project**). 
 
-### SHare ID
+### Share ID
 
 With SD Connect, you can  share folders across different CSC projects. To initiate the sharing process, you need to know what is the Share ID—a 32-digit code associated with the recipient CSC project.  The recipient can copy the Share ID from the SD Connect user interface (top left cornet) and provide it to you via email. You can share a folder with multiple CSC projects by entering their respective Share IDs in the dedicated window.
 
