@@ -147,10 +147,13 @@ To add files to an existing destination folder, simply access the folder (double
     - In the absence of an adequacy decision, alternative safeguards are necessary. Kindly consult your organization's legal office for guidance. 
     - Addittionally, CSC as the data processor needs to maintain accurate records of processing activities. Please contact us at servidesk@csc.fi (subject:sensitive data) to report international data transfers (this also includes **adding collaboratos affiliated to an internation organziation as a member of a CSC project**). 
 
+### SHare ID
 
-With SD Connect, you can  share folders across different CSC projects. To initiate the sharing process, you'll need the Share ID—a 32-digit code associated with the target CSC project.  The recipient can copy the Share ID from the user interface and provide it to you via email. You can share a folder with multiple CSC projects by entering their respective Share IDs in the dedicated window.
+With SD Connect, you can  share folders across different CSC projects. To initiate the sharing process, you need to know what is the Share ID—a 32-digit code associated with the recipient CSC project.  The recipient can copy the Share ID from the SD Connect user interface (top left cornet) and provide it to you via email. You can share a folder with multiple CSC projects by entering their respective Share IDs in the dedicated window.
 
-The sharing functionality includes three distinct permission levels for various purposes: read-only access, data transfer, and data collection. Below example scenarios demonstrate how the different permission levels in SD Connect can be applied based on specific collaboration requirements and data-sharing needs. Find the detailed steps for each option below. 
+The sharing functionality includes three distinct permission levels for various purposes: read-only access, data transfer, and data collection. 
+
+Below example scenarios demonstrate how the different permission can be applied based on specific collaboration requirements and data-sharing needs. 
 
 ### Read only-access
 
