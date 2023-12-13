@@ -3,10 +3,9 @@
 
 ## SD Connect (Beta) now available  13.12.2023
 
-A new version of SD Connect is now available for testing purposes. The updated user interface offers automated file encryption and decryption (up to 100 GB) along with key management. Additionally, three levels of sharing permissions are accessible across CSC projects. This version is in Open Beta. Kindly use it for testing scenarios andand avoid relying on it for storing critical data until it transitions to a stable release. Please provide feedback at servicedesk@csc.fi (subject: Sensitive Data) to contribute to service improvement.
+A new version of SD Connect is now available for testing purposes. The updated user interface offers automated file encryption and decryption (up to 100 GB) along with key management. Additionally, three levels of sharing permissions are accessible across CSC projects. This version is in Open Beta. Kindly use it for testing scenarios and avoid relying on it for storing critical data until it transitions to a stable release. Please provide feedback at servicedesk@csc.fi (subject: Sensitive Data) to contribute to service improvement.
 
 Preliminary user guide is available [here](../../data/sensitive-data/sd-connect-beta.md)
-
 
 
 
