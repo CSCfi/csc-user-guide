@@ -5,21 +5,6 @@ The updated SD Connect user interface offers automated file encryption and decry
 This version is in Open Beta, occasional service interruptions may occur. Please use this version for testing scenarios and avoid relying on it for storing critical data until it transitions to a stable release. Please, provide feedback at servicedesk@csc.fi (subject: Sensitive Data) to contribute to service improvement. Thank you for your cooperation.
 
 
-Comparison between versions:
-
-
-| Feature                                             | SD Connect                      | SD Connect (Beta)                       |
-|-----------------------------------------------------|---------------------------------------|------------------------------------------------|
-| Url|  sd-connect.csc.fi (released April 2022)| sd-connect.csc.sd.fi (available from Deceber 2023) |
-| Login|   Based on CSC account and project, requires Allas service access| Based on CSC account and project, requires SD Connect (Beta) service access, Requires multi-factor authentication |   
-| User interface |    -     |    Redesigned (based on user's feedback)    |  
-| Automated encryption and upload via browser          | Limited to small files (>1GB)         | Available for files up to 100 GB               |
-| Automated decryption during download via browser    | Not availavle                       | Available for downloading entire folders or single files |
-| Key management                                      | Not available                        | Provided automatically by the service |    
-| Possibility to upload and store unencrypted files| Available as optional  |Not available, all files and subfolders are encrypted during upload|
-| Command line utility tool                           | Automated encryption and key management not available | In test pahse                                       |
-
-
 
 Content:
 
@@ -52,6 +37,7 @@ Overview updates:
 | Folder sharing: data transfer | Manual encryption and decryption | Authomated encryption and decryption |
 | Folder sharing: data collection |Manual encryption and decryption   |  Authomated encryption and decryption   |
 | Command line utility tool                           | Automated encryption and key management not available | In test pahse                                       |
+| Compatibility with Allas| Files uplaoded in Allas are visible and can be downloaded via SD Connect | File uplaoded in Allas are visible, but can not be downloaded or decrypted via SD Connect, file size is not uncorrect|
 
 
 
