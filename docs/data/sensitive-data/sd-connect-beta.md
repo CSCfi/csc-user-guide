@@ -78,7 +78,8 @@ Once the upload is finished, encrypted files are accessible for download or for 
 
 ## Data downlaod
 
-All members within the same CSC project can download decrypted data stored in SD Connect (Beta).
+!!! Note
+    All members within the same CSC project have access and can download decrypted data stored in SD Connect (Beta).
 
 ### To download the entire folder content:
 
@@ -86,9 +87,9 @@ All members within the same CSC project can download decrypted data stored in SD
 
 2. **Locate the correct folder**: In the *All folders* tab, find the correct folder and on the same row (right-side), click on *Download*. The download duration for large files can vary based on the internet connection, and the specific browser being used may necessitate different actions:
 
-2.1 Google Chrome: A new window will open, prompting you to choose where to save the folder. Once the download starts, two files will be visible: folder.tar and folder.tar.srswap. Do not attempt to open folders until the name.tar.srswap is no longer visible. Decrypted files will be accessible inside the folder.tar.
+2.1 Google Chrome: A new window will open, prompting you to choose where to save the folder. Once the download starts, two files will be visible: folder.tar and folder.tar.srswap. Do not attempt to open folders until the name.tar.srswap is no longer visible. Decrypted files or subfolers will be accessible inside the folder.tar.
 
-2.2 Firefox: If you see the message *Firefox prevented this site from opening a pop-up window*, click on *Options* and *Allow pop-ups for sd.connect.sd.csc.fi*. The download will automatically start. Avoid opening the folder until the download is completed. Decrypted files will be accessible inside the folder.tar.
+2.2 Firefox: If you see the message *Firefox prevented this site from opening a pop-up window*, click on *Options* and *Allow pop-ups for sd.connect.sd.csc.fi*. The download will automatically start. Avoid opening the folder until the download is completed. Decrypted files  or subfolders will be accessible inside the folder.tar.
 
 [![Project](images/connect/beta-download.png)](images/connect/beta-download.png)
 
@@ -106,13 +107,11 @@ All members within the same CSC project can download decrypted data stored in SD
     You can only download one file at a time. The file selection option (available on the right-side of the window) is available only for deleting files.
 
 
-
 # Data sharing
 
 
 !!! Note
     When transferring personal data **outside EU** under the General Data Protection Regulation (GDPR) it's crucial to adhere to requirements ensuring privacy and individual rights. Please verify that the destination country or recipient organization offers an adequate level of data protection, as determined by the European Commission. For more information, [click here](https://commission.europa.eu/law/law-topic/data-protection/international-dimension-data-protection/adequacy-decisions_en). In the absence of an adequacy decision, alternative safeguards are necessary. Kindly consult your organization's legal office for guidance. Addittionally, CSC as the data processor needs to maintain accurate records of processing activities. Please contact us at servidesk@csc.fi (subject:sensitive data) to report international data transfers (this also includes **adding collaboratos affiliated to an internation organziation as a member of a CSC project**). 
-
 
 
 With SD Connect, you can  share folders across different CSC projects. To initiate the sharing process, you'll need the Share ID—a 32-digit code associated with the target CSC project.  The recipient can copy the Share ID from the user interface and provide it to you via email. You can share a folder with multiple CSC projects by entering their respective Share IDs in the dedicated window.
@@ -181,9 +180,9 @@ Now, all the content within the folder is visible within to the recipient CSC pr
 |-----------------------------------------------------|---------------------------------------|------------------------------------------------|
 | Automated encryption and upload via browser          | Limited to small files (>1GB)         | Available for files up to 100 GB               |
 | Automated decryption during download via browser    | Not available                         | Available for downloading entire folders or single files. |
-| Key management                                      | Not available                         | Provided by the service                         |
-| Command line utility tool                           | Automated encryption and key management not available | Upcoming                                       |
-
+| Key management                                      | Not available                        | Provided automatically by the service |    
+| Possibility to upload and store unencrypted files| Available as optional  |Not available, all files and subfolders are encrypted during upload|
+| Command line utility tool                           | Automated encryption and key management not available | In test pahse                                       |
 
 
 
