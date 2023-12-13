@@ -8,11 +8,13 @@ This version is in Open Beta, occasional service interruptions may occur. Please
 Comparison between versions:
 
 
-| Feature                                             | SD Connect  (released 2022, available at sd-connect.csc.fi)                          | SD Connect (Beta)     ( available at sd-connect.sd.csc.fi)                         |
+| Feature                                             | SD Connect                      | SD Connect (Beta)                       |
 |-----------------------------------------------------|---------------------------------------|------------------------------------------------|
-| User interface |         |    Redesigned (based on user's feedback)    |  
+| Url|  sd-connect.csc.fi (released April 2022)| sd-connect.csc.sd.fi (available from Deceber 2023) |
+| Login|   Based on CSC account and project, requires Allas service access| Based on CSC account and project, requires SD Connect (Beta) service access, Requires multi-factor authentication |   
+| User interface |    -     |    Redesigned (based on user's feedback)    |  
 | Automated encryption and upload via browser          | Limited to small files (>1GB)         | Available for files up to 100 GB               |
-| Automated decryption during download via browser    | Not available                         | Available for downloading entire folders or single files. |
+| Automated decryption during download via browser    | Not availavle                       | Available for downloading entire folders or single files |
 | Key management                                      | Not available                        | Provided automatically by the service |    
 | Possibility to upload and store unencrypted files| Available as optional  |Not available, all files and subfolders are encrypted during upload|
 | Command line utility tool                           | Automated encryption and key management not available | In test pahse                                       |
@@ -20,6 +22,37 @@ Comparison between versions:
 
 
 Content:
+
+- [Overview updates](../../data/sensitive-data/sd-connect-beta.md#overview-updates)
+
+- [Service access via MyCSC](../../sensitive-data/sd-connect-beta.md#service-access-via-mycsc)
+  
+- [Login](../../data/sensitive-data/sd-connect-beta.md#login)
+  
+- [Data upload](../../data/sensitive-data/sd-connect-beta.md#data-uplaod)
+  
+- [Data sharing (read only, for transfer or collection)](../../data/sensitive-data/sd-connect-beta.md#data-downlaod)
+
+- [Data Deletion](../../data/sensitive-data/sd-connect-beta.md#data-sharing)
+  
+
+Overview updates: 
+
+
+| Feature                                             | SD Connect                      | SD Connect (Beta)  NEW!                     |
+|-----------------------------------------------------|---------------------------------------|------------------------------------------------|
+| Url|  sd-connect.csc.fi (released April 2022)|  sd-connect.csc.sd.fi (available from Deceber 2023) |
+| Login|   Based on CSC account and project, requires Allas service access| Based on CSC account and project, requires SD Connect (Beta) service access, Requires multi-factor authentication |   
+| User interface |    -     |    Redesigned (based on user's feedback)    |  
+| Automated encryption and upload via browser          | Limited to small files (>1GB)         | Available for files up to 100 GB               |
+| Automated decryption during download via browser    | Not availavle                       | Available for downloading entire folders or single files for all project memebers |
+| Key management                                      | Not available                        | Provided automatically by the service |    
+| Possibility of uploading and storing unencrypted files| Available as optional  |Not available, all files and subfolders are encrypted during upload|
+| Folder sharing: read only | Available  | Avaulable|
+| Folder sharing: data transfer | Manual encryption and decryption | Authomated encryption and decryption |
+| Folder sharing: data collection |Manual encryption and decryption   |  Authomated encryption and decryption   |
+| Command line utility tool                           | Automated encryption and key management not available | In test pahse                                       |
+
 
 
 
