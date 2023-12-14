@@ -12,7 +12,7 @@ To upload and encrypt files with SD Connect to a new folder, follow these steps:
 
 3) Once the upload is finished, the encrypted files are accessible for download via SD Connect or for analysis, editing, or annotation via SD Desktop.
 
-To add files to an existing folder, simply access the correct folder (double-click) and click Upload button. In the new window proceed to select Files.
+To upload files to an existing folder, simply access the correct folder (double-click) and click Upload button. In the new window proceed to select Files.
 
 Note
 
