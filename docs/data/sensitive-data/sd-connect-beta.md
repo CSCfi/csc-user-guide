@@ -140,12 +140,6 @@ To add files to an existing destination folder, simply access the folder (double
 ## Data sharing
 
 
-!!! note
-
-    - When transferring personal data **outside EU** under the General Data Protection Regulation (GDPR), please verify that the destination country or recipient organization offers an adequate level of data protection, as determined by the European Commission. For more information, [click here](https://commission.europa.eu/law/law-topic/data-protection/international-dimension-data-protection/adequacy-decisions_en).
-    - In the absence of an adequacy decision, alternative safeguards are necessary. Kindly consult your organization's legal office for guidance. 
-    - Additionally, CSC as the data processor needs to maintain accurate records of processing activities. Please contact us at servidesk@csc.fi (subject: sensitive data) to report international data transfers (this also includes **adding collaborators affiliated to an international organization as a member of a CSC project**). 
-
 ### Share ID
 
 With SD Connect, you can share folders across different CSC projects. To initiate the sharing process, you need to know what is the Share ID—a 32-digit code associated with the recipient CSC project.  The recipient can copy the Share ID from the SD Connect user interface (top left cornet) and provide it to you via email. You can share a folder with multiple CSC projects by entering their respective Share IDs in the dedicated window.
