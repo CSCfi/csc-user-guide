@@ -15,7 +15,7 @@ Content:
   
 - [Data upload](../../data/sensitive-data/sd-connect-beta.md#data-uplaod)
 
-- [Data download](../../data/sensitive-data/sd-connect-beta.md#data-downlaod)
+- [Data download](../../data/sensitive-data/sd-connect-beta.md#data-download)
   
 - [Data sharing (read only, for transfer or collection)](../../data/sensitive-data/sd-connect-beta.md#data-sharing)
 
