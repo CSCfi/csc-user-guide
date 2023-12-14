@@ -1,6 +1,6 @@
 # Uploading and encrypting data
 
-Your data is always automatically encrypted when you upload data to SD Connect. 
+Your data is always automatically encrypted when you upload data to SD Connect. More information about encryption (link)
 
 To upload and encrypt files with SD Connect to a new folder, follow these steps:
 
