@@ -1,5 +1,7 @@
 # Uploading and encrypting data
 
+Your data is always automatically encrypted when you upload data to SD Connect. 
+
 To upload and encrypt files with SD Connect to a new folder, follow these steps:
 
 1) Log in and select the correct CSC project in the top left corner.
