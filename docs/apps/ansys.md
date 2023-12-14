@@ -10,9 +10,11 @@ ANSYS offers a comprehensive software suite that spans the entire range of physi
 
 AAESS products are proprietary software. CSC - IT Center for Science Ltd. has these licenses available on CSC's server platforms. The licenses are only for academic use. See about use limitations from link given below (Ansys Academic - Terms and Conditions), and there, LICENSING AND TERM OF USE.
 
+ANSYS products are possible to use also commercially on all the CSC's platforms mentioned below.  This is possible by using a "pay-per-use" licensing system called ([Ansys Elastic Currency (AEC)](https://www.ansys.com/it-solutions/licensing)).  Usage of AEC licensing method on the CSC's platforms always requires user's private installation of ANSYS products, and therefore does not follow the use instructions given below.  If you want to use AEC licensing, please send an inquiry to servicedesk@csc.fi.
+
 ## Available
 
-CSC's AAESS product licenses are available on CSC's computing platforms [Puhti and Mahti](../computing/available-systems.md) for analysis runs only. Additionally, on Mahti only CFD modules (Fluent and CFX) are available.  Latest AAESS products will be available on the servers, and earlier versions installation is also possible.  All installed versions are maintained on the servers.  
+CSC's AAESS product licenses are available on CSC's computing platforms [Puhti, Mahti and LUMI](../computing/available-systems.md) for analysis runs only. Additionally, on Mahti and LUMI, only CFD modules (Fluent and CFX) are available.  Latest AAESS products will be available on the servers, and earlier versions installation is also possible.  All installed versions are maintained on the servers.  
 
 ## Usage
 
@@ -20,25 +22,36 @@ After login on the server, make sure that you have transferred all your input fi
 
 For to find out which versions of ANSYS are installed on the server, give command
 
-    module available
+    module spider ansys
 
-and check lines *ansys/(version number)*. For example to load Ansys version 2022R2, give command
+On LUMI, you need to first load the module environment
 
-    module load ansys/2022R2
+    module use /appl/local/csc/modulefiles
+    module spider ansys
 
-There are examples of **batch job files** available on Puhti and Mahti servers.  On Mahti, only for CFD computations:
+For example to load Ansys version 2023R2, give command
+
+    module load ansys/2023R2
+
+There are examples of **batch job files** available on the servers.  On Mahti and LUMI, only for CFD computations:
 
     Ansys CFX:        /appl/soft/eng/ansys_inc/example_batch_job_files/parjob_cfx
 
     Ansys Fluent:     /appl/soft/eng/ansys_inc/example_batch_job_files/parjob_fluent
 
+    Ansys Fluent (LUMI): /pfs/lustrep3/appl/local/csc/soft/eng/ansys_inc/example_batch_job_files/parjob_fluent
+
     Ansys Structural: /appl/soft/eng/ansys_inc/example_batch_job_files/parjob_struct  (only on Puhti)
 
 Copy those files and modify them for your own use. Further instructions are given in the files.
 
-Ansys Fluent input files for the example batch job are in the folder:
+Ansys Fluent input files for the example batch job are in the folder (Mahti and Puhti):
  
     /appl/soft/eng/ansys_inc/example_case_files/aircraft_wing/
+
+and on LUMI
+
+    /pfs/lustrep3/appl/local/csc/soft/eng/ansys_inc/example_case_file/aircraft_wing/
     
 Notice.  Ansys Structural modules are available only on Puhti server.
 
@@ -51,5 +64,5 @@ In problem situation, send an email to servicedesk@csc.fi.
 * [Ansys Inc.](https://www.ansys.com/)
 * [Ansys Academic - Terms and Conditions](https://www.ansys.com/academic/terms-and-conditions)
 * [Ansys Academic product reference table](https://www.ansys.com/content/dam/product/academic/academic-product-reference-table-2021-r1.pdf)
-
+* [Ansys Elastic Currency (AEC) licensing](https://www.ansys.com/it-solutions/licensing)
 
