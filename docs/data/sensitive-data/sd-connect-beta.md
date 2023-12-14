@@ -9,7 +9,7 @@ Content:
 
 - [Overview updates](../../data/sensitive-data/sd-connect-beta.md#overview-updates)
 
-- [Service access via MyCSC|(../../data/sensitive-data/sd-connect-beta.md#service-access-via-mycsc)
+- [Service access via MyCSC](../../data/sensitive-data/sd-connect-beta.md#service-access-via-mycsc)
   
 - [Login](../../data/sensitive-data/sd-connect-beta.md#login)
   
