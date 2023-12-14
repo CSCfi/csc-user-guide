@@ -13,7 +13,7 @@ Content:
   
 - [Login](../../data/sensitive-data/sd-connect-beta.md#login)
   
-- [Data upload](../../data/sensitive-data/sd-connect-beta.md#data-uplaod)
+- [Data upload](../../data/sensitive-data/sd-connect-beta.md#data-upload)
 
 - [Data download](../../data/sensitive-data/sd-connect-beta.md#data-download)
   
