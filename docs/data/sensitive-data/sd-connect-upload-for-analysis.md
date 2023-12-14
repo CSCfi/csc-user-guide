@@ -1,6 +1,6 @@
 # Uploading and encrypting data
 
-Your data is automatically encrypted when you upload data to SD Connect. It is suitable for all file types and formats (size of files > 100GB). More information about encryption (link)
+Your data is automatically encrypted when you upload data to SD Connect. This is suitable for all file types and formats (size of files > 100GB). More information about encryption (link)
 
 **Upload and encrypt files to a new folder**
 
