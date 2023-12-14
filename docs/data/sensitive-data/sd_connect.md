@@ -2,7 +2,7 @@
 
 ## Overview
 
-Sensitive Data (SD) Connect allows you to store sensitive research data. You can easily upload and encrypt files. SD Connect serves as a workspace for collaborative research projects, facilitating data collection and sharing. Encrypted files stored in SD Connect are directly available for analysis, annotiation or editing via SD Desktop. 
+Sensitive Data (SD) Connect allows you to store and share sensitive research data. SD Connect serves as a workspace for collaborative research projects, facilitating data collection and sharing. Encrypted files stored in SD Connect are directly available for analysis, annotiation or editing via SD Desktop. 
 
 
 ## Key features
