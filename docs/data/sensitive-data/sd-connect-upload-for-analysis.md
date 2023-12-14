@@ -16,7 +16,7 @@ To add files to an existing folder, simply access the correct folder (double-cli
 
 Note
 
-All members within the same CSC project can download decrypted data stored in SD Connect (Beta). However, this capability can be limited by sharing files in read-only mode. Please check the following paragraph for more details.
+All members within the same CSC project can download and decrypt data stored in SD Connect. However, this capability can be limited by sharing files in read-only mode. Please check the following paragraph for more details.
 
 Additional considerations:
 
