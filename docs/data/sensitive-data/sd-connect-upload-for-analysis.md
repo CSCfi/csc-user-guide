@@ -6,9 +6,11 @@ To upload and encrypt files with SD Connect to a new folder, follow these steps:
 
 2) Click Upload button in the top right corner.
 
-3) In the new window, name the destination folder for your files. Please note that folder names cannot be modified afterwards. Folder names must be unique across all existing folders in all projects in SD Connect and Allas (the cloud storage solution based on which SD Connect is developed). If you can't create a new folder, another project may already use the name you have chosen. To avoid this situation, it is good practice to include project-specific identifiers (e.g., project ID number or acronym) in the folder name. Avoid spaces and special characters; use Latin alphabets (a-z), numbers (0-9), dash (-), underscore (_), and dot (.). Remember, all folder names are public; please do not include any confidential information.
+3) In the new window, name the destination folder for your files. Please note that folder names cannot be modified afterwards.
+   - Folder names must be unique across all existing folders in all projects in SD Connect and Allas (the cloud storage solution based on which SD Connect is developed). If you can't create a new folder, another project may already use the name you have chosen. To avoid this situation, it is good practice to include project-specific identifiers (e.g., project ID number or acronym) in the folder name.
+   - Avoid spaces and special characters; use Latin alphabets (a-z), numbers (0-9), dash (-), underscore (_), and dot (.). Remember, all folder names are public; please do not include any confidential information.
 
-4) Click Select Files button to open a browser window and choose files for upload. If you want to upload folders, drag and drop them into the window. Click Upload button to start automatic encryption. Notification about status of upload will appear and be visible until the upload is completed. Notification also includes a link to the destination folder.
+5) Click Select Files button to open a browser window and choose files for upload. If you want to upload folders, drag and drop them into the window. Click Upload button to start automatic encryption. Notification about status of upload will appear and be visible until the upload is completed. Notification also includes a link to the destination folder.
 
 3) Once the upload is finished, the encrypted files are accessible for download via SD Connect or for analysis, editing, or annotation via SD Desktop.
 
