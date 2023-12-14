@@ -2,17 +2,17 @@
 
 To upload and encrypt files with SD Connect to a new folder, follow these steps:
 
-1) Select CSC Project: Log in and select the correct CSC project in the top left corner.
+1) Log in and select the correct CSC project in the top left corner.
 
-2) Start a new upload: Click the Upload button in the top right corner.
+2) Click the Upload button in the top right corner.
 
 Create a new folder: In the new window, name the destination folder for your files. Please note that folder names cannot be modified after creation. Folder names must be unique across all existing folders in all projects in SD Connect and Allas (the cloud storage solution based on which SD Connect is developed). If you can't create a new folder, another project may already use the name you desire. To avoid this situation, it is good practice to include project-specific identifiers (e.g., project ID number or acronym) in the folder name. Avoid spaces and special characters; use Latin alphabets (a-z), numbers (0-9), dash (-), underscore (_), and dot (.). Remember, all folder names are public; please do not include any confidential information.
 
 Select files to be uploaded: Click the Select Files button to open a browser window and choose files for upload. If you want to upload folders, drag and drop them into the window. Click the Upload button to initiate automatic encryption. Notifications about the upload status will be displayed and visible until the upload is completed. The notification also includes a link to the destination folder.
 
-Once the upload is finished, encrypted files are accessible for download via SD Connect or for analysis, editing, or annotation via the SD Desktop.
+3) Once the upload is finished, encrypted files are accessible for download via SD Connect or for analysis, editing, or annotation via the SD Desktop.
 
-To add files to an existing destination folder, simply access the folder (double-click on the correct folder) and click on Upload. The subsequent window will showcase the folder name, allowing you to proceed by clicking on Select Files.
+To add files to an existing folder, simply access the folder (double-click on the correct folder) and click on Upload button. In the new window proceed to Select Files.
 
 Note
 
