@@ -19,7 +19,6 @@ Content:
   
 - [Data sharing (read only, for transfer or collection)](../../data/sensitive-data/sd-connect-beta.md#data-sharing)
 
-- [Data Deletion](../../data/sensitive-data/sd-connect-beta.md#data-deletion)
   
 
 ### Overview updates: 
@@ -204,7 +203,6 @@ Now, the folder is visible within to the recipient CSC projects. Project members
 
 
 
-## Deleting encrypted files
 
 
 
