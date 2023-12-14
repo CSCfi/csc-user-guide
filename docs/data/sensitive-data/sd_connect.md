@@ -7,7 +7,9 @@ Sensitive Data (SD) Connect allows you to store and share sensitive research dat
 
 ## Key features
 
-* Accessible via web browser from your computer (Mac, Linux, or Windows) and any location (no need to install specific programs or use a VPN).
+* Modern user-friendly interface 
+
+* Use via web browser from your computer (Mac, Linux, or Windows) and from any location (no need to install specific programs or use a VPN).
 
 * Automated encryption and data upload via a web browser for small files (1<GB). Larger files (100<GB) can be encrypted using an application and uploaded to the web browser or programmatically (100>GB).
 
