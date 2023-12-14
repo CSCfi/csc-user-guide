@@ -1,42 +1,30 @@
-# Sensitive data encryption and upload for analysis (less than 1 GB) 
+# Uploading and encrypting data
 
-<iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/yAKtGs6FkMc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+To upload and encrypt files with SD Connect to a new folder, follow these steps:
 
-With SD Connect, you can encrypt and upload files or folders from your web browser (<1GB). Each file will be encrypted with the default automated option, uploaded, and safely stored in SD Connect and can be directly analyzed using SD Desktop. Please view the following paragraph for guidance on encrypting and uploading larger files. 
+1) Select CSC Project: Log in and select the correct CSC project in the top left corner.
 
-Automated encryption via SD Connect is suitable for any file type and format. However, uploading large files might take several hours, depending on the internet connection. Data upload will be interrupted after 8 hours. 
+2) Start a new upload: Click the Upload button in the top right corner.
 
-The necessary steps to automatically upload and encrypt small files are the following: 
+Create a new folder: In the new window, name the destination folder for your files. Please note that folder names cannot be modified after creation. Folder names must be unique across all existing folders in all projects in SD Connect and Allas (the cloud storage solution based on which SD Connect is developed). If you can't create a new folder, another project may already use the name you desire. To avoid this situation, it is good practice to include project-specific identifiers (e.g., project ID number or acronym) in the folder name. Avoid spaces and special characters; use Latin alphabets (a-z), numbers (0-9), dash (-), underscore (_), and dot (.). Remember, all folder names are public; please do not include any confidential information.
 
-1. From the SD Connect browser page, select the correct CSC project.
- 
-2. To upload folders, drag and drop them to the browser or click the _upload_ icon.
+Select files to be uploaded: Click the Select Files button to open a browser window and choose files for upload. If you want to upload folders, drag and drop them into the window. Click the Upload button to initiate automatic encryption. Notifications about the upload status will be displayed and visible until the upload is completed. The notification also includes a link to the destination folder.
 
-3. You will be redirected to a new page displaying the default encryption options. 
+Once the upload is finished, encrypted files are accessible for download via SD Connect or for analysis, editing, or annotation via the SD Desktop.
 
-4. You can specify the bucket's name to which the data should be uploaded. If you don't fill in a specific term, the user interface will automatically create a bucket named: `upload-nnn` (where `nnn` is replaced with a 13-digit number based on creation time). Note that it is not possible to rename buckets.
+To add files to an existing destination folder, simply access the folder (double-click on the correct folder) and click on Upload. The subsequent window will showcase the folder name, allowing you to proceed by clicking on Select Files.
 
-5. If you create a new bucket, use the following suggestions to name it:
+Note
 
-      * Bucket names must be unique across all existing buckets in all projects in SD-Connect and Allas. If you can't create a new bucket, some other project may already use the name you would like to use. To avoid this situation, it is good practice to include project-specific identifiers (e.g., project ID number or acronym) in the bucket names.  
-    
-     * Avoid using spaces and special characters in bucket names. Preferred characters are Latin alphabets (`a-z`), numbers (`0-9`), dash (`-`), underscore (`_`), and dot (`.`). SD Connect can also support other characters, but they may cause problems in other interfaces.
+All members within the same CSC project can download decrypted data stored in SD Connect (Beta). However, this capability can be limited by sharing files in read-only mode. Please check the following paragraph for more details.
 
-     * All bucket names are public, so please do not include any confidential information in the bucket names
+Additional considerations:
 
-6. Clicking on the icon _Select files for Upload_, you will open a browser window in which you can select and add more files. 
+SD Connect offers automated encryption/description and key management for all file types and formats (> 100GB). Uploading large or numerous files may take several hours, depending on the internet speed. Note that ongoing uploads will be automatically stopped after 8 hours.
 
-7.  Next, click on _Encrypt and Upload_: each file will be automatically encrypted and uploaded to the bucket in SD Connect. The upload bar will display the state of data encryption and upload. 
+SD Connect user interface visualises the destination folders where your encrypted data is stored. Think of the destination folder like a virtual box on the internet where you keep your digital files—like photos or documents. You cannot change the destination folder name and you can't edit files directly through the user interface, but editing is only possible after downloading on your laptop or by accessing the files and making a copy via SD Desktop.
 
-8. Once the process is completed, you can return to the SD Connect browser page by clicking on _Browser_. The encrypted files will be displayed in the correct bucket, in a default folder called DATA, and each encrypted file will have the extension `.c4gh`. 
-
-9. Encrypted files are now available for data analysis, editing or annotation via the SD Desktop service. 
-
-!!! Note
-    Due to a technical issue, buckets containing encrypted files might look empty (white) after data upload. This problem can be solved by clearing the browser cookies. 
-
-[![SDConnect-upload](images/connect/SDConnect-upload.png)](images/connect/SDConnect-upload.png)
-
+Planning how to organise your files in SD Connect destination folders is a crucial step for efficient data management. Carefully consider storing the files based on projects, themes, or logical structures to enhance accessibility and streamline workflow. A well-thought-out folder structure also facilitates collaboration when sharing access with others. If you have questions or need assistance, don't hesitate to contact our service desk (servicedesk@csc.fi, subject: sensitive data).
 ## Sensitive data encryption and upload for analysis (up to 100 GB) 
 
 As the workflow described above is still being developed, files up to 100 GB can be encrypted with an additional step with an application called Crypt4GH. Encrypted files can then be uploaded to CSC using SD Connect (via a web browser) and directly analysed using SD Desktop. This method is suitable for any file type and format. 
