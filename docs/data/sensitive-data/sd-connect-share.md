@@ -14,7 +14,9 @@ Permission levels are read-only access, data transfer, and data collection. Plea
 
     For project managers
     
-**Use case example:** A research team (recipient project B) needs access to specific data for reference and analysis, but the data owner (project A) wants to restrict their ability download a copy of the data directly. Project A shares the data folder with read-only access using SD Connect, ensuring that project B members can view and analyse the information via SD Desktop, without downloading a copy of the original data.
+!!!Note
+
+    **Use case example:** A research team (recipient project B) needs access to specific data for reference and analysis, but the data owner (project A) wants to restrict their ability download a copy of the data directly. Project A shares the data folder with read-only access using SD Connect, ensuring that project B members can view and analyse the information via SD Desktop, without downloading a copy of the original data.
 
 1. Log in to MyCSC.
 2. Create a CSC project (referred to as Project A) and enable service access for SD Connect. Do not add any project members. (link)
