@@ -31,10 +31,10 @@ Upload and encrypting less than 100 GB
 Members in the same CSC project can download and decrypt data from SD Connect. This can be limited by sharing files in read-only mode. More information about read-only mode (link)
 
 
-!!! success "Additional consideration"
+#### Additional considerations
 
-      - Uploading large or numerous files may take several hours depending on the internet speed. Note that upload will be automatically stopped after 8 hours.
-      - SD Connect user interface visualises the destination folders where your encrypted data is stored. Think of the destination folder like a virtual box on the internet where you keep your digital files—like photos or documents.
-      - You can't edit files directly in SD Connect. Editing is possible after downloading files on your laptop or by accessing the files via SD Desktop.
-      - Planning how to organise your files in SD Connect  folders is a crucial step for efficient data management. Carefully consider storing the files based on projects, themes, or logical structures to enhance accessibility and streamline workflow. A well-thought-out folder structure also facilitates collaboration when sharing access with others. If you have questions or need assistance, don't hesitate to contact our service desk (servicedesk@csc.fi, subject: sensitive data).
+- Uploading large or numerous files may take several hours depending on the internet speed. Note that upload will be automatically stopped after 8 hours.
+- SD Connect user interface visualises the destination folders where your encrypted data is stored. Think of the destination folder like a virtual box on the internet where you keep your digital files—like photos or documents.
+- You can't edit files directly in SD Connect. Editing is possible after downloading files on your laptop or by accessing the files via SD Desktop.
+- Planning how to organise your files in SD Connect  folders is a crucial step for efficient data management. Carefully consider storing the files based on projects, themes, or logical structures to enhance accessibility and streamline workflow. A well-thought-out folder structure also facilitates collaboration when sharing access with others. If you have questions or need assistance, don't hesitate to contact our service desk (servicedesk@csc.fi, subject: sensitive data).
 
