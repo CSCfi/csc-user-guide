@@ -8,8 +8,10 @@ Upload and encrypting less than 100 GB
 1. Log in to SD Connect.
 2. Select the correct CSC project in the top left corner.
 3. Click **Upload** in the top right corner.
-4. In the new window, name the destination folder for your files. 
-
+4. In the new window, name the destination folder for your files.
+5. Click **Select Files** to open a browser window and choose files for upload. If you want to upload folders, drag and drop them into the window. Click **Upload** to start automatic encryption and upload.
+6. Notification about the status of upload will appear and be visible until the upload is completed. Notification also includes a link to the destination folder.
+7. Once the upload is finished, the encrypted files are accessible for downloading and sharing via SD Connect or for analysis, editing or annotation via SD Desktop.
 
 !!! success "Folder names"
 
@@ -17,21 +19,17 @@ Upload and encrypting less than 100 GB
          - Avoid spaces and special characters; use Latin alphabets (a-z), numbers (0-9), dash (-), underscore (_), and dot (.). Remember, all folder names are public; please do not include any confidential information.
          - Folder names can't be modified afterwards.
 
-       
-         
-
-6. Click **Select Files** to open a browser window and choose files for upload. If you want to upload folders, drag and drop them into the window. Click **Upload** to start automatic encryption and upload.
-7. Notification about the status of upload will appear and be visible until the upload is completed. Notification also includes a link to the destination folder.
-8. Once the upload is finished, the encrypted files are accessible for downloading and sharing via SD Connect or for analysis, editing or annotation via SD Desktop.
 
 ### Upload and encrypt files to an existing folder
 
 1. Select the correct folder (by double-click).
 2. Click **Upload** in the top right corner and follow steps from 4 to 6 in above paragraph (link).
 
-Note
+
+!!! note ""
 
 Members in the same CSC project can download and decrypt data from SD Connect. This can be limited by sharing files in read-only mode. More information about read-only mode (link)
+
 
 !!! success "Additional consideration"
 
