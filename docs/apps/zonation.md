@@ -12,7 +12,7 @@ tags:
 
 __Zonation__ is available in Puhti with following versions:
 
-* 5.0.0 (including Graphical User Interface)
+* 5.1.0 (including Graphical User Interface)
 
 
 ## Usage
@@ -82,9 +82,9 @@ As an example, you can write "The authors wish to thank CSC - IT Center for Scie
 
 ## Installation
 
-Zonation was installed to Puhti with Apptainer using [Zonation Apptainer definition file written by CSC](https://raw.githubusercontent.com/CSCfi/singularity-recipes/main/zonation/zonation5.def). 
+Zonation was installed to Puhti with Apptainer using [Zonation Apptainer definition file written by Pauli Lehtinen from University of Helsinki](https://raw.githubusercontent.com/CSCfi/singularity-recipes/main/zonation/zonation5.def). 
 
-The container was finally wrapped with [Tykky's wrap-container functionality](../computing/containers/tykky.md#container-based-installations): `wrap-container -w /usr/bin/z5 --prefix install_dir z5.sif`
+The container was finally wrapped with [Tykky's wrap-container functionality](../computing/containers/tykky.md#container-based-installations): `wrap-container -w /squashfs-root/usr/bin/z5 --prefix install_dir z5.sif`
 
 
 ## References
