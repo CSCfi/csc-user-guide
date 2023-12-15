@@ -19,7 +19,7 @@ Permission levels are read-only access, data transfer, and data collection. Plea
 4. Log in to SD Connect.
 5. Choose CSC project A in the top left corner.
 6. Upload data you want to share to a folder (link) and click **Share**.
-7. In the new window, input the Share ID of Recipient Project B and select the permission level **Share via SD Desktop only**. Click **Share**.
+7. In the new window, input the **Share ID of recipient** Project B and select the permission level **Share via SD Desktop only**. Click **Share**.
 8. Now, all the content within the folder is visible within Project B and accessible only through SD Desktop. Project members can access and analyse the shared folder content via the virtual desktop. However, they cannot export or download files, as all data exports are managed directly by the project manager.
 
 Please contact us at servicedesk@csc.fi to discuss this option before proceeding.
