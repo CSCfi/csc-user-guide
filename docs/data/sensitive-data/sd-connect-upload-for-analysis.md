@@ -1,8 +1,8 @@
 # Uploading and encrypting data 
 
-## File size less than 100 GB
+Your data is automatically encrypted when you upload data to SD Connect. This is suitable for all file types and formats. More information about encryption (link)
 
-Your data is automatically encrypted when you upload data to SD Connect. This is suitable for all file types and formats (size of files > 100GB). More information about encryption (link)
+## File size less than 100 GB
 
 **Upload and encrypt files to a new folder**
 
@@ -40,8 +40,6 @@ Members in the same CSC project can download and decrypt data from SD Connect. T
       - SD Connect user interface visualises the destination folders where your encrypted data is stored. Think of the destination folder like a virtual box on the internet where you keep your digital files—like photos or documents.
       - You can't edit files directly in SD Connect. Editing is possible after downloading files on your laptop or by accessing the files via SD Desktop.
       - Planning how to organise your files in SD Connect  folders is a crucial step for efficient data management. Carefully consider storing the files based on projects, themes, or logical structures to enhance accessibility and streamline workflow. A well-thought-out folder structure also facilitates collaboration when sharing access with others. If you have questions or need assistance, don't hesitate to contact our service desk (servicedesk@csc.fi, subject: sensitive data).
-
-
 
 
 
