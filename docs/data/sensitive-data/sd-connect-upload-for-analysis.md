@@ -6,7 +6,7 @@ Your data is automatically encrypted when you upload data to SD Connect. This is
 
 1. Log in and select the correct CSC project in the top left corner.
 
-2. Click Upload button in the top right corner.
+2. Click **Upload** in the top right corner.
 
 3. In the new window, name the destination folder for your files. 
 
@@ -16,7 +16,7 @@ Your data is automatically encrypted when you upload data to SD Connect. This is
          - Avoid spaces and special characters; use Latin alphabets (a-z), numbers (0-9), dash (-), underscore (_), and dot (.). Remember, all folder names are public; please do not include any confidential information.
          - Folder names can't be modified afterwards.
 
-4. Click Select Files button to open a browser window and choose files for upload. If you want to upload folders, drag and drop them into the window. Click Upload button to start automatic encryption and upload.
+4. Click **Select Files** to open a browser window and choose files for upload. If you want to upload folders, drag and drop them into the window. Click **Upload** to start automatic encryption and upload.
 
 5. Notification about the status of upload will appear and be visible until the upload is completed. Notification also includes a link to the destination folder.
 
@@ -24,9 +24,9 @@ Your data is automatically encrypted when you upload data to SD Connect. This is
 
 **Upload and encrypt files to an existing folder**
 
-1. Select the correct folder (by double-click) and then click Upload button.
+1. Select the correct folder (by double-click).
 
-2. Click Upload button in the top right corner and follow steps from 4 to 6 in above paragraph (link).
+2. Click **Upload** in the top right corner and follow steps from 4 to 6 in above paragraph (link).
 
 Note
 
@@ -68,5 +68,5 @@ As the workflow described above is still being developed, files up to 100 GB can
 5. The Crypt4GH application will create an encrypted file in the same folder as the original file, with the extension being `.c4gh`. For example, encrypting the file `my_data1.csv` will produce a new encrypted file named `my_data.csv.c4gh`. Unfortunately, the Cryp4GH application does not provide a progress bar, and the encryption process can last up to several minutes.
 [![SDConnect-cryp4ghapplication](images/connect/connect_encryption_large.png)](images/connect/connect_encryption_large.png)
 
-8. Now, you can upload the encrypted file (or a folder containing encrypted data) to SD Connect. Follow steps in above paragraph (link).
+8. Now you can upload the encrypted file (or a folder containing encrypted data) to SD Connect. Follow steps in above paragraph (link).
 
