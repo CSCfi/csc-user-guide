@@ -10,7 +10,7 @@ Permission levels are read-only access, data transfer, and data collection. Plea
 
 ### Read only-access
 
-**Use case example:** A research team (recipient project B) needs access to specific data for reference and analysis, but the data owner (Project A) wants to restrict their ability download a copy of the data directly. Project A shares the data folder with read-only access using SD Connect (Beta), ensuring that Project B members can view and analyse the information via SD Desktop, without downloading a copy of the original data.
+**Use case example:** A research team (recipient project B) needs access to specific data for reference and analysis, but the data owner (project A) wants to restrict their ability download a copy of the data directly. Project A shares the data folder with read-only access using SD Connect, ensuring that project B members can view and analyse the information via SD Desktop, without downloading a copy of the original data.
 
 
 1. Log in to MyCSC.
@@ -19,8 +19,8 @@ Permission levels are read-only access, data transfer, and data collection. Plea
 4. Log in to SD Connect.
 5. Choose CSC project A in the top left corner.
 6. Upload data you want to share to a folder (link) and click **Share**.
-7. In the new window, input the Share ID of recipient Project B and select the permission level **Share via SD Desktop only**. Click **Share**.
-8. Now, all the content within the folder is visible within Project B and accessible only through SD Desktop. Project members can access and analyse the shared folder content via the virtual desktop. However, they cannot export or download files, as all data exports are managed directly by the project manager.
+7. In the new window, input the Share ID of recipient project B and select the permission level **Share via SD Desktop only**. Click **Share**.
+8. Now, all the content within the folder is visible within project B and accessible only through SD Desktop. Project members can access and analyse the shared folder content via the virtual desktop. However, they cannot export or download files, as all data exports are managed directly by the project manager.
 
 Please contact us at servicedesk@csc.fi to discuss this option before proceeding.
 
