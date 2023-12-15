@@ -1,4 +1,6 @@
-# Uploading and encrypting data
+# Uploading and encrypting data 
+
+## File size less than 100 GB
 
 Your data is automatically encrypted when you upload data to SD Connect. This is suitable for all file types and formats (size of files > 100GB). More information about encryption (link)
 
@@ -44,7 +46,7 @@ Members in the same CSC project can download and decrypt data from SD Connect. T
 
 
 
-## Sensitive data encryption and upload for analysis (up to 100 GB) 
+## File size more than 100 GB
 
 As the workflow described above is still being developed, files up to 100 GB can be encrypted with an additional step with an application called Crypt4GH. Encrypted files can then be uploaded to CSC using SD Connect (via a web browser) and directly analysed using SD Desktop. This method is suitable for any file type and format. 
 
