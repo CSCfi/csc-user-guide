@@ -26,10 +26,8 @@ Upload and encrypting less than 100 GB
 2. Click **Upload** in the top right corner and follow steps from 4 to 6 in above paragraph (link).
 
 
-!!! note ""
+!!! Note
     Members in the same CSC project can download and decrypt data from SD Connect. This can be limited by sharing files in read-only mode. More information about read-only mode (link).
-
-
 
 
 #### Additional considerations
