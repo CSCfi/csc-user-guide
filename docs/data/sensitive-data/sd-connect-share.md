@@ -18,10 +18,21 @@ Permission levels are read-only access, data transfer, and data collection. Plea
 3. Create a second CSC project (referred to as Recipient Project B), enable service access for both SD Connect and SD Desktop, and add the project members.
 4. Log in to SD Connect.
 5. Choose CSC project A in the top left corner.
-6. Upload data you want to share to a folder (link) and click **Share**.
+6. Upload data you want to share to a folder (link) and click **Share** on the same row or click **Edit sharing** if you have the folder open. 
 7. In the new window, input the Share ID of recipient project B and select the permission level **Share via SD Desktop only**. Click **Share**.
 8. Now, all the content within the folder is visible within project B and accessible only through SD Desktop. Project members can access and analyse the shared folder content via the virtual desktop. However, they cannot export or download files, as all data exports are managed directly by the project manager.
 
 Please contact us at servicedesk@csc.fi to discuss this option before proceeding.
+
+
+### Data transfer
+
+**Use case example:** A project team (project A) has valuable datasets that another team (recipient project B) needs for analysis. Project A shares the relevant data folder with the recipient project with make a copy permission, granting them the ability to make a copy. This allows the recipient project members to download a copy of data, ensuring they have their own working copy for analysis without affecting the original dataset.
+
+1. Log in to SD Connect.
+2. Choose project A in the top left corner.
+3. Share folder: In the All folders tab, find the correct folder and on the same row (right-side), click on Share. In the new window, input the Share ID of recipient project and select the permission level: make a copy. Click on Share to proceed.
+4. Now, all the content within the folder is visible within to the recipient CSC projects. All project members can copy, download, and decrypt the folder's content through SD Connect. Additionally, they can access it via SD Desktop for analysis.
+
 
 
