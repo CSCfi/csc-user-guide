@@ -4,7 +4,7 @@ Your data is automatically encrypted when you upload data to SD Connect. This is
 
 ## File size less than 100 GB
 
-# Upload and encrypt files to a new folder
+### Upload and encrypt files to a new folder
 
 1. Log in and select the correct CSC project in the top left corner.
 
@@ -24,7 +24,7 @@ Your data is automatically encrypted when you upload data to SD Connect. This is
 
 6. Once the upload is finished, the encrypted files are accessible for downloading and sharing via SD Connect or for analysis, editing or annotation via SD Desktop.
 
-# Upload and encrypt files to an existing folder
+### Upload and encrypt files to an existing folder
 
 1. Select the correct folder (by double-click).
 
