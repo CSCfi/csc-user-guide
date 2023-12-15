@@ -365,8 +365,8 @@ nav:
         - Store with SD Connect: 
             - data/sensitive-data/sd_connect.md
             - Login to SD Connect: data/sensitive-data/sd-connect-login.md
-            - Data upload for analysis: data/sensitive-data/sd-connect-upload-for-analysis.md
-            - Data upload for storage and sharing: data/sensitive-data/sd-connect-upload-for-storage-and-sharing.md
+            - Upload: data/sensitive-data/sd-connect-upload.md
+            - Share: data/sensitive-data/sd-connect-share.md
             - Command line interface: data/sensitive-data/sd-connect-command-line-interface.md
             - Information about data encryption: data/sensitive-data/sd-connect-introduction-to-data-encryption.md
             - Troubleshooting: data/sensitive-data/sd-connect-troubleshooting.md
