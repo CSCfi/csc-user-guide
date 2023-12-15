@@ -4,11 +4,11 @@ Your data is automatically encrypted when you upload data to SD Connect. This is
 
 **Upload and encrypt files to a new folder**
 
-1) Log in and select the correct CSC project in the top left corner.
+1. Log in and select the correct CSC project in the top left corner.
 
-2) Click Upload button in the top right corner.
+2. Click Upload button in the top right corner.
 
-3) In the new window, name the destination folder for your files. 
+3. In the new window, name the destination folder for your files. 
 
    !!! info "Folder names"
        
@@ -16,17 +16,17 @@ Your data is automatically encrypted when you upload data to SD Connect. This is
          - Avoid spaces and special characters; use Latin alphabets (a-z), numbers (0-9), dash (-), underscore (_), and dot (.). Remember, all folder names are public; please do not include any confidential information.
          - Folder names can't be modified afterwards.
 
-5) Click Select Files button to open a browser window and choose files for upload. If you want to upload folders, drag and drop them into the window. Click Upload button to start automatic encryption and upload.
+4. Click Select Files button to open a browser window and choose files for upload. If you want to upload folders, drag and drop them into the window. Click Upload button to start automatic encryption and upload.
 
-6) Notification about the status of upload will appear and be visible until the upload is completed. Notification also includes a link to the destination folder.
+5. Notification about the status of upload will appear and be visible until the upload is completed. Notification also includes a link to the destination folder.
 
-6) Once the upload is finished, the encrypted files are accessible for downloading and sharing via SD Connect or for analysis, editing or annotation via SD Desktop.
+6. Once the upload is finished, the encrypted files are accessible for downloading and sharing via SD Connect or for analysis, editing or annotation via SD Desktop.
 
 **Upload and encrypt files to an existing folder**
 
-1) Select the correct folder (by double-click) and then click Upload button.
+1. Select the correct folder (by double-click) and then click Upload button.
 
-2) In the new window select files to be uploaded.
+2. Follow steps from 4 to 6 in above paragraph (link).
 
 Note
 
@@ -68,16 +68,8 @@ The necessary steps for encryption with Cryp4GH application and upload with SD C
 
 4. Click on _Open_. The file name will be displayed under _File to encrypt_. Next, press on _Encrypt_.
 
-5. The Cryot4GH application will create an encrypted file in the same folder as the original file, with the extension being `.c4gh`. For example, encrypting the file `my_data1.csv` will produce a new, encrypted file named `my_data.csv.c4gh`. Unfortunately, the Cryp4GH application does not provide a progress bar, and the encryption process can last up to several minutes.
+5. The Crypt4GH application will create an encrypted file in the same folder as the original file, with the extension being `.c4gh`. For example, encrypting the file `my_data1.csv` will produce a new, encrypted file named `my_data.csv.c4gh`. Unfortunately, the Cryp4GH application does not provide a progress bar, and the encryption process can last up to several minutes.
 [![SDConnect-cryp4ghapplication](images/connect/connect_encryption_large.png)](images/connect/connect_encryption_large.png)
 
-6. Now, you can upload the encrypted file (or a folder containing encrypted data) to SD Connect using the drag-and-drop function.
+6. Now, you can upload the encrypted file (or a folder containing encrypted data) to SD Connect. Follow steps in above paragraph (link)
 
-7. Next, you will be redirected to a new page. Here deselect the option: _Encrypt file before Upload._
-
-8. Next, you can specify the bucket name to which the data should be uploaded. If you don't fill in a specific name, the user interface will automatically create a bucket named: `upload-nnn` (where `nnn` is replaced with a 13-digit number based on creation time). Note that it is not possible to rename buckets.
-If you create a new bucket, use the following suggestions to name it. Bucket names must be unique across all existing buckets in all projects in SD-Connect and Allas. If you can't create a new bucket, some other projects may already use the name you want to use. To avoid this situation, it is good practice to include project-specific identifiers (e.g. project ID number or acronym) in the bucket names. Avoid using spaces and special characters in bucket names. Preferred characters are Latin alphabets (`a-z`), numbers (`0-9`), dash (`-`), underscore (`_`), and dot (`.`). SD Connect can also support other characters, but they may cause problems in other interfaces. All bucket names are public, so please do not include any confidential information in the bucket names.
-
-9. Next, click on _Upload_. A progress bar will visualize the upload's status. Once the process is completed, you can return to the SD Connect browser window, open the bucket and visualize the encrypted file, here named `.c4hg`.
-
-[![SDConnect-upload-encrypted](images/connect/connect_encryption_large_upload.png)](images/connect/connect_encryption_large_upload.png)
