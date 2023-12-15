@@ -27,6 +27,7 @@ Upload and encrypting less than 100 GB
 
 
 !!! warning ""
+    
     Members in the same CSC project can download and decrypt data from SD Connect. This can be limited by sharing files in read-only mode. More information about read-only mode (link).
 
 
