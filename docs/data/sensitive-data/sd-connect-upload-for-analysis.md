@@ -59,14 +59,14 @@ As the workflow described above is still being developed, files up to 100 GB can
 
       * [Linux](https://github.com/CSCfi/crypt4gh-gui/releases/download/v1.3.0/crypt4gh-gui-python3.10-linux-amd64.zip)
 
-2. After downloading and unzipping the Crypt4GH application, you can find it in your downloads folder. When you open it, you might encounter an error message. In this case, click on _More info_ and verify that the publisher is CSC-IT Center for Science (or in Finnish CSC-Tieteen tietotekniikan keskus Oy) and click on _Run anyway_.
+2. After downloading and unzipping the Crypt4GH application, you can find it in your downloads folder. When you open it, you might encounter an error message. In this case, click **More info** and verify that the publisher is CSC-IT Center for Science (or in Finnish CSC-Tieteen tietotekniikan keskus Oy) and click **Run anyway**.
 
-3. Open the Crypt4GH application and press _Select File_. Select the file that needs to be encrypted. Click on _Open_.   
+3. Open the Crypt4GH application and click Select file button. Select the file that needs to be encrypted from the browser window and click **Open**.
 
-4. The file name will be displayed under _File to encrypt_. Click on _Encrypt_.
+4. The file name will be displayed under File to encrypt. Click **Encrypt**.
 
 5. The Crypt4GH application will create an encrypted file in the same folder as the original file, with the extension being `.c4gh`. For example, encrypting the file `my_data1.csv` will produce a new encrypted file named `my_data.csv.c4gh`. Unfortunately, the Cryp4GH application does not provide a progress bar, and the encryption process can last up to several minutes.
 [![SDConnect-cryp4ghapplication](images/connect/connect_encryption_large.png)](images/connect/connect_encryption_large.png)
 
-6. Now, you can upload the encrypted file (or a folder containing encrypted data) to SD Connect. Follow steps in above paragraph (link)
+8. Now, you can upload the encrypted file (or a folder containing encrypted data) to SD Connect. Follow steps in above paragraph (link).
 
