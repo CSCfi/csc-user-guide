@@ -54,7 +54,7 @@ As the workflow described above is still being developed, files up to 100 GB can
 
 The necessary steps for encryption with Cryp4GH application and upload with SD Connect are the following: 
 
-1. First, download the encryption application specific to your operating system from the [GitHub repository](https://github.com/CSCfi/crypt4gh-gui):
+1. Download the encryption application specific to your operating system from the [GitHub repository](https://github.com/CSCfi/crypt4gh-gui):
 
       * [Mac](https://github.com/CSCfi/crypt4gh-gui/releases/download/v1.3.0/crypt4gh-gui-python3.10-macos-amd64.zip)
 
@@ -62,13 +62,13 @@ The necessary steps for encryption with Cryp4GH application and upload with SD C
 
       * [Linux](https://github.com/CSCfi/crypt4gh-gui/releases/download/v1.3.0/crypt4gh-gui-python3.10-linux-amd64.zip)
 
-2. After downloading and unzipping the Crypt4GH application, you can find it in your download folder. When you open it, you might encounter an error message. In this case, click on _More info_ and verify that the publisher is CSC-IT Center for Science (or in Finnish CSC-Tieteen tietotekniikan keskus Oy) and click on _Run anyway_.
+2. After downloading and unzipping the Crypt4GH application, you can find it in your downloads folder. When you open it, you might encounter an error message. In this case, click on _More info_ and verify that the publisher is CSC-IT Center for Science (or in Finnish CSC-Tieteen tietotekniikan keskus Oy) and click on _Run anyway_.
 
-3. Open the Crypt4GH application and press _Select File_. This will allow you to access a small browser that you can use to select the File that needs to be encrypted.  
+3. Open the Crypt4GH application and press _Select File_. Select the file that needs to be encrypted. Click on _Open_.   
 
-4. Click on _Open_. The file name will be displayed under _File to encrypt_. Next, press on _Encrypt_.
+4. The file name will be displayed under _File to encrypt_. Click on _Encrypt_.
 
-5. The Crypt4GH application will create an encrypted file in the same folder as the original file, with the extension being `.c4gh`. For example, encrypting the file `my_data1.csv` will produce a new, encrypted file named `my_data.csv.c4gh`. Unfortunately, the Cryp4GH application does not provide a progress bar, and the encryption process can last up to several minutes.
+5. The Crypt4GH application will create an encrypted file in the same folder as the original file, with the extension being `.c4gh`. For example, encrypting the file `my_data1.csv` will produce a new encrypted file named `my_data.csv.c4gh`. Unfortunately, the Cryp4GH application does not provide a progress bar, and the encryption process can last up to several minutes.
 [![SDConnect-cryp4ghapplication](images/connect/connect_encryption_large.png)](images/connect/connect_encryption_large.png)
 
 6. Now, you can upload the encrypted file (or a folder containing encrypted data) to SD Connect. Follow steps in above paragraph (link)
