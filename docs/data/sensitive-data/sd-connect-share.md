@@ -23,9 +23,10 @@ Permission levels are read-only access, data transfer, and data collection. Plea
 5. Choose CSC project B in the top left corner.
 6. Copy project B Share ID by clicking **Copy Share ID** next to the project number.
 7. Choose CSC project A in the top left corner.
-8. Upload data you want to share to a folder (link), locate folder's row and click **Share** on the same row or click **Edit sharing** if you have the folder open. 
-9. In the new window, input the Share ID of recipient project B and select the permission level **Share via SD Desktop only**. Click **Share**.
-10. Now, all the content within the folder is visible within project B and accessible only through SD Desktop. Project members can access and analyse the shared folder content via the virtual desktop. However, they cannot export or download files, as all data exports are managed directly by the project manager.
+8. Upload data you want to share to a folder (link).
+9. In the All folders tab, find the correct folder and on the same row on the right, click **Share**.
+10. In the new window, input the Share ID of recipient project B and select the permission level **Share via SD Desktop only**. Click **Share**.
+11. Now, all the content within the folder is visible within project B and accessible only through SD Desktop. Project members can access and analyse the shared folder content via the virtual desktop. However, they cannot export or download files, as all data exports are managed directly by the project manager.
 
 !!! warning ""
 
@@ -38,8 +39,9 @@ Permission levels are read-only access, data transfer, and data collection. Plea
 
 1. Log in to SD Connect.
 2. Choose project A in the top left corner.
-3. In the All folders tab, find the correct folder and on the same row on the right, click **Share**. In the new window, input the Share ID of the recipient project and select the permission level **Make a copy**. Click **Share**.
-4. Now, all the content within the folder is visible within to the recipient CSC projects. All project members can copy, download, and decrypt the folder's content through SD Connect. Additionally, they can access it via SD Desktop for analysis.
+3. In the All folders tab, find the correct folder and on the same row on the right, click **Share**.
+4. In the new window, input the Share ID of the recipient project and select the permission level **Make a copy**. Click **Share**.
+5. Now, all the content within the folder is visible within to the recipient CSC projects. All project members can copy, download, and decrypt the folder's content through SD Connect. Additionally, they can access it via SD Desktop for analysis.
 
 
 ### Data collection
@@ -48,7 +50,8 @@ Permission levels are read-only access, data transfer, and data collection. Plea
 
 1. Log in to SD Connect.
 2. Select CSC project: Navigate to the SD Connect browser page and choose the relevant CSC project in the top left corner.
-3. In the All folders tab, find the correct folder and on the same row on the right, click **Share**. In the new window, input the Share ID of the recipient project and select the permission level **Manage**. Click **Share**.
-4. Now, all the content within the folder is visible within to the recipient CSC projects. All project members can copy, download, and decrypt the folder's content through SD Connect. They can also upload or delete files within the shared folder, accessible to both projects. The folder's content remains accessible via SD Desktop.
+3. In the All folders tab, find the correct folder and on the same row on the right, click **Share**.
+4. In the new window, input the Share ID of the recipient project and select the permission level **Manage**. Click **Share**.
+5. Now, all the content within the folder is visible within to the recipient CSC projects. All project members can copy, download, and decrypt the folder's content through SD Connect. They can also upload or delete files within the shared folder, accessible to both projects. The folder's content remains accessible via SD Desktop.
 
 
