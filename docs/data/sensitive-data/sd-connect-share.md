@@ -1,6 +1,6 @@
 # Sharing data
 
-## Using Share ID 
+## Share ID 
 
 With SD Connect, you can share folders across different CSC projects. This is done by using Share ID, a unique 32-digit code associated with each CSC project. (screenshot)
 
