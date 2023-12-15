@@ -137,16 +137,33 @@ the web interface under **Administration -> ResourceQuota** and **Administration
 
 Alternatively, you can use the oc command line tool:
 
-```bash
-oc describe quota
-oc describe limitranges
+```sh
+$ oc describe quota
+Name:                      compute-resources
+Namespace:                 test-delete
+Resource                   Used  Hard
+--------                   ----  ----
+limits.cpu                 500m  4
+limits.ephemeral-storage   0     5Gi
+limits.memory              1Gi   16Gi
+openshift.io/imagestreams  1     20
+persistentvolumeclaims     0     5
+pods                       1     100
+requests.storage           0     100Gi
+
 ```
 
-If you need to create more projects or you need more resources in a project for
-your application, you can apply for more quota by contacting the Rahti 2
-support. See the [Contact page](../../../support/contact.md) for instructions. Quota requests are
-handled on a case-by-case basis depending on the currently available resources
-in Rahti 2 and the use case.
+```sh
+$ oc describe limitranges
+Name:                  limits
+Namespace:             test-delete
+Type                   Resource  Min  Max    Default Request  Default Limit  Max Limit/Request Ratio
+----                   --------  ---  ---    ---------------  -------------  -----------------------
+Container              cpu       50m  4      100m             500m           5
+Container              memory    8Mi  16Gi   500Mi            1Gi            -
+openshift.io/Image     storage   -    5Gi    -                -              -
+PersistentVolumeClaim  storage   -    100Gi  -                -              -
+```
 
 ### Default Pod resource limits
 
@@ -162,6 +179,52 @@ The user can set the limits explicitly within the available quota, but if no lim
 Note: `m` stands for milicores. `500m` will be the equivalent of 0.5 cores, or in other words half of the time of a CPU core.
 
 Rahti 2 will enforce a maximum limit/request ratio of 5. This means that the CPU or memory `limits` cannot be more than 5 times the `request`. So if the CPU request is 50m, the CPU limit cannot be higher than 500m. And if we wanted to increase the CPU limit to 1, we will have to increase as well the request to at least 100m.
+
+## Cluster Quotas
+
+In addition to the project resource quota, cluster resource quota is in use. This quota is shared by multiple projects created by the same user. This means that cluster quota is enforced per user. A single user will be able to request as many projects as it is necessary, but the total resource use of all these projects cannot exceed the cluster quota.
+
+Initial cluster quotas are 5 times of the project resource quota.
+
+| Resource type | Quota |
+| --- | --- |
+| limits.cpu | 20 |
+| limits.memory | 80Gi |
+| request.storage | 500Gi |
+| limits.ephemeral-storage | 25Gi |
+| openshift.io/imagestreams | 100 |
+| persistentvolumeclaims | 25 |
+| pods | 500 |
+
+You can check your current cluster quota by running this command line:
+
+```sh
+$ oc describe AppliedClusterResourceQuota
+
+Name:		crq-XXXXXXXX
+Created:	19 hours ago
+Labels:		<none>
+Annotations:	<none>
+Namespace Selector: ["test"]
+Label Selector:
+AnnotationSelector: map[openshift.io/requester:XXXXXXXX]
+Resource			Used	Hard
+--------			----	----
+limits.cpu			0	20
+limits.ephemeral-storage	0	25Gi
+limits.memory			0	80Gi
+openshift.io/imagestreams	1	100
+persistentvolumeclaims		0	25
+pods				0	500
+requests.storage		0	500Gi
+```
+
+It not only shows the Quota, but also the current Usage.
+
+## Requesting more quota
+
+If you need more resources that the defaults, you can apply for more quota by contacting the Service Desk. See the [Contact page](../../../support/contact.md) for instructions. Quota requests are
+handled on a case-by-case basis depending on the currently available resourcesin Rahti 2 and the use case.
 
 ## Sharing projects with other users
 
