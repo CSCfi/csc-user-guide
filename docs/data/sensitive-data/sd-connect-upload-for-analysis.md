@@ -26,7 +26,7 @@ Your data is automatically encrypted when you upload data to SD Connect. This is
 
 1. Select the correct folder (by double-click) and then click Upload button.
 
-2. Click Upload button in top right corner and follow steps from 4 to 6 in above paragraph (link).
+2. Click Upload button in the top right corner and follow steps from 4 to 6 in above paragraph (link).
 
 Note
 
