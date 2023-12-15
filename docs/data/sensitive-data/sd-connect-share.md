@@ -14,9 +14,9 @@ Permission levels are read-only access, data transfer, and data collection. Plea
 
     For project managers
     
-!!!Note
 
-    **Use case example:** A research team (recipient project B) needs access to specific data for reference and analysis, but the data owner (project A) wants to restrict their ability download a copy of the data directly. Project A shares the data folder with read-only access using SD Connect, ensuring that project B members can view and analyse the information via SD Desktop, without downloading a copy of the original data.
+#### Use case example:
+A research team (recipient project B) needs access to specific data for reference and analysis, but the data owner (project A) wants to restrict their ability download a copy of the data directly. Project A shares the data folder with read-only access using SD Connect, ensuring that project B members can view and analyse the information via SD Desktop, without downloading a copy of the original data.
 
 1. Log in to MyCSC.
 2. Create a CSC project (referred to as Project A) and enable service access for SD Connect. Do not add any project members. (link)
@@ -37,7 +37,9 @@ Permission levels are read-only access, data transfer, and data collection. Plea
 
 ### Data transfer
 
-**Use case example:** A project team (project A) has valuable datasets that another team (recipient project B) needs for analysis. Project A shares the relevant data folder with the recipient project with make a copy permission, granting them the ability to make a copy. This allows the recipient project members to download a copy of data, ensuring they have their own working copy for analysis without affecting the original dataset.
+#### Use case example:
+
+A project team (project A) has valuable datasets that another team (recipient project B) needs for analysis. Project A shares the relevant data folder with the recipient project with make a copy permission, granting them the ability to make a copy. This allows the recipient project members to download a copy of data, ensuring they have their own working copy for analysis without affecting the original dataset.
 
 1. Log in to SD Connect.
 2. Choose project A in the top left corner.
@@ -48,7 +50,9 @@ Permission levels are read-only access, data transfer, and data collection. Plea
 
 ### Data collection
 
-**Use case example:** A collaborative research effort involves multiple projects (Project A and Recipient project B). Project A owns a central data workspace and wants to allow members from the Recipient project B to upload additional files to a specific folder. By sharing the folder with Manage permissions, members from both projects can collaboratively add, modify, and access files within the shared folder, facilitating data collection efforts.
+#### Use case example:
+
+A collaborative research effort involves multiple projects (Project A and Recipient project B). Project A owns a central data workspace and wants to allow members from the Recipient project B to upload additional files to a specific folder. By sharing the folder with Manage permissions, members from both projects can collaboratively add, modify, and access files within the shared folder, facilitating data collection efforts.
 
 1. Log in to SD Connect.
 2. Select CSC project: Navigate to the SD Connect browser page and choose the relevant CSC project in the top left corner.
