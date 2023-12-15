@@ -8,7 +8,11 @@ You need to know the Share ID of the **recipient** CSC project. The recipient ca
 
 Permission levels are read-only access, data transfer, and data collection. Please read about example scenarios which  demonstrate how the different permission can be applied based on specific collaboration requirements and data-sharing needs.
 
-### Read only-access
+### Read only-access 
+
+!!! warning ""
+
+    Type qualifier: `warning ""`
 
 **Use case example:** A research team (recipient project B) needs access to specific data for reference and analysis, but the data owner (project A) wants to restrict their ability download a copy of the data directly. Project A shares the data folder with read-only access using SD Connect, ensuring that project B members can view and analyse the information via SD Desktop, without downloading a copy of the original data.
 
