@@ -15,7 +15,7 @@ Permission levels are read-only access, data transfer, and data collection. Plea
 
 1. Log in to MyCSC.
 2. Create a CSC project (referred to as Project A) and enable service access for SD Connect. Do not add any project members.
-3. Create a second CSC project (referred to as Recipient Project B), enable service access for both SD Connec and SD Desktop, and add the project members.
+3. Create a second CSC project (referred to as Recipient Project B), enable service access for both SD Connect and SD Desktop, and add the project members.
 4. Log in to SD Connect.
 5. Choose CSC project A in the top left corner.
 6. Upload data you want to share to a folder (link) and click **Share**.
