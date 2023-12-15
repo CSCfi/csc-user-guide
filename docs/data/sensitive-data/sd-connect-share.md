@@ -6,10 +6,10 @@ With SD Connect, you can share folders across different CSC projects. This is do
 
 You need to know the Share ID of the **recipient** CSC project. The recipient can copy the Share ID from the SD Connect user interface (the recipient should select correct CSC project from the top left corner, then click **Copy Share ID** next to the project number) and provide it to you via email. 
 
-Permission levels are read-only access, data transfer, and data collection. Please read about example scenarios which demonstrate how the different permissions can be applied based on specific collaboration requirements and data-sharing needs.
 
+## Permissions and example use cases
 
-## Sharing permissions
+Permission levels are Share via Desktop only, Make a copy and Manage. Please read about example use cases which demonstrate how the different permissions can be applied based on specific collaboration requirements and data sharing needs.
 
 ### Share via Desktop only
 
@@ -19,6 +19,7 @@ Permission levels are read-only access, data transfer, and data collection. Plea
     
 
 #### Use case example:
+
 A research team (recipient project B) needs access to specific data for reference and analysis, but the data owner (project A) wants to restrict their ability download a copy of the data directly. Project A shares the data folder with read-only access using SD Connect, ensuring that project B members can view and analyse the information via SD Desktop, without downloading a copy of the original data.
 
 1. Log in to MyCSC.
