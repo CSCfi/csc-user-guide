@@ -51,9 +51,6 @@ As the workflow described above is still being developed, files up to 100 GB can
 !!! Note
     With this workflow, it is possible to encrypt only single files. If you have any questions or the instructions below need clarification (e.g. encryption of multiple files), don't hesitate to contact us at servicedesk@csc.fi (subject: Sensitive Data). We also provide step-by-step guidance online (e.g. via Zoom). 
 
-
-The necessary steps for encryption with Cryp4GH application and upload with SD Connect are the following: 
-
 1. Download the encryption application specific to your operating system from the [GitHub repository](https://github.com/CSCfi/crypt4gh-gui):
 
       * [Mac](https://github.com/CSCfi/crypt4gh-gui/releases/download/v1.3.0/crypt4gh-gui-python3.10-macos-amd64.zip)
