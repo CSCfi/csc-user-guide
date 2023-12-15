@@ -8,70 +8,7 @@ Rahti 2 is divided in **Namespaces**. Depending on the context, namespaces can b
 
 ## NetworkPolicy
 
-From a networking point of view, namespaces can be configured to provide an isolated **VLAN** to everything that runs inside it, notably to [Pods](concepts.md#pod), [Services](concepts.md#service) and [Routes](concepts.md#route). This isolation can only be obtained via [Network Policies](https://kubernetes.io/docs/concepts/services-networking/network-policies/).
-
-!!! Warning "Open by default"
-
-    By default any new Namespace in Rahti 2 will have its network opened by default. This means that by default any other Pod in any other namespace in the whole Rahti 2 will be able to contact any Pod in the new namespace.
-
-If you want to isolate all Pods from traffic external to the Namespace you need to create this `NetworkPolicy`:
-
-```yaml
-kind: NetworkPolicy
-apiVersion: networking.k8s.io/v1
-metadata:
-  name: deny-from-other-namespaces
-spec:
-  podSelector:
-    matchLabels:
-  ingress:
-  - from:
-    - podSelector: {}
-```
-
-Then, in order to allow traffic to a specific set of Pods (in the example below with label `app=etherpad`), you can do:
-
-```yaml
-kind: NetworkPolicy
-apiVersion: networking.k8s.io/v1
-metadata:
-  name: etherpad-allow-all-namespaces
-spec:
-  podSelector:
-    matchLabels:
-      app: etherpad
-  ingress:
-  - from:
-    - namespaceSelector: {}
-```
-
-!!! Info "Pod labels"
-
-    In order to get the label that is associated with a set of Pods, go to the `Service` page or run: `oc describe <service_name>`
-
-    ```sh
-    $ oc describe svc/etherpad
-    Name:              etherpad
-    Namespace:         hello-template
-    Labels:            app=etherpad
-    Annotations:       <none>
-    Selector:          deploymentconfig=etherpad
-    Type:              ClusterIP
-    IP Family Policy:  SingleStack
-    IP Families:       IPv4
-    IP:                172.30.183.94
-    IPs:               172.30.183.94
-    Port:              9001-tcp  9001/TCP
-    TargetPort:        9001/TCP
-    Endpoints:         10.128.12.15:9001
-    Session Affinity:  None
-    Events:            <none>
-    ```
-
-!!! Info "oc create"
-
-    In order to create these two network policies, create one YAML file for each and run `oc create -f <FILE_NAME>`
-
+From a networking point of view, namespaces can be configured to provide an isolated **VLAN** to everything that runs inside it, notably to [Pods](concepts.md#pod), [Services](concepts.md#service) and [Routes](concepts.md#route). This isolation is obtained via [Network Policies](https://kubernetes.io/docs/concepts/services-networking/network-policies/). It is possible to change this by editing the two `NetworkPolicy` objects that are created by default in Rahti 2.
 
 ![Rahti 2 Networking](../img/rahti-network.drawio.svg)
 
