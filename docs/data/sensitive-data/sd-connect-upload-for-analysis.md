@@ -16,15 +16,17 @@ Your data is automatically encrypted when you upload data to SD Connect. This is
          - Avoid spaces and special characters; use Latin alphabets (a-z), numbers (0-9), dash (-), underscore (_), and dot (.). Remember, all folder names are public; please do not include any confidential information.
          - Folder names can't be modified afterwards.
 
-5) Click Select Files button to open a browser window and choose files for upload. If you want to upload folders, drag and drop them into the window. Click Upload button to start automatic encryption. Notification about status of upload will appear and be visible until the upload is completed. Notification also includes a link to the destination folder.
+5) Click Select Files button to open a browser window and choose files for upload. If you want to upload folders, drag and drop them into the window. Click Upload button to start automatic encryption and upload.
 
-3) Once the upload is finished, the encrypted files are accessible for download via SD Connect or for analysis, editing, or annotation via SD Desktop.
+6) Notification about the status of upload will appear and be visible until the upload is completed. Notification also includes a link to the destination folder.
 
-**Upload files to an existing folder**
+6) Once the upload is finished, the encrypted files are accessible for downloading and sharing via SD Connect or for analysis, editing or annotation via SD Desktop.
+
+**Upload and encrypt files to an existing folder**
 
 1) Select the correct folder (by double-click) and then click Upload button.
 
-2) In the new window select files for upload.
+2) In the new window select files to be uploaded.
 
 Note
 
