@@ -1,4 +1,4 @@
-# Rahti 1 migration guide
+# Rahti migration guide
 
 This guide is dedicated to answer the most frequent questions and provide procedures for the Rahti 1 to Rahti 2 migration.
 
