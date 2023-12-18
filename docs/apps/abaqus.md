@@ -9,8 +9,7 @@ Dassault Systemes' SIMULIA academic software portfolio offers software tools for
 
 ## License
 
-SIMULIA Academic Research Suite products are proprietary software. The licenses are only for academic use.  See about use limitations from link given below in section [More Information](#more-information), and on the Simulatia site, page **Eligibility for Academic Licensing of SIMULIA Products**.
-
+SIMULIA Academic Research Suite products are proprietary software. The licenses are only for academic use. See about use limitations from the web page [SIMULIA Academic Program](https://edu.3ds.com/en/software/simulia-academic), section **Eligibility for Academic Licensing of SIMULIA Products**.
 
 ## Available
 
@@ -18,27 +17,32 @@ Licenses are available on CSC's computing platform [Puhti](../computing/availabl
 
 ## Usage
 
-After login on the server, make sure that you have transferred all your input files for the analysis run from your local computer to the server.  Locate the files in your project's scratch directory.  Home directory is not intended for computing.
+After login on the server, make sure that you have transferred all your input files for the analysis run from your local computer to the server. Locate the files in your project's scratch directory. Home directory is not intended for computing.
 
 To find out which versions of Abaqus are installed on the server, give command
 
-    module available
+```bash
+module available
+```
 
-and check lines *abaqus/(version number)*. For example, to load Abaqus version 2022, give command
+and check lines `abaqus/<version number>`. For example, to load Abaqus version 2022, give command
 
-    module load abaqus/2022
+```bash
+module load abaqus/2022
+```
 
-There is an example of **batch job file** available on Puhti server:
+There is an example **batch job file** available on Puhti server:
 
-    /appl/soft/eng/simulia/example_batch_job_files/parjob_puhti_abaqus
+```bash
+/appl/soft/eng/simulia/example_batch_job_files/parjob_puhti_abaqus
+```
 
 Copy the file and modify it for your own use. Further instructions are given in the file.
 
 ## Support
 
-In a problem situation, send an email to servicedesk@csc.fi.
+In case of issues, please [contact CSC Service Desk](../support/contact.md).
 
 ## More information
 
 * [SIMULIA Academic Research Suite](https://www.3ds.com/products-services/simulia/academia/)
-
