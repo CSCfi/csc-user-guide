@@ -81,6 +81,7 @@ Notes about the available tools. Note that this list may be outdated:
 *  [GATK](https://gatk.broadinstitute.org/hc/en-us) A genomic analysis toolkit focused on variant discovery.
 *  [GCTA 1.94.1](https://yanglab.westlake.edu.cn/software/gcta/#Overview) A tool for Genome-wide Complex Trait Analysis.
 *  [GCTB 2.05b](https://cnsgenomics.com/software/gctb/#Overview) Genome-wide Complex Trait Bayesian analysis
+*  [IGV 2.16.2](https://igv.org/doc/desktop/) Integrated Genomics Viewer.
 *  [MultiQC 1.10](https://multiqc.info/) NGS Read quality checking tool.
 *  [PRSice 2.0](https://choishingwan.github.io/PRSice/) Polygenic Risk Score software for calculating, applying, evaluating and plotting the results of polygenic risk scores (PRS) analyses.
 *  [Regenie 3.3](https://rgcgithub.github.io/regenie/) Program for whole genome regression modelling of large genome-wide association studies.
