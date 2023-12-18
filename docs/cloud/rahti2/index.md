@@ -16,7 +16,7 @@ you could move directly to the instructions for getting started with Rahti 2 & i
   * [Getting access](access.md)
   * [Storage](storage/index.md)
   * [Images](images/overview.md)
-  * [Rahti 2 Templates](template-docs.md)
+  * [Rahti 2 Templates](catalog-docs.md)
   * [Project and Quota](usage/projects_and_quota.md)
   * [Billing](billing.md)
 

@@ -280,7 +280,7 @@ nav:
            - cloud/rahti2/images/overview.md
            - Creating an image: cloud/rahti2/images/creating.md
            - Keeping docker images small: cloud/rahti2/images/keeping_docker_images_small.md
-        - Rahti Templates: cloud/rahti2/template-docs.md
+        - Rahti Catalog: cloud/rahti2/catalog-docs.md
         - Projects and quota: cloud/rahti2/usage/projects_and_quota.md
         - Billing: cloud/rahti2/billing.md
         - External documentation: cloud/rahti2/ext_docs.md
