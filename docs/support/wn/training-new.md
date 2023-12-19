@@ -1,5 +1,10 @@
 # Training & tutorials
 
+## Access CSC newsletter and mailing list archives from Docs CSC, 13.12.2023
+
+The _Contact_ page has been updated to include a selection of [CSC newsletter and mailing list archives](../contact.md#archives).
+Look here if you're having trouble finding an email or a newsletter sent to you by CSC!
+
 ## New way to provide feedback on pages in Docs CSC, 30.10.2023
 
 Docs CSC now features feedback buttons at the bottom of every page.
