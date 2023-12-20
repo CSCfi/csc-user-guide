@@ -39,7 +39,7 @@ Next, you can log in to the [user administration portal](https://admin.sd.csc.fi
 1. add the IP address from which the data will be transferred (IP address can be checked with [CSC’s My IP app](https://apps.csc.fi/myip/)), and
 2. add your public SSH key.
 
-With this information, the CSC service desk will make the necessary preparations for data submission from the CSC side. If you need instructions for SSH key creation, see [SSH Key Pair tutorial in Docs](docs/cloud/tutorials/ssh-key.md).
+With this information, the CSC service desk will make the necessary preparations for data submission from the CSC side. If you need instructions for SSH key creation, see [SSH Key Pair tutorial in Docs](./docs/cloud/tutorials/ssh-key.md).
 
 After the service desk has confirmed that the preparations are done, you can test the SFTP connection. This can be done with the following command (replace `username@org.fi` with your credentials and `X:\folder\filename.key` with the location of your private SSH key):
 
