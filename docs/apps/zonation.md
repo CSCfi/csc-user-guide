@@ -23,13 +23,13 @@ Zonation is available in the __zonation__ module:
 module load zonation
 z5 <command arguments>
 ```
-Zonation can be used in Puhti with commandline or graphical interface, as interactive job or with batch system. In any case reserve suitable amount of computing resources: cores and memory. Zonation 5 runs faster, if it can use several cores. In Puhti, it can use one node, which is max 40 cores.  
+Zonation can be used in Puhti with command-line or graphical interface, as interactive job or with batch system. In any case reserve suitable amount of computing resources: cores and memory. Zonation 5 runs faster, if it can use several cores. In Puhti, it can use one node, which is max 40 cores.  
 
 Before starting Zonation, move your data to your project's __scratch__ folder. For testing, [zonation5-tutorial data](https://github.com/zonationteam/Zonation5/releases/download/v1.0/manual_and_example_setups.zip) can be used.
 
 ### Zonation with Graphical User Interface
 
-Zonation Graphicl User Interface (GUI) can be started in Puhti web interface :
+Zonation Graphical User Interface (GUI) can be started in Puhti web interface:
 
 1. Log in to [Puhti web interface](https://puhti.csc.fi).
 2. Open [Desktop app](../computing/webinterface/desktop.md)
