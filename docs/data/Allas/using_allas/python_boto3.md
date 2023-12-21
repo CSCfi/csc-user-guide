@@ -2,6 +2,15 @@
 
 [boto3](https://boto3.amazonaws.com/v1/documentation/api/latest/index.html) is a Python library for working S3 storage and other AWS services. `boto3` works with Allas over [S3 protocol](../introduction.md#protocols). 
 
+In general for analyzing Allas data with Python:
+* Save input data to Allas, possibly using other Allas tools
+* Download the data from Allas to the local computer (inc. supercomputers) with `boto3`.
+* Analyze the data using the local copy of data.
+* Write your results to local disk.
+* Upload the new files to Allas with `boto3`.
+
+Some Python libraries might support also direct reading and writing with S3, for example [AWS SDK for Pandas](https://aws-sdk-pandas.readthedocs.io/en/stable/), [GDAL-based Python libraries](https://github.com/csc-training/geocomputing/blob/master/python/allas/working_with_allas_from_Python_S3.py) for spatial data analysis.
+
 This page shows how to:
 
 * Install `boto3`
