@@ -40,3 +40,4 @@ Having trouble finding an email or a newsletter sent to you by CSC? Browse the a
 * [lumi-users](archives/lumi-users.md)
 * [pouta-users](archives/pouta-users.md)
 * [rahti-users](archives/rahti-users.md)
+* [sd-desktop-users](archives/sd-desktop-users.md)

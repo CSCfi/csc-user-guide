@@ -55,7 +55,7 @@ Once you sign in to your virtual Desktop, you can access the data by following t
 
 Each virtual Desktop is pre-built and contains a limited set of default open-source software (listed below). The virtual Desktop is isolated from the internet and **importing of software is restricted**, as required by the data permit authority. Thus, users cannot directly import software/scripts or other files on to their virtual Desktop when working with secondary use data. 
 
-If you need a specific program that is not pre-installed, it is recommended to [contact CSC Service Desk](../../support/contact.md) **before applying for the data permit**. This way, we can figure out if it is possible to customise your virtual Desktop. If the program is compatible with the computing environment, you need to specify in your permit application the list of additional software, which will be provided directly by Findata.
+If you need a specific program that is not pre-installed, it is recommended to [contact CSC Service Desk](../../support/contact.md) **before applying for the data permit**. This way, we can figure out if it is possible to customise your virtual desktop. 
 
 ### Pre-installed software:
 
@@ -130,7 +130,7 @@ Next:
 
 To comply with the regulation, SD Desktop for secondary use is **completely isolated from the internet and other services**. You can, for example, open a Firefox web browser, but you are not able to access any site on the internet.
 
-**The import of data and software is restricted in SD Desktop**. You cannot import any data or software yourself for security reasons. If you are working with a dataset for which you have received a permit from Findata, the only way to access the data for analysis is by utilizing a specific application called **Data Gateway**. 
+**The import of data and software is restricted in SD Desktop**. You cannot import any data or software yourself for security reasons. If you are working with a dataset for which you have received a permit from a data controller, the only way to access the data for analysis is by utilizing a specific application called **Data Gateway**. 
 
 **Data export from SD Desktop is also restricted**. Only *non-sensitive* results can be exported from the workspace, and those can only be exported by the CSC project manager. Instructions for exporting your results are provided in the next paragraph.
 
