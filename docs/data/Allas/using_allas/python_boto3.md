@@ -1,6 +1,6 @@
 # Using Allas with S3 using Python boto3 library
 
-[boto3](https://boto3.amazonaws.com/v1/documentation/api/latest/index.html) is a Python library for working S3 storage and other AWS services.
+[boto3](https://boto3.amazonaws.com/v1/documentation/api/latest/index.html) is a Python library for working S3 storage and other AWS services. `boto3` works with Allas over [S3 protocol](../introduction.md#protocols). 
 
 This page shows how to:
 
@@ -22,23 +22,28 @@ Note, that S3 and SWIFT APIs should not be mixed.
 pip install boto3
 ```
 
-### boto3 in CSC supercomputers
+### `boto3` in CSC supercomputers
 Some existing [Python modules](../../../apps/python.md#using-science-area-specific-python-modules) might have `boto3` pre-installed, for example [geoconda](../../../apps/geoconda.md). 
 To other modules, it is possible to add `boto3` with [pip](../../../python.md#installing-python-packages-to-existing-modules).
 
 
-## Set up S3 credentials
+## Configuring S3 credentials
 
-If you have not used Allas with S3 before, then first [create S3 credentials](s3_client.md#getting-started-with-s3cmd). The credentials are saved to a file, so they need to be set only once from a new computer or when changing project.
+If you have not used Allas with S3 before, then first [create S3 credentials](s3_client.md#getting-started-with-s3cmd). The credentials are saved to `~/.aws/credentials` file, so they need to be set only once from a new computer or when changing project. The credential file can be also copied from one computer to another.
 
-## Create boto3 resource
-For all next steps, first boto3 resource is needed.
+In CSC supercomptuers [`allas` module](s3_client.md#configuring-s3-connection-in-supercomputers) can be used with `allas-conf --mode s3cmd` to configure the credentials.
+
+## `boto3` usage
+
+### Create boto3 resource
+For all next steps, first boto3 resource must be created.
 
 ```python
-s3_resource = boto3.resource('s3')
+import boto3
+s3_resource = boto3.resource('s3', endpoint_url='https://a3s.fi')
 ```
 
-## Create a bucket
+### Create a bucket
 
 Create a new bucket using the following script:
 
@@ -46,7 +51,7 @@ Create a new bucket using the following script:
 s3_resource.create_bucket(Bucket="examplebucket")
 ```
 
-## List buckets and objects
+### List buckets and objects
 
 List all buckets belonging to a project:
 ```python
@@ -63,14 +68,14 @@ for my_bucket_object in my_bucket.objects.all():
 
 ```
 
-## Download an object
+### Download an object
 
 Download an object:
 ```python
 s3_resource.Object('examplebucket', 'object_name_in_allas.txt').download_file('local_file.txt')
 ```
 
-## Upload an object
+### Upload an object
 
 Upload a small file called `my_snake.txt` to the bucket `snakebucket`:
 
@@ -78,13 +83,13 @@ Upload a small file called `my_snake.txt` to the bucket `snakebucket`:
 s3_resource.Object('examplebucket', 'object_name_in_allas.txt').upload_file('local_file.txt')
 ```
 
-## Remove buckets and objects
+### Remove buckets and objects
 
 Delete all objects from a bucket:
 
 ```python
-bucket = s3_client.Bucket('examplebucket')
-bucket.objects.all().delete()
+my_bucket = s3_client.Bucket('examplebucket')
+my_bucket.objects.all().delete()
 
 ```
 
