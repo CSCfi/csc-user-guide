@@ -62,7 +62,7 @@
 * [Using geospatial files directly from cloud, inc Allas](gis/gdal_cloud.md)
 * [GDAL tutorial](gis/gdal.md)
 * [Virtual rasters](gis/virtual-rasters.md)
-* For software specific tutorials, see [the respective software pages](../../apps/by_discipline.md#geosciences)
+* For software specific tutorials and examples, see [the respective software pages](../../apps/by_discipline.md#geosciences)
 
 ## Pouta - cloud
 * [cPouta and ePouta related videos](../../cloud/pouta/pouta-videos.md)
