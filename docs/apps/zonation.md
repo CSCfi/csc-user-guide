@@ -17,52 +17,49 @@ __Zonation__ is available in Puhti with following versions:
 
 ## Usage
 
-Zonation is available in the __zonation__ module and the command line interface can be loaded with
-
-`module load zonation`
-
-After loading the Zonation module you can run zonation commands in the following way:
+Zonation is available in the __zonation__ module:
 
 ```
+module load zonation
 z5 <command arguments>
 ```
+Zonation can be used in Puhti with command-line or graphical interface, as interactive job or with batch system. In any case reserve suitable amount of computing resources: cores and memory. Zonation 5 runs faster, if it can use several cores. In Puhti, it can use one node, which is max 40 cores.  
 
-Alternatively, if you want to use the Zonation Graphical User Interface (GUI) tool, Zonation can be started in Puhti web interface :
+Before starting Zonation, move your data to your project's __scratch__ folder. For testing, [zonation5-tutorial data](https://github.com/zonationteam/Zonation5/releases/download/v1.0/manual_and_example_setups.zip) can be used.
+
+### Zonation with Graphical User Interface
+
+Zonation Graphical User Interface (GUI) can be started in Puhti web interface:
 
 1. Log in to [Puhti web interface](https://puhti.csc.fi).
-2. Open [Desktop app](../computing/webinterface/desktop.md). 
+2. Open [Desktop app](../computing/webinterface/desktop.md)
 3. After launching the Desktop, double-click Zonation icon.
 
-### Example
-
-Here is an example with the Zonation tutorial data.
-
-
-    
-#### Zonation 5
-
-Download the [zonation5-tutorial data](https://github.com/zonationteam/Zonation5/releases/download/v1.0/manual_and_example_setups.zip) to your project's __projappl__ or __scratch__ folder, unzip it; then
+### Working with Zonation interactively
+For relatively short analysis jobs, it is possible to use Zonation in [interactive session](../computing/running/interactive-usage.md).
 
 ```
-cd /scratch/<your_project>/manual_and_example_setups/example\ setups\ and\ data/1_w
-srun --ntasks=1 --time=00:15:00 --mem=1G --account=project_<your_project_number> --partition=test --pty z5 -w --mode=ABF minimal_settings.z5 $HOME/example1_out
+sinteractive -i
+cd /scratch/project_200xxxx/<location_of_your_data>
+z5 -w --mode=ABF minimal_settings.z5 /scratch/project_200xxxx/example1_out
 ```
-which will show you the process in the terminal and create the example1_out file in your $HOME folder.
 
-**Example batch job script**
+### Using Zonation with batch job
+For longer analysis jobs, Puhti batch system should be used.
 
 ```
 #!/bin/bash
-#SBATCH --account=<YOUR-PROJECT>
-#SBATCH --cpus-per-task=1
-#SBATCH --partition=test
+#SBATCH --account=project_200xxxx
+#SBATCH --cpus-per-task=40
+#SBATCH --partition=small
 #SBATCH --time=00:15:00
-#SBATCH --mem=1G
+#SBATCH --mem=4G
 
 module load zonation
-cd /scratch/<your_project>/manual_and_example_setups/example\ setups\ and\ data/1_w
-srun z5 -w --mode=ABF minimal_settings.z5 <path_to_where_you_want_to_store_the_result>/example1_out
+cd /scratch/project_200xxxx/<location_of_your_data>
+srun z5 -w --mode=ABF minimal_settings.z5 /scratch/project_200xxxx/example1_out
 ```
+
 
 ## License 
 
