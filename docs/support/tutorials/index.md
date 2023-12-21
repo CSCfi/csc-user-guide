@@ -57,7 +57,7 @@
 * [Starting with parallel R](parallel-r.md)
 
 ## Geoinformatics
-* [Geocomputing in CSC computing environment](https://research.csc.fi/geocomputing)
+* [Introduction to geocomputing in CSC computing environment](https://research.csc.fi/geocomputing)
 * [Earth Observation (EO) guide](gis/eo_guide.md)
 * [Using geospatial files directly from cloud, inc Allas](gis/gdal_cloud.md)
 * [GDAL tutorial](gis/gdal.md)
