@@ -5,7 +5,7 @@ tags:
 
 # Seismic Unix
 
-[Seismic Unix](https://wiki.seismic-unix.org/start) is seismic processing package. It aims first at delivering a robust and efficient seismic reflection software package, dedicated to education, and to permit the processing of moderate size 2D seismic or GPR data sets.
+[Seismic Unix](https://wiki.seismic-unix.org/start) is a seismic processing package. It aims first at delivering a robust and efficient seismic reflection software package, dedicated to education, and to permit the processing of moderate size 2D seismic or GPR data sets.
 
 
 ## Available
