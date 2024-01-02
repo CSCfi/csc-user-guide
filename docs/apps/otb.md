@@ -11,7 +11,7 @@ tags:
 
 Orfeo ToolBox is available in the following versions:
 
-* 8.0.1
+* Puhti: 8.0.1
 
 ## Usage
 
