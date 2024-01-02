@@ -82,7 +82,7 @@ When starting a task that requires EO data, there are multiple factors to consid
 |**Radar, SAR**|||||
 |**[ESA, Sentinel 1](https://sentinel.esa.int/web/sentinel/missions/sentinel-1)**|5|6|2014->|Yes|
 |[ESA, Radarsat](https://www.asc-csa.gc.ca/eng/satellites/radarsat/)|1-100|24|1995->|Yes|
-|[TanDEM-X](https://www.dlr.de/en/research-and-transfer/projects-and-missions/tandem-x)/[TerraSAR-X](https://www.dlr.de/en/research-and-transfer/projects-and-missions/terrasar-x)|0.25-40|-|2010->|No|
+|[TanDEM-X](https://www.dlr.de/en/research-and-transfer/projects-and-missions/tandem-x)/[TERRASAR-X](https://www.dlr.de/en/research-and-transfer/projects-and-missions/terrasar-x)|0.25-40|-|2010->|No|
 |[ICEYE](https://www.iceye.com/)|0.5-2.5|1|2018->|No|
 ||||||
 |**LiDAR**|Footprint size||||
@@ -135,7 +135,7 @@ Some Finnish EO datasets are available locally at CSC. A STAC catalog for all sp
 
 [**Google Cloud Storage open EO data**](https://cloud.google.com/storage/docs/public-datasets), including Sentinel-2 L1C and Landsat Collection 1 data. Data can be downloaded for example with [FORCE](../../../apps/force.md).
     
-[**Terramonitor**](https://www.terramonitor.com/services/analysis-ready) provides pre-prosessed, analysis ready Sentinel-2 data from Finland available between 2018-2020. It is a commercial service.
+[**Terramonitor**](https://www.terramonitor.com) provides pre-prosessed, analysis ready Sentinel-2 data from Finland available between 2018-2020. It is a commercial service.
 
 !!! default "Other geospatial datasets"
 
