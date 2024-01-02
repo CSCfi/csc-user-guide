@@ -51,7 +51,7 @@ app.ExecuteAndWriteOutput()
 
 ### Using the graphical tools
 
-Start [Monteverdi](https://www.orfeo-toolbox.org/CookBook/Monteverdi.html):
+Start [Monteverdi](https://www.orfeo-toolbox.org/CookBook-8.0/Monteverdi.html):
 ```
 monteverdi
 ```
