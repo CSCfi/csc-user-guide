@@ -4,7 +4,7 @@ Using strong identification means that you prove your identity. After you have b
 your assurance level is raised from low to medium. Some of CSC's services require a higher level of assurance. 
 
 Sensitive Data service is one of them:
-[Sensitive Data](https://docs.csc.fi/data/sensitive-data/findata-permit/)
+[Sensitive Data](../../data/sensitive-data/findata-permit/)
 
 To raise the assurance level, you need to login to our customer portal MyCSC and to download Candour ID app. 
 
