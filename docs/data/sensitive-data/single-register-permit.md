@@ -60,9 +60,7 @@ After you have sent the application, it will be forwarded to the data controller
 During the approval process, the data controller can:
 
 * approve or reject your application,
-* return the application asking for additional information,
-* close your application and cancel the application process,
-* add comments to your application.
+* close your application and cancel the application process.
 
 You can follow the approval process and read the possible comments from the *Events* section of the application. In addition, you can find all your applications and see their state from the *Applications* tab:
 
@@ -70,7 +68,6 @@ You can follow the approval process and read the possible comments from the *Eve
 * **Submitted**. The application has been sent to the data controller and cannot be edited anymore unless specifically requested.
 * **Approved**. The application has been approved, and you have been granted access rights.
 * **Rejected**. To see why your application was rejected, navigate to the application and select *View*. Data controller comments will be shown in the *Events* section.
-* **Returned**. If the data controller needs additional information regarding your application, they can return your application to you. To edit the application, follow the link in the email or log in to SD Apply, navigate to the application, and select *View*. You can see the comments of the data controller in the *Events* section. Then, make the required changes and select *Send application*.
 * **Revoked**. Your application, and thus your access rights, have been revoked by the data controller.
 
 You will receive an email notification whenever the state of your application changes.
