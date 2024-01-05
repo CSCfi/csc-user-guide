@@ -13,7 +13,7 @@ Content:
 
 | Feature                                             | SD Connect                      | SD Connect (Beta) NEW!                     |
 |-----------------------------------------------------|---------------------------------------|------------------------------------------------|
-| Url|  sd-connect.csc.fi (released April 2022)|  sd-connect.csc.sd.fi (available from December 2023) |
+| Url|  https://sd-connect.csc.fi (released April 2022)|  https://sd-connect.sd.csc.fi (available from December 2023) |
 | Service access|   Based on CSC account and project, requires Allas service access| Based on CSC account and project, requires SD Connect (Beta) service access, Requires multi-factor authentication |   
 | User interface |    -     |    Redesigned (based on user's feedback)    |  
 | Automated encryption and upload via browser          | Limited to small files (<1 GB)         | Available for files up to 100 GB               |
