@@ -10,7 +10,7 @@ electronic structures of up to few hundreds of atoms.
 
 This page briefly describes how to use VASP on puhti.csc.fi. Usage on mahti is very similar. That said,
 VASP is a program which usage requires some experience. It is advised that new VASP users start out
-with a supervisor or a experienced colleague.
+with a supervisor or an experienced colleague.
 
 
 ## Available
