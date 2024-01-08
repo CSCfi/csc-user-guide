@@ -8,7 +8,9 @@ tags:
 [VASP](https://www.vasp.at/) is an ab initio DFT program for computing
 electronic structures of up to few hundreds of atoms.
 
-This page describes how to use VASP on puhti.csc.fi.
+This page briefly describes how to use VASP on puhti.csc.fi. Usage on mahti is very similar. That said,
+VASP is a program which usage requires some experience. It is adviced that new VASP users start out
+with a supervisor or a experienced colleague.
 
 
 ## Available
@@ -70,5 +72,5 @@ Second, the provided prebuild executables are built as "vanilla" as
 possible, and provide a reasonable baseline. The performance
 optimization for large experiments should be done per case basis. The
 commands that created the prebuilt executables are in
-`VASPROOT/README-<version>.sh`, and can be used as a starting point
+`$VASPDIR/README.sh`, and can be used as a starting point
 for building more optimized, and/or otherwise modified executables.
