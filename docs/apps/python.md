@@ -80,7 +80,7 @@ CSC-provided [python-data](python-data.md) module:
 ```bash
 cd /projappl/<your_project>  # change this to the appropriate path for your project
 module load python-data
-python3 -m venv --system-site-packages my-venv
+python3 -m venv --system-site-packages venv
 source venv/bin/activate
 pip install whatshap
 ```
