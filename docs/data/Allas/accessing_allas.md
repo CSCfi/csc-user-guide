@@ -14,7 +14,7 @@ Once you have Allas enabled you can access it from any machine or server that is
 
 At the moment CSC provides two web browser interfaces for Allas:
 
-The OpenStack Horizon web interface in **cPouta** provides easy-to-use basic functions for data management in Allas. This insterface can only be used for files smaller than 5 GB.
+The OpenStack Horizon web interface in **cPouta** provides easy-to-use basic functions for data management in Allas. This interface can only be used for files smaller than 5 GB.
 
 * [Web client – OpenStack Horizon Dashboard](./using_allas/web_client.md)
 
