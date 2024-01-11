@@ -1,0 +1,69 @@
+{
+    /* All commands assume that Conda has been installed
+       in the default user installation directory
+       i.e. ~/miniconda3 (or %LOCALAPPDATA\miniconda3 on Windows)
+       and that docs/support/tutorials/conda/conda-docs-env-freeze.yaml
+       holds the up-to-date dependencies.
+    */
+    "version": "2.0.0",
+    "type": "shell",
+    "presentation": {
+        "echo": false,
+        "reveal": "always",
+        "focus": false,
+        "panel": "dedicated",
+        "clear": true,
+        "close": false,
+    },
+    "problemMatcher": [],
+    "inputs": [
+        {
+            "type": "pickString",
+            "id": "flags",
+            "description": "Select flags, default is none",
+            "options": [
+                "",
+                "--dirtyreload",
+                "--watch-theme",
+                "--dirtyreload --watch-theme"
+            ],
+            "default": "",
+        },
+    ],
+    "tasks": [
+        {
+            "label": "Docs CSC: Create/update the Conda environment",
+            "icon": {
+                "id": "snake",
+            },
+            "command": ". ${userHome}/miniconda3/etc/profile.d/conda.sh && conda env create --force -f ${workspaceFolder}/docs/support/tutorials/conda/conda-docs-env-freeze.yaml",
+            "windows": {
+                "command": "& '${env:LOCALAPPDATA}\\miniconda3\\shell\\condabin\\conda-hook.ps1'; conda env create --force -f '${workspaceFolder}\\docs\\support\\tutorials\\conda\\conda-docs-env-freeze.yaml'",
+            },
+        },
+        {
+            "label": "Docs CSC: Start the development server",
+            "icon": {
+                "id": "server-process",
+            },
+            "command": ". ${userHome}/miniconda3/etc/profile.d/conda.sh && conda activate docs-env && GIT_PYTHON_REFRESH=quiet mkdocs serve ${input:flags}",
+            "windows": {
+                "command": "& '${env:LOCALAPPDATA}\\miniconda3\\shell\\condabin\\conda-hook.ps1' ; conda activate docs-env ; $Env:GIT_PYTHON_REFRESH='quiet' ; mkdocs serve '${input:flags}' ; Remove-Item Env:/GIT_PYTHON_REFRESH",
+            },
+        },
+        {
+            "label": "Docs CSC: Run tests",
+            "icon": {
+                "id": "pass",
+            },
+            "command": ". ${userHome}/miniconda3/etc/profile.d/conda.sh && conda activate docs-env && bash ${workspaceFolder}/tests/run_tests.sh",
+            "windows": {
+                "command": "Write-Host \"The tests task is not configured for running on Windows.\"",
+            },
+        },
+        {
+            "label": "echo",
+            "command": "echo ${workspaceFolder}"
+        },
+    ],
+}
