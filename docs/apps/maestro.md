@@ -185,7 +185,10 @@ Jaguar, version 7.6, Schrödinger, LLC, New York, NY, 2009.
 * Manual including tutorials come with the Maestro GUI
 * [Schrödinger training materials overview](https://www.schrodinger.com/learn/training)
 * The [Schrödinger knowledge base](https://support.schrodinger.com/s/) has an
-  extensive collection of articles
+  extensive collection of articles, for example:
+     * [How to restart a single Desmond simulation](https://www.schrodinger.com/kb/1883)
+     * [How to restart a Desmond multisim workflow](https://www.schrodinger.com/kb/1896)
+     * [Structure file formats compatible with Maestro](https://www.schrodinger.com/kb/1278)
 * Video materials (some require registration at the [Schrödinger website](https://www.schrodinger.com/)):
      * [Preparing, running and analyzing molecular dynamics simulations with Desmond](https://video.csc.fi/media/t/0_3udcx6bk)
      * [Getting Going with Maestro](https://www.schrodinger.com/sites/default/files/s3/release/current/Getting-Going-With-Video-Series/Maestro/Get-Going-Maestro-VS/Content/maestro/Page-Topics-m/01-Course-Intro-Get-Going.htm)

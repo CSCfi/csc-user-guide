@@ -39,9 +39,9 @@ Next, you can log in to the [user administration portal](https://admin.sd.csc.fi
 1. add the IP address from which the data will be transferred (IP address can be checked with [CSC’s My IP app](https://apps.csc.fi/myip/)), and
 2. add your public SSH key.
 
-With this information, the CSC service desk will make the necessary preparations for data submission from the CSC side.
+With this information, the CSC service desk will make the necessary preparations for data submission from the CSC side. If you need instructions for SSH key creation, see [SSH Key Pair tutorial in Docs](../../cloud/tutorials/ssh-key.md).
 
-After the service desk has confirmed that the preparations are done, you can test the SFTP connection. This can be done with the following command (replace `username@org.fi` with your credentials and `X:\folder\filename.key` with the location of your SSH key):
+After the service desk has confirmed that the preparations are done, you can test the SFTP connection. This can be done with the following command (replace `username@org.fi` with your credentials and `X:\folder\filename.key` with the location of your private SSH key):
 
 ```
 sftp -i X:\folder\filename.key -P 50527 username@org.fi@porin.lega.csc.fi
@@ -50,7 +50,7 @@ exit
 
 ### Step 4: Data encryption and upload 
 
-Before the data transfer, the data must be encrypted with a [CSC public key](https://admin.sd.csc.fi/publickey/?instance=single%20registry). CSC provides a convenience tool that encrypts and uploads data automatically. This SDA Uploader tool is available on [GitHub](https://github.com/CSCfi/sda-uploader/releases), and has both graphical user interface (GUI) and command line (CLI) options for Linux, Mac and Windows.
+Before the data transfer, the data must be encrypted with a [CSC public key](https://admin.sd.csc.fi/publickey/?instance=single%20registry). CSC provides a convenience tool that encrypts and uploads data automatically. This SDA Uploader tool is available on [GitHub](https://github.com/CSCfi/sda-uploader/releases), and has both graphical user interface (GUI) and command line (CLI) options for Linux, Mac and Windows. More information about the tool in the [GitHub repository](https://github.com/CSCfi/sda-uploader/).
 
 The encrypted data is sent via SFTP to a directory which should be named according to the journal number of the data permit. The final dataset ID will be a combination of the organization’s identifier and the journal number (e.g. `org.fi/example_dataset_123`). The file to be uploaded should also be named with the journal number.
 
@@ -104,31 +104,10 @@ The applicant will receive an email notification about the decision. Once you ap
 !!! note
     If the owner of the dataset has removed the dataset that applicant is applying for access, SD Apply will give a warning, but you can still process the application. However, if the dataset has been removed, you cannot approve or reject the application.
 
-#### Return the application to the applicant
-
-If the application is missing some information, you can return it to the applicant. Write a comment on the application or attach a file of the changes you want the applicant to make. Select *Return to applicant* under "Actions" to return the application.
-
-The applicant will receive an email notification about a returned application. They can resubmit the application after editing it. Resubmitted applications will show up in the "Actions" tab. The changes the applicant has made will show as highlighted on the application form.
-
 #### Close the application
 You can close the application at any stage of the process by selecting *Close application*. Closing means that the application process is cancelled and that the application cannot be modified or opened again. Write a comment on the comment field to explain why did you close the application.
 
 We recommend closing the application, if it is somehow inappropriate. Deleting applications is not possible because we want to always provide a full history of the application process. You can find closed applications in the "Actions" tab under "Processed applications".
-
-#### Edit the application
-
-You can also edit applications by the following ways:
-
-- **Change the licenses**. The applicant will receive an email notification about the change in terms of use and has to accept the new licenses before they will be granted access rights.
-
-- **Add or remove members**. If you do not want to grant access to all members in the application, you can remove additional members. Adding members is also possible.
-
-- **Change the applicant**. You can change the applicant to another member of the application. This can be useful if, for example, the original applicant has left the applying organisation.
-
-- **Change the resources of the application**. If the applicant is applying for access rights to multiple datasets and you do not want to grant access to all of them, you can remove some of the datasets. It is also possible to add new resources if they can be applied for using the same application form. These will show as available in the drop-down list.
-
-!!! note
-    You can comment on the application throughout the application process by selecting *Remark* and choosing if you want to show the comment to the applicant or not. Applicants will receive a notification about new public comments. Sometimes it is useful for the applicant to see the comments so that they know how the approval process is proceeding. Note that the applicant cannot respond to the comments.
 
 ### Step 4: After processing the application
 
@@ -144,19 +123,5 @@ If the applicant has been granted access rights but they misuse them, you can re
 You will receive email notifications about the actions of other SD Apply users. There might be more than one data access controller in one organization. Therefore, all the controllers who have been assigned to a certain dataset, receive an email notification when one of them has processed an application.
 
 You can see and edit your email address from the "Settings" tab in the top right corner of the page.
-
-You will be notified when another handler has:
-
-- commented an application.
-
-- returned the application to the applicant.
-
-- approved an application.
-
-- rejected an application.
-
-- closed an application.
-
-- revoked the access rights of the applicant.
 
 You will also receive notifications when an applicant has submitted or resubmitted an application.
