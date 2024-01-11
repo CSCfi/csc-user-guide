@@ -109,11 +109,6 @@ module use /appl/local/csc/modulefiles/
 module load pytorch
 ```
 
-Note that LUMI versions are still considered experimental with limited
-support. They are still subject to change at any time without notice,
-and for example multi-node jobs are know not to work properly yet.
-
-
 If you wish to have a specific version ([see above for available
 versions](#available)), use:
 
@@ -160,7 +155,7 @@ proportion of the available CPU cores in a single node:
     #SBATCH --time=1:00:00
     #SBATCH --gres=gpu:v100:1
         
-    module load pytorch/2.0
+    module load pytorch/2.1
     srun python3 myprog.py <options>
     ```
 
@@ -174,7 +169,7 @@ proportion of the available CPU cores in a single node:
     #SBATCH --time=1:00:00
     #SBATCH --gres=gpu:a100:1
     
-    module load pytorch/2.0
+    module load pytorch/2.1
     srun python3 myprog.py <options>
     ```
 
@@ -190,7 +185,7 @@ proportion of the available CPU cores in a single node:
     #SBATCH --time=1:00:00
     
     module use /appl/local/csc/modulefiles/
-    module load pytorch/2.0
+    module load pytorch/2.1
     srun python3 myprog.py <options>
     ```
 
