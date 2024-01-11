@@ -1,12 +1,9 @@
-# Getting started on contributing to the CSC Docs pages using command line tools
+# Getting started on contributing to Docs CSC using a local development server
 
-The procedure described in this file aims to set up the necessary tools on Windows without the need for a system administrator account. However, the [simple Git workflow example](#a-simple-git-workflow-example) that follows the Windows-specific instructions doesn't make any particular assumptions on the operating system used.
+The procedure described in this file aims to set up the necessary tools on Windows without the need for a system administrator account. However, the [simple Git workflow example](#a-simple-git-workflow-example) that follows the Windows-specific instructions doesn't make any particular assumptions on the operating system used. The two alternative paths for command-line and graphical interfaces are marked **Option 1, CLI** and **Option 2, GUI**, respectively. The GUI path should work with only minor deviation on a Mac.
 
 
-## Setting up a development environment on Windows
-
-**Before starting, make sure you have a secure place to store a passphrase for an SSH key you'll be creating. A password manager called _KeePass 2_ will be used for that in this tutorial.**
-
+## Setting up a development environment, step 1
 
 ### Conda
 
@@ -15,17 +12,19 @@ A Python program called _MkDocs_ is used to generate the Docs CSC website from d
 
 #### Installation
 
+Installation instructions are provided for Windows, macOS and Linux [here](https://docs.conda.io/projects/miniconda/en/latest/miniconda-install.html). On Windows, the installation procedure is as follows.
+
 1. Download a minimal installer for Conda, called _Miniconda_, from [docs.conda.io/projects/miniconda/en/latest/](https://docs.conda.io/projects/miniconda/en/latest/#latest-miniconda-installer-links) by clicking the hyperlink "Miniconda3 Windows 64-bit".
 
     ![Latest Miniconda installer links](docs/img/windows/miniconda_latest_installers.png)
 
-1. Once the download has completed, open the File Explorer, navigate to Downloads and double click on the downloaded executable to launch the installer.
+1. Once the download has completed, click the downloaded executable file on the browser's downloaded files list (there might be a warning about running the file, just proceed). Alternatively, open the File Explorer, navigate to Downloads and double click on the downloaded executable to launch the installer.
 
     A security warning dialog will most likely pop up (if not, just proceed with the installation) asking for confirmation on running the file. Confirm that the digital signature of the file is OK on the _Digital Signature Details_ opened by clicking the publisher name on the warning dialog.
 
     ![Digital Signature Details](docs/img/windows/digital_signature_details.png)
 
-    Then, only if so, click "Run" to start the installer.
+    Then, only if so, click "Run" to start the installer (the version number py_something.something will look different to what's pictured here).
 
     ![Miniconda3 py38_23.3.1-0 (64-bit) Setup](docs/img/windows/miniconda_setup.png)
 
@@ -37,19 +36,27 @@ A Python program called _MkDocs_ is used to generate the Docs CSC website from d
     - Choose Install Location
         + Install to `C:\Users\<your username>\AppData\Local\miniconda3` (should be filled in by default).
     - Advanced Installation Options
-        + Leave "Create start menu shortcuts (supported packages only)" checked if you like, but we aren't going to use them.
-        + Do _not_ check "Add Miniconda3 to my PATH environment variable", we'll handle that in Git Bash.
-        + If you have Python 3.8 installed through some other means and would like to keep that as the default on your system, uncheck "Register Miniconda3 as my default Python 3.8". For running MkDocs from Git Bash, this should have no effect.
+        + Leave "Create start menu shortcuts (supported packages only)".
+        + Do _not_ check "Add Miniconda3 to my PATH environment variable".
+        + If you have Python installed through some other means and would like to keep that as the default on your system, uncheck "Register Miniconda3 as my default Python 3.xx".
+        + Check "Clear the package cache upon completion".
 
-    Click "Install" and after it's completed click "Next". Then, unless you'd like to have the corresponding web pages opened for you ([this](https://conda.io/projects/conda/en/latest/user-guide/getting-started.html) and [this](https://www.anaconda.com/installation-success?source=installer), respectively), uncheck "Getting started with Conda" and "Welcome to Anaconda" before clicking "Finish".
-
-
-### Git for Windows
-
-In order to "clone" the Docs CSC repository from (and later, to "push" your work back to) GitHub onto your computer, a tool called _Git_ is needed. For Windows, there exists a port of Git called _Git for Windows_.
+    Click "Install" and, after it's completed, click "Next". Then, unless you'd like to have the corresponding web pages opened for you ([this](https://conda.io/projects/conda/en/latest/user-guide/getting-started.html) and [this](https://www.anaconda.com/installation-success?source=installer), respectively), uncheck "Getting started with Conda" and "Welcome to Anaconda" before clicking "Finish".
 
 
-#### Installation
+### Git
+
+In order to "clone" the Docs CSC repository from (and later, to "push" your work back to) GitHub onto your computer, a tool called _Git_ is needed. As an alternative to the command-line tool, GitHub provides their own graphical program called _GitHub Desktop_.
+
+<details>
+<summary>Option 1, CLI: Git from the command-line</summary>
+
+#### Git for Windows
+
+For Windows, there exists a port of Git called _Git for Windows_.
+
+
+##### Installation
 
 1. Download the latest version of Git for Windows from [gitforwindows.org](https://gitforwindows.org/) by clicking the large button labeled "Download" on the front page.
 
@@ -94,16 +101,16 @@ In order to "clone" the Docs CSC repository from (and later, to "push" your work
     Click "Install" and after the installation has completed, uncheck "View Release Notes", then click "Finish".
 
 
-#### Git Bash
+##### Git Bash
 
 You can find a shortcut for Git Bash in the Start menu. If you don't see it under Recently added, simply start typing `git bash` and sooner or later Windows will find it for you.
 
 ![Git Bash](docs/img/windows/git_bash.png)
 
-Before we proceed further with setting up the tools, there are just a few things to keep in mind when starting to learn the command line after using only graphical interfaces.
+Before we proceed further with setting up the tools, there are just a few things to keep in mind when starting to learn the command-line after using only graphical interfaces.
 
 
-##### Commands
+###### Commands
 
 In addition to the `git` command, just to illustrate some basic principles without going too much into detail, here are a few essential commands. Feel free to try them in Git Bash.
 
@@ -139,14 +146,14 @@ _does_ work without operands (it navigates to the home directory), but it is com
 As we'll see later, these aren't only used with `cd`, as in `cd ..` or `cd ~`.
 
 
-##### Tab completion
+###### Tab completion
 
-If you've never used a command line interface before, having to type everything letter-to-letter might seem tedious compared to clicking or tapping on things in a graphical user interface. Fortunately, something called _tab completion_ can be used to conveniently fill in commands, file or folder names, Git branch names and the like. There are differences on how it works exactly between different shells (like Bash, PowerShell, cmd and so on), but **all you need to remember** is, as the name of the concept suggests, the _tabulator_  AKA _tab_ key, usually marked on the keyboard with the word 'tab' or the symbol ↹.
+If you've never used a command-line interface before, having to type everything letter-to-letter might seem tedious compared to clicking or tapping on things in a graphical user interface. Fortunately, something called _tab completion_ can be used to conveniently fill in commands, file or folder names, Git branch names and the like. There are differences on how it works exactly between different shells (like Bash, PowerShell, cmd and so on), but **all you need to remember** is, as the name of the concept suggests, the _tabulator_  AKA _tab_ key, usually marked on the keyboard with the word 'tab' or the symbol ↹.
 
 This incredibly simple yet powerful concept is best explained by example, and in [an article on the subject](https://en.wikipedia.org/wiki/Command-line_completion), Wikipedia provides one (they call it "Command-line completion" and you can [skip straight to the example](https://en.wikipedia.org/wiki/Command-line_completion#Example)).
 
 
-##### Command history
+###### Command history
 
 In addition to tab completion, the command history is among one of the most useful features of shells like Bash. Again, simple yet powerful:
 
@@ -160,7 +167,7 @@ Many times you'll want to execute a command that is almost the same as a command
 - _Ctrl+A_ moves the cursor to the beginning, _Ctrl+E_ to the end.
 
 
-##### Clipboard copy/paste and keyboard shortcuts
+###### Clipboard copy/paste and keyboard shortcuts
 
 If you're accustomed to using the clipboard with the keyboard shortcuts _Ctrl+C_ and _Ctrl+V_, remember that these won't work in Git Bash. The corresponding shortcuts in Git Bash are (by default) _Ctrl+Insert_ for copy and _Shift+Insert_ for paste. **If you accidentally input _Ctrl+V_ in Git Bash with the intention of pasting text from the clipboard, you should hit the backspace key a couple of times before using the correct shortcut!** _Ctrl+C_, on the other hand, will send a keyboard interrupt signal that is often used to stop a running program, for example, the MkDocs development server. You can access the context menu for clipboard copy and paste by clicking on the terminal with the right mouse button.
 
@@ -298,10 +305,32 @@ Follow the instructions at GitHub Docs for
 - [Setting your commit email address](https://docs.github.com/en/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/setting-your-commit-email-address?platform=windows) and
 - [Setting your username in Git](https://docs.github.com/en/get-started/getting-started-with-git/setting-your-username-in-git?platform=windows).
 
+</details>
+
+<details>
+<summary>Option 2, GUI: Graphical interface with GitHub Desktop</summary>
+
+#### GitHub Desktop
+
+##### Installation
+
+Instructions for Windows and Mac are provided [here](https://docs.github.com/en/desktop/installing-and-authenticating-to-github-desktop/installing-github-desktop) and it is as simple as
+
+1. Download an installer by visiting [desktop.github.com](https://desktop.github.com/) and clicking on "Download for Windows (64bit)".
+1. Once the download has completed, click the downloaded executable file on the browser's downloaded files list (there might be a warning about running the file, just proceed). Alternatively, open the File Explorer, navigate to Downloads and double click on the downloaded executable to launch the installer.
+1. GitHub Desktop should start automatically when the installation is complete. 
+
+
+##### Signing in
+
+Follow the instructions for [Authenticating to GitHub in GitHub Desktop](https://docs.github.com/en/desktop/installing-and-authenticating-to-github-desktop/authenticating-to-github-in-github-desktop) (the regular, non-Enterprise authentication).
+
+</details>
+
 
 ### Uninstallation
 
-Miniconda and Git for Windows can be uninstalled like any other program by going to Add or remove programs and selecting them from the list of installed applications. 
+Miniconda, Git for Windows or GitHub Desktop can be uninstalled like any other program by going to Add or remove programs and selecting them from the list of installed applications. 
 
 Alternatively, you can run the corresponding executable to uninstall Conda or Git for Windows:
 
@@ -309,16 +338,23 @@ Alternatively, you can run the corresponding executable to uninstall Conda or Gi
 - `C:\Users\<your username>\AppData\Local\Programs\Git\unins000.exe`
 
 
-## A simple Git workflow example
+## Working with Git
+
+### Documentation on the tools
 
 Have a look at a [relevant xkcd](https://xkcd.com/1597/).
 
-The part about memorizing some shell commands is what this tutorial is about. The steps to take if something goes wrong you probably already know, but are in any case [described below](#starting-over).
+The part about memorizing some shell commands is what this tutorial is about (option 1, at least). The steps to take if something goes wrong you probably already know, but are in any case [described below](#starting-over).
 
-Documentation on Git, with a reference manual, videos and an external links section is available at [www.git-scm.com/doc](https://www.git-scm.com/doc). The Git commands introduced in this tutorial come with a link to the corresponding page of the reference manual.
+**Option 1, CLI:** Documentation on Git, with a reference manual, videos and an external links section is available at [www.git-scm.com/doc](https://www.git-scm.com/doc). The Git commands introduced in this tutorial come with a link to the corresponding page of the reference manual.
+
+**Option 2, GUI:** [GitHub Desktop documentation](https://docs.github.com/en/desktop)
 
 
 ### Obtaining a local copy, i.e. _cloning_ the repository
+
+<details>
+<summary>Option 1, CLI</summary>
 
 Clone the Docs repository (if not cloned yet) with [git-clone](https://git-scm.com/docs/git-clone):
 
@@ -332,14 +368,42 @@ Navigate to the folder (remember [tab completion](#tab-completion)):
 cd csc-user-guide/
 ```
 
+</details>
 
-### Setting up the Conda environment for running MkDocs
+<details>
+<summary>Option 2, GUI</summary>
+
+In GitHub Desktop
+
+1. Select _File -> Clone repository..._ from the menu bar.
+1. Start typing `CSCfi/csc-user-guide` (or just `csc-user-guide`) into the filter field.
+1. When it appears on the list, click on `CSCfi/csc-user-guide` to activate the entry.
+1. Click _Clone_ to start.
+
+Now you can select the _Repository -> Show in Explorer_ menu entry to browse the cloned repository files on your computer.
+
+>You'll probably want to uncheck "Hide extensions for known file types" (and have File Explorer "Show hidden files, folders and drives" too, while you're at it) from the _Folder Options_, accessed by clicking the _Options_ button in the _View_ ribbon.
+>
+>![Folder Options](docs/img/windows/folder_options.png)
+
+</details>
+
+
+## Setting up a development environment, step 2
+
+<details>
+<summary>Option 1, CLI</summary>
 
 Create the Conda environment (if not created yet):
 
 ```bash
 conda env create -f docs/support/tutorials/conda/conda-docs-env-freeze.yaml
 ```
+
+>if created before, add the `--force` flag:
+>```bash
+>conda env create --force -f docs/support/tutorials/conda/conda-docs-env-freeze.yaml
+>```
 
 Activate the environment:
 
@@ -353,8 +417,73 @@ The environment can be deactivated with
 conda deactivate
 ```
 
+</details>
 
-### Previewing your changes locally
+<details>
+<summary>Option 2, GUI</summary>
+
+If you're using VS Code, tasks for creating/updating the Conda environment, as well as starting the development server, have been predefined in the workspace. Tasks can be found
+
+- from _Quick Open_, accessed by
+    - using the keyboard shortcut _Ctrl+P_
+    - selecting _Go -> Go to file..._ from the menu bar
+    - clicking the search field up top if the appropriate titlebar style is enabled
+
+  and typing "task" followed by a space
+
+  ![tasks](docs/img/windows/tasks.png)
+
+- or by selecting _Terminal -> Run task..._ from the menu bar.
+
+Create the Conda environment with the task **_Docs CSC: Create/update the Conda environment_**. A terminal panel will open showing you the progress on installing the dependencies. The environment is ready when the terminal instructs you to "press any key to close it", though you can leave it open if you like.
+
+</details>
+
+<details>
+<summary>Option Ö, Avoid this</summary>
+
+### Anaconda Navigator
+
+Conda environments can be created with a graphical program called _Anaconda Navigator_. 
+
+
+#### Installation
+
+With Miniconda installed, the simplest way to install Anaconda Navigator is to just use Anaconda Prompt that was installed with Miniconda.
+
+1. Look for _Anaconda Prompt (Miniconda3)_ in the Start menu and launch it.
+1. Execute the command `conda install anaconda-navigator` by, for example, copy-pasting it into Anaconda Prompt:
+    1. Highlight the command and copy it to the clipboard with
+        - the keyboard shortcut _Ctrl+C_
+        - the context menu entry _Copy_, accessed by right-clicking, or
+        - by selecting _Edit -> Copy_ from the web browser's menu bar.
+    1. Paste the command into Anaconda Prompt with
+        - the keyboard shortcut _Ctrl+V_
+        - a simple right-click anywhere but the title bar, or
+        - by selecting _Edit -> Paste_ from the menu, accessed by clicking the program icon in the upper-left corner.
+    
+        ![Anaconda Prompt](docs/img/windows/conda_install_anaconda-navigator.png)
+
+    1. Press _Enter_.
+1. Wait for the installation to complete. That'll be when you're returned back to the prompt `(base) C:\>`.
+
+You've just installed Anaconda Navigator from the command-line! That wasn't so bad, was it?
+
+
+#### Creating the environment
+
+Find the Start menu entry for _Anaconda Navigator_, start it and wait while it sets itself up on the first run. Then, from the left sidebar, select _Environments_. The only environment at the moment is _base_ you saw when installing. In Anaconda Navigator, creating an environment defined in a YAML file is called _importing_. Click _Import_ at the bottom to open the _Import Environment_ dialog. The YAML file in question, _conda-docs-env-freeze.yaml_, is found in the repository, so click the folder icon next to the input field under _Local drive_, navigate to the folder you cloned the repository into and proceed to `docs/support/tutorials/conda/` to find the file. By default, the _New environment name_ field gets filled in with the file name sans the _.yaml_ extension, change it to _docs-env_. Later, **when the environment has been updated and you are recreating it, you need to check "Overwrite existing environment"**, but on the first time it makes no difference.
+
+![Import Environment](docs/img/windows/import_environment.png)
+
+After the environment has been created, you can close Anaconda Navigator.
+
+</details>
+
+
+## Previewing your changes locally
+
+>**Option 2, GUI**: use the VS Code tasks introduced above in _[Setting up a development environment, step 2](#setting-up-a-development-environment-step-2)_.
 
 Run the development server (with the Conda environment activated):
 
@@ -368,11 +497,13 @@ or
 mkdocs serve --dirtyreload
 ```
 
+>**Option 2, GUI**: The VS Code task for starting the development server will ask whether you'd like to include e.g. the `--dirtyreload` flag.
+
 It will take a moment for MkDocs to build and serve the site. You can ignore the long list of pages that "exist in the docs directory, but are not included in the "nav" configuration" MkDocs will show you. If you wish to shut down the server (even when its building)&ndash;perhaps to restart it with `--dirtyreload` enabled&ndash;simply hit _Ctrl+C_.
 
 When MkDocs tells you it is serving on an address, you can point a web browser to the address for a preview. The default is [127.0.0.1:8000](http://127.0.0.1:8000/) AKA [localhost:8000](http://localhost:8000/).
 
-If you want to leave MkDocs running while continuing to work on the command line, open a new Git Bash window and again navigate to the cloned folder:
+If you want to leave MkDocs running while continuing to work on the command-line, open a new Git Bash window and again navigate to the cloned folder:
 
 ```bash
 cd csc-user-guide/
