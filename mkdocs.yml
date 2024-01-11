@@ -36,6 +36,7 @@ plugins:
       tags_file: apps/by_license.md
   - search
   - git-revision-date-localized:
+      fallback_to_build_date: true
       type: date
       custom_format: "%Y-%m-%dT%H:%M:%S%z" # Used with feedback buttons
       locale: en
