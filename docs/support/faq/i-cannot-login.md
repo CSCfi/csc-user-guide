@@ -37,7 +37,7 @@ You need to contact us to get your account unlocked. Our email address is
 ## Why is my SSH client saying "Corrupted MAC on input"?
 
 There is a known issue of **Windows OpenSSH clients**, which are using the LibreSSL library for
-cryptography. The bug happends when the combination of cipher `aes128-ctr` and either the
+cryptography. The bug happens when the combination of cipher `aes128-ctr` and either the
 `umac-128-etm@openssh.com` or `umac-128@openssh.com` MAC algorithm is used.
 The client will show an error saying `Corrupted MAC on input`.
 
@@ -47,7 +47,7 @@ Here are some links to relevant bug reports:
 - [https://github.com/PowerShell/Win32-OpenSSH/issues/1359](https://github.com/PowerShell/Win32-OpenSSH/issues/1359)
 - [https://github.com/PowerShell/Win32-OpenSSH/issues/2078](https://github.com/PowerShell/Win32-OpenSSH/issues/2078)
 
-If you encounter this issue while trying to log in via SSH, you can try to add an explicit choise
+If you encounter this issue while trying to log in via SSH, you can try to add an explicit choice
 of MAC algorithm to your SSH client, instead of using the automatically chosen algorithms.
 This is achieved with the `-m <MAC algorithm>` option.
 To find out what MAC algorithms your client technically supports, you can run the command
@@ -70,7 +70,7 @@ ssh -m hmac-sha2-512 yourcscusername@puhti.csc.fi
 ssh -Q mac
 ```
 
-Please note that all the `*-etm` variants is disallowed by the SSH servers on the CSC supercomputers
+Please note that all the `*-etm` variants are disallowed by the SSH servers on the CSC supercomputers
 for the time being, due to a newly discovered security weakness in them from December 2023,
 called "Terrapin".
 If you use an unsupported algorithm, the server will tell you:
@@ -79,7 +79,7 @@ If you use an unsupported algorithm, the server will tell you:
 Unable to negotiate with <server's IP> port 22: no matching MAC found.
 ```
 
-If you experience this issue, and you find a working solution with a differnet MAC algorithm,
+If you experience this issue, and you find a working solution with a different MAC algorithm,
 you might want to add a line to your `ssh_config` which would enable the workaround automatically.
 For example, to tell SSH that the `umac-128` algorithm should be disallowed, use a configuration
 like the one below:
@@ -96,4 +96,5 @@ Host *
 
 ## The SSH server says "Unable to negotiate ... no matching MAC found"
 
-Please see the section above about choosing a different MAC algorithm for your client.
+Please see the [section above](#why-is-my-ssh-client-saying-corrupted-mac-on-input)
+about choosing a different MAC algorithm for your client.
