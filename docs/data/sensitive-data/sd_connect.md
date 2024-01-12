@@ -5,7 +5,7 @@
 Sensitive Data (SD) Connect allows you to store and share sensitive research data. SD Connect serves as a workspace for collaborative research projects, facilitating data collection and sharing. Encrypted files stored in SD Connect are directly available for analysis, annotiation or editing via SD Desktop. 
 
 
-## Key features
+### Key features
 
 * Modern user-friendly interface 
 
@@ -16,7 +16,7 @@ Sensitive Data (SD) Connect allows you to store and share sensitive research dat
 * Supports encryption and storage of any file type: text files, images, audio files, video, and genetic data (default space 10 TB, additional space required contact [CSC Service Desk](../../support/contact.md)). In addition, you can describe or organize each file or bucket with specific tags. 
 
 
-## Limitations
+### Limitations
 
 * SD Connect is based on an object storage solution. Files are called objects, they are stored as file segments and can not be directly edited. All files (sensitive or non-sensitive, e.g. scripts) stored in SD Connect must be encrypted. 
 
@@ -31,8 +31,5 @@ Sensitive Data (SD) Connect allows you to store and share sensitive research dat
 !!! Note
     Files uploaded using the automated encryption option between November 2, 2022, and December 2022 might be corrupted. This is because during data upload, files are split into short segments, and in some cases, the correct segment's order has been lost, making the files unreadable. Therefore, if you have used this function and can not re-upload a copy of the same data, don't hesitate to contact us at [CSC Service Desk](../../support/contact.md). We need to evaluate individual cases to determine if the files can be retrieved. Currently, SD Connect automated encryption is supported only for files <1GB.
 
-
 !!! Note
     SD Connect is unsuitable for data processing under the Act on the Secondary Use of Health and Social Data. Please check [SD Desktop for secondary use](./sd-desktop-audited.md) to learn about the precise requirements.
-
-                                                                                                                                                                                          |
