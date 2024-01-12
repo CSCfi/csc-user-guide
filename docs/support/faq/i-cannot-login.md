@@ -50,7 +50,7 @@ Here are some links to relevant bug reports:
 If you encounter this issue while trying to log in via SSH, you can try to add an explicit choice
 of MAC algorithm to your SSH client, instead of using the automatically chosen algorithms.
 This is achieved with the `-m <MAC algorithm>` option.
-To find out what MAC algorithms your client technically supports, you can run the command
+To find out what MAC algorithms your client technically supports, you can run the `ssh -Q mac` command.
 
 At the moment of writing, "hmac-sha2-512" is a suitable alternative, for example.
 This may change in the future, so it may be a good idea to not take it for granted that this
