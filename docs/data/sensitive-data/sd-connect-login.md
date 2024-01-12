@@ -7,6 +7,7 @@ Login to SD Connect is currently possible only with CSC credentials and Haka (a 
 [https://sd-connect.csc.fi](https://sd-connect.csc.fi) 
 
 
+
 !!! Note
     The user interface is compatible with all modern web browsers but does not support Firefox private browsing (incognito mode). 
 
