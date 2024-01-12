@@ -122,4 +122,4 @@ For example following creates virtual raster based on search results from Paitul
 
 `gdal_translate "STACIT:\"https://paituli.csc.fi/geoserver/ogc/stac/v1/search?collections=corine_land_cover_at_geocubes&datetime=2017-01-05/2019-02-14&bbox=19.5,61.5,28.7,63.0\":asset=COG" -of VRT corine.vrt`
 
-Note, that GDAL removes from virtual raster Assets, that are fully covered with newer Assets. For example, Paituli STAC has CORINE data available for 2012 and 2018. If the above search is changed to cover also 2012 then STAC search would find also CORINE 2012 Items, but these would still not be in the created VRT. If 2012 data is needed to the virtual raster, then the time interval has to be adjusted, so that 2018 would not be included.
+Note, that GDAL removes from virtual raster Assets that are fully covered with newer Assets. For example, Paituli STAC has CORINE data available for 2012 and 2018. If the above search is changed to cover also 2012 then STAC search would find also CORINE 2012 Items, but these would still not be in the created VRT. If 2012 data is needed to the virtual raster, then the time interval has to be adjusted, so that 2018 would not be included.
