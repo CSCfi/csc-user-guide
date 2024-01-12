@@ -43,9 +43,9 @@ The client will show an error saying `Corrupted MAC on input`.
 
 Here are some links to relevant bug reports:
 
-- https://github.com/libressl/portable/issues/603
-- https://github.com/PowerShell/Win32-OpenSSH/issues/1359
-- https://github.com/PowerShell/Win32-OpenSSH/issues/2078
+- [https://github.com/libressl/portable/issues/603](https://github.com/libressl/portable/issues/603)
+- [https://github.com/PowerShell/Win32-OpenSSH/issues/1359](https://github.com/PowerShell/Win32-OpenSSH/issues/1359)
+- [https://github.com/PowerShell/Win32-OpenSSH/issues/2078](https://github.com/PowerShell/Win32-OpenSSH/issues/2078)
 
 If you encounter this issue while trying to log in via SSH, you can try to add an explicit choise
 of MAC algorithm to your SSH client, instead of using the automatically chosen algorithms.
