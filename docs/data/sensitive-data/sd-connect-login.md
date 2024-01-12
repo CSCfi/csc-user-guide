@@ -4,7 +4,7 @@ Before you can login you need to create a CSC account, a CSC project and apply f
 
 Login to SD Connect is currently possible only with CSC credentials and Haka (a user identity federation system) at:
 
-   * [https://sd-connect.csc.fi](https://sd-connect.csc.fi) 
+[https://sd-connect.csc.fi](https://sd-connect.csc.fi) 
 
 
 !!! Note
