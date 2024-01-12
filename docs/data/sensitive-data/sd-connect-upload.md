@@ -1,7 +1,8 @@
 # Uploading and encrypting data via user interface 
 
-Your data is automatically encrypted when you upload data to SD Connect. This is suitable for all file types and formats. More information about encryption (link)
-Upload and encrypting less than 100 GB
+Your data is automatically encrypted when you upload data to SD Connect. This is suitable for all file types and formats. More information about data encryption (link)
+
+## Upload and encrypting data files less than 100 GB
 
 ### Upload and encrypt files to a new folder
 
