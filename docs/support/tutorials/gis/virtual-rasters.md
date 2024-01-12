@@ -112,9 +112,9 @@ Next add to the file list the full paths as they are required by GDAL, using vsi
 
 Set up your credentials for [GDAL](../../../apps/gdal.md) before running `gdalbuildvrt`.
 
-### Creating virtual raster with GDAL gdal_translate and STAC
+### Creating virtual raster from STAC results
 
-STAC (Spatio-Temporal Asset Catalog) is a way to describe (raster) datasets with support to search data by time and location. For example [Paituli STAC] includes several Finnish datasets and explains the STAC concepts in more detail. 
+STAC (Spatio-Temporal Asset Catalog) is a way to describe (raster) datasets with support to search data by time and location. For example [Paituli STAC](https://paituli.csc.fi/stac.html) includes several Finnish datasets and explains the STAC concepts in more detail. 
 
 [GDAL supports searching STAC](https://gdal.org/drivers/raster/stacit.html) and creating virtual rasters based on the results.
 
