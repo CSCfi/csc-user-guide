@@ -59,3 +59,5 @@
 *[REPL]: Read–Eval–Print Loop
 *[GCD]: Graphics Compute Die
 *[PME]: Particle-Mesh Ewald
+*[MAC]: Message Authentication Code
+*[SSL]: Secure Sockets Layer
