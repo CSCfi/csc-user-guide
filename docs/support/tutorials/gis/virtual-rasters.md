@@ -65,6 +65,7 @@ It is worth noting that while running some analysis on a 2m DEM covering whole F
 Following tools support creating virtual rasters:
 
 *   [GDAL gdalbuildvrt](https://gdal.org/programs/gdalbuildvrt.html) commandline tool.
+*   GDAL gdal_translate with STAC search
 *   [Python](https://gdal.org/api/python/osgeo.gdal.html#osgeo.gdal.BuildVRT) and [R](https://rdrr.io/cran/terra/man/vrt.html) have wrappers for GDAL gdalbuildvrt, for [longer example for R see StackOverflow's answer](https://stackoverflow.com/questions/68332846/improving-computational-speed-of-zonal-statistics-on-150gb-of-raster-tiles-in-r).
 *   [QGIS,](https://docs.qgis.org/3.10/en/docs/user_manual/processing_algs/gdal/rastermiscellaneous.html?highlight=virtual#build-virtual-raster) [GrassGIS](https://grass.osgeo.org/grass79/manuals/r.buildvrt.html) and [SagaGIS](http://www.saga-gis.org/saga_tool_doc/7.5.0/io_gdal_12.html) provide graphical interface for gdalbuildvrt
 *   [lidR](https://cran.r-project.org/web/packages/lidR/index.html) supports writing lidar data analysis results directly as virtual raster
@@ -111,12 +112,14 @@ Next add to the file list the full paths as they are required by GDAL, using vsi
 
 Set up your credentials for [GDAL](../../../apps/gdal.md) before running `gdalbuildvrt`.
 
+### Creating virtual raster with GDAL gdal_translate and STAC
 
+STAC (Spatio-Temporal Asset Catalog) is a way to describe (raster) datasets with support to search data by time and location. For example [Paituli STAC] includes several Finnish datasets and explains the STAC concepts in more detail. 
 
+[GDAL supports searching STAC](https://gdal.org/drivers/raster/stacit.html) and creating virtual rasters based on the results.
 
+For example following creates virtual raster based on search results from Paituli STAC, the query asks for files in `corine_land_cover_at_geocubes` Collection in specified time interval and location (bbox), based on Assets (=files) with name `COG`. 
 
+`gdal_translate "STACIT:\"https://paituli.csc.fi/geoserver/ogc/stac/v1/search?collections=corine_land_cover_at_geocubes&datetime=2017-01-05/2019-02-14&bbox=19.5,61.5,28.7,63.0\":asset=COG" -of VRT corine.vrt`
 
-
-
-
-
+Note, that GDAL removes from virtual raster Assets that are fully covered with newer Assets. For example, Paituli STAC has CORINE data available for 2012 and 2018. If the above search is changed to cover also 2012 then STAC search would find also CORINE 2012 Items, but these would still not be in the created VRT. If 2012 data is needed to the virtual raster, then the time interval has to be adjusted, so that 2018 would not be included.
