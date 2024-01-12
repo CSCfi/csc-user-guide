@@ -2,12 +2,12 @@
 
 ## Share ID 
 
-With SD Connect, you can share folders across different CSC projects. This is done by using Share ID, a unique 32-digit code associated with a CSC project. You can share a folder with multiple CSC projects and use different permission levels. (screenshot)
+With SD Connect, you can share folders across different CSC projects. This is done by using Share ID, a unique 32-digit code associated with a CSC project. You can share a folder with multiple CSC projects and use different permission levels. 
 
 You need to know the Share ID of the **recipient** CSC project. The recipient can copy the Share ID from the SD Connect user interface (the recipient should select correct CSC project from the top left corner, then click **Copy Share ID** next to the project number) and provide it to you via email. 
 
 
-## Permissions and example use cases
+## Permission levels and example use cases
 
 Permission levels are Share via Desktop only, Make a copy and Manage. Please read about example use cases which demonstrate how the different permissions can be applied based on specific collaboration requirements and data sharing needs.
 
