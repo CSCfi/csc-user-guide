@@ -118,7 +118,7 @@ STAC (Spatio-Temporal Asset Catalog) is a way to describe (raster) datasets with
 
 [GDAL supports searching STAC](https://gdal.org/drivers/raster/stacit.html) and creating virtual rasters based on the results.
 
-For example following creates virtual raster based on search results from Paituli STAC, the query asks for files in `corine_land_cover_at_geocubes` Collection in specified time interaval and location (bbox), based on Assets (=files) with name `COG`. 
+For example following creates virtual raster based on search results from Paituli STAC, the query asks for files in `corine_land_cover_at_geocubes` Collection in specified time interval and location (bbox), based on Assets (=files) with name `COG`. 
 
 `gdal_translate "STACIT:\"https://paituli.csc.fi/geoserver/ogc/stac/v1/search?collections=corine_land_cover_at_geocubes&datetime=2017-01-05/2019-02-14&bbox=19.5,61.5,28.7,63.0\":asset=COG" -of VRT corine.vrt`
 
