@@ -85,7 +85,7 @@ For example, to tell SSH that the `umac-128` algorithm should be disallowed, use
 like the one below:
 
 ```
-# Place this in your home directory's .ssh/ssh_config file:
+# Place this in your home directory's ssh\config file:
 
 Host *
     MACs -umac-128-etm@openssh.com,umac-128@openssh.com
