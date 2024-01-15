@@ -1,4 +1,4 @@
-# Sharing data
+# Sharing folders
 
 ## Share ID 
 
