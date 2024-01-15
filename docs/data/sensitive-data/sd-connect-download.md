@@ -1,5 +1,5 @@
 # Downloading folders and files
-You can download folders and individual files from SD Connect. 
+You can download folders or individual files from SD Connect. 
 
 ## Download folder
 1. Find correct folder from All folders tab.
