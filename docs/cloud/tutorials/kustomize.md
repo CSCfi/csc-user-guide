@@ -47,27 +47,28 @@ It can be harsh to use Helm in a way that your applications will contains more c
 Overlays are a kustomization (*kustomization.yaml*) that can depend on another kustomization. They can include new resource manifests, or patches for existing ones.
 
 ## Example
-Let's see an example on how kustomize works. We'll take this repo: [https://github.com/lvarin/kustomize-openshift](https://github.com/lvarin/kustomize-openshift)
+Let's see an example on how kustomize works. We'll take this repo: [https://github.com/CSCfi/kustomize-openshift](https://github.com/CSCfi/kustomize-openshift)
 
 If we look at the directory, this is what we have:
 
 ```sh
-├── README.md
 ├── base
 │   ├── deployment.yaml
 │   ├── kustomization.yaml
+│   ├── nginx-imagestream.yaml
 │   ├── pvc.yaml
 │   ├── route.yaml
 │   └── service.yaml
-└── overlays
-    └── production
-        ├── db.yaml
-        ├── deployment.yaml
-        ├── kustomization.yaml
-        ├── pvc.yaml
-        └── route.yaml
+├── overlays
+│   └── production
+│       ├── db.yaml
+│       ├── deployment.yaml
+│       ├── kustomization.yaml
+│       ├── pvc.yaml
+│       └── route.yaml
+└── README.md
 
-4 directories, 11 files
+3 directories, 12 files
 ```
 
 We have a **base** and an **overlays** folder. Inside the overlays folder, we can find another folder called **production**.
@@ -88,6 +89,7 @@ metadata:
 resources:
 - pvc.yaml
 - deployment.yaml
+- nginx-imagestream.yaml
 - service.yaml
 - route.yaml
 ```
