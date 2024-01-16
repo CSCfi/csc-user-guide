@@ -112,10 +112,14 @@ or list files from either Allas or the other object storage by using the respect
 
 ## Other ways of accessing Allas
 
-* [Python](using_allas/python_library.md) Programmatic access to Allas.
+* Python:
+   * [Python with SWIFT](using_allas/python_swift.md)
+   * [Python with S3 with `boto3`](using_allas/python_boto3.md).
    * [Geoscience related examples how Allas can be used in Python scripts](https://github.com/csc-training/geocomputing/tree/master/python/allas)
 * [Nextcloud front end](allas-nextcloud.md) Can be set up in Pouta to get additional functionality.
-* [R](https://github.com/csc-training/geocomputing/blob/master/R/allas/working_with_allas_from_R_S3.R) (Geoscience related example how Allas can be used in R scripts)
+* R
+  * [aws.s3 R package](https://cloud.r-project.org/web/packages/aws.s3/index.html) can be used for working with Allas with S3 protocol
+  * [Geoscience related example how Allas can be used in R scripts](https://github.com/csc-training/geocomputing/blob/master/R/allas/working_with_allas_from_R_S3.R), inc. aws.s3 set up.
 
 
 
