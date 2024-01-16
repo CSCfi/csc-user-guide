@@ -36,7 +36,7 @@ allowed.
 
 ## Getting an account without Haka or Virtu
 
-The preferred registration method is to log in using Haka or Virtu. If you do not have this option available please ask your project manager to contact us, servicedesk@csc.fi.
+The preferred registration method is to log in using Haka or Virtu. If you do not have this option available, please ask your project manager to [contact CSC Service Desk](../support/contact.md).
 
 This mostly applies to foreign collaborators of Finland-based research
 groups, but basically anybody who has a project to join can register
@@ -58,7 +58,7 @@ If you are attending a course which is utilising CSC's services you need to crea
 
 ### For organisers/teachers
 
-CSC does not provide temporary training specific user accounts for courses anymore. If the participant does not yet have a user account, it needs to be created. The course organiser can then invite participants to the course project. If you're not able to create CSC user accounts please contact servicedesk@csc.fi.
+CSC does not provide temporary training specific user accounts for courses anymore. If the participant does not yet have a user account, it needs to be created. The course organiser can then invite participants to the course project. If you're not able to create CSC user accounts, please [contact CSC Service Desk](../support/contact.md).
 
 Please read carefully our guidance if you wish to have a course for your students using CSC's services. We request that you will create the project well in advance as soon as you have the list of the participants. And when the project is ready you are able to start sending out the invitations to your participants. 
 
