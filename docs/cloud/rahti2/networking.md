@@ -8,9 +8,12 @@ Rahti 2 is divided in **Namespaces**. Depending on the context, namespaces can b
 
 ## NetworkPolicy
 
-From a networking point of view, namespaces can be configured to provide an isolated **VLAN** to everything that runs inside it, notably to [Pods](concepts.md#pod), [Services](concepts.md#service) and [Routes](concepts.md#route). This isolation is obtained via [Network Policies](https://kubernetes.io/docs/concepts/services-networking/network-policies/). It is possible to change this by editing the two `NetworkPolicy` objects that are created by default in Rahti 2.
+From a networking point of view, namespaces are configured by default to provide an isolated **VLAN** to everything that runs inside it, notably to [Pods](concepts.md#pod) and [Services](concepts.md#service). Traffic to any `Pod` or `Service` coming from outside the namespace (even from other namespaces in Rahti 2) will be blocked. The only traffic that will be able to pass from outside the namespace will be the one going through the `Route`. This isolation is obtained via [Network Policies](https://kubernetes.io/docs/concepts/services-networking/network-policies/). It is possible to change this by editing the two `NetworkPolicy` objects that are created by default in Rahti 2.
 
 ![Rahti 2 Networking](../img/rahti-network.drawio.svg)
+
+!!! Note "Advanced networking"
+    In the Administrator menu, under `Networking > NetworPolicies` it is possible to browse and edit the default network policies, but only in YAML format. Only change the [NetworkPolicies](https://kubernetes.io/docs/concepts/services-networking/network-policies/) if you are really sure of what you are doing.
 
 ## Pods
 
