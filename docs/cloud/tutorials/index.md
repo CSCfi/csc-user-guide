@@ -21,3 +21,4 @@
 * [SSH Jumphost in cPouta](create-jumphost.md)
 * [SSH Key-pair](ssh-key.md)
 * [Webhooks](webhooks.md)
+* [Pod (anti) affinity](pod-affinity.md)
