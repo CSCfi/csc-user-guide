@@ -36,8 +36,7 @@ allowed.
 
 ## Getting an account without Haka or Virtu
 
-The preferred registration method is to log in using Haka or
-Virtu. If you are not eligible, an alternative method is to contact servicedesk@csc.fi.
+The preferred registration method is to log in using Haka or Virtu. If you do not have this option available please ask your project manager to contact us, servicedesk@csc.fi.
 
 This mostly applies to foreign collaborators of Finland-based research
 groups, but basically anybody who has a project to join can register
