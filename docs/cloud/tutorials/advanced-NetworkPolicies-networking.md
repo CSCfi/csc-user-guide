@@ -1,12 +1,12 @@
 # Advanced NetworkPolicies
 
-In this YAML example below there is a `NetworkPolkicy` that will allow communication **initiated from** another namespace (`<NAME OF ANOTHER NAMESPACE>`) to the `<CURRENT NAMESPACE>`:
+In this YAML example below there is a `NetworkPolkicy` that will allow communication **initiated from** another namespace `<NAME OF ANOTHER NAMESPACE>` to the `<CURRENT NAMESPACE>`:
 
 ```yaml
 apiVersion: networking.k8s.io/v1
 kind: NetworkPolicy
 metadata:
-  name: ''
+  name: 'namespacelink'
   namespace: <CURRENT NAMESPACE>
 spec:
   podSelector: {}
