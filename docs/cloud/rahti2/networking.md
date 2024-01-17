@@ -13,7 +13,7 @@ From a networking point of view, namespaces are configured by default to provide
 ![Rahti 2 Networking](../img/rahti-network.drawio.svg)
 
 !!! Note "Advanced networking"
-    In the Administrator menu, under `Networking > NetworPolicies` it is possible to browse and edit the default network policies, but only in YAML format. Only change the [NetworkPolicies](https://kubernetes.io/docs/concepts/services-networking/network-policies/) if you are really sure of what you are doing.
+    In the Administrator menu, under `Networking > NetworkPolicies` it is possible to browse and edit the default network policies, but only in YAML format. Only change the [NetworkPolicies](https://kubernetes.io/docs/concepts/services-networking/network-policies/) if you are really sure of what you are doing.
 
 ## Pods
 
