@@ -47,6 +47,9 @@ Services can be used for internal connections. For example, if we have one or mo
 
 ![Route Options](../img/route-modes.drawio.svg)
 
+!!! warning "Re-encrypt"
+    For Re-encrypt to work, it is necessary to provide your own certificate. There are 3 steps: (1) You must have a certificate/key pair in PEM-encoded files, where the certificate is valid for the route host. (2) You may have a separate CA certificate in a PEM-encoded file that completes the certificate chain. (3) You must have a separate destination CA certificate in a PEM-encoded file. If one of these steps is not followed correctly, the route will not work.
+
 A Route can also be configured to (1) provide a HTTP/302 redirection from port `80` to `443`. It is also possible to (2) serve the same content in both ports, or to (3) not serve anything at all in the un secure `80` port.
 
 An important limitation for Rahti 2 is that **only the HTTP/80 and HTTPS/443 ports are exposed for incoming traffic**, and they only can serve **HTTPD protocol requests**. Internally to a namespace, any port and protocol is supported, this means we can connect an application to a database with no issues, but we will never be able to expose that database to outside traffic. This is due to the fact that the same incoming virtual IP is shared with all the incoming traffic in Rahti 2's HAProxy load balancers. [Name-based virtual hosts](https://en.wikipedia.org/wiki/Virtual_hosting#Name-based) are used to redirect the traffic to the correct Route. Other protocols that are not HTTPD, do not have this feature and will need a dedicated IP/port pair to work.
