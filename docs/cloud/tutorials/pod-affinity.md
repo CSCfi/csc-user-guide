@@ -32,6 +32,21 @@ The `affinity` block needs to be under `spec`. For applying this to another depl
 
 ![Labels](../img/celery-worker.png)
 
+And from the command line:
+
+```sh
+$ oc describe pods celery-worker-6777488df4-s9tc7
+Name:           celery-worker-6777488df4-s9tc7
+Namespace:      wes
+Priority:       0
+Node:           rahti-comp-io-s25-d/192.168.54.13
+Start Time:     Wed, 17 Jan 2024 14:55:57 +0200
+Labels:         app=celery-worker
+                deployment=celery-worker-57
+                deploymentconfig=celery-worker
+(...)
+```
+
 When the `affinity` block is added to this deployment, the scheduler will (re-)launch the Pods corresponding to `wes-deployment` into the same as `celery-worker` is running. As the policy used is `requiredDuringSchedulingIgnoredDuringExecution`, if there is no space in the chosen node, the deployment will not succeed. Other policy is `preferredDuringSchedulingIgnoredDuringExecution`, which means that the scheduling will not fail if there is no space in the chosen node as they will be scheduled in a different one.
 
 More information and further examples can be found at:
