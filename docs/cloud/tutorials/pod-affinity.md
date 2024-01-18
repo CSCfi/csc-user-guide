@@ -4,7 +4,7 @@ Pod affinity and anti-affinity allow you to constrain where your Pods will be sc
 
 This is useful because sometimes (affinity) it is interesting to be sure that two Pods share the same mounted volume and avoid network synchronization issues, or the opposite, (anti-affinity) make sure two pods will not share the same server and thus increase the availability of an application.
 
-In this example of a deployment we want the Pods from the `wes-deployment` to run in the same node as the `celelery-worker` ones so they can both mount the same storage volume (which can only be mounted on a single physical node).
+In this example of a deployment we want the Pods from the `wes-deployment` to run in the same node as the `celery-worker` ones so they can both mount the same storage volume (which can only be mounted on a single physical node).
 
 ```diff
 diff --git a/charts/wes/templates/wes/wes-deployment.yaml b/charts/wes/templates/wes/wes-deployment.yaml
