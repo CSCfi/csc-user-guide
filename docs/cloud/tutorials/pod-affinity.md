@@ -32,7 +32,7 @@ The `affinity` block needs to be under `spec`. For applying this to another depl
 
 ![Labels](../img/celery-worker.png)
 
-When the `affinity` block in added to this deployment, the scheduler will (re-)launch the Pods corresponding to `wes-deployment` into the same as `celery-worker` is running. As the policy used is `requiredDuringSchedulingIgnoredDuringExecution`, if there is no space in the chosen node, the deployment will not succeed. Other policy is `preferredDuringSchedulingIgnoredDuringExecution`, which means that the scheduling will not fail if there is no space in the chosen node as they will be scheduled in a different one.
+When the `affinity` block is added to this deployment, the scheduler will (re-)launch the Pods corresponding to `wes-deployment` into the same as `celery-worker` is running. As the policy used is `requiredDuringSchedulingIgnoredDuringExecution`, if there is no space in the chosen node, the deployment will not succeed. Other policy is `preferredDuringSchedulingIgnoredDuringExecution`, which means that the scheduling will not fail if there is no space in the chosen node as they will be scheduled in a different one.
 
 More information and further examples can be found at:
 
