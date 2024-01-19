@@ -419,6 +419,9 @@ for methods applied in your setup.
 - [The PRODRG Server] for online creation of small molecule topologies
 - [Advanced Gromacs Workshop materials](https://enccs.github.io/gromacs-gpu-performance/)
 - [High-throughput computing with Gromacs](../support/tutorials/gromacs-throughput.md)
+- Example `.tpr` files for testing:
+    - [Alcohol dehydrogenase (96k atoms)](https://a3s.fi/gromacs-inputs/adh.tpr)
+    - [Satellite tobacco mosaic virus (1067k atoms)](https://a3s.fi/gromacs-inputs/stmv.tpr)
 
   [mdrun performance checklist]: https://manual.gromacs.org/current/user-guide/mdrun-performance.html
   [documentation]: http://manual.gromacs.org/documentation
