@@ -145,7 +145,7 @@ This is done by using the _puttygen_ tool to load your private key (.pem) and sa
 
 Now we can use this new in Putty to connect to a Virtual Machine.
 
-1. Run _putty_ and load the ssh key. Go to **Connection > SSH > Auth** and under **Private key file for authentication**, use the **Browse...** button to select the proper .ppk file.
+1. Run _putty_ and load the ssh key. Go to **Connection > SSH > Auth > Credentials** and under **Private key file for authentication**, use the **Browse...** button to select the proper .ppk file.
 
     ![Private key file for authentication](../../img/putty-key-file-authentication.png)
 

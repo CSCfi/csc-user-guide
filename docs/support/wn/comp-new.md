@@ -1,5 +1,21 @@
 # Computing environment
 
+## SSH security updates for cryptography options, 12.1.2024
+
+Recently, a new SSH vulnerability called Terrapin (CVE-2023-48795) was published describing
+weaknesses in the key exchange when using certain ciphers.
+Consequently, the login nodes on Puhti and Mahti have been updated to disallow the use of the weak
+ciphers: `chacha20-poly1305@openssh.com` and any EtM cipher variants.
+This change was deployed on Friday 12.1.2024 around 13 o'clock Finnish time.
+
+This change seems to have triggered many Windows OpenSSH clients to use a cipher and MAC algorithm
+combination, which does not work. The result is a message saying "Corrupted MAC on input".
+This is a known issue on Windows, and can be worked around
+by adding explicit options for which MAC algorithms to use.
+
+Please refer to our [FAQ page about the issue](../faq/i-cannot-login.md#why-is-my-ssh-client-saying-corrupted-mac-on-input)
+for details.
+
 ## Mahti web interface updated to release 3, 12.12.2023
 
 * Handling of reservations has been improved.

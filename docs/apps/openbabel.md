@@ -46,5 +46,5 @@ Please use both of the following references to cite Open Babel:
 
 ## More information
 
--   [Open Babel wiki](http://openbabel.org/wiki/Main_Page)
+-   [Open Babel documentation](http://openbabel.org/)
 -   [Open Babel on GitHub](https://github.com/openbabel )

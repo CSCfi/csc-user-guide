@@ -454,7 +454,7 @@ snakemake --cluster "hq submit --cpus <threads> ..."
 
 If you are porting a more complicated workflow from Slurm, you can do argument
 parsing and transformations programmatically using Snakemake's
-[job properties](https://snakemake.readthedocs.io/en/stable/executing/cluster.html#job-properties).
+[job properties](https://snakemake.readthedocs.io/en/stable/snakefiles/rules.html#job-properties).
 
 ### Using Nextflow with HyperQueue
 
