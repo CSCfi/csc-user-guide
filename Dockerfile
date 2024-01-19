@@ -24,7 +24,7 @@ RUN chgrp -R root ${ROOT_GROUP_DIRS} &&\
 
 COPY . /tmp
 
-RUN git clone --depth=1 --no-checkout https://github.com/CSCfi/csc-user-guide git_folder && \
+RUN git clone --no-checkout https://github.com/CSCfi/csc-user-guide git_folder && \
     if [ -d ".git" ]; then rm -r .git; fi && \
     mv git_folder/.git . && \
     rm -r git_folder && \
