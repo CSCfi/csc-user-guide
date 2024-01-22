@@ -116,7 +116,7 @@ Some Finnish EO datasets are available locally at CSC. A STAC catalog for all sp
 
 **[SYKE/FMI, Finnish image mosaics](https://www.syke.fi/fi-FI/Tutkimus__kehittaminen/Tutkimus_ja_kehittamishankkeet/Hankkeet/Paikkatietoalusta_PTA)** : Sentinel-1, Sentinel-2 and Landsat mosaics, for several time periods per year. Some of them are available in Puhti, but not all. [FMI provides also a STAC catalog for these mosaics](https://pta.data.lit.fmi.fi/stac/root.json)
 
-[**Copernicus Data Space Ecosystem**](https://dataspace.copernicus.eu/) provides worldwide main products for Sentinel-1, -2 and -3. It requires free registration. Includes possibility for visualisation and data processing. This was introduced in late 2023 and replaced the European Space Agency's SciHub. This service provides much more than a data download service, see for example all [analysing services of the Copernicus Data Space Ecosystem](https://dataspace.copernicus.eu/analyse).
+[**Copernicus Data Space Ecosystem**](https://dataspace.copernicus.eu/) provides worldwide main products for Sentinel-1, -2 and -3. It requires free registration. Includes possibility for visualisation and data processing. This was introduced in late 2023 and replaced the European Space Agency's SciHub. This service provides much more than a data download service, see below for more information.
 
 [**FinHub**](https://finhub.nsdc.fmi.fi/#/home) is the Finnish national mirror of SciHub; other national mirrors also exist. It covers Finland and the Baltics and offers Sentinel-2 L1C (but not L2A) and Sentinel 1 SLC, GRD and OCN products and requires own registration. FinHub provides a similar Graphical User Interface (GUI) and Application Programming Interface (API) to access the data as the old SciHub. You can also use for example the [sentinelsat](https://sentinelsat.readthedocs.io/en/stable/) tool for downloading data from FinHub. 
     
@@ -135,6 +135,43 @@ Some Finnish EO datasets are available locally at CSC. A STAC catalog for all sp
 !!! default "Other geospatial datasets"
 
     To find other geospatial datasets, check out [CSC open spatial dataset list](https://research.csc.fi/open-gis-data).  
+
+### Copernicus Data Space Ecosystem
+
+The Copernicus Data Space Ecosystem does not only provide the possibility to browse, visualize and download Copernicus and other programs earth observation data, it also provides several options for further processing the data in the cloud. Almost all of the services require self registration, which everyone can do for free. Check out their website for all [available dataset descriptions](https://documentation.dataspace.copernicus.eu/Data.html) (note that duplicates may be available due to reprocessing by newest baselines).
+
+The [Copernicus Data Space Ecosystem Browser](https://dataspace.copernicus.eu/browser/) serves as a central hub for accessing and exploring  Earth observation and environmental data provided by the Copernicus Sentinel constellations, contributing missions, auxiliary engineering data, on-demand data and more (Check out the [documentation on Data](https://documentation.dataspace.copernicus.eu/Data.html) for more details) . Users can visualize, compare and analyze and download all this data.
+
+The [Copernicus Data Workspace](https://dataspace.copernicus.eu/workspace/) is a tool for managing and reviewing Earth observation-related products. This platform enables you to aggregate and review products, which can then be further processed or downloaded for various purposes. When products are selected for processing, you are provided with a list of processors that are capable of processing relevant data types. The processors can be further parameterized to fine-tune the results.
+
+The [openEO Algorithm Plaza](https://marketplace-portal.dataspace.copernicus.eu) is a marketplace to discover and share various EO algorithms expressed as openEO process graphs.
+
+The [openEO Web Editor](https://openeo.dataspace.copernicus.eu/) is a web-based graphical user interface (GUI) that allows users (who are not familiar with a programming language) to interact with the openEO API and perform various tasks related to Earth observation data processing, such as querying available data, defining processing workflows, executing processes, and visualizing the results. It allows users to build complex processing chains by connecting different processing steps as building blocks and provides options to specify parameters and input data for each step.
+
+[Copernicus own Jupyter Lab instances](https://jupyterhub.dataspace.copernicus.eu/) provide example notebooks, and the possibility to add own packages via pip. 10Gb of persistent space per user (deleted after 15 days without login). The example notebooks are also available on [Copernicus Data Space Ecosystem github](https://github.com/eu-cdse/notebook-samples). JupyterHub provides several server options with 2 - 4 CPUs and  4 - 16 Gb of RAM. Note that in addition to personal limits, also the total number of active users seems to be limited.
+
+The Copernicus Data Space Ecosystem provides several different APIs to access the data. A [Copernicus access token]((https://documentation.dataspace.copernicus.eu/APIs/Token.html)) is needed to make use of these interfaces.
+
+Catalog APIs, all connected to the same database:
+
+    - Odata
+    - OpenSearch
+    - STAC (Spatio Temporal Asset Catalog)
+
+Streamlined Data Access APIs (SDA) enables users to access and retrieve Earth observation (EO) data from the Copernicus Data Space Ecosystem catalogue. These APIs also provide you with a set of tools and services to support data processing and analysis:
+
+    - SentinelHub
+    - OpenEO
+
+In addition, also direct EO data access with S3 is provided, as well as an on-demand production API and traceability service.
+
+The [Copernicus Request builder](https://shapps.dataspace.copernicus.eu/requests-builder/) lets you build requests for the different APIs via Graphical User Interface (GUI). It can also provide complete Python scripts using 'requests' or 'sentinelhub' Python packages. Requests can be sent immediately from the GUI or copied into own script/terminal.
+
+The [Sentinel Hub QGIS Plugin](https://documentation.dataspace.copernicus.eu/Applications/QGIS.html) allows you to view satellite image data from the Copernicus Data Space Ecosystem or from Sentinel Hub directly within a QGIS workspace. All datasets are available that are part of collections associated with your user. The current functionality of the QGIS Plugin is for visualization; it does not allow you to perform operations or access properties of the dataset.
+
+The [Copernicus dashboard](https://dashboard.dataspace.copernicus.eu/) shows the state of services and products.
+
+Different services have different limitations, which are described here in the [CDSE quota documentation](https://documentation.dataspace.copernicus.eu/Quotas.html). Compared to the previous system (SciHub), the number of concurrent downloads per user has increased from two to four.
 
 ## How can I process EO data at CSC?
 
