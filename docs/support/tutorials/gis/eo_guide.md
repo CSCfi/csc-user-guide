@@ -150,7 +150,7 @@ The [openEO Web Editor](https://openeo.dataspace.copernicus.eu/) is a web-based 
 
 [Copernicus own Jupyter Lab instances](https://jupyterhub.dataspace.copernicus.eu/) provide example notebooks, and the possibility to add own packages via pip. 10Gb of persistent space per user (deleted after 15 days without login). The example notebooks are also available on [Copernicus Data Space Ecosystem github](https://github.com/eu-cdse/notebook-samples). JupyterHub provides several server options with 2 - 4 CPUs and  4 - 16 Gb of RAM. Note that in addition to personal limits, also the total number of active users seems to be limited.
 
-The Copernicus Data Space Ecosystem provides several different APIs to access the data. A [Copernicus access token]((https://documentation.dataspace.copernicus.eu/APIs/Token.html)) is needed to make use of these interfaces.
+The Copernicus Data Space Ecosystem provides several different APIs to access the data. A [Copernicus access token](https://documentation.dataspace.copernicus.eu/APIs/Token.html) is needed to make use of these interfaces.
 
 Catalog APIs, all connected to the same database:
 
