@@ -7,22 +7,22 @@ Sensitive Data (SD) Connect allows you to store and share sensitive research dat
 
 ### Key features
 
-* Modern user-friendly interface 
+* User-friendly interface compatible with Chrome and Firefox (excluding private mode in Firefox).
 
 * Use via web browser from your computer (Mac, Linux, or Windows) and from any location (no need to install specific programs or use a VPN).
 
-* Automated encryption and data upload via a web browser for small files (1<GB). Larger files (100<GB) can be encrypted using an application and uploaded to the web browser or programmatically (100>GB).
+* Automated encryption and data upload via a web browser for files up to 100 GB. Larger files (100<GB) can be encrypted using an application and uploaded programmatically.
 
 * Supports encryption and storage of any file type: text files, images, audio files, video, and genetic data (default space 10 TB, additional space required contact [CSC Service Desk](../../support/contact.md)). In addition, you can describe or organize each file or bucket with specific tags. 
+
+* Automated key management. 
+
+* Enchanced security at login with multi-factor authentication (MFA).
 
 
 ### Limitations
 
 * SD Connect is based on an object storage solution. Files are called objects, they are stored as file segments and can not be directly edited. All files (sensitive or non-sensitive, e.g. scripts) stored in SD Connect must be encrypted. 
-
-* Automated encryption is currently limited to files <1GB. Lager files (up to 100 GB) can be encrypted with the Cryp4GH application and uploaded using SD Connect or programmatically (>100GB).
-
-* SD Connect user interface is compatible with all modern web browsers but not supported during Firefox private browsing. 
 
 *  The storage space remains available as long as the CSC project is active. All data will be deleted 90 days after account termination or project closure, accordingly to [CSC's General Terms of Use](https://research.csc.fi/general-terms-of-use). 
 
