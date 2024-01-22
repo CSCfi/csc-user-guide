@@ -11,9 +11,9 @@ Sensitive Data (SD) Connect allows you to store and share sensitive research dat
 
 * Use via web browser from your computer (Mac, Linux, or Windows) and from any location (no need to install specific programs or use a VPN).
 
-* Automated encryption and data upload via a web browser for files up to 100 GB. Larger files (100<GB) can be encrypted using an application and uploaded programmatically.
+* Automated encryption and data upload via a web browser for files up to 100 GB. Files larger than 100 GB can be encrypted using an application and uploaded programmatically.
 
-* Supports encryption and storage of any file type: text files, images, audio files, video, and genetic data (default space 10 TB, additional space required contact [CSC Service Desk](../../support/contact.md)). In addition, you can describe or organize each file or bucket with specific tags. 
+* Supports encryption and storage of any file type: text files, images, audio files, video, and genetic data (default space 10 TB, additional space required contact [CSC Service Desk](../../support/contact.md)). In addition, you can describe or organize each file or folder with specific tags. 
 
 * Automated key management. 
 
@@ -22,7 +22,9 @@ Sensitive Data (SD) Connect allows you to store and share sensitive research dat
 
 ### Limitations
 
-* SD Connect is based on an object storage solution. Files are called objects, they are stored as file segments and can not be directly edited. All files (sensitive or non-sensitive, e.g. scripts) stored in SD Connect must be encrypted. 
+* SD Connect is based on an object storage solution. Once files are uploaded to SD Connect, they are stored as file segments and can not be directly edited.
+
+* All files (sensitive or non-sensitive, e.g. scripts) stored in SD Connect must be encrypted. SD Connect encrypts files automatically.
 
 *  The storage space remains available as long as the CSC project is active. All data will be deleted 90 days after account termination or project closure, accordingly to [CSC's General Terms of Use](https://research.csc.fi/general-terms-of-use). 
 

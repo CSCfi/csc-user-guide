@@ -370,7 +370,7 @@ nav:
             - Download: data/sensitive-data/sd-connect-download.md 
             - Delete: data/sensitive-data/sd-connect-delete.md  
             - Command line interface: data/sensitive-data/sd-connect-command-line-interface.md
-            - Information about data encryption: data/sensitive-data/sd-connect-introduction-to-data-encryption.md
+            - Use cases: data/sensitive-data/sd-connect-use-cases.md
             - Troubleshooting: data/sensitive-data/sd-connect-troubleshooting.md
         - Analyse with SD Desktop: 
             - data/sensitive-data/sd_desktop.md
