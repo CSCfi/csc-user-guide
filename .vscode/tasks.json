@@ -9,7 +9,7 @@
     "presentation": {
         "echo": false,
         "reveal": "always",
-        "focus": false,
+        "focus": true,
         "panel": "dedicated",
         "clear": true,
         "close": false,
@@ -50,6 +50,9 @@
                 "color": "terminal.ansiGreen",
             },
             "command": ". ${userHome}/miniconda3/etc/profile.d/conda.sh && conda activate docs-env && GIT_PYTHON_REFRESH=quiet mkdocs serve ${input:flags}",
+            "presentation": {
+                "focus": false,
+            },
             "windows": {
                 "command": "& '${env:LOCALAPPDATA}\\miniconda3\\shell\\condabin\\conda-hook.ps1' ; conda activate docs-env ; $Env:GIT_PYTHON_REFRESH='quiet' ; mkdocs serve '${input:flags}' ; Remove-Item Env:/GIT_PYTHON_REFRESH",
             },
