@@ -68,7 +68,6 @@ module load helmi_cirq
 
 python -u first_quantum_job.py
 ```
-The sample first_quantum_job.py can be found here [sample-quantum-job](https://docs.csc.fi/computing/quantum-computing/helmi/first-quantum-job/)
 
 Submit the script with `sbatch <script_name>.sh`
 
