@@ -73,4 +73,4 @@ Submit the script with `sbatch <script_name>.sh`
 ## More information
 
 - [Qiskit-IQM documentation](https://iqm-finland.github.io/qiskit-on-iqm/versions/11.10/user_guide.html)
-- [Quantum-Computing](https://docs.csc.fi/computing/quantum-computing/helmi/helmi-projects/)
+- [Quantum-Computing](../computing/quantum-computing/helmi/running-on-helmi.md)
