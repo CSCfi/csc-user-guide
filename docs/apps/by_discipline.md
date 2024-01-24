@@ -175,6 +175,8 @@
 
 ## Quantum
 * [Pennylane](pennylane.md) Free open-source software framework for quantum machine learning and quantum computing
+* [Qiskit-on-iqm](qiskit-on-iqm.md) open-source qiskit adapter for quantum computing
+* [Cirq-on-iqm](cirq-on-iqm.md) open-source cirq adapter for quantum computing
 * [Qiskit](qiskit.md) open-source toolkit for useful quantum computing
 
 ## Miscellaneous
