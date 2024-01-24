@@ -30,4 +30,8 @@
     },
     // Set line endings for new files explicitly to LF ("\n") instead of CRLF ("\r\n").
     "files.eol": "\n",
+    // Set default terminal profiles
+    "terminal.integrated.defaultProfile.linux": "bash",
+    "terminal.integrated.defaultProfile.osx": "bash",
+    "terminal.integrated.defaultProfile.windows": "PowerShell",
 }
