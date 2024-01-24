@@ -12,7 +12,7 @@ Sometimes you need to be able to send e-mail from a cPouta virtual
 machine. This might be notifications when something happens or
 registration confirmation e-mails.
 
-We're now providing a service to do this. The service is still in the
+We're now providing a service to do this. It is provided as-is. The service is still in the
 evaluation stages, and we might make changes to the service based on
 our experience and any feedback we get.
 
@@ -54,19 +54,29 @@ If you want to set up any services on cPouta that generate a large
 amount of SMTP traffic (e.g. public mailing lists), please contact
 the CSC Service Desk to coordinate this.
 
-### About Sender Policy Framework (SPF)
+### About Sender Policy Framework (SPF) and others
 
 You might need to add CSC's SPF record to your own domain existing DNS record, if SPF is already configured in use. 
 Even if SPF is not configured, it should be anyway considered because some email domains reject emails from email domains where SPF is not configured.
 
-Please note that taking SPF in use, or just by modifying existing record incorrectly, affects the whole domain email traffic functionality.
-Also it's good to understand that you may only add/edit SPF record of a domain for which your organization manages its DNS records.
+!!! info "Authenticated SMTP server"
+    In some situation, instead of configuring the SPF record, it is better to simply use an external authenticated SMTP server. Preferably the SMTP server provided by your email provider.
+
+    Also it's good to understand that you may only add/edit SPF record of a domain for which your organization manages its DNS records.
+
+!!! warning "Silent email discards"
+    A badly configured SPF record might have the effect that emails are silently discarded by some email providers. 
+
+    Please note that taking SPF in use, or just by modifying existing record incorrectly, affects the whole domain email traffic functionality.
 
 The part which should be added to SPF record is "include:hosted-at.csc.fi".
 Your domain SPF record should look then something like this:
+
 ```
 domain.of.the.sending.email.address.    IN    TXT    "v=spf1 include:hosted-at.csc.fi ~all"
 ```
+
+There are other protocols to take into account, like Domain-based Message Authentication, Reporting and Conformance [DMARC](https://en.wikipedia.org/wiki/DMARC) and DomainKeys Identified Mail [DKIM](https://en.wikipedia.org/wiki/DomainKeys_Identified_Mail), but the details are out of scope for this document.
 
 ## DNS services in cPouta
 

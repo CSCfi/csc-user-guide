@@ -33,3 +33,68 @@ others:
 
 You need to contact us to get your account unlocked. Our email address is
 [servicedesk@csc.fi](mailto:servicedesk@csc.fi).
+
+## Why is my SSH client saying "Corrupted MAC on input"?
+
+There is a known issue of **Windows OpenSSH clients**, which are using the LibreSSL library for
+cryptography. The bug happens when the combination of cipher `aes128-ctr` and either the
+`umac-128-etm@openssh.com` or `umac-128@openssh.com` MAC algorithm is used.
+The client will show an error saying `Corrupted MAC on input`.
+
+Here are some links to relevant bug reports:
+
+- [https://github.com/libressl/portable/issues/603](https://github.com/libressl/portable/issues/603)
+- [https://github.com/PowerShell/Win32-OpenSSH/issues/1359](https://github.com/PowerShell/Win32-OpenSSH/issues/1359)
+- [https://github.com/PowerShell/Win32-OpenSSH/issues/2078](https://github.com/PowerShell/Win32-OpenSSH/issues/2078)
+
+If you encounter this issue while trying to log in via SSH, you can try to add an explicit choice
+of MAC algorithm to your SSH client, instead of using the automatically chosen algorithms.
+This is achieved with the `-m <MAC algorithm>` option.
+To find out what MAC algorithms your client technically supports, you can run the `ssh -Q mac` command.
+
+At the moment of writing, "hmac-sha2-512" is a suitable alternative, for example.
+This may change in the future, so it may be a good idea to not take it for granted that this
+workaround will be good forever.
+
+The `-o MACS=-<algorithms>` option will also work. This syntax prevents the use of the given
+algorithms. This is preferable over the `-m <MAC algorithm>`, since it will rely on the system
+defaults to choose the most suitable algorithm for you, also in the future.
+
+```bash
+# (Preferred way:) Tell SSH not to use the broken algorithms:
+ssh -o MACS="-umac-128-etm@openssh.com,umac-128@openssh.com" yourcscusername@mahti.csc.fi
+
+# Or override the default MAC algorithm:
+ssh -m hmac-sha2-512 yourcscusername@puhti.csc.fi
+# Show what MAC algorithms your SSH client supports:
+ssh -Q mac
+```
+
+Please note that all the `*-etm` variants are disallowed by the SSH servers on the CSC supercomputers
+for the time being, due to a newly discovered security weakness in them from December 2023,
+called "Terrapin".
+If you use an unsupported algorithm, the server will tell you:
+
+```
+Unable to negotiate with <server's IP> port 22: no matching MAC found.
+```
+
+If you experience this issue, and you find a working solution with a different MAC algorithm,
+you might want to add a line to your `ssh_config` which would enable the workaround automatically.
+For example, to tell SSH that the `umac-128` algorithm should be disallowed, use a configuration
+like the one below:
+
+```
+# Place this in your home directory's ssh\config file:
+
+Host *
+    MACs -umac-128-etm@openssh.com,umac-128@openssh.com
+
+# Note the minus in front of the listed algorithms, which indicates
+# that these algorithms should be removed from the accepted ones.
+```
+
+## The SSH server says "Unable to negotiate ... no matching MAC found"
+
+Please see the [section above](#why-is-my-ssh-client-saying-corrupted-mac-on-input)
+about choosing a different MAC algorithm for your client.

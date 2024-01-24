@@ -25,6 +25,12 @@ connection type). Clicking the _Open_ button starts a new terminal session and a
 your CSC username and password. You can also use some code editors like Visual Studio
 Code to [edit and run code in Puhti/Mahti remotely](../support/tutorials/remote-dev.md).
 
+!!! warning "Known issue: Corrupted MAC on input for Windows OpenSSH"
+    If you are using the OpenSSH client software on Windows, you might encounter an error
+    while connecting which says "Corrupted MAC on input."
+    This is a known issue and can be worked around by explicitly choosing a different MAC
+    algorithm. See details in [our FAQ page on the topic](../support/faq/i-cannot-login.md#why-is-my-ssh-client-saying-corrupted-mac-on-input).
+
 Once the terminal connection to Puhti/Mahti is open you can start using it with the Linux command
 line tools (bash shell). An introduction to operating on the Linux command line can be found,
 for example, in our [Linux basics tutorial for CSC](../support/tutorials/env-guide/index.md).
