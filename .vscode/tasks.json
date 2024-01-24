@@ -35,6 +35,7 @@
             "type": "shell",
             "icon": {
                 "id": "snake",
+                "color": "terminal.ansiGreen",
             },
             "command": ". ${userHome}/miniconda3/etc/profile.d/conda.sh && conda env create --force -f ${workspaceFolder}/docs/support/tutorials/conda/conda-docs-env-freeze.yaml",
             "windows": {
@@ -45,7 +46,8 @@
             "label": "Docs CSC: Start the development server",
             "type": "shell",
             "icon": {
-                "id": "server-process",
+                "id": "debug-start",
+                "color": "terminal.ansiGreen",
             },
             "command": ". ${userHome}/miniconda3/etc/profile.d/conda.sh && conda activate docs-env && GIT_PYTHON_REFRESH=quiet mkdocs serve ${input:flags}",
             "windows": {
@@ -56,7 +58,8 @@
             "label": "Docs CSC: Run tests",
             "type": "shell",
             "icon": {
-                "id": "pass",
+                "id": "checklist",
+                "color": "terminal.ansiYellow",
             },
             "command": ". ${userHome}/miniconda3/etc/profile.d/conda.sh && conda activate docs-env && bash ${workspaceFolder}/tests/run_tests.sh",
             "windows": {
