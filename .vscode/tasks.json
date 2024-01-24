@@ -55,6 +55,7 @@
             "options": {
                 "env": {
                     "GIT_PYTHON_REFRESH": "quiet",
+                    "ENABLED_GIT_REVISION_DATE": "false",
                 },
             },
             "problemMatcher": [],
