@@ -49,12 +49,18 @@
                 "id": "debug-start",
                 "color": "terminal.ansiGreen",
             },
-            "command": ". ${userHome}/miniconda3/etc/profile.d/conda.sh && conda activate docs-env && GIT_PYTHON_REFRESH=quiet mkdocs serve ${input:flags}",
             "presentation": {
                 "focus": false,
             },
+            "options": {
+                "env": {
+                    "GIT_PYTHON_REFRESH": "quiet",
+                },
+            },
+            "problemMatcher": [],
+            "command": ". ${userHome}/miniconda3/etc/profile.d/conda.sh && conda activate docs-env && mkdocs serve ${input:flags}",
             "windows": {
-                "command": "& '${env:LOCALAPPDATA}\\miniconda3\\shell\\condabin\\conda-hook.ps1' ; conda activate docs-env ; $Env:GIT_PYTHON_REFRESH='quiet' ; mkdocs serve '${input:flags}' ; Remove-Item Env:/GIT_PYTHON_REFRESH",
+                "command": "& '${env:LOCALAPPDATA}\\miniconda3\\shell\\condabin\\conda-hook.ps1' ; conda activate docs-env ; mkdocs serve '${input:flags}'",
             },
         },
         {
