@@ -67,8 +67,16 @@
             },
         },
         {
-            "label": "echo",
-            "command": "echo ${workspaceFolder}"
+            "label": "Docs CSC: Generate What's new, Apps and Glossary pages",
+            "type": "shell",
+            "icon": {
+                "id": "terminal",
+                "color": "terminal.ansiRed",
+            },
+            "command": "for s in ${workspaceFolder}/scripts/generate_*.sh; do echo $s; done",
+            "windows": {
+                "command": "Write-Host \"The scripts task is not configured for running on Windows.\"",
+            },
         },
     ],
 }
