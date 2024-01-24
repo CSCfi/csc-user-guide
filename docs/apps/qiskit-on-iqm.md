@@ -66,10 +66,8 @@ Example batch script for running a quantum job on helmi:
 module use /appl/local/quantum/modulefiles
 module load helmi_qiskit
 
-python -u first_quantum_job.py
+python -u quantum_job.py
 ```
-The sample first_quantum_job.py can be found here [sample-quantum-job](https://docs.csc.fi/computing/quantum-computing/helmi/first-quantum-job/)
-
 Submit the script with `sbatch <script_name>.sh`
 
 ## More information
