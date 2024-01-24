@@ -178,11 +178,11 @@
 * [Qiskit-on-iqm](qiskit-on-iqm.md) open-source qiskit adapter for quantum computing
 * [Cirq-on-iqm](cirq-on-iqm.md) open-source cirq adapter for quantum computing
 * [Qiskit](qiskit.md) open-source toolkit for useful quantum computing
+* [CUDA Quantum](cuda-quantum.md) open-source platform for hybrid quantum-classical computing
 
 ## Miscellaneous
 
 * [Accelerated visualization](accelerated-visualization.md) A selection of GPU accelerated visualization applications
-* [CUDA Quantum](cuda-quantum.md) open-source platform for hybrid quantum-classical computing
 * [DDT](ddt.md) Parallel debugger
 * [Desktop](desktop.md) Remote desktop environment
 * [HyperQueue](hyperqueue.md) Scheduler for sub-node tasks
