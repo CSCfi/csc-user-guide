@@ -173,6 +173,12 @@
 * [VASP](vasp.md) Ab initio DFT electronic structures
 
 
+## Quantum
+* [Pennylane](pennylane.md) Free open-source software framework for quantum machine learning and quantum computing
+* [Qiskit-on-iqm](qiskit-on-iqm.md) open-source qiskit adapter for quantum computing
+* [Cirq-on-iqm](cirq-on-iqm.md) open-source cirq adapter for quantum computing
+* [Qiskit](qiskit.md) open-source toolkit for useful quantum computing
+
 ## Miscellaneous
 
 * [Accelerated visualization](accelerated-visualization.md) A selection of GPU accelerated visualization applications
@@ -185,8 +191,6 @@
 * [Jupyter for courses](jupyter-for-courses.md) A version of the Jupyter app for course environments
 * [MySQL](../data/kaivos/overview.md) MySQL database client.
 * [ParaView](paraview.md) Free open-source visualization application
-* [Pennylane](pennylane.md) Free open-source software framework for quantum machine learning and quantum computing
-* [Qiskit](qiskit.md) open-source toolkit for useful quantum computing
 * [TensorBoard](tensorboard.md) The visualization toolkit for TensorFlow
 * [VisIt](visit.md) Free open-source visualization application
 * [Visual Studio Code](vscode.md) Source code editor
