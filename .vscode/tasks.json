@@ -6,7 +6,6 @@
        holds the up-to-date dependencies.
     */
     "version": "2.0.0",
-    "type": "shell",
     "presentation": {
         "echo": false,
         "reveal": "always",
@@ -33,6 +32,7 @@
     "tasks": [
         {
             "label": "Docs CSC: Create/update the Conda environment",
+            "type": "shell",
             "icon": {
                 "id": "snake",
             },
@@ -43,6 +43,7 @@
         },
         {
             "label": "Docs CSC: Start the development server",
+            "type": "shell",
             "icon": {
                 "id": "server-process",
             },
@@ -53,6 +54,7 @@
         },
         {
             "label": "Docs CSC: Run tests",
+            "type": "shell",
             "icon": {
                 "id": "pass",
             },
