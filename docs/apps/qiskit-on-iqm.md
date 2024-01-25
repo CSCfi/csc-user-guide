@@ -5,7 +5,7 @@ tags:
 
 # Qiskit-on-iqm
 
-Qiskit on IQM is an open-source qiskit adapter for IQM quantum computers. It is installed as helmi_qiskit on LUMI. It is used for running quantum circuits on Helmi.
+Qiskit on IQM is an open-source qiskit adapter for IQM quantum computers. It is installed as `helmi_qiskit` on LUMI. It is used for running quantum circuits on [Helmi](../computing/quantum-computing/helmi/running-on-helmi.md).
 
 ## Available
 
