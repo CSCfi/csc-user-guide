@@ -9,7 +9,7 @@ Qiskit on IQM is an open-source qiskit adapter for IQM quantum computers. It is 
 
 ## Available
 
-Currently supported qiskit-on-iqm versions:
+Currently supported [qiskit-on-iqm](https://iqm-finland.github.io/qiskit-on-iqm/) versions:
 
 | Version | Module                               | LUMI  | Notes           |
 |:--------|:-------------------------------------|:-----:|-----------------|
