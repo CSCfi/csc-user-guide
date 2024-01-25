@@ -38,7 +38,7 @@ module use /appl/local/quantum/modulefiles
 and 
 
 ```bash
-module load helmi_cirq
+module load `helmi_cirq`
 ```
 
 This command will also show how to load helmi_cirq:
