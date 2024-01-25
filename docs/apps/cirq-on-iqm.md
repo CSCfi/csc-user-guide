@@ -5,7 +5,7 @@ tags:
 
 # Cirq-on-iqm
 
-Cirq on IQM is an open-source cirq adapter for IQM quantum computers. It is installed as helmi_cirq on LUMI. It is used for running quantum circuits on Helmi.
+Cirq on IQM is an open-source cirq adapter for IQM quantum computers. It is installed as `helmi_cirq` on LUMI. It is used for running quantum circuits on [Helmi](../computing/quantum-computing/helmi/running-on-helmi.md).
 
 ## Available
 
