@@ -41,7 +41,7 @@ and
 module load helmi_qiskit
 ```
 
-This command will also show how to load helmi_qiskit:
+This command will also show how to load `helmi_qiskit`:
 
 ```bash
 module avail helmi_qiskit
