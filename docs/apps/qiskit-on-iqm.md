@@ -29,7 +29,7 @@ qiskit-on-iqm is licensed under
 
 ## Usage
 
-To use helmi_qiskit on LUMI, initialize it with:
+To use `helmi_qiskit` on LUMI, initialize it with:
 
 ```bash
 module use /appl/local/quantum/modulefiles
