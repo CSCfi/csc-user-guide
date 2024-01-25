@@ -9,7 +9,7 @@ Cirq on IQM is an open-source cirq adapter for IQM quantum computers. It is inst
 
 ## Available
 
-Currently supported qiskit-on-iqm versions:
+Currently supported [cirq-on-iqm](https://iqm-finland.github.io/cirq-on-iqm/) versions:
 
 | Version | Module                               | LUMI  | Notes           |
 |:--------|:-------------------------------------|:-----:|-----------------|
