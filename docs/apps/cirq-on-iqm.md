@@ -41,7 +41,7 @@ and
 module load `helmi_cirq`
 ```
 
-This command will also show how to load helmi_cirq:
+This command will also show how to load `helmi_cirq`:
 
 ```bash
 module avail helmi_cirq
