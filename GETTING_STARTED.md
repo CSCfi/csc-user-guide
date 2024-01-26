@@ -511,6 +511,8 @@ cd csc-user-guide/
 
 ### Creating a new branch for your work
 
+>**Option 2, GUI**: See _[Managing branches in GitHub Desktop](https://docs.github.com/en/desktop/making-changes-in-a-branch/managing-branches-in-github-desktop)_ (remember to update your local _master_ branch by [pulling](https://docs.github.com/en/desktop/working-with-your-remote-repository-on-github-or-github-enterprise/syncing-your-branch-in-github-desktop#pulling-to-your-local-branch-from-the-remote)).
+
 Check that you are on the _master_ branch using [git-status](https://git-scm.com/docs/git-status):
 
 ```bash
@@ -539,9 +541,13 @@ The main point of this tutorial is to be able to work on the files using the too
 
 ### Getting your work to the repository
 
+>**Option 2, GUI**: See _[Committing and reviewing changes to your project in GitHub Desktop](https://docs.github.com/en/desktop/making-changes-in-a-branch/committing-and-reviewing-changes-to-your-project-in-github-desktop)_.
+
+
 #### Starting over
 
 Remember the relevant xkcd? If you run into a problem with Git, you really _can_ just
+
   1. copy the files you've worked on into some _other folder_ (`git status` to see which files)
   1. delete the repository folder
   1. clone the repository anew and
