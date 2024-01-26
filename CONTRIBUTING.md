@@ -25,11 +25,19 @@ CSC staff: do these two things _first_:
 2. Then [join here the CSC employees team](https://github.com/orgs/CSCfi/teams/employees/members). Membership
 gives you permissions to edit source files that build the user guide. (Wait for a confirmation email.)
 
-The rest of this document describes the workflow in Github as well as instructions for previewing and deploying the documentation. See [Style guide](STYLEGUIDE.md) for content and formatting instructions and [Frequently Asked Questions](FAQ.md) for more in depth explanations of common questions you might encounter while contributing.
+The rest of this document describes the workflow in Github as well as instructions for previewing and
+deploying the documentation. There are more resources available, though:
+
+- [STYLEGUIDE.md](STYLEGUIDE.md) &mdash; Content and formatting instructions
+- [FAQ.md](FAQ.md) &mdash; More in-depth explanations of common questions you might encounter while contributing
+- [GETTING_STARTED.md](GETTING_STARTED.md) &mdash; Setting up a local development environment
+- [Reference card](docs.csc.fi/ref) &mdash; On the available elements
+    - [Markdown source for Reference card](docs/ref.md)
 
 ## For the impatient
 
 Once you've completed the steps above:
+
 * In [docs.csc.fi](https://docs.csc.fi) go to the page you want to edit and click the pen icon at top right
 * (sign in to GitHub) and edit the content
 * Scroll down to commit changes (create a new branch) -> make a pull request
@@ -60,7 +68,7 @@ must use pull requests.
         - If your commits aren't showing up on the pull request, i.e., the pull request isn't updating when making new commits, try switching the base branch ('Edit' button, top-right) from `master` to something else and then back again.
     - Write meaningful pull request messages, so it is easier for reviewers to do their job.
     - Communicate! Use "WIP" (= Work In Progress) in your pull request title, if you don't wish the branch to be merged to master (i.e. you want to continue working with it).
- - Once your PR has been accepted, remove the temporary branch (if not deleted by an admin at merge)
+ - Once your PR has been accepted, remove the temporary branch (if not deleted automatically at merge)
 
 #### Reviewer
 
@@ -79,14 +87,14 @@ If you get a request to review a pull request, please contribute to help publish
 If you see an approved branch:
 
  - "Squash and merge" it
- - Delete the (now unnecessary) branch
+ - Delete the (now unnecessary) branch (if not deleted automatically at merge)
  - Occasionally the number of (unnecessary) branches grows: prune.
 
 **Note:** If you make bigger changes to the (main) categories / menu on the left, it might affect some links used on our webpages. Please communicate these changes, for example in the RC-channel #research.csc.fi.
 
 ### Previewing active branches
 
-The GitHub web interface gives a preview (also while editing) but it does not render all syntax used in mkdocs correctly.
+The GitHub web interface gives a preview (also while editing) but it does not render all syntax used in MkDocs correctly.
 A full preview for ongoing work is available for all branches: https://csc-guide-preview.rahtiapp.fi/origin/
 Note, currently absolute internal links don't work in the preview, but work on docs.csc.fi. For more details, see the [FAQ](FAQ.md#how-can-i-preview-my-edits).
 
@@ -141,7 +149,8 @@ git push origin your_branch_name
 ```
 
 Now, in the GitHub web GUI you can create a pull request, ask a person to review
-it and (some admin to) merge the changes. After the PR has been merged, the branch on github can be deleted.
+it and (some admin to) merge the changes. After the PR has been merged, the branch
+on GitHub should get deleted automatically (delete manually if not).
 
 **Tip 1.** Git uses [Vim](https://www.vim.org) as the default editor for commit
 messages. It is possible to change the default editor, but below are
