@@ -424,16 +424,15 @@ conda deactivate
 
 If you're using VS Code, tasks for creating/updating the Conda environment, as well as starting the development server, have been predefined in the workspace. Tasks can be found
 
-- from _Quick Open_, accessed by
-    - using the keyboard shortcut _Ctrl+P_
-    - selecting _Go -> Go to file..._ from the menu bar
-    - clicking the search field up top if the appropriate titlebar style is enabled
+- by selecting _Terminal -> Run task..._ from the menu bar.
+- or from _Quick Open_, accessed by either
+    1. using the keyboard shortcut _Ctrl+P_
+    1. selecting _Go -> Go to file..._ from the menu bar
+    1. or by clicking the search field up top if the appropriate titlebar style is enabled
 
   and typing "task" followed by a space
 
   ![tasks](docs/img/windows/tasks.png)
-
-- or by selecting _Terminal -> Run task..._ from the menu bar.
 
 Create the Conda environment with the task **_Docs CSC: Create/update the Conda environment_**. A terminal panel will open showing you the progress on installing the dependencies. The environment is ready when the terminal instructs you to "press any key to close it", though you can leave it open if you like.
 
