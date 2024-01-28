@@ -25,12 +25,13 @@ If you wish to add your own python packages to the pre-made python environment y
 	Users can create their own python environment if they wish. The only prerequisite is to load the `helmi_standard` module. 
 	To create your own environment the [container wrapper tool](https://docs.lumi-supercomputer.eu/software/installing/container-wrapper/) is recommended.
 
-The current support software versions on helmi are:
+The current supported software versions on helmi are:
 
 ```bash
-Cirq on IQM 	cirq_iqm 	>= 11.9, < 12.0  # helmi_cirq has 11.9
-Qiskit on IQM 	qiskit_iqm 	>= 8.3, < 9.0  # helmi_qiskit has 9.0
-IQM client 	iqm_client 	>= 12.5, < 13.0
+Cirq on IQM 	cirq_iqm 	>= 12.2, < 13.0  # helmi_cirq has 11.9
+Qiskit on IQM 	qiskit_iqm 	>= 11.10, < 12.0  # helmi_qiskit has 9.0
+IQM client 	iqm_client 	>= 15.2, < 16.0
+Cortex CLI 	iqm_cortex_cli 	>= 5.8, < 6.0
 ```
 
 Here is an example batch script to submit jobs on Helmi
@@ -71,8 +72,9 @@ In Qiskit python scripts you will need to include the following:
 
 ```python
 import os
+
 from qiskit import QuantumCircuit, execute
-from qiskit_iqm import IQMProvider
+from iqm.qiskit_iqm import IQMProvider
 
 HELMI_CORTEX_URL = os.getenv('HELMI_CORTEX_URL')  # This is set when loading the module
 
@@ -101,9 +103,9 @@ To load the Cirq module use `module load helmi_cirq`.
 
 ```python
 import os
-from cirq_iqm import Adonis
-from cirq_iqm.iqm_sampler import IQMSampler
+
 import cirq
+from iqm.cirq_iqm import IQMSampler, Adonis
 
 adonis = Adonis()
 
@@ -172,7 +174,7 @@ print("Calibration Set ID: ", exp_result.calibration_set_id)  # Retrieving the c
 print(result.request.qubit_mapping)  # Retrieving the qubit mapping
 print(result.request.shots)  # Retrieving the number of requested shots. 
 
-# retrieve a job using the job_id from a previous session
+#retrieve a job using the job_id from a previous session
 #old_job = backend.retrieve_job(job_id)
 ```
 !!! info "Save your Job ID!"
