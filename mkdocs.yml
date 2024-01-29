@@ -371,7 +371,8 @@ nav:
             - Delete: data/sensitive-data/sd-connect-delete.md  
             - Command line interface: data/sensitive-data/sd-connect-command-line-interface.md
             - Troubleshooting: data/sensitive-data/sd-connect-troubleshooting.md
-        - Use cases: data/sensitive-data/sd-connect-use-cases.md
+        - Use cases:
+            - data/sensitive-data/sd-connect-use-cases.md
             - Transfer data: data/sensitive-data/sd-connect-use-case-transfer-data.md
         - Analyse with SD Desktop: 
             - data/sensitive-data/sd_desktop.md
