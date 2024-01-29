@@ -173,9 +173,9 @@ The [Copernicus dashboard](https://dashboard.dataspace.copernicus.eu/) shows the
 
 Different services have different limitations, which are described here in the [CDSE quota documentation](https://documentation.dataspace.copernicus.eu/Quotas.html). Compared to the previous system (SciHub), the number of concurrent downloads per user has increased from two to four for most APIs.
 
-For downloading data from the CDSE to CSC computing environment, we recommend using the **S3** access, via command line tools like `s3cmd` and `rclone`. Also access via Python is supported as in the examples shown in example Notebooks, using [SentinelHub](https://github.com/eu-cdse/notebook-samples/blob/main/sentinelhub/data_download_process_request.ipynb) or [basic OData API and requests](https://github.com/eu-cdse/notebook-samples/blob/main/geo/odata_basics.ipynb).  
+For downloading data from the CDSE to CSC computing environment, we recommend using the **S3** access, via command line tools like `s3cmd` and `rclone`. Also access via Python is supported as shown in the example Notebooks, using [SentinelHub](https://github.com/eu-cdse/notebook-samples/blob/main/sentinelhub/data_download_process_request.ipynb) or [basic OData API and requests](https://github.com/eu-cdse/notebook-samples/blob/main/geo/odata_basics.ipynb).  
 
-You can copy data from CDSE object storage also directly to Allas, following the instructions on [Allas docs page](https://docs.csc.fi/data/Allas/accessing_allas/#copying-files-directly-between-object-storages) with endpoint `eodata.dataspace.copernicus.eu` and access and secret keys by following the [instructions about generating CDSE access keys](https://documentation.dataspace.copernicus.eu/APIs/S3.html#generate-secrets). 
+You can copy data from CDSE object storage also directly to CSCs object storage Allas, following the instructions on [Allas docs page](../../../data/Allas/accessing_allas/#copying-files-directly-between-object-storages) with endpoint `eodata.dataspace.copernicus.eu` and access and secret keys by following the [instructions about generating CDSE access keys](https://documentation.dataspace.copernicus.eu/APIs/S3.html#generate-secrets). 
 
 
 ## How can I process EO data at CSC?
