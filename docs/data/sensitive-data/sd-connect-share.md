@@ -9,59 +9,27 @@ You need to know the Share ID of the **recipient** CSC project. The recipient ca
 
 ## Permission levels and example use cases
 
-Permission levels are Share via Desktop only, Make a copy and Manage. Please read about example use cases which demonstrate how the different permissions can be applied based on specific collaboration requirements and data sharing needs.
-
-### Permission: Share via Desktop only
-
-!!! warning-label
-
-    For project managers
-    
-
-#### Use case example:
-
-A research team (recipient project B) needs access to specific data for reference and analysis, but the data owner (project A) wants to restrict their ability download a copy of the data directly. Project A shares the data folder with **Share via Desktop only** permission, ensuring that project B members can view and analyse the information via SD Desktop, without downloading a copy of the original data.
-
-1. Log in to MyCSC.
-2. Create a CSC project (referred to as Project A) and enable service access for SD Connect. Do not add any project members. 
-3. Create a second CSC project (referred to as Recipient Project B), enable service access for both SD Connect and SD Desktop, and add the project members.
-4. Log in to SD Connect.
-5. Choose CSC project B in the top left corner.
-6. Copy project B Share ID by clicking **Copy Share ID** next to the project number.
-7. Choose CSC project A in the top left corner.
-8. Upload data you want to share to a folder.
-9. In the All folders tab, find the correct folder and on the same row on the right, click **Share**.
-10. In the new window, add the Share ID of recipient project B and select the permission level **Share via SD Desktop only**. Click **Share**.
-11. Now, all the content within the folder is visible within project B and accessible only through SD Desktop. Project members can access and analyse the shared folder content via the virtual desktop. However, they cannot export or download files, as all data exports are managed directly by the project manager.
-
-!!! warning ""
-
-    Please contact us at servicedesk@csc.fi to discuss this option before proceeding.
+Permission levels are Read only, Read, add and delete and Read to SD Desktop. Please read about example use cases which demonstrate how the different permissions can be applied based on specific collaboration requirements and data sharing needs.
 
 
-### Permission: Make a copy
+### Permission: Read-only
 
-#### Use case example:
+ The recipient project’s members can copy your folder in SD Connect and download files in decrypted format. Files are also accessible via SD Desktop. Use this when you want to transfer your data to another project.
 
-A project team (project A) has valuable datasets that another team (recipient project B) needs for analysis. Project A shares the relevant data folder with the recipient project B with **Make a copy** permission. This allows the recipient project members to download a copy of data, ensuring they have their own working copy for analysis without affecting the original dataset.
+[Read about use case](./sd-connect-use-cases.md)
 
-1. Log in to SD Connect.
-2. Choose project A in the top left corner.
-3. In the All folders tab, find the correct folder and on the same row on the right, click **Share**.
-4. In the new window, add the Share ID of the recipient project B and select the permission level **Make a copy**. Click **Share**.
-5. All the content within the folder is visible within to the recipient project B. All project members in project B can now copy, download, and decrypt the folder's content through SD Connect. Additionally, they can access it via SD Desktop for analysis.
+### Permission: Read, add and delete
 
+In addition to Read-only permission, the recipient project’s members can upload new files or delete existing files from your folder in SD Connect. Use this when you want the folder to be your shared workspace. 
 
-### Permission: Manage
-
-#### Use case example:
-
-A collaborative research effort involves multiple projects (Project A and Recipient project B). Project A owns a central data workspace and wants to allow members from the Recipient project B to upload additional files to a specific folder. By sharing the folder with ** Manage** permission, members from both projects can collaboratively add, modify, and access files within the shared folder, facilitating data collection efforts.
-
-1. Log in to SD Connect.
-2. Choose CSC project A in the top left corner.
-3. In the All folders tab, find the correct folder and on the same row on the right, click **Share**.
-4. In the new window, add the Share ID of the recipient project B and select the permission level **Manage**. Click **Share**.
-5. All the content within the folder is visible within to the recipient project B. All project members in project B can now copy, download, and decrypt the folder's content through SD Connect. They can also upload or delete files within the shared folder, accessible to both projects. The folder's content remains accessible via SD Desktop.
+[Read about use case](./sd-connect-use-cases.md)
 
 
+### Permission: Read to SD Desktop
+
+The recipient project's members can only access the folder content in SD Desktop. Use this when you need maximum certainty that your files are not distributed further.
+
+ !!! warning
+    Note that you also have to be the project manager of the recipient project. Please contact us at servicedesk@csc.fi to discuss this option before proceeding.
+
+[Read about use case](./sd-connect-use-cases.md)
