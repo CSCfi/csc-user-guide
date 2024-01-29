@@ -1,45 +1,68 @@
 # Accessing Sensitive Data (SD) services 
   
-CSC's Sensitive Data (SD) services are available to researchers and students affiliated with Finnish higher education institutions (universities, universities of applied sciences) or research institutes and their international collaborators. In this section, discover how to access SD services for processing sensitive research data. Learn to manage billing unit consumption and what happens to your data upon project closure.
+In this section, discover how to access SD services for processing sensitive research data. Learn to manage billing unit consumption and what happens to your data upon project closure.
 
 Contents:
 
- * [Processing research data](./sd-access.md#processing-sensitive-research-data);
- * [Default storage space and billing units consumption](./sd-access.md#default-storage-space-and-billing-units-consumption);
- * [Service usage restrictions when billing units have been consumed](./sd-access.md#service-usage-restrictions-when-billing-units-have-been-consumed);
+ * [How to start with SD services](#how-to-start-with-sd-services);
+ * [Project manager and project memebers](#project-manager-and-project-members);
+ * [Resources and storage space](#resources-and-storage-space);
+ ---- kesken ---
  * [What happens to your data when your CSC project expires or is closed](./sd-access.md#what-happens-to-your-data-when-your-csc-project-expires-or-is-closed);
  * [Billing units calculator](./sd-access.md#default-storage-space-and-billing-units-consumption).
 
+## How to start with SD Services
+### Access SD Connect and SD Desktop for the first time
 
-## Processing sensitive research data
-
-Access to the services is managed directly by the CSC project manager (e.g. research project's principal investigator, group leader, or postdoc) using the MyCSC portal, and it is based on a CSC project. The CSC project manager can add members with equal access permissions to the same project. They can upload encrypted data to SD Connect and analyze it using the SD Desktop services. However, only the project manager can export non-sensitive results from the secure computing environment. 
-
-To access SD Connect and SD Desktop for storing, sharing or analyzing sensitive research data:
 
 1. Create a [CSC account](../../accounts/how-to-create-new-user-account.md) by logging in at the [MyCSC portal](https://my.csc.fi).
 
-2. Create or join a CSC project and add project members.
+2. Create new CSC project or join to existing CSC project.
 
-3. Fill in the _Description of processing activities form_ and accept _CSC's Data Processing Agreement_.  
+3. Fill the forms: *Description of processing activities form (???)* and *Personal data handling / GDPR document*. 
 
-4. All project members should add service access to Allas (to use SD Connect) and SD Desktop, accepting the terms of use. 
+4. Add service access to **SD Connect** and **SD Desktop**. Please note that every project member must approve the terms of use personally.
 
-5. All project members should activate their account's additional security verification (or Multi-factor Authentication) by scanning the QR code with a mobile application (e.g. Google Authenticator).
+5. Apply for resources (i.e. billing units, BU's). Please check your email after applying for resources. The result will be there.
 
-6. Apply for billing units or disk quota.
+6. Add project members.
 
-[![Project](images/connect/reasearchdata.png)](images/connect/reasearchdata.png)
+7. Activate Multi-factor Authentication (MFA). This is mandatory for Sensitive Data services. All project members must activate MFA personally.
 
 For video tutorials and further guidance, check the [Accounts](../../accounts/index.md) section at the beginning of this manual.
 
 
+## Project manager and project members
 
+### Project manager
+
+* The person who created the project in MyCSC, is the project manager. You can change project manager by contacting service desk.
+
+* Project manager can manage project members, storage space and resources (i.e. billing units).
+
+* Only the project manager can export data from SD Desktop.
+
+Keep project manager's CSC account active. Otherwise the project will be closed. You can keep CSC account active by changing password once a year and keeping user information such as email address up to date.
+
+You can manage your user information and project members in MyCSC.
+
+### Project member
+
+All project members have equal access permissions to the project files.
+
+* **SD Connect:** project members can upload, download and delete project files.
+* **SD Desktop:** project members can upload data and analyze it, but they can not export anything from SD Desktop. Only the project manager can export data from SD Desktop.
+
+## Resources and storage space
+
+Sensitive Data services are free of charge for research purposes. [Read more about free use cases from research.csc.fi](https://research.csc.fi/free-of-charge-use-cases)
+The use of CSC's services is measured with billing units (BUs). Every projects consumes billing units, even if they are free of charge. 
+
+When you start a new project, you should plan ahead for your CSC project's resource usage. This includes considering the amount of storage space (i.e. quota) and billing units consumption while using the services. When you start a new project with CSC, you receive 10,000 billing units by default. This is enough for small testing. You can apply more billing units trough MyCSC resource application. Read more: [applying for billing units](../../accounts/how-to-apply-for-billing-units.md) and [increasing quotas](../../accounts/how-to-increase-disk-quotas.md).
+
+* Billing unit calculator will help you to estimate how many BUs your CSC project will require. You can find SD Desktop from the calculator (move to right with the arrows)
   
-## Default storage space and billing units consumption
-
-Using SD Connect and SD Desktop is free of charge for research purposes, according to [CSC's general terms of use](https://research.csc.fi/free-of-charge-use-cases). However, it's important to plan ahead for your CSC project's resource usage. 
-This includes considering the billing units (BUs) used during service and the storage space, called quota, for your data.  Typically, when you start a new project with CSC, you receive around 10,000 billing units. Below, there's a calculator that helps you determine how many billing units your CSC project will require, so you can request more if needed. For further information on this step, see the specific sections [applying for billing units](../../accounts/how-to-apply-for-billing-units.md) and [increasing quotas](../../accounts/how-to-increase-disk-quotas.md).
+--- Loppu tarkistamatta  t. Suvi 29.1. ---
 
 ### SD Connect billing and quota
 

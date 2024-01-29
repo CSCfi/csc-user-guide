@@ -1,16 +1,16 @@
 # Sensitive data
 
-## Introduction to sensitive data (SD) services
+## Introduction to Sensitive Data (SD) services
 
 <iframe width="400" height="225" srcdoc="https://www.youtube.com/embed/YcgeuatWf9g" title="Introducing CSC Sensitive Data Services" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
-Read more about the services: [Choose a service](choose-a-service.md)
+Read more abouts Sensitive Data services: [Choose service](choose-a-service.md)
 
 ### What is sensitive data
 Sensitive data is defined as any information that is protected against unwarranted disclosure. Protection of data may be required for legal or ethical reasons, for issues pertaining to personal privacy, or for proprietary considerations.
 [Read more about sensitive data from research.csc.fi](https://research.csc.fi/definition-of-sensitive-data){ target="_blank" }
 
-### CSC's sensitive data services are available to:
+### CSC's Sensitive Data services are available to:
 
 - Researchers and students affiliated with Finnish higher education institutions (universities, universities of applied sciences)
 - Research institutes and their international collaborators
@@ -20,7 +20,7 @@ Sensitive data is defined as any information that is protected against unwarrant
 
 !!! info "Do you have any questions? Would you like to discuss a specific project?"
        
-       - [Contact us](../../support/contact.md), subject: *Sensitive Data*
+       - [Contact us](../../support/contact.md) - subject: *Sensitive Data*
        - Join the [CSC Research User Support Coffee - Every Wednesday at 14:00](https://ssl.eventilla.com/usersupportcoffee){ target="_blank" }. 
        - Our team is here to help, and we offer direct support. Don't hesitate to contact!
 
@@ -69,10 +69,10 @@ Sensitive data is defined as any information that is protected against unwarrant
 
 We kindly request that users carefully read the instructions before proceeding to use the services to ensure a smooth experience. 
 
-* [MyCSC portal](https://my.csc.fi/welcome){ target="_blank" }
-* [Sensitive Data (SD) Connect](https://sd-connect.csc.fi/){ target="_blank" }
-* [Sensitive Data (SD) Desktop](https://sd-desktop.csc.fi){ target="_blank" }
-* [Sensitive Data (SD) Apply](https://sd-apply.csc.fi/){ target="_blank" }
+* **[MyCSC portal](https://my.csc.fi/welcome){ target="_blank" }** - Manage your CSC account, services and projects
+* **[SD Connect](https://sd-connect.csc.fi/){ target="_blank" }** - Store and share
+* **[SD Desktop](https://sd-desktop.csc.fi){ target="_blank" }** - Analyse
+* **[SD Apply](https://sd-apply.csc.fi/){ target="_blank" }** - Reuse
 
 !!! note "Service Breaks"
    
@@ -83,10 +83,11 @@ We kindly request that users carefully read the instructions before proceeding t
 
 ### About this user guide
 
-This user guide introduces CSC's Sensitive Data (SD) services
+This user guide introduces CSC's Sensitive Data (SD) services.
+[Useful terminology](sd-terminology.md)
 
 1. To navigate the user guide, click on the left-hand side navigation bar or the [quick links](#quick-links) from this page
 1. Right side of each page has a table of content for faster browsing
 1. The search tool is also available at the top bar
 
-[Useful terminology](sd-terminology.md)
+
