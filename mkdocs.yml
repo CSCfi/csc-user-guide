@@ -371,11 +371,6 @@ nav:
             - Delete: data/sensitive-data/sd-connect-delete.md  
             - Command line interface: data/sensitive-data/sd-connect-command-line-interface.md
             - Troubleshooting: data/sensitive-data/sd-connect-troubleshooting.md
-        - Use cases:
-            - data/sensitive-data/sd-connect-use-cases.md
-            - Transfer data between projects: data/sensitive-data/sd-connect-use-case-transfer-data.md
-            - Use folder as shared workspace: data/sensitive-data/sd-connect-use-case-workspace.md
-            - Give access only in SD Desktop: data/sensitive-data/sd-connect-use-case-read-to-sd-desktop.md
         - Analyse with SD Desktop: 
             - data/sensitive-data/sd_desktop.md
             - Login to SD Desktop: data/sensitive-data/sd-desktop-login.md
@@ -385,6 +380,11 @@ nav:
             - Software in virtual desktop: data/sensitive-data/sd-desktop-software.md
             - Export data: data/sensitive-data/sd-desktop-export.md
             - Troubleshooting: data/sensitive-data/sd-desktop-troubleshooting.md
+        - Use cases:
+            - data/sensitive-data/sd-connect-use-cases.md
+            - Transfer data between projects: data/sensitive-data/sd-connect-use-case-transfer-data.md
+            - Use folder as shared workspace: data/sensitive-data/sd-connect-use-case-workspace.md
+            - Give access only in SD Desktop: data/sensitive-data/sd-connect-use-case-read-to-sd-desktop.md
       - Publish and reuse:
         - Federated EGA: 
             - data/sensitive-data/federatedega.md
