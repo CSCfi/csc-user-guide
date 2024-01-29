@@ -28,8 +28,8 @@ If you wish to add your own python packages to the pre-made python environment y
 The current supported software versions on helmi are:
 
 ```bash
-Cirq on IQM 	cirq_iqm 	>= 12.2, < 13.0  # helmi_cirq has 11.9
-Qiskit on IQM 	qiskit_iqm 	>= 11.10, < 12.0  # helmi_qiskit has 9.0
+Cirq on IQM 	cirq_iqm 	>= 12.2, < 13.0
+Qiskit on IQM 	qiskit_iqm 	>= 11.10, < 12.0
 IQM client 	iqm_client 	>= 15.2, < 16.0
 Cortex CLI 	iqm_cortex_cli 	>= 5.8, < 6.0
 ```
