@@ -5,7 +5,9 @@ tags:
 
 # Cirq-on-iqm
 
-Cirq on IQM is an open-source cirq adapter for IQM quantum computers. It is installed as `helmi_cirq` on LUMI. It is used for running quantum circuits on [Helmi](../computing/quantum-computing/helmi/running-on-helmi.md).
+Cirq on IQM is an open-source cirq adapter for IQM quantum computers. It is
+installed as `helmi_cirq` on LUMI. It is used for running quantum circuits on
+[Helmi](../computing/quantum-computing/helmi/running-on-helmi.md).
 
 ## Available
 
@@ -20,7 +22,8 @@ Wrapper scripts have been provided so that common commands such as `python`,
 `python3`, `pip` and `pip3` should work as normal. For more information, see
 [LUMI container wrapper](https://docs.lumi-supercomputer.eu/software/installing/container-wrapper/).
 
-The module includes python packages that are often used with cirq, such as matplotlib, numpy, and jupyterlab.
+The module includes python packages that are often used with cirq, such as matplotlib,
+numpy, and jupyterlab.
 
 ## License
 
@@ -29,7 +32,7 @@ cirq-on-iqm is licensed under
 
 ## Usage
 
-To use helmi_cirq on LUMI, initialize it with:
+To use `helmi_cirq` on LUMI, initialize it with:
 
 ```bash
 module use /appl/local/quantum/modulefiles
@@ -38,7 +41,7 @@ module use /appl/local/quantum/modulefiles
 and 
 
 ```bash
-module load `helmi_cirq`
+module load helmi_cirq
 ```
 
 This command will also show how to load `helmi_cirq`:
@@ -49,19 +52,19 @@ module avail helmi_cirq
 
 ### Example batch script
 
-Example batch script for running a quantum job on helmi:
+Example batch script for running a quantum job on Helmi:
 
 ```bash title="LUMI"
 #!/bin/bash -l
 
-#SBATCH --job-name=helmijob   # Job name
-#SBATCH --output=helmijob.o%j # Name of stdout output file
-#SBATCH --error=helmijob.e%j  # Name of stderr error file
-#SBATCH --partition=q_fiqci   # Partition (queue) name
+#SBATCH --job-name=helmijob     # Job name
+#SBATCH --output=helmijob.o%j   # Name of stdout output file
+#SBATCH --error=helmijob.e%j    # Name of stderr error file
+#SBATCH --partition=q_fiqci     # Partition (queue) name
 #SBATCH --ntasks=1              # One task (process)
-#SBATCH --cpus-per-task=1     # Number of cores (threads)
+#SBATCH --cpus-per-task=1       # Number of cores (threads)
 #SBATCH --time=00:15:00         # Run time (hh:mm:ss)
-#SBATCH --account=project_xxx  # Project for billing
+#SBATCH --account=project_xxx   # Project for billing
 
 module use /appl/local/quantum/modulefiles
 module load helmi_cirq
@@ -69,7 +72,7 @@ module load helmi_cirq
 python -u first_quantum_job.py
 ```
 
-Submit the script with `sbatch <script_name>.sh`
+Submit the script with `sbatch <script_name>.sh`.
 
 ## More information
 
