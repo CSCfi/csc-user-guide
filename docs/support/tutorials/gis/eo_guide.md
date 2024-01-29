@@ -175,7 +175,7 @@ Different services have different limitations, which are described here in the [
 
 For downloading data from the CDSE to CSC computing environment, we recommend using the **S3** access to the CDSE object storage, via command line tools like `s3cmd` and `rclone` or Pythons `boto3`. Also other ways of accessing the data via Python are supported and work in CSC computing environment as shown in the example Notebooks, using [SentinelHub](https://github.com/eu-cdse/notebook-samples/blob/main/sentinelhub/data_download_process_request.ipynb) or [basic OData API and requests](https://github.com/eu-cdse/notebook-samples/blob/main/geo/odata_basics.ipynb).
 
-You can copy data from CDSE object storage also directly to CSCs object storage Allas, following the instructions on [Allas docs page](../../../data/Allas/accessing_allas#copying-files-directly-between-object-storages) with endpoint `eodata.dataspace.copernicus.eu` and access and secret keys from following the [instructions about generating CDSE access keys](https://documentation.dataspace.copernicus.eu/APIs/S3.html#generate-secrets). 
+You can copy data from CDSE object storage also directly to CSCs object storage Allas, following the instructions on [Allas docs page](../../../data/Allas/accessing_allas.md#copying-files-directly-between-object-storages) with endpoint `eodata.dataspace.copernicus.eu` and access and secret keys from following the [instructions about generating CDSE access keys](https://documentation.dataspace.copernicus.eu/APIs/S3.html#generate-secrets). 
 
 
 ## How can I process EO data at CSC?
