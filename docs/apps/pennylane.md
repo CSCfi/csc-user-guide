@@ -13,7 +13,8 @@ Currently supported pennylane versions:
 
 | Version | Module                               | LUMI  | Notes           |
 |:--------|:-------------------------------------|:-----:|-----------------|
-| 0.33.1  | `pennylane-lightning/0.33.1-gpu`     | X     | default version |
+| 0.34.0  | `pennylane-lightning/0.34.0-gpu`     | X     | default version |
+| 0.33.1  | `pennylane-lightning/0.33.1-gpu`     | X     |                 |
 | 0.32.0  | `pennylane-lightning-kokkos/0.32.0`  | X     |                 |
 | 0.31.0  | `pennylane-lightning-kokkos/0.31.0`  | X     |                 |
 
@@ -46,10 +47,10 @@ If you wish to have a specific version ([see above for available
 versions](#available)), use:
 
 ```bash
-module load pennylane-lightning/0.33.1-gpu
+module load pennylane-lightning/0.34.0-gpu
 ```
 
-where `0.33.1-gpu` is the specified version
+where `0.34.0-gpu` is the specified version
 
 This command will also show all available versions:
 
