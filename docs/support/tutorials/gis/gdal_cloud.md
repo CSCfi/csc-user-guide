@@ -60,7 +60,7 @@ AWS_SECRET_ACCESS_KEY=yyy
 AWS_DEFAULT_REGION = regionOne
 ```
 
-The end-point URL is not needed for Amazon S3, but is needed for other services. Unfortunatelly it can not be given via `credentials` file, but needs to be given to GDAL as environment variable. For example to set Allas end-point: Windows command shell: `set AWS_S3_ENDPOINT=a3s.fi` or Linux/Max: `export AWS_S3_ENDPOINT=a3s.fi`
+The end-point URL is not needed for Amazon S3, but is needed for other services. Unfortunately it can not be given via `credentials` file, but needs to be given to GDAL as environment variable. For example to set Allas end-point: Windows command shell: `set AWS_S3_ENDPOINT=a3s.fi` or Linux/Max: `export AWS_S3_ENDPOINT=a3s.fi`
 
 #### S3 connection set up for Allas 
 
@@ -82,7 +82,7 @@ If you are not using CSC supercomputers, you can install `allas-conf` to your Li
 
 #### S3 connection set up for Copernicus Data Space Ecosystem
 
-ESA data, inc Sentinel data, is available via Copernicus Data Space Ecosystem S3. In general the same applies as decribed above, but `AWS_VIRTUAL_HOSTING` should be set to False:
+ESA data, inc Sentinel data, is available via Copernicus Data Space Ecosystem S3. In general the same applies as described above, but `AWS_VIRTUAL_HOSTING` should be set to False:
 ```
 os.environ["AWS_S3_ENDPOINT"] = "eodata.dataspace.copernicus.eu"
 os.environ["AWS_VIRTUAL_HOSTING"] = "FALSE"
