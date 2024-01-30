@@ -82,18 +82,21 @@ There are other protocols to take into account, like Domain-based Message Authen
 
 cPouta does not currently offer integrated name service management.
 
-All our floating IPs are mapped to a default hostname, for example:
+### Predefined DNS names
+
+All our floating IPs are by default mapped to a hostname, for example:
 
 ```
-vm0120.kaj.pouta.csc.fi
+vm0120.kaj.pouta.csc.fi has address 86.50.168.120
 ```
 
-To find the hostname of a floating IP, you can use `host` command:
+These default DNS records do also have the reverse DNS entry. To find the hostname of a floating IP, you can use `host` command:
+
 ```sh
 host -a <floating IP address>
 ```
 
-And the result is `vmXXXX.kaj.pouta.csc.fi` listed in output:
+And the result is `vmXXXX.kaj.pouta.csc.fi` listed in the output:
 
 ```
 ...
@@ -101,26 +104,27 @@ And the result is `vmXXXX.kaj.pouta.csc.fi` listed in output:
 x.x.x.x.in-addr.arpa. xxx IN     PTR     vmXXXX.kaj.pouta.csc.fi.
 ```
 
-To use your own DNS name for your virtual machine, simply configure
-your own DNS server to point the domain name to the floating IP that
+### Custom DNS name
+
+To use your own DNS name, you just need to configure it yourself.
+You need to contact your DNS provider and configure the DNS record to point to the floating IP that
 the virtual machine is using.
 
-For most services, these forward DNS records are enough. Some services
-also require reverse DNS lookups to work. This means that we have to
-configure our DNS server to say that the floating IP you are using
-resolves to the domain name you are using.
+For most services, these forward DNS records (`name -> IP`) are enough. Some services
+will also require the reverse DNS lookups (`IP -> name`) to work. This means that we have to
+configure Pouta's DNS server to say that the floating IP you are using
+resolves back to the domain name you are using.
 
-You can request reverse DNS mappings.
+You can request a reverse DNS mapping by sending a request to <servicedesk@csc.fi> with this information:
 
-- Point the DNS name to the server you want.
-- Send a mail to servicedesk@csc.fi with the IP/hostname pair
- you want to be mapped. Also send the UUID on the virtual machine
- it should be mapped to. You do not need to send a mail if the
- floating IP is moved to another machine, as long as the domain
- info for the floating IP still is correct.
-- When you no longer need the mapping, please contact
- servicedesk@csc.fi so we can remove the reverse DNS entry.
+- The DNS name that you already configured to point to the desired floating IP.
+- The Project name where the Virtual machine is.
+- A short description of the use case that creates the need for this reverse record.
 
-We reserve the right to clean up old reverse DNS records where the
-forward DNS records do not match anymore. We will also remove the
-reverse records when closing the project.
+!!! info ""
+    You do not need to let us know if the floating IP is moved to another machine within the same project. The reverse DNS record will stay as it is.
+
+When you no longer need the mapping, please contact us again in <servicedesk@csc.fi> so we can remove the reverse DNS entry.
+
+!!! warning "Obsolete records will be purged"
+    We reserve the right to clean up old reverse DNS records where the forward DNS records do not match anymore, or when the project is closed.
