@@ -1,4 +1,4 @@
-# Give access to folder content only in SD Desktop
+# Use case: Give access to folder content only in SD Desktop
 
 !!! warning
     Note that you also have to be the project manager of the recipient project. Please contact us at servicedesk@csc.fi to discuss this option before proceeding.
