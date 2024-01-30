@@ -1,6 +1,6 @@
 # Applications
 
-## COSMO-RS , 30.1.2024
+## COSMO-RS, 30.1.2024
 
 [COSMO-RS](../../apps/cosmors.md) is a new tool for modelling fluid phase properties,
 based on quantum chemistry derived properties. 
