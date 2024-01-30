@@ -14,6 +14,7 @@ In supercomputers, QGIS could be used for example to visualize the resulting fil
 
 __QGIS__ is available with following versions:
 
+* 3.34 in Puhti, includes also [GDAL](gdal.md), [PDAL](pdal.md) and the new native point cloud tools in QGIS.
 * 3.31 in Puhti and LUMI, includes also [GDAL](gdal.md), [GrassGIS](grass.md), [PDAL](pdal.md) and [SagaGIS](saga-gis.md). 
 * 3.22 in Puhti
 
@@ -76,8 +77,8 @@ As an example, you can write "The authors wish to thank CSC - IT Center for Scie
 
 
 ## Installation
-
-QGIS was installed to Puhti and LUMI with [Tykky's wrap-container functionality](../computing/containers/tykky.md#container-based-installations) using the [QGIS Docker image from Dockerhub provided by QGIS community](https://hub.docker.com/r/qgis/qgis). In LUMI `Tykky` is named `Container wrapper`.
+* 3.34 was isntalled [Tykky's conda-containerize functionality](../computing/containers/tykky.md#conda-based-installation). The .yml file included only `qgis` package from `conda-forge` resository.
+* 3.31 was installed [Tykky's wrap-container functionality](../computing/containers/tykky.md#container-based-installations) using the [QGIS Docker image from Dockerhub provided by QGIS community](https://hub.docker.com/r/qgis/qgis). In LUMI `Tykky` is named `Container wrapper`.
 
 `wrap-container -w /usr/bin docker://qgis/qgis:latest --prefix install_dir`
 
