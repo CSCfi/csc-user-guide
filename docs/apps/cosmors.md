@@ -3,7 +3,7 @@ tags:
   - Academic
 ---
 
-# COSMOsuite
+# COSMO-RS
 
 **COSMOsuite** is a Comprehensive Toolbox for the Modelling and Prediction of Fluid Phase
 Properties using the COSMO-RS model. The toolbox consists of the components **COSMOtherm**,
