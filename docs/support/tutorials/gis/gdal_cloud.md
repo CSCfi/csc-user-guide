@@ -15,7 +15,7 @@ S3 services are very common for storing bigger amounts of data, for example:
 
 Below are described in more detail how to use GDAL with public files from URL (VSICURL) and private files in S3 (VSIS3) storage. Special attention is on CSC Allas service and supercomputers. For using GDAL in supercomputer, a module including [GDAL](../../../apps/gdal.md), must be activated.
 
-## GDAL VSICURL, reading public files from URL
+## Reading public files from URL
 
 [VSICURL](https://gdal.org/user/virtual_file_systems.html#vsicurl) can be used for reading of files available via URL. Public objects in S3 storage usually also have an URL, so this works also for public S3 files. VSICURL supports also partial reading of files, so it works well with cloud-optimized file formats. VSICURL supports also basic authentication. 
 
@@ -38,9 +38,9 @@ gdalinfo /vsicurl/https://s3.us-west-2.amazonaws.com/bucket_name/object_name
 gdalinfo URL
 ```
 
-## VSIS3, reading and writing files from/to S3 services
+## Reading and writing files from/to S3 services
 
-[VSIS3](https://gdal.org/user/virtual_file_systems.html#vsis3-aws-s3-files) is suitable for working with S3 services. 
+GDAL's [VSIS3](https://gdal.org/user/virtual_file_systems.html#vsis3-aws-s3-files) is for working with S3 services. 
 
 
 ### S3 connection details
@@ -57,14 +57,14 @@ Each service's user guide should specify the end-point and region and give instr
 [allas_project1]
 AWS_ACCESS_KEY_ID=xxx
 AWS_SECRET_ACCESS_KEY=yyy
-AWS_DEFAULT_REGION = regionOne
+AWS_DEFAULT_REGION=regionOne
 ```
 
 The end-point URL is not needed for Amazon S3, but is needed for other services. Unfortunately it can not be given via `credentials` file, but needs to be given to GDAL as environment variable. For example to set Allas end-point: Windows command shell: `set AWS_S3_ENDPOINT=a3s.fi` or Linux/Max: `export AWS_S3_ENDPOINT=a3s.fi`
 
 #### S3 connection set up for Allas 
 
-If you are using also CSC supercomputers, then the easiest option to set up Allas connection details, is to use [`allas-conf` command](../../../data/Allas/using_allas/s3_client.md#configuring-s3-connection-in-supercomputers) in CSC supercomputers: 
+If you are using also CSC supercomputers, then the easiest option to set up Allas connection details, is to use [allas-conf command](../../../data/Allas/using_allas/s3_client.md#configuring-s3-connection-in-supercomputers) in CSC supercomputers: 
 
 ```
 module load allas
@@ -84,8 +84,8 @@ If you are not using CSC supercomputers, you can install `allas-conf` to your Li
 
 ESA data, inc Sentinel data, is available via Copernicus Data Space Ecosystem S3. In general the same applies as described above, but `AWS_VIRTUAL_HOSTING` should be set to False:
 ```
-os.environ["AWS_S3_ENDPOINT"] = "eodata.dataspace.copernicus.eu"
-os.environ["AWS_VIRTUAL_HOSTING"] = "FALSE"
+export AWS_S3_ENDPOINT=eodata.dataspace.copernicus.eu
+export AWS_VIRTUAL_HOSTING=FALSE
 ```
 
 #### Several connection profiles
@@ -116,12 +116,14 @@ gdal_translate /vsis3/<name_of_your_bucket>/<name_of_your_input_file> /vsis3/<na
 ```
 
 
-## Other tools
+## GDAL-based tools
 
  * [ArcGIS Pro, connect to cloud storage](https://pro.arcgis.com/en/pro-app/latest/help/projects/connect-to-cloud-stores.htm). Only for rasters and reading.
 	* ArcGIS Pro asks for all connection details while setting up Cloud storage connection, so the `credential` file or environment variables are not needed.
- * [QGIS, open file from cloud storage](https://docs.qgis.org/3.28/en/docs/user_manual/managing_data_source/opening_data.html?highlight=s3#loading-a-layer-from-a-file). Both rasters and vectors, only reading.
+ * QGIS:
+ 	* Both raster and vector [data adding dialogs](https://docs.qgis.org/3.28/en/docs/user_manual/managing_data_source/opening_data.html#loading-a-layer-from-a-file) have options to add data from URL (HTTPS) or S3. Only reading.
 	* For S3 keys add the `credentials` file as described above, or use the environment variables.
-	* QGIS connects by default to Amazon S3, for connecting to Allas S3 add to Settings -> Options -> Variables new variable with name AWS_S3_ENDPOINT and value `a3s.fi`.
- * [Example Python code for working with Allas and rasterio and geopandas](https://github.com/csc-training/geocomputing/blob/master/python/allas). 
- * [Example R code for workign with Allas and terra and sf](https://github.com/csc-training/geocomputing/blob/master/R/allas/working_with_allas_from_R_S3.R). 
+	* QGIS connects by default to Amazon S3, for connecting to some other service add to Settings -> Options -> Variables new variable with name AWS_S3_ENDPOINT, for Allas the value is `a3s.fi`.
+ 	* QGIS supports also point clouds from URL. 
+ * [Example Python code for working with Allas and rasterio, geopandas and boto3](https://github.com/csc-training/geocomputing/blob/master/python/allas). 
+ * [Example R code for workign with Allas and terra, sf and aws.s3](https://github.com/csc-training/geocomputing/blob/master/R/allas/working_with_allas_from_R_S3.R). 
