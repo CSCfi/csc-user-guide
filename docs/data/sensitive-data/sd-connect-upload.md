@@ -1,8 +1,6 @@
 # Uploading and encrypting data via user interface 
 
-Your data is automatically encrypted when you upload data to SD Connect. This is suitable for all file types and formats. More information about data encryption (link)
-
-## Upload and encrypting data files less than 100 GB
+Your data is automatically encrypted when you upload data to SD Connect. This is suitable for all file types and formats. Automated encryption and data upload via a web browser is for files up to 100 GB. Files larger than 100 GB can be encrypted using an application and uploaded programmatically.
 
 ### Upload and encrypt files to a new folder
 
@@ -14,9 +12,9 @@ Your data is automatically encrypted when you upload data to SD Connect. This is
 6. Notification about the status of upload will appear and be visible until the upload is completed. Notification also includes a link to the destination folder.
 7. Once the upload is finished, the encrypted files are accessible for downloading and sharing via SD Connect or for analysis, editing or annotation via SD Desktop.
 
-!!! success ""
+!!! info "Folder names"
     
-    - Folder names must be unique across all existing folders in all projects in SD Connect and Allas (the cloud storage solution based on which SD Connect is developed). If you can't create a new folder, another project may already use the name you have chosen. To avoid this situation, it is good practice to include project-specific identifiers (e.g., project ID number or acronym) in the folder name.
+    - Folder names must be unique across all existing folders in all projects in SD Connect and Allas (the cloud storage solution based on which SD Connect is developed). If you can't create a new folder, another project may already use the name you have chosen. To avoid this situation, it is good practice to include projec specific identifiers (e.g., project ID number or acronym) in the folder name.
     - Avoid spaces and special characters; use Latin alphabets (a-z), numbers (0-9), dash (-), underscore (_), and dot (.). Remember, all folder names are public; please do not include any confidential information.
     - Folder names can't be modified afterwards.
 
@@ -24,12 +22,13 @@ Your data is automatically encrypted when you upload data to SD Connect. This is
 ### Upload and encrypt files to an existing folder
 
 1. Select the correct folder (by double-click).
-2. Click **Upload** in the top right corner and follow steps from 4 to 6 in above paragraph (link).
+2. Click **Upload** in the top right corner and follow steps from 4 to 6 in above paragraph.
 
 
-!!! warning ""
+!!! warning "Warning"
     
-    Members in the same CSC project can download and decrypt data from SD Connect. This can be limited by sharing files in read-only mode. More information about read-only mode (link).
+    Members in the same CSC project can download and decrypt data from SD Connect. This can be limited by sharing files in Read to SD Desktop permission. [Read about use case](./sd-connect-use-case-read-to-sd-desktop.md)
+
 
 
 #### Additional considerations
