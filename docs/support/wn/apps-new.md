@@ -1,5 +1,12 @@
 # Applications
 
+## COSMO-RS, 30.1.2024
+
+[COSMO-RS](../../apps/cosmors.md) is a new tool for modelling fluid phase properties,
+based on quantum chemistry derived properties. 
+It consists of the BIOVIA COSMOsuite toolbox and can be utilized in combination with
+[TURBOMOLE](../../apps/turbomole.md).
+
 ## Python Data 3.10-23.11, 28.11.2023
 
 A new version of [Python Data](../../apps/python-data.md)
