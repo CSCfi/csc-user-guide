@@ -106,20 +106,18 @@ x.x.x.x.in-addr.arpa. xxx IN     PTR     vmXXXX.kaj.pouta.csc.fi.
 
 ### Custom DNS name
 
-To use your own DNS name, you just need to configure it yourself.
-You need to contact your DNS provider and configure the DNS record to point to the floating IP that
-the virtual machine is using.
+In some cases you would like to use your own DNS name, a different one to the predefined one explained above, for example `mywesite.myuniversity.fi`. To create this new DNS name, you need to contact your DNS provider (in the example the administrators of `myuniversity.fi`) and request the new DNS record to point to your floating IP. Once created, the DNs record will take few minutes to propagate through the internet and will be visible globally.
 
-For most services, these forward DNS records (`name -> IP`) are enough. Some services
-will also require the reverse DNS lookups (`IP -> name`) to work. This means that we have to
+
+In most cases, these forward DNS records (`name -> IP`) are enough.But some services will also require the reverse DNS lookups (`IP -> name`) to work. This means that we have to
 configure Pouta's DNS server to say that the floating IP you are using
-resolves back to the domain name you are using.
+resolves back to the domain name you set up (`mywebsite.myuniversity.fi`).
 
-You can request a reverse DNS mapping by sending a request to <servicedesk@csc.fi> with this information:
+You can request a reverse DNS mapping by sending an email to <servicedesk@csc.fi> with this information:
 
-- The DNS name that you already configured to point to the desired floating IP.
-- The Project name where the Virtual machine is.
-- A short description of the use case that creates the need for this reverse record.
+1. The DNS name that you already configured to point to the desired floating IP.
+1. The Project name where the Virtual machine is.
+1. A short description of the use case that creates the need for this reverse record.
 
 !!! info ""
     You do not need to let us know if the floating IP is moved to another machine within the same project. The reverse DNS record will stay as it is.
