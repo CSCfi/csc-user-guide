@@ -138,7 +138,7 @@ Some Finnish EO datasets are available locally at CSC. A STAC catalog for all sp
 
 ### Copernicus Data Space Ecosystem
 
-The Copernicus Data Space Ecosystem does not only provide the possibility to browse, visualize and download Copernicus and other programs earth observation data, it also provides several options for further processing the data in the cloud. Almost all of the services require self registration, which everyone can do for free. Check out their website for all [available dataset descriptions](https://documentation.dataspace.copernicus.eu/Data.html) (note that duplicates may be available due to reprocessing by newest baselines).
+The Copernicus Data Space Ecosystem does not only provide the possibility to browse, visualize and download Copernicus and other programs earth observation data, it also provides several options for further processing the data in the cloud. Almost all of the services require self registration, which everyone can do for free. Check out their website for all [available dataset descriptions](https://documentation.dataspace.copernicus.eu/Data.html) (note that duplicates may be available due to reprocessing with newest baselines).
 
 The [Copernicus Data Space Ecosystem Browser](https://dataspace.copernicus.eu/browser/) serves as a central hub for accessing and exploring  Earth observation and environmental data provided by the Copernicus Sentinel constellations, contributing missions, auxiliary engineering data, on-demand data and more (Check out the [documentation on Data](https://documentation.dataspace.copernicus.eu/Data.html) for more details) . Users can visualize, compare and analyze and download all this data.
 
@@ -173,9 +173,11 @@ The [Copernicus dashboard](https://dashboard.dataspace.copernicus.eu/) shows the
 
 Different services have different limitations, which are described here in the [CDSE quota documentation](https://documentation.dataspace.copernicus.eu/Quotas.html). Compared to the previous system (SciHub), the number of concurrent downloads per user has increased from two to four for most APIs.
 
-For downloading data from the CDSE to CSC computing environment, we recommend using the **S3** access to the CDSE object storage, via command line tools like `s3cmd` and `rclone` or Pythons `boto3`. Also other ways of accessing the data via Python are supported and work in CSC computing environment as shown in the example Notebooks, using [SentinelHub](https://github.com/eu-cdse/notebook-samples/blob/main/sentinelhub/data_download_process_request.ipynb) or [basic OData API and requests](https://github.com/eu-cdse/notebook-samples/blob/main/geo/odata_basics.ipynb).
+#### Data download from CDSE
 
-You can copy data from CDSE object storage also directly to CSCs object storage Allas, following the instructions on [Allas docs page](../../../data/Allas/accessing_allas.md#copying-files-directly-between-object-storages) with endpoint `eodata.dataspace.copernicus.eu` and access and secret keys from following the [instructions about generating CDSE access keys](https://documentation.dataspace.copernicus.eu/APIs/S3.html#generate-secrets). 
+For downloading data from the CDSE to CSC computing environment, we recommend using the **S3** access to the CDSE object storage, via command line tools like `s3cmd` and `rclone` or Pythons `boto3`. You can also read data directly with GDAL, following the instructions provided in [CSC GDAL cloud tutorial](gdal_cloud.md). Also other ways of accessing the data via Python are supported and work in CSC computing environment as shown in the example Notebooks by CDSE, e.g. using [SentinelHub](https://github.com/eu-cdse/notebook-samples/blob/main/sentinelhub/data_download_process_request.ipynb) or [basic OData API and requests](https://github.com/eu-cdse/notebook-samples/blob/main/geo/odata_basics.ipynb).
+
+You can copy data from CDSE object storage also directly to CSCs object storage Allas, following the instructions on [Allas docs page](../../../data/Allas/accessing_allas.md#copying-files-directly-between-object-storages) with endpoint `eodata.dataspace.copernicus.eu` and secret and access keys from following the [instructions about generating CDSE access keys](https://documentation.dataspace.copernicus.eu/APIs/S3.html#generate-secrets). 
 
 
 ## How can I process EO data at CSC?
