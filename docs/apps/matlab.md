@@ -48,10 +48,10 @@ Large parallel jobs should be run via batch job system of Puhti using MATLAB Par
 Toolboxes from the local computer can also be used with MATLAB Parallel Server.
 
 
-## Usage
-### Interactive MATLAB on Puhti
-We can run interactive MATLAB sessions from the command line or using the Puhti web interface.
-When running an interactive session from the command line, we first need to make a reservation using Slurm:
+## Using interactive MATLAB on Puhti
+### Command line interface
+We can run an interactive MATLAB sessions on the command line.
+We first need to make a reservation using Slurm:
 
 ```bash
 srun <reservation> --pty bash
@@ -64,27 +64,29 @@ module load matlab
 ```
 
 Now `matlab`, `mbuild`, `mex` and `mcc` commands are available.
-For example, we can open MATLAB without GUI as follows:
+For example, we can open the MATLAB command line interface as follows:
 
 ```bash
 matlab -nodisplay
 ```
 
-We can also run MATLAB script using the batch mode as follows:
+We can also run MATLAB scripts using the batch mode as follows:
 
 ```bash
 matlab -batch <script>
 ```
 
-Another option is to use the [Puhti web interface](../computing/webinterface/index.md) for the interactive MATLAB sessions.
-After logging in to the web interface, MATLAB can be launched by selecting it from the "Apps"-view and specifying your resource requirements.
+### Web interface
+We can also use the [Puhti web interface](../computing/webinterface/index.md) for interactive MATLAB sessions.
+First, we need to log into [puhti.csc.fi](https://www.puhti.csc.fi) and then we can choose either the *Desktop* or the *MATLAB* application, specify the resouces requirements and launch the application.
+On the Desktop application, we can launch MATLAB by clicking the MATLAB icon.
 
 
-### Getting Started with MATLAB Parallel Server on Puhti
+## Using MATLAB Parallel Server on Puhti
 The use of MATLAB on Puhti is possible with the MATLAB Parallel Server product and is available for both academic and commercial users, who have their own license of MATLAB. CSC's MPS license makes possible parallel computing runs using up to 500 (academic) or 32 (commercial) cores. With MPS, users can submit jobs from their local MATLAB's GUI directly to the batch job system of Puhti. Before starting using MPS, it is strongly recommend to read the 'Computing' section in [Puhti User Guide](../computing/index.md).
 
-#### Installing the Tool Scripts
 
+### Installing the tool scripts
 To use MPS, you need to have an user account at CSC, one of the supported MATLAB's version installed on your own computer with the parallel computing toolbox and getting the license from your home organization's license server.
 
 To configure MPS, follow the instructions on below.
@@ -99,7 +101,7 @@ To configure MPS, follow the instructions on below.
 Username on Puhti (e.g. joe):
 ```
 
-#### Configuring Jobs
+### Configuring jobs
 
 Prior to submitting the batch job, we have to specify at least
 
@@ -129,7 +131,7 @@ To clear a value of a property, assign an empty value ('', [], or false), or exe
 >> c.AdditionalProperties.EmailAddress = '';
 ```
 
-#### Submitting a Simple Serial Job
+### Submitting a simple serial job
 
 We start by defining a handle to the cluster on your MATLAB's command window
 
@@ -170,7 +172,7 @@ Once we've identified the job we want, we can retrieve the results as we've done
 
 **NB** `fetchOutputs` is used to retrieve function output arguments. Data that has been written to files on the cluster needs to be retrieved directly from the file system.
 
-#### Parallel Jobs
+### Parallel jobs
 
 You can also submit parallel jobs with `batch`. **NB** The cluster profile validation test will not completely succeed for 'puhti 201xa/b' profiles.
 
@@ -203,7 +205,7 @@ Once we have a handle to the cluster, we'll call the `findJob` method to search 
 >> j.Parent.getDebugLog(j)
 ```
 
-#### Using GPUs
+### Using GPUs
 
 ```bash
 >> c = parcluster;
@@ -213,12 +215,15 @@ Once we have a handle to the cluster, we'll call the `findJob` method to search 
 >> j = batch(c, @gpuDevice, 1, {}, 'CurrentFolder', '.', 'AutoAddClientPath',false)
 ```
 
-#### Checking the Status of MPS Licenses on Puhti
+### Checking license status
 
 You can check the status of MPS licenses on Puhti after logging in with `scontrol` command.
 
 ```bash
-$ scontrol show lic=mdcs
+scontrol show lic=mdcs
+```
+
+```text
 LicenseName=mdcs
     Total=500 Used=320 Free=180 Remote=no
 ```
