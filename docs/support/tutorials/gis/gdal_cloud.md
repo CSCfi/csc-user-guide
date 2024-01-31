@@ -13,11 +13,11 @@ S3 services are very common for storing bigger amounts of data, for example:
 * Google [Cloud Storage](https://cloud.google.com/storage),
 * Microsoft [Azure Blob Storage](https://azure.microsoft.com/en-us/products/storage/blobs/) etc. 
 
-Below are described in more detail how to use GDAL with public files from URL (VSICURL) and private files in S3 (VSIS3) storage. Special attention is on CSC Allas service and supercomputers. For using GDAL in supercomputer, a module including [GDAL](../../../apps/gdal.md), must be activated.
+More details on how to use GDAL with public files from URL (VSICURL) and private files in S3 (VSIS3) storage are given below. Special attention is on CSC Allas object storage service and supercomputers. For using GDAL on a supercomputer, a module including [GDAL](../../../apps/gdal.md), must be activated.
 
 ## Reading public files from URL
 
-[VSICURL](https://gdal.org/user/virtual_file_systems.html#vsicurl) can be used for reading of files available via URL. Public objects in S3 storage usually also have an URL, so this works also for public S3 files. VSICURL supports also partial reading of files, so it works well with cloud-optimized file formats. VSICURL supports also basic authentication. 
+[VSICURL](https://gdal.org/user/virtual_file_systems.html#vsicurl) can be used for reading files available via URL. Public objects in S3 storage usually also have an URL, so this works also for public S3 files. VSICURL also supports partial reading of files, so it works well with cloud-optimized file formats. VSICURL also supports basic authentication. 
 
 ```
 # A public file
@@ -64,7 +64,7 @@ The end-point URL is not needed for Amazon S3, but is needed for other services.
 
 #### S3 connection set up for Allas 
 
-If you are using also CSC supercomputers, then the easiest option to set up Allas connection details, is to use [allas-conf command](../../../data/Allas/using_allas/s3_client.md#configuring-s3-connection-in-supercomputers) in CSC supercomputers: 
+On CSC supercomputers the easiest option to set up Allas connection details is to use [allas-conf command](../../../data/Allas/using_allas/s3_client.md#configuring-s3-connection-in-supercomputers):
 
 ```
 module load allas
@@ -72,7 +72,7 @@ allas-conf --mode s3cmd
 ```
 
 * `module load allas` sets AWS_S3_ENDPOINT environment variable, which needs to be run each time S3 is used.
-* `allas-conf --mode s3cmd` writes the keys and region name to `credentials` file (also prints them to Terminal) and must be run only when using first time or when changing to different CSC project.
+* `allas-conf --mode s3cmd` writes the keys and region name to `credentials` file (also prints them to Terminal) and must be run only when using first time or when changing the CSC project.
 
 After this, you are ready to use GDAL or GDAL-based tools on supercomputers.
 
@@ -125,5 +125,5 @@ gdal_translate /vsis3/<name_of_your_bucket>/<name_of_your_input_file> /vsis3/<na
 	* For S3 keys add the `credentials` file as described above, or use the environment variables.
 	* QGIS connects by default to Amazon S3, for connecting to some other service add to Settings -> Options -> Variables new variable with name AWS_S3_ENDPOINT, for Allas the value is `a3s.fi`.
  	* QGIS supports also point clouds from URL. 
- * [Example Python code for working with Allas and rasterio, geopandas and boto3](https://github.com/csc-training/geocomputing/blob/master/python/allas). 
- * [Example R code for workign with Allas and terra, sf and aws.s3](https://github.com/csc-training/geocomputing/blob/master/R/allas/working_with_allas_from_R_S3.R). 
+ * [Example Python code for working with Allas, rasterio, geopandas, and boto3](https://github.com/csc-training/geocomputing/blob/master/python/allas). 
+ * [Example R code for workign with Allas, terra, sf, and aws.s3](https://github.com/csc-training/geocomputing/blob/master/R/allas/working_with_allas_from_R_S3.R). 
