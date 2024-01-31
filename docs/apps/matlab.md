@@ -6,9 +6,9 @@ system:
 ---
 
 # MATLAB
-
 MATLAB is a high-level technical computing language and interactive environment for algorithm development, data visualization, data analysis, and numeric computation.
 
+</--
 - High-level language for numerical computation, visualization, and application development.
 - Interactive environment for iterative exploration, design, and problem solving.
 - Mathematical functions for linear algebra, statistics, Fourier analysis, filtering, optimization, numerical integration, and solving ordinary differential equations.
@@ -16,32 +16,71 @@ MATLAB is a high-level technical computing language and interactive environment 
 - Development tools for improving code quality and maintainability and maximizing performance.
 - Tools for building applications with custom graphical interfaces.
 - Functions for integrating MATLAB based algorithms with external applications and languages such as C and Java.
+-->
 
 [TOC]
 
-## Available
-
-- Puhti interactive: R2021b
-- Puhti via MPS: R2021b, R2022b, R2023a
 
 ## License
+MATLAB is proprietary software.
+CSC has MATLAB licenses for academic use.
+The terms of use of this software allow its use for only the affiliates, thatis  staff and students, of Finnish higher education institutions.
+If you are an user from a commercial company or Finnish research institute, please [contact CSC Service Desk](../support/contact.md) for further instructions.
 
-Proprietary software. The terms of use of this software allow its use for only the affiliates (staff and students) of Finnish higher education institutions. **NB** If you are an user from a commercial company or Finnish research institute, please [contact CSC Service Desk](../support/contact.md) for further instructions.
+
+## Available
+At CSC, MATLAB is available both interactive and batch jobs.
+The interactive MATLAB sessions are intended for light pre- and postprocessing of data.
+Large parallel jobs should be run via batch job system of Puhti using MATLAB Parallel Server (MPS).
+
+*MATLAB* is available for temporary interactive use as follows:
+
+- Systems: *Puhti*
+- Versions: *R2021b*, *R2023b*
+- Toolboxes: *MATLAB Compiler* (2 licenses), *MATLAB Compiler SDK* (2 licenses), *Parallel Computing Toolbox* (2 licenses)
+
+*MATLAB Parallel Server (MPS)* is available for batch jobs as follows:
+
+- Systems: *Puhti*
+- Versions: *R2021b*, *R2022b*, *R2023a*, *R2023b*
+- Toolboxes: *MATLAB Parallel Server* (500 licenses)
+
+Toolboxes from the local computer can also be used with MATLAB Parallel Server.
+
 
 ## Usage
+### Interactive MATLAB on Puhti
+We can run interactive MATLAB sessions from the command line or using the Puhti web interface.
+When running an interactive session from the command line, we first need to make a reservation using Slurm:
 
-At CSC, MATLAB is available both interactive and batch jobs. The interactive sessions are intended for light pre- and postprocessing of data, whereas larger parallel jobs should be run via batch job system of Puhti using MATLAB Parallel Server (MPS) tool.
+```bash
+srun <reservation> --pty bash
+```
 
-### Interactive MATLAB Sessions on Puhti
-<div id="interactive-matlab" />
+Then, we need to load the matlab module:
 
-There are four interactive MATLAB licenses with **two Parallel Computing Toolbox** and **two Compiler SDK** licenses
-available for temporary interactive academic use. We recommend using [the Puhti web interface](../computing/webinterface/index.md)
-for the sessions. After logging in to the web interface, MATLAB can be launched by selecting it from the "Apps"-view
-and specifying your resource requirements.
+```bash
+module load matlab
+```
+
+Now `matlab`, `mbuild`, `mex` and `mcc` commands are available.
+For example, we can open MATLAB without GUI as follows:
+
+```bash
+matlab -nodisplay
+```
+
+We can also run MATLAB script using the batch mode as follows:
+
+```bash
+matlab -batch <script>
+```
+
+Another option is to use the [Puhti web interface](../computing/webinterface/index.md) for the interactive MATLAB sessions.
+After logging in to the web interface, MATLAB can be launched by selecting it from the "Apps"-view and specifying your resource requirements.
+
 
 ### Getting Started with MATLAB Parallel Server on Puhti
-
 The use of MATLAB on Puhti is possible with the MATLAB Parallel Server product and is available for both academic and commercial users, who have their own license of MATLAB. CSC's MPS license makes possible parallel computing runs using up to 500 (academic) or 32 (commercial) cores. With MPS, users can submit jobs from their local MATLAB's GUI directly to the batch job system of Puhti. Before starting using MPS, it is strongly recommend to read the 'Computing' section in [Puhti User Guide](../computing/index.md).
 
 #### Installing the Tool Scripts
