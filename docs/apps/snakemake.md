@@ -6,7 +6,8 @@ tags:
 # Snakemake
 
 Snakemake is a python-based scientific workflow management system for creating scalable,
-portable, and reproducible workflows. This is one of the popular workflow managers in bioinformatics community.
+portable, and reproducible workflows. It is one of the popular workflow managers within
+the bioinformatics community.
 
 [TOC]
 
@@ -45,7 +46,10 @@ snakemake --help
 
 If you use Snakemake in your work, please cite:
 
-Mölder, F., Jablonski, K.P., Letcher, B., Hall, M.B., Tomkins-Tinch, C.H., Sochat, V., Forster, J., Lee, S., Twardziok, S.O., Kanitz, A., Wilm, A., Holtgrewe, M., Rahmann, S., Nahnsen, S., Köster, J., 2021. Sustainable data analysis with Snakemake
+Mölder, F., Jablonski, K.P., Letcher, B., Hall, M.B., Tomkins-Tinch, C.H., Sochat, V.,
+Forster, J., Lee, S., Twardziok, S.O., Kanitz, A., Wilm, A., Holtgrewe, M., Rahmann, S.,
+Nahnsen, S., Köster, J. Sustainable data analysis with Snakemake. F1000Research 2021,
+<https://doi.org/10.12688/f1000research.29032.1>
 
 ## More information
 
