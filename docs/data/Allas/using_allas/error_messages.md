@@ -1,5 +1,10 @@
 # Common error messages
 
+You have reached your Allas quota limit (default 10 TiB) or bucket specific limit of maxmum 500 000 objects
+```bash
+Too Large Object. 
+```
+
 ### HTTP status code 409 
 
 A bucket with that name already exists:
