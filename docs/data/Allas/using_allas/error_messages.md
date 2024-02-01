@@ -1,6 +1,6 @@
 # Common error messages
 
-You have reached your Allas quota limit (default 10 TiB) or bucket specific limit of maximum 500 000 objects
+You have reached your Allas quota limit (default 10 TiB) or bucket specific limit of maximum 500 000 objects.
 ```bash
 Too Large Object. 
 ```
