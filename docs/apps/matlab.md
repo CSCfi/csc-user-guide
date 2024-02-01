@@ -83,10 +83,9 @@ On the Desktop application, we can launch MATLAB by clicking the MATLAB icon.
 
 
 ## Using MATLAB Parallel Server on Puhti
-The use of MATLAB on Puhti is possible with the MATLAB Parallel Server product and is available for both academic and commercial users, who have their own license of MATLAB. CSC's MPS license makes possible parallel computing runs using up to 500 (academic) or 32 (commercial) cores. With MPS, users can submit jobs from their local MATLAB's GUI directly to the batch job system of Puhti. Before starting using MPS, it is strongly recommend to read the 'Computing' section in [Puhti User Guide](../computing/index.md).
-
-
 ### Configuring MPS on local MATLAB
+MATLAB Parallel Server allows users to submit jobs from their local MATLAB session to the batch job system of Puhti.
+Before starting using MPS, it is strongly recommend to read the 'Computing' section in [Puhti User Guide](../computing/index.md).
 To use MPS, you need to have an user account at CSC, one of the supported MATLAB's version installed on your own computer with the parallel computing toolbox and getting the license from your home organization's license server.
 
 To configure MPS, follow the instructions on below.
@@ -102,8 +101,8 @@ configCluster
 ```
 
 
-### Configuring and submitting jobs
-Prior to submitting the batch job, we have to specify the resource reservation using `parcluster` in MATLAB.
+### Submitting jobs
+Prior to submitting the batch job, we have to specify the resource reservation using `parcluster`.
 An empty string `''` means that we have not set a value for the attribute.
 For example, a simple CPU reservation looks as follows:
 
@@ -122,16 +121,22 @@ c.AdditionalProperties.EmailAddres = '';
 See available [partitions on Puhti](/computing/running/batch-job-partitions/).
 To clear a value of a property, assign an empty value ('', [], or false), or execute `configCluster` to clear all values.
 
-The first time you submit a job to Puhti, the system will prompt whether to use your CSC password or a ssh-key pair for authentication on the computing server. By answering 'No', the CSC's username and password will be asked. If you choose to use a ssh-key pair instead, the location of the key file will be asked next. The key will be stored by MPS, so that it will not be asked at a later time.
+The first time you submit a job to Puhti, the system will prompt whether to use your CSC password or a ssh-key pair for authentication on the computing server.
+By answering 'No', the CSC's username and password will be asked.
+If you choose to use a ssh-key pair instead, the location of the key file will be asked next.
+The key will be stored by MPS, so that it will not be asked at a later time.
 
-Use the `batch` command to submit a batch jobs to Puhti. The command will return a job object which is used to access the output of the submitted job. See an example on below and [MATLAB documentation](http://se.mathworks.com/help/distcomp/batch.html) for more help about `batch`. You can, for example, submit a simple job to test the functionality of the MPS.
+Use the `batch` command to submit a batch jobs to Puhti.
+The command will return a job object which is used to access the output of the submitted job.
+See an example on below and [MATLAB documentation](http://se.mathworks.com/help/distcomp/batch.html) for more help about `batch`.
+You can, for example, submit a simple job to test the functionality of the MPS.
 
-Working directory with a 'CurrentFolder' attribute
 
 ```matlab
 j = batch(c, @pwd, 1, {}, 'CurrentFolder', '.', 'AutoAddClientPath', false)
 ```
 
+We can set the working directory using the 'CurrentFolder' attribute.
 When the job has completed, we can fetch the results.
 
 ```matlab
