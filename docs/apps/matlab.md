@@ -96,13 +96,13 @@ To configure MPS, follow the instructions on below.
 3. Unzip or untar the downloaded file and place the contents into some directory on your computer, where you have read and write permissions. Make sure, this directory is set to the MATLAB's path. This can be done, for example, with a `pathtool` command.
 4. Configure your MATLAB to submit jobs to Puhti by calling `configCluster` and giving your CSC username.
 
-```bash
->> configCluster
-Username on Puhti (e.g. joe):
+```matlab
+configCluster
+% Username on Puhti (e.g. joe):
 ```
 
 
-### Configuring jobs
+### Configuring and submitting jobs
 Prior to submitting the batch job, we have to specify the resource reservation using `parcluster` in MATLAB.
 An empty string `''` means that we have not set a value for the attribute.
 For example, a simple CPU reservation looks as follows:
@@ -139,90 +139,90 @@ c.AdditionalProperties.EmailAddres = '';
 See available [partitions on Puhti](/computing/running/batch-job-partitions/).
 To clear a value of a property, assign an empty value ('', [], or false), or execute `configCluster` to clear all values.
 
-
-### Submitting a simple serial job
-We start by defining a handle to the cluster on your MATLAB's command window
-
-```bash
->> c = parcluster;
-```
 The first time you submit a job to Puhti, the system will prompt whether to use your CSC password or a ssh-key pair for authentication on the computing server. By answering 'No', the CSC's username and password will be asked. If you choose to use a ssh-key pair instead, the location of the key file will be asked next. The key will be stored by MPS, so that it will not be asked at a later time.
 
 Use the `batch` command to submit a batch jobs to Puhti. The command will return a job object which is used to access the output of the submitted job. See an example on below and [MATLAB documentation](http://se.mathworks.com/help/distcomp/batch.html) for more help about `batch`. You can, for example, submit a simple job to test the functionality of the MPS.
 
 Working directory with a 'CurrentFolder' attribute
 
-```bash
->> j = batch(c, @pwd, 1, {}, 'CurrentFolder', '.', 'AutoAddClientPath', false)
-
-additionalSubmitArgs =
-
-    '--ntasks=1 --licenses=mdcs:1'
-
->> %When the job has completed, fetch the results.
->> j.fetchOutputs
+```matlab
+j = batch(c, @pwd, 1, {}, 'CurrentFolder', '.', 'AutoAddClientPath', false)
 ```
 
-**NB** In the example above, `j.wait` has been used to ensure that the job has completed before requesting results. In regular use, you would not need to use `wait`, since a job might take an elongated period of time, and the MATLAB session can be used for other work while the submitted job executes.
+When the job has completed, we can fetch the results.
+
+```matlab
+j.fetchOutputs
+```
 
 To retrieve a list of currently running or completed jobs, use
-```bash
->> jobs = c.Jobs;
->> % Get a handle to the job with sequence number 2
->> j2 = c.Jobs(2);
->> % Fetch results
->> fetchOutputs(j2)
+
+```matlab
+jobs = c.Jobs;
+% Get a handle to the job with sequence number 2
+j2 = c.Jobs(2);
+% Fetch results
+fetchOutputs(j2)
 ```
 
 Once we've identified the job we want, we can retrieve the results as we've done previously. If the job has produced an error, we can call the `getDebugLog` method to view the error log file. The error log can be lengthy and is not shown here. As an example, we will retrieve the debug log of the serial job.
 
-```bash
->> j.Parent.getDebugLog(j.Tasks(1))
+```matlab
+j.Parent.getDebugLog(j.Tasks(1))
 ```
 
 **NB** `fetchOutputs` is used to retrieve function output arguments. Data that has been written to files on the cluster needs to be retrieved directly from the file system.
 
-### Parallel jobs
 
+### Parallel jobs
 You can also submit parallel jobs with `batch`. **NB** The cluster profile validation test will not completely succeed for 'puhti 201xa/b' profiles.
 
 Let's write the following example function.
 
-```batch
-function t = parallel_example
+```matlab
+function t = parallel_example()
 t0 = tic;
 parfor idx = 1:16
-	A(idx) = idx;
-	pause(2)
+    A(idx) = idx;
+    pause(2)
 end
 t = toc(t0);
+end
 ```
 
 We'll use the batch command again, but since we're running a parallel job, we'll also need to specify a MATLAB parallel pool.
 
-```bash
->> % Submitting a parallel job to 8 cores.
->> j = batch(c, @parallel_example, 1, {}, 'Pool', 8, CurrentFolder','.', 'AutoAddClientPath',false)
+```matlab
+% Submitting a parallel job to 8 cores.
+j = batch(c, @parallel_example, 1, {}, 'Pool', 8, CurrentFolder','.', 'AutoAddClientPath',false)
 ```
 
 At first, a parallel pool with eight cores will be constructed. Note that these jobs will always request n+1 CPU cores, since one core is required to manage the batch job and pool of cores. For example, a job that needs eight cores will consume nine CPU cores in total.
 
 Once we have a handle to the cluster, we'll call the `findJob` method to search for the job with the specified job ID, on example below `ID = 11`. Notice the syntax of `getDebugLog`.
 
-```bash
->> j = c.findJob('ID', 11);
->> % For debugging, retrieve the output / error log file.
->> j.Parent.getDebugLog(j)
+```matlab
+j = c.findJob('ID', 11);
+% For debugging, retrieve the output / error log file.
+j.Parent.getDebugLog(j)
 ```
 
 ### Using GPUs
 
-```bash
->> c = parcluster;
->> c.AdditionalProperties.QueueName = 'gpu';
->> c.AdditionalProperties.GpuCard = 'v100';
->> c.AdditionalProperties.GpusPerNode = 1;
->> j = batch(c, @gpuDevice, 1, {}, 'CurrentFolder', '.', 'AutoAddClientPath',false)
+```matlab
+c = parcluster;
+c.AdditionalProperties.ComputingProject = 'project_2001659';
+c.AdditionalProperties.Partition = 'gputest';
+c.AdditionalProperties.WallTime = '00:15:00';
+c.AdditionalProperties.CPUsPerNode = 1;
+c.AdditionalProperties.MemPerCPU = '4g';
+c.AdditionalProperties.GpuCard = 'v100';
+c.AdditionalProperties.GPUsPerNode = 1;
+c.AdditionalProperties.EmailAddress = '';
+```
+
+```matlab
+j = batch(c, @gpuDevice, 1, {}, 'CurrentFolder', '.', 'AutoAddClientPath',false)
 ```
 
 ### Checking license status
