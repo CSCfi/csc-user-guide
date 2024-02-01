@@ -23,25 +23,25 @@ MATLAB is a high-level technical computing language and interactive environment 
 
 ## License
 MATLAB is proprietary software.
-CSC has MATLAB licenses for academic use.
-The terms of use of this software allow its use for only the affiliates, thatis  staff and students, of Finnish higher education institutions.
+The academic license for MATLAB allows use only for the affiliates, that is staff and students, of Finnish higher education institutions.
 If you are an user from a commercial company or Finnish research institute, please [contact CSC Service Desk](../support/contact.md) for further instructions.
 
 
 ## Available
-At CSC, MATLAB is available both interactive and batch jobs.
-The interactive MATLAB sessions are intended for light pre- and postprocessing of data.
-Large parallel jobs should be run via batch job system of Puhti using MATLAB Parallel Server (MPS).
-
-*MATLAB* is available for temporary interactive use as follows:
+CSC has MATLAB installations on Puhti for interactive use and batch jobs.
+The interactive MATLAB is intended for temporary, light pre- and postprocessing of data.
+It is available as follows:
 
 - Systems: *Puhti*
+- License: *Academic*
 - Versions: *R2021b*, *R2023b*
 - Toolboxes: *MATLAB Compiler* (2 licenses), *MATLAB Compiler SDK* (2 licenses), *Parallel Computing Toolbox* (2 licenses)
 
-*MATLAB Parallel Server (MPS)* is available for batch jobs as follows:
+*MATLAB Parallel Server (MPS)* allows sending work as a batch job from a local MATLAB installation to Puhti.
+It is available as follows:
 
 - Systems: *Puhti*
+- License: *Academic*
 - Versions: *R2021b*, *R2022b*, *R2023a*, *R2023b*
 - Toolboxes: *MATLAB Parallel Server* (500 licenses)
 
@@ -77,7 +77,7 @@ matlab -batch <script>
 ```
 
 ### Web interface
-We can also use the [Puhti web interface](../computing/webinterface/index.md) for interactive MATLAB sessions.
+We can also use the [web interface](../computing/webinterface/index.md) for interactive MATLAB sessions.
 First, we need to log into [puhti.csc.fi](https://www.puhti.csc.fi) and then we can choose either the *Desktop* or the *MATLAB* application, specify the resouces requirements and launch the application.
 On the Desktop application, we can launch MATLAB by clicking the MATLAB icon.
 
@@ -101,38 +101,46 @@ To configure MPS, follow the instructions on below.
 Username on Puhti (e.g. joe):
 ```
 
+
 ### Configuring jobs
+Prior to submitting the batch job, we have to specify the resource reservation using `parcluster` in MATLAB.
+An empty string `''` means that we have not set a value for the attribute.
+For example, a simple CPU reservation looks as follows:
 
-Prior to submitting the batch job, we have to specify at least
+```matlab
+% Initialize the parcluster configurations
+c = parcluster;
 
-- Wall time (WallTime)
-- Memory reservation (MemUsage)
-- Billing project (ComputingProject)
-- [Partition on Puhti](/computing/running/batch-job-partitions/) (QueueName)
+% CSC project
+c.AdditionalProperties.ComputingProject = 'project_<id>';
 
-Optionally, we can configure also
-- Email Notification (when the job is running, exiting, or aborting)
-- GPU
-- Working directory with a 'CurrentFolder' attribute
+% Partition in Puhti
+c.AdditionalProperties.Partition = 'small';
 
-```bash
->> c = parcluster;
->> c.AdditionalProperties.WallTime = '0:10:0';
->> c.AdditionalProperties.MemUsage = '2g';
->> c.AdditionalProperties.QueueName = 'small';
->> c.AdditionalProperties.ComputingProject = 'project_<id>';
->> % Check configured values
->> c.AdditionalProperties
->> c.saveProfile;
+% Time
+c.AdditionalProperties.WallTime = '00:15:00';
+
+% Number of CPU cores
+c.AdditionalProperties.CPUsPerNode = '';
+
+% Memory reservation per CPU core
+c.AdditionalProperties.MemPerCPU = '2g';
+
+% GPU type
+c.AdditionalProperties.GpuCard = '';
+
+% Number of GPUs to reserve
+c.AdditionalProperties.GPUsPerNode = '';
+
+% Email address for email notifications
+c.AdditionalProperties.EmailAddres = '';
 ```
 
-To clear a value of a property, assign an empty value ('', [], or false), or execute `configCluster` to clear all values. For example, to turn off email notifications
-```bash
->> c.AdditionalProperties.EmailAddress = '';
-```
+See available [partitions on Puhti](/computing/running/batch-job-partitions/).
+To clear a value of a property, assign an empty value ('', [], or false), or execute `configCluster` to clear all values.
+
 
 ### Submitting a simple serial job
-
 We start by defining a handle to the cluster on your MATLAB's command window
 
 ```bash
@@ -141,6 +149,8 @@ We start by defining a handle to the cluster on your MATLAB's command window
 The first time you submit a job to Puhti, the system will prompt whether to use your CSC password or a ssh-key pair for authentication on the computing server. By answering 'No', the CSC's username and password will be asked. If you choose to use a ssh-key pair instead, the location of the key file will be asked next. The key will be stored by MPS, so that it will not be asked at a later time.
 
 Use the `batch` command to submit a batch jobs to Puhti. The command will return a job object which is used to access the output of the submitted job. See an example on below and [MATLAB documentation](http://se.mathworks.com/help/distcomp/batch.html) for more help about `batch`. You can, for example, submit a simple job to test the functionality of the MPS.
+
+Working directory with a 'CurrentFolder' attribute
 
 ```bash
 >> j = batch(c, @pwd, 1, {}, 'CurrentFolder', '.', 'AutoAddClientPath', false)
@@ -227,6 +237,11 @@ scontrol show lic=mdcs
 LicenseName=mdcs
     Total=500 Used=320 Free=180 Remote=no
 ```
+
+
+## Creating and using custom MATLAB installation
+TODO: It is also possible to create and use custom matlab installation and license.
+
 
 ## More information
 
