@@ -86,7 +86,7 @@ On the Desktop application, we can launch MATLAB by clicking the MATLAB icon.
 The use of MATLAB on Puhti is possible with the MATLAB Parallel Server product and is available for both academic and commercial users, who have their own license of MATLAB. CSC's MPS license makes possible parallel computing runs using up to 500 (academic) or 32 (commercial) cores. With MPS, users can submit jobs from their local MATLAB's GUI directly to the batch job system of Puhti. Before starting using MPS, it is strongly recommend to read the 'Computing' section in [Puhti User Guide](../computing/index.md).
 
 
-### Installing the tool scripts
+### Configuring MPS on local MATLAB
 To use MPS, you need to have an user account at CSC, one of the supported MATLAB's version installed on your own computer with the parallel computing toolbox and getting the license from your home organization's license server.
 
 To configure MPS, follow the instructions on below.
@@ -108,31 +108,14 @@ An empty string `''` means that we have not set a value for the attribute.
 For example, a simple CPU reservation looks as follows:
 
 ```matlab
-% Initialize the parcluster configurations
 c = parcluster;
-
-% CSC project
 c.AdditionalProperties.ComputingProject = 'project_<id>';
-
-% Partition in Puhti
 c.AdditionalProperties.Partition = 'small';
-
-% Time
 c.AdditionalProperties.WallTime = '00:15:00';
-
-% Number of CPU cores
 c.AdditionalProperties.CPUsPerNode = '';
-
-% Memory reservation per CPU core
 c.AdditionalProperties.MemPerCPU = '2g';
-
-% GPU type
 c.AdditionalProperties.GpuCard = '';
-
-% Number of GPUs to reserve
 c.AdditionalProperties.GPUsPerNode = '';
-
-% Email address for email notifications
 c.AdditionalProperties.EmailAddres = '';
 ```
 
@@ -211,8 +194,8 @@ j.Parent.getDebugLog(j)
 
 ```matlab
 c = parcluster;
-c.AdditionalProperties.ComputingProject = 'project_2001659';
-c.AdditionalProperties.Partition = 'gputest';
+c.AdditionalProperties.ComputingProject = 'project_<id>';
+c.AdditionalProperties.Partition = 'gpu';
 c.AdditionalProperties.WallTime = '00:15:00';
 c.AdditionalProperties.CPUsPerNode = 1;
 c.AdditionalProperties.MemPerCPU = '4g';
