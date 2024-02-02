@@ -106,8 +106,8 @@ srun namd2 +ppn ${namd_threads} apoa1.namd > apoa1.out
 
 ### Batch script example for Puhti using GPU
 
-Note, NAMD runs most efficiently on one GPU, and at least for small systems
-this is usually more cost-efficient than running on multiple CPU-only nodes.
+Note, NAMD runs most efficiently on one GPU, and this is usually more
+cost-efficient than running on multiple CPU-only nodes.
 
 ```bash
 #!/bin/bash 
