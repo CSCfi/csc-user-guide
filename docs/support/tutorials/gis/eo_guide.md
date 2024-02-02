@@ -173,12 +173,9 @@ The [Copernicus dashboard](https://dashboard.dataspace.copernicus.eu/) shows the
 
 Different services have different limitations, which are described here in the [CDSE quota documentation](https://documentation.dataspace.copernicus.eu/Quotas.html). Compared to the previous system (SciHub), the number of concurrent downloads per user has increased from two to four for most APIs.
 
-#### Data download from CDSE
+#### Data download from Copernicus Data Space Ecosystem
 
-For downloading data from the CDSE to CSC computing environment, we recommend using the **S3** access to the CDSE object storage, via command line tools like `s3cmd` and `rclone` or Pythons `boto3`. You can also read data directly with GDAL, following the instructions provided in [CSC GDAL cloud tutorial](gdal_cloud.md). Also other ways of accessing the data via Python are supported and work in CSC computing environment (Python packages are available in `geoconda` module) as shown in the example Notebooks by CDSE, e.g. using [SentinelHub](https://github.com/eu-cdse/notebook-samples/blob/main/sentinelhub/data_download_process_request.ipynb) or [OData API and requests](https://github.com/eu-cdse/notebook-samples/blob/main/geo/odata_basics.ipynb).
-
-You can copy data from CDSE object storage also directly to CSCs object storage Allas, following the instructions for setting up `rclone on [Allas documentation page](../../../data/Allas/accessing_allas.md#copying-files-directly-between-object-storages) with endpoint `eodata.dataspace.copernicus.eu` and secret and access keys from following the [instructions about generating CDSE access keys](https://documentation.dataspace.copernicus.eu/APIs/S3.html#generate-secrets). 
-
+For downloading data from the CDSE to CSC computing environment, we recommend using the **S3** access to the CDSE object storage, via command line tools like `s3cmd` for downloading data to a computing environment or `rclone` for downloading data directly to CSC object storage Allas (an example script for finding and downloading data with command line tools can be found in [CSC geocomputing repository](https://github.com/csc-training/geocomputing/tree/master/Copernicus_data_download). You can also read data directly with GDAL, following the instructions provided in [CSC GDAL cloud tutorial](gdal_cloud.md). The CDSE also offers many possibilities of accessing the data via **Python** with `sentinelhub`, `openeo` or more simple ones like using `requests`. All packages are available in the `geoconda` module on Puhti. Examples for using these packages are provided in [CDSE GitHub repository](https://github.com/eu-cdse/notebook-samples).
 
 ## How can I process EO data at CSC?
 
