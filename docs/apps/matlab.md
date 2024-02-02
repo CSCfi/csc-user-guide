@@ -102,21 +102,21 @@ We can configure MPS on a local computer using the following instructions.
    addpath("~/.matlab/config_mps_puhti")
    savepath
    ```
-5. Configure your MATLAB to submit jobs to Puhti by calling `configCluster` in MATLAB as follows:
+5. Configure your MATLAB to submit jobs to Puhti by calling `configCluster` in MATLAB and supply your username as follows:
    ```matlab
    configCluster
-   % Username on Puhti (e.g. joe):
-   % Supply path to your local SSH identity file (private key)
-   % Answer yes or no whether the identity file requires a password
+   % Username on Puhti (e.g. jdoe): >>username
    ```
 
 
 ### Submitting jobs
 Prior to submitting the batch job, we have to specify the resource reservation using `parcluster`.
-An empty string `''` means that we have not set a value for the attribute.
+Because the `parcluster` is stateful, it is safest to explicitly unset properties we don't use by settings them to the empty string `''`.
+Furthermore, `CPUsPerNode` is set automatically by the `batch` command, thus we unset it.
 For example, a simple CPU reservation looks as follows:
 
 ```matlab
+% Simple CPU reservation.
 c = parcluster;
 c.AdditionalProperties.ComputingProject = 'project_<id>';
 c.AdditionalProperties.Partition = 'small';
@@ -128,25 +128,21 @@ c.AdditionalProperties.GPUsPerNode = '';
 c.AdditionalProperties.EmailAddres = '';
 ```
 
-See available [partitions on Puhti](/computing/running/batch-job-partitions/).
-To clear a value of a property, assign an empty value ('', [], or false), or execute `configCluster` to clear all values.
+Now, we can use the [`batch`](http://se.mathworks.com/help/distcomp/batch.html) function to submit a job to Puhti.
+It returns a job object which we can use to access the output of the submitted job.
+We set the working directory using the 'CurrentFolder' attribute.
+We should set the `AutoAddClientPath` to `false`.
+For example, we can submit a simple test job as follows:
+
+```matlab
+j = batch(c, @pwd, 1, {}, 'CurrentFolder', '.', 'AutoAddClientPath', false)
+```
 
 The first time you submit a job to Puhti, the system will prompt whether to use your CSC password or a ssh-key pair for authentication on the computing server.
 By answering 'No', the CSC's username and password will be asked.
 If you choose to use a ssh-key pair instead, the location of the key file will be asked next.
 The key will be stored by MPS, so that it will not be asked at a later time.
 
-Use the `batch` command to submit a batch jobs to Puhti.
-The command will return a job object which is used to access the output of the submitted job.
-See an example on below and [MATLAB documentation](http://se.mathworks.com/help/distcomp/batch.html) for more help about `batch`.
-You can, for example, submit a simple job to test the functionality of the MPS.
-
-
-```matlab
-j = batch(c, @pwd, 1, {}, 'CurrentFolder', '.', 'AutoAddClientPath', false)
-```
-
-We can set the working directory using the 'CurrentFolder' attribute.
 When the job has completed, we can fetch the results.
 
 ```matlab
