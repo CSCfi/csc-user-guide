@@ -40,6 +40,7 @@
 * [Running MaxQuant on Puhti](MaxQuant-tutorial.md)
 * [Nextflow tutorial for Puhti (basic)](https://yetulaxman.github.io/Biocontainer/tutorials/nextflow_tutorial.html)
 * [Running Nextflow pipelines on Puhti (advanced)](nextflow-puhti.md)
+* [Running Snakemake pipelines on Puhti](snakemake-puhti.md)
 * [Schrödinger Maestro Puhti advanced tutorial](power-maestro.md)
 * [Schrödinger GPU-powered screening of the Molport database](gpu-shape.md)
 * [Running your first job on Puhti](biojobs-on-puhti.md)
