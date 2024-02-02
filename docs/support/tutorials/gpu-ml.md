@@ -332,7 +332,7 @@ pipeline.
 See also:
 
 - [How to launch TensorBoard using the Puhti web interface](../../computing/webinterface/apps.md)
-- [PyTorch profiler tutorial](../../apps/pytorch.md/#pytorch-profiler)
+- [PyTorch profiler tutorial](../../apps/pytorch.md#pytorch-profiler)
 
 ## GPU energy usage
 
