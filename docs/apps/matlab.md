@@ -102,7 +102,7 @@ We can configure MPS on a local computer using the following instructions.
    addpath("~/.matlab/config_mps_puhti")
    savepath
    ```
-5. Configure your MATLAB to submit jobs to Puhti by calling `configCluster` in MATLAB and supply your username as follows:
+5. Configure your MATLAB to submit jobs to Puhti by calling `configCluster` in MATLAB and supply your username to the prompt as follows:
    ```matlab
    configCluster
    % Username on Puhti (e.g. jdoe): >>username
@@ -171,7 +171,7 @@ j.Parent.getDebugLog(j.Tasks(1))
 ### Parallel jobs
 You can also submit parallel jobs with `batch`. **NB** The cluster profile validation test will not completely succeed for 'puhti 201xa/b' profiles.
 
-Let's write the following example function.
+Let's write the following example function into `parallel_example.m` file.
 
 ```matlab
 function t = parallel_example()
@@ -201,7 +201,8 @@ j = c.findJob('ID', 11);
 j.Parent.getDebugLog(j)
 ```
 
-### Using GPUs
+
+### GPU jobs
 
 ```matlab
 c = parcluster;
@@ -219,8 +220,8 @@ c.AdditionalProperties.EmailAddress = '';
 j = batch(c, @gpuDevice, 1, {}, 'CurrentFolder', '.', 'AutoAddClientPath',false)
 ```
 
-### Checking license status
 
+### Checking license status
 You can check the status of MPS licenses on Puhti after logging in with `scontrol` command.
 
 ```bash
