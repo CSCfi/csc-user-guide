@@ -109,11 +109,6 @@ module use /appl/local/csc/modulefiles/
 module load pytorch
 ```
 
-Note that LUMI versions are still considered experimental with limited
-support. They are still subject to change at any time without notice,
-and for example multi-node jobs are know not to work properly yet.
-
-
 If you wish to have a specific version ([see above for available
 versions](#available)), use:
 
@@ -160,7 +155,7 @@ proportion of the available CPU cores in a single node:
     #SBATCH --time=1:00:00
     #SBATCH --gres=gpu:v100:1
         
-    module load pytorch/2.0
+    module load pytorch/2.1
     srun python3 myprog.py <options>
     ```
 
@@ -174,7 +169,7 @@ proportion of the available CPU cores in a single node:
     #SBATCH --time=1:00:00
     #SBATCH --gres=gpu:a100:1
     
-    module load pytorch/2.0
+    module load pytorch/2.1
     srun python3 myprog.py <options>
     ```
 
@@ -190,7 +185,7 @@ proportion of the available CPU cores in a single node:
     #SBATCH --time=1:00:00
     
     module use /appl/local/csc/modulefiles/
-    module load pytorch/2.0
+    module load pytorch/2.1
     srun python3 myprog.py <options>
     ```
 
@@ -212,6 +207,102 @@ Distributed Data-Parallel framework. You can read more about this and
 find examples of how to use PyTorch DDP on CSC's supercomputers in the
 [Multi-GPU and multi-node section of our Machine learning
 guide](../support/tutorials/ml-multi.md)
+
+
+### PyTorch profiler
+
+If your PyTorch program is slow, or you notice that it has a [low GPU
+utilization](../support/tutorials/gpu-ml.md#gpu-utilization) you can
+use the [PyTorch
+profiler](https://pytorch.org/tutorials/intermediate/tensorboard_profiler_tutorial.html)
+to analyze the time and memory consumption of your program.
+
+The PyTorch profiler can be taken into use by adding a few lines of
+code to your existing PyTorch program:
+
+```python
+from torch.profiler import profile, ProfilerActivity
+
+prof = profile(
+    schedule=torch.profiler.schedule(
+        skip_first=10,
+        wait=5,
+        warmup=1,
+        active=3, 
+        repeat=1)
+    on_trace_ready=torch.profiler.tensorboard_trace_handler('./logs/profiler'),
+    activities=[ProfilerActivity.CPU, ProfilerActivity.CUDA],
+    record_shapes=True,   # record shapes of operator inputs
+    profile_memory=True,  # track tensor memory allocation/deallocation
+    with_stack=True       # record source code information
+)
+```
+
+In this example we opt to skip the first 10 batches and record only a
+few batches for profiling. The profiling trace is saved into
+TensorBoard format into the directory `logs/profiler`. To see all the
+options, check the [PyTorch API documentation for
+profiler](https://pytorch.org/docs/stable/profiler.html#torch.profiler.profile).
+
+Next you need to start and stop the profiler, and record the
+individual steps (typically the batches). This would typically be
+around your training loop:
+
+```python
+prof.start()
+
+for batch in train_loader:
+    # normal forward and backprop stuff here
+    prof.step()
+
+prof.stop()
+```
+
+In our [GitHub
+repository](https://github.com/CSCfi/pytorch-ddp-examples/) we gave a
+full example with profiling:
+[`mnist_ddp_profiler.py`](https://github.com/CSCfi/pytorch-ddp-examples/blob/master/mnist_ddp_profiler.py)
+with a corresponding [Slurm batch job
+script](https://github.com/CSCfi/pytorch-ddp-examples/blob/master/run-ddp-gpu1-profiler.sh).
+
+After running the job you can view the output of the profiler using
+TensorBoard.  Start a TensorBoard session in the [web interface of the
+supercomputer](../computing/webinterface/apps.md) you are using. If
+the PyTorch profiler isn't opened automatically you may be able to
+find it as *PYTORCH_PROFILER* in the tab bar. If the tab isn't visible
+by default, it can be found at the pull-down menu on the right-hand
+side of the interface.
+
+A particularly useful view is the Trace view (select "Trace" from the
+"Views" pull-down menu). Below is an example screenshot of a run of
+the example linked to above.
+
+![Screenshot of PyTorch profiler in TensorBoard](../img/pytorch-profiler1.png)
+
+The Trace view can be zoomed in and panned using the small toolbar to
+the upper right, or using the 'a' and 'd' keys to pan, and 'w' and 's'
+for zooming in and out.
+
+In the screenshot we can see:
+
+- Area 1, marked with red, shows the data loading (can be seen by
+  zooming in and reading the function names shown. This is run
+  entirely in the CPU as it's only colored in the top part of the
+  screen under regular python CPU threads.
+- Area 2, marked with blue, shows the forward and back propagation
+  steps. Part of this is done on the GPU, as seen by the coloring in
+  the bottom part, in the "GPU 0" area.
+  
+Clearly this job is not utilizing the GPU well as a majority of the
+time is used in CPU processing. In general one could try adding more
+CPU cores to handle the data loading more efficiently, and increase
+the batch size to increase the GPU processing load.  In this
+particular case, however, the problem is that the network is so small
+that it cannot really utilize the GPU fully.
+
+More hints on how to view and interpret the output of the profiler can
+be found in the [PyTorch profiler with TensorBoard
+tutorial](https://pytorch.org/tutorials/intermediate/tensorboard_profiler_tutorial.html#use-tensorboard-to-view-results-and-analyze-model-performance).
 
 
 ## More information

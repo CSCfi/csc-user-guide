@@ -134,6 +134,7 @@ nav:
      - Reviewing billing unit usage: accounts/how-to-view-billing-unit-usage.md
      - Billing: accounts/billing.md
      - Multi-factor Authentication: accounts/mfa.md
+     - Strong identification: accounts/strong-identification.md
      - FMI: accounts/fmi.md
   - Computing:
      - computing/index.md
@@ -338,7 +339,8 @@ nav:
           - a-command: data/Allas/using_allas/a_commands.md
           - a-backup: data/Allas/using_allas/a_backup.md
           - Cyberduck: data/Allas/using_allas/cyberduck.md
-          - Python Library: data/Allas/using_allas/python_library.md
+          - Python with S3: data/Allas/using_allas/python_boto3.md         
+          - Python with SWIFT: data/Allas/using_allas/python_swift.md
           - Rclone from Computing environment: data/Allas/using_allas/rclone.md
           - Rclone form Workstation: data/Allas/using_allas/rclone_local.md
           - Swift: data/Allas/using_allas/swift_client.md

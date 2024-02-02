@@ -1,12 +1,12 @@
 # Getting started with CSC services for students
 
-!!! info-label
-
-    This feature will be available in December 2023.
-
 !!! warning-label
 
     Please read this page carefully!
+
+<center>
+[![MyCSC - Getting started with CSC services for students](../../img/mycsc-getting-started-with-csc-services-for-students-video-poster.png){ width=400px }](https://video.csc.fi/id/0_oesbi3v1?width=608&height=402&playerId=14971191){ target="_blank" }
+</center>
 
 This tutorial gathers all the information you, as a student, need to get started with using CSC services.
 
@@ -39,9 +39,9 @@ The easiest way is to **create a student project**.
 
 !!! success-label
 
-    That's it! Now you know your rights and responsibilities in the Student Project.
+    That's it! Now you know your rights and responsibilities in the student project.
 
-## Student project 1-2-3
+## Student Project 1-2-3
 
 Below's the life cycle of a student project:
 

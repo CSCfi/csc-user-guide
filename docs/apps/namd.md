@@ -12,14 +12,17 @@ Beckman Institute of the University of Illinois.
 
 ## Available
 
-* Puhti: version 2.14, 2.14-cuda, 3.0alpha11-cuda
-* Mahti: version 2.14
+The following versions are available:
+
+* Puhti: 2.14, 2.14-cuda, 3.0alpha11-cuda
+* Mahti: 2.14
 
 ## License
 
-CSC has obtained a Computing Centre [license](https://www.ks.uiuc.edu/Research/namd/license.html),
-which allows usage for non-commercial research. For commercial use, contact
-(namd@ks.uiuc.edu) See also acknowledging usage below.
+CSC has obtained a computing center
+[license](https://www.ks.uiuc.edu/Research/namd/license.html), which allows
+usage for non-commercial research. For commercial use, contact
+<mailto:namd@ks.uiuc.edu>. See also [acknowledging usage below](#references).
 
 ## Usage
 
@@ -27,137 +30,157 @@ NAMD can be run either with CPUs or with a GPU + CPUs.
 
 ### Performance considerations
 
-Tests show that leaving one core for communication for each task is beneficial, i.e.
-`namd_threads=$SLURM_CPUS_PER_TASK-1`. This is also recommended by NAMD developers.
+Tests show that leaving one core for communication for each task is beneficial
+when running on multiple nodes:
+
+```bash
+(( namd_threads = SLURM_CPUS_PER_TASK - 1 ))
+```
+
+This is also recommended by the
+[NAMD manual](https://www.ks.uiuc.edu/Research/namd/2.14/ug/node104.html).
 Please test with your input.
 
-Make sure `--ntasks-per-node` times `--cpus-per-task` equals 40 (Puhti) or 128
-(Mahti), i.e. all cores in a node. Try different ratios and select the optimal one.
+Make sure `--ntasks-per-node` multiplied by `--cpus-per-task` equals 40 (Puhti)
+or 128 (Mahti), i.e. all cores in a node. Try different ratios and select the
+optimal one.
 
-The data below shows the ApoA1 benchmark (92k atoms) on Mahti (ns/day as a function
-of allocated nodes, each line with a certain number of `namd_threads` as set in the
-[Mahti script below](#batch-script-example-for-mahti)).
+The data below shows the ApoA1 benchmark (92k atoms, 2 fs timestep) on Mahti
+with ns/day as a function of allocated nodes and varying the number of
+`namd_threads` as set in the
+[Mahti script below](#batch-script-example-for-mahti).
 
 ![NAMD Scaling on Mahti](../img/namd-scaling.svg 'NAMD Scaling on Mahti')
 
 The data also shows the following things:
 
-* Optimal settings depend on the amount of resources in addition to system and run
-  parameters
-* For this system it's best to use 7 threads per task
-* 1 GPU + 10 CPUs (on Puhti) gives 27.9 ns/day vs. 27.8 ns/day for 2 full nodes
-  on Mahti, or 70.9 ns/day with 8 nodes. Note that using more resources to get results
-  faster is also more expensive in terms of consumed billing units. To avoid wasting
-  resources, ensure that your job actually benefits from increasing the number of
-  cores. Doubling the number of cores should speed up the job by at least x1.5
+* Optimal settings depend on the amount of resources in addition to system and
+  run parameters.
+    * For this system, as the amount of resources are increased, the optimum
+      performance shifts from more threads per task (15) towards fewer threads
+      per task (3).
+* 1 GPU (+ 10 CPU cores) on Puhti gives a performance that is comparable to
+  running on two full Mahti nodes. However, note that using more resources to
+  get results faster is also more expensive in terms of consumed billing units.
+  To avoid wasting resources, ensure that your job actually benefits from
+  increasing the number of cores. You should get at least a 1.5-fold speedup
+  when doubling the amount of resources.
 * To test your own system, run e.g. 500 steps of dynamics and search for the
-  `Benchmark time:` line in the output
+  `Benchmark time:` line in the output.
+
+!!! info "NAMD 3.0 Alpha"
+    An [alpha-version of NAMD 3.0](https://www.ks.uiuc.edu/Research/namd/alpha/3.0alpha/)
+    is available on Puhti as `namd/3.0alpha11-cuda`. This module shows an 2-3
+    times improved GPU performance over `namd/2.14-cuda`, e.g. 156
+    ns/day vs. 55 ns/day for the ApoA1 system. However, as with all
+    alpha-versions, **please check your results carefully**.
 
 ### Batch script example for Puhti
 
-This script would use 2 tasks per node, 20 cores per task,
-and one of them for communication, using two full nodes, i.e. 80 cores.
+The script below requests 5 tasks per node and 8 threads per task on two full
+Puhti nodes (80 cores). One thread per task is reserved for communication.
 
 ```bash
 #!/bin/bash 
-#SBATCH --partition=test
-#SBATCH --nodes=2             
-#SBATCH --time=0:06:00        
 #SBATCH --account=<project>
-#SBATCH --ntasks-per-node=2  # test to find the optimum number, 2-20
-#SBATCH --cpus-per-task=20   # 40/(ntasks-per-node)
+#SBATCH --partition=test
+#SBATCH --time=0:10:00
+#SBATCH --nodes=2             
+#SBATCH --ntasks-per-node=5   # test to find the optimum number
+#SBATCH --cpus-per-task=8     # 40/(ntasks-per-node)
 
 module purge
-module load gcc/11.3.0 openmpi/4.1.4
+module load gcc/11.3.0
+module load openmpi/4.1.4
 module load namd/2.14
 
-(( namd_threads = SLURM_CPUS_PER_TASK - 1))
+# leave one core per process for communication
+(( namd_threads = SLURM_CPUS_PER_TASK - 1 ))
 
-# one core per task for communication
-orterun -np ${SLURM_NTASKS} namd2 +setcpuaffinity +ppn $namd_threads +isomalloc_sync apoa1.namd  > apoa1.out
+srun namd2 +ppn ${namd_threads} apoa1.namd > apoa1.out
 
-# While NAMD suggests using 1 thread per task for communication (as above)
-# all cores for computing can be tested by
-# orterun -np ${SLURM_NTASKS} namd2 +setcpuaffinity +ppn ${SLURM_CPUS_PER_TASK} +isomalloc_sync apoa1.namd > apoa1.out
+# while NAMD suggests using 1 thread per task for communication (as above)
+# all cores for computing can be tested with:
+# srun namd2 +ppn ${SLURM_CPUS_PER_TASK} apoa1.namd > apoa1.out
 ```
 
 ### Batch script example for Puhti using GPU
 
-Note, namd runs most efficiently with one GPU, and at least for small systems
-is much more cost efficient than running with multiple CPU-only nodes.
+Note, NAMD runs most efficiently on one GPU, and this is usually more
+cost-efficient than running on multiple CPU-only nodes.
 
 ```bash
 #!/bin/bash 
-#SBATCH --partition=gputest
-#SBATCH --ntasks=1         
-#SBATCH --cpus-per-task=10  
-#SBATCH --time=0:10:00     
 #SBATCH --account=<project>
+#SBATCH --partition=gputest
+#SBATCH --time=0:10:00
+#SBATCH --ntasks=1     
+#SBATCH --cpus-per-task=10  
 #SBATCH --gres=gpu:v100:1
-
-export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
-export SLURM_CPU_BIND=none
 
 module load namd/2.14-cuda
 
-namd2 +p${SLURM_CPUS_PER_TASK} +setcpuaffinity +devices ${GPU_DEVICE_ORDINAL} apoa1.namd > apoa1.out
+srun namd2 +ppn ${SLURM_CPUS_PER_TASK} +setcpuaffinity +devices ${GPU_DEVICE_ORDINAL} apoa1.namd > apoa1.out
 ```
 
 ### Batch script example for Mahti
 
+The script below requests 16 tasks per node and 8 threads per task on two full
+Mahti nodes (256 cores). One thread per task is reserved for communication.
+
 ```bash
-#!/bin/bash -l
-#SBATCH --partition=test
-#SBATCH --ntasks-per-node=8  # test to find the optimum number, 2-64
-#SBATCH --cpus-per-task=16   # 128/(ntasks-per-node)
-#SBATCH --nodes=2
-#SBATCH --time=0:10:00        # time as `hh:mm:ss`
+#!/bin/bash
 #SBATCH --account=<project>
+#SBATCH --partition=test
+#SBATCH --time=0:10:00 
+#SBATCH --nodes=2
+#SBATCH --ntasks-per-node=16  # test to find the optimum number
+#SBATCH --cpus-per-task=8     # 128/(ntasks-per-node)
 
 module purge
-module load gcc/11.2.0 openmpi/4.1.2
+module load gcc/11.2.0
+module load openmpi/4.1.2
 module load namd/2.14
 
+# leave one core per process for communication
 (( namd_threads = SLURM_CPUS_PER_TASK - 1))
 
-# one core per task for communication
-orterun -np ${SLURM_NTASKS} namd2 +setcpuaffinity +ppn $namd_threads +isomalloc_sync apoa1.namd > apoa1.out
+srun namd2 +ppn ${namd_threads} apoa1.namd > apoa1.out
 ```
 
-Submit the batch job with:
+Submit batch jobs with:
 
-```console
+```bash
 sbatch namd_job.bash
 ```
 
-!!! Note
-    Following the RHEL8 updates on Puhti and Mahti, you may need to use `orterun`
-    (instead of `srun`) and the `+setcpuaffinity` setting to avoid MPI-issues.
-
 ## References
 
-The NAMD License Agreement specifies that any reports or published
-results obtained with NAMD shall acknowledge its use and credit the
-developers as:
+The [NAMD License Agreement](https://www.ks.uiuc.edu/Research/namd/license.html)
+specifies that any reports or published results obtained with NAMD shall
+acknowledge its use and credit the developers as:
 
--   "NAMD was developed by the Theoretical and Computational Biophysics
-    Group in the Beckman Institute for Advanced Science and Technology
-    at the University of Illinois at Urbana-Champaign."
+> NAMD was developed by the Theoretical and Computational Biophysics Group in
+the Beckman Institute for Advanced Science and Technology at the University
+of Illinois at Urbana-Champaign.
 
-James C. Phillips, Rosemary Braun, Wei Wang, James Gumbart, Emad
-Tajkhorshid, Elizabeth Villa, Christophe Chipot, Robert D. Skeel,
-Laxmikant Kale, and Klaus Schulten. Scalable molecular dynamics with
-NAMD. *Journal of Computational Chemistry*, 26:1781-1802, 2005.
-[abstract], [journal]  
+Also, any published work which utilizes NAMD shall include the following
+reference:
+
+> James C. Phillips, David J. Hardy, Julio D. C. Maia, John E. Stone,
+Joao V. Ribeiro, Rafael C. Bernardi, Ronak Buch, Giacomo Fiorin,
+Jerome Henin, Wei Jiang, Ryan McGreevy, Marcelo C. R. Melo,
+Brian K. Radak, Robert D. Skeel, Abhishek Singharoy, Yi Wang, Benoit Roux,
+Aleksei Aksimentiev, Zaida Luthey-Schulten, Laxmikant V. Kale,
+Klaus Schulten, Christophe Chipot, and Emad Tajkhorshid.
+Scalable molecular dynamics on CPU and GPU architectures with NAMD.
+Journal of Chemical Physics, 153:044130, 2020.
+<https://doi.org/10.1063/5.0014475>
   
-In addition, electronic documents should include [this link](http://www.ks.uiuc.edu/Research/namd/).
+In addition, electronic documents should include a direct link to the
+[official NAMD page](http://www.ks.uiuc.edu/Research/namd/).
 
 ## More information
 
-* [NAMD manual]
-* [NAMD home page]
-
-  [abstract]: http://www.ks.uiuc.edu/Publications/Papers/abstract.cgi?tbcode=PHIL2005
-  [journal]: http://www3.interscience.wiley.com/cgi-bin/abstract/112102010/ABSTRACT
-  [NAMD manual]: http://www.ks.uiuc.edu/Research/namd/current/ug/
-  [NAMD home page]: http://www.ks.uiuc.edu/Research/namd/
+* [NAMD manual](https://www.ks.uiuc.edu/Research/namd/current/ug/)
+* [NAMD home page](https://www.ks.uiuc.edu/Research/namd/)

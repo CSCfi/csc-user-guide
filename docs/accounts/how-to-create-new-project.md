@@ -72,10 +72,6 @@ For further information on LUMI projects please visit [Users in Finland](https:/
 
 ## Student
 
-!!! info-label
-
-    This feature will be available in December 2023.
-
 A student can be the project manager of the student project. Please read the [Getting started with the Student Project](../support/tutorials/student_quick.md) carefully and then you can continue with the instructions below.
 
 The student category is reserved for [free-of-charge](https://research.csc.fi/free-of-charge-use-cases){:target="_blank"} use cases. This category project is a fixed time (maximum of 6 months, non-extendable), fixed resource and is designed to support student's work with higher educational institutes' courses and thesis work.

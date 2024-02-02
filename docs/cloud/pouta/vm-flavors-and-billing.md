@@ -314,8 +314,9 @@ performance is significantly better.
 
 **io.70GB-700GB:**
 
-NOTE! These servers have non-redundant disks, and you may expect data loss in case of disk failure.
-NOTE! These virtual machines can not be migrated nor resized.
+!!! Note  
+    These servers have non-redundant disks, and you may expect data loss in case of disk failure.  
+    These virtual machines can not be migrated nor resized to a different family flavor.
 
 -   Redundant power
 -   CPU: Intel(R) Xeon(R) CPU E5-2680 v3, with hyper-threading
@@ -324,7 +325,9 @@ NOTE! These virtual machines can not be migrated nor resized.
 -   Instances can be lost due to a single-node or disk failure.
 
 **io.2.\*:**
-NOTE! These virtual machines can not be resized.
+
+!!! Note  
+    These virtual machines can not be resized to a different family flavor.
 
 -   Redundant power
 -   CPU: AMD EPYC 7282 16-Core Processor
@@ -337,8 +340,9 @@ NOTE! These virtual machines can not be resized.
 
 **io.haswell.\*:**
 
-NOTE! These servers have non-redundant disks, and you may expect data loss in case of disk failure.
-NOTE! These virtual machines can not be migrated nor resized.
+!!! Note  
+    These servers have non-redundant disks, and you may expect data loss in case of disk failure.  
+    These virtual machines can not be migrated nor resized to a different family flavor.
 
 -   Redundant power
 -   CPU: Intel(R) Xeon(R) CPU E5-2680 v3, with hyper-threading
