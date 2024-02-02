@@ -1,7 +1,7 @@
 
 ## Running Snakemake workflow on Puhti
 
-Snakemake workflow is one of the popular scientific workflows in the bioinformatics community although the workflow manager itself can be used in other scientific disciplines as well. The Snakemake workflow manager enables scalable and reproducible scientific pipelines by chaining a series of rules in a fully-specified software environment. Snakemake software is available as a module in Puhti supercomputing environment. Also, a CSC user can easily install it in his/her own disk space (e.g., in /projappl directory) if a specific version of snakemake is desired. The following toy example illustrates how a snakemake workflow can be deployed at CSC.
+Snakemake workflow is one of the popular scientific workflows in the bioinformatics community although the workflow manager itself can be used in other scientific disciplines as well. The Snakemake enables scalable and reproducible scientific pipelines by chaining a series of rules in a fully-specified software environment. Snakemake software is available as a module in Puhti supercomputing environment. Also, a CSC user can easily install it in his/her own disk space (e.g., in /projappl directory) if a specific version of Snakemake is desired. The following toy example illustrates how a Snakemake workflow can be deployed at CSC.
 
 Please make sure that you have a [user account at CSC](../../accounts/how-to-create-new-user-account.md/) and are a member of a project which [has access to the Puhti service](../../accounts/how-to-add-service-access-for-project.md/) before start running workflows on Puhti. One should avoid launching heavy Snakemake workflow jobs on login nodes and use interactive or batch jobs instead. More information on using interactive jobs can be found on [CSC documentation](../../computing/running/interactive-usage.md/).
 
@@ -37,21 +37,24 @@ snakemake -s Snakefile \ # the Snakefile is the default file name; no need speci
 --latency-wait 60 \  # snakemake to wait up to 60 seconds after a job completes for the output files to become available.
 --cluster "sbatch -t 10  --account=project_xxx --job-name=hello-world --tasks-per-node=1 --cpus-per-task=1 
 --mem-per-cpu=4000 -p test"
-# cluster option to execute snakemake workflow on cluster given other options for slurm
+# cluster option to execute the workflow on slurm
 ```
 Finally, you can run the workflow in the bash script (e.g., run_snakemak.sh) by submitting in the job in the interactive node:
 ```bash
 sinteractive -c 2 -m 10000 # type this command on login node
 bash run_snakemake.sh   # run the workflow
 ```
-!!! if you are using cluster configuration for snakemake workflow, please are no longer supported on recent versions of snakemake. Please consider using   [profiles](https://snakemake.readthedocs.io/en/stable/executing/cli.html#profiles)
-!!! Scaling up of your jobs using slurm should be done carefully to avoid unnecessary overload on slurm accounting database due to a large number of small jobs. Consider either configuring **localrules** cautiously with slurm or using Hyperqueue executor. 
+!!! If you are using cluster configuration for snakemake workflow,  
+    please note that cluster configurations are no longer supported on recent versions of snakemake. Please consider using   [profiles](https://snakemake.readthedocs.io/en/stable/executing/cli.html#profiles) instead.
+
+!!! Scaling up of your jobs using slurm should be done carefully to
+    avoid unnecessary overload on slurm accounting database due to a large number of small jobs. Consider either configuring **localrules** cautiously with slurm or using Hyperqueue executor. 
 
 ### Running snakemake with python packages installed *via.* tykky wrapper
 
 Conda installations should not be performed directly on Puhti. [Tykky container wrapper tool](../../computing/containers/tykky.md) instead be used to install python packages in setting up your compute environment. The wrapper tool installs applications inside of a singularity container and thus  facilitates better performance in terms of faster startup times, reduced IO load, and reduced number of files on parallel filesystems. 
 
-Here is an example of tykky-based custom installation for conda packages (note: make sure to edit with the correct CSC project name and user name as needed):
+Here is an example of tykky-based custom installation for conda packages (**note**: make sure to edit with the correct CSC project name and user name as needed):
 
 ```bash
 # start an interactive session once you are in login node
@@ -64,7 +67,7 @@ module load tykky # load tykky wrapper
 mkdir -p /projappl/<project>/$USER && mkdir -p /projappl/<project>/$USER/snakemake_tykky
 conda-containerize new --prefix  /projappl/<project>/$USER/snakemake_tykky env.yaml    
 ```
-In the above example, Tykky installs a basic setup (as listed in the file, env.yml) to the directory '/projappl/project_xxxx/$USER/snakemake_tykky'. Please note that you have to append the bin directory of installation to the $PATH variable before start using the installed environment, as shown below:
+In the above example, tykky wrapper installs conda packages (as listed in the file, env.yml) to the directory '/projappl/project_xxxx/$USER/snakemake_tykky'. Please note that you have to append the bin directory of installation to the $PATH variable before start using the installed environment, as shown below:
 
 ```bash
 export PATH="/projappl/project_xxxx/$USER/snakemake_tykky/bin:$PATH"
@@ -75,7 +78,7 @@ Download tutorial material (scripts and data), which was adapted from [official 
 wget https://a3s.fi/snakemake/snakemake_tutorial.tar.gz
 tar -xavf snakemake_tutorial.tar.gz
 ```
-Install the necessary python environment using tykky wrapper as instructed above. Once installation is successful, you can use the following code to run as batch script (file: tutorial-sbatch.sh):
+Install the necessary python environment using tykky wrapper as instructed above. Once installation is successful, you can use the following code to run as batch script (file name: tutorial-sbatch.sh):
 
 ```bash
 #!/bin/bash
@@ -96,20 +99,22 @@ sbatch tutorial-sbatch.sh
 ```
 ###  Running Snakemake workflow with singularity container
 
-One can use singularity image as an alternative to using conda packages installed via tykky container wrapper. If you are new to containers, please consult either our [CSC documentation](../../computing/containers/run-existing.md) or  official [Singularity documentation](https://docs.sylabs.io/guides/latest/user-guide/) on using singularity/Apptainer containers.
+One can also use singularity image as an alternative to using conda packages installed via tykky container wrapper. If you are new to containers, please consult either our [CSC documentation](../../computing/containers/run-existing.md) or  official [Singularity documentation](https://docs.sylabs.io/guides/latest/user-guide/) on using singularity/Apptainer containers.
 
 Briefly, one can run or pull an existing Singularity/Apptainer image from a repository as below:
 
-     ```bash
+ ```bash
      apptainer pull shub://vsoch/hello-world:latest
      apptainer run hello-world_latest.sif
-     ```
-And also, convert an existing Docker container to an Apptainer container using `singularity build`:
+ ```
+And also, convert an existing Docker image to an singularity/Apptainer image using `singularity build`:
 
  ```bash
   apptainer build alpine.sif docker://library/alpine:latest
   ```
+
 If you don't have a ready-made container for your needs, you can build singularity image on Puhti. Building of singularity image on Puhti can be done using *--fakeroot* option. An example singularity definition file, with conda environment defined in a file (e.g, tutorial.yaml), is shown below:
+
 ```
 Bootstrap : docker
 From :  continuumio/miniconda3
@@ -141,6 +146,7 @@ singularity build --fakeroot tutorial.sif tutorial.def
 ```
 
 Once you have a local image (or URL from a repository),  you can specify the image on the top level of Snakefile as shown below:
+
 ```
 ##### setup singularity #####
 # this container defines the underlying container compute for each job when using the workflow
@@ -148,7 +154,11 @@ Once you have a local image (or URL from a repository),  you can specify the ima
 singularity: "image/turotial.sif"
 
 ```
-If you have a container for a specific rule of the workflow, you have to specify the container within the rule. Finally, one can submit the Snakemake workflow as a slurm job as shown below:
+
+If you have a container for a specific rule of the workflow, you have to specify the container within the rule. 
+
+Finally, one can submit the Snakemake workflow as a batch job as shown below:
+
 ```
 #!/bin/bash
 #SBATCH --job-name=myTest
@@ -163,7 +173,8 @@ snakemake -s Snakefile  --use-singularity  -j 4
 ```
 For the completion of this tutorial, tutorial example downloaded earlier included data and scripts.
 
-You can finally submit the snakemake workflow to the slurm cluster as below:
+You can finally submit the Snakemake workflow to the slurm cluster as below:
+
 ```
 bash sbatch-sing.sh
 ```
@@ -173,15 +184,17 @@ bash sbatch-sing.sh
 If your workflow manager is using sbatch for each process execution and you have many short processes it's advisable to switch to HyperQueue to improve throughput and decrease load on the system batch scheduler.
 
 Using Snakemake's --cluster flag we can use hq submit instead of sbatch:
+
 ```
 snakemake --cluster "hq submit --cpus <threads> ..."
 
 ```
 Please check the example tutorial for running the Snakemake workflows with Hyperqueue executor for the following examples.
 
-#### Example 1: Hyperqueue executor for Snakemake workflow where python packages are installed with tykky
+#### Example 1: Hyperqueue executor for Snakemake workflow where Python packages are installed with tykky
 
 Batch script as sbatch-hq-tykky.sh :
+
 ```
 #!/bin/bash
 #SBATCH --job-name=myTest
@@ -227,8 +240,9 @@ and run the script as below:
 
 ```bash
 sbatch sbatch-hq-tykky.sh
+
 ```
-#### Example 2: Hyperqueue executor for snakemake workflow where Python packages are installed in singularity container
+#### Example 2: Hyperqueue executor for Snakemake workflow where Python packages are installed in singularity container
 
 sbatch script (sbatch-hq-sing.sh):
 
