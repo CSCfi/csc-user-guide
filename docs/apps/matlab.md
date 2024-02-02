@@ -84,21 +84,32 @@ On the Desktop application, we can launch MATLAB by clicking the MATLAB icon.
 
 ## Using MATLAB Parallel Server on Puhti
 ### Configuring MPS on local MATLAB
-MATLAB Parallel Server allows users to submit jobs from their local MATLAB session to the batch job system of Puhti.
-Before starting using MPS, it is strongly recommend to read the 'Computing' section in [Puhti User Guide](../computing/index.md).
-To use MPS, you need to have an user account at CSC, one of the supported MATLAB's version installed on your own computer with the parallel computing toolbox and getting the license from your home organization's license server.
+Puhti's MATLAB Parallel Server (MPS) allows users send batch jobs from a local MATLAB session to the Puhti cluster.
+Using Puhti MPS requires a local MATLAB installation with a supported MATLAB version and the Parallel Computing Toolbox and access to the Puhti cluster.
+We can configure MPS on a local computer using the following instructions.
 
-To configure MPS, follow the instructions on below.
-
-1. Make sure, you have a home directory on Puhti by logging in to the cluster with your CSC username and password by using some ssh client.
-2. [Download](https://wiki.eduuni.fi/display/cscjemma/MATLAB+MPS+configuration) MPS tool scripts corresponding to the operating system on your computer.
-3. Unzip or untar the downloaded file and place the contents into some directory on your computer, where you have read and write permissions. Make sure, this directory is set to the MATLAB's path. This can be done, for example, with a `pathtool` command.
-4. Configure your MATLAB to submit jobs to Puhti by calling `configCluster` and giving your CSC username.
-
-```matlab
-configCluster
-% Username on Puhti (e.g. joe):
-```
+1. Log in and out to Puhti via SSH client to ensure you have a home directory.
+2. Download the [**Puhti-MPS configuration scripts**](https://wiki.eduuni.fi/display/cscjemma/MATLAB+MPS+configuration).
+3. Unzip the downloaded file into a directory.
+   For example, on the Unix shell, we can do the following:
+   ```bash
+   mkdir -p $HOME/.matlab
+   unzip csc.Desktop.zip -d $HOME/.matlab/config_mps_puhti
+   ```
+4. Set the directory the MATLAB path using `addpath` and `savepath` or the `pathtool`.
+   In MATLAB, we use the following commands:
+    ```matlab
+    addpath("~/.matlab/config_mps_puhti")
+    savepath()
+    ```
+5. Configure your MATLAB to submit jobs to Puhti by calling `configCluster`.
+   In MATLAB, we use the following commands:
+   ```matlab
+   configCluster
+   % Username on Puhti (e.g. joe):
+   % Supply path to your local SSH identity file (private key)
+   % Answer yes or no whether the identity file requires a password
+   ```
 
 
 ### Submitting jobs
@@ -112,7 +123,7 @@ c.AdditionalProperties.ComputingProject = 'project_<id>';
 c.AdditionalProperties.Partition = 'small';
 c.AdditionalProperties.WallTime = '00:15:00';
 c.AdditionalProperties.CPUsPerNode = '';
-c.AdditionalProperties.MemPerCPU = '2g';
+c.AdditionalProperties.MemPerCPU = '4g';
 c.AdditionalProperties.GpuCard = '';
 c.AdditionalProperties.GPUsPerNode = '';
 c.AdditionalProperties.EmailAddres = '';
