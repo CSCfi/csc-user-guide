@@ -329,10 +329,10 @@ interface.  The profilers can be used to identify resource consumption
 and to resolve performance bottlenecks, in particular the data input
 pipeline.
 
-See also
-[how to launch TensorBoard using the Puhti web interface](../../computing/webinterface/apps.md).
-The TensorFlow module `tensorflow/2.8` or later is required to use the
-profilers.
+See also:
+
+- [How to launch TensorBoard using the Puhti web interface](../../computing/webinterface/apps.md)
+- [PyTorch profiler tutorial](../../apps/pytorch.md/#pytorch-profiler)
 
 ## GPU energy usage
 

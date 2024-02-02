@@ -36,8 +36,8 @@ Currently supported PyTorch versions:
 
 | Version | Module         | Puhti | Mahti | LUMI | Notes                      |
 |:--------|----------------|:-----:|:-----:|------|:---------------------------|
-| 2.1.1   | `pytorch/2.1`  | -     | -     | X    | default version            |
-| 2.1.0   | `pytorch/2.1   | X     | X     | -    | default version            |
+| 2.1.2   | `pytorch/2.1`  | -     | -     | X    | default version            |
+| 2.1.0   | `pytorch/2.1`  | X     | X     | -    | default version            |
 | 2.0.1   | `pytorch/2.0`  | -     | -     | X    |                            |
 | 2.0.0   | `pytorch/2.0`  | X     | X     | -    |                            |
 | 1.13.1  | `pytorch/1.13` | -     | -     | X    | limited multi-node support |
