@@ -125,7 +125,7 @@ c.AdditionalProperties.CPUsPerNode = '';
 c.AdditionalProperties.MemPerCPU = '4g';
 c.AdditionalProperties.GpuCard = '';
 c.AdditionalProperties.GPUsPerNode = '';
-c.AdditionalProperties.EmailAddres = '';
+c.AdditionalProperties.EmailAddress = '';
 ```
 
 Now, we can use the [`batch`](http://se.mathworks.com/help/distcomp/batch.html) function to submit a job to Puhti.
