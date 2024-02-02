@@ -54,5 +54,5 @@ Nahnsen, S., Köster, J. Sustainable data analysis with Snakemake. F1000Research
 ## More information
 
 * [Snakemake official documentation](https://snakemake.readthedocs.io/en/stable/index.html)
-* [Running Snakemake on Puhti](https://yetulaxman.github.io/containers-workflows/#5-snakemake-on-hpc)
+* [Running Snakemake on Puhti](../support/tutorials/snakemake-puhti.md)
 * [Contact CSC Service Desk for technical support](../support/contact.md)
