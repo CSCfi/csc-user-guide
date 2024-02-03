@@ -3,7 +3,8 @@
 
 Snakemake workflow is one of the popular scientific workflows in the bioinformatics community although the workflow manager itself can be used in other scientific disciplines as well. The Snakemake enables scalable and reproducible scientific pipelines by chaining a series of rules in a fully-specified software environment. Snakemake software is available as a module in Puhti supercomputing environment. Also, a CSC user can easily install it in his/her own disk space (e.g., in /projappl directory) if a specific version of Snakemake is desired. The following toy example illustrates how a Snakemake workflow can be deployed at CSC.
 
-Please make sure that you have a [user account at CSC](../../accounts/how-to-create-new-user-account.md/) and are a member of a project which [has access to the Puhti service](../../accounts/how-to-add-service-access-for-project.md/) before start running workflows on Puhti. One should avoid launching heavy Snakemake workflow jobs on login nodes and use interactive or batch jobs instead. More information on using interactive jobs can be found on [CSC documentation](../../computing/running/interactive-usage.md/).
+Please make sure that you have a [user account at CSC](../../accounts/how-to-create-new-user-account.md) and are a member of a project which [has access to the Puhti service](../../accounts/how-to-add-service-access-for-project.md) before start running workflows on Puhti. One should avoid launching heavy Snakemake workflow jobs on login nodes and use interactive or batch jobs instead. More information on using interactive jobs can be found on 
+[CSC documentation](../../computing/running/interactive-usage.md).
 
 Let's use the following toy Snakemake script, Snakefile (with a capital S and no file extension), for the illustration:
 
@@ -44,10 +45,12 @@ Finally, you can run the workflow in the bash script (e.g., run_snakemak.sh) by 
 sinteractive -c 2 -m 10000 # type this command on login node
 bash run_snakemake.sh   # run the workflow
 ```
-!!! If you are using cluster configuration for snakemake workflow,  
+!!! note
+    If you are using cluster configuration for snakemake workflow,  
     please note that cluster configurations are no longer supported on recent versions of snakemake. Please consider using   [profiles](https://snakemake.readthedocs.io/en/stable/executing/cli.html#profiles) instead.
 
-!!! Scaling up of your jobs using slurm should be done carefully to
+!!! note
+    Scaling up of your jobs using slurm should be done carefully to
     avoid unnecessary overload on slurm accounting database due to a large number of small jobs. Consider either configuring **localrules** cautiously with slurm or using Hyperqueue executor. 
 
 ### Running snakemake with python packages installed *via.* tykky wrapper
