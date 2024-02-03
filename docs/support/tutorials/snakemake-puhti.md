@@ -75,7 +75,7 @@ In the above example, tykky wrapper installs conda packages (as listed in the fi
 ```bash
 export PATH="/projappl/project_xxxx/$USER/snakemake_tykky/bin:$PATH"
 ```
-Download tutorial material (scripts and data), which was adapted from [official Snakemake documentation](https://snakemake.readthedocs.io/en/v6.6.1/executor_tutorial/google_lifesciences.html), from [CSC allas object storage](https://a3s.fi/snakemake/snakemake_tutorial.tar.gz) as below:
+Download tutorial material (scripts and data), which was adapted from [official Snakemake documentation](https://snakemake.readthedocs.io/en/v6.6.1/executor_tutorial/google_lifesciences.html), from CSC allas object storage as below:
 
 ```bash
 wget https://a3s.fi/snakemake/snakemake_tutorial.tar.gz
@@ -110,7 +110,7 @@ Briefly, one can run or pull an existing Singularity/Apptainer image from a repo
      apptainer pull shub://vsoch/hello-world:latest
      apptainer run hello-world_latest.sif
  ```
-And also, convert an existing Docker image to an singularity/Apptainer image using `singularity build`:
+Also, one can convert an existing Docker image to an singularity/Apptainer image using `singularity build`:
 
  ```bash
   apptainer build alpine.sif docker://library/alpine:latest
@@ -179,7 +179,7 @@ For the completion of this tutorial, tutorial example downloaded earlier include
 You can finally submit the Snakemake workflow to the slurm cluster as below:
 
 ```
-bash sbatch-sing.sh
+sbatch sbatch-sing.sh
 ```
    
 ### Running Snakemake with HyperQueue executor
@@ -289,4 +289,9 @@ snakemake -s Snakefile -j 1  --use-singularity  --cluster "hq submit --cpus 2 "
 
 hq worker stop all
 hq server stop
+```
+You can finally submit the Snakemake workflow to the slurm cluster as below:
+
+```
+sbatch sbatch-hq-sing.sh
 ```
