@@ -110,7 +110,7 @@ We can configure MPS on a local computer using the following instructions.
    ```
 
 
-### Submitting jobs
+### Submitting serial jobs
 Prior to submitting the batch job, we have to specify the resource reservation using `parcluster`.
 Because the `parcluster` is stateful, it is safest to explicitly unset properties we don't use by settings them to the empty string `''`.
 Furthermore, `CPUsPerNode` is set automatically by the `batch` command, thus we unset it.
@@ -185,7 +185,7 @@ Note that parallel pool will always request one additional CPU core to manage th
 For example, a job that needs eight cores will consume nine CPU cores.
 
 
-### Submitting GPU jobs
+### Submitting serial GPU jobs
 We can create a GPU reservation by settings the appropriate values fro `Partition`, `GpuCard` and `GPUsPerNode` properties.
 For example, a single GPU reservation looks as follows:
 
@@ -212,43 +212,51 @@ j = batch(c, @gpuDevice, 1, {}, 'CurrentFolder', '.', 'AutoAddClientPath', false
 To retrieve a list of currently running or completed jobs, use
 
 ```matlab
+c = parcluster;
 c.Jobs
 ```
 
-Get a handle to the job with sequence number 2
+Get a handle to the job with sequence number 1
 
 ```matlab
-j = c.Jobs(2);
+j = c.Jobs(1);
 ```
 
-When the job has completed, we can fetch the results.
+Once we have a handle to the cluster, we'll call the `findJob` method to search for the job with the specified job ID, on example below `ID = 11`.
+
+```matlab
+j = findJob(c, 'ID', 11);
+```
+
+When the job has completed, we can fetch the function outputs as follows:
 
 ```matlab
 fetchOutputs(j)
 ```
 
-Once we've identified the job we want, we can retrieve the results as we've done previously.
-If the job has produced an error, we can call the `getDebugLog` method to view the error log file.
-The error log can be lengthy and is not shown here.
-As an example, we will retrieve the debug log of the serial job.
-
-```matlab
-j.Parent.getDebugLog(j.Tasks(1))
-```
-
-Once we have a handle to the cluster, we'll call the `findJob` method to search for the job with the specified job ID, on example below `ID = 11`.
-Notice the syntax of `getDebugLog`.
-
-```matlab
-j = c.findJob('ID', 11);
-% For debugging, retrieve the output / error log file.
-j.Parent.getDebugLog(j)
-```
-
-**NB** `fetchOutputs` is used to retrieve function output arguments.
 Data that has been written to files on the cluster needs to be retrieved directly from the file system.
 
 
+<!--
+Once we've identified the job we want, we can retrieve the results as we've done previously.
+If the job has produced an error, we can call the `getDebugLog` method to view the error log file.
+The error log can be lengthy and is not shown here.
+
+As an example, we will retrieve the debug log of the serial job.
+
+```matlab
+getDebugLog(j.Parent, j.Tasks(1))
+```
+
+For debugging, retrieve the log file.
+
+```matlab
+getDebugLog(j.Parent ,j)
+```
+-->
+
+
+<!--
 ### Checking license status
 You can check the status of MPS licenses on Puhti after logging in with `scontrol` command.
 
@@ -260,6 +268,7 @@ scontrol show lic=mdcs
 LicenseName=mdcs
     Total=500 Used=320 Free=180 Remote=no
 ```
+-->
 
 
 ## Creating and using custom MATLAB installation
