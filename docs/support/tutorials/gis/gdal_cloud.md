@@ -102,7 +102,7 @@ AWS_ACCESS_KEY_ID=xxx
 AWS_SECRET_ACCESS_KEY=yyy
 ```
 
-Then before using GDAL, the currently used profile must be set as environment variable: `os.environ["AWS_PROFILE"] = "allas_project1"`
+Then before using GDAL, the currently used profile must be set as environment variable: `export AWS_PROFILE=allas_project1`
 
 ### Using S3 
 
