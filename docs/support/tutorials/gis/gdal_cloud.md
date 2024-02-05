@@ -80,9 +80,9 @@ If you want to use Allas on some other machine, then copy `~/.aws/credentials` f
 
 If you are not using CSC supercomputers, you can install `allas-conf` to your Linux/Mac machine, follow the instructions in [CSC's Allas command line interface utilities repository](https://github.com/CSCfi/allas-cli-utils). 
 
-#### S3 connection set up for Copernicus Data Space Ecosystem
+#### S3 connection set up for Copernicus Data Space Ecosystem (CDSE)
 
-ESA data, inc Sentinel data, is available via Copernicus Data Space Ecosystem S3. In general the same applies as described above, but `AWS_VIRTUAL_HOSTING` should be set to False:
+ESA data, inc Sentinel data, is available via [CDSE S3](https://dataspace.copernicus.eu/). Get [CDSE S3 credentials](https://documentation.dataspace.copernicus.eu/APIs/S3.html) and save to the `credentials` file as described above. With CDSE `AWS_VIRTUAL_HOSTING` should be set to False:
 ```
 export AWS_S3_ENDPOINT=eodata.dataspace.copernicus.eu
 export AWS_VIRTUAL_HOSTING=FALSE
