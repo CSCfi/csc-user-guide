@@ -82,6 +82,24 @@ First, we need to log into [puhti.csc.fi](https://www.puhti.csc.fi) and then we 
 On the Desktop application, we can launch MATLAB by clicking the MATLAB icon.
 
 
+## Parallel computing on local MATLAB
+Documentation and manuals for MATLAB and related products is available via the Documentation site of MathWorks.
+
+```matlab
+pool = parpool('Processes', 4);
+% do computation
+delete(pool);
+```
+
+```matlab
+pool = parpool('Threads', 4);
+% do computation
+delete(pool);
+```
+
+To learn more about the MATLAB Parallel Computing Toolbox, check out these resources: [Parallel Computing Toolbox](https://mathworks.com/help/parallel-computing/index.html)
+
+
 ## Using MATLAB Parallel Server on Puhti
 ### Configuring MPS on local MATLAB
 Puhti's MATLAB Parallel Server (MPS) allows users to send batch jobs from a local MATLAB session to the Puhti cluster.
@@ -272,15 +290,4 @@ LicenseName=mdcs
 
 
 ## Creating and using custom MATLAB installation
-TODO: It is also possible to create and use custom matlab installation and license.
-
-
-## More information
-Documentation and manuals for MATLAB and related products is available via the Documentation site of MathWorks.
-To learn more about the MATLAB Parallel Computing Toolbox, check out these resources:
-
-- [Parallel Computing Documentation](http://www.mathworks.com/help/distcomp/index.html)
-- [Parallel Computing Tutorials](http://www.mathworks.com/products/parallel-computing/tutorials.html)
-- [Parallel Computing Videos](http://www.mathworks.com/products/parallel-computing/videos.html)
-- [Parallel Computing Webinars](http://www.mathworks.com/products/parallel-computing/webinars.html)
-- [Puhti User Guide](../computing/index.md)
+It is also possible to create and use custom matlab installation and license.
