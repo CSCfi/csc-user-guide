@@ -97,6 +97,7 @@ We can configure MPS on a local computer using the following instructions.
    mkdir -p ~/.matlab/config_mps_puhti
    unzip csc.Desktop.zip -d ~/.matlab/config_mps_puhti
    ```
+   On Windows, we can use the `%AppData%\Mathworks\MATLAB` directory to store the configurations.
 4. Set the directory the MATLAB path using `addpath` and `savepath` functions in MATLAB as follows:
    ```matlab
    addpath("~/.matlab/config_mps_puhti")
@@ -130,8 +131,6 @@ c.AdditionalProperties.EmailAddress = '';
 
 Now, we can use the [`batch`](http://se.mathworks.com/help/distcomp/batch.html) function to submit a job to Puhti.
 It returns a job object which we can use to access the output of the submitted job.
-We set the working directory using the 'CurrentFolder' attribute.
-We should set the `AutoAddClientPath` to `false`.
 For example, we can submit a simple test job as follows:
 
 ```matlab
@@ -143,34 +142,14 @@ By answering 'No', the CSC's username and password will be asked.
 If you choose to use a ssh-key pair instead, the location of the key file will be asked next.
 The key will be stored by MPS, so that it will not be asked at a later time.
 
-When the job has completed, we can fetch the results.
+Useful arguments to batch
 
-```matlab
-j.fetchOutputs
-```
-
-To retrieve a list of currently running or completed jobs, use
-
-```matlab
-jobs = c.Jobs;
-% Get a handle to the job with sequence number 2
-j2 = c.Jobs(2);
-% Fetch results
-fetchOutputs(j2)
-```
-
-Once we've identified the job we want, we can retrieve the results as we've done previously. If the job has produced an error, we can call the `getDebugLog` method to view the error log file. The error log can be lengthy and is not shown here. As an example, we will retrieve the debug log of the serial job.
-
-```matlab
-j.Parent.getDebugLog(j.Tasks(1))
-```
-
-**NB** `fetchOutputs` is used to retrieve function output arguments. Data that has been written to files on the cluster needs to be retrieved directly from the file system.
+- We set the working directory using the 'CurrentFolder' attribute.
+- We should set the `AutoAddClientPath` to `false`.
+- `AttachFiles`
 
 
-### Parallel jobs
-You can also submit parallel jobs with `batch`. **NB** The cluster profile validation test will not completely succeed for 'puhti 201xa/b' profiles.
-
+### Submitting parallel jobs
 Let's write the following example function into `parallel_example.m` file.
 
 ```matlab
@@ -191,18 +170,14 @@ We'll use the batch command again, but since we're running a parallel job, we'll
 j = batch(c, @parallel_example, 1, {}, 'Pool', 8, CurrentFolder','.', 'AutoAddClientPath',false)
 ```
 
-At first, a parallel pool with eight cores will be constructed. Note that these jobs will always request n+1 CPU cores, since one core is required to manage the batch job and pool of cores. For example, a job that needs eight cores will consume nine CPU cores in total.
+At first, a parallel pool with eight cores will be constructed.
+Note that these jobs will always request n+1 CPU cores, since one core is required to manage the batch job and pool of cores.
+For example, a job that needs eight cores will consume nine CPU cores in total.
 
-Once we have a handle to the cluster, we'll call the `findJob` method to search for the job with the specified job ID, on example below `ID = 11`. Notice the syntax of `getDebugLog`.
-
-```matlab
-j = c.findJob('ID', 11);
-% For debugging, retrieve the output / error log file.
-j.Parent.getDebugLog(j)
-```
+**NB** The cluster profile validation test will not completely succeed for 'puhti 201xa/b' profiles.
 
 
-### GPU jobs
+### Submitting GPU jobs
 
 ```matlab
 c = parcluster;
@@ -217,8 +192,49 @@ c.AdditionalProperties.EmailAddress = '';
 ```
 
 ```matlab
-j = batch(c, @gpuDevice, 1, {}, 'CurrentFolder', '.', 'AutoAddClientPath',false)
+j = batch(c, @gpuDevice, 1, {}, 'CurrentFolder', '.', 'AutoAddClientPath', false)
 ```
+
+
+### Querying jobs
+To retrieve a list of currently running or completed jobs, use
+
+```matlab
+c.Jobs
+```
+
+Get a handle to the job with sequence number 2
+
+```matlab
+j = c.Jobs(2);
+```
+
+When the job has completed, we can fetch the results.
+
+```matlab
+fetchOutputs(j)
+```
+
+Once we've identified the job we want, we can retrieve the results as we've done previously.
+If the job has produced an error, we can call the `getDebugLog` method to view the error log file.
+The error log can be lengthy and is not shown here.
+As an example, we will retrieve the debug log of the serial job.
+
+```matlab
+j.Parent.getDebugLog(j.Tasks(1))
+```
+
+Once we have a handle to the cluster, we'll call the `findJob` method to search for the job with the specified job ID, on example below `ID = 11`.
+Notice the syntax of `getDebugLog`.
+
+```matlab
+j = c.findJob('ID', 11);
+% For debugging, retrieve the output / error log file.
+j.Parent.getDebugLog(j)
+```
+
+**NB** `fetchOutputs` is used to retrieve function output arguments.
+Data that has been written to files on the cluster needs to be retrieved directly from the file system.
 
 
 ### Checking license status
@@ -239,8 +255,8 @@ TODO: It is also possible to create and use custom matlab installation and licen
 
 
 ## More information
-
-Documentation and manuals for MATLAB and related products is available via the Documentation site of MathWorks. To learn more about the MATLAB Parallel Computing Toolbox, check out these resources:
+Documentation and manuals for MATLAB and related products is available via the Documentation site of MathWorks.
+To learn more about the MATLAB Parallel Computing Toolbox, check out these resources:
 
 - [Parallel Computing Documentation](http://www.mathworks.com/help/distcomp/index.html)
 - [Parallel Computing Tutorials](http://www.mathworks.com/products/parallel-computing/tutorials.html)
