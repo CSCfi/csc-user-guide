@@ -131,20 +131,20 @@ c.AdditionalProperties.EmailAddress = '';
 Now, we can use the [`batch`](http://se.mathworks.com/help/distcomp/batch.html) function to submit a job to Puhti.
 It returns a job object which we can use to access the output of the submitted job.
 
-The first time you submit a job to Puhti, the system will prompt whether to use your CSC password or a ssh-key pair for authentication on the computing server.
-By answering 'No', the CSC's username and password will be asked.
-If you choose to use a ssh-key pair instead, the location of the key file will be asked next.
-The key will be stored by MPS, so that it will not be asked at a later time.
+The first time you submit a job, the MATLAB will prompt your whether to use a password or a ssh-key pair for authentication.
 
-For example, we can submit a simple test job that returns the current working directory as follows:
+1. If you choose password, MATLAB will ask your password to Puhti.
+2. If you choose ssh-key, MATLAB will ask the path the your private key and whether it requires password.
+   MATLAB stores the path to your key and will not ask it later.
+
+We can submit a simple test job that returns the current working directory as follows:
 
 ```matlab
 j = batch(c, @pwd, 1, {}, 'CurrentFolder', '.', 'AutoAddClientPath', false)
 ```
 
-We can set the working directory by setting the `'CurrentFolder'` attribute.
-In the example, we set it to the home directory `'.'`.
-Also, we should disable MATLAB from adding the local MATLAB search path to the remote workers by settings `'AutoAddClientPath'` to `false`.
+In the example, we set the working directory to home directory by setting `'CurrentFolder'` to `'.'`.
+Also, we should disable MATLAB from adding the local MATLAB search path to the remote workers by setting `'AutoAddClientPath'` to `false`.
 
 
 ### Submitting parallel jobs
