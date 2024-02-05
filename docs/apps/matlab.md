@@ -129,7 +129,7 @@ We can configure MPS on a local computer using the following instructions.
 
 
 ### Submitting serial jobs
-Prior to submitting the batch job, we have to specify the resource reservation using `parcluster`.
+Before submitting the batch job, we have to specify the resource reservation using `parcluster`.
 Because the `parcluster` is stateful, it is safest to explicitly unset properties we don't use by setting them to the empty string `''`.
 Furthermore, `CPUsPerNode` is set automatically by the `batch` command, thus we unset it.
 For example, a simple CPU reservation looks as follows:
