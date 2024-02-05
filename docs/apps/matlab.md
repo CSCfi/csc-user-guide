@@ -117,7 +117,6 @@ Furthermore, `CPUsPerNode` is set automatically by the `batch` command, thus we 
 For example, a simple CPU reservation looks as follows:
 
 ```matlab
-% Simple CPU reservation.
 c = parcluster;
 c.AdditionalProperties.ComputingProject = 'project_<id>';
 c.AdditionalProperties.Partition = 'small';
@@ -131,43 +130,56 @@ c.AdditionalProperties.EmailAddress = '';
 
 Now, we can use the [`batch`](http://se.mathworks.com/help/distcomp/batch.html) function to submit a job to Puhti.
 It returns a job object which we can use to access the output of the submitted job.
-For example, we can submit a simple test job as follows:
-
-```matlab
-j = batch(c, @pwd, 1, {}, 'CurrentFolder', '.', 'AutoAddClientPath', false)
-```
 
 The first time you submit a job to Puhti, the system will prompt whether to use your CSC password or a ssh-key pair for authentication on the computing server.
 By answering 'No', the CSC's username and password will be asked.
 If you choose to use a ssh-key pair instead, the location of the key file will be asked next.
 The key will be stored by MPS, so that it will not be asked at a later time.
 
-Useful arguments to batch
+For example, we can submit a simple test job that returns the current working directory as follows:
 
-- We set the working directory using the 'CurrentFolder' attribute.
-- We should set the `AutoAddClientPath` to `false`.
-- `AttachFiles`
+```matlab
+j = batch(c, @pwd, 1, {}, 'CurrentFolder', '.', 'AutoAddClientPath', false)
+```
+
+We can set the working directory by setting the `'CurrentFolder'` attribute.
+In the example, we set it to the home directory `'.'`.
+Also, we should disable MATLAB from adding the local MATLAB search path to the remote workers by settings `'AutoAddClientPath'` to `false`.
 
 
 ### Submitting parallel jobs
-Let's write the following example function into `parallel_example.m` file.
+Let's write the following example function into `funcParallel.m` file.
 
 ```matlab
-function t = parallel_example()
+function t = funcParallel(n)
 t0 = tic;
-parfor idx = 1:16
+parfor idx = 1:n
     A(idx) = idx;
-    pause(2)
+    pause(1)
 end
 t = toc(t0);
 end
 ```
 
-We'll use the batch command again, but since we're running a parallel job, we'll also need to specify a MATLAB parallel pool.
+Next, lets create a revervation:
 
 ```matlab
-% Submitting a parallel job to 8 cores.
-j = batch(c, @parallel_example, 1, {}, 'Pool', 8, CurrentFolder','.', 'AutoAddClientPath',false)
+c = parcluster;
+c.AdditionalProperties.ComputingProject = 'project_<id>';
+c.AdditionalProperties.Partition = 'small';
+c.AdditionalProperties.WallTime = '00:15:00';
+c.AdditionalProperties.CPUsPerNode = '';
+c.AdditionalProperties.MemPerCPU = '4g';
+c.AdditionalProperties.GpuCard = '';
+c.AdditionalProperties.GPUsPerNode = '';
+c.AdditionalProperties.EmailAddress = '';
+```
+
+Now, we can use the batch command to create a parallel pool of workers by setting the `'Pool'` argument to the amount of cores we want to reserve.
+For example, we can submit a parallel job to 8 cores as follows:
+
+```matlab
+j = batch(c, @funcParallel, 1, {8}, 'Pool', 8, 'CurrentFolder', '.', 'AutoAddClientPath', false)
 ```
 
 At first, a parallel pool with eight cores will be constructed.
