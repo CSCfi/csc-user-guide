@@ -154,7 +154,6 @@ Let's write the following example function into `funcParallel.m` file.
 function t = funcParallel(n)
 t0 = tic;
 parfor idx = 1:n
-    A(idx) = idx;
     pause(1)
 end
 t = toc(t0);
@@ -176,20 +175,19 @@ c.AdditionalProperties.EmailAddress = '';
 ```
 
 Now, we can use the batch command to create a parallel pool of workers by setting the `'Pool'` argument to the amount of cores we want to reserve.
-For example, we can submit a parallel job to 8 cores as follows:
+For example, we can submit a parallel job to eight cores as follows:
 
 ```matlab
 j = batch(c, @funcParallel, 1, {8}, 'Pool', 8, 'CurrentFolder', '.', 'AutoAddClientPath', false)
 ```
 
-At first, a parallel pool with eight cores will be constructed.
-Note that these jobs will always request n+1 CPU cores, since one core is required to manage the batch job and pool of cores.
-For example, a job that needs eight cores will consume nine CPU cores in total.
-
-**NB** The cluster profile validation test will not completely succeed for 'puhti 201xa/b' profiles.
+Note that parallel pool will always request one additional CPU core to manage the batch job and pool of cores.
+For example, a job that needs eight cores will consume nine CPU cores.
 
 
 ### Submitting GPU jobs
+We can create a GPU reservation by settings the appropriate values fro `Partition`, `GpuCard` and `GPUsPerNode` properties.
+For example, a single GPU reservation looks as follows:
 
 ```matlab
 c = parcluster;
@@ -202,6 +200,8 @@ c.AdditionalProperties.GpuCard = 'v100';
 c.AdditionalProperties.GPUsPerNode = 1;
 c.AdditionalProperties.EmailAddress = '';
 ```
+
+Now, we can submit a simple GPU job that queries the available GPU device as follows:
 
 ```matlab
 j = batch(c, @gpuDevice, 1, {}, 'CurrentFolder', '.', 'AutoAddClientPath', false)
