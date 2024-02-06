@@ -36,7 +36,7 @@ snakemake --help   #  to get information on more options.
 snakemake -s Snakefile \ # the Snakefile is the default file name; no need specify with -s flag
  -j 1  \     # this will execute up to 3 tasks in parallel)       
 --latency-wait 60 \  # snakemake to wait up to 60 seconds after a job completes for the output files to become available.
---cluster "sbatch -t 10  --account=project_xxx --job-name=hello-world --tasks-per-node=1 --cpus-per-task=1 
+--cluster "sbatch --time 10  --account=project_xxx --job-name=hello-world --tasks-per-node=1 --cpus-per-task=1 
 --mem-per-cpu=4000 -p test"
 # cluster option to execute the workflow on slurm
 ```
