@@ -1,5 +1,10 @@
 # Training & tutorials
 
+## How to run GROMACS efficiently on LUMI training materials published, 6.2.2024
+
+The materials from the workshop "How to run GROMACS efficiently on LUMI" are
+now [available in the Zenodo repository](https://zenodo.org/records/10610643).
+
 ## Access CSC newsletter and mailing list archives from Docs CSC, 13.12.2023
 
 The _Contact_ page has been updated to include a selection of [CSC newsletter and mailing list archives](../contact.md#archives).
