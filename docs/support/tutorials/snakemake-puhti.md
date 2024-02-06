@@ -46,8 +46,7 @@ sinteractive --cores 2 --mem 10000 # type this command on login node to start an
 bash run_snakemake.sh   # run the workflow
 ```
 !!! note
-    If you are using cluster configuration for snakemake workflow,  
-    please note that cluster configurations are no longer supported on recent versions of snakemake. Please consider using   [profiles](https://snakemake.readthedocs.io/en/stable/executing/cli.html#profiles) instead.
+    Please note that **cluster** configurations are no longer supported on recent versions of snakemake. Please consider using   [profiles](https://snakemake.readthedocs.io/en/stable/executing/cli.html#profiles) instead.
 
 !!! note
     Scaling up of your jobs using slurm should be done carefully to
@@ -55,13 +54,13 @@ bash run_snakemake.sh   # run the workflow
 
 ### Running snakemake with python packages installed *via.* tykky wrapper
 
-Conda installations should not be performed directly on Puhti. [Tykky container wrapper tool](../../computing/containers/tykky.md) instead be used to install python packages in setting up your compute environment. The wrapper tool installs applications inside of a singularity container and thus  facilitates better performance in terms of faster startup times, reduced IO load, and reduced number of files on parallel filesystems. 
+Conda installations should not be performed directly on Puhti.  CSC instead provides the [Tykky container wrapper tool](../../computing/containers/tykky.md) which can instead be used to install python packages to set up your own compute environment. The wrapper tool installs applications inside of a singularity container and thus  facilitates better performance in terms of faster startup times, reduced IO load, and reduced number of files on parallel filesystems. 
 
 Here is an example of tykky-based custom installation for conda packages (**note**: make sure to edit with the correct CSC project name and user name as needed):
 
 ```bash
 # start an interactive session once you are in login node
-sinteractive -c 8 -m 30000 -d 100  # this command requests a compute node with 8 cores, 30 GB memory and 100 GB local disk space; change settings as needed
+sinteractive --cores 8 --mem 30000 --tmp 100  # this command requests a compute node with 8 cores, 30 GB memory and 100 GB local disk space; change settings as needed
 # load needed packages
 module load git   # git command is not available by default on interactive nodes
 module load purge  # clean environment 
