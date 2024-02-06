@@ -34,7 +34,7 @@ snakemake --help   #  to get information on more options.
 
 # The following command shows how to run a snakemake workflow on a cluster using slurm executor
 snakemake -s Snakefile \ # the Snakefile is the default file name; no need specify with -s flag
- -j 1  \     # this will execute up to 3 tasks in parallel)       
+--jobs 1  \     # this will execute up to 3 tasks in parallel)       
 --latency-wait 60 \  # snakemake to wait up to 60 seconds after a job completes for the output files to become available.
 --cluster "sbatch --time 10  --account=project_xxx --job-name=hello-world --tasks-per-node=1 --cpus-per-task=1 
 --mem-per-cpu=4000 --partition test"
@@ -54,7 +54,7 @@ bash run_snakemake.sh   # run the workflow
 
 ### Running snakemake with python packages installed *via.* tykky wrapper
 
-Conda installations should not be performed directly on Puhti.  CSC instead provides the [Tykky container wrapper tool](../../computing/containers/tykky.md) which can instead be used to install python packages to set up your own compute environment. The wrapper tool installs applications inside of a singularity container and thus  facilitates better performance in terms of faster startup times, reduced IO load, and reduced number of files on parallel filesystems. 
+Conda installations should not be performed directly on Puhti.  CSC instead provides the [Tykky container wrapper tool](../../computing/containers/tykky.md) which can be used to install python packages to set up your own compute environment. The wrapper tool installs applications inside of a singularity container and thus  facilitates better performance in terms of faster startup times, reduced IO load, and reduced number of files on parallel filesystems. Please note that we recommend using one tykky environment for whole workflow rather than an individual environment for each rule. 
 
 Here is an example of tykky-based custom installation for conda packages (**note**: make sure to edit with the correct CSC project name and user name as needed):
 
@@ -92,13 +92,15 @@ Install the necessary python environment using tykky wrapper as instructed above
 #SBATCH --cpus-per-task=4
 
 export PATH="/projappl/project_xxxx/$USER/snakemake_tykky/bin:$PATH"
-snakemake -s Snakefile  -j 4
+snakemake -s Snakefile  --jobs 4
 ```
 Finally, you can submit batch job from the login nodes as below:
 
 ```bash
 sbatch tutorial-sbatch.sh
 ```
+
+
 ###  Running Snakemake workflow with singularity container
 
 One can also use singularity image as an alternative to using conda packages installed via tykky container wrapper. If you are new to containers, please consult either our [CSC documentation](../../computing/containers/run-existing.md) or  official [Singularity documentation](https://docs.sylabs.io/guides/latest/user-guide/) on using singularity/Apptainer containers.
@@ -119,11 +121,11 @@ If you don't have a ready-made container for your needs, you can build singulari
 
 ```
 Bootstrap : docker
-From :  continuumio/miniconda3
+From :  continuumio/miniconda3:4.7.12
 IncludeCmd : yes
 
 %labels
-AUTHOR email@email.com
+AUTHOR youremail@email.com
 
 %files
 tutorial.yaml
@@ -171,7 +173,7 @@ Finally, one can submit the Snakemake workflow as a batch job as shown below:
 #SBATCH --cpus-per-task=4
 
 module load snakemake/7.17.1
-snakemake -s Snakefile  --use-singularity  -j 4
+snakemake -s Snakefile  --use-singularity  --jobs 4
 ```
 For the completion of this tutorial, tutorial example downloaded earlier included data and scripts.
 
@@ -233,7 +235,7 @@ while true; do
     num_up=$(hq worker list | grep RUNNING | wc -l)
 
 done
-snakemake -s Snakefile -j 1  --cluster "hq submit --cpus 2 "
+snakemake -s Snakefile --jobs 1  --cluster "hq submit --cpus 2 "
 hq worker stop all
 hq server stop
 ```
@@ -284,7 +286,7 @@ while true; do
 
 done
 
-snakemake -s Snakefile -j 1  --use-singularity  --cluster "hq submit --cpus 2 "
+snakemake -s Snakefile --jobs 1  --use-singularity  --cluster "hq submit --cpus 2 "
 
 hq worker stop all
 hq server stop

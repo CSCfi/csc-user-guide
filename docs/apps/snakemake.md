@@ -5,9 +5,9 @@ tags:
 
 # Snakemake
 
-Snakemake is a python-based scientific workflow management system for creating scalable,
-portable, and reproducible workflows. It is one of the popular workflow managers within
-the bioinformatics community, but is not specific to bioinformatics.
+Snakemake is a python-based scientific workflow management system for creating scalable, portable, and reproducible workflows. It is one of 
+the popular workflow managers within the bioinformatics community, but
+is not specific to bioinformatics. Like in Nextflow, snakemake also supports running scripts (via. script/run/shell directive of snakemake rule) from other languages such as R, bash and Python.
 
 [TOC]
 
@@ -42,6 +42,9 @@ For usage help, use command:
 snakemake --help
 ```
 
+Please refer to our tutorial on [running snakemake workflow on Puhti](../support/tutorials/snakemake-puhti.md) for more details.
+
+
 ## References
 
 If you use Snakemake in your work, please cite:
@@ -54,5 +57,4 @@ Nahnsen, S., Köster, J. Sustainable data analysis with Snakemake. F1000Research
 ## More information
 
 * [Snakemake official documentation](https://snakemake.readthedocs.io/en/stable/index.html)
-* [Running Snakemake on Puhti](../support/tutorials/snakemake-puhti.md)
 * [Contact CSC Service Desk for technical support](../support/contact.md)
