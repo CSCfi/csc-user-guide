@@ -7,7 +7,7 @@ tags:
 
 Snakemake is a python-based scientific workflow management system for creating scalable,
 portable, and reproducible workflows. It is one of the popular workflow managers within
-the bioinformatics community.
+the bioinformatics community, but is not specific to bioinformatics.
 
 [TOC]
 
