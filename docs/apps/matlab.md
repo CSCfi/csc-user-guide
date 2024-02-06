@@ -6,17 +6,7 @@ system:
 ---
 
 # MATLAB
-MATLAB is a high-level technical computing language and interactive environment for algorithm development, data visualization, data analysis, and numeric computation.
-
-</--
-- High-level language for numerical computation, visualization, and application development.
-- Interactive environment for iterative exploration, design, and problem-solving.
-- Mathematical functions for linear algebra, statistics, Fourier analysis, filtering, optimization, numerical integration, and solving ordinary differential equations.
-- Built-in graphics for visualizing data and tools for creating custom plots.
-- Development tools for improving code quality and maintainability and maximizing performance.
-- Tools for building applications with custom graphical interfaces.
-- Functions for integrating MATLAB-based algorithms with external applications and languages such as C and Java.
--->
+[MATLAB](https://mathworks.com/products/matlab.html) is a high-level technical computing language and interactive environment for algorithm development, data visualization, data analysis, and numeric computation.
 
 [TOC]
 
@@ -54,7 +44,7 @@ We can run an interactive MATLAB session on the command line.
 We first need to make a reservation using Slurm:
 
 ```bash
-srun <reservation> --pty bash
+srun --account=project_id --partition=small --time=0:15:00 --cpus-per-task=1 --mem-per-cpu=4g --pty bash
 ```
 
 Then, we need to load the MATLAB module:
@@ -76,6 +66,7 @@ We can also run MATLAB scripts using the batch mode as follows:
 matlab -batch <script>
 ```
 
+
 ### Web interface
 We can also use the [web interface](../computing/webinterface/index.md) for interactive MATLAB sessions.
 First, we need to log into [puhti.csc.fi](https://www.puhti.csc.fi) and then we can choose either the *Desktop* or the *MATLAB* application, specify the resource requirements and launch the application.
@@ -83,21 +74,55 @@ On the Desktop application, we can launch MATLAB by clicking the MATLAB icon.
 
 
 ## Parallel computing on MATLAB
-Documentation and manuals for MATLAB and related products are available via the Documentation site of MathWorks.
+In MATLAB, we can parallelize code using the high-level contructs from the [Parallel Computing Toolbox](https://mathworks.com/help/parallel-computing/index.html).
+Consider the following serial code in `funcSerial.m` file:
 
 ```matlab
-pool = parpool('Processes', 4);
-% do computation
+function t = funcSerial(n)
+t0 = tic;
+for idx = 1:n
+    pause(1);
+end
+t = toc(t0);
+end
+```
+
+We can run it as follows:
+
+```matlab
+funcSerial(2)
+```
+
+We can parallelize the function using the parallel for-loop construct, `parfor`, written into `funcParallel.m` file as follows:
+
+```matlab
+function t = funcParallel(n)
+t0 = tic;
+parfor idx = 1:n
+    pause(1);
+end
+t = toc(t0);
+end
+```
+
+Creating a parallel pool using processes.
+
+```matlab
+pool = parpool('Processes', 2);
+funcParallel(2)
 delete(pool);
 ```
 
+Creating parallel pool using threads.
+
 ```matlab
-pool = parpool('Threads', 4);
-% do computation
+pool = parpool('Threads', 2);
+funcParallel(2)
 delete(pool);
 ```
 
-To learn more about the MATLAB Parallel Computing Toolbox, check out these resources: [Parallel Computing Toolbox](https://mathworks.com/help/parallel-computing/index.html)
+<!-- TODO: Contructs for using GPUs are also available. -->
+<!-- TODO: We can create parallel pools on Puhti. -->
 
 
 ## Using MATLAB Parallel Server on Puhti
@@ -107,7 +132,7 @@ Using Puhti MPS requires a local MATLAB installation with a supported MATLAB ver
 We can configure MPS on a local computer using the following instructions.
 
 1. Log in and out to Puhti via SSH client to ensure you have a home directory.
-2. Download the [**Puhti-MPS configuration scripts**](https://wiki.eduuni.fi/display/cscjemma/MATLAB+MPS+configuration).
+2. Download the [**MPS configuration scripts**](https://wiki.eduuni.fi/display/cscjemma/MATLAB+MPS+configuration) for Puhti.
 3. Unzip the downloaded archive into a chosen directory.
    On Linux and macOS, MATLAB stores local configurations in `~/.matlab` directory.
    We can place the files there as follows:
@@ -166,19 +191,7 @@ Also, we should disable MATLAB from adding the local MATLAB search path to the r
 
 
 ### Submitting parallel jobs
-Let's write the following example function into `funcParallel.m` file.
-
-```matlab
-function t = funcParallel(n)
-t0 = tic;
-parfor idx = 1:n
-    pause(1)
-end
-t = toc(t0);
-end
-```
-
-Next, let's create a reservation:
+Let's create a reservation:
 
 ```matlab
 c = parcluster;
