@@ -3,7 +3,7 @@
 
 Snakemake workflow is one of the popular scientific workflows in the bioinformatics community although the workflow manager itself can be used in other scientific disciplines as well. The Snakemake enables scalable and reproducible scientific pipelines by chaining a series of rules in a fully-specified software environment. Snakemake software is available as a module in Puhti supercomputing environment. Also, a CSC user can easily install it in his/her own disk space (e.g., in /projappl directory) if a specific version of Snakemake is desired. The following toy example illustrates how a Snakemake workflow can be deployed at CSC.
 
-Please make sure that you have a [user account at CSC](../../accounts/how-to-create-new-user-account.md) and are a member of a project which [has access to the Puhti service](../../accounts/how-to-add-service-access-for-project.md) before start running workflows on Puhti. One should avoid launching heavy Snakemake workflow jobs on login nodes and use interactive or batch jobs instead. More information on using interactive jobs can be found on 
+Please make sure that you have a [user account at CSC](../../accounts/how-to-create-new-user-account.md) and are a member of a project which [has access to the Puhti service](../../accounts/how-to-add-service-access-for-project.md) before start running workflows on Puhti. Please avoid launching heavy Snakemake workflow jobs on **login nodes** and use interactive or batch jobs instead. More information on using interactive jobs can be found on 
 [CSC documentation](../../computing/running/interactive-usage.md).
 
 Let's use the following toy Snakemake script, Snakefile (with a capital S and no file extension), for the illustration:
