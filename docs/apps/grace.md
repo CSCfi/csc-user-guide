@@ -5,7 +5,7 @@ tags:
 
 # Grace
 
-Grace is foremost a plotting tool, and e.g. Gromacs produces tailored input for
+Grace is foremost a plotting tool, and e.g. GROMACS produces tailored input for
 it, but Grace can also be used for some numerical analyses.
 
 ## Available

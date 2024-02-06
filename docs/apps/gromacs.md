@@ -3,9 +3,9 @@ tags:
   - Free
 ---
 
-# Gromacs
+# GROMACS
 
-Gromacs is a very efficient engine to perform molecular dynamics
+GROMACS is a very efficient engine to perform molecular dynamics
 simulations and energy minimizations particularly for proteins. However,
 it can also be used to model polymers, membranes and e.g. coarse grained
 systems. It also comes with plenty of analysis scripts.
@@ -54,7 +54,7 @@ systems. It also comes with plenty of analysis scripts.
     |2023.2   |`gromacs/2023.2`<br>`gromacs/2023.2-gpu`|GPU-enabled module available
     |2023.3   |`gromacs/2023.3`<br>`gromacs/2023.3-gpu`|GPU-enabled module available
 
-    [^1]: This module is unvalidated, unmaintained and unsupported by the Gromacs team. Use at your own risk!
+    [^1]: This module is unvalidated, unmaintained and unsupported by the GROMACS team. Use at your own risk!
 
 - Puhti and Mahti have also `gromacs-env/<year>` modules for loading the recommended
   latest minor version from each year (replace `<year>` accordingly).
@@ -69,11 +69,11 @@ systems. It also comes with plenty of analysis scripts.
 
 ## License
 
-Gromacs is a free software available under LGPL, version 2.1.
+GROMACS is a free software available under LGPL, version 2.1.
 
 ## Usage
 
-Initialize recommended version of Gromacs on Puhti or Mahti like this:
+Initialize recommended version of GROMACS on Puhti or Mahti like this:
 
 ```bash
 module purge
@@ -116,7 +116,7 @@ The most important aspects to consider (in addition to avoiding `-v`) are:
   for more information.
 
 For a more complete description, consult the [mdrun performance checklist] on the
-Gromacs page.
+GROMACS page.
 
 A scaling test with a very large system (1M+ particles) may take a while to
 load balance optimally. Rather than running very long scaling tests in advance,
@@ -329,14 +329,14 @@ srun --cpu-bind=$CPU_BIND ./select_gpu gmx_mpi mdrun -s topol -nb gpu -bonded gp
     [LUMI-G examples](https://docs.lumi-supercomputer.eu/runjobs/scheduled-jobs/lumig-job/),
     [GPU binding](https://docs.lumi-supercomputer.eu/runjobs/scheduled-jobs/distribution-binding/#gpu-binding)
 
-Below is a comparison of the performance of Gromacs 2023.1 on Mahti (CPUs and GPUs)
+Below is a comparison of the performance of GROMACS 2023.1 on Mahti (CPUs and GPUs)
 and LUMI-G using the STMV benchmark (1067k atoms). This is a large system which scales
 very well also on GPUs. The performance on a single LUMI GCD (half a GPU) is almost as
 good as on a full Nvidia A100 GPU on Mahti, and much better than on a single 128-core CPU
 node. Importantly, the amount of GPU nodes on LUMI is massively larger than on Mahti
 (2560 vs. 24).
 
-![Gromacs scaling on GPUs on Mahti and LUMI](../img/stmv.png 'Gromacs scaling on GPUs on Mahti and LUMI')
+![GROMACS scaling on GPUs on Mahti and LUMI](../img/stmv.png 'GROMACS scaling on GPUs on Mahti and LUMI')
 
 !!! info "Small systems on LUMI-G and high-throughput simulations"
     While medium-sized and large systems (100k–1M+ atoms) such as the STMV benchmark
@@ -344,8 +344,8 @@ node. Importantly, the amount of GPU nodes on LUMI is massively larger than on M
     (less than 100k atoms) are typically best run on just a single GCD. A good way
     to increase the GPU utilization and efficiency of small simulations is to run
     many trajectories per GCD. This can be accomplished using the built-in multidir
-    feature of Gromacs. For more details about GPU-sharing and aggregate sampling, see our
-    [tutorial on high-throughput simulations with Gromacs](../support/tutorials/gromacs-throughput.md).
+    feature of GROMACS. For more details about GPU-sharing and aggregate sampling, see our
+    [tutorial on high-throughput simulations with GROMACS](../support/tutorials/gromacs-throughput.md).
 
 #### PME decomposition
 
@@ -364,15 +364,15 @@ be a reasonable starting point. So for 16 LUMI-G nodes, use `-npme 16` or `-npme
 
 ### Visualizing trajectories and graphs
 
-In addition to the `view` tool of Gromacs (not available at CSC),
+In addition to the `view` tool of GROMACS (not available at CSC),
 trajectory files can be visualized with the following programs:
 
 - [VMD](vmd.md) visualization program for large biomolecular systems
-- [Grace](grace.md) plotting data produced with Gromacs tools
+- [Grace](grace.md) plotting data produced with GROMACS tools
 - [PyMOL](https://pymol.org/2/) molecular modeling system (not available at CSC)
 
 !!! warning "Note"
-    Please don't run visualization or heavy Gromacs tool scripts on
+    Please don't run visualization or heavy GROMACS tool scripts on
     the login node (see [usage policy for details](../../computing/usage-policy)).
     You can run the tools in the [interactive partition](../computing/running/interactive-usage.md)
     by prepending your `gmx_mpi` command with `orterun -n 1`, e.g.:
@@ -419,19 +419,19 @@ for methods applied in your setup.
 
 ## More information
 
-- [Gromacs home page](https://www.gromacs.org/) and [documentation](https://manual.gromacs.org/current/index.html)
+- [GROMACS home page](https://www.gromacs.org/) and [documentation](https://manual.gromacs.org/current/index.html)
 - [mdrun performance checklist](https://manual.gromacs.org/current/user-guide/mdrun-performance.html)
 - [Materials at the BioExcel website](https://bioexcel.eu/software/gromacs/)
-- [Gromacs community forum](https://gromacs.bioexcel.eu/)
+- [GROMACS community forum](https://gromacs.bioexcel.eu/)
 - **Training materials:**
-    - [Running Gromacs efficiently on LUMI workshop materials (2024)](https://zenodo.org/records/10610643)
-    - [Advanced Gromacs Workshop materials (2022)](https://enccs.github.io/gromacs-gpu-performance/)
+    - [Running GROMACS efficiently on LUMI workshop materials (2024)](https://zenodo.org/records/10610643)
+    - [Advanced GROMACS Workshop materials (2022)](https://enccs.github.io/gromacs-gpu-performance/)
 - **Tutorials:**
     - [GROMACS tutorial home page](https://tutorials.gromacs.org/)
     - [Hands-on tutorials by Justin A. Lemkul](https://www.mdtutorials.com/gmx/)
     - [Tutorials by Bert de Groot group](https://www3.mpibpc.mpg.de/groups/de_groot/compbio/index.html)
-    - [Short How-To guides in the Gromacs manual](https://manual.gromacs.org/documentation/current/how-to/index.html)
-    - [High-throughput computing with Gromacs](../support/tutorials/gromacs-throughput.md)
+    - [Short How-To guides in the GROMACS manual](https://manual.gromacs.org/documentation/current/how-to/index.html)
+    - [High-throughput computing with GROMACS](../support/tutorials/gromacs-throughput.md)
 - Example `.tpr` files for testing:
     - [Alcohol dehydrogenase (96k atoms)](https://a3s.fi/gromacs-inputs/adh.tpr)
     - [Satellite tobacco mosaic virus (1067k atoms)](https://a3s.fi/gromacs-inputs/stmv.tpr)

@@ -106,7 +106,7 @@ consider the following items to mitigate potential bottlenecks:
   [AI batch job example](../../support/tutorials/ml-data.md#fast-local-drive-puhti-and-mahti-only)
 * Investigate if you can choose how your application does I/O (e.g. OpenFoam
   can use the collated file format) and don't write unnecessary information
-  on disk or do it too often (e.g. Gromacs with the `-v` flag should not be
+  on disk or do it too often (e.g. GROMACS with the `-v` flag should not be
   used at CSC).
 * One way to avoid a large number of (small) files is to set up your complex
   python or R based software in a singularity container. This also helps with
