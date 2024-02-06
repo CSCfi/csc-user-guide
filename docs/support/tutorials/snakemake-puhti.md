@@ -42,7 +42,7 @@ snakemake -s Snakefile \ # the Snakefile is the default file name; no need speci
 ```
 Finally, you can run the workflow in the bash script (e.g., run_snakemak.sh) by submitting in the job in the interactive node:
 ```bash
-sinteractive -c 2 -m 10000 # type this command on login node
+sinteractive --cores 2 --mem 10000 # type this command on login node to start an interactive session with 2 CPU cores and 10 Gb of memory, after providing your project when prompted, you can run the bash script like this:
 bash run_snakemake.sh   # run the workflow
 ```
 !!! note
