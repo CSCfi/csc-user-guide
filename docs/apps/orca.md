@@ -30,7 +30,7 @@ available only for academic use at academic institutions.
 
 ## Usage
 
-- Download the ,ORCA 5.0.4, Linux, x86-64, shared-version,`orca_5_0_4_linux_x86-64_shared_openmpi411.tar.xz`
+- Download the ORCA 5.0.4, Linux, x86-64, shared-version,`orca_5_0_4_linux_x86-64_shared_openmpi411.tar.xz`
 - Move the downloaded file to your computing project's application area (`/projappl/<proj>`) on Puhti
 - Unpack the package, `tar xf orca_5_0_4_linux_x86-64_shared_openmpi411.tar.xz`
 
