@@ -54,7 +54,7 @@ module load gcc/11.3.0 openmpi/4.1.4 intel-oneapi-mkl/2022.1.0
 export ORCADIR=<path to your ORCA directory>/orca_5_0_4_linux_x86-64_shared_openmpi411
 export LD_LIBRARY_PATH=$ORCADIR:$LD_LIBRARY_PATH
 
-# create a mpirun script that executes srun
+# create an mpirun script that executes srun
 echo exec 'srun $(echo "${@}" | sed 's/^-np/-n/')' >./mpirun
 chmod +x ./mpirun
 export PATH=${SLURM_SUBMIT_DIR}:${PATH}
@@ -87,7 +87,7 @@ module load gcc/11.3.0 openmpi/4.1.4 intel-oneapi-mkl/2022.1.0
 export ORCADIR=<path to your ORCA directory>/orca_5_0_4_linux_x86-64_shared_openmpi411
 export LD_LIBRARY_PATH=$ORCADIR:$LD_LIBRARY_PATH
 
-# create a mpirun script that executes srun
+# create an mpirun script that executes srun
 echo exec 'srun $(echo "${@}" | sed 's/^-np/-n/')' >./mpirun
 chmod +x ./mpirun
 export PATH=${SLURM_SUBMIT_DIR}:${PATH}
@@ -113,7 +113,7 @@ module load gcc/11.2.0 openmpi/4.1.2 openblas/0.3.18-omp
 export ORCADIR=<path to your ORCA directory>/orca_5_0_3_linux_x86-64_shared_openmpi411
 export LD_LIBRARY_PATH=$ORCADIR:$LD_LIBRARY_PATH
 
-# create a mpirun script that executes srun
+# create an mpirun script that executes srun
 echo exec 'srun $(echo "${@}" | sed 's/^-np/-n/')' >./mpirun
 chmod +x ./mpirun
 export PATH=${SLURM_SUBMIT_DIR}:${PATH}
