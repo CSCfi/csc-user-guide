@@ -121,6 +121,35 @@ filesystem on Mahti.
 Note that uploading large files from your local computer to Allas is currently not recommended due
 to technical limitations.
 
+
+#### Using IDA
+
+In the Mahti web interface, the [IDA storage service](../../data/ida/using_ida)
+can also be used, although some key features, such as moving data from the
+staging area to the frozen area, are only possible though the [IDA WWW-interface](https://ida.fairdata.fi).
+To use IDA in the Mahti web interface, it must first be configured for use with Rclone on a Mahti login node as follows.
+```
+module load allas
+rclone config
+```
+In the Rclone configuration interface, create a new remote with the following options:
+
+1. Storage: WebDAV (#45)
+2. URL: [https://ida.fairdata.fi/remote.php/webdav/](https://ida.fairdata.fi/remote.php/webdav/)
+3. Vendor: Nextcloud (#1)
+4. Username: Your CSC username
+5. Password: Login to the [IDA WWW-interface](https://ida.fairdata.fi), go to the settings in the top right corner.
+    Go to the _Security_ tab and create a new app password.
+    Copy the password and paste it in the Rclone configuration interface.
+6. Bearer token: Leave empty
+7. Advanced config: No
+
+After completing the Rclone configuration, the web interface server must be restarted, which can be done by clicking
+_Restart web server_ in the _Help_ menu in top right section of the navbar in the Mahti web interface.
+IDA can then be accessed in the file browser, where you will be able to upload, download, transfer and edit files in the staging area
+and view and download files in the frozen area.
+
+
 ### Active jobs
 
 Recent and running batch jobs can be viewed using the _Jobs_ section on the top navbar and selecting _Active jobs_. Here you can view the current status of the job and what kind of resources were requested. Deleting a running job will cancel the job. 

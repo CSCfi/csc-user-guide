@@ -28,7 +28,7 @@ To enable high-throughput computing while avoiding the above issues, jobs and jo
 steps should be packed so that they can be executed with minimal invocations of
 `sbatch` and `srun`. The first and best option is to check whether the software
 you're using comes with a [built-in option for farming-type workloads]. This
-applies for applications such as [CP2K][cp2k], [Gromacs][gmx],  [LAMMPS][lmp], Python and R.
+applies for applications such as [CP2K][cp2k], [GROMACS][gmx], [LAMMPS][lmp], Python and R.
 
 If integrated support for farming-type workloads is unavailable in your software,
 another option is to use external tools such as [HyperQueue] or [GNU Parallel].
@@ -53,7 +53,7 @@ regarding how to implement your workflow.
 ```mermaid
 %%{init: {'theme': 'default', 'themeVariables': { 'fontSize': '0.6rem'}}}%%
 graph TD
-    C(Does your software have a built-in HTC option?) -->|Yes| D("Use if suitable for use case:<br><a href='/support/tutorials/gromacs-throughput/'>Gromacs</a>, <a href='/apps/cp2k/#high-throughput-computing-with-cp2k'>CP2K</a>, <a href='/apps/lammps/#high-throughput-computing-with-lammps'>LAMMPS</a>, <a href='/apps/amber/#high-throughput-computing-with-amber'>Amber</a>,<br> Python, R ")
+    C(Does your software have a built-in HTC option?) -->|Yes| D("Use if suitable for use case:<br><a href='/support/tutorials/gromacs-throughput/'>GROMACS</a>, <a href='/apps/cp2k/#high-throughput-computing-with-cp2k'>CP2K</a>, <a href='/apps/lammps/#high-throughput-computing-with-lammps'>LAMMPS</a>, <a href='/apps/amber/#high-throughput-computing-with-amber'>Amber</a>,<br> Python, R ")
     C -->|No| E(Serial or parallel subtasks?)
     E -->|Serial| F(<a href='/support/tutorials/many/'>GNU Parallel</a><br><a href='/computing/running/array-jobs/'>Array jobs</a><br><a href='/apps/hyperqueue/'>HyperQueue</a>)
     E -->|Parallel| G(Single- or multinode subtasks?)
@@ -175,7 +175,7 @@ within a single Slurm job step. If you're using any of the applications below,
 please consider these as the first option for implementing your high-throughput
 workflows.
 
-* [Gromacs multidir option][gmx]
+* [GROMACS multidir option][gmx]
 * [FARMING mode of CP2K][cp2k] (supports dependencies between subjobs)
 * [LAMMPS multi-partition switch][lmp]
 * [Amber multi-pmemd][amber-multi-pmemd]
