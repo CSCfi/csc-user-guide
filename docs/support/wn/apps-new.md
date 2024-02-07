@@ -1,5 +1,9 @@
 # Applications
 
+## R 4.3.2 in r-env, 2.2.2024
+	
+R version 4.3.2 is now available in [r-env](../../apps/r-env.md) and is set as the default version. The new version will also be available in RStudio in the Puhti web interface shortly.
+
 ## COSMO-RS, 30.1.2024
 
 [COSMO-RS](../../apps/cosmors.md) is a new tool for modelling fluid phase properties,
