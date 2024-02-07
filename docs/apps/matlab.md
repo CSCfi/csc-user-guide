@@ -75,7 +75,7 @@ On the Desktop application, we can launch MATLAB by clicking the MATLAB icon.
 
 ## Parallel computing on MATLAB
 In MATLAB, we can parallelize code using the high-level contructs from the [Parallel Computing Toolbox](https://mathworks.com/help/parallel-computing/index.html).
-Consider the following serial code in `funcSerial.m` file:
+Consider the following serial code written in `funcSerial.m` file that pauses for one second `n` times and measures the execution time:
 
 ```matlab
 function t = funcSerial(n)
@@ -87,7 +87,7 @@ t = toc(t0);
 end
 ```
 
-We can run it as follows:
+The following serial execution should run for around two seconds:
 
 ```matlab
 funcSerial(2)
@@ -105,7 +105,8 @@ t = toc(t0);
 end
 ```
 
-Creating a parallel pool using processes.
+To run parallel code, we need to create a parallel pool using processes or threads and then run the parallel code.
+We can create a parallel pool using two processes and run the parallel code with the same argument as serial but it should only take around one second:
 
 ```matlab
 pool = parpool('Processes', 2);
@@ -113,7 +114,7 @@ funcParallel(2)
 delete(pool);
 ```
 
-Creating parallel pool using threads.
+Same using parallel pool with threads:
 
 ```matlab
 pool = parpool('Threads', 2);
@@ -121,8 +122,9 @@ funcParallel(2)
 delete(pool);
 ```
 
-<!-- TODO: Contructs for using GPUs are also available. -->
-<!-- TODO: We can create parallel pools on Puhti. -->
+With MATLAB Parallel Server we can also create parallel pools to Puhti and run parallel code there.
+
+<!-- TODO: Constructs for using GPUs are also available. -->
 
 
 ## Using MATLAB Parallel Server on Puhti
@@ -239,7 +241,7 @@ j = batch(c, @gpuDevice, 1, {}, 'CurrentFolder', '.', 'AutoAddClientPath', false
 ```
 
 
-### Querying jobs
+### Querying jobs and output
 To retrieve a list of currently running or completed jobs, use
 
 ```matlab
