@@ -30,7 +30,7 @@ You can find more information in the [How to add docker hub credentials to a pro
 
 A more obscure problem is when the format of the image is not supported by the current version of Rahti (v3.11), which uses an old version of the docker client. Currently there are two docker image formats, docker (`application/vnd.docker.container.image.v1+json`) and OCI (`application/vnd.oci.image.manifest.v1+json`), the current version of Rahti only supports `docker`.
 
-When an old client is used to try to pull a image with the newer format, the client cannot find it and returns a `repository does not exist` or `Error response from daemon: missing signature key` error. The easiest way to check the `mediaType` of an image is to use `docker manifest inspect <image>:<tag>`. This command will show the media type of the image and each of its layers.
+When an old client is used to try to pull an image with the newer format, the client cannot find it and returns a `repository does not exist` or `Error response from daemon: missing signature key` error. The easiest way to check the `mediaType` of an image is to use `docker manifest inspect <image>:<tag>`. This command will show the media type of the image and each of its layers.
 
 
 ## Workarounds
