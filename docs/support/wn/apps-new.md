@@ -1,5 +1,10 @@
 # Applications
 
+## ORCA 5.0.4 , 7.2.2024
+
+[ORCA](../../apps/orca.md) 5.0.4 is now available on Puhti and Mahti. It's a bugfix release including corrections for the bug in the D4 implementation.
+Please note the change in how it's launched in a batch script. 
+
 ## R 4.3.2 in r-env, 2.2.2024
 	
 R version 4.3.2 is now available in [r-env](../../apps/r-env.md) and is set as the default version. The new version will also be available in RStudio in the Puhti web interface shortly.
