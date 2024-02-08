@@ -22,7 +22,7 @@ tags:
 
 ## Usage
 
-Initialise Turbomole environment:
+Initialise TURBOMOLE environment:
 
 ```bash
 module load turbomole/7.8

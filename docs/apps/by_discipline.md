@@ -93,7 +93,7 @@
 * [ORCA](orca.md) General purpose quantum chemistry package
 * [Plumed](plumed.md) Library and tools for enhanced sampling methods
 * [TmoleX](tmolex.md) GUI for setting up and analyzing TURBOMOLE jobs
-* [Turbomole](turbomole.md) Efficient program package for electronic structure calculations
+* [TURBOMOLE](turbomole.md) Efficient program package for electronic structure calculations
 * [VASP](vasp.md) Ab initio DFT electronic structures
 * [VMD](vmd.md) Molecular visualization program
 
