@@ -3,16 +3,15 @@ tags:
   - Academic
 ---
 
-# Turbomole
+# TURBOMOLE
 
-TURBOMOLE is a modular program suite for *ab initio* quantum-chemical and condensed-matter simulations. 
-It includes most standard and state-of-the-art methods for ground-state calculations. Properties both for ground and excited states can be obtained. TURBOMOLE has been designed for efficient study of large systems. 
-The developers tend to recommend the SMP paralellization for most routine calculations. 
+[TURBOMOLE](https://www.turbomole.org/turbomole/turbomole-features/) is a fast and robust quantum chemistry program package with very efficient implementations of various computational methods (HF/DFT/MP2/CC). Properties both for ground and excited states can be obtained. TURBOMOLE has been designed for efficient study of large systems. 
+
 
 ## Available
 
-*   Puhti: 7.5.1, 7.6, 7.7
-*   Mahti: 7.6, 7.7
+*   Puhti: 7.5.1, 7.6, 7.7, 7.8
+*   Mahti: 7.5.1, 7.6, 7.7, 7.8
 
 ## License
 
@@ -26,7 +25,7 @@ The developers tend to recommend the SMP paralellization for most routine calcul
 Initialise Turbomole environment:
 
 ```bash
-module load turbomole/7.7
+module load turbomole/7.8
 ```
 
 ### Batch script example for Puhti using MPI parallelization
@@ -39,7 +38,7 @@ module load turbomole/7.7
 #SBATCH --account=<project>  # insert here the project to be billed 
 #SBATCH --time=00:10:00           # time as `hh:mm:ss`
 export PARA_ARCH=MPI         # use MPI 
-module load turbomole/7.7
+module load turbomole/7.8
 export SLURM_CPU_BIND=none
 # This setting of TURBOTMPDIR assumes that the job is 
 # submitted from a directory below /scratch/<project>
@@ -60,7 +59,7 @@ jobex -ri -c 300 > jobex.out
 #SBATCH --account=<project>  # insert here the project to be billed
 #SBATCH --time=00:10:00      # time as `hh:mm:ss`
 export PARA_ARCH=SMP         # use SMP threads   
-module load turbomole/7.7
+module load turbomole/7.8
 # This setting of TURBOTMPDIR assumes that the job is 
 # submitted from a directory below /scratch/<project>
 export TURBOTMPDIR=`echo $PWD |cut -d'/' -f1-3`"/TM_TMPDIR/"$SLURM_JOB_ID
@@ -91,7 +90,7 @@ jobex -ri -c 300 > jobex.out
 #SBATCH --time=00:10:00      # time as `hh:mm:ss`
 #SBATCH --gres=nvme:100      # requested local disk in GB
 export PARA_ARCH=MPI         # use MPI
-module load turbomole/7.7
+module load turbomole/7.8
 export SLURM_CPU_BIND=none
 # define local disk as scratch
 export TURBOTMPDIR=$LOCAL_SCRATCH/$SLURM_JOBID
@@ -112,7 +111,7 @@ ccsdf12 > ccsdt.out
 #SBATCH --account=<project>   # insert here the project to be billed
 #SBATCH --time=00:60:00       # time as `hh:mm:ss`
 export PARA_ARCH=MPI          # use MPI
-module load turbomole/7.7
+module load turbomole/7.8
 export SLURM_CPU_BIND=none
 # This setting of TURBOTMPDIR assumes that the job is 
 # submitted from a directory below /scratch/<project>
@@ -146,14 +145,15 @@ NumForce -ri -central -mfile $HOSTS_FILE > NumForce.out
 Please quote the usage of the program package under consideration of the version
 number:
 
--   TURBOMOLE V7.7, a development of University of Karlsruhe and Forschungszentrum Karlsruhe GmbH, 1989-2007, TURBOMOLE GmbH, since 2007; available from https://www.turbomole.org
+-   TURBOMOLE V7.8, a development of University of Karlsruhe and Forschungszentrum Karlsruhe GmbH, 1989-2007, TURBOMOLE GmbH, since 2007; available from https://www.turbomole.org
 -    A review article should be mentioned, as well: https://doi.org/10.1063/5.0004635
 -    Scientific publications require proper citation of methods and procedures employed.
 The output headers of TURBOMOLE modules include the relevant papers. 
 
 ## More information
 -   [TURBOMOLE GmbH](https://www.turbomole.org/turbomole/turbomole-documentation/) 
--   [Read About TURBOMOLE](https://aip.scitation.org/doi/10.1063/5.0004635 ) 
--   [TURBOMOLE tutorial](https://www.turbomole.org/wp-content/uploads/2019/10/Tutorial_7-4.pdf)
-
+-   [TURBOMOLE: Today and Tomorrow](https://pubs.acs.org/doi/10.1021/acs.jctc.3c00347 )
+-   [TURBOMOLE review](https://aip.scitation.org/doi/10.1063/5.0004635 ) 
+-   [TURBOMOLE tutorial](https://www.turbomole.org/wp-content/uploads/Tutorial_7-7.pdf)
+-   [TURBOMOLE Users Forum](https://forum.turbomole.org/index.php) 
 
