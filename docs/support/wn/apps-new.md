@@ -1,6 +1,13 @@
 # Applications
 
-## ORCA 5.0.4 , 7.2.2024
+## Schrödinger Maestro 2024.1, 8.2.2024
+
+[Schrödinger Maestro](../../apps/maestro.md) version 2024.1 has been installed
+and set as the default module on Puhti and Mahti. See
+[release notes](https://newsite.schrodinger.com/life-science/download/release-notes/)
+for a list of new features and improvements.
+
+## ORCA 5.0.4, 7.2.2024
 
 [ORCA](../../apps/orca.md) 5.0.4 is now available on Puhti and Mahti. It's a bugfix release including corrections for the bug in the D4 implementation.
 Please note the change in how it's launched in a batch script. 
