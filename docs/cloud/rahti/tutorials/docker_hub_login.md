@@ -48,11 +48,11 @@ If the error persists, you may check two things:
 
 1. Check that the links between the secret and the service accounts are there:
 
-  ```sh
-  $ oc -n <project-name> describe sa builder
-  ```
+    ```sh
+    $ oc -n <project-name> describe sa builder
+    ```
 
-  **Note**: Substitute <project-name> place holder with actual project name (without <>).
+    **Note**: Substitute <project-name> place holder with actual project name (without <>).
 
 1. Check the Pod used for the build and double check that the secret you created is indeed used:
 
