@@ -1,5 +1,12 @@
 # Applications
 
+## TURBOMOLE 7.8, 8.2.2024
+
+[TURBOMOLE](../../apps/turbomole.md) version 7.8 has been installed
+and set as the default module on Puhti and Mahti. See
+[release notes](https://www.turbomole.org/turbomole/release-notes-turbomole-7-8/)
+for a list of new features and improvements.
+
 ## Schrödinger Maestro 2024.1, 8.2.2024
 
 [Schrödinger Maestro](../../apps/maestro.md) version 2024.1 has been installed
