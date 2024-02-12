@@ -17,7 +17,7 @@ GDAL is available with following versions:
 * Also in Puhti: [r-env](r-env-for-gis.md#gdal-and-saga-gis-support) and [OrfeoToolBox](otb.md)
 
 !!! note
-    The stand-alone version doesn't have python bindings installed so e.g __gdal_calc__ works only in the geoconda installations. Also, the supported file formats vary slightly between the GDAL installations. For instance, the PostGIS driver is not available in stand-alone gdal but is included in the geoconda versions.
+    The stand-alone GDAL and R module don't have Python bindings installed so e.g `gdal_calc` works only in the geoconda and qgis modules. Also, the supported file formats vary between the modules. For example, the PostGIS driver is not available in stand-alone GDAL and r-env, but is included in the geoconda and qgis modules. Standalone GDAL also does not support virtual drivers to work with data from HTTPS or S3-links. To standalone and r-env GDAL installations it is possible to add more drivers, please ask. geoconda and qgis GDAL installation are impossible to change regarding drivers support.
 
 ## Usage
 
