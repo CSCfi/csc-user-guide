@@ -12,6 +12,7 @@ Puhti has following datasets:
         +   2m and 10m DEM and infrared orthophotos have virtual rasters, see Puhti virtual rasters below.
         +   Stereoclassified lidar data has been slightly modified. The original NLS data had mistakes in headers, these have been fixed. Additionally lax-index files have been added.
         + Automatically classified lidar data, only data of year 2019
+    - The easiest way to find Paituli raster data is with [Paituli STAC](https://paituli.csc.fi/stac.html), it has also links to Puhti local files.
 *   **LUKE, multi-source national forest inventory**, 2013, 2015, 2017, 2019 and 2021. LUKE license changed in Aug 2019 to CC BY 4.0.
 *   **SYKE, All open spatial datasets** available from [SYKE open data service](https://www.syke.fi/fi-FI/Avoin_tieto/Paikkatietoaineistot/Ladattavat_paikkatietoaineistot).  Weekly updates. 
 *   **Finnish Forest Centre**, CC BY 4.0 license, **updated in 8/2023**
@@ -21,21 +22,34 @@ Puhti has following datasets:
     * [Forest resource plots](http://www.paikkatietohakemisto.fi/geonetwork/srv/fin/catalog.search#/metadata/332e5abf-63c2-4723-9c2d-4a926bbe587a)
 *   **Landsat mosaics produced by SYKE and FMI** in Paikkatietoalusta project
     -   [Historical Landsat satellite image mosaics](https://ckan.ymparisto.fi/dataset/historical-landsat-satellite-image-mosaics-href-historialliset-landsat-kuvamosaiikit-href): 1985, 1990, 1995
-    -   [Historical Landsat NDVI mosaics: 1984-2011](https://ckan.ymparisto.fi/dataset/historical-landsat-image-index-mosaics-hind-historialliset-landsat-kuvaindeksimosaiikit-hind)
+    -   [Historical Landsat NDVI mosaics](https://ckan.ymparisto.fi/dataset/historical-landsat-image-index-mosaics-hind-historialliset-landsat-kuvaindeksimosaiikit-hind): 1984-2011
 
-!!! warning "Sentinel satellite mosaics produced by SYKE and FMI in Paikkatietoalusta project were removed from Puhti on 21.11.2023"
-
-    The removed datasets were: [Sentinel1 SAR mosaics](https://ckan.ymparisto.fi/dataset/sentinel-1-sar-image-mosaic-s1sar-sentinel-1-sar-kuvamosaiikki-s1sar), [Sentinel2 index mosaics](https://ckan.ymparisto.fi/dataset/sentinel-2-image-index-mosaics-s2ind-sentinel-2-kuvamosaiikit-s2ind). They are available from FMI's own object storage which has more data than was stored to Puhti local disks. The easiest way to find PTA sentinel mosaics from FMI is with [Paituli STAC](https://paituli.csc.fi/stac.html). Paituli STAC page includes also usage examples for R and Python.
-     
 NLS 2m DEM, lidar, infrared ortophotos and all SYKE datasets are updated in Puhti automatically every Monday.
 
 The open spatial data is stored in Puhti: **/appl/data/geo**
 
-Open spatial data in Puhti is maintained by CSC personnel. If you notice any problems with data or wish some new dataset, contact CSC Servicedesk.
+Accessing data in Puhti requires CSC user account with a project with Puhti service enabled. All Puhti users have **read** access to these datasets. You do not need to move the files: they can be used directly, unless you need to modify them, which requires you to make your own copy. Open spatial data in Puhti is maintained by CSC personnel. If you notice any problems with data or wish some new dataset, contact CSC Servicedesk.
+
+!!! warning "Sentinel satellite mosaics produced by SYKE and FMI in Paikkatietoalusta project were removed from Puhti on 21.11.2023"
+
+    The removed datasets were: [Sentinel1 SAR mosaics](https://ckan.ymparisto.fi/dataset/sentinel-1-sar-image-mosaic-s1sar-sentinel-1-sar-kuvamosaiikki-s1sar), [Sentinel2 index mosaics](https://ckan.ymparisto.fi/dataset/sentinel-2-image-index-mosaics-s2ind-sentinel-2-kuvamosaiikit-s2ind). They are available from FMI's own object storage which has more data than was stored to Puhti local disks. The easiest way to find PTA sentinel mosaics from FMI is with [Paituli STAC](https://paituli.csc.fi/stac.html). Paituli STAC page includes also usage examples for R and Python.
+
+## Spatial data in Allas
+
+CSC computing services users are welcome to share spatial data in [Allas](../Allas/index.md) with other users, if the data license terms allow this. This is a community service, meaning that any CSC user is welcome to contribute and add data to Allas. The data buckets in Allas are owned by data collaborators. If you would like some share some data you have in Allas, and would like the dataset be added to this page, contact CSC Servicedesk
+
+Currently available:
+
+1.  **[Sentinel2 2A level images](https://a3s.fi/sentinel-readme/README.txt)**. Maria Yli-Heikkilä (LUKE) and Arttu Kivimäki (NLS/FGI) have downloaded Finnihs data from vegetation period (ca 10.5.-1.9.) in 2016->. The easiest way to find Sentinel data stored in Allas is with [Paituli STAC](https://paituli.csc.fi/stac.html).
+
+For using data in Allas, see [CSC webinar about Allas and geospatial data](https://youtu.be/mnFXe2-dJ_g) and [Using geospatial files directly from cloud, inc Allas tutorial](../../support/tutorials/gis/gdal_cloud.md). 
 
 ### Puhti virtual rasters
 
-CSC has added [virtual rasters](../../support/tutorials/gis/virtual-rasters.md) to NLS 2m and 10m elevation models and infrared ortophotos in Puhti. There are two variants of virtual rasters for the elevation models: 
+Virtaul rasters is a very practical concept for working with bigger raster datasets, see CSC [Virtual rasters](../../support/tutorials/gis/virtual-rasters.md) page for longer explanation and how to create own virtual rasters, inc from STAC search results.
+
+#### NLS DEM and orthophotos ready-made virtual rasters
+CSC has added  to NLS 2m and 10m elevation models and infrared ortophotos in Puhti. There are two variants of virtual rasters for the elevation models: 
 
 1.  The **direct** virtual rasters contain directly the source tif images without any hierarchical structure, overviews or pre-calculated statistics. The direct virtual raster is meant for using **only in scripts**. It should **not** be opened in QGIS, unless zoomed in and need to open only a few files etc:
     *   2m DEM: `/appl/data/geo/mml/dem2m/dem2m_direct.vrt`
@@ -63,15 +77,7 @@ Optional arguments:
 *   -o: create overviews
 *   -p: output name prefix
 
-## Spatial data in Allas
 
-CSC computing services users are welcome to share spatial data in [Allas](../Allas/index.md) with other users, if the data license terms allow this. This is a community service, meaning that any CSC user is welcome to contribute and add data to Allas. The data buckets in Allas are owned by data collaborators. If you would like some share some data you have in Allas, and would like the dataset be added to this page, contact CSC Servicedesk
-
-Currently available:
-
-1.  **[Sentinel2 2A level images](https://a3s.fi/sentinel-readme/README.txt)**. Maria Yli-Heikkilä (LUKE) has downloaded data of Finland from vegetation period (ca 10.5.-1.9.) in 2016-2020. 
-
-For using data in Allas, see [CSC webinar about Allas and geospatial data](https://youtu.be/mnFXe2-dJ_g) and [Using geospatial files directly from cloud, inc Allas tutorial](../../support/tutorials/gis/gdal_cloud.md). The easiest way to find Sentinel data stored in Allas is with [Paituli STAC](https://paituli.csc.fi/stac.html).
 
 ## License and acknowledgement
 
