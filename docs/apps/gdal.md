@@ -11,9 +11,9 @@ tags:
 
 GDAL is available with following versions:
 
-* 3.5.0 - [geoconda-3.10.6](geoconda.md) in Puhti
+* 3.8.3 - in the newest [QGIS](qgis.md) in Puhti and LUMI
+* 3.6.2 - in the newest [geoconda](geoconda.md) in Puhti
 * 3.4.3 stand-alone: `gdal` in Puhti
-* 3.4.1 - [QGIS-3.31 module](qgis.md) in Puhti and LUMI
 * Also in Puhti: [r-env](r-env-for-gis.md#gdal-and-saga-gis-support) and [OrfeoToolBox](otb.md)
 
 !!! note
