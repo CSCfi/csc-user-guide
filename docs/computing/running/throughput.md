@@ -58,8 +58,8 @@ graph TD
     E -->|Serial| F(<a href='/support/tutorials/many/'>GNU Parallel</a><br><a href='/computing/running/array-jobs/'>Array jobs</a><br><a href='/apps/hyperqueue/'>HyperQueue</a>)
     E -->|Parallel| G(Single- or multinode subtasks?)
     G -->|Single| H(Dependencies between subtasks?)
-    G -->|Multi| I(<a href='/computing/running/fireworks/'>FireWorks</a>)
-    H -->|Yes| J(<a href='https://snakemake.readthedocs.io/en/stable/'>Snakemake</a><br><a href='/support/tutorials/nextflow-puhti/'>Nextflow</a><br><a href='/computing/running/fireworks/'>FireWorks</a>)
+    G -->|Multi| I(<a href='/computing/running/fireworks/'>FireWorks</a><br><a href='/computing/running/toil-cwl-runner/'>Toil-CWL-Runner</a>)
+    H -->|Yes| J(<a href='https://snakemake.readthedocs.io/en/stable/'>Snakemake</a><br><a href='/support/tutorials/nextflow-puhti/'>Nextflow</a><br><a href='/computing/running/fireworks/'>FireWorks</a><br><a href='/computing/running/toil-cwl-runner/'>Toil-CWL-Runner</a>)
     H -->|No| K(<a href='/apps/hyperqueue/'>HyperQueue</a>)
 ```
 
@@ -157,6 +157,8 @@ graph TD
   with `xargs`, see [xargsjob.sh] for example.
 * [FireWorks] is a flexible tool for defining, managing and
   executing workflows with multiple steps and complex dependencies
+* [Toil-CWL-Runner] is an open source workflow manager using the Common
+  Workflow Language open standards
 * [HyperQueue] is a tool for efficient sub-node task scheduling
 * [Nextflow workflows using HyperQueue as an executor] can be leveraged to run
   large workflows involving thousands of processes efficiently
@@ -199,6 +201,7 @@ workflows.
 [HyperQueue]: ../../apps/hyperqueue.md
 [GNU Parallel]: ../../support/tutorials/many.md
 [FireWorks]: fireworks.md
+[Toil-CWL-Runner]: toil-cwl-runner.md
 [contact CSC Service Desk]: ../../support/contact.md
 [Nextflow]: ../../support/tutorials/nextflow-puhti.md
 [Snakemake]: https://snakemake.readthedocs.io/en/stable/
