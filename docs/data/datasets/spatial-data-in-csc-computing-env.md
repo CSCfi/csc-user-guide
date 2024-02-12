@@ -44,11 +44,11 @@ Currently available:
 
 For using data in Allas, see [CSC webinar about Allas and geospatial data](https://youtu.be/mnFXe2-dJ_g) and [Using geospatial files directly from cloud, inc Allas tutorial](../../support/tutorials/gis/gdal_cloud.md). 
 
-### Puhti virtual rasters
+## Puhti virtual rasters
 
 Virtaul rasters is a very practical concept for working with bigger raster datasets, see CSC [Virtual rasters](../../support/tutorials/gis/virtual-rasters.md) page for longer explanation and how to create own virtual rasters, inc from STAC search results.
 
-#### NLS DEM and orthophotos ready-made virtual rasters
+### NLS DEM and orthophotos ready-made virtual rasters
 CSC has added  to NLS 2m and 10m elevation models and infrared ortophotos in Puhti. There are two variants of virtual rasters for the elevation models: 
 
 1.  The **direct** virtual rasters contain directly the source tif images without any hierarchical structure, overviews or pre-calculated statistics. The direct virtual raster is meant for using **only in scripts**. It should **not** be opened in QGIS, unless zoomed in and need to open only a few files etc:
@@ -60,7 +60,7 @@ CSC has added  to NLS 2m and 10m elevation models and infrared ortophotos in Puh
 
     *   2m DEM: `/appl/data/geo/mml/dem2m/dem2m_hierarchical.vrt`
 
-#### Puhti: create virtual rasters of DEM for custom area
+### Puhti: create virtual rasters of DEM for custom area
 
 In some cases it might be useful to create virtual rasters that cover only your study area or some part of it. CSC has made a Python script for creating virtual rasters for custom area from NLS 2m and 10m DEM datasets in Puhti. It's used in the following way:
 
