@@ -2,8 +2,8 @@
 
 ## TmoleX 2024, 9.2.2024
 
-[TmoleX](../../apps/tmolex.md) has been updated and is now also available via the web interface
-on Puhti. 
+[TmoleX](../../apps/tmolex.md) has been updated and is now also available via
+the web interface on Puhti. 
 
 ## TURBOMOLE 7.8, 8.2.2024
 
