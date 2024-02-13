@@ -37,9 +37,8 @@ First let's import the right python libraries
 
 ```python
 import os
-from qiskit import QuantumCircuit, QuantumRegister
-from qiskit import execute
-from qiskit_iqm import IQMProvider
+from qiskit import QuantumCircuit, QuantumRegister, execute
+from iqm.qiskit_iqm import IQMProvider
 ```
 
 ### Creating the circuit
@@ -178,9 +177,8 @@ The full python script can be found below.
 ```python
 import os
 
-from qiskit import QuantumCircuit, QuantumRegister
-from qiskit import execute
-from qiskit_iqm import IQMProvider
+from qiskit import QuantumCircuit, QuantumRegister, execute
+from iqm.qiskit_iqm import IQMProvider
 
 shots = 1000
 
