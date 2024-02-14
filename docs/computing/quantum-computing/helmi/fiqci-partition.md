@@ -2,9 +2,7 @@
 
 The FiQCI partition of LUMI provides access to the Helmi quantum computer. Access is granted for users belonging to projects that have been granted QPU resources. In addition to running jobs on Helmi via LUMI, users can also use the general LUMI system and software stack including using simulators. 
 
-!!! info "Opening Hours"
-	Helmi is available daily 13:00-8:00 (Finnish time zone). 
-	The queue will accept new jobs continuously, but will only run them in this period.
+!!! info "View status of Helmi"
 	You can check the status of the connection here: [https://fiqci.fi/status](https://fiqci.fi/status)
 
 
@@ -27,20 +25,20 @@ node (with 128 cores and 256 GB RAM) and Helmi.
 There is one queue in the Helmi partition corresponding to FiQCI projects: `q_fiqci`. 
 Currently, the maximum run time of a quantum job is 15 minutes.
 
-| Name     | Max walltime | Max jobs          | Max resources/job  |
-| -------- | ------------ | ----------------- | ------------------ |
-| _q_fiqci_| _15 mins_    |   _1_             | _1 node_           |
+| Name      | Max walltime | Max jobs | Max resources/job |
+| --------- | ------------ | -------- | ----------------- |
+| _q_fiqci_ | _15 mins_    | _1_      | _1 node_          |
 
 
 ## Storage areas
 
 The Helmi partition uses the same storage policies as LUMI.
 
-|                       | Quota | Max files | Expandable   | Backup | Retention        |
-|:---------------------:|-------|-----------|:------------:|--------|------------------|
-| User<br>Home          | 20 GB | 100k      | No           | Yes    | User lifetime    |
+|                       | Quota | Max files |  Expandable  | Backup | Retention        |
+| :-------------------: | ----- | --------- | :----------: | ------ | ---------------- |
+|     User<br>Home      | 20 GB | 100k      |      No      | Yes    | User lifetime    |
 | Project<br>Persistent | 50 GB | 100k      | Yes<br>500GB | No     | Project lifetime |
-| Project<br>Scratch    | 50 TB | 2000k     | Yes<br>500TB | No     | 90 days          |
+|  Project<br>Scratch   | 50 TB | 2000k     | Yes<br>500TB | No     | 90 days          |
 
 * Your home directory (`$HOME`) that can contain up to 20 GB of data. It is intended to store user configuration files and personal data. The user home directory is purged once the user account expires.
 * Your project persistent storage is used to share data amongst the members of a project and is located at `/project/project_<project-number>`. **The project persistent directory is purged once the project expires.**

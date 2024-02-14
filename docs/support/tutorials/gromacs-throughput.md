@@ -1,4 +1,4 @@
-# High-throughput computing with Gromacs
+# High-throughput computing with GROMACS
 
 !!! info "Note"
     High-throughput simulations can easily produce *a lot* of data, so please
@@ -6,7 +6,7 @@
     beforehead. Don't hesitate to [contact CSC Service Desk](../contact.md) if
     you're unsure about any aspect of your workflow.
 
-Gromacs comes with a built-in `multidir` functionality, which allows users to run
+GROMACS comes with a built-in `multidir` functionality, which allows users to run
 multiple concurrent simulations within one Slurm allocation. This is an excellent
 option for high-throughput use cases, where the aim is to run several similar, but
 independent, jobs. Notably, multiple calls of `sbatch` or `srun` are not needed,
@@ -129,7 +129,7 @@ srun --cpu-bind=$CPU_BIND ./select_gpu gmx_mpi mdrun -s topol -nb gpu -bonded gp
 Note that the number of MPI tasks you request should be a multiple of the number of independent
 inputs, in this case 1 task per input. Since there are only 63 cores available per LUMI-G
 node, we use just a single thread per task. For details on the CPU-GPU binding, see the
-[Gromacs application page](../../../apps/gromacs/#example-batch-script-for-lumi-full-gpu-node)
+[GROMACS application page](../../../apps/gromacs/#example-batch-script-for-lumi-full-gpu-node)
 as well as [LUMI Docs](https://docs.lumi-supercomputer.eu/runjobs/scheduled-jobs/distribution-binding/).
 
 The plot below shows the total combined throughput obtained when running multiple
@@ -143,5 +143,5 @@ scale this use case to a huge number of nodes for maximal throughput.
 
 ## More information
 
-* [Gromacs application page](../../apps/gromacs.md)
-* [Official Gromacs documentation: Running multi-simulations](https://manual.gromacs.org/current/user-guide/mdrun-features.html#running-multi-simulations)
+* [GROMACS application page](../../apps/gromacs.md)
+* [Official GROMACS documentation: Running multi-simulations](https://manual.gromacs.org/current/user-guide/mdrun-features.html#running-multi-simulations)
