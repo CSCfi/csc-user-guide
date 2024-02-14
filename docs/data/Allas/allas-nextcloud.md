@@ -76,9 +76,9 @@ If the connection web interface fails check that:
  
 
 Nextcloud software is modular, it can be extended with Nextcloud Apps. Once you have the
-Nextcloud up and running, it is a good practise to check what Apps are enabled and how
+Nextcloud up and running, it is a good practice to check what Apps are enabled and how
 different features are configured to work. You can do this in the Nextcloud user interface
-when you are loggind in as admin. If you wish, you can also start this by running a CSC
+when you are logging in as admin. If you wish, you can also start this by running a CSC
 provided script that disables a few and configures some Apps in order to make the Nextcloud
 less overloaded with features for this kind of Allas front end testing. The script can be
 downloaded and run like this:
@@ -162,7 +162,7 @@ and confirm the creation request by typing the password of Nextcloud admin.
 
 Then a new user is created by  clicking _add user_ 
 User name and password needs to be defined for the user and the 
-new account is added to group _Users_.
+new account is added to group _Users_. 
 
 Finally, we need to allow this new user to access the  _External storage_ (the bucket from Allas). 
 To do that, go back to the Settings view and reopen the _External storages_ settings from the Administration tools. 
@@ -172,6 +172,42 @@ Choose either the user or user group to allow the new user to access the Allas b
 read and write permissions or you can also give just read-only access to a user or user group. 
 These options are set with the menu that opens from the three dots next to the definition field.
 
-Now you can send the account information to the new user and he/she will be able to use Nextcloud 
+
+## 5. Using Nextcloud
+
+Once a new next cloud account is created, you can send the account information to the new user and he/she will be able to use Nextcloud 
 to upload and download data to the data bucket that was linked to the Nextcloud server. Note, that this 
-user doesn't need to have CSC account, a Nextcloud account is enough.
+user doesn't need to have CSC account, a Nextcloud account is enough. I addition to the web interfaces, Nextcloud can be used by [desktop tools](https://nextcloud.com/install/) and [phone apps](https://apps.nextcloud.com/). 
+
+Comman line usage is possible too. This can be utilized for exmaple in cases there data download or upload needs to be automatized. Below is a sample where data is uploaded and download using `curl` command and _application password_. In this case the NextCould admin has created a user named as _ncuser1_ for this purpose. First the _ncuser1_ logs is to the next cloud server. The user opens *Settings* menu and there moves to *Security* settings.
+
+In security section section *Devices & Sessions*, an application password is created by clicking button: *Create a new app password*. Note that you have to copy and save the application password, that was just generated, as you can't check it later on. 
+
+In addition to user name and application password the user needs to know the IP address or server name to access the service. 
+With this information available, data can be downloaded from Nextcould using curl command syntax:
+```
+curl -k -u username:app-password "https://server-ip/remote.php/webdav/nextcloudirectiory/file-name"
+```
+
+And upload can be done using syntax:
+```
+curl -k -u username:app-password -T file-to-upload "https://server-ip/remote.php/webdav/nextcloudirectiory/file-name"
+```
+
+In the commands above option `-k` is needed when the Nextcould server uses self signed certificates.
+
+In this example the app password that user _ncuser1_  generated is: _Q34EN-Ni7pH-9oSes-ZQsF7-NdkYi_
+and the IP address of the NectCloud server is 123.456.768.910. Earlier the the Nextcloud admin had linked Allas bucket _2001234-nextcloud_
+to the next cloud service.
+
+Now the _ncuser1_ is able to upload a file _image1.jpg_ to Allas bucket _2001234-nextcloud_ with command:
+
+```
+curl -k -u ncuser1:Q34EN-Ni7pH-9oSes-ZQsF7-NdkYi -T ./image1.jpg "https://123.456.768.910/remote.php/webdav/2001234-nextcloud/image1.jpg"
+```
+
+The same file can be downloaded with command:
+
+```
+curl -k -u ncuser1:Q34EN-Ni7pH-9oSes-ZQsF7-NdkYi "https://123.456.768.910/remote.php/webdav/2001234-nextcloud/image1.jpg" > image1.jpg
+```
