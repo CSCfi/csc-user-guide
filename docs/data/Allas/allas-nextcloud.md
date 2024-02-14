@@ -179,7 +179,7 @@ Once a new next cloud account is created, you can send the account information t
 to upload and download data to the data bucket that was linked to the Nextcloud server. Note, that this 
 user doesn't need to have CSC account, a Nextcloud account is enough. I addition to the web interfaces, Nextcloud can be used by [desktop tools](https://nextcloud.com/install/) and [phone apps](https://apps.nextcloud.com/). 
 
-Comman line usage is possible too. This can be utilized for exmaple in cases there data download or upload needs to be automatized. Below is a sample where data is uploaded and download using `curl` command and _application password_. In this case the NextCould admin has created a user named as _ncuser1_ for this purpose. First the _ncuser1_ logs is to the next cloud server. The user opens *Settings* menu and there moves to *Security* settings.
+Comman line usage is possible too. This can be utilized for example in cases there data download or upload needs to be automatized. Below is a sample where data is uploaded and download using `curl` command and _application password_. In this case the NextCould admin has created a user named as _ncuser1_ for this purpose. First the _ncuser1_ logs is to the next cloud server. The user opens *Settings* menu and there moves to *Security* settings.
 
 In security section section *Devices & Sessions*, an application password is created by clicking button: *Create a new app password*. Note that you have to copy and save the application password, that was just generated, as you can't check it later on. 
 
