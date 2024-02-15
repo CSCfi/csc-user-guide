@@ -7,7 +7,7 @@ It is possible to build an image in Rahti and push it to a private external repo
 2. Create a secret of type `docker-registry`. And link with the Service account that will run the build:
 
     ```sh
-    oc create secret --docker-server=ghcr.io docker-registry <url> \
+    oc create secret --docker-server=<url> docker-registry <url> \
                      --docker-username=<user> --docker-password=<token>
     oc secrets link builder <url>
     ```
