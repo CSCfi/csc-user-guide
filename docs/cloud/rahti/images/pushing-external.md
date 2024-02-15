@@ -2,7 +2,7 @@
 
 It is possible to build an image in Rahti and push it to a private external repository. The steps to make it so are:
 
-1. Login into Rahti and, if needed, create a [new Rahti project](cloud/rahti/usage/projects_and_quota.md#creating-a-project).
+1. Login into Rahti and, if needed, create a [new Rahti project](../usage/projects_and_quota.md#creating-a-project).
 
 2. Create a secret of type `docker-registry`. And link with the Service account that will run the build:
 
