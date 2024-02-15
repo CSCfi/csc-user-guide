@@ -3,7 +3,7 @@
 With the SD Desktop service, you can easily manage volumes and pause, reboot or delete your virtual desktops. Below we illustrate the main available options. 
 
 !!! Note
-    These options are available only on virtual desktops created after February 2, 2023. Please [contact us](../../support/contact.md) if you are working with older desktops. 
+    These options are available only on virtual desktops created after February 2, 2023. Please [contact service desk](../../support/contact.md) if you are working with older desktops. 
 
 
 ## Detaching and reattaching a volume 

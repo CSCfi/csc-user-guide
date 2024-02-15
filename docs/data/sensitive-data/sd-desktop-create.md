@@ -5,12 +5,12 @@
 Creating a virtual desktop is easy and doesn't require technical expertise. 
 
 * first [log in](./sd-desktop-login.md)
-* click on *Go To SD Desktop Management* 
+* click on *Go to SD Desktop Management* [See screenshot](images/desktop/SD-Desktop_GoToManagement.png){ target="_blank" }
 * and follow these steps:
 
 ## 1. Specify desktop parameters
   
-* Select your CSC project and operating system (Linux Ubuntu22 or Linux CentOS7).
+* Select your CSC project and operating system. We recomend to choose **Linux Ubuntu22**, since there will be no updates published for Linux CentOS7 after June 30, 2024.
   
 * Give your desktop a name for easy identification, so that all project members can quickly identify it later on.
 
@@ -18,17 +18,21 @@ Creating a virtual desktop is easy and doesn't require technical expertise.
 
 Choose a pre-built option based on your needs: Small (for basic tasks), Medium (for complex analysis), or Heavy (for intensive tasks).
 
-* **Small computation**. This option is ideal for analyzing sensitive data using office software (for example: similar to simple statistical analysis with Excel, watching videos, listening to audio files, and working on text files). You can compare this desktop to your laptop. Technical specifications: Core: 6; memory 15 GiB; Root disk: 80 GB; Correspondent Pouta Flavor: standard.xlarge; Billing Units: 5.2 units/h. 
+|  | Use  | Technical specifications | Correspondent Pouta Flavor | Billing Units consumption |
+|-|-|-|-|-|
+| **Light computation** | Ideal for small testing | Core 1; Memory 1 GB; Root disk 80 GB | standard.tiny | 1.3 billing units/h| 
+|  **Small computation** | Ideal for analyzing sensitive data using office software (for example: similar to simple statistical analysis with Excel, watching videos, listening to audio files, and working on text files). You can compare this desktop to your laptop. | Core 6; Memory 15 GB; Root disk 80 GB; | standard.xlarge | 5.2 billing units/h|
+|  **Medium computation**  | Ideal for running complex statistical or genome analysis (for example: using the command line to run specific scripts). You can compare this desktop to a powerful laptop provided by your organization's IT unit. |  Core 8; Memory 30 GB; Root disk 80 GB; | standard.xxlarge | 10.4 billing units/h |
+| **Heavy computation**|  Ideal for running non-interactive programmatic analysis (machine learning) that requires heavy computation. Please do not choose this option for simple analysis, as it consumes considerable resources. | Core 32; Memory 116 GB; Root disk 80 GB;  | hpc.5.32core | 52 billing units/h |
 
-* **Medium computation**. This option is ideal for running complex statistical or genome analysis (for example: using the command line to run specific scripts). You can compare this desktop to a powerful laptop provided by your organization's IT unit. Technical specifications: Core: 8; memory 30 GiB; Root disk: 80 GB; Correspondent Pouta Flavor: standard.xxlarge; Billing Units: 10.4 units/h. 
-
-* **Heavy computation**:  This option is ideal for running non-interactive programmatic analysis (machine learning) that requires heavy computation. Please do not choose this option for simple analysis, as it consumes considerable resources. Technical specifications: Core: 32; memory 116 GiB; Root disk: 80 GB; Correspondent Pouta Flavor: hpc.5.32core; Billing Units: 52 units/h.
+!!! note
+    The GPU options are available only for testing purposes. Before proceeding, contact [CSC Service Desk](../../support/contact.md), *(subject: Sensitive Data)* to ensure optimal use, as limited resources require careful planning.
 
 ## 3. Add an external volume
 
 * Attach an external volume (virtual external hard drive) to your virtual desktop, extending default storage (80 GB) up to 200 GB. Choose *Volume size* (recommended: 50 GB for small computing, 100 GB for medium, 200 GB for heavy computation) and assign a name in the *Volume name* -field.
 
-* **It's advisable to save critical analyses or files on the volume, which can also serve as a backup if the virtual desktop becomes unresponsive.** Note that after the virtual desktop is created, disk space extension requires contacting [CSC Service Desk](../../support/contact.md). 
+* **It's advisable to save critical analyses or files on the volume, which can also serve as a backup if the virtual desktop becomes unresponsive.** Note that after the virtual desktop is created, disk space/volume extension requires contacting [CSC Service Desk](../../support/contact.md), *(subject: Sensitive Data)*. 
 
 * **You can detach and attach a volume from your virtual desktop** on the SD Desktop Management page. This can be compared to connecting/disconnecting a hard drive to your laptop. This feature is available only on desktops created after February 2023. For additional details, refer to: [Managing volume and desktops](./sd-desktop-manage.md).
 
@@ -40,9 +44,9 @@ Choose a pre-built option based on your needs: Small (for basic tasks), Medium (
 === "Go to SD Desktop Mangement"
     ![Go to SD Desktop Management -button](images/desktop/SD-Desktop_GoToManagement.png)
 === "1. Desktop parameters"
-    ![Select project](images/desktop/SD-Desktop_SelectProject.png)
+    **New screenshot needed here ![Select project](images/desktop/**
 === "2. Pre-build desktop options"
-    ![Select pre-build option](images/desktop/SD-Desktop_PreBuild.png)
+    **New screenshot needed here ![Select pre-build option](images/desktop/**
 === "3. External volume"
     ![Add external volume](images/desktop/SD-Desktop_Volume.png)
 === "4. Create desktop"
@@ -52,7 +56,7 @@ Choose a pre-built option based on your needs: Small (for basic tasks), Medium (
 
 ## Important considerations
 
-* Your virtual desktop is **accessible to all project members upon creation** and **consumes billing units** from your CSC project until paused or deleted. 
+* Your virtual desktop is **accessible to all project members upon creation** and **consumes billing units** from your CSC project until [paused](./sd-desktop-manage.md#pausing-or-unpausing-a-virtual-desktop) or [deleted](./sd-desktop-manage.md#deleting-a-desktop). 
 
 * Each CSC project supports up to 3 virtual desktops, with 10 project members allowed to connect simultaneously to each desktop.
 
@@ -70,7 +74,11 @@ Choose a pre-built option based on your needs: Small (for basic tasks), Medium (
 
 
 
-The following sections will discuss how to work with your virtual desktop, which software is available, and how to customize your workspace.
+Read next:
+
+* [How to work with your virtual desktop](./sd-desktop-access.md)
+* [Which software is available for virtual desktop](./sd-desktop-software.md)
+* [How to manage your virtual desktop (delete, pause, detach volume etc.)](./sd-desktop-manage.md)
 
 
 
