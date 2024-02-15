@@ -106,3 +106,4 @@ In this example, we first generate your key pair (a password-protected private k
     !!! Note
         In case you are decrypting the file in SD Desktop and the CSC Sensitive Data public key has been used in encryption, decryption will be done automatically, and you do not need to specify any decryption keys.
     
+      If you need to decrypt large amount of file, plese check tuotorial [Decrypting all files in a directory](./tutorials/decrypt-directory.md).
