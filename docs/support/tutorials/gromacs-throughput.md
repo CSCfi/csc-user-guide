@@ -80,7 +80,7 @@ to accelerate sampling if your system does not scale to a full Mahti node.
 
 ## Example batch script for LUMI
 
-Medium-sized and large systems (100k–1M+ atoms) are typically able to utilize multiple
+Medium-sized and large systems (few 100k–1M+ atoms) are typically able to utilize multiple
 GPUs on LUMI efficiently. Many smaller use cases run also well on a single GCD (half a GPU),
 but the smaller the system gets, the poorer it will be able to utilize the full capacity
 of the accelerator.
@@ -101,7 +101,7 @@ to the Mahti example above.
 #SBATCH --ntasks-per-node=32
 
 module use /appl/local/csc/modulefiles
-module load gromacs/2023.3-gpu
+module load gromacs/2024.0-gpu
 
 export OMP_NUM_THREADS=1
 
@@ -127,13 +127,13 @@ srun --cpu-bind=$CPU_BIND ./select_gpu gmx_mpi mdrun -s topol -nb gpu -bonded gp
 ```
 
 Note that the number of MPI tasks you request should be a multiple of the number of independent
-inputs, in this case 1 task per input. Since there are only 63 cores available per LUMI-G
+inputs, in this case 1 task per input. Since there are only 56 CPU cores available per LUMI-G
 node, we use just a single thread per task. For details on the CPU-GPU binding, see the
-[GROMACS application page](../../../apps/gromacs/#example-batch-script-for-lumi-full-gpu-node)
+[GROMACS application page](../../apps/gromacs.md#notes-about-binding-and-multi-gpu-simulations-on-lumi),
 as well as [LUMI Docs](https://docs.lumi-supercomputer.eu/runjobs/scheduled-jobs/distribution-binding/).
 
 The plot below shows the total combined throughput obtained when running multiple
-simulations of the 96k atom alcohol dehydrogenase (ADH) benchmark on two LUMI-G nodes.
+replicas of the 96k atom alcohol dehydrogenase (ADH) benchmark on two LUMI-G nodes.
 When the number of trajectories per GCD is increased from one to four, the overall
 performance (sum of each independent trajectory) increases by about one microsecond per
 day due to better GPU utilization. Since each simulation is independent, one could
@@ -145,3 +145,5 @@ scale this use case to a huge number of nodes for maximal throughput.
 
 * [GROMACS application page](../../apps/gromacs.md)
 * [Official GROMACS documentation: Running multi-simulations](https://manual.gromacs.org/current/user-guide/mdrun-features.html#running-multi-simulations)
+* [Running GROMACS on LUMI workshop materials](https://zenodo.org/records/10610643)
+* [Poster about the performance of GROMACS on LUMI](https://a3s.fi/gromacs/lumi-poster-2024.pdf)

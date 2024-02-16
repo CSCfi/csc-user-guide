@@ -1,5 +1,13 @@
 # Applications
 
+## GROMACS 2024.0, 16.2.2024
+
+[GROMACS](../../apps/gromacs.md) 2024.0 is now available on Puhti, Mahti and LUMI. See
+[release notes](https://manual.gromacs.org/2024.0/release-notes/2024/major/highlights.html)
+for a list of new features and improvements. Notably, the GPU-enabled module on LUMI
+now uses a more recent version of ROCm (5.6.1) and AdaptiveCPP (23.10.0) with improved
+performance.
+
 ## TmoleX 2024, 9.2.2024
 
 [TmoleX](../../apps/tmolex.md) has been updated and is now also available via
