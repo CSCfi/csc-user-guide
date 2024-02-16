@@ -52,7 +52,7 @@ systems. It also comes with plenty of analysis scripts.
     |:-------:|:------------------|:-----:|
     |2022.5   |`gromacs/2022.5`<br>`gromacs/2022.5-plumed_2.8.2`<br>`gromacs/2022.5-plumed_2.9.0`|Modules with Plumed available
     |2023     |`gromacs/2023-gpu-plumed`<br>`gromacs/2023-dev-rocm`|GPU-enabled module with Plumed available<br>`dev-rocm` is an unsupported GPU-enabled [fork developed by AMD](https://github.com/ROCm/Gromacs)[^1]
-    |2023.1   |`gromacs/2023.1`<br>`gromacs/2023.1-gpu`<br>`gromacs/2023.1-heffte`|GPU-enabled module available<br>Module with HeFFTe available for [GPU PME decomposition](#pme-decomposition)
+    |2023.1   |`gromacs/2023.1`<br>`gromacs/2023.1-gpu`<br>`gromacs/2023.1-heffte`|GPU-enabled module available<br>Module with HeFFTe available for [GPU PME decomposition](#gpu-pme-decomposition)
     |2023.2   |`gromacs/2023.2`<br>`gromacs/2023.2-gpu`|GPU-enabled module available
     |2023.3   |`gromacs/2023.3`<br>`gromacs/2023.3-gpu`|GPU-enabled module available
     |2024.0   |`gromacs/2024.0`<br>`gromacs/2024.0-gpu`|GPU-enabled module available
