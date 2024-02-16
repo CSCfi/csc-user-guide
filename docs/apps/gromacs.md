@@ -110,13 +110,13 @@ The most important aspects to consider (in addition to avoiding `-v`) are:
 2. Use a recent version – there has been significant speedup and bug fixes over the years.
    If you switch the major version, remember to check that the results are comparable.
 3. For large jobs, use full nodes (multiples of 40 cores on Puhti or multiples
-   of 128 cores on Mahti), see [example below](#example-parallel-batch-script-for-puhti).
+   of 128 cores on Mahti), see examples below.
 4. Performance on GPUs depends on what you offload and the optimum depends on many factors.
    Please consult the [excellent ENCCS online materials](https://enccs.github.io/gromacs-gpu-performance/)
    for a general overview, or the [GROMACS on LUMI workshop materials](https://zenodo.org/records/10610643)
    for how to run on LUMI-G.
 5. On LUMI-G it is important to make sure CPUs are bound to the correct GPUs to minimize
-   communication overhead. See [example below](#lumi) and
+   communication overhead. See examples below and
    [LUMI Docs](https://docs.lumi-supercomputer.eu/runjobs/scheduled-jobs/distribution-binding/#gpu-binding)
    for more information.
 
