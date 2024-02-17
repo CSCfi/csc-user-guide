@@ -62,7 +62,7 @@ bash run_snakemake.sh   # run the workflow
         --account=project_2001659 --job-name=hello-world \
         --tasks-per-node=1 --cpus-per-task=1 \ 
         --mem-per-cpu=4000 --partition test"
-      ``  
+      ```  
 
 !!! note
     Scaling up of your jobs using slurm should be done carefully to
