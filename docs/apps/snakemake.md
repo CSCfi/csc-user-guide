@@ -15,7 +15,7 @@ is not specific to bioinformatics. Like in Nextflow, snakemake also supports run
 
 Versions available at CSC:
 
-* Puhti: 7.15.2, 7.17.1
+* Puhti: 7.15.2, 7.17.1, 8.4.6
 
 ## License
 
@@ -33,7 +33,7 @@ module load snakemake
 Example of loading `nextflow` module with a specific version:
 
 ```bash
-module load snakemake/7.17.1
+module load snakemake/8.4.6
 ```
 
 For usage help, use command:

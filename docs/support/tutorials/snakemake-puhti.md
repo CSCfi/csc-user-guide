@@ -27,18 +27,24 @@ rule capitalise:
                 tr '[:lower:]' '[:upper:]' < {input} > {output}
                 """
 ```
-As snakemake is installed as a module on Puhti, one can simply load it without needing to install it separately. Here is a bash script for running the above toy example:
+As Snakemake is installed as a module on Puhti, one can simply load it without needing to install it separately. Here is a bash script for running the above toy example:
 ```bash
-module load snakemake/7.17.1
+module load snakemake/8.4.6
 snakemake --help   #  to get information on more options.
 
 # The following command shows how to run a snakemake workflow on a cluster using slurm executor
-snakemake -s Snakefile \ # the Snakefile is the default file name; no need specify with -s flag
---jobs 1  \     # this will execute up to 3 tasks in parallel)       
---latency-wait 60 \  # snakemake to wait up to 60 seconds after a job completes for the output files to become available.
---cluster "sbatch --time 10  --account=project_xxx --job-name=hello-world --tasks-per-node=1 --cpus-per-task=1 
---mem-per-cpu=4000 --partition test"
-# cluster option to execute the workflow on slurm
+# the Snakefile is the default file name; no need specify with -s flag
+# jobs: set maximum number of tasks in parallel
+# latency-wait: wait up to some time after a job completes for the output files to become available
+# cluster-generic:submit jobs to cluster 
+# sbatch: use slurm cluster
+snakemake -s Snakefile --jobs 1 \
+ --latency-wait 60 \
+ --executor cluster-generic \
+ --cluster-generic-submit-cmd "sbatch --time 10 \
+ --account=project_xxxx --job-name=hello-world \
+ --tasks-per-node=1 --cpus-per-task=1 --mem-per-cpu=4000 --partition=test"
+
 ```
 Finally, you can run the workflow in the bash script (e.g., run_snakemak.sh) by submitting in the job in the interactive node:
 ```bash
@@ -46,13 +52,23 @@ sinteractive --cores 2 --mem 10000 # type this command on login node to start an
 bash run_snakemake.sh   # run the workflow
 ```
 !!! note
-    Please note that **cluster** configurations are no longer supported on recent versions of snakemake. Please consider using   [profiles](https://snakemake.readthedocs.io/en/stable/executing/cli.html#profiles) instead.
+    Please pay attention to the version of Snakemake you are using. If you are using earlier versions of Snakemake (e.g., v7.xx.x) the **cluster** configurations settings would be as below:
+
+    ```bash 
+    snakemake -s Snakefile \
+        --jobs 1 \
+        --latency-wait 60 \
+        --cluster "sbatch --time 10  \
+        --account=project_2001659 --job-name=hello-world \
+        --tasks-per-node=1 --cpus-per-task=1 \ 
+        --mem-per-cpu=4000 --partition test"
+      ``  
 
 !!! note
     Scaling up of your jobs using slurm should be done carefully to
     avoid unnecessary overload on slurm accounting database due to a large number of small jobs. Consider either configuring **localrules** cautiously with slurm or using Hyperqueue executor. 
 
-### Running snakemake with python packages installed *via.* tykky wrapper
+### Running Snakemake with python packages installed *via.* tykky wrapper
 
 Conda installations should not be performed directly on Puhti.  CSC instead provides the [Tykky container wrapper tool](../../computing/containers/tykky.md) which can be used to install python packages to set up your own compute environment. The wrapper tool installs applications inside of a singularity container and thus  facilitates better performance in terms of faster startup times, reduced IO load, and reduced number of files on parallel filesystems. Please note that we recommend using one tykky environment for whole workflow rather than an individual environment for each rule. 
 
@@ -100,6 +116,8 @@ Finally, you can submit batch job from the login nodes as below:
 sbatch tutorial-sbatch.sh
 ```
 
+!!! note
+    In the above example we are assuming that Snakemake software is included in the Tykky wrapper installation. It is a good idea to include all the needed Python packages including snakemake in the Tykky installation. If you use snakemake from pre-installed module at CSC, there may be a discrepency with Python interpreter. For example, if you use Python script (under the script block of snakemake rule), python interpreter from the module, not from the Tykky installation, is used. 
 
 ###  Running Snakemake workflow with singularity container
 
@@ -172,7 +190,7 @@ Finally, one can submit the Snakemake workflow as a batch job as shown below:
 #SBATCH --partition=test
 #SBATCH --cpus-per-task=4
 
-module load snakemake/7.17.1
+module load snakemake/8.4.6
 snakemake -s Snakefile  --use-singularity  --jobs 4
 ```
 For the completion of this tutorial, tutorial example downloaded earlier included data and scripts.
@@ -187,11 +205,13 @@ sbatch sbatch-sing.sh
 
 If your workflow manager is using sbatch for each process execution and you have many short processes it's advisable to switch to HyperQueue to improve throughput and decrease load on the system batch scheduler.
 
-Using Snakemake's --cluster flag we can use hq submit instead of sbatch:
+One can use HyperQueue executor settings depending on the snakemake version as below:
 
 ```
-snakemake --cluster "hq submit --cpus <threads> ..."
-
+# snakemake version 7.xx.x
+snakemake --cluster "hq submit  ..."  
+# snakemake version 8.x.x.x
+snakemake  --executor cluster-generic --cluster-generic-submit-cmd "hq submit ..."  
 ```
 Please check the example tutorial for running the Snakemake workflows with Hyperqueue executor for the following examples.
 
@@ -236,6 +256,8 @@ while true; do
 
 done
 snakemake -s Snakefile --jobs 1  --cluster "hq submit --cpus 2 "
+# module load snakemake/8.4.6
+# snakemake -s Snakefile -j 1 --executor cluster-generic --cluster-generic-submit-cmd "hq submit --cpus 2 "
 hq worker stop all
 hq server stop
 ```
@@ -262,7 +284,7 @@ sbatch script (sbatch-hq-sing.sh):
 #SBATCH --partition=small
 
 module load hyperqueue
-module load snakemake/7.17.1
+module load snakemake/8.4.6
 
 # Create a per job directory
 
@@ -286,7 +308,10 @@ while true; do
 
 done
 
-snakemake -s Snakefile --jobs 1  --use-singularity  --cluster "hq submit --cpus 2 "
+snakemake -s Snakefile -j 1  --use-singularity   --executor cluster-generic --cluster-generic-submit-cmd "hq submit --cpus 2 "
+
+# snakemake -s Snakefile --jobs 1  --use-singularity  --cluster "hq submit 
+# --cpus 2 "
 
 hq worker stop all
 hq server stop
@@ -295,4 +320,5 @@ You can finally submit the Snakemake workflow to the slurm cluster as below:
 
 ```
 sbatch sbatch-hq-sing.sh
+
 ```
