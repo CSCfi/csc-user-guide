@@ -6,7 +6,7 @@ tags:
 # GROMACS
 
 GROMACS is a very efficient engine to perform molecular dynamics
-simulations and energy minimization particularly for proteins. However,
+simulations and energy minimization particularly of proteins. However,
 it can also be used to model polymers, membranes and e.g. coarse-grained
 systems. It also comes with plenty of analysis scripts.
 
@@ -52,7 +52,7 @@ systems. It also comes with plenty of analysis scripts.
     |:-------:|:------------------|:-----:|
     |2022.5   |`gromacs/2022.5`<br>`gromacs/2022.5-plumed_2.8.2`<br>`gromacs/2022.5-plumed_2.9.0`|Modules with Plumed available
     |2023     |`gromacs/2023-gpu-plumed`<br>`gromacs/2023-dev-rocm`|GPU-enabled module with Plumed available<br>`dev-rocm` is an unsupported GPU-enabled [fork developed by AMD](https://github.com/ROCm/Gromacs)[^1]
-    |2023.1   |`gromacs/2023.1`<br>`gromacs/2023.1-gpu`<br>`gromacs/2023.1-heffte`|GPU-enabled module available<br>Module with HeFFTe available for [GPU PME decomposition](#gpu-pme-decomposition)
+    |2023.1   |`gromacs/2023.1`<br>`gromacs/2023.1-gpu`<br>`gromacs/2023.1-heffte`|GPU-enabled module available<br>Module with heFFTe available for [GPU PME decomposition](#gpu-pme-decomposition)
     |2023.2   |`gromacs/2023.2`<br>`gromacs/2023.2-gpu`|GPU-enabled module available
     |2023.3   |`gromacs/2023.3`<br>`gromacs/2023.3-gpu`|GPU-enabled module available
     |2024.0   |`gromacs/2024.0`<br>`gromacs/2024.0-gpu`|GPU-enabled module available
@@ -66,7 +66,7 @@ systems. It also comes with plenty of analysis scripts.
 - If you want to use command-line [Plumed tools](plumed.md), load the Plumed module.
 
 !!! info
-    We only provide the parallel version `gmx_mpi`, but it can
+    We only provide the MPI version `gmx_mpi`, but it can
     be used for `grompp`, `editconf` etc. similarly to the serial version.
     Instead of `gmx grompp ...`, give `gmx_mpi grompp`.
 
@@ -111,10 +111,10 @@ The most important aspects to consider (in addition to avoiding `-v`) are:
    If you switch the major version, remember to check that the results are comparable.
 3. For large jobs, use full nodes (multiples of 40 cores on Puhti or multiples
    of 128 cores on Mahti), see examples below.
-4. Performance on GPUs depends on what you offload and the optimum depends on many factors.
+4. Performance on GPUs depends on many factors and what calculations you offload.
    Please consult the [excellent ENCCS online materials](https://enccs.github.io/gromacs-gpu-performance/)
    for a general overview, or the [GROMACS on LUMI workshop materials](https://zenodo.org/records/10610643)
-   for how to run on LUMI-G.
+   for how to run efficiently on LUMI-G.
 5. On LUMI-G it is important to make sure CPUs are bound to the correct GPUs to minimize
    communication overhead. See examples below and
    [LUMI Docs](https://docs.lumi-supercomputer.eu/runjobs/scheduled-jobs/distribution-binding/#gpu-binding)
@@ -156,7 +156,7 @@ on the GROMACS page.
     #SBATCH --account=<project>
     ##SBATCH --mail-type=END # uncomment to get mail
 
-    # this script runs a 80 core (2 full nodes) gromacs job, requesting 15 minutes time
+    # this script runs an 80 core (2 full nodes) gromacs job, requesting 15 minutes time
 
     module purge
     module load gromacs-env
@@ -181,12 +181,12 @@ on the GROMACS page.
     #SBATCH --time=00:15:00
     #SBATCH --partition=gpu
     #SBATCH --account=<project>
-    ##SBATCH --mail-type=END #uncomment to get mail
+    ##SBATCH --mail-type=END # uncomment to get mail
 
     module purge
     module load gromacs-env/2022-gpu
 
-    export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
+    export OMP_NUM_THREADS=${SLURM_CPUS_PER_TASK}
 
     srun gmx_mpi mdrun -s topol -maxh 0.2 -dlb yes
 
@@ -197,7 +197,7 @@ on the GROMACS page.
     !!! info "Note"
         Please make sure that using one GPU (and up to 10 CPU cores) is
         faster than using one full node of CPU cores according to our
-        [usage policy](../../computing/usage-policy). Otherwise, don't
+        [usage policy](../computing/usage-policy.md). Otherwise, don't
         use GPUs on Puhti.
 
 ### Mahti
@@ -211,7 +211,7 @@ on the GROMACS page.
     #SBATCH --ntasks-per-node=128
     #SBATCH --nodes=2
     #SBATCH --account=<project>
-    ##SBATCH --mail-type=END #uncomment to get mail
+    ##SBATCH --mail-type=END # uncomment to get mail
 
     # this script runs a 256 core (2 full nodes, no hyperthreading) gromacs job,
     # requesting 15 minutes time
@@ -234,7 +234,7 @@ on the GROMACS page.
     #SBATCH --cpus-per-task=2
     #SBATCH --nodes=2
     #SBATCH --account=<project>
-    ##SBATCH --mail-type=END #uncomment to get mail
+    ##SBATCH --mail-type=END # uncomment to get mail
 
     # this script runs a 256 core (2 full nodes, no hyperthreading) gromacs job,
     # requesting 15 minutes time and 64 tasks per node, each with 2 OpenMP threads
@@ -242,7 +242,7 @@ on the GROMACS page.
     module purge
     module load gromacs-env
 
-    export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
+    export OMP_NUM_THREADS=${SLURM_CPUS_PER_TASK}
 
     srun gmx_mpi mdrun -s topol -maxh 0.2 -dlb yes
     ```
@@ -264,7 +264,7 @@ on the GROMACS page.
     module use /appl/local/csc/modulefiles
     module load gromacs/2023.3-gpu
 
-    export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
+    export OMP_NUM_THREADS=${SLURM_CPUS_PER_TASK}
 
     srun gmx_mpi mdrun -s topol -nb gpu -bonded gpu -pme gpu -update gpu -maxh 0.2
     ```
@@ -303,7 +303,7 @@ on the GROMACS page.
     CPU_BIND="${CPU_BIND},fe,fe00"
     CPU_BIND="${CPU_BIND},fe00000000,fe0000000000"
 
-    srun --cpu-bind=$CPU_BIND ./select_gpu gmx_mpi mdrun -s topol -nb gpu -bonded gpu -pme gpu -update gpu -npme 1 -maxh 0.2
+    srun --cpu-bind=${CPU_BIND} ./select_gpu gmx_mpi mdrun -s topol -nb gpu -bonded gpu -pme gpu -update gpu -npme 1 -maxh 0.2
     ```
 
 !!! info "Terminology"
@@ -319,7 +319,7 @@ multi-GPU performance, it is important to ensure that CPU cores are bound to the
 GPUs accordingly. The full GPU node example above takes care of this, and also excludes
 the first core of each group of 8 cores linked to a given GCD. These are reserved
 for the operating system to reduce noise, meaning that there are only 56 cores available
-per node. This is also the reason why we run 7 threads per MPI rank, not 8.
+per node. This is also why we run 7 threads per MPI rank, not 8.
 
 !!! error "Note"
     Please note that CPU-GPU binding only works when reserving full nodes by running in the
@@ -343,12 +343,12 @@ Below is a comparison of the performance of GROMACS 2024.0 on Mahti (CPUs and GP
 and LUMI-G using the STMV benchmark (1067k atoms). This is a large system which scales
 very well also on GPUs. The performance of a single LUMI GCD (half a GPU) is about the same
 as a full Nvidia A100 GPU on Mahti, and much better than a single 128-core CPU
-node. Importantly, the amount of GPU nodes on LUMI is massively larger than on Mahti
+node. Importantly, the availability of GPU nodes on LUMI is massive compared to Mahti
 (2978 vs. 24).
 
 ![GROMACS scaling on GPUs on Mahti and LUMI](../img/stmv.png 'GROMACS scaling on GPUs on Mahti and LUMI')
 
-!!! info "Small systems on LUMI-G and high-throughput simulations"
+!!! info "Small systems and high-throughput simulations"
     While medium-sized and large systems (few 100k–1M+ atoms) can typically utilize multiple
     GPUs well, small systems (less than 100k atoms) are often best run on just a single GCD.
     A good way to further increase the GPU utilization and efficiency of small simulations is
@@ -362,7 +362,7 @@ node. Importantly, the amount of GPU nodes on LUMI is massively larger than on M
 The scalability of huge systems with several million atoms may be limited by single GPU PME. To
 significantly improve the scaling, decomposition of PME to multiple GPUs is possible in the
 `gromacs/2023.1-heffte` module with the [heFFTe library](https://icl-utk-edu.github.io/heffte/)
-linked. Add the following exports to the batch script above:
+linked. Add the following exports to your batch script:
 
 ```bash
 export GMX_GPU_PME_DECOMPOSITION=1
@@ -383,11 +383,11 @@ trajectory files can be visualized with the following programs:
 
 !!! warning "Note"
     Please don't run visualization or heavy GROMACS tool scripts on
-    the login node (see [usage policy for details](../../computing/usage-policy)).
+    the login node (see [usage policy for details](../computing/usage-policy.md)).
     You can run the tools in the [interactive partition](../computing/running/interactive-usage.md)
     by prepending your `gmx_mpi` command with `orterun -n 1`, e.g.:
     
-    ```
+    ```bash
     orterun -n 1 gmx_mpi msd -n index -s topol -f traj
     ```
 

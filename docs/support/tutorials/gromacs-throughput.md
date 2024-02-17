@@ -123,7 +123,7 @@ CPU_BIND="${CPU_BIND},fe0000,fe000000"
 CPU_BIND="${CPU_BIND},fe,fe00"
 CPU_BIND="${CPU_BIND},fe00000000,fe0000000000"
 
-srun --cpu-bind=$CPU_BIND ./select_gpu gmx_mpi mdrun -s topol -nb gpu -bonded gpu -pme gpu -update gpu -multidir run*
+srun --cpu-bind=${CPU_BIND} ./select_gpu gmx_mpi mdrun -s topol -nb gpu -bonded gpu -pme gpu -update gpu -multidir run*
 ```
 
 Note that the number of MPI tasks you request should be a multiple of the number of independent
