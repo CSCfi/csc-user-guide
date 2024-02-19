@@ -30,9 +30,9 @@ Free to use and open source under [BSD 3-Clause License](https://github.com/qiim
 
 ## Usage
 
-In Puhti To use QIIME1 do:
+To load QIIME1 module on Puhti:
 
-```text
+```
 module load qiime1
 ```
 
@@ -51,7 +51,8 @@ module load qiime2/2023.9-amplicon
 ```
 
 After that you can start QIIME2 with command:
-```text
+
+```
 qiime
 ```
 
@@ -66,9 +67,7 @@ CSC provides installations for the amplicon and shotgn distributions.
 
 ## Additional plugins
 
-CSC only maintains the basic distributions of QIIME2. If you need plugins not included in the basic distributions, you will need to install your own QIIME2.
-
-This can be easily done with the [Tykky tool](../computing/containers/tykky.md).
+CSC only maintains the basic distributions of QIIME2. If you need plugins not included in the basic distributions, you will need to install your own QIIME2 using the [Tykky tool](../computing/containers/tykky.md).
 
 First select the distribution (amplicon/shotgun/tiny) that best meets your needs.
 
