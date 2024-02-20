@@ -14,4 +14,4 @@
 === "3. Multi-factor authentication"
     ![Multi-factor Authentication](images/desktop/Desktop_MFA.png)
 
-*Please note that before loggin into SD Desktop for the first time, you must create a CSC account, activate MFA, and be part of some CSC project. All this happens in MyCSC-portal. Read more from [Start here](./sd-access.md).*
+*Please note that before logging into SD Desktop for the first time, you must create a CSC account, activate MFA, and be part of some CSC project. All this happens in MyCSC-portal. Read more from [Start here](./sd-access.md).*

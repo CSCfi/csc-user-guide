@@ -5,22 +5,21 @@
 Creating a virtual desktop is easy and doesn't require technical expertise. 
 
 * first [log in](./sd-desktop-login.md)
-* click on *Go to SD Desktop Management* [See screenshot](images/desktop/SD-Desktop_GoToManagement.png){ target="_blank" }
+* click on *Go to SD Desktop Management* [(See screenshot)](images/desktop/SD-Desktop_GoToManagement.png){ target="_blank" }
 * and follow these steps:
 
 ## 1. Specify desktop parameters
   
-* Select your CSC project and operating system. We recomend to choose **Linux Ubuntu22**, since there will be no updates published for Linux CentOS7 after June 30, 2024.
+* Select your CSC project and operating system. We recomend to choose **Linux Ubuntu22**, since there will be no updates published for Linux CentOS7 after June 30, 2024 [(See screenshot)](images/desktop/SD-Desktop_SelectProject.png){ target="_blank" }.
   
 * Give your desktop a name for easy identification, so that all project members can quickly identify it later on.
 
 ## 2. Choose a pre-built desktop options
 
-Choose a pre-built option based on your needs: Small (for basic tasks), Medium (for complex analysis), or Heavy (for intensive tasks).
+Choose a pre-built option based on your needs: Small (for basic tasks), Medium (for complex analysis), or Heavy (for intensive tasks) [(See screenshot)](images/desktop/SD-Desktop_PreBuild.png){ target="_blank" }.
 
 |  | Use  | Technical specifications | Correspondent Pouta Flavor | Billing Units consumption |
-|-|-|-|-|-|
-| **Light computation** | Ideal for small testing | Core 1; Memory 1 GB; Root disk 80 GB | standard.tiny | 1.3 billing units/h| 
+|-|-|-|-|-| 
 |  **Small computation** | Ideal for analyzing sensitive data using office software (for example: similar to simple statistical analysis with Excel, watching videos, listening to audio files, and working on text files). You can compare this desktop to your laptop. | Core 6; Memory 15 GB; Root disk 80 GB; | standard.xlarge | 5.2 billing units/h|
 |  **Medium computation**  | Ideal for running complex statistical or genome analysis (for example: using the command line to run specific scripts). You can compare this desktop to a powerful laptop provided by your organization's IT unit. |  Core 8; Memory 30 GB; Root disk 80 GB; | standard.xxlarge | 10.4 billing units/h |
 | **Heavy computation**|  Ideal for running non-interactive programmatic analysis (machine learning) that requires heavy computation. Please do not choose this option for simple analysis, as it consumes considerable resources. | Core 32; Memory 116 GB; Root disk 80 GB;  | hpc.5.32core | 52 billing units/h |
@@ -30,7 +29,7 @@ Choose a pre-built option based on your needs: Small (for basic tasks), Medium (
 
 ## 3. Add an external volume
 
-* Attach an external volume (virtual external hard drive) to your virtual desktop, extending default storage (80 GB) up to 200 GB. Choose *Volume size* (recommended: 50 GB for small computing, 100 GB for medium, 200 GB for heavy computation) and assign a name in the *Volume name* -field.
+* Attach an external volume (virtual external hard drive) to your virtual desktop, extending default storage (80 GB) up to 200 GB. Choose *Volume size* (recommended: 50 GB for small computing, 100 GB for medium, 200 GB for heavy computation) and assign a name in the *Volume name* -field [(See screenshot)](images/desktop/SD-Desktop_Volume.png){ target="_blank" }.
 
 * **It's advisable to save critical analyses or files on the volume, which can also serve as a backup if the virtual desktop becomes unresponsive.** Note that after the virtual desktop is created, disk space/volume extension requires contacting [CSC Service Desk](../../support/contact.md), *(subject: Sensitive Data)*. 
 
@@ -44,9 +43,9 @@ Choose a pre-built option based on your needs: Small (for basic tasks), Medium (
 === "Go to SD Desktop Mangement"
     ![Go to SD Desktop Management -button](images/desktop/SD-Desktop_GoToManagement.png)
 === "1. Desktop parameters"
-    **New screenshot needed here ![Select project](images/desktop/**
+    ![Select project](images/desktop/SD-Desktop_SelectProject.png)
 === "2. Pre-build desktop options"
-    **New screenshot needed here ![Select pre-build option](images/desktop/**
+    ![Select pre-build option](images/desktop/SD-Desktop_PreBuild.png)
 === "3. External volume"
     ![Add external volume](images/desktop/SD-Desktop_Volume.png)
 === "4. Create desktop"
