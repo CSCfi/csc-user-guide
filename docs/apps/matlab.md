@@ -139,13 +139,13 @@ We can configure MPS on a local computer using the following instructions.
    On Linux and macOS, MATLAB stores local configurations in `~/.matlab` directory.
    We can place the files there as follows:
    ```bash
-   mkdir -p ~/.matlab/config_mps_puhti
-   unzip csc.Desktop.zip -d ~/.matlab/config_mps_puhti
+   mkdir -p ~/.matlab/mps_puhti
+   unzip csc.Desktop.zip -d ~/.matlab/mps_puhti
    ```
    On Windows, we can use the `%AppData%\Mathworks\MATLAB` directory to store the configurations.
 4. Set the directory the MATLAB path using `addpath` and `savepath` functions in MATLAB as follows:
    ```matlab
-   addpath("~/.matlab/config_mps_puhti")
+   addpath("~/.matlab/mps_puhti")
    savepath
    ```
 5. Configure your MATLAB to submit jobs to Puhti by calling `configCluster` in MATLAB and supply your username to the prompt as follows:
@@ -304,5 +304,7 @@ LicenseName=mdcs
 -->
 
 
+<!-- TODO:
 ## Creating and using custom MATLAB installation
 It is also possible to create and use custom MATLAB installation and license.
+-->
