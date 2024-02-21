@@ -11,7 +11,7 @@ tags:
 
 Orfeo ToolBox is available in the following versions:
 
-* 8.0.1
+* Puhti: 8.0.1
 
 ## Usage
 
@@ -51,7 +51,7 @@ app.ExecuteAndWriteOutput()
 
 ### Using the graphical tools
 
-Start [Monteverdi](https://www.orfeo-toolbox.org/CookBook/Monteverdi.html):
+Start [Monteverdi](https://www.orfeo-toolbox.org/CookBook-8.0/Monteverdi.html):
 ```
 monteverdi
 ```

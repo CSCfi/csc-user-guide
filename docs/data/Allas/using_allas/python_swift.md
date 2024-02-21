@@ -1,4 +1,4 @@
-# Using Allas with Python
+# Using Allas with Python and SWIFT protocol
 
 CSC's instructions for [Installing OpenStack and other required Python libraries](../../../cloud/pouta/install-client.md).
 

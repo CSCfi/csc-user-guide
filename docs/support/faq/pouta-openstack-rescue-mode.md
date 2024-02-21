@@ -74,7 +74,7 @@ Note that there are always several ways to fix any problem, this FAQ is mainly m
 
 	```
 
-1. Get the image ID. You can store the ID into an environment variable `IMAGE_UUID`. You can use `CirrOS` or the same image as your instance: (The ID may vary from the example below)
+1. Get the image ID. You can store the ID into an environment variable `IMAGE_UUID`. You should use the same image as your instance: (The ID may vary from the example below)
 
 	```sh
 	$ openstack image list
@@ -91,8 +91,6 @@ Note that there are always several ways to fix any problem, this FAQ is mainly m
 	| 3a9aad67-0f9c-4493-b574-17fe28d40afc | cirros               | active |
 	+--------------------------------------+----------------------+--------+
 	```
-	!!! info "Cirros"
-	    Cirros is a small image designed for rescue operations when access was lost. It provides a default username and password that can be used in Pouta's web console
 
 1. Shutdown the instance:
 
@@ -126,7 +124,8 @@ Note that there are always several ways to fix any problem, this FAQ is mainly m
 
 ### Using ssh 
 
-Ssh into the instance, the user and IP should be the same as the normal ones.
+The rescue image will get the same SSH keys as configured in the VM you are rescuing,
+so you should be able to ssh into the instance, using the same user and IP as the normal ones.
 
 ```sh
 ssh <default-user>@<floating-ip>
@@ -138,13 +137,18 @@ You will get this warning: `WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!`. T
 ssh-keygen -f "~/.ssh/known_hosts" -R "$INSTANCE_IP"
 ```
 
-### Using Pouta's web console (cirros)
+### Using Pouta's web console (with Cirros)
+
+In some cases, like when you lose the private SSH key, you will need to use Pouta's web console. For this to work, you need to select the **Cirros** image in the step 3 above.
 
 Login in Pouta's web interface: <https://pouta.csc.fi>. Look for your instance and click in `console`.
 
 ![Web console](/img/pouta-web-console.png)
 
 The username and password should be printed in the console text, above the login.
+
+!!! Warning "Cirros"
+    The Cirros image is a small Linux distribution image with limited software support and security updates. It should be used only for rescue operations when normal SSH access is not possible.
 
 ## Mount the disk 
 
