@@ -35,31 +35,31 @@ port 443 (https), too, as it will be used to access the Nextcloud server.
 Open a terminal connection to your server (ssh or Putty) to install the Nextcloud server.
 First, it is good to update the Ubuntu system:
 
-```text
+```bash
 sudo apt-get update
 ```
 In this example we use _snap_ as it provides an easy way to install Nextcloud.
 You can do the installations with just few commands.
 
 First do the next-cloud installation with command:
-```text
+```bash
 sudo snap install nextcloud
 ```
 Then, Nextcloud administration account is created. In the command below the account name is
 defined to be _ncadmin_ with password _1Hu9kgFsN_.
-```text
+```bash
 sudo nextcloud.manual-install ncadmin 1Hu9kgFsN
 ```
 Next you need to enable https with self signed certificate. Self signed certificates are sufficient for testing, but 
 for production you should use real certificates (e.g. lets-encrypt instead of self-signed).
-```text
+```bash
 sudo nextcloud.enable-https self-signed
 ```
 
 As a last step. add the IP-address of your Nextcloud server to the list of trusted domains. The IP-address is the Floating IP address 
 that you assigned for the VM and that you used to open the terminal connection. 
 For example the case of IP:86.50.252.77 the definition could be done with command:
-```text
+```bash
 sudo nextcloud.occ config:system:set trusted_domains 1 --value=86.50.252.77
 ```
 
@@ -83,7 +83,7 @@ provided script that disables a few and configures some Apps in order to make th
 less overloaded with features for this kind of Allas front end testing. The script can be
 downloaded and run like this:
 
-```text
+```bash
 curl https://raw.githubusercontent.com/CSCfi/allas-cli-utils/master/nextcloud_snap/clean_nextcloud_snap >clean_nextcloud_snap
 chmod +x clean_nextcloud_snap
 ./clean_nextcloud_snap
@@ -98,26 +98,26 @@ You can do this things for example in puhti.csc.fi with commands:
 
 ### 1. Setting up the connection:
 
-```text
+```bash
 module load allas
 allas-conf --mode s3cmd
 ```
 
 ### 2. Creating a new empty bucket
 
-```text
+```bash
 s3cmd mb s3://your-proj-num-nextcloud
 ```
 In this example we are using project 2001234 so
 the bucket name could be:
 
-```
+```text
 2001234-nextcloud
 ```
 
 ### 3. Printing out the keys
 
-```text
+```bash
 grep key $HOME/.s3cfg
 ```
 
@@ -185,12 +185,12 @@ In security section section *Devices & Sessions*, an application password is cre
 
 In addition to user name and application password the user needs to know the IP address or server name to access the service. 
 With this information available, data can be downloaded from Nextcould using curl command syntax:
-```
+```bash
 curl -k -u username:app-password "https://server-ip/remote.php/webdav/nextcloudirectiory/file-name"
 ```
 
 And upload can be done using syntax:
-```
+```bash
 curl -k -u username:app-password -T file-to-upload "https://server-ip/remote.php/webdav/nextcloudirectiory/file-name"
 ```
 
@@ -202,12 +202,12 @@ to the next cloud service.
 
 Now the _ncuser1_ is able to upload a file _image1.jpg_ to Allas bucket _2001234-nextcloud_ with command:
 
-```
+```bash
 curl -k -u ncuser1:Q34EN-Ni7pH-9oSes-ZQsF7-NdkYi -T ./image1.jpg "https://123.456.768.910/remote.php/webdav/2001234-nextcloud/image1.jpg"
 ```
 
 The same file can be downloaded with command:
 
-```
+```bash
 curl -k -u ncuser1:Q34EN-Ni7pH-9oSes-ZQsF7-NdkYi "https://123.456.768.910/remote.php/webdav/2001234-nextcloud/image1.jpg" > image1.jpg
 ```

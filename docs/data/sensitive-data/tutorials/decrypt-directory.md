@@ -31,7 +31,7 @@ to read the password of the private key from environment variable
 C4GH_PASSPHRASE. Thus the first step is set this variable. In bash shell
 this could in this case be done with commands:
 
-```txt
+```bash
 read C4GH_PASSPHRASE
 export C4GH_PASSPHRASE
 ```
@@ -40,7 +40,7 @@ Find command can be used to list all files that end with
 _.c4gh_ in a given directory (_data1_) and its' subdirectories.
 This list can be used as an input for a _for loop_.
 
-```
+```bash
 find data1 -name *.c4gh
 ```
 
@@ -51,13 +51,13 @@ for decrypted data.
 
 The actual decryption is done with command:
 
-```
+```bash
 crypt4gh decrypt --sk my-key.sec < encrypted-file > decrypted-file
 ```
 
 With these steps, the complete script could look like following:
 
-```
+```bash
 #!/bin/bash
 
 echo "Give the password of my-key.sec"
@@ -74,7 +74,8 @@ done
 ```
 
 The script could be executed with commands:
-```
+
+```bash
   chmod u+x decryption_script
   ./chmod u+x decryption_script
 ```
@@ -94,7 +95,7 @@ Once the command is available, the decryption can be done with following
 PowerShell commands. Here we assume that the data to be decrypted is in
 directory _E:\data1_.
 
-```
+```powershell
 $env:C4GH_PASSWORD = "badpasswd"
 $files = (Get-ChildItem -Path 'E:\data1\'*.c4gh -Recurse).fullname
 
