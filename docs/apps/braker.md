@@ -19,8 +19,62 @@ Free to use and open source under [Artistic License] (https://opensource.org/lic
 
 Version on CSC's Servers
 
-Puhti: 2.1.6
+Puhti: 2.1.6, 3.0.7
 
+
+## Setting up BRAKER
+
+BRAKER needs some additional setting up steps before using it for the first time.
+
+CSC BRAKER installations do not contain GeneMark or ProHint softaware packages. While they are free
+for individual use, their licensing terms do not allow CSC to make a public installation of them.
+Each user needs to license and install them for their own use.
+
+### GeneMark
+
+Go to [GeneMark download page](http://exon.gatech.edu/GeneMark/license_download.cgi), and fill in the form. The version you need is "GeneMark-ES/ET/EP+" for "LINUX 64 kernel 3.10 - 5". Download the program file and yhe license key. To uncompress the packages:
+
+```
+tar xf gmes_linux_64_4.tar.gz
+gunzip gm_key_64.gz
+```
+
+To tell BRAKER where to find GeneMark, set environment variable `$GENEMARK_PATH`to point to install location or use command line option `--GENEMARK_PATH`.
+
+```
+export GENEMARK_PATH=/path/to/gmes_linux_64_4
+```
+
+BRAKER module contains all the necessary dependencies.
+
+### ProHint
+
+Download and uncompress ProHint.
+
+```
+wget https://github.com/gatech-genemark/ProtHint/releases/download/v2.6.0/ProtHint-2.6.0.tar.gz
+tar xf ProtHint-2.6.0.tar.gz
+```
+
+Set environment variable `$PROHINT_PATH`to point to install location  or use command line option `--PROHINT_PATH`.
+
+```
+export PROHINT_PATH=/path/to/ProtHint-2.6.0/bin
+```
+
+BRAKER module contains all the necessary dependencies.
+
+### AUGUSTUS
+
+AUGUSTUS is inluded in the installation, but you will need your own copy of AUGUSTUS config directory, as it needs to be writable by the user. You can create this by running command:
+
+```
+copy_config
+```
+
+It will create directory `config` in your current directory.
+
+Set environment variable `$AUGUSTUS_CONFIG_PATH` to pint to the config directory or use command line option `--UGUSTUS_CONFIG_PATH`
 
 ## Usage
 
@@ -30,7 +84,7 @@ In Puhti BRAKER should be used only in batch jobs. Either in normal batch jobs o
 
 You can start interactive batch job with command:
 
-```text
+```
 sinteractive -i
 ```
 BRAKER can utilize several computing cores and can require significant amount of memory so you should reserve
@@ -38,27 +92,28 @@ more than the default resources for your interactive batch job. For example 4 co
 
 In batch job, you can initialize BRAKER environment with command
 
-```text
+```
 module load braker
 ```
+
 After that you can launch a BRAKER job with command:
 
-```text
-braker-puhti
+```
+braker.pl
 ```
 
-This command should be used in stead of the original _braker.pl_ script, as it automatically sets 
-some parameters that enable running BRAKER in Puhti. _braker-puhti_ is able to use all the command line options
-of _braker.pl_. To see the options, run command:
+To see the options, run command:
 
-```text
-braker-puhti --help
 ```
+braker.pl --help
+```
+
 Sample BRAKER command in Puhti:
 
-```text
- braker-puhti --species=sp1 --genome=Drosophila.dna.fa --prot_seq=Drosophila.pep.fa --prg=gth --trainFromGth --AUGUSTUS_ab_initio --cores=$SLURM_CPUS_PER_TASK
 ```
+ braker.pl --species=sp1 --genome=Drosophila.dna.fa --prot_seq=Drosophila.pep.fa --prg=gth --trainFromGth --AUGUSTUS_ab_initio --cores=$SLURM_CPUS_PER_TASK
+```
+
 ### Batch jobs
  
 Sample batch job scrip for BRAKER:
@@ -77,8 +132,14 @@ Sample batch job scrip for BRAKER:
 # load braker
 module load braker
 
+# Use correct paths instead of "/path/to"
+export GENEMARK_PATH=/path/to/gmes_linux_64_4
+export PROHINT_PATH=/path/to/ProHint-2.6.0/bin
+export AUGUSTUS_CONFIG_PATH=/path/to/config
+
+
 # start the job
-braker-puhti --species=sp1 --genome=Drosophila.dna.fa --prot_seq=Drosophila.pep.fa \
+braker.pl --species=sp1 --genome=Drosophila.dna.fa --prot_seq=Drosophila.pep.fa \
 --prg=gth --trainFromGth --AUGUSTUS_ab_initio --cores=$SLURM_CPUS_PER_TASK
 ```
 
