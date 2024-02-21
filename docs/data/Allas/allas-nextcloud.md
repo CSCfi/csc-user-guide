@@ -99,8 +99,8 @@ You can do this things for example in puhti.csc.fi with commands:
 ### 1. Setting up the connection:
 
 ```text
-   module load allas
-   allas-conf --mode s3cmd
+module load allas
+allas-conf --mode s3cmd
 ```
 
 ### 2. Creating a new empty bucket
@@ -162,7 +162,7 @@ and confirm the creation request by typing the password of Nextcloud admin.
 
 Then a new user is created by  clicking _add user_ 
 User name and password needs to be defined for the user and the 
-new account is added to group _Users_. 
+new account is added to group _Users_.
 
 Finally, we need to allow this new user to access the  _External storage_ (the bucket from Allas). 
 To do that, go back to the Settings view and reopen the _External storages_ settings from the Administration tools. 
