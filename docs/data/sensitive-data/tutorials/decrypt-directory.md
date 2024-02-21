@@ -11,7 +11,7 @@ illustrate how decryption process can be automatized.
 In practice automatized decryption process requires two
 functionalities:
 
-  1. Constucting a loop that finds encrypterd files
+  1. Constructing a loop that finds encrypted files
   and executes decryption command.
 
   2. A method that automatically provides the decryption password to
