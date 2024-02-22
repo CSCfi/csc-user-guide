@@ -523,9 +523,11 @@ or
 mkdocs serve --dirtyreload
 ```
 
->**Option 2, GUI**: The VS Code task for starting the development server will ask whether you'd like to include e.g. the `--dirtyreload` flag.
+>**Option 2, GUI**: The task for starting the development server will ask whether you'd like to include e.g. the `--dirtyreload` flag.
 
 It will take a moment for MkDocs to build and serve the site. You can ignore the long list of pages that "exist in the docs directory, but are not included in the "nav" configuration" MkDocs will show you. If you wish to shut down the server (even when its building)&ndash;perhaps to restart it with `--dirtyreload` enabled&ndash;simply hit _Ctrl+C_.
+
+>**Option 2, GUI**: Click on the terminal panel to activate it before hitting _Ctrl+C_. You can also click the trashcan icon with the tooltip "Kill Terminal" to shut the server down.
 
 When MkDocs tells you it is serving on an address, you can point a web browser to the address for a preview. The default is [127.0.0.1:8000](http://127.0.0.1:8000/) AKA [localhost:8000](http://localhost:8000/).
 
