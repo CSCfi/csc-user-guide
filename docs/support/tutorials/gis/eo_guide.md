@@ -246,8 +246,6 @@ Below is a list of alternative EO processing services that might be useful, when
 
 [**CDSE**](https://dataspace.copernicus.eu/analyse) provides also processing services, mainly via OpenEO and SentinelHub services, soon also On-Demand Processing. 
  
-[**Sentinelhub**](https://www.sentinel-hub.com/explore/) is a commercial service that offers several different APIs.
-
 **Commercial clouds**: Amazon, Google Cloud and Microsoft Azure, all provide virtual machines and other processing services, all of them have some local data, see links above. 
  
 ## Where can I get help?
