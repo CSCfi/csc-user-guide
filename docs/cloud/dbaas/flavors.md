@@ -7,9 +7,6 @@
 
 The database instances are hosted on top of cPouta. The billing is based on the flavor (database instance size), volume size of the database and how much backup you are using.
 
-!!! info "Note"
-    Billing will be enabled January 2024.
-
 ## Flavor types
 
 | Flavor | Cores | Memory (MB) | Billing Units / hour |

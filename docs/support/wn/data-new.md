@@ -1,6 +1,12 @@
 # Data management
 
 
+## SD Connect (Beta) now available, 13.12.2023
+
+A new version of SD Connect is now available for testing purposes. The updated user interface offers automated file encryption and decryption (up to 100 GB) along with key management. Additionally, three levels of sharing permissions are accessible across CSC projects. This version is in Open Beta. Kindly use it for testing scenarios and avoid relying on it for storing critical data until it transitions to a stable release. Please provide feedback by [contacting CSC Service Desk](../contact.md) (subject: Sensitive Data) to contribute to service improvement.
+
+Preliminary user guide is available [here](../../data/sensitive-data/sd-connect-beta.md)
+
 ## SD Desktop and SD Connect: service usage restrictions and CSC project closure, 8.9.2023
 
 As of September 6, 2023, we have introduced two significant changes to our service usage according to CSC's data retention policies, which are currently in effect:

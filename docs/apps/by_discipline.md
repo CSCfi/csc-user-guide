@@ -29,7 +29,7 @@
 * [Freebayes](freebayes.md) Genetic variant detector
 * [GOLD](gold.md) Protein Ligand Docking Software
 * [Grace](grace.md) Plotting tool for xvg-files in particular
-* [Gromacs](gromacs.md) Fast and versatile classical molecular dynamics
+* [GROMACS](gromacs.md) Fast and versatile classical molecular dynamics
 * [HMMER](hmmer.md) Toolkit to create and use sequence profile hidden Markov models
 * [HUMAnN](humann.md) Profiling microbial pathways with metagenomic data
 * [Illumina BaseSpace](bs.md) Command line client for retrieving data from the Illumina BaseSpace environment
@@ -75,12 +75,13 @@
 * [Amber](amber.md) Molecular dynamics suite
 * [AMS](ams.md) Modelling suite providing engines like ADF, BAND, DFTB and MOPAC
 * [AMS-GUI](ams-gui.md) AMS integrated GUI
+* [COSMO-RS](cosmors.md) Toolbox for predictive property calculation of liquids
 * [CP2k](cp2k.md) DFT, quantum chemistry, QM/MM, AIMD etc. in particular for periodic systems
 * [CSD](csd.md) Cambridge Crystallographic Database - organic and metallo-organic crystal structures and tools
 * [Gaussian](gaussian.md) Versatile computational chemistry package
 * [GOLD](gold.md) Protein Ligand Docking Software
 * [GPAW](gpaw.md) Versatile DFT package
-* [Gromacs](gromacs.md) Fast and versatile classical molecular dynamics
+* [GROMACS](gromacs.md) Fast and versatile classical molecular dynamics
 * [LAMMPS](lammps.md) Fast molecular dynamics engine with large force field selection
 * [Maestro](maestro.md) Versatile drug discovery and materials modeling suite
 * [Materials Studio](materialsstudio.md) Versatile materials modeling suite
@@ -92,7 +93,7 @@
 * [ORCA](orca.md) General purpose quantum chemistry package
 * [Plumed](plumed.md) Library and tools for enhanced sampling methods
 * [TmoleX](tmolex.md) GUI for setting up and analyzing TURBOMOLE jobs
-* [Turbomole](turbomole.md) Efficient program package for electronic structure calculations
+* [TURBOMOLE](turbomole.md) Efficient program package for electronic structure calculations
 * [VASP](vasp.md) Ab initio DFT electronic structures
 * [VMD](vmd.md) Molecular visualization program
 
@@ -135,6 +136,7 @@
 * [QGIS](qgis.md) General purpose GIS software family for viewing, editing and analysing geospatial data
 * [R for GIS](r-env-for-gis.md) R spataial analysis libraries
 * [SAGA GIS](saga-gis.md) General purpose GIS software family for viewing, editing and analysing geospatial data
+* [Seismic-unix](seismic-unix.md) for processing of 2D seismic or GPR data sets.
 * [Sen2Cor](sen2cor.md) for atmospheric-, terrain and cirrus correction of the Sentinel-2 products
 * [Sen2mosaic](sen2mosaic.md) for download, preprocessing and mosaicing of Sentinel-2 products
 * [SNAP](snap.md) for remote sensing applications
@@ -172,10 +174,16 @@
 * [VASP](vasp.md) Ab initio DFT electronic structures
 
 
+## Quantum
+* [Pennylane](pennylane.md) Free open-source software framework for quantum machine learning and quantum computing
+* [Qiskit-on-iqm](qiskit-on-iqm.md) open-source qiskit adapter for quantum computing
+* [Cirq-on-iqm](cirq-on-iqm.md) open-source cirq adapter for quantum computing
+* [Qiskit](qiskit.md) open-source toolkit for useful quantum computing
+* [CUDA Quantum](cuda-quantum.md) open-source platform for hybrid quantum-classical computing
+
 ## Miscellaneous
 
 * [Accelerated visualization](accelerated-visualization.md) A selection of GPU accelerated visualization applications
-* [CUDA Quantum](cuda-quantum.md) open-source platform for hybrid quantum-classical computing
 * [DDT](ddt.md) Parallel debugger
 * [Desktop](desktop.md) Remote desktop environment
 * [HyperQueue](hyperqueue.md) Scheduler for sub-node tasks
@@ -184,8 +192,6 @@
 * [Jupyter for courses](jupyter-for-courses.md) A version of the Jupyter app for course environments
 * [MySQL](../data/kaivos/overview.md) MySQL database client.
 * [ParaView](paraview.md) Free open-source visualization application
-* [Pennylane](pennylane.md) Free open-source software framework for quantum machine learning and quantum computing
-* [Qiskit](qiskit.md) open-source toolkit for useful quantum computing
 * [TensorBoard](tensorboard.md) The visualization toolkit for TensorFlow
 * [VisIt](visit.md) Free open-source visualization application
 * [Visual Studio Code](vscode.md) Source code editor

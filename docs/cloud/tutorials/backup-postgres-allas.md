@@ -1,15 +1,18 @@
 # How to backup a Postgres DB into Allas
 
-In this tutorial we are going to show how to backup a PostgreSQL DB running in Rahti 2 into Allas. The general idea is to use a `CronJob` that will create a dump file of the database and upload it to Allas.
+In this tutorial we are going to show how to backup a PostgreSQL or Maria DB running in Rahti into Allas. The general idea is to use a `CronJob` that will create a dump file of the database and upload it to Allas.
 
-This is a simple example, the backup SQL file is not compressed, the checksums are not verified, there is no encryption, ... it just shows the basic idea of creating a backup and putting it in object storage.
+!!! Warning
+    This is a simple example, the backup SQL file is not compressed, the checksums are not verified, there is no encryption, ... it just shows the basic idea of creating a backup and putting it in object storage.
+
+    You can find the address of the GitHub repository [here](https://github.com/CSCfi/rclone-template/tree/psql). Feel free to clone and edit it to suit your needs.
 
 ## Prerequisites
 
-* A postgres DB. You need to have read access to it. To deploy a new DB in Rahti 2, you can use the Postgres template provided in the catalog. It is also possible to backup an external DB, but all instructions assume the DB is running in Rahti 2 in the same namespace as the backup process will be run.
+* A postgres or  maria DB. You need to have read access to it. To deploy a new DB in Rahti, you can use the Postgres or MariaDB template provided in the catalog. It is also possible to backup an external DB, but all instructions assume the DB is running in Rahti in the same namespace as the backup process will be run.
 
 
-* A secret called `postgresql` with the following keys: `database-user`, `database-password`, and `database-name`. This secret is created by Postgres's template, but will need to be created manually if Postgres is running outside Rahti 2.
+* A secret that will take the value of `$DBHOST` (either `postgresql` or `mariadb`) with the following keys: `database-user`, `database-password`, and `database-name`. This secret is created by rclone's template, but will need to be created manually if Postgres or Mariadb is running outside Rahti.
 
 * The `ACCESS_KEY` and `SECRET_KEY` to access Allas. You may get them by doing:
 
@@ -17,7 +20,7 @@ This is a simple example, the backup SQL file is not compressed, the checksums a
 pip install python-openstackclient
 ```
 
-Then go to [Access & Security](https://pouta.csc.fi/dashboard/project/api_access/), download the OpenStack RC File v3.0, source it, and input your password when prompted:
+Then go to [OpenRC download](https://pouta.csc.fi/dashboard/project/api_access/openrc/), download the OpenStack RC File v2.0, source it, and input your password when prompted:
 
 ```bash
 $ source ~/Downloads/project_XXXXXXX-openrc.sh
@@ -41,7 +44,7 @@ openstack ec2 credentials list -f yaml
 
 ## Add the CronJob
 
-First you need to clone the repository with the template and add it to the Rahti 2 namespace where Postgres is running:
+First you need to clone the repository with the template and add it to the Rahti namespace where Postgres or Mariadb is running:
 
 ```sh
 git clone https://github.com/cscfi/rclone-template.git -b psql
@@ -56,8 +59,16 @@ $ oc process rclone \
     ACCESS_KEY=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX \
     SECRET_KEY=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX \
     BUCKET_DIR=existing_bucket/existing/path \
+    DBHOST=postgresql \ # or mariadb
     SCHEDULE="0 4 * * *" | oc create -f -
 ```
 
-This will run the backup process every day at 4:00 am. You may change the schedule, see <https://en.wikipedia.org/wiki/Cron> or <https://crontab.guru/> for reference.
+This will run the backup process every day at 4:00 am. You may change the schedule, see <https://en.wikipedia.org/wiki/Cron> for reference.
+The backups won't be overwritten as it will take the date and time of the backup start.
+
+You can find more information about the backup and restore commands here:  
+
+- PostgreSQL: [Backup database](https://www.postgresqltutorial.com/postgresql-administration/postgresql-backup-database/) and [Restore database](https://www.postgresqltutorial.com/postgresql-administration/postgresql-restore-database/)
+
+- MariaDB: [Backup database](https://mariadb.com/kb/en/mariadb-dump/) and [Restore database](https://mariadb.com/kb/en/backup-and-restore-overview/)
 

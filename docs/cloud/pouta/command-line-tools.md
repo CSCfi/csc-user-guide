@@ -91,6 +91,29 @@ functioning virtual machine.
     is not used when connecting to the virtual machine. The virtual 
     machine allows access to a user only if the user uses SSH keys.
 
+##### Customize the virtual machine before launch
+
+    openstack server create --flavor <flavor> --image <image id> --key-name <key name> --user-data user-data.sh <name for machine>
+
+The `user-data.sh` file can have extra commands to be executed automatically after the instance has been launched.
+
+Below is an example content of the script file that would add a custom user in to the flavor and giving it the `sudo` rights:
+
+``` bash
+#!/bin/sh
+
+# Add a new user called boss
+useradd -m boss
+
+# Add the user to sudoers. No password is needed for sudo.
+echo 'boss ALL=(ALL) NOPASSWD:ALL' > /etc/sudoers.d/boss
+```
+
+The script file can contain any arbitrary command, so some cautioness is recommended.
+
+!!! Note
+    Please note that the example does not contain addition of user authentication (public SSH key).
+
 ##### List instances
 
     openstack server list
