@@ -138,7 +138,7 @@ Some Finnish EO datasets are available locally at CSC. [Paituli STAC](https://pa
 
 ### Copernicus Data Space Ecosystem
 
-[Copernicus Data Space Ecosystem](https://dataspace.copernicus.eu/) (CDSE) provides the possibility to browse, visualize, download and analyze EO data. Almost all of the services require self-registration. Different services have different limitations, see [CDSE Quotas and limitations](https://documentation.dataspace.copernicus.eu/Quotas.html). Compared to the ESA's previous service (SciHub), the number of concurrent downloads per user has increased from two to four for most APIs.
+[Copernicus Data Space Ecosystem](https://dataspace.copernicus.eu/) (CDSE) provides the possibility to browse, visualize, download and analyze EO data. Almost all of the services require self-registration. 
 
 #### CDSE data
 
@@ -171,7 +171,7 @@ In principle also STAC has a lot of potential, because it would easier to downlo
 
 You can also read data directly from S3 with GDAL or GDAL-based tools, see [CSC GDAL cloud tutorial](gdal_cloud.md). 
 
-These data APIs are free of charge.
+These data APIs are free of charge. Different services have different limitations, see [CDSE Quotas and limitations](https://documentation.dataspace.copernicus.eu/Quotas.html). Compared to the ESA's previous service (SciHub), the number of concurrent downloads per user has increased from two to four for most APIs.
 
 #### OpenEO and SentinelHub
 
