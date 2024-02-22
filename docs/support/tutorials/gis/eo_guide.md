@@ -149,6 +149,7 @@ Note that duplicates may be available due to reprocessing with newest baselines.
 #### CDSE applications
 
 CDSE provides many applications for interacting with the data:
+
 * [CDSE Browser](https://dataspace.copernicus.eu/browser/) - for accessing, exploring and downloading the data.
 * [Copernicus Data Workspace](https://dataspace.copernicus.eu/workspace/) is a tool for managing and reviewing EO-related products, which can then be further processed or downloaded for various purposes. When products are selected for processing, you are provided with a list of processors that are capable of processing relevant data types.
 * [CDSE Jupyter Notebooks](https://jupyterhub.dataspace.copernicus.eu/) provide to analyse the data using Jupyter Notebooks. Each user has 10Gb of persistent space (deleted after 15 days without login) and access to 2 - 4 CPUs with 4 - 16 Gb RAM. Note that in addition to personal limits, also the total number of active users seems to be limited. It is possible to add own packages via pip. [CDSE example notebooks](https://github.com/eu-cdse/notebook-samples)
@@ -161,12 +162,12 @@ CDSE provides many applications for interacting with the data:
 
 Several example scripts are available for CDSE data download: 
 
-* [OpenSearch API + rclone by CSC](https://github.com/csc-training/geocomputing/tree/master/Copernicus_data_download) how to find data and download it to disk or CSC Allas object storage using `rclone`.
-* [OData API with Python requests](https://github.com/eu-cdse/notebook-samples/blob/main/geo/odata_basics.ipynb)
+* [OpenSearch API + rclone by CSC](https://github.com/csc-training/geocomputing/tree/master/Copernicus_data_download), option to save to CSC Allas or some other object storage .
+* [OData API + Python requests](https://github.com/eu-cdse/notebook-samples/blob/main/geo/odata_basics.ipynb)
 * Alternatively [s3cmd and Python boto3](https://documentation.dataspace.copernicus.eu/APIs/S3.html) may be used for S3 downloads.
 
 
-In principle also STAC has a lot of potential, because it would easier to download products also partially (only some bands or geographically). It is the newest of data API and at the moment does not support any other search criteria than collection, id, time and location, so for example cloud cover filtering is not possible (yet). So use for Sentinel2 data is currently limited, but for Sentinel1 it might be more useful.
+In principle also STAC has a lot of potential, because it would easier to download only needed data, for example only some bands or geographically only parts of data. It is the newest of data API and at the moment does not support any other search criteria than collection, time and location, so for example cloud cover filtering is not possible (yet). So use cases for Sentinel2 data is currently limited, but for Sentinel1 it might be more suitable.
 
 You can also read data directly from S3 with GDAL or GDAL-based tools, see [CSC GDAL cloud tutorial](gdal_cloud.md). 
 
@@ -214,7 +215,7 @@ There is no single software perfect for every task and taste. The right software
 
 [**Python**](../../../apps/python.md)
 
-* The [geoconda module](../../../apps/geoconda.md) provides many useful Python packages for raster data processing and analysis, such as `rasterio`, `rasterstats`, `scimage`, `sentinelhub`, `xarray`, `boto3` and tools for working with STAC.
+* The [geoconda module](../../../apps/geoconda.md) provides many useful Python packages for raster data processing and analysis, such as `rasterio`, `rasterstats`, `scimage`, `sentinelhub`, `xarray`, `boto3` and packages for working with STAC.
 * [Machine learning modules](../../../apps/by_discipline.md#data-analytics-and-machine-learning) provide some common machine learning frameworks, also for deep learning..
 
 [**QGIS**](../../../apps/qgis.md) - open source tool with GUI for working with spatial data including limited multispectral image processing capabilities.  GUI with batch processing possibility and Python interface. Used for example for visualization, map algebra and other raster processing. Many plug-ins available, for EO data processing, check out the [QGIS Semi-automatic classification plugin](https://fromgistors.blogspot.com/p/semi-automatic-classification-plugin.html).
