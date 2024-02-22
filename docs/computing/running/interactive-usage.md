@@ -86,10 +86,10 @@ See the [Using RStudio or Jupyter notebook tutorial](../../support/tutorials/rst
 ### Example: Running an MPI job in an interactive session
 
 Since the shell started in the interactive session is already a job step in Slurm, more job steps can't be started.
-This will disable, e.g. running Gromacs tools, as `gmx_mpi` is a parallel program and normally needs `srun`.
+This will disable, e.g. running GROMACS tools, as `gmx_mpi` is a parallel program and normally needs `srun`.
 In this case, in the interactive shell, `srun` must be replaced with `orterun -n 1`. Orterun does not know of the
 Slurm flags, so it needs to be told how many tasks/threads to use. The following example will run a
-[Gromacs](../../apps/gromacs.md) mean square displacement analysis for an existing trajectory.
+[GROMACS](../../apps/gromacs.md) mean square displacement analysis for an existing trajectory.
 
 ```bash
 sinteractive --account <project>

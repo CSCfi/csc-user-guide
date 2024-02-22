@@ -30,7 +30,7 @@ You can find more information in the [How to add docker hub credentials to a pro
 
 A more obscure problem is when the format of the image is not supported by the current version of Rahti (v3.11), which uses an old version of the docker client. Currently there are two docker image formats, docker (`application/vnd.docker.container.image.v1+json`) and OCI (`application/vnd.oci.image.manifest.v1+json`), the current version of Rahti only supports `docker`.
 
-When an old client is used to try to pull a image with the newer format, the client cannot find it and returns a `repository does not exist` error. The easiest way to check the `mediaType` of an image is to use `docker manifest inspect <image>:<tag>`. This command will show the media type of the image and each of its layers.
+When an old client is used to try to pull an image with the newer format, the client cannot find it and returns a `repository does not exist` or `Error response from daemon: missing signature key` error. The easiest way to check the `mediaType` of an image is to use `docker manifest inspect <image>:<tag>`. This command will show the media type of the image and each of its layers.
 
 
 ## Workarounds
@@ -46,20 +46,9 @@ buildah bud -t image/name:tag --format=docker
 * [Skopeo](https://github.com/containers/skopeo) is an utility that performs various operations on container images and image repositories.
 You can use it to copy from DockerHub to Rahti internal registry and it will automatically convert the image in the `docker` format. Here is an example:  
 
-First, you need your Rahti login. After being connected, type this command to get it:
-
-```sh
-oc whoami
-```
-
-Then, use this command to retrieve your token:  
-
-```sh
-oc whoami -t
-```
-
-Once the information above is gathered, type this command to copy a Docker image from DockerHub to Rahti internal registry:  
+First, you need to be connected to Rahti. After being connected, type this command to copy a Docker image from DockerHub to Rahti internal registry:    
 
 ```
-skopeo copy docker://publisher/image:tag --dest-creds <login>:<token> docker://docker-registry.rahti.csc.fi/project/image:tag
+skopeo copy docker://publisher/image:tag --dest-creds $(oc whoami):$(oc whoami -t) docker://docker-registry.rahti.csc.fi/project/image:tag
 ```
+_Replace 'project' by your Rahti project, 'image' by the desired name for the image and 'tag' by the desired tag_

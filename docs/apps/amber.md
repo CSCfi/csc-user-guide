@@ -118,7 +118,7 @@ srun paramfit -i Job_Control.in -p prmtop -c mdcrd -q QM_data.dat
 !!! info "Note"
     `pmemd.cuda` and `pmemd.hip` are way faster than `pmemd.MPI`, so use a
     CPU-version only in case you cannot use the GPU-version. If Amber performance
-    is not fast enough, consider using [Gromacs](gromacs.md), which is typically
+    is not fast enough, consider using [GROMACS](gromacs.md), which is typically
     able to scale further (*i.e.* make use of more CPU and/or GPU resources).
     
     Consider also whether you really need speed or just a lot of sampling. Accelerated
@@ -235,7 +235,7 @@ documentation.
 
 ### High-throughput computing with Amber
 
-Similar to [Gromacs multidir](../support/tutorials/gromacs-throughput.md),
+Similar to [GROMACS multidir](../support/tutorials/gromacs-throughput.md),
 Amber has a built-in "multi-pmemd" functionality, which allows you to run multiple
 MD simulations within a single Slurm allocation. This is an efficient option in cases
 where you want to run many similar, but independent, simulations. Typical use cases

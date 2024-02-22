@@ -1,5 +1,48 @@
 # Applications
 
+## GROMACS 2024.0, 16.2.2024
+
+[GROMACS](../../apps/gromacs.md) 2024.0 is now available on Puhti, Mahti and LUMI. See
+[release notes](https://manual.gromacs.org/2024.0/release-notes/2024/major/highlights.html)
+for a list of new features and improvements. Notably, the GPU-enabled module on LUMI
+now uses a more recent version of ROCm (5.6.1) and AdaptiveCPP (23.10.0) with improved
+performance.
+
+## TmoleX 2024, 9.2.2024
+
+[TmoleX](../../apps/tmolex.md) has been updated and is now also available via
+the web interface on Puhti. 
+
+## TURBOMOLE 7.8, 8.2.2024
+
+[TURBOMOLE](../../apps/turbomole.md) version 7.8 has been installed
+and set as the default module on Puhti and Mahti. See
+[release notes](https://www.turbomole.org/turbomole/release-notes-turbomole-7-8/)
+for a list of new features and improvements.
+
+## Schrödinger Maestro 2024.1, 8.2.2024
+
+[Schrödinger Maestro](../../apps/maestro.md) version 2024.1 has been installed
+and set as the default module on Puhti and Mahti. See
+[release notes](https://newsite.schrodinger.com/life-science/download/release-notes/)
+for a list of new features and improvements.
+
+## ORCA 5.0.4, 7.2.2024
+
+[ORCA](../../apps/orca.md) 5.0.4 is now available on Puhti and Mahti. It's a bugfix release including corrections for the bug in the D4 implementation.
+Please note the change in how it's launched in a batch script. 
+
+## R 4.3.2 in r-env, 2.2.2024
+	
+R version 4.3.2 is now available in [r-env](../../apps/r-env.md) and is set as the default version. The new version will also be available in RStudio in the Puhti web interface shortly.
+
+## COSMO-RS, 30.1.2024
+
+[COSMO-RS](../../apps/cosmors.md) is a new tool for modelling fluid phase properties,
+based on quantum chemistry derived properties. 
+It consists of the BIOVIA COSMOsuite toolbox and can be utilized in combination with
+[TURBOMOLE](../../apps/turbomole.md).
+
 ## Python Data 3.10-23.11, 28.11.2023
 
 A new version of [Python Data](../../apps/python-data.md)
@@ -81,7 +124,7 @@ R version 4.3.0 is now available in `r-env` and is set as the default version. T
 CPU and GPU versions of Gromacs 2023.1 have been installed on LUMI. Notably, the
 GPU-enabled module is the official hipSYCL version, which has improved significantly
 in terms of performance since the previous releases. The LUMI-G instructions on the
-[Gromacs application page](../../../apps/gromacs/#example-batch-script-for-lumi-single-gcd)
+[Gromacs application page](../../apps/gromacs.md#lumi)
 have also been updated and the
 [tutorial on running multi-simulations](../tutorials/gromacs-throughput.md)
 using the built-in `multidir` feature extended and adapted for LUMI-G.

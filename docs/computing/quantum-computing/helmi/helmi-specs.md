@@ -4,7 +4,7 @@
 
 Helmi is a 5-qubit quantum computer co-developed by VTT and IQM using superconducting qubits. 
 The qubits are arranged in a **star shaped** topology, with the central qubit being Qubit 3 (QB3) connected to the other 4 qubits. 
-This means that any two-qubit gate will work most efficiently between QB3 and any other qubit, 
+This means that any two-qubit gate will work between QB3 and any other qubit, 
 whereas one-qubit gates can be mapped to any of the 4 surrounding qubits. 
 
 <p align="center">
@@ -21,7 +21,7 @@ The topology, supported instructions and backend specific metadata can be querie
 
 ```python
 # Qiskit
-from qiskit_iqm import IQMProvider
+from iqm.qiskit_iqm import IQMProvider
 provider = IQMProvider(iqm_server_url)
 backend = provider.get_backend()
 print(f'Native operations of the backend: {backend.operation_names}')
@@ -30,7 +30,7 @@ print(f'Coupling map of the backend: {backend.coupling_map}')
 
 ```python
 # Cirq
-from cirq_iqm import Adonis
+from iqm.cirq_iqm import Adonis
 adonis = Adonis()
 print(adonis.metadata.qubit_set)
 print(adonis.metadata.gateset)

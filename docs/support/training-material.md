@@ -53,9 +53,11 @@ and platforms by CSC and partners!
 
 ## Chemistry
 
-* [Spring School in Computational Chemistry course materials](https://ssl.eventilla.com/sscc-2023)
+* [Spring School in Computational Chemistry course materials](https://a3s.fi/sscc/sscc-notes-2023.html)
 * [Jupyter Machine Learning in Chemistry](https://notebooks.csc.fi) (Notebook requires Haka, Virtu or CSC account)
-* [Advanced GROMACS workshop 2021 materials](https://a3s.fi/advanced_gmx/PRACE_CSC_BioExcelWorkshop-GROMACS_workflows_and_advanced_topics.html)
+* [How to run GROMACS efficiently on LUMI workshop materials (2024)](https://zenodo.org/records/10610643)
+* [Advanced GROMACS workshop materials (2022)](https://enccs.github.io/gromacs-gpu-performance/)
+* [Advanced GROMACS workshop materials (2021)](https://a3s.fi/advanced_gmx/PRACE_CSC_BioExcelWorkshop-GROMACS_workflows_and_advanced_topics.html)
 
 ## Data management
 
