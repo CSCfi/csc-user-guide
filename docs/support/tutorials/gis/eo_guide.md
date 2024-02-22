@@ -106,7 +106,7 @@ Commercial datasets are usually available from data provider, while open dataset
 
 ### EO data at CSC
 
-Some Finnish EO datasets are available locally at CSC. A STAC catalog for all spatial data available at CSC is currently in progress. You can find more information about it and its current content from the [Paituli STAC page](https://paituli.csc.fi/stac.html).
+Some Finnish EO datasets are available locally at CSC. [Paituli STAC](https://paituli.csc.fi/stac.html) includes all raster data available at CSC.
 
 * **Landsat mosaics** in Puhti. 
 * **Sentinel-2 L2A data**, selection of cloud-free tiles in Allas. 
