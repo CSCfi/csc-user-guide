@@ -568,6 +568,11 @@ cd csc-user-guide/
 ```
 
 
+## Working on your contribution
+
+The main point of this tutorial is to be able to work on the files using the tools you prefer and that if you left MkDocs running, it will reload the preview when you save a file you've edited. This happens quicker with the `--dirtyreload` option enabled, but is in any case quicker and more convenient than waiting for the Rahti preview to rebuild a branch.
+
+
 ### Creating a new branch for your work
 
 >**Option 2, GUI**: See _[Managing branches in GitHub Desktop](https://docs.github.com/en/desktop/making-changes-in-a-branch/managing-branches-in-github-desktop)_ (remember to update your local _master_ branch by [pulling](https://docs.github.com/en/desktop/working-with-your-remote-repository-on-github-or-github-enterprise/syncing-your-branch-in-github-desktop#pulling-to-your-local-branch-from-the-remote)).
@@ -591,11 +596,6 @@ Branch off of the latest commit on master using [git-switch](https://git-scm.com
 ```bash
 git switch --create my-branch-name
 ```
-
-
-### Working on your contribution
-
-The main point of this tutorial is to be able to work on the files using the tools you prefer and that if you left MkDocs running, it will reload the preview when you save a file you've edited. This happens quicker with the `--dirtyreload` option enabled, but is in any case quicker and more convenient than waiting for the Rahti preview to rebuild a branch.
 
 
 ### Getting your work to the repository
