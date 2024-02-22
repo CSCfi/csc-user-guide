@@ -245,6 +245,7 @@ nav:
        - Images:
          - cloud/rahti/images/overview.md
          - Creating an image: cloud/rahti/images/creating.md
+         - Pushing to external repository: cloud/rahti/images/pushing-external.md
          - Keeping docker images small: cloud/rahti/images/keeping_docker_images_small.md
        - GPU in Rahti: cloud/rahti/gpu.md
        - Rahti Templates: cloud/rahti/template-docs.md
