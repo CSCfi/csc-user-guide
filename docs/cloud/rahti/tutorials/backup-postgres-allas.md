@@ -1,6 +1,6 @@
 # How to backup a Postgres DB into Allas
 
-In this tutorial we are going to show how to backup a PostgreSQL or MariaDB DB running in Rahti into Allas. The general idea is to use a `CronJob` that will create a dump file of the database and upload it to Allas.
+In this tutorial we are going to show how to backup a PostgreSQL or Maria DB running in Rahti into Allas. The general idea is to use a `CronJob` that will create a dump file of the database and upload it to Allas.
 
 !!! Warning
     This is a simple example, the backup SQL file is not compressed, the checksums are not verified, there is no encryption, ... it just shows the basic idea of creating a backup and putting it in object storage.
