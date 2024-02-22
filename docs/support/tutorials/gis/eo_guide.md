@@ -164,10 +164,10 @@ Several example scripts are available for CDSE data download:
 
 * [OpenSearch API + rclone by CSC](https://github.com/csc-training/geocomputing/tree/master/Copernicus_data_download), option to save to CSC Allas or some other object storage .
 * [OData API + Python requests](https://github.com/eu-cdse/notebook-samples/blob/main/geo/odata_basics.ipynb)
-* Alternatively [s3cmd and Python boto3](https://documentation.dataspace.copernicus.eu/APIs/S3.html) may be used for S3 downloads.
+* Alternatively [s3cmd and Python boto3](https://documentation.dataspace.copernicus.eu/APIs/S3.html) can be used for S3 downloads.
 
 
-In principle also STAC has a lot of potential, because it would easier to download only needed data, for example only some bands or geographically only parts of data. It is the newest of data API and at the moment does not support any other search criteria than collection, time and location, so for example cloud cover filtering is not possible (yet). So use cases for Sentinel2 data is currently limited, but for Sentinel1 it might be more suitable.
+In principle, also STAC has a lot of potential, because it would easier to download only needed data, for example only some bands or geographically only parts of data. It is the newest of data APIs and at the moment does not support any other search criteria than collection, time and location, so for example cloud cover filtering is not possible (yet). So use cases for Sentinel2 data is currently limited, but for Sentinel1 it might be more suitable.
 
 You can also read data directly from S3 with GDAL or GDAL-based tools, see [CSC GDAL cloud tutorial](gdal_cloud.md). 
 
