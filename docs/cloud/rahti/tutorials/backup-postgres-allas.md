@@ -65,12 +65,12 @@ $ oc process rclone \
 This will run the backup process every day at 4:00 am. You may change the schedule, see <https://en.wikipedia.org/wiki/Cron> for reference.
 The backups won't be overwritten as it will take the date and time of the backup start.
 
-You can find more information about the backup and restore commands here:
-- PostgreSQL:
-  - https://www.postgresqltutorial.com/postgresql-administration/postgresql-backup-database/
-  - https://www.postgresqltutorial.com/postgresql-administration/postgresql-restore-database/
+You can find more information about the backup and restore commands here:  
+- PostgreSQL:  
+  - [Backup database](https://www.postgresqltutorial.com/postgresql-administration/postgresql-backup-database/)
+  - [Restore databse](https://www.postgresqltutorial.com/postgresql-administration/postgresql-restore-database/)
 
-- MariaDB:
-  - https://mariadb.com/kb/en/mariadb-dump/
-  - https://mariadb.com/kb/en/backup-and-restore-overview/
+- MariaDB:  
+  - [Backup database](https://mariadb.com/kb/en/mariadb-dump/)
+  - [Restore database](https://mariadb.com/kb/en/backup-and-restore-overview/)
 
