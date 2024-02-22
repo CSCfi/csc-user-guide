@@ -244,7 +244,7 @@ Below is a list of alternative EO processing services that might be useful, when
 
 **[Microsoft planetary computer](https://planetarycomputer.microsoft.com)** offers JupyterHub together with Dask Gateway, both CPUs and GPUs are available. It is currently available in preview.
 
- **[Data and Information Access Services (DIAS)](https://www.copernicus.eu/en/access-data/dias)** offer cloud based Virtual Machines (VMs), dedicated baremetal servers, containers, operating system and software images. These services are specialized in EO and have user support available. All of them are commercial services. The new [**Copernicus Data Space Ecosystem**](https://dataspace.copernicus.eu/) combines some of the DIASes into one, including also free trials of the service. See the [Copernicus Data Space Ecosystem - Analyse page](https://dataspace.copernicus.eu/analyse) for more information on the services.
+[**CDSE**](https://dataspace.copernicus.eu/analyse) provides also processing services, mainly via OpenEO and SentinelHub services, soon also On-Demand Processing. 
  
 [**Sentinelhub**](https://www.sentinel-hub.com/explore/) is a commercial service that offers several different APIs.
 
