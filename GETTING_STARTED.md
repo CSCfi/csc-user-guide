@@ -466,13 +466,19 @@ Now you can select the _Repository -> Show in Explorer_ menu entry to browse the
 Create the Conda environment (if not created yet):
 
 ```bash
-conda env create -f docs/support/tutorials/conda/conda-docs-env-freeze.yaml
+conda env create -f development/conda-docs-base-1.0.yaml
 ```
 
 >if created before, add the `--force` flag:
 >```bash
->conda env create --force -f docs/support/tutorials/conda/conda-docs-env-freeze.yaml
+>conda env create --force -f development/conda-docs-base-1.0.yaml
 >```
+
+Install or update the requirements (when starting fresh or the requirements have been changed):
+
+```bash
+conda run -n docs-env pip install -r requirements.txt
+```
 
 Activate the environment:
 
@@ -492,56 +498,18 @@ conda deactivate
 <details>
 <summary>Option 2, GUI</summary>
 
-If you're using VS Code, creating the Conda environment is as simple as running the task **_Docs CSC: Create/update the Conda environment_**. A terminal panel will open showing you the progress on installing the dependencies. The environment is ready when the terminal instructs you to "press any key to close it", though you can leave it open if you like.
+If you're using VS Code (or Codium), creating the Conda environment is as simple as running the task (VS Code tasks introduced above in _[Tasks](#tasks)_) **_Docs CSC: Create/update the Conda environment_**. A terminal panel will open showing you the progress on installing the dependencies. The environment is ready when the terminal instructs you to "press any key to close it", though you can leave it open if you like.
 
-</details>
-
-
-<details>
-<summary>Option Ö, Avoid this</summary>
-
-### Anaconda Navigator
-
-Conda environments can be created with a graphical program called _Anaconda Navigator_. 
-
-
-#### Installation
-
-With Miniconda installed, the simplest way to install Anaconda Navigator is to just use Anaconda Prompt that was installed with Miniconda.
-
-1. Look for _Anaconda Prompt (Miniconda3)_ in the Start menu and launch it.
-1. Execute the command `conda install anaconda-navigator` by, for example, copy-pasting it into Anaconda Prompt:
-    1. Highlight the command and copy it to the clipboard with
-        - the keyboard shortcut _Ctrl+C_
-        - the context menu entry _Copy_, accessed by right-clicking, or
-        - by selecting _Edit -> Copy_ from the web browser's menu bar.
-    1. Paste the command into Anaconda Prompt with
-        - the keyboard shortcut _Ctrl+V_
-        - a simple right-click anywhere but the title bar, or
-        - by selecting _Edit -> Paste_ from the menu, accessed by clicking the program icon in the upper-left corner.
-    
-        ![Anaconda Prompt](docs/img/windows/conda_install_anaconda-navigator.png)
-
-    1. Press _Enter_.
-1. Wait for the installation to complete. That'll be when you're returned back to the prompt `(base) C:\>`.
-
-You've just installed Anaconda Navigator from the command-line! That wasn't so bad, was it?
-
-
-#### Creating the environment
-
-Find the Start menu entry for _Anaconda Navigator_, start it and wait while it sets itself up on the first run. Then, from the left sidebar, select _Environments_. The only environment at the moment is _base_ you saw when installing. In Anaconda Navigator, creating an environment defined in a YAML file is called _importing_. Click _Import_ at the bottom to open the _Import Environment_ dialog. The YAML file in question, _conda-docs-env-freeze.yaml_, is found in the repository, so click the folder icon next to the input field under _Local drive_, navigate to the folder you cloned the repository into and proceed to `docs/support/tutorials/conda/` to find the file. By default, the _New environment name_ field gets filled in with the file name sans the _.yaml_ extension, change it to _docs-env_. Later, **when the environment has been updated and you are recreating it, you need to check "Overwrite existing environment"**, but on the first time it makes no difference.
-
-![Import Environment](docs/img/windows/import_environment.png)
-
-After the environment has been created, you can close Anaconda Navigator.
+The environment is now ready for installing the requirements for Docs CSC. Simply run the task **_Docs CSC: Install/reinstall requirements with Pip_**. Both creating the environment and installing the requirements need to be done only when starting fresh or when the dependencies/requirements have been changed, i.e. (for Conda dependencies) a new file named _conda-docs-base-something.something.yaml_ has appeared in the _development_ folder or (for Pip requirements) the file _requirements.txt_ has been changed.
 
 </details>
 
 
 ## Previewing your changes locally
 
->**Option 2, GUI**: use the VS Code tasks introduced above in _[Tasks](#tasks)_.
+>**Option 2, GUI**: use the VS Code tasks introduced above in _[Tasks](#tasks)_:
+>
+>- Run the task _Docs CSC: Start the development server_
 
 Run the development server (with the Conda environment activated):
 

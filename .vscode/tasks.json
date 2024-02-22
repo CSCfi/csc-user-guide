@@ -1,16 +1,14 @@
 {
     /* All commands assume that Conda has been installed
        in the default user installation directory
-       i.e. ~/miniconda3 (or %LOCALAPPDATA\miniconda3 on Windows)
-       and that docs/support/tutorials/conda/conda-docs-env-freeze.yaml
-       holds the up-to-date dependencies.
+       i.e. ~/miniconda3 (or %LOCALAPPDATA\miniconda3 on Windows).
     */
     "version": "2.0.0",
     "presentation": {
         "echo": false,
         "reveal": "always",
         "focus": true,
-        "panel": "dedicated",
+        "panel": "shared",
         "clear": true,
         "close": false,
     },
@@ -35,11 +33,23 @@
             "type": "shell",
             "icon": {
                 "id": "snake",
-                "color": "terminal.ansiGreen",
+                "color": "terminal.ansiBlue",
             },
-            "command": ". ${userHome}/miniconda3/etc/profile.d/conda.sh && conda env create --force -f ${workspaceFolder}/docs/support/tutorials/conda/conda-docs-env-freeze.yaml",
+            "command": ". ${userHome}/miniconda3/etc/profile.d/conda.sh && conda env create --force --yes --file ${workspaceFolder}/development/conda-docs-base-1.0.yaml",
             "windows": {
-                "command": "& '${env:LOCALAPPDATA}\\miniconda3\\shell\\condabin\\conda-hook.ps1'; conda env create --force -f '${workspaceFolder}\\docs\\support\\tutorials\\conda\\conda-docs-env-freeze.yaml'",
+                "command": "& '${env:LOCALAPPDATA}\\miniconda3\\shell\\condabin\\conda-hook.ps1'; conda env create --force --yes --file '${workspaceFolder}\\development\\conda-docs-base-1.0.yaml'",
+            },
+        },
+        {
+            "label": "Docs CSC: Install/reinstall requirements with Pip",
+            "type": "shell",
+            "icon": {
+                "id": "package",
+                "color": "terminal.ansiCyan",
+            },
+            "command": ". ${userHome}/miniconda3/etc/profile.d/conda.sh && conda run --name docs-env --cwd ${workspaceFolder} --no-capture-output pip install --force-reinstall --requirement ${workspaceFolder}/requirements.txt",
+            "windows": {
+                "command": "& '${env:LOCALAPPDATA}\\miniconda3\\shell\\condabin\\conda-hook.ps1'; conda run --name docs-env --cwd ${workspaceFolder} --no-capture-output pip install --force-reinstall --requirement ${workspaceFolder}\\requirements.txt'",
             },
         },
         {
@@ -51,6 +61,7 @@
             },
             "presentation": {
                 "focus": false,
+                "clear": true,
             },
             "options": {
                 "env": {
@@ -58,10 +69,9 @@
                     "ENABLED_GIT_REVISION_DATE": "false",
                 },
             },
-            "problemMatcher": [],
-            "command": ". ${userHome}/miniconda3/etc/profile.d/conda.sh && conda activate docs-env && mkdocs serve ${input:flags}",
+            "command": ". ${userHome}/miniconda3/etc/profile.d/conda.sh && conda run --name docs-env --cwd ${workspaceFolder} --no-capture-output mkdocs serve ${input:flags}",
             "windows": {
-                "command": "& '${env:LOCALAPPDATA}\\miniconda3\\shell\\condabin\\conda-hook.ps1' ; conda activate docs-env ; mkdocs serve '${input:flags}'",
+                "command": "& '${env:LOCALAPPDATA}\\miniconda3\\shell\\condabin\\conda-hook.ps1' ; conda run --name docs-env --cwd ${workspaceFolder} --no-capture-output mkdocs serve ${input:flags}'",
             },
         },
         {
@@ -71,7 +81,12 @@
                 "id": "checklist",
                 "color": "terminal.ansiYellow",
             },
-            "command": ". ${userHome}/miniconda3/etc/profile.d/conda.sh && conda activate docs-env && bash ${workspaceFolder}/tests/run_tests.sh",
+            "presentation": {
+                "reveal": "always",
+                "focus": false,
+                "panel": "dedicated",
+            },
+            "command": ". ${userHome}/miniconda3/etc/profile.d/conda.sh && conda run --name docs-env --cwd ${workspaceFolder} bash ${workspaceFolder}/tests/run_tests.sh",
             "windows": {
                 "command": "Write-Host \"The tests task is not configured for running on Windows.\"",
             },
@@ -81,7 +96,12 @@
             "type": "shell",
             "icon": {
                 "id": "terminal",
-                "color": "terminal.ansiRed",
+                "color": "terminal.ansiMagenta",
+            },
+            "presentation": {
+                "focus": false,
+                "reveal": "silent",
+                "close": true,
             },
             "command": "for s in ${workspaceFolder}/scripts/generate_*.sh; do echo $s; done",
             "windows": {
