@@ -114,6 +114,7 @@ Installation instructions are provided for Windows, macOS and Linux [here](https
 
 In order to "clone" the Docs CSC repository from (and later, to "push" your work back to) GitHub onto your computer, a tool called _Git_ is needed. As an alternative to the command-line tool, GitHub provides their own graphical program called _GitHub Desktop_.
 
+
 <details>
 <summary>Option 1, CLI: Git from the command-line</summary>
 
@@ -373,6 +374,7 @@ Follow the instructions at GitHub Docs for
 
 </details>
 
+
 <details>
 <summary>Option 2, GUI: Graphical interface with GitHub Desktop</summary>
 
@@ -435,6 +437,7 @@ cd csc-user-guide/
 ```
 
 </details>
+
 
 <details>
 <summary>Option 2, GUI</summary>
