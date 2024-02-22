@@ -3,6 +3,70 @@
 The procedure described in this file aims to set up the necessary tools on Windows without the need for a system administrator account. However, the [simple Git workflow example](#a-simple-git-workflow-example) that follows the Windows-specific instructions doesn't make any particular assumptions on the operating system used. The two alternative paths for command-line and graphical interfaces are marked **Option 1, CLI** and **Option 2, GUI**, respectively. The GUI path should work with only minor deviation on a Mac.
 
 
+<details>
+<summary>With <strong>Option 2, GUI</strong> comes: <strong>Suggestion 1, VS Code</strong></summary>
+
+## Installing Visual Studio Code
+
+For "Free/Libre Open Source Software Binaries of VS Code" with telemetry disabled, have a look at [_VS Codium_](https://vscodium.com). For information on telemetry data collection in _Visual Studio Code_, please see [Visual Studio Code Telemetry](https://code.visualstudio.com/docs/getstarted/telemetry).
+
+The installation procedure for _Microsoft_ Visual Studio Code is as follows:
+
+1. Download the 'User Installer" from [the Download page](https://code.visualstudio.com/Download)
+1. Once the download has completed, click the downloaded executable file on the browser's downloaded files list (there might be a warning about running the file, just proceed). Alternatively, open the File Explorer, navigate to Downloads and double click on the downloaded executable to launch the installer.
+1. Advance the installer through the following steps:
+
+    - License Agreement
+    - Select Additional Tasks
+        + Pick whatever you like, leave as-is if unsure.
+
+    Click "Install" and after the installation has completed, if you leave "Launch Visual Studio Code" checked when clicking "Finish", VS Code will be launched.
+
+
+### Tasks
+
+When you later clone the Docs repository, it'll come with some pre-defined _Tasks_ that provide a way to run the **Option 1, CLI** commands using a graphical menu. Tasks for e.g. creating/updating the Conda environment or starting the development server have been pre-defined in the workspace. Tasks can be found
+
+- by selecting _Terminal -> Run task..._ from the menu bar.
+- or from _Quick Open_, accessed by either
+    * using the keyboard shortcut _Ctrl+P_
+    * selecting _Go -> Go to file..._ from the menu bar
+    * or by clicking the search field up top if the appropriate title bar style is enabled
+
+  and typing "task" followed by a space
+
+![VS Code Tasks](docs/img/windows/tasks.png)
+
+
+### Extensions
+
+The Docs repository also comes with some pre-defined _Workspace Settings_ for VS Code. Some of these settings are for configuring optional extensions for VS Code. If you feel that the extensions are not relevant for your use-case, feel free to skip the installations. In any case, you can do it later.
+
+
+#### YAML
+
+[YAML at Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-yaml)
+
+_Material for MkDocs_ provides a YAML schema for validation and auto-complete in _mkdocs.yml_. This could come in handy if you intend to e.g. edit the Docs CSC left-hand navigation menu. To install the _YAML_ extension,
+
+1. Select _View -> Extensions_ from the menu bar or click on _Extensions_ icon in the activity bar to the left of the side bar.
+1. Search for "yaml".
+1. In the list of search results, click on the little "Install" button next to the _YAML_ extension that has _Red Hat_ (might be _redhat_ in VS Codium) as its publisher.
+
+
+#### Better Jinja
+
+[Better Jinja at Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=samuelcolvin.jinjahtml)
+
+If you intend to edit or define some Jinja templates, the extension _Better Jinja_ provides syntax highlighting and code snippets. To install it,
+
+1. Select _View -> Extensions_ from the menu bar or click on _Extensions_ icon in the activity bar to the left of the side bar.
+1. Search for "jinja".
+1. In the list of search results, click on the little "Install" button next to the _Better Jinja_ extension.
+
+</details>
+
+
 ## Setting up a development environment, step 1
 
 ### Conda
@@ -419,24 +483,14 @@ conda deactivate
 
 </details>
 
+
 <details>
 <summary>Option 2, GUI</summary>
 
-If you're using VS Code, tasks for creating/updating the Conda environment, as well as starting the development server, have been predefined in the workspace. Tasks can be found
-
-- by selecting _Terminal -> Run task..._ from the menu bar.
-- or from _Quick Open_, accessed by either
-    1. using the keyboard shortcut _Ctrl+P_
-    1. selecting _Go -> Go to file..._ from the menu bar
-    1. or by clicking the search field up top if the appropriate titlebar style is enabled
-
-  and typing "task" followed by a space
-
-  ![tasks](docs/img/windows/tasks.png)
-
-Create the Conda environment with the task **_Docs CSC: Create/update the Conda environment_**. A terminal panel will open showing you the progress on installing the dependencies. The environment is ready when the terminal instructs you to "press any key to close it", though you can leave it open if you like.
+If you're using VS Code, creating the Conda environment is as simple as running the task **_Docs CSC: Create/update the Conda environment_**. A terminal panel will open showing you the progress on installing the dependencies. The environment is ready when the terminal instructs you to "press any key to close it", though you can leave it open if you like.
 
 </details>
+
 
 <details>
 <summary>Option Ö, Avoid this</summary>
@@ -482,7 +536,7 @@ After the environment has been created, you can close Anaconda Navigator.
 
 ## Previewing your changes locally
 
->**Option 2, GUI**: use the VS Code tasks introduced above in _[Setting up a development environment, step 2](#setting-up-a-development-environment-step-2)_.
+>**Option 2, GUI**: use the VS Code tasks introduced above in _[Tasks](#tasks)_.
 
 Run the development server (with the Conda environment activated):
 
