@@ -66,7 +66,8 @@ This will run the backup process every day at 4:00 am. You may change the schedu
 The backups won't be overwritten as it will take the date and time of the backup start.
 
 You can find more information about the backup and restore commands here:  
-- PostgreSQL: [Backup database](https://www.postgresqltutorial.com/postgresql-administration/postgresql-backup-database/) and [Restore databse](https://www.postgresqltutorial.com/postgresql-administration/postgresql-restore-database/)
+
+- PostgreSQL: [Backup database](https://www.postgresqltutorial.com/postgresql-administration/postgresql-backup-database/) and [Restore database](https://www.postgresqltutorial.com/postgresql-administration/postgresql-restore-database/)
 
 - MariaDB: [Backup database](https://mariadb.com/kb/en/mariadb-dump/) and [Restore database](https://mariadb.com/kb/en/backup-and-restore-overview/)
 
