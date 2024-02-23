@@ -5,9 +5,9 @@ tags:
 
 # Snakemake
 
-Snakemake is a python-based scientific workflow management system for creating scalable, portable, and reproducible workflows. It is one of 
+Snakemake is a Python-based scientific workflow management system for creating scalable, portable, and reproducible workflows. It is one of 
 the popular workflow managers within the bioinformatics community, but
-is not specific to bioinformatics. Like in Nextflow, snakemake also supports running scripts (via. script/run/shell directive of snakemake rule) from other languages such as R, bash and Python.
+is not specific to bioinformatics. Like in [Nextflow](../apps/nextflow.md), Snakemake also supports running scripts (via script/run/shell directive of Snakemake rule) from other languages such as R, bash and Python.
 
 [TOC]
 
@@ -42,19 +42,20 @@ For usage help, use command:
 snakemake --help
 ```
 
-Please refer to our tutorial on [running snakemake workflow on Puhti](../support/tutorials/snakemake-puhti.md) for more details.
+Please refer to our tutorial on [running Snakemake workflow on Puhti](../support/tutorials/snakemake-puhti.md) for more details.
 
 
 ## References
 
 If you use Snakemake in your work, please cite:
 
-Mölder, F., Jablonski, K.P., Letcher, B., Hall, M.B., Tomkins-Tinch, C.H., Sochat, V.,
-Forster, J., Lee, S., Twardziok, S.O., Kanitz, A., Wilm, A., Holtgrewe, M., Rahmann, S.,
-Nahnsen, S., Köster, J. Sustainable data analysis with Snakemake. F1000Research 2021,
-<https://doi.org/10.12688/f1000research.29032.1>
+> Mölder, F., Jablonski, K.P., Letcher, B., Hall, M.B., Tomkins-Tinch, C.H., Sochat, V.,
+  Forster, J., Lee, S., Twardziok, S.O., Kanitz, A., Wilm, A., Holtgrewe, M., Rahmann, S.,
+  Nahnsen, S., Köster, J. Sustainable data analysis with Snakemake. F1000Research 2021,
+  <https://doi.org/10.12688/f1000research.29032.1>.
 
 ## More information
 
 * [Snakemake official documentation](https://snakemake.readthedocs.io/en/stable/index.html)
+* [How to run Snakemake workflow on Puhti](../support/tutorials/snakemake-puhti.md)
 * [Contact CSC Service Desk for technical support](../support/contact.md)
