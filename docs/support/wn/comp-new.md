@@ -1,5 +1,15 @@
 # Computing environment
 
+## Mahti web interface updated to release 4, 27.3.2024
+
+* GPUs (MIG) are now available in apps in the *gpusmall* partition.
+* The Desktop app has been improved
+    * Launching applications should be more reliable.
+    * The terminal window stays open if errors occur launching applications.
+    * Applications are now categorized in the menu.
+* VSCode updated to 1.86.1.
+* Open OnDemand updated to version 3.1.1.
+
 ## SSH security updates for cryptography options, 12.1.2024
 
 Recently, a new SSH vulnerability called Terrapin (CVE-2023-48795) was published describing
