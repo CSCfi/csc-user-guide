@@ -29,7 +29,7 @@
 * [Freebayes](freebayes.md) Genetic variant detector
 * [GOLD](gold.md) Protein Ligand Docking Software
 * [Grace](grace.md) Plotting tool for xvg-files in particular
-* [Gromacs](gromacs.md) Fast and versatile classical molecular dynamics
+* [GROMACS](gromacs.md) Fast and versatile classical molecular dynamics
 * [HMMER](hmmer.md) Toolkit to create and use sequence profile hidden Markov models
 * [HUMAnN](humann.md) Profiling microbial pathways with metagenomic data
 * [Illumina BaseSpace](bs.md) Command line client for retrieving data from the Illumina BaseSpace environment
@@ -82,7 +82,7 @@
 * [Gaussian](gaussian.md) Versatile computational chemistry package
 * [GOLD](gold.md) Protein Ligand Docking Software
 * [GPAW](gpaw.md) Versatile DFT package
-* [Gromacs](gromacs.md) Fast and versatile classical molecular dynamics
+* [GROMACS](gromacs.md) Fast and versatile classical molecular dynamics
 * [LAMMPS](lammps.md) Fast molecular dynamics engine with large force field selection
 * [Maestro](maestro.md) Versatile drug discovery and materials modeling suite
 * [Materials Studio](materialsstudio.md) Versatile materials modeling suite
@@ -94,7 +94,7 @@
 * [ORCA](orca.md) General purpose quantum chemistry package
 * [Plumed](plumed.md) Library and tools for enhanced sampling methods
 * [TmoleX](tmolex.md) GUI for setting up and analyzing TURBOMOLE jobs
-* [Turbomole](turbomole.md) Efficient program package for electronic structure calculations
+* [TURBOMOLE](turbomole.md) Efficient program package for electronic structure calculations
 * [VASP](vasp.md) Ab initio DFT electronic structures
 * [VMD](vmd.md) Molecular visualization program
 

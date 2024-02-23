@@ -11,15 +11,16 @@ tags:
 
 __GRASS__ is available with following versions:
 
-* GRASS 7.8.7 with [qgis/3.31 module](qgis.md) in Puhti and LUMI
-* GRASS 7.8.5 with [qgis/3.22 module](qgis.md) in Puhti
+* 8.3 with grassgis module in Puhti
+* 7.8.7 with [qgis/3.31 module](qgis.md) in Puhti and LUMI
+* 7.8.5 with [qgis/3.22 module](qgis.md) in Puhti
 
 
 ## Usage
 
 ### GRASS GIS Command Line Interface 
 
-In Puhti, GRASS GIS is included in [QGIS module](qgis.md). GRASS GIS command line tools can be used in an [interactive session](../computing/running/interactive-usage.md) or [batch jobs](../computing/running/getting-started.md). See [examples for using GRASS GIS commands in Puhti with GRASS bash scripting, Python scripting or PyGRASS](https://github.com/csc-training/geocomputing/tree/master/grass). See also the references section at the end of this page.
+GRASS GIS command line tools can be used in an [interactive session](../computing/running/interactive-usage.md) or [batch jobs](../computing/running/getting-started.md). See [examples for using GRASS GIS commands in Puhti with GRASS bash scripting, Python scripting or PyGRASS](https://github.com/csc-training/geocomputing/tree/master/grass). See also the references section at the end of this page.
 
 ### GRASS GIS Graphical User Interface
 
@@ -66,7 +67,8 @@ As an example, you can write "The authors wish to thank CSC - IT Center for Scie
 
 ## Installation
 
-GRASS was installed to Puhti and LUMI as part of [QGIS installation](qgis.md#installation).
+* GRASS 8.3 was installed to Puhti with [Tykky's wrap-container functionality](../computing/containers/tykky.md#container-based-installations) using the [GRASS Docker image from Dockerhub provided by OSGEO](https://hub.docker.com/r/osgeo/grass-gis): `wrap-container -w /usr/local/bin,/usr/bin/python3 docker://osgeo/grass-gis:releasebranch_8_3-ubuntu_wxgui --prefix 8.3`
+* GRASS 7.x was installed to Puhti and LUMI as part of [QGIS installation](qgis.md#installation).
 
 
 ## References
