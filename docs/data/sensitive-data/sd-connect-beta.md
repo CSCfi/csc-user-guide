@@ -1,8 +1,8 @@
 # SD Connect (Beta)
 
-The updated SD Connect user interface offers automated file encryption and decryption (up to 100 GB) along with key management. Additionally, three levels of sharing permissions are accessible across CSC projects.
+The updated SD Connect user interface offers automated file encryption and decryption (up to 100 GB) along with key management. Additionally, three levels of [sharing permissions](#data-sharing) are accessible across CSC projects.
 
-<iframe width="560" height="315" frameborder="0" srcdoc="https://youtu.be/embed/SMnEkcS_HJw" title="Upload, download and delete data in SD Connect" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/SMnEkcS_HJw" title="Upload, download and delete data in SD Connect" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 
 !!! info "Note"
     This version is in Open Beta, occasional service interruptions may occur. Please use this version for testing scenarios and avoid relying on it for storing critical data until it transitions to a stable release. Please provide feedback by [contacting CSC Service Desk](../../support/contact.md) (subject: Sensitive Data) to contribute to service improvement. Thank you for your cooperation.
