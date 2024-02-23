@@ -47,7 +47,7 @@ snakemake -s Snakefile --jobs 1 \
 
 ```
 Finally, you can run the workflow in the bash script (e.g., run_snakemak.sh) by submitting in the job in the interactive node:
-```bash
+```
 sinteractive --cores 2 --mem 10000 # type this command on login node to start an interactive session with 2 CPU cores and 10 Gb of memory, after providing your project when prompted, you can run the bash script like this:
 bash run_snakemake.sh   # run the workflow
 ```
@@ -59,7 +59,7 @@ bash run_snakemake.sh   # run the workflow
         --jobs 1 \
         --latency-wait 60 \
         --cluster "sbatch --time 10  \
-        --account=project_2001659 --job-name=hello-world \
+        --account=project_xxxx --job-name=hello-world \
         --tasks-per-node=1 --cpus-per-task=1 \ 
         --mem-per-cpu=4000 --partition test"
       ```  
