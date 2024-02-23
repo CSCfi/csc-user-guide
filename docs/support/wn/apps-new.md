@@ -1,5 +1,11 @@
 # Applications
 
+## Snakemake, 23.2.2024
+
+An [application page for the Snakemake workflow tool](../../apps/snakemake.md)
+has been added to Docs CSC. Check it out, as well as the accompanying tutorial
+on [how to use Snakemake efficiently on Puhti](../tutorials/snakemake-puhti.md).
+
 ## GROMACS 2024.0, 16.2.2024
 
 [GROMACS](../../apps/gromacs.md) 2024.0 is now available on Puhti, Mahti and LUMI. See
