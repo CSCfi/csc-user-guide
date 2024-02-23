@@ -230,9 +230,9 @@ Below is a list of alternative EO processing services that might be useful, when
 
 [**CDSE**](https://dataspace.copernicus.eu/analyse) provides also processing services, mainly via [**OpenEO**](https://dataspace.copernicus.eu/analyse/apis/openeo-api) and [**SentinelHub**](https://dataspace.copernicus.eu/analyse/apis/sentinel-hub) with options to bring processing close to the data. Both have free of charge options and services with a fee. They provide different APIs, which can be accessed via Python or R. Soon also On-Demand Processing.
 
-    * [Copernicus Data Workspace](https://dataspace.copernicus.eu/workspace/) is a tool for managing and reviewing EO-related products, which can then be further processed or downloaded for various purposes. When products are selected for processing, you are provided with a list of processors that are capable of processing relevant data types.
-    * [CDSE Jupyter Notebooks](https://jupyterhub.dataspace.copernicus.eu/) provide to analyse the data using Jupyter Notebooks. Each user has 10Gb of persistent space (deleted after 15 days without login) and access to 2 - 4 CPUs with 4 - 16 Gb RAM. Note that in addition to personal limits, also the total number of active users seems to be limited. It is possible to add own packages via pip. [CDSE example notebooks](https://github.com/eu-cdse/notebook-samples)
-    * And many more, see [all CDSE applications](https://documentation.dataspace.copernicus.eu/Applications.html)
+* [Copernicus Data Workspace](https://dataspace.copernicus.eu/workspace/) is a tool for managing and reviewing EO-related products, which can then be further processed or downloaded for various purposes. When products are selected for processing, you are provided with a list of processors that are capable of processing relevant data types.
+* [CDSE Jupyter Notebooks](https://jupyterhub.dataspace.copernicus.eu/) provide to analyse the data using Jupyter Notebooks. Each user has 10Gb of persistent space (deleted after 15 days without login) and access to 2 - 4 CPUs with 4 - 16 Gb RAM. Note that in addition to personal limits, also the total number of active users seems to be limited. It is possible to add own packages via pip. [CDSE example notebooks](https://github.com/eu-cdse/notebook-samples)
+* And many more, see [all CDSE applications](https://documentation.dataspace.copernicus.eu/Applications.html)
  
 **Commercial clouds**: Amazon, Google Cloud and Microsoft Azure, all provide virtual machines and other processing services, all of them have some local data, see links above. 
  
