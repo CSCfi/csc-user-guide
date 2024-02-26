@@ -37,10 +37,10 @@ There are two options for connecting to the remote desktop:
 2. **With VNC client**. For better performance you can use a native VNC client, such as RealVNC or TigerVNC. Native VNC client may also be a good alternative if experiencing issues with clipboard integration between remote desktop and local host with the browser connection. Instructions for native VNC clients can be found in the Native instructions tab. This requires installing the VNC client on your local machine.
 
 ## Using the desktop
-The available applications can be found in applications menu, found in the top left corner, or by
-right-clicking the desktop. Application shortcuts directly on the desktop can also be generated or
-reset to the defaults by enabling the *Reset desktop icons* option in the Desktop app launch form on
-Mahti. To add additional desktop shortcuts, you can drag desired applications them from the
+The available applications can be found in the applications menu, found in the top-left corner, or
+by right-clicking the desktop. Application shortcuts directly on the desktop can also be generated
+or reset to the defaults by enabling the *Reset desktop icons* option in the Desktop app launch form
+on Mahti. To add additional desktop shortcuts, you can drag desired applications from the
 applications menu to the desktop.
 
 
