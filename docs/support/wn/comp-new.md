@@ -1,6 +1,6 @@
 # Computing environment
 
-## Mahti web interface updated to release 4, 27.3.2024
+## Mahti web interface updated to release 4, 27.2.2024
 
 * GPUs (MIG) are now available in apps in the *gpusmall* partition.
 * The Desktop app has been improved
