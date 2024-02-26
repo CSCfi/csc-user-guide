@@ -8,6 +8,7 @@
     * The terminal window stays open if errors occur launching applications.
     * Applications are now categorized in the menu.
 * VSCode updated to 1.86.1.
+* TensorBoard and MLflow can now use the default module versions.
 * Open OnDemand updated to version 3.1.1.
 
 ## SSH security updates for cryptography options, 12.1.2024
