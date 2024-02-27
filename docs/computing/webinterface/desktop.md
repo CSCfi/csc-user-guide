@@ -26,7 +26,7 @@ for selected applications on Puhti.
 
 ## Launching
 1. Open `Desktop` page under Apps 
-2. Specify the needed resources. Desktop is run as [batch job](../running/getting-started.md) as anything else on the supercomputers, so the required resources need to be defined before launching the desktop. The recommended partiotion is [interactive](../running/interactive-usage.md), so that the job could start as soon as possible, but if more resources are needed also other partitions are available.
+2. Specify the needed resources. Desktop is run as [batch job](../running/getting-started.md) as anything else on the supercomputers, so the required resources need to be defined before launching the desktop. The recommended partition is [interactive](../running/interactive-usage.md), so that the job could start as soon as possible, but if more resources are needed also other partitions are available.
 
 
 ## Connecting
@@ -37,12 +37,17 @@ There are two options for connecting to the remote desktop:
 2. **With VNC client**. For better performance you can use a native VNC client, such as RealVNC or TigerVNC. Native VNC client may also be a good alternative if experiencing issues with clipboard integration between remote desktop and local host with the browser connection. Instructions for native VNC clients can be found in the Native instructions tab. This requires installing the VNC client on your local machine.
 
 ## Using the desktop
-The applications mentioned above have a direct shortcut on desktop.
+The available applications can be found in the applications menu, found in the top-left corner, or
+by right-clicking the desktop. Application shortcuts directly on the desktop can also be generated
+or reset to the defaults by enabling the *Reset desktop icons* option in the Desktop app launch form
+on Mahti. To add additional desktop shortcuts, you can drag desired applications from the
+applications menu to the desktop.
+
 
 For starting any other software available on the supercomputers:
 
 1. Open terminal
 2. Start the software as described in [Applications section](../../apps/index.md), usually `module load XX` and `<start_command_for_XX>`.
 
-(The applications menu in desktop does not include Puhti or Mahti scientific applications, just basic Linux tools.)
+(The applications menu in desktop does not include all Puhti or Mahti scientific applications.)
 
