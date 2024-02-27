@@ -55,7 +55,7 @@ If you can't connect with SFTP, please contact [CSC Service Desk](../../support/
 
 Before the data transfer, the data must be encrypted with a [CSC public key](https://admin.sd.csc.fi/publickey/?instance=single%20registry). CSC provides a convenience tool that encrypts and uploads data automatically. This SDA (Sensitive Data Archive) Uploader tool is available on [GitHub](https://github.com/CSCfi/sda-uploader/releases), and has both graphical user interface (GUI, option 1 below) and command line (CLI, option 2 below) options for Linux, Mac and Windows. More information about the tool in the [GitHub repository](https://github.com/CSCfi/sda-uploader/). Alternatively, you can encrypt the data with [Crypt4GH](https://github.com/EGA-archive/crypt4gh) (also [GUI](https://github.com/CSCfi/crypt4gh-gui) available, option 3 below) and send the data directly with SFTP on command line. With each option, you need to use [CSC public key](https://admin.sd.csc.fi/publickey/?instance=single%20registry) for encryption.
 
-The encrypted data is transferred via SFTP to a directory which should be named according to the journal number of the data permit. The final dataset ID will be a combination of the organization’s identifier and the journal number (directory name) (e.g. `org.fi/example_dataset_123`), and this ID will be visible to to users in SD Apply. The file to be uploaded should also be named with the journal number.
+The encrypted data is transferred via SFTP to a directory which should be named according to the journal number of the data permit. The final dataset ID will be a combination of the organization’s identifier and the journal number (directory name) (e.g. `org.fi/example_dataset_123`), and this ID will be visible to users in SD Apply. The file to be uploaded should also be named with the journal number.
 
 Below are described three different options for data transfer, you can select the one that works best in your environment:
 
@@ -89,7 +89,7 @@ put example_dataset_123_file-3
 exit
 ```
 
-After a successful upload, the dataset is visible in SD Apply. With the direct SFTP transfer, you can wait a moment after putting the first file to the folder for the direcory to become visible in SD Apply, so the system doesn't create multiple entries for single directory. This might happen, if the files are sent too quickly one after the other. The files are not visible in the SFTP directory after transfer, as they are immediately ingested.
+After a successful upload, the dataset is visible in SD Apply. With the direct SFTP transfer, you can wait a moment after putting the first file to the folder for the directory to become visible in SD Apply, so the system doesn't create multiple entries for single directory. This might happen, if the files are sent too quickly one after the other. The files are not visible in the SFTP directory after transfer, as they are immediately ingested.
 
 You can always transfer more data for the same project/data permit by using the same directory. The data will become visible for the user in SD Desktop when they log in again. If you send multiple files with the same file name, the files are not replaced, but instead, both versions are kept and will be available for the user.
 
