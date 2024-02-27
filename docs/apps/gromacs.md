@@ -93,7 +93,8 @@ remember to first run `module use /appl/local/csc/modulefiles`.
     than the requested time limit (in hours) will ensure that there's time for your
     simulation to write a final checkpoint and end gracefully before the scheduler
     terminates the job. If left unspecified, there's a chance that the job will
-    crash the node(s) it is running on.
+    crash the node(s) it is running on. For general guidance on managing long
+    simulations, see the [GROMACS manual](https://manual.gromacs.org/current/user-guide/managing-simulations.html).
 
 ### Notes about performance
 
@@ -372,24 +373,47 @@ export GMX_PMEONEDD=1
 The number of PME ranks to use depends on the specific case, but 1 or 2 per GPU *node* should
 be a reasonable starting point. So for 16 LUMI-G nodes, try `-npme 16` or `-npme 32`.
 
-### Visualizing trajectories and graphs
+### Visualization and analysis
 
-In addition to the `view` tool of GROMACS (not available at CSC),
-trajectory files can be visualized with the following programs:
+GROMACS trajectory files and data can be visualized, for example, with the following programs:
 
 - [VMD](vmd.md) visualization program for large biomolecular systems
 - [Grace](grace.md) plotting data produced with GROMACS tools
+- [MDAnalysis](https://www.mdanalysis.org/) Python library to analyze trajectories
+  from MD simulations
+    - Not available at CSC, but can be easily installed by the user in a containerized
+      Conda environment with [Tykky](../computing/containers/tykky.md)
 - [PyMOL](https://pymol.org/2/) molecular modeling system (not available at CSC)
 
-!!! warning "Note"
-    Please don't run visualization or heavy GROMACS tool scripts on
-    the login node (see [usage policy for details](../computing/usage-policy.md)).
-    You can run the tools in the [interactive partition](../computing/running/interactive-usage.md)
-    by prepending your `gmx_mpi` command with `orterun -n 1`, e.g.:
+More are listed in the [GROMACS manual](https://manual.gromacs.org/current/how-to/visualize.html).
+In addition, GROMACS itself includes numerous post-processing utilities for analyzing trajectories.
+See the [command-line reference](https://manual.gromacs.org/current/user-guide/cmdline.html)
+for details.
+
+!!! warning "Running heavy/long analyses"
+    Visualization of large trajectories, as well as certain GROMACS tool scripts, can
+    be computationally very demanding and should never be run on the login nodes
+    (see [usage policy](../computing/usage-policy.md)). Instead, please run such
+    workloads in an [`interactive` session](../computing/running/interactive-usage.md).
+    Since we only provide the MPI-version of GROMACS, you need to prepend your `gmx_mpi`
+    command with `orterun -n 1`, e.g.:
     
     ```bash
+    sinteractive --account <project>
+    module load gromacs-env
     orterun -n 1 gmx_mpi msd -n index -s topol -f traj
     ```
+
+    As most GROMACS analysis utilities, such as the `msd` tool above, can only be run in serial,
+    they might take quite long for large trajectories. In such cases it may be more convenient
+    to run the tools as [serial batch jobs](#puhti). Note that you may use the `interactive`
+    partition (time limit 7 days) also in batch jobs if the 3 day time limit of `small` is
+    not enough. The 14-day `longrun` partition has a very low priority and using it will often
+    require substantial queueing.
+
+    Another viable option is to use the [persistent compute node shell](https://docs.csc.fi/computing/webinterface/#shell)
+    available through the web interfaces, which will keep running even if you close your browser or
+    lose internet connection.
 
 ## References
 
@@ -433,7 +457,7 @@ for methods applied in your setup.
 - [mdrun performance checklist](https://manual.gromacs.org/current/user-guide/mdrun-performance.html)
 - [Materials at the BioExcel website](https://bioexcel.eu/software/gromacs/)
 - [GROMACS community forum](https://gromacs.bioexcel.eu/)
-- [Poster about the performance of GROMACS on LUMI](https://a3s.fi/gromacs/lumi-poster-2024.pdf)
+- [Poster about the performance of GROMACS on LUMI](https://zenodo.org/records/10696768)
 - **Training materials:**
     - [Running GROMACS efficiently on LUMI workshop materials (2024)](https://zenodo.org/records/10610643)
     - [Advanced GROMACS Workshop materials (2022)](https://enccs.github.io/gromacs-gpu-performance/)
