@@ -418,7 +418,7 @@ for details.
     Note that you may use the `interactive` partition (time limit 7 days) also in batch jobs
     if the 3 day time limit of `small` is not enough. The 14-day `longrun` partition has a very
     low priority and using it will often require substantial queueing. Another viable option is
-    to use the [persistent compute node shell](https://docs.csc.fi/computing/webinterface/#shell)
+    to use the [persistent compute node shell](../computing/webinterface/index.md#shell)
     available through the web interfaces, which will keep running even if you close your browser
     or lose internet connection.
 
