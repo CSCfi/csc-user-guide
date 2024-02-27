@@ -55,19 +55,19 @@ If you can't connect with SFTP, please contact [CSC Service Desk](../../support/
 
 Before the data transfer, the data must be encrypted with a [CSC public key](https://admin.sd.csc.fi/publickey/?instance=single%20registry). CSC provides a convenience tool that encrypts and uploads data automatically. This SDA (Sensitive Data Archive) Uploader tool is available on [GitHub](https://github.com/CSCfi/sda-uploader/releases), and has both graphical user interface (GUI, option 1 below) and command line (CLI, option 2 below) options for Linux, Mac and Windows. More information about the tool in the [GitHub repository](https://github.com/CSCfi/sda-uploader/). Alternatively, you can encrypt the data with [Crypt4GH](https://github.com/EGA-archive/crypt4gh) (also [GUI](https://github.com/CSCfi/crypt4gh-gui) available, option 3 below) and send the data directly with SFTP on command line. With each option, you need to use [CSC public key](https://admin.sd.csc.fi/publickey/?instance=single%20registry) for encryption.
 
-The encrypted data is sent via SFTP to a directory which should be named according to the journal number of the data permit. The final dataset ID will be a combination of the organization’s identifier and the journal number (e.g. `org.fi/example_dataset_123`). The file to be uploaded should also be named with the journal number.
+The encrypted data is transferred via SFTP to a directory which should be named according to the journal number of the data permit. The final dataset ID will be a combination of the organization’s identifier and the journal number (directory name) (e.g. `org.fi/example_dataset_123`), and this ID will be visible to to users in SD Apply. The file to be uploaded should also be named with the journal number.
 
-Below are described the three different options for data transfer:
+Below are described three different options for data transfer, you can select the one that works best in your environment:
 
-**Option 1: With the SDA GUI tool**, first create a folder on your computer and name it with the journal number. Add all of the files belonging to that dataset to the folder. Then you open the SDA GUI tool, add [CSC public key](https://admin.sd.csc.fi/publickey/?instance=single%20registry), the directory you want to upload, and your private SSH key (SFTP key) to the interface. You also need to fill in your username (`username@org.fi`) and the SFTP server: `porin.lega.csc.fi:50527`
+**Option 1: With the SDA GUI tool**, first create a folder on your computer and name it with the journal number. Add all of the files belonging to the dataset to that folder. Then you open the SDA GUI tool, add [CSC public key](https://admin.sd.csc.fi/publickey/?instance=single%20registry), the directory you want to upload, and your private SSH key (SFTP key) to the interface. You also need to fill in your username (`username@org.fi`) and the SFTP server: `porin.lega.csc.fi:50527`
 
-**Option 2: With the SDA CLI tool**, you also first create a folder on your computer and name it with the journal number. Add all of the files belonging to that dataset to the folder. Then you add the following command to the command line (replace `example_dataset_123` with the directory name, `username@org.fi` with your credentials, and `X:\folder\filename.key` with the location of your SSH key):
+**Option 2: With the SDA CLI tool**, you also first create a folder on your computer and name it with the journal number. Add all of the files belonging to the dataset to that folder. Then you add the following command to the command line (replace `example_dataset_123` with the directory name, `username@org.fi` with your credentials, and `X:\folder\filename.key` with the location of your SSH key):
 
 ```
 sdacli example_dataset_123 -host porin.lega.csc.fi -p 50527 -u username@org.fi -i X:\folder\filename.key -pub registry.pub
 ```
 
-**Option 3: With Crypt4GH and SFTP**, you first encrypt the data with [CSC public key](https://admin.sd.csc.fi/publickey/?instance=single%20registry) with either Crypt4GH python module or GUI version. Then you open the SFTP connection with the following command (replace `username@org.fi` with your credentials and `X:\folder\filename.key` with the location of your private SSH key):
+**Option 3: With Crypt4GH and SFTP**, you first encrypt the data with [CSC public key](https://admin.sd.csc.fi/publickey/?instance=single%20registry) with either Crypt4GH python module or [GUI](https://github.com/CSCfi/crypt4gh-gui) version. Then you open the SFTP connection with the following command (replace `username@org.fi` with your credentials and `X:\folder\filename.key` with the location of your private SSH key):
 
 ```
 sftp -i X:\folder\filename.key -P 50527 username@org.fi@porin.lega.csc.fi
