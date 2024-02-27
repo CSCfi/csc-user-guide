@@ -406,14 +406,21 @@ for details.
 
     As most GROMACS analysis utilities, such as the `msd` tool above, can only be run in serial,
     they might take quite long for large trajectories. In such cases it may be more convenient
-    to run the tools as [serial batch jobs](#puhti). Note that you may use the `interactive`
-    partition (time limit 7 days) also in batch jobs if the 3 day time limit of `small` is
-    not enough. The 14-day `longrun` partition has a very low priority and using it will often
-    require substantial queueing.
+    to run the tools as [serial batch jobs](#puhti). If the command you want to run requires
+    interaction (e.g. to select which parts of your system to include in the analysis), you may
+    pass these in a batch job for example like this:
 
-    Another viable option is to use the [persistent compute node shell](https://docs.csc.fi/computing/webinterface/#shell)
-    available through the web interfaces, which will keep running even if you close your browser or
-    lose internet connection.
+    ```bash
+    # Three consecutive selections (options 2, 2 and 0), you need to know these beforehand
+    echo "2 2 0" | gmx_mpi trjconv -f traj -s topol -o trajout -pbc cluster -center
+    ```
+
+    Note that you may use the `interactive` partition (time limit 7 days) also in batch jobs
+    if the 3 day time limit of `small` is not enough. The 14-day `longrun` partition has a very
+    low priority and using it will often require substantial queueing. Another viable option is
+    to use the [persistent compute node shell](https://docs.csc.fi/computing/webinterface/#shell)
+    available through the web interfaces, which will keep running even if you close your browser
+    or lose internet connection.
 
 ## References
 
