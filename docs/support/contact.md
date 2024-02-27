@@ -17,7 +17,7 @@
 
 !!! info "LUMI User Support Team"
     If you have any questions or issues related to using LUMI, please
-    [contact the LUMI User Support Team](https://docs.lumi-supercomputer.eu/helpdesk/).
+    [contact the LUMI User Support Team](https://lumi-supercomputer.eu/user-support/need-help/).
 
 ## How to write good support requests
 
