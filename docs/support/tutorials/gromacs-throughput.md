@@ -146,4 +146,4 @@ scale this use case to a huge number of nodes for maximal throughput.
 * [GROMACS application page](../../apps/gromacs.md)
 * [Official GROMACS documentation: Running multi-simulations](https://manual.gromacs.org/current/user-guide/mdrun-features.html#running-multi-simulations)
 * [Running GROMACS on LUMI workshop materials](https://zenodo.org/records/10610643)
-* [Poster about the performance of GROMACS on LUMI](https://a3s.fi/gromacs/lumi-poster-2024.pdf)
+* [Poster about the performance of GROMACS on LUMI](https://zenodo.org/records/10696768)
