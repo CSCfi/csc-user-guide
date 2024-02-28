@@ -69,8 +69,14 @@ matlab -batch <script>
 
 ### Web interface
 We can also use the [web interface](../computing/webinterface/index.md) for interactive MATLAB sessions.
-First, we need to log into [puhti.csc.fi](https://www.puhti.csc.fi) and then we can choose either the *Desktop* or the *MATLAB* application, specify the resource requirements and launch the application.
-On the Desktop application, we can launch MATLAB by clicking the MATLAB icon.
+First, we need to log into [puhti.csc.fi](https://www.puhti.csc.fi).
+Then, we have two options:
+
+1. We can use **MATLAB web application** which opens a web version of the MATLAB graphical user interface.
+
+2. We can use the **Desktop application** and click the MATLAB icon to open the desktop version of MATLAB graphical user interface.
+
+We need to set atleast 4 GB of memory before launching the MATLAB application.
 
 
 ## Parallel computing on MATLAB
