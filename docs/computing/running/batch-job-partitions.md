@@ -69,7 +69,9 @@ The following partition is available for allocation by resources in **Mahti** on
 |-----------|-------------|---------------|------------------|------------------|
 | [interactive](interactive-usage.md#sinteractive-in-mahti)  |  1-32      |  7 days      | 60 GiB           | all              |
 
-The following partitions are available on GPU nodes. Note that for each GPU, you can reserve at most 32 cores/task and for each GPU the job is allocated 122.5 GiB of memory.
+The following partitions are available on GPU nodes. Note that for each full A100 GPU, you can reserve at most 32 cores/task and for each GPU the job is allocated 122.5 GiB of memory. 
+A subset of the A100 GPUs are sliced into smaller A100_1g.5g GPUs with one seventh of the compute and memory capacity of a full A100 GPU. For each small GPU you can reserve at most 
+4 cores/task and for each GPU the job is allocated 17.5 GiB of memory. Also note that you can reserve at most one small GPU per job.
 
 
 | Partition       | Time<br>limit | Max<br>GPUs | Max<br>nodes | [Node types](../systems-mahti.md) |  Max<br>local storage (NVMe) |
