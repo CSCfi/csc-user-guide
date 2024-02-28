@@ -61,7 +61,7 @@ Below are described three different options for data transfer, you can select th
 
 **Option 1: With the SDA GUI tool**, first create a folder on your computer and name it with the journal number. Add all of the files belonging to the dataset to that folder. Then you open the SDA GUI tool, add [CSC public key](https://admin.sd.csc.fi/publickey/?instance=single%20registry), the directory you want to upload, and your private SSH key (SFTP key) to the interface. You also need to fill in your username (`username@org.fi`) and the SFTP server: `porin.lega.csc.fi:50527`
 
-**Option 2: With the SDA CLI tool**, you also first create a folder on your computer and name it with the journal number. Add all of the files belonging to the dataset to that folder. Then you add the following command to the command line (replace `example_dataset_123` with the directory name, `username@org.fi` with your credentials, and `X:\folder\filename.key` with the location of your SSH key):
+**Option 2: With the SDA CLI tool**, you also first create a folder on your computer and name it with the journal number. Add all of the files belonging to the dataset to that folder. Then you add the following command to the command line (replace `example_dataset_123` with the directory name, `username@org.fi` with your credentials, and `X:\folder\filename.key` (or `~/.ssh/filename` for Linux/macOS) with the location of your SSH key):
 
 ```
 sdacli example_dataset_123 -host porin.lega.csc.fi -p 50527 -u username@org.fi -i X:\folder\filename.key -pub registry.pub
