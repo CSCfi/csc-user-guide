@@ -270,6 +270,7 @@ println("Hello world!")
     #SBATCH --cpus-per-task=1
     #SBATCH --mem-per-cpu=1000
 
+    module use /appl/local/csc/modulefiles
     module load julia/1.9
     julia --project=. -e 'using Pkg; Pkg.instantiate()'
     julia --project=. script.jl
@@ -369,6 +370,7 @@ println(ids)
     #SBATCH --cpus-per-task=3
     #SBATCH --mem-per-cpu=1000
 
+    module use /appl/local/csc/modulefiles
     module load julia/1.9
     julia --project=. -e 'using Pkg; Pkg.instantiate()'
     julia --project=. script.jl
@@ -503,6 +505,7 @@ println.(outputs)
     #SBATCH --cpus-per-task=3
     #SBATCH --mem-per-cpu=1000
 
+    module use /appl/local/csc/modulefiles
     module load julia/1.9
     julia --project=. -e 'using Pkg; Pkg.instantiate()'
     julia --project=. script.jl
@@ -619,6 +622,7 @@ println.(outputs)
     #SBATCH --gpus-per-node=1
     #SBATCH --mem-per-cpu=1750
 
+    module use /appl/local/csc/modulefiles
     module load julia-amdgpu/1.9
     julia --project=. -e 'using Pkg; Pkg.instantiate()'
     julia --project=. script.jl
@@ -734,6 +738,7 @@ MPI.Barrier(comm)
     #SBATCH --cpus-per-task=1
     #SBATCH --mem-per-cpu=0
 
+    module use /appl/local/csc/modulefiles
     module load julia/1.9
     julia --project=. -e 'using Pkg; Pkg.instantiate()'
     julia --project=. script.jl
