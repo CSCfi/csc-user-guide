@@ -1,5 +1,17 @@
 # Applications
 
+## PyTorch 2.2.1, 1.3.2024
+
+[PyTorch](../../apps/pytorch.md) 2.2.1 added to Puhti, Mahti and
+LUMI. The LUMI module includes ROCm versions of 
+[Flash attention 2](https://github.com/ROCm/flash-attention) andq
+[bitsandbytes](https://github.com/ROCm/bitsandbytes) as these are
+difficult for users to add themselves.
+[xFormers](https://github.com/facebookresearch/xformers) has been
+added to all three systems in addition to new versions of all formerly
+supported packages.
+
+
 ## Snakemake, 23.2.2024
 
 An [application page for the Snakemake workflow tool](../../apps/snakemake.md)

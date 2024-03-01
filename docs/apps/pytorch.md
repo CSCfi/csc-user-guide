@@ -10,10 +10,18 @@ Machine learning framework for Python.
 
 !!! info "News" 
 
+    **1.3.2024** PyTorch 2.2.1 added to Puhti, Mahti and LUMI. The LUMI
+    module includes ROCm versions of 
+    [Flash attention 2](https://github.com/ROCm/flash-attention) 
+    and [bitsandbytes](https://github.com/ROCm/bitsandbytes) as these are
+    difficult for users to add themselves. 
+    [xFormers](https://github.com/facebookresearch/xformers) has been added 
+    to all three systems in addition to new versions of all formerly supported packages.
+
     **17.11.2023** PyTorch 2.1 added to Puhti, Mahti and LUMI. Horovod has
     been removed, we recommend using [PyTorch DDP](../support/tutorials/ml-multi.md) 
-    instead. [PyTorch Geometric](https://pytorch-geometric.readthedocs.io/) was added to the
-    Puhti and Mahti version.
+    instead. [PyTorch Geometric](https://pytorch-geometric.readthedocs.io/) 
+    was added to the Puhti and Mahti version.
     
     **5.10.2022** Due to Puhti's update to Red Hat Enterprise Linux 8
     (RHEL8), **the number of fully supported PyTorch versions has been
