@@ -124,7 +124,7 @@ unsaved data. This command should be used carefully.
 
 To enter insert mode and insert text at current position, type `i` and
 start typing a text, to append text after current position, type `a`.
-To delete characters while in insert mode, use `Backspace` and `Delete`
+To delete characters while in insert mode, use *Backspace* and *Delete*
 keys.
 
 For more options, please refer to the Vim manual.
