@@ -144,8 +144,8 @@ We can configure MPS on a local computer using the following instructions.
    On Linux and macOS, MATLAB stores local configurations in `~/.matlab` directory.
    We can place the files there as follows:
    ```bash
-   mkdir -p ~/.matlab/mps_puhti
-   unzip csc.Desktop.zip -d ~/.matlab/mps_puhti
+   mkdir -p ~/.matlab
+   unzip mps_puhti.zip -d ~/.matlab
    ```
    On Windows, we can use the `%AppData%\Mathworks\MATLAB` directory to store the configurations.
 4. Set the directory the MATLAB path using `addpath` and `savepath` functions in MATLAB as follows:
