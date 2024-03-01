@@ -33,9 +33,8 @@ It is available as follows:
 - Systems: *Puhti*
 - License: *Academic*
 - Versions: *R2021b*, *R2022b*, *R2023a*, *R2023b*
-- Toolboxes: *MATLAB Parallel Server* (500 licenses)
-
-Toolboxes from the local computer can also be used with MATLAB Parallel Server.
+- Toolboxes: *MATLAB Parallel Server* (license for using upto 500 computing cores simultaneously).
+  Toolboxes that you have license on your local MATLAB license can also be used with MATLAB Parallel Server.
 
 
 ## Using interactive MATLAB on Puhti
