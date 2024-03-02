@@ -1,5 +1,4 @@
-# Linux bash scripts  
-
+# Linux bash scripts
   
 One way of utilizing the flexibility of linux is using command scripts.
 A command script is simply a file, which contains a set of normal linux
@@ -57,11 +56,7 @@ with command:
 And then execute the script with command:
 
     ./my_test.script
-
  
-
- 
-
 ## Variables and arrays
 
 You can use variables, loops and conditional statements in the scripts.
@@ -88,8 +83,6 @@ the variables are considered to be either strings ( i.e. text) or
 integers. **This means that decimal numbers can't be used in bash
 scripts** for mathematical operations.
 
- 
-
 Example of using string variables
 
     [kkayttaj@puhti ~]$ name=Veikko
@@ -98,8 +91,6 @@ Example of using string variables
     [kkayttaj@puhti ~]$ echo "Person: ${name} ${familyname} works at ${address}."
 
     Person: Veikko Salo works at CSC Espoo.
-
- 
 
 For integer variables, you can do simple arithmetics with syntax:
 ((*expression*)). Commonly used arithmetic operations  are listed in
@@ -116,7 +107,6 @@ table below:
 | %            | division reminder |
 | \*\*         | exponentiation    |
 
-  
 Simple integer arithmetics examples:
 
     [kkayttaj@puhti ~]$ a=5
@@ -188,8 +178,6 @@ argument as target directory. For example command:
 Would copy all the file with extension .map from a directory named as
 *source\_data* to a new directory called:*map\_files.*
 
- 
-
 ## Quotation marks
 
 Three different quotation marks are used in bash. Quotation marks are
@@ -255,8 +243,6 @@ for another linux command. The basic syntax \` \` marks is:
 where *command1* will use the product of *command2* as an argument. In
 Bash script, the same functionality can be done also with syntax:
 $(*command*)
-
- 
 
 ## Loops and conditional statements
 
@@ -381,7 +367,6 @@ syntax is also strict about the spaces between the brackets and the
 condition statement: definition \[\[a == b\]\] will not work and should
 be fixed to \[\[ a == b \]\].
 
-  
 **Table:**<span style="font-weight: normal"> Commonly used string,
 integer and file o</span>perands of if and while statements
 
@@ -465,8 +450,6 @@ test the file exists.
        fi
     done
 
- 
-
 ## Printing the output
 
 In the previous examples we have already used [**echo**] command to
@@ -540,5 +523,3 @@ in variables. For example commands:
 Prints out:
 
     The resulting value from: 3g is: 5.30
-
-
