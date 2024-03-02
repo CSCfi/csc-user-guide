@@ -332,22 +332,22 @@ Leena Virtanen. Kuopio 32 cumulative age sum:158 average:39.5
 
 The `sort` command can be used to order rows of a text file or
 other input data into alphabetical or numerical order. The syntax of the
-`sort` command is simple: `sort -options files_to_sort` By default the
+`sort` command is simple: `sort -options files_to_sort`. By default, the
 `sort` command orders the rows of the file alphabetically using
 case-sensitive sorting. With option `-f`, case-insensitive sorting is
-performed. If the data contains columns, separated by the space or
+performed. If the data contains columns separated by the space or
 tabulator character you can ask the sort command to use a certain column
 (or columns) for ordering the data. The columns to be used can be
-selected with the option `-k` *column number*. For example, to sort
+selected with the option `-k column_number`. For example, to sort
 the data in the file `authors.txt` (the example file used previously in
 this chapter), according to the family names that are located in the
-second column, you use command:
+second column, use command
 
 ```bash
 sort -k 2 authors.txt
 ```
 
-That prints out:
+that prints out:
 
 ```text
 Markus Aho. Turku 50
@@ -356,8 +356,8 @@ Eeva Pekkanen. Oulu 50
 Leena Virtanen. Kuopio 32
 ```
 
-You can also define other column separators with option `-t`
-*separator*. Note that by default, `sort` orders also numbers
+You can also define other column separators with option `-t separator`. 
+Note that by default, `sort` orders also numbers
 alphabetically. Option `-n` makes `sort` to use a numerical ordering
 instead. The option `-r` reverses the order. Numerical sorting
 according to the fourth column can now be done with the command
@@ -366,7 +366,7 @@ according to the fourth column can now be done with the command
 sort -k4 -n authors.txt
 ```
 
-Result:
+that results in
 
 ```text
 Pekka Niemi. Tampere 26
@@ -375,11 +375,11 @@ Eeva Pekkanen. Oulu 50
 Markus Aho. Turku 50
 ```
 
-You can also define that several columns will be used for sorting. For
+You can also define several columns to be used for sorting. For
 example, the following command uses the numerical order of the fourth
 column as the primary sorting criteria (`-k4n`). In cases where
 several rows have the same value in the fourth column, the alphabetical
-order is used as the secondary sorting criteria (`-k2`)
+order is used as the secondary sorting criteria (`-k2`):
 
 ```bash
 sort -k4n -k2 authors.txt
@@ -394,10 +394,10 @@ Markus Aho. Turku 50
 Eeva Pekkanen. Oulu 50
 ```
 
-The sorted data can be saved to a new file either by using option **-o**
-or redirecting the standard output to a file with **&gt;**. For example,
+The sorted data can be saved to a new file either by using option `-o`
+or redirecting the standard output to a file with `>`. For example,
 both commands below create the same file containing the sorted version
-of the file *authors.txt*.
+of the file `authors.txt`.
 
 ```bash
 sort -k4n -k2 -o authors_sorted.txt authors.txt
@@ -412,8 +412,8 @@ checks if two successive rows in the input file or standard input are
 identical. By default, `uniq` removes the successive duplicate rows.
 Note that `uniq` does not check if an identical row exists elsewhere in
 the input. Because of that, the data is normally sorted before applying
-the `uniq` command. As an example, say we have a file called *names*
-that contains following rows:
+the `uniq` command. As an example, say we have a file called `names`
+that contains the following rows:
 
 ```text
 Pekka
@@ -424,13 +424,13 @@ Eeva
 Leena
 ```
 
-Running command:
+Running the command
 
 ```bash
 uniq names
 ```
 
-will give following output:
+will give the following output:
 
 ```text
 Pekka
@@ -440,9 +440,9 @@ Eeva
 Leena
 ```
 
-In the output, row "*Leena*" still occurs twice as the two identical
-names were not in the successive rows. The situation can be fixed by
-sorting the rows before `uniq` is applied, for example:
+In the output, row *Leena* still occurs twice as the two identical
+names were not in successive rows. The situation can be fixed by
+sorting the rows before `uniq` is applied. For example,
 
 ```bash
 sort names | uniq
@@ -459,13 +459,13 @@ Pekka
 
 It is often useful to know, how many identical rows were found. This
 information can be added to the output of `uniq` with the option `-c`.
-For example:
+For example,
 
 ```bash
 sort names | uniq -c
 ```
 
-Gives the following output:
+gives the following output:
 
 ```text
 1 Eeva
@@ -474,9 +474,9 @@ Gives the following output:
 2 Pekka
 ```
 
-Note that also *space* and *tabulator* characters are used when `uniq`
+Note that also *Space* and *Tabulator* characters are used when `uniq`
 compares the rows. Thus, a row containing "Leena" is not identical to a
-row containing "Leena". By default, `uniq` is case-sensitive, but using
+row containing "Leena ". By default, `uniq` is case-sensitive, but using
 option `-i` makes `uniq` to ignore the cases and consider "leena" and
 "Leena" to be identical. However, note that if you use case-insensitive
 `uniq`, you may need to do also the sorting in case-insensitive mode
@@ -484,7 +484,7 @@ using command `sort -f`.
 
 ## Replacing characters with `tr`
 
-The `tr` command ("translate") is used to replace individual
+The `tr` command (translate) is used to replace individual
 characters. `tr` reads the standard input and writes the translated data
 to the standard output. The syntax of `tr` command is
 
@@ -493,13 +493,13 @@ tr search_character replacement_character
 ```
 
 For example, dots (`.`) in the file `authors.txt` could be replaced with
-commas (`,`) with command:
+commas (`,`) with the command
 
 ```bash
 tr "." "," < authors.txt
 ```
 
-this prints out:
+which prints out
 
 ```text
 Eeva Pekkanen, Oulu 50
@@ -512,7 +512,7 @@ Note that the command above does not modify the original input file in
 any way. In the examples here, the results of `tr` command are printed
 to the screen. When `tr` is used to modify large files, the output
 should of course be redirected to a new file instead of the screen. For
-example:
+example,
 
 ```bash
 tr "." "," < authors.txt > authors_mod.txt
@@ -522,22 +522,22 @@ If you would like to remove the dots, you could use the option `-d`
 with just one character set, telling what characters are to be removed:
 
 ```bash
-tr -d "."  < authors.txt
+tr -d "." < authors.txt
 ```
 
-Note that the `tr` translates individual characters, not words. Thus
+Note that the `tr` translates individual characters, not words. Thus,
 command `tr "Oulu" "Turku"` would not change the word "Oulu" to "Turku".
-Instead, it would do the following character conversions to all the text
-O->T, l->r, u->k. The `tr` command can do translations with
-special characters like tabulator (`\t`) and newline (`\n`) and with
+Instead, it would do the following character conversions to the whole text:
+`O->T`, `l->r`, `u->k`. The `tr` command can do translations with
+special characters, like tabulator (`\t`) and newline (`\n`), and with
 predefined character sets like all lower case letters (`[:lower:]`) and
-all upper case letters (`[:upper:]`). For example:
+all upper case letters (`[:upper:]`). For example,
 
 ```bash
 tr "." "\n" < authors.txt
 ```
 
-would replace the dots with line breaks in the file `authors.txt` :
+would replace the dots with line breaks in the file `authors.txt`:
 
 ```text
 Eeva Pekkanen
@@ -551,13 +551,13 @@ Leena Virtanen
 ```
 
 Modifying the file so that all the text is written with upper case
-letters can be done with:
+letters can be done with
 
 ```bash
 tr "[:lower:]" "[:upper:]" < authors.txt
 ```
 
-Resulting:
+which results in
 
 ```text
 EEVA PEKKANEN, OULU 50
@@ -574,33 +574,33 @@ characters and character sets that `tr` can use.
 Replacing text strings can be done with `sed`. `sed` is a stream
 editor that can be used for many text processing operations.
 `sed` reads string data, either from a file or piped from another
-command, and does the edition operations defined by the user and then
+command, and does the edit operations defined by the user and then
 prints the edited string to the standard output. `sed` is a very
 powerful tool for automatic text editing, though a bit hard to learn. In
 this guide we do not provide a general introduction to `sed`, as even a
 modest overview would take several pages. Instead, we show few practical
-examples how `sed` can be used. `sed` is commonly used with the syntax:
+examples of how `sed` can be used. `sed` is commonly used with the syntax:
 
 ```bash
-sed -e sed_script input-file
+sed -e sed_script input_file
 ```
 
-The `sed_script` is typically short formulation that defines what kind
-of editing should be done. For example to do a replacement operation we
-could use the `sed` operation `s/"search string"/"replacement
-string"/g`. In this formulation `s` means search and replace operation.
+The `sed_script` is typically a short formulation that defines what kind
+of editing should be done. For example, to do a replacement operation we
+could use the `sed` operation `s/"search string"/"replacement string"/g`.
+In this formulation `s` means search and replace operation.
 The `g` in the end of the formulation means that the replacement
-operation is global i.e. all matching strings will be replaced. You
+operation is global, i.e. all matching strings will be replaced. You
 could replace, for example, just the first or second occurrence of the
 search string on a row by using number 1 or 2 instead of `g`. For
 example the operation where Oulu is replaced by Turku in the file
-`authors.txt` can be done with the command:
+`authors.txt` can be done with the command
 
 ```bash
 sed -e s/"Oulu"/"Turku"/g authors.txt
 ```
 
-Result:
+which results in
 
 ```text
 Eeva Pekkanen. Turku 50
@@ -612,20 +612,20 @@ Leena Virtanen. Kuopio 32
 Just like the `grep` command, `sed` interprets the given search string
 as a *regular expression*. This means that some characters are
 interpreted as special regular expression defining characters. For
-example the dot (`.`) is used to define any single character. Thus, the
+example, the dot (`.`) is used to define any single character. Thus, the
 `sed` command `s/"."/","/g` would change not just dots but all
 characters to commas (`,`). In these kinds of situations you can use the
 *backslash* character (`\`) to tell the `sed` command that the following
 character should not be interpreted as part of a regular expression. On
-the other hand using the regular expressions can make `sed` very
+the other hand, using the regular expressions can make `sed` very
 effective. Below are some regular expression examples applied to the
-*authors.txt* file with `sed`.
+`authors.txt` file with `sed`.
 
 ### `sed` example 1
 
 Using the `$` character to define the end of a line (note
 the single quotation marks (`'`) that prevent the `$` character to be
-interpreted as bash variable indicator):
+interpreted as a bash variable indicator):
 
 ```bash
 sed -e s/'0$'/"1 changed"/g authors.txt
@@ -659,7 +659,7 @@ LeEXA Virtanen. Kuopio 32
 
 ### `sed` example 3
 
-Using `^` to define beginning of a line.
+Using `^` to define the beginning of a line.
 
 ```bash
 sed -e s/"^P"/"START:P"/g authors.txt
