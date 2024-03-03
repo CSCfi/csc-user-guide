@@ -119,8 +119,8 @@ directories. The option `-a` defines that all files, including also
 hidden files that start with dot (`.`) character, are listed. Below
 is a sample output for `ls -la` command:
 
-```text
-kkayttaj@c305:~>ls -la
+```bash
+[kkayttaj@puhti-login11 ~]$ ls -la
 total 26914
 drwx------+ 3  kkayttaj csc         10 Dec 22 09:12 .
 drwxr-xr-x  20 root     root         0 Dec 22 09:12 ..
@@ -334,7 +334,7 @@ will always ask the user to confirm that they really want to remove the
 file:
 
 ```bash
-kkayttaj@c305:~>rm output_copy.dat
+[kkayttaj@puhti-login11 ~]$ rm output_copy.dat
 rm: remove output_copy.dat (yes/no)?
 ```
 

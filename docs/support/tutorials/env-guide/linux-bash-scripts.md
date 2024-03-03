@@ -346,7 +346,7 @@ directory called `project_3` that contains nine files called
 the directory, we may use command `ls`:
 
 ```bash
-testuser@puhti:~> ls project_3/
+[testuser@puhti-login11 ~]$ ls project_3/
 sample1.txt sample3.txt sample5.txt sample7.txt sample9.txt  
 sample2.txt sample4.txt sample6.txt sample8.txt  
 ```
