@@ -33,9 +33,8 @@ It is available as follows:
 - Systems: *Puhti*
 - License: *Academic*
 - Versions: *R2021b*, *R2022b*, *R2023a*, *R2023b*
-- Toolboxes: *MATLAB Parallel Server* (500 licenses)
-
-Toolboxes from the local computer can also be used with MATLAB Parallel Server.
+- Toolboxes: *MATLAB Parallel Server* (license for using upto 500 computing cores simultaneously).
+  Toolboxes that you have license on your local MATLAB license can also be used with MATLAB Parallel Server.
 
 
 ## Using interactive MATLAB on Puhti
@@ -69,8 +68,14 @@ matlab -batch <script>
 
 ### Web interface
 We can also use the [web interface](../computing/webinterface/index.md) for interactive MATLAB sessions.
-First, we need to log into [puhti.csc.fi](https://www.puhti.csc.fi) and then we can choose either the *Desktop* or the *MATLAB* application, specify the resource requirements and launch the application.
-On the Desktop application, we can launch MATLAB by clicking the MATLAB icon.
+First, we need to log into [puhti.csc.fi](https://www.puhti.csc.fi).
+Then, we have two options:
+
+1. We can use **MATLAB web application** which opens a web version of the MATLAB graphical user interface.
+
+2. We can use the **Desktop application** and click the MATLAB icon to open the desktop version of MATLAB graphical user interface.
+
+We need to set atleast 4 GB of memory before launching the MATLAB application.
 
 
 ## Parallel computing on MATLAB
@@ -139,8 +144,8 @@ We can configure MPS on a local computer using the following instructions.
    On Linux and macOS, MATLAB stores local configurations in `~/.matlab` directory.
    We can place the files there as follows:
    ```bash
-   mkdir -p ~/.matlab/mps_puhti
-   unzip csc.Desktop.zip -d ~/.matlab/mps_puhti
+   mkdir -p ~/.matlab
+   unzip ~/Downloads/mps_puhti.zip -d ~/.matlab
    ```
    On Windows, we can use the `%AppData%\Mathworks\MATLAB` directory to store the configurations.
 4. Set the directory the MATLAB path using `addpath` and `savepath` functions in MATLAB as follows:
