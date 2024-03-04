@@ -1,9 +1,22 @@
-# Use case: Transfer your data to another project
+# How to transfer your data to another project
 
-A project team (project A) has valuable datasets that another team (recipient project B) needs for analysis. Project A shares the relevant data folder with the recipient project B with **Read-only** permission. This allows the recipient project members to download a copy of data, ensuring they have their own working copy for analysis without affecting the original dataset.
+Service: **SD Connect**. Share permission: ***Transfer data.***
 
-1. Log in to SD Connect.
-2. Choose project A in the top left corner.
-3. In the All folders tab, find the correct folder and on the same row on the right, click **Share**.
-4. In the new window, add the [Share ID](./sd-connect-share.md) of the recipient project B and select the permission level **Read-only**. Click **Share**.
-5. All the content within the folder is visible within to the recipient project B. All project members in project B can now copy, download, and decrypt the folder's content through SD Connect. Additionally, they can access it via SD Desktop for analysis.
+## Use case
+You (Team A) have datasets that other team (Team B) needs access to. They wish to view your data and analyse it in their own environment. You are willing to give them a copy of your dataset.
+
+## Solution
+In this case you can share your data folder to Team B with **Transfer data** -permission. This allows Team B members to view your data, copy it and download the copy for themselves. Team B can have their own copy for analysis without affecting your original dataset.
+
+![Transfer Data Infograph](./images/connect/UseCase_TransferData.png)
+
+## Step by step tutorial
+
+1. Ask from Team B, what is the [Share ID](./images/connect/UseCase_ShareID.png){ target="_blank" } of their project.
+2. Log in to [SD Connect](./sd-connect-login.md).
+3. Upload your data folder to SD Connect: [See upload instructions](./sd-connect-upload.md).
+4. Click “**Share**” next to the folder you wish to share ([screenshot](./images/connect/UseCase_ShareButton.png){ target="_blank" }).
+5. Add the project B’s **Share ID** to the field ([screenshot](./images/connect/UseCase_AddShareID.png){ target="_blank" }).
+6. Select sharing permission: “**Transfer data**”. Click “**Share**” ([screenshot](./images/connect/UseCase_SelectPermission.png){ target="_blank" }).
+
+Now all the content of the folder is visible to project B. All project members in project B can copy, download, and decrypt the content of the folder via SD Connect. They can also access it via SD Desktop for analysis. However, they can not modify your original folder.
