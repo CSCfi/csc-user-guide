@@ -183,7 +183,7 @@ In the Puhti web interface, the `interactive`, `small`, `test`, `gpu` and `gpute
 Selecting the `gpu` or `gputest` partition will allocate a Nvidia V100 GPU.
 
 In the Mahti web interface, the `interactive` and `gpusmall` partitions are available. Selecting the
-`gpusmall` partition will allocate a split Nvidia A100 GPU (A100_1g.5g). For more details about the
+`gpusmall` partition will allocate a split Nvidia A100 GPU (a100_1g.5g). For more details about the
 split GPUs, see the [Mahti partitions
 page](../running/batch-job-partitions/#mahti-partitions).
 
