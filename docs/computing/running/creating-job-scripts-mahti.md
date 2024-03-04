@@ -80,7 +80,7 @@ Mahti's `gpusmall` partition supports only one or two GPU jobs. So the maximum i
 
 In Mahti's `gpusmall` partition there are also A100 GPUs that have been sliced into smaller a100_1g.5gb GPUs 
 with one seventh of the compute and memory capacity of a full A100 GPU.  For each small GPU you can reserve 
-at most 4 cores/task and for each GPU the job is allocated 17.5 GiB of memory. Also note that you can reserve 
+at most 4 cores/tasks and for each GPU the job is allocated 17.5 GiB of memory. Also note that you can reserve 
 at most one small GPU per job. The small GPUs are available on `gpusmall` using the option:
 ```
 #SBATCH --partition=gpusmall
