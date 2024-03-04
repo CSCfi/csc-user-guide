@@ -12,7 +12,7 @@ the basic Linux commands is in many cases still the most efficient way.
 This tutorial provides an introduction to the usage of the Linux
 environment of CSC. Puhti is used in the examples, but the same
 commands can be used in the other servers of CSC, too. If you
-are using Linux or Mac OSX machine, you can also use most of
+are using Linux or macOS machine, you can also use most of
 the commands in a terminal on your local machine. Once you are
 familiar with the basic Linux commands, you can continue to
 topics that go deeper to the file and data management commands of
