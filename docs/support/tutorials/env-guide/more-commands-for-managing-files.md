@@ -25,7 +25,7 @@ the current directory. In this case, the file is found from a subdirectory
 `dataset3`.
 
 ```bash
-[kkayttaj@puhti-login11 ~]$ find ./ -name dataset27.txt
+$ find ./ -name dataset27.txt
 ./dataset3/dataset27.txt
 ```
 
@@ -78,7 +78,7 @@ In the example below, file types of all the files in the current working
 directory are listed.
 
 ```bash
-[kkayttaj@puhti-login11 ~]$ file ./*
+$ file ./*
 ./a.out:                   ELF 64-bit MSB MIPS-IV executable, MIPS, version 1
 ./common.py:               a python script text executable .
 /data_old.gz:              gzip compressed data, from Unix
@@ -156,7 +156,7 @@ md5sum file_name
 For example:
 
 ```bash
-[kkayttaj@puhti-login11 ~]$ md5sum poster1.pdf
+$ md5sum poster1.pdf
 cc494699398122a6b6d93a5a69bd2667 poster1.pdf
 ```
 
@@ -181,7 +181,7 @@ For example, to check the validity of file `poster1.pdf` with the previously
 created checksum file `poster1.pdf.md5`, use command:
 
 ```bash
-[kkayttaj@puhti-login11 ~]$ md5sum -c poster1.pdf.md5
+$ md5sum -c poster1.pdf.md5
 poster1.pdf: OK
 ```
 
@@ -252,7 +252,7 @@ When the encryption is finished we have two files: the original
 file and and its encrypted version that has an extension `.gpg`.
 
 ```bash
-[kkayttaj@puhti-login11 ~]$ ls  -l
+$ ls  -l
 -rw-------+ 1 kkayttaj csc 1291176 Feb 11 15:57 my_file.txt
 -rw-------+ 1 kkayttaj csc  313848 Feb 11 16:05 my_file.txt.gpg
 ```
@@ -352,7 +352,7 @@ chmod g+r Test.txt
 You can check the effect with `ls -l` command:
 
 ```bash
-[kkayttaj@puhti-login11 ~]$ ls -l Test.txt
+$ ls -l Test.txt
 -rw-r-----+  1 kkayttaj csc       48 Dec 22 09:05 Test.txt 
 ```
 

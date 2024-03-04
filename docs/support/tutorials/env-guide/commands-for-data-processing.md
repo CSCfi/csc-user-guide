@@ -206,7 +206,7 @@ option `-d`. For example, to select the first and third column
 delimiter (`-d " "`):
 
 ```bash
-[kkayttaj@puhti-login11 ~]$ cut -d " " -f1,3 authors.txt
+$ cut -d " " -f1,3 authors.txt
 Eeva Oulu
 Markus Turku
 Pekka Tampere
@@ -238,7 +238,7 @@ can be used to refer to "all columns". For example, the following
 command prints the first and third column of the file `authors.txt`.
 
 ```bash
-[kkayttaj@puhti-login11 ~]$ awk '{print $1 $3}' authors.txt
+$ awk '{print $1 $3}' authors.txt
 EevaOulu
 MarkusTurku
 PekkaTampere
@@ -251,7 +251,7 @@ statement. You can also add other text to the output. Then next example
 adds text and changes the order of columns:
 
 ```bash
-[kkayttaj@puhti-login11 ~]$ awk '{print "Location: "$3"\t Name: "$1" "$2}' authors.txt
+$ awk '{print "Location: "$3"\t Name: "$1" "$2}' authors.txt
 Location: Oulu   Name: Eeva Pekkanen.
 Location: Turku  Name: Markus Aho.
 Location: Tampere   Name: Pekka Niemi.
@@ -272,7 +272,7 @@ example, the following command prints data only when the third column is
 "Tampere":
 
 ```bash
-[kkayttaj@puhti-login11 ~]$ awk '{if ( $3 == "Tampere")  print "Location: "$3"\tName: "$1" "$2}' authors.txt
+$ awk '{if ( $3 == "Tampere")  print "Location: "$3"\tName: "$1" "$2}' authors.txt
 Location: Tampere       Name: Pekka Niemi.
 ```
 
@@ -289,7 +289,7 @@ space jpg image files take in the current folder. We can first list the
 jpg files with command: `ls -l *.jpg`
 
 ```bash
-[kkayttaj@puhti-login11 ~]$ ls -l *.jpg
+$ ls -l *.jpg
 -rw-------+ 1 kkayttaj csc   85112 Dec 19  2002 Image_2.jpg
 -rw-r--r--+ 1 kkayttaj csc  105542 Nov  6  2006 Screen.jpg
 -rw-r--r--+ 1 kkayttaj csc  167598 May 15  2008 casa1.jpg
@@ -304,7 +304,7 @@ To sum up the values of the file sizes in the fifth column, we pipe the
 output to `awk`:
 
 ```bash
-[kkayttaj@puhti-login11 ~]$ ls -l *.jpg | awk '{total+=$5} END {print "JPG files in total: "total}'
+$ ls -l *.jpg | awk '{total+=$5} END {print "JPG files in total: "total}'
 JPG files in total: 3821688
 ```
 

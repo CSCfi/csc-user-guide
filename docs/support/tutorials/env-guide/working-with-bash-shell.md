@@ -137,7 +137,7 @@ can check your active processes, meaning the commands that you are
 currently executing, with command `ps`. For example:
 
 ```bash
-[kkayttaj@puhti-login11 ~]$ ps
+$ ps
 PID TTY          TIME CMD
 385 pts/12   00:00:00 tcsh
 2001 pts/12   00:00:00 eog

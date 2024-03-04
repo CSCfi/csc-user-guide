@@ -106,10 +106,10 @@ scripts for mathematical operations.
 Example of using string variables:
 
 ```bash
-[kkayttaj@puhti-login11 ~]$ name=Veikko
-[kkayttaj@puhti-login11 ~]$ familyname=Salo
-[kkayttaj@puhti-login11 ~]$ address="CSC Espoo"
-[kkayttaj@puhti-login11 ~]$ echo "Person: ${name} ${familyname} works at ${address}."
+$ name=Veikko
+$ familyname=Salo
+$ address="CSC Espoo"
+$ echo "Person: ${name} ${familyname} works at ${address}."
 
 Person: Veikko Salo works at CSC Espoo.
 ```
@@ -130,14 +130,14 @@ the table below:
 Simple integer arithmetic examples:
 
 ```bash
-[kkayttaj@puhti-login11 ~]$ a=5
-[kkayttaj@puhti-login11 ~]$ c=3
-[kkayttaj@puhti-login11 ~]$ ((c = a + b))
-[kkayttaj@puhti-login11 ~]$ echo  $a plus $b is equal to $c
+$ a=5
+$ c=3
+$ ((c = a + b))
+$ echo  $a plus $b is equal to $c
 5 plus 3 is equal to 8
-[kkayttaj@puhti-login11 ~]$ ((d = a / b))
-[kkayttaj@puhti-login11 ~]$ ((e = a % b))
-[kkayttaj@puhti-login11 ~]$ echo "$a divided by $b results $d and reminder $e"
+$ ((d = a / b))
+$ ((e = a % b))
+$ echo "$a divided by $b results $d and reminder $e"
 5 divided by 3 results 1 and reminder 2
 ```
 
@@ -346,7 +346,7 @@ directory called `project_3` that contains nine files called
 the directory, we may use command `ls`:
 
 ```bash
-[testuser@puhti-login11 ~]$ ls project_3/
+$ ls project_3/
 sample1.txt sample3.txt sample5.txt sample7.txt sample9.txt  
 sample2.txt sample4.txt sample6.txt sample8.txt  
 ```
