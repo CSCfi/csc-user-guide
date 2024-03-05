@@ -3,7 +3,7 @@
 ## Mahti has small GPUs available for interactive work, 5.3.2024
 
 Four (4) A100 GPUs on Mahti have been split into a total of 28 smaller GPUs with a fraction of the 
-compute and memory capacity of the full A100 GPUs. These a100_1g.5gb GPUs have one seventh of 
+compute and memory capacity of a full A100 GPU. These a100_1g.5gb GPUs have one seventh of 
 the compute power of one A100 GPU and in total 5 GB of memory. These are useful for interactive work, 
 courses and for code development, and are also available via the
 [web interface](../../computing/webinterface/index.md#partitions-and-resources).
