@@ -3,8 +3,8 @@ The desktop enables using graphical applications on a Puhti or Mahti compute nod
 
 In the Puhti web interface, the following applications are available in the desktop:
 
-* [COMSOL](../../apps/comsol.md)
 * [CloudCompare](../../apps/cloudcompare.md)
+* [COMSOL](../../apps/comsol.md)
 * [GRASS GIS](../../apps/grass.md)
 * [Grace](../../apps/grace.md)
 * [MATLAB](../../apps/matlab.md)

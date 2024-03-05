@@ -1,5 +1,28 @@
 # Computing environment
 
+
+## Puhti web interface updated to release 18, 5.3.2024
+
+* Allas and IDA can now be accessed in the file browser.
+* The Cloud storage configuration tool for generating access tokens to Allas is now available.
+* The Desktop and Accelerated Visualization apps have been improved.
+    * Accelerated Visualization now launches the same desktop as the Desktop app.
+    * Applications for the Accelerated Visualization app can now be found in the applications menu in the desktop.
+    * VisIt is now available in Accelerated Visualization.
+    * Launching applications should be more reliable.
+    * The terminal window stays open if errors occur launching applications.
+    * Applications are now categorized in the menu.
+* Handling of reservations has been improved.
+    * Future reservations are now shown.
+    * All reservations can now be used on any app regardless of partition.
+    * Reservation caching has been improved to be more up to date.
+    * Job time is now limited by reservation length automatically.
+* MATLAB updated to r2023b.
+* VSCode updated to 1.86.1.
+* TensorBoard and MLflow can now use the default module versions.
+* Open OnDemand updated to version 3.1.1.
+
+
 ## Mahti has small GPUs available for interactive work, 5.3.2024
 
 Four (4) A100 GPUs on Mahti have been split into a total of 28 smaller GPUs with a fraction of the 
@@ -8,6 +31,7 @@ the compute power of one A100 GPU and in total 5 GB of memory. These are useful 
 courses and for code development, and are also available via the
 [web interface](../../computing/webinterface/index.md#partitions-and-resources).
 [See more details here](../../computing/running/creating-job-scripts-mahti.md#gpu-batch-jobs).
+
 
 ## Mahti web interface updated to release 4, 27.2.2024
 
