@@ -169,6 +169,18 @@ started and you will be able to connect to the application on the _My Interactiv
 
 For a list of applications and specific instructions see [apps](apps.md).
 
+#### Partitions and resources
+
+Only some of the partitions on the system are available for use in the web interfaces. Some apps
+have a more limited set of partitions available than other apps.
+
+In the Puhti web interface, the `interactive`, `small`, `test`, `gpu` and `gputest` partitions are available.
+Selecting the `gpu` or `gputest` partition will allocate a Nvidia V100 GPU.
+
+In the Mahti web interface, the `interactive` and `gpusmall` partitions are available. Selecting the
+`gpusmall` partition will allocate a split Nvidia A100 GPU (a100_1g.5g). For more details about the
+split GPUs, see the [Mahti partitions
+page](../running/batch-job-partitions/#mahti-partitions).
 
 ### Project view
 

@@ -70,9 +70,9 @@ Remember that you can use the help command as `openstack help database` and the 
 	```sh
 	openstack database instance create my_database_instance \
 	--flavor standard.small \
-	--databases my_first_database
+	--databases my_first_database \
 	--users databaseuser:myPassword568 \
-	--datastore postgresql
+	--datastore postgresql \
 	--datastore-version 14.5 \
 	--is-public \
 	--size 1 \
