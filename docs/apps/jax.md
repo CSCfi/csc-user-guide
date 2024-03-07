@@ -23,7 +23,7 @@ Currently supported JAX versions:
 | 0.4.1   | `jax/0.4.1`        | X     | X     | -    |                 |
 | 0.3.13  | `jax/0.3.13`       | X     | X     | -    |                 |
 
-The modules contain [JAX](https://github.com/google/jax/) for Python 9
+The modules contain [JAX](https://github.com/google/jax/) for Python 3.9
 with GPU support via CUDA/ROCm as well as a large list of additional python packages commonly used together with JAX.
 
 **Versions in LUMI, marked as "X*" are still experimental with limited
