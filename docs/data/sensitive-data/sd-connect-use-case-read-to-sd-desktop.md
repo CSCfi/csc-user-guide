@@ -1,7 +1,5 @@
-# How to give access to folder content only in SD Desktop
+# How to share folder, so it is accessible only via SD Desktop
 
-Service: **SD Connect**. Share permission: ***Read to SD Desktop***.
-    
 
 ## Use case
 
@@ -21,18 +19,16 @@ You also don’t want Team B to export your original data from SD Desktop. That 
 
 ## Step by step tutorial
 
-### MyCSC
-1. Log in to [MyCSC](https://my.csc.fi/login){ target="_blank" }.
-2. Create two new projects: ***project 1*** and ***project 2***.
-3. Manage project 1: enable service access for SD Connect. Do not add any project members.
-4. Manage project 2: enable service access for SD Connect and SD Desktop. Add Team B to be the project members.
 
-### SD Connect
+1. Log in to [MyCSC](https://my.csc.fi/login){ target="_blank" }.
+2. Create two new projects: ***Project 1*** and ***Project 2***.
+3. Manage ***Project 1***: enable service access for SD Connect. Do not add any project members.
+4. Manage ***Project 2***: enable service access for SD Connect and SD Desktop. Add Team B to be the project members.
 1. Log in to [SD Connect](./sd-connect-login.md).
-2. Go to **project 2** and copy the **Share ID**. ([screenshot](./images/connect/UseCase_ShareID2.png){ target="_blank" })
-3. Go to **project 1** and upload your data folder there: [See upload instructions](./sd-connect-upload.md).
+2. Select ***Project 2*** and copy the **Share ID**. ([screenshot](./images/connect/UseCase_ShareID2.png){ target="_blank" })
+3. Select ***Project 1*** and upload your data folder there: [See upload instructions](./sd-connect-upload.md).
 4. Click “**Share**” next to the folder you just uploaded ([screenshot](./images/connect/UseCase_ShareButton2.png){ target="_blank" }).
 5. Add the **Share ID** of project 2 to the field ([screenshot](./images/connect/UseCase_AddShareID2.png){ target="_blank" }).
 6. Select sharing permission: “**Read to SD Desktop**”. Click “**Share**” ([screenshot](./images/connect/UseCase_SelectPermission2.png){ target="_blank" }).
 
-Now, all the content in the folder is visible to project 2 and accessible only through SD Desktop. Project 2 members  (Team B) can access and analyse the shared folder content via SD desktop. However, they cannot export or download files, as all data exports are managed directly by the project manager - and you are the project manager of Project 2.
+Now, all the content in the folder is visible to Project 2 (Team B) and accessible only through SD Desktop. Project 2 members can access and analyse the shared folder content via SD desktop. However, they cannot export or download files, as all data exports are managed directly by the project manager - and you are the project manager of both projects.

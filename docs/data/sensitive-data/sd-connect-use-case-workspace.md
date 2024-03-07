@@ -1,6 +1,4 @@
-# How to use folder as your shared workspace
-
-Service: **SD Connect**. Share permission: ***Collaborate***.
+# How to use folder as your shared workspace with SD Connect
 
 ## Use case
 
@@ -14,7 +12,7 @@ In this case you can share your data folder to Team B with **Collaborate** -perm
 
 ## Step by step tutorial
 
-1. Ask from Team B, what is the [Share ID](./images/connect/UseCase_ShareID.png){ target="_blank" } of their project.
+1. Ask from Team B for their Share ID [(Screenshot)](./images/connect/UseCase_ShareID.png){ target="_blank" }.
 2. Log in to [SD Connect](./sd-connect-login.md).
 3. Upload your data folder to SD Connect: [See upload instructions](./sd-connect-upload.md). Or create an empty folder by clicking "**Create folder**" ([screenshot](./images/connect/UseCase_CreateFolder.png){ target="_blank" }).
 4. Click “**Share**” next to the folder you wish to share ([screenshot](./images/connect/UseCase_ShareButton.png){ target="_blank" }).

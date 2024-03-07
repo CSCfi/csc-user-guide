@@ -1,6 +1,5 @@
-# How to transfer your data to another project
+# How to transfer your data to another project with SD Connect
 
-Service: **SD Connect**. Share permission: ***Transfer data.***
 
 ## Use case
 You (Team A) have datasets that other team (Team B) needs access to. They wish to view your data and analyse it in their own environment. You are willing to give them a copy of your dataset.
@@ -12,7 +11,7 @@ In this case you can share your data folder to Team B with **Transfer data** -pe
 
 ## Step by step tutorial
 
-1. Ask from Team B, what is the [Share ID](./images/connect/UseCase_ShareID.png){ target="_blank" } of their project.
+1. Ask from Team B for their project Share ID [(screenshot)](./images/connect/UseCase_ShareID.png){ target="_blank" }.
 2. Log in to [SD Connect](./sd-connect-login.md).
 3. Upload your data folder to SD Connect: [See upload instructions](./sd-connect-upload.md).
 4. Click “**Share**” next to the folder you wish to share ([screenshot](./images/connect/UseCase_ShareButton.png){ target="_blank" }).
