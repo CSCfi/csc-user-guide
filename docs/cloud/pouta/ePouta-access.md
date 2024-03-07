@@ -2,7 +2,7 @@
 
 Applying for **ePouta** access is not a self service process, it might require manual intervention and some **weeks of wait**. This is different from the cPouta, which is self-service and you should be able to get your new project in a matter of minutes. 
 
-ePouta is a IaaS cloud designed to hold and process **sensitive data**. Because of this, the design focuses on the security of the platform and the data contained in it. It requires a [MPLS](https://en.wikipedia.org/wiki/Multiprotocol_Label_Switching) VPN connection between ePouta and the local network of the user of the VM. In other words, before using ePouta it is necessary to have a [MPLS](https://en.wikipedia.org/wiki/Multiprotocol_Label_Switching) VPN configured. This network setup is a manual step that involves several teams in CSC and in the institution of the user of the VMs.
+ePouta is a IaaS cloud designed to hold and process **sensitive data**. Because of this, the design focuses on the security of the platform and the data contained in it. It requires a [MPLS](https://en.wikipedia.org/wiki/Multiprotocol_Label_Switching) VPN connection between ePouta and the local network of the user of the VM. In other words, before using ePouta it is necessary to have a [MPLS](https://en.wikipedia.org/wiki/Multiprotocol_Label_Switching) VPN configured. This network setup is a manual step that involves several teams from CSC and the institution of the user of the VMs.
 
 <center>![MPLS](../img/epouta_connection.drawio.svg)</center>
 
