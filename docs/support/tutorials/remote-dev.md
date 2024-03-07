@@ -57,7 +57,7 @@ Due to usage of the [module](../../computing/modules.md) system and singularity 
 This typically requires running an SSH remote command upon connection and varies depending on your exact use case - details on the exact commands that need to be run are listed below for a few examples. However, in all cases you need to
 
 1. Enable remote commands in the Visual Studio Code Remote-SSH extension:
-   Open the settings screen (`Ctrl ,`) and type "enable remote command" in the search field. The `Enable Remote Command` setting should appear as the first search result. Make sure it is enable (shows the tick mark). ![Enabling Remote Command in Remote SSH extension](../../img/VSCode_enable_remote_command.png).
+   Open the settings screen (`Ctrl ,`) and type "enable remote command" in the search field. The `Enable Remote Command` setting should appear as the first search result. Make sure it is enabled (shows the tick mark). ![Enabling Remote Command in Remote SSH extension](../../img/VSCode_enable_remote_command.png).
 
 2. Configure a connection with remote command in your SSH configuration file:
    Open the SSH configuration file (`Ctrl Shift p` or `F1`) and type `ssh configuration`, then `Remote-SSH: Open SSH Configuration File` should appear as the first result. Click it.
