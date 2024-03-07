@@ -1,17 +1,17 @@
 # Packing and compression tools
 
-When large data sets are stored at CSC or transported over the net it is
+When large data sets are stored at CSC or transported over the internet, it is
 usually reasonable to *archive* (i.e., pack multiple files into a single
 file) and *compress* (i.e., reduce its size without losing any data) the
-data. Archiving makes file transfer easier while compressed files
+data. Archiving makes file transfer easier and compressed files
 require less storage space and are thus faster to move from one system
-to another. In this chapter we will provide introduction
-to **tar**, **gzip**, **bzip2**, **zip**, **7zip** and **Zstandard** tools
+to another. In this chapter we will introduce
+**tar**, **gzip**, **bzip2**, **zip**, **7zip** and **Zstandard** tools
 that are frequently used for archiving and compression.
 
 | Type                           | Extension                                 |
 |--------------------------------|-------------------------------------------|
-| A zip archive                  | .`zip`, `.ZIP`, or `.Z`                   |
+| A zip archive                  | `.zip`, `.ZIP`, or `.Z`                   |
 | A gzip compressed file         | `.gz`                                     |
 | A bzip2 compressed file        | `.bz2`, or `.bz`                          |
 | A tar archive                  | `.tar`                                    |
@@ -20,7 +20,7 @@ that are frequently used for archiving and compression.
 | A 7zip compressed file         | `.7z`                                     |
 | A Zstandard compressed file    | `.zst`                                    |
 
-## Tar: packing several files into one file
+## tar: packing several files into one file
 
 **tar** is a computer software utility for collecting many files into
 one archive file, often referred to as a *tarball*, for distribution or
@@ -29,30 +29,30 @@ was originally developed to write data to sequential I/O devices with no
 file system of their own. However, nowadays tar – and its GNU
 version, **gtar** – are mostly used for data archiving within a normal
 disk environment. The archive files created by tar contain various file
-system parameters, such as name, time stamps, ownership, file access
+system parameters, such as name, timestamps, ownership, file access
 permissions, and directory structures, which makes moving and storing
 large file sets easier that trying to manage separate files.
 
 By default, tar does not compress the data. This means that the size of
-the tar archive file is the same as the sum of the sizes of packed
+the tar archive file is the same as the sum of the sizes of the packed
 files, plus some overhead metadata. If data compression is needed, you
-can use compression tools like **gzip** or **bzip2** with *tar*.
+can use compression tools like **gzip** or **bzip2** with tar.
 
-*tar* and *gtar* are compatible with each other; if you archive your
-data with *tar* you can unarchive it with *gtar* and vice versa.
-Normally *tar* and/or *gtar* can be found from any Unix, Linux or Mac OS
-X system. In Windows systems you can use for example **7zip** program to
+tar and gtar are compatible with each other; if you archive your
+data with tar you can unarchive it with gtar and vice versa.
+Normally tar and/or gtar can be found from any Unix, Linux or macOS
+system. In Windows systems you can use for example **7zip** program to
 manage tar archive files.
 
-The syntax of a tar command is:
+The syntax of a `tar` command is:
 
 ```bash
-tar options tar_archive file …
+tar options tar_archive file ...
 ```
 
 For example, we may have a directory called `project_3`, which contains
 nine files called `sample1.txt`, `sample2.txt`, ..., `sample9.txt`. To
-list the contents of the directory we could use the command `ls -lh`:
+list the contents of the directory, we could use the command `ls -lh`:
 
 ```bash
 $ ls -lh project_3
@@ -72,7 +72,7 @@ We can archive all the files in the `project_3` directory to a tar
 archive called `project_3.tar` with tar's create (`c`) command:
 
 ```bash
-$ tar cvf project_3.tar project_3
+tar cvf project_3.tar project_3
 ```
 
 The command above creates a new tar archive file, `project_3.tar`, which
@@ -94,7 +94,7 @@ file can now be easily moved to another directory or system and then
 unarchived with the extract (`x`) command:
 
 ```bash
-$ tar xvf project_3.tar
+tar xvf project_3.tar
 ```
 
 This command will create a directory called `project_3`, which contains
@@ -102,7 +102,7 @@ all the same files as the original directory did. Note that if the
 extract command encounters a file that already exists in the file
 system, the existing file will be overwritten by the extracted file.
 This causes a potential danger: possibly a newer version of a file will
-be lost if an older version of the same file (or, just a file with a
+be lost if an older version of the same file (or, just a file with the
 same name) exists in the tar archive that is being unarchived!
 
 | Command    | Operation                                                              |
@@ -130,12 +130,12 @@ options.
 | `j`    | Use bzip2 compression/decompression while creating or extracting an archive |
 
 With options `z` (zip) or `j` (no meaning, it was chosen because no
-meaningful letter were available) you can filter the archive
-through `gzip` or `bzip2` respectively to (de)compress the archive on
+meaningful letter was available) you can filter the archive
+through `gzip` or `bzip2`, respectively, to (de)compress the archive on
 the fly:
 
 ```bash
-$ tar cvzf project_3.tar.gz project_3
+tar cvzf project_3.tar.gz project_3
 ```
 
 Here, in this sample case, the size of the uncompressed archive file is
@@ -171,7 +171,7 @@ just file `sample2.txt` from the compressed archive `project_3.tar.gz` we
 could use command:
 
 ```bash
-$ tar xvzf project_3.tar.gz project_3/sample2.txt
+tar xvzf project_3.tar.gz project_3/sample2.txt
 ```
 
 ## Compressing files
@@ -182,7 +182,7 @@ compressing a data set of several terabytes can easily require overnight
 computing.
 
 There are numerous algorithms and software tools available for data
-compression. Here we will briefly show five tools that are used in
+compression. Here, we will briefly show five tools that are used in
 Unix/Linux systems: *gzip*, *bzip2*, *zip*, *7z* and *Zstandard*. What is
 common to all these tools is that they do the compression without data
 loss, i.e. when the files are uncompressed the data will be 100%
@@ -195,95 +195,47 @@ The compression time depends on the algorithm used and the type of data
 to be compressed. In most cases the newer Zstandard method is
 significantly faster than the older, but very widely used methods like
 gzip or zip. The table below shows results for one sample case,
-where 10 GB text file (fastq-formatted sequence data) was compressed with
-these five methods in the Puhti supercomputer.
+where a 10 GB text file (fastq-formatted sequence data) was compressed with
+these five methods in the Puhti supercomputer using default command settings.
 
-<table>
-<caption>Table: Compression tool comparison for a 10 GB text file. Compressions were made using default command settings in Puhti supercluster.</caption>
-<colgroup>
-<col style="width: 25%" />
-<col style="width: 25%" />
-<col style="width: 25%" />
-<col style="width: 25%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Command  </th>
-<th><p>Size of the compressed file<br />
-(original size was 10 GB)</p></th>
-<th>Compression time</th>
-<th>Decompression time</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>zstd</td>
-<td>2,6 GB</td>
-<td>2 min</td>
-<td>1,7 min</td>
-</tr>
-<tr class="even">
-<td>zstd -T4</td>
-<td>2,6 GB</td>
-<td>0,8 min</td>
-<td>1,7 min</td>
-</tr>
-<tr class="odd">
-<td>7z</td>
-<td>1,8 GB</td>
-<td>56 min</td>
-<td>2,7 min</td>
-</tr>
-<tr class="even">
-<td>gzip</td>
-<td>2,5 GB</td>
-<td>29 min</td>
-<td>2,5 min</td>
-</tr>
-<tr class="odd">
-<td>bzip2</td>
-<td>2,0 GB</td>
-<td>17 min</td>
-<td>9 min</td>
-</tr>
-<tr class="even">
-<td>zip</td>
-<td>2,5 GB</td>
-<td>29 min</td>
-<td>2,5 min</td>
-</tr>
-</tbody>
-</table>
+| Command | Size of the<br>compressed file<br>(original size 10GB) | Compression time | Decompression time |
+|------------|--------|---------|---------|
+| `zstd`     | 2.6 GB | 2 min   | 1.7 min |
+| `zstd -T4` | 2.6 GB | 0.8 min | 1.7 min |
+| `7z`       | 1.8 GB | 56 min  | 2.7 min |
+| `gzip`     | 2.5 GB | 29 min  | 2.5 min |
+| `bzip2`    | 2.0 GB | 17 min  | 9 min   |
+| `zip`      | 2.5 GB | 29 min  | 2.5 min |
 
 ### gzip and gunzip
 
 **gzip** is probably the most commonly used packing tool in Unix and
 Linux systems. It uses the *Lempel-Ziv coding* (LZ77) for compressing
-the data. *gzip* was already briefly mentioned in the *tar* chapter
+the data. gzip was already briefly mentioned in the tar chapter
 above, but gzip can also be used as a totally separate tool. The normal
-usage of *gzip* is straightforward. To compress a file you give the
+usage of gzip is straightforward. To compress a file you give the
 command:
 
 ```bash
-$ gzip file_name
+gzip file_name
 ```
 
 Running this command creates a compressed file and names it using the
 original file name with an extension `.gz`. When the compression is
-ready the original file is removed. If you want to preserve the original
-file, you need to use redirection, like:
+ready, the original file is removed. If you want to preserve the original
+file, you need to use redirection:
 
 ```bash
-$ gzip < file_name > file_name.gz
+gzip < file_name > file_name.gz
 ```
 
 Decompressing a gzipped file is done with command `gunzip`. In
-addition to gzip compressed files, `gunzip` can also decompress files
-compressed with `zip` command. The basic syntax of `gunzip` is analogous
+addition to gzip-compressed files, `gunzip` can also decompress files
+compressed with the `zip` command. The basic syntax of `gunzip` is analogous
 to the compressing command:
 
 ```bash
-$ gunzip file_name.gz
+gunzip file_name.gz
 ```
 
 The command above removes the compressed file when decompression is
@@ -291,7 +243,7 @@ ready. If you wish the keep the compressed file, you'll need redirection
 again:
 
 ```bash
-$ gunzip < file_name.gz > file_name
+gunzip < file_name.gz > file_name
 ```
 
 gzip has several command line options that are not discussed here. Use
@@ -302,7 +254,7 @@ compress) so you will not find a separate manual page for that.
 
 #### gzip example
 
-Let's assume we are in the `$WRKDIR` directory of Puhti-shell and there we
+Let's assume we are in some directory on Puhti where we
 have just one file called `my_data.dat`. Let's first check the size of
 that file with command `ls -lh`:
 
@@ -312,7 +264,7 @@ total 1.5G
 -rw-r--r--+ 1 testuser csc 1.5G Nov  4 13:07 my_data.dat
 ```
 
-The listing tells us that the size of the file is approximately 1,5 GB.
+The listing tells us that the size of the file is approximately 1.5 GB.
 Next, we compress the file with `gzip` and then check the file size again.
 
 ```bash
@@ -351,15 +303,15 @@ gzip, but not all the command line options are identical. The basic
 compression syntax is:
 
 ```bash
-$ bzip2 file_name
-$ bzip2 < file_name > file_name.bz2
+bzip2 file_name
+bzip2 < file_name > file_name.bz2
 ```
 
-Similarly, the decompression can be done with command:
+Similarly, the decompression can be done with commands:
 
 ```bash
-$ bunzip2 file_name.bz2
-$ bunzip2 < file_name.bz2 > file_name
+bunzip2 file_name.bz2
+bunzip2 < file_name.bz2 > file_name
 ```
 
 Note that a file compressed with bzip2 can not be uncompressed with
@@ -373,55 +325,55 @@ cores to be used. For example, compressing the file `my_data.dat` using
 four cores can be done with command:
 
 ```bash
-$ pbzip2 -p4 my_data.dat
+pbzip2 -p4 my_data.dat
 ```
 
 Similarly, to decompress the file with two cores you can use command:
 
 ```bash
-$ punbzip2 -p2 my_data.dat.bz2
+punbzip2 -p2 my_data.dat.bz2
 ```
 
 The `pbzip2` and `pbunzip2` commands scale well for small core numbers.
 Already with two cores the `pbzip2` is about as fast as `gzip`. The number
-of processors used does not affect to the actual result file. Thus, a
+of processors used does not affect to the actual output file. Thus, a
 file that has been compressed with parallel `pbzip2` can be uncompressed
 with normal `bunzip2` command and vice versa.
 
-### zip and  unzip: the combined compression and file archiving tool
+### zip and unzip: the combined compression and file archiving tool
 
 The **zip** program can be used for both archiving and compressing
-files. Given a list of files or directories the `zip` command archives
-and compresses all the files in to a single zip archive file. So, in
+files. Given a list of files or directories, the `zip` command archives
+and compresses all the files into a single zip archive file. So, in
 principle, `zip` is analogous to the combination of `tar` and `gzip`
-commands. Later the whole archive, or just certain files, can be
+commands. Later, the whole archive, or just certain files, can be
 extracted from the archive. The basic syntax of `zip` command is:
 
 ```bash
-$ zip -options archive_file source_name
+zip -options archive_file source_name
 ```
 
 The `source_name` can be a list of files, directories, or a combination
-of both, that will be packed in to the `archive_file`. If the
+of both that will be packed in to the `archive_file`. If the
 `archive_file` already exists, `zip` will replace the existing files in the
 archive with new ones from the `source_name` list, or add files if they
 do not exist in the `archive_file` yet. Note that unlike the `tar` command,
-`zip` does not add any files from subdirectories in to the archive by
+`zip` does not add any files from subdirectories into the archive by
 default. The option `-r` is needed to recursively add all files and
 subfolders from a given directory to the zip archive. Below is listed
 some commonly used `zip` command options.
 
-| Option   | Function                                                                                                                                     |
-|----------|----------------------------------------------------------------------------------------------------------------------------------------------|
-| `-d`     | Remove (delete) entries from a zip archive                                                                                                   |
-| `-e`     | Encrypt the contents of the zip archive using a password which is entered on the terminal in response to a prompt                            |
-| `-f`     | Replace (freshen) an existing file in the zip archive only if it has been modified more recently than the version already in the zip archive |
-| `-l`     | Translate the Unix end-of-line character LF into the MSDOS convention CR LF                                                                  |
-| `-ll`    | Translate the MSDOS end-of-line CR LF into Unix LF                                                                                           |
-| `-r`     | Travel the directory structure recursively                                                                                                   |
-| `-u`     | Update existing entries if newer on the file system and add new files                                                                        |
-| `-@`     | Take the list of input files from standard input. Only one filename per line.                                                                |
-   
+| Option   | Function                                                                                                                             |
+|----------|--------------------------------------------------------------------------------------------------------------------------------------|
+| `-d`     | Remove (delete) entries from a zip archive                                                                                           |
+| `-e`     | Encrypt the contents of the zip archive using a password which is entered on the terminal in response to a prompt                    |
+| `-f`     | Replace (freshen) an existing file in the archive only if it has been modified more recently than the version already in the archive |
+| `-l`     | Translate the Unix end-of-line character LF into the MSDOS convention CR LF                                                          |
+| `-ll`    | Translate the MSDOS end-of-line CR LF into Unix LF                                                                                   |
+| `-r`     | Travel the directory structure recursively                                                                                           |
+| `-u`     | Update existing entries if newer on the file system and add new files                                                                |
+| `-@`     | Take the list of input files from standard input. Only one filename per line.                                                        |
+
 Creating a zip archive does not affect the original files. Note that the
 `zip` command will add the `.zip` extension to the archive file name by
 default, if it is not already included.
@@ -430,34 +382,34 @@ Zip archives can be extracted and studied with the `unzip` command. To
 extract files from a zip archive, use the command:
 
 ```bash
-$ unzip archive_file_name
+unzip archive_file_name
 ```
 
 To just see the files included in the zip archive use command:
 
 ```bash
-$ unzip -l archive_file_name
+unzip -l archive_file_name
 ```
 
 You can also extract just one file from an archive with command:
 
 ```bash
-$ unzip archive_file_name file_name
+unzip archive_file_name file_name
 ```
 
 | Option        | Function                                                                                                                  |
 |---------------|---------------------------------------------------------------------------------------------------------------------------|
 | `-f`          | Freshen existing files, i.e., extract only those files that already exist on disk and are newer than the ones on the disk |
-| `-l`          | List the content of an archive file                                                                                       |
+| `-l`          | List the contents of an archive file                                                                                      |
 | `-u`          | Update existing files and create new ones if needed                                                                       |
 | `-o`          | Overwrite existing files without prompting                                                                                |
-| `-p password` | Use *password* to decrypt an encrypted zip file                                                                           |
+| `-p password` | Use `password` to decrypt an encrypted zip file                                                                           |
 
 #### zip example
 
 To archive and compress the sample directory `project_3`, which
 contains the files `sample1.txt`, `sample2.txt`, ..., `sample9.txt` (the
-same example that was used in the tar chapter) use the command:
+same example that was used in the tar chapter), use the command:
 
 ```bash
 $ zip -r project_3.zip project_3
@@ -501,7 +453,7 @@ $ zip project_3.zip project_3/sample10.txt
 ```
 
 You can check the contents of the zip archive with `unzip` and
-option `-l` (small letter L):
+option `-l`:
 
 ```bash
 $ unzip -l project_3.zip
@@ -552,34 +504,34 @@ replace project_3/sample1.txt? [y]es, [n]o, [A]ll, [N]one, [r]ename:A
 
 ### 7zip packing and compression tool 
 
-7zip is a packing and compression tools that is frequently
-used especially in Windows platforms. It can be however used in macOS
+**7zip** is a packing and compression tool that is frequently
+used especially on Windows platforms. It can be, however, used in macOS
 and Linux systems too. By default, the command uses its own *7z*
-compression file formatm but it can utilize other compression file
+compression file format, but it can utilize other compression file
 formats too.
 
-In Puhti, *7zip* is launched with command `7z`. To get access to the
+In Puhti, 7zip is launched with command `7z`. To get access to the
 command, first load the required module with:
 
 ```bash
-$ module load p7zip
+module load p7zip
 ```
 
 The basic syntax of the command is:
 
 ```bash
-$ 7z command -options archive_file file_names
+7z command -options archive_file file_names
 ```
 
-The most important 7zip commands are:
+The most important 7zip options are:
 
-- `a` Add files to an archive
+- `a` add files to an archive
 - `e` extract files from an archive file
 - `l` list files in the archive file
 
 To archive and compress the sample directory `project_3`, which
 contains the files `sample1.txt`, `sample2.txt`, ..., `sample9.txt` (the
-same example that was used in the tar chapter) use the command:
+same example that was used in the tar chapter), use the command:
 
 ```bash
 $ 7z a project_3_backup project_3/
@@ -599,17 +551,17 @@ Archive size: 42728 bytes (42 KiB)
 Everything is Ok
 ```
 
-This created a new 7z-compressed file: `project_3_backup.7z`. The `7z a`
+This created a new 7z-compressed file `project_3_backup.7z`. The `7z a`
 command can also be used to add a new file to an existing archive. For example,
 if we would get a new sample file called `sample10.txt` to the `project_3`
 directory, we could add it to the previously created
 `project_3_backup.7z` file with command:
 
 ```bash
-$ 7z a project_3_backup project_3/sample10.txt
+7z a project_3_backup project_3/sample10.txt
 ```
 
-You can list the content of this file with `7z l` command. For example:
+You can list the contents of this file with `7z l` command. For example:
 
 ```bash
 $ 7z l project_3_backup.7z 
@@ -651,30 +603,30 @@ Compressed data is extracted with command: `7z e`. You can extract just
 the defined files, for example:
 
 ```bash
-$ 7z e project_3_backup.7z project_3/sample3.txt
+7z e project_3_backup.7z project_3/sample3.txt
 ```
 
 Note that if you choose to extract just individual files:
 
-1. you must use the full file path that is given in the file listing and
+1. you must use the full file path that is given in the file listing, and
 2. the specified compressed file is extracted to the current directory and not
    to a directory path defined in the compressed file name. Thus, the above
    command would return a file `sample3.txt` to the directory where the
    command was executed.
 
-The output directory for the extracted files can be defined with option
-`-o`. For example, to retrieve all the compressed files to directory
+The output directory of the extracted files can be defined with option
+`-o`. For example, to retrieve all the compressed files to a directory
 `project_3`, you should give command:
 
 ```bash
-$ 7z e -oproject_3 project_3_backup.7z
+7z e -oproject_3 project_3_backup.7z
 ```
 
 ### Zstandard compression tool
 
-*Zstandard* is a fairly new and very fast compression tool. In Puhti,
+**Zstandard** is a fairly new and very fast compression tool. In Puhti,
 Zstandard compression can be done with command `zstd`. For
-example, to compress file `data.txt` give command:
+example, to compress file `data.txt`, give command:
 
 ```bash
 zstd data.txt
@@ -683,9 +635,9 @@ zstd data.txt
 The above command produces a compressed file named as `data.txt.zst`.
 For larger data files you can speed up the compression by using multiple
 computing cores (threads). The number of threads is defined with option
-`-T`. In the login nodes of Puhti it is recommended that you use just
-one thread that is the default setting, but for example in an interactive
-session you can use four threads:
+`-T`. In the login nodes of Puhti, it is recommended that you use just
+one thread that is the default setting, but, for example, in an interactive
+session you could use four threads:
 
 ```bash
 zstd -T4 data.txt
@@ -696,5 +648,3 @@ Decompression is defined by adding option `-d` to the command:
 ```bash
 zstd -d data.txt.zst
 ```
-
-
