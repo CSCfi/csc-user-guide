@@ -96,11 +96,7 @@ The copy-paste function from your computer/laptop to your virtual desktop is lim
 ![SD Desktop Clipboard screenshot](images/desktop/SD-Desktop-Clipboard.png)
 
 #### Step by step - for desktops created before 7.3.2024
-1. Start the menu (ctrl + shift +alt).
-2. Select text input.
-3. Copy text it is required.
-4. Right click in that text input (it will not work with shortcuts ctrl+v).
-5. Click paste.
+*Information coming soon.*
 
 ## Accessing encrypted sensitive data within SD Desktop
 
