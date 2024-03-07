@@ -31,7 +31,8 @@ Currently supported TensorFlow versions:
 
 | Version | Module               | Puhti | Mahti | LUMI | Notes           |
 |:--------|:---------------------|:-----:|:-----:|:----:|-----------------|
-| 2.14.0  | `tensorflow/2.14`    | X     | X     | -    | default version |
+| 2.15.0  | `tensorflow/2.15`    | X     | X     | -    | default version |
+| 2.14.0  | `tensorflow/2.14`    | X     | X     | -    |                 |
 | 2.13.0  | `tensorflow/2.13`    | X     | X     | -    |                 |
 | 2.12.0  | `tensorflow/2.12`    | X     | X     | X*   |                 |
 | 2.11.0  | `tensorflow/2.11`    | X     | X     | X*   |                 |

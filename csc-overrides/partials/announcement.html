@@ -1,6 +1,6 @@
 {# Put the announcement, in HTML, right under this comment! #}
 <p>
-  &#128679; Please note: There will be a service break on Mahti from Tuesday 6 February 08:00 to Wednesday 7 February 18:00. <a href="https://research.csc.fi/-/280351-77" target="_blank">Click here for more information</a>. &#128679;
+  &#128187; Latest computing environment updates bring new small GPUs to Mahti and Allas access via Puhti web interface. <a href="{{ base_url|url }}/support/wn/comp-new/">See all updates here</a>! &#128187;
 </p>
 {# Remember
   - to set the announcement_visible to true in mkdocs.yml
@@ -9,4 +9,6 @@
   - to not have loose text outside of a <p> (or an <a>)
   - that you can garnish the announcement with emojis by using their code
     points with HTML entities, for example &#x2615; for the "hot beverage" emoji.
+  - to not use the literal 'docs.csc.fi' for internal links,
+    use href="{{ base_url|url }}/path/to/page/" instead
 #}

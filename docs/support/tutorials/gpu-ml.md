@@ -24,7 +24,7 @@ The main GPU-related statistics are summarized in the table below.
 |-------|--------------------|-------------|-----------|-----------|---------------|
 | Puhti | NVIDIA Volta V100  | 32 GB       | 80        | 4         | 320           |
 | Mahti | NVIDIA Ampere A100 | 40 GB       | 24        | 4         | 96            |
-| LUMI  | AMD MI250x         | 64 (128) GB | 2560      | 8 (4)     | 20480 (10240) |
+| LUMI  | AMD MI250x         | 64 (128) GB | 2978      | 8 (4)     | 23824 (11912) |
 
 !!! info "Note"
 

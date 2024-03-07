@@ -25,58 +25,101 @@ Free to use and open source under [BSD 3-Clause License](https://github.com/qiim
 
 ## Available
 
--   Puhti: 1.9.1, 2022.8
-
+-   QIIME1: Puhti: 1.9.1
+-   QIIME2: Puhti: 2022.8, 2023.2, 2023.5, 2023.9-amplicon, 2023.9-shotgun 
 
 ## Usage
 
-In Puhti To use QIIME1 do:
+To load QIIME1 module on Puhti:
 
-```text
+```
 module load qiime1
 ```
 
 To use QIIME2
-```text
-module load qiime2
+
+Check available versions with
+
+```
+module spider qiime2
 ```
 
-After that you can start Qiime2 with command:
-```text
+Load desired version with e.g.
+
+```
+module load qiime2/2023.9-amplicon
+```
+
+After that you can start QIIME2 with command:
+
+```
 qiime
 ```
 
-Please check Qiime2 home page for more instructions.
+## Distributions
 
-Note that many Qiime tasks involve heavy computing. Thus, these tasks should be executed as
-batch jobs. Qiime needs to have access to a local node specific file system for handling temporary data.
-This kind of directory is available on the NVMe nodes of Puhti. Therefore, you must include a request for NVMe space
-in your batch job file.
+Latest versions of QIIME2 come in different distributions: amplicon/shotgun/tiny.
+These distributions vary on which plugins come with them. You can compare the
+[distributions](https://docs.qiime2.org/2023.9/install/#distributions) on QIIME2
+home pages.
 
-The easiest way to start using Qiime is to use command `sinteractive` to launch an interactive batch job:
-```text
-sinteractive -i
+CSC provides installations for the amplicon and shotgn distributions.
+
+## Additional plugins
+
+CSC only maintains the basic distributions of QIIME2. If you need plugins not included in the basic distributions, you will need to install your own QIIME2 using the [Tykky tool](../computing/containers/tykky.md).
+
+First select the distribution (amplicon/shotgun/tiny) that best meets your needs.
+
+Download the corresponding [environment file](https://docs.qiime2.org/2023.9/install/native/).
+
+For example for 2023.9 amplicon distribution:
+
 ```
-In the interactive session, you can set up Qiime with commands:
-
-```text
-csc-workspaces
-cd /scratch/<project>
-module load qiime2
+wget https://data.qiime2.org/distro/amplicon/qiime2-amplicon-2023.9-py38-linux-conda.yml
 ```
 
-Interactive batch jobs include local temporary disk that is mandatory for running Qiime. 
+Check the installation instructions for the plugins you want to use. 
+
+If the additional plugins can be installed with Conda, you can simply add them to the end of the
+environment file.
+
+If the plugins need additional installation steps, you can copy them to text file and use
+`conda-containerize update` command as described in the Tykky documentation.
+
+Installation:
+
+```
+module purge
+module load tykky
+mkdir qiime
+conda-containerize new --mamba --prefix qiime qiime2-amplicon-2023.9-py38-linux-conda.yml
+```
+
+If necassary, run: 
+
+```
+conda-containerize update --prefix qiime --post-install plugins.txt
+```
+
+## Running
+
+Note that many QIIME tasks involve heavy computing. Thus, these tasks should be executed as
+batch jobs. 
+
+QIIME jobs can be very disk intensive, especially its handling of temporary files, so it is best to
+reserve fast local disk for them.
+
+For interactive batch jobs, see [sinteractive](../computing/running/interactive-usage.md) documentation. 
 
 In case of normal batch jobs, you must reserve NVMe disk area that will be used as $TMPDIR area.
 
 For example, to reserve 100 GB of local disk space:
+
 ```
-#SBATCH --gres=nvme:100
+SBATCH --gres=nvme:100
 ```
-In addition you must define that the NVMe space (LOCAL_SCRATCH) is used as temporary storage area (TMPDIR).
-```text
-export TMPDIR="$LOCAL_SCRATCH"
-```
+
 For example, the batch job script below runs the denoising step of the
 [QIIME moving pictures tutorial](https://docs.qiime2.org/2019.7/tutorials/moving-pictures/#option-1-dada2 )
 as a batch job using eight cores.
@@ -86,18 +129,15 @@ as a batch job using eight cores.
 #SBATCH --job-name=qiime_denoise
 #SBATCH --account=<project> 
 #SBATCH --time=01:00:00
-#SBATCH --ntasks=1
 #SBATCH --nodes=1
-#SBATCH --output==qiime_out_8
-#SBATCH --error=qiime_err_8
+#SBATCH --ntasks=1
 #SBATCH --cpus-per-task=8
 #SBATCH --mem=16G
 #SBATCH --partition=small
 #SBATCH --gres=nvme:100
 
 #set up qiime
-module load qiime2
-export TMPDIR="$LOCAL_SCRATCH"
+qiime2/2023.9-amplicon
 
 # run task. Don't use srun in submission as it resets TMPDIR
 qiime dada2 denoise-single \
@@ -110,17 +150,17 @@ qiime dada2 denoise-single \
   --p-n-threads $SLURM_CPUS_PER_TASK
 ``` 
 
-
-Maximum running time is set to 1 hour (`--time=01:00:00`). As QIIME2 uses threads based parallelization,
-the job is requested to use one task (`--ntasks=1`)  where all cores need to be in the same node (`--nodes=1`).
-This one task will use eight cores as parallel threads `--cpus-per-task=8` that 
-can use in total up to 16 GB of memory (` --mem=16G`). Note that the number of cores to be used needs to be defined in 
-actual qiime command, too. That is done with Qiime option `--p-n-threads`. In this case we use `$SLURM_CPUS_PER_TASK` 
-variable that contains the _cpus-pre-task_ value ( we could as well use `--p-n-threads 8` but then we have to remember 
+Maximum running time is set to 1 hour (`--time=01:00:00`). As QIIME2 uses threads based
+parallelization, the job is requested to use one task (`--ntasks=1`)  where all cores need to be in
+the same node (`--nodes=1`). This one task will use eight cores as parallel threads
+`--cpus-per-task=8` that  can use in total up to 16 GB of memory (` --mem=16G`). Note that the
+number of cores to be used needs to be defined in actual qiime command, too. That is done with
+Qiime option `--p-n-threads`. In this case we use `$SLURM_CPUS_PER_TASK` variable that contains the
+ _cpus-pre-task_ value ( we could as well use `--p-n-threads 8` but then we have to remember
 to change the value if the number of reserved CPUs is changed).
 
-The job is submitted to the to the batch job system with `sbatch` command. For example, if the batch job
-file is named as _qiime_job.sh_ then the submission command is: 
+The job is submitted to the to the batch job system with `sbatch` command. For example, if the batch job file is named as _qiime_job.sh_ then the submission command is: 
+
 ```text
 sbatch qiime_job.sh 
 ```

@@ -57,6 +57,7 @@
 * [Salmon](salmon.md) Program to produce transcript-level quantification estimates from RNA-seq data
 * [Samtools](samtools.md) Utilities for managing SAM/BAM formatted alignment files
 * [Seqtk](seqtk.md) Tool for processing sequences in the FASTA or FASTQ format
+* [Snakemake](snakemake.md) Snakemake is a scientific workflow management system for creating scalable, portable, and reproducible workflows
 * [Stacks](stacks.md) Pipeline for building loci from short-read sequences (e.g. RAD-seq data)
 * [SPAdes](spades.md) Genome assembly
 * [STAR](star.md) Short read aligner
@@ -93,7 +94,7 @@
 * [ORCA](orca.md) General purpose quantum chemistry package
 * [Plumed](plumed.md) Library and tools for enhanced sampling methods
 * [TmoleX](tmolex.md) GUI for setting up and analyzing TURBOMOLE jobs
-* [Turbomole](turbomole.md) Efficient program package for electronic structure calculations
+* [TURBOMOLE](turbomole.md) Efficient program package for electronic structure calculations
 * [VASP](vasp.md) Ab initio DFT electronic structures
 * [VMD](vmd.md) Molecular visualization program
 
