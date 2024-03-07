@@ -27,6 +27,7 @@ Sensitive data is defined as any information that is protected against unwarrant
 ## Quick links
 
 [What's new with Sensitive Data services](../../support/wn/data-new.md)
+
 [Frequently asked questions](../../support/faq/)
 
 <div class="quick-links-container">
@@ -95,4 +96,5 @@ This user guide introduces CSC's Sensitive Data (SD) services
 [Useful terminology](sd-terminology.md)
 
 [What's new](../../support/wn/data-new.md)
+
 [FAQ](../../support/faq/)
