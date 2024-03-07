@@ -6,10 +6,12 @@ We are implementing a security update for our virtual desktop operating system. 
 
 If you're currently using a virtual desktop with CentOS 7 and anticipate running your analyses beyond June, please reach out to us at **servicedesk@csc.fi *subject: Sensitive data***. We will assist you in evaluating whether there is a need to transition to a new virtual desktop and provide assistance with creating a plan for transferring your data and results accordingly.
 
-## SD Desktop copy-paste functionality via clipboard is now available
-Copy-paste functionality via clipboard is now available in your virtual desktop, enabling easy transfer of text from your computer to your secure environment. The clipboard acts as a secure intermediary, facilitating the one-way transfer of data from your laptop to the virtual desktop, guaranteeing that copied text remains isolated from other processes and preventing unauthorized access to sensitive information. This feature is available across all virtual desktops, including those created prior to the update. Read more: [Copy-paste in SD Desktop](../../data/sensitive-data/sd-desktop-access.md#copy-paste-from-your-laptop-to-virtual-desktop).
+## SD Desktop copy-paste functionality via Clipboard is now available, 7.3.2024
+Copy-paste functionality via **Clipboard -feature** is now available in your virtual desktop, enabling easy transfer of text from your computer to your secure environment: [Copy-paste instructions for SD Desktop](../../data/sensitive-data/sd-desktop-access.md#copy-paste-from-your-laptop-to-virtual-desktop). 
 
-As a reminder, data exports from the virtual desktop are possible via the Data Gateway, and they are managed by the project manager or CSC's helpdesk. For more information please see [Export data from SD Desktop](../../data/sensitive-data/sd-desktop-export.md).
+* The Clipboard acts as a secure intermediary, facilitating the one-way transfer of data from your laptop to the virtual desktop, guaranteeing that copied text remains isolated from other processes and preventing unauthorized access to sensitive information. This feature is available across all virtual desktops, including those created prior to the update.
+
+* As a reminder, data exports from the virtual desktop are possible via the Data Gateway, and they are managed by the project manager or CSC's helpdesk. For more information please see [Export data from SD Desktop](../../data/sensitive-data/sd-desktop-export.md).
 
 ## SD Connect (Beta) now available, 13.12.2023
 

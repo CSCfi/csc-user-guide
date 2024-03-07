@@ -83,19 +83,24 @@ Next:
 
 ### Copy-paste from your laptop to virtual desktop
 
-The copy-paste function from your computer/laptop to your virtual desktop is limited for security reasons. However it is possible to copy-paste text with Clipboard:
+The copy-paste function from your computer/laptop to your virtual desktop is limited for security reasons. However it is possible to copy-paste text with Clipboard. Copy-paste works only in one direction: from your computer to virtual desktop.
 
-* Copy text normally from your computer (Cntrl+C).
-* Go to virtual desktop and open a Clipboard with a key combination **Cntrl+Alt+Shift**.
-* Paste your text to the Clipboard.
-* Copy the text again from the Clipboard. Please note that the Cntrl+C won't work here, use the mouse right-click instead.
-* Now you can paste the text inside your virtual desktop.
-* When you are ready, close the Clipboard with **Cntrl+Alt+Shift**.
+#### Step by step - for desktops created after 7.3.2024
+1. Copy text normally from your computer (Cntrl+C).
+2. Go to virtual desktop and open the Clipboard with a key combination **Cntrl+Alt+Shift**.
+3. Paste your text to the Clipboard text field.
+4. Copy the text again from the Clipboard text field. Please note that the Cntrl+C won't work here, use the mouse right-click instead.
+5. Now you can paste the text inside your virtual desktop.
+6. When you are ready, close the Clipboard with **Cntrl+Alt+Shift**.
 
 ![SD Desktop Clipboard screenshot](images/desktop/SD-Desktop-Clipboard.png)
 
-
-
+#### Step by step - for desktops created before 7.3.2024
+1. Start the menu (ctrl + shift +alt).
+2. Select text input.
+3. Copy text it is required.
+4. Right click in that text input (it will not work with shortcuts ctrl+v).
+5. Click paste.
 
 ## Accessing encrypted sensitive data within SD Desktop
 
