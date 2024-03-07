@@ -16,7 +16,7 @@ In this case you can share your data folder to Team B with **Collaborate** -perm
 2. Log in to [SD Connect](./sd-connect-login.md).
 3. Upload your data folder to SD Connect: [See upload instructions](./sd-connect-upload.md). Or create an empty folder by clicking "**Create folder**" ([screenshot](./images/connect/UseCase_CreateFolder.png){ target="_blank" }).
 4. Click “**Share**” next to the folder you wish to share ([screenshot](./images/connect/UseCase_ShareButton.png){ target="_blank" }).
-5. Add the project B’s **Share ID** to the field ([screenshot](./images/connect/UseCase_AddShareID.png){ target="_blank" }).
+5. Add the Project B’s **Share ID** to the field ([screenshot](./images/connect/UseCase_AddShareID.png){ target="_blank" }).
 6. Select sharing permission: “**Collaborate**”. Click “**Share**” ([screenshot](./images/connect/UseCase_SelectPermission.png){ target="_blank" }).
 
-Now all the content of the folder is accessible for both projects (project A and project B). All members in both projects can modify the content of the folder via SD Connect; Everyone can upload, download, copy and delete the content as they wish. They can also access it via SD Desktop for analysis.
+Now all the content of the folder is accessible for both projects (Project A and Project B). All members in both projects can modify the content of the folder via SD Connect; Everyone can upload, download, copy and delete the content as they wish. They can also access it via SD Desktop for analysis.

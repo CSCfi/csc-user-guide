@@ -1,4 +1,4 @@
-# Start here: accessing Sensitive Data services 
+# Start here: Accessing Sensitive Data services 
   
 In this section, discover how to access Sensitive Data (SD) services for the firs time. Learn to manage your project's billing unit consumption, storage space, project members and what happens to your data upon project closure.
 

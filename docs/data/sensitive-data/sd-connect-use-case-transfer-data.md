@@ -15,7 +15,7 @@ In this case you can share your data folder to Team B with **Transfer data** -pe
 2. Log in to [SD Connect](./sd-connect-login.md).
 3. Upload your data folder to SD Connect: [See upload instructions](./sd-connect-upload.md).
 4. Click “**Share**” next to the folder you wish to share ([screenshot](./images/connect/UseCase_ShareButton.png){ target="_blank" }).
-5. Add the project B’s **Share ID** to the field ([screenshot](./images/connect/UseCase_AddShareID.png){ target="_blank" }).
+5. Add the Project B’s **Share ID** to the field ([screenshot](./images/connect/UseCase_AddShareID.png){ target="_blank" }).
 6. Select sharing permission: “**Transfer data**”. Click “**Share**” ([screenshot](./images/connect/UseCase_SelectPermission.png){ target="_blank" }).
 
-Now all the content of the folder is visible to project B. All project members in project B can copy, download, and decrypt the content of the folder via SD Connect. They can also access it via SD Desktop for analysis. However, they can not modify your original folder.
+Now all the content of the folder is visible to Project B. All project members in Project B can copy, download, and decrypt the content of the folder via SD Connect. They can also access it via SD Desktop for analysis. However, they can not modify your original folder.
