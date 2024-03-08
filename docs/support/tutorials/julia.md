@@ -130,50 +130,6 @@ We can use these nodenames when adding processes using `SSHManager`.
     Hence we cannot add processes to other nodes via SSHManager.
 
 
-### MPI.jl
-We can use MPI for multi-node parallel computing in Julia on Puhti, Mahti and LUMI using the `MPI.jl` package.
-For programming, we recommend reading the [MPI.jl documentation](https://juliaparallel.org/MPI.jl/stable/).
-We have installed MPI.jl, which uses the local MPI installation, in the shared environment.
-We recommend you use the version in the shared environment because we have tested it.
-You can find the version by activating the shared environment and running `Pkg.status` as follows:
-
-```bash
-julia --project="$CSC_JULIA_ENVIRONMENT_DIR" -e 'using Pkg; Pkg.status("MPI")'
-```
-
-Furthermore, the `julia` module automatically loads the correct MPI module.
-
-
-### CUDA.jl
-The GPU nodes on Puhti and Mahti contain GPUs for NVidia.
-We can use them with `CUDA.jl` package in Julia.
-For programming, we recommend reading the [CUDA.jl documentation](https://cuda.juliagpu.org/stable/).
-We have installed CUDA.jl, which uses the local CUDA installation, in the shared environment.
-We recommend you use the version in the shared environment because we have tested it.
-You can find the version by activating the shared environment and running `Pkg.status` as follows:
-
-```bash
-julia --project="$CSC_JULIA_ENVIRONMENT_DIR" -e 'using Pkg; Pkg.status("CUDA")'
-```
-
-Furthermore, the `julia-cuda` module automatically loads the correct CUDA module.
-
-
-### AMDGPU.jl
-The GPU nodes on LUMI contain GPUs for AMD.
-We can use them with `AMDGPU.jl` package in Julia.
-For programming, we recommend reading the [AMDGPU.jl documentation](https://amdgpu.juliagpu.org/stable/).
-We have installed AMDGPU.jl, which uses the local ROCm installation, in the shared environment.
-We recommend you use the version in the shared environment because we have tested it.
-You can find the version by activating the shared environment and running `Pkg.status` as follows:
-
-```bash
-julia --project="$CSC_JULIA_ENVIRONMENT_DIR" -e 'using Pkg; Pkg.status("AMDGPU")'
-```
-
-Furthermore, the `julia-amdgpu` module automatically loads the correct AMD programming environment and ROCm module.
-
-
 ## Example jobs
 We use the following Julia project structure in the example jobs.
 We also assume that it is our working directory when running the commands.

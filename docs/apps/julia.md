@@ -31,7 +31,7 @@ module load julia
 ```
 
 
-## Usage
+## Using Julia
 After loading the Julia module, we can use Julia with the `julia` command.
 Without arguments, it starts an interactive Julia REPL.
 
@@ -76,7 +76,7 @@ Activating an environment does not automatically install the packages defined by
 For that, we need to instantiate the project as follows:
 
 ```julia
-using Pkg
+import Pkg
 Pkg.activate(".")
 Pkg.instantiate()
 ```
@@ -84,7 +84,7 @@ Pkg.instantiate()
 Alternatively, we can use the following one-liner:
 
 ```bash
-julia --project=. -e 'using Pkg; Pkg.instantiate()'
+julia --project=. -e 'import Pkg; Pkg.instantiate()'
 ```
 
 Now, we can run the script using the project's environment as follows:
@@ -102,7 +102,7 @@ That way, we can manage the dependencies of different Julia projects separately.
 On the Julia REPL, we can use the package manager by importing it.
 
 ```julia
-using Pkg
+import Pkg
 ```
 
 We can activate a Julia environment on the current working directory as follows.
@@ -139,6 +139,60 @@ export JULIA_DEPOT_PATH="/projappl/<project>/$USER/.julia:$JULIA_DEPOT_PATH"
     However, the home directory has a fixed quota for Puhti and Mahti.
     Therefore, we recommend changing the directory to a directory under Projappl (or Scratch) to avoid running out of quota because some packages install a large number of files.
     Afterward, you can safely remove the default depot directory using `rm -r $HOME/.julia`.
+
+
+### Using MPI
+We can use MPI for multi-node parallel computing in Julia on Puhti, Mahti and LUMI using the `MPI.jl` package.
+We can install it using the package manager as follows:
+
+```julia
+import Pkg
+Pkg.add("MPI")
+```
+
+We can load the `julia-mpi` module which sets global preferences to use the system MPI installation.
+
+```bash
+module load julia-mpi
+```
+
+For more information, we recommend reading the [MPI.jl documentation](https://juliaparallel.org/MPI.jl/stable/).
+
+
+### Using CUDA
+The GPU nodes on Puhti and Mahti contain NVidia GPUs which can be progammed using CUDA.
+We can install the `CUDA.jl` package for CUDA programming in Julia using the package manager as follows:
+
+```julia
+import Pkg
+Pkg.add("CUDA")
+```
+
+We can load the `julia-cuda` module which sets global preferences to use the system CUDA installation.
+
+```bash
+module load julia-cuda
+```
+
+For information, we recommend reading the [CUDA.jl documentation](https://cuda.juliagpu.org/stable/).
+
+
+### Using AMDGPU
+The GPU nodes on LUMI contain AMD GPUs.
+We can install the `AMDGPU.jl` package for AMD GPUs programming in Julia using the package manager as follows:
+
+```julia
+import Pkg
+Pkg.add("AMDGPU")
+```
+
+We can load the `julia-amdgpu` module which sets global preferences to use the system AMDGPU installation.
+
+```bash
+module load julia-amdgpu
+```
+
+For information, we recommend reading the [AMDGPU.jl documentation](https://amdgpu.juliagpu.org/stable/).
 
 
 <!-- TODO: Move this section to end of julia tutorial
