@@ -1,6 +1,6 @@
 # How does LUMI-C differ from Mahti?
 
-[LUMI-C](https://docs.lumi-supercomputer.eu/hardware/lumic/) consists of 1536 AMD CPU nodes (2x64 cores each) with a theoretical performance of 7.7 petaflops. The node count of [Mahti](systems-mahti.md) is similar, 1404 AMD CPU nodes (2x64 cores each) corresponding to a theoretical performance of 7.5 Petaflops. Although the systems are very alike based on CPU-hardware, core count and performance, there are important differences which are highlighted on this page.
+[LUMI-C](https://docs.lumi-supercomputer.eu/hardware/lumic/) consists of 2048 AMD CPU nodes (2x64 cores each). The node count of [Mahti](systems-mahti.md) is similar, 1404 AMD CPU nodes (2x64 cores each). Although the systems are very alike based on CPU-hardware, core count and performance, there are important differences which are highlighted on this page.
 
 ## GPUs and memory
 
@@ -11,6 +11,8 @@ Mahti has only a few (24) GPU-nodes available, while LUMI-C is flanked by [LUMI-
 To access LUMI, you need to first [create a LUMI-specific project](../accounts/how-to-create-new-project.md#how-to-create-finnish-lumi-projects). Note that LUMI-projects have a finite duration ([see below](lumi-vs-mahti.md#finite-time-projects)) and cannot be used for running on the national resources and vice versa.
 
 Furthermore, accessing LUMI is only possible using SSH keys, meaning that you cannot use passwords to connect through SSH like on Mahti. For instructions on how to generate an SSH key pair and uploading the public key to [MyCSC](https://my.csc.fi/), see [Setting up SSH keys](connecting.md#setting-up-ssh-keys) and the [Get started with LUMI](https://docs.lumi-supercomputer.eu/firststeps/getstarted/) pages.
+
+Similar to Puhti and Mahti, LUMI can, however, also be accessed through a [web interface](https://docs.lumi-supercomputer.eu/runjobs/webui/).
 
 ## Finite time projects
 
@@ -48,6 +50,8 @@ Similar to CSC supercomputers, LUMI uses a [Lustre parallel filesystem](https://
 
 LUMI has two types of partitions (queues): three that are allocatable by node (only full nodes can be requested, similar to Mahti) and five that are allocatable by resources (partial nodes can be requested, similar to Puhti). [See more details in the LUMI documentation](https://docs.lumi-supercomputer.eu/runjobs/scheduled-jobs/partitions/), e.g. maximum wall-time/node count and naming of the partitions.
 
+Note that LUMI consortium country projects (e.g. Finnish LUMI projects) use different partitions than EuroHPC JU projects. The latter are prefixed by `ju-` and cannot be used unless you're a member of a project that has been allocated resources by the JU.
+
 ## Billing
 
 Billing on LUMI differs from Mahti. The consumption of billing units (BUs) depends for example on which partition you are running on, as well as on whether you are using CPU, GPU (LUMI-G/LUMI-D) or storage resources, thus amounting to three different billing currencies. [See the LUMI documentation for more details and precise formulas](https://docs.lumi-supercomputer.eu/runjobs/lumi_env/billing/).
@@ -58,4 +62,4 @@ LUMI projects are not allowed to handle sensitive (personal) data at the moment!
 
 ## Support channels
 
-The main channel for LUMI support is to [contact the LUMI User Support Team (LUST)](https://lumi-supercomputer.eu/user-support/need-help/). If you need support in using the modules pre-installed by CSC under `/appl/local/csc`, please [contact CSC Service Desk](../support/contact.md).
+The main channel for LUMI support is to [contact the LUMI User Support Team (LUST)](https://lumi-supercomputer.eu/user-support/need-help/).

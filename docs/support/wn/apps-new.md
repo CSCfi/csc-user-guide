@@ -1,5 +1,30 @@
 # Applications
 
+## JAX 0.4.23, 6.3.2024
+
+[JAX](../../apps/jax.md) 0.4.23 was added to Puhti, Mahti and LUMI.
+JAX modules now also include a CPU-only installation of PyTorch,
+which sometimes used together with JAX for its data loading capabilities,
+as well as relevant updates to all Python packages already bundled in the
+previous JAX modules.
+
+## PyTorch 2.2.1, 1.3.2024
+
+[PyTorch](../../apps/pytorch.md) 2.2.1 added to Puhti, Mahti and
+LUMI. The LUMI module includes ROCm versions of
+[FlashAttention-2](https://github.com/ROCm/flash-attention) and
+[bitsandbytes](https://github.com/ROCm/bitsandbytes) as these are
+difficult for users to add themselves.
+[xFormers](https://github.com/facebookresearch/xformers) has been
+added to all three systems in addition to new versions of all
+previously supported packages (e.g., DeepSpeed and Transformers).
+
+## Snakemake, 23.2.2024
+
+An [application page for the Snakemake workflow tool](../../apps/snakemake.md)
+has been added to Docs CSC. Check it out, as well as the accompanying tutorial
+on [how to use Snakemake efficiently on Puhti](../tutorials/snakemake-puhti.md).
+
 ## GROMACS 2024.0, 16.2.2024
 
 [GROMACS](../../apps/gromacs.md) 2024.0 is now available on Puhti, Mahti and LUMI. See

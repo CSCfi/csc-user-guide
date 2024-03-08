@@ -51,7 +51,9 @@ utilize Mahti.
 
 There are also 24 GPU nodes, with total of 96 Nvidia Ampere A100 GPUs. This partition is
 suitable for all kinds workloads capable of utilizing GPUs, even heavy
-AI models that span multiple nodes. 
+AI models that span multiple nodes. A subset of the A100 GPUs are sliced into smaller GPUs 
+with one seventh of the compute and memory capacity of a full A100 GPU. These can be used for 
+interactive workloads, courses and code development.
 
 The selection of installed [scientific software](../apps/by_system.md#mahti) in
 Mahti is more limited than in Puhti.
