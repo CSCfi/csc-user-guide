@@ -17,32 +17,21 @@ Julia language is licensed under free and open source [MIT license](https://gith
 
 ## Available
 Julia language is available on Puhti, Mahti, and LUMI using the [module system](../computing/modules.md).
-On Puhti and Mahti, the Julia module is included on the module path by default.
-On LUMI, we must add the module files under CSC's local directory to the module path as follows.
-
-```bash
-module use /appl/local/csc/modulefiles
-```
-
-We can check the available versions as follows.
-
-```bash
-module avail julia
-```
-
-
-## Usage
-### Loading the Julia module
-We can load the Julia module using the following command.
+On Puhti and Mahti, we can load the latest installed julia as follows:
 
 ```bash
 module load julia
 ```
 
-By default, it loads the latest stable version.
+On LUMI, we must add the module files under CSC's local directory to the module path before loading the module.
+
+```bash
+module use /appl/local/csc/modulefiles
+module load julia
+```
 
 
-### Using Julia on the command line
+## Usage
 After loading the Julia module, we can use Julia with the `julia` command.
 Without arguments, it starts an interactive Julia REPL.
 
@@ -50,32 +39,12 @@ Without arguments, it starts an interactive Julia REPL.
 julia
 ```
 
-For available command line options, we can read the manual.
-
-```sh
-man julia
-```
-
+For available command line options, we can read the manual `man julia`.
 The official [Julialang documentation](https://docs.julialang.org) or the [discourse](https://discourse.julialang.org/) can answer most questions regarding the features of the Julia language.
 The Julia language includes the standard language features in Base.
 Additionally, it includes various packages in the Julia installation as part of the standard library.
 Julia's REPL and Pkg, the package manager, are two important packages within the standard library. Pressing ] in the Julia REPL will allow access to the package manager's REPL.
 The [Pkg documentation](https://pkgdocs.julialang.org/) provides more information on how to use Julia's package manager.
-
-
-### More information
-We can print details about paths and environment variables set by the Julia module as follows.
-
-```bash
-module show julia
-```
-
-We can also print useful information about the Julia version, platform and environment in the REPL as follows.
-
-```julia
-using InteractiveUtils  # automatically load in the REPL
-versioninfo()
-```
 
 
 ### Using environments
@@ -87,7 +56,7 @@ Furthermore, the package manager maintains a full list of dependencies in the `M
 It creates both of these files if they don't exist.
 Let's consider a Julia project structured as follows.
 
-```
+```text
 project/
 ├── script.jl
 ├── Project.toml
@@ -149,21 +118,8 @@ For example, we can add the `ArgParse` package as follows.
 Pkg.add("ArgParse")
 ```
 
-Furthermore, we can set compatibility constraints to a package version.
-For example, we can add compatibility to `ArgParse` as follows.
 
-```julia
-Pkg.compat("ArgParse", "1.1")
-```
-
-We can also set compatibility constraints to the Julia version.
-
-```julia
-Pkg.compat("julia", "1.8")
-```
-
-
-### Code loading and the shared environment
+### Code loading and Julia depot directory
 The Julia constants [`Base.DEPOT_PATH`](https://docs.julialang.org/en/v1/base/constants/#Base.DEPOT_PATH) and [`Base.LOAD_PATH`](https://docs.julialang.org/en/v1/base/constants/#Base.LOAD_PATH) constants control the directories where Julia loads code.
 To set them via the shell, we use the `JULIA_DEPOT_PATH` and `JULIA_LOAD_PATH` environment variables.
 We can call the `Base.load_path()` function to retrieve the expanded load path.
@@ -174,22 +130,18 @@ We can change the directory by prepending the `JULIA_DEPOT_PATH` with a differen
 For example, we can use the following by replacing the `<project>` with your CSC project.
 
 ```bash
+module load julia
 export JULIA_DEPOT_PATH="/projappl/<project>/$USER/.julia:$JULIA_DEPOT_PATH"
 ```
 
 !!! warning "Changing the default depot directory."
     By default, the first depot directory in the depot path is `$HOME/.julia`.
     However, the home directory has a fixed quota for Puhti and Mahti.
-    Therefore, we recommend changing the directory to a directory under Projappl or Scratch to avoid running out of quota because some packages install a large number of files.
+    Therefore, we recommend changing the directory to a directory under Projappl (or Scratch) to avoid running out of quota because some packages install a large number of files.
     Afterward, you can safely remove the default depot directory using `rm -r $HOME/.julia`.
 
-The CSC-specific shared depots are installed in the `CSC_JULIA_DEPOT_DIR` directory, and the shared environment is in the `CSC_JULIA_ENVIRONMENT_DIR` directory.
-We can look up the shared packages and their versions using the package manager as follows:
 
-```bash
-julia --project="$CSC_JULIA_ENVIRONMENT_DIR" -e 'using Pkg; Pkg.status()'
-```
-
+<!-- TODO: Move this section to end of julia tutorial
 
 ### Creating a package with a command line interface
 We should package the code as a code base grows instead of running standalone scripts.
@@ -259,6 +211,7 @@ julia --project=. src/cli.jl --say "Hello world"
 ```
 
 We should define and use a command line interface because it is more flexible than hard-coding values to the scripts.
+-->
 
 
 ### Using Julia on Puhti, Mahti, and LUMI clusters
