@@ -16,7 +16,11 @@ Julia language is licensed under free and open source [MIT license](https://gith
 
 
 ## Available
-Julia language is available on Puhti, Mahti, and LUMI using the [module system](../computing/modules.md).
+Julia language is available on Puhti, Mahti, and LUMI from the command line using the [module system](../computing/modules.md).
+Julia is also available on the web interface via [**Jupyter**](../computing/webinterface/julia-on-jupyter.md) and [**VSCode**](../computing/webinterface/vscode.md#julia-language).
+
+
+## Using Julia
 On Puhti and Mahti, we can load the latest installed julia as follows:
 
 ```bash
@@ -30,8 +34,6 @@ module use /appl/local/csc/modulefiles
 module load julia
 ```
 
-
-## Using Julia
 After loading the Julia module, we can use Julia with the `julia` command.
 Without arguments, it starts an interactive Julia REPL.
 
@@ -47,6 +49,61 @@ Julia's REPL and Pkg, the package manager, are two important packages within the
 The [Pkg documentation](https://pkgdocs.julialang.org/) provides more information on how to use Julia's package manager.
 
 
+### Using MPI
+We can use MPI for multi-node parallel computing in Julia on Puhti, Mahti and LUMI using the `MPI.jl` package.
+We can install it using the package manager as follows:
+
+```julia
+import Pkg
+Pkg.add("MPI")
+```
+
+We can load the `julia-mpi` module which sets global preferences to use the system MPI installation.
+
+```bash
+module load julia-mpi
+```
+
+For more information, we recommend reading the [MPI.jl documentation](https://juliaparallel.org/MPI.jl/stable/).
+
+
+### Using CUDA
+The GPU nodes on Puhti and Mahti contain NVidia GPUs which can be progammed using CUDA.
+We can install the `CUDA.jl` package for CUDA programming in Julia using the package manager as follows:
+
+```julia
+import Pkg
+Pkg.add("CUDA")
+```
+
+We can load the `julia-cuda` module which sets global preferences to use the system CUDA installation.
+
+```bash
+module load julia-cuda
+```
+
+For information, we recommend reading the [CUDA.jl documentation](https://cuda.juliagpu.org/stable/).
+
+
+### Using AMDGPU
+The GPU nodes on LUMI contain AMD GPUs.
+We can install the `AMDGPU.jl` package for AMD GPUs programming in Julia using the package manager as follows:
+
+```julia
+import Pkg
+Pkg.add("AMDGPU")
+```
+
+We can load the `julia-amdgpu` module which sets global preferences to use the system AMDGPU installation.
+
+```bash
+module load julia-amdgpu
+```
+
+For information, we recommend reading the [AMDGPU.jl documentation](https://amdgpu.juliagpu.org/stable/).
+
+
+<!--
 ### Using environments
 Julia manages dependencies of projects using environments.
 An environment consists of two files, `Project.toml` and `Manifest.toml`, which specify dependencies for the environment.
@@ -117,82 +174,24 @@ For example, we can add the `ArgParse` package as follows.
 ```julia
 Pkg.add("ArgParse")
 ```
+-->
 
 
-### Code loading and Julia depot directory
-The Julia constants [`Base.DEPOT_PATH`](https://docs.julialang.org/en/v1/base/constants/#Base.DEPOT_PATH) and [`Base.LOAD_PATH`](https://docs.julialang.org/en/v1/base/constants/#Base.LOAD_PATH) constants control the directories where Julia loads code.
-To set them via the shell, we use the `JULIA_DEPOT_PATH` and `JULIA_LOAD_PATH` environment variables.
-We can call the `Base.load_path()` function to retrieve the expanded load path.
-The Julia module automatically appends the default depot and load paths to ensure the standard library and shared depots are available.
+### Changing Julia depot directory
+The first directory on the julia depot path controls where Julia stores installed packages, compiled files, log files, and other depots.
+We can change it by prepending a new directory to `JULIA_DEPOT_PATH` environment variable.
 
-The first directory on the depot path controls where Julia stores installed packages, compiled files, log files, and other depots.
-We can change the directory by prepending the `JULIA_DEPOT_PATH` with a different directory.
+By default, the first depot directory in the depot path is `$HOME/.julia`.
+However, the home directory has quite small quota on Puhti, Mahti and LUMI.
+Therefore, we recommend changing the directory to a directory under Projappl to avoid running out of quota because some packages install a large number of files.
 For example, we can use the following by replacing the `<project>` with your CSC project.
 
 ```bash
-module load julia
 export JULIA_DEPOT_PATH="/projappl/<project>/$USER/.julia:$JULIA_DEPOT_PATH"
 ```
 
-!!! warning "Changing the default depot directory."
-    By default, the first depot directory in the depot path is `$HOME/.julia`.
-    However, the home directory has a fixed quota for Puhti and Mahti.
-    Therefore, we recommend changing the directory to a directory under Projappl (or Scratch) to avoid running out of quota because some packages install a large number of files.
-    Afterward, you can safely remove the default depot directory using `rm -r $HOME/.julia`.
-
-
-### Using MPI
-We can use MPI for multi-node parallel computing in Julia on Puhti, Mahti and LUMI using the `MPI.jl` package.
-We can install it using the package manager as follows:
-
-```julia
-import Pkg
-Pkg.add("MPI")
-```
-
-We can load the `julia-mpi` module which sets global preferences to use the system MPI installation.
-
-```bash
-module load julia-mpi
-```
-
-For more information, we recommend reading the [MPI.jl documentation](https://juliaparallel.org/MPI.jl/stable/).
-
-
-### Using CUDA
-The GPU nodes on Puhti and Mahti contain NVidia GPUs which can be progammed using CUDA.
-We can install the `CUDA.jl` package for CUDA programming in Julia using the package manager as follows:
-
-```julia
-import Pkg
-Pkg.add("CUDA")
-```
-
-We can load the `julia-cuda` module which sets global preferences to use the system CUDA installation.
-
-```bash
-module load julia-cuda
-```
-
-For information, we recommend reading the [CUDA.jl documentation](https://cuda.juliagpu.org/stable/).
-
-
-### Using AMDGPU
-The GPU nodes on LUMI contain AMD GPUs.
-We can install the `AMDGPU.jl` package for AMD GPUs programming in Julia using the package manager as follows:
-
-```julia
-import Pkg
-Pkg.add("AMDGPU")
-```
-
-We can load the `julia-amdgpu` module which sets global preferences to use the system AMDGPU installation.
-
-```bash
-module load julia-amdgpu
-```
-
-For information, we recommend reading the [AMDGPU.jl documentation](https://amdgpu.juliagpu.org/stable/).
+Afterward, you can safely remove the default depot directory using `rm -r $HOME/.julia`.
+You can read more about depot path in the [documentation](https://docs.julialang.org/en/v1/base/constants/#Base.DEPOT_PATH).
 
 
 <!-- TODO: Move this section to end of julia tutorial
@@ -270,7 +269,3 @@ We should define and use a command line interface because it is more flexible th
 
 ### Using Julia on Puhti, Mahti, and LUMI clusters
 We explain how to run serial, parallel, and GPU batch jobs with Julia on Puhti, Mahti, and LUMI in the [**Using Julia on Puhti, Mahti, and LUMI clusters**](../support/tutorials/julia.md) tutorial.
-
-
-### Using Julia on Jupyter and VSCode
-Julia is also available on the web interface via [**Jupyter**](../computing/webinterface/julia-on-jupyter.md) and [**VSCode**](../computing/webinterface/vscode.md#julia-language).
