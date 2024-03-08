@@ -1,4 +1,4 @@
-# Using Julia on Puhti, Mahti, and LUMI clusters
+# Running Julia batch jobs on Puhti, Mahti, and LUMI clusters
 Instructions for running serial, parallel, and GPU jobs with Julia on Puhti, Mahti, and LUMI clusters.
 
 [TOC]
@@ -8,9 +8,13 @@ Instructions for running serial, parallel, and GPU jobs with Julia on Puhti, Mah
 These instructions are adapted from the general instructions of running jobs on [Puhti and Mahti](../../computing/running/getting-started.md) and on [LUMI](https://docs.lumi-supercomputer.eu/runjobs/).
 Furthermore, we assume general knowledge about the [**Julia Language**](../../apps/julia.md) environment.
 For further reading about parallel and high-performance computing with Julia, we recommend the [Julia for high-performance scientific computing](https://enccs.github.io/julia-for-hpc/) from ENCCS and the [A brief tour of Julia for high-performance computing](https://forem.julialang.org/wikfeldt/a-brief-tour-of-julia-for-high-performance-computing-5deb) written by Kjartan Thor Wikfeldt.
-CSC training also has a [quick introduction and tutorial](https://github.com/csc-training/julia-introduction) to Julia.
+
+TODO: https://github.com/carstenbauer/JuliaHLRS23
+
+<!-- CSC training also has a [quick introduction and tutorial](https://github.com/csc-training/julia-introduction) to Julia. -->
 
 
+<!-- TODO: trim and move to application section
 ### Julia environment
 The `julia` module sets the [`JULIA_CPU_THREADS`](https://docs.julialang.org/en/v1/manual/environment-variables/#JULIA_CPU_THREADS) and [`JULIA_NUM_THREADS`](https://docs.julialang.org/en/v1/manual/environment-variables/#JULIA_NUM_THREADS) environment variables to the number of reserved CPU cores when loaded in a Slurm job; otherwise, the module sets them to one.
 We use the value of the `--cpus-per-task` option, which populates the `SLURM_CPUS_PER_TASK` environment variable, to detect the number of CPU cores.
@@ -29,72 +33,13 @@ julia --threads 2  # using two threads regardless of JULIA_NUM_THREADS value
 ```
 
 We can interact with environment variables in the Julia session using the [`ENV`](https://docs.julialang.org/en/v1/base/base/#Base.ENV) constant.
+-->
 
 
-### Multi-threading
-We can use the `Base.Threads` library for multi-threading in Julia.
-It is automatically loaded and available as `Threads` in the Julia session.
-The Julia manual contains more detailed information about [multi-threading](https://docs.julialang.org/en/v1/manual/multi-threading/).
-
-Julia uses OpenBLAS as the default `LinearAlgebra` backend.
-External linear algebra backends such as OpenBLAS use internal threading.
-We can set their thread counts using environment variables.
-The `julia` module sets them to the number of CPU threads.
-
-```bash
-export OPENBLAS_NUM_THREADS=$JULIA_CPU_THREADS
-```
-
-We must be careful not to oversubscribe cores when using BLAS operations within Julia threads or processes.
-We can change the amount of BLAS threads at runtime using the `BLAS.set_num_threads` function.
-
-```julia
-using LinearAlgebra
-
-# Number of threads
-n = Threads.nthreads()
-
-# Define a matrix
-X = rand(1000, 1000)
-
-# Set the number of threads to one before performing BLAS operations of multiple Julia threads.
-BLAS.set_num_threads(1)
-Y = zeros(n)
-Threads.@threads for i in 1:n  # uses n Julia threads
-    Y[i] = sum(X * X)          # uses one BLAS thread
-end
-
-# Set the number of threads back to the default when performing BLAS operation on a single Julia Thread.
-BLAS.set_num_threads(n)
-Z = zeros(n)
-for i in 1:n                   # uses one Julia thread
-    Z[i] = sum(X * X)          # uses n BLAS threads
-end
-```
-
-Alternatively, we can use the MKL backend via [MKL.jl](https://github.com/JuliaLinearAlgebra/MKL.jl) as a linear algebra backend.
-MKL is often faster than OpenBLAS when using multiple threads on Intel CPUs, such as those on Puhti.
-We can set the MKL thread count as follows.
-
-```bash
-export MKL_NUM_THREADS=$JULIA_CPU_THREADS
-```
-
-If we use MKL, we should load it before other linear algebra libraries.
-
-```julia
-using MKL
-using LinearAlgebra
-# your code ...
-```
-
-There are [caveats](https://discourse.julialang.org/t/matrix-multiplication-is-slower-when-multithreading-in-julia/56227/12?u=carstenbauer) for using different numbers than one or all cores of BLAS threads on OpenBLAS and MKL.
-
-
+<!-- TODO: trim and move to application section
 ### Distributed
 We can use `Distributed`, a standard library for multiple processes in Julia.
-The Julia manual has a section about  [distributed computing](https://docs.julialang.org/en/v1/manual/distributed-computing/) explaining Julia's distributed programming.
-Later we also discuss how to use MPI.
+The Julia manual has a section about [distributed computing](https://docs.julialang.org/en/v1/manual/distributed-computing/) explaining Julia's distributed programming.
 Distributed has two built-in cluster managers, `LocalManager` for processes that communicate using Localhost and `SSHManager` for processes that communicate via SSH.
 We can add processes to the same node as the Julia job is started using `LocalManager` and the `SSHManager` to add processes to other nodes.
 
@@ -128,6 +73,7 @@ We can use these nodenames when adding processes using `SSHManager`.
 !!! info "LUMI does not have SSH between compute nodes."
     Currently, LUMI does not have SSH between compute notes.
     Hence we cannot add processes to other nodes via SSHManager.
+-->
 
 
 ## Example jobs
@@ -947,3 +893,59 @@ println.(outputs)
     julia --project=. -e 'using Pkg; Pkg.instantiate()'
     julia --project=. script.jl
     ```
+
+
+## Multi-threading in linear algebra
+Julia uses OpenBLAS as the default `LinearAlgebra` backend.
+External linear algebra backends such as OpenBLAS use internal threading.
+We can set their thread counts using environment variables.
+The `julia` module sets them to the number of CPU threads.
+
+```bash
+export OPENBLAS_NUM_THREADS=$JULIA_CPU_THREADS
+```
+
+We must be careful not to oversubscribe cores when using BLAS operations within Julia threads or processes.
+We can change the amount of BLAS threads at runtime using the `BLAS.set_num_threads` function.
+
+```julia
+using LinearAlgebra
+
+# Number of threads
+n = Threads.nthreads()
+
+# Define a matrix
+X = rand(1000, 1000)
+
+# Set the number of threads to one before performing BLAS operations of multiple Julia threads.
+BLAS.set_num_threads(1)
+Y = zeros(n)
+Threads.@threads for i in 1:n  # uses n Julia threads
+    Y[i] = sum(X * X)          # uses one BLAS thread
+end
+
+# Set the number of threads back to the default when performing BLAS operation on a single Julia Thread.
+BLAS.set_num_threads(n)
+Z = zeros(n)
+for i in 1:n                   # uses one Julia thread
+    Z[i] = sum(X * X)          # uses n BLAS threads
+end
+```
+
+Alternatively, we can use the MKL backend via [MKL.jl](https://github.com/JuliaLinearAlgebra/MKL.jl) as a linear algebra backend.
+MKL is often faster than OpenBLAS when using multiple threads on Intel CPUs, such as those on Puhti.
+We can set the MKL thread count as follows.
+
+```bash
+export MKL_NUM_THREADS=$JULIA_CPU_THREADS
+```
+
+If we use MKL, we should load it before other linear algebra libraries.
+
+```julia
+using MKL
+using LinearAlgebra
+# your code ...
+```
+
+There are [caveats](https://discourse.julialang.org/t/matrix-multiplication-is-slower-when-multithreading-in-julia/56227/12?u=carstenbauer) for using different numbers than one or all cores of BLAS threads on OpenBLAS and MKL.

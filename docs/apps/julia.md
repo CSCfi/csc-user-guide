@@ -50,6 +50,16 @@ Julia's REPL and Pkg, the package manager, are two important packages within the
 The [Pkg documentation](https://pkgdocs.julialang.org/) provides more information on how to use Julia's package manager.
 
 
+### Multithreading with Julia
+Julia provides the `Base.Threads` library for multi-threading.
+It is automatically loaded and available in the Julia session.
+The Julia manual contains more detailed information about [multi-threading](https://docs.julialang.org/en/v1/manual/multi-threading/).
+
+
+### Distributed computing with Julia
+TODO
+
+
 ### Using MPI with Julia
 We can use MPI for multi-node parallel computing in Julia on Puhti, Mahti and LUMI using the `MPI.jl` package.
 We can install it using the package manager as follows:
@@ -267,5 +277,5 @@ We should define and use a command line interface because it is more flexible th
 -->
 
 
-### Using Julia on Puhti, Mahti, and LUMI clusters
+### Running Julia batch jobs on Puhti, Mahti, and LUMI clusters
 We explain how to run serial, parallel, and GPU batch jobs with Julia on Puhti, Mahti, and LUMI in the [**Using Julia on Puhti, Mahti, and LUMI clusters**](../support/tutorials/julia.md) tutorial.
