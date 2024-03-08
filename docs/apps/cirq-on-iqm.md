@@ -11,7 +11,7 @@ installed as `helmi_cirq` on LUMI. It is used for running quantum circuits on
 
 ## Available
 
-Currently supported [cirq-on-iqm FIXME](https://iqm-finland.github.io/cirq-on-iqm/) versions:
+Currently supported [cirq-on-iqm](https://iqm-finland.github.io/cirq-on-iqm/) versions:
 
 | Version | Module                               | LUMI  | Notes           |
 |:--------|:-------------------------------------|:-----:|-----------------|
