@@ -17,10 +17,11 @@ Julia language is licensed under free and open source [MIT license](https://gith
 
 ## Available
 Julia language is available on Puhti, Mahti, and LUMI from the command line using the [module system](../computing/modules.md).
-Julia is also available on the web interface via [**Jupyter**](../computing/webinterface/julia-on-jupyter.md) and [**VSCode**](../computing/webinterface/vscode.md#julia-language).
+It is also available on the web interface via [Jupyter](../computing/webinterface/julia-on-jupyter.md) and [VSCode](../computing/webinterface/vscode.md#julia-language).
 
 
-## Using Julia
+## Usage
+### Using Julia
 On Puhti and Mahti, we can load the latest installed julia as follows:
 
 ```bash
@@ -49,7 +50,7 @@ Julia's REPL and Pkg, the package manager, are two important packages within the
 The [Pkg documentation](https://pkgdocs.julialang.org/) provides more information on how to use Julia's package manager.
 
 
-### Using MPI
+### Using MPI with Julia
 We can use MPI for multi-node parallel computing in Julia on Puhti, Mahti and LUMI using the `MPI.jl` package.
 We can install it using the package manager as follows:
 
@@ -67,7 +68,7 @@ module load julia-mpi
 For more information, we recommend reading the [MPI.jl documentation](https://juliaparallel.org/MPI.jl/stable/).
 
 
-### Using CUDA
+### Using CUDA with Julia
 The GPU nodes on Puhti and Mahti contain NVidia GPUs which can be progammed using CUDA.
 We can install the `CUDA.jl` package for CUDA programming in Julia using the package manager as follows:
 
@@ -85,7 +86,7 @@ module load julia-cuda
 For information, we recommend reading the [CUDA.jl documentation](https://cuda.juliagpu.org/stable/).
 
 
-### Using AMDGPU
+### Using AMDGPU with Julia
 The GPU nodes on LUMI contain AMD GPUs.
 We can install the `AMDGPU.jl` package for AMD GPUs programming in Julia using the package manager as follows:
 
@@ -177,14 +178,13 @@ Pkg.add("ArgParse")
 -->
 
 
-### Changing Julia depot directory
+### Placing Julia depot directory
 The first directory on the julia depot path controls where Julia stores installed packages, compiled files, log files, and other depots.
-We can change it by prepending a new directory to `JULIA_DEPOT_PATH` environment variable.
-
-By default, the first depot directory in the depot path is `$HOME/.julia`.
-However, the home directory has quite small quota on Puhti, Mahti and LUMI.
-Therefore, we recommend changing the directory to a directory under Projappl to avoid running out of quota because some packages install a large number of files.
-For example, we can use the following by replacing the `<project>` with your CSC project.
+It is `$HOME/.julia` by default.
+The home directory has relatively small quota on Puhti, Mahti and LUMI.
+If you install large packages, we recommend placing the depot directory under Projappl to avoid running out of quota.
+We can change the depot directory by prepending a new directory to `JULIA_DEPOT_PATH` environment variable.
+For example, we can use the following by replacing the `<project>` with a CSC project.
 
 ```bash
 export JULIA_DEPOT_PATH="/projappl/<project>/$USER/.julia:$JULIA_DEPOT_PATH"
