@@ -4,34 +4,7 @@ Instructions for running serial, parallel, and GPU jobs with Julia on Puhti, Mah
 [TOC]
 
 
-## Introduction
-These instructions are adapted from the general instructions of running jobs on [Puhti and Mahti](../../computing/running/getting-started.md) and on [LUMI](https://docs.lumi-supercomputer.eu/runjobs/).
-Furthermore, we assume general knowledge about the [**Julia Language**](../../apps/julia.md) environment.
-For further reading about parallel and high-performance computing with Julia, we recommend the [Julia for high-performance scientific computing](https://enccs.github.io/julia-for-hpc/) from ENCCS and the [A brief tour of Julia for high-performance computing](https://forem.julialang.org/wikfeldt/a-brief-tour-of-julia-for-high-performance-computing-5deb) written by Kjartan Thor Wikfeldt.
-
-TODO: https://github.com/carstenbauer/JuliaHLRS23
-
-<!-- CSC training also has a [quick introduction and tutorial](https://github.com/csc-training/julia-introduction) to Julia. -->
-
-
-<!-- TODO: trim and move to application section
-### Julia environment
-The `julia` module sets the [`JULIA_CPU_THREADS`](https://docs.julialang.org/en/v1/manual/environment-variables/#JULIA_CPU_THREADS) and [`JULIA_NUM_THREADS`](https://docs.julialang.org/en/v1/manual/environment-variables/#JULIA_NUM_THREADS) environment variables to the number of reserved CPU cores when loaded in a Slurm job; otherwise, the module sets them to one.
-We use the value of the `--cpus-per-task` option, which populates the `SLURM_CPUS_PER_TASK` environment variable, to detect the number of CPU cores.
-The effect is the same as setting the following environment variables in a shell.
-
-```bash
-# Sets the value to SLURM_CPUS_PER_TASK if defined, otherwise 1
-export JULIA_CPU_THREADS=${SLURM_CPUS_PER_TASK:-1}
-export JULIA_NUM_THREADS=$JULIA_CPU_THREADS
-```
-
-We can start a Julia process with a different number of threads than `JULIA_NUM_THREADS` using the `--threads` option as follows:
-
-```bash
-julia --threads 2  # using two threads regardless of JULIA_NUM_THREADS value
-```
-
+<!--
 We can interact with environment variables in the Julia session using the [`ENV`](https://docs.julialang.org/en/v1/base/base/#Base.ENV) constant.
 -->
 
@@ -77,6 +50,9 @@ We can use these nodenames when adding processes using `SSHManager`.
 
 
 ## Example jobs
+These instructions are adapted from the general instructions of running jobs on [Puhti and Mahti](../../computing/running/getting-started.md) and on [LUMI](https://docs.lumi-supercomputer.eu/runjobs/).
+Furthermore, we assume general knowledge about the [**Julia Language**](../../apps/julia.md) environment.
+
 We use the following Julia project structure in the example jobs.
 We also assume that it is our working directory when running the commands.
 
