@@ -4,45 +4,6 @@ This tutorial contains examples for running various Julia batch jobs on CSC clus
 [TOC]
 
 
-<!-- TODO: trim and move to application section
-### Distributed
-Distributed has two built-in cluster managers, `LocalManager` for processes that communicate using Localhost and `SSHManager` for processes that communicate via SSH.
-We can add processes to the same node as the Julia job is started using `LocalManager` and the `SSHManager` to add processes to other nodes.
-TODO: ClusterManagers to add processes via Slurm
-
-```julia
-using Distributed
-
-# Adds 2 processes using LocalManager
-addprocs(2)
-
-# Adds 2 processes to node1 and 3 processes to node2 using SSHManager
-addprocs([(2, "node1"), (3, "node2")])
-```
-
-When adding processes, we can also pass various key values, such as environment variables and options for Julia.
-We demonstrate them in the examples.
-
-We can find the node name in the Julia process using the following:
-
-```julia
-local_node = first(split(gethostname(), '.'; limit=2))
-```
-
-We can read the names of the nodes that slurm allocated for a job using `SLURM_JOB_NODELIST` environment variable and expanding it using `scontrol show hostnames <nodelist>` command as follows:
-
-```julia
-nodes = readlines(`scontrol show hostnames $(ENV["SLURM_JOB_NODELIST"])`)
-```
-
-We can use these nodenames when adding processes using `SSHManager`.
-
-!!! info "LUMI does not have SSH between compute nodes."
-    Currently, LUMI does not have SSH between compute notes.
-    Hence we cannot add processes to other nodes via SSHManager.
--->
-
-
 ## Examples
 These examples demonstrate the usage of CSC's [Julia environment](../../apps/julia.md).
 They are adapted from the general instructions of running jobs on [Puhti and Mahti](../../computing/running/getting-started.md) and on [LUMI](https://docs.lumi-supercomputer.eu/runjobs/).
@@ -63,14 +24,14 @@ Instead we use Julia for process management or call `srun` inside the Julia code
 
 
 ### Serial program
-An example of a `script.jl` Julia code.
+An example of a `script.jl` code.
 
 ```julia
 println("Hello world!")
 ```
 
 === "Puhti"
-    An example of a `batch.sh` Puhti batch script.
+    An example of a `batch.sh` batch script.
 
     ```bash
     #!/bin/bash
@@ -88,7 +49,7 @@ println("Hello world!")
     ```
 
 === "Mahti"
-    An example of a `batch.sh` Mahti batch script.
+    An example of a `batch.sh` batch script.
 
     ```bash
     #!/bin/bash
@@ -107,7 +68,7 @@ println("Hello world!")
 
 
 === "LUMI"
-    An example of a `batch.sh` LUMI batch script.
+    An example of a `batch.sh` batch script.
 
     ```bash
     #!/bin/bash
@@ -127,7 +88,7 @@ println("Hello world!")
 
 
 ### Multiple threads on single node
-An example of a `script.jl` Julia code.
+An example of a `script.jl` code.
 
 ```julia
 # Number of threads
@@ -150,7 +111,7 @@ println(ids)
 ```
 
 === "Puhti"
-    An example of a `batch.sh` Puhti batch script.
+    An example of a `batch.sh` batch script.
 
     ```bash
     #!/bin/bash
@@ -168,7 +129,7 @@ println(ids)
     ```
 
 === "Mahti"
-    An example of a `batch.sh` Mahti batch script.
+    An example of a `batch.sh` batch script.
 
     ```bash
     #!/bin/bash
@@ -186,7 +147,7 @@ println(ids)
     ```
 
 === "LUMI"
-    An example of a `batch.sh` LUMI batch script.
+    An example of a `batch.sh` batch script.
 
     ```bash
     #!/bin/bash
@@ -206,7 +167,7 @@ println(ids)
 
 
 ### Multiple processes on single node
-An example of a `script.jl` Julia code.
+An example of a `script.jl` code.
 
 ```julia
 using Distributed
@@ -261,7 +222,7 @@ println.(outputs)
     Distributed = "8ba89e20-285c-5b6f-9357-94700520ee1b"
     ```
 
-    An example of a `batch.sh` Puhti batch script.
+    An example of a `batch.sh` batch script.
 
     ```bash
     #!/bin/bash
@@ -286,7 +247,7 @@ println.(outputs)
     Distributed = "8ba89e20-285c-5b6f-9357-94700520ee1b"
     ```
 
-    An example of a `batch.sh` Mahti batch script.
+    An example of a `batch.sh` batch script.
 
     ```bash
     #!/bin/bash
@@ -311,7 +272,7 @@ println.(outputs)
     Distributed = "8ba89e20-285c-5b6f-9357-94700520ee1b"
     ```
 
-    An example of a `batch.sh` LUMI batch script.
+    An example of a `batch.sh` batch script.
 
     ```bash
     #!/bin/bash
@@ -332,7 +293,7 @@ println.(outputs)
 
 ### Single GPU
 === "CUDA.jl"
-    An example of a `script.jl` Julia code.
+    An example of a `script.jl` code.
 
     ```julia
     using CUDA
@@ -343,7 +304,7 @@ println.(outputs)
     ```
 
 === "AMDGPU.jl"
-    An example of a `script.jl` Julia code.
+    An example of a `script.jl` code.
 
     ```julia
     using AMDGPU
@@ -363,7 +324,7 @@ println.(outputs)
     CUDA = "052768ef-5323-5732-b1bb-66c8b64840ba"
     ```
 
-    An example of a `batch.sh` Puhti batch script.
+    An example of a `batch.sh` batch script.
 
     ```bash
     #!/bin/bash
@@ -389,7 +350,7 @@ println.(outputs)
     CUDA = "052768ef-5323-5732-b1bb-66c8b64840ba"
     ```
 
-    An example of a `batch.sh` Mahti batch script.
+    An example of a `batch.sh` batch script.
 
     ```bash
     #!/bin/bash
@@ -415,7 +376,7 @@ println.(outputs)
     AMDGPU = "21141c5a-9bdb-4563-92ae-f87d6854732e"
     ```
 
-    An example of a `batch.sh` LUMI batch script.
+    An example of a `batch.sh` batch script.
 
     ```bash
     #!/bin/bash
@@ -441,7 +402,7 @@ The wrapper function substitutes the correct command from local preferences to t
 The command is `srun` in Puhti, Mahti, and LUMI.
 The wrapper allows us to write more flexible code, such as mixing MPI and non-MPI code, and more portable code because the command to run MPI programs can vary across platforms.
 
-An example of a `script.jl` Julia code.
+An example of a `script.jl` code.
 
 ```julia
 using MPI
@@ -469,7 +430,7 @@ MPI.Barrier(comm)
     MPI = "da04e1cc-30fd-572f-bb4f-1f8673147195"
     ```
 
-    An example of a `batch.sh` Puhti batch script.
+    An example of a `batch.sh` batch script.
 
     ```bash
     #!/bin/bash
@@ -494,7 +455,7 @@ MPI.Barrier(comm)
     MPI = "da04e1cc-30fd-572f-bb4f-1f8673147195"
     ```
 
-    An example of a `batch.sh` Mahti batch script.
+    An example of a `batch.sh` batch script.
 
     ```bash
     #!/bin/bash
@@ -519,7 +480,7 @@ MPI.Barrier(comm)
     MPI = "da04e1cc-30fd-572f-bb4f-1f8673147195"
     ```
 
-    An example of a `batch.sh` LUMI batch script.
+    An example of a `batch.sh` batch script.
 
     ```bash
     #!/bin/bash
@@ -539,7 +500,7 @@ MPI.Barrier(comm)
 
 
 ### Multiple processes on multiple nodes
-An example of a `script.jl` Julia code.
+An example of a `script.jl` code.
 
 ```julia
 using Distributed
@@ -606,7 +567,7 @@ println.(outputs)
     Distributed = "8ba89e20-285c-5b6f-9357-94700520ee1b"
     ```
 
-    An example of a `batch.sh` Puhti batch script.
+    An example of a `batch.sh` batch script.
 
     ```bash
     #!/bin/bash
@@ -631,7 +592,7 @@ println.(outputs)
     Distributed = "8ba89e20-285c-5b6f-9357-94700520ee1b"
     ```
 
-    An example of a `batch.sh` Mahti batch script.
+    An example of a `batch.sh` batch script.
 
     ```bash
     #!/bin/bash
@@ -651,7 +612,7 @@ println.(outputs)
 
 <!--
 ### Multiple processes and threads
-An example of a `script.jl` Julia code.
+An example of a `script.jl` code.
 
 ```julia
 using Distributed
@@ -730,7 +691,7 @@ println.(outputs)
     Distributed = "8ba89e20-285c-5b6f-9357-94700520ee1b"
     ```
 
-    An example of a `batch.sh` Puhti batch script.
+    An example of a `batch.sh` batch script.
 
     ```bash
     #!/bin/bash
@@ -755,7 +716,7 @@ println.(outputs)
     Distributed = "8ba89e20-285c-5b6f-9357-94700520ee1b"
     ```
 
-    An example of a `batch.sh` Mahti batch script.
+    An example of a `batch.sh` batch script.
 
     ```bash
     #!/bin/bash
@@ -829,6 +790,45 @@ using LinearAlgebra
 ```
 
 There are [caveats](https://discourse.julialang.org/t/matrix-multiplication-is-slower-when-multithreading-in-julia/56227/12?u=carstenbauer) for using different numbers than one or all cores of BLAS threads on OpenBLAS and MKL.
+
+
+<!-- TODO: trim and move to application section
+### Distributed
+Distributed has two built-in cluster managers, `LocalManager` for processes that communicate using Localhost and `SSHManager` for processes that communicate via SSH.
+We can add processes to the same node as the Julia job is started using `LocalManager` and the `SSHManager` to add processes to other nodes.
+TODO: ClusterManagers to add processes via Slurm
+
+```julia
+using Distributed
+
+# Adds 2 processes using LocalManager
+addprocs(2)
+
+# Adds 2 processes to node1 and 3 processes to node2 using SSHManager
+addprocs([(2, "node1"), (3, "node2")])
+```
+
+When adding processes, we can also pass various key values, such as environment variables and options for Julia.
+We demonstrate them in the examples.
+
+We can find the node name in the Julia process using the following:
+
+```julia
+local_node = first(split(gethostname(), '.'; limit=2))
+```
+
+We can read the names of the nodes that slurm allocated for a job using `SLURM_JOB_NODELIST` environment variable and expanding it using `scontrol show hostnames <nodelist>` command as follows:
+
+```julia
+nodes = readlines(`scontrol show hostnames $(ENV["SLURM_JOB_NODELIST"])`)
+```
+
+We can use these nodenames when adding processes using `SSHManager`.
+
+!!! info "LUMI does not have SSH between compute nodes."
+    Currently, LUMI does not have SSH between compute notes.
+    Hence we cannot add processes to other nodes via SSHManager.
+-->
 
 
 <!--
