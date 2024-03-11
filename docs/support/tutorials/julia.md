@@ -43,25 +43,26 @@ We can use these nodenames when adding processes using `SSHManager`.
 -->
 
 
-## Introduction
-These examples are use CSC's [Julia](../../apps/julia.md) environment.
+## Examples
+These examples demonstrate the usage of CSC's [Julia environment](../../apps/julia.md).
 They are adapted from the general instructions of running jobs on [Puhti and Mahti](../../computing/running/getting-started.md) and on [LUMI](https://docs.lumi-supercomputer.eu/runjobs/).
 
 We use the following Julia project structure in the example jobs and assume that it is our working directory when running the commands.
 
 ```text
 .
-├── Manifest.toml  # Automatically created a list of all dependencies
 ├── Project.toml   # Julia environment and dependencies
 ├── batch.sh       # Slurm batch script
 └── script.jl      # Julia script
 ```
 
 The example jobs demonstrate project files for different single and multi-node jobs.
+
 We do not use `srun` to start processes from the batch script.
+Instead we use Julia for process management or call `srun` inside the Julia code.
 
 
-### Serial code
+### Serial program
 An example of a `script.jl` Julia code.
 
 ```julia
@@ -219,7 +220,6 @@ proc_env = [
     "JULIA_NUM_THREADS"=>"1",
     "JULIA_CPU_THREADS"=>"1",
     "OPENBLAS_NUM_THREADS"=>"1",
-    "MKL_NUM_THREADS"=>"1",
 ]
 
 # We add worker processes to the local node using LocalManager.
@@ -435,7 +435,7 @@ println.(outputs)
     ```
 
 
-### MPI
+### MPI program
 We launch the MPI program using Julia's `mpiexec` wrapper function.
 The wrapper function substitutes the correct command from local preferences to the `mpirun` variable to run the MPI program.
 The command is `srun` in Puhti, Mahti, and LUMI.
@@ -553,7 +553,6 @@ proc_env = [
     "JULIA_NUM_THREADS"=>"1",
     "JULIA_CPU_THREADS"=>"1",
     "OPENBLAS_NUM_THREADS"=>"1",
-    "MKL_NUM_THREADS"=>"1",
 ]
 
 # Read the list of nodenames allocated by Slurm.
@@ -666,7 +665,6 @@ proc_env = [
     "JULIA_NUM_THREADS"=>"$(Sys.CPU_THREADS)",
     "JULIA_CPU_THREADS"=>"$(Sys.CPU_THREADS)",
     "OPENBLAS_NUM_THREADS"=>"$(Sys.CPU_THREADS)",
-    "MKL_NUM_THREADS"=>"$(Sys.CPU_THREADS)",
 ]
 
 # Read the list of nodenames allocated by Slurm.
@@ -776,7 +774,8 @@ println.(outputs)
 -->
 
 
-## Multi-threading in linear algebra
+## Notes
+### Multi-threading in linear algebra
 Julia uses OpenBLAS as the default `LinearAlgebra` backend.
 External linear algebra backends such as OpenBLAS use internal threading.
 We can set their thread counts using environment variables.

@@ -149,7 +149,7 @@ You can read more about the depot path in the [documentation](https://docs.julia
 
 
 ### Running Julia batch jobs on CSC clusters
-[Running Julia batch jobs on CSC clusters](../support/tutorials/julia.md) explains how to run serial, parallel, and GPU batch jobs with Julia on Puhti, Mahti, and LUMI.
+[Running Julia batch jobs on CSC clusters](../support/tutorials/julia.md) section explains how to run serial, parallel, and GPU batch jobs with Julia on Puhti, Mahti, and LUMI.
 
 
 ### Further reading
