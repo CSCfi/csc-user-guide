@@ -45,12 +45,11 @@ We can use these nodenames when adding processes using `SSHManager`.
 
 ## Introduction
 These examples are use CSC's [Julia](../../apps/julia.md) environment.
-They are apted from the general instructions of running jobs on [Puhti and Mahti](../../computing/running/getting-started.md) and on [LUMI](https://docs.lumi-supercomputer.eu/runjobs/).
+They are adapted from the general instructions of running jobs on [Puhti and Mahti](../../computing/running/getting-started.md) and on [LUMI](https://docs.lumi-supercomputer.eu/runjobs/).
 
-We use the following Julia project structure in the example jobs.
-We also assume that it is our working directory when running the commands.
+We use the following Julia project structure in the example jobs and assume that it is our working directory when running the commands.
 
-```
+```text
 .
 ├── Manifest.toml  # Automatically created a list of all dependencies
 ├── Project.toml   # Julia environment and dependencies
@@ -59,7 +58,6 @@ We also assume that it is our working directory when running the commands.
 ```
 
 The example jobs demonstrate project files for different single and multi-node jobs.
-
 We do not use `srun` to start processes from the batch script.
 
 
@@ -72,13 +70,6 @@ println("Hello world!")
 ```
 
 === "Puhti"
-    An example of a `Project.toml` project file.
-
-    ```toml
-    [compat]
-    julia = "1.9"
-    ```
-
     An example of a `batch.sh` Puhti batch script.
 
     ```bash
@@ -91,19 +82,12 @@ println("Hello world!")
     #SBATCH --cpus-per-task=1
     #SBATCH --mem-per-cpu=1000
 
-    module load julia/1.9
+    module load julia
     julia --project=. -e 'using Pkg; Pkg.instantiate()'
     julia --project=. script.jl
     ```
 
 === "Mahti"
-    An example of a `Project.toml` project file.
-
-    ```toml
-    [compat]
-    julia = "1.9"
-    ```
-
     An example of a `batch.sh` Mahti batch script.
 
     ```bash
@@ -116,20 +100,13 @@ println("Hello world!")
     #SBATCH --cpus-per-task=1
     #SBATCH --mem-per-cpu=1875
 
-    module load julia/1.9
+    module load julia
     julia --project=. -e 'using Pkg; Pkg.instantiate()'
     julia --project=. script.jl
     ```
 
 
 === "LUMI"
-    An example of a `Project.toml` project file.
-
-    ```toml
-    [compat]
-    julia = "1.9"
-    ```
-
     An example of a `batch.sh` LUMI batch script.
 
     ```bash
@@ -143,7 +120,7 @@ println("Hello world!")
     #SBATCH --mem-per-cpu=1000
 
     module use /appl/local/csc/modulefiles
-    module load julia/1.9
+    module load julia
     julia --project=. -e 'using Pkg; Pkg.instantiate()'
     julia --project=. script.jl
     ```
@@ -173,13 +150,6 @@ println(ids)
 ```
 
 === "Puhti"
-    An example of a `Project.toml` project file.
-
-    ```toml
-    [compat]
-    julia = "1.9"
-    ```
-
     An example of a `batch.sh` Puhti batch script.
 
     ```bash
@@ -192,19 +162,12 @@ println(ids)
     #SBATCH --cpus-per-task=3
     #SBATCH --mem-per-cpu=1000
 
-    module load julia/1.9
+    module load julia
     julia --project=. -e 'using Pkg; Pkg.instantiate()'
     julia --project=. script.jl
     ```
 
 === "Mahti"
-    An example of a `Project.toml` project file.
-
-    ```toml
-    [compat]
-    julia = "1.9"
-    ```
-
     An example of a `batch.sh` Mahti batch script.
 
     ```bash
@@ -217,19 +180,12 @@ println(ids)
     #SBATCH --cpus-per-task=128
     #SBATCH --mem-per-cpu=0
 
-    module load julia/1.9
+    module load julia
     julia --project=. -e 'using Pkg; Pkg.instantiate()'
     julia --project=. script.jl
     ```
 
 === "LUMI"
-    An example of a `Project.toml` project file.
-
-    ```toml
-    [compat]
-    julia = "1.9"
-    ```
-
     An example of a `batch.sh` LUMI batch script.
 
     ```bash
@@ -243,7 +199,7 @@ println(ids)
     #SBATCH --mem-per-cpu=1000
 
     module use /appl/local/csc/modulefiles
-    module load julia/1.9
+    module load julia
     julia --project=. -e 'using Pkg; Pkg.instantiate()'
     julia --project=. script.jl
     ```
@@ -304,9 +260,6 @@ println.(outputs)
     ```toml
     [deps]
     Distributed = "8ba89e20-285c-5b6f-9357-94700520ee1b"
-
-    [compat]
-    julia = "1.9"
     ```
 
     An example of a `batch.sh` Puhti batch script.
@@ -321,7 +274,7 @@ println.(outputs)
     #SBATCH --cpus-per-task=3
     #SBATCH --mem-per-cpu=1000
 
-    module load julia/1.9
+    module load julia
     julia --project=. -e 'using Pkg; Pkg.instantiate()'
     julia --project=. script.jl
     ```
@@ -332,9 +285,6 @@ println.(outputs)
     ```toml
     [deps]
     Distributed = "8ba89e20-285c-5b6f-9357-94700520ee1b"
-
-    [compat]
-    julia = "1.9"
     ```
 
     An example of a `batch.sh` Mahti batch script.
@@ -349,7 +299,7 @@ println.(outputs)
     #SBATCH --cpus-per-task=128
     #SBATCH --mem-per-cpu=0
 
-    module load julia/1.9
+    module load julia
     julia --project=. -e 'using Pkg; Pkg.instantiate()'
     julia --project=. script.jl
     ```
@@ -360,9 +310,6 @@ println.(outputs)
     ```toml
     [deps]
     Distributed = "8ba89e20-285c-5b6f-9357-94700520ee1b"
-
-    [compat]
-    julia = "1.9"
     ```
 
     An example of a `batch.sh` LUMI batch script.
@@ -378,7 +325,7 @@ println.(outputs)
     #SBATCH --mem-per-cpu=1000
 
     module use /appl/local/csc/modulefiles
-    module load julia/1.9
+    module load julia
     julia --project=. -e 'using Pkg; Pkg.instantiate()'
     julia --project=. script.jl
     ```
@@ -415,10 +362,6 @@ println.(outputs)
     ```toml
     [deps]
     CUDA = "052768ef-5323-5732-b1bb-66c8b64840ba"
-
-    [compat]
-    julia = "1.9"
-    CUDA = "=4.0.1"
     ```
 
     An example of a `batch.sh` Puhti batch script.
@@ -434,7 +377,7 @@ println.(outputs)
     #SBATCH --gres=gpu:v100:1
     #SBATCH --mem-per-cpu=8000
 
-    module load julia-cuda/1.9
+    module load julia julia-cuda
     julia --project=. -e 'using Pkg; Pkg.instantiate()'
     julia --project=. script.jl
     ```
@@ -445,10 +388,6 @@ println.(outputs)
     ```toml
     [deps]
     CUDA = "052768ef-5323-5732-b1bb-66c8b64840ba"
-
-    [compat]
-    julia = "1.9"
-    CUDA = "=4.0.1"
     ```
 
     An example of a `batch.sh` Mahti batch script.
@@ -464,7 +403,7 @@ println.(outputs)
     #SBATCH --gres=gpu:a100:1
     #
 
-    module load julia-cuda/1.9
+    module load julia julia-cuda
     julia --project=. -e 'using Pkg; Pkg.instantiate()'
     julia --project=. script.jl
     ```
@@ -475,10 +414,6 @@ println.(outputs)
     ```toml
     [deps]
     AMDGPU = "21141c5a-9bdb-4563-92ae-f87d6854732e"
-
-    [compat]
-    julia = "1.9"
-    AMDGPU = "=0.4.13"
     ```
 
     An example of a `batch.sh` LUMI batch script.
@@ -495,7 +430,7 @@ println.(outputs)
     #SBATCH --mem-per-cpu=1750
 
     module use /appl/local/csc/modulefiles
-    module load julia-amdgpu/1.9
+    module load julia julia-amdgpu
     julia --project=. -e 'using Pkg; Pkg.instantiate()'
     julia --project=. script.jl
     ```
@@ -534,10 +469,6 @@ MPI.Barrier(comm)
     ```toml
     [deps]
     MPI = "da04e1cc-30fd-572f-bb4f-1f8673147195"
-
-    [compat]
-    julia = "1.9"
-    MPI = "=0.20.8"
     ```
 
     An example of a `batch.sh` Puhti batch script.
@@ -552,7 +483,7 @@ MPI.Barrier(comm)
     #SBATCH --cpus-per-task=1
     #SBATCH --mem-per-cpu=1000
 
-    module load julia/1.9
+    module load julia julia-mpi
     julia --project=. -e 'using Pkg; Pkg.instantiate()'
     julia --project=. script.jl
     ```
@@ -563,10 +494,6 @@ MPI.Barrier(comm)
     ```toml
     [deps]
     MPI = "da04e1cc-30fd-572f-bb4f-1f8673147195"
-
-    [compat]
-    julia = "1.9"
-    MPI = "=0.20.8"
     ```
 
     An example of a `batch.sh` Mahti batch script.
@@ -581,7 +508,7 @@ MPI.Barrier(comm)
     #SBATCH --cpus-per-task=1
     #SBATCH --mem-per-cpu=0
 
-    module load julia/1.9
+    module load julia julia-mpi
     julia --project=. -e 'using Pkg; Pkg.instantiate()'
     julia --project=. script.jl
     ```
@@ -592,10 +519,6 @@ MPI.Barrier(comm)
     ```toml
     [deps]
     MPI = "da04e1cc-30fd-572f-bb4f-1f8673147195"
-
-    [compat]
-    julia = "1.9"
-    MPI = "=0.20.8"
     ```
 
     An example of a `batch.sh` LUMI batch script.
@@ -611,7 +534,7 @@ MPI.Barrier(comm)
     #SBATCH --mem-per-cpu=0
 
     module use /appl/local/csc/modulefiles
-    module load julia/1.9
+    module load julia julia-mpi
     julia --project=. -e 'using Pkg; Pkg.instantiate()'
     julia --project=. script.jl
     ```
@@ -684,9 +607,6 @@ println.(outputs)
     ```toml
     [deps]
     Distributed = "8ba89e20-285c-5b6f-9357-94700520ee1b"
-
-    [compat]
-    julia = "1.9"
     ```
 
     An example of a `batch.sh` Puhti batch script.
@@ -701,7 +621,7 @@ println.(outputs)
     #SBATCH --cpus-per-task=3
     #SBATCH --mem-per-cpu=1000
 
-    module load julia/1.9
+    module load julia
     julia --project=. -e 'using Pkg; Pkg.instantiate()'
     julia --project=. script.jl
     ```
@@ -712,9 +632,6 @@ println.(outputs)
     ```toml
     [deps]
     Distributed = "8ba89e20-285c-5b6f-9357-94700520ee1b"
-
-    [compat]
-    julia = "1.9"
     ```
 
     An example of a `batch.sh` Mahti batch script.
@@ -729,7 +646,7 @@ println.(outputs)
     #SBATCH --cpus-per-task=128
     #SBATCH --mem-per-cpu=0
 
-    module load julia/1.9
+    module load julia
     julia --project=. -e 'using Pkg; Pkg.instantiate()'
     julia --project=. script.jl
     ```
@@ -814,9 +731,6 @@ println.(outputs)
     ```toml
     [deps]
     Distributed = "8ba89e20-285c-5b6f-9357-94700520ee1b"
-
-    [compat]
-    julia = "1.9"
     ```
 
     An example of a `batch.sh` Puhti batch script.
@@ -831,7 +745,7 @@ println.(outputs)
     #SBATCH --cpus-per-task=3
     #SBATCH --mem-per-cpu=1000
 
-    module load julia/1.9
+    module load julia
     julia --project=. -e 'using Pkg; Pkg.instantiate()'
     julia --project=. script.jl
     ```
@@ -842,9 +756,6 @@ println.(outputs)
     ```toml
     [deps]
     Distributed = "8ba89e20-285c-5b6f-9357-94700520ee1b"
-
-    [compat]
-    julia = "1.9"
     ```
 
     An example of a `batch.sh` Mahti batch script.
@@ -859,7 +770,7 @@ println.(outputs)
     #SBATCH --cpus-per-task=128
     #SBATCH --mem-per-cpu=0
 
-    module load julia/1.9
+    module load julia
     julia --project=. -e 'using Pkg; Pkg.instantiate()'
     julia --project=. script.jl
     ```
