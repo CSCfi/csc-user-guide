@@ -61,8 +61,7 @@ The example jobs demonstrate project files for different single and multi-node j
 We do not use `srun` to start processes from the batch script.
 
 
-### Single node jobs
-#### Serial
+### Serial code
 An example of a `script.jl` Julia code.
 
 ```julia
@@ -126,7 +125,7 @@ println("Hello world!")
     ```
 
 
-#### Multiple threads
+### Multiple threads on single node
 An example of a `script.jl` Julia code.
 
 ```julia
@@ -205,7 +204,7 @@ println(ids)
     ```
 
 
-#### Multiple processes
+### Multiple processes on single node
 An example of a `script.jl` Julia code.
 
 ```julia
@@ -331,7 +330,7 @@ println.(outputs)
     ```
 
 
-#### Single GPU
+### Single GPU
 === "CUDA.jl"
     An example of a `script.jl` Julia code.
 
@@ -436,8 +435,7 @@ println.(outputs)
     ```
 
 
-### Multi-node jobs
-#### MPI
+### MPI
 We launch the MPI program using Julia's `mpiexec` wrapper function.
 The wrapper function substitutes the correct command from local preferences to the `mpirun` variable to run the MPI program.
 The command is `srun` in Puhti, Mahti, and LUMI.
@@ -540,7 +538,7 @@ MPI.Barrier(comm)
     ```
 
 
-#### Multiple processes
+### Multiple processes on multiple nodes
 An example of a `script.jl` Julia code.
 
 ```julia
@@ -652,7 +650,8 @@ println.(outputs)
     ```
 
 
-#### Multiple processes and threads
+<!--
+### Multiple processes and threads
 An example of a `script.jl` Julia code.
 
 ```julia
@@ -774,6 +773,7 @@ println.(outputs)
     julia --project=. -e 'using Pkg; Pkg.instantiate()'
     julia --project=. script.jl
     ```
+-->
 
 
 ## Multi-threading in linear algebra
