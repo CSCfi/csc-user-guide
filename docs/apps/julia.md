@@ -87,7 +87,7 @@ import Pkg
 Pkg.add("MPI")
 ```
 
-We can load the `julia-mpi` module which sets global preferences to use the system MPI installation.
+We can load the `julia-mpi` module which sets global preferences to the environment such that MPI.jl uses to use the system MPI installation.
 
 ```bash
 module load julia-mpi
@@ -105,7 +105,7 @@ import Pkg
 Pkg.add("CUDA")
 ```
 
-We can load the `julia-cuda` module which sets global preferences to use the system CUDA installation.
+We can load the `julia-cuda` module which sets global preferences to the environment such that CUDA.jl uses the system CUDA installation.
 
 ```bash
 module load julia-cuda
@@ -116,14 +116,14 @@ For information, we recommend reading the [CUDA.jl documentation](https://cuda.j
 
 ### Using AMDGPU.jl
 The GPU nodes on LUMI contain AMD GPUs.
-We can install the `AMDGPU.jl` package for AMD GPU programming in Julia using the package manager as follows:
+We can install the `AMDGPU.jl` package for programming AMD GPUs in Julia using the package manager as follows:
 
 ```julia
 import Pkg
 Pkg.add("AMDGPU")
 ```
 
-We can load the `julia-amdgpu` module which sets global preferences to use the system AMDGPU installation.
+We can load the `julia-amdgpu` module which sets global preferences to the environment such that AMDGPU.jl to use the system ROCm installation.
 
 ```bash
 module load julia-amdgpu
