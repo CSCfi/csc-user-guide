@@ -151,6 +151,10 @@ billing unit coefficients.
 | io.haswell.16core | 16 | 78  | 20 | 700  | 720  | 4.8 |![](/img/circle_icons/p100.svg)![](/img/circle_icons/r0.svg)![](/img/circle_icons/e0.svg)![](/img/circle_icons/n100.svg)| 36  |
 | io.haswell.32core | 32 | 156 | 20 | 1400 | 1420 | 4.8 |![](/img/circle_icons/p100.svg)![](/img/circle_icons/r0.svg)![](/img/circle_icons/e0.svg)![](/img/circle_icons/n100.svg)| 72  |
 | io.haswell.46core | 46 | 242 | 20 | 2100 | 2120 | 5.2  |![](/img/circle_icons/p100.svg)![](/img/circle_icons/r0.svg)![](/img/circle_icons/e0.svg)![](/img/circle_icons/n100.svg)| 108 |
+| io.2.80GB         | 2  | 12,7 | 80 | 80  | 160  | 6.3 |![](/img/circle_icons/p100.svg)![](/img/circle_icons/r50.svg)![](/img/circle_icons/e50.svg)![](/img/circle_icons/n100.svg)| 6  |
+| io.2.240GB        | 4  | 26  | 80 | 240  | 320  | 6.6 |![](/img/circle_icons/p100.svg)![](/img/circle_icons/r50.svg)![](/img/circle_icons/e50.svg)![](/img/circle_icons/n100.svg)| 12  |
+| io.2.550GB        | 8  | 54  | 80 | 550  | 630  | 6.7 |![](/img/circle_icons/p100.svg)![](/img/circle_icons/r50.svg)![](/img/circle_icons/e50.svg)![](/img/circle_icons/n100.svg)| 24  |
+| io.2.1200GB       | 16 | 107 | 80 | 1200 | 1280 | 6.7 |![](/img/circle_icons/p100.svg)![](/img/circle_icons/r50.svg)![](/img/circle_icons/e50.svg)![](/img/circle_icons/n100.svg)| 48  |
 
 ### High memory flavors
 
@@ -349,6 +353,17 @@ performance is significantly better.
 -   Network: Redundant 10 Gb/s
 -   Flavor disk: Local SSD disks, RAID-0
 -   Instances can be lost due to a single-node or disk failure.
+
+**io.2.\*:**
+
+!!! Note  
+    These virtual machines can not be resized to a different family flavor.
+
+-   Redundant power
+-   CPU: AMD EPYC 7313 16-Core Processor
+-   Network: Redundant 25 Gb/s
+-   Flavor disk: Local NVMe disk, RAID-1
+-   Instance can be lost due to a single-node or multiple simultaneous disk failures.
 
 ### GPU flavors
 
