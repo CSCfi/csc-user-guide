@@ -61,7 +61,7 @@ The [Pkg documentation](https://pkgdocs.julialang.org/) provides more informatio
 
 ### Multithreading
 Julia provides the `Threads` library for multi-threading.
-It is included in `Base`, and thus automatically loaded and available in a Julia session.
+It is included in the base library and imported by default in a Julia session.
 We can start Julia with multiple threads by setting the `JULIA_NUM_THREADS` environment variable or starting Julia with the `--threads` option which overrides the value in the environment variable.
 If Julia module is loaded within a Slurm job and the environment variable is not set, it is set to the amount of requested CPU cores (`--cpus-per-task`).
 The default thread count is one.
@@ -148,8 +148,6 @@ We explain how to run serial, parallel, and GPU batch jobs with Julia on Puhti, 
 
 
 ### Further reading
-[Julia on HPC Clusters](https://juliahpc.github.io/JuliaOnHPCClusters/)
-
-For further reading about parallel and high-performance computing with Julia, we recommend the [Julia for high-performance scientific computing](https://enccs.github.io/julia-for-hpc/) from ENCCS and the [A brief tour of Julia for high-performance computing](https://forem.julialang.org/wikfeldt/a-brief-tour-of-julia-for-high-performance-computing-5deb) written by Kjartan Thor Wikfeldt.
-
-[HLRS's Julia training material](https://github.com/carstenbauer/JuliaHLRS23)
+For further reading about parallel and high-performance computing with Julia, we recommend the [Julia for high-performance scientific computing](https://enccs.github.io/julia-for-hpc/) from ENCCS and the [A brief tour of Julia for high-performance computing](https://forem.julialang.org/wikfeldt/a-brief-tour-of-julia-for-high-performance-computing-5deb) by Kjartan Thor Wikfeldt.
+HLRS's training material for the [Julia for High-Performance Computing](https://github.com/carstenbauer/JuliaHLRS23) course offers a deep dive into programming high-performance code with Julia.
+Finally, the [Julia on HPC Clusters](https://juliahpc.github.io/JuliaOnHPCClusters/) lists general notes about using and installing Julia on HPC cluster.
