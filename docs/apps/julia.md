@@ -23,18 +23,23 @@ It is also available on the web interface via [Jupyter](../computing/webinterfac
 ## Usage
 ### Using Julia
 Julia language is available from the `julia` module.
-On Puhti and Mahti, we can load the module as follows:
 
-```bash
-module load julia
-```
+=== "Puhti and Mahti"
 
-On LUMI, we must add the module files under CSC's local directory to the module path before loading the module.
+    On Puhti and Mahti, we can load the module as follows:
 
-```bash
-module use /appl/local/csc/modulefiles
-module load julia
-```
+    ```bash
+    module load julia
+    ```
+
+=== "LUMI"
+
+    On LUMI, we must add the module files under CSC's local directory to the module path before loading the module.
+
+    ```bash
+    module use /appl/local/csc/modulefiles
+    module load julia
+    ```
 
 After loading the Julia module, we can use Julia with the `julia` command.
 Without arguments, it starts an interactive Julia REPL.
@@ -144,7 +149,7 @@ You can read more about the depot path in the [documentation](https://docs.julia
 
 
 ### Running Julia batch jobs on CSC clusters
-We explain how to run serial, parallel, and GPU batch jobs with Julia on Puhti, Mahti, and LUMI in the [Using Julia on Puhti, Mahti, and LUMI clusters](../support/tutorials/julia.md) tutorial.
+[Running Julia batch jobs on CSC clusters](../support/tutorials/julia.md) explains how to run serial, parallel, and GPU batch jobs with Julia on Puhti, Mahti, and LUMI.
 
 
 ### Further reading
