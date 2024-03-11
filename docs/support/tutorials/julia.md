@@ -1,4 +1,4 @@
-# Running Julia batch jobs on Puhti, Mahti, and LUMI clusters
+# Running Julia batch jobs on CSC clusters
 Instructions for running serial, parallel, and GPU jobs with Julia on Puhti, Mahti, and LUMI clusters.
 
 [TOC]

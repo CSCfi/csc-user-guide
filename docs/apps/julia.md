@@ -47,8 +47,8 @@ For available command line options, we can run `julia --help` or read the manual
 For questions about the features of Julia language, we refer we recommend the official [documentation](https://docs.julialang.org) and the [discourse](https://discourse.julialang.org/) channel.
 
 
-### Using package manager in Julia
-The stadard method for installing Julia packages is to use the package manager, `Pkg`, from standard library.
+### Using the package manager
+The standard method for installing Julia packages is to use the package manager, `Pkg`, from standard library.
 In Julia, we can import it as follows:
 
 ```julia
@@ -59,7 +59,7 @@ The common function we use are `Pkg.add` to add packages, `Pkg.activate` to acti
 The [Pkg documentation](https://pkgdocs.julialang.org/) provides more information on how to use Julia's package manager.
 
 
-### Multithreading in Julia
+### Multithreading
 Julia provides the `Threads` library for multi-threading.
 It is included in `Base`, and thus automatically loaded and available in a Julia session.
 We can start Julia with multiple threads by setting the `JULIA_NUM_THREADS` environment variable or starting julia with the `--threads` option which overrides the value in the environment variable.
@@ -68,11 +68,11 @@ The default thread count is one.
 The Julia manual contains more detailed information about [multi-threading](https://docs.julialang.org/en/v1/manual/multi-threading/).
 
 
-### Distributed computing in Julia
+### Distributed computing
 We can use the standard library, `Distributed`, for using multiple processes in Julia.
 
 
-### Using MPI in Julia
+### Using MPI.jl
 We can use MPI for multi-node parallel computing in Julia on Puhti, Mahti and LUMI using the `MPI.jl` package.
 We can install it using the package manager as follows:
 
@@ -90,7 +90,7 @@ module load julia-mpi
 For more information, we recommend reading the [MPI.jl documentation](https://juliaparallel.org/MPI.jl/stable/).
 
 
-### Using CUDA in Julia
+### Using CUDA.jl
 The GPU nodes on Puhti and Mahti contain NVidia GPUs which can be progammed using CUDA.
 We can install the `CUDA.jl` package for CUDA programming in Julia using the package manager as follows:
 
@@ -108,7 +108,7 @@ module load julia-cuda
 For information, we recommend reading the [CUDA.jl documentation](https://cuda.juliagpu.org/stable/).
 
 
-### Using AMDGPU in Julia
+### Using AMDGPU.jl
 The GPU nodes on LUMI contain AMD GPUs.
 We can install the `AMDGPU.jl` package for AMD GPUs programming in Julia using the package manager as follows:
 
@@ -126,7 +126,7 @@ module load julia-amdgpu
 For information, we recommend reading the [AMDGPU.jl documentation](https://amdgpu.juliagpu.org/stable/).
 
 
-### Placing Julia depot directory
+### Placing the Julia depot directory
 The first directory on the julia depot path controls where Julia stores installed packages, compiled files, log files, and other depots.
 It is `$HOME/.julia` by default.
 The home directory has relatively small quota on Puhti, Mahti and LUMI.
@@ -142,8 +142,8 @@ Afterward, you can safely remove the default depot directory using `rm -r $HOME/
 You can read more about depot path in the [documentation](https://docs.julialang.org/en/v1/base/constants/#Base.DEPOT_PATH).
 
 
-### Running Julia batch jobs on Puhti, Mahti, and LUMI clusters
-We explain how to run serial, parallel, and GPU batch jobs with Julia on Puhti, Mahti, and LUMI in the [**Using Julia on Puhti, Mahti, and LUMI clusters**](../support/tutorials/julia.md) tutorial.
+### Running Julia batch jobs on CSC clusters
+We explain how to run serial, parallel, and GPU batch jobs with Julia on Puhti, Mahti, and LUMI in the [Using Julia on Puhti, Mahti, and LUMI clusters](../support/tutorials/julia.md) tutorial.
 
 
 ### Further reading
