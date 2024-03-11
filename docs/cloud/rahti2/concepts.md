@@ -1,7 +1,7 @@
 The power of Kubernetes (and OpenShift) is in the relatively simple abstractions that they provide for complex tasks such as load balancing, software updates for a distributed system, or autoscaling. Here we give a very brief overview of some of the most important abstractions, but we highly recommend that you read the concept documentation for Kubernetes and OpenShift as well:
 
 * [Kubernetes concepts](https://kubernetes.io/docs/concepts/)
-* [OpenShift concepts](https://docs.openshift.com/container-platform/4.11/welcome/index.html)
+* [OpenShift concepts](https://docs.openshift.com/container-platform/4.15/welcome/index.html)
 
 These abstractions are objects, persistent entities in the Kubernetes system. These entities are used to represent the desired state of the project (also called namespace in Kubernetes). Most of the objects are common to both plain Kubernetes and OpenShift, but OpenShift also introduces some of its own extra objects.
 
@@ -11,7 +11,10 @@ These abstractions are objects, persistent entities in the Kubernetes system. Th
 
 ### Namespace
 
-Every Kubernetes object is created inside a **Namespace**. It is just a sandbox where all the other objects are contained and separated from objects belonging to other namespaces. In Openshift they are referred as **Projects**. The two names (project and namespace) are very common words in computing so referring to them can sometimes be confusing. In order to create a project, please go to the [Creating a project](usage/projects_and_quota.md#creating-a-project) documentation.
+Every Kubernetes object is created inside a **Namespace**. It is just a sandbox where all the other objects are 
+contained and separated from objects belonging to other namespaces. In Openshift they are referred as **Projects**. 
+The two names (project and namespace) are very common words in computing so referring to them can sometimes be confusing. 
+In order to create a project, please go to the [Creating a project](usage/projects_and_quota.md#creating-a-project) documentation.
 
 ### Pod
 
@@ -22,7 +25,9 @@ contain volumes of different types for accessing data. Each pod has its own IP
 address shared by all containers in the pod, this IP address may change if the Pod gets killed and recreated. In the most typical
 case, a pod contains one container and perhaps one or a few different volumes.
 
-Pods are intended to be _expendable_, i.e. they may be killed at any time and a "cloud native" application must be able to continue working and show no sign of interruption to the user. It must recover automatically. Any data that needs to persist after a pod is killed should be stored on a volume attached to the pod.
+Pods are intended to be _expendable_, i.e. they may be killed at any time and a "cloud native" application must be 
+able to continue working and show no sign of interruption to the user. It must recover automatically. Any data that 
+needs to persist after a pod is killed should be stored on a [persistent volume](storage/persistent.md) attached to the pod.
 
 ![Pod](../img/pods.png)
 
@@ -163,9 +168,15 @@ The shared volume is defined in `spec.volumes` and "mounted" in
 
 ### StatefulSet
 
-Most Kubernetes objects are stateless. This means that they may be deleted and recreated, and the application should be able to cope with that without any visible effect. For example, a DeploymentConfig defines a Pod with 5 replicas and a Rolling release strategy. When a new image is deployed, Kubernetes will kill one by one all Pods, recreating them with different names and possibly in different nodes, always keeping at least 5 replicas active. For some application this is not acceptable, for this use case, Stateful sets have been created.
+Most Kubernetes objects are stateless. This means that they may be deleted and recreated, and the application should be
+able to cope with that without any visible effect. For example, a Deployment defines a Pod with 5 replicas and a 
+Rolling release strategy. When a new image is deployed, Kubernetes will kill one by one all Pods, recreating them with 
+different names and possibly in different nodes, always keeping at least 5 replicas active. For some application this is
+not acceptable, for this use case, Stateful sets have been created.
 
-Like a DeploymentConfig, a StatefulSet defines Pods based on container specification. But unlike a Deployment, a StatefulSet gives an expected and stable identity, with a persistent identifier that it is maintained across any event (upgrades, re-deployments, ...). A stateful set provides:
+Like a Deployment, a StatefulSet defines Pods based on container specification. But unlike a Deployment, a StatefulSet 
+gives an expected and stable identity, with a persistent identifier that it is maintained across any event 
+(upgrades, re-deployments, ...). A stateful set provides:
 
 * Stable, unique network identifiers.
 * Stable, persistent storage.
@@ -213,10 +224,12 @@ spec:
 
 ### Jobs
 
-_Jobs_ are run-to-completion pods, except that they operate on the same level
-as ReplicationControllers, in the sense that they too define the template for the pod
-to be launched instead of directly describing the pod. The difference is,
-however, that *jobs* are not restarted when they finish.
+
+A _Job_ uses  pods to execute a specific task one or several times, and will continue to retry execution of the Pods until
+a specified number of them successfully terminate ot a backoff limit is reached. As pods successfully complete, the Job 
+tracks the successful completions. When a specified number of successful completions is reached, the task (ie, Job) is 
+complete. Deleting a Job will clean up the Pods it created. Suspending a Job will delete its active Pods until the Job 
+is resumed again.
 
 *`job.yaml`*:
 
@@ -355,11 +368,10 @@ In this case, the DeploymentConfig object listens to the *ImageStream* object
 
 ### ImageStream
 
-ImageStreams simplify image names and get triggered by a BuildConfig if new
-images are uploaded to the registry. When a new image is
-uploaded, it can trigger its listeners to act. In the case of our
-DeploymentConfig, the action triggered would be to do an update for the pods
-that it is meant to deploy.
+[ImageStreams](https://docs.openshift.com/container-platform/4.15/openshift_images/image-streams-manage.html) simplify 
+the management of container images  and can be created by a BuildConfig or the user when a new  images are uploaded to 
+the registry. When a new image is  uploaded, it can trigger its listeners to act. In the previous DeploymentConfig 
+example, the action triggered would be to do an update for the pods that it is meant to deploy.
 
 A simple ImageStream object:
 
@@ -379,8 +391,8 @@ spec:
 
 ### BuildConfig
 
-BuildConfig objects create container images according to specific rules. In
-the following example, the _Docker_ strategy is used to build a trivial extension
+[BuildConfig](https://docs.openshift.com/container-platform/4.15/cicd/builds/understanding-image-builds.html) objects 
+create container images according to specific rules. In the following example, the _Docker_ strategy is used to build a trivial extension
 of the `httpd` image shipped with OpenShift.
 
 *`buildconfig.yaml`*:

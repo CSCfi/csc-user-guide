@@ -17,9 +17,12 @@ specifically in this documentation is containers in the Linux operating system.
 Linux is the most popular operating system for running containers, and it is
 also the operating system used in the Rahti 2 container cloud.
 
-In order to use the container functionality, a _runtime_ is needed. Currently, the most popular runtime in Linux is _Docker_, but [podman](https://podman.io/), [cri-o](https://cri-o.io/), and many others are getting more relevance. All of these runtime follows the guidelines of the [Open Container Initiative](https://opencontainers.org/) (OCI). A runtime provides
-a set of tools that makes it easier to use containers compared to using the
-kernel functionality directly. Mainly the command line interface and backend libraries for running, building and managing containers and images
+In order to use the container functionality, a _runtime_ is needed. Currently, the most popular runtime in Linux is
+_Docker_, but [podman](https://podman.io/), [cri-o](https://cri-o.io/), and many others are getting more relevance.
+All of these runtime follows the guidelines of the [Open Container Initiative](https://opencontainers.org/) (OCI).
+A runtime provides a set of tools that makes it easier to use containers compared to using the
+kernel functionality directly. Mainly the command line interface and backend libraries for running, building and
+managing containers and images
 
 Docker has popularized containers by making them easier to use. Instead of
 looking at kernel documentation and figuring out how to use the different
