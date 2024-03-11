@@ -87,7 +87,7 @@ println("Hello world!")
     ```
 
 
-### Multiple threads on single node
+### Multi-threading on single node
 An example of a `script.jl` code.
 
 ```julia
@@ -166,7 +166,7 @@ println(ids)
     ```
 
 
-### Multiple processes on single node
+### Multi-processing on single node
 An example of a `script.jl` code.
 
 ```julia
@@ -499,7 +499,7 @@ MPI.Barrier(comm)
     ```
 
 
-### Multiple processes on multiple nodes
+### Multi-processing on multiple nodes
 An example of a `script.jl` code.
 
 ```julia
@@ -611,7 +611,7 @@ println.(outputs)
 
 
 <!--
-### Multiple processes and threads
+### Multi-processing and multi-threading
 An example of a `script.jl` code.
 
 ```julia

@@ -64,7 +64,7 @@ The common functions we use are `Pkg.add` to add packages, `Pkg.activate` to act
 The [Pkg documentation](https://pkgdocs.julialang.org/) provides more information on how to use Julia's package manager.
 
 
-### Multithreading
+### Multi-threading
 Julia provides the `Threads` library for multi-threading.
 It is included in the base library and imported by default in a Julia session.
 We can start Julia with multiple threads by setting the `JULIA_NUM_THREADS` environment variable or starting Julia with the `--threads` option which overrides the value in the environment variable.
@@ -73,7 +73,7 @@ The default thread count is one.
 The Julia manual contains more detailed information about [multi-threading](https://docs.julialang.org/en/v1/manual/multi-threading/).
 
 
-### Distributed computing
+### Multi-processing and distributed computing
 For multiprocessing and distributed computing, Julia provides the `Distributed` standard library.
 The Julia manual has a section about [distributed computing](https://docs.julialang.org/en/v1/manual/distributed-computing/) explaining Julia's distributed programming model.
 
