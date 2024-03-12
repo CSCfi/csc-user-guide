@@ -14,8 +14,9 @@ Beckman Institute of the University of Illinois.
 
 The following versions are available:
 
-* Puhti: 2.14, 2.14-cuda, 3.0alpha11-cuda
+* Puhti: 2.14, 2.14-cuda, 3.0alpha11-cuda, 3.0b6-cuda
 * Mahti: 2.14
+* LUMI: 3.0b6-gpu
 
 ## License
 
@@ -26,12 +27,13 @@ usage for non-commercial research. For commercial use, contact
 
 ## Usage
 
-NAMD can be run either with CPUs or with a GPU + CPUs.
+NAMD can be run either with CPUs or with GPUs + CPUs. GPU versions support
+single-node jobs only.
 
 ### Performance considerations
 
 Tests show that leaving one core for communication for each task is beneficial
-when running on multiple nodes:
+when running on multiple CPU nodes:
 
 ```bash
 (( namd_threads = SLURM_CPUS_PER_TASK - 1 ))
@@ -68,91 +70,93 @@ The data also shows the following things:
 * To test your own system, run e.g. 500 steps of dynamics and search for the
   `Benchmark time:` line in the output.
 
-!!! info "NAMD 3.0 Alpha"
-    An [alpha-version of NAMD 3.0](https://www.ks.uiuc.edu/Research/namd/alpha/3.0alpha/)
-    is available on Puhti as `namd/3.0alpha11-cuda`. This module shows an 2-3
-    times improved GPU performance over `namd/2.14-cuda`, e.g. 156
-    ns/day vs. 55 ns/day for the ApoA1 system. However, as with all
-    alpha-versions, **please check your results carefully**.
+!!! info "NAMD 3.0"
+    [Development versions of NAMD 3.0](https://www.ks.uiuc.edu/Research/namd/3.0/features.html)
+    are available on Puhti and LUMI. NAMD3 shows an 2-3 times improved GPU
+    performance over NAMD2, e.g. 163 ns/day vs. 55 ns/day for the ApoA1 system.
+    However, as with all development versions, **please check your results
+    carefully**.
 
-### Batch script example for Puhti
+### Batch script examples
 
-The script below requests 5 tasks per node and 8 threads per task on two full
-Puhti nodes (80 cores). One thread per task is reserved for communication.
+=== "Puhti CPU"
+    The script below requests 5 tasks per node and 8 threads per task on two full
+    Puhti nodes (80 cores). One thread per task is reserved for communication.
 
-```bash
-#!/bin/bash 
-#SBATCH --account=<project>
-#SBATCH --partition=test
-#SBATCH --time=0:10:00
-#SBATCH --nodes=2             
-#SBATCH --ntasks-per-node=5   # test to find the optimum number
-#SBATCH --cpus-per-task=8     # 40/(ntasks-per-node)
+    ```bash
+    #!/bin/bash 
+    #SBATCH --account=<project>
+    #SBATCH --partition=test
+    #SBATCH --time=0:10:00
+    #SBATCH --nodes=2             
+    #SBATCH --ntasks-per-node=5   # test to find the optimum number
+    #SBATCH --cpus-per-task=8     # 40/(ntasks-per-node)
 
-module purge
-module load gcc/11.3.0
-module load openmpi/4.1.4
-module load namd/2.14
+    module purge
+    module load gcc/11.3.0
+    module load openmpi/4.1.4
+    module load namd/2.14
 
-# leave one core per process for communication
-(( namd_threads = SLURM_CPUS_PER_TASK - 1 ))
+    # leave one core per process for communication
+    (( namd_threads = SLURM_CPUS_PER_TASK - 1 ))
 
-srun namd2 +ppn ${namd_threads} apoa1.namd > apoa1.out
+    srun namd2 +ppn ${namd_threads} apoa1.namd > apoa1.out
 
-# while NAMD suggests using 1 thread per task for communication (as above)
-# all cores for computing can be tested with:
-# srun namd2 +ppn ${SLURM_CPUS_PER_TASK} apoa1.namd > apoa1.out
-```
+    # while NAMD suggests using 1 thread per task for communication (as above)
+    # all cores for computing can be tested with:
+    # srun namd2 +ppn ${SLURM_CPUS_PER_TASK} apoa1.namd > apoa1.out
+    ```
 
-### Batch script example for Puhti using GPU
+=== "Puhti GPU"
+    Note, NAMD runs most efficiently on one GPU, and this is usually more
+    cost-efficient than running on multiple CPU-only nodes.
 
-Note, NAMD runs most efficiently on one GPU, and this is usually more
-cost-efficient than running on multiple CPU-only nodes.
+    ```bash
+    #!/bin/bash 
+    #SBATCH --account=<project>
+    #SBATCH --partition=gputest
+    #SBATCH --time=0:10:00
+    #SBATCH --ntasks=1     
+    #SBATCH --cpus-per-task=10  
+    #SBATCH --gres=gpu:v100:1
 
-```bash
-#!/bin/bash 
-#SBATCH --account=<project>
-#SBATCH --partition=gputest
-#SBATCH --time=0:10:00
-#SBATCH --ntasks=1     
-#SBATCH --cpus-per-task=10  
-#SBATCH --gres=gpu:v100:1
+    module load namd/2.14-cuda
 
-module load namd/2.14-cuda
+    srun namd2 +ppn ${SLURM_CPUS_PER_TASK} +setcpuaffinity +devices ${GPU_DEVICE_ORDINAL} apoa1.namd > apoa1.out
+    ```
 
-srun namd2 +ppn ${SLURM_CPUS_PER_TASK} +setcpuaffinity +devices ${GPU_DEVICE_ORDINAL} apoa1.namd > apoa1.out
-```
+=== "Mahti CPU"
+    The script below requests 16 tasks per node and 8 threads per task on two full
+    Mahti nodes (256 cores). One thread per task is reserved for communication.
 
-### Batch script example for Mahti
+    ```bash
+    #!/bin/bash
+    #SBATCH --account=<project>
+    #SBATCH --partition=test
+    #SBATCH --time=0:10:00 
+    #SBATCH --nodes=2
+    #SBATCH --ntasks-per-node=16  # test to find the optimum number
+    #SBATCH --cpus-per-task=8     # 128/(ntasks-per-node)
 
-The script below requests 16 tasks per node and 8 threads per task on two full
-Mahti nodes (256 cores). One thread per task is reserved for communication.
+    module purge
+    module load gcc/11.2.0
+    module load openmpi/4.1.2
+    module load namd/2.14
 
-```bash
-#!/bin/bash
-#SBATCH --account=<project>
-#SBATCH --partition=test
-#SBATCH --time=0:10:00 
-#SBATCH --nodes=2
-#SBATCH --ntasks-per-node=16  # test to find the optimum number
-#SBATCH --cpus-per-task=8     # 128/(ntasks-per-node)
+    # leave one core per process for communication
+    (( namd_threads = SLURM_CPUS_PER_TASK - 1))
 
-module purge
-module load gcc/11.2.0
-module load openmpi/4.1.2
-module load namd/2.14
+    srun namd2 +ppn ${namd_threads} apoa1.namd > apoa1.out
+    ```
 
-# leave one core per process for communication
-(( namd_threads = SLURM_CPUS_PER_TASK - 1))
+    Submit batch jobs with:
 
-srun namd2 +ppn ${namd_threads} apoa1.namd > apoa1.out
-```
+    ```bash
+    sbatch namd_job.bash
+    ```
 
-Submit batch jobs with:
-
-```bash
-sbatch namd_job.bash
-```
+=== "LUMI GPU"
+    Text
 
 ## References
 
