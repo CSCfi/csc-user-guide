@@ -1,5 +1,13 @@
 # Applications
 
+## JAX 0.4.23, 6.3.2024
+
+[JAX](../../apps/jax.md) 0.4.23 was added to Puhti, Mahti and LUMI.
+JAX modules now also include a CPU-only installation of PyTorch,
+which sometimes used together with JAX for its data loading capabilities,
+as well as relevant updates to all Python packages already bundled in the
+previous JAX modules.
+
 ## PyTorch 2.2.1, 1.3.2024
 
 [PyTorch](../../apps/pytorch.md) 2.2.1 added to Puhti, Mahti and
