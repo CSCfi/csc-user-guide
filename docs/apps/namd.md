@@ -73,9 +73,23 @@ The data also shows the following things:
 !!! info "NAMD 3.0"
     [Development versions of NAMD 3.0](https://www.ks.uiuc.edu/Research/namd/3.0/features.html)
     are available on Puhti and LUMI. NAMD3 shows an 2-3 times improved GPU
-    performance over NAMD2, e.g. 163 ns/day vs. 55 ns/day for the ApoA1 system.
-    However, as with all development versions, **please check your results
-    carefully**.
+    performance over NAMD2, e.g. 160 ns/day vs. 55 ns/day for the ApoA1 system
+    on Puhti. However, as with all development versions, **please check your
+    results carefully**.
+
+#### Multi-GPU performance
+
+The plot below shows the scalability of NAMD 3.0b6 on LUMI-G. To run on
+multiple GPUs (GCDs) efficiently, you typically need a rather large systems
+composed of at least several hundred thousand atoms, such as the STMV case
+below. Check with your system and see the
+[NAMD website](https://www.ks.uiuc.edu/Research/namd/3.0/features.html)
+for available features that allow you to maximize the performance
+of multi-GPU runs. Importantly, enabling GPU-resident mode using configuration
+file option `CUDASOAintegrate on` is beneficial. Despite the naming, it works
+for AMD GPUs as well.
+
+![NAMD Scaling on LUMI-G](../img/namd-lumig.svg 'NAMD Scaling on LUMI-G')
 
 ### Batch script examples
 
@@ -108,7 +122,7 @@ The data also shows the following things:
     ```
 
 === "Puhti GPU"
-    Note, NAMD runs most efficiently on one GPU, and this is usually more
+    Note, NAMD2 runs most efficiently on one GPU, and this is usually more
     cost-efficient than running on multiple CPU-only nodes.
 
     ```bash
@@ -117,12 +131,12 @@ The data also shows the following things:
     #SBATCH --partition=gputest
     #SBATCH --time=0:10:00
     #SBATCH --ntasks=1     
-    #SBATCH --cpus-per-task=10  
+    #SBATCH --cpus-per-task=10    # use at most 10 CPU cores per GPU
     #SBATCH --gres=gpu:v100:1
 
     module load namd/2.14-cuda
 
-    srun namd2 +ppn ${SLURM_CPUS_PER_TASK} +setcpuaffinity +devices ${GPU_DEVICE_ORDINAL} apoa1.namd > apoa1.out
+    srun namd2 +p ${SLURM_CPUS_PER_TASK} +setcpuaffinity +devices 0 apoa1.namd > apoa1.out
     ```
 
 === "Mahti CPU"
@@ -149,14 +163,59 @@ The data also shows the following things:
     srun namd2 +ppn ${namd_threads} apoa1.namd > apoa1.out
     ```
 
-    Submit batch jobs with:
+=== "LUMI-G (1 GCD)"
+    The script below requests 1 GCD and 7 CPU cores. Note that each GPU node
+    on LUMI contains 4 GPUs, which are in turn composed of 2 GCDs (graphics
+    compute dies) that are recognized by Slurm as individual GPU devices.
+    Moreover, there are 56 CPU cores available per node, so use at most 7 cores
+    per reserved GCD.
 
     ```bash
-    sbatch namd_job.bash
+    #!/bin/bash
+    #SBATCH --partition=small-g
+    #SBATCH --account=<project>
+    #SBATCH --time=00:15:00
+    #SBATCH --nodes=1
+    #SBATCH --ntasks-per-node=1
+    #SBATCH --cpus-per-task=7
+    #SBATCH --gpus-per-node=1
+
+    module use /appl/local/csc/modulefiles
+    module load namd/3.0b6-gpu
+
+    srun namd3 +p ${SLURM_CPUS_PER_TASK} +setcpuaffinity +devices 0 stmv.namd > stmv.out
     ```
 
-=== "LUMI GPU"
-    Text
+=== "LUMI-G (full node)"
+    The script below requests 8 GCDs and 50 CPU cores. To mitigate load
+    imbalance due to PME, less CPU cores are assigned to the single GPU device
+    performing the PME work using the `+pmepes` option. For the STMV case
+    using 8 GCDs, best performance is obtained by assigning 7 cores for each
+    non-PME device and only 1 core for the PME device. Note that `+p` is set to
+    the total number of CPU cores, i.e. `7*7 + 1 = 50`. Please test different
+    options for your system.
+
+    ```bash
+    #!/bin/bash
+    #SBATCH --partition=standard-g
+    #SBATCH --account=<project>
+    #SBATCH --time=00:15:00
+    #SBATCH --nodes=1
+    #SBATCH --ntasks-per-node=1
+    #SBATCH --cpus-per-task=50
+    #SBATCH --gpus-per-node=8
+
+    module use /appl/local/csc/modulefiles
+    module load namd/3.0b6-gpu
+
+    srun namd3 +p ${SLURM_CPUS_PER_TASK} +pmepes 1 +setcpuaffinity +devices 0,1,2,3,4,5,6,7 stmv.namd > stmv.out
+    ```
+
+Submit batch jobs with:
+
+```bash
+sbatch namd_job.bash
+```
 
 ## References
 
@@ -188,3 +247,4 @@ In addition, electronic documents should include a direct link to the
 
 * [NAMD manual](https://www.ks.uiuc.edu/Research/namd/current/ug/)
 * [NAMD home page](https://www.ks.uiuc.edu/Research/namd/)
+* [NAMD benchmarks](https://www.ks.uiuc.edu/Research/namd/benchmarks/)
