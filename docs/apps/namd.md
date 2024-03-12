@@ -50,7 +50,7 @@ optimal one.
 The data below shows the ApoA1 benchmark (92k atoms, 2 fs timestep) on Mahti
 with ns/day as a function of allocated nodes and varying the number of
 `namd_threads` as set in the
-[Mahti script below](#batch-script-example-for-mahti).
+[Mahti script below](#batch-script-examples).
 
 ![NAMD Scaling on Mahti](../img/namd-scaling.svg 'NAMD Scaling on Mahti')
 
