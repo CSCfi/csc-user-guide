@@ -5,25 +5,22 @@ This tutorial contains examples for running various Julia batch jobs on CSC clus
 
 
 ## Examples
-These examples demonstrate the usage of CSC's [Julia environment](../../apps/julia.md).
+These examples demonstrate the usage of the [Julia environment](../../apps/julia.md) for various batch jobs.
 They are adapted from the general instructions of running jobs on [Puhti and Mahti](../../computing/running/getting-started.md) and on [LUMI](https://docs.lumi-supercomputer.eu/runjobs/).
-
-We use the following Julia project structure in the example jobs and assume that it is our working directory when running the commands.
-
-```text
-.
-├── Project.toml   # Julia environment and dependencies
-├── batch.sh       # Slurm batch script
-└── script.jl      # Julia script
-```
-
-The example jobs demonstrate project files for different single and multi-node jobs.
-
-We do not use `srun` to start processes from the batch script.
+Note that we do not use `srun` to start processes in the batch script.
 Instead we use Julia for process management or call `srun` inside the Julia code.
 
 
 ### Serial program
+We use the following directory structure and assume it is our working directory.
+
+```text
+.
+├── Project.toml  # Julia environment
+├── batch.sh      # Slurm batch script
+└── script.jl     # Julia script
+```
+
 An example of a `script.jl` code.
 
 ```julia
@@ -88,6 +85,15 @@ println("Hello world!")
 
 
 ### Multi-threading on single node
+We use the following directory structure and assume it is our working directory.
+
+```text
+.
+├── Project.toml  # Julia environment
+├── batch.sh      # Slurm batch script
+└── script.jl     # Julia script
+```
+
 An example of a `script.jl` code.
 
 ```julia
@@ -167,6 +173,15 @@ println(ids)
 
 
 ### Multi-processing on single node
+We use the following directory structure and assume it is our working directory.
+
+```text
+.
+├── Project.toml  # Julia environment
+├── batch.sh      # Slurm batch script
+└── script.jl     # Julia script
+```
+
 An example of a `script.jl` code.
 
 ```julia
@@ -292,6 +307,15 @@ println.(outputs)
 
 
 ### Single GPU
+We use the following directory structure and assume it is our working directory.
+
+```text
+.
+├── Project.toml  # Julia environment
+├── batch.sh      # Slurm batch script
+└── script.jl     # Julia script
+```
+
 === "Puhti"
     An example of a `script.jl` code.
 
@@ -406,6 +430,16 @@ println.(outputs)
 
 
 ### MPI program
+We use the following directory structure and assume it is our working directory.
+
+```text
+.
+├── Project.toml  # Julia environment
+├── batch.sh      # Slurm batch script
+├── prog.jl       # Julia MPI program
+└── script.jl     # Julia script
+```
+
 We launch the MPI program using Julia's `mpiexec` wrapper function.
 The wrapper function substitutes the correct command from local preferences to the `mpirun` variable to run the MPI program.
 The command is `srun` in Puhti, Mahti, and LUMI.
@@ -512,6 +546,15 @@ MPI.Barrier(comm)
 
 
 ### Multi-processing on multiple nodes
+We use the following directory structure and assume it is our working directory.
+
+```text
+.
+├── Project.toml  # Julia environment
+├── batch.sh      # Slurm batch script
+└── script.jl     # Julia script
+```
+
 An example of a `script.jl` code.
 
 ```julia
@@ -624,6 +667,15 @@ println.(outputs)
 
 <!--
 ### Multi-processing and multi-threading
+We use the following directory structure and assume it is our working directory.
+
+```text
+.
+├── Project.toml  # Julia environment
+├── batch.sh      # Slurm batch script
+└── script.jl     # Julia script
+```
+
 An example of a `script.jl` code.
 
 ```julia
