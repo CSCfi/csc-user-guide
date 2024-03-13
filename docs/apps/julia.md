@@ -21,7 +21,7 @@ It is also available on the web interface via [Jupyter](../computing/webinterfac
 
 
 ## Usage
-### Using Julia
+### Using the Julia module
 Julia language is available from the `julia` module.
 
 === "Puhti and Mahti"
@@ -91,8 +91,10 @@ We recommend reading the [multi-threading](https://docs.julialang.org/en/v1/manu
 
 
 ### Multi-processing and distributed computing
+#### Distributed and ClusterManagers.jl
 For multiprocessing and distributed computing, Julia provides the `Distributed` standard library.
-<!-- TODO: ClusterMangers.jl, MPI.jl -->
+We use it for multi-processing on the local node.
+We can extend `Distributed` by installing the `ClusterManagers.jl` package, which allows us to add workers processes to multiple nodes via Slurm  using `SlurmManager`.
 We recommend reading the [multi-processing and distributed computing](https://docs.julialang.org/en/v1/manual/distributed-computing/) section in Julia manual for more details.
 
 
@@ -112,6 +114,9 @@ module load julia-mpi
 ```
 
 For more information, we recommend reading the [MPI.jl documentation](https://juliaparallel.org/MPI.jl/stable/).
+
+We note that for large-scale Julia MPI jobs with thousands of ranks, we have to distribute the [depot directory to local node storage or memory](https://juliahpc.github.io/JuliaOnHPCClusters/user_faq/#how_to_cope_with_a_large_number_of_mpi_processes_accessing_the_same_julia_depot) and modify the depot paths accordingly.
+Otherwise, package loading will become extremely slow.
 
 
 ### GPU programming
