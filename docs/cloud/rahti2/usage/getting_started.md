@@ -2,10 +2,11 @@
 
 All applications launched in OpenShift run within **projects** that can be
 created by any authenticated user. Each project has its own private virtual
-network and is isolated from other projects. Users can only see projects
+network and it is isolated from other projects. Users can only see projects
 they have created themselves or that have been shared with them. Any
 containers, volumes and other resources created by users are always created
-within a project.
+within a project. You might need to wait for up to 30 min after your access application is accepted, before you can 
+authenticate to Rahti 2.
 
 You can either select applications to run in the application catalog that is
 visible when first logging in or launch any applications using the
