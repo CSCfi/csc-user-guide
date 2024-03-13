@@ -64,22 +64,40 @@ The common functions we use are `Pkg.add` to add packages, `Pkg.activate` to act
 The [Pkg documentation](https://pkgdocs.julialang.org/) provides more information on how to use Julia's package manager.
 
 
+### Placing the Julia depot directory
+The first directory on the Julia depot path controls where Julia stores installed packages, compiled files, log files, and other depots.
+It is `$HOME/.julia` by default.
+The home directory has a relatively small quota on Puhti, Mahti, and LUMI.
+If you install large packages, we recommend placing the depot directory under Projappl to avoid running out of quota.
+We can change the depot directory by prepending a new directory to `JULIA_DEPOT_PATH` environment variable.
+
+For example, we can use the following by replacing the `<project>` with a CSC project.
+
+```bash
+export JULIA_DEPOT_PATH="/projappl/<project>/$USER/.julia:$JULIA_DEPOT_PATH"
+```
+
+Afterward, you can safely remove the default depot directory using `rm -r $HOME/.julia`.
+You can read more about the depot path in the [documentation](https://docs.julialang.org/en/v1/base/constants/#Base.DEPOT_PATH).
+
+
 ### Multi-threading
 Julia provides the `Threads` library for multi-threading.
 It is included in the base library and imported by default in a Julia session.
 We can start Julia with multiple threads by setting the `JULIA_NUM_THREADS` environment variable or starting Julia with the `--threads` option which overrides the value in the environment variable.
 If Julia module is loaded within a Slurm job and the environment variable is not set, it is set to the amount of requested CPU cores (`--cpus-per-task`).
 The default thread count is one.
-The Julia manual contains more detailed information about [multi-threading](https://docs.julialang.org/en/v1/manual/multi-threading/).
+We recommend reading the [multi-threading](https://docs.julialang.org/en/v1/manual/multi-threading/) section in Julia manual for more details.
 
 
 ### Multi-processing and distributed computing
 For multiprocessing and distributed computing, Julia provides the `Distributed` standard library.
-The Julia manual has a section about [distributed computing](https://docs.julialang.org/en/v1/manual/distributed-computing/) explaining Julia's distributed programming model.
+<!-- TODO: ClusterMangers.jl, MPI.jl -->
+We recommend reading the [multi-processing and distributed computing](https://docs.julialang.org/en/v1/manual/distributed-computing/) section in Julia manual for more details.
 
 
-### Using MPI.jl
-We can use MPI for multi-node parallel computing in Julia on Puhti, Mahti and LUMI using the `MPI.jl` package.
+#### MPI.jl
+We can use MPI for distributed computing, especially over multiple nodes, in Julia on Puhti, Mahti and LUMI using the `MPI.jl` package.
 We can install it using the package manager as follows:
 
 ```julia
@@ -87,7 +105,7 @@ import Pkg
 Pkg.add("MPI")
 ```
 
-We can load the `julia-mpi` module which sets global preferences to the environment such that MPI.jl uses to use the system MPI installation.
+We can load the `julia-mpi` module which sets global preferences to the environment such that MPI.jl uses to use the system MPI installation and the correct command to start MPI processes.
 
 ```bash
 module load julia-mpi
@@ -96,7 +114,8 @@ module load julia-mpi
 For more information, we recommend reading the [MPI.jl documentation](https://juliaparallel.org/MPI.jl/stable/).
 
 
-### Using CUDA.jl
+### GPU programming
+#### CUDA.jl
 The GPU nodes on Puhti and Mahti contain NVidia GPUs which can be programmed using CUDA.
 We can install the `CUDA.jl` package for CUDA programming in Julia using the package manager as follows:
 
@@ -114,7 +133,7 @@ module load julia-cuda
 For information, we recommend reading the [CUDA.jl documentation](https://cuda.juliagpu.org/stable/).
 
 
-### Using AMDGPU.jl
+#### AMDGPU.jl
 The GPU nodes on LUMI contain AMD GPUs.
 We can install the `AMDGPU.jl` package for programming AMD GPUs in Julia using the package manager as follows:
 
@@ -130,22 +149,6 @@ module load julia-amdgpu
 ```
 
 For information, we recommend reading the [AMDGPU.jl documentation](https://amdgpu.juliagpu.org/stable/).
-
-
-### Placing the Julia depot directory
-The first directory on the Julia depot path controls where Julia stores installed packages, compiled files, log files, and other depots.
-It is `$HOME/.julia` by default.
-The home directory has a relatively small quota on Puhti, Mahti, and LUMI.
-If you install large packages, we recommend placing the depot directory under Projappl to avoid running out of quota.
-We can change the depot directory by prepending a new directory to `JULIA_DEPOT_PATH` environment variable.
-For example, we can use the following by replacing the `<project>` with a CSC project.
-
-```bash
-export JULIA_DEPOT_PATH="/projappl/<project>/$USER/.julia:$JULIA_DEPOT_PATH"
-```
-
-Afterward, you can safely remove the default depot directory using `rm -r $HOME/.julia`.
-You can read more about the depot path in the [documentation](https://docs.julialang.org/en/v1/base/constants/#Base.DEPOT_PATH).
 
 
 ### Running Julia batch jobs on CSC clusters
