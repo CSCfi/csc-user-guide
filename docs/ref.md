@@ -404,7 +404,23 @@ If you don't need sound (or controls), you can use animations as an alternative 
 used just like [static images](#images). Both _.gif_ and _.png_ files work.
 
 
-## Mermaid
+## Diagrams
+
+### Mermaid
+
+Documented here: <https://mermaid.js.org/intro/>, but for example a fenced block like this:
+
+````markdown
+```mermaid
+%%{init: {'theme': 'neutral' }}%%
+graph TD
+    A(Does your reference card have a Mermaid chart?) -->|Yes| B(Good)
+    A -->|No| C(Yes, it does.)
+    C --> |What? No, you can't just... Oh.| B
+```
+````
+
+produces a flowchart like that:
 
 ```mermaid
 %%{init: {'theme': 'neutral' }}%%
@@ -413,6 +429,29 @@ graph TD
     A -->|No| C(Yes, it does.)
     C --> |What? No, you can't just... Oh.| B
 ```
+
+
+### Draw.io
+
+Diagrams (including a toolbar) from [draw.io](https://draw.io) can be embedded as iframes by selecting _File ->
+Embed -> IFrame..._. With line breaks added for illustration, the resulting piece of HTML could
+look something like this:
+
+````html
+<iframe
+  sandbox
+  style="width: 100%;
+         height: 301px;"
+  frameborder="0"
+  src="https://viewer.diagrams.net/?tags=blahblahblahblah%blah
+  blahblahblah%blahblah%blah%blahblahblahblah%blahblahblahblah"
+></iframe>
+````
+
+The size can be controlled by changing the value of the _style_ attribute. Note the units: _%_ for
+width and _px_ for height. Here's an example with a width of 100 percent and a height of 500 pixels:
+
+<iframe frameborder="0" style="width:100%;height:500px;" src="https://viewer.diagrams.net/?tags=%7B%7D&highlight=0000ff&edit=_blank&layers=1&nav=1#R%3Cmxfile%3E%3Cdiagram%20name%3D%22Page-1%22%20id%3D%22ftzXAFIqJNWyvfU7Nhta%22%3E7Zlbc9o4FMc%2FDY%2Fx%2BArOY4GQPmRnmWU62X3qCFvYKrbFSjKGfPpKtmTkC7eUNOm04SHo6GLp%2FH86OhYDZ5LuHgnYxH%2FhECYD2wx3A2c6sG3Lslz%2BT1j20mLao8oSERRK28GwQC9QNZTWHIWQNhoyjBOGNk1jgLMMBqxhA4TgotlshZPmUzcggh3DIgBJ1%2FqMQhZXVt8zD%2FbPEEWxerJlypoUqMbSQGMQ4kIzOQ8DZ0IwZtW3dDeBifCe8kvVb3aktp4YgRnr6fCFQvL38pvwiW0mYMmFKRtV3RKUratyzJhw5SfR0Z6FOKBGQANjhXgpwOkmZyiLRA2i67KNE%2BMU3oWI8KEx2VfjqVnti9X6n%2BfhS%2FY4%2F983XyZP4eL5zvLq5dbLoGyvXExwnoVQDGANnHERIwYXGxCI2oJTxW0xSxNZneItWJY9RYlAil70MmaAaWWOI9TLMER6McHBunywyQuSIK2662Hp9C0kDO40k1zbI%2BSuYcInpqp1pPqSf1eVCw0maYo1jmr%2BgeQ3qoc%2BSMy%2FSH%2Bqoib6SQjmecyQmAVcooxBsgqEv0%2BSURSFsRHdajzO6m6flJ2uIQti6XxNYUA31UZeoZ0QZ0wZwWs4wQkm3JrhDAqj2k2i9woliarngDpjfzoTQwmdEN%2FLnxIUZbyOYUFT6Yc5poghLKwBFC7Qmj%2B1GiwxYzitHroRs093kQh3RhRsbCNK8BJ%2BLTDhkeXHgXHtC4BxDTWwzoz%2FpshMFhMRx3GQp3x1oHTN5aHkLCvOSVY0PM6KBKTYtazlIsYgWEdlpNFAWZV%2FR0GpwFNh3%2B6gyEcwTd%2BcmW0eQ0DjOq60oUGYjgzEow01lDfpbYLNsMWO53XZ8TxjdN9lZ3gTdjqHVK%2FUQ7kukORQP5OOxQacM84Y97o64cstjzOm6cA%2FMzGFMfdxiOChToaLVoQom0%2BPxZaGfGd562enQ6GGsJi7zHQsW5Xl4s2%2BCLjBZZR%2B2FaslIO0sQIFdY2cls%2B6SRwa1kFG4jTswWnkd1lStitYugycUYcTGPJkTRYxYTGOcAaSh4N1fEguSpTqNk9YyFR68htkbC%2F1ADnDTbG4C8n%2BX9Hf8JyRMvwnag3bU%2BXpTj6hKu310hwSxB0glCmNR9WhOCcBPL9zGCARZOcOXtsU3jmpNYEJD%2BTbZqp7c9ms4bvqZumacRHPSPZ6dfwL1anS4Q8jj39lOL40Oh05DjWJeoPv67OzCwNx6ygwTcv3p30B9SUn0KhegXjHHw%2BpdYKmjme%2F53jueRdwvTdS%2Fv6942kjmn7MUOr%2FpL16%2FHV9mPD5jZf8SyS%2BLBaflY0PUZuvyMUbr%2FXyrbcqXJCnW%2Fr6u4m68NNTNfvGO117E7b3aorCsOJLe6M3VXAp3eiNB960V%2FNTcHe2Z31VJB8y0G9j%2BrbtnWmYvuc0tq681bpYdDn4XCxGa4JXK8rpa1NRz%2BGmabe6UXi37e46zZP4fjj6mHve%2BVDns2VfeUDf9jxuHZeeKT5vcE73vuV14kb7kOY7CAXQCOGW%2F6NGDEj4tbyp%2FPVuCr3WxY%2FrdLIDtyc78Ny34s75w91vyJ1ndbPSn8ud%2B4e735G7kWd470zeqIe8Vvo9BwQkSfkrJycF0j1lMD2ekGvMcr%2BwK%2FmTpsuz574fz5op3K9GidukpO8OctjDiPOq%2B%2BzDj7FVHn74Tdt5%2BA4%3D%3C%2Fdiagram%3E%3Cdiagram%20id%3D%22vBa_PaVnEDiTYJhkc75Y%22%20name%3D%22Page-2%22%3ErZRNj5swEIZ%2FDceu%2BAjZ9JjvVuqecujZCxNwazzIDIHk19cOQwChRrvS5kDw49f2zDtjvGhbtEcjyvwNU1Be6KetF%2B28MAyCYGH%2FHLky8cPXjmRGpswGcJI36IVMa5lCNRESoiJZTmGCWkNCEyaMwWYqO6OanlqKDGbglAg1p79lSnlHV7E%2F8B8gs7w%2FOfB5phC9mEGVixSbEYr2XrQ1iNS9Fe0WlHOv96Vbd%2FjP7CMwA5o%2BsuD1782XSyF%2Fxsc1rA97%2Ffa%2B%2FhZxbHTtE4bU5s9DNJRjhlqo%2FUA3BmudgtvVt6NB8wuxtDCw8A8QXbmYoia0KKdC8ew8ck6mwtok8CTcvgOEyYCe6MJO53IZHcC%2BHAELIHO1AgNKkLxMay24ZbKHbnDVvrCxnzCZ970IVfNJ9racJcHM%2FMFa51OTW82pFHdLGnvBPmjjBQxB%2BzRxno0ibk6%2BnuF3HjdDrz86Oh%2F1eb%2Fuy70KZ17NTJLF%2Fc5uRFV2N%2F4sW%2BfZ2JsSpaZ7bPHGi3dOrWSmLUisW2AsOKMmbtHAWrThbXeyyGzkSr7bp7jVBlxGSLldFB5c4YQWL9Ul%2B6IKLJbTCvjzCixX8wLE4cvKH%2F8Wny6IHQ5fn%2Fvc6CMe7f8B%3C%2Fdiagram%3E%3C%2Fmxfile%3E"></iframe>
 
 
 ## Buttons
