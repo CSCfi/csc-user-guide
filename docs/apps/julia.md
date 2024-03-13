@@ -115,9 +115,6 @@ module load julia-mpi
 
 For more information, we recommend reading the [MPI.jl documentation](https://juliaparallel.org/MPI.jl/stable/).
 
-We note that for large-scale Julia MPI jobs with thousands of ranks, we have to distribute the [depot directory to local node storage or memory](https://juliahpc.github.io/JuliaOnHPCClusters/user_faq/#how_to_cope_with_a_large_number_of_mpi_processes_accessing_the_same_julia_depot) and modify the depot paths accordingly.
-Otherwise, package loading will become extremely slow.
-
 
 ### GPU programming
 #### CUDA.jl
