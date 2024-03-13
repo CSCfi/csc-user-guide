@@ -13,7 +13,7 @@
 
 
 === "1. Login page"
-    ![SD Dekstop Login page](images/desktop/Desktop_LogInPage.png)
+    ![SD Desktop Login page](images/desktop/Desktop_LogInPage.png)
 === "2. Authentincation"
     ![Identification method](images/desktop/Desktop_authentication.png)
 === "3. Multi-factor authentication"

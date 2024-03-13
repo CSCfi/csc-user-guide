@@ -10,7 +10,7 @@ Creating a virtual desktop is easy and doesn't require technical expertise.
 
 ## 1. Specify desktop parameters
   
-* Select your CSC project and operating system. We recomend to choose **Linux Ubuntu22**, since there will be no updates published for Linux CentOS7 after June 30, 2024 [(See screenshot)](images/desktop/SD-Desktop_SelectProject.png){ target="_blank" }.
+* Select your CSC project and operating system. We recommend to choose **Linux Ubuntu22**, since there will be no updates published for Linux CentOS7 after June 30, 2024 [(See screenshot)](images/desktop/SD-Desktop_SelectProject.png){ target="_blank" }.
   
 * Give your desktop a name for easy identification, so that all project members can quickly identify it later on.
 
