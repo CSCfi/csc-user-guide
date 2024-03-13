@@ -292,7 +292,7 @@ println.(outputs)
 
 
 ### Single GPU
-=== "CUDA.jl"
+=== "Puhti"
     An example of a `script.jl` code.
 
     ```julia
@@ -303,20 +303,6 @@ println.(outputs)
     B_d = $A_d * $A_d
     ```
 
-=== "AMDGPU.jl"
-    An example of a `script.jl` code.
-
-    ```julia
-    using AMDGPU
-
-    A = rand(2^9, 2^9)
-    A_d = ROCArray(A)
-    B_d = $A_d * $A_d
-    ```
-
----
-
-=== "Puhti"
     An example of a `Project.toml` project file.
 
     ```toml
@@ -337,12 +323,23 @@ println.(outputs)
     #SBATCH --gres=gpu:v100:1
     #SBATCH --mem-per-cpu=8000
 
-    module load julia julia-cuda
+    module load julia
+    module load julia-cuda
     julia --project=. -e 'using Pkg; Pkg.instantiate()'
     julia --project=. script.jl
     ```
 
 === "Mahti"
+    An example of a `script.jl` code.
+
+    ```julia
+    using CUDA
+
+    A = rand(2^9, 2^9)
+    A_d = CuArray(A)
+    B_d = $A_d * $A_d
+    ```
+
     An example of a `Project.toml` project file.
 
     ```toml
@@ -363,12 +360,23 @@ println.(outputs)
     #SBATCH --gres=gpu:a100:1
     #
 
-    module load julia julia-cuda
+    module load julia
+    module load julia-cuda
     julia --project=. -e 'using Pkg; Pkg.instantiate()'
     julia --project=. script.jl
     ```
 
 === "LUMI"
+    An example of a `script.jl` code.
+
+    ```julia
+    using AMDGPU
+
+    A = rand(2^9, 2^9)
+    A_d = ROCArray(A)
+    B_d = $A_d * $A_d
+    ```
+
     An example of a `Project.toml` project file.
 
     ```toml
@@ -390,7 +398,8 @@ println.(outputs)
     #SBATCH --mem-per-cpu=1750
 
     module use /appl/local/csc/modulefiles
-    module load julia julia-amdgpu
+    module load julia
+    module load julia-amdgpu
     julia --project=. -e 'using Pkg; Pkg.instantiate()'
     julia --project=. script.jl
     ```
@@ -442,7 +451,8 @@ MPI.Barrier(comm)
     #SBATCH --cpus-per-task=1
     #SBATCH --mem-per-cpu=1000
 
-    module load julia julia-mpi
+    module load julia
+    module load julia-mpi
     julia --project=. -e 'using Pkg; Pkg.instantiate()'
     julia --project=. script.jl
     ```
@@ -467,7 +477,8 @@ MPI.Barrier(comm)
     #SBATCH --cpus-per-task=1
     #SBATCH --mem-per-cpu=0
 
-    module load julia julia-mpi
+    module load julia
+    module load julia-mpi
     julia --project=. -e 'using Pkg; Pkg.instantiate()'
     julia --project=. script.jl
     ```
@@ -493,7 +504,8 @@ MPI.Barrier(comm)
     #SBATCH --mem-per-cpu=0
 
     module use /appl/local/csc/modulefiles
-    module load julia julia-mpi
+    module load julia
+    module load julia-mpi
     julia --project=. -e 'using Pkg; Pkg.instantiate()'
     julia --project=. script.jl
     ```
