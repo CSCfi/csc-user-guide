@@ -78,7 +78,7 @@ export JULIA_DEPOT_PATH="/projappl/<project>/$USER/.julia:$JULIA_DEPOT_PATH"
 ```
 
 Afterward, you can safely remove the default depot directory using `rm -r $HOME/.julia`.
-You can read more about the depot path in the [documentation](https://docs.julialang.org/en/v1/base/constants/#Base.DEPOT_PATH).
+For more information, you can read more the [depot path documentation](https://docs.julialang.org/en/v1/base/constants/#Base.DEPOT_PATH).
 
 
 ### Multi-threading

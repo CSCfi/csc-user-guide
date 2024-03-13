@@ -206,7 +206,7 @@ addprocs(proc_num;
 # We use the `@everywhere` macro to include the task function in the worker processes.
 # We must call `@everywhere` after adding worker processes; otherwise the code won't be included in the new processes.
 @everywhere function task()
-    (
+    return (
         id=myid(),
         hostname=gethostname(),
         pid=getpid(),
@@ -562,39 +562,29 @@ An example of a `script.jl` code.
 
 ```julia
 using Distributed
+using ClusterManagers
 
 # We set one worker process per core.
-proc_num = Sys.CPU_THREADS
+proc_num = parse(Int, ENV["SLURM_NTASKS"])
 
 # Environment variables that we pass to the worker processes.
 # We set the thread count to one since each process uses one core.
+n = Threads.nthreads()
 proc_env = [
-    "JULIA_NUM_THREADS"=>"1",
-    "JULIA_CPU_THREADS"=>"1",
-    "OPENBLAS_NUM_THREADS"=>"1",
+    "JULIA_NUM_THREADS"=>"$n",
+    "JULIA_CPU_THREADS"=>"$n",
+    "OPENBLAS_NUM_THREADS"=>"$n",
 ]
 
-# Read the list of nodenames allocated by Slurm.
-nodes = readlines(`scontrol show hostnames $(ENV["SLURM_JOB_NODELIST"])`)
-
-# Retrieve the node name of the master process.
-local_node = first(split(gethostname(), '.'; limit=2))
-
-# We add worker processes to the local node using LocalManager.
-addprocs(proc_num;
-         env=proc_env,
-         exeflags="--project=.")
-
-# We add worker processes to the other nodes with SSHManager.
-addprocs([(node, proc_num) for node in nodes if node != local_node];
-         tunnel=true,
+# We add worker processes to the local node using SlurmManager
+addprocs(SlurmManager(proc_num);
          env=proc_env,
          exeflags="--project=.")
 
 # We use the `@everywhere` macro to include the task function in the worker processes.
 # We must call `@everywhere` after adding worker processes; otherwise the code won't be included in the new processes.
 @everywhere function task()
-    (
+    return (
         id=myid(),
         hostname=gethostname(),
         pid=getpid(),
@@ -622,6 +612,7 @@ println.(outputs)
 
     ```toml
     [deps]
+    ClusterManagers = "34f1f09b-3a8b-5176-ab39-66d58a4d544e"
     Distributed = "8ba89e20-285c-5b6f-9357-94700520ee1b"
     ```
 
@@ -647,6 +638,7 @@ println.(outputs)
 
     ```toml
     [deps]
+    ClusterManagers = "34f1f09b-3a8b-5176-ab39-66d58a4d544e"
     Distributed = "8ba89e20-285c-5b6f-9357-94700520ee1b"
     ```
 
@@ -667,139 +659,9 @@ println.(outputs)
     julia --project=. script.jl
     ```
 
+=== "LUMI"
 
-<!--
-### Multi-processing and multi-threading
-We use the following directory structure and assume it is our working directory.
-
-```text
-.
-├── Project.toml  # Julia environment
-├── batch.sh      # Slurm batch script
-└── script.jl     # Julia script
-```
-
-An example of a `script.jl` code.
-
-```julia
-using Distributed
-
-# We set one worker process per node.
-proc_num = 1
-
-# Environment variables that we pass to the worker processes.
-# We set the thread count to CPU_THREADS such that each worker uses all reserved cores in the node.
-proc_env = [
-    "JULIA_NUM_THREADS"=>"$(Sys.CPU_THREADS)",
-    "JULIA_CPU_THREADS"=>"$(Sys.CPU_THREADS)",
-    "OPENBLAS_NUM_THREADS"=>"$(Sys.CPU_THREADS)",
-]
-
-# Read the list of nodenames allocated by Slurm.
-nodes = readlines(`scontrol show hostnames $(ENV["SLURM_JOB_NODELIST"])`)
-
-# Retrieve the node name of the master process.
-local_node = first(split(gethostname(), '.'; limit=2))
-
-# We add worker processes to the local node using LocalManager.
-addprocs(proc_num;
-         env=proc_env,
-         exeflags="--project=.",
-         enable_threaded_blas=true)
-
-# We add worker processes to the other nodes with SSHManager.
-addprocs([(node, proc_num) for node in nodes if node != local_node];
-         tunnel=true,
-         env=proc_env,
-         exeflags="--project=.",
-         enable_threaded_blas=true)
-
-# We use the `@everywhere` macro to include the task function in the worker processes.
-# We must call `@everywhere` after adding worker processes; otherwise the code won't be included in the new processes.
-
-@everywhere function task_threads()
-    ids = zeros(Int, Threads.nthreads())
-    Threads.@threads for i in eachindex(ids)
-        ids[i] = Threads.threadid()
-    end
-    return ids
-end
-
-@everywhere function task_proc()
-    (
-        id=myid(),
-        hostname=gethostname(),
-        pid=getpid(),
-        nthreads=Threads.nthreads(),
-        cputhreads=Sys.CPU_THREADS,
-        thread_ids=task_threads()
-    )
-end
-
-# We run the task function in each worker process.
-futures = [@spawnat id task_proc() for id in workers()]
-
-# Then, we fetch the output from the processes.
-outputs = fetch.(futures)
-
-# Remove processes after we are done.
-rmprocs.(workers())
-
-# Print the outputs of master and worker processes.
-println(task_proc())
-println.(outputs)
-```
-
-=== "Puhti"
-    An example of a `Project.toml` project file.
-
-    ```toml
-    [deps]
-    Distributed = "8ba89e20-285c-5b6f-9357-94700520ee1b"
-    ```
-
-    An example of a `batch.sh` batch script.
-
-    ```bash
-    #!/bin/bash
-    #SBATCH --account=<project>
-    #SBATCH --partition=large
-    #SBATCH --time=00:15:00
-    #SBATCH --nodes=2
-    #SBATCH --ntasks-per-node=1
-    #SBATCH --cpus-per-task=3
-    #SBATCH --mem-per-cpu=1000
-
-    module load julia
-    julia --project=. -e 'using Pkg; Pkg.instantiate()'
-    julia --project=. script.jl
-    ```
-
-=== "Mahti"
-    An example of a `Project.toml` project file.
-
-    ```toml
-    [deps]
-    Distributed = "8ba89e20-285c-5b6f-9357-94700520ee1b"
-    ```
-
-    An example of a `batch.sh` batch script.
-
-    ```bash
-    #!/bin/bash
-    #SBATCH --account=<project>
-    #SBATCH --partition=medium
-    #SBATCH --time=00:15:00
-    #SBATCH --nodes=2
-    #SBATCH --ntasks-per-node=1
-    #SBATCH --cpus-per-task=128
-    #SBATCH --mem-per-cpu=0
-
-    module load julia
-    julia --project=. -e 'using Pkg; Pkg.instantiate()'
-    julia --project=. script.jl
-    ```
--->
+    TODO
 
 
 ## Notes
