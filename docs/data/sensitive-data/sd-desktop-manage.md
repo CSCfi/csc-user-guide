@@ -1,9 +1,9 @@
 # Managing volumes and virtual desktops
 
-With the SD Desktop service, you can easily manage volumes and pause, reboot, rebuild or delete your virtual desktops. Below we illustrate the main available options. 
+With the SD Desktop service, you can easily manage volumes and pause, reboot or delete your virtual desktops. Below we illustrate the main available options. 
 
 !!! Note
-    These options are available only on virtual desktops created after February 2, 2023. Please [contact us](../../support/contact.md) if you are working with older desktops. 
+    These options are available only on virtual desktops created after February 2, 2023. Please [contact service desk](../../support/contact.md) if you are working with older desktops. 
 
 
 ## Detaching and reattaching a volume 
@@ -69,10 +69,7 @@ You can unpause the virtual desktop at any time from the same page. Also, in thi
 [![Desktop-volume](images/desktop/pause.png)](images/desktop/pause.png)
 
 
-## Rebooting or rebuilding a desktop
-
-
-### Rebooting a desktop
+## Rebooting a desktop
 
 If your virtual desktop or software becomes unresponsive, you can reboot (restart) it. After the reboot, all files and software saved on the virtual desktop will remain accessible.
 
@@ -88,26 +85,6 @@ To reboot a desktop:
 3. Scroll to the end of the page. Here, under "Available desktops," choose the relevant virtual desktop. On the right side of the same row, click "Options" and then select "Reboot."
     
 4. Confirm the operation when prompted. The process may take up to 30 minutes.
-
-### Rebuilding a desktop
-
-If your virtual desktop or software is outdated, you have the option to rebuild it.
-
-!!! Note
-    Rebuilding the virtual desktop will erase all files, software, or scripts imported into it. The entire virtual workspace will be reset, excluding files saved in the volume. Please reach out to [CSC Service Desk](../../support/contact.md) before proceeding.
-
-To Rebuild a Virtual Desktop:
-
-1. On the SD Desktop homepage, click "Go To SD Desktop Management."
-    
-2. From the list of "Available desktops," select the appropriate virtual desktop. On the right side of that row, click "Options" and choose "Rebuild."
-    
-3. Confirm the operation when prompted. The process may take up to 30 minutes.
-
-
-
- [![Desktop-volume](images/desktop/desktop-reboot-rebuilt.png)](images/desktop/desktop-reboot-rebuilt.png)
-
 
 
 
