@@ -625,7 +625,7 @@ println.(outputs)
     #SBATCH --time=00:15:00
     #SBATCH --nodes=2
     #SBATCH --ntasks-per-node=1
-    #SBATCH --cpus-per-task=3
+    #SBATCH --cpus-per-task=1
     #SBATCH --mem-per-cpu=1000
 
     module load julia
@@ -650,8 +650,8 @@ println.(outputs)
     #SBATCH --partition=medium
     #SBATCH --time=00:15:00
     #SBATCH --nodes=2
-    #SBATCH --ntasks-per-node=1
-    #SBATCH --cpus-per-task=128
+    #SBATCH --ntasks-per-node=128
+    #SBATCH --cpus-per-task=1
     #SBATCH --mem-per-cpu=0
 
     module load julia
@@ -660,8 +660,31 @@ println.(outputs)
     ```
 
 === "LUMI"
+    An example of a `Project.toml` project file.
 
-    TODO
+    ```toml
+    [deps]
+    ClusterManagers = "34f1f09b-3a8b-5176-ab39-66d58a4d544e"
+    Distributed = "8ba89e20-285c-5b6f-9357-94700520ee1b"
+    ```
+
+    An example of a `batch.sh` batch script.
+
+    ```bash
+    #!/bin/bash
+    #SBATCH --account=<project>
+    #SBATCH --partition=standard
+    #SBATCH --time=00:15:00
+    #SBATCH --nodes=2
+    #SBATCH --ntasks-per-node=128
+    #SBATCH --cpus-per-task=1
+    #SBATCH --mem-per-cpu=0
+
+    module use /appl/local/csc/modulefiles
+    module load julia
+    julia --project=. -e 'using Pkg; Pkg.instantiate()'
+    julia --project=. script.jl
+    ```
 
 
 ## Notes
