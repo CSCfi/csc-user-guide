@@ -14,7 +14,7 @@ This form is attached to your CSC project and serves as an instruction to proces
 If you do not know how to fill in the form, please contact the data protection officer of your organization (see the contact details at the end of this page). 
 Note, that you can edit this description any time, or download it as a PDF file on the _Project management_ page in MyCSC (see screenshot below).
 
-![The Project management page in MyCSC](docs/img/WhenYourProjectHandlesPersonalData_GDPRdocument.png 'The Project management page in MyCSC')
+![The Project management page in MyCSC](../img/WhenYourProjectHandlesPersonalData_GDPRdocument.png 'The Project management page in MyCSC')
 
 ## Data processing agreement 
 [The General Terms of Use for CSC's Services for Research and Education](https://research.csc.fi/general-terms-of-use) with 
