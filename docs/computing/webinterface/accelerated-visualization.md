@@ -8,13 +8,16 @@ The Accelerated visualization app enables using visualization applications with 
 * [CloudCompare](../../apps/cloudcompare.md)
 * [COMSOL](../../apps/comsol.md)
 * [ParaView](../../apps/paraview.md)
+* [VisIt](../../apps/visit.md)
 * [VMD](../../apps/vmd.md)
 
 ## Launching
 1. Open the `Accelerated visualization` page under Apps.
 2. Specify the needed resources. One GPU will be reserved.
-3. Select visualization application.
-4. Launch the app.
+3. Launch the app.
+4. Connect to the desktop.
+4. Launch the visualization application from the applications menu, found either in the top-left
+   corner, or by right-clicking the desktop.
 
 !!! Note
 
@@ -37,8 +40,11 @@ Instructions for native VNC clients can be found in the Native instructions tab.
 This requires installing the VNC client on your local machine.
 
 ## Using the app
-The selected visualization application will launch automatically.
 
-A menu with settings and a shortcut to the terminal (xterm) can be found by right clicking the background in the app session.
-If the application windows do not behave as expected or menus in the application appear in the wrong place, it can usually be fixed by clicking `Restart Fluxbox` in the menu.
+The Accelerated Visualization app is used in the same way as the [Desktop app](desktop.md). However,
+shortcuts for the accelerated apps will not be generated on the desktop automatically. To create
+shortcuts for them, you can drag the desired application from the applications menu to the desktop.
 
+Note that if you are running applications that do not benefit from GPU acceleration, you should use
+the [Desktop app](desktop.md) instead. Only the applications suffixed with `(Accelerated)` benefit
+from a GPU.

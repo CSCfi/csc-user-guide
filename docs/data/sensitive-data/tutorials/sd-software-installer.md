@@ -11,6 +11,9 @@ To make additional software installations easier, CSC has created a **SD Softwar
 that provides an easy way to add few commonly used software packages and help tools to your virtual desktop. 
 This document describes the usage of this tool.
 
+<iframe width="512" height="288" srcdoc="https://www.youtube.com/embed/S4hpjPy-TDQ" title="How to install software on SD Desktop" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+
 
 ## Requirements
 
@@ -67,6 +70,8 @@ Notes about the available tools. Note that this list may be outdated:
 
 ### Imaging and videos
 *  [Audacity](https://www.audacityteam.org/). Sound editor.
+*  [ELAN 6.7](https://archive.mpi.nl/tla/elan/). Annotation tool for audio and video recordings.
+    *  After installation, right-click the ELAN desktop icon and select: _Allow launching_.
 *  [OpenShot 3.1.1](https://www.openshot.org/). Video editor.
     *  This tool works only in Ubuntu22 based virtual desktops.
     *  After installation, right-click the OpenShot desktop icon and select: _Run as a program_.
