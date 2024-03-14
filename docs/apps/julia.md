@@ -19,6 +19,8 @@ Julia language is licensed under free and open source [MIT license](https://gith
 Julia language is available on Puhti, Mahti, and LUMI from the command line using the [module system](../computing/modules.md).
 It is also available on the web interface via [Jupyter](../computing/webinterface/julia-on-jupyter.md) and [VSCode](../computing/webinterface/vscode.md#julia-language).
 
+If you find issues in using Julia on the cluster, you should [contact the servicedesk](../support/contact.md).
+
 
 ## Usage
 ### Using the Julia module

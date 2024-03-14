@@ -229,14 +229,14 @@ println(task())
 println.(outputs)
 ```
 
+An example of a `Project.toml` project file.
+
+```toml
+[deps]
+Distributed = "8ba89e20-285c-5b6f-9357-94700520ee1b"
+```
+
 === "Puhti"
-    An example of a `Project.toml` project file.
-
-    ```toml
-    [deps]
-    Distributed = "8ba89e20-285c-5b6f-9357-94700520ee1b"
-    ```
-
     An example of a `batch.sh` batch script.
 
     ```bash
@@ -255,13 +255,6 @@ println.(outputs)
     ```
 
 === "Mahti"
-    An example of a `Project.toml` project file.
-
-    ```toml
-    [deps]
-    Distributed = "8ba89e20-285c-5b6f-9357-94700520ee1b"
-    ```
-
     An example of a `batch.sh` batch script.
 
     ```bash
@@ -280,13 +273,6 @@ println.(outputs)
     ```
 
 === "LUMI"
-    An example of a `Project.toml` project file.
-
-    ```toml
-    [deps]
-    Distributed = "8ba89e20-285c-5b6f-9357-94700520ee1b"
-    ```
-
     An example of a `batch.sh` batch script.
 
     ```bash
@@ -468,14 +454,14 @@ println("Hello from rank $(rank) out of $(size) from host $(gethostname()) and p
 MPI.Barrier(comm)
 ```
 
+An example of a `Project.toml` project file.
+
+```toml
+[deps]
+MPI = "da04e1cc-30fd-572f-bb4f-1f8673147195"
+```
+
 === "Puhti"
-    An example of a `Project.toml` project file.
-
-    ```toml
-    [deps]
-    MPI = "da04e1cc-30fd-572f-bb4f-1f8673147195"
-    ```
-
     An example of a `batch.sh` batch script.
 
     ```bash
@@ -495,13 +481,6 @@ MPI.Barrier(comm)
     ```
 
 === "Mahti"
-    An example of a `Project.toml` project file.
-
-    ```toml
-    [deps]
-    MPI = "da04e1cc-30fd-572f-bb4f-1f8673147195"
-    ```
-
     An example of a `batch.sh` batch script.
 
     ```bash
@@ -521,13 +500,6 @@ MPI.Barrier(comm)
     ```
 
 === "LUMI"
-    An example of a `Project.toml` project file.
-
-    ```toml
-    [deps]
-    MPI = "da04e1cc-30fd-572f-bb4f-1f8673147195"
-    ```
-
     An example of a `batch.sh` batch script.
 
     ```bash
@@ -607,15 +579,15 @@ println(task())
 println.(outputs)
 ```
 
+An example of a `Project.toml` project file.
+
+```toml
+[deps]
+ClusterManagers = "34f1f09b-3a8b-5176-ab39-66d58a4d544e"
+Distributed = "8ba89e20-285c-5b6f-9357-94700520ee1b"
+```
+
 === "Puhti"
-    An example of a `Project.toml` project file.
-
-    ```toml
-    [deps]
-    ClusterManagers = "34f1f09b-3a8b-5176-ab39-66d58a4d544e"
-    Distributed = "8ba89e20-285c-5b6f-9357-94700520ee1b"
-    ```
-
     An example of a `batch.sh` batch script.
 
     ```bash
@@ -634,14 +606,6 @@ println.(outputs)
     ```
 
 === "Mahti"
-    An example of a `Project.toml` project file.
-
-    ```toml
-    [deps]
-    ClusterManagers = "34f1f09b-3a8b-5176-ab39-66d58a4d544e"
-    Distributed = "8ba89e20-285c-5b6f-9357-94700520ee1b"
-    ```
-
     An example of a `batch.sh` batch script.
 
     ```bash
@@ -660,14 +624,6 @@ println.(outputs)
     ```
 
 === "LUMI"
-    An example of a `Project.toml` project file.
-
-    ```toml
-    [deps]
-    ClusterManagers = "34f1f09b-3a8b-5176-ab39-66d58a4d544e"
-    Distributed = "8ba89e20-285c-5b6f-9357-94700520ee1b"
-    ```
-
     An example of a `batch.sh` batch script.
 
     ```bash
