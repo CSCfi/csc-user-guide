@@ -1,5 +1,23 @@
 # Data management
 
+## SD Desktop: CentOS 7 will no longer be supported after June 2024
+
+We are implementing a security update for our virtual desktop operating system. As part of this update, the old operating system known as Linux CentOS 7 will no longer be supported after June 2024. Instead, we'll be transitioning exclusively to an operating system called Ubuntu for our virtual desktops. 
+
+If you're currently using a virtual desktop with CentOS 7 and anticipate running your analyses beyond June, please reach out to us at **servicedesk@csc.fi *subject: Sensitive data***. We will assist you in evaluating whether there is a need to transition to a new virtual desktop and provide assistance with creating a plan for transferring your data and results accordingly.
+
+## SD Desktop copy-paste functionality via Clipboard is now available, 7.3.2024
+Copy-paste functionality via **Clipboard -feature** is now available in your virtual desktop, enabling easy transfer of text from your computer to your secure environment: [Copy-paste instructions for SD Desktop](../../data/sensitive-data/sd-desktop-access.md#copy-paste-from-your-laptop-to-virtual-desktop). 
+
+* The Clipboard acts as a secure intermediary, facilitating the one-way transfer of data from your laptop to the virtual desktop, guaranteeing that copied text remains isolated from other processes and preventing unauthorized access to sensitive information. This feature is available for virtual desktops created after 7.3.2024.
+
+* As a reminder, data exports from the virtual desktop are possible via the Data Gateway, and they are managed by the project manager or CSC's helpdesk. For more information please see [Export data from SD Desktop](../../data/sensitive-data/sd-desktop-export.md).
+
+## SD Connect (Beta) now available, 13.12.2023
+
+A new version of SD Connect is now available for testing purposes. The updated user interface offers automated file encryption and decryption (up to 100 GB) along with key management. Additionally, three levels of sharing permissions are accessible across CSC projects. This version is in Open Beta. Kindly use it for testing scenarios and avoid relying on it for storing critical data until it transitions to a stable release. Please provide feedback by [contacting CSC Service Desk](../contact.md) (subject: Sensitive Data) to contribute to service improvement.
+
+Preliminary user guide is available [here](../../data/sensitive-data/sd-connect-beta.md)
 
 ## SD Desktop and SD Connect: service usage restrictions and CSC project closure, 8.9.2023
 

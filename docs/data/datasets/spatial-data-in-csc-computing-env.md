@@ -19,17 +19,12 @@ Puhti has following datasets:
     * [Gridcells](http://www.paikkatietohakemisto.fi/geonetwork/srv/fin/catalog.search#/metadata/3fa1beeb-ea6b-42b1-8e76-eb2bc8ac6d24)
     * [Forest mask](https://www.paikkatietohakemisto.fi/geonetwork/srv/fin/catalog.search#/metadata/df99fbd3-44b3-4ffc-b84a-9459f318d545)
     * [Forest resource plots](http://www.paikkatietohakemisto.fi/geonetwork/srv/fin/catalog.search#/metadata/332e5abf-63c2-4723-9c2d-4a926bbe587a)
-*   **Satellite mosaics produced by SYKE and FMI** in Paikkatietoalusta project, weekly updates. 
-    -   [Sentinel1 SAR mosaics](https://ckan.ymparisto.fi/dataset/sentinel-1-sar-image-mosaic-s1sar-sentinel-1-sar-kuvamosaiikki-s1sar): 10/2019 ->, 3 mosaics per month
-    -   [Sentinel2 index mosaics](https://ckan.ymparisto.fi/dataset/sentinel-2-image-index-mosaics-s2ind-sentinel-2-kuvamosaiikit-s2ind): 2018 ->, 2 mosaics per month, only during vegetation period, NDVI, NDBI, NDMI, NDTI, META.
-    -   [Historical Landsat satellite image mosaics](https://ckan.ymparisto.fi/dataset/historical-landsat-satellite-image-mosaics-href-historialliset-landsat-kuvamosaiikit-href): 1985, 1990, 1995
-    -   [Historical Landsat NDVI mosaics: 1984-2011](https://ckan.ymparisto.fi/dataset/historical-landsat-image-index-mosaics-hind-historialliset-landsat-kuvaindeksimosaiikit-hind)
 
-!!! warning "Satellite mosaic datasets will be removed from Puhti during 2023."
+!!! warning "Satellite mosaics produced by SYKE and FMI in Paikkatietoalusta project were removed from Puhti on 21.11.2023"
 
-     Use the original data from FMI or SYKE, we recommend using [Paituli STAC](https://paituli.csc.fi/stac.html) for finding and downloading the data. Paituli STAC page includes also use examples for R and Python.
+    The removed datasets were: [Sentinel1 SAR mosaics](https://ckan.ymparisto.fi/dataset/sentinel-1-sar-image-mosaic-s1sar-sentinel-1-sar-kuvamosaiikki-s1sar), [Sentinel2 index mosaics](https://ckan.ymparisto.fi/dataset/sentinel-2-image-index-mosaics-s2ind-sentinel-2-kuvamosaiikit-s2ind), [Historical Landsat satellite image mosaics](https://ckan.ymparisto.fi/dataset/historical-landsat-satellite-image-mosaics-href-historialliset-landsat-kuvamosaiikit-href) and [Historical Landsat NDVI mosaics: 1984-2011](https://ckan.ymparisto.fi/dataset/historical-landsat-image-index-mosaics-hind-historialliset-landsat-kuvaindeksimosaiikit-hind). They are available from FMI's own object storage which has more data than was stored to Puhti local disks. The easiest way to find PTA sentinel mosaics from FMI is with [Paituli STAC](https://paituli.csc.fi/stac.html). Paituli STAC page includes also usage examples for R and Python.
      
-NLS 2m DEM, lidar, infrared ortophotos, all SYKE datasets and satellite mosaics are updated in Puhti automatically every Monday.
+NLS 2m DEM, lidar, infrared ortophotos and all SYKE datasets are updated in Puhti automatically every Monday.
 
 The open spatial data is stored in Puhti: **/appl/data/geo**
 
@@ -73,7 +68,7 @@ Currently available:
 
 1.  **[Sentinel2 2A level images](https://a3s.fi/sentinel-readme/README.txt)**. Maria Yli-Heikkilä (LUKE) has downloaded data of Finland from vegetation period (ca 10.5.-1.9.) in 2016-2020. 
 
-For using data in Allas, see [CSC webinar about Allas and geospatial data](https://youtu.be/mnFXe2-dJ_g) and [Using geospatial files directly from cloud, inc Allas tutorial](../../support/tutorials/gis/gdal_cloud.md).
+For using data in Allas, see [CSC webinar about Allas and geospatial data](https://youtu.be/mnFXe2-dJ_g) and [Using geospatial files directly from cloud, inc Allas tutorial](../../support/tutorials/gis/gdal_cloud.md). The easiest way to find Sentinel data stored in Allas is with [Paituli STAC](https://paituli.csc.fi/stac.html).
 
 ## License and acknowledgement
 

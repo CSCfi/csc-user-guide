@@ -1,22 +1,27 @@
-# Working with your virtual Desktop
+# Working with your virtual desktop
 
 Once your virtual Desktop is launched, each CSC project member can securely access it from their browser at any time.
 
-When you log in to SD Desktop **Homepage**, you will be able to access your virtual Desktop in:
+## Access virtual desktop
 
-* **Recent connections**, by clicking on the image of your Desktop (visible only if you have recently accessed it)
-* **All connections**, if you click on the "+"-icon you can see all the connections associated with each project (e.g. `project_NNNNN_NNNN`). You can access your virtual Desktop by clicking on the connection ID.
+After log in, you will see all your virtual desktops listed at the front page, under *All connections*. 
 
-When you open the connection, a virtual computing environment will open into your browser. When you access the virtual Desktop for the first time, you will see a *getting started* panel, from which you can, for example, adjust the screen resolution.
+* **All connections**. Select project (e.g. `project_NNNNN`) and click the plus-sign. There you can see all desktops that belongs to this project (`desktopname-NNNNNNNNNN`). Access virtual desktop by clicking the name.
+* **Recent connections**. Your recently used virtual desktops appear also here.
 
-You can work with this virtual Desktop like in a standard computing environment. From the *Applications* menu bar (top left corner) you can access several pre-installed programs. Examples include Open Office, image viewing applications, video and audio players, Jupiter Notebook etc. You can also open a terminal and use Linux from the command line. To start using R-Studio please check the following paragraph.
+![check the paragraph below](../sensitive-data/images/desktop/SD-Desktop-Frontpage.png)
 
-**Security-related features of the audited SD Desktop include:**
 
-* the computing environment is **isolated from the internet**. You can, for example, open a Firefox web browser, but you are not able to access any site on the internet. You will also not be able to access any repositories directly.
-* the copy-paste function from your computer/laptop to the virtual Desktop is entirely disabled for security reasons. You can anyhow use this function inside virtual Desktop.
+When you open the connection, a virtual computing environment will open in your browser. If you are accessing the virtual desktop for the first time, you will see the panel getting started, from which you can, for example, adjust the screen resolution.
 
-**You can close your connection to your virtual Desktop in two ways:**
+**You can work with your virtual desktop like with a standard computer**, accessing several pre-installed programs from the applications menu bar (top left corner). Examples include Open Office, image-viewing applications, video and audio players, Jupyter Notebooks etc. You can also open a terminal and use Linux from the command line. For more information on accessing R-Studio, please [check the paragraph below](#rstudio-on-sd-desktop).
+
+### Security-related features of the audited SD Desktop include:
+
+* The computing environment is **isolated from the internet**. You can, for example, open a Firefox web browser, but you are not able to access any site on the internet. You will also not be able to access any repositories directly.
+* The copy-paste function from your computer/laptop to your virtual desktop is limited for security reasons. [Instructions how to copy-paste](#copy-paste-from-your-laptop-to-virtual-desktop).
+
+### You can close your connection to your virtual Desktop in two ways:
 
 1. **Log out** from your Desktop (in the workspace view, top right corner of the browser, select your *username* and *log out*). This will close all applications in your virtual Desktop and disconnect the work session. You will be able to re-access the virtual Desktop at any time by logging in to the services.
 2. If you started a data analysis programmatically (you are running a script) you can close the browser window. This doesn't interfere with the processes running. Thus, when you reconnect to your Desktop, you have all your tools and interfaces still open and can continue working. However, remember to log out from the Desktop once the analysis is finished. If you leave more than ten connections open, you will be unable to re-access the services.
@@ -51,11 +56,24 @@ Once you sign in to your virtual Desktop, you can access the data by following t
 [![Desktop-data-import](images/desktop/desktop-gateway-import.png)](images/desktop/desktop-gateway-import.png)
 
 
+### Copy-paste from your laptop to virtual desktop
+
+The copy-paste function from your computer/laptop to your virtual desktop is limited for security reasons. However it is possible to copy-paste text with Clipboard:
+
+* Copy text normally from your computer (Cntrl+C).
+* Go to virtual desktop and open a Clipboard with a key combination **Cntrl+Alt+Shift**.
+* Paste your text to the Clipboard.
+* Copy the text again from the Clipboard. Please note that the Cntrl+C won't work here, use the mouse right-click instead.
+* Now you can paste the text inside your virtual desktop.
+* When you are ready, close the Clipboard with **Cntrl+Alt+Shift**.
+
+![SD Desktop Clipboard screenshot](images/desktop/SD-Desktop-Clipboard.png)
+
 ## Default programs available on the Desktop and software customisation
 
 Each virtual Desktop is pre-built and contains a limited set of default open-source software (listed below). The virtual Desktop is isolated from the internet and **importing of software is restricted**, as required by the data permit authority. Thus, users cannot directly import software/scripts or other files on to their virtual Desktop when working with secondary use data. 
 
-If you need a specific program that is not pre-installed, it is recommended to [contact CSC Service Desk](../../support/contact.md) **before applying for the data permit**. This way, we can figure out if it is possible to customise your virtual Desktop. If the program is compatible with the computing environment, you need to specify in your permit application the list of additional software, which will be provided directly by Findata.
+If you need a specific program that is not pre-installed, it is recommended to [contact CSC Service Desk](../../support/contact.md) **before applying for the data permit**. This way, we can figure out if it is possible to customise your virtual desktop. 
 
 ### Pre-installed software:
 
@@ -130,7 +148,7 @@ Next:
 
 To comply with the regulation, SD Desktop for secondary use is **completely isolated from the internet and other services**. You can, for example, open a Firefox web browser, but you are not able to access any site on the internet.
 
-**The import of data and software is restricted in SD Desktop**. You cannot import any data or software yourself for security reasons. If you are working with a dataset for which you have received a permit from Findata, the only way to access the data for analysis is by utilizing a specific application called **Data Gateway**. 
+**The import of data and software is restricted in SD Desktop**. You cannot import any data or software yourself for security reasons. If you are working with a dataset for which you have received a permit from a data controller, the only way to access the data for analysis is by utilizing a specific application called **Data Gateway**. 
 
 **Data export from SD Desktop is also restricted**. Only *non-sensitive* results can be exported from the workspace, and those can only be exported by the CSC project manager. Instructions for exporting your results are provided in the next paragraph.
 

@@ -9,25 +9,14 @@ Collection of Python libraries for data analytics and machine learning.
 
 !!! info "News"
 
+     **28.11.2023** Installed `python-data/3.10-23.11` with newer packages of popular Python 
+     modules.
+
      **4.7.2023** Installed `python-data/3.10-23.07` with newer packages of popular Python 
      modules.
 
     **28.10.2022** Module `python-data/3.8` was added for those who
     specifically need Python 3.8.
-
-    **5.10.2022** Together with Puhti's update to Red Hat Enterprise Linux
-    8 (RHEL8), **we removed some old versions of Python Data, including all
-    (previously deprecated) conda-based versions. We also changed the version naming of the
-    modules.** Please [contact our servicedesk](../support/contact.md) if
-    you really need access to older versions.
-
-    **5.5.2022** Due to Mahti's update to Red Hat Enterprise Linux 8 (RHEL8),
-    older versions of Python Data are no longer fully supported. Please [contact our
-    servicedesk](../support/contact.md) if you really need access to older versions.
-
-    **4.2.2022** All old Python Data versions which were based on direct Conda
-    installations have been deprecated, and we encourage users to move to newer
-    versions. Read more on our separate [Conda deprecation page](../support/tutorials/conda.md).
 
 
 ## Available
@@ -39,6 +28,10 @@ libraries at installation time, to the extent software dependencies
 allow.
 
 Current versions are:
+
+- `python-data/3.10-23.11`: installed in November 2023, includes for
+  example Scikit-learn 1.3.2, SciPy 1.11.4, Pandas 2.1.3 and
+  JupyterLab 4.0.9.
 
 - `python-data/3.10-23.07`: installed in July 2023, includes for
   example Scikit-learn 1.2.2, SciPy 1.11.1, Pandas 2.0.3 and JupyterLab
@@ -65,14 +58,21 @@ data analytics and machine learning, for example:
 - [Seaborn](https://seaborn.pydata.org/): statistical data visualization
 
 If you find that some package is missing, you can often install it
-yourself with `pip install --user`. See [our Python
+yourself with `pip install --user`.  See [our Python
 documentation](python.md#installing-python-packages-to-existing-modules)
-for more information on how to install packages yourself. If you think
-that some important package should be included in the module provided
-by CSC, please [contact our servicedesk](../support/contact.md). Note
-that some machine learning frameworks have their own specific modules,
-for example: [PyTorch](pytorch.md), [TensorFlow](tensorflow.md),
-[JAX](jax.md), and [RAPIDS](rapids.md).
+for more information on how to install packages yourself.
+
+It is also possible to use [Python virtual
+environments](https://packaging.python.org/en/latest/guides/installing-using-pip-and-virtual-environments/#creating-a-virtual-environment).
+To create a virtual environment use the command `python3 -m venv
+--system-site-packages venv`.
+
+If you think that some important package should be included in the
+module provided by CSC, please [contact our
+servicedesk](../support/contact.md). Note that some machine learning
+frameworks have their own specific modules, for example:
+[PyTorch](pytorch.md), [TensorFlow](tensorflow.md), [JAX](jax.md), and
+[RAPIDS](rapids.md).
 
 !!! info "Note about multi-threading"
 
@@ -102,13 +102,13 @@ to access the default version, or if you wish to have a specific version ([see
 above for available versions](#available)):
 
 ```text
-module load python-data/3.9-2022.04
+module load python-data/3.10-2023.11
 ```
 
 If you just want the most recent version with a specific Python version, you can also run:
 
 ```text
-module load python-data/3.9
+module load python-data/3.10
 ```
 
 This will show all available versions:

@@ -29,7 +29,7 @@ At the end of your analysis, you can delete your virtual desktop, including the 
 
 ### End of data access and data deletion policies
 
-Access to the data will be denied after the data permit expires. If you want to continue accessing the data after the original validity period ends, you need to send an *amendment application* to Findata to extend the validity of the permit.
+Access to the data will be denied after the data permit expires. If you want to continue accessing the data after the original validity period ends, you need to send an *amendment application* to the data controller to extend the validity of the permit.
 
 When the data permit has expired, all the members will be removed from the CSC project, and you cannot access your virtual Desktop anymore. This also means that **all your results must be exported before the end of the validity period**. Both the project and the data will be deleted according to CSC’s data retention policy (see [General Terms of Use for CSC's Services for Research and Education](https://research.csc.fi/general-terms-of-use)) and agreement with the users. As a default, **inactive projects and all their data will be deleted after 90 days** in accordance with the regulation.
 

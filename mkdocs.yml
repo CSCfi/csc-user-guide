@@ -5,6 +5,7 @@ site_url: "https://docs.csc.fi/"
 site_description: Instructions and user guides for the CSC supercomputers, cloud services, storage and software, including FAQ and tutorials
 
 extra:
+  environment: !ENV [MKDOCS_ENV, "preview"]
   announcement_visible: true # Controls the visibility of the announcement bar
   breadcrumbs_debug: !ENV DEBUG # Renders a debug view for breadcrumbs navigation
   analytics:
@@ -27,6 +28,9 @@ extra:
       exclude:
         - ref.md
 
+hooks:
+  - hooks/archives.py
+
 plugins:
   - tags:
       tags_file: apps/by_license.md
@@ -38,6 +42,7 @@ plugins:
       timezone: Europe/Helsinki
       exclude:
         - index.md
+        - support/archives/*.md
         - support/glossary.md
         - support/whats-new.md
         - apps/index.md
@@ -66,6 +71,7 @@ plugins:
         'whats-new.md': 'support/whats-new.md'
         # for convenience:
         'glossary.md': 'support/glossary.md'
+        'archives.md': 'support/contact.md#archives'
 
 markdown_extensions:
   - footnotes
@@ -128,6 +134,7 @@ nav:
      - Reviewing billing unit usage: accounts/how-to-view-billing-unit-usage.md
      - Billing: accounts/billing.md
      - Multi-factor Authentication: accounts/mfa.md
+     - Strong identification: accounts/strong-identification.md
      - FMI: accounts/fmi.md
   - Computing:
      - computing/index.md
@@ -236,6 +243,7 @@ nav:
        - Images:
          - cloud/rahti/images/overview.md
          - Creating an image: cloud/rahti/images/creating.md
+         - Pushing to external repository: cloud/rahti/images/pushing-external.md
          - Keeping docker images small: cloud/rahti/images/keeping_docker_images_small.md
        - GPU in Rahti: cloud/rahti/gpu.md
        - Rahti Templates: cloud/rahti/template-docs.md
@@ -332,7 +340,8 @@ nav:
           - a-command: data/Allas/using_allas/a_commands.md
           - a-backup: data/Allas/using_allas/a_backup.md
           - Cyberduck: data/Allas/using_allas/cyberduck.md
-          - Python Library: data/Allas/using_allas/python_library.md
+          - Python with S3: data/Allas/using_allas/python_boto3.md         
+          - Python with SWIFT: data/Allas/using_allas/python_swift.md
           - Rclone from Computing environment: data/Allas/using_allas/rclone.md
           - Rclone form Workstation: data/Allas/using_allas/rclone_local.md
           - Swift: data/Allas/using_allas/swift_client.md
@@ -353,6 +362,7 @@ nav:
   
   - Sensitive data:
       - data/sensitive-data/index.md
+      - Choose service: data/sensitive-data/choose-a-service.md
       - Store and analyse:
         - Start here: data/sensitive-data/sd-access.md
         - Store with SD Connect: 
@@ -373,8 +383,15 @@ nav:
             - Export data: data/sensitive-data/sd-desktop-export.md
             - Troubleshooting: data/sensitive-data/sd-desktop-troubleshooting.md
       - Publish and reuse:
-        - Federated EGA: data/sensitive-data/federatedega.md
-        - SD Apply: data/sensitive-data/sd-apply.md
+        - Federated EGA: 
+            - data/sensitive-data/federatedega.md
+            - Data access application: data/sensitive-data/fega-application.md
+            - Data access approval for DAC: data/sensitive-data/fega-dac.md
+            - Data submission: data/sensitive-data/fega-submission.md
+        - SD Apply: 
+            - data/sensitive-data/sd-apply.md
+            - Data access for Data Applicant: data/sensitive-data/sd-apply-access.md
+            - Data approval for DAC: data/sensitive-data/sd-apply-approval.md
       - Secondary use of health and social data:
         - Start here:
             - Access with Findata permit: data/sensitive-data/findata-permit.md

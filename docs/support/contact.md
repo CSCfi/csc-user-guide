@@ -16,21 +16,27 @@
         [See here for more information and connection details](https://ssl.eventilla.com/event/PP4WB).
 
 !!! info "LUMI User Support Team"
-    Support requests pertaining to software under `/appl/local/csc` on LUMI should
-    be directed to CSC Service Desk. In other LUMI-related issues, please [contact
-    the LUMI User Support Team](https://docs.lumi-supercomputer.eu/helpdesk/).
+    If you have any questions or issues related to using LUMI, please
+    [contact the LUMI User Support Team](https://lumi-supercomputer.eu/user-support/need-help/).
 
 ## How to write good support requests
 
 * [13 point list to speed up resolving your issue](./support-howto.md)
 
-## Mailing list archives
+## Archives
 
-Having trouble finding an email sent to you by CSC? Browse the mailing list
-archives:
+Having trouble finding an email or a newsletter sent to you by CSC? Browse the archives!
 
-* [puhti-users](https://postit.csc.fi/sympa/arc/puhti-users/)
-* [mahti-users](https://postit.csc.fi/sympa/arc/mahti-users/)
-* [lumi-users](https://postit.csc.fi/sympa/arc/lumi-users/)
-* [pouta-users](https://postit.csc.fi/sympa/arc/pouta-users/)
-* [rahti-users](https://postit.csc.fi/sympa/arc/rahti-users/)
+### Newsletters
+
+* [Tutkimus / Research](archives/tutkimus-research.md)
+* [Asiakaskoulutus / Customer training](archives/asiakaskoulutus-customer-training.md)
+
+### Mailing lists
+
+* [puhti-users](archives/puhti-users.md)
+* [mahti-users](archives/mahti-users.md)
+* [lumi-users](archives/lumi-users.md)
+* [pouta-users](archives/pouta-users.md)
+* [rahti-users](archives/rahti-users.md)
+* [sd-desktop-users](archives/sd-desktop-users.md)

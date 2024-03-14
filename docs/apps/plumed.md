@@ -15,7 +15,7 @@ in molecular dynamics. It can be used with several MD codes.
 
 -   Puhti: 2.7.4, 2.8.0
 -   Mahti: 2.6.3, 2.7.2
--   LUMI: 2.8.2
+-   LUMI: 2.8.2, 2.9.0
 
 ## License
 
@@ -36,7 +36,7 @@ On LUMI, you need to first load the CSC module tree into use with `module use /a
 
 If you want to run molecular dynamics with plumed, either compile your MD engine of
 choice with plumed (see [selection e.g. here](https://www.plumed.org/)), or use e.g.
-[Gromacs](gromacs.md), which is available at CSC.
+[GROMACS](gromacs.md), which is available at CSC.
 
 ## References
 

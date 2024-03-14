@@ -3,6 +3,9 @@
   | replace("/support/wn/", "/support/whats-new/") %}
   {# Breadcrumbs are defined literally for pages that don't have ancestors: #}
   {% set breadcrumbs = {
+    "/support/archives/": [
+      { "url": "/support/contact/#archives", "title": "Archives" }
+    ],
     "/support/faq/": [
       { "url": "/support/faq/", "title": "FAQ" }
     ],

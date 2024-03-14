@@ -49,6 +49,7 @@ includes following python packages:
     vector geometries. It includes functions for zonal statistics and
     interpolated point queries. [rasterstats example in CSC geocomputing Github](https://github.com/csc-training/geocomputing/tree/master/python/zonal_stats)
 -   [rtree] - spatial indexing and search.
+-   [sentinelhub](https://sentinelhub-py.readthedocs.io/en/latest/index.html) - for working with new Sentinel Hub services. NEW 2023
 -   [sentinelsat] - downloading Sentinel images, [sentinelsat example in CSC geocomputing Github] (https://github.com/csc-training/geocomputing/tree/master/python/sentinel)
 -   [shapely] - manipulation and analysis of geometric objects in the Cartesian plane.
 -   [scipy](https://www.scipy.org/) - inc pandas, numpy, matplotlib etc
@@ -91,15 +92,21 @@ Version number is the same as the Python version.
 
 For using Python packages and other tools listed above, you can initialize them with:
 
-`module load geoconda`
+```bash
+module load geoconda
+```
 
 By default the latest geoconda module is loaded. If you want a specific version you can specify the version number of geoconda:
 
-`module load geoconda/[VERSION]`
+```bash
+module load geoconda/[VERSION]
+```
 
 To check the exact packages and versions included in the loaded module:
 
-`list-packages`
+```bash
+list-packages
+```
  
 You can add more Python packages to `geoconda`, see instructions from [CSC Python page](python.md#installing-python-packages-to-existing-modules).
 
@@ -116,8 +123,8 @@ To open Spyder in Puhti web interface with remote desktop:
 2. Open Remote desktop: Apps -> Desktop. 
 3. After launching the remote desktop open `Terminal` (Desktop icon) and start Spyder:
 
-```
-module geoconda
+```bash
+module load geoconda
 spyder
 ```
 
@@ -146,7 +153,9 @@ As an example, you can write "The authors wish to thank CSC - IT Center for Scie
 
 Geoconda was installed to Puhti and Mahti using [Tykkys conda-containerize functionality](../computing/containers/tykky.md). The WhiteboxTools conda package installs only WhiteboxTools installer, therefore for proper installation of Whiteboxtools required additional post installation command and folder to wrap commandline tools.
 
-'conda-containerize new --mamba --prefix install_dir --post download_wbt -w miniconda/envs/env1/lib/python3.10/site-packages/whitebox/WBT/whitebox_tools geoconda_3.10.9.yml'
+```bash
+conda-containerize new --mamba --prefix install_dir --post download_wbt -w miniconda/envs/env1/lib/python3.10/site-packages/whitebox/WBT/whitebox_tools geoconda_3.10.9.yml
+```
 
 Geoconda conda environment files and `download_wbt` and `start_wbt.py` needed for WhiteboxTools are available in [CSCs geocomputing repository](https://github.com/csc-training/geocomputing/tree/master/supercomputer_installations/geoconda). Note that for reproducibility, you'll need to define the package versions in the environment file, which can be checked on Puhti and Mahti using `list-packages` command after loading the `geoconda` module.
 

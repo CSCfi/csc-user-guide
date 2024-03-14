@@ -1,5 +1,78 @@
 # Computing environment
 
+
+## Puhti web interface updated to release 18, 5.3.2024
+
+* Allas and IDA can now be accessed in the file browser.
+* The Cloud storage configuration tool for generating access tokens to Allas is now available.
+* The Desktop and Accelerated Visualization apps have been improved.
+    * Accelerated Visualization now launches the same desktop as the Desktop app.
+    * Applications for the Accelerated Visualization app can now be found in the applications menu in the desktop.
+    * VisIt is now available in Accelerated Visualization.
+    * Launching applications should be more reliable.
+    * The terminal window stays open if errors occur launching applications.
+    * Applications are now categorized in the menu.
+* Handling of reservations has been improved.
+    * Future reservations are now shown.
+    * All reservations can now be used on any app regardless of partition.
+    * Reservation caching has been improved to be more up to date.
+    * Job time is now limited by reservation length automatically.
+* MATLAB updated to r2023b.
+* VSCode updated to 1.86.1.
+* TensorBoard and MLflow can now use the default module versions.
+* Open OnDemand updated to version 3.1.1.
+
+
+## Mahti has small GPUs available for interactive work, 5.3.2024
+
+Four (4) A100 GPUs on Mahti have been split into a total of 28 smaller GPUs with a fraction of the 
+compute and memory capacity of a full A100 GPU. These a100_1g.5gb GPUs have one seventh of 
+the compute power of one A100 GPU and in total 5 GB of memory. These are useful for interactive work, 
+courses and for code development, and are also available via the
+[web interface](../../computing/webinterface/index.md#partitions-and-resources).
+[See more details here](../../computing/running/creating-job-scripts-mahti.md#gpu-batch-jobs).
+
+
+## Mahti web interface updated to release 4, 27.2.2024
+
+* GPUs (MIG) are now available in apps in the *gpusmall* partition.
+* The Desktop app has been improved
+    * Launching applications should be more reliable.
+    * The terminal window stays open if errors occur launching applications.
+    * Applications are now categorized in the menu.
+* VSCode updated to 1.86.1.
+* TensorBoard and MLflow can now use the default module versions.
+* Open OnDemand updated to version 3.1.1.
+
+## SSH security updates for cryptography options, 12.1.2024
+
+Recently, a new SSH vulnerability called Terrapin (CVE-2023-48795) was published describing
+weaknesses in the key exchange when using certain ciphers.
+Consequently, the login nodes on Puhti and Mahti have been updated to disallow the use of the weak
+ciphers: `chacha20-poly1305@openssh.com` and any EtM cipher variants.
+This change was deployed on Friday 12.1.2024 around 13 o'clock Finnish time.
+
+This change seems to have triggered many Windows OpenSSH clients to use a cipher and MAC algorithm
+combination, which does not work. The result is a message saying "Corrupted MAC on input".
+This is a known issue on Windows, and can be worked around
+by adding explicit options for which MAC algorithms to use.
+
+Please refer to our [FAQ page about the issue](../faq/i-cannot-login.md#why-is-my-ssh-client-saying-corrupted-mac-on-input)
+for details.
+
+## Mahti web interface updated to release 3, 12.12.2023
+
+* Handling of reservations has been improved.
+    * Future reservations are now shown.
+    * All reservations can now be used on any app regardless of partition.
+    * Reservation caching has been improved to be more up to date.
+    * Job time is now limited by reservation length automatically.
+* Jupyter for Courses now also allows specifying reservation in the course environment YAML.
+* Jupyter for Courses and TensorBoard now show errors if the module or log path are left empty.
+* Web interface session lifetime has been increased to 12h from the previous 8h.
+* Umask is now set correctly. This affects files created using the file browser.
+* The browser cache is now validated more frequently to avoid issues after updates.
+
 ## The LUMI web interface has been released, 9.11.2023
 
 The brand new LUMI web interface has been released at [www.lumi.csc.fi](https://www.lumi.csc.fi)!

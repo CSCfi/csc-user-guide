@@ -74,15 +74,15 @@ is a standard Python module for creating a lightweight "virtual
 environment". You can have multiple virtual environments, for example
 one for each project.
 
-For example to install a package called `whatsapp` on top of the
+For example to install a package called `whatshap` on top of the
 CSC-provided [python-data](python-data.md) module:
 
 ```bash
 cd /projappl/<your_project>  # change this to the appropriate path for your project
 module load python-data
-python3 -m venv --system-site-packages my-venv
+python3 -m venv --system-site-packages venv
 source venv/bin/activate
-pip install whatsapp
+pip install whatshap
 ```
 
 !!! warning

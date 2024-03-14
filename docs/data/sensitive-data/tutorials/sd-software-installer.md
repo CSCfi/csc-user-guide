@@ -11,6 +11,9 @@ To make additional software installations easier, CSC has created a **SD Softwar
 that provides an easy way to add few commonly used software packages and help tools to your virtual desktop. 
 This document describes the usage of this tool.
 
+<iframe width="512" height="288" srcdoc="https://www.youtube.com/embed/S4hpjPy-TDQ" title="How to install software on SD Desktop" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+
 
 ## Requirements
 
@@ -67,6 +70,8 @@ Notes about the available tools. Note that this list may be outdated:
 
 ### Imaging and videos
 *  [Audacity](https://www.audacityteam.org/). Sound editor.
+*  [ELAN 6.7](https://archive.mpi.nl/tla/elan/). Annotation tool for audio and video recordings.
+    *  After installation, right-click the ELAN desktop icon and select: _Allow launching_.
 *  [OpenShot 3.1.1](https://www.openshot.org/). Video editor.
     *  This tool works only in Ubuntu22 based virtual desktops.
     *  After installation, right-click the OpenShot desktop icon and select: _Run as a program_.
@@ -79,9 +84,15 @@ Notes about the available tools. Note that this list may be outdated:
 
 ### Biosciences
 *  [GATK](https://gatk.broadinstitute.org/hc/en-us) A genomic analysis toolkit focused on variant discovery.
+*  [GCTA 1.94.1](https://yanglab.westlake.edu.cn/software/gcta/#Overview) A tool for Genome-wide Complex Trait Analysis.
+*  [GCTB 2.05b](https://cnsgenomics.com/software/gctb/#Overview) Genome-wide Complex Trait Bayesian analysis
+*  [IGV 2.16.2](https://igv.org/doc/desktop/) Integrated Genomics Viewer.
 *  [MultiQC 1.10](https://multiqc.info/) NGS Read quality checking tool.
-*  [Salmon 1.9.0](https://combine-lab.github.io/salmon/) Program to produce transcript-level quantification estimates from RNA-seq data
+*  [PRSice 2.0](https://choishingwan.github.io/PRSice/) Polygenic Risk Score software for calculating, applying, evaluating and plotting the results of polygenic risk scores (PRS) analyses.
+*  [Regenie 3.3](https://rgcgithub.github.io/regenie/) Program for whole genome regression modelling of large genome-wide association studies.
+*  [Salmon 1.9.0](https://combine-lab.github.io/salmon/) Program to produce transcript-level quantification estimates from RNA-seq data.
     *   [Salmon 1.9.0 at CSC servers](../../../apps/salmon.md)
+   
 
 ### Miscellaneous
 *   [auto-apptainer](./auto-apptainer.md) Tool to add command line applications using the Apptainer container library provided by CSC.

@@ -8,7 +8,7 @@ Default resources for the course Python environment can also be defined in the s
 ## Using the app
 In the form for launching the application:
 
- - Select the project and reservation used for the course
+ - Select the project and reservation used for the course. The reservation field will only be visible if you have an active reservation you have access to use.
  - Select the course module
  - Launch the application
 
@@ -49,7 +49,10 @@ time: "02:00:00"
 partition: "interactive"
 local_disk: 32
 mem: "16GB"
+reservation: "my-course-reservation"
 ```
+Some of the resources can be omitted if they are not relevant, such as if you do not have a reservation or the partition does not have local disks.
+
 ### Tutorials
 [Tutorial example for course organizers](https://github.com/CSCfi/Jupyter_www_puhti): This tutorial is useful for course organizers
 who want to provide custom Jupyter notebooks *via* the web interfaces. 

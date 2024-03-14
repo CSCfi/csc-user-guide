@@ -17,8 +17,8 @@ for academic use at academic institutions.
 
 ## Available
 
-- Puhti: 5.0.3
-- Mahti: 5.0.3
+- Puhti: 5.0.4
+- Mahti: 5.0.4
 
 Note that due to licensing issues every user has to install their own copy of the program.
 
@@ -30,9 +30,9 @@ available only for academic use at academic institutions.
 
 ## Usage
 
-- Download the ORCA 5.0.3, Linux, x86-64, shared-version, `orca_5_0_3_linux_x86-64_shared_openmpi411.tar.xz`
+- Download the ORCA 5.0.4, Linux, x86-64, shared-version,`orca_5_0_4_linux_x86-64_shared_openmpi411.tar.xz`
 - Move the downloaded file to your computing project's application area (`/projappl/<proj>`) on Puhti
-- Unpack the package, `tar xf orca_5_0_3_linux_x86-64_shared_openmpi411.tar.xz`
+- Unpack the package, `tar xf orca_5_0_4_linux_x86-64_shared_openmpi411.tar.xz`
 
 !!! info "Note"
     Wave function-based correlations methods, both single and multireference, often create a
@@ -51,22 +51,22 @@ available only for academic use at academic institutions.
 #SBATCH --gres=nvme:100  # requested local disk space in GB
 module purge
 module load gcc/11.3.0 openmpi/4.1.4 intel-oneapi-mkl/2022.1.0
-export ORCADIR=<path to your ORCA directory>/orca_5_0_3_linux_x86-64_shared_openmpi411
+export ORCADIR=<path to your ORCA directory>/orca_5_0_4_linux_x86-64_shared_openmpi411
 export LD_LIBRARY_PATH=$ORCADIR:$LD_LIBRARY_PATH
 
-ORTERUN=`which orterun`
-ln -sf ${ORTERUN}  ${SLURM_SUBMIT_DIR}/mpirun
+# create an mpirun script that executes srun
+echo exec 'srun $(echo "${@}" | sed 's/^-np/-n/')' >./mpirun
+chmod +x ./mpirun
 export PATH=${SLURM_SUBMIT_DIR}:${PATH}
 
 #Set $ORCA_TMPDIR to point to the local disk
 export ORCA_TMPDIR=$LOCAL_SCRATCH
-# Copy only the necessary files to $ORCA_TMPDIR
-# Add more here if needed.
+# Copy only necessary files to $ORCA_TMPDIR
 cp $SLURM_SUBMIT_DIR/*.inp $ORCA_TMPDIR/
 # Move to $ORCA_TMPDIR
 cd $ORCA_TMPDIR
 
-$ORCADIR/orca orca_5.0.3.inp > orca_5.0.3.out
+$ORCADIR/orca orca_5.0.4.inp > ${SLURM_SUBMIT_DIR}/orca_5.0.4.out
 rm -f  ${SLURM_SUBMIT_DIR}/mpirun
 
 # Copy all output to submit directory
@@ -84,14 +84,15 @@ cp -r $ORCA_TMPDIR $SLURM_SUBMIT_DIR
 #SBATCH --time=0:30:00 # time as `hh:mm:ss`
 module purge
 module load gcc/11.3.0 openmpi/4.1.4 intel-oneapi-mkl/2022.1.0
-export ORCADIR=<path to your ORCA directory>/orca_5_0_3_linux_x86-64_shared_openmpi411
+export ORCADIR=<path to your ORCA directory>/orca_5_0_4_linux_x86-64_shared_openmpi411
 export LD_LIBRARY_PATH=$ORCADIR:$LD_LIBRARY_PATH
 
-ORTERUN=`which orterun`
-ln -sf ${ORTERUN}  ${SLURM_SUBMIT_DIR}/mpirun
+# create an mpirun script that executes srun
+echo exec 'srun $(echo "${@}" | sed 's/^-np/-n/')' >./mpirun
+chmod +x ./mpirun
 export PATH=${SLURM_SUBMIT_DIR}:${PATH}
 
-$ORCADIR/orca orca_5.0.3.inp > orca_5.0.3.out
+$ORCADIR/orca orca_5.0.4.inp > orca_5.0.4.out
 rm -f  ${SLURM_SUBMIT_DIR}/mpirun
 ```
 
@@ -104,7 +105,7 @@ rm -f  ${SLURM_SUBMIT_DIR}/mpirun
 #SBATCH --ntasks-per-node=128
 #SBATCH --account=<your billing project>
 #SBATCH --time=0:30:00 # time as `hh:mm:ss`
-#SBATCH --job-name=orca-5.0.3
+#SBATCH --job-name=orca-5.0.4
 #SBATCH --error=jobfile.err%J
 #SBATCH --output=jobfile.out%J
 module purge
@@ -112,11 +113,12 @@ module load gcc/11.2.0 openmpi/4.1.2 openblas/0.3.18-omp
 export ORCADIR=<path to your ORCA directory>/orca_5_0_3_linux_x86-64_shared_openmpi411
 export LD_LIBRARY_PATH=$ORCADIR:$LD_LIBRARY_PATH
 
-ORTERUN=`which orterun`
-ln -sf ${ORTERUN}  ${SLURM_SUBMIT_DIR}/mpirun
+# create an mpirun script that executes srun
+echo exec 'srun $(echo "${@}" | sed 's/^-np/-n/')' >./mpirun
+chmod +x ./mpirun
 export PATH=${SLURM_SUBMIT_DIR}:${PATH}
 
-$ORCADIR/orca orca_5.0.3.inp > orca_5.0.3.out
+$ORCADIR/orca orca_5.0.4.inp > orca_5.0.4.out
 rm -f  ${SLURM_SUBMIT_DIR}/mpirun
 ```
 
@@ -156,4 +158,4 @@ given in the manual.
 - [ORCA Forum (login with the same credentials as you used for downloading)](https://orcaforum.kofo.mpg.de/app.php/portal)
 - [ORCA Tutorials](https://www.orcasoftware.de/tutorials_orca/)
 - [ORCA Input Library, containing example inputs](https://sites.google.com/site/orcainputlibrary/home)
-- [Release notes](https://orcaforum.kofo.mpg.de/viewforum.php?f=56)
+- [Release notes](https://orcaforum.kofo.mpg.de/viewforum.php?f=58)

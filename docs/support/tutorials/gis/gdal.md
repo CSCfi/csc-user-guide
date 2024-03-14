@@ -16,6 +16,7 @@
 *   [gdalwarp](http://www.gdal.org/gdalwarp.html) and [ogr2ogr](http://www.gdal.org/ogr2ogr.html) - for chaning coordinate system
 *   [gdal_merge ](http://www.gdal.org/gdal_merge.html)and [ogr2ogr](http://www.gdal.org/ogr2ogr.html) - for joinig files
 *   [gdal_edit](https://gdal.org/programs/gdal_edit.html#gdal-edit) - chaning raster files in place
+*   [gdalbuildvrt](https://gdal.org/programs/gdalbuildvrt.html) - creating virtual rasters, see our [Virtual rasters tutorial](virtual-rasters.md) for details.
 *   GDAL has additionally many other tools, for full reference see [GDAL programs page](https://gdal.org/programs/index.html) where all tools and options of the tools are described in detail.
 
 

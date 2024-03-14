@@ -40,6 +40,7 @@
 * [Running MaxQuant on Puhti](MaxQuant-tutorial.md)
 * [Nextflow tutorial for Puhti (basic)](https://yetulaxman.github.io/Biocontainer/tutorials/nextflow_tutorial.html)
 * [Running Nextflow pipelines on Puhti (advanced)](nextflow-puhti.md)
+* [Running Snakemake pipelines on Puhti](snakemake-puhti.md)
 * [Schrödinger Maestro Puhti advanced tutorial](power-maestro.md)
 * [Schrödinger GPU-powered screening of the Molport database](gpu-shape.md)
 * [Running your first job on Puhti](biojobs-on-puhti.md)
@@ -47,7 +48,7 @@
 ## Chemistry
 * [Farming Gaussian jobs with HyperQueue](https://csc-training.github.io/csc-env-eff/hands-on/throughput/gaussian_hq.html)
 * [Using Gabedit for Gaussian jobs on Puhti](gabedit_gaussian.md)
-* [High-throughput computing with Gromacs](gromacs-throughput.md)
+* [High-throughput computing with GROMACS](gromacs-throughput.md)
 
 ## Data analysis and machine learning
 
@@ -57,16 +58,19 @@
 * [Starting with parallel R](parallel-r.md)
 
 ## Geoinformatics
+* [Introduction to geocomputing in CSC computing environment](https://research.csc.fi/geocomputing)
 * [Earth Observation (EO) guide](gis/eo_guide.md)
 * [Using geospatial files directly from cloud, inc Allas](gis/gdal_cloud.md)
 * [GDAL tutorial](gis/gdal.md)
 * [Virtual rasters](gis/virtual-rasters.md)
+* For software specific tutorials and examples, see [the respective software pages](../../apps/by_discipline.md#geosciences)
 
 ## Pouta - cloud
 * [cPouta and ePouta related videos](../../cloud/pouta/pouta-videos.md)
 * [Learn cloud computing by developing and deploying a web application](cloud.md)
 * [Orchestration with Heat](../../cloud/pouta/heat-orchestration.md)
 * [Create a jumphost in cPouta](../../cloud/pouta/create-jumphost.md)
+* [SSH Key-pair](../../cloud/tutorials/ssh-key.md)
 
 ## Rahti - container cloud
 * [Core objects](../../cloud/rahti/concepts.md)

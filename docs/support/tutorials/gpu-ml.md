@@ -24,7 +24,7 @@ The main GPU-related statistics are summarized in the table below.
 |-------|--------------------|-------------|-----------|-----------|---------------|
 | Puhti | NVIDIA Volta V100  | 32 GB       | 80        | 4         | 320           |
 | Mahti | NVIDIA Ampere A100 | 40 GB       | 24        | 4         | 96            |
-| LUMI  | AMD MI250x         | 64 (128) GB | 2560      | 8 (4)     | 20480 (10240) |
+| LUMI  | AMD MI250x         | 64 (128) GB | 2978      | 8 (4)     | 23824 (11912) |
 
 !!! info "Note"
 
@@ -329,7 +329,88 @@ interface.  The profilers can be used to identify resource consumption
 and to resolve performance bottlenecks, in particular the data input
 pipeline.
 
-See also
-[how to launch TensorBoard using the Puhti web interface](../../computing/webinterface/apps.md).
-The TensorFlow module `tensorflow/2.8` or later is required to use the
-profilers.
+See also:
+
+- [How to launch TensorBoard using the Puhti web interface](../../computing/webinterface/apps.md)
+- [PyTorch profiler tutorial](../../apps/pytorch.md#pytorch-profiler)
+
+## GPU energy usage
+
+For ecological and economical reasons it is often needed to monitor
+the energy usage of machine learning jobs. Measuring the full energy
+usage of a single job, including CPU and GPU processing, networking
+and cooling is quite difficult to do in the general case as those
+resources are shared over many jobs and can depend on various factors
+independent of the monitored job. Fortunately, measuring the energy
+usage of just the GPUs is easier, as they are typically not shared
+among many jobs. As the GPU is by far the biggest energy user it
+provides a good approximation of the total energy usage.
+
+### Tools for monitoring GPU energy usage
+
+#### `seff` command for a completed job (Puhti and Mahti)
+
+On Puhti and Mahti you can use the `seff` tool for a completed job:
+
+```bash
+seff <job_id>
+```
+
+Note that the GPU energy usage is counted only after the job has
+completed, so there is no intermediate value printed while it's
+running.
+
+Example output where we have used a single node with 4 GPUs:
+
+```
+GPU energy
+      Hostname        GPU Id   Energy (Wh)
+        r01g01             0         58.30
+        r01g01             1         56.63
+        r01g01             2         44.87
+        r01g01             3         62.21
+```
+
+
+### `gpu-energy` tool (LUMI)
+
+LUMI does not have the `seff` command, but there is a preliminary tool
+that can be used to read the GPU energy counters found in the AMD GPU
+card. The tool and its documentation can be found here:
+<https://github.com/mvsjober/gpu-energy-amd>.
+
+It has been pre-installed on LUMI in the path `/appl/local/csc/soft/ai/bin/gpu-energy`.
+
+Typical usage in a Slurm script:
+
+```
+gpu-energy --save
+
+# run job here
+
+gpu-energy --diff
+```
+
+Example output:
+
+```
+GPU 0: 46.64 Wh, avg power: 377.81 W (444.43 s)
+GPU 2: 46.47 Wh, avg power: 376.46 W (444.43 s)
+GPU 4: 46.18 Wh, avg power: 374.04 W (444.43 s)
+GPU 6: 46.62 Wh, avg power: 377.62 W (444.43 s)
+TOTAL: 185.91 Wh
+```
+
+Note that it prints the energy only for even-numbered GCDs, this is because the AMD GPU energy counter only produces a single value for the whole MI250x card.
+
+!!! warning "Always measure GPU usage for a full node on LUMI!"
+
+    Measuring the GPU energy on LUMI has to be done on a full node to get
+    accurate results. The reason is that the MI250x GPU has 2 GPU dies
+    (GCDs), but the energy counter gives a single number for the whole
+    MI250x. If you reserve a single GCD, another run may be using the
+    other GCD. Reserving 2 GCDs, it's not possible to guarantee that you
+    get them from the same card.
+
+See the [README.md file for more usage examples](https://github.com/mvsjober/gpu-energy-amd/blob/master/README.md).
+
