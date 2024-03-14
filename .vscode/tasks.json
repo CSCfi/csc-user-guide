@@ -38,7 +38,7 @@
             },
             "command": ". ${userHome}/miniconda3/etc/profile.d/conda.sh && conda env create --force --yes --file ${workspaceFolder}/development/conda-docs-base-1.0.yaml",
             "windows": {
-                "command": "& '${env:LOCALAPPDATA}\\miniconda3\\shell\\condabin\\conda-hook.ps1'; conda env create --force --yes --file '${workspaceFolder}\\development\\conda-docs-base-1.0.yaml'",
+                "command": "& '${env:LOCALAPPDATA}\\miniconda3\\shell\\condabin\\conda-hook.ps1' ; conda env create --force --yes --file '${workspaceFolder}\\development\\conda-docs-base-1.0.yaml'",
             },
         },
         {
@@ -51,7 +51,7 @@
             },
             "command": ". ${userHome}/miniconda3/etc/profile.d/conda.sh && conda run --name docs-env --cwd ${workspaceFolder} --no-capture-output pip install --force-reinstall --requirement ${workspaceFolder}/requirements.txt",
             "windows": {
-                "command": "& '${env:LOCALAPPDATA}\\miniconda3\\shell\\condabin\\conda-hook.ps1'; conda run --name docs-env --cwd ${workspaceFolder} --no-capture-output pip install --force-reinstall --requirement ${workspaceFolder}\\requirements.txt'",
+                "command": "& '${env:LOCALAPPDATA}\\miniconda3\\shell\\condabin\\conda-hook.ps1' ; conda run --name docs-env --cwd '${workspaceFolder}' --no-capture-output pip install --force-reinstall --requirement '${workspaceFolder}\\requirements.txt'",
             },
         },
         {
@@ -74,7 +74,7 @@
             },
             "command": ". ${userHome}/miniconda3/etc/profile.d/conda.sh && conda run --name docs-env --cwd ${workspaceFolder} --no-capture-output mkdocs serve ${input:flags}",
             "windows": {
-                "command": "& '${env:LOCALAPPDATA}\\miniconda3\\shell\\condabin\\conda-hook.ps1' ; conda run --name docs-env --cwd ${workspaceFolder} --no-capture-output mkdocs serve ${input:flags}'",
+                "command": "& '${env:LOCALAPPDATA}\\miniconda3\\shell\\condabin\\conda-hook.ps1' ; conda run --name docs-env --cwd '${workspaceFolder}' --no-capture-output mkdocs serve '${input:flags}'",
             },
         },
         {
