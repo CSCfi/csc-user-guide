@@ -8,14 +8,14 @@ tags:
 [VASP](https://www.vasp.at/) is an ab initio DFT program for computing
 electronic structures of up to few hundreds of atoms.
 
-This page briefly describes how to use VASP on puhti.csc.fi. Usage on mahti is very similar. That said,
+This page briefly describes how to use VASP on mahti.csc.fi. Usage on puhti.csc.fi is very similar. That said,
 VASP is a program which usage requires some experience. It is advised that new VASP users start out
 with a supervisor or an experienced colleague.
 
 
 ## Available
 
-See available VASP versions in puhti.csc.fi with command
+See available VASP versions in mahti.csc.fi with command
 
 ```console
 module avail vasp
@@ -60,6 +60,18 @@ srun vasp_std
 
 For more options and details, see [Creating a batch job script](../computing/running/creating-job-scripts-puhti.md).
 
+### VASP tutorials in Jupyter Lab
+
+VASP tutorials can be followed also using Jupyter Lab from https://mahti.csc.fi. From
+Settings -> Python, select "Custom module", and type in "py4vasp". When submitting the jobs
+from the Jupyter Lab terminal window to compute nodes, first load module 'vasp', and then
+use command similar to
+
+```console
+srun -p test -A <project> -t 5 -n 2 vasp_std
+```
+
+instead of the `mpirun ...` command shown in the tutorial.
 
 ### Performance optimization
 
