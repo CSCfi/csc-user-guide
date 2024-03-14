@@ -182,6 +182,13 @@ We use the following directory structure and assume it is our working directory.
 └── script.jl     # Julia script
 ```
 
+An example of a `Project.toml` project file.
+
+```toml
+[deps]
+Distributed = "8ba89e20-285c-5b6f-9357-94700520ee1b"
+```
+
 An example of a `script.jl` code.
 
 ```julia
@@ -227,13 +234,6 @@ rmprocs.(workers())
 # Print the outputs of master and worker processes.
 println(task())
 println.(outputs)
-```
-
-An example of a `Project.toml` project file.
-
-```toml
-[deps]
-Distributed = "8ba89e20-285c-5b6f-9357-94700520ee1b"
 ```
 
 === "Puhti"
@@ -303,6 +303,13 @@ We use the following directory structure and assume it is our working directory.
 ```
 
 === "Puhti"
+    An example of a `Project.toml` project file.
+
+    ```toml
+    [deps]
+    CUDA = "052768ef-5323-5732-b1bb-66c8b64840ba"
+    ```
+
     An example of a `script.jl` code.
 
     ```julia
@@ -311,13 +318,6 @@ We use the following directory structure and assume it is our working directory.
     A = rand(2^9, 2^9)
     A_d = CuArray(A)
     B_d = $A_d * $A_d
-    ```
-
-    An example of a `Project.toml` project file.
-
-    ```toml
-    [deps]
-    CUDA = "052768ef-5323-5732-b1bb-66c8b64840ba"
     ```
 
     An example of a `batch.sh` batch script.
@@ -340,6 +340,13 @@ We use the following directory structure and assume it is our working directory.
     ```
 
 === "Mahti"
+    An example of a `Project.toml` project file.
+
+    ```toml
+    [deps]
+    CUDA = "052768ef-5323-5732-b1bb-66c8b64840ba"
+    ```
+
     An example of a `script.jl` code.
 
     ```julia
@@ -348,13 +355,6 @@ We use the following directory structure and assume it is our working directory.
     A = rand(2^9, 2^9)
     A_d = CuArray(A)
     B_d = $A_d * $A_d
-    ```
-
-    An example of a `Project.toml` project file.
-
-    ```toml
-    [deps]
-    CUDA = "052768ef-5323-5732-b1bb-66c8b64840ba"
     ```
 
     An example of a `batch.sh` batch script.
@@ -377,6 +377,13 @@ We use the following directory structure and assume it is our working directory.
     ```
 
 === "LUMI"
+    An example of a `Project.toml` project file.
+
+    ```toml
+    [deps]
+    AMDGPU = "21141c5a-9bdb-4563-92ae-f87d6854732e"
+    ```
+
     An example of a `script.jl` code.
 
     ```julia
@@ -385,13 +392,6 @@ We use the following directory structure and assume it is our working directory.
     A = rand(2^9, 2^9)
     A_d = ROCArray(A)
     B_d = $A_d * $A_d
-    ```
-
-    An example of a `Project.toml` project file.
-
-    ```toml
-    [deps]
-    AMDGPU = "21141c5a-9bdb-4563-92ae-f87d6854732e"
     ```
 
     An example of a `batch.sh` batch script.
@@ -434,6 +434,13 @@ We use the following directory structure and assume it is our working directory.
 └── script.jl     # Julia script
 ```
 
+An example of a `Project.toml` project file.
+
+```toml
+[deps]
+MPI = "da04e1cc-30fd-572f-bb4f-1f8673147195"
+```
+
 An example of a `script.jl` code.
 
 ```julia
@@ -452,13 +459,6 @@ rank = MPI.Comm_rank(comm)
 size = MPI.Comm_size(comm)
 println("Hello from rank $(rank) out of $(size) from host $(gethostname()) and process $(getpid()).")
 MPI.Barrier(comm)
-```
-
-An example of a `Project.toml` project file.
-
-```toml
-[deps]
-MPI = "da04e1cc-30fd-572f-bb4f-1f8673147195"
 ```
 
 === "Puhti"
@@ -530,6 +530,14 @@ We use the following directory structure and assume it is our working directory.
 └── script.jl     # Julia script
 ```
 
+An example of a `Project.toml` project file.
+
+```toml
+[deps]
+ClusterManagers = "34f1f09b-3a8b-5176-ab39-66d58a4d544e"
+Distributed = "8ba89e20-285c-5b6f-9357-94700520ee1b"
+```
+
 An example of a `script.jl` code.
 
 ```julia
@@ -577,14 +585,6 @@ rmprocs.(workers())
 # Print the outputs of master and worker processes.
 println(task())
 println.(outputs)
-```
-
-An example of a `Project.toml` project file.
-
-```toml
-[deps]
-ClusterManagers = "34f1f09b-3a8b-5176-ab39-66d58a4d544e"
-Distributed = "8ba89e20-285c-5b6f-9357-94700520ee1b"
 ```
 
 === "Puhti"
