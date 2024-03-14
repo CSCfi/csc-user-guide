@@ -29,7 +29,8 @@
     ],
     "tasks": [
         {
-            "label": "Docs CSC: Create/update the Conda environment",
+            "label": "Docs CSC: Create",
+            "detail": "Create/update the Conda environment",
             "type": "shell",
             "icon": {
                 "id": "snake",
@@ -41,7 +42,8 @@
             },
         },
         {
-            "label": "Docs CSC: Install/reinstall requirements with Pip",
+            "label": "Docs CSC: Install",
+            "detail": "Install/reinstall the Python requirements with Pip",
             "type": "shell",
             "icon": {
                 "id": "package",
@@ -53,7 +55,8 @@
             },
         },
         {
-            "label": "Docs CSC: Start the development server",
+            "label": "Docs CSC: Serve",
+            "detail": "Start the development server",
             "type": "shell",
             "icon": {
                 "id": "debug-start",
@@ -75,7 +78,8 @@
             },
         },
         {
-            "label": "Docs CSC: Run tests",
+            "label": "Docs CSC: Test",
+            "detail": "Run the test automation suite",
             "type": "shell",
             "icon": {
                 "id": "checklist",
@@ -92,7 +96,8 @@
             },
         },
         {
-            "label": "Docs CSC: Generate What's new, Apps and Glossary pages",
+            "label": "Docs CSC: Generate",
+            "detail": "Run the scripts for generating the 'What's new', 'Apps' and 'Glossary' pages",
             "type": "shell",
             "icon": {
                 "id": "terminal",
