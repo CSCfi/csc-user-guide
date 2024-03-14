@@ -1,5 +1,22 @@
 # Applications
 
+## NAMD 3.0b6 available on LUMI, 12.3.2024
+
+The latest AMD GPU-enabled version of NAMD is now available pre-installed
+on LUMI. See our [NAMD page](../../apps/namd.md) for batch script examples
+and performance notes, as well as the
+[NAMD website](https://www.ks.uiuc.edu/Research/namd/3.0/features.html)
+for a list of new features that improve the performance of single-node
+multi-GPU simulations.
+
+## JAX 0.4.23, 6.3.2024
+
+[JAX](../../apps/jax.md) 0.4.23 was added to Puhti, Mahti and LUMI.
+JAX modules now also include a CPU-only installation of PyTorch,
+which sometimes used together with JAX for its data loading capabilities,
+as well as relevant updates to all Python packages already bundled in the
+previous JAX modules.
+
 ## PyTorch 2.2.1, 1.3.2024
 
 [PyTorch](../../apps/pytorch.md) 2.2.1 added to Puhti, Mahti and
