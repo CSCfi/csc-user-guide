@@ -62,7 +62,7 @@ In Julia, we can import it as follows:
 import Pkg
 ```
 
-The common functions we use are `Pkg.add` to add packages, `Pkg.activate` to activate environments and `Pkg.instantiate` to install all packages defined in the active environment.
+The common functions we use are `Pkg.add` to add packages, `Pkg.activate` to activate environments, and `Pkg.instantiate` to install all packages defined in the active environment.
 The [Pkg documentation](https://pkgdocs.julialang.org/) provides more information on how to use Julia's package manager.
 
 
@@ -80,7 +80,7 @@ export JULIA_DEPOT_PATH="/projappl/<project>/$USER/.julia:$JULIA_DEPOT_PATH"
 ```
 
 Afterward, you can safely remove the default depot directory using `rm -r $HOME/.julia`.
-For more information, you can read more the [depot path documentation](https://docs.julialang.org/en/v1/base/constants/#Base.DEPOT_PATH).
+For more information, you can read more about the [depot path documentation](https://docs.julialang.org/en/v1/base/constants/#Base.DEPOT_PATH).
 
 
 ### Multi-threading
@@ -89,19 +89,19 @@ It is included in the base library and imported by default in a Julia session.
 We can start Julia with multiple threads by setting the `JULIA_NUM_THREADS` environment variable or starting Julia with the `--threads` option which overrides the value in the environment variable.
 If Julia module is loaded within a Slurm job and the environment variable is not set, it is set to the amount of requested CPU cores (`--cpus-per-task`).
 The default thread count is one.
-We recommend reading the [multi-threading](https://docs.julialang.org/en/v1/manual/multi-threading/) section in Julia manual for more details.
+We recommend reading the [multi-threading](https://docs.julialang.org/en/v1/manual/multi-threading/) section in Julia's manual for more details.
 
 
 ### Multi-processing and distributed computing
 #### Distributed and ClusterManagers.jl
 For multiprocessing and distributed computing, Julia provides the `Distributed` standard library.
 We use it for multi-processing on the local node.
-We can extend `Distributed` by installing the `ClusterManagers.jl` package, which allows us to add workers processes to multiple nodes via Slurm  using `SlurmManager`.
+We can extend `Distributed` by installing the `ClusterManagers.jl` package, which allows us to add workers' processes to multiple nodes via Slurm using `SlurmManager`.
 We recommend reading the [multi-processing and distributed computing](https://docs.julialang.org/en/v1/manual/distributed-computing/) section in Julia manual for more details.
 
 
 #### MPI.jl
-We can use MPI for distributed computing, especially over multiple nodes, in Julia on Puhti, Mahti and LUMI using the `MPI.jl` package.
+We can use MPI for distributed computing, especially over multiple nodes, in Julia on Puhti, Mahti, and LUMI using the `MPI.jl` package.
 We can install it using the package manager as follows:
 
 ```julia
@@ -162,4 +162,4 @@ For information, we recommend reading the [AMDGPU.jl documentation](https://amdg
 ### Further reading
 For further reading about parallel and high-performance computing with Julia, we recommend the [Julia for high-performance scientific computing](https://enccs.github.io/julia-for-hpc/) from ENCCS and the [A brief tour of Julia for high-performance computing](https://forem.julialang.org/wikfeldt/a-brief-tour-of-julia-for-high-performance-computing-5deb) by Kjartan Thor Wikfeldt.
 HLRS's training material for the [Julia for High-Performance Computing](https://github.com/carstenbauer/JuliaHLRS23) course offers a deep dive into programming high-performance code with Julia.
-Finally, the [Julia on HPC Clusters](https://juliahpc.github.io/JuliaOnHPCClusters/) lists general notes about using and installing Julia on HPC cluster.
+Finally, the [Julia on HPC Clusters](https://juliahpc.github.io/JuliaOnHPCClusters/) lists general notes about using and installing Julia on an HPC cluster.
