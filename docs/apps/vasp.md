@@ -15,7 +15,7 @@ out with a supervisor or an experienced colleague.
 
 ## Available
 
-See available VASP versions in mahti.csc.fi with command
+See available VASP versions in with command
 
 ```console
 module avail vasp
@@ -42,7 +42,7 @@ module show vasp
 
 to see more detailed information.
 
-### An example batch job script for a small test on Puhti
+### An example batch job script for a small test
 
 ```bash
 #!/bin/bash
