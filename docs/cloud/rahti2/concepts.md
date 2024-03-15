@@ -307,6 +307,12 @@ OpenShift includes all Kubernetes objects, plus some extensions:
 
 ### DeploymentConfig
 
+!!! Warning
+
+    Starting OKD 4.14, DeploymentConfig API is being deprecated. Only security-related and critical issues will be fixed in the future.  
+    More information [here](https://access.redhat.com/articles/7041372)
+
+
 DeploymentConfigs are objects that create
 [ReplicationControllers](../tutorials/elemental_tutorial.md#replicationcontroller) according to
 `spec.template`. They differ from ReplicationControllers in the sense that 
