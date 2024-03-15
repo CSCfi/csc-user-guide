@@ -8,9 +8,11 @@ The procedure described in this file aims to set up the necessary tools on Windo
 <details>
 <summary>With <strong>Option 2, GUI</strong> comes: <strong>Suggestion 1, VS Code</strong>  (click to expand)</summary>
 
-## Installing Visual Studio Code
+## Visual Studio Code
 
-For "Free/Libre Open Source Software Binaries of VS Code" with telemetry disabled, have a look at [_VS Codium_](https://vscodium.com). For information on telemetry data collection in _Visual Studio Code_, please see [Visual Studio Code Telemetry](https://code.visualstudio.com/docs/getstarted/telemetry).
+### Installation
+
+>For "Free/Libre Open Source Software Binaries of VS Code" with telemetry disabled, have a look at [_VS Codium_](https://vscodium.com). For information on telemetry data collection in _Visual Studio Code_, please see [Visual Studio Code Telemetry](https://code.visualstudio.com/docs/getstarted/telemetry).
 
 The installation procedure for _Microsoft_ Visual Studio Code is as follows:
 
@@ -27,7 +29,7 @@ The installation procedure for _Microsoft_ Visual Studio Code is as follows:
 
 ### Tasks
 
-When you later clone the Docs repository, it'll come with some pre-defined _Tasks_ that provide a way to run the **Option 1, CLI** commands using a graphical menu. Tasks for e.g. creating/updating the Conda environment or starting the development server have been pre-defined in the workspace. Tasks can be found
+When you later clone the Docs CSC repository, it'll come with some pre-defined _Tasks_ for VS Code that provide a way to run the **Option 1, CLI** commands using a graphical menu. Tasks for e.g. creating/updating the Conda environment or starting the development server have been pre-defined in the workspace. Tasks can be found
 
 - by selecting _Terminal -> Run task..._ from the menu bar.
 - or from _Quick Open_, accessed by either
@@ -380,6 +382,9 @@ Follow the instructions at GitHub Docs for
 
 #### GitHub Desktop
 
+>Note that, even though you want to use GitHub Desktop, it might prove beneficial to also have an installation of Git at hand (on Windows, that would be _Git for Windows_ introduced above). That way, when you ask for help and get offered a solution as an elaborate Git command, you have something to run it with. **It does take a fair bit of setting up, so it's certainly fine to proceed with GitHub Desktop only. You can install Git later if you really need it.**
+
+
 ##### Installation
 
 Instructions for Windows and Mac are provided [here](https://docs.github.com/en/desktop/installing-and-authenticating-to-github-desktop/installing-github-desktop) and it is as simple as
@@ -392,6 +397,13 @@ Instructions for Windows and Mac are provided [here](https://docs.github.com/en/
 ##### Signing in
 
 Follow the instructions for [Authenticating to GitHub in GitHub Desktop](https://docs.github.com/en/desktop/installing-and-authenticating-to-github-desktop/authenticating-to-github-in-github-desktop) (the regular, non-Enterprise authentication).
+
+
+##### External editor
+
+_[Configuring a default editor in GitHub Desktop](https://docs.github.com/en/desktop/configuring-and-customizing-github-desktop/configuring-a-default-editor-in-github-desktop)_
+
+If you're using, for example VS Code (or Codium), you can set it as the default editor. This allows you to quickly open the repository with VS Code by clicking a "Open in Visual Studio Code" button in the _Changes_ view of GitHub Desktop (another option would selecting _File -> Open Folder..._ in VS Code and looking for the cloned repository folder). There should be a link to the appropriate section for Options right under the text "Open the repository in your external editor" in the _Changes_ view (if not, select _File -> Options..._ and then _Integrations_ from the sidebar).
 
 </details>
 
@@ -442,7 +454,9 @@ cd csc-user-guide/
 <details>
 <summary>Option 2, GUI (click to expand)</summary>
 
-In GitHub Desktop
+_[Cloning and forking repositories from GitHub Desktop](https://docs.github.com/en/desktop/adding-and-cloning-repositories/cloning-and-forking-repositories-from-github-desktop)_
+
+In GitHub Desktop,
 
 1. Select _File -> Clone repository..._ from the menu bar.
 1. Start typing `CSCfi/csc-user-guide` (or just `csc-user-guide`) into the filter field.
@@ -460,6 +474,8 @@ Now you can select the _Repository -> Show in Explorer_ menu entry to browse the
 
 ## Setting up a development environment, step 2
 
+### Creating a virtual Python environment using Conda
+
 <details>
 <summary>Option 1, CLI (click to expand)</summary>
 
@@ -474,17 +490,22 @@ conda env create -f development/conda-docs-base-1.0.yaml
 >conda env create --force -f development/conda-docs-base-1.0.yaml
 >```
 
-Install or update the requirements (when starting fresh or the requirements have been changed):
-
-```bash
-conda run -n docs-env pip install -r requirements.txt
-```
-
 Activate the environment:
 
 ```bash
 conda activate docs-env
 ```
+
+Install the Python requirements with Pip (when starting fresh):
+
+```bash
+pip install -r requirements.txt
+```
+
+>when updating, you may want to add the `--force-reinstall` flag:
+>```bash
+>pip install --force-reinstall -r requirements.txt
+>```
 
 The environment can be deactivated with
 
@@ -496,20 +517,26 @@ conda deactivate
 
 
 <details>
-<summary>Option 2, GUI</summary>
+<summary>Option 2, GUI (click to expand)</summary>
 
-If you're using VS Code (or Codium), creating the Conda environment is as simple as running the task (VS Code tasks introduced above in _[Tasks](#tasks)_) **_Docs CSC: Create/update the Conda environment_**. A terminal panel will open showing you the progress on installing the dependencies. The environment is ready when the terminal instructs you to "press any key to close it", though you can leave it open if you like.
+Using VS Code, creating a virtual Conda environment is as simple as running the task (VS Code tasks introduced above in _[Tasks](#tasks)_) **_Docs CSC: Create_**. A terminal panel will open showing you the progress on installing the dependencies. The environment is ready when the terminal instructs you to "press any key to close it", though you can leave it open if you like.
 
-The environment is now ready for installing the requirements for Docs CSC. Simply run the task **_Docs CSC: Install/reinstall requirements with Pip_**. Both creating the environment and installing the requirements need to be done only when starting fresh or when the dependencies/requirements have been changed, i.e. (for Conda dependencies) a new file named _conda-docs-base-something.something.yaml_ has appeared in the _development_ folder or (for Pip requirements) the file _requirements.txt_ has been changed.
+The virtual environment is now ready for installing the Python requirements for Docs CSC. Simply run the task **_Docs CSC: Install_**. Both creating the environment and installing the requirements need to be done only when starting fresh or when the dependencies/requirements have been changed, i.e. (for Conda dependencies) a new file named _conda-docs-base-something.something.yaml_ has appeared in the _development_ folder or (for Python requirements) the file _requirements.txt_ has been changed.
 
 </details>
+
+---
+
+That's it for setting up! Let's see if it'll run! From here on, the CLI and GUI paths shall be intertwined.
+
+>The procedure for **Option 2, GUI** can be found in a blockquote like this,
+
+while **Option 1, CLI** will be implicit.
 
 
 ## Previewing your changes locally
 
->**Option 2, GUI**: use the VS Code tasks introduced above in _[Tasks](#tasks)_:
->
->- Run the task _Docs CSC: Start the development server_
+>**Option 2, GUI**: Run the task **_Docs CSC: Serve_**
 
 Run the development server (with the Conda environment activated):
 
@@ -523,7 +550,7 @@ or
 mkdocs serve --dirtyreload
 ```
 
->**Option 2, GUI**: The task for starting the development server will ask whether you'd like to include e.g. the `--dirtyreload` flag.
+>**Option 2, GUI**: The task **_Docs CSC: Serve_**, for starting the development server, will ask whether you'd like to include e.g. the `--dirtyreload` flag.
 
 It will take a moment for MkDocs to build and serve the site. You can ignore the long list of pages that "exist in the docs directory, but are not included in the "nav" configuration" MkDocs will show you. If you wish to shut down the server (even when its building)&ndash;perhaps to restart it with `--dirtyreload` enabled&ndash;simply hit _Ctrl+C_.
 
@@ -540,20 +567,41 @@ cd csc-user-guide/
 
 ## Working on your contribution
 
-The main point of this tutorial is to be able to work on the files using the tools you prefer and that if you left MkDocs running, it will reload the preview when you save a file you've edited. This happens quicker with the `--dirtyreload` option enabled, but is in any case quicker and more convenient than waiting for the Rahti preview to rebuild a branch.
+The main point of this tutorial is to be able to work on the files using the tools you prefer, and that if you left MkDocs running, it will reload the preview when you save a file you've edited. This happens quicker with the `--dirtyreload` option enabled, but is in any case quicker and more convenient than waiting for the Rahti preview to rebuild a branch.
 
 
 ### Creating a new branch for your work
 
->**Option 2, GUI**: See _[Managing branches in GitHub Desktop](https://docs.github.com/en/desktop/making-changes-in-a-branch/managing-branches-in-github-desktop)_ (remember to update your local _master_ branch by [pulling](https://docs.github.com/en/desktop/working-with-your-remote-repository-on-github-or-github-enterprise/syncing-your-branch-in-github-desktop#pulling-to-your-local-branch-from-the-remote)).
+>**Option 2, GUI**: See
+>- _[Managing branches in GitHub Desktop](https://docs.github.com/en/desktop/making-changes-in-a-branch/managing-branches-in-github-desktop)_
+>- [Pulling to your local branch from the remote](https://docs.github.com/en/desktop/working-with-your-remote-repository-on-github-or-github-enterprise/syncing-your-branch-in-github-desktop#pulling-to-your-local-branch-from-the-remote)
 
 Check that you are on the _master_ branch using [git-status](https://git-scm.com/docs/git-status):
 
-```bash
-git status
+```console
+$ git status
+On branch master
+Your branch is up to date with 'origin/master'.
+
+nothing to commit, working tree clean
 ```
 
-and `git switch master` if not and you wish to create a new branch to work on.
+and `git switch master` if this is not the case. You'll be creating a new branch to work on and probably want to branch off of the very latest version of _master_, so check that your local branches are up to date using [git-fetch](https://git-scm.com/docs/git-fetch):
+
+```bash
+git fetch origin
+```
+
+The line "Your branch is up to date with 'origin/master'" after `git status` just means that Git isn't _aware_ of any new changes on the remote branch (called _origin_ by default). Now, after fetching, things might have changed:
+
+```console
+$ git status
+On branch master
+Your branch is behind 'origin/master' by 15000 commits, and can be fast-forwarded.
+  (use "git pull" to update your local branch)
+
+nothing to commit, working tree clean
+```
 
 Fast-forward the master branch to the latest commit with [git-pull](https://git-scm.com/docs/git-pull):
 
@@ -567,6 +615,35 @@ Branch off of the latest commit on master using [git-switch](https://git-scm.com
 git switch --create my-branch-name
 ```
 
+You're now ready to work on your contribution! If you forget to make a new branch before editing some files, and the files you've edited have
+
+- **not** been changed by someone else **since you last pulled** from the remote, you can just fetch, pull and create a new branch.
+- been changed on the remote, Git will not let you pull the changes, since your local changes to the files would be overwritten. You'll need to
+    >**Option 2, GUI**: See _[Stashing changes in GitHub Desktop](https://docs.github.com/en/desktop/making-changes-in-a-branch/stashing-changes-in-github-desktop)_
+    * [git-stash](https://git-scm.com/docs/git-switch) your changes
+        ```console
+        $ git stash
+        Saved working directory and index state blahblahblahblahblah
+        ```
+
+    * then, after pulling, pop your changes from the top of the stash
+        ```console
+        $ git stash pop
+        Auto-merging docs/your-file.md
+        On branch master
+        Your branch is up to date with 'origin/master'.
+
+        Changes not staged for commit:
+        (use "git add <file>..." to update what will be committed)
+        (use "git restore <file>..." to discard changes in working directory)
+            modified:   docs/your-file.md
+
+        no changes added to commit (use "git add" and/or "git commit -a")
+        Dropped refs/stash@{0} (77c8f9c7dbab452d84ea8e573edf27954b8bce34)
+        ```
+
+    * create the new branch
+
 
 ### Getting your work to the repository
 
@@ -577,13 +654,17 @@ git switch --create my-branch-name
 
 Remember the relevant xkcd? If you run into a problem with Git, you really _can_ just
 
-  1. copy the files you've worked on into some _other folder_ (`git status` to see which files)
+  1. copy the files you've worked on into some _other folder_ (`git status` to see which files, or just copy everything)
   1. delete the repository folder
   1. clone the repository anew and
   1. copy your work from the _other folder_ into the newly cloned folder
 
+Remember to **think** before doing something destructive like deleting. Git can't help you recover anything it doesn't know about and 'letting Git know about stuff' is basically what you'll be doing for the rest of the tutorial.
+
 
 #### Staging your changes
+
+>**Option 2, GUI**: See _[Selecting changes to include in a commit](https://docs.github.com/en/desktop/making-changes-in-a-branch/committing-and-reviewing-changes-to-your-project-in-github-desktop#selecting-changes-to-include-in-a-commit)_
 
 Selecting specific changes that you want to include in a so called _commit_ is done by staging.
 
@@ -638,6 +719,8 @@ Be careful with git-restore without the `--staged` option. It is used to restore
 
 #### Committing the staged changes
 
+>**Option 2, GUI**: See _[Write a commit message and push your changes](https://docs.github.com/en/desktop/making-changes-in-a-branch/committing-and-reviewing-changes-to-your-project-in-github-desktop#write-a-commit-message-and-push-your-changes)_
+
 Check which changes you've staged with [git-status](https://git-scm.com/docs/git-status):
 
 ```bash
@@ -669,6 +752,8 @@ If you forget to give a message with the -m argument, you can enter it when the 
 
 #### Pushing the commits to GitHub
 
+>**Option 2, GUI**: See _[Pushing changes to GitHub from GitHub Desktop](https://docs.github.com/en/desktop/making-changes-in-a-branch/pushing-changes-to-github-from-github-desktop)_
+
 Check what happened to the branch with [git-log](https://git-scm.com/docs/git-log) (replace the `9` in `-9` to get more/less commits or remove `--oneline` to increase verbosity):
 
 ```bash
@@ -683,11 +768,18 @@ git show HEAD
 
 Again, if the diff is long it'll be shown with _less_, so move with arrow keys and _Page Up_ / _Page Down_, then _Q_ to quit.
 
-Push your branch to GitHub (replace `my-branch-name`) with [git-push]((https://git-scm.com/docs/git-push)):
+Push your branch to GitHub (replace `my-branch-name`) with [git-push](https://git-scm.com/docs/git-push):
 
 ```bash
 git push origin my-branch-name
 ```
+
+#### Open a pull request
+
+Instructions for creating a pull request can be found
+
+- in [CONTRIBUTING.md](./CONTRIBUTING.md#making-pull-requests-in-the-web-gui)
+- at _[GitHub Docs](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request)_
 
 
 #### Checking the status of the tests
