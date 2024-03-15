@@ -6,7 +6,7 @@ The procedure described in this file aims to set up the necessary tools on Windo
 
 
 <details>
-<summary>With <strong>Option 2, GUI</strong> comes: <strong>Suggestion 1, VS Code</strong></summary>
+<summary>With <strong>Option 2, GUI</strong> comes: <strong>Suggestion 1, VS Code</strong>  (click to expand)</summary>
 
 ## Installing Visual Studio Code
 
@@ -116,7 +116,7 @@ In order to "clone" the Docs CSC repository from (and later, to "push" your work
 
 
 <details>
-<summary>Option 1, CLI: Git from the command-line</summary>
+<summary>Option 1, CLI: Git from the command-line (click to expand)</summary>
 
 #### Git for Windows
 
@@ -376,7 +376,7 @@ Follow the instructions at GitHub Docs for
 
 
 <details>
-<summary>Option 2, GUI: Graphical interface with GitHub Desktop</summary>
+<summary>Option 2, GUI: Graphical interface with GitHub Desktop (click to expand)</summary>
 
 #### GitHub Desktop
 
@@ -422,7 +422,7 @@ The part about memorizing some shell commands is what this tutorial is about (op
 ### Obtaining a local copy, i.e. _cloning_ the repository
 
 <details>
-<summary>Option 1, CLI</summary>
+<summary>Option 1, CLI (click to expand)</summary>
 
 Clone the Docs repository (if not cloned yet) with [git-clone](https://git-scm.com/docs/git-clone):
 
@@ -440,7 +440,7 @@ cd csc-user-guide/
 
 
 <details>
-<summary>Option 2, GUI</summary>
+<summary>Option 2, GUI (click to expand)</summary>
 
 In GitHub Desktop
 
@@ -461,7 +461,7 @@ Now you can select the _Repository -> Show in Explorer_ menu entry to browse the
 ## Setting up a development environment, step 2
 
 <details>
-<summary>Option 1, CLI</summary>
+<summary>Option 1, CLI (click to expand)</summary>
 
 Create the Conda environment (if not created yet):
 
