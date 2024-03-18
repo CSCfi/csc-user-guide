@@ -3,11 +3,11 @@
 * Billing unit (BU): A unit used for billing at CSC - each resource consumes a given amount of BUs per hour.
 * CSC computing project: A placeholder for the user's resources information - including: the number of BUs and the CSC
 services which are available for use.
-* OpenShift project: A Kubernetes namespace with additional annotations.
+* Rahti 2 project: A Kubernetes namespace with additional annotations.
 
 ## Billing model
 
-Billing units are calculated by scraping the usage data from all of the OpenShift projects owned by the user.
+Billing units usage of given CSC project are calculated by scraping the usage data from all Rahti 2 projects associated with that CSC project.
 These calculations are based on:
 
 * Pod core.
