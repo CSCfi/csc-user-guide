@@ -4,17 +4,17 @@
 
 !!! info
 
-    Projects in OpenShift are separate from CSC computing projects. A single CSC
-    computing project can have access to multiple projects in OpenShift.
-    Each CSC computing project with access to Rahti 2 receives a *group* in
-    OpenShift.
+    Projects in Rahti 2 are separate from CSC computing projects. A single CSC
+    computing project can have access to multiple projects in Rahti 2.
+    Each CSC computing project with access to Rahti will have a corresponding *group* in
+    Rahti 2.
 
-All projects in OpenShift must be mapped to a CSC computing project. This
+All projects in Rahti 2 must be mapped to a CSC computing project. This
 mapping is used to determine which CSC computing project a given resource
 belongs to for billing and other purposes. You need to
 specify which of them to use. You have to specify which project to map by entering `csc_project:` followed
 by the name or number of your CSC computing project in the _Description_ field
-when creating a new project in OpenShift. You can also enter other text in the
+when creating a new project in Rahti 2. You can also enter other text in the
 description field if you want to have a human-readable description for
 the project you are creating.
 
@@ -34,9 +34,9 @@ This project is used for hosting the Pied Piper web application.
 csc_project: 1000123
 ```
 
-This would make it so that any usage within that OpenShift project is billed
+This would make it so that any usage within that Rahti 2 project is billed
 to the billing unit quota of project_1000123. Note that project_1000123 must
-have Rahti 2 access and you must be a member of that computing project,
+have Rahti service access and you must be a member of that computing project,
 or the OpenShift project creation will fail.
 
 If you would like to know which CSC computing projects you are a member of, you
@@ -44,10 +44,10 @@ can view a list in the [My Projects
 tool](https://my.csc.fi/projects) of MyCSC. You can also set a default 
 billing project by going to [Your Profile page](https://my.csc.fi/profile). 
 
-If you would like to know which CSC computing project an OpenShift project is
+If you would like to know which CSC computing project a Rahti 2 project is
 associated with, you can do so using the _oc_ command line tool. You can find
 instructions for setting up oc in the [command line tool usage
-instructions ](cli.md). For example, if your OpenShift project is called
+instructions ](cli.md). For example, if your Rahti 3 project is called
 *my-openshift-project*, you would run:
 
 ```bash
@@ -90,7 +90,7 @@ Unfortunately, this information is not available via a web interface yet.
 
 ## Creating a project
 
-First, click this [link](https://landing.2.rahti.csc.fi/) to access the homepage of Rahti 2 and click **Login Page** under *OpenShift 4.13*.  
+First, click this [link](https:/rahti.csc.fi/) to access the homepage of Rahti 2 and click **Login Page** under *OpenShift 4.15*.  
 
 After being logged in, click the blue "Create Project" button to create a project, and you will be presented with the following view:
 
@@ -115,7 +115,7 @@ catalog where you can pick an application template or import your
 own one.
 
 For more information about using the web interface, refer to the
-[official OpenShift documentation](https://docs.okd.io/) (our current version is 4.11). You can find out which version of the documentation to look at in the web interface by
+[official OpenShift documentation](https://docs.okd.io/) (our current version is 4.15). You can find out which version of the documentation to look at in the web interface by
 clicking the question mark symbol in the top bar and selecting "About".
 
 ## Project quotas
@@ -178,7 +178,7 @@ The user can set the limits explicitly within the available quota, but if no lim
 
 Note: `m` stands for milicores. `500m` will be the equivalent of 0.5 cores, or in other words half of the time of a CPU core.
 
-Rahti 2 will enforce a maximum limit/request ratio of 5. This means that the CPU or memory `limits` cannot be more than 5 times the `request`. So if the CPU request is 50m, the CPU limit cannot be higher than 500m. And if we wanted to increase the CPU limit to 1, we will have to increase as well the request to at least 100m.
+Rahti 2 enforces a maximum limit/request ratio of 5. This means that the CPU or memory `limits` cannot be more than 5 times the `request`. So if the CPU request is 50m, the CPU limit cannot be higher than 500m. And if we wanted to increase the CPU limit to 1, we will have to increase as well the request to at least 100m.
 
 ## Cluster Quotas
 
@@ -239,9 +239,15 @@ RoleBindings**, in the `Administrator` menu. You can either give access rights t
 ![Create Role Binding](../../img/Create_role_binding.png)
 
 Note that it is important to use correct usernames when sharing projects
-with others. OpenShift allows you to freely enter any username and will not notify
+with others. Rahti 2 allows you to freely enter any username and will not notify
 you for having entered a non-existent username. Usernames are also case-sensitive.
-You can find out your username in OpenShift via the command line, by using the command `oc whoami`.
+You can find out your username in Rahti 2 via the command line, by using the command `oc whoami`.
+
+!!! info
+
+    When creating a Rahti 2 project which is associated with certain CSC computing project, by default all members the of 
+    CSC computing project will have admin access to the Rahti 2 project. This also means that you can add administrators to
+    your Rahti 2 project by adding them directly to your CSC project. 
 
 ## Deleting a project
 
@@ -257,4 +263,4 @@ Then you will be asked to input the name of the project to prevent accidental de
 
 ![Project name dialog](../../img/delete_project_name.png)
 
-After that, Rahti 2 will start to delete all the resources of the project. It could take only few seconds or up to a minute, it depends of amount of resources the project had. After that Rahti 2 will liberate the project name, and it will be possible to create an empty project with the same name.
+After that, Rahti 2 will start to delete all the resources of the project. It could take only few seconds or up to a minute, it depends on the amount of resources the project had. After that, Rahti 2 will liberate the project name, and it will be possible to create an empty project with the same name.
