@@ -1,4 +1,4 @@
-# Accessing Sensitive Data (SD) services 
+# Start here: Accessing Sensitive Data (SD) services 
   
 CSC's Sensitive Data (SD) services are available to researchers and students affiliated with Finnish higher education institutions (universities, universities of applied sciences) or research institutes and their international collaborators. In this section, discover how to access SD services for processing sensitive research data. Learn to manage billing unit consumption and what happens to your data upon project closure.
 
@@ -15,7 +15,7 @@ Contents:
 
 Access to the services is managed directly by the CSC project manager (e.g. research project's principal investigator, group leader, or postdoc) using the MyCSC portal, and it is based on a CSC project. The CSC project manager can add members with equal access permissions to the same project. They can upload encrypted data to SD Connect and analyze it using the SD Desktop services. However, only the project manager can export non-sensitive results from the secure computing environment. 
 
-To access SD Connect and SD Desktop for storing, sharing or analyzing sensitive research data:
+### How to access SD Connect and SD Desktop for storing, sharing or analyzing sensitive research data:
 
 1. Create a [CSC account](../../accounts/how-to-create-new-user-account.md) by logging in at the [MyCSC portal](https://my.csc.fi).
 

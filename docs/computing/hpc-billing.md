@@ -32,8 +32,9 @@ of reserved GPUs. Memory is not billed separately.
 
 * Each reserved CPU node consumes **100** BU per hour.
 * In interactive partition each core consumes **1** BU per hour.
-* Each reserved GPU consumes **100** BU per hour, or in total **400** BU per
+* Each reserved A100 GPU consumes **100** BU per hour, or in total **400** BU per
   hour for a full GPU node.
+* A slice of an A100 GPU with one seventh of an A100 (a100_1g.5gb) consumes **15** BU per hour 
 
 ## Scratch disk billing
 
