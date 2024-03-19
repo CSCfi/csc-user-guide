@@ -317,7 +317,7 @@ We use the following directory structure and assume it is our working directory.
 
     A = rand(2^9, 2^9)
     A_d = CuArray(A)
-    B_d = $A_d * $A_d
+    B_d = A_d * A_d
     ```
 
     An example of a `batch.sh` batch script.
@@ -354,7 +354,7 @@ We use the following directory structure and assume it is our working directory.
 
     A = rand(2^9, 2^9)
     A_d = CuArray(A)
-    B_d = $A_d * $A_d
+    B_d = A_d * A_d
     ```
 
     An example of a `batch.sh` batch script.
@@ -391,7 +391,7 @@ We use the following directory structure and assume it is our working directory.
 
     A = rand(2^9, 2^9)
     A_d = ROCArray(A)
-    B_d = $A_d * $A_d
+    B_d = A_d * A_d
     ```
 
     An example of a `batch.sh` batch script.
