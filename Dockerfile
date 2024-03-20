@@ -13,12 +13,12 @@ COPY requirements.txt /tmp
 
 WORKDIR /tmp
 
-RUN yum -y install epel-release \
+RUN dnf -y install epel-release \
                    nginx \
                    python38 \
                    git \
                    findutils &&\
-    yum clean all &&\
+    dnf clean all &&\
     pip3 install --no-cache-dir -r requirements.txt
 
 RUN chgrp -R root ${ROOT_GROUP_DIRS} &&\
