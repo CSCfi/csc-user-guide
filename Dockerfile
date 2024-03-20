@@ -15,7 +15,8 @@ WORKDIR /tmp
 
 RUN dnf -y install epel-release \
                    nginx \
-                   python38 \
+                   python3.11 \
+                   python3.11-pip \
                    git \
                    findutils &&\
     dnf clean all &&\
