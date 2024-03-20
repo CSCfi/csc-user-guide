@@ -36,7 +36,7 @@ parallel quantum chemistry calculations, in particular for AIMD.
     |:-------:|:---------------------------------|:---------------------:|
     |2023.1   |`cp2k/2023.1`<br>`cp2k/2023.1-gpu`| GPU version available |
     |2023.1   |`cp2k/2023.2`<br>`cp2k/2023.2-gpu`| GPU version available |
-    |2023.1   |`cp2k/2024.1`<br>`cp2k/2024.1-gpu`| GPU version available |
+    |2024.1   |`cp2k/2024.1`<br>`cp2k/2024.1-gpu`| GPU version available |
 
 ## License
 
