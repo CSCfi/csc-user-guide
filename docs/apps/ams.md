@@ -7,7 +7,6 @@ tags:
 
 The Amsterdam Modeling Suite (AMS) is a comprehensive suite of computational chemistry software. It comes with a graphical user interface, [AMS-GUI](ams-gui.md) 
 that provides an intuitive way for setting up, running, and analyzing simulations.
- The GUI is designed to streamline the process of setting up, running, and analyzing simulations, 
 
 ## Available
 
