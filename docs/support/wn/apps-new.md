@@ -1,5 +1,11 @@
 # Applications
 
+## AMS 2023 available on Puhti and Mahti and LUMI, 21.3.2024
+
+[AMS](../../apps/ams.md) has been updated to version 2023.104 on both Mahti and Puhti 
+and set as the default module. The corresponding [AMS-GUI]((../../apps/ams-gui.md)
+is also updated. 
+
 ## CP2K 2024.1 available on Puhti, Mahti and LUMI, 20.3.2024
 
 [CP2K](../../apps/cp2k.md) 2024.1 has been installed and set as the default
