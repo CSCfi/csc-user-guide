@@ -13,15 +13,14 @@ For more information about the Python environments on Puhti and Mahti, see the [
  - qiskit
 
 ## Installing packages
-It is possible to install packages in the Jupyter notebook using `pip`.
-To install packages to your user packages directory use the following command in the notebook:  
+It is possible to install packages in the Jupyter notebook using `pip`. Before launching the Jupyter app, you should set the *User packages path* in the advanced settings view to the directory where you want to install packages. The default option is to install packages into `$HOME/.local`, but this is not recommended as the home directory quota is limited.
+
+To install packages to the defined user packages directory, use the following command in the notebook:  
 
 ```python
 import sys 
 !{sys.executable} -m pip install --user <package>
 ```
-
-Note that if you use this approach, you should set the *User packages path* to the directory where you want to install packages. The default option is to install packages into `$HOME/.local`, but this is not recommended as the home directory quota is limited.
 
 To install packages to a virtual environment you can use the command:  
 `!{sys.executable} -m pip install <package>`
