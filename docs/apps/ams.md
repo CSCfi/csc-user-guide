@@ -18,17 +18,17 @@ that provides an intuitive way for setting up, running, and analyzing simulation
 -  The license does not include the right for employees of government labs or other non-academic non-profit research institutes to use the software. 
 -  The license only allows non-profit non-commercial use. 
 -  The license excludes all forms of contract research, royalty-bearing activities and other activities leading to monetary benefits.
--  Research groups which need other modules of the AMS suite can obtain a licence for themselves to run the programs on the CSC computers. 
+-  Research groups which need other modules of the AMS suite can obtain a license for themselves to run the programs on the CSC computers. 
 
 ## Usage
 
-Initialise AMS:
+Initialize AMS:
 
 ```bash
 module load ams/2023.104
 ```
 
-Some example batch scripts.
+### Example batch scripts
 
 !!! warning "Note"
     Particularly some property calculations can be very disk I/O intensive. Such jobs benefit from using the [fast local storage (NVMe)](../../computing/running/creating-job-scripts-puhti/#local-storage) on Puhti. Using local disk for such jobs will also reduce the load on the Lustre parallel file system.
@@ -36,7 +36,7 @@ Some example batch scripts.
 
 === "Puhti"
     
-    ```
+    ```bash
     #!/bin/bash
     #SBATCH --partition=test
     #SBATCH --nodes=2
@@ -55,9 +55,9 @@ Some example batch scripts.
     "$AMSBIN/ams" < ./Si35_TZ2P.inp > ./Si35_TZ2P.log
     ```
      
-===  "Puhti, local disk"
+=== "Puhti, local disk"
     
-    ```
+    ```bash
     #!/bin/bash
     #SBATCH --partition=large
     #SBATCH --nodes=2
@@ -77,7 +77,7 @@ Some example batch scripts.
 
 === "Mahti"
     
-    ```
+    ```bash
     #!/bin/bash
     #SBATCH --partition=medium
     #SBATCH --nodes=1
@@ -97,7 +97,7 @@ Some example batch scripts.
 ### [The AMS-GUI](../apps/ams-gui.md)
 
 AMS comes with an integrated Graphical User Interface, [AMS-GUI](ams-gui.md) that makes it easy to set up, run and analyze modelling tasks.
-You can test the GUI via the Puhti web interface, but for more extensive use we recommend to install
+You can test the GUI via the Puhti web interface, but for more extensive use we recommend installing
 the GUI on your own laptop/workstation. For detailed instructions, see the [AMS-GUI documentation.](ams-gui.md)
 
 ## References

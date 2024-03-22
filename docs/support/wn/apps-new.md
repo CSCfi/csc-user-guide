@@ -1,6 +1,6 @@
 # Applications
 
-## AMS 2023 available on Puhti and Mahti and LUMI, 21.3.2024
+## AMS 2023 available on Puhti and Mahti, 21.3.2024
 
 [AMS](../../apps/ams.md) has been updated to version 2023.104 on both Mahti and Puhti
 and set as the default module. The corresponding [AMS-GUI](../../apps/ams-gui.md)
