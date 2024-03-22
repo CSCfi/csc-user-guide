@@ -382,7 +382,7 @@ Follow the instructions at GitHub Docs for
 
 #### GitHub Desktop
 
->Note that, even though you want to use GitHub Desktop, it might prove beneficial to also have an installation of Git at hand (on Windows, that would be _Git for Windows_ introduced above). That way, when you ask for help and get offered a solution as an elaborate Git command, you have something to run it with. **It does take a fair bit of setting up, so it's certainly fine to proceed with GitHub Desktop only. You can install Git later if you really need it.**
+>Note that, even though you want to use GitHub Desktop, it might prove beneficial to also have an installation of Git at hand (on Windows, that would be _Git for Windows_, introduced above). That way you can use the Git integration in VS Code and, when you ask for help and get offered a solution as an elaborate Git command, you have something to run it with. The section is quite long, but you only need to [install Git for Windows](#installation-2) and _maybe_ [set your email/username](#associating-your-commits-with-your-github-account). You can skip everything else. **It's certainly fine to proceed with GitHub Desktop only. You can always install Git later if you really need it.**
 
 
 ##### Installation
