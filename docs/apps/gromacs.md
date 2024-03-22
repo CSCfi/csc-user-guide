@@ -28,6 +28,7 @@ systems. It also comes with plenty of analysis scripts.
     |2023.2   |`gromacs/2023.2`
     |2023.3   |`gromacs/2023.3`
     |2024.0   |`gromacs/2024`
+    |2024.1   |`gromacs/2024.1`
 
 === "Mahti"
     | Version | Available modules | Notes |
@@ -46,6 +47,7 @@ systems. It also comes with plenty of analysis scripts.
     |2023.2   |`gromacs/2023.2`
     |2023.3   |`gromacs/2023.3`
     |2024.0   |`gromacs/2024`
+    |2024.1   |`gromacs/2024.1`
 
 === "LUMI"
     | Version | Available modules | Notes |
@@ -56,6 +58,7 @@ systems. It also comes with plenty of analysis scripts.
     |2023.2   |`gromacs/2023.2`<br>`gromacs/2023.2-gpu`|GPU-enabled module available
     |2023.3   |`gromacs/2023.3`<br>`gromacs/2023.3-gpu`|GPU-enabled module available
     |2024.0   |`gromacs/2024.0`<br>`gromacs/2024.0-gpu`|GPU-enabled module available
+    |2024.1   |`gromacs/2024.1`<br>`gromacs/2024.1-gpu`|GPU-enabled module available
 
     [^1]: This module is unvalidated, unmaintained and unsupported by the GROMACS team. Use at your own risk!
 
@@ -263,7 +266,7 @@ on the GROMACS page.
     #SBATCH --cpus-per-task=7
 
     module use /appl/local/csc/modulefiles
-    module load gromacs/2023.3-gpu
+    module load gromacs/2024.1-gpu
 
     export OMP_NUM_THREADS=${SLURM_CPUS_PER_TASK}
 
@@ -282,7 +285,7 @@ on the GROMACS page.
     #SBATCH --ntasks-per-node=8
 
     module use /appl/local/csc/modulefiles
-    module load gromacs/2023.3-gpu
+    module load gromacs/2024.1-gpu
 
     export OMP_NUM_THREADS=7
 
@@ -334,7 +337,7 @@ also bring significant performance benefits when running on multiple GPUs. Enabl
 this requires setting the following environment variables in your batch script (see
 also the full GPU node example above):
 
-```
+```bash
 export MPICH_GPU_SUPPORT_ENABLED=1
 export GMX_ENABLE_DIRECT_GPU_COMM=1
 export GMX_FORCE_GPU_AWARE_MPI=1

@@ -1,6 +1,6 @@
 # Earth Observation guide
 
-This guide aims to help researchers to work with Earth Observation (EO) data using CSC's computing resources. The purpose of this guide is to give an overview of available options, so it would be easier to decide if CSC has suitable services for your EO research. It also helps you find the right data and tools for raster data based EO tasks. This guide focuses on spaceborne platforms. However, many tools and concepts also apply to airborne platforms. If you are interested in the fundamentals of EO, please check the [resources and further reading section](#resources-and-further-reading).
+This guide aims to help researchers to work with Earth Observation (EO) data using CSC's computing resources. The purpose of this guide is to give an overview of available options, so it would be easier to decide if CSC has suitable services for your EO research. It helps you find the right data and tools for raster data based EO tasks. This guide focuses on spaceborne platforms. However, many tools and concepts also apply to airborne platforms. If you are interested in the fundamentals of EO, please check the [resources and further reading section](#resources-and-further-reading).
 
 **What are the benefits of using EO data?**
 
@@ -18,9 +18,9 @@ This guide aims to help researchers to work with Earth Observation (EO) data usi
 
 For working with EO data in general, there are three main options:
 
-1) **EO specific services**, which provide both data and advanced ready-to-use processing environments. Usually these give better user experience and efficiency, but the services might be limited in computing power, available tools and options for adding own data. Often these have fees for using. Examples are [Google Earth Engine](https://earthengine.google.com/), [SentinelHub](https://www.sentinel-hub.com/) and  [Microsoft Planetary Computer](https://planetarycomputer.microsoft.com).
+1) **EO specific services**, which provide both data and ready-to-use processing environments. Usually these give better user experience and efficiency, but the services might be limited in computing power, available tools and options for adding own data or tools. These might have usage fees. Examples are [Copernicus Data Space Ecosystem](https://dataspace.copernicus.eu/), [Google Earth Engine](https://earthengine.google.com/) and [Microsoft Planetary Computer](https://planetarycomputer.microsoft.com).
 
-2) **Cloud services** with access to EO data. Practically, the data is often stored in object-storage and can be accessed as independent service. They  also provide general computing services, such as virtual machines, to which EO  tools need to be installed by the end-user. These options usually have some fees, mainly for processing. The data download may be free of charge or have a small cost, depending on the amount of data needed. One example is [Amazon Web Services](https://registry.opendata.aws/); also the [Microsoft Planetary Computer](https://planetarycomputer.microsoft.com) and [Copernicus Data Space Ecosystem](https://dataspace.copernicus.eu/) somewhat fit this category.
+2) **Cloud services** with access to EO data. Practically, the data is often stored in object-storage and can be accessed as independent service. They  provide general computing services, such as virtual machines, to which EO  tools need to be installed by the end-user. These options usually have some fees, mainly for processing and storage. The data download may be free of charge or have a small cost, depending on the amount of data needed. One example is [Amazon Web Services](https://registry.opendata.aws/); also the [Microsoft Planetary Computer](https://planetarycomputer.microsoft.com) somewhat fit this category.
 
 3) **Own computing environment** - PC, local cluster, virtual machines. Data needs to be downloaded and all tools must be installed to this system. On the other hand, it gives more freedom to select the tools and set-up. Usually this does not cause any extra costs, but the computing power is usually rather limited.
 
@@ -28,9 +28,9 @@ CSC services do not fit well in this categorization, as they provide some featur
 
 At CSC, EO data can be processed and analyzed using a supercomputer, for example [supercomputer Puhti](../../../computing/systems-puhti.md), or a virtual machine in the [cPouta cloud service](../../../cloud/pouta/pouta-what-is.md). Puhti's computing capacity can hardly be compared to any other EO service, in both available processing power and amount of memory. Both Puhti and cPouta have also GPU resources, which are especially useful for large simulations and deep learning use cases. 
 
-Puhti has also a lot of [pre-installed applications](#what-applications-are-available-on-puhti), so it is an environment ready to use. cPouta virtual machines are similar to commercial cloud services, where all set-up and installations are done by the end-user. In general, both services only support Linux software.
+Puhti has a lot of [pre-installed applications](#what-applications-are-available-on-puhti), so it is a ready-to-use environment. cPouta virtual machines are similar to commercial cloud services, where all set-up and installations are done by the end-user. In general, both services only support Linux software.
 
-At CSC, [some Finnish EO datasets](#eo-data-at-csc) are available for direct use. In many cases, however, downloading EO data from other services (see [list of EO data download services](#eo-data-download-services)) is a required step of the process. Puhti and cPouta provide local storage of ~1-20 Tb. For more storage space,  [Allas object storage](../../../data/Allas/index.md) can be used.
+At CSC, [some Finnish EO datasets](#eo-data-at-csc) are available for direct use. In many cases, however, downloading EO data from other services (see [list of EO data download services](#eo-data-download-services)) is a required step of the process. Puhti and cPouta provide local storage of ~1-20 Tb. For more storage space, [Allas object storage](../../../data/Allas/index.md) can be used.
 
 Using CSC computing services requires basic Linux skills and ability to use some scripting language (for example Python, R, Julia) or command-line tools. In addition, supercomputers and virtual machines require you to understand some specific concepts, so it takes a few hours to get started. The [Puhti web interface](https://www.puhti.csc.fi/) makes the start considerably easier, providing a desktop environment in the web browser, which enables the use of tools with Graphical User Interfaces (GUI) and also tools like R Studio and JupyterLab for an easy start with R, Python and Julia.
 
@@ -102,39 +102,64 @@ Commercial datasets are usually available from data provider, while open dataset
 
 !!! default "STAC"
 
-    Many data providers provide a Spatio Temporal Asset Catalog (STAC) of their datasets. These catalogs help in finding available data based on time and location with the possibility for multiple additional filters, such as cloud cover and resolution. The [STAC Index](https://www.stacindex.org/) provides a nice overview of available catalogs from all over the world, including [Paituli STAC](https://stacindex.org/catalogs/paituli-stac-finland#/). The STAC Index page also includes many resources for learning and utilizing STAC. Check out also CSC's [examples for utilizing STAC from Python](https://github.com/csc-training/geocomputing/blob/master/python/STAC) and [examples for utilizing STAC from R](https://github.com/csc-training/geocomputing/tree/master/R/STAC).
+    Many data providers provide a Spatio Temporal Asset Catalog (STAC) of their datasets. These catalogs help in finding available data based on time and location with the possibility for multiple additional filters, such as cloud cover and resolution. The [STAC Index](https://www.stacindex.org/) provides a nice overview of available catalogs from all over the world. The STAC Index page includes many resources for learning and utilizing STAC. Finnish data is available from [Paituli STAC](https://paituli.csc.fi/stac.html). Check out also CSC's examples for utilizing [STAC from Python](https://github.com/csc-training/geocomputing/blob/master/python/STAC) and [STAC from R](https://github.com/csc-training/geocomputing/tree/master/R/STAC).
 
 ### EO data at CSC
 
-Some Finnish EO datasets are available locally at CSC. A STAC catalog for all spatial data available at CSC is currently in progress. You can find more information about it and its current content from the [Paituli STAC page](https://paituli.csc.fi/stac.html).
+Some Finnish EO datasets are available locally at CSC. [Paituli STAC](https://paituli.csc.fi/stac.html) includes all raster data available at CSC.
 
-* **Sentinel and Landsat mosaics** of Finland in Puhti. Accessing data in Puhti requires CSC user account with a project where Puhti service is enabled. All Puhti users have **read** access to these datasets. You do not need to move the files: they can be used directly, unless you need to modify them, which requires you to make your own copy.
-* **Sentinel-2 L2A data** of Finland in Allas. These files are public, so anybody can download them, also from own computer or other services.
+* **Landsat mosaics** in Puhti. 
+* **Sentinel-2 L2A data**, selection of cloud-free tiles in Allas. 
 * [More information and list of all spatial datasets in CSC computing environment](../../../data/datasets/spatial-data-in-csc-computing-env.md)
 
 ### EO data download services  
 
-**[SYKE/FMI, Finnish image mosaics](https://www.syke.fi/fi-FI/Tutkimus__kehittaminen/Tutkimus_ja_kehittamishankkeet/Hankkeet/Paikkatietoalusta_PTA)** : Sentinel-1, Sentinel-2 and Landsat mosaics, for several time periods per year. Some of them are available in Puhti, but not all. [FMI provides also a STAC catalog for these mosaics](https://pta.data.lit.fmi.fi/stac/root.json)
+**[SYKE/FMI, Finnish image mosaics](https://www.syke.fi/fi-FI/Tutkimus__kehittaminen/Tutkimus_ja_kehittamishankkeet/Hankkeet/Paikkatietoalusta_PTA)** : Sentinel-1, Sentinel-2 and Landsat mosaics, also index mosaics. For several time periods per year. These are included in [Paituli STAC](https://paituli.csc.fi/stac.html)
 
-[**Copernicus Data Space Ecosystem**](https://dataspace.copernicus.eu/) provides worldwide main products for Sentinel-1, -2 and -3. It requires free registration. Includes possibility for visualisation and data processing. This was introduced in late 2023 and replaced the European Space Agency's SciHub. This service provides much more than a data download service, see for example all [analysing services of the Copernicus Data Space Ecosystem](https://dataspace.copernicus.eu/analyse).
+[**ESA Copernicus Data Space Ecosystem**](https://dataspace.copernicus.eu/) provides worldwide main Sentinel products, see below for more information.
 
-[**FinHub**](https://finhub.nsdc.fmi.fi/#/home) is the Finnish national mirror of SciHub; other national mirrors also exist. It covers Finland and the Baltics and offers Sentinel-2 L1C (but not L2A) and Sentinel 1 SLC, GRD and OCN products and requires own registration. FinHub provides a similar Graphical User Interface (GUI) and Application Programming Interface (API) to access the data as the old SciHub. You can also use for example the [sentinelsat](https://sentinelsat.readthedocs.io/en/stable/) tool for downloading data from FinHub. 
+[**FinHub**](https://finhub.nsdc.fmi.fi/#/home) covers Finland and the Baltics and offers Sentinel-2 L1C (but not L2A) and Sentinel 1 SLC, GRD and OCN products. No STAC. [sentinelsat](https://sentinelsat.readthedocs.io/en/stable/) Python package is suitable for downloading data from FinHub, see [CSC FinHub sentinelsat example](https://github.com/csc-training/geocomputing/tree/master/python/sentinel). 
     
-[**USGS EarthExplorer**](https://earthexplorer.usgs.gov/) provides among others US related datasets, also worldwide Landsat mission datasets. It requires free registration. Data can be browsed and downloaded via web interface and bulk download. USGS is the main provider of the new [Landsat Collection 2 data](https://www.usgs.gov/landsat-missions/landsat-data-access).
+[**USGS EarthExplorer**](https://earthexplorer.usgs.gov/) huge datastore with focus on US data, but also worldwide Landsat datasets. USGS is the main provider of the new [Landsat Collection 2 data](https://www.usgs.gov/landsat-missions/landsat-data-access). [Landsat Collection 2 STAC](https://www.usgs.gov/landsat-missions/spatiotemporal-asset-catalog-stac)
     
-[**NASA Earthdata**](https://search.earthdata.nasa.gov) provides among many others [harmonized Landsat 8 and Sentinel-2 dataset](https://hls.gsfc.nasa.gov/). It requires free registration and download is possible via web interface and bulk download.
+[**NASA Earthdata**](https://search.earthdata.nasa.gov) provides among many others [harmonized Landsat 8 and Sentinel-2 dataset](https://hls.gsfc.nasa.gov/). [NASA STAC](https://cmr.earthdata.nasa.gov/search/site/docs/search/stac)
 
-**[Amazon Web Service (AWS) open EO data](https://registry.opendata.aws/?search=tags:gis,earth%20observation,events,mapping,meteorological,environmental,transportation)** is a collection of worldwide EO datasets provided by different organizations, including Landsat and Sentinel. Some of the data can be downloaded only on "requestor pays" basis. Currently, [Sentinel-2 L2A Cloud-optimized Geotiffs](https://registry.opendata.aws/sentinel-2-l2a-cogs/) are available for free, also via STAC.
+**[Amazon Web Service (AWS) open EO data](https://registry.opendata.aws/?search=tags:gis,earth%20observation,events,mapping,meteorological,environmental,transportation)** is a collection of worldwide EO datasets provided by different organizations, including Landsat and Sentinel. Some of the data can be downloaded only on "requestor pays" basis. Currently, [Sentinel-2 L2A Cloud-optimized Geotiffs](https://registry.opendata.aws/sentinel-2-l2a-cogs/) by Element 84 are available for free, inc. STAC.
 
-**[Microsoft planetary computer](https://planetarycomputer.microsoft.com)** provides a STAC of all available data, which includes Sentinel, Landsat, MODIS. It is currently available in preview.
+**[Microsoft planetary computer](https://planetarycomputer.microsoft.com)** provides a STAC of all available data, which includes Sentinel, Landsat, MODIS. 
 
 [**Google Cloud Storage open EO data**](https://cloud.google.com/storage/docs/public-datasets), including Sentinel-2 L1C and Landsat Collection 1 data. Data can be downloaded for example with [FORCE](../../../apps/force.md).
     
-[**Terramonitor**](https://www.terramonitor.com) provides pre-prosessed, analysis ready Sentinel-2 data from Finland available between 2018-2020. It is a commercial service.
+[**Terramonitor**](https://www.terramonitor.com) provides pre-prosessed analysis ready Sentinel-2 data, also from Finland. It is a commercial service.
+
+Almost all of the services provide download with web interface and bulk download via API. Most services require free self-registration. 
 
 !!! default "Other geospatial datasets"
 
     To find other geospatial datasets, check out [CSC open spatial dataset list](https://research.csc.fi/open-gis-data).  
+
+### ESA Copernicus Data Space Ecosystem
+
+[Copernicus Data Space Ecosystem](https://dataspace.copernicus.eu/) (CDSE) provides the possibility to browse, visualize, download and analyze EO data. It started in late 2023 and replaced ESA's SciHub. CDSE mainly includes different Sentinel datasets, but also some complimentary datasets, inc Landsat, see [full list of CDSE datasets](https://documentation.dataspace.copernicus.eu/Data.html). Note that duplicates may be available due to reprocessing with newest baselines.  
+
+CDSE data APIs and data download:
+
+* [CDSE Browser](https://dataspace.copernicus.eu/browser/) - web interface for accessing, exploring and downloading the data. 
+- [CDSE Catalog APIs](https://dataspace.copernicus.eu/analyse/apis/catalogue-apis) support 3 different options for finding suitable data: OData, OpenSearch and STAC. OData and OpenSearch provide similar functionality. In principle, also STAC has a lot of potential, because it would easier to download only needed data, for example only some bands or geographically only parts of data. It is the newest of data APIs and at the moment does not support any other search criteria than collection, time and location, so for example cloud cover filtering is not possible (yet). So use cases for Sentinel2 STAC are currently limited, but for Sentinel1 it might be more suitable.
+- [CDSE S3](https://documentation.dataspace.copernicus.eu/APIs/S3.html) for high-performance parallel access and download from CDSE object storage.
+
+Several example scripts are available for CDSE data download: 
+
+* [OpenSearch API + rclone by CSC](https://github.com/csc-training/geocomputing/tree/master/Copernicus_data_download), option to save to CSC Allas or some other object storage .
+* [OData API + Python requests](https://github.com/eu-cdse/notebook-samples/blob/main/geo/odata_basics.ipynb)
+* Alternatively [s3cmd and Python boto3](https://documentation.dataspace.copernicus.eu/APIs/S3.html) can be used for S3 downloads.
+
+You can also read data directly from S3 with GDAL or GDAL-based tools, see [CSC GDAL cloud tutorial](gdal_cloud.md). 
+
+These data APIs are free of charge. Different services have different limitations, see [CDSE Quotas and limitations](https://documentation.dataspace.copernicus.eu/Quotas.html). Compared to the ESA's previous SciHub service, the number of concurrent downloads per user has increased from two to four for most APIs.
+
+CDSE includes also [OpenEO](https://documentation.dataspace.copernicus.eu/APIs/openEO/Collections.html) and [SentinelHub](https://documentation.dataspace.copernicus.eu/APIs/SentinelHub/Data.html) services, which provide more analysis ready datasets and own download services and APIs. Both have own STAC. SentinelHub provides also OGC APIs. 
+
 
 ## How can I process EO data at CSC?
 
@@ -174,18 +199,20 @@ There is no single software perfect for every task and taste. The right software
 
 [**Python**](../../../apps/python.md)
 
-* The [geoconda module](../../../apps/geoconda.md) provides many useful Python packages for raster data processing and analysis, such as `rasterio`, `rasterstats`, `scimage`, `sentinelhub`, `xarray` and tools for working with STAC.
-* [Machine learning modules](../../../apps/by_discipline.md#data-analytics-and-machine-learning) provide some common machine learning frameworks, also for deep learning..
+* The [geoconda module](../../../apps/geoconda.md) provides many useful Python packages for raster data processing and analysis, such as `rasterio`, `rasterstats`, `scimage`, `sentinelhub`, `xarray`, `boto3` and packages for working with STAC.
+* [Machine learning modules](../../../apps/by_discipline.md#data-analytics-and-machine-learning) provide some common machine learning frameworks, inc. for deep learning..
 
 [**QGIS**](../../../apps/qgis.md) - open source tool with GUI for working with spatial data including limited multispectral image processing capabilities.  GUI with batch processing possibility and Python interface. Used for example for visualization, map algebra and other raster processing. Many plug-ins available, for EO data processing, check out the [QGIS Semi-automatic classification plugin](https://fromgistors.blogspot.com/p/semi-automatic-classification-plugin.html).
 
-[**R**](../../../apps/r-env-for-gis.md) - Puhti R installation includes a lot of geospatial packages, including several useful for EO data processing, such as `terra`, `CAST`, `raster` and `spacetime`, also `rstac` for working with STAC catalogs.
+[**R**](../../../apps/r-env-for-gis.md) - Puhti R installation includes a lot of geospatial packages, including several useful for EO data processing, such as `terra`, `CAST`, `raster`, `rstac` and `spacetime`.
 
 [**Sen2Cor**](../../../apps/sen2cor.md) - a command-line tool for Sentinel-2 Level 2A product generation and formatting.
 
 [**Sen2mosaic**](../../../apps/sen2cor.md) - a command-line tool to download, preprocess and mosaic Sentinel-2 data.
 
 [**SNAP**](../../../apps/snap.md) - ESA Sentinel Application Platform. Tool for processing of Sentinel data (+ support for other data sources). GUI, CLI (Graph Processing Tool, GPT) and Python interfaces. [SNAP GPT example for Puhti](https://github.com/csc-training/geocomputing/tree/master/snap).
+
+[**allas'']](../../../apps/allas.md) - tools for working with S3 storage, inc CSC Allas, CDSE S3 etc: `rclone` and `s3cmd`.
 
 If you need further applications, you can ask CSC to install them for you. 
  
@@ -201,10 +228,12 @@ Below is a list of alternative EO processing services that might be useful, when
 
 **[Microsoft planetary computer](https://planetarycomputer.microsoft.com)** offers JupyterHub together with Dask Gateway, both CPUs and GPUs are available. It is currently available in preview.
 
- **[Data and Information Access Services (DIAS)](https://www.copernicus.eu/en/access-data/dias)** offer cloud based Virtual Machines (VMs), dedicated baremetal servers, containers, operating system and software images. These services are specialized in EO and have user support available. All of them are commercial services. The new [**Copernicus Data Space Ecosystem**](https://dataspace.copernicus.eu/) combines some of the DIASes into one, including also free trials of the service. See the [Copernicus Data Space Ecosystem - Analyse page](https://dataspace.copernicus.eu/analyse) for more information on the services.
- 
-[**Sentinelhub**](https://www.sentinel-hub.com/explore/) is a commercial service that offers several different APIs.
+[**CDSE**](https://dataspace.copernicus.eu/analyse) provides also processing services, mainly via [**OpenEO**](https://dataspace.copernicus.eu/analyse/apis/openeo-api) and [**SentinelHub**](https://dataspace.copernicus.eu/analyse/apis/sentinel-hub) with options to bring processing close to the data. Both have free of charge options and services with a fee. They provide different APIs, which can be accessed via Python or R. Soon also On-Demand Processing.
 
+* [Copernicus Data Workspace](https://dataspace.copernicus.eu/workspace/) is a tool for managing and reviewing EO-related products, which can then be further processed or downloaded for various purposes. When products are selected for processing, you are provided with a list of processors that are capable of processing relevant data types.
+* [CDSE Jupyter Notebooks](https://jupyterhub.dataspace.copernicus.eu/) provide the ability to analyze the data using Jupyter Notebooks. Each user has 10Gb of persistent space (deleted after 15 days without login) and access to 2 - 4 CPUs with 4 - 16 Gb RAM. Note that in addition to personal limits, also the total number of active users seems to be limited. It is possible to add own packages via pip. [CDSE example notebooks](https://github.com/eu-cdse/notebook-samples)
+* And many more, see [all CDSE applications](https://documentation.dataspace.copernicus.eu/Applications.html)
+ 
 **Commercial clouds**: Amazon, Google Cloud and Microsoft Azure, all provide virtual machines and other processing services, all of them have some local data, see links above. 
  
 ## Where can I get help?
@@ -216,7 +245,7 @@ If you are interested in using CSC services for your EO research, please make yo
 * Find information about services and how to use them in [CSC's documentation pages](../../../index.md)
 * For information on geocomputing in CSC environment, checkout the collection of  [CSC's geocomputing learning materials](https://research.csc.fi/gis-learning-materials) and [CSC geocomputing examples on Github](https://github.com/csc-training/geocomputing)
 
-You can find all the ways that you can get help from CSC specialists via [CSC contact page](../../contact.md). We are happy to help with technical problems around our services and are open for suggestions on which software should be installed to Puhti, or what kind of courses should be offered or materials/examples should be prepared. Please also let us know, if you would like to add a service to this page or find anything unclear.
+You can find all the ways that you can get help from CSC specialists via [CSC contact page](../../contact.md). We are happy to help with technical problems around our services and are open for suggestions on which software should be installed to Puhti, or what kind of courses should be offered or materials/examples should be prepared. Please let us know, if you would like to add a service to this page or find anything unclear.
 
 ## Acknowledgement
 
