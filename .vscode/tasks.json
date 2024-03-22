@@ -68,6 +68,7 @@
             },
             "options": {
                 "env": {
+                    // Silence some warnings/errors when Git is not installed or not found in PATH
                     "GIT_PYTHON_REFRESH": "quiet",
                     "ENABLED_GIT_REVISION_DATE": "false",
                 },
