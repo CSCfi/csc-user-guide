@@ -26,6 +26,12 @@
             ],
             "default": "",
         },
+        {
+            "type": "promptString",
+            "id": "confirmation",
+            "description": "Running this task will edit files in-place, and you will have to know how to clean up and/or not to commit the results. Are you sure you want to proceed? Input \"yes\" above to proceed.",
+            "default": "no",
+        },
     ],
     "tasks": [
         {
@@ -107,7 +113,7 @@
                 "focus": false,
                 "panel": "dedicated",
             },
-            "command": "for s in ${workspaceFolder}/scripts/generate_*.sh; do echo $s; done",
+            "command": "[ \"${input:confirmation}\" = \"yes\" ] && for s in ${workspaceFolder}/scripts/generate_*.sh; do bash $s; done || exit 0",
             "windows": {
                 "command": "Write-Host \"The Generate task is not configured for running on Windows.\"",
             },
