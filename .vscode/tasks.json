@@ -87,7 +87,6 @@
                 "color": "terminal.ansiYellow",
             },
             "presentation": {
-                "reveal": "always",
                 "focus": false,
                 "panel": "dedicated",
             },
@@ -106,8 +105,7 @@
             },
             "presentation": {
                 "focus": false,
-                "reveal": "silent",
-                "close": true,
+                "panel": "dedicated",
             },
             "command": "for s in ${workspaceFolder}/scripts/generate_*.sh; do echo $s; done",
             "windows": {
