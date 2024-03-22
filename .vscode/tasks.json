@@ -93,7 +93,7 @@
             },
             "command": ". ${userHome}/miniconda3/etc/profile.d/conda.sh && conda run --name docs-env --cwd ${workspaceFolder} bash ${workspaceFolder}/tests/run_tests.sh",
             "windows": {
-                "command": "Write-Host \"The tests task is not configured for running on Windows.\"",
+                "command": "Write-Host \"The Test task is not configured for running on Windows.\"",
             },
         },
         {
@@ -111,7 +111,7 @@
             },
             "command": "for s in ${workspaceFolder}/scripts/generate_*.sh; do echo $s; done",
             "windows": {
-                "command": "Write-Host \"The scripts task is not configured for running on Windows.\"",
+                "command": "Write-Host \"The Generate task is not configured for running on Windows.\"",
             },
         },
     ],
