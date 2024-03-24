@@ -13,6 +13,9 @@ Instead of a course you can also use CSC Notebooks for collaboration. The workfl
 * Login to CSC Notebooks using your CSC account by choosing 'CSC Login' option after clicking 'Login'.
   If you don't have a CSC account yet, [see the instructions on how to create new user account](../../../accounts/how-to-create-new-user-account/).
 * Open `Manage workspaces` from the left panel and create a new workspace.
+    * Workspace type:
+      * Fixed-time course with limited lifetime: Valid for limited months.
+      * Long-running course with time limited membership: Can be extended 13months at a time. Intended for workspaces that offer continuous learning environment.
 * If you don't see `Manage workspaces` option, please
     * Check that you logged in using your CSC account. Your user account on the bottom of the left navigation
       should look like 'csc/youraccountname'
