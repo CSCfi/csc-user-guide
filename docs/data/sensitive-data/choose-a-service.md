@@ -2,7 +2,7 @@
 
 Discover our range of services for managing sensitive research data or secondary use data. These services are designed to work together seamlessly. Our support team is available to help you understand how they can be adapted to suit your project. 
 
-To begin, select a service below and refer to the 'Start Here' section of the user guide for detailed instructions.
+To begin, select a service below and refer to [Start here](./sd-access.md) section of the user guide for detailed instructions.
 
 ## Services for processing sensitive data
 For processing research data. 

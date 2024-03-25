@@ -76,5 +76,5 @@ Submit the script with `sbatch <script_name>.sh`.
 
 ## More information
 
-- [Cirq-IQM documentation](https://iqm-finland.github.io/cirq-on-iqm/versions/12.2/index.html)
+- [Cirq-IQM documentation](https://iqm-finland.github.io/cirq-on-iqm/user_guide.html)
 - [Quantum-Computing](../computing/quantum-computing/helmi/running-on-helmi.md)

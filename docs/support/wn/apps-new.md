@@ -1,5 +1,44 @@
 # Applications
 
+## AMS 2023 available on Puhti and Mahti, 21.3.2024
+
+[AMS](../../apps/ams.md) has been updated to version 2023.104 on both Mahti and Puhti
+and set as the default module. The corresponding [AMS-GUI](../../apps/ams-gui.md)
+is also updated.
+
+## GROMACS 2024.1, 21.3.2024
+
+[GROMACS](../../apps/gromacs.md) 2024.1 is now available on Puhti, Mahti and LUMI.
+See [release notes](https://manual.gromacs.org/2024.1/release-notes/2024/2024.1.html)
+for a list of new features and improvements.
+
+## CP2K 2024.1 available on Puhti, Mahti and LUMI, 20.3.2024
+
+[CP2K](../../apps/cp2k.md) 2024.1 has been installed and set as the default
+module on Puhti, Mahti and LUMI. See
+[release notes](https://github.com/cp2k/cp2k/releases/tag/v2024.1)
+for a list of new features, fixes and breaking changes. As a notable change,
+calculations will now abort instead of just issuing a warning if the SCF cycle
+fails to converge. Add `IGNORE_CONVERGENCE_FAILURE` keyword in the `&SCF`
+section to enable the old behavior.
+
+## NAMD 3.0b6 available on LUMI, 12.3.2024
+
+The latest AMD GPU-enabled version of NAMD is now available pre-installed
+on LUMI. See our [NAMD page](../../apps/namd.md) for batch script examples
+and performance notes, as well as the
+[NAMD website](https://www.ks.uiuc.edu/Research/namd/3.0/features.html)
+for a list of new features that improve the performance of single-node
+multi-GPU simulations.
+
+## JAX 0.4.23, 6.3.2024
+
+[JAX](../../apps/jax.md) 0.4.23 was added to Puhti, Mahti and LUMI.
+JAX modules now also include a CPU-only installation of PyTorch,
+which sometimes used together with JAX for its data loading capabilities,
+as well as relevant updates to all Python packages already bundled in the
+previous JAX modules.
+
 ## PyTorch 2.2.1, 1.3.2024
 
 [PyTorch](../../apps/pytorch.md) 2.2.1 added to Puhti, Mahti and
