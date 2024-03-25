@@ -52,7 +52,7 @@ to technical limitations.
 The [IDA storage service](../../../data/ida/using_ida)
 can also be used, although some key features, such as moving data from the
 staging area to the frozen area, are only possible though the [IDA WWW-interface](https://ida.fairdata.fi).
-To use IDA in the Mahti web interface, it must first be configured for use with Rclone on a Mahti login node as follows.
+To use IDA in the web interface, it must first be configured for use with Rclone on a login node as follows.
 ```
 module load allas
 rclone config
