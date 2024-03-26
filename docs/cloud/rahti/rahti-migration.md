@@ -8,7 +8,7 @@ Rahti 2 production is the next version of OpenShift OKD running in CSC. The unde
 
 ## How to log in Rahti 2?
 
-Go to [Rahti 2](https://landing.2.rahti.csc.fi/), click in `Login`
+Go to [Rahti 2](https://rahti.csc.fi/), click in `Login`
 
 ![Rahti 2 login](../img/rahti_login2.png)
 

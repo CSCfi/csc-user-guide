@@ -26,7 +26,7 @@ Configuring MariaDB and WebSocat on Rahti 2 can be done either through the web i
 
 ### Option 1: Using the Rahti 2 web interface
 
-- Log in to the [Rahti 2 web interface](https://landing.2.rahti.csc.fi/). See [Getting access](../rahti2/access.md) for instructions.
+- Log in to the [Rahti 2 web interface](https://rahti.csc.fi/). See [Getting access](../rahti2/access.md) for instructions.
 - Deploy MariaDB from the "Developer Catalog". You will find the developer catalog in the **+Add** section of the `Developer` menu.
 - Configure the database. You need to at least select or create a Rahti 2 project to which you want to add the database. If creating a new project, make sure to include your CSC project number in the project description in the form `csc_project: 2001234`
 - Create the database and remember the

@@ -22,7 +22,7 @@ OpenShift [OKD](https://www.okd.io/) is optimized for multi-tenant deployment. T
 
 OpenShift provides these extra services over a standard Kubernetes offering:
 
-* Web UI: <https://landing.2.rahti.csc.fi/>
+* Web UI: <https://rahti.csc.fi/>
 
 ![Rahti 2 WEB UI](../img/Rahti-landing.png)
 
