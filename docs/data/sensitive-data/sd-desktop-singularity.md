@@ -11,7 +11,7 @@ Appainer containers. In this document we show how to import a ready-made Apptane
 
 ## Step by step tutorial
 
-*Before you start, please activate services ***Puhti, SD Desktop*** and ***Allas/SD Connect*** for your project. This happens in [MyCSC](https://my.csc.fi/login){ target="_blank" }.*
+*Before you start, please activate services **Puhti, SD Desktop** and **Allas/SD Connect** for your project. This happens in [MyCSC](https://my.csc.fi/login){ target="_blank" }.*
 
 <iframe width="562" height="316" srcdoc="https://www.youtube.com/embed/6-_pSrRu4-c" title="Utilizing Apptainer containers in SD Desktop" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
@@ -61,7 +61,7 @@ wget http://cistrome.org/BETA/src/BETA_test_data.zip
 
 #### Upload the container to Allas / SD Connect
 
-Then we upload these two files to Allas. In this example we use project _2012345_.
+Then we upload these two files to Allas/SD Connect. In this example we use project _2012345_.
 
 ```text
 module load allas
