@@ -78,7 +78,9 @@ status:
 
 In the output above, you can find the associated CSC computing project under
 `metadata.labels.csc_project`. In this case, the project is `1000123`.
-Unfortunately, this information is not available via a web interface yet.
+This information is also available via a web interface.
+
+![Labels web UI](../../img/Labels-webui.png)
 
 !!! info
 
