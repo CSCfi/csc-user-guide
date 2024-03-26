@@ -41,8 +41,7 @@ or the OpenShift project creation will fail.
 
 If you would like to know which CSC computing projects you are a member of, you
 can view a list in the [My Projects
-tool](https://my.csc.fi/projects) of MyCSC. You can also set a default 
-billing project by going to [Your Profile page](https://my.csc.fi/profile). 
+tool](https://my.csc.fi/projects) of MyCSC. 
 
 If you would like to know which CSC computing project a Rahti 2 project is
 associated with, you can do so using the _oc_ command line tool. You can find
