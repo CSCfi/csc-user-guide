@@ -15,11 +15,11 @@ Appainer containers. In this document we show how to import a ready-made Apptane
 
 <iframe width="562" height="316" srcdoc="https://www.youtube.com/embed/6-_pSrRu4-c" title="Utilizing Apptainer containers in SD Desktop" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
-How to import a ready-made Apptaner container from a public repository to SD Desktop:
+How to import a ready-made Apptainer container from a public repository to SD Desktop:
 
 1. [Find a suitable container](#find-a-suitable-container)
 2. [Download the container](#download-the-container)
-3. [Upload the container to SD Connect](#upload-the-container-to-allas--sd-connect)
+3. [Upload the container to SD Connect](#upload-the-container-to-allas-sd-connect)
 4. [Download the container to SD Desktop](#using-a-container-in-sd-desktop)
 
 ### Importing ready-made container through Puhti
