@@ -23,21 +23,28 @@ The interactive MATLAB is intended for temporary, light pre- and postprocessing 
 It is available as follows:
 
 - Systems: *Puhti*
-- License: *Academic*
-- Versions: *R2021b*, *R2023b*
-- Toolboxes: *MATLAB Compiler* (2 licenses), *MATLAB Compiler SDK* (2 licenses), *Parallel Computing Toolbox* (2 licenses)
+- License: *Academic* (for who?)
+- Versions: *R2023b*
+- Toolboxes: *MATLAB Compiler*, *MATLAB Compiler SDK*, *Parallel Computing Toolbox* (2 licenses for each toolbox)
 
 *MATLAB Parallel Server (MPS)* allows sending work as a batch job from a local MATLAB installation to Puhti.
 It is available as follows:
 
 - Systems: *Puhti*
-- License: *Academic*
-- Versions: *R2021b*, *R2022b*, *R2023a*, *R2023b*
+- License: *Academic* (for who?)
+- Versions: *R2023b*, *R2023a*
 - Toolboxes: *MATLAB Parallel Server* (license for using upto 500 computing cores simultaneously).
   Toolboxes that you have license on your local MATLAB license can also be used with MATLAB Parallel Server.
 
+LUMI has MATLAB an installation for interactive use.
 
-## Using interactive MATLAB on Puhti
+- Systems: *LUMI*
+- License: *Academic* (for who?)
+- Versions: *R2023b*
+- Toolboxes: Simulink, Control System Toolbox, Curve Fitting Toolbox, Deep Learning Toolbox, Global Optimization Toolbox, Image Processing Toolbox, Optimization Toolbox, Parallel Computing Toolbox, Signal Processing Toolbox, Statistics and Machine Learning Toolbox, Wavelet Toolbox (25 licenses of each)
+
+
+## Using interactive MATLAB on Puhti or LUMI
 ### Command-line interface
 We can run an interactive MATLAB session on the command line.
 We first need to make a reservation using Slurm:
@@ -46,11 +53,22 @@ We first need to make a reservation using Slurm:
 srun --account=project_id --partition=small --time=0:15:00 --cpus-per-task=1 --mem-per-cpu=4g --pty bash
 ```
 
-Then, we need to load the MATLAB module:
+=== "Puhti"
 
-```bash
-module load matlab
-```
+    Then, we need to load the MATLAB module:
+
+    ```bash
+    module load matlab
+    ```
+
+=== "LUMI"
+
+    On LUMI, we must add the module files under CSC's local directory to the module path before loading the module.
+
+    ```bash
+    module use /appl/local/csc/modulefiles
+    module load matlab
+    ```
 
 Now `matlab`, `mbuild`, `mex` and `mcc` commands are available.
 For example, we can open the MATLAB command line interface as follows:
@@ -68,7 +86,7 @@ matlab -batch <script>
 
 ### Web interface
 We can also use the [web interface](../computing/webinterface/index.md) for interactive MATLAB sessions.
-First, we need to log into [puhti.csc.fi](https://www.puhti.csc.fi).
+First, we need to log into [puhti.csc.fi](https://www.puhti.csc.fi) or [lumi.csc.fi](https://www.lumi.csc.fi).
 Then, we have two options:
 
 1. We can use **MATLAB web application** which opens a web version of the MATLAB graphical user interface.
