@@ -96,22 +96,37 @@
  
 ## Redirecting pages
 
- - If there's an URL that has been linked to from the outside a lot and it changes (disappears), a (temporary) redirect can be made
- - Create a file with the name-of-the-old-page`.html` (or index.html if it was done that way) and as the content:
-```
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta http-equiv="refresh" content="1; url='new-page/#anchor-on-that-page'" />
-  </head>
-  <body>
-    <p><a href="new-page/#anchor-on-that-page">Dataset content reorganized!</a>.</p>
-  </body>
-</html>
-```
+If there's a URL that has been linked to from the outside a lot and it changes (disappears), a (temporary) redirect can be made by either
 
- - Edit `new-page` (and the anchor, if there, otherwise just remove) to match
- - To pass the tests, add the page to `tests/python_link_tests/whitelist`, too
+1. Adding an entry of the form `'page/to/link-from.md': 'target/page/to/link-to.md'` into _redirect\_maps_ under _plugins.redirects_ in _mkdocs.yaml_:
+
+    ```yaml
+    plugins:
+    ...
+    - redirects:
+        redirect_maps:
+          ...
+          # type of the redirection as a comment:
+          'your/redirection.md': 'to/some/other/page.md'
+          ...
+    ```
+
+1. Creating a file with the name-of-the-old-page`.html` (or index.html if it was done that way) and as the content:
+
+    ```html
+    <!DOCTYPE html>
+    <html>
+      <head>
+        <meta http-equiv="refresh" content="1; url='new-page/#anchor-on-that-page'" />
+      </head>
+      <body>
+        <p><a href="new-page/#anchor-on-that-page">Dataset content reorganized!</a>.</p>
+      </body>
+    </html>
+    ```
+
+    - Edit `new-page` (and the anchor, if there, otherwise just remove) to match
+    - To pass the tests, add the page to `tests/python_link_tests/whitelist`, too
 
 ## Terminology
 
