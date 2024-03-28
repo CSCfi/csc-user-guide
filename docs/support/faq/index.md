@@ -80,6 +80,7 @@
 * [Does Rahti 2 support UDP connections?](rahti-udp.md)
 * [Why my SSH key does not work in Rahti 2?](ssh-clone.md)
 * [How to open a terminal to a Pod?](terminal-rahti-pod.md)
+* [How to pull images from Rahti v1 registry](pull-from-rahtiv1-registry.md)
 
 
 ## Sensitive Data Services for research
