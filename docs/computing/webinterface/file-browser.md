@@ -19,7 +19,7 @@ The file browser comes with a basic text editor. Some important notes on that:
 
 ## Using Allas
 
-In the web interface, the [Allas object storage service](../../../computing/allas) can also be accessed
+In the web interface, the [Allas object storage service](../../computing/allas.md) can also be accessed
 using the file browser.
 
 To configure authentication for Allas it is recommended that you use the _Cloud storage configuration_ app available in the web interface.
@@ -29,7 +29,7 @@ The remotes are only valid for a single project, but you can create remotes for 
 The created remotes will be visible in the _Files_ dropdown in the navbar and in the file browser.
 !!! note
     The Swift and S3 protocols are not fully compatible with each other, particularly with files larger than 5 GB.
-    For more details about the differences between the protocols, see [Allas protocols](../../../data/Allas/introduction/#protocols).
+    For more details about the differences between the protocols, see [Allas protocols](../../data/Allas/introduction.md#protocols).
 
 Additionally, LUMI-O is also supported for use through the file browser and can be configured by
 running _allas-conf_ as `allas-conf --lumi`.
@@ -49,7 +49,7 @@ to technical limitations.
 
 ## Using IDA
 
-The [IDA storage service](../../../data/ida/using_ida)
+The [IDA storage service](../../data/ida/using_ida.md)
 can also be used, although some key features, such as moving data from the
 staging area to the frozen area, are only possible though the [IDA WWW-interface](https://ida.fairdata.fi).
 To use IDA in the web interface, it must first be configured for use with Rclone on a login node as follows.
