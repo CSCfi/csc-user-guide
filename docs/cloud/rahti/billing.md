@@ -1,5 +1,4 @@
-# Rahti billing
-
+--8<-- "rahtibeta_announcement.md"
 ## Terminology
 
 * Billing unit (BU): A unit used for billing at CSC - each resource consumes a given amount of BUs per hour.
@@ -11,10 +10,9 @@ services which are available for use.
 
 ------------------------------------------------------------------------------------------------------------------------
 
-**NOTE**: Starting from 1.02.2020, using Rahti consumes **CSC Billing Units**.
+**NOTE**: Starting from 1.02.2020, using Rahti 1 consumes **CSC Billing Units**.
 
 ------------------------------------------------------------------------------------------------------------------------
-
 
 Billing units are calculated by scraping usage data from all of the OpenShift projects owned by the user.
 These calculations are based on:
@@ -34,7 +32,7 @@ resources. Billing units are consumed as follows:
 
 ------------------------------------------------------------------------------------------------------------------------
 Cost will be calculated based on actual resources request with cpu, ram and storage rather than actual usage.
-Currently, Rahti does not bill for the stored images.
+Currently, Rahti 1 does not bill for the stored images.
 ------------------------------------------------------------------------------------------------------------------------
 
 For example, let's say you create a pod with the following specs:
@@ -45,7 +43,7 @@ For example, let's say you create a pod with the following specs:
 You also create a persistent volume of size 10 GiB and attach it to the pod. The
 cost in BUs can be calculated as follows:
 
-![BU calculation](img/BU-calculation.drawio.svg)
+![BU calculation](../img/BU-calculation.drawio.svg)
 
 ## Billing unit calculator
 

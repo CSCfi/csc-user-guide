@@ -33,5 +33,5 @@ See the ["What's new" section for cloud services](../../support/whats-new.md).
 
 * [Project Jupyter homepage](https://jupyter.org/){target="_blank"}
 * [Rocker RStudio GitHub repository](https://github.com/rocker-org/rocker){target="_blank"}
-* [CSC Rahti container cloud](../rahti/){target="_blank"}
-* [CSC Pouta IaaS cloud service](../pouta/){target="_blank"}
+* [CSC Rahti container cloud](../rahti/index.md){target="_blank"}
+* [CSC Pouta IaaS cloud service](../pouta/index.md){target="_blank"}

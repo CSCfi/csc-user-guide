@@ -1,6 +1,6 @@
-# Command line tool usage
+--8<-- "rahtibeta_announcement.md"
 
-Rahti can be used via the command line either with OpenShift's _oc_ tool
+Rahti 1 can be used via the command line either with OpenShift's _oc_ tool
 or with the _kubectl_ tool from Kubernetes. Certain features specific to OpenShift
 are only available when using the oc tool.
 
@@ -35,14 +35,14 @@ It should show the list of all available commands.
 Instructions for downloading the oc tool and logging in via the command line
 can be found in the "Command Line Tools" page in the web interface:
 
-![Command line tools](img/cli_help_menu_3.7.png)
+![Command line tools](../../img/cli_help_menu_3.7.png)
 
 ## How to login with `oc`?
 
 The oc login command to login can be found in one of the fields on the page. There is a
 button next to it for copying the command to the clipboard:
 
-![OpenShift Command Line Tools page](img/openshift_cli_dialog_3.7.png)
+![OpenShift Command Line Tools page](../../img/openshift_cli_dialog_3.7.png)
 
 Copy the command and paste it in a terminal to start using OpenShift via the
 command line.
@@ -53,7 +53,7 @@ command line.
 
 ## How to login in the registry?
 
-In order to use Rahti internal container registry, it is necessary to login separately. Once you login, it is possible to use the client docker to `pull` and `push` from Rahti's registry.
+In order to use Rahti 1 internal container registry, it is necessary to login separately. Once you login, it is possible to use the client docker to `pull` and `push` from Rahti 1 registry.
 
 ### Using personal account
 
@@ -63,7 +63,7 @@ After login with `oc`, it is possible to use the command to generate a token (`o
 
 ### Using a service account token
 
-Rahti also offers the opportunity of using an internal service account to interact with the registry. This is recommended for automated procedures like a CI pipeline. Even though by default 3 internal service accounts are created in every Rahti namespace: builder, default and deployer, it is recommended to create a dedicated internal service account and assign to it the `system:image-pusher` role.
+Rahti 1 also offers the opportunity of using an internal service account to interact with the registry. This is recommended for automated procedures like a CI pipeline. Even though by default 3 internal service accounts are created in every Rahti 1 namespace: builder, default and deployer, it is recommended to create a dedicated internal service account and assign to it the `system:image-pusher` role.
 
 ```sh
 oc create serviceaccount pusher
@@ -73,7 +73,7 @@ docker login -p $(oc sa get-token pusher) -u unused docker-registry.rahti.csc.fi
 
 This service account token, the one you get with `oc sa get-token pusher` does not expire.
 
-Checkout this documentation to know how to upload images: [How to manually cache images in Rahti's registry](../tutorials/docker_hub_manual_caching.md)
+Checkout this documentation to know how to upload images: [How to manually cache images in Rahti 1 registry](../../tutorials/docker_hub_manual_caching.md)
 
 ## CLI cheat sheet
 
@@ -95,7 +95,7 @@ oc login https://rahti.csc.fi:8443 --token=<secret access token>
 This command can be obtained by clicking your usename and "Copy Login Command"
 in the web console:
 
-![copy login](../tutorials/img/copy-login.png)
+![copy login](../../img/copy-login.png)
 
 Show projects:
 

@@ -1,8 +1,7 @@
-# Creating images
-
+--8<-- "rahtibeta_announcement.md"
 There are several reasons to make your own docker image, but mostly there are two. The application you want to run does not have a docker image available, or there is an image available, but it is not working on OpenShift. Due to the fact that OpenShift is designed to be a shared cluster, where users from different teams will run applications in the same hardware, OpenShift has to add limitations and runs things differently than in a standard Kubernetes cluster.
 
-Rahti's registry has an image size limit of 5GB. The bigger is an image, the worse the experience is to work with it. It takes more time to pull, and it fills up the image's cache of the node faster. An image more than 1GB is already considered a very big image. See the article about [keeping docker images small](./keeping_docker_images_small.md)
+Rahti 1's registry has an image size limit of 5GB. The bigger is an image, the worse the experience is to work with it. It takes more time to pull, and it fills up the image's cache of the node faster. An image more than 1GB is already considered a very big image. See the article about [keeping docker images small](./keeping_docker_images_small.md)
 
 ## Building images locally
 
@@ -63,15 +62,21 @@ And finally, to publish the image:
 docker push docker.io/user/name:tag
 ```
 
-## Using Rahti to build container images
+## Using Rahti 1 to build container images
 
-This assumes that you have authorized a Rahti command line session and created
-a project in Rahti. Instructions for that are shown in Chapter [Command line
+The methods below use Rahti 1 to build the images.
+
+### Using a local folder for building
+
+This method allows to build an image using a local folder containing a Dockerfile and the other required project files. It is useful when it is not possible or inconvenient to allow Rahti 1 to clone a repository directly.
+
+This assumes that you have authorized a Rahti 1 command line session and created
+a project in Rahti 1. Instructions for that are shown in Chapter [Command line
 tool usage](../usage/cli.md#cli-cheat-sheet).
 
 **Steps:**
 
-Create Rahti specific definitions with `oc new-build` command. Be sure
+Create Rahti 1 specific definitions with `oc new-build` command. Be sure
 not to be in a directory under git version control:
 
 ```bash
@@ -92,20 +97,20 @@ Then you need a `Dockerfile`, you can use any of the previous `Dockerfile` in th
 oc start-build my-hello --from-dir=./ -F
 ```
 
-The image will appear in the Rahti registry console
+The image will appear in the Rahti 1 registry console
 [registry-console.rahti.csc.fi/registry](https://registry-console.rahti.csc.fi),
 and it will be visible to internet at
 `docker-registry.rahti.csc.fi/<project-name>/my-hello:devel` for docker
 compatible clients.
 
-For command-line usage with docker compatible clients, the docker repository password will be the access token shown when authorizing Rahti command line session and user name can be `unused`.
+For command-line usage with docker compatible clients, the docker repository password will be the access token shown when authorizing Rahti 1 command line session and user name can be `unused`.
 
-The Docker CLI tool login instructions are also shown in the [Rahti registry
+The Docker CLI tool login instructions are also shown in the [Rahti 1 registry
 console](https://registry-console.rahti.csc.fi).
 
-## Using the Source to Image mechanism
+### Using the Source to Image mechanism
 
-OpenShift allows to build and deploy code without writing a `Dockerfile`. This is called Source to Image or `s2i`. For example, use the official python sample code:
+OpenShift allows to build and deploy code without writing a `Dockerfile`. This is called Source to Image or `s2i`. It is used by running `oc new-app URL#branch`, the `#branch` is optional. For example, use the official python sample code:
 
 ```bash
 $ oc new-app https://github.com/OpenShiftDemos/os-sample-python.git
@@ -137,7 +142,7 @@ $ oc new-app https://github.com/OpenShiftDemos/os-sample-python.git
     Run 'oc status' to view your app.
 ```
 
-The image will be found in Rahti's registry. Then do as suggested and expose the new application to the outside world:
+The image will be found in Rahti 1 registry. Then do as suggested and expose the new application to the outside world:
 
 ```bash
 $ oc expose svc/os-sample-python
@@ -158,9 +163,43 @@ A new build can be triggered in the command line:
 oc start-build os-sample-python
 ```
 
-Or using [webhooks](/cloud/rahti/tutorials/webhooks/)
+Or using [webhooks](../../tutorials/webhooks.md)
 
-## Using the inline Dockerfile method
+### Using the `Docker` strategy
+
+This is used in the same way as the Source to Image mechanism, `oc new-app URL#branch`. Rahti 1 will then detect that there is a Dockerfile in the repository and build the image automatically. This is useful when we want to fine tune a build procedure, or when the base image is not know to Rahti. The example bellow uses `node:16` as a base, but Rahti 1 does not support node16 by default.
+
+```sh
+$ oc new-app https://github.com/IBM/nodejs-express-app.git
+--> Found container image 0787341 (13 days old) from registry.access.redhat.com for "registry.access.redhat.com/ubi8/nodejs-16-minimal:1"
+
+    Node.js 16 Minimal 
+    ------------------ 
+    Node.js 16 available as container is a base platform for running various Node.js 16 applications and frameworks. Node.js is a platform built on Chrome's JavaScript runtime for easily building fast, scalable network applications. Node.js uses an event-driven, non-blocking I/O model that makes it lightweight and efficient, perfect for data-intensive real-time applications that run across distributed devices.
+
+    Tags: builder, nodejs, nodejs16
+
+    * An image stream tag will be created as "nodejs-16-minimal:1" that will track the source image
+    * A Docker build using source code from https://github.com/IBM/nodejs-express-app.git will be created
+      * The resulting image will be pushed to image stream tag "nodejs-express-app:latest"
+      * Every time "nodejs-16-minimal:1" changes a new build will be triggered
+
+--> Creating resources ...
+    imagestream.image.openshift.io "nodejs-16-minimal" created
+    imagestream.image.openshift.io "nodejs-express-app" created
+    buildconfig.build.openshift.io "nodejs-express-app" created
+    deployment.apps "nodejs-express-app" created
+    service "nodejs-express-app" created
+--> Success
+    Build scheduled, use 'oc logs -f buildconfig/nodejs-express-app' to track its progress.
+    Application is not exposed. You can expose services to the outside world by executing one or more of the commands below:
+     'oc expose service/nodejs-express-app' 
+    Run 'oc status' to view your app.
+```
+
+Then one can continue following the steps in the Spource 2 Image procedure above (`oc expose svc/nodejs-express-app'` and `oc get route nodejs-express-app`).
+
+### Using the inline Dockerfile method
 
 It is possible to create a new build using a Dockerfile provided in the command line. By doing this, the `Dockerfile` itself will be embedded in the Build object, so there is no need for an external Git repository.
 
@@ -175,4 +214,3 @@ It is also possible to create a build from a given `Dockerfile`:
 ```bash
 cat Dockerfile | oc new-build -D -
 ```
-

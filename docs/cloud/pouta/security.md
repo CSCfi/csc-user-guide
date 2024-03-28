@@ -1,9 +1,11 @@
 # Security Guidelines for Pouta
 
 !!! warning "Security responsibility"
+
     Users are responsible of the security of the resources and infrastructure under their control. This includes, but it is not limited to: **virtual machines**, **network configuration**, **user accounts**, ...
 
 !!! info "Security reports"
+
     If you have discovered a critical security flaw or believe your machine has been compromised, please contact us immediately at <servicedesk@csc.fi>.
 
 This list of security guidelines is not meant to cover all the possible cases and scenarios, but to serve as a starting point for keeping everyone secure. 
@@ -30,7 +32,7 @@ you can see that every single opening is shown there.
 
 ### Disable unneeded services
 
-Do not run unnecessary services on your VM, even if they are not accessible from the outside. The more services you run, the more attack surface you will have top intruders to exploit. For example, do not deploy your own mail server. If you need to send email from cPouta, use [Pouta's SMTP server](/cloud/pouta/additional-services/#sending-e-mail-from-cpouta). If this SMTP server does not cover your use case, please contact <servicedesk@csc.fi>.
+Do not run unnecessary services on your VM, even if they are not accessible from the outside. The more services you run, the more attack surface you will have top intruders to exploit. For example, do not deploy your own mail server. If you need to send email from cPouta, use [Pouta's SMTP server](additional-services.md#sending-e-mail-from-cpouta). If this SMTP server does not cover your use case, please contact <servicedesk@csc.fi>.
 
 ### Use secure protocols
 
@@ -76,6 +78,7 @@ sudo apt install unattended-upgrades
 Each OS version will have its own way to activate this.
 
 !!! info "Kernel updates" 
+
     Some updates, such as kernel upgrades, require rebooting the virtual machines. Please schedule this into your regular maintenance.
 
 If your use case does not support automatic updates, which is common for highly available setups, please make sure to schedule regular maintenance windows where the software upgrade is scheduled.
@@ -86,7 +89,7 @@ If your use case does not support automatic updates, which is common for highly 
 
 Keep an eye on the user accounts enabled in your system. Some applications create default accounts which are unnecessary or even directly insecure. An ideal scenario might be three accounts:
 
-* `root` with ssh disabled and no password. This is the default in [Pouta VM images](/cloud/pouta/images/).
+* `root` with ssh disabled and no password. This is the default in [Pouta VM images](images.md).
 * A user account for a sysadmin that can only be accessed via ssh keys and has sudo access. Pouta VM images provide this user preconfigured as well, the name of the user depends on the distribution (`cloud-user`, `centos` or `ubuntu`), see the documentation above for more reference.
 * and add user-level accounts that run a single service and have no login possible, neither remote nor local access. 
 

@@ -4,17 +4,13 @@ In order to open a terminal to a **Running** Pod there are two options:
 
 ## Using the web interface
 
-1. Log into Rahti's web interface and navigate to **Applications > Pods**.
-
-![Terminal Pod](img/terminalPod1.png)
+1. Log into Rahti 2's web interface and navigate to **Project > Pods**. (Or **Workloads > Pods** in Administrator view)
 
 1. Click on any of the Pod names whose status is **Running**.
 
-![Terminal Pod](img/terminalPod2.png)
-
 1. Click on the **Terminal** tab to reveal the terminal.
 
-![Terminal Pod](img/terminalPod3.png)
+![Terminal Pod](img/terminal.png)
 
 ## Using the command line with `oc`
 

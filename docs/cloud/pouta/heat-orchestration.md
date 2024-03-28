@@ -6,14 +6,15 @@ You can access this feature in the web user interface's left hand panel or using
 
 ### Orchestration via the web user interface
 
-!!! note
+!!! info
+
     You should use "2018-08-31" ("rocky") or older as the [Heat template
     version](https://docs.openstack.org/heat/latest/template_guide/hot_spec.html#rocky). Features in newer template versions may not be supported. 
 
 
 These instructions provide a simple example on how to set up a stack via the web user interface. To create a Heat stack, click the "Stacks" link in the _Orchestration_ menu. The opened view displays all existing stacks and provides the button "Launch Stack" to launch a new stack. In the window which was opened after clicking the "Launch  Stack" button, you can upload an existing template that you created or you can start configuring your stack. Selecting a template is mandatory, and the template data can also be provided as direct input, as depicted in the picture below. Note that this picture contains a valid, yet simple example of a template which builds two instances and displays the IP address of the first instance.
 
-![Template selection](/img/stacks-view.png)  
+![Template selection](../../img/stacks-view.png)  
 
 Here is the example:  
 ```yaml
@@ -53,7 +54,8 @@ After choosing "Next", the web user interface asks for a stack name and your pas
 
 ### Using orchestration with the command line client
 
-!!! note
+!!! info
+
     Be sure that `python-heatclient` is installed. You can install it by typing the command `pip install python-heatclient` (https://pypi.org/project/python-heatclient/)
 
 Heat can be operated with the OpenStack command line client, but currently you can still use the deprecated Heat command line client as well. Create a stack on the command line:
@@ -113,7 +115,8 @@ The plan here is:
 - Create two Openstack Heat templates: one for the number of instance(s) (OS::Heat::ResourceGroup) and the other for the specification of the deployment.  
 - Create an ansible script to automate the deployment.  
 
-!!! note
+!!! info
+
     The following tools must be installed:  
     - [Ansible](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html)  
     - python-openstackclient (`pip install python-openstackclient`)  

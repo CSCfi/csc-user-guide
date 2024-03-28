@@ -1,5 +1,4 @@
-# Docker images
-
+--8<-- "rahtibeta_announcement.md"
 A Docker image is a file which is built up normally by an instructional file named **Dockerfile**. An Docker image is immutable, i.e. existing image file cannot be modified, but one can create a new layer to it & thus have a modified version of image suitable to him.
 
 Docker containers are the running instances of Docker images. To avoid confusions, lets have a quick walkthrough over Docker image & containers using cooking example:
@@ -29,7 +28,7 @@ Status: Downloaded newer image for docker.io/centos:latest
 
 The name in this example is `centos`, but as we can see, it is expanded first to `centos:latest` and then to `docker.io/library/centos:latest`, the different parts are:
 
-* A domain name `docker.io`, this is the domain name of the docker registry where the image is located. If the domain name is not included, docker assumes it is default public docker registry, `docker.io`. But there are other registries, for example  `registry-console.rahti.csc.fi` is Rahti's private docker registry.
+* A domain name `docker.io`, this is the domain name of the docker registry where the image is located. If the domain name is not included, docker assumes it is default public docker registry, `docker.io`. But there are other registries, for example  `registry-console.rahti.csc.fi` is Rahti 1 private docker registry.
 
 * Then it is the path for the image, in this case it is `/library`. Again docker is assuming it, this path is reserved to "official base images", or in other words common Linux distributions, from where other images are based on.
 
@@ -37,8 +36,8 @@ The name in this example is `centos`, but as we can see, it is expanded first to
 
 * Finally, it is the tag, `latest`. This is the default tag for an image, but an image can have any given name for a tag. This is used to differentiate between version of the same image. Examples for `centos` are: `8`, `7`, `8.1.1911`, and lots more. The contents of a given tag can change with time, `latest` will be always the most updated version. But other tags are left unchanged after they are released.
 
-
 Official page of [CentOS](https://hub.docker.com/_/centos) on Docker hub provide us more details how different tagged versions of official CentOS image is build. So author used following **Dockerfile** created our `centos:latest` image:
+
 ```sh
 FROM scratch
 ADD centos-8-x86_64.tar.xz /

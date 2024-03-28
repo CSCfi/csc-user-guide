@@ -20,7 +20,7 @@ In the web interface, use the **Create volume** button on the
 size for the volume (1 GB is the minimum). The only mandatory argument
 is the size of the volume.
 
-![Create persistent Volmume](/img/create-volume-horizon.png)
+![Create persistent Volmume](../../img/create-volume-horizon.png)
 
 Once the volume has been created, it can be attached to a running
 virtual machine. One volume can be attached to only one virtual
@@ -32,7 +32,7 @@ for the volume you want to attach and select **Manage
 attachments**. Select the instance (i.e. virtual machine) you want to
 attach the volume to in the **Attach to Instance** selector.
 
-![Attach persistent volume](/img/volume-attach-horizon2.png)
+![Attach persistent volume](../../img/volume-attach-horizon2.png)
 
 ## Using attached volumes
 
@@ -122,7 +122,8 @@ volume):
 openstack server add volume <virtual machine> <volume>
 ```
 
-!!! note
+!!! info
+
     A volume can only be attached to one virtual machine at a time.
 
 When you no longer need the volume to be attached, you can detach
@@ -158,7 +159,7 @@ select **Create Transfer.** Name this transfer request and
 click on **Create Volume Transfer.** You will then get the volume transfer
 credentials (transfer ID & authorization key).
 
-![Transfer a volume to another project](/img/pouta-volume-transfer-creation.png)
+![Transfer a volume to another project](../../img/pouta-volume-transfer-creation.png)
 
 You need to provide these credentials to your colleague to whom you
 want to transfer this volume.
@@ -169,7 +170,7 @@ Transfer** button. They need to then provide the transfer credentials
 you generated in the previous step and **Accept Volume Transfer.**
 This will transfer the volume to your colleague's project.
 
-![Accept volume transfer](/img/pouta-accept-volume-transfer.png)
+![Accept volume transfer](../../img/pouta-accept-volume-transfer.png)
 
 Volume transfers can be also done using the command line tools:
 
@@ -192,7 +193,7 @@ Previously you have created and attached a volume. In this section you are going
 To expand the volume, first select the *Volumes* view in the Pouta web interface. Click the arrow symbol next to the **Edit Volume** button for the volume you want to enlarge and select **Extend Volume**. Input the the volume amount you want to enlarge in (GiB) in the field **New Size (GiB)**. Finally, click the **Extend Volume** button.
 To attach an expanded volume similar to the previous attach persistent volume, first select the *Volumes* view in the Pouta web interface. Click the arrow symbol next to the **Edit Volume** button for the volume you expanded and select **Manage attachments**. Select the instance (i.e. virtual machine) you want to attach the volume to in the **Attach to Instance** selector.
 
-![Expand persistent volume](/img/volume-expand-horizon1.png)
+![Expand persistent volume](../../img/volume-expand-horizon1.png)
 
 Once you have logged in to your virtual machine, you can list the
 volumes:
