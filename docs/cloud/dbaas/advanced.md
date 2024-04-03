@@ -1,10 +1,5 @@
 # Advanced DBaaS features
 
-!!! error "Closed Beta"
-    Pukki DBaaS is in closed beta. This means that the service is probably not suitable for most users
-    and there might be breaking changes. If you are still interested in using the service you can
-    [contact us](../../support/contact.md) to see if the service would be suitable for you.
-
 ## Application credentials
 
 You can create application credentials instead of using usernames and passwords. This is especially useful if you want to automate your database management. This could be used in a CI/CD environment where you might want to create a new database for each commit. Application credentials could also be used if you are building a service that uses the DBaaS as a backend component for example for creating new database users on-demand for new users.
