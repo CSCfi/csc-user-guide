@@ -23,7 +23,7 @@ The interactive MATLAB is intended for temporary, light pre- and postprocessing 
 It is available as follows:
 
 - Systems: *Puhti*
-- License: *Academic* (for who?)
+- License: *Academic*
 - Versions: *R2023b*
 - Toolboxes: *MATLAB Compiler*, *MATLAB Compiler SDK*, *Parallel Computing Toolbox* (2 licenses for each toolbox)
 
@@ -31,7 +31,7 @@ It is available as follows:
 It is available as follows:
 
 - Systems: *Puhti*
-- License: *Academic* (for who?)
+- License: *Academic*
 - Versions: *R2023b*, *R2023a*
 - Toolboxes: *MATLAB Parallel Server* (license for using upto 500 computing cores simultaneously).
   Toolboxes that you have license on your local MATLAB license can also be used with MATLAB Parallel Server.
@@ -39,12 +39,12 @@ It is available as follows:
 LUMI has MATLAB an installation for interactive use.
 
 - Systems: *LUMI*
-- License: *Academic* (for who?)
+- License: *Academic*
 - Versions: *R2023b*
 - Toolboxes: Simulink, Control System Toolbox, Curve Fitting Toolbox, Deep Learning Toolbox, Global Optimization Toolbox, Image Processing Toolbox, Optimization Toolbox, Parallel Computing Toolbox, Signal Processing Toolbox, Statistics and Machine Learning Toolbox, Wavelet Toolbox (25 licenses of each)
 
 
-## Using interactive MATLAB on Puhti or LUMI
+## Using interactive MATLAB on Puhti and LUMI
 ### Command-line interface
 We can run an interactive MATLAB session on the command line.
 We first need to make a reservation using Slurm:
