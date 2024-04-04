@@ -36,8 +36,7 @@ Free to use and open source under [GNU LGPLv2.1](https://www.gnu.org/licenses/ol
 
 ## Available
 
--   Puhti: 2.12.0
--   FGCI: 2.6.0
+-   Puhti: 2.15.0
 -   Chipster graphical user interface
 
 
@@ -89,7 +88,7 @@ pb psiblast -db swiss -query protseqs.fasta -num_iterations 3 -out results.out
 ```
 
 
-_pb blast_ commands can be executed interactively in the login nodes of Puhti. You don't need to create  any batch job file yourself. In stead _pb_ command creates and submits a batch job automatically. Once BLAST job is started _pb_ starts a process that monitor the progress of the blast job. As running a large BLAST jobs may take a long time you may need close the monitoring. You can do that by pressing: _Ctrl-c_. After that you can start other tasks or log out from Puhti. The BLAST jobs will still continue running in the batch job system. 
+_pb blast_ commands can be executed interactively in the login nodes of Puhti. You don't need to create any batch job file yourself. In stead _pb_ command creates and submits a batch job automatically. Once BLAST job is started _pb_ starts a process that monitor the progress of the blast job. As running a large BLAST jobs may take a long time you may need close the monitoring. You can do that by pressing: _Ctrl-c_. After that you can start other tasks or log out from Puhti. The BLAST jobs will still continue running in the batch job system. 
 
 To reconnect to your pb blast job, go to your scratch directory and run command:
 
@@ -110,28 +109,44 @@ pb blastn -dbnuc my_seq_set.fasta -query querys.fasta -out results.out
 ```
 If your database is big, building the BLAST indexes may require more that 1 GB of memory ( that is the job specific memory limit in Puhti login nodes). In those cases you can subhmit the job from an interactive batch job (with e.g. 8 GB of memory).
 
-## Using taxonomy lists to focus the search
+## Using taxonomy  to focus the search
 
-Since BLAST version 2.10.0, the BLAST database format has changed to version 5. This version supports using a single taxonomy ID number or list of taxonomies, to focus the search only to an organism based subset from the search database.
+The general purpose NCBI BLAST databases like _NT_ or _NE_ have grown very large, which slows the searches in Puhti. Thus if you can focus your search to only a subset of these databases it makes the search faster and prevents non-important hits to be reported.
 
-The BLAST tools include a command `get_species_taxids.sh` that can be used to generate taxidlists.
-First you have to find the the higher lever TaxID number your wish to use. For example, the TaxID of _Betacoronavirus_ genius can be found with command:
 
+Starting with BLAST+ 2.15.0, the BLAST+ command line applications support
+a new feature: they accept non-leaf taxIDs (i.e., those above an organism level,
+such as the one for primates).  For example to focus the search to only bird sequences 
+(Taxonomy ID:  8782 ) of NR database you could use command
 ```text
-get_species_taxids.sh -n Betacoronavirus 
+pb blastp -db nr - query test.fasta -taxids 8782 -out test.res
 ```
-Then the TaxIDs of the spcies that belong to this genius (TaxID: 694002) can be retrieved with command:
+
+If you know, that you will use a specific subset of _NR_ or _NT_ databases several times, it is more effective
+to filter this part of sequences out once and then index your own database form the filtered sequences. You can use command _blastdbcmd_ to filter out a specific taxonomic group from _NR_ or _NT_ databases.
+
+For example all bird sequences can be retrieved from _NR_ database with command:
+
 ```text
-get_species_taxids.sh -t 694002 > b-coronaviruses.txt
+blastdbcmd -taxids 8782 -db nr -dbtype prot -out nrbirds.fasta -target_only
 ```
-The command above produces a file containing TaxID numbers of Betacoronaviruses. This file can the be used with the `-taxidlist` to define BLAST to do the search only against the sequences originating form the defined species. For example:
+The reusultig fasta file can be indexed for BLAST searches with _makeblastdb_ command.
 
 ```text
-pb blastp -db nr -query queryset.fasta -taxidlist b-coronaviruses.txt -out corona_results 
-``` 
+makeblastdb -in nrbirds.fasta -dbtype prot
+```
 
-Note that `-taxidlist` can be used only with databases that include species information.
+To use your own database, you must redefine environment variable _BLASTDB_ so that it points to the directory where you have the index. For example if the indexes locate in directory _my_blastdb_ in the scratch directory of project _project_20012345_ , the variable would be set with command:
 
+```text
+export BLASTDB=/scrartch/project_20012345/my_blastdb
+```
+
+Now you can use your own database in the BLAST search:
+
+```text
+pb blastp -db nrbirds.fasta - queryquery.fasta -out bird-only-hits.res
+```
 
 ## Using genome data from ensembl with pb
 

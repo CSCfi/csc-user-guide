@@ -54,32 +54,32 @@ source allas_conf -u csc-user-name -p csc-project-name --s3remove
 
 In Windows machines you can't use _allas_conf_ script. So for Windows some connection specific variables need to be checked up in parallel from a Linux/Mac supporting  _allas_conf_ script. Easiest could be Puhti, if you use it otherwise. One option is also to use Windows Linux Subsystem and then the instructions above can be followed.
 
-Configure the Allas connetion with command:
+Configure the Allas connection with command:
 
 ```text
 rclone config
 ```
 You can use this command also in other machines where _allas_conf_ is not available.
-The command above launches a configration process that you can use to define new Rclone 
+The command above launches a configuration process that you can use to define new Rclone 
 connetion. In Rclone these defined connections are called as _remotes_. 
 
 Below we describe how to create Swift and S3 connections to Allas.
 
 #### Configuring Swift connection in Windows
 
-Start the process by executing command:
+Start the process by opening PowerShell and executing command:
 
 ```text
-rclone config
+.\rclone.exe config
 ```
-And do following selections:
+In the interactive configuration process, do following selections:
 
    1. Select **n** to create a _New remote_
    2. Name the remote as: **allas**
    3. From the list of storage protocols, select the number that defines:
 _OpenStack Swift (Rackspace Cloud Files, Memset Memstore, OVH)_
    4. Select authentication option **2** _Get swift credentials from environment vars._
-   5. After that select the default _blank_ setting for all the remaining settings until you are back in the starting menu of the confguration process. 
+   5. After that select the default _blank_ setting for all the remaining settings until you are back in the starting menu of the configuration process. 
    6. Finally, choose **q** to stop the configuration process.
  
 In the case of Swift you need to do this configuration only once. In the configuration 
@@ -87,59 +87,20 @@ it is now defined that in case of _allas_, all data for the connection is red fr
 
 If you have access to [Puhti](https://puhti.csc.fi), then the easiest way to check the values of the variables needed is to open terminal connection to it and activate there connection to the Allas project you wish to use. Another option is to use a utility program [allas-get-swift-token-win.zip](https://github.com/CSCfi/allas-get-swift-token/releases/download/v1.0.0/allas-get-swift-token-win.zip). If you choose to use the utility program, you (or your local it-support) may have to configure your anti-virus etc software to allow running it.
 
-This Swift access is done in Puhti with commands:
+If you use Puhti for setting Swift access variables, activate the Allas environment in Puhti with commands:
 
 ```text
 module load allas
-allas-conf
+allas-conf --show-powershell
 ```
-After that you can check the variable values with commands:
+When the configuration process in Puhti is ready, copy the last four lines, starting with `$Env:`, to the local PowerShell and execute them. Then test the rclone connection with command :
 
 ```text
-echo $variable_name
-```
-The variables required for the Allas Swift access are:
-
-   * **OS_STORAGE_URL**, Check this value in Puhti with commad  _echo $OS_STORAGE_URL_ .
-   * **OS_AUTH_TOKEN**, Check this value in Puhti with commad  _echo $OS_AUTH_TOKEN_ .
-
-The value in the variable OS_STORAGE_URL stays the same as long as you are accessing the same project.
-OS_AUTH_TOKEN variable contains the actual authentication token. This token is valid only for 8 hours 
-so you typically need to generate and check it each time you start using Rclone in your computer.
-
-At the moment we don't have a tool for generating this value in Windows so you need to 
-use Puhti (or some other machine that can run allas_conf tool) to generate this project 
-specific temporary token.
-
-For example, if in Puhti running the allas-conf would produce following values:
-
-<pre>
-<b>module load allas</b>
-<b>allas-conf</b>
-<b>echo $OS_STORAGE_URL</b>
-https://a3s.fi:443/swift/v1/AUTH_5d66718fa0ff46ee1b2581b2225ee1a9d
-<b>echo $OS_AUTH_TOKEN</b>
-gAAAAABiVAJ08lSVPXH4MqXDb-Vo0KdQgm9reOA7IRf-PavF-RktYpp3K_7kp-5Ck137hsBQl66qRFmd4PE4hEVz0TWwTTmVIPUmmxQ
-</pre>
-
-Then in **Windows PowerShell** you could set up Allas connection with commands:
-
-```text
-$Env:OS_STORAGE_URL = "https://a3s.fi:443/swift/v1/AUTH_5d66718fa0ff46ee1b2581b2225ee1a9d"
-$Env:OS_AUTH_TOKEN = "gAAAAABiVAJ08lSVPXH4MqXDb-Vo0KdQgm9reOA7IRf-PavF-RktYpp3K_7kp-5Ck137hsBQl66qRFmd4PE4hEVz0TWwTTmVIPUmmxQ"
+  .\rclone.exe lsd allas:
 ```
 
-In the **Windows Command Prompt** the corresponding set up commands would be:
-```text
-set OS_STORAGE_URL=https://a3s.fi:443/swift/v1/AUTH_5d66718fa0ff46ee1b2581b2225ee1a9d
-set OS_AUTH_TOKEN=gAAAAABiVAJ08lSVPXH4MqXDb-Vo0KdQgm9reOA7IRf-PavF-RktYpp3K_7kp-5Ck137hsBQl66qRFmd4PE4hEVz0TWwTTmVIPUmmxQ
-```
+Note that also in this case the connection will work only for the next 8 hours. 
 
-
-With these settings done, you should be able to check your buckets with command:
-```text
-rclone.exe lsd allas:
-```
 
 
 
