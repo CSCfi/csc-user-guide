@@ -1,10 +1,5 @@
 # Resize database instance volume
 
-!!! error "Closed Beta"  
-    Pukki DBaaS is in closed beta. This means that the service is probably not suitable for most users
-    and there might be breaking changes. If you are still interested in using the service you can
-    [contact us](../../support/contact.md) to see if the service would be suitable for you.  
-
 When you first create a database instance, you specify the size of the volume the instance has in use. If you later on notice that the size is not enough, you can resize the volume either from the web interface or from the CLI. Note that you can only increase the size of the volume, not decrease.  
 
 ## Precautions  

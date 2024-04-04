@@ -1,10 +1,5 @@
 # Using DBaaS with CLI
 
-!!! error "Closed Beta"
-    Pukki DBaaS is in closed beta. This means that the service is probably not suitable for most users
-    and there might be breaking changes. If you are still interested in using the service you can
-    [contact us](../../support/contact.md) to see if the service would be suitable for you.
-
 The DBaaS is using OpenStack on the backend, which means that you can use the OpenStack CLI in a similar way as in Pouta. It is important to note that even if Pouta uses the same command-line it does not mean that you are connected to Pouta. This is especially important if you are automating things in both Pouta and DBaaS since you need to connect to different Keystone endpoints.
 
 ## Getting started

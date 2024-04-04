@@ -1,5 +1,17 @@
 # Applications
 
+## AMS 2023 available on Puhti and Mahti, 21.3.2024
+
+[AMS](../../apps/ams.md) has been updated to version 2023.104 on both Mahti and Puhti
+and set as the default module. The corresponding [AMS-GUI](../../apps/ams-gui.md)
+is also updated.
+
+## GROMACS 2024.1, 21.3.2024
+
+[GROMACS](../../apps/gromacs.md) 2024.1 is now available on Puhti, Mahti and LUMI.
+See [release notes](https://manual.gromacs.org/2024.1/release-notes/2024/2024.1.html)
+for a list of new features and improvements.
+
 ## CP2K 2024.1 available on Puhti, Mahti and LUMI, 20.3.2024
 
 [CP2K](../../apps/cp2k.md) 2024.1 has been installed and set as the default

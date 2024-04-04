@@ -1,10 +1,5 @@
 # Backups
 
-!!! error "Closed Beta"
-    Pukki DBaaS is in closed beta. This means that the service is probably not suitable for most users
-    and there might be breaking changes. If you are still interested in using the service you can
-    [contact us](../../support/contact.md) to see if the service would be suitable for you.
-
 All databases in DBaaS get automatically backed up about every 24 hours. Users can also manually
 backup their instances but that means that the next automatic backup will be taken about 24 hours
 after the last backup. All backups are stored for 90 days after which they get automatically
