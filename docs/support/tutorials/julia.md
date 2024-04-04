@@ -1,5 +1,5 @@
 # Running Julia batch jobs on CSC clusters
-This tutorial contains examples for running various Julia batch jobs on CSC clusters.
+This tutorial contains examples for running various Julia batch jobs on Puhti, Mahti and LUMI clusters.
 
 [TOC]
 
@@ -292,129 +292,6 @@ println.(outputs)
     ```
 
 
-### Single GPU
-We use the following directory structure and assume it is our working directory.
-
-```text
-.
-├── Project.toml  # Julia environment
-├── batch.sh      # Slurm batch script
-└── script.jl     # Julia script
-```
-
-=== "Puhti"
-    An example of a `Project.toml` project file.
-
-    ```toml
-    [deps]
-    CUDA = "052768ef-5323-5732-b1bb-66c8b64840ba"
-    ```
-
-    An example of a `script.jl` code.
-
-    ```julia
-    using CUDA
-
-    A = rand(2^9, 2^9)
-    A_d = CuArray(A)
-    B_d = A_d * A_d
-    ```
-
-    An example of a `batch.sh` batch script.
-
-    ```bash
-    #!/bin/bash
-    #SBATCH --account=<project>
-    #SBATCH --partition=gpu
-    #SBATCH --time=00:15:00
-    #SBATCH --nodes=1
-    #SBATCH --ntasks-per-node=1
-    #SBATCH --cpus-per-task=10
-    #SBATCH --gres=gpu:v100:1
-    #SBATCH --mem-per-cpu=8000
-
-    module load julia
-    module load julia-cuda
-    julia --project=. -e 'using Pkg; Pkg.instantiate()'
-    julia --project=. script.jl
-    ```
-
-=== "Mahti"
-    An example of a `Project.toml` project file.
-
-    ```toml
-    [deps]
-    CUDA = "052768ef-5323-5732-b1bb-66c8b64840ba"
-    ```
-
-    An example of a `script.jl` code.
-
-    ```julia
-    using CUDA
-
-    A = rand(2^9, 2^9)
-    A_d = CuArray(A)
-    B_d = A_d * A_d
-    ```
-
-    An example of a `batch.sh` batch script.
-
-    ```bash
-    #!/bin/bash
-    #SBATCH --account=<project>
-    #SBATCH --partition=gpusmall
-    #SBATCH --time=00:15:00
-    #SBATCH --nodes=1
-    #SBATCH --ntasks-per-node=1
-    #SBATCH --cpus-per-task=32
-    #SBATCH --gres=gpu:a100:1
-    #
-
-    module load julia
-    module load julia-cuda
-    julia --project=. -e 'using Pkg; Pkg.instantiate()'
-    julia --project=. script.jl
-    ```
-
-=== "LUMI"
-    An example of a `Project.toml` project file.
-
-    ```toml
-    [deps]
-    AMDGPU = "21141c5a-9bdb-4563-92ae-f87d6854732e"
-    ```
-
-    An example of a `script.jl` code.
-
-    ```julia
-    using AMDGPU
-
-    A = rand(2^9, 2^9)
-    A_d = ROCArray(A)
-    B_d = A_d * A_d
-    ```
-
-    An example of a `batch.sh` batch script.
-
-    ```bash
-    #!/bin/bash
-    #SBATCH --account=<project>
-    #SBATCH --partition=small-g
-    #SBATCH --time=00:15:00
-    #SBATCH --nodes=1
-    #SBATCH --gpus-per-node=1
-    #SBATCH --ntasks-per-node=1
-    #SBATCH --cpus-per-task=8
-    #SBATCH --mem-per-cpu=1750
-
-    module use /appl/local/csc/modulefiles
-    module load julia
-    module load julia-amdgpu
-    julia --project=. -e 'using Pkg; Pkg.instantiate()'
-    julia --project=. script.jl
-    ```
-
-
 ### MPI program
 We launch the MPI program using Julia's `mpiexec` wrapper function.
 The wrapper function substitutes the correct command from local preferences to the `mpirun` variable to run the MPI program.
@@ -643,6 +520,129 @@ println.(outputs)
     ```
 
 
+### Single GPU
+We use the following directory structure and assume it is our working directory.
+
+```text
+.
+├── Project.toml  # Julia environment
+├── batch.sh      # Slurm batch script
+└── script.jl     # Julia script
+```
+
+=== "Puhti"
+    An example of a `Project.toml` project file.
+
+    ```toml
+    [deps]
+    CUDA = "052768ef-5323-5732-b1bb-66c8b64840ba"
+    ```
+
+    An example of a `script.jl` code.
+
+    ```julia
+    using CUDA
+
+    A = rand(2^9, 2^9)
+    A_d = CuArray(A)
+    B_d = A_d * A_d
+    ```
+
+    An example of a `batch.sh` batch script.
+
+    ```bash
+    #!/bin/bash
+    #SBATCH --account=<project>
+    #SBATCH --partition=gpu
+    #SBATCH --time=00:15:00
+    #SBATCH --nodes=1
+    #SBATCH --ntasks-per-node=1
+    #SBATCH --cpus-per-task=10
+    #SBATCH --gres=gpu:v100:1
+    #SBATCH --mem-per-cpu=8000
+
+    module load julia
+    module load julia-cuda
+    julia --project=. -e 'using Pkg; Pkg.instantiate()'
+    julia --project=. script.jl
+    ```
+
+=== "Mahti"
+    An example of a `Project.toml` project file.
+
+    ```toml
+    [deps]
+    CUDA = "052768ef-5323-5732-b1bb-66c8b64840ba"
+    ```
+
+    An example of a `script.jl` code.
+
+    ```julia
+    using CUDA
+
+    A = rand(2^9, 2^9)
+    A_d = CuArray(A)
+    B_d = A_d * A_d
+    ```
+
+    An example of a `batch.sh` batch script.
+
+    ```bash
+    #!/bin/bash
+    #SBATCH --account=<project>
+    #SBATCH --partition=gpusmall
+    #SBATCH --time=00:15:00
+    #SBATCH --nodes=1
+    #SBATCH --ntasks-per-node=1
+    #SBATCH --cpus-per-task=32
+    #SBATCH --gres=gpu:a100:1
+    #
+
+    module load julia
+    module load julia-cuda
+    julia --project=. -e 'using Pkg; Pkg.instantiate()'
+    julia --project=. script.jl
+    ```
+
+=== "LUMI"
+    An example of a `Project.toml` project file.
+
+    ```toml
+    [deps]
+    AMDGPU = "21141c5a-9bdb-4563-92ae-f87d6854732e"
+    ```
+
+    An example of a `script.jl` code.
+
+    ```julia
+    using AMDGPU
+
+    A = rand(2^9, 2^9)
+    A_d = ROCArray(A)
+    B_d = A_d * A_d
+    ```
+
+    An example of a `batch.sh` batch script.
+
+    ```bash
+    #!/bin/bash
+    #SBATCH --account=<project>
+    #SBATCH --partition=small-g
+    #SBATCH --time=00:15:00
+    #SBATCH --nodes=1
+    #SBATCH --gpus-per-node=1
+    #SBATCH --ntasks-per-node=1
+    #SBATCH --cpus-per-task=8
+    #SBATCH --mem-per-cpu=1750
+
+    module use /appl/local/csc/modulefiles
+    module load julia
+    module load julia-amdgpu
+    julia --project=. -e 'using Pkg; Pkg.instantiate()'
+    julia --project=. script.jl
+    ```
+
+
 ### Multi GPU with MPI
 We use the following directory structure and assume it is our working directory.
 
@@ -670,7 +670,7 @@ mpiexec(mpirun -> run(`$mpirun julia --project=. prog.jl`))
     MPI = "da04e1cc-30fd-572f-bb4f-1f8673147195"
     ```
 
-    An example of a `prog.jl` code.
+    An example of a `prog.jl` code. (https://gist.github.com/luraess/a47931d7fb668bd4348a2c730d5489f4)
 
     ```julia
     using MPI
