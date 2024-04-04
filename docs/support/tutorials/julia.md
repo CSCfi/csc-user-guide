@@ -284,6 +284,121 @@ println.(outputs)
     ```
 
 
+### Multi-processing on multiple nodes
+We use the following directory structure and assume it is our working directory.
+
+```text
+.
+├── Project.toml  # Julia environment
+├── batch.sh      # Slurm batch script
+└── script.jl     # Julia script
+```
+
+An example of a `Project.toml` project file.
+
+```toml
+[deps]
+ClusterManagers = "34f1f09b-3a8b-5176-ab39-66d58a4d544e"
+Distributed = "8ba89e20-285c-5b6f-9357-94700520ee1b"
+```
+
+An example of a `script.jl` code.
+
+```julia
+using Distributed
+using ClusterManagers
+
+# We set one worker process per core.
+proc_num = parse(Int, ENV["SLURM_NTASKS"])
+
+# Environment variables that we pass to the worker processes.
+# We set the thread count to one since each process uses one core.
+n = Threads.nthreads()
+proc_env = [
+    "JULIA_NUM_THREADS"=>"$n",
+    "JULIA_CPU_THREADS"=>"$n",
+    "OPENBLAS_NUM_THREADS"=>"$n",
+]
+
+# We add worker processes to the local node using SlurmManager
+addprocs(SlurmManager(proc_num); env=proc_env, exeflags="--project=.")
+
+# We use the `@everywhere` macro to include the task function in the worker processes.
+# We must call `@everywhere` after adding worker processes; otherwise the code won't be included in the new processes.
+@everywhere function task()
+    return (worker=myid(), hostname=gethostname(), pid=getpid())
+end
+
+# We run the task function in each worker process.
+futures = [@spawnat worker task() for worker in workers()]
+
+# Then, we fetch the output from the processes.
+outputs = fetch.(futures)
+
+# Remove processes after we are done.
+rmprocs.(workers())
+
+# Print the outputs of master and worker processes.
+println(task())
+println.(outputs)
+```
+
+=== "Puhti"
+    An example of a `batch.sh` batch script.
+
+    ```bash
+    #!/bin/bash
+    #SBATCH --account=<project>
+    #SBATCH --partition=large
+    #SBATCH --time=00:15:00
+    #SBATCH --nodes=2
+    #SBATCH --ntasks-per-node=2
+    #SBATCH --cpus-per-task=1
+    #SBATCH --mem-per-cpu=1000
+
+    module load julia
+    julia --project=. -e 'using Pkg; Pkg.instantiate()'
+    julia --project=. script.jl
+    ```
+
+=== "Mahti"
+    An example of a `batch.sh` batch script.
+
+    ```bash
+    #!/bin/bash
+    #SBATCH --account=<project>
+    #SBATCH --partition=medium
+    #SBATCH --time=00:15:00
+    #SBATCH --nodes=2
+    #SBATCH --ntasks-per-node=128
+    #SBATCH --cpus-per-task=1
+    #SBATCH --mem-per-cpu=0
+
+    module load julia
+    julia --project=. -e 'using Pkg; Pkg.instantiate()'
+    julia --project=. script.jl
+    ```
+
+=== "LUMI"
+    An example of a `batch.sh` batch script.
+
+    ```bash
+    #!/bin/bash
+    #SBATCH --account=<project>
+    #SBATCH --partition=standard
+    #SBATCH --time=00:15:00
+    #SBATCH --nodes=2
+    #SBATCH --ntasks-per-node=128
+    #SBATCH --cpus-per-task=1
+    #SBATCH --mem-per-cpu=0
+
+    module use /appl/local/csc/modulefiles
+    module load julia
+    julia --project=. -e 'using Pkg; Pkg.instantiate()'
+    julia --project=. script.jl
+    ```
+
+
 ### MPI program
 We launch the MPI program using Julia's `mpiexec` wrapper function.
 The wrapper function substitutes the correct command from local preferences to the `mpirun` variable to run the MPI program.
@@ -384,121 +499,6 @@ MPI.Barrier(comm)
     module use /appl/local/csc/modulefiles
     module load julia
     module load julia-mpi
-    julia --project=. -e 'using Pkg; Pkg.instantiate()'
-    julia --project=. script.jl
-    ```
-
-
-### Multi-processing on multiple nodes
-We use the following directory structure and assume it is our working directory.
-
-```text
-.
-├── Project.toml  # Julia environment
-├── batch.sh      # Slurm batch script
-└── script.jl     # Julia script
-```
-
-An example of a `Project.toml` project file.
-
-```toml
-[deps]
-ClusterManagers = "34f1f09b-3a8b-5176-ab39-66d58a4d544e"
-Distributed = "8ba89e20-285c-5b6f-9357-94700520ee1b"
-```
-
-An example of a `script.jl` code.
-
-```julia
-using Distributed
-using ClusterManagers
-
-# We set one worker process per core.
-proc_num = parse(Int, ENV["SLURM_NTASKS"])
-
-# Environment variables that we pass to the worker processes.
-# We set the thread count to one since each process uses one core.
-n = Threads.nthreads()
-proc_env = [
-    "JULIA_NUM_THREADS"=>"$n",
-    "JULIA_CPU_THREADS"=>"$n",
-    "OPENBLAS_NUM_THREADS"=>"$n",
-]
-
-# We add worker processes to the local node using SlurmManager
-addprocs(SlurmManager(proc_num); env=proc_env, exeflags="--project=.")
-
-# We use the `@everywhere` macro to include the task function in the worker processes.
-# We must call `@everywhere` after adding worker processes; otherwise the code won't be included in the new processes.
-@everywhere function task()
-    return (worker=myid(), hostname=gethostname(), pid=getpid())
-end
-
-# We run the task function in each worker process.
-futures = [@spawnat worker task() for worker in workers()]
-
-# Then, we fetch the output from the processes.
-outputs = fetch.(futures)
-
-# Remove processes after we are done.
-rmprocs.(workers())
-
-# Print the outputs of master and worker processes.
-println(task())
-println.(outputs)
-```
-
-=== "Puhti"
-    An example of a `batch.sh` batch script.
-
-    ```bash
-    #!/bin/bash
-    #SBATCH --account=<project>
-    #SBATCH --partition=large
-    #SBATCH --time=00:15:00
-    #SBATCH --nodes=2
-    #SBATCH --ntasks-per-node=1
-    #SBATCH --cpus-per-task=1
-    #SBATCH --mem-per-cpu=1000
-
-    module load julia
-    julia --project=. -e 'using Pkg; Pkg.instantiate()'
-    julia --project=. script.jl
-    ```
-
-=== "Mahti"
-    An example of a `batch.sh` batch script.
-
-    ```bash
-    #!/bin/bash
-    #SBATCH --account=<project>
-    #SBATCH --partition=medium
-    #SBATCH --time=00:15:00
-    #SBATCH --nodes=2
-    #SBATCH --ntasks-per-node=128
-    #SBATCH --cpus-per-task=1
-    #SBATCH --mem-per-cpu=0
-
-    module load julia
-    julia --project=. -e 'using Pkg; Pkg.instantiate()'
-    julia --project=. script.jl
-    ```
-
-=== "LUMI"
-    An example of a `batch.sh` batch script.
-
-    ```bash
-    #!/bin/bash
-    #SBATCH --account=<project>
-    #SBATCH --partition=standard
-    #SBATCH --time=00:15:00
-    #SBATCH --nodes=2
-    #SBATCH --ntasks-per-node=128
-    #SBATCH --cpus-per-task=1
-    #SBATCH --mem-per-cpu=0
-
-    module use /appl/local/csc/modulefiles
-    module load julia
     julia --project=. -e 'using Pkg; Pkg.instantiate()'
     julia --project=. script.jl
     ```
@@ -654,7 +654,7 @@ mpiexec(mpirun -> run(`$mpirun julia --project=. prog.jl`))
     MPI = "da04e1cc-30fd-572f-bb4f-1f8673147195"
     ```
 
-    An example of a `prog.jl` code. (https://gist.github.com/luraess/a47931d7fb668bd4348a2c730d5489f4)
+    An example of a `prog.jl` code. ([source](https://gist.github.com/luraess/a47931d7fb668bd4348a2c730d5489f4))
 
     ```julia
     using MPI
