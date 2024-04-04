@@ -402,9 +402,9 @@ We use the following directory structure and assume it is our working directory.
     #SBATCH --partition=small-g
     #SBATCH --time=00:15:00
     #SBATCH --nodes=1
-    #SBATCH --ntasks-per-node=1
-    #SBATCH --cpus-per-task=16
     #SBATCH --gpus-per-node=1
+    #SBATCH --ntasks-per-node=1
+    #SBATCH --cpus-per-task=8
     #SBATCH --mem-per-cpu=1750
 
     module use /appl/local/csc/modulefiles
@@ -638,6 +638,84 @@ println.(outputs)
 
     module use /appl/local/csc/modulefiles
     module load julia
+    julia --project=. -e 'using Pkg; Pkg.instantiate()'
+    julia --project=. script.jl
+    ```
+
+
+### Multi GPU with MPI
+We use the following directory structure and assume it is our working directory.
+
+```text
+.
+├── Project.toml  # Julia environment
+├── batch.sh      # Slurm batch script
+├── prog.jl       # Julia GPU-aware MPI program
+└── script.jl     # Julia script
+```
+
+An example of a `script.jl` code.
+
+```julia
+using MPI
+mpiexec(mpirun -> run(`$mpirun julia --project=. prog.jl`))
+```
+
+=== "LUMI"
+    An example of a `Project.toml` project file.
+
+    ```toml
+    [deps]
+    AMDGPU = "21141c5a-9bdb-4563-92ae-f87d6854732e"
+    MPI = "da04e1cc-30fd-572f-bb4f-1f8673147195"
+    ```
+
+    An example of a `prog.jl` code.
+
+    ```julia
+    using MPI
+    using AMDGPU
+    MPI.Init()
+    comm = MPI.COMM_WORLD
+    rank = MPI.Comm_rank(comm)
+    # select device
+    comm_l = MPI.Comm_split_type(comm, MPI.COMM_TYPE_SHARED, rank)
+    rank_l = MPI.Comm_rank(comm_l)
+    device = AMDGPU.device_id!(rank_l+1)
+    gpu_id = AMDGPU.device_id(AMDGPU.device())
+    # select device
+    size = MPI.Comm_size(comm)
+    dst  = mod(rank+1, size)
+    src  = mod(rank-1, size)
+    println("rank=$rank rank_loc=$rank_l (gpu_id=$gpu_id - $device), size=$size, dst=$dst, src=$src")
+    N = 4
+    send_mesg = ROCArray{Float64}(undef, N)
+    recv_mesg = ROCArray{Float64}(undef, N)
+    fill!(send_mesg, Float64(rank))
+    AMDGPU.synchronize()
+    rank==0 && println("start sending...")
+    MPI.Sendrecv!(send_mesg, dst, 0, recv_mesg, src, 0, comm)
+    println("recv_mesg on proc $rank: $recv_mesg")
+    rank==0 && println("done.")
+    ```
+
+    An example of a `batch.sh` batch script.
+
+    ```bash
+    #!/bin/bash
+    #SBATCH --account=<project>
+    #SBATCH --partition=small-g
+    #SBATCH --time=00:15:00
+    #SBATCH --nodes=2
+    #SBATCH --gpus-per-node=8
+    #SBATCH --ntasks-per-node=8
+    #SBATCH --cpus-per-task=8
+    #SBATCH --mem-per-cpu=0
+
+    module use /appl/local/csc/modulefiles
+    module load julia
+    module load julia-mpi
+    module load julia-amdgpu
     julia --project=. -e 'using Pkg; Pkg.instantiate()'
     julia --project=. script.jl
     ```
