@@ -21,9 +21,9 @@ resources. Billing units are consumed as follows:
 
 | Resource         | Billing units |
 |------------------|---------------|
-| Pod core hour    | 4             |
-| Pod RAM GB hour  | 2             |
-| Storage TiB hour | 6             |
+| Pod core hour    | 1             |
+| Pod RAM GB hour  | 1,5           |
+| Storage TiB hour | 3             |
 
 
 !!! info
