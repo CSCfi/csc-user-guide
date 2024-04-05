@@ -13,35 +13,37 @@ system:
 
 ## License
 MATLAB is proprietary software.
-The academic license for MATLAB allows use only for the affiliates, that is staff and students, of Finnish higher education institutions.
-If you are a user from a commercial company or Finnish research institute, please [contact CSC Service Desk](../support/contact.md) for further instructions.
 
 
 ## Available
-CSC has MATLAB installations on Puhti for interactive use and batch jobs.
+### Puhti
+Puhti has MATLAB installations for interactive use and batch jobs.
 The interactive MATLAB is intended for temporary, light pre- and postprocessing of data.
 It is available as follows:
 
-- Systems: *Puhti*
-- License: *Academic*
-- Versions: *R2023b*
-- Toolboxes: *MATLAB Compiler*, *MATLAB Compiler SDK*, *Parallel Computing Toolbox* (2 licenses for each toolbox)
+- License: Academic
+- Versions: R2023b
+- Toolboxes: MATLAB Compiler, MATLAB Compiler SDK, Parallel Computing Toolbox (2 licenses for each toolbox)
 
-*MATLAB Parallel Server (MPS)* allows sending work as a batch job from a local MATLAB installation to Puhti.
+MATLAB Parallel Server (MPS) allows sending work as a batch job from a local MATLAB installation to Puhti.
 It is available as follows:
 
-- Systems: *Puhti*
-- License: *Academic*
-- Versions: *R2023b*, *R2023a*
-- Toolboxes: *MATLAB Parallel Server* (license for using upto 500 computing cores simultaneously).
+- License: Academic
+- Versions: R2023b, R2023a
+- Toolboxes: MATLAB Parallel Server (license for using upto 500 computing cores simultaneously).
   Toolboxes that you have license on your local MATLAB license can also be used with MATLAB Parallel Server.
 
+The academic license allows use only for the affiliates, that is staff and students, of Finnish higher education institutions.
+If you are a user from a commercial company or Finnish research institute, please [contact CSC Service Desk](../support/contact.md) for further instructions.
+
+### LUMI
 LUMI has MATLAB an installation for interactive use.
 
-- Systems: *LUMI*
-- License: *Academic*
-- Versions: *R2023b*
+- License: Academic
+- Versions: R2023b
 - Toolboxes: Simulink, Control System Toolbox, Curve Fitting Toolbox, Deep Learning Toolbox, Global Optimization Toolbox, Image Processing Toolbox, Optimization Toolbox, Parallel Computing Toolbox, Signal Processing Toolbox, Statistics and Machine Learning Toolbox, Wavelet Toolbox (25 licenses of each)
+
+The academic license allows use only for teaching and academic research at a degree-granting institute.
 
 
 ## Using interactive MATLAB on Puhti and LUMI
