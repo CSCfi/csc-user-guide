@@ -28,7 +28,8 @@ You can access a list of snapshots from the 'Images' tab.
 
 ### Instance snapshot from the CLI
 
-!!! note
+!!! info
+
     Ensure you have sourced the OpenStack RC file and can communicate with your OpenStack environment.
 
 Use the following [command](https://docs.openstack.org/python-openstackclient/latest/cli/command-objects/server.html#server-list){target="_blank"} to check the list of available instances:
@@ -105,6 +106,7 @@ Image snapshots hold the state of a given instance's root disk, and
 can typically be used as bootable images.
 
 !!! warning
+
     Possible [ephemeral disk](ephemeral-storage.md) is not included in the snapshot.
 
 ### Launching a snapshot from the web interface
