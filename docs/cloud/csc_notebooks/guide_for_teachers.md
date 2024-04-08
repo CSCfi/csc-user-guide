@@ -13,6 +13,9 @@ Instead of a course you can also use CSC Notebooks for collaboration. The workfl
 * Login to CSC Notebooks using your CSC account by choosing 'CSC Login' option after clicking 'Login'.
   If you don't have a CSC account yet, [see the instructions on how to create new user account](../../../accounts/how-to-create-new-user-account/).
 * Open `Manage workspaces` from the left panel and create a new workspace.
+    * Workspace type:
+      * Fixed-time course with limited lifetime: Valid for limited months.
+      * Long-running course with time-limited membership: Can be extended 13 months at a time. Intended for workspaces that offer continuous learning environment.
 * If you don't see `Manage workspaces` option, please
     * Check that you logged in using your CSC account. Your user account on the bottom of the left navigation
       should look like 'csc/youraccountname'
@@ -84,7 +87,7 @@ Once the co-instructors/co-organizers/collaborators have signed in, you can find
 Co-owners can do everything the owner can, except demoting the owner or deleting the workspace. For collaboration purposes, all collaborators should have co-owner rights, to be able to write to the shared folder in the workspace.
 
 ## Creating custom Docker images
-If you cannot find a suitable image for your intended application, you will need to create and publish your own custom image for Notebooks. Image can be created on your own computer or for example [cPouta](../pouta/pouta-what-is.md) instance.
+If you cannot find a suitable image for your intended application, you will need to create and publish your own custom image for Notebooks. Image can be created on your own computer or for example [cPouta](../pouta/index.md) instance.
 
 Requirements: 
 

@@ -1,3 +1,4 @@
+--8<-- "rahtibeta_announcement.md"
 ## Platform documentation
 
 Both the OpenShift and the Kubernetes projects maintain extensive user
@@ -38,11 +39,11 @@ Kubernetes. Here is a list of some of them:
   * [edX: Introduction to
     Kubernetes](https://www.edx.org/course/introduction-kubernetes-linuxfoundationx-lfs158x)
 
-You may also find the material and the exercises of the CSC container course
+<!-- You may also find the material and the exercises of the CSC container course
 helpful:
 
   * [CSC container course
-    material](https://rahti-course.a3s.fi/index.html)
+    material](https://rahti-course.a3s.fi/index.html) -->
 
 ## Blogs
 

@@ -1,17 +1,16 @@
-# Projects and quota
-
+--8<-- "rahtibeta_announcement.md"
 
 ## Creating a project
 
 Click the blue "Create Project" button to create a project, and you will be
 presented with the following view:
 
-![OpenShift new project dialog](img/new_project_dialog_3.7.png)
+![OpenShift new project dialog](../../img/new_project_dialog_3.7.png)
 
 1. You *need* to pick a **unique name** that is not in use by any other project
 in the system.
 1. You *can* also enter a **human-readable display name** and.
-1. You *have to* also enter a **CSC computing project** in the _Description_ field. It must be a currently valid CSC project, that your account has access to. In order to view to which CSC projects you have access to, please check <https://my.csc.fi>. If you have access to no CSC project, you will not be able to create any Rahti project. If you have Rahti access via project_1000123, you would enter the following in the Description field:
+1. You *have to* also enter a **CSC computing project** in the _Description_ field. It must be a currently valid CSC project, that your account has access to. In order to view to which CSC projects you have access to, please check <https://my.csc.fi>. If you have access to no CSC project, you will not be able to create any Rahti 1 project. If you have Rahti 1 access via project_1000123, you would enter the following in the Description field:
 
 > csc_project: 1000123
 
@@ -37,20 +36,20 @@ For more information about using the web interface, refer to the
 out which version of the documentation to look at in the web interface by
 clicking the question mark symbol in the top bar and selecting "About".
 
-### Extra information about CSC computing projects in Rahti
+### Extra information about CSC computing projects in Rahti 1
 
 Projects in OpenShift are separate from CSC computing projects. A single CSC
 computing project can have access to multiple projects in OpenShift.
-Each CSC computing project with access to Rahti receives a *group* in
+Each CSC computing project with access to Rahti 1 receives a *group* in
 OpenShift.
 
 !!! note
-    Rahti can be used free of charge for open research and
+    Rahti 1 can be used free of charge for open research and
     education in Finnish universities and polytechnics.
 
 Any usage within OpenShifts projects are billed
 to the billing unit quota of the CSC project selected. Note that the selected CSC project must
-have Rahti access and the user creating a project must be a member of that computing project,
+have Rahti 1 access and the user creating a project must be a member of that computing project,
 otherwise the OpenShift project creation will fail.
 
 * If you would like to know which CSC computing projects you are a member of, you
@@ -65,7 +64,7 @@ explicitly specify one.
 * If you would like to know which CSC computing project an OpenShift project is
 associated with, you can do so using the _oc_ command line tool. You can find
 instructions for setting up oc in the [command line tool usage
-instructions ](/cloud/rahti/usage/cli). For example, if your OpenShift project is called
+instructions ](cli.md). For example, if your OpenShift project is called
 *my-openshift-project*, you would run:
 
 ```bash
@@ -123,7 +122,7 @@ If you need to create more projects or you need more resources in a project for
 your application, you can apply for more quota by contacting the Rahti
 support. See the [Contact page](/support/contact/) for instructions. Quota requests are
 handled on a case-by-case basis depending on the currently available resources
-in Rahti and the use case.
+in Rahti 1 and the use case.
 
 ## Sharing projects with other users
 
@@ -164,17 +163,17 @@ computing project, you can do so by selecting the _Groups_ tab, clicking _Edit
 Membership_, and entering the name of the computing project and a role in the
 dropdown menu on the right for the members of that computing project.
 
-## Deleting a Rahti project
+## Deleting a Rahti 1 project
 
-In order to delete a Rahti project, you need to go to the main landing page and click in the 3 vertical dots next to the name of the project. In the drop down menu, you will see the option "Delete Project".
+In order to delete a Rahti 1 project, you need to go to the main landing page and click in the 3 vertical dots next to the name of the project. In the drop down menu, you will see the option "Delete Project".
 
-![Remove Rahti drop down](img/delete_project_menu.png)
+![Remove Rahti 1 drop down](../../img/delete_project_menu.png)
 
-Before the Rahti project is removed, you will be asked to input the name of the project to confirm that you really want to remove the Rahti project and prevent accidents.
+Before the Rahti 1 project is removed, you will be asked to input the name of the project to confirm that you really want to remove the Rahti 1 project and prevent accidents.
 
 !!! warning
     After the project has been confirmed for deletion, all resources will be deleted and there will be no way to restore them, including the data stored in the persistent volumes.
 
-![Project name dialog](img/delete_project_name.png)
+![Project name dialog](../../img/delete_project_name.png)
 
-After that, Rahti will start to delete all the resources of the project. It could take only few seconds or up to a minute, it depends of amount of resources the project had. After that Rahti will liberate the project name, and it will be possible to create an empty project with the same name.
+After that, Rahti 1 will start to delete all the resources of the project. It could take only few seconds or up to a minute, it depends of amount of resources the project had. After that Rahti 1 will liberate the project name, and it will be possible to create an empty project with the same name.
