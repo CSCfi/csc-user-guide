@@ -9,6 +9,7 @@ Application credentials allow you to interact with Pouta via the [OpenStack comm
 * Other advantages are that credentials can be revoked at any time, and that you cannot change or obtain the password if you have only the application credential that created it.
 
 !!! info "Application credentials are linked to the personal account"
+
     It is important to remember that the application credentials are personal, which means that the application credentials are owned by a user account and all operations that the credentials do is on behalf of the user that created the credentials. This means that if a user is removed from the project the user's credentials will stop working.
 
 In general Application credentials give the power and flexibility to allow a safer interaction with Pouta's API.
@@ -86,7 +87,8 @@ file that you can source, a YAML file that can be used directly by the CLI, or a
 
     See the comment on the file itself on how to use it.
 
-!!! Info "Verify the credentials"
+!!! info "Verify the credentials"
+
     It is a good idea to test that the application credentials are allowed to do what you expect them to be able to do. It is also a good idea to verify that they are **NOT** allowed to do what you expect them not to be allowed to do.
 
 ## Using roles

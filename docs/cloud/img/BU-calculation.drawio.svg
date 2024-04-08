@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="396px" height="241px" viewBox="0 0 396 241" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;">
+    <g>
+        <rect x="145.5" y="110.5" width="80" height="30" style="fill:none;"/>
+        <g transform="matrix(1,0,0,1,177,129)">
+            <g>
+                <text x="-23.183px" y="0px" style="font-family:'Helvetica';font-size:12px;">1.5 x 2 +</text>
+            </g>
+        </g>
+        <rect x="5.5" y="70.5" width="40" height="30" style="fill:none;"/>
+        <g transform="matrix(1,0,0,1,7,89)">
+            <g>
+                <text x="0px" y="0px" style="font-family:'Helvetica';font-size:12px;">cores</text>
+            </g>
+        </g>
+        <path d="M45.5,85.5C98.833,75.5 125.5,81.71 125.5,104.13" style="fill:none;fill-rule:nonzero;"/>
+        <path d="M125.5,109.38L122,102.38L125.5,104.13L129,102.38L125.5,109.38Z" style="fill:none;fill-rule:nonzero;"/>
+        <g transform="matrix(0.874308,0,0,1,5.719,0)">
+            <path d="M45.5,85.5C96.84,73.73 127.14,80.86 125.5,104.13M45.5,85.5C98.84,77.18 126.12,83.45 125.5,104.13" style="fill:none;fill-rule:nonzero;stroke:black;stroke-width:1px;"/>
+        </g>
+        <g transform="matrix(1,0,0,1,-10,0)">
+            <path d="M125.5,109.38C124.53,107.88 123.86,106.6 122,102.38M125.5,109.38C124.1,106.84 122.31,103.94 122,102.38M122,102.38C122.83,102.91 123.81,103.01 125.5,104.13M122,102.38C123.21,103.08 124.49,103.5 125.5,104.13M125.5,104.13C126.7,103.84 127.79,103 129,102.38M125.5,104.13C126.14,103.78 127.31,103.34 129,102.38M129,102.38C128.19,104.31 127.14,107.01 125.5,109.38M129,102.38C127.6,105.47 126.03,107.77 125.5,109.38" style="fill:none;fill-rule:nonzero;stroke:black;stroke-width:1px;"/>
+        </g>
+        <rect x="0.5" y="140.5" width="80" height="30" style="fill:none;"/>
+        <g transform="matrix(1,0,0,1,2,159)">
+            <g>
+                <text x="0px" y="0px" style="font-family:'Helvetica';font-size:12px;">Pod core hour</text>
+            </g>
+        </g>
+        <path d="M80.5,155.5C130.5,172.167 153.567,169.497 149.7,147.49" style="fill:none;fill-rule:nonzero;"/>
+        <path d="M148.79,142.32L153.45,148.61L149.7,147.49L146.56,149.82L148.79,142.32Z" style="fill:none;fill-rule:nonzero;"/>
+        <g transform="matrix(0.85715,0,0,1,11.4994,0)">
+            <path d="M80.5,155.5C128.51,171.08 152.02,170.36 149.7,147.49M80.5,155.5C132.72,173.11 152.27,169.94 149.7,147.49" style="fill:none;fill-rule:nonzero;stroke:black;stroke-width:1px;"/>
+        </g>
+        <g transform="matrix(1,0,0,1,-10,0)">
+            <path d="M148.79,142.32C149.62,143.63 151.18,147.03 153.45,148.61M148.79,142.32C150.26,144.41 151.16,145.93 153.45,148.61M153.45,148.61C152.18,148.25 151.05,148.18 149.7,147.49M153.45,148.61C152.54,148.32 151.52,148.1 149.7,147.49M149.7,147.49C148.71,148.36 148.07,148.68 146.56,149.82M149.7,147.49C149.11,147.96 148.35,148.45 146.56,149.82M146.56,149.82C147.23,147.29 147.28,145.87 148.79,142.32M146.56,149.82C147.46,147.73 147.99,145.16 148.79,142.32" style="fill:none;fill-rule:nonzero;stroke:black;stroke-width:1px;"/>
+        </g>
+        <g transform="matrix(1,0,0,1,-3,0)">
+            <rect x="110.5" y="110.5" width="60" height="30" style="fill:none;"/>
+        </g>
+        <g transform="matrix(1,0,0,1,131,129)">
+            <g>
+                <text x="-18.179px" y="0px" style="font-family:'Helvetica';font-size:12px;">1 x 1 +</text>
+            </g>
+        </g>
+        <rect x="0.5" y="180.5" width="110" height="30" style="fill:none;"/>
+        <g transform="matrix(1,0,0,1,2,199)">
+            <g>
+                <text x="0px" y="0px" style="font-family:'Helvetica';font-size:12px;">Pod RAM GB hour</text>
+            </g>
+        </g>
+        <rect x="0.5" y="210.5" width="100" height="30" style="fill:none;"/>
+        <g transform="matrix(1,0,0,1,2,229)">
+            <g>
+                <text x="0px" y="0px" style="font-family:'Helvetica';font-size:12px;">Storage TiB hour</text>
+            </g>
+        </g>
+        <rect x="5.5" y="40.5" width="60" height="30" style="fill:none;"/>
+        <g transform="matrix(1,0,0,1,7,59)">
+            <g>
+                <text x="0px" y="0px" style="font-family:'Helvetica';font-size:12px;">GiB RAM</text>
+            </g>
+        </g>
+        <rect x="245.5" y="110.5" width="150" height="30" style="fill:none;"/>
+        <g transform="matrix(1,0,0,1,316,129)">
+            <g>
+                <text x="-63.536px" y="0px" style="font-family:'Helvetica';font-size:12px;">x 3 = 4.03 BUs per hour</text>
+            </g>
+        </g>
+        <rect x="195.5" y="105.5" width="60" height="20" style="fill:none;"/>
+        <g transform="matrix(1,0,0,1,225,119)">
+            <g>
+                <text x="-6.674px" y="0px" style="font-family:'Helvetica';font-size:12px;">10</text>
+            </g>
+        </g>
+        <rect x="195.5" y="125.5" width="60" height="20" style="fill:none;"/>
+        <g transform="matrix(1,0,0,1,225,139)">
+            <g>
+                <text x="-13.348px" y="0px" style="font-family:'Helvetica';font-size:12px;">1024</text>
+            </g>
+        </g>
+        <path d="M245.5,125.12L205.5,125.12" style="fill:none;fill-rule:nonzero;stroke:black;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;"/>
+        <path d="M110.5,195.5C173.833,198.833 202.2,183.543 195.6,149.63" style="fill:none;fill-rule:nonzero;"/>
+        <path d="M194.59,144.48L199.37,150.68L195.6,149.63L192.5,152.02L194.59,144.48Z" style="fill:none;fill-rule:nonzero;"/>
+        <g transform="matrix(0.967084,0,0,1,3.63718,0)">
+            <path d="M110.5,195.5C172.06,199.23 203.4,185.28 195.6,149.63M110.5,195.5C172.2,200.85 202.84,181.98 195.6,149.63" style="fill:none;fill-rule:nonzero;stroke:black;stroke-width:1px;"/>
+        </g>
+        <g transform="matrix(1,0,0,1,-3,0)">
+            <path d="M194.59,144.48C195.51,146.12 197.03,147.97 199.37,150.68M194.59,144.48C195.7,146.6 197.54,147.96 199.37,150.68M199.37,150.68C198.64,150.26 197.35,150.57 195.6,149.63M199.37,150.68C198,150.26 196.73,150.07 195.6,149.63M195.6,149.63C194.98,149.84 193.83,151.03 192.5,152.02M195.6,149.63C194.64,150.26 193.44,151.24 192.5,152.02M192.5,152.02C193.56,150.09 193.14,148.34 194.59,144.48M192.5,152.02C192.96,150.12 193.96,148.07 194.59,144.48" style="fill:none;fill-rule:nonzero;stroke:black;stroke-width:1px;"/>
+        </g>
+        <path d="M100.5,225.5C190.5,215.5 244.55,189.32 262.65,146.96" style="fill:none;fill-rule:nonzero;"/>
+        <path d="M264.71,142.13L265.18,149.94L262.65,146.96L258.74,147.19L264.71,142.13Z" style="fill:none;fill-rule:nonzero;"/>
+        <path d="M100.5,225.5C188.73,216.23 244.15,189.91 262.65,146.96M100.5,225.5C192.28,214.84 244.23,189.42 262.65,146.96" style="fill:none;fill-rule:nonzero;stroke:black;stroke-width:1px;"/>
+        <path d="M264.71,142.13C265.6,144.44 264.97,147.07 265.18,149.94M264.71,142.13C265.03,144.33 265.27,147.6 265.18,149.94M265.18,149.94C264.05,148.68 263.56,147.72 262.65,146.96M265.18,149.94C264.48,149 263.79,148.25 262.65,146.96M262.65,146.96C261.07,147.04 260.38,147.32 258.74,147.19M262.65,146.96C261.57,147.19 260.89,147.2 258.74,147.19M258.74,147.19C260.35,144.79 263.54,142.77 264.71,142.13M258.74,147.19C260.56,146.18 261.26,145.14 264.71,142.13" style="fill:none;fill-rule:nonzero;stroke:black;stroke-width:1px;"/>
+        <rect x="5.5" y="0.5" width="70" height="30" style="fill:none;"/>
+        <g transform="matrix(1,0,0,1,7,19)">
+            <g>
+                <text x="0px" y="0px" style="font-family:'Helvetica';font-size:12px;">GiB volume</text>
+            </g>
+        </g>
+        <path d="M75.5,15.5C188.833,18.833 239.32,46.767 226.96,99.3" style="fill:none;fill-rule:nonzero;"/>
+        <path d="M225.76,104.41L223.95,96.8L226.96,99.3L230.77,98.4L225.76,104.41Z" style="fill:none;fill-rule:nonzero;"/>
+        <path d="M75.5,15.5C187.06,20.25 239.73,45.08 226.96,99.3M75.5,15.5C188.23,17.44 237.07,45.57 226.96,99.3" style="fill:none;fill-rule:nonzero;stroke:black;stroke-width:1px;"/>
+        <path d="M225.76,104.41C225.23,100.88 223.74,97.98 223.95,96.8M225.76,104.41C225.05,102.56 224.78,101.59 223.95,96.8M223.95,96.8C224.67,97.19 225.25,97.83 226.96,99.3M223.95,96.8C225.04,97.69 226.36,98.76 226.96,99.3M226.96,99.3C228.25,99.02 229.3,98.89 230.77,98.4M226.96,99.3C227.69,99.14 228.91,98.84 230.77,98.4M230.77,98.4C229.67,100.09 226.62,102.5 225.76,104.41M230.77,98.4C228.64,100.8 226.83,102.69 225.76,104.41" style="fill:none;fill-rule:nonzero;stroke:black;stroke-width:1px;"/>
+        <path d="M65.5,55.5C125.5,55.5 158.453,71.743 164.36,104.23" style="fill:none;fill-rule:nonzero;"/>
+        <path d="M165.3,109.4L160.6,103.14L164.36,104.23L167.49,101.89L165.3,109.4Z" style="fill:none;fill-rule:nonzero;"/>
+        <path d="M65.5,55.5C123.73,57.25 157.27,72.91 164.36,104.23M65.5,55.5C123.7,56.04 159.84,72.21 164.36,104.23" style="fill:none;fill-rule:nonzero;stroke:black;stroke-width:1px;"/>
+        <path d="M165.3,109.4C163.58,107.07 161.9,105.53 160.6,103.14M165.3,109.4C164.19,107.62 162.75,106.24 160.6,103.14M160.6,103.14C161.76,103.32 163.16,104.13 164.36,104.23M160.6,103.14C161.94,103.39 163.41,103.81 164.36,104.23M164.36,104.23C165.28,103.75 166.55,102.63 167.49,101.89M164.36,104.23C165.4,103.47 166.39,102.77 167.49,101.89M167.49,101.89C166.62,104.12 166.77,105.65 165.3,109.4M167.49,101.89C167.07,104.57 165.99,106.88 165.3,109.4" style="fill:none;fill-rule:nonzero;stroke:black;stroke-width:1px;"/>
+    </g>
+</svg>

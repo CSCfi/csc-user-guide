@@ -1,27 +1,26 @@
-# Security guide
-
-Rahti applications are exposed to the Internet, and
+--8<-- "rahtibeta_announcement.md"
+Rahti 1 applications are exposed to the Internet, and
 their security should be treated with an appropriate care.
-The user on whose account a service is running in Rahti is
+The user on whose account a service is running in Rahti 1 is
 responsible for its security. See the [terms of use](https://rahti.csc.fi/agreements/terms_of_use/) for details about the
 responsibilities.
 
 This guide should be treated as the baseline which must be taken
 in account rather than a checklist for perfect security.
 
-Measures that tighten the security of the services running in Rahti can be
+Measures that tighten the security of the services running in Rahti 1 can be
 roughly divided in two categories.
 
 ## Securing routes
 
 Enable the **TLS encryption** of routes. If the DNS name of your service is under
 the subdomain `rahtiapp.fi` (e.g. `coolservice.rahtiapp.fi`), the default
-wildcard TLS certificate provided by Rahti can be used directly. Otherwise,
+wildcard TLS certificate provided by Rahti 1 can be used directly. Otherwise,
 you need to add your certificate data in the route object.
 
 Access to the services should be limited to selected networks with
 **whitelists** whenever applicable (See the chapter
-[Routes](../tutorials/elemental_tutorial#route)). This is relevant whenever 
+[Routes](../tutorials/elemental_tutorial.md#route)). This is relevant whenever 
 access can be restricted in terms of IP addresses.
 
 Secure routes thwart eavesdropping attacks that target e.g. service passwords
@@ -61,6 +60,6 @@ Other things to keep in mind:
 
 ## IP addresses for firewall openings
 
-The IP for all outgoing customer traffic is `193.167.189.25`. By opening a firewall to this IP, you will let in all traffic coming from any Rahti project. It is advised to not solely rely in IP filtering for security, but use this a secondary measure, like for example an OAuth authentication system.
+The IP for all outgoing customer traffic is `193.167.189.25`. By opening a firewall to this IP, you will let in all traffic coming from any Rahti 1 project. It is advised to not solely rely in IP filtering for security, but use this a secondary measure, like for example an OAuth authentication system.
 
 There is no plan to change this IP, but it is not possible to give a 100% assurance that an unforeseeable event will ever force us to change it. If this IP ever changes, it will be properly announced in advance.
