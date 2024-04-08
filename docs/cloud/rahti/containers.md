@@ -1,5 +1,4 @@
-# Containers & Container Orchestration
-
+--8<-- "rahtibeta_announcement.md"
 ## Containers
 
 Containers are a technology based on operating system kernel features
@@ -11,13 +10,13 @@ machines, but there are some key differences between virtual machines and
 containers. The biggest one is that virtual machines always have their own
 kernels, while containers share the host system's kernel.
 
-![The difference between virtual machines and containers](img/vm_vs_container.png)
+![The difference between virtual machines and containers](../img/vm_vs_container.png)
 *The difference between virtual machines and containers.*
 
 While many operating systems have the container functionality, what we look at more
 specifically in this documentation is containers in the Linux operating system.
 Linux is the most popular operating system for running containers, and it is
-also the operating system used in the Rahti container cloud. Currently, the most
+also the operating system used in the Rahti 1 container cloud. Currently, the most
 popular method for using the container functionality in Linux is _Docker_. It provides
 a set of tools that makes it easier to use containers compared to using the
 kernel functionality directly:
@@ -68,7 +67,7 @@ To understand why container orchestration platforms are important, let us
 describe how a typical web-based application that end users access via a web
 browser is built.
 
-![Container orchestration](/cloud/rahti/img/container-orch2.drawio.svg)
+![Container orchestration](../img/container-orch2.drawio.svg)
 
 The application comprises a frontend that is the part of the application
 visible to users and a backend that handles various tasks in the background such as
