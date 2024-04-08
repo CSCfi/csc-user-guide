@@ -12,8 +12,16 @@ You can either select applications to run in the application catalog that is
 visible when first logging in or launch any applications using the
 primitives described in the [background](../concepts.md) chapter.
 
-Log in at <https://rahti.csc.fi/> (see [Getting access](../access.md)
-for instructions). After logging in, you should see a page like this:
+Log in at <https://rahti.csc.fi/>.
+
+!!! warning
+    ![No access](../../img/openshift_error_no_user.png)  
+
+    If you get an error message similar to this please read through the article [Getting access](../access.md).  
+
+Choose the RAHTI-2 environment and click the 'Login page' button.
+
+After logging in you should see a page like this:
 
 ![OpenShift main page](../../img/openshift_main_page_4.png)
 
