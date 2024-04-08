@@ -1,4 +1,4 @@
-*[CLI]: Command-Line Interface 
+*[CLI]: Command-Line Interface
 *[CPU]: Central Processing Unit
 *[GPU]: Graphics Processing Unit
 *[QPU]: Quantum Processing Unit

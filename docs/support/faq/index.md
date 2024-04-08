@@ -68,15 +68,19 @@
 * [How to get Allas S3 credentials](how-to-get-Allas-s3-credentials.md)
 * [How to resize an instance or volume in Pouta?](how-to-resize-in-pouta.md)
 
-## Rahti
+## Rahti 1
+
+* [Why Rahti cannot find this docker image?](get-image-format.md)
+
+## Rahti 2
 
 * [Protecting against DDoS Attacks](DDos.md)
-* [Do you offer in Rahti SSL certificates?](rahti-ssl-certificates.md)
+* [Do you offer in Rahti 2 SSL certificates?](rahti-ssl-certificates.md)
 * [Why this container report permission denied errors?](why-this-container-does-not-work.md)
-* [Does Rahti support UDP connections?](rahti-udp.md)
-* [Why my SSH key does not work in Rahti?](ssh-clone.md)
-* [Why Rahti cannot find this docker image?](get-image-format.md)
+* [Does Rahti 2 support UDP connections?](rahti-udp.md)
+* [Why my SSH key does not work in Rahti 2?](ssh-clone.md)
 * [How to open a terminal to a Pod?](terminal-rahti-pod.md)
+* [How to pull images from Rahti v1 registry](pull-from-rahtiv1-registry.md)
 
 
 ## Sensitive Data Services for research
