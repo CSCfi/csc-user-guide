@@ -6,7 +6,8 @@ to efficiently manage various features of OpenStack.
 The installation instructions are based on Python's _pip_ package. Once pip is
 in place, the steps are the same for all systems.
 
-!!! note
+!!! info
+
     If you do not have root/administrator access
     to the system on which you want to run the command line clients,
     see the instructions about [virtual environments](#optional-installation-in-a-python-virtual-environment).
@@ -42,7 +43,8 @@ commands.
 To prepare for the installation of the actual command line tools, we will
 install the pip and Python development packages.
 
-!!! note
+!!! info
+
     We assume here that you already have Python installed. This is
     most likely the case if you are running any of the operating systems
     for which we have instructions here.
@@ -81,7 +83,7 @@ If running version 7 or newer:
 
     sudo yum install python3-pip python3-devel
 
-!!! note
+!!! warning
 
     If you are running RHEL/CentOS 6, the latest version of Python
     available by default is 2.6. This is too old to run recent versions of
@@ -181,7 +183,8 @@ missing even after installing python-openstackclient, please refer to
 the table at the beginning of this page for a list of packages to
 install.
 
-!!! note
+!!! info
+
     If you followed the instructions for setting up a virtual
     environment, remove the "sudo" from the beginning of the commands
     below. As you are installing in your own virtual environment, you do
@@ -219,7 +222,7 @@ after logging in:
 To download this in the web interface, navigate to the
 *API Access* section, and press *Download OpenStack RC File v3.*
 
-![RC file example](/img/pouta-openrc.png)
+![RC file example](../../img/pouta-openrc.png)
 
 Once you have the openrc script from the web UI, you can add the
 environment variables:
