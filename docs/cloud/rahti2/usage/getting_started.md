@@ -15,7 +15,7 @@ primitives described in the [background](../concepts.md) chapter.
 Log in at <https://rahti.csc.fi/>.
 
 !!! warning
-    ![No access](../../img/openshift_error_no_user.png){width="300px"}  
+    ![No access](../../img/openshift_error_no_user.png)  
 
     If you get an error message similar to this please read through the article [Getting access](../access.md).  
 
