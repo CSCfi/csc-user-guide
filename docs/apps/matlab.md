@@ -91,12 +91,14 @@ matlab -batch <script>
 
 ### Web interface
 We can also use the [web interface](../computing/webinterface/index.md) for interactive MATLAB sessions.
-First, we need to log into [puhti.csc.fi](https://www.puhti.csc.fi) or [lumi.csc.fi](https://www.lumi.csc.fi).
+First, we need to log into [www.puhti.csc.fi](https://www.puhti.csc.fi) or [www.lumi.csc.fi](https://www.lumi.csc.fi).
 Then, we have two options:
 
 1. We can use **MATLAB web application** which opens a web version of the MATLAB graphical user interface.
 
 2. We can use the **Desktop application** and click the MATLAB icon to open the desktop version of MATLAB graphical user interface.
+
+_On the LUMI Desktop Application, Matlab can be found via the menu button in the bottom left corner. Simply search for matlab and click the icon / drag it to the desktop to easily find it again._
 
 We need to set atleast 4 GB of memory before launching the MATLAB application.
 
