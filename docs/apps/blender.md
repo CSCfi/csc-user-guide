@@ -7,7 +7,6 @@ tags:
 
 Blender is the free, open source 3D creation suite which supports a variety of graphical applications such as 3D pipeline—modeling, rigging, animation, simulation, rendering, compositing and motion tracking, even video editing and game creation. 
 Advanced users can also use Blender’s API for Python scripting to customize the application and write specialized tools. 
-* Puhti: 5.1.25
 
 ## License
 
@@ -15,7 +14,20 @@ Advanced users can also use Blender’s API for Python scripting to customize th
 
 ## Usage
 
-You need remote graphics to work with Blender. An easy way is through the [Puhti web interface](https://www.puhti.csc.fi/public/).
+You need remote graphics to work with Blender. 
+
+Using a web browser, go to [www.puhti.csc.fi](https://www.puhti.csc.fi). 
+
+On the landing page, click on "Log in" and select an appropriate authentication provider. When logging in using your CSC user account, select CSC as the authentication provider and use the same username and password you use when connecting with `ssh`.
+&nbsp;
+
+![Puhti web interface login page](../../img/ood_login.png)
+
+After successful authentication, you will see the dashboard.
+&nbsp;
+
+![Puhti web interface front page](../../img/ood_main.png)
+
 
 ```bash
 module load blender/4.1
