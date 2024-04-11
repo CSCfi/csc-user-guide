@@ -34,7 +34,7 @@ Select 'Accelerated Visualization' option from the dashboard.
 Set the required documentation and the resources needed for your job. Click "Launch" button to start your interactive session.
 &nbsp;
 
-Your session will be queued until the requested resources are available. This is indicated by the label 'queued'. Once the resources are available, your session will launch. This is indicated by the label 'Running' 
+Your session will be queued until the requested resources are available. This is indicated by the label 'Queued'. Once the resources are available, your session will launch. This is indicated by the label 'Running' 
 &nbsp;
 
 ![Puhti web interface interactive session](../../img/ood_puhti_interactive_session_launch.png)
