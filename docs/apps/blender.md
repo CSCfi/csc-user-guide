@@ -29,6 +29,15 @@ After successful authentication, you will see the dashboard.
 ![Puhti web interface front page](../../img/ood_main.png)
 
 Select 'Accelerated Visualization' option from the dashboard.
+&nbsp;
+
+Set the required documentation and the resources needed for your job. Click "Launch" to launch
+&nbsp;
+
+Your session will be queued until the requested resources are available. This is indicated by the label 'queued'. Once the resources are available, your session will launch. This is indicated by the label 'Running' 
+&nbsp;
+
+![Puhti web interface interactive session](../../img/ood_interactive_session_launch.png)
 ```bash
 module load blender/4.1
 ```
