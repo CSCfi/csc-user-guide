@@ -28,7 +28,7 @@ After successful authentication, you will see the dashboard.
 
 ![Puhti web interface front page](../../img/ood_main.png)
 
-
+Select 'Accelerated Visualization' option from the dashboard.
 ```bash
 module load blender/4.1
 ```
