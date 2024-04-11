@@ -33,9 +33,9 @@ You need accelerated graphics to work with Blender efficiently.
    for it using the *Application Finder*). Launching the software may take a
    few seconds, so be patient.
    
-![Interactive session workspace](../img/interactive_session_workspace_blender.png)
+![Launching Blender in Puhti web interface accelerated desktop](../img/interactive_session_workspace_blender.png 'Launching Blender in Puhti web interface accelerated desktop')
 
-![Blender workspace](../img/blender_workspace.png)
+![Blender workspace](../img/blender_workspace.png 'Blender workspace')
 
 ## More information
 

@@ -13,7 +13,6 @@
 * [BioPerl](bioperl.md) Perl environment with bioperl extension
 * [BioPython](biopython.md) Python environment with biopython and other bioinformatics related Python libraries
 * [BLAST](blast.md) Sequence similarity search tool for nucleotides and proteins
-* [Blender](blender.md) 3D Modeling, visualization and rendering software
 * [Bowtie2](bowtie2.md) Short read aligner
 * [BRAKER](braker.md) Automatic genome annotator for eucaryots
 * [BWA](bwa.md) Short read aligner
@@ -186,6 +185,7 @@
 ## Miscellaneous
 
 * [Accelerated visualization](accelerated-visualization.md) A selection of GPU accelerated visualization applications
+* [Blender](blender.md) 3D modeling, visualization and rendering software
 * [DDT](ddt.md) Parallel debugger
 * [Desktop](desktop.md) Remote desktop environment
 * [HyperQueue](hyperqueue.md) Scheduler for sub-node tasks
