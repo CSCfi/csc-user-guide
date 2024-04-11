@@ -37,7 +37,7 @@ Set the required documentation and the resources needed for your job. Click "Lau
 Your session will be queued until the requested resources are available. This is indicated by the label 'queued'. Once the resources are available, your session will launch. This is indicated by the label 'Running' 
 &nbsp;
 
-![Puhti web interface interactive session](../../img/ood_interactive_session_launch.png)
+![Puhti web interface interactive session](../../img/ood_puhti_interactive_session_launch.png)
 
 Click "Launch Accelerated Visualization" button. This will open up a workspace on your browser. On the top left corner of your workspace, select 'Application finder' and search for 'blender'.
 &nbsp;
