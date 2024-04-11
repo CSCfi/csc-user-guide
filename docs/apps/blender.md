@@ -9,7 +9,8 @@ Blender is the free, open source 3D creation suite which supports a variety of g
 Advanced users can also use Blender’s API for Python scripting to customize the application and write specialized tools. 
 
 ## Available
-Puhti: 3.2, 3.6
+
+* **Puhti**: 3.2, 3.6
 
 ## License
 
@@ -47,7 +48,7 @@ Click "Launch Accelerated Visualization" button. This will open up a workspace o
 
 ![Interactive session workspace](../../img/interactive_session_workspace_blender.png)
 
-Select the Blender software version (3.2 or 3.6) and click "Launch" button. This will open (this might take a few seconds) the Blender workspace.
+Select the Blender software version (3.2 or 3.6) and click "Launch" button. This will open (might take a few seconds) the Blender workspace.
 &nbsp;
 
 ![Blender workspace](../../img/blender_workspace.png)
