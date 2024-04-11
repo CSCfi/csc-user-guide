@@ -38,9 +38,17 @@ Your session will be queued until the requested resources are available. This is
 &nbsp;
 
 ![Puhti web interface interactive session](../../img/ood_interactive_session_launch.png)
-```bash
-module load blender/4.1
-```
+
+Click "Launch Accelerated Visualization" button. This will open up a workspace on your browser. On the top left corner of your workspace, select 'Application finder' and search for 'blender'.
+&nbsp;
+
+![Interactive session workspace](../../img/interactive_session_workspace_blender.png)
+
+Select the Blender software version (3.2 or 3.6) and click "Launch" button. This will open (this might take a few seconds) the Blender workspace.
+&nbsp;
+
+![Blender workspace](../../img/blender_workspace.png)
+
 
 ## More information
 
