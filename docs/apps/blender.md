@@ -31,7 +31,7 @@ After successful authentication, you will see the dashboard.
 Select 'Accelerated Visualization' option from the dashboard.
 &nbsp;
 
-Set the required documentation and the resources needed for your job. Click "Launch" to launch
+Set the required documentation and the resources needed for your job. Click "Launch" button to start your interactive session.
 &nbsp;
 
 Your session will be queued until the requested resources are available. This is indicated by the label 'queued'. Once the resources are available, your session will launch. This is indicated by the label 'Running' 
