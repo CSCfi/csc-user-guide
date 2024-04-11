@@ -37,5 +37,5 @@ Select the Blender software version (3.2 or 3.6) and click "Launch" button. This
 ## More information
 
 * [Blender home page](https://www.blender.org/)
-* [Blender video tutorials](https://docs.csc.fi/support/tutorials/blender-tutorial/)
+* [Blender video tutorials](../support/tutorials/blender-tutorial.md)
 * [Additional tutorials](https://www.youtube.com/results?search_query=%23b3d+tutorial&sp=EgIIBQ%253D%253D)
