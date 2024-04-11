@@ -15,14 +15,11 @@ Advanced users can also use Blender’s API for Python scripting to customize th
 
 ## Usage
 
-Initialize Grace with:
+You need remote graphics to work with Blender. An easy way is through the [Puhti web interface](https://www.puhti.csc.fi/public/).
 
 ```bash
 module load blender/4.1
 ```
-
-Note, that you need remote graphics to work with Blender. An easy way is through the
-[Puhti web interface remote desktop](../computing/webinterface/desktop.md).
 
 ## More information
 
