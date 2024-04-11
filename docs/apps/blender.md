@@ -6,7 +6,6 @@ tags:
 # Blender
 
 Blender is the free, open source 3D creation suite which supports a variety of graphical applications such as 3D pipeline—modeling, rigging, animation, simulation, rendering, compositing and motion tracking, even video editing and game creation. 
-Advanced users can also use Blender’s API for Python scripting to customize the application and write specialized tools. 
 
 ## Available
 
