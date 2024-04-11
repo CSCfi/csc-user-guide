@@ -5,7 +5,10 @@ tags:
 
 # Blender
 
-Blender is the free, open source 3D creation suite which supports a variety of graphical applications such as 3D pipeline—modeling, rigging, animation, simulation, rendering, compositing and motion tracking, even video editing and game creation. 
+Blender is a free, open source 3D creation suite which supports a variety of
+visualization use cases, such as 3D pipeline-modeling, rigging, animation,
+simulation, rendering, compositing and motion tracking, even video editing and
+game creation.
 
 ## Available
 
@@ -13,29 +16,29 @@ Blender is the free, open source 3D creation suite which supports a variety of g
 
 ## License
 
-* [GPL](https://download.blender.org/release/GPL3-license.txt)
+Blender is Free Software. You are free to use Blender for any purpose,
+including commercially or for education under Blender's
+[GPL license](https://download.blender.org/release/GPL3-license.txt).
 
 ## Usage
 
-You need remote graphics to work with Blender. 
+You need accelerated graphics to work with Blender efficiently.
 
-Launch an [web interface](../computing/webinterface/index.md) for puhti
-
-Select the [Accelerated visualization](../computing/webinterface/accelerated-visualization.md) app from the web interface. Set the required resources.
-
-Click "Launch Accelerated Visualization" button. This will open up a workspace on your browser. On the top left corner of your workspace, select 'Application finder' and search for 'blender'.
-&nbsp;
-
+1. Connect to the [Puhti web interface](../computing/webinterface/index.md#connecting).
+2. Select the [Accelerated Visualization](../computing/webinterface/accelerated-visualization.md)
+   app of the web interface and specify the required resources.
+3. Click the *Launch* button. Your job is placed in the queue, and once it has
+   been allocated resources, click *Launch Accelerated Visualization*.
+4. Launch Blender from *Applications* > *Visualization* > *Blender* (or search
+   for it using the *Application Finder*). Launching the software may take a
+   few seconds, so be patient.
+   
 ![Interactive session workspace](../img/interactive_session_workspace_blender.png)
 
-Select the Blender software version (3.2 or 3.6) and click "Launch" button. This will open (might take a few seconds) the Blender workspace.
-&nbsp;
-
 ![Blender workspace](../img/blender_workspace.png)
-
 
 ## More information
 
 * [Blender home page](https://www.blender.org/)
-* [Blender video tutorials](../support/tutorials/blender-tutorial.md)
-* [Additional tutorials](https://www.youtube.com/results?search_query=%23b3d+tutorial&sp=EgIIBQ%253D%253D)
+* [Blender support pages](https://www.blender.org/support/)
+* [Blender tutorial videos at Docs CSC](../support/tutorials/blender-tutorial.md)
