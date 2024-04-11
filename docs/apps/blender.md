@@ -19,9 +19,9 @@ Blender is the free, open source 3D creation suite which supports a variety of g
 
 You need remote graphics to work with Blender. 
 
-Launch an [web interface](https://docs.csc.fi/computing/webinterface/) for puhti
+Launch an [web interface](../computing/webinterface) for puhti
 
-Select the [Accelerated visualization](https://docs.csc.fi/computing/webinterface/accelerated-visualization/) app from the web interface. Set the required resources.
+Select the [Accelerated visualization](../computing/webinterface/accelerated-visualization.md) app from the web interface. Set the required resources.
 
 Click "Launch Accelerated Visualization" button. This will open up a workspace on your browser. On the top left corner of your workspace, select 'Application finder' and search for 'blender'.
 &nbsp;
