@@ -13,6 +13,7 @@
 * [BioPerl](bioperl.md) Perl environment with bioperl extension
 * [BioPython](biopython.md) Python environment with biopython and other bioinformatics related Python libraries
 * [BLAST](blast.md) Sequence similarity search tool for nucleotides and proteins
+* [Blender](blender.md) 3D Modeling, visualization and rendering software
 * [Bowtie2](bowtie2.md) Short read aligner
 * [BRAKER](braker.md) Automatic genome annotator for eucaryots
 * [BWA](bwa.md) Short read aligner
