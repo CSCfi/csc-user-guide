@@ -4,6 +4,9 @@
 
 Sensitive Data (SD) Connect allows you to store and share sensitive research data. SD Connect serves as a workspace for collaborative research projects, facilitating data collection and sharing. Encrypted files stored in SD Connect are directly available for analysis, annotiation or editing via SD Desktop. 
 
+*Please note that before logging into SD Connect for the first time, you must create a CSC account, activate MFA Authentication, and be part of some CSC project. All this happens in MyCSC-portal. Read more from
+[Start here](sd-access.md).*
+
 
 ### Key features
 
@@ -17,7 +20,7 @@ Sensitive Data (SD) Connect allows you to store and share sensitive research dat
 
 * Automated key management. 
 
-* Enchanced security at login with multi-factor authentication (MFA).
+* Improved security at login with multi-factor authentication (MFA).
 
 
 ### Limitations

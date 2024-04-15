@@ -3,7 +3,7 @@
 [SD Connect Login page](https://sd-connect.csc.fi){ .md-button .md-button--primary target=_blank }
 
 *Please note that before logging into SD Connect for the first time, you must create a CSC account, activate MFA Authentication, and be part of some CSC project. All this happens in MyCSC-portal. Read more from
-[Start Here](sd-access.md).*
+[Start here](sd-access.md).*
 
 ## Step by step
 
