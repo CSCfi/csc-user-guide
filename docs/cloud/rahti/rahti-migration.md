@@ -11,14 +11,14 @@ Rahti 2 production is the next version of OpenShift OKD running in CSC. The unde
 Before you start the migration, you need to gather information about your application:
 
 1. Where is the **data stored**? And how is it **accessed**? Do you use a database?
-     1. If you use a PostgreSQL database hosted in Rahti, think about migrating to [Pukki DBaaS](../../dbass/).
+     1. If you use a PostgreSQL database hosted in Rahti, think about migrating to [Pukki DBaaS](../../dbaas/).
      1. If you use Read-Write-Once (RWO) volumes, you can easily migrate them to Rahti 2. Just follow the instruction in the [How to use storage?](#how-to-use-storage) section.
      1. If you use Read-Write-Many (RWX), you have to check why are using it. It may be 3 two main options: (1) It was the default and you are not really mounting the same volume in several Pod, or (2) You need to moiunt the same volume in several Pods. If you are in option (2), sadly there in not yet a supported solution in Rahti 2 for RWX, please contact us at <servicedesk@csc.fi> about your use case, we are gathering customer needs to better develop the RWX solution.
 
      In order to see the storage type of your volumes, you can check the types in the Storage page
 
 1. What are the **CPU** and **memory** requirements? Rahti 2 has lower _default_ **memory** or **CPU** limits, see the [What are the default limits?](#what-are-the-default-limits) section for more details about this.
-1. How was the application **deployed** in Rahti 1? Ideally you used [Helm Charts](https://helm.sh/), [Kustomize](https://kustomize.io/) or Source to Image, and deploying your application to Rahti 2 will be simple. If not, consider creating one Helm chart using the guide [How to package a Kubernetes application with Helm](https://docs.csc.fi/cloud/tutorials/helm/). As a last option, you may copy manually each API object.
+1. How was the application **deployed** in Rahti 1? Ideally you used [Helm Charts](https://helm.sh/), [Kustomize](https://kustomize.io/) or Source to Image, and deploying your application to Rahti 2 will be simple. If not, consider creating one Helm chart using the guide [How to package a Kubernetes application with Helm](../../tutorials/helm/). As a last option, you may copy manually each API object.
 1. How do users access the application? What are the URLs? Is the URL is a Rahti provided URL (`*.rahtiapp.fi`), or a dedicated domain?
     1. If you use a dedicated domain, you need to see with your DNS provider how to update the name record. The DNS information can be found on the [Route](../../rahti2/networking/#routes) documentation.
     1. If you use an URL of the type `*.rahtiapp.fi`, you will no longer be able to use use it in Rahti 2 and will need ot migrate to `*.2.rahtiapp.fi` or to a dedicated domain.
