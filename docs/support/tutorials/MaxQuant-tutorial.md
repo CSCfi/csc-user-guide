@@ -40,7 +40,7 @@ With mono software, you can choose your *version* of MaxQuant.
 CSC provides a module for mono.
 
 ```text
-module load mono
+module load mono/5.14
 ```
 
 Download your linux-compatible version of MaxQuant (e.g., v2.0.3.0) to your 
@@ -81,7 +81,7 @@ minimal example script (calles say, e.g., `maxquant.sh`), to start with:
 
 # load maxquant environment
 
-module load mono
+module load mono/5.14
 
 # adjust file paths here
 
