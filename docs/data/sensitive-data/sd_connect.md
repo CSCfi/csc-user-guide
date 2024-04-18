@@ -38,3 +38,9 @@ Sensitive Data (SD) Connect allows you to store and share sensitive research dat
 
 !!! Note
     SD Connect is unsuitable for data processing under the Act on the Secondary Use of Health and Social Data. Please check [SD Desktop for secondary use](./sd-desktop-audited.md) to learn about the precise requirements.
+
+
+
+## Start here
+
+* [Access SD Connect and SD Desktop for the first time](https://csc-guide-preview.rahtiapp.fi/origin/ac-sdconnectnew/data/sensitive-data/sd-access/#access-sd-connect-and-sd-desktop-for-the-first-time)

@@ -1,5 +1,6 @@
 # Sharing folders
 
+
 !!! info "Share ID"
 
     With SD Connect, you can share folders across different CSC projects. This is done by using Share ID, a unique 32-digit code associated with a CSC project. You can share a folder with multiple CSC projects and use different permission levels. 
@@ -34,3 +35,12 @@ The recipient project's members can only access the folder content in SD Desktop
     Note that you also have to be the project manager of the recipient project. Please contact us at servicedesk@csc.fi to discuss this option before proceeding.
 
 [Read about use case: Give access to folder content only in SD Connect](./sd-connect-use-case-read-to-sd-desktop.md)
+
+
+## Features in SD Connect 
+
+* [Upload](https://csc-guide-preview.rahtiapp.fi/origin/ac-sdconnectnew/data/sensitive-data/sd-connect-upload/)
+* [Download](https://csc-guide-preview.rahtiapp.fi/origin/ac-sdconnectnew/data/sensitive-data/sd-connect-download/)
+* [Command line interface](https://github.com/CSCfi/csc-user-guide/blob/ac-test-sidenav/docs/data/sensitive-data/sd-connect-upload-for-analysis.md)
+* [Delete](https://csc-guide-preview.rahtiapp.fi/origin/ac-sdconnectnew/data/sensitive-data/sd-connect-delete/)
+* [Troubleshooting](https://github.com/CSCfi/csc-user-guide/blob/ac-test-sidenav/docs/data/sensitive-data/sd-connect-upload-for-analysis.md)

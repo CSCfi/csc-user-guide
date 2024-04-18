@@ -1,9 +1,8 @@
 # Login to SD Connect
 
-[SD Connect Login page](https://sd-connect.csc.fi){ .md-button .md-button--primary target=_blank }
+## Prequisites
+* [Access SD Connect and SD Desktop for the first time](https://csc-guide-preview.rahtiapp.fi/origin/ac-sdconnectnew/data/sensitive-data/sd-access/#access-sd-connect-and-sd-desktop-for-the-first-time)
 
-*Please note that before logging into SD Connect for the first time, you must create a CSC account, activate MFA Authentication, and be part of some CSC project. All this happens in MyCSC-portal. Read more from
-[Start here](sd-access.md).*
 
 ## Step by step
 
@@ -17,7 +16,14 @@
 [![SDConnect-login](images/connect/SDConnect-login.png)](images/connect/SDConnect-login.png)
 
 
+## Features in SD Connect
 
+* [Upload](https://csc-guide-preview.rahtiapp.fi/origin/ac-sdconnectnew/data/sensitive-data/sd-connect-upload/)
+* [Share](https://csc-guide-preview.rahtiapp.fi/origin/ac-sdconnectnew/data/sensitive-data/sd-connect-share/)
+* [Download](https://csc-guide-preview.rahtiapp.fi/origin/ac-sdconnectnew/data/sensitive-data/sd-connect-download/)
+* [Command line interface](https://github.com/CSCfi/csc-user-guide/blob/ac-test-sidenav/docs/data/sensitive-data/sd-connect-upload-for-analysis.md)
+* [Delete](https://csc-guide-preview.rahtiapp.fi/origin/ac-sdconnectnew/data/sensitive-data/sd-connect-delete/)
+* [Troubleshooting](https://github.com/CSCfi/csc-user-guide/blob/ac-test-sidenav/docs/data/sensitive-data/sd-connect-upload-for-analysis.md)
 
 
 
