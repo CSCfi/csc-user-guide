@@ -21,19 +21,13 @@ You also don’t want Team B to export your original data from SD Desktop. That 
 
 1. Log in to [MyCSC](https://my.csc.fi/login){ target="_blank" }.
 2. Create two new projects: ***Project 1*** and ***Project 2***.
-3. Manage ***Project 1***: enable service access for SD Connect. Do not add any project members.
-4. Manage ***Project 2***: enable service access for SD Connect and SD Desktop. Add Team B to be the **project members.**
-
-*If you need more specific instructions on how to create and manage a project, please see [Step by step tutorial for project manager](sd-access.md#step-by-step-tutorial-for-project-manager).*
-*More specific information for project members, please see [Step by step tutorial for project member](sd-access.md#step-by-step-tutorial-for-project-member).*
-
-
----
-1. Log in to [SD Connect](./sd-connect-login.md).
-2. Select ***Project 2*** and copy the **Share ID**. ([screenshot](./images/connect/UseCase_ShareID2.png){ target="_blank" })
-3. Select ***Project 1*** and upload your data folder there: [See upload instructions](./sd-connect-upload.md).
-4. Click “**Share**” next to the folder you just uploaded ([screenshot](./images/connect/UseCase_ShareButton2.png){ target="_blank" }).
-5. Add the **Share ID** of Project 2 to the field ([screenshot](./images/connect/UseCase_AddShareID2.png){ target="_blank" }).
-6. Select sharing permission: “**Read to SD Desktop**”. Click “**Share**” ([screenshot](./images/connect/UseCase_SelectPermission2.png){ target="_blank" }).
+3. Manage ***Project 1***: enable service access for SD Connect. Do not add any project members. [See instructions](sd-access.md#step-by-step-tutorial-for-project-manager).
+4. Manage ***Project 2***: enable service access for SD Connect and SD Desktop. Add Team B to be the **project members.** [See instructions](sd-access.md#step-by-step-tutorial-for-project-member).
+5. Log in to [SD Connect](./sd-connect-login.md).
+6. Select ***Project 2*** and copy the **Share ID**. ([screenshot](./images/connect/UseCase_ShareID2.png){ target="_blank" })
+7. Select ***Project 1*** and upload your data folder there: [See upload instructions](./sd-connect-upload.md).
+8. Click “**Share**” next to the folder you just uploaded ([screenshot](./images/connect/UseCase_ShareButton2.png){ target="_blank" }).
+9. Add the **Share ID** of Project 2 to the field ([screenshot](./images/connect/UseCase_AddShareID2.png){ target="_blank" }).
+10. Select sharing permission: “**Read to SD Desktop**”. Click “**Share**” ([screenshot](./images/connect/UseCase_SelectPermission2.png){ target="_blank" }).
 
 Now, all the content in the folder is visible to Project 2 (Team B) and accessible only through SD Desktop. Project 2 members can access and analyse the shared folder content via SD desktop. However, they cannot export or download files, as all data exports are managed directly by the project manager - and you are the project manager of both projects.
