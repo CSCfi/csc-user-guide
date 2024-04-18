@@ -5,8 +5,6 @@ If you are a new Sensitive Data (SD) services user, this section is for you. Her
 Contents:
 
  * [Access SD Connect and SD Desktop for the first time](#access-sd-connect-and-sd-desktop-for-the-first-time)
-    * [Step by step tutorial for project manager](#step-by-step-tutorial-for-project-manager)
-    * [Step by step tutorial for project member](#step-by-step-tutorial-for-project-member)
  * [Project resources and storage space](#project-resources-and-storage-space)
     * [SD Connect billing units](#sd-connect-billing-units-and-storage-space)
     * [SD Desktop billing units](#sd-desktop-billing-units-and-disk-space)
@@ -14,15 +12,20 @@ Contents:
     * [What happens if you project runs out of billing units](#what-happens-if-your-project-runs-out-of-billing-units)
  * [Closing the project](#closing-the-project)
 
+ ---
+
 ## Access SD Connect and SD Desktop for the first time
 
-Before logging into SD Connect or SD Desktop for the first time, you must do some preparations in [MyCSC -portal](https://my.csc.fi){ target="_blank" }. There you have to create a CSC account, activate MFA Authentication, be part of some CSC project and activate SD Connect and SD Desktop to that project. Only after those steps you can use SD Connect and SD Desktop.
+Before logging into SD Connect or SD Desktop for the first time, you must do some preparations in [MyCSC portal](https://my.csc.fi){ target="_blank" }. There you have to create a CSC account, activate MFA Authentication, be part of some CSC project and activate SD Connect and SD Desktop to that project. Only after those steps you can use SD Connect and SD Desktop.
+
+* [Step by step tutorial for project manager](sd-use-case-new-user-project-manager.md)
+* [Step by step tutorial for project member](sd-use-case-new-user-project-member.md)
+
 
 ![How to start with SD services.](./images/introduction/HowToGetStarted_SD.svg)
 
-### Step by step tutorial for project manager
-
-The person who creates the project in MyCSC, is the project manager. Project manager can invite project members and manage project's lifetime, storage space and resources (i.e. billing units). Only the project manager can export data from SD Desktop.
+### Project manager
+The person who creates the project in MyCSC, is the project manager. Project manager can invite project members and manage project's lifetime, storage space and resources (i.e. billing units). Only the project manager can export data from SD Desktop. [Step by step tutorial for project manager](sd-use-case-new-user-project-manager.md).
 
 !!! note
     **Keep project manager's CSC account active.** Otherwise the project will be [closed](#closing-the-project). 
@@ -30,128 +33,11 @@ The person who creates the project in MyCSC, is the project manager. Project man
     * You can keep CSC account active by changing password once a year and keep user information such as email address up to date.  Manage these in [MyCSC](https://my.csc.fi){ target="_blank" }.
     * You can change project manager by contacting [Service desk](../../support/contact.md).
 
-=== "1. CSC account"
-    **Step 1: Create a CSC account**
-    
-    - **Go to [MyCSC portal](https://my.csc.fi){ target="_blank" }**
-    - Log in with Virtu or Haka depending on which federation your home organization is a member of. Select your home organization and log in to their identity service. [How to get an account without Haka or Virtu](../../accounts/how-to-create-new-user-account.md#getting-an-account-without-haka-or-virtu). 
-    - Fill in your information on the Sign up page.
-    - Set your password using 12 characters or more, containing both upper and lowercase letters and at least one number. No special characters are allowed.
-    - You will receive your CSC user account confirmation via email.
+### Project member
+Project member is a person, who joins to existing CSC project. All project members have equal access permissions to the project files. 
 
-=== "2. Project"
-    **Step 2: Create new CSC project**
-
-    - Go to ”Projects” -page (left side menu or a hamburger menu at the top right corner).
-    - On the top of the page choose ”New project”
-    - Fill in the project name and project description. You can edit these later if needed.
-    - Choose the Project category to be “Academic” (if you are a researcher and a member of Finnish higher education institution)
-    - Fill all required fields. Read and accept the terms of use.
-    - Click “Create a project”.
-    - ![Click create a project.](./images/MyCSC/MyCSC_NewProject.png)
-
-=== "3. GDPR document"
-    **Step 3: Fill the GDPR document**
-
-    - Since your project handles personal data, you need to fill the GDPR document i.e. Personal data handling document.
-    - The document appears when you create a new project. You can edit this document later.
-    - Please check with your home organization, who is the **data controller** (CSC is data processor, never the controller). [Read more about the roles and GDPR](../../support/faq/sensitive-data-legal.md#what-are-the-roles-of-csc-and-its-service-users-under-gdpr).
-    - ![Personal data handling document.](./images/MyCSC/MyCSC_PersonalDataHandling.png)
-
-=== "4. Services"
-    **Step 4: Activate SD Services for your project**
-
-    - Services are listed to the right column of the project page.
-    - Select services: SD Connect, SD Desktop.
-    - Read and accept the terms of use and click “Add service”.
-    - ![Add new services.](./images/MyCSC/MyCSC_AddServices.png)
-
-=== "5. Resources"
-    **Step 5: Apply resources (billing units) for your project**
-
-    - All Sensitive Data Services consumes billing units (BU's). [More about billing units](#project-resources-and-storage-space).
-    - All new academic CSC projects are initially granted 10 000 BUs, so you can get started. However, you should estimate how many BU’s your project will consume **during 1 year** and apply more if needed.
-    - Use the [billing unit calculator](#billing-unit-calculator) for estimating your BU consumption.
-    - Apply more billing units by clicking "Apply for resources".
-    - You will get more info through inbox, after your application.
-    - You can always ask help from [Service Desk](../../support/contact.md) *Subject: Sensitive Data*
-    - ![Click apply for resources.](./images/MyCSC/MyCSC_AddResources.png)
-
-=== "6. MFA"
-    **Step 6: Activate MFA Authentication**
-
-    - You need to activate MFA (multi-factor authentication), to be able to log in the Sensitive Data services. [More about multi-factor authentication](../../accounts/mfa.md).
-    - Before activating MFA you need to have some authentication application in your mobile, for example Google Authenticator or Microsoft Authenticator.
-    - Go to the Profile -page (Left side menu or top right hamburger menu).
-    - Enable Multi-Factor Authentication by clicking “Activate”.
-    - This will create a QR code, that you can read with your authentication application (for example Google Authenticator).
-    - You authentication application will provide a verification code, that you can now write to MyCSC “Verification code” -field and click “Verify”.
-    - ![Multi-Factor Authentication.](./images/MyCSC/MyCSC_MFA.png)
-
-=== "7. Members"
-    **Step 7: If you have a research team, add them to be your project members**
-
-    - Go to project page and select the correct project (Left side menu or hamburger menu).
-    - Add members from the right hand column.
-    - You can add members from your own organization by clicking “Manage”.
-    - Or you can create an invitation link by clicking “Invite” and send that with email to who ever you wish
-        - The receiver can apply a membership for your project by clicking the link. After that  you still have to approve them to your team in MyCSC.
-    - Note! You project members must also create a MyCSC user account, activate the MFA and approve the terms of use of the services you have activated (SD Connect, SD Desktop).
-    - ![Add project members.](./images/MyCSC/MyCSC_AddMembers.png)
-
-=== "8. Log into services"
-    **Step 8: Log into SD Services**
-
-    - Now all the preparations are already and you can start to use SD Connect and SD Desktop.
-    - [SD Connect login instructions](sd-connect-login.md)
-    - [SD Desktop login instructions](sd-desktop-login.md)
-----
-
-### Step by step tutorial for project member
-
-Project member is a person, who joins to existing CSC project. All project members have equal access permissions to the project files. **SD Connect:** project members can upload, download and delete project files same way as project manager. **SD Desktop:** project members can upload data and analyze it, but they can not export anything from SD Desktop. Only the project manager can export data from SD Desktop.
-
-=== "1. CSC account"
-    **Step 1: Create a CSC account**
-    
-    - **Go to [MyCSC portal](https://my.csc.fi){ target="_blank" }**
-    - Log in with Virtu or Haka depending on which federation your home organization is a member of. Select your home organization and log in to their identity service. [How to get an account without Haka or Virtu](../../accounts/how-to-create-new-user-account.md#getting-an-account-without-haka-or-virtu). 
-    - Fill in your information on the Sign up page.
-    - Set your password using 12 characters or more, containing both upper and lowercase letters and at least one number. No special characters are allowed.
-    - You will receive your CSC user account confirmation via email.
-
-
-=== "2. Project"
-    **Step 2: Join to CSC project**
-
-    - Project manager has either add you as a member automatically or sent you an invitation link to join their project.
-    - Option A: Project manager has added your email to the project and you are a member of the project automatically. You have received a notification trough email and you can find the project when you log in to MyCSC.
-    - Option B: Project manager has sent you an invitation link through email. You have to click the link and apply for membership to the project. After your membership application the project manager can approve you to the project.
-
-=== "3. Services"
-    **Step 3: Accept SD Services terms of use**
-
-    - The project manager has added services to the project already. You as a project member has to **accept the terms of use**, so you can use the services.
-    - ![How to start with SD services.](./images/MyCSC/MyCSC_AddServices.png)
-
-=== "4. MFA"
-    **Step 4: Activate MFA Authentication**
-
-    - You need to activate MFA (multi-factor authentication), to be able to log in the Sensitive Data services. [More about multi-factor authentication](../../accounts/mfa.md).
-    - Before activating MFA you need to have some authentication application in your mobile, for example Google Authenticator or Microsoft Authenticator.
-    - Go to the Profile -page (Left side menu or top right hamburger menu).
-    - Enable Multi-Factor Authentication by clicking “Activate”.
-    - This will create a QR code, that you can read with your authentication application (for example Google Authenticator).
-    - You authentication application will provide a verification code, that you can now write to MyCSC “Verification code” -field and click “Verify”.
-    - ![Multi-Factor Authentication.](./images/MyCSC/MyCSC_MFA.png)
-
-=== "5. Log into services"
-    **Step 5: Log into SD Services**
-
-    - Now all the preparations are already and you can start to use SD Connect and SD Desktop.
-    - [SD Connect login instructions](sd-connect-login.md)
-    - [SD Desktop login instructions](sd-desktop-login.md)
----
+* **SD Connect:** project members can upload, download and delete project files same way as project manager.
+* **SD Desktop:** project members can upload data and analyze it, but they can not export anything from SD Desktop. Only the project manager can export data from SD Desktop. [Step by step tutorial for project member](sd-use-case-new-user-project-member.md).
 
 ## Project resources and storage space
 
@@ -175,11 +61,6 @@ Analyzing data in SD Desktop consumes billing units based on the type of virtual
 * Small computation: 5.2 billing units per hour
 * Medium computation: 10.4 billing units per hour
 * Heavy computation: 52 billing units per hour
-
-
-### Billing unit calculator
-
-<iframe srcdoc="https://my.csc.fi/buc" style="width: 100%; height: 1300px; border: 0"></iframe>
 
 ### What happens if your project runs out of billing units?
 
@@ -217,3 +98,10 @@ Default lifetime for the project is **one year**. [Project manager](#step-by-ste
 
 !!! Note
     All **content within the services will be permanently deleted 90 days** after the project is closed. Once deleted, it cannot be restored or recovered.
+
+
+## Billing unit calculator
+
+Billing unit calculator will help you to estimate how many BUs your CSC project will require. You can find SD Desktop from the calculator, when you move to right with the arrows. You can estimate SD Connect billing unit consumption by using Allas -option at the calculator.
+
+<iframe srcdoc="https://my.csc.fi/buc" style="width: 100%; height: 1300px; border: 0"></iframe>
