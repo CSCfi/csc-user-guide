@@ -12,7 +12,6 @@ In this case you can share your data folder to Team B with **Collaborate** -perm
 
 ## Step by step tutorial
 
-### Prequisites
 Both teams should have their own CSC project and SD Connect activated. If you don't have one yet, please follow instructions from [Start here](sd-access.md) and return to this tutorial after you have set up the CSC project.
 
 1. Ask from Team B for their Share ID. They find it from their SD Connect [(Screenshot)](./images/connect/UseCase_ShareID.png){ target="_blank" }.
