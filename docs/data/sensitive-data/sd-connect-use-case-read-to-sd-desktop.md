@@ -19,11 +19,16 @@ You also don’t want Team B to export your original data from SD Desktop. That 
 
 ## Step by step tutorial
 
-
 1. Log in to [MyCSC](https://my.csc.fi/login){ target="_blank" }.
 2. Create two new projects: ***Project 1*** and ***Project 2***.
 3. Manage ***Project 1***: enable service access for SD Connect. Do not add any project members.
-4. Manage ***Project 2***: enable service access for SD Connect and SD Desktop. Add Team B to be the project members.
+4. Manage ***Project 2***: enable service access for SD Connect and SD Desktop. Add Team B to be the **project members.**
+
+*If you need more specific instructions on how to create and manage a project, please see [Step by step tutorial for project manager](sd-access.md#step-by-step-tutorial-for-project-manager).*
+*More specific information for project members, please see [Step by step tutorial for project member](sd-access.md#step-by-step-tutorial-for-project-member).*
+
+
+---
 1. Log in to [SD Connect](./sd-connect-login.md).
 2. Select ***Project 2*** and copy the **Share ID**. ([screenshot](./images/connect/UseCase_ShareID2.png){ target="_blank" })
 3. Select ***Project 1*** and upload your data folder there: [See upload instructions](./sd-connect-upload.md).

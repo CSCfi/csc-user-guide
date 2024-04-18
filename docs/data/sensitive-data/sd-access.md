@@ -1,6 +1,6 @@
 # Start here: Accessing Sensitive Data services 
   
-Please read this section, if you are a new Sensitive Data (SD) services user. Here you learn all the basics, like how to access SD Services for the firs time and how to manage your project's billing unit consumption, storage space, project members and what happens to your data upon project closure.
+If you are a new Sensitive Data (SD) services user, this section is for you. Here you learn all the basics, like how to access SD Services for the firs time and how to manage your project's billing unit consumption, storage space, project members and what happens to your data upon project closure.
 
 Contents:
 
@@ -29,12 +29,6 @@ The person who creates the project in MyCSC, is the project manager. Project man
 
     * You can keep CSC account active by changing password once a year and keep user information such as email address up to date.  Manage these in [MyCSC](https://my.csc.fi){ target="_blank" }.
     * You can change project manager by contacting [Service desk](../../support/contact.md).
-
-   
-
-!!! info-label
-
-    For project manager
 
 === "1. CSC account"
     **Step 1: Create a CSC account**
@@ -117,10 +111,6 @@ The person who creates the project in MyCSC, is the project manager. Project man
 
 Project member is a person, who joins to existing CSC project. All project members have equal access permissions to the project files. **SD Connect:** project members can upload, download and delete project files same way as project manager. **SD Desktop:** project members can upload data and analyze it, but they can not export anything from SD Desktop. Only the project manager can export data from SD Desktop.
 
-!!! info-label
-
-    For project member
-
 === "1. CSC account"
     **Step 1: Create a CSC account**
     
@@ -187,13 +177,17 @@ Analyzing data in SD Desktop consumes billing units based on the type of virtual
 * Heavy computation: 52 billing units per hour
 
 
+### Billing unit calculator
+
+<iframe srcdoc="https://my.csc.fi/buc" style="width: 100%; height: 1300px; border: 0"></iframe>
+
 ### What happens if your project runs out of billing units?
 
 Once all the billing units for your CSC project have been used up, **your access to the SD Desktop service will be restricted**. This means that all virtual desktops currently running will automatically be paused, and you won't be able to access their content. However, **your data remains unaffected and will not be deleted**, even in cases where the total billing units reach zero or enter negative values.
 
 * You get a notification via email when your billing units have been consumed.
   
-#### How to regain access to your virtual desktop
+#### How to regain access to paused virtual desktop
 
  Apply billing units and unpause your virtual desktop:
 
@@ -209,8 +203,6 @@ Once all the billing units for your CSC project have been used up, **your access
     Restarting a paused desktop is possible only for [active CSC projects](../../accounts/how-to-manage-your-project.md) with available billing units.
 
 
-
-
 ## Closing the project
 
 Default lifetime for the project is **one year**. [Project manager](#step-by-step-tutorial-for-project-manager) can extend project's lifetime or close the project in [MyCSC](https://my.csc.fi){ target="_blank" }. If project lifetime ends, it will be closed automatically. You'll receive an email notification when your project is about to expire, so please keep your contact information up to date in MyCSC.
@@ -223,12 +215,5 @@ Default lifetime for the project is **one year**. [Project manager](#step-by-ste
 
 * **Data will be deleted after 90 days**: Any data stored within SD Connect or SD Desktop, including files, virtual desktops, and volumes, will be permanently removed after 90 days from the project's closure. This measure is in place to ensure the secure handling of your data, aligning with CSC's policies.
 
-!!! Note ""
-    Please note that all **content within the services will be permanently deleted 90 days** after the project is closed. Once deleted, it cannot be restored or recovered.
-
-
-## Billing unit calculator
-
-<iframe srcdoc="https://my.csc.fi/buc" style="width: 100%; height: 1300px; border: 0"></iframe>
-
-
+!!! Note
+    All **content within the services will be permanently deleted 90 days** after the project is closed. Once deleted, it cannot be restored or recovered.
