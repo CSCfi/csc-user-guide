@@ -2,7 +2,8 @@
 
 The procedure described in this file aims to set up the necessary tools on Windows without the need for a system administrator account. However, the [simple Git workflow example](#a-simple-git-workflow-example) that follows the Windows-specific instructions doesn't make any particular assumptions on the operating system used. The two alternative paths for command-line and graphical interfaces are marked **Option 1, CLI** and **Option 2, GUI**, respectively. The GUI path should work with only minor deviation on a Mac.
 
->While these instructions are meant to provide a way for installing everything as user installations, i.e. without touching any system files or the like, **please consult your local IT support first**, for there may be a preferred way of installing some or all of the following software. Some of it may even come pre-installed on your machine.
+> [!IMPORTANT]
+> While these instructions are meant to provide a way for installing everything as user installations, i.e. without touching any system files or the like, **please consult your local IT support first**, for there may be a preferred way of installing some or all of the following software. Some of it may even come pre-installed on your machine.
 
 
 <details>
