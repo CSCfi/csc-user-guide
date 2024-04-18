@@ -19,7 +19,7 @@ By default, our cluster applies default security policies:
 - **Random UID/GID**: When your pod is deployed in our cluster, a random UID will be generated. You cannot assigned a UID/GID out of this range (for example, `1001`), it will require special privileges. Usually, the number is like `1000620000`.  
 
 - **[Restricted-v2 policy](https://connect.redhat.com/en/blog/important-openshift-changes-pod-security-standards)**: Since Openshift 4.11, the new SCC policies are introduced according to the [Pod Security Standards](https://kubernetes.io/docs/concepts/security/pod-security-standards/).  
-  - What is the difference between v1 and v2 SCC policies?  
+  - What is the difference between v1 and v2 SCC (Security Context Constraints) policies?  
     - V2 does not permit *allowPrivilegeEscalation=true*  
         - Empty or false is compatible with v1 SCC and therefore works on OCP versions < 4.11  
     - V2 requires you to leave the dropped capabilities empty, set it to *ALL*, or add only *NET_BIND_SERVICE*  
