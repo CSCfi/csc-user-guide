@@ -24,7 +24,7 @@ You need first delete all files in main folder.
 2. Find correct folder from All folders tab.
 5. Delete folder with **Delete** on right side of the folder.
 
-## Features in SD Connect
+## Features in SD Connect 
 
 * [Upload](https://csc-guide-preview.rahtiapp.fi/origin/ac-sdconnectnew/data/sensitive-data/sd-connect-upload/)
 * [Share](https://csc-guide-preview.rahtiapp.fi/origin/ac-sdconnectnew/data/sensitive-data/sd-connect-share/)

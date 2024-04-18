@@ -107,7 +107,7 @@ In this example, we first generate your key pair (a password-protected private k
         In case you are decrypting the file in SD Desktop and the CSC Sensitive Data public key has been used in encryption, decryption will be done automatically, and you do not need to specify any decryption keys.
     
 
-## Features in SD Connect
+## Features in SD Connect 
 
 * [Upload](https://csc-guide-preview.rahtiapp.fi/origin/ac-sdconnectnew/data/sensitive-data/sd-connect-upload/)
 * [Share](https://csc-guide-preview.rahtiapp.fi/origin/ac-sdconnectnew/data/sensitive-data/sd-connect-share/)

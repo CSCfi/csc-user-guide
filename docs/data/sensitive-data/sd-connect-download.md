@@ -16,7 +16,7 @@ You can download folders or individual files from SD Connect. Files and folders 
     Files uploaded before xx.xx.2024 will have to be decrypted by using [Crypt4GH application](./sd-desktop-export.md).
 .
 
-## Features in SD Connect
+## Features in SD Connect 
 
 * [Upload](https://csc-guide-preview.rahtiapp.fi/origin/ac-sdconnectnew/data/sensitive-data/sd-connect-upload/)
 * [Share](https://csc-guide-preview.rahtiapp.fi/origin/ac-sdconnectnew/data/sensitive-data/sd-connect-share/)

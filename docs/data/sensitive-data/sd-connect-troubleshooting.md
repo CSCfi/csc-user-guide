@@ -17,7 +17,7 @@
 | Shared bucket                                                 | I cannot upload data into a shared bucket.                                                                                                                                    | Your colleague didn’t add editing rights when they shared the bucket.                                                                                                                                                                                                                                                                                                                  |
 |                                                               | I cannot see the content of a shared bucket.                                                                                                                                  | Your colleague didn’t add reading rights when they shared the bucket.                                                                                                                                                                                                                                                                                                                  |
 
-## Features in SD Connect
+## Features in SD Connect 
 
 * [Upload](https://csc-guide-preview.rahtiapp.fi/origin/ac-sdconnectnew/data/sensitive-data/sd-connect-upload/)
 * [Share](https://csc-guide-preview.rahtiapp.fi/origin/ac-sdconnectnew/data/sensitive-data/sd-connect-share/)

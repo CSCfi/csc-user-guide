@@ -37,7 +37,7 @@ The recipient project's members can only access the folder content in SD Desktop
 [Read about use case: Give access to folder content only in SD Connect](./sd-connect-use-case-read-to-sd-desktop.md)
 
 
-## Features in SD Connect
+## Features in SD Connect 
 
 * [Upload](https://csc-guide-preview.rahtiapp.fi/origin/ac-sdconnectnew/data/sensitive-data/sd-connect-upload/)
 * [Download](https://csc-guide-preview.rahtiapp.fi/origin/ac-sdconnectnew/data/sensitive-data/sd-connect-download/)
