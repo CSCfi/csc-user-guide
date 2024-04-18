@@ -28,6 +28,8 @@ By default, our cluster applies default security policies:
     - V2 requires you to either leave *SeccompProfile* empty or set it to *runtime/default*  
         - Empty is compatible with v1 and works on OCP versions < 4.11  
 
+- **[Default Pod resource limits](../rahti2/usage/projects_and_quota.md#default-pod-resource-limits)**
+
 ## Securing routes
 
 Enable the **TLS encryption** of routes. The router supports modern and secure TLS versions, TLS v1.3 and TLS v1.2. TLS v1.3 is currently the latest version. TLS v1.1 and below are no longer considered secure. If the DNS name of your service is under
