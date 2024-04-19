@@ -13,15 +13,18 @@ Before you start the migration, you need to gather information about your applic
 1. Where is the **data stored**? And how is it **accessed**? Do you use a database?
      1. If you use a PostgreSQL database hosted in Rahti, think about migrating to [Pukki DBaaS](../../dbaas/).
      1. If you use Read-Write-Once (RWO) volumes, you can easily migrate them to Rahti 2. Just follow the instruction in the [How to use storage?](#how-to-use-storage) section.
-     1. If you use Read-Write-Many (RWX), you have to check why are using it. It may be 3 two main options: (1) It was the default and you are not really mounting the same volume in several Pod, or (2) You need to moiunt the same volume in several Pods. If you are in option (2), sadly there in not yet a supported solution in Rahti 2 for RWX, please contact us at <servicedesk@csc.fi> about your use case, we are gathering customer needs to better develop the RWX solution.
+     1. If you use Read-Write-Many (RWX), you have to check why are you using it. It may be two main options: (1) It was the default and you could use a RXO volume instead because you are only mounting the volume once, or (2) You need to mount iat the same time the same volume in several Pods. If you are in option (2), sadly there in not yet a supported solution in Rahti 2 for RWX, please contact us at <servicedesk@csc.fi> and let us know your use case, we are gathering customer needs to better develop the RWX solution. And we will work together on possible alternatives.
 
-     In order to see the storage type of your volumes, you can check the types in the Storage page
+     In order to see the storage type of your volumes, you can check the types in the Storage page.
+
+     ![Storage page](../img/storage-page.png)
 
 1. What are the **CPU** and **memory** requirements? Rahti 2 has lower _default_ **memory** or **CPU** limits, see the [What are the default limits?](#what-are-the-default-limits) section for more details about this.
+
 1. How was the application **deployed** in Rahti 1? Ideally you used [Helm Charts](https://helm.sh/), [Kustomize](https://kustomize.io/) or Source to Image, and deploying your application to Rahti 2 will be simple. If not, consider creating one Helm chart using the guide [How to package a Kubernetes application with Helm](../../tutorials/helm/). As a last option, you may copy manually each API object.
 1. How do users access the application? What are the URLs? Is the URL is a Rahti provided URL (`*.rahtiapp.fi`), or a dedicated domain?
     1. If you use a dedicated domain, you need to see with your DNS provider how to update the name record. The DNS information can be found on the [Route](../../rahti2/networking/#routes) documentation.
-    1. If you use an URL of the type `*.rahtiapp.fi`, you will no longer be able to use use it in Rahti 2 and will need ot migrate to `*.2.rahtiapp.fi` or to a dedicated domain.
+    1. If you use a URL of the type `*.rahtiapp.fi`, you will no longer be able to use use it in Rahti 2 and will need to migrate to `*.2.rahtiapp.fi` or to a dedicated domain.
 1. Migration day considerations. What is an acceptable downtime? - We can provide you some assistance on planning the migration, but we cannot coordinate with your users or decide what is an acceptable downtime.
 
 Suggested migration procedure:
@@ -105,7 +108,10 @@ In Rahti 2 the default limits are lower than the default quota:
           memory: 500Mi
 ```
 
-This change helps lowering the default costs for the user, gives the administrators a better understanding of the total resource usage and needs, and improves load balancing. The recommended way to see what are your application's requirements is trial and error with a limit a 10% or 20% over the observed maximum and a request as near as possible to the normal.
+The recommended way to discover the suitable values for your application is trial and error. Launch your application in Rahti 2 and observe the memory and CPU consumption. If your application gets to the memory limit, it will be killed with an `OutOfMemoryError` (`OOM`), normally with a `137 error code`. CPU on the other hand, behaves differently, and the application will not be killed. But both limits have to be treated on the same way, if you see that any of the two limits is reached, raise the limit and try again. It is recommended to have at least a small margin of 10-20% over the expected limits. Of course, you can skip this process if you already know your application's resource needs. Also you might take a look to the [Horizontal Autoscaler](../../tutorials/addHorizontalAutoscaler/), which allows you to automatically create and delete replicas of your Pods. It is better for availability and resource scheduling to have several smaller Pods, but not all applications support it.  
+
+!!! info "Why are limits tighter?"
+    Rahti 1 resource range (difference between request and limits) was too wide. This made the scheduler's job harder, as every Pod looked the same regarding resource needs (every Pod requested the same resources). This increased the "noisy neighbours effect", were Pods hungry for resources were placed on the same nodes as more modest Pods. The hungry ones were starving the more modest ones. With tigher limits and a maximum faxctor of between request and limit, Pods will need to be configured with more explicit limits.  
 
 ### How to create routes?
 
