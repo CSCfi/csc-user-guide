@@ -7,10 +7,11 @@ These instructions are for data controllers who have issued a data permit for a 
 
 After the process is established for the first time, the representative of the data controller can manage the following data submissions on their own. Help is always available via the service desk. Below are the instructions for the data submission and access control.
 
-!!! Note
-    Both data controller and reseacher with data permit need to create CSC accounts by logging in with Haka or Virtu credentials at the [MyCSC portal](https://my.csc.fi/). If you don't have Haka or Virtu credentials, you need to request an account from [CSC Service Desk](../../support/contact.md) (subject: Sensitive Data).
 
 ## Data submission
+
+!!! Note
+    Both data controller and reseacher with data permit need to create CSC accounts by logging in with Haka or Virtu credentials at the [MyCSC portal](https://my.csc.fi/). If you don't have Haka or Virtu credentials, you need to request an account from [CSC Service Desk](../../support/contact.md) (subject: Sensitive Data).
 
 ### Step 1: Organizational profile in SD Apply
 
