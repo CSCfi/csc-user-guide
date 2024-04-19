@@ -13,7 +13,7 @@ Before you start the migration, you need to gather information about your applic
 1. Where is the **data stored**? And how is it **accessed**? Do you use a database?
      1. If you use a PostgreSQL database hosted in Rahti, think about migrating to [Pukki DBaaS](../../dbaas/).
      1. If you use Read-Write-Once (RWO) volumes, you can easily migrate them to Rahti 2. Just follow the instruction in the [How to use storage?](#how-to-use-storage) section.
-     1. If you use Read-Write-Many (RWX), you have to check why are you using it. It may be two main options: (1) It was the default and you could use a RXO volume instead because you are only mounting the volume once, or (2) You need to mount iat the same time the same volume in several Pods. If you are in option (2), sadly there in not yet a supported solution in Rahti 2 for RWX, please contact us at <servicedesk@csc.fi> and let us know your use case, we are gathering customer needs to better develop the RWX solution. And we will work together on possible alternatives.
+     1. If you use Read-Write-Many (RWX), you have to check why are you using it. It may be two main options: (1) It was the default and you could use a RXO volume instead because you are only mounting the volume once, or (2) You need to mount at the same time the same volume in several Pods. If you are in option (2), sadly there is not yet a supported solution in Rahti 2 for RWX, please contact us at <servicedesk@csc.fi> and let us know your use case, we are gathering customer needs to better develop the RWX solution. And we will work together on possible alternatives.
 
      In order to see the storage type of your volumes, you can check the types in the Storage page.
 
