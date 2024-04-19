@@ -16,6 +16,9 @@
 7. If you have a research team, add them to be your project members
 8. Log into SD Services
 
+[![How to get started as project manager.](images/MyCSC/HowToGetStarted_SD_Project_Manager.svg)](images/xxx){ target="_blank" }
+
+
 ## Step by step tutorial
 
 ### 1. Create a CSC account
