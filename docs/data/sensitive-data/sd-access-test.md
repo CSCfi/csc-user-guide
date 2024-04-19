@@ -1,34 +1,36 @@
 # Start here: Accessing Sensitive Data services 
   
-If you are a new Sensitive Data (SD) services user, this section is for you. Here you learn all the basics, like how to access SD Services for the firs time and how to manage your project's billing unit consumption, storage space, project members and what happens to your data upon project closure.
+If you are a new Sensitive Data (SD) services user, this section is for you. Here you learn how to access SD Services for the first time and how to manage your project's billing unit consumption, storage space, project members and what happens to your data upon project closure.
 
 Contents:
 
  * [Access SD Connect and SD Desktop for the first time](#access-sd-connect-and-sd-desktop-for-the-first-time)
- * [Project resources and storage space](#project-resources-and-storage-space)
+ * [Billing units and storage space](#project-resources-and-storage-space)
  * [Closing the project](#closing-the-project)
 
  ---
 
 ## Access SD Connect and SD Desktop for the first time
 
-Before logging into SD Connect or SD Desktop for the first time, you must do some preparations in [MyCSC portal](https://my.csc.fi){ target="_blank" }. There you have to create a CSC account, activate MFA Authentication, be part of some CSC project and activate SD Connect and SD Desktop to that project. Only after those steps you can use SD Connect and SD Desktop.
+Before logging into SD Connect or SD Desktop for the first time, you must do some preparations in [MyCSC portal](https://my.csc.fi){ target="_blank" }. 
 
 
-
-### Project manager
+### Project manager creates and manages CSC project
 * The person who creates the project in MyCSC is the project manager. 
-* Project manager can invite project members and manage project's lifetime, storage space and resources (i.e. billing units). 
+* Project manager can invite project members and manage project's lifetime, storage space and billing units. 
 * Only the project manager can export data from SD Desktop.
-* [Step by step tutorial for project manager](sd-use-case-new-user-project-manager.md)
+
+[Step by step tutorial for project manager](sd-use-case-new-user-project-manager.md)
 
 
-### Project member
+### Project member joins CSC project
 * Project member is a person who joins to existing CSC project. 
-* All project members have equal access permissions to the project files by default.
-* **SD Connect:** project members can upload, download and delete project files same way as project manager.
-* **SD Desktop:** project members can upload data and analyze it, but they can not export anything from SD Desktop. Only the project manager can export data from SD Desktop. [Step by step tutorial for project member](sd-use-case-new-user-project-member.md).
-* [Step by step tutorial for project member](sd-use-case-new-user-project-member.md)
+* All project members have equal access permissions to the project's content.
+* **SD Connect:** project members can upload, download and delete files same way as project manager.
+* **SD Desktop:** project members can upload data and analyze it, but they can not export anything from SD Desktop. Only the project manager can export data from SD Desktop. 
+
+[Step by step tutorial for project member](sd-use-case-new-user-project-member.md)
+
 
 
 ## Project resources and storage space
@@ -58,7 +60,8 @@ Analyzing data in SD Desktop consumes billing units based on the type of virtual
 
 Once all the billing units for your CSC project have been used up, **your access to the SD Desktop service will be restricted**. This means that all virtual desktops currently running will automatically be paused, and you won't be able to access their content. However, **your data remains unaffected and will not be deleted**, even in cases where the total billing units reach zero or enter negative values.
 
-* You get a notification via email when your billing units have been consumed.
+!!! Note 
+    You will get a notification via email when your billing units have been consumed.
   
 #### How to regain access to paused virtual desktop
 
@@ -94,6 +97,6 @@ Default lifetime for the project is **one year**. [Project manager](#step-by-ste
 
 ## Billing unit calculator
 
-Billing unit calculator will help you to estimate how many BUs your CSC project will require. You can find SD Desktop from the calculator, when you move to right with the arrows. You can estimate SD Connect billing unit consumption by using Allas -option at the calculator.
+Billing unit calculator will help you to estimate how many BUs your CSC project will require. You can find SD Desktop from the calculator, when you move to right with the arrows. You can estimate SD Connect billing unit consumption by using Allas option in the calculator.
 
 <iframe srcdoc="https://my.csc.fi/buc" style="width: 100%; height: 1300px; border: 0"></iframe>
