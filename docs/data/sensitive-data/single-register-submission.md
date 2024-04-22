@@ -41,11 +41,13 @@ The forms and licenses are public in SD Apply, so these should not include any s
 To prepare for the data transfer, we first need to establish a secure ssh connection between your laptop with CSC. Please follow these steps:
 
 1. Create an SSH key pair in **RSA** format via command line. [See detailed instructions](https://docs.csc.fi/cloud/tutorials/ssh-key/#creating-an-ssh-key-pair-on-a-computer)
-2. Log in to [the user administration portal](https://admin.sd.csc.fi/). If you don't have HAKA or Virtu accounts, please write to our helpdesk to ask for a CSC account (username and password).
-[Screenshot](./images/apply/SUP_Login.png){ target="_blank" }
+2. Log in to [the Sensitive Data user administration portal](https://admin.sd.csc.fi/). If you don't have HAKA or Virtu accounts, please write to our helpdesk to ask for a CSC account (username and password).
 
-3. In the administration portal, you add your public SSH key and a defined name (example: your organization and date) for it. Screenshot{ target="_blank" }
-4. Add the IP address from which the data will be transferred and a defined name for it (e.g.: organization-date). IP address can be checked with [CSC’s My IP app](https://apps.csc.fi/myip/). [Screenshot](./images/apply/SUP.png){ target="_blank" }
+[![Sensitive Data user administration login](images/apply/SUP_Login.png)](imagesapply/SUP_Login.png)
+
+
+3. In the administration portal, you add your public SSH key and a defined name (example: your organization and date) for it. 
+4. Add the IP address from which the data will be transferred and a defined name for it (e.g.: organization-date). IP address can be checked with [CSC’s My IP app](https://apps.csc.fi/myip/).
 
 
 5. Next, please write to service desk (reply to same email thread) informing that these steps have been completed.
@@ -64,7 +66,9 @@ Where:
 ```
 
 username@org is the username visible in [the user administration portal](https://admin.sd.csc.fi/).
-[Screenshot](./images/apply/SDA_Uploader.png){ target="_blank" }
+
+
+[![SDS User administration](images/apply/SUP.png)](imagesapply/SUP.png)
 
 
 ### Step 4: Encrypt and upload the files via the secure connection
@@ -97,7 +101,10 @@ You might need permissions from your administrators to install the SDA Uploader 
 
 The SDA Uploader tool support uplands only of single files, thus if you have multiple files you should upload and transfer each of them separately. If you have several files there are two alternatives: zip all of them and upload the zipped files or send the files via command line. Please contact helpdesk (subject: Sensitive data) in this case to discuss when is the best solution.
 
-5. Finally, click on upload and encrypt. All the files will be encrypted, uploaded to CSC and assigned to the same permanent identifier in SD Apply. (screenshot)
+5. Finally, click on upload and encrypt. All the files will be encrypted, uploaded to CSC and assigned to the same permanent identifier in SD Apply. 
+
+[![SDA Uploader tool.](images/apply/SDA_Uploader.png)](imagesapply/SDA_Uploader.png)
+
 
 #### 4.2 Advanced options
 
