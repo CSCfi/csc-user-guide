@@ -78,18 +78,17 @@ You can now encrypt and transfer the dataset securely. While there are multiple 
 
 #### 4.1 Upload with the SDA uploader tool
 
-Suitable for upload of small number of files, supports upload of single files.
+The SDA Uploader tool support uplands only of single files, thus if you have multiple files you should upload and transfer each of them separately. If you have several files there are two alternatives: zip all of them and upload the zipped files or send the files via command line. Please contact helpdesk (subject: Sensitive data) in this case to discuss when is the best solution.
 
 !!! Note 
     The root folder from which you do the upload determines which permanent identifier is assigned to the files. Therefore, it is good practice to use the journal number for the folder name. This ensures that the correct files are always sent to the correct applicant, even in future data transfers.    
       
 1. Create a folder on your computer and name it with the journal number. Add all the files belonging to the dataset to that folder.
-2. Download the SDA (Sensitive Data Archive) Uploader tool available on [GitHub](https://github.com/CSCfi/sda-uploader/releases), for Linux, Mac and or Windows.
+2. Download the SDA (Sensitive Data Archive) Uploader tool available on [GitHub](https://github.com/CSCfi/sda-uploader/releases), for Linux, Mac and or Windows. You might need permissions from your administrators to install the SDA Uploader tool on your laptop.
     * Windows (sdagui-python3.11-windows-amd64.zip )
     * Mac (sdagui-python3.11-macos-amd64.zip)
     * Linux (sdagui-python3.11-linux-amd64.zip)
 
-You might need permissions from your administrators to install the SDA Uploader tool on your laptop.
 
 3. Download the CSC public encryption key for registers.
 4. Open the SDA Uploader GUI tool and complete these steps:
@@ -98,9 +97,7 @@ You might need permissions from your administrators to install the SDA Uploader 
     * Add your private SSH key (RSA format)
     * Fill in your username (username@org.fi)
     * Fill in the SFTP server: porin.lega.csc.fi:50527
-
-The SDA Uploader tool support uplands only of single files, thus if you have multiple files you should upload and transfer each of them separately. If you have several files there are two alternatives: zip all of them and upload the zipped files or send the files via command line. Please contact helpdesk (subject: Sensitive data) in this case to discuss when is the best solution.
-
+    
 5. Finally, click on upload and encrypt. All the files will be encrypted, uploaded to CSC and assigned to the same permanent identifier in SD Apply. 
 
 [![SDA Uploader tool.](images/apply/SDA_Uploader.png)](imagesapply/SDA_Uploader.png)
