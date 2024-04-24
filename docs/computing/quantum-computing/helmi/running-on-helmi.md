@@ -29,8 +29,8 @@ The current supported software versions on helmi are:
 
 ```bash
 Cirq on IQM 	cirq_iqm 	>= 13.0, < 14.0
+Qiskit on IQM 	qiskit_iqm 	>= 12.0, < 13.0
 IQM client 	iqm_client 	>= 16.0, < 17.0
-Qiskit on IQM 	qiskit_iqm 	>= 12.0, < 13
 Cortex CLI 	iqm_cortex_cli 	>= 5.8, < 6.0
 ```
 
