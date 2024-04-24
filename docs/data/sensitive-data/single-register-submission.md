@@ -41,7 +41,7 @@ The forms and licenses are public in SD Apply, so these should not include any s
 To prepare for the data transfer, we first need to establish a secure ssh connection between your laptop with CSC. Please follow these steps:
 
 1. Create an SSH key pair in **RSA** format via command line. [See detailed instructions](../../cloud/tutorials/ssh-key.md#creating-an-ssh-key-pair-on-a-computer)
-2. Log in to [the Sensitive Data user administration portal](https://admin.sd.csc.fi/). If you don't have HAKA or Virtu accounts, please write to our helpdesk to ask for a CSC account (username and password).
+2. Log in to [the Sensitive Data user administration portal](https://admin.sd.csc.fi/). If you don't have HAKA or Virtu accounts, please write to our helpdesk to ask for a CSC account. Setting up an account takes few days.
 
 [![Sensitive Data user administration login](images/apply/SUP_Login.png)](images/apply/SUP_Login.png)
 
@@ -52,7 +52,7 @@ To prepare for the data transfer, we first need to establish a secure ssh connec
 
 5. Next, please write to service desk (reply to same email thread) informing that these steps have been completed.
 
-We will approve your account access to the secure connection and confirm it to you via email. Only at this point, you can test if is it is possible establishing a secure SSH connection with CSC by using this commend and your SSH keys:
+We will approve your account access to the secure connection and confirm it to you via email. Only at this point, you can test if is it is possible establishing a secure SSH connection with CSC by using this command and your SSH key:
 
 ```
 sftp -i X:\folder\privateshhfilename.key -P 50527 username@org.fi@porin.lega.csc.fi
@@ -62,10 +62,10 @@ exit
 Where:
 
 ```
--X:\folder\filename.key is the path to the correspondent private shh key
+-X:\folder\privateshhfilename.key is the path to the correspondent private shh key
 ```
 
-username@org is the username visible in [the user administration portal](https://admin.sd.csc.fi/).
+username@org.fi is the username visible in [the user administration portal](https://admin.sd.csc.fi/).
 
 
 [![SDS User administration](images/apply/SUP.png)](images/apply/SUP.png)
