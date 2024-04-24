@@ -143,8 +143,7 @@ After a successful upload, the dataset is visible in SD Apply. With the direct S
 
 !!! Note 
     You can always transfer more data for the same project/data permit by using the same directory. The data will become visible for the user in SD Desktop when they log in again. If you send multiple files with the same file name, the files are not replaced, but instead, both versions are kept and will be available for the user.
-
-If you need to delete files after transfer, for example when the data permit expires, please contact CSC Service Desk. Access to the data can be restricted after the expiration or in any point of the project, if needed (see below), but deletion of the data from CSC needs to be done manually by our administrators.
+    If you need to delete files after transfer, for example when the data permit expires, please contact CSC Service Desk. Access to the data can be restricted after the expiration or in any point of the project, if needed (see below), but deletion of the data from CSC needs to be done manually by our administrators.
 
 ## Data access management
 
