@@ -33,7 +33,7 @@ Before logging into SD Connect or SD Desktop for the first time, you must do som
 
 
 
-## Project resources and storage space
+## Plan your billing units and storage usage
 
 **Billing Unit (BU)** is CSC's own unit system, that measures, how much resources project consumes. Every project consumes billing units, but most cases **no actual payment** is required. Sensitive Data services are free of charge for research purposes. [Read more about free use cases from research.csc.fi](https://research.csc.fi/free-of-charge-use-cases){ target="_blank" }.
 
@@ -79,7 +79,7 @@ Once all the billing units for your CSC project have been used up, **your access
     Restarting a paused desktop is possible only for [active CSC projects](../../accounts/how-to-manage-your-project.md) with available billing units.
 
 
-## Closing the project
+## Closing your project
 
 Default lifetime for the project is **one year**. [Project manager](#step-by-step-tutorial-for-project-manager) can extend project's lifetime or close the project in [MyCSC](https://my.csc.fi){ target="_blank" }. If project lifetime ends, it will be closed automatically. You'll receive an email notification when your project is about to expire, so please keep your contact information up to date in MyCSC.
 
@@ -95,8 +95,8 @@ Default lifetime for the project is **one year**. [Project manager](#step-by-ste
     All **content within the services will be permanently deleted 90 days** after the project is closed. Once deleted, it cannot be restored or recovered.
 
 
-## Billing unit calculator
+## Billing unit calculator for estimating billing units consumption
 
-Billing unit calculator will help you to estimate how many BUs your CSC project will require. You can find SD Desktop from the calculator, when you move to right with the arrows. You can estimate SD Connect billing unit consumption by using Allas option in the calculator.
+Billing unit calculator will help you to estimate how many BUs your CSC project will require. You can find SD Desktop from the calculator when you move to right with the arrows. You can estimate SD Connect billing unit consumption by using Allas option in the calculator.
 
 <iframe srcdoc="https://my.csc.fi/buc" style="width: 100%; height: 1300px; border: 0"></iframe>

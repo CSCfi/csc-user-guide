@@ -16,7 +16,7 @@
 7. If you have a research team, add them to be your project members
 8. Log into SD Services
 
-[![How to get started as project manager.](images/MyCSC/HowToGetStarted_SD_Project_Manager.svg)](images/xxx){ target="_blank" }
+![How to get started as project manager.](images/MyCSC/HowToGetStarted_SD_Project_Manager.svg)
 
 
 ## Step by step tutorial
@@ -37,7 +37,8 @@
 - Choose the Project category to be “Academic” (if you are a researcher and a member of Finnish higher education institution)
 - Fill all required fields. Read and accept the terms of use.
 - Click “Create a project”.
-- ![Click create a project.](./images/MyCSC/MyCSC_NewProject.png)
+
+![Click create a project.](./images/MyCSC/MyCSC_NewProject.png)
 
 
 ### 3. Fill the GDPR document
@@ -45,14 +46,16 @@
 - Since your project handles personal data, you need to fill the GDPR document i.e. Personal data handling document.
 - The document appears when you create a new project. You can edit this document later.
 - Please check with your home organization, who is the **data controller** (CSC is data processor, never the controller). [Read more about the roles and GDPR](../../support/faq/sensitive-data-legal.md#what-are-the-roles-of-csc-and-its-service-users-under-gdpr).
-- ![Personal data handling document.](./images/MyCSC/MyCSC_PersonalDataHandling.png)
+
+![Personal data handling document.](./images/MyCSC/MyCSC_PersonalDataHandling.png)
 
 ### 4. Activate SD Services for your project
 
 - Services are listed to the right column of the project page.
 - Select services: SD Connect, SD Desktop.
 - Read and accept the terms of use and click “Add service”.
-- ![Add new services.](./images/MyCSC/MyCSC_AddServices.png)
+
+![Add new services.](./images/MyCSC/MyCSC_AddServices.png)
 
 
 ### 5. Apply resources (billing units) for your project
@@ -63,7 +66,8 @@
 - Apply more billing units by clicking "Apply for resources".
 - You will get more info through inbox, after your application.
 - You can always ask help from [Service Desk](../../support/contact.md) *Subject: Sensitive Data*
-- ![Click apply for resources.](./images/MyCSC/MyCSC_AddResources.png)
+
+![Click apply for resources.](./images/MyCSC/MyCSC_AddResources.png)
 
 
 ### 6. Activate MFA Authentication
@@ -85,11 +89,12 @@
 - Or you can create an invitation link by clicking “Invite” and send that with email to who ever you wish
     - The receiver can apply a membership for your project by clicking the link. After that  you still have to approve them to your team in MyCSC.
 - Note! You project members must also create a MyCSC user account, activate the MFA and approve the terms of use of the services you have activated (SD Connect, SD Desktop).
-- ![Add project members.](./images/MyCSC/MyCSC_AddMembers.png)
+
+![Add project members.](./images/MyCSC/MyCSC_AddMembers.png)
 
 
 ### 8. Log into SD Services
 
 - Now all the preparations are already and you can start to use SD Connect and SD Desktop.
-- [SD Connect login instructions](sd-connect-login.md)
-- [SD Desktop login instructions](sd-desktop-login.md)
+    - [SD Connect login instructions](sd-connect-login.md)
+    - [SD Desktop login instructions](sd-desktop-login.md)

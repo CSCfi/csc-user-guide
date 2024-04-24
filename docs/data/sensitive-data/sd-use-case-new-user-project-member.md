@@ -13,6 +13,8 @@ if you have a
 4. Activate MFA Authentication
 5. Log into SD Services
 
+![How to get started as project member.](images/MyCSC/HowToGetStarted_SD_Project_Member.svg)
+
 ## Step by step tutorial
     
 - **Go to [MyCSC portal](https://my.csc.fi){ target="_blank" }**
@@ -32,7 +34,8 @@ if you have a
 ### 3. Accept SD Services terms of use
 
 - The project manager has added services to the project already. You as a project member has to **accept the terms of use**, so you can use the services.
-- ![How to start with SD services.](./images/MyCSC/MyCSC_AddServices.png)
+
+![How to start with SD services.](./images/MyCSC/MyCSC_AddServices.png)
 
 
 ### 4. Activate MFA Authentication
@@ -43,13 +46,14 @@ if you have a
 - Enable Multi-Factor Authentication by clicking “Activate”.
 - This will create a QR code, that you can read with your authentication application (for example Google Authenticator).
 - You authentication application will provide a verification code, that you can now write to MyCSC “Verification code” -field and click “Verify”.
-- ![Multi-Factor Authentication.](./images/MyCSC/MyCSC_MFA.png)
+ 
+ ![Multi-Factor Authentication.](./images/MyCSC/MyCSC_MFA.png)
 
 
 ### 5. Log into SD Services
 
 - Now all the preparations are already and you can start to use SD Connect and SD Desktop.
-- [SD Connect login instructions](sd-connect-login.md)
-- [SD Desktop login instructions](sd-desktop-login.md)
+    - [SD Connect login instructions](sd-connect-login.md)
+    - [SD Desktop login instructions](sd-desktop-login.md)
 
 ---
