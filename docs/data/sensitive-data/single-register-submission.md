@@ -92,8 +92,8 @@ With the SDA Uploader tool, you need to collect all the data to one folder on yo
 
 3. Download the [CSC public encryption key for registers](https://admin.sd.csc.fi/publickey/?instance=single%20registry).
 4. Open the SDA Uploader GUI tool and complete these steps:
-    * Add CSC public key for registers using `Load Recipient Public key` button.
-    * Select the folder you want to upload with the `Select a directory to upload` button.
+    * Add CSC public key for registers using `Load Recipient Public Key` button.
+    * Select the folder you want to upload with the `Select Directory to Upload` button.
     * Add your private SSH key (RSA format)
     * Fill in your username (username@org.fi)
     * Fill in the SFTP server: porin.lega.csc.fi:50527
