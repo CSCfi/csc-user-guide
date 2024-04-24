@@ -65,7 +65,7 @@ Where:
 -X:\folder\privateshhfilename.key is the path to the correspondent private shh key
 ```
 
-username@org.fi is the username visible in [the user administration portal](https://admin.sd.csc.fi/).
+`username` is the username visible in [the user administration portal](https://admin.sd.csc.fi/) and `org.fi` is the same as in your email address.
 
 
 [![SDS User administration](images/apply/SUP.png)](images/apply/SUP.png)
