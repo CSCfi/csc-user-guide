@@ -109,7 +109,7 @@ This SDA (Sensitive Data Archive) Uploader tool is available on GitHub, via  com
 
 ##### Advanced option 1
 
-With the SDA CLI tool, you also first create a folder on your computer and name it with the journal number. Add all of the files belonging to the dataset to that folder. Then you add the following command to the command line (replace example_dataset_123 with the directory name, username@org.fi with your credentials, and X:\folder\filename.key (or ~/.ssh/filename for Linux/macOS) with the location of your SSH key):
+With the SDA CLI tool, you also first create a folder on your computer and name it with the journal number or other unique identifier. Add all of the files belonging to the dataset to that folder. Then you add the following command to the command line (replace example_dataset_123 with the directory name, username@org.fi with your credentials, and X:\folder\filename.key (or ~/.ssh/filename for Linux/macOS) with the location of your SSH key):
 
 ```
 sdacli example_dataset_123 -host porin.lega.csc.fi -p 50527 -u username@org.fi -i X:\folder\filename.key -pub registry.pub
