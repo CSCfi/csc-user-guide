@@ -40,10 +40,10 @@ The forms and licenses are public in SD Apply, so these should not include any s
 
 To prepare for the data transfer, we first need to establish a secure ssh connection between your laptop with CSC. Please follow these steps:
 
-1. Create an SSH key pair in **RSA** format via command line. [See detailed instructions](https://docs.csc.fi/cloud/tutorials/ssh-key/#creating-an-ssh-key-pair-on-a-computer)
+1. Create an SSH key pair in **RSA** format via command line. [See detailed instructions](../../cloud/tutorials/ssh-key.md#creating-an-ssh-key-pair-on-a-computer)
 2. Log in to [the Sensitive Data user administration portal](https://admin.sd.csc.fi/). If you don't have HAKA or Virtu accounts, please write to our helpdesk to ask for a CSC account (username and password).
 
-[![Sensitive Data user administration login](images/apply/SUP_Login.png)](imagesapply/SUP_Login.png)
+[![Sensitive Data user administration login](images/apply/SUP_Login.png)](images/apply/SUP_Login.png)
 
 
 3. In the administration portal, you add your public SSH key and a defined name (example: your organization and date) for it. 
@@ -68,7 +68,7 @@ Where:
 username@org is the username visible in [the user administration portal](https://admin.sd.csc.fi/).
 
 
-[![SDS User administration](images/apply/SUP.png)](imagesapply/SUP.png)
+[![SDS User administration](images/apply/SUP.png)](images/apply/SUP.png)
 
 
 ### Step 4: Encrypt and upload the files via the secure connection
@@ -100,7 +100,7 @@ The SDA Uploader tool support uplands only of single files, thus if you have mul
     
 5. Finally, click on upload and encrypt. All the files will be encrypted, uploaded to CSC and assigned to the same permanent identifier in SD Apply. 
 
-[![SDA Uploader tool.](images/apply/SDA_Uploader.png)](imagesapply/SDA_Uploader.png)
+[![SDA Uploader tool.](images/apply/SDA_Uploader.png)](images/apply/SDA_Uploader.png)
 
 
 #### 4.2 Advanced options
