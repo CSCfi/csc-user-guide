@@ -121,7 +121,11 @@ With Crypt4GH and SFTP, you first encrypt the data with CSC public key with eith
 
 ```
 sftp -i X:\folder\filename.key -P 50527 username@org.fi@porin.lega.csc.fi
+```
+
 Then create a directory for the dataset you are going to transfer:
+
+```
 mkdir example_dataset_123
 cd example_dataset_123
 ```
