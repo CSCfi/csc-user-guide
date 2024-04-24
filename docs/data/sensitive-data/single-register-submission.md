@@ -98,7 +98,7 @@ With the SDA Uploader tool, you need to collect all the data to one folder on yo
     * Fill in your username (username@org.fi) to the `SFTP Username` text field.
     * Fill in the SFTP server: porin.lega.csc.fi:50527 to the `SFTP Server` text field.
     
-5. Finally, click on upload and encrypt. All the files will be encrypted, uploaded to CSC and assigned to the same permanent identifier in SD Apply. If the tool requires a password for your SSH key, just leave the field empty.
+5. Finally, click on upload and encrypt. All the files will be encrypted, uploaded to CSC and assigned to the same permanent identifier in SD Apply. If the tool requests a password for your SSH key, just leave the field empty. The folder will become automatically discoverable in SD Apply with the folder name.
 
 [![SDA Uploader tool.](images/apply/SDA_Uploader.png)](images/apply/SDA_Uploader.png)
 
