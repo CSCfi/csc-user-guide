@@ -76,24 +76,24 @@ Where:
 
 You can now encrypt and transfer the dataset securely. While there are multiple methods available for this task, we recommend utilising the graphical user interface SDA (Sensitive Data Archive) Uploader tool. Installing this simple application may require special permission from your system administration, but it will conveniently enable the tool to establish the secure connection using the SSH keys you've already tested, encrypt the files with [CSC public encryption key for registers](https://admin.sd.csc.fi/publickey/?instance=single%20registry), and upload them. 
 
-#### 4.1 Upload with the SDA uploader tool
+#### 4.1 Upload with the SDA Uploader tool
 
-The SDA Uploader tool support uplands only of single files, thus if you have multiple files you should upload and transfer each of them separately. If you have several files there are two alternatives: zip all of them and upload the zipped files or send the files via command line. Please contact helpdesk (subject: Sensitive data) in this case to discuss when is the best solution.
+With the SDA Uploader tool, you need to collect all the data to one folder on your computer before transfer.
 
 !!! Note 
-    The root folder from which you do the upload determines which permanent identifier is assigned to the files. Therefore, it is good practice to use the journal number for the folder name. This ensures that the correct files are always sent to the correct applicant, even in future data transfers.    
+    The folder name determines the indentifying information visible in SD Apply. Therefore, it is a good practice to use the journal number or other unique identifier for the folder name. This ensures that the correct data are always sent to the correct applicant, even in additional data transfers.  
       
-1. Create a folder on your computer and name it with the journal number. Add all the files belonging to the dataset to that folder.
+1. Create a folder on your computer and name it with the journal number or other suitable unique identifier. Add all the files belonging to the dataset to that folder.
 2. Download the SDA (Sensitive Data Archive) Uploader tool available on [GitHub](https://github.com/CSCfi/sda-uploader/releases), for Linux, Mac and or Windows. You might need permissions from your administrators to install the SDA Uploader tool on your laptop.
     * Windows (sdagui-python3.11-windows-amd64.zip )
     * Mac (sdagui-python3.11-macos-amd64.zip)
     * Linux (sdagui-python3.11-linux-amd64.zip)
 
 
-3. Download the CSC public encryption key for registers.
+3. Download the [CSC public encryption key for registers](https://admin.sd.csc.fi/publickey/?instance=single%20registry).
 4. Open the SDA Uploader GUI tool and complete these steps:
     * Add CSC public key for registers
-    * Select the file you want to upload from the folder named with the Journal Number.
+    * Select the folder you want to upload with the `Upload a directory` option.
     * Add your private SSH key (RSA format)
     * Fill in your username (username@org.fi)
     * Fill in the SFTP server: porin.lega.csc.fi:50527
