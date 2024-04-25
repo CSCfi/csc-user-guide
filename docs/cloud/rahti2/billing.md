@@ -70,20 +70,20 @@ Note : BU for Storage TiB hour is same i.e. 3.
 
 So, in case of the above example the BU calculation for Rahti 1 is
 
-![BU calculation for Rahti 1](./images/Rhati1BU.drawio)
+![BU calculation for Rahti 1](./images/Rahti1BU.drawio.svg)
 
 
 Default limits in Rahti 2 can be set lower then the default quota. Where in Rahti 1 default limits is same as default quota. For more details [Migration to Rahti 2](../rahti/rahti-migration.md). This can decrease the default costs for the user. For the same example the BU For Rahti 1:
 
-![Default cost for Rahti 1](./images/Rahti1request.drawio)
+![Default cost for Rahti 1](./images/Rahti1Requests.drawio.svg)
 
 and for Rahti 2 BU will lie between 
 limits:
 
-![Default limits for Rahti 2](./images/Rahti2limits.drawio)
+![Default limits for Rahti 2](./images/Rahti2Limits.drawio.svg)
 
 and requests:
 
-![Default requests for Rahti 2](./images/Rahti2requests.drawio)
+![Default requests for Rahti 2](./images/Rahti2Request.drawio.svg)
 
 Note : BU for Storage TiB hour is considered same i.e. 3.
