@@ -28,9 +28,9 @@ If you wish to add your own python packages to the pre-made python environment y
 The current supported software versions on helmi are:
 
 ```bash
-Cirq on IQM 	cirq_iqm 	>= 12.2, < 13.0
-Qiskit on IQM 	qiskit_iqm 	>= 11.10, < 12.0
-IQM client 	iqm_client 	>= 15.2, < 16.0
+Cirq on IQM 	cirq_iqm 	>= 13.0, < 14.0
+Qiskit on IQM 	qiskit_iqm 	>= 12.0, < 13.0
+IQM client 	iqm_client 	>= 16.0, < 17.0
 Cortex CLI 	iqm_cortex_cli 	>= 5.8, < 6.0
 ```
 
@@ -105,7 +105,8 @@ To load the Cirq module use `module load helmi_cirq`.
 import os
 
 import cirq
-from iqm.cirq_iqm import IQMSampler, Adonis
+from iqm.cirq_iqm import Adonis
+from iqm.cirq_iqm.iqm_sampler import IQMSampler
 
 adonis = Adonis()
 

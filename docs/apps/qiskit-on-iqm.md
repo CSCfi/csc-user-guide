@@ -16,7 +16,7 @@ versions:
 
 | Version | Module                               | LUMI  | Notes           |
 |:--------|:-------------------------------------|:-----:|-----------------|
-| 11.10   | `helmi_qiskit/11.10`                 | X     |                 |
+| 12.2   | `helmi_qiskit/12.2`                   | X     |                 |
 
 All modules are based on Tykky using LUMI-container-wrapper.
 Wrapper scripts have been provided so that common commands such as `python`,
@@ -24,7 +24,7 @@ Wrapper scripts have been provided so that common commands such as `python`,
 [LUMI container wrapper](https://docs.lumi-supercomputer.eu/software/installing/container-wrapper/).
 
 The module includes python packages that are often used with qiskit, such as
-qiskit-experiments, matplotlib, numpy, and jupyterlab.
+qiskit-experiments, matplotlib, numpy, pennylane-qiskit and jupyterlab.
 
 ## License
 

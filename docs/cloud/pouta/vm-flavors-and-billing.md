@@ -68,6 +68,10 @@ flavors.
 
 |Flavor|Cores|Memory<br/>(GiB)|Root<br/>disk<br/>(GB)|Ephemeral<br/>disk<br/>(GB)|Total<br/>disk<br/>(GB)|Memory/<br/>core<br/>(GiB)|Redundancy|Billing<br/>Units<br/>/h|
 |--- |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+| hpc.6.14core    | 14 | 88  | 80 | 0 | 80 | 6.2|![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg)![Icon for root disk data redundancy level FULL](../../img/circle_icons/r100.svg)![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg)| 23 |
+| hpc.6.28core    | 28 | 176 | 80 | 0 | 80 | 6.2|![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg)![Icon for root disk data redundancy level FULL](../../img/circle_icons/r100.svg)![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg)| 45 |
+| hpc.6.56core   | 56 | 352 | 80 | 0 | 80 | 6.2|![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg)![Icon for root disk data redundancy level FULL](../../img/circle_icons/r100.svg)![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg)| 90 |
+| hpc.6.112core   | 112| 705 | 80 | 0 | 80 | 6.2|![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg)![Icon for root disk data redundancy level FULL](../../img/circle_icons/r100.svg)![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg)| 180 |
 | hpc.5.16core    | 16 | 58  | 80 | 0 | 80 | 3.6|![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg)![Icon for root disk data redundancy level FULL](../../img/circle_icons/r100.svg)![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg)| 20 |
 | hpc.5.32core    | 32 | 116 | 80 | 0 | 80 | 3.6|![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg)![Icon for root disk data redundancy level FULL](../../img/circle_icons/r100.svg)![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg)| 40 |
 | hpc.5.64core   | 64 | 232 | 80 | 0 | 80 | 3.6|![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg)![Icon for root disk data redundancy level FULL](../../img/circle_icons/r100.svg)![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg)| 80 |
@@ -128,6 +132,10 @@ billing unit coefficients.
 
 |Flavor|Cores|Memory<br/>(GiB)|Root<br/>disk<br/>(GB)|Ephemeral<br/>disk<br/>(GB)|Total<br/>disk<br/>(GB)|Memory/<br/>core<br/>(GiB)|Redundancy|Billing<br/>Units<br/>/h|
 |--- |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+| hpc.6.14core    | 14 | 88  | 80 | 0 | 80 | 6.2|![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg)![Icon for root disk data redundancy level FULL](../../img/circle_icons/r100.svg)![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg)| 25 |
+| hpc.6.28core    | 28 | 176 | 80 | 0 | 80 | 6.2|![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg)![Icon for root disk data redundancy level FULL](../../img/circle_icons/r100.svg)![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg)| 50 |
+| hpc.6.56core   | 56 | 352 | 80 | 0 | 80 | 6.2|![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg)![Icon for root disk data redundancy level FULL](../../img/circle_icons/r100.svg)![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg)| 100 |
+| hpc.6.112core   | 112| 705 | 80 | 0 | 80 | 6.2|![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg)![Icon for root disk data redundancy level FULL](../../img/circle_icons/r100.svg)![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg)| 200 |
 | hpc.5.16core    | 16 | 58  | 80 | 0 | 80 | 3.6|![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg)![Icon for root disk data redundancy level FULL](../../img/circle_icons/r100.svg)![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg)| 22.5 |
 | hpc.5.32core    | 32 | 116 | 80 | 0 | 80 | 3.6|![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg)![Icon for root disk data redundancy level FULL](../../img/circle_icons/r100.svg)![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg)| 45 |
 | hpc.5.64core   | 64 | 232 | 80 | 0 | 80 | 3.6|![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg)![Icon for root disk data redundancy level FULL](../../img/circle_icons/r100.svg)![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg)| 90 |
@@ -222,6 +230,15 @@ flavors have faster CPUs and no overcommitment of CPU cores.
 
 **cPouta HPC flavor characteristics:**
 
+**hpc.6.\*:**
+
+-   Redundant power
+-   CPU:  AMD EPYC 9734 112-Core Processor,
+-   Network: Redundant 25 Gb/s
+-   Flavor disk: Stored in the central storage
+-   Single-node failure may cause downtime, but instances
+    are recoverable.
+
 **hpc.5.\*:**
 
 -   Redundant power
@@ -250,6 +267,15 @@ flavors have faster CPUs and no overcommitment of CPU cores.
 -   Instances can be lost due to a single-node or disk failure.
 
 **ePouta HPC flavor characteristics:**
+
+**hpc.6.\*:**
+
+-   Redundant power
+-   CPU:  AMD EPYC 9734 112-Core Processor,
+-   Network: Redundant 25 Gb/s
+-   Flavor disk: Stored in the central storage
+-   Single-node failure may cause downtime, but instances
+    are recoverable.
 
 **hpc.5.\*:**
 

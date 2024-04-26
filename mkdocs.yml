@@ -216,6 +216,7 @@ nav:
         - Configuration:
            - cloud/pouta/configuration.md
            - VM lifecycle & saving BUs: cloud/pouta/vm-lifecycle.md
+           - Virtual machine flavors and Billing Unit rates: cloud/pouta/vm-flavors-and-billing.md
            - Networking:
              - cloud/pouta/networking.md
            - Storage:
@@ -226,6 +227,7 @@ nav:
              - Snapshot using QEMU: cloud/pouta/qemu-vm.md
         - Advanced:
            - cloud/pouta/advanced.md
+           - Security Guidelines for Pouta: cloud/pouta/security.md
            - Command line:
              - cloud/pouta/command-line-tools.md
              - Install: cloud/pouta/install-client.md
