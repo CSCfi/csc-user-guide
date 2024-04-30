@@ -119,9 +119,9 @@ For more information about using the web interface, refer to the
 [official OpenShift documentation](https://docs.okd.io/) (our current version is 4.15). You can find out which version of the documentation to look at in the web interface by
 clicking the question mark symbol in the top bar and selecting "About".
 
-## Project quotas
+## CSC computing project quotas
 
-Each project has its own quota. Initial quota is the following:
+Each CSC computing project has its own quota. Initial quota is the following:
 
 | Resource                         | Default |
 |----------------------------------|---------|
@@ -131,7 +131,12 @@ Each project has its own quota. Initial quota is the following:
 | Number of image streams (images) | 20      |
 | Size of each registry images     | 5 GiB   |
 
-This means that your project can use up to 4 cores and 16GiB in total, it can be 1 Pod using the whole 4 cores and 16 GiB, 8 pods each using half a core and 2 GiB, etc...
+This means that your CSC computing project can use up to 4 cores and 16GiB in total, it can be 1 Pod using the whole 4 cores and 16 GiB, 8 pods each using half a core and 2 GiB, etc...
+
+!!! Warning
+
+    If you have several users that can access the CSC computing project, they can create a new Rahti project (see above). Keep in mind that the quotas will be shared accross the different Rahti projects.  
+    If you need to adjust your CSC computing project, please contact us. More information [here](projects_and_quota.md#requesting-more-quota)
 
 You can find the resource usage and quota of a project in the project view in
 the web interface under **Administration -> ResourceQuota** and **Administration -> LimitRanges** in the `Administrator` menu.
@@ -181,51 +186,9 @@ Note: `m` stands for milicores. `500m` will be the equivalent of 0.5 cores, or i
 
 Rahti 2 enforces a maximum limit/request ratio of 5. This means that the CPU or memory `limits` cannot be more than 5 times the `request`. So if the CPU request is 50m, the CPU limit cannot be higher than 500m. And if we wanted to increase the CPU limit to 1, we will have to increase as well the request to at least 100m.
 
-## Cluster Quotas
-
-In addition to the project resource quota, cluster resource quota is in use. This quota is shared by multiple projects created by the same user. This means that cluster quota is enforced per user. A single user will be able to request as many projects as it is necessary, but the total resource use of all these projects cannot exceed the cluster quota.
-
-Initial cluster quotas are 5 times of the project resource quota.
-
-| Resource type | Quota |
-| --- | --- |
-| limits.cpu | 20 |
-| limits.memory | 80Gi |
-| request.storage | 500Gi |
-| limits.ephemeral-storage | 25Gi |
-| openshift.io/imagestreams | 100 |
-| persistentvolumeclaims | 25 |
-| pods | 500 |
-
-You can check your current cluster quota by running this command line:
-
-```sh
-$ oc describe AppliedClusterResourceQuota
-
-Name:		crq-XXXXXXXX
-Created:	19 hours ago
-Labels:		<none>
-Annotations:	<none>
-Namespace Selector: ["test"]
-Label Selector:
-AnnotationSelector: map[openshift.io/requester:XXXXXXXX]
-Resource			Used	Hard
---------			----	----
-limits.cpu			0	20
-limits.ephemeral-storage	0	25Gi
-limits.memory			0	80Gi
-openshift.io/imagestreams	1	100
-persistentvolumeclaims		0	25
-pods				0	500
-requests.storage		0	500Gi
-```
-
-It not only shows the Quota, but also the current Usage.
-
 ## Requesting more quota
 
-If you need more resources that the defaults, you can apply for more quota by contacting the Service Desk. See the [Contact page](../../../support/contact.md) for instructions. Quota requests are
-handled on a case-by-case basis depending on the currently available resourcesin Rahti 2 and the use case.
+If you need more resources that the defaults, you can apply for more quota by contacting the Service Desk. See the [Contact page](../../../support/contact.md) for instructions. Quota requests are handled on a case-by-case basis depending on the currently available resources in Rahti 2 and the use case.
 
 ## Sharing projects with other users
 
