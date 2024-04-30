@@ -192,6 +192,12 @@ If you need more resources that the defaults, you can apply for more quota by co
 
 ## Sharing projects with other users
 
+!!! info
+
+    When creating a Rahti 2 project which is associated with certain CSC computing project, by default all members the of 
+    CSC computing project will have admin access to the Rahti 2 project.  
+    You can also add individually an user to a specific Rahti 2 project. The user must have a CSC or HAKA login.
+
 OpenShift has a flexible role-based access control system that allows you to
 give access to projects you have created to other users and groups in the system.
 You can give e.g. full admin, basic user, edit or read only access to other
@@ -206,12 +212,6 @@ Note that it is important to use correct usernames when sharing projects
 with others. Rahti 2 allows you to freely enter any username and will not notify
 you for having entered a non-existent username. Usernames are also case-sensitive.
 You can find out your username in Rahti 2 via the command line, by using the command `oc whoami`.
-
-!!! info
-
-    When creating a Rahti 2 project which is associated with certain CSC computing project, by default all members the of 
-    CSC computing project will have admin access to the Rahti 2 project. This also means that you can add administrators to
-    your Rahti 2 project by adding them directly to your CSC project. 
 
 ## Deleting a project
 
