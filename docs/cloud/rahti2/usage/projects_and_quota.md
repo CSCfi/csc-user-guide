@@ -135,8 +135,8 @@ This means that your CSC computing project can use up to 4 cores and 16GiB in to
 
 !!! Warning
 
-    If you have several users that can access the CSC computing project, they can create a new Rahti project (see above). Keep in mind that the quotas will be shared accross the different Rahti projects.  
-    If you need to adjust your CSC computing project, please contact us. More information [here](projects_and_quota.md#requesting-more-quota)
+    If you have several users that can access the CSC computing project, they can create a new Rahti project (see above). Keep in mind that the quotas will be shared across the different Rahti projects.  
+    If you need to adjust your CSC computing project quotas, please contact us. More information [here](projects_and_quota.md#requesting-more-quota)
 
 You can find the resource usage and quota of a project in the project view in
 the web interface under **Administration -> ResourceQuota** and **Administration -> LimitRanges** in the `Administrator` menu.
