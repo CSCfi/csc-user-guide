@@ -1,7 +1,7 @@
 # Login to SD Desktop
 
 ## Prequisites
-* [Access SD Connect and SD Desktop for the first time](https://csc-guide-preview.rahtiapp.fi/origin/ac-sdconnectnew/data/sensitive-data/sd-access/#access-sd-connect-and-sd-desktop-for-the-first-time)
+* [Access SD Connect and SD Desktop for the first time](./sd-access/#access-sd-connect-and-sd-desktop-for-the-first-time)
 
 ## Step by step
 

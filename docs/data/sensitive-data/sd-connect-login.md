@@ -1,7 +1,7 @@
 # Login to SD Connect
 
 ## Prequisites
-* [Access SD Connect and SD Desktop for the first time](https://csc-guide-preview.rahtiapp.fi/origin/ac-sdconnectnew/data/sensitive-data/sd-access/#access-sd-connect-and-sd-desktop-for-the-first-time)
+* [Access SD Connect and SD Desktop for the first time](./sd-access/#access-sd-connect-and-sd-desktop-for-the-first-time)
 
 
 ## Step by step
@@ -14,12 +14,6 @@
     The user interface is compatible only with **Chrome** and **Firefox** (excluding private mode in Firefox). 
 
 [![SDConnect-login](images/connect/SDConnect-login.png)](images/connect/SDConnect-login.png)
-
-
-## Features in SD Connect
-
-
-
 
 
 
