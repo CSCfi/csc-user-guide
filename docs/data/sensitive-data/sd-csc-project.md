@@ -3,16 +3,17 @@
 
 Contents:
 
-* Plan your billing units and storage usage
-    * SD Connect - billing units and storage space
-    * SD Desktop - billing units and disk space
-    * What happens if your project runs out of billing units?
-    * Billing unit calculator for estimating billing units consumption
-* Closing your CSC project
-    * What happens to your data after the CSC project expires or is closed
+* [Billing units and storage usage](#billing-units-and-storage-usage)
+    * [SD Connect - billing units and storage space](#sd-connect---billing-units-and-storage-space)
+    * [SD Desktop - billing units and disk space](#sd-desktop---billing-units-and-disk-space)
+    * [What happens if your project runs out of billing units?](#what-happens-if-your-project-runs-out-of-billing-units)
+    * [Billing unit calculator for estimating billing units consumption](#billing-unit-calculator-for-estimating-billing-units-consumption)
+* [Closing your CSC project](#closing-csc-project)
+    * [What happens to your data after the CSC project expires or is closed](#what-happens-to-your-data-after-the-csc-project-expires-or-is-closed)
 
 
-## Plan your billing units and storage usage
+
+## Billing units and storage usage
 
 **Billing Unit (BU)** is CSC's own unit system, that measures, how much resources project consumes. Every project consumes billing units, but most cases **no actual payment** is required. Sensitive Data services are free of charge for research purposes. [Read more about free use cases from research.csc.fi](https://research.csc.fi/free-of-charge-use-cases){ target="_blank" }.
 
