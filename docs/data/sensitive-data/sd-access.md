@@ -24,7 +24,3 @@ Before logging into SD Connect or SD Desktop for the first time, you must do som
 [Step by step tutorial for project member](sd-use-case-new-user-project-member.md)
 
 
-## Project management
-
- * [Plan your billing units and storage usage](#plan-your-billing-units-and-storage-usage)
- * [Closing your project](#closing-your-project)
