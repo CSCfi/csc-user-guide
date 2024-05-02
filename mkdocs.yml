@@ -378,12 +378,11 @@ nav:
       - data/sensitive-data/index.md
       - Choose service: data/sensitive-data/choose-a-service.md
       - Store and analyse:
-        - Access services: 
+        - Start here: 
             - data/sensitive-data/sd-access.md
-            - Project manager: data/sensitive-data/sd-use-case-new-user-project-manager.md
-            - Project member: data/sensitive-data/sd-use-case-new-user-project-member.md
+            - Access as project manager: data/sensitive-data/sd-use-case-new-user-project-manager.md
+            - Access as project member: data/sensitive-data/sd-use-case-new-user-project-member.md
             - Manage CSC project: data/sensitive-data/sd-manage-project.md
-            - Close CSC project: data/sensitive-data/sd-close-project.md
         - Store with SD Connect: 
             - data/sensitive-data/sd_connect.md
             - Login to SD Connect: data/sensitive-data/sd-connect-login.md
