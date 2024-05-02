@@ -61,8 +61,8 @@ You need to access to SD services. You are manager of research team or work inde
 ### 5. Apply resources (billing units) for your project
 
 - All Sensitive Data Services consumes billing units (BU's). 
-- All new academic CSC projects are initially granted 10 000 BUs, so you can get started. However, you should estimate how many BU’s your project will consume **during 1 year** and apply more if needed. When you start a new project, you should plan ahead for your [project's billing unit and storage usage](sd-access.md#plan-your-billing-units-and-storage-usage).
-- Use the [billing unit calculator](sd-access.md#billing-unit-calculator-for-estimating-billing-units-consumption) for estimating your BU consumption.
+- All new academic CSC projects are initially granted 10 000 BUs, so you can get started. However, you should estimate how many BU’s your project will consume **during 1 year** and apply more if needed. When you start a new project, you should plan ahead for your [project's billing unit and storage usage](sd-manage-project.md).
+- Use the [billing unit calculator](sd-manage-project.md#billing-unit-calculator-for-estimating-billing-units-consumption) for estimating your BU consumption.
 - Apply more billing units by clicking "Apply for resources".
 - You will get more info through inbox, after your application.
 - You can always ask help from [Service Desk](../../support/contact.md) *Subject: Sensitive Data*
