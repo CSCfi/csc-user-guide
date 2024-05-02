@@ -230,7 +230,7 @@ In order to install GFS2, you need to follow few steps:
 
 The [Oracle Cluster File System](https://en.wikipedia.org/wiki/OCFS2) version 2 is a shared disk file system developed by Oracle Corporation and released under the GNU General Public License. Meanwhile it is a different code base developed by a different vendor. The approach is the same as GFS2:
 
-![OCFS2](../../img/OCFS2.drawio.svg)
+![OCFS2](../img/OCFS2.drawio.svg)
 
 A single volume attached to a cluster of VM nodes, and a daemon running in each VM node that coordinates the read and writes permissions.
 
