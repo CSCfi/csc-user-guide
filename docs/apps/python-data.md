@@ -33,6 +33,7 @@ libraries at installation time, to the extent software dependencies
 allow.
 
 Current versions are:
+
 - `python-data/3.10-24.04`: installed in April 2024, includes for
   example Scikit-learn 1.4.2, SciPy 1.13.0, Pandas 2.2.2 and
   JupyterLab 4.1.6.
