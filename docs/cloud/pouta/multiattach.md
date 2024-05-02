@@ -89,12 +89,12 @@ In order to install GFS2, you need to follow few steps:
     !!! Info "quota"
         Make sure that you have available quota for this kind of Volume
 
-1. Attach the volume to the VM nodes. At the time of writing this, it is only possible from the CLI:
+1. Attach the volume to every one of the VM nodes. At the time of writing this, it is only possible from the CLI:
 
     ```sh
     openstack --os-compute-api-version 2.60 server add volume "<VM_name>" <volume_name>
     ```
-    You need to replace the `<volume_name>` by the name of the volume you created, and the `<VM_name>` by the name of a valid existing VM. Meanwhile you can not attach volumes for the WebUI, you can check all the attached VMs.
+    You need to replace the `<volume_name>` by the name of the volume you created, and the `<VM_name>` by the name of each of the VMs, you need to run this command once per VM. Meanwhile you can not attach volumes for the WebUI, you can check all the attached VMs.
 
 1. Install the GFS2 software. This step is distribution dependent.
 
@@ -112,7 +112,7 @@ In order to install GFS2, you need to follow few steps:
     ```
     Where `<ansible_kernel>` is the version of the current kernel.
 
-1. Make sure that every node domain name can be resolved in every other node. In Pouta, the simplest way is to use [/etc/hosts](https://en.wikipedia.org/wiki/Hosts_(file)), where each host has a line similar to:
+1. Make sure that every node **domain name** can be resolved in every other node. In Pouta, the simplest way is to use [/etc/hosts](https://en.wikipedia.org/wiki/Hosts_(file)), where each host has a line similar to:
 
     ```sh
     <ip> <vm_name>
@@ -148,7 +148,7 @@ In order to install GFS2, you need to follow few steps:
     }
     ``` 
 
-    As you can see, for every node, you need to provide its name (the same that it was used in `/etc/hosts`) and a node id number.
+    As you can see, for every node, you need to provide its name (the same that it was used in `/etc/hosts`) and a node id number. The node id number has to be unique for every node, ideally consecutive numbers.
 
 1. Create the file system. You need to do this in **only one** of the VM nodes.
 
@@ -170,7 +170,7 @@ In order to install GFS2, you need to follow few steps:
     sudo mount -L gfs_cluster:mygfs2 /mnt
     ```
 
-    This command uses the label and not the volume device to mount it, this is because the label is warranted to not change upon reboots. The label will be the same that you used in the `mkfs.gfs2` command in the `-t` option. You can also use the UUID.
+    This command uses the label and not the volume device to mount it, this is because the label is warranted to not change upon reboots. The label will be the same that you used in the `mkfs.gfs2` command in the `-t` option. You can also provide the UUID with the `-u` option.
 
     !!! Info "blkid"
         In order to see the label and uuid of every volume and device attached to the VM node, you can use `blkid`:
@@ -232,7 +232,7 @@ The [Oracle Cluster File System](https://en.wikipedia.org/wiki/OCFS2) version 2 
 
 ![OCFS2](../img/OCFS2.drawio.svg)
 
-A single volume attached to a cluster of VM nodes, and a daemon running in each VM node that coordinates the read and writes permissions.
+A single volume attached to a cluster of VM nodes, allowing the data reads and writes to be done directly, and a daemon running in each VM node that coordinates the read and write operations.
 
 ### OCFS2 ansible install
 
@@ -268,7 +268,7 @@ If you already have a cluster of VMs, or want to manually create them, it is sti
     ansible_ssh_common_args='-J <jumphost>'
     ```
 
-    In the example above you need to replace by the name of the VM, the IP `192.168.1.XXX` must be the correct IP of the VM, and finally the has to also be replaced by the corresponding one. You need to have a line per VM node that you want to include in the cluster. Finally, if you are using a Jump Host, you need to replace by its connection information, like `ubuntu@177.51.170.99`
+    In the example above you need to replace `<VM_name>` by the name of the VM, the IP `192.168.1.XXX` must be the correct IP of the VM, and finally the `<user>` has to also be replaced by the corresponding one. You need to have a line per VM node that you want to include in the cluster. Finally, if you are using a Jump Host, you need to replace `<jumphost>` by its connection information, like `ubuntu@177.51.170.99`
 
 1. Create a playbook (`main-ocfs2.yml` in this example) like this one:
 
@@ -284,7 +284,7 @@ If you already have a cluster of VMs, or want to manually create them, it is sti
         - role: ocfs2
     ```
 
-    This will run two roles, the hosts one if to create a `/etc/hosts` file in every VM with the IPs and names of every VM. The `gfs2` role installs and configures the cluster.
+    This will run two roles, the hosts one if to create a `/etc/hosts` file in every VM with the IPs and names of every VM. The `ocfs2` role installs and configures the cluster.
 
 1. And run it:
 
@@ -297,7 +297,7 @@ If you already have a cluster of VMs, or want to manually create them, it is sti
 
 In order to install OCFS2, you need to follow few steps:
 
-1. Install the VM nodes. There is no special consideration on this step, other than making sure the nodes can see each other in the Network, and that they are installed with the same distribution version. We have tested this with `Ubuntu v22.04` and `AlmaLinux-9`, other distributions and versions might also work, but we have not tested them. This guide will use Ubuntu as an example.
+1. Install the VM nodes. There is no special consideration on this step, other than making sure the nodes can see each other in the Network, and that they are installed with the same distribution version. We have tested this with `Ubuntu v22.04` and `AlmaLinux-9`, other distributions and versions might also work, but we have not tested them. This guide will use Ubuntu as an example. AlmaLinux requires to install an specific Oracle kernel.
 
 1. Create a multi attach volume. You can use the web interface or the CLI (see [Install cli instructions](http://localhost:8000/cloud/pouta/install-client/)):
 
@@ -316,7 +316,7 @@ In order to install OCFS2, you need to follow few steps:
     openstack --os-compute-api-version 2.60 server add volume "<VM_name>" <volume_name>
     ```
 
-    You need to replace the `<volume_name>` by the name of the volume you created, and the `<VM_name>` by the name of a valid existing VM. You need to repeat this for every VM node. Meanwhile you can not attach volumes for the WebUI, you can check all the attached VMs to the volume.
+    You need to replace the `<volume_name>` by the name of the volume you created, and the `<VM_name>` by the name of each of the VMs. You need to repeat this for every VM node. Meanwhile you can not attach volumes for the WebUI, you can check all the attached VMs to the volume.
 
 1. Install the OCFS2 software:
 
@@ -383,7 +383,7 @@ In order to install OCFS2, you need to follow few steps:
 
     It is possible to add more nodes to a ocfs2 cluster, but it requires a downtime.
 
-    First you need to increase the number of slots, using `tunefs.ocfs2`. Before that, you need to umount the volume in every VM node. These are the two commands you need to run. The second one only need to be executed in a single node:
+    First you need to increase the number of slots, using `tunefs.ocfs2`. Before that, you need to umount the volume in every VM node. These are the two commands you need to run. The second one only needs to be executed in a single node:
 
     ```sh
     sudo umount /mnt
@@ -403,6 +403,6 @@ In order to install OCFS2, you need to follow few steps:
       cluster = ocfs2
     ```
 
-    Replace `<ip_address>` by the address of the new server, `<vm_name>` by its name, and finally `<number>` is one more than the previously higher number. 
+    Replace `<ip_address>` by the address of the new server, `<vm_name>` by its name, and finally `<number>` is the node id number. It has to be unique for every node, ideally consecutive numbers.
 
     Once the file is updated, you need to stop the mount and restart the `ocfs2` in every node in the cluster. Lastly, remount the volume in every VM node. 
