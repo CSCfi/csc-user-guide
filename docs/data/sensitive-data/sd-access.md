@@ -5,7 +5,7 @@ If you are a new Sensitive Data (SD) services user, this section is for you. Her
 Contents:
 
  * [Access SD Connect and SD Desktop for the first time](#access-sd-connect-and-sd-desktop-for-the-first-time)
- * [Billing units and storage space](#project-resources-and-storage-space)
+ * [Plan your billing units and storage usage](#plan-your-billing-units-and-storage-usage)
  * [Closing the project](#closing-the-project)
 
  ---
@@ -39,7 +39,7 @@ Before logging into SD Connect or SD Desktop for the first time, you must do som
 
 When you start a new project, you should plan ahead for your CSC project's resource usage. This includes considering the amount of storage space (i.e. quota) and billing units consumption while using the services. When you start a new project with CSC, you receive 10,000 billing units by default. This is enough for small testing. However, you should estimate how many BU’s your project will consume **during 1 year** and apply more if needed. You can apply more billing units trough MyCSC resource application. Read more: [applying for billing units](../../accounts/how-to-apply-for-billing-units.md) and [increasing quotas](../../accounts/how-to-increase-disk-quotas.md#increasing-the-storage-capacity-in-allas).
 
-* **[Billing unit calculator](#billing-unit-calculator)** will help you to estimate how many BUs your CSC project will require. You can find SD Desktop from the calculator, when you move to right with the arrows. You can estimate SD Connect billing unit consumption by using Allas -option at the calculator.
+* [Billing unit calculator](#billing-unit-calculator-for-estimating-billing-units-consumption) will help you to estimate how many BUs your CSC project will require. You can find SD Desktop from the calculator, when you move to right with the arrows. You can estimate SD Connect billing unit consumption by using Allas -option at the calculator.
 
 ### SD Connect - billing units and storage space
 
@@ -63,7 +63,7 @@ Once all the billing units for your CSC project have been used up, **your access
 !!! Note 
     You will get a notification via email when your billing units have been consumed.
   
-#### How to regain access to paused virtual desktop
+#### How to regain access to paused virtual desktop in SD Desktop
 
  Apply billing units and unpause your virtual desktop:
 
