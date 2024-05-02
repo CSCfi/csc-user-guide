@@ -382,7 +382,7 @@ nav:
             - data/sensitive-data/sd-access.md
             - Access as project manager: data/sensitive-data/sd-use-case-new-user-project-manager.md
             - Access as project member: data/sensitive-data/sd-use-case-new-user-project-member.md
-            - Manage CSC project: data/sensitive-data/sd-manage-project.md
+            - Manage CSC project: data/sensitive-data/sd-csc-project.md
         - Store with SD Connect: 
             - data/sensitive-data/sd_connect.md
             - Login to SD Connect: data/sensitive-data/sd-connect-login.md
