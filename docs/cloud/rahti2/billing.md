@@ -73,7 +73,7 @@ So, in case of the above example the BU calculation for Rahti 1 is
 ![BU calculation for Rahti 1](./images/Rahti1BU.drawio.svg)
 
 
-Default limits in Rahti 2 can be set lower then the default quota. Where in Rahti 1 default limits is same as default quota. For more details [Migration to Rahti 2](../rahti/rahti-migration.md). This can decrease the default costs for the user. For the same example the BU For Rahti 1:
+Default limits in Rahti 2 can be set lower than the default quota. Where in Rahti 1 default limit is same as default quota. For more details [Migration to Rahti 2](../rahti/rahti-migration.md). This can decrease the default costs for the user. For the same example the BU For Rahti 1:
 
 ![Default cost for Rahti 1](./images/Rahti1Requests.drawio.svg)
 
