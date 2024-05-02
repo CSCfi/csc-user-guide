@@ -3,6 +3,14 @@
 
 Contents:
 
+* Plan your billing units and storage usage
+    * SD Connect - billing units and storage space
+    * SD Desktop - billing units and disk space
+    * What happens if your project runs out of billing units?
+    * Billing unit calculator for estimating billing units consumption
+* Closing your CSC project
+    * What happens to your data after the CSC project expires or is closed
+
 
 ## Plan your billing units and storage usage
 
@@ -27,27 +35,14 @@ Analyzing data in SD Desktop consumes billing units based on the type of virtual
 * Medium computation: 10.4 billing units per hour
 * Heavy computation: 52 billing units per hour
 
-### What happens if your project runs out of billing units?
+## What happens if your project runs out of billing units?
 
 Once all the billing units for your CSC project have been used up, **your access to the SD Desktop service will be restricted**. This means that all virtual desktops currently running will automatically be paused, and you won't be able to access their content. However, **your data remains unaffected and will not be deleted**, even in cases where the total billing units reach zero or enter negative values.
 
 !!! Note 
     You will get a notification via email when your billing units have been consumed.
   
-### How to regain access to paused virtual desktop in SD Desktop
 
- Apply billing units and unpause your virtual desktop:
-
-1. [Apply for more billing units](../../accounts/how-to-apply-for-billing-units.md) for your project. This will give you a positive balance to continue using the service.
-
-1. Log in to [SD Desktop](https://sd-desktop.csc.fi){ target="_blank" }.
-
-1. On the SD Desktop homepage, click on ***Go To SD Desktop Management***.
-
-1. Under ***Available desktops*** select the correct virtual desktop, and in the same row, on the right side, click on ***Resume***.
-
-!!! Note
-    Restarting a paused desktop is possible only for [active CSC projects](../../accounts/how-to-manage-your-project.md) with available billing units.
 
 
 ## Billing unit calculator for estimating billing units consumption
@@ -58,13 +53,13 @@ Billing unit calculator will help you to estimate how many BUs your CSC project 
 
 
 
-## Closing CSC project
+# Closing CSC project
 
 Default lifetime for the project is **one year**. [Project manager](#step-by-step-tutorial-for-project-manager) can extend project's lifetime or close the project in [MyCSC](https://my.csc.fi){ target="_blank" }. If project lifetime ends, it will be closed automatically. You'll receive an email notification when your project is about to expire, so please keep your contact information up to date in MyCSC.
 
 [More about project closure](../../accounts/how-to-manage-your-project.md#project-closure)
 
-### What happens to your data after the CSC project expires or is closed
+## What happens to your data after the CSC project expires or is closed
 
 * **Services will be disabled**: SD Connect and SD Desktop services will be disabled, and you won't be able to access them anymore.
 

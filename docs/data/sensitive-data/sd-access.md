@@ -4,7 +4,7 @@ If you are a new Sensitive Data (SD) services user, this section is for you. Her
 
 ## Access SD Connect and SD Desktop for the first time
 
-Before logging into SD Connect or SD Desktop for the first time, you must do some preparations in [MyCSC portal](https://my.csc.fi){ target="_blank" }. 
+Before logging into SD Connect or SD Desktop for the first time, you must do some preparations based on your role in research team. 
 
 
 ### Project manager creates and manages CSC project
