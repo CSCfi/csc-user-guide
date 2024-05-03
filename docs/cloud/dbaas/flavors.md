@@ -23,6 +23,7 @@ The database instances are hosted on top of cPouta. The billing is based on the 
 |--- |:---:|:---:|
 | Volumes | GiB reserved | 0.01 |
 
+The maximum volume size per database instance is currently 200 GiB.
 
 
 
