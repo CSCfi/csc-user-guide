@@ -63,7 +63,7 @@ You need to access to SD services. You are manager of research team or work inde
 - CSC project consumes billing units (BU's). 
 - All new academic CSC projects are initially granted 10 000 BUs, so you can get started. However, you should estimate how many BU’s your project will consume **during 1 year** and apply more if needed. When you start a new project, you should plan ahead for your [project's billing unit and storage usage](sd-csc-project.md).
 - Use the [billing unit calculator](sd-csc-project.md#billing-unit-calculator-for-estimating-billing-units-consumption) for estimating your billing unit consumption.
-- Apply more billing units by clicking **"Apply for resources"**.
+- Apply more billing units by clicking **"Apply for resources"** in Resource applications window.
 - You will get more info after your application to your MyCSC inbox.
 - You can always ask help from [Service Desk](../../support/contact.md) *Subject: Sensitive Data*
 
@@ -85,13 +85,16 @@ You need to access to SD services. You are manager of research team or work inde
 ### 7. If you have a research team, add them to be your project members
 
 - Go to project page and select the correct project (Left side menu or hamburger menu).
-- Add members from the right hand column.
+- Add members from **Members** window at the top right of the screen.
 - You can add members from your own organization by clicking **“Manage”**.
 - Or you can create an invitation link by clicking **“Invite”** and use it in email or webpage.
-    - By clicking the invite link person can apply a membership for your project. After that you still have to approve them to be member of your project in MyCSC.
-- Note! You project members must also create a MyCSC user account (this happens when they apply membership to your project), activate the MFA and approve the terms of use of the services you have activated (SD Connect, SD Desktop).
+- People can apply a membership for your project by clicking the invite link. After that you still have to approve them to be member of your project in MyCSC.
 
 ![Add project members.](./images/MyCSC/MyCSC_AddMembers.png)
+
+!!! Note 
+    You project members must also create a MyCSC user account (this happens when they apply membership to your project), activate the MFA and approve the terms of use of the services you have activated (SD Connect, SD Desktop).
+
 
 ### 8. Closing your project
 
