@@ -31,7 +31,7 @@ You need to access to SD services. You are manager of research team or work inde
 
 ### 2.Create new CSC project
 
-- Go to ”Projects” -page (left side menu or a hamburger menu at the top right corner).
+- Go to ”Projects” page (left side menu or a hamburger menu at the top right corner).
 - On the top of the page choose **”New project”**
 - Fill in the project name and project description. You can edit these later if needed.
 - Choose the Project category to be **“Academic”** (if you are a researcher and a member of Finnish higher education institution)
@@ -51,9 +51,10 @@ You need to access to SD services. You are manager of research team or work inde
 
 ### 4. Activate SD Services for your project
 
-- Services are listed to the bottom right column of the project page.
-- Select services: SD Connect, SD Desktop.
+- Services are listed in **Services** window in the bottom right of the project page.
+- Select SD Connect.
 - Read and accept the terms of use and click **“Add service”**.
+- Select SD Desktop and add it also.
 
 ![Add new services.](./images/MyCSC/MyCSC_AddServices.png)
 
@@ -61,7 +62,7 @@ You need to access to SD services. You are manager of research team or work inde
 ### 5. Apply billing units for your project
 
 - CSC project consumes billing units (BU's). 
-- All new academic CSC projects are initially granted 10 000 BUs, so you can get started. However, you should estimate how many BU’s your project will consume **during 1 year** and apply more if needed. When you start a new project, you should plan ahead for your [project's billing unit and storage usage](sd-csc-project.md).
+- All new academic CSC projects are initially granted 10 000 BU's, so you can get started. However, you should estimate how many BU’s your project will consume **during 1 year** and apply more if needed. When you start a new project, you should plan ahead for your [project's billing unit and storage usage](sd-csc-project.md).
 - Use the [billing unit calculator](sd-csc-project.md#billing-unit-calculator-for-estimating-billing-units-consumption) for estimating your billing unit consumption.
 - Apply more billing units by clicking **"Apply for resources"** in Resource applications window.
 - You will get more info after your application to your MyCSC inbox.
@@ -85,7 +86,7 @@ You need to access to SD services. You are manager of research team or work inde
 ### 7. If you have a research team, add them to be your project members
 
 - Go to project page and select the correct project (Left side menu or hamburger menu).
-- Add members from **Members** window at the top right of the screen.
+- Add members from **Members** window at the top right of the project page.
 - You can add members from your own organization by clicking **“Manage”**.
 - Or you can create an invitation link by clicking **“Invite”** and use it in email or webpage.
 - People can apply a membership for your project by clicking the invite link. After that you still have to approve them to be member of your project in MyCSC.
