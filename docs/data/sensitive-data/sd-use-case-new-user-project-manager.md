@@ -32,11 +32,11 @@ You need to access to SD services. You are manager of research team or work inde
 ### 2.Create new CSC project
 
 - Go to ”Projects” -page (left side menu or a hamburger menu at the top right corner).
-- On the top of the page choose ”New project”
+- On the top of the page choose **”New project”**
 - Fill in the project name and project description. You can edit these later if needed.
-- Choose the Project category to be “Academic” (if you are a researcher and a member of Finnish higher education institution)
+- Choose the Project category to be **“Academic”** (if you are a researcher and a member of Finnish higher education institution)
 - Fill all required fields. Read and accept the terms of use.
-- Click “Create a project”.
+- Click **“Create a project”**.
 
 ![Click create a project.](./images/MyCSC/MyCSC_NewProject.png)
 
@@ -53,7 +53,7 @@ You need to access to SD services. You are manager of research team or work inde
 
 - Services are listed to the right column of the project page.
 - Select services: SD Connect, SD Desktop.
-- Read and accept the terms of use and click “Add service”.
+- Read and accept the terms of use and click **“Add service”**.
 
 ![Add new services.](./images/MyCSC/MyCSC_AddServices.png)
 
@@ -63,7 +63,7 @@ You need to access to SD services. You are manager of research team or work inde
 - All Sensitive Data Services consumes billing units (BU's). 
 - All new academic CSC projects are initially granted 10 000 BUs, so you can get started. However, you should estimate how many BU’s your project will consume **during 1 year** and apply more if needed. When you start a new project, you should plan ahead for your [project's billing unit and storage usage](sd-csc-project.md).
 - Use the [billing unit calculator](sd-csc-project.md#billing-unit-calculator-for-estimating-billing-units-consumption) for estimating your BU consumption.
-- Apply more billing units by clicking "Apply for resources".
+- Apply more billing units by clicking **"Apply for resources"**.
 - You will get more info through inbox, after your application.
 - You can always ask help from [Service Desk](../../support/contact.md) *Subject: Sensitive Data*
 
@@ -74,10 +74,10 @@ You need to access to SD services. You are manager of research team or work inde
 
 - You need to activate MFA (multi-factor authentication), to be able to log in the Sensitive Data services. [More about multi-factor authentication](../../accounts/mfa.md).
 - Before activating MFA you need to have some authentication application in your mobile, for example Google Authenticator or Microsoft Authenticator.
-- Go to the Profile -page (Left side menu or top right hamburger menu).
-- Enable Multi-Factor Authentication by clicking “Activate”.
+- Go to the **Profile** page (Left side menu or top right hamburger menu).
+- Enable Multi-Factor Authentication by clicking **“Activate”**.
 - This will create a QR code, that you can read with your authentication application (for example Google Authenticator).
-- You authentication application will provide a verification code, that you can now write to MyCSC “Verification code” -field and click “Verify”.
+- You authentication application will provide a verification code, that you can now write to MyCSC **“Verification code”** field and click **“Verify”**.
 
 ![Multi-Factor Authentication.](./images/MyCSC/MyCSC_MFA.png)
 
@@ -86,10 +86,10 @@ You need to access to SD services. You are manager of research team or work inde
 
 - Go to project page and select the correct project (Left side menu or hamburger menu).
 - Add members from the right hand column.
-- You can add members from your own organization by clicking “Manage”.
-- Or you can create an invitation link by clicking “Invite” and send that with email to who ever you wish
-    - The receiver can apply a membership for your project by clicking the link. After that  you still have to approve them to your team in MyCSC.
-- Note! You project members must also create a MyCSC user account, activate the MFA and approve the terms of use of the services you have activated (SD Connect, SD Desktop).
+- You can add members from your own organization by clicking **“Manage”**.
+- Or you can create an invitation link by clicking **“Invite”** and use it in email or webpage.
+    - By clicking the invite link person can apply a membership for your project. After that you still have to approve them to be member of your project in MyCSC.
+- Note! You project members must also create a MyCSC user account (this happens when they apply membership to your project), activate the MFA and approve the terms of use of the services you have activated (SD Connect, SD Desktop).
 
 ![Add project members.](./images/MyCSC/MyCSC_AddMembers.png)
 
