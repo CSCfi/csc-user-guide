@@ -4,7 +4,47 @@ It is possible to attach and mount the same _cinder_ volume into more that one V
 
 ![Multi attach](../img/multi-attach.drawio.svg)
 
-This feature has several advantages and disadvantages. On one side it allows to share files among VMs without any kind of intermediary server that you will need with solutions like `NFS` or `GlusterFS`. This reduces the number of VMs needed, thus less maintenance and less single points of failure. On the other hand, it is necessary to run what is called a [clustered file system](https://en.wikipedia.org/wiki/Clustered_file_system#SHARED-DISK) like [Oracle Cluster File System 2 (ocfs2)](https://en.wikipedia.org/wiki/OCFS2), or Red Hat [Global File System (GFS2)](https://en.wikipedia.org/wiki/GFS2). These systems need a cluster of connected daemons that will coordinate the read and write operations of the files. Each VM runs a copy of the daemon and there is no master, but a quorum based system. The configuration, maintenance and operations of these file systems are not a trivial tasks. 
+This feature has several advantages and disadvantages. On one side it allows to share files among VMs without any kind of intermediary server that you will need with solutions like `NFS` or `GlusterFS`. This reduces the number of VMs needed, thus less maintenance and less single points of failure. On the other hand, it is necessary to run what is called a [clustered file system](https://en.wikipedia.org/wiki/Clustered_file_system#SHARED-DISK) like [Oracle Cluster File System 2 (ocfs2)](https://en.wikipedia.org/wiki/OCFS2), or Red Hat [Global File System (GFS2)](https://en.wikipedia.org/wiki/GFS2). These systems need a cluster of connected daemons that will coordinate the read and write operations of the files. Each VM runs a copy of the daemon and there is no master, but a quorum based system. The configuration, maintenance and operations of these file systems are not a trivial task. The choice between the two file systems depends on the use case and preferences based on vendors. In our tests GFS2 seems to be more suitable to Redhat based systems and OCFS2 to Debian ones, but your mileage might vary. The guides below are a starting point and do not cover all possibilities, for more comprehensive information, please check the upstream documentation.
+
+## Create and attach a volume
+
+    !!! Info "quota"
+        Make sure that you have available quota for this kind of Volume
+
+## WebUI
+
+1. Go to the [Volume page](https://pouta.csc.fi/dashboard/project/volumes/) of Pouta.
+
+1. Click in "+Create Volume"
+
+1. Create a volume as you would do for any other **Type** of volume. Set the **Volume Name** and **Size (GiB)** as desired.
+
+1. Change the **Type** to `multiattach`.
+
+1. Click in "Create Volume".
+
+![Create Volume Multiattach](../img/create-volume-multiattach.png)
+
+!!! Warning
+    You cannot attach a volume to multiple VMs from the WebUI, only see its status. You can only attach a volume to multiple VMs using the CLI.
+
+## CLI
+
+Before doing this, you need to [install the openstack client](../install-client/)):
+
+1. Create a multi attach volume:
+
+    ```sh
+    openstack volume create --size <size_in_GB> --type multiattach <volume_name>
+    ```
+    You need to replace `<volume_name>` by the name iyou want to give to the volume, and the `<size_in_GB>` by the size in Gigabytes you want the volume to have.
+
+1. Attach the volume to a VM node:
+
+    ```sh
+    openstack --os-compute-api-version 2.60 server add volume "<VM_name>" <volume_name>
+    ```
+    You need to replace the `<volume_name>` by the name of the volume you created in the previous step, and the `<VM_name>` by the name of the VM node. When doing this for a cluster of VMs, you need to run the command once per VM.
 
 ## GFS as an example
 
@@ -37,7 +77,7 @@ You need to run Ansible twice due to a bug in the `openstack.cloud.server_volume
 
 If you already have a cluster of VMs, or want to manually create them, it is still possible to use the `gfs2` Ansible role. The steps are simple:
 
-1. Create and attach the volume. See the manual steps _2_ and _3_ from the manual install below.
+1. Create and attach the volume. See the manual [Create and attach a volume](#create-and-attach-a-volume) from above.
 
 1. Create a standard Ansible inventory like this one:
 
@@ -77,24 +117,9 @@ If you already have a cluster of VMs, or want to manually create them, it is sti
 
 In order to install GFS2, you need to follow few steps:
 
-1. Install the VM nodes. There is no special consideration on this step, other than making sure the nodes can see each other in the Network, and that they are installed with the same distribution version. We have tested this with `Ubuntu v22.04` and `AlmaLinux-9`, other distributions and versions might also work, but we have not tested them. 
+1. Install the VM nodes. There is no special consideration on this step, other than making sure the nodes can see each other in the Network (it is the default behaviour of VM nodes created in the same Pouta project), and that they are installed with the same distribution version. We have tested this with `Ubuntu v22.04` and `AlmaLinux-9`, other distributions and versions might also work, but we have not tested them.
 
-1. Create a multi attach volume. You can use the web interface or the CLI (see [Install cli instructions](../install-client/)):
-
-    ```sh
-    openstack volume create --size <size_in_GB> --type multiattach <volume_name>
-    ```
-    You need to replace `<volume_name>` by the name of the volume, and the `<size_in_GB>` by the size in Gigabytes you want the volume to have.
-
-    !!! Info "quota"
-        Make sure that you have available quota for this kind of Volume
-
-1. Attach the volume to every one of the VM nodes. At the time of writing this, it is only possible from the CLI:
-
-    ```sh
-    openstack --os-compute-api-version 2.60 server add volume "<VM_name>" <volume_name>
-    ```
-    You need to replace the `<volume_name>` by the name of the volume you created, and the `<VM_name>` by the name of each of the VMs, you need to run this command once per VM. Meanwhile you can not attach volumes for the WebUI, you can check all the attached VMs.
+1. Create and attach the volume. See the manual [Create and attach a volume](#create-and-attach-a-volume) from above.
 
 1. Install the GFS2 software. This step is distribution dependent.
 
@@ -256,7 +281,7 @@ You need to run Ansible twice due to a bug in the `openstack.cloud.server_volume
 
 If you already have a cluster of VMs, or want to manually create them, it is still possible to use the ocfs2 Ansible role. The steps are simple:
 
-1. Create and attach the volume. See the manual steps 2 and 3 from the manual install below.
+1. Create and attach the volume. See the manual [Create and attach a volume](#create-and-attach-a-volume) from above.
 
 1. Create a standard Ansible inventory like this one:
 
@@ -297,26 +322,9 @@ If you already have a cluster of VMs, or want to manually create them, it is sti
 
 In order to install OCFS2, you need to follow few steps:
 
-1. Install the VM nodes. There is no special consideration on this step, other than making sure the nodes can see each other in the Network, and that they are installed with the same distribution version. We have tested this with `Ubuntu v22.04` and `AlmaLinux-9`, other distributions and versions might also work, but we have not tested them. This guide will use Ubuntu as an example. AlmaLinux requires to install an specific Oracle kernel.
+1. Install the VM nodes. There is no special consideration on this step, other than making sure the nodes can see each other in the Network (it is the default behaviour of VM nodes created in the same Pouta project), and that they are installed with the same distribution version. We have tested this with `Ubuntu v22.04` and `AlmaLinux-9`, other distributions and versions might also work, but we have not tested them. This guide will use Ubuntu as an example. AlmaLinux requires to install an specific Oracle kernel.
 
-1. Create a multi attach volume. You can use the web interface or the CLI (see [Install cli instructions](http://localhost:8000/cloud/pouta/install-client/)):
-
-    ```sh
-    openstack volume create --size <size_in_GB> --type multiattach <volume_name>
-    ```
-
-    You need to replace `<volume_name>` by the name of the volume, and the `<size_in_GB>` by the size in Gigabytes you want the volume to have.
-
-    !!! info "quota"
-        Make sure that you have available quota for this kind of Volume.
-
-1. Attach the volume to the VM nodes. At the time of writing this, it is only possible from the CLI:
-
-    ```sh
-    openstack --os-compute-api-version 2.60 server add volume "<VM_name>" <volume_name>
-    ```
-
-    You need to replace the `<volume_name>` by the name of the volume you created, and the `<VM_name>` by the name of each of the VMs. You need to repeat this for every VM node. Meanwhile you can not attach volumes for the WebUI, you can check all the attached VMs to the volume.
+1. Create and attach the volume. See the manual [Create and attach a volume](#create-and-attach-a-volume) from above.
 
 1. Install the OCFS2 software:
 
