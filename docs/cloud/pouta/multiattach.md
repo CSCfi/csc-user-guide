@@ -11,7 +11,7 @@ This feature has several advantages and disadvantages. On one side it allows to 
 !!! Info "quota"
     Make sure that you have available quota for this kind of Volume
 
-## WebUI
+### WebUI
 
 1. Go to the [Volume page](https://pouta.csc.fi/dashboard/project/volumes/) of Pouta.
 
@@ -28,7 +28,7 @@ This feature has several advantages and disadvantages. On one side it allows to 
 !!! Warning
     You cannot attach a volume to multiple VMs from the WebUI, only see its status. You can only attach a volume to multiple VMs using the CLI.
 
-## CLI
+### CLI
 
 Before doing this, you need to [install the openstack client](../install-client/)):
 
