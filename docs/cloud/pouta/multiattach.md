@@ -8,8 +8,8 @@ This feature has several advantages and disadvantages. On one side it allows to 
 
 ## Create and attach a volume
 
-    !!! Info "quota"
-        Make sure that you have available quota for this kind of Volume
+!!! Info "quota"
+    Make sure that you have available quota for this kind of Volume
 
 ## WebUI
 
@@ -247,6 +247,10 @@ In order to install GFS2, you need to follow few steps:
     sudo mount /dev/vdb /mnt
     ```
 
+* **What happens if a VM gets disconnected?**
+
+    If
+
 ### GFS2 Links
 
 - <https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/global_file_system_2/s1-manage-addjournalfs>
@@ -413,4 +417,13 @@ In order to install OCFS2, you need to follow few steps:
 
     Replace `<ip_address>` by the address of the new server, `<vm_name>` by its name, and finally `<number>` is the node id number. It has to be unique for every node, ideally consecutive numbers.
 
-    Once the file is updated, you need to stop the mount and restart the `ocfs2` in every node in the cluster. Lastly, remount the volume in every VM node. 
+    Once the file is updated, you need to stop the mount and restart the `ocfs2` in every node in the cluster. Lastly, remount the volume in every VM node.
+
+* **What happens if a VM gets disconnected?**
+
+    If
+
+
+## Upsream documentation
+
+- ....
