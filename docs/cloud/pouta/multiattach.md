@@ -207,6 +207,12 @@ In order to install GFS2, you need to follow few steps:
         /dev/vda1: LABEL="cloudimg-rootfs" UUID="caa1508a-4bb6-4126-a072-7d5db157c351" BLOCK_SIZE="4096" TYPE="ext4" PARTUUID="2ff71b36-d15b-4310-a7ed-5258e990345d"
         ```
 
+    It is recommended to add an entry to `/etc/fstab` so the volume is mounted automatcally when rebooted. For example adding a line like this:
+
+    ```fstab
+    LABEL=gfs_cluster:mygfs2 /mnt gfs2 defaults 0 0
+    ```
+
 ### GFS2 FAQ
 
 * **How to add more nodes?**
@@ -244,12 +250,24 @@ In order to install GFS2, you need to follow few steps:
     Finally, you just need to mount the volume:
 
     ```sh
-    sudo mount /dev/vdb /mnt
+    sudo mount -L gfs_cluster:mygfs2 /mnt
+    ```
+
+    It is recommended to add an entry to `/etc/fstab` so the volume is mounted automatcally when rebooted. For example adding a line like this:
+
+    ```fstab
+    LABEL=gfs_cluster:mygfs2 /mnt/ gfs2 defaults 0 0
     ```
 
 * **What happens if a VM gets disconnected?**
 
-    If
+    This covers two different use cases, a temporal and/or unexpected disconnection, and a permanent one.
+
+    For a temporal and unexpected disconnection, the cluster should be able to deal with this kind of issues automatically. After the node is back, you need to check that all came back to normal. In some cases the automatic mount of the volume can fail, if so mount the volume as explained above.
+
+    If it is temporal but expected, like to update the kernel version. Umount the volume in the node (`sudo umount /mnt`) before rebooting the node. It is not required, but recommended.
+
+    For a permanent disconnection of a VM, one need to do the inverse process of adding a new node. Umount the volume (`sudo umount /mnt`), remove the entry for this VM in the `/etc/corosyncecorosync.conf` file of every node, and finally restart the daemons in every node. This needs to be done as it affects the quorum count for the cluster.
 
 ### GFS2 Links
 
@@ -421,9 +439,14 @@ In order to install OCFS2, you need to follow few steps:
 
 * **What happens if a VM gets disconnected?**
 
-    If
+    This covers two different use cases, a temporal and/or unexpected disconnection, and a permanent one. It is very similar to the GFS2 situation.
 
+    For a temporal and unexpected disconnection, the cluster should be able to deal with this kind of issues automatically. After the node is back, you need to check that all came back to normal. In some cases the automatic mount of the volume can fail, if so mount the volume as explained above.
 
-## Upsream documentation
+    If it is temporal but expected, like to update the kernel version. Umount the volume in the node (`sudo umount /mnt`) before rebooting the node. It is not required, but recommended.
+
+    For a permanent disconnection of a VM, one need to do the inverse process of adding a new node. Umount the volume (`sudo umount /mnt`), remove the entry for this VM in the `/etc/ocfs2/cluster.conf` file of every node, and finally restart the daemons in every node. This needs to be done as it affects the quorum count for the cluster.
+
+## Upstream documentation
 
 - ....
