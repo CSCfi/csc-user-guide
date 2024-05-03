@@ -45,26 +45,26 @@ You need to access to SD services. You are manager of research team or work inde
 
 - Since your project handles personal data, you need to fill the GDPR document i.e. Personal data handling document.
 - The document appears when you create a new project. You can edit this document later.
-- Please check with your home organization, who is the **data controller** (CSC is data processor, never the controller). [Read more about the roles and GDPR](../../support/faq/sensitive-data-legal.md#what-are-the-roles-of-csc-and-its-service-users-under-gdpr).
+- Please check with your home organization  who is the **data controller** (CSC is the data processor, never the controller). [Read more about the roles and GDPR](../../support/faq/sensitive-data-legal.md#what-are-the-roles-of-csc-and-its-service-users-under-gdpr).
 
 ![Personal data handling document.](./images/MyCSC/MyCSC_PersonalDataHandling.png)
 
 ### 4. Activate SD Services for your project
 
-- Services are listed to the right column of the project page.
+- Services are listed to the bottom right column of the project page.
 - Select services: SD Connect, SD Desktop.
 - Read and accept the terms of use and click **“Add service”**.
 
 ![Add new services.](./images/MyCSC/MyCSC_AddServices.png)
 
 
-### 5. Apply resources (billing units) for your project
+### 5. Apply billing units for your project
 
-- All Sensitive Data Services consumes billing units (BU's). 
+- CSC project consumes billing units (BU's). 
 - All new academic CSC projects are initially granted 10 000 BUs, so you can get started. However, you should estimate how many BU’s your project will consume **during 1 year** and apply more if needed. When you start a new project, you should plan ahead for your [project's billing unit and storage usage](sd-csc-project.md).
-- Use the [billing unit calculator](sd-csc-project.md#billing-unit-calculator-for-estimating-billing-units-consumption) for estimating your BU consumption.
+- Use the [billing unit calculator](sd-csc-project.md#billing-unit-calculator-for-estimating-billing-units-consumption) for estimating your billing unit consumption.
 - Apply more billing units by clicking **"Apply for resources"**.
-- You will get more info through inbox, after your application.
+- You will get more info after your application to your MyCSC inbox.
 - You can always ask help from [Service Desk](../../support/contact.md) *Subject: Sensitive Data*
 
 ![Click apply for resources.](./images/MyCSC/MyCSC_AddResources.png)
@@ -72,12 +72,12 @@ You need to access to SD services. You are manager of research team or work inde
 
 ### 6. Activate MFA Authentication
 
-- You need to activate MFA (multi-factor authentication), to be able to log in the Sensitive Data services. [More about multi-factor authentication](../../accounts/mfa.md).
+- You need to activate MFA (multi-factor authentication) to be able to log in the Sensitive Data services. [More about multi-factor authentication](../../accounts/mfa.md).
 - Before activating MFA you need to have some authentication application in your mobile, for example Google Authenticator or Microsoft Authenticator.
 - Go to the **Profile** page (Left side menu or top right hamburger menu).
 - Enable Multi-Factor Authentication by clicking **“Activate”**.
-- This will create a QR code, that you can read with your authentication application (for example Google Authenticator).
-- You authentication application will provide a verification code, that you can now write to MyCSC **“Verification code”** field and click **“Verify”**.
+- This will create a QR code which you can read with your authentication application (for example Google Authenticator).
+- You authentication application will provide a verification code which you can now write to MyCSC **“Verification code”** field and click **“Verify”**.
 
 ![Multi-Factor Authentication.](./images/MyCSC/MyCSC_MFA.png)
 

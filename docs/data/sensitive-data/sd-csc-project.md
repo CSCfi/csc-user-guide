@@ -4,8 +4,8 @@
 Contents:
 
 * [Billing units and storage usage](#billing-units-and-storage-usage)
-    * [SD Connect - billing units and storage space](#sd-connect---billing-units-and-storage-space)
-    * [SD Desktop - billing units and disk space](#sd-desktop---billing-units-and-disk-space)
+    * [Billing units and storage space in SD Connect](#billing-units-and-storage-space-in-sd-connect)
+    * [Billing units and disk space in SD Desktop](#billing-units-and-disk-space-in-sd-desktop)
     * [What happens if your project runs out of billing units?](#what-happens-if-your-project-runs-out-of-billing-units)
     * [Billing unit calculator for estimating billing units consumption](#billing-unit-calculator-for-estimating-billing-units-consumption)
 * [Closing your CSC project](#closing-csc-project)
@@ -19,15 +19,15 @@ Contents:
 
 When you start a new project, you should plan ahead for your CSC project's resource usage. This includes considering the amount of storage space (i.e. quota) and billing units consumption while using the services. When you start a new project with CSC, you receive 10,000 billing units by default. This is enough for small testing. However, you should estimate how many BU’s your project will consume **during 1 year** and apply more if needed. You can apply more billing units trough MyCSC resource application. Read more: [applying for billing units](../../accounts/how-to-apply-for-billing-units.md) and [increasing quotas](../../accounts/how-to-increase-disk-quotas.md#increasing-the-storage-capacity-in-allas).
 
-* [Billing unit calculator](#billing-unit-calculator-for-estimating-billing-units-consumption) will help you to estimate how many BUs your CSC project will require. You can find SD Desktop from the calculator, when you move to right with the arrows. You can estimate SD Connect billing unit consumption by using Allas option at the calculator.
+* Use [billing unit calculator](#billing-unit-calculator-for-estimating-billing-units-consumption) to estimate how many BUs your CSC project will require. 
 
-### SD Connect - billing units and storage space
+### Billing units and storage space in SD Connect
 
 SD Connect stores data to [Allas](../Allas/index.md). Default storage space for SD Connect/Allas is 10 TB, which you can expand up to 200 TB as needed. If you need even more storage capacity, please contact [service desk](../../support/contact.md) *(subject: Increase Allas quota)*. 
 
 Storing data in SD Connect/Allas consumes billing units at a rate of **1 billing unit per TB per hour**. This means that storing 1 TB of data in SD Connect/Allas consumes 24 billing units daily and 8760 billing units annually.
 
-### SD Desktop - billing units and disk space
+### Billing units and disk space in SD Desktop
 
 Analyzing data in SD Desktop consumes billing units based on the type of virtual desktop used. Each virtual desktop can also have a volume (also called disk space), where files can be imported from SD Connect/SD Apply. The volume can be added only during desktop creation (up to 200 GB). If you need larger volume please contact [service desk](../../support/contact.md) *(subject: Sensitive data)*. 
 
@@ -58,7 +58,7 @@ Billing unit calculator will help you to estimate how many BUs your CSC project 
 
 ## Closing CSC project
 
-Default lifetime for the project is **one year**. [Project manager](sd-use-case-new-user-project-manager.md) can extend project's lifetime or close the project in [MyCSC](https://my.csc.fi){ target="_blank" }. If project lifetime ends, it will be closed automatically. You'll receive an email notification when your project is about to expire, so please keep your contact information up to date in MyCSC.
+Default lifetime for the project is **one year**. Project manager can extend project's lifetime or close the project in [MyCSC](https://my.csc.fi){ target="_blank" }. If project lifetime ends, it will be closed automatically. You'll receive an email notification when your project is about to expire, so please keep your contact information up to date in MyCSC.
 
 [More about project closure](../../accounts/how-to-manage-your-project.md#project-closure)
 
