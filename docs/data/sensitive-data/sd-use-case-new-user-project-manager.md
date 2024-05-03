@@ -93,8 +93,11 @@ You need to access to SD services. You are manager of research team or work inde
 
 ![Add project members.](./images/MyCSC/MyCSC_AddMembers.png)
 
+### 8. Closing your project
 
-### 8. Log into SD Services
+- As a project manager you should familiarize yourself how to [close CSC project](sd-csc-project.md#closing-csc-project).
+
+### 9. Log into SD Services
 
 - Now all the preparations are already and you can start to use SD Connect and SD Desktop.
     - [SD Connect login instructions](sd-connect-login.md)

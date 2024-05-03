@@ -7,13 +7,13 @@
 ## Step by step
 
 1. Login page: **[https://sd-connect.csc.fi](https://sd-connect.csc.fi){ target="_blank" }**.
-2. **Authentication:** Login to SD Connect is currently possible only with CSC credentials or Haka (identity federation system).
-3. **MFA Authentication:** After entering your username and password, you need to verify your identity with a second verification step (i.e. Multi-factor Authentication, MFA). Enter the verification code provided via your MFA mobile application (e.g. Google Authenticator, Microsoft Authenticator) and press on *Continue*. For specific guidance, see the [MFA section](../../accounts/mfa.md)
+2. **Authentication:** Login to SD Desktop is possible with identity federation systems (Haka, Virtu, CSCLogin or LSLogin).
+
 
 !!! Note
-    The user interface is compatible only with **Chrome** and **Firefox** (excluding private mode in Firefox). 
+    The interface is compatible with all modern web browsers but does not support Firefox private browsing (incognito mode).
 
-[![SDConnect-login](images/connect/SDConnect-login.png)](images/connect/SDConnect-login.png)
+[![SDConnect-login](images/connect/SDConnect_login.png)](images/connect/SDConnect_login.png)
 
 
 
