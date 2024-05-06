@@ -183,7 +183,8 @@ Jaguar, version 7.6, Schrödinger, LLC, New York, NY, 2009.
 
 * [Tutorial and tips for power usage on Puhti](../support/tutorials/power-maestro.md)
 * Manual including tutorials come with the Maestro GUI
-* [Schrödinger training materials overview](https://www.schrodinger.com/learn/training)
+* [Schrödinger training materials overview](https://www.schrodinger.com/life-science/learn/education/)
+* [Free learning resources at Schrödinger](https://www.schrodinger.com/materials-science/learn/education/free-learning-resources/)
 * The [Schrödinger knowledge base](https://support.schrodinger.com/s/) has an
   extensive collection of articles, for example:
      * [How to restart a single Desmond simulation](https://www.schrodinger.com/kb/1883)
@@ -193,8 +194,6 @@ Jaguar, version 7.6, Schrödinger, LLC, New York, NY, 2009.
      * [Preparing, running and analyzing molecular dynamics simulations with Desmond](https://video.csc.fi/media/t/0_3udcx6bk)
      * [Getting Going with Maestro](https://www.schrodinger.com/sites/default/files/s3/release/current/Getting-Going-With-Video-Series/Maestro/Get-Going-Maestro-VS/Content/maestro/Page-Topics-m/01-Course-Intro-Get-Going.htm)
      * [Getting Going with Materials Science Maestro](https://www.schrodinger.com/sites/default/files/s3/release/current/Getting-Going-With-Video-Series/MS_Maestro/Get-Going-MS-VS/Content/maestro-ms/Page-Topics-ms/01-Course-Intro-Get-Going-ms.htm)
-     * [Learn Maestro in 40 minutes](https://www.schrodinger.com/seminars/archives/1338/6th-life-science-bootcamp)
-     * [Short videos on different features](https://www.schrodinger.com/training/videos/maestro/all)
      * [Schrödinger YouTube channel](https://www.youtube.com/@SchrodingerTV)
 * Issues on how to run Maestro in CSC environment: [contact CSC Service Desk](../support/contact.md)
 * Scientific questions related to Maestro modules: [contact Schrödinger Support](https://support.schrodinger.com/s/contactsupport)
