@@ -179,16 +179,16 @@ The user can set the limits explicitly within the available quota, but if no lim
 
 |Type|CPU|Memory|
 |:-:|:-:|:-:|
-|limits|500m|1Gi|
+|limits|250m|2500Mi|
 |requests|50m|500Mi|
 
 Note: `m` stands for milicores. `500m` will be the equivalent of 0.5 cores, or in other words half of the time of a CPU core.
 
-Rahti 2 enforces a maximum limit/request ratio of 5. This means that the CPU or memory `limits` cannot be more than 5 times the `request`. So if the CPU request is 50m, the CPU limit cannot be higher than 500m. And if we wanted to increase the CPU limit to 1, we will have to increase as well the request to at least 100m.
+Rahti 2 enforces a maximum limit/request ratio of 5. This means that the CPU or memory `limits` cannot be more than 5 times the `request`. So if the CPU request is 50m, the CPU limit cannot be higher than 250m. And if we wanted to increase the CPU limit to 1, we will have to increase as well the request to at least 200m.
 
 ## Requesting more quota
 
-If you need more resources that the defaults, you can apply for more quota by contacting the Service Desk. See the [Contact page](../../../support/contact.md) for instructions. Quota requests are handled on a case-by-case basis depending on the currently available resources in Rahti 2 and the use case.
+If you need more resources than the defaults, you can apply for more quota by contacting the Service Desk. See the [Contact page](../../../support/contact.md) for instructions. Quota requests are handled on a case-by-case basis depending on the currently available resources in Rahti 2 and the use case.
 
 ## Sharing projects with other users
 
