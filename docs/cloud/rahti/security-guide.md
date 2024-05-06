@@ -2,7 +2,7 @@
 Rahti 1 applications are exposed to the Internet, and
 their security should be treated with an appropriate care.
 The user on whose account a service is running in Rahti 1 is
-responsible for its security. See the [terms of use](https://rahti.csc.fi/agreements/terms_of_use/) for details about the
+responsible for its security. See the [terms of use](https://rahti.csc.fi/terms_of_use.html) for details about the
 responsibilities.
 
 This guide should be treated as the baseline which must be taken
