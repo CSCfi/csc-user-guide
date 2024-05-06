@@ -162,7 +162,7 @@ Pouta offers few useful tools and resources that will make it easier to develop 
   [Github actions]: https://github.com/features/actions
   [cPouta]: https://pouta.csc.fi
   [ePouta]: http://epouta.csc.fi
-  [Allas]: ../../data/Allas/
+  [Allas]: ../../data/Allas/index.md
   [Cinder]: persistent-volumes.md
   [ansible-openstack-example]: https://github.com/cscfi/ansible-openstack-example
   [heat-openstack-example]: https://github.com/cscfi/heat-openstack-example
