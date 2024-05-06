@@ -37,7 +37,7 @@ Before doing this, you need to [install the openstack client](../install-client/
     ```sh
     openstack volume create --size <size_in_GB> --type multiattach <volume_name>
     ```
-    You need to replace `<volume_name>` by the name iyou want to give to the volume, and the `<size_in_GB>` by the size in Gigabytes you want the volume to have.
+    You need to replace `<volume_name>` by the name you want to give to the volume, and the `<size_in_GB>` by the size in Gigabytes you want the volume to have.
 
 1. Attach the volume to a VM node:
 
@@ -133,7 +133,7 @@ In order to install GFS2, you need to follow few steps:
     1. For Ubuntu and other Debian based distributions you just need to install 3 packages:
 
     ```sh
-    apt install gfs2-utils dlm-controld linux-modules-extra-<ansible_kernel>
+    apt install gfs2-utils dlm-controld linux-modules-extra-$(uname -r)
     ```
     Where `<ansible_kernel>` is the version of the current kernel.
 
@@ -351,7 +351,7 @@ In order to install OCFS2, you need to follow few steps:
 1. Install the OCFS2 software:
 
     ```sh
-    ocfs2-tools linux-modules-extra-<kernel_version> linux-image-<kernel_version>
+    ocfs2-tools linux-modules-extra-<kernel_version> linux-image-$(uname -r)
     ```
     We have tested this with `<kernel_version>` == `6.5.0-21-generic`, but newer versions should work as well or better.
 
