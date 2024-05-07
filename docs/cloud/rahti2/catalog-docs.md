@@ -14,5 +14,5 @@ You can browse the catalog from the webinterface after (1) logging in Rahti 2 an
 
 
 !!! Note "Rahti 1 templates in Rahti 2"
-    Most of the previous templates were migrating to Helm Charts for Rahti 2. If you want to deploy a template from Rahti 1 to Rahti 2, you can find the repo on this [link](https://github.com/CSCfi/rahti-1-templates).  
+    Most of the previous templates have been migrating to Helm Charts for Rahti 2. If you want to use a template from Rahti 1 on Rahti 2, you can find the repo at this [link](https://github.com/CSCfi/rahti-1-templates).  
     CSC will no longer update these legacy templates, only the Helm Charts.
