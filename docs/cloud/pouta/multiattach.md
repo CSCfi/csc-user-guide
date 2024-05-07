@@ -495,4 +495,5 @@ In order to install OCFS2, you need to follow few steps:
 
 ## Upstream documentation
 
-- ....
+- GFS2: https://ocfs2.wiki.kernel.org/
+- OCFS2: https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/configuring_gfs2_file_systems/index
