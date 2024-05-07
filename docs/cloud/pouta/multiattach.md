@@ -4,7 +4,10 @@ It is possible to attach and mount the same _cinder_ volume into more that one V
 
 ![Multi attach](../img/multi-attach.drawio.svg)
 
-This feature has several advantages and disadvantages. On one side it allows to share files among VMs without any kind of intermediary server that you will need with solutions like `NFS` or `GlusterFS`. This reduces the number of VMs needed, thus less maintenance and less single points of failure. On the other hand, it is necessary to run what is called a [clustered file system](https://en.wikipedia.org/wiki/Clustered_file_system#SHARED-DISK) like [Oracle Cluster File System 2 (ocfs2)](https://en.wikipedia.org/wiki/OCFS2), or Red Hat [Global File System (GFS2)](https://en.wikipedia.org/wiki/GFS2). These systems need a cluster of connected daemons that will coordinate the read and write operations of the files. Each VM runs a copy of the daemon and there is no master, but a quorum based system. The configuration, maintenance and operations of these file systems are not a trivial task. The choice between the two file systems depends on the use case and preferences based on vendors. In our tests GFS2 seems to be more suitable to Redhat based systems and OCFS2 to Debian ones, but your mileage might vary. The guides below are a starting point and do not cover all possibilities, for more comprehensive information, please check the upstream documentation.
+This feature has several advantages and disadvantages. On one side it allows to share files among VMs without any kind of intermediary server that you will need with solutions like `NFS` or `GlusterFS`. This reduces the number of VMs needed, thus less maintenance and less single points of failure. On the other hand, it is necessary to run what is called a [clustered file system](https://en.wikipedia.org/wiki/Clustered_file_system#SHARED-DISK) like [Oracle Cluster File System 2 (ocfs2)](https://en.wikipedia.org/wiki/OCFS2), or Red Hat [Global File System (GFS2)](https://en.wikipedia.org/wiki/GFS2). These systems need a cluster of connected daemons that will coordinate the read and write operations of the files. Each VM runs a copy of the daemon and there is no master, but a quorum based system. The choice between the two file systems depends on the use case and preferences based on vendors. In our tests GFS2 seems to be more suitable to Redhat based systems and OCFS2 to Debian ones, but your mileage might vary.
+
+!!! Warning
+    The configuration, maintenance and operations of these file systems are **not a trivial task**. The guides below are as a **starting point** and do not cover all possibilities, for more comprehensive information, please check the upstream documentation.
 
 ## Create and attach a volume
 
@@ -25,7 +28,7 @@ This feature has several advantages and disadvantages. On one side it allows to 
 
 ![Create Volume Multiattach](../img/create-volume-multiattach.png)
 
-!!! Warning
+!!! Warning "not supported"
     You cannot attach a volume to multiple VMs from the WebUI, only see its status. You can only attach a volume to multiple VMs using the CLI.
 
 ### CLI
@@ -269,6 +272,32 @@ In order to install GFS2, you need to follow few steps:
 
     For a permanent disconnection of a VM, one need to do the inverse process of adding a new node. Umount the volume (`sudo umount /mnt`), remove the entry for this VM in the `/etc/corosyncecorosync.conf` file of every node, and finally restart the daemons in every node. This needs to be done as it affects the quorum count for the cluster.
 
+* **Is it possible to mount a node as read-only?**
+
+    Yes, GFS2 has the "spectator mode":
+
+    ```
+    spectator
+       Mount  this filesystem using a special form of read-only mount.  The mount does not
+       use one of the filesystem's journals. The node is unable to  recover  journals  for
+       other nodes.
+
+    norecovery
+       A synonym for spectator
+    ```
+
+    So, just run this command:
+
+    ```sh
+    sudo mount /dev/vdb /mnt -o spectator
+    ```
+    Then double check that the mount went as expected by:
+
+    ```sh
+    $ mount | grep /mnt
+    /dev/vdb on /mnt type gfs2 (ro,relatime,spectator,rgrplvb)
+    ```
+
 ### GFS2 Links
 
 - <https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/global_file_system_2/s1-manage-addjournalfs>
@@ -446,6 +475,23 @@ In order to install OCFS2, you need to follow few steps:
     If it is temporal but expected, like to update the kernel version. Umount the volume in the node (`sudo umount /mnt`) before rebooting the node. It is not required, but recommended.
 
     For a permanent disconnection of a VM, one need to do the inverse process of adding a new node. Umount the volume (`sudo umount /mnt`), remove the entry for this VM in the `/etc/ocfs2/cluster.conf` file of every node, and finally restart the daemons in every node. This needs to be done as it affects the quorum count for the cluster.
+
+* **Is it possible to mount a node as read-only?**
+
+    Yes, it is possible to mount the volume as read-only. It is as simple as:
+
+    ```sh
+    sudo mount /dev/vdb /mnt -o ro
+    ```
+
+    After that, you can check that it was indeed mounted as read-only by:
+
+    ```sh
+    $ mount | grep /mnt
+  /dev/vdb on /mnt type ocfs2 (ro,relatime,_netdev,heartbeat=local,nointr,data=ordered,errors=remount-ro,atime_quantum=60,coherency=full,user_xattr,acl)
+    ```
+    Also, as you can see in the output above, the default behaviour is that when any error occurs, to remount it as read only (`errors-remount-ro`). See `mount.ocfs2` for more options.
+
 
 ## Upstream documentation
 
