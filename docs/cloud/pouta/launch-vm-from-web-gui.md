@@ -253,7 +253,18 @@ Once the SSH keys and security groups are set, you can launch a new virtual mach
 
 1. Under the **Access & Security** tab, you need to configure two options. First you need to choose the name of the *Key Pair* you have created in the **Preparatory Steps**. Secondly you need to select under the [**Security Groups**](#firewalls-and-security-groups) the security group previously created.
 
+    ![Launch the instance access view](../img/launch_instance_access_security.png 'Launch cPouta instance network')
+
+!!! Warning  
+    If you click the "+" button, the window will close unexpectedly and a small window popup will appear:  
+    
+      ![Error plus button](../img/danger_keypairs.png 'Danger key pairs')  
+    
+    This is a known bug. Please refer to the [previous section](#setting-up-ssh-keys) on how to create your SSH keys.
+
 1. The **Networking** tab, make sure that your own network (your project name) is selected.
+
+    ![Launch the instance network view](../img/launch_instance_network.png 'Launch cPouta instance network')
 
 1. Finally, **Advanced Options** tab allows you to select a [**Server Group**](#server-groups)
 
