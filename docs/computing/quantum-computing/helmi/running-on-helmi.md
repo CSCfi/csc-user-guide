@@ -210,7 +210,7 @@ For further information on the figures of merit contact the [CSC Service Desk](.
 
 ## Using Helmi on Lumi-web interface
 
-The [LUMI Web interface](https://docs.lumi-supercomputer.eu/runjobs/webui/) allows users to run jobs on Helmi through a web interface. Details for logging in to the LUMI web interface can be read through the [LUMI Documentation page](https://docs.lumi-supercomputer.eu/firststeps/loggingin-webui/).
+The [LUMI Web interface](https://docs.lumi-supercomputer.eu/runjobs/webui/) allows users to run quantum jobs on Helmi through a web interface. Details for logging in to the LUMI web interface can be read through the [LUMI Documentation page](https://docs.lumi-supercomputer.eu/firststeps/loggingin-webui/).
 
 ### Accessing Helmi
 
