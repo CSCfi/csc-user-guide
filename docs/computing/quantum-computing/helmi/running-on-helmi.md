@@ -27,12 +27,12 @@ If you wish to add your own python packages to the pre-made python environment y
 
 The current supported software versions on helmi are:
 
-```text
-Cirq on IQM    cirq_iqm        >= 14.0, < 15.0
-Qiskit on IQM  qiskit_iqm      >= 13.0, < 14.0
-IQM client     iqm_client      >= 17.1, < 18.0
-Cortex CLI     iqm_cortex_cli  >= 5.8, < 6.0
-```
+| Software | Module | Versions |
+|----------|--------|----------|
+| Cirq on IQM | cirq_iqm | >= 14.0, < 15.0 |
+| Qiskit on IQM | qiskit_iqm | >= 13.0, < 14.0 |
+| IQM client | iqm_client | >= 17.1, < 18.0 |
+| Cortex CLI | iqm_cortex_cli | >= 5.8, < 6.0 |
 
 Here is an example batch script to submit jobs on Helmi
 
