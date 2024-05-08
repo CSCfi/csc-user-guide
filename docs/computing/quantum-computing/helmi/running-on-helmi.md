@@ -28,9 +28,9 @@ If you wish to add your own python packages to the pre-made python environment y
 The current supported software versions on helmi are:
 
 ```bash
-Cirq on IQM 	cirq_iqm 	>= 13.0, < 14.0
-Qiskit on IQM 	qiskit_iqm 	>= 12.0, < 13.0
-IQM client 	iqm_client 	>= 16.0, < 17.0
+Cirq on IQM 	cirq_iqm 	>= 14.0, < 15.0
+Qiskit on IQM 	qiskit_iqm 	>= 13.0, < 14.0
+IQM client 	iqm_client 		>= 17.1, < 18.0
 Cortex CLI 	iqm_cortex_cli 	>= 5.8, < 6.0
 ```
 
@@ -40,7 +40,7 @@ Here is an example batch script to submit jobs on Helmi
 #!/bin/bash
  
 #SBATCH --job-name=helmijob   # Job name
-#SBATCH --account=project_<id>  # Project for billing
+#SBATCH --account=project_<id>  # Project for billing (slurm_job_account)
 #SBATCH --partition=q_fiqci   # Partition (queue) name
 #SBATCH --ntasks=1              # One task (process)
 #SBATCH --cpus-per-task=1     # Number of cores (threads)
@@ -63,6 +63,9 @@ srun --account=project_<id> -t 00:15:00 -c 1 -n 1 --partition q_fiqci python you
 ```
 
 The `helmi_*` module sets up the correct python environment to use Qiskit or Cirq in conjunction with Helmi.
+
+!!! info "Running on Helmi"
+	When submitting a job on Helmi, the user's slurm_job_account (project on which the job is run) is mapped to the project_id and this information is transferred to VTT for accounting purposes.
 
 ### Qiskit
 
@@ -203,3 +206,35 @@ Here is a brief description of the figures which are given when querying:
 
 
 For further information on the figures of merit contact the [CSC Service Desk](../../../../support/contact/), reachable at [servicedesk@csc.fi](mailto:servicedesk@csc.fi).
+
+
+## Using Helmi on Lumi-web interface
+
+The [LUMI Web interface](https://docs.lumi-supercomputer.eu/runjobs/webui/) allows users to run jobs on Helmi through a web interface. Details for logging in to the LUMI web interface can be read through the [LUMI Documentation page](https://docs.lumi-supercomputer.eu/firststeps/loggingin-webui/).
+
+### Accessing Helmi
+
+After successfully authenticating, you should now have access to your dashboard. Click on the jupyter app
+, select your project and the partition as q_fiqci. If you have an active reservation, you can use it by selecting it under reservation.
+
+It is recommended to use the Advanced settings, select Custom init Text and under the 'Script to start' textbox enter the following script to configure the environment to use the quantum software stack.
+
+```bash
+module use /appl/local/quantum/modulefiles
+module load helmi_qiskit # or module load helmi_cirq
+```
+
+<p align="center">
+    <img src="../../../../img/helmi_with_lumi_web.png" alt="Helmi's with LUMI web">
+</p>
+
+Click on launch to start your Jupyter session. This will launch Jupyter using the command python -m jupyter lab. If you are using Helmi in during a quantum computing course, it is possible that a specific environment has been created for the course. In this case you can access Helmi using the Jupyter-for-courses app.
+
+<p align="center">
+    <img src="../../../../img/helmi_with_jupyter_for_courses_gui.png" alt="Helmi's with LUMI web">
+</p>
+
+
+## Further Reading
+* [Lumi web interface](https://docs.lumi-supercomputer.eu/runjobs/webui/)
+* [Jupyter on Lumi web interface](https://docs.lumi-supercomputer.eu/runjobs/webui/jupyter/)
