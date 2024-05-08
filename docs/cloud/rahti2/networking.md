@@ -58,9 +58,17 @@ Rahti 2 provides a range of pre-created domain names, `XXXX.2.rahtiapp.fi` where
 
 Every single pre-created domain name is configured to point to the HAProxy load balancers.
 
-Any other domain name is possible, but the DNS and the certificates must be managed by the customer:
+### Custom domains
 
-* For the DNS, a `CNAME` pointing to `router.2.rahtiapp.fi` or in cases that this is not possible, directly the `A` record containing the IP of `apps.2.rahti.csc.fi` has to be configured. The way this needs to be configured depends on the register of the DNS record.
+Any existing possible domain name could potentially be used in Rahti, but the DNS configuration and the certificates must be managed by the customer:
+
+* For the DNS configuration, you need to configure a `CNAME` pointing to `router.2.rahtiapp.fi` or in cases that this is not possible, another possibility is to configure an `A` record containing the IP of `router.2.rahtiapp.fi` has to be configured. The way this needs to be configured depends on the register of the DNS record.
+
+```sh
+$ host ?????.??
+?????.?? is an alias for router.2.rahtiapp.fi.
+router.2.rahtiapp.fi has address 195.148.21.61
+```
 
 * Any certificate provider can be used, like for example use the free certificates provided by the [Let's Encrypt controller](../tutorials/custom-domain.md#lets-encrypt).
 
