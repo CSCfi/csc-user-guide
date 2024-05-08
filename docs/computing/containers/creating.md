@@ -48,15 +48,19 @@ You can find some help also by looking at our [tutorial on building Apptainer co
 Root access into the cluster is not permitted. Namespaces have also been disabled due to security issues involved. However with a few restrictions Apptainer can still be used by an unprivileged user to build a container by using [fakeroot](https://apptainer.org/docs/user/main/fakeroot.html).
 
 In the cluster Apptainer enables `--fakeroot` flag by default when building containers, this makes the user appear as root:root while building the container thus enabling the user to build images that require root permissions e.g. to install packages via apt.
-However this only makes the user appear as the root user, in the host system user has no additional permissions. By itself fakeroot is not always sufficient and building some containers may fail for various different reasons. For more details see [Apptainer documentation](https://apptainer.org/docs/user/main/fakeroot.html).
+However this only makes the user appear as the root user, in the host system user has no additional permissions. By itself fakeroot is not always sufficient and building some containers may fail due to various different reasons. For more details see [Apptainer documentation](https://apptainer.org/docs/user/main/fakeroot.html).
 
-| First Header | Second Header | Third Header |
-| ------------ | ------------- | ------------ |
-| Content Cell | Content Cell  | Content Cell |
-| Content Cell | Content Cell  | Content Cell |
+
+Docker base image build compatibility:
 
 |Image|Tag|Works|
 |-----|---|-----|
-|ubuntu|24.04|yes|
-|ubuntu|23.10|yes|
-|alpine|3.8|no|
+|alpine|3.6-3.19|no|
+|almalinux|8-9|yes|
+|debian|buster-trixie|yes|
+|centos|7|yes|
+|opensuse|15.0|no|
+|opensuse|15.1-15.5|yes|
+|opensuse|15.6|no|
+|redhat/ubi|8-9|yes|
+|ubuntu|16.04-22.04|yes|
