@@ -214,10 +214,9 @@ The [LUMI Web interface](https://docs.lumi-supercomputer.eu/runjobs/webui/) allo
 
 ### Accessing Helmi
 
-After successfully authenticating, you should now have access to your dashboard. Click on the jupyter app
-, select your project and the partition as q_fiqci. If you have an active reservation, you can use it by selecting it under reservation.
+After successfully authenticating, you should now have access to your dashboard. Click on the Jupyter app, select your project and the partition as q_fiqci. If you have an active reservation, you can use it by selecting it under reservation.
 
-It is recommended to use the Advanced settings, select Custom init Text and under the 'Script to start' textbox enter the following script to configure the environment to use the quantum software stack.
+It is recommended to use the 'Advanced settings'. Under the 'Custom init' option select Text, and under the 'Script to start' textbox enter the following script to configure the environment to use the quantum software stack.
 
 ```bash
 module use /appl/local/quantum/modulefiles
@@ -228,7 +227,7 @@ module load helmi_qiskit # or module load helmi_cirq
     <img src="../../../../img/helmi_with_lumi_web.png" alt="Helmi's with LUMI web">
 </p>
 
-Click on launch to start your Jupyter session. This will launch Jupyter using the command python -m Jupyter lab. If you are using Helmi during a quantum computing course, a custom environment may have been created specifically for the course. In this case you can access Helmi using the Jupyter-for-courses app.
+Click on launch to start your Jupyter session. This will launch Jupyter using the command python -m Jupyter lab. If you are using Helmi during a quantum computing course, a custom environment may have been created specifically for the course. In this case, you can access Helmi using the Jupyter-for-courses app.
 
 <p align="center">
     <img src="../../../../img/helmi_with_jupyter_for_courses_gui.png" alt="Helmi's with LUMI web">
