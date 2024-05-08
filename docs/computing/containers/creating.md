@@ -59,8 +59,7 @@ Docker base image build compatibility:
 |almalinux|8-9|yes|
 |debian|buster-trixie|yes|
 |centos|7|yes|
-|opensuse|15.0|no|
-|opensuse|15.1-15.5|yes|
-|opensuse|15.6|no|
+|opensuse/leap|15.0,15.6|no|
+|opensuse/leap|15.1-15.5|yes|
 |redhat/ubi|8-9|yes|
 |ubuntu|16.04-22.04|yes|
