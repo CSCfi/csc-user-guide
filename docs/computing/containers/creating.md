@@ -42,3 +42,21 @@ Also see our [documentation on how to run containers](run-existing.md).
 You can also build your own container from scratch. This is an option for more experienced users, and your main source of information is the [official Apptainer documentation on building containers](https://apptainer.org/docs/user/main/build_a_container.html).
 
 You can find some help also by looking at our [tutorial on building Apptainer containers from scratch](../../support/tutorials/singularity-scratch.md).
+
+## Building a container without sudo access
+
+Root access into the cluster is not permitted. Namespaces have also been disabled due to security issues involved. However with a few restrictions Apptainer can still be used by an unprivileged user to build a container by using [fakeroot](https://apptainer.org/docs/user/main/fakeroot.html).
+
+In the cluster Apptainer enables `--fakeroot` flag by default when building containers, this makes the user appear as root:root while building the container thus enabling the user to build images that require root permissions e.g. to install packages via apt.
+However this only makes the user appear as the root user, in the host system user has no additional permissions. By itself fakeroot is not always sufficient and building some containers may fail for various different reasons. For more details see [Apptainer documentation](https://apptainer.org/docs/user/main/fakeroot.html).
+
+| First Header | Second Header | Third Header |
+| ------------ | ------------- | ------------ |
+| Content Cell | Content Cell  | Content Cell |
+| Content Cell | Content Cell  | Content Cell |
+
+|Image|Tag|Works|
+|-----|---|-----|
+|ubuntu|24.04|yes|
+|ubuntu|23.10|yes|
+|alpine|3.8|no|
