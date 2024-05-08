@@ -27,8 +27,8 @@ If you wish to add your own python packages to the pre-made python environment y
 
 The current supported software versions on helmi are:
 
-| Software | Module | Versions |
-|----------|--------|----------|
+| Software | Module_name | Versions |
+|----------|-------------|----------|
 | Cirq on IQM | cirq_iqm | >= 14.0, < 15.0 |
 | Qiskit on IQM | qiskit_iqm | >= 13.0, < 14.0 |
 | IQM client | iqm_client | >= 17.1, < 18.0 |
