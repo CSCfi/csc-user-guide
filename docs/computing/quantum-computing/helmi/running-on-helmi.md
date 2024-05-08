@@ -228,7 +228,7 @@ module load helmi_qiskit # or module load helmi_cirq
     <img src="../../../../img/helmi_with_lumi_web.png" alt="Helmi's with LUMI web">
 </p>
 
-Click on launch to start your Jupyter session. This will launch Jupyter using the command python -m jupyter lab. If you are using Helmi in during a quantum computing course, it is possible that a custom environment has been created specifically for the course. In this case you can access Helmi using the Jupyter-for-courses app.
+Click on launch to start your Jupyter session. This will launch Jupyter using the command python -m Jupyter lab. If you are using Helmi during a quantum computing course, a custom environment may have been created specifically for the course. In this case you can access Helmi using the Jupyter-for-courses app.
 
 <p align="center">
     <img src="../../../../img/helmi_with_jupyter_for_courses_gui.png" alt="Helmi's with LUMI web">
