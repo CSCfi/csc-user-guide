@@ -123,7 +123,7 @@ openstack database user create $INSTANCE_ID $USER_NAME $PASSWORD --databases $DA
 Give database access to an existing user.
 
 ```
-openstack database user grant access $INSTNACE_ID $USER_NAME $DATABASE_NAME
+openstack database user grant access $INSTANCE_ID $USER_NAME $DATABASE_NAME
 ```
 
 
@@ -132,7 +132,7 @@ openstack database user grant access $INSTNACE_ID $USER_NAME $DATABASE_NAME
 If you want to revoke the access you can use the word "revoke" instead of "grant".
 
 ```
-openstack database user revoke access $INSTNACE_ID $USER_NAME $DATABASE_NAME
+openstack database user revoke access $INSTANCE_ID $USER_NAME $DATABASE_NAME
 ```
 
 Deleting an user can be done by running:
