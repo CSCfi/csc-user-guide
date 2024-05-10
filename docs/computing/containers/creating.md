@@ -61,7 +61,8 @@ From: ubuntu:22.04
 ```
 Image can then be built `apptainer build ubuntu.sif ubuntu.def` and ran `apptainer shell ubuntu.sif`. Now the installed package can be accessed in the shell opened by typing `echo hello | /usr/games/cowsay`. Note that sudo is not required to run these commands.
 
-Docker base image build compatibility:
+
+Common docker base images and whether installing simple packages with package manager works on them in the cluster:
 
 |Image|Tag|Works|
 |-----|---|-----|
@@ -73,3 +74,5 @@ Docker base image build compatibility:
 |opensuse/leap|15.1-15.5|yes|
 |redhat/ubi|8-9|yes|
 |ubuntu|16.04-22.04|yes|
+
+Some issues (such as glibc, fakeroot, file permissions, old remote repos) are difficult to debug, trying out a few different base images can be a better idea.
