@@ -51,6 +51,16 @@ In the cluster Apptainer enables `--fakeroot` flag by default when building cont
 However this only makes the user appear as the root user, in the host system user has no additional permissions. By itself fakeroot is not always sufficient and building some containers may fail due to various different reasons. For more details see [Apptainer documentation](https://apptainer.org/docs/user/main/fakeroot.html).
 
 
+The following simple example definition file (saved as `ubuntu.def`) creates an image based on ubuntu with one package installed.
+```
+Bootstrap: docker
+From: ubuntu:22.04
+%post
+	apt-get update
+	apt-get install -y cowsay
+```
+Image can then be built `apptainer build ubuntu.sif ubuntu.def` and ran `apptainer shell ubuntu.sif`. Now the installed package can be accessed in the shell opened by typing `echo hello | /usr/games/cowsay`. Note that sudo is not required to run these commands.
+
 Docker base image build compatibility:
 
 |Image|Tag|Works|
