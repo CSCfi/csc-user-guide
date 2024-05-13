@@ -99,5 +99,5 @@ trees in R. [See here for specific details](../apps/r-env.md#r-package-installat
 
 ## More information
 
-- [Installing your own software](https://csc-training.github.io/csc-env-eff/#8-installing-your-own-software)
+- [Installing your own software](https://csc-training.github.io/csc-env-eff/part-2/installing/)
   (CSC Computing Environment slides and tutorials)
