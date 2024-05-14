@@ -4,11 +4,11 @@ If you are a new Sensitive Data (SD) services user, this section is for you. Her
 
 ## Access SD Connect and SD Desktop for the first time
 
-Before logging into SD Connect or SD Desktop for the first time, you must do some preparations based on your role in research team. 
+Before logging into SD Connect or SD Desktop for the first time, you must do some preparations in MyCSC, based on your role in research team. 
 
 ### CSC project enables service usage
 
-Using CSC services is based on CSC projects managed in MyCSC customer portal. Each CSC project has a primary user, a project manager, who can add members and manages access to the services. A project manager is responsible for the project's activities and acts as the data controller (or academic organization) representative. They, for example, need to describe which type of sensitive data the project is processing.
+Using CSC services is based on CSC projects managed in MyCSC customer portal. Each CSC project has a primary user i.e. **project manager**, who can add members and manages access to the services. A project manager is responsible for the project's activities and acts as the data controller (or academic organization) representative. They, for example, need to describe which type of sensitive data the project is processing.
 
 Next select suitable tutorial:
 
