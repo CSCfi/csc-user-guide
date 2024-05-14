@@ -13,9 +13,8 @@ Currently supported pennylane versions:
 
 | Version | Module                               | LUMI  | Notes           |
 |:--------|:-------------------------------------|:-----:|-----------------|
-| 0.35.1  | `pennylane-lightning/0.35.1-gpu`     | X     | default version |
-| 0.34.0  | `pennylane-lightning/0.34.0-gpu`     | X     |                 |
-| 0.33.1  | `pennylane-lightning/0.33.1-gpu`     | X     |                 |
+| 0.36.0  | `pennylane-lightning/0.36.0-gpu`     | X     | default version |
+| 0.35.1  | `pennylane-lightning/0.35.1-gpu`     | X     |                 |
 | 0.32.0  | `pennylane-lightning-kokkos/0.32.0`  | X     |                 |
 
 All modules are based on Tykky using LUMI-container-wrapper.
@@ -47,10 +46,10 @@ If you wish to have a specific version ([see above for available
 versions](#available)), use:
 
 ```bash
-module load pennylane-lightning/0.35.1-gpu
+module load pennylane-lightning/0.36.0-gpu
 ```
 
-where `0.35.1-gpu` is the specified version
+where `0.36.0-gpu` is the specified version
 
 This command will also show all available versions:
 
@@ -87,4 +86,3 @@ Submit the script with `sbatch <script_name>.sh`
 
 - [Pennylane documentation](https://docs.pennylane.ai/en/stable/code/qml.html)
 - [Pennylane-lightning documentation](https://docs.pennylane.ai/projects/lightning/en/stable/)
-- [Pennylane-lightning-kokkos documentation](https://docs.pennylane.ai/projects/lightning-kokkos/en/latest/)

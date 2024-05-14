@@ -272,6 +272,7 @@ nav:
            - Getting access: cloud/rahti2/access.md
            - Using the web interface: cloud/rahti2/usage/getting_started.md
            - Command line tool installation and usage: cloud/rahti2/usage/cli.md
+        - Migration to Rahti 2: cloud/rahti/rahti-migration.md
         - Storage in Rahti:
            - cloud/rahti2/storage/index.md
            - Persistent volumes: cloud/rahti2/storage/persistent.md
