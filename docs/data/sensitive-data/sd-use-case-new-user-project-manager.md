@@ -7,14 +7,14 @@ You need to access to SD services. You are manager of research team or work inde
 
 ## Solution
 
-1. Create a CSC account
-2. Create new CSC project
-3. Fill the GDPR document
-4. Activate SD Services for your project
-5. Apply resources (billing units) for your project
-6. Activate MFA Authentication
-7. If you have a research team, add them to be your project members
-8. Log into SD Services
+1. [Create a CSC account](#1-create-a-csc-account)
+2. [Create new CSC project](#2-create-new-csc-project)
+3. [Fill the GDPR document](#3-fill-the-gdpr-document)
+4. [Activate SD Services for your project](#4-activate-sd-services-for-your-project)
+5. [Apply resources (billing units) for your project](#5-apply-billing-units-for-your-project)
+6. [Activate MFA Authentication](#6-activate-mfa-authentication)
+7. [If you have a research team, add them to be your project members](#7-if-you-have-a-research-team-add-them-to-be-your-project-members)
+8. [Log into SD Services](#8-closing-your-project)
 
 ![How to get started as project manager.](images/MyCSC/HowToGetStarted_SD_Project_Manager.png)
 
@@ -29,7 +29,7 @@ You need to access to SD services. You are manager of research team or work inde
 - Set your password using 12 characters or more, containing both upper and lowercase letters and at least one number. No special characters are allowed.
  - You will receive your CSC user account confirmation via email.
 
-### 2.Create new CSC project
+### 2. Create new CSC project
 
 - Go to ”Projects” page (left side menu or a hamburger menu at the top right corner).
 - On the top of the page choose **”New project”**

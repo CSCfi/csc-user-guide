@@ -1,6 +1,6 @@
 # Login to SD Connect
 
-## Prequisites
+## Prerequisites
 * [Access SD Connect and SD Desktop for the first time](sd-access.md#access-sd-connect-and-sd-desktop-for-the-first-time)
 
 

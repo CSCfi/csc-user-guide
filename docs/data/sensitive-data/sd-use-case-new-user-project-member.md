@@ -7,16 +7,17 @@ You need to access to SD services. You are member of a research team and researc
 
 ## Solution
 
-1. Create a CSC account
-2. Join to CSC project
-3. Accept SD Services terms of use
-4. Activate MFA Authentication
-5. Log into SD Services
+1. [Create a CSC account](#1-create-a-csc-account)
+2. [Join to CSC project](#2-join-to-csc-project)
+3. [Accept SD Services terms of use](#3-accept-sd-services-terms-of-use)
+4. [Activate MFA Authentication](#4-activate-mfa-authentication)
+5. [Log into SD Services](#5-log-into-sd-services)
 
 ![How to get started as project member.](images/MyCSC/HowToGetStarted_SD_Project_Member.png)
 
 ## Step by step tutorial
     
+### 1. Create a CSC account
 - **Go to [MyCSC portal](https://my.csc.fi){ target="_blank" }**
 - Log in with Virtu or Haka depending on which federation your home organization is a member of. Select your home organization and log in to their identity service. [How to get an account without Haka or Virtu](../../accounts/how-to-create-new-user-account.md#getting-an-account-without-haka-or-virtu). 
 - Fill in your information on the Sign up page.
