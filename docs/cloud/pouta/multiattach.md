@@ -33,7 +33,7 @@ This feature has several advantages and disadvantages. On one side it allows to 
 
 ### CLI
 
-Before doing this, you need to [install the openstack client](../install-client/)):
+Before doing this, you need to [install the openstack client](../install-client/):
 
 1. Create a multi attach volume:
 
@@ -138,7 +138,6 @@ In order to install GFS2, you need to follow few steps:
     ```sh
     apt install gfs2-utils dlm-controld linux-modules-extra-$(uname -r)
     ```
-    Where `<ansible_kernel>` is the version of the current kernel.
 
 1. Make sure that every node **domain name** can be resolved in every other node. In Pouta, the simplest way is to use [/etc/hosts](https://en.wikipedia.org/wiki/Hosts_(file)), where each host has a line similar to:
 
@@ -373,7 +372,7 @@ If you already have a cluster of VMs, or want to manually create them, it is sti
 
 In order to install OCFS2, you need to follow few steps:
 
-1. Install the VM nodes. There is no special consideration on this step, other than making sure the nodes can see each other in the Network (it is the default behaviour of VM nodes created in the same Pouta project), and that they are installed with the same distribution version. We have tested this with `Ubuntu v22.04` and `AlmaLinux-9`, other distributions and versions might also work, but we have not tested them. This guide will use Ubuntu as an example. AlmaLinux requires to install an specific Oracle kernel.
+1. Install the VM nodes. There is no special consideration on this step, other than making sure the nodes can see each other in the Network (it is the default behaviour of VM nodes created in the same Pouta project), and that they are installed with the same distribution version. We have tested this with `Ubuntu v22.04` and `AlmaLinux-9`, other distributions and versions might also work, but we have not tested them. This guide will use **Ubuntu** as an example. AlmaLinux requires to install an specific [Oracle kernel](https://support.oracle.com/knowledge/Oracle%20Linux%20and%20Virtualization/1253272_1.html).
 
 1. Create and attach the volume. See the manual [Create and attach a volume](#create-and-attach-a-volume) from above.
 
@@ -487,13 +486,16 @@ In order to install OCFS2, you need to follow few steps:
     After that, you can check that it was indeed mounted as read-only by:
 
     ```sh
-    $ mount | grep /mnt
-  /dev/vdb on /mnt type ocfs2 (ro,relatime,_netdev,heartbeat=local,nointr,data=ordered,errors=remount-ro,atime_quantum=60,coherency=full,user_xattr,acl)
+    mount | grep /mnt
+    /dev/vdb on /mnt type ocfs2 (ro,relatime,_netdev,heartbeat=local,nointr,data=ordered,errors=remount-ro,atime_quantum=60,coherency=full,user_xattr,acl)
     ```
     Also, as you can see in the output above, the default behaviour is that when any error occurs, to remount it as read only (`errors-remount-ro`). See `mount.ocfs2` for more options.
 
 
 ## Upstream documentation
 
-- GFS2: <https://ocfs2.wiki.kernel.org/>
-- OCFS2: <https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/configuring_gfs2_file_systems/index>
+- GFS2: 
+    - <https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/configuring_gfs2_file_systems/index>
+- OCFS2: 
+    - <https://ocfs2.wiki.kernel.org/>
+    - <https://public-yum.oracle.com/>
