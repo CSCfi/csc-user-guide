@@ -269,6 +269,14 @@ and run the script as below:
 sbatch sbatch-hq-tykky.sh
 ```
 
+!!! info "Note"
+    HyperQueue creates task-specific folders (`job-<n>`) in the same directory
+    from where you submitted the batch script. These are sometimes useful for
+    debugging. However, if your code is working fine, the creation of many folders
+    may be annoying besides causing some load on the Lustre parallel file system.
+    You can prevent the creation of such task-specific folders by setting `stdout`
+    and `stderr` HyperQueue flags to `none` ( i.e., `hq submit --stdout=none --stderr=none ...`)
+
 ### Example 2: Hyperqueue executor for Snakemake workflow where Python packages are installed in a container
 
 Batch script named as `sbatch-hq-sing.sh`:
