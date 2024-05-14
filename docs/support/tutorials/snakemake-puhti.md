@@ -87,7 +87,7 @@ mkdir -p /projappl/<project>/$USER && mkdir -p /projappl/<project>/$USER/snakema
 conda-containerize new --prefix /projappl/<project>/$USER/snakemake_tykky env.yaml    
 ```
 
-In the above example, Tykky wrapper installs Conda packages (as listed in the file, `env.yml`) to the directory `/projappl/project_xxxx/$USER/snakemake_tykky`. Please note that you have to append the `/bin` directory of the installation to the `$PATH` variable before starting to use the installed environment, as shown below:
+The env.yaml in the above example is available as part of tutorial scripts and data provided later in this section. Tykky wrapper installs Conda packages (as listed in the file, `env.yml`) to the directory `/projappl/project_xxxx/$USER/snakemake_tykky`. Please note that you have to append the `/bin` directory of the installation to the `$PATH` variable before starting to use the installed environment, as shown below:
 
 ```bash
 export PATH="/projappl/project_xxxx/$USER/snakemake_tykky/bin:$PATH"
