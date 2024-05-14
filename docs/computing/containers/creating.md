@@ -43,11 +43,11 @@ You can also build your own container from scratch. This is an option for more e
 
 You can find some help also by looking at our [tutorial on building Apptainer containers from scratch](../../support/tutorials/singularity-scratch.md).
 
-## Building a container without sudo access
+## Building a container without sudo access on Puhti and Mahti
 
-Root access into the cluster is not permitted. Namespaces have also been disabled due to security issues involved. However with a few restrictions Apptainer can still be used by an unprivileged user to build a container by using [fakeroot](https://apptainer.org/docs/user/main/fakeroot.html).
+Root access into Puhti and Mahti is not permitted. Namespaces have also been disabled due to security issues involved. However with a few restrictions Apptainer can still be used by an unprivileged user to build a container by using [fakeroot](https://apptainer.org/docs/user/main/fakeroot.html).
 
-In the cluster Apptainer enables `--fakeroot` flag by default when building containers, this makes the user appear as root:root while building the container thus enabling the user to build images that require root permissions e.g. to install packages via apt.
+Apptainer enables `--fakeroot` flag by default when building containers if sudo or namespaces are not available, this makes the user appear as root:root while building the container thus enabling the user to build images that require root file permissions e.g. to install packages via apt.
 However this only makes the user appear as the root user, in the host system user has no additional permissions. By itself fakeroot is not always sufficient and building some containers may fail due to various different reasons. For more details see [Apptainer documentation](https://apptainer.org/docs/user/main/fakeroot.html).
 
 
@@ -62,7 +62,7 @@ From: ubuntu:22.04
 Image can then be built `apptainer build ubuntu.sif ubuntu.def` and ran `apptainer shell ubuntu.sif`. Now the installed package can be accessed in the shell opened by typing `echo hello | /usr/games/cowsay`. Note that sudo is not required to run these commands.
 
 
-Common docker base images and whether installing simple packages with package manager works on them in the cluster:
+Common docker base images and whether installing simple packages with the distributions default package manager works on them in Puhti and Mahti:
 
 |Image|Tag|Works|
 |-----|---|-----|
