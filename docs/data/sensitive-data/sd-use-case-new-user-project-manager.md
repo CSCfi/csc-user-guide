@@ -52,9 +52,9 @@ You need to access to SD services. You are manager of research team or work inde
 ### 4. Activate SD Services for your project
 
 - Services are listed in **Services** window in the bottom right of the project page.
-- Select SD Connect.
+- Select **Allas** (You need Allas to use SD Connect).
 - Read and accept the terms of use and click **“Add service”**.
-- Select SD Desktop and add it also.
+- Select **SD Desktop** and add it also.
 
 ![Add new services.](./images/MyCSC/MyCSC_AddServices.png)
 
