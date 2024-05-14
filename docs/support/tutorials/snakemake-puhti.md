@@ -233,36 +233,29 @@ Batch script named as `sbatch-hq-tykky.sh`:
 #SBATCH --time=00:10:00
 #SBATCH --mem-per-cpu=2G
 #SBATCH --nodes=1
-#SBATCH --cpus-per-task=40
+#SBATCH --cpus-per-task=10
 #SBATCH --ntasks-per-node=1
 #SBATCH --partition=small
 
-module load hyperqueue
+module load hyperqueue/0.16.0
 
 export PATH="/projappl/project_xxxx/$USER/snakemake_tykky/bin:$PATH"
 
-# Create a per job directory
-
+# Specify a location for the HyperQueue server
 export HQ_SERVER_DIR=$PWD/.hq-server-$SLURM_JOB_ID
 mkdir -p $HQ_SERVER_DIR
 
+# Start the server in the background (&) and wait until it has started
 hq server start &
-srun --cpu-bind=none --hint=nomultithread --mpi=none -N $SLURM_NNODES -n $SLURM_NNODES -c 40 hq worker start --cpus=40 &
+until hq job list &>/dev/null ; do sleep 1 ; done
+ 
+# Start the workers in the background and wait for them to start
+srun --exact --cpu-bind=none --mpi=none hq worker start --cpus=${SLURM_CPUS_PER_TASK} &
+hq worker wait "${SLURM_NTASKS}"
 
-num_up=$(hq worker list | grep RUNNING | wc -l)
-while true; do
-
-    echo "Checking if workers have started"
-    if [[ $num_up -eq $SLURM_NNODES ]];then
-        echo "Workers started"
-        break
-    fi
-    echo "$num_up/$SLURM_NNODES workers have started"
-    sleep 1
-    num_up=$(hq worker list | grep RUNNING | wc -l)
-
-done
+# Actual snakemake command
 snakemake -s Snakefile --jobs 1 --cluster "hq submit --cpus 2"
+
 # module load snakemake/8.4.6
 # snakemake -s Snakefile -j 1 --executor cluster-generic --cluster-generic-submit-cmd "hq submit --cpus 2"
 
@@ -287,36 +280,30 @@ Batch script named as `sbatch-hq-sing.sh`:
 #SBATCH --time=00:10:00
 #SBATCH --mem-per-cpu=2G
 #SBATCH --nodes=1
-#SBATCH --cpus-per-task=40
+#SBATCH --cpus-per-task=10
 #SBATCH --ntasks-per-node=1
 #SBATCH --partition=small
 
-module load hyperqueue
+module load hyperqueue/0.16.0
 module load snakemake/8.4.6
 
-# Create a per job directory
 
+# Specify a location for the HyperQueue server
 export HQ_SERVER_DIR=$PWD/.hq-server-$SLURM_JOB_ID
 mkdir -p $HQ_SERVER_DIR
 
+# Start the server in the background (&) and wait until it has started
 hq server start &
-srun --cpu-bind=none --hint=nomultithread --mpi=none -N $SLURM_NNODES -n $SLURM_NNODES -c 40 hq worker start --cpus=40 &
+until hq job list &>/dev/null ; do sleep 1 ; done
+ 
+# Start the workers in the background and wait for them to start
+srun --exact --cpu-bind=none --mpi=none hq worker start --cpus=${SLURM_CPUS_PER_TASK} &
+hq worker wait "${SLURM_NTASKS}"
 
-num_up=$(hq worker list | grep RUNNING | wc -l)
-while true; do
-
-    echo "Checking if workers have started"
-    if [[ $num_up -eq $SLURM_NNODES ]];then
-        echo "Workers started"
-        break
-    fi
-    echo "$num_up/$SLURM_NNODES workers have started"
-    sleep 1
-    num_up=$(hq worker list | grep RUNNING | wc -l)
-
-done
-
+# Actual snakemake command
 snakemake -s Snakefile -j 1 --use-singularity --executor cluster-generic --cluster-generic-submit-cmd "hq submit --cpus 2"
+
+# For Snakemake versions 7.x.x, use command:
 # snakemake -s Snakefile --jobs 1 --use-singularity --cluster "hq submit --cpus 2"
 
 hq worker stop all
