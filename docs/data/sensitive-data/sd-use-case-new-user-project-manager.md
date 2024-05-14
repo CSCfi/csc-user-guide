@@ -7,14 +7,14 @@ You need to access to SD services. You are manager of research team or work inde
 
 ## Solution
 
-1. Create a CSC account
-2. Create new CSC project
-3. Fill the GDPR document
-4. Activate SD Services for your project
-5. Apply resources (billing units) for your project
-6. Activate MFA Authentication
-7. If you have a research team, add them to be your project members
-8. Log into SD Services
+1. [Create a CSC account](#create-a-CSC-account)
+2. [Create new CSC project](#create-new-CSC-project)
+3. [Fill the GDPR document](#fill-the-gdpr-document)
+4. [Activate SD Services for your project](#activate-sd-services-for-your-project)
+5. [Apply resources (billing units) for your project](#apply-billing-units-for-your-project)
+6. [Activate MFA Authentication](#activate-mfa-authentication)
+7. [If you have a research team, add them to be your project members](#if-you-have-a-research-team-add-them-to-be-your-project-members)
+8. [Log into SD Services](#log-into-sd-services)
 
 ![How to get started as project manager.](images/MyCSC/HowToGetStarted_SD_Project_Manager.png)
 
@@ -52,9 +52,9 @@ You need to access to SD services. You are manager of research team or work inde
 ### 4. Activate SD Services for your project
 
 - Services are listed in **Services** window in the bottom right of the project page.
-- Select SD Connect.
+- Select **Allas** (You need Allas to use SD Connect).
 - Read and accept the terms of use and click **“Add service”**.
-- Select SD Desktop and add it also.
+- Select **SD Desktop** and add it also.
 
 ![Add new services.](./images/MyCSC/MyCSC_AddServices.png)
 
