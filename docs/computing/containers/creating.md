@@ -42,3 +42,27 @@ Also see our [documentation on how to run containers](run-existing.md).
 You can also build your own container from scratch. This is an option for more experienced users, and your main source of information is the [official Apptainer documentation on building containers](https://apptainer.org/docs/user/main/build_a_container.html).
 
 You can find some help also by looking at our [tutorial on building Apptainer containers from scratch](../../support/tutorials/singularity-scratch.md).
+
+
+## Using GPU from containers in interactive sessions in Mahti
+
+To run programs that [use GPU](https://apptainer.org/docs/user/latest/gpu.html) use `--nv` flag when starting the container. To use the graphical display with [VirtualGL](https://virtualgl.org/) a few environment variables have to be set as well. It is easiest to create a script that does this all for us.
+
+For example the following script launches blender binary from blender.sif image.
+```
+#!/bin/bash
+export VGL_DISPLAY=$(tee /dev/dri/card* 2>&1<<<0 | grep I | cut -d ':' -f2 | tr -d ' ' | head -n1)
+export DISPLAY=":$(ls -l /tmp/.X11-unix/ | grep $USER | head -n1 | awk '{print $9}' | sed 's/X//g'  ).0"
+
+apptainer run --nv /path_to_image/blender.sif vglrun /opt/blender-3.2.2/blender
+```
+
+For easier usage create a `blender.desktop` [shortcut file](https://specifications.freedesktop.org/desktop-entry-spec/desktop-entry-spec-latest.html#recognized-keys) to `/users/$USER/Desktop` directory. Icon then appears on desktop which will start the program for us.
+
+```
+[Desktop Entry]
+Type=Application
+Name=Blender
+Terminal=true
+Exec=sh /path_to_script/start_blender.sh
+```
