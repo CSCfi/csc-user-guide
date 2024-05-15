@@ -10,6 +10,6 @@ We have collected some useful material in the following locations:
 * [Tutorials](../../support/tutorials/index.md)
 * [Frequently Asked Questions](index.md)
 * [Contact us](../../support/contact.md)
-* [Collection of training materials](https://www.csc.fi/en/web/training/materials)
+* [Collection of training materials](https://research.csc.fi/en/web/training/materials)
 
 Direct support from CSC Servicedesk: send email to servicedesk (at) csc.fi
