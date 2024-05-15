@@ -16,7 +16,7 @@ versions:
 
 | Version | Module                               | LUMI  | Notes           |
 |:--------|:-------------------------------------|:-----:|-----------------|
-| 12.2   | `helmi_qiskit/12.2`                   | X     |                 |
+| 13.6    | `helmi_qiskit/13.6`                  | X     |                 |
 
 All modules are based on Tykky using LUMI-container-wrapper.
 Wrapper scripts have been provided so that common commands such as `python`,
