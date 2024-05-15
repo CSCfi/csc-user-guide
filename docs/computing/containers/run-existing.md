@@ -44,7 +44,7 @@ export SING_FLAGS=--nv
 
 ### Running Apptainer directly
 
-You can also run Apptainer directly if the `apptainer_wrapper` script for some reason isn't appropriate for you.  Then you need to provide the path to the container image yourself and bind any paths that you need to be able to access from inside the image.
+You can also run Apptainer directly if the `apptainer_wrapper` script for some reason isn't appropriate for you.  Then you need to provide the path to the container image yourself and bind any paths that you need to be able to access from inside the image. Note that by default some paths such as `HOME` and `CWD` are [bound automatically](https://apptainer.org/docs/user/main/bind_paths_and_mounts.html#system-defined-bind-paths).
 
 Usage examples:
 

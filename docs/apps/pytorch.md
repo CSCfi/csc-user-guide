@@ -10,7 +10,7 @@ Machine learning framework for Python.
 
 !!! info "News" 
 
-    **1.3.2024** PyTorch 2.2.1 added to Puhti, Mahti and LUMI. The LUMI
+    **1.3.2024** PyTorch 2.2 added to Puhti, Mahti and LUMI. The LUMI
     module includes ROCm versions of 
     [FlashAttention-2](https://github.com/ROCm/flash-attention) 
     and [bitsandbytes](https://github.com/ROCm/bitsandbytes) as these are
@@ -44,8 +44,10 @@ Currently supported PyTorch versions:
 
 | Version | Module         | Puhti | Mahti | LUMI | Notes                      |
 |:--------|----------------|:-----:|:-----:|------|:---------------------------|
-| 2.1.2   | `pytorch/2.1`  | -     | -     | X    | default version            |
-| 2.1.0   | `pytorch/2.1`  | X     | X     | -    | default version            |
+| 2.2.2   | `pytorch/2.2`  | -     | -     | X    | default version            |
+| 2.2.1   | `pytorch/2.2`  | X     | X     | -    | default version            |
+| 2.1.2   | `pytorch/2.1`  | -     | -     | X    |                            |
+| 2.1.0   | `pytorch/2.1`  | X     | X     | -    |                            |
 | 2.0.1   | `pytorch/2.0`  | -     | -     | X    |                            |
 | 2.0.0   | `pytorch/2.0`  | X     | X     | -    |                            |
 | 1.13.1  | `pytorch/1.13` | -     | -     | X    | limited multi-node support |
