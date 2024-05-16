@@ -14,6 +14,7 @@
 * [How to run existing containers in Puhti](../../computing/containers/run-existing.md)
 * [Getting disk usage using Lue](lue.md)
 * [Running Julia jobs on Puhti and Mahti clusters](julia.md)
+* [Using Python in HPC environments](python-hpc.md)
 
 ## Installation of tools on supercomputers
 * [Installing software with Spack](user-spack.md)
