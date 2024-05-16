@@ -43,14 +43,13 @@ The rates are as follows:
 Once all the billing units for your CSC project have been used up, **your access to the SD Desktop service will be restricted**. This means that all virtual desktops currently running will automatically be paused, and you won't be able to access their content. However, **your data remains unaffected and will not be deleted**, even in cases where the total billing units reach zero or enter negative values.
 
 !!! Note 
-    You will get a notification via email when your billing units have been consumed.
+    * You will get a notification via email when your billing units have been consumed. 
+    * Please apply more billing units for your project in [MyCSC](https://my.csc.fi/login){ target="_blank" }.
   
-
-
 
 ## Billing unit calculator for estimating billing units consumption
 
-Billing unit calculator will help you to estimate how many BUs your CSC project will require. You can estimate SD Connect billing unit consumption by using Allas option in the calculator.
+Billing unit calculator will help you to estimate how many BUs your CSC project will require during one year. You can estimate SD Connect billing unit consumption by using **Allas** option in the calculator.
 
 <iframe srcdoc="https://my.csc.fi/buc" style="width: 100%; height: 1300px; border: 0"></iframe>
 
