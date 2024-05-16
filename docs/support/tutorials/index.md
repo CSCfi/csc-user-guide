@@ -17,6 +17,7 @@
 * [Getting disk usage using Lue](lue.md)
 * [Installing software with Spack](user-spack.md)
 * [Running Julia jobs on Puhti and Mahti clusters](julia.md)
+* [Using Python in HPC environments](python-hpc.md)
 
 ## Performance and high-throughput workflows
 * [Optimising parallel I/O](lustre_performance.md)
