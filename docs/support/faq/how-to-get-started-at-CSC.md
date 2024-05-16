@@ -4,7 +4,7 @@ You are now browsing through our service guides.
 We have collected some useful material in the following locations:
 
 * [Registering as a CSC customer](https://research.csc.fi/accounts-and-projects)
-* [Get started at CSC -collection page](https://www.csc.fi/get-started)
+* [Get started at CSC -collection page](https://research.csc.fi/get-started)
 * [Services for research](https://research.csc.fi/home)
 * [Services by discipline](https://research.csc.fi/sciences)
 * [Tutorials](../../support/tutorials/index.md)
