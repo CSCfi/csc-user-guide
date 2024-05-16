@@ -77,7 +77,7 @@ Below is a table of common docker base images and whether installing simple pack
 
 Some issues related to, for example, glibc, fakeroot, file permissions and old remote repos are often difficult to solve, so trying out a few different base images can be a good idea before spending a lot of time debugging.
 
-## Using GPU from containers in interactive sessions in Mahti
+## Using GPU from containers in interactive sessions in Puhti
 
 To run programs that [use GPU](https://apptainer.org/docs/user/latest/gpu.html) use `--nv` flag when starting the container. To use the graphical display with [VirtualGL](https://virtualgl.org/) a few environment variables have to be set as well. It is easiest to create a script that does this all for us.
 
