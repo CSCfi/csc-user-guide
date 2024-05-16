@@ -69,7 +69,7 @@ and platforms by CSC and partners!
 
 | Source | Example content |
 | -------- | -------- |
-| **[CSC training calendar](https://csc.fi/web/guest/training)** | Upcoming courses <br> Links to self-learning materials, e.g. [Elements of Supercomputing](https://edukamu.fi/elements-of-supercomputing) |
+| **[CSC training calendar](https://www.csc.fi/en/trainings/training-calendar)** | Upcoming courses <br> Links to self-learning materials, e.g. [Elements of Supercomputing](https://edukamu.fi/elements-of-supercomputing) |
 | **[eLena](https://e-learn.csc.fi) (Moodle environment)** | [Research Data Management](https://e-learn.csc.fi/course/view.php?id=63) <br> [CSC Computing Environment](https://e-learn.csc.fi/course/view.php?id=76) |
 | **[Tutorials at Docs CSC](tutorials/index.md)** | [Getting started with Puhti](tutorials/puhti_quick.md) <br> [Machine learning guide](tutorials/ml-guide.md) |
 | **[Docs CSC training materials collection](training-material.md) (this page)** | Links to thematically collected materials |

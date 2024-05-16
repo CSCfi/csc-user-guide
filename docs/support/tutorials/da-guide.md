@@ -1,6 +1,6 @@
 # Data analysis guide
 
-The purpose of this guide is to help you in choosing the right tools and environment for your data analysis.  In addition, CSC organizes a [wide variety of training courses](https://www.csc.fi/web/training), many of which are related to data analytics and machine learning in CSC's computing environments.  Finally, CSC's specialists are happy to help with all aspects of your data driven research, and can be contacted via the [CSC Service Desk](https://www.csc.fi/contact-info).
+The purpose of this guide is to help you in choosing the right tools and environment for your data analysis.  In addition, CSC organizes a [wide variety of training courses](https://www.csc.fi/en/trainings), many of which are related to data analytics and machine learning in CSC's computing environments.  Finally, CSC's specialists are happy to help with all aspects of your data driven research, and can be contacted via the [CSC Service Desk](https://www.csc.fi/contact-info).
 
 ## Getting started
 
@@ -31,7 +31,7 @@ Below is a short glossary of CSC's services that are most relevant for data anal
 
 *You have been dabbling in Excel or SPSS but now you are looking for more powerful ways to handle your data.*
 
-A great way to start with data analytics is to attend a course. You can check out upcoming courses on the [CSC training website](https://www.csc.fi/web/training). Also, CSC has some training materials that are suitable for self-learning, such as these introductory courses:
+A great way to start with data analytics is to attend a course. You can check out upcoming courses on the [CSC training website](https://www.csc.fi/en/trainings). Also, CSC has some training materials that are suitable for self-learning, such as these introductory courses:
 
 - [R for Beginners](https://github.com/csc-training/R-for-beginners)
 - [Data Analysis with R](https://github.com/csc-training/da-with-r-remote)
