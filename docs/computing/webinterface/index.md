@@ -4,10 +4,26 @@
 
 The web interfaces for Puhti and Mahti at [www.puhti.csc.fi](https://www.puhti.csc.fi) and
 [www.mahti.csc.fi](https://www.mahti.csc.fi) can be used to access the supercomputers using only a
-web browser. A web interface for LUMI is also available at [www.lumi.csc.fi](https://www.lumi.csc.fi)
-(see the [LUMI documentation](https://docs.lumi-supercomputer.eu/runjobs/webui/) for more details).
+web browser. A web interface for LUMI is also available at [www.lumi.csc.fi](https://www.lumi.csc.fi),
+see the [LUMI documentation](https://docs.lumi-supercomputer.eu/runjobs/webui/) for more details.
 
-**Features available in both the Puhti and Mahti web interfaces:**
+!!! warning "Scope"
+    The HPC web interfaces are best suited for **interactive workloads** that
+    consume a **modest amount of computational resources**. Some examples are
+    **pre- and post-processing of data** in Jupyter Notebooks using
+    **at most a few tens of CPU cores**, **small-scale AI/ML experiments**
+    using a **single GPU**, and **data visualization** tasks.
+
+    Please note that the interactive applications in the web interfaces are
+    **not** suitable for **multi-node** and **multi-GPU jobs**. Such workloads
+    should ideally be carried out as standard
+    [batch jobs](../running/getting-started.md). If you are new to batch jobs
+    and command-line usage of the HPC environment, we recommend the
+    [CSC Computing Environment](https://csc-training.github.io/csc-env-eff/)
+    self-learning materials to learn how to get the most out of CSC's
+    supercomputers.
+
+**Features available in both the Puhti and Mahti web interfaces**
 
 - View, download, upload and move files between Allas, the supercomputer and your local computer
 - Open a shell on the login node
@@ -23,7 +39,7 @@ web browser. A web interface for LUMI is also available at [www.lumi.csc.fi](htt
     - TensorBoard
     - Visual Studio Code
 
-**Apps available in Puhti only:**
+**Apps available in Puhti only**
 
 - Accelerated visualization with applications:
     - Blender
@@ -32,10 +48,6 @@ web browser. A web interface for LUMI is also available at [www.lumi.csc.fi](htt
     - VMD
 - RStudio
 - MATLAB
-
-Everything still runs directly on the supercomputers, giving you all the resources and power
-of a supercomputer, but easily accessible using only a web browser.
-
 
 ## Connecting
 
@@ -51,7 +63,6 @@ After successful authentication, you will see the dashboard.
 
 From here you can browse your files on the supercomputer, start a shell, view running jobs or start one of the many available applications. The dashboard also contains some important system information.
 
-
 ## Available features
 
 ### Shell
@@ -60,7 +71,7 @@ The Shell apps can be used to access the supercomputer via the web interface. Yo
 connection to the login nodes, or a more persistent shell to the compute nodes. For more details
 about these, see the [Shell](shell.md) page.
 
-### Files
+### File browser
 
 The files app can be used to manage your files on the supercomputer, Allas, and IDA. For more
 information, check the [File browser](file-browser.md) page.
@@ -71,6 +82,10 @@ Recent and running batch jobs can be viewed using the _Jobs_ section on the top 
 
 In the future it will become possible to submit batch jobs through the web interface, but for now the recommended way is to launch the jobs using `sbatch` from the shell.   
 
+### Project view
+
+Using the project view under the _Tools_ section on the top navbar, you can view 
+current disk and project billing unit quotas on the supercomputers. For more information see [Project view](project-view.md).
 
 ### Interactive apps
 
@@ -78,7 +93,6 @@ Interactive apps are programs that can be launched and run on the compute nodes 
 These are apps such as Jupyter Notebook, RStudio and Visual Studio Code.
 
 If the interactive app does not start or does not work as expected you can delete the session and try to launch the app again.
-
 
 #### Launching an interactive app
 
@@ -100,8 +114,3 @@ Selecting the `gpu` or `gputest` partition will allocate a Nvidia V100 GPU.
 In the Mahti web interface, the `interactive` and `gpusmall` partitions are available. Selecting the
 `gpusmall` partition will allocate a split Nvidia A100 GPU (a100_1g.5g). For more details about the
 split GPUs, see the [Mahti partitions page](../running/batch-job-partitions.md#mahti-partitions).
-
-### Project view
-
-Using the project view under the _Tools_ section on the top navbar, you can view 
-current disk and project billing unit quotas on the supercomputers. For more information see [Project view](project-view.md).

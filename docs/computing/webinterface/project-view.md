@@ -1,4 +1,5 @@
 # Project view
+
 The Project view tool visualizes your current Puhti or Mahti projects and Lustre quotas.
 You can only view your projects in Project view, to modify projects or quotas, use [MyCSC](https://my.csc.fi/).
 
