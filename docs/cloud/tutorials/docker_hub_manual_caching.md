@@ -5,10 +5,15 @@ an external dependency or improve performance.
 
 The process is simple:
 
+1. [Install](../../rahti2/usage/cli/#how-to-install-the-oc-tool) and [login with OC](../../rahti2/usage/cli/#how-to-login-with-oc).
+
 1. With a terminal, connect to the Rahti 2 registry:  
-   ```sh
-   docker login -p $(oc whoami -t ) -u unused image-registry.apps.2.rahti.csc.fi
-   ```
+    ```sh
+    docker login -p $(oc whoami -t ) -u unused image-registry.apps.2.rahti.csc.fi
+    ```
+
+    !!! info
+        If you get any error, make sure you are logged in. If you run `oc whoami`, the command should return your username.
 
 2. Tag the image you want to push:
    ```sh
