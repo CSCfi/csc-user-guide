@@ -79,23 +79,48 @@ Some issues related to, for example, glibc, fakeroot, file permissions and old r
 
 ## Using GPU from containers in interactive sessions in Puhti
 
-To run programs that [use GPU](https://apptainer.org/docs/user/latest/gpu.html) use `--nv` flag when starting the container. To use the graphical display with [VirtualGL](https://virtualgl.org/) a few environment variables have to be set as well. It is easiest to create a script that does this all for us.
+### Running existing images
 
-For example the following script launches blender binary from blender.sif image.
-```
-#!/bin/bash
-export VGL_DISPLAY=$(tee /dev/dri/card* 2>&1<<<0 | grep I | cut -d ':' -f2 | tr -d ' ' | head -n1)
-export DISPLAY=":$(ls -l /tmp/.X11-unix/ | grep $USER | head -n1 | awk '{print $9}' | sed 's/X//g'  ).0"
+To run programs that [use GPU](https://apptainer.org/docs/user/latest/gpu.html) use `--nv` flag when starting the container `apptainer run --nv /path_to_image/image.sif`. To use the graphical display with [VirtualGL](https://virtualgl.org/) a few environment variables have to be set as well. In the base images provided these are set automatically when the container is started.
 
-apptainer run --nv /path_to_image/blender.sif vglrun /opt/blender-3.2.2/blender
-```
+To easily start the program create a `.desktop` [shortcut file](https://specifications.freedesktop.org/desktop-entry-spec/desktop-entry-spec-latest.html#recognized-keys) to `/users/$USER/Desktop` directory. Icon then appears on the desktop which will start the program in the container.
 
-For easier usage create a `blender.desktop` [shortcut file](https://specifications.freedesktop.org/desktop-entry-spec/desktop-entry-spec-latest.html#recognized-keys) to `/users/$USER/Desktop` directory. Icon then appears on desktop which will start the program for us.
-
+Example `blender.desktop` file which starts the example container provided in the next section.
 ```
 [Desktop Entry]
 Type=Application
 Name=Blender
 Terminal=true
-Exec=sh /path_to_script/start_blender.sh
+Exec=apptainer run --nv /path_to_image/vgl_blender.sif
+```
+
+### Building your own images
+To build containers for VGL applications yourself you can use one of the base images provided as a base.
+For details of how the base image works, see its definition file here (link).
+
+Here is a commented example definition file that installs blender on top of the base image.
+
+```
+Bootstrap: localimage
+From: /path_to_image/vgl_base.sif
+
+%environment
+	# Specify path to the binary that we want to run on start
+	export VGL_APPLICATION=/opt/blender-3.6.0/blender
+%post
+	# When building with fakeroot without namespaces we cannot modify users or groups during the installation so we replace problematic binaries with dummies and hope that everything will still work
+	cp /usr/bin/true /usr/sbin/groupadd
+	cp /usr/bin/true /usr/sbin/useradd
+
+	# Install blender dependencies, to figure out which libraries are required use ldd, read error messages etc.
+	apt-get install -y libxi6 libxrender1 libxkbcommon0 \
+	                   libxkbcommon-x11-0 libsm6 libice6
+
+	# Install Blender binary
+	cd /opt
+	BLENDER_VERSION=3.6.0
+	wget https://ftp.halifax.rwth-aachen.de/blender/release/Blender$(echo "$BLENDER_VERSION" | cut -d. -f1,2)/blender-$BLENDER_VERSION-linux-x64.tar.xz
+	tar xf blender-$BLENDER_VERSION-linux-x64.tar.xz
+	mv blender-$BLENDER_VERSION-linux-x64 /opt/blender-$BLENDER_VERSION
+	rm blender-$BLENDER_VERSION-linux-x64.tar.xz
 ```
