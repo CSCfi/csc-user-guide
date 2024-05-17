@@ -60,8 +60,8 @@ Back in Pouta's interface, make sure that you select the correct project. There 
 
 To open a connection to your virtual machines in cPouta/ePouta, you first need to prove your identity to the Virtual and for that need SSH keys. This is the default (and more secure) way to access Virtual Machines. You only need to set up your SSH keys once per project.
 
-!!! info "Import puyblic keys"
-    If you are already familiar with SSH keys, you can use your existing SSH keys to access the virtual machines. In the web interface, go to the **Compute > Key Pairs** section, and select **Import Public Key**. You need to name your key, keep in mind you will need to use this name when creating Virtual Machines, so the recomendation is to keep it short and informative of the intended use. Secondly paste your public key, it must be in a single line and be in the form of `key-type hash comment`, for example a RSA key from `person@doamin.name`:
+!!! info "Import public keys"
+    If you are already familiar with SSH keys, you can use your existing SSH keys to access the virtual machines. In the web interface, go to the **Compute > Key Pairs** section, and select **Import Public Key**. You need to name your key, keep in mind you will need to use this name when creating Virtual Machines, so the recomendation is to keep it short and informative of the intended use. Secondly paste your public key, it must be in a single line and be in the form of `key-type hash comment`, for example a RSA key from `person@domain.name`:
 
     `ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAAAQQCo9+BpMRYQ/dL3DS2CyJxRF+j6ctbT3/Qp84+KeFhnii7NT7fELilKUSnxS30WAvQCCo2yU1orfgqr41mM70MB person@domain.name`
 
@@ -81,7 +81,7 @@ If you have not used SSH keypairs before, you need to create one. The web interf
 
 #### Linux and Mac
 
-In order to install the key you downloaded in the previous step (_keyname.pem_ or _keyname.cer_), you must run this commmands:
+In order to install the key you downloaded in the previous step (_keyname.pem_ or _keyname.cer_), you must run this commands:
 
 !!! info "For MacOS"
     If you are using Chrome browser in Mac OS X Monterey, you will get keyname.cer instead of keyname.pem. The following procedure will remain same.
@@ -251,9 +251,20 @@ Once the SSH keys and security groups are set, you can launch a new virtual mach
 
 1. **Image Name**, this decides which Linux distribution to use. You can select the image that fits more your use case. The images provided by Pouta by default are regularly maintained up to date.
 
-1. Under the **Access & Security** tab, you need to configure two options. First you need to choose the name of the *Key Pair* you have created in the **Preparatory Steps**. Secondly you need to select under the [**Security Groups**](#firewalls-and-security-groups) the security group previously created.
+1. Under the **Access & Security** tab, you need to configure two options. First you need to choose the name of the *Key Pair* you have created in the [**Preparatory Steps**](#setting-up-ssh-keys). Secondly you need to select under the [**Security Groups**](#firewalls-and-security-groups) the security group previously created.
+
+    ![Launch the instance access view](../img/launch_instance_access_security.png 'Launch cPouta instance network')
+
+!!! Warning  
+    If you click the "+" button, the window will close unexpectedly and a small window popup will appear:  
+    
+      ![Error plus button](../img/danger_keypairs.png 'Danger key pairs')  
+    
+    This is a known bug. Please refer to the [previous section](#setting-up-ssh-keys) on how to create your SSH keys.
 
 1. The **Networking** tab, make sure that your own network (your project name) is selected.
+
+    ![Launch the instance network view](../img/launch_instance_network.png 'Launch cPouta instance network')
 
 1. Finally, **Advanced Options** tab allows you to select a [**Server Group**](#server-groups)
 

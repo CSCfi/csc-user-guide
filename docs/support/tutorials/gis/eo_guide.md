@@ -26,7 +26,7 @@ For working with EO data in general, there are three main options:
 
 CSC services do not fit well in this categorization, as they provide some features from all of these. **CSC computing services provide a lot of computing power and storage space, and they are free of charge** for Finnish researchers for academic or educational use. 
 
-At CSC, EO data can be processed and analyzed using a supercomputer, for example [supercomputer Puhti](../../../computing/systems-puhti.md), or a virtual machine in the [cPouta cloud service](../../../cloud/pouta/pouta-what-is.md). Puhti's computing capacity can hardly be compared to any other EO service, in both available processing power and amount of memory. Both Puhti and cPouta have also GPU resources, which are especially useful for large simulations and deep learning use cases. 
+At CSC, EO data can be processed and analyzed using a supercomputer, for example [supercomputer Puhti](../../../computing/systems-puhti.md), or a virtual machine in the [cPouta cloud service](../../../cloud/pouta/index.md). Puhti's computing capacity can hardly be compared to any other EO service, in both available processing power and amount of memory. Both Puhti and cPouta have also GPU resources, which are especially useful for large simulations and deep learning use cases. 
 
 Puhti has a lot of [pre-installed applications](#what-applications-are-available-on-puhti), so it is a ready-to-use environment. cPouta virtual machines are similar to commercial cloud services, where all set-up and installations are done by the end-user. In general, both services only support Linux software.
 
@@ -240,7 +240,7 @@ Below is a list of alternative EO processing services that might be useful, when
 
 If you are interested in using CSC services for your EO research, please make yourself familiar with the services:
 
-* Visit a course, seminar or workshop; you can find all upcoming and past events in [the CSC training calendar](https://www.csc.fi/en/training#training-calendar)
+* Visit a course, seminar or workshop; you can find all upcoming and past events in [the CSC training calendar](https://www.csc.fi/en/trainings/training-calendar)
     * For getting started, go through [CSC Computing Environment - Self Learning course](https://ssl.eventilla.com/csccompenvselflearn)
 * Find information about services and how to use them in [CSC's documentation pages](../../../index.md)
 * For information on geocomputing in CSC environment, checkout the collection of  [CSC's geocomputing learning materials](https://research.csc.fi/gis-learning-materials) and [CSC geocomputing examples on Github](https://github.com/csc-training/geocomputing)

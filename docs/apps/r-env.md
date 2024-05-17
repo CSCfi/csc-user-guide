@@ -46,7 +46,7 @@ Other software and libraries:
 
 - NVIDIA NCCL is distributed under the [3-clause BSD license](https://docs.nvidia.com/deeplearning/nccl/bsd/index.html).
 
-- NVIDIA cuDNN is distributed under the [Software License Agreement for NVIDIA cuDNN](https://docs.nvidia.com/deeplearning/cudnn/sla/index.html).
+- NVIDIA cuDNN is distributed under the [Software License Agreement for NVIDIA software development kits](https://docs.nvidia.com/deeplearning/cudnn/latest/reference/eula.html).
 
 - cget is available under the [Boost Software License](https://github.com/pfultz2/cget/blob/master/LICENSE).
 

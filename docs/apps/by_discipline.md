@@ -176,15 +176,16 @@
 
 
 ## Quantum
-* [Pennylane](pennylane.md) Free open-source software framework for quantum machine learning and quantum computing
-* [Qiskit-on-iqm](qiskit-on-iqm.md) open-source qiskit adapter for quantum computing
 * [Cirq-on-iqm](cirq-on-iqm.md) open-source cirq adapter for quantum computing
-* [Qiskit](qiskit.md) open-source toolkit for useful quantum computing
 * [CUDA Quantum](cuda-quantum.md) open-source platform for hybrid quantum-classical computing
+* [Pennylane](pennylane.md) Free open-source software framework for quantum machine learning and quantum computing
+* [Qiskit](qiskit.md) open-source toolkit for useful quantum computing
+* [Qiskit-on-iqm](qiskit-on-iqm.md) open-source qiskit adapter for quantum computing
 
 ## Miscellaneous
 
 * [Accelerated visualization](accelerated-visualization.md) A selection of GPU accelerated visualization applications
+* [Blender](blender.md) 3D modeling, visualization and rendering software
 * [DDT](ddt.md) Parallel debugger
 * [Desktop](desktop.md) Remote desktop environment
 * [HyperQueue](hyperqueue.md) Scheduler for sub-node tasks

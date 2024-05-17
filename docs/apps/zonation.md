@@ -12,6 +12,7 @@ tags:
 
 __Zonation__ is available in Puhti with following versions:
 
+* 5.2.0.2 (including Graphical User Interface)
 * 5.1.0 (including Graphical User Interface)
 
 

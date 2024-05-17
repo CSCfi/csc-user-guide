@@ -99,5 +99,5 @@ Notes about the available tools. Note that this list may be outdated:
 *   [VS Code 1.78.2](./vscode.md) Code editor.
 *   [Crypt4gh-gui](../sd-connect-upload-for-analysis.md#sensitive-data-encryption-and-upload-for-analysis-up-to-100-gb) Encryption tool.
 *   [Backup tool](./backup_sd_desktop.md) Help tool to automatize backup and export in SD Desktop.
-*   [WEKA 3-8-6](https://www.cs.waikato.ac.nz/ml/index.html)
+*   [WEKA 3-8-6](https://ml.cms.waikato.ac.nz/weka/index.html)
 

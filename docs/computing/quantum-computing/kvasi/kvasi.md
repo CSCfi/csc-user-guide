@@ -59,9 +59,6 @@ Training material related to previous course can be found under the Folder **Cou
 
 * [Webinar: Quantum Computing and Programming in Two Hours (2021)](https://youtu.be/whoTr3zM3jU)
 * [Webinar: Kvanttilaskentaa ja -ohjelmointia kahdessa tunnissa (2021)](https://youtu.be/EnDKcCAjRtg)
-* [Webinar: What is Quantum Computing? (2019)](https://www.csc.fi/web/training/-/quantum-computing)
+* [Webinar: What is Quantum Computing? (2019)](https://youtu.be/44F0rYmLT4Y)
 * [Online: Introduction to Quantum Computing and Algorithms](https://ssl.eventilla.com/event/mZ9Pa)
 * [The Quantum Learning Machine at atos.net](https://atos.net/en/solutions/quantum-learning-machine)
-
----
-Latest update: 27 Nov 2020
