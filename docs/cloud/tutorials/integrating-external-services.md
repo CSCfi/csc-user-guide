@@ -1,6 +1,6 @@
 # Integrating External Services
 
-Kubernetes, and by extension OpenShift OKd, gives a lot of flexibility regarding network use cases. One of the uses cases is the one that allows to use external services, like databases, transparently in a OpenShift project. Other of the use cases would be to to have a network proxy between OpenShift installations. This could be used as a temporal to ease migration periods.
+Kubernetes, and by extension OpenShift OKD, gives a lot of flexibility regarding network use cases. One of the uses cases is the one that allows to use external services, like databases, transparently in a OpenShift project. Other of the use cases would be to to have a network proxy between OpenShift installations. This could be used as a temporal to ease migration periods.
 
 ![Proxy between clusters](../img/proxy.drawio.svg)
 
@@ -28,7 +28,7 @@ In the example above we are redirecting traffic from Rahti 1 to Rahti 2. This is
         name: <Service-name>
         weight: 100
       wildcardPolicy: None
-    status: {}' | oc create -f -'
+    status: {}' | oc create -f -
     ```
     You can replace `<test>` by any available URL in Rahti 1. The `<service-name>` must be the one corresponding to the application you deployed. Double check which ports is `<Service-name>` exporting and adapt the Route in accordance to that.
 
@@ -37,7 +37,7 @@ In the example above we are redirecting traffic from Rahti 1 to Rahti 2. This is
     ```sh
     curl <test>.rahtiapp.fi -vL --resolve <test>.rahtiapp.fi:80:195.148.21.61
     ```
-    The command above uses `--resolve` to chage the ip associated to a DNS that corresponds to Rahti 2.
+    The command above uses `--resolve` to change the ip associated to a DNS that corresponds to Rahti 2.
 
 1. [Install](../../rahti/usage/cli/#how-to-install-the-oc-tool) and [login with OC](../../rahti/usage/cli/#how-to-login-with-oc) in Rahti 1.
 
@@ -46,37 +46,33 @@ In the example above we are redirecting traffic from Rahti 1 to Rahti 2. This is
 1. Then create an `EndPoint` in Rahti 1:
 
     ```yaml
-    echo 'kind: "Endpoints"
-    apiVersion: "v1"
+    echo 'kind: Endpoints
+    apiVersion: v1
     metadata:
-      name: "proxy-service" 
+      name: proxy-service
     subsets: 
-      -
-        addresses:
-          -
-            ip: "195.148.21.61"
-        ports:
-          -
-            port: 80
-            name: "http"' | oc create -f -
+    - addresses:
+      - ip: 195.148.21.61
+      ports:
+      - port: 80
+        name: http' | oc create -f -
     ```
     The IP in the example, is the one behind `router-default.apps.2.rahti.csc.fi`. 
 
 1. Then a `Service`, also in Rahti 1:
 
     ```yaml
-    echo 'kind: "Service"
-    apiVersion: "v1"
+    echo 'kind: Service
+    apiVersion: v1
     metadata:
-      name: "proxy-service"
+      name: proxy-service
     spec:
       ports:
-        -
-          name: "http"
-          protocol: "TCP"
-          port: 80
-          targetPort: 80 
-          nodePort: 0
+      -  name: http
+         protocol: TCP
+         port: 80
+         targetPort: 80 
+         nodePort: 0
     selector: {}' | oc create -f -
     ```
     The name of the `Service` and the `EndPoint` must be the same.
@@ -99,7 +95,7 @@ In the example above we are redirecting traffic from Rahti 1 to Rahti 2. This is
       wildcardPolicy: None
     status: {}' | oc create -f -
     ```
-    The URL must be the same as in step 2.
+    The URL must be the same as in step 3.
 
 ## Final considerations
 
