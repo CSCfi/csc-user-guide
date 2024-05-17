@@ -2,10 +2,13 @@
 
 ## Intro
 
-The web interfaces for Puhti and Mahti at [www.puhti.csc.fi](https://www.puhti.csc.fi) and
-[www.mahti.csc.fi](https://www.mahti.csc.fi) can be used to access the supercomputers using only a
-web browser. A web interface for LUMI is also available at [www.lumi.csc.fi](https://www.lumi.csc.fi),
-see the [LUMI documentation](https://docs.lumi-supercomputer.eu/runjobs/webui/) for more details.
+The web interfaces for Puhti and Mahti at
+[www.puhti.csc.fi](https://www.puhti.csc.fi) and
+[www.mahti.csc.fi](https://www.mahti.csc.fi) can be used to access the
+supercomputers using only a web browser. A web interface for LUMI is also
+available at [www.lumi.csc.fi](https://www.lumi.csc.fi), see the
+[LUMI documentation](https://docs.lumi-supercomputer.eu/runjobs/webui/) for
+more details.
 
 !!! warning "Scope"
     The HPC web interfaces are best suited for **interactive workloads** that
@@ -26,7 +29,8 @@ see the [LUMI documentation](https://docs.lumi-supercomputer.eu/runjobs/webui/) 
 ## Available features
 
 - **Features available in both the Puhti and Mahti web interfaces:**
-    - View, download, upload and move files between Allas, the supercomputer and your local computer
+    - View, download, upload and move files between Allas, the supercomputer
+      and your local computer
     - Open a shell on the login node
     - Open a persistent shell on a compute node
     - View running batch jobs
@@ -35,7 +39,8 @@ see the [LUMI documentation](https://docs.lumi-supercomputer.eu/runjobs/webui/) 
         - Desktop with apps such as Maestro and VMD
         - Julia-Jupyter
         - Jupyter
-        - Jupyter for courses: An interactive Jupyter session specifically for courses
+        - Jupyter for courses: An interactive Jupyter session specifically for
+          courses
         - MLflow
         - TensorBoard
         - Visual Studio Code
@@ -50,42 +55,59 @@ see the [LUMI documentation](https://docs.lumi-supercomputer.eu/runjobs/webui/) 
 
 ### Shell
 
-The Shell apps can be used to access the supercomputer via the web interface. You can either open a
-connection to the login nodes, or a more persistent shell to the compute nodes. For more details
-about these, see the [Shell](shell.md) page.
+The _Shell_ apps can be used to access the command-line of a supercomputer via
+the web interface. You can either open a connection to the login nodes, or a
+more persistent shell to the compute nodes. For more details, see the
+[Shell](shell.md) page.
 
 ### File browser
 
-The files app can be used to manage your files on the supercomputer, Allas, and IDA. For more
-information, check the [File browser](file-browser.md) page.
+The _Files_ app can be used to manage your files on the supercomputer, Allas,
+and IDA. For more information, check the [File browser](file-browser.md) page.
 
 ### Active jobs
 
-Recent and running batch jobs can be viewed using the _Jobs_ section on the top navbar and selecting _Active jobs_. Here you can view the current status of the job and what kind of resources were requested. Deleting a running job will cancel the job. 
+Recent and running batch jobs can be viewed using the _Jobs_ section in the top
+navbar and selecting _Active jobs_. Here you can view the current status of
+your jobs and what kind of resources were requested. Deleting a running job
+will cancel the job. 
 
-In the future it will become possible to submit batch jobs through the web interface, but for now the recommended way is to launch the jobs using `sbatch` from the shell.   
+In the future, it may become possible to submit batch jobs through the web
+interface, but for now the recommended way to launch standard batch jobs is
+using `sbatch` from the shell.
 
 ### Project view
 
-Using the project view under the _Tools_ section on the top navbar, you can view 
-current disk and project billing unit quotas on the supercomputers. For more information see [Project view](project-view.md).
+Using the _Project view_ under the _Tools_ section in the top navbar, you can
+view  current disk and project billing unit quotas on the supercomputers. For
+more information, see the [Project view](project-view.md) page.
 
 ### Interactive apps
 
-Interactive apps are programs that can be launched and run on the compute nodes and provide a web interface.
-These are apps such as Jupyter Notebook, RStudio and Visual Studio Code.
-For a full list of applications and specific instructions see [apps](apps.md).
+_Interactive apps_ are programs that can be launched and run on the compute
+nodes and provide a graphical user interface. These are apps such as Jupyter
+Notebook, RStudio and Visual Studio Code. For a full list of applications and
+specific instructions, see the [Interactive apps](apps.md) page.
 
-If the interactive app does not start or does not work as expected you can delete the session and try to launch the app again.
+!!! info-label
+    If an interactive app does not start, or does not work as expected, you can
+    delete the session and try to launch the app again.
 
 ### Partitions and resources
 
-Only some of the partitions on the system are available for use in the web interfaces. Some apps
-have a more limited set of partitions available than other apps.
+!!! warning-label
+    Only a few partitions of Puhti and Mahti are available for use in the web
+    interfaces. Some apps also have a more limited set of partitions available
+    than others.
 
-In the Puhti web interface, the `interactive`, `small`, `test`, `gpu` and `gputest` partitions are available.
-Selecting the `gpu` or `gputest` partition will allocate a Nvidia V100 GPU.
+In the **Puhti web interface**, the `interactive`, `small`, `test`, `gpu` and
+`gputest` partitions are available. Selecting the `gpu` or `gputest` partition
+will allocate one Nvidia V100 GPU. See the
+[Puhti partitions page](../running/batch-job-partitions.md#puhti-partitions)
+for general information about queues on Puhti.
 
-In the Mahti web interface, the `interactive` and `gpusmall` partitions are available. Selecting the
-`gpusmall` partition will allocate a split Nvidia A100 GPU (a100_1g.5g). For more details about the
-split GPUs, see the [Mahti partitions page](../running/batch-job-partitions.md#mahti-partitions).
+In the **Mahti web interface**, the `interactive` and `gpusmall` partitions are
+available. Selecting the `gpusmall` partition will allocate a split Nvidia A100
+GPU (a100_1g.5g) with 1/7th of the compute capacity of a full A100. For more
+details about the split GPUs on Mahti, see the
+[Mahti partitions page](../running/batch-job-partitions.md#mahti-partitions).

@@ -1,6 +1,5 @@
 # Interactive apps
 
-
 ## Available apps
 
   - [Accelerated visualization](accelerated-visualization.md)
@@ -13,7 +12,6 @@
   - [RStudio](rstudio.md)
   - [TensorBoard](tensorboard.md)
   - [Visual Studio Code](vscode.md)
-
 
 ## Launching an interactive app
 
