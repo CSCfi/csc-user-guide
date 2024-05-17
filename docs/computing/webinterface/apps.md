@@ -17,13 +17,20 @@
 
 ## Launching an interactive app
 
-The apps are launched on the compute nodes and accessed through the web interface.
-To launch an application select an app from the Apps menu.
-In the app form you will be able to select billing project, partition, resources and app specific settings.
-After launching the application you will see the My Interactive Sessions page shown in the screenshot below.
+1. The interactive apps can be found in the navigation bar under _Apps_, or on
+   _My Interactive Sessions_ page.
+2. To launch an app on a compute node, select it from the menu. 
+3. After selecting an interactive app from the list you will be presented with
+   a form to configure the session.
+    1. Fill in appropriate billing project, partition, resources and
+       app-specific settings.
+4. After submitting the app form, and the Slurm job for the app has finished
+   queuing, the app will be started and you will be able to connect to the
+   application on the _My Interactive Sessions_ page (see below).
 
 ![Interactive sessions](../../img/ood-interactive-sessions.png)
 
-On that page you will be able to connect to the app.
-Note that apps keep running and consuming resources even if you close the browser tab for the app session.
-To stop the app you can delete the session in the interactive sessions page.
+!!! warning "Avoid idle interactive sessions"
+    Note that apps keep running and consuming resources even if you close the
+    browser tab for the app session. To stop the app, you can cancel the
+    session from the _My Interactive Sessions_ page.

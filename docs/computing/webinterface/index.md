@@ -23,47 +23,30 @@ see the [LUMI documentation](https://docs.lumi-supercomputer.eu/runjobs/webui/) 
     self-learning materials to learn how to get the most out of CSC's
     supercomputers.
 
-**Features available in both the Puhti and Mahti web interfaces**
-
-- View, download, upload and move files between Allas, the supercomputer and your local computer
-- Open a shell on the login node
-- Open a persistent shell on a compute node
-- View running batch jobs
-- View disk quotas and project status
-- Launch interactive apps and connect to them directly from the browser:
-    - Desktop with apps such as Maestro and VMD
-    - Julia-Jupyter
-    - Jupyter
-    - Jupyter for courses: An interactive Jupyter session specifically for courses
-    - MLflow
-    - TensorBoard
-    - Visual Studio Code
-
-**Apps available in Puhti only**
-
-- Accelerated visualization with applications:
-    - Blender
-    - COMSOL
-    - ParaView
-    - VMD
-- RStudio
-- MATLAB
-
-## Connecting
-
-Using a web browser, go to [www.puhti.csc.fi](https://www.puhti.csc.fi) or [www.mahti.csc.fi](https://www.mahti.csc.fi). On the landing page, click on "Log in" and select an appropriate authentication provider. When logging in using your CSC user account, select CSC as the authentication provider and use the same username and password you use when connecting with `ssh`.
-&nbsp;
-
-![Puhti web interface login page](../../img/ood_login.png)
-
-After successful authentication, you will see the dashboard.
-&nbsp;
-
-![Puhti web interface front page](../../img/ood_main.png)
-
-From here you can browse your files on the supercomputer, start a shell, view running jobs or start one of the many available applications. The dashboard also contains some important system information.
-
 ## Available features
+
+- **Features available in both the Puhti and Mahti web interfaces:**
+    - View, download, upload and move files between Allas, the supercomputer and your local computer
+    - Open a shell on the login node
+    - Open a persistent shell on a compute node
+    - View running batch jobs
+    - View disk quotas and project status
+    - Launch interactive apps and connect to them directly from the browser:
+        - Desktop with apps such as Maestro and VMD
+        - Julia-Jupyter
+        - Jupyter
+        - Jupyter for courses: An interactive Jupyter session specifically for courses
+        - MLflow
+        - TensorBoard
+        - Visual Studio Code
+- **Apps available in Puhti only:**
+    - Accelerated visualization with applications:
+        - Blender
+        - COMSOL
+        - ParaView
+        - VMD
+    - RStudio
+    - MATLAB
 
 ### Shell
 
@@ -91,19 +74,11 @@ current disk and project billing unit quotas on the supercomputers. For more inf
 
 Interactive apps are programs that can be launched and run on the compute nodes and provide a web interface.
 These are apps such as Jupyter Notebook, RStudio and Visual Studio Code.
+For a full list of applications and specific instructions see [apps](apps.md).
 
 If the interactive app does not start or does not work as expected you can delete the session and try to launch the app again.
 
-#### Launching an interactive app
-
-The interactive apps can be found in the navigation bar under _Apps_, or on _My Interactive Sessions_ page.
-After selecting an interactive app from the list you will be presented with a form to configure the session.
-After submitting the app form, and the Slurm job for the app has finished queuing, the app will be
-started and you will be able to connect to the application on the _My Interactive Sessions_ page.
-
-For a list of applications and specific instructions see [apps](apps.md).
-
-#### Partitions and resources
+### Partitions and resources
 
 Only some of the partitions on the system are available for use in the web interfaces. Some apps
 have a more limited set of partitions available than other apps.
