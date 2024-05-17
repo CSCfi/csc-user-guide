@@ -1,6 +1,6 @@
 # Integrating External Services
 
-Kubernetes, and by extension OpenShift OKD, gives a lot of flexibility regarding network use cases. One of the uses cases is the one that allows to use external services, like databases, transparently in a OpenShift project. Other of the use cases would be to to have a network proxy between OpenShift installations. This could be used as a temporal to ease migration periods.
+Kubernetes, and by extension OpenShift OKD, gives a lot of flexibility regarding network use cases. One of the uses cases is the one that allows to use external services, like databases, transparently in a OpenShift project. Other of the use cases would be to to have a network proxy between OpenShift installations. This could be used as a temporal solution to ease migration periods.
 
 ![Proxy between clusters](../img/proxy.drawio.svg)
 
@@ -30,7 +30,8 @@ In the example above we are redirecting traffic from Rahti 1 to Rahti 2. This is
       wildcardPolicy: None
     status: {}' | oc create -f -
     ```
-    You can replace `<test>` by any available URL in Rahti 1. The `<service-name>` must be the one corresponding to the application you deployed. Double check which ports is `<Service-name>` exporting and adapt the Route in accordance to that.
+    Replace `<test>` so the URL is the same as in Rahti 1. Rahti 1 will be later configured to relay the request to Rahti 2, when the request reaches Rahti 2, the Loadbalancer needs to know to which application to send the request, the host parameter is used (Using `HTTPD` headers).
+    The `<service-name>` must be the one corresponding to the application you deployed. Double check which ports is `<Service-name>` exporting and adapt the Route in accordance to that.
 
     You can test the setup so far:
 
@@ -88,6 +89,9 @@ In the example above we are redirecting traffic from Rahti 1 to Rahti 2. This is
       host: <test>.rahtiapp.fi
       port:
         targetPort: http
+      tls:
+        insecureEdgeTermination: Redirect
+        termination: edge
       to:
         kind: Service
         name: proxy-service
