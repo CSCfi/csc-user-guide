@@ -92,7 +92,8 @@ specific instructions, see the [Interactive apps](apps.md) page.
 
 !!! info-label
     If an interactive app does not start, or does not work as expected, you can
-    delete the session and try to launch the app again.
+    delete the session and try to launch the app again. See also
+    [Troubleshooting](apps.md#troubleshooting).
 
 ### Partitions and resources
 
