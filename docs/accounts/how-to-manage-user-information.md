@@ -21,7 +21,7 @@ We will reply and send you the instructions on how to link the new Haka or Virtu
 ## How to link your CSC user account to external authentication sources
 
 You can link your CSC user account to external authentication mechanisms which can be used side by side on several CSC services.
-In our example we will link CSC user account to MyAccessID but this method is similar to other methods.
+In our example we will link CSC user account to MyAccessID but this method is similar to other methods. It's vital that you use the exact same email address you're using in CSC services. This ensures that both services (CSC + MyAccessId) recognize you as the same individual. 
 
 ### You already have a MyAccessID available
 
@@ -46,4 +46,4 @@ In our example we will link CSC user account to MyAccessID but this method is si
 !!! Note
 
     If you're invited to a Euro HPC LUMI project or you're a a Euro HPC Project manager you must link your CSC user account with MyAccessID.
-    Otherwise you will end up with 2 separate CSC user accounts.
+    Otherwise you might end up with 2 separate CSC user accounts.

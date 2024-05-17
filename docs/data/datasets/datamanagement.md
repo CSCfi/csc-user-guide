@@ -117,7 +117,6 @@ Remember to identify and name a
     - [Managing sensitive data](https://research.csc.fi/en/managing-sensitive-data)
     - [User Guide for Sensitive Data Services for Research](../sensitive-data/index.md)
     - [Tools for client side encryption for Allas](../Allas/allas_encryption.md)
-    - [CSC for sensitive data — because your data is worth it (and should be kept that way) by Jaakko Leinonen](https://www.csc.fi/en/-/csc-for-sensitive-data-because-your-data-is-worth-it-and-should-be-kept-that-way-)
 
 <iframe allow="autoplay; encrypted-media" allowfullscreen="" frameborder="0" height="315" srcdoc="https://www.youtube.com/embed/29XmiG5Zj0s" title="Webinar: What are the policies and possibilities for managing your sensitive data?" width="560"></iframe>
 

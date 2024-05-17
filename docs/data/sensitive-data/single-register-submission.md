@@ -7,13 +7,17 @@ These instructions are for data controllers who have issued a data permit for a 
 
 After the process is established for the first time, the representative of the data controller can manage the following data submissions on their own. Help is always available via the service desk. Below are the instructions for the data submission and access control.
 
+
 ## Data submission
 
-### Step 1: CSC account and organizational profile in SD Apply
+!!! Note
+    Data controller and the persons responsible for the data transfer need to create CSC accounts by logging in with Haka or Virtu credentials at the [MyCSC portal](https://my.csc.fi/). If you don't have Haka or Virtu credentials, you need to request an account from [CSC Service Desk](../../support/contact.md) (subject: Sensitive Data).
 
-Create [CSC account](../../accounts/how-to-create-new-user-account.md) by logging in with Haka or Virtu credentials at the [My CSC portal](https://my.csc.fi/). If you don't have Haka or Virtu credentials, you need to request an account from [CSC Service Desk](../../support/contact.md) (subject: Sensitive Data).
+### Step 1: Organizational profile in SD Apply
 
-When you have created an CSC account, you can log in to [SD Apply service](https://sd-apply.csc.fi/).
+A representative of the data controller has to make the data available for the research group in SD Apply service.
+
+After you have created an CSC account, you can log in to [SD Apply service](https://sd-apply.csc.fi/).
 
 [![SD Apply login page](images/apply/apply_login.png)](images/apply/apply_login.png)
 
@@ -32,42 +36,88 @@ After you have been set as the owner of the organization profile, you can create
 
 The forms and licenses are public in SD Apply, so these should not include any sensitive information. These three objects will be used for all secondary use datasets coming from your organization, so they should also be as general as possible. **Resource** and **Catalogue item** will be created for each dataset automatically when the data is transferred via SFTP. 
 
-### Step 3: Preparations for the data transfer
+### Step 3: Establishing a secure SSH connection with CSC
 
-Next, you can log in to the [user administration portal](https://admin.sd.csc.fi/). In the administration portal, you need to
+To prepare for the data transfer, we first need to establish a secure ssh connection between your laptop with CSC. Please follow these steps:
 
-1. add the IP address from which the data will be transferred (IP address can be checked with [CSC’s My IP app](https://apps.csc.fi/myip/)),
-2. add your public SSH key, and
-3. request [CSC Service Desk](../../support/contact.md) to add your organization identifier to your account, if you didn't use Haka/Virtu login.
+1. Create an SSH key pair in **RSA** format via command line. [See detailed instructions](../../cloud/tutorials/ssh-key.md#creating-an-ssh-key-pair-on-a-computer) Do not use a password for your SSH key, leave this field empty.
+2. Log in to [the Sensitive Data user administration portal](https://admin.sd.csc.fi/). If you don't have HAKA or Virtu accounts, please write to our helpdesk to ask for a CSC account. Setting up an account takes few days.
 
-With this information, the CSC service desk will make the necessary preparations for data submission from the CSC side. If you need instructions for SSH key creation, see [SSH Key Pair tutorial in Docs](../../cloud/tutorials/ssh-key.md). Only OpenSSH (RSA) keys can be used. 
+[![Sensitive Data user administration login](images/apply/SUP_Login.png)](images/apply/SUP_Login.png)
 
-After the service desk has confirmed that the preparations are done, you can test the SFTP connection. This can be done with the following command (replace `username@org.fi` with your credentials and `X:\folder\filename.key` (or `~/.ssh/filename` for Linux/macOS) with the location of your private SSH key):
+
+3. In the administration portal, you add your public SSH key and a defined name (example: your organization and date) for it. 
+4. Add the IP address from which the data will be transferred and a defined name for it (e.g.: organization-date). IP address can be checked with [CSC’s My IP app](https://apps.csc.fi/myip/).
+
+
+5. Next, please write to service desk (reply to same email thread) informing that these steps have been completed.
+
+We will approve your account access to the secure connection and confirm it to you via email. Only at this point, you can test if is it is possible establishing a secure SSH connection with CSC by using this command and your SSH key:
 
 ```
-sftp -i X:\folder\filename.key -P 50527 username@org.fi@porin.lega.csc.fi
+sftp -i X:\folder\privateshhfilename.key -P 50527 username@org.fi@porin.lega.csc.fi
 exit
 ```
 
-If you can't connect with SFTP, please contact [CSC Service Desk](../../support/contact.md).
+Where:
 
-### Step 4: Data encryption and upload 
+```
+-X:\folder\privateshhfilename.key is the path to the correspondent private shh key
+```
 
-Before the data transfer, the data must be encrypted with a [CSC public key](https://admin.sd.csc.fi/publickey/?instance=single%20registry). CSC provides a convenience tool that encrypts and uploads data automatically. This SDA (Sensitive Data Archive) Uploader tool is available on [GitHub](https://github.com/CSCfi/sda-uploader/releases), and has both graphical user interface (GUI, option 1 below) and command line (CLI, option 2 below) options for Linux, Mac and Windows. More information about the tool in the [GitHub repository](https://github.com/CSCfi/sda-uploader/). Alternatively, you can encrypt the data with [Crypt4GH](https://github.com/EGA-archive/crypt4gh) (also [GUI](https://github.com/CSCfi/crypt4gh-gui) available, option 3 below) and send the data directly with SFTP on command line. With each option, you need to use [CSC public key](https://admin.sd.csc.fi/publickey/?instance=single%20registry) for encryption.
+`username` is the username visible in [the user administration portal](https://admin.sd.csc.fi/) and `org.fi` is the same as in your email address.
 
-The encrypted data is transferred via SFTP to a directory which should be named according to the journal number of the data permit. The final dataset ID will be a combination of the organization’s identifier and the journal number (directory name) (e.g. `org.fi/example_dataset_123`), and this ID will be visible to users in SD Apply. The file to be uploaded should also be named with the journal number.
 
-Below are described three different options for data transfer, you can select the one that works best in your environment:
+[![SDS User administration](images/apply/SUP.png)](images/apply/SUP.png)
 
-**Option 1: With the SDA GUI tool**, first create a folder on your computer and name it with the journal number. Add all of the files belonging to the dataset to that folder. Then you open the SDA GUI tool, add [CSC public key](https://admin.sd.csc.fi/publickey/?instance=single%20registry), the directory you want to upload, and your private SSH key (SFTP key) to the interface. You also need to fill in your username (`username@org.fi`) and the SFTP server: `porin.lega.csc.fi:50527`
 
-**Option 2: With the SDA CLI tool**, you also first create a folder on your computer and name it with the journal number. Add all of the files belonging to the dataset to that folder. Then you add the following command to the command line (replace `example_dataset_123` with the directory name, `username@org.fi` with your credentials, and `X:\folder\filename.key` (or `~/.ssh/filename` for Linux/macOS) with the location of your SSH key):
+### Step 4: Encrypt and upload the files via the secure connection
+
+
+You can now encrypt and transfer the dataset securely. While there are multiple methods available for this task, we recommend utilising the graphical user interface SDA (Sensitive Data Archive) Uploader tool. Installing this simple application may require special permission from your system administration, but it will conveniently enable the tool to establish the secure connection using the SSH keys you've already tested, encrypt the files with [CSC public encryption key for registers](https://admin.sd.csc.fi/publickey/?instance=single%20registry), and upload them. 
+
+#### 4.1 Upload with the SDA Uploader tool
+
+With the SDA Uploader tool, you need to collect all the data to one folder on your computer before transfer.
+
+!!! Note 
+    The folder name determines the indentifying information visible in SD Apply. Therefore, it is a good practice to use the journal number or other unique identifier for the folder name. This ensures that the correct data are always sent to the correct applicant, even in additional data transfers.  
+      
+1. Create a folder on your computer and name it with the journal number or other suitable unique identifier. Add all the files belonging to the dataset to that folder.
+2. Download the SDA (Sensitive Data Archive) Uploader tool available on [GitHub](https://github.com/CSCfi/sda-uploader/releases), for Linux, Mac and or Windows. You might need permissions from your administrators to install the SDA Uploader tool on your laptop.
+    * Windows (sdagui-python3.11-windows-amd64.zip )
+    * Mac (sdagui-python3.11-macos-amd64.zip)
+    * Linux (sdagui-python3.11-linux-amd64.zip)
+
+
+3. Download the [CSC public encryption key for registers](https://admin.sd.csc.fi/publickey/?instance=single%20registry).
+4. Open the SDA Uploader GUI tool and complete these steps:
+    * Add CSC public key for registers using `Load Recipient Public Key` button.
+    * Select the folder you want to upload with the `Select Directory to Upload` button.
+    * Add your private SSH key (RSA format) with the `Load SSH Key`.
+    * Fill in your username (username@org.fi) to the `SFTP Username` text field.
+    * Fill in the SFTP server: porin.lega.csc.fi:50527 to the `SFTP Server` text field.
+    
+5. Finally, click on upload and encrypt. All the files will be encrypted, uploaded to CSC and assigned to the same identifier in SD Apply. If the tool requests a password for your SSH key, just leave the field empty. The data will become automatically discoverable in SD Apply with the folder name.
+
+[![SDA Uploader tool.](images/apply/SDA_Uploader.png)](images/apply/SDA_Uploader.png)
+
+
+#### 4.2 Advanced options
+
+This SDA (Sensitive Data Archive) Uploader tool is available on GitHub, via  command line (CLI, option 2 below) options for Linux, Mac and Windows. More information about the tool in the GitHub repository. Alternatively, you can encrypt the data with Crypt4GH (also GUI available, option 3 below) and send the data directly with SFTP on command line. With each option, you need to use CSC public key for encryption.
+
+##### Advanced option 1
+
+With the SDA CLI tool, you also first create a folder on your computer and name it with the journal number or other unique identifier. Add all of the files belonging to the dataset to that folder. Then you add the following command to the command line (replace example_dataset_123 with the directory name, username@org.fi with your credentials, and X:\folder\filename.key (or ~/.ssh/filename for Linux/macOS) with the location of your SSH key):
 
 ```
 sdacli example_dataset_123 -host porin.lega.csc.fi -p 50527 -u username@org.fi -i X:\folder\filename.key -pub registry.pub
 ```
 
-**Option 3: With Crypt4GH and SFTP**, you first encrypt the data with [CSC public key](https://admin.sd.csc.fi/publickey/?instance=single%20registry) with either Crypt4GH python module or [GUI](https://github.com/CSCfi/crypt4gh-gui) version. Then you open the SFTP connection with the following command (replace `username@org.fi` with your credentials and `X:\folder\filename.key` (or `~/.ssh/filename` for Linux/macOS) with the location of your private SSH key):
+##### Advanced option 2
+
+With Crypt4GH and SFTP, you first encrypt the data with CSC public key with either Crypt4GH python module or GUI version. Then you open the SFTP connection with the following command (replace username@org.fi with your credentials and X:\folder\filename.key (or ~/.ssh/filename for Linux/macOS) with the location of your private SSH key):
 
 ```
 sftp -i X:\folder\filename.key -P 50527 username@org.fi@porin.lega.csc.fi
@@ -91,9 +141,9 @@ exit
 
 After a successful upload, the dataset is visible in SD Apply. With the direct SFTP transfer, you can wait a moment after putting the first file to the folder for the directory to become visible in SD Apply, so the system doesn't create multiple entries for single directory. This might happen, if the files are sent too quickly one after the other. The files are not visible in the SFTP directory after transfer, as they are immediately ingested.
 
-You can always transfer more data for the same project/data permit by using the same directory. The data will become visible for the user in SD Desktop when they log in again. If you send multiple files with the same file name, the files are not replaced, but instead, both versions are kept and will be available for the user.
-
-If you need to delete files after transfer, for example when the data permit expires, please contact [CSC Service Desk](../../support/contact.md). Access to the data can be restricted after the expiration or in any point of the project, if needed (see below), but deletion of the data from CSC needs to be done manually by our administrators.
+!!! Note 
+    You can always transfer more data for the same project/data permit by using the same directory. The data will become visible for the user in SD Desktop when they log in again. If you send multiple files with the same file name, the files are not replaced, but instead, both versions are kept and will be available for the user.
+    If you need to delete files after transfer, for example when the data permit expires, please contact CSC Service Desk. Access to the data can be restricted after the expiration or in any point of the project, if needed (see below), but deletion of the data from CSC needs to be done manually by our administrators.
 
 ## Data access management
 

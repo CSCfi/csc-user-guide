@@ -219,6 +219,7 @@ nav:
         - Configuration:
            - cloud/pouta/configuration.md
            - VM lifecycle & saving BUs: cloud/pouta/vm-lifecycle.md
+           - Virtual machine flavors and Billing Unit rates: cloud/pouta/vm-flavors-and-billing.md
            - Networking:
              - cloud/pouta/networking.md
            - Storage:
@@ -229,6 +230,7 @@ nav:
              - Snapshot using QEMU: cloud/pouta/qemu-vm.md
         - Advanced:
            - cloud/pouta/advanced.md
+           - Security Guidelines for Pouta: cloud/pouta/security.md
            - Command line:
              - cloud/pouta/command-line-tools.md
              - Install: cloud/pouta/install-client.md
@@ -273,6 +275,7 @@ nav:
            - Getting access: cloud/rahti2/access.md
            - Using the web interface: cloud/rahti2/usage/getting_started.md
            - Command line tool installation and usage: cloud/rahti2/usage/cli.md
+        - Migration to Rahti 2: cloud/rahti/rahti-migration.md
         - Storage in Rahti:
            - cloud/rahti2/storage/index.md
            - Persistent volumes: cloud/rahti2/storage/persistent.md
@@ -298,7 +301,7 @@ nav:
            - Getting access: cloud/rahti/access.md
            - Using the web interface: cloud/rahti/usage/getting_started.md
            - Command line tool installation and usage: cloud/rahti/usage/cli.md
-        - Migration to Rahti: cloud/rahti/rahti-migration.md
+        - Migration to Rahti 2: cloud/rahti/rahti-migration.md
         - Storage in Rahti:
            - cloud/rahti/storage/index.md
            - Persistent volumes: cloud/rahti/storage/persistent.md
@@ -379,7 +382,11 @@ nav:
       - data/sensitive-data/index.md
       - Choose service: data/sensitive-data/choose-a-service.md
       - Store and analyse:
-        - Start here: data/sensitive-data/sd-access.md
+        - Start here: 
+            - data/sensitive-data/sd-access.md
+            - Access as project manager: data/sensitive-data/sd-use-case-new-user-project-manager.md
+            - Access as project member: data/sensitive-data/sd-use-case-new-user-project-member.md
+            - Manage CSC project: data/sensitive-data/sd-csc-project.md
         - Store with SD Connect: 
             - data/sensitive-data/sd_connect.md
             - Login to SD Connect: data/sensitive-data/sd-connect-login.md

@@ -1,5 +1,12 @@
 # Applications
 
+## Schrödinger Maestro 2024.2, 3.5.2024
+
+[Schrödinger Maestro](../../apps/maestro.md) version 2024.2 has been installed
+and set as the default module on Puhti and Mahti. See
+[release notes](https://www.schrodinger.com/life-science/download/release-notes/)
+for a list of new features and improvements.
+
 ## AMS 2023 available on Puhti and Mahti, 21.3.2024
 
 [AMS](../../apps/ams.md) has been updated to version 2023.104 on both Mahti and Puhti

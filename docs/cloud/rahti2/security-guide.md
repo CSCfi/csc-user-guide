@@ -1,7 +1,7 @@
 Rahti 2 applications are exposed to the Internet, and
 their security should be treated with an appropriate care.
 The user on whose account a service is running in Rahti 2 is
-responsible for its security. See the [terms of use](https://rahti.csc.fi/agreements/terms_of_use/) for details about the
+responsible for its security. See the [terms of use](https://rahti.csc.fi/terms_of_use.html) for details about the
 responsibilities.
 
 This guide should be treated as the baseline which must be taken
@@ -9,6 +9,26 @@ in account rather than a checklist for perfect security.
 
 Measures that tighten the security of the services running in Rahti 2 can be
 roughly divided in two categories.
+
+## Cluster policy
+
+By default, our cluster applies default security policies:  
+
+- **No root enforced**: That means that you cannot run a container with root privileges. It will fail.  
+
+- **Random UID/GID**: When your pod is deployed in our cluster, a random UID will be generated. You cannot assigned a UID/GID out of this range (for example, `1001`), it will require special privileges. Usually, the number is like `1000620000`.  
+
+- **[Restricted-v2 policy](https://connect.redhat.com/en/blog/important-openshift-changes-pod-security-standards)**: Since Openshift 4.11, the new SCC policies are introduced according to the [Pod Security Standards](https://kubernetes.io/docs/concepts/security/pod-security-standards/).  
+  - What is the difference between v1 and v2 SCC (Security Context Constraints) policies?  
+    - V2 does not permit *allowPrivilegeEscalation=true*  
+        - Empty or false is compatible with v1 SCC and therefore works on OCP versions < 4.11  
+    - V2 requires you to leave the dropped capabilities empty, set it to *ALL*, or add only *NET_BIND_SERVICE*  
+        - By being accepted as v2 the SCC will always drop *ALL*. V1 only dropped *KILL*, *MKNOD*, *SETUID*, *SETGID* capabilities.  
+        - V2 still allows explicitly adding the *NET_BIND_SERVICE* capability  
+    - V2 requires you to either leave *SeccompProfile* empty or set it to *runtime/default*  
+        - Empty is compatible with v1 and works on OCP versions < 4.11  
+
+- **[Default Pod resource limits](../rahti2/usage/projects_and_quota.md#default-pod-resource-limits)**
 
 ## Securing routes
 

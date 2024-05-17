@@ -1,5 +1,14 @@
 # Computing environment
 
+## Puhti and Mahti web interfaces updated to release 19 and 5, 10.4.2024
+
+* The error pages for issues caused by Lustre and other issues have been improved.
+* The Desktop app terminal now supports submitting Slurm jobs.
+* The Desktop app terminal now uses the default $XDG_CONFIG_HOME rather than a custom location.
+* Downloading directories now works correctly again.
+* Accessibility statement has been updated and some accessibility issues have been fixed.
+* Open OnDemand updated to version 3.1.4
+
 
 ## Puhti web interface updated to release 18, 5.3.2024
 

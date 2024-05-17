@@ -185,6 +185,7 @@
 ## Miscellaneous
 
 * [Accelerated visualization](accelerated-visualization.md) A selection of GPU accelerated visualization applications
+* [Blender](blender.md) 3D modeling, visualization and rendering software
 * [DDT](ddt.md) Parallel debugger
 * [Desktop](desktop.md) Remote desktop environment
 * [HyperQueue](hyperqueue.md) Scheduler for sub-node tasks

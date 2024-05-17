@@ -174,3 +174,26 @@ It is also possible to create a build from a given `Dockerfile`:
 ```bash
 cat Dockerfile | oc new-build -D -
 ```
+
+
+## Troubleshooting
+
+If your build fails in Rahti 2, it could mean that your application needs more memory than is provided by default. Unfortunately, it's not possible to set the limits and/or requests from the CLI.
+
+You can create a yaml file and then apply it with the command `oc apply -f {your_yaml_file}.yaml` or edit your current `BuildConfig` in the Rahti 2 webUI.  
+In the Administrator view, navigate to `Builds > BuildConfigs` and click on your BuildConfig. Select the `YAML` tab.  
+
+Under `spec` you should see `resources: {}`. From here, add `limits.cpu`, `limits.memory`, `requests.cpu` and `requests.memory`:
+```yaml
+resources:
+  limits:
+    cpu: 400m
+    memory: 8Gi
+  requests:
+    cpu: 50m
+    memory: 1600Mi
+```
+
+Note that they cannot be more than 5x apart (default ratio, more information [here](../../usage/projects_and_quota/#default-pod-resource-limits)).
+
+Save and run the build again, and if it succeeds, check the metrics and see how much memory was used. You can adjust the memory limit to 10-20% more than what it was used.
