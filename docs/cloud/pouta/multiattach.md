@@ -290,7 +290,7 @@ In order to install GFS2, you need to follow few steps:
     ```sh
     sudo mount /dev/vdb /mnt -t gfs2 -o spectator
     ```
-    `-t gfs2` is not strictly necesary, as mount can detect the file system tpye, but it is recommended to avoid mounting the wrong file system.
+    `-t gfs2` is not strictly necessary, as mount can detect the file system tpye, but it is recommended to avoid mounting the wrong file system.
     Then double check that the mount went as expected by:
 
     ```sh
