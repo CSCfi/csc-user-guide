@@ -23,3 +23,4 @@
 * [Webhooks](webhooks.md)
 * [Pod (anti) affinity](pod-affinity.md)
 * [Advanced NetworkPolicies](advanced-NetworkPolicies-networking.md)
+* [Integrating External Services](integrating-external-services.md)
