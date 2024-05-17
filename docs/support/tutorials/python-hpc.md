@@ -1,21 +1,32 @@
 # Using Python on CSC supercomputers
 
-Some aspects of using Python on a supercomputer differ crucially from usage
-on a personal device. To make the most of the computational resources available
-to you, it is good to know about these differences.
+Some basic aspects of using Python are very different on a CSC
+supercomputer compared to usage on a personal device.
+To make the most of the computational resources offered by CSC,
+it is good to be aware of the differences.
 
 ## Pre-installed software
 
-Because of the parallel nature of the Lustre file system that CSC
-supercomputers utilize, it is not possible for regular users to do
-system-level software installations as one would on a personal device.
-Fortunately, a diverse collection of useful software for scientific computing
-is already installed on CSC supercomputers, including several Python
-environments.
+Because of the parallel nature of the **Lustre** file system used by CSC
+supercomputers, it is not possible for users to do
+system-level software installations, as one would on a personal device.
+Fortunately, a diverse collection of essential software for scientific
+computing is already installed, including several
+Python environments tailored to different science areas.
 
-- All software needs to be loaded as lua modules
-	- Link to instructions for using them
-- List available Python envs, their purpose and contents
+Pre-installed software environments on CSC supercomputers are implemented as
+**Lmod** environment modules. For learning more about environment modules,
+please visit the [module system Docs page](../../computing/modules.md).
+The following Python environments are available as modules:
+
+| Module name | Purpose | Contents |
+|-|-|-|
+| biopythontools | bioinformatics | [pip](https://a3s.fi/python-recipes/biopythontools_3.10.6.txt) |
+| geoconda | geoinformatics | [conda](https://a3s.fi/python-recipes/geoconda_3.10.9.yml) |
+| jax | ML framework | [pip](https://a3s.fi/python-recipes/jax0.4.23_python3.9_cuda12.2_csc_fix1.txt) |
+| python-data | data analytics and ML utilities | [conda](https://a3s.fi/python-recipes/python-data-2023-11.yaml) |
+| pytorch | ML framework | [pip](https://a3s.fi/python-recipes/pytorch_2.2.1_csc_fix2.txt) |
+| tensorflow | ML framework | [pip](https://a3s.fi/python-recipes/tensorflow_2.15.0_rocky3.txt) |
 
 ## Installing additional software
 
