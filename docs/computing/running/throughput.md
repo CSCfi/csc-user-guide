@@ -158,12 +158,13 @@ graph TD
 * [FireWorks] is a flexible tool for defining, managing and
   executing workflows with multiple steps and complex dependencies
 * [HyperQueue] is a tool for efficient sub-node task scheduling
-* [Nextflow workflows using HyperQueue as an executor] can be leveraged to run
-  large workflows involving thousands of processes efficiently
+* [Nextflow tutorial for Puhti (basic)](https://yetulaxman.github.io/Biocontainer/tutorials/nextflow_tutorial.html)
+* [Running Nextflow pipelines on Puhti (advanced)](nextflow-puhti.md)
+* [Running Nextflow workflows using HyperQueue](nextflow-hq.md) can be leveraged to run large workflows involving thousands of processes efficiently
+* [Running Snakemake pipelines on Puhti](snakemake-puhti.md)
+  
 
 ### Science specific workflow tools and tutorials
-
-* [Nextflow] singularity container-based bioinformatics pipelines on Puhti
 * [Data storage guide for machine learning] explains where to work with ML data
   and how to use the shared file system efficiently
 * [Farming Gaussian jobs with HyperQueue]
@@ -200,7 +201,6 @@ workflows.
 [GNU Parallel]: ../../support/tutorials/many.md
 [FireWorks]: fireworks.md
 [contact CSC Service Desk]: ../../support/contact.md
-[Nextflow]: ../../support/tutorials/nextflow-puhti.md
 [Snakemake]: https://snakemake.readthedocs.io/en/stable/
 [Array jobs]: array-jobs.md
 [Lustre]: ../lustre.md
@@ -216,5 +216,4 @@ workflows.
 [xargsjob.sh]: https://a3s.fi/pub/xargsjob.sh
 [see usage policy]: ../usage-policy.md#gpu-nodes
 [Fast disk areas in CSC computing environment]: https://csc-training.github.io/csc-env-eff/hands-on/disk-areas/disk-areas-tutorial-fastdisks.html
-[Nextflow workflows using HyperQueue as an executor]: ../../support/tutorials/nextflow-hq.md
 [Farming Gaussian jobs with HyperQueue]: https://csc-training.github.io/csc-env-eff/hands-on/throughput/gaussian_hq.html
