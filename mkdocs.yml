@@ -179,7 +179,7 @@ nav:
        - computing/webinterface/index.md
        - Connecting: computing/webinterface/connecting.md
        - Shell: computing/webinterface/shell.md
-       - File browser: computing/webinterface/file-browser.md
+       - Files and storage services: computing/webinterface/file-browser.md
        - Project view: computing/webinterface/project-view.md
        - Interactive apps:
          - computing/webinterface/apps.md

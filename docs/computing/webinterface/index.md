@@ -62,8 +62,9 @@ more persistent shell to the compute nodes. For more details, see the
 
 ### File browser
 
-The _Files_ app can be used to manage your files on the supercomputer, Allas,
-and IDA. For more information, check the [File browser](file-browser.md) page.
+The _Files_ app can be used to manage your files on the supercomputer and
+access storage services such as Allas and IDA. For more information, check the
+[Files and storage services](file-browser.md) page.
 
 ### Active jobs
 

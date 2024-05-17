@@ -1,76 +1,116 @@
-# File browser
+# File browser and accessing storage services from the web interfaces
 
-The file browser can be opened using the _Files_ section on the top navbar (this displays a list of all project disk areas), or using 
-the shortcut to the home folder at the bottom of the front page. In the file browser
-you can upload/download files, create new files and directories, or open a shell in the current directory. 
+The file browser can be opened from the _Files_ section on the top navbar
+(this displays a list of all project disk areas), or using the shortcut to your
+home folder in the _Pinned Apps_ view on the landing page (dashboard). In the
+file browser, you can upload/download files, create new files and directories,
+or open a shell in the current directory. You can also use it to move data
+between Allas, LUMI-O, IDA and the supercomputer.
 
-!!! note
-    Keep the tab with the file browser open while the file transfer is in progress to ensure that it completes successfully.
-    Uploaded files will overwrite existing files with the same name without prompting.
-    Currently the maximum size for individual file uploads is 10GB
+!!! warning "Important"
+    Keep the tab with the file browser open while the file transfer is in
+    progress to ensure that it completes successfully. Also note that uploaded
+    files will overwrite existing files with the same name _without prompting_!
+    Currently, the maximum size for individual file uploads is **10 GB**.
 
-Clicking on a file will open it in view only mode, for more options like editing, renaming and deleting, use the button with three dots next to the filename. 
+Clicking on a file will open it in view-only mode. For more options like
+editing, renaming and deleting, use the button with three dots next to the
+filename. 
 
-The file browser comes with a basic text editor. Some important notes on that:
+The file browser comes with a basic text editor. Some important notes about the
+editor:
 
 - If no changes have been made, the _save_ button is grayed out.
-- There is no _save-as_ feature
-- If a read-only file is opened no indication will be given to the user but no changes will be applied
+- There is no _save-as_ feature.
+- The user is not notified if a read-only file is opened using the editor.
+  Accordingly, no changes will be applied to the file.
 
-## Using Allas
+## Accessing Allas and LUMI-O
 
-In the web interface, the [Allas object storage service](../../computing/allas.md) can also be accessed
-using the file browser.
+The **[Allas object storage service](../../computing/allas.md)** can also be
+accessed from the web interfaces using the file browser.
 
-To configure authentication for Allas it is recommended that you use the _Cloud storage configuration_ app available in the web interface.
-Once you open the app, you will be prompted to enter your CSC password.
-After you have authenticated using your password, you will be able to create both S3 and Swift connections, also known as remotes, to Allas.
-The remotes are only valid for a single project, but you can create remotes for all of your projects.
-The created remotes will be visible in the _Files_ dropdown in the navbar and in the file browser.
-!!! note
-    The Swift and S3 protocols are not fully compatible with each other, particularly with files larger than 5 GB.
-    For more details about the differences between the protocols, see [Allas protocols](../../data/Allas/introduction.md#protocols).
+To configure authentication for Allas: 
 
-Additionally, LUMI-O is also supported for use through the file browser and can be configured by
-running _allas-conf_ as `allas-conf --lumi`.
-After running the command, the web interface server must be restarted, which can be done by clicking
-_Restart web server_ in the _Help_ menu in top right section of the navbar.
-Once the server has been restarted, the `lumi-o` remote will be available in the _Files_ dropdown
-in the navbar and in the file browser.
+1. Open the _Cloud storage configuration_ app either from the _Pinned Apps_ or
+   the _Tools_ dropdown in the navbar.
+2. Once you open the app, you will be prompted to enter your CSC password at
+   the bottom of the page.
+3. After you have authenticated using your password, you will be able to create 
+   both S3 and Swift connections, also known as remotes, to Allas. Each remote
+   is only valid for a single project, but you can create multiple remotes to
+   cover different projects.
+4. The created remotes will be visible in the _Files_ dropdown in the navbar,
+   as well as in the file browser (e.g. `s3allas-project_2001234`).
 
-Configured remotes that are not accessible, for example, due to expired authentication or network
-connection issues, are not be visible in the _Files_ dropdown menu.
+!!! info "Note"
+    The Swift and S3 protocols are not fully compatible with each other,
+    particularly for files larger than 5 GB. For more details about the
+    differences between the protocols, see
+    [Allas protocols](../../data/Allas/introduction.md#protocols).
 
-The file browser works the same way when accessing Allas as it does when accessing the shared
-filesystem on the supercomputer.
-Note that uploading large files from your local computer to Allas is currently not recommended due
-to technical limitations.
+**[LUMI-O](https://docs.lumi-supercomputer.eu/storage/lumio/)** can also be
+used through the file browser. However, some steps need to be first performed
+on the command-line.
 
+1. Open a command-line shell (either SSH or through the web interface) and
+   configure a connection to LUMI-O:
+   ```bash
+   module load allas
+   allas-conf --lumi
+   ```
+2. Follow the steps to authenticate. See
+   [Using LUMI-O with Allas tools](../../data/Allas/allas_lumi.md#using-lumi-o-with-allas-tools)
+   for more details.
+3. After this, restart the web interface by clicking _Restart web server_ in
+   the _Help_ menu in the top-right section of the navbar.
+4. Once the server has been restarted, the `lumi-o` remote will be available in
+   the _Files_ dropdown in the navbar, as well as in the file browser.
 
-## Using IDA
+Once you've set up a connection to Allas/LUMI-O from a web interface, you can
+use the file browser to access Allas/LUMI-O in the same was as when accessing
+the shared file system on the supercomputers.
 
-The [IDA storage service](../../data/ida/using_ida.md)
-can also be used, although some key features, such as moving data from the
-staging area to the frozen area, are only possible though the [IDA WWW-interface](https://ida.fairdata.fi).
-To use IDA in the web interface, it must first be configured for use with Rclone on a login node as follows.
+Note that configured remotes that are not accessible due to, for example,
+expired authentication or network connection issues, will not be visible in the
+_Files_ dropdown menu.
+
+!!! warning "Large files"
+    Uploading large files from your local computer to Allas via the web
+    interfaces is currently not recommended due to technical limitations.
+
+## Accessing IDA
+
+The [IDA storage service](../../data/ida/using_ida.md) can also be used from
+the web interfaces. However, some key features, such as moving data from the
+staging area to the frozen area, are only possible though the
+[IDA web interface](https://ida.fairdata.fi).
+
+To use IDA from the Puhti/Mahti web interfaces, it must first be configured for
+use with Rclone in a login node shell as follows:
+
 ```
 module load allas
 rclone config
 ```
-In the Rclone configuration interface, create a new remote with the following options:
+
+In the Rclone configuration interface, create a new remote with the following
+settings:
 
 1. Storage: WebDAV (#45)
-2. URL: [https://ida.fairdata.fi/remote.php/webdav/](https://ida.fairdata.fi/remote.php/webdav/)
+2. URL: <https://ida.fairdata.fi/remote.php/webdav/>
 3. Vendor: Nextcloud (#1)
 4. Username: Your CSC username
-5. Password: Login to the [IDA WWW-interface](https://ida.fairdata.fi), go to the settings in the top right corner.
-    Go to the _Security_ tab and create a new app password.
-    Copy the password and paste it in the Rclone configuration interface.
+5. Password:
+      1. Login to the [IDA web interface](https://ida.fairdata.fi).
+      2. Go to the settings in the top right corner.
+      3. Go to the _Security_ tab and create a new app password.
+      4. Copy the password and paste it in the Rclone configuration interface.
 6. Bearer token: Leave empty
 7. Advanced config: No
 
-After completing the Rclone configuration, the web interface server must be restarted, which can be done by clicking
-_Restart web server_ in the _Help_ menu in top right section of the navbar in the web interface.
-IDA can then be accessed in the file browser, where you will be able to upload, download, transfer and edit files in the staging area
-and view and download files in the frozen area.
-
+After completing the Rclone configuration, restart the Puhti/Mahti web
+interface by clicking _Restart web server_ in the _Help_ menu in the top-right
+section of the navbar. IDA can now be accessed in the file browser, where you
+will be able to upload, download, transfer and edit files in the staging area,
+as well as view and download files in the frozen area.
