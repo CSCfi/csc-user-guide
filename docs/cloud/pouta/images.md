@@ -41,9 +41,10 @@ keep the additional packages at a minimum.
 |CentOS-9-Stream |**cloud-user** |no  |
 |AlmaLinux-8     |**almalinux**  |no  |
 |AlmaLinux-9     |**almalinux**  |no  |
-|Ubuntu-22.04    |**ubuntu**     |no  |
-|Ubuntu-20.04    |**ubuntu**     |no  |
 |Ubuntu-18.04    |**ubuntu**     |no  |
+|Ubuntu-20.04    |**ubuntu**     |no  |
+|Ubuntu-22.04    |**ubuntu**     |no  |
+|Ubuntu-24.04    |**ubuntu**     |no  |
 
 ### CentOS-7
 CentOS is the community version of Red Hat Enterprise Linux (RHEL). CentOS-7
@@ -92,7 +93,7 @@ distribution effectively takes the role that CentOS used to have before the
 switch to the -Stream versions. Note that these are the upstream versions of the
 AlmaLinux images, and their default username is `almalinux` instead of `cloud-user`.
 
-### Ubuntu-22.04, 20.04 and 18.04 LTS
+### Ubuntu-24.04, 22.04, 20.04 and 18.04 LTS
 Some like chocolate, some like strawberry. This is the choice for those that
 do not want to use CentOS. Note that these are the upstream versions of the
 Ubuntu images, and their default username is `ubuntu` instead of `cloud-user`.

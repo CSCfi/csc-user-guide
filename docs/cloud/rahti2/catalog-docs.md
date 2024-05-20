@@ -13,6 +13,6 @@ You can browse the catalog from the webinterface after (1) logging in Rahti 2 an
 ![+Add](../img/rahti-catalog.png)
 
 
-!!! warning "Not all Rahti 1 templates have been ported to Rahti 2"
-
-    The process of adapting and testing the templates to Rahti 2 is labor intensive and not in the top of our task list. If you have any special interest on the functionality provided by a Rahti 1 template that is missing in Rahti 2 please let us know (<servicedesk@csc.fi>).
+!!! Note "Rahti 1 templates in Rahti 2"
+    Most of the previous templates have been migrated to Helm Charts for Rahti 2. If you want to use a Rahti 1 template on Rahti 2, you can find the repo at this [link](https://github.com/CSCfi/rahti-1-templates).  
+    CSC will no longer update these legacy templates, only the Helm Charts.
