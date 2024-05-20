@@ -81,7 +81,7 @@ Some issues related to, for example, glibc, fakeroot, file permissions and old r
 
 ### Running existing images
 
-To run programs that [use GPU](https://apptainer.org/docs/user/latest/gpu.html) use `--nv` flag when starting the container `apptainer run --nv /path_to_image/image.sif`. To use the graphical display with [VirtualGL](https://virtualgl.org/) a few environment variables have to be set as well. In the base images provided these are set automatically when the container is started.
+To run programs that [use GPU](https://apptainer.org/docs/user/latest/gpu.html) use `--nv` flag when starting the container `apptainer run --nv /path_to_image/image.sif`. To use the graphical display with [VirtualGL](https://virtualgl.org/) a few environment variables have to be set as well. In the base images provided these are set automatically when the container is started. (Note that if you run `apptainer shell` instead of `apptainer run` `%runscript` is not executed and necessary environment variables for vgl are not set, you then have to set them manually, see base image definition file for details(LINK).)
 
 To easily start the program create a `.desktop` [shortcut file](https://specifications.freedesktop.org/desktop-entry-spec/desktop-entry-spec-latest.html#recognized-keys) to `/users/$USER/Desktop` directory. Icon then appears on the desktop which will start the program in the container.
 
