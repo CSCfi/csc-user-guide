@@ -29,6 +29,7 @@ systems. It also comes with plenty of analysis scripts.
     |2023.3   |`gromacs/2023.3`
     |2024.0   |`gromacs/2024`
     |2024.1   |`gromacs/2024.1`
+    |2024.2   |`gromacs/2024.2`
 
 === "Mahti"
     | Version | Available modules | Notes |
@@ -48,6 +49,7 @@ systems. It also comes with plenty of analysis scripts.
     |2023.3   |`gromacs/2023.3`
     |2024.0   |`gromacs/2024`
     |2024.1   |`gromacs/2024.1`
+    |2024.2   |`gromacs/2024.2`
 
 === "LUMI"
     | Version | Available modules | Notes |
@@ -59,6 +61,7 @@ systems. It also comes with plenty of analysis scripts.
     |2023.3   |`gromacs/2023.3`<br>`gromacs/2023.3-gpu`|GPU-enabled module available
     |2024.0   |`gromacs/2024.0`<br>`gromacs/2024.0-gpu`|GPU-enabled module available
     |2024.1   |`gromacs/2024.1`<br>`gromacs/2024.1-gpu`|GPU-enabled module available
+    |2024.2   |`gromacs/2024.2`<br>`gromacs/2024.2-gpu`<br>`gromacs/2024.2-heffte`|GPU-enabled module available<br>Module with heFFTe available for [GPU PME decomposition](#gpu-pme-decomposition)
 
     [^1]: This module is unvalidated, unmaintained and unsupported by the GROMACS team. Use at your own risk!
 
