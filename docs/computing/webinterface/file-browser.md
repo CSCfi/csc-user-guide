@@ -68,7 +68,7 @@ on the command-line.
    the _Files_ dropdown in the navbar, as well as in the file browser.
 
 Once you've set up a connection to Allas/LUMI-O from a web interface, you can
-use the file browser to access Allas/LUMI-O in the same was as when accessing
+use the file browser to access Allas/LUMI-O in the same way as when accessing
 the shared file system on the supercomputers.
 
 Note that configured remotes that are not accessible due to, for example,
