@@ -269,7 +269,7 @@ on the GROMACS page.
     #SBATCH --cpus-per-task=7
 
     module use /appl/local/csc/modulefiles
-    module load gromacs/2024.1-gpu
+    module load gromacs/2024.2-gpu
 
     export OMP_NUM_THREADS=${SLURM_CPUS_PER_TASK}
 
@@ -288,7 +288,7 @@ on the GROMACS page.
     #SBATCH --ntasks-per-node=8
 
     module use /appl/local/csc/modulefiles
-    module load gromacs/2024.1-gpu
+    module load gromacs/2024.2-gpu
 
     export OMP_NUM_THREADS=7
 
