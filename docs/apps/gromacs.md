@@ -366,18 +366,20 @@ node. Importantly, the availability of GPU nodes on LUMI is massive compared to 
 
 #### GPU PME decomposition
 
-The scalability of huge systems with several million atoms may be limited by single GPU PME. To
-significantly improve the scaling, decomposition of PME to multiple GPUs is possible in the
-`gromacs/2023.1-heffte` module with the [heFFTe library](https://icl-utk-edu.github.io/heffte/)
-linked. Add the following exports to your batch script:
+The scalability of huge systems with several million atoms may be limited by
+single GPU PME. To significantly improve scalability, decomposition of PME work
+to multiple GPUs is possible in modules suffixed with `-heffte` which have been
+linked to the [heFFTe library](https://icl-utk-edu.github.io/heffte/). Add the
+following exports to your batch script:
 
 ```bash
 export GMX_GPU_PME_DECOMPOSITION=1
 export GMX_PMEONEDD=1
 ```
 
-The number of PME ranks to use depends on the specific case, but 1 or 2 per GPU *node* should
-be a reasonable starting point. So for 16 LUMI-G nodes, try `-npme 16` or `-npme 32`.
+The number of PME ranks to use depends on the specific case, but 1 or 2 per GPU
+*node* should be a reasonable starting point. So for 16 LUMI-G nodes, try
+`-npme 16` or `-npme 32`.
 
 ### Visualization and analysis
 
