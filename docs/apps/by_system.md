@@ -10,6 +10,8 @@ These headings are needed by the tests:
 
 ## Puhti
 
+## Rahti
+
 ## LUMI
 
 ## Mahti web interface
