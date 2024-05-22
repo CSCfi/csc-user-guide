@@ -118,7 +118,7 @@ each function (`-report top-down`).
 
 ### Analysing the results using GUI
 
-Results can be viewed using the `vtune-gui` application, which we recommend to launch via the [Desktop application](https://docs.csc.fi/computing/webinterface/desktop/) in the [Puhti Web interface](https://puhti.csc.fi). You may also copy the full results directory
+Results can be viewed using the `vtune-gui` application, which we recommend to launch via the [Desktop application](../computing/webinterface/desktop.md) in the [Puhti Web interface](https://puhti.csc.fi). You may also copy the full results directory
 to your workstation for local analysis.
 
 A particular result set can be opened by giving the name of the results directory as an argument to `vtune-gui`:
