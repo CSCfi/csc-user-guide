@@ -9,7 +9,7 @@ tags:
 
 ## Available
 
-Puhti:
+Puhti: 2022.3
 
 ## License
 
