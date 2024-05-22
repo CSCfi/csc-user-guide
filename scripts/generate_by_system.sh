@@ -1,15 +1,19 @@
 #!/bin/bash
 
+# If you are executing this script manually for development purposes,
+# note that the script 'generate_alpha.sh' needs to be executed first;
+# Otherwise, the resulting page will not have any apps listed on it.
+
+# If you are adding another system, make sure to add a heading for
+# it into the file pointed to by the variable $generated_file below.
+# While this script rewrites the whole file, the link tests are
+# executed before that when deploying and may thus falsely report
+# broken links.
+
 app_dir="docs/apps"
 ignore_file="scripts/skip_system.txt"
 generated_file="docs/apps/by_system.md"
 echo -e "# Applications by availability\n" > $generated_file
-
-# If you are adding another system, make sure to add a heading for
-# it into the file pointed to by the variable $generated_file above.
-# While this script rewrites the whole file, the link tests are
-# executed before that when deploying and may thus falsely report
-# broken links.
 
 # Case sensitive, the title for the system category
 system_name=("Mahti" "Puhti" "LUMI" "Mahti web interface" "Puhti web interface")
