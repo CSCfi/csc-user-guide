@@ -28,7 +28,8 @@ If you want to get source code level information, compile your code with the deb
 ### Results collection
 
 Performance analysis can be started either from VTune GUI, or with the VTune command line tool. In HPC systems
-one uses normally the command line tool `vtune` within a bash job. The first analysis that one is suggested to try is "performance snapshot". Here is a sample batch job script that can be used to collect "performance snapshopt"
+one uses normally the command line tool `vtune` within a bash job. The first analysis that we suggest to try is
+"performance snapshot". Here is a sample batch job script that can be used to collect it
 (please modify the script according to your application and project!):
 
 ```
@@ -97,19 +98,18 @@ using the `-report` option:
 vtune -report summary -r results_dir_name
 ```
 
-The results are printed to stdandard output or to a file using `-report-output
-output_filename` option.
+The results are printed to standard output or to a file using `-report-output output_filename` option.
 
-VTune supports large number of different reports, *e.g.* "hotspots", "hardware events", and one can also 
+VTune supports large number of different reports, *e.g.* "hotspots", "hardware events", and one can also
 compare differences between two reports:
 
 ```
 vtune -report hotspots -r results_dir_name_00 -r results_dir_name_01
 ```
 
-By default the report time is grouped by functions, however it is possible to
+By default the report time is grouped by functions, however it is also possible to
 have it grouped by source lines (`-group-by source-line`) or by module
-(`-group-by module`). 
+(`-group-by module`).
 
 Finally, it is possible to display the CPU time for call stacks
 (`-report callstacks`) or display a call tree and provide the CPU time for
@@ -130,7 +130,7 @@ vtune-gui results_dir_name
 #### Known issues
 
 Sometimes `vtune-gui` fails to start with an error "Failed to launch VTune Amplifier GUI...". If that happens, one should kill
-VTune processes that are left behind and try again:
+all VTune processes that are left behind and try again:
 
 ```
 killall -9 -r vtune
