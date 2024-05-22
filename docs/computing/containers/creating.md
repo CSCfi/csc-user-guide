@@ -81,7 +81,7 @@ Some issues related to, for example, glibc, fakeroot, file permissions and old r
 
 ### Running existing images
 
-To run programs that [use GPU](https://apptainer.org/docs/user/latest/gpu.html) use `--nv` flag when starting the container `apptainer run --nv /path_to_image/image.sif`. To use the graphical display with [VirtualGL](https://virtualgl.org/) a few environment variables have to be set as well. In the base images provided these are set automatically when the container is started. (Note that if you run `apptainer shell` instead of `apptainer run` `%runscript` is not executed and necessary environment variables for vgl are not set, you then have to set them manually, see base image definition file for details(LINK).)
+To run programs that [use GPU](https://apptainer.org/docs/user/latest/gpu.html) use `--nv` flag when starting the container `apptainer run --nv /path_to_image/image.sif`. To use the graphical display with [VirtualGL](https://virtualgl.org/) a few environment variables have to be set as well. In the base images provided these are set automatically when the container is started. (Note that if you run `apptainer shell` instead of `apptainer run` `%runscript` is not executed and necessary environment variables for vgl are not set, you then have to set them manually, see [base image definition files](https://github.com/CSCfi/singularity-recipes/visualization) for details.)
 
 To easily start the program create a `.desktop` [shortcut file](https://specifications.freedesktop.org/desktop-entry-spec/desktop-entry-spec-latest.html#recognized-keys) to `/users/$USER/Desktop` directory. Icon then appears on the desktop which will start the program in the container.
 
@@ -96,13 +96,16 @@ Exec=apptainer run --nv /path_to_image/vgl_blender.sif
 
 ### Building your own images
 To build containers for VGL applications yourself you can use one of the base images provided as a base.
-For details of how the base image works, see its definition file here (link).
+
+Base images available can be found from the path `/appl/opt/vis/vgl-base-images/` in Puhti.
+
+For details of how the base images work, see their [definition files](https://github.com/CSCfi/singularity-recipes/visualization).
 
 Here is a commented example definition file that installs blender on top of the base image.
 
 ```
 Bootstrap: localimage
-From: /path_to_image/vgl_base.sif
+From: /appl/opt/vis/vgl-base-images/ubuntu/22.04.sif 
 
 %environment
 	# Specify path to the binary that we want to run on start
