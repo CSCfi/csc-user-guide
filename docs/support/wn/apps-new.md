@@ -5,7 +5,7 @@
 [GROMACS](../../apps/gromacs.md) 2024.2 is now available on Puhti, Mahti and LUMI.
 New GPU versions on LUMI have been compiled to use the instant submission mode of
 AdaptiveCpp, which can improve performance and scalability in some cases by more
-than 10%. See [release notes](https://manual.gromacs.org/2024.1/release-notes/2024/2024.2.html)
+than 10%. See [release notes](https://manual.gromacs.org/2024.2/release-notes/2024/2024.2.html)
 for a list of all new features and improvements.
 
 ## Schrödinger Maestro 2024.2, 3.5.2024
