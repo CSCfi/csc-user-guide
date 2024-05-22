@@ -5,7 +5,8 @@
 The [School materials](https://zenodo.org/records/11172973) cover intro to molecular
 dynamics and electronic structure theory lectures and hands-on exercises, and machine
 learning for molecular and material use cases. You can also access the Notebooks directly
-via the [Mahti web interface](https://www.mahti.csc.fi).
+via the [Mahti web interface](https://www.mahti.csc.fi) (once logged in, select "Jupyter for
+courses" and the desired course module.)
 
 ## How to run GROMACS efficiently on LUMI training materials published, 6.2.2024
 
