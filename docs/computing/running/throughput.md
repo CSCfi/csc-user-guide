@@ -54,37 +54,37 @@ regarding how to implement your workflow.
 %%{init: {'theme': 'default', 'themeVariables': { 'fontSize': '0.6rem'}}}%%
 graph TD
     C(Does your software have a built-in HTC option?) -->|Yes| D("Use if suitable for use case:<br><a href='/support/tutorials/gromacs-throughput/'>GROMACS</a>, <a href='/apps/cp2k/#high-throughput-computing-with-cp2k'>CP2K</a>, <a href='/apps/lammps/#high-throughput-computing-with-lammps'>LAMMPS</a>, <a href='/apps/amber/#high-throughput-computing-with-amber'>Amber</a>,<br> Python, R ")
-    C -->|No| E(Serial or parallel subtasks?)
-    E -->|Serial| F(<a href='/support/tutorials/many/'>GNU Parallel</a><br><a href='/computing/running/array-jobs/'>Array jobs</a><br><a href='/apps/hyperqueue/'>HyperQueue</a>)
-    E -->|Parallel| G(Single- or multinode subtasks?)
-    G -->|Single| H(Dependencies between subtasks?)
-    G -->|Multi| I(<a href='/computing/running/fireworks/'>FireWorks</a>)
-    H -->|Yes| J(<a href='https://snakemake.readthedocs.io/en/stable/'>Snakemake</a><br><a href='/support/tutorials/nextflow-puhti/'>Nextflow</a><br><a href='/computing/running/fireworks/'>FireWorks</a>)
-    H -->|No| K(<a href='/apps/hyperqueue/'>HyperQueue</a>)
+    C -->|No| E(Single- or multi-node subtasks?)
+    E -->|Single| F(Dependencies between subtasks?)
+    E -->|Multi-node| G(<a href='/computing/running/fireworks/'>FireWorks</a>)
+    F -->|Yes| J(<a href='https://snakemake.readthedocs.io/en/stable/'>Snakemake</a><br><a href='/support/tutorials/nextflow-puhti/'>Nextflow</a><br><a href='/computing/running/fireworks/'>FireWorks</a>)
+    F -->|No| K(<a href='/support/tutorials/many/'>GNU Parallel</a><br><a href='/computing/running/array-jobs/'>Array jobs</a><br><a href='/apps/hyperqueue/'>HyperQueue</a>)
 ```
 
-A qualitative overview of the features and capabilities of some of the workflow
+A qualitative overview of the features and capabilities of some of the HTC
 tools recommended by CSC is presented below.
 
 ||[Nextflow]|[Snakemake]|[HyperQueue]|[FireWorks]|[Array jobs]|[GNU Parallel]|
 ||:------:|:-------:|:--:|:-------:|:--------:|:----------:|
 |No excessive IO|![Partial/caveat/uncertain](../../img/alert.svg 'Partial/caveat/uncertain')|![Partial/caveat/uncertain](../../img/alert.svg 'Partial/caveat/uncertain')|![Yes](../../img/check-circle.svg 'Yes')|![Partial/caveat/uncertain](../../img/alert.svg 'Partial/caveat/uncertain')|![Yes](../../img/check-circle.svg 'Yes')|![Yes](../../img/check-circle.svg 'Yes')|
-|Packs jobs/job steps|![Partial/caveat/uncertain](../../img/alert.svg 'Partial/caveat/uncertain')|![Partial/caveat/uncertain](../../img/alert.svg 'Partial/caveat/uncertain')|![Partial/caveat/uncertain](../../img/alert.svg 'Partial/caveat/uncertain')|![Partial/caveat/uncertain](../../img/alert.svg 'Partial/caveat/uncertain')|![Partial/caveat/uncertain](../../img/alert.svg 'Partial/caveat/uncertain')|![Partial/caveat/uncertain](../../img/alert.svg 'Partial/caveat/uncertain')|
+|Packs jobs/job steps|![Partial/caveat/uncertain](../../img/alert.svg 'Partial/caveat/uncertain')|!![Yes](../../img/check-circle.svg 'Yes')|![Partial/caveat/uncertain](../../img/alert.svg 'Partial/caveat/uncertain')|![Partial/caveat/uncertain](../../img/alert.svg 'Partial/caveat/uncertain')|![No](../../img/x-circle.svg 'No')|NA|
 |Easy to setup|![Yes](../../img/check-circle.svg 'Yes')|![Yes](../../img/check-circle.svg 'Yes')|![Yes](../../img/check-circle.svg 'Yes')|![Partial/caveat/uncertain](../../img/alert.svg 'Partial/caveat/uncertain')|![Yes](../../img/check-circle.svg 'Yes')|![Yes](../../img/check-circle.svg 'Yes')|
-|Dependency support|![Yes](../../img/check-circle.svg 'Yes')|![Yes](../../img/check-circle.svg 'Yes')|![No](../../img/x-circle.svg 'No')|![Yes](../../img/check-circle.svg 'Yes')|![Yes](../../img/check-circle.svg 'Yes')|![No](../../img/x-circle.svg 'No')|
-|Container support|![Yes](../../img/check-circle.svg 'Yes')|![Yes](../../img/check-circle.svg 'Yes')|![Yes](../../img/check-circle.svg 'Yes')|![Yes](../../img/check-circle.svg 'Yes')|![Partial/caveat/uncertain](../../img/alert.svg 'Partial/caveat/uncertain')|![Yes](../../img/check-circle.svg 'Yes')|
-|Error recovery|![Yes](../../img/check-circle.svg 'Yes')|![No](../../img/x-circle.svg 'No')|![No](../../img/x-circle.svg 'No')|![Yes](../../img/check-circle.svg 'Yes')|![No](../../img/x-circle.svg 'No')|![Yes](../../img/check-circle.svg 'Yes')|
-|Parallelization support|![Partial/caveat/uncertain](../../img/alert.svg 'Partial/caveat/uncertain')|![Partial/caveat/uncertain](../../img/alert.svg 'Partial/caveat/uncertain')|![Yes](../../img/check-circle.svg 'Yes')|![Yes](../../img/check-circle.svg 'Yes')|![Yes](../../img/check-circle.svg 'Yes')|![No](../../img/x-circle.svg 'No')|
+|Dependency support|![Yes](../../img/check-circle.svg 'Yes')|![Yes](../../img/check-circle.svg 'Yes')|![No](../../img/x-circle.svg 'No')|![Yes](../../img/check-circle.svg 'Yes')|![No](../../img/x-circle.svg 'No')|![No](../../img/x-circle.svg 'No')|
+|Automatic container integration|![Yes](../../img/check-circle.svg 'Yes')|![Yes](../../img/check-circle.svg 'Yes')|![Yes](../../img/check-circle.svg 'Yes')|![Yes](../../img/check-circle.svg 'Yes')|![No](../../img/x-circle.svg 'No')|![No](../../img/x-circle.svg 'No')|
+|Error recovery|![Yes](../../img/check-circle.svg 'Yes')|![Yes](../../img/check-circle.svg 'Yes')|![No](../../img/x-circle.svg 'No')|![Yes](../../img/check-circle.svg 'Yes')|![No](../../img/x-circle.svg 'No')|![Yes](../../img/check-circle.svg 'Yes')|
+|MPI/OpenMP-parallel subtasks|![Partial/caveat/uncertain](../../img/alert.svg 'Partial/caveat/uncertain')|![Partial/caveat/uncertain](../../img/alert.svg 'Partial/caveat/uncertain')|![Yes](../../img/check-circle.svg 'Yes')|![Yes](../../img/check-circle.svg 'Yes')|![Yes](../../img/check-circle.svg 'Yes')|![No](../../img/x-circle.svg 'No')|
 |Slurm integration |![Partial/caveat/uncertain](../../img/alert.svg 'Partial/caveat/uncertain')|![Partial/caveat/uncertain](../../img/alert.svg 'Partial/caveat/uncertain')|![Partial/caveat/uncertain](../../img/alert.svg 'Partial/caveat/uncertain')|![Partial/caveat/uncertain](../../img/alert.svg 'Partial/caveat/uncertain')|![Yes](../../img/check-circle.svg 'Yes')|![Partial/caveat/uncertain](../../img/alert.svg 'Partial/caveat/uncertain')|
+|Multi-partition support|![Partial/caveat/uncertain](../../img/alert.svg 'Partial/caveat/uncertain')|![Partial/caveat/uncertain](../../img/alert.svg 'Partial/caveat/uncertain')|?|?|![No](../../img/x-circle.svg 'No')|!![No](../../img/x-circle.svg 'No')|
 
 *[No excessive IO]: The workflow tool does not produce a lot of extra files/directories
 *[Packs jobs/job steps]: The workflow tool is able to pack multiple jobs (job steps) to be executed as a single job (job step)
 *[Easy to setup]: The workflow tool is easy to install and setup
 *[Dependency support]: The workflow tool supports dependencies between subtasks
-*[Container support]: The workflow tool supports execution with containers
+*[Automatic container integration]: The workflow tool supports automatic execution of containers without any extra work
 *[Error recovery]: The workflow tool supports detection/logging of errors and restarting of failed subtasks
-*[Parallelization support]: The workflow tool supports parallel subtasks
+*[MPI/OpenMP-parallel subtasks]: The workflow tool supports MPI/OpenMP-parallel subtasks
 *[Slurm integration]: The workflow tool integrates well with Slurm
+*[Multi-partition support]: The workflow tool supports usage of different HPC partititions in one workflow, for example GPU and CPU partitions.
 
 ### Input/output efficiency
 
@@ -155,13 +155,10 @@ graph TD
 * [GNU Parallel] tutorial shows how to efficiently run a very large number of
   serial jobs without bloating the Slurm log. You can also replace GNU Parallel
   with `xargs`, see [xargsjob.sh] for example.
-* [FireWorks] is a flexible tool for defining, managing and
-  executing workflows with multiple steps and complex dependencies
+* [FireWorks] is a workflow tools for complex dependencies and multi-node subtasks
 * [HyperQueue] is a tool for efficient sub-node task scheduling
-* [Nextflow tutorial for Puhti (basic)](https://yetulaxman.github.io/Biocontainer/tutorials/nextflow_tutorial.html)
-* [Running Nextflow pipelines on Puhti (advanced)](nextflow-puhti.md)
-* [Running Nextflow workflows using HyperQueue](nextflow-hq.md) can be leveraged to run large workflows involving thousands of processes efficiently
-* [Running Snakemake pipelines on Puhti](snakemake-puhti.md)
+* [Nextflow] is a popular workflow tool with jobs with dependecies
+* [Snakemake] is a popular workflow tool with jobs with dependecies
   
 
 ### Science specific workflow tools and tutorials
@@ -200,8 +197,9 @@ workflows.
 [HyperQueue]: ../../apps/hyperqueue.md
 [GNU Parallel]: ../../support/tutorials/many.md
 [FireWorks]: fireworks.md
+[Nextflow]: ../../apps/nextflow.md
 [contact CSC Service Desk]: ../../support/contact.md
-[Snakemake]: https://snakemake.readthedocs.io/en/stable/
+[Snakemake]: ../../apps/snakemake.md
 [Array jobs]: array-jobs.md
 [Lustre]: ../lustre.md
 [Fast local NVMe disk]: ../disk.md#compute-nodes-with-local-ssd-nvme-disks
