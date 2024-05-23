@@ -22,7 +22,7 @@ This feature has several advantages and disadvantages. On one side it allows to 
 
 1. Create a volume as you would do for any other **Type** of volume. Set the **Volume Name** and **Size (GiB)** as desired.
 
-1. Change the **Type** to `multiattach`.
+1. Change the **Type** to `standard.multiattach`.
 
 1. Click in "Create Volume".
 
@@ -38,7 +38,7 @@ Before doing this, you need to [install the openstack client](../install-client/
 1. Create a multi attach volume:
 
     ```sh
-    openstack volume create --size <size_in_GB> --type multiattach <volume_name>
+    openstack volume create --size <size_in_GB> --type standard.multiattach <volume_name>
     ```
     You need to replace `<volume_name>` by the name you want to give to the volume, and the `<size_in_GB>` by the size in Gigabytes you want the volume to have.
 
