@@ -1,5 +1,9 @@
 # Multi-attach Cinder volumes
 
+!!! warning  
+    Only available for cPouta now.  
+    By default the quota is set to 0, you must request it by sending an email to servicedesk@csc.fi
+
 It is possible to attach and mount the same _cinder_ volume into more that one VM at the same time. This means that each of the VMs will be able to read and write to the same block device. This is similar to what a SAN will allow you to achieve.
 
 ![Multi attach](../img/multi-attach.drawio.svg)
