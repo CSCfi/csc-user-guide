@@ -177,6 +177,10 @@ nav:
         - Container wrapper (Tykky): computing/containers/tykky.md
      - Web interface:
        - computing/webinterface/index.md
+       - Connecting: computing/webinterface/connecting.md
+       - Shell: computing/webinterface/shell.md
+       - Files and storage services: computing/webinterface/file-browser.md
+       - Project view: computing/webinterface/project-view.md
        - Interactive apps:
          - computing/webinterface/apps.md
          - Accelerated visualization: computing/webinterface/accelerated-visualization.md
