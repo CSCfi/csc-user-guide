@@ -41,10 +41,17 @@ in the web console:
 
 ![copy login](../../img/CopyLoginCommand.png)
 
-!!! info
+!!! info "sudo"
 
     If you open multiple terminals, the login session for oc will be active in
     all of them.
+
+!!! info "Helm login"
+    If you are using Helm and you are not logged in, you might get an error like:
+    ```sh
+    $ helm ls       
+    Error: Kubernetes cluster unreachable: Get "http://localhost:8080/version": dial tcp 127.0.0.1:8080: connect: connection refused
+    ```
 
 ## How to login in the registry?
 
