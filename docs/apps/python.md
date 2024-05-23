@@ -8,9 +8,9 @@ tags:
 [Python](https://www.python.org/) is a general-purpose high-level
 programming language that is widely used for scientific computing.
 
-For learning about aspects of Python usage specific to CSC supercomputers,
-please see the page on
-[using Python effectively](../support/tutorials/using-python-effectively.md).
+For learning about how to use Python effectively on CSC supercomputers,
+please see our
+[Python usage guide](../support/tutorials/python-usage-guide.md).
 
 ## Available
 
@@ -26,27 +26,28 @@ licenses. Python itself is licensed under the
 ## Usage
 
 ### Default environment
+
 The basic system Python (`/usr/bin/python3`) available by default on
 both Puhti and Mahti (without loading any modules) is **Python version
 3.6.8**. This can be launched simply with the command `python3`, but
 this environment contains only a basic set of standard Python
 packages.
 
-### Environments specific to science areas
+### Environments for science areas
 
 If you need a newer version of Python, or a wider set of Python packages,
 Puhti and Mahti have several pre-installed
-[environment modules](../computing/modules.md) which contain
-Python environments tailored to different science areas.
+[environment modules](../computing/modules.md) containing
+Python environments made for different science areas.
 
 | Module name | Purpose |
 |-|-|
-| [biopythontools](./biopython.md) | bioinformatics |
-| [geoconda](./geoconda.md) | geoinformatics  |
-| [jax](./jax.md) | JAX ML framework |
-| [python-data](./python-data.md) | data analysis and ML utilities |
-| [pytorch](./pytorch.md) | PyTorch ML framework |
-| [tensorflow](./tensorflow.md) | TensorFlow ML framework |
+| [biopythontools](biopython.md) | bioinformatics |
+| [geoconda](geoconda.md) | geoinformatics  |
+| [jax](jax.md) | JAX ML framework |
+| [python-data](python-data.md) | data analysis and ML utilities |
+| [pytorch](pytorch.md) | PyTorch ML framework |
+| [tensorflow](tensorflow.md) | TensorFlow ML framework |
 
 To use any of the above environments, simply load the corresponding module.
 For example:
@@ -71,9 +72,9 @@ modules listed above).
 While the pre-installed Python environments are by themselves sufficient for
 many tasks, projects often include tasks which require additional libraries.
 If this is the case, it is possible to
-[extend existing environments](../../support/tutorials/using-python-effectively/#installing-python-packages-to-existing-modules)
+[extend existing environments](../support/tutorials/python-usage-guide.md#installing-python-packages-to-existing-modules)
 or
-[create completely new ones](../../support/tutorials/using-python-effectively/#creating-your-own-python-environments)
+[create completely new ones](../support/tutorials/python-usage-guide.md#creating-your-own-python-environments)
 .
 
 ## References

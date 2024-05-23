@@ -38,7 +38,7 @@ qiskit-optimization==0.6.1
 
 
 If you find that some package is missing, you can often install it yourself with `pip install --user`.
-See [our Python documentation](python.md#installing-python-packages-to-existing-modules) for
+Please see our [Python usage guide](../support/tutorials/python-usage-guide.md#installing-python-packages-to-existing-modules) for
 more information on how to install packages yourself. If you think that some important
 Qiskit-related package should be included in the module provided by CSC, please
 [contact our servicedesk](../support/contact.md).
