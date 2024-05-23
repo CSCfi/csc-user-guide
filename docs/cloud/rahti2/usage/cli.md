@@ -56,6 +56,11 @@ After login with `oc`, it is possible to use the command to generate a token (`o
 
 `docker login -p $(oc whoami -t ) -u unused image-registry.apps.2.rahti.csc.fi`
 
+!!! info "sudo use"
+    Some docker client setups require to run the `docker` client as root using `sudo`. In this case the `oc login` command needs to also be run using `sudo`. This is because the login information is stored in the user's home directory, only the uer that runs `oc login` is logged in to Rahti.
+
+    As a general recommendation, it is better to use other "rootless" runtimes like podman, when possible.
+
 ### Using a service account token
 
 Rahti 2 also offers the opportunity of using an internal service account to interact with the registry. This is recommended for automated procedures like a CI pipeline. Even though by default 3 internal service accounts are created in every Rahti 2 namespace: builder, default and deployer, it is recommended to create a dedicated internal service account and assign to it the `system:image-pusher` role.
