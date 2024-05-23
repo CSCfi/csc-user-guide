@@ -10,7 +10,7 @@ programming language that is widely used for scientific computing.
 
 For learning about aspects of Python usage specific to CSC supercomputers,
 please see the page on
-[using Python effectively](../../support/tutorials/using-python-effectively.md).
+[using Python effectively](../support/tutorials/using-python-effectively.md).
 
 ## Available
 

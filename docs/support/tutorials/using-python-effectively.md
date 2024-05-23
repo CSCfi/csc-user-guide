@@ -1,22 +1,13 @@
 # Using Python effectively on CSC supercomputers
 
-Some important aspects of using Python are notably different on CSC
-supercomputers compared to usage on a personal device or in other
-HPC environments. To make the most of the computational resources offered by
-CSC, it is helpful to be aware of the differences.
+Some important aspects of working with the Python programming language
+are notably different on CSC supercomputers compared to usage on a personal
+device or in other HPC environments. To make the most of the computational
+resources offered by CSC, it is helpful to be aware of the differences.
 
-For general information on the Python programming language and
+For general information on the Python language and
 Python tools on CSC supercomputers, please see the
 [Python application page](../../apps/python.md).
-
-<!--
-https://a3s.fi/python-pkg-lists/biopythontools_3.10.6.txt
-https://a3s.fi/python-pkg-lists/geoconda_3.10.9.yml
-https://a3s.fi/python-pkg-lists/jax0.4.23_python3.9_cuda12.2_csc_fix1.txt
-https://a3s.fi/python-pkg-lists/python-data-2023-11.yaml
-https://a3s.fi/python-pkg-lists/pytorch_2.2.1_csc_fix2.txt
-https://a3s.fi/python-pkg-lists/tensorflow_2.15.0_rocky3.txt
--->
 
 ## Installing Python packages to existing modules
 
@@ -26,8 +17,7 @@ install those yourself with the Pip package manager.
 
 If you think that some important package should be included by default
 in a module provided by CSC, don't hesitate to contact our [Service
-Desk](../support/contact.md).
-
+Desk](../contact.md).
 
 ### Using `venv`
 
@@ -38,7 +28,7 @@ environment". You can have multiple virtual environments, for example
 one for each project.
 
 For example to install a package called `whatshap` on top of the
-CSC-provided [python-data](python-data.md) module:
+CSC-provided [python-data](../../apps/python-data.md) module:
 
 ```bash
 cd /projappl/<your_project>  # change this to the appropriate path for your project
@@ -55,7 +45,6 @@ pip install whatshap
     pre-installed packages from the base module (for example numpy from
     python-data).
 
-
 Later when you wish to use the virtual environment you only need to
 load the module and activate the environment:
 
@@ -69,7 +58,6 @@ Naturally, this also applies to slurm job scripts.
 **Note:** some older CSC installations are not compatible with Python
 virtual environments. We are still working to update those. For these
 you need to use the `pip install --user` approach described below.
-
 
 ### Using `pip install --user`
 
@@ -133,7 +121,7 @@ It is also possible to create your own Python environments.
 
 ### Tykky
 
-The easiest option is to use [Tykky](../computing/containers/tykky.md) for Conda or pip installations.
+The easiest option is to use [Tykky](../../computing/containers/tykky.md) for Conda or pip installations.
 
 ### Custom Apptainer container
 
@@ -142,8 +130,8 @@ a custom Apptainer container is an option.
 
 Please, see our Apptainer documentation:
 
-* [Running Apptainer containers](../computing/containers/run-existing.md)
-* [Creating Apptainer containers](../computing/containers/creating.md),
+* [Running Apptainer containers](../../computing/containers/run-existing.md)
+* [Creating Apptainer containers](../../computing/containers/creating.md),
   including how to convert Docker container to Apptainer container.
 
 ### Conda
@@ -153,120 +141,45 @@ is inefficient with shared file systems. This can cause very slow library import
 in the worst case slowdowns in the whole file system. **Therefore, CSC has deprecated the
 direct use of Conda installations on CSC supercomputers.** You can, however, still use
 Conda environments granted that they are containerized. To easily containerize your Conda
-(or pip) environments, please see the [Tykky container wrapper tool](../computing/containers/tykky.md).
+(or pip) environments, please see the [Tykky container wrapper tool](../../computing/containers/tykky.md).
 
-* [CSC Conda tutorial](../support/tutorials/conda.md) describes in more detail
+* [CSC Conda tutorial](./conda.md) describes in more detail
   what Conda is and how to use it. Some parts of this tutorial may be helpful also for
   Tykky installations.
-
-<!--
-## Installing Python libraries
-
-While the pre-existing Python environments are quite extensive, projects
-often require additional software not present in an environment.
-
-### Complementing a pre-existing environment
-
-In most cases, it is easiest to complement one of the pre-existing Python
-environments. There are several ways to do this.
-
-#### Virtual environments
-
-The Python standard library includes the
-[venv module](https://docs.python.org/3/library/venv.html), which supports the
-creation of virtual environments. Python virtual environments are generally
-very useful for managing packages for multiple projects, each with their
-individual dependencies. On CSC supercomputers, this is very helpful, since
-system-level installations are not possible for users.
-
-While it is possible to create a complete Python environment inside the virtual
-environment, it is typically more convenient to use them as extensions of
-pre-existing environments. 
-
-**Creating a venv**
-```bash
-module load <module name>
-python3 -m venv --system-site-packages <env name>
-source <env name>/bin/activate
-pip install <package name>
-```
-
-!!! important
-	Remember to use the `--system-site-packages` flag when
-	creating the virtual environment, so that the environment
-	finds pre-installed packages from any loaded module(s).
-
-**Using a venv**
-```bash
-module load <module name>
-source <env name>/bin/activate
-```
-
-!!! important
-	When activating the virtual environment,
-	remember to load the modules that were loaded when
-	creating the environment, otherwise Python will probably
-	not work as intended.
-
-#### User installations 
-
-Another way to use additional packages in tandem with pre-existing
-environments is by doing a user installation.
-The default installation directory for these is   
-`.local/lib/python<x>.<y>/sitepackages` in the user's `$HOME` directory.
-
-However, since the home directory has limited storage,
-it usually makes more sense to install packages in the `projappl`
-directory of a project. This is done by creating a new directory for the
-installation and setting the `PYTHONUSERBASE` environment variable to
-point to this directory.
-
-```bash
-mkdir /projappl/project_<id>/myenv
-module load <module name>
-export PYTHONUSERBASE=/projappl/project_<id>/myenv
-pip install --user <package name>
-```
-
-`unset PYTHONUSERBASE`
-
-```bash
-module load <module name>
-export PYTHONUSERBASE=/projappl/project_<id>/myenv
-```
--->
 
 ## Python development environments
 
 Python code can be edited with a console-based [text editor directly on the
-supercomputer](../support/tutorials/env-guide/text-and-image-processing.md).
+supercomputer](./env-guide/text-and-image-processing.md).
 Codes can also be edited on your local machine and copied to the supercomputer
-with [scp](../data/moving/scp.md) or [graphical file transfer
-tools](../data/moving/graphical_transfer.md).
+with [scp](../../data/moving/scp.md) or [graphical file transfer
+tools](../../data/moving/graphical_transfer.md).
 You can also [edit Python scripts in Puhti from your local
-PC](../support/tutorials/remote-dev.md) with some code editors like Visual
+PC](./remote-dev.md) with some code editors like Visual
 Studio Code.
 
 Finally, several graphical programming environments can be used directly on the
 supercomputer, such as Jupyter Notebooks, Spyder and Visual Studio Code, through
-the [Puhti web interface](../computing/webinterface/index.md).
+the [Puhti web interface](../../computing/webinterface/index.md).
 
 ### Jupyter Notebooks
 
 [Jupyter Notebooks](https://jupyter.org/) allows one to run Python code via a web
 browser running on a local PC. The notebooks can combine code, equations,
 visualizations and narrative text in a single document. Many of our modules, including
-[python-data](python-data.md), the deep learning modules and [geoconda](geoconda.md)
+[python-data](../../apps/python-data.md), the deep learning modules and
+[geoconda](../../apps/geoconda.md)
 include the Jupyter notebook package. See the tutorial [how to set up and connect to
-a Jupyter Notebook](../support/tutorials/rstudio-or-jupyter-notebooks.md) for using
+a Jupyter Notebook](./rstudio-or-jupyter-notebooks.md) for using
 Jupyter in CSC environment.
 
 ### Spyder
 
 [Spyder](https://www.spyder-ide.org/) is scientific Python development
-environment. Modules [python-data](python-data.md) and [geoconda](geoconda.md)
+environment. Modules [python-data](../../apps/python-data.md) and
+[geoconda](../../apps/geoconda.md)
 have Spyder included. The best option for using it is through the [Puhti
-web interface remote desktop](../computing/webinterface/desktop.md).
+web interface remote desktop](../../computing/webinterface/desktop.md).
 
 ## Python parallel jobs
 
@@ -281,7 +194,7 @@ The `multiprocessing` package is likely the easiest to use and as it is part of 
 Python standard library it is included in all Python installations. `joblib` provides
 some more flexibility. `multiprocessing` and `joblib` are suitable for one
 node (max 40 cores). `dask` is the most versatile and has several options for
-parallelization. Please see [CSC's Dask tutorial](../support/tutorials/dask-python.md)
+parallelization. Please see [CSC's Dask tutorial](./dask-python.md)
 which includes both single-node (max 40 cores) and multi-node examples.
 
 See our GitHub repository for some [examples for using the different parallelization
