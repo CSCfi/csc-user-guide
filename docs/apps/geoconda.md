@@ -108,7 +108,9 @@ To check the exact packages and versions included in the loaded module:
 list-packages
 ```
  
-You can add more Python packages to `geoconda`, see instructions from [CSC Python page](python.md#installing-python-packages-to-existing-modules).
+You can add more Python packages to `geoconda` by following the instructions in
+our
+[Python usage guide](../support/tutorials/python-usage-guide.md#installing-python-packages-to-existing-modules).
 
 You can edit your Python code in Puhti with:
 

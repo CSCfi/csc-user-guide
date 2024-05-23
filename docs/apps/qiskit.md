@@ -28,7 +28,7 @@ The module also includes the python packages that are often used with qiskit, su
 as `matplotlib 3.7.2`, `scipy 1.11.1`, `pandas 2.0.3`, `numpy 1.25.1`, and `jupyterlab 4.0.3`.
 
 If you find that some package is missing, you can often install it yourself with `pip install --user`.
-See [our Python documentation](python.md#installing-python-packages-to-existing-modules) for
+Please see our [Python usage guide](../support/tutorials/python-usage-guide.md#installing-python-packages-to-existing-modules) for
 more information on how to install packages yourself. If you think that some important
 Qiskit-related package should be included in the module provided by CSC, please
 [contact our servicedesk](../support/contact.md).
