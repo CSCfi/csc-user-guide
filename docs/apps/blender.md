@@ -24,7 +24,7 @@ including commercially or for education under Blender's
 
 You need accelerated graphics to work with Blender efficiently.
 
-1. Connect to the [Puhti web interface](../computing/webinterface/index.md#connecting).
+1. Connect to the [Puhti web interface](../computing/webinterface/connecting.md).
 2. Select the [Accelerated Visualization](../computing/webinterface/accelerated-visualization.md)
    app of the web interface and specify the required resources.
 3. Click the *Launch* button. Your job is placed in the queue, and once it has
