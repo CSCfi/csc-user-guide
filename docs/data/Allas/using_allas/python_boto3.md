@@ -32,7 +32,7 @@ pip install boto3
 ```
 
 ### `boto3` in CSC supercomputers
-Some existing [Python modules](../../../apps/python.md#environments-for-science-areas) might have `boto3` pre-installed, for example [geoconda](../../../apps/geoconda.md). 
+Some existing [Python modules](../../../apps/python.md#pre-installed-python-environments) might have `boto3` pre-installed, for example [geoconda](../../../apps/geoconda.md). 
 To other modules, it is possible to add `boto3` with [pip](../../../support/tutorials/python-usage-guide.md#installing-python-packages-to-existing-modules).
 
 
