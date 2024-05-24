@@ -177,6 +177,10 @@ nav:
         - Container wrapper (Tykky): computing/containers/tykky.md
      - Web interface:
        - computing/webinterface/index.md
+       - Connecting: computing/webinterface/connecting.md
+       - Shell: computing/webinterface/shell.md
+       - Files and storage services: computing/webinterface/file-browser.md
+       - Project view: computing/webinterface/project-view.md
        - Interactive apps:
          - computing/webinterface/apps.md
          - Accelerated visualization: computing/webinterface/accelerated-visualization.md
@@ -380,7 +384,11 @@ nav:
       - data/sensitive-data/index.md
       - Choose service: data/sensitive-data/choose-a-service.md
       - Store and analyse:
-        - Start here: data/sensitive-data/sd-access.md
+        - Start here: 
+            - data/sensitive-data/sd-access.md
+            - Access as project manager: data/sensitive-data/sd-use-case-new-user-project-manager.md
+            - Access as project member: data/sensitive-data/sd-use-case-new-user-project-member.md
+            - Manage CSC project: data/sensitive-data/sd-csc-project.md
         - Store with SD Connect: 
             - data/sensitive-data/sd_connect.md
             - Login to SD Connect: data/sensitive-data/sd-connect-login.md
