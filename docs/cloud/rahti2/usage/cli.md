@@ -64,7 +64,7 @@ After login with `oc`, it is possible to use the command to generate a token (`o
 `docker login -p $(oc whoami -t ) -u unused image-registry.apps.2.rahti.csc.fi`
 
 !!! info "sudo use"
-    Some docker client setups require to run the `docker` client as root using `sudo`. In this case the `oc login` command needs to also be run using `sudo`. This is because the login information is stored in the user's home directory, only the uer that runs `oc login` is logged in to Rahti.
+    Some docker client setups require to run the `docker` client as root using `sudo`. In this case the `oc login` command needs to also be run using `sudo`. This is because the login information is stored in the user's home directory, only the user that runs `oc login` is logged in to Rahti.
 
     As a general recommendation, it is better to use other "rootless" runtimes like podman, when possible.
 
