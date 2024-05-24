@@ -8,10 +8,6 @@ tags:
 [Python](https://www.python.org/) is a general-purpose high-level
 programming language that is widely used for scientific computing.
 
-For learning about how to use Python effectively on CSC supercomputers,
-please see our
-[Python usage guide](../support/tutorials/python-usage-guide.md).
-
 ## Available
 
 * Puhti: 3.x versions
@@ -25,57 +21,76 @@ licenses. Python itself is licensed under the
 
 ## Usage
 
-### Default environment
+It is generally recommended to use one of the
+[pre-installed Python environments](python.md#pre-installed-python-environments),
+since these already contain the essential libraries for most uses.
+If for some reason one wishes to use Python without loading an environment
+module, a
+basic
+[system Python](python.md#system-python)
+is installed by default.
 
-The basic system Python (`/usr/bin/python3`) available by default on
-both Puhti and Mahti (without loading any modules) is **Python version
-3.6.8**. This can be launched simply with the command `python3`, but
-this environment contains only a basic set of standard Python
-packages.
+See our
+[Python usage guide](../support/tutorials/python-usage-guide.md)
+for instructions on using Python effectively on CSC supercomputers.
 
-### Environments for science areas
+### System Python
 
-If you need a newer version of Python, or a wider set of Python packages,
+If using a pre-installed environment is not suitable,
+the basic system Python 3.9 can be launched with:
+
+```bash
+python3.9
+```
+
+!!! important
+	It is recommended to explicitly launch Python version 3.9 as above,
+	since **the default version launched by `python3` (3.6.8) has
+	[reached end-of-life](https://devguide.python.org/versions/)**.
+
+
+### Pre-installed Python environments
+
 Puhti and Mahti have several pre-installed
 [environment modules](../computing/modules.md) containing
 Python environments made for different science areas.
+For more details about the Python versions and libraries that are available
+for a module, please see the corresponding application page by opening
+one of the links in the table below.
 
-| Module name | Purpose |
-|-|-|
-| [biopythontools](biopython.md) | bioinformatics |
-| [geoconda](geoconda.md) | geoinformatics  |
-| [jax](jax.md) | JAX ML framework |
-| [python-data](python-data.md) | data analysis and ML utilities |
-| [pytorch](pytorch.md) | PyTorch ML framework |
-| [tensorflow](tensorflow.md) | TensorFlow ML framework |
+| Module name | Purpose | Package list |
+|-|-|-|
+| [biopythontools](biopython.md) | bioinformatics | [pip](https://a3s.fi/python-pkg-lists/biopythontools_3.10.6.txt) |
+| [geoconda](geoconda.md) | geoinformatics | [conda](https://a3s.fi/python-pkg-lists/geoconda_3.10.9.yml) |
+| [jax](jax.md) | JAX ML framework | [pip](https://a3s.fi/python-pkg-lists/jax0.4.23_python3.9_cuda12.2_csc_fix1.txt) |
+| [python-data](python-data.md) | data analysis and ML utilities | [conda](https://a3s.fi/python-pkg-lists/python-data-2023-11.yaml) |
+| [pytorch](pytorch.md) | PyTorch ML framework | [pip](https://a3s.fi/python-pkg-lists/pytorch_2.2.1_csc_fix2.txt) |
+| [tensorflow](tensorflow.md) | TensorFlow ML framework | [pip](https://a3s.fi/python-pkg-lists/tensorflow_2.15.0_rocky3.txt) |
 
-To use any of the above environments, simply load the corresponding module.
+To use any of the above environments, simply load the corresponding module
+using the `module load` command.
 For example:
 
 ```bash
 module load python-data
 ```
 
-For more details about available Python versions and included libraries,
-see the corresponding application documentation.
-
-Typically, after activating a Python-based module, you can continue using the
-`python3` command, but this will now point to a newer version of Python with a
-wider set of Python packages available. You can always check the Python version
+Typically, after activating a Python-based module, the `python3` command points
+to a version of Python that is newer than the default system Python and has a
+wider set of available packages. You can always check the Python version
 with the command  
 `python3 --version`, and the full path of the command with
 `which python3` (to see if you are using the system Python or one from the
 modules listed above).
 
-### Custom environments
+### Custom Python environments
 
-While the pre-installed Python environments are by themselves sufficient for
-many tasks, projects often include tasks which require additional libraries.
-If this is the case, it is possible to
-[extend existing environments](../support/tutorials/python-usage-guide.md#installing-python-packages-to-existing-modules)
-or
-[create completely new ones](../support/tutorials/python-usage-guide.md#creating-your-own-python-environments)
-.
+While the pre-installed Python environments suffice for many applications,
+projects often involve tasks which require additional libraries.
+The following options are available in this case:
+
+* [Installing Python packages to existing modules](../support/tutorials/python-usage-guide.md#installing-python-packages-to-existing-modules)
+* [Creating your own Python environments](../support/tutorials/python-usage-guide.md#creating-your-own-python-environments)
 
 ## References
 
