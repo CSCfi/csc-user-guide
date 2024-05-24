@@ -1,9 +1,14 @@
 # Project view
-The Project view tool visualizes your current Puhti or Mahti projects and Lustre quotas.
-You can only view your projects in Project view, to modify projects or quotas, use [MyCSC](https://my.csc.fi/).
 
-On the quotas page you will see your Puhti or Mahti Lustre quotas visualized.
-Quotas can be grouped together by project or by disk area.
-The quotas can be sorted by clicking on the column header.  
+The _Project view_ tool visualizes info of your current Puhti or Mahti
+projects. It contains also a _Disk quotas_ tab, which shows you your Lustre
+quotas. 
 
-On the projects page you can see an overview of your Puhti or Mahti projects.
+!!! info-label
+    Note that you can only view your projects in the Project view. To modify
+    your projects or quotas, please use [MyCSC](https://my.csc.fi/).
+
+Besides listing your Puhti or Mahti Lustre quotas, the Disk quotas tab can
+group quotas together based on project or by disk area. The quotas can also be
+sorted by clicking the column headers and there is a search function available
+as well.
