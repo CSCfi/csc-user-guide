@@ -82,7 +82,7 @@ If you no longer need a configured remote, you can revoke the access token for
 it in the list of remotes, or delete the remote from the configuration. Remotes
 not configured using the Cloud storage configuration app will also be visible
 and can be deleted, but the access tokens for those can not be revoked.
-![Cloud storage configuration tool remote list](../../../img/ood_cloud_storage_conf_table.png)
+![Cloud storage configuration tool remote list](../../img/ood_cloud_storage_conf_table.png)
 
 ## Accessing IDA
 
