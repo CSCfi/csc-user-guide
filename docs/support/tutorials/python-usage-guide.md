@@ -1,15 +1,18 @@
-# Using Python effectively on CSC supercomputers
+# Using Python on CSC supercomputers
 
 Some important aspects of working with the Python programming language
 are notably different on CSC supercomputers compared to usage on a personal
 device or in other HPC environments. To make the most of the computational
 resources offered by CSC, it is helpful to be aware of the differences.
 
-For general information on the Python language and
-Python tools on CSC supercomputers, please see the
-[Python application page](../../apps/python.md).
+See the
+[Python application page](../../apps/python.md)
+for general information on the Python language and
+pre-installed Python environments on CSC supercomputers.
 
-## Installing Python packages to existing modules
+## Creating and managing Python environments
+
+### Installing Python packages to existing modules
 
 If there is a CSC-provided module that covers _almost_ everything you
 need, but it is missing a few Python packages, you may be able to
@@ -19,7 +22,7 @@ If you think that some important package should be included by default
 in a module provided by CSC, don't hesitate to contact our [Service
 Desk](../contact.md).
 
-### Using `venv`
+#### Using `venv`
 
 The recommended way to add packages on top of an existing environment
 is to use [venv](https://docs.python.org/3/tutorial/venv.html), which
@@ -59,7 +62,7 @@ Naturally, this also applies to slurm job scripts.
 virtual environments. We are still working to update those. For these
 you need to use the `pip install --user` approach described below.
 
-### Using `pip install --user`
+#### Using `pip install --user`
 
 Another approach to install additional packages is to do a "user
 installation" with the command `pip install --user`. This approach is
@@ -115,15 +118,15 @@ the file `~/.local/bin/whatshap` to have this as the first line:
 #!/appl/soft/ai/tykky/python-data-2022-09/bin/python3
 ```
 
-## Creating your own Python environments
+### Creating your own Python environments
 
 It is also possible to create your own Python environments.
 
-### Tykky
+#### Tykky
 
 The easiest option is to use [Tykky](../../computing/containers/tykky.md) for Conda or pip installations.
 
-### Custom Apptainer container
+#### Custom Apptainer container
 
 In some cases, for example if you know of a suitable ready-made Apptainer or Docker container, also using
 a custom Apptainer container is an option.
