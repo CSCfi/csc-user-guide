@@ -101,7 +101,7 @@ to the Mahti example above.
 #SBATCH --ntasks-per-node=32
 
 module use /appl/local/csc/modulefiles
-module load gromacs/2024.1-gpu
+module load gromacs/2024.2-gpu
 
 export OMP_NUM_THREADS=1
 
