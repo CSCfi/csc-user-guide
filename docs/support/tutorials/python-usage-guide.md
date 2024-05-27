@@ -16,7 +16,7 @@ pre-installed Python environments on CSC supercomputers.
 
 If there is a CSC-provided module that covers _almost_ everything you
 need, but it is missing a few Python packages, you may be able to
-install those yourself with the Pip package manager.
+install those yourself with the pip package manager.
 
 If you think that some important package should be included by default
 in a module provided by CSC, don't hesitate to contact our [Service
@@ -56,28 +56,36 @@ module load python-data
 source /projappl/<your_project>/venv/bin/activate
 ```
 
-Naturally, this also applies to slurm job scripts.
+Naturally, this also applies to Slurm job scripts.
 
-**Note:** some older CSC installations are not compatible with Python
-virtual environments. We are still working to update those. For these
-you need to use the `pip install --user` approach described below.
+!!! warning
+	When using the virtual environment, remember to load the CSC
+	module from which the system site packages are inherited. Otherwise
+	your virtual environment will likely not work as intended.
+
+!!! note
+	Some older CSC modules are not compatible with Python
+	virtual environments. We are still working to update those.
+	If you happen to be working with one of these modules, you
+	need to use the `pip install --user` approach described below.
 
 #### Using `pip install --user`
 
 Another approach to install additional packages is to do a "user
 installation" with the command `pip install --user`. This approach is
-easy to use, as it doesn't require setting up a virtual environment,
-but it can easily fill up your home directory if you install a lot of
-packages. There are also other drawbacks, such as package-provided
-commands not working out-of-the box.
+easy to use in principle, as it doesn't require setting up a
+virtual environment. However, some package-provided commands may not
+work out-of-the-box.
 
 With this approach packages are by default installed to your home
 directory under `.local/lib/pythonx.y/site-packages` (where `x.y` is
-the version of Python being used). If you would like to change the
-installation folder, for example to make a project-wide installation
-instead of a personal one, you need to define the `PYTHONUSERBASE`
-environment variable with the new installation local. For example to
-add the package `whatshap` to the `python-data` module:
+the version of Python being used). Please note that if you install
+a lot of packages, your home directory can easily run out of space.
+This can be avoided by changing the installation folder to make
+a project-wide installation instead of a personal one. This is
+done by setting the `PYTHONUSERBASE` environment variable to
+refer to the new installation directory. For example to add
+the package `whatshap` to the `python-data` module:
 
 ```bash
 module load python-data
@@ -85,13 +93,13 @@ export PYTHONUSERBASE=/projappl/<your_project>/my-python-env
 pip install --user whatshap
 ```
 
-In the example, the package is now installed inside the
+In the above example, the package is now installed inside the
 `my-python-env` directory in the project's `projappl` directory. Run
 `unset PYTHONUSERBASE` if you wish to later install into your home
 directory again.
 
 When later using those libraries you need to define `PYTHONUSERBASE`
-again.  Naturally, this also applies to slurm job scripts. For
+again.  Naturally, this also applies to Slurm job scripts. For
 example:
 
 ```bash
