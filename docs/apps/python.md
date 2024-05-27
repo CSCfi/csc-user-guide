@@ -43,11 +43,10 @@ the basic system Python 3.9 can be launched with:
 python3.9
 ```
 
-!!! important
-	It is recommended to explicitly launch Python version 3.9 as above,
-	since **the default version launched by `python3` (3.6.8) has
+!!! warning
+	It is strongly advised to explicitly launch Python version 3.9 as
+	above, since **the default version launched by `python3` (3.6.8) has
 	[reached end-of-life](https://devguide.python.org/versions/)**.
-
 
 ### Pre-installed Python environments
 
