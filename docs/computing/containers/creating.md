@@ -81,9 +81,9 @@ Some issues related to, for example, glibc, fakeroot, file permissions and old r
 
 ### Running existing images
 
-To run programs that [use GPU](https://apptainer.org/docs/user/latest/gpu.html) use `--nv` flag when starting the container `apptainer run --nv /path_to_image/image.sif`. To use the graphical display with [VirtualGL](https://virtualgl.org/) a few environment variables have to be set as well. In the base images provided these are set automatically when the container is started. (Note that if you run `apptainer shell` instead of `apptainer run` `%runscript` is not executed and necessary environment variables for vgl are not set, you then have to set them manually, see [base image definition files](https://github.com/CSCfi/singularity-recipes/visualization) for details.)
+To run programs in [accelerated visualization](https://docs.csc.fi/computing/webinterface/accelerated-visualization/) that [use GPU](https://apptainer.org/docs/user/latest/gpu.html), use the `--nv` flag when starting the container: `apptainer run --nv /path_to_image/image.sif`. To use the graphical display with [VirtualGL](https://virtualgl.org/), a few environment variables have to be set as well. In the base images provided for GPU usage by CSC, these are set automatically when the container is started. Note that if you run `apptainer shell` instead of `apptainer run`, `%runscript` is not executed and necessary environment variables for vgl are not set, you then have to set them manually, see [base image definition files](https://github.com/CSCfi/singularity-recipes/tree/main/visualization) for details.
 
-To easily start the program create a `.desktop` [shortcut file](https://specifications.freedesktop.org/desktop-entry-spec/desktop-entry-spec-latest.html#recognized-keys) to `/users/$USER/Desktop` directory. Icon then appears on the desktop which will start the program in the container.
+To easily start the program, create a `.desktop` [shortcut file](https://specifications.freedesktop.org/desktop-entry-spec/desktop-entry-spec-latest.html#recognized-keys) in the `$HOME/Desktop` directory in Puhti. An icon then appears on the desktop which will start the program in the container.
 
 Example `blender.desktop` file which starts the example container provided in the next section.
 ```
@@ -95,11 +95,11 @@ Exec=apptainer run --nv /path_to_image/vgl_blender.sif
 ```
 
 ### Building your own images
-To build containers for VGL applications yourself you can use one of the base images provided as a base.
+To build containers for VGL applications yourself, you can use one of the base images provided by CSC as a base. These images have both graphics driver and VirtualGL already installed, which are necessary to use GPU in graphical applications running remotely.
 
 Base images available can be found from the path `/appl/opt/vis/vgl-base-images/` in Puhti.
 
-For details of how the base images work, see their [definition files](https://github.com/CSCfi/singularity-recipes/visualization).
+For details of how the base images work, see their [definition files](https://github.com/CSCfi/singularity-recipes/tree/main/visualization).
 
 Here is a commented example definition file that installs blender on top of the base image.
 
