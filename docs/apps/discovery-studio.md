@@ -10,7 +10,7 @@ visualize, analyse, modify and simulate protein structures.
 
 !!! Note
     The national Discovery Studio license provided by CSC ended at the end of 2022.
-    Starting 2023, Discovery Studio will not be availalbe any more.
+    Starting 2023, Discovery Studio will not be available any more.
     Please consider using [Maestro](./maestro.md) as a replacement.
 
 ## References
