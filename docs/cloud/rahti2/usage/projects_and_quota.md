@@ -123,7 +123,7 @@ clicking the question mark symbol in the top bar and selecting "About".
 
 !!! warning  
     
-    Starting June 5th, 2024 a new quota system will be applied. Namespaces/Rahti projects quota will be remove to only have CSC projects quota.  
+    Starting June 5th, 2024 a new quota system will be applied. Namespaces/Rahti projects quota will be removed to only have CSC projects quota.  
 
 Each CSC computing project has its own quota. Initial quota is the following:
 
