@@ -23,7 +23,7 @@ Currently supported Qiskit versions:
 | 1.0.2   | `qiskit/1.0.2`  |   X   |   X   | default version |
 
 Includes all the major Qiskit packages (Terra, Nature, Aer, etc.) and GPU support for the
-CUDA-accerelerated simulation methods. The `qiskit/1.0.2` package includes the following qiskit plugins:
+CUDA-accelerated simulation methods. The `qiskit/1.0.2` package includes the following qiskit plugins:
 
 ```bash
 qiskit-aer-gpu==0.14.0.1
