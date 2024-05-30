@@ -9,6 +9,10 @@ Contact: @attesillanpaa @JMuff22 @joonas-somero
 
 This folder contains the current version of the "CSC Quick Reference" As well as old copies. There is a word doc file as well as a latex file to produce the document. Old copies are kept but this may change in the future. 
 
+## Source file in repository
+
+The latex source file can be found in the repository, under _[docs/img/csc-quick-reference/](https://github.com/CSCfi/csc-user-guide/tree/master/docs/img/csc-quick-reference)_.
+
 ## Building latex file
 
 Simply `latexmk -pdf --shell-escape "csc-quick-reference.tex"`. Latexmk ships with most tex distributions (TeXLive and MiKTeX) and is a wrapper perl script to run `pdflatex` or your latex distribution the correct number of times. It makes formatting much easier. It is currently maintained at: https://personal.psu.edu/~jcc8/software/latexmk/. 
