@@ -196,4 +196,5 @@ In the Project details page (`Developer` > `Project`), click `PersistentVolumeCl
 
 * The Volume mode should be `Filesystem`.
 
-Once the volume is created, it can be mounted in a Pod as in `Rahti 2` or any other Kubernetes installation.
+!!! warning "Lazy volume creation"
+    The volume will only be created when it is mounted for the first time, this is a change in behavior in `Rahti 2`.

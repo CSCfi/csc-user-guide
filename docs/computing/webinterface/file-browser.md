@@ -50,22 +50,21 @@ To configure authentication for Allas:
     [Allas protocols](../../data/Allas/introduction.md#protocols).
 
 **[LUMI-O](https://docs.lumi-supercomputer.eu/storage/lumio/)** can also be
-used through the file browser. However, some steps need to be first performed
-on the command-line.
+used through the file browser.
 
-1. Open a command-line shell (either SSH or through the web interface) and
-   configure a connection to LUMI-O:
-   ```bash
-   module load allas
-   allas-conf --lumi
-   ```
-2. Follow the steps to authenticate. See
-   [Using LUMI-O with Allas tools](../../data/Allas/allas_lumi.md#using-lumi-o-with-allas-tools)
-   for more details.
-3. After this, restart the web interface by clicking _Restart web server_ in
-   the _Help_ menu in the top-right section of the navbar.
-4. Once the server has been restarted, the `lumi-o` remote will be available in
-   the _Files_ dropdown in the navbar, as well as in the file browser.
+To configure authentication for LUMI-O:
+
+1. Open the _Cloud storage configuration_ app either from the _Pinned Apps_ or
+   the _Tools_ dropdown in the navbar.
+2. Select the LUMI-O tab in the _Configure new remotes_ section.
+3. Select the project to create authentication for, as well as whether or not
+   you want s3cmd configuration and a public remote.
+
+!!! warning "Public LUMI-O remotes"
+    Files uploaded to the public LUMI-O remotes (e.g. `lumi-462001234-public`)
+    can be accessed by anyone using the URL
+    `https://<project-number>.lumidata.eu/<bucket_name>`. Be careful to not
+    upload private data there.
 
 Once you've set up a connection to Allas/LUMI-O from a web interface, you can
 use the file browser to access Allas/LUMI-O in the same way as when accessing
@@ -78,6 +77,12 @@ _Files_ dropdown menu.
 !!! warning "Large files"
     Uploading large files from your local computer to Allas via the web
     interfaces is currently not recommended due to technical limitations.
+
+If you no longer need a configured remote, you can revoke the access token for
+it in the list of remotes, or delete the remote from the configuration. Remotes
+not configured using the Cloud storage configuration app will also be visible
+and can be deleted, but the access tokens for those can not be revoked.
+![Cloud storage configuration tool remote list](../../img/ood_cloud_storage_conf_table.png)
 
 ## Accessing IDA
 

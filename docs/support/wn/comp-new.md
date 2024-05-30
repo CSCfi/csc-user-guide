@@ -1,5 +1,9 @@
 # Computing environment
 
+## Puhti and Mahti web interfaces updated to release 20 and 6, 27.5.2024
+* The Cloud storage configuration app can now configure connections to LUMI-O.
+
+
 ## Puhti and Mahti web interfaces updated to release 19 and 5, 10.4.2024
 
 * The error pages for issues caused by Lustre and other issues have been improved.

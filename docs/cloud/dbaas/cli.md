@@ -106,7 +106,7 @@ This is similar to do a `CREATE DATABASE db_name;`
 openstack database db create $INSTANCE_ID $DB_NAME
 ```
 
-#### Add user to your database and update permissions
+#### Adding users to a database
 
 List existing users in the database:
 
@@ -120,27 +120,13 @@ Create a new user (`--databases` is optional):
 openstack database user create $INSTANCE_ID $USER_NAME $PASSWORD --databases $DATABASE_NAME
 ```
 
-Give database access to an existing user.
-
-```
-openstack database user grant access $INSTNACE_ID $USER_NAME $DATABASE_NAME
-```
-
-
-### Revoke access and remove users
-
-If you want to revoke the access you can use the word "revoke" instead of "grant".
-
-```
-openstack database user revoke access $INSTNACE_ID $USER_NAME $DATABASE_NAME
-```
+### Removing users from a database
 
 Deleting an user can be done by running:
 
 ```
 openstack database user delete $INSTANCE_ID $USER_NAME
 ```
-
 
 #### Delete instance
 
