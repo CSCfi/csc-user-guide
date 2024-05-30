@@ -9,23 +9,33 @@ Qiskit is an open-source software for working with quantum computers at the leve
 of circuits, pulses, and algorithms. 
 
 !!! info "News"
-     **15.7.2023** Installed `qiskit/0.43.2` with all major Qiskit packages and
+     **30.05.2024** Installed `qiskit/1.0.2` with all major Qiskit packages and
      added support for CUDA-acceleration.
 
 ## Available
 
 Currently supported Qiskit versions:
 
-| Version | Module               | Puhti | Mahti | Notes           |
-|:--------|:---------------------|:-----:|:-----:|-----------------|
-| 0.43.2  | `qiskit/0.43.2`      | X     | X     | default version |
+| Version | Module          | Puhti | Mahti | Notes           |
+| :------ | :-------------- | :---: | :---: | --------------- |
+| 0.43.2  | `qiskit/0.43.2` |   X   |   X   |                 |
+| 0.45.3  | `qiskit/0.45.3` |   X   |   X   |                 |
+| 1.0.2   | `qiskit/1.0.2`  |   X   |   X   | default version |
 
 Includes all the major Qiskit packages (Terra, Nature, Aer, etc.) and GPU support for the
-CUDA-accerelerated simulation methods. The `qiskit/0.43.2` package includes
-`qiskit-aer 0.13.0` as it is build from source. 
+CUDA-accerelerated simulation methods. The `qiskit/1.0.2` package includes the following qiskit plugins:
 
-The module also includes the python packages that are often used with qiskit, such
-as `matplotlib 3.7.2`, `scipy 1.11.1`, `pandas 2.0.3`, `numpy 1.25.1`, and `jupyterlab 4.0.3`.
+```bash
+qiskit-aer-gpu==0.14.0.1
+qiskit-algorithms==0.3.0
+qiskit-dynamics==0.5.1
+qiskit-experiments==0.6.1
+qiskit-finance==0.4.1
+qiskit-machine-learning==0.7.2
+qiskit-nature==0.7.2
+qiskit-optimization==0.6.1
+```
+
 
 If you find that some package is missing, you can often install it yourself with `pip install --user`.
 See [our Python documentation](python.md#installing-python-packages-to-existing-modules) for
@@ -56,7 +66,7 @@ If you wish to have a specific version ([see above for available
 versions](#available)), use:
 
 ```text
-module load qiskit/0.43.2
+module load qiskit/1.0.2
 ```
 
 The Qiskit module can also be used from the Puhti web interface using Jupyter and
@@ -102,6 +112,9 @@ Submit the script with `sbatch <script_name>.sh`
 
 Do note that this code is just to highlight the syntax.
 
+!!! info "Note"
+     Qiskit 1.0 came with major syntax revisions. This code demonstrates syntax for 1.0.2.
+
 ```Python
 import qiskit
 from qiskit_aer import AerSimulator
@@ -113,11 +126,13 @@ circ.cx(0, 1)
 circ.cx(1, 2)
 circ.measure_all()
 
+shots = 1000
+
 # Construct an ideal simulator that uses GPU
 simulator = AerSimulator(method="statevector", device="GPU")
 
 # Execute the circuit with cuStateVec enabled. 
-result_ideal = qiskit.execute(circ, simulator, cuStateVec_enable=True).result()
+result_ideal = simulator.run(circ,shots=shots,seed_simulator=12345, cuStateVec_enable=True).result()
 
 counts_ideal = result_ideal.get_counts(0)
 print('Counts(ideal):', counts_ideal)
