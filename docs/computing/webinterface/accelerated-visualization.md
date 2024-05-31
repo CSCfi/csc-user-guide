@@ -48,3 +48,5 @@ shortcuts for them, you can drag the desired application from the applications m
 Note that if you are running applications that do not benefit from GPU acceleration, you should use
 the [Desktop app](desktop.md) instead. Only the applications suffixed with `(Accelerated)` benefit
 from a GPU.
+
+For more details about running your own applications in the Accelerated Visualization app, see the [reating containers page](../containers/creating/#using-gpu-from-containers-in-interactive-sessions-in-puhti).
