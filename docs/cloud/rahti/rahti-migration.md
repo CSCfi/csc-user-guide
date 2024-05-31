@@ -113,6 +113,16 @@ The recommended way to discover the suitable values for your application is tria
 !!! info "Why are limits tighter?"
     Rahti 1 resource range (difference between request and limits) was too wide. This made the scheduler's job harder, as every Pod looked the same regarding resource needs (every Pod requested the same resources). This increased the "noisy neighbours effect", were Pods hungry for resources were placed on the same nodes as more modest Pods. The hungry ones were starving the more modest ones. With tighter limits and a maximum factor of between request and limit, Pods will need to be configured with more explicit limits.
 
+### How to edit a Deployment/DeploymentConfig default limits?
+
+![Actions>EditResourceLimits](../img/editResourceLimits.png){ align=right }
+
+In order to increase or decrease the resource limits, one can use the web UI or the command line.
+
+From the web UI, go to the Deployment page, go to **Actions > Edit resource limits**. You will be presented with a dialog with the CPU request and limit and Memory request and limit. The limit cannot be more than 5 times higher than the request. The request is the minimum CPU (or memory) necessary for the deploy to work, and will be used to schedule the Pod. The limit is the maximum allowed usage of CPU (or memory). If a Pod tries to use more memory than the limit, the Pod will be killed. On the other hand, if a Pod tries to use more CPU then the limit, it will be simply limitted, but it will not be killed.
+
+![Edit ResourceLimits](../img/editResourceLimitsDialog.png)
+
 ### How to create routes?
 
 !!! info "Default URLs suffix have changed"
