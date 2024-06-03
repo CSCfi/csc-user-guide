@@ -1,8 +1,8 @@
 # Jupyter for courses
-The Jupyter for courses app is a version of the [Jupyter app](../jupyter) that makes using a custom
+The Jupyter for courses app is a version of the [Jupyter app](jupyter.md) that makes using a custom
 Python environment simple when hosting or participating in courses.
 
-Python environments can be defined as modules in the project [ProjAppl directory](/computing/disk/#projappl-directory).
+Python environments can be defined as modules in the project [ProjAppl directory](../disk.md#projappl-directory).
 Default resources for the course Python environment can also be defined in the same directory.
 
 ## Using the app
@@ -23,7 +23,7 @@ environment is not visible in the form after creating the files and selecting th
 
 Two files are needed for the course modules:
 
- - a `<course>.lua` file that defines the [module](/computing/modules) that sets up the Python
+ - a `<course>.lua` file that defines the [module](../modules.md) that sets up the Python
     environment. Only files containing the text `Jupyter` will be visible in the app.
  - a `<course>-resources.yml` that defines the default resources used for Jupyter.
 

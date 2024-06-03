@@ -8,7 +8,7 @@ For more information, read our [overview page on containers](overview.md) or [th
 
 CSC's supercomputers Puhti and Mahti both support running Apptainer containers. For many use cases, CSC's staff has provided ready-made containers that can be used simply by loading the corresponding module. Please check the [application pages](../../apps/index.md) if a pre-installed container is already available for the application you are interested in. See that specific application's page for detailed instructions on how to use it.
 
-If you find that some container is missing that you think could be generally useful, you can ask us to install it by contacting [CSC's Service Desk](https://www.csc.fi/en/contact-info).  Otherwise you can also look into [building your own container images](creating.md).
+If you find that some container is missing that you think could be generally useful, you can ask us to install it by contacting [CSC's Service Desk](../../support/contact.md).  Otherwise you can also look into [building your own container images](creating.md).
 
 ### Using `apptainer_wrapper`
 
@@ -44,7 +44,7 @@ export SING_FLAGS=--nv
 
 ### Running Apptainer directly
 
-You can also run Apptainer directly if the `apptainer_wrapper` script for some reason isn't appropriate for you.  Then you need to provide the path to the container image yourself and bind any paths that you need to be able to access from inside the image.
+You can also run Apptainer directly if the `apptainer_wrapper` script for some reason isn't appropriate for you.  Then you need to provide the path to the container image yourself and bind any paths that you need to be able to access from inside the image. Note that by default some paths such as `HOME` and `CWD` are [bound automatically](https://apptainer.org/docs/user/main/bind_paths_and_mounts.html#system-defined-bind-paths).
 
 Usage examples:
 

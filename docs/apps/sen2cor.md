@@ -61,5 +61,5 @@ Sen2cor was installed on Puhti using [ESAs standalone Sen2cor installer for Linu
 
 * [Sen2Cor user manual](https://step.esa.int/thirdparties/sen2cor/2.10.0/docs/S2-PDGS-MPC-L2A-SRN-V2.10.0.pdf)
 * [Sen2Cor v2.10 release notes ](http://step.esa.int/thirdparties/sen2cor/2.10.0/docs/S2-PDGS-MPC-L2A-SRN-V2.10.0.pdf)
-* [Sen2Cor user forum](https://forum.step.esa.int/c/s2tbx/sen2cor)
+* [Sen2Cor user forum](https://forum.step.esa.int/c/optical-toolbox/sen2cor)
 
