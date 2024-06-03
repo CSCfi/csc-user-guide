@@ -46,8 +46,7 @@ If you intend to use your own custom image, you can choose any template that mat
 
 **Container image** 
 * If using existing image, then pre-filled based on chosen Application template.
-* If using own custom image, then URL of the Docker image. In case of Rahti, this would be something like
-  `docker-registry.rahti.csc.fi/<yourprojectname>/<yourimagename>:<tag>`.
+* If using own custom image, then URL of the Docker image. 
 
 **Session lifetime** The maximum lifetime for a single session. Sessions are deleted when they expire, thus making room 
 for other users.
@@ -92,10 +91,9 @@ If you cannot find a suitable image for your intended application, you will need
 Requirements: 
 
 * A computer to create the Docker image, it should have [Docker](https://www.docker.com/) installed. In general Linux/Mac computer is recommended. In Windows likely admin rights are needed and using Docker might be challenging.
-* A place to upload the Docker image, for example CSC [Rahti](../rahti/rahti-what-is.md), DockerHub or Quay.io. In these instruction below CSC Rahti is used
-    * If using Rahti, you need to have a project in Rahti. If needed, create a new project on [Rahti webpage](https://rahti.csc.fi:8443/). For Rahti also [oc tools](../rahti/usage/cli.md) are needed on the local/cPouta machine.
+* A place to upload the Docker image, for example DockerHub or Quay.io. 
 
-Steps to create your own custom Docker image and host it on Rahti registry:
+Steps to create your own custom Docker image:
 
 ### Create a Dockerfile  
    
@@ -191,24 +189,6 @@ Another alternative is to build the image on an x64 VM, for example on pouta.csc
 ```
 docker run -p 8888:8787 <yourimagename>
 ```
-
-### Add the image to Rahti registry
-* Login to Rahti registry: 
-    * In a web browser, open to [Rahti registry](https://registry-console.rahti.csc.fi/) and log in with your CSC username
-    * On the `Overview` page, find the `login commands` section and the `Log into the registry` command. 
-    * In terminal, use the command to log in to Rahti registry 
-
-* Tag your docker image, eg based on versions (here: v0.1):
- ```
- docker tag <yourimagename> docker-registry.rahti.csc.fi/<yourrahtiproject>/<yourimagename>:v0.1
- ```
-
-* Push your docker image to Rahti registry:
-```
-sudo docker push docker-registry.rahti.csc.fi/<yourrahtiproject>/<yourimagename>:v0.1
-```
-
-* The new image should become visible in Rahti registry, see the ´Images´ tab. Now everything should be ready continuing from step 3 above.
 
 ## Security guidelines for Workspace owners
 
