@@ -28,7 +28,7 @@ If for some reason one wishes to use Python without loading an environment
 module, a
 basic
 [system Python](python.md#system-python)
-is installed by default.
+is available by default.
 
 See our
 [Python usage guide](../support/tutorials/python-usage-guide.md)
@@ -59,12 +59,12 @@ one of the links in the table below.
 
 | Module name | Purpose | Package list |
 |-|-|-|
-| [biopythontools](biopython.md) | bioinformatics | [pip](https://a3s.fi/python-pkg-lists/biopythontools_3.10.6.txt) |
-| [geoconda](geoconda.md) | geoinformatics | [conda](https://a3s.fi/python-pkg-lists/geoconda_3.10.9.yml) |
-| [jax](jax.md) | JAX ML framework | [pip](https://a3s.fi/python-pkg-lists/jax0.4.23_python3.9_cuda12.2_csc_fix1.txt) |
-| [python-data](python-data.md) | data analysis and ML utilities | [conda](https://a3s.fi/python-pkg-lists/python-data-2023-11.yaml) |
-| [pytorch](pytorch.md) | PyTorch ML framework | [pip](https://a3s.fi/python-pkg-lists/pytorch_2.2.1_csc_fix2.txt) |
-| [tensorflow](tensorflow.md) | TensorFlow ML framework | [pip](https://a3s.fi/python-pkg-lists/tensorflow_2.15.0_rocky3.txt) |
+| [biopythontools](biopython.md) | bioinformatics | [open](https://a3s.fi/python-pkg-lists/biopythontools.txt) |
+| [geoconda](geoconda.md) | geoinformatics | [open](https://a3s.fi/python-pkg-lists/geoconda.txt) |
+| [jax](jax.md) | JAX ML framework | [open](https://a3s.fi/python-pkg-lists/jax.txt) |
+| [python-data](python-data.md) | data analysis and ML utilities | [open](https://a3s.fi/python-pkg-lists/python-data.txt) |
+| [pytorch](pytorch.md) | PyTorch ML framework | [open](https://a3s.fi/python-pkg-lists/pytorch.txt) |
+| [tensorflow](tensorflow.md) | TensorFlow ML framework | [open](https://a3s.fi/python-pkg-lists/tensorflow.txt) |
 
 To use any of the above environments, simply load the corresponding module
 using the `module load` command.
