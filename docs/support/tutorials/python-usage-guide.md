@@ -229,7 +229,7 @@ include the main Jupyter packages.
 
 There are two ways of running Jupyter notebooks on CSC supercomputers:
 
-1. [Through our web interface](https://docs.csc.fi/computing/webinterface/jupyter/) (recommended)
+1. [Through our web interface](../../computing/webinterface/jupyter/) (recommended)
 2. [By using SSH tunneling](./rstudio-or-jupyter-notebooks.md#instructions-for-ssh-tunneling)
 
 !!! note
