@@ -185,7 +185,7 @@ snakemake --keep-going -s Snakefile --jobs 4 --executor cluster-generic --cluste
 # snakemake version 7.xx.x
 # snakemake --cluster "hq submit  ..."  
 ```
-See [CSC HyperQueue page](https://docs.csc.fi/apps/hyperqueue/#using-hyperqueue-in-a-slurm-batch-job) for more options and details about HyperQueue.
+See [CSC HyperQueue page](https://docs.csc.fi/apps/hyperqueue.md#using-hyperqueue-in-a-slurm-batch-job) for more options and details about HyperQueue.
 
 !!! info "Note"
     HyperQueue creates task-specific folders (`job-<n>`) in the same directory
