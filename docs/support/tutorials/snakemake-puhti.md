@@ -185,7 +185,7 @@ snakemake --keep-going -s Snakefile --jobs 4 --executor cluster-generic --cluste
 # snakemake version 7.xx.x
 # snakemake --cluster "hq submit  ..."  
 ```
-See [CSC HyperQueue page](https://docs.csc.fi/apps/hyperqueue.md#using-hyperqueue-in-a-slurm-batch-job) for more options and details about HyperQueue.
+See [CSC HyperQueue page](../../apps/hyperqueue.md#using-hyperqueue-in-a-slurm-batch-job) for more options and details about HyperQueue.
 
 !!! info "Note"
     HyperQueue creates task-specific folders (`job-<n>`) in the same directory
@@ -194,3 +194,5 @@ See [CSC HyperQueue page](https://docs.csc.fi/apps/hyperqueue.md#using-hyperqueu
     may be annoying besides causing some load on the Lustre parallel file system.
     You can prevent the creation of such task-specific folders by setting `stdout`
     and `stderr` HyperQueue flags to `none` ( i.e., `hq submit --stdout=none --stderr=none ...`)
+
+If you have any questions or problems regarding Snakemake, contact CSC servicedesk.
