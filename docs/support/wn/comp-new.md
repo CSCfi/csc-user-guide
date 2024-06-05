@@ -1,5 +1,9 @@
 # Computing environment
 
+## Puhti and Mahti web interfaces updated to release 20 and 6, 27.5.2024
+* The Cloud storage configuration app can now configure connections to LUMI-O.
+
+
 ## Puhti and Mahti web interfaces updated to release 19 and 5, 10.4.2024
 
 * The error pages for issues caused by Lustre and other issues have been improved.
@@ -91,7 +95,7 @@ Read more in the [LUMI documentation](https://docs.lumi-supercomputer.eu/runjobs
 ## Mahti web interface updated to release 2, 13.10.2023
 
 * [MLflow Tracking](../../computing/webinterface/mlflow.md) is now available as an interactive app.
-- An [Allas configuration tool](../../computing/webinterface/index.md#using-allas) has been added for configuring a connection to Allas.
+- An [Allas configuration tool](../../computing/webinterface/file-browser.md#accessing-allas-and-lumi-o) has been added for configuring a connection to Allas.
 - [IDA](../../data/ida/using_ida.md) is now supported in the file browser.
 - The Desktop app configuration and icons are now saved between sessions.
 - VSCode updated to 1.82.2.
@@ -125,7 +129,7 @@ Apps available in the [Mahti web interface](https://www.mahti.csc.fi):
 * Compute and Login node shell
 * Desktop with Maestro and VMD
 * Disk quotas and Project view
-* File browser with [support for Allas](../../../computing/webinterface/#using-allas)
+* File browser with [support for Allas](../../computing/webinterface/file-browser.md#accessing-allas-and-lumi-o)
 * Jupyter, Julia-Jupyter and Jupyter for courses
 * TensorBoard
 * Visual Studio Code

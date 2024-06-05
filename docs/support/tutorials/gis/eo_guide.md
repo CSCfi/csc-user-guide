@@ -240,7 +240,7 @@ Below is a list of alternative EO processing services that might be useful, when
 
 If you are interested in using CSC services for your EO research, please make yourself familiar with the services:
 
-* Visit a course, seminar or workshop; you can find all upcoming and past events in [the CSC training calendar](https://www.csc.fi/en/training#training-calendar)
+* Visit a course, seminar or workshop; you can find all upcoming and past events in [the CSC training calendar](https://www.csc.fi/en/trainings/training-calendar)
     * For getting started, go through [CSC Computing Environment - Self Learning course](https://ssl.eventilla.com/csccompenvselflearn)
 * Find information about services and how to use them in [CSC's documentation pages](../../../index.md)
 * For information on geocomputing in CSC environment, checkout the collection of  [CSC's geocomputing learning materials](https://research.csc.fi/gis-learning-materials) and [CSC geocomputing examples on Github](https://github.com/csc-training/geocomputing)

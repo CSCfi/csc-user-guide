@@ -28,10 +28,6 @@ A popular tool for working with PostgreSQL is [pgAdmin that can be found here](h
       <!-- * TODO `INSERT EXAMPLE HERE` if you get this error message it means that your postgresql client is not new enough please redo step 1. -->
 4. Now you should be able to use the database.
 
-## How is DBaaS PostgreSQL different from normal PostgreSQL
-
-There are a couple differences from installing PostgreSQL yourself and using DBaaS. Even if you can get admin permissions for the database, it is not recommended. It is better to manage the users and database access from the DBaaS interface. By following these guidelines you'll have a lower risk of shooting yourself in the foot. There is an `openstack database root enable` command, which can be useful in an education environment if a teacher wants all the students to get admin permissions in their database.
-
 ## Parameters that users can modify
 
 The DBaaS allows users to modify some of the parameters.
@@ -46,6 +42,33 @@ By default, we assume that default parameters are sane and that users should not
 | log_statement        | false | No  | This is useful if you want to figure out more how your database is utilized |
 | log_statement_stats  | false | No  |This will also collect stats from your database, this is recommended to keep as false since it might affect performance |
 
+## A note about privileges
+
+If you have little or no prior experience with PostgreSQL, we recommend familiarizing yourself with how privileges in PSQL interact with Databases, Schemas, and Tables. [Here's one tutorial that might be of use.](https://www.postgresqltutorial.com/postgresql-administration/postgresql-schema/)
+
+To avoid confusion, keep in mind that in PostgreSQL 14 the default privileges allow every user to connect to any database and create tables in the default 'public' schema. They cannot access existing tables or other schemas without explicit permission, however, and they cannot create new schemas.
+
+You can use the `openstack database user grant access` command to grant users all permissions on a specified database, which allows them to create their own schemas. They still can't access schemas and tables in them that are owned by other users without being given privileges, however. Typically the owner of an object in PSQL 14 (which can be a database, a schema, a table, etc. etc.) is the only one with any privileges regarding it, unless otherwise specified. This, combined with privileges not flowing 'downwards' in the hierarchy, can lead to some confusion. Having privileges to a schema doesn't imply any privileges to the tables contained within. For further reading, [here's the official docs on privileges.](https://www.postgresql.org/docs/14/ddl-priv.html)
+
+### Example usage of privileges
+
+These queries would allow the example_user to select data from the example_table. Note that the two queries are identical, as long as the search path hasn't been modified.
+
+```
+GRANT SELECT ON example_table TO example_user;
+GRANT SELECT ON public.example_table TO example_user;
+```
+
+Keep in mind example_user here means a role, which can also be a group. These queries would create a new group, assign a user to it, and grant privileges to select data from all tables in the public schema.
+
+```
+CREATE ROLE example_group;
+GRANT example_group TO example_user;
+GRANT SELECT ON ALL TABLES IN SCHEMA public TO example_group;
+```
+
+For easier management of privileges, we recommend creating groups and assigning users to relevant ones instead of tweaking rights on a per-user basis.
+
 ## PostgreSQL extensions
 
 It is not possible for users to add additional extensions that are not already installed. If there
@@ -56,7 +79,7 @@ DBaaS-admin.
 1. To enable extensions, you need to first enable root for the database instance and log in as root:
 
     ```
-    openstack database root enable $INSTNACE_ID
+    openstack database root enable $INSTANCE_ID
     ```
 
 2. After you have logged in as root, you can enable the extension of your choice with:
