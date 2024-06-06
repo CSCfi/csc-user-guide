@@ -43,10 +43,13 @@ After this you have to fix Python path of Snakemake executable:
 
 1) Find out your Tykky installation's Python path. You can check it with `which python` command after you have given the `export PATH ...` in Tykky printout.
 2) Create a file `post.sh`. Change `/projappl/project_200xxx/tykky_installation_folder/bin/python` to your own Tykky installation's Python path.
+   
 ```
 sed -i 's@#!.*@#!/projappl/project_200xxx/tykky_installation_folder/bin/python@g' $env_root/bin/snakemake
 ```
-2) Update the installation:
+
+3) Update the installation:
+   
 ```
 conda-containerize update <path to installation> --post-install post.sh
 ```
