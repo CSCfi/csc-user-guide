@@ -2,6 +2,8 @@
 
 [Snakemake workflow](https://snakemake.readthedocs.io/en/latest/index.html) is one of the popular scientific workflows in the bioinformatics community, although the workflow manager itself can be used in other scientific disciplines as well. Snakemake enables scalable and reproducible scientific pipelines by chaining a series of rules in a fully-specified software environment. 
 
+If you are still wondering about workflows at more general level or which workflow tool to use, see also [High-throughput computing and workflows page](../../computing/running/throughput.md).
+
 ## Installation
 Snakemake is available as a module in Puhti supercomputer. This options suits well, if the workflow includes commandline-tools from other modules or Apptainer containers. If the workflow includes Python scripts that require custom Python packages, make own Snakemake installation with Tykky. 
 
