@@ -39,7 +39,20 @@ apptainer: "docker://<repository>/<image_name>"
 ### Snakemake Tykky installation for Python
 To install Snakemake with custom Python packages, use [Tykky container wrapper tool with conda](../../computing/containers/tykky.md#conda-based-installation). Follow the guidelines on Tykky page, the conda environment should include package `snakemake`. If you plan to use Snakemake with SLURM or HyperQueue integration (explained below), install also `snakemake-executor-plugin-slurm` for SLURM or `snakemake-executor-plugin-cluster-generic` for HyperQueue. 
 
+After this you have to fix Python path of Snakemake executable:
+
+1) Find out your Tykky installation's Python path. You can check it with `which python` command after you have given the `export PATH ...` in Tykky printout.
+2) Create a file `post.sh`. Change `/projappl/project_200xxx/tykky_installation_folder/bin/python` to your own Tykky installation's Python path.
+```
+sed -i 's@#!.*@#!/projappl/project_200xxx/tykky_installation_folder/bin/python@g' $env_root/bin/snakemake
+```
+2) Update the installation:
+```
+conda-containerize update <path to installation> --post-install post.sh
+```
+
 If you use own Tykky installation, then in the examples below, replace `module load snakemake` with the export commant printed out by Tykky, something like: `export PATH="/projappl/project_xxxx/$USER/snakemake_tykky/bin:$PATH"`
+
 
 !!! info "Note"
         Please note, create one Tykky installation for the whole workflow, not individual installations for each Snakemake rule.
