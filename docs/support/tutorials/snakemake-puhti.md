@@ -22,12 +22,12 @@ snakemake --help   #  to get information on more options.
 The tools used in the workflow can be installed in 3 ways:
 
 1. Tools available in other [Puhti modules](../../apps/by_discipline.md) or own custom module.
-        * If all Snakemake rules use the same module(s), load it before running snakemake commands.
-        * If different Snakemake rules use different modules, include the [module information in the Snakefile](https://snakemake.readthedocs.io/en/latest/snakefiles/deployment.html#using-environment-modules).
+    * If all Snakemake rules use the same module(s), load it before running snakemake commands.
+    * If different Snakemake rules use different modules, include the [module information in the Snakefile](https://snakemake.readthedocs.io/en/latest/snakefiles/deployment.html#using-environment-modules).
 2. Own custom installations as Apptainer containers:
-        * Apptainer container might be downloaded from some repository or build locall. For building custom Apptainer containers, see [Creating containers page](../../computing/containers/creating.md).
-        * Add [`--use-apptainer`](https://snakemake.readthedocs.io/en/stable/executing/cli.html#apptainer/singularity) to your `snakemake` command
-        * [Specify the container](https://snakemake.readthedocs.io/en/stable/snakefiles/deployment.html#running-jobs-in-containers) path at the top level of the Snakefile or for each rule:
+    * Apptainer container might be downloaded from some repository or build locall. For building custom Apptainer containers, see [Creating containers page](../../computing/containers/creating.md).
+    * Add [`--use-apptainer`](https://snakemake.readthedocs.io/en/stable/executing/cli.html#apptainer/singularity) to your `snakemake` command
+    * [Specify the container](https://snakemake.readthedocs.io/en/stable/snakefiles/deployment.html#running-jobs-in-containers) path at the top level of the Snakefile or for each rule:
 
 ```
 # If your Apptainer tutorial.sif image is stored locally in Puhti in folder "image".
@@ -62,10 +62,10 @@ If you use own Tykky installation, then in the examples below, replace `module l
 ## Usage
 Snakemake can be run in 4 different ways in supercomputers:
 
-1) [In interactive mode](../../computing/running/interactive-usage.md) with local executor, with limited resources. Useful mainly for debugging or very small workflows.
-2) With batch job and local executor. Resource usage limited to one full node. Useful for small and medium size workflows, simpler than next options, start with this if unsure.
-3) With batch job and SLURM executor. Can use multiple nodes and different SLURM partitions (CPU and GPU), but may create significant overhead, if many small jobs. Could be used, if each job step for each file takes at least 30 min.
-4) With batch job and HyperQueue as a sub-job scheduler. Can use multiple nodes in the same batch job allocation, most complex set up. Suits well for cases, when workflow includes a lot of small job steps with many input files (high-troughput computing).
+1. [In interactive mode](../../computing/running/interactive-usage.md) with local executor, with limited resources. Useful mainly for debugging or very small workflows.
+2. With batch job and local executor. Resource usage limited to one full node. Useful for small and medium size workflows, simpler than next options, start with this if unsure.
+3. With batch job and SLURM executor. Can use multiple nodes and different SLURM partitions (CPU and GPU), but may create significant overhead, if many small jobs. Could be used, if each job step for each file takes at least 30 min.
+4. With batch job and HyperQueue as a sub-job scheduler. Can use multiple nodes in the same batch job allocation, most complex set up. Suits well for cases, when workflow includes a lot of small job steps with many input files (high-troughput computing).
 
 !!! info "Note"
         Please do not launch heavy Snakemake workflows on **login nodes**.
@@ -111,7 +111,7 @@ snakemake -s Snakefile --jobs 4
 ### Running Snakemake workflow with local executor and batch job
 The resources are reserved in advance, both for Snakemake and the workflow as **one batch job**. The job will run as long as the snakemake command is running and stop automatically when it finishes. Local executor is limited to one node of supercomputer. The number cores can be extended depending on the system - 40 in Puhti and 128 in Mahti.
 
-```bash title="tutorial-sbatch.sh"
+```bash title="snakemake-local-executor.sh"
 #!/bin/bash
 #SBATCH --job-name=myTest
 #SBATCH --account=project_xxxxx
@@ -123,10 +123,10 @@ The resources are reserved in advance, both for Snakemake and the workflow as **
 module load snakemake
 snakemake -s Snakefile --jobs 4
 ```
-Finally, you can submit the batch job from the login nodes as below:
+Finally, you can submit the batch job from the login node:
 
 ```bash
-sbatch tutorial-sbatch.sh
+sbatch snakemake-local-executor.sh
 ```
 
 ### Running Snakemake workflow with SLURM executor
@@ -134,7 +134,7 @@ The first batch job file reserves resources only for Snakemake itself. Snakemake
 
 Here is a bash script for running the above toy example with SLURM executor:
 
-```bash
+```bash title="snakemake-slurm-executor.sh"
 #!/bin/bash
 #SBATCH --job-name=snakemake_slurm
 #SBATCH --account=project_2008498
@@ -164,6 +164,13 @@ rule say_hello:
                 echo "hello-world greetings from csc to snakemake community !" > smaller_case.txt
                 """
 ```
+
+Finally, you can submit the batch job from the login node:
+
+```bash
+sbatch snakemake-slurm-executor.sh
+```
+
 Further information about [Snakemake SLURM executor](https://snakemake.github.io/snakemake-plugin-catalog/plugins/executor/slurm.html)
 
 !!! info "Note"
@@ -175,7 +182,7 @@ Further information about [Snakemake SLURM executor](https://snakemake.github.io
 ## Running Snakemake with HyperQueue executor
 The resources are reserved in advance, both for Snakemake and the workflow as **one batch job**. It is possible to use several nodes on a supercomputer, but not to use different partitions for different workflow rules, for example CPU and GPU. HyperQueue executor fits well to workflows, which have a lot of short job steps, because it "hides" them from SLURM. Job step resources can be defined in the Snakefile as in SLURM job.
 
-```bash
+```bash title="snakemake-hyperqueue.sh"
 #!/bin/bash
 #SBATCH --job-name=snakemake_hq
 #SBATCH --account=project_2008498
@@ -202,6 +209,12 @@ snakemake --keep-going -s Snakefile --jobs 4 --executor cluster-generic --cluste
 # snakemake version 7.xx.x
 # snakemake --cluster "hq submit  ..."  
 ```
+Finally, you can submit the batch job from the login node:
+
+```bash
+sbatch snakemake-hyperqueue.sh
+```
+
 See [CSC HyperQueue page](../../apps/hyperqueue.md#using-hyperqueue-in-a-slurm-batch-job) for more options and details about HyperQueue.
 
 !!! info "Note"
