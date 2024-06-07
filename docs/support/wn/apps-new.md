@@ -1,5 +1,9 @@
 # Applications
 
+## R 4.4.0 in r-env, 7.6.2024
+	
+R version 4.4.0 is now available in `r-env` in Puhti and is set as the default version. The new version will be available in RStudio in the Puhti web interface shortly.
+
 ## Molpro 2024.1 is available on Puhti, 5.6.2024
 
 The new [Molpro 2024.1](../../apps/molpro.md) includes new features like
