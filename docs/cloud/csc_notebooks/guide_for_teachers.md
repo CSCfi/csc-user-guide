@@ -26,7 +26,7 @@ Instead of a course you can also use CSC Notebooks for collaboration. The workfl
 
 * The easiest is to use an existing Docker image, look these repositories for suitable images:
     * [Docker image sources in notebooks-public-images repository.](https://github.com/CSCfi/notebooks-public-images)
-    * [Rocker images](https://hub.docker.com/u/rocker) for different RStudio set-ups.
+    * [Rocker images] (https://quay.io/, search for rocker) for different RStudio set-ups.
     * If you would need a few R/Python packages extra compared to existing images, it likely is easiest to add them run-time by the user.
 * To create your own custom image, see [Creating custom Docker images](#creating-custom-docker-images) below.
 
@@ -91,7 +91,7 @@ If you cannot find a suitable image for your intended application, you will need
 Requirements: 
 
 * A computer to create the Docker image, it should have [Docker](https://www.docker.com/) installed. In general Linux/Mac computer is recommended. In Windows likely admin rights are needed and using Docker might be challenging.
-* A place to upload the Docker image, for example DockerHub or Quay.io. 
+* A place to upload the Docker image, for example Quay.io. 
 
 Steps to create your own custom Docker image:
 
@@ -132,7 +132,7 @@ For other package management systems, adjust the last `RUN` command accordingly.
     
 #### RStudio example
     
-To build custom R images, you do not need to start from scratch. Many pre-built R images are already available in docker registries. Especially, the [rocker project](https://github.com/rocker-org/rocker-versioned2) contains a large set of images with various configurations provided in [DockerHub](https://hub.docker.com/u/rocker/). You can therefore start with one of these pre-existing images. 
+To build custom R images, you do not need to start from scratch. Many pre-built R images are already available in public docker registries.
 
 For adding packages or configurations you can use [scripts provided by Rocker on their github page](https://github.com/rocker-org/rocker-versioned2/tree/master/scripts), edit them or write your own from scratch and copy them into the docker file system. These scripts usually contain system dependencies and required packages for your needs.
 
