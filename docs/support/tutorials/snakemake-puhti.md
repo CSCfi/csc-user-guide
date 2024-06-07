@@ -21,10 +21,10 @@ snakemake --help   #  to get information on more options.
 ### Workflow tools installation
 The tools used in the workflow can be installed in 3 ways:
 
-1) Tools available in other [Puhti modules](../../apps/by_discipline.md) or own custom module.
+1. Tools available in other [Puhti modules](../../apps/by_discipline.md) or own custom module.
         * If all Snakemake rules use the same module(s), load it before running snakemake commands.
         * If different Snakemake rules use different modules, include the [module information in the Snakefile](https://snakemake.readthedocs.io/en/latest/snakefiles/deployment.html#using-environment-modules).
-2) Own custom installations as Apptainer containers:
+2. Own custom installations as Apptainer containers:
         * Apptainer container might be downloaded from some repository or build locall. For building custom Apptainer containers, see [Creating containers page](../../computing/containers/creating.md).
         * Add [`--use-apptainer`](https://snakemake.readthedocs.io/en/stable/executing/cli.html#apptainer/singularity) to your `snakemake` command
         * [Specify the container](https://snakemake.readthedocs.io/en/stable/snakefiles/deployment.html#running-jobs-in-containers) path at the top level of the Snakefile or for each rule:
@@ -41,14 +41,14 @@ To install Snakemake with custom Python packages, use [Tykky container wrapper t
 
 For SLURM integration, you have to also fix the Python path of Snakemake executable:
 
-1. Find out your Tykky installation's Python path. You can check it with `which python` command after you have given the `export PATH ...` from Tykky printout.
-2. Create a file `post.sh`. Change `/projappl/project_200xxx/tykky_installation_folder/bin/python` to your own Tykky installation's Python path.
+* Find out your Tykky installation's Python path. You can check it with `which python` command after you have given the `export PATH ...` from Tykky printout.
+* Create a file `post.sh`. Change `/projappl/project_200xxx/tykky_installation_folder/bin/python` to your own Tykky installation's Python path.
    
 ```bash title="post.sh"
 sed -i 's@#!.*@#!/projappl/project_200xxx/tykky_installation_folder/bin/python@g' $env_root/bin/snakemake
 ```
 
-3. Update the installation:
+* Update the installation:
    
 ```
 conda-containerize update <path to installation> --post-install post.sh
