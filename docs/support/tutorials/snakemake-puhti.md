@@ -18,16 +18,16 @@ snakemake --help   #  to get information on more options.
 !!! info "Note"
     Please pay attention to the version of Snakemake you are using. If you are using earlier versions of Snakemake (e.g., v7.xx.x) the syntax might be different.
  
-### Workflow tools installation
-The tools used in the workflow can be installed in 3 ways:
+### Installation of tools used in the the workflow
+The tools used in the workflow can be installed in following ways:
 
-1. Tools available in other [Puhti modules](../../apps/by_discipline.md) or own custom module.
+1. Tools available in other [Puhti modules](../../apps/by_discipline.md) or [own custom module](../../computing/modules.md#using-your-own-module-files).
     * If all Snakemake rules use the same module(s), load it before running snakemake commands.
     * If different Snakemake rules use different modules, include the [module information in the Snakefile](https://snakemake.readthedocs.io/en/latest/snakefiles/deployment.html#using-environment-modules).
 2. Own custom installations as Apptainer containers:
-    * Apptainer container might be downloaded from some repository or build locall. For building custom Apptainer containers, see [Creating containers page](../../computing/containers/creating.md).
+    * Apptainer container might be downloaded from some repository or built locally. For building custom Apptainer containers, see [Creating containers page](../../computing/containers/creating.md).
     * Add [`--use-apptainer`](https://snakemake.readthedocs.io/en/stable/executing/cli.html#apptainer/singularity) to your `snakemake` command
-    * [Specify the container](https://snakemake.readthedocs.io/en/stable/snakefiles/deployment.html#running-jobs-in-containers) path at the top level of the Snakefile or for each rule:
+    * [Specify the container](https://snakemake.readthedocs.io/en/stable/snakefiles/deployment.html#running-jobs-in-containers) path at the top level of the Snakefile or for each rule separetely:
 
 ```
 # If your Apptainer tutorial.sif image is stored locally in Puhti in folder "image".
@@ -63,7 +63,7 @@ If you use own Tykky installation, then in the examples below, replace `module l
 Snakemake can be run in 4 different ways in supercomputers:
 
 1. [In interactive mode](../../computing/running/interactive-usage.md) with local executor, with limited resources. Useful mainly for debugging or very small workflows.
-2. With batch job and local executor. Resource usage limited to one full node. Useful for small and medium size workflows, simpler than next options, start with this if unsure.
+2. With batch job and local executor. Resource usage limited to one full node. Useful for small and medium size workflows, simpler than next options, start with this, if unsure.
 3. With batch job and SLURM executor. Can use multiple nodes and different SLURM partitions (CPU and GPU), but may create significant overhead, if many small jobs. Could be used, if each job step for each file takes at least 30 min.
 4. With batch job and HyperQueue as a sub-job scheduler. Can use multiple nodes in the same batch job allocation, most complex set up. Suits well for cases, when workflow includes a lot of small job steps with many input files (high-troughput computing).
 
@@ -109,7 +109,7 @@ snakemake -s Snakefile --jobs 4
 * `--jobs` - maximum number of jobs run in parallel
 
 ### Running Snakemake workflow with local executor and batch job
-The resources are reserved in advance, both for Snakemake and the workflow as **one batch job**. The job will run as long as the snakemake command is running and stop automatically when it finishes. Local executor is limited to one node of supercomputer. The number cores can be extended depending on the system - 40 in Puhti and 128 in Mahti.
+The resources are reserved in advance, both for Snakemake and the workflow as **one batch job**. The job will run as long as the snakemake command is running and stop automatically when it finishes. Local executor is limited to one node of supercomputer. The number of cores can be extended depending on the system - 40 in Puhti and 128 in Mahti.
 
 ```bash title="snakemake-local-executor.sh"
 #!/bin/bash
