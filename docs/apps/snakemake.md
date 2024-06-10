@@ -44,6 +44,10 @@ snakemake --help
 
 Please refer to our tutorial on [running Snakemake workflow on Puhti](../support/tutorials/snakemake-puhti.md) for more details.
 
+## Installation
+
+The latest version of snakemake (v8.4.6) was installed on Puhti using virtual environment *via* pip3. See a [list of the python packages used in this module ](https://github.com/yetulaxman/containers-workflows/blob/master/snakemake_pip_hpc.yaml).
+
 
 ## References
 
