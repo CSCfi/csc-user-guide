@@ -27,7 +27,7 @@ The tools used in the workflow can be installed in following ways:
 2. Own custom installations as Apptainer containers:
     * Apptainer container might be downloaded from some repository or built locally. For building custom Apptainer containers, see [Creating containers page](../../computing/containers/creating.md).
     * Add [`--use-apptainer`](https://snakemake.readthedocs.io/en/stable/executing/cli.html#apptainer/singularity) to your `snakemake` command
-    * [Specify the container](https://snakemake.readthedocs.io/en/stable/snakefiles/deployment.html#running-jobs-in-containers) path at the top level of the Snakefile or for each rule separetely:
+    * [Specify the container](https://snakemake.readthedocs.io/en/stable/snakefiles/deployment.html#running-jobs-in-containers) path at the top level of the Snakefile or for each rule separately:
 
 ```
 # If your Apptainer tutorial.sif image is stored locally in Puhti in folder "image".
