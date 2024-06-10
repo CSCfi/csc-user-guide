@@ -5,27 +5,32 @@
 * [Getting started with Mahti](mahti_quick.md)
 * [Getting started with Helmi](../../computing/quantum-computing/helmi/helmi-from-lumi.md)
 * [Managing data on Puhti and Mahti scratch disks](clean-up-data.md)
-* [Conda best practices](conda.md)
 * [CSC Quick reference (pdf)](../../img/csc-quick-reference/csc-quick-reference.pdf)
-* [How to run existing containers in Puhti](../../computing/containers/run-existing.md)
 * [Linux basics for CSC](env-guide/index.md)
 * [Interactive and batch job hands-on in Puhti](cmdline-handson.md)
 * [Using csc-env command](using_csc_env.md)
 * [Developing scripts remotely](remote-dev.md)
 * [Using CSC HPC environment efficiently](https://csc-training.github.io/csc-env-eff/)
-* [Building Singularity containers from scratch](singularity-scratch.md)
+* [How to run existing containers in Puhti](../../computing/containers/run-existing.md)
 * [Getting disk usage using Lue](lue.md)
-* [Installing software with Spack](user-spack.md)
 * [Running Julia jobs on Puhti and Mahti clusters](julia.md)
 
+## Installation of tools on supercomputers
+* [Installing software with Spack](user-spack.md)
+* [Building Singularity containers from scratch](singularity-scratch.md)
+* [Conda best practices](conda.md)
+
 ## Performance and high-throughput workflows
+* [General high-throughput guidelines](../../computing/running/throughput.md)
 * [Optimising parallel I/O](lustre_performance.md)
 * [Dask & parallel Python](dask-python.md)
-* [General high-throughput guidelines](../../computing/running/throughput.md)
-* [Running Nextflow workflows using HyperQueue](nextflow-hq.md)
+* [HyperQueue meta-scheduler](../../apps/hyperqueue.md)
 * [FireWorks workflow manager](../../computing/running/fireworks.md)
 * [How to run many short jobs with GNU Parallel](many.md)
-* [HyperQueue meta-scheduler](../../apps/hyperqueue.md)
+* [Nextflow tutorial for Puhti (basic)](https://yetulaxman.github.io/Biocontainer/tutorials/nextflow_tutorial.html)
+* [Running Nextflow pipelines on Puhti (advanced)](nextflow-puhti.md)
+* [Running Nextflow workflows using HyperQueue](nextflow-hq.md)
+* [Running Snakemake pipelines on Puhti](snakemake-puhti.md)
 
 ## Allas
 * [Using Allas interactively in Puhti and Mahti](../../data/Allas/allas-examples.md)
@@ -38,9 +43,6 @@
 * [Installing packages from Bioconda using Tykky](bioconda-tutorial.md)
 * [Singularity applications on Puhti](bioapplications-puhti.md)
 * [Running MaxQuant on Puhti](MaxQuant-tutorial.md)
-* [Nextflow tutorial for Puhti (basic)](https://yetulaxman.github.io/Biocontainer/tutorials/nextflow_tutorial.html)
-* [Running Nextflow pipelines on Puhti (advanced)](nextflow-puhti.md)
-* [Running Snakemake pipelines on Puhti](snakemake-puhti.md)
 * [Schrödinger Maestro Puhti advanced tutorial](power-maestro.md)
 * [Schrödinger GPU-powered screening of the Molport database](gpu-shape.md)
 * [Running your first job on Puhti](biojobs-on-puhti.md)
@@ -49,6 +51,7 @@
 * [Farming Gaussian jobs with HyperQueue](https://csc-training.github.io/csc-env-eff/hands-on/throughput/gaussian_hq.html)
 * [Using Gabedit for Gaussian jobs on Puhti](gabedit_gaussian.md)
 * [High-throughput computing with GROMACS](gromacs-throughput.md)
+* [Spring School on Computational Chemistry](https://zenodo.org/records/11172973)
 
 ## Data analysis and machine learning
 
