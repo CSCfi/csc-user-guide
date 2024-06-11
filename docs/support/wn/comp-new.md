@@ -1,7 +1,7 @@
 # Computing environment
 
 ## Puhti and Mahti web interfaces updated to release 21 and 7, 13.6.2024
-* VCode updated to 1.89.1.
+* VSCode updated to 1.89.1.
 * Jupyter app should work better with virtual environments created outside the web interface.
 * Puhti: RStudio now has R version 4.4.0 available.
 * Puhti: VisIt updated to 3.3.3. Some previously missing dependencies are now installed.
