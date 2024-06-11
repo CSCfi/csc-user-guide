@@ -7,7 +7,7 @@ If you are still wondering about workflows at more general level or which workfl
 ## Installation
 Snakemake is available as a module in Puhti supercomputer. This options suits well, if the workflow includes commandline-tools from other modules or Apptainer containers. If the workflow includes Python scripts that require custom Python packages, make own Snakemake installation with Tykky. 
 
-## Snakemake module
+### Snakemake module
 Snakemake module is the easiest option. The available version are listed on the [Snakemake app page](../../apps/snakemake.md#available).
 
 ```
@@ -179,7 +179,7 @@ Further information about [Snakemake SLURM executor](https://snakemake.github.io
     Consider either using [grouping](https://snakemake.readthedocs.io/en/latest/executing/grouping.html), [localrules](https://snakemake.readthedocs.io/en/latest/snakefiles/rules.html#local-rules) or Hyperqueue executor.
 
 
-## Running Snakemake with HyperQueue executor
+### Running Snakemake with HyperQueue executor
 The resources are reserved in advance, both for Snakemake and the workflow as **one batch job**. It is possible to use several nodes on a supercomputer, but not to use different partitions for different workflow rules, for example CPU and GPU. HyperQueue executor fits well to workflows, which have a lot of short job steps, because it "hides" them from SLURM. Job step resources can be defined in the Snakefile as in SLURM job.
 
 ```bash title="snakemake-hyperqueue.sh"
