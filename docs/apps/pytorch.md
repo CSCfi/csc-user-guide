@@ -14,7 +14,7 @@ Machine learning framework for Python.
     installation will be delayed until early autumn due to an incompatible
     ROCm driver version. This version has also updated how Python commands
     are wrapped, as this solves several problems with using virtual
-    environments and Jupyter Notebooks. Due to this `apptainer` or
+    environments and Jupyter Notebooks. Due to this `apptainer` and
     `apptainer_wrapper` commands will no longer work, but otherwise the
     change should be invisible to users.
 
@@ -101,10 +101,11 @@ instructions on how to run Apptainer
 containers](../computing/containers/run-existing.md). 
 
 For **PyTorch version 2.3 and later**, we have used wrappers created
-with the tykky tool, and all commands provided by Python package
-should be wrapped and can be used directly. In case you really need to
-run something inside the container you can prefix with `_debug_exec`
-or run `_debug_shell` to open a shell session.
+with [the tykky tool](../computing/containers/tykky.md), and all
+commands provided by pre-installed Python packages are wrapped and can
+be used directly. In case you really need to run something inside the
+container you can prefix with `_debug_exec` or run `_debug_shell` to
+open a shell session.
 
 
 !!! info "New users"
