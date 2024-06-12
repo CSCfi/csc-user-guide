@@ -10,6 +10,14 @@ Machine learning framework for Python.
 
 !!! info "News" 
 
+    **13.6.2024** PyTorch 2.3 added to Puhti and Mahti. The LUMI
+    installation will be delayed until early autumn due to an incompatible
+    ROCm driver version. This version has also updated how Python commands
+    are wrapped, as this solves several problems with using virtual
+    environments and Jupyter Notebooks. Due to this `apptainer` or
+    `apptainer_wrapper` commands will no longer work, but otherwise the
+    change should be invisible to users.
+
     **1.3.2024** PyTorch 2.2 added to Puhti, Mahti and LUMI. The LUMI
     module includes ROCm versions of 
     [FlashAttention-2](https://github.com/ROCm/flash-attention) 
@@ -42,22 +50,23 @@ Machine learning framework for Python.
 
 Currently supported PyTorch versions:
 
-| Version | Module         | Puhti | Mahti | LUMI | Notes                      |
-|:--------|----------------|:-----:|:-----:|------|:---------------------------|
-| 2.2.2   | `pytorch/2.2`  | -     | -     | X    | default version            |
-| 2.2.1   | `pytorch/2.2`  | X     | X     | -    | default version            |
-| 2.1.2   | `pytorch/2.1`  | -     | -     | X    |                            |
-| 2.1.0   | `pytorch/2.1`  | X     | X     | -    |                            |
-| 2.0.1   | `pytorch/2.0`  | -     | -     | X    |                            |
-| 2.0.0   | `pytorch/2.0`  | X     | X     | -    |                            |
-| 1.13.1  | `pytorch/1.13` | -     | -     | X    | limited multi-node support |
-| 1.13.0  | `pytorch/1.13` | X     | X     | -    |                            |
-| 1.12.0  | `pytorch/1.12` | X     | X     | -    |                            |
-| 1.11.0  | `pytorch/1.11` | X     | X     | -    |                            |
-| 1.10.0  | `pytorch/1.10` | (x)   | (x)   | -    |                            |
-| 1.9.0   | `pytorch/1.9`  | (x)   | (x)   | -    |                            |
-| 1.8.1   | `pytorch/1.8`  | (x)   | (x)   | -    |                            |
-| 1.7.1   | `pytorch/1.7`  | (x)   | -     | -    |                            |
+| Version | Module         | Puhti | Mahti | LUMI      | Notes                           |
+|:--------|----------------|:-----:|:-----:|-----------|:--------------------------------|
+| 2.3.1   | `pytorch/2.3`  | X     | X     | (delayed) | default version on Puhti, Mahti |
+| 2.2.2   | `pytorch/2.2`  | -     | -     | X         | default version on LUMI         |
+| 2.2.1   | `pytorch/2.2`  | X     | X     | -         |                                 |
+| 2.1.2   | `pytorch/2.1`  | -     | -     | X         |                                 |
+| 2.1.0   | `pytorch/2.1`  | X     | X     | -         |                                 |
+| 2.0.1   | `pytorch/2.0`  | -     | -     | X         |                                 |
+| 2.0.0   | `pytorch/2.0`  | X     | X     | -         |                                 |
+| 1.13.1  | `pytorch/1.13` | -     | -     | X         | limited multi-node support      |
+| 1.13.0  | `pytorch/1.13` | X     | X     | -         |                                 |
+| 1.12.0  | `pytorch/1.12` | X     | X     | -         |                                 |
+| 1.11.0  | `pytorch/1.11` | X     | X     | -         |                                 |
+| 1.10.0  | `pytorch/1.10` | (x)   | (x)   | -         |                                 |
+| 1.9.0   | `pytorch/1.9`  | (x)   | (x)   | -         |                                 |
+| 1.8.1   | `pytorch/1.8`  | (x)   | (x)   | -         |                                 |
+| 1.7.1   | `pytorch/1.7`  | (x)   | -     | -         |                                 |
 
 Includes [PyTorch](https://pytorch.org/) and related libraries with
 GPU support via CUDA/ROCm.
@@ -83,11 +92,19 @@ create a virtual environment use the command `python3 -m venv
 All modules are based on containers using Apptainer (previously known
 as Singularity). Wrapper scripts have been provided so that common
 commands such as `python`, `python3`, `pip` and `pip3` should work as
-normal. For other commands, you need to prefix them with
-`apptainer_wrapper exec`, for example `apptainer_wrapper exec
-huggingface-cli`. For more information, see [CSC's general
+normal. 
+
+For **PyTorch version 2.2 and earlier**, other commands need to be
+prefixed with `apptainer_wrapper exec`, for example `apptainer_wrapper
+exec huggingface-cli`. For more information, see [CSC's general
 instructions on how to run Apptainer
-containers](../computing/containers/run-existing.md).
+containers](../computing/containers/run-existing.md). 
+
+For **PyTorch version 2.3 and later**, we have used wrappers created
+with the tykky tool, and all commands provided by Python package
+should be wrapped and can be used directly. In case you really need to
+run something inside the container you can prefix with `_debug_exec`
+or run `_debug_shell` to open a shell session.
 
 
 !!! info "New users"
@@ -165,7 +182,7 @@ proportion of the available CPU cores in a single node:
     #SBATCH --time=1:00:00
     #SBATCH --gres=gpu:v100:1
         
-    module load pytorch/2.1
+    module load pytorch/2.3
     srun python3 myprog.py <options>
     ```
 
@@ -179,7 +196,7 @@ proportion of the available CPU cores in a single node:
     #SBATCH --time=1:00:00
     #SBATCH --gres=gpu:a100:1
     
-    module load pytorch/2.1
+    module load pytorch/2.3
     srun python3 myprog.py <options>
     ```
 
@@ -195,7 +212,7 @@ proportion of the available CPU cores in a single node:
     #SBATCH --time=1:00:00
     
     module use /appl/local/csc/modulefiles/
-    module load pytorch/2.1
+    module load pytorch/2.3
     srun python3 myprog.py <options>
     ```
 

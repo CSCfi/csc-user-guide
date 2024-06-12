@@ -1,5 +1,17 @@
 # Applications
 
+## PyTorch 2.3.1, 13.6.2024
+
+[PyTorch](../../apps/pytorch.md) PyTorch 2.3.1 added to Puhti and
+Mahti. The LUMI installation will be delayed until early autumn due to
+an incompatible ROCm driver version. This version has also updated how
+Python commands are wrapped, as this solves several problems with
+using virtual environments and Jupyter Notebooks. Due to this
+`apptainer` or `apptainer_wrapper` commands will no longer work, but
+otherwise the change should be invisible to users. See our [PyTorch
+module documentation for more
+information](../../apps/pytorch.md#available).
+
 ## R 4.4.0 in r-env, 7.6.2024
 	
 R version 4.4.0 is now available in `r-env` in Puhti and is set as the default version. The new version will be available in RStudio in the Puhti web interface shortly.
