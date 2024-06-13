@@ -218,19 +218,23 @@ or by using
 
 ### Jupyter
 
-[Jupyter computational notebooks](../../apps/jupyter.md) provide an interactive
-programming environment that allows one to
+[Jupyter notebooks](../../apps/jupyter.md) provide an interactive
+programming environment where one can
 write and run Python code in individual cells.
 Notebooks combine code, equations, visualizations and narrative text
 in a single document. Many of our Python environments, including
-[`python-data`](../../apps/python-data.md), [`geoconda`](../../apps/geoconda.md)
+[`python-data`](../../apps/python-data.md),
+[`geoconda`](../../apps/geoconda.md)
 as well as deep learning modules like [`pytorch`](../../apps/pytorch.md)
 include the main Jupyter packages.
 
-There are two ways of running Jupyter notebooks on CSC supercomputers:
+There are two ways of running Jupyter notebooks for Python
+on CSC supercomputers:
 
-1. [Through our web interface](../../computing/webinterface/jupyter.md) (recommended)
-2. [By using SSH tunneling](./rstudio-or-jupyter-notebooks.md#instructions-for-ssh-tunneling)
+1. [As an interactive app on our web
+interface](../../computing/webinterface/jupyter.md) **(recommended)**
+2. [Remotely using SSH
+tunneling](./rstudio-or-jupyter-notebooks.md#instructions-for-ssh-tunneling)
 
 !!! note
 	SSH tunneling requires [setting up SSH
@@ -254,8 +258,8 @@ default with all CSC and custom Python environments.
 
 As with Jupyter notebooks, there are two ways to run VSCode:
 
-1. [Through our web interface](../../computing/webinterface/vscode.md)
-2. [By using the Remote SSH plugin](./remote-dev.md#visual-studio-code-with-remote-ssh-plugin)
+1. [As an interactive app on our web interface](../../computing/webinterface/vscode.md)
+2. [Remotely using the Remote-SSH plugin](./remote-dev.md#visual-studio-code-with-remote-ssh-plugin)
 
 !!! info
 	Since only CSC modules are offered in the VSCode session launch form,
