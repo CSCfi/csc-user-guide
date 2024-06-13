@@ -231,6 +231,7 @@ nav:
              - Persistent volumes: cloud/pouta/persistent-volumes.md
              - Snapshots: cloud/pouta/snapshots.md
              - Snapshot using QEMU: cloud/pouta/qemu-vm.md
+             - Multi-attach Cinder storage: cloud/pouta/multiattach.md
         - Advanced:
            - cloud/pouta/advanced.md
            - Security Guidelines for Pouta: cloud/pouta/security.md

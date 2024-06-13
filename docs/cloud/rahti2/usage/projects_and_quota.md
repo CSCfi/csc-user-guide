@@ -46,7 +46,7 @@ tool](https://my.csc.fi/projects) of MyCSC.
 If you would like to know which CSC computing project a Rahti 2 project is
 associated with, you can do so using the _oc_ command line tool. You can find
 instructions for setting up oc in the [command line tool usage
-instructions ](cli.md). For example, if your Rahti 3 project is called
+instructions ](cli.md). For example, if your Rahti 2 project is called
 *my-openshift-project*, you would run:
 
 ```bash
@@ -119,9 +119,13 @@ For more information about using the web interface, refer to the
 [official OpenShift documentation](https://docs.okd.io/) (our current version is 4.15). You can find out which version of the documentation to look at in the web interface by
 clicking the question mark symbol in the top bar and selecting "About".
 
-## Project quotas
+## CSC computing project quotas
 
-Each project has its own quota. Initial quota is the following:
+!!! warning  
+    
+    Starting June 5th, 2024 a new quota system will be applied. Namespaces/Rahti projects quota will be removed to only have CSC projects quota.  
+
+Each CSC computing project has its own quota. Initial quota is the following:
 
 | Resource                         | Default |
 |----------------------------------|---------|
@@ -131,7 +135,12 @@ Each project has its own quota. Initial quota is the following:
 | Number of image streams (images) | 20      |
 | Size of each registry images     | 5 GiB   |
 
-This means that your project can use up to 4 cores and 16GiB in total, it can be 1 Pod using the whole 4 cores and 16 GiB, 8 pods each using half a core and 2 GiB, etc...
+This means that your CSC computing project can use up to 4 cores and 16GiB in total, it can be 1 Pod using the whole 4 cores and 16 GiB, 8 pods each using half a core and 2 GiB, etc...
+
+!!! Warning
+
+    If you have several users that can access the CSC computing project, they can create a new Rahti project (see above). Keep in mind that the quotas will be shared across the different Rahti projects.  
+    If you need to adjust your CSC computing project quotas, please contact us. More information [here](projects_and_quota.md#requesting-more-quota)
 
 You can find the resource usage and quota of a project in the project view in
 the web interface under **Administration -> ResourceQuota** and **Administration -> LimitRanges** in the `Administrator` menu.
@@ -174,68 +183,24 @@ The user can set the limits explicitly within the available quota, but if no lim
 
 |Type|CPU|Memory|
 |:-:|:-:|:-:|
-|limits|500m|1Gi|
+|limits|250m|2500Mi|
 |requests|50m|500Mi|
 
 Note: `m` stands for milicores. `500m` will be the equivalent of 0.5 cores, or in other words half of the time of a CPU core.
 
-Rahti 2 enforces a maximum limit/request ratio of 5. This means that the CPU or memory `limits` cannot be more than 5 times the `request`. So if the CPU request is 100m, the CPU limit cannot be set higher than 500m. And if the CPU limit of 1 is desired, the request must be set to 200m at least. Following example shows how a pod `resources` configuration may look like.
-
-```yaml
-  resources:
-    requests:
-      cpu: "200m"
-    limits:
-      cpu: "1"
-```
-
-## Cluster Quotas
-
-In addition to the project resource quota, cluster resource quota is in use. This quota is shared by multiple projects created by the same user. This means that cluster quota is enforced per user. A single user will be able to request as many projects as it is necessary, but the total resource use of all these projects cannot exceed the cluster quota.
-
-Initial cluster quotas are 5 times of the project resource quota.
-
-| Resource type | Quota |
-| --- | --- |
-| limits.cpu | 20 |
-| limits.memory | 80Gi |
-| request.storage | 500Gi |
-| limits.ephemeral-storage | 25Gi |
-| openshift.io/imagestreams | 100 |
-| persistentvolumeclaims | 25 |
-| pods | 500 |
-
-You can check your current cluster quota by running this command line:
-
-```sh
-$ oc describe AppliedClusterResourceQuota
-
-Name:		crq-XXXXXXXX
-Created:	19 hours ago
-Labels:		<none>
-Annotations:	<none>
-Namespace Selector: ["test"]
-Label Selector:
-AnnotationSelector: map[openshift.io/requester:XXXXXXXX]
-Resource			Used	Hard
---------			----	----
-limits.cpu			0	20
-limits.ephemeral-storage	0	25Gi
-limits.memory			0	80Gi
-openshift.io/imagestreams	1	100
-persistentvolumeclaims		0	25
-pods				0	500
-requests.storage		0	500Gi
-```
-
-It not only shows the Quota, but also the current Usage.
+Rahti 2 enforces a maximum limit/request ratio of 5. This means that the CPU or memory `limits` cannot be more than 5 times the `request`. So if the CPU request is 50m, the CPU limit cannot be higher than 250m. And if you want to increase the CPU limit to 1, you will have to increase as well the request to at least 200m.
 
 ## Requesting more quota
 
-If you need more resources that the defaults, you can apply for more quota by contacting the Service Desk. See the [Contact page](../../../support/contact.md) for instructions. Quota requests are
-handled on a case-by-case basis depending on the currently available resourcesin Rahti 2 and the use case.
+If you need more resources than the defaults, you can apply for more quota by contacting the Service Desk. See the [Contact page](../../../support/contact.md) for instructions. Quota requests are handled on a case-by-case basis depending on the currently available resources in Rahti 2 and the use case.
 
 ## Sharing projects with other users
+
+!!! info
+
+    When creating a Rahti 2 project which is associated with certain CSC computing project, by default all members the of 
+    CSC computing project will have admin access to the Rahti 2 project.  
+    You can also add individually an user to a specific Rahti 2 project. The user must have a CSC or HAKA login.
 
 OpenShift has a flexible role-based access control system that allows you to
 give access to projects you have created to other users and groups in the system.
@@ -251,12 +216,6 @@ Note that it is important to use correct usernames when sharing projects
 with others. Rahti 2 allows you to freely enter any username and will not notify
 you for having entered a non-existent username. Usernames are also case-sensitive.
 You can find out your username in Rahti 2 via the command line, by using the command `oc whoami`.
-
-!!! info
-
-    When creating a Rahti 2 project which is associated with certain CSC computing project, by default all members the of 
-    CSC computing project will have admin access to the Rahti 2 project. This also means that you can add administrators to
-    your Rahti 2 project by adding them directly to your CSC project. 
 
 ## Deleting a project
 

@@ -76,3 +76,54 @@ Below is a table of common docker base images and whether installing simple pack
 |ubuntu|16.04-22.04|yes|
 
 Some issues related to, for example, glibc, fakeroot, file permissions and old remote repos are often difficult to solve, so trying out a few different base images can be a good idea before spending a lot of time debugging.
+
+## Using GPU from containers in interactive sessions in Puhti
+
+### Running existing images
+
+To run programs in [Accelerated Visualization](../../webinterface/accelerated-visualization/) that [use GPU](https://apptainer.org/docs/user/latest/gpu.html), use the `--nv` flag when starting the container: `apptainer run --nv /path_to_image/image.sif`. To use the graphical display with [VirtualGL](https://virtualgl.org/), a few environment variables have to be set as well. In the base images provided for GPU usage by CSC, these are set automatically when the container is started. Note that if you run `apptainer shell` instead of `apptainer run`, `%runscript` is not executed and necessary environment variables for vgl are not set, you then have to set them manually, see [base image definition files](https://github.com/CSCfi/singularity-recipes/tree/main/visualization) for details.
+
+To easily start the program, create a `.desktop` [shortcut file](https://specifications.freedesktop.org/desktop-entry-spec/desktop-entry-spec-latest.html#recognized-keys) in the `$HOME/Desktop` directory in Puhti. An icon then appears on the desktop which will start the program in the container.
+
+Example `blender.desktop` file which starts the example container provided in the next section.
+```
+[Desktop Entry]
+Type=Application
+Name=Blender
+Terminal=true
+Exec=apptainer run --nv /path_to_image/vgl_blender.sif
+```
+
+### Building your own images
+To build containers for VGL applications yourself, you can use one of the base images provided by CSC as a base. These images have both graphics driver and VirtualGL already installed, which are necessary to use GPU in graphical applications running remotely.
+
+Base images available can be found from the path `/appl/opt/vis/vgl-base-images/` in Puhti.
+
+For details of how the base images work, see their [definition files](https://github.com/CSCfi/singularity-recipes/tree/main/visualization).
+
+Here is a commented example definition file that installs blender on top of the base image.
+
+```
+Bootstrap: localimage
+From: /appl/opt/vis/vgl-base-images/ubuntu/22.04.sif 
+
+%environment
+	# Specify path to the binary that we want to run on start
+	export VGL_APPLICATION=/opt/blender-3.6.0/blender
+%post
+	# When building with fakeroot without namespaces we cannot modify users or groups during the installation so we replace problematic binaries with dummies and hope that everything will still work
+	cp /usr/bin/true /usr/sbin/groupadd
+	cp /usr/bin/true /usr/sbin/useradd
+
+	# Install blender dependencies, to figure out which libraries are required use ldd, read error messages etc.
+	apt-get install -y libxi6 libxrender1 libxkbcommon0 \
+	                   libxkbcommon-x11-0 libsm6 libice6
+
+	# Install Blender binary
+	cd /opt
+	BLENDER_VERSION=3.6.0
+	wget https://ftp.halifax.rwth-aachen.de/blender/release/Blender$(echo "$BLENDER_VERSION" | cut -d. -f1,2)/blender-$BLENDER_VERSION-linux-x64.tar.xz
+	tar xf blender-$BLENDER_VERSION-linux-x64.tar.xz
+	mv blender-$BLENDER_VERSION-linux-x64 /opt/blender-$BLENDER_VERSION
+	rm blender-$BLENDER_VERSION-linux-x64.tar.xz
+```
