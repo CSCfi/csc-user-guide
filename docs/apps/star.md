@@ -22,7 +22,7 @@ Puhti: 2.7.10a, 2.7.11a
 
 ## Usage
 
-The _STAR_ commands listed below are activated by loading _biokit_ module.
+The `STAR` commands listed below are activated by loading `biokit` module.
 
 ```bash
 module load biokit
@@ -31,40 +31,34 @@ module load biokit
 Before you can run the actual alignment job, you must index your fasta formatted reference genome. In Puhti the working copies of reference genome indexes, as well as any large files, should be stored to the /scatch directory.
 
 For ease of use, set an environment variable to point to your /scratch directory. (Substitute correct path for the one used in example).
-
 ```bash
 export SCRATCH=/scratch/project_12345/$USER
 ```
 
 Create a directory for the reference genome index:
-
 ```bash
 mkdir $SCRATCH/star-genome
 ```
 
 After that, the indexing can be done with command:
-
 ```bash
 STAR --runMode genomeGenerate --genomeDir $SCRATCH/star-genome --genomeFastaFiles /path/to/genome/genome.fasta --runThreadN 2
 ```
 
 Once the indexing is done, the actual mapping task can be launched. STAR will generate the mapping output using fixed file names. Because of that it is recommended that each STAR job is run in a new, empty directory. In Puhti you should create this new job directory to /scratch directory of your project. New directory called _starjob1_ can be created with command:
-
 ```bash
 mkdir $SCRATCH/starjob1
 ```
 
 after that the actual mapping job can be launched with commands:
-
 ```bash
 cd $SCRATCH/starjob1
 STAR --genomeDir $SCRATCH/star-genomes --readFilesIn my_reads.fastq
 ```
 
-The default parameters, that STAR uses, are typical for mapping 2x76 or 2x101 Illumina reads to the human genome.
+The default parameters STAR uses are typical for mapping 2x76 or 2x101 Illumina reads to the human genome.
 
-In Puhti, all computing tasks should be executed as batch jobs. In batch jobs you can also utilize thread based parallelization. Bellow is a sample batch job file for STAR. The job uses six computing cores from a single computing node. The memory reservation is 24 GB. Note that you must change the _--account_ setting to match you poject.
-
+In Puhti, all computing tasks should be executed as batch jobs. In batch jobs you can also utilize thread based parallelization. Below is a sample batch job file for STAR. The job uses six computing cores from a single computing node. The memory reservation is 24 GB. Note that you must change the `--account` setting to match you poject.
 ```bash
 #!/bin/bash -l
 #SBATCH --job-name=STAR
@@ -88,7 +82,6 @@ STAR --genomeDir $SCRATCH/star-genome --readFilesIn my-reads.fastq --runThreadN 
 ```
 
 The batch job script is launced with command sbatch. For example:
-
 ```bash
 sbatch starjob1.sh
 ```
