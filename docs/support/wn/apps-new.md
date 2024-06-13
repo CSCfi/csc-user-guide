@@ -12,6 +12,11 @@ otherwise the change should be invisible to users. See our [PyTorch
 module documentation for more
 information](../../apps/pytorch.md#available).
 
+## Python Data 3.10-24.04 now the default version
+
+The recently installed `python-data/3.10-24.04` has been set as the
+default version for [Python Data](../../apps/python-data.md).
+
 ## R 4.4.0 in r-env, 7.6.2024
 	
 R version 4.4.0 is now available in `r-env` in Puhti and is set as the default version. The new version will be available in RStudio in the Puhti web interface shortly.
