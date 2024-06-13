@@ -30,7 +30,7 @@ Snakemake is activated by loading `snakemake` module as below:
 module load snakemake
 ```
 
-Example of loading `nextflow` module with a specific version:
+Example of loading `snakemake` module with a specific version:
 
 ```bash
 module load snakemake/8.4.6
@@ -43,6 +43,10 @@ snakemake --help
 ```
 
 Please refer to our tutorial on [running Snakemake workflow on Puhti](../support/tutorials/snakemake-puhti.md) for more details.
+
+## Installation
+
+The latest version of snakemake (v8.4.6) was installed on Puhti using virtual environment *via* pip3. See a [list of the python packages used in this module ](https://github.com/yetulaxman/containers-workflows/blob/master/snakemake_pip_hpc.yaml).
 
 
 ## References
@@ -58,4 +62,6 @@ If you use Snakemake in your work, please cite:
 
 * [Snakemake official documentation](https://snakemake.readthedocs.io/en/stable/index.html)
 * [How to run Snakemake workflow on Puhti](../support/tutorials/snakemake-puhti.md)
+* [CSC Snakemake Hackathon 2024](https://coderefinery.github.io/snakemake_hackathon/)
 * [Contact CSC Service Desk for technical support](../support/contact.md)
+

@@ -1,8 +1,79 @@
 # Running Snakemake workflow on Puhti
 
-[Snakemake workflow](../../apps/snakemake.md) is one of the popular scientific workflows in the bioinformatics community, although the workflow manager itself can be used in other scientific disciplines as well. Snakemake enables scalable and reproducible scientific pipelines by chaining a series of rules in a fully-specified software environment. Snakemake software is available as a module in Puhti supercomputing environment. Also, a CSC user can easily install it in their own disk space (e.g., in `/projappl` directory) if a specific version of Snakemake is desired. The following toy example illustrates how a Snakemake workflow can be deployed at CSC.
+[Snakemake workflow](https://snakemake.readthedocs.io/en/latest/index.html) is one of the popular scientific workflows in the bioinformatics community, although the workflow manager itself can be used in other scientific disciplines as well. Snakemake enables scalable and reproducible scientific pipelines by chaining a series of rules in a fully-specified software environment. 
 
-Please make sure that you have a [user account at CSC](../../accounts/how-to-create-new-user-account.md) and are a member of a project which [has access to the Puhti service](../../accounts/how-to-add-service-access-for-project.md) before you start running workflows on Puhti. Please do not launch heavy Snakemake workflows on **login nodes**, but use interactive or batch jobs instead. [More information on using interactive jobs can be found here](../../computing/running/interactive-usage.md).
+If you are still wondering about workflows at more general level or which workflow tool to use, see also [High-throughput computing and workflows page](../../computing/running/throughput.md).
+
+## Installation
+Snakemake is available as a module in Puhti supercomputer. This options suits well, if the workflow includes commandline-tools from other modules or Apptainer containers. If the workflow includes Python scripts that require custom Python packages, make own Snakemake installation with Tykky. 
+
+### Snakemake module
+Snakemake module is the easiest option. The available version are listed on the [Snakemake app page](../../apps/snakemake.md#available).
+
+```
+module load snakemake
+snakemake --help   #  to get information on more options.
+```
+
+!!! info "Note"
+    Please pay attention to the version of Snakemake you are using. If you are using earlier versions of Snakemake (e.g., v7.xx.x) the syntax might be different.
+ 
+### Installation of tools used in the the workflow
+The tools used in the workflow can be installed in following ways:
+
+1. Tools available in other [Puhti modules](../../apps/by_discipline.md) or [own custom module](../../computing/modules.md#using-your-own-module-files).
+    * If all Snakemake rules use the same module(s), load it before running snakemake commands.
+    * If different Snakemake rules use different modules, include the [module information in the Snakefile](https://snakemake.readthedocs.io/en/latest/snakefiles/deployment.html#using-environment-modules).
+2. Own custom installations as Apptainer containers:
+    * Apptainer container might be downloaded from some repository or built locally. For building custom Apptainer containers, see [Creating containers page](../../computing/containers/creating.md).
+    * Add [`--use-apptainer`](https://snakemake.readthedocs.io/en/stable/executing/cli.html#apptainer/singularity) to your `snakemake` command
+    * [Specify the container](https://snakemake.readthedocs.io/en/stable/snakefiles/deployment.html#running-jobs-in-containers) path at the top level of the Snakefile or for each rule separately:
+
+```
+# If your Apptainer tutorial.sif image is stored locally in Puhti in folder "image".
+apptainer: "image/tutorial.sif"
+# If your Docker or Apptainer container image is available via URI
+apptainer: "docker://<repository>/<image_name>"
+```
+
+### Snakemake Tykky installation for Python
+To install Snakemake with custom Python packages, use [Tykky container wrapper tool with conda](../../computing/containers/tykky.md#conda-based-installation). Follow the guidelines on Tykky page, the conda environment should include package `snakemake`. If you plan to use Snakemake with SLURM or HyperQueue integration (explained below), install also `snakemake-executor-plugin-slurm` for SLURM or `snakemake-executor-plugin-cluster-generic` for HyperQueue. These packages are part of `bioconda` repository, so add it to the channels list in the conda environment file.
+
+For SLURM integration, you have to also fix the Python path of Snakemake executable:
+
+* Find out your Tykky installation's Python path. You can check it with `which python` command after you have given the `export PATH ...` from Tykky printout.
+* Create a file `post.sh`. Change `/projappl/project_200xxx/tykky_installation_folder/bin/python` to your own Tykky installation's Python path.
+   
+```bash title="post.sh"
+sed -i 's@#!.*@#!/projappl/project_200xxx/tykky_installation_folder/bin/python@g' $env_root/bin/snakemake
+```
+
+* Update the installation:
+   
+```
+conda-containerize update <path to installation> --post-install post.sh
+```
+
+If you use own Tykky installation, then in the examples below, replace `module load snakemake` with the export commant printed out by Tykky, something like: `export PATH="/projappl/project_xxxx/$USER/snakemake_tykky/bin:$PATH"`
+
+!!! info "Note"
+        Please note, create one Tykky installation for the whole workflow, not individual installations for each Snakemake rule.
+
+## Usage
+Snakemake can be run in 4 different ways in supercomputers:
+
+1. [In interactive mode](../../computing/running/interactive-usage.md) with local executor, with limited resources. Useful mainly for debugging or very small workflows.
+2. With batch job and local executor. Resource usage limited to one full node. Useful for small and medium size workflows, simpler than next options, start with this, if unsure.
+3. With batch job and SLURM executor. Can use multiple nodes and different SLURM partitions (CPU and GPU), but may create significant overhead, if many small jobs. Could be used, if each job step for each file takes at least 30 min.
+4. With batch job and HyperQueue as a sub-job scheduler. Can use multiple nodes in the same batch job allocation, most complex set up. Suits well for cases, when workflow includes a lot of small job steps with many input files (high-troughput computing).
+
+!!! info "Note"
+        Please do not launch heavy Snakemake workflows on **login nodes**.
+
+The following toy example illustrates how a Snakemake workflow can be deployed at CSC. 
+
+### Snakefile
+Snakefile describes the contents of the workflow. Further information is available from [Snakemake Snakefile documentation](https://snakemake.readthedocs.io/en/stable/snakefiles/rules.html)
 
 Let's use the following toy Snakemake script, `Snakefile` (with a capital S and no file extension), for the illustration:
 
@@ -25,306 +96,133 @@ rule capitalise:
                 """
 ```
 
-As Snakemake is installed as a module on Puhti, one can simply load it without needing to install it separately. Here is a bash script for running the above toy example:
+### Running Snakemake workflow with local executor interactively
+The resources are reserved in advance, both for Snakemake and the workflow jobs as **one interactive session**. In interactive session, the workflow can be started for several times for debugging as long as the reserved resources are available. See resource limits for [interactive partition](../../computing/running/batch-job-partitions.md).
 
-```bash title="run_snakemake.sh"
-module load snakemake/8.4.6
-snakemake --help   #  to get information on more options.
-
-# The following command shows how to run a snakemake workflow on a cluster using slurm executor
-# the Snakefile is the default file name; no need specify with -s flag
-# jobs: set maximum number of tasks in parallel
-# latency-wait: wait up to some time after a job completes for the output files to become available
-# cluster-generic:submit jobs to cluster 
-# sbatch: use slurm cluster
-snakemake -s Snakefile --jobs 1 \
- --latency-wait 60 \
- --executor cluster-generic \
- --cluster-generic-submit-cmd "sbatch --time 10 \
- --account=project_xxxx --job-name=hello-world \
- --tasks-per-node=1 --cpus-per-task=1 --mem-per-cpu=4000 --partition=test"
+```
+sinteractive --cores 4 --mem 10000 # start an interactive session with 2 CPU cores and 10 Gb of memory
+module load snakemake
+cd <to_folder_with_snakefile>
+snakemake -s Snakefile --jobs 4
 ```
 
-Finally, you can run the workflow in the bash script (e.g., `run_snakemake.sh`) by submitting the job in the interactive node:
+* `--jobs` - maximum number of jobs run in parallel
+
+### Running Snakemake workflow with local executor and batch job
+The resources are reserved in advance, both for Snakemake and the workflow as **one batch job**. The job will run as long as the snakemake command is running and stop automatically when it finishes. Local executor is limited to one node of supercomputer. The number of cores can be extended depending on the system - 40 in Puhti and 128 in Mahti.
+
+```bash title="snakemake-local-executor.sh"
+#!/bin/bash
+#SBATCH --job-name=myTest
+#SBATCH --account=project_xxxxx
+#SBATCH --time=00:10:00
+#SBATCH --mem-per-cpu=2G
+#SBATCH --partition=small
+#SBATCH --cpus-per-task=4
+
+module load snakemake
+snakemake -s Snakefile --jobs 4
+```
+Finally, you can submit the batch job from the login node:
 
 ```bash
-sinteractive --cores 2 --mem 10000 # type this command on login node to start an interactive session with 2 CPU cores and 10 Gb of memory, after providing your project when prompted, you can run the bash script like this:
-bash run_snakemake.sh   # run the workflow
+sbatch snakemake-local-executor.sh
 ```
 
+### Running Snakemake workflow with SLURM executor
+The first batch job file reserves resources only for Snakemake itself. Snakemake then creates further SLURM jobs for workflow's rules. The SLURM jobs created by Snakemake may be distributed to several nodes of a supercomputer and also to use different partitions for different workflow rules, for example CPU and GPU. SLURM executor should be used only, if the job steps are at least 20-30 minutes long, otherwise the it could overload SLURM.
+
+Here is a bash script for running the above toy example with SLURM executor:
+
+```bash title="snakemake-slurm-executor.sh"
+#!/bin/bash
+#SBATCH --job-name=snakemake_slurm
+#SBATCH --account=project_2008498
+#SBATCH --time=00:20:00
+#SBATCH --cpus-per-task=1
+#SBATCH --mem-per-cpu=2GB
+#SBATCH --partition=small
+#SBATCH --output=slurm-%j.out
+#SBATCH --error=slurm-%j.err
+
+module load snakemake
+snakemake --jobs 4  -s Snakefile --executor slurm --default-resources slurm_account=project_xxxx slurm_partition=small
+```
 !!! info "Note"
-    Please pay attention to the version of Snakemake you are using. If you are using earlier versions of Snakemake (e.g., v7.xx.x) the **cluster** configuration settings would be as below:
-    ```bash 
-    snakemake -s Snakefile \
-        --jobs 1 \
-        --latency-wait 60 \
-        --cluster "sbatch --time 10  \
-        --account=project_xxxx --job-name=hello-world \
-        --tasks-per-node=1 --cpus-per-task=1 \ 
-        --mem-per-cpu=4000 --partition test"
-    ```
+        Make sure that the Snakemake own reservation is long enough to include also waiting time for other processes to get processed, including queueing time. Rather use too long time for the Snakemake own batch job.
+
+Default resources for each SLURM job are rather limited, to increase (or change) define the resource needs for each rule in the Snakefile:
+```
+rule say_hello:
+        output: "smaller_case.txt"
+        resources:
+                runtime = 5, # minutes
+                cpus_per_task = 1,
+                mem_mb = 20000
+        shell:
+                """
+                echo "hello-world greetings from csc to snakemake community !" > smaller_case.txt
+                """
+```
+
+Finally, you can submit the batch job from the login node:
+
+```bash
+sbatch snakemake-slurm-executor.sh
+```
+
+Further information about [Snakemake SLURM executor](https://snakemake.github.io/snakemake-plugin-catalog/plugins/executor/slurm.html)
 
 !!! info "Note"
     Scaling up your jobs using Slurm should be done carefully to
     avoid unnecessarily overloading the Slurm accounting database with a large number of small jobs.
-    Consider either configuring **localrules** cautiously with Slurm, or using Hyperqueue executor.
+    Consider either using [grouping](https://snakemake.readthedocs.io/en/latest/executing/grouping.html), [localrules](https://snakemake.readthedocs.io/en/latest/snakefiles/rules.html#local-rules) or Hyperqueue executor.
 
-## Running Snakemake with Python packages installed *via* Tykky wrapper
 
-[Conda installations should not be performed directly on Puhti](../../computing/usage-policy.md#conda-installations). CSC instead provides the [Tykky container wrapper tool](../../computing/containers/tykky.md) which can be used to install Python packages to set up your own environment. The wrapper tool installs applications inside an Apptainer container and thus facilitates better performance in terms of faster startup times, reduced I/O load, and reduced number of files on the parallel filesystem. Please note that we recommend using one Tykky environment for the whole workflow rather than an individual environment for each rule.
+### Running Snakemake with HyperQueue executor
+The resources are reserved in advance, both for Snakemake and the workflow as **one batch job**. It is possible to use several nodes on a supercomputer, but not to use different partitions for different workflow rules, for example CPU and GPU. HyperQueue executor fits well to workflows, which have a lot of short job steps, because it "hides" them from SLURM. Job step resources can be defined in the Snakefile as in SLURM job.
 
-Here is an example of a Tykky-based custom installation for Conda packages (**Note**: make sure to edit with the correct CSC project name and username as needed):
-
-```bash
-# start an interactive session once you are in login node
-sinteractive --cores 8 --mem 30000 --tmp 100  # this command requests a compute node with 8 cores, 30 GB memory and 100 GB local disk space; change settings as needed
-# load needed packages
-module load git   # git command is not available by default on interactive nodes
-module load purge  # clean environment 
-module load tykky # load tykky wrapper 
-# install python libraries using tykky wrapper tool; make sure to use proper project/username
-mkdir -p /projappl/<project>/$USER && mkdir -p /projappl/<project>/$USER/snakemake_tykky
-conda-containerize new --prefix /projappl/<project>/$USER/snakemake_tykky env.yaml    
-```
-
-In the above example, Tykky wrapper installs Conda packages (as listed in the file, `env.yml`) to the directory `/projappl/project_xxxx/$USER/snakemake_tykky`. Please note that you have to append the `/bin` directory of the installation to the `$PATH` variable before starting to use the installed environment, as shown below:
-
-```bash
-export PATH="/projappl/project_xxxx/$USER/snakemake_tykky/bin:$PATH"
-```
-
-Download tutorial materials (scripts and data), which have been adapted from the [official Snakemake documentation](https://snakemake.readthedocs.io/en/v6.6.1/executor_tutorial/google_lifesciences.html), from CSC Allas object storage as below:
-
-```bash
-wget https://a3s.fi/snakemake/snakemake_tutorial.tar.gz
-tar -xavf snakemake_tutorial.tar.gz
-```
-
-Install the necessary Python environment using Tykky wrapper as instructed above. Once the installation is successful, you can use the following code to run a batch job (file name: `tutorial-sbatch.sh`):
-
-```bash title="tutorial-sbatch.sh"
+```bash title="snakemake-hyperqueue.sh"
 #!/bin/bash
-#SBATCH --job-name=myTest
-#SBATCH --account=project_xxxxx
-#SBATCH --time=00:10:00
-#SBATCH --mem-per-cpu=2G
-#SBATCH --partition=test
+#SBATCH --job-name=snakemake_hq
+#SBATCH --account=project_2008498
+#SBATCH --time=00:20:00
 #SBATCH --cpus-per-task=4
+#SBATCH --mem-per-cpu=40GB
+#SBATCH --partition=small
+#SBATCH --output=slurm-%j.out
+#SBATCH --error=slurm-%j.err
 
-export PATH="/projappl/project_xxxx/$USER/snakemake_tykky/bin:$PATH"
-snakemake -s Snakefile --jobs 4
+module load hyperqueue
+export HQ_SERVER_DIR="$PWD/hq-server/$SLURM_JOB_ID"
+mkdir -p "$HQ_SERVER_DIR"
+hq server start & until hq job list &> /dev/null ; do sleep 1 ; done
+
+srun --overlap --cpu-bind=none --mpi=none hq worker start \
+    --manager slurm \
+    --on-server-lost finish-running \
+    --cpus="$SLURM_CPUS_PER_TASK" & hq worker wait 1
+
+# snakemake version 8.x.x.x
+snakemake --keep-going -s Snakefile --jobs 4 --executor cluster-generic --cluster-generic-submit-cmd "hq submit --cpus 1"
+
+# snakemake version 7.xx.x
+# snakemake --cluster "hq submit  ..."  
 ```
-Finally, you can submit the batch job from the login nodes as below:
+Finally, you can submit the batch job from the login node:
 
 ```bash
-sbatch tutorial-sbatch.sh
+sbatch snakemake-hyperqueue.sh
 ```
+
+See [CSC HyperQueue page](../../apps/hyperqueue.md#using-hyperqueue-in-a-slurm-batch-job) for more options and details about HyperQueue.
 
 !!! info "Note"
-    In the above example we are assuming that Snakemake is included in the Tykky wrapper installation. It is a good idea to include all the needed Python packages, including Snakemake, in the Tykky installation. If you use Snakemake from the pre-installed module at CSC, there may be a discrepancy with the Python interpreter. For example, if you use Python scripts (under the script block of Snakemake rule), the Python interpreter from the module, not from the Tykky installation, is used.
+    HyperQueue creates task-specific folders (`job-<n>`) in the same directory
+    from where you submitted the batch script. These are sometimes useful for
+    debugging. However, if your code is working fine, the creation of many folders
+    may be annoying besides causing some load on the Lustre parallel file system.
+    You can prevent the creation of such task-specific folders by setting `stdout`
+    and `stderr` HyperQueue flags to `none` ( i.e., `hq submit --stdout=none --stderr=none ...`)
 
-## Running Snakemake workflow with Apptainer containers
-
-One can also use a Singularity/Apptainer image as an alternative to using Conda packages installed via Tykky container wrapper. If you are new to containers, please consult either our [documentation](../../computing/containers/run-existing.md) or the official [Apptainer documentation](https://apptainer.org/docs/user/latest/) on using Singularity/Apptainer containers.
-
-Briefly, one can run or pull an existing Singularity/Apptainer image from a repository as below:
-
-```bash
-apptainer pull shub://vsoch/hello-world:latest
-apptainer run hello-world_latest.sif
-```
-
-Also, one can convert an existing Docker image to a Singularity/Apptainer image using `singularity build`:
-
-```bash
-apptainer build alpine.sif docker://library/alpine:latest
-```
-
-If you don't have a ready-made container for your needs, you can build a Singularity/Apptainer image on Puhti. Building of a Singularity/Apptainer image on Puhti can be done using the `--fakeroot` option. An example Singularity/Apptainer definition file, with Conda environment defined in a file (e.g, `tutorial.yaml`), is shown below:
-
-```dockerfile
-Bootstrap : docker
-From :  continuumio/miniconda3:4.7.12
-IncludeCmd : yes
-
-%labels
-AUTHOR youremail@email.com
-
-%files
-tutorial.yaml
-
-%post
-apt-get update && apt-get install -y procps && apt-get clean -y
-/opt/conda/bin/conda env create -n snakemake_env -f /tutorial.yaml
-/opt/conda/bin/conda clean -a
-
-%environment
-export PATH=/opt/conda/bin:$PATH
-. /opt/conda/etc/profile.d/conda.sh
-conda activate snakemake_env
-
-%runscript
-echo "This is a tutorial for building singularity/appatainer image"
-```
-
-Finally, build the container image as below:
-
-```bash
-singularity build --fakeroot tutorial.sif tutorial.def 
-```
-
-Once you have a local image (or URL from a repository), you can specify the image on the top level of the Snakefile as shown below:
-
-```
-##### setup singularity #####
-# this container defines the underlying container compute for each job when using the workflow
-# e.g., singularity: "docker://ginolhac/snake-rna-seq:0.2"
-singularity: "image/tutorial.sif"
-```
-
-If you have a container for a specific rule of the workflow, you have to specify the container within the rule. 
-
-Finally, one can submit the Snakemake workflow as a batch job as shown below:
-
-```bash title="sbatch-sing.sh"
-#!/bin/bash
-#SBATCH --job-name=myTest
-#SBATCH --account=project_xxxxx
-#SBATCH --time=00:10:00
-#SBATCH --mem-per-cpu=2G
-#SBATCH --partition=test
-#SBATCH --cpus-per-task=4
-
-module load snakemake/8.4.6
-snakemake -s Snakefile --use-singularity --jobs 4
-```
-
-For the completion of this tutorial, tutorial example downloaded earlier included data and scripts.
-
-You can finally submit the Snakemake workflow to the Slurm cluster as below:
-
-```bash
-sbatch sbatch-sing.sh
-```
-   
-## Running Snakemake with HyperQueue executor
-
-If your workflow manager is using `sbatch` for each process execution, and you have many short processes, it's advisable to switch to HyperQueue to improve throughput and decrease load on the system batch scheduler.
-
-One can use HyperQueue executor settings depending on the Snakemake version as below:
-
-```bash
-# snakemake version 7.xx.x
-snakemake --cluster "hq submit  ..."  
-# snakemake version 8.x.x.x
-snakemake --executor cluster-generic --cluster-generic-submit-cmd "hq submit ..."  
-```
-
-Please see the following examples for running Snakemake workflows using the Hyperqueue executor.
-
-### Example 1: Hyperqueue executor for Snakemake workflow where Python packages are installed with Tykky
-
-Batch script named as `sbatch-hq-tykky.sh`:
-
-```bash title="sbatch-hq-tykky.sh"
-#!/bin/bash
-#SBATCH --job-name=myTest
-#SBATCH --account=project_xxxx
-#SBATCH --time=00:10:00
-#SBATCH --mem-per-cpu=2G
-#SBATCH --nodes=1
-#SBATCH --cpus-per-task=40
-#SBATCH --ntasks-per-node=1
-#SBATCH --partition=small
-
-module load hyperqueue
-
-export PATH="/projappl/project_xxxx/$USER/snakemake_tykky/bin:$PATH"
-
-# Create a per job directory
-
-export HQ_SERVER_DIR=$PWD/.hq-server-$SLURM_JOB_ID
-mkdir -p $HQ_SERVER_DIR
-
-hq server start &
-srun --cpu-bind=none --hint=nomultithread --mpi=none -N $SLURM_NNODES -n $SLURM_NNODES -c 40 hq worker start --cpus=40 &
-
-num_up=$(hq worker list | grep RUNNING | wc -l)
-while true; do
-
-    echo "Checking if workers have started"
-    if [[ $num_up -eq $SLURM_NNODES ]];then
-        echo "Workers started"
-        break
-    fi
-    echo "$num_up/$SLURM_NNODES workers have started"
-    sleep 1
-    num_up=$(hq worker list | grep RUNNING | wc -l)
-
-done
-snakemake -s Snakefile --jobs 1 --cluster "hq submit --cpus 2"
-# module load snakemake/8.4.6
-# snakemake -s Snakefile -j 1 --executor cluster-generic --cluster-generic-submit-cmd "hq submit --cpus 2"
-
-hq worker stop all
-hq server stop
-```
-
-and run the script as below:
-
-```bash
-sbatch sbatch-hq-tykky.sh
-```
-
-### Example 2: Hyperqueue executor for Snakemake workflow where Python packages are installed in a container
-
-Batch script named as `sbatch-hq-sing.sh`:
-
-```bash title="sbatch-hq-sing.sh"
-#!/bin/bash
-#SBATCH --job-name=myTest
-#SBATCH --account=project_xxxx
-#SBATCH --time=00:10:00
-#SBATCH --mem-per-cpu=2G
-#SBATCH --nodes=1
-#SBATCH --cpus-per-task=40
-#SBATCH --ntasks-per-node=1
-#SBATCH --partition=small
-
-module load hyperqueue
-module load snakemake/8.4.6
-
-# Create a per job directory
-
-export HQ_SERVER_DIR=$PWD/.hq-server-$SLURM_JOB_ID
-mkdir -p $HQ_SERVER_DIR
-
-hq server start &
-srun --cpu-bind=none --hint=nomultithread --mpi=none -N $SLURM_NNODES -n $SLURM_NNODES -c 40 hq worker start --cpus=40 &
-
-num_up=$(hq worker list | grep RUNNING | wc -l)
-while true; do
-
-    echo "Checking if workers have started"
-    if [[ $num_up -eq $SLURM_NNODES ]];then
-        echo "Workers started"
-        break
-    fi
-    echo "$num_up/$SLURM_NNODES workers have started"
-    sleep 1
-    num_up=$(hq worker list | grep RUNNING | wc -l)
-
-done
-
-snakemake -s Snakefile -j 1 --use-singularity --executor cluster-generic --cluster-generic-submit-cmd "hq submit --cpus 2"
-# snakemake -s Snakefile --jobs 1 --use-singularity --cluster "hq submit --cpus 2"
-
-hq worker stop all
-hq server stop
-```
-
-You can finally submit the Snakemake workflow as below:
-
-```
-sbatch sbatch-hq-sing.sh
-```
+If you have any questions or problems regarding Snakemake, contact CSC servicedesk.

@@ -1,5 +1,16 @@
 # Applications
 
+## R 4.4.0 in r-env, 7.6.2024
+	
+R version 4.4.0 is now available in `r-env` in Puhti and is set as the default version. The new version will be available in RStudio in the Puhti web interface shortly.
+
+## Molpro 2024.1 is available on Puhti, 5.6.2024
+
+The new [Molpro 2024.1](../../apps/molpro.md) includes new features like
+a CAS(2,2) version of icMRCCSD. Check the
+[Recent changes](https://www.molpro.net/manual/doku.php?id=recent_changes)
+for a detailed list of new features, bug fixes and improvements.
+
 ## GROMACS 2024.2, 22.5.2024
 
 [GROMACS](../../apps/gromacs.md) 2024.2 is now available on Puhti, Mahti and LUMI.
