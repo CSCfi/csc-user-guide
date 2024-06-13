@@ -216,12 +216,12 @@ and copy it to a supercomputer with command-line tools like
 or by using
 [graphical file transfer tools](../../data/moving/graphical_transfer.md).
 
-### Jupyter notebooks
+### Jupyter
 
-[Jupyter notebooks](../../apps/jupyter.md) provide an interactive
+[Jupyter computational notebooks](../../apps/jupyter.md) provide an interactive
 programming environment that allows one to
 write and run Python code in individual cells.
-The notebooks combine code, equations, visualizations and narrative text
+Notebooks combine code, equations, visualizations and narrative text
 in a single document. Many of our Python environments, including
 [`python-data`](../../apps/python-data.md), [`geoconda`](../../apps/geoconda.md)
 as well as deep learning modules like [`pytorch`](../../apps/pytorch.md)
