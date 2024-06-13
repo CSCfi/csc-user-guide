@@ -26,7 +26,7 @@ Free to use and open source under [BSD 3-Clause License](https://github.com/qiim
 ## Available
 
 -   QIIME1: Puhti: 1.9.1
--   QIIME2: Puhti: 2022.8, 2023.2, 2023.5, 2023.9-amplicon, 2023.9-shotgun 
+-   QIIME2: Puhti: 2022.8, 2023.2, 2023.5, 2023.9-amplicon, 2023.9-shotgun, 2024.2-amplicon, 2024.2-shotgun 
 
 ## Usage
 
