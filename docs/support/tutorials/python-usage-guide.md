@@ -218,7 +218,7 @@ or by using
 
 ### Jupyter notebooks
 
-[Jupyter notebooks](https://jupyter.org/) provide an interactive
+[Jupyter notebooks](../../apps/jupyter.md) provide an interactive
 programming environment that allows one to
 write and run Python code in individual cells.
 The notebooks combine code, equations, visualizations and narrative text
@@ -246,7 +246,7 @@ web interface remote desktop](../../computing/webinterface/desktop.md).
 
 ### Visual Studio Code
 
-[Visual Studio Code](https://code.visualstudio.com/) (VSCode)
+[Visual Studio Code](../../apps/vscode.md) (VSCode)
 is a widely-used source code editor developed by Microsoft.
 Unlike the other two development environments introduced here,
 it does not rely on any Python packages, so it can be used by
