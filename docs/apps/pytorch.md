@@ -213,7 +213,7 @@ proportion of the available CPU cores in a single node:
     #SBATCH --time=1:00:00
     
     module use /appl/local/csc/modulefiles/
-    module load pytorch/2.3
+    module load pytorch/2.2
     srun python3 myprog.py <options>
     ```
 
