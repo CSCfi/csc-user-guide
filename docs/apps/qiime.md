@@ -137,7 +137,7 @@ as a batch job using eight cores.
 #SBATCH --gres=nvme:100
 
 #set up qiime
-qiime2/2023.9-amplicon
+module load qiime2/2023.9-amplicon
 
 # run task. Don't use srun in submission as it resets TMPDIR
 qiime dada2 denoise-single \
