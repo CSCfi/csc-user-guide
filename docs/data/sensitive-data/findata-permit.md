@@ -1,7 +1,7 @@
 # Accessing the service with a Findata permit
 
 
-[Instructions in Finnish](https://docs.csc.fi/data/sensitive-data/pdf/SD_palvelut_ja_toisiolaki_kaytto_Findata.pdf)
+[Instructions in Finnish](https://a3s.fi/docs-files/sensitive-data/SD_palvelut_ja_toisiolaki_kaytto_Findata.pdf)
 
 Accessing secondary use health or social data from public registries requires a permit from the Findata authority. You can apply for the data permit by logging in to Findata’s e-service. Instructions for applying for the data permit can be found on [Findata's website](https://findata.fi/en/permits/).
 
