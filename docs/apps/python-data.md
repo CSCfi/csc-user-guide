@@ -34,9 +34,9 @@ allow.
 
 Current versions are:
 
-- `python-data/3.10-24.04`: installed in April 2024, includes for
-  example Scikit-learn 1.4.2, SciPy 1.13.0, Pandas 2.2.2 and
-  JupyterLab 4.1.6.
+- (default version) `python-data/3.10-24.04`: installed in April 2024,
+  includes for example Scikit-learn 1.4.2, SciPy 1.13.0, Pandas 2.2.2
+  and JupyterLab 4.1.6.
 
 - `python-data/3.10-23.11`: installed in November 2023, includes for
   example Scikit-learn 1.3.2, SciPy 1.11.4, Pandas 2.1.3 and
@@ -45,7 +45,7 @@ Current versions are:
 - `python-data/3.10-23.07`: installed in July 2023, includes for
   example Scikit-learn 1.2.2, SciPy 1.11.1, Pandas 2.0.3 and JupyterLab
   4.0.2.
-- (default version) `python-data/3.10-22.09` or `python-data/3.10`:
+- `python-data/3.10-22.09` or `python-data/3.10`:
   installed in September 2022, includes for example Scikit-learn
   1.1.2, SciPy 1.9.1, Pandas 1.4.4 and JupyterLab 3.4.6.
 - `python-data/3.9-22.04` or `python-data/3.9`: installed in April
