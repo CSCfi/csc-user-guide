@@ -33,6 +33,7 @@ RUN sed -i.bak 's/^user/#user/' /etc/nginx/nginx.conf
 EXPOSE 8080
 ```
 
+If you build your image locally, don't forget to [push](../../tutorials/docker_hub_manual_caching.md) it to your project.  
 You can deploy this `nginx` server with this Deployment:
 
 ```yaml
@@ -106,7 +107,7 @@ spec:
       storage: 1Gi
   accessModes:
     - ReadWriteOnce
-  storageClassName: standard-rwo
+  storageClassName: standard-csi
 ```
 
 Save the file and use this command to deploy it: `oc apply -f {name_of_yaml_file}`
@@ -158,8 +159,10 @@ FROM rclone/rclone
 
 COPY rclone.conf /.rclone.conf
 COPY rclone.sh /usr/local/bin/
+RUN chmod 755 /.rclone.conf
 RUN chmod +x /usr/local/bin/rclone.sh
 ```
+If you create your image locally, don't forget to [push](../../tutorials/docker_hub_manual_caching.md) it to your project.  
 
 Once all this done, you can deploy your `rclone` pod.
 You can use this example:
@@ -197,7 +200,7 @@ Save the file and use this command: `oc apply -f {name_of_yaml_file}`.
 
 The pod will run and backup the content of your PVC to Allas. Don't forget to scale up your origin deployment (`oc scale --replicas=1 deploy/nginx`) after the copy finished.
 
-There are PROS and CONS with this solution:
+There are PROS and CONS with this solution:  
 Pros: 
 
   - You run the pod in your Rahti 2 project
