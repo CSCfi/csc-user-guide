@@ -26,7 +26,7 @@ Instead of a course you can also use CSC Notebooks for collaboration. The workfl
 
 * The easiest is to use an existing Docker image, look these repositories for suitable images:
     * [Docker image sources in notebooks-public-images repository.](https://github.com/CSCfi/notebooks-public-images)
-    * [Rocker images] (https://quay.io/, search for rocker) for different RStudio set-ups.
+    * [Rocker images](https://quay.io/) (search for rocker) for different RStudio set-ups.
     * If you would need a few R/Python packages extra compared to existing images, it likely is easiest to add them run-time by the user.
 * To create your own custom image, see [Creating custom Docker images](#creating-custom-docker-images) below.
 
