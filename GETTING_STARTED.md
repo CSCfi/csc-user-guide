@@ -1,12 +1,78 @@
-# Getting started on contributing to the CSC Docs pages using command line tools
+# Getting started on contributing to Docs CSC using a local development server
 
-The procedure described in this file aims to set up the necessary tools on Windows without the need for a system administrator account. However, the [simple Git workflow example](#a-simple-git-workflow-example) that follows the Windows-specific instructions doesn't make any particular assumptions on the operating system used.
+The procedure described in this file aims to set up the necessary tools on Windows without the need for a system administrator account. However, the [simple Git workflow example](#a-simple-git-workflow-example) that follows the Windows-specific instructions doesn't make any particular assumptions on the operating system used. The two alternative paths for command-line and graphical interfaces are marked **Option 1, CLI** and **Option 2, GUI**, respectively. The GUI path should work with only minor deviation on a Mac.
+
+> [!IMPORTANT]
+> While these instructions are meant to provide a way for installing everything as user installations, i.e. without touching any system files or the like, **please consult your local IT support first**, for there may be a preferred way of installing some or all of the following software. Some of it may even come pre-installed on your machine.
 
 
-## Setting up a development environment on Windows
+<details>
+<summary>With <strong>Option 2, GUI</strong> comes: <strong>Suggestion 1, VS Code</strong>  (click to expand)</summary>
 
-**Before starting, make sure you have a secure place to store a passphrase for an SSH key you'll be creating. A password manager called _KeePass 2_ will be used for that in this tutorial.**
+## Visual Studio Code
 
+### Installation
+
+>For "Free/Libre Open Source Software Binaries of VS Code" with telemetry disabled, have a look at [_VS Codium_](https://vscodium.com). For information on telemetry data collection in _Visual Studio Code_, please see [Visual Studio Code Telemetry](https://code.visualstudio.com/docs/getstarted/telemetry).
+
+The installation procedure for _Microsoft_ Visual Studio Code is as follows:
+
+1. Download the 'User Installer" from [the Download page](https://code.visualstudio.com/Download)
+1. Once the download has completed, click the downloaded executable file on the browser's downloaded files list (there might be a warning about running the file, just proceed). Alternatively, open the File Explorer, navigate to Downloads and double click on the downloaded executable to launch the installer.
+1. Advance the installer through the following steps:
+
+    - License Agreement
+    - Select Additional Tasks
+        + Pick whatever you like, leave as-is if unsure.
+
+    Click "Install" and after the installation has completed, if you leave "Launch Visual Studio Code" checked when clicking "Finish", VS Code will be launched.
+
+
+### Tasks
+
+When you later clone the Docs CSC repository, it'll come with some pre-defined _Tasks_ for VS Code that provide a way to run the **Option 1, CLI** commands using a graphical menu. Tasks for e.g. creating/updating the Conda environment or starting the development server have been pre-defined in the workspace. Tasks can be found
+
+- by selecting _Terminal -> Run task..._ from the menu bar.
+- or from _Quick Open_, accessed by either
+    * using the keyboard shortcut _Ctrl+P_
+    * selecting _Go -> Go to file..._ from the menu bar
+    * or by clicking the search field up top if the appropriate title bar style is enabled
+
+  and typing "task" followed by a space
+
+![VS Code Tasks](docs/img/windows/tasks.png)
+
+
+### Extensions
+
+The Docs repository also comes with some pre-defined _Workspace Settings_ for VS Code. Some of these settings are for configuring optional extensions for VS Code. If you feel that the extensions are not relevant for your use-case, feel free to skip the installations. In any case, you can do it later.
+
+
+#### YAML
+
+[YAML at Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-yaml)
+
+_Material for MkDocs_ provides a YAML schema for validation and auto-complete in _mkdocs.yml_. This could come in handy if you intend to e.g. edit the Docs CSC left-hand navigation menu. To install the _YAML_ extension,
+
+1. Select _View -> Extensions_ from the menu bar or click on _Extensions_ icon in the activity bar to the left of the side bar.
+1. Search for "yaml".
+1. In the list of search results, click on the little "Install" button next to the _YAML_ extension that has _Red Hat_ (might be _redhat_ in VS Codium) as its publisher.
+
+
+#### Better Jinja
+
+[Better Jinja at Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=samuelcolvin.jinjahtml)
+
+If you intend to edit or define some Jinja templates, the extension _Better Jinja_ provides syntax highlighting and code snippets. To install it,
+
+1. Select _View -> Extensions_ from the menu bar or click on _Extensions_ icon in the activity bar to the left of the side bar.
+1. Search for "jinja".
+1. In the list of search results, click on the little "Install" button next to the _Better Jinja_ extension.
+
+</details>
+
+
+## Setting up a development environment, step 1
 
 ### Conda
 
@@ -15,17 +81,19 @@ A Python program called _MkDocs_ is used to generate the Docs CSC website from d
 
 #### Installation
 
-1. Download a minimal installer for Conda, called _Miniconda_, from [docs.conda.io/en/latest/miniconda.html](https://docs.conda.io/projects/miniconda/en/latest/). Scroll down to _Windows installers_ and on the row _Python 3.8_, click the hyperlink "Miniconda3 Windows 64-bit".
+Installation instructions are provided for Windows, macOS and Linux [here](https://docs.conda.io/projects/miniconda/en/latest/miniconda-install.html). On Windows, the installation procedure is as follows.
 
-    ![Windows installers - Miniconda](docs/img/windows/miniconda_windows_installers.png)
+1. Download a minimal installer for Conda, called _Miniconda_, from [docs.conda.io/projects/miniconda/en/latest/](https://docs.conda.io/projects/miniconda/en/latest/#latest-miniconda-installer-links) by clicking the hyperlink "Miniconda3 Windows 64-bit".
 
-1. Once the download has completed, open the File Explorer, navigate to Downloads and double click on the downloaded executable to launch the installer.
+    ![Latest Miniconda installer links](docs/img/windows/miniconda_latest_installers.png)
+
+1. Once the download has completed, click the downloaded executable file on the browser's downloaded files list (there might be a warning about running the file, just proceed). Alternatively, open the File Explorer, navigate to Downloads and double click on the downloaded executable to launch the installer.
 
     A security warning dialog will most likely pop up (if not, just proceed with the installation) asking for confirmation on running the file. Confirm that the digital signature of the file is OK on the _Digital Signature Details_ opened by clicking the publisher name on the warning dialog.
 
     ![Digital Signature Details](docs/img/windows/digital_signature_details.png)
 
-    Then, only if so, click "Run" to start the installer.
+    Then, only if so, click "Run" to start the installer (the version number py_something.something will look different to what's pictured here).
 
     ![Miniconda3 py38_23.3.1-0 (64-bit) Setup](docs/img/windows/miniconda_setup.png)
 
@@ -37,19 +105,28 @@ A Python program called _MkDocs_ is used to generate the Docs CSC website from d
     - Choose Install Location
         + Install to `C:\Users\<your username>\AppData\Local\miniconda3` (should be filled in by default).
     - Advanced Installation Options
-        + Leave "Create start menu shortcuts (supported packages only)" checked if you like, but we aren't going to use them.
-        + Do _not_ check "Add Miniconda3 to my PATH environment variable", we'll handle that in Git Bash.
-        + If you have Python 3.8 installed through some other means and would like to keep that as the default on your system, uncheck "Register Miniconda3 as my default Python 3.8". For running MkDocs from Git Bash, this should have no effect.
+        + Leave "Create start menu shortcuts (supported packages only)".
+        + Do _not_ check "Add Miniconda3 to my PATH environment variable".
+        + If you have Python installed through some other means and would like to keep that as the default on your system, uncheck "Register Miniconda3 as my default Python 3.xx".
+        + Check "Clear the package cache upon completion".
 
-    Click "Install" and after it's completed click "Next". Then, unless you'd like to have the corresponding web pages opened for you ([this](https://conda.io/projects/conda/en/latest/user-guide/getting-started.html) and [this](https://www.anaconda.com/installation-success?source=installer), respectively), uncheck "Getting started with Conda" and "Welcome to Anaconda" before clicking "Finish".
-
-
-### Git for Windows
-
-In order to "clone" the Docs CSC repository from (and later, to "push" your work back to) GitHub onto your computer, a tool called _Git_ is needed. For Windows, there exists a port of Git called _Git for Windows_.
+    Click "Install" and, after it's completed, click "Next". Then, unless you'd like to have the corresponding web pages opened for you ([this](https://conda.io/projects/conda/en/latest/user-guide/getting-started.html) and [this](https://www.anaconda.com/installation-success?source=installer), respectively), uncheck "Getting started with Conda" and "Welcome to Anaconda" before clicking "Finish".
 
 
-#### Installation
+### Git
+
+In order to "clone" the Docs CSC repository from (and later, to "push" your work back to) GitHub onto your computer, a tool called _Git_ is needed. As an alternative to the command-line tool, GitHub provides their own graphical program called _GitHub Desktop_.
+
+
+<details>
+<summary>Option 1, CLI: Git from the command-line (click to expand)</summary>
+
+#### Git for Windows
+
+For Windows, there exists a port of Git called _Git for Windows_.
+
+
+##### Installation
 
 1. Download the latest version of Git for Windows from [gitforwindows.org](https://gitforwindows.org/) by clicking the large button labeled "Download" on the front page.
 
@@ -94,16 +171,16 @@ In order to "clone" the Docs CSC repository from (and later, to "push" your work
     Click "Install" and after the installation has completed, uncheck "View Release Notes", then click "Finish".
 
 
-#### Git Bash
+##### Git Bash
 
 You can find a shortcut for Git Bash in the Start menu. If you don't see it under Recently added, simply start typing `git bash` and sooner or later Windows will find it for you.
 
 ![Git Bash](docs/img/windows/git_bash.png)
 
-Before we proceed further with setting up the tools, there are just a few things to keep in mind when starting to learn the command line after using only graphical interfaces.
+Before we proceed further with setting up the tools, there are just a few things to keep in mind when starting to learn the command-line after using only graphical interfaces.
 
 
-##### Commands
+###### Commands
 
 In addition to the `git` command, just to illustrate some basic principles without going too much into detail, here are a few essential commands. Feel free to try them in Git Bash.
 
@@ -139,14 +216,14 @@ _does_ work without operands (it navigates to the home directory), but it is com
 As we'll see later, these aren't only used with `cd`, as in `cd ..` or `cd ~`.
 
 
-##### Tab completion
+###### Tab completion
 
-If you've never used a command line interface before, having to type everything letter-to-letter might seem tedious compared to clicking or tapping on things in a graphical user interface. Fortunately, something called _tab completion_ can be used to conveniently fill in commands, file or folder names, Git branch names and the like. There are differences on how it works exactly between different shells (like Bash, PowerShell, cmd and so on), but **all you need to remember** is, as the name of the concept suggests, the _tabulator_  AKA _tab_ key, usually marked on the keyboard with the word 'tab' or the symbol ↹.
+If you've never used a command-line interface before, having to type everything letter-to-letter might seem tedious compared to clicking or tapping on things in a graphical user interface. Fortunately, something called _tab completion_ can be used to conveniently fill in commands, file or folder names, Git branch names and the like. There are differences on how it works exactly between different shells (like Bash, PowerShell, cmd and so on), but **all you need to remember** is, as the name of the concept suggests, the _tabulator_  AKA _tab_ key, usually marked on the keyboard with the word 'tab' or the symbol ↹.
 
 This incredibly simple yet powerful concept is best explained by example, and in [an article on the subject](https://en.wikipedia.org/wiki/Command-line_completion), Wikipedia provides one (they call it "Command-line completion" and you can [skip straight to the example](https://en.wikipedia.org/wiki/Command-line_completion#Example)).
 
 
-##### Command history
+###### Command history
 
 In addition to tab completion, the command history is among one of the most useful features of shells like Bash. Again, simple yet powerful:
 
@@ -160,7 +237,7 @@ Many times you'll want to execute a command that is almost the same as a command
 - _Ctrl+A_ moves the cursor to the beginning, _Ctrl+E_ to the end.
 
 
-##### Clipboard copy/paste and keyboard shortcuts
+###### Clipboard copy/paste and keyboard shortcuts
 
 If you're accustomed to using the clipboard with the keyboard shortcuts _Ctrl+C_ and _Ctrl+V_, remember that these won't work in Git Bash. The corresponding shortcuts in Git Bash are (by default) _Ctrl+Insert_ for copy and _Shift+Insert_ for paste. **If you accidentally input _Ctrl+V_ in Git Bash with the intention of pasting text from the clipboard, you should hit the backspace key a couple of times before using the correct shortcut!** _Ctrl+C_, on the other hand, will send a keyboard interrupt signal that is often used to stop a running program, for example, the MkDocs development server. You can access the context menu for clipboard copy and paste by clicking on the terminal with the right mouse button.
 
@@ -219,7 +296,7 @@ of which the latter contains your _public key_ we'll be adding to your GitHub ac
 
 ###### Adding an SSH key to your GitHub account
 
-For instructions on how to add the generated key&mdash;for authentication that is&mdash;to your GitHub account, see [instructions at GitHub Docs](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account?platform=windows&tool=webui). Note that the instructions use the convention of prefixing commands with a `$` to denote a prompt. That is to be left out when copy-pasting the command since it's already there in Git Bash, waiting for your command.
+For instructions on how to add the generated key&mdash;for authentication that is&mdash;to your GitHub account, see [instructions at GitHub Docs](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account). Note that the instructions use the convention of prefixing commands with a `$` to denote a prompt. That is to be left out when copy-pasting the command since it's already there in Git Bash, waiting for your command.
 
 We'll be testing the SSH connection to GitHub after we set up something called `ssh-agent`.
 
@@ -295,13 +372,46 @@ that should output the version number. To test the SSH connection, follow the in
 
 Follow the instructions at GitHub Docs for
 
-- [Setting your commit email address](https://docs.github.com/en/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/setting-your-commit-email-address?platform=windows) and
-- [Setting your username in Git](https://docs.github.com/en/get-started/getting-started-with-git/setting-your-username-in-git?platform=windows).
+- [Setting your commit email address](https://docs.github.com/en/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/setting-your-commit-email-address) and
+- [Setting your username in Git](https://docs.github.com/en/get-started/getting-started-with-git/setting-your-username-in-git).
+
+</details>
+
+
+<details>
+<summary>Option 2, GUI: Graphical interface with GitHub Desktop (click to expand)</summary>
+
+#### GitHub Desktop
+
+>Note that, even though you want to use GitHub Desktop, it might prove beneficial to also have an installation of Git at hand (on Windows, that would be _Git for Windows_, introduced above). That way you can use the Git integration in VS Code and, when you ask for help and get offered a solution as an elaborate Git command, you have something to run it with. The section is quite long, but you only need to [install Git for Windows](#installation-2) and _maybe_ [set your email/username](#associating-your-commits-with-your-github-account). You can skip everything else. **It's certainly fine to proceed with GitHub Desktop only. You can always install Git later if you really need it.**
+
+
+##### Installation
+
+Instructions for Windows and Mac are provided [here](https://docs.github.com/en/desktop/installing-and-authenticating-to-github-desktop/installing-github-desktop) and it is as simple as
+
+1. Download an installer by visiting [desktop.github.com](https://desktop.github.com/) and clicking on "Download for Windows (64bit)".
+1. Once the download has completed, click the downloaded executable file on the browser's downloaded files list (there might be a warning about running the file, just proceed). Alternatively, open the File Explorer, navigate to Downloads and double click on the downloaded executable to launch the installer.
+1. GitHub Desktop should start automatically when the installation is complete. 
+
+
+##### Signing in
+
+Follow the instructions for [Authenticating to GitHub in GitHub Desktop](https://docs.github.com/en/desktop/installing-and-authenticating-to-github-desktop/authenticating-to-github-in-github-desktop) (the regular, non-Enterprise authentication).
+
+
+##### External editor
+
+_[Configuring a default editor in GitHub Desktop](https://docs.github.com/en/desktop/configuring-and-customizing-github-desktop/configuring-a-default-editor-in-github-desktop)_
+
+If you're using, for example VS Code (or Codium), you can set it as the default editor. This allows you to quickly open the repository with VS Code by clicking a "Open in Visual Studio Code" button in the _Changes_ view of GitHub Desktop (another option would selecting _File -> Open Folder..._ in VS Code and looking for the cloned repository folder). There should be a link to the appropriate section for Options right under the text "Open the repository in your external editor" in the _Changes_ view (if not, select _File -> Options..._ and then _Integrations_ from the sidebar).
+
+</details>
 
 
 ### Uninstallation
 
-Miniconda and Git for Windows can be uninstalled like any other program by going to Add or remove programs and selecting them from the list of installed applications. 
+Miniconda, Git for Windows or GitHub Desktop can be uninstalled like any other program by going to Add or remove programs and selecting them from the list of installed applications. 
 
 Alternatively, you can run the corresponding executable to uninstall Conda or Git for Windows:
 
@@ -309,16 +419,23 @@ Alternatively, you can run the corresponding executable to uninstall Conda or Gi
 - `C:\Users\<your username>\AppData\Local\Programs\Git\unins000.exe`
 
 
-## A simple Git workflow example
+## Working with Git
+
+### Documentation on the tools
 
 Have a look at a [relevant xkcd](https://xkcd.com/1597/).
 
-The part about memorizing some shell commands is what this tutorial is about. The steps to take if something goes wrong you probably already know, but are in any case [described below](#starting-over).
+The part about memorizing some shell commands is what this tutorial is about (option 1, at least). The steps to take if something goes wrong you probably already know, but are in any case [described below](#starting-over).
 
-Documentation on Git, with a reference manual, videos and an external links section is available at [www.git-scm.com/doc](https://www.git-scm.com/doc). The Git commands introduced in this tutorial come with a link to the corresponding page of the reference manual.
+**Option 1, CLI:** Documentation on Git, with a reference manual, videos and an external links section is available at [www.git-scm.com/doc](https://www.git-scm.com/doc). The Git commands introduced in this tutorial come with a link to the corresponding page of the reference manual.
+
+**Option 2, GUI:** [GitHub Desktop documentation](https://docs.github.com/en/desktop)
 
 
 ### Obtaining a local copy, i.e. _cloning_ the repository
+
+<details>
+<summary>Option 1, CLI (click to expand)</summary>
 
 Clone the Docs repository (if not cloned yet) with [git-clone](https://git-scm.com/docs/git-clone):
 
@@ -332,14 +449,47 @@ Navigate to the folder (remember [tab completion](#tab-completion)):
 cd csc-user-guide/
 ```
 
+</details>
 
-### Setting up the Conda environment for running MkDocs
+
+<details>
+<summary>Option 2, GUI (click to expand)</summary>
+
+_[Cloning and forking repositories from GitHub Desktop](https://docs.github.com/en/desktop/adding-and-cloning-repositories/cloning-and-forking-repositories-from-github-desktop)_
+
+In GitHub Desktop,
+
+1. Select _File -> Clone repository..._ from the menu bar.
+1. Start typing `CSCfi/csc-user-guide` (or just `csc-user-guide`) into the filter field.
+1. When it appears on the list, click on `CSCfi/csc-user-guide` to activate the entry.
+1. Click _Clone_ to start.
+
+Now you can select the _Repository -> Show in Explorer_ menu entry to browse the cloned repository files on your computer.
+
+>You'll probably want to uncheck "Hide extensions for known file types" (and have File Explorer "Show hidden files, folders and drives" too, while you're at it) from the _Folder Options_, accessed by clicking the _Options_ button in the _View_ ribbon.
+>
+>![Folder Options](docs/img/windows/folder_options.png)
+
+</details>
+
+
+## Setting up a development environment, step 2
+
+### Creating a virtual Python environment using Conda
+
+<details>
+<summary>Option 1, CLI (click to expand)</summary>
 
 Create the Conda environment (if not created yet):
 
 ```bash
-conda env create -f docs/support/tutorials/conda/conda-docs-env-freeze.yaml
+conda env create -f development/conda-docs-base-1.0.yaml
 ```
+
+>if created before, add the `--force` flag:
+>```bash
+>conda env create --force -f development/conda-docs-base-1.0.yaml
+>```
 
 Activate the environment:
 
@@ -347,14 +497,47 @@ Activate the environment:
 conda activate docs-env
 ```
 
+Install the Python requirements with Pip (when starting fresh):
+
+```bash
+pip install -r requirements.txt
+```
+
+>when updating, you may want to add the `--force-reinstall` flag:
+>```bash
+>pip install --force-reinstall -r requirements.txt
+>```
+
 The environment can be deactivated with
 
 ```bash
 conda deactivate
 ```
 
+</details>
 
-### Previewing your changes locally
+
+<details>
+<summary>Option 2, GUI (click to expand)</summary>
+
+Using VS Code, creating a virtual Conda environment is as simple as running the task (VS Code tasks introduced above in _[Tasks](#tasks)_) **_Docs CSC: Create_**. A terminal panel will open showing you the progress on installing the dependencies. The environment is ready when the terminal instructs you to "press any key to close it", though you can leave it open if you like.
+
+The virtual environment is now ready for installing the Python requirements for Docs CSC. Simply run the task **_Docs CSC: Install_**. Both creating the environment and installing the requirements need to be done only when starting fresh or when the dependencies/requirements have been changed, i.e. (for Conda dependencies) a new file named _conda-docs-base-something.something.yaml_ has appeared in the _development_ folder or (for Python requirements) the file _requirements.txt_ has been changed.
+
+</details>
+
+---
+
+That's it for setting up! Let's see if it'll run! From here on, the CLI and GUI paths shall be intertwined.
+
+>The procedure for **Option 2, GUI** can be found in a blockquote like this,
+
+while **Option 1, CLI** will be implicit.
+
+
+## Previewing your changes locally
+
+>**Option 2, GUI**: Run the task **_Docs CSC: Serve_**
 
 Run the development server (with the Conda environment activated):
 
@@ -368,26 +551,58 @@ or
 mkdocs serve --dirtyreload
 ```
 
+>**Option 2, GUI**: The task **_Docs CSC: Serve_**, for starting the development server, will ask whether you'd like to include e.g. the `--dirtyreload` flag.
+
 It will take a moment for MkDocs to build and serve the site. You can ignore the long list of pages that "exist in the docs directory, but are not included in the "nav" configuration" MkDocs will show you. If you wish to shut down the server (even when its building)&ndash;perhaps to restart it with `--dirtyreload` enabled&ndash;simply hit _Ctrl+C_.
+
+>**Option 2, GUI**: Click on the terminal panel to activate it before hitting _Ctrl+C_. You can also click the trashcan icon with the tooltip "Kill Terminal" to shut the server down.
 
 When MkDocs tells you it is serving on an address, you can point a web browser to the address for a preview. The default is [127.0.0.1:8000](http://127.0.0.1:8000/) AKA [localhost:8000](http://localhost:8000/).
 
-If you want to leave MkDocs running while continuing to work on the command line, open a new Git Bash window and again navigate to the cloned folder:
+If you want to leave MkDocs running while continuing to work on the command-line, open a new Git Bash window and again navigate to the cloned folder:
 
 ```bash
 cd csc-user-guide/
 ```
 
 
+## Working on your contribution
+
+The main point of this tutorial is to be able to work on the files using the tools you prefer, and that if you left MkDocs running, it will reload the preview when you save a file you've edited. This happens quicker with the `--dirtyreload` option enabled, but is in any case quicker and more convenient than waiting for the Rahti preview to rebuild a branch.
+
+
 ### Creating a new branch for your work
+
+>**Option 2, GUI**: See
+>- _[Managing branches in GitHub Desktop](https://docs.github.com/en/desktop/making-changes-in-a-branch/managing-branches-in-github-desktop)_
+>- [Pulling to your local branch from the remote](https://docs.github.com/en/desktop/working-with-your-remote-repository-on-github-or-github-enterprise/syncing-your-branch-in-github-desktop#pulling-to-your-local-branch-from-the-remote)
 
 Check that you are on the _master_ branch using [git-status](https://git-scm.com/docs/git-status):
 
-```bash
-git status
+```console
+$ git status
+On branch master
+Your branch is up to date with 'origin/master'.
+
+nothing to commit, working tree clean
 ```
 
-and `git switch master` if not and you wish to create a new branch to work on.
+and `git switch master` if this is not the case. You'll be creating a new branch to work on and probably want to branch off of the very latest version of _master_, so check that your local branches are up to date using [git-fetch](https://git-scm.com/docs/git-fetch):
+
+```bash
+git fetch origin
+```
+
+The line "Your branch is up to date with 'origin/master'" after `git status` just means that Git isn't _aware_ of any new changes on the remote branch (called _origin_ by default). Now, after fetching, things might have changed:
+
+```console
+$ git status
+On branch master
+Your branch is behind 'origin/master' by 15000 commits, and can be fast-forwarded.
+  (use "git pull" to update your local branch)
+
+nothing to commit, working tree clean
+```
 
 Fast-forward the master branch to the latest commit with [git-pull](https://git-scm.com/docs/git-pull):
 
@@ -401,24 +616,56 @@ Branch off of the latest commit on master using [git-switch](https://git-scm.com
 git switch --create my-branch-name
 ```
 
+You're now ready to work on your contribution! If you forget to make a new branch before editing some files, and the files you've edited have
 
-### Working on your contribution
+- **not** been changed by someone else **since you last pulled** from the remote, you can just fetch, pull and create a new branch.
+- been changed on the remote, Git will not let you pull the changes, since your local changes to the files would be overwritten. You'll need to
+    >**Option 2, GUI**: See _[Stashing changes in GitHub Desktop](https://docs.github.com/en/desktop/making-changes-in-a-branch/stashing-changes-in-github-desktop)_
+    * [git-stash](https://git-scm.com/docs/git-switch) your changes
+        ```console
+        $ git stash
+        Saved working directory and index state blahblahblahblahblah
+        ```
 
-The main point of this tutorial is to be able to work on the files using the tools you prefer and that if you left MkDocs running, it will reload the preview when you save a file you've edited. This happens quicker with the `--dirtyreload` option enabled, but is in any case quicker and more convenient than waiting for the Rahti preview to rebuild a branch.
+    * then, after pulling, pop your changes from the top of the stash
+        ```console
+        $ git stash pop
+        Auto-merging docs/your-file.md
+        On branch master
+        Your branch is up to date with 'origin/master'.
+
+        Changes not staged for commit:
+        (use "git add <file>..." to update what will be committed)
+        (use "git restore <file>..." to discard changes in working directory)
+            modified:   docs/your-file.md
+
+        no changes added to commit (use "git add" and/or "git commit -a")
+        Dropped refs/stash@{0} (77c8f9c7dbab452d84ea8e573edf27954b8bce34)
+        ```
+
+    * create the new branch
 
 
 ### Getting your work to the repository
 
+>**Option 2, GUI**: See _[Committing and reviewing changes to your project in GitHub Desktop](https://docs.github.com/en/desktop/making-changes-in-a-branch/committing-and-reviewing-changes-to-your-project-in-github-desktop)_.
+
+
 #### Starting over
 
 Remember the relevant xkcd? If you run into a problem with Git, you really _can_ just
-  1. copy the files you've worked on into some _other folder_ (`git status` to see which files)
+
+  1. copy the files you've worked on into some _other folder_ (`git status` to see which files, or just copy everything)
   1. delete the repository folder
   1. clone the repository anew and
   1. copy your work from the _other folder_ into the newly cloned folder
 
+Remember to **think** before doing something destructive like deleting. Git can't help you recover anything it doesn't know about and 'letting Git know about stuff' is basically what you'll be doing for the rest of the tutorial.
+
 
 #### Staging your changes
+
+>**Option 2, GUI**: See _[Selecting changes to include in a commit](https://docs.github.com/en/desktop/making-changes-in-a-branch/committing-and-reviewing-changes-to-your-project-in-github-desktop#selecting-changes-to-include-in-a-commit)_
 
 Selecting specific changes that you want to include in a so called _commit_ is done by staging.
 
@@ -473,6 +720,8 @@ Be careful with git-restore without the `--staged` option. It is used to restore
 
 #### Committing the staged changes
 
+>**Option 2, GUI**: See _[Write a commit message and push your changes](https://docs.github.com/en/desktop/making-changes-in-a-branch/committing-and-reviewing-changes-to-your-project-in-github-desktop#write-a-commit-message-and-push-your-changes)_
+
 Check which changes you've staged with [git-status](https://git-scm.com/docs/git-status):
 
 ```bash
@@ -504,6 +753,8 @@ If you forget to give a message with the -m argument, you can enter it when the 
 
 #### Pushing the commits to GitHub
 
+>**Option 2, GUI**: See _[Pushing changes to GitHub from GitHub Desktop](https://docs.github.com/en/desktop/making-changes-in-a-branch/pushing-changes-to-github-from-github-desktop)_
+
 Check what happened to the branch with [git-log](https://git-scm.com/docs/git-log) (replace the `9` in `-9` to get more/less commits or remove `--oneline` to increase verbosity):
 
 ```bash
@@ -518,11 +769,18 @@ git show HEAD
 
 Again, if the diff is long it'll be shown with _less_, so move with arrow keys and _Page Up_ / _Page Down_, then _Q_ to quit.
 
-Push your branch to GitHub (replace `my-branch-name`) with [git-push]((https://git-scm.com/docs/git-push)):
+Push your branch to GitHub (replace `my-branch-name`) with [git-push](https://git-scm.com/docs/git-push):
 
 ```bash
 git push origin my-branch-name
 ```
+
+#### Open a pull request
+
+Instructions for creating a pull request can be found
+
+- in [CONTRIBUTING.md](./CONTRIBUTING.md#making-pull-requests-in-the-web-gui)
+- at _[GitHub Docs](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request)_
 
 
 #### Checking the status of the tests
