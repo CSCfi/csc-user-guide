@@ -57,8 +57,6 @@ sessions. Choosing a higher value here will affect the maximum number of concurr
 **Labels** Select the default labels or create custom labels. Labels are useful in searching applications. The icon for
 the application is also selected based on assigned labels.
 
-**Interface** JupyterLab or old Jupyter Notebook. Applicable only for Jupyter based applications.
-
 **Download Method** The location to download the course contents from. Choose `git clone` if you wish to clone a git
 repository. Choose `Download from url` if you have contents hosted in Allas or other HTTP accessible location and provide the url. Content is downloaded to $HOME folder of any instance by default.
 

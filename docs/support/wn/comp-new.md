@@ -1,5 +1,12 @@
 # Computing environment
 
+## Puhti and Mahti web interfaces updated to release 21 and 7, 13.6.2024
+* VSCode updated to 1.89.1.
+* Jupyter app should work better with virtual environments created outside the web interface.
+* Puhti: RStudio now has R version 4.4.0 available.
+* Puhti: VisIt updated to 3.3.3. Some previously missing dependencies are now installed.
+* Open OnDemand updated to version 3.1.5.
+
 ## Puhti and Mahti web interfaces updated to release 20 and 6, 27.5.2024
 * The Cloud storage configuration app can now configure connections to LUMI-O.
 
