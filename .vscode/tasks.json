@@ -1,0 +1,122 @@
+{
+    /* All commands assume that Conda has been installed
+       in the default user installation directory
+       i.e. ~/miniconda3 (or %LOCALAPPDATA\miniconda3 on Windows).
+    */
+    "version": "2.0.0",
+    "presentation": {
+        "echo": false,
+        "reveal": "always",
+        "focus": true,
+        "panel": "shared",
+        "clear": true,
+        "close": false,
+    },
+    "problemMatcher": [],
+    "inputs": [
+        {
+            "type": "pickString",
+            "id": "flags",
+            "description": "Select flags, default is none",
+            "options": [
+                "",
+                "--dirtyreload",
+                "--watch-theme",
+                "--dirtyreload --watch-theme"
+            ],
+            "default": "",
+        },
+        {
+            "type": "promptString",
+            "id": "confirmation",
+            "description": "Running this task will edit files in-place, and you will have to know how to clean up and/or not to commit the results. Are you sure you want to proceed? Input \"yes\" above to proceed.",
+            "default": "no",
+        },
+    ],
+    "tasks": [
+        {
+            "label": "Docs CSC: Create",
+            "detail": "Create/update the Conda environment",
+            "type": "shell",
+            "icon": {
+                "id": "snake",
+                "color": "terminal.ansiBlue",
+            },
+            "command": ". ${userHome}/miniconda3/etc/profile.d/conda.sh && conda env create --force --yes --file ${workspaceFolder}/development/conda-docs-base-1.0.yaml",
+            "windows": {
+                "command": "& '${env:LOCALAPPDATA}\\miniconda3\\shell\\condabin\\conda-hook.ps1' ; conda env create --force --yes --file '${workspaceFolder}\\development\\conda-docs-base-1.0.yaml'",
+            },
+        },
+        {
+            "label": "Docs CSC: Install",
+            "detail": "Install/reinstall the Python requirements with Pip",
+            "type": "shell",
+            "icon": {
+                "id": "package",
+                "color": "terminal.ansiCyan",
+            },
+            "command": ". ${userHome}/miniconda3/etc/profile.d/conda.sh && conda run --name docs-env --cwd ${workspaceFolder} --no-capture-output pip install --force-reinstall --requirement ${workspaceFolder}/requirements.txt",
+            "windows": {
+                "command": "& '${env:LOCALAPPDATA}\\miniconda3\\shell\\condabin\\conda-hook.ps1' ; conda activate docs-env ; pip install --force-reinstall --requirement '${workspaceFolder}\\requirements.txt'",
+            },
+        },
+        {
+            "label": "Docs CSC: Serve",
+            "detail": "Start the development server",
+            "type": "shell",
+            "icon": {
+                "id": "debug-start",
+                "color": "terminal.ansiGreen",
+            },
+            "presentation": {
+                "focus": false,
+                "clear": true,
+            },
+            "options": {
+                "env": {
+                    // Silence some warnings/errors when Git is not installed or not found in PATH
+                    "GIT_PYTHON_REFRESH": "quiet",
+                    "ENABLED_GIT_REVISION_DATE": "false",
+                },
+            },
+            "command": ". ${userHome}/miniconda3/etc/profile.d/conda.sh && conda run --name docs-env --cwd ${workspaceFolder} --no-capture-output mkdocs serve ${input:flags}",
+            "windows": {
+                "command": "& '${env:LOCALAPPDATA}\\miniconda3\\shell\\condabin\\conda-hook.ps1' ; conda activate docs-env ; mkdocs serve '${input:flags}'",
+            },
+        },
+        {
+            "label": "Docs CSC: Test",
+            "detail": "Run the test automation suite",
+            "type": "shell",
+            "icon": {
+                "id": "checklist",
+                "color": "terminal.ansiYellow",
+            },
+            "presentation": {
+                "focus": false,
+                "panel": "dedicated",
+            },
+            "command": ". ${userHome}/miniconda3/etc/profile.d/conda.sh && conda run --name docs-env --cwd ${workspaceFolder} bash ${workspaceFolder}/tests/run_tests.sh",
+            "windows": {
+                "command": "Write-Host \"The Test task is not configured for running on Windows.\"",
+            },
+        },
+        {
+            "label": "Docs CSC: Generate",
+            "detail": "Run the scripts for generating the 'What's new', 'Apps' and 'Glossary' pages",
+            "type": "shell",
+            "icon": {
+                "id": "terminal",
+                "color": "terminal.ansiMagenta",
+            },
+            "presentation": {
+                "focus": false,
+                "panel": "dedicated",
+            },
+            "command": "[ \"${input:confirmation}\" = \"yes\" ] && for s in ${workspaceFolder}/scripts/generate_*.sh; do bash $s; done || exit 0",
+            "windows": {
+                "command": "Write-Host \"The Generate task is not configured for running on Windows.\"",
+            },
+        },
+    ],
+}
