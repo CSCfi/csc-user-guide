@@ -26,13 +26,13 @@ Free to use and open source under [BSD 3-Clause License](https://github.com/qiim
 ## Available
 
 -   QIIME1: Puhti: 1.9.1
--   QIIME2: Puhti: 2022.8, 2023.2, 2023.5, 2023.9-amplicon, 2023.9-shotgun 
+-   QIIME2: Puhti: 2022.8, 2023.2, 2023.5, 2023.9-amplicon, 2023.9-shotgun, 2024.2-amplicon, 2024.2-shotgun 
 
 ## Usage
 
 To load QIIME1 module on Puhti:
 
-```
+```bash
 module load qiime1
 ```
 
@@ -40,19 +40,19 @@ To use QIIME2
 
 Check available versions with
 
-```
+```bash
 module spider qiime2
 ```
 
 Load desired version with e.g.
 
-```
+```bash
 module load qiime2/2023.9-amplicon
 ```
 
 After that you can start QIIME2 with command:
 
-```
+```bash
 qiime
 ```
 
@@ -75,7 +75,7 @@ Download the corresponding [environment file](https://docs.qiime2.org/2023.9/ins
 
 For example for 2023.9 amplicon distribution:
 
-```
+```bash
 wget https://data.qiime2.org/distro/amplicon/qiime2-amplicon-2023.9-py38-linux-conda.yml
 ```
 
@@ -89,7 +89,7 @@ If the plugins need additional installation steps, you can copy them to text fil
 
 Installation:
 
-```
+```bash
 module purge
 module load tykky
 mkdir qiime
@@ -98,8 +98,8 @@ conda-containerize new --mamba --prefix qiime qiime2-amplicon-2023.9-py38-linux-
 
 If necassary, run: 
 
-```
-conda-containerize update --prefix qiime --post-install plugins.txt
+```bash
+conda-containerize update qiime --post-install plugins.txt
 ```
 
 ## Running
@@ -116,7 +116,7 @@ In case of normal batch jobs, you must reserve NVMe disk area that will be used 
 
 For example, to reserve 100 GB of local disk space:
 
-```
+```text
 SBATCH --gres=nvme:100
 ```
 
@@ -124,7 +124,7 @@ For example, the batch job script below runs the denoising step of the
 [QIIME moving pictures tutorial](https://docs.qiime2.org/2019.7/tutorials/moving-pictures/#option-1-dada2 )
 as a batch job using eight cores.
 
-```text
+```bash
 #!/bin/bash
 #SBATCH --job-name=qiime_denoise
 #SBATCH --account=<project> 
@@ -137,7 +137,7 @@ as a batch job using eight cores.
 #SBATCH --gres=nvme:100
 
 #set up qiime
-qiime2/2023.9-amplicon
+module load qiime2/2023.9-amplicon
 
 # run task. Don't use srun in submission as it resets TMPDIR
 qiime dada2 denoise-single \
@@ -161,10 +161,13 @@ to change the value if the number of reserved CPUs is changed).
 
 The job is submitted to the to the batch job system with `sbatch` command. For example, if the batch job file is named as _qiime_job.sh_ then the submission command is: 
 
-```text
+```bash
 sbatch qiime_job.sh 
 ```
 More information about running batch jobs can be found from the [batch job section of the Puhti user guide](../computing/running/getting-started.md).
+
+!!! info "Note"
+    The use of *tab-qiime* to enable command completion for QIIME is known to cause problems on Puhti, and should be avoided.
 
 
 ## Manual
