@@ -240,14 +240,6 @@ tunneling](./rstudio-or-jupyter-notebooks.md#instructions-for-ssh-tunneling)
 	SSH tunneling requires [setting up SSH
 	keys](../../computing/connecting.md#setting-up-ssh-keys).
 
-### Spyder
-
-[Spyder](https://www.spyder-ide.org/) is a scientific Python development
-environment. The [python-data](../../apps/python-data.md) and
-[geoconda](../../apps/geoconda.md) modules
-have Spyder included. The best option for using it is through the [Puhti
-web interface remote desktop](../../computing/webinterface/desktop.md).
-
 ### Visual Studio Code
 
 [Visual Studio Code](../../apps/vscode.md) (VSCode)
@@ -268,6 +260,14 @@ As with Jupyter notebooks, there are two ways to run VSCode:
 	after the session has launched. This can be done by clicking on
 	the Python version information displayed in the lower right corner
 	of the VSCode window.
+
+### Spyder
+
+[Spyder](https://www.spyder-ide.org/) is a scientific Python development
+environment. The [python-data](../../apps/python-data.md) and
+[geoconda](../../apps/geoconda.md) modules
+have Spyder included. The best option for using it is through the [Puhti
+web interface remote desktop](../../computing/webinterface/desktop.md).
 
 ## Python parallel jobs
 
