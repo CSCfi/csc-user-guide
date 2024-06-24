@@ -52,7 +52,7 @@ Before doing this, you need to [install the openstack client](../install-client/
     ```
     You need to replace the `<volume_name>` by the name of the volume you created in the previous step, and the `<VM_name>` by the name of the VM node. When doing this for a cluster of VMs, you need to run the command once per VM.
 
-## GFS as an example
+## GFS2 as an example
 
 The Global file system or (GFS2 in short) is a file system currently developed by Red Hat. It uses [dlm](https://en.wikipedia.org/wiki/Distributed_lock_manager) to coordinate file system operations among the nodes in the cluster. The actual data is read and written directly to the shared block device.
 
@@ -61,85 +61,36 @@ The Global file system or (GFS2 in short) is a file system currently developed b
 
 ![GFS2 with DLM](../img/GFS2.drawio.svg)
 
-### GFS2 ansible install
-
-We have written a small ansible [cinder-multiattach](https://github.com/lvarin/cinder-multiattach/) playbook, that installs a cluster of nodes and installs a shared GFS2 file system on them. The playbook is intended as a guide and demo, it is not production ready. For example, there is a manual step, attach the volume in each node. The Ansible playbook will create a cluster of VMs and install the requested file system on them. The end result will be the same volume mounted in every VM. The quick start commands are these:  
-
-```sh
-$ source ~/Downloads/project_XXXXXXX-openrc.sh
-Please enter your OpenStack Password for project project_XXXXXXX as user YYYYYYYY: 
-
-$ ansible-playbook main.yml -e fs='gfs2'
-
-$ for i in $(seq 1 16);
-do
-    openstack --os-compute-api-version 2.60 server add volume "cinder-gfs2-$i" multi-attach-test-gfs2
-done
-
-$ ansible-playbook main.yml -e fs='gfs2'
-```
-
-You need to run Ansible twice due to a bug in the `openstack.cloud.server_volume` which can only attach the volume to a single VM and fails with the other ones.
-
-If you already have a cluster of VMs, or want to manually create them, it is still possible to use the `gfs2` Ansible role. The steps are simple:
-
-1. Create and attach the volume. See the manual [Create and attach a volume](#create-and-attach-a-volume) from above.
-
-1. Create a standard Ansible inventory like this one:
-
-    ```ini
-    [all]
-    <VM_name> ansible_host=192.168.1.XXX ansible_user=<user>
-    # ...
-    [all:vars]
-    ansible_ssh_common_args='-J <jumphost>'
-    ```
-
-    In the example above you need to replace `<VM_name>` by the name of the VM, the IP `192.168.1.XXX` must be the correct IP of the VM, and finally the `<user>` has to also be replaced by the corresponding one. You need to have a line per VM node that you want to include in the cluster. Finally, if you are using a Jump Host, you need to replace `<jumphost>` by its connection information, like `ubuntu@177.51.170.99` 
-
-1. Create a playbook like this one:
-
-    ```yaml
-    ---
-
-    - name: Configure VMs
-      hosts: all
-      gather_facts: true
-      become: true
-      roles:
-        - role: hosts
-        - role: gfs2
-    ```
-
-    This will run two roles, the `hosts` one if to create a `/etc/hosts` file in every VM with the IPs and names of every VM. The `gfs2` role installs and configures the cluster.
-
-1. And run it:
-
-    ```sh
-    $ ansible-playbook main-gfs2.yml -i inventory.ini
-    ```
-
-### GFS2 manual install
 
 In order to install GFS2, you need to follow few steps:
 
-1. Install the VM nodes. There is no special consideration on this step, other than making sure the nodes can see each other in the Network (it is the default behaviour of VM nodes created in the same Pouta project), and that they are installed with the same distribution version. We have tested this with `Ubuntu v22.04` and `AlmaLinux-9`, other distributions and versions might also work, but we have not tested them.
+1. Install the VM nodes. There is no special consideration on this step, other than making sure the nodes can see each other in the Network (it is the default behaviour of VM nodes created in the same Pouta project), and that they are installed with the same distribution version. We have tested this with `AlmaLinux-9`, other distributions and versions might also work, but we have not tested them.
 
 1. Create and attach the volume. See the manual [Create and attach a volume](#create-and-attach-a-volume) from above.
 
-1. Install the GFS2 software. This step is distribution dependent.
-
-    1. For AlmaLinux and other RedHat based distributions you just need enable two collections and install few packages:
+1. For AlmaLinux and other RedHat based distributions you just need enable two collections and install few packages **on every nodes:**
 
     ```sh
-    sudo dnf config-manager --enable  highavailability resilientstorage
-    sudo dnf install pacemaker corosync pcs dlm gfs2-utils
+    $> dnf config-manager --enable  highavailability resilientstorage
+    $> dnf install pacemaker corosync pcs dlm gfs2-utils lvm2-lockd
     ```
 
-    1. For Ubuntu and other Debian based distributions you just need to install 3 packages:
+#### Cluster setup
+!!! warning "root user"
+    The following commands are executed as the root user  
+    It will be specified throughout this tutorial if the commands must be run on a single or every nodes.
+
+1. Run the following commands **on every nodes:**
 
     ```sh
-    apt install gfs2-utils dlm-controld linux-modules-extra-$(uname -r)
+    $> systemctl start pcsd.service
+    $> systemctl enable pcsd.service
+    ```
+
+1. When you install `pacemaker`, it creates an user named `hacluster`. You need to set a password to this user:
+   
+    ```sh
+    $> passwd hacluster
     ```
 
 1. Make sure that every node **domain name** can be resolved in every other node. In Pouta, the simplest way is to use [/etc/hosts](https://en.wikipedia.org/wiki/Hosts_(file)), where each host has a line similar to:
@@ -148,75 +99,238 @@ In order to install GFS2, you need to follow few steps:
     <ip> <vm_name>
     ```
 
-1. You need to create a `corosync.conf` file that lists every host in the cluster. Check the [corosync.conf manual page](https://linux.die.net/man/5/corosync.conf) for a complete guide of the file. A minimal working example would follow this template:
+1. Run the following commands **only on one node**:
 
-    ```json
-    totem {
-      version: 2
-      cluster_name: gfs_cluster
-      secauth: off
-      transport: udpu
-    }
+    ```
+    $> pcs host auth node1 node2 node3 ...
+    Username: hacluster
+    Password: *******
+    $> pcs cluster setup <cluster_name> node1 node2 node3 ...
+    $> pcs cluster start --all
+    ```
 
-    nodelist {
-      {% for host in groups['all'] %}
-      node {
-        ring0_addr: {{ host }}
-        nodeid: {{ groups['all'].index(host)+1 }}
-      }
-      {% endfor %}
-    }
-
-    quorum {
-      provider: corosync_votequorum
-    }
-
-    logging {
-      to_logfile: yes
-      logfile: /var/log/cluster/corosync.log
-      to_syslog: yes
-    }
-    ``` 
-
-    As you can see, for every node, you need to provide its name (the same that it was used in `/etc/hosts`) and a node id number. The node id number has to be unique for every node, ideally consecutive numbers.
-
-1. Create the file system. You need to do this in **only one** of the VM nodes.
+1. You can check the status by running the commands:
 
     ```sh
-    mkfs.gfs2 -p lock_dlm -t gfs_cluster:mygfs2 -j <number_instances> /dev/vdb
+    $> pcs cluster status
+    $> pcs status corosync
     ```
-    Replace `<number_instances>` by the number of VM nodes in the cluster. Pay also attention and double check that `/dev/vdb` is the proper volume name. In principle `vdb` is going to be the first attached volume to a VM, but this might not be true in all cases.
 
-1. You now need to enable and start the `dlm` service.
+By default, `corosync` and `pacemaker` services are disabled:
+
+    $> pcs status
+    Daemon Status:
+      corosync: active/disabled
+      pacemaker: active/disabled
+      pcsd: active/enabled
+    
+According to [pacemaker docs](https://clusterlabs.org/pacemaker/doc/2.1/Clusters_from_Scratch/html/verification.html):
+
+    requiring a manual start of cluster services gives you the opportunity to do a post-mortem investigation of a node failure before returning it to the cluster.
+
+That means, if a node crash and restart, you have to start the two services and then run the command `pcs cluster start <node>`.  
+You can enable them if you wish.
+
+
+#### Fencing setup
+!!! warning "root user"
+    The following commands are executed as the root user.  
+    It will be specified throughout this tutorial if the commands must be run on a single or every nodes.
+
+1. Run the following commands **on every nodes:**
 
     ```sh
-    sudo systemctl enable dlm
-    sudo systemctl start dlm
+    $> setenforce 0
+    $> sed -i.bak "s/SELINUX=enforcing/SELINUX=permissive/g" /etc/selinux/config
+    $> dnf install -y fence-agents-openstack pip
+    $> pip install python-openstackclient python-novaclient
     ```
 
-1. Finally mount the volume in each node:
+1. Since we install `python-openstackclient` with the root user, you must add `/usr/local/bin` in the PATH:
 
     ```sh
-    sudo mount -L gfs_cluster:mygfs2 /mnt
+    $> vim ~/.bashrc
+    export PATH=/usr/local/bin:$PATH
     ```
 
-    This command uses the label and not the volume device to mount it, this is because the label is warranted to not change upon reboots. The label will be the same that you used in the `mkfs.gfs2` command in the `-t` option. You can also provide the UUID with the `-u` option.
+1. Create a folder named `openstack` in `/etc`. Then, create a file named `clouds.yaml` in `/etc/openstack`. The YAML file must be like this:
 
-    !!! Info "blkid"
-        In order to see the label and uuid of every volume and device attached to the VM node, you can use `blkid`:
-
-        ```sh
-        $ blkid
-        /dev/vdb: LABEL="gfs_cluster:mygfs2" UUID="e957d002-bd85-4645-9c0d-a929603849b7" BLOCK_SIZE="4096" TYPE="gfs2"
-        /dev/vda15: LABEL_FATBOOT="UEFI" LABEL="UEFI" UUID="B027-A52A" BLOCK_SIZE="512" TYPE="vfat" PARTUUID="416111ff-1583-491f-856d-410d48caa103"
-        /dev/vda1: LABEL="cloudimg-rootfs" UUID="caa1508a-4bb6-4126-a072-7d5db157c351" BLOCK_SIZE="4096" TYPE="ext4" PARTUUID="2ff71b36-d15b-4310-a7ed-5258e990345d"
-        ```
-
-    It is recommended to add an entry to `/etc/fstab` so the volume is mounted automatcally when rebooted. For example adding a line like this:
-
-    ```fstab
-    LABEL=gfs_cluster:mygfs2 /mnt gfs2 defaults 0 0
+    ```yaml
+    clouds:
+      ha-example:
+        auth:
+          auth_url: https://pouta.csc.fi:5001/v3
+          project_name: project_xxxxxxx
+          username: <username>
+          password: <password>
+          user_domain_name: Default
+          project_domain_name: Default
+    <. . . additional options . . .>
+      region_name: regionOne
+      verify: False
     ```
+
+1. Run the following commands **only on one node:**
+
+    ```sh
+    $> pcs property set stonith-enabled=true
+    ```
+
+1. Check the value:
+   
+    ```sh
+    $> pcs property
+    ```
+
+1. Create fencing for the HA cluster. First, you have to determine the UUID for each node in your cluster. You can run the command:
+   
+    ```sh
+    openstack server list
+    ```
+
+    Then:
+
+    ```
+    $> pcs stonith create <fence_name> fence_openstack pcmk_host_map="node1:node1_UUID;node2:node2_UUID;node3:node3_UUID" power_timeout="240" pcmk_reboot_timeout="480" pcmk_reboot_retries="4" cloud="ha-example"
+    ```
+    Substitute `cloud="ha-example"` with the name of the cloud you specified in the `clouds.yaml` file.
+
+1. You can view the available options with the following command:
+
+    ```sh
+    $> pcs stonith describe fence_openstack
+    ```
+
+1. You can test fencing by running these commands:
+   
+    ```sh
+    $> pcs stonith fence node2
+    $> pcs status
+    $> pcs cluster start node2
+    ```
+
+!!! info "Tip"  
+    If you want to start (or restart) the fence, you can use this command:
+    ```sh
+    $> pcs stonith cleanup <fence_name>
+    ```
+    Useful if you apply a new `clouds.yaml` configuration for example.
+
+
+#### GFS2 setup
+!!! warning "root user"
+    The following commands are executed as the root user.  
+    It will be specified throughout this tutorial if the commands must be run on a single or every nodes.
+
+1. Run the following command **on every nodes:**
+
+    ```sh
+    $> sed -i.bak "s/# use_lvmlockd = 0/use_lvmlockd = 1/g" /etc/lvm/lvm.conf
+    ```
+
+1. Run the following commands **only on one node:**
+
+    ```sh
+    $> pcs property set no-quorum-policy=freeze
+    ```
+
+1. Set up a dlm (Distributed Lock Manager) resource:
+
+    ```sh
+    $> pcs resource create dlm --group locking ocf:pacemaker:controld op monitor interval=30s on-fail=fence
+    ```
+
+1. Clone the resource for the others nodes:
+
+    ```sh
+    $> pcs resource clone locking interleave=true
+    ```
+
+1. Set up a lvmlockd resource part of the locking resource group:
+
+    ```sh
+    $> pcs resource create lvmlockd --group locking ocf:heartbeat:lvmlockd op monitor interval=30s on-fail=fence
+    ```
+
+1. Check the status:
+
+    ```sh
+    $> pcs status --full
+    ```
+
+1. Still **only on one node**, create one shared volume groups:
+
+    ```sh
+    $> vgcreate --shared shared_vg1 /dev/vdb
+    ```
+
+1. **On the other nodes**, add the shared device to the device file:
+
+    ```sh
+    $> lvmdevices --adddev /dev/vdb
+    ```
+
+1. Start the lock manager:
+
+    ```sh
+    $> vgchange --lockstart shared_vg1
+    ```
+
+1. **On one node**, run:
+
+    ```sh
+    $> lvcreate --activate sy -L <size>G -n shared_lv1 shared_vg1
+    $> mkfs.gfs2 -j <number_of_nodes> -p lock_dlm -t ClusterName:FSName /dev/shared_vg1/shared_lv1
+    ```
+    ClusterName is the name of the cluster (you can retrieve the information with the command pcs status)  
+    FSName is the file system name (i.e: gfs2-demo)
+
+1. Create an LVM-activate resource to automatically activate that logical volume **on all nodes:**
+
+    ```sh
+    $> pcs resource create sharedlv1 --group shared_vg1 ocf:heartbeat:LVM-activate lvname=shared_lv1 vgname=shared_vg1 activation_mode=shared vg_access_mode=lvmlockd
+    ```
+
+1. Clone the new resource group:
+
+    ```sh
+    $> pcs resource clone shared_vg1 interleave=true
+    ```
+
+1. Configure ordering constraints to ensure that the locking resource group that includes the dlm and lvmlockd resources starts first:
+
+    ```sh
+    $> pcs constraint order start locking-clone then shared_vg1-clone
+    ```
+
+1. Configure a colocation constraints to ensure that the vg1 resource groups start on the same node as the locking resource group:
+
+    ```sh
+    $> pcs constraint colocation add shared_vg1-clone with locking-clone
+    ```
+
+1. Verify on the nodes in the cluster that the logical volume is active. There may be a delay of a few seconds:
+
+    ```sh
+    $> lvs
+        LV         VG         Attr       LSize   Pool Origin Data%  Meta%  Move Log Cpy%Sync Convert
+        shared_lv1 shared_vg1 -wi-a----- <size>g
+    ```
+
+1. Create a file system resource to automatically mount the GFS2 file system.  
+   Do not add it to the /etc/fstab file because it will be managed as a Pacemaker cluster resource:
+
+    ```sh
+    $> pcs resource create sharedfs1 --group shared_vg1 ocf:heartbeat:Filesystem device="/dev/shared_vg1/shared_lv1" directory="/mnt/gfs" fstype="gfs2" options=noatime op monitor interval=10s on-fail=fence
+    ```
+
+1. You can verify if the GFS2 file system is mounted:
+
+    ```sh
+    $> mount | grep gfs2
+    $> pcs status --full
+    ```
+
 
 ### GFS2 FAQ
 
@@ -233,7 +347,7 @@ In order to install GFS2, you need to follow few steps:
     If it is not enough, you can easily add more with `gfs2_jadd`: 
 
     ```sh
-    $ sudo gfs2_jadd -j 1 /mnt
+    $> sudo gfs2_jadd -j 1 /mnt
     Filesystem: /mnt
     Old journals: 15
     New journals: 16
@@ -255,13 +369,7 @@ In order to install GFS2, you need to follow few steps:
     Finally, you just need to mount the volume:
 
     ```sh
-    sudo mount -L gfs_cluster:mygfs2 /mnt
-    ```
-
-    It is recommended to add an entry to `/etc/fstab` so the volume is mounted automatcally when rebooted. For example adding a line like this:
-
-    ```fstab
-    LABEL=gfs_cluster:mygfs2 /mnt/ gfs2 defaults 0 0
+    $> pcs resource create sharedfs1 --group shared_vg1 ocf:heartbeat:Filesystem device="/dev/shared_vg1/shared_lv1" directory="/mnt/gfs" fstype="gfs2" options=noatime op monitor interval=10s on-fail=fence
     ```
 
 * **What happens if a VM gets disconnected?**
@@ -270,9 +378,9 @@ In order to install GFS2, you need to follow few steps:
 
     For a temporal and unexpected disconnection, the cluster should be able to deal with this kind of issues automatically. After the node is back, you need to check that all came back to normal. In some cases the automatic mount of the volume can fail, if so mount the volume as explained above.
 
-    If it is temporal but expected, like to update the kernel version. Umount the volume in the node (`sudo umount /mnt`) before rebooting the node. It is not required, but recommended.
+    If it is temporal but expected, like to update the kernel version. Umount the volume in the node before rebooting the node. It is not required, but recommended.
 
-    For a permanent disconnection of a VM, one need to do the inverse process of adding a new node. Umount the volume (`sudo umount /mnt`), remove the entry for this VM in the `/etc/corosyncecorosync.conf` file of every node, and finally restart the daemons in every node. This needs to be done as it affects the quorum count for the cluster.
+    For a permanent disconnection of a VM, one need to do the inverse process of adding a new node. Umount the volume, remove the entry for this VM in the `/etc/corosync/corosync.conf` file of every node, and finally restart the daemons in every node. This needs to be done as it affects the quorum count for the cluster.
 
 * **Is it possible to mount a node as read-only?**
 
@@ -291,9 +399,9 @@ In order to install GFS2, you need to follow few steps:
     So, just run this command:
 
     ```sh
-    sudo mount /dev/vdb /mnt -t gfs2 -o spectator
+    $> pcs resource create sharedfs1 --group shared_vg1 ocf:heartbeat:Filesystem device="/dev/shared_vg1/shared_lv1" directory="/mnt/gfs" fstype="gfs2" options=noatime,spectator op monitor interval=10s on-fail=fence
     ```
-    `-t gfs2` is not strictly necessary, as mount can detect the file system tpye, but it is recommended to avoid mounting the wrong file system.
+    `fstype="gfs2"` is not strictly necessary, as mount can detect the file system type, but it is recommended to avoid mounting the wrong file system.
     Then double check that the mount went as expected by:
 
     ```sh
@@ -303,7 +411,11 @@ In order to install GFS2, you need to follow few steps:
 
 ### GFS2 Links
 
-- <https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/global_file_system_2/s1-manage-addjournalfs>
+- [Pacemaker docs](https://clusterlabs.org/pacemaker/doc/2.1/Clusters_from_Scratch/html/cluster-setup.html)
+- [GFS2 on Amazon EBS Multi-Attach](https://aws.amazon.com/blogs/storage/clustered-storage-simplified-gfs2-on-amazon-ebs-multi-attach-enabled-volumes/)
+- [Getting start with Pacamaker](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/configuring_and_managing_high_availability_clusters/assembly_getting-started-with-pacemaker-configuring-and-managing-high-availability-clusters#proc_learning-to-use-pacemaker-getting-started-with-pacemaker)
+- [Configuring a Red Hat High Availability cluster on Red Hat OpenStack Platform](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/configuring_a_red_hat_high_availability_cluster_on_red_hat_openstack_platform/index)
+- [GFS2 file systems in a cluster](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/configuring_gfs2_file_systems/assembly_configuring-gfs2-in-a-cluster-configuring-gfs2-file-systems#proc_configuring-gfs2-in-a-cluster.adoc-configuring-gfs2-cluster)
 
 ## OCFS2 as a second example
 
