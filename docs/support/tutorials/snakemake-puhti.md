@@ -26,13 +26,15 @@ The tools used in the workflow can be installed in following ways:
     * If different Snakemake rules use different modules, include the [module information in the Snakefile](https://snakemake.readthedocs.io/en/latest/snakefiles/deployment.html#using-environment-modules).
 2. Own custom installations as Apptainer containers:
     * Apptainer container can be downloaded from some repository or built locally. For building custom Apptainer containers, see [Creating containers page](../../computing/containers/creating.md).
-    * See Snakemake's [Running jobs in containers](https://snakemake.readthedocs.io/en/stable/snakefiles/deployment.html#running-jobs-in-containers) for changes required in Snakemake file and command. 
+    * See Snakemake's [Running jobs in containers](https://snakemake.readthedocs.io/en/stable/snakefiles/deployment.html#running-jobs-in-containers) for changes required in Snakemake file and command.
+    * For binding folders or using other Apptainer flags, use [--apptainer-args option](https://snakemake.readthedocs.io/en/stable/executing/cli.html#apptainer/singularity) of `snakemake` command.
+    * Sometimes it might be necessary to [define the shell inside the container](https://snakemake.readthedocs.io/en/stable/snakefiles/deployment.html#handling-shell-executable). 
 
 ```
-# If your Apptainer tutorial.sif image is stored locally in Puhti in folder "image".
-apptainer: "image/tutorial.sif"
-# If your Docker or Apptainer container image is available via URI
-apptainer: "docker://<repository>/<image_name>"
+# If your Apptainer tutorial.sif image is stored locally in Puhti in folder "image":
+container: "image/tutorial.sif"
+# If you would like to covert a Docker iamge to Apptainer container image on-the-fly:
+container: "docker://<repository>/<image_name>"
 ```
 
 ### Snakemake Tykky installation for Python
