@@ -78,7 +78,7 @@ In order to install GFS2, you need to follow few steps:
 #### Cluster setup
 !!! warning "root user"
     The following commands are executed as the root user  
-    It will be specified throughout this tutorial if the commands must be run on a single or every nodes.
+    It will be specified throughout this tutorial if the commands must be run on a single or every node.
 
 1. Run the following commands **on every nodes:**
 
