@@ -222,7 +222,7 @@ You can enable them if you wish.
     The following commands are executed as the root user.  
     It will be specified throughout this tutorial if the commands must be run on a single or every nodes.
 
-1. Run the following command **on every nodes:**
+1. Run the following command **on every node:**
 
     ```sh
     $> sed -i.bak "s/# use_lvmlockd = 0/use_lvmlockd = 1/g" /etc/lvm/lvm.conf
