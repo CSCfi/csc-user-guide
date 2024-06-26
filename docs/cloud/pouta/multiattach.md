@@ -295,7 +295,7 @@ Or with `pcs`:
     ClusterName is the name of the cluster (you can retrieve the information with the command `pcs status`)  
     FSName is the file system name (i.e: gfs2-demo)
 
-1. Create an LVM-activate resource to automatically activate that logical volume **on all nodes:**
+1. Create an LVM-activate resource to automatically activate that logical volume on all nodes:
 
     ```sh
     $> pcs resource create sharedlv1 --group shared_vg1 ocf:heartbeat:LVM-activate lvname=shared_lv1 vgname=shared_vg1 \
