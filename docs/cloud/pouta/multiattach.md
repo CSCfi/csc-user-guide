@@ -137,7 +137,7 @@ You can enable them if you wish.
     The following commands are executed as the root user.  
     It will be specified throughout this tutorial if the commands must be run on a single or every nodes.
 
-1. Run the following commands **on every nodes:**
+1. Run the following commands **on every node:**
 
     ```sh
     $> setenforce 0
