@@ -126,21 +126,15 @@ By default, `corosync` and `pacemaker` services are disabled:
     
 According to [pacemaker docs](https://clusterlabs.org/pacemaker/doc/2.1/Clusters_from_Scratch/html/verification.html):
 
-    requiring a manual start of cluster services gives you the opportunity to do a post-mortem investigation of a node failure before returning it to the cluster.
+    requiring a manual start of cluster services gives you the opportunity 
+    to do a post-mortem investigation of a node failure 
+    before returning it to the cluster.
 
-That means, if a node crash and restart, you have to start the two services and then run the command `pcs cluster start <node>`.  
-You can enable them if you wish with `systemctl`:
+That means, if a node crash and restart, you have to run the command `pcs cluster start [<NODENAME> | --all]` to start the cluster on it.  
+You can enable them if you wish with `pcs`:
 
-    
-    $> systemctl enable corosync && systemctl enable pacemaker
-    
-
-Or with `pcs`:
-
-    
     $> pcs cluster enable [<NODENAME> | --all]
     
-
 
 #### Fencing setup
 !!! warning "root user"
