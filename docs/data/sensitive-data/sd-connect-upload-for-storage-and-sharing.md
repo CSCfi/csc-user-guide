@@ -11,11 +11,11 @@ Using the SD Connect, you can simultaneously encrypt your files with multiple en
  Below, we will illustrate how to generate your encryption key pair using an application called Crypt4GH and how your public encryption key (or your collaborator's public key) can then be used to encrypt files via a web browser using SD Connect. 
 
 1. Install the Crypt4GH application. CSC has developed a simple application that will allow you to generate your encryption keys and decrypt files when necessary. 
-Download the version specific to your operating system from the [GitHub repository](https://github.com/CSCfi/crypt4gh-gui):
+Download the version specific to your operating system from the [GitHub repository](https://github.com/CSCfi/crypt4gh-gui/releases/tag/2024.06.0):
 
-      * [Mac](https://github.com/CSCfi/crypt4gh-gui/releases/download/v1.3.0/crypt4gh-gui-python3.10-macos-amd64.zip)
-      * [Windows](https://github.com/CSCfi/crypt4gh-gui/releases/download/v1.3.0/crypt4gh-gui-python3.10-windows-amd64.zip)
-      * [Linux](https://github.com/CSCfi/crypt4gh-gui/releases/download/v1.3.0/crypt4gh-gui-python3.10-linux-amd64.zip)
+      * [Mac](https://github.com/CSCfi/crypt4gh-gui/releases/download/2024.06.0/crypt4gh-gui-python3.11-macos-amd64.zip)
+      * [Windows](https://github.com/CSCfi/crypt4gh-gui/releases/download/2024.06.0/crypt4gh-gui-python3.11-windows-amd64.zip)
+      * [Linux](https://github.com/CSCfi/crypt4gh-gui/releases/download/2024.06.0/crypt4gh-gui-python3.11-linux-amd64.zip)
 
     You might encounter an error message when you open the application for the first time. In this case, click on _More info_ and verify that the publisher is CSC-IT Center for Science (or Finnish CSC-Tieteen tietotekniikan keskus Oy) and then click on _Run anyway_.
 

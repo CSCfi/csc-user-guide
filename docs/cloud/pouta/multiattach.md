@@ -1,7 +1,6 @@
 # Multi-attach Cinder volumes
 
-!!! warning  
-    Only available for cPouta now.  
+!!! warning    
     By default the quota is set to 0, you must request it by sending an email to servicedesk@csc.fi
 
 It is possible to attach and mount the same _cinder_ volume into more that one VM at the same time. This means that each of the VMs will be able to read and write to the same block device. This is similar to what a SAN will allow you to achieve.
@@ -377,7 +376,8 @@ If you already have a cluster of VMs, or want to manually create them, it is sti
 
 In order to install OCFS2, you need to follow few steps:
 
-1. Install the VM nodes. There is no special consideration on this step, other than making sure the nodes can see each other in the Network (it is the default behaviour of VM nodes created in the same Pouta project), and that they are installed with the same distribution version. We have tested this with `Ubuntu v22.04` and `AlmaLinux-9`, other distributions and versions might also work, but we have not tested them. This guide will use **Ubuntu** as an example. AlmaLinux requires to install an specific [Oracle kernel](https://support.oracle.com/knowledge/Oracle%20Linux%20and%20Virtualization/1253272_1.html).
+1. Install the VM nodes. There is no special consideration on this step, other than making sure the nodes can see each other in the Network (it is the default behaviour of VM nodes created in the same Pouta project), and that they are installed with the same distribution version. We have tested this with `Ubuntu v22.04` and `AlmaLinux-9`, other distributions and versions might also work, but we have not tested them. This guide will use **Ubuntu** as an example.  
+AlmaLinux requires to install an specific [Oracle kernel](https://support.oracle.com/knowledge/Oracle%20Linux%20and%20Virtualization/1253272_1.html). More information in the [FAQ](#ocfs2-faq)
 
 1. Create and attach the volume. See the manual [Create and attach a volume](#create-and-attach-a-volume) from above.
 
@@ -496,6 +496,19 @@ In order to install OCFS2, you need to follow few steps:
     ```
     Also, as you can see in the output above, the default behaviour is that when any error occurs, to remount it as read only (`errors-remount-ro`). See `mount.ocfs2` for more options.
 
+* **I want to install Oracle Kernel on a RedHat 9 distro**  
+
+    You can find more information [here](https://yum.oracle.com/getting-started.html#red-hat-enterprise-linux-centos) on how to install the Oracle Linux repo. Once set, you can install the Oracle UEK kernel with these commands:
+
+    First
+    ```sh
+    sudo dnf install oraclelinux-release-el9
+    ```
+
+    And then
+    ```sh
+    sudo dnf install kernel-uek
+    ```
 
 ## Upstream documentation
 
@@ -504,3 +517,5 @@ In order to install OCFS2, you need to follow few steps:
 - OCFS2: 
     - <https://ocfs2.wiki.kernel.org/>
     - <https://public-yum.oracle.com/>
+    - <https://docs.oracle.com/en/operating-systems/oracle-linux/9/shareadmin/shareadmin-ManagingtheOracleClusterFileSystemVersion2inOracleLinux.html#about-ocfs2>
+    - <https://docs.oracle.com//en/learn/ocfs2_cluster_linux_8/#introduction>

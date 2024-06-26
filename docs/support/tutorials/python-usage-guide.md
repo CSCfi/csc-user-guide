@@ -216,10 +216,10 @@ and copy it to a supercomputer with command-line tools like
 or by using
 [graphical file transfer tools](../../data/moving/graphical_transfer.md).
 
-### Jupyter notebooks
+### Jupyter
 
-[Jupyter notebooks](https://jupyter.org/) provide an interactive
-programming environment that allows one to
+[Jupyter notebooks](../../apps/jupyter.md) provide an interactive
+programming environment where one can
 write and run Python code in individual cells.
 The notebooks combine code, equations, visualizations and narrative text
 in a single document. 
@@ -234,17 +234,9 @@ The documentation page for the application includes a
 [list of supported environments](
 ../../computing/webinterface/jupyter.md#currently-supported-python-environments).
 
-### Spyder
-
-[Spyder](https://www.spyder-ide.org/) is a scientific Python development
-environment. The [python-data](../../apps/python-data.md) and
-[geoconda](../../apps/geoconda.md) modules
-have Spyder included. The best option for using it is through the [Puhti
-web interface remote desktop](../../computing/webinterface/desktop.md).
-
 ### Visual Studio Code
 
-[Visual Studio Code](https://code.visualstudio.com/) (VSCode)
+[Visual Studio Code](../../apps/vscode.md) (VSCode)
 is a widely-used source code editor developed by Microsoft.
 Unlike the other two development environments introduced here,
 it does not rely on any Python packages, so it can be used by
@@ -252,8 +244,8 @@ default with all CSC- and custom-made Python environments.
 
 There are two ways to run VSCode on CSC supercomputers:
 
-1. [As an interactive app our web interface](../../computing/webinterface/vscode.md)
-2. [By using the Remote SSH plugin](./remote-dev.md#visual-studio-code-with-remote-ssh-plugin)
+1. [As an interactive app on our web interface](../../computing/webinterface/vscode.md)
+2. [Remotely using the Remote-SSH plugin](./remote-dev.md#visual-studio-code-with-remote-ssh-plugin)
 
 !!! info
 	Since only CSC modules are offered in the VSCode session launch form,
@@ -262,6 +254,14 @@ There are two ways to run VSCode on CSC supercomputers:
 	after the session has launched. This can be done by clicking on
 	the Python version information displayed in the lower right corner
 	of the VSCode window.
+
+### Spyder
+
+[Spyder](https://www.spyder-ide.org/) is a scientific Python development
+environment. The [python-data](../../apps/python-data.md) and
+[geoconda](../../apps/geoconda.md) modules
+have Spyder included. The best option for using it is through the [Puhti
+web interface remote desktop](../../computing/webinterface/desktop.md).
 
 ## Python parallel jobs
 

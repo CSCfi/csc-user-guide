@@ -41,10 +41,17 @@ in the web console:
 
 ![copy login](../../img/CopyLoginCommand.png)
 
-!!! info
+!!! info "sudo"
 
     If you open multiple terminals, the login session for oc will be active in
     all of them.
+
+!!! info "Helm login"
+    If you are using Helm and you are not logged in, you might get an error like:
+    ```sh
+    $ helm ls       
+    Error: Kubernetes cluster unreachable: Get "http://localhost:8080/version": dial tcp 127.0.0.1:8080: connect: connection refused
+    ```
 
 ## How to login in the registry?
 
@@ -55,6 +62,17 @@ In order to use Rahti 2 internal container registry, it is necessary to login se
 After login with `oc`, it is possible to use the command to generate a token (`oc whoami -t`):
 
 `docker login -p $(oc whoami -t ) -u unused image-registry.apps.2.rahti.csc.fi`
+
+!!! info "sudo use"
+    Some docker client setups require to run the `docker` client as root using `sudo`. In this case the `oc login` command needs to also be run using `sudo`. This is because the login information is stored in the user's home directory, only the user that runs `oc login` is logged in to Rahti.
+
+    As a general recommendation, it is better to use other "rootless" runtimes like podman, when possible. It is also possible to configure Docker as non-root user. In order to do so, in most Linux distributions, you just need to type this command:  
+    
+    ```sh
+    sudo usermod -aG docker $USER
+    ```
+
+    And then log out and log back to have the group membership re-evaluated.
 
 ### Using a service account token
 
