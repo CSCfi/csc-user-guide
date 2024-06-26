@@ -168,9 +168,10 @@ It is also possible to create your own Python environments.
 		Conda is easy to use and flexible, but it usually creates a huge number of files which
 		is incompatible with shared file systems. The excess of files can cause
 		very slow library imports and,
-		in the worst case, slowdowns in the whole file system. Therefore,
-		**CSC has deprecated the use of conda for direct installations on
-		supercomputers**. However, you can still create and use
+		in the worst case, slowdowns in the whole file system. Because of this,
+		[**CSC has deprecated the use of conda**](conda.md)
+        for direct installations on supercomputers.
+        However, you can still create and use
 		[containerized](../../computing/containers/overview.md)
 		conda environments.
 
