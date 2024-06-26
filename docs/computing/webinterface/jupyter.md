@@ -9,9 +9,9 @@ In the app launch form you can define the Python environment,
 Jupyter interface type (Jupyter Notebook or JupyterLab),
 working directory as well as some more advanced settings.
 
-For more information about different Python environments on Puhti and Mahti,
-see our Python [application page](../../apps/python.md)
-and [usage guide](../../support/tutorials/python-usage-guide.md).
+For more information about working with different Python environments on Puhti
+and Mahti, see our [Python application page](../../apps/python.md)
+and [Python usage guide](../../support/tutorials/python-usage-guide.md).
 Note that all the modules listed on the Python app page are not guaranteed to
 work with the Jupyter interactive app. Additionally, installation of
 Python packages works differently from the general instructions in

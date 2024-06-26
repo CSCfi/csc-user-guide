@@ -7,6 +7,9 @@ tags:
 
 [Python](https://www.python.org/) is a general-purpose high-level
 programming language that is widely used for scientific computing.
+For instructions on using Python effectively on CSC supercomputers,
+please see our
+[Python usage guide](../support/tutorials/python-usage-guide.md).
 
 ## Available
 
@@ -21,18 +24,21 @@ licenses. Python itself is licensed under the
 
 ## Usage
 
-It is generally recommended to use one of the
-[pre-installed Python environments](python.md#pre-installed-python-environments),
+Our
+[Python usage guide](../support/tutorials/python-usage-guide.md)
+contains instructions for installing packages,
+using different development environments and doing parallel processing
+with Python.
+
+It is generally recommended to use one of
+[pre-installed Python environments](python.md#pre-installed-python-environments)
+for computing,
 since these already contain the essential libraries for most uses.
 If for some reason one wishes to use Python without loading an environment
 module, a
 basic
 [system Python](python.md#system-python)
-is available by default.
-
-See our
-[Python usage guide](../support/tutorials/python-usage-guide.md)
-for instructions on using Python effectively on CSC supercomputers.
+is also available.
 
 ### System Python
 
@@ -64,6 +70,7 @@ one of the links in the table below.
 | [jax](jax.md) | JAX ML framework | [open](https://a3s.fi/python-pkg-lists/jax.txt) |
 | [python-data](python-data.md) | data analysis and ML utilities | [open](https://a3s.fi/python-pkg-lists/python-data.txt) |
 | [pytorch](pytorch.md) | PyTorch ML framework | [open](https://a3s.fi/python-pkg-lists/pytorch.txt) |
+| [qiskit](qiskit.md) | quantum computing | [open](https://a3s.fi/python-pkg-lists/qiskit.txt) |
 | [tensorflow](tensorflow.md) | TensorFlow ML framework | [open](https://a3s.fi/python-pkg-lists/tensorflow.txt) |
 
 To use any of the above environments, simply load the corresponding module

@@ -222,19 +222,17 @@ or by using
 programming environment that allows one to
 write and run Python code in individual cells.
 The notebooks combine code, equations, visualizations and narrative text
-in a single document. Many of our Python environments, including
+in a single document. 
+
+The [Jupyter interactive application](../../computing/webinterface/jupyter.md)
+on our web interface allows using Jupyter on CSC supercomputers.
+Many of our Python environments, including
 [`python-data`](../../apps/python-data.md), [`geoconda`](../../apps/geoconda.md)
 as well as deep learning modules like [`pytorch`](../../apps/pytorch.md)
-include the main Jupyter packages.
-
-There are two ways of running Jupyter notebooks on CSC supercomputers:
-
-1. [Through our web interface](../../computing/webinterface/jupyter.md) (recommended)
-2. [By using SSH tunneling](./rstudio-or-jupyter-notebooks.md#instructions-for-ssh-tunneling)
-
-!!! note
-	SSH tunneling requires [setting up SSH
-	keys](../../computing/connecting.md#setting-up-ssh-keys).
+include the main Jupyter packages, so they can be used in the application.
+The documentation page for the application includes a
+[list of supported environments](
+../../computing/webinterface/jupyter.md#currently-supported-python-environments).
 
 ### Spyder
 

@@ -1,4 +1,4 @@
----
+Jupyter-
 tags:
   - Free
 system:
@@ -32,19 +32,12 @@ license](https://opensource.org/licenses/BSD-3-Clause).
 
 ## Usage
 
-There are two ways of running Jupyter notebooks on CSC supercomputers:
+Jupyter can be used on CSC supercomputers through interactive applications
+on our web interface:
 
-1. As an interactive app on our web
-interface **(recommended)**
-	1. [Using the IPython kernel](../computing/webinterface/jupyter.md)
-	2. [Using the IJulia kernel](../computing/webinterface/julia-on-jupyter.md)
-2. Remotely using SSH tunneling
-	1. [Using the IPython
-kernel](../support/tutorials/rstudio-or-jupyter-notebooks.md#instructions-for-ssh-tunneling)
-
-!!! note
-	SSH tunneling requires [setting up SSH
-	keys](../../computing/connecting.mdsetting-up-ssh-keys).
+* [Jupyter interactive application](../computing/webinterface/jupyter.md)
+  (IPython kernel)
+* [Julia-Jupyter interactive application](../computing/webinterface/julia-on-jupyter.md) (IJulia kernel)
 
 ## References
 
