@@ -129,7 +129,17 @@ According to [pacemaker docs](https://clusterlabs.org/pacemaker/doc/2.1/Clusters
     requiring a manual start of cluster services gives you the opportunity to do a post-mortem investigation of a node failure before returning it to the cluster.
 
 That means, if a node crash and restart, you have to start the two services and then run the command `pcs cluster start <node>`.  
-You can enable them if you wish.
+You can enable them if you wish with `systemctl`:
+
+    
+    $> systemctl enable corosync && systemctl enable pacemaker
+    
+
+Or with `pcs`:
+
+    
+    $> pcs cluster enable [<NODENAME> | --all]
+    
 
 
 #### Fencing setup
@@ -185,7 +195,7 @@ You can enable them if you wish.
 1. Create fencing for the HA cluster. First, you have to determine the UUID for each node in your cluster. You can run the command:
    
     ```sh
-    openstack server list
+    $> openstack server list
     ```
 
     Then:
