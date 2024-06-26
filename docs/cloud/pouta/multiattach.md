@@ -322,7 +322,8 @@ You can enable them if you wish.
    Do not add it to the /etc/fstab file because it will be managed as a Pacemaker cluster resource:
 
     ```sh
-    $> pcs resource create sharedfs1 --group shared_vg1 ocf:heartbeat:Filesystem device="/dev/shared_vg1/shared_lv1" directory="/mnt/gfs" fstype="gfs2" options=noatime op monitor interval=10s on-fail=fence
+    $> pcs resource create sharedfs1 --group shared_vg1 ocf:heartbeat:Filesystem device="/dev/shared_vg1/shared_lv1" \
+        directory="/mnt/gfs" fstype="gfs2" options=noatime op monitor interval=10s on-fail=fence
     ```
 
 1. You can verify if the GFS2 file system is mounted:
