@@ -288,7 +288,8 @@ You can enable them if you wish.
 1. Create an LVM-activate resource to automatically activate that logical volume **on all nodes:**
 
     ```sh
-    $> pcs resource create sharedlv1 --group shared_vg1 ocf:heartbeat:LVM-activate lvname=shared_lv1 vgname=shared_vg1 activation_mode=shared vg_access_mode=lvmlockd
+    $> pcs resource create sharedlv1 --group shared_vg1 ocf:heartbeat:LVM-activate lvname=shared_lv1 vgname=shared_vg1 \
+        activation_mode=shared vg_access_mode=lvmlockd
     ```
 
 1. Clone the new resource group:
