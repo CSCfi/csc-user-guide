@@ -248,11 +248,11 @@ web interface remote desktop](../../computing/webinterface/desktop.md).
 is a widely-used source code editor developed by Microsoft.
 Unlike the other two development environments introduced here,
 it does not rely on any Python packages, so it can be used by
-default with all CSC and custom Python environments.
+default with all CSC- and custom-made Python environments.
 
-As with Jupyter notebooks, there are two ways to run VSCode:
+There are two ways to run VSCode on CSC supercomputers:
 
-1. [Through our web interface](../../computing/webinterface/vscode.md)
+1. [As an interactive app our web interface](../../computing/webinterface/vscode.md)
 2. [By using the Remote SSH plugin](./remote-dev.md#visual-studio-code-with-remote-ssh-plugin)
 
 !!! info
