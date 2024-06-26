@@ -282,7 +282,7 @@ You can enable them if you wish.
     $> lvcreate --activate sy -L <size>G -n shared_lv1 shared_vg1
     $> mkfs.gfs2 -j <number_of_nodes> -p lock_dlm -t ClusterName:FSName /dev/shared_vg1/shared_lv1
     ```
-    ClusterName is the name of the cluster (you can retrieve the information with the command pcs status)  
+    ClusterName is the name of the cluster (you can retrieve the information with the command `pcs status`)  
     FSName is the file system name (i.e: gfs2-demo)
 
 1. Create an LVM-activate resource to automatically activate that logical volume **on all nodes:**
