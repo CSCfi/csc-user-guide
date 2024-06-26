@@ -87,7 +87,7 @@ In order to install GFS2, you need to follow few steps:
     $> systemctl enable pcsd.service
     ```
 
-1. When you install `pacemaker`, it creates an user named `hacluster`. You need to set a password to this user:
+1. When you install `pacemaker`, it creates a user named `hacluster`. You need to set a password to this user:
    
     ```sh
     $> passwd hacluster
