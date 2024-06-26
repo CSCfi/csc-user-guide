@@ -68,7 +68,7 @@ In order to install GFS2, you need to follow few steps:
 
 1. Create and attach the volume. See the manual [Create and attach a volume](#create-and-attach-a-volume) from above.
 
-1. For AlmaLinux and other RedHat based distributions you just need enable two collections and install few packages **on every nodes:**
+1. For AlmaLinux and other RedHat based distributions you just need enable two collections and install few packages **on every node:**
 
     ```sh
     $> dnf config-manager --enable  highavailability resilientstorage
