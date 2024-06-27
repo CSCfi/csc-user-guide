@@ -193,7 +193,7 @@
 * [Jupyter for courses](jupyter-for-courses.md) A version of the Jupyter app for course environments
 * [MySQL](../data/kaivos/overview.md) MySQL database client.
 * [ParaView](paraview.md) Free open-source visualization application
-* [Python](python.md) Programming language and its modules at CSC
+* [Python](python.md) The programming language and its modules at CSC
 * [TensorBoard](tensorboard.md) The visualization toolkit for TensorFlow
 * [VisIt](visit.md) Free open-source visualization application
 * [Visual Studio Code](vscode.md) Source code editor
