@@ -43,14 +43,12 @@ Desk](../contact.md).
 		source <venv_name>/bin/activate
 		pip install whatshap
 		```
-		!!! note ""
-		    Unlike e.g. Tykky, `venv` creates a new directory for the
-		    environment, so there is no need for you to create one beforehand.
-
-		    Don't forget to use the `--system-site-packages` flag when creating
-		    the virtual environment, otherwise the environment will not find the
-		    pre-installed packages from the base module (for example `numpy` from
-		    `python-data`).
+        Unlike e.g. Tykky, `venv` creates a new directory for the
+        environment, so there is no need for you to create one beforehand.
+        Don't forget to use the `--system-site-packages` flag when creating
+        the virtual environment, otherwise the environment will not find the
+        pre-installed packages from the base module (for example `numpy` from
+        `python-data`).
 
 		Later when you wish to use the virtual environment you only need to
 		load the module and activate the environment:
@@ -59,13 +57,11 @@ Desk](../contact.md).
 		module load python-data
 		source /projappl/<your_project>/venv/bin/activate
 		```
-		!!! note ""
-		    Likewise, when using the virtual environment, make sure
-		    to actually have the base module loaded.
-
+        Likewise, when using the virtual environment, make sure
+        to actually have the base module loaded.
 		Naturally, this also applies to Slurm job scripts.
 
-		!!! info
+		!!! note ""
 			Some older CSC modules are not compatible with Python
 			virtual environments. We are still working to update those.
 			If you happen to be working with one of these modules, you
@@ -110,7 +106,7 @@ Desk](../contact.md).
 		export PYTHONUSERBASE=/projappl/<your_project>/my-python-env
 		```
 
-		!!! info
+		!!! note ""
 			If the package you installed also contains executable files
 			these may not work as they refer to the Python path internal to the
 			container (and most of our Python modules are installed with
