@@ -1,6 +1,7 @@
 from http import HTTPStatus
 from datetime import date
 from logging import getLogger
+from string import Template
 
 import feedparser
 
@@ -49,19 +50,24 @@ class ArchiveItem:
 
 class RSSArchive:
     def __init__(self, archive_url):
-        self.archive = feedparser.parse(archive_url, sanitize_html=False)
+        self.url = archive_url
+        self.archive = feedparser.parse(self.url, sanitize_html=False)
 
     @property
     def status(self):
-        return self.archive.get("status", None)
+        return self.archive.get("status")
+
+    @property
+    def exception(self):
+        return str(self.archive.get("bozo_exception"))
 
     @property
     def title(self):
-        return self.archive.feed.title
+        return self.archive.feed.get("title")
 
     @property
     def entries(self):
-        return self.archive.entries
+        return self.archive.get("entries")
 
     @property
     def items(self):
@@ -79,17 +85,30 @@ class ArchiveHook:
         self.logger = logger
         self.environment = None
 
-    def __log_status(self, feed):
-        msg = lambda feed, status: f"Archive '{feed.title}': {status.value} {status.phrase}"
-        if feed.status is not None:
-            status = HTTPStatus(feed.status)
-            message = msg(feed, status)
-            if 100 <= status.value <= 299:
-                self.logger.info(message)
-            elif 300 <= status.value <= 399:
-                self.logger.warning(message)
+    def __log_status(self, archive):
+        archive_template = Template("Archive '$title': $code $phrase")
+        fail_template = Template("Failed to fetch $url: $code $phrase")
+        none_template = Template("Failed to fetch $url: $exception")
+
+        if archive.status is not None:
+            status = HTTPStatus(archive.status)
+            if 100 <= status.value <= 399:
+                message = archive_template.substitute(title=archive.title,
+                                                      code=status.value,
+                                                      phrase=status.phrase)
+                if status.value <= 299:
+                    self.logger.info(message)
+                else:
+                    self.logger.warning(message)
             elif status.value >= 400:
+                message = fail_template.substitute(url=archive.url,
+                                                   code=status.value,
+                                                   phrase=status.phrase)
                 self.logger.error(message)
+        else:
+            message = none_template.substitute(url=archive.url,
+                                               exception=archive.exception)
+            self.logger.error(message)
 
     def __get_heading(self, markdown):
         return markdown.split("\n")[0] + "\n"
@@ -107,8 +126,13 @@ class ArchiveHook:
                 self.logger.info(f"Fetching archive from {archive_url}...")
                 archive = RSSArchive(archive_url)
                 self.__log_status(archive)
-                page.meta["title"] = archive.title
-                return self.__get_heading(markdown) + archive.markdown
+
+                if any((archive.title is None,
+                        archive.entries is None)):
+                    return None
+                else:
+                    page.meta["title"] = archive.title
+                    return self.__get_heading(markdown) + archive.markdown
         else:
             return None
 
