@@ -43,7 +43,7 @@ Desk](../contact.md).
 		source <venv_name>/bin/activate
 		pip install whatshap
 		```
-        Unlike e.g. Tykky, `venv` creates a new directory for the
+        Unlike for example Tykky, `venv` creates a new directory for the
         environment, so there is no need for you to create one beforehand.
         Don't forget to use the `--system-site-packages` flag when creating
         the virtual environment, otherwise the environment will not find the
@@ -113,14 +113,14 @@ Desk](../contact.md).
 			containers). You might see an error message like this:
 
 			```bash
-			whatshap --help
 			whatshap: /CSC_CONTAINER/miniconda/envs/env1/bin/python3.9: bad interpreter: No such file or directory
 			```
 
-			You can fix this by editing the first line of the executable (check
-			with `which whatshap` in our example) to point to the real python
-			interpreter (check with `which python3`). In our example we would edit
-			the file `~/.local/bin/whatshap` to have this as the first line:
+			You can fix this by editing the first line of the executable
+            (which in our example is found with `which whatshap`) to point to the
+            real Python interpreter (can be found with `which python3`).
+            In our example we would edit the file `~/.local/bin/whatshap`
+            to have the following as its first line:
 
 			```bash
 			#!/appl/soft/ai/tykky/python-data-2022-09/bin/python3
