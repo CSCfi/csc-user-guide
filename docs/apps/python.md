@@ -84,8 +84,7 @@ module load python-data
 Typically, after activating a Python-based module, the `python3` command points
 to a version of Python that is newer than the default system Python and has a
 wider set of available packages. You can always check the Python version
-with the command  
-`python3 --version`, and the full path of the command with
+with the command `python3 --version`, and the full path of the command with
 `which python3` (to see if you are using the system Python or one from the
 modules listed above).
 

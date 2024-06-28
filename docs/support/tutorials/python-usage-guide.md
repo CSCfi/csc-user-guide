@@ -267,7 +267,7 @@ have Spyder included. The best option for using it is through the
 
 ## Python parallel jobs
 
-There are several Python libraries for parallel computing. Below are a few suggested ones:
+There are several Python libraries for parallel computing. Below are a few suggestions:
 
 * [multiprocessing](https://docs.python.org/3/library/multiprocessing.html) – process-based parallelism
 * [joblib](https://joblib.readthedocs.io/en/latest/) – running Python functions as pipeline jobs
