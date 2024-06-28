@@ -110,6 +110,6 @@ access](../../cloud/pouta/index.md).
 
 ## Further reading in Docs CSC
 
-* [Python parallel jobs](../../apps/python.md#python-parallel-jobs)
+* [Python parallel jobs](python-usage-guide.md#python-parallel-jobs)
 * [Dask tutorial](dask-python.md)
 * [High-throughput computing and workflows](../../computing/running/throughput.md)
