@@ -91,7 +91,7 @@ This information is also available via a web interface.
 
 ## Creating a project
 
-First, click this [link](https:/rahti.csc.fi/) to access the homepage of Rahti 2 and click **Login Page** under *OpenShift 4.15*.  
+First, click this [link](https://rahti.csc.fi/) to access the homepage of Rahti 2 and click **Login Page** under *OpenShift 4.15*.  
 
 After being logged in, click the blue "Create Project" button to create a project, and you will be presented with the following view:
 
