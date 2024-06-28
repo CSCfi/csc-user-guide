@@ -50,9 +50,9 @@ python3.9
 ```
 
 !!! warning
-	It is strongly advised to explicitly launch Python version 3.9 as
-	above, since **the default version launched by `python3` (3.6.8) has
-	[reached end-of-life](https://devguide.python.org/versions/)**.
+    It is strongly advised to explicitly launch Python version 3.9 as
+    above, since **the default version launched by `python3` (3.6.8) has
+    [reached end-of-life](https://devguide.python.org/versions/)**.
 
 ### Pre-installed Python environments
 

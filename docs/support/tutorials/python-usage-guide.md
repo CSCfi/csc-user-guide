@@ -18,12 +18,12 @@ If there is a CSC-provided module that covers _almost_ everything you
 need, but it is missing a few Python packages, you can try installing
 those yourself with the pip package manager.
 
-See the [package lists on our Python application
-page](../../apps/python.md#pre-installed-python-environments) to find out
-which packages are installed in existing modules.
+See the
+[package lists on our Python application page](../../apps/python.md#pre-installed-python-environments)
+to find out which packages are installed in existing modules.
 If you think that some important package should be included by default
-in a module provided by CSC, don't hesitate to contact our [Service
-Desk](../contact.md).
+in a module provided by CSC, don't hesitate to contact our
+[Service Desk](../contact.md).
 
 === "Using `venv`"
     The recommended way to add packages on top of an existing environment
@@ -42,6 +42,7 @@ Desk](../contact.md).
     source <venv_name>/bin/activate
     pip install whatshap
     ```
+
     Unlike for example Tykky, `venv` creates a new directory for the
     environment, so there is no need for you to create one beforehand.
     Don't forget to use the `--system-site-packages` flag when creating
@@ -56,6 +57,7 @@ Desk](../contact.md).
     module load python-data
     source /projappl/<your_project>/venv/bin/activate
     ```
+
     Likewise, when using the virtual environment, make sure
     to actually have the base module loaded.
     Naturally, this also applies to Slurm job scripts.
@@ -66,6 +68,7 @@ Desk](../contact.md).
         If you happen to be working with one of these modules, you
         need to use the `pip install --user` approach described on
         the other tab.
+
     ---
 
 === "Using `pip install --user`"
@@ -126,6 +129,7 @@ Desk](../contact.md).
         ```bash
         #!/appl/soft/ai/tykky/python-data-2022-09/bin/python3
         ```
+
     ---
 
 ### Creating your own Python environments
@@ -135,8 +139,7 @@ It is also possible to create your own Python environments.
 === "pip"
     1. The easiest way to create a custom pip environment is by using the `venv`
        module discussed in the
-       [previous
-       section](python-usage-guide.md#installing-python-packages-to-existing-modules),
+       [previous section](python-usage-guide.md#installing-python-packages-to-existing-modules),
        which actually shows precisely how to do this. If you do not wish to use
        packages from one of the existing modules, simply do not include
        the  
@@ -147,8 +150,8 @@ It is also possible to create your own Python environments.
        The most straightforward way to do so is by using the
        [Tykky container wrapper](../../computing/containers/tykky.md).
        To find out how to easily containerize your environment,
-       see the [Tykky instructions for pip-based
-       installations](../../computing/containers/tykky.md#pip-based-installations).
+       see the
+       [Tykky instructions for pip-based installations](../../computing/containers/tykky.md#pip-based-installations).
 
     3. An alternative to using Tykky is creating a pip environment
        inside a custom Apptainer container. This is a practical choice if, for
@@ -159,7 +162,9 @@ It is also possible to create your own Python environments.
         * [Running Apptainer containers](../../computing/containers/run-existing.md)
         * [Creating Apptainer containers](../../computing/containers/creating.md),
         including how to convert Docker containers to Apptainer containers.
+
     ---
+
 === "conda"
     Conda is easy to use and flexible, but it usually creates a huge number of files which
     is incompatible with shared file systems. The excess of files can cause
@@ -172,11 +177,11 @@ It is also possible to create your own Python environments.
     conda environments.
 
     1. The most straightforward way to create a containerized conda
-       environment is by using the [Tykky container
-       wrapper](../../computing/containers/tykky.md).
+       environment is by using the
+       [Tykky container wrapper](../../computing/containers/tykky.md).
        To find out how to easily containerize your environment,
-       see the [Tykky instructions for conda-based
-       installations](../../computing/containers/tykky.md#conda-based-installations).
+       see the
+       [Tykky instructions for conda-based installations](../../computing/containers/tykky.md#conda-based-installations).
 
     2. An alternative to using Tykky is creating a conda environment
        inside a custom Apptainer container. This is a practical choice if, for
@@ -191,6 +196,7 @@ It is also possible to create your own Python environments.
     The [CSC conda tutorial](./conda.md) describes in more detail
     what conda is and how to use it. Some parts of the tutorial may
     also be helpful for Tykky installations.
+
     ---
 
 ## Python development environments
@@ -229,8 +235,7 @@ Many of our Python environments, including
 as well as deep learning modules like [`pytorch`](../../apps/pytorch.md)
 include the main Jupyter packages, so they can be used in the application.
 The documentation page for the application includes a
-[list of supported environments](
-../../computing/webinterface/jupyter.md#currently-supported-python-environments).
+[list of supported environments](../../computing/webinterface/jupyter.md#currently-supported-python-environments).
 
 ### Visual Studio Code
 
@@ -246,20 +251,20 @@ There are two ways to run VSCode on CSC supercomputers:
 2. [Remotely using the Remote-SSH plugin](./remote-dev.md#visual-studio-code-with-remote-ssh-plugin)
 
 !!! info "Using custom environments in VSCode"
-	Since only CSC modules are offered in the VSCode session launch form,
-	using custom Python environments with built-in VSCode functions like
-	debugging requires changing the path of the Python interpreter
-	after the session has launched. This can be done by clicking on
-	the Python version information displayed in the lower right corner
-	of the VSCode window.
+    Since only CSC modules are offered in the VSCode session launch form,
+    using custom Python environments with built-in VSCode functions like
+    debugging requires changing the path of the Python interpreter
+    after the session has launched. This can be done by clicking on
+    the Python version information displayed in the lower right corner
+    of the VSCode window.
 
 ### Spyder
 
 [Spyder](https://www.spyder-ide.org/) is a scientific Python development
 environment. The [python-data](../../apps/python-data.md) and
 [geoconda](../../apps/geoconda.md) modules
-have Spyder included. The best option for using it is through the [Puhti
-web interface remote desktop](../../computing/webinterface/desktop.md).
+have Spyder included. The best option for using it is through the
+[Puhti web interface remote desktop](../../computing/webinterface/desktop.md).
 
 ## Python parallel jobs
 
@@ -279,14 +284,14 @@ single-node parallelization (max. 40 cores).
 parallelization. Please see the [CSC Dask tutorial](./dask-python.md) for
 examples of both single-node (max. 40 cores) and multi-node parallelization.
 
-In addition, there are examples of [using different parallelization options on
-Puhti](https://github.com/csc-training/geocomputing/tree/master/python/puhti)
+In addition, there are examples of
+[using different parallelization options on Puhti](https://github.com/csc-training/geocomputing/tree/master/python/puhti)
 on our CSC Training GitHub organization. Of the above four packages, examples are
 provided for `multiprocessing`, `joblib` and `dask`.
 
 The `mpi4py` package is included in our [PyTorch environment](../../apps/pytorch.md).
 It is generally the most efficient option for multinode jobs with non-trivial parallelization.
 For a short tutorial on `mpi4py`, along with other approaches for improving the
-performance of Python programs, please see the free [Python
-in High Performance Computing](https://www.futurelearn.com/courses/python-in-hpc)
+performance of Python programs, please see the free
+[Python in High Performance Computing](https://www.futurelearn.com/courses/python-in-hpc)
 online course.
