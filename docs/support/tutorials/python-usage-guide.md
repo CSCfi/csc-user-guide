@@ -26,171 +26,172 @@ in a module provided by CSC, don't hesitate to contact our [Service
 Desk](../contact.md).
 
 === "Using `venv`"
-	!!! default ""
-		The recommended way to add packages on top of an existing environment
-		is to use [venv](https://docs.python.org/3/tutorial/venv.html), which
-		is a standard Python module for creating a lightweight "virtual
-		environment". You can have multiple virtual environments, for example
-		one for each project.
+    The recommended way to add packages on top of an existing environment
+    is to use [venv](https://docs.python.org/3/tutorial/venv.html), which
+    is a standard Python module for creating a lightweight "virtual
+    environment". You can have multiple virtual environments, for example
+    one for each project.
 
-		For example to install a package called `whatshap` on top of the
-		CSC-provided [python-data](../../apps/python-data.md) module:
+    For example to install a package called `whatshap` on top of the
+    CSC-provided [python-data](../../apps/python-data.md) module:
 
-		```bash
-		cd /projappl/<your_project>  # change this to the appropriate path for your project
-		module load python-data
-		python3 -m venv --system-site-packages <venv_name>
-		source <venv_name>/bin/activate
-		pip install whatshap
-		```
-        Unlike for example Tykky, `venv` creates a new directory for the
-        environment, so there is no need for you to create one beforehand.
-        Don't forget to use the `--system-site-packages` flag when creating
-        the virtual environment, otherwise the environment will not find the
-        pre-installed packages from the base module (for example `numpy` from
-        `python-data`).
+    ```bash
+    cd /projappl/<your_project>  # change this to the appropriate path for your project
+    module load python-data
+    python3 -m venv --system-site-packages <venv_name>
+    source <venv_name>/bin/activate
+    pip install whatshap
+    ```
+    Unlike for example Tykky, `venv` creates a new directory for the
+    environment, so there is no need for you to create one beforehand.
+    Don't forget to use the `--system-site-packages` flag when creating
+    the virtual environment, otherwise the environment will not find the
+    pre-installed packages from the base module (for example `numpy` from
+    `python-data`).
 
-		Later when you wish to use the virtual environment you only need to
-		load the module and activate the environment:
+    Later when you wish to use the virtual environment you only need to
+    load the module and activate the environment:
 
-		```bash
-		module load python-data
-		source /projappl/<your_project>/venv/bin/activate
-		```
-        Likewise, when using the virtual environment, make sure
-        to actually have the base module loaded.
-		Naturally, this also applies to Slurm job scripts.
+    ```bash
+    module load python-data
+    source /projappl/<your_project>/venv/bin/activate
+    ```
+    Likewise, when using the virtual environment, make sure
+    to actually have the base module loaded.
+    Naturally, this also applies to Slurm job scripts.
 
-		!!! note ""
-			Some older CSC modules are not compatible with Python
-			virtual environments. We are still working to update those.
-			If you happen to be working with one of these modules, you
-			need to use the `pip install --user` approach described on
-			the other tab.
+    !!! info "Compatibility with virtual environments"
+        Some older CSC modules are not compatible with Python
+        virtual environments. We are still working to update those.
+        If you happen to be working with one of these modules, you
+        need to use the `pip install --user` approach described on
+        the other tab.
+    ---
 
 === "Using `pip install --user`"
-	!!! default ""
-		Another approach to installing additional packages is to do a "user
-		installation" with the command `pip install --user`. This approach is
-		easy to use in principle, as it doesn't require setting up a
-		virtual environment. However, package-provided commands may not
-		work out-of-the-box (see the Info box at the end of this section).
+    Another approach to installing additional packages is to do a "user
+    installation" with the command `pip install --user`. This approach is
+    easy to use in principle, as it doesn't require setting up a
+    virtual environment. However, package-provided commands may not
+    work out-of-the-box (see the Info box at the end of this section).
 
-		Packages are by default installed to your home
-		directory under `.local/lib/pythonx.y/site-packages` (where `x.y` is
-		the version of Python being used). **Please note that if you install a lot of
-		packages, your home directory can easily run out of space.**
-		This can be avoided by changing the installation folder to make
-		a project-wide installation instead of a personal one. This is
-		done by setting the `PYTHONUSERBASE` environment variable to
-		refer to the new installation directory.
+    Packages are by default installed to your home
+    directory under `.local/lib/pythonx.y/site-packages` (where `x.y` is
+    the version of Python being used). **Please note that if you install a lot of
+    packages, your home directory can easily run out of space.**
+    This can be avoided by changing the installation folder to make
+    a project-wide installation instead of a personal one. This is
+    done by setting the `PYTHONUSERBASE` environment variable to
+    refer to the new installation directory.
 
-		For example, to add the package `whatshap` on top of the `python-data` module:
+    For example, to add the package `whatshap` on top of the `python-data` module:
 
-		```bash
-		module load python-data
-		export PYTHONUSERBASE=/projappl/<your_project>/my-python-env
-		pip install --user whatshap
-		```
+    ```bash
+    module load python-data
+    export PYTHONUSERBASE=/projappl/<your_project>/my-python-env
+    pip install --user whatshap
+    ```
 
-		In the above example, the package is now installed inside the
-		`my-python-env` directory in the project's `projappl` directory. Run  
-		`unset PYTHONUSERBASE` if you wish to install packages into your home
-		directory again.
+    In the above example, the package is now installed inside the
+    `my-python-env` directory in the project's `projappl` directory. Run  
+    `unset PYTHONUSERBASE` if you wish to install packages into your home
+    directory again.
 
-		When using the libraries later, you need to define `PYTHONUSERBASE`
-		again. Naturally, this also applies to Slurm job scripts. For example:
+    When using the libraries later, you need to define `PYTHONUSERBASE`
+    again. Naturally, this also applies to Slurm job scripts. For example:
 
-		```bash
-		module load python-data
-		export PYTHONUSERBASE=/projappl/<your_project>/my-python-env
-		```
+    ```bash
+    module load python-data
+    export PYTHONUSERBASE=/projappl/<your_project>/my-python-env
+    ```
 
-		!!! note ""
-			If the package you installed also contains executable files
-			these may not work as they refer to the Python path internal to the
-			container (and most of our Python modules are installed with
-			containers). You might see an error message like this:
+    !!! info "Packages containing executable files"
+        Most of our Python modules are implemented as containers.
+        If a package you install also contains executable files,
+        they may not work out of the box, since the executable
+        may look for the Python interpreter using a path that is
+        internal to the container.
+        You might see an error message like this:
 
-			```bash
-			whatshap: /CSC_CONTAINER/miniconda/envs/env1/bin/python3.9: bad interpreter: No such file or directory
-			```
+        ```bash
+        whatshap: /CSC_CONTAINER/miniconda/envs/env1/bin/python3.9: bad interpreter: No such file or directory
+        ```
 
-			You can fix this by editing the first line of the executable
-            (which in our example is found with `which whatshap`) to point to the
-            real Python interpreter (can be found with `which python3`).
-            In our example we would edit the file `~/.local/bin/whatshap`
-            to have the following as its first line:
+        You can fix this by editing the first line of the executable
+        (which in our example is located using `which whatshap`) to point
+        to the real Python interpreter (can be found with `which python3`).
+        In our example we would edit the file `~/.local/bin/whatshap`
+        to have the following as its first line:
 
-			```bash
-			#!/appl/soft/ai/tykky/python-data-2022-09/bin/python3
-			```
+        ```bash
+        #!/appl/soft/ai/tykky/python-data-2022-09/bin/python3
+        ```
+    ---
 
 ### Creating your own Python environments
 
 It is also possible to create your own Python environments.
 
 === "pip"
-	!!! default ""
-		1. The easiest way to create a custom pip environment is by using the `venv`
-		   module discussed in the
-		   [previous
-		   section](python-usage-guide.md#installing-python-packages-to-existing-modules),
-		   which actually shows precisely how to do this. If you do not wish to use
-		   packages from one of the existing modules, simply do not include
-		   the  
-		   `--system-site-packages` flag when creating the virtual environment.
+    1. The easiest way to create a custom pip environment is by using the `venv`
+       module discussed in the
+       [previous
+       section](python-usage-guide.md#installing-python-packages-to-existing-modules),
+       which actually shows precisely how to do this. If you do not wish to use
+       packages from one of the existing modules, simply do not include
+       the  
+       `--system-site-packages` flag when creating the virtual environment.
 
-		2. Another option is to create a pip environment inside a
-		   [container](../../computing/containers/overview.md).
-		   The most straightforward way to do so is by using the
-		   [Tykky container wrapper](../../computing/containers/tykky.md).
-		   To find out how to easily containerize your environment,
-		   see the [Tykky instructions for pip-based
-		   installations](../../computing/containers/tykky.md#pip-based-installations).
+    2. Another option is to create a pip environment inside a
+       [container](../../computing/containers/overview.md).
+       The most straightforward way to do so is by using the
+       [Tykky container wrapper](../../computing/containers/tykky.md).
+       To find out how to easily containerize your environment,
+       see the [Tykky instructions for pip-based
+       installations](../../computing/containers/tykky.md#pip-based-installations).
 
-		3. An alternative to using Tykky is creating a pip environment
-		   inside a custom Apptainer container. This is a practical choice if, for
-		   example, you know of a suitable ready-made Apptainer or Docker container.
-		   For more information about using Apptainer containers, please see the
-		   related documentation:
+    3. An alternative to using Tykky is creating a pip environment
+       inside a custom Apptainer container. This is a practical choice if, for
+       example, you know of a suitable ready-made Apptainer or Docker container.
+       For more information about using Apptainer containers, please see the
+       related documentation:
 
-			* [Running Apptainer containers](../../computing/containers/run-existing.md)
-			* [Creating Apptainer containers](../../computing/containers/creating.md),
-			including how to convert Docker containers to Apptainer containers.
-
+        * [Running Apptainer containers](../../computing/containers/run-existing.md)
+        * [Creating Apptainer containers](../../computing/containers/creating.md),
+        including how to convert Docker containers to Apptainer containers.
+    ---
 === "conda"
-	!!! default ""
-		Conda is easy to use and flexible, but it usually creates a huge number of files which
-		is incompatible with shared file systems. The excess of files can cause
-		very slow library imports and,
-		in the worst case, slowdowns in the whole file system. Because of this,
-		[**CSC has deprecated the use of conda**](conda.md)
-        for direct installations on supercomputers.
-        However, you can still create and use
-		[containerized](../../computing/containers/overview.md)
-		conda environments.
+    Conda is easy to use and flexible, but it usually creates a huge number of files which
+    is incompatible with shared file systems. The excess of files can cause
+    very slow library imports and,
+    in the worst case, slowdowns in the whole file system. Because of this,
+    [**CSC has deprecated the use of conda**](conda.md)
+    for direct installations on supercomputers.
+    However, you can still create and use
+    [containerized](../../computing/containers/overview.md)
+    conda environments.
 
-		1. The most straightforward way to create a containerized conda
-		   environment is by using the [Tykky container
-		   wrapper](../../computing/containers/tykky.md).
-		   To find out how to easily containerize your environment,
-		   see the [Tykky instructions for conda-based
-		   installations](../../computing/containers/tykky.md#conda-based-installations).
+    1. The most straightforward way to create a containerized conda
+       environment is by using the [Tykky container
+       wrapper](../../computing/containers/tykky.md).
+       To find out how to easily containerize your environment,
+       see the [Tykky instructions for conda-based
+       installations](../../computing/containers/tykky.md#conda-based-installations).
 
-		2. An alternative to using Tykky is creating a conda environment
-		   inside a custom Apptainer container. This is a practical choice if, for
-		   example, you know of a suitable ready-made Apptainer or Docker container.
-		   For more information about using Apptainer containers, please see the
-		   related documentation:
+    2. An alternative to using Tykky is creating a conda environment
+       inside a custom Apptainer container. This is a practical choice if, for
+       example, you know of a suitable ready-made Apptainer or Docker container.
+       For more information about using Apptainer containers, please see the
+       related documentation:
 
-			* [Running Apptainer containers](../../computing/containers/run-existing.md)
-			* [Creating Apptainer containers](../../computing/containers/creating.md),
-			including how to convert Docker containers to Apptainer containers.
+        * [Running Apptainer containers](../../computing/containers/run-existing.md)
+        * [Creating Apptainer containers](../../computing/containers/creating.md),
+        including how to convert Docker containers to Apptainer containers.
 
-		The [CSC conda tutorial](./conda.md) describes in more detail
-		what conda is and how to use it. Some parts of the tutorial may
-		also be helpful for Tykky installations.
+    The [CSC conda tutorial](./conda.md) describes in more detail
+    what conda is and how to use it. Some parts of the tutorial may
+    also be helpful for Tykky installations.
+    ---
 
 ## Python development environments
 
@@ -244,7 +245,7 @@ There are two ways to run VSCode on CSC supercomputers:
 1. [As an interactive app on our web interface](../../computing/webinterface/vscode.md)
 2. [Remotely using the Remote-SSH plugin](./remote-dev.md#visual-studio-code-with-remote-ssh-plugin)
 
-!!! info
+!!! info "Using custom environments in VSCode"
 	Since only CSC modules are offered in the VSCode session launch form,
 	using custom Python environments with built-in VSCode functions like
 	debugging requires changing the path of the Python interpreter
