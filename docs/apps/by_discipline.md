@@ -1,6 +1,6 @@
 # Applications by discipline
 
-!!! Note
+!!! default "Note"
     In addition to technical support, CSC also provides expert consulting in questions related to sciences and methods. For more details, see our [science-specific support pages at research.csc.fi](https://research.csc.fi/sciences) or directly [contact our Service Desk](../support/contact.md).
 
 
@@ -164,7 +164,6 @@
 * [Julia](julia.md)  High-level, high-performance dynamic programming language for numerical computing
 * [MATLAB](matlab.md) High-level technical computing language
 * [Octave](octave.md) High-level interpreted language for numerical computations
-* [Python](python.md) programming language and its modules at CSC
 * [r-env](r-env.md) R, RStudio Server, SAGA and TensorFlow
 * [RStudio](rstudio.md) Integrated development environment for R
 * [SageMath](sagemath.md) Free open-source mathematics software system
@@ -189,11 +188,12 @@
 * [DDT](ddt.md) Parallel debugger
 * [Desktop](desktop.md) Remote desktop environment
 * [HyperQueue](hyperqueue.md) Scheduler for sub-node tasks
-* [Julia-Jupyter](julia-jupyter.md) Interactive computational environment with Julia
-* [Jupyter](jupyter.md) Interactive computational environment with Python
+* [Julia-Jupyter](julia-jupyter.md) Interactive computational environment for Julia
+* [Jupyter](jupyter.md) Interactive computational environment for Python
 * [Jupyter for courses](jupyter-for-courses.md) A version of the Jupyter app for course environments
 * [MySQL](../data/kaivos/overview.md) MySQL database client.
 * [ParaView](paraview.md) Free open-source visualization application
+* [Python](python.md) The programming language and its modules at CSC
 * [TensorBoard](tensorboard.md) The visualization toolkit for TensorFlow
 * [VisIt](visit.md) Free open-source visualization application
 * [Visual Studio Code](vscode.md) Source code editor
