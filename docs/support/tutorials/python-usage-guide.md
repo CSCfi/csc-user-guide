@@ -181,7 +181,7 @@ It is also possible to create your own Python environments.
        [Tykky container wrapper](../../computing/containers/tykky.md).
        To find out how to easily containerize your environment,
        see the
-       [Tykky instructions for conda-based installations](../../computing/containers/tykky.md#conda-based-installations).
+       [Tykky instructions for conda-based installations](../../computing/containers/tykky.md#conda-based-installation).
 
     2. An alternative to using Tykky is creating a conda environment
        inside a custom Apptainer container. This is a practical choice if, for
