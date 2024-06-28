@@ -22,7 +22,7 @@ See the
 [package lists on our Python application page](../../apps/python.md#pre-installed-python-environments)
 to find out which packages are installed in existing modules.
 If you think that some important package should be included by default
-in a module provided by CSC, don't hesitate to contact our
+in a module provided by CSC, do not hesitate to contact our
 [Service Desk](../contact.md).
 
 === "Using `venv`"
@@ -45,7 +45,7 @@ in a module provided by CSC, don't hesitate to contact our
 
     Unlike for example Tykky, `venv` creates a new directory for the
     environment, so there is no need for you to create one beforehand.
-    Don't forget to use the `--system-site-packages` flag when creating
+    Do not forget to use the `--system-site-packages` flag when creating
     the virtual environment, otherwise the environment will not find the
     pre-installed packages from the base module (for example `numpy` from
     `python-data`).
@@ -55,7 +55,7 @@ in a module provided by CSC, don't hesitate to contact our
 
     ```bash
     module load python-data
-    source /projappl/<your_project>/venv/bin/activate
+    source /projappl/<your_project>/<venv_name>/bin/activate
     ```
 
     Likewise, when using the virtual environment, make sure
@@ -64,9 +64,9 @@ in a module provided by CSC, don't hesitate to contact our
 
     !!! info "Compatibility with virtual environments"
         Some older CSC modules are not compatible with Python
-        virtual environments. We are still working to update those.
-        If you happen to be working with one of these modules, you
-        need to use the `pip install --user` approach described on
+        virtual environments. We are still working to update these
+        modules, so if you happen to be working with one of them,
+        you need to use the `pip install --user` approach described on
         the other tab.
 
     ---
@@ -137,6 +137,9 @@ in a module provided by CSC, don't hesitate to contact our
 It is also possible to create your own Python environments.
 
 === "pip"
+    Pip is a good choice for managing Python environments that do not
+    rely on complex dependency relationships.
+    
     1. The easiest way to create a custom pip environment is by using the `venv`
        module discussed in the
        [previous section](python-usage-guide.md#installing-python-packages-to-existing-modules),
@@ -169,7 +172,7 @@ It is also possible to create your own Python environments.
     Conda is easy to use and flexible, but it usually creates a huge number of files which
     is incompatible with shared file systems. The excess of files can cause
     very slow library imports and,
-    in the worst case, slowdowns in the whole file system. Because of this,
+    in the worst case, slows down the whole file system. Because of this,
     [**CSC has deprecated the use of conda**](conda.md)
     for direct installations on supercomputers.
     However, you can still create and use
@@ -193,10 +196,6 @@ It is also possible to create your own Python environments.
         * [Creating Apptainer containers](../../computing/containers/creating.md),
         including how to convert Docker containers to Apptainer containers.
 
-    The [CSC conda tutorial](./conda.md) describes in more detail
-    what conda is and how to use it. Some parts of the tutorial may
-    also be helpful for Tykky installations.
-
     ---
 
 ## Python development environments
@@ -205,8 +204,8 @@ Python scripts can be edited directly on a CSC supercomputer using a
 [console-based text editor](./env-guide/text-and-image-processing.md)
 like `vim` or `emacs`. In addition to these terminal-based editors,
 several graphical programming environments,
-such as Jupyter notebooks, Spyder and Visual Studio
-Code, can be used on a supercomputer through
+such as Jupyter notebooks, Visual Studio Code and Spyder,
+can be used on a supercomputer through
 [our web interface](../../computing/webinterface/index.md).
 
 In addition to editing code directly on a supercomputer, it is also
@@ -268,7 +267,7 @@ have Spyder included. The best option for using it is through the
 
 ## Python parallel jobs
 
-There are several Python packages for parallel computing. Below are a few suggested ones:
+There are several Python libraries for parallel computing. Below are a few suggested ones:
 
 * [multiprocessing](https://docs.python.org/3/library/multiprocessing.html) – process-based parallelism
 * [joblib](https://joblib.readthedocs.io/en/latest/) – running Python functions as pipeline jobs
