@@ -61,6 +61,67 @@ The Global file system or (GFS2 in short) is a file system currently developed b
 
 ![GFS2 with DLM](../img/GFS2.drawio.svg)
 
+### GFS2 ansible install
+
+We have written a small ansible [cinder-multiattach](https://github.com/lvarin/cinder-multiattach/) playbook, that installs a cluster of nodes and installs a shared GFS2 file system on them. The playbook is intended as a guide and demo, it is not production ready. For example, there is a manual step, attach the volume in each node. The Ansible playbook will create a cluster of VMs and install the requested file system on them. The end result will be the same volume mounted in every VM. The quick start commands are these:  
+
+```sh
+$> source ~/Downloads/project_XXXXXXX-openrc.sh
+Please enter your OpenStack Password for project project_XXXXXXX as user YYYYYYYY: 
+
+$> ansible-playbook main.yml -e fs='gfs2' -e csc_username='johndoe' -e csc_password='easyaccess'
+
+$> for i in $(seq 1 16);
+do
+    openstack --os-compute-api-version 2.60 server add volume "cinder-gfs2-$i" multi-attach-test-gfs2
+done
+
+$> ansible-playbook main.yml -e fs='gfs2'
+```
+
+*`csc_username` and `csc_password` can also be added in the `all.yaml`*
+
+You need to run Ansible twice due to a bug in the `openstack.cloud.server_volume` which can only attach the volume to a single VM and fails with the other ones.
+
+If you already have a cluster of VMs, or want to manually create them, it is still possible to use the `gfs2` Ansible role. The steps are simple:
+
+1. Create and attach the volume. See the manual [Create and attach a volume](#create-and-attach-a-volume) from above.
+
+1. Create a standard Ansible inventory like this one:
+
+    ```ini
+    [all]
+    <VM_name> ansible_host=192.168.1.XXX ansible_user=<user>
+    # ...
+    [all:vars]
+    ansible_ssh_common_args='-J <jumphost>'
+    ```
+
+    In the example above you need to replace `<VM_name>` by the name of the VM, the IP `192.168.1.XXX` must be the correct IP of the VM, and finally the `<user>` has to also be replaced by the corresponding one. You need to have a line per VM node that you want to include in the cluster. Finally, if you are using a Jump Host, you need to replace `<jumphost>` by its connection information, like `ubuntu@177.51.170.99` 
+
+1. Create a playbook like this one:
+
+    ```yaml
+    ---
+
+    - name: Configure VMs
+      hosts: all
+      gather_facts: true
+      become: true
+      roles:
+        - role: hosts
+        - role: gfs2
+    ```
+
+    This will run two roles, the `hosts` one if to create a `/etc/hosts` file in every VM with the IPs and names of every VM. The `gfs2` role installs and configures the cluster.
+
+1. And run it:
+
+    ```sh
+    $> ansible-playbook main-gfs2.yml -i inventory.ini
+    ```
+
+### GFS2 manual install
 
 In order to install GFS2, you need to follow few steps:
 
