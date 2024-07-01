@@ -79,7 +79,8 @@ done
 $> ansible-playbook main.yml -e fs='gfs2'
 ```
 
-*`csc_username` and `csc_password` can also be added in the `all.yaml`*
+*`csc_username` and `csc_password` can also be added in the `all.yaml`*  
+*It can be a [robot account](../../accounts/how-to-create-new-user-account.md#getting-a-machine-to-machine-robot-account)*
 
 You need to run Ansible twice due to a bug in the `openstack.cloud.server_volume` which can only attach the volume to a single VM and fails with the other ones.
 
