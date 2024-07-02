@@ -1,18 +1,22 @@
 #!/bin/bash
 
+# If you are executing this script manually for development purposes,
+# note that the script 'generate_alpha.sh' needs to be executed first;
+# Otherwise, the resulting page will not have any apps listed on it.
+
+# If you are adding another system, make sure to add a heading for
+# it into the file pointed to by the variable $generated_file below.
+# While this script rewrites the whole file, the link tests are
+# executed before that when deploying and may thus falsely report
+# broken links.
+
 app_dir="docs/apps"
 ignore_file="scripts/skip_system.txt"
 generated_file="docs/apps/by_system.md"
 echo -e "# Applications by availability\n" > $generated_file
 
-# If you are adding another system, make sure to add a heading for
-# it into the file pointed to by the variable $generated_file above.
-# While this script rewrites the whole file, the link tests are
-# executed before that when deploying and may thus falsely report
-# broken links.
-
 # Case sensitive, the title for the system category
-system_name=("Mahti" "Puhti" "LUMI" "Mahti web interface" "Puhti web interface")
+system_name=("Mahti" "Puhti" "Rahti" "LUMI" "Mahti web interface" "Puhti web interface")
 
 # Prefix to indicate a keyword for a web interface
 interactive_prefix="www"
@@ -20,10 +24,11 @@ interactive_prefix="www"
 # Not case sensitive, the keyword to grep to determine if a software is available on a system
 # For exceptions add an entry to skip_system.txt
 # Format: SKIP_[system_key] [filename]
-system_key=("mahti" "puhti" "lumi" "$interactive_prefix-mahti" "$interactive_prefix-puhti")
+system_key=("mahti" "puhti" "rahti" "lumi" "$interactive_prefix-mahti" "$interactive_prefix-puhti")
 
 system_desc=("CSC supercomputer for massively parallel jobs"\
     "CSC supercomputer for small and medium jobs"\
+    "CSC container cloud platform"\
     "EuroHPC supercomputer for CPU and especially GPU jobs"\
     "Web interface for Mahti"\
     "Web interface for Puhti")
