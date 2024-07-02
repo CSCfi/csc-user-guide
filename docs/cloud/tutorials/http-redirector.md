@@ -17,7 +17,7 @@ It is very simple to setup a HTTP redirection in Rahti using a web server like n
     ```nginx
     #default.conf
     server {
-            listen *:8000;
+            listen *:8080;
             server_name test.com;
             return 301 $scheme://test2.com$request_uri;
     }
