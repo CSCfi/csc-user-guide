@@ -24,7 +24,7 @@ After acquiring the permit, you can start the service access process with CSC. N
 7. [Accept SD Desktop terms of use](#7-accept-sd-desktop-terms-of-use)
 8. [Activate MFA Authentication](#8-activate-mfa-authentication)
 9. [CSC project is ready](#9-your-csc-project-is-ready)
-10. [Log into SD Desktop](#10-log-into-SD-Desktop)
+10. [Log into SD Desktop](#10-log-into-sd-desktop)
 11. [Access the data with SD Desktop](#11-access-the-data-with-sd-desktop)
 
 ### 1. Create a CSC account
