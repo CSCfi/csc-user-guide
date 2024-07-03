@@ -6,6 +6,12 @@ These instructions are for researchers who have received a permit for the second
 
 Processing data issued directly from a single register differs from processing data issued by Findata. If you have received a permit directly from a single register, you need to use **SD Apply** to access the data on SD Desktop. The following instructions will direct you on how to apply for access to data issued by a single register.
 
+!!! Note
+    * [SD Connect](sd_connect.md), a service used for storing sensitive research data, is **not accessible for registry data processing**. It is not possible to directly import any additional data, script, or software into the virtual desktop. 
+    * If you need software that is not available on the SD Desktop by default, please contact [Service Desk](../../support/contact.md) (*Subject: Sensitive Data, Secondary use*) well in advance - even before applying for a data permit.
+
+*Please note that you can create a test project and test regular SD Desktop independently, to make sure that SD Desktop is suitable for your needs. [Instructions how to access regular SD Desktop](sd-use-case-new-user-project-manager.md).*
+
 ## Get access to single register data
 
 ### Create a project in MyCSC

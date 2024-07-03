@@ -8,7 +8,8 @@ Accessing secondary use health or social data from public registries requires a 
 After acquiring the permit, you can start the service access process with CSC. Next, we will walk you through the steps that need to be completed in order to access the dataset on SD Desktop.
 
 !!! Note
-    [SD Connect](sd_connect.md), a service used for storing sensitive research data, is **not accessible for registry data processing**. It is not possible to directly import any additional data, script, or software into the virtual desktop, but this needs to be done via Findata. 
+    * [SD Connect](sd_connect.md), a service used for storing sensitive research data, is **not accessible for registry data processing**. It is not possible to directly import any additional data, script, or software into the virtual desktop. 
+    * If you need software that is not available on the SD Desktop by default, please contact [Service Desk](../../support/contact.md) (*Subject: Sensitive Data, Secondary use*) well in advance - even before applying for a data permit.
 
 *Please note that you can create a test project and test regular SD Desktop independently, to make sure that SD Desktop is suitable for your needs. [Instructions how to access regular SD Desktop](sd-use-case-new-user-project-manager.md).*
 
@@ -39,9 +40,9 @@ After acquiring the permit, you can start the service access process with CSC. N
 **Assignment for team manager only:**
 
 - Go to ”Projects” page (left side menu or a hamburger menu at the top right corner).
-- On the top of the page choose **”New project”**
+- On the top of the page choose **”New project”**.
 - Fill in the project name and project description. You can edit these later if needed.
-- Choose the Project category to be **“Findata”** (if you are a researcher and a member of Finnish higher education institution)
+- Choose the Project category to be **“Findata”**.
 - Fill all required fields. Read and accept the terms of use.
 - Click **“Create a project”**.
 
@@ -53,7 +54,7 @@ After acquiring the permit, you can start the service access process with CSC. N
 
 - Since your project handles personal data, you need to fill the GDPR document i.e. *Description of processing activity* -form.
 - The document appears when you create a new project. You can edit this document later.
-- Your home organization is the **data controller** (CSC is the data processor, never the controller). [Read more about the roles and GDPR](../../support/faq/sensitive-data-legal.md#what-are-the-roles-of-csc-and-its-service-users-under-gdpr).
+- Your home organization is the **data controller**. [Read more about the roles and GDPR](../../support/faq/sensitive-data-legal.md#what-are-the-roles-of-csc-and-its-service-users-under-gdpr).
 
 ![Personal data handling document.](https://a3s.fi/docs-files/sensitive-data/MyCSC/MyCSC_GDPR.png)
 
@@ -61,7 +62,7 @@ After acquiring the permit, you can start the service access process with CSC. N
 **Assignment for team manager only:**
 
 - Send email to **sensitivedata-support@csc.fi**, subject: *Sensitive Data, Secondary use*.
-- Write your project number to the email (for example *project_1234567*).
+- Write your project number to the email (e.g. *project_1234567*).
 - Attach a copy of your **data permit** to the email.
 - Write down a list of your research teams email addresses. Please use same emails that they created the CSC-account with.
 - Put your research team as cc.
