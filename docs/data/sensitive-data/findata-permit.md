@@ -1,7 +1,7 @@
 # Accessing SD Desktop with a Findata permit
 
 
-**[Instructions in Finnish (PDF)](https://a3s.fi/docs-files/sensitive-data/SD_palvelut_ja_toisiolaki_kaytto_Findata.pdf){ target="_blank" }**
+**[Instructions in Finnish (PDF)](https://a3s.fi/docs-files/sensitive-data/PDF_instructions/SD_toisiolaki_Findata.pdf){ target="_blank" }**
 
 Accessing secondary use health or social data from public registries requires a permit from the **Findata** authority. You can apply for the data permit by logging in to Findata’s e-service. Instructions for applying for the data permit can be found on [Findata's website](https://findata.fi/en/permits/){ target="_blank" }.
 
@@ -16,7 +16,7 @@ After acquiring the permit, you can start the service access process with CSC. N
 
 1. [Create a CSC account](#1-create-a-csc-account)
 2. [Create new CSC project](#2-create-new-csc-project)
-3. [Fill the GDPR document](#3-fill-the-gdpr-document)
+3. [Fill GDPR document](#3-fill-gdpr-document)
 4. [Contact CSC service desk](#4-contact-csc-service-desk)
 5. CSC adds members to your project, please wait
 6. CSC activates SD Desktop for your project, please wait
@@ -48,14 +48,14 @@ After acquiring the permit, you can start the service access process with CSC. N
 ![Click create a project.](./images/MyCSC/MyCSC_NewProject.png)
 
 
-### 3. Fill the GDPR document
+### 3. Fill GDPR document
 **Assignment for team manager only:**
 
 - Since your project handles personal data, you need to fill the GDPR document i.e. *Description of processing activity* -form.
 - The document appears when you create a new project. You can edit this document later.
 - Your home organization is the **data controller** (CSC is the data processor, never the controller). [Read more about the roles and GDPR](../../support/faq/sensitive-data-legal.md#what-are-the-roles-of-csc-and-its-service-users-under-gdpr).
 
-![Personal data handling document.](./images/MyCSC/MyCSC_PersonalDataHandling.png)
+![Personal data handling document.](https://a3s.fi/docs-files/sensitive-data/MyCSC/MyCSC_GDPR.png)
 
 ### 4. Contact CSC service desk
 **Assignment for team manager only:**
@@ -81,6 +81,8 @@ After acquiring the permit, you can start the service access process with CSC. N
 
 - If you haven't accept the terms of use before, please go to MyCSC - navigate to the project view - see left side **Service** list - click SD Desktop and **accept the terms of use**.
 - Please note that every team member must accept the SD Desktop terms of use.
+
+![How to approve terms of use.](https://a3s.fi/docs-files/sensitive-data/MyCSC/MyCSC_TermsOfUse.png)
 
 ### 8. Activate MFA Authentication
 **Assignment for whole team:**

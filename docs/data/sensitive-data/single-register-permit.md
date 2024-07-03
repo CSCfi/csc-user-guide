@@ -1,6 +1,6 @@
 # Accessing the service with a permit from a single register
 
-**[Instructions in Finnish (PDF)](https://a3s.fi/docs-files/sensitive-data/SD_palvelut_ja_toisiolaki_kaytto_yksittainen_rekisteri.pdf){ target="_blank" }**
+**[Instructions in Finnish (PDF)](https://a3s.fi/docs-files/sensitive-data/PDF_instructions/SD_toisiolaki_yksittainenRekisteri.pdf){ target="_blank" }**
 
 These instructions are for researchers who have received a permit for the secondary use of social and health data **directly from a single public register**. In other words, the permit is not from Findata, and **the permit is issued for SD Desktop**.
 
@@ -65,8 +65,8 @@ You can follow the approval process and read the possible comments from the *Eve
 
 [![SD Apply "Applications" tab](images/apply/apply_state.png)](images/apply/apply_state.png)
 
-#### 5. Finalise the linkage of the data and your CSC project
-Once your application has been approved, you will receive a notification and further instructions via email. In addition, you need to export the application as a PDF-file from SD Apply and send it to the CSC service desk to finalise the linkage of your data and the CSC project created for you.
+#### 5. Finalize the linkage of the data and your CSC project
+Once your application has been approved, you will receive a notification and further instructions via email. In addition, you need to export the application as a PDF-file from SD Apply and send it to the CSC service desk to finalize the linkage of your data and the CSC project created for you.
 ___
 
 ### Access the data with SD Desktop

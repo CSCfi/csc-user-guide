@@ -43,11 +43,11 @@ You need to access to SD services. You are manager of research team or work inde
 
 ### 3. Fill the GDPR document
 
-- Since your project handles personal data, you need to fill the GDPR document i.e. Personal data handling document.
+- Since your project handles personal data, you need to fill the GDPR document i.e. *Description of processing activity* -form.
 - The document appears when you create a new project. You can edit this document later.
 - Please check with your home organization  who is the **data controller** (CSC is the data processor, never the controller). [Read more about the roles and GDPR](../../support/faq/sensitive-data-legal.md#what-are-the-roles-of-csc-and-its-service-users-under-gdpr).
 
-![Personal data handling document.](./images/MyCSC/MyCSC_PersonalDataHandling.png)
+![Personal data handling document.](https://a3s.fi/docs-files/sensitive-data/MyCSC/MyCSC_GDPR.png)
 
 ### 4. Activate SD Services for your project
 
