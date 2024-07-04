@@ -1,56 +1,101 @@
-# Using Allas with S3 using Python boto3 library
+# Using Allas with the `boto3` Python library and S3 protocol
 
-[boto3](https://boto3.amazonaws.com/v1/documentation/api/latest/index.html) is a Python library for working S3 storage and other AWS services. `boto3` works with Allas over [S3 protocol](../introduction.md#protocols). 
+[`boto3`](https://boto3.amazonaws.com/v1/documentation/api/latest/index.html)
+is a Python library for working with
+[Amazon S3](https://aws.amazon.com/s3/) storage and other AWS services.
+It can be used to access Allas with the
+[S3 protocol](../introduction.md#protocols).
 
-In general for analyzing Allas data with Python:
-* Save input data to Allas, possibly using other Allas tools
-* Download the data from Allas to the local computer (inc. supercomputers) with `boto3`.
-* Analyze the data using the local copy of data.
-* Write your results to local disk.
-* Upload the new files to Allas with `boto3`.
+The general workflow for using Python to analyze Allas data looks like
+this:
 
-Some Python libraries might support also direct reading and writing with S3, for example [AWS SDK for Pandas](https://aws-sdk-pandas.readthedocs.io/en/stable/), [GDAL-based Python libraries](https://github.com/csc-training/geocomputing/blob/master/python/allas/working_with_allas_from_Python_S3.py) for spatial data analysis.
+1. Upload the input data to Allas using `boto3` or another client.
+2. Download the data from Allas to a local device (personal workstation or CSC
+supercomputer) using `boto3`.
+3. Analyze the local copy of the data.
+4. Write the results to local storage.
+5. Upload the results to Allas using `boto3`.
 
-This page shows how to:
+Some Python libraries might also support direct reading and writing with S3,
+for example
+[AWS SDK for Pandas](https://aws-sdk-pandas.readthedocs.io/en/stable/)
+and
+[GDAL-based Python libraries](https://github.com/csc-training/geocomputing/blob/master/python/allas/working_with_allas_from_Python_S3.py)
+for spatial data analysis.
 
-* Install `boto3`
-* Set up S3 credentials
-* Create `boto3 client` 
-* List buckets and objects 
-* Create a bucket
-* Upload and download an object 
-* Remove buckets and objects 
-
-Note, that S3 and SWIFT APIs should not be mixed.
+!!! note ""
+    Remember to avoid handling the same objects with both S3 and SWIFT, as
+    [they work differently with large objects](../introduction.md#protocols).
 
 ## Installation
 
-`boto3` is available for Python 3.8 and higher and can be [installed](https://boto3.amazonaws.com/v1/documentation/api/latest/guide/quickstart.html#installation) with `pip` or `conda`.
+`boto3` is available for Python 3.8 and higher.
+It can be
+[installed on a personal device](https://boto3.amazonaws.com/v1/documentation/api/latest/guide/quickstart.html#installation)
+with `pip` or `conda`.
 
-```
+```bash
+# pip
 pip install boto3
+
+# conda
+conda install boto3
 ```
 
-### `boto3` in CSC supercomputers
-Some existing [Python modules](../../../apps/python.md#pre-installed-python-environments) might have `boto3` pre-installed, for example [geoconda](../../../apps/geoconda.md). 
-To other modules, it is possible to add `boto3` with [pip](../../../support/tutorials/python-usage-guide.md#installing-python-packages-to-existing-modules).
+### `boto3` on CSC supercomputers
 
+The pre-existing
+[`geoconda`](../../../apps/geoconda.md) and
+[`biopythontools`](../../../apps/biopython.md)
+Python modules have `boto3` installed. 
+It is also possible to
+[add `boto3` on top of other modules](../../../support/tutorials/python-usage-guide.md#installing-python-packages-to-existing-modules)
+using `pip`.
 
 ## Configuring S3 credentials
 
-If you have not used Allas with S3 before, then first [create S3 credentials](s3_client.md#getting-started-with-s3cmd). The credentials are saved to `~/.aws/credentials` file, so they need to be set only once from a new computer or when changing project. The credential file can be also copied from one computer to another.
+The easiest way to set up S3 credentials for using `boto3` is by
+[configuring an S3 connection on a CSC supercomputer](s3_client.md#configuring-s3-connection-in-supercomputers).
+After running `allas-conf --mode s3cmd`, the credentials are stored on the
+supercomputer in `~/.aws/credentials`, where `boto3` looks for them
+automatically.
 
-In CSC supercomptuers [`allas` module](s3_client.md#configuring-s3-connection-in-supercomputers) can be used with `allas-conf --mode s3cmd` to configure the credentials.
+If you are accessing Allas from a personal workstation,
+you can copy `.aws` and its contents to your workstation home directory
+[using a file transfer tool](../../moving.md), e.g. by running
+`scp -r <username>@puhti.csc.fi:~/.aws $HOME`. As above, `boto3` automatically
+looks for your credentials in your local home directory.
+
+Note that only one set of credentials can be stored in `~/.aws/credentials`.
+If you wish to use `boto3` with multiple projects simultaneously, you can write the
+generated credentials to another file and manually pass them to
+`boto3.resource()` as individual parameters. Otherwise, you can simply rerun
+`allas-conf --mode s3cmd` to overwrite the credentials file for accessing
+the object storage of another project. If you are using `boto3` on a personal
+workstation, you obviously need to copy the rewritten credentials file from
+the supercomputer.
 
 ## `boto3` usage
 
-### Create boto3 resource
-For all next steps, first boto3 resource must be created.
+### Create `boto3` resource
 
 ```python
 import boto3
-s3_resource = boto3.resource('s3', endpoint_url='https://a3s.fi')
+
+# Only include `aws_access_key_id` and `aws_secret_access_key` if
+# you do not want `boto3` to get the keys from `~/.aws/credentials`.
+# See previous section for explanation.
+
+s3_resource = boto3.resource(
+    's3',
+    endpoint_url='https://a3s.fi',
+    aws_access_key_id='<AWS_ACCESS_KEY_ID>',  # input your S3 access key
+    aws_secret_access_key='<AWS_SECRET_ACCESS_KEY>'  # input your S3 secret key
+)
 ```
+
+!!! note ""
+    Each subsequent step supposes that a `boto3` resource has been created.
 
 ### Create a bucket
 
@@ -68,7 +113,7 @@ for bucket in s3_resource.buckets.all():
     print(bucket.name)
 ```
 
-And all objects belonging to a bucket:
+List all objects belonging to a bucket:
 ```python
 my_bucket = s3_resource.Bucket('examplebucket')
 
