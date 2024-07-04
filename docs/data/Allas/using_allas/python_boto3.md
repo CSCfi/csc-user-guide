@@ -62,7 +62,7 @@ automatically.
 
 If you are accessing Allas from a personal workstation,
 you can copy `.aws` and its contents to your workstation home directory
-[using a file transfer tool](../../moving.md), e.g. by running
+[using a file transfer tool](../../moving/index.md), e.g. by running
 `scp -r <username>@puhti.csc.fi:~/.aws $HOME`. As above, `boto3` automatically
 looks for your credentials in your local home directory.
 
