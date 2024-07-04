@@ -22,9 +22,9 @@ we recommend:
     be suitable for your project. If the existing environment is missing a few
     critical packages, you can often install the missing packages on your own.
 
-    Our [Python](../../apps/python.md#installing-python-packages-to-existing-modules)
-    and [R](../../apps/r-env.md#r-package-installations) pages also contain further
-    details on how to install your own packages to our modules. You can also
+    Our [Python usage guide](python-usage-guide.md#installing-python-packages-to-existing-modules)
+    and [R application page](../../apps/r-env.md#r-package-installations) contain further
+    details on how to install your own packages on top of our modules. You can also
     [contact CSC Service Desk](../contact.md) with requests for missing packages.
 
 2. **Create containerized Conda or pip environment using CSC's Tykky tool**

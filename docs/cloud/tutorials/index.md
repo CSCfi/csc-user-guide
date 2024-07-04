@@ -24,3 +24,4 @@
 * [Pod (anti) affinity](pod-affinity.md)
 * [Advanced NetworkPolicies](advanced-NetworkPolicies-networking.md)
 * [Integrating External Services](integrating-external-services.md)
+* [Setup a HTTP redirection in Rahti](http-redirector.md)

@@ -1,11 +1,24 @@
 # Training & tutorials
 
+## New guide for using Python effectively on CSC supercomputers, 27.6.2024
+
+We have reworked our Python documentation. Instructions on installing packages,
+using different development environments and running parallel jobs have been
+updated and are now found under a guide called
+[*Using Python on CSC supercomputers*](../tutorials/python-usage-guide.md).
+
+The [Python application page](../../apps/python.md) has been simplified
+to purely describe the different Python implementations in our computing
+environment. As a new addition there is a [list of our pre-made Python
+environment modules](../../apps/python.md#pre-installed-python-environments)
+along with their intended purposes and included packages.
+
 ## Spring School on Computational Chemistry materials available for self learning, 10.5.2024
 
 The [School materials](https://zenodo.org/records/11172973) cover intro to molecular
 dynamics and electronic structure theory lectures and hands-on exercises, and machine
 learning for molecular and material use cases. You can also access the Notebooks directly
-via the [Mahti web interface](https://www.mahti.csc.fi) (once logged in, select "Jupyter for
+via the [Puhti web interface](https://www.puhti.csc.fi) (once logged in, select "Jupyter for
 courses" and the desired course module.)
 
 ## How to run GROMACS efficiently on LUMI training materials published, 6.2.2024

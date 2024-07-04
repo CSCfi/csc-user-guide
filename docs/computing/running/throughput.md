@@ -178,7 +178,7 @@ workflows.
 * [LAMMPS multi-partition switch][lmp]
 * [Amber multi-pmemd][amber-multi-pmemd]
 * Python:
-    * [Python parallel jobs](../../apps/python.md#python-parallel-jobs)
+    * [Python parallel jobs](../../support/tutorials/python-usage-guide.md#python-parallel-jobs)
     * [CSC Dask tutorial](../../support/tutorials/dask-python.md)
     * [CSC machine learning guide](../../support/tutorials/ml-guide.md)
 * R:

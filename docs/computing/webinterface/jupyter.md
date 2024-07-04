@@ -1,19 +1,41 @@
 # Jupyter
-The Jupyter interactive app launches a Jupyter notebook that is accessible through the web interface.
 
-In the app form you can select Python environment, Jupyter notebook type, working directory and some more advanced settings.
+The Jupyter interactive app launches a
+[Jupyter computational notebook](../../apps/jupyter.md)
+with the [IPython](https://ipython.readthedocs.io/en/stable/index.html)
+kernel that is accessible through the [supercomputer web interface](./index.md).
 
-For more information about the Python environments on Puhti and Mahti, see the [documentation about Python](../../apps/python.md). Note that the modules listed there are not guaranteed to work in the web interface and the installation of Python packages in Jupyter in the web interface works differently.
+In the app launch form you can define the Python environment,
+Jupyter interface type (Jupyter Notebook or JupyterLab),
+working directory as well as some more advanced settings.
+
+For more information about working with different Python environments on Puhti
+and Mahti, see our [Python application page](../../apps/python.md)
+and [Python usage guide](../../support/tutorials/python-usage-guide.md).
+Note that all the modules listed on the Python app page are not guaranteed to
+work with the Jupyter interactive app. Additionally, installation of
+Python packages works differently from the general instructions in
+the usage guide.
 
 ### Currently supported Python environments
+
  - geoconda
  - python-data
  - pytorch
- - tensorflow
  - qiskit
+ - tensorflow
 
 ## Installing packages
-It is possible to install packages in the Jupyter notebook using `pip`. Before launching the Jupyter app, you should set the *User packages path* in the advanced settings view to the directory where you want to install packages. The default option is to install packages into `$HOME/.local`, but this is not recommended as the home directory quota is limited.
+
+It is possible to install Python packages with `pip` inside an interactive
+Jupyter session. To do this, you must define the package installation path in
+the *User packages path* field under the launch form before launching the session.
+To set *User packages path*, you must enable the *Show advanced settings* option at
+the end of the form.
+
+If you do not define an installation path, the packages will be installed under
+`$HOME/.local/lib`. However, **this is not recommended** as the home directory
+storage quota is limited.
 
 To install packages to the defined user packages directory, use the following command in the notebook:  
 
