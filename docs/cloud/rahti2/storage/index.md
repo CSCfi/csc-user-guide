@@ -23,3 +23,15 @@ In case you need to store large volumes of data, or you need that your data can 
 At CSC, we offer Allas as our object storage solution. You can find additional information on the [Allas page](../../../data/Allas/index.md).
 
 You can find additional examples on how to backup to Allas [here](objectstorage.md).
+
+## Volume snapshots
+
+A snapshot represents the state of the storage volume in a cluster at a particular point in time. Volume snapshots can be used to provision a new volume. Volume snapshots help protect against data loss in OKD. Rahti2 support Container Storage Interface (CSI) volume snapshots by default and the default volume snapshot class name is standard-csi.
+
+With CSI volume snapshots, an app developer can:
+
+- Use volume snapshots as building blocks for developing application or cluster-level storage backup solutions.
+- Rapidly rollback to a previous development version.
+- Use storage more efficiently by not having to make a full copy each time.
+
+You can find additional information on the [Volume snapshot](VolumeSnapshot.md) page.
