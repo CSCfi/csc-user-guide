@@ -34,5 +34,5 @@ With CSI volume snapshots, an app developer can:
 - Rapidly rollback to a previous development version.
 - Use storage more efficiently by not having to make a full copy each time.
 
-You can find additional information on the [Volume snapshot](VolumeSnapshot.md) page.
+You can find additional information on the [Volume snapshot](volume-snapshot.md) page.
 
