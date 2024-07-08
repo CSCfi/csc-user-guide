@@ -10,5 +10,5 @@ Not as such, but you do have several options:
   [https://letsencrypt.org/](https://letsencrypt.org/), provides
   certificates which behave well with most modern web browsers.
 * if you are using Rahti, you can use the wildcard certificate for
-  `*.rahtiapp.fi` DNS names (see [Do you offer in Rahti SSL
+  `*.2.rahtiapp.fi` DNS names (see [Do you offer in Rahti SSL
   certificates](../rahti-ssl-certificates)).
