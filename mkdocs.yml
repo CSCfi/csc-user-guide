@@ -286,6 +286,7 @@ nav:
            - Ephemeral storage: cloud/rahti2/storage/ephemeral.md
            - Object storage: cloud/rahti2/storage/objectstorage.md
            - Expand a volume: cloud/rahti2/storage/expand-volumes.md
+           - Volume snap shot: cloud/rahti2/storage/volume-snapshot.md
         - Images:
            - cloud/rahti2/images/overview.md
            - Creating an image: cloud/rahti2/images/creating.md
