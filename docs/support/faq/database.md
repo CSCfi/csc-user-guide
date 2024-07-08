@@ -13,5 +13,7 @@ Rahti is a good choice only if the application that needs to connect to the data
 
 You could also consider the [Kaivos Database service](../..//data/kaivos/overview.md) hosted by CSC,
 which provides the server where you can apply for an account and an empty database will be 
-available for you. This way you don't need to manage the virtual machine.
+available for you. This way you don't need to manage the virtual machine.  
 
+We also have a new DBaaS called [Pukki](../../cloud/dbaas/index.md).
+This new service allows you to deploy MySQL databases. Other types are under consideration.
