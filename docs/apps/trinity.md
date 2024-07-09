@@ -19,7 +19,7 @@ The Trinity module at CSC also includes TransDecoder and Trinotate tools to anly
 
 ## License
 
-Free to use and open source under [Broad Institute License]https://github.com/genome-vendor/trinity/blob/master/LICENSE).
+Free to use and open source under [Broad Institute License](https://github.com/genome-vendor/trinity/blob/master/LICENSE).
 
 ## Available
 Version on CSC's Servers
@@ -30,12 +30,12 @@ Puhti: 2.15.1, 2.14.0, 2.13.2, 2.11.0, 2.8.5
 ## Using Trinity 
 
 
-In Puhti, Trinity is set up with command:
+On Puhti, Trinity is set up with the command:
 ```text
 module load biokit
 ```
 The biokit module sets up a set of commonly used bioinformatics tools including
-trinity 2.8.5. If want to use version 2.13.2, run command:
+trinity 2.8.5. If want to use version 2.13.2, run the command:
 
 ```text
 module load trinty/2.13.2
@@ -65,14 +65,14 @@ reads.right.fq --SS_lib_type RF --CPU $SLURM_CPUS_PER_TASK \
 --output trinity_run_out --grid_exec sbatch_commandlist
 ```
 The command script above reserves 6 computing cores from one node for the job. The maximal run time of the sample job here is 48 hours. 
-About 4 GB of memory is reserved for each core so the total memory reservation is `6 * 4 GB = 24 GB`. In Puhti, you must use batch job option
+About 4 GB of memory is reserved for each core so the total memory reservation is `6 * 4 GB = 24 GB`. On Puhti, you must use batch job option
 `--account=` to define the project to be used. You should replace _project_1234567_ used in the example,  with your own project. You can check your 
 projects with command: `csc-workspaces`.
 
-In the actual Trinity command the number, of computing cores to be used (--CPU) is set using environment variable: `$SLURM_CPUS_PER_TASK`. 
+In the actual `Trinity` command the number, of computing cores to be used (--CPU) is set using environment variable: `$SLURM_CPUS_PER_TASK`. 
 This variable contains the value set the `--cpus-per-task` SLURM option.
 
-In Puhti you can also use distributed computing to speed up the trinity job. When definition:
+On Puhti, you can also use distributed computing to speed up the trinity job. When definition:
 ```text
 --grid_exec sbatch_commandlist
 ```
@@ -82,13 +82,13 @@ replace _sbatch_commandlist_ with _sbatch_commandlist_trinity_.
 ```text
 --grid_exec sbatch_commandlist_trinity
 ```
-When Trinity is executed with _--grid_exec_ option in generates large amount of temporary files and it 
-is very likely, that you will exceed the default limit of 100 000 files. Thus it is advisable to apply for 
+When Trinity is executed with _--grid_exec_ option, it generates large amount of temporary files and it 
+is very likely, that you will exceed the default limit of 100 000 files. Thus, it is advisable to apply for 
 a larger file number quota for Puhti scratch before submitting large Trinity jobs. You can send the request
 to servicedesk@csc.fi.
 
 
-When the batch job file is ready, it can be submitted to the batch queue system with command:
+When the batch job file is ready, it can be submitted to the batch queue system with the command:
 ```text
 sbatch batch_job_file
 ```
@@ -98,10 +98,11 @@ Please check the Trinity site to get hints for estimating the required resources
 
 ## Using autoTrinotate
 
-You can analyse the results of your Trinity job with `autoTrininotate`. You need two files, resulting from a successful Trinity assembly.
-    1. Fasta formatted nucleotide sequence file containing the final contigs created by Trinity (`Trinity.fasta`)
-    2. gene-to-trans map for the input fasta file (`Trinity.fasta.gene_to_trans_map`)
-Note that depending on Trinity version, these names may have a prefix as defined with the `--output` option (e.g. `trinity_run_out.Trinity.fasta`).    
+You can analyse the results of your Trinity job with `autoTrinotate`. You need two files, resulting from a successful Trinity assembly.
+1. Fasta formatted nucleotide sequence file containing the final contigs created by Trinity (`Trinity.fasta`)
+2. gene-to-trans map for the input fasta file (`Trinity.fasta.gene_to_trans_map`)
+
+Note that depending on the Trinity version, these names may have a prefix as defined with the `--output` option (e.g. `trinity_run_out.Trinity.fasta`).    
 
 Copy a template sqlite database for your analysis:
 
@@ -109,17 +110,17 @@ Copy a template sqlite database for your analysis:
 cp $TRINOTATE_HOME/databases/Trinotate.sqlite mydb.sqlite
 ```
 
-You can then launch autoTrinotate with command:
+You can then launch `autoTrinotate` with the command:
 
 ```bash
 $TRINOTATE_HOME/auto/autoTrinotate.pl --Trinotate_sqlite mydb.sqlite --transcripts Trinity.fasta --gene_to_trans_map  Trinity.fasta.gene_to_trans_map --conf $TRINOTATE_HOME/auto/conf.txt --CPU  $SLURM_CPUS_PER_TASK
 ```
 
 !!! Note
-    autoTrinotate analysis can require much resources so you should execute the command in
+    autoTrinotate analysis can require much resources so you should execute the command
     with [sinteractive](../computing/running/interactive-usage.md) or as a batch job.
 
-AutoTrinotate produces an SQLite database file that can be further analyzed with command:
+AutoTrinotate produces an SQLite database file that can be further analyzed with the command:
 
 ```bash
 $TRINOTATE_HOME/Trinotate
