@@ -20,6 +20,12 @@ desktop](../computing/webinterface/desktop.md) for running the GUI.
 VisIt is free also for commercial use and has been released under [BSD Open Source
 License](https://github.com/visit-dav/visit/blob/develop/LICENSE)
 
+## Available
+
+Versions on CSC's servers
+
+Puhti: 3.1.3, 3.3.3
+
 ## Parallel use
 
 VisIt can be run interactively in parallel configuration using several processors.
