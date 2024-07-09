@@ -33,7 +33,7 @@ To use default version of HMMER on Puhti, load the biokit module:
 module load biokit
 ```
 
-If you want to use some other version, load the particular version of the HMMER module, e.g.
+If you want to use some other version, load the particular version of the HMMER module, For e.g.,
 ```text
 module load hmmer/3.2.1
 ```
