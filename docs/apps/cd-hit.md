@@ -23,7 +23,7 @@ Puhti: 4.8.1
 
 ## Usage
 
-The setup command for CD-HIT in Puhti cluster is:
+The setup command for CD-HIT on Puhti cluster is:
 ```text
 module load biokit
 ```
@@ -52,14 +52,14 @@ You can list the command line options of CD-HIT programs by using option `-help`
 cd-hit -help
 ```
 
-A simple analysis for a protein sequence set can be done for example with command:
+A simple analysis for a protein sequence set can be done, for example, with the command:
 ```text
 cd-hit -i my_proteins.fasta -o reduced_set.fasta -c 0.95
 ```
 The sample command above produces two result files:
 
 *   _reduced_set.fasta_ contains a pruned sequence set. In this case, if two sequences are more than 95% identical, only the longer one is included to the results.
-*   _reduced_set.fasta.clstr_ contains information about the clustering of the sequences that share higher similarity than the give threshold value (in this case 95%).
+*   _reduced_set.fasta.clstr_ contains information about the clustering of the sequences that share higher similarity than the given threshold value (in this case 95%).
 
 
 ## Support
@@ -69,4 +69,4 @@ servicedesk@csc.fi
 
 *   [CD-HIT user guide](https://github.com/weizhongli/cdhit/wiki)
 
-*   [CD-HIT home page](http://weizhongli-lab.org/cd-hit/)
+*   [CD-HIT home page](http://sites.google.com/view/cd-hit)
