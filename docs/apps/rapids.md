@@ -53,7 +53,7 @@ containers](../computing/containers/run-existing.md).
 
 ## License
 
-RAPIDS is licensed under [Apache License 2.0](https://rapids.ai/community.html)
+RAPIDS is licensed under [Apache License 2.0](https://docs.rapids.ai/api/cugraph/stable/references/licenses/)
 
 ## Usage
 
@@ -65,13 +65,13 @@ module load rapids
 
 to access the default version.
 
-This will show all available versions:
+To see all the available versions, run:
 
 ```text
 module avail rapids
 ```
 
-To check the exact packages and versions included in the loaded module you can run:
+To check the exact packages and versions included in the loaded module, you can run:
 
 ```text
 list-packages
@@ -85,7 +85,7 @@ list-packages
 
 ### Local storage
 
-The GPU nodes have fast local storage which is useful for IO-intensive
+The GPU nodes have fast local storage which is useful for I/O-intensive
 applications. See our [general instructions on how to take the fast local
 storage into
 use](../computing/running/creating-job-scripts-puhti.md#local-storage).
