@@ -29,8 +29,8 @@ module load vmd/1.9.3
 
 Note, that you need remote graphics to work with VMD. Due to the heavy graphics
 required by VMD, we recommend to use it through [the Puhti web interface remote
-desktop](../computing/webinterface/desktop.md). Please don't
-run VMD on the login nodes.
+desktop](../computing/webinterface/desktop.md). **Please don't
+run VMD on the login nodes.**
 
 !!! Note
     For improved performance, you can now also run VMD with [GPU
