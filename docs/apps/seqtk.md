@@ -18,7 +18,7 @@ Free to use and open source under [MIT License](https://github.com/lh3/seqtk/blo
 
 ## Available
 
-*  Puhti: 1.3-r106
+*  Puhti: 1.3-r106, 1.4
 
 ## Usage
 
@@ -27,7 +27,12 @@ Seqtk in included in the biokit module:
 module load biokit
 ```
 
-Seqtk command syntax is:
+Alternatively, seqtk can be loaded as an independent module:
+```text
+module load seqtk/<version>
+```
+
+`seqtk` command syntax is:
 ```text
 seqtk <command> <arguments>
 ```
