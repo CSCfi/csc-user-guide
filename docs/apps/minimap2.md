@@ -29,25 +29,25 @@ Free to use and open source under [MIT License](https://raw.githubusercontent.co
 
 ## Usage
 
-In Puhti, minimap2 can be taken in use as part of the _biokit_ module collection:
+On Puhti, minimap2 can be used as part of the _biokit_ module collection:
 
 ```text
 module load biokit
 ```
-The biokit modules sets up a set of commonly used bioinformatics tools, including MInimap2. (Note however that there are bioinformatics tools in Puhti, that have a separate setup commands.).
-Once biopkit is loaded, Minimap2 starts in with command:
+The biokit modules sets up a set of commonly used bioinformatics tools, including Minimap2. (Note however that there are bioinformatics tools on Puhti, that have a separate setup commands).
+Once biokit module is loaded, Minimap2 starts with the command:
 
 ```text
 minimap2
 ```
-Without any options, minimap2 takes a reference database and a query sequence file as input and produce approximate mapping, without base-level alignment (i.e. no CIGAR), in the PAF format:
+Without any options, `minimap2` takes a reference database and a query sequence file as input and produce approximate mapping, without base-level alignment (i.e. no CIGAR), in the PAF format:
 ```text
 minimap2 ref.fa query.fq > approx-mapping.paf
 ```
-If you wish to get the output in sam format you can use option `-a`.
+If you wish to get the output in 'sam' format, you can use option `-a`.
 
-For different data types minimap2 needs to be tuned for optimal performance and accuracy.
-With option `-x` you can take in use case specific parameter sets, pre-defined and recommended by the minimap2 developers.
+For different data types, minimap2 needs to be tuned for optimal performance and accuracy.
+With option `-x` you can use case specific parameter sets, pre-defined and recommended by the minimap2 developers.
  
 ####  Map long noisy genomic reads (_map-pb_ and _map-ont_). 
 
@@ -117,8 +117,8 @@ minimap2 -ax asm5 ref.fa asm.fa > aln.sam
 
 ## Example batch script for Puhti
 
-In Puhti, minimap2 jobs should be run as batch jobs. Below is a sample batch job file, 
-for running a minimap2 paired end alignment in Puhti.
+On Puhti, minimap2 jobs should be run as batch jobs. Below is a sample batch job file, 
+for running a minimap2 paired end alignment on Puhti.
 
 
 ```text
@@ -140,15 +140,15 @@ minimap2 -t $SLURM_CPUS_PER_TASK -ax splice -uf ref.fa iso-seq.fq > aln.sam
 
 ```
 
-In the batch job example above one task (-n 1) is executed. The Minimap2 job
+In the batch job example above, one task (-n 1) is executed. The Minimap2 job
 uses 8 cores (--cpus-per-task=8 ) with total of 16 GB of memory (--mem=16000).
 The maximum duration of the job is four hours (-t 04:00:00 ). All the cores
 are assigned from one computing node (--nodes=1 ). In addition to the resource
 reservations, you have to define the billing project for your batch job. This
 is done by replacing the _<project>_ with the name of your project. (You can
-use command `csc-workspaces` to see what projects you have in Puhti).
+use command `csc-workspaces` to see what projects you have on Puhti).
 
-You can submit the batch job file to the batch job system with command:
+You can submit the batch job file to the batch job system with the command:
 
 ```
 sbatch batch_job_file.bash
