@@ -23,13 +23,13 @@ Free to use and open source under [GNU GPLv3](https://www.gnu.org/licenses/gpl-3
 
 ## Usage
 
-In Puhti, BWA can be taken in use as part ofth the _biokit_ module collection:
+On Puhti, BWA can be taken in use as part ofth the _biokit_ module collection:
 
 ```text
 module load biokit
 ```
 
-The biokit modules sets up a set of commonly used bioinformatics tools, including  BWA. (Note however that there are bioinformatics tools in Puhti, that have a separate setup commands.)
+The biokit modules sets up a set of commonly used bioinformatics tools, including  BWA. (Note however that there are bioinformatics tools on Puhti, that have a separate setup commands.)
 
 The basic syntax of BWA commands is:
 
@@ -39,13 +39,13 @@ bwa <command> [options]
 
 ### BWA indexes
 
-CSC does not maintain pre-compiled BWA indexes for reference genomes in Puhti, but you can check if genomes used in Chipster can provide you a ready made index for a genome you want use. This can be done with command:
+CSC does not maintain pre-compiled BWA indexes for reference genomes on Puhti, but you can check if genomes used in Chipster can provide you a ready made index for a genome you want use. This can be done with the command:
 
 ```
 chipster_genomes bwa
 ``` 
 
-If suitable genome index is not found the fist step in creating alignment with BWA is downloading the reference genome and indexing it. Please note that your $HOME directory is often too small for working with complete genomes. In stead you should do the analysis in scratch directory of your Puhti project ($SCRATCH).
+If suitable genome index is not found, the fist step in creating alignment with BWA is downloading the reference genome and indexing it. Please note that your $HOME directory is often too small for working with complete genomes. In stead, you should do the analysis in scratch directory of your Puhti project ($SCRATCH).
 
 You can use for example command `ensemblfetch` or `wget` to download a reference genome to Puhti. For example
 
@@ -53,7 +53,7 @@ You can use for example command `ensemblfetch` or `wget` to download a reference
 ensemblfetch homo_sapiens
 ```
 
-The command above retrieves the human genome sequence to a file called Homo_sapiens.GRCh38.dna.toplevel.fa. You can calculate the BWA indexes for this file with command:
+The command above retrieves the human genome sequence to a file called Homo_sapiens.GRCh38.dna.toplevel.fa. You can calculate the BWA indexes for this file with the command:
 ```text
 bwa index -a bwtsw Homo_sapiens.GRCh38.dna.toplevel.fa
 ```
@@ -61,7 +61,7 @@ Note that for small less than 2 GB reference genomes you could use faster,  "is"
 
 ### Single-end alignment
 
-Once the indexing is ready you can carry out the alignment for singe-end reads with command:
+Once the indexing is ready you can carry out the alignment for singe-end reads with the command:
 ```text
 bwa mem Homo_sapiens.GRCh38.dna.toplevel.fa reads.fastq > aln.sam
 ```
@@ -78,24 +78,24 @@ bwa samse Homo_sapiens.GRCh38.dna.toplevel.fa aln_sa.sai reads.fastq > aln.sam
 
 ### Paired end alignment
 
-If you use the MEM algorithm you can do the paired-end alignment with just one command:
+If you use the MEM algorithm, you can do the paired-end alignment with just one command:
 ```text
 bwa mem Homo_sapiens.GRCh38.dna.toplevel.fa read1.fq read2.fq > aln.sam
 ```
-In this case of BWA-Backtrack algorithm you should first do a separate alignment run for each read file:
+In this case of BWA-Backtrack algorithm, you should first do a separate alignment run for each read file:
 ```text
 bwa aln Homo_sapiens.GRCh38.dna.toplevel.fa reads1.fq > aln1.sai
 
 bwa aln Homo_sapiens.GRCh38.dna.toplevel.fa reads2.fq > aln2.sai
 ```
-The two sai alignment files are combined with command bwa sampe:
+The two sai alignment files are combined with command `bwa sampe`:
 ```text
 bwa sampe Homo_sapiens.GRCh38.dna.toplevel.fa aln1.sai aln2.sai reads1.fq reads2.fq > aln.sam
 ```
-### Running BWA batch jobs in Puhti
+### Running BWA batch jobs on Puhti
 
 
-In Puhti, BWA jobs should be run as batch jobs. Below is a sample batch job file, for running a BWA job in Puhti:
+In Puhti, BWA jobs should be run as batch jobs. Below is a sample batch job file, for running a BWA job on Puhti:
 ```text
 #!/bin/bash
 #SBATCH --job-name=bwa
@@ -120,8 +120,8 @@ bwa mem -t $SLURM_CPUS_PER_TASK Homo_sapiens.GRCh38.dna.toplevel.fa reads1.fq re
 ```
  
 
-In the batch job example above one BWA task (--ntasks 1) is executed. The BWA job uses 8 cores (--cpus-per-task=8 ) with total of 32 GB of memory (--mem=32000). The maximum duration of the job is twelve hours (--time 12:00:00 ). All the cores are assigned from one computing node (--nodes=1 ). In addition to the resource reservations, you have to define the billing project for your batch job. This is done by replacing
-the _your_project_name_ with the name of your project. (You can use command `csc-workspaces` to see what projects you have in Puhti).
+In the batch job example above, one BWA task (--ntasks 1) is executed. The BWA job uses 8 cores (--cpus-per-task=8 ) with total of 32 GB of memory (--mem=32000). The maximum duration of the job is twelve hours (--time 12:00:00 ). All the cores are assigned from one computing node (--nodes=1 ). In addition to the resource reservations, you have to define the billing project for your batch job. This is done by replacing
+the _your_project_name_ with the name of your project. (You can use command `csc-workspaces` to see what projects you have on Puhti).
 
 You can submit the batch job file to the batch job system with command:
 ```text
