@@ -27,7 +27,7 @@ Free to use and open source under [GNU AGPLv3](https://www.gnu.org/licenses/agpl
 
 ## Usage
 
-To use Diamond, run first command:
+To use Diamond, run first the command:
 
 ```text
 module load biokit
@@ -45,19 +45,19 @@ To load a specific version, e.g:
 module load diamond/2.0.15
 ```
 
-Afrer that, you can check the Diamond help with command:
+Afrer that, you can check the Diamond help with the command:
 
 ```text
 diamond help
 ```
 
-CSC provides Diamond indexes for Uniprot databases (swiss, trembl) and NCBI non redundant database (nr). Location of these databases is defined with environment variable `$DIAMONDDB`.  For example searching hits for a set of nucleotide sequeces from the SwissProt database could be done with  command:
+CSC provides Diamond indexes for Uniprot databases (swiss) and NCBI non redundant database (nr). Location of these databases is defined with environment variable `$DIAMONDDB`.  For example, searching hits for a set of nucleotide sequeces from the SwissProt database could be done with the command:
 
 ```text
 diamond blastx --query nuc.fasta -d $DIAMONDDB/swiss --out diamond_results.txt -p 4 --max-target-seqs 500
 ```
 
-You can also do searches against your own protein sequence database.  In this case you must first calculate Diamond indexes for your reference protein set with command diamond makedb. For example:
+You can also do searches against your own protein sequence database.  In this case, you must first calculate Diamond indexes for your reference protein set with command `diamond makedb`. For example:
 
 ```text
 diamond makedb --in refrerence_proteins.fasta -d my_ref -p 4
