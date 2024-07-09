@@ -23,7 +23,7 @@ Version on CSC's Servers
 
 ## Usage
 
-To see installed RAxML versions use command:
+To see the installed RAxML versions, use the command:
 ```text
 module spider raxml
 ```
@@ -35,7 +35,7 @@ e.g:
 ```text
 module spider raxml/8.2.9
 ```
-Then load the required modules. For example for version 8.2.12 :
+Then load the required modules. For example, for version 8.2.12 :
 ```text
 module load raxml/8.2.12
 ```
@@ -48,7 +48,7 @@ The serial version (**raxmlHPC**) is intended for small to medium data sets and 
 
 The PThreads version (**raxmlHPC-PTHREADS**) will work well for very long alignments. Make sure to specify the number of threads with the ­-T option. This should match the number of cores you request in the batch job script.
 
-To choose the number of threads to use, please see section "How many Threads shall I use?" in the RAxML manual. Using too many threads can cause the program to run slower.
+To choose the number of threads to use, please see section "How many Threads shall I use?" in the [RAxML manual](https://cme.h-its.org/exelixis/resource/download/NewManual.pdf). Using too many threads can cause the program to run slower.
 
 The MPI version (**raxmlHPC-MPI**) is for executing really large production runs (i.e. 100 or 1,000 bootstraps). You can also perform multiple inferences on larger data sets in parallel to find a best-known ML tree for your data set. Finally, the rapid BS algorithm and the associated ML search have also been parallelized with MPI.
  
@@ -56,9 +56,9 @@ The current MPI version only works properly if you specify the number of runs in
 
 For versions 8.2.12 and newer there is also a hybrid MPI/threaded version (**raxmlHPC-HYBRID**)
 
-For versions 8.2.12 and newer there are also AVX optimized binaries available (**raxmlHPC-AVX**, **raxmlHPC-PTHREADS-AVX**, **raxmlHPC-MPI-AVX**, **raxmlHPC-HYBRID-AVX**) These can run faster that non-optimized versions, but can cause problems on some datasets. Try the non-optimized versions in case of problems.
+For versions 8.2.12 and newer there are also AVX optimized binaries available (**raxmlHPC-AVX**, **raxmlHPC-PTHREADS-AVX**, **raxmlHPC-MPI-AVX**, **raxmlHPC-HYBRID-AVX**) These can run faster that non-optimized versions, but can cause problems on some datasets. Try the non-optimized versions, in case of problems.
 
-For details, please refer to chapter "When to use which Version?" in the RAxML manual.
+For details, please refer to chapter "When to use which Version?" in the [RAxML manual](https://cme.h-its.org/exelixis/resource/download/NewManual.pdf).
 
 **Example batch job script for the PThreads version for Puhti**
 ```text
