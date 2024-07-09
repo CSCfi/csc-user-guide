@@ -34,4 +34,4 @@ module load idl
 /appl/soft/math/idl/idl882/idl88/help/pdf
 ```
 
-* [**Manuals in the Web:**](https://www.nv5geospatialsoftware.com/docs/routines-135.html)
+* [**IDL Manuals on the Web:**](https://www.nv5geospatialsoftware.com/docs/routines-135.html)
