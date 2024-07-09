@@ -8,7 +8,7 @@ tags:
 ## Description
 
 Exonerate is a generic tool for pairwise sequence comparison. It allows you to align sequences using a many alignment models, 
-using either exhaustive dynamic programming, or a variety of heuristics. You can use Exonerate for example for:
+using either exhaustive dynamic programming, or a variety of heuristics. You can use Exonerate, for example, to:
 
 *   Aligning a cDNA to a genomic sequence
 *   Aligning a protein to genomic sequence
@@ -29,25 +29,25 @@ Puhti: 2.4.0
 
 ## Usage
 
-In Puhti you can use initialize Exonerate with command:
+On Puhti, you can use initialize Exonerate with the command:
 ```text
 module load biokit
 ```
 The biokit module sets up a set of commonly used bioinformatics tools, including Exonerate 
 (Note however that there are also bioinformatics tools in Puhti, that have a separate setup commands.)
 
-After the setup command the Exonerate commands are recognized.
+After loading the biokit module, the `exonerate` commands are recognized.
 
-For example to align cDNA to genomic sequence, you can use exonerate command with _est2genome_ model.
+For example, to align cDNA to genomic sequence, you can use `exonerate` command with _est2genome_ model.
 ```text
 exonerate --model est2genome query.fasta target.fasta
 ```
-You can see the command line options for exonerate with command:
+You can see the command line options for `exonerate` with the command:
 ```text
 exonerate -h
 ```
  
-In Puhti, large Exronerate tasks should be executed as a batch jobs. Below is a sample batch job file, for running a 
+On Puhti, large Exronerate tasks should be executed as a batch jobs. Below is a sample batch job file, for running a 
 Exonerate batch job in Puhti:
 
 ```text
