@@ -23,7 +23,7 @@ Free to use and open source under [GNU GPLv2](https://www.gnu.org/licenses/old-l
 
 ## Usage
 
-In Puhti the Velvet commands are initialized with command:
+On Puhti, the Velvet commands are initialized with the command:
 ```text
 module load biokit
 ```
@@ -38,20 +38,20 @@ For example
 velveth assembly_dir 21 -shortPaired data/reads.fa
 ```
 
-Velvetg (and the corresponding colorspace version velvetg_de) is the core of Velvet where the de Bruijn graph is built and then manipulated. The syntax of velvetg is
+`velvetg` (and the corresponding colorspace version `velvetg_de`) is the core of Velvet where the de Bruijn graph is built and then manipulated. The syntax of `velvetg` is
 
 ```text
 velvetg output_directory -options parameters
 ```
-A velvetg command could look like:
+A `velvetg` command could look like:
 ```text
 velvetg assebly_dir -cov_cutoff 5 -read_trkg yes -amos_file yes
 ```
  
-When velvet was compiled in puhti, the maximum allowed kmer length was defined. The longer the maximum kmer is the more memory velvet will need (regardless of the kmer length that is actually used). Because of that we provide several versions of velvet, listed in the table below. In Puhti the default the maximum k-mer length, that can be used in the hash table, is 100 bases. However, it is recommended to use the version that has the shortest possible max kmer length. For example for kmer length 40 you should use velveth_maxk50 and velvetg_maxk50.
+When velvet was compiled on Puhti, the maximum allowed kmer length was defined. The longer the maximum kmer is the more memory velvet will need (regardless of the kmer length that is actually used). Because of that we provide several versions of velvet, listed in the table below. On Puhti, the default the maximum k-mer length, that can be used in the hash table, is 100 bases. However, it is recommended to use the version that has the shortest possible max kmer length. For example, for kmer length 40, you should use `velveth_maxk50` and `velvetg_maxk50`.
 
 
-**Velvet programs available in Puhti**
+**Velvet programs available on Puhti**
 
 | Program 	   | max. k-mer length | type |
 |------------------|-------------------|------|
@@ -75,7 +75,7 @@ When velvet was compiled in puhti, the maximum allowed kmer length was defined. 
  
 
 
-In Puhti, the velvet jobs should be executed through the batch job system. Below is sample batch job file for velvet.
+On Puhti, the velvet jobs should be executed through the batch job system. Below is sample batch job file for velvet.
 
 ```text
 #!/bin/bash
@@ -99,15 +99,15 @@ velveth_maxk50 assembly_folder 45 -shortPaired -fastq temp.fastq
 velvetg_maxk50 assembly_folder -ins_length 400
 ```
 
-In the batch job file above, the job reserves 4 computing cores (--cpus-per-task=4) and 64 GB of memory for four days (-t 4-00:00:00). Velvet can utilize threads based parallel computing. After a set up command `module load biokit` the number of cores to be used in the Velvet run is defined with environment variables: `OMP_NUM_THREADS` and `OMP_THREAD_LIMIT`. In this script these variables are set by using the the environment variable `SLURM_CPUS_PER_TASK`, that contains the value defined with the --cpus-per-task,( which in this example has value: 4).
+In the batch job file above, the job reserves 4 computing cores (--cpus-per-task=4) and 64 GB of memory for four days (-t 4-00:00:00). Velvet can utilize threads based parallel computing. After a set up command `module load biokit` the number of cores to be used in the Velvet run is defined with the environment variables: `OMP_NUM_THREADS` and `OMP_THREAD_LIMIT`. In this script these variables are set by using the the environment variable `SLURM_CPUS_PER_TASK`, that contains the value defined with the --cpus-per-task,(which, in this example, has the value: 4).
 
-The batch job can be launched with command
+The batch job can be launched with the command
 
 ```text
 sbatch script_file_name
 ```
 
-More information about runnig batch jobs can be found from the [batch job section of the Puhti user guide](../computing/running/getting-started.md).
+More information about running batch jobs can be found from the [batch job section of the Puhti user guide](../computing/running/getting-started.md).
 
 
 
@@ -115,7 +115,7 @@ More information about runnig batch jobs can be found from the [batch job sectio
 
 More information about Velvet can be found from:
 
-*    [Velvet home page](https://www.ebi.ac.uk/~zerbino/velvet/)
+*    [Velvet GitHub repository](https://github.com/dzerbino/velvet/)
 
 
 
