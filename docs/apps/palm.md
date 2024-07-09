@@ -18,28 +18,28 @@ Leibniz Universität Hannover, Germany. A number of code parts have been contrib
 ## License
 
 The PALM model system is free software. It can be redistributed and/or modified under the terms
-of the GNU General Public License (v3).
+of the GNU General Public License (v3)(https://www.gnu.org/licenses/gpl-3.0.html).
 
 ## Available
 
 PALM is available on [Puhti, Mahti and LUMI](../computing/available-systems.md) servers. Versions
-available are listed when running the installation script, see below.
+available are listed when running the installation script. See below.
 
 ## Usage
 
-After login on the server, give command
+After login on the server, give the command
 
 ```bash
 module spider palm
 ```
 
-This gives you a list of installed versions. To load of the version of your choice, give command
+This gives you a list of the installed versions. To load the version of your choice, give the command
 
 ```bash
 module load palm/<version>
 ```
 
-On LUMI, you need to load first the module environment
+On LUMI, you need to first load the module environment
 
 ```bash
 module use /appl/local/csc/modulefiles
@@ -60,7 +60,7 @@ installPalm
 ```
 
 It is recommended to read first the instruction file, especially to understand on which disk
-partition on the server the installation should be done. That is, where to run the installation
+partition on the server the installation should be done i.e., where to run the installation
 script.
 
 An example test case input file is included in the installation. In the instruction
