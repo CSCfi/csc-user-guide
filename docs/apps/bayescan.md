@@ -31,11 +31,11 @@ After that you can launch bayescan with a command like:
 bayescan_2.1 -threads 1 test_binary_AFLP.txt 
 ```
 
-With bayescan_2.1 it is important to define the number of threads
-always explisitely. This is because by default BayeScan tries
+With bayescan_2.1, it is important to define the number of threads
+always explisitely. This is because, by default, BayeScan tries
 to use all available cores.
 
-In Puhti, BayeScan tasks should be executed as batch jobs.
+On Puhti, BayeScan tasks should be executed as batch jobs.
 Below is a sample batch job file for BayeScan:
 
 ```text
