@@ -9,7 +9,7 @@
         These software can be used by any researcher or student affiliated with an academic, i.e.
         degree-granting, institute for non-profit non-commercial purposes. Employees of governmental
         research institutes or non-academic non-profit institutes might not be permitted to use the software.
-        Please always see the specific licensing details under the respective application pages.
+        Please always check the specific licensing details under the respective application pages.
 
         [Scroll to applications with 'Academic' licensing](#academic){ .md-button .md-button--primary }
 
