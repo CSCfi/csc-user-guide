@@ -5,18 +5,18 @@ You can use the [AWS SDK for Python](https://boto3.amazonaws.com/v1/documentatio
 `boto3` is a Python library developed for working with
 [Amazon S3 storage](https://aws.amazon.com/s3/) and other AWS services.
 
-Below is the general workflow for using Python to analyze data stored in Allas:
+## General workflow for data analysis
 
 1. Upload the input data to Allas using `boto3` or [another
    client](../accessing_allas.md).
-2. Download the data from Allas to a local device (personal workstation or CSC
-supercomputer) using `boto3`.
-3. Analyze the local copy of the data.
-4. Write the results to local storage.
+2. Download the data from Allas to a local device
+(i.e. personal workstation or CSC supercomputer) using `boto3`.
+3. Analyze your local copy of the data.
+4. Write the analysis results to your local storage.
 5. Upload the results to Allas using `boto3`.
 
 Some Python libraries support direct reading and writing over S3,
-such as the
+such as
 [AWS SDK for pandas](https://aws-sdk-pandas.readthedocs.io/en/stable/)
 (general data analysis)
 and
@@ -29,7 +29,7 @@ and
 
 ## Installation
 
-### Installing on a personal workstation
+### Installation on a personal workstation
 
 `boto3` is available for Python 3.8 and higher.
 It can be
@@ -44,7 +44,7 @@ pip install boto3
 conda install anaconda::boto3
 ```
 
-### Installing on a CSC supercomputer
+### Installation on a CSC supercomputer
 
 The pre-existing [`geoconda`](../../../apps/geoconda.md) and
 [`biopythontools`](../../../apps/biopython.md) modules already have `boto3`
@@ -54,85 +54,80 @@ use `pip` to
 
 ## Configuring S3 credentials
 
+### Credentials for accessing a single project
+
 The easiest way to set up S3 credentials for using `boto3` is by
 [configuring an S3 connection on a CSC supercomputer](s3_client.md#configuring-s3-connection-in-supercomputers).
 After running `allas-conf --mode s3cmd`, the credentials are stored in
 `~/.aws/credentials`, which is the default location where `boto3` looks for
-them. You can also define another location for the credentials file with
-the `AWS_SHARED_CREDENTIALS_FILE` environment variable.
+them. You can also define another location for the credentials file by
+modifying the `AWS_SHARED_CREDENTIALS_FILE` environment variable.
 
 If you wish to access Allas from a personal workstation,
-you can copy the credentials file to your device
+you can simply copy the credentials file to your device
 [using a file transfer tool](../../moving/index.md) like `scp`.
+If you want `boto3` to find the credentials automatically
+without having to set `AWS_SHARED_CREDENTIALS_FILE`,
+make sure that you also copy the parent directory as in the example
+below.
 
 ```bash
 # Copy the credentials file and its parent directory to your home directory
 scp -r <username>@<hostname>.csc.fi:~/.aws $HOME
 ```
 
-### Configuring credentials for multiple projects
+### Credentials for accessing multiple projects
 
-If you wish to use `boto3` with multiple projects simultaneously,
-you can do so by saving credentials
-[under different profiles](https://boto3.amazonaws.com/v1/documentation/api/latest/guide/credentials.html#shared-credentials-file):
+Using `allas-conf --mode s3cmd` is very straightforward,
+but it overwrites the credentials file when it is run.
+If you wish to use `boto3` with multiple projects,
+it is recommended to store your credentials
+[under different S3 profiles](https://boto3.amazonaws.com/v1/documentation/api/latest/guide/credentials.html#shared-credentials-file).
+This is best done using the 
+[Cloud storage configuration](../../../computing/webinterface/file-browser.md#accessing-allas-and-lumi-o)
+app in the Puhti or Mahti web interface.
 
-1. Start by loading the utilities for Allas command-line access, if you have not
-   done so yet.
-```bash
-module load allas
-```
+1. Configure connections, or _remotes_, for the projects whose Allas storage you wish
+to access. The configurations will be stored in `~/.config/rclone/rclone.conf` on
+the supercomputer whose web interface you used for generating them.
 
-2. Since `allas-conf --mode s3cmd` overwrites `.aws/credentials` when it is run,
-it is necessary to create another file for storing your S3 credentials.
-```bash
-touch ~/my_s3_credentials.txt
-```
+2. Copy the contents of `~/.config/rclone/rclone.conf` to a new file,
+for example `~/.config/s3allas/credentials`.
 
-3. Configure credentials for a project.
-```bash
-allas-conf --mode s3cmd
-```
+    ```bash
+    cp ~/.config/rclone/rclone.conf ~/.config/s3allas/credentials
+    ```
 
-4. Copy the generated credentials to the file you created in step 2.
-```bash
-cat ~/.aws/credentials >> ~/my_s3_credentials.txt
-```
+3. The arguments that contain the access key and secret key need to be prefixed
+   with `aws_` for `boto3` to recognize them as S3 credentials.
 
-5. Repeat steps 3 and 4 for each desired project.
+    ```bash
+    sed --in-place --regexp-extended 's/^(access|secret)/aws_\1/g' ~/.config/s3allas/credentials
+    ```
 
-6. Open the file you created in step 2. and define a profile name for each set
-of credentials.
-```
-[default]  # Change this line to e.g. [my-project]
-AWS_ACCESS_KEY_ID=foo
-AWS_SECRET_ACCESS_KEY=bar
-AWS_DEFAULT_REGION = baz
-```
+4. If you wish to use `boto3` on a personal workstation, copy the file you
+created in step 2 to your workstation using e.g. `scp`.
 
-7. If you wish to use `boto3` on a personal workstation,
-copy the file you created in step 2 to your workstation.
-
-8. When using `boto3`, you can use the `os` Python module to define which
-credentials to use.
-```python
-import os
-
-# If these are not set, boto3 will get credentials from
-# the default profile in ~/.aws/credentials
-
-os.environ['AWS_SHARED_CREDENTIALS_FILE'] = '~/my_s3_credentials.txt'
-os.environ['AWS_PROFILE'] = 'my-project'
-```
-
-    Of course, you can also set these environment variables in the shell.
+5. Credentials that are configured using *Cloud storage configuration*
+are stored under project-specific S3 profiles whose names have the format `s3allas-<project>`.
+To find out how to use S3 profiles to access the Allas storage of different projects,
+see the instructions on [creating a `boto3` resource](#create-boto3-resource).
 
 ## `boto3` usage
 
 ### Create `boto3` resource
 
 ```python
+# Basic usage (credentials configured only for one project)
 import boto3
 s3_resource = boto3.resource('s3', endpoint_url='https://a3s.fi')
+
+# Usage with S3 profiles (credentials configured for multiple projects)
+import boto3
+import os
+os.environ['AWS_SHARED_CREDENTIALS_FILE'] = '~/.config/s3allas/credentials'  # path of your credentials file
+s3_session = boto3.Session(profile_name='s3allas-project_2001234')  # S3 profile name of your project
+s3_resource = s3_session.resource('s3', endpoint_url='https://a3s.fi')
 ```
 
 !!! note ""
