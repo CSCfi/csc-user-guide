@@ -30,7 +30,7 @@ Initialise the Gaussian environment:
 module load gaussian/G16RevC.02
 ```
 
-Standard jobs are then conveniently submitted by using the subg16 script:
+Standard jobs are then conveniently submitted by using the 'subg16' script:
 
 ```bash
 subg16 time jobname <billing project id>
@@ -44,13 +44,13 @@ be found [here](http://gaussian.com/running/?tabid=3).
 
 ### Using local disk on Puhti
 
-Particularly some of the wavefunction-based electron correlation methods can
+Particularly, some of the wavefunction-based electron correlation methods can
 be very disk I/O intensive. Such jobs benefit from using the fast [NMVE local
 disk](../../computing/running/creating-job-scripts-puhti/#local-storage) on
 Puhti. Using local disk for such jobs will also reduce the overall load on the
 Lustre parallel file system.
 
-On Puhti you can request your Gaussian job to use local disk by submitting the
+On Puhti, you can request your Gaussian job to use local disk by submitting the
 job with the 'subg16_nvme' script:
 
 ```bash
@@ -76,10 +76,10 @@ For a `b3lyp/cc-pVDZ, %mem=10GB` single-point calculation the results are:
 |      /40            | 00:01:14            |  0.85                |
 | Mahti/128           | 00:00:53            |  1.47                |
 
-For this particular case the scaling is reasonable up to a full Puhti node. Increasing
+For this particular case, the scaling is reasonable up to a full Puhti node. Increasing
 the memory reservation from 10GB to 20GB, doesn't speed up the calculation but only
 increases its cost. The job is slightly faster on Mahti using 128 cores compared to
-40 cores on Puhti but the cost is significantly higher.
+40 cores on Puhti, but the cost is significantly higher.
 
 If we do the same calculation but increase the size of the basis set to `b3lyp/cc-pVTZ`
 the results are:
@@ -108,12 +108,12 @@ well as use of local disk (nvme) significantly affects the performance:
 |  nvme, mem=80/40    | 00:09:23            |  7.72                |
 | Mahti/128           | 00:14:30            | 24.17                |
 
-From these results we conclude that 80GB seems to be the optimal memory allocation and
+From these results, we conclude that 80GB seems to be the optimal memory allocation and
 that the use of local disk clearly improves the performance. The speedup when going from
 20 to 40 cores, and using local disk is 1.35, that is below the [recommended minimum of
 1.5](../../accounts/how-to-access-mahti-large-partition/#scalability-testing). Hence the
 most efficient resource usage would correspond to 20 cores, 80GB of memory and local disk
-on Puhti. For this type of calculation Mahti isn't the optimal choice.
+on Puhti. For this type of calculation, Mahti isn't the optimal choice.
 
 ## References
 
