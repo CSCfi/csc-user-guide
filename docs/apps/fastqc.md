@@ -19,13 +19,13 @@ Free to use and open source under [GNU GPLv3](https://www.gnu.org/licenses/gpl-3
 
 ###Version on CSC's Servers
 
--   Puhti: 0.11.8 
+-   Puhti: 0.11.9
 -   [Chipster](https://chipster.csc.fi) graphical user interface
 
 ##Usage
 
 
-To initialize in Puhti use:
+To initialize on Puhti, use:
 ```text
 module load biokit
 ```
