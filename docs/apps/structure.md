@@ -37,13 +37,13 @@ module load biokit
 module load structure
 ```
 
-In addition to `structure` command the structure module makes available commands [CLUMPP](https://web.stanford.edu/group/rosenberglab/clumpp.html) and [structureHarvester](https://github.com/dentearl/structureHarvester/) that can be used for postprocessing structure results.
+In addition to `structure` command, the structure module makes available commands [CLUMPP](https://web.stanford.edu/group/rosenberglab/clumpp.html) and [structureHarvester](https://github.com/dentearl/structureHarvester/) that can be used for postprocessing structure results.
 
-In Puhti, we recommend that you submit your structure jobs using help tool called `strauto-puhti`.
+On Puhti, we recommend that you submit your structure jobs using help tool called `strauto-puhti`.
 This tool is a modified version of [strauto](http://dx.doi.org/10.1186/s12859-017-1593-0) structure
 job sumbission tool. Note that many details in the strauto manual do not apply to `strauto-puhti`.   
 
-Next move to the scratch directory of your project. Any subdirectory inside your scratch area will do.
+Next, move to the scratch directory of your project. Any subdirectory inside your scratch area will do.
 For example:
 
 ```text
@@ -54,11 +54,11 @@ Create a new empty directory.
 ```text
 mkdir structure_job1
 ```
-Next you need to copy or create to this directory the two input files used by `strauto-puhti` program.
+Next, you need to copy or create to this directory the two input files used by `strauto-puhti` program.
 The parameter file must always be named as `input.py`. The name of the actual datafile is defined in
 `input.py`. The data file name should end with `.str` or `.ustr`. 
 
-A sample file, provided by strauto can be copied to your current directory with commands:
+A sample file, provided by strauto can be copied to your current directory with the commands:
 
 ```text
 cd structure_job1
@@ -66,12 +66,12 @@ cp /appl/soft/bio/structure/strauto/input.py ./
 cp /appl/soft/bio/structure/strauto/sim.str ./ 
 ```
 
-When the input file has been prepared, the strcture job can be launched with command:
+When the input file has been prepared, the strcture job can be launched with the command:
 ```text
 strauto-puhti
 ```
 Strauto, first asks you to check and accept Structure parameters and after that
-submits the structure job to to the batch job system of Puhti. After that
+submits the structure job to the batch job system of Puhti. After that
 it starts monitoring the progress of your job.
 
 You can leave the monitor process running, but if you want to stop it, press:
@@ -93,8 +93,7 @@ the _parallel_ parameter value to _True_ in the structure input file.
 ## More information
 
 *    [Structure home page](https://web.stanford.edu/group/pritchardlab/structure.html)
-*    [Strauto home page ](http://strauto.popgen.org)
-*    [StructureHarvester home page](http://taylor0.biology.ucla.edu/structureHarvester/)
-
+*    [Strauto home page ](https://vc.popgen.org/software/strauto/)
+*    [StructureHarvester home page](http://alumni.soe.ucsc.edu/~dearl/software/structureHarvester/)
 
 
