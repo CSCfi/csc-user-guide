@@ -130,9 +130,11 @@ s3_resource = boto3.resource('s3', endpoint_url='https://a3s.fi')
 import boto3
 import os
 
-os.environ['AWS_SHARED_CREDENTIALS_FILE'] = '<credentials-file>' # e.g. '~/.config/s3allas/credentials'
-s3_session = boto3.Session(profile_name='<profile-name>')  # e.g. 's3allas-project_2001234'
+s3_credentials = '<credentials-file>'   # e.g. '~/.config/s3allas/credentials'
+s3_profile = '<profile-name>'           # e.g. 's3allas-project_2001234'
 
+os.environ['AWS_SHARED_CREDENTIALS_FILE'] = s3_credentials
+s3_session = boto3.Session(profile_name=s3_profile)
 s3_resource = s3_session.resource('s3', endpoint_url='https://a3s.fi')
 ```
 
