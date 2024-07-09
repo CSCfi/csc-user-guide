@@ -43,7 +43,7 @@ A popular tool for working with PostgreSQL is [pgAdmin that can be found here](h
 
 ## Accessing your Pukki PostgreSQL database from Puhti
 
-1. Make sure that your database's [firewall allows traffic from Puhti](firewalls.md#Puhti)
+1. Make sure that your database's [firewall allows traffic from Puhti](firewalls.md#puhti)
 2. Once the firewall allows connections from Puhti you can log into Puhti.
 3. To be able to use the `psql` command line tool you need to load the module
     ```
@@ -57,7 +57,7 @@ A popular tool for working with PostgreSQL is [pgAdmin that can be found here](h
     ```
     $PUBLIC_IP:5432:*:$USERNAME:$PASSWORD
     ```
-       * The `$PUBLIC_IP` should be the public IP-addres to your instance.
+       * The `$PUBLIC_IP` should be the public IP-address to your instance.
        * `5432` Is the port it should use (in Pukki it is always "5432")
        * The `*` means that all databases in you database instance should use the same credentials
        * The `$USERNAME` and `$PASSWORD` is the database's  password and username.
