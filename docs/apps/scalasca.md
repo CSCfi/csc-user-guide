@@ -45,16 +45,15 @@ as a prefix to the original compile and link commands:
 module load scorep
 scorep mpicc -o my_prog my_prog.c
 ```
-or setting in a Makefile
+or setting in a Makefile for `C/C++` codes
 
 ```
 CC=scorep mpicc
 ```
-for `C/C++` codes or similarly
+or, similarly, for Fortran codes.
 ```
 F90=scorep mpif90
 ```
-for Fortran codes.
 
 ### Measurement collection and analysis
 
@@ -154,7 +153,7 @@ With tracing enabled, the experiment directory would be
 
 ## Analysis report examination
 
-The Scalasca analysis report explorer `square` cannot currently be run in CSC
+The Scalasca analysis report explorer `square` cannot currently be run on CSC
 supercomputers. However, user may install Scalasca on their local
 workstation, and copy the experiment directory there for analysis,
 e.g.
