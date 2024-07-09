@@ -21,16 +21,16 @@ Free to use and open source under [GNU GPLv3](https://www.gnu.org/licenses/gpl-3
 
 Version on CSC's Servers
 
--   Puhti: v0.14.1, 0.99.0b2, 1.1.0, 1.4.0, 1.19.0
+-   Puhti: v0.14.2, 0.99.0b2, 1.1.0, 1.4.0, 1.19.0
 
 ## Usage
 
-In Puhti, the Salmon command is activated by loading the salmon module.
+On Puhti, the `salmon` command is activated by loading the salmon module.
 
 ```text
 module load salmon
 ```
-For usage help use command:
+For usage help, use the command:
 ```text
 salmon --help
 ```
