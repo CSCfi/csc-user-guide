@@ -29,7 +29,7 @@ Note, that you need remote graphics to work with Molden. You can either enable X
 
 ## References
 
-The correct reference for Molden is:
+If you use Molden for your work, please cite the following references:
 
 - G. Schaftenaar, E. Vlieg and G. Vriend, "Molden 2.0: quantum chemistry meets proteins", J Comput. Aided Mol. Des., 31 (2017) 789-800.
 - G. Schaftenaar and J. H. Noordik, "Molden: a pre- and post-processing program for molecular and electronic structures", J. Comput. Aided Mol. Des., 14 (2000) 123-134.
