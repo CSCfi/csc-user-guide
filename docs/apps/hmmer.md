@@ -24,29 +24,29 @@ Free to use and open source under [GNU GPLv3](https://www.gnu.org/licenses/gpl-3
 ## Available
 Version on CSC's Servers
 
-*   Puhti: 3.2.1, 3.3.2
+*   Puhti: 3.2.1, 3.3.2, 3.4
 
 ## Usage
 
-To use default version HMMER in Puhti, load the biokit module:
+To use default version of HMMER on Puhti, load the biokit module:
 ```text
 module load biokit
 ```
 
-If you want to use a some other version, load the HMMER module, e.g.
+If you want to use some other version, load the particular version of the HMMER module, e.g.
 ```text
-module load hmmr/3.2.1
+module load hmmer/3.2.1
 ```
 
-After this the command line options of each hmmer command can be checked with option `-h`. For example:
+After this, the command line options of each `hmmer` command can be checked with option `-h`. For example:
 ```text
 hmmsearch -h
 ```
 
 ### Pfam database
 
-In Puhti you can use Pfam_A database with HMMER commands. You can also create your own HMM databases.
-For example, comparing a protein sequence against a Pfam-A HMM-database could be performed with following commands.
+On Puhti, you can use Pfam_A database with HMMER commands. You can also create your own HMM databases.
+For example, comparing a protein sequence against a Pfam-A HMM-database could be performed with the following commands.
 
 First, open an interactive batch job session and load biokit:
 
