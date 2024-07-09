@@ -11,16 +11,16 @@ Chipster_genomes is a help tool to download genome indexes used in [Chipster sof
 CSC is maintaining several short read aligners (e.g. BWA, Bowtie2, STAR) in Puhti, but not the pre-calculated 
 indexes for reference genomes. By default, users need to import and index themselves the reference genomes they are using.
 
-The Chipster server however contains indexes for a set of commonly used reference organisms for several aligners.
+The Chipster server, however, contains indexes for a set of commonly used reference organisms for several aligners.
 
 The _chipster_genomes_ tool allows Puhti users to download the reference genome index files from the Chipster server to 
-Puhti so that they can be used in Puhti too.
+Puhti so that they can be used on Puhti too.
 
 The genome data and indexes used in Chipster are based on the data available in Ensembl and Ensembl genomes databases. 
-However, in Chipster only those sequences (chromosomes) that have been assigned to a karyotype, are included. 
+However, in Chipster, only those sequences (chromosomes) that have been assigned to a karyotype, are included. 
 Further, in GTF files negative location values are removed.
 
-Thus the data downloaded from Chipster server may in some cases differ from the data obtained directly from Ensembl.
+Thus the data downloaded from Chipster server may, in some cases, differ from the data obtained directly from Ensembl.
 
 [TOC]
 
@@ -34,12 +34,12 @@ Available in Puhti
 
 ## Usage
 
-chipster_genomes tool in included in _biokit module_. So to make it available, you must first run set-up command:
+chipster_genomes tool in included in _biokit module_. So to make it available, you must first run the set-up command:
 ```text
 module load biokit
 ```
 
-After that you can use `chipster_genomes` command. This command needs two parameters:
+After that, you can use `chipster_genomes` command. This command needs two parameters:
 
 *    File or index type (bed, gtf, fasta, bowtie, bowtie, bowtie2, BWA, Hisat2, TopHat2)
 *    Species name
@@ -50,8 +50,8 @@ Then the species available for the given datatype are listed and the tool asks u
 chipster_genomes
 ```
 
-The data type can alternatively be given as the first argument and the species name as the second argument.
-For example the BWA indexes of Danio_rerio.GRCz11 can be retrieved with command:
+The data type can, alternatively, be given as the first argument and the species name as the second argument.
+For example, the BWA indexes of Danio_rerio.GRCz11 can be retrieved with the command:
 ```text
 chipster_genomes bwa Danio_rerio.GRCz11
 ```
