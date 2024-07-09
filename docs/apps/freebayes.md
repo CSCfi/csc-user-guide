@@ -21,7 +21,7 @@ Free to use and open source under [MIT License](https://raw.githubusercontent.co
 
 ## Available
 
-*    Puhti: 1.3.6 
+*    Puhti: 1.3.6, 1.3.7
 
 ## Usage
 First load the freebayes module.
@@ -39,27 +39,27 @@ Note that freebayes requires that bam file is indexed. Un-indexed bam file can b
 samtools index input.bam
 ```
 
-FreeBayes analysis jobs can be computationally heavy and should be run as batch jobs in Puhti.
+FreeBayes analysis jobs can be computationally heavy and should be run as batch jobs on Puhti.
 
-In Puhti, you can use `freebayes-puhti` to automatically submit a Freebayes job to the batch job system.
+On Puhti, you can use `freebayes-puhti` to automatically submit a Freebayes job to the batch job system.
 This tool also speeds up the analysis by running the ananlysis as several simultaneous tasks in parallel.
-To be able to use `freebayes-puhti`  you first need to define a regions file for you reference fasta file.
-This can be done with command:
+To be able to use `freebayes-puhti`,  you first need to define a regions file for you reference fasta file.
+This can be done with the command:
 
 ```text
 fasta_generate_regions.py reference.fa.fai 100000 > regions.txt
 ```
 
-For small datasets you may decrease the region size in the command above so that you will get more than 100 regions to the regions file.
+For small datasets you may decrease the region size in the command above, so that you will get more than 100 regions to the regions file.
 
-Once you have the regions file created you can launch you analysis task with command like:
+Once you have the regions file created, you can launch you analysis task with the command:
 
 ```text
 freebayes-puhti -regions regions.txt -f reference.fa input.bam -out results.vcf
 ```
 
-`freebayes-puhti` will execute your FreeBayes analysis as an automatically generated array batch job. The results will also be automatically merged and sorted once the batch jobs have finished. By default `freebayes-puhti` allows each subjob to use 16 GB of memory and to run for 24 hours. For massive FreeBayes jobs this may not be sufficient. In that case you can try to use options `-mem` and `-time` to extend the limits. `-mem` option 
-defines the memory reservation in Gigabytes `-time` the time reservation in hours. For example, extending the task to 64 GB of memory and 48 hours of running time could be done with command:
+`freebayes-puhti` will execute your FreeBayes analysis as an automatically generated array batch job. The results will also be automatically merged and sorted once the batch jobs have finished. By default, `freebayes-puhti` allows each subjob to use 16 GB of memory and to run for 24 hours. For massive FreeBayes jobs, this may not be sufficient. In that case, you can try to use options `-mem` and `-time` to extend the limits. `-mem` option 
+defines the memory reservation in Gigabytes while the `-time` option defines the time reservation in hours. For example, extending the task to 64 GB of memory and 48 hours of running time could be done with the command:
 
 ```text
 freebayes-puhti -mem 64 -time 48 -regions regions.txt -f reference.fa input.bam -out results.vcf
