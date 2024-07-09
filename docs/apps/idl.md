@@ -13,7 +13,7 @@ Puhti: 8.5.1, 8.8.2
 
 ## License
 
-CSC has an Academic license that means it is for Academic research only.
+CSC has an Academic license *i.e.,* it is meant for Academic research only.
 
 ## Usage
 
@@ -34,4 +34,4 @@ module load idl
 /appl/soft/math/idl/idl882/idl88/help/pdf
 ```
 
-* [**Manuals in the Web:**](http://www.harrisgeospatial.com/docs/using_idl_home.html)
+* [**Manuals in the Web:**](https://www.nv5geospatialsoftware.com/docs/routines-135.html)
