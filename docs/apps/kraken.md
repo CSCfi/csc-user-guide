@@ -24,17 +24,17 @@ Free to use and open source under [MIT License](https://raw.githubusercontent.co
 
 ## Usage
 
-Kraken in included in the _biokit_ module. To set it up, run command:
+Kraken in included in the _biokit_ module. To set it up, run the command:
 ```text
 module load biokit
 ```
 
-Now you Kraken2 starts with commad `kraken2`. For example:
+This loads the Kraken2 package which can be started with the command `kraken2`. For example:
 ```text
 kraken2 --help
 ```
 
-There are several Kraken2 reference databases available in Puhti. By default Kraken2 uses the
+There are several Kraken2 reference databases available on Puhti. By default, Kraken2 uses the
 _standard_ database  that is based on taxonomic information and complete genomes in RefSeq 
 for the bacterial, archaeal, and viral domains, along with the human genome and a 
 collection of known vectors (UniVec_Core).
@@ -51,7 +51,7 @@ Available databases in Puhti are:
 |16S_SILVA138_k2db| 1 GB |Silva 138 16S data |
 | minikraken_8GB_20200312| 1 GB  |            |
 
-Using Kraken2 with a large reference database will require plenty on memory. For example jobs with the standard Karken2 database require 40 GB of memory. Thus Kraken should in practice always be executed as a batch job. Below is a sample Karaken job using 4 cores 40 GB of memory and 6 hours or runtime:
+Using Kraken2 with a large reference database will require plenty on memory. For example, jobs with the standard Kraken2 database require 40 GB of memory. Thus, Kraken should in practice always be executed as a batch job. Below is a sample Kraken job using 4 cores 40 GB of memory and 6 hours of runtime:
 
 ```text
 #!/bin/bash -l
@@ -71,7 +71,7 @@ module load biokit
 kraken2 -db standard --threads $SLURM_CPUS_PER_TASK input.fasta --output results.txt
 ```
 
-You can submit the batch job file to the batch job system with command:
+You can submit the batch job file to the batch job system with the command:
 
 ```
 sbatch batch_job_file.bash
