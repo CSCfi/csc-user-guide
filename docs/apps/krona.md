@@ -27,7 +27,7 @@ Krona is free to use and open source. It is provided under it's own [license](ht
 
 ## Usage
 
-To take in use KronaTools commands, load the biokit module.
+To use KronaTools commands, load the biokit module.
 
 ```text
 module load biokit
@@ -43,33 +43,33 @@ For example file (sample1.tsv)
 query1    9606    0.9
 query2    9534    0.8
 ```
-Can be visualized with command:
+Can be visualized with the command:
 
 ```text
 ktImportTaxonomy sample1.sv 
 ```
 The three columns, by default, are _query-ID_, _taxonomy-ID_, and _score_ (optional), 
 but these can be changed using options `-q`,`-t`, and `-s`. Commented lines (#) are ignored. 
-For example an output file from [Kraken2](./kraken.md) can be visualized with command:
+For example an output file from [Kraken2](./kraken.md) can be visualized with the command:
 
 ```text
 ktImportTaxonomy -q 2 -t 3 KrakenOutput -o KronaReport.html
 ```
-The Krona visualizations are based on HTML5. To study them you can open a virtual desktop in [Puhti web interface](../computing/webinterface/desktop.md) and open a browser there.  
+The Krona visualizations are based on HTML5. To study them, you can open a virtual desktop in [Puhti web interface](../computing/webinterface/desktop.md) and open a browser there.  
 
-Alternatively you can copy these files to a publicly accessible data bucket in Allas, and study the results with your local web browser. You can use commands [a-flip](../../data/Allas/using_allas/a_commands/#a-flip) or [a-publish](../data/Allas/using_allas/a_commands.md#a\
+Alternatively, you can copy these files to a publicly accessible data bucket in Allas, and study the results with your local web browser. You can use commands [a-flip](../../data/Allas/using_allas/a_commands/#a-flip) or [a-publish](../data/Allas/using_allas/a_commands.md#a\
 -publish) to do the copying:
 
-For example command:
+For example the command:
 ```text
 a-flip KronaReport.html
 ```
-Will produce a URL that you can copy to you browser.
+will produce a URL that you can copy to you browser.
 
 In addition to _ktImportTaxonomy_ there are several application specific data import tools: 
-For example for BLAST (_ktImportBLAST_) and MG-RAST (_ktImportMGRAST_). There are also general purpose tools
-for text (_ktImportText_) and XML data (_ktImportXML_). In Puhti you may also be interested to
-use _ktImportDiskUsage_ to visualize how much different datasets use space in your directories.
+For example, for BLAST (_ktImportBLAST_) and MG-RAST (_ktImportMGRAST_). There are also general purpose tools
+for text (_ktImportText_) and XML data (_ktImportXML_). On Puhti, you may also be interested to
+use _ktImportDiskUsage_ to visualize how many different datasets use space in your directories.
 
 ## More information
 
