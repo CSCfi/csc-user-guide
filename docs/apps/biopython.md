@@ -22,18 +22,19 @@ Biopython is free to use and open source. It is dual licensed under [Biopython L
 ## Available
 
 -   Puhti: Python 3.10.6 with Biopython 1.79
+-   Puhti: Python 3.12.3 with Biopython 1.83
 
-In Puhti, Biopython libraries, as well as many other bioinformatics related Python libraries are available.
+On Puhti, Biopython libraries, as well as many other bioinformatics related Python libraries are available.
 
 ```text
 module load biopythontools
 ```
 
-When the module is loaded, you can launch a biopython program with command:
+When the module is loaded, you can launch a biopython program with the command:
 ```text
 python my_biopython_code.py
 ```
-Alternatively you can change the python definition in the first line of your code to
+Alternatively, you can change the python definition in the first line of your code to
 ```text
 #!/bin/env python
 ```
@@ -45,7 +46,7 @@ and execute the python program
 ```
 
 New python libraries can be installed with `pip install` command.
-For example, Python library called OBITools3 could be installed with command:
+For example, Python library called OBITools3 could be installed with the command:
 
 ```text
 pip install --user OBITools3
