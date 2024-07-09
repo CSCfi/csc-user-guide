@@ -109,9 +109,10 @@ for example `~/.config/s3allas/credentials`.
 created in step 2 to your workstation using e.g. `scp`.
 
 5. Credentials that are configured using *Cloud storage configuration*
-are stored under project-specific S3 profiles whose names have the format `s3allas-<project>`.
-To find out how to use S3 profiles to access the Allas storage of different projects,
-see the instructions on [creating a `boto3` resource](#create-boto3-resource).
+are stored under project-specific S3 profiles whose names have the format
+`s3allas-project_2001234`. To find out how to use S3 profiles to access the
+Allas storage of different projects, see the instructions on
+[creating a `boto3` resource](#create-boto3-resource).
 
 ## `boto3` usage
 
@@ -120,13 +121,18 @@ see the instructions on [creating a `boto3` resource](#create-boto3-resource).
 ```python
 # Basic usage (credentials configured only for one project)
 import boto3
-s3_resource = boto3.resource('s3', endpoint_url='https://a3s.fi')
 
+s3_resource = boto3.resource('s3', endpoint_url='https://a3s.fi')
+```
+
+```python
 # Usage with S3 profiles (credentials configured for multiple projects)
 import boto3
 import os
-os.environ['AWS_SHARED_CREDENTIALS_FILE'] = '~/.config/s3allas/credentials'  # path of your credentials file
-s3_session = boto3.Session(profile_name='s3allas-project_2001234')  # S3 profile name of your project
+
+os.environ['AWS_SHARED_CREDENTIALS_FILE'] = '<credentials-file>' # e.g. '~/.config/s3allas/credentials'
+s3_session = boto3.Session(profile_name='<profile-name>')  # e.g. 's3allas-project_2001234'
+
 s3_resource = s3_session.resource('s3', endpoint_url='https://a3s.fi')
 ```
 
