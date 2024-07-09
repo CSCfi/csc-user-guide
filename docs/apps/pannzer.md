@@ -13,38 +13,38 @@ designed to predict the functional description (DE) and gene ontology (GO) class
 
 ## License
 
-Pannzer has been published with the GNU Public Licence v3.
+Pannzer has been published with the [GNU Public Licence v3](https://www.gnu.org/licenses/gpl-3.0.html).
 
 ## Usage
 
-In puhti SANSPANZ annotation tool is taken in use with command:
+On puhti, SANSPANZ annotation tool can be accessed with the command:
 
     module load biokit
 
-After loading the module you can launch sanspanz analysis using command `runsanspanz.py`. For example:
+After loading the module, you can launch sanspanz analysis using command `runsanspanz.py`. For example:
 ```text
 runsanspanz.py -R -m Pannzer -s "species name" -i  input_seqs.fasta -o results.csv
 ```
 The species name is used to determine taxonomic distances. 
 The output is written to the file defined with option `-o`.  Also three other output files are created:
-*   **Pannzer.out_1** contains details of the description (DE) prediction. 
-*   **Pannzer.out_2** contains details of the GO prediction. 
-*   **Pannzer.out_3** is a summary of all predicted annotations.
+* **Pannzer.out_1** contains details of the description (DE) prediction. 
+* **Pannzer.out_2** contains details of the GO prediction. 
+* **Pannzer.out_3** is a summary of all predicted annotations.
 
 Pannzer.out_3 can be converted to HTML-format with command `anno2html.pl`:
 
 ```text
 anno2html.pl < Pannzer.out_3 > annotations.html
 ```
-If you upload this file to Allas with command:
+If you upload this file to Allas with the command:
 ```text
 a-flip annotations.html
 ```
-You can use the link provided by _a-flip_ to study the results with your browser.
+you can use the link provided by _a-flip_ to study the results with your browser.
 
-Note, that in Puhti you should always use `runsanspanz.py` with option `-R` that sends the
+Note, that on Puhti you should always use `runsanspanz.py` with option `-R` that sends the
 analysis jobs to the annotation sever maintained by the Holm group. Thus, the job does not use 
-the resources of Puhti and it can be run as an intercative job in a login node.
+the resources of Puhti and it can be run as an intercative job on a login node.
 
 ## More information
 
