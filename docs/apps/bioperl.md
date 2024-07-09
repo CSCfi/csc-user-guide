@@ -31,15 +31,15 @@ BioPerl is licensed under the same terms as Perl itself which is dually-licensed
 
 ## Available
 
--   Puhti: Perl 5.30.0 with Bioperl 1.007002 
+-   Puhti: Perl 5.36.0 with Bioperl 1.007008
 
 
 ## Usage
-In Puhti, bioperl can be taken in use with command:
+On Puhti, bioperl can be taken in use with the command:
 ```text
 module load biokit
 ```
-After this you can launch a bioperl program with command:
+After this, you can launch a bioperl program with the command:
 ```text
 perl my_bioperl_code.pm
 ```
