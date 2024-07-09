@@ -4,7 +4,7 @@
 
 Relational databases provide efficient tool to manage structured data that keeps changing and which contains data that needs to be accessed with complex queries. Client-server based SQL databases (e.g. MySQL, MariaDB, PostgreSQL) can not be effectively run in HPC computing environments like Mahti or Puhti. If you need to use relational databases in CSC computing environment, you should use a database running in some external server.
 
-It is fairly simple to set up your own SQL server in a Virtual Machine running in cPouta. Setting up your own database server this way gives you full access to the database, but requires that you know how to set up and manage a database server.
+It is fairly simple to set up your own SQL using [PukkiDB database service](../../cloud/dbaas.md) or a Virtual Machine running in cPouta. Setting up your own database server this way gives you full access to the database, but requires that you know how to manage a database server.
 
 ## Kaivos - just add data
 
