@@ -24,13 +24,13 @@ Free to use and open source under [GNU GPLv2](https://www.gnu.org/licenses/old-l
 
 MIRA is activated with command:
 ```text
-module load biokit
+module load mira/5rc1
 ```
-After that you can use MIRA commands:
+After that, you can use MIRA commands:
 
 ```
 mira
-mitabait
+mirabait
 miraconvert
 miramem
 ```
