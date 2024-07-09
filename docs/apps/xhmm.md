@@ -7,7 +7,7 @@ tags:
 
 ## Description
 
-The XHMM C++ software suite was written to call copy number variation (CNV) '
+The XHMM C++ software suite was written to call copy number variation (CNV)
 from next-generation sequencing projects, where exome capture was used 
 (or targeted sequencing, more generally).
 
@@ -39,7 +39,7 @@ To use XHMM, load the module:
 module load xhmm
 ```
 
-After that XHMM starts with command:
+After that, XHMM starts with the command:
 ```text
 xhmm
 ```
