@@ -25,29 +25,29 @@ First load the biokit module
 module load biokit
 ```
 
-When biokit is loaded, the Illumina BaseSpace command line client starts with command:
+When biokit is loaded, the Illumina BaseSpace command line client starts with the command:
 ```text
 bs
 ```
 
-To be able to use this service you must have an account in the [Illumina Base Space service](https://emea.illumina.com/products/by-type/informatics-products/basespace-sequence-hub.html).
+To be able to use this service, you must have an account in the [Illumina Base Space service](https://emea.illumina.com/products/by-type/informatics-products/basespace-sequence-hub.html).
 
-As the first step you must set up your authentication so that you can access your data in Illumina BaseSpace. 
-This is done by running command:
+As the first step, you must set up your authentication so that you can access your data in Illumina BaseSpace. 
+This is done by running the command:
 ```text
 bs auth
 ```
 
-The authentication information is stored to your home directory in Puhti
-($HOME/.basespace/default.cfg). Thus the authentication needs to be done only
+The authentication information is stored to your home directory on Puhti
+($HOME/.basespace/default.cfg). Thus, the authentication needs to be done only
 once.
 
-After that you can start working with your Illumina data. For example, available datasets can be listed with command:
+After that you can start working with your Illumina data. For example, available datasets can be listed with the command:
 ```text
 bs list datasets
 ```
 
-Single dataset can be downloaded to Puhtri with command:
+Single dataset can be downloaded to Puhtri with the command:
 ```text
 bs download dataset -i dataset_id -o local_download_dir
 ```
