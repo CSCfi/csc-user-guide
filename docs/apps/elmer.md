@@ -6,7 +6,7 @@ tags:
 # Elmer
 
 Elmer is CSC's open source Finite Element multi-physics simulation package. It covers modules for fluid and solid mechanics,
-acoustics, electro-magneto dynamics
+acoustics, and electro-magneto dynamics
 
 Elmer utilizes third-party open source programs for pre- (e.g., Gmsh) and post-processing (e.g., ParaView, Visit).
 The version installed includes Elmer/Ice solvers needed for glaciological simulations (ice-sheets, glaciers).
@@ -23,7 +23,7 @@ directives implemented.
 
 ## License
 
-Elmer is licensed under GPL and (as for the `elmersolver.lib`) LGPL, hence free to use for everyone.
+Elmer is licensed under GPL and (as for the `elmersolver.lib`) LGPL. It is free for everyone to use.
 
 ## Usage
 
