@@ -33,7 +33,7 @@ If you need more resources, use `srun` and give session parameters as a one-line
 ```
 srun --partition=small --time=01:00:00 --mem=32G --account=<project> --x11=first --pty bash
 ```
-When directed to a compute node, load module and start ParaView like in the example above.  
+When directed to a compute node, load module and start ParaView, as shown in the example above.  
 
 If your model has complex geometry, interaction becomes slow and lag in screen updates is noticeable. ParaView has a tick box option to use OSPRay renderer for faster screen re-draws. (Note that switching between the default and OSPRay rendering modes can be slow.) Even when using one CPU, OSPRay rendering is much faster.
 
@@ -41,20 +41,20 @@ OSPRay is capable of using more than one CPU as threads, to further accelerate s
 ```
 srun --ntasks=1 --cpus-per-task=5 --partition=small --time=01:00:00 --mem=32G --account=<project> --x11=first --pty bash
 ```
-As previously, once directed to a compute node, load module and start ParaView.  
+As previously shown, once directed to a compute node, load module and start ParaView.  
 
 ## Parallel mode - client using several servers (pvservers) and threads  
 For demanding jobs, ParaView can be run in parallel mode: one client and many pvservers, each running on separate CPUs. The client connects to one of the pvservers, which communicates with the rest of the pvservers.  
 
 Note that if most of the work is done by only one pvserver, using parallel setup can actually make ParaView run slower, due to extra time taken to parse data from different CPUs. You can check how much each pvserver is being used by opening *Memory Inspector* window in ParaView (file menu: *View/Memory Inspector*). ParaView's *D3*-filter can be used to distribute work more evenly between the cores.  
 
-The example script *para5101-multi.sh*, below, starts several pvservers and one client (front-end), and connects them. (After copying a script, check that is has execute permission - use `chmod u+x` to grant it.) The script needs no editing. Resources should be reserved via `salloc` command. Reservation is for the client and the pvservers combined. *Ntasks* is the number of pvservers plus one client, and *cpus-per-task* is the number of threads for each of these tasks, so the number of CPUs reserved is *ntasks x cpus-per-task*. *Mem* is the combined memory used by all. The script reserves one GB memory for the client, and the rest is divided between the pvservers.  
+The example script *para5101-multi.sh*, below, starts several pvservers and one client (front-end), and connects them. (After copying a script, check that it has the necessary execute permission - use `chmod u+x` to grant it.) The script needs no editing. Resources should be reserved via `salloc` command. Reservation is for the client and the pvservers combined. *ntasks* is the number of pvservers plus one client, and *cpus-per-task* is the number of threads for each of these tasks, so the number of CPUs reserved is *ntasks x cpus-per-task*. *mem* is the combined memory used by all. The script reserves one GB memory for the client, and the rest is divided between the pvservers.  
 
 The `salloc` example below allocates resources for one client and nine pvservers, each with two threads, so 20 CPUs are reserved. Nine GB memory in total is allocated for the pvservers, and one GB for the client. (ParaView's OSPRay renderer uses threads, while most of the other ParaView's functions benefit more of pvservers.) **Note that all these `salloc` parameters need to be explicitly given,** otherwise the script *para581-multi.sh* will not work  
 ```
 salloc --nodes=1 --ntasks=10 --cpus-per-task=2 --mem=10G --time=01:00:00 --partition=small --account=<project> para5101-multi.sh
 ```
-While the client connects to the servers, you may get a few warnings *connect failed, retrying*, which you can ignore. However, if the last message was *Creating default builtin connection*, connection did eventually fail, and the client is operating without any pvservers. If this happens, check that you have included all the necessary job parameters in your `salloc` command.  
+While the client connects to the servers, you may get a few warnings (*connect failed, retrying*) which you can ignore. However, if the last message was *Creating default builtin connection*, connection did eventually fail, and the client is operating without any pvservers. If this happens, check that you have included all the necessary job parameters in your `salloc` command.  
 
 #### Script *para5101-multi.sh*:  
 ```
@@ -86,7 +86,7 @@ wait
 ## ParaView using one graphics card, one pvserver, and many threads  
 In cases where OSPRay does not work well enough, run ParaView on a GPU node, and reserve a graphics card for it.  
 
-The script *para581-1GPU.sh* below starts and connects one client and one pvserver, and uses one GPU. (After copying a script, check that is has execute permission - use `chmod u+x` to grant it.) Resources reserved via `salloc` are for the client and the pvserver combined. *Cpus-per-task* is the number of threads. Ten or more threads is recommended. One GB of memory is allocated to the client, the rest goes to the pvserver.  
+The script *para581-1GPU.sh* below starts and connects one client and one pvserver, and uses one GPU. (After copying a script, check that is has execute permission - use `chmod u+x` to grant it.) Resources reserved via `salloc` are for the client and the pvserver combined. *cpus-per-task* is the number of threads. Ten or more threads is recommended. One GB of memory is allocated to the client, the rest goes to the pvserver.  
 
 The following `salloc` command allocates ten threads to the client and ten to the pvserver, so 20 CPUs are reserved. 24 GB memory is allocated to the pvserver, and one GB to the client. **Note that all the parameters below need to be explicitly given,** otherwise the script *para581-1GPU.sh* will not work  
 ```
@@ -235,4 +235,4 @@ srun --x11=first /appl/opt/vis/paraview/paraView-5.8.1-client-builddir/bin/parav
 * [ParaView documentation and guide](http://www.paraview.org/documentation/)
 * [ParaView Wiki](http://paraview.org/Wiki/ParaView)
 * [ParaView Tutorial](http://www.paraview.org/Wiki/The_ParaView_Tutorial)
-* [Search the ParaView users mailing list](http://paraview.markmail.org)
+* [Search the ParaView users mailing list](http://discourse.paraview.org)
