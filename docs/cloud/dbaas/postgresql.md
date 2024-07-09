@@ -28,6 +28,82 @@ A popular tool for working with PostgreSQL is [pgAdmin that can be found here](h
       <!-- * TODO `INSERT EXAMPLE HERE` if you get this error message it means that your postgresql client is not new enough please redo step 1. -->
 4. Now you should be able to use the database.
 
+
+## Accessing your Pukki PostgreSQL database from Puhti
+
+1. Make sure that your database's [firewall allows traffic from Puhti](firewalls.md#Puhti)
+2. Once the firewall allows connections from Puhti you can log into Puhti.
+3. To be able to use `psql` command line tool you need to load the module
+    ```
+    module load psql
+    ```
+4. (optional) Store your database password in your home directory, this is needed if you want to use
+    PostgreSQL from a batch job. You can do it by creating a file with the necessary credentials:
+    1. Create the file `touch ~/.pgpass`
+    2. Update the file permissions `chmod 600 ~/.pgpass`
+    3. Make sure that the file contain the correct information it should look something like this:
+    ```
+    $db_ip_address:5432:*:$db_user_name:$db_password
+    ```
+       * The `$db_ip_address` should be the public IP-addres to your instance.
+       * `5432` Is the port it should use (in Pukki it is always "5432")
+       * The `*` means that all databases in you database instance should use the same credentials
+       * The `$db_user_name` and `$db_password` is the database's  password and username NOT your
+         CSC-username and password
+5. No you can access your database
+    ```
+    psql --user ${USERNAME} --host ${DB_IP_ADRESS} ${DATABASE_NAME}
+    ```
+    * If you get an error like:
+      ```
+      psql: error: connection to server at "195.148.30.38", port 5432 failed: Connection refused
+        Is the server running on that host and accepting TCP/IP connections?
+      ```
+      it means that either your database IP address is wrong or you forgot to open the firewall
+    * If you get an error like:
+      ```
+      psql: error: connection to server at "$IP_ADDRESS", port 5432 failed: FATAL:  database "$DATABASE" does not exist
+      ```
+      it means that your database is wrong.
+    * If it asks for password but it does not accept your password you either have wrong password
+      or your database username does not exists in your database.
+
+## Basic Puhti batch job example using psql
+
+This requires that you have configured `~/.pgpass` correctly it can be easily verified by
+running `psql --host $DB_IP_ADDRESS --user $DB_USER_NAME $DATABASE_NAME -c 'SELECT 1;'
+
+Create a file named my-first-psql-batch-job.bash
+
+```
+#!/bin/bash -l
+#SBATCH --job-name=psql_job
+#SBATCH --output=output_%j.txt
+#SBATCH --error=errors_%j.txt
+#SBATCH --time=00:01:00
+#SBATCH --account=$PROJECT_NUMBER
+#SBATCH --ntasks=1
+#SBATCH --partition=test
+#SBATCH --mem-per-cpu=1024
+
+
+module load psql
+psql --user $DB_USER_NAME --host $DB_IP_ADDRESS $DATABASE_NAME -c 'SELECT 1' >> ~/psql-results.txt
+```
+
+Make sure that you have update the following variables:
+  * `$PROJECT_NUMBER`
+  * `$DB_USER_NAME`
+  * `DB_IP_ADDRESS`
+  * `DATABASE_NAME`
+
+Once you are happy with the batch script you can submit the job by running:
+```
+sbatch my-first-psql-batch-job.bash
+```
+
+
+
 ## Parameters that users can modify
 
 The DBaaS allows users to modify some of the parameters.
