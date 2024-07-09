@@ -16,18 +16,18 @@ Free to use and open source under [MIT License](https://raw.githubusercontent.co
 
 ## Available
 
--   Puhti: 2.5.1
+-   Puhti: 2.5.2
 -   Chipster graphical user interface
 
 
 ## Usage
 
-In Puhti, Bamtools can be taken in use as a part of biokit module collection:
+On Puhti, Bamtools can be taken in use as a part of biokit module collection:
 
 ```bash
 module load biokit
 ```
-The biokit modules sets up a set of commonly used bioinformatics tools. Note however that there are bioinformatics tools in Puhti,
+The biokit modules sets up a set of commonly used bioinformatics tools. Note however that there are bioinformatics tools on Puhti,
  that have a separate setup commands.
 
 The syntax of bamtools is:
