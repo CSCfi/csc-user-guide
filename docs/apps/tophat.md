@@ -13,7 +13,7 @@ TopHat is a fast splice junction mapper for RNA-Seq reads. It aligns RNA-Seq rea
 
 ## License
 
-Free to use and open source under [Boost Software License 1.0]https://github.com/DaehwanKimLab/tophat/blob/master/LICENSE).
+Free to use and open source under [Boost Software License 1.0](https://github.com/DaehwanKimLab/tophat/blob/master/LICENSE).
 
 ## Available
 
@@ -25,13 +25,13 @@ Free to use and open source under [Boost Software License 1.0]https://github.com
 
 ## Usage
 
-In Puhti tophat is initialized with command:
+On Puhti, tophat is initialized with the command:
 ```text
 module load biokit
 ```
 The biokit module sets up a set of commonly used bioinformatics tools, including Bowtie2, TopHat2 and Cufflinks.
 
-Tophat jobs should be run as batch jobs. Below is a sample batch job file, for running a TopHat job in Puhti:
+Tophat jobs should be run as batch jobs. Below is a sample batch job file, for running a TopHat job on Puhti:
 
 ```text
 !/bin/bash
@@ -53,7 +53,7 @@ In the batch job example above, one task (--ntasks=1) is executed. The job uses 
 
 Change **--account** to match your own project name.
 
-Note that we also need to tell TopHat to use the number of cores we reserved. In Tophat this is done with the **-p** command line argument. We can use system variable **$SLURM_CPUS_PER_TASK** to automatically match the reservation made with **--cpus-per-task**. This way we don't need to change the command line if we change the reservation.
+Note that we also need to tell TopHat to use the number of cores we reserved. In Tophat, this is done with the **-p** command line argument. We can use system variable **$SLURM_CPUS_PER_TASK** to automatically match the reservation made with **--cpus-per-task**. This way we don't need to change the command line if we change the reservation.
 
 See the [Puhti user guide](../computing/running/getting-started.md) for more information about running batch jobs.
 
