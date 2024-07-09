@@ -19,17 +19,17 @@ Free to use and open source under [GNU GPLv3](https://www.gnu.org/licenses/gpl-3
 
 ### Version on CSC's Servers
 
--   Puhti: 1.48.0
+-   Puhti: 1.39.5, 1.44.0, 1.48.0
 -   [Chipster](https://chipster.csc.fi) graphical user interface
 
 ## Usage
 
 
-To initialize the default version of Mothur in Puhti use:
+To initialize the default version of Mothur on Puhti, use:
 ```text
 module load mothur
 ```
-To see all available versions:
+To see all the available versions:
 ```text
 module spider mothur
 ```
@@ -47,9 +47,9 @@ If your analyses take a long time, or you wish to use multiple cores, you should
 
 Start by collecting your Mothur commands into a command file to use Mothur in [batch mode](http://www.mothur.org/wiki/Batch_mode).
 
-Once you have a working Mothur command file, you can launch Mothur jobs that can take several days, if needed.
+Once you have a working Mothur command file, you can launch Mothur jobs that take several days for completion, if needed.
 
-Below is a sample Mothur batch job file. In this example we assume that the Mothur commands are in file: my_mothur_task.txt.
+Below is a sample Mothur batch job file. In this example, we assume that the Mothur commands are in the file: my_mothur_task.txt.
 ```text
 #!/bin/bash
 #SBATCH --account=project_1234567
@@ -66,12 +66,12 @@ module load mothur
 mothur my_mothur_task.txt
 ```
 
-If you want to use multiple cores, adjust parameter **--cpus_per_task**. You must also adjust the **processors** parameter for each command in the Mothur command file accordingly. Note that only some Mothur commands can use multiple cores. Please check the documentation.
+If you want to use multiple cores, adjust parameter **--cpus_per_task**. You must also adjust the **processors** parameter for each command in the Mothur command file accordingly. Note that only some [Mothur commands](https://docs.hpc.qmul.ac.uk/apps/bio/mothur/) can use multiple cores.
 
-Mothur jobs need to run inside a single node, so the maximum number of cores you can use in Puhti is 40. You should check the scalability before submitting large jobs. Many Mothur tasks won't scale well beyond a few cores. Using too many core may even make you job run slower.
+Mothur jobs need to run inside a single node, so the maximum number of cores you can use on Puhti is 40. You should check the scalability before submitting large jobs. Many Mothur tasks won't scale well beyond a few cores. Using too many core may even make you job run slower.
 
 The batch job script described above (in this case named as: mothur_batch_job.sh) can be submitted to the batch job system
-with command:
+with the command:
 ```text
 sbatch mothur_batch_job.sh
 ```
