@@ -38,16 +38,16 @@ Free to use for all users. [Public Domain notice](https://www.ncbi.nlm.nih.gov/b
 
 ## Usage
 
-The _edirect_ commands listed abowe are activated by loading _biokit_ module.
+The _edirect_ commands listed above are activated by loading _biokit_ module.
 
 ```text
 module load biokit
 ```
 
-After that you can e.g. use _esearch_ and _efetch_ to retrieve protein or nucleotide sequence entries, whose annotation matches the given search terms. In search terms, you can also use wildcard character *, to match any string. The search is case-insensitive: Mus and mus will produce the same matches. You can also focus your search to certain fileds of the search database (Keywords, Author, Organism, Accession, Gene name, Protein name, Sequence length etc.). In the case of sequence length, a range should be defined with syntax _from_:_to_. For example: 120:125.
+After that you can, e.g., use _esearch_ and _efetch_ to retrieve protein or nucleotide sequence entries, whose annotation matches the given search terms. In search terms, you can also use wildcard character '*' to match any string. The search is case-insensitive: Mus and mus will produce the same matches. You can also focus your search to certain fileds of the search database (Keywords, Author, Organism, Accession, Gene name, Protein name, Sequence length etc.). In the case of sequence length, a range should be defined with syntax _from_:_to_. For example: 120:125.
 
 
-Normally it is wise to first use just the _esearch_ command to get an idea how much hits are found. 
+Normally, it is wise to first use just the `esearch` command to get an idea how much hits are found. 
 For example search:
 ```text
 esearch -db nucleotide -query barc
@@ -63,7 +63,7 @@ will report that 267791 hits were fould.
 </ENTREZ_DIRECT>
 ```
 
-In this case it might be reasonable to refine the serach, before the search definition is furter piped to _efetch_ command for the actual data retrieval. One search can include several search terms that are combined using logical operators (AND, OR, NOT). The matching sequences can be saved in several formats, for example fasta or Genebank formats are supported. The command below retrieves just one entry, Lyngbya majuscula barbamide biosynthesis gene cluster, that contains gene with name _braC_.
+In this case it might be reasonable to refine the serach, before the search definition is furter piped to `efetch` command for the actual data retrieval. One search can include several search terms that are combined using logical operators (AND, OR, NOT). The matching sequences can be saved in several formats, for example, fasta or Genebank formats are supported. The command below retrieves just one entry, _Lyngbya_ _majuscula_ barbamide biosynthesis gene cluster, that contains gene with name _braC_.
 
 ```text
 esearch -db nucleotide -query "barc [GENE] AND Lyngbya majuscula [ORGN]" | efetch -format gb > barc_Lm.gb
