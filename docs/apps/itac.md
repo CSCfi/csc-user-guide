@@ -13,7 +13,7 @@ compiled with the Intel MPI library.
 
 ## Available
 
-Puhti
+Puhti 2021.6.0
 
 ## License
 
@@ -25,40 +25,40 @@ For simple MPI tracing, no recompilation is needed, and it is enough to add foll
 settings into a normal batch job script:
 
 ```bash
-module load intel-itac
+module load intel-oneapi-itac
 export LD_PRELOAD=libVT.so
 
 srun myprog
 ```
 Trace Collector includes also other components, e.g. for fail-safe MPI tracing and correctness
 checking, which are used by replacing `libVT` with the particular component. More details about
-different components can be found in the [Intel documentation](https://software.intel.com/content/www/us/en/develop/documentation/itc-user-and-reference-guide/top/introduction/product-components.html).
+different components can be found in the [Intel documentation](https://www.intel.com/content/www/us/en/docs/trace-analyzer-collector/user-guide-reference/2021-10/introduction.html).
 
-Trace Collector allows also [tracing of user defined events](https://software.intel.com/content/www/us/en/develop/documentation/itc-user-and-reference-guide/top/user-guide/tracing-user-defined-events.html), however, this requires always recompilation of the 
+Trace Collector allows also [tracing of user defined events](https://www.intel.com/content/www/us/en/docs/trace-analyzer-collector/user-guide-reference/2021-10/tracing-user-defined-events.html). However, this always requires recompilation of the 
 application. As tracing can generate very large files even for relatively small applications,
-it is often useful to [filter the collected data](https://software.intel.com/content/www/us/en/develop/documentation/itc-user-and-reference-guide/top/user-guide/filtering-trace-data.html).
+it is often useful to [filter the collected data](https://www.intel.com/content/www/us/en/docs/trace-analyzer-collector/user-guide-reference/2021-10/filtering-trace-data.html).
 
 The collected data are saved in a series of `<executable>.stf` files in the running directory. 
 
 ### Known issues
 
-- In Fortran programs MPI tracing works only with `mpi` module (i.e. not with `use mpi_f08`)
+- In Fortran programs, MPI tracing works only with `mpi` module (i.e. not with `use mpi_f08`)
 - Collector exits with error "Failed writing buffer to flush file "/tmp/xxx.dat": No space left on device". 
-  - As the `/tmp/` in compute nodes is small, temporary files might need to be stored in the running 
+- As the `/tmp/` in compute nodes is small, temporary files might need to be stored in the running 
     directory by setting `export VT_FLUSH_PREFIX=$PWD`
 
 ## Analyzing the traces
 
 In order to improve the performance of the graphical user interface, 
 we recommend to use the [Puhti web interface remote desktop](../computing/webinterface/desktop.md) when carrying out the analysis. 
-The analyzer is started in the host terminal with the command (note that the `intel-itac` module needs to be loaded):
+The analyzer is started on the host terminal with the command (note that the `intel-oneapi-itac` module needs to be loaded):
 
 ```
 traceanalyzer <executable>.stf
 ```
 
 The Trace Analyzer can show the timeline of each process and map each MPI
-call between the tasks. For each performance issue the following information
+call between the tasks. For each performance issue, the following information
 is provided: description, affected processes, and source locations.
 
 Intel Trace Analyzer can be used also for investigating OTF2 formatted traces 
@@ -70,4 +70,4 @@ traceanalyzer
 and selecting then the OTF2 file via the "Open" dialog.
 
 For more details please check the
-[Intel documentation](https://software.intel.com/content/www/us/en/develop/articles/intel-trace-analyzer-and-collector-documentation.html)
+[Intel documentation](https://www.intel.com/content/www/us/en/developer/tools/oneapi/trace-analyzer-documentation.html)
