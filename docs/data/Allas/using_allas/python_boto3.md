@@ -92,19 +92,15 @@ or _remotes_, for the projects whose Allas storage you wish
 to access. The configurations are stored in `~/.config/rclone/rclone.conf` on
 the supercomputer whose web interface you used for generating them.
 
-2. Copy the contents of `~/.config/rclone/rclone.conf` to a new file,
+2. The entries that contain the S3 access key and secret key need to be prefixed
+with `aws_` for `boto3` to recognize them as S3 credentials, but we do not want
+to make changes directly to `~/.config/rclone/rclone.conf`, as it is used by
+other programs. Use the `sed` utility to read the contents of the configuration
+file, make the necessary changes, and write the modified contents to a new file,
 for example `~/.config/s3allas/credentials`.
 
     ```bash
-    cp ~/.config/rclone/rclone.conf ~/.config/s3allas/credentials
-    ```
-
-3. The entries that contain the S3 access key and secret key need to be prefixed
-   with `aws_` for `boto3` to recognize them as S3 credentials. You can do this
-   easily with the `sed` utility.
-
-    ```bash
-    sed --in-place --regexp-extended 's/^(access|secret)/aws_\1/g' ~/.config/s3allas/credentials
+    sed -E 's/^(access|secret)/aws_\1/g' ~/.config/rclone/rclone.conf > ~/.config/s3allas/credentials
     ```
 
 After completing these steps, your S3 credentials for using `boto3` are stored
