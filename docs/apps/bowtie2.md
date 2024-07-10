@@ -53,7 +53,7 @@ When the reference genome has been dowloaded or indexed, the actual alignment jo
 bowtie2 -x genome -U reads.fq -S output.sam
 ```
 
-For paried end data, the minimal bowtie2 syntax is:
+For paired end data, the minimal bowtie2 syntax is:
 ```
 bowtie2 -x genome -1 first_read_set.fq -2 second_read_set.fq -S output.sam
 ``` 
