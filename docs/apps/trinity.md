@@ -85,7 +85,7 @@ replace _sbatch_commandlist_ with _sbatch_commandlist_trinity_.
 When Trinity is executed with `--grid_exec` option, it generates large amount of temporary files and it 
 is very likely, that you will exceed the default limit of 100 000 files. Thus, it is advisable to apply for 
 a larger file number quota for Puhti scratch before submitting large Trinity jobs. You can send the request
-to servicedesk@csc.fi.
+to [CSC Service Desk](../support/contact.md).
 
 
 When the batch job file is ready, it can be submitted to the batch queue system with the command:

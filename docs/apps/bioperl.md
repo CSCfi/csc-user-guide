@@ -56,7 +56,7 @@ and execute the perl program:
  
 ## Support
 
-servicedesk@csc.fi
+[CSC Service Desk](../support/contact.md)
 
 ## Manual
 

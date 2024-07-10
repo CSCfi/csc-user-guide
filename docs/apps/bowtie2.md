@@ -119,7 +119,7 @@ Langmead B, Salzberg S. Fast gapped-read alignment with Bowtie 2. Nature Methods
 
 ## Support
 
-servicedesk@csc.fi
+[CSC Service Desk](../support/contact.md)
 
 ## Manual
 

@@ -64,7 +64,7 @@ The sample command above produces two result files:
 
 ## Support
 
-servicedesk@csc.fi
+[CSC Service Desk](../support/contact.md)
 ## Manual
 
 *   [CD-HIT user guide](https://github.com/weizhongli/cdhit/wiki)

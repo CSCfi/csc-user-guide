@@ -157,7 +157,7 @@ See the [Puhti user guide](../computing/running/getting-started.md) for more inf
 
 ## Support
 
-servicedesk@csc.fi
+[CSC Service Desk](../support/contact.md)
 
 ## Manual
 

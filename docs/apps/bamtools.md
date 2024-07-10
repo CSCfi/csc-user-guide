@@ -58,7 +58,7 @@ bamtools help COMMAND
 
 ## Support
 
-servicedesk@csc.fi
+[CSC Service Desk](../support/contact.md)
 
 ## Manual
 

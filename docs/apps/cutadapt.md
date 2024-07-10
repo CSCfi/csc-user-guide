@@ -48,7 +48,7 @@ Cutadapt should be run either in an interactive session or as a batch job.
 
 ## Support
 
-servicedesk@csc.fi
+[CSC Service Desk](../support/contact.md)
 
 ## Manual
 
