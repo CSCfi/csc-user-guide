@@ -38,7 +38,7 @@ Free to use for all users. [Public Domain notice](https://www.ncbi.nlm.nih.gov/b
 
 ## Usage
 
-The _edirect_ commands listed above are activated by loading _biokit_ module.
+The `edirect` commands listed above are activated by loading the `biokit` module.
 
 ```text
 module load biokit
