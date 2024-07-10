@@ -56,7 +56,7 @@ srun megahit -1 reads_1.fastq -2 reads_2.fastq -t $SLURM_CPUS_PER_TASK --m 32000
 ```
 In the example above `<project>` could be replaced with your project name. You can use `csc-workspaces` to check your Puhti projects. Maximum running time is 
 set to 12 hours (`--time=12:00:00`). As Megahit uses thread based parallelization, the process is considered as one job that should be executed within one node (`--ntasks=1`, `--nodes=1`). The job reserves eight cores `--cpus-per-task=8` that can use in total up to 32 GB of memory  (` --mem=32G`). Note that the number of cores to be used needs to be defined in actual Megahit command
-too. That is done with Megahit option `-t`. In this case we use $SLURM_CPUS_PER_TASK variable that contains the _cpus-per-task_ 
+too. That is done with Megahit option `-t`. In this case we use `$SLURM_CPUS`_PER_TASK variable that contains the `cpus-per-task` 
 value ( we could as well use `-t 8`, but then, we have to remember to change the value if number of the reserved CPU:s is changed).
 
 The job is submitted to the to the batch job system with `sbatch` command. For example, if the batch job
