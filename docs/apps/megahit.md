@@ -23,7 +23,7 @@ Version on CSC's Servers
 
 ## Usage
 
-On Puhti, Megahit is activated by loading the _biokit_ environment.
+On Puhti, Megahit is activated by loading the `biokit` environment.
 
 ```text
 module load biokit
