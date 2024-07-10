@@ -34,7 +34,7 @@ Available in Puhti
 
 ## Usage
 
-chipster_genomes tool in included in _biokit module_. So to make it available, you must first run the set-up command:
+The `chipster_genomes` tool is included in the `biokit` module, so to make it available, you must first run the set-up command:
 ```text
 module load biokit
 ```
