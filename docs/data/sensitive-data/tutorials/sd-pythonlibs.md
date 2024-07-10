@@ -14,14 +14,14 @@ In normal computers, the problem can be easily solved by adding the missing libr
 as SD Desktop virtual machines don't have internet connection, you can't run `pip install` command in the way it is normally used.
 
 **If you plan to use a complex python environment in SD Desktop, the best solution is to build an Apptainer container that 
-includes all the Python libraries you need, and import that container to SD Desktop**.
+includes all the Python libraries you need, and import the container to SD Desktop**.
 
 However, if you need to add just few missing libraries, you could create a Python virtual environment
-to add the missing libraries. This tutorial demonstrates two ways that to import and install missing Python libraries to the existing Python environment in SD desktop. As an example Python library we use [SciKit-Optimize library](https://scikit-optimize.github.io).
+to add the missing libraries. This tutorial demonstrates two ways to add missing Python libraries to the existing Python environment in SD desktop. As an example Python library we use [SciKit-Optimize library](https://scikit-optimize.github.io).
 
 ## Option 1: add-python-lib tool
 
-Add-python-lib is a help tool tha can be used to add python libraries to
+_Add-python-lib_ is a help tool tha can be used to add python libraries to
 a Python virtual environment in a SD Desktop virtual machine.
 This tool can be added to your virtual machine with the [SD Sotware installer tool](./sd-software-installer.md).
 
@@ -31,13 +31,13 @@ Basic syntax of the command is:
    add-python-lib search_term 
 ```
 
-The command looks for matching packages from the set of Python libraries that CSC has preloaded to SD Connect
+The command looks for matching packages from the set of Python libraries that CSC has preloaded to SD Connect.
 Note that the preloaded set of libraries is very small (some hundreds) compared to the over 300 000 libraries available through pip.
-Please send a request to servicedesk@csc.fi if you would need to have a library to be added to the selection.
+Please send a request to _servicedesk@csc.fi_ if you would need to have a library to be added to the selection.
 Note that all python libraries are not compatible with this approach.
 
-Installation will be done to a Python virtual environment that locates in _/shared-directory/sd-tools/python3-venv_
-This virtual environment is automatically cerated when _add_python_lib_ is used for the first time.
+The selected library will added to a Python virtual environment that locates in _/shared-directory/sd-tools/python3-venv_.
+This virtual environment is automatically created when _add-python-lib_ is used for the first time.
 
 In the case of SciKit-Optimize, you could do the installation with command:
 
@@ -72,12 +72,12 @@ export PYTHONPATH=/usr/lib/python3/dist-packages:/usr/local/lib/python3.10/dist-
 ### 1. Downloading installation file for SD Desktop
 
 The first thing to do is to download a pip installation package file for the library you want to use.
-This you must do outside SD Desktop. You can search for the package from the [Pypi repository]()https://pypi.org/)
-or use pip download command if you have python3 installed in your machine (if possible, use Python version that matches with the Python version in SD Desktop).
+This you must do outside SD Desktop. You can search for the package from the [Pypi repository](https://pypi.org/)
+or use _pip download_ command if you have python3 installed in your machine (if possible, use Python version that matches with the Python version in SD Desktop).
 
 #### 1.1 Pypi repository 
 
-In the case of SciKit-Optimize, search in the Pypi repository gives you a project list. SciKit-Optimize is the first item  on the list. You can continue top the  SciKit-Optimize project page, where the _download_ link provides a list of downloadable files. Here we could download the build distribution (scikit_optimize-0.10.2-py2.py3-none-any.whl ).
+In the case of SciKit-Optimize, search in the Pypi repository gives you a project list. SciKit-Optimize is the first item  on the list. You can continue to the  SciKit-Optimize project page, where the _download_ link provides a list of downloadable files. Here we could download the pre-build library file (scikit_optimize-0.10.2-py2.py3-none-any.whl ).
 
 #### 1.2  pip in command line
 
