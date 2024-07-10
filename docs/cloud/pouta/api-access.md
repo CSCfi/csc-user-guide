@@ -86,7 +86,9 @@ making calls on Python objects rather than making REST calls directly.
 
 In order to use it with our applications we need to first install the SDK as: 
 
-`pip install openstacksdk`
+```
+pip install openstacksdk
+```
 
 Next, we need to provide our configurations and credentials through a `clouds.yaml` file which can be downloaded from 
 the [Pouta web interface](https://pouta.csc.fi/dashboard/project/api_access/) after logging in. 
