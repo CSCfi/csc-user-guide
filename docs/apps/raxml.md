@@ -54,7 +54,7 @@ The MPI version (`raxmlHPC-MPI`) is for executing really large production runs (
  
 The current MPI version only works properly if you specify the number of runs in the command line, since it has been designed to do multiple inferences or rapid/standard BS (bootstrap) searches in parallel. For all remaining options, the usage of this type of coarse-grained parallelism does not make much sense. Please use the -N option instead of the -# option as the latter can be mistaken for a start of a comment by the batch job system.
 
-For versions 8.2.12 and newer there is also a hybrid MPI/threaded version (**raxmlHPC-HYBRID**)
+For versions 8.2.12 and newer there is also a hybrid MPI/threaded version (`raxmlHPC-HYBRID`)
 
 For versions 8.2.12 and newer there are also AVX optimized binaries available (**raxmlHPC-AVX**, **raxmlHPC-PTHREADS-AVX**, **raxmlHPC-MPI-AVX**, **raxmlHPC-HYBRID-AVX**) These can run faster that non-optimized versions, but can cause problems on some datasets. Try the non-optimized versions, in case of problems.
 
