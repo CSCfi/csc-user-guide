@@ -56,7 +56,7 @@ The current MPI version only works properly if you specify the number of runs in
 
 For versions 8.2.12 and newer there is also a hybrid MPI/threaded version (`raxmlHPC-HYBRID`)
 
-For versions 8.2.12 and newer there are also AVX optimized binaries available (**raxmlHPC-AVX**, **raxmlHPC-PTHREADS-AVX**, **raxmlHPC-MPI-AVX**, **raxmlHPC-HYBRID-AVX**) These can run faster that non-optimized versions, but can cause problems on some datasets. Try the non-optimized versions, in case of problems.
+For versions 8.2.12 and newer there are also AVX optimized binaries available (` raxmlHPC-AVX`, `raxmlHPC-PTHREADS-AVX`, `raxmlHPC-MPI-AVX`, `raxmlHPC-HYBRID-AVX`) These can run faster that non-optimized versions, but can cause problems on some datasets. Try the non-optimized versions, in case of problems.
 
 For details, please refer to chapter "When to use which Version?" in the [RAxML manual](https://cme.h-its.org/exelixis/resource/download/NewManual.pdf).
 
