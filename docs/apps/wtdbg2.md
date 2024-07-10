@@ -29,7 +29,7 @@ On Puhti, wtdbg2 is activated by loading the biokit environment.
 module load biokit
 ```
 
-After that, you can use commands `wtdbg2` asembler and `wrpoa-cns` consenser commands. _wtdbg2_ assembles raw reads and generates the contig layout and edge sequences in a file _prefix_.ctg.lay.gz. Executable _wtpoa-cns_ takes this file as input and produces the final consensus in FASTA. 
+After that, you can use commands `wtdbg2` asembler and `wrpoa-cns` consenser commands. `wtdbg2` assembles raw reads and generates the contig layout and edge sequences in a file _prefix_.ctg.lay.gz. Executable `wtpoa-cns` takes this file as input and produces the final consensus in FASTA. 
 
 
 A typical workflow looks like this:
