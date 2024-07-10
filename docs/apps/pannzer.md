@@ -40,7 +40,7 @@ If you upload this file to Allas with the command:
 ```text
 a-flip annotations.html
 ```
-you can use the link provided by _a-flip_ to study the results with your browser.
+you can use the link provided by `a-flip` to study the results with your browser.
 
 Note, that on Puhti you should always use `runsanspanz.py` with option `-R` that sends the
 analysis jobs to the annotation sever maintained by the Holm group. Thus, the job does not use 
