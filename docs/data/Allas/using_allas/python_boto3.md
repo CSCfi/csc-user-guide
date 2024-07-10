@@ -123,7 +123,7 @@ s3_resource = boto3.resource('s3', endpoint_url='https://a3s.fi')
 ```
 S3 credentials configured for multiple projects:
 ```python
-# Create resource using credentials from a profile in a custom credentials file
+# Create resource using credentials from a profile
 import boto3
 import os
 
