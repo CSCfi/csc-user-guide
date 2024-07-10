@@ -90,7 +90,7 @@ The parallelization implementation of ipyrad requires that you always have only 
 
 **This number of cores (`--ntasks` * `--cpus-per-task`) is then given to the iPyrad command with option `-c`. This is critical, as otherwise, iPyrad will only use one core, even if it is requested from SLURM with `--cpus-per-task=8`. Further, if you are using more than one node you should define that MPI is in use (`--MPI`) and that the commands of the pipeline are executed using only one computing core (`-t`).
 
-In the sample case here, we will use 20 cores in one node. If the run time is expected to be more than 3 days, the job should be submitted to longrun partition (#SBATCH --partition=longrun). In this case, we reserve 72 hours ( 3 days). Further, in step 3, the clustering commands are executed using 20 cores (-c 20), each running one thread (-t 1 ).
+In the sample case here, we will use 20 cores in one node. If the run time is expected to be more than 3 days, the job should be submitted to longrun partition (#SBATCH --partition=longrun). In this case, we reserve 72 hours ( 3 days). Further, in step 3, the clustering commands are executed using 20 cores (`-c 20`), each running one thread (`-t 1`).
 
 ```text
 #!/bin/bash -l
