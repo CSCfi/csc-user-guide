@@ -44,7 +44,7 @@ The `edirect` commands listed above are activated by loading the `biokit` module
 module load biokit
 ```
 
-After that you can, e.g., use _esearch_ and _efetch_ to retrieve protein or nucleotide sequence entries, whose annotation matches the given search terms. In search terms, you can also use wildcard character '*' to match any string. The search is case-insensitive: Mus and mus will produce the same matches. You can also focus your search to certain fileds of the search database (Keywords, Author, Organism, Accession, Gene name, Protein name, Sequence length etc.). In the case of sequence length, a range should be defined with syntax _from_:_to_. For example: 120:125.
+After that you can, e.g., use `esearch` and `efetch` to retrieve protein or nucleotide sequence entries, whose annotation matches the given search terms. In search terms, you can also use wildcard character '*' to match any string. The search is case-insensitive: Mus and mus will produce the same matches. You can also focus your search to certain fileds of the search database (Keywords, Author, Organism, Accession, Gene name, Protein name, Sequence length etc.). In the case of sequence length, a range should be defined with syntax _from_:_to_. For example: 120:125.
 
 
 Normally, it is wise to first use just the `esearch` command to get an idea how much hits are found. 
