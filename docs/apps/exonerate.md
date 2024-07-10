@@ -36,7 +36,7 @@ module load biokit
 The biokit module sets up a set of commonly used bioinformatics tools, including Exonerate 
 (Note however that there are also bioinformatics tools in Puhti, that have a separate setup commands.)
 
-After loading the biokit module, the `exonerate` commands are recognized.
+After loading the `biokit` module, the `exonerate` commands are recognized.
 
 For example, to align cDNA to genomic sequence, you can use `exonerate` command with _est2genome_ model.
 ```text
