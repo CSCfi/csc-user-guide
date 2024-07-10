@@ -24,7 +24,7 @@ Free to use and open source under [MIT License](https://raw.githubusercontent.co
 
 ## Usage
 
-Kraken in included in the _biokit_ module. To set it up, run the command:
+Kraken in included in the `biokit` module. To set it up, run the command:
 ```text
 module load biokit
 ```
