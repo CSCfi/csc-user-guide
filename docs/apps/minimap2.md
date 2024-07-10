@@ -141,7 +141,7 @@ minimap2 -t $SLURM_CPUS_PER_TASK -ax splice -uf ref.fa iso-seq.fq > aln.sam
 ```
 
 In the batch job example above, one task (`--ntasks=1") is executed. The Minimap2 job
-uses 8 cores (--cpus-per-task=8 ) with total of 16 GB of memory (--mem=16000).
+uses 8 cores (`--cpus-per-task=8`) with total of 16 GB of memory (`--mem=16000`).
 The maximum duration of the job is four hours (-t 04:00:00 ). All the cores
 are assigned from one computing node (--nodes=1 ). In addition to the resource
 reservations, you have to define the billing project for your batch job. This
