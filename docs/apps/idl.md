@@ -10,6 +10,7 @@ Programming Language, Numeric Analysis, Manipulation and Visualization of Scient
 ## Available
 
 Puhti: 8.5.1, 8.8.2
+Mahti: 8.5.1, 8.8.1, 8.8.3
 
 ## License
 
