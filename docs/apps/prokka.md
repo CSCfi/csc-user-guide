@@ -67,7 +67,7 @@ prokka --cpus $SLURM_CPUS_PER_TASK --outdir results_case1 --prefix mygenome cont
 
 In the batch job example above one Prokka task (--ntasks 1) is executed. 
 The job reserves 8 core (--cpus-per-task=8 ) with total of 16 GB of memory (--mem=16000). 
-The maximum duration of the job is twelve hours (--time 24:00:00 ). All the cores are assigned from 
+The maximum duration of the job is twelve hours (`--time 24:00:00`). All the cores are assigned from 
 one computing node (--nodes=1 ). In addition to the resource reservations, you have to define 
 the billing project for your batch job. This is done by replacing the _your_project_name_ with 
 the name of your project. (You can use command csc-workspaces to see what projects you have on Puhti).
