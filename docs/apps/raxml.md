@@ -46,7 +46,7 @@ RAxML comes in a serial version and three different parallel version.
 
 The serial version (**raxmlHPC**) is intended for small to medium data sets and for initial experiments to determine appropriate search parameters.
 
-The PThreads version (**raxmlHPC-PTHREADS**) will work well for very long alignments. Make sure to specify the number of threads with the ­-T option. This should match the number of cores you request in the batch job script.
+The PThreads version (`raxmlHPC-PTHREADS`) will work well for very long alignments. Make sure to specify the number of threads with the ­`-T` option. This should match the number of cores you request in the batch job script.
 
 To choose the number of threads to use, please see section "How many Threads shall I use?" in the [RAxML manual](https://cme.h-its.org/exelixis/resource/download/NewManual.pdf). Using too many threads can cause the program to run slower.
 
