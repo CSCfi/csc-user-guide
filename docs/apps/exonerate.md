@@ -38,7 +38,7 @@ The biokit module sets up a set of commonly used bioinformatics tools, including
 
 After loading the `biokit` module, the `exonerate` commands are recognized.
 
-For example, to align cDNA to genomic sequence, you can use `exonerate` command with _est2genome_ model.
+For example, to align cDNA to genomic sequence, you can use `exonerate` command with `est2genome` model.
 ```text
 exonerate --model est2genome query.fasta target.fasta
 ```
