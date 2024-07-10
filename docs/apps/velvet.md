@@ -99,7 +99,7 @@ velveth_maxk50 assembly_folder 45 -shortPaired -fastq temp.fastq
 velvetg_maxk50 assembly_folder -ins_length 400
 ```
 
-In the batch job file above, the job reserves 4 computing cores (--cpus-per-task=4) and 64 GB of memory for four days (-t 4-00:00:00). Velvet can utilize threads based parallel computing. After a set up command `module load biokit` the number of cores to be used in the Velvet run is defined with the environment variables: `OMP_NUM_THREADS` and `OMP_THREAD_LIMIT`. In this script these variables are set by using the the environment variable `SLURM_CPUS_PER_TASK`, that contains the value defined with the --cpus-per-task,(which, in this example, has the value: 4).
+In the batch job file above, the job reserves 4 computing cores (`--cpus-per-task=4`) and 64 GB of memory for four days (`--time=4-00:00:00`). Velvet can utilize threads based parallel computing. After a set up command `module load biokit` the number of cores to be used in the Velvet run is defined with the environment variables: `$OMP_NUM_THREADS` and `$OMP_THREAD_LIMIT`. In this script these variables are set by using the the environment variable `$SLURM_CPUS_PER_TASK`, that contains the value defined with the `--cpus-per-task` (which, in this example, has the value: 4).
 
 The batch job can be launched with the command
 
