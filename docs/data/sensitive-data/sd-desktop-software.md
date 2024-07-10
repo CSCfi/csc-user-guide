@@ -60,6 +60,7 @@ Adding extra software to SD Desktop is possible, but it involves converting the 
 ### SD Software installer
 
 [SD Software installer](./tutorials/sd-software-installer.md) provides an easy-to-use tool to add some commonly used software to SD Desktop (Eg. Rstudio 4.2.2, Whisper, VSCode and GATK). SD Software installer is based on installation scripts provided by CSC. Users can't add their own tools to the SD Software installer, but you can send requests for new tools to be added. 
+
    - [SD Software installer](./tutorials/sd-software-installer.md)
  
    
