@@ -92,19 +92,20 @@ or _remotes_, for the projects whose Allas storage you wish
 to access. The configurations are stored in `~/.config/rclone/rclone.conf` on
 the supercomputer whose web interface you used for generating them.
 
-2. The entries that contain the S3 access key and secret key need to be prefixed
-with `aws_` for `boto3` to recognize them as S3 credentials, but we do not want
-to make changes directly to `~/.config/rclone/rclone.conf`, as it is used by
-other programs. Use the `sed` utility to read the contents of the configuration
-file, make the necessary changes, and write the modified contents to a new file,
-for example `~/.config/s3allas/credentials`.
+2. The S3 configuration entries for the access key ID and secret access key
+need to be prefixed with `aws_` for `boto3` to recognize them as S3
+credentials, but we do not want to make changes directly to
+`~/.config/rclone/rclone.conf`, as it is used by other programs.
+Instead, use the `sed` utility to read the contents of the configuration file,
+make the necessary changes, and write the modified contents to a new file,
+for example `~/.boto3_credentials`. This can all be done with the following command.
 
     ```bash
-    sed -E 's/^(access|secret)/aws_\1/g' ~/.config/rclone/rclone.conf > ~/.config/s3allas/credentials
+    sed -E 's/^(access|secret)/aws_\1/g' ~/.config/rclone/rclone.conf > ~/.boto3_credentials
     ```
 
 After completing these steps, your S3 credentials for using `boto3` are stored
-under project-specific S3 profiles in the file you created. The profile names
+under project-specific S3 profiles in the file you created in step 2. The profile names
 have the format `s3allas-<project>`, e.g. `s3allas-project_2001234`.
 You can now use these credentials to
 [create a `boto3` resource](#create-boto3-resource).
@@ -126,7 +127,7 @@ S3 credentials configured for multiple projects:
 import boto3
 import os
 
-s3_credentials = '<credentials-file>'   # e.g. '~/.config/s3allas/credentials'
+s3_credentials = '<credentials-file>'   # e.g. '~/.boto3_credentials'
 s3_profile = 's3allas-<project>'        # e.g. 's3allas-project_2001234'
 
 os.environ['AWS_SHARED_CREDENTIALS_FILE'] = s3_credentials
