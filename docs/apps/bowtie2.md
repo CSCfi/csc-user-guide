@@ -28,7 +28,7 @@ Free to use and open source under [GNU GPLv3](https://www.gnu.org/licenses/gpl-3
 
 ## Usage
 
-On Puhti, Bowtie2 can be taken in use as part of the _biokit_ module collection:
+On Puhti, Bowtie2 can be taken in use as part of the `biokit` module collection:
 
 ```bash
 module load biokit
