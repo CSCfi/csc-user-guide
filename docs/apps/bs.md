@@ -47,7 +47,7 @@ After that you can start working with your Illumina data. For example, available
 bs list datasets
 ```
 
-Single dataset can be downloaded to Puhtri with the command:
+Single dataset can be downloaded to Puhti with the command:
 ```text
 bs download dataset -i dataset_id -o local_download_dir
 ```
