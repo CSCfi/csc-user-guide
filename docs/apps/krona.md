@@ -69,7 +69,7 @@ will produce a URL that you can copy to you browser.
 In addition to _ktImportTaxonomy_ there are several application specific data import tools: 
 For example, for BLAST (`ktImportBLAST`) and MG-RAST (`ktImportMGRAST`). There are also general purpose tools
 for text (`ktImportText`) and XML data (`ktImportXML`). On Puhti, you may also be interested to
-use _ktImportDiskUsage_ to visualize how many different datasets use space in your directories.
+use `ktImportDiskUsage` to visualize how many different datasets use space in your directories.
 
 ## More information
 
