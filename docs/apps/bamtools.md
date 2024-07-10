@@ -27,7 +27,7 @@ On Puhti, Bamtools can be taken in use as a part of biokit module collection:
 ```bash
 module load biokit
 ```
-The biokit modules sets up a set of commonly used bioinformatics tools. Note however that there are bioinformatics tools on Puhti,
+The biokit module sets up a set of commonly used bioinformatics tools. Note however that there are other bioinformatics tools on Puhti,
  that have a separate setup commands.
 
 The syntax of bamtools is:
