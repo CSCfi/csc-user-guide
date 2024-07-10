@@ -26,7 +26,7 @@ storage and floating IPs.
 | Floating IPs | 0,2 BU / hour |
 
 Please note that virtual machines consume BUs regardless whether you are using
-them or not. This means that a shutdown or suspended virtual machine
+them or not. This means that a shut down or suspended virtual machine
 still consumes BUs. You can find more information about the different
 states of virtual machines and their BU consumption in
 [Virtual machine lifecycle](vm-lifecycle.md). The minimum accounting time for a
