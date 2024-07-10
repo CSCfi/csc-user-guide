@@ -39,7 +39,7 @@ wtdbg2 -x rs -g 4.6m -t 16 -i reads.fa.gz -fo prefix
 wtpoa-cns -t 16 -i prefix.ctg.lay.gz -fo prefix.ctg.fa
 ```
 
-In the `wtdbg2` command, `-g` is the estimated genome size and `-x` specifies the sequencing technology, which could take value _rs_ for PacBio RSII, _sq_ for PacBio Sequel, _ccs_ for PacBio CCS reads and _ont_ for Oxford Nanopore. This option sets multiple parameters and should be applied before other parameters. When you are unable to get a good assembly, you may need to tune other parameters as described in the wtdbg2 manual.
+In the `wtdbg2` command, `-g` is the estimated genome size and `-x` specifies the sequencing technology, which could take value `rs` for PacBio RSII, `sq` for PacBio Sequel, `ccs` for PacBio CCS reads and `ont` for Oxford Nanopore. This option sets multiple parameters and should be applied before other parameters. When you are unable to get a good assembly, you may need to tune other parameters as described in the wtdbg2 manual.
 
 In the case of any large ( more than 10 Mb) genomes,  wtdbg2 assembly process can take several hours or days. On Puhti, this large tasks shoud always be executed as batch jobs.
 
