@@ -29,7 +29,7 @@ Free to use and open source under [MIT License](https://raw.githubusercontent.co
 
 ## Usage
 
-On Puhti, minimap2 can be used as part of the _biokit_ module collection:
+On Puhti, minimap2 can be used as part of the `biokit` module collection:
 
 ```text
 module load biokit
