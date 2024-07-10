@@ -10,7 +10,7 @@ tags:
 
 EMBOSS (European Molecular Biology Open Software Suite) package contains over 200 programs for sequence analysis. 
 EMBOSS is designed for classical sequence analysis were the amount of seqences are less than 100 000. Because of that, 
-most of the tools are not effective for raw NGS datasets where you have million sequences (reads).
+most of the tools are not effective for raw NGS datasets where you have millions of sequences (reads).
 Examples of application areas of EMBOSS tools are given below.
 
 *    Sequence alignment
