@@ -117,7 +117,7 @@ sbatch ipyrad_batch_job_file.sh
 
 Once the job has finished, you could run the next step by replacing `-s 3` with `-s 4` etc.
 
-For the setps 4-7 a maximum of 8 cores is recommended. Thread assigning option should be set so that iPyrad can use the default settings.
+For the setps 4-7 a maximum of 8 cores is recommended. Thread assigning option should always be set, as the default settings of iPyrad are not suitable for batch jobs.
 
 ```text
 #!/bin/bash -l
