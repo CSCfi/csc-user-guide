@@ -66,7 +66,7 @@ module load mothur
 mothur my_mothur_task.txt
 ```
 
-If you want to use multiple cores, adjust parameter **--cpus_per_task**. You must also adjust the **processors** parameter for each command in the Mothur command file accordingly. Note that only some [Mothur commands](https://docs.hpc.qmul.ac.uk/apps/bio/mothur/) can use multiple cores.
+If you want to use multiple cores, adjust parameter `--cpus_per_task`. You must also adjust the `processors` parameter for each command in the Mothur command file accordingly. Note that only some [Mothur commands](https://docs.hpc.qmul.ac.uk/apps/bio/mothur/) can use multiple cores.
 
 Mothur jobs need to run inside a single node, so the maximum number of cores you can use on Puhti is 40. You should check the scalability before submitting large jobs. Many Mothur tasks won't scale well beyond a few cores. Using too many core may even make you job run slower.
 
