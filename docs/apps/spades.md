@@ -41,7 +41,7 @@ Version on CSC's Servers
 
 ## Usage
 
-On Puhti, SPAdes is activated by loading the _biokit_ environment.
+On Puhti, SPAdes is activated by loading the `biokit` environment.
 
 ```text
 module load biokit
