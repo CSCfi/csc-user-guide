@@ -23,7 +23,7 @@ Free to use and open source under [GNU GPLv3](https://www.gnu.org/licenses/gpl-3
 
 ## Usage
 
-On Puhti, BWA can be taken in use as part ofth the _biokit_ module collection:
+On Puhti, BWA can be taken in use as part of the `biokit` module collection:
 
 ```text
 module load biokit
