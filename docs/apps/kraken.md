@@ -35,7 +35,7 @@ kraken2 --help
 ```
 
 There are several Kraken2 reference databases available on Puhti. By default, Kraken2 uses the
-_standard_ database  that is based on taxonomic information and complete genomes in RefSeq 
+`standard` database  that is based on taxonomic information and complete genomes in RefSeq 
 for the bacterial, archaeal, and viral domains, along with the human genome and a 
 collection of known vectors (UniVec_Core).
 
