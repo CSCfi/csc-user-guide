@@ -54,7 +54,7 @@ must use pull requests.
  - Make a pull request for your work to be added to Master
     - Look at the test results of your PR: if they are red, check what's wrong and commit to the PR directly to fix it. See the [FAQ](FAQ.md#my-pr-did-not-pass-the-tests-what-to-do) for instructions.
     - Assign one or more reviewers, try to choose someone who knows the _content_. See also the [FAQ](FAQ.md#how-and-who-should-i-ask-to-review-my-pr).
-        - Please add a link to the rahtiapp-preview page `https://csc-guide-preview.rahtiapp.fi/origin/<your-branch-name>/rest-of-url/`) in the Pull Request description to help reviewer.
+        - Please add a link to the rahtiapp-preview page `https://csc-guide-preview.2.rahtiapp.fi/origin/<your-branch-name>/rest-of-url/`) in the Pull Request description to help reviewer.
     - You can also add a label to your PR. For example, if your edit is minor (e.g. fixed link or typo), you can add the label "trivial change" to expedite the reviewing process.
     - Pull requests which do not meet the requirements will not be accepted. Note that you can keep committing to a pull request after it has been submitted.
         - If your commits aren't showing up on the pull request, i.e., the pull request isn't updating when making new commits, try switching the base branch ('Edit' button, top-right) from `master` to something else and then back again.
@@ -87,7 +87,7 @@ If you see an approved branch:
 ### Previewing active branches
 
 The GitHub web interface gives a preview (also while editing) but it does not render all syntax used in mkdocs correctly.
-A full preview for ongoing work is available for all branches: https://csc-guide-preview.rahtiapp.fi/origin/
+A full preview for ongoing work is available for all branches: https://csc-guide-preview.2.rahtiapp.fi/origin/
 Note, currently absolute internal links don't work in the preview, but work on docs.csc.fi. For more details, see the [FAQ](FAQ.md#how-can-i-preview-my-edits).
 
 ### Making pull requests in the web GUI
