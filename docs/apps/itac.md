@@ -5,15 +5,15 @@ tags:
 
 # Intel Trace Analyzer and Collector (ITAC)
 
-Intel Trace Analyzer and Collector (ITAC) is a MPI profiling and tracing tool
-that can be used to understand and visualize the behavior of a MPI code and to
+Intel Trace Analyzer and Collector (ITAC) is an MPI profiling and tracing tool
+that can be used to understand and visualize the behavior of an MPI code and to
 identify hotspots and reasons for poor parallel scaling and MPI performance. 
 The tool is available only on Puhti and at the moment it supports only the applications 
 compiled with the Intel MPI library.
 
 ## Available
 
-Puhti 2021.6.0
+Puhti: 2021.6.0
 
 ## License
 
@@ -30,6 +30,7 @@ export LD_PRELOAD=libVT.so
 
 srun myprog
 ```
+
 Trace Collector includes also other components, e.g. for fail-safe MPI tracing and correctness
 checking, which are used by replacing `libVT` with the particular component. More details about
 different components can be found in the [Intel documentation](https://www.intel.com/content/www/us/en/docs/trace-analyzer-collector/user-guide-reference/2021-10/introduction.html).
@@ -43,17 +44,17 @@ The collected data are saved in a series of `<executable>.stf` files in the runn
 ### Known issues
 
 - In Fortran programs, MPI tracing works only with `mpi` module (i.e. not with `use mpi_f08`)
-- Collector exits with error "Failed writing buffer to flush file "/tmp/xxx.dat": No space left on device". 
+- Collector exits with error `Failed writing buffer to flush file "/tmp/xxx.dat": No space left on device`.
 - As the `/tmp/` in compute nodes is small, temporary files might need to be stored in the running 
-    directory by setting `export VT_FLUSH_PREFIX=$PWD`
+  directory by setting `export VT_FLUSH_PREFIX=$PWD`
 
 ## Analyzing the traces
 
 In order to improve the performance of the graphical user interface, 
-we recommend to use the [Puhti web interface remote desktop](../computing/webinterface/desktop.md) when carrying out the analysis. 
+we recommend using the [Puhti web interface remote desktop](../computing/webinterface/desktop.md) when carrying out the analysis. 
 The analyzer is started on the host terminal with the command (note that the `intel-oneapi-itac` module needs to be loaded):
 
-```
+```bash
 traceanalyzer <executable>.stf
 ```
 
@@ -63,11 +64,14 @@ is provided: description, affected processes, and source locations.
 
 Intel Trace Analyzer can be used also for investigating OTF2 formatted traces 
 produced by other performance tools, such as [ScoreP/Scalasca](scalasca.md). 
-This can be achieved by starting the analyzer
-```
+This can be achieved by starting the analyzer:
+
+```bash
 traceanalyzer
 ```
+
 and selecting then the OTF2 file via the "Open" dialog.
 
-For more details please check the
-[Intel documentation](https://www.intel.com/content/www/us/en/developer/tools/oneapi/trace-analyzer-documentation.html)
+## More information
+
+* [Intel documentation](https://www.intel.com/content/www/us/en/developer/tools/oneapi/trace-analyzer-documentation.html)

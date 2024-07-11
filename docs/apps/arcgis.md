@@ -168,7 +168,7 @@ for it from CSC.
 
 ------------------------------------------------------------------------
 
-## Manual
+## More information
 
 -   [ArcGIS help](https://doc.arcgis.com/en/)
 -   [GIS-analyysimenetelmät ArcGIS 10.2.1 -ohjelmistolla] (Harri

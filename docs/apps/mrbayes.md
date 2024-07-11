@@ -5,9 +5,9 @@ tags:
 
 # MrBayes
 
-## Description
 
-MrBayes is a program for the Bayesian inference on phylogenies.
+
+MrBayes is a program for Bayesian inference on phylogenies.
 
 [TOC]
 
@@ -17,43 +17,49 @@ Free to use and open source under [GNU GPLv3](https://www.gnu.org/licenses/gpl-3
 
 ## Available
 
-Version on CSC's Servers
-
--   Puhti: 3.2.7a
+- Puhti: 3.2.7a
 
 ## Usage
 
 To check the available versions, use:
-```text
+
+```bash
 module spider mrbayes
 ```
+
 To load a specific version:
-```text
+
+```bash
 module load mrbayes/3.2.7a
 ```
-After loading the module, the serial (i.e. single processor) version starts with the command
-```text
+
+After loading the module, the serial (i.e. single processor) version starts with the command:
+
+```bash
 mb
 ```
+
 Parallel version starts with the command:
-```text
+
+```bash
 mb-mpi 
 ```
-When using the parallel version, you should note that MrBayes assigns one chain to one core, so for optimal performance you should use as many cores as the total number of chains in your job. If, for example, you have specified `nchains=4`, `nruns=2` you should use 8 cores (4*2).
+
+When using the parallel version, you should note that MrBayes assigns one chain to one core, so for optimal performance you should use as many cores as the total number of chains in your job. If, for example, you have specified `nchains=4`, `nruns=2` you should use 4 * 2 = 8 cores.
 
 ## Batch jobs
 
-Running MrBayes analysis might take considerable amount of CPU time and memory. It is, therefore, recommended to run it through the batch job system on Puhti. Shorter test runs can be run in interactive mode using [sinteractive](../computing/running/interactive-usage.md). The serial version is recommended for interactive use.
+Running MrBayes analysis might take considerable amount of CPU time and memory. It is, therefore, recommended running it through the batch job system on Puhti. Shorter test runs can be run in interactive mode using [sinteractive](../computing/running/interactive-usage.md). The serial version is recommended for interactive use.
 
 To run a batch job you need to:
 
-* Write a MrBayes command file (here "mb_com.nex") or include mrbayes command block in your .nex file. For details, see chapter 5.5.1 of the [MrBayes manual](https://github.com/NBISweden/MrBayes/blob/develop/doc/manual/Manual_MrBayes_v3.2.pdf).
-* Write a batch job script (here "mb_batch")
-* Make sure you have all your input files (here "primates.nex")
-* Submit your job into the queue
+1. Write a MrBayes command file (here `mb_com.nex`) or include a MrBayes command block in your `.nex` file. For details, see [Chapter 5.5.1 of the MrBayes manual](https://github.com/NBISweden/MrBayes/blob/develop/doc/manual/Manual_MrBayes_v3.2.pdf).
+2. Write a batch job script (here `mb_batch`)
+3. Make sure you have all your input files (here `primates.nex`)
+4. Submit your job into the queue
 
 MrBayes command file should include the commands you would type in MrBayes in interactive mode. This example 
-runs the analysis mentioned in chapter 2 of the [MrBayes 3.2 manual](https://github.com/NBISweden/MrBayes/blob/develop/doc/manual/Manual_MrBayes_v3.2.pdf).
+runs the analysis mentioned in [Chapter 2 of the MrBayes 3.2 manual](https://github.com/NBISweden/MrBayes/blob/develop/doc/manual/Manual_MrBayes_v3.2.pdf).
 
 ```text
 begin mrbayes;
@@ -66,9 +72,9 @@ begin mrbayes;
 end;
 ```
 
-Example batch job script for Puhti using 8 cores. (We are using 8 cores since our example uses nchains=4, nruns=2, so 4*2=8.)
+Below is an example batch job script for Puhti using 8 cores. We are using 8 cores since our example uses `nchains=4`, `nruns=2`, so 4 * 2 = 8.
 
-```text
+```bash
 #!/bin/bash
 #SBATCH --account=<project>
 #SBATCH --job-name=my_mrbjob
@@ -82,12 +88,14 @@ Example batch job script for Puhti using 8 cores. (We are using 8 cores since ou
 
 srun mb-mpi mb_com.nex >log.txt
 ```
+
 To submit the job on Puhti:
-```text
+
+```bash
 sbatch mb_batch 
 ```
 
-## Manual
+## More information
 
-*   [MrBayes home page](https://nbisweden.github.io/MrBayes/index.html)
-*   [Manual and other resources](https://nbisweden.github.io/MrBayes/manual.html)
+* [MrBayes home page](https://nbisweden.github.io/MrBayes/index.html)
+* [Manual and other resources](https://nbisweden.github.io/MrBayes/manual.html)

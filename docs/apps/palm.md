@@ -23,7 +23,7 @@ of the GNU General Public License (v3)(https://www.gnu.org/licenses/gpl-3.0.html
 ## Available
 
 PALM is available on [Puhti, Mahti and LUMI](../computing/available-systems.md) servers. Versions
-available are listed when running the installation script. See below.
+available are listed when running the installation script, see below.
 
 ## Usage
 
@@ -60,12 +60,12 @@ installPalm
 ```
 
 It is recommended to read first the instruction file, especially to understand on which disk
-partition on the server the installation should be done i.e., where to run the installation
-script.
+partition on the server the installation should be done (i.e., where to run the installation
+script).
 
 An example test case input file is included in the installation. In the instruction
 file, run commands are given for compilation of the code, and for batch job execution
-using the example case. For more information about the test case execution, see latest
+using the example case. For more information about the test case execution, see the latest
 [PALM tutorials](https://palm.muk.uni-hannover.de/trac/wiki/doc/tut/palm#Exercisepresentations).
 
 ## Support

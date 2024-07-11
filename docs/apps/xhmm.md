@@ -5,7 +5,7 @@ tags:
 
 # XHMM (eXome-Hidden Markov Model)
 
-## Description
+
 
 The XHMM C++ software suite was written to call copy number variation (CNV)
 from next-generation sequencing projects, where exome capture was used 
@@ -25,25 +25,26 @@ for many samples.
 
 ## License
 
-Software is free to use and open source, but no license specified.
+Software is free to use and open source, but no license is specified.
 
-## Version
+## Available
 
-*   Puhti: 0.0.0.2016_01_04.cc14e52 
+* Puhti: 0.0.0.2016_01_04.cc14e52 
 
 ## Usage
 
 To use XHMM, load the module:
 
-```text
+```bash
 module load xhmm
 ```
 
 After that, XHMM starts with the command:
-```text
+
+```bash
 xhmm
 ```
 
 ## More information
 
-*   [XHMM home page](https://statgen.bitbucket.io/xhmm/index.html)
+* [XHMM home page](https://statgen.bitbucket.io/xhmm/index.html)

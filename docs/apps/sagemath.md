@@ -37,4 +37,4 @@ sage -h
 
 ## More information
 
-- [SageMath documentation](http://doc.sagemath.org)
+- [SageMath documentation](https://doc.sagemath.org/)

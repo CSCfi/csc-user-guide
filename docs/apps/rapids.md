@@ -7,7 +7,7 @@ tags:
 
 Suite of libraries for data analytics and machine learning on GPUs.
 
-!!! News
+!!! info "News"
 
     **5.10.2022** Due to Puhti's update to Red Hat Enterprise Linux 8
     (RHEL8), **the number of supported RAPIDS versions has been reduced.**
@@ -15,8 +15,9 @@ Suite of libraries for data analytics and machine learning on GPUs.
     need access to older versions.
 
     **5.5.2022** Due to Mahti's update to Red Hat Enterprise Linux 8 (RHEL8),
-    older versions of RAPIDS are no longer fully supported. Please [contact our
-    servicedesk](../support/contact.md) if you really need access to older versions.
+    older versions of RAPIDS are no longer fully supported. Please
+    [contact our servicedesk](../support/contact.md) if you really need access
+    to older versions.
 
     **4.2.2022** All old RAPIDS versions which were based on direct Conda
     installations have been deprecated, and we encourage users to move to newer
@@ -25,7 +26,7 @@ Suite of libraries for data analytics and machine learning on GPUs.
 
 ## Available
 
-RAPIDS is available on both Puhti and Mahti.  Currently supported
+RAPIDS is available on both Puhti and Mahti. Currently supported
 RAPIDS versions:
 
 - 22.04, based on [RAPIDS official Docker images](https://hub.docker.com/r/rapidsai/rapidsai/): `22.04`
@@ -37,8 +38,8 @@ Contains the [RAPIDS](https://rapids.ai/) suite (including
 [XGBoost](https://rapids.ai/xgboost.html)) for Python with GPU support via CUDA.
 
 If you find that some package is missing, you can often install it yourself with
-`pip install --user`. See [our Python
-documentation](python.md#installing-python-packages-to-existing-modules) for
+`pip install --user`. See
+[our Python documentation](../support/tutorials/python-usage-guide.md) for
 more information on how to install packages yourself. If you think that some
 important RAPIDS-related package should be included in the module provided by
 CSC, please [contact our servicedesk](../support/contact.md).
@@ -47,19 +48,18 @@ All modules are based on containers using Apptainer (previously known
 as Singularity). Wrapper scripts have been provided so that common
 commands such as `python`, `python3`, `pip` and `pip3` should work as
 normal. For other commands, you need to prefix them with
-`apptainer_wrapper exec`. For more information, see [CSC's general
-instructions on how to run Apptainer
-containers](../computing/containers/run-existing.md).
+`apptainer_wrapper exec`. For more information, see
+[CSC's general instructions on how to run Apptainer containers](../computing/containers/run-existing.md).
 
 ## License
 
-RAPIDS is licensed under [Apache License 2.0](https://docs.rapids.ai/api/cugraph/stable/references/licenses/)
+RAPIDS is licensed under [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0).
 
 ## Usage
 
 To use this software, initialize it with:
 
-```text
+```bash
 module load rapids
 ```
 
@@ -67,20 +67,20 @@ to access the default version.
 
 To see all the available versions, run:
 
-```text
+```bash
 module avail rapids
 ```
 
 To check the exact packages and versions included in the loaded module, you can run:
 
-```text
+```bash
 list-packages
 ```
 
-!!! note 
+!!! warning "Note" 
 
-    Note that login nodes are not intended for heavy computing, please use
-    slurm batch jobs instead. See our [instructions on how to use the batch job
+    Login nodes are not intended for heavy computing, please use
+    Slurm batch jobs instead. See our [instructions on how to use the batch job
     system](../computing/running/getting-started.md).
 
 ### Local storage

@@ -5,9 +5,7 @@ tags:
 
 # FastQC
 
-## Description
-
-FastQC is a  quality control tool for high throughput sequence data.
+FastQC is a quality control tool for high-throughput sequence data.
 
 [TOC]
 
@@ -17,26 +15,25 @@ Free to use and open source under [GNU GPLv3](https://www.gnu.org/licenses/gpl-3
 
 ## Available
 
-###Version on CSC's Servers
+- Puhti: 0.11.9
+- [Chipster](https://chipster.csc.fi) graphical user interface
 
--   Puhti: 0.11.9
--   [Chipster](https://chipster.csc.fi) graphical user interface
-
-##Usage
-
+## Usage
 
 To initialize on Puhti, use:
-```text
+
+```bash
 module load biokit
 ```
 
 You can then run FastQC:
-```text
+
+```bash
 fastqc --help
 ```
 
 If you run FastQC without command line arguments, it will open a GUI. The best way to run a GUI remotely on Puhti is to use the [Puhti web interface desktop](../computing/webinterface/desktop.md).
 
-## Manual
+## More information
 
-*   [FastQC Homepage](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/)
+* [FastQC Homepage](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/)
