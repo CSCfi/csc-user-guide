@@ -43,7 +43,7 @@ In our example,
 #SBATCH --job-name=myTest
 ```
 
-sets the name of the job. It can be used to identify a job in the queue and
+sets the name of the job to 'myTest'. It can be used to identify a job in the queue and
 other listings.
 
 ```
@@ -95,14 +95,14 @@ By default, the email will be sent to the email address of your csc account.
 This can be overridden with the `--mail-user=` option. 
 
 After defining all required resources in the batch job script, set up the 
-environment. Note that for modules to be available for batch jobs, they need to be loaded in
+environment. Note that for the modules to be available for the batch jobs, they need to be loaded in
 the batch job script.
 
 ```
 module load myprog/1.2.3
 ```
 
-Finally, we launch our program using the `srun` command:
+Finally, we launch our application using the `srun` command:
 
 ```
 srun myprog -i input -o output
@@ -111,17 +111,17 @@ srun myprog -i input -o output
 
 ## Serial and shared memory batch jobs
 
-Serial and shared memory jobs need to be run within one computing node. Thus, the jobs are limited by the hardware specifications available in the nodes. In Puhti, each node has two processors with 20 cores each, i.e. 40 cores in total.
+Serial and shared memory jobs need to be run within one computing node. Thus, the jobs are limited by the hardware specifications available in the nodes. On Puhti, each node has two processors with 20 cores each, i.e. 40 cores in total.
 
 The Sbatch option `--cpus-per-task` is used the define the number of computing cores that the batch job task uses. The option `--nodes=1` ensures that all the reserved cores are located in the same node, and `--ntasks=1` assigns all reserved computing cores for the same task.
 
-In thread-based jobs, the `--mem` option is recommended for memory reservation. This option defines the amount of memory required per node. Note that if you use `--mem-per-cpu` option instead, the total memory request of the job will be the memory request multiplied by the number of reserved cores (`--cpus-per-task`). Thus, if you modify the number of cores, also check the memory reservation.
+In thread-based jobs, the `--mem` option is recommended for memory reservation. This option defines the amount of memory required per node. Note that if you use `--mem-per-cpu` option instead, the total memory request of the job (`--mem`) will be the memory requested per cpu (`--mem-per-cpu`) multiplied by the number of reserved cores (`--cpus-per-task`). Thus, if you modify the number of cores, also check the memory reservation.
 
-In most cases, it is the most efficient to match the number of reserved cores to the number of threads or processes the application uses. Check the documentation for application-specific details.
+In most cases, it is the most efficient practice to match the number of reserved cores (`--cpus-per-task`) to the number of threads or processes the application uses. Check the [documentation](../../apps/index.md) for application-specific details.
 
 If the application has a command line option to set the number of threads/processes/cores, it should always be used to make sure the software behaves as expected. Some applications use only one core by default, even if more are reserved.
 
-Some other applications may try to use all cores in the node even if only some are reserved. The environment variable `$SLURM_CPUS_PER_TASK` can be used instead of a number. This way, the command does not need to be edited if the `--cpus-per-task` is changed. Use the environment variable `OMP_NUM_THREADS` to set the number of threads the program uses.
+Some other applications may try to use all cores in the node, even if only some are reserved. The environment variable `$SLURM_CPUS_PER_TASK` can be used instead of a number. This way, the command does not need to be edited if the `--cpus-per-task` is changed. Use the environment variable `OMP_NUM_THREADS` to set the number of threads the application uses.
 
 
 ## MPI-based batch jobs
@@ -146,11 +146,11 @@ It is recommended to request memory using the `--mem-per-cpu` option.
 
 ## Hybrid batch jobs 
 
-In hybrid jobs, each tasks is allocated several cores. Each tasks then uses some other parallelization than MPI to do work.
+In hybrid jobs, each tasks is allocated several cores. Each tasks then uses some parallelization, other than MPI, to do the work.
 The most common strategy is for every MPI-task to launch multiple threads using OpenMP. 
 To request more cores per MPI task, use the argument `--cpus-per-task`. The default value is one core per task. 
  
-The optimal ratio between the number of tasks and cores per tasks varies for each program, testing is required to find
+The optimal ratio between the number of tasks and cores per tasks varies for each application. Testing is required to find
 the right combination for your application. 
 
 !!! Note
@@ -163,7 +163,7 @@ the right combination for your application.
 
 ### Local storage 
 
-Some nodes in Puhti have a local fast storage available for jobs. The local storage is good for I/O-intensive programs.
+Some nodes on Puhti have a local fast storage available for jobs. The local storage is good for I/O-intensive applications.
 
 The local storage is available on:
 
@@ -182,7 +182,7 @@ The amount of space is given in GB (check maximum sizes from the list above). Fo
 Use the environment variable `$LOCAL_SCRATCH` in your batch job scripts to access the local storage on each node.
 
 !!! Note
-    The local storage is emptied after the job has finished, so please move any data you want to keep to
+    The local storage is emptied after the job has finished, so please move any data that you want to keep to
     the shared disk area.
 
 
