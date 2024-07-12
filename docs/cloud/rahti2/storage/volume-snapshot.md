@@ -84,11 +84,11 @@ Here, in `spec.dataSource.name`, the name of the snapshot to use as source is pr
 Here, we are taking snapshot of the content for nginx deployment and restorting the data by the restore script. Follow the steps:
 1. Create an nginx deployment.
 2. Create a PVC name test-pvc.
-2. Attach this PVC to the ngninx deployment.
-3. Go to the pod created for this deployment and create a file name test.txt.
-4. Take the snapshot of the PVC. 
-5. Delete the PVC.
-6. Restore the content by the volume snapshot.
-7. Attach the restored PVC to the nginx deployment again.
-8. Check the content of the PVC. 
-9. You can see that the data is restored. 
+3. Attach this PVC to the ngninx deployment.
+4. Go to the pod created for this deployment and create a file name test.txt.
+5. Take the snapshot of the PVC. 
+6. Delete the PVC.
+7. Restore the content by the volume snapshot.
+8. Attach the restored PVC to the nginx deployment again.
+9. Check the content of the PVC. 
+10. You can see that the data is restored. 
