@@ -1,6 +1,6 @@
 # Example batch job scripts for Puhti
 
-Example job scripts for running different types of programs:
+Example job scripts for running different types of applications/programs:
 
 [TOC]
 
@@ -71,6 +71,7 @@ srun myprog <options>
 srun myprog <options>
 
 ```
+
 ## MPI + OpenMP
 
 ```
@@ -88,6 +89,7 @@ export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
 
 srun myprog <options>
 ```
+
 !!! Note
     By default, running a single task per node with multiple threads using **hpcx-mpi** will bind all threads to a single
     core and no speedup will be gained. This can be fixed by setting `export OMP_PROC_BIND=true` in your job script. This
@@ -125,10 +127,12 @@ srun myprog <options>
 
 srun myprog <options>
 ```
+
 ## Interactive with X11 graphics
  
 Give this directly on the command line instead via a file and `sbatch`.
-Note, as you may need to queue, it's convenient to ask for an email once the resources have been granted. 
+Note, as you may need to queue, it's convenient to ask for an email notification (`--mail-type`) 
+once the resources have been granted. 
 
 ```
 srun --ntasks=1 --time=00:10:00 --mem=1G --x11=first --pty \
