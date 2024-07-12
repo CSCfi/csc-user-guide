@@ -1,13 +1,13 @@
 ## Volume snapshot provisioning
 
-Rahti2 offers two methods for provisioning snapshots in Rahti2: through web interface and by using the CLI.
+Rahti2 offers two methods for provisioning snapshots: through web interface and by using the CLI.
 
-# Prerequisites
+### Prerequisites
 
 - An active project in Rahti2
 - Ensure no pods are using persistent volume claim (PVC) that you want to take a snapshot of.
 
-# Procedure
+### Procedure
 
 1. Create a deployment
 2. Create a PVC
@@ -16,7 +16,7 @@ Rahti2 offers two methods for provisioning snapshots in Rahti2: through web inte
 5. Create a volume snapshot
 6. Attach the PVC to volume snapshot
 
-## Through web interface
+### Through web interface
 
 After making sure that PVC is not attached to any pod, Navigate to the 'VolumeSnapshot' section and click on 'Create VolumeSnapshot' to create a snapshot of your PVC. 
 
@@ -31,7 +31,7 @@ Fill the required details. In PersistentVolumeClaim, select the PVC you want to 
 ![Enter the details of Snap Shot](../../img/EnterSnapshotDetails.png)
 
 
-## Using CLI
+### Using CLI
 
 Create `snapshot.yaml` file to attach PVC to volume snapshot
 
