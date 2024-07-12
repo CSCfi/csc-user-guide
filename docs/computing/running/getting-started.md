@@ -23,7 +23,7 @@ done via batch job system.
           computational resources between all the users of the cluster.
     - **The starting time for a job cannot be predicted**
         - It depends heavily on the actual runtimes for all user jobs and 
-          whether new jobs are submitted, see [FAQ](../../support/faq/when-will-my-job-run.md).
+          whether new jobs are submitted. See [FAQ](../../support/faq/when-will-my-job-run.md).
     - **Computational resources (runtime, memory, number of cores) are requested explicitly**
         - If the time or memory limits are exceeded, the job will be terminated.
 
@@ -37,4 +37,4 @@ If you are already familiar with SLURM, check out our
 [example batch job scripts for Mahti](example-job-scripts-mahti.md).
 
 !!! Note
-    Please see the [LUMI documentation](https://docs.lumi-supercomputer.eu/runjobs/scheduled-jobs/slurm-quickstart/) for how to get started with running jobs on the LUMI supercomputer. LUMI uses also the SLURM batch queue system, so the differences between running on CSC supercomputers and LUMI are minor.
+    Please see the [LUMI documentation](https://docs.lumi-supercomputer.eu/runjobs/scheduled-jobs/slurm-quickstart/) for how to get started with running jobs on the LUMI supercomputer. LUMI also uses the SLURM batch queue system, so the differences between running on CSC supercomputers and LUMI are minor.
