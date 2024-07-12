@@ -33,7 +33,7 @@ Fill the required details. In PersistentVolumeClaim, select the PVC you want to 
 
 ## Using YAML files
 
-Create 'snapshot.yaml' file to attach PVC to volume snapshot
+Create `snapshot.yaml` file to attach PVC to volume snapshot
 
 ```
 apiVersion: snapshot.storage.k8s.io/v1
@@ -58,4 +58,37 @@ Delete the volume snapshot by entering the following command:
 
 `oc delete volumesnapshot <volumesnapshot_name>`
 
+## Restore a volume snapshot
+CSI Snapshot Controller Operator creates the following snapshot custom resource definitions (CRDs) in the snapshot.storage.k8s.io/v1 API group. The VolumeSnapshot CRD content can be used to restore the existing volume to a previous state. Create a `pvc-restore.yaml` file.
 
+``` apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: myclaim-restore
+spec:
+  storageClassName: csi-hostpath-sc
+  dataSource:
+    name: <name-of-snapshot> 
+    kind: VolumeSnapshot 
+    apiGroup: snapshot.storage.k8s.io 
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi
+```
+Here, in `spec.dataSource.name`, the name of the snapshot to use as source is provided.
+
+## Use Case
+
+Here, we are taking snapshot of the content for nginx deployment and restorting the data by the restore script. Follow the steps:
+1. Create an nginx deployment.
+2. Create a PVC name test-pvc.
+2. Attach this PVC to the ngninx deployment.
+3. Go to the pod created for this deployment and create a file name test.txt.
+4. Take the snapshot of the PVC. 
+5. Delete the PVC.
+6. Restore the content by the volume snapshot.
+7. Attach the restored PVC to the nginx deployment again.
+8. Check the content of the PVC. 
+9. You can see that the data is restored. 
