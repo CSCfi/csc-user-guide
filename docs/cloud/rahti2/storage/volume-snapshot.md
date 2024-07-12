@@ -85,7 +85,7 @@ Here, in `spec.dataSource.name`, the name of the snapshot to use as source is pr
 
 ## Use Case
 
-Here, we are taking snapshot of the content for nginx deployment and restorting the data by the restore script. Follow the steps:
+Here, we are taking snapshot of the content for nginx deployment and bucking up the data by the restore script. Follow the steps:
 
 1. Create an nginx deployment.
 2. Create a PVC name test-pvc.
