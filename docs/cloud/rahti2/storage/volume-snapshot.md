@@ -59,9 +59,11 @@ Delete the volume snapshot by entering the following command:
 `oc delete volumesnapshot <volumesnapshot_name>`
 
 ## Restore a volume snapshot
+
 CSI Snapshot Controller Operator creates the following snapshot custom resource definitions (CRDs) in the snapshot.storage.k8s.io/v1 API group. The VolumeSnapshot CRD content can be used to restore the existing volume to a previous state. Create a `pvc-restore.yaml` file.
 
-``` apiVersion: v1
+``` 
+apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: myclaim-restore
@@ -77,11 +79,13 @@ spec:
     requests:
       storage: 1Gi
 ```
+
 Here, in `spec.dataSource.name`, the name of the snapshot to use as source is provided.
 
 ## Use Case
 
 Here, we are taking snapshot of the content for nginx deployment and restorting the data by the restore script. Follow the steps:
+
 1. Create an nginx deployment.
 2. Create a PVC name test-pvc.
 3. Attach this PVC to the ngninx deployment.
