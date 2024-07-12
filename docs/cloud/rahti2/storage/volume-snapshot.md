@@ -1,6 +1,6 @@
 ## Volume snapshot provisioning
 
-There are two ways to provision snapshots in Rahti2: by web interface and by using yaml files. 
+There are two ways to provision snapshots in Rahti2: by web interface and by using CLI. 
 
 # Prerequisites
 
@@ -31,7 +31,7 @@ Fill the required details. In PersistentVolumeClaim, select the PVC you want to 
 ![Enter the details of Snap Shot](../../img/EnterSnapshotDetails.png)
 
 
-## Using YAML files
+## Using CLI
 
 Create `snapshot.yaml` file to attach PVC to volume snapshot
 
