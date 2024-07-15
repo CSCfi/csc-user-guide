@@ -240,12 +240,12 @@ Deploying a private Git repository to Rahti involves setting up the necessary au
 This assumes that the users has generated SSH keys and registered their public key with GitHub.
 
  
-**[Log into OpenShift CLI (`oc`)](https://docs.csc.fi/cloud/rahti2/usage/cli/#how-to-login-with-oc)**:
+**[Log into OpenShift CLI (`oc`)](../rahti2/usage/cli.md#how-to-login-with-oc)**:
     ```bash
     oc login <cluster-url>
     ```
 
-**[Create a New Project](https://docs.csc.fi/cloud/rahti2/usage/projects_and_quota/#creating-a-project)**:
+**[Create a New Project](usage/projects_and_quota.md#creating-a-project)**:
     ```bash
     oc new-project <project-name> --display-name=<display-name> --description="csc_project:<project-id>"
     ```
