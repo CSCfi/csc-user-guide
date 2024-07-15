@@ -238,7 +238,6 @@ Deploying a private Git repository to Rahti involves setting up the necessary au
 
 This assumes that the users has generated SSH keys and registered their public key with GitHub.
 
-#### Create and Configure OpenShift Project
  
 **Log into OpenShift CLI (`oc`)**:
    ```bash
@@ -261,8 +260,6 @@ This assumes that the users has generated SSH keys and registered their public k
    ```
 
 
-#### Deploy and monitor the Application
-
 **Deploy the Application**:
    ```bash
    oc new-app <repository-url> --name=<application-name>
@@ -282,15 +279,12 @@ This assumes that the users has generated SSH keys and registered their public k
      oc start-build <application-name> --follow
      ```
 
-#### Expose and Access the Application
-
-1. **Expose the Application**:
+**Expose the Application**:
    ```bash
    oc expose deployment <application-name> --name=<service-name> --port=<port> --target-port=<target-port>
    oc expose svc/<service-name>
    ```
-
-2. **Access the Application**:
+**Access the Application**:
 - Use the URL provided by:
     ```bash
     oc get route <application-name>
