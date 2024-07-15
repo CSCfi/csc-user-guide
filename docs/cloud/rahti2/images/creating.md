@@ -240,7 +240,7 @@ Deploying a private Git repository to Rahti involves setting up the necessary au
 This assumes that the users has generated SSH keys and registered their public key with GitHub.
 
  
-**[Log into OpenShift CLI (`oc`)](../rahti2/usage/cli.md#how-to-login-with-oc)**:
+**[Log into OpenShift CLI (`oc`)](/usage/cli.md#how-to-login-with-oc)**:
     ```bash
     oc login <cluster-url>
     ```
