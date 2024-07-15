@@ -179,58 +179,59 @@ cat Dockerfile | oc new-build -D -
 
 Deploying a private Git repository to Rahti involves setting up the necessary authentication to access your private repository. Without proper authentication, you will see the error "URL is valid but cannot be reached" (seen in the pictures below). Here's how to resolve this using two authentication methods:
 
+
+![025a0cf1-2bdb-477e-bce0-9fe77f43b432](https://github.com/user-attachments/assets/2ea0dac4-de5d-4d6a-8853-9ffcbc3dcdc0)
+
 #### Option 1: Using a Token for Git Authentication
 
 1. **Generate a Personal Access Token:**
 
-   - **GitHub:**
-     - Go to your GitHub account settings.
-     - Navigate to "Developer settings" > "Personal access tokens".
-     - Click on "Generate new token".
-     - Select the scopes you need (typically, you'll need `repo` scope for private repositories).
-     - Generate the token and copy it.
-   
-   - **GitLab:**
-     - Go to your GitLab profile settings.
-     - Navigate to "Access Tokens".
-     - Give your token a name, select the required scopes (e.g., `api`, `read_repository`), and create the token.
-     - Copy the token.
+    - **GitHub:**
+         - Go to your GitHub account settings.
+         - Navigate to "Developer settings" > "Personal access tokens".
+         - Click on "Generate new token".
+         - Select the scopes you need (typically, you'll need `repo` scope for private repositories).
+         - Generate the token and copy it.
 
-2. **Add the Token to Rahti:**
-     - Under "Source Secret" choose "Create new Secret"
-     - Name the secret, under "Authentication type" choose "Basic Authentication"
-     - Paste the token and create
+    - **GitLab:**
+         - Go to your GitLab profile settings.
+         - Navigate to "Access Tokens".
+         - Give your token a name, select the required scopes (e.g., `api`, `read_repository`), and create the token.
+         - Copy the token.
+
+3. **Add the Token to Rahti:**
+    - Under "Source Secret" choose "Create new Secret"
+    - Name the secret, under "Authentication type" choose "Basic Authentication"
+    - Paste the token and create
+
+![fd4c203a-f8e3-4994-b1a4-9a2b4960d4be](https://github.com/user-attachments/assets/ea238069-de97-470f-bb86-03980456eb3a)
 
 #### Option 2: Using a Private SSH Key for Git Authentication
 
 1. **Generate an SSH Key Pair (if you don't have one already):**
 
-   - Open a terminal and run the following command to generate a new SSH key pair:
-     ```sh
-     ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
-     ```
-   - This will create two files: a private key (`id_rsa`) and a public key (`id_rsa.pub`).
+    - Open a terminal and run the following command to generate a new SSH key pair:
+         ```sh
+         ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
+         ```
+    - This will create two files: a private key (`id_rsa`) and a public key (`id_rsa.pub`).
 
 2. **Add Your Public Key to Your Git Hosting Service:**
 
-   - **GitHub:**
-     - Go to your GitHub account settings.
-     - Navigate to "SSH and GPG keys".
-     - Click "New SSH key" and paste the contents of your `id_rsa.pub` file.
-   
-   - **GitLab:**
-     - Go to your GitLab profile settings.
-     - Navigate to "SSH Keys".
-     - Add a new SSH key and paste the contents of your `id_rsa.pub` file.
+    - **GitHub:**
+        - Go to your GitHub account settings.
+        - Navigate to "SSH and GPG keys".
+        - Click "New SSH key" and paste the contents of your `id_rsa.pub` file.
 
-3. **Add the Private SSH Key to Rahti:**
-     - Under "Source Secret" choose "Create new Secret"
-     - Name the secret, under "Authentication type" choose "SSH Key"
-     - Paste the contents of your private SSH key (`id_rsa`) and create
+    - **GitLab:**
+        - Go to your GitLab profile settings.
+        - Navigate to "SSH Keys".
+        - Add a new SSH key and paste the contents of your `id_rsa.pub` file.
 
-![025a0cf1-2bdb-477e-bce0-9fe77f43b432](https://github.com/user-attachments/assets/2ea0dac4-de5d-4d6a-8853-9ffcbc3dcdc0)
-
-![fd4c203a-f8e3-4994-b1a4-9a2b4960d4be](https://github.com/user-attachments/assets/ea238069-de97-470f-bb86-03980456eb3a)
+4. **Add the Private SSH Key to Rahti:**
+    - Under "Source Secret" choose "Create new Secret"
+    - Name the secret, under "Authentication type" choose "SSH Key"
+    - Paste the contents of your private SSH key (`id_rsa`) and create
 
 ![434bf283-c7f5-49d1-8f58-72480f084ce2](https://github.com/user-attachments/assets/1c17a62b-f3b6-404d-8568-24e05e00c1c4)
 
@@ -239,25 +240,25 @@ Deploying a private Git repository to Rahti involves setting up the necessary au
 This assumes that the users has generated SSH keys and registered their public key with GitHub.
 
  
-**Log into OpenShift CLI (`oc`)**:
-   ```bash
-   oc login <cluster-url>
-   ```
+**[Log into OpenShift CLI (`oc`)](https://docs.csc.fi/cloud/rahti2/usage/cli/#how-to-login-with-oc)**:
+    ```bash
+    oc login <cluster-url>
+    ```
 
-**Create a New Project**:
-   ```bash
-   oc new-project <project-name>
-   ```
+**[Create a New Project](https://docs.csc.fi/cloud/rahti2/usage/projects_and_quota/#creating-a-project)**:
+    ```bash
+    oc new-project <project-name> --display-name=<display-name> --description="csc_project:<project-id>"
+    ```
 
 **Create SSH Key Secret**:
-   ```bash
-   oc create secret generic <secret-name> --from-file=ssh-privatekey=<path-to-private-key> --type=kubernetes.io/ssh-auth
-   ```
+    ```bash
+    oc create secret generic <secret-name> --from-file=ssh-privatekey=<path-to-private-key> --type=kubernetes.io/ssh-auth
+    ```
 
 **Link the Secret to the Builder Service Account**:
-   ```bash
-   oc secrets link builder <secret-name>
-   ```
+    ```bash
+    oc secrets link builder <secret-name>
+    ```
 
 
 **Deploy the Application**:
@@ -266,26 +267,26 @@ This assumes that the users has generated SSH keys and registered their public k
    ```
 
 **Monitor the Build**:
-   - monitor logs
-     ```bash
-     oc logs -f buildconfig.build.openshift.io/<application-name>
-     ```
-   - The initial build will probably fail due to authentication issues, set the build secret explicitly:
-     ```bash
-     oc set build-secret --source bc/<application-name> <secret-name>
-     ```
-   - Trigger a new build:
-     ```bash
-     oc start-build <application-name> --follow
-     ```
+    - monitor logs
+    ```bash
+    oc logs -f buildconfig.build.openshift.io/<application-name>
+    ```
+    - The initial build will probably fail due to authentication issues, set the build secret explicitly:
+        ```bash
+        oc set build-secret --source bc/<application-name> <secret-name>
+        ```
+    - Trigger a new build:
+    ```bash
+    oc start-build <application-name> --follow
+    ```
 
 **Expose the Application**:
-   ```bash
-   oc expose deployment <application-name> --name=<service-name> --port=<port> --target-port=<target-port>
-   oc expose svc/<service-name>
-   ```
+    ```bash
+    oc expose deployment <application-name> --name=<service-name> --port=<port> --target-port=<target-port>
+    oc expose svc/<service-name>
+    ```
 **Access the Application**:
-- Use the URL provided by:
+    - Use the URL provided by:
     ```bash
     oc get route <application-name>
     ```
