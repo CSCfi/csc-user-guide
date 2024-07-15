@@ -93,7 +93,7 @@ the batch job script for Puhti could look like:
 #SBATCH --error=allas_errors_%j.txt
 
 #make sure connection to Allas is open
-source /appl/opt/allas-cli-utils/allas_conf -f -k $OS_PROJECT_NAME
+source /appl/opt/csc-cli-utils/allas-cli-utils/allas_conf -f -k $OS_PROJECT_NAME
 
 #download input data
 rclone copy allas:178-data-bucket/dataset34/data2.txt ./
@@ -102,8 +102,10 @@ rclone copy allas:178-data-bucket/dataset34/data2.txt ./
 my_analysis_command -in dataset34/data2.txt   -outdir results34
 
 #make sure connection to Allas is open
-source /appl/opt/allas-cli-utils/allas_conf -f -k $OS_PROJECT_NAME
+source /appl/opt/csc-cli-utils/allas-cli-utils/allas_conf -f -k $OS_PROJECT_NAME
 
 #upload results to allas
 rclone copyto results34 allas:178-data-bucket/
 ```
+For Mahti, remember to source `/appl/opt/csc-tools/allas-cli-utils/allas_conf` instead of `/appl/opt/csc-cli-utils/allas-cli-utils/allas_conf` in all places where you need to make sure the connection is open.
+
