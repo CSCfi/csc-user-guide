@@ -33,7 +33,7 @@ The table below lists the most commonly used `tar` command operations and option
 ## Transfer files with compression
 
 ```bash
-tar czvf - /file/or/folder /some/other/file/or/folder | ssh username@server  "cd /location/to/transfer/file/or/folder && tar xvzf - "
+tar czvf - /file/or/folder /some/other/file/or/folder | ssh username@server  "cd /path/to/transfer/file/or/folder && tar xvzf - "
 ```
 
 For ex., the command to copy a file (_file.txt_) and folder (_folder_) from your computer to the _scratch_ partition of your project (_project_123456_) on Puhti, would be:
@@ -45,7 +45,7 @@ tar czvf - file.txt folder | ssh username@puhti.csc.fi "cd /scratch/project_1234
 You can also copy files and/or folders which are located on the remote server onto local machine, using the command 
 
 ```bash
-ssh username@server "cd /location/of/file/or/folder/to/be/transferred && tar czvf - file(or folder)" | tar xzvf - 
+ssh username@server "cd /path/to/file/or/folder/to/be/transferred && tar czvf - file(or folder)" | tar xzvf - 
 ```
 
 For ex., the command to copy a folder (_folder_) from the _scratch_ partition of your project (_project_123456_) on Puhti to your computer, would be:
@@ -66,13 +66,13 @@ If you have to transfer files that you know cannot be compressed much (for ex., 
 ### From local machine to remote server:
 
 ```bash
-tar cvf - /file/or/folder /some/other/file/or/folder | ssh username@server "cd /location/to/transfer/file/or/folder && tar xvzf - "
+tar cvf - /file/or/folder /some/other/file/or/folder | ssh username@server "cd /path/to/transfer/file/or/folder && tar xvzf - "
 ```
 
 ### From remote server to local machine:
 
 ```bash
-ssh username@server "cd /location/of/file/or/folder/to/be/transferred && tar cvf - file(or folder)" | tar xvf -
+ssh username@server "cd /path/to/file/or/folder/to/be/transferred && tar cvf - file(or folder)" | tar xvf -
 ```
 
 !!! note
