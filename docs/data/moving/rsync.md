@@ -15,7 +15,7 @@ rsync -options source target
 
 If the data source or target location is a remote site, it is defined with syntax:
 ```
-userame@server:/path/in/server
+username@server:/path/in/server
 ```
 However, both the target and source can also be located on the same machine. In that case you can just give directory paths to source and target sites.
 
