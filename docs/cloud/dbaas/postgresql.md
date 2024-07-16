@@ -140,6 +140,18 @@ are some extensions you would like to see available in Pukki, please be in conta
 [CSC Service Desk](../../support/contact.md). Note that extensions are not very well tested by the
 DBaaS-admin.
 
+
+### How to enable extensions from the Web interface
+
+1. Log into the web interface where you can see all your existing instances.
+2. From the instances row you can find the action column on the right hand side choose `Manage Root Access` ![Manage root access](../../img/dbaas-enable-root.png)
+3. Once you are at the root view you can press the `Enable root` button.
+4. The root password is now visible and you can now access the your database with the psql-client, with the root password with the user name `root` .
+5. Once you don't need root access anymore you can press `Disable root`.
+
+### How to enable extensions from the CLI
+
+
 1. To enable extensions, you need to first enable root for the database instance and log in as root:
 
     ```
