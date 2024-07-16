@@ -180,7 +180,8 @@ cat Dockerfile | oc new-build -D -
 Deploying a private Git repository to Rahti involves setting up the necessary authentication to access your private repository. Without proper authentication, you will see the error "URL is valid but cannot be reached" (seen in the pictures below). Here's how to resolve this using two authentication methods:
 
 
-![025a0cf1-2bdb-477e-bce0-9fe77f43b432](https://github.com/user-attachments/assets/2ea0dac4-de5d-4d6a-8853-9ffcbc3dcdc0)
+![oie_1671443U3OLpFT1](https://github.com/user-attachments/assets/a844e224-769e-4d9f-bba2-043ad5c9b258)
+
 
 #### Option 1: Using a Token for Git Authentication
 
@@ -204,7 +205,8 @@ Deploying a private Git repository to Rahti involves setting up the necessary au
     - Name the secret, under "Authentication type" choose "Basic Authentication"
     - Paste the token and create
 
-![fd4c203a-f8e3-4994-b1a4-9a2b4960d4be](https://github.com/user-attachments/assets/ea238069-de97-470f-bb86-03980456eb3a)
+![oie_1672121lETtYQ6J](https://github.com/user-attachments/assets/4bd9450f-170b-4a9e-ae8c-df4700fb0be4)
+
 
 #### Option 2: Using a Private SSH Key for Git Authentication
 
@@ -232,8 +234,9 @@ Deploying a private Git repository to Rahti involves setting up the necessary au
     - Under "Source Secret" choose "Create new Secret"
     - Name the secret, under "Authentication type" choose "SSH Key"
     - Paste the contents of your private SSH key (`id_rsa`) and create
+    - 
+![oie_16720584BbbOspb](https://github.com/user-attachments/assets/b1d47511-0ce6-4980-a732-895193895780)
 
-![434bf283-c7f5-49d1-8f58-72480f084ce2](https://github.com/user-attachments/assets/1c17a62b-f3b6-404d-8568-24e05e00c1c4)
 
 ### Import from Git (Private Repositories) using the CLI
 
@@ -241,52 +244,63 @@ This assumes that the users has generated SSH keys and registered their public k
 
  
 **[Log into OpenShift CLI (`oc`)](../usage/cli.md#how-to-login-with-oc)**:
-    ```bash
-    oc login <cluster-url>
-    ```
+
+```bash
+oc login <cluster-url>
+```
 
 **[Create a New Project](../usage/projects_and_quota.md#creating-a-project)**:
-    ```bash
-    oc new-project <project-name> --display-name=<display-name> --description="csc_project:<project-id>"
-    ```
+
+```bash
+oc new-project <project-name> --display-name=<display-name> --description="csc_project:<project-id>"
+```
 
 **Create SSH Key Secret**:
-    ```bash
-    oc create secret generic <secret-name> --from-file=ssh-privatekey=<path-to-private-key> --type=kubernetes.io/ssh-auth
-    ```
+
+```bash
+oc create secret generic <secret-name> --from-file=ssh-privatekey=<path-to-private-key> --type=kubernetes.io/ssh-auth
+```
 
 **Link the Secret to the Builder Service Account**:
-    ```bash
-    oc secrets link builder <secret-name>
-    ```
+
+```bash
+oc secrets link builder <secret-name>
+```
 
 
 **Deploy the Application**:
-   ```bash
-   oc new-app <repository-url> --name=<application-name>
-   ```
+
+```bash
+oc new-app <repository-url> --name=<application-name>
+```
 
 **Monitor the Build**:
-    - monitor logs
-    ```bash
-    oc logs -f buildconfig.build.openshift.io/<application-name>
-    ```
-    - The initial build will probably fail due to authentication issues, set the build secret explicitly:
-        ```bash
-        oc set build-secret --source bc/<application-name> <secret-name>
-        ```
-    - Trigger a new build:
-    ```bash
-    oc start-build <application-name> --follow
-    ```
+
+- monitor logs
+  ```bash
+  oc logs -f buildconfig.build.openshift.io/<application-name>
+  ```
+        
+- The initial build will probably fail due to authentication issues, set the build secret explicitly:
+  ```bash
+  oc set build-secret --source bc/<application-name> <secret-name>
+  ```
+        
+- Trigger a new build:
+  ```bash
+  oc start-build <application-name> --follow
+  ```
 
 **Expose the Application**:
-    ```bash
-    oc expose deployment <application-name> --name=<service-name> --port=<port> --target-port=<target-port>
-    oc expose svc/<service-name>
-    ```
+
+```bash
+oc expose deployment <application-name> --name=<service-name> --port=<port> --target-port=<target-port>
+oc expose svc/<service-name>
+```
+    
 **Access the Application**:
-    - Use the URL provided by:
+
+- Use the URL provided by:
     ```bash
     oc get route <application-name>
     ```
