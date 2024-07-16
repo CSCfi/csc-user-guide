@@ -1,5 +1,5 @@
 
-**Rsync** is a data transport tool that can be used much like the scp command.
+**Rsync** is a data transport tool that can be used much like the `scp` command.
 When transferring data, `rsync` checks the difference between the source and target files and only transfers the parts that have changed. This makes `rsync` suitable for:
 
 - Synchronizing folders. Using `scp` or `cp` would copy and transfer everything, while `rsync` will only copy and transfer the modifications. 
@@ -7,14 +7,15 @@ When transferring data, `rsync` checks the difference between the source and tar
 
 
 
-The Basic command syntax of rsync is:
+The Basic command syntax of `rsync` is:
 
-```
+```bash
 rsync -options source target
 ```
 
 If the data source or target location is a remote site, it is defined with syntax:
-```
+
+```bash
 username@server:/path/in/server
 ```
 However, both the target and source can also be located on the same machine. In that case you can just give directory paths to source and target sites.
