@@ -24,9 +24,73 @@ A popular tool for working with PostgreSQL is [pgAdmin that can be found here](h
     Note that if you use this syntax to login to the database it will not return column names when you do queries.
 
 3. The most common issues when accessing the database from the CLI are the following:
-      * If the connection seems to be hanging and you don't get a PostgreSQL prompt it means that either your IP or port is wrong or that you did not create a firewall opening from your host.
-      <!-- * TODO `INSERT EXAMPLE HERE` if you get this error message it means that your postgresql client is not new enough please redo step 1. -->
+    1. If you get an error like:
+       ```
+       psql: error: connection to server at "195.148.30.38", port 5432 failed: Connection refused
+         Is the server running on that host and accepting TCP/IP connections?
+       ```
+       it means that either your database IP-address is wrong or you forgot to open the firewall.
+    2. If you get an error like:
+       ```
+       psql: error: connection to server at "$IP_ADDRESS", port 5432 failed: FATAL:  database "$DATABASE" does not exist
+       ```
+       it means that your database is wrong.
+    3. If `psql` asks for a password, but it does not accept your password, then you either mistyped it
+       or your database username does not exist in your database.
+    4. If the connection seems to be hanging, and you don't get a PostgreSQL prompt, it means that either your IP or port is wrong or that you did not create a firewall opening from your host.
 4. Now you should be able to use the database.
+
+## Accessing your Pukki PostgreSQL database from Puhti
+
+1. First make sure that your database's [firewall allows traffic from Puhti](firewalls.md#puhti).
+2. [Log in to Puhti](../../computing/connecting.md).
+3. To be able to use the `psql` command line tool you need to first load the module:
+   ```
+   module load psql
+   ```
+4. Store your database password in your home directory. This is needed if you want to use
+   PostgreSQL from a batch job. You can do it by creating a file with the necessary credentials:
+    1. Create a file `~/.pgpass` with the following content (modify the placeholder variables accordingly):
+    ```
+    $PUBLIC_IP:5432:*:$USERNAME:$PASSWORD
+    ```
+        * The `$PUBLIC_IP` should be the public IP-address of your instance.
+        * `5432` is the port to use (in Pukki it is always 5432).
+        * The `*` means that all databases in you database instance should use the same credentials.
+        * The `$USERNAME` and `$PASSWORD` are your database username and password.
+    2. Update the file permissions with `chmod 600 ~/.pgpass` to keep your credentials safe.
+5. Now you can verify that you can access your database without entering your password:
+   ```
+   psql --user ${USERNAME} --host ${PUBLIC_IP} ${DATABASE_NAME}
+   ```
+
+### Basic Puhti batch job example using psql
+
+1. This requires that you have configured `~/.pgpass` correctly in the previous section.
+2. Create a file named `my-first-psql-batch-job.bash`:
+   ```bash title="my-first-psql-batch-job.bash"
+   #!/bin/bash -l
+   #SBATCH --job-name=psql_job
+   #SBATCH --output=output_%j.txt
+   #SBATCH --error=errors_%j.txt
+   #SBATCH --time=00:01:00
+   #SBATCH --account=$PROJECT_NUMBER
+   #SBATCH --ntasks=1
+   #SBATCH --partition=test
+   #SBATCH --mem-per-cpu=1024
+
+   module load psql
+   psql --user $DB_USER_NAME --host $DB_IP_ADDRESS $DATABASE_NAME -c 'SELECT 1' >> psql-results.txt
+   ```
+   Make sure that you have updated the following variables:
+      * `$PROJECT_NUMBER` – your CSC project ID (e.g. project_2001234)
+      * `$DB_USER_NAME` – your database username (same as in `~/.pgpass`)
+      * `$DB_IP_ADDRESS` – the public IP-address of your database
+      * `$DATABASE_NAME` – name of your database
+3. Once you are happy with the batch script, you can submit the job by running:
+   ```
+   sbatch my-first-psql-batch-job.bash
+   ```
 
 ## Parameters that users can modify
 
