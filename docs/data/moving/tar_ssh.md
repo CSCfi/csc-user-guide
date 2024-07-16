@@ -36,26 +36,26 @@ The table below lists the most commonly used `tar` command operations and option
 tar czvf - /file/or/folder /some/other/file/or/folder | ssh username@server  "cd /location/to/transfer/file/or/folder && tar xvzf - "
 ```
 
-For ex., the command to copy a file (_file.txt_) and folder (_folder_) from your desktop to the _scratch_ partition of your project (_project_123456_) on Puhti, would be:
+For ex., the command to copy a file (_file.txt_) and folder (_folder_) from your computer to the _scratch_ partition of your project (_project_123456_) on Puhti, would be:
 
 ```bash
 tar czvf - file.txt folder | ssh username@puhti.csc.fi "cd /scratch/project_123456 && tar xzvf - "
 ```
 
-You can also copy files and/or folders which are located on the remote server onto your desktop, using the command 
+You can also copy files and/or folders which are located on the remote server onto local machine, using the command 
 
 ```bash
 ssh username@server "cd /location/of/file/or/folder/to/be/transferred && tar czvf - file(or folder)" | tar xzvf - 
 ```
 
-For ex., the command to copy a folder (_folder_) from the _scratch_ partition of your project (_project_123456_) on Puhti to your desktop, would be:
+For ex., the command to copy a folder (_folder_) from the _scratch_ partition of your project (_project_123456_) on Puhti to your computer, would be:
 
 ```bash
 ssh username@puhti.csc.fi "cd /scratch/project_123456 && tar czvf - folder" | tar xzvf - 
 ```
 
 !!! note 
-* Both systems (your local desktop as well as the remote server) must support `ssh` and have `tar` and `gzip` installed. 
+* Both systems (your computer as well as the remote server) must support `ssh` and have `tar` and `gzip` installed. 
 * If you are using bzip2 (`tar cjvf`) for compression, `bzip2` must be installed on the systems.
 * On CSC servers (Puhti and Mahti), these linux tools are already installed.
 
