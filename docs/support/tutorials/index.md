@@ -15,6 +15,7 @@
 * [Getting disk usage using Lue](lue.md)
 * [Running Julia jobs on Puhti and Mahti clusters](julia.md)
 * [Using Python on CSC supercomputers](python-usage-guide.md)
+* [Getting started with supercomputing](hpc-quick.md)
 
 ## Installation of tools on supercomputers
 * [Installing software with Spack](user-spack.md)
