@@ -307,7 +307,7 @@ oc expose svc/<service-name>
 
 ## Troubleshooting
 
-If your build fails in Rahti 2, it could mean that your application needs more memory than is provided by default. Unfortunately, it's not possible to set the limits and/or requests from the CLI.
+If your build fails in Rahti 2, it could mean that your application needs more memory than is provided by default. Unfortunately, it's not possible to set resource limits and requests directly from the CLI when deploying the app. You will need to use a YAML configuration file or the web UI to specify these settings.
 
 You can create a yaml file and then apply it with the command `oc apply -f {your_yaml_file}.yaml` or edit your current `BuildConfig` in the Rahti 2 webUI.  
 In the Administrator view, navigate to `Builds > BuildConfigs` and click on your BuildConfig. Select the `YAML` tab.  
