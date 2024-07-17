@@ -25,7 +25,9 @@ after logging in. See more details from the last section under [Installing the O
 Once you have the script with your credentials (`<project_name>-openrc.sh`) from 
 the web UI, you can add the environment variables by running the script as:
 
-`source <project_name>-openrc.sh`
+```
+source <project_name>-openrc.sh
+```
 
 And supplying your CSC account username and password when prompted. After this 
 You coud make requests to the Pouta cloud. Normally you would start with 

@@ -50,9 +50,9 @@ can power it on after the snapshot has been created.
 openstack server start <name of vm>
 ```
 
-In the web UI under **Compute \| Instances**, the instance-specific
+In the web UI under **Compute | Instances**, the instance-specific
 Create Snapshot menu items work for the same effect as the CLI
-command above. The snapshots created will appear in the **Compute \|
+command above. The snapshots created will appear in the **Compute |
 Images** section.
 
 ![Snapshot menu](/img/horizon-snapshot-menu.png)
@@ -334,7 +334,7 @@ openstack image create --disk-format <disk format> --private --file <image file 
 This should upload the image. It takes a while before the image is usable.
 
 If you prefer to use the web interface instead, you can upload images
-in the **Compute \| Images** section by clicking the **Create
+in the **Compute | Images** section by clicking the **Create
 Image** button:
 
 ![Image upload](/img/horizon-image-upload2.png)
@@ -351,8 +351,8 @@ image upload via public URLs is disabled. In this example, we have
 thus selected an image we want to upload from our local machine via the
 **Browse** button. In this example, our image is an ISO image, so we
 have selected that in the **Format** drop-down menu. All remaining
-fields other than **Image Sharing \| Visibility** can keep their
-default values. In the **Image Sharing \| Visibility** checkbox, please
+fields other than **Image Sharing | Visibility** can keep their
+default values. In the **Image Sharing | Visibility** checkbox, please
 make sure that you have set the visibility of the image as
 _Private_. It is not possible for normal users to create public images
 due to security reasons. In case you attempt to upload an image and
