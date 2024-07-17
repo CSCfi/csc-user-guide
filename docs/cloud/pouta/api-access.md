@@ -25,13 +25,15 @@ after logging in. See more details from the last section under [Installing the O
 Once you have the script with your credentials (`<project_name>-openrc.sh`) from 
 the web UI, you can add the environment variables by running the script as:
 
-`source <project_name>-openrc.sh`
+```bash
+source <project_name>-openrc.sh
+```
 
 And supplying your CSC account username and password when prompted. After this 
 You coud make requests to the Pouta cloud. Normally you would start with 
 authenticating yourself as: 
 
-```
+```bash
 curl -v -s  -H "Content-Type: application/json"   -d '
 {"auth": {
     "identity": {
@@ -67,7 +69,7 @@ export OS_TOKEN=<copy-your-token-here>
 export OS_COMPUTE_API=https://pouta.csc.fi:8777/v2.1
 ```
 
-```
+```bash
 curl -s -H "X-Auth-Token: $OS_TOKEN" \
   $OS_COMPUTE_API/flavors \
   | python -m json.tool
@@ -86,14 +88,16 @@ making calls on Python objects rather than making REST calls directly.
 
 In order to use it with our applications we need to first install the SDK as: 
 
-`pip install openstacksdk`
+```bash
+pip install openstacksdk
+```
 
 Next, we need to provide our configurations and credentials through a `clouds.yaml` file which can be downloaded from 
 the [Pouta web interface](https://pouta.csc.fi/dashboard/project/api_access/) after logging in. 
 Openstacksdk expects this file in one of the following folders: the `current` directory, the `~/.config/openstack` 
 directory, or `/etc/openstack` directory. The `clouds.yaml` should look like: 
 
-```
+```yaml
 clouds:
   openstack:
     auth:
@@ -112,7 +116,7 @@ You should add your secrets such as the password field into a separate file
 named `secure.yaml` and place it in the same folder as your `clouds.yaml` file. 
 The `secure.yaml` file should look like: 
 
-```
+```yaml
 clouds:
   openstack:
     auth:
@@ -121,7 +125,7 @@ clouds:
 
 Now, you can run the following simple example which lists the available virtual machine flavors:
 
-```
+```python
 #!/usr/bin/python3
 import openstack
 
