@@ -5,10 +5,8 @@ tags:
 
 # Roary
 
-## Description
-
-Roary is a high speed stand alone pan genome pipeline, which takes annotated assemblies in 
-GFF3 format (produced by e.g. [Prokka](./prokka.md) ) and calculates the pan genome.
+Roary is a high-speed standalone pan genome pipeline, which takes annotated assemblies in 
+GFF3 format (produced by e.g. [Prokka](./prokka.md)) and calculates the pan genome.
 
 [TOC]
 
@@ -18,28 +16,28 @@ Free to use and open source under [GNU GPLv3](https://www.gnu.org/licenses/gpl-3
 
 ## Available
 
-*   Puhti: 3.13.0 
+* Puhti: 3.13.0 
+
 ## Usage
 
-In Puhti, Roary should be executed as a batch job. An interactive batch job for running Roary can be started with command:
+On Puhti, Roary should be executed as a batch job. An interactive batch job for running Roary can be started with the command:
 
-```text
+```bash
 sinteractive -i 
 ```
  
-To use Roary, you should activate Prokka environment with command:
+To use Roary, load the module using the command:
 
-```text
-module load prokka
+```bash
+module load roary
 ```
 
-After that you can launch Roary with command `roary`. For example:
+After that, you can launch Roary with the command `roary`. For example:
 
-```text
+```bash
 roary -f ./demo -e -n -v ./gff/*.gff
 ```
 
 ## More information
 
-*   [Roary home page](https://sanger-pathogens.github.io/Roary/)
-
+* [Roary home page](https://sanger-pathogens.github.io/Roary/)

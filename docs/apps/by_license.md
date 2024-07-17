@@ -31,7 +31,7 @@
 
         Please see further instructions and licensing details under the specific application pages. For
         example, these software may require the user to acquire their own license directly from the developers, 
-        or there could be extra steps needed to get usage permission (e.g. addition to Unix group).
+        or there could be additional steps needed to get usage permission (e.g. addition to Unix group).
 
         [Scroll to applications with 'Other' licensing](#other){ .md-button .md-button--primary }
 

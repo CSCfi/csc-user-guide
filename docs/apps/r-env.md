@@ -694,7 +694,7 @@ fit_serial <- brm(
 )
 ```
 
-Note that [within-chain parallelisation with `brms`](https://cran.r-project.org/web/packages/brms/vignettes/brms_threading.html) requires a project-specific installation of CmdStan. Please contact [servicedesk@csc.fi](mailto:servicedesk@csc.fi) for instructions.
+Note that [within-chain parallelisation with `brms`](https://cran.r-project.org/web/packages/brms/vignettes/brms_threading.html) requires a project-specific installation of CmdStan. Please contact [CSC Service Desk](../support/contact.md) for instructions.
 
 #### R package installations
 
@@ -716,7 +716,7 @@ Additional R package installations can be arranged via two routes:
 
 - Project-specific installations can be used by creating a separate package directory in the `/projappl/<project>` directory (instructions below; also see [here](../computing/disk.md#projappl-directory) for information on ProjAppl)
 
-- Requests for general installations (provided to all users as part of the module): please contact [servicedesk@csc.fi](mailto:servicedesk@csc.fi)
+- Requests for general installations (provided to all users as part of the module): please contact [CSC Service Desk](../support/contact.md)
 
 To make use of a project-specific package library, follow these instructions. First create a new folder inside your project directory. Note that the folder should be specific to the R version you are using (R packages installed using different `r-env` modules are not cross-compatible).
 
