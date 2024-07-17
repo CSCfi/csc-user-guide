@@ -3,29 +3,29 @@ tags:
   - Free
 ---
 
-# Spades
+# SPAdes
 
-## Description
+SPAdes is a short read assembler for small genomes. SPAdes works with Illumina or IonTorrent reads and is capable of providing hybrid assemblies using PacBio, Oxford Nanopore and Sanger reads.
 
-SPAdes is a short read assebler for small genomes. SPAdes works with Illumina or IonTorrent reads and is capable of providing hybrid assemblies using PacBio, Oxford Nanopore and Sanger reads.
+SPAdes (`spades.py`) includes several separate modules:
 
-SPAdes (`spares.py`) includes several separate modules:
+* BayesHammer – read error correction tool for Illumina reads, which works well on both single-cell and standard datasets.
+* IonHammer – read error correction tool for IonTorrent data, which also works on both types of data.
+* SPAdes – iterative short-read genome assembly module; values of K are selected automatically based on the read length and dataset type.
+* MismatchCorrector – a tool which improves mismatch and short indel rates in resulting contigs and scaffolds; this module uses the BWA tool [Li H. and Durbin R., 2009]; MismatchCorrector is turned off by default, but we recommend turning it on.
 
-*    BayesHammer – read error correction tool for Illumina reads, which works well on both single-cell and standard data sets.
-*    IonHammer – read error correction tool for IonTorrent data, which also works on both types of data.
-*    SPAdes – iterative short-read genome assembly module; values of K are selected automatically based on the read length and data set type.
-*    MismatchCorrector – a tool which improves mismatch and short indel rates in resulting contigs and scaffolds; this module uses the BWA tool [Li H. and Durbin R., 2009]; MismatchCorrector is turned off by default, but we recommend to turn it on (see SPAdes options section).
+We recommend running SPAdes with BayesHammer/IonHammer to obtain high-quality assemblies. However, if you use your own read correction tool, it is possible to turn error correction module off. It is also possible to use only the read error correction stage if you wish to use another assembler.
 
-We recommend to run SPAdes with BayesHammer/IonHammer to obtain high-quality assemblies. However, if you use your own read correction tool, it is possible to turn error correction module off. It is also possible to use only the read error correction stage, if you wish to use another assembler. See the SPAdes options section. 
+In addition to the general purpose SPAdes there are specific SPAdes parameter sets for:
 
-In addition to the general purpose spades there spcific Spadesw parameter sets for:
-*   Coronaspades (coronaspades.py)
-*   Metaviralspades (metaviralspades.py)
-*   Rnaviralspades (rnaviralspades.py)
-*   Metagenomics ([metaspades.py](https://genome.cshlp.org/content/27/5/824.short))
-*   Plasmid assembly ([plasmidspades.py](https://www.biorxiv.org/content/10.1101/048942v3))
-*   RNA-Seq assembly ([rnaspades.py](http://cab.spbu.ru/files/release3.13.1/rnaspades_manual.html))
-*   Assemblly with Illumina TruSeq data ([truspades.py](http://cab.spbu.ru/files/release3.13.1/truspades_manual.html)) 
+* Coronaspades (`coronaspades.py`)
+* Metaviralspades (`metaviralspades.py`)
+* Rnaviralspades (`rnaviralspades.py`)
+* Metagenomics (`metaspades.py`)
+* Plasmid assembly (`plasmidspades.py`)
+* RNA-Seq assembly (`rnaspades.py`)
+
+See the [SPAdes documentation](https://ablab.github.io/spades/installation.html) for more details.
 
 [TOC]
 
@@ -35,27 +35,34 @@ Free to use and open source under [GNU GPLv2](https://www.gnu.org/licenses/old-l
 
 ## Available
 
-Version on CSC's Servers
-
--   Puhti: 3.15.5
+- Puhti: 3.15.5, 4.0.0
 
 ## Usage
 
-In Puhti, SPAdes is activated by loading the _biokit_ environment.
+On Puhti, SPAdes is activated by loading the `biokit` environment.
 
-```text
+```bash
 module load biokit
 ```
-For usage help use command:
-```text
+
+Alternatively, SPAdes can be loaded as an independent module:
+
+```bash
+module load spades/<version>
+```
+
+For usage help, use command:
+
+```bash
 spades.py -h
 ```
-Assembly tasks can be very resource demanding. Because of that you should not run real SPAdes jobs in the login nodes of Puhti.
-For any real analysis task we recommend running SPAdes as a batch job.
 
+Assembly tasks can be very resource demanding and, therefore, you should never run real SPAdes jobs on the login nodes of Puhti.
+For any real analysis task, we recommend running SPAdes as a batch job.
 
 Sample SPAdes batch job file:
-```text
+
+```bash
 #!/bin/bash
 #SBATCH --job-name=SPAdes
 #SBATCH --account=<project>
@@ -68,33 +75,26 @@ Sample SPAdes batch job file:
 #SBATCH --mem=32G
 #SBATCH --partition=small
 
-
 module load biokit
 export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK 
 srun spades.py --pe1-1 reads_R1.fastq.gz --pe1-2 reads_R2.fastq.gz -t $SLURM_CPUS_PER_TASK -o SpadesResult
-
 ```
-In the example above _<project>_ could be replaced with your project name. You can use `csc-workspaces` to check your Puhti projects.
+
+In the example above `<project>` should be replaced with your project name. You can use `csc-projects` to check your CSC projects.
 Maximum running time is 
-set to 12 hours (`--time=12:00:00`). As SPAdes uses threads based parallelization, the process is considered as one job that should be executed within one node (`--ntasks=1`, `--nodes=1`). The job reserves eight cores `--cpus-per-task=8` that can use in total up to 32 GB of memory  (`--mem=32G`). Note that the number of cores to be used needs to be defined with bouth OMP_NUM_THREADS environment variable and in the actual _spades.py_ command (option `-t`). In this case we use $SLURM_CPUS_PER_TASK variable that contains the _cpus-pre-task_ 
-value. We could as well use `export OMP_NUM_THREADS=8` and `-t 8` but then we have to remember to change the values if number of the reserved CPU:s is changed.
+set to 12 hours (`--time=12:00:00`). As SPAdes uses thread-based parallelization, the process is considered as one job that should be executed within one node (`--ntasks=1`, `--nodes=1`). The job reserves eight cores `--cpus-per-task=8` that can use in total up to 32 GB of memory (`--mem=32G`). Note that the number of cores to be used needs to be defined with both `$OMP_NUM_THREADS` environment variable and in the actual `spades.py` command (option `-t`). In this case, we use `$SLURM_CPUS_PER_TASK` variable that contains the `--cpus-per-task`
+value. We could as well use `export OMP_NUM_THREADS=8` and `-t 8`, but then we have to remember to change the values if the number of the reserved CPUs is changed.
 
+The job is submitted to the batch job system with `sbatch` command. For example, if the batch job
+file is named `spades_job.sh`, then the submission command is: 
 
-The job is submitted to the to the batch job system with `sbatch` command. For example, if the batch job
-file is named as _spades_job.sh_ then the submission command is: 
-```text
+```bash
 sbatch spades_job.sh 
 ```
+
 More information about running batch jobs can be found from the [batch job section of the Puhti user guide](../computing/running/getting-started.md).
 
+## More information
 
-
-
-## Manual
-
-*   [SPAdes home page](http://cab.spbu.ru/software/spades/)
-
-
-
-
-
+*	[SPAdes website](https://ablab.github.io/spades/)
+*	[SPAdes GitHub repository](https://github.com/ablab/spades)

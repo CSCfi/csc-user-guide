@@ -15,26 +15,26 @@ directly via interfaces or wrappers.
 
 ## Available
 
-- Puhti: 9.6
+- Puhti: 9.7, 10.0
 
 ## License
 
-GNU General Public License (GPL)
+[GNU General Public License (GPL)](https://doc.sagemath.org/html/en/reference/history_and_license/index.html)
 
 ## Usage
 
-On Puhti, load the SageMath module
+On Puhti, load the SageMath module using the command:
 
 ```bash
 module load sagemath
 ```
 
-and then
+For usage options, run the command:
 
 ```bash
-sage
+sage -h
 ```
 
 ## More information
 
-- SageMath documentation [http://doc.sagemath.org](http://doc.sagemath.org)
+- [SageMath documentation](https://doc.sagemath.org/)

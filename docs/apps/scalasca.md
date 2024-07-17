@@ -32,8 +32,8 @@ Using Scalasca involves three steps:
 
 ### Instrumentation
 
-Scalasca uses [the Score-P measurement
-infrastructure](https://perftools.pages.jsc.fz-juelich.de/cicd/scorep/tags/scorep-7.1/html/)
+Scalasca uses
+[the Score-P measurement infrastructure](https://perftools.pages.jsc.fz-juelich.de/cicd/scorep/tags/scorep-7.1/html/)
 for instrumentation of the target application. Score-P can be used
 also as a stand-alone tool without Scalasca.
 
@@ -45,16 +45,18 @@ as a prefix to the original compile and link commands:
 module load scorep
 scorep mpicc -o my_prog my_prog.c
 ```
-or setting in a Makefile
+
+or setting in a Makefile for C/C++ codes:
 
 ```
 CC=scorep mpicc
 ```
-for `C/C++` codes or similarly
+
+or, similarly, for Fortran codes:
+
 ```
 F90=scorep mpif90
 ```
-for Fortran codes.
 
 ### Measurement collection and analysis
 
@@ -74,9 +76,10 @@ with the `scan` command in the batch job script:
 module load scalasca
 scan srun ./my_app
 ```
+
 By default, a flat profile is collected. Upon completion, measurement
 results are stored in the experiment directory, which by default is
-composed of the prefix "scorep_", the target application executable
+composed of the prefix `scorep_`, the target application executable
 name, the run configuration (e.g., number of MPI ranks and/or OpenMP
 threads), and a few other parameters of the measurement
 configuration. For example, in the above example
@@ -87,8 +90,8 @@ amounts of data, it is recommended to first estimate the size of
 trace, and possibly filter out some functions from the measurement.
 Estimate can be obtained with `scorep-score` command:
 
-```bash
-scorep-score -r scorep_my_app_40_sum/profile.cubex
+```text
+$ scorep-score -r scorep_my_app_40_sum/profile.cubex
 
 Estimated aggregate size of event trace:                   1022kB
 Estimated requirements for largest trace buffer (max_buf): 129kB
@@ -114,7 +117,7 @@ flt     type max_buf[B] visits time[s] time[%] time/visit[us]  region
 In order to filter out the measurement of `swap_fields` and `evolve`,
 one can create a file `scorep.filter` with the contents:
 
-```
+```text
 SCOREP_REGION_NAMES_BEGIN
  EXCLUDE
    swap_fields
@@ -125,7 +128,7 @@ SCOREP_REGION_NAMES_END
 and check the effect of filtering with `-f` option:
 
 ```bash
-scorep-score -f scorep.filter -r scorep_my_app_40_sum/profile.cubex
+$ scorep-score -f scorep.filter -r scorep_my_app_40_sum/profile.cubex
 
 Estimated aggregate size of event trace:                   835kB
 Estimated requirements for largest trace buffer (max_buf): 105kB
@@ -154,25 +157,23 @@ With tracing enabled, the experiment directory would be
 
 ## Analysis report examination
 
-The Scalasca analysis report explorer `square` cannot currently be run in CSC
+The Scalasca analysis report explorer `square` cannot currently be run on CSC
 supercomputers. However, user may install Scalasca on their local
 workstation, and copy the experiment directory there for analysis,
-e.g.
+e.g.:
+
 ```bash
 rsync -r puhti.csc.fi:/scratch/.../rundir/scorep_my_app_40_trace .
 square scorep_my_app_40_trace
 ```
+
 For large traces, one may copy only the post-processed trace analysis
 result file `scorep_my_app_40_trace/scout.cubex`.
 
 The OTF2 formatted event trace `scorep_my_app_40_trace/trace.otf2` can
 be analyzed also with [Intel Trace Analyzer](itac.md).
 
-
 ## More information
 
 - [Scalasca user guide](https://apps.fz-juelich.de/scalasca/releases/scalasca/2.6/docs/manual/index.html)
 - [POP Online training](https://pop-coe.eu/further-information/online-training)
-
-
-
