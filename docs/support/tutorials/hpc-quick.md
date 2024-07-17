@@ -1,62 +1,112 @@
-# Getting started with supercomputing
+# Getting started with supercomputing at CSC
 
 You have signed up for your CSC account and first project, and are now ready to
-scale up your computations! This page is intended to give you some idea of what
-to expect from your journey into the exciting world of high-performance
-computing.
+scale up your computing! This page provides guidance for getting started with
+using our HPC resources.
 
-## Which supercomputer to use?
+## Available systems
 
-Projects may have access to multiple supercomputers. New users are recommended
-to start working on the Puhti supercomputer, which caters to a wide range of
-use cases. In time, you may find that you need more extensive parallelization
-options, in which case you may wish to run jobs on Mahti.
+### Puhti
 
-## Which interface to use?
+New users are recommended to start working on the
+[Puhti supercomputer](../../computing/systems-puhti.md).
+Compared to Mahti, it has much more pre-installed software, more GPU nodes, and
+typically more available memory per CPU. Additionally, Puhti CPU nodes have fast
+local NVMe storage, which is reserved only for GPU nodes on Mahti.
+
+### Mahti
+
+If you know that your computations are highly parallelizable, you should
+consider running them on the
+[Mahti supercomputer](../../computing/systems-mahti.md).
+Compared to Puhti, Mahti has many more CPU nodes and cores per node. Mahti is
+intended for computations that are able to effectively utilize at least an
+entire CPU node.
+
+Additionally, while Mahti has fewer GPU nodes than Puhti, the A100 GPUs on
+Mahti are considerably more powerful than the V100 GPUs on Puhti, which
+makes Mahti also suitable for machine learning applications.
+
+### LUMI
+
+LUMI is one of the fastest supercomputers in the world. It is intended primarily
+for running computations that benefit from the large amount of high-performance
+GPUs in its LUMI-G hardware partition. Whereas the GPUs on Puhti and Mahti are
+manufactured by Nvidia, the LUMI GPUs are made by AMD, so make sure that your
+GPU applications are able to use AMD drivers. LUMI has
+[its own documentation pages](https://docs.lumi-supercomputer.eu/).
+
+## Available interfaces
+
+Most of the [pre-installed programs](../../apps/index.md) on CSC supercomputers
+are run using the [command-line interface](#command-line-interface).
+If you plan on using these programs, it is necessary to have a good
+understanding of the
+[basics of the Linux operating system](./env-guide/index.md).
+
+You may also wish to develop your own scripts instead of using existing
+software. It is most efficient to start writing and testing your code on your
+own device, since
+[running code on a shared resource](../../computing/running/getting-started.md)
+inevitably introduces some overhead. You should only start running your code on
+a supercomputer once you are ready for testing on a larger scale or with
+specific resources like GPUs.
+
+!!! note "On supercomputing"
+
+    It is worth keeping in mind that running your computations on a supercomputer
+    only improves performance if you play to its strengths. Supercomputers are
+    powerful because they allow for
+    [parallel computing](https://en.wikipedia.org/wiki/Parallel_computing).
+    If your code is not written to take advantage of multiple CPUs, or one or
+    more GPUs, it is the same as running it on your own workstation.
 
 ### Web interface
 
-There are multiple ways to run computations on CSC supercomputers. The Puhti
-and Mahti web interfaces offer a beginner-friendly environment for working with
-supercomputers. The web interface includes various interactive applications like
-Jupyter, RStudio and Virtual Studio Code, which are useful for developing code
-and exploring data.
+Puhti, Mahti and LUMI each have
+[their own web interface](../../computing/webinterface/index.md), which allows
+interacting with the supercomputer using a web browser. The web interface is a
+good choice for interactive computing, such as developing code or exploring
+and visualizing data. For this purpose, the web interface features multiple
+interactive applications, like
+[Visual Studio Code](../../computing/webinterface/vscode.md),
+[Jupyter](../../computing/webinterface/jupyter.md) and
+[RStudio](../../computing/webinterface/rstudio.md). For demanding computation,
+like running full-scale simulations or training neural networks, you will want
+to use the command-line interface, as it allows you to schedule your jobs and
+allocate more resources.
 
 ### Command-line interface
 
-Because of the considerable scale of both data and processing involved in
-HPC, you might rather quickly find yourself in need of tools that are more
-efficient and powerful than those offered by the graphical web interface. 
-Effective use of supercomputers is based on running Unix commands in a
-text-based interface. Learning to interact with CSC devices in this way
-is a crucial step towards serious supercomputing.
+Effective high-performance computing is based on using the supercomputers'
+[Linux operating system](./env-guide/index.md) through a text-based interface.
+Most importantly, this allows you to submit your computations as
+[batch jobs](../../computing/running/creating-job-scripts-puhti.md)
+directly to the SLURM job scheduler.
 
-For Linux and macOS, the most natural way of using command-line tools
-is by opening a terminal and creating a remote SSH connection to a
-supercomputer. Windows users do not have access to a Unix-like terminal, so the
-recommended approach is using the login shell available in the supercomputer web
-interface.
+If you request a large amount of resources for running an interactive
+application like Jupyter, you typically have to wait several hours before
+manually running your code. This is both inconvenient and wasteful, as your
+session may start at a time when you are unable to access your workstation,
+which means that several hours of potential runtime can go unused.
 
-## General guidelines
+When you submit a batch job to the SLURM scheduler, it is run automatically
+when your requested resources become available. Running computations as batch
+jobs also allows you to access resources that are not available through the
+interactive applications, such as using multiple GPUs for training neural
+networks.
 
-### Developing code
+You can access the command-line interface either by
+using the [shell applications](../../computing/webinterface/shell.md)
+featured in the web interface (Windows, Linux or macOS) or by
+[using an SSH client on your own workstation](../../computing/connecting.md)
+(Linux or macOS).
 
-Developing code is best done in interactive jobs run in the `interactive`,
-`test` and `gputest` partitions. These partitions have the shortest queuing
-times, which makes it easy to debug code with many quick successive runs.
-Web interface applications like Jupyter can be useful for developing code, since
-it is easy to test changes made to individual blocks of code without running the
-entire script from the beginning. However, once you know your code works, you
-should consider running it as a batch job.
+## Available SLURM partitions
 
-### Running code
-
-One of the most important command-line tools are the commands used for
-interacting with the SLURM job scheduler. If your job requires a lot of
-resources, as is typical for high-performance computing, it may queue for a long
-time before it is run. Jobs based on interactive apps like Jupyter and RStudio
-require you to manually run your code when the necessary resources become
-available, which might happen in the middle of the night or at some other
-inconvenient time. However, when you submit a batch job, any commands in the
-batch script are executed when the job moves the queue to running on a node.
-This makes batch jobs invaluable for HPC users.
+The nodes that make up a supercomputer are grouped into partitions according to
+their hardware specifications. Running computations using either the web
+interface or command-line interface requires you to specify a partition on which
+to run your job, so it is important to be aware of their differences. Our
+documentation includes a description of
+[available SLURM partitions](../../computing/running/batch-job-partitions.md).

@@ -3,6 +3,18 @@
 !!! info "Note"
     The available LUMI batch job partitions are found in [the LUMI documentation](https://docs.lumi-supercomputer.eu/runjobs/scheduled-jobs/partitions/).
 
+List all available partitions and their specifications on a system:
+
+```
+sinfo
+```
+
+Get details about a specific partition:
+
+```
+scontrol show partition <partition_name>
+```
+
 ## Puhti partitions
 
 The following partitions (aka queues) are currently available in **Puhti** for
@@ -27,30 +39,23 @@ The following partitions are available on GPU nodes. Note that for each GPU, you
 | gpu             | 3 days        | 80          | 20           | GPU                        | 373 GiB       | 3600 GiB                    |
 
 
-Information about the partition:
-
-```
-sinfo
-
-```
-
-or
-```
-scontrol show partition <partition_name>
-
-```
-
 !!! info "Notes on partitions"
 
-    - ** Only request the memory you need **
-        - The jobs will run sooner, since in each partition, most of the
-          nodes have less memory than the maximum amount
+    1. ** Use the `test` and `gputest` partitions for testing code **
+        - The available resources are limited, but the queuing times are short
+    2. ** Only use the `gputest` and `gpu` partitions if you are sure your code uses GPUs **
+        - There are more CPU nodes than GPU nodes, so your job will run sooner
+    3. ** Only request multiple CPUs if you are sure your code can use them all **
+        - Reserving more CPUs does nothing by itself, except make you queue for
+        longer
+    4. ** Only request the memory you need **
+        - Nodes will typically have other jobs using memory, so you will spend
+        less time queueing for resources
         - Billing is based on memory requested, not on memory used
-    - ** Only use longrun partitions if necessary **
+    5. ** Only use longrun partitions if necessary **
         - These partitions have stricter limits and a lower priority
-    - ** Only one job per user is allowed in _interactive_ partition **
+    6. ** Only one job per user is allowed in _interactive_ partition **
         - Use this partition with the command [sinteractive](interactive-usage.md).
-
 
 ## Mahti partitions
 
