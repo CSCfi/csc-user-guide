@@ -19,7 +19,7 @@ interface.
 
 Launching an instance on the command line:
 
-```
+```bash
 openstack server create --flavor <flavor> \
 --image <image uuid> \
 --key-name <key name> \
@@ -32,13 +32,13 @@ Login and make any necessary changes. To ensure consistent snapshots,
 snapshots should only be created from instances which are powered off.
 First power off your instance:
 
-```
+```bash
 openstack server stop <name of vm>
 ```
 
 Then create a snapshot of the machine's current state:
 
-```
+```bash
 openstack server image create --name <name of snapshot to create> <name of vm>
 ```
 
@@ -46,7 +46,7 @@ It takes some time to create the snapshot. Once it is finished,
 it appears as a new image. If you need the original instance, you
 can power it on after the snapshot has been created.
 
-```
+```bash
 openstack server start <name of vm>
 ```
 
@@ -209,7 +209,7 @@ procedure using a temporary virtual machine.
    80GB, a suitable flavor for the auxiliary virtual machine is io.160GB 
    because it has 160 GB of ephemeral storage. The operating system can be 
    CentOS-7, for example.
-   ```
+   ```bash
    openstack server create --flavor <flavor> \
    --image <image uuid> \
    --key-name <key name> \
@@ -226,12 +226,12 @@ procedure using a temporary virtual machine.
    do not have such file yet, please refer to
    [this guide](install-client.md#configure-your-terminal-environment-for-openstack)
    to obtain a copy.
-   ```
+   ```bash
    scp <project_name_here>-openrc.sh cloud-user@<floating_ip>:/home/cloud-user/
    ```
    Login into the virtual machine and use the file to load your 
    credentials.
-   ```
+   ```bash
    source <project_name_here>-openrc.sh
    ```
 
@@ -241,45 +241,45 @@ procedure using a temporary virtual machine.
    step, we assume the ephemeral disk is mounted in _/mnt_.
 4. Next, we need to equip the virtual machine with some basic tools we 
    will need.
-   ```
+   ```bash
    sudo yum install python3 python3-virtualenv screen qemu-img
    ```
    We create a python-3 virtual environment, which we will use to interact 
    with cPouta/ePouta, and we enter in it.
-   ```
+   ```bash
    virtualenv-3 env
    source env/bin/activate
    ```
    Now we install the actual tools we need to talk with cPouta/ePouta.
-   ```
+   ```bash
    pip install python-openstackclient==3.11.0 openstacksdk==0.9.17 os-client-config==1.27.0 osc-lib==1.6.0
    ```
    5. Next, we download the image we obtained taking the snapshot. Move to 
    the ephemeral storage directory.
-   ```
+   ```bash
    cd /mnt
    ```
    Though it is not required, at this point we recommend opening a _screen_ 
    session, which allows to keep a process running in background, i.e., 
    without the need of waiting for its completion before closing the 
    terminal.
-   ```
+   ```bash
    screen -S converter
    ```
    We now issue the command to download the image obtained from the 
    snapshot.
-   ```
+   ```bash
    openstack image save --file myVmSnapshotRaw.raw <id_of_myVmSnapshot>
    ```
    Given the size of the image, the process will take few minutes. We can 
    exit the screen session by pressing CTRL+A followed by CTRL+D. We can 
    re-enter the screen session any time typing:
-   ```
+   ```bash
    screen -r converter
    ```
 6. Once the previous command has finished, it is time to convert the 
    image.
-   ```
+   ```bash
    qemu-img convert -f raw -O qcow2 myVmSnapshotRaw.raw myVmSnapshotQcow2.qcow2
    ```
    As previously mentioned, the qcow2 format will store only the actual 
@@ -290,16 +290,16 @@ procedure using a temporary virtual machine.
 
 7. Once the conversion is completed, the new image can be uploaded to 
    OpenStack.
-   ```
+   ```bash
    openstack image create --disk-format qcow2 --file myVmSnapshotQcow2.qcow2 myVmSnapshotCompact 
    ```
    If the operation is successful, we can remove the image in raw format from OpenStack.
-   ```
+   ```bash
    openstack image delete <id_of_myVmSnapshot>
    ```
    We may keep the auxiliary virtual machine for future image conversions, 
    or delete it right after its usage.
-   ```
+   ```bash
    openstack server delete <id_of_snapshotConverter>
    ```
 
@@ -313,21 +313,21 @@ uploading is. The most likely options are _qcow2_ and _raw_. You can
 find out the type of the image using the _file_ command. This is what
 a qcow2 image looks like:
 
-```
+```bash
 $ file images/Ubuntu-15.10-Phoronix.qcow2
 images/Ubuntu-15.10-Phoronix.qcow2: Qemu Image, Format: Qcow (v3), 10737418240 bytes
 ```
 
 And this is what a raw image looks like:
 
-```
+```bash
 $ file images/Ubuntu-14.04-old.raw
 images/Ubuntu-14.04-old.raw: x86 boot sector; partition 1: ID=0x83, active, starthead 0, startsector 16065, 20948760 sectors, code offset 0x63
 ```
 
 Upload using the command line:
 
-```
+```bash
 openstack image create --disk-format <disk format> --private --file <image file to upload> <name of image to create>
 ```
 
@@ -376,14 +376,14 @@ cPouta project and ePouta project or vice versa. 
 To begin with, you need to first make sure the image is of the shared variant
 if it isn't already:
 
-```
+```bash
 openstack image set --shared <your-image-UUID>
 ```
 
 Then, initiate the share by executing the following _openstack_ command in the
 donor project: 
 
-```
+```bash
 openstack image add project <your-image-UUID> <acceptor-project-UUID>
 ```
 
@@ -391,7 +391,7 @@ Then the acceptor project needs to accept this membership. To do so,
 you or your colleague needs to execute the following glance command in the
 acceptor project:
 
-```
+```bash
 openstack image set --accept <your-image-UUID>
 ```
 
