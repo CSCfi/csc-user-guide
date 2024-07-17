@@ -1,33 +1,16 @@
 
-Linux tools such as `scp` and `rsync` are commonly used to transfer files _to_ and _from_ remote servers.
-However, these tools are not very practical for tasks such as:
+Linux tools such as `scp` and `rsync` are commonly used to transfer files
+between a remote server and a local machine. However, these tools are not
+very practical for moving many small files.
 
-* copying a lot of small files
-* copying big text files or image files in uncompressed formats (such as BMP or TIFF)
-* retain attributes (permissions or user/group IDs) while transferring files
-* not enough disk space to create a compressed archive of files/folder that needs to be transferred
+A simple, much faster solution is to write a (compressed) tar package
+containing your data directly to the target system. This is accomplished by
+piping the output of `tar` over an `ssh` connection. Writing the archive
+directly to the destination helps also to conserve disk space on the source
+system.
 
-A simple solution for such tasks is to directly pipe (redirect, `|`) the output of `tar` 
-(linux command for archiving files/folders in a compressed format) through `ssh` 
-(linux command for securing encrypted connection between two hosts over a network) to 
-transfer the compressed archive on another host. 
-
-The table below lists the most commonly used `tar` command operations and options:
-
-|Option         |  Role     | Description                                |
-|---------------|-----------|--------------------------------------------|
-|`-c`           | Operation | Creates a new archive                      |
-|`-x`           | Operation | Extract one or more items from an archive  |
-|`-t`           | Operation | Lists an archive's contents                |
-|`-r`           | Operation | Appends files to an existing archive       |
-|`-A`           | Operation | Appends archives to an existing archive    |
-|`-u`           | Operation | Updates archive with new files             |
-|`--delete`     | Operation | Deletes a member from the archive          |
-|`-f`           | Option    | Specifies the file                         |
-|`-v`           | Option    | Verbose mode                               |
-|`-z`           | Option    | Read or write compressed archives in gzip format|
-|`-j`           | Option    | Read or write compressed archives in bzip2 format|
-|`-C`           | Option    | Changes the directory                      |
+For general information about tar, see
+[Packing and compression tools](../../support/tutorials/env-guide/packing-and-compression-tools.md).
 
 
 ## Transfer files with compression
