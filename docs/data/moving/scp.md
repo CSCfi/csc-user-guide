@@ -25,16 +25,16 @@ The special symbol `~` points to the user's (_bob_:s) home directory.
 To copy complete directories, you should use `scp` command with option **-r**.
 
 ```bash
-scp -r /path/to/data_directory bob@puhti.csc.fi:/scratch/project_123456/data_dir 
+scp -r /path/to/data_directory bob@puhti.csc.fi:/scratch/project_2001234/data_dir 
 ```
 
 The above command will copy the directory (_data_directory_) with all its content to Puhti. The directory will be created 
-in _/scratch/project_123456/data_dir_. 
+in _/scratch/project_2001234/data_dir_. 
 
 Copying the data from CSC servers to a local machine is done in the same way:
 
 ```bash
-scp bob@puhti.csc.fi:/scratch/project_123456/data.txt .
+scp bob@puhti.csc.fi:/scratch/project_2001234/data.txt .
 ```
 
 The `.` symbol points to the current local directory on your computer. Use the `csc-workspaces` command on Puhti to show available
