@@ -5,7 +5,7 @@ tags:
 
 # SAMtools
 
-## Description
+
 
 SAMtools provides tools for using and manipulating SAM and BAM formatted alignments. 
 You can use SAMtools for example for indexing, variant calling and viewing alignments.
@@ -18,7 +18,7 @@ Free to use and open source under [MIT/Expat License](https://github.com/samtool
 
 ## Available
 
-Version on CSC's Servers
+
 
 Puhti: 1.9, 1.16, 1.18
 
@@ -84,7 +84,7 @@ sbatch batch_job_file.bash
 Check the [Puhti user guide](../computing/running/getting-started.md) for more information about running batch jobs.
 
 
-## Manual
+## More information
 
 -    [SAMtools home page](http://www.htslib.org/)
 

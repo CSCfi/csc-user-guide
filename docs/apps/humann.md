@@ -5,7 +5,7 @@ tags:
 
 # HUMAnN
 
-## Description
+
 
 HUMAnN is a pipeline for efficiently and accurately profiling the presence/absence and abundance of 
 microbial pathways in a community from metagenomic or metatranscriptomic sequencing data. 
@@ -17,7 +17,7 @@ This process (functional profiling) aims to describe the metabolic potential of 
 
 Free to use and open source under [MIT License](https://raw.githubusercontent.com/biobakery/humann/master/LICENSE).
 
-## Availability
+## Available
 
 Versions available in Puhti: 3.0.1, 3.6, 3.8
 
