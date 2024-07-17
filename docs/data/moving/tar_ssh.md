@@ -13,52 +13,75 @@ system.
 For general information about tar, see
 [Packing and compression tools](../../support/tutorials/env-guide/packing-and-compression-tools.md).
 
+## Examples
 
-## Transfer files with compression
+All following commands are executed on a local workstation, which is assumed to
+have the required tools (`tar`, `ssh` and, optionally, `gzip`/`bzip2`) installed.
+Puhti is used as the example remote server.
 
-```bash
-tar czvf - /file/or/folder /some/other/file/or/folder | ssh username@server  "cd /path/to/transfer/file/or/folder && tar xvzf - "
-```
-
-For ex., the command to copy a file (_file.txt_) and folder (_folder_) from your computer to the _scratch_ partition of your project (_project_123456_) on Puhti, would be:
-
-```bash
-tar czvf - file.txt folder | ssh username@puhti.csc.fi "cd /scratch/project_123456 && tar xzvf - "
-```
-
-You can also copy files and/or folders which are located on the remote server onto local machine, using the command 
+The general syntax is:
 
 ```bash
-ssh username@server "cd /path/to/file/or/folder/to/be/transferred && tar czvf - file(or folder)" | tar xzvf - 
+tar c <directory_to_transfer> | ssh <username>@puhti.csc.fi 'cat > <target_path_on_puhti>'
 ```
 
-For ex., the command to copy a folder (_folder_) from the _scratch_ partition of your project (_project_123456_) on Puhti to your computer, would be:
+For example, the command to copy a directory `myfiles` from your local machine
+to the directory `/scratch/project_2001234` on Puhti would be:
 
 ```bash
-ssh username@puhti.csc.fi "cd /scratch/project_123456 && tar czvf - folder" | tar xzvf - 
+tar c myfiles | ssh <username>@puhti.csc.fi 'cat > /scratch/project_2001234/myfiles.tar'
 ```
 
-!!! note 
-* Both systems (your computer as well as the remote server) must support `ssh` and have `tar` and `gzip` installed. 
-* If you are using bzip2 (`tar cjvf`) for compression, `bzip2` must be installed on the systems.
-* On CSC servers (Puhti and Mahti), these linux tools are already installed.
-
-## Transfer files without compression
-
-If you have to transfer files that you know cannot be compressed much (for ex., binary files) or are already in compressed format, it is faster to transfer them without any further compression.
-
-### From local machine to remote server:
+To extract the tar archive at the same time, replace the `cat` command as:
 
 ```bash
-tar cvf - /file/or/folder /some/other/file/or/folder | ssh username@server "cd /path/to/transfer/file/or/folder && tar xvzf - "
+tar c myfiles | ssh <username>@puhti.csc.fi 'tar x -C /scratch/project_2001234'
 ```
 
-### From remote server to local machine:
+Conversely, you could also copy data located on the remote server to your local
+machine using a command like:
 
 ```bash
-ssh username@server "cd /path/to/file/or/folder/to/be/transferred && tar cvf - file(or folder)" | tar xvf -
+ssh <username>@puhti.csc.fi 'tar c -C <parent_directory_on_puhti> <directory_to_transfer>' > <archive_on_local_machine>
 ```
 
-!!! note
-If you are transferring a lot of small files, your transfer speed may be slowed down by console output. 
-Just remove the `v` parameter to stop printing transferred files in the console.
+For example, the command to copy a folder `myfiles` located in
+`/scratch/project_2001234` to your local machine would be:
+
+```bash
+ssh <username>@puhti.csc.fi 'tar c -C /scratch/project_2001234 myfiles' > myfiles.tar
+```
+
+To extract the archive at the same time:
+
+```bash
+ssh <username>@puhti.csc.fi 'tar c -C /scratch/project_2001234 myfiles' | tar x
+```
+
+!!! info "Enable compression"
+    The above commands did not use compression. Replace `tar c` (`tar x`) with
+    `tar cz` or `tar cj` (`tar xz` or `tar xj`) to enable gzip or bzip2
+    compression (decompression). Note that some files do not benefit from
+    compression (e.g. binary files or files that are already compressed), in
+    which case it is faster to transfer without compressing.
+
+!!! info "Avoid verbose output"
+    Adding `v` option (e.g. `tar czv`) will produce verbose output, i.e. list
+    the processed files in the console. This slows down the transfer process
+    when moving many small files, so it is recommended to avoid using it.
+
+## Performance comparison
+
+Below is a rough comparison of the time taken to transfer a directory with many
+small files to Puhti. Each file is 100 KiB in size and no compression is
+applied.
+
+| Number of files        | `tar` + `ssh` | `scp`    |
+|-----------------------:|--------------:|---------:|
+| 100                    | 0.5 s         | 2.4 s    |
+| 1000                   | 1.3 s         | 20.5 s   |
+| 10000                  | 9.4 s         | 201.2 s  |
+
+## More information
+
+- [Packing and compression tools](../../support/tutorials/env-guide/packing-and-compression-tools.md)
