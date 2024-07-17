@@ -160,7 +160,7 @@ If you wish to use a name differing from the default object name, you can define
 _--object_:
 ```text
 cd /scratch/project_2012345
-a-put project2/test_1.txt -b newbucket1 - o case1.txt -c
+a-put project2/test_1.txt -b newbucket1 -o case1.txt -c
 ```
 
 The command above uploads the file *test_1.txt* to Allas in the bucket _newbucket1_ as the object _case1.txt.zst_.

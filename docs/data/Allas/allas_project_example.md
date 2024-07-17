@@ -58,7 +58,7 @@ Pekka still needs to send the name of the shared bucket to Mats, as normal Allas
 
 ## Act 3. Uploading data
 
-Mats has [Allas tools](https://github.com/CSCfi/allas-cli-utils) installed in the front end server of the measurement device at Analysis Service Center. Thus he can upload the data directly from the front end server to the _hiano-project-sample1_ bucket in Allas:
+Mats has [Allas tools](https://github.com/CSCfi/allas-cli-utils) installed in the front-end server of the measurement device at Analysis Service Center. Thus he can upload the data directly from the front-end server to the _hiano-project-sample1_ bucket in Allas:
 ```text
 rclone copy sample1/cannel43/aa_3278830.dat  allas:hiano-project-sample001/sample1/cannel43/aa_3278830.dat
 ```
@@ -85,17 +85,17 @@ Because storing data in Allas consumes billing units, Saara needs to check the s
 
 Allas storage is only for research project's duration, but Saara thinks it would be beneficial to have the preliminary data made publicly available and easier to be found. This is supported by the [Fairdata Services](https://www.fairdata.fi/en/) produced by CSC.
 
-Pekka creates a new bucket with public access and uploads the data to the bucket. Command _a-publish_ creates such new bucket and uploads a files in to it. Parameter -b is used to define the name for the bukcet, in this case _hiano-project-public001_.
+Pekka creates a new bucket with public access and uploads the data to the bucket. Command _a-publish_ creates such new bucket and uploads a files in to it. Parameter -b is used to define the name for the bucket, in this case _hiano-project-public001_.
 ```text
 a-publish -b hiano-project-public001 zz_364872.dat zz_242165.dat
 ```
-Next Pekka describes basic information about the data in [Fairdata Qvain Tool](https://www.fairdata.fi/en/qvain/) and provides the two URLs (one for each file in Allas) as a Remote Resource in Qvain. After this the data can then be published as a dataset with a landing page and a persistent identifier. This way the preliminary data can be shared among colleaques using this persistent identifier. The dataset can also be explored via [Fairdata Etsin Service](https://www.fairdata.fi/en/etsin/) with structured information and direct access to download the files in Allas.
+Next Pekka describes basic information about the data in [Fairdata Qvain Tool](https://www.fairdata.fi/en/qvain/) and provides the two URLs (one for each file in Allas) as a Remote Resource in Qvain. After this the data can then be published as a dataset with a landing page and a persistent identifier. This way the preliminary data can be shared among colleagues using this persistent identifier. The dataset can also be explored via [Fairdata Etsin Service](https://www.fairdata.fi/en/etsin/) with structured information and direct access to download the files in Allas.
 
 
 ## Act 5. The end ##
 
 After four years of intensive research that has expanded to several institutes in Finland and abroad, the HiaNo project has produced a few theses and many high quality publications (all acknowledging the use of CSC resources).  
 
-The data is no longer actively used presently. A part of the data that was imported to Allas has been published in international research databases. Some datasets have been moved to [IDA](https://ida.fairdata.fi), so that a DOI identifier and metadata can be linked to the data to make it reusable by other researchers. These datasets can also be explored via Fairdata Etsin. Some data can now be deleted and some remaining parts be moved to the buckets of the new _HiaNo2_ project.
+The data is no longer actively used presently. A part of the data that was imported to Allas has been published in international research databases. Some datasets have been moved to [IDA](https://ida.fairdata.fi), so that a DOI identifier and metadata can be linked to the data to make it reusable by other researchers. These datasets can also be explored via [Fairdata Etsin](https://www.fairdata.fi/en/etsin/). Some data can now be deleted and some remaining parts be moved to the buckets of the new _HiaNo2_ project.
 
 At this stage, Pekka cleans the remaining data objects from Allas, after which Saara informs CSC that the project can be closed.
