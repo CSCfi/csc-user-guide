@@ -11,8 +11,8 @@ using our HPC resources.
 New users are recommended to start working on the
 [Puhti supercomputer](../../computing/systems-puhti.md).
 Compared to Mahti, it has much more pre-installed software, more GPU nodes, and
-typically more available memory per CPU. Additionally, Puhti CPU nodes have fast
-local NVMe storage, which is reserved only for GPU nodes on Mahti.
+typically more available memory per CPU. Additionally, some Puhti CPU nodes have
+fast local NVMe storage, which is reserved only for GPU nodes on Mahti.
 
 ### Mahti
 
@@ -102,11 +102,40 @@ featured in the web interface (Windows, Linux or macOS) or by
 [using an SSH client on your own workstation](../../computing/connecting.md)
 (Linux or macOS).
 
-## Available SLURM partitions
+## Further reading
 
-The nodes that make up a supercomputer are grouped into partitions according to
-their hardware specifications. Running computations using either the web
-interface or command-line interface requires you to specify a partition on which
-to run your job, so it is important to be aware of their differences. Our
-documentation includes a description of
-[available SLURM partitions](../../computing/running/batch-job-partitions.md).
+### General usage
+
+Since at least the 1990s, the most typical way to interact with computers has
+been through a graphical user interface, so the majority of people are
+unfamiliar with using a command-line interface. Even fewer people have worked
+on a shared file system, so the pages below should prove very useful for new
+users.
+
+- [Linux basics tutorial for CSC](./env-guide/index.md)
+- [Connecting to CSC supercomputers](../../computing/connecting.md)
+- [Supercomputer storage](../../computing/disk.md)
+- [CSC Computing Environment course](https://csc-training.github.io/csc-env-eff/)
+
+### Software
+
+Even if your computations are not highly parallelizable, you can benefit from
+running them on CSC supercomputers if you need some of the scientific
+computing software installed on our systems. Puhti is especially useful
+in this regard, having over a hundred pre-installed programs.
+
+- [Applications](../../apps/index.md)
+- [Installing software](../../computing/installing/index.md)
+
+### Running computations
+
+On your personal workstation, you are most often the sole user and thus have
+immediate access to resources: you launch a process and the process is run.
+On a shared system, you must typically queue for resources, since the demand
+for resources tends to be higher than the supply. CSC supercomputers happen to
+be an example of the latter type of system. The pages below introduce you to
+running computations on a shared system.
+
+- [Running batch jobs](../../computing/running/getting-started.md)
+- [Available job partitions](../../computing/running/batch-job-partitions.md)
+- [Environment module system](../../computing/modules.md)
