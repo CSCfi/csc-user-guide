@@ -72,7 +72,7 @@ Notes about the available tools. Note that this list may be outdated:
 
 ### Imaging and videos
 *  [Audacity](https://www.audacityteam.org/). Sound editor.
-    *  After installation, right-click the PSPP desktop icon and select: _Allow launching_.
+    *  After installation, right-click the Audacity desktop icon and select: _Allow launching_.
 *  [ELAN 6.7](https://archive.mpi.nl/tla/elan/). Annotation tool for audio and video recordings.
     *  After installation, right-click the ELAN desktop icon and select: _Allow launching_.
 *  [OpenShot 3.1.1](https://www.openshot.org/). Video editor.
@@ -104,6 +104,6 @@ Notes about the available tools. Note that this list may be outdated:
 *   [Crypt4gh-gui](../sd-connect-upload-for-analysis.md#sensitive-data-encryption-and-upload-for-analysis-up-to-100-gb) Encryption tool.
 *   [Backup tool](./backup_sd_desktop.md) Help tool to automatize backup and export in SD Desktop.
 *   [VS Code 1.90.2](./vscode.md) Code editor.
-    *  After installation, right-click the VC Code desktop icon and select: _Allow launching_.
+    *  After installation, right-click the VS Code desktop icon and select: _Allow launching_.
 *   [WEKA 3-8-6](https://ml.cms.waikato.ac.nz/weka/index.html)
 
