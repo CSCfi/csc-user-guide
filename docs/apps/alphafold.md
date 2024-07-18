@@ -5,7 +5,7 @@ tags:
 
 # AlphaFold
 
-## Description
+
 
 AlphaFold is an AI system developed by [DeepMind](https://www.deepmind.com/) that predicts a protein’s 3D structure from its amino acid sequence.
 
@@ -16,8 +16,6 @@ AlphaFold is an AI system developed by [DeepMind](https://www.deepmind.com/) tha
 Free to use and open source under [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0).
 
 ## Available
-
-### Version on CSC's Servers
 
 -   Puhti: 2.0.1, 2.3.0, 2.3.2-1
 
