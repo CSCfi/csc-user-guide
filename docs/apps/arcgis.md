@@ -142,7 +142,7 @@ for it from CSC.
 
 -   Each university has its own ArcGIS contact person, for students and personnel she/he
     is the first point of contact.
--   CSC, GIS-coordinator: servicedesk@csc.fi
+-   CSC, GIS-coordinator: [CSC Service Desk](../support/contact.md)
 -   The technical contact person of the consortium member university has
     the right to contact [Esri-helpdesk] in technical questions.
 
@@ -168,7 +168,7 @@ for it from CSC.
 
 ------------------------------------------------------------------------
 
-## Manual
+## More information
 
 -   [ArcGIS help](https://doc.arcgis.com/en/)
 -   [GIS-analyysimenetelmät ArcGIS 10.2.1 -ohjelmistolla] (Harri
