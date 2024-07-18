@@ -2,7 +2,9 @@
 
 You have signed up for your CSC account and first project, and are now ready to
 scale up your computing! This page provides guidance for getting started with
-using our HPC resources.
+using our HPC resources. It is recommended that new users complete the
+[CSC Computing Environment course](https://csc-training.github.io/csc-env-eff/),
+which provides a more in-depth introduction to using CSC services.
 
 ## Available systems
 
@@ -37,29 +39,6 @@ GPU applications are able to use AMD drivers. LUMI has
 [its own documentation pages](https://docs.lumi-supercomputer.eu/).
 
 ## Available interfaces
-
-Most of the [pre-installed programs](../../apps/index.md) on CSC supercomputers
-are run using the [command-line interface](#command-line-interface).
-If you plan on using these programs, it is necessary to have a good
-understanding of the
-[basics of the Linux operating system](./env-guide/index.md).
-
-You may also wish to develop your own scripts instead of using existing
-software. It is most efficient to start writing and testing your code on your
-own device, since
-[running code on a shared resource](../../computing/running/getting-started.md)
-inevitably introduces some overhead. You should only start running your code on
-a supercomputer once you are ready for testing on a larger scale or with
-specific resources like GPUs.
-
-!!! note "On supercomputing"
-
-    It is worth keeping in mind that running your computations on a supercomputer
-    only improves performance if you play to its strengths. Supercomputers are
-    powerful because they allow for
-    [parallel computing](https://en.wikipedia.org/wiki/Parallel_computing).
-    If your code is not written to take advantage of multiple CPUs, or one or
-    more GPUs, it is the same as running it on your own workstation.
 
 ### Web interface
 
@@ -102,40 +81,65 @@ featured in the web interface (Windows, Linux or macOS) or by
 [using an SSH client on your own workstation](../../computing/connecting.md)
 (Linux or macOS).
 
-## Further reading
+## Available resources
 
-### General usage
-
-Since at least the 1990s, the most typical way to interact with computers has
-been through a graphical user interface, so the majority of people are
-unfamiliar with using a command-line interface. Even fewer people have worked
-on a shared file system, so the pages below should prove very useful for new
-users.
-
-- [Linux basics tutorial for CSC](./env-guide/index.md)
-- [Connecting to CSC supercomputers](../../computing/connecting.md)
-- [Supercomputer storage](../../computing/disk.md)
-- [CSC Computing Environment course](https://csc-training.github.io/csc-env-eff/)
-
-### Software
+### Scientific software
 
 Even if your computations are not highly parallelizable, you can benefit from
-running them on CSC supercomputers if you need some of the scientific
-computing software installed on our systems. Puhti is especially useful
-in this regard, having over a hundred pre-installed programs.
+running them on CSC supercomputers if you have need for the diverse
+[scientific computing software](../../apps.md)
+installed on our systems. Puhti is especially useful in this regard, having over
+a hundred pre-installed programs.
 
-- [Applications](../../apps/index.md)
-- [Installing software](../../computing/installing.md)
+CSC systems use [environment modules](../../computing/modules.md) for
+managing software environments. These modules cover everything from compilers to
+workflow utilities and Python environments. Running most of our software
+requires using the [command-line interface](#command-line-interface).
+If you plan on using these programs, it is therefore necessary to have a good
+understanding of the
+[basics of the Linux operating system](./env-guide/index.md).
 
-### Running computations
+While the pre-installed software covers a plethora of use cases, it is not
+uncommon to have to
+[carry out installations of your own](../../computing/installing.md).
+Luckily, we have various compilers and utilities to facilitate this.
 
-On your personal workstation, you are most often the sole user and thus have
-immediate access to resources: you launch a process and the process is run.
-On a shared system, you must typically queue for resources, since the demand
-for resources tends to be higher than the supply. CSC supercomputers happen to
-be an example of the latter type of system. The pages below introduce you to
-running computations on a shared system.
+You may also wish to develop your own scripts instead of using existing
+software. It is most efficient to start writing and testing your code on your
+own device, since
+[running code on a shared resource](../../computing/running/getting-started.md)
+inevitably introduces some overhead. You should only start running your code on
+a supercomputer once you are ready for testing on a larger scale or with
+specific resources like GPUs.
 
-- [Running batch jobs](../../computing/running/getting-started.md)
-- [Available job partitions](../../computing/running/batch-job-partitions.md)
-- [Environment module system](../../computing/modules.md)
+### Supercomputer storage
+
+High-performance computing consumes and generates large amounts of ephemeral
+data. Using CSC services for HPC thus requires a basic understanding of our
+[supercomputer storage system](../../computing/disk.md). For long-term data
+storage needs, we have the cloud-based
+[Allas object storage service](../../data/Allas/introduction.md).
+
+### Processing power
+
+CSC supercomputers offer resources that, when properly used, are well-beyond
+what the most sophisticated consumer devices are capable of. However, you are
+not the only one using them. On your personal workstation, you have, in
+principle, immediate access to resources. On a supercomputer, which is a shared
+system, you must typically queue for them, since their demand tends to be higher
+than their supply. Resources are allocated using the
+[SLURM batch job system](../../computing/running/getting-started.md).
+Jobs are submitted to
+[batch job partitions](../../computing/running/batch-job-partitions.md),
+which are distinct groupings of the nodes that make up a supercomputer.
+Each partition has its particular resources and limitations, and it is helpful
+to be aware of the differences.
+
+!!! note "On supercomputing"
+
+    It is worth keeping in mind that running your computations on a
+    supercomputer only improves performance if you play to its strengths.
+    Supercomputers are powerful because they allow for
+    [parallel computing](https://en.wikipedia.org/wiki/Parallel_computing).
+    If your code is not written to take advantage of multiple CPUs, or one or
+    more GPUs, there is no benefit over running it on your own workstation.
