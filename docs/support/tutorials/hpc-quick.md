@@ -87,7 +87,7 @@ featured in the web interface (Windows, Linux or macOS) or by
 
 Even if your computations are not highly parallelizable, you can benefit from
 running them on CSC supercomputers if you have need for the diverse
-[scientific computing software](../../apps.md)
+[scientific computing software](../../apps/index.md)
 installed on our systems. Puhti is especially useful in this regard, having over
 a hundred pre-installed programs.
 
