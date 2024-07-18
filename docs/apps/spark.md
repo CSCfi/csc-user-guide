@@ -35,7 +35,7 @@ Listed below are some of the variables that can be changed.
 - **Password**: Password for authenticating and logging into your Spark cluster and Jupyter (Recommended: create a new password, don't use any existing one)
 - **Worker Replicas**: Number of workers to have (Default: 4)
 
-- **Storage Size**: Persistent storage volume size (Default: 10Gi)
+- **Storage Size**: Persistent storage volume size (Default: 10G)
 
 #### Optional Required Values:
 - **Enable Jupyter Lab**: Specify whether if you want to use Jupyter Lab instead of the default Jupyter Notebook (Default: false) 
@@ -44,7 +44,7 @@ Listed below are some of the variables that can be changed.
 - **Worker CPU**: Number of cores for each worker of the cluster (Default: 2)
 - **Worker Memory**: Memory of each worker of the cluster (Default: 4G)
 
-- **Executor Default Cores**: Default value for Spark Executor Cores (See official Spark documention for more) (Default: 2)
+- **Executor Default Cores**: Default value for Spark Executor Cores (See official [Spark documention](https://spark.apache.org/docs/latest/) for more) (Default: 2)
 - **Executor Default Memory**: Default value for Spark Executor Memory (**Should always be less than the Worker memory!**) (Default: 3G)
 
 - **Driver CPU**: Number of cores for the driver (Jupyter Notebook)
@@ -59,7 +59,7 @@ Listed below are some of the variables that can be changed.
 
 !!! note 
 
-    The data is stored on a single shared volume so it's essential that you choose your storage size big enough because it isn't possible to increase it after deployment. Additional storage volumes can be added though.
+    The data is stored on a single shared volume so it's essential that you choose your storage size big enough because it is not possible to increase it after deployment. Additional storage volumes can be added though.
 
 Click **Create** and **Close**.
 You can see your new cluster getting provisioned in *Overview*-page. When provisioning is ready, you can find Jupyter UI from address https://< cluster-name >-jupyter.rahtiapp.fi and Spark UI from address https://< cluster-name >-spark.rahtiapp.fi
@@ -70,12 +70,12 @@ Scaling the cluster can be done from *Overview* by increasing spark-worker pod a
 
 ### Short descriptions about the deployed components
 - **Jupyter notebook** : lets you type the spark code in Python or R format and also provides you an option of running a terminal which can for example, used for uploading data to allas for long term storage. The URL for accessing the notebook can be found by clicking on the dropdown and then look for Routes which has the URL. By default, any notebook you launch in Jupyter, is connected to your cluster.
-- **Spark master**: which connects your jupyter notebook to read the spark code and coordinates your workers, it has web ui whose URL can be seen by clicking on the dropdown, and finding the Routes.
+- **Spark master**: which connects your jupyter notebook to read the spark code and coordinates your workers, it has web UI whose URL can be seen by clicking on the dropdown, and finding the Routes.
 - **Spark workers**: The workers are responsible for doing the actual computation. By default there are 4 workers created for you, you can create more by clicking on the up and down buttons. 
 
 !!! note 
 
-    Remember always save your data to the Jupyter notebooks default path `/mnt/<project-name>-pvc/*` . That PVC storage is distributed and replicated persistent storage and available to all of your Spark pods. If you save data to anywhere else, it will be deleted as soon as ephemeral pod is deleted. It is also recommended to save your valuable data occasionally to other location. **Allas** object storage is suitable for storing large datasets and analysis results. Allas can also be used to store raw data and set Spark to read from there.
+    Remember always to save your data to the Jupyter notebooks default path `/mnt/<project-name>-pvc/*` . PVC storage is a distributed and replicated persistent storage and available to all of your Spark pods. If you save data anywhere else, it will be deleted as soon as ephemeral pod is deleted. It is also recommended to save your valuable data occasionally to other location. **Allas** object storage is suitable for storing large datasets and analysis results. Allas can also be used to store raw data and Spark can be set to read it from there.
  
 
 ## Using Allas object storage
@@ -89,14 +89,14 @@ cd to your pvc-directory:
 cd /mnt/<project-name>-pvc
 ```
 
-download Allas conf from github and use it to configure s3cmd:
+Download Allas conf from github and use it to configure s3cmd:
 
 ```bash
 wget https://raw.githubusercontent.com/CSCfi/allas-cli-utils/master/allas_conf
 source allas_conf --mode s3cmd --user your-csc-username
 ```
 
-Some useful commands:
+Some useful `s3cmd` commands:
 ```bash
 s3cmd ls
 
@@ -107,3 +107,7 @@ s3cmd get -r s3://<your-bucket-name>/examplefile.parquet ./
 
 
 More info about configuring s3cmd for Allas and guide how to use it can be found from [CSC Allas documentation](../data/Allas/using_allas/s3_client.md)
+
+## More information
+
+[Apache Spark home page](https://spark.apache.org)

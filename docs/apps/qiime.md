@@ -5,8 +5,6 @@ tags:
 
 # QIIME
 
-## Description
-
 QIIME (Quantitative Insights Into Microbial Ecology) is a package for comparison and analysis of microbial communities, 
 primarily based on high-throughput amplicon sequencing data (such as SSU rRNA) generated on a variety of platforms, 
 but also supporting analysis of other types of data (such as shotgun metagenomic data). QIIME takes users from their 
@@ -14,8 +12,7 @@ raw sequencing output through initial analyses such as OTU picking, taxonomic as
 phylogenetic trees from representative sequences of OTUs, and through downstream statistical analysis, visualization, 
 and production of publication-quality graphics.
 
-On 2017 a totally rewritten version QIIME2 was released. The development of the original QIIME version has stopped. QIIME2 is strongly suggested for most uses. 
-
+In 2017 a totally rewritten version QIIME2 was released. The development of the original QIIME version has stopped. QIIME2 is strongly suggested for most uses. 
 
 [TOC]
 
@@ -25,8 +22,8 @@ Free to use and open source under [BSD 3-Clause License](https://github.com/qiim
 
 ## Available
 
--   QIIME1: Puhti: 1.9.1
--   QIIME2: Puhti: 2022.8, 2023.2, 2023.5, 2023.9-amplicon, 2023.9-shotgun, 2024.2-amplicon, 2024.2-shotgun 
+- QIIME1: Puhti: 1.9.1
+- QIIME2: Puhti: 2022.8, 2023.2, 2023.5, 2023.9-amplicon, 2023.9-shotgun, 2024.2-amplicon, 2024.2-shotgun 
 
 ## Usage
 
@@ -36,15 +33,13 @@ To load QIIME1 module on Puhti:
 module load qiime1
 ```
 
-To use QIIME2
-
-Check available versions with
+To use QIIME2, check available versions with:
 
 ```bash
 module spider qiime2
 ```
 
-Load desired version with e.g.
+Load desired version with e.g.:
 
 ```bash
 module load qiime2/2023.9-amplicon
@@ -96,7 +91,7 @@ mkdir qiime
 conda-containerize new --mamba --prefix qiime qiime2-amplicon-2023.9-py38-linux-conda.yml
 ```
 
-If necassary, run: 
+If necessary, run: 
 
 ```bash
 conda-containerize update qiime --post-install plugins.txt
@@ -117,7 +112,7 @@ In case of normal batch jobs, you must reserve NVMe disk area that will be used 
 For example, to reserve 100 GB of local disk space:
 
 ```text
-SBATCH --gres=nvme:100
+#SBATCH --gres=nvme:100
 ```
 
 For example, the batch job script below runs the denoising step of the
@@ -150,26 +145,25 @@ qiime dada2 denoise-single \
   --p-n-threads $SLURM_CPUS_PER_TASK
 ``` 
 
-Maximum running time is set to 1 hour (`--time=01:00:00`). As QIIME2 uses threads based
-parallelization, the job is requested to use one task (`--ntasks=1`)  where all cores need to be in
+Maximum running time is set to 1 hour (`--time=01:00:00`). As QIIME2 uses thread-based
+parallelization, the job is requested to use one task (`--ntasks=1`) where all cores need to be in
 the same node (`--nodes=1`). This one task will use eight cores as parallel threads
-`--cpus-per-task=8` that  can use in total up to 16 GB of memory (` --mem=16G`). Note that the
-number of cores to be used needs to be defined in actual qiime command, too. That is done with
+`--cpus-per-task=8` that can use in total up to 16 GB of memory (`--mem=16G`). Note that the
+number of cores to be used needs to be defined in actual `qiime` command, too. That is done with
 Qiime option `--p-n-threads`. In this case we use `$SLURM_CPUS_PER_TASK` variable that contains the
- _cpus-pre-task_ value ( we could as well use `--p-n-threads 8` but then we have to remember
-to change the value if the number of reserved CPUs is changed).
+`--cpus-pre-task` value. We could as well use `--p-n-threads 8`, but then we have to remember
+to change the value if the number of reserved CPUs is changed.
 
-The job is submitted to the to the batch job system with `sbatch` command. For example, if the batch job file is named as _qiime_job.sh_ then the submission command is: 
+The job is submitted to the batch job system with `sbatch` command. For example, if the batch job file is named `qiime_job.sh`, then the submission command is: 
 
 ```bash
 sbatch qiime_job.sh 
 ```
 More information about running batch jobs can be found from the [batch job section of the Puhti user guide](../computing/running/getting-started.md).
 
-!!! info "Note"
-    The use of *tab-qiime* to enable command completion for QIIME is known to cause problems on Puhti, and should be avoided.
+!!! warning "Note"
+    The use of `tab-qiime` to enable command completion for QIIME is known to cause problems on Puhti, and should be avoided.
 
+## More information
 
-## Manual
-
-*   [QIIME2 home page](https://qiime2.org/)
+* [QIIME2 home page](https://qiime2.org/)
