@@ -125,7 +125,7 @@ computing software installed on our systems. Puhti is especially useful
 in this regard, having over a hundred pre-installed programs.
 
 - [Applications](../../apps/index.md)
-- [Installing software](../../computing/installing/index.md)
+- [Installing software](../../computing/installing.md)
 
 ### Running computations
 
