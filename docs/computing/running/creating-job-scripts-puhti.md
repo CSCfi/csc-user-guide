@@ -34,7 +34,7 @@ all possible options, see the
 The general syntax of an `#SBATCH` option:
 
 ```bash
-#SBATCH --option-name=argument
+#SBATCH option_name argument
 ```
 
 In our example,
@@ -96,7 +96,7 @@ The user can be notified by email when the job *starts* by using the
 `--mail-type` option
 
 ```bash
-#SBATCH --mail-type=BEGIN
+##SBATCH --mail-type=BEGIN          # Uncomment to enable mail
 ```
 
 Other useful arguments (multiple arguments are separated by a comma) are `END`
