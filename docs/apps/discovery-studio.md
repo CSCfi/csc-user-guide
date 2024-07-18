@@ -6,13 +6,10 @@ tags:
 # Discovery Studio
 
 Discovery Studio is a protein modeling program that contains tools to
-visualize, analyse, modify and simulate protein structures. 
+visualize, analyze, modify and simulate protein structures. 
 
-!!! Note
-    The national Discovery Studio license provided by CSC ended at the end of 2022.
-    Starting 2023, Discovery Studio will not be available any more.
-    Please consider using [Maestro](./maestro.md) as a replacement.
-
-## References
-
-Please see method descriptions and log files in Discovery Studio for details.
+!!! warning "Note"
+    The national Discovery Studio license provided by CSC was discontinued in 2022.
+    Since the beginning of 2023, it is no longer available. Please consider using 
+    [Maestro](maestro.md) instead. [Contact CSC Service Desk](../support/contact.md)
+    if you need support in migrating your workflow.

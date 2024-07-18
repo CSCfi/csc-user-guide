@@ -5,7 +5,7 @@ tags:
 
 # STAR
 
-## Description
+
 STAR (Spliced Transcripts Alignment to a Reference) is a fast NGS read aligner for  RNA-seq data.
 
 [TOC]
@@ -16,7 +16,7 @@ Free to use and open source under [GNU GPLv3](https://www.gnu.org/licenses/gpl-3
 
 ## Available
 
-Version on CSC's Servers
+
 
 Puhti: 2.7.10a, 2.7.11a
 
@@ -87,7 +87,7 @@ sbatch starjob1.sh
 ```
 
 
-## Manual
+## More information
 
 *   [STAR user manual](https://github.com/alexdobin/STAR/blob/master/doc/STARmanual.pdf)
 *   [STAR home page](https://github.com/alexdobin/STAR/)

@@ -5,7 +5,7 @@ tags:
 
 # InterProScan
 
-## Description
+
 
 InterProScan is a tool that compares protein or nucleotide sequence against a set of protein signature databases. 
 The results obtained from different databases are given in uniform format. The InterProScan5 installation at CSC can 
@@ -34,7 +34,7 @@ be used to search protein signatures from following databases:
 
 Free to use and open source under [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0).
 
-## Version
+## Available
 
 *   Puhti: 5.55-88.0, 5.67-90.0
 
