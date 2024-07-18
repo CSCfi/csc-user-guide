@@ -3,25 +3,30 @@
 ```bash
 wget URL
 ``` 
-So for example 
+
+For example 
 
 ```bash
 wget http://ftp.gromacs.org/pub/gromacs/gromacs-2019.3.tar.gz
 ```
+
 would download a file called _gromacs-2019.3.tar.gz_ to your current directory.
 Pattern matching in the URL is possible when using _ftp_ , i.e. the URL starts with _ftp_:
 
 ```bash
 wget "ftp://ftp.gromacs.org/pub/gromacs/gromacs-5*.tar.gz"
 ```
+
 This command would retrieve all the files, whose name start with _gromacs-5_ and end with
 _.tar.gz_
 
 You can fine tune the behaviour of `wget` command with several options. 
 You can see the full list of available command options with the command:
+
 ```bash
 man wget
 ```
+
 Below are listed some of the most commonly used options.
 
 |Option 	| Argument | Description |
