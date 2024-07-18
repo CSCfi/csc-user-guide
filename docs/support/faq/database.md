@@ -3,7 +3,7 @@
 If you need a Database that needs to be accessible from other systems (like
 Puhti or Mahti), the best and easiest option is the
 [Pukki DBaaS service](../../cloud/dbaas/index.md), which currently supports
-PostgreSQL databases.
+PostgreSQL databases. Other types are under consideration.
 
 If you need another type of database, you may deploy it yourself in
 [cPouta cloud](../../cloud/pouta/index.md). In this case, you should request a

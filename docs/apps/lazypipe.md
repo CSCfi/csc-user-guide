@@ -5,7 +5,7 @@ tags:
 
 # Lazypipe
 
-## Description 
+ 
 
 Lazypipe is a stand-alone pipeline for identifying viruses in host-associated or environmental samples. The main emphasis is on assembling, taxonomic binning and taxonomic profiling of bacterial/viral sequences.
 
