@@ -259,7 +259,7 @@ Puhti has 320 Nvidia Tesla V100 GPUs. The GPUs are available in the `gpu` and
 `gputest` partitions and can be requested with:
 
 ```bash
---gres=gpu:v100:<number_of_gpus_per_node>
+#SBATCH --gres=gpu:v100:<number_of_gpus_per_node>
 ```
 
 The `--gres` reservation is on a per-node basis. There are 4 GPUs per GPU node.
@@ -268,7 +268,7 @@ Multiple resources can be requested with a comma-separated list. To request
 both GPU and local storage:
 
 ```bash
---gres=gpu:v100:<number_of_gpus_per_node>,nvme:<local_storage_space_per_node>
+#SBATCH --gres=gpu:v100:<number_of_gpus_per_node>,nvme:<local_storage_space_per_node>
 ```
 
 For example, to request 1 GPU and 10 GB of NVMe storage the option would be
