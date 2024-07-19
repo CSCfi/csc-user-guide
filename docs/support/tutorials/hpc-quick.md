@@ -51,7 +51,9 @@ and visualizing data. For this purpose, the web interface features multiple
 interactive applications, like
 [Visual Studio Code](../../computing/webinterface/vscode.md),
 [Jupyter](../../computing/webinterface/jupyter.md) and
-[RStudio](../../computing/webinterface/rstudio.md). For demanding computation,
+[RStudio](../../computing/webinterface/rstudio.md), as well as an
+[accelerated visualization app](../../computing/webinterface/accelerated-visualization.md)
+for GPU-accelerated visualization and rendering. For demanding computation,
 like running full-scale simulations or training neural networks, you will want
 to use the command-line interface, as it allows you to schedule your jobs and
 allocate more resources.
