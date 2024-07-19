@@ -13,8 +13,8 @@ which provides a more in-depth introduction to using CSC services.
 New users are recommended to start working on the
 [Puhti supercomputer](../../computing/systems-puhti.md).
 Compared to Mahti, it has much more pre-installed software, more GPU nodes, and
-typically more available memory per CPU. Additionally, some Puhti CPU nodes have
-fast local NVMe storage, which is reserved only for GPU nodes on Mahti.
+typically more available memory per CPU. Additionally, GPU nodes and some of the CPU nodes
+on Puhti have [fast local NVMe storage](../../computing/disk.md#temporary-local-disk-areas).
 
 ### Mahti
 
