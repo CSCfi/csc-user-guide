@@ -27,7 +27,8 @@ entire CPU node.
 
 Additionally, while Mahti has fewer GPU nodes than Puhti, the A100 GPUs on
 Mahti are considerably more powerful than the V100 GPUs on Puhti, which
-makes Mahti also suitable for machine learning applications.
+makes Mahti also suitable for machine learning applications. In contrast to Puhti,
+on Mahti only GPU nodes have fast local NVMe storage available.
 
 ### LUMI
 
