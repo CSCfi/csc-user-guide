@@ -49,7 +49,7 @@ After that, you can check the Diamond help with the command:
 diamond help
 ```
 
-CSC provides Diamond indexes for Uniprot databases (swiss) and NCBI non-redundant database (nr). Location of these databases is defined with the environment variable `$DIAMONDDB`. For example, searching hits for a set of nucleotide sequences from the SwissProt database could be done with the command:
+CSC provides Diamond indexes for SwissProt (swiss) Uniprot databases (uniprot) and NCBI non-redundant database (nr). Location of these databases is defined with the environment variable `$DIAMONDDB`. For example, searching hits for a set of nucleotide sequences from the SwissProt database could be done with the command:
 
 ```bash
 diamond blastx --query nuc.fasta -d $DIAMONDDB/swiss --out diamond_results.txt -p 4 --max-target-seqs 500
