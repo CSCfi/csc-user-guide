@@ -12,7 +12,7 @@ The following guidance assumes that you have a database user account to the data
 
 ## Write a MYSQL database access script
 
-Use your favourite text editor to create a named script file e.g. _mydb_script.pl_ . Then copy the following text to the script.
+Use your favorite text editor to create a named script file e.g. _mydb_script.pl_ . Then copy the following text to the script.
 
 ```perl
 # mydb_script.pl script to show MySQL server version
