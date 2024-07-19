@@ -1,10 +1,11 @@
-#How can I find information about my projects?
+# How can I find information about my projects?
 
-By logging in to our customer portal, my.csc.fi.
-You can see your projects, their project numbers, managers and billing unit status on the [My Project subpage](https://my.csc.fi/myProjects).
+By logging in to our customer portal [My CSC](https://my.csc.fi). You can see
+your projects, their project numbers, managers and billing unit status on the
+[*Projects* sub-page](https://my.csc.fi/projects).
 
 Please see also:
 
-* [Accounts section](../../accounts/how-to-create-new-project.md)
-* `csc-projects` - a commandline tool for [active projects on Puhti](../../computing/index.md#projects-and-quotas)
-
+* [How to create a new project](../../accounts/how-to-create-new-project.md).
+* `csc-projects` – a command-line tool for querying information about your
+  [active projects on CSC supercomputers](../../computing/index.md#projects-and-quotas).
