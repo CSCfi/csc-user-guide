@@ -46,7 +46,7 @@ GPU applications are able to run on AMD GPUs. LUMI has
 Puhti, Mahti and LUMI each have
 [their own web interface](../../computing/webinterface/index.md), which allows
 interacting with the supercomputer using a web browser. The web interface is a
-good choice for interactive computing, such as developing code or exploring
+good choice for interactive computing, such as analyzing, exploring
 and visualizing data. For this purpose, the web interface features multiple
 interactive applications, like
 [Visual Studio Code](../../computing/webinterface/vscode.md),
