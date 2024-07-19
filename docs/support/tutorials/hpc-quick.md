@@ -93,7 +93,7 @@ featured in the web interface (Windows, Linux or macOS) or by
 Even if your computations are not highly parallelizable, you can benefit from
 running them on a CSC supercomputer by making use of the variety of useful
 [scientific computing software](../../apps/index.md) that is available.
-Puhti is especially meritorious in this regard, having over a hundred
+Puhti is especially distinguished in this regard, having over a hundred
 pre-installed programs.
 
 CSC systems use [environment modules](../../computing/modules.md) for
@@ -126,7 +126,8 @@ larger scale or using specific resources like GPUs.
 
 High-performance computing consumes and generates large amounts of data.
 Using CSC services for HPC thus requires a basic understanding of the
-[supercomputer disk areas](../../computing/disk.md). Note that the none of the
+[supercomputer disk areas](../../computing/disk.md) as well as the principles
+of [managing data on them](./clean-up-data.md). Note that the none of the
 disk areas are intended for long-term preservation of datasets or experimental
 results. For that purpose, we offer the cloud-based
 [Allas object storage service](../../data/Allas/introduction.md).
