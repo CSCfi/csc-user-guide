@@ -54,9 +54,9 @@ interactive applications, like
 [RStudio](../../computing/webinterface/rstudio.md), as well as an
 [accelerated visualization app](../../computing/webinterface/accelerated-visualization.md)
 for GPU-accelerated visualization and rendering. For demanding computation,
-like running full-scale simulations or training neural networks, you will want
-to use the command-line interface, as it allows you to schedule your jobs and
-allocate more resources.
+like running full-scale simulations or training neural networks, you should use
+the command-line interface, since it allows you to access more resources and
+schedule your jobs.
 
 ### Command-line interface
 
@@ -91,41 +91,55 @@ featured in the web interface (Windows, Linux or macOS) or by
 ### Scientific software
 
 Even if your computations are not highly parallelizable, you can benefit from
-running them on CSC supercomputers if you have need for the diverse
-[scientific computing software](../../apps/index.md)
-installed on our systems. Puhti is especially useful in this regard, having over
-a hundred pre-installed programs.
+running them on a CSC supercomputer by making use of the variety of useful
+[scientific computing software](../../apps/index.md) that is available.
+Puhti is especially meritorious in this regard, having over a hundred
+pre-installed programs.
 
 CSC systems use [environment modules](../../computing/modules.md) for
-managing software environments. These modules cover everything from compilers to
-workflow utilities and Python environments. Running most of our software
-requires using the [command-line interface](#command-line-interface).
-If you plan on using these programs, it is therefore necessary to have a good
-understanding of the
+managing software environments. These modules cover everything from
+[compilers](../../computing/installing.md#compiling) to
+[programming languages](../../apps/by_discipline.md#mathematics-and-statistics)
+to workflow utilities like
+[Nextflow](../../apps/nextflow.md) and [Snakemake](../../apps/snakemake.md).
+Running most of our software requires using the
+[command-line interface](#command-line-interface), so it is extremely useful to
+have a solid grasp of the
 [basics of the Linux operating system](./env-guide/index.md).
 
-While the pre-installed software covers a plethora of use cases, it is not
-uncommon to have to
-[carry out installations of your own](../../computing/installing.md).
-Luckily, we have various compilers and utilities to facilitate this.
+While the pre-installed software covers a wide variety of use cases, it is not
+uncommon to need to
+[carry out installations of your own](../../computing/installing/index.md).
+Luckily, we have various
+compilers,
+[high-performance libraries](../../computing/installing/hpc-libraries.md) and
+other utilities to facilitate this.
 
 You may also wish to develop your own scripts instead of using existing
 software. It is most efficient to start writing and testing your code on your
-own device, since
-[running code on a shared resource](../../computing/running/getting-started.md)
-inevitably introduces some overhead. You should only start running your code on
-a supercomputer once you are ready for testing on a larger scale or with
-specific resources like GPUs.
+own device, since running it on a shared system (which supercomputers
+invariably are) inevitably introduces some overhead. You should only start
+running your scripts on a supercomputer once you are ready for testing them on a
+larger scale or using specific resources like GPUs.
 
 ### Supercomputer storage
 
-High-performance computing consumes and generates large amounts of ephemeral
-data. Using CSC services for HPC thus requires a basic understanding of our
-[supercomputer storage system](../../computing/disk.md). For long-term data
-storage needs, we have the cloud-based
+High-performance computing consumes and generates large amounts of data.
+Using CSC services for HPC thus requires a basic understanding of the
+[supercomputer disk areas](../../computing/disk.md). Note that the none of the
+disk areas are intended for long-term preservation of datasets or experimental
+results. For that purpose, we offer the cloud-based
 [Allas object storage service](../../data/Allas/introduction.md).
 
-### Processing power
+[Moving data](../../data/moving/index.md) between a supercomputer and a local
+workstation is made easy by using the
+[web interface file browser](../../data/moving/web-interface.md) or a
+text-based file transfer tool like [scp](../../data/moving/scp.md) or
+[rsync](../../data/moving/rsync.md). You can also use the
+[Linux wget utility](../../data/moving/wget.md) to download data to
+a supercomputer directly from a website or FTP server.
+
+### Powerful processing
 
 CSC supercomputers offer resources that, when properly used, are well-beyond
 what the most sophisticated consumer devices are capable of. However, you are
