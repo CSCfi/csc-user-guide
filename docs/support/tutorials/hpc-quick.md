@@ -109,10 +109,10 @@ have a solid grasp of the
 
 While the pre-installed software covers a wide variety of use cases, it is not
 uncommon to need to
-[carry out installations of your own](../../computing/installing/index.md).
+[carry out installations of your own](../../computing/installing.md).
 Luckily, we have various
 compilers,
-[high-performance libraries](../../computing/installing/hpc-libraries.md) and
+[high-performance libraries](../../computing/hpc-libraries.md) and
 other utilities to facilitate this.
 
 You may also wish to develop your own scripts instead of using existing
