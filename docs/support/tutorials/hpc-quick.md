@@ -36,7 +36,7 @@ LUMI is one of the fastest supercomputers in the world. It is intended primarily
 for running computations that benefit from the large amount of high-performance
 GPUs in its LUMI-G hardware partition. Whereas the GPUs on Puhti and Mahti are
 manufactured by Nvidia, the LUMI GPUs are made by AMD, so make sure that your
-GPU applications are able to use AMD drivers. LUMI has
+GPU applications are able to run on AMD GPUs. LUMI has
 [its own documentation pages](https://docs.lumi-supercomputer.eu/).
 
 ## Available interfaces
