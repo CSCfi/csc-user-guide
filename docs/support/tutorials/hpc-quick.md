@@ -60,23 +60,25 @@ allocate more resources.
 
 ### Command-line interface
 
-Effective high-performance computing is based on using the supercomputers'
-[Linux operating system](./env-guide/index.md) through a text-based interface.
-Most importantly, this allows you to submit your computations as
-[batch jobs](../../computing/running/creating-job-scripts-puhti.md)
-directly to the SLURM job scheduler.
+While many of the interactive applications in the web interface, such as
+Jupyter and RStudio, are easy to use and thus a good starting point for using
+CSC supercomputers, their computing capacity is limited to relatively
+low-resource interactive usage. If you need access to more resources (e.g.
+multiple CPU nodes or GPUs) or if you require efficiency over interactivity,
+it is a good idea to switch to using the text-based command-line interface to
+interact directly with the supercomputer's
+[Linux operating system](./env-guide/index.md). While this way of working may
+seem archaic, it is truly powerful once you get used to it.
 
-If you request a large amount of resources for running an interactive
-application like Jupyter, you typically have to wait several hours before
-manually running your code. This is both inconvenient and wasteful, as your
-session may start at a time when you are unable to access your workstation,
-which means that several hours of potential runtime can go unused.
-
-When you submit a batch job to the SLURM scheduler, it is run automatically
-when your requested resources become available. Running computations as batch
-jobs also allows you to access resources that are not available through the
-interactive applications, such as using multiple GPUs for training neural
-networks.
+The main benefit of using the CLI is getting to
+[submit your computations as batch jobs](../../computing/running/getting-started.md)
+to the SLURM job scheduler. Requesting a large amount of resources
+for an interactive application like Jupyter typically entails having to wait for
+several hours before finally logging in to manually run the job. This is
+both inconvenient and wasteful, as your interactive session may start at a time
+when you are unable to access your workstation, which means that several hours
+of potential runtime can go unused. When you submit a batch job to SLURM, your
+job is run automatically when the requested resources become available.
 
 You can access the command-line interface either by
 using the [shell applications](../../computing/webinterface/shell.md)
