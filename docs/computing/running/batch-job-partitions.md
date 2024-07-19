@@ -45,12 +45,12 @@ The following partitions are available on GPU nodes. Note that for each GPU, you
         - The available resources are limited, but the queuing times are short
     2. ** Only use the `gputest` and `gpu` partitions if you are sure your code uses GPUs **
         - There are more CPU nodes than GPU nodes, so your job will run sooner
-    3. ** Only request multiple CPUs if you are sure your code can use them all **
+    3. ** Only request multiple CPUs if you are sure your tool or code can use them **
         - Reserving more CPUs does nothing by itself, except make you queue for
         longer
     4. ** Only request the memory you need **
-        - Nodes will typically have other jobs using memory, so you will spend
-        less time queueing for resources
+        - Memory may become a bottleneck for resource requests; requesting less memory will decrease your time
+ in queue```
         - Billing is based on memory requested, not on memory used
     5. ** Only use the `longrun` partitions if necessary **
         - These partitions have stricter limits and a lower priority
