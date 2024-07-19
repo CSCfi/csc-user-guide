@@ -52,10 +52,10 @@ The following partitions are available on GPU nodes. Note that for each GPU, you
         - Nodes will typically have other jobs using memory, so you will spend
         less time queueing for resources
         - Billing is based on memory requested, not on memory used
-    5. ** Only use longrun partitions if necessary **
+    5. ** Only use the `longrun` partitions if necessary **
         - These partitions have stricter limits and a lower priority
-    6. ** Only one job per user is allowed in _interactive_ partition **
-        - Use this partition with the command [sinteractive](interactive-usage.md).
+    6. ** Only two jobs per user are allowed in the `interactive` partition **
+        - Use through apps in the web interface or with the command [sinteractive](interactive-usage.md).
 
 ## Mahti partitions
 
