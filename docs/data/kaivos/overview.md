@@ -18,7 +18,7 @@ In this guide you can find information about getting started with Kaivos and ins
 |                     | Pukki DBaaS              | Kaivos                    |
 |:--------------------|:------------------------:|:-------------------------:|
 | Database engine     | ProstgreSQL              | MariaDB                   |
-| Accessibility       | Accessible any location  | Only from Puhti and Mahti | 
+| Accessibility       | Accessibility controlled with firewall settings by the user. Accessible from any location.  | Directly accessible only from Puhti and Mahti | 
 | DB administration   | User                     | CSC                       |
 | Max. size           | 50 GB                    | 20 GB                     |
 | Backup by CSC       | Yes                      | Yes                       |
