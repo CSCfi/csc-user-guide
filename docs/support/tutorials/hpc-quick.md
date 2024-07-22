@@ -64,7 +64,7 @@ interactive applications, like
 [Visual Studio Code](../../computing/webinterface/vscode.md),
 [Jupyter](../../computing/webinterface/jupyter.md) and
 [RStudio](../../computing/webinterface/rstudio.md). In addition, it provides a
-[desktop environment](../../computing/webinterface/desktop/) featuring
+[desktop environment](../../computing/webinterface/desktop.md) featuring
 software with graphical user interfaces (GUIs), as well as an
 [accelerated visualization app](../../computing/webinterface/accelerated-visualization.md)
 for GPU-accelerated visualization and rendering. For demanding computation,
@@ -116,7 +116,7 @@ managing software environments. These modules cover everything from
 [programming languages](../../apps/by_discipline.md#mathematics-and-statistics)
 to workflow utilities like
 [Nextflow](../../apps/nextflow.md) and [Snakemake](../../apps/snakemake.md).
-Running most of our software requires using the
+Effectively running most of the installed software requires using the
 [command-line interface](#command-line-interface), so it is extremely useful to
 have a solid grasp of the
 [basics of the Linux operating system](./env-guide/index.md).
@@ -136,6 +136,14 @@ invariably are) inevitably introduces some overhead. You should only start
 running your scripts on a supercomputer once you are ready for testing them on a
 larger scale or using specific resources like GPUs.
 
+!!! note "Checking for availability"
+    If you have a piece of scientific software in mind, it is quite probable
+    that we have it installed on Puhti. You can search for software using the
+    command `module spider <module-name>`. Most often the name of the software
+    module is simply the name of the software, and even if your search query
+    does not match the module name exactly, the search is case-insensitive and
+    supports partial matches.
+
 ### Supercomputer storage
 
 High-performance computing consumes and generates large amounts of data.
@@ -144,7 +152,9 @@ Using CSC services for HPC thus requires a basic understanding of the
 of [managing data on them](./clean-up-data.md). Note that the none of the
 disk areas are intended for long-term preservation of datasets or experimental
 results. For that purpose, we offer the cloud-based
-[Allas object storage service](../../data/Allas/introduction.md).
+[Allas object storage service](../../data/Allas/introduction.md). Allas supports
+multiple options for
+[transferring your data to and from object storage](../../data/Allas/accessing_allas.md).
 
 [Moving data](../../data/moving/index.md) between a supercomputer and a local
 workstation is made easy by using the
