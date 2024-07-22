@@ -2,16 +2,27 @@
 
 You have signed up for your CSC account and first project, and are now ready to
 scale up your computing! This page provides guidance for getting started with
-using our HPC resources. It is recommended that new users complete the
-[CSC Computing Environment course](https://csc-training.github.io/csc-env-eff/),
-which provides a more in-depth introduction to using CSC services.
+using our HPC resources.
+
+It is recommended that new users complete the CSC Computing Environment course,
+which provides an in-depth introduction to CSC services. The next teaching
+instance can be found in the
+[CSC training calendar](https://csc.fi/en/trainings/training-calendar/).
+A [self-learning implementation](https://csc.fi/en/training-calendar/csc-computing-environment-self-learning/)
+is also available. The
+[practical exercises](https://csc-training.github.io/csc-env-eff/) are
+accessible without having to sign up, and quite useful by themselves.
 
 ## Available systems
+
+!!! note "Terms of use"
+    Note that in order to use any of the systems, you must first accept its
+    terms of use in the MyCSC service.
 
 ### Puhti
 
 New users are recommended to start working on the
-[Puhti supercomputer](../../computing/systems-puhti.md).
+[Puhti supercomputer](../../computing/available-systems.md#puhti).
 Compared to Mahti, it has much more pre-installed software, more GPU nodes, and
 typically more available memory per CPU. Additionally, GPU nodes and some of the CPU nodes
 on Puhti have [fast local NVMe storage](../../computing/disk.md#temporary-local-disk-areas).
@@ -20,19 +31,20 @@ on Puhti have [fast local NVMe storage](../../computing/disk.md#temporary-local-
 
 If you know that your computations are highly parallelizable, you should
 consider running them on the
-[Mahti supercomputer](../../computing/systems-mahti.md).
+[Mahti supercomputer](../../computing/available-systems.md#mahti).
 Compared to Puhti, Mahti has many more CPU nodes and cores per node. Mahti is
 intended for computations that are able to effectively utilize at least an
 entire CPU node.
 
-Additionally, while Mahti has fewer GPU nodes than Puhti, the A100 GPUs on
-Mahti are considerably more powerful than the V100 GPUs on Puhti, which
-makes Mahti also suitable for machine learning applications. In contrast to Puhti,
-on Mahti only GPU nodes have fast local NVMe storage available.
+Additionally, while Mahti has fewer GPU nodes than Puhti, the A100 GPUs on Mahti
+are considerably more powerful than the V100 GPUs on Puhti, which makes Mahti
+also suitable for large-scale machine learning applications. In contrast to Puhti,
+only GPU nodes have fast local NVMe storage available on Mahti.
 
 ### LUMI
 
-LUMI is one of the fastest supercomputers in the world. It is intended primarily
+The [LUMI supercomputer](../../computing/available-systems.md#lumi)
+is one of the fastest in the world. It is intended primarily
 for running computations that benefit from the large amount of high-performance
 GPUs in its LUMI-G hardware partition. Whereas the GPUs on Puhti and Mahti are
 manufactured by Nvidia, the LUMI GPUs are made by AMD, so make sure that your
@@ -51,7 +63,9 @@ and visualizing data. For this purpose, the web interface features multiple
 interactive applications, like
 [Visual Studio Code](../../computing/webinterface/vscode.md),
 [Jupyter](../../computing/webinterface/jupyter.md) and
-[RStudio](../../computing/webinterface/rstudio.md), as well as an
+[RStudio](../../computing/webinterface/rstudio.md). In addition, it provides a
+[desktop environment](../../computing/webinterface/desktop/) featuring
+software with graphical user interfaces (GUIs), as well as an
 [accelerated visualization app](../../computing/webinterface/accelerated-visualization.md)
 for GPU-accelerated visualization and rendering. For demanding computation,
 like running full-scale simulations or training neural networks, you should use
