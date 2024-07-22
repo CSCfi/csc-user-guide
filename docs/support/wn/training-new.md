@@ -2,7 +2,7 @@
 
 ## New guide for getting started with supercomputing at CSC, 19.7.2024
 
-We have written a new guide for
+We wrote a new guide for
 [getting started with supercomputing at CSC](../tutorials/hpc-quick.md). In it,
 we present our available HPC systems, interfaces and resources. The guide is
 useful for both total HPC beginners as well as more experienced users who are
