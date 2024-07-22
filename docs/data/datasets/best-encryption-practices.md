@@ -3,15 +3,21 @@
 ## Introduction
 
 The intended audience of this document is end users who want to store sensitive data in to CSC's
-data services for research.
+data services for research. 
 
 Scientific research data may contain also sensitive data. There is no single simple definition of
-sensitive data but rather it is derived from national and EU legislations.[^1] The **data controller**
+sensitive data but rather it is derived from national and EU legislations.[^1] Some guid lines can 
+be found from [here](https://research.csc.fi/definition-of-sensitive-data).
+
+Note that the topics discussed here are not applicable to such data that is controlled by law of secondary use of health and social data. More information about using CSC with secondary use data can be found [here](https://docs.csc.fi/data/sensitive-data/sd-desktop-audited/).
+
+
+The **data controller**
 &ndash; this means the customer, i.e. usually the research project or a researcher &ndash; is
 responsible for knowing if the data is sensitive or not and handling it appropriately. In case of
 using CSC's data services for research the question about sensitivity of the data must be resolved
 by the customer already before transferring the data to CSC's services, which acts as **data processor** 
-that perovides storage and computing resources for the data controller.
+that provides storage and computing resources for the data controller.
 
 Generic examples of use cases where CSC's services might be used with encrypted sensitive data are:
 
@@ -24,21 +30,18 @@ Some use cases may not be applicable to all CSC's data services, please see the 
 Conditions and Service Description of each service itself.
 
 CSC provides a set of services that are intended to support management of sensitive data. 
-Currently these servises include:
+Currently these services include:
 
    - [SD Connect](../sensitive-data/sd_connect.md) : A service for storing and sharing sensitive data
    - [SD Desktop](../sensitive-data/sd_desktop.md) : A service for prosessing sensitive data
 
-These services provide secure and easy to use tools and protocols that CSC recommends to be used for sensitive data.
-However, the you can store sensitive data to CSC also by using other tools too, as long as the processes follow
-the general guidelines described below.
-
+These services provide secure and easy to use tools and protocols that CSC recommends to be used for sensitive data. However, the you can store sensitive data to CSC also by using other tools too, as long as the processes follow the general guidelines described below.
 
 
 ## Encryption
 
 Protecting data with encryption has been around for a long time and the basics of secure encryption
-are well understood. This document gives some best practises on how to encrypt the data once the
+are well understood. This document gives some best practices on how to encrypt the data once the
 customer has decided that encryption is an appropriate means to protect the data content.
 
 There are two main encryption methods, _symmetric_ and _asymmetric_ encryption. In symmetric
@@ -59,20 +62,20 @@ copy of the data for each recipient.
 
 ## Scope
 
-This document gives some best practises on how to encrypt data if storing it in to CSC's data
+This document gives some best practices on how to encrypt data if storing it in to CSC's data
 services for research. The decision whether encryption is appropriate means to protect the data
 content against unwanted exposure is at the responsibility of the customer.
 
 Customer's own environment is out of the scope of this document. As the sensitive data exists at
 the customer's own environment already before it will be stored (transferred) to CSC's data
 service, this document assumes that all the necessary safeguards at the customer side &ndash;
-policies, procedures, practises, etc. &ndash; are already in place.
+policies, procedures, practices, etc. &ndash; are already in place.
 
 Classified data, which requires separation by the service other than access control is out of the
 scope of this document.[^7]
 
 Computational processing of data is out of
-the scope of this document, as this document simply describes the best practises for storing
+the scope of this document too, as this document simply describes the best practices for storing
 sensitive data. You can access CSC's data services for research directly from your own environment
 just like from CSC's supercomputing environment, from the point of view of service there is no
 difference from where the data is transferred to it.
