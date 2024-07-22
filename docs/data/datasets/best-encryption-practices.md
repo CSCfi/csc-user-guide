@@ -6,7 +6,7 @@ The intended audience of this document is end users who want to store sensitive 
 data services for research. 
 
 Scientific research data may contain also sensitive data. There is no single simple definition of
-sensitive data but rather it is derived from national and EU legislations.[^1] Some guid lines can 
+sensitive data but rather it is derived from national and EU legislations.[^1] Some guide lines can 
 be found from [here](https://research.csc.fi/definition-of-sensitive-data).
 
 Note that the topics discussed here are not applicable to such data that is controlled by law of secondary use of health and social data. More information about using CSC with secondary use data can be found [here](https://docs.csc.fi/data/sensitive-data/sd-desktop-audited/).
