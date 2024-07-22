@@ -90,7 +90,7 @@ to the SLURM job scheduler, which runs them as soon as the requested resources
 are available. In practice, this means that getting work done does not
 necessitate being tied to your workstation. While setting up this automation
 can require some more planning on your part, in the long run it makes it more
-reproducible both to yourself and possible collaborators.
+reproducible both to yourself and other parties, such as reviewers and collaborators.
 
 You can access the command-line interface either by
 using the [shell applications](../../computing/webinterface/shell.md)
