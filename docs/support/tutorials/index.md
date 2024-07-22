@@ -1,8 +1,7 @@
 # Tutorials
 
 ## General
-* [Getting started with Puhti](puhti_quick.md)
-* [Getting started with Mahti](mahti_quick.md)
+* [Getting started with supercomputing at CSC](hpc-quick.md)
 * [Getting started with Helmi](../../computing/quantum-computing/helmi/helmi-from-lumi.md)
 * [Managing data on Puhti and Mahti scratch disks](clean-up-data.md)
 * [CSC Quick reference (pdf)](../../img/csc-quick-reference/csc-quick-reference.pdf)
@@ -15,7 +14,6 @@
 * [Getting disk usage using Lue](lue.md)
 * [Running Julia jobs on Puhti and Mahti clusters](julia.md)
 * [Using Python on CSC supercomputers](python-usage-guide.md)
-* [Getting started with supercomputing at CSC](hpc-quick.md)
 
 ## Installation of tools on supercomputers
 * [Installing software with Spack](user-spack.md)

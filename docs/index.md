@@ -49,13 +49,10 @@
       <a class="quick-link" target="_self" href="accounts/">CSC Accounts and Projects</a>
     </div>
     <div class="quick-links-item">
+      <a class="quick-link" target="_self" href="support/tutorials/hpc-quick/">Getting started with supercomputing at CSC</a>
+    </div>
+    <div class="quick-links-item">
       <a class="quick-link" target="_self" href="computing/">Puhti and Mahti Overview</a>
-    </div>
-    <div class="quick-links-item">
-      <a class="quick-link" target="_self" href="support/tutorials/puhti_quick/">Getting started with Puhti</a>
-    </div>
-    <div class="quick-links-item">
-      <a class="quick-link" target="_self" href="support/tutorials/mahti_quick/">Getting started with Mahti</a>
     </div>
     <div class="quick-links-item">
       <a class="quick-link" target="_blank" href="https://docs.lumi-supercomputer.eu/firststeps/getstarted/">Getting started with LUMI</a><sup>&#128279;</sup>

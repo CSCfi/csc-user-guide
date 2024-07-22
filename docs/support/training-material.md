@@ -72,7 +72,7 @@ and platforms by CSC and partners!
 | -------- | -------- |
 | **[CSC training calendar](https://www.csc.fi/en/trainings/training-calendar)** | Upcoming courses <br> Links to self-learning materials, e.g. [Elements of Supercomputing](https://edukamu.fi/elements-of-supercomputing) |
 | **[eLena](https://e-learn.csc.fi) (Moodle environment)** | [Research Data Management](https://e-learn.csc.fi/course/view.php?id=63) <br> [CSC Computing Environment](https://e-learn.csc.fi/course/view.php?id=76) |
-| **[Tutorials at Docs CSC](tutorials/index.md)** | [Getting started with Puhti](tutorials/puhti_quick.md) <br> [Machine learning guide](tutorials/ml-guide.md) |
+| **[Tutorials at Docs CSC](tutorials/index.md)** | [Getting started with supercomputing at CSC](tutorials/hpc-quick.md) <br> [Machine learning guide](tutorials/ml-guide.md) |
 | **[Docs CSC training materials collection](training-material.md) (this page)** | Links to thematically collected materials |
 | **[CSC Notebooks](https://notebooks.rahtiapp.fi)** |  Introduction to Python <br> Introduction to R <br> 2h Intro to Quantum Computing |
 | **[VideoCSC](https://video.csc.fi)** | [Introductions to topics](https://video.csc.fi/category/Training%3EIntroductions+to+Topics/455249) <br> Recordings of weekly user support coffee talks |
