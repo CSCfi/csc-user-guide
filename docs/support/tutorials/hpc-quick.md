@@ -78,21 +78,19 @@ While many of the interactive applications in the web interface, such as
 Jupyter and RStudio, are easy to use and thus a good starting point for using
 CSC supercomputers, their computing capacity is limited to relatively
 low-resource interactive usage. If you need access to more resources (e.g.
-multiple CPU nodes or GPUs) or if you require efficiency over interactivity,
-it is a good idea to switch to using the text-based command-line interface to
-interact directly with the supercomputer's
+multiple CPU nodes or GPUs) or if your work requires efficiency over
+interactivity, it is a good idea to switch to using the text-based command-line
+interface to interact directly with the supercomputer's
 [Linux operating system](./env-guide/index.md). While this way of working may
 seem archaic, it is truly powerful once you get used to it.
 
-The main benefit of using the CLI is getting to
+The CLI allows you to 
 [submit your computations as batch jobs](../../computing/running/getting-started.md)
-to the SLURM job scheduler. Requesting a large amount of resources
-for an interactive application like Jupyter typically entails having to wait for
-several hours before finally logging in to manually run the job. This is
-both inconvenient and wasteful, as your interactive session may start at a time
-when you are unable to access your workstation, which means that several hours
-of potential runtime can go unused. When you submit a batch job to SLURM, your
-job is run automatically when the requested resources become available.
+to the SLURM job scheduler, which runs them as soon as the requested resources
+are available. In practice, this means that getting work done does not
+necessitate being tied to your workstation. While setting up this automation
+can require some more planning on your part, in the long run it makes it more
+reproducible both to yourself and possible collaborators.
 
 You can access the command-line interface either by
 using the [shell applications](../../computing/webinterface/shell.md)
