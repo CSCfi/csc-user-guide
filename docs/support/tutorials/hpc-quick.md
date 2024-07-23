@@ -182,26 +182,3 @@ text-based file transfer tool like [scp](../../data/moving/scp.md) or
 [Linux wget utility](../../data/moving/wget.md) to download data to
 a supercomputer directly from a website or FTP server.
 
-### Powerful processing
-
-CSC supercomputers offer resources that, when properly used, are well-beyond
-what the most sophisticated consumer devices are capable of. However, you are
-not the only one using them. On your personal workstation, you have, in
-principle, immediate access to resources. On a supercomputer, which is a shared
-system, you must typically queue for them, since their demand tends to be higher
-than their supply. Resources are allocated using the
-[SLURM batch job system](../../computing/running/getting-started.md).
-Jobs are submitted to
-[batch job partitions](../../computing/running/batch-job-partitions.md),
-which are distinct groupings of the nodes that make up a supercomputer.
-Each partition has its particular resources and limitations, and it is helpful
-to be aware of the differences.
-
-!!! note "On supercomputing"
-
-    It is worth keeping in mind that running your computations on a
-    supercomputer only improves performance if you play to its strengths.
-    Supercomputers are powerful because they allow for
-    [parallel computing](https://en.wikipedia.org/wiki/Parallel_computing).
-    If your code is not written to take advantage of multiple CPUs, or one or
-    more GPUs, there is no benefit over running it on your own workstation.
