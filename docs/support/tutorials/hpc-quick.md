@@ -11,8 +11,16 @@ instance can be found in the
 [CSC training calendar](https://csc.fi/en/trainings/training-calendar/).
 A [self-learning implementation](https://csc.fi/en/training-calendar/csc-computing-environment-self-learning/)
 is also available. The
-[practical exercises](https://csc-training.github.io/csc-env-eff/) are
-accessible without having to sign up, and quite useful by themselves.
+[course materials](https://csc-training.github.io/csc-env-eff/) are
+accessible without having to sign up, and are very useful by themselves.
+
+For a more general introduction to HPC, we recommend the
+[*Elements of Supercomputing*](https://edukamu.fi/elements-of-supercomputing/)
+online course.
+
+!!! note "Need support?"
+    Do not hesitate to [contact CSC Service Desk](../contact.md) if you have
+    any questions about using CSC services. We are happy to help!
 
 ## Which system should I use?
 
