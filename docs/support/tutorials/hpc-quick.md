@@ -21,8 +21,8 @@ accessible without having to sign up, and quite useful by themselves.
 
 New users are recommended to start working on the
 [Puhti supercomputer](../../computing/available-systems.md#puhti).
-Compared to Mahti, it has much more pre-installed software, more GPU nodes, and
-typically more available memory per CPU. Additionally, GPU nodes and some of the CPU nodes
+Compared to Mahti, it has much more [pre-installed software](../../apps/by_system.md#puhti), more GPU nodes, and
+typically more available memory per CPU core. Additionally, GPU nodes and some CPU nodes
 on Puhti have [fast local NVMe storage](../../computing/disk.md#temporary-local-disk-areas).
 
 ### Mahti
