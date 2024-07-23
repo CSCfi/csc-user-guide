@@ -6,7 +6,7 @@ scale up your computing! This page provides guidance for getting started with
 using our HPC resources.
 
 It is recommended that new users complete the *CSC Computing Environment* course,
-which provides an in-depth introduction to CSC services. The next teaching
+which provides an in-depth introduction to CSC services. The next live teaching
 instance can be found in the
 [CSC training calendar](https://csc.fi/en/trainings/training-calendar/).
 A [self-learning implementation](https://csc.fi/en/training-calendar/csc-computing-environment-self-learning/)
