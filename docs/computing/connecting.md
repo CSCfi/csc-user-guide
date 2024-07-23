@@ -85,18 +85,17 @@ In order to continue, you should confirm that the shown key fingerprint is one o
 and then enter `yes`. You will not be asked again unless the server key changes, in which case you
 should verify the new key against a fingerprint provided by CSC.
 
+### Host key fingerprints
 
-### Puhti key fingerprints
-
-=== | SHA256 checksum                             | Key                                |
+=== "Puhti"
+    | SHA256 checksum                             | Key                                |
     |---------------------------------------------|------------------------------------|
     | kk0Tar9opQ+6Gq0GWJdWVVvFEMeI6kW1DW1VOYveT5c | ssh_host_ecdsa_key.pub (ECDSA)     |
     | Q2lpykI43ffs4PrRODZ/qncjUo3eyrRHc5T9yjJEwWY | ssh_host_ed25519_key.pub (ED25519) |
     | WH1Ag2OQtMPZb+hj3YeH9uVMMetXpCvyNUbsdk0Qcpk | ssh_host_rsa_key.pub (RSA)         |
 
-### Mahti key fingerprints
-
-=== | SHA256 checksum                             | Key                                |
+=== "Mahti"
+    | SHA256 checksum                             | Key                                |
     |---------------------------------------------|------------------------------------|
     | WC9Lb5tmKDzUJqsQjaZLvp9T7LTs3aMUYSIy2OCdtgg | ssh_host_ecdsa_key.pub (ECDSA)     |
     | tE+1jA4Et1enbbat1V3dMRWlLtJgA8t7ZrkyIkU4ooo | ssh_host_ed25519_key.pub (ED25519) |
