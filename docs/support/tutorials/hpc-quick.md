@@ -1,6 +1,7 @@
 # Getting started with supercomputing at CSC
 
-You have signed up for your CSC account and first project, and are now ready to
+You have signed up for your [CSC account](../../accounts/how-to-create-new-user-account.md)
+and first [project](../../accounts/how-to-create-new-project.md), and are now ready to
 scale up your computing! This page provides guidance for getting started with
 using our HPC resources.
 
