@@ -122,32 +122,36 @@ featured in the web interfaces or by
 
 ### Scientific software
 
-Even if your computations are not highly parallelizable, you can benefit from
-running them on a CSC supercomputer by making use of the variety of useful
-[scientific computing software](../../apps/index.md) that is available.
+A variety of useful [scientific computing software](../../apps/index.md) are
+available on CSC supercomputers.
 Puhti is especially distinguished in this regard, having over a hundred
-pre-installed programs.
+pre-installed programs. Our application pages include batch job script examples
+and guidelines for running the pre-installed software efficiently on CSC
+supercomputers. We highly recommend using them as a starting point!
 
-CSC systems use [environment modules](../../computing/modules.md) for
+CSC supercomputers use [environment modules](../../computing/modules.md) for
 managing software environments. These modules cover everything from
 [compilers](../../computing/installing.md#compiling) to
 [programming languages](../../apps/by_discipline.md#mathematics-and-statistics)
-to workflow utilities like
+and workflow utilities like
 [Nextflow](../../apps/nextflow.md) and [Snakemake](../../apps/snakemake.md).
-Effectively running most of the installed software requires using the
+Running most of the installed software efficiently requires using the
 [command-line interface](#command-line-interface), so it is extremely useful to
-have a solid grasp of the
+have a working knowledge of the
 [basics of the Linux operating system](./env-guide/index.md).
 
-While the pre-installed software covers a wide variety of use cases, it is not
-uncommon to need to
-[carry out installations of your own](../../computing/installing.md).
-Luckily, we have various
-compilers,
+While the pre-installed software cover a wide variety of use cases, it is also
+possible to install your own applications on CSC supercomputers. The process
+often differs from carrying out installations on your own computer, so make
+sure to familiarize yourself with
+[our installation instructions](../../computing/installing.md). For compiling
+HPC applications we have various [compilers](../../computing/installing.md#compiling),
 [high-performance libraries](../../computing/hpc-libraries.md) and
-other utilities to facilitate this.
+other utilities available to facilitate this. Note that some installations, such
+as complex Python environments, benefit from
+[containerization](../../computing/containers/overview.md).
 
-You may also wish to develop your own scripts instead of using existing
+You may also wish to develop your own scripts and programs instead of using existing
 software. It is most efficient to start writing and testing your code on your
 own device, since running it on a shared system (which supercomputers
 invariably are) inevitably introduces some overhead. You should only start
@@ -156,11 +160,11 @@ larger scale or using specific resources like GPUs.
 
 !!! note "Checking for availability"
     If you have a piece of scientific software in mind, it is quite probable
-    that we have it installed on Puhti. You can search for software using the
-    command `module spider <module-name>`. Most often the name of the software
-    module is simply the name of the software, and even if your search query
-    does not match the module name exactly, the search is case-insensitive and
-    supports partial matches.
+    that we have it installed on Puhti. Besides browsing Docs CSC, you can search
+    for software on the command-line using the command `module spider <module name>`.
+    Most often the name of the software module is simply the name of the software,
+    and even if your search query does not match the module name exactly, the
+    search is case-insensitive and supports partial matches.
 
 ### Supercomputer storage
 
