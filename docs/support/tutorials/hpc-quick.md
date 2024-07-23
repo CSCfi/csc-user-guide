@@ -166,23 +166,80 @@ larger scale or using specific resources like GPUs.
     and even if your search query does not match the module name exactly, the
     search is case-insensitive and supports partial matches.
 
-### Supercomputer storage
+### Data storage
 
-High-performance computing consumes and generates large amounts of data.
-Using CSC services for HPC thus requires a basic understanding of the
-[supercomputer disk areas](../../computing/disk.md) as well as the principles
-of [managing data on them](./clean-up-data.md). Note that the none of the
-disk areas are intended for long-term preservation of datasets or experimental
-results. For that purpose, we offer the cloud-based
-[Allas object storage service](../../data/Allas/introduction.md). Allas supports
-multiple options for
-[transferring your data to and from object storage](../../data/Allas/accessing_allas.md).
+CSC supercomputers provide various disk areas for different data storage
+purposes. The *project-based* shared storage can be found under `/scratch/<project>`.
+This folder is shared by *all users* in a project and has a default quota of
+1 TB.
+
+Please note that the **scratch disk is not meant for long-term data storage**
+and, on Puhti, files that have not been used for 180 days will be automatically
+removed. We recommend the
+[Allas object storage service](../../data/Allas/introduction.md) for storing
+research data that is not actively used on the supercomputers. See
+[guidelines for managing data on Puhti and Mahti scratch disks](clean-up-data.md)
+for more information. Also note that sensitive data must not be processed or
+stored on CSC supercomputers. For this purpose we have separate
+[sensitive data services](../../data/sensitive-data/index.md).
+
+CSC supercomputers also have a persistent project-based storage with a default
+quota of 50 GB. It is located under `/projappl/<project>` and recommended, for
+example, for own software installations. Additionally, each user can store up
+to 10 GB of data in their personal home directory (`$HOME`).
 
 [Moving data](../../data/moving/index.md) between a supercomputer and a local
 workstation is made easy by using the
-[web interface file browser](../../data/moving/web-interface.md) or a
-text-based file transfer tool like [scp](../../data/moving/scp.md) or
+[web interface file browser](../../data/moving/web-interface.md) or
+command-line-based file transfer tools like [scp](../../data/moving/scp.md) and
 [rsync](../../data/moving/rsync.md). You can also use the
 [Linux wget utility](../../data/moving/wget.md) to download data to
 a supercomputer directly from a website or FTP server.
+
+!!! note "CSC does not back up your data!"
+    None of the disk areas are automatically backed up by CSC. This means that
+    data accidentally deleted by the user cannot be recovered in any way. To
+    avoid unintended data loss, make sure to perform regular backups yourself,
+    for example to Allas or your own organization's storage systems.
+
+## Useful links
+
+Browse the navigation or use the search function to find more information about
+using CSC's HPC services. The tabs below contain also direct links to pages
+that we think are particularly useful when getting started with supercomputing
+at CSC.
+
+=== "User accounts and projects"
+    - [Creating a user account](../../accounts/how-to-create-new-user-account.md)
+    - [Creating](../../accounts/how-to-create-new-project.md) or
+      [joining a project](../../accounts/how-to-add-members-to-project.md)
+    - [Adding service access to a project](../../accounts/how-to-add-service-access-for-project.md)
+    - [Billing](../../accounts/billing.md) and
+      [how to apply for billing units](../../accounts/how-to-apply-for-billing-units.md)
+    - [How to change password](../../accounts/how-to-change-password.md)
+    - [CSC's self-service customer portal MyCSC](https://my.csc.fi)
+
+=== "Computing"
+    - [Overview](../../computing/index.md)
+    - [Usage policy](../../computing/usage-policy.md)
+    - [ Connecting to CSC supercomputers with SSH](../../computing/connecting.md)
+      and [using the web interfaces](../../computing/webinterface/connecting.md)
+    - [Running batch jobs](../../computing/running/getting-started.md) and
+      [available batch job partitions](../../computing/running/batch-job-partitions.md)
+    - [Pre-installed applications](../../apps/index.md) and
+      [how install own software](../../computing/installing.md)
+    - [LUMI user guide](https://docs.lumi-supercomputer.eu/)
+
+=== "Training materials and tutorials"
+    - [*CSC Computing Environment* course materials](https://csc-training.github.io/csc-env-eff/)
+    - [Linux basics tutorial](../tutorials/env-guide/index.md)
+    - [Machine learning guide](ml-guide.md)
+    - [Using Python on CSC supercomputers](python-usage-guide.md)
+    - [Managing data on Puhti and Mahti scratch disks](clean-up-data.md)
+    - [Other tutorials](index.md) and
+      [training materials](../training-material.md)
+
+=== "Support"
+    - [Frequently asked questions](../faq/index.md)
+    - [CSC Service Desk](../contact.md)
 
