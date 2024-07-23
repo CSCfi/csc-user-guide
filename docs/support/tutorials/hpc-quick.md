@@ -89,6 +89,10 @@ like running full-scale simulations or training neural networks, you should use
 the command-line interface, since it allows you to access more resources and
 schedule your jobs.
 
+- [Puhti web interface](https://www.puhti.csc.fi)
+- [Mahti web interface](https://www.mahti.csc.fi)
+- [LUMI web interface](https://www.lumi.csc.fi)
+
 ### Command-line interface
 
 While many of the interactive applications in the web interface, such as
