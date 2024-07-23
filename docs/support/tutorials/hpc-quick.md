@@ -16,9 +16,6 @@ accessible without having to sign up, and quite useful by themselves.
 
 ## Which system should I use?
 
-!!! note "Terms of use"
-    Note that in order to use any of the systems, you must first accept its
-    terms of use in the MyCSC service.
 
 ### Puhti
 
