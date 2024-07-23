@@ -115,9 +115,8 @@ reproducible both to yourself and other parties, such as reviewers and collabora
 
 You can access the command-line interface either by
 using the [shell applications](../../computing/webinterface/shell.md)
-featured in the web interface (Windows, Linux or macOS) or by
-[using an SSH client on your own workstation](../../computing/connecting.md)
-(Linux or macOS).
+featured in the web interfaces or by
+[using an SSH client on your own workstation](../../computing/connecting.md).
 
 ## Available resources
 
