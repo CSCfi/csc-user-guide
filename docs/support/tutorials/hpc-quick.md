@@ -5,7 +5,7 @@ and first [project](../../accounts/how-to-create-new-project.md), and are now re
 scale up your computing! This page provides guidance for getting started with
 using our HPC resources.
 
-It is recommended that new users complete the CSC Computing Environment course,
+It is recommended that new users complete the *CSC Computing Environment* course,
 which provides an in-depth introduction to CSC services. The next teaching
 instance can be found in the
 [CSC training calendar](https://csc.fi/en/trainings/training-calendar/).
