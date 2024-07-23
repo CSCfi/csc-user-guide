@@ -68,7 +68,7 @@ GPU applications are able to run on AMD GPUs. LUMI has
     software and licenses are other factors which may make using CSC supercomputers
     attractive for you.
 
-## Available interfaces
+## How to access CSC supercomputers?
 
 ### Web interface
 
