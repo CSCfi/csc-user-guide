@@ -118,7 +118,7 @@ using the [shell applications](../../computing/webinterface/shell.md)
 featured in the web interfaces or by
 [using an SSH client on your own workstation](../../computing/connecting.md).
 
-## Available resources
+## How to work with software and data?
 
 ### Scientific software
 
