@@ -40,7 +40,7 @@ a-get my_allas_bucket/data_dir.tar.zst.gpg
 ### Asymmetric crypt4gh encryption
 
 If you want to use asymmetric `crypt4gh` encryption, you need to have a public key file for encryption and a secret key file for decryption.
-In Puhti, you first need to make `crypt4gh` available with command:
+In Puhti, you first need to make `crypt4gh` available with the command:
 ```text
 module load allas
 ```
