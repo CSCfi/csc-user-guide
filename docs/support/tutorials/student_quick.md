@@ -34,7 +34,7 @@ The easiest way is to **create a student project**.
 
 - [Allas](../../data/Allas/index.md){:target="_blank"} storage service
 - [Pouta](../../cloud/pouta/index.md){:target="_blank"} cloud service
-- [Puhti](puhti_quick.md){:target="_blank"} computing service
+- [Puhti](hpc-quick.md){:target="_blank"} computing service
 - [Pukki](../../cloud/dbaas/index.md){:target="_blank"} database service
 - [Rahti](../../cloud/rahti/index.md){:target="_blank"} container service
 
