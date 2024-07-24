@@ -30,7 +30,7 @@ The OpenStack Horizon web interface in **cPouta** provides easy-to-use basic fun
 
 
 **SD Connect** provides an interface for storing and sharing sensitive data. 
-This service is based of Allas but we don't recommend it for other than sensitive data.
+This service is based on Allas but we don't recommend it for other than sensitive data.
 
 * [SD Connect instructions](../sensitive-data/sd_connect.md)
 * [SD Connect interface](https://sd-connect.csc.fi)
