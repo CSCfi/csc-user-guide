@@ -18,7 +18,7 @@ The **WWW interfaces of Puhti and Mahti** are connected to Allas.
 These interfaces allow you transfer files and directories between your local computer and Allas as well as
 between CSC supercomputers and Allas.
 
-* [Instuctions for using Allas in Puhti and Mahti web interfaces](../../computing/webinterface/file-browser.md)
+* [Instructions for using Allas in Puhti and Mahti web interfaces](../../computing/webinterface/file-browser.md)
 * [Puhti web interface](https://www.puhti.csc.fi)
 * [Mahti web interface](https://www.mahti.csc.fi)
 
