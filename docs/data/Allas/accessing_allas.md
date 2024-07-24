@@ -48,7 +48,7 @@ CSC supercomputers Puhti and Mahti support many different command line tools for
 
 Note that the tools listed above utilize two different protocols: _Swift_ and _S3_. Data uploaded using one protocol is not necessary compatible with another protocol. 
 
-The software listed above can be used other machines too like in a virtual machine running in cPouta or your own laptop. 
+The software listed above can also be used on other devices, for example a virtual machine running in cPouta or your own laptop.
 
 In Puhti and Mahti the Allas tools listed above are installed by CSC and provided through _allas_ module.
 In order to use Allas in Puhti or Mahti, first load the Allas module:
