@@ -39,7 +39,7 @@ This service is based on Allas but we don't recommend it for other than sensitiv
 
 ## Accessing Allas in the CSC computing environment and other Linux platforms
 
-Puhti and Mahti servers at CSC support many different command line tools for using Allas, These include
+CSC supercomputers Puhti and Mahti support many different command line tools for using Allas, These include
 
 * [**a-tools**](./using_allas/a_commands.md) for basic use: (Swift, optionally S3)
 * [**rclone**](./using_allas/rclone.md) providing some advanced functions:** (Swift, optionally S3) 
