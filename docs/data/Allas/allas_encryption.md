@@ -61,7 +61,7 @@ The command above will download the encrypted object from Allas, ask for the pas
 
 ## 2. Creating encrypted repository with rclone
  
-`rclone` has a client side encryption feature, that allows you create an encrypted data repository to Allas. In this approach you need to once define an encrypted `rclone` connection to Allas and when this connection is used, all the transported data will be automatically encrypted. The automatic encryption of `rclone` is based on _Salsa20_ stream cipher. Salsa20 is not as widely used as AES256, but it was one of the encryption tools recommended by the European [eSTREAM](https://www.ecrypt.eu.org/stream/) project.
+`rclone` has a client side encryption feature that allows you create an encrypted data repository to Allas. In this approach, you need to once define an encrypted `rclone` connection to Allas, and when this connection is used, all the transported data will be automatically encrypted. The automatic encryption of `rclone` is based on the _Salsa20_ stream cipher. Salsa20 is not as widely used as AES256, but it is one of the encryption tools that were recommended by the European [eSTREAM](https://www.ecrypt.eu.org/stream/) project.
 
 In the example here, we assume that you are using a server where you have [rclone](https://rclone.org/) and [allas-cli-utils](https://github.com/CSCfi/allas-cli-utils/) installed. First, you have to configure a normal, un-encrypted swift-connection to Allas. This can be done with the `allas-conf` script that is included in _allas-cli-utils_ package:
 ```text
