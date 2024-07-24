@@ -4,6 +4,7 @@ By default, SD Desktop virtual machines based on Ubuntu 22.04 have Python 3.10.1
 
 The Python3 in SD Desktop includes over 300 commonly used libraries like _pandas_, _numpy_ and _scipy_.
 You can check the full list of installed libraries with command:
+
 ```text
 pip list
 ```
@@ -28,7 +29,7 @@ This tool can be added to your virtual machine with the [SD Sotware installer to
 Basic syntax of the command is:
 
 ```text
-   add-python-lib search_term 
+add-python-lib search_term 
 ```
 
 The command looks for matching packages from the set of Python libraries that CSC has preloaded to SD Connect.
@@ -42,12 +43,13 @@ This virtual environment is automatically created when _add-python-lib_ is used 
 In the case of SciKit-Optimize, you could do the installation with command:
 
 ```text
-   add-python-lib scikit 
+add-python-lib scikit 
 ```
+
 or 
 
 ```text
-   add-python-lib scikit_optimize 
+add-python-lib scikit_optimize 
 ```
 
 Note that search term _SciKit-Optimize_ would not find any matching libraries as the search process is based on
