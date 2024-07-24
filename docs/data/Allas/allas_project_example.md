@@ -85,7 +85,7 @@ Because storing data in Allas consumes billing units, Saara needs to check the s
 
 Allas storage is only for research project's duration, but Saara thinks it would be beneficial to have the preliminary data made publicly available and easier to be found. This is supported by the [Fairdata Services](https://www.fairdata.fi/en/) produced by CSC.
 
-Pekka creates a new bucket with public access and uploads the data to the bucket. Command _a-publish_ creates such new bucket and uploads a files in to it. Parameter -b is used to define the name for the bucket, in this case _hiano-project-public001_.
+Pekka creates a new bucket with public access and uploads the data to the bucket. Command _a-publish_ creates the bucket and uploads the selected files into it. Parameter `-b` is used to define the name for the bucket, in this case `hiano-project-public001`.
 ```text
 a-publish -b hiano-project-public001 zz_364872.dat zz_242165.dat
 ```
