@@ -69,7 +69,7 @@ In the case of the Swift protocol, the authentication information is stored in t
 
 In the case of the S3 protocol, the authentication information is stored in configuration files located in your home directory on the device. The same authentication is used for all login sessions and it does not have an expiration time.
 
-Once Allas connection is configured, you can start using Allas with the tools listed above. 
+Once an Allas connection is configured, you can start using the object storage with the tools listed above. 
 
 Basic Allas operations with different tools.
 
