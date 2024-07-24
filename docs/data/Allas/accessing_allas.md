@@ -90,7 +90,7 @@ For example following tools can be used:
 
 * [Cyberduck](./using_allas/cyberduck.md) provides easy to use graphical interface for moving data between local computer and Allas.
 * [Rclone](./using_allas/rclone_local.md) is a command line tool that provides a very effective way to use Allas on any operating system.
-* [a-tools](./using_allas/a_commands.md) these Allas specific commands can be installed in Mac OSX and Linux machines but not to Windows
+* [a-tools](./using_allas/a_commands.md) are Allas-specific commands that can be installed on macOS and Linux devices, but not ones running a Windows operating system.
 
 The list above is not complete or exclusive. Any tool that supports Swift or S3 protocols can in principle use Allas.
 
