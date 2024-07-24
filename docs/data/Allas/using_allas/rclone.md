@@ -81,7 +81,7 @@ is deleted after copying.
 
 The _copy_ and _move_ subcommands only work with files. If you would like to copy all files in a directory, use the _copyto_ or _moveto_ subcommands.
 
-During upload files that are larger than 5 GB will be split and stored as several objects. This is done automatically to a bucket that is named by adding extension `_segments` to the original bucket name. For example, if you would upload a large file to  _2000620-raw-data_ the actual data would be stored as several pieces into bucket _2000620-raw-data_segments_. The target bucket (_2000620-raw-data_) would contain just a manifest object that contains information what segments make the stored file. Operations performed to the manifest object are automatically reflected to the segments. Normally users don't need to operate with the segments buckets at all and objects inside these buckets should not be deleted or modified.
+During upload, files that are larger than 5 GB will be split and stored as several objects. The objects are stored automatically in a distinct bucket called `<bucket-name>_segments`. For example, if you would upload a large file to  `2000620-raw-data`, the actual data would be stored in several pieces in the bucket `2000620-raw-data_segments`. The target bucket (`2000620-raw-data`) would contain just a manifest object stating which segments comprise the stored file. Operations performed on the manifest object are automatically reflected in the segments. Normally users don't need to operate with the segments buckets at all, and objects inside these buckets should not be deleted or modified.
 
 ## List buckets and objects
 
