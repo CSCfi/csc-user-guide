@@ -70,6 +70,37 @@ ssh -X yourcscusername@puhti.csc.fi
 In `PuTTY`, X11 forwarding is enabled in the connection settings (Connection -> SSH
 -> X11: Enable X11 forwarding).
 
+## First connection
+
+When connecting for the first time, the SSH client may notify you that the host is unknown
+and ask you to confirm the connection. With the OpenSSH client, e.g., this message looks like follows:
+
+```
+The authenticity of host 'puhti.csc.fi' can't be established.
+ECDSA key fingerprint is SHA256:kk0Tar9opQ+6Gq0GWJdWVVvFEMeI6kW1DW1VOYveT5c.
+Are you sure you want to continue connecting (yes/no/[fingerprint])?
+```
+
+In order to continue, you should confirm that the shown key fingerprint is one of those listed below
+and then enter `yes`. You will not be asked again unless the server key changes, in which case you
+should verify the new key against a fingerprint provided by CSC.
+
+### Host key fingerprints
+
+=== "Puhti"
+    | SHA256 checksum                             | Key                                |
+    |---------------------------------------------|------------------------------------|
+    | kk0Tar9opQ+6Gq0GWJdWVVvFEMeI6kW1DW1VOYveT5c | ssh_host_ecdsa_key.pub (ECDSA)     |
+    | Q2lpykI43ffs4PrRODZ/qncjUo3eyrRHc5T9yjJEwWY | ssh_host_ed25519_key.pub (ED25519) |
+    | WH1Ag2OQtMPZb+hj3YeH9uVMMetXpCvyNUbsdk0Qcpk | ssh_host_rsa_key.pub (RSA)         |
+
+=== "Mahti"
+    | SHA256 checksum                             | Key                                |
+    |---------------------------------------------|------------------------------------|
+    | WC9Lb5tmKDzUJqsQjaZLvp9T7LTs3aMUYSIy2OCdtgg | ssh_host_ecdsa_key.pub (ECDSA)     |
+    | tE+1jA4Et1enbbat1V3dMRWlLtJgA8t7ZrkyIkU4ooo | ssh_host_ed25519_key.pub (ED25519) |
+    | 0CxM3ECpD2LhAnMfHnm3YaXresvHrhW4cevvcPb+HNw | ssh_host_rsa_key.pub (RSA)         |
+
 ## Setting up SSH keys
 
 SSH keys provide more secure authentication and can be enabled with a two-step process:
