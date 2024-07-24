@@ -230,36 +230,37 @@ that we think are particularly useful when getting started with supercomputing
 at CSC.
 
 === "User accounts and projects"
-    - [Creating a user account](../../accounts/how-to-create-new-user-account.md)
-    - [Creating a project](../../accounts/how-to-create-new-project.md) or
-      [joining an existing one](../../accounts/how-to-add-members-to-project.md)
-    - [Adding service access to a project](../../accounts/how-to-add-service-access-for-project.md)
-    - [Project billing](../../accounts/billing.md) and
-      [how to apply for billing units](../../accounts/how-to-apply-for-billing-units.md)
-    - [How to change password](../../accounts/how-to-change-password.md)
-    - [CSC's self-service customer portal MyCSC](https://my.csc.fi)
+    - [Creating a new user account](../../accounts/how-to-create-new-user-account.md)
+    - [Creating a new project](../../accounts/how-to-create-new-project.md) and
+      [adding members to an existing one](../../accounts/how-to-add-members-to-project.md)
+    - [Adding service access for a project](../../accounts/how-to-add-service-access-for-project.md)
+    - [Billing](../../accounts/billing.md) and
+      [applying for billing units](../../accounts/how-to-apply-for-billing-units.md)
+    - [Changing your password](../../accounts/how-to-change-password.md)
+    - [MyCSC customer portal](https://my.csc.fi)
 
 === "Computing"
     - [Overview](../../computing/index.md)
     - [Usage policy](../../computing/usage-policy.md)
-    - [ Connecting to CSC supercomputers with SSH](../../computing/connecting.md)
-      and [using the web interfaces](../../computing/webinterface/connecting.md)
+    - Connecting to supercomputers
+      [using the web interface](../../computing/webinterface/connecting.md)
+      and
+      [using an SSH client](../../computing/connecting.md)
     - [Running batch jobs](../../computing/running/getting-started.md) and
       [available batch job partitions](../../computing/running/batch-job-partitions.md)
     - [Pre-installed applications](../../apps/index.md) and
-      [how install own software](../../computing/installing.md)
+      [how install custom software](../../computing/installing.md)
     - [LUMI user guide](https://docs.lumi-supercomputer.eu/)
 
 === "Training materials and tutorials"
-    - [*CSC Computing Environment* course materials](https://csc-training.github.io/csc-env-eff/)
+    - [*CSC Computing Environment* course exercises](https://csc-training.github.io/csc-env-eff/)
     - [Linux basics tutorial](../tutorials/env-guide/index.md)
     - [Machine learning guide](ml-guide.md)
     - [Using Python on CSC supercomputers](python-usage-guide.md)
     - [Managing data on Puhti and Mahti scratch disks](clean-up-data.md)
-    - [Other tutorials](index.md) and
+    - Other [tutorials](index.md) and
       [training materials](../training-material.md)
 
 === "Support"
     - [Frequently asked questions](../faq/index.md)
     - [CSC Service Desk](../contact.md)
-
