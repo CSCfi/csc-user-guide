@@ -6,7 +6,7 @@ We wrote a brand new guide for
 [getting started with supercomputing at CSC](../tutorials/hpc-quick.md),
 in which we help users find the most suitable resources for their needs and
 the most effective way of using them. The guide is useful for both total HPC
-beginners as well as more experienced practicioners who are nonetheless new to
+beginners as well as more experienced practitioners who are nonetheless new to
 the CSC computing environment.
 
 ## New guide for using Python effectively on CSC supercomputers, 27.6.2024
