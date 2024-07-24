@@ -6,7 +6,7 @@ However, sensitive data can be stored on Allas if it is properly encrypted befor
 For sensitive data we generally recommend the [SD Connect service](../sensitive-data/sd_connect.md) that provides Web and command line interfaces 
 that automatically encrypt the data when it is stored to Allas. 
 
-If you for some reason don't want to use SD Connect below you can find some alternative approaches for storing your sensitive data to Allas. When you use Allas with these encryption tools, remember that:
+If you for some reason don't want to use SD Connect, below you can find some alternative approaches for storing your sensitive data to Allas. When you use Allas with these encryption tools, remember that:
    
    1. You can store encrypted sensitive data in Allas, but are allowed to decrypt it only in environments with a high enough security level. For example, the CSC HPC environment (i.e. Puhti, Mahti, LUMI) is **not** secure enough for sensitive data.
    
