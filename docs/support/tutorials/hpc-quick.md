@@ -13,7 +13,7 @@ teaching instance can be found in the
 A
 [self-learning implementation](https://csc.fi/en/training-calendar/csc-computing-environment-self-learning/)
 is also available. The
-[course exercises](https://csc-training.github.io/csc-env-eff/) are accessible
+[course materials](https://csc-training.github.io/csc-env-eff/) are accessible
 without having to sign up, and are very useful by themselves, since they provide
 practical examples of working in our computing environment.
 
@@ -123,11 +123,14 @@ seem archaic, it is truly powerful once you get used to it.
 The CLI allows you to 
 [submit your computations as batch jobs](../../computing/running/getting-started.md)
 to the SLURM job scheduler, which runs them as soon as the requested resources
-are available. In practice, this means that running computations does not
-necessitate being tied to your workstation. While setting up this automation
-can require some more planning on your part, in the long run it makes your work
-more efficient as well as more reproducible both to yourself and other parties,
-such as reviewers and collaborators.
+are available. Importantly, the batch job system ensures that your jobs are run
+on the *compute nodes* opposed to the *login nodes*,
+which are [**not** intended for heavy computing](../../computing/usage-policy.md).
+Another benefit of batch jobs is that running computations does not necessitate
+being tied to your workstation. While setting up this automation can require
+some more planning on your part, in the long run it makes your work more
+efficient as well as more reproducible both to yourself and other parties, such
+as reviewers and collaborators.
 
 You can access the command-line interface either by
 using the [shell applications](../../computing/webinterface/shell.md)
@@ -249,11 +252,11 @@ at CSC.
     - [Running batch jobs](../../computing/running/getting-started.md) and
       [available batch job partitions](../../computing/running/batch-job-partitions.md)
     - [Pre-installed applications](../../apps/index.md) and
-      [how install custom software](../../computing/installing.md)
+      [how to install custom software](../../computing/installing.md)
     - [LUMI user guide](https://docs.lumi-supercomputer.eu/)
 
 === "Training materials and tutorials"
-    - [*CSC Computing Environment* course exercises](https://csc-training.github.io/csc-env-eff/)
+    - [*CSC Computing Environment* course materials](https://csc-training.github.io/csc-env-eff/)
     - [Linux basics tutorial](../tutorials/env-guide/index.md)
     - [Machine learning guide](ml-guide.md)
     - [Using Python on CSC supercomputers](python-usage-guide.md)
