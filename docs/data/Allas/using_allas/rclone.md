@@ -54,7 +54,7 @@ your projects in Allas and asks you to define the project that will be used. The
 
 ### Rclone with S3 on CSC supercomputers
 
-If you want to use Allas with S3 protocol in stead run the allas-conf command with option --mode s3cmd.
+If you want to use Allas with the S3 protocol instead, run the `allas-conf` command with the `--mode S3` option.
 ```text
 module load allas
 allas-conf --mode S3
