@@ -1,7 +1,7 @@
 # Tools for client side encryption for Allas
 
 Allas is not certified as high level security storage platform and thus you should not use it to store sensitive data in readable format.
-Howerver, sensitive data can be stored to Allas if it is properly encrypted before data is transported to Allas. 
+However, sensitive data can be stored on Allas if it is properly encrypted before transfer to the object storage.
 
 For sensitive data we generally recommend the [SD Connect service](../sensitive-data/sd_connect.md) that provides Web and command line interfaces 
 that automatically encrypt the data when it stored to Allas. 
