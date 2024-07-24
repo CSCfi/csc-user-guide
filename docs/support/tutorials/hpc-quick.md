@@ -14,8 +14,7 @@ A
 [self-learning implementation](https://csc.fi/en/training-calendar/csc-computing-environment-self-learning/)
 is also available. The
 [course materials](https://csc-training.github.io/csc-env-eff/) are accessible
-without having to sign up, and are very useful by themselves, since they provide
-practical examples of working in our computing environment.
+without having to sign up, and are very useful by themselves.
 
 For a more general introduction to HPC, we recommend the
 [*Elements of Supercomputing*](https://edukamu.fi/elements-of-supercomputing/)
