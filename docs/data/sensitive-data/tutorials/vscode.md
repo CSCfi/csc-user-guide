@@ -2,10 +2,13 @@
 
 VS Code is a code editor redefined and optimized for building and debugging modern web and cloud applications.
 
-VS Code 1.78.2 can be installed to a SD Desktop virtual machine with [SD software installer](./sd-software-installer.md).
+VS Code 1.90.2 can be installed to a SD Desktop virtual machine with [SD software installer](./sd-software-installer.md).
 The installation creates a desktop button for VS Code.
 
-The VS Code installation does not include any extensions. However, you can add them yourself.
+The VS Code installation does not include any extensions.
+
+Some extensions are available in SD Connect directory _tools-for-sd-desktop/apps/vscode-extensions_ .
+If you don't find the extension you  need from this location, you can import them yourself.
 
 On your own computer, open VS Code extensions library:
 
