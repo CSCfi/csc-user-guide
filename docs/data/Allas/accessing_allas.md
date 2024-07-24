@@ -65,7 +65,7 @@ allas-conf -m S3
 ```
 The `allas-conf` command prompts for your CSC password (the same that you use to login to CSC servers). It lists your Allas projects and asks you to define a project (if not already defined as an argument). `allas-conf` generates an `rclone` configuration file for the Allas service and authenticates the connection to the selected project. `allas-conf` enables you to use only one Allas project at a time in one session. The project you are using in Allas does not need to match the project you are using in Puhti or Mahti, and you can switch to another project by running `allas-conf` again.
 
-In the case of swift-protocol, the authentication information is stored in the shell variables *OS_AUTH_TOKEN* and *OS_STORAGE_URL* and is valid for up to eight hours. However, you can refresh the authentication at any time my running _allas-conf_ again. The environment variables are available only for that login session, so if you start another shell session, you need to authenticate again in there to access Allas.
+In the case of the Swift protocol, the authentication information is stored in the `OS_AUTH_TOKEN` and `OS_STORAGE_URL` environment variables and is valid for up to eight hours. However, you can refresh the authentication at any time by running `allas-conf` again. The environment variables are set only for the current login session, so you need to configure authentication individually for each shell with which you wish to access Allas.
 
 In the case of S3 protocol, the authentication information is stored to configuration files in your home directory. Thus the authentication will be used for all sessions in in the machine in uses. The authentication does not have expiration time.
 
