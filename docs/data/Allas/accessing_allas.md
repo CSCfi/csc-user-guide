@@ -67,7 +67,7 @@ The `allas-conf` command prompts for your CSC password (the same that you use to
 
 In the case of the Swift protocol, the authentication information is stored in the `OS_AUTH_TOKEN` and `OS_STORAGE_URL` environment variables and is valid for up to eight hours. However, you can refresh the authentication at any time by running `allas-conf` again. The environment variables are set only for the current login session, so you need to configure authentication individually for each shell with which you wish to access Allas.
 
-In the case of S3 protocol, the authentication information is stored to configuration files in your home directory. Thus the authentication will be used for all sessions in in the machine in uses. The authentication does not have expiration time.
+In the case of the S3 protocol, the authentication information is stored in configuration files located in your home directory on the device. The same authentication is used for all login sessions and it does not have an expiration time.
 
 Once Allas connection is configured, you can start using Allas with the tools listed above. 
 
