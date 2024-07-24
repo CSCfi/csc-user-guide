@@ -1,6 +1,6 @@
 # Data import and export
 
-In the CSC computing environment we recommend command `mysqlimport` for loading datasets into the database.  This command reads in a delimited text file into a table already existing in the database. To load a large text file from a CSC computing server to a database in Kaivos, you can use the command syntax:
+In the CSC computing environment we recommend command `mysqlimport` for loading data into a database in Kaivos.  This command reads in a delimited text file into a table already existing in the database. To load a large text file from a CSC computing server to a database in Kaivos, you can use the command syntax:
 
 ```bash
 mysqlimport -h kaivos.csc.fi -u db_user_account --local --compress --password database_name input_file.table

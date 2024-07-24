@@ -5,7 +5,7 @@ tags:
 
 # MACS2/3
 
-## Description
+
 
 MACS (Model-based Analysis of ChIP-Seq) is an analysis tool for NGS ChIP-Seq data. 
 MACS empirically models the length of the sequenced ChIP fragments and uses it to improve 
@@ -23,7 +23,7 @@ Free to use and open source under [BSD 3-Clause License](https://raw.githubuserc
 
 ## Available
 
-Version on CSC's Servers
+
 
 -  Puhti: 2.2.7.1, 3.0.0a7, 3.0.1
 -  Chipster graphical user interface
