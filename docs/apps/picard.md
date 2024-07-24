@@ -5,7 +5,7 @@ tags:
 
 # Picard Tools
 
-## Description
+
 
 Picard is a set of command line tools for manipulating high-throughput
 sequencing (HTS) data and formats such as SAM/BAM/CRAM and VCF.
@@ -19,7 +19,7 @@ Free to use and open source under [MIT License](https://github.com/broadinstitut
 
 ## Available
 
-Version on CSC's Servers
+
 - Puhti:  2.27.4, 2.27.5, 3.0.1,  3.1.1
 
 ## Usage
@@ -63,7 +63,7 @@ java -Xmx128g -jar $PICARD  SamToFASTQ I=input.bam FASTQ=output.fastq
 ```
 
 
-## Manual
+## More information
 
 -   [Picard home page](http://broadinstitute.github.io/picard/)
 -   [Detailed tool documentation](http://broadinstitute.github.io/picard/command-line-overview.html)
