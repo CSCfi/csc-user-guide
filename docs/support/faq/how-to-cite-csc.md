@@ -1,7 +1,7 @@
 # How to cite CSC in a paper
 
-A good place is the acknowledgements at the end of the manuscript. This is a
-typical one:
+A good place is the acknowledgements at the end of the manuscript. A typical 
+statement would be:
 
 > The authors wish to acknowledge CSC – IT Center for Science, Finland, for
 > computational resources.
