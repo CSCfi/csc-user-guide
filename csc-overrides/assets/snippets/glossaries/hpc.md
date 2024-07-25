@@ -64,3 +64,6 @@
 *[EtM]: Encrypt-then-MAC
 *[UI]: User Interface
 *[GID]: Group IDentifier
+*[NFS]: Network File System
+*[FTP]: File Transfer Protocol
+*[UUID]: Universally Unique Identifier
