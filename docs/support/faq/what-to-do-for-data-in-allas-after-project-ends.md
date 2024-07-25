@@ -4,7 +4,8 @@ The Allas object storage is meant to host data only for the lifetime of a
 project. After the project ends, you have several options where to move your
 data:
 
-1. You can move the data to a new CSC project.
+1. You can
+   [move the data to a new CSC project](./is-it-possible-to-move-data-in-allas-to-new-project.md).
 2. You can archive the data in a long-term data storage. Some services you
    might want to consider are:
     1. [IDA](https://www.fairdata.fi/en/ida/){target="_blank"}
