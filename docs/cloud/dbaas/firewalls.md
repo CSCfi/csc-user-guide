@@ -47,7 +47,7 @@ with the new IP address with the "CIDR notation" (suffix) `/32`.
 
 ### Rahti
 
-Rahti is using a `193.167.189.25/32` as a shared outgoing IP address. Note that if you are using
+Rahti is using a `86.50.229.150/32` as a shared outgoing IP address. Note that if you are using
 Rahti with the shared outgoing IP-address all other Rahti customers can access to your database
 which makes it even more important to use a strong username and password for your database.
 
