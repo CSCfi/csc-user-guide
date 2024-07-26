@@ -17,9 +17,9 @@ or
 
 In addition, it is possible to make a bucket public, which makes the content
 available for viewing ("read-only") via URLs. The URL to an object in a
-public bucket is of the form `https://bucket_name.a3s.fi/object_name` or
-`https://a3s.fi/swift/v1/AUTH_PROJECT_ID/bucket_name/object_name` where
-`PROJECT_ID` is the identifier of your computing project in
+public bucket is of the form `https://<bucket_name>.a3s.fi/<object_name>` or
+`https://a3s.fi/swift/v1/AUTH_<project_id>/<bucket_name>/<object_name>` where
+`<project_id>` is the identifier of your computing project in
 [UUID](../../data/Allas/using_allas/s3_client.md#giving-another-project-read-access-to-a-bucket)
 format.
 
