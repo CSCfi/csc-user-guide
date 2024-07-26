@@ -9,21 +9,21 @@ metadata:
   name: my-app
   labels:
     app: my-application
-  spec:
-    volumes:
-    - name: volume-a
-      emptyDir: {}
-    containers:
-    - name: container-a
-      image: centos:7
-      volumeMounts:
-      - mountPath: /outputdata
-        name: volume-a
-    - name: container-b
-      image: centos:7
-      volumeMounts:
-      - mountPath: /interm
-        name: volume-a
+spec:
+  volumes:
+  - name: volume-a
+    emptyDir: {}
+  containers:
+  - name: container-a
+    image: centos:7
+    volumeMounts:
+    - mountPath: /outputdata
+      name: volume-a
+  - name: container-b
+    image: centos:7
+    volumeMounts:
+    - mountPath: /interm
+      name: volume-a
 ```
 
 ![emptyDir](../../img/pods-and-storage-emptydir.drawio.svg)
