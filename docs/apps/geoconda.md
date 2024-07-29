@@ -37,7 +37,7 @@ includes following python packages:
 -   [osmnx] - download spatial geometries and construct, project, visualize, and analyze street networks from
     OpenStreetMap's APIs. [Routing examples in CSC geocomputing Github](https://github.com/csc-training/geocomputing/tree/master/python/routing)
 -   [owslib](https://geopython.github.io/OWSLib/index.html) -  for retrieving data from Open Geospatial Consortium (OGC) web services
--   [python-pdal](https://pdal.io/python.html) - PDAL Python extension for lidar data
+-   [python-pdal](https://pdal.io/en/latest/python.html) - PDAL Python extension for lidar data
 -   [Py6S](https://py6s.readthedocs.io/en/latest/index.html) - Python interface to the Second Simulation of the Satellite Signal in the Solar Spectrum (6S) atmospheric Radiative Transfer Model
 -   [pysal] - spatial analysis functions.    
 -   [pdal](https://pdal.io/) - for lidar data

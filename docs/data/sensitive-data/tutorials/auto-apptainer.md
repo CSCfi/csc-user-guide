@@ -35,10 +35,13 @@ Below you can find a list of software that can be installed with auto-apptainer.
 list by running command `auto-apptainer` in SD Desktop.
 
 *  bamtools_2.5.2--hd03093a_1
+*  bcftools_1.20
 *  bedtools_2.31.0
+*  bwa_0.7.17
 *  deepvariant_1.5.0
 *  finnish-nertag
 *  hisat2_2.2.1--h87f3376_5
+*  python3-for-medimaging
 *  regenie_3.0.1
 *  samtools_1.17-2023-06
 *  seqtk_v1.3-1-deb_cv1

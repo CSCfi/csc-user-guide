@@ -1,11 +1,14 @@
 # Tools for client side encryption for Allas
 
 Allas is not certified as high level security storage platform and thus you should not use it to store sensitive data in readable format.
-Howerver, sensitive data can be stored to Allas if it is properly encrypted before data is transported to Allas.
+However, sensitive data can be stored on Allas if it is properly encrypted before transfer to the object storage.
 
-This document describes some encryption tools that help you to move your sensitive data to Allas so that data gets encrypted before it leaves your secure environment. When you use Allas with these encryption tools, remember that:
+For sensitive data we generally recommend the [SD Connect service](../sensitive-data/sd_connect.md) that provides Web and command line interfaces 
+that automatically encrypt the data when it is stored to Allas. 
+
+If you for some reason don't want to use SD Connect, below you can find some alternative approaches for storing your sensitive data to Allas. When you use Allas with these encryption tools, remember that:
    
-   1. You can store encrypted sensitive data in Allas, but are allowed to decrypt it only in evironments with high enough security level. For example, in the HPC environment of CSC is NOT secure enough for sensitive data. 
+   1. You can store encrypted sensitive data in Allas, but are allowed to decrypt it only in environments with a high enough security level. For example, the CSC HPC environment (i.e. Puhti, Mahti, LUMI) is **not** secure enough for sensitive data.
    
    2. You should use strong enough encryption passwords and keep them safe.  
    
@@ -37,10 +40,9 @@ a-get my_allas_bucket/data_dir.tar.zst.gpg
 ### Asymmetric crypt4gh encryption
 
 If you want to use asymmetric `crypt4gh` encryption, you need to have a public key file for encryption and a secret key file for decryption.
-In Puhti, you first need to make `crypt4gh` available with commands:
+In Puhti, you first need to make `crypt4gh` available with the command:
 ```text
-module load biokit
-module load biopythontools
+module load allas
 ```
 Now you can create keys with a command like: 
 ```text
@@ -59,7 +61,7 @@ The command above will download the encrypted object from Allas, ask for the pas
 
 ## 2. Creating encrypted repository with rclone
  
-`rclone` has a client side encryption feature, that allows you create an encrypted data repository to Allas. In this approach you need to once define an encrypted `rclone` connection to Allas and when this connection is used, all the transported data will be automatically encrypted. The automatic encryption of `rclone` is based on _Salsa20_ stream cipher. Salsa20 is not as widely used as AES256, but it was one of the ecryption tools recommended by the European [eSTREAM](https://www.ecrypt.eu.org/stream/) project.
+`rclone` has a client side encryption feature that allows you create an encrypted data repository to Allas. In this approach, you need to once define an encrypted `rclone` connection to Allas, and when this connection is used, all the transported data will be automatically encrypted. The automatic encryption of `rclone` is based on the _Salsa20_ stream cipher. Salsa20 is not as widely used as AES256, but it is one of the encryption tools that were recommended by the European [eSTREAM](https://www.ecrypt.eu.org/stream/) project.
 
 In the example here, we assume that you are using a server where you have [rclone](https://rclone.org/) and [allas-cli-utils](https://github.com/CSCfi/allas-cli-utils/) installed. First, you have to configure a normal, un-encrypted swift-connection to Allas. This can be done with the `allas-conf` script that is included in _allas-cli-utils_ package:
 ```text
