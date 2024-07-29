@@ -30,7 +30,7 @@ You can test if pdal loaded successfully with following
 
 ## License 
 
-PDAL is licensed with the BSD open source license. [The full PDAL licence](https://pdal.io/copyright.html)
+PDAL is licensed with the BSD open source license. [The full PDAL licence](https://pdal.io/en/latest/copyright.html)
 
 ## Citation
 
@@ -52,5 +52,5 @@ Please see the respectives versions module page: [Geoconda](./geoconda.md) , [QG
 ## References
 
 * [PDAL homepage](https://pdal.io/)
-* [LAS file example](https://pdal.io/tutorial/las.html)
+* [LAS file example](https://pdal.io/en/latest/tutorial/las.html)
 
