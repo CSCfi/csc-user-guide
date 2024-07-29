@@ -115,8 +115,6 @@ Example batch script for reserving one GPU and two CPU cores in a single node:
     #SBATCH --cpus-per-task=1
     #SBATCH --time=1:00:00
     #SBATCH --gpus-per-node=1
-    #SBATCH --gpu-bind=closest
-    #SBATCH --gres=gpu:a100:1
     
     module use /appl/local/quantum/modulefiles
     module load qiskit/v1.1.0
