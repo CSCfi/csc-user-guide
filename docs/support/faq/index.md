@@ -26,7 +26,6 @@
 * [How can I find information about my projects?](how-to-find-information-about-projects.md)
 * [Who 'unknown' is using our resources](who-unknown-is-using-our-resources.md)
 * [How can I change which project is billed for my usage?](how-can-i-change-billing-project.md)
-* [How to configure the MyCSC Dashboard](how-to-configure-dashboard.md)
 * [I have moved to a new university/organization. Can I keep my present user account and join it to some new project under the new organization?](how-to-change-organization.md)
 * [A foreign researcher is joining our research group as a visiting scientist. Can they receive an academic CSC user account?](can-visitors-get-user-accounts.md)
 
@@ -35,7 +34,7 @@
 * [Where should I put my data?](where-should-i-put-my-data.md)
 * [How can I share my data with other users?](how-can-i-share-my-data-with-others.md)
 * [How do I know how much computing resources I have left?](how-do-i-know-how-much-resources-i-have-left.md)
-* [What directory I should use to analyse a large numbers of small files?](local_scratch_for_data_processing.md)
+* [Which directory should I use to analyze many small files?](local_scratch_for_data_processing.md)
 * [How can I install my own software?](how-to-install-own-software.md)
 * [How do the project and scratch file permissions work?](how-do-the-project-file-permissions-work.md)
 * [How does LUMI-C differ from Mahti?](../../computing/lumi-vs-mahti.md)
