@@ -70,7 +70,7 @@ versions](#available)), use:
 module load qiskit/1.0.2
 ```
 
-The Qiskit module can also be used from the Puhti/LUMI web interface using Jupyter and
+The Qiskit module can also be used from Puhti, Mahti and LUMI web interfaces using Jupyter and
 Jupyterlab. Check out [our Jupyter documentation](../../computing/webinterface/jupyter/). 
 
 ### Example batch script
