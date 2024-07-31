@@ -1,0 +1,95 @@
+# SSH client on macOS and Linux
+
+On Unix-based systems like macOS and Linux, it is recommended to connect to CSC
+supercomputers using the pre-installed terminal program.
+
+## Basic usage
+
+The OpenSSH client typically comes pre-installed on macOS and Linux systems.
+You can create a remote SSH connection by opening the terminal and running:
+
+```bash
+# Replace <username> with the name of your CSC user account and
+# <hostname> with "puhti" or "mahti"
+
+ssh <username>@<hostname>.csc.fi
+```
+
+## Graphical connection
+
+Displaying graphics, such as GUIs and plots, over an SSH connection requires
+a window system. Most macOS and Linux systems have a server program for the X
+window system (X11) installed by default.
+
+To enable displaying graphics over SSH, use the `-X` (X11 forwarding) or `-Y`
+(trusted X11 forwarding) option when launching the SSH client:
+
+```bash
+ssh -X <username>@<hostname>.csc.fi
+```
+
+For more information about the X11 forwarding options, run `man ssh` in the
+terminal.
+
+## Generating SSH keys
+
+You can use the `ssh-keygen` command-line utility for generating SSH keys:
+
+```bash
+ssh-keygen -o -a 100 -t ed25519
+```
+
+You will be asked to type a passphrase. Although it is possible to leave the
+field empty, we encourage you to use a passphrase as it is considerably more
+secure. 
+
+## Copying public key to supercomputer
+
+To copy your public key to a supercomputer, you can use the `ssh-copy-id`
+utility by running:
+
+```bash
+ssh-copy-id <username>@<host>.csc.fi
+```
+
+You will be asked for your CSC password (not the passphrase for the SSH key).
+Subsequent logins using the SSH key pair will ask for the passphrase.
+
+If, for some reason, `ssh-copy-id` does not work, you can copy the public key
+directly by running the following commands:
+
+```bash
+# Default location for ssh keys is "~/.ssh/"
+
+scp ~/.ssh/<key-id>.pub <username>@<host>.csc.fi:~/.ssh/<key-id>.pub
+ssh <username>@<host>.csc.fi
+cat ~/.ssh/<key-id>.pub >> ~/.ssh/authorized_keys
+rm ~/.ssh/<key-id>.pub
+```
+
+## Authentication agent
+
+To avoid having to type your passphrase every time you connect to a CSC
+supercomputer, the `ssh-agent` utility can hold your keys in memory. The
+program's behavior depends on your system:
+
+- On Linux systems, `ssh-agent` is typically configured and run automatically at
+  login and requires no additional actions on your part.
+
+- On macOS systems, you should add the following lines to the `~/.ssh/config`
+file...
+
+    ```
+    Host *
+        UseKeychain no
+        AddKeysToAgent yes
+    ```
+
+    ...and the following lines to `~/.bash_profile`:
+
+    ```bash
+    [[ -z ${SSH_AUTH_SOCK+x} ]] && eval "$(ssh-agent -s)"
+    ```
+
+For more information about `ssh-agent`, see the
+[corresponding SSH Academy tutorial](https://www.ssh.com/academy/ssh/agent).
