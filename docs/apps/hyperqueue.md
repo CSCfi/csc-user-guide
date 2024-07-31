@@ -32,7 +32,7 @@ module load hyperqueue
 ```
 
 Use `module spider` to locate other versions. 
-To access CSC's hyperqueue modules on LUMI,
+To access CSC's HyperQueue modules on LUMI,
 remember to first run `module use /appl/local/csc/modulefiles`.
 
 ```bash
