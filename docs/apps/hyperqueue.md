@@ -25,7 +25,7 @@ Free to use and open source under [MIT License](https://github.com/It4innovation
 
 ## Usage
 
-Initialize recommended version of Hyperqueue on Puhti or Mahti like this:
+Initialize the recommended version of HyperQueue on Puhti and Mahti like this:
 
 ```bash
 module purge
