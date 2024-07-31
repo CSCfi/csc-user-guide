@@ -21,8 +21,24 @@ Free to use and open source under [MIT License](https://github.com/It4innovation
 
 * Puhti: 0.13.0, 0.15.0, 0.16.0
 * Mahti: 0.13.0, 0.15.0, 0.16.0
+* LUMI: 0.18.0
 
 ## Usage
+
+Initialize the recommended version of HyperQueue on Puhti and Mahti like this:
+
+```bash
+module load hyperqueue
+```
+
+Use `module spider` to locate other versions. 
+To access CSC's HyperQueue modules on LUMI,
+remember to first run `module use /appl/local/csc/modulefiles`.
+
+```bash
+module use /appl/local/csc/modulefiles
+module load hyperqueue
+```
 
 ### Task-farming with sbatch-hq tool
 
