@@ -1,6 +1,6 @@
 # Using Allas with Rclone 
 
-This chapter contains instructions for using Allas with [Rclone](https://rclone.org/) in the Puhti and Mahti computing environments. _Rclone_ provides a very powerful and versatile way to use Allas and other object storage services. It is able to use both the S3 and Swift protocols (and many others), but in the case of Allas, the Swift protocol is preferred. It is also the default option on the CSC servers. 
+This chapter contains instructions for using Allas with [Rclone](https://rclone.org/) in the Puhti and Mahti computing environments. _Rclone_ provides a very powerful and versatile way to use Allas and other object storage services. It is able to use both the S3 and Swift protocols (and many others). At the moment, the Swift protocol is the default option on the CSC servers. 
 
 > **WARNING:** Rclone should not be used to copy, move or rename objects **inside** Allas. Rclone provides commands for these operations but they don't work correctly for files larger than 5 GB.
 > 
@@ -10,7 +10,7 @@ This chapter contains instructions for using Allas with [Rclone](https://rclone.
 
 The basic syntax of Rclone:
 <pre>
-rclone <i>subcommand optons source:path dest:path</i> 
+rclone <i>subcommand options source:path dest:path</i> 
 </pre>
 
 The most frequently used Rclone commands:
@@ -37,7 +37,7 @@ A more extensive list can be found on the [Rclone manual pages](https://rclone.o
 
 The first step is to authenticate to a project in Allas. Rclone can use both Swift and S3 protocols but these connections will have different names in rclone commands. 
 
-In this document we describe how Rclone is used in CSC computing environment (Puhti and Mahti). You can use rclone also in your local computer. Intructions of configuring locally installed Rclone are here
+In this document we describe how Rclone is used in CSC computing environment (Puhti and Mahti). You can use rclone also in your local computer. Instructions of configuring locally installed Rclone are here
 
    * [Local Rclone configuration for Allas](./rclone_local.md)
 
@@ -49,15 +49,15 @@ The default protocol of Allas is Swift. In Puhti and Mahti Swift based Allas con
 module load allas
 allas-conf
 ```
-The `allas-conf` command asks for your CSC password (the same you use to login to CSC servers). It lists
+The `allas-conf` command asks for your CSC password (University/Haka password will not work here). It lists
 your projects in Allas and asks you to define the project that will be used. Then _allas-conf_ generates a Rclone configuration file for the Allas service and authenticates the connection to the selected project. In Rclone command this swift based connection is referred with remote name `allas:`. The authentication information is stored in the shell variables `OS_AUTH_TOKEN` and `OS_STORAGE_URL` that are valid for up to eight hours. However, you can refresh the authentication at any time by running _allas-conf_ again. The environment variables are available only for that login session, so if you login to Puhti in another session, you need to authenticate again to access Allas.
 
 ### Rclone with S3 on CSC supercomputers
 
-If you want to use Allas with S3 protocol in stead run the allas-conf command with option --mode s3cmd.
+If you want to use Allas with the S3 protocol instead, run the `allas-conf` command with the `--mode S3` option.
 ```text
 module load allas
-allas-conf --mode s3cmd
+allas-conf --mode S3
 ```
 This command opens permanent S3 based connection to Allas. Rclone can now refer to this connection with remote name `s3allas:`.
 In the examples below the swift based `allas:` remote definition is used, but if you have S3 connection defined, you could replace it
@@ -65,7 +65,7 @@ with `s3allas:`. Note that you can have both `allas:` and `s3allas:` functional 
 
 ## Create buckets and upload objects
 
-The data in Allas is arranged into containers called buckets. You can consider them top level directories. All buckets in Allas must have unique names – you cannot create a bucket if some other project has already used that bucket name. It is a good rule of thumb to have something project- or user-specific in the bucket name, e.g. _2000620-raw-data_. See the [checklist](../introduction.md#naming-buckets) for how to name a bucket.
+The data in Allas is arranged into containers called buckets. You can consider them as root-level directories. All buckets in Allas must have unique names – you cannot create a bucket if some other project has already used that bucket name. It is a good rule of thumb to have something project- or user-specific in the bucket name, e.g. _2000620-raw-data_. See the [checklist](../introduction.md#naming-buckets) for how to name a bucket.
 
 In the case of _Rclone_, create a bucket:
 ```text
@@ -81,7 +81,7 @@ is deleted after copying.
 
 The _copy_ and _move_ subcommands only work with files. If you would like to copy all files in a directory, use the _copyto_ or _moveto_ subcommands.
 
-During upload files that are larger than 5 GB will be split and stored as several objects. This is done automatically to a bucket that is named by adding extension `_segments` to the original bucket name. For example, if you would upload a large file to  _2000620-raw-data_ the actual data would be stored as several pieces into bucket _2000620-raw-data_segments_. The target bucket (_2000620-raw-data_) would contain just a front object that contains information what segments make the stored file. Operations performed to the front object are automatically reflected to the segments. Normally users don't need to operate with the segments buckets at all and objects inside these buckets should not be deleted or modified.
+During upload, files that are larger than 5 GB will be split and stored as several objects. The objects are stored automatically in a distinct bucket called `<bucket-name>_segments`. For example, if you would upload a large file to  `2000620-raw-data`, the actual data would be stored in several pieces in the bucket `2000620-raw-data_segments`. The target bucket (`2000620-raw-data`) would contain just a manifest object stating which segments comprise the stored file. Operations performed on the manifest object are automatically reflected in the segments. Normally users don't need to operate with the segments buckets at all, and objects inside these buckets should not be deleted or modified.
 
 ## List buckets and objects
 
