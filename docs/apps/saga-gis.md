@@ -60,7 +60,8 @@ apptainer_wrapper exec saga_gui
 
 #### SAGA GIS Graphical User Interface in LUMI
 
-Until LUMI web interface is available, SagaGIS needs to be used with [SSH X11 forwarding](../computing/connecting.md#using-graphical-applications).
+Until LUMI web interface is available, SagaGIS needs to be used with
+[SSH X11 forwarding](../computing/connecting/index.md#using-an-ssh-client).
 
 ```
 module use /appl/local/csc/modulefiles

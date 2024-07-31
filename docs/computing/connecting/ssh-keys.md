@@ -1,16 +1,15 @@
 # Setting up SSH keys
 
-SSH keys provide more secure authentication. Setting up SSH keys is a simple
-two-step process.
+SSH keys provide more convenient and secure authentication. Setting them up is
+a simple two-step process.
 
 1. [Generate SSH keys on your local workstation](#generating-ssh-keys).
     - SSH keys are always generated in pairs consisting of one _public key_ and
     one _private key_. Generate these keys on the device you intend to use to
     connect to CSC supercomputers.
 2. [Copy the public key from your workstation onto a supercomputer](#copying-public-key-to-supercomputer).
-    - Only the public key should be copied. **Do not copy the private key.**
-      The recommended way of copying your public key to a CSC system is
-      [through the MyCSC customer portal](#adding-public-key-in-mycsc).
+    - For authenticating an SSH connection using a key pair, you need to copy
+      the public key onto the supercomputer. **Do not copy the private key.**
 
 !!! warning
     The private key should **never** be shared with anyone, not even with CSC
@@ -47,6 +46,11 @@ letters and special characters.
 
 ## Copying public key to supercomputer
 
+The recommended and easiest way to copy your public key to a CSC system is
+[through the MyCSC customer portal](#adding-public-key-in-mycsc). For other
+approaches, please see the system-specific SSH instructions for Unix-based and
+Windows systems.
+
 ### Adding public key in MyCSC
 
 You can add your public key through the MyCSC customer portal by following
@@ -64,7 +68,7 @@ these steps:
 7. You should now see your new key listed under _SSH PUBLIC KEYS_. Note that
    it might take up to one hour for your new key to become active. If it takes
    longer than that, please
-   [contact the CSC Service Desk](../support/contact.md).
+   [contact the CSC Service Desk](../../support/contact.md).
 
 !!! info "Using compatible format"
       Your public key must be provided in the OpenSSH format, or it is not
@@ -80,11 +84,11 @@ these steps:
 
 If you want to store your key pair in a non-default location (somewhere else
 than `~/.ssh/` or `C:\Users\<username>\.ssh\`), set the key location in the
-`.ssh/config` file or using an [authentication agent](#ssh-agent). If you
-intend to use RStudio, Jupyter notebooks or something else where the
-connecting from your local workstation to a compute node requires piping
-through a login node, set agent-forwarding and the path to your private key 
-in the `.ssh/config` file as follows:
+`.ssh/config` file or using an authentication agent (see system-specific
+instructions). If you intend to use RStudio, Jupyter notebooks or something
+else where the connecting from your local workstation to a compute node
+requires piping through a login node, set agent-forwarding and the path to
+your private key in the `.ssh/config` file as follows:
 
 ```bash
 Host <host>.csc.fi

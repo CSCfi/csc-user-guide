@@ -13,4 +13,4 @@ Another (better) way to run remote graphics is to use a remote desktop through
 the [Puhti web interface](../../computing/webinterface/index.md).
 
 See also
-[Using graphical applications](../../computing/connecting.md#using-graphical-applications).
+[Using an SSH client](../../computing/connecting/index.md#using-an-ssh-client).

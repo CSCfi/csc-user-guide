@@ -92,4 +92,4 @@ file...
     ```
 
 For more information about `ssh-agent`, see the
-[corresponding SSH Academy tutorial](https://www.ssh.com/academy/ssh/agent).
+[relevant SSH Academy tutorial](https://www.ssh.com/academy/ssh/agent).

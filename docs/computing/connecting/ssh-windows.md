@@ -28,7 +28,7 @@ ssh <username>@<hostname>.csc.fi
 
 If you want to create a connection with graphical support,
 you can use, for example, the
-[Xming X server](www.straightrunning.com/XmingNotes/). To enable displaying
+[Xming X server](http://www.straightrunning.com/XmingNotes/). To enable displaying
 graphics remotely, run:
 
 ```
@@ -71,12 +71,12 @@ you can
 [configure the Windows SSH agent](https://learn.microsoft.com/en-us/windows-server/administration/openssh/openssh_keymanagement?source=recommendations#user-key-generation) 
 to store your keys in memory for the duration of your local login session.
 
-!!! warning "Known issue: Corrupted MAC on input for Windows OpenSSH"
-    If you are using the OpenSSH client software on Windows, you might encounter
-    an error while connecting, which states "Corrupted MAC on input." This is a
-    known issue and can be worked around by explicitly choosing a different MAC
-    algorithm. See details on
-    [our FAQ page on the topic](../support/faq/i-cannot-login.md#why-is-my-ssh-client-saying-corrupted-mac-on-input).
+!!! warning "Corrupted MAC on input"
+    When connecting using the OpenSSH client software on Windows, you might
+    encounter an error stating "Corrupted MAC on input". This is a known
+    issue, and can be avoided by explicitly choosing a different MAC
+    algorithm. For details, please see 
+    [our FAQ page on the topic](../../support/faq/i-cannot-login.md#why-is-my-ssh-client-saying-corrupted-mac-on-input).
 
 ## PuTTY
 
@@ -97,7 +97,7 @@ username and password, after which you are connected to the supercomputer.
 
 If you want to create a connection with graphical support,
 you can use, for example, the
-[Xming X server](www.straightrunning.com/XmingNotes/). To enable displaying
+[Xming X server](http://www.straightrunning.com/XmingNotes/). To enable displaying
 graphics remotely, select `Enable X11 forwarding` in the PuTTY program settings
 (`Connection --> SSH --> X11`). 
 
