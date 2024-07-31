@@ -28,8 +28,7 @@ Free to use and open source under [MIT License](https://github.com/It4innovation
 Initialize the recommended version of HyperQueue on Puhti and Mahti like this:
 
 ```bash
-module purge
-module load hyperqueue/<version>
+module load hyperqueue
 ```
 
 Use `module spider` to locate other versions. 
