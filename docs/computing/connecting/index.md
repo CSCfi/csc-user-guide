@@ -5,10 +5,6 @@ work on a supercomputer is [using an SSH client](#using-an-ssh-client). We
 also offer a [web interface](#using-the-web-interface) to our systems, which
 enables running both graphical applications and command-line shells.
 
-In addition to these methods, it is also possible to use certain source code
-editors, such as Visual Studio Code, to
-[develop scripts remotely](../../support/tutorials/remote-dev.md).
-
 !!! note "Connecting to LUMI"
     Please see the LUMI documentation for instructions on
     [connecting to the LUMI supercomputer](https://docs.lumi-supercomputer.eu/firststeps/getstarted/).
