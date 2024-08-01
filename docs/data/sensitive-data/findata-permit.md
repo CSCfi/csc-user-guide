@@ -1,19 +1,13 @@
-# Accessing SD Desktop with a Findata permit
-
+# How to get access to SD Desktop with a Findata permit
 
 **[Instructions in Finnish (PDF)](https://a3s.fi/docs-files/sensitive-data/PDF_instructions/SD_toisiolaki_Findata.pdf){ target="_blank" }**
 
-Accessing secondary use health or social data from public registries requires a permit from the **Findata** authority. You can apply for the data permit by logging in to Findata’s e-service. Instructions for applying for the data permit can be found on [Findata's website](https://findata.fi/en/permits/){ target="_blank" }.
+## Use case
 
-After acquiring the permit, you can start the service access process with CSC. Next, we will walk you through the steps that need to be completed in order to access the dataset on SD Desktop.
+You need to access to SD Desktop. You have a permit from Findata.
 
-!!! Note
-    * [SD Connect](sd_connect.md), a service used for storing sensitive research data, is **not accessible for registry data processing**. It is not possible to directly import any additional data, script, or software into the virtual desktop. 
-    * If you need software that is not available on the SD Desktop by default, please contact [Service Desk](../../support/contact.md) (*Subject: Sensitive Data, Secondary use*) well in advance - even before applying for a data permit.
+## Solution
 
-*Please note that you can create a test project and test regular SD Desktop independently, to make sure that SD Desktop is suitable for your needs. [Instructions how to access regular SD Desktop](sd-use-case-new-user-project-manager.md).*
-
-## Get access to SD Desktop for secondary use
 
 1. [Create a CSC account](#1-create-a-csc-account)
 2. [Create new CSC project](#2-create-new-csc-project)

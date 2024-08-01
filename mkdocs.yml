@@ -422,6 +422,7 @@ nav:
             - Data approval for DAC: data/sensitive-data/sd-apply-approval.md
       - Secondary use of health and social data:
         - Start here:
+            - data/sensitive-data/secondarydata-access.md
             - Access with Findata permit: data/sensitive-data/findata-permit.md
             - Access with register permit: data/sensitive-data/single-register-permit.md
         - Analyse with SD Desktop for secondary use: 
