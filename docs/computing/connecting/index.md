@@ -89,9 +89,11 @@ against fingerprints provided by CSC.
     | tE+1jA4Et1enbbat1V3dMRWlLtJgA8t7ZrkyIkU4ooo | ssh_host_ed25519_key.pub (ED25519) |
     | 0CxM3ECpD2LhAnMfHnm3YaXresvHrhW4cevvcPb+HNw | ssh_host_rsa_key.pub (RSA)         |
 
-## Graphical connection
+### Graphical connection
 
-We recommend using the web interfaces for running applications with graphical user interfaces. Alternatively, graphics can also be displayed over an SSH connection using X11 forwarding. See the operating system-specific instructions:
+We recommend using the web interfaces for running applications with graphical
+user interfaces. Alternatively, graphics can also be displayed over an SSH
+connection using X11 forwarding. See the operating system-specific instructions:
 
 * [X11 forwarding on Linux and macOS](ssh-unix.md#graphical-connection)
 * X11 forwarding on Windows:
