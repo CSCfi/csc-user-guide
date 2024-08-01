@@ -304,7 +304,7 @@ You should get the fit coefficients in separate files in the
 ### e) Collect the results and plot them.
 
 Note, plotting will work only if you have 
-[remote X11 forwarding](../../computing/connecting/index.md#using-an-ssh-client).
+[remote X11 forwarding](../../computing/connecting/index.md#graphical-connection).
 Actually, for R, there is even a tailored remote setup using 
 [RStudio Server](../../apps/r-env.md),
 and you're welcome to use that, but in this tutorial, the key point is to 

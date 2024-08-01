@@ -25,12 +25,6 @@ client. See the instructions for
 
 ## Using an SSH client
 
-The traditional way of working with supercomputers is using an SSH client.
-While working over an SSH connection is primarily text-based, it is also
-possible to display graphics over SSH by using X11 forwarding.
-**Instructions for X11 forwarding are included in the system-specific SSH
-instructions referenced below.**
-
 Unix-based systems like macOS and Linux typically come with a pre-installed
 terminal program called simply _Terminal_. The instructions for using an
 [SSH client on macOS and Linux](./ssh-unix) show how to connect to a CSC
