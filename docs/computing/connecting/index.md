@@ -1,11 +1,9 @@
 # Connecting to CSC supercomputers
 
-There are two main ways of connecting to CSC supercomputers. The traditional
-way to work on a supercomputer is [using an SSH client](#using-an-ssh-client).
-We also offer a [web interface](#using-the-web-interface) to our systems. The
-web interface is a very good starting point, since it enables running both
-graphical applications and command-line shells using your web browser, and 
-there is no need for any additional configurations or installations.
+There are two main ways of connecting to CSC supercomputers. The traditional way to
+work on a supercomputer is [using an SSH client](#using-an-ssh-client). We
+also offer a [web interface](#using-the-web-interface) to our systems, which
+enables running both graphical applications and command-line shells.
 
 For instructions on connecting to the LUMI supercomputer, please see the
 [Get Started page in the LUMI user guide](https://docs.lumi-supercomputer.eu/firststeps/getstarted/).
