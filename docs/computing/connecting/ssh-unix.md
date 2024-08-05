@@ -62,18 +62,6 @@ ssh-copy-id <username>@<host>.csc.fi
 You will be asked for your CSC password (not the passphrase for the SSH key).
 Subsequent logins using the SSH key pair will ask for the passphrase.
 
-If, for some reason, `ssh-copy-id` does not work, you can copy the public key
-directly by running the following commands:
-
-```bash
-# Default location for ssh keys is "~/.ssh/"
-
-scp ~/.ssh/<key-id>.pub <username>@<host>.csc.fi:~/.ssh/<key-id>.pub  # e.g. id_ed25519.pub
-ssh <username>@<host>.csc.fi
-cat ~/.ssh/<key-id>.pub >> ~/.ssh/authorized_keys
-rm ~/.ssh/<key-id>.pub
-```
-
 ## Authentication agent
 
 To avoid having to type your passphrase every time you connect to a CSC

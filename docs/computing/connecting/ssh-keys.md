@@ -25,11 +25,11 @@ the keys. The following instructions assume you are in the SSH key generation di
 
 If you have not set up SSH keys before, feel free to accept the default name
 and location by pressing `ENTER`. However, if using the default file name
-would overwrite an existing key, you will receive the following warning (or a
-warning similar to): 
+would overwrite an existing key, you will receive a warning that looks like
+this:
 
 ```
-/home/username/.ssh/id_ed25519 already exists. Overwrite (y/n)?
+/home/<username>/.ssh/id_ed25519 already exists. Overwrite (y/n)?
 ```
 
 Generally, you do
