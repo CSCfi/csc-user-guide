@@ -105,6 +105,14 @@ connection using X11 forwarding. See the operating system-specific instructions:
 
 ### Advanced usage
 
+#### Remote development
+
+Some editors like Visual Studio Code and Notepad++ can be used to
+[work on files remotely](../../support/tutorials/remote-dev.md)
+using an appropriate plugin.
+
+#### Connecting to a specific node
+
 When you connect to a supercomputer, you are automatically directed to one of
 the login nodes on the system. However, you can also use your SSH client to
 connect to a specific login node:
