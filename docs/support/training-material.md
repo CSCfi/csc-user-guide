@@ -49,7 +49,7 @@ and platforms by CSC and partners!
 ## Geoscience
 
 * [Geoscience training material](https://research.csc.fi/gis-learning-materials)
-* [GeoPortti](http://www.geoportti.fi/skills-development/) learning material
+* [GeoPortti](https://www.geoportti.fi/services/skills-development/) learning material
 
 ## Chemistry
 

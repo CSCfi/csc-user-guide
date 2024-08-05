@@ -71,5 +71,5 @@ If you encounter issues, please [contact CSC Service Desk](../support/contact.md
 
 * [Ansys Inc.](https://www.ansys.com/)
 * [Ansys Academic - Terms and Conditions](https://www.ansys.com/academic/terms-and-conditions)
-* [Ansys Academic product reference table](https://www.ansys.com/content/dam/product/academic/academic-product-reference-table-2021-r1.pdf)
+* [Ansys Academic product reference table](https://www.ansys.com/content/dam/web/academic/academic-product-reference-table.pdf)
 * [Ansys Elastic Currency (AEC) licensing](https://www.ansys.com/it-solutions/licensing)
