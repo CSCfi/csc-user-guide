@@ -2,21 +2,33 @@
 
 <iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/t6xXKPTB6H0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-Creating a virtual desktop is easy and doesn't require technical expertise. 
+With the SD Desktop service, you can create virtual computers for analysing sensitive data. On your virtual desktop, you can analyze sensitive research data through your web browser securely. In addition, SD Desktop provides a secure workspace for collaborative research projects. You can create up to three virtual desktops for one CSC project. Creating a virtual desktop doesn't require technical expertise. 
 
-* first [log in](./sd-desktop-login.md)
-* click on *Go to SD Desktop Management* [(See screenshot)](images/desktop/SD-Desktop_GoToManagement.png){ target="_blank" }
-* and follow these steps:
+## Step by step
 
-## 1. Specify desktop parameters
-  
-* Select your CSC project and operating system. We recommend to choose **Linux Ubuntu22**, since there will be no updates published for Linux CentOS7 after June 30, 2024 [(See screenshot)](images/desktop/SD-Desktop_SelectProject.png){ target="_blank" }.
-  
-* Give your desktop a name for easy identification, so that all project members can quickly identify it later on.
+### 1. Log in:
+* [Log in](./sd-desktop-login.md) to SD Desktop service. [Login instructions](sd-desktop-secondary-login.md).
+* Click on *Go to SD Desktop Management*.
+![Go to SD Desktop Management.](./images/desktop/SD-Desktop_GoToManagement.png)
 
-## 2. Choose a pre-built desktop options
+### 2. Select :
+1. correct CSC project
+2. operating system. We recommend to choose **Linux Ubuntu22**, since there will be no updates published for Linux CentOS7 after June 30, 2024. 
+3. name for your desktop. A descriptive name is useful, especially if you are working on multiple projects. Note, that the name should only include letters or numbers, and you shouldn't use special characters or spaces in the name.
+4. a pre-built desktop option based on your needs. [See options below](#virtual-desktop-options)
 
-Choose a pre-built option based on your needs: Small (for basic tasks), Medium (for complex analysis), or Heavy (for intensive tasks) [(See screenshot)](images/desktop/SD-Desktop_PreBuild.png){ target="_blank" }.
+![Virtual desktop parameters.](./images/desktop/SD-Desktop_SelectProject.png)
+
+Add an external volume (virtual external hard drive) to your virtual desktop, extending default storage (80 GB) up to 200 GB.
+    * Name your volume. Note, that the volume name should not include special characters or spaces.
+    * Choose a size that covers the combined size of your dataset and working files. If you are unsure about which volume size you should choose, send an email to servicedesk@csc.fi.
+    * **It's advisable to save critical analyses or files on the volume, which can also serve as a backup if the virtual desktop becomes unresponsive.** Note that after the virtual desktop is created, disk space/volume extension requires contacting [CSC Service Desk](../../support/contact.md), *(subject: Sensitive Data)*. 
+    * **You can detach and attach a volume from your virtual desktop** on the SD Desktop Management page. This can be compared to connecting/disconnecting a hard drive to your laptop. This feature is available only on desktops created after February 2023. For additional details, refer to: [Managing volume and desktops](./sd-desktop-manage.md).
+![Add volume.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-Desktop_Volume.png)
+
+Finally, press on _Create desktop_. The operation is entirely automated and can take up to 30 minutes. If you try accessing the virtual desktop during this process, an error message will be displayed asking you to return later.
+
+### Virtual desktop options
 
 |  | Use  | Technical specifications | Correspondent Pouta Flavor | Billing Units consumption |
 |-|-|-|-|-| 
@@ -28,31 +40,6 @@ Choose a pre-built option based on your needs: Small (for basic tasks), Medium (
 
 !!! note
     The two GPU options are available only for testing purposes. Before proceeding, contact [CSC Service Desk](../../support/contact.md), *(subject: Sensitive Data)* to ensure optimal use, as limited resources require careful planning.
-
-## 3. Add an external volume
-
-* Attach an external volume (virtual external hard drive) to your virtual desktop, extending default storage (80 GB) up to 200 GB. Choose *Volume size* (recommended: 50 GB for small computing, 100 GB for medium, 200 GB for heavy computation) and assign a name in the *Volume name* -field [(See screenshot)](images/desktop/SD-Desktop_Volume.png){ target="_blank" }.
-
-* **It's advisable to save critical analyses or files on the volume, which can also serve as a backup if the virtual desktop becomes unresponsive.** Note that after the virtual desktop is created, disk space/volume extension requires contacting [CSC Service Desk](../../support/contact.md), *(subject: Sensitive Data)*. 
-
-* **You can detach and attach a volume from your virtual desktop** on the SD Desktop Management page. This can be compared to connecting/disconnecting a hard drive to your laptop. This feature is available only on desktops created after February 2023. For additional details, refer to: [Managing volume and desktops](./sd-desktop-manage.md).
-
-## 4. Desktop creation
-
-* Finally, press on _Create desktop_. The operation is entirely automated and can take up to 30 minutes. If you try accessing the virtual desktop during this process, an error message will be displayed asking you to return later.
-
-### Screenshots
-=== "Go to SD Desktop Mangement"
-    ![Go to SD Desktop Management -button](images/desktop/SD-Desktop_GoToManagement.png)
-=== "1. Desktop parameters"
-    ![Select project](images/desktop/SD-Desktop_SelectProject.png)
-=== "2. Pre-build desktop options"
-    ![Select pre-build option](images/desktop/SD-Desktop_PreBuild.png)
-=== "3. External volume"
-    ![Add external volume](images/desktop/SD-Desktop_Volume.png)
-=== "4. Create desktop"
-    ![Create Desktop -button](images/desktop/SD-Desktop_CreateButton.png)
-
 
 
 ## Important considerations
