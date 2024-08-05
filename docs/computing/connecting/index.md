@@ -7,9 +7,19 @@ web interface is a very good starting point, since it enables running both
 graphical applications and command-line shells using your web browser, and 
 there is no need for any additional configurations or installations.
 
-!!! note "Connecting to LUMI"
-    Please see the LUMI documentation for instructions on
-    [connecting to the LUMI supercomputer](https://docs.lumi-supercomputer.eu/firststeps/getstarted/).
+For instructions on connecting to the LUMI supercomputer, please see the
+[Get Started page in the LUMI user guide](https://docs.lumi-supercomputer.eu/firststeps/getstarted/).
+
+!!! note "Login node usage policy"
+
+    When you connect to a supercomputer using an SSH client or the
+    [*Login node shell*](../webinterface/shell.md) app, you are directed to a
+    login node.  Login nodes can be used for light pre- and postprocessing
+    tasks, compiling applications and moving data. **All other tasks are to be
+    done on compute nodes** using the
+    [batch job system](../running/getting-started.md). Processes not adhering
+    to these rules will be terminated without warning. Compute
+    nodes can also be [used interactively](../running/interactive-usage.md).
 
 ## Using the web interface
 
