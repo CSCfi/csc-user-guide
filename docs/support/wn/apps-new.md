@@ -1,5 +1,12 @@
 # Applications
 
+## Schrödinger Maestro 2024.3, 5.8.2024
+
+[Schrödinger Maestro](../../apps/maestro.md) version 2024.3 has been installed
+and set as the default module on Puhti and Mahti. See
+[release notes](https://www.schrodinger.com/life-science/download/release-notes/)
+for a list of new features and improvements.
+
 ## PyTorch 2.3.1, 13.6.2024
 
 [PyTorch](../../apps/pytorch.md) 2.3.1 added to Puhti and Mahti. The
