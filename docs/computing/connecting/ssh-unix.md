@@ -10,9 +10,9 @@ You can create a remote SSH connection by opening the terminal and running:
 
 ```bash
 # Replace <username> with the name of your CSC user account and
-# <hostname> with "puhti" or "mahti"
+# <host> with "puhti" or "mahti"
 
-ssh <username>@<hostname>.csc.fi
+ssh <username>@<host>.csc.fi
 ```
 
 ## Graphical connection
@@ -25,7 +25,7 @@ To enable displaying graphics over SSH, use the `-X` (X11 forwarding) or `-Y`
 (trusted X11 forwarding) option when launching the SSH client:
 
 ```bash
-ssh -X <username>@<hostname>.csc.fi
+ssh -X <username>@<host>.csc.fi
 ```
 
 For more information about the X11 forwarding options, run `man ssh` in the
@@ -33,7 +33,8 @@ terminal.
 
 ## Generating SSH keys
 
-You can use the `ssh-keygen` command-line utility for generating SSH keys:
+On macOS and Linux, you can use the `ssh-keygen` command-line utility for
+generating SSH keys:
 
 ```bash
 ssh-keygen -o -a 100 -t ed25519
@@ -43,10 +44,16 @@ You will be asked to type a passphrase. Although it is possible to leave the
 field empty, we encourage you to use a passphrase as it is considerably more
 secure. 
 
+!!! note "Using SSH keys"
+
+    See the page on [setting up SSH keys](./ssh-keys.md) for general
+    information about using SSH keys for authentication.
+
 ## Copying public key to supercomputer
 
-To copy your public key to a supercomputer, you can use the `ssh-copy-id`
-utility by running:
+The recommended way to copy a public key to a supercomputer is
+[through the MyCSC customer portal](./ssh-keys.md#adding-public-key-in-mycsc).
+Alternatively, you can use the `ssh-copy-id` utility:
 
 ```bash
 ssh-copy-id <username>@<host>.csc.fi
@@ -61,7 +68,7 @@ directly by running the following commands:
 ```bash
 # Default location for ssh keys is "~/.ssh/"
 
-scp ~/.ssh/<key-id>.pub <username>@<host>.csc.fi:~/.ssh/<key-id>.pub
+scp ~/.ssh/<key-id>.pub <username>@<host>.csc.fi:~/.ssh/<key-id>.pub  # e.g. id_ed25519.pub
 ssh <username>@<host>.csc.fi
 cat ~/.ssh/<key-id>.pub >> ~/.ssh/authorized_keys
 rm ~/.ssh/<key-id>.pub

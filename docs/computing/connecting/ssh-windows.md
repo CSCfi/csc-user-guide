@@ -17,7 +17,7 @@ To install OpenSSH on a Windows device, follow
 After installing OpenSSH, you can connect to a CSC supercomputer by opening
 PowerShell and running:
 
-```
+```bash
 # Replace <username> with the name of your CSC user account and
 # <host> with "puhti" or "mahti"
 
@@ -31,14 +31,14 @@ you can use, for example, the
 [Xming X server](http://www.straightrunning.com/XmingNotes/). To enable displaying
 graphics remotely, run:
 
-```
+```bash
 $env:DISPLAY="localhost:0.0"
 ```
 
 Then, use the `-X` (X11 forwarding) or `-Y` (trusted X11 forwarding) option when
 creating the connection:
 
-```
+```bash
 ssh -X <username>@<host>.csc.fi
 ```
 
@@ -46,19 +46,26 @@ ssh -X <username>@<host>.csc.fi
 
 You can generate SSH keys using PowerShell by running:
 
-```
+```bash
 ssh-keygen -o -a 100 -t ed25519
 ```
 
+!!! note "Using SSH keys"
+
+    See the page on [setting up SSH keys](./ssh-keys.md) for general
+    information about using SSH keys for authentication.
+
 ### Copying public key to supercomputer (PowerShell)
 
-To copy your public key to a supercomputer using PowerShell, run the following
+The recommended way to copy a public key to a supercomputer is
+[through the MyCSC customer portal](./ssh-keys.md#adding-public-key-in-mycsc).
+Alternatively, you can do it using PowerShell by running the following
 commands:
 
-```
+```bash
 # Default location for ssh keys is "C:\Users\<username>\.ssh\"
 
-scp C:\Users\<username>\.ssh\<key-id>.pub <username>@<host>.csc.fi:~/.ssh/<key-id>.pub
+scp C:\Users\<username>\.ssh\<key-id>.pub <username>@<host>.csc.fi:~/.ssh/<key-id>.pub  # e.g. id_ed25519.pub
 ssh <username>@<host>.csc.fi
 cat ~/.ssh/<key-id>.pub >> ~/.ssh/authorized_keys
 rm ~/.ssh/<key-id>.pub
@@ -109,6 +116,10 @@ generator](https://www.puttygen.com/). The PuTTY documentation provides
 
 ### Copying public key to supercomputer (PuTTY)
 
+The recommended way to copy a public key to a supercomputer is
+[through the MyCSC customer portal](./ssh-keys.md#adding-public-key-in-mycsc).
+Alternatively, you can do it using PuTTY by following the instructions below.
+
 1. Do one of the following:
     1. Copy the public key (`ssh-ed25519 ...`) displayed in the PuTTYgen main
     window to your clipboard. Make sure to scroll down to the bottom of the
@@ -119,6 +130,11 @@ generator](https://www.puttygen.com/). The PuTTY documentation provides
 2. Connect to a supercomputer using SSH and open the `~/.ssh/authorized_keys`
    file using a text editor. Paste your copied public key to the end of the
    file and save the file.
+
+!!! note "Using SSH keys"
+
+    See the page on [setting up SSH keys](./ssh-keys.md) for general
+    information about using SSH keys for authentication.
 
 ### Connecting with SSH keys (PuTTY)
 
@@ -140,7 +156,7 @@ to store your private keys in memory.
 server, which means that it can be used to display graphics. To connect using
 MobaXterm, open the terminal and run:
 
-```
+```bash
 # Replace <username> with the name of your CSC user account and
 # <host> with "puhti" or "mahti"
 
@@ -152,7 +168,7 @@ ssh <username>@<host>.csc.fi
 To enable displaying graphics over SSH, use the `-X` (X11 forwarding) or `-Y`
 (trusted X11 forwarding) option when creating the connection:
 
-```
+```bash
 ssh -X <username>@<host>.csc.fi
 ```
 
@@ -160,22 +176,27 @@ ssh -X <username>@<host>.csc.fi
 
 You can generate SSH keys using MobaXterm by running:
 
-```
+```bash
 ssh-keygen -o -a 100 -t ed25519
 ```
 
-!!! note "Have your keys persist between sessions"
+If you want your generated keys to persist through MobaXterm restarts,
+set a persistent home directory for MobaXterm in the program settings
+(`Settings --> Configuration --> General`).
 
-    If you want your generated keys to persist through MobaXterm restarts,
-    set a persistent home directory for MobaXterm in the program settings
-    (`Settings --> Configuration --> General`).
+!!! note "Using SSH keys"
+
+    See the page on [setting up SSH keys](./ssh-keys.md) for general
+    information about using SSH keys for authentication.
 
 ### Copying public key to supercomputer (MobaXterm)
 
-To copy your public key to a supercomputer using MobaXterm, you can use the
-`ssh-copy-id` utility by running:
+The recommended way to copy a public key to a supercomputer is
+[through the MyCSC customer portal](./ssh-keys.md#adding-public-key-in-mycsc).
+Alternatively, you can do it in MobaXterm using the `ssh-copy-id`
+utility:
 
-```
+```bash
 ssh-copy-id <username>@<host>.csc.fi
 ```
 
@@ -185,10 +206,10 @@ Subsequent logins using the SSH key pair will ask for the passphrase.
 If, for some reason, `ssh-copy-id` does not work, you can copy the public key
 directly by running the following commands:
 
-```
+```bash
 # Default location for ssh keys is "C:\Users\<username>\.ssh\"
 
-scp C:\Users\<username>\.ssh\<key-id>.pub <username>@<host>.csc.fi:~/.ssh/<key-id>.pub
+scp C:\Users\<username>\.ssh\<key-id>.pub <username>@<host>.csc.fi:~/.ssh/<key-id>.pub  # e.g. id_ed25519.pub
 ssh <username>@<host>.csc.fi
 cat ~/.ssh/<key-id>.pub >> ~/.ssh/authorized_keys
 rm ~/.ssh/<key-id>.pub
