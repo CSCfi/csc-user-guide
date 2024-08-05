@@ -105,8 +105,10 @@ the GUI on your own laptop/workstation. For detailed instructions, see the [AMS-
 Depending on your usage, be careful to properly cite the AMS driver, used calculation engines as well as feature references. For details, see the [relevant AMS documentation](https://www.scm.com/doc/Documentation/ ) 
 
 ## More information
--   [AMS2023 Support pages](https://www.scm.com/support/)
+
+-   [AMS support pages](https://www.scm.com/contact-us/)
 -   [Tutorials](https://www.scm.com/doc/Tutorials/index.html)
--   [Teaching materials](https://www.scm.com/support/adf-teaching-materials/)
+-   [Workshops](https://www.scm.com/workshops/)
 -   [FAQ](https://www.scm.com/faq/)
--   [Newsletter](https://www.scm.com/newsletters/)
+-   [Knowledge bank](https://www.scm.com/knowledgebank/)
+-   [The latest news](https://www.scm.com/news/)
