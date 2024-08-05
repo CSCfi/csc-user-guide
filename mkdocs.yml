@@ -427,6 +427,7 @@ nav:
             - Access with register permit: data/sensitive-data/single-register-permit.md
         - Analyse with SD Desktop for secondary use: 
             - data/sensitive-data/sd-desktop-audited.md
+            - Login to SD Desktop: data/sensitive-data/sd-desktop-secondary-login.md
             - Create virtual desktop: data/sensitive-data/sd-desktop-secondary-create.md
             - Manage virtual desktop: data/sensitive-data/sd-desktop-secondary-manage.md
             - Access virtual desktop and data: data/sensitive-data/sd-desktop-secondary-access.md
