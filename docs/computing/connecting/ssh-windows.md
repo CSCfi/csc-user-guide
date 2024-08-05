@@ -63,10 +63,10 @@ Alternatively, you can do it using PowerShell by running the following
 command:
 
 ```bash
-# The default location for SSH keys is "C:\Users\<username>\.ssh\"
+# The default location for SSH keys is "C:\Users\<local-user>\.ssh\"
 # and the default ED25519 key ID is "id_ed25519"
 
-cat C:\Users\<username>\.ssh\<key-id>.pub | ssh <username>@<host>.csc.fi "cat >> ~/.ssh/authorized_keys"
+cat C:\Users\<local-user>\.ssh\<key-id>.pub | ssh <csc-user>@<host>.csc.fi "cat >> ~/.ssh/authorized_keys"
 ```
 
 ### Authentication agent (PowerShell)
