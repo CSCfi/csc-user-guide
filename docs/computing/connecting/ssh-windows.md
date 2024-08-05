@@ -1,8 +1,8 @@
 # SSH client on Windows
 
-There are various programs that can be used for creating a remote SSH connection
-on a Windows system. This page provides instructions for doing so using a few
-popular ones.
+There are various programs that can be used for creating a remote SSH
+connection on a Windows system. This page provides instructions for a few
+popular alternatives.
 
 ## PowerShell
 
@@ -19,9 +19,9 @@ PowerShell and running:
 
 ```
 # Replace <username> with the name of your CSC user account and
-# <hostname> with "puhti" or "mahti"
+# <host> with "puhti" or "mahti"
 
-ssh <username>@<hostname>.csc.fi
+ssh <username>@<host>.csc.fi
 ```
 
 ### Graphical connection (PowerShell)
@@ -39,7 +39,7 @@ Then, use the `-X` (X11 forwarding) or `-Y` (trusted X11 forwarding) option when
 creating the connection:
 
 ```
-ssh -X <username>@<hostname>.csc.fi
+ssh -X <username>@<host>.csc.fi
 ```
 
 ### Generating SSH keys (PowerShell)
@@ -142,9 +142,9 @@ MobaXterm, open the terminal and run:
 
 ```
 # Replace <username> with the name of your CSC user account and
-# <hostname> with "puhti" or "mahti"
+# <host> with "puhti" or "mahti"
 
-ssh <username>@<hostname>.csc.fi
+ssh <username>@<host>.csc.fi
 ```
 
 ### Graphical connection (MobaXterm)
@@ -153,7 +153,7 @@ To enable displaying graphics over SSH, use the `-X` (X11 forwarding) or `-Y`
 (trusted X11 forwarding) option when creating the connection:
 
 ```
-ssh -X <username>@<hostname>.csc.fi
+ssh -X <username>@<host>.csc.fi
 ```
 
 ### Generating SSH keys (MobaXterm)
