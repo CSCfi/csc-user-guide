@@ -93,3 +93,42 @@ connection using X11 forwarding. See the operating system-specific instructions:
     * [PuTTY](ssh-windows.md#graphical-connection-putty)
     * [MobaXterm](ssh-windows.md#graphical-connection-mobaxterm)
 
+### Advanced usage
+
+When you connect to a supercomputer, you are automatically directed to one of
+the login nodes on the system. However, you can also use your SSH client to
+connect to a specific login node:
+
+```bash
+ssh <username>@<host>-login<id>.csc.fi  # e.g. 'puhti-login11.csc.fi'
+```
+
+The available login nodes are:
+
+| Puhti | Mahti |
+|-|-|
+| `puhti-login11` | `mahti-login11` |
+| `puhti-login12` | `mahti-login12` |
+| `puhti-login14` | `mahti-login14` |
+| `puhti-login15` | `mahti-login15` |
+
+This also applies to compute nodes, although just the ones where you have a
+job running. Use the `squeue` command to see which node(s) your job is on, and
+then connect to a node using `ssh`. 
+
+```bash
+# The nodes hosting the job are
+# displayed in the "NODELIST(REASON)" column.
+
+[username@puhti-login11 ~]$ squeue --me
+             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+          12345678      test     test username  R       0:01      1 r07c01
+[username@puhti-login11 ~]$ ssh r07c01
+[username@r07c01 ~]$ hostname
+r07c01.bullx
+```
+
+If you try to connect to a node where you have no active jobs, you will
+receive the following error message: `Access denied by pam_slurm_adopt: you
+have no active jobs on this node`.
+
