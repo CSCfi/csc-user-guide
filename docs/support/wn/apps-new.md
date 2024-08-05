@@ -3,9 +3,10 @@
 ## Schrödinger Maestro 2024.3, 5.8.2024
 
 [Schrödinger Maestro](../../apps/maestro.md) version 2024.3 has been installed
-and set as the default module on Puhti and Mahti. See
+and set as the default module on Puhti and Mahti. As a major highlight, this
+release includes the new OPLS5 polarizable force field. See
 [release notes](https://www.schrodinger.com/life-science/download/release-notes/)
-for a list of new features and improvements.
+for the full list of new features and improvements.
 
 ## PyTorch 2.3.1, 13.6.2024
 
