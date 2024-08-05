@@ -7,28 +7,20 @@ With the SD Desktop service, you can create virtual computers for analysing sens
 ## Step by step
 
 ### 1. Log in:
-* [Log in](./sd-desktop-login.md) to SD Desktop service. [Login instructions](sd-desktop-secondary-login.md).
-* Click on *Go to SD Desktop Management*.
-![Go to SD Desktop Management.](./images/desktop/SD-Desktop_GoToManagement.png)
+* [Log in](./sd-desktop-login.md) to SD Desktop service. [Login instructions](sd-desktop-secondary-login.md)
+* Click **Go to SD Desktop Management**.
 
-### 2. Select :
+![Go to SD Desktop Management.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-Desktop_GoToManagement.png)
+
+### 2. Select project, operating system and name for desktop:
 1. correct CSC project
 2. operating system. We recommend to choose **Linux Ubuntu22**, since there will be no updates published for Linux CentOS7 after June 30, 2024. 
 3. name for your desktop. A descriptive name is useful, especially if you are working on multiple projects. Note, that the name should only include letters or numbers, and you shouldn't use special characters or spaces in the name.
 4. a pre-built desktop option based on your needs. [See options below](#virtual-desktop-options)
 
-![Virtual desktop parameters.](./images/desktop/SD-Desktop_SelectProject.png)
+![Virtual desktop selections.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-Desktop_SelectProject.png)
 
-Add an external volume (virtual external hard drive) to your virtual desktop, extending default storage (80 GB) up to 200 GB.
-    * Name your volume. Note, that the volume name should not include special characters or spaces.
-    * Choose a size that covers the combined size of your dataset and working files. If you are unsure about which volume size you should choose, send an email to servicedesk@csc.fi.
-    * **It's advisable to save critical analyses or files on the volume, which can also serve as a backup if the virtual desktop becomes unresponsive.** Note that after the virtual desktop is created, disk space/volume extension requires contacting [CSC Service Desk](../../support/contact.md), *(subject: Sensitive Data)*. 
-    * **You can detach and attach a volume from your virtual desktop** on the SD Desktop Management page. This can be compared to connecting/disconnecting a hard drive to your laptop. This feature is available only on desktops created after February 2023. For additional details, refer to: [Managing volume and desktops](./sd-desktop-manage.md).
-![Add volume.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-Desktop_Volume.png)
-
-Finally, press on _Create desktop_. The operation is entirely automated and can take up to 30 minutes. If you try accessing the virtual desktop during this process, an error message will be displayed asking you to return later.
-
-### Virtual desktop options
+#### Virtual desktop options
 
 |  | Use  | Technical specifications | Correspondent Pouta Flavor | Billing Units consumption |
 |-|-|-|-|-| 
@@ -40,6 +32,25 @@ Finally, press on _Create desktop_. The operation is entirely automated and can 
 
 !!! note
     The two GPU options are available only for testing purposes. Before proceeding, contact [CSC Service Desk](../../support/contact.md), *(subject: Sensitive Data)* to ensure optimal use, as limited resources require careful planning.
+
+
+### 3. Add an external volume (virtual external hard drive)
+
+Add an external volume to your virtual desktop, extending default storage (80 GB) up to 200 GB.
+
+1. Choose a size that covers the combined size of your dataset and working files. If you are unsure about which volume size you should choose, send an email to servicedesk@csc.fi.
+2. Name your volume. Note, that the volume name should not include special characters or spaces.
+
+* **It's advisable to save critical analyses or files on the volume, which can also serve as a backup if the virtual desktop becomes unresponsive.** Note that after the virtual desktop is created, disk space/volume extension requires contacting [CSC Service Desk](../../support/contact.md), *(subject: Sensitive Data)*. 
+* **You can detach and attach a volume from your virtual desktop** on the SD Desktop Management page. This can be compared to connecting/disconnecting a hard drive to your laptop. This feature is available only on desktops created after February 2023. For additional details, refer to: [Managing volume and desktops](./sd-desktop-manage.md).
+
+![Add volume.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-Desktop_Volume.png)
+
+### 4. Create virtual desktop
+
+Finally, click _Create desktop_. The operation is entirely automated and can take up to 30 minutes. If you try accessing the virtual desktop during this process, an error message will be displayed asking you to return later.
+
+![Create desktop.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-Desktop_CreateButton.png)
 
 
 ## Important considerations
