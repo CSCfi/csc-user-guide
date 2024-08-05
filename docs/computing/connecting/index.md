@@ -103,30 +103,6 @@ connection using X11 forwarding. See the operating system-specific instructions:
 
 ### Advanced usage
 
-#### Remote development
-
-Some editors like Visual Studio Code and Notepad++ can be used to
-[work on files remotely](../../support/tutorials/remote-dev.md)
-using an appropriate plugin.
-
-#### Configuring SSH client
-
-You can save yourself some time by adding host-specific options for CSC
-supercomputers in an [SSH config file](https://www.ssh.com/academy/ssh/config)
-(e.g. `~/.ssh/config`).
-
-```bash
-Host <host>  # e.g. "puhti"
-    HostName <host>.csc.fi
-    User <csc-username>
-```
-
-Now you can connect to the host simply by running:
-
-```bash
-ssh <host>
-```
-
 #### Connecting to a specific node
 
 When you connect to a supercomputer, you are automatically directed to one of
@@ -166,3 +142,26 @@ If you try to connect to a node where you have no active jobs, you will
 receive the following error message: `Access denied by pam_slurm_adopt: you
 have no active jobs on this node`.
 
+#### Configuring SSH client
+
+You can save yourself some time by adding host-specific options for CSC
+supercomputers in an [SSH config file](https://www.ssh.com/academy/ssh/config)
+(e.g. `~/.ssh/config`).
+
+```bash
+Host <host>  # e.g. "puhti"
+    HostName <host>.csc.fi
+    User <csc-username>
+```
+
+Now you can connect to the host simply by running:
+
+```bash
+ssh <host>
+```
+
+#### Remote development
+
+Some editors like Visual Studio Code and Notepad++ can be used to
+[work on files remotely](../../support/tutorials/remote-dev.md)
+using an appropriate plugin.
