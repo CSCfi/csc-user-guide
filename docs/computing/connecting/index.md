@@ -69,11 +69,11 @@ Are you sure you want to continue connecting (yes/no/[fingerprint])?
 ```
 
 In order to continue, you should confirm that the displayed key fingerprint is
-found in the table below, and then enter `yes`. You will not be asked again
-unless the server key changes, in which case you should again verify the new key
-against fingerprints provided by CSC.
+found in the [table below](#host-key-fingerprints), and then enter `yes`. You
+will not be asked again unless the server key changes, in which case you
+should again verify the new key against fingerprints provided by CSC.
 
-### Host key fingerprints
+#### Host key fingerprints
 
 === "Puhti"
     | SHA256 checksum                             | Key                                |
@@ -108,6 +108,24 @@ connection using X11 forwarding. See the operating system-specific instructions:
 Some editors like Visual Studio Code and Notepad++ can be used to
 [work on files remotely](../../support/tutorials/remote-dev.md)
 using an appropriate plugin.
+
+#### Configuring SSH client
+
+You can save yourself some time by adding host-specific options for CSC
+supercomputers in an [SSH config file](https://www.ssh.com/academy/ssh/config)
+(e.g. `~/.ssh/config`).
+
+```bash
+Host <host>  # e.g. "puhti"
+    HostName <host>.csc.fi
+    User <csc-username>
+```
+
+Now you can connect to the host simply by running:
+
+```bash
+ssh <host>
+```
 
 #### Connecting to a specific node
 
