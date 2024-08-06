@@ -52,7 +52,7 @@ secure.
 ## Copying public key to supercomputer
 
 The recommended way to copy a public key to a supercomputer is
-[through the MyCSC customer portal](./ssh-keys.md#adding-public-key-in-mycsc).
+[through the My CSC customer portal](./ssh-keys.md#adding-public-key-in-mycsc).
 Alternatively, you can use the `ssh-copy-id` utility:
 
 ```bash
