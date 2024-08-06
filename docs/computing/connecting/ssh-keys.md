@@ -47,7 +47,7 @@ letters and special characters.
 ## Copying public key to supercomputer
 
 The recommended and easiest way to copy your public key to a CSC system is
-[through the My CSC customer portal](#adding-public-key-in-mycsc). For other
+[through the My CSC customer portal](#adding-public-key-in-my-csc). For other
 approaches, please see the system-specific SSH instructions for Unix-based and
 Windows systems.
 
