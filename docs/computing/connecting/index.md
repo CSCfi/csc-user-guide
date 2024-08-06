@@ -12,12 +12,9 @@ For instructions on connecting to the LUMI supercomputer, please see the
 
     When you connect to a supercomputer using an SSH client or the
     [*Login node shell*](../webinterface/shell.md) app, you are directed to a
-    login node.  Login nodes can be used for light pre- and postprocessing
-    tasks, compiling applications and moving data. **All other tasks are to be
-    done on compute nodes** using the
-    [batch job system](../running/getting-started.md). Processes not adhering
-    to these rules will be terminated without warning. Compute
-    nodes can also be [used interactively](../running/interactive-usage.md).
+    login node. Login nodes are **not meant for long or heavy processing**.
+    The accepted uses for login nodes are defined in our
+    [login node usage policy](../usage-policy.md#login-nodes).
 
 ## Using the web interface
 
