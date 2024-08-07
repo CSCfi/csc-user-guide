@@ -11,7 +11,8 @@ tags:
 
 Only WhiteboxTools Open Core tools are available on Puhti. WhiteboxTools is available with following versions:
 
-* 2.2.0 in the **geoconda** module
+* 2.3.5 in 3.11.9 **geoconda** module
+* 2.2.0 in 3.10.x **geoconda** modules
 * 2.1.0 in the **WhiteboxTools** module 
 
 ## Usage
