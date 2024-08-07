@@ -18,16 +18,19 @@ For instructions on connecting to the LUMI supercomputer, please see the
 
 ## Using the web interface
 
-The [supercomputer web interface](../webinterface/index.md) is a good platform
-for using most graphical applications, such as Jupyter notebooks and RStudio, on
-Puhti and Mahti. Additionally, you can launch a
-[remote desktop](../webinterface/desktop.md) for running various programs
-that feature graphical user interfaces. It is also possible to open a
-persistent shell on a login or compute node, which will keep running even if
-you close your browser or lose your internet connection. The command-line
-shell provided in the web interface is especially useful for users running
-a Windows system, since those do not typically come with a pre-installed SSH
-client. See the instructions for
+The [web interface](../webinterface/index.md) is a good platform
+for using graphical applications on the Puhti and Mahti supercomputers.
+It hosts
+[interactive applications for select programs](../webinterface/apps.md)
+like Jupyter and RStudio, and for other GUI programs you can use the
+[remote desktop](../webinterface/desktop.md) interface. 
+
+It is also possible to [open a shell program](../webinterface/shell.md) on a
+login node or compute node. The compute node shell is persistent, meaning it
+will keep running even if you close your browser or lose your internet
+connection. The shell applications are especially convenient for users whose
+workstation has a Windows operating system, since Windows does not
+typically come with a pre-installed SSH client. See the instructions for
 [connecting to Puhti and Mahti web interfaces](../webinterface/connecting.md).
 
 ## Using an SSH client
