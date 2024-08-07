@@ -12,5 +12,5 @@ An error may occur if you have run out of disk quota.
 Another (better) way to run remote graphics is to use a remote desktop through
 the [Puhti web interface](../../computing/webinterface/index.md).
 
-See also
-[Using graphical applications](../../computing/connecting.md#using-graphical-applications).
+For more details, see our
+[instructions for graphical connections](../../computing/connecting/index.md#graphical-connection).

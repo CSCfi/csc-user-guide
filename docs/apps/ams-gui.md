@@ -92,7 +92,7 @@ the internet.
 
 In order to manage remote jobs you need to set up an ssh key pair between your
 workstation and Puhti (Mahti), see
-[Setting up SSH keys](../../computing/connecting/#setting-up-ssh-keys).
+[Setting up SSH keys](../computing/connecting/ssh-keys.md).
 
 All saved jobs, both calculated and uncalculated, can be found in the GUI under `SCM-> Jobs`.
 Before you submit a job to the batch queue you have to define what resources it needs
