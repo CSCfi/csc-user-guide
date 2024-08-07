@@ -48,8 +48,7 @@ letters and special characters.
 
 The recommended and easiest way to copy your public key to a CSC system is
 [through the My CSC customer portal](#adding-public-key-in-my-csc). For other
-approaches, please see the system-specific SSH instructions for Unix-based and
-Windows systems.
+approaches, please see the system-specific SSH instructions.
 
 ### Adding public key in My CSC
 
