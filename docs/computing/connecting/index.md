@@ -38,12 +38,12 @@ typically come with a pre-installed SSH client. See the instructions for
 
 Unix-based systems like macOS and Linux typically come with a pre-installed
 terminal program called simply *Terminal*. The instructions for using an
-[SSH client on macOS and Linux](./ssh-unix) show how to connect to a CSC
+[SSH client on macOS and Linux](ssh-unix.md) show how to connect to a CSC
 supercomputer using the terminal program.
 
 While Windows systems do not have a similar pre-existing solution for connecting
 over SSH, there are multiple programs that can be used for this. The
-instructions for using an [SSH client on Windows](./ssh-windows) lists a few
+instructions for using an [SSH client on Windows](ssh-windows.md) lists a few
 popular options.
 
 Once the SSH connection to the supercomputer is open, you can interact with it
@@ -54,7 +54,7 @@ You can have several connections to CSC supercomputers open at the same time.
 
 !!! note "SSH keys"
     When you connect over SSH, you can log in using your CSC account password, but
-    it is more convenient and secure to [set up SSH keys](./ssh-keys.md) and use
+    it is more convenient and secure to [set up SSH keys](ssh-keys.md) and use
     them for authentication.
 
 ### First connection

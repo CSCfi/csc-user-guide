@@ -45,13 +45,13 @@ should be at least 8 characters long and contain numbers, letters and special
 characters. Never leave the passphrase empty!
 
 !!! note "Using SSH keys"
-    See the page on [setting up SSH keys](./ssh-keys.md) for general
+    See the page on [setting up SSH keys](ssh-keys.md) for general
     information about using SSH keys for authentication.
 
 ## Copying public key to supercomputer
 
 The recommended way to copy a public key to a supercomputer is
-[through the My CSC customer portal](./ssh-keys.md#adding-public-key-in-my-csc).
+[through the My CSC customer portal](ssh-keys.md#adding-public-key-in-my-csc).
 Alternatively, you can use the `ssh-copy-id` utility:
 
 ```bash
