@@ -48,6 +48,27 @@ letters and special characters.
 !!! warning
     Never leave the passphrase empty when generating an SSH key pair!
 
+### SSH key file with non-default name or location
+
+If you want to store your key pair in a non-default location (somewhere else
+than `~/.ssh/` or `C:\Users\<username>\.ssh\`), set the key location in the
+`.ssh/config` file or using an authentication agent (see system-specific
+instructions). If you intend to use RStudio, Jupyter notebooks or something
+else where the connecting from your local workstation to a compute node
+requires piping through a login node, set agent-forwarding and the path to
+your private key in the `.ssh/config` file as follows:
+
+```bash
+Host <host>.csc.fi
+  HostName <host>.csc.fi
+  User <username>
+  ForwardAgent yes
+  IdentityFile /<path-to-key-files>/<private-key>
+
+Host *.bullx
+  IdentityFile /<path-to-key-files>/<private-key>
+```
+
 ## Copying public key to supercomputer
 
 The recommended and easiest way to copy your public key to a CSC system is
@@ -80,24 +101,3 @@ You can add your public key through the
       ```
       ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDlapOdeoxNvz/1AZFRjGAPnPj8pzzz3skI+a+yJS5b7
       ```
-
-### SSH key file with non-default name or location
-
-If you want to store your key pair in a non-default location (somewhere else
-than `~/.ssh/` or `C:\Users\<username>\.ssh\`), set the key location in the
-`.ssh/config` file or using an authentication agent (see system-specific
-instructions). If you intend to use RStudio, Jupyter notebooks or something
-else where the connecting from your local workstation to a compute node
-requires piping through a login node, set agent-forwarding and the path to
-your private key in the `.ssh/config` file as follows:
-
-```bash
-Host <host>.csc.fi
-  HostName <host>.csc.fi
-  User <username>
-  ForwardAgent yes
-  IdentityFile /<path-to-key-files>/<private-key>
-
-Host *.bullx
-  IdentityFile /<path-to-key-files>/<private-key>
-```
