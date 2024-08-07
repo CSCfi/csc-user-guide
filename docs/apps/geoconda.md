@@ -23,7 +23,7 @@ includes following python packages:
 -   **[geopandas]** - GeoPandas extends the datatypes used by [pandas].
 -   [igraph](https://igraph.org/python/) - for fast routing. [Routing examples in CSC geocomputing Github](https://github.com/csc-training/geocomputing/tree/master/python/routing)
 -   [geopy](https://geopy.readthedocs.io/) - client for several popular geocoding web services.
--   [geo2ml](https://github.com/mayrajeo/geo2ml) - for preparing spatial data for machine learning 
+-   [geo2ml](https://github.com/mayrajeo/geo2ml) - for preparing spatial data for machine learning NEW 2024
 -   [h3pandas](https://h3-pandas.readthedocs.io/en/latest/) - for hexagonal geospatial indexing system, with Pandas and GeoPandas. NEW 2024
 -   **[jupyter]** - Jupyter Notebooks and JupyterLab, best to use with [Puhti web interface](../computing/webinterface/index.md) and [Jupyter](../computing/webinterface/jupyter.md)
 -   [laspy](https://pythonhosted.org/laspy/) - for reading, modifying, and creating .LAS LIDAR files. 
@@ -62,7 +62,7 @@ includes following python packages:
 -   [skimage] -  algorithms for image processing.
 -   [stackstac](https://stackstac.readthedocs.io/) - STAC data to xarray, [STAC example in CSC geocomputing Github](https://github.com/csc-training/geocomputing/tree/master/python/STAC).
 -   [swiftclient, keystoneclient](https://docs.openstack.org/python-swiftclient/latest/) - for working with SWIFT storage, for example Allas. [Allas Swift example in CSC geocomputing Github](https://github.com/csc-training/geocomputing/blob/master/python/allas/working_with_allas_from_Python_Swift.py).
--   [whiteboxtools](https://www.whiteboxgeo.com/) -  wide-scope processing of geospatial data, many tools operate in parallel, see [CSC whiteboxtools page](whiteboxtools.md) for details. NEW 2023
+-   [whiteboxtools](https://www.whiteboxgeo.com/) -  wide-scope processing of geospatial data, many tools operate in parallel, see [CSC whiteboxtools page](whiteboxtools.md) for details.
 -   **[xarray](http://xarray.pydata.org)** - for multidimensional raster data, inc. [rioxarray](https://corteva.github.io/rioxarray). [STAC example in CSC geocomputing Github](https://github.com/csc-training/geocomputing/tree/master/python/STAC).
     -   [xarray-spatial](https://xarray-spatial.org/) - efficient common raster analysis functions for xarray. NEW 2022
     -   [xarray_leaflet](https://github.com/xarray-contrib/xarray_leaflet) - xarray extension for tiled map plotting. NEW 2023
@@ -72,7 +72,7 @@ includes following python packages:
 Additionally geoconda includes:
 
 -   [spyder] - Scientific Python Development Environment with graphical interface (similar to RStudio for R). 
--   [GDAL/OGR](../apps/gdal.md) commandline tools 
+-   **[GDAL/OGR](../apps/gdal.md)** commandline tools 
 -   [GMT] The Generic Mapping Tools 
 -   [landsatlinks](https://github.com/ernstste/landsatlinks) - for creating download URLs for Landsat Collection 2 Level 1 product bundles using the USGS/EROS Machine-to-Machine API. Use `python3.10 -m landsatlinks`. NEW 2023
 -   [PDAL] Point Data Abstraction Library
