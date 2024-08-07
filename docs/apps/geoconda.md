@@ -17,7 +17,6 @@ includes following python packages:
     -   [Dask parallization example in CSC geocomputing Github](https://github.com/csc-training/geocomputing/tree/master/python/puhti/05_parallel_dask).
     -   [STAC example in CSC geocomputing Github](https://github.com/csc-training/geocomputing/tree/master/python/STAC).
 -   [descartes] - use Shapely or GeoJSON-like geometric objects as matplotlib paths and patches.
--   [eo-learn](https://eo-learn.readthedocs.io/en/latest/) - for remote sensing data retrieval and analysis. NEW 2024
 -   [Google Earth Engine API](https://developers.google.com/earth-engine/guides/python_install). 
 -   [fiona] - reads and writes spatial data files.
 -   [geoalchemy2]  - provides extensions to [SQLAlchemy] for working with spatial databases, primarily PostGIS.
