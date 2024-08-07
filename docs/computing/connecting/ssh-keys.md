@@ -70,11 +70,10 @@ You can add your public key through the
    longer than that, please
    [contact the CSC Service Desk](../../support/contact.md).
 
-!!! info "Using compatible format"
-      Your public key must be provided in the OpenSSH format, or it is not
-      registered properly. The key must not have line breaks and there must
-      not be any spaces in the key sequence. A key in the specified format
-      looks like this:
+!!! info "Required key format"
+      Your public key should consist of the SSH key type and the key sequence,
+      separated by a single space. If your key is improperly formatted, an
+      error message is displayed. A key in the correct format looks like this:
 
       ```
       ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDlapOdeoxNvz/1AZFRjGAPnPj8pzzz3skI+a+yJS5b7
