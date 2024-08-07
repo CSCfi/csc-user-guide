@@ -34,7 +34,7 @@ includes following python packages:
 -   [networkx] - for the creation, manipulation, and study of the structure, dynamics, and functions of complex networks. [Routing examples in CSC geocomputing Github](https://github.com/csc-training/geocomputing/tree/master/python/routing)
 -   [pyproj] - performs cartographic transformations and geodetic computations.
 -   [pyogrio](https://pyogrio.readthedocs.io/en/latest/index.html) - vectorized spatial vector file format I/O using GDAL/OGR.
--   [openeo](https://openeo.org/) - for connectin to Earth observation cloud back-ends in a simple and unified way. NEW 2024
+-   [openeo](https://openeo.org/) - for connecting to Earth observation cloud back-ends in a simple and unified way. NEW 2024
 -   [open3d](http://www.open3d.org/docs/release/index.html) - for 3D data processing
 -   [osmnx] - download spatial geometries and construct, project, visualize, and analyze street networks from
     OpenStreetMap's APIs. [Routing examples in CSC geocomputing Github](https://github.com/csc-training/geocomputing/tree/master/python/routing) Only in geoconda-3.10.x.
@@ -139,7 +139,7 @@ spyder
 `r5py` by default does not correctly understand how much memory it has available in a supercomputer so, it has to be defined manually. It is using Java in the background, so add environmental variable to set maximum memory available for Java: 
 
 * `export _JAVA_OPTIONS="-Xmx4g"` from command-line before starting Python OR
-* `os.environ["_JAVA_OPTIONS"] = "-Xmx4g"` in the beginning of you Python code.
+* `os.environ["_JAVA_OPTIONS"] = "-Xmx4g"` in the beginning of your Python code.
 
 ## Using Allas from Python
 
