@@ -74,7 +74,7 @@ Additionally geoconda includes:
 -   [spyder] - Scientific Python Development Environment with graphical interface (similar to RStudio for R). 
 -   **[GDAL/OGR](../apps/gdal.md)** commandline tools 
 -   [GMT] The Generic Mapping Tools 
--   [landsatlinks](https://github.com/ernstste/landsatlinks) - for creating download URLs for Landsat Collection 2 Level 1 product bundles using the USGS/EROS Machine-to-Machine API. Use `python3.10 -m landsatlinks`. NEW 2023
+-   [landsatlinks](https://github.com/ernstste/landsatlinks) - for creating download URLs for Landsat Collection 2 Level 1 product bundles using the USGS/EROS Machine-to-Machine API. Use `python3.10 -m landsatlinks`.
 -   [PDAL] Point Data Abstraction Library
 -   [ncview](http://cirrus.ucsd.edu/~pierce/software/ncview/quick_intro.html) for visualizing netcdf files
    
