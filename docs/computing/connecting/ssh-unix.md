@@ -40,12 +40,11 @@ generating SSH keys:
 ssh-keygen -o -a 100 -t ed25519
 ```
 
-You will be asked to type a passphrase. Although it is possible to leave the
-field empty, we encourage you to use a passphrase as it is considerably more
-secure. 
+You will be asked to type a passphrase. Please choose a secure passphrase. It
+should be at least 8 characters long and contain numbers, letters and special
+characters. Never leave the passphrase empty!
 
 !!! note "Using SSH keys"
-
     See the page on [setting up SSH keys](./ssh-keys.md) for general
     information about using SSH keys for authentication.
 
@@ -70,20 +69,13 @@ program's behavior depends on your system:
 
 - On Linux systems, `ssh-agent` is typically configured and run automatically at
   login and requires no additional actions on your part.
-
 - On macOS systems, you should add the following lines to the `~/.ssh/config`
-file...
+  file:
 
-    ```
+    ```text
     Host *
         UseKeychain no
         AddKeysToAgent yes
-    ```
-
-    ...and the following lines to `~/.bash_profile`:
-
-    ```bash
-    [[ -z ${SSH_AUTH_SOCK+x} ]] && eval "$(ssh-agent -s)"
     ```
 
 For more information about `ssh-agent`, see the

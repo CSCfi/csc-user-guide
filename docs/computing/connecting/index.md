@@ -1,15 +1,16 @@
 # Connecting to CSC supercomputers
 
-There are two main ways of connecting to CSC supercomputers. The traditional way to
-work on a supercomputer is [using an SSH client](#using-an-ssh-client). We
-also offer a [web interface](#using-the-web-interface) to our systems, which
-enables running both graphical applications and command-line shells.
+There are two main ways of connecting to CSC supercomputers.
+
+1. The traditional way to connect to a supercomputer is
+   [using an SSH client](#using-an-ssh-client).
+2. We also offer a [web interface](#using-the-web-interface) to our systems,
+   which enables running both graphical applications and command-line shells.
 
 For instructions on connecting to the LUMI supercomputer, please see the
 [Get Started page in the LUMI user guide](https://docs.lumi-supercomputer.eu/firststeps/getstarted/).
 
 !!! note "Login node usage policy"
-
     When you connect to a supercomputer using an SSH client or the
     [*Login node shell*](../webinterface/shell.md) app, you are directed to a
     login node. Login nodes are **not meant for long or heavy processing**.
@@ -23,7 +24,7 @@ for using graphical applications on the Puhti and Mahti supercomputers.
 It hosts
 [interactive applications for select programs](../webinterface/apps.md)
 like Jupyter and RStudio, and for other GUI programs you can use the
-[remote desktop](../webinterface/desktop.md) interface. 
+[remote desktop](../webinterface/desktop.md) interface.
 
 It is also possible to [open a shell program](../webinterface/shell.md) on a
 login node or compute node. The compute node shell is persistent, meaning it
@@ -36,18 +37,18 @@ typically come with a pre-installed SSH client. See the instructions for
 ## Using an SSH client
 
 Unix-based systems like macOS and Linux typically come with a pre-installed
-terminal program called simply _Terminal_. The instructions for using an
+terminal program called simply *Terminal*. The instructions for using an
 [SSH client on macOS and Linux](./ssh-unix) show how to connect to a CSC
-supercomputer using the terminal program. 
+supercomputer using the terminal program.
 
 While Windows systems do not have a similar pre-existing solution for connecting
 over SSH, there are multiple programs that can be used for this. The
-intructions for using an [SSH client on Windows](./ssh-windows) lists a few
+instructions for using an [SSH client on Windows](./ssh-windows) lists a few
 popular options.
 
 Once the SSH connection to the supercomputer is open, you can interact with it
 by issuing Linux commands using the Bash shell program. An introduction to
-working on the Linux command line can be found in our
+working on the Linux command-line can be found in our
 [Linux basics tutorial for CSC](../../support/tutorials/env-guide/index.md).
 You can have several connections to CSC supercomputers open at the same time.
 
@@ -62,7 +63,7 @@ When connecting to a given supercomputer for the first time, the SSH client
 may notify you that the host is unknown, and ask you to confirm the connection.
 With the OpenSSH client, the message looks like this:
 
-```
+```text
 The authenticity of host 'puhti.csc.fi' can't be established.
 ECDSA key fingerprint is SHA256:kk0Tar9opQ+6Gq0GWJdWVVvFEMeI6kW1DW1VOYveT5c.
 Are you sure you want to continue connecting (yes/no/[fingerprint])?
@@ -124,7 +125,7 @@ The available login nodes are:
 
 This also applies to compute nodes, although just the ones where you have a
 job running. Use the `squeue` command to see which node(s) your job is on, and
-then connect to a node using `ssh`. 
+then connect to a node using `ssh`.
 
 ```bash
 # The nodes hosting the job are

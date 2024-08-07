@@ -1,8 +1,9 @@
 # SSH client on Windows
 
 There are various programs that can be used for creating a remote SSH
-connection on a Windows system. This page provides instructions for a few
-popular alternatives.
+connection on a Windows system. This page provides instructions for three
+popular alternatives: [PowerShell](#powershell), [PuTTY](#putty) and
+[MobaXterm](#mobaxterm).
 
 ## PowerShell
 
@@ -51,7 +52,6 @@ ssh-keygen -o -a 100 -t ed25519
 ```
 
 !!! note "Using SSH keys"
-
     See the page on [setting up SSH keys](./ssh-keys.md) for general
     information about using SSH keys for authentication.
 
@@ -73,14 +73,14 @@ cat C:\Users\<local-user>\.ssh\<key-id>.pub | ssh <csc-user>@<host>.csc.fi "cat 
 
 To avoid having to type your passphrase every time you connect,
 you can
-[configure the Windows SSH agent](https://learn.microsoft.com/en-us/windows-server/administration/openssh/openssh_keymanagement?source=recommendations#user-key-generation) 
+[configure the Windows SSH agent](https://learn.microsoft.com/en-us/windows-server/administration/openssh/openssh_keymanagement?source=recommendations#user-key-generation)
 to store your keys in memory for the duration of your local login session.
 
 !!! warning "Corrupted MAC on input"
     When connecting using the OpenSSH client software on Windows, you might
     encounter an error stating "Corrupted MAC on input". This is a known
     issue, and can be avoided by explicitly choosing a different MAC
-    algorithm. For details, please see 
+    algorithm. For details, please see
     [our FAQ page on the topic](../../support/faq/i-cannot-login.md#why-is-my-ssh-client-saying-corrupted-mac-on-input).
 
 ## PuTTY
@@ -104,7 +104,7 @@ If you want to create a connection with graphical support,
 you can use, for example, the
 [Xming X server](http://www.straightrunning.com/XmingNotes/). To enable displaying
 graphics remotely, select `Enable X11 forwarding` in the PuTTY program settings
-(`Connection --> SSH --> X11`). 
+(`Connection --> SSH --> X11`).
 
 ### Generating SSH keys (PuTTY)
 
@@ -130,7 +130,6 @@ Alternatively, you can do it using PuTTY by following the instructions below.
    file and save the file.
 
 !!! note "Using SSH keys"
-
     See the page on [setting up SSH keys](./ssh-keys.md) for general
     information about using SSH keys for authentication.
 
@@ -183,7 +182,6 @@ set a persistent home directory for MobaXterm in the program settings
 (`Settings --> Configuration --> General`).
 
 !!! note "Using SSH keys"
-
     See the page on [setting up SSH keys](./ssh-keys.md) for general
     information about using SSH keys for authentication.
 

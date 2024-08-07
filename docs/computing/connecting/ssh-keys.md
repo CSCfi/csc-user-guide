@@ -7,7 +7,7 @@ a simple two-step process.
     - SSH keys are always generated in pairs consisting of one _public key_ and
     one _private key_. Generate these keys on the device you intend to use to
     connect to CSC supercomputers.
-2. [Copy the public key from your workstation onto a supercomputer](#copying-public-key-to-supercomputer).
+2. [Copy the public key from your workstation to a supercomputer](#copying-public-key-to-supercomputer).
     - For authenticating an SSH connection using a key pair, you need to copy
       the public key onto the supercomputer. **Do not copy the private key.**
 
@@ -18,17 +18,21 @@ a simple two-step process.
 ## Generating SSH keys
 
 To find out how to generate SSH keys on your local workstation, see the
-system-specific instructions for [Unix-based systems](./ssh-unix.md) (macOS
-and Linux) and [Windows systems](./ssh-windows.md). You can come back to these
-instructions once you are prompted for a file name and storage location for
-the keys. The following instructions assume you are in the SSH key generation dialog.
+system-specific instructions for:
+
+1. [Unix-based systems](ssh-unix.md) (macOS and Linux)
+2. [Windows systems](ssh-windows.md)
+
+You can come back to these instructions once you are prompted for a file name
+and storage location for the keys. The following instructions assume you are in
+the SSH key generation dialog.
 
 If you have not set up SSH keys before, feel free to accept the default name
 and location by pressing `ENTER`. However, if using the default file name
 would overwrite an existing key, you will receive a warning that looks like
 this:
 
-```
+```text
 /home/<username>/.ssh/id_ed25519 already exists. Overwrite (y/n)?
 ```
 
@@ -73,7 +77,6 @@ You can add your public key through the
       Your public key should consist of the SSH key type and the key sequence,
       separated by a single space. If your key is improperly formatted, an
       error message is displayed. A key in the correct format looks like this:
-
       ```
       ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDlapOdeoxNvz/1AZFRjGAPnPj8pzzz3skI+a+yJS5b7
       ```
@@ -98,4 +101,3 @@ Host <host>.csc.fi
 Host *.bullx
   IdentityFile /<path-to-key-files>/<private-key>
 ```
-
