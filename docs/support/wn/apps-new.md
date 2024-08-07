@@ -1,5 +1,10 @@
 # Applications
 
+## Geoconda 3.11.9, 7.8.2024
+
+[geoconda](../../apps/geoconda.md) version 3.11.9 has been added
+and set as the default module on Puhti and Mahti. Besides package updates, it includes a few new packages: `geo2ml`, `h3pandas`, `openeo`, `pcraster` and `r5py`. From packages available in previous geoconda, `copc-lib` and `osmnx` unfortunatelly could not be added this time.
+
 ## Schrödinger Maestro 2024.3, 5.8.2024
 
 [Schrödinger Maestro](../../apps/maestro.md) version 2024.3 has been installed
