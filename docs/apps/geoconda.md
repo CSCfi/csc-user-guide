@@ -40,7 +40,7 @@ includes following python packages:
     OpenStreetMap's APIs. [Routing examples in CSC geocomputing Github](https://github.com/csc-training/geocomputing/tree/master/python/routing) Only in geoconda-3.10.x.
 -   [owslib](https://geopython.github.io/OWSLib/index.html) -  for retrieving data from Open Geospatial Consortium (OGC) web services
 -   [pcraster](https://pcraster.geo.uu.nl/) - for spatio-temporal environmental modelling. NEW 2024
--   [python-pdal](https://pdal.io/en/latest/python.html) - PDAL Python extension for lidar data
+-   [python-pdal](https://github.com/PDAL/python) - PDAL Python extension for lidar data
 -   [Py6S](https://py6s.readthedocs.io/en/latest/index.html) - Python interface to the Second Simulation of the Satellite Signal in the Solar Spectrum (6S) atmospheric Radiative Transfer Model
 -   [pysal] - spatial analysis functions.    
 -   [pdal](https://pdal.io/) - for lidar data
@@ -74,7 +74,7 @@ Additionally geoconda includes:
 -   **[GDAL/OGR](../apps/gdal.md)** commandline tools 
 -   [GMT] The Generic Mapping Tools 
 -   [landsatlinks](https://github.com/ernstste/landsatlinks) - for creating download URLs for Landsat Collection 2 Level 1 product bundles using the USGS/EROS Machine-to-Machine API. Use `python3.10 -m landsatlinks`.
--   [PDAL] Point Data Abstraction Library
+-   [PDAL](https://pdal.io/) - Point Data Abstraction Library
 -   [ncview](http://cirrus.ucsd.edu/~pierce/software/ncview/quick_intro.html) for visualizing netcdf files
    
 Python has multiple packages for parallel computing, for example
@@ -211,7 +211,6 @@ Geoconda conda environment files and `download_wbt` and `start_wbt.py` needed fo
   [shapely]: https://pypi.python.org/pypi/Shapely
   [skimage]: http://scikit-image.org/
   [scikit-learn]: https://scikit-learn.org/stable/
-  [pdal]: https://github.com/PDAL/python
   [snappy]: https://senbox.atlassian.net/wiki/spaces/SNAP/pages/19300362/How+to+use+the+SNAP+API+from+Python
   [SNAP]: snap.md
   [spyder]: https://docs.spyder-ide.org/
