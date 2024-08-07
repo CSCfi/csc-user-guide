@@ -64,8 +64,8 @@ includes following python packages:
 -   [swiftclient, keystoneclient](https://docs.openstack.org/python-swiftclient/latest/) - for working with SWIFT storage, for example Allas. [Allas Swift example in CSC geocomputing Github](https://github.com/csc-training/geocomputing/blob/master/python/allas/working_with_allas_from_Python_Swift.py).
 -   [whiteboxtools](https://www.whiteboxgeo.com/) -  wide-scope processing of geospatial data, many tools operate in parallel, see [CSC whiteboxtools page](whiteboxtools.md) for details.
 -   **[xarray](http://xarray.pydata.org)** - for multidimensional raster data, inc. [rioxarray](https://corteva.github.io/rioxarray). [STAC example in CSC geocomputing Github](https://github.com/csc-training/geocomputing/tree/master/python/STAC).
-    -   [xarray-spatial](https://xarray-spatial.org/) - efficient common raster analysis functions for xarray. NEW 2022
-    -   [xarray_leaflet](https://github.com/xarray-contrib/xarray_leaflet) - xarray extension for tiled map plotting. NEW 2023
+    -   [xarray-spatial](https://xarray-spatial.org/) - efficient common raster analysis functions for xarray.
+    -   [xarray_leaflet](https://github.com/xarray-contrib/xarray_leaflet) - xarray extension for tiled map plotting.
 -   And many more, for retrieving the full list in Puhti use:
     `list-packages`
     
