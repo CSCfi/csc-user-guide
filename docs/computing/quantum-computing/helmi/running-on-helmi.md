@@ -43,6 +43,7 @@ Here is an example batch script to submit jobs on Helmi
 #SBATCH --account=project_<id>  # Project for billing (slurm_job_account)
 #SBATCH --partition=q_fiqci   # Partition (queue) name
 #SBATCH --ntasks=1              # One task (process)
+#SBATCH --mem-per-cpu=2G       # memory allocation
 #SBATCH --cpus-per-task=1     # Number of cores (threads)
 #SBATCH --time=00:15:00         # Run time (hh:mm:ss)
 
