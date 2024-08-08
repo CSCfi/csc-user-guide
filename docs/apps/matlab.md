@@ -22,7 +22,7 @@ The interactive MATLAB is intended for temporary, light pre- and postprocessing 
 It is available as follows:
 
 - License: Academic
-- Versions: R2023b
+- Versions: R2023a, R2023b, R2024a
 - Toolboxes: MATLAB Compiler, MATLAB Compiler SDK, Parallel Computing Toolbox.
   There are 2 licenses for each toolbox.
 
@@ -30,7 +30,7 @@ MATLAB Parallel Server (MPS) allows sending work as a batch job from a local MAT
 It is available as follows:
 
 - License: Academic
-- Versions: R2023b, R2023a
+- Versions: R2023b, R2024a
 - Toolboxes: MATLAB Parallel Server.
   There is license for using upto 500 computing cores simultaneously.
   Furthermore, toolboxes that you have license on your local MATLAB license can also be used with MATLAB Parallel Server.
