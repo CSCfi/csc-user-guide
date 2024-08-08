@@ -27,7 +27,7 @@ These modifications include changes in :
 
 ## Submit as a batch job to Puhti cluster
 
-- First login to Puhti computer (see instructions [here](../../computing/connecting.md))
+- First login to Puhti computer (see instructions [here](../../computing/connecting/index.md))
 
 - Change to your project directory on Puhti and copy your input files there ([tips on how to transfer files](../../data/moving/index.md)).
 

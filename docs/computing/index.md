@@ -63,7 +63,7 @@ ssh yourcscusername@mahti-login<number 11-12>.csc.fi
 
 Where `yourcscusername` is the username you get from CSC.
 
-For more details, see the [connecting](connecting.md) page.
+For more details, see the [connecting](connecting/index.md) page.
 
 Puhti can also be accessed via the [Puhti web interface](webinterface/index.md)
 available at [www.puhti.csc.fi](https://www.puhti.csc.fi).
@@ -122,7 +122,7 @@ csc-workspaces
 
 * [Systems](available-systems.md): What computational resources are available
 * [Usage policy](usage-policy.md): Usage policy of CSC supercomputers
-* [Connecting](connecting.md): How to connect to  CSC supercomputers
+* [Connecting](connecting/index.md): How to connect to  CSC supercomputers
 * [Puhti web interface](webinterface/index.md): How to connect to Puhti using the web
   interface
 * [Disk areas](disk.md): What places are there for storing data on CSC

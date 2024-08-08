@@ -90,7 +90,7 @@ The`r-env` module can be used to remotely launch RStudio Server on your web brow
 
 **Option 1. Using the Puhti web interface**. This is by far the easiest way to launch RStudio on Puhti. For details, [see the Puhti web interface documentation](../computing/webinterface/index.md).
 
-**Option 2. Using SSH tunneling**. This option requires authentication using a Secure Shell (SSH) key. Detailed instructions for this are provided in a [separate tutorial for using RStudio Server](../support/tutorials/rstudio-or-jupyter-notebooks.md) and our [documentation on setting up SSH keys on Windows, macOS and Linux](../../computing/connecting/#setting-up-ssh-keys).
+**Option 2. Using SSH tunneling**. This option requires authentication using a Secure Shell (SSH) key. Detailed instructions for this are provided in a [separate tutorial for using RStudio Server](../support/tutorials/rstudio-or-jupyter-notebooks.md) and our [documentation on setting up SSH keys on Windows, macOS and Linux](../computing/connecting/ssh-keys.md).
 
 #### Interactive use on a login node
 
