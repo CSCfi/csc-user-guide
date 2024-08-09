@@ -20,7 +20,7 @@ scontrol show partition <partition_name>
 
 Puhti features the following partitions for submitting jobs to CPU nodes:
 
-| Partition         | Time<br>limit | Max<br>tasks | Max<br>nodes | [Node types](./systems-puhti.md) | Max<br>memory | Max<br>local storage<br>([NVMe]) |
+| Partition         | Time<br>limit | Max<br>tasks | Max<br>nodes | [Node types](../systems-puhti.md) | Max<br>memory | Max<br>local storage<br>([NVMe]) |
 |-------------------|---------------|--------------|--------------|----------------------------------|---------------|----------------------------------|
 | `test`            | 15 minutes    | 80           | 2            | M                                | 185 GiB       | n/a                              |
 | `small`           | 3 days        | 40           | 1            | M, L, IO                         | 373 GiB       | 3600 GiB                         |
@@ -32,7 +32,7 @@ Puhti features the following partitions for submitting jobs to CPU nodes:
 The following partitions are available for submitting jobs to GPU nodes. Note
 that you should reserve at most 10 cores or tasks per GPU.
 
-| Partition | Time<br>limit | Max<br>GPUs | Max<br>nodes | [Node types](./systems-puhti.md) | Max<br>memory | Max<br>local storage ([NVMe]) |
+| Partition | Time<br>limit | Max<br>GPUs | Max<br>nodes | [Node types](../systems-puhti.md) | Max<br>memory | Max<br>local storage ([NVMe]) |
 |-----------|---------------|-------------|--------------|----------------------------------|---------------|-------------------------------|
 | `gputest` | 15 minutes    | 8           | 2            | GPU                              | 373 GiB       | 3600 GiB                      |
 | `gpu`     | 3 days        | 80          | 20           | GPU                              | 373 GiB       | 3600 GiB                      |
@@ -41,7 +41,7 @@ The
 [interactive partition on Puhti](./interactive-usage.md#sinteractive-in-puhti)
 allows running interactive jobs on both CPU and GPU nodes. 
 
-| Partition     | Time<br>limit | Max<br>GPUs | Max<br>nodes | [Node types](./systems-puhti.md) | Max<br>memory | Max<br>local storage ([NVMe]) |
+| Partition     | Time<br>limit | Max<br>GPUs | Max<br>nodes | [Node types](../systems-puhti.md) | Max<br>memory | Max<br>local storage ([NVMe]) |
 |---------------|---------------|-------------|--------------|----------------------------------|---------------|-------------------------------|
 | `interactive` | 7 days        | 8           | 1            | IO, GPU                          | 76 GiB        | 720 GiB                       |
 
@@ -104,7 +104,7 @@ the job is allocated 17.5 GiB of memory for each reserved MIG. Note that **you
 can only reserve one MIG per job**, and that you should reserve at most 4
 cores or tasks for the MIG.
 
-| Partition   | Time<br>limit | Max<br>GPUs | Max<br>nodes | [Node types](./systems-mahti.md) | Max<br>local storage ([NVMe]) |
+| Partition   | Time<br>limit | Max<br>GPUs | Max<br>nodes | [Node types](../systems-mahti.md) | Max<br>local storage ([NVMe]) |
 |-------------|---------------|-------------|--------------|----------------------------------|-------------------------------|
 | `gputest`   | 15 minutes    | 4           | 1            | GPU                              | 3800 GiB                      |
 | `gpusmall`  | 36 hours      | 2           | 1            | GPU                              | 3800 GiB                      |
