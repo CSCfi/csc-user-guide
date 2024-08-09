@@ -317,12 +317,11 @@ It is not possible to download a volume snapshot directly from OpenStack, not fr
 
     ![Create volume](../img/cloud_pouta_vm_snapshot_9.svg)
 
-    Set the `Volume Name` to something that clearly identifies the volume as a stapshot, as when the process is over, you will need to delete this volume.
-
+    Set the `Volume Name` to something that clearly identifies the volume as a snapshot, as when the process is over, you will need to delete this volume.
     !!! Info "Using the CLI"
         `openstack volume create --snapshot b4f95381-e56d-4080-95e4-935c66528005 test-snapshot`
 
-        The id `b4f95381-e56d-4080-95e4-935c66528005` corresponds to the snapshot we want to restore, and `test-snapshot` is the name of the new crestec volume.
+        The id `b4f95381-e56d-4080-95e4-935c66528005` corresponds to the snapshot we want to restore, and `test-snapshot` is the name of the new createc volume.
 
 1. Now you need to attach the volume to a VM. You can use an existing VM or [create a new VM](../launch-vm-from-web-gui/). Once you have a VM ready, you need to attach the volume to it:
 
