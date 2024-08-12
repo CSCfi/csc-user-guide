@@ -131,4 +131,4 @@ reserve more cores. The partition can be used both for jobs launched using
 
 <!-- Links -->
 [NVMe]: ./creating-job-scripts-puhti.md#local-storage
-<!---->
+<!-- -->
