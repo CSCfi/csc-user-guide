@@ -44,19 +44,19 @@ Puhti features the following partitions for submitting jobs to CPU nodes:
 The following partitions are available for submitting jobs to GPU nodes. Note
 that you should reserve at most 10 cores or tasks per GPU.
 
-| Partition | Time<br>limit | Max<br>GPUs | Max<br>nodes | [Node types](../systems-puhti.md) | Max memory<br>per node | Max local storage<br>([NVMe]) per node |
-|-----------|---------------|-------------|--------------|-----------------------------------|------------------------|-------------------------------------------|
-| `gputest` | 15 minutes    | 8           | 2            | GPU                               | 373 GiB                | 3600 GiB                                  |
-| `gpu`     | 3 days        | 80          | 20           | GPU                               | 373 GiB                | 3600 GiB                                  |
+| Partition | Time<br>limit | Max<br>GPUs | Max<br>tasks | Max<br>nodes | [Node types](../systems-puhti.md) | Max memory<br>per node | Max local storage<br>([NVMe]) per node |
+|-----------|---------------|-------------|--------------|--------------|-----------------------------------|------------------------|----------------------------------------|
+| `gputest` | 15 minutes    | 8           | 80           | 2            | GPU                               | 373 GiB                | 3600 GiB                               |
+| `gpu`     | 3 days        | 80          | 800          | 20           | GPU                               | 373 GiB                | 3600 GiB                               |
 
 The
 [interactive partition on Puhti] allows running interactive jobs on both CPU
 and GPU nodes. To run your interactive job on a GPU node, use `sinteractive`
 [with the `--gpu` option](./interactive-usage.md#sinteractive-in-puhti).
 
-| Partition     | Time<br>limit | Max<br>GPUs | Max<br>nodes | [Node types](../systems-puhti.md) | Max memory<br>per node | Max local storage<br>([NVMe]) per node |
-|---------------|---------------|-------------|--------------|-----------------------------------|------------------------|----------------------------------------|
-| `interactive` | 7 days        | 8           | 1            | IO, GPU                           | 76 GiB                 | 720 GiB                                |
+| Partition     | Time<br>limit | Max<br>GPUs | Max<br>tasks| Max<br>nodes | [Node types](../systems-puhti.md) | Max memory<br>per node | Max local storage<br>([NVMe]) per node |
+|---------------|---------------|-------------|-------------|--------------|-----------------------------------|------------------------|----------------------------------------|
+| `interactive` | 7 days        | 8           | 8           | 1            | IO, GPU                           | 76 GiB                 | 720 GiB                                |
 
 !!! info "Guidelines for Puhti partitions"
     1. **Only request the memory you need**
