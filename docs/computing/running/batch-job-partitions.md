@@ -130,5 +130,5 @@ reserve more cores. The partition can be used both for jobs launched using
 | `interactive` | 1–32        |  7 days       | 60 GiB        | all          |
 
 <!-- Links -->
-[NVMe]: ./creating-job-scripts-puhti.md#local-storage
+[NVMe]: ../disk.md#compute-nodes-with-local-ssd-nvme-disks
 <!-- -->
