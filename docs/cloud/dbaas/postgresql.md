@@ -43,7 +43,7 @@ A popular tool for working with PostgreSQL is [pgAdmin that can be found here](h
 ## Accessing your Pukki PostgreSQL database from Puhti
 
 1. First make sure that your database's [firewall allows traffic from Puhti](firewalls.md#puhti).
-2. [Log in to Puhti](../../computing/connecting.md).
+2. [Log in to Puhti](../../computing/connecting/index.md).
 3. To be able to use the `psql` command line tool you need to first load the module:
    ```
    module load psql

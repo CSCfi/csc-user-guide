@@ -1,5 +1,18 @@
 # Applications
 
+## Geoconda 3.11.9, 7.8.2024
+
+[geoconda](../../apps/geoconda.md) version 3.11.9 has been added
+and set as the default module on Puhti and Mahti. Besides package updates, it includes a few new packages: `geo2ml`, `h3pandas`, `openeo`, `pcraster` and `r5py`. From packages available in previous geoconda, `copc-lib` and `osmnx` unfortunately could not be added this time.
+
+## Schrödinger Maestro 2024.3, 5.8.2024
+
+[Schrödinger Maestro](../../apps/maestro.md) version 2024.3 has been installed
+and set as the default module on Puhti and Mahti. As a major highlight, this
+release includes the new OPLS5 polarizable force field. See
+[release notes](https://www.schrodinger.com/life-science/download/release-notes/)
+for the full list of new features and improvements.
+
 ## PyTorch 2.3.1, 13.6.2024
 
 [PyTorch](../../apps/pytorch.md) 2.3.1 added to Puhti and Mahti. The

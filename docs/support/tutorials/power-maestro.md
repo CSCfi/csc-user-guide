@@ -345,7 +345,7 @@ copy it back (give the command on your local computer):
 
 `scp -r <your username>@puhti.csc.fi:/scratch/project_2001234/glide-dock_1 .`
 
-You might be interested in some [additional SSH tips](../../computing/connecting.md#setting-up-ssh-keys),
+You might be interested in some [additional SSH tips](../../computing/connecting/ssh-keys.md),
 which will release you from typing your password every time.
 
 ## Running the Maestro GUI on Puhti
