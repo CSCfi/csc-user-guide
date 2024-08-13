@@ -43,7 +43,6 @@ Node:           rahti-comp-io-s25-d/192.168.54.13
 Start Time:     Wed, 17 Jan 2024 14:55:57 +0200
 Labels:         app=celery-worker
                 deployment=celery-worker-57
-                deploymentconfig=celery-worker
 (...)
 ```
 
