@@ -1,25 +1,37 @@
 # Available batch job partitions
 
-1. Use the `test` and `gputest` partitions for testing code
-    - The available resources are limited, but the queuing times are short
-2. Only use the GPU partitions if you are sure your code uses GPUs
-    - There are more CPU nodes than GPU nodes, so your job will run sooner if
-      submitted to a CPU partition
-3. Only request multiple CPU cores if you are sure your tool or code can
-use them
-    - Reserving more cores does nothing by itself, except make you queue for
-    longer
+On CSC supercomputers, programs are run by submitting them to partitions,
+which are logical sets of nodes managed by the SLURM workload manager.
+This page lists the available SLURM partitions on the Puhti and Mahti
+supercomputers, as well as explains their intended uses. Below are the general
+guidelines for using the SLURM partitions on our systems:
 
-List all available partitions and their specifications on a system:
+1. **Use the `test` and `gputest` partitions for developing your code.** These
+   partitions provide access to fewer resources than other partitions, but jobs
+   submitted to them have a higher priority and are thus granted resources
+   before other jobs.
+2. **Only use the GPU partitions if you know your program is compatible with
+   CUDA.**
+   Running your computations using one or more GPUs is a very effective
+   parallelization method for certain applications, but your program must be
+   configured to use the CUDA platform. If you are unsure whether this is the
+   case, it is better to submit it to a CPU partition, since you will be
+   allocated resources sooner.
+3. **Only request multiple CPU cores if you know your program supports
+   parallel processing.** Reserving multiple cores does not automatically
+   speed up your job. Your program must be written in a way that the
+   computations can be done in multiple threads or processes. Reserving more
+   cores does nothing by itself, except make you queue for longer. 
 
-```
-sinfo
-```
+The following commands can be used to show information about available
+partitions:
 
-Get details about a specific partition:
+```bash
+# Display a summary of available partitions
+$ sinfo --summarize
 
-```
-scontrol show partition <partition_name>
+# Display details about a specific partition:
+$ scontrol show partition <partition_name>
 ```
 
 !!! info "LUMI partitions"
@@ -28,16 +40,20 @@ scontrol show partition <partition_name>
 
 ## Puhti partitions
 
-1. Only request the memory you need
-    - Memory may become a bottleneck for resource requests; requesting
-      less memory will decrease your time in queue
-    - Billing is based on memory requested, not on memory used
-2. Only use the `longrun` partitions if necessary
-    - These partitions provide fewer resources than `large` and have a
-      lower priority than other partitions
-3. Only two jobs per user are allowed in the `interactive` partition
-    - Use through apps in the web interface or with the
-    [`sinteractive` command](interactive-usage.md#easy-interactive-work-sinteractive-command).
+The following guidelines apply to the SLURM partitions on Puhti:
+
+1. **Only request the memory you need.** Memory can easily end up being a
+   bottleneck in resource allocation. Even if the desired amount of GPUs
+   and/or CPU cores is continuously available, your job will sit in the queue
+   for as long as it takes for the requested amount of memory to become
+   free. It is thus recommended to only request the amount of memory that is
+   necessary for running your job. Additionally, the amount of billing units
+   consumed by your job is affected by the amount of memory requested, not
+   that which was actually used.
+2. **Only use the `longrun` partitions if necessary.** The `longrun` and
+   `hugemem_longrun` partitions provide access to fewer resources and a
+   lower priority than the `large` and `hugemem` partitions, so it is
+   recommended to use them only for jobs that require a very long runtime.
 
 ### Puhti CPU partitions
 
@@ -54,20 +70,24 @@ Puhti features the following partitions for submitting jobs to CPU nodes:
 
 ### Puhti GPU partitions
 
-The following partitions are available for submitting jobs to GPU nodes. Note
-that you should reserve at most 10 cores/tasks per GPU.
+Puhti features the following partitions for submitting jobs to GPU nodes:
 
 | Partition | Time<br>limit | Max<br>GPUs | Max CPU<br>cores | Max<br>nodes | [Node types](../systems-puhti.md) | Max memory<br>per node | Max local storage<br>([NVMe]) per node |
 |-----------|---------------|-------------|------------------|--------------|-----------------------------------|------------------------|----------------------------------------|
 | `gputest` | 15 minutes    | 8           | 80               | 2            | GPU                               | 373 GiB                | 3600 GiB                               |
 | `gpu`     | 3 days        | 80          | 800              | 20           | GPU                               | 373 GiB                | 3600 GiB                               |
 
+!!! info "Fair use of GPU nodes on Puhti" 
+    You should reserve **no more than 10 cores per GPU**.
+
 ### Puhti interactive partition
 
-The
-[interactive partition on Puhti] allows running interactive jobs on both CPU
-and GPU nodes. To run your interactive job on a GPU node, use `sinteractive`
+The [interactive partition on Puhti] allows running interactive jobs on both
+CPU and GPU nodes. To run your interactive job on a GPU node, use
+`sinteractive`
 [with the `--gpu` option](./interactive-usage.md#sinteractive-in-puhti).
+Note that you can only run two simultaneous jobs in the Puhti `interactive`
+partition.
 
 | Partition     | Time<br>limit | Max<br>GPUs | Max CPU<br>cores | Max<br>nodes | [Node types](../systems-puhti.md) | Max memory<br>per node | Max local storage<br>([NVMe]) per node |
 |---------------|---------------|-------------|------------------|--------------|-----------------------------------|------------------------|----------------------------------------|
@@ -101,16 +121,9 @@ accessible to
 
 ### Mahti GPU partitions
 
-The following partitions are available for submitting jobs to GPU nodes.
+Mahti features the following partitions for submitting jobs to GPU nodes.
 Unless you specify otherwise, the job is allocated 122.5 GiB of memory for
-each reserved GPU. Note that you should reserve at most 32 cores/tasks per GPU.
-
-A subset of the A100 GPUs in the `gpusmall` partition are divided into a total
-of 28 smaller multi-instance GPUs (MIGs), which have one-seventh of the
-compute and memory capacity of a full A100 GPU. Unless you specify otherwise,
-the job is allocated 17.5 GiB of memory for each reserved MIG. Note that **you
-can only reserve one MIG per job**, and that you should reserve at most 4
-cores/tasks for the MIG.
+each reserved GPU.
 
 | Partition   | Time<br>limit | Max<br>GPUs | Max CPU<br>cores | Max<br>nodes | [Node types](../systems-mahti.md) | Max memory<br>per node | Max local storage<br>([NVMe]) per node |
 |-------------|---------------|-------------|------------------|--------------|-----------------------------------|------------------------|----------------------------------------|
@@ -118,11 +131,22 @@ cores/tasks for the MIG.
 | `gpusmall`  | 36 hours      | 2           | 64               | 1            | GPU                               | 490 GiB                | 3800 GiB                               |
 | `gpumedium` | 36 hours      | 24          | 768              | 6            | GPU                               | 490 GiB                | 3800 GiB                               |
 
-!!! info "Reserving a multi-instance GPU (MIG)"
+!!! info "Fair use of GPU nodes on Mahti"
 
-    You can reserve a MIG with the option `--gres=gpu:a100_1g.5bg:1`. For
-    more information, see the instructions on
-    [creating GPU batch jobs on Mahti].
+    You should reserve **no more than 32 cores per full GPU** and **no more
+    than 4 cores for a [multi-instance GPU](#multi-instance-gpus)**.
+
+#### Multi-instance GPUs
+
+A subset of the A100 GPUs in the Mahti `gpusmall` partition are divided into a
+total of 28 smaller multi-instance GPUs (MIGs), which have one-seventh of the
+compute and memory capacity of a full A100 GPU. Unless you specify otherwise,
+the job is allocated 17.5 GiB of memory for each reserved MIG. Note that you
+are only able to reserve one MIG per job.
+
+To reserve a MIG, use the option `--gres=gpu:a100_1g.5bg:1` in your batch
+script. For more information, see the instructions on
+[creating GPU batch jobs on Mahti].
 
 ### Mahti interactive partition
 
