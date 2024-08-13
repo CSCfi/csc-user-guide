@@ -3,16 +3,18 @@ tags:
   - Free
 system:
   - www-puhti
+  - www-lumi
 ---
 
 # ParaView
 
 ParaView is an open source, powerful software for scientific visualization. Under the hood, it uses the VTK library, in Python wrapping. We recommend the [HPC web interface remote desktops](../computing/webinterface/desktop.md) for interactive use.
 
-!!! info "Running ParaView with GPU-accelerated graphics on Puhti"
+!!! info "Running ParaView with GPU-accelerated graphics on Puhti and LUMI"
     You can now also enable [interactive visualization with GPU acceleration](../computing/webinterface/accelerated-visualization.md) for better
     performance. In this case, select _Accelerated visualization_ instead of _Desktop_
-    in the Puhti web interface.
+    in the Puhti web interface. On LUMI, select the _Desktop_ app and `lumid`
+    partition ([more information](https://docs.lumi-supercomputer.eu/runjobs/webui/desktop/)).
 
 ParaView is designed to run parallel tasks and consists of one client and one or several servers (pvservers). There are many ways to run ParaView to suit different needs.
 
@@ -24,6 +26,7 @@ ParaView uses a [permissive BSD license](https://www.paraview.org/paraview-licen
 
 * Puhti: 5.10.1
 * Mahti: 5.10.1
+* LUMI: 5.8.0
 
 ## Usage
 

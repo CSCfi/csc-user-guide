@@ -12,7 +12,7 @@ echo -e "# Applications by availability\n" > $generated_file
 # broken links.
 
 # Case sensitive, the title for the system category
-system_name=("Mahti" "Puhti" "LUMI" "Mahti web interface" "Puhti web interface")
+system_name=("Mahti" "Puhti" "LUMI" "Mahti web interface" "Puhti web interface" "LUMI web interface")
 
 # Prefix to indicate a keyword for a web interface
 interactive_prefix="www"
@@ -20,13 +20,14 @@ interactive_prefix="www"
 # Not case sensitive, the keyword to grep to determine if a software is available on a system
 # For exceptions add an entry to skip_system.txt
 # Format: SKIP_[system_key] [filename]
-system_key=("mahti" "puhti" "lumi" "$interactive_prefix-mahti" "$interactive_prefix-puhti")
+system_key=("mahti" "puhti" "lumi" "$interactive_prefix-mahti" "$interactive_prefix-puhti" "$interactive_prefix-lumi")
 
 system_desc=("CSC supercomputer for massively parallel jobs"\
     "CSC supercomputer for small and medium jobs"\
     "EuroHPC supercomputer for CPU and especially GPU jobs"\
     "Web interface for Mahti"\
-    "Web interface for Puhti")
+    "Web interface for Puhti"\
+    "Web interface for LUMI")
 
 system_prefix () { echo ${system_key[$1]%%-*}; }
 system_anchor () { lower_case=${system_name[$1],,}; echo "#${lower_case//\ /-}"; }
