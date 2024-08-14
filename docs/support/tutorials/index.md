@@ -99,4 +99,4 @@
 
 ## CSC Resources for Courses
 * [A Puhti webinterface demo for course organizers](https://github.com/CSCfi/Jupyter_www_puhti)
-* [CSC Notebooks environment for creating custom notebooks](../../cloud/csc_notebooks/guide_for_teachers/#creating-custom-docker-images)
+* [Noppe environment for creating custom notebooks](../../cloud/noppe/guide_for_teachers/#creating-custom-docker-images)
