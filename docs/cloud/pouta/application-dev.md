@@ -130,9 +130,9 @@ Configuration management tools integrate very well with Pouta clouds. As they ar
 
 Before you start to develop and deploy a new service, it is advisable to explore if existing services and software already cover your use case. You should try to avoid falling into the "[not invented here syndrome](https://en.wikipedia.org/wiki/Not_invented_here)", where internally developed services and products are unfairly favored. It changes from case to case, as sometimes the project needs cannot be covered by existing solutions. CSC provides some service solutions that you should be aware of:
 
-### CSC Notebooks
+### Noppe
 
-If you need Jupyter or RStudio notebook, CSC provides a [notebook service](../csc_notebooks/index.md). It is a mature service provided by a dedicated team of professionals.
+If you need Jupyter or RStudio notebook, CSC provides a [noppe service](../noppe/index.md). It is a mature service provided by a dedicated team of professionals.
 
 ### Rahti
 
