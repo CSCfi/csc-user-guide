@@ -144,7 +144,7 @@ compute and memory capacity of a full A100 GPU. Unless you specify otherwise,
 the job is allocated 17.5 GiB of memory for each reserved MIG. Note that you
 are only able to reserve one MIG per job.
 
-To reserve a MIG, use the option `--gres=gpu:a100_1g.5bg:1` in your batch
+To reserve a MIG, use the option `--gres=gpu:a100_1g.5gb:1` in your batch
 script. For more information, see the instructions on
 [creating GPU batch jobs on Mahti].
 
