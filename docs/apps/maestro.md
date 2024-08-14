@@ -1,8 +1,11 @@
 ---
 tags:
   - Academic
-description: Schrodinger Maestro usage instructions on CSC supercomputer Puhti
+system:
+  - www-puhti
+  - www-mahti
 ---
+
 # Maestro
 
 Schrödinger Maestro is a versatile molecular modeling environment. It has modules for

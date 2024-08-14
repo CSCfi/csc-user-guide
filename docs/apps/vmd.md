@@ -1,6 +1,9 @@
 ---
 tags:
   - Non-commercial
+system:
+  - www-puhti
+  - www-mahti
 ---
 
 # VMD
