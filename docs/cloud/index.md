@@ -4,7 +4,7 @@ title: Cloud Services
 
 # Overview
 
-CSC Cloud Services consists of Pouta hardware virtualisation service, Rahti 2 application containerisation service, Pukki cloud database service and CSC Notebooks web application course hosting service. CSC hosts all services itself, with data centres in Finland.
+CSC Cloud Services consists of Pouta hardware virtualisation service, Rahti 2 application containerisation service, Pukki cloud database service and CSC Noppe web application course hosting service. CSC hosts all services itself, with data centres in Finland.
 
 ### Pouta
 

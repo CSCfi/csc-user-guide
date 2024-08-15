@@ -50,7 +50,7 @@ myQLM is a light-weight version of the QLM ecosystem that can be run outside the
 myQLM is now open access, and can be downloaded for Linux and Windows here:
 [myQLM docs and installation instructions](https://myqlm.github.io/index.html)
 
-You can also use myQLM directly from the [CSC Notebooks environment](https://notebooks.csc.fi).
+You can also use myQLM directly from the [CSC Noppe environment](https://noppe.csc.fi).
 After logging in, simply launch a new "myQLM Notebooks" environment and open it in your browser.
 Training material related to previous course can be found under the Folder **CourseMaterial**
 
