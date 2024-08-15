@@ -8,9 +8,9 @@ effortlessly set up a database with a few clicks and manage it as a
 self-service, instead of manually setting up and maintaining your own database
 environment.
 
-## CSC Notebooks runs version R5 of Pebbles software, 5.10.2022
+## CSC Noppe runs version R5 of Pebbles software, 5.10.2022
 
-As of 2022, CSC Notebooks runs version R5 of Pebbles software. Compared to R4:
+As of 2022, CSC Noppe runs version R5 of Pebbles software. Compared to R4:
 
 * User interface has similar functionality but is greatly improved.
 * Environments/blueprints are now called applications.
