@@ -19,7 +19,7 @@ For tutored courses or collaborator projects, you should have received a join co
 * Click the `Join workspace` button on the top right corner of the Noppe home page. 
 * Enter the join code in the popup and click the `+` button. 
 * If that succeeded, it will guide you to your courses workspace, from where you can find your courses application from the list. 
-* If it did not succeed, ṕlease verify that your copied the join code correctly and there are no trailing whitespaces.
+* If it did not succeed, please verify that your copied the join code correctly and there are no trailing whitespaces.
 
 
 ## 3. Start a session
