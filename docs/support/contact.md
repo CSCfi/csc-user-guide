@@ -30,7 +30,11 @@ Having trouble finding an email or a newsletter sent to you by CSC? Browse the a
 ### Newsletters
 
 * [Tutkimus / Research](archives/tutkimus-research.md)
+  ([subscribe](https://csc.fi/en/subscribe-to-newsletters/))
 * [Asiakaskoulutus / Customer training](archives/asiakaskoulutus-customer-training.md)
+  ([subscribe](https://csc.fi/en/subscribe-to-newsletters/))
+* [LUMI newsletter](https://www.lumi-supercomputer.eu/newsletter/newsletter-archive/)
+  ([subscribe](https://www.lumi-supercomputer.eu/newsletter/))
 
 ### Mailing lists
 
