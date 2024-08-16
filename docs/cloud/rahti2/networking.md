@@ -100,3 +100,76 @@ The IP for all outgoing customer traffic is `86.50.229.150`. Any pod that runs i
 
     The egress IP of Rahti 2 might change in the future. For example, if several versions of Rahti 2 are run in parallel each will have a different IP. Or if a major change in the underlining network infrastructure happens.
 
+## Using Ingress IP in a Project
+
+Ingress IPs in Rahti 2 provide a way for external traffic to access services running within a project. This feature allows you to expose services to the outside world using a specific IP address, ensuring that users can interact with your applications. To enable and use an Ingress IP within your Rahti 2 project, you must submit a request to the service desk( `servicedesk@csc.fi`). This process requires you to includes the following details:
+
+- **Project Name**: Provide the exact name of the Rahti 2 project that requires the Ingress IP.
+
+- **Use Case**: Clearly describe the use case, including:
+  - The type of services you plan to expose (e.g., web applications, APIs).
+  - Any specific requirements or considerations.
+
+For example, the following service definition exposes a MySQL service on the assigned public IP at port 33306 and the service service of type must be `LoadBalancer`:
+
+```bash
+kind: Service
+apiVersion: v1
+metadata:
+  name: mysqllb
+  namespace: my-namespace
+spec:
+  ports:
+    - protocol: TCP
+      port: 33306
+      targetPort: 3306
+  allocateLoadBalancerNodePorts: false
+  type: LoadBalancer
+  selector:
+    app: mysql
+```
+
+Ensure that the `allocateLoadBalancerNodePorts` field is set to false (the default is true) because NodePorts are not enabled in Rahti 2. If this field is not set correctly, the allocated node port will be unusable, and service creation may fail if the entire default node port range (30000-32767) is already allocated.
+
+Additionally, the port field in the service definition (e.g., 33306 in the previous example) must be within the range of 30000-35000.
+
+It is possible to expose multiple `LoadBalancer` services on the same public IP but on different ports,  you can enable IP sharing by adding the `metallb.universe.tf/allow-shared-ip` annotation to services. The value of the annotation is a label of your choice. The services annotated with the same label will share the same IP. Here is an example configuration of two services that share the same ip address:
+
+```bash
+kind: Service
+apiVersion: v1
+metadata:
+  name: mysqllb
+  namespace: my-namespace
+  annotations:
+     metallb.universe.tf/allow-shared-ip: "label-to-share-1.2.3.4"
+spec:
+  ports:
+    - protocol: TCP
+      port: 33306
+      targetPort: 3306
+  allocateLoadBalancerNodePorts: false
+  type: LoadBalancer
+  selector:
+    app: mysql
+```
+
+
+```bash
+kind: Service
+apiVersion: v1
+metadata:
+  name: httplb
+  namespace: my-namespace
+  annotations:
+     metallb.universe.tf/allow-shared-ip: "label-to-share-1.2.3.4"
+spec:
+  ports:
+    - protocol: TCP
+      port: 30080
+      targetPort: 80
+  allocateLoadBalancerNodePorts: false
+  type: LoadBalancer
+  selector:
+    app: httpd
+```
