@@ -107,8 +107,8 @@ Ingress IPs in Rahti 2 provide a way for external traffic to access services run
 - **Project Name**: Provide the exact name of the Rahti 2 project that requires the Ingress IP.
 
 - **Use Case**: Clearly describe the use case, including:
-  - The type of services you plan to expose (e.g., web applications, APIs).
-  - Any specific requirements or considerations.
+    - The type of services you plan to expose (e.g., web applications, APIs).
+    - Any specific requirements or considerations.
 
 For example, the following service definition exposes a MySQL service on the assigned public IP at port 33306 and the service service of type must be `LoadBalancer`:
 
@@ -129,9 +129,9 @@ spec:
     app: mysql
 ```
 
-Ensure that the `allocateLoadBalancerNodePorts` field is set to false (the default is true) because NodePorts are not enabled in Rahti 2. If this field is not set correctly, the allocated node port will be unusable, and service creation may fail if the entire default node port range (30000-32767) is already allocated.
+Ensure that the `allocateLoadBalancerNodePorts` field is set to false (the default is true) because NodePorts are not enabled in Rahti 2. If this field is not set correctly, the allocated node port will be unusable, and service creation may fail if the entire default node port range (`30000-32767`) is already allocated.
 
-Additionally, the port field in the service definition (e.g., 33306 in the previous example) must be within the range of 30000-35000.
+Additionally, the port field in the service definition (e.g., `33306` in the previous example) must be within the range of `30000-35000`.
 
 It is possible to expose multiple `LoadBalancer` services on the same public IP but on different ports,  you can enable IP sharing by adding the `metallb.universe.tf/allow-shared-ip` annotation to services. The value of the annotation is a label of your choice. The services annotated with the same label will share the same IP. Here is an example configuration of two services that share the same ip address:
 
