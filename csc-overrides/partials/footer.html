@@ -1,48 +1,12 @@
-{% set contact_links = [
-  {
-    "text": "+358 9 457 2001 (switchboard)",
-    "url": "tel:+35894572001",
-    "target": "_blank",
-    "icon": ".icons/material/phone.svg"
-  },
-  {
-    "text": "Additional information at CSC.fi",
-    "url": "https://www.csc.fi/en/about-us/contact-information/",
-    "target": "_blank"
-  },
-] %}
-{% set service_links = [
-  {
-    "text": "Contact form",
-    "url": "https://research.csc.fi/support",
-    "target": "_blank",
-    "icon": ".icons/material/form-textbox.svg"
-  },
-  {
-    "text": "servicedesk@csc.fi",
-    "url": "mailto:servicedesk@csc.fi",
-    "target": "_blank",
-    "icon": ".icons/material/email.svg"
-  },
-  {
-    "text": "+358 9 4572821",
-    "url": "tel:+35894572821",
-    "target": "_blank",
-    "icon": ".icons/material/phone.svg"
-  },
-] %}
-{% set info_links = [
-  {
-    "text": "Maintenance breaks",
-    "url": "https://research.csc.fi/service-breaks/",
-    "target": "_blank"
-  },
-  {
-    "text": "Accessibility statement",
-    "url": "/support/accessibility/",
-    "target": "_self"
-  },
-] %}
+{% macro page_url(src) %}
+  {{ (pages|selectattr("src_uri", "eq", src)|first).page.url|url }}
+{% endmacro %}
+{% macro footer_link(text, href, icon=none, target="_blank" ) -%}
+  {% if not icon is none %}
+    <span class="twemoji">{% include ".icons/material/" + icon + ".svg" %}</span>
+  {% endif %}
+    <a class="csc-footer__link" href="{{ href }}" target="{{ target }}">{{ text }}</a>
+{%- endmacro %}
 <footer class="md-footer">
   <nav class="md-footer__inner md-grid" aria-label="{{ lang.t('footer.title') }}" {{ hidden }}>
     <div class="csc-footer">
@@ -52,17 +16,10 @@
           <strong>CSC &ndash; IT CENTER FOR SCIENCE LTD.</strong><br>P.O. Box 405 FI-02101 Espoo, Finland
         </div>
         <div class="csc-footer__body">
-          {% for link in contact_links[0:1] %}
-            <span class="twemoji">
-              {% include link.icon %}
-            </span>
-            <a class="csc-footer__link" href="{{ link.url }}" target="{{ link.target }}">{{ link.text }}</a>
-          {% endfor %}
+          {{ footer_link("+358 9 457 2001 (switchboard)", "tel:+35894572001", icon="phone") }}
         </div>
         <div class="csc-footer__body">
-          {% for link in contact_links[1:2] %}
-            <a class="csc-footer__link" href="{{ link.url }}" target="{{ link.target }}">{{ link.text }}</a>
-          {% endfor %}
+          {{ footer_link("Additional information at CSC.fi", "https://www.csc.fi/en/about-us/contact-information/") }}
         </div>
       </div>
       <div class="csc-footer__column">
@@ -72,22 +29,20 @@
           from 8.30 a.m. to 4 p.m.
         </div>
         <div class="csc-footer__body">
-          {% for link in service_links %}
-            <span class="twemoji">
-              {% include link.icon %}
-            </span>
-            <a class="csc-footer__link" href="{{ link.url }}" target="{{ link.target }}">{{ link.text }}</a>
-            <br>
-          {% endfor %}
+          <ul>
+            <li>{{ footer_link("Contact form", "https://research.csc.fi/support", icon="form-textbox") }}</li>
+            <li>{{ footer_link("servicedesk@csc.fi", "mailto:servicedesk@csc.fi", icon="email") }}</li>
+            <li>{{ footer_link("+358 9 4572821", "tel:+35894572821", icon="phone") }}</li>
+          </ul>
         </div>
       </div>
       <div class="csc-footer__column">
         <div class="csc-footer__heading">Info</div>
         <div class="csc-footer__body">
-          {% for link in info_links %}
-            <a class="csc-footer__link" href="{{ link.url }}" target="{{ link.target }}">{{ link.text }}</a>
-            <br>
-          {% endfor %}
+          <ul>
+            <li>{{ footer_link("Maintenance breaks", "https://research.csc.fi/service-breaks/" ) }}</li>
+            <li>{{ footer_link("Accessibility statement", page_url("support/accessibility.md"), target="_self") }}</li>
+          </ul>
         </div>
       </div>
     </div>
