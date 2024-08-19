@@ -100,9 +100,9 @@ The IP for all outgoing customer traffic is `86.50.229.150`. Any pod that runs i
 
     The egress IP of Rahti 2 might change in the future. For example, if several versions of Rahti 2 are run in parallel each will have a different IP. Or if a major change in the underlining network infrastructure happens.
 
-## Using Ingress IP in a Project
+## Using Ingress IPs in Projects
 
-Ingress IPs in Rahti 2 provide a way for external traffic to access services running within a project. This feature allows you to expose services to the outside world using a specific IP address, ensuring that users can interact with your applications. To enable and use an Ingress IP within your Rahti 2 project, you must submit a request to the service desk( `servicedesk@csc.fi`). This process requires you to includes the following details:
+Ingress IPs in Rahti 2 provide a way for external traffic to access services running within a project. This feature allows you to expose services to the outside world using a specific IP address, ensuring that users can interact with your applications. To enable and use an Ingress IP within your Rahti 2 project, you must submit a request to the service desk (`servicedesk@csc.fi`). This process requires you to includes the following details:
 
 - **Project Name**: Provide the exact name of the Rahti 2 project that requires the Ingress IP.
 
@@ -110,7 +110,7 @@ Ingress IPs in Rahti 2 provide a way for external traffic to access services run
     - The type of services you plan to expose (e.g., web applications, APIs).
     - Any specific requirements or considerations.
 
-For example, the following service definition exposes a MySQL service on the assigned public IP at port 33306 and the service service of type must be `LoadBalancer`:
+For example, the following service definition exposes a MySQL service on the assigned public IP at port 33306 and the service type must be set to `LoadBalancer`:
 
 ```bash
 kind: Service
