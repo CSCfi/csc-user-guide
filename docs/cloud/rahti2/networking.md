@@ -64,33 +64,33 @@ Any existing possible domain name could potentially be used in Rahti, but the DN
 
 * For the DNS configuration, you need to configure a `CNAME` pointing to `router-default.apps.2.rahti.csc.fi` or in cases that this is not possible, another possibility is to configure an `A` record containing the IP of `router-default.apps.2.rahti.csc.fi` has to be configured. The way this needs to be configured depends on the register of the DNS record.
 
-```sh
-$ host ?????.??
-?????.?? is an alias for router-default.apps.2.rahti.csc.fi.
-router-default.apps.2.rahti.csc.fi has address 195.148.21.61
-```
+    ```console
+    $ host ?????.??
+    ?????.?? is an alias for router-default.apps.2.rahti.csc.fi.
+    router-default.apps.2.rahti.csc.fi has address 195.148.21.61
+    ```
 
 * Any certificate provider can be used, like for example use the free certificates provided by the [Let's Encrypt controller](../tutorials/custom-domain.md#lets-encrypt).
 
-Another aspect of routes is the IP white listing feature, ie: only allowing a range of IPs to access the route. This is controlled by creating an annotation in the Route object with the key `haproxy.router.openshift.io/ip_whitelist`, and by setting the value to a space separated list of IPs and or IP ranges.
+Another aspect of routes is the IP white listing feature, ie: only allowing a range of IPs to access the route. This is controlled by creating an annotation in the Route object with the key `haproxy.router.openshift.io/ip_whitelist`, and by setting the value to a space separated list of IPs and or IP ranges. Assuming variable `route_name` holds the name of the route
 
 * This first example will white list a range of IPs (`193.166.[0-255].[1-254]`):
 
-```bash
-oc annotate route <route_name> haproxy.router.openshift.io/ip_whitelist='193.166.0.0/16'
-```
+    ```bash
+    oc annotate route $route_name haproxy.router.openshift.io/ip_whitelist='193.166.0.0/16'
+    ```
 
 * This other example will white list only a specific IP:
 
-```bash
-oc annotate route <route_name> haproxy.router.openshift.io/ip_whitelist='188.184.9.236'
-```
+    ```bash
+    oc annotate route $route_name haproxy.router.openshift.io/ip_whitelist='188.184.9.236'
+    ```
 
 * And this example will combine both:
 
-```bash
-oc annotate route <route_name> haproxy.router.openshift.io/ip_whitelist='193.166.0.0/15 193.167.189.25'
-```
+    ```bash
+    oc annotate route $route_name haproxy.router.openshift.io/ip_whitelist='193.166.0.0/15 193.167.189.25'
+    ```
 
 ## Egress IPs
 
@@ -112,7 +112,7 @@ Ingress IPs in Rahti 2 provide a way for external traffic to access services run
 
 For example, the following service definition exposes a MySQL service on the assigned public IP at port 33306 and the service type must be set to `LoadBalancer`:
 
-```bash
+```yaml
 kind: Service
 apiVersion: v1
 metadata:
@@ -135,7 +135,7 @@ Additionally, the port field in the service definition (e.g., `33306` in the pre
 
 It is possible to expose multiple `LoadBalancer` services on the same public IP but on different ports,  you can enable IP sharing by adding the `metallb.universe.tf/allow-shared-ip` annotation to services. The value of the annotation is a label of your choice. The services annotated with the same label will share the same IP. Here is an example configuration of two services that share the same ip address:
 
-```bash
+```yaml
 kind: Service
 apiVersion: v1
 metadata:
@@ -155,7 +155,7 @@ spec:
 ```
 
 
-```bash
+```yaml
 kind: Service
 apiVersion: v1
 metadata:
