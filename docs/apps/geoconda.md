@@ -17,7 +17,7 @@ includes following python packages:
     -   [Dask parallization example in CSC geocomputing Github](https://github.com/csc-training/geocomputing/tree/master/python/puhti/05_parallel_dask).
     -   [STAC example in CSC geocomputing Github](https://github.com/csc-training/geocomputing/tree/master/python/STAC).
 -   [descartes] - use Shapely or GeoJSON-like geometric objects as matplotlib paths and patches.
--   [Google Earth Engine API](https://developers.google.com/earth-engine/guides/python_install) - see how to [set up GEE authentication in Puhti](#google-earth-engine-eauthentication-set-up). 
+-   [Google Earth Engine API](https://developers.google.com/earth-engine/guides/python_install) - see how to [set up GEE authentication in Puhti](#google-earth-engine-authentication-set-up). 
 -   [fiona] - reads and writes spatial data files.
 -   [geoalchemy2]  - provides extensions to [SQLAlchemy] for working with spatial databases, primarily PostGIS.
 -   **[geopandas]** - GeoPandas extends the datatypes used by [pandas].
