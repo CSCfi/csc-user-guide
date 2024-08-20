@@ -17,7 +17,7 @@ includes following python packages:
     -   [Dask parallization example in CSC geocomputing Github](https://github.com/csc-training/geocomputing/tree/master/python/puhti/05_parallel_dask).
     -   [STAC example in CSC geocomputing Github](https://github.com/csc-training/geocomputing/tree/master/python/STAC).
 -   [descartes] - use Shapely or GeoJSON-like geometric objects as matplotlib paths and patches.
--   [Google Earth Engine API](https://developers.google.com/earth-engine/guides/python_install). 
+-   [Google Earth Engine API](https://developers.google.com/earth-engine/guides/python_install) - see how to [set up GEE authentication in Puhti](#google-earth-engine-eauthentication-set-up). 
 -   [fiona] - reads and writes spatial data files.
 -   [geoalchemy2]  - provides extensions to [SQLAlchemy] for working with spatial databases, primarily PostGIS.
 -   **[geopandas]** - GeoPandas extends the datatypes used by [pandas].
@@ -140,6 +140,29 @@ spyder
 
 * `export _JAVA_OPTIONS="-Xmx4g"` from command-line before starting Python OR
 * `os.environ["_JAVA_OPTIONS"] = "-Xmx4g"` in the beginning of your Python code.
+
+### Google Earth Engine authentication set up
+For using Google Earth Engine (GEE) API with `earthengine-api` package, one needs to have account in GEE. Before first usage, set up also GEE authentication in Puhti:
+
+1) Open Puhti web interface
+2) Start Desktop app
+3) In the Desktop, open Web Browser under Applications menu AND Terminal from shortcuts.
+
+In the Terminal:
+```
+module load geoconda
+python
+
+import os;
+path = os.environ['PATH'];
+os.environ['PATH'] = '/appl/opt/csc-cli-utils/google-cloud-sdk/bin:' + path
+
+import ee
+ee.Authenticate()
+```
+
+It prints out a long link and asks for a code. Copy it to the Web Browser and open the Google log in page. Log in and copy the created code back to Python.
+
 
 ## Using Allas from Python
 
