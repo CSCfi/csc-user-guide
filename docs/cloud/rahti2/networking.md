@@ -100,9 +100,9 @@ The IP for all outgoing customer traffic is `86.50.229.150`. Any pod that runs i
 
     The egress IP of Rahti 2 might change in the future. For example, if several versions of Rahti 2 are run in parallel each will have a different IP. Or if a major change in the underlining network infrastructure happens.
 
-## Using Ingress IPs in Projects
+## Using LoadBalancer Service Type with Dedicated IPs
 
-Ingress IPs in Rahti 2 provide a way for external traffic to access services running within a project. This feature allows you to expose services to the outside world using a specific IP address, ensuring that users can interact with your applications. To enable and use an Ingress IP within your Rahti 2 project, you must submit a request to the service desk (`servicedesk@csc.fi`). This process requires you to includes the following details:
+The dedicated IPs provide a way for inbound traffic to access services running within a project in Rahti 2. This feature allows you to expose services to the internet using a specific IP address, ensuring that users or external services can interact with your applications. To enable and use a dedicated IP within your Rahti 2 project, you must submit a request to the service desk (`servicedesk@csc.fi`). This process requires you to include the following details:
 
 - **Project Name**: Provide the exact name of the Rahti 2 project that requires the Ingress IP.
 
