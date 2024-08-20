@@ -1,6 +1,6 @@
 # Using user Spack module for software installations
 
-Spack is a package manager for supercomputers, Linux and MacOS. It can be used
+Spack is a package manager for supercomputers, Linux and macOS. It can be used
 to install complicated scientific software packages easily. CSC installs the
 development stack, including compilers, MPI libraries and also many other
 libraries and applications using Spack. CSC provides also a user module for
@@ -10,11 +10,11 @@ customers that enables per-project software installations using Spack.
     Spack is an advanced tool and it requires understanding of
     compiling and linking programs.
 
-!!! info "Note"
-    This tutorial assumes you are on Puhti, which has `spack/v0.18-user` installed.
-    Mahti has another version of Spack available for users, `spack/v0.17-user`.
-    Aside from the module versions, the outlined procedure is identical on the two
-    systems.
+!!! info "Available versions"
+    This tutorial assumes you are on Puhti, which has `spack/v0.18-user`
+    installed. Mahti has two versions of Spack available for users,
+    `spack/v0.17-user` and `spack/v0.20-user`. Aside from the module versions,
+    the outlined procedure is identical on the two systems.
 
 ## Creating a Spack instance
 
@@ -90,7 +90,7 @@ It is good practice to run it before installing to ensure that the build looks
 like intended. The `-I` flag is used to display the current install status of
 the package and its dependencies, while the `--reuse` flag is provided in order
 to reuse already installed dependencies whenever possible. Actual installation
-is then performed via the `spack install` command.
+is then performed via the `spack install` command:
 
 ```bash
 [maijam@puhti-login11 ~]$ spack install --reuse kakoune
@@ -109,12 +109,13 @@ is then performed via the `spack install` command.
 ```
 
 !!! info "Spec syntax"
-    The string that specifies which package should be installed (the *spec*) can
-    be simply just the package name, as above, but often you might want to install
-    a specific version, perhaps using a specific compiler and with some optional
-    installation flags (e.g. a GPU-enabled version of the software). Spack uses
-    a special syntax for specifying this information as explained in the [official
-    documentation](https://spack.readthedocs.io/en/latest/basic_usage.html#specs-dependencies).
+    The string that specifies which package should be installed (the *spec*)
+    can be simply just the package name, as above, but often you might want to
+    install a specific version, perhaps using a specific compiler and with some
+    optional installation flags (e.g. a GPU-enabled version of the software).
+    Spack uses a special syntax for specifying this information as explained in
+    the official
+    [documentation](https://spack.readthedocs.io/en/latest/basic_usage.html#specs-dependencies).
 
 ## Using modules with user Spack installations
 
@@ -125,8 +126,8 @@ and you can add that path to your `$MODULEPATH` with the command:
 [maijam@puhti-login11 ~]$ module use ${USER_SPACK_ROOT}/modules
 ```
 
-After installing a new package, you need to regenerate the module files. For
-example:
+After installing a new package, you may need to regenerate the module files.
+For example:
 
 ```bash
 [maijam@puhti-login11 ~]$ spack module tcl refresh kakoune

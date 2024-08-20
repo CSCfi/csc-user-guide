@@ -13,9 +13,11 @@ In addition to the national resources, CSC's data center in Kajaani hosts the pa
 
 LUMI is one of the three European pre-exascale supercomputers. It's an HPE Cray EX supercomputer consisting of several partitions targeted for different use cases. The largest partition of the system is the "LUMI-G" partition consisting of GPU accelerated nodes using a future-generation AMD Instinct GPUs. In addition to this, there is a smaller CPU-only partition, "LUMI-C" that features AMD EPYC "Milan" CPUs and an auxiliary partition for data analytics with large memory nodes and some GPUs for data visualization. Besides partitions dedicated to computation, LUMI also offers several storage partitions for a total of 117 PB of storage space.
 
-[A more technical description about LUMI](https://docs.lumi-supercomputer.eu/hardware/).
+- [LUMI user documentation](https://docs.lumi-supercomputer.eu/)
 
-[How does LUMI-C differ from Mahti?](lumi-vs-mahti.md)
+- [A more technical description of LUMI](https://docs.lumi-supercomputer.eu/hardware/)
+
+- [How does LUMI-C differ from Mahti?](lumi-vs-mahti.md)
 
 ## Puhti 
 
@@ -33,7 +35,7 @@ AI models that span multiple nodes.
 
 Puhti has  wide selection of [scientific software](../apps/by_system.md#puhti) installed.
 
-[A more technical description about Puhti](systems-puhti.md).
+- [A more technical description of Puhti](systems-puhti.md)
 
 ## Mahti
 
@@ -58,4 +60,4 @@ interactive workloads, courses and code development.
 The selection of installed [scientific software](../apps/by_system.md#mahti) in
 Mahti is more limited than in Puhti.
 
-[A more technical description about Mahti](systems-mahti.md).
+- [A more technical description of Mahti](systems-mahti.md)

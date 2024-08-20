@@ -34,6 +34,11 @@
   margin-bottom: 1rem;
 }
 
+.csc-footer__body ul {
+  list-style-type: none;
+  padding: unset;
+}
+
 .csc-footer__body .twemoji :is(svg) {
   height: 1em;
 }

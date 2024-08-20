@@ -35,5 +35,13 @@ Operations `allas-backup` can be used for:
  	Retrieves the data of the snapshot in the local environment. 
 	By default, stored data is restored to the local directory. Other locations can be defined with the _-target_ option.
 
+ - `allas-backup dump <snapshot_id> -f <file>`  
+    Retrieve contents of a file in the snapshot.
+
  - `allas-backup delete <snapshot_id>`  
  	Deletes a snapshot in the backup repository.
+
+ -	`allas-backup unlock`                
+    Remove Restic lock files.
+
+

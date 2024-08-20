@@ -1,6 +1,8 @@
 ---
 tags:
   - Free
+system:
+  - www-puhti
 ---
 
 # QGIS
@@ -37,7 +39,8 @@ qgis
 
 ### QGIS in LUMI
 
-Until LUMI web interface is available, QGIS needs to be used with [SSH X11 forwarding](../computing/connecting.md#using-graphical-applications).
+Until LUMI web interface is available, QGIS needs to be used with
+[SSH X11 forwarding](../computing/connecting/index.md#graphical-connection).
 
 ```
 module use /appl/local/csc/modulefiles

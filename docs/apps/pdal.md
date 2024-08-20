@@ -11,9 +11,10 @@ tags:
 
 PDAL is available in the following versions:
 
+* 2.7.2 - [geoconda-3.11.9 module](geoconda.md) with pdal Python library, in Puhti and Mahti
 * 2.6.2 - [QGIS-3.34 module](qgis.md) without pdal Python library, but with [pdal_wrench](https://github.com/PDAL/wrench), in Puhti
 * 2.5.2 - [geoconda-3.10.9 module](geoconda.md) with pdal Python library, in Puhti
-* 2.4.1 - [geoconda-3.10.6 module](geoconda.md) with pdal Python library, in Puhti
+* 2.4.1 - [geoconda-3.10.6 module](geoconda.md) with pdal Python library, in Puhti and Mahti
 * 2.3.0 - [QGIS-3.31 module](qgis.md) without pdal Python library, in Puhti and LUMI
 
 ## Usage
@@ -30,7 +31,7 @@ You can test if pdal loaded successfully with following
 
 ## License 
 
-PDAL is licensed with the BSD open source license. [The full PDAL licence](https://pdal.io/copyright.html)
+PDAL is licensed with the BSD open source license. [The full PDAL licence](https://pdal.io/en/latest/copyright.html)
 
 ## Citation
 
@@ -52,5 +53,5 @@ Please see the respectives versions module page: [Geoconda](./geoconda.md) , [QG
 ## References
 
 * [PDAL homepage](https://pdal.io/)
-* [LAS file example](https://pdal.io/tutorial/las.html)
+* [LAS file example](https://pdal.io/en/latest/tutorial/las.html)
 

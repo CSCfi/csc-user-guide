@@ -147,7 +147,11 @@ nav:
         - Puhti: computing/systems-puhti.md
         - Mahti: computing/systems-mahti.md
         - LUMI: "https://docs.lumi-supercomputer.eu/hardware/"
-     - Connecting: computing/connecting.md
+     - Connecting:
+        - computing/connecting/index.md
+        - SSH client on macOS and Linux: computing/connecting/ssh-unix.md
+        - SSH client on Windows: computing/connecting/ssh-windows.md
+        - Setting up SSH keys: computing/connecting/ssh-keys.md
      - Supercomputer storage:
         - computing/disk.md
         - Lustre filesystem: computing/lustre.md
@@ -347,6 +351,7 @@ nav:
         - Moving files using the HPC web interfaces: data/moving/web-interface.md
         - Graphical file transfer tools: data/moving/graphical_transfer.md
         - Using rsync for data transfer and synchronization: data/moving/rsync.md
+        - Using tar and SSH to transfer many small files efficiently: data/moving/tar_ssh.md
         - Using wget to download data from web sites to CSC: data/moving/wget.md
         - Sharing and transporting files using Funet FileSender: data/moving/funet.md
         - Moving data between IDA and CSC computing environment: data/ida/using_ida.md

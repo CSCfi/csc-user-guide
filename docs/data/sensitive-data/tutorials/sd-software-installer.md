@@ -66,10 +66,13 @@ Notes about the available tools. Note that this list may be outdated:
 
 ### Statistics
 *  [Rstudio 4.2.2](../r-in-sd-desktop.md) R statistics tool with graphical user interface and help tools for adding libraries.
+    *  After installation, right-click the Rstudio desktop icon and select: _Allow launching_.
 *  [PSPP](https://www.gnu.org/software/pspp/) Open Source alternative for SPSS statistics tool.
+    *  After installation, right-click the PSPP desktop icon and select: _Allow launching_.
 
 ### Imaging and videos
 *  [Audacity](https://www.audacityteam.org/). Sound editor.
+    *  After installation, right-click the Audacity desktop icon and select: _Allow launching_.
 *  [ELAN 6.7](https://archive.mpi.nl/tla/elan/). Annotation tool for audio and video recordings.
     *  After installation, right-click the ELAN desktop icon and select: _Allow launching_.
 *  [OpenShot 3.1.1](https://www.openshot.org/). Video editor.
@@ -87,6 +90,7 @@ Notes about the available tools. Note that this list may be outdated:
 *  [GCTA 1.94.1](https://yanglab.westlake.edu.cn/software/gcta/#Overview) A tool for Genome-wide Complex Trait Analysis.
 *  [GCTB 2.05b](https://cnsgenomics.com/software/gctb/#Overview) Genome-wide Complex Trait Bayesian analysis
 *  [IGV 2.16.2](https://igv.org/doc/desktop/) Integrated Genomics Viewer.
+    *  After installation, right-click the IGV desktop icon and select: _Allow launching_.
 *  [MultiQC 1.10](https://multiqc.info/) NGS Read quality checking tool.
 *  [PRSice 2.0](https://choishingwan.github.io/PRSice/) Polygenic Risk Score software for calculating, applying, evaluating and plotting the results of polygenic risk scores (PRS) analyses.
 *  [Regenie 3.3](https://rgcgithub.github.io/regenie/) Program for whole genome regression modelling of large genome-wide association studies.
@@ -96,8 +100,10 @@ Notes about the available tools. Note that this list may be outdated:
 
 ### Miscellaneous
 *   [auto-apptainer](./auto-apptainer.md) Tool to add command line applications using the Apptainer container library provided by CSC.
-*   [VS Code 1.78.2](./vscode.md) Code editor.
+*   [add-python-lib](./sd-pythonlibs.md) Help tool to add Python libraries.
 *   [Crypt4gh-gui](../sd-connect-upload-for-analysis.md#sensitive-data-encryption-and-upload-for-analysis-up-to-100-gb) Encryption tool.
 *   [Backup tool](./backup_sd_desktop.md) Help tool to automatize backup and export in SD Desktop.
+*   [VS Code 1.90.2](./vscode.md) Code editor.
+    *  After installation, right-click the VS Code desktop icon and select: _Allow launching_.
 *   [WEKA 3-8-6](https://ml.cms.waikato.ac.nz/weka/index.html)
 

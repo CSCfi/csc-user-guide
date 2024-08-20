@@ -12,16 +12,34 @@ Once you have Allas enabled you can access it from any machine or server that is
 
 ## Accessing Allas from the web browser
 
-At the moment CSC provides two web browser interfaces for Allas:
+At the moment CSC provides several web browser interfaces for Allas:
+
+The **WWW interfaces of Puhti and Mahti** are connected to Allas. 
+These interfaces allow you transfer files and directories between your local computer and Allas as well as
+between CSC supercomputers and Allas.
+
+* [Instructions for using Allas in Puhti and Mahti web interfaces](../../computing/webinterface/file-browser.md)
+* [Puhti web interface](https://www.puhti.csc.fi)
+* [Mahti web interface](https://www.mahti.csc.fi)
+
 
 The OpenStack Horizon web interface in **cPouta** provides easy-to-use basic functions for data management in Allas. This interface can only be used for files smaller than 5 GB.
 
 * [Web client – OpenStack Horizon Dashboard](./using_allas/web_client.md)
+* [cPouta Web Interface](https://pouta.csc.fi)
+
+
+**SD Connect** provides an interface for storing and sharing sensitive data. 
+This service is based on Allas but we don't recommend it for other than sensitive data.
+
+* [SD Connect instructions](../sensitive-data/sd_connect.md)
+* [SD Connect interface](https://sd-connect.csc.fi)
+
 
 
 ## Accessing Allas in the CSC computing environment and other Linux platforms
 
-Puhti and Mahti servers at CSC support many different tools for using Allas, These include
+CSC supercomputers Puhti and Mahti support many different command line tools for using Allas, These include
 
 * [**a-tools**](./using_allas/a_commands.md) for basic use: (Swift, optionally S3)
 * [**rclone**](./using_allas/rclone.md) providing some advanced functions:** (Swift, optionally S3) 
@@ -30,37 +48,38 @@ Puhti and Mahti servers at CSC support many different tools for using Allas, The
 
 Note that the tools listed above utilize two different protocols: _Swift_ and _S3_. Data uploaded using one protocol is not necessary compatible with another protocol. 
 
-The software listed above can be used in other Linux servers as well, e.g. a virtual machine running in cPouta or your own Linux-based laptop. In that case, you need to install the client software and configure the connection to Allas yourself. Instructions : [allas-cli-utils](https://github.com/CSCfi/allas-cli-utils)
+The software listed above can also be used on other devices, for example a virtual machine running in cPouta or your own laptop.
 
 In Puhti and Mahti the Allas tools listed above are installed by CSC and provided through _allas_ module.
 In order to use Allas in Puhti or Mahti, first load the Allas module:
 ```text
 module load allas
 ```
-Allas access for a specific project can then be enabled:
+Allas access for a specific project using swift protocol can then be enabled:
 ```text
 allas-conf
 ```
-or 
+To enable S3 protocol, use option `-m S3`
 ```text
-allas-conf project_name
+allas-conf -m S3
 ```
-The _allas-conf_ command prompts for your CSC password (the same that you use to login to CSC servers). It lists your Allas projects and asks you to define a project (if not already defined as an argument). _allas-conf_ generates an _rclone_ configuration file for the Allas service and authenticates the connection to the selected project. You can only be connected to one Allas project at a time in one session. The project you are using in Allas does not need to match the project you are using in Puhti or Mahti, and you can switch to another project by running _allas-conf_ again.
+The `allas-conf` command prompts for your CSC password (the same that you use to login to CSC servers). It lists your Allas projects and asks you to define a project (if not already defined as an argument). `allas-conf` generates an `rclone` configuration file for the Allas service and authenticates the connection to the selected project. `allas-conf` enables you to use only one Allas project at a time in one session. The project you are using in Allas does not need to match the project you are using in Puhti or Mahti, and you can switch to another project by running `allas-conf` again.
 
-Authentication information is stored in the shell variables *OS_AUTH_TOKEN* and *OS_STORAGE_URL* and is valid for up to eight hours. However, you can refresh the authentication at any time my running _allas-conf_ again. The environment variables are available only for that login session, so if you start another shell session, you need to authenticate again in there to access Allas.
+In the case of the Swift protocol, the authentication information is stored in the `OS_AUTH_TOKEN` and `OS_STORAGE_URL` environment variables and is valid for up to eight hours. However, you can refresh the authentication at any time by running `allas-conf` again. The environment variables are set only for the current login session, so you need to configure authentication individually for each shell with which you wish to access Allas.
 
-Once Allas connection is congigured, you can start using Allas with the tools listed above. 
+In the case of the S3 protocol, the authentication information is stored in configuration files located in your home directory on the device. The same authentication is used for all login sessions and it does not have an expiration time.
+
+Once an Allas connection is configured, you can start using the object storage with the tools listed above. 
 
 Basic Allas operations with different tools.
 
 | Tool	| List objects in bucket _buck_123_	| Upload file _data1.txt_ to bucket _buck_123_ |	Download file _data1.txt_ from bucket _buck_123_ |
 |-------|-----------------------------------|----------------------------------------------|-------------------------------------------------|
 | [a-commands](using_allas/a_commands.md) |`a-list buck_123` | `a-put data1.txt -b buck_123` | `a-get buck_123/data1.txt.zst` |
-| [rclone](using_allas/rclone.md) |`rclone ls allas:buck_123` | `rclone copy data1.txt allas:buck_123/` |	`rclone copy allas:buck_123/data1.txt ./`| 
+| [rclone (swift)](using_allas/rclone.md) |`rclone ls allas:buck_123` | `rclone copy data1.txt allas:buck_123/` |	`rclone copy allas:buck_123/data1.txt ./`|
+| [rclone (S3)](using_allas/rclone.md) |`rclone ls s3allas:buck_123` | `rclone copy data1.txt s3allas:buck_123/` |	`rclone copy s3allas:buck_123/data1.txt ./`|
 | [Swift](using_allas/swift_client.md) |`swift list buck_123` | `swift upload buck_123 data1.txt` |	`swift download buck_123 data1.txt` |
 | [s3cmd](using_allas/s3_client.md)\*	 |`s3cmd ls s3://buck_123` |	`s3cmd put data1.txt s3://buck_123/` | `s3cmd get s3://buck_123/data1.txt` |
-
-\*For s3cmd, open Allas connection with command`allas-conf -m s3cmd`
 
 
 
@@ -70,8 +89,8 @@ In addition to the Web interfaces listed above, you can access Allas from you Wi
 For example following tools can be used:
 
 * [Cyberduck](./using_allas/cyberduck.md) provides easy to use graphical interface for moving data between local computer and Allas.
-* [Rclone](./using_allas/rclone_local.md) is an command line tool that provides very effective way to use Allas.
-* [a-tools](./using_allas/a_commands.md) these Allas specific commands can be installed in Mac OSX machines but not to Windows
+* [Rclone](./using_allas/rclone_local.md) is a command line tool that provides a very effective way to use Allas on any operating system.
+* [a-tools](./using_allas/a_commands.md) are Allas-specific commands that can be installed on macOS and Linux devices, but not ones running a Windows operating system.
 
 The list above is not complete or exclusive. Any tool that supports Swift or S3 protocols can in principle use Allas.
 

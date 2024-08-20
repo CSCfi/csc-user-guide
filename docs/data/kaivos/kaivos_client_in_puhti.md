@@ -1,6 +1,6 @@
 # MySQL client programs at CSC
 
-Below you can find instructions on how to use the MySQL client programs in CSC's computing environment. The SQL language is not covered, but you can find a lot of documentation and guidance elsewhere (e.g., MySQL user manual).
+Below you can find instructions on how to use the MySQL client programs in CSC's computing environment. The SQL language is not covered, but you can find a lot of documentation and guidance elsewhere (e.g., MariaDB or MySQL user manuals).
 
 ## Connecting your database
 
@@ -38,13 +38,7 @@ In the latter command, the `--skip-column-names` option is used to print out onl
 
 In the mysql commands above, the client program would ask for the user name and password every time when a mysql command is executed. It is however possible to define default values for the database name, user name and password, that will be used for the connection if no password or user name is given. Setting the default values is useful especially in cases where the user uses mostly just one database.
 
-The default values for the MySQL connections is defined in a file called `.my.cnf` (note the dot in the beginning of the file name) that locates in the user's home directory. This definition file can be constructed in two alternative ways: in Puhti with a normal text editor or with the command:
-
-```bash
-kaivos_mysql_cnf
-```
-
-Below is shown the basic structure of the `.my.cnf` file:
+The default values for the MySQL connections is defined in a file called `.my.cnf` (note the dot in the beginning of the file name) that locates in the user's home directory. This definition file can be constructed in Puhti with a normal text editor. Below is shown the basic structure of the `.my.cnf` file:
 
 ```text
 [client]
@@ -64,7 +58,7 @@ mysql --defaults-extra-file=db_conn2.def --local db_name < commands.sql > output
 
 ## Graphical Interfaces
 
-Graphical MySQL interfaces have not been installed to Puhti. However graphical database interfaces are very efficient when you need to get familiar and administrate a complex database that contains a large number of tables. If you wish to use your database through a graphical user interface, we recommend that you install the interface program to your local computer and create a remote connection to Kaivos as described in chapter 5.
+Graphical MySQL interfaces have not been installed to Puhti. However graphical database interfaces are very efficient when you need to get familiar and administrate a complex database that contains a large number of tables. If you wish to use your database through a graphical user interface, we recommend that you install a interface program (e.g. MysqlWorkbench) to your local computer and create a remote connection to Kaivos as described in chapter 5.
 
 ## Following the disk usage in kaivos.csc.fi
 

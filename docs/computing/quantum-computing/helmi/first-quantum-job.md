@@ -156,6 +156,7 @@ This submits the job *interactively* meaning that the output will be printed str
 #SBATCH --error=helmijob.e%j  # Name of stderr error file
 #SBATCH --partition=q_fiqci   # Partition (queue) name
 #SBATCH --ntasks=1              # One task (process)
+#SBATCH --mem-per-cpu=2G       # memory allocation
 #SBATCH --cpus-per-task=1     # Number of cores (threads)
 #SBATCH --time=00:15:00         # Run time (hh:mm:ss)
 #SBATCH --account=project_xxx  # Project for billing

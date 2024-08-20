@@ -7,7 +7,7 @@ You can find more information about snapshot [here](../../cloud/pouta/snapshots.
 
 ### Using the resize functionality 
 !!! Warning    
-    I/O flavors [cannot be resized](../../cloud/pouta/vm-flavors-and-billing.md#io-flavors_2) to a different family flavors. Currently resizing I/O flavors to another I/O flavor is not supported. We recommend to use [snapshots](../../cloud/pouta/snapshots.md#launching-an-instance-from-a-volume-snapshot).
+    [I/O flavors](../../cloud/pouta/vm-flavors-and-billing.md#io-flavors_2) and [GPU flavors](../../cloud/pouta/vm-flavors-and-billing.md#gpu-flavors_2) cannot be resized to a different family flavors. We recommend to use [snapshots](../../cloud/pouta/snapshots.md#launching-an-instance-from-a-volume-snapshot).
 
 !!! Warning  
     It's possible to resize from a `standard` flavor *family* to a `hpc` flavor *family*. Nothing will prevent you to do that but it's **highly not recommended!**  

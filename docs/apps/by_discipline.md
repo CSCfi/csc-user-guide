@@ -164,6 +164,7 @@
 * [Julia](julia.md)  High-level, high-performance dynamic programming language for numerical computing
 * [MATLAB](matlab.md) High-level technical computing language
 * [Octave](octave.md) High-level interpreted language for numerical computations
+* [Python](python.md) The programming language and its modules at CSC
 * [r-env](r-env.md) R, RStudio Server, SAGA and TensorFlow
 * [RStudio](rstudio.md) Integrated development environment for R
 * [SageMath](sagemath.md) Free open-source mathematics software system
@@ -176,7 +177,6 @@
 
 ## Quantum
 * [Cirq-on-iqm](cirq-on-iqm.md) open-source cirq adapter for quantum computing
-* [CUDA Quantum](cuda-quantum.md) open-source platform for hybrid quantum-classical computing
 * [Pennylane](pennylane.md) Free open-source software framework for quantum machine learning and quantum computing
 * [Qiskit](qiskit.md) open-source toolkit for useful quantum computing
 * [Qiskit-on-iqm](qiskit-on-iqm.md) open-source qiskit adapter for quantum computing
@@ -193,7 +193,6 @@
 * [Jupyter for courses](jupyter-for-courses.md) A version of the Jupyter app for course environments
 * [MySQL](../data/kaivos/overview.md) MySQL database client.
 * [ParaView](paraview.md) Free open-source visualization application
-* [Python](python.md) The programming language and its modules at CSC
 * [TensorBoard](tensorboard.md) The visualization toolkit for TensorFlow
 * [VisIt](visit.md) Free open-source visualization application
 * [Visual Studio Code](vscode.md) Source code editor
