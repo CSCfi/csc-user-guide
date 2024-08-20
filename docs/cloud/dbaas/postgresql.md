@@ -137,38 +137,18 @@ For easier management of privileges, we recommend creating groups and assigning 
 
 It is not possible for users to add additional extensions that are not already installed. If there
 are some extensions you would like to see available in Pukki, please be in contact with
-[CSC Service Desk](../../support/contact.md). Note that extensions are not very well tested by the
-DBaaS-admin.
+[CSC Service Desk](../../support/contact.md).
 
+### How to enable extensions
 
-### How to enable extensions from the Web interface
-
-1. Log into the web interface where you can see all your existing instances.
-2. From the instances row you can find the action column on the right hand side choose `Manage Root Access` ![Manage root access](../../img/dbaas-enable-root.png)
-3. Once you are at the root view you can press the `Enable root` button.
-4. The root password is now visible and you can now access the your database with the psql-client, with the root password with the user name `root` .
-5. Once you don't need root access anymore you can press `Disable root`.
-
-### How to enable extensions from the CLI
-
-
-1. To enable extensions, you need to first enable root for the database instance and log in as root:
-
-    ```
-    openstack database root enable $INSTANCE_ID
-    ```
-
-2. After you have logged in as root, you can enable the extension of your choice with:
-
+  1. You can enable extensions by first [enable root](operations.md#enable-root)
+  2. After you have logged in as root, you can enable the extension of your choice with:
     ```
     CREATE EXTENSION $EXTENSION_NAME
     ```
+  3. After you are done, make sure that you disable root.
 
-3. After you have enable the extension of your choice, you can log out and disable root:
 
-    ```
-    openstack database root disable $INSTANCE_ID
-    ```
 
 ### Currently available extensions
 

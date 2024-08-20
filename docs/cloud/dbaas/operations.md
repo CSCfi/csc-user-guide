@@ -43,14 +43,34 @@ By default, your database user account does not have permissions to delete datab
 openstack database db delete $INSTANCE_UUID $DATABASE_NAME
 ```
 
-If you want to allow your database users too be able to manage the databases of your database instance you will need to enable root permissions for your instance:
 
-```
-openstack database root enable $INSTANCE_UUID
-```
+## Enable root
 
-Then create a user with your `root` account that have suitable permission (in PostgreSQL the permission is `CREATEDB`). Once you are done you can disable your root user:
+Sometimes you need to make changes to the database that is not supported from the web interface nor
+the openstack command line tool, like creating extensions or make more advanced user permissions.
+It is worth keeping in mind that with the root credentials you can make changes that might break
+your database, it is recommended to use the root user only when you need to make changes that
+actually require the user.
 
-```
-openstack database root disable $INSTANCE_UUID
-```
+### How to enable root from the Web interface
+
+1. Log into the web interface where you can see all your existing instances.
+2. From the instances row you can find the action column on the right hand side choose `Manage Root Access` ![Manage root access](../../img/dbaas-enable-root.png)
+3. Once you are at the root view you can press the `Enable root` button.
+4. The root password is now visible and you can now access the your database with the psql-client, with the root password with the user name `root` .
+5. Once you don't need root access anymore you can press `Disable root`.
+
+### How to enable root from the CLI
+
+
+1. Enable root
+    ```
+    openstack database root enable $INSTANCE_ID
+    ```
+2. The root password is now visible and you can now access the your database with the psql-client, with the root password with the user name `root` .
+
+3. Once you don't need to access your database with root anymore you can disable it by:
+
+    ```
+    openstack database root disable $INSTANCE_ID
+    ```
