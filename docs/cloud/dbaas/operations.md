@@ -46,19 +46,19 @@ openstack database db delete $INSTANCE_UUID $DATABASE_NAME
 
 ## Enable root
 
-Sometimes you need to make changes to the database that is not supported from the web interface nor
-the openstack command line tool, like creating extensions or make more advanced user permissions.
-It is worth keeping in mind that with the root credentials you can make changes that might break
-your database, it is recommended to use the root user only when you need to make changes that
-actually require the user.
+Some changes, such as enabling extensions or modifying more advanced user permissions,
+aren't accessible via the web interface or the OpenStack command line tools.
+It's worth keeping in mind that with the root credentials enabled you can make
+breaking changes to your database. It's recommended to only use the root user when
+you need to make changes that actually require it.
 
 ### How to enable root from the Web interface
 
-1. Log into the web interface where you can see all your existing instances.
-2. From the instances row you can find the action column on the right hand side choose `Manage Root Access` ![Manage root access](../../img/dbaas-enable-root.png)
-3. Once you are at the root view you can press the `Enable root` button.
-4. The root password is now visible and you can now access the your database with the psql-client, with the root password with the user name `root` .
-5. Once you don't need root access anymore you can press `Disable root`.
+1. Log in to the web interface where you can see all your existing instances.
+2. Find the 'Actions' dropdown in the rightmost column, and choose `Manage Root Access`. ![Manage root access](../../img/dbaas-enable-root.png)
+3. On the Manage Root Access page, press the `Enable Root` button in the rightmost column of the instances table.
+4. The root password is now visible on that same Manage Root Access page. You can access the database with the password shown, and with `root` as username.
+5. Once you no longer need root access, press `Disable Root` on the Manage Root Access page.
 
 ### How to enable root from the CLI
 
@@ -67,9 +67,10 @@ actually require the user.
     ```
     openstack database root enable $INSTANCE_ID
     ```
-2. The root password is now visible and you can now access the your database with the psql-client, with the root password with the user name `root` .
 
-3. Once you don't need to access your database with root anymore you can disable it by:
+2. Use the password shown with the username `root` to access the database.
+
+3. Once you no longer need root access, run the following command to disable it:
 
     ```
     openstack database root disable $INSTANCE_ID
