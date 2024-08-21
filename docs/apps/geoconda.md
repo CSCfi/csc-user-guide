@@ -146,7 +146,9 @@ For using Google Earth Engine (GEE) API with `earthengine-api` package, one need
 
 1. Open Puhti web interface
 2. Start Desktop app
-3. In the Desktop, open Web Browser under Applications menu AND Terminal from shortcuts.
+3. In the Desktop, open:
+  * Web Browser under Applications menu and
+  * Terminal from shortcuts
 4. In the Terminal:
    
 ```
@@ -160,7 +162,7 @@ import ee
 ee.Authenticate()
 ```
 
-5. This prints out a long link and asks for a code. Copy the link to the Web Browser and open the Google log-in page. Log-in and copy the created code back to Python.
+This prints out a long link and asks for a code. Copy the link to the Web Browser and open the Google log-in page. Log-in and copy the created code back to Python.
 
 
 ## Using Allas from Python
