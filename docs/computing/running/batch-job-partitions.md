@@ -86,7 +86,7 @@ The [interactive partition on Puhti] allows running interactive jobs on both
 CPU and GPU nodes. To run your interactive job on a GPU node, use
 `sinteractive`
 [with the `--gpu` option](./interactive-usage.md#sinteractive-in-puhti).
-Note that you can only run two simultaneous jobs in the Puhti `interactive`
+Note that you can only run two simultaneous jobs on the Puhti `interactive`
 partition.
 
 | Partition     | Time<br>limit | Max<br>GPUs | Max CPU<br>cores | Max<br>nodes | [Node types](../systems-puhti.md) | Max memory<br>per node | Max local storage<br>([NVMe]) per node |
@@ -138,7 +138,7 @@ each reserved GPU.
 
 #### Multi-instance GPUs
 
-A subset of the A100 GPUs in the Mahti `gpusmall` partition are divided into a
+A subset of the A100 GPUs on the Mahti `gpusmall` partition are divided into a
 total of 28 smaller multi-instance GPUs (MIGs), which have one-seventh of the
 compute and memory capacity of a full A100 GPU. Unless you specify otherwise,
 the job is allocated 17.5 GiB of memory for each reserved MIG. Note that you
