@@ -85,7 +85,7 @@ Puhti features the following partitions for submitting jobs to GPU nodes:
 The [interactive partition on Puhti] allows running interactive jobs on both
 CPU and GPU nodes. To run your interactive job on a GPU node, use
 `sinteractive`
-[with the `--gpu` option](./interactive-usage.md#sinteractive-in-puhti).
+[with the `--gpu` option](./interactive-usage.md#sinteractive-on-puhti).
 Note that you can only run two simultaneous jobs on the Puhti `interactive`
 partition.
 
@@ -170,8 +170,8 @@ batch jobs, as long as they match the intended usage.
 <!-- Links -->
 [creating GPU batch jobs on Mahti]: ./creating-job-scripts-mahti.md#gpu-batch-jobs
 [Grand Challenge project]: https://research.csc.fi/grand-challenge-proposals
-[interactive partition on Mahti]: ./interactive-usage.md#sinteractive-in-mahti
-[interactive partition on Puhti]: ./interactive-usage.md#sinteractive-in-puhti
+[interactive partition on Mahti]: ./interactive-usage.md#sinteractive-on-mahti
+[interactive partition on Puhti]: ./interactive-usage.md#sinteractive-on-puhti
 [LUMI documentation]: https://docs.lumi-supercomputer.eu/runjobs/scheduled-jobs/partitions/
 [NVMe]: ../disk.md#compute-nodes-with-local-ssd-nvme-disks
 [scalability test]: ../../accounts/how-to-access-mahti-large-partition.md

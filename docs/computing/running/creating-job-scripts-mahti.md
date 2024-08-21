@@ -7,7 +7,7 @@ environment. On this page we focus on Mahti specific topics.
 !!! Note
     Only Mahti GPU nodes have NVMe disk on compute nodes.  
     Otherwise full nodes are allocated for jobs,
-    with the exception of [interactive jobs](../interactive-usage/#sinteractive-in-mahti), also
+    with the exception of [interactive jobs](../interactive-usage/#sinteractive-on-mahti), also
     [see below](#using-interactive-partition-for-non-parallel-pre-or-post-processing). Many options also work
     differently in Puhti and Mahti, so it is not advisable to copy scripts from Puhti
     to Mahti.
