@@ -2,14 +2,15 @@
 
 When you log into a CSC supercomputer, you are connected to one of its login
 nodes. Login nodes are shared by all users and are **not** to be used for
-heavy processing. See our [usage policy](../usage-policy.md#login-nodes) for
-details. If you need to run heavy computations interactively, you can use the
-`interactive` partition on Puhti and Mahti.
+heavy processing. See our [usage policy] for details. If you need to run heavy
+computations interactively, you can use the `interactive` partition on Puhti
+and Mahti.
 
 The `interactive` partition offers fewer resources than other partitions, but
 jobs submitted to it have a much higher priority in comparison, so they will
-typically spend very little time queueing. The most convenient way to use the
-`interactive` partition is with the `sinteractive` command.
+typically spend very little time queueing. The partition can be used for
+running [web interface applications] and [batch jobs], but the most convenient
+way to use it is the [`sinteractive` command](#the-sinteractive-command).
 
 ## The `sinteractive` command
 
@@ -28,12 +29,15 @@ during the session are lost.
 
 While the recommended way to use graphical applications is the [virtual
 desktop](../webinterface/desktop.md), it is also possible to do this in an
-interactive session launched from the command line using [X11
-forwarding](../connecting/index.md#graphical-connection).
+interactive session launched from the command line
+[using X11 forwarding](#starting-an-interactive-application-with-x11-graphics).
 
-The easiest way to run `sinteractive` is using the `-i` option:
+The easiest way to use `sinteractive` is running the command with the `-i`
+option:
 
-```bash sinteractive -i ```
+```bash
+sinteractive -i
+```
 
 When this option is used, the user is prompted for the individual parameters
 of the session (runtime, memory, cores, etc.). If you do not want to specify
@@ -61,7 +65,8 @@ your processes. Do keep in mind that this disk area is emptied when the
 interactive session ends. The `TMPDIR` environment variable points to the
 local disk area of the job. 
 
-To see the command options available on Puhti, run:
+To see the command options available on Puhti, run the following while
+logged into the system:
 
 ```bash
 sinteractive --help
@@ -76,27 +81,40 @@ for information on the available resources. It is also possible to start an
 interactive job on the `gpusmall` partition using the `-g` flag, which allows you
 to use a [multi-instance GPU](./batch-job-partitions.md#multi-instance-gpus)
 for interactive work. Note that using a MIG restricts the amount of
-CPU cores and memory that is available to your job.
+CPU cores and memory that is available for your job.
 
-### Example: Running a Jupyter notebook or RStudio server via sinteractive
-See the [Using RStudio or Jupyter notebook tutorial](../../support/tutorials/rstudio-or-jupyter-notebooks.md).
+As with Puhti, you can see the Mahti-specific command options by running the
+following while logged into the system:
+
+```bash
+sinteractive --help
+```
+
+### Example: Running a Jupyter notebook or RStudio server via `sinteractive`
+
+See the tutorial on
+[using RStudio or Jupyter notebooks](../../support/tutorials/rstudio-or-jupyter-notebooks.md).
 
 ### Example: Running an MPI job in an interactive session
 
-Since the shell started in the interactive session is already a job step in Slurm, more job steps can't be started.
-This will disable, e.g. running GROMACS tools, as `gmx_mpi` is a parallel program and normally needs `srun`.
-In this case, in the interactive shell, `srun` must be replaced with `orterun -n 1`. Orterun does not know of the
-Slurm flags, so it needs to be told how many tasks/threads to use. The following example will run a
-[GROMACS](../../apps/gromacs.md) mean square displacement analysis for an existing trajectory.
+Since the shell that is started in the interactive session is already a job
+step in Slurm, additional job steps cannot be created. This prevents running
+GROMACS tools in the usual way, since `gmx_mpi` is a parallel program and
+normally requires using `srun`. In this case, `srun` must be replaced with
+`orterun -n 1` in the interactive shell. Orterun does not know of the Slurm
+flags, so it needs to be told how many tasks/threads to use. The following
+example will run a [GROMACS](../../apps/gromacs.md) mean square displacement
+analysis for an existing trajectory.
 
 ```bash
 sinteractive --account <project>
 module load gromacs-env
 orterun -n 1 gmx_mpi msd -n index.ndx -f traj.xtc -s topol.tpr
 ```
+
 To use all requested cores in parallel, you need to add `--oversubscribe`.
 E.g. for 4 cores, a parallel interactive job
-(launched *from* the interactive session) can be run with
+(launched *from* the interactive session) can be run with:
 
 ```bash
 sinteractive --account <project> -c 4
@@ -106,9 +124,9 @@ orterun -n 4 --oversubscribe gmx_mpi mdrun -s topol.tpr
 
 ## Explicit interactive shell without X11 graphics
 
-If you don't want to use the `sinteractive` wrapper, it's possible
-to use Slurm commands explicitly.
-Note, as you may need to queue, it's convenient to ask for an email once the resources have been granted. 
+If you do not want to use the `sinteractive` wrapper, it is possible to use
+Slurm commands explicitly. Since you may need to queue, it is recommended to
+ask for an email notification once the resources have been granted. 
 
 ```
 srun --ntasks=1 --time=00:10:00 --mem=1G --pty \
@@ -116,9 +134,8 @@ srun --ntasks=1 --time=00:10:00 --mem=1G --pty \
    bash
 ```
 
-Once the resource has been granted, you can work normally in the shell.
-The bash prompt will show the
-name of the compute node:
+Once the resources are available, you can work normally in the shell. The
+bash prompt shows the name of the compute node:
 
 ```bash
 [csc-username@r07c02 ~]$
@@ -137,11 +154,14 @@ srun --ntasks=1 --time=00:10:00 --mem=1G --x11=first --pty \
    myprog
 ```
 
-Note, that you can replace `myprog` with `bash`, which will launch a terminal
-on the compute node. From that terminal you can launch also graphical applications.
-Once the requested time has passed, the application will be
-automatically shutdown.
+Note that you can replace `myprog` with `bash`, which will launch a shell
+on the compute node, which you can, in turn, use to launch graphical
+applications. Once the requested time has passed, the application is
+terminated automatically.
 
 <!-- Links -->
+[batch jobs]: ./getting-started.md
 [fast local NVMe storage]: ../disk.md#compute-nodes-with-local-ssd-nvme-disks
+[usage policy]: ../usage-policy.md#login-nodes
+[web interface applications]: ../webinterface/apps.md
 <!-- Links -->

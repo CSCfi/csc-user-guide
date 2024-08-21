@@ -80,18 +80,18 @@ Puhti features the following partitions for submitting jobs to GPU nodes:
 !!! info "Fair use of GPU nodes on Puhti" 
     You should reserve **no more than 10 cores per GPU**.
 
-### Puhti interactive partition
+### Puhti `interactive` partition
 
-The [interactive partition on Puhti] allows running interactive jobs on both
-CPU and GPU nodes. To run your interactive job on a GPU node, use
-`sinteractive`
-[with the `--gpu` option](./interactive-usage.md#sinteractive-on-puhti).
-Note that you can only run two simultaneous jobs on the Puhti `interactive`
-partition.
+The `interactive` partition on Puhti allows running
+[interactive jobs](./interactive-usage.md) on CPU nodes. To run an
+interactive job on a GPU node, use `sinteractive`
+[with the `-g` option](./interactive-usage.md#sinteractive-on-puhti),
+which submits the job to the `gpu` partition instead. Note that you can only
+run two simultaneous jobs on the Puhti `interactive` partition.
 
 | Partition     | Time<br>limit | Max<br>GPUs | Max CPU<br>cores | Max<br>nodes | [Node types](../systems-puhti.md) | Max memory<br>per node | Max local storage<br>([NVMe]) per node |
 |---------------|---------------|-------------|------------------|--------------|-----------------------------------|------------------------|----------------------------------------|
-| `interactive` | 7 days        | 4           | 8                | 1            | IO, GPU                           | 76 GiB                 | 720 GiB                                |
+| `interactive` | 7 days        | 4           | 8                | 1            | IO                                | 76 GiB                 | 720 GiB                                |
 
 ## Mahti partitions
 
@@ -133,8 +133,7 @@ each reserved GPU.
 
 !!! info "Fair use of GPU nodes on Mahti"
 
-    You should reserve **no more than 32 cores per full GPU** and **no more
-    than 4 cores for a [multi-instance GPU](#multi-instance-gpus)**.
+    You should reserve **no more than 32 cores per GPU**.
 
 #### Multi-instance GPUs
 
@@ -149,19 +148,17 @@ To reserve a MIG, use `sinteractive` with the `-g` option, or include the
 `--gres=gpu:a100_1g.5gb:1` option in your batch script. For more information,
 see the instructions on [creating GPU batch jobs on Mahti].
 
-### Mahti interactive partition
+### Mahti `interactive` partition
 
-The [interactive partition on Mahti] is intended for pre- and post-processing
-tasks. It allows reserving CPU resources without occupying an entire node,
-which means that other jobs may also access the same node. You can run up to
-8 simultaneous jobs on the `interactive` partition and reserve at most 32
-cores, i.e. you may have one job using 32 cores, 8 jobs using 4 cores each, or
-anything in between.
-
-Interactive jobs are allocated 1.875 GiB of memory for each reserved CPU core,
-and the only way to reserve more memory is to reserve more cores. The
-partition can be used both for jobs launched using `sinteractive` as well as
-batch jobs, as long as they match the intended usage.
+The `interactive` partition on Mahti is intended for
+[interactive pre- and post-processing tasks](./interactive-usage.md). It
+allows reserving CPU resources without occupying an entire node, which means
+that other jobs may also access the same node. You can run up to 8
+simultaneous jobs on the `interactive` partition and reserve at most 32 cores,
+i.e. you may have one job using 32 cores, 8 jobs using 4 cores each, or
+anything in between. Mahti interactive jobs are allocated 1.875 GiB of memory
+for each reserved CPU core, and the only way to reserve more memory is to
+reserve more cores.
 
 | Partition     | Time<br>limit | Max CPU<br>cores | Max<br>nodes | [Node types](../systems-mahti.md) | Max memory<br>per node | Max local storage<br>([NVMe]) per node |
 |---------------|---------------|------------------|--------------|-----------------------------------|------------------------|----------------------------------------|
@@ -170,8 +167,6 @@ batch jobs, as long as they match the intended usage.
 <!-- Links -->
 [creating GPU batch jobs on Mahti]: ./creating-job-scripts-mahti.md#gpu-batch-jobs
 [Grand Challenge project]: https://research.csc.fi/grand-challenge-proposals
-[interactive partition on Mahti]: ./interactive-usage.md#sinteractive-on-mahti
-[interactive partition on Puhti]: ./interactive-usage.md#sinteractive-on-puhti
 [LUMI documentation]: https://docs.lumi-supercomputer.eu/runjobs/scheduled-jobs/partitions/
 [NVMe]: ../disk.md#compute-nodes-with-local-ssd-nvme-disks
 [scalability test]: ../../accounts/how-to-access-mahti-large-partition.md
