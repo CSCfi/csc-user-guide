@@ -144,11 +144,13 @@ spyder
 ### Google Earth Engine authentication set up
 For using Google Earth Engine (GEE) API with `earthengine-api` package, one needs to have an account in GEE. Before first usage, also set up GEE authentication in Puhti:
 
-1) Open Puhti web interface
-2) Start Desktop app
-3) In the Desktop, open Web Browser under Applications menu AND Terminal from shortcuts.
+1. Open Puhti web interface
+2. Start Desktop app
+3. In the Desktop, open:
+    * Web Browser under Applications menu and
+    * Terminal from shortcuts
+4. In the Terminal:
 
-In the Terminal:
 ```
 module load geoconda
 python
