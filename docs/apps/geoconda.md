@@ -147,8 +147,8 @@ For using Google Earth Engine (GEE) API with `earthengine-api` package, one need
 1. Open Puhti web interface
 2. Start Desktop app
 3. In the Desktop, open:
-  * Web Browser under Applications menu and
-  * Terminal from shortcuts
+    * Web Browser under Applications menu and
+    * Terminal from shortcuts
 4. In the Terminal:
    
 ```
