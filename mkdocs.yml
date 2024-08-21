@@ -59,6 +59,11 @@ plugins:
         'support/faq/cannot-login-from-nomachine.md': 'apps/nomachine.md'
         # renamed files:
         'cloud/csc_notebooks/what_is_new.md': 'support/whats-new.md#cloud-services'
+        'cloud/csc_notebooks/concepts.md': 'cloud/noppe/concepts.md'
+        'cloud/csc_notebooks/data_persistence.md': 'cloud/noppe/data_persistence.md'
+        'cloud/csc_notebooks/guide_for_students.md': 'cloud/noppe/guide_for_students.md'
+        'cloud/csc_notebooks/guide_for_teachers.md': 'cloud/noppe/guide_for_teachers.md'
+        'cloud/csc_notebooks/index.md': 'cloud/noppe/index.md'
         'computing/overview.md': 'computing/index.md'
         'cloud/concepts.md': 'cloud/index.md'
         'apps/alpha.md': 'apps/index.md'
@@ -327,12 +332,12 @@ nav:
         - Billing: cloud/rahti/billing.md
         - External documentation: cloud/rahti/ext_docs.md
 
-     - CSC Notebooks:
-        - cloud/csc_notebooks/index.md
-        - Guide for students: cloud/csc_notebooks/guide_for_students.md
-        - Guide for teachers: cloud/csc_notebooks/guide_for_teachers.md
-        - Concepts: cloud/csc_notebooks/concepts.md
-        - Data persistence: cloud/csc_notebooks/data_persistence.md
+     - Noppe:
+        - cloud/noppe/index.md
+        - Guide for students: cloud/noppe/guide_for_students.md
+        - Guide for teachers: cloud/noppe/guide_for_teachers.md
+        - Concepts: cloud/noppe/concepts.md
+        - Data persistence: cloud/noppe/data_persistence.md
      - Cloud Tutorials: cloud/tutorials/index.md
 
   - Data:
