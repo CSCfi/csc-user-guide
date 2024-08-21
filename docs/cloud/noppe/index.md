@@ -5,7 +5,7 @@ search:
 
 # Noppe
 
-[Noppe](https://noppe.csc.fi){target="_blank"} offers web applications for self-learning, hosting courses 
+[Noppe](https://noppe.csc.fi){target="_blank"} (previously CSC Notebooks) offers web applications for self-learning, hosting courses 
 and collaboration. The applications are accessed through a web browser and run in CSC cloud. You can log
 in with your Haka/Virtu/CSC customer account. We support Jupyter and RStudio based applications, with more options to 
 come in the future.
