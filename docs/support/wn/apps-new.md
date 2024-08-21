@@ -1,5 +1,13 @@
 # Applications
 
+## PyTorch 2.4.0, 21.8.2024
+
+[PyTorch](../../apps/pytorch.md) 2.4.0 added to Puhti and Mahti. The
+LUMI installation will be delayed until after the current service
+break. The torchtext package is no longer included as it has been
+deprecated and no longer works with PyTorch 2.4. See our [PyTorch
+module documentation for more information](../../apps/pytorch.md#available).
+
 ## AMS 2024 available on Puhti and Mahti, 20.8.2024
 
 [AMS](../../apps/ams.md) has been updated to version 2024.102 on both Mahti and Puhti
