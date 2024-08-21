@@ -151,7 +151,6 @@ For using Google Earth Engine (GEE) API with `earthengine-api` package, one need
     * Terminal from shortcuts
 4. In the Terminal:
    
-```
 module load geoconda
 python
 
