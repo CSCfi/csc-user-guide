@@ -142,7 +142,7 @@ spyder
 * `os.environ["_JAVA_OPTIONS"] = "-Xmx4g"` in the beginning of your Python code.
 
 ### Google Earth Engine authentication set up
-For using Google Earth Engine (GEE) API with `earthengine-api` package, one needs to have account in GEE. Before first usage, set up also GEE authentication in Puhti:
+For using Google Earth Engine (GEE) API with `earthengine-api` package, one needs to have an account in GEE. Before first usage, also set up GEE authentication in Puhti:
 
 1) Open Puhti web interface
 2) Start Desktop app
@@ -153,15 +153,14 @@ In the Terminal:
 module load geoconda
 python
 
-import os;
-path = os.environ['PATH'];
-os.environ['PATH'] = '/appl/opt/csc-cli-utils/google-cloud-sdk/bin:' + path
+import os
+os.environ['PATH'] = '/appl/opt/csc-cli-utils/google-cloud-sdk/bin:' + os.environ['PATH']
 
 import ee
 ee.Authenticate()
 ```
 
-It prints out a long link and asks for a code. Copy it to the Web Browser and open the Google log in page. Log in and copy the created code back to Python.
+This prints out a long link and asks for a code. Copy the link to the Web Browser and open the Google log-in page. Log-in and copy the created code back to Python.
 
 
 ## Using Allas from Python
