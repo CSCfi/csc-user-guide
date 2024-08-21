@@ -140,23 +140,28 @@ each reserved GPU.
 
 A subset of the A100 GPUs on the Mahti `gpusmall` partition are divided into a
 total of 28 smaller multi-instance GPUs (MIGs), which have one-seventh of the
-compute and memory capacity of a full A100 GPU. Unless you specify otherwise,
-the job is allocated 17.5 GiB of memory for each reserved MIG. Note that you
-are only able to reserve one MIG per job.
+compute and memory capacity of a full A100 GPU. You are able to reserve at
+most 4 CPU cores when using a MIG. Additionally, the job is allocated 17.5 GiB
+of memory, and there is no way to request a different amount. Finally, you are
+only able to reserve one MIG per job.
 
-To reserve a MIG, use the option `--gres=gpu:a100_1g.5gb:1` in your batch
-script. For more information, see the instructions on
-[creating GPU batch jobs on Mahti].
+To reserve a MIG, use `sinteractive` with the `-g` option, or include the
+`--gres=gpu:a100_1g.5gb:1` option in your batch script. For more information,
+see the instructions on [creating GPU batch jobs on Mahti].
 
 ### Mahti interactive partition
 
 The [interactive partition on Mahti] is intended for pre- and post-processing
 tasks. It allows reserving CPU resources without occupying an entire node,
-which means that other jobs may also access the same node. Interactive jobs
-are allocated 1.875 GiB of memory for each reserved CPU core, and the only way
-to reserve more memory is to reserve more cores. The partition can be used
-both for jobs launched using `sinteractive` as well as batch jobs, as long as
-they match the intended usage.
+which means that other jobs may also access the same node. You can run up to
+8 simultaneous jobs on the `interactive` partition and reserve at most 32
+cores, i.e. you may have one job using 32 cores, 8 jobs using 4 cores each, or
+anything in between.
+
+Interactive jobs are allocated 1.875 GiB of memory for each reserved CPU core,
+and the only way to reserve more memory is to reserve more cores. The
+partition can be used both for jobs launched using `sinteractive` as well as
+batch jobs, as long as they match the intended usage.
 
 | Partition     | Time<br>limit | Max CPU<br>cores | Max<br>nodes | [Node types](../systems-mahti.md) | Max memory<br>per node | Max local storage<br>([NVMe]) per node |
 |---------------|---------------|------------------|--------------|-----------------------------------|------------------------|----------------------------------------|
