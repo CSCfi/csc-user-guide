@@ -4,11 +4,14 @@ Your virtual desktop is completely isolated from the internet and other services
 
 **In order to export the results at the end of your analysis, you need to:**
 
-1. Make sure your results **do not contain any sensitive data**;
-2. Collect all the results into a same folder and name it as **Results**;
-3. Place the **Results** folder into the **shared-directory** on your Desktop;
-4. **Send a request to [CSC Service Desk](../../support/contact.md)** to export your results.
-5. All the content in the “Results” folder will be exported to the data permit authority, and it will be available for you after their scrutiny. During the export, you will not be able to access your virtual Desktop. All the project members have to be removed from the CSC project for the duration of the data export. Afterwards, you will be invited back to the CSC project, if your project is still ongoing.
+1. Download and complete Findata's [summary form for verifying the anonymity of the results](https://findata.fi/summary-form-verifying-anonymity-of-results);
+2. Send the completed form to sensitivedata-support@csc.fi;
+3. Make sure your results **do not contain any sensitive data**;
+4. Collect all the results into a same folder and name it as **Results**;
+5. Place the **Results** folder into the **shared-directory** on your Desktop;
+6. **Send a request to [CSC Service Desk](../../support/contact.md)** to export your results;
+7. All the content in the “Results” folder will be exported to the data permit authority, and it will be available for you after their scrutiny. During the export, you will not be able to access your virtual Desktop. All the project members have to be removed from the CSC project for the duration of the data export. Afterwards, you will be invited back to the CSC project, if your project is still ongoing;
+8. You will receive instructions on how to create a new CSC project in SD Connect, after which the Sensitive Data Support -team will share the results to you via SD Connect.
 
 [![Desktop-register-export](images/desktop/desktop-register-exp.png)](images/desktop/desktop-register-exp.png)
 
@@ -17,10 +20,10 @@ Your virtual desktop is completely isolated from the internet and other services
 
 ### Deleting a desktop
 
-At the end of your analysis, you can delete your virtual desktop, including the external volume and all files saved in it. You cannot undo this action:
+At the end of your analysis, you can delete your virtual desktop, including the external volume and all files saved on it. You cannot undo this action:
 
- 1. On [SD Desktop Homepage](https://sd-desktop.csc.fi), click on **Go to SD Desktop management**.
- 2. Under *Available desktops* select the correct virtual Desktop. On the right side, click on **Options** and on **Delete Desktop**.
+ 1. On [SD Desktop Homepage](https://sd-desktop.csc.fi), click **Go to SD Desktop management**.
+ 2. Under *Available desktops* select the correct virtual Desktop. On the right side, click **Options** and **Delete Desktop**.
 
 [![Desktop-delete](images/desktop/desktop-deleting.png)](images/desktop/desktop-deleting.png)
 
