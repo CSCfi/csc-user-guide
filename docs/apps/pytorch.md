@@ -10,6 +10,11 @@ Machine learning framework for Python.
 
 !!! info "News" 
 
+    **21.8.2024** PyTorch 2.4 added to Puhti and Mahti. The LUMI
+    installation will be delayed until after the current service
+    break. The torchtext package is no longer included as it has been
+    deprecated and no longer works with PyTorch 2.4.
+
     **13.6.2024** PyTorch 2.3 added to Puhti and Mahti. The LUMI
     installation will be delayed until early autumn due to an incompatible
     ROCm driver version. This version has also updated how Python commands
@@ -52,7 +57,8 @@ Currently supported PyTorch versions:
 
 | Version | Module         | Puhti | Mahti | LUMI      | Notes                      |
 |:--------|----------------|:-----:|:-----:|-----------|:---------------------------|
-| 2.3.1   | `pytorch/2.3`  | X     | X     | (delayed) |                            |
+| 2.4.0   | `pytorch/2.4`  | X     | X     | (delayed) | New tykky-based wrappers   |
+| 2.3.1   | `pytorch/2.3`  | X     | X     | -         | New tykky-based wrappers   |
 | 2.2.2   | `pytorch/2.2`  | -     | -     | X         | default version            |
 | 2.2.1   | `pytorch/2.2`  | X     | X     | -         |                            |
 | 2.1.2   | `pytorch/2.1`  | -     | -     | X         |                            |

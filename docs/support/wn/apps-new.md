@@ -1,5 +1,19 @@
 # Applications
 
+## PyTorch 2.4.0, 21.8.2024
+
+[PyTorch](../../apps/pytorch.md) 2.4.0 added to Puhti and Mahti. The
+LUMI installation will be delayed until after the current service
+break. The torchtext package is no longer included as it has been
+deprecated and no longer works with PyTorch 2.4. See our [PyTorch
+module documentation for more information](../../apps/pytorch.md#available).
+
+## AMS 2024 available on Puhti and Mahti, 20.8.2024
+
+[AMS](../../apps/ams.md) has been updated to version 2024.102 on both Mahti and Puhti
+and set as the default module. The [AMS2024 release notes](https://www.scm.com/downloads/release-notes-amsterdam-modeling-suite-2024/ ) 
+summarize major changes and improvements since AMS2023.
+
 ## Geoconda 3.11.9, 7.8.2024
 
 [geoconda](../../apps/geoconda.md) version 3.11.9 has been added
