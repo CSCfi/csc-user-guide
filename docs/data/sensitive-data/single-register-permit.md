@@ -24,7 +24,7 @@ You need to access to SD Desktop. You have a permit from a single register.
 12. [Send approved application to CSC](#12-send-approved-application-to-csc)
 
 
-### 1. Create a CSC account
+### 1. Create a CSC account 
 
 !!! warning-label
     Team manager
