@@ -1,6 +1,6 @@
 # Data export from virtual desktop
 
-Your virtual desktop is completely isolated from the internet and other services for information security reasons. Only the CSC project manager can export non-sensitive results from the secure workspace.
+Your virtual desktop is completely isolated from the internet and other services for information security reasons. Data export is also restricted: only CSC can export non-sensitive results from the secure workspace when processing secondary use data.
 
 **In order to export the results at the end of your analysis, you need to:**
 
@@ -13,8 +13,7 @@ Your virtual desktop is completely isolated from the internet and other services
 7. All the content in the “Results” folder will be exported to the data permit authority, and it will be available for you after their scrutiny. During the export, you will not be able to access your virtual Desktop. All the project members have to be removed from the CSC project for the duration of the data export. Afterwards, you will be invited back to the CSC project, if your project is still ongoing;
 8. You will receive instructions on how to create a new CSC project in SD Connect, after which the Sensitive Data Support -team will share the results to you via SD Connect.
 
-[![Desktop-register-export](images/desktop/desktop-register-exp.png)](images/desktop/desktop-register-exp.png)
-
+![Exporting results from virtual desktop](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Exporting_secondary_use_data.png)
 
 ## Deleting virtual desktop
 
@@ -34,6 +33,6 @@ At the end of your analysis, you can delete your virtual desktop, including the 
 
 Access to the data will be denied after the data permit expires. If you want to continue accessing the data after the original validity period ends, you need to send an *amendment application* to the data controller to extend the validity of the permit.
 
-When the data permit has expired, all the members will be removed from the CSC project, and you cannot access your virtual Desktop anymore. This also means that **all your results must be exported before the end of the validity period**. Both the project and the data will be deleted according to CSC’s data retention policy (see [General Terms of Use for CSC's Services for Research and Education](https://research.csc.fi/general-terms-of-use)) and agreement with the users. As a default, **inactive projects and all their data will be deleted after 90 days** in accordance with the regulation.
+When the data permit has expired, the CSC project will be closed, and you cannot access your virtual Desktop anymore. This means that **all your results must be exported before the end of the validity period**. Both the project and the data will be deleted according to CSC’s data retention policy (see [General Terms of Use for CSC's Services for Research and Education](https://research.csc.fi/general-terms-of-use)) and agreement with the users. As a default, **inactive projects and all their data will be deleted after 90 days** in accordance with the regulation.
 
 If you are still waiting for a decision about your amendment application when the original permit expires, please contact [CSC Service Desk](../../support/contact.md) in order to save your CSC project and data for later use. We cannot grant access to the Desktop without a valid data permit.
