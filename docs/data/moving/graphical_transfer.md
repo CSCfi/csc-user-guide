@@ -7,7 +7,7 @@ machines, and **WinSCP** that is available for windows. **Cyberduck**, which is
 discussed in the [Allas user guide](../Allas/using_allas/cyberduck.md), can be
 used for this purpose too.
 
-## FileZilla – a generic file transfer tool
+## FileZilla – a general file transfer tool
 
 FileZilla is a file transfer tool that you can install on all common operating
 systems (Windows, macOS, Linux). You can download FileZilla client from the
