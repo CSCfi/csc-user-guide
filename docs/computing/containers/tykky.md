@@ -99,9 +99,9 @@ export PATH="<install_dir>/bin:$PATH"
 
 ### Using Jupyter with a Tykky installation
 
-To use a Tykky installation with Jupyter, include correct conda package in your Conda environment file: `jupyter` for Jupyter Notebooks or `jupyterlab` for Jupyter Lab. Also additional JupyterLab extensions can be installed, for example [jupyterlab-git](https://github.com/jupyterlab/jupyterlab-git) or [dask-labextension](https://github.com/dask/dask-labextension). 
+To use a Tykky installation with [Jupyter](https://jupyter.org/), include correct conda package in your Conda environment file: `jupyterlab` for [JupyterLab](https://jupyterlab.readthedocs.io/en/latest/) or `notebook` for [Jupyter Notebooks](https://jupyter-notebook.readthedocs.io/en/latest/) from `conda-forge` channel. Also additional JupyterLab extensions can be installed, for example [jupyterlab-git](https://github.com/jupyterlab/jupyterlab-git) or [dask-labextension](https://github.com/dask/dask-labextension). 
 
-The best way to use Jupyter in Puhti is with [Puhti webinterface](../webinterface/index.md). See [Jupyter application page](../webinterface/jupyter.md#tykky-installations) for details how to use your own Tykky installation with Puhti web interface Jupyter.
+The best way to use Jupyter in Puhti or Mahti is with [the webinterface](../webinterface/index.md). See [Jupyter application page](../webinterface/jupyter.md#tykky-installations) for details how to use your own Tykky installation with Puhti web interface Jupyter.
 
 ### Pip with Conda
 
