@@ -16,6 +16,7 @@ In supercomputers, QGIS could be used for example to visualize the resulting fil
 
 __QGIS__ is available with following versions:
 
+* 3.38 in Puhti, includes also [GDAL](gdal.md) and [PDAL](pdal.md). It also has PCRaster library installed to the container, but [PCRaster QGIS plug-in](https://jvdkwast.github.io/qgis-processing-pcraster/) should be added each user.
 * 3.34 in Puhti, includes also [GDAL](gdal.md), [PDAL](pdal.md) and the new native point cloud tools in QGIS.
 * 3.31 in Puhti and LUMI, includes also [GDAL](gdal.md), [GrassGIS](grass.md), [PDAL](pdal.md) and [SagaGIS](saga-gis.md). 
 * 3.22 in Puhti
@@ -69,7 +70,7 @@ QGIS is licensed under the GNU General Public License.
 
 ## Citation
 
-```QGIS.org, 2023. QGIS Geographic Information System. QGIS Association. http://www.qgis.org```
+```QGIS.org, 2024. QGIS Geographic Information System. QGIS Association. http://www.qgis.org```
 
 
 
@@ -80,6 +81,7 @@ As an example, you can write "The authors wish to thank CSC - IT Center for Scie
 
 
 ## Installation
+* 3.38 was installed [Tykky's conda-containerize functionality](../computing/containers/tykky.md#conda-based-installation). The .yml file included only `qgis` and `pcraster` packages from `conda-forge` repository.
 * 3.34 was installed [Tykky's conda-containerize functionality](../computing/containers/tykky.md#conda-based-installation). The .yml file included only `qgis` package from `conda-forge` repository.
 * 3.31 was installed [Tykky's wrap-container functionality](../computing/containers/tykky.md#container-based-installations) using the [QGIS Docker image from Dockerhub provided by QGIS community](https://hub.docker.com/r/qgis/qgis). In LUMI `Tykky` is named `Container wrapper`.
 
