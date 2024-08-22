@@ -6,7 +6,7 @@ This page lists the available SLURM partitions on the Puhti and Mahti
 supercomputers, as well as explains their intended uses. Below are the general
 guidelines for using the SLURM partitions on our systems:
 
-1. **Use the `test` and `gputest` partitions for developing your code.** These
+1. **Use the `test` and `gputest` partitions for testing your code, not production.** These
    partitions provide access to fewer resources than other partitions, but jobs
    submitted to them have a higher priority and are thus granted resources
    before other jobs.
