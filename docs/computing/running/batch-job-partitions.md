@@ -135,16 +135,16 @@ each reserved GPU.
 
     You should reserve **no more than 32 cores per GPU**.
 
-#### Multi-instance GPUs
+#### GPU slices
 
 A subset of the A100 GPUs on the Mahti `gpusmall` partition are divided into a
-total of 28 smaller multi-instance GPUs (MIGs), which have one-seventh of the
+total of 28 smaller GPU slices, which have one-seventh of the
 compute and memory capacity of a full A100 GPU. You are able to reserve at
-most 4 CPU cores when using a MIG. Additionally, the job is allocated 17.5 GiB
+most 4 CPU cores when using a GPU slice. Additionally, the job is allocated 17.5 GiB
 of memory, and there is no way to request a different amount. Finally, you are
-only able to reserve one MIG per job.
+only able to reserve one GPU slice per job.
 
-To reserve a MIG, use `sinteractive` with the `-g` option, or include the
+To reserve a GPU slice, use `sinteractive` with the `-g` option, or include the
 `--gres=gpu:a100_1g.5gb:1` option in your batch script. For more information,
 see the instructions on [creating GPU batch jobs on Mahti].
 

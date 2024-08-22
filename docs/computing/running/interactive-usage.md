@@ -27,9 +27,9 @@ Once the interactive session is finished, you are returned to your original
 shell program, and all temporary data written to `TMPDIR` and `LOCAL_SCRATCH`
 during the session are lost.
 
-While the recommended way to use graphical applications is the [virtual
-desktop](../webinterface/desktop.md), it is also possible to do this in an
-interactive session launched from the command line
+While the recommended way to use graphical applications is the
+[virtual desktop](../webinterface/desktop.md), it is also possible to do this
+in an interactive session launched from the command line
 [using X11 forwarding](#starting-an-interactive-application-with-x11-graphics).
 
 The easiest way to use `sinteractive` is running the command with the `-i`
@@ -51,14 +51,15 @@ On Puhti, each user can have up to two active sessions on the `interactive`
 partition.
 
 If your resource requests exceed the
-[limits of the Puhti `interactive` partition](./batch-job-partitions.md#puhti-interactive-partition),
-or you already have two active sessions, you can submit the job to the `small`
-or `gpu` partitions instead. In this case, your job does not benefit from the
-higher priority of the `interactive` partition, so you will need to wait some
-time before the requested resources become available and the interactive
-session starts.
+[limits of the Puhti `interactive` partition](./batch-job-partitions.md#puhti-interactive-partition)
+or if you already have two active sessions there, you are offered the option
+to submit the job to the `small` or `gpu` partitions instead. In this case,
+your job does not benefit from the higher priority of the `interactive`
+partition, so you will need to wait some time before the requested resources
+become available and the interactive session starts. If you request GPUs using
+the `-g` option, your job is automatically submitted to the `gpu` partition.
 
-All the sessions started with `sinteractive` are run on nodes that have
+All sessions started with `sinteractive` are run on nodes that have
 [fast local NVMe storage] available. This local disk area has high I/O
 capacity and is therefore the ideal location for temporary files created by
 your processes. Do keep in mind that this disk area is emptied when the
@@ -77,11 +78,11 @@ sinteractive --help
 On Mahti, each user can have up to 8 active sessions on the `interactive`
 partition. See the 
 [Mahti `interactive` partition details](./batch-job-partitions.md#mahti-interactive-partition)
-for information on the available resources. It is also possible to start an
-interactive job on the `gpusmall` partition using the `-g` flag, which allows you
-to use a [multi-instance GPU](./batch-job-partitions.md#multi-instance-gpus)
-for interactive work. Note that using a MIG restricts the amount of
-CPU cores and memory that is available for your job.
+for information on the available resources. It is also possible to request a
+a [GPU slice](./batch-job-partitions.md#gpu-slices) for interactive work by
+using the `-g` flag, which submits the job to the `gpusmall` partition. Note
+that using a GPU slice restricts the amount of CPU cores and memory that is
+available for your job.
 
 As with Puhti, you can see the Mahti-specific command options by running the
 following while logged into the system:
@@ -128,7 +129,7 @@ If you do not want to use the `sinteractive` wrapper, it is possible to use
 Slurm commands explicitly. Since you may need to queue, it is recommended to
 ask for an email notification once the resources have been granted. 
 
-```
+```bash
 srun --ntasks=1 --time=00:10:00 --mem=1G --pty \
   --account=<project> --partition=small --mail-type=BEGIN \
    bash
@@ -148,7 +149,7 @@ Once the requested time has passed, the shell exits automatically.
 To enable X11 graphics, add `--x11=first` to the command.
 The following will start the application `myprog`: 
 
-```
+```bash
 srun --ntasks=1 --time=00:10:00 --mem=1G --x11=first --pty \
   --account=<project> --partition=small --mail-type=BEGIN \
    myprog
