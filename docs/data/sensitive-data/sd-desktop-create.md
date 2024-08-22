@@ -6,13 +6,13 @@ With the SD Desktop service, you can create virtual computers for analysing sens
 
 ## Step by step
 
-### 1. Log in:
+### 1. Log in to SD Desktop
 * [Log in](./sd-desktop-login.md) to SD Desktop service. [Login instructions](sd-desktop-secondary-login.md)
 * Click **Go to SD Desktop Management**.
 
 ![Go to SD Desktop Management.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-Desktop_GoToManagement.png)
 
-### 2. Select project, operating system and name for desktop:
+### 2. Select project, operating system and name for desktop
 1. correct CSC project
 2. operating system. We recommend to choose **Linux Ubuntu22**, since there will be no updates published for Linux CentOS7 after June 30, 2024. 
 3. name for your desktop. A descriptive name is useful, especially if you are working on multiple projects. Note, that the name should only include letters or numbers, and you shouldn't use special characters or spaces in the name.
