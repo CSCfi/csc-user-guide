@@ -1,5 +1,10 @@
 # Applications
 
+## ORCA 6.0.0, 22.8.2024
+
+[ORCA](../../apps/orca.md) 6.0.0 is now available on Puhti and Mahti. This major release brings numerous 
+new features and enhancements. For full details, check out the [ORCA 6 Changes](https://www.faccts.de/docs/orca/6.0/manual/contents/changes.html ) .
+
 ## PyTorch 2.4.0, 21.8.2024
 
 [PyTorch](../../apps/pytorch.md) 2.4.0 added to Puhti and Mahti. The
