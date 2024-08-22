@@ -2,8 +2,9 @@
 
 ## ORCA 6.0.0, 22.8.2024
 
-[ORCA](../../apps/orca.md) 6.0.0 is now available on Puhti and Mahti. This major release brings numerous 
-new features and enhancements. For full details, check out the [ORCA 6 Changes](https://www.faccts.de/docs/orca/6.0/manual/contents/changes.html ) .
+[ORCA](../../apps/orca.md) 6.0.0 is now available on Puhti and Mahti. This major
+release brings numerous new features and enhancements. For full details, check out
+the [ORCA 6 Changes](https://www.faccts.de/docs/orca/6.0/manual/contents/changes.html).
 
 ## PyTorch 2.4.0, 21.8.2024
 
@@ -16,7 +17,7 @@ module documentation for more information](../../apps/pytorch.md#available).
 ## AMS 2024 available on Puhti and Mahti, 20.8.2024
 
 [AMS](../../apps/ams.md) has been updated to version 2024.102 on both Mahti and Puhti
-and set as the default module. The [AMS2024 release notes](https://www.scm.com/downloads/release-notes-amsterdam-modeling-suite-2024/ ) 
+and set as the default module. The [AMS2024 release notes](https://www.scm.com/downloads/release-notes-amsterdam-modeling-suite-2024/)
 summarize major changes and improvements since AMS2023.
 
 ## Geoconda 3.11.9, 7.8.2024

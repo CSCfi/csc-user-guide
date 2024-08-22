@@ -5,7 +5,7 @@ tags:
 
 # ORCA
 
-[ORCA](https://orcaforum.kofo.mpg.de/app.php/portal ) is an ab initio quantum chemistry
+[ORCA](https://orcaforum.kofo.mpg.de/app.php/portal) is an ab initio quantum chemistry
 program package that contains modern electronic structure methods including density functional
 theory, many-body perturbation, coupled cluster, multireference methods, and semi-empirical
 quantum chemistry methods. Its main field of application is larger molecules, transition metal
@@ -41,9 +41,8 @@ available only for academic use at academic institutions.
     substantial amount of disk I/O. In order to achieve maximal performance for the job and to
     avoid excess load on the Lustre parallel file system it is advisable to use the local disk.
 
-
 === "Puhti"
-    
+
     ```bash
     #!/bin/bash
     #SBATCH --partition=test
@@ -68,7 +67,7 @@ available only for academic use at academic institutions.
     ```
 
 === "Puhti, local disk"
-    
+
     ```bash
     #!/bin/bash
     #SBATCH --partition=large
@@ -103,7 +102,7 @@ available only for academic use at academic institutions.
     ```
 
 === "Mahti"
-    
+
     ```bash
     #!/bin/bash
     #SBATCH --partition=test
@@ -126,25 +125,21 @@ available only for academic use at academic institutions.
     rm -f  ${SLURM_SUBMIT_DIR}/mpirun
     ```
 
-
 !!! info "Note"
     Please remember to adjust `%pal nproc` in your input file according to the total number of
     requested MPI tasks (`--nodes` * `--ntasks-per-node`).
-
 
 ## References
 
 The generic references for ORCA are:
 
-- Frank Neese. The orca program system. Wiley Interdiscip. Rev. Comput. Mol. Sci., 2(1):73–78, 2012. doi:http://doi.wiley.com/10.1002/wcms.81.
+- Frank Neese. The ORCA program system. Wiley Interdiscip. Rev. Comput. Mol. Sci., 2(1):73–78, 2012. doi:<https://doi.wiley.com/10.1002/wcms.81>.
+- Frank Neese. Software update: the ORCA program system, version 4.0. Wiley Interdiscip. Rev. Comput. Mol. Sci., 8(1):e1327, 2018. doi:<https://doi.wiley.com/10.1002/wcms.1327>.
+- Frank Neese, Frank Wennmohs, Ute Becker, and Christoph Riplinger. The ORCA quantum chemistry program package. J. Chem. Phys., 152(22):224108, 2020. doi:<https://aip.scitation.org/doi/10.1063/5.0004608>.
 
-- Frank Neese. Software update: the orca program system, version 4.0. Wiley Interdiscip. Rev. Comput. Mol. Sci., 8(1):e1327, 2018. doi:http://doi.wiley.com/10.1002/wcms.1327.
-
-- Frank Neese, Frank Wennmohs, Ute Becker, and Christoph Riplinger. The orca quantum chemistry program package. J. Chem. Phys., 152(22):224108, 2020. doi:https://aip.scitation.org/doi/10.1063/5.0004608.
-
-
-Please do not only cite the above generic reference, but also cite in addition the [original
-papers](https://www.faccts.de/docs/orca/6.0/manual/contents/public.html ) that report the development and ORCA implementation of the methods you have used in
+Please do not only cite the above generic reference, but also cite in addition the
+[original papers](https://www.faccts.de/docs/orca/6.0/manual/contents/public.html)
+that report the development and ORCA implementation of the methods you have used in
 your studies! The publications that describe the functionality implemented in ORCA are
 given in the manual.
 
