@@ -145,7 +145,7 @@ are some extensions you would like to see available in Pukki, please be in conta
   2. After that you can [log in to the database with the root user](#command-line)
   3. Then you can enable the extension of your choice with:
     ```
-    CREATE EXTENSION $EXTENSION_NAME
+    CREATE EXTENSION $EXTENSION_NAME ;
     ```
   4. After you are done, make sure that you disable root.
 
