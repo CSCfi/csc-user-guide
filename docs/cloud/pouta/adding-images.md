@@ -373,27 +373,39 @@ Please note that image sharing works within the same cloud environment, i.e. you
 can share images from one cPouta project to another but not between a
 cPouta project and ePouta project or vice versa. 
 
-To begin with, you need to first make sure the image is of the shared variant
+1. First you need to get the UUID of the image you want to share (`<your-image-UUID>`). List all the images in the current project by:
+
+    ```sh
+    openstack image list
+    ```
+
+1. Secondly you need to get the UUID of the destination project (`<destination-project-UUID>`). You can list all your available projects by:
+
+    ```sh
+    openstack project list
+    ```
+
+1. Once you got the two UUIDs, you need to first make sure the image is of the **shared variant**
 if it isn't already:
 
-```bash
-openstack image set --shared <your-image-UUID>
-```
+    ```bash
+    openstack image set --shared <your-image-UUID>
+    ```
 
-Then, initiate the share by executing the following _openstack_ command in the
-donor project: 
+1. Then, initiate the share by executing the following _openstack_ command in the
+project of origin: 
 
-```bash
-openstack image add project <your-image-UUID> <acceptor-project-UUID>
-```
+    ```bash
+    openstack image add project <your-image-UUID> <destination-project-UUID>
+    ```
 
-Then the acceptor project needs to accept this membership. To do so,
+1. Finally the destination project needs to accept this membership. To do so,
 you or your colleague needs to execute the following glance command in the
 acceptor project:
 
-```bash
-openstack image set --accept <your-image-UUID>
-```
+    ```bash
+    openstack image set --accept <your-image-UUID>
+    ```
 
 [GitHub page]: https://github.com/CSC-IT-Center-for-Science/diskimage-builder-csc-automation
 [Kickstart]: https://github.com/rhinstaller/pykickstart/blob/master/docs/kickstart-docs.rst
