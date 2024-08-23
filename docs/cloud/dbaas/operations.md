@@ -43,14 +43,35 @@ By default, your database user account does not have permissions to delete datab
 openstack database db delete $INSTANCE_UUID $DATABASE_NAME
 ```
 
-If you want to allow your database users too be able to manage the databases of your database instance you will need to enable root permissions for your instance:
 
-```
-openstack database root enable $INSTANCE_UUID
-```
+## Enable root
 
-Then create a user with your `root` account that have suitable permission (in PostgreSQL the permission is `CREATEDB`). Once you are done you can disable your root user:
+Some changes, such as enabling extensions or modifying more advanced user permissions,
+aren't accessible via the web interface or the OpenStack command line tools.
+It's worth keeping in mind that with the root credentials enabled you can make
+breaking changes to your database. It's recommended to only use the root user when
+you need to make changes that actually require it.
 
-```
-openstack database root disable $INSTANCE_UUID
-```
+### How to enable root from the Web interface
+
+1. Log in to the web interface where you can see all your existing instances.
+2. Find the 'Actions' dropdown in the rightmost column, and choose `Manage Root Access`. ![Manage root access](../../img/dbaas-enable-root.png)
+3. On the Manage Root Access page, press the `Enable Root` button in the rightmost column of the instances table.
+4. The root password is now visible on that same Manage Root Access page. You can access the database with the password shown, and with `root` as username.
+5. Once you no longer need root access, press `Disable Root` on the Manage Root Access page.
+
+### How to enable root from the CLI
+
+
+1. Enable root
+    ```
+    openstack database root enable $INSTANCE_ID
+    ```
+
+2. Use the password shown with the username `root` to access the database.
+
+3. Once you no longer need root access, run the following command to disable it:
+
+    ```
+    openstack database root disable $INSTANCE_ID
+    ```
