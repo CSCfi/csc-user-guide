@@ -1,5 +1,14 @@
 # Computing environment
 
+## Puhti and Mahti web interfaces updated to release 22 and 8, 28.8.2024
+* The Jupyter app launch form has been improved.
+    * Module version for Python modules can now be selected using a dropdown.
+    * The UI for extending the Python environment with additional packages has been simplified.
+* The MLflow app launch form now lists all available pytorch module versions.
+* The performance of the web interfaces have been improved.
+* The compute node shell now supports running multiple instances on the same node.
+* Open OnDemand updated to version 3.1.7.
+
 ## Puhti and Mahti web interfaces updated to release 21 and 7, 13.6.2024
 * VSCode updated to 1.89.1.
 * Jupyter app should work better with virtual environments created outside the web interface.
