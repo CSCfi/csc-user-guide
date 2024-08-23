@@ -142,11 +142,12 @@ are some extensions you would like to see available in Pukki, please be in conta
 ### How to enable extensions
 
   1. You can enable extensions by first [enable root](operations.md#enable-root)
-  2. After you have logged in as root, you can enable the extension of your choice with:
+  2. After that you can [log in to the database with the root user](#command-line)
+  3. Then you can enable the extension of your choice with:
     ```
     CREATE EXTENSION $EXTENSION_NAME
     ```
-  3. After you are done, make sure that you disable root.
+  4. After you are done, make sure that you disable root.
 
 
 
