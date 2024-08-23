@@ -76,6 +76,14 @@ Your domain SPF record should look then something like this:
 domain.of.the.sending.email.address.    IN    TXT    "v=spf1 include:hosted-at.csc.fi ~all"
 ```
 
+You can use the `dig` command to check if the entry already exists in your domain existing DNS record:
+```
+dig domain.of.the.sending.email.address TXT
+
+;; ANSWER SECTION:
+domain.of.the.sending.email.address.    IN    TXT    "v=spf1 include:hosted-at.csc.fi ~all"
+```
+
 There are other protocols to take into account, like Domain-based Message Authentication, Reporting and Conformance [DMARC](https://en.wikipedia.org/wiki/DMARC) and DomainKeys Identified Mail [DKIM](https://en.wikipedia.org/wiki/DomainKeys_Identified_Mail), but the details are out of scope for this document.
 
 ## DNS services in cPouta
