@@ -14,7 +14,7 @@ With the SD Desktop service, you can create virtual computers for analysing sens
 
 ![Go to SD Desktop Management.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-Desktop_GoToManagement.png)
 
-### 2. Select project, operating system and name for desktop
+### 2. Select:
 1. correct CSC project
 2. operating system. We recommend to choose **Linux Ubuntu22**, since there will be no updates published for Linux CentOS7 after June 30, 2024. 
 3. name for your desktop. A descriptive name is useful, especially if you are working on multiple projects. Note, that the name should only include letters or numbers, and you shouldn't use special characters or spaces in the name.
