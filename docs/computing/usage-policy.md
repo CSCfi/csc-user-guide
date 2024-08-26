@@ -31,7 +31,9 @@ these rules will be terminated without warning.
 Each project has disk space in the directory `/scratch/<project>`. This fast
 parallel scratch space is intended for data that is in active use. To ensure
 that the parallel disk system does not run out of storage space and to keep
-performance acceptable CSC automatically removes files in scratch that have not
+performance acceptable,
+[CSC automatically removes files](../support/tutorials/clean-up-data.md#automatic-removal-of-files)
+in scratch that have not
 been accessed in a long time. The performance of a parallel file system starts
 to degrade when it fills up, and the more it fills up, the slower the performance
 will get.
