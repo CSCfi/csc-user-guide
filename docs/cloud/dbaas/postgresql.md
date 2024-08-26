@@ -137,26 +137,19 @@ For easier management of privileges, we recommend creating groups and assigning 
 
 It is not possible for users to add additional extensions that are not already installed. If there
 are some extensions you would like to see available in Pukki, please be in contact with
-[CSC Service Desk](../../support/contact.md). Note that extensions are not very well tested by the
-DBaaS-admin.
+[CSC Service Desk](../../support/contact.md).
 
-1. To enable extensions, you need to first enable root for the database instance and log in as root:
+### How to enable extensions
 
+  1. You can enable extensions by first [enable root](operations.md#enable-root)
+  2. After that you can [log in to the database with the root user](#command-line)
+  3. Then you can enable the extension of your choice with:
     ```
-    openstack database root enable $INSTANCE_ID
+    CREATE EXTENSION $EXTENSION_NAME ;
     ```
+  4. After you are done, make sure that you disable root.
 
-2. After you have logged in as root, you can enable the extension of your choice with:
 
-    ```
-    CREATE EXTENSION $EXTENSION_NAME
-    ```
-
-3. After you have enable the extension of your choice, you can log out and disable root:
-
-    ```
-    openstack database root disable $INSTANCE_ID
-    ```
 
 ### Currently available extensions
 
