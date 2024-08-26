@@ -34,7 +34,7 @@ To comply with the regulation, SD Desktop for secondary use is **completely isol
 
 **The import of data and software is restricted in SD Desktop**. You cannot import any data or software yourself for security reasons. If you are working with a dataset for which you have received a permit from the data controller, the only way to access the data for analysis is by utilizing a specific application called **Data Gateway**. 
 
-**Data export from SD Desktop is also restricted**. Non-sensitive results can be exported from the workspace only by CSC. Instructions for exporting your results are provided in the [Export data](https://docs.csc.fi/data/sensitive-data/sd-desktop-secondary-export/) -section.
+**Data export from SD Desktop is also restricted**. Non-sensitive results can be exported from the workspace only by CSC. Instructions for exporting your results are provided in the [Export data -section](sd-desktop-secondary-export.md).
 
 Encrypted files will be **visible in read-only mode**. This solution allows you to process large amounts of data without storing any copy on your virtual Desktop. However, this means that the files cannot be edited in SD Desktop.
 
