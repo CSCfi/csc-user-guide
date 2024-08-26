@@ -361,7 +361,7 @@ are objects that make sure that a requested number of replicas of the pod define
 *`deploymentconfig.yaml`*:
 
 ```yaml
-apiVersion: v1
+apiVersion: apps.openshift.io/v1
 kind: DeploymentConfig
 metadata:
   labels:
@@ -430,7 +430,7 @@ of the `httpd` image shipped with OpenShift.
 
 ```yaml
 kind: "BuildConfig"
-apiVersion: "v1"
+apiVersion: "build.openshift.io/v1"
 metadata:
   name: "serveimg-generate"
   labels:
