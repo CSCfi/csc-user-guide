@@ -18,8 +18,7 @@ email to inform how many billing units have been granted.
 !!! Note
 
     Academic projects are requested to fill in the science area,
-    publications, etc. If those are irrelevant for your work, your
-    project type should probably be Commercial.
+    publications, project results etc. This information is used to evaluate your application and incomplete applications may be denied.
 
     All members of a project can submit billing unit applications.
 
