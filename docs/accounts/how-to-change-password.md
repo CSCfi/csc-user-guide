@@ -1,5 +1,7 @@
 # How to change password
 
+You're required to change your CSC user account password annually. You will receive notifications from CSC when your password is about to expire. If you fail to change the password in time your CSC user account will be temporarily disabled you must contact CSC Servicedesk to have it reopened. 
+
 You can change your password in two ways: Using the current password or with a
 password reset link ordered to your email. You can follow the instructions below.
 
