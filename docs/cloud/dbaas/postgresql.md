@@ -156,7 +156,7 @@ are some extensions you would like to see available in Pukki, please be in conta
 <!-- This extension list can easily be generated with the following command:
 SELECT '| ' || name  AS name, default_version, comment || ' |' as comment FROM pg_available_extensions ORDER BY name;
 --->
-| Name  | Extension version | Extension comment escription |
+| Name  | Extension version | Extension description |
 |:--- |:--- |:--- |
  | address_standardizer           | 3.4.2           | Used to parse an address into constituent elements. Generally used to support geocoding address normalization step. |
  | address_standardizer-3         | 3.4.2           | Used to parse an address into constituent elements. Generally used to support geocoding address normalization step. |
