@@ -2,7 +2,7 @@
 
 **[Instructions in Finnish (PDF)](https://a3s.fi/docs-files/sensitive-data/PDF_instructions/SD_toisiolaki_Findata.pdf){ target="_blank" }**
 
-<iframe width="280" height="155" src="https://www.youtube.com/embed/Zw3x3OhOLfY?si=PcP9I2DUkFGID_9r" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="280" height="155" src="https://www.youtube.com/embed/idK2iI9rTQw?si=r9FlOT1mOrOnoB2h" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ## Use case
 
