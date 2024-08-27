@@ -1,5 +1,12 @@
 # Applications
 
+## CP2K 2024.2 available on Puhti and Mahti, 27.8.2024
+
+[CP2K](../../apps/cp2k.md) 2024.2 has been installed and set as the default
+module on Puhti and Mahti. See
+[release notes](https://github.com/cp2k/cp2k/releases/tag/v2024.2)
+for a list of new features, fixes and breaking changes.
+
 ## ORCA 6.0.0, 22.8.2024
 
 [ORCA](../../apps/orca.md) 6.0.0 is now available on Puhti and Mahti. This major
@@ -51,7 +58,7 @@ The recently installed `python-data/3.10-24.04` has been set as the
 default version for [Python Data](../../apps/python-data.md).
 
 ## R 4.4.0 in r-env, 7.6.2024
-	
+
 R version 4.4.0 is now available in `r-env` in Puhti and is set as the default version. The new version will be available in RStudio in the Puhti web interface shortly.
 
 ## Molpro 2024.1 is available on Puhti, 5.6.2024
