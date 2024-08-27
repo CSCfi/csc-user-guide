@@ -44,7 +44,7 @@ Read the 6-digit code, and fill it into the field in the service dialogue.
 ![Fill in the 6-digit Code from your MFA Client](images/small/mfa5.png 'Fill in the 6-digit Code from your MFA Client')
 
 ## Problems with MFA
-You can disable your MFA by contacting CSC Service Desk in servicedesk@csc.fi. Currently there is a process that requires you to prove your identity when removing the old MFA configuration, before activating the MFA again. You can have one TOTP client in use at any time. If you loose your client, please contact CSC Service Desk.
+You can disable your MFA by contacting CSC Service Desk in servicedesk@csc.fi. Currently there is a process that requires you to prove your identity when removing the old MFA configuration, before activating the MFA again. You can have one TOTP client in use at any time. If you loose or change your device, please contact CSC Service Desk.
 
 
 
