@@ -6,7 +6,7 @@
     * The UI for extending the Python environment with additional packages has been simplified.
 * The MLflow app launch form now lists all available pytorch module versions.
 * The performance of the web interfaces have been improved.
-* The compute node shell now supports running multiple instances on the same node.
+* The Compute node shell now supports running multiple instances on the same node.
 * Open OnDemand updated to version 3.1.7.
 
 ## Puhti and Mahti web interfaces updated to release 21 and 7, 13.6.2024
