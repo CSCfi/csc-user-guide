@@ -139,7 +139,18 @@ conn = openstack.connect(cloud='openstack')
 for flavor in conn.compute.flavors():
     print(flavor.to_dict())
 ``` 
-   
+
+### List the ports used
+
+You can have a list of the ports used by cPouta [here](https://pouta.csc.fi/dashboard/project/api_access/)  
+Also, you can retrieve this list by using the command below:
+
+```
+openstack catalog list
+```
+
+The ports listed as `public` are the ones you need.
+
 ### External documentation
 
 More detailed information can be found from the [OpenStack SDK Documentation](https://docs.openstack.org/openstacksdk/latest/).
