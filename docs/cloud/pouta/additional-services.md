@@ -86,7 +86,7 @@ domain.of.the.sending.email.address.    IN    TXT    "v=spf1 include:hosted-at.c
 
 There are other protocols to take into account, like Domain-based Message Authentication, Reporting and Conformance [DMARC](https://en.wikipedia.org/wiki/DMARC) and DomainKeys Identified Mail [DKIM](https://en.wikipedia.org/wiki/DomainKeys_Identified_Mail), but the details are out of scope for this document.
 
-Here is a simplified summary of the different DNS records for a domain sending emails:
+Here is a simplified summary of the different DNS records for a domain sending emails:  
   - SPF tells from where you can send emails using a "SMTP Sender" in that domain  
   - DKIM signature records specify public keys that are used to sign the email messages with a "From" in that domain  
   - DMARC specifies how messages that fail any of the above should be handled  
