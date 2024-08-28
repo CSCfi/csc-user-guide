@@ -1,5 +1,9 @@
 # Cloud services
 
+## Pukki DBaaS now supports PostGIS extensions 28.08.2024
+It is now possible to enable PostGIS extensions in the new PostgreSQL 14.13 databases.
+[PostgreSQL documentation](../../cloud/dbaas/postgresql.md)
+
 ## CSC Notebooks service renamed as Noppe, 21.8.2024
 
 CSC Notebooks service has been renamed as Noppe.
