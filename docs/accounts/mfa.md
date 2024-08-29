@@ -1,26 +1,28 @@
-# Multi-factor Authentication 
+# Multi-factor Authentication
 
 ## General
+
 This guide is about activation and usage of CSC customer account multi-factor authentication (MFA). CSC MFA is based on a Haka MFA component developed inside CSC, and it also integrates to the MFA solutions that Universities offer for their Haka accounts.
 
 MFA uses the Time based one-time password (TOTP) protocol which can be used in standard mobile phones without additional separate MFA tokens etc. The usage of TOTP protocol based MFA client is free for the end-user. There are many different TOTP clients for different mobile phone brands, and user is free to choose any of those.
 
 The activation of the MFA is needed once for the CSC services for research. CSC will take the MFA into use service-by-service, and you can check for example from this page which CSC research services use the MFA currently.
 
-*   [Time based one time password](https://en.wikipedia.org/wiki/Time-based_one-time_password){:target="_blank"}
-*   [Multi-factor Authentication applications available](https://www.protectimus.com/blog/10-most-popular-2fa-apps-on-google-play/){:target="_blank"}
+* [Time based one time password](https://en.wikipedia.org/wiki/Time-based_one-time_password){:target="_blank"}
+* [Multi-factor Authentication applications available](https://www.protectimus.com/blog/10-most-popular-2fa-apps-on-google-play/){:target="_blank"}
 
 ## Before using CSC MFA
 
 In order to use the CSC MFA, you need
 
-1. CSC user account and password. If you don't yet have them, please go to the CSC customer portal MyCSC to registrate a new account.
+1. CSC user account and password. If you don't yet have them, please go to the CSC customer portal MyCSC to register a new account.
 2. A device for TOTP client and an activated MFA functionality. The services will prompt you with an additional pass-code when authentication to a CSC service with MFA.
 
 ## Activation of MFA
+
 In order to use the CSC MFA, you need a TOTP client to your mobile phone. One known client application is Google Authenticator, but other clients work as well. Please install the client to your device according to the clients own instructions.
 
-To activate the CSC MFA, login to the MyCSC customer portal (https://my.csc.fi) and go to MyProfile view.
+To activate the CSC MFA, login to the [MyCSC customer portal](https://my.csc.fi) and go to MyProfile view.
 
 ![Activate MFA on My.csc.fi](images/small/mfa1.png 'Activate MFA on My.csc.fi')
 
@@ -44,7 +46,5 @@ Read the 6-digit code, and fill it into the field in the service dialogue.
 ![Fill in the 6-digit Code from your MFA Client](images/small/mfa5.png 'Fill in the 6-digit Code from your MFA Client')
 
 ## Problems with MFA
-You can disable your MFA by contacting CSC Service Desk in servicedesk@csc.fi. Currently there is a process that requires you to prove your identity when removing the old MFA configuration, before activating the MFA again. You can have one TOTP client in use at any time. If you loose your client, please contact CSC Service Desk.
 
-
-
+You can disable your MFA by [contacting CSC Service Desk](../support/contact.md). Currently there is a process that requires you to prove your identity when removing the old MFA configuration, before activating the MFA again. You can have one TOTP client in use at any time. If you lose or replace your device, please contact CSC Service Desk.
