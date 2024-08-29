@@ -2,7 +2,7 @@
 
 **[Instructions in Finnish (PDF)](https://a3s.fi/docs-files/sensitive-data/PDF_instructions/SD_toisiolaki_yksittainenRekisteri.pdf){ target="_blank" }**
 
-<iframe width="280" height="155" src="https://www.youtube.com/embed/bMaBl0IED74?si=Comdn9LD45zGKEOC" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/bMaBl0IED74?si=Comdn9LD45zGKEOC" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ## Use case
 
@@ -17,9 +17,9 @@ You need to access SD Desktop. You have a permit from a single register.
 5. CSC adds members to your project, please wait
 6. CSC activates SD Desktop for your project, please wait
 7. [Accept SD Desktop terms of use](#7-accept-sd-desktop-terms-of-use)
-8. [Activate MFA Authentication](#8-activate-mfa-authentication)
+8. [Activate MFA](#8-activate-mfa)
 9. [CSC project is ready](#9-your-csc-project-is-ready)
-10. [Apply access for the dataset with SD Apply](#10-apply-access-for-the-dataset-with-sd-apply)
+10. [Apply for access to the dataset with SD Apply](#10-apply-for-access-to-the-dataset-with-sd-apply)
 11. Register processes application, please wait
 12. [Send approved application to CSC](#12-send-approved-application-to-csc)
 
