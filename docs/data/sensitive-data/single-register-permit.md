@@ -6,7 +6,7 @@
 
 ## Use case
 
-You need to access to SD Desktop. You have a permit from a single register.
+You need to access SD Desktop. You have a permit from a single register.
 
 ## Solution
 
@@ -71,12 +71,12 @@ You need to access to SD Desktop. You have a permit from a single register.
 - Send email to **sensitivedata-support@csc.fi**, subject: *Sensitive Data, Secondary use*.
 - Write your project number to the email (e.g. *project_1234567*).
 - Attach a copy of your **data permit** to the email.
-- Write down a list of your research teams email addresses. Please use same emails that they created the CSC-account with.
+- Write down a list of your research teams' email addresses. Please use same emails that they created the CSC-account with.
 - Put your research team as cc.
 
 !!! Note ""
     ### 5. CSC adds members to your project
-    - Please wait that Sensitive Data Support team ads your research team to your project
+    - Please wait that Sensitive Data Support team adds your research team to your project
     - Note! All team members must have a [CSC-account](#1-create-a-csc-account), so they can become project members.
 
 !!! Note ""
@@ -91,24 +91,24 @@ You need to access to SD Desktop. You have a permit from a single register.
 !!! info-label
     Team member
 
-- If you haven't accept the terms of use before, please go to MyCSC - navigate to the project view - see left side **Service** list - click SD Desktop and **accept the terms of use**.
+- If you haven't accepted the terms of use before, please go to MyCSC - navigate to the project view - see left side **Service** list - click SD Desktop and **accept the terms of use**.
 - Please note that every team member must accept the SD Desktop terms of use.
 
 ![How to approve terms of use.](https://a3s.fi/docs-files/sensitive-data/MyCSC/MyCSC_TermsOfUse.png)
 
-### 8. Activate MFA Authentication
+### 8. Activate MFA
 
 !!! warning-label
     Team manager
 !!! info-label
     Team member
 
-- You need to activate MFA (multi-factor authentication) to be able to log in the Sensitive Data services. [More about multi-factor authentication](../../accounts/mfa.md). *If your multi-factor authentication is already enabled, you can move to step 9.*
-- Before activating MFA you need to have some authentication application in your mobile, for example Google Authenticator or Microsoft Authenticator.
+- You need to activate MFA (multi-factor authentication) to be able to log in to the Sensitive Data services. [More about multi-factor authentication](../../accounts/mfa.md). *If your multi-factor authentication is already enabled, you can move to step 9.*
+- Before activating MFA you need to have some authentication application on your mobile phone, for example Google Authenticator or Microsoft Authenticator.
 - Go to the **Profile** page (Left side menu or top right hamburger menu).
 - Enable Multi-Factor Authentication by clicking **''Activate''**.
 - This will create a QR code which you can read with your authentication application (for example Google Authenticator).
-- You authentication application will provide a verification code which you can now write to MyCSC **Verification code** field and click **“Verify”**.
+- Your authentication application will provide a verification code which you can now write to MyCSC **Verification code** field and click **“Verify”**.
 
 ![Multi-Factor Authentication.](./images/MyCSC/MyCSC_MFA.png)
 
@@ -122,7 +122,7 @@ You need to access to SD Desktop. You have a permit from a single register.
 - Write down your project number, you might need it later (e.g. *project_1234567*).
 - Now you can log out from MyCSC.
 
-### 10. Apply access for the dataset with SD Apply
+### 10. Apply for access to the dataset with SD Apply
 
 !!! warning-label
     Team manager
@@ -134,9 +134,9 @@ After creating the project in MyCSC, you need to apply for access to the dataset
 * You have received a message from the controller that your data is available in the SD Apply service
 * Login to SD Apply: [https://sd-apply.csc.fi](https://sd-apply.csc.fi). Log in using the same method as when logging in to SD Desktop (CSC credentials or Haka). Always use the same identity provider when you log in to SD Apply, because all your actions are connected to your login identity.
 
-#### Cataloque page
+#### Catalogue page
 * On the Catalogue page, under Apply for access, find the material you want and click **''Add to cart''**. 
-* The material is now in shopping cart. Click **''Apply''**.
+* The material is now in the shopping cart. Click **''Apply''**.
 
 ![SD Apply shopping cart](https://a3s.fi/docs-files/sensitive-data/SD_Apply/SD-Apply_ShoppingCart.png)
 
@@ -163,4 +163,4 @@ You are now on the Applications page.
 
 * Login to SD Apply: [https://sd-apply.csc.fi](https://sd-apply.csc.fi).
 * Find your application and click **''PDF''** under **Actions**.
-* Send pdf to **sensitivedata-support@csc.fi**.
+* Send the PDF to **sensitivedata-support@csc.fi**.
