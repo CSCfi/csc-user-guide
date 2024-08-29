@@ -1,5 +1,18 @@
 # Applications
 
+## CP2K 2024.2 available on Puhti and Mahti, 27.8.2024
+
+[CP2K](../../apps/cp2k.md) 2024.2 has been installed and set as the default
+module on Puhti and Mahti. See
+[release notes](https://github.com/cp2k/cp2k/releases/tag/v2024.2)
+for a list of new features, fixes and breaking changes.
+
+## ORCA 6.0.0, 22.8.2024
+
+[ORCA](../../apps/orca.md) 6.0.0 is now available on Puhti and Mahti. This major
+release brings numerous new features and enhancements. For full details, check out
+the [ORCA 6 Changes](https://www.faccts.de/docs/orca/6.0/manual/contents/changes.html).
+
 ## PyTorch 2.4.0, 21.8.2024
 
 [PyTorch](../../apps/pytorch.md) 2.4.0 added to Puhti and Mahti. The
@@ -11,7 +24,7 @@ module documentation for more information](../../apps/pytorch.md#available).
 ## AMS 2024 available on Puhti and Mahti, 20.8.2024
 
 [AMS](../../apps/ams.md) has been updated to version 2024.102 on both Mahti and Puhti
-and set as the default module. The [AMS2024 release notes](https://www.scm.com/downloads/release-notes-amsterdam-modeling-suite-2024/ ) 
+and set as the default module. The [AMS2024 release notes](https://www.scm.com/downloads/release-notes-amsterdam-modeling-suite-2024/)
 summarize major changes and improvements since AMS2023.
 
 ## Geoconda 3.11.9, 7.8.2024
@@ -45,7 +58,7 @@ The recently installed `python-data/3.10-24.04` has been set as the
 default version for [Python Data](../../apps/python-data.md).
 
 ## R 4.4.0 in r-env, 7.6.2024
-	
+
 R version 4.4.0 is now available in `r-env` in Puhti and is set as the default version. The new version will be available in RStudio in the Puhti web interface shortly.
 
 ## Molpro 2024.1 is available on Puhti, 5.6.2024
