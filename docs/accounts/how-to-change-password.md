@@ -14,9 +14,9 @@ password reset link ordered to your email. You can follow the instructions below
 ## Using password reset link
 
 1. Go to [MyCSC](http://my.csc.fi). Click _Log in_.
-2. Choose _CSC login_.
-3. Click _Forgot your password?_
-4. Enter your CSC username and click _Next_. Instructions are sent to the email address associated with your CSC user account.
+2. Choose _CSC Login_.
+3. Click _Forgot password?_
+4. Enter your CSC username and click _Request a reset link_. Instructions are sent to the email address associated with your CSC user account.
 
 ## Password requirements
 
