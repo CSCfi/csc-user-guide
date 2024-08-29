@@ -18,7 +18,7 @@ You need to access SD Desktop. You have a permit from Findata.
 5. CSC adds members to your project, please wait
 6. CSC activates SD Desktop for your project, please wait
 7. [Accept SD Desktop terms of use](#7-accept-sd-desktop-terms-of-use)
-8. [Activate MFA Authentication](#8-activate-mfa-authentication)
+8. [Activate MFA](#8-activate-mfa)
 9. [CSC project is ready](#9-your-csc-project-is-ready)
 
 ### 1. Create a CSC account
