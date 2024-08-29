@@ -67,3 +67,5 @@
 *[NFS]: Network File System
 *[FTP]: File Transfer Protocol
 *[UUID]: Universally Unique Identifier
+*[TOTP]: Time-based One-Time Password
+*[MFA]: Multi-Factor Authentication
