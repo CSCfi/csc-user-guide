@@ -13,7 +13,7 @@ will need to use a GPU.
 In order to use an LLM (or any neural network) with a GPU, the model
 needs to be loaded into the GPU memory (VRAM). LLMs can be very large
 and here the size of the GPU memory becomes critical. You can refer to
-[our table of GPU stats](gpu-ml.ml#puhti-mahti-or-lumi) for the full
+[our table of GPU stats](gpu-ml.md#puhti-mahti-or-lumi) for the full
 details, but our GPUs have VRAM memory as follows:
 
 - 32 GB on Puhti (NVIDIA V100)
@@ -31,8 +31,6 @@ also the optimizer states, gradients and activations need to be
 stored. As a *very* rough estimate, around 5x the model size is needed
 for fine-tuning a model, but this depends a lot on the details. We'll
 discuss to ways to solve this problem in the sections below.
-
-## Inference
 
 ## Fine-tuning LLMs
 
@@ -109,3 +107,16 @@ Slurm script examples for using Accelerate with FSDP.
 [5]: https://huggingface.co/docs/peft/index
 [6]: https://huggingface.co/docs/peft/quicktour
 [7]: https://pytorch.org/blog/introducing-pytorch-fully-sharded-data-parallel-api/
+
+## Inference
+
+Inference, that is using the model rather than training it, is usually
+much simpler. Our [example git repository][2] has an inference example
+in `inference-demo.py` and `run-inference-puhti.sh`. If your model
+doesn't fit into a single GPU, you can simple reserve more GPUs and
+then let Hugging Face sort it out by setting `device_map='auto'` when
+loading the model, for example:
+
+```python
+model = AutoModelForCausalLM.from_pretrained(args.model, device_map='auto')
+```
