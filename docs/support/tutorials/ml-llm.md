@@ -1,9 +1,9 @@
 # Working with large language models on supercomputers
 
 This guide gives some examples and hints on how to work with large
-language models on CSC's supercomputers.
+language models (LLMs) on CSC's supercomputers.
 
-## GPUs and GPU memory
+## LLMs and GPU memory
 
 If you are doing inference (using a model, rather than training), you
 can in some cases do without a GPU, for example if the model is small
@@ -21,33 +21,36 @@ details, but our GPUs have VRAM memory as follows:
 - 64 GB on LUMI (single GCD of an AMD MI250x)
 
 The model size is the number of parameters times 2 bytes (for 16 bit
-weights) or times 4 bytes (32 bit). For example a 30 billion parameter
-model with fp16, takes up 60 GB of memory. In practice [for inference
-there's up to 20% overhead][1] so you might need around 70 GB of
-memory, and thus even a single GCD in LUMI might not be enough.
+weights) or times 4 bytes (for 32 bit). For example a 30 billion
+parameter model with fp16, takes up 60 GB of memory. In practice [for
+inference there's up to 20% overhead][1] so you might actually need
+around 70 GB of memory, and thus even a single GCD in LUMI might not
+be enough for our example model.
 
 For training a lot more memory is needed as not only the model, but
 also the optimizer states, gradients and activations need to be
-stored. As a *very* rough estimate, around 5x the model size is needed
-for fine-tuning a model, but this depends a lot on the details. We'll
-discuss to ways to solve this problem in the sections below.
+stored. As a *very* rough estimate, around 4-6x the model size (in GB)
+is needed for fine-tuning a model, but this depends a lot on the
+details. So for our example 30B parameter fp16 model, it might require
+60 GB x 6 = 360 GB of GPU memory for training! We'll discuss ways to
+solve this problem in the sections below.
 
 ## Fine-tuning LLMs
 
 We have a [git repository with some example scripts for doing LLM
 fine-tuning on Puhti][2]. The example uses the [Hugging Face (HF)
-libraries][3] and in particular the Hugging Face Trainer to train a
-given model (taken from the HF model repositories) with the IMDb movie
-review dataset. The task itself might not make much sense, but it's
-just used to demonstrate the technical task of fine-tuning a model
-with a given dataset.
+libraries][3] and in particular the HF Trainer to train a given model
+(taken from the HF model repositories) with the IMDb movie review
+dataset. The task itself might not make much sense, it's just used to
+demonstrate the technical task of fine-tuning a model with a given
+dataset.
 
 The examples, by default, use the [EleutherAI/gpt-neo-1.3B][4] model,
 as it will fit into the memory of a single GPU in Puhti. Given that
 it's a 1.37 billion parameter model with 32 bit weights, according to
-our rule-of-thumb, mentioned above, it would require 1.37*4*5 = 27.4
-GB of memory for training which is less than the 32 GB maximum of
-Puhti's V100.
+our rule-of-thumb, mentioned above, it might require up to 1.37x4x6 =
+32 GB of memory for training, so it should just fit into the 32 GB
+maximum of Puhti's V100 (if we're lucky).
 
 The repository has basic launch scripts for Puhti for 1 GPU, 4 GPUs (a
 full node) and 8 GPUs (two full nodes). The Slurm scripts are
@@ -55,50 +58,70 @@ essentially the same as for any PyTorch DDP runs, see our [Multi-GPU
 and multi-node ML guide](ml-multi.md#pytorch-ddp) for examples, or
 just take a look at [the scripts in the GitHub repository][2]:
 
-- `run-finetuning-puhti-gpu1.sh` - fine-tuning on Puhti with 1 GPU
-- `run-finetuning-puhti-gpu4.sh` - fine-tuning on Puhti with one full node (4 GPUs)
-- `run-finetuning-puhti-gpu8.sh` - fine-tuning on Puhti with two full nodes (8 GPUs in total)
+- [`run-finetuning-puhti-gpu1.sh`](https://github.com/mvsjober/fine-tuning-examples/blob/master/run-finetuning-puhti-gpu1.sh) - fine-tuning on Puhti with 1 GPU
+- [`run-finetuning-puhti-gpu4.sh`](https://github.com/mvsjober/fine-tuning-examples/blob/master/run-finetuning-puhti-gpu4.sh) - fine-tuning on Puhti with one full node (4 GPUs)
+- [`run-finetuning-puhti-gpu8.sh`](https://github.com/mvsjober/fine-tuning-examples/blob/master/run-finetuning-puhti-gpu8.sh) - fine-tuning on Puhti with two full nodes (8 GPUs in total)
 
 The basic multi-GPU versions are all using PyTorch Distributed Data
 Parallel (DDP) mode, in which each GPU has a full copy of the
 model. Only the training data is distributed across the different
 GPUs. This means that the full model must fit into a single GPU.
 
+If your model doesn't fit into a single GPU on Puhti, it might work on
+Mahti or LUMI, but first check with the rule-of-thumb calculation
+mentioned above if there's even a chance of that! If not, read on for
+PEFT and FSDP approaches.
+
 ### Using PEFT and LoRA
 
 If your model would fit into the GPU memory, but cannot handle all the
 extra memory needed by the overhead of the fine-tuning process, the
-solution may be to use [Parameter Efficient Fine-Tuning (PEFT)][5]
-which adaptively trains a smaller number of parameters, which reduces
-the training overhead a substantially. PEFT is very easy to enable,
-see the [PEFT quicktour][6]
-for an example. PEFT can be enabled in the example above by adding the
+solution may be to use the [Parameter Efficient Fine-Tuning (PEFT)][5]
+library which adaptively trains a smaller number of parameters, which
+reduces the training overhead a substantially. PEFT supports many
+methods including [LoRA](https://arxiv.org/abs/2106.09685) and
+[QLoRA](https://arxiv.org/abs/2305.14314).
+
+PEFT is very easy to enable, see the [PEFT quicktour][6] for an
+example. PEFT can be enabled in the example above simply by adding the
 flag `--peft`.
+
+*FIXME* note about memory reduction expected
 
 ### Using Accelerate and FSDP
 
-For larger models, that might not fit into the GPU memory or the
-training overhead is too big for a single GPU, you need to use an
-approach that splits the actual model (and related training
-parameters) over multiple GPUs. We can no longer retain a full copy of
-the model in each GPU.
+For larger models that do not fit into the GPU memory (even for
+inference), you need to use an approach that splits the actual model
+(and the training overhead) over multiple GPUs. We can no longer
+retain a full copy of the model in each GPU.
 
-One approach, which is supported natively by PyTorch is [Fully Sharded
-Data Parallel (FSDP)][7]. In FSDP the model parameters, gradients and
-optimizer states are not stored completely in each GPU, but are split
-up (sharded) between all GPUs and only gathered together as needed in
-the current stage of the training.
+A good approach, which is supported natively in PyTorch is [Fully
+Sharded Data Parallel (FSDP)][7]. In FSDP the model parameters,
+gradients and optimizer states are not stored completely in each GPU,
+but are split up (sharded) between all GPUs and only gathered together
+as needed in the current stage of the training.
 
-Perhaps to easiest way to take that into use is to use Hugging Face's
-Accelerate framework. No changes are needed to the PyTorch script and
-[the GitHub repository][2] has example scripts for launching on one or
-two full nodes on Puhti:
+Perhaps to easiest way to take FSDP into use for large language models
+is to use Hugging Face's Accelerate framework. No changes are needed
+to the PyTorch script and [our GitHub repository][2] has example
+scripts for launching on one or two full nodes on Puhti:
 
-- `run-finetuning-puhti-gpu4-accelerate.sh` - fine-tuning on Puhti with one full node using Accelerate
-- `run-finetuning-puhti-gpu8-accelerate.sh` - fine-tuning on Puhti with two full nodes using Accelerate
+- [`run-finetuning-puhti-gpu4-accelerate.sh`](https://github.com/mvsjober/fine-tuning-examples/blob/master/run-finetuning-puhti-gpu4-accelerate.sh) - fine-tuning on Puhti with one full node using Accelerate
+- [`run-finetuning-puhti-gpu8-accelerate.sh`](https://github.com/mvsjober/fine-tuning-examples/blob/master/run-finetuning-puhti-gpu8-accelerate.sh) - fine-tuning on Puhti with two full nodes using Accelerate
 
-Our [Multi-GPU and multi-node ML guide](ml-multi.md#accelerate) has
-Slurm script examples for using Accelerate with FSDP.
+Our [Multi-GPU and multi-node ML guide](ml-multi.md#accelerate) also
+has Slurm script examples for using Accelerate with FSDP.
+
+There are two things to note when using Accelerate: 
+
+1. It expects to have a configuration YAML file. We have provided two
+   examples in the GitHub repository, `accelerate_config.yaml` for a
+   basic example and `accelerate_config_fsdp.yaml` for using FSDP.
+
+2. *FIXME* note here about evaluating variables in main node vs other nodes + example
+
+*FIXME* note about memory reduction expected
+
 
 [1]: https://blog.eleuther.ai/transformer-math/
 [2]: https://github.com/mvsjober/fine-tuning-examples
