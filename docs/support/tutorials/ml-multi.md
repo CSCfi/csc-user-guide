@@ -674,6 +674,245 @@ PyTorch Lightning Slurm script for two full nodes using all GPUs:
     ```
 
 
+### Accelerate
+
+Hugging Face's
+[Accelerate](https://huggingface.co/docs/transformers/accelerate) is a
+popular framework for large-language model training, and it makes
+using more advanced training algorithms like FSDP very easy. Launching
+a job with accelerate it similar to PyTorch DDP, except we need to use
+the accelerate launcher and also provide an Accelerate config file.
+
+A working [example for LLM fine-tuning can be found in this GitHub
+repository](https://github.com/mvsjober/fine-tuning-examples/tree/master)
+(check the files ending with `-accelerate.sh`). Also check our [guide
+on using LLMs on supercomputers](ml-llm.md).
+
+Example using all GPUs on a single node:
+
+=== "Puhti"
+
+    ```bash
+    #!/bin/bash
+    #SBATCH --account=<project>
+    #SBATCH --partition=gpu
+    #SBATCH --ntasks=1
+    #SBATCH --cpus-per-task=40
+    #SBATCH --mem=320G
+    #SBATCH --time=1:00:00
+    #SBATCH --gres=gpu:v100:4
+    
+    module purge
+    module load pytorch
+
+    srun accelerate launch \
+     --config_file=accelerate_config.yaml \
+     --num_processes=4 \
+     --num_machines=1 \
+     --machine_rank=0 \
+     myprog.py <options>
+    ```
+
+=== "Mahti"
+
+    ```bash
+    #!/bin/bash
+    #SBATCH --account=<project>
+    #SBATCH --partition=gpumedium
+    #SBATCH --ntasks=1
+    #SBATCH --cpus-per-task=128
+    #SBATCH --time=1:00:00
+    #SBATCH --gres=gpu:a100:4
+    
+    module purge
+    module load pytorch
+
+    srun accelerate launch \
+     --config_file=accelerate_config.yaml \
+     --num_processes=4 \
+     --num_machines=1 \
+     --machine_rank=0 \
+     myprog.py <options>
+    ```
+
+=== "LUMI"
+
+    ```bash
+    #!/bin/bash
+    #SBATCH --account=<project>
+    #SBATCH --partition=small-g
+    #SBATCH --ntasks=1
+    #SBATCH --cpus-per-task=56
+    #SBATCH --gpus-per-node=8
+    #SBATCH --mem=480G
+    #SBATCH --time=1:00:00
+    
+    module purge
+    module use /appl/local/csc/modulefiles
+    module load pytorch
+    
+    srun accelerate launch \
+     --config_file=accelerate_config.yaml \
+     --num_processes=4 \
+     --num_machines=1 \
+     --machine_rank=0 \
+     myprog.py <options>
+    ```
+
+
+Example of running PyTorch DDP on 2 full nodes. 
+
+=== "Puhti"
+
+    ```bash
+    #!/bin/bash
+    #SBATCH --account=<project>
+    #SBATCH --partition=gpu
+    #SBATCH --nodes=2
+    #SBATCH --ntasks-per-node=1
+    #SBATCH --cpus-per-task=40
+    #SBATCH --mem=320G
+    #SBATCH --time=1:00:00
+    #SBATCH --gres=gpu:v100:4
+    
+    module purge
+    module load pytorch
+
+    GPUS_PER_NODE=4
+    NUM_PROCESSES=$(expr $SLURM_NNODES \* $GPUS_PER_NODE)
+    MAIN_PROCESS_IP=$(hostname -i)
+    
+    RUN_CMD="accelerate launch \
+                        --config_file=accelerate_config.yaml \
+                        --num_processes=$NUM_PROCESSES \
+                        --num_machines=$SLURM_NNODES \
+                        --machine_rank=\$SLURM_NODEID \
+                        --main_process_ip=$MAIN_PROCESS_IP \
+                        myprog.py <options>"
+    
+    srun bash -c "$RUN_CMD"
+    ```
+
+=== "Mahti"
+
+    ```bash
+    #!/bin/bash
+    #SBATCH --account=<project>
+    #SBATCH --partition=gpumedium
+    #SBATCH --nodes=2
+    #SBATCH --ntasks-per-node=1
+    #SBATCH --cpus-per-task=128
+    #SBATCH --time=1:00:00
+    #SBATCH --gres=gpu:a100:4
+    
+    module purge
+    module load pytorch
+
+    GPUS_PER_NODE=4
+    NUM_PROCESSES=$(expr $SLURM_NNODES \* $GPUS_PER_NODE)
+    MAIN_PROCESS_IP=$(hostname -i)
+    
+    RUN_CMD="accelerate launch \
+                        --config_file=accelerate_config.yaml \
+                        --num_processes=$NUM_PROCESSES \
+                        --num_machines=$SLURM_NNODES \
+                        --machine_rank=\$SLURM_NODEID \
+                        --main_process_ip=$MAIN_PROCESS_IP \
+                        myprog.py <options>"
+    
+    srun bash -c "$RUN_CMD"
+    ```
+
+=== "LUMI"
+
+    ```bash
+    #!/bin/bash
+    #SBATCH --account=<project>
+    #SBATCH --partition=small-g
+    #SBATCH --nodes=2
+    #SBATCH --ntasks-per-node=1
+    #SBATCH --cpus-per-task=56
+    #SBATCH --gpus-per-node=8
+    #SBATCH --mem=480G
+    #SBATCH --time=1:00:00
+    
+    module purge
+    module use /appl/local/csc/modulefiles
+    module load pytorch
+
+    NUM_PROCESSES=$(expr $SLURM_NNODES \* $SLURM_GPUS_PER_NODE)
+    MAIN_PROCESS_IP=$(hostname -i)
+    
+    RUN_CMD="accelerate launch \
+                        --config_file=accelerate_config.yaml \
+                        --num_processes=$NUM_PROCESSES \
+                        --num_machines=$SLURM_NNODES \
+                        --machine_rank=\$SLURM_NODEID \
+                        --main_process_ip=$MAIN_PROCESS_IP \
+                        myprog.py <options>"
+    
+    srun bash -c "$RUN_CMD"
+    ```
+
+Note the somewhat cumbersome way of defining the command with the
+`$SLURM_NODEID` variable escaped so that is only evaluated on the
+actual node where it is running. Normally all the variables are
+evaluated on the first node, but `$SLURM_NODEID` should be different
+on each node to get the distributed setup working correctly.
+
+
+Both examples use this `accelerate_config.yaml` file:
+
+```yaml
+compute_environment: LOCAL_MACHINE
+debug: false
+distributed_type: MULTI_GPU
+downcast_bf16: 'no'
+gpu_ids: all
+main_training_function: main
+main_process_port: 29500
+mixed_precision: bf16
+num_processes: 1
+rdzv_backend: static
+same_network: true
+tpu_env: []
+tpu_use_cluster: false
+tpu_use_sudo: false
+use_cpu: false
+```
+
+
+If you want to use FSDP, simply use an Accelerate config similar to this:
+
+```yaml
+compute_environment: LOCAL_MACHINE
+debug: false
+distributed_type: FSDP
+downcast_bf16: 'no'
+fsdp_config:
+  fsdp_auto_wrap_policy: TRANSFORMER_BASED_WRAP
+  fsdp_backward_prefetch_policy: BACKWARD_PRE
+  fsdp_forward_prefetch: false
+  fsdp_cpu_ram_efficient_loading: true
+  fsdp_offload_params: false
+  fsdp_sharding_strategy: FULL_SHARD
+  fsdp_state_dict_type: SHARDED_STATE_DICT
+  fsdp_sync_module_states: true
+  fsdp_use_orig_params: true
+gpu_ids: all
+main_training_function: main
+main_process_port: 29500
+mixed_precision: bf16
+num_processes: 1
+rdzv_backend: static
+same_network: true
+tpu_env: []
+tpu_use_cluster: false
+tpu_use_sudo: false
+use_cpu: false
+```
+
+
 ### DeepSpeed
 
 [DeepSpeed](https://www.deepspeed.ai/) is an optimization software
