@@ -3,6 +3,7 @@ tags:
   - Academic
 system:
   - www-puhti
+  - www-lumi
 ---
 
 # MATLAB

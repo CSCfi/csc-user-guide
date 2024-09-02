@@ -1,28 +1,28 @@
 # LUE
 
 !!! Note
-    While we try our hardest to make tools easy to use, parallel filesystems with a
+    While we try our hardest to make tools easy to use, parallel file systems with a
     huge amount of files and data are complicated. Read the full instructions before
     using the tool!
 
 Keeping track of how much data/files one has on the disk and (re)moving it in a
-timely manner ensures a more performant filesystem for all users.
+timely manner ensures a more performant file system for all users.
 
 When querying size information it's important to limit the processed set of files.
-Some operations can be both slow and heavy on the filesystem. In other words, don't
+Some operations can be both slow and heavy on the file system. In other words, don't
 run the tool on the whole project folder (e.g `/scratch/project_12345`), but choose
-instead smaller subfolders where you think you might have a lot of files or data
+instead smaller sub-folders where you think you might have a lot of files or data
 which could possibly be moved/compressed/removed. By default, the tool will only
 fetch size data for 30 mins before quitting.
 
 ## Short prelude
 
 LUE is a tool available on CSC supercomputers which shows the amount of data and
-number of files within a given folder on the parallel filesystem.
+number of files within a given folder on the parallel file system.
 
 Importantly, LUE is significantly faster than standard tools like `stat` or `du`
-(these being slow to the point of unfeasibility on a bad day), while being nicer
-on the filesystem. This, however, comes with a possible slight loss in accuracy.
+(these being slow to the point of infeasibility on a bad day), while being nicer
+on the file system. This, however, comes with a possible slight loss in accuracy.
 
 A secondary point is that LUE presents the results in a fairly understandable way,
 saving the user from having to script something themselves based on raw `du` output.
@@ -39,7 +39,7 @@ The sources of possible inaccuracy are:
    overestimate the actual disk usage.
       - A file which is 95 MB large might only consume 68 MB of disk space if it
         contains large parts of only zeros.
-3. Files which are currently in use might not be reported correctly
+3. Files which are currently in use might not be reported correctly.
 
 ## Basic usage
 
@@ -86,7 +86,7 @@ not have a reported size.
     amount of data.
 
 Once the tool is finished going through the files, it will print the size of `<target_dir>`
-and the size of any subfolders. The columns from left to right are:
+and the size of any sub-folders. The columns from left to right are:
 
 - The directory/file name
 - The total size of the directory (including subdirectories) or the size of the file
@@ -124,7 +124,7 @@ path, total size, in dir size, % of total, % of dir
         intel                              350MB  350MB 4.04  24.94
 ```
 
-Alternatively, we can just run the tool on one of the subfolders to get a smaller,
+Alternatively, we can just run the tool on one of the sub-folders to get a smaller,
 less cluttered output.
 
 ```bash
@@ -138,7 +138,7 @@ path, total size, in dir size, % of total, % of dir
 ```
 
 LUE keeps a very simple cache of runs. After running LUE on `/scratch/project_12345/dirA/`
-you can run it on any subdirectories without actually re-querying anything from the filesystem.
+you can run it on any subdirectories without actually re-querying anything from the file system.
 To force the tool to refresh the data (for example if a run needs other options or the cache
 is to old), use `--refresh`. The cache is saved under `$TMPDIR`, so if you switch nodes, you
 will need to rerun.
@@ -176,7 +176,7 @@ after which the size should be reported correctly:
 2. Some files require much heavier operations to sync the size.
       - Rerun with `lue --sync-size --slow-sync <target_dir>`. **NOTE!** Adding the
         `--slow-sync` option will be about x10 slower than with just `--sync-size`
-      - Before doing this run `lue` on some of the subfolders (without `--refresh`)
+      - Before doing this run `lue` on some of the sub-folders (without `--refresh`)
         to find out where the `NOSISZE` files are located. Then use `ls -l` or `du -h`
         to confirm that the files are actually not zero in size. If the files seem to
         be non-zero in size, run with `--slow-sync`. Otherwise go to 3.

@@ -1,6 +1,6 @@
 # Data persistence
 
-There are three types of storage in CSC Notebooks.
+There are three types of storage in Noppe.
 
 * **Workspace shared folder**: persisted for workspace lifetime
 * **My-work folder**: persisted for workspace lifetime per user
@@ -14,7 +14,7 @@ There are three types of storage in CSC Notebooks.
 !!!Note
 
     None of the persistent storage options are backed up. Always make sure you (and your users) make a copy outside 
-    CSC Notebooks of any data you cannot afford to lose. 
+    Noppe of any data you cannot afford to lose. 
 
 ## Workspace shared folder 
 
