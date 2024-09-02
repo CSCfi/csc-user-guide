@@ -75,7 +75,7 @@ Now we can create the `YAML` files that contain the different parts of the appli
 
 	```sh
 	$ oc get dc,deployment,pvc,secret,configmaps,service,route -o name
-	deploymentconfig.apps.openshift.io/nginx
+	deployment.apps/nginx
 	persistentvolumeclaim/html
 	secret/builder-dockercfg-h4cwh
 	secret/builder-token-6fngh
@@ -91,9 +91,9 @@ Now we can create the `YAML` files that contain the different parts of the appli
 	route.route.openshift.io/nginx
 	```
 
-1. From the list above, we are only interested in `deploymentconfig.apps.openshift.io`, `persistentvolumeclaim/html`, `service/nginx` and `route.route.openshift.io/nginx`. The rest are auto-generated like the `secret/` tokens or created by other objects like the `service/glusterfs-dynamic-ed156002-8a7e-11ed-b60d-fa163e0d8841` object was created as a result of the creation of the `persistentvolumeclaim/` (PVC) creation.
+1. From the list above, we are only interested in `deployment.apps`, `persistentvolumeclaim/html`, `service/nginx` and `route.route.openshift.io/nginx`. The rest are auto-generated like the `secret/` tokens or created by other objects like the `service/glusterfs-dynamic-ed156002-8a7e-11ed-b60d-fa163e0d8841` object was created as a result of the creation of the `persistentvolumeclaim/` (PVC) creation.
 
-We will write templates one by one, starting with the Volume. There are two simple approaches to accomplish this task, "get and and clean" or "recreate from template". We will first try the "get and clean" method.
+We will write templates one by one, starting with the Volume. There are two simple approaches to accomplish this task, "get and clean" or "recreate from template". We will first try the "get and clean" method.
 
 ### Get and clean
 
@@ -162,10 +162,10 @@ status: {}
 
 #### Deployment
 
-The same process can be repeated for `deploymentconfig.apps.openshift.io/nginx`:
+The same process can be repeated for `deployment.apps/nginx`:
 
 ```sh
-oc get deploymentconfig.apps.openshift.io/nginx -o yaml >dc.yaml
+oc get deployment.apps/nginx -o yaml >deploy.yaml
 ```
 
 * First, for the `image` used, we need to replace the `@sha256` hash by `:latest`. This way we will always get the actual latest version of the image. It is also possible to replace it by a specific version like `:1.23.3`.
@@ -174,25 +174,21 @@ oc get deploymentconfig.apps.openshift.io/nginx -o yaml >dc.yaml
 
 ```diff
 @@ -1,44 +1,24 @@
- apiVersion: apps.openshift.io/v1
- kind: DeploymentConfig
+ apiVersion: apps/v1
+ kind: Deployment
  metadata:
--  annotations:
--    openshift.io/generated-by: OpenShiftWebConsole
--  creationTimestamp: "2023-01-02T09:20:11Z"
--  generation: 3
    labels:
      app: nginx
    name: nginx
 -  namespace: test
 -  resourceVersion: "1771055913"
--  selfLink: /apis/apps.openshift.io/v1/namespaces/test/deploymentconfigs/nginx
+-  selfLink: /apis/apps.openshift.io/v1/namespaces/test/deployments/nginx
 -  uid: a828c0db-8a7e-11ed-b60d-fa163e0d8841
  spec:
    replicas: 1
    selector:
-     app: nginx
-     deploymentconfig: nginx
+     matchLabels:
+       app: nginx
    strategy:
 -    activeDeadlineSeconds: 21600
 -    resources: {}
@@ -202,20 +198,19 @@ oc get deploymentconfig.apps.openshift.io/nginx -o yaml >dc.yaml
 -      maxUnavailable: 25%
 -      timeoutSeconds: 600
 -      updatePeriodSeconds: 1
-     type: Rolling
+     type: RollingUpdate
    template:
      metadata:
 -      annotations:
 -        openshift.io/generated-by: OpenShiftWebConsole
 -      creationTimestamp: null
        labels:
-	 app: nginx
-	 deploymentconfig: nginx
+	       app: nginx
      spec:
        containers:
 -      - image: bitnami/nginx@sha256:abe48bff022ec9c675612653292b2e685c91ce24bc4374199723c4f69603a127
 -        imagePullPolicy: Always
-+      - image: bitnami/nginx:latest
++      - image: docker.io/bitnami/nginx:latest
 	 name: nginx
 	 ports:
 	 - containerPort: 8080
@@ -238,47 +233,19 @@ oc get deploymentconfig.apps.openshift.io/nginx -o yaml >dc.yaml
 	 persistentVolumeClaim:
 	   claimName: html
 -  test: false
-   triggers:
-   - type: ConfigChange
-   - imageChangeParams:
 @@ -71,29 +42,5 @@
-	 kind: ImageStreamTag
-	 name: nginx:latest
-	 namespace: test
+-   kind: ImageStreamTag
+-   name: nginx:latest
+-   namespace: test
 -      lastTriggeredImage: bitnami/nginx@sha256:abe48bff022ec9c675612653292b2e685c91ce24bc4374199723c4f69603a127
-     type: ImageChange
--status:
--  availableReplicas: 1
--  conditions:
--  - lastTransitionTime: "2023-01-02T09:20:28Z"
--    lastUpdateTime: "2023-01-02T09:20:28Z"
--    message: Deployment config has minimum availability.
--    status: "True"
--    type: Available
--  - lastTransitionTime: "2023-01-02T09:25:01Z"
--    lastUpdateTime: "2023-01-02T09:25:04Z"
--    message: replication controller "nginx-2" successfully rolled out
--    reason: NewReplicationControllerAvailable
--    status: "True"
--    type: Progressing
--  details:
--    causes:
--    - type: ConfigChange
--    message: config change
--  latestVersion: 2
--  observedGeneration: 3
--  readyReplicas: 1
--  replicas: 1
--  unavailableReplicas: 0
--  updatedReplicas: 1
-+status: {}
+-     type: ImageChange
 ```
 
 The result being:
 
 ```yaml
 apiVersion: apps.openshift.io/v1
-kind: DeploymentConfig
+kind: Deployment
 metadata:
   labels:
     app: nginx
@@ -286,18 +253,17 @@ metadata:
 spec:
   replicas: 1
   selector:
-    app: nginx
-    deploymentconfig: nginx
+    matchLabels:
+      app: nginx
   strategy:
-    type: Rolling
+    type: RollingUpdate
   template:
     metadata:
       labels:
         app: nginx
-        deploymentconfig: nginx
     spec:
       containers:
-      - image: bitnami/nginx:latest
+      - image: docker.io/bitnami/nginx:latest
         name: nginx
         ports:
         - containerPort: 8080
@@ -312,18 +278,6 @@ spec:
       - name: html
         persistentVolumeClaim:
           claimName: html
-  triggers:
-  - type: ConfigChange
-  - imageChangeParams:
-      automatic: true
-      containerNames:
-      - nginx
-      from:
-        kind: ImageStreamTag
-        name: nginx:latest
-        namespace: test
-    type: ImageChange
-status: {}
 ```
 
 ### Recreate from template
@@ -359,7 +313,7 @@ metadata:
   name: XXXX
 spec:
   selector:
-    deploymentconfig: YYYY
+    app: YYYY
   ports:
   - nodePort: 0
     port: NNNN
@@ -367,7 +321,7 @@ spec:
     targetPort: NNNN
 ```
 
-Where `XXXX` is the name of the service we filled up in the Route, `YYYY` is the name of the deployment config, and `NNNN` is the port the deployment is listening to.
+Where `XXXX` is the name of the service we filled up in the Route, `YYYY` is the name of the deployment, and `NNNN` is the port the deployment is listening to.
 
 ### Test
 
@@ -548,8 +502,8 @@ appVersion: "1.16.0"
 * `templates/deployment.yaml`:
 
 ```yaml
-apiVersion: apps.openshift.io/v1
-kind: DeploymentConfig
+apiVersion: apps/v1
+kind: Deployment
 metadata:
   labels:
     app: nginx
@@ -557,18 +511,17 @@ metadata:
 spec:
   replicas: 1
   selector:
-    app: nginx
-    deploymentconfig: nginx
+    matchLabels:
+      app: nginx
   strategy:
     type: Rolling
   template:
     metadata:
       labels:
         app: nginx
-        deploymentconfig: nginx
     spec:
       containers:
-      - image: bitnami/nginx:latest
+      - image: docker.io/bitnami/nginx:latest
         name: nginx
         ports:
         - containerPort: 8080
@@ -583,17 +536,6 @@ spec:
       - name: html
         persistentVolumeClaim:
           claimName: html
-  triggers:
-  - type: ConfigChange
-  - imageChangeParams:
-      automatic: true
-      containerNames:
-      - nginx
-      from:
-        kind: ImageStreamTag
-        name: nginx:latest
-        namespace: {{ .Release.Namespace }}
-    type: ImageChange
 ```
 
 * `templates/service.yaml`:
@@ -605,7 +547,7 @@ metadata:
   name: nginx
 spec:
   selector:
-    deploymentconfig: nginx
+    app: nginx
   ports:
   - nodePort: 0
     port: 8080
