@@ -156,7 +156,7 @@ spec:
   resources:
     requests:
       storage: 1Gi
-  storageClassName: glusterfs-storage
+  storageClassName: standard-csi
 status: {}
 ```
 
@@ -362,7 +362,7 @@ The tests should be done in a separate namespace, and there are two approaches:
     * After making a change in the chart templates we can upgrade it:
 
     ```sh
-    $ helm upgrade test-name .
+    $ helm upgrade test-name example
     Release "test-name" has been upgraded. Happy Helming!
     NAME: test-name
     LAST DEPLOYED: Tue Jan  3 15:54:15 2023
