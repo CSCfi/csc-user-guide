@@ -13,7 +13,7 @@ You can download folders or individual files from SD Connect. Files and folders 
 4. Files are decrypted automatically. Locate downloaded folder from your computer (for example Downloads folder).
 
 !!! Warning
-    Files uploaded before xx.xx.2024 will have to be decrypted by using [Crypt4GH application](./sd-desktop-export.md).
+    Update this: Files uploaded before xx.xx.2024 will have to be decrypted by using [Crypt4GH application](./sd-desktop-export.md). You will see notification when this step is needed.
 .
 
 ## Features in SD Connect 

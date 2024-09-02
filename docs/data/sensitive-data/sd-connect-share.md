@@ -1,5 +1,6 @@
 # Sharing folders
 
+SD Connects provides you multiple ways to share your files.
 
 !!! info "Share ID"
 
@@ -35,6 +36,9 @@ The recipient project's members can only access the folder content in SD Desktop
     Note that you also have to be the project manager of the recipient project. Please contact us at servicedesk@csc.fi to discuss this option before proceeding.
 
 [Read about use case: Give access to folder content only in SD Connect](./sd-connect-use-case-read-to-sd-desktop.md)
+
+
+
 
 
 ## Features in SD Connect 

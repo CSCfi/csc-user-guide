@@ -1,6 +1,6 @@
 # Uploading and encrypting data 
 
-Your data is automatically encrypted when you upload data to SD Connect. This is suitable for all file types and formats. Automated encryption and data upload via a web browser is for files up to 100 GB. Files larger than 100 GB can be encrypted using an application and uploaded [programmatically](./sd-connect-command-line-interface.md).
+Your data is automatically encrypted when you upload data to SD Connect. This is suitable for all file types and formats. Automated encryption and data upload via a web browser is for files up to 100 GB. Files larger than 100 GB can be automatically encrypted and uploaded [programmatically](./sd-connect-command-line-interface.md).
 
 ## Upload and encrypt files to a new folder
 

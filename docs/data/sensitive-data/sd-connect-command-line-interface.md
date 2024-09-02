@@ -1,5 +1,7 @@
 # Command Line Interface: encryption for data sharing 
 
+- CLI instrustions need to be written by Kimmo, old CLI info  needs to stay for users for old data, see sd connect versions page-
+
 For documentation and more information, you can check the [Crypt4GH Encryption Utility](https://github.com/EGA-archive/crypt4gh.git) page.
 
 In this example, we first generate your key pair (a password-protected private key and a public key that can be shared with collaborators). Next, we encrypt a file with public keys of two different collaborators (research group A and research group B).
