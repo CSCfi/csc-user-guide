@@ -131,6 +131,37 @@ transferred to the main container using e.g. empty volume mounts.
 
 ```yaml
 apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: build-reader
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: build-reader
+rules:
+- apiGroups:
+  - build.openshift.io
+  resources:
+  - builds
+  verbs:
+  - get
+  - list
+  - watch
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: build-reader
+subjects:
+  - kind: ServiceAccount
+    name: build-reader
+roleRef:
+  kind: Role
+  name: build-reader
+  apiGroup: rbac.authorization.k8s.io
+---
+apiVersion: v1
 kind: Pod
 metadata:
   name: mypod
@@ -143,25 +174,21 @@ spec:
     emptyDir: {}
   initContainers:
   - name: perlhelper
-    image: perl
+    imagePullPolicy: IfNotPresent
+    image: quay.io/openshift/origin-cli:4.16
     command:
     - sh
     - -c
-    - >
-      echo Hello from perl helper > /datavol/index.html
-    volumeMounts:
-    - mountPath: /datavol
-      name: sharevol
+    - "oc wait --for=jsonpath='{.status.phase}'=Complete build -l buildconfig=app --timeout=900s"
   containers:
   - name: serve-cont
-    image: image-registry.apps.2.rahti.csc.fi/openshift/httpd
+    image: image-registry.apps.2.rahti.csc.fi/project/app
     volumeMounts:
     - mountPath: /var/www/html
       name: sharevol
 ```
 
-Here we run an init container that uses the `perl` image and writes text
-in the `index.html` file on the shared volume.
+Here we run an init container that uses the `origin-cli` image and waits for the build in the `app` BuildConfig to end, once it ends the normal container can be launched, knowing that the image is already created.
 
 The shared volume is defined in `spec.volumes` and "mounted" in
 `spec.initContainers[].volumeMounts` and `spec.containers[].volumeMounts`.
@@ -302,20 +329,19 @@ OpenShift includes all Kubernetes objects, plus some extensions:
 * **ImageStream** objects abstract images and
   enrich them to streams that emit signals when they see that a new image is
   uploaded into them by e.g. BuildConfig.
-* **DeploymentConfig** objects create new [**ReplicationControllers**](../tutorials/elemental_tutorial.md#replicationcontroller) based on the new images.
 * **Route** objects connects a **Service** with the internet using _HTTP_.
 
 ### DeploymentConfig
 
 !!! Warning
 
-    Starting OKD 4.14, DeploymentConfig API is being deprecated. Only security-related and critical issues will be fixed in the future.  
-    More information [here](https://access.redhat.com/articles/7041372)
+    Starting OKD 4.14, DeploymentConfig API is being deprecated. Only security-related and critical issues will be fixed in the future.
+    More information [here](https://access.redhat.com/articles/7041372) and the [replacement guide for DeploymentConfig](https://developers.redhat.com/learning/learn:openshift:replace-deprecated-deploymentconfigs-deployments/resource/resources:convert-deploymentconfig-deployment).
 
 
 DeploymentConfigs are objects that create
 [ReplicationControllers](../tutorials/elemental_tutorial.md#replicationcontroller) according to
-`spec.template`. They differ from ReplicationControllers in the sense that 
+`spec.template`. They differ from ReplicationControllers in the sense that
 DeploymentConfig objects may start new ReplicationControllers based on the state of
 `spec.triggers`. In the example below, the DeploymentConfig performs
 an automatic rolling update when it gets triggered by an ImageStream named
@@ -335,7 +361,7 @@ are objects that make sure that a requested number of replicas of the pod define
 *`deploymentconfig.yaml`*:
 
 ```yaml
-apiVersion: v1
+apiVersion: apps.openshift.io/v1
 kind: DeploymentConfig
 metadata:
   labels:
@@ -374,10 +400,9 @@ In this case, the DeploymentConfig object listens to the *ImageStream* object
 
 ### ImageStream
 
-[ImageStreams](https://docs.openshift.com/container-platform/4.15/openshift_images/image-streams-manage.html) simplify 
-the management of container images  and can be created by a BuildConfig or the user when a new  images are uploaded to 
-the registry. When a new image is  uploaded, it can trigger its listeners to act. In the previous DeploymentConfig 
-example, the action triggered would be to do an update for the pods that it is meant to deploy.
+[ImageStreams](https://docs.openshift.com/container-platform/4.15/openshift_images/image-streams-manage.html) store images. They simplify
+the management of container images and can be created by a BuildConfig or the user when a new images are uploaded to
+the registry.
 
 A simple ImageStream object:
 
@@ -405,7 +430,7 @@ of the `httpd` image shipped with OpenShift.
 
 ```yaml
 kind: "BuildConfig"
-apiVersion: "v1"
+apiVersion: "build.openshift.io/v1"
 metadata:
   name: "serveimg-generate"
   labels:

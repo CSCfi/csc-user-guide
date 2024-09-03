@@ -193,9 +193,9 @@ The shared volume is defined in `spec.volumes` and "mounted" in
 
 ### StatefulSet
 
-Most Kubernetes objects are stateless. This means that they may be deleted and recreated, and the application should be able to cope with that without any visible effect. For example, a DeploymentConfig defines a Pod with 5 replicas and a Rolling release strategy. When a new image is deployed, Kubernetes will kill one by one all Pods, recreating them with different names and possibly in different nodes, always keeping at least 5 replicas active. For some application this is not acceptable, for this use case, Stateful sets have been created.
+Most Kubernetes objects are stateless. This means that they may be deleted and recreated, and the application should be able to cope with that without any visible effect. For example, a Deployment defines a Pod with 5 replicas and a Rolling release strategy. When a new image is deployed, Kubernetes will kill one by one all Pods, recreating them with different names and possibly in different nodes, always keeping at least 5 replicas active. For some application this is not acceptable, for this use case, Stateful sets have been created.
 
-Like a DeploymentConfig, a StatefulSet defines Pods based on container specification. But unlike a Deployment, a StatefulSet gives an expected and stable identity, with a persistent identifier that it is maintained across any event (upgrades, re-deployments, ...). A stateful set provides:
+Like a Deployment, a StatefulSet defines Pods based on container specification. But unlike a Deployment, a StatefulSet gives an expected and stable identity, with a persistent identifier that it is maintained across any event (upgrades, re-deployments, ...). A stateful set provides:
 
 * Stable, unique network identifiers.
 * Stable, persistent storage.
@@ -319,14 +319,16 @@ OpenShift includes all Kubernetes objects, plus some extensions:
 * **ImageStream** objects abstract images and
   enrich them to streams that emit signals when they see that a new image is
   uploaded into them by e.g. BuildConfig.
-* **DeploymentConfig** objects create new [**ReplicationControllers**](../tutorials/elemental_tutorial.md#replicationcontroller) based on the new images.
 * **Route** objects connects a **Service** with the internet using _HTTP_.
 
 ### DeploymentConfig
 
+!!! Warning "DeploymentConfig is deprecated"
+    DeploymentConfig is deprecated in newer versions of OpenShift OKD and will be completely removed in the future. See Redhat's [deprecation announcement of DeploymentConfig](https://access.redhat.com/articles/7041372) and their [replacement guide for DeploymentConfig](https://developers.redhat.com/learning/learn:openshift:replace-deprecated-deploymentconfigs-deployments/resource/resources:convert-deploymentconfig-deployment).
+
 DeploymentConfigs are objects that create
 [ReplicationControllers](../tutorials/elemental_tutorial.md#replicationcontroller) according to
-`spec.template`. They differ from ReplicationControllers in the sense that 
+`spec.template`. They differ from ReplicationControllers in the sense that
 DeploymentConfig objects may start new ReplicationControllers based on the state of
 `spec.triggers`. In the example below, the DeploymentConfig performs
 an automatic rolling update when it gets triggered by an ImageStream named
@@ -388,7 +390,7 @@ In this case, the DeploymentConfig object listens to the *ImageStream* object
 ImageStreams simplify image names and get triggered by a BuildConfig if new
 images are uploaded to the registry. When a new image is
 uploaded, it can trigger its listeners to act. In the case of our
-DeploymentConfig, the action triggered would be to do an update for the pods
+Deployment, the action triggered would be to do an update for the pods
 that it is meant to deploy.
 
 A simple ImageStream object:

@@ -24,7 +24,7 @@ How to set up a static web server in Rahti.
     If the link did not work, make sure that the browser did not change the address to use `https` instead of intended `http`.
 
 OpenShift processed a template that provisioned
-various objects, such as _Pods_, _Services_, _Routes_, _DeploymentConfigs_, and
+various objects, such as _Pods_, _Services_, _Routes_, _Deployment_, and
 _Builds_ into the container cloud, and as a result, a web server emerged.
 
 For deeper insight in to the created objects, please see:
