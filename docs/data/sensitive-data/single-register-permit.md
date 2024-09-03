@@ -2,7 +2,7 @@
 
 **[Instructions in Finnish (PDF)](https://a3s.fi/docs-files/sensitive-data/PDF_instructions/SD_toisiolaki_yksittainenRekisteri.pdf){ target="_blank" }**
 
-<iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/bMaBl0IED74?si=Comdn9LD45zGKEOC" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="280" height="155" src="https://www.youtube.com/embed/A5Mjc0KiwTo?si=pHIBNDi8blMjlO-7" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ## Use case
 

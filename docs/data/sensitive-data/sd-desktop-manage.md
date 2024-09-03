@@ -1,9 +1,5 @@
 # Managing volumes and virtual desktops
 
-<iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/rYpuUwm8LhQ?si=Yf8mEiSN_zm76wOb" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-<iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/FkKfVlwr5CA?si=qsLxYgFf82_WtvHY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
 With the SD Desktop service, you can easily manage volumes and pause, reboot or delete your virtual desktops. Below we illustrate the main available options. 
 
 !!! Note
