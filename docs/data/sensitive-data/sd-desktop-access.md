@@ -30,7 +30,7 @@ When you open the connection, a virtual computing environment will open in your 
 
 4. The copy-paste function from your computer/laptop to your virtual desktop is limited for security reasons. [Instructions how to copy-paste](#copy-paste-from-your-laptop-to-virtual-desktop).
 
-5. Only files saved in the shared-directory or the external volume are accessible to all project members via the virtual desktop. Read more about [external volume](./sd-desktop-create.md#3-add-an-external-volume).
+5. Only files saved in the shared-directory or the external volume are accessible to all project members via the virtual desktop. Read more about [external volume](./sd-desktop-create.md#3-add-an-external-volume-virtual-external-hard-drive).
 
 ### You can close the connection to your virtual desktop in two ways:
 

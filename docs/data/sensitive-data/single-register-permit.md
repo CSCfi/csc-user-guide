@@ -155,11 +155,11 @@ You are now on the Applications page.
 ![SD Apply application](https://a3s.fi/docs-files/sensitive-data/SD_Apply/SD-Apply_Application.png)
 
 !!! Note ""
-    #### 11. Wait for approval from data controller
+    ### 11. Wait for approval from data controller
     * After you have sent the application, it will be forwarded to the data controller, who approves or rejects it. 
     * You will receive an email notification whenever the state of your application changes.
 
-#### 12. Send approved application to CSC
+### 12. Send approved application to CSC
 
 * Login to SD Apply: [https://sd-apply.csc.fi](https://sd-apply.csc.fi).
 * Find your application and click **''PDF''** under **Actions**.

@@ -2,8 +2,7 @@
 
 **[Instructions in Finnish (PDF)](https://a3s.fi/docs-files/sensitive-data/PDF_instructions/SD_toisiolaki_Findata.pdf){ target="_blank" }**
 
-<iframe width="280" height="155" src="https://www.youtube.com/embed/0m-fWB99shI?si=5AAz47rQXBenfDN7" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
+<iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/0m-fWB99shI" title="SD Desktop toisiokäyttötarkoitukseen — käsittelyluvan myöntäjänä Findata" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 ## Use case
 
