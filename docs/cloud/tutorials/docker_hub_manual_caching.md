@@ -7,7 +7,7 @@ The process is simple:
 
 1. [Install](../../rahti2/usage/cli/#how-to-install-the-oc-tool) and [login with OC](../../rahti2/usage/cli/#how-to-login-with-oc).
 
-1. With a terminal, connect to the Rahti 2 registry:  
+1. With a terminal, connect to the Rahti 2 registry:
     ```sh
     docker login -p $(oc whoami -t ) -u unused image-registry.apps.2.rahti.csc.fi
     ```
@@ -26,12 +26,12 @@ The process is simple:
    docker push image-registry.apps.2.rahti.csc.fi/{YOUR_PROJECT_NAME}/centos:<tag>
    ```
 
-You should be able to see your images in your project:  
+You should be able to see your images in your project:
 ![Image Streams](../img/image_streams_rahti4.png)
 
 ## Use the image
 
-Go to your project's deployment or DeploymentConfig, and edit it.
+Go to your project's deployment, and edit it.
 
 ![Edit deployment](../img/edit_deployment.png)
 
