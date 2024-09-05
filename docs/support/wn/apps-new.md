@@ -1,5 +1,23 @@
 # Applications
 
+## JAX 0.4.30 available on Puhti and Mahti, 5.9.2024
+
+[JAX](../../apps/jax.md) 0.4.30 has been installed on Puhti and Mahti
+and set as the default version.
+
+The `transformers` package is no longer included since it officially 
+only supports JAX up to version 0.4.13.
+
+From this version on, there will be "small" and "full" flavours of JAX,
+where the "full" flavour includes JAX ML ecosystem packages as before
+while the "small" flavour includes only JAX with GPU support as well as
+CPU-only versions of Tensorflow and PyTorch for their data loading and
+processing utilities but no additional packages. You can use the latter
+if you want a cleaner base to install additional packages on.
+
+The LUMI installation will be delayed until early autumn due to the
+ongoing system update and changes to the relevant system driver versions.
+
 ## CP2K 2024.2 available on Puhti and Mahti, 27.8.2024
 
 [CP2K](../../apps/cp2k.md) 2024.2 has been installed and set as the default
