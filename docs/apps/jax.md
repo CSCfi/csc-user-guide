@@ -34,6 +34,7 @@ They are subject to change at any time without notice. Note that JAX is
 also available in the [LUMI Software Library](https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/j/jax/).
 
 Since version 0.4.30, the JAX module comes in two flavours:
+
 - A "small" flavour that includes JAX with CUDA 12.2 GPU support, as well as cpu-only versions of
   PyTorch and Tensorflow to allow using their data loading utilities. These follow the naming scheme
   `jax/<version>-small`, or you can use `jax/small` to load the default (latest) version.
