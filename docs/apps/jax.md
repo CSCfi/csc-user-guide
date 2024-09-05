@@ -13,34 +13,45 @@ learning research.
 
 Currently supported JAX versions:
 
-| Version | Module             | Puhti | Mahti | LUMI | Notes           |
-|:-------:|--------------------|:-----:|:-----:|:----:|-----------------|
-| 0.4.23  | `jax/0.4.23-py3.9` | X     | X     | X*   | default version |
-| 0.4.20  | `jax/0.4.20`       | X     | X     | X*   |                 |
-| 0.4.18  | `jax/0.4.18`       | -     | -     | X*   |                 |
-| 0.4.14  | `jax/0.4.14`       | X     | X     | -    |                 |
-| 0.4.13  | `jax/0.4.13`       | X     | X     | -    |                 |
-| 0.4.1   | `jax/0.4.1`        | X     | X     | -    |                 |
-| 0.3.13  | `jax/0.3.13`       | X     | X     | -    |                 |
+| Version | Module             | Puhti   | Mahti   | LUMI       | Notes          |
+|:-------:|--------------------|:-------:|:-------:|:----------:|----------------|
+| 0.4.30  | `jax/0.4.30`       | default | default | -          | all packages   |
+| 0.4.30  | `jax/0.4.30-small` | X       | X       | -          | framework only |
+| 0.4.23  | `jax/0.4.23-py3.9` | X       | X       | default*   |                |
+| 0.4.20  | `jax/0.4.20`       | X       | X       | X*         |                |
+| 0.4.18  | `jax/0.4.18`       | -       | -       | X*         |                |
+| 0.4.14  | `jax/0.4.14`       | X       | X       | -          |                |
+| 0.4.13  | `jax/0.4.13`       | X       | X       | -          |                |
+| 0.4.1   | `jax/0.4.1`        | X       | X       | -          |                |
+| 0.3.13  | `jax/0.3.13`       | X       | X       | -          |                |
 
 The modules contain [JAX](https://github.com/google/jax/) for Python 3.9
 with GPU support via CUDA/ROCm as well as a large list of additional python packages commonly used together with JAX.
 
-**Versions in LUMI, marked as "X*" are still experimental with limited
+**Versions in LUMI, marked as "*" are still experimental with limited
 support.** Some of the features described below might not work for them.
 They are subject to change at any time without notice. Note that JAX is
 also available in the [LUMI Software Library](https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/j/jax/).
+
+Since version 0.4.30, the JAX module comes in two flavours:
+- A "small" flavour that includes JAX with CUDA 12.2 GPU support, as well as cpu-only versions of
+  PyTorch and Tensorflow to allow using their data loading utilities. These follow the naming scheme
+  `jax/<version>-small`, or you can use `jax/small` to load the default (latest) version.
+- A "full" flavour that includes many commonly used machine learning packages building on JAX -- you can
+  check `pip list` for a full list of all included packages. These follow the naming scheme `jax/<version>`,
+  or you can simply use `jax` to load the default (latest) version.
 
 !!! note
 
     Since JAX releases new versions on a somewhat irregular schedule
     we will not make all new versions immediately available.
-    Instead we endeavour to update the JAX version available on our systems approximately once every quarter, targeting February, May, August and November, on a best effort basis.
+    Instead we endeavour to update the JAX version available on our systems approximately every six mongths, targeting February and August, on a best effort basis.
 
 All modules are based on containers using Apptainer (previously known
-as Singularity). Wrapper scripts have been provided so that common
-commands such as `python`, `python3`, `pip` and `pip3` should work as
-normal. For other commands, you need to prefix them with
+as Singularity). Wrapper scripts have been provided via [tykky](../computing/containers/tykky.md)
+so that common commands such as `python`, `python3`, `pip` and `pip3` and
+those provided by installed packages should work as normal.
+For other commands, you may need to prefix them with
 `apptainer_wrapper exec`. For more information, see [CSC's general
 instructions on how to run Apptainer
 containers](../computing/containers/run-existing.md).
@@ -96,14 +107,6 @@ This will show all available versions of JAX:
 
 ```bash
 module avail jax
-```
-
-The JAX modules include several libraries from the JAX ecosystem
-(e.g. Haiku, Flax, and Objax). To check the exact packages and
-versions included in the loaded module you can run:
-
-```bash
-list-packages
 ```
 
 !!! note
