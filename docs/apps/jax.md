@@ -46,7 +46,7 @@ Since version 0.4.30, the JAX module comes in two flavours:
 
     Since JAX releases new versions on a somewhat irregular schedule
     we will not make all new versions immediately available.
-    Instead we endeavour to update the JAX version available on our systems approximately every six mongths, targeting February and August, on a best effort basis.
+    Instead we endeavour to update the JAX version available on our systems approximately every six months, targeting February and August, on a best effort basis.
 
 All modules are based on containers using Apptainer (previously known
 as Singularity). Wrapper scripts have been provided via [tykky](../computing/containers/tykky.md)
