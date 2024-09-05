@@ -33,7 +33,8 @@ stored. As a *very* rough estimate, around 4-6x the model size (in GB)
 is needed for fine-tuning a model, but this depends a lot on the
 details. So for our example 30B parameter fp16 model, it might require
 60 GB x 6 = 360 GB of GPU memory for training! We'll discuss ways to
-solve this problem in the sections below.
+solve this problem in the sections below. See the [Transformer Math
+101 blog post by EleutherAI for more details][1].
 
 ## Fine-tuning LLMs
 
