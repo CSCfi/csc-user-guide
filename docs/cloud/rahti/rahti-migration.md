@@ -123,6 +123,9 @@ From the web UI, go to the Deployment page, go to **Actions > Edit resource limi
 
 ![Edit ResourceLimits](../img/editResourceLimitsDialog.png)
 
+!!! Warning "DeploymentConfig is deprecated"
+    DeploymentConfig is deprecated in newer versions of OpenShift OKD and will be completely removed in the future. See Redhat's [deprecation announcement of DeploymentConfig](https://access.redhat.com/articles/7041372) and their [replacement guide for DeploymentConfig](https://developers.redhat.com/learning/learn:openshift:replace-deprecated-deploymentconfigs-deployments/resource/resources:convert-deploymentconfig-deployment).
+
 ### How to create routes?
 
 !!! info "Default URLs suffix have changed"

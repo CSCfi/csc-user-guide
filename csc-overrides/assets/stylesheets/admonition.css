@@ -84,13 +84,13 @@
 }
 
 .md-typeset :is(.admonition):is(.error) {
-  border-color: var(--csc-red);
+  border-color: var(--csc-admonition-error--border);
 }
 
 .md-typeset :is(.admonition):is(.error-label) {
-  border-color: var(--csc-red) !important;
-  color: var(--csc-red);
-  background-color: var(--csc-light-red);
+  border-color: var(--csc-admonition-error-label--fg) !important;
+  color: var(--csc-admonition-error-label--fg);
+  background-color: var(--csc-admonition-error-label--bg);
 }
 
 .md-typeset :is(.admonition):is(

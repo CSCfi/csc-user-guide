@@ -23,10 +23,10 @@ git clone https://github.com/CSCfi/nginx-sidecar.git
 
 Inside the repository, there is a folder called `templates`, we will create the objects one by one:
 
-* First the [DeploymentConfig](https://github.com/CSCfi/nginx-sidecar/blob/master/templates/DeploymentConfig.yaml) that creates the `Pod`:
+* First the [Deployment](https://github.com/CSCfi/nginx-sidecar/blob/master/templates/Deployment.yaml) that creates the `Pod`:
 
 ```bash
-oc create -f templates/DeploymentConfig.yaml
+oc create -f templates/Deployment.yaml
 ```
 
 * Then the [Service](https://github.com/CSCfi/nginx-sidecar/blob/master/templates/Service.yaml) that will connect to the port 8081 of nginx:

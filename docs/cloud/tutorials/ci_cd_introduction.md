@@ -1,4 +1,4 @@
--# Introduction
+# Introduction
 
 Nowadays agile software development methodologies are being used to satisfy
 the continuously changing requirements of a given software. The main aim of
@@ -8,7 +8,7 @@ Continuous Delivery (CI/CD) provides developers the necessary tools to streamlin
 and accelerate the speed at which they can deploy new code and become more agile.
 
 In this tutorial, we will set up a simple CI/CD pipeline using the Kubernetes concepts
-such as _ImageStream_, _BuildConfig_, and _DeploymentConfig_. Please refer to these Kubernetes
+such as _ImageStream_, _BuildConfig_, and _Deployment``_. Please refer to these Kubernetes
 concepts in [Kubernetes and OpenShift concepts](../rahti2/concepts.md).
 
 !!! info
@@ -53,7 +53,7 @@ the `oc create` command as follows:
 $ oc create -f k8s-api-objs.yaml
 imagestream.image.openshift.io/dockerfile-example created
 buildconfig.build.openshift.io/dockerfile-example created
-deploymentconfig.apps.openshift.io/dockerfile-example created
+deployment.apps/dockerfile-example created
 service/dockerfile-example created
 route.route.openshift.io/dockerfile-example created
 ```
@@ -86,6 +86,6 @@ This will delete all objects with the label `app: dockerfile-example`.
 ## Conclusion
 
 In this tutorial, a simple CI/CD pipeline to build and deploy a static web page was created mainly
-using the Kubernetes objects _ImageStream_, _BuildConfig_, and _DeploymentConfig_. The pipeline
+using the Kubernetes objects _ImageStream_, _BuildConfig_, and _Deployment_. The pipeline
 can be further extended using dedicated tools and resources as [Jenkins](https://docs.openshift.com/container-platform/4.10/cicd/builds/understanding-image-builds.html#builds-strategy-pipeline-build_understanding-image-builds),
 [Tekton](https://www.openshift.com/learn/topics/pipelines#tekton), and [Webhooks](webhooks.md).
