@@ -60,9 +60,9 @@ are essentially the same as for any PyTorch DDP runs, see our
 examples, or just take a look at [the scripts in the GitHub
 repository][2]:
 
-- [`run-finetuning-puhti-gpu1.sh`](https://github.com/mvsjober/fine-tuning-examples/blob/master/run-finetuning-puhti-gpu1.sh) - fine-tuning on Puhti with 1 GPU
-- [`run-finetuning-puhti-gpu4.sh`](https://github.com/mvsjober/fine-tuning-examples/blob/master/run-finetuning-puhti-gpu4.sh) - fine-tuning on Puhti with one full node (4 GPUs)
-- [`run-finetuning-puhti-gpu8.sh`](https://github.com/mvsjober/fine-tuning-examples/blob/master/run-finetuning-puhti-gpu8.sh) - fine-tuning on Puhti with two full nodes (8 GPUs in total)
+- [`run-finetuning-puhti-gpu1.sh`](https://github.com/CSCfi/llm-fine-tuning-examples/blob/master/run-finetuning-puhti-gpu1.sh) - fine-tuning on Puhti with 1 GPU
+- [`run-finetuning-puhti-gpu4.sh`](https://github.com/CSCfi/llm-fine-tuning-examples/blob/master/run-finetuning-puhti-gpu4.sh) - fine-tuning on Puhti with one full node (4 GPUs)
+- [`run-finetuning-puhti-gpu8.sh`](https://github.com/CSCfi/llm-fine-tuning-examples/blob/master/run-finetuning-puhti-gpu8.sh) - fine-tuning on Puhti with two full nodes (8 GPUs in total)
 
 (The repository also has scripts for Mahti if you check the file
 listing.)
@@ -116,8 +116,8 @@ to the PyTorch script, one only needs to change to the `accelerate`
 launcher. [Our GitHub repository][2] has example scripts for launching
 on one or two full nodes on Puhti:
 
-- [`run-finetuning-puhti-gpu4-accelerate.sh`](https://github.com/mvsjober/fine-tuning-examples/blob/master/run-finetuning-puhti-gpu4-accelerate.sh) - fine-tuning on Puhti with one full node using Accelerate
-- [`run-finetuning-puhti-gpu8-accelerate.sh`](https://github.com/mvsjober/fine-tuning-examples/blob/master/run-finetuning-puhti-gpu8-accelerate.sh) - fine-tuning on Puhti with two full nodes using Accelerate
+- [`run-finetuning-puhti-gpu4-accelerate.sh`](https://github.com/CSCfi/llm-fine-tuning-examples/blob/master/run-finetuning-puhti-gpu4-accelerate.sh) - fine-tuning on Puhti with one full node using Accelerate
+- [`run-finetuning-puhti-gpu8-accelerate.sh`](https://github.com/CSCfi/llm-fine-tuning-examples/blob/master/run-finetuning-puhti-gpu8-accelerate.sh) - fine-tuning on Puhti with two full nodes using Accelerate
 
 (The repository also has scripts for Mahti if you check the file
 listing.)
@@ -140,7 +140,7 @@ There are two things to note when using Accelerate:
    etc). We can use the `$SLURM_NODEID` variable to set this, but we
    need to use a shell trick so that it isn't evaluated until it
    actually runs in the specific node. (See the script
-   [`run-finetuning-puhti-gpu8-accelerate.sh`](https://github.com/mvsjober/fine-tuning-examples/blob/master/run-finetuning-puhti-gpu8-accelerate.sh)
+   [`run-finetuning-puhti-gpu8-accelerate.sh`](https://github.com/CSCfi/llm-fine-tuning-examples/blob/master/run-finetuning-puhti-gpu8-accelerate.sh)
    for an example of how this can be done.)
 
 You can also use PEFT (LoRA) with Accelerate with the `--peft` in our
@@ -161,7 +161,7 @@ model = AutoModelForCausalLM.from_pretrained(args.model, device_map='auto')
 ```
 
 [1]: https://blog.eleuther.ai/transformer-math/
-[2]: https://github.com/mvsjober/fine-tuning-examples
+[2]: https://github.com/CSCfi/llm-fine-tuning-examples
 [3]: https://huggingface.co/docs/transformers/en/index
 [4]: https://huggingface.co/EleutherAI/gpt-neo-1.3B
 [5]: https://huggingface.co/docs/peft/index
