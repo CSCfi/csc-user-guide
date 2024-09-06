@@ -735,30 +735,6 @@ Example using all GPUs on a single node:
      myprog.py <options>
     ```
 
-=== "LUMI"
-
-    ```bash
-    #!/bin/bash
-    #SBATCH --account=<project>
-    #SBATCH --partition=small-g
-    #SBATCH --ntasks=1
-    #SBATCH --cpus-per-task=56
-    #SBATCH --gpus-per-node=8
-    #SBATCH --mem=480G
-    #SBATCH --time=1:00:00
-    
-    module purge
-    module use /appl/local/csc/modulefiles
-    module load pytorch
-    
-    srun accelerate launch \
-     --config_file=accelerate_config.yaml \
-     --num_processes=4 \
-     --num_machines=1 \
-     --machine_rank=0 \
-     myprog.py <options>
-    ```
-
 
 Example of running PyTorch DDP on 2 full nodes. 
 
@@ -823,36 +799,6 @@ Example of running PyTorch DDP on 2 full nodes.
     srun bash -c "$RUN_CMD"
     ```
 
-=== "LUMI"
-
-    ```bash
-    #!/bin/bash
-    #SBATCH --account=<project>
-    #SBATCH --partition=small-g
-    #SBATCH --nodes=2
-    #SBATCH --ntasks-per-node=1
-    #SBATCH --cpus-per-task=56
-    #SBATCH --gpus-per-node=8
-    #SBATCH --mem=480G
-    #SBATCH --time=1:00:00
-    
-    module purge
-    module use /appl/local/csc/modulefiles
-    module load pytorch
-
-    NUM_PROCESSES=$(expr $SLURM_NNODES \* $SLURM_GPUS_PER_NODE)
-    MAIN_PROCESS_IP=$(hostname -i)
-    
-    RUN_CMD="accelerate launch \
-                        --config_file=accelerate_config.yaml \
-                        --num_processes=$NUM_PROCESSES \
-                        --num_machines=$SLURM_NNODES \
-                        --machine_rank=\$SLURM_NODEID \
-                        --main_process_ip=$MAIN_PROCESS_IP \
-                        myprog.py <options>"
-    
-    srun bash -c "$RUN_CMD"
-    ```
 
 Note the somewhat cumbersome way of defining the command with the
 `$SLURM_NODEID` variable escaped so that is only evaluated on the
