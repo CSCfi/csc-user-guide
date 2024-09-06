@@ -278,6 +278,9 @@ a mechanism that will, roughly speaking, do that for the user.
 
 ## ReplicationController
 
+!!! Warning "ReplicationControlers deprecated"
+    ReplicationControlers, alongside DeploymentConfigs are deprecated in current versions of OpenShift OKD. Follow [convert DeploymentConfig to Deployment](https://developers.redhat.com/learning/learn:openshift:replace-deprecated-deploymentconfigs-deployments/resource/resources:convert-deploymentconfig-deployment).
+
 A ReplicationController ensures that there are `spec.replicas` number of pods
 whose labels match the `spec.selector` running in the cluster. If there are too many,
 ReplicationController shuts down the extra ones, and if there are too few,
@@ -316,9 +319,7 @@ in the chapter "[Kubernetes and OpenShift
 concepts](../rahti2/concepts.md)".
 A ReplicationController can be transformed into a ReplicaSet by
 changing `spec.selector` to `spec.selector.matchLabels` and setting
-`kind: ReplicaSet`. The motivation to understand the ReplicationController
-object is that [DeploymentConfig](../rahti2/concepts.md#deploymentconfig)
-objects generate ReplicationControllers.
+`kind: ReplicaSet`.
 
 !!! info
 
