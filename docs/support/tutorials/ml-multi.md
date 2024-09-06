@@ -684,11 +684,11 @@ a job with accelerate it similar to PyTorch DDP, except we need to use
 the accelerate launcher and also provide an Accelerate config file.
 
 A working [example for LLM fine-tuning can be found in this GitHub
-repository](https://github.com/mvsjober/fine-tuning-examples/tree/master)
+repository](https://github.com/CSCfi/llm-fine-tuning-examples)
 (check the files ending with `-accelerate.sh`). Also check our [guide
 on using LLMs on supercomputers](ml-llm.md).
 
-Example using all GPUs on a single node:
+Example using Accelerate on all GPUs on a single node:
 
 === "Puhti"
 
@@ -736,7 +736,7 @@ Example using all GPUs on a single node:
     ```
 
 
-Example of running PyTorch DDP on 2 full nodes. 
+Example of running Accelerate on 2 full nodes (8 GPUs).
 
 === "Puhti"
 
@@ -857,6 +857,10 @@ tpu_use_cluster: false
 tpu_use_sudo: false
 use_cpu: false
 ```
+
+See our [GitHub repository for more
+examples](https://github.com/CSCfi/llm-fine-tuning-examples).
+
 
 
 ### DeepSpeed
