@@ -19,7 +19,7 @@ the dependent variables.
 
 ## Available
  
-- Puhti: 6.0
+- Puhti: 6.2, 6.1, 6.0
 
 ## License
 The terms of use of this software allow it to be used only by affiliates (staff
