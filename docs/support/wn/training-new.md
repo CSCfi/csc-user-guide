@@ -1,5 +1,13 @@
 # Training & tutorials
 
+## New guide for working with large language models on CSC's supercomputers, 6.9.2024
+
+We have created a new [guide for working with large language models
+(LLMs) on CSC's supercomputers](../tutorials/ml-llm.md). The guide
+discusses LLMs and GPU memory, fine-tuning and inference. The linked
+GitHub repository has examples for fine-tuning popular models on Puhti
+and Mahti. LUMI examples and more in-depth topics will be added later.
+
 ## New guide for getting started with supercomputing at CSC, 24.7.2024
 
 We wrote a brand new guide for
