@@ -22,7 +22,7 @@ details, but our GPUs have VRAM memory as follows:
 
 The model size is the number of parameters times 2 bytes (for 16 bit
 weights) or times 4 bytes (for 32 bit). For example a 30 billion
-parameter model with fp16, takes up 60 GB of memory. In practice [for
+parameter model with fp16 takes up 60 GB of memory. In practice [for
 inference there's up to 20% overhead][1] so you might actually need
 around 70 GB of memory, and thus even a single GCD in LUMI might not
 be enough for our example model.
