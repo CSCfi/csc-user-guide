@@ -46,11 +46,9 @@ keep the additional packages at a minimum.
 ### CentOS-9-Stream
 
 The CentOS community is now actively maintaining CentOS-9-Stream, which is the upstream branch for RHEL.
-
 The CentOS community [emphasizes](https://blog.centos.org/2020/12/future-is-centos-stream/)
 that the Stream version is nevertheless extremely close in terms of stability
 to the corresponding RHEL version.
-
 Note that this is the upstream version of the image, i.e., we do not perform
 any change to the image before making it available on our services. The default
 username is `cloud-user`.
