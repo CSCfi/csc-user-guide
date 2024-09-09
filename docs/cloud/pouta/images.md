@@ -46,6 +46,7 @@ keep the additional packages at a minimum.
 ### CentOS-9-Stream
 
 The CentOS community is now actively maintaining CentOS-9-Stream, which is the upstream branch for RHEL.
+Given that updates and changes are first tested in CentOS and only subsequently deployed for Red Hat Enterprise Linux (RHEL), the resulting operating system is possibly less stable compared to its previous version, i.e., when RHEL was the upstream for CentOS.
 The CentOS community [emphasizes](https://blog.centos.org/2020/12/future-is-centos-stream/)
 that the Stream version is nevertheless extremely close in terms of stability
 to the corresponding RHEL version.
