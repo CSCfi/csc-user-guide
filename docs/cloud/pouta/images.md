@@ -45,23 +45,15 @@ keep the additional packages at a minimum.
 
 ### CentOS-9-Stream
 
-The CentOS community is now actively maintaining CentOS-9-Stream. The key differences lay in the relationship between
-CentOS and RHEL, especially in how changes, i.e., new packages and updates,
-are deployed:
+The CentOS community is now actively maintaining CentOS-9-Stream, which is the upstream branch for RHEL.
 
-* with CentOS-9-Stream, CentOS is the upstream branch for
-RHEL, i.e., changes are first deployed for CentOS and then for RHEL
-
-The resulting operating system is thus possibly less stable compared to its
-previous version. The CentOS community [emphasizes](https://blog.centos.org/2020/12/future-is-centos-stream/)
+The CentOS community [emphasizes](https://blog.centos.org/2020/12/future-is-centos-stream/)
 that the Stream version is nevertheless extremely close in terms of stability
-to the corresponding RHEL version and thus recommends using it as a replacement
-for CentOS-9.
+to the corresponding RHEL version.
 
 Note that this is the upstream version of the image, i.e., we do not perform
 any change to the image before making it available on our services. The default
-username is `cloud-user` for
-CentOS-9-Stream.
+username is `cloud-user`.
 
 ### AlmaLinux-8 and AlmaLinux-9
 
