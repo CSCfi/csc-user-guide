@@ -30,6 +30,10 @@ In addition to Transfer data permission, the recipient project’s members can u
 
 ### Read to SD Desktop 
 
+!!! error-label
+
+    Not yet available
+
 The recipient project's members can only access the folder content in SD Desktop. Use this when you need maximum certainty that your files are not distributed further.
 
 !!! warning

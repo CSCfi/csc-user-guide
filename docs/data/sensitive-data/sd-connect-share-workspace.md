@@ -8,7 +8,7 @@ You (Team A) and other team (Team B) are actively collaborating. You both want t
 
 In this case you can share your data folder to Team B with **Collaborate** -permission. That way both teams have equal rights to modify files inside the shared folder.
 
-![Collaborate Infograph](./images/connect/UseCase_Collaborate.png)
+![Collaborate Infograph](https://a3s.fi/docs-files/sensitive-data/SD_Connect/UseCase_Collaborate.png)
 
 ## Step by step tutorial
 

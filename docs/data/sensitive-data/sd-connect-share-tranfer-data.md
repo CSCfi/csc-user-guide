@@ -7,7 +7,7 @@ You (Team A) have datasets that other team (Team B) needs access to. They wish t
 ## Solution
 In this case you can share your data folder to Team B with **Transfer data** -permission. This allows Team B members to view your data, copy it and download the copy for themselves. Team B can have their own copy for analysis without affecting your original dataset.
 
-![Transfer Data Infograph](./images/connect/UseCase_TransferData.png)
+![Transfer Data Infograph](https://a3s.fi/docs-files/sensitive-data/SD_Connect/UseCase_TransferData.pngg)
 
 ## Step by step tutorial
 

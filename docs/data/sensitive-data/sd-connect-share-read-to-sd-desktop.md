@@ -2,7 +2,7 @@
 
 !!! error-label
 
-    Not yet available.
+    Not yet available
 
 ## Use case
 
@@ -15,7 +15,7 @@ In this case you can share your data folder to Team B with **Read to SD Desktop*
 You also don’t want Team B to export your original data from SD Desktop. That is why you need to create a project where they (Team B) are project members and you are the project manager - since only project manager can export data from SD Desktop.
 
 
-![Transfer Data Infograph](./images/connect/UseCase_ReadToDesktop.png)
+![Transfer Data Infograph](https://a3s.fi/docs-files/sensitive-data/SD_Connect/UseCase_ReadToDesktop.png)
 
 !!! warning
     Note that you have to be the project manager of the both projects. Please contact us at *servicedesk@csc.fi* subject: *Sensitive data* to discuss this share option before proceeding.
