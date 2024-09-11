@@ -20,12 +20,27 @@ details, but our GPUs have VRAM memory as follows:
 - 40 GB on Mahti (NVIDIA A100)
 - 64 GB on LUMI (single GCD of an AMD MI250x)
 
-The model size is the number of parameters times 2 bytes (for 16 bit
-weights) or times 4 bytes (for 32 bit). For example a 30 billion
-parameter model with fp16 takes up 60 GB of memory. In practice [for
-inference there's up to 20% overhead][1] so you might actually need
-around 70 GB of memory, and thus even a single GCD in LUMI might not
-be enough for our example model.
+The model size in memory depends on how the weights are
+stored. Typically a regular floating point value in a computer is
+stored in a format called fp32, which uses 32 bits of memory, or 4
+bytes (remember 8 bits = 1 byte). In deep learning, 16 bit floating
+point formats (fp16 of bf16) have been used for a long time to speed
+up part of the computation. These use 2 bytes of memory per
+weight. Recently, as model sizes have grown, even lower-precision
+formats, going down to 8 or even 4 bits, have become more
+common. Common quantization methods include
+[GPTQ](https://arxiv.org/abs/2210.17323),
+[SpQR](https://arxiv.org/abs/2306.03078) and
+[GGML/GGUF](https://huggingface.co/docs/hub/en/gguf).
+
+The model size in memory is then the number of parameters times the
+number of bytes needed for storing a single weight. For example a 30
+billion parameter model with fp16 takes up 60 GB of memory. In
+practice [for inference there's up to 20% overhead][1] so you might
+actually need around 70 GB of memory, and thus even a single GCD in
+LUMI might not be enough for our example model. If you would instead
+store that model with 4 bit quantization, it would be about 0.5 bytes
+per parameter, so around 15 GB for our example (plus overhead).
 
 For training a lot more memory is needed as not only the model, but
 also the optimizer states, gradients and activations need to be
