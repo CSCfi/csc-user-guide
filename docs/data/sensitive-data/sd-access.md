@@ -17,7 +17,7 @@ Next select suitable tutorial:
 * Project manager can invite project members and manage project's lifetime, storage space and billing units. 
 * Only the project manager can export data from SD Desktop.
 
-[Step by step tutorial for project manager](sd-use-case-new-user-project-manager.md)
+[Step by step tutorial for project manager](./sd-use-case-new-user-project-manager.m)
 
 
 ### Project member joins CSC project
@@ -26,6 +26,6 @@ Next select suitable tutorial:
 * **SD Connect:** project members can upload, download and delete files same way as project manager.
 * **SD Desktop:** project members can upload data and analyze it, but they can not export anything from SD Desktop. Only the project manager can export data from SD Desktop. 
 
-[Step by step tutorial for project member](sd-use-case-new-user-project-member.md)
+[Step by step tutorial for project member](./sd-use-case-new-user-project-member.md)
 
 
