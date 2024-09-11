@@ -27,3 +27,10 @@ Both teams should have their own CSC project and SD Connect activated. If you do
 ![screenshot](https://a3s.fi/docs-files/sensitive-data/SD_Connect/UseCase_SelectPermission.png)
 
 Now all the content of the folder is accessible for both projects (Project A and Project B). All members in both projects can modify the content of the folder via SD Connect; Everyone can upload, download, copy and delete the content as they wish. They can also access it via SD Desktop for analysis.
+
+## Features in SD Connect 
+
+* [Upload](./sd-connect-upload.md)
+* [Share](./sd-connect-share.md)
+* [Download](./sd-connect-download.md)
+* [Delete](./sd-connect-delete.md)

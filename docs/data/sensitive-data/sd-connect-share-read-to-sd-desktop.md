@@ -38,3 +38,11 @@ You also don’t want Team B to export your original data from SD Desktop. That 
 ![screenshot](https://a3s.fi/docs-files/sensitive-data/SD_Connect/UseCase_SelectPermission2.png)
 
 Now, all the content in the folder is visible to Project 2 (Team B) and accessible only through SD Desktop. Project 2 members can access and analyse the shared folder content via SD desktop. However, they cannot export or download files, as all data exports are managed directly by the project manager - and you are the project manager of both projects.
+
+
+## Features in SD Connect 
+
+* [Upload](./sd-connect-upload.md)
+* [Share](./sd-connect-share.md)
+* [Download](./sd-connect-download.md)
+* [Delete](./sd-connect-delete.md)
