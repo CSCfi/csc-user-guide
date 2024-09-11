@@ -26,8 +26,7 @@ You need first delete all files in main folder.
 
 ## Features in SD Connect 
 
-* [Upload](https://csc-guide-preview.rahtiapp.fi/origin/ac-sdconnectnew/data/sensitive-data/sd-connect-upload/)
-* [Share](https://csc-guide-preview.rahtiapp.fi/origin/ac-sdconnectnew/data/sensitive-data/sd-connect-share/)
-* [Download](https://csc-guide-preview.rahtiapp.fi/origin/ac-sdconnectnew/data/sensitive-data/sd-connect-download/)
-* [Command line interface](https://github.com/CSCfi/csc-user-guide/blob/ac-test-sidenav/docs/data/sensitive-data/sd-connect-upload-for-analysis.md)
-* [Troubleshooting](https://github.com/CSCfi/csc-user-guide/blob/ac-test-sidenav/docs/data/sensitive-data/sd-connect-upload-for-analysis.md)
+* [Upload](./sd-connect-upload.md)
+* [Share](./sd-connect-share.md)
+* [Download](./sd-connect-download.md)
+* [Delete](./sd-connect-delete.md)
