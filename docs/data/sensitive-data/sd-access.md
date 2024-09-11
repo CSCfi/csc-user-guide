@@ -17,7 +17,7 @@ Next select suitable tutorial:
 * Project manager can invite project members and manage project's lifetime, storage space and billing units. 
 * Only the project manager can export data from SD Desktop.
 
-[Step by step tutorial for project manager](./sd-use-case-new-user-project-manager.m)
+[Step by step tutorial for project manager](./sd-use-case-new-user-project-manager.md)
 
 
 ### Project member joins CSC project
