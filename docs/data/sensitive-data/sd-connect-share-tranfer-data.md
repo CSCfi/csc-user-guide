@@ -13,11 +13,11 @@ In this case you can share your data folder to Team B with **Transfer data** -pe
 
 Both teams should have their own CSC project and SD Connect activated. If you don't have one yet, please follow instructions from [Start here](sd-access.md) and return to this tutorial after you have set up the CSC project.
 
-1. Ask from Team B for their project Share ID. They find it from their SD Connect [(screenshot)](./images/connect/UseCase_ShareID.png){ target="_blank" }.
+1. Ask from Team B for their project Share ID. They find it from their SD Connect [(screenshot)](https://a3s.fi/docs-files/sensitive-data/SD_Connect/UseCase_ShareID.png){ target="_blank" }.
 2. Log in to [SD Connect](./sd-connect-login.md).
 3. Upload your data folder to SD Connect: [See upload instructions](./sd-connect-upload.md).
-4. Click “**Share**” next to the folder you wish to share ([screenshot](./images/connect/UseCase_ShareButton.png){ target="_blank" }).
-5. Add the Project B’s **Share ID** to the field ([screenshot](./images/connect/UseCase_AddShareID.png){ target="_blank" }).
-6. Select sharing permission: “**Transfer data**”. Click “**Share**” ([screenshot](./images/connect/UseCase_SelectPermission.png){ target="_blank" }).
+4. Click “**Share**” next to the folder you wish to share ([screenshot](https://a3s.fi/docs-files/sensitive-data/SD_Connect/UseCase_ShareButton.png){ target="_blank" }).
+5. Add the Project B’s **Share ID** to the field ([screenshot](https://a3s.fi/docs-files/sensitive-data/SD_Connect/UseCase_AddShareID.png){ target="_blank" }).
+6. Select sharing permission: “**Transfer data**”. Click “**Share**” ([screenshot](https://a3s.fi/docs-files/sensitive-data/SD_Connect/UseCase_SelectPermission.png){ target="_blank" }).
 
 Now all the content of the folder is visible to Project B. All project members in Project B can copy, download, and decrypt the content of the folder via SD Connect. They can also access it via SD Desktop for analysis. However, they can not modify your original folder.
