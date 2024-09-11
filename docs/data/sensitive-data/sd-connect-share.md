@@ -18,7 +18,7 @@ Permission levels are Transfer data, Collaborate and Read to SD Desktop. Please 
 
  The recipient project’s members can copy your folder in SD Connect and download files in decrypted format. Files are also accessible via SD Desktop. Use this when you want to transfer your data to another project.
 
-[Read about use case: Transfer your data to another project](./sd-connect-share-transfer-data.md)
+[Read about use case: Transfer your data to another project](./sd-connect-share-tranfer-data.md)
 
 
 ### Collaborate

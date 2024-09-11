@@ -27,7 +27,7 @@ Your data is automatically encrypted when you upload data to SD Connect. This is
 
 !!! warning "Warning"
     
-    Members in the same CSC project can download and decrypt data from SD Connect. This can be limited by sharing files with **Read to SD Desktop** permission. [Read about use case](./sd-connect-use-case-read-to-sd-desktop.md)
+    Members in the same CSC project can download and decrypt data from SD Connect. This can be limited by sharing files with **Read to SD Desktop** permission. [Read about use case](./sd-connect-share-read-to-sd-desktop.md)
 
 
 
