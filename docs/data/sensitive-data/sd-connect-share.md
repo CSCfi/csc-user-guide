@@ -18,14 +18,14 @@ Permission levels are Transfer data, Collaborate and Read to SD Desktop. Please 
 
  The recipient project’s members can copy your folder in SD Connect and download files in decrypted format. Files are also accessible via SD Desktop. Use this when you want to transfer your data to another project.
 
-[Read about use case: Transfer your data to another project](./sd-connect-use-case-transfer-data.md)
+[Read about use case: Transfer your data to another project](./sd-connect-share-transfer-data.md)
 
 
 ### Collaborate
 
 In addition to Transfer data permission, the recipient project’s members can upload new files or delete existing files from your folder in SD Connect. Use this when you want the folder to be your shared workspace. 
 
-[Read about use case: Use folder as your shared workspace](./sd-connect-use-case-workspace.md)
+[Read about use case: Use folder as your shared workspace](./sd-connect-share-workspace.md)
 
 
 ### Read to SD Desktop 
@@ -35,7 +35,7 @@ The recipient project's members can only access the folder content in SD Desktop
 !!! warning
     Note that you also have to be the project manager of the recipient project. Please contact us at servicedesk@csc.fi to discuss this option before proceeding.
 
-[Read about use case: Give access to folder content only in SD Connect](./sd-connect-use-case-read-to-sd-desktop.md)
+[Read about use case: Give access to folder content only in SD Connect](./sd-connect-share-read-to-sd-desktop.md)
 
 
 
