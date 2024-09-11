@@ -1,4 +1,4 @@
-# How to share folder, so it is accessible only via SD Desktop
+# How to give access to folder content only in SD Desktop
 
 !!! error-label
 
@@ -24,8 +24,8 @@ You also don’t want Team B to export your original data from SD Desktop. That 
 
 1. Log in to [MyCSC](https://my.csc.fi/login){ target="_blank" }.
 2. Create two new projects: ***Project 1*** and ***Project 2***.
-3. Manage ***Project 1***: enable service access for SD Connect. Do not add any project members. [See instructions](./sd-access.md#step-by-step-tutorial-for-project-manager).
-4. Manage ***Project 2***: enable service access for SD Connect and SD Desktop. Add Team B to be the **project members.** [See instructions](./sd-access.md#step-by-step-tutorial-for-project-member).
+3. Manage ***Project 1***: enable service access for SD Connect. Do not add any project members. [See instructions](./sd-access.md)
+4. Manage ***Project 2***: enable service access for SD Connect and SD Desktop. Add Team B to be the **project members.** [See instructions](./sd-access.md)
 5. Log in to [SD Connect](./sd-connect-login.md).
 6. Select ***Project 2*** and copy the **Share ID**. 
 ![screenshot](https://a3s.fi/docs-files/sensitive-data/SD_Connect/UseCase_ShareID2.png)
