@@ -4,31 +4,8 @@
 @import url(https://cdn.jsdelivr.net/npm/@cscfi/csc-ui@2.1.11/dist/styles/css/theme.css);
 
 :root {
-  /* Start using imported properties with this temporary solution: */
-  --csc-font-family: var(--c-font-family);
-  --csc-dark-grey: var(--c-tertiary-700);
-  --csc-error: var(--c-error-500);
-  --csc-light-grey: var(--c-tertiary-200);
-  --csc-light-grey-blue: var(--c-accent-200);
-  --csc-lightest-grey: var(--c-tertiary-100);
-  --csc-link: var(--c-link-500);
-  --csc-mid-grey: var(--c-tertiary-500);
-  --csc-primary: var(--c-primary-600);
-  --csc-primary-hover: var(--c-accent-700);
-  --csc-success: var(--c-success-500);
-  --csc-warning: var(--c-warning-500);
-  --csc-white: var(--c-white);
-  --csc-orange: var(--c-warning-600);
-  --csc-dark-orange: var(--c-warning-800);
-  --csc-red: var(--c-error-700);
-  --csc-light-red: var(--c-error-100);
-  --csc-apple-green: var(--c-success-600);
-  --csc-dark-green: var(--c-primary-600);
-  --csc-blue: var(--c-info-700);
-  --csc-mid-grey--wcag: var(--c-tertiary-600); /* A darker mid grey to achieve a >4.5 contrast ratio with white, in accordance with WCAG. */
-  --csc-search--background: var(--c-tertiary-200);
-  --csc-table-row--hover: var(--c-primary-100);
-  --csc-button--hover: var(--c-primary-200);
+  --md-text-font: "museo-sans";
+
   --csc-admonition-default--border: var(--c-primary-600);
   --csc-admonition-default-label--fg: var(--c-primary-900);
   --csc-admonition-default-label--bg: var(--c-primary-200);
@@ -45,58 +22,19 @@
   --csc-admonition-error-label--fg: var(--c-error-900);
   --csc-admonition-error-label--bg: var(--c-error-200);
 
-
   --csc-header-height: 71px;
-  --csc-content-width: 48rem;
+  --csc-content-width: 72rem;
 
   --csc-border-radius: 4px;
-  --csc-border: 1px solid #E8E8E8;
-  --csc-blockquote-border-left: 4px solid var(--csc-primary);
+  --csc-border: 1px solid var(--c-tertiary-200);
 
   --csc-box-shadow--header: 2px 4px 10px #00000029;
   --csc-box-shadow--quicklinks: 2px 4px 10px #00000029;
   --csc-box-shadow--dropdown: 0px 4px 4px 0px #00000040;
-  --csc-code--background: #F0F6F7;
-  --csc-toc--background: #D8E8EA;
 
-  --csc-font-size--body: 16px;
-  --csc-font-size--small: 14px;
-  --csc-font-size--large: 17px;
-  --csc-font-size--h1: 42px;
-  --csc-font-size--h2: 32px;
-  --csc-font-size--h3: 26px;
-  --csc-font-size--h4: 22px;
-  --csc-font-size--h5: 18px;
-  --csc-font-size--h6: 16px;
   --csc-font-weight--regular: 500;
   --csc-font-weight--bold: 700;
 
-  --csc-nav-bg--level0: #006778;
-  --csc-nav-bg--level0-hover: #41808C;
-  --csc-nav-bg--level0-active: #D8E8EA;
-  --csc-nav-bg--level1: #D8E8EA;
-  --csc-nav-bg--level1-hover: #F0F6F7;
-  --csc-nav-bg--level1-active: #F0F6F7;
-  --csc-nav-bg--level2: #F0F6F7;
-  --csc-nav-bg--level2-hover: #FFFFFF;
-  --csc-nav-bg--level2-active: #FFFFFF;
-  --csc-nav-bg--level3: #FFFFFF;
-  --csc-nav--level0: #FFFFFF;
-  --csc-nav--level0-hover: #FFFFFF;
-  --csc-nav--level0-active: #006778;
-  --csc-nav--level1: #595959;
-  --csc-nav--level1-hover: #595959;
-  --csc-nav--level1-active: #006778;
-  --csc-nav--level2: #595959;
-  --csc-nav--level2-hover: #595959;
-  --csc-nav--level2-active: #006778;
-  --csc-nav--level3: #595959;
-  --csc-nav--level3-hover: #006778;
-  --csc-nav-border-radius: 4px 0 0 4px;
-  --csc-nav-border-radius--top: 4px 0 0 0;
-  --csc-nav-border-radius--bottom: 0 0 0 4px;
-
-  --csc-admonition-border-left-width: 14px;
   --csc-admonition--fg: #806420;
   --csc-admonition--bg: #FDF3D1;
 }
