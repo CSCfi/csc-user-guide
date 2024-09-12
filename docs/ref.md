@@ -430,12 +430,12 @@ graph TD
 
 ### Button
 
-[Button](#){ .md-button }
+[Button](#button){ .md-button }
 
 
 ### Primary button
 
-[Primary](#){ .md-button .md-button--primary }
+[Primary](#primary-button){ .md-button .md-button--primary }
 
 
 ## Tabbed content
