@@ -30,6 +30,7 @@ systems. It also comes with plenty of analysis scripts.
     |2024.0   |`gromacs/2024`
     |2024.1   |`gromacs/2024.1`
     |2024.2   |`gromacs/2024.2`
+    |2024.3   |`gromacs/2024.3`
 
 === "Mahti"
     | Version | Available modules | Notes |
@@ -50,6 +51,7 @@ systems. It also comes with plenty of analysis scripts.
     |2024.0   |`gromacs/2024`
     |2024.1   |`gromacs/2024.1`
     |2024.2   |`gromacs/2024.2`
+    |2024.3   |`gromacs/2024.3`
 
 === "LUMI"
     | Version | Available modules | Notes |
