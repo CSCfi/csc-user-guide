@@ -27,12 +27,12 @@ RUN chgrp -R root ${ROOT_GROUP_DIRS} &&\
 
 COPY . /tmp
 
-RUN git clone --no-checkout https://github.com/$repo_org/$repo_name git_folder && \
-    if [ -d ".git" ]; then rm -r .git; fi && \
+RUN if [ ! -d ".git" ]; then \
+    git clone --no-checkout https://github.com/$repo_org/$repo_name git_folder && \
     mv git_folder/.git . && \
     rm -r git_folder && \
     git reset HEAD --hard && \
-    git checkout -f $repo_branch
+    git checkout -f $repo_branch; fi
 
 RUN bash scripts/generate_alpha.sh && \
     bash scripts/generate_by_system.sh && \
