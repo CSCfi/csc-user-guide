@@ -17,6 +17,7 @@ In addition to this page, this guide contains the following subsections:
 - [**Multi-GPU and multi-node machine learning**](ml-multi.md)
 - [**Hyperparameter search**](hyperparameter_search.md)
 - [**Managing machine learning workflows on CSC's supercomputers**](ml-workflows.md)
+- &#127381; [**Working with large language models on supercomputers**](ml-llm.md)
 
 ## What CSC service to use?
 
@@ -110,6 +111,6 @@ access](../../cloud/pouta/index.md).
 
 ## Further reading in Docs CSC
 
-* [Python parallel jobs](../../apps/python.md#python-parallel-jobs)
+* [Python parallel jobs](python-usage-guide.md#python-parallel-jobs)
 * [Dask tutorial](dask-python.md)
 * [High-throughput computing and workflows](../../computing/running/throughput.md)

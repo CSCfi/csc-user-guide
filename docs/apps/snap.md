@@ -1,6 +1,8 @@
 ---
 tags:
   - Free
+system:
+  - www-puhti
 ---
 
 # SNAP
@@ -109,7 +111,7 @@ gpt <snap-operator> -h
 
 ### Using SNAP with the Python interfaces
 
-It is also possible to access SNAP functionalities from Python with the __snappy__ and __snapista__(only SNAP 9) library.
+It is also possible to access SNAP functionalities from Python with the __snappy__ and __snapista__ (only SNAP 9) library.
 
 __SNAP 9.0__
 
@@ -123,11 +125,16 @@ See available packages:
 pip3 list
 ```
 
-Installing new packages to your HOME directory, see [Python](python.md#installing-python-packages-to-existing-modules) instructions how to change installation directory.
+Installing new packages to your `$HOME` directory:
 
 ```
 pip <NEW-PACKAGE-NAME> --user
 ```
+
+It is also possible to install packages to directories other than `$HOME`.
+Please see our
+[Python usage guide](../support/tutorials/python-usage-guide.md#installing-python-packages-to-existing-modules)
+for instructions.
 
 __SNAP 8.0__
 
@@ -141,11 +148,16 @@ See available packages:
 apptainer_wrapper exec pip list
 ```
 
-Installing new packages to your HOME directory, see [Python](python.md#installing-python-packages-to-existing-modules) instructions how to change installation directory.
+Installing new packages to your `$HOME` directory:
 
 ```
 apptainer_wrapper exec pip <NEW-PACKAGE-NAME> --user
 ```
+
+It is also possible to install packages to directories other than `$HOME`.
+Please see our
+[Python usage guide](../support/tutorials/python-usage-guide.md#installing-python-packages-to-existing-modules)
+for instructions.
 
 ## Updating SNAP
 

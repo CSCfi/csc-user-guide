@@ -92,7 +92,7 @@ On LUMI, you will instead need to use
 
 #### Loading CSC modules with additional packages (Python)
 
-If your environment is based on a CSC module but you have installed some additional packages on top either via `venv` or using `pip install --user` (see also our [Python usage instructions](../../apps/python.md#installing-python-packages-to-existing-modules)) you will need to use the following `remote_command` (on Puhti/Mahti):
+If your environment is based on a CSC module but you have installed some additional packages on top either via `venv` or using `pip install --user` (see also our [Python usage guide](python-usage-guide.md#installing-python-packages-to-existing-modules)) you will need to use the following `remote_command` (on Puhti/Mahti):
 
 - `pip` installation to custom `PYTHONUSERBASE`: insert `export PYTHONUSERBASE=<your_pip_user_base_dir>; ` before `singularity_wrapper shell`, i.e. on Puhti/Mahti the `remote_command` becomes: ```bash -c "source /appl/profile/zz-csc-env.sh; module load <your_module>; export PYTHONUSERBASE=<your_pip_user_base_dir>;  singularity_wrapper shell"```
 - `venv`: insert `export APPTAINERENV_PREPEND_PATH='<your_venv_dir>/bin/'` before `singularity_wrapper shell` - you may also have to [select the Python interpreter used by VS Code](https://code.visualstudio.com/docs/python/environments#_select-and-activate-an-environment) as the one provided by the venv
@@ -141,6 +141,6 @@ Notepad++ with [NppFTP plugin](https://ashkulz.github.io/NppFTP/) enables viewin
 
 * Install the plugin from Plugin Manager.
 * Open NppFTP window from Plugins -> NppFTP.
-* Set up the connection to Puhti, add new profile to Profile settings, use values similar to [FileZilla Puhti settings](/data/moving/graphical_transfer/#filezilla-general-file-transfer-tool). 
+* Set up the connection to Puhti, add new profile to Profile settings, use values similar to [FileZilla Puhti settings](../../data/moving/graphical_transfer.md#filezilla-a-general-file-transfer-tool).
 * Navigate to correct folder in Puhti and open the file.
 * Saving the file in Notepad++ uploads the file automatically to Puhti.

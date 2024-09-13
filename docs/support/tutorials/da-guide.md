@@ -23,7 +23,7 @@ Below is a short glossary of CSC's services that are most relevant for data anal
 
 [**Rahti**](../../cloud/rahti/index.md) is CSC's container cloud.  Here you can easily create virtual applications based on container images.
 
-[**Notebooks**](https://notebooks.csc.fi/) is a great service if you just want to run a quick analysis directly in your web browser. Notebooks supports Jupyter with Python tools for data analysis and machine learning, and also RStudio.
+[**Noppe**](https://noppe.csc.fi/) is a great service if you just want to run a quick analysis directly in your web browser. Noppe supports Jupyter with Python tools for data analysis and machine learning, and also RStudio.
 
 ## Example use cases
 
@@ -79,8 +79,8 @@ You can use Rahti for example running [big data analytics and machine learning j
 
 *You are teaching a course that needs complex computing environments for its exercises but you do not want to spend valuable course time on debugging installation errors.* 
 
-Consider using [CSC's Notebooks service](https://notebooks.csc.fi/) that contains easy-to-use environments for working with data and programming. The course environments support Jupyter, Python (including many machine learning libraries), R / RStudio Server and Spark.
+Consider using [CSC's Noppe service](https://noppe.csc.fi/) that contains easy-to-use environments for working with data and programming. The course environments support Jupyter, Python (including many machine learning libraries), R / RStudio Server and Spark.
 
-If you are planning to use Notebooks for your course, please remember to submit a notification about your course requirements using [this online form](https://www.webropolsurveys.com/S/84118B6BD6E97501.par).
+If you are planning to use Noppe for your course, please remember to submit a notification about your course requirements using [this online form](https://www.webropolsurveys.com/S/84118B6BD6E97501.par).
 
 CSC's collection of [GitHub repositories](https://github.com/csc-training) for training purposes can also be a valuable resource for course planning and sharing teaching materials with course participants.

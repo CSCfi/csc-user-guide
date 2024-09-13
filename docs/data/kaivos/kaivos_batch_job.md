@@ -91,7 +91,7 @@ mysqlimport --local --compress DB_A results.30
 
 #change the status value in the dataset_table
 mysql --local DB_A <<EOF
-   update dataset_table set status="done" where name="inputfile30.data" ;
+   UPDATE dataset_table SET status="done" WHERE name="inputfile30.data" ;
 EOF
 
 #remove the original results file

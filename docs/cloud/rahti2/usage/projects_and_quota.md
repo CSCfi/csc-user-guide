@@ -91,7 +91,7 @@ This information is also available via a web interface.
 
 ## Creating a project
 
-First, click this [link](https:/rahti.csc.fi/) to access the homepage of Rahti 2 and click **Login Page** under *OpenShift 4.15*.  
+First, click this [link](https://rahti.csc.fi/) to access the homepage of Rahti 2 and click **Login Page** under *OpenShift 4.15*.  
 
 After being logged in, click the blue "Create Project" button to create a project, and you will be presented with the following view:
 
@@ -148,19 +148,18 @@ the web interface under **Administration -> ResourceQuota** and **Administration
 Alternatively, you can use the oc command line tool:
 
 ```sh
-$ oc describe quota
-Name:                      compute-resources
-Namespace:                 test-delete
+$ oc describe AppliedClusterResourceQuotas
+Name:                      crq-200xxxx
+Namespace Selector:        ["test-delete"]
 Resource                   Used  Hard
 --------                   ----  ----
-limits.cpu                 500m  4
+limits.cpu                 500m  16
 limits.ephemeral-storage   0     5Gi
-limits.memory              1Gi   16Gi
+limits.memory              1Gi   40Gi
 openshift.io/imagestreams  1     20
-persistentvolumeclaims     0     5
+persistentvolumeclaims     0     20
 pods                       1     100
-requests.storage           0     100Gi
-
+requests.storage           0     200Gi
 ```
 
 ```sh

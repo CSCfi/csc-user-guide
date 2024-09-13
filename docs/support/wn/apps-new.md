@@ -1,7 +1,88 @@
 # Applications
 
+## GROMACS 2024.3, 12.9.2024
+
+[GROMACS](../../apps/gromacs.md) 2024.3 is now available on Puhti and Mahti. See
+[release notes](https://manual.gromacs.org/2024.3/release-notes/2024/2024.3.html)
+for a list of all new features and improvements.
+
+## JAX 0.4.30 available on Puhti and Mahti, 5.9.2024
+
+[JAX](../../apps/jax.md) 0.4.30 has been installed on Puhti and Mahti
+and set as the default version.
+
+The `transformers` package is no longer included since it officially 
+only supports JAX up to version 0.4.13.
+
+From this version on, there will be "small" and "full" flavours of JAX,
+where the "full" flavour includes JAX ML ecosystem packages as before
+while the "small" flavour includes only JAX with GPU support as well as
+CPU-only versions of Tensorflow and PyTorch for their data loading and
+processing utilities but no additional packages. You can use the latter
+if you want a cleaner base to install additional packages on.
+
+The LUMI installation will be delayed until early autumn due to the
+ongoing system update and changes to the relevant system driver versions.
+
+## CP2K 2024.2 available on Puhti and Mahti, 27.8.2024
+
+[CP2K](../../apps/cp2k.md) 2024.2 has been installed and set as the default
+module on Puhti and Mahti. See
+[release notes](https://github.com/cp2k/cp2k/releases/tag/v2024.2)
+for a list of new features, fixes and breaking changes.
+
+## ORCA 6.0.0, 22.8.2024
+
+[ORCA](../../apps/orca.md) 6.0.0 is now available on Puhti and Mahti. This major
+release brings numerous new features and enhancements. For full details, check out
+the [ORCA 6 Changes](https://www.faccts.de/docs/orca/6.0/manual/contents/changes.html).
+
+## PyTorch 2.4.0, 21.8.2024
+
+[PyTorch](../../apps/pytorch.md) 2.4.0 added to Puhti and Mahti. The
+LUMI installation will be delayed until after the current service
+break. The torchtext package is no longer included as it has been
+deprecated and no longer works with PyTorch 2.4. See our [PyTorch
+module documentation for more information](../../apps/pytorch.md#available).
+
+## AMS 2024 available on Puhti and Mahti, 20.8.2024
+
+[AMS](../../apps/ams.md) has been updated to version 2024.102 on both Mahti and Puhti
+and set as the default module. The [AMS2024 release notes](https://www.scm.com/downloads/release-notes-amsterdam-modeling-suite-2024/)
+summarize major changes and improvements since AMS2023.
+
+## Geoconda 3.11.9, 7.8.2024
+
+[geoconda](../../apps/geoconda.md) version 3.11.9 has been added
+and set as the default module on Puhti and Mahti. Besides package updates, it includes a few new packages: `geo2ml`, `h3pandas`, `openeo`, `pcraster` and `r5py`. From packages available in previous geoconda, `copc-lib` and `osmnx` unfortunately could not be added this time.
+
+## Schrödinger Maestro 2024.3, 5.8.2024
+
+[Schrödinger Maestro](../../apps/maestro.md) version 2024.3 has been installed
+and set as the default module on Puhti and Mahti. As a major highlight, this
+release includes the new OPLS5 polarizable force field. See
+[release notes](https://www.schrodinger.com/life-science/download/release-notes/)
+for the full list of new features and improvements.
+
+## PyTorch 2.3.1, 13.6.2024
+
+[PyTorch](../../apps/pytorch.md) 2.3.1 added to Puhti and Mahti. The
+LUMI installation will be delayed until early autumn due to an
+incompatible ROCm driver version. This version has also updated how
+Python commands are wrapped, as this solves several problems with
+using virtual environments and Jupyter Notebooks. Due to this
+`apptainer` and `apptainer_wrapper` commands will no longer work, but
+otherwise the change should be invisible to users. See our [PyTorch
+module documentation for more
+information](../../apps/pytorch.md#available).
+
+## Python Data 3.10-24.04 now the default version
+
+The recently installed `python-data/3.10-24.04` has been set as the
+default version for [Python Data](../../apps/python-data.md).
+
 ## R 4.4.0 in r-env, 7.6.2024
-	
+
 R version 4.4.0 is now available in `r-env` in Puhti and is set as the default version. The new version will be available in RStudio in the Puhti web interface shortly.
 
 ## Molpro 2024.1 is available on Puhti, 5.6.2024

@@ -5,7 +5,7 @@ tags:
 
 # InterProScan
 
-## Description
+
 
 InterProScan is a tool that compares protein or nucleotide sequence against a set of protein signature databases. 
 The results obtained from different databases are given in uniform format. The InterProScan5 installation at CSC can 
@@ -34,14 +34,15 @@ be used to search protein signatures from following databases:
 
 Free to use and open source under [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0).
 
-## Version
+## Available
 
-*   Puhti: 5.55-88.0 
+*   Puhti: 5.55-88.0, 5.67-90.0
 
 ## Usage 
 
 In Puhti, first load interproscan module with commands:
-```text
+
+```bash
 module load biokit
 module load interproscan
 ```
@@ -53,7 +54,7 @@ the InterProScan tasks to several subtasks that are run simultaneously in Puhti.
 
 cluster_interproscan accepts all the normal InterProScan options. To check the available options, give command:
 
-```text
+```bash
 cluster_interproscan -h
 ```
 
@@ -61,12 +62,14 @@ Below is two sample InterProScan commands
 
 1. Running InterProScan search for a nucleotide sequence set  against all InterProScan databases. 
 Results are reported in XML format.
-```text
+
+```bash
 cluster_interproscan -i nucleotides.fasta -o results.xml -f XML -t n
 ```
 
 2. Running InterProScan search for protein sequence set against PfamA databases. Results are reported in GFF3 format. GFF3 conversion needs more memory that what is available in the login nodes of Puhti. Because of that you should submit the interporosacn task from an interactive batch job with least 4 GiB of memory reserved. 
-```text
+
+```bash
 sinteractive -m 4000
 cluster_interproscan -i proteins.fasta -o results.gff3 -f GFF3 -appl PfamA
 ```

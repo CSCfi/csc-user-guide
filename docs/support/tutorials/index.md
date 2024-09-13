@@ -1,8 +1,7 @@
 # Tutorials
 
 ## General
-* [Getting started with Puhti](puhti_quick.md)
-* [Getting started with Mahti](mahti_quick.md)
+* [Getting started with supercomputing at CSC](hpc-quick.md)
 * [Getting started with Helmi](../../computing/quantum-computing/helmi/helmi-from-lumi.md)
 * [Managing data on Puhti and Mahti scratch disks](clean-up-data.md)
 * [CSC Quick reference (pdf)](../../img/csc-quick-reference/csc-quick-reference.pdf)
@@ -14,6 +13,7 @@
 * [How to run existing containers in Puhti](../../computing/containers/run-existing.md)
 * [Getting disk usage using Lue](lue.md)
 * [Running Julia jobs on Puhti and Mahti clusters](julia.md)
+* [Using Python on CSC supercomputers](python-usage-guide.md)
 
 ## Installation of tools on supercomputers
 * [Installing software with Spack](user-spack.md)
@@ -99,4 +99,4 @@
 
 ## CSC Resources for Courses
 * [A Puhti webinterface demo for course organizers](https://github.com/CSCfi/Jupyter_www_puhti)
-* [CSC Notebooks environment for creating custom notebooks](../../cloud/csc_notebooks/guide_for_teachers/#creating-custom-docker-images)
+* [Noppe environment for creating custom notebooks](../../cloud/noppe/guide_for_teachers/#creating-custom-docker-images)

@@ -1,6 +1,9 @@
 ---
 tags:
   - Free
+system:
+  - www-puhti
+  - www-lumi
 ---
 
 # Blender
@@ -12,7 +15,8 @@ game creation.
 
 ## Available
 
-* **Puhti**: 3.2, 3.6
+* Puhti: 3.2, 3.6
+* LUMI: 3.5.1
 
 ## License
 
@@ -24,6 +28,8 @@ including commercially or for education under Blender's
 
 You need accelerated graphics to work with Blender efficiently.
 
+### Puhti
+
 1. Connect to the [Puhti web interface](../computing/webinterface/connecting.md).
 2. Select the [Accelerated Visualization](../computing/webinterface/accelerated-visualization.md)
    app of the web interface and specify the required resources.
@@ -32,10 +38,17 @@ You need accelerated graphics to work with Blender efficiently.
 4. Launch Blender from *Applications* > *Visualization* > *Blender* (or search
    for it using the *Application Finder*). Launching the software may take a
    few seconds, so be patient.
-   
+
 ![Launching Blender in Puhti web interface accelerated desktop](../img/interactive_session_workspace_blender.png 'Launching Blender in Puhti web interface accelerated desktop')
 
 ![Blender workspace](../img/blender_workspace.png 'Blender workspace')
+
+### LUMI
+
+Blender can be used on LUMI via the regular *Desktop* application in the LUMI
+web interface. You need to select the `lumid` partition when launching the app.
+For more details, see the
+[LUMI user guide](https://docs.lumi-supercomputer.eu/runjobs/webui/desktop/)
 
 ## More information
 

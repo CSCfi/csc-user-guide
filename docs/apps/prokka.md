@@ -5,8 +5,6 @@ tags:
 
 # Prokka
 
-## Descriptiom
-
 Prokka is a software tool to annotate bacterial, archaeal and viral genomes.
 
 ## License
@@ -15,37 +13,37 @@ Free to use and open source under [GNU GPLv3](https://www.gnu.org/licenses/gpl-3
 
 ## Available
 
-*   Puhti: 1.14.6
+* Puhti: 1.4.6, 1.14.6
 
 ## Usage
 
-In Puhti, Prokka should be executed as a batch job. An interactive batch job for testing Prokka can be started
-with command:
+On Puhti, Prokka should be executed as a batch job. An interactive batch job for testing Prokka can be started
+with the command:
 
-```text
+```bash
 sinteractive -i -m 8G
 ```
 
-To activate Prokka environment run command:
+To activate Prokka environment, run the command:
 
-```text
+```bash
 module load prokka
 ```
 
-After that you can launch Prokka with command `prokka`. By default Prokka tries to use 8 coputing cores, but in 
-this interactive batch job case, you have just one core available. Because of that you should always define the number
+After that you can launch Prokka with the command `prokka`. By default, Prokka tries to use 8 computing cores, but in 
+this interactive batch job case, you have just one core available. Therefore, you should always define the number
 of cores that Prokka will use with option `-cpus`.
 
 For example:
 
-```text
-prokka  --cpus 1 contigs.fasta
+```bash
+prokka --cpus 1 contigs.fasta
 ```
 
-Larger analysis should be executed as a batch job utilizing several cores.
-Sample batch job script (batch_job_file.bash) below.
+Larger analyses should be executed as a batch job utilizing several cores.
+A sample batch job script (`batch_job_file.bash`) is provided below:
 
-```text
+```bash
 #!/bin/bash -l
 #SBATCH --job-name=prokka
 #SBATCH --output=output_%j.txt
@@ -56,7 +54,6 @@ Sample batch job script (batch_job_file.bash) below.
 #SBATCH --cpus-per-task=8
 #SBATCH --mem=16000
 #SBATCH --account=your_project_name
-#
 
 #set up prokka
 module load prokka
@@ -65,16 +62,16 @@ module load prokka
 prokka --cpus $SLURM_CPUS_PER_TASK --outdir results_case1 --prefix mygenome contigs_case1.fa
 ```
 
-In the batch job example above one Prokka task (--ntasks 1) is executed. 
-The job reserves 8 core (--cpus-per-task=8 ) with total of 16 GB of memory (--mem=16000). 
-The maximum duration of the job is twelve hours (--time 24:00:00 ). All the cores are assigned from 
-one computing node (--nodes=1 ). In addition to the resource reservations, you have to define 
-the billing project for your batch job. This is done by replacing the _your_project_name_ with 
-the name of your project. (You can use command csc-workspaces to see what projects you have in Puhti).
+In the batch job example above one Prokka task (`--ntasks=1`) is executed. 
+The job reserves 8 cores (`--cpus-per-task=8`) with total of 16 GB of memory (`--mem=16000`). 
+The maximum duration of the job is 24 hours (`--time 24:00:00`). All the cores are assigned from 
+one computing node (`--nodes=1`). In addition to the resource reservations, you have to define 
+the billing project for your batch job. This is done by replacing `your_project_name` with 
+the name of your project. You can use command `csc-projects` to see what CSC projects you have access to.
 
-You can submit the batch job file to the batch job system with command:
+You can submit the batch job file to the batch job system with the command:
 
-```text
+```bash
 sbatch batch_job_file.bash
 ```
 
@@ -82,8 +79,4 @@ See the [Puhti user guide](../computing/running/getting-started.md) for more inf
 
 ## More information
 
-*   [Prokka home page](https://github.com/tseemann/prokka)
-
-
-
-
+* [Prokka home page](https://github.com/tseemann/prokka)

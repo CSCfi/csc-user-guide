@@ -10,8 +10,8 @@ that provides an intuitive way for setting up, running, and analyzing simulation
 
 ## Available
 
--   Puhti: ADF, Version 2023.104
--   Mahti: ADF, Version 2023.104
+-   Puhti: ADF, Version 2024.102
+-   Mahti: ADF, Version 2024.102
 
 ## License
 -  The license entitles software usage by any academic researcher or student of an academic institute where "Academic" means "belonging to a degree-granting institute". 
@@ -25,7 +25,7 @@ that provides an intuitive way for setting up, running, and analyzing simulation
 Initialize AMS:
 
 ```bash
-module load ams/2023.104
+module load ams/2024.102
 ```
 
 ### Example batch scripts
@@ -42,16 +42,14 @@ module load ams/2023.104
     #SBATCH --nodes=2
     #SBATCH --ntasks-per-node=40      # MPI tasks per node
     #SBATCH --account=yourproject     # insert here the project to be billed 
-    #SBATCH --time=00:10:00           # time as `hh:mm:ss`
+    #SBATCH --time=00:15:00           # time as `hh:mm:ss`
     #SBATCH --mem-per-cpu=1500        # requested memory per process in MB
     module purge
-    module load ams/2023.104
-    export SCM_USE_LOCAL_IMPI=yes
+    module load ams/2024.102
     export SCM_TMPDIR=$PWD/$SLURM_JOB_ID
     mkdir -p $SCM_TMPDIR
-     
-    # Copy an example input file
-    cp -f $AMSHOME/examples/Benchmarks/ADF/Si35_TZ2P/Si35_TZ2P.inp .
+    # Create an example input file from the examples 
+    sed '1,4d;$d;/Print/,/End/d' $AMSHOME/examples/Benchmarks/ADF/Si35_TZ2P/Si35_TZ2P.run  > ./Si35_TZ2P.inp
     "$AMSBIN/ams" < ./Si35_TZ2P.inp > ./Si35_TZ2P.log
     ```
      
@@ -63,15 +61,13 @@ module load ams/2023.104
     #SBATCH --nodes=2
     #SBATCH --ntasks-per-node=40      # MPI tasks per node
     #SBATCH --account=yourproject     # insert here the project to be billed
-    #SBATCH --time=00:10:00           # time as `hh:mm:ss`
+    #SBATCH --time=00:15:00           # time as `hh:mm:ss`
     #SBATCH --mem-per-cpu=1500        # requested memory per process in MB
     #SBATCH --gres=nvme:100           # requested local disk space in GB
-    module load ams/2023.104
-    export SCM_USE_LOCAL_IMPI=yes
+    module load ams/2024.102
     export SCM_TMPDIR=$LOCAL_SCRATCH
-    
-    # Copy an example input file
-    cp -f $AMSHOME/examples/Benchmarks/ADF/Si35_TZ2P/Si35_TZ2P.inp .
+    # Create an example input file from the examples
+    sed '1,4d;$d;/Print/,/End/d' $AMSHOME/examples/Benchmarks/ADF/Si35_TZ2P/Si35_TZ2P.run  > ./Si35_TZ2P.inp
     "$AMSBIN/ams" < ./Si35_TZ2P.inp > ./Si35_TZ2P.log
     ```
 
@@ -85,12 +81,12 @@ module load ams/2023.104
     #SBATCH --account=yourproject # insert here the project to be billed
     #SBATCH --time=00:20:00       # time as `hh:mm:ss`
     module purge
-    module load ams/2023.104
+    module load ams/2024.102
     export SCM_TMPDIR=$PWD/$SLURM_JOB_ID
     mkdir -p $SCM_TMPDIR
     
-    # Copy an example input file
-    cp -f $AMSHOME/examples/Benchmarks/ADF/Si35_TZ2P/Si35_TZ2P.inp .
+    # Create an example input file from the examples
+    sed '1,4d;$d;/Print/,/End/d' $AMSHOME/examples/Benchmarks/ADF/Si35_TZ2P/Si35_TZ2P.run  > ./Si35_TZ2P.inp
     "$AMSBIN/ams" < ./Si35_TZ2P.inp > ./Si35_TZ2P.log
     ```
 
@@ -105,8 +101,10 @@ the GUI on your own laptop/workstation. For detailed instructions, see the [AMS-
 Depending on your usage, be careful to properly cite the AMS driver, used calculation engines as well as feature references. For details, see the [relevant AMS documentation](https://www.scm.com/doc/Documentation/ ) 
 
 ## More information
--   [AMS2023 Support pages](https://www.scm.com/support/)
+
+-   [AMS support pages](https://www.scm.com/contact-us/)
 -   [Tutorials](https://www.scm.com/doc/Tutorials/index.html)
--   [Teaching materials](https://www.scm.com/support/adf-teaching-materials/)
+-   [Workshops](https://www.scm.com/workshops/)
 -   [FAQ](https://www.scm.com/faq/)
--   [Newsletter](https://www.scm.com/newsletters/)
+-   [Knowledge bank](https://www.scm.com/knowledgebank/)
+-   [The latest news](https://www.scm.com/news/)

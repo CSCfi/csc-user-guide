@@ -3,66 +3,60 @@ tags:
   - Free
 ---
 
-# Bioperl
+# BioPerl
 
-
-## Description
-
-Bioperl is a collection of perl modules that facilitate the development of 
-perl scripts for bioinformatics applications. As such, it does not include 
+BioPerl is a collection of Perl modules that facilitate the development of 
+Perl scripts for bioinformatics applications. As such, it does not include 
 ready to use programs in the sense that many commercial packages and free 
-web-based interfaces do. On the other hand, bioperl does provide reusable 
-perl modules that facilitate writing perl scripts for sequence manipulation, 
+web-based interfaces do. On the other hand, BioPerl does provide reusable 
+Perl modules that facilitate writing Perl scripts for sequence manipulation, 
 accessing of databases using a range of data formats and execution and parsing 
-of the results of various molecular biology programs. Consequently, bioperl 
+of the results of various molecular biology programs. Consequently, BioPerl 
 enables developing scripts that can analyze large quantities of sequence 
 data in ways that are typically difficult or impossible with web based systems.
-
-
 
 [TOC]
 
 ## License
-Bioperl is free to use and open source.
+
+BioPerl is free to use and open source.
 
 BioPerl is licensed under the same terms as Perl itself which is dually-licensed under the terms of the [Perl Artistic license](https://dev.perl.org/licenses/artistic.html) or [GNU GPLv3](https://www.gnu.org/licenses/gpl-3.0.html).
 
-
-
 ## Available
 
--   Puhti: Perl 5.30.0 with Bioperl 1.007002 
-
+- Puhti: Perl 5.36.0 with BioPerl 1.7.8
 
 ## Usage
-In Puhti, bioperl can be taken in use with command:
-```text
+
+On Puhti, BioPerl can be taken in use with the command:
+
+```bash
 module load biokit
 ```
-After this you can launch a bioperl program with command:
-```text
+
+After this, you can launch a BioPerl program with the command:
+
+```bash
 perl my_bioperl_code.pm
 ```
-Alternatively you can change the perl definition in the first line of your code to
-```text
+
+Alternatively you can change the Perl definition in the first line of your code to
+
+```bash
 #!/bin/env perl
 ```
-and execute the perl program:
-```text
+
+and execute the Perl program:
+
+```bash
 ./my_bioperl_code.pm
 ```
-
-
  
 ## Support
 
-servicedesk@csc.fi
+[CSC Service Desk](../support/contact.md)
 
-## Manual
+## More information
 
-
-*    [Bioperl home page](https://bioperl.org//)
-
-
-
-
+* [BioPerl home page](https://bioperl.org/)

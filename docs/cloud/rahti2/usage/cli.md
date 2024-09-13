@@ -141,9 +141,9 @@ oc get pod mypod -o yaml
   myreplicationcontroller`
 * `oc apply` modifies an object according to the input. Example `oc apply -f
   file.yaml`
-* `oc explain` prints out the API documentation. Example: `oc explain dc.spec`
+* `oc explain` prints out the API documentation. Example: `oc explain deploy.spec`
 * `oc edit` loads an object from the API to the local editor chosen by the `$EDITOR`
-  environment variable. Example: `oc edit DeploymentConfig mydc`
+  environment variable. Example: `oc edit Deployment mydeploy`
 
 ## Abbreviations
 
@@ -152,11 +152,13 @@ Object types have abbreviations that are recognized in the CLI:
 |Abbreviation |Meaning|
 |-----:|:-------|
 |`is`|`ImageStream`|
-|`dc`|`DeploymentConfig`|
+|`dc`|`DeploymentConfig`\*|
 |`svc`|`Service`|
 |`bc`|`BuildConfig`|
 |`rc`|`ReplicationController`|
 |`pvc`|`PersistentVolumeClaim`|
+
+\* Deployment Config is deprecated
 
 ## Further documentation
 

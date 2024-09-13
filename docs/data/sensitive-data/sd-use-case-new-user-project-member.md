@@ -36,7 +36,7 @@ You need to access to SD services. You are member of a research team and researc
 
 - The project manager has added services to the project already. You as a project member has to **accept the terms of use**, so you can use the services.
 
-![How to start with SD services.](./images/MyCSC/MyCSC_AddServices.png)
+![How to approve terms of use.](https://a3s.fi/docs-files/sensitive-data/MyCSC/MyCSC_TermsOfUse.png)
 
 
 ### 4. Activate MFA Authentication

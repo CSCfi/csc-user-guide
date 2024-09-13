@@ -10,7 +10,7 @@ For users who simply want to use Allas for storing data that is in the CSC compu
 | [a-put](#a-put)| [help](https://github.com/CSCfi/allas-cli-utils/blob/master/help/a-put.md)|Upload a file or directory to Allas |
 | [a-check](#a-check) |[help](https://github.com/CSCfi/allas-cli-utils/blob/master/help/a-check.md)| Check if all the objects, that a-put should have created, are found in Allas |
 | [a-list](#a-list) |[help](https://github.com/CSCfi/allas-cli-utils/blob/master/help/a-list.md)| List buckets and objects in Allas |
-| [a-publish](#a-publish) |[help](https://github.com/CSCfi/allas-cli-utils/blob/master/help/a-check.md)|Upload a file to Allas into a bucket that allows public access over the internet |
+| [a-publish](#a-publish) |[help](https://github.com/CSCfi/allas-cli-utils/blob/master/help/a-publish.md)|Upload a file to Allas into a bucket that allows public access over the internet |
 | [a-flip](#a-flip) |[help](https://github.com/CSCfi/allas-cli-utils/blob/master/help/a-flip.md)|Upload a file temporarily to Allas into a bucket that allows public access over the internet |
 | [a-get](#a-get) |[help](https://github.com/CSCfi/allas-cli-utils/blob/master/help/a-get.md)| Download a stored dataset (object) from Allas |
 | [a-find](#a-find)|[help](https://github.com/CSCfi/allas-cli-utils/blob/master/help/a-find.md)|Search and locate data uploaded with *a-put* |
@@ -160,7 +160,7 @@ If you wish to use a name differing from the default object name, you can define
 _--object_:
 ```text
 cd /scratch/project_2012345
-a-put project2/test_1.txt -b newbucket1 - o case1.txt -c
+a-put project2/test_1.txt -b newbucket1 -o case1.txt -c
 ```
 
 The command above uploads the file *test_1.txt* to Allas in the bucket _newbucket1_ as the object _case1.txt.zst_.

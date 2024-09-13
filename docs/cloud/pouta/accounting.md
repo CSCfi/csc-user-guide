@@ -1,4 +1,4 @@
-## Accounting principles and quotas
+# Accounting principles and quotas
 
 This document describes how resource usage in Pouta is calculated as Billing Units (BUs).
 
@@ -14,38 +14,39 @@ please see
 
 [TOC]
 
-### Accounting for resources
+## Accounting for resources
 
 Currently, we account for virtual machines, volume storage, object
 storage and floating IPs.
 
 | Resource | Cost |
 |------------------|--------------------|
-| Virtual machines | See [Flavors] |
+| Virtual machines | See [Flavors](vm-flavors-and-billing.md) |
 | Storage volumes | 3,5 BU / TiB hour |
 | Floating IPs | 0,2 BU / hour |
 
 Please note that virtual machines consume BUs regardless whether you are using
 them or not. This means that a shut down or suspended virtual machine
 still consumes BUs. You can find more information about the different
-states of virtual machines and their BU consumption in [Virtual machine
-lifecycle]. The minimum accounting time for a virtual machine is
-one hour. Another source for estimating usage is the [Resource calculator]
+states of virtual machines and their BU consumption in
+[Virtual machine lifecycle](vm-lifecycle.md). The minimum accounting time for a
+virtual machine is one hour. Another source for estimating usage is the
+[Resource calculator](https://research.csc.fi/billing-units/#buc).
 
 Storage volumes consume billing units based on their size. The unit of
-measure is [TebiByte] hours. Storage volumes consume BUs even if they
-are not attached to virtual machines.
+measure is [TebiByte](https://en.wikipedia.org/wiki/Tebibyte) hours. Storage
+volumes consume BUs even if they are not attached to virtual machines.
 
 Objects storage consumes billing units based on the stored data
 amounts. The billing units are consumed until the data is removed.
 
 Floating IPs are billed if they are allocated to a project or
 assigned to a virtual machine. Any extra routers you create and
-connect to the external network will also billed for one floating
+connect to the external network will be also billed for one floating
 IP. The default router included in the project does not consume
 billing units.
 
-### Other costs
+## Other costs
 
 If you have a contract with CSC, you will always be billed according
 to the contract even if it differs from these practices. Commercial
@@ -57,7 +58,7 @@ project.
 Each cPouta and ePouta project has a cloud computing quota that
 limits the use of simultaneous cloud resources. There is a default
 cPouta project quota which is quite small, but users can apply for
-extensions by sending email to [ServiceDesk](mailto:servicedesk@csc.fi).
+extensions by sending email to [CSC Service Desk](../../support/contact.md).
 
 **Default size of the cPouta project quota.**
 
@@ -77,7 +78,7 @@ other users from accessing it.
 
 Storage is also limited by a quota. The default quota for new projects
 is 1 TB. Additional allocations can be requested by sending email
-to [ServiceDesk](mailto:servicedesk@csc.fi).
+to [CSC Service Desk](../../support/contact.md).
 
 The initial quotas for ePouta projects are agreed upon when starting a new project.
 
@@ -91,8 +92,3 @@ visibility of which flavors are available in the future.
 
 We try to always have free storage and floating IP resources, if quota
 for them has been allocated.
-
-[Flavors]:vm-flavors-and-billing.md
-[Virtual machine lifecycle]:vm-lifecycle.md
-[TebiByte]:https://en.wikipedia.org/wiki/Tebibyte
-[Billing unit and price calculator]:https://research.csc.fi/billing-units/#buc

@@ -1,4 +1,4 @@
-# Expand a volume 
+# Expand a volume
 
 As dynamic volume expansion is not activated, if one edits directly in the `YAML` object the size of the volume, an error like this will be returned:
 
@@ -21,14 +21,15 @@ Then a more artisanal procedure must be followed:
 * Mount the old and new volume in another Pod. The best option is to create a new deployment, create a file called `two-volumes.yaml` and replace the names of both volumes:
 
 ```yaml
-apiVersion: apps.openshift.io/v1
-kind: DeploymentConfig
+apiVersion: apps/v1
+kind: Deployment
 metadata:
   name: two-volumes
 spec:
   replicas: 1
   selector:
-    app: two-volumes
+    matchLabels:
+      app: two-volumes
   template:
     metadata:
       labels:
@@ -61,13 +62,13 @@ oc create -f two-volumes.yaml
 * Sync the data
 
 ```sh
-oc rsh dc/two-volumes rsync -vrlpD /old/ /new/
+oc rsh deploy/two-volumes rsync -vrlpD /old/ /new/
 ```
 
 * Delete that new Pod
 
 ```sh
-oc delete dc/two-volumes
+oc delete deploy/two-volumes
 ```
 
 * Exchange volumes in the deployment that was mounting the volume, it is at **template > spec > volumes** under `claimName`.

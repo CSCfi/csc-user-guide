@@ -57,8 +57,15 @@ plugins:
         # deprecation:
         'support/tutorials/nomachine-usage.md': 'apps/nomachine.md'
         'support/faq/cannot-login-from-nomachine.md': 'apps/nomachine.md'
+        'support/tutorials/puhti_quick.md': 'support/tutorials/hpc-quick.md'
+        'support/tutorials/mahti_quick.md': 'support/tutorials/hpc-quick.md'
         # renamed files:
         'cloud/csc_notebooks/what_is_new.md': 'support/whats-new.md#cloud-services'
+        'cloud/csc_notebooks/concepts.md': 'cloud/noppe/concepts.md'
+        'cloud/csc_notebooks/data_persistence.md': 'cloud/noppe/data_persistence.md'
+        'cloud/csc_notebooks/guide_for_students.md': 'cloud/noppe/guide_for_students.md'
+        'cloud/csc_notebooks/guide_for_teachers.md': 'cloud/noppe/guide_for_teachers.md'
+        'cloud/csc_notebooks/index.md': 'cloud/noppe/index.md'
         'computing/overview.md': 'computing/index.md'
         'cloud/concepts.md': 'cloud/index.md'
         'apps/alpha.md': 'apps/index.md'
@@ -147,7 +154,11 @@ nav:
         - Puhti: computing/systems-puhti.md
         - Mahti: computing/systems-mahti.md
         - LUMI: "https://docs.lumi-supercomputer.eu/hardware/"
-     - Connecting: computing/connecting.md
+     - Connecting:
+        - computing/connecting/index.md
+        - SSH client on macOS and Linux: computing/connecting/ssh-unix.md
+        - SSH client on Windows: computing/connecting/ssh-windows.md
+        - Setting up SSH keys: computing/connecting/ssh-keys.md
      - Supercomputer storage:
         - computing/disk.md
         - Lustre filesystem: computing/lustre.md
@@ -286,6 +297,7 @@ nav:
            - Ephemeral storage: cloud/rahti2/storage/ephemeral.md
            - Object storage: cloud/rahti2/storage/objectstorage.md
            - Expand a volume: cloud/rahti2/storage/expand-volumes.md
+           - Volume snapshot: cloud/rahti2/storage/volume-snapshot.md
         - Images:
            - cloud/rahti2/images/overview.md
            - Creating an image: cloud/rahti2/images/creating.md
@@ -322,12 +334,12 @@ nav:
         - Billing: cloud/rahti/billing.md
         - External documentation: cloud/rahti/ext_docs.md
 
-     - CSC Notebooks:
-        - cloud/csc_notebooks/index.md
-        - Guide for students: cloud/csc_notebooks/guide_for_students.md
-        - Guide for teachers: cloud/csc_notebooks/guide_for_teachers.md
-        - Concepts: cloud/csc_notebooks/concepts.md
-        - Data persistence: cloud/csc_notebooks/data_persistence.md
+     - Noppe:
+        - cloud/noppe/index.md
+        - Guide for students: cloud/noppe/guide_for_students.md
+        - Guide for teachers: cloud/noppe/guide_for_teachers.md
+        - Concepts: cloud/noppe/concepts.md
+        - Data persistence: cloud/noppe/data_persistence.md
      - Cloud Tutorials: cloud/tutorials/index.md
 
   - Data:
@@ -346,6 +358,7 @@ nav:
         - Moving files using the HPC web interfaces: data/moving/web-interface.md
         - Graphical file transfer tools: data/moving/graphical_transfer.md
         - Using rsync for data transfer and synchronization: data/moving/rsync.md
+        - Using tar and SSH to transfer many small files efficiently: data/moving/tar_ssh.md
         - Using wget to download data from web sites to CSC: data/moving/wget.md
         - Sharing and transporting files using Funet FileSender: data/moving/funet.md
         - Moving data between IDA and CSC computing environment: data/ida/using_ida.md

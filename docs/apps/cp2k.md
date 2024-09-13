@@ -20,6 +20,7 @@ parallel quantum chemistry calculations, in particular for AIMD.
     |2023.1   |`cp2k/2023.1`      |       |
     |2023.2   |`cp2k/2023.2`      |       |
     |2024.1   |`cp2k/2024.1`      |       |
+    |2024.2   |`cp2k/2024.2`      |       |
 
 === "Mahti"
     | Version | Available modules | Notes |
@@ -30,6 +31,7 @@ parallel quantum chemistry calculations, in particular for AIMD.
     |2023.1   |`cp2k/2023.1`      |       |
     |2023.2   |`cp2k/2023.2`      |       |
     |2024.1   |`cp2k/2024.1`      |       |
+    |2024.2   |`cp2k/2024.2`      |       |
 
 === "LUMI"
     | Version | Available modules                | Notes                 |
@@ -64,7 +66,13 @@ You can find all installed versions with:
 module spider cp2k
 ```
 
-With each new project make sure that your job can efficiently utilize all the
+Specify the version number to see how to load it:
+
+```bash
+module spider cp2k/<version>
+```
+
+With each new project, make sure that your job can efficiently utilize all the
 cores you request in the batch script. The rule of thumb is that when you
 double the number of cores the calculation should be at least 1.5 times faster.
 
@@ -81,8 +89,8 @@ double the number of cores the calculation should be at least 1.5 times faster.
     #SBATCH --account=<project>
 
     module purge
-    module load intel-oneapi-compilers-classic/2021.6.0 intel-oneapi-mpi/2021.6.0
-    module load cp2k/2024.1
+    module load gcc/13.2.0 openmpi/5.0.5
+    module load cp2k/2024.2
 
     srun cp2k.popt H2O-64.inp > H2O-64.out
     ```
@@ -99,7 +107,7 @@ double the number of cores the calculation should be at least 1.5 times faster.
 
     module purge
     module load gcc/9.4.0 openmpi/4.1.2
-    module load cp2k/2024.1
+    module load cp2k/2024.2
 
     export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
     export OMP_PLACES=cores
@@ -272,7 +280,7 @@ Note that `RUN_TYPE` is set to `NONE` in the `&GLOBAL` section.
 
 module purge
 module load gcc/9.4.0 openmpi/4.1.2
-module load cp2k/2024.1
+module load cp2k/2024.2
 
 srun cp2k.psmp farming.inp >> farming.out
 ```
