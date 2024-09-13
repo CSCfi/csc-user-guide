@@ -22,6 +22,16 @@ is the size of the volume.
 
 ![Create persistent Volmume](../../img/create-volume-horizon.png)
 
+!!! Warning "No äkköset in name or description allowed"
+    This is a know bug in the volume system. Volume creation will fail
+    if its name or description contains any non ASCII characters.
+
+
+    ![Creating](../img/Creating.png) ![Unable to create volume](../img/Unable-to-create-volume.png)
+
+    The only way to delete a volume created with a non ASCII character is
+    using the command line (see below).
+
 Once the volume has been created, it can be attached to a running
 virtual machine. One volume can be attached to only one virtual
 machine at a time.
@@ -101,6 +111,19 @@ line tools:
 openstack volume create --description "<description>" --size <size> <name>
 ```
 
+!!! Warning "No äkköset in name or description allowed"
+    This is a know bug in the volume system. Volume creation will fail
+    if its name or description contains any non ASCII characters, this
+    includes äkköset and any non standard characters.
+
+    ```sh
+    $ openstack volume create matrice --size=1 --description='Déjà vu'
+    Error decoding your request. Either the URL or the request body contained characters that could not be decoded by Cinder. (HTTP 400) (Request-ID: req-7dc59e6f-eb29-4a5f-9cdc-4a44b177e3f2)
+    ```
+
+    The only way to delete a volume created with a non ASCII character is
+    using the command line (see below).
+
 List existing volumes:
 
 ```
@@ -124,7 +147,7 @@ openstack server add volume <virtual machine> <volume>
 
 !!! info
 
-    A volume can only be attached to one virtual machine at a time.
+    Most volume types can only be attached to one virtual machine at a time.
 
 When you no longer need the volume to be attached, you can detach
 it. **Before detaching, remember to unmount the volume's filesystem on
@@ -133,6 +156,14 @@ the virtual machine to avoid data loss!**
 ```
 openstack server remove volume <server> <volume>
 ```
+
+If you want to delete a volume and the data contained on it you can do. The data will be deleted for ever, it will not be recoverable.
+
+```sh
+openstack volume delete <volume> # Name or ID
+```
+
+**The data will be deleted for ever, it will not be recoverable**.
 
 ## Transferring volumes between other Pouta projects
 
