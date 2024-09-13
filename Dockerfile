@@ -20,7 +20,7 @@ RUN dnf -y install epel-release \
                    git \
                    findutils &&\
     dnf clean all &&\
-    pip3 install --no-cache-dir -r requirements.txt
+    pip3 install --use-pep517 --no-cache-dir -r requirements.txt
 
 RUN chgrp -R root ${ROOT_GROUP_DIRS} &&\
     chmod -R g+rwx ${ROOT_GROUP_DIRS}
