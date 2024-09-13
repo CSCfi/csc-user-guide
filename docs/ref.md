@@ -42,7 +42,7 @@ Then&mdash;as a rule&mdash;a horizontal rule:
 
 The front page can be fitted with a banner to promote a course for example.
 
-![Banners at Docs](img/ref/screenshot-of-reference-banner.png)
+![Pulla at Docs](https://a3s.fi/docs-files/reference-card/screenshot-of-pulla-banner.png){ width=80% style="margin: 0 10%; border: var(--csc-border);" }
 
 There is currently no special mechanism in place for controlling banners.
 
@@ -269,7 +269,7 @@ any immediately following text as "loose", i.e., outside of an HTML paragraph (`
     `warning`,
     `warning-label`,
     `error`,
-    `error-label`,
+    `error-label`,img/ref/image.png)
     `success` or
     `success-label`.
     Perhaps a suitable one would just simply be: `note`.
@@ -389,7 +389,8 @@ in [the Markdown source](https://github.com/CSCfi/csc-user-guide/blob/master/doc
 ## Images
 
 Here's an image of the Reference card with an image of the Reference card with...
-![image of an image of an image...](img/ref/image.png)
+
+![image of an image of an image...](https://a3s.fi/docs-files/reference-card/screenshot-of-image-of-image-of.png){ width=80% style="margin: 0 10%; border: var(--csc-border);" }
 
 
 ## Embedded videos
