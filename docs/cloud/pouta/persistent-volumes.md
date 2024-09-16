@@ -22,7 +22,7 @@ is the size of the volume.
 
 ![Create persistent Volmume](../../img/create-volume-horizon.png)
 
-!!! Warning "Avoid non-ASCII character in name or description allowed"
+!!! Warning "Avoid non-ASCII character in name or description"
     This is a know bug in the volume system. Volume creation will fail
     if its name or description contains any non-ASCII characters (e.g., ä, ö, å, é, à, ñ, [CJK characters](https://en.wikipedia.org/wiki/CJK_characters), ...):
 
@@ -114,10 +114,10 @@ line tools:
 openstack volume create --description "<description>" --size <size> <name>
 ```
 
-!!! Warning "Avoid non-ASCII characters in name or description allowed"
+!!! Warning "Avoid non-ASCII characters in name or description"
     This is a know bug in the volume system. Volume creation will fail
     if its name or description contains any non-ASCII characters, this
-    includes äkköset and any non standard characters.
+    includes ääköset and any non-standard characters.
 
     ```sh
     $ openstack volume create --description='Déjà vu' --size 1 matrice
@@ -160,7 +160,7 @@ the virtual machine to avoid data loss!**
 openstack server remove volume <server> <volume>
 ```
 
-If you want to delete a volume and the data contained on it you can do. The data will be deleted for ever, it will not be recoverable.
+If you want to delete a volume and the data contained on it you can execute:
 
 ```sh
 openstack volume delete <volume> # Name or ID
