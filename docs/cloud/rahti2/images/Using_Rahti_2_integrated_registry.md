@@ -5,7 +5,7 @@ an external dependency or improve performance.
 
 The process is simple:
 
-1. [Install](../../rahti2/usage/cli/#how-to-install-the-oc-tool) and [login with OC](../../rahti2/usage/cli/#how-to-login-with-oc).
+1. [Install](../../usage/cli/#how-to-install-the-oc-tool) and [login with OC](../../usage/cli/#how-to-login-with-oc).
 
 1. With a terminal, connect to the Rahti 2 registry:
     ```sh
