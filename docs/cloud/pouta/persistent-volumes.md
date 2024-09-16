@@ -22,14 +22,17 @@ is the size of the volume.
 
 ![Create persistent Volmume](../../img/create-volume-horizon.png)
 
-!!! Warning "No äkköset in name or description allowed"
+!!! Warning "Avoid non-ASCII character in name or description allowed"
     This is a know bug in the volume system. Volume creation will fail
-    if its name or description contains any non ASCII characters.
+    if its name or description contains any non-ASCII characters (e.g., ä, ö, å, é, à, ñ, [CJK characters](https://en.wikipedia.org/wiki/CJK_characters), ...):
 
+    ![Unable to create volume](../img/Unable-to-create-volume.png)
 
-    ![Creating](../img/Creating.png) ![Unable to create volume](../img/Unable-to-create-volume.png)
+    And the volume will be stuck in "Creating":
 
-    The only way to delete a volume created with a non ASCII character is
+    ![Creating](../img/Creating.png)
+
+    The only way to delete a volume created with a non-ASCII character is
     using the command line (see below).
 
 Once the volume has been created, it can be attached to a running
@@ -111,13 +114,13 @@ line tools:
 openstack volume create --description "<description>" --size <size> <name>
 ```
 
-!!! Warning "No äkköset in name or description allowed"
+!!! Warning "Avoid non-ASCII characters in name or description allowed"
     This is a know bug in the volume system. Volume creation will fail
-    if its name or description contains any non ASCII characters, this
+    if its name or description contains any non-ASCII characters, this
     includes äkköset and any non standard characters.
 
     ```sh
-    $ openstack volume create matrice --size=1 --description='Déjà vu'
+    $ openstack volume create --description='Déjà vu' --size 1 matrice
     Error decoding your request. Either the URL or the request body contained characters that could not be decoded by Cinder. (HTTP 400) (Request-ID: req-7dc59e6f-eb29-4a5f-9cdc-4a44b177e3f2)
     ```
 
@@ -163,7 +166,7 @@ If you want to delete a volume and the data contained on it you can do. The data
 openstack volume delete <volume> # Name or ID
 ```
 
-**The data will be deleted for ever, it will not be recoverable**.
+**The data will be deleted forever, it will not be recoverable**.
 
 ## Transferring volumes between other Pouta projects
 
