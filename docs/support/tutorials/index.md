@@ -83,7 +83,7 @@
 * [Deploying a static web server using the command line](../../cloud/tutorials/elemental_tutorial.md)
 * [Deploying a static web server using the web interface](../../cloud/tutorials/basic-console.md)
 * [How to add docker hub credentials to a project](../../cloud/tutorials/docker_hub_login.md)
-* [How to manually cache images in Rahti's registry](../../cloud/tutorials/docker_hub_manual_caching.md)
+* [How to manually cache images in Rahti's registry](../../cloud/rahti2/images/Using_Rahti_2_integrated_registry.md)
 * [How to package a Kubernetes application with Helm?](../../cloud/tutorials/helm.md)
 * [How to transfer data to Rahti?](../../cloud/tutorials/transfer_data_rahti.md)
 * [Reverse proxy authentication using a sidecar container](../../cloud/tutorials/sidecar_proxy_authentication.md)

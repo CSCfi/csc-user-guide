@@ -1,4 +1,4 @@
-# How to manually cache images in Rahti 2
+# Using Rahti 2 integrated registry
 
 It is possible to manually cache images in Rahti 2. This could be useful to remove
 an external dependency or improve performance.
@@ -27,15 +27,15 @@ The process is simple:
    ```
 
 You should be able to see your images in your project:
-![Image Streams](../img/image_streams_rahti4.png)
+![Image Streams](../../img/image_streams_rahti4.png)
 
 ## Use the image
 
 Go to your project's deployment, and edit it.
 
-![Edit deployment](../img/edit_deployment.png)
+![Edit deployment](../../img/edit_deployment.png)
 
 Go to the Images section, make sure the option "Deploy images from an image stream tag" is clicked.
 Finally select the new image.
 
-![Use cached image](../img/use_cached_image.png)
+![Use cached image](../../img/use_cached_image.png)
