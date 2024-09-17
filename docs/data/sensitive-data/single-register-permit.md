@@ -2,7 +2,7 @@
 
 **[Instructions in Finnish (PDF)](https://a3s.fi/docs-files/sensitive-data/PDF_instructions/SD_toisiolaki_yksittainenRekisteri.pdf){ target="_blank" }**
 
-<iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/A5Mjc0KiwTo" title="SD Desktop toisiokäyttötarkoitukseen — käsittelyluvan myöntäjänä yksittäinen rekisteri" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/AlGQoj5V0jQ" title="SD Desktop toisiokäyttötarkoitukseen — käsittelyluvan myöntäjänä yksittäinen rekisteri" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 ## Use case
 
