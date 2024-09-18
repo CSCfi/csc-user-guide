@@ -322,6 +322,7 @@ nav:
               - cloud/rahti2/images/overview.md
               - Creating an image: cloud/rahti2/images/creating.md
               - Keeping docker images small: cloud/rahti2/images/keeping_docker_images_small.md
+              - Using Rahti 2 integrated registry: cloud/rahti2/images/Using_Rahti_2_integrated_registry.md
           - Rahti Catalog: cloud/rahti2/catalog-docs.md
           - Projects and quota: cloud/rahti2/usage/projects_and_quota.md
           - Billing: cloud/rahti2/billing.md

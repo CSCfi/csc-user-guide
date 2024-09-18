@@ -21,7 +21,7 @@ FROM nginx:stable
 
 ENV LISTEN_PORT=8080
 
-# support running as arbitrary user which belogs to the root group
+# support running as arbitrary user which belongs to the root group
 RUN chmod g+rwx /var/cache/nginx /var/run /var/log/nginx
 
 # users are not allowed to listen on privileged ports
@@ -33,7 +33,7 @@ RUN sed -i.bak 's/^user/#user/' /etc/nginx/nginx.conf
 EXPOSE 8080
 ```
 
-If you build your image locally, don't forget to [push](../../tutorials/docker_hub_manual_caching.md) it to your project.  
+If you build your image locally, don't forget to [push](../../rahti2/images/Using_Rahti_2_integrated_registry.md) it to your project.  
 You can deploy this `nginx` server with this Deployment:
 
 ```yaml
@@ -162,7 +162,7 @@ COPY rclone.sh /usr/local/bin/
 RUN chmod 755 /.rclone.conf
 RUN chmod +x /usr/local/bin/rclone.sh
 ```
-If you create your image locally, don't forget to [push](../../tutorials/docker_hub_manual_caching.md) it to your project.  
+If you create your image locally, don't forget to [push](../../rahti2/images/Using_Rahti_2_integrated_registry.md) it to your project.  
 
 Once all this done, you can deploy your `rclone` pod.
 You can use this example:
