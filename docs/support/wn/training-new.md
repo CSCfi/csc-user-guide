@@ -1,6 +1,6 @@
 # Training & tutorials
 
-## Visual changes for Docs CSC
+## Visual changes for Docs CSC, 18.9.2024
 
 In order to streamline technical development for the Docs CSC platform, some visual customizations have been rolled back. Most notably, the styling of the navigation sidebars. This change does not affect the content nor the structure of the site and will allow new features from the underlying technology&mdash;i.e. _Material for MkDocs_&mdash;to be enabled with less effort.
 
