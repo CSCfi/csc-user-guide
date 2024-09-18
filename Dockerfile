@@ -32,9 +32,8 @@ RUN if [ ! -d ".git" ]; then \
     mv git_folder/.git . && \
     rm -r git_folder && \
     git reset HEAD --hard && \
-    git checkout -f $repo_branch; fi
-
-RUN bash scripts/generate_alpha.sh && \
+    git checkout -f $repo_branch; fi && \
+    bash scripts/generate_alpha.sh && \
     bash scripts/generate_by_system.sh && \
     bash scripts/generate_new.sh && \
     bash scripts/generate_glossary.sh && \
