@@ -1,5 +1,13 @@
 # Applications
 
+## PyTorch 2.4.1 available on LUMI, 19.9.2024
+
+PyTorch 2.4.1 with ROCm 6.1 is now available on LUMI. The LUMI PyTorch
+module now includes [vLLM version 0.5.5](https://docs.vllm.ai/en/latest/) 
+in addition to FlashAttention-2, bitsandbytes and many other frequently 
+requested packages already added included in earlier installations.  See our
+[PyTorch module documentation for more information](../../apps/pytorch.md#available).
+
 ## GROMACS 2024.3, 12.9.2024
 
 [GROMACS](../../apps/gromacs.md) 2024.3 is now available on Puhti and Mahti. See
