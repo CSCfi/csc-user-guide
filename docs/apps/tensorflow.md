@@ -61,17 +61,14 @@ modules by `module use /appl/soft/ai/rhel7/modulefiles/`.
 support.** They are still subject to change at any time without notice,
 and for example multi-node jobs are know not to work properly yet.
 
-If you find that some package is missing, you can often install it yourself with
-`pip3 install --user`. See [our Python
-documentation](python.md#installing-python-packages-to-existing-modules) for
-more information on how to install packages yourself. If you think that some
-important TensorFlow-related package should be included in the module provided
-by CSC, please [contact our servicedesk](../support/contact.md).
-
-It is also possible to use [Python virtual
-environments](https://packaging.python.org/en/latest/guides/installing-using-pip-and-virtual-environments/#creating-a-virtual-environment). To
-create a virtual environment use the command `python3 -m venv
---system-site-packages venv`.
+If you find that some package is missing, you can often install it
+yourself using `pip install`. It is recommended to use Python virtual
+environments. See [our Python documentation for more information on
+how to install packages
+yourself](../support/tutorials/python-usage-guide.md#installing-python-packages-to-existing-modules).
+If you think that some important package should be included in the
+module provided by CSC, please [contact our
+servicedesk](../support/contact.md).
 
 All modules are based on containers using Apptainer (previously known
 as Singularity). Wrapper scripts have been provided so that common
