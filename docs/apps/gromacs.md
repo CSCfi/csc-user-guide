@@ -56,16 +56,8 @@ systems. It also comes with plenty of analysis scripts.
 === "LUMI"
     | Version | Available modules | Notes |
     |:-------:|:------------------|:-----:|
-    |2022.5   |`gromacs/2022.5`<br>`gromacs/2022.5-plumed_2.8.2`<br>`gromacs/2022.5-plumed_2.9.0`|Modules with Plumed available
-    |2023     |`gromacs/2023-gpu-plumed`<br>`gromacs/2023-dev-rocm`|GPU-enabled module with Plumed available<br>`dev-rocm` is an unsupported GPU-enabled [fork developed by AMD](https://github.com/ROCm/Gromacs)[^1]
-    |2023.1   |`gromacs/2023.1`<br>`gromacs/2023.1-gpu`<br>`gromacs/2023.1-heffte`|GPU-enabled module available<br>Module with heFFTe available for [GPU PME decomposition](#gpu-pme-decomposition)
-    |2023.2   |`gromacs/2023.2`<br>`gromacs/2023.2-gpu`|GPU-enabled module available
-    |2023.3   |`gromacs/2023.3`<br>`gromacs/2023.3-gpu`|GPU-enabled module available
-    |2024.0   |`gromacs/2024.0`<br>`gromacs/2024.0-gpu`|GPU-enabled module available
-    |2024.1   |`gromacs/2024.1`<br>`gromacs/2024.1-gpu`|GPU-enabled module available
     |2024.2   |`gromacs/2024.2`<br>`gromacs/2024.2-gpu`<br>`gromacs/2024.2-heffte`|GPU-enabled module available<br>Module with heFFTe available for [GPU PME decomposition](#gpu-pme-decomposition)
-
-    [^1]: This module is unvalidated, unmaintained and unsupported by the GROMACS team. Use at your own risk!
+    |2024.3   |`gromacs/2024.3`<br>`gromacs/2024.3-gpu`<br>`gromacs/2024.3-heffte`|GPU-enabled module available<br>Module with heFFTe available for [GPU PME decomposition](#gpu-pme-decomposition)
 
 - Puhti and Mahti have also `gromacs-env/<year>` modules for loading the recommended
   latest minor version from each year (replace `<year>` accordingly).
@@ -271,7 +263,7 @@ on the GROMACS page.
     #SBATCH --cpus-per-task=7
 
     module use /appl/local/csc/modulefiles
-    module load gromacs/2024.2-gpu
+    module load gromacs/2024.3-gpu
 
     export OMP_NUM_THREADS=${SLURM_CPUS_PER_TASK}
 
@@ -290,7 +282,7 @@ on the GROMACS page.
     #SBATCH --ntasks-per-node=8
 
     module use /appl/local/csc/modulefiles
-    module load gromacs/2024.2-gpu
+    module load gromacs/2024.3-gpu
 
     export OMP_NUM_THREADS=7
 

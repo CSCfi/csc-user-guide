@@ -1,5 +1,20 @@
 # Applications
 
+## CSC chemistry software stack on LUMI updated, 19.9.2024
+
+Following the recent major LUMI upgrade, we have now finished recompiling the
+chemistry software stack maintained by CSC on LUMI (`/appl/local/csc/soft/chem`).
+Modules of the following software were updated:
+
+* [Amber](../../apps/amber.md)
+* [CP2K](../../apps/cp2k.md)
+* [GROMACS](../../apps/gromacs.md)
+* [NAMD](../../apps/namd.md)
+
+At the same time, some old modules have been deprecated. We recommend using the
+most recent software versions as they tend to have better performance and less
+bugs than older releases.
+
 ## GROMACS 2024.3, 12.9.2024
 
 [GROMACS](../../apps/gromacs.md) 2024.3 is now available on Puhti and Mahti. See
