@@ -34,7 +34,7 @@ attach the volume to in the **Attach to Instance** selector.
 
 ![Attach persistent volume](../../img/volume-attach-horizon2.png)
 
-## Using attached volumes
+### Using attached volumes
 
 The first time you use a attached volume it needs to be initialized.
 **This should ONLY be done the FIRST time you use it**, otherwise you
@@ -73,17 +73,20 @@ In the following command, we are assuming the username is cloud-user.
     sudo chown cloud-user:cloud-user /media/volume
 
 After this step, you should be able to use your volume normally.
+
+### Detaching the volume
+
 Once you are done with your operations and you want to detach the volume, please remember to unmount the volume before detaching it!
 
     sudo umount /dev/vdb
+
+### Subsequent additions
 
 If you want the volume to be available after rebooting the virtual
 machine, you need to add it in the `/etc/fstab` configuration file.
 You can use the label you previously created for the partition:
 
     sudo sh -c 'echo "/dev/vdb     /media/volume    xfs    defaults,nofail    0    2" >> /etc/fstab'
-
-## Subsequent additions
 
 After you attach the volume to another machine, you only need to run:
 
