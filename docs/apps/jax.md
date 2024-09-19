@@ -61,18 +61,13 @@ containers](../computing/containers/run-existing.md).
 ## Additional packages
 
 If you find that some package is missing, you can often install it
-yourself with `pip install --user`. See [our Python
-documentation](python.md#installing-python-packages-to-existing-modules)
-for more information on how to install packages yourself. If you think
-that some important JAX-related package should be included in
-the modules provided by CSC, please [contact our
+yourself using `pip install`. It is recommended to use Python virtual
+environments. See [our Python documentation for more information on
+how to install packages
+yourself](../support/tutorials/python-usage-guide.md#installing-python-packages-to-existing-modules).
+If you think that some important package should be included in the
+module provided by CSC, please [contact our
 servicedesk](../support/contact.md).
-
-
-With recent modules it is also possible to use [Python virtual
-environments](https://packaging.python.org/en/latest/guides/installing-using-pip-and-virtual-environments/#creating-a-virtual-environment). To
-create a virtual environment use the command
-`python3 -m venv --system-site-packages venv`.
 
 ## License
 
