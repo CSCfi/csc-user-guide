@@ -8,7 +8,6 @@
 * [How to add docker hub credentials to a project](docker_hub_login.md)
 * [How to automatically scale up and down replicas](addHorizontalAutoscaler.md)
 * [How to backup a Postgres DB into Allas](backup-postgres-allas.md)
-* [How to manually cache images in Rahti 2's registry](docker_hub_manual_caching.md)
 * [How to package a Kubernetes application with Helm](helm.md)
 * [How to run an ad-hoc interactive container](oc-run.md)
 * [How to transfer data to Rahti 2?](transfer_data_rahti.md)
