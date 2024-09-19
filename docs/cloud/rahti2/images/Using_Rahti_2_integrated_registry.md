@@ -1,5 +1,7 @@
 # Using Rahti 2 integrated registry
 
+## Manual Image Caching 
+
 It is possible to manually cache images in Rahti 2. This could be useful to remove
 an external dependency or improve performance.
 
@@ -29,7 +31,7 @@ The process is simple:
 You should be able to see your images in your project:
 ![Image Streams](../../img/image_streams_rahti4.png)
 
-## Use the image
+## Using Manually Cached Images 
 
 Go to your project's deployment, and edit it.
 
@@ -39,3 +41,41 @@ Go to the Images section, make sure the option "Deploy images from an image stre
 Finally select the new image.
 
 ![Use cached image](../../img/use_cached_image.png)
+
+## Access Control for the Rahti 2 Integrated Registry
+
+Rahti 2 allows fine-grained control over access to the integrated image registry, enabling management of access based on [user authentication](https://docs.openshift.com/container-platform/4.15/authentication/understanding-authentication.html#rbac-groups_understanding-authentication).
+
+### 1. **Anonymous Access** (`system:anonymous`)
+
+This refers to users who access the registry without providing any authentication credentials. In this scenario, they have no identity attached to their requests.
+
+- **How to enable**: Use the following command to allow anonymous users to pull images from your project's registry:
+  ```bash
+  oc policy add-role-to-user registry-viewer system:anonymous -n <project>
+  ```
+- **Use case**: Suitable for cases where you want to make images publicly accessible, allowing anyone to view or pull images without logging in.
+
+### 2. **Unauthenticated Access** (`system:unauthenticated`)
+
+This group includes all users who are accessing the system without valid authentication credentials, including anonymous users but potentially also automated systems that fail to authenticate.
+
+- **How to enable**: Grant unauthenticated users access with the command:
+  ```bash
+  oc policy add-role-to-user registry-viewer system:unauthenticated -n <project>
+  ```
+- **Use case**: This is broader than `system:anonymous` and is useful for systems to access your registry without authentication.
+
+### 3. **Authenticated Access** (`system:authenticated`)
+
+Authenticated users are those who have successfully logged in using valid credentials (e.g., OAuth tokens).
+
+- **How to enable**: To allow all authenticated users to access the registry:
+  ```bash
+  oc policy add-role-to-user registry-viewer system:authenticated -n <project>
+  ```
+- **Use case**: This allows any user with valid credentials to view or pull images, useful for restricting access.
+
+## Guide on Pulling Images from Rahti 1 Registry
+
+To securely pull images from Rahti 1 registry to Rahti 2, follow this [guide]( ../../../support/faq/pull-from-rahtiv1-registry/). It also explains how to convert images using `Skopeo` for compatibility with future releases.
