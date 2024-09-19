@@ -78,4 +78,4 @@ Authenticated users are those who have successfully logged in using valid creden
 
 ## Guide on Pulling Images from Rahti 1 Registry
 
-To securely pull images from Rahti 1 registry to Rahti 2, follow this [guide]( ../../../support/faq/pull-from-rahtiv1-registry/). It also explains how to convert images using `Skopeo` for compatibility with future releases.
+To securely pull images from Rahti 1 registry to Rahti 2, follow this [guide](../../../support/faq/pull-from-rahtiv1-registry.md). It also explains how to convert images using `Skopeo` for compatibility with future releases.
