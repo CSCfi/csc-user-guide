@@ -212,6 +212,6 @@ In the Project details page (`Developer` > `Project`), click `PersistentVolumeCl
 !!! warning "Lazy volume creation"
     The volume will only be created when it is mounted for the first time, this is a change in behavior in `Rahti 2`.
 
-### How to use integrated reegistry
+### How to use integrated registry
 
 To learn more about  image caching and access control registry in Rahti 2, refer to the following article: [Using Rahti 2 Integrated Registry](../rahti2/images/Using_Rahti_2_integrated_registry/).
