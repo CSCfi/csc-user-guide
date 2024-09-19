@@ -44,7 +44,7 @@ Finally select the new image.
 
 ## Access Control for the Rahti 2 Integrated Registry
 
-Rahti 2 allows fine-grained control over access to the integrated image registry, enabling management of access based on [user authentication](https://docs.openshift.com/container-platform/4.15/authentication/understanding-authentication.html#rbac-groups_understanding-authentication).
+Rahti 2 allows fine-grained control over access to the integrated image registry, enabling management of access based on [user authentication](https://docs.openshift.com/container-platform/4.15/authentication/understanding-authentication.html).
 
 ### 1. **Anonymous Access** (`system:anonymous`)
 
@@ -58,13 +58,13 @@ This refers to users who access the registry without providing any authenticatio
 
 ### 2. **Unauthenticated Access** (`system:unauthenticated`)
 
-This group includes all users who are accessing the system without valid authentication credentials, including anonymous users but potentially also automated systems that fail to authenticate.
+This group includes all users who are accessing the system without valid authentication credentials, including anonymous users but potentially also used automated systems, scripts or external services  that do not need to be authenticate.
 
 - **How to enable**: Grant unauthenticated users access with the command:
   ```bash
   oc policy add-role-to-user registry-viewer system:unauthenticated -n <project>
   ```
-- **Use case**: This is broader than `system:anonymous` and is useful for systems to access your registry without authentication.
+- **Use case**: This is broader than `system:anonymous` and is useful for systems or services to access your registry without authentication.
 
 ### 3. **Authenticated Access** (`system:authenticated`)
 
