@@ -175,47 +175,47 @@ We can configure MPS on a local computer using the following instructions.
 
 
 ## Linux and MacOS
-3. Run in shell:
+Step 3: Run in shell:
 
 ```bash
 mkdir -p "$HOME/.matlab"
 ```
 
-4. Run in shell:
+Step 4: Run in shell:
 ```bash
 unzip "$HOME/Downloads/mps_puhti.zip" -d "$HOME/.matlab"
 ```
 
-5. Run in MATLAB:
+Step 5: Run in MATLAB:
 ```matlab
 addpath(fullfile(getenv("HOME"), ".matlab", "mps_puhti")
 savepath
 ```
 
-6. Run in MATLAB:
+Step 6: Run in MATLAB:
 ```matlab
 configCluster
 ```
 
 #### Windows
-3. Run in Windows Powershell:
+Step 3: Run in Windows Powershell:
 
 ```powershell
 New-Item -Path "$env:APPDATA\Mathworks\MATLAB" -ItemType Directory -Force 
 ```
 
-4. Run in Windows Powershell:
+Step 4: Run in Windows Powershell:
 ```powershell
 Expand-Archive -Path "$env:USERPROFILE\Downloads\mps_puhti.zip" -DestinationPath "$env:APPDATA\Mathworks\MATLAB"
 ```
 
-5. Run in MATLAB:
+Step 5: Run in MATLAB:
 ```matlab
 addpath(fullfile(getenv("APPDATA"), "Mathworks", "MATLAB", "mps_puhti")
 savepath
 ```
 
-6. Run in MATLAB:
+Step 6: Run in MATLAB:
 ```matlab
 configCluster
 ```
