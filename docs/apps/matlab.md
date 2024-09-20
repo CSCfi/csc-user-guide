@@ -174,7 +174,7 @@ We can configure MPS on a local computer using the following instructions.
 6. Configure your MATLAB to submit jobs to Puhti by calling `configCluster` in MATLAB and supply your username to the prompt.
 
 
-## Linux and MacOS
+#### Linux and MacOS
 Step 3: Run in shell:
 
 ```bash
