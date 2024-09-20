@@ -35,7 +35,7 @@ A popular tool for working with PostgreSQL is [pgAdmin that can be found here](h
        psql: error: connection to server at "$IP_ADDRESS", port 5432 failed: FATAL:  database "$DATABASE" does not exist
        ```
        it means that your database is wrong.
-    3. If `psql` asks for a password, but it does not accept your password, then you either mistyped it
+    3. If `psql` asks for a password, but it does not accept your password, then you either mistype it
        or your database username does not exist in your database.
     4. If the connection seems to be hanging, and you don't get a PostgreSQL prompt, it means that either your IP or port is wrong or that you did not create a firewall opening from your host.
 4. Now you should be able to use the database.
