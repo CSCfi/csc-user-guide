@@ -23,7 +23,7 @@ The interactive MATLAB is intended for temporary, light pre- and postprocessing 
 It is available as follows:
 
 - License: Academic
-- Versions: R2023a, R2023b, R2024a
+- Versions: from R2023a to R2024a
 - Toolboxes: MATLAB Compiler, MATLAB Compiler SDK, Parallel Computing Toolbox.
   There are 2 licenses for each toolbox.
 
@@ -31,7 +31,7 @@ MATLAB Parallel Server (MPS) allows sending work as a batch job from a local MAT
 It is available as follows:
 
 - License: Academic
-- Versions: R2023b, R2024a
+- Versions: from R2021a to R2024a
 - Toolboxes: MATLAB Parallel Server.
   There is license for using upto 500 computing cores simultaneously.
   Furthermore, toolboxes that you have license on your local MATLAB license can also be used with MATLAB Parallel Server.
@@ -43,7 +43,7 @@ If you are a user from a commercial company or Finnish research institute, pleas
 LUMI has MATLAB an installation for interactive use.
 
 - License: Academic
-- Versions: R2023b
+- Versions: from R2023b to R2024a
 - Toolboxes: Simulink, Control System Toolbox, Curve Fitting Toolbox, Deep Learning Toolbox, Global Optimization Toolbox, Image Processing Toolbox, Optimization Toolbox, Parallel Computing Toolbox, Signal Processing Toolbox, Statistics and Machine Learning Toolbox, Wavelet Toolbox.
   There are 25 licenses of each toolbox.
 
@@ -58,6 +58,8 @@ We first need to make a reservation using Slurm:
 ```bash
 srun --account=project_id --partition=small --time=0:15:00 --cpus-per-task=1 --mem-per-cpu=4g --pty bash
 ```
+
+Please, replace the `project_id` with your project identifier, otherwise the script will fail.
 
 === "Puhti"
 
@@ -194,7 +196,7 @@ For example, a simple CPU reservation looks as follows:
 
 ```matlab
 c = parcluster;
-c.AdditionalProperties.ComputingProject = 'project_<id>';
+c.AdditionalProperties.ComputingProject = 'project_id';
 c.AdditionalProperties.Partition = 'small';
 c.AdditionalProperties.WallTime = '00:15:00';
 c.AdditionalProperties.CPUsPerNode = '';
@@ -203,6 +205,8 @@ c.AdditionalProperties.GpuCard = '';
 c.AdditionalProperties.GPUsPerNode = '';
 c.AdditionalProperties.EmailAddress = '';
 ```
+
+Please, replace the `project_id` with your project identifier, otherwise the script will fail.
 
 Now, we can use the [`batch`](http://se.mathworks.com/help/distcomp/batch.html) function to submit a job to Puhti.
 It returns a job object which we can use to access the output of the submitted job.
@@ -228,7 +232,7 @@ Let's create a reservation:
 
 ```matlab
 c = parcluster;
-c.AdditionalProperties.ComputingProject = 'project_<id>';
+c.AdditionalProperties.ComputingProject = 'project_id';
 c.AdditionalProperties.Partition = 'small';
 c.AdditionalProperties.WallTime = '00:15:00';
 c.AdditionalProperties.CPUsPerNode = '';
@@ -237,6 +241,8 @@ c.AdditionalProperties.GpuCard = '';
 c.AdditionalProperties.GPUsPerNode = '';
 c.AdditionalProperties.EmailAddress = '';
 ```
+
+Please, replace the `project_id` with your project identifier, otherwise the script will fail.
 
 Now, we can use the batch command to create a parallel pool of workers by setting the `'Pool'` argument to the amount of cores we want to reserve.
 For example, we can submit a parallel job to eight cores as follows:
@@ -255,7 +261,7 @@ For example, a single GPU reservation looks as follows:
 
 ```matlab
 c = parcluster;
-c.AdditionalProperties.ComputingProject = 'project_<id>';
+c.AdditionalProperties.ComputingProject = 'project_id';
 c.AdditionalProperties.Partition = 'gpu';
 c.AdditionalProperties.WallTime = '00:15:00';
 c.AdditionalProperties.CPUsPerNode = 1;
@@ -264,6 +270,8 @@ c.AdditionalProperties.GpuCard = 'v100';
 c.AdditionalProperties.GPUsPerNode = 1;
 c.AdditionalProperties.EmailAddress = '';
 ```
+
+Please, replace the `project_id` with your project identifier, otherwise the script will fail.
 
 Now, we can submit a simple GPU job that queries the available GPU device as follows:
 
