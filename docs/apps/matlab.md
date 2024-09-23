@@ -23,15 +23,15 @@ The interactive MATLAB is intended for temporary, light pre- and postprocessing 
 It is available as follows:
 
 - License: Academic
-- Versions: R2023a, R2023b, R2024a
-- Toolboxes: MATLAB Compiler, MATLAB Compiler SDK, Parallel Computing Toolbox.
+- Versions: from R2023a to R2024a
+- Toolboxes: Parallel Computing Toolbox.
   There are 2 licenses for each toolbox.
 
 MATLAB Parallel Server (MPS) allows sending work as a batch job from a local MATLAB installation to Puhti.
 It is available as follows:
 
 - License: Academic
-- Versions: R2023b, R2024a
+- Versions: from R2021a to R2024a
 - Toolboxes: MATLAB Parallel Server.
   There is license for using upto 500 computing cores simultaneously.
   Furthermore, toolboxes that you have license on your local MATLAB license can also be used with MATLAB Parallel Server.
@@ -43,7 +43,7 @@ If you are a user from a commercial company or Finnish research institute, pleas
 LUMI has MATLAB an installation for interactive use.
 
 - License: Academic
-- Versions: R2023b
+- Versions: from R2023b to R2024a
 - Toolboxes: Simulink, Control System Toolbox, Curve Fitting Toolbox, Deep Learning Toolbox, Global Optimization Toolbox, Image Processing Toolbox, Optimization Toolbox, Parallel Computing Toolbox, Signal Processing Toolbox, Statistics and Machine Learning Toolbox, Wavelet Toolbox.
   There are 25 licenses of each toolbox.
 
@@ -58,6 +58,8 @@ We first need to make a reservation using Slurm:
 ```bash
 srun --account=project_id --partition=small --time=0:15:00 --cpus-per-task=1 --mem-per-cpu=4g --pty bash
 ```
+
+Please, replace the `project_id` with your project identifier, otherwise the script will fail.
 
 === "Puhti"
 
@@ -158,32 +160,65 @@ With MATLAB Parallel Server we can also create parallel pools to Puhti and run p
 <!-- TODO: Constructs for using GPUs are also available. -->
 
 
-## Using MATLAB Parallel Server on Puhti
+## Submitting work from local MATLAB to Puhti using MATLAB Parallel Server
 ### Configuring MPS on local MATLAB
 Puhti's MATLAB Parallel Server (MPS) allows users to send batch jobs from a local MATLAB session to the Puhti cluster.
 Using Puhti MPS requires a local MATLAB installation with a supported MATLAB version and the Parallel Computing Toolbox and access to the Puhti cluster.
 We can configure MPS on a local computer using the following instructions.
 
 1. Log in and out to Puhti via SSH client to ensure you have a home directory.
-2. Download the [**MPS configuration scripts**](https://wiki.eduuni.fi/display/cscjemma/MATLAB+MPS+configuration) for Puhti.
-3. Unzip the downloaded archive into a chosen directory.
-   On Linux and macOS, MATLAB stores local configurations in `~/.matlab` directory.
-   We can place the files there as follows:
-   ```bash
-   mkdir -p ~/.matlab
-   unzip ~/Downloads/mps_puhti.zip -d ~/.matlab
-   ```
-   On Windows, we can use the `%AppData%\Mathworks\MATLAB` directory to store the configurations.
-4. Set the directory the MATLAB path using `addpath` and `savepath` functions in MATLAB as follows:
-   ```matlab
-   addpath("~/.matlab/mps_puhti")
-   savepath
-   ```
-5. Configure your MATLAB to submit jobs to Puhti by calling `configCluster` in MATLAB and supply your username to the prompt as follows:
-   ```matlab
-   configCluster
-   % Username on Puhti (e.g. jdoe): >>username
-   ```
+2. Download the configuration script archive [`mps_puhti.zip`](https://wiki.eduuni.fi/display/cscjemma/MATLAB+MPS+configuration) for Puhti.
+3. Create a local MATLAB configuration directory.
+4. Extract the configurations to the configuration directory.
+5. Add the directory to the unzipped configuration files to MATLAB's path using `addpath` and `savepath` functions in MATLAB.
+6. Configure your MATLAB to submit jobs to Puhti by calling `configCluster` in MATLAB and supply your username to the prompt.
+
+
+#### Linux and MacOS
+Step 3: Run in shell:
+
+```bash
+mkdir -p "$HOME/.matlab"
+```
+
+Step 4: Run in shell:
+```bash
+unzip "$HOME/Downloads/mps_puhti.zip" -d "$HOME/.matlab"
+```
+
+Step 5: Run in MATLAB:
+```matlab
+addpath(fullfile(getenv("HOME"), ".matlab", "mps_puhti")
+savepath
+```
+
+Step 6: Run in MATLAB:
+```matlab
+configCluster
+```
+
+#### Windows
+Step 3: Run in Windows Powershell:
+
+```powershell
+New-Item -Path "$env:APPDATA\Mathworks\MATLAB" -ItemType Directory -Force 
+```
+
+Step 4: Run in Windows Powershell:
+```powershell
+Expand-Archive -Path "$env:USERPROFILE\Downloads\mps_puhti.zip" -DestinationPath "$env:APPDATA\Mathworks\MATLAB"
+```
+
+Step 5: Run in MATLAB:
+```matlab
+addpath(fullfile(getenv("APPDATA"), "Mathworks", "MATLAB", "mps_puhti")
+savepath
+```
+
+Step 6: Run in MATLAB:
+```matlab
+configCluster
+```
 
 
 ### Submitting serial jobs
@@ -194,7 +229,7 @@ For example, a simple CPU reservation looks as follows:
 
 ```matlab
 c = parcluster;
-c.AdditionalProperties.ComputingProject = 'project_<id>';
+c.AdditionalProperties.ComputingProject = 'project_id';
 c.AdditionalProperties.Partition = 'small';
 c.AdditionalProperties.WallTime = '00:15:00';
 c.AdditionalProperties.CPUsPerNode = '';
@@ -203,6 +238,8 @@ c.AdditionalProperties.GpuCard = '';
 c.AdditionalProperties.GPUsPerNode = '';
 c.AdditionalProperties.EmailAddress = '';
 ```
+
+Please, replace the `project_id` with your project identifier, otherwise the script will fail.
 
 Now, we can use the [`batch`](http://se.mathworks.com/help/distcomp/batch.html) function to submit a job to Puhti.
 It returns a job object which we can use to access the output of the submitted job.
@@ -228,7 +265,7 @@ Let's create a reservation:
 
 ```matlab
 c = parcluster;
-c.AdditionalProperties.ComputingProject = 'project_<id>';
+c.AdditionalProperties.ComputingProject = 'project_id';
 c.AdditionalProperties.Partition = 'small';
 c.AdditionalProperties.WallTime = '00:15:00';
 c.AdditionalProperties.CPUsPerNode = '';
@@ -237,6 +274,8 @@ c.AdditionalProperties.GpuCard = '';
 c.AdditionalProperties.GPUsPerNode = '';
 c.AdditionalProperties.EmailAddress = '';
 ```
+
+Please, replace the `project_id` with your project identifier, otherwise the script will fail.
 
 Now, we can use the batch command to create a parallel pool of workers by setting the `'Pool'` argument to the amount of cores we want to reserve.
 For example, we can submit a parallel job to eight cores as follows:
@@ -255,7 +294,7 @@ For example, a single GPU reservation looks as follows:
 
 ```matlab
 c = parcluster;
-c.AdditionalProperties.ComputingProject = 'project_<id>';
+c.AdditionalProperties.ComputingProject = 'project_id';
 c.AdditionalProperties.Partition = 'gpu';
 c.AdditionalProperties.WallTime = '00:15:00';
 c.AdditionalProperties.CPUsPerNode = 1;
@@ -264,6 +303,8 @@ c.AdditionalProperties.GpuCard = 'v100';
 c.AdditionalProperties.GPUsPerNode = 1;
 c.AdditionalProperties.EmailAddress = '';
 ```
+
+Please, replace the `project_id` with your project identifier, otherwise the script will fail.
 
 Now, we can submit a simple GPU job that queries the available GPU device as follows:
 
