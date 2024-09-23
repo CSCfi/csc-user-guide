@@ -17,7 +17,7 @@ MATLAB is proprietary software.
 
 
 ## Available
-### Puhti
+### Puhti - Interactive MATLAB
 Puhti has MATLAB installations for interactive use and batch jobs.
 The interactive MATLAB is intended for temporary, light pre- and postprocessing of data.
 It is available as follows:
@@ -27,6 +27,7 @@ It is available as follows:
 - Toolboxes: Parallel Computing Toolbox.
   There are 2 licenses for each toolbox.
 
+### Puhti - MATLAB Parallel Server
 MATLAB Parallel Server (MPS) allows sending work as a batch job from a local MATLAB installation to Puhti.
 It is available as follows:
 
@@ -39,7 +40,7 @@ It is available as follows:
 The academic license allows use only for the affiliates, that is staff and students, of Finnish higher education institutions.
 If you are a user from a commercial company or Finnish research institute, please [contact CSC Service Desk](../support/contact.md) for further instructions.
 
-### LUMI
+### LUMI - Interactive MATLAB
 LUMI has MATLAB an installation for interactive use.
 
 - License: Academic
@@ -188,7 +189,7 @@ unzip "$HOME/Downloads/mps_puhti.zip" -d "$HOME/.matlab"
 
 Step 5: Run in MATLAB:
 ```matlab
-addpath(fullfile(getenv("HOME"), ".matlab", "mps_puhti")
+addpath(fullfile(getenv("HOME"), ".matlab", "mps_puhti"))
 savepath
 ```
 
@@ -211,7 +212,7 @@ Expand-Archive -Path "$env:USERPROFILE\Downloads\mps_puhti.zip" -DestinationPath
 
 Step 5: Run in MATLAB:
 ```matlab
-addpath(fullfile(getenv("APPDATA"), "Mathworks", "MATLAB", "mps_puhti")
+addpath(fullfile(getenv("APPDATA"), "Mathworks", "MATLAB", "mps_puhti"))
 savepath
 ```
 
@@ -229,6 +230,7 @@ For example, a simple CPU reservation looks as follows:
 
 ```matlab
 c = parcluster;
+% Replace 'project_id' to your project identifier, otherwise the script will fail.
 c.AdditionalProperties.ComputingProject = 'project_id';
 c.AdditionalProperties.Partition = 'small';
 c.AdditionalProperties.WallTime = '00:15:00';
@@ -238,8 +240,6 @@ c.AdditionalProperties.GpuCard = '';
 c.AdditionalProperties.GPUsPerNode = '';
 c.AdditionalProperties.EmailAddress = '';
 ```
-
-Please, replace the `project_id` with your project identifier, otherwise the script will fail.
 
 Now, we can use the [`batch`](http://se.mathworks.com/help/distcomp/batch.html) function to submit a job to Puhti.
 It returns a job object which we can use to access the output of the submitted job.
@@ -265,6 +265,7 @@ Let's create a reservation:
 
 ```matlab
 c = parcluster;
+% Replace 'project_id' to your project identifier, otherwise the script will fail.
 c.AdditionalProperties.ComputingProject = 'project_id';
 c.AdditionalProperties.Partition = 'small';
 c.AdditionalProperties.WallTime = '00:15:00';
@@ -274,8 +275,6 @@ c.AdditionalProperties.GpuCard = '';
 c.AdditionalProperties.GPUsPerNode = '';
 c.AdditionalProperties.EmailAddress = '';
 ```
-
-Please, replace the `project_id` with your project identifier, otherwise the script will fail.
 
 Now, we can use the batch command to create a parallel pool of workers by setting the `'Pool'` argument to the amount of cores we want to reserve.
 For example, we can submit a parallel job to eight cores as follows:
@@ -294,6 +293,7 @@ For example, a single GPU reservation looks as follows:
 
 ```matlab
 c = parcluster;
+% Replace 'project_id' to your project identifier, otherwise the script will fail.
 c.AdditionalProperties.ComputingProject = 'project_id';
 c.AdditionalProperties.Partition = 'gpu';
 c.AdditionalProperties.WallTime = '00:15:00';
@@ -303,8 +303,6 @@ c.AdditionalProperties.GpuCard = 'v100';
 c.AdditionalProperties.GPUsPerNode = 1;
 c.AdditionalProperties.EmailAddress = '';
 ```
-
-Please, replace the `project_id` with your project identifier, otherwise the script will fail.
 
 Now, we can submit a simple GPU job that queries the available GPU device as follows:
 
@@ -373,10 +371,4 @@ scontrol show lic=mdcs
 LicenseName=mdcs
     Total=500 Used=320 Free=180 Remote=no
 ```
--->
-
-
-<!-- TODO:
-## Creating and using custom MATLAB installation
-It is also possible to create and use custom MATLAB installation and license.
 -->
