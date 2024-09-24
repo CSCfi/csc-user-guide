@@ -10,7 +10,7 @@ while they are running.
 Persistent volumes are using CEPH cluster. Regarding I/O performance, you should not use this kind of volume.
 It will use network access to the volume therefore latency.
 
-## Creating and attaching volumes in the Pouta web interface
+## Creating and attaching a volume in the Pouta web interface
 
 Persistent volumes can be created using either the web interface or
 through the command line interface.
@@ -47,68 +47,10 @@ attach the volume to in the **Attach to Instance** selector.
 
 ![Attach persistent volume](../../img/volume-attach-horizon2.png)
 
-## Using attached volumes
-
-The first time you use a attached volume it needs to be initialized.
-**This should ONLY be done the FIRST time you use it**, otherwise you
-overwrite all your data on the volume. First determine which device is
-your volume.
-
-The following is a simple usage example for creating a filesystem
-on a volume and mounting the filesystem automatically after a
-reboot. Note that this is a simple example and there are many
-cooler ways to manage your file systems.
-
-Once you have logged in to your virtual machine, you can list the
-volumes:
-
-    sudo parted -l
-
-You should be able to identify the volume based on its size. For this
-exercise, let us say it is `/dev/vdb`. First, we create a file  
-system on it. We are going to
-use *xfs* because we know it works well in Pouta:
-
-    sudo mkfs.xfs /dev/vdb
-
-Now you can start using it. For example, to mount it under
-`/media/volume`, you first need to make sure that the path exists:
-
-    sudo mkdir -p /media/volume
-
-Then you can mount it:
-
-    sudo mount /dev/vdb /media/volume
-
-Finally, you need to change the ownership to be able to read and write data in it.
-In the following command, we are assuming the username is cloud-user.
-
-    sudo chown cloud-user:cloud-user /media/volume
-
-After this step, you should be able to use your volume normally.
-Once you are done with your operations and you want to detach the volume, please remember to unmount the volume before detaching it!
-
-    sudo umount /dev/vdb
-
-If you want the volume to be available after rebooting the virtual
-machine, you need to add it in the `/etc/fstab` configuration file.
-You can use the label you previously created for the partition:
-
-    sudo sh -c 'echo "/dev/vdb     /media/volume    xfs    defaults,nofail    0    2" >> /etc/fstab'
-
-## Subsequent additions
-
-After you attach the volume to another machine, you only need to run:
-
-    mkdir -p /media/volume
-    mount /dev/vdb /media/volume
-
-After these commands, in order to allow the user of the virtual machine to read and write data on the disk, you might need to give the ownership of the /media/volume folder to the user.
-
-## Creating and attaching volumes with command line tools
+## Creating and attaching a volume with command line interface
 
 Persistent volumes can also be created and attached using the command
-line tools:
+line interface:
 
 ```
 openstack volume create --description "<description>" --size <size> <name>
@@ -152,6 +94,57 @@ openstack server add volume <virtual machine> <volume>
 
     Most volume types can only be attached to one virtual machine at a time.
 
+## Using attached volumes
+
+The first time you use a attached volume it needs to be initialized.
+**This should ONLY be done the FIRST time you use it**, otherwise you
+overwrite all your data on the volume. First determine which device is
+your volume.
+
+The following is a simple usage example for creating a filesystem
+on a volume and mounting the filesystem automatically after a
+reboot. Note that this is a simple example and there are many
+cooler ways to manage your file systems.
+
+Once you have logged in to your virtual machine, you can list the
+volumes:
+
+    sudo parted -l
+
+You should be able to identify the volume based on its size. For this
+exercise, let us say it is `/dev/vdb`. First, we create a file
+system on it. We are going to
+use *xfs* because we know it works well in Pouta:
+
+    sudo mkfs.xfs /dev/vdb
+
+Now you can start using it. For example, to mount it under
+`/media/volume`, you first need to make sure that the path exists:
+
+    sudo mkdir -p /media/volume
+
+Then you can mount it:
+
+    sudo mount /dev/vdb /media/volume
+
+Finally, you need to change the ownership to be able to read and write data in it.
+In the following command, we are assuming the username is cloud-user.
+
+    sudo chown cloud-user:cloud-user /media/volume
+
+After this step, you should be able to use your volume normally. If you want the volume to be available after rebooting the virtual machine, you need to add it in the `/etc/fstab` configuration file.
+You can use the label you previously created for the partition:
+
+    sudo sh -c 'echo "/dev/vdb     /media/volume    xfs    defaults,nofail    0    2" >> /etc/fstab'
+
+## Detaching the volume using web interface
+
+Once you are done with your operations and you want to detach the volume, please remember to unmount the volume before detaching it!
+
+    sudo umount /dev/vdb
+
+## Detaching the volume using CLI
+
 When you no longer need the volume to be attached, you can detach
 it. **Before detaching, remember to unmount the volume's filesystem on
 the virtual machine to avoid data loss!**
@@ -160,18 +153,18 @@ the virtual machine to avoid data loss!**
 openstack server remove volume <server> <volume>
 ```
 
-If you want to delete a volume and the data contained on it you can execute:
+If you want to delete a volume and the data contained on it, you can execute:
 
-```sh
-openstack volume delete <volume> # Name or ID
+```
+openstack volume delete <volume> # Name or ID of volume
 ```
 
-**The data will be deleted forever, it will not be recoverable**.
+**The data will be deleted forever, it cannot be recovered**.
 
-## Transferring volumes between other Pouta projects
+## Transferring volumes between two Pouta projects using web interface
 
 Occasionally, you may need to transfer your persistent
-volumes between Pouta projects. For example, you may need to transfer
+volumes between two Pouta projects. For example, you may need to transfer
 large data sets or bootable volumes to colleagues in another Pouta
 project. This can be done using volume transfers. Volume transfers
 between projects in Pouta are fast, avoid data duplication and
@@ -206,25 +199,27 @@ This will transfer the volume to your colleague's project.
 
 ![Accept volume transfer](../../img/pouta-accept-volume-transfer.png)
 
-Volume transfers can be also done using the command line tools:
+## Transferring volumes between two Pouta projects using CLI
+
+Volume transfers can be also done using the command line interface:
 
     openstack volume transfer request create <name or UUID of volume to transfer>
 
 The output of this command will have the volume transfer credentials
-(transfer ID  & Authorization key), note them down and pass them to your
+(transfer ID  & Authorization key), note these down and pass these to your
 colleague to whom you want to transfer the volume.
 
 Your colleague can accept the transfer request of this volume:
 
     openstack volume transfer request accept <transferID> <authKey>
 
-## Expanding size of the attached volumes in the Pouta web interface
+## Expanding size of the attached volume in the Pouta web interface
 
 Previously you have created and attached a volume. In this section you are going to enlarge the size of the volume attached to the instance. Before you attempt for volume expansion you have to detach the volume from the instance, please remember to unmount the volume before detaching it!
 
     sudo umount /dev/vdb
 
-To expand the volume, first select the *Volumes* view in the Pouta web interface. Click the arrow symbol next to the **Edit Volume** button for the volume you want to enlarge and select **Extend Volume**. Input the the volume amount you want to enlarge in (GiB) in the field **New Size (GiB)**. Finally, click the **Extend Volume** button.
+To expand the volume, first select the *Volumes* view in the Pouta web interface. Click the arrow symbol next to the **Edit Volume** button for the volume you want to enlarge and select **Extend Volume**. Input the volume amount you want in "GiB" in the field **New Size (GiB)**. Finally, click the **Extend Volume** button.
 To attach an expanded volume similar to the previous attach persistent volume, first select the *Volumes* view in the Pouta web interface. Click the arrow symbol next to the **Edit Volume** button for the volume you expanded and select **Manage attachments**. Select the instance (i.e. virtual machine) you want to attach the volume to in the **Attach to Instance** selector.
 
 ![Expand persistent volume](../../img/volume-expand-horizon1.png)
@@ -247,3 +242,19 @@ To verify that the filesystem has now the expected size, you can use the followi
     sudo xfs_info /dev/vdb
 
 By multiplying the block size (_bs_) by the number of blocks in the filesystem (_blocks_), you will obtain the size of the filesystem in bytes.
+
+## Expanding size of the attached volume using CLI
+
+To expand your volume, detach it from the server with following command:
+
+```
+openstack server remove volume <server-id> <volume-id>
+```
+Now, check if the volume is available to expand, list the volumes:
+```
+openstack volume list
+```
+You can now expand the volume by passing the volume ID and the new size:
+```
+openstack volume set <volume-id> --size <volume-size>
+```
