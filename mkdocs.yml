@@ -57,6 +57,8 @@ plugins:
         # deprecation:
         'support/tutorials/nomachine-usage.md': 'apps/nomachine.md'
         'support/faq/cannot-login-from-nomachine.md': 'apps/nomachine.md'
+        'support/tutorials/puhti_quick.md': 'support/tutorials/hpc-quick.md'
+        'support/tutorials/mahti_quick.md': 'support/tutorials/hpc-quick.md'
         # renamed files:
         'cloud/csc_notebooks/what_is_new.md': 'support/whats-new.md#cloud-services'
         'cloud/csc_notebooks/concepts.md': 'cloud/noppe/concepts.md'
@@ -300,6 +302,7 @@ nav:
            - cloud/rahti2/images/overview.md
            - Creating an image: cloud/rahti2/images/creating.md
            - Keeping docker images small: cloud/rahti2/images/keeping_docker_images_small.md
+           - Using Rahti 2 integrated registry: cloud/rahti2/images/Using_Rahti_2_integrated_registry.md
         - Rahti Catalog: cloud/rahti2/catalog-docs.md
         - Projects and quota: cloud/rahti2/usage/projects_and_quota.md
         - Billing: cloud/rahti2/billing.md

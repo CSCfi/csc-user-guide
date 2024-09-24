@@ -1,7 +1,6 @@
 # Store and share with Sensitive Data Connect
 
-!!! note
-
+!!! note "New version of SD Connect is available for testing purposes"
     - A new version of SD Connect is now available for testing purposes (Dec 2023). The updated user interface offers automated file encryption and decryption (up to 100 GB) along with key management. Additionally, three levels of sharing permissions are accessible across CSC projects. 
 
     - This version is in Open Beta. Kindly use it for testing scenarios and avoid relying on it for storing critical data until it transitions to a stable release. Please provide feedback by [contacting CSC Service Desk](../../support/contact.md) (subject: Sensitive Data) to contribute to service improvement.
