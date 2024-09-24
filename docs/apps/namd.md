@@ -16,7 +16,7 @@ The following versions are available:
 
 * Puhti: 2.14, 2.14-cuda, 3.0alpha11-cuda, 3.0b6-cuda
 * Mahti: 2.14
-* LUMI: 3.0b6-gpu
+* LUMI: 3.0-gpu
 
 ## License
 

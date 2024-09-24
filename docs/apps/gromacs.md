@@ -56,6 +56,7 @@ systems. It also comes with plenty of analysis scripts.
 === "LUMI"
     | Version | Available modules | Notes |
     |:-------:|:------------------|:-----:|
+    |2023.3   |`gromacs/2023.3`<br>`gromacs/2023.3-gpu`|GPU-enabled module available
     |2024.2   |`gromacs/2024.2`<br>`gromacs/2024.2-gpu`<br>`gromacs/2024.2-heffte`|GPU-enabled module available<br>Module with heFFTe available for [GPU PME decomposition](#gpu-pme-decomposition)
     |2024.3   |`gromacs/2024.3`<br>`gromacs/2024.3-gpu`<br>`gromacs/2024.3-heffte`|GPU-enabled module available<br>Module with heFFTe available for [GPU PME decomposition](#gpu-pme-decomposition)
 
@@ -399,7 +400,7 @@ for details.
     workloads in an [`interactive` session](../computing/running/interactive-usage.md).
     Since we only provide the MPI-version of GROMACS, you need to prepend your `gmx_mpi`
     command with `orterun -n 1`, e.g.:
-    
+
     ```bash
     sinteractive --account <project>
     module load gromacs-env

@@ -15,7 +15,7 @@ refinement.
 
 * Puhti: 20, 20-cuda, 22, 22-cuda
 * Mahti: 20, 20-cuda, 22, 22-cuda
-* LUMI: 22-cpu, 22-gpu
+* LUMI: 24-cpu, 24-gpu
 
 ## License
 
