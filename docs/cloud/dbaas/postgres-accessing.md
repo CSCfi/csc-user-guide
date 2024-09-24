@@ -1,44 +1,42 @@
 # Access your PostgreSQL database
 
-TODO ensure your firewalls are open from where you want to access your database
+See [the page on firewalls](firewalls.md) for instructions on opening access to your database.
 
 ## Graphical user interface
 
-A popular tool for working with PostgreSQL is [pgAdmin that can be found here](https://www.pgadmin.org/). Note that the application can not be installed on the database instance, it needs to be installed on your computer or a server that you control. The DBaaS team does not provide support for this application. We are also more comfortable with using the CLI tools.
+A popular tool for working with PostgreSQL databases is pgAdmin, which can be found [here](https://www.pgadmin.org/). It can be installed as a desktop application, or on a server to be accessed via its web GUI. Note that it can not be installed on the Pukki database instance, and the DBaaS team does not provide support for it, as we are more comfortable using the CLI tools.
 
 ## Command-line
 
-1. First you need to install the `postgresql` command line tool. Note that if you are using Linux, your distributions are usually shipped with an ancient version of PostgreSQL, so make sure that you install the most recent major version. For all operating systems you can [find instructions for installation here](https://www.postgresql.org/download/).
-2. Once you have installed the PostgreSQL client you should be able to login into the database. You can find the `public` IP from the `Overview` tab or `openstack database instance list`. The command that you normally want to use from a Linux CLI to connect to your database is:
+1. Install the `postgresql` command line tool. Note that some Linux distributions might provide ancient versions of it by default. Please consult [this page](https://www.postgresql.org/download/) for detailed installation instructions.
+2. Find the public IP of your database instance from its Overview tab in the web GUI, or with `openstack database instance list`.
+3. Use the following commands to access your PostgreSQL instance from the command line:
+   ```
+   psql --user ${USERNAME} --host ${PUBLIC_IP} ${DATABASE_NAME}
+   ```
 
-    ```
-    psql --user ${USERNAME} --host ${PUBLIC_IP} ${DATABASE_NAME}
-    ```
+   The syntax normally used in configuration files is:
 
-    The syntax normally used in configuration files is:
+   ```
+   psql postgresql://${USERNAME}:${PASSWORD}@{PUBLIC_IP}:5432/${DATABASE_NAME}
+   ```
 
-    ```
-    psql postgresql://${USERNAME}:${PASSWORD}@{PUBLIC_IP}:5432/${DATABASE_NAME}
-    ```
+   Note that if you use the latter syntax to access the database it will omit column names from query responses.
 
-    Note that if you use this syntax to login to the database it will not return column names when you do queries.
+### Common issues with CLI connections
 
-3. The most common issues when accessing the database from the CLI are the following:
-    1. If you get an error like:
-       ```
-       psql: error: connection to server at "195.148.30.38", port 5432 failed: Connection refused
-         Is the server running on that host and accepting TCP/IP connections?
-       ```
-       it means that either your database IP-address is wrong or you forgot to open the firewall.
-    2. If you get an error like:
-       ```
-       psql: error: connection to server at "$IP_ADDRESS", port 5432 failed: FATAL:  database "$DATABASE" does not exist
-       ```
-       it means that your database is wrong.
-    3. If `psql` asks for a password, but it does not accept your password, then you either mistype it
-       or your database username does not exist in your database.
-    4. If the connection seems to be hanging, and you don't get a PostgreSQL prompt, it means that either your IP or port is wrong or that you did not create a firewall opening from your host.
-4. Now you should be able to use the database.
+1. If the connection hangs and times out without a PostgreSQL prompt, or if you get an error like:
+   ```
+   psql: error: connection to server at "195.148.30.38", port 5432 failed: Connection refused
+   Is the server running on that host and accepting TCP/IP connections?
+   ```
+   it means either the IP address is wrong or the database instance's firewall is blocking access.
+2. If you get an error like:
+   ```
+   psql: error: connection to server at "$IP_ADDRESS", port 5432 failed: FATAL:  database "$DATABASE" does not exist
+   ```
+   it means you're trying to access the wrong database.
+3. If `psql` asks for a password but rejects it, make sure you typed it correctly, and check that the database user exists, either through the Users tab in the web GUI or with `openstack database user list ${DATABASE_ID}`.
 
 ## Accessing your Pukki PostgreSQL database from Puhti
 
@@ -91,8 +89,6 @@ A popular tool for working with PostgreSQL is [pgAdmin that can be found here](h
    ```
    sbatch my-first-psql-batch-job.bash
    ```
-
-
 
 ## Some useful SQL commands
 
@@ -152,7 +148,7 @@ SELECT * FROM table1 LIMIT 1 \gx
 
 ### Import database dump
 
-If you have a database dump, you can import it with the following command. Be aware that this might overwrite what you already have in the database:
+If you have a database dump, you can import it with the following command. Be aware that this might overwrite existing data:
 
 ```bash
 psql -h $FLOATING_IP -d $DATABASE -U USERNAME -f file.sql
