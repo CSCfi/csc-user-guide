@@ -1,23 +1,19 @@
 # PostgreSQL extensions
 
-It is not possible for users to add additional extensions that are not already installed. If there
-are some extensions you would like to see available in Pukki, please be in contact with
-[CSC Service Desk](../../support/contact.md).
+## Enabling extensions
 
-## How to enable extensions
-
-  1. You can enable extensions by first [enable root](operations.md#enable-root)
-  2. After that you can [log in to the database with the root user](postgres-accessing#command-line)
-  3. Then you can enable the extension of your choice with:
+  1. [Enable the root user](operations.md#enable-root).
+  2. [Log in to the database as root](postgres-accessing#command-line).
+  3. Use the following command to enable extensions:
     ```
     CREATE EXTENSION $EXTENSION_NAME ;
     ```
-  4. After you are done, make sure that you disable root.
-
-
+  4. Disable root once you're done enabling extensions.
 
 ## Currently available extensions
- 
+
+If there are extensions missing here that you would like to see available in Pukki, please contact the [CSC Service Desk](../../support/contact.md).
+
 <!-- This extension list can easily be generated with the following command:
 SELECT '| ' || name  AS name, default_version, comment || ' |' as comment FROM pg_available_extensions ORDER BY name;
 --->
@@ -91,9 +87,21 @@ SELECT '| ' || name  AS name, default_version, comment || ' |' as comment FROM p
 
 **List available extensions**
 
+```sql
+SELECT name, default_version, comment FROM pg_available_extensions ORDER BY name;
+```
+
 **List enabled extensions**
 
+```sql
+SELECT * from pg_extension ORDER BY extname;
+```
+
 **Create extension**
+
+```sql
+CREATE EXTENSION ${EXTENSION_NAME};
+```
 
 **Disable extension**
 ```sql
