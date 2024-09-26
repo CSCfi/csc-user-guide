@@ -1,92 +1,96 @@
-# PostgreSQL
+# PostgreSQL versions
 
-Currently Pukki provides two major versions of PostgreSQL 14 and 17. If you are creating a new
-database you should always strive to use the latest version. Be aware that if major versions of
-PostgreSQL are only supported for about 5 years and if you are planning on using your database
-longer than that you will need to do a major version upgrade. 14 end of life is November 2026
-and 17 is November 2029. Major versions are often easy to do in Pukki but require a bit of downtime
-but sometimes it might be a big challenge so you need to make sure that you start thinking about
-upgrading well in advance.
+Currently Pukki supports two major versions of PostgreSQL, 14 and 17. We recommend always using
+the most recent version available when creating new database instances, and existing ones can
+be upgraded to use newer minor or major versions. For more detailed information on differences
+between all PostgreSQL versions, consult the
+[PostgreSQL documentation](https://www.postgresql.org/docs/release/).
 
-## PostgreSQL versions
+## Minor version upgrades
 
-### Main changes between 14 and 17
+Minor version upgrades in PostgreSQL (e.g. from 14.12 to 14.13) should have no breaking changes.
+The upgrade process itself happens automatically in the background once initiated, and should only
+take a couple of minutes. It involves shutting down the existing server, installing the new version,
+and starting the server back up, without modifying the data itself in any way.
 
-When comparing differences between PostgreSQL 14 and 17 the main source of information is the
-[PostgreSQL documentation](https://www.postgresql.org/docs/release/) for most users they won't
-notice a difference but it is very important to read the documentation if short downtime
-is important to you or you know that you are using more advanced features than the most basic SQL
-commands.
+## Major version upgrades
 
-### Difference how Pukki manage PostgreSQL 14 and 17
+Major version upgrades shouldn't be visibly different from minor version upgrades to a Pukki user,
+but there's a lot more going on under the hood, and an increased risk of something going wrong in
+the process. There's a real risk of data loss, and the user should be ready to create a new
+database instance from a backup in such a case.
 
-The role permissions for the public schema work differently between 14 and 17. This means that
-in PostgreSQL 14 all database users could create new tables in any database. This changes in
-PostgreSQL 17, now when you create a new user you need to specify in "database access" in which
-database's public schema the users is allowed to create new tables. In short in PostgreSQL 17
-users need to explicitly allowed to create new tables where in PostgreSQL 14 users where allowed by
-default to create new tables.
+Before upgrading your database to a new major version, we heavily recommend using a backup of it
+to create a new database instance just for testing the upgrade first. Upgrading between major
+versions requires significantly more disk space than minor version upgrades, and if there isn't
+enough disk space available, the upgrade will fail. In these cases increasing volume size before
+attempting a major version upgrade is necessary.
 
-### Upgrading between minor PostgreSQL versions
+Downgrading to a previous major version is not possible in Pukki. The only way to return to an
+older major version is to restore an old backup from before the upgrade.
 
-It is usually very easy and quick to upgrade between minor versions of PostgreSQL. Since the process
-in the background is shutdown PostgreSQL remove the old PostgreSQL and install the new PostgreSQL.
+## Changes between PostgreSQL 14 and 17
 
-Usually the upgrade takes only a couple of minutes. When you do major upgrade you can usually just
-upgrade to the latest minor version, it is okay to jump over minor versions in between.
-There is seldom a reason to use an older minor version even if it usually possible to downgrade.
+Most of the changes to PostgreSQL between versions 14 and 17 won't be visible to the user. Many of
+them are focused on serverside performance, logging, and more advanced and specific SQL features.
+However, PostgreSQL 15 brought a very specific change to default permissions, which affects how
+Pukki manages users and their access rights.
 
-### Upgrading between major PostgreSQL versions
+### Differences in how Pukki manages database access
 
-Major upgrade might feel very similar to minor version upgrades for small database but in the
-background there is a lot more going on, and there is a lot bigger risks for errors. There is a
-real risk for data loss so you need to be prepared for creating a new database from backup.
+In PostgreSQL 14, the default privileges granted to database users allowed them to create new
+tables in any database's public schema on that database instance. PostgreSQL 15 revoked the
+`create` permission from all database users (except a database owner) from the public schema,
+which is used as the default schema. Now new users need to be explicitly given the `create`
+permission to a schema, usually the database's default `public` schema.
 
-Before upgrading your main database it is a must to test the upgrade on another database that you
-have created from backup. The nice thing with doing upgrades in Pukki is that it is really easy to
-test them multiple times. You can also test have the volume size and flavor size affects the time
-it takes to do the upgrade. If you have too little disk space the upgrade might fail so you might
-need to increase the disk space before doing the upgrade. If you think your upgrades takes to long
-while testing it might be a good idea to test using a bigger flavor as well.
+In a nutshell, when revoking or granting a user access to a PostgreSQL 14 database in Pukki, the
+query modifying permissions looks something like this:
 
-Once you have done a major upgrade you can no longer do a downgrade, the only way to do a downgrade
-is restoring from an old backup.
+```sql
+GRANT|REVOKE ALL ON DATABASE ${DATABASE} TO|FROM ${USER};
+```
 
+On a PostgreSQL 17 database instance, the same web GUI or CLI-tool commands would result in this
+kind of a permissions-modifying query:
 
-## PostgreSQL permissions
-### Allow users to create tables
-(In PostgreSQL 14 all user are by default allowed to create new tables)
+```sql
+GRANT|REVOKE ALL ON SCHEMA public TO|FROM ${USER};
+```
 
-In PostgreSQL 17 you need to specify in which database (public schema) users are allowed to create
-tables.
+You can always enable root access on a database instance and log in as the root user to modify
+permissions more freely.
 
-This can be done with the command line. When creating a new user by:
+### Permissions
 
+On PostgreSQL 14 database instances, the default permissions allow all database users to connect
+to any database and create tables in the public schema.
+
+On PostgreSQL 17 database instances, you need to explicitly grant users access to a database to
+allow them to create tables in the public schema of the specified database. This can be done as
+follows with the command line tools.
+
+When creating a new user, you can use the `--database` flag to grant access:
 ```sh
 openstack database user create $INSTNACE_ID $USER_NAME $USER_PASSWORD --database $DATABASE_NAME
 ```
 
-You can also add permissions after the user have been create by modify the users permissions:
-
+The command to grant access to an existing database user:
 ```sh
 openstack database user grant access $INSTNACE_ID $USER_NAME $DATABASE_NAME
 ```
 
-The same thing can also be done from the web interface by creating a new user:
+The web interface also allows creating users and modifying their permissions.
 
-Choose instance -> User tab -> Create user
+To create a new user with database access:
+    1. Choose an instance from the Instances page
+    2. Go to its Users tab
+    3. Press Create User
 
-You can also edit existing user
+You can also edit permissions of existing users from the Users tab, by choosing 'Manage Access'
+from the dropdown menu in the 'Actions' column.
 
-Choose instance -> User tab -> Choose a user and in the pull down in the Action column choose
-Manage Access -> Grant or Revoke access from databases.
-
-
-What Pukki does in the background is basically this:
-```sql
-'GRANT ALL ON SCHEMA "public" TO "${user}";
-```
-
+What Pukki does in the background is basically
 
 ### Giving a user read-only access to a table
 As the table owner or root user you can do the following SQL command:
@@ -103,21 +107,6 @@ user following permissions:
 ```sql
 GRANT SELECT, INSERT, UPDATE, DELETE ON ${table} TO ${user};
 ```
-
-
-
-### Granting permissions to database in PostgreSQL 14
-<!-- TODO is this needed --->
-In PostgreSQL 14 you seldom need to give "database access to users but if you choose to do that
-what you actually are doing on the background is giving the user permissions to create new
-schema.
-
-grant access affects the database
-
-```sql
-GRANT ALL ON DATABASE "${database}" TO "${user}";
-```
-
 
 ## Parameters that users can modify
 
@@ -139,7 +128,7 @@ If you have little or no prior experience with PostgreSQL, we recommend familiar
 
 To avoid confusion, keep in mind that in PostgreSQL 14 the default privileges allow every user to connect to any database and create tables in the default 'public' schema. They cannot access existing tables or other schema without explicit permission, however, and they cannot create new schema.
 
-You can use the `openstack database user grant access` command to grant users all permissions on a specified database, which allows them to create their own schema. They still can't access schema and tables in them that are owned by other users without being given privileges, however. Typically the owner of an object in PSQL 14 (which can be a database, a schema, a table, etc. etc.) is the only one with any privileges regarding it, unless otherwise specified. This, combined with privileges not flowing 'downwards' in the hierarchy, can lead to some confusion. Having privileges to a schema doesn't imply any privileges to the tables contained within. For further reading, [here's the official docs on privileges.](https://www.postgresql.org/docs/14/ddl-priv.html)
+Typically the owner of an object in PSQL (an object can be a database, a schema, a table, etc. etc.) is the only one with any privileges regarding it, unless otherwise specified. This, combined with privileges not flowing 'downwards' in the hierarchy, can lead to some confusion. Having privileges to a schema doesn't imply any privileges to the tables contained within. For further reading, [here's the official docs on privileges.](https://www.postgresql.org/docs/14/ddl-priv.html)
 
 ### Example usage of privileges
 
