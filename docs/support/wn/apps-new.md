@@ -4,7 +4,8 @@
 
 The chemistry software stack maintained by CSC on LUMI
 (`/appl/local/csc/soft/chem`) has been recompiled following the recent major
-LUMI upgrade. Modules and instructions for the following software were updated:
+LUMI upgrade. Modules and instructions for the following software have been
+updated:
 
 * [Amber](../../apps/amber.md)
 * [CP2K](../../apps/cp2k.md)
@@ -12,9 +13,9 @@ LUMI upgrade. Modules and instructions for the following software were updated:
 * [LAMMPS](../../apps/lammps.md)
 * [NAMD](../../apps/namd.md)
 
-At the same time, some old module versions were deprecated. We recommend using
-the most recent software versions as they tend to have better performance and
-less bugs than older releases.
+At the same time, some old module versions have been deprecated. In general, we
+recommend using the most recent software versions as they tend to have better
+performance and less bugs than older releases.
 
 ## PyTorch 2.4.1 available on LUMI, 19.9.2024
 
