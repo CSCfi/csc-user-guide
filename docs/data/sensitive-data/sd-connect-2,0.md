@@ -3,10 +3,10 @@
 A new version of the SD Connect service will be released on October 7, 2024. Existing files will remain accessible, as Version 2 is compatible with the current version.
 To access the new version, please follow these four steps:
 
-   * *Service access:* Apply for SD Connect service access at https://my.csc.fi/welcome and accept the terms of use. Note: Only the project PI can enable the service, but all project members must accept the terms of use. [More info abut adding services to your profile](../../accounts/how-to-add-service-access-for-project/).
-   * *MFA:* Ensure that Multifactor Authentication (MFA) is enabled on your CSC profile. Note: If you are using SD Desktop, MFA is already enabled, and no further action is needed. [More info about MFA](../..//accounts/mfa/).
+   * *Service access:* Apply for SD Connect service access at https://my.csc.fi/welcome and accept the terms of use. Note: Only the project PI can enable the service, but all project members must accept the terms of use. [More info abut adding services to your profile](../../accounts/how-to-add-service-access-for-project.md).
+   * *MFA:* Ensure that Multifactor Authentication (MFA) is enabled on your CSC profile. Note: If you are using SD Desktop, MFA is already enabled, and no further action is needed. [More info about MFA](../../accounts/mfa.md).
    * *Syncing:* Once the service break is over, log in to the service and keep the user interface open for 5 minutes to allow for syncing. After this, you will have access to all files stored in SD Connect
-   *  *Shared folders:* Uploading or downloading data from folders shared in the previous service version will no longer be possible. To re-enable sharing, please update the sharing permissions by following these steps. [More info about sharing data](./sd-connect-share/).
+   *  *Shared folders:* Uploading or downloading data from folders shared in the previous service version will no longer be possible. To re-enable sharing, please update the sharing permissions by following these steps. [More info about sharing data](./sd-connect-share.md .
 
 ## New Key Features:
 
