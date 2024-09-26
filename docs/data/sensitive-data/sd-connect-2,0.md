@@ -6,7 +6,7 @@ To access the new version, please follow these four steps:
    * *Service access:* Apply for SD Connect service access at https://my.csc.fi/welcome and accept the terms of use. Note: Only the project PI can enable the service, but all project members must accept the terms of use. [More info abut adding services to your profile](../../accounts/how-to-add-service-access-for-project.md).
    * *MFA:* Ensure that Multifactor Authentication (MFA) is enabled on your CSC profile. Note: If you are using SD Desktop, MFA is already enabled, and no further action is needed. [More info about MFA](../../accounts/mfa.md).
    * *Syncing:* Once the service break is over, log in to the service and keep the user interface open for 5 minutes to allow for syncing. After this, you will have access to all files stored in SD Connect
-   *  *Shared folders:* Uploading or downloading data from folders shared in the previous service version will no longer be possible. To re-enable sharing, please update the sharing permissions by following these steps. [More info about sharing data](./sd-connect-share.md .
+   *  *Shared folders:* Uploading or downloading data from folders shared in the previous service version will no longer be possible. To re-enable sharing, please update the sharing permissions by following these steps. [More info about sharing data](./sd-connect-share.md).
 
 ## New Key Features:
 
@@ -17,7 +17,7 @@ To access the new version, please follow these four steps:
 
 ## Limitations:
 
-   * Double login required: Due to ongoing technical challenges, a double login is necessary to access the service. We apologize for the inconvenience. [More info about login](./sd-connect-beta/#login).
+   * Double login required: Due to ongoing technical challenges, a double login is necessary to access the service. We apologize for the inconvenience. [More info about login](./sd-connect-beta.md#login).
    * Manual decryption: Data uploaded with the previous version of SD Connect will not be automatically decrypted during download with version 2
    * Browser Recommendation: For optimal performance, we recommend using Google Chrome. Firefox is also supported.
 
