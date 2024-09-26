@@ -132,12 +132,13 @@ node, we use just a single thread per task. For details on the CPU-GPU binding, 
 [GROMACS application page](../../apps/gromacs.md#notes-about-binding-and-multi-gpu-simulations-on-lumi),
 as well as [LUMI Docs](https://docs.lumi-supercomputer.eu/runjobs/scheduled-jobs/distribution-binding/).
 
-The plot below shows the total combined throughput obtained when running multiple
-replicas of the 96k atom alcohol dehydrogenase (ADH) benchmark on two LUMI-G nodes.
-When the number of trajectories per GCD is increased from one to four, the overall
-performance (sum of each independent trajectory) increases by about one microsecond per
-day due to better GPU utilization. Since each simulation is independent, one could
-scale this use case to a huge number of nodes for maximal throughput.
+The plot below shows the total combined throughput obtained when running
+multiple replicas of the 96k atom alcohol dehydrogenase (ADH) benchmark on two
+LUMI-G nodes (2 fs timestep). When the number of trajectories per GCD is
+increased from one to four, the overall performance (sum of each independent
+trajectory) increases by about one microsecond per day due to better GPU
+utilization. Since each simulation is independent, one could scale this use
+case to a huge number of nodes for maximal throughput.
 
 ![GCD-sharing on LUMI-G using multidir](../../img/adh.png 'GCD-sharing on LUMI-G using multidir')
 

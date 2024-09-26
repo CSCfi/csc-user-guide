@@ -1,6 +1,6 @@
 # Applications
 
-## CSC chemistry software stack on LUMI updated, 25.9.2024
+## CSC chemistry software stack on LUMI updated, 26.9.2024
 
 The chemistry software stack maintained by CSC on LUMI
 (`/appl/local/csc/soft/chem`) has been recompiled following the recent major

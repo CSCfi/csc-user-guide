@@ -351,11 +351,11 @@ export GMX_FORCE_GPU_AWARE_MPI=1
 ```
 
 Below is a comparison of the performance of GROMACS 2024.3 on Mahti (CPUs and
-GPUs) and LUMI-G using the STMV benchmark (1067k atoms). This is a large system
-which scales very well also on GPUs. The performance of a single LUMI GCD (half
-a GPU) is about the same as a full Nvidia A100 GPU on Mahti, and much better
-than a single 128-core CPU node. Importantly, the availability of GPU nodes on
-LUMI is massive compared to Mahti (2978 vs. 24).
+GPUs) and LUMI-G using the STMV benchmark (1067k atoms, 2 fs timestep). This is
+a large system which scales very well also on GPUs. The performance of a single
+LUMI GCD (half a GPU) is about the same as a full Nvidia A100 GPU on Mahti, and
+much better than a single 128-core CPU node. Importantly, the availability of
+GPU nodes on LUMI is massive compared to Mahti (2978 vs. 24).
 
 ![GROMACS scaling on GPUs on Mahti and LUMI](../img/stmv.png 'GROMACS scaling on GPUs on Mahti and LUMI')
 
