@@ -73,7 +73,7 @@ docker login -p $(oc sa get-token pusher) -u unused docker-registry.rahti.csc.fi
 
 This service account token, the one you get with `oc sa get-token pusher` does not expire.
 
-Checkout this documentation to know how to upload images: [How to manually cache images in Rahti 1 registry](../../tutorials/docker_hub_manual_caching.md)
+Checkout this documentation to know how to upload images: [Using Rahti 2 integrated registry](../../rahti2/images/Using_Rahti_2_integrated_registry.md)
 
 ## CLI cheat sheet
 
