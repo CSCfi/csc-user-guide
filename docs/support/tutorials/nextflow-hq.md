@@ -12,12 +12,12 @@ executor. This page provides an example batch script for this purpose.
     Whenever you're unsure how to run your workflow efficiently, don't hesitate
     to [contact CSC Service Desk](../contact.md).
 
-## Example batch script
+## Example batch script on Mahti supercomputer
 
 ```bash
 #!/bin/bash
 #SBATCH --partition=medium
-#SBATCH --account=project_2001659 
+#SBATCH --account=project_xxxx   
 #SBATCH --nodes=3
 #SBATCH --exclusive
 #SBATCH --time=00:10:00
@@ -41,26 +41,23 @@ echo "executor {
   cpus = $(( 128*SLURM_NNODES )) 
 }" > $wrkdir/nextflow.config
 
-cp main.nf $wrkdir
+
+# Start the server in the background (&) and wait until it has started
 hq server start &
-srun --cpu-bind=none --hint=nomultithread --mpi=none -N $SLURM_NNODES -n $SLURM_NNODES -c 128 hq worker start --cpus=128 &
+until hq job list &>/dev/null ; do sleep 1 ; done
 
-num_up=$(hq worker list | grep RUNNING | wc -l)
-while true; do
+# Start the workers in the background and wait for them to start
+srun --cpu-bind=none --hint=nomultithread --mpi=none -N $SLURM_NNODES -n $SLURM_NNODES  hq worker start --cpus=128 &
 
-    echo "Checking if workers have started"
-    if [[ $num_up -eq $SLURM_NNODES ]];then
-        echo "Workers started"
-        break
-    fi
-    echo "$num_up/$SLURM_NNODES workers have started"
-    sleep 1
-    num_up=$(hq worker list | grep RUNNING | wc -l)
+hq worker wait "${SLURM_NTASKS}"
 
-done
+# Copy main.nf to the work directory if needed 
+cp main.nf $wrkdir
 
 cd $wrkdir
-nextflow run main.nf
+
+# run the nextflow pipeline here 
+nextflow run main.nf ...
 
 # Make sure we exit cleanly once nextflow is done
 hq worker stop all
@@ -89,3 +86,4 @@ main.nf work
   and [advanced Nextflow tutorials for Puhti](nextflow-puhti.md)
 * [Official Nextflow documentation](https://www.nextflow.io/docs/latest/index.html)
 * [Official HyperQueue documentation](https://it4innovations.github.io/hyperqueue/stable/)
+* [More information on CSC-specific HperQueue documentation](../../apps/hyperqueue.md)
