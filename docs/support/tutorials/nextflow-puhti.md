@@ -243,17 +243,13 @@ hq server stop
 
 !!! note 
      In case you are using multiple nodes, make sure to use right executor and the executor knows how many jobs it can submit. For that, below is an example snippet that one can add in  nextflow config file:
-     
-     ```bash 
-    echo "executor {
-     queueSize = $(( 40*SLURM_NNODES ))
+     ```bash
+     executor {
+     queueSize = 40*SLURM_NNODES
      name = 'hq'
-    cpus = $(( 40*SLURM_NNODES )) 
-    }" >> nextflow.config
-    
-    ```
-
-
+     cpus = 40*SLURM_NNODES
+     } 
+     ```
 
 
 
