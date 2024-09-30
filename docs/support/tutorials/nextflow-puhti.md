@@ -80,12 +80,12 @@ module load nextflow/21.10.6
 
 Running Nextflow pipelines can sometimes be quite compute-intensive and 
 may require downloading large volumes of data such as databases and 
-singularity images. This can take a while and may not even work successfully 
-in case of downloading singularity images on Puhti. 
+singularity images. This can take a while and may not even work successfully for the first time
+when downloading multiple Apptainer/Singularity images or databases on Puhti. 
 
 You can do the following basic preparation steps before running your Nextflow pipeline:
 
-- Copy singularity images from your local workspace to your project folder on Puhti. Pay attention to the singularity cache directory (i.e., `SINGULARITY_CACHEDIR` or some other name given by your software tool) which is usually `$HOME/.singularity/cache`. 
+- Copy singularity images from your local workspace to your project folder on Puhti. Pay attention to the singularity cache directory (i.e., `SINGULARITY_CACHEDIR` or some other name given by your software tool) which is usually `$HOME/.singularity/cache`. `$HOME directory space is only 10 GB on Puhti.
 - Move all your raw data to your project directory (`/scratch/<project name>`) on Puhti.
 - Clone the GitHub repository of your pipeline to your scratch directory and then run your pipeline. 
 
@@ -94,7 +94,7 @@ You can do the following basic preparation steps before running your Nextflow pi
 Please follow our instructions for writing a batch job on Puhti as described in 
 [CSC documentation pages](../../computing/running/example-job-scripts-puhti.md).
 
-Although Nextflow comes with native slurm support, one has to be cautious on launching multiple jobs that do not take longer computing time. Instead one can launch the nextflow job as normal batch for the coexecution of all job stasks in the same job allocation. Here is a minimal script to get started with your Nextflow pipeline on Puhti:
+Although Nextflow comes with native slurm support, one has to be cautious on launching multiple jobs that do not take longer computing time. Instead one can launch the nextflow job as normal batch for the co-execution of all job tasks in the same job allocation. Here is a minimal script to get started with your Nextflow pipeline on Puhti:
 
 ```
 #!/bin/bash
@@ -111,7 +111,7 @@ nextflow run  <workflow.nf> [options]
 ```
 
 !!! note 
-     If you are directly pulling multiple images on the fly, please set `$TMPDIR` and `$CACHEDIR` to either local scratch (i.e., ```$LOCAL_SCRATCH```) or  /scratch folder (/scratch/project_xxx) in the batch script. Otherwise `$HOME`, directory, which is 10 GB  will be used. To avoid any diskspace errors while pulling images, set `$TMPDIR` and `$CACHEDIR`  as below:
+     If you are directly pulling multiple images on the fly, please set `$TMPDIR` and `$CACHEDIR` to either local scratch (i.e., ```$LOCAL_SCRATCH```) or  /scratch folder (/scratch/project_xxx) in the batch script. Otherwise `$HOME` directory, which is only 10 GB  will be used. To avoid any diskspace errors while pulling images, set `$TMPDIR` and `$CACHEDIR` in batch script as below:
 
      ```bash 
      export APPTAINER_TMPDIR=$LOCAL_SCRATCH
@@ -191,9 +191,9 @@ to match your computing project.
 
 ## 7. (Optional) tutorial2 - Demonstration of nf-core Nextflow pipeline using HyperQueue executor
 
-In this example, let's use HyperQueue meta executor (../../apps/hyperqueue.md) for running nextflow pipeline. This executor can be used to scale up analysis across the multiple nodes. 
+In this example, let's use [HyperQueue meta executor](../../apps/hyperqueue.md) for running Nextflow pipeline. This executor can be used to scale up analysis across the multiple nodes when needed. 
 
-Here is a batch script for running a nf-core pipeline:
+Here is a batch script for running a nf-core pipeline on Puhti:
 
 ```bash
 #!/bin/bash
@@ -242,7 +242,7 @@ hq server stop
 ```
 
 !!! note 
-     In case you are using multiple nodes, make sure to use right executor and the executor knows how many jobs it can submit. Below is an example snippet for nextflow config file:
+     In case you are using multiple nodes, make sure to use right executor and the executor knows how many jobs it can submit. For that, below is an example snippet that one can add in  nextflow config file:
      
      ```bash 
     echo "executor {
@@ -250,7 +250,7 @@ hq server stop
      name = 'hq'
     cpus = $(( 40*SLURM_NNODES )) 
     }" >> nextflow.config
-
+    
     ```
 
 
