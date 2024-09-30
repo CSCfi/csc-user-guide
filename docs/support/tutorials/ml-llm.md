@@ -54,9 +54,9 @@ solve this problem in the sections below. See the [Transformer Math
 ## Fine-tuning LLMs
 
 We have a [git repository with some example scripts for doing LLM
-fine-tuning on Puhti or Mahti][2]. The example uses the [Hugging Face
-(HF) libraries][3] and in particular the HF Trainer to train a given
-model (taken from the HF model repositories) with the IMDb movie
+fine-tuning on Puhti, Mahti or LUMI][2]. The example uses the [Hugging
+Face (HF) libraries][3] and in particular the HF Trainer to train a
+given model (taken from the HF model repositories) with the IMDb movie
 review dataset. The task itself might not make much sense, it's just
 used to demonstrate the technical task of fine-tuning a model with a
 given dataset.
@@ -68,19 +68,19 @@ our rule-of-thumb, mentioned above, it might require up to 1.37x4x6 =
 32 GB of memory for training, so it should just fit into the 32 GB
 maximum of Puhti's V100 (if we're lucky).
 
-The repository has basic launch scripts for Puhti and Mahti for 1 GPU,
-4 GPUs (a full node) and 8 GPUs (two full nodes). The Slurm scripts
-are essentially the same as for any PyTorch DDP runs, see our
-[Multi-GPU and multi-node ML guide](ml-multi.md#pytorch-ddp) for
-examples, or just take a look at [the scripts in the GitHub
-repository][2]:
+The repository has basic launch scripts for Puhti, Mahti and LUMI for
+a single GPU, a full node (4 GPUs or Puhti/Mahti and 8 GPUs on LUMI)
+and two full nodes (8 respectively 16 GPUs). The Slurm scripts are
+essentially the same as for any PyTorch DDP runs, see our [Multi-GPU
+and multi-node ML guide](ml-multi.md#pytorch-ddp) for examples, or
+just take a look at [the scripts in the GitHub repository][2]:
 
 - [`run-finetuning-puhti-gpu1.sh`](https://github.com/CSCfi/llm-fine-tuning-examples/blob/master/run-finetuning-puhti-gpu1.sh) - fine-tuning on Puhti with 1 GPU
 - [`run-finetuning-puhti-gpu4.sh`](https://github.com/CSCfi/llm-fine-tuning-examples/blob/master/run-finetuning-puhti-gpu4.sh) - fine-tuning on Puhti with one full node (4 GPUs)
 - [`run-finetuning-puhti-gpu8.sh`](https://github.com/CSCfi/llm-fine-tuning-examples/blob/master/run-finetuning-puhti-gpu8.sh) - fine-tuning on Puhti with two full nodes (8 GPUs in total)
 
-(The repository also has scripts for Mahti if you check the file
-listing.)
+(The repository also has scripts for Mahti and LUMI if you check the
+[file listing][2].)
 
 The basic multi-GPU versions are all using PyTorch Distributed Data
 Parallel (DDP) mode, in which each GPU has a full copy of the
@@ -134,8 +134,8 @@ on one or two full nodes on Puhti:
 - [`run-finetuning-puhti-gpu4-accelerate.sh`](https://github.com/CSCfi/llm-fine-tuning-examples/blob/master/run-finetuning-puhti-gpu4-accelerate.sh) - fine-tuning on Puhti with one full node using Accelerate
 - [`run-finetuning-puhti-gpu8-accelerate.sh`](https://github.com/CSCfi/llm-fine-tuning-examples/blob/master/run-finetuning-puhti-gpu8-accelerate.sh) - fine-tuning on Puhti with two full nodes using Accelerate
 
-(The repository also has scripts for Mahti if you check the file
-listing.)
+(The repository also has scripts for Mahti and LUMI if you check the
+[file listing][2].)
 
 Our [Multi-GPU and multi-node ML guide](ml-multi.md#accelerate) also
 has Slurm script examples for using Accelerate with FSDP.
@@ -161,6 +161,42 @@ There are two things to note when using Accelerate:
 You can also use PEFT (LoRA) with Accelerate with the `--peft` in our
 example script.
 
+### Alternative trainers
+
+An alternative to the standard Hugging Face Trainer for fine-tuning
+LLMs is the
+[SFTTrainer](https://huggingface.co/docs/trl/main/en/sft_trainer) from
+the [TRL](https://huggingface.co/docs/trl/index) library. These are
+not covered in this guide.
+
+
+## Using quantization
+
+Using the `bitsandbytes` library, you can also use 4-bit
+quantization. [Quantization has been integrated into Hugging Face
+Transformers as
+well](https://huggingface.co/blog/4bit-transformers-bitsandbytes).
+
+
+```python
+from transformers import BitsAndBytesConfig
+bnb_config = BitsAndBytesConfig(
+    load_in_4bit=True,
+    bnb_4bit_quant_type="nf4",
+    bnb_4bit_compute_dtype=torch.bfloat16,
+    bnb_4bit_use_double_quant=True,
+    bnb_4bit_quant_storage=torch.bfloat16,
+)
+
+model = AutoModelForCausalLM.from_pretrained(
+    args.model,
+    quantization_config=bnb_config,
+    ...
+)
+```
+
+In our example script this can be tried with the `--4bit`
+argument. This will decrease even further the memory requirements.
 
 ## Inference
 
@@ -175,6 +211,34 @@ loading the model, for example:
 model = AutoModelForCausalLM.from_pretrained(args.model, device_map='auto')
 ```
 
+### Inference with Ollama
+
+[Ollama](https://ollama.com/) is a popular tool for using LLMs, as it
+supports [several state-of-the-art models](https://ollama.com/library)
+which can be accessed via an API. Ollama has been designed to run as a
+service, and is thus not directly suited to supercomputers. However,
+it can be run as part of a batch job by starting the service at the
+start of the job, and stopped when the job ends.
+
+First, you can install Ollama into your project folder like this:
+
+```bash
+cd /projappl/project_2001234  # replace with the appropriate path for you
+mkdir ollama
+cd ollama
+wget https://ollama.com/download/ollama-linux-amd64.tgz
+tar xzf ollama-linux-amd64.tgz
+rm ollama-linux-amd64.tgz
+```
+
+In your batch job you then just need to start the service with `ollama
+serve`. After that your job can access the API in `localhost` at port
+`11434`.  It's also a good idea to setup the environment variable
+`OLLAMA_MODELS` to point to the project scratch, as it will otherwise
+download huge model files to your home directory.  See our [example
+Slurm script `run-ollama.sh` for running with Ollama][11].
+
+
 [1]: https://blog.eleuther.ai/transformer-math/
 [2]: https://github.com/CSCfi/llm-fine-tuning-examples
 [3]: https://huggingface.co/docs/transformers/en/index
@@ -185,3 +249,4 @@ model = AutoModelForCausalLM.from_pretrained(args.model, device_map='auto')
 [8]: https://magazine.sebastianraschka.com/p/practical-tips-for-finetuning-llms
 [9]: https://huggingface.co/docs/transformers/fsdp
 [10]: https://huggingface.co/docs/peft/en/accelerate/fsdp#the-important-parts
+[11]: https://github.com/CSCfi/machine-learning-scripts/blob/master/slurm/run-ollama.sh
