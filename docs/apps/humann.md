@@ -54,7 +54,7 @@ specifying:
 
 HUMAnN can utilize several CPU cores. To do this set `--cpus-per-task` to desired number.
 In Puhti you can use up to 40 cores. Also remember to add option `--threads` to your HUMAnN
-command. You can use variable `$SLURM_CPUS_PER_TASK` to automaticly match the requested
+command. You can use variable `$SLURM_CPUS_PER_TASK` to automatically match the requested
 number.
 
 
