@@ -36,9 +36,7 @@ parallel quantum chemistry calculations, in particular for AIMD.
 === "LUMI"
     | Version | Available modules                | Notes                 |
     |:-------:|:---------------------------------|:---------------------:|
-    |2023.1   |`cp2k/2023.1`<br>`cp2k/2023.1-gpu`| GPU version available |
-    |2023.2   |`cp2k/2023.2`<br>`cp2k/2023.2-gpu`| GPU version available |
-    |2024.1   |`cp2k/2024.1`<br>`cp2k/2024.1-gpu`| GPU version available |
+    |2024.3   |`cp2k/2024.3`<br>`cp2k/2024.3-gpu`| GPU version available |
 
 ## License
 
@@ -50,7 +48,7 @@ CP2K is freely available under the GPL license.
     To access CSC modules on LUMI, remember to first load the CSC module tree
     into use with
 
-    ```
+    ```bash
     module use /appl/local/csc/modulefiles
     ```
 
@@ -79,6 +77,7 @@ double the number of cores the calculation should be at least 1.5 times faster.
 ### Example batch scripts
 
 === "Puhti (MPI only)"
+
     ```bash
     #!/bin/bash
     #SBATCH --time=00:10:00
@@ -96,6 +95,7 @@ double the number of cores the calculation should be at least 1.5 times faster.
     ```
 
 === "Mahti (mixed MPI/OpenMP)"
+
     ```bash
     #!/bin/bash
     #SBATCH --time=00:05:00
@@ -160,28 +160,28 @@ double the number of cores the calculation should be at least 1.5 times faster.
 
 #### Mahti
 
-The following table shows the total execution time [s] of the
-[H2O-64 benchmark](https://github.com/cp2k/cp2k/blob/master/benchmarks/QS/H2O-64.inp)
-in Mahti using `cp2k/9.1`. The column headers show how many OMP threads were
-used per MPI task.
+The following table shows the total execution time (in seconds) of the
+[H2O-256 benchmark](https://github.com/cp2k/cp2k/blob/master/benchmarks/QS/H2O-256.inp)
+on Mahti using `cp2k/2024.2`. The column headers show how many OpenMP threads
+were used per MPI task.
 
-|Nodes|d1   |d2   |d4     |d8   |
-|:---:|:---:|:---:|:-----:|:---:|
-|1    |25.77|18.88|20.58  |22.95|
-|2    |17.66|15.25|*13.34*|17.10|
+|CPU nodes|1     |2     |4         |8     |
+|:-------:|:----:|:----:|:--------:|:----:|
+|1        |197.35|164.80|169.66    |192.07|
+|2        |111.95|107.78|**101.52**|117.60|
+|4        |82.74 |72.12 |72.00     |97.97 |
 
-* For 64 water molecules, the best performance is obtained with 2 full
-  nodes, 32 mpi-tasks, and 4 OMP threads per task. For this system the
-  performance does not scale beyond 2 nodes.
-* Mixed parallization is efficient: choose tasks and threads so that they add
-  up to 128 (physical) cores available per node (or up to 40 on Puhti).
+* For 256 water molecules, the best efficiency is obtained with 2 full nodes,
+  32 MPI tasks per node, and 4 OpenMP threads per task. For this system it is
+  not efficient to scale beyond 2 nodes (256 CPU cores).
+* Hybrid parallelism is often efficient – choose tasks and threads so that they
+  add up to 128 (physical) cores available per node (or up to 40 on Puhti).
 * Test the optimal run parameters for your model system and method.
-* Selecting the ELPA diagonalization library instead of ScaLAPACK may
-  significantly accelerate calculations that require large matrix
-  diagonalizations (even up to 50% depending on the system). A good example are
-  metallic systems that may converge poorly with the orbital transformation
-  (OT) method and thus demand a standard diagonalization of the Kohn-Sham
-  matrix.
+* Using the ELPA diagonalization library instead of ScaLAPACK may significantly
+  accelerate calculations that require large matrix diagonalizations (even up
+  to 50% depending on the system). A good example are metallic systems that may
+  converge poorly with the orbital transformation (OT) method and thus demand a
+  standard diagonalization of the Kohn-Sham matrix.
 
 #### LUMI
 
@@ -227,63 +227,67 @@ of the workflow, such as the input directories and number of parallel task
 groups, are specified. Example input and batch script files are provided below.
 Note that `RUN_TYPE` is set to `NONE` in the `&GLOBAL` section.
 
-```text title="farming.inp"
-&GLOBAL
-  PROJECT my-farming-job
-  PROGRAM FARMING
-  RUN_TYPE NONE
-&END GLOBAL
-&FARMING
-  NGROUPS 8
-  &JOB
-    DIRECTORY run1
-    INPUT_FILE_NAME nacl.inp
-  &END JOB
-  &JOB
-    DIRECTORY run2
-    INPUT_FILE_NAME nacl.inp
-  &END JOB
-  &JOB
-    DIRECTORY run3
-    INPUT_FILE_NAME nacl.inp
-  &END JOB
-  &JOB
-    DIRECTORY run4
-    INPUT_FILE_NAME nacl.inp
-  &END JOB
-  &JOB
-    DIRECTORY run5
-    INPUT_FILE_NAME nacl.inp
-  &END JOB
-  &JOB
-    DIRECTORY run6
-    INPUT_FILE_NAME nacl.inp
-  &END JOB
-  &JOB
-    DIRECTORY run7
-    INPUT_FILE_NAME nacl.inp
-  &END JOB
-  &JOB
-    DIRECTORY run8
-    INPUT_FILE_NAME nacl.inp
-  &END JOB
-&END FARMING
-```
+=== "Input file"
 
-```bash title="farming.sh"
-#!/bin/bash -l
-#SBATCH --time=00:30:00
-#SBATCH --partition=medium
-#SBATCH --ntasks-per-node=128
-#SBATCH --nodes=1
-#SBATCH --account=<project>
+    ```text title="farming.inp"
+    &GLOBAL
+      PROJECT my-farming-job
+      PROGRAM FARMING
+      RUN_TYPE NONE
+    &END GLOBAL
+    &FARMING
+      NGROUPS 8
+      &JOB
+        DIRECTORY run1
+        INPUT_FILE_NAME nacl.inp
+      &END JOB
+      &JOB
+        DIRECTORY run2
+        INPUT_FILE_NAME nacl.inp
+      &END JOB
+      &JOB
+        DIRECTORY run3
+        INPUT_FILE_NAME nacl.inp
+      &END JOB
+      &JOB
+        DIRECTORY run4
+        INPUT_FILE_NAME nacl.inp
+      &END JOB
+      &JOB
+        DIRECTORY run5
+        INPUT_FILE_NAME nacl.inp
+      &END JOB
+      &JOB
+        DIRECTORY run6
+        INPUT_FILE_NAME nacl.inp
+      &END JOB
+      &JOB
+        DIRECTORY run7
+        INPUT_FILE_NAME nacl.inp
+      &END JOB
+      &JOB
+        DIRECTORY run8
+        INPUT_FILE_NAME nacl.inp
+      &END JOB
+    &END FARMING
+    ```
 
-module purge
-module load gcc/9.4.0 openmpi/4.1.2
-module load cp2k/2024.2
+=== "Batch script file"
 
-srun cp2k.psmp farming.inp >> farming.out
-```
+    ```bash title="farming.sh"
+    #!/bin/bash -l
+    #SBATCH --time=00:30:00
+    #SBATCH --partition=medium
+    #SBATCH --ntasks-per-node=128
+    #SBATCH --nodes=1
+    #SBATCH --account=<project>
+
+    module purge
+    module load gcc/9.4.0 openmpi/4.1.2
+    module load cp2k/2024.2
+
+    srun cp2k.psmp farming.inp >> farming.out
+    ```
 
 In this particular example, one full Mahti node is requested for running 8
 single-point calculations of a NaCl crystal with different lattice constants.

@@ -16,7 +16,7 @@ The following versions are available:
 
 * Puhti: 2.14, 2.14-cuda, 3.0alpha11-cuda, 3.0b6-cuda
 * Mahti: 2.14
-* LUMI: 3.0b6-gpu
+* LUMI: 3.0, 3.0-gpu
 
 ## License
 
@@ -67,35 +67,32 @@ The data also shows the following things:
   To avoid wasting resources, ensure that your job actually benefits from
   increasing the number of cores. You should get at least a 1.5-fold speedup
   when doubling the amount of resources.
-* To test your own system, run e.g. 500 steps of dynamics and search for the
+* To test your own system, run e.g. 1000 steps of dynamics and search for the
   `Benchmark time:` line in the output.
 
 !!! info "NAMD 3.0"
-    [Development versions of NAMD 3.0](https://www.ks.uiuc.edu/Research/namd/3.0/features.html)
-    are available on Puhti and LUMI. NAMD3 shows an 2-3 times improved GPU
-    performance over NAMD2, e.g. 160 ns/day vs. 55 ns/day for the ApoA1 system
-    on Puhti. However, as with all development versions, **please check your
-    results carefully**.
+    NAMD3 shows an 2-3 times improved GPU performance over NAMD2, e.g. 160
+    ns/day vs. 55 ns/day for the ApoA1 system on Puhti.
 
 #### Multi-GPU performance
 
-The plot below shows the scalability of NAMD 3.0b6 on LUMI-G. To run on
+The plot below shows the scalability of NAMD 3.0 on LUMI-G. To run on
 multiple GPUs (GCDs) efficiently, you typically need a rather large systems
 composed of at least several hundred thousand atoms, such as the STMV case
 below. Check with your system and see the
 [NAMD website](https://www.ks.uiuc.edu/Research/namd/3.0/features.html)
 for available features that allow you to maximize the performance
 of multi-GPU runs. Importantly, enabling GPU-resident mode using configuration
-file option `CUDASOAintegrate on` is beneficial. Despite the naming, it works
-for AMD GPUs as well.
+file option `GPUresident on` is beneficial.
 
 ![NAMD Scaling on LUMI-G](../img/namd-lumig.svg 'NAMD Scaling on LUMI-G')
 
 ### Batch script examples
 
 === "Puhti CPU"
-    The script below requests 5 tasks per node and 8 threads per task on two full
-    Puhti nodes (80 cores). One thread per task is reserved for communication.
+    The script below requests 5 tasks per node and 8 threads per task on two
+    full Puhti nodes (80 cores). One thread per task is reserved for
+    communication.
 
     ```bash
     #!/bin/bash 
@@ -140,8 +137,9 @@ for AMD GPUs as well.
     ```
 
 === "Mahti CPU"
-    The script below requests 16 tasks per node and 8 threads per task on two full
-    Mahti nodes (256 cores). One thread per task is reserved for communication.
+    The script below requests 16 tasks per node and 8 threads per task on two
+    full Mahti nodes (256 cores). One thread per task is reserved for
+    communication.
 
     ```bash
     #!/bin/bash
@@ -181,7 +179,7 @@ for AMD GPUs as well.
     #SBATCH --gpus-per-node=1
 
     module use /appl/local/csc/modulefiles
-    module load namd/3.0b6-gpu
+    module load namd/3.0-gpu
 
     srun namd3 +p ${SLURM_CPUS_PER_TASK} +setcpuaffinity +devices 0 stmv.namd > stmv.out
     ```
@@ -206,7 +204,7 @@ for AMD GPUs as well.
     #SBATCH --gpus-per-node=8
 
     module use /appl/local/csc/modulefiles
-    module load namd/3.0b6-gpu
+    module load namd/3.0-gpu
 
     srun namd3 +p ${SLURM_CPUS_PER_TASK} +pmepes 1 +setcpuaffinity +devices 0,1,2,3,4,5,6,7 stmv.namd > stmv.out
     ```
@@ -219,7 +217,8 @@ sbatch namd_job.bash
 
 ## References
 
-The [NAMD License Agreement](https://www.ks.uiuc.edu/Research/namd/license.html)
+The
+[NAMD License Agreement](https://www.ks.uiuc.edu/Research/namd/license.html)
 specifies that any reports or published results obtained with NAMD shall
 acknowledge its use and credit the developers as:
 
