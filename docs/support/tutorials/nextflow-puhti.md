@@ -260,8 +260,8 @@ export SCRATCH=/scratch/<project>/$USER/nextflow
 mkdir -p ${SCRATCH}
 cd ${SCRATCH}
 
-export SINGULARITY_TMPDIR="${SCRATCH}"
-export SINGULARITY_CACHEDIR="${SCRATCH}"
+export APPTAINER_TMPDIR="${SCRATCH}"
+export APPTAINER_CACHEDIR="${SCRATCH}"
 unset XDG_RUNTIME_DIR
 
 # Specify a location for the HyperQueue server
@@ -300,3 +300,9 @@ hq server stop
      cpus = 40*SLURM_NNODES
      }
      ```
+
+## More information
+
+* [Official Nextflow documentation](https://www.nextflow.io/docs/latest/index.html)
+* [CSC's Nextflow documentation](../../apps/nextflow.md)
+* [High-throughput Nextflow workflow using HyperQueue](nextflow-hq.md)
