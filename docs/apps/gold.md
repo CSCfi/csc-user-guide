@@ -57,11 +57,10 @@ gold_auto gold.conf
 ```
 
 !!! Note
-    If you want to run GOLD in parallel, please contact
-    [CSC Service Desk](../support/contact.md).
+    For docking several ligands in parallel, please have a look at the Python script `gold_multi` in the [CSD Python API scripts repository.](https://github.com/ccdc-opensource/csd-python-api-scripts )   
 
 ## More information
 
 - [CSC CSD Page](csd.md)
 - [The GOLD homepage](http://www.ccdc.cam.ac.uk/solutions/csd-discovery/components/gold/)
-- [GOLD online documentation](http://www.ccdc.cam.ac.uk/support-and-resources/ccdcresources/gold.pdf)
+- [GOLD online documentation](https://www.ccdc.cam.ac.uk/support-and-resources/documentation-and-resources/?category=Structure-Based%20Drug%20Design&product=GOLD&type=All%20Types)
