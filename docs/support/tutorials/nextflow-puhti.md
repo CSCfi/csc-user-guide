@@ -235,9 +235,10 @@ to edit `<project>` to match your actual CSC computing project name.
 
 ## 7. Demonstration of nf-core Nextflow pipeline using HyperQueue executor (optional)
 
-In this example, let's use [HyperQueue meta executor](../../apps/hyperqueue.md)
-for running Nextflow pipeline. This executor can be used to scale up analysis
-across the multiple nodes when needed.
+In this example, let's use the
+[HyperQueue meta-scheduler](../../apps/hyperqueue.md) for executing a Nextflow
+pipeline. This executor can be used to scale up analysis across multiple nodes
+when needed.
 
 Here is a batch script for running a nf-core pipeline on Puhti:
 
