@@ -194,8 +194,6 @@ The images in Allas object storage can be downloaded to your project scratch as
 below:
 
 ```bash
-mkdir -p /scratch/<project>/What_the_Phage/singularity
-cd /scratch/<project>/What_the_Phage/singularity
 wget https://a3s.fi/puhti_singularity/WtP_singularity.tar.gz
 tar -xavf WtP_singularity.tar.gz
 ```
@@ -219,10 +217,10 @@ module load nextflow/21.10.6
 
 # Nextflow command here
 nextflow run ${SCRATCH}/phage.nf \
+         -profile local,singularity \
          --fasta ${SCRATCH}/test-data/OX2_draft.fa \
          --cores 4 \
          --output results \
-         --profile local,singularity \
          --cachedir ${SCRATCH}/singularity \
          --databases ${SCRATCH}/databases/WtP_databases \
          --workdir ${SCRATCH}/workflow-phages-username
