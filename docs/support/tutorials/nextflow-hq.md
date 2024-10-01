@@ -59,6 +59,7 @@ cd ${wrkdir}
 nextflow run main.nf <options>
 
 # Make sure we exit cleanly once Nextflow is done
+hq job wait all
 hq worker stop all
 hq server stop
 ```
