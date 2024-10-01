@@ -19,12 +19,12 @@ lack of administrative privileges for regular users.
 
 * Has limited MPI support
 * Creates a lot of job steps and excessive I/O load
-* Does not efficiently integrate with Slurm
+* Does not efficiently integrate with Slurm scheduler
 
 ## Use Apptainer/Singularity containers with Nextflow
 
 Containers can be smoothly integrated with Nextflow pipelines. No additional
-modifications to Nextflow scripts are needed except enabling the Singularity
+modifications to Nextflow scripts are needed except enabling the Singularity/Apptainer
 engine (instead of Docker) in the Nextflow configuration file in the HPC
 environment. Nextflow is able to pull remote container images stored in
 Singularity or Docker Hub registry. The remote container images are usually
@@ -70,12 +70,12 @@ More information on these different options can be found in our
 [documentation on creating containers](../../computing/containers/creating.md).
 
 !!! note
-    Singularity/Apptainer is installed on the login and compute nodes and does
-    not require loading a separate module on neither Puhti, Mahti or LUMI.
+    Singularity/Apptainer is installed on login and compute nodes and does
+    not require loading a separate module on either Puhti, Mahti or LUMI.
 
 ## 3. Load Nextflow module on Puhti
 
-Nextflow is available as a module on Puhti and can be loaded, for example, as
+Nextflow is available as a module on Puhti and can be loaded as
 below:
 
 ```bash
@@ -83,16 +83,15 @@ module load nextflow/21.10.6
 ```
 
 !!! note
-     Please make sure to specify the right version of the Nextflow module as
+     Please make sure to specify the correct version of the Nextflow module as
      some pipelines require a specific version of Nextflow.  
 
 ## 4. Set-up your Nextflow pipeline environment
 
 Running Nextflow pipelines can sometimes be quite compute-intensive and may
-require downloading large volumes of data, such as databases and container
+require downloading large volumes of data such as databases and container
 images. This can take a while and may not even work successfully for the first
-time when downloading multiple Apptainer/Singularity images or databases on
-Puhti.
+time when downloading multiple Apptainer/Singularity images or databases.
 
 You can do the following basic preparation steps before running your Nextflow
 pipeline:
@@ -170,7 +169,7 @@ git clone https://github.com/replikation/What_the_Phage.git
 nextflow run /scratch/<project>/What_the_Phage/phage.nf --help
 ```
 
-or pull the Nextflow pipeline from Docker Hub:
+or pull the Nextflow pipeline from GitHub repository:
 
 ```bash
 nextflow run replikation/What_the_Phage -r v0.8.0 --help
@@ -183,10 +182,8 @@ Singularity/Apptainer containers as mentioned in `containers.config` file.
 
 WtP is a multi-container pipeline requiring as many as 21 container images
 ([more details here](https://github.com/replikation/What_the_Phage/blob/master/configs/container.config))
-at the time of writing this tutorial. All these containers were downloaded
-to a cPouta environment to avoid any build failures of container images on
-Puhti due to the lack of root privileges for users. For the sake of this
-tutorial, the downloaded container images were then uploaded to
+at the time of writing this tutorial. For the sake of this
+tutorial, the container images were uploaded to
 [Allas](../../data/Allas/introduction.md) which is an object storage
 environment at CSC.
 
@@ -211,6 +208,7 @@ Submit the following batch script to run the Nextflow pipeline:
 
 export TMPDIR=${PWD}
 export SCRATCH=/scratch/<project>/What_the_Phage
+mkdir -p ${SCRATCH}
 
 # Activate Nextflow on Puhti
 module load nextflow/21.10.6 
@@ -238,7 +236,7 @@ In this example, let's use the
 pipeline. This executor can be used to scale up analysis across multiple nodes
 when needed.
 
-Here is a batch script for running a nf-core pipeline on Puhti:
+Here is a batch script for running a [nf-core pipeline](https://nf-co.re/pipelines) on Puhti:
 
 ```bash
 #!/bin/bash
@@ -287,10 +285,7 @@ hq server stop
 ```
 
 !!! note
-     In case you are using multiple nodes, ensure that you use the right
-     executor and that the executor knows how many jobs it can submit. For
-     this, below is an example snippet that one should add to the
-     `nextflow.config` file:
+     Please make sure that your nextflow configuration file (i.e., nextflow.config file) has correct executor name when using HypeQueue executor. And also, when multiple nodes are used, ensure that the executor knows how many jobs it can submit using the parameter `queueSize` under `executor` block. The `queueSize` can be limited as needed. Here is an example snippet that one use and modify it as desired in your `nextflow.config` file:
 
      ```text
      executor {
