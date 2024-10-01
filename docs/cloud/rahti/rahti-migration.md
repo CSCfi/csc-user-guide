@@ -201,7 +201,7 @@ In the Project details page (`Developer` > `Project`), click `PersistentVolumeCl
 
 ![Create PersistentVolumeClaim](../img/Create_PersistentVolumeClaim.png)
 
-* For the moment only a single type of `StorageClass` can be used. It corresponds to `Cinder` volumes, which can only be read or write by a single Pod.
+* For the moment only a single type of `StorageClass` can be used. It corresponds to `Cinder` volumes, which can only be read or write (mounted) by a single node (In order to mount it in several Pods, you need to use [Pod affinity](https://docs.csc.fi/cloud/tutorials/pod-affinity/), so all the Pods are created on the same node).
 
 * A unique name within the project must be provided.
 
