@@ -39,13 +39,7 @@ Free to use and open source under [GNU GPLv2](https://www.gnu.org/licenses/old-l
 
 ## Usage
 
-On Puhti, SPAdes is activated by loading the `biokit` environment.
-
-```bash
-module load biokit
-```
-
-Alternatively, SPAdes can be loaded as an independent module:
+On Puhti, SPAdes is activated by loading the `spades` module.
 
 ```bash
 module load spades/<version>
