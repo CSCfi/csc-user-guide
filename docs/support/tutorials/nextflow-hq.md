@@ -81,8 +81,7 @@ main.nf work
 
 ## More information
 
-* [General guidelines for high-throughput computing in CSC's HPC
-  environment](../../computing/running/throughput.md)
+* [General guidelines for high-throughput computing in CSC's HPC environment](../../computing/running/throughput.md)
 * [Basic](https://yetulaxman.github.io/Biocontainer/tutorials/nextflow_tutorial.html)
   and [advanced Nextflow tutorials for Puhti](nextflow-puhti.md)
 * [Official Nextflow documentation](https://www.nextflow.io/docs/latest/index.html)
