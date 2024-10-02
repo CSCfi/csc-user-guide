@@ -24,14 +24,14 @@ lack of administrative privileges for regular users.
 ## Use Apptainer/Singularity containers with Nextflow
 
 Containers can be smoothly integrated with Nextflow pipelines. No additional
-modifications to Nextflow scripts are needed except enabling the Singularity/Apptainer
-engine (instead of Docker) in the Nextflow configuration file in the HPC
-environment. Nextflow is able to pull remote container images stored in
-Singularity or Docker Hub registry. The remote container images are usually
-specified in the Nextflow script or configuration file by simply prefixing the
-image name with `shub://` or `docker://`. It is also possible to specify a
-different Singularity image for each process definition in the Nextflow
-pipeline script.
+modifications to Nextflow scripts are needed except enabling the
+Singularity/Apptainer engine (instead of Docker) in the Nextflow configuration
+file in the HPC environment. Nextflow is able to pull remote container images
+stored in Singularity or Docker Hub registry. The remote container images are
+usually specified in the Nextflow script or configuration file by simply
+prefixing the image name with `shub://` or `docker://`. It is also possible to
+specify a different Singularity image for each process definition in the
+Nextflow pipeline script.
 
 Here is a generic recipe for running a Nextflow pipeline on Puhti:
 
@@ -236,14 +236,15 @@ In this example, let's use the
 pipeline. This executor can be used to scale up analysis across multiple nodes
 when needed.
 
-Here is a batch script for running a [nf-core pipeline](https://nf-co.re/pipelines) on Puhti:
+Here is a batch script for running a
+[nf-core pipeline](https://nf-co.re/pipelines) on Puhti:
 
 ```bash
 #!/bin/bash
 #SBATCH --job-name=nextflowjob
 #SBATCH --account=<project>
 #SBATCH --partition=small
-#SBATCH --time=00:10:00
+#SBATCH --time=01:00:00
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=1
 #SBATCH --cpus-per-task=40
@@ -251,6 +252,7 @@ Here is a batch script for running a [nf-core pipeline](https://nf-co.re/pipelin
   
 module load hyperqueue/0.16.0
 module load nextflow/22.10.1
+module load git
 
 # create a directory on scratch folder for running nextflow pipeline
 export SCRATCH=/scratch/<project>/$USER/nextflow
@@ -276,6 +278,14 @@ hq worker wait "${SLURM_NTASKS}"
 # As an example, let's clone a nf-core pipeline and run a test sample
 git clone https://github.com/nf-core/rnaseq.git -b 3.10
 cd rnaseq
+
+# Ensure Nextflow uses the right executor and knows how much it can submit
+echo "executor {
+  queueSize = $(( 40*SLURM_NNODES ))
+  name = 'hq'
+  cpus = $(( 40*SLURM_NNODES ))
+}" >> nextflow.config
+
 nextflow run main.nf -profile test,singularity --outdir . -resume
 
 # Wait for all jobs to finish, then shut down the workers and server
@@ -285,7 +295,12 @@ hq server stop
 ```
 
 !!! note
-     Please make sure that your nextflow configuration file (i.e., nextflow.config file) has correct executor name when using HypeQueue executor. And also, when multiple nodes are used, ensure that the executor knows how many jobs it can submit using the parameter `queueSize` under `executor` block. The `queueSize` can be limited as needed. Here is an example snippet that one use and modify it as desired in your `nextflow.config` file:
+     Please make sure that your nextflow configuration file (`nextflow.config`)
+     has the correct executor name when using the HypeQueue executor. Also,
+     when multiple nodes are used, ensure that the executor knows how many jobs
+     it can submit using the parameter `queueSize` under the `executor` block.
+     The `queueSize` can be limited as needed. Here is an example snippet that
+     you can use and modify as needed in your `nextflow.config` file:
 
      ```text
      executor {
