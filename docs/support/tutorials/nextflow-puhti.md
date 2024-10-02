@@ -40,8 +40,7 @@ Here is a generic recipe for running a Nextflow pipeline on Puhti:
 * [3. Load Nextflow module on Puhti](#3-load-nextflow-module-on-puhti)
 * [4. Set-up your Nextflow pipeline environment](#4-set-up-your-nextflow-pipeline-environment)
 * [5. Run your Nextflow pipeline as a batch job](#5-run-your-nextflow-pipeline-as-a-batch-job)
-* [6. Demonstration of WtP Nextflow pipeline (optional)](#6-demonstration-of-wtp-nextflow-pipeline-optional)
-* [7. Demonstration of nf-core Nextflow pipeline using HyperQueue executor (optional)](#7-demonstration-of-nf-core-nextflow-pipeline-using-hyperqueue-executor-optional)
+* [6. Demonstration of nf-core Nextflow pipeline using HyperQueue executor (optional)](#6-demonstration-of-nf-core-nextflow-pipeline-using-hyperqueue-executor-optional)
 
 ## 1. Login to Puhti supercomputer
 
@@ -75,16 +74,16 @@ More information on these different options can be found in our
 
 ## 3. Load Nextflow module on Puhti
 
-Nextflow is available as a module on Puhti and can be loaded as
+Nextflow is available as a module on Puhti and can be loaded for example as
 below:
 
 ```bash
-module load nextflow/21.10.6
+module load nextflow/22.10.1
 ```
 
 !!! note
      Please make sure to specify the correct version of the Nextflow module as
-     some pipelines require a specific version of Nextflow.  
+     some pipelines require a specific version of Nextflow.
 
 ## 4. Set-up your Nextflow pipeline environment
 
@@ -125,7 +124,7 @@ pipeline on Puhti:
 #SBATCH --mem-per-cpu=1G           # Increase as needed
 
 # Load Nextflow module
-module load nextflow/21.10.6 
+module load nextflow/22.10.1
 
 # Actual Nextflow command here
 nextflow run workflow.nf <options>
@@ -149,87 +148,7 @@ nextflow run workflow.nf <options>
      adding `#SBATCH --gres=nvme:<value in GB>`. For example, add
      `#SBATCH --gres=nvme:100` to request 100 GB of space on `$LOCAL_SCRATCH`.
 
-## 6. Demonstration of WtP Nextflow pipeline (optional)
-
-WtP is a scalable and easy-to-use workflow for phage identification and
-analysis.
-[See here for more details about the pipeline](https://github.com/replikation/What_the_Phage).
-
-[Login to Puhti](#1-login-to-puhti-supercomputer) and
-[load a Nextflow module as instructed above](#3-load-nextflow-module-on-puhti).
-
-### 6.1 Set-up WtP pipeline on Puhti
-
-You can either clone the WtP GitHub repository to your project scratch
-directory as below (remember to replace `<project>` with your project name):
-
-```bash
-cd /scratch/<project>
-git clone https://github.com/replikation/What_the_Phage.git
-nextflow run /scratch/<project>/What_the_Phage/phage.nf --help
-```
-
-or pull the Nextflow pipeline from GitHub repository:
-
-```bash
-nextflow run replikation/What_the_Phage -r v0.8.0 --help
-```
-
-In either case, pay attention to the versions of different
-Singularity/Apptainer containers as mentioned in `containers.config` file.
-
-### 6.2 Bring your WtP Apptainer images to Puhti
-
-WtP is a multi-container pipeline requiring as many as 21 container images
-([more details here](https://github.com/replikation/What_the_Phage/blob/master/configs/container.config))
-at the time of writing this tutorial. For the sake of this
-tutorial, the container images were uploaded to
-[Allas](../../data/Allas/introduction.md) which is an object storage
-environment at CSC.
-
-The images in Allas object storage can be downloaded to your project scratch as
-below:
-
-```bash
-wget https://a3s.fi/puhti_singularity/WtP_singularity.tar.gz
-tar -xavf WtP_singularity.tar.gz
-```
-
-### 6.3 Run WtP pipelines as a batch job on Puhti
-
-Submit the following batch script to run the Nextflow pipeline:
-
-```bash
-#!/bin/bash
-#SBATCH --time=01:00:00
-#SBATCH --partition=small
-#SBATCH --account=<project>
-#SBATCH --cpus-per-task=4
-
-export TMPDIR=${PWD}
-export SCRATCH=/scratch/<project>/What_the_Phage
-mkdir -p ${SCRATCH}
-
-# Activate Nextflow on Puhti
-module load nextflow/21.10.6 
-
-# Nextflow command here
-nextflow run ${SCRATCH}/phage.nf \
-         -profile local,singularity \
-         --fasta ${SCRATCH}/test-data/OX2_draft.fa \
-         --cores 4 \
-         --output results \
-         --cachedir ${SCRATCH}/singularity \
-         --databases ${SCRATCH}/databases/WtP_databases \
-         --workdir ${SCRATCH}/workflow-phages-username
-```
-
-Please note that the container images in this example should be in the folder
-`/scratch/<project>/What_the_Phage/singularity`. Otherwise, Nextflow tries to
-download the images again which increases the likelihood of failures. Remember
-to edit `<project>` to match your actual CSC computing project name.
-
-## 7. Demonstration of nf-core Nextflow pipeline using HyperQueue executor (optional)
+## 6. Demonstration of nf-core Nextflow pipeline using HyperQueue executor (optional)
 
 In this example, let's use the
 [HyperQueue meta-scheduler](../../apps/hyperqueue.md) for executing a Nextflow
