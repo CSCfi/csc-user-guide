@@ -3,7 +3,7 @@ tags:
   - Free
 ---
 
-# Plumed
+# PLUMED
 
 PLUMED (PLUgin for MolEcular Dynamics) is an open-source, community-developed
 library that provides a wide  range of different methods for enhanced sampling
@@ -15,7 +15,6 @@ in molecular dynamics. It can be used with several MD codes.
 
 -   Puhti: 2.7.4, 2.8.0
 -   Mahti: 2.6.3, 2.7.2
--   LUMI: 2.8.2, 2.9.0
 
 ## License
 
@@ -23,8 +22,8 @@ The PLUMED license (L-GPL) also allows it to be interfaced with proprietary soft
 
 ## Usage
 
-The standalone module of plumed is for building your own applications and linking with
-plumed, or analysing results performed with such code. To use, first give `module spider`
+The standalone module of PLUMED is for building your own applications and linking with
+PLUMED, or analysing results performed with such code. To use, first give `module spider`
 to locate all versions and their library dependencies:
 
 ```bash
@@ -32,15 +31,13 @@ module spider plumed
 module load <dependencies reported by the spider command> plumed/<version>
 ```
 
-On LUMI, you need to first load the CSC module tree into use with `module use /appl/local/csc/modulefiles`.
-
-If you want to run molecular dynamics with plumed, either compile your MD engine of
-choice with plumed (see [selection e.g. here](https://www.plumed.org/)), or use e.g.
+If you want to run molecular dynamics with PLUMED, either compile your MD engine of
+choice with PLUMED (see [selection e.g. here](https://www.plumed.org/)), or use e.g.
 [GROMACS](gromacs.md), which is available at CSC.
 
 ## References
 
-Cite your work with Plumed with:
+Cite your work with PLUMED with:
 
 ```text
 This work was carried out using the open-source, community-developed PLUMED library 
@@ -62,5 +59,5 @@ preprint available as [arXiv:0902.0874](http://arxiv.org/abs/0902.0874)
 
 ## More information
 
--   [Plumed home page](https://www.plumed.org)
--   [Plumed tutorials (v2.8)](https://www.plumed.org/doc-v2.8/user-doc/html/tutorials.html)
+-   [PLUMED home page](https://www.plumed.org)
+-   [PLUMED tutorials (v2.8)](https://www.plumed.org/doc-v2.8/user-doc/html/tutorials.html)
