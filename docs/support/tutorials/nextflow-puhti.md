@@ -1,191 +1,236 @@
-
 # Running Nextflow pipelines on Puhti
-[Nextflow](https://www.nextflow.io/) is a scalable and reproducible scientific workflow 
-management system that interacts with containerised applications to perform 
-compute-intensive tasks. Nextflow provides built-in support for containers 
-like Singularity, which is a containerisation technology that is compliant 
-with HPC environment. Although Nextflow pipelines allow us to choose Docker 
-engine as an executor for running pipelines, please note that Docker 
-containers can't be used in Puhti due to the lack of administrative privileges for researchers.
+
+[Nextflow](https://www.nextflow.io/) is a scalable and reproducible scientific
+workflow management system that interacts with containerized applications to
+perform compute-intensive tasks. Nextflow provides built-in support for
+HPC-friendly containers such as Apptainer and Singularity. Although Nextflow
+pipelines allow us to choose Docker engine as an executor for running
+pipelines, please note that Docker containers can't be used on Puhti due to the
+lack of administrative privileges for regular users.
 
 ## Strengths of Nextflow
 
 * Easy installation
-* No database needed
-* Implicit parallelism supported
+* Supports implicit parallelism
 * Can handle complex dependencies and conditional execution
-* Supports error recovery
+* Handles error recovery
 
 ## Disadvantages of Nextflow
 
-* Limited MPI support
-* May create a lot of job steps and excess IO
-* Does not integrate well with Slurm
+* Has limited MPI support
+* Creates a lot of job steps and excessive I/O load
+* Does not efficiently integrate with Slurm scheduler
 
-## How Singularity works with Nextflow
-The integration of Singularity containers with Nextflow follows the same 
-execution model as with Docker containers. So it does not require additional 
-modifications in a Nextflow script as such to be compatible with Singularity. 
-One has to just enable the use of Singularity engine (instead of Docker) 
-in the Nextflow configuration file. Nextflow is able to pull remote container 
-images stored in Singularity or Docker-Hub registry. The remote container 
-images are usually specified in your Nextflow script or configuration 
-file by simply prefixing the image name with the `shub://` or `docker://`. 
-It is also possible to specify a different Singularity image for each 
-process definition in the Nextflow pipeline script. 
+## Use Apptainer/Singularity containers with Nextflow
 
-Here is a generic recipe for running your Nextflow pipeline on Puhti :
+Containers can be smoothly integrated with Nextflow pipelines. No additional
+modifications to Nextflow scripts are needed except enabling the
+Singularity/Apptainer engine (instead of Docker) in the Nextflow configuration
+file in the HPC environment. Nextflow is able to pull remote container images
+stored in Singularity or Docker Hub registry. The remote container images are
+usually specified in the Nextflow script or configuration file by simply
+prefixing the image name with `shub://` or `docker://`. It is also possible to
+specify a different Singularity image for each process definition in the
+Nextflow pipeline script.
 
-1. Prepare your singularity images on your local environment
-2. Login to Puhti supercomputer
-3. Load Nextflow as a module on Puhti
-4. Set-up your Nextflow pipeline environment
-5. Run your Nextflow pipeline as a batch job
-6. (Optional) tutorial - Demonstration of WtP Nextflow pipeline on Puhti
+Here is a generic recipe for running a Nextflow pipeline on Puhti:
 
-## 1. Prepare your Singularity images on your local environment
+* [1. Login to Puhti supercomputer](#1-login-to-puhti-supercomputer)
+* [2. Prepare your Apptainer/Singularity images](#2-prepare-your-apptainersingularity-images)
+* [3. Load Nextflow module on Puhti](#3-load-nextflow-module-on-puhti)
+* [4. Set-up your Nextflow pipeline environment](#4-set-up-your-nextflow-pipeline-environment)
+* [5. Run your Nextflow pipeline as a batch job](#5-run-your-nextflow-pipeline-as-a-batch-job)
+* [6. Demonstration of nf-core Nextflow pipeline using HyperQueue executor (optional)](#6-demonstration-of-nf-core-nextflow-pipeline-using-hyperqueue-executor-optional)
 
-Singularity containers can't be built directly on Puhti. So one has to 
-build and copy singularity container(s) of a nextflow pipeline from your 
-local environment to Puhti supercomputer. 
+## 1. Login to Puhti supercomputer
 
-Here are some options for preparing your singularity image:
+SSH to the login node of Puhti supercomputer
+([more instructions here](../../computing/index.md#connecting-to-the-supercomputers)).
 
-- Build a Singularity image on your local system  and then copy it to Puhti
-- Convert a Docker image to Singularity on your local system and then copy it to Puhti.
-- Copy a Singularity image from a container registry to Puhti.
-
-You can also use [cPouta](../../cloud/pouta/launch-vm-from-web-gui.md) environment at CSC to build singularity images.
-
-!!! note 
-    Singularity is installed only on the compute nodes in Puhti and 
-    it is not available for execution or testing on login nodes.
-
-## 2. Login to Puhti supercomputer
-
-SSH into the login node of Puhti cluster (See instructions [here](../../computing/index.md#connecting-to-the-supercomputers))
-
-```
-ssh yourcscusername@puhti.csc.fi
-```
-Where **yourcscusername** is the username you get from CSC.
-
-## 3. Load  Nextflow module on Puhti
-
-Nextflow on Puhti is available as a module and can be load as below:
-
-```
-module load nextflow/21.10.6
+```bash
+ssh <username>@puhti.csc.fi   # replace <username> with your CSC username
 ```
 
-In case you need any custom installations with specific version of Nextflow in your 
-workspace, please follow instructions [here](../../computing/containers/tykky.md). 
+## 2. Prepare your Apptainer/Singularity images
+
+Most Nextflow pipelines pull the needed container images on the fly. However,
+when there are multiple images involved, it is a good idea to prepare the
+images locally first before launching your Nextflow pipeline.
+
+Here are some options for preparing your Apptainer/Singularity image:
+
+* Build a Singularity/Apptainer image on Puhti without `sudo` access using
+  `--fakeroot` flag.
+* Convert a Docker image to Apptainer on your local system and then copy it
+  to Puhti.
+* Convert a Docker image from a container registry on Puhti.
+
+More information on these different options can be found in our
+[documentation on creating containers](../../computing/containers/creating.md).
+
+!!! note
+    Singularity/Apptainer is installed on login and compute nodes and does
+    not require loading a separate module on either Puhti, Mahti or LUMI.
+
+## 3. Load Nextflow module on Puhti
+
+Nextflow is available as a module on Puhti and can be loaded for example as
+below:
+
+```bash
+module load nextflow/22.10.1
+```
+
+!!! note
+     Please make sure to specify the correct version of the Nextflow module as
+     some pipelines require a specific version of Nextflow.
 
 ## 4. Set-up your Nextflow pipeline environment
 
-Running Nextflow pipelines can sometimes be quite compute-intensive and 
-may require downloading large volumes of data such as databases and 
-singularity images. This can take a while and may not even work successfully 
-in case of downloading singularity images on Puhti. 
+Running Nextflow pipelines can sometimes be quite compute-intensive and may
+require downloading large volumes of data such as databases and container
+images. This can take a while and may not even work successfully for the first
+time when downloading multiple Apptainer/Singularity images or databases.
 
-You can do the following basic preparation before running your Nextflow pipeline:
+You can do the following basic preparation steps before running your Nextflow
+pipeline:
 
-- Copy singularity images from your local workspace to your project folder on Puhti. 
-  Pay attention to the singularity cache directory (i.e., `SINGULARITY_CACHEDIR` or some 
-  other name given by your software tool) which is usually `$HOME/.singularity/cache`. 
-  The disk space of your home directory is quite limited (10 GB) on Puhti.
-- Move all your raw data to your project directory (`/scratch/<project name>`) on Puhti
-- Clone the GitHub repository of your pipeline to your scratch directory and then run your 
-  pipeline. Alternatively, use the Nextflow pipeline directly 
-  from DockerHub if the pipeline is available
+* Copy Apptainer images from your local workstation to your project folder on
+  Puhti. Pay attention to the Apptainer cache directory (i.e.
+  `$APPTAINER_CACHEDIR`) which is usually `$HOME/.apptainer/cache`. Note that
+  `$HOME` directory quota is only 10 GB on Puhti, so it may fill up quickly.
+* Move all your raw data to your project directory (`/scratch/<project>`)
+  on Puhti.
+* Clone the GitHub repository of your pipeline to your scratch directory and
+  then [run your pipeline](#5-run-your-nextflow-pipeline-as-a-batch-job).
 
 ## 5. Run your Nextflow pipeline as a batch job
 
-Please follow our instructions for writing a batch job on Puhti as described in 
-[CSC documentation pages](../../computing/running/example-job-scripts-puhti.md).
+Please follow our
+[instructions for writing a batch job script for Puhti](../../computing/running/example-job-scripts-puhti.md).
 
-Here is a minimal script to get started with your Nextflow pipeline on Puhti:
+Although Nextflow comes with native Slurm support, one has to avoid launching
+large amounts of very short jobs using it. Instead, one can launch a Nextflow
+job as a regular batch job that co-executes all job tasks in the same job
+allocation. Below is a minimal example to get started with your Nextflow
+pipeline on Puhti:
 
-```
+```bash
 #!/bin/bash
-#SBATCH --time=00:15:00 # change your time settings
-#SBATCH --partition=test #  change partition as needed
-#SBATCH --account=project_XXX # add your project number here
-#SBATCH --cpus-per-task=xx # change as you need
-#SBATCH --mem-per-cpu=1G   # increase as needed
+#SBATCH --time=00:15:00            # Change your runtime settings
+#SBATCH --partition=test           # Change partition as needed
+#SBATCH --account=<project>        # Add your project name here
+#SBATCH --cpus-per-task=<value>    # Change as needed
+#SBATCH --mem-per-cpu=1G           # Increase as needed
 
-module load nextflow/21.10.6 
+# Load Nextflow module
+module load nextflow/22.10.1
 
 # Actual Nextflow command here
-nextflow run  <workflow.nf> [options]
+nextflow run workflow.nf <options>
 ```
 
-## 6. (Optional) tutorial - Demonstration of WtP Nextflow pipeline
+!!! note
+     If you are directly pulling multiple images on the fly, please set
+     `$APPTAINER_TMPDIR` and `$APPTAINER_CACHEDIR` to either local scratch
+     (i.e. `$LOCAL_SCRATCH`) or to your scratch folder (`/scratch/<project>`)
+     in the batch script. Otherwise `$HOME` directory, the size of which is
+     only 10 GB, will be used. To avoid any disk quota errors while pulling
+     images, set `$APPTAINER_TMPDIR` and `$APPTAINER_CACHEDIR` in your batch
+     script as below:
 
-WtP is a scalable and easy-to-use workflow for phage identification 
-and analysis. More details about the pipeline can be found 
-[here](https://github.com/replikation/What_the_Phage).
+     ```bash
+     export APPTAINER_TMPDIR=$LOCAL_SCRATCH
+     export APPTAINER_CACHEDIR=$LOCAL_SCRATCH
+     ```
 
-Login to Puhti and load  Nextflow module as instructed above.
+     Note that this also requires requesting NVMe disk in the batch script by
+     adding `#SBATCH --gres=nvme:<value in GB>`. For example, add
+     `#SBATCH --gres=nvme:100` to request 100 GB of space on `$LOCAL_SCRATCH`.
 
-## Set-up WtP pipeline on Puhti
+## 6. Demonstration of nf-core Nextflow pipeline using HyperQueue executor (optional)
 
-You can either clone the WtP GitHub repository to your project scratch directory as below
-(remember to edit the project name):
+In this example, let's use the
+[HyperQueue meta-scheduler](../../apps/hyperqueue.md) for executing a Nextflow
+pipeline. This executor can be used to scale up analysis across multiple nodes
+when needed.
 
-```
-cd  /scratch/project_xxx
-git clone  https://github.com/replikation/What_the_Phage.git
-nextflow run /scratch/project_xxx/What_the_Phage/phage.nf --help
-```
+Here is a batch script for running a
+[nf-core pipeline](https://nf-co.re/pipelines) on Puhti:
 
-or pull the Nextflow pipeline from DockerHub:
-
-```
-nextflow run replikation/What_the_Phage  -r v0.8.0 --help
-```
-
-In either case, pay attention to the versions of different singularity 
-containers as mentioned in `containers.config` file. 
-
-### Bring your WtP singularity images to Puhti
-
-WtP is a multi-container pipeline requiring as many as 21 singularity images 
-(see [here for further details)](https://github.com/replikation/What_the_Phage/blob/master/configs/container.config) 
-at the time of writing this tutorial. All these containers were downloaded 
-in cPouta environment to avoid any build failures of singularity images on Puhti due to the lack 
-of privileged access for users. For the sake of this tutorial, the downloaded singularity 
-images were then uploaded to ``Allas`` which is an object storage environment at CSC.
-
-The images on `Allas` object storage can be downloaded to your project directory on scratch as below:
 ```bash
-mkdir -p /scratch/project_xxx/What_the_Phage/singularity
-cd /scratch/project_xxx/What_the_Phage/singularity
-wget https://a3s.fi/puhti_singularity/WtP_singularity.tar.gz
-tar -xavf WtP_singularity.tar.gz
-```
-
-### Run WtP pipelines as a batch job on Puhti:
-
-Submit the following batch script to run nextflow pipeline:
-```
 #!/bin/bash
-#SBATCH --time=01:00:00
+#SBATCH --job-name=nextflowjob
+#SBATCH --account=<project>
 #SBATCH --partition=small
-#SBATCH --account=project_XXX
-#SBATCH --cpus-per-task=4
+#SBATCH --time=01:00:00
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=1
+#SBATCH --cpus-per-task=40
+#SBATCH --mem-per-cpu=2G
+  
+module load hyperqueue/0.16.0
+module load nextflow/22.10.1
+module load git
 
-export TMPDIR=$PWD
+# create a directory on scratch folder for running nextflow pipeline
+export SCRATCH=/scratch/<project>/$USER/nextflow
+mkdir -p ${SCRATCH}
+cd ${SCRATCH}
 
-# Activate  Nextflow on Puhti
+export APPTAINER_TMPDIR="${SCRATCH}"
+export APPTAINER_CACHEDIR="${SCRATCH}"
+unset XDG_RUNTIME_DIR
 
-module load nextflow/21.10.6 
+# Specify a location for the HyperQueue server
+export HQ_SERVER_DIR=${PWD}/hq-server-${SLURM_JOB_ID}
+mkdir -p "${HQ_SERVER_DIR}"
 
-# Nextflow command here
-nextflow run /scratch/project_xxx/What_the_Phage/phage.nf --fasta /scratch/project_xxx/What_the_Phage/test-data/OX2_draft.fa --cores 4 --output results -profile local,singularity --cachedir /scratch/project_xxx/What_the_Phage/singularity --databases /scratch/project_xxx/What_the_Phage/databases/WtP_databases --workdir /scratch/project_xxx/What_the_Phage/workflow-phages-username 
+# Start the server in the background (&) and wait until it has started
+hq server start &
+until hq job list &>/dev/null ; do sleep 1 ; done
+
+# Start the workers in the background and wait for them to start
+srun --overlap --cpu-bind=none --mpi=none hq worker start --cpus=${SLURM_CPUS_PER_TASK} &
+hq worker wait "${SLURM_NTASKS}"
+
+# As an example, let's clone a nf-core pipeline and run a test sample
+git clone https://github.com/nf-core/rnaseq.git -b 3.10
+cd rnaseq
+
+# Ensure Nextflow uses the right executor and knows how much it can submit
+echo "executor {
+  queueSize = $(( 40*SLURM_NNODES ))
+  name = 'hq'
+  cpus = $(( 40*SLURM_NNODES ))
+}" >> nextflow.config
+
+nextflow run main.nf -profile test,singularity --outdir . -resume
+
+# Wait for all jobs to finish, then shut down the workers and server
+hq job wait all
+hq worker stop all
+hq server stop
 ```
 
-Please note that the Singularity images in this example should be in the folder:
-`"/scratch/project_xxx/What_the_Phage/singularity"`. Otherwise, Nextflow tries to download 
-the images again which increases the likelihood of failures. Remember to edit `project_xxx`
-to match your computing project.
+!!! note
+     Please make sure that your nextflow configuration file (`nextflow.config`)
+     has the correct executor name when using the HypeQueue executor. Also,
+     when multiple nodes are used, ensure that the executor knows how many jobs
+     it can submit using the parameter `queueSize` under the `executor` block.
+     The `queueSize` can be limited as needed. Here is an example snippet that
+     you can use and modify as needed in your `nextflow.config` file:
+
+     ```text
+     executor {
+     queueSize = 40*SLURM_NNODES
+     name = 'hq'
+     cpus = 40*SLURM_NNODES
+     }
+     ```
+
+## More information
+
+* [Official Nextflow documentation](https://www.nextflow.io/docs/latest/index.html)
+* [CSC's Nextflow documentation](../../apps/nextflow.md)
+* [High-throughput Nextflow workflow using HyperQueue](nextflow-hq.md)
