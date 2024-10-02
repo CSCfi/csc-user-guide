@@ -7,7 +7,7 @@ project.
 Check your BU consumption:
 
 1. Login to [MyCSC](http://my.csc.fi).
-1. Choose _My Projects_ in the navigation menu on the left.
+1. Choose _Projects_ in the navigation menu on the left.
 1. Choose a project.
 1. The usage is shown under _Resource Usage_.
 
