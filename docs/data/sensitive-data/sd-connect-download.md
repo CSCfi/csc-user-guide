@@ -1,5 +1,5 @@
 # Downloading folders and files
-You can download folders or individual files from SD Connect. Files and folders are automatically decrypted after download is complete.
+You can download folders or individual files from SD Connect. Files and folders are automatically decrypted during download.
 
 ## Downloading folder
 1. Find correct folder from All folders tab.
@@ -10,11 +10,15 @@ You can download folders or individual files from SD Connect. Files and folders 
 1. Find correct folder from All folders tab and click to view files.
 2. Find corrects files.
 3. Click **Download** on right side of each file you want to download.
-4. Files are decrypted automatically. Locate downloaded folder from your computer (for example Downloads folder).
+4. Files are decrypted automatically. Files will download and decrypt automatically, usually to downloads folder. Do not open the folder until the download is complete to avoid errors. The downloaded folder has a .tar extension, double-click to extract the content in a new folder.
 
 !!! Warning
-    Update this: Files uploaded before xx.xx.2024 will have to be decrypted by using [Crypt4GH application](./sd-desktop-export.md). You will see notification when this step is needed.
-.
+   If you encounter the message 'Requested files could not be decrypted' while downloading, it indicates that some files in your folder were uploaded with an older version of SD Connect, making automatic decryption unavailable. To resolve this, please follow the [manual decryption instructions](sd-connect-command-line-interface.md). For further assistance, contact us at servicedes@csc.fi.
+
+## Limitations
+
+Files uploaded before October 2024 can be downloaded but require manual decryption, please follow the [manual decryption instructions](sd-connect-command-line-interface.md).
+
 
 ## Features in SD Connect 
 
