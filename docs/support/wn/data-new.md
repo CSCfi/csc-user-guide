@@ -4,14 +4,14 @@
 
 Please note, this upgrade will not affect your data—files stored in SD Connect will remain accessible after the service break, but a new encryption protocol will be applied for new uploads. The new version is compatible with the current one, but there are **four actions required** on your part. You can find more information about these steps and any limitations [here](https://research.csc.fi/-/280351-91).
 
-We will continue providing updates after the service break. If you have any questions or need assistance, please feel free to contact us at servicedesk@csc.fi (subject: Sensitive Data) or join us on Wednesday, October 9, at 14:00 (Finnish time) for an introduction and live demo of **SD Connect 2** at the CSC Research Support Coffee session: [Zoom Link](https://cscfi.zoom.us/j/65059161807#success).  For more information, visit our [training calendar](https://csc.fi/en/training-calendar/csc-research-support-coffee-every-wednesday-at-1400-finnish-time-2-2/).​​​​​​​
+We will continue providing updates after the service break. If you have any questions or need assistance, please feel free to contact us at servicedesk@csc.fi (subject: Sensitive Data) or join us on Wednesday, October 9, at 14:00 (Finnish time) for an introduction and live demo of **SD Connect 2** at the CSC Research Support Coffee session: [Zoom Link](https://cscfi.zoom.us/j/65059161807#success). For more information, visit our [training calendar](https://csc.fi/en/training-calendar/csc-research-support-coffee-every-wednesday-at-1400-finnish-time-2-2/).​​​​​​​
 
 Thank you for your understanding and cooperation.
 
-Sincerely,\
+Sincerely,
 The CSC Sensitive Data Services Support Team
 
-This info are available via the link in research.csc.fi
+This info are available via the link in research.csc.fi:
 
 ### To access the new version, please follow these four steps:
 
