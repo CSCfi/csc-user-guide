@@ -1,5 +1,49 @@
 # Data management
 
+## SD Connect major upgrade October 7
+
+Please note, this upgrade will not affect your data—files stored in SD Connect will remain accessible after the service break, but a new encryption protocol will be applied for new uploads. The new version is compatible with the current one, but there are **four actions required** on your part. You can find more information about these steps and any limitations [here](https://research.csc.fi/-/280351-91).
+
+We will continue providing updates after the service break. If you have any questions or need assistance, please feel free to contact us at servicedesk@csc.fi (subject: Sensitive Data) or join us on Wednesday, October 9, at 14:00 (Finnish time) for an introduction and live demo of **SD Connect 2** at the CSC Research Support Coffee session: [Zoom Link](https://cscfi.zoom.us/j/65059161807#success).  For more information, visit our [training calendar](https://csc.fi/en/training-calendar/csc-research-support-coffee-every-wednesday-at-1400-finnish-time-2-2/).​​​​​​​
+
+Thank you for your understanding and cooperation.
+
+Sincerely,\
+The CSC Sensitive Data Services Support Team
+
+This info are available via the link in research.csc.fi
+
+### To access the new version, please follow these four steps:
+
+* Service access: [Apply for SD Connect service access](https://docs.csc.fi/accounts/how-to-add-service-access-for-project/) at [MyCSC portal ](http://%C2%B4my.csc.fi/welcome "http://xn--%20my-kdc.csc.fi/welcome")and accept the terms of use. _Note: Only the project PI can enable the service, but all project members must accept the terms of use._
+* MFA: Ensure that Multifactor Authentication (MFA) is [enabled ](http://docs.csc.fi/accounts/mfa/)on your CSC profile. _Note: If you are using SD Desktop, MFA is already enabled, and no further action is needed_.
+* Syncing: Once the service break is over, log in to the service and keep the user interface open for 5 minutes to allow for syncing. After this, you will have access to all files stored in SD Connect.
+* Shared folders: Uploading or downloading data from folders shared in the previous service version will no longer be possible. To re-enable it, please update the sharing permissions by following [these steps](https://docs.csc.fi/data/sensitive-data/sd-connect-share/).
+* 
+
+**New Key Features:**
+
+* **New user interface**:  more intuitive design for easier navigation.
+* **Automated encryption and decryption**: automatic encryption during uploads and decryption during downloads, with key management available through the user interface (for files up to 100 GB) or programmatically using SD-lock SD-unlock tools.
+* **Enhanced security**: Multifactor Authentication (MFA) for added security.
+* **Flexible sharing permissions**: Three levels of sharing permissions available.
+
+[Updated user guide and video tutorials](https://docs.csc.fi/data/sensitive-data/sd-connect-beta/#sd-connect-beta)**.**
+
+**Limitations:**
+
+* **Double login required**: Due to ongoing technical challenges, a [double login](https://docs.csc.fi/data/sensitive-data/sd-connect-beta/#login) is necessary to access the service. We apologize for the inconvenience.
+* **Manual decryption**: Data uploaded with the previous version of SD Connect will not be automatically decrypted during download with version 2
+* **Browser Recommendation**: For optimal performance, we recommend using Google Chrome. Firefox is also supported.
+
+**Support:**
+
+* If you have any questions or need assistance, please contact us at servicedesk@csc.fi (subject: Sensitive Data).
+* Join us every Wednesday for the CSC Research Support Coffee session at 14:00 Finnish time for questions and support: [Zoom Link](https://cscfi.zoom.us/j/65059161807#success). For more information, visit our [training calendar](https://csc.fi/en/training-calendar/csc-research-support-coffee-every-wednesday-at-1400-finnish-time-2-2/).
+
+
+
+
 ## SD Desktop: CentOS 7 will no longer be supported after June 2024
 
 We are implementing a security update for our virtual desktop operating system. As part of this update, the old operating system known as Linux CentOS 7 will no longer be supported after June 2024. Instead, we'll be transitioning exclusively to an operating system called Ubuntu for our virtual desktops. 

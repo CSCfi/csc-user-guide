@@ -22,11 +22,7 @@ If you uploaded files encrypted with your encryption key using SD Connect versio
 
 1. Access SD Connect v2 and locate the files you need. You can download either the entire bucket or individual files. At the end of the download, the user interface will display the message: "Some requested files could not be decrypted."
 
-![Screenshot_2024-09-16_at_13.32.27](/uploads/03be91aea40988504436a76b6786b9e4/Screenshot_2024-09-16_at_13.32.27.png){width="366" height="188"}
-
-2. After downloading the files, you need to adjust their extensions. Right-click the file, choose "Rename," and add `.c4gh` to the end of the filename. If opened with a text editor, the files will still be encrypted like in the example below.
-
-![Screenshot 2024-09-16 at 14.06.39.png](/uploads/80c21eab7554ebe16ccaf8289e1ec8a2/Screenshot_2024-09-16_at_14.06.39.png){width="195" height="159"}![Screenshot 2024-09-16 at 14.06.48.png](/uploads/1086b5e01a96079629850e1cfd9753b2/Screenshot_2024-09-16_at_14.06.48.png){width="176" height="162"}![Screenshot 2024-09-16 at 14.07.03.png](/uploads/e7e1d6f1b2cd923661c237248190618c/Screenshot_2024-09-16_at_14.07.03.png){width="176" height="160"}![Screenshot 2024-09-16 at 14.08.31.png](/uploads/b8b27ce61964dadc7ee5cd05519706ab/Screenshot_2024-09-16_at_14.08.31.png){width="238" height="145"}
+2. After downloading the files, you need to adjust their extensions. Right-click the file, choose "Rename," and add `.c4gh` to the end of the filename. If opened with a text editor, the files will still be encrypted.
 
 3. Next, you can decrypt the file using the Crypt4GH application and your secret encryption key. Unfortunately, it is currently only possible to single files.
    1. Open the Crypt4GH application and click on _load Your Private Key_.
@@ -36,6 +32,7 @@ If you uploaded files encrypted with your encryption key using SD Connect versio
    5. The tool will ask you to write the secret key's password. Press _ok_.
 
    The secret key must match the public key used to encrypt the data. 
+
 4. Note: In the case of decryption, adding the public key is not mandatory, but if you have the public key of the person who has encrypted the file, you can use it to verify the encryption signature. If you don't select a public key, the activity log will display the following (the decryption will be executed anyway):
 
    `Sender public key has not been set, authenticity will not be verified.`
@@ -46,7 +43,8 @@ If you uploaded files encrypted with your encryption key using SD Connect versio
 
 The decrypted file will no longer display the `.c4gh` extension and will be saved in the same folder from which the original file was uploaded.
 
-Video: https://youtu.be/SQJ8QEKV7BE?feature=shared needs to be updated
+
+* Follow [video](https://youtu.be/SQJ8QEKV7BE?feature=shared) and after downloading the file, change the extension.
 
 #### Programmatically
 
