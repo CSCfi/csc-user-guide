@@ -15,10 +15,10 @@ This info are available via the link in research.csc.fi:
 
 ### To access the new version, please follow these four steps:
 
-* Service access: [Apply for SD Connect service access](https://docs.csc.fi/accounts/how-to-add-service-access-for-project/) at [MyCSC portal ](http://%C2%B4my.csc.fi/welcome "http://xn--%20my-kdc.csc.fi/welcome")and accept the terms of use. _Note: Only the project PI can enable the service, but all project members must accept the terms of use._
-* MFA: Ensure that Multifactor Authentication (MFA) is [enabled ](http://docs.csc.fi/accounts/mfa/)on your CSC profile. _Note: If you are using SD Desktop, MFA is already enabled, and no further action is needed_.
+* Service access: [Apply for SD Connect service access](https://docs.csc.fi/accounts/how-to-add-service-access-for-project/) at [MyCSC portal](http://my.csc.fi/) and accept the terms of use. _Note: Only the project PI can enable the service, but all project members must accept the terms of use._
+* MFA: Ensure that Multifactor Authentication (MFA) is [enabled](../../accounts/mfa.md) on your CSC profile. _Note: If you are using SD Desktop, MFA is already enabled, and no further action is needed_.
 * Syncing: Once the service break is over, log in to the service and keep the user interface open for 5 minutes to allow for syncing. After this, you will have access to all files stored in SD Connect.
-* Shared folders: Uploading or downloading data from folders shared in the previous service version will no longer be possible. To re-enable it, please update the sharing permissions by following [these steps](https://docs.csc.fi/data/sensitive-data/sd-connect-share/).
+* Shared folders: Uploading or downloading data from folders shared in the previous service version will no longer be possible. To re-enable it, please update the sharing permissions by following [these steps](../../data/sensitive-data/sd-connect-share.md).
 * 
 
 **New Key Features:**
@@ -28,11 +28,11 @@ This info are available via the link in research.csc.fi:
 * **Enhanced security**: Multifactor Authentication (MFA) for added security.
 * **Flexible sharing permissions**: Three levels of sharing permissions available.
 
-[Updated user guide and video tutorials](https://docs.csc.fi/data/sensitive-data/sd-connect-beta/#sd-connect-beta)**.**
+[Updated user guide and video tutorials](../../data/sensitive-data/sd-connect.md)**.**
 
 **Limitations:**
 
-* **Double login required**: Due to ongoing technical challenges, a [double login](https://docs.csc.fi/data/sensitive-data/sd-connect-beta/#login) is necessary to access the service. We apologize for the inconvenience.
+* **Double login required**: Due to ongoing technical challenges, a [double login](../../data/sensitive-data/sd-connect-login.md) is necessary to access the service. We apologize for the inconvenience.
 * **Manual decryption**: Data uploaded with the previous version of SD Connect will not be automatically decrypted during download with version 2
 * **Browser Recommendation**: For optimal performance, we recommend using Google Chrome. Firefox is also supported.
 
