@@ -1,10 +1,10 @@
-### How to Dowland and access file encrypted with older version
+# How to dowload and access file encrypted with older version
 
-### Via SD Connect user interface
+## Via SD Connect user interface
 
 If you uploaded files encrypted with your encryption key using SD Connect version 1, you can still download them through the SD Connect 2.0 interface. However, these files will remain encrypted, and you will need to decrypt them on your laptop with the Crypt4GH application by following the provided instructions. Please note that you can only decrypt one file at a time. If you need to decrypt multiple files at once, a command line option is available. For further assistance, contact us at servicedesk@csc.fi.
 
-#### Preparation:
+### Preparation:
 
 - **Have your private encryption key available** If you don’t remember the key used, please contact us at servicedesk@csc.fi.
 - **Download the Crypt4GH graphical user interface on your laptop** This tool is necessary for decrypting the files. If you experience any issues installing the tool, especially on a laptop provided by your IT department, please contact us for assistance.
@@ -18,11 +18,15 @@ If you uploaded files encrypted with your encryption key using SD Connect versio
   Please check that the tool for Windows has been digitally signed by CSC - IT Center for Science. After the download, you can find the Crypt4GH application in your downloads folder.
   * When you open the application for the first time, you might encounter an error message. In this case, click on _More info_ and verify that the publisher is CSC-IT Center for Science (or in Finnish CSC-Tieteen tietotekniikan keskus Oy) and then click on _Run anyway_.
 
-#### Procedure:
+### Procedure:
 
 1. Access SD Connect v2 and locate the files you need. You can download either the entire bucket or individual files. At the end of the download, the user interface will display the message: "Some requested files could not be decrypted."
 
+![Some requested files could not be decrypted.](https://a3s.fi/docs-files/sensitive-data/SD_Connect/Old_download_1.png)
+
 2. After downloading the files, you need to adjust their extensions. Right-click the file, choose "Rename," and add `.c4gh` to the end of the filename. If opened with a text editor, the files will still be encrypted.
+
+![After downloading the files, you need to adjust their extensions.](https://a3s.fi/docs-files/sensitive-data/SD_Connect/Old_download_2.png)
 
 3. Next, you can decrypt the file using the Crypt4GH application and your secret encryption key. Unfortunately, it is currently only possible to single files.
    1. Open the Crypt4GH application and click on _load Your Private Key_.
@@ -46,7 +50,7 @@ The decrypted file will no longer display the `.c4gh` extension and will be save
 
 * Follow [video](https://youtu.be/SQJ8QEKV7BE?feature=shared) and after downloading the file, change the extension.
 
-#### Programmatically
+### Programmatically
 
 Download and decryption of files uploaded with CLI and own encryption key pair:
 
@@ -80,7 +84,7 @@ The usual `-h` flag shows you the different options that the tool accepts:
 
 You may notice that crypt4gh uses `--sk` option for the private key. This might seem odd but apparently, crypt4gh uses term _secure key_ for private key, hence `sk`, and consequently `pk` refers to public key instead of the private key.
 
-#### Decrypt a file
+### Decrypt a file
 
 To decrypt a file you will need a private key which corresponds to one of the public keys used in encryption phase. Let's assume in our example that the research group A is decrypting a file you've sent them. To decrypt a file they use `crypt4gh decrypt` command:
 
