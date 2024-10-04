@@ -28,11 +28,10 @@ RUN chgrp -R root ${ROOT_GROUP_DIRS} &&\
 COPY . /tmp
 
 RUN if [ ! -d ".git" ]; then \
-    git clone --no-checkout https://github.com/$repo_org/$repo_name git_folder && \
-    mv git_folder/.git . && \
-    rm -r git_folder && \
-    git reset HEAD --hard && \
-    git checkout -f $repo_branch; fi && \
+    git clone --bare --single-branch --branch=$repo_branch https://github.com/$repo_org/$repo_name .git && \
+    git init && \
+    git switch --force $repo_branch; \
+    fi && \
     bash scripts/generate_alpha.sh && \
     bash scripts/generate_by_system.sh && \
     bash scripts/generate_new.sh && \
