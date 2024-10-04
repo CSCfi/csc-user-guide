@@ -7,8 +7,8 @@ language models (LLMs) on CSC's supercomputers.
 
 If you are doing inference (using a model, rather than training), you
 can in some cases do without a GPU, for example if the model is small
-enough or has been reduced by quantization. In most other cases you
-will need to use a GPU.
+enough or has been reduced by quantization. However, in most other
+cases you will need to use a GPU.
 
 In order to use an LLM (or any neural network) with a GPU, the model
 needs to be loaded into the GPU memory (VRAM). LLMs can be very large
@@ -31,7 +31,10 @@ formats, going down to 8 or even 4 bits, have become more
 common. Common quantization methods include
 [GPTQ](https://arxiv.org/abs/2210.17323),
 [SpQR](https://arxiv.org/abs/2306.03078) and
-[GGML/GGUF](https://huggingface.co/docs/hub/en/gguf).
+[GGML/GGUF](https://huggingface.co/docs/hub/en/gguf). If you are
+unfamiliar with quantization, see for example [this online guide on
+quantization for
+LLMs](https://www.datacamp.com/tutorial/quantization-for-large-language-models).
 
 The model size in memory is then the number of parameters times the
 number of bytes needed for storing a single weight. For example a 30
@@ -40,7 +43,8 @@ practice [for inference there's up to 20% overhead][1] so you might
 actually need around 70 GB of memory, and thus even a single GCD in
 LUMI might not be enough for our example model. If you would instead
 store that model with 4 bit quantization, it would be about 0.5 bytes
-per parameter, so around 15 GB for our example (plus overhead).
+per parameter, so around 15 GB for our example (or around 18 GB with
+overhead).
 
 For training a lot more memory is needed as not only the model, but
 also the optimizer states, gradients and activations need to be
@@ -94,12 +98,14 @@ PEFT and FSDP approaches.
 
 ### Using PEFT and LoRA
 
-If your model would fit into the GPU memory, but cannot handle all the
-extra memory needed by the overhead of the fine-tuning process, the
-solution may be to use the [Parameter Efficient Fine-Tuning (PEFT)][5]
-library which trains a smaller number of extra parameters, which
-reduces the training overhead a substantially. PEFT supports many
-methods including [LoRA](https://arxiv.org/abs/2106.09685) and
+If your model would fit into the GPU memory, it is still possible that
+all the extra memory needed by the overhead of the fine-tuning process
+will not fit (you will notice this quickly as the program crashes with
+a CUDA or ROCm out-of-memory error!). Then the solution may be to use
+the [Parameter Efficient Fine-Tuning (PEFT)][5] library which trains a
+smaller number of extra parameters, which reduces the training
+overhead a substantially. PEFT supports many methods including
+[LoRA](https://arxiv.org/abs/2106.09685) and
 [QLoRA](https://arxiv.org/abs/2305.14314).
 
 PEFT will typically have about 10% of the original number of
@@ -167,7 +173,10 @@ An alternative to the standard Hugging Face Trainer for fine-tuning
 LLMs is the
 [SFTTrainer](https://huggingface.co/docs/trl/main/en/sft_trainer) from
 the [TRL](https://huggingface.co/docs/trl/index) library. These are
-not covered in this guide.
+not covered in this guide. We recommend checking for example [this
+fine-tuning guide from Hugging
+Face](https://huggingface.co/blog/mlabonne/sft-llama3), which also
+covers the [Unsloth library](https://github.com/unslothai/unsloth).
 
 
 ## Using quantization
@@ -216,9 +225,10 @@ model = AutoModelForCausalLM.from_pretrained(args.model, device_map='auto')
 [Ollama](https://ollama.com/) is a popular tool for using LLMs, as it
 supports [several state-of-the-art models](https://ollama.com/library)
 which can be accessed via an API. Ollama has been designed to run as a
-service, and is thus not directly suited to supercomputers. However,
-it can be run as part of a batch job by starting the service at the
-start of the job, and stopped when the job ends.
+service, and is thus not directly suited to running as a batch job on
+supercomputers. However, it can be run as part of a batch job by
+starting the service at the start of the job, and stopping when the
+job ends.
 
 First, you can install Ollama into your project folder like this:
 
