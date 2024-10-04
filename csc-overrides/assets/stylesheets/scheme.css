@@ -1,54 +1,71 @@
+[data-md-color-primary="custom"] {
+  /* Primary color shades */
+  --md-primary-fg-color:               var(--c-primary-600);
+  --md-primary-fg-color--light:        var(--c-primary-500);
+  --md-primary-fg-color--dark:         var(--c-primary-700);
+  --md-primary-bg-color:               var(--c-white);
+  --md-primary-bg-color--light:        rgb(var(--c-white), 0.7);
+}
+
+[data-md-color-accent="custom"] {
+  /* Accent color shades */
+  --md-accent-fg-color:                var(--c-accent-700);
+  --md-accent-fg-color--transparent:   rgb(var(--c-accent-rgb), 0.025);
+  --md-accent-bg-color:                var(--c-accent-100);
+  --md-accent-bg-color--light:         rgb(var(--c-accent-rgb), 0.1);
+}
+
 [data-md-color-scheme="csc"] {
-  --md-text-font-family: var(--csc-font-family);
+  /* Default color shades */
+  --md-default-fg-color:               var(--c-tertiary-700);
+  --md-default-fg-color--light:        var(--c-tertiary-600);
+  --md-default-fg-color--lighter:      var(--c-tertiary-400);
+  --md-default-fg-color--lightest:     var(--c-tertiary-200);
+  --md-default-bg-color:               rgb(var(--c-white-rgb), 1);
+  --md-default-bg-color--light:        rgb(var(--c-white-rgb), 0.7);
+  --md-default-bg-color--lighter:      rgb(var(--c-white-rgb), 0.3);
+  --md-default-bg-color--lightest:     rgb(var(--c-white-rgb), 0.12);
 
-  --md-primary-fg-color: var(--csc-primary);
-  --md-primary-bg-color: var(--csc-white);
+  /* Code color shades */
+  --md-code-fg-color:                  var(--c-tertiary-800);
+  --md-code-bg-color:                  rgb(var(--c-primary-rgb), 0.05);
 
-  --md-accent-fg-color: var(--csc-primary-hover);
+  /* Code highlighting color shades */
+  --md-code-hl-color:                  rgb(var(--c-primary-rgb), 1);
+  --md-code-hl-color--light:           rgb(var(--c-primary-rgb), 0.1);
 
-  --md-default-fg-color: var(--csc-dark-grey);
-  --md-default-fg-color--light: var(--csc-mid-grey);
-  --md-default-fg-color--lighter: var(--csc-light-grey);
-  --md-default-fg-color--lightest: var(--csc-lightest-grey);
+  /* Code highlighting syntax color shades */
+  --md-code-hl-number-color:           var(--c-warning-600);
+  --md-code-hl-special-color:          var(--c-error-700);
+  --md-code-hl-function-color:         var(--c-warning-800);
+  --md-code-hl-constant-color:         var(--c-primary-600);
+  --md-code-hl-keyword-color:          var(--c-info-700);
+  --md-code-hl-string-color:           var(--c-success-600);
+  --md-code-hl-name-color:             var(--md-code-fg-color);
+  --md-code-hl-operator-color:         var(--md-default-fg-color--light);
+  --md-code-hl-punctuation-color:      var(--md-default-fg-color--light);
+  --md-code-hl-comment-color:          var(--md-default-fg-color--light);
+  --md-code-hl-generic-color:          var(--md-default-fg-color--light);
+  --md-code-hl-variable-color:         var(--md-default-fg-color--light);
 
-  --md-header-fg-color: var(--csc-dark-grey);
-  --md-header-bg-color: var(--csc-white);
+  /* Typeset color shades */
+  --md-typeset-color:                  var(--c-text-body);
 
-  --md-search-fg-color: var(--csc-dark-grey);
-  --md-search-bg-color: var(--csc-search--background);
+  /* Typeset `a` color shades */
+  --md-typeset-a-color:                var(--c-link-500);
 
-  --md-navigation-fg-color: var(--md-primary-bg-color);
-  --md-navigation-bg-color: var(--md-primary-fg-color);
+  /* Typeset `del` and `ins` color shades */
+  --md-typeset-del-color:              rgb(var(--c-error-rgb), 0.15);
+  --md-typeset-ins-color:              rgb(var(--c-success-rgb), 0.15);
 
-  --md-toc-bg-color: var(--csc-toc--background);
+  /* Typeset `table` color shades */
+  --md-typeset-table-color:            var(--c-tertiary-200);
+  --md-typeset-table-color--light:     var(--md-accent-fg-color--transparent);
 
-  --md-typeset-color: var(--csc-dark-grey);
-  --md-typeset-a-color: var(--csc-primary);
-  --md-typeset-a-bg-color: var(--csc-light-grey-blue);
-
-  --md-code-fg-color: var(--csc-dark-grey);
-  --md-code-hl-color: var(--csc-toc--background);
-  --md-code-bg-color: var(--csc-code--background);
-
-  --md-admonition-fg-color: var(--csc-dark-grey);
-  --md-admonition-bg-color: var(--csc-white);
-
-  --md-footer-fg-color: var(--md-default-fg-color);
-  --md-footer-bg-color: var(--md-default-fg-color--lighter);
-
-  /* Code block syntax highlighting: */
-  --md-code-hl-number-color: var(--csc-orange);
-  --md-code-hl-special-color: var(--csc-red);
-  --md-code-hl-function-color: var(--csc-dark-orange);
-  --md-code-hl-constant-color: var(--csc-dark-green);
-  --md-code-hl-keyword-color: var(--csc-blue);
-  --md-code-hl-string-color: var(--csc-apple-green);
-  /* The rest are default values for now:
-  --md-code-hl-name-color: var(--md-code-fg-color);
-  --md-code-hl-operator-color: var(--md-default-fg-color--light);
-  --md-code-hl-punctuation-color: var(--md-default-fg-color--light);
-  --md-code-hl-comment-color: var(--md-default-fg-color--light);
-  --md-code-hl-generic-color: var(--md-default-fg-color--light);
-  --md-code-hl-variable-color: var(--md-default-fg-color--light);
-  */
+  /* Footer color shades */
+  --md-footer-fg-color:                var(--c-tertiary-700);
+  --md-footer-fg-color--light:         var(--c-tertiary-400);
+  --md-footer-fg-color--lighter:       var(--c-tertiary-100);
+  --md-footer-bg-color:                var(--c-tertiary-100);
+  --md-footer-bg-color--dark:          var(--c-tertiary-700);
 }

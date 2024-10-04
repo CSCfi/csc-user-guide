@@ -11,7 +11,7 @@
 
 .md-banner__inner p {
   margin: unset;
-  font-size: var(--csc-font-size--small);
+  font-size: small;
   color: var(--csc-admonition--fg);
   line-height: 2.0;
 }

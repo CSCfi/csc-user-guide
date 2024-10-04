@@ -42,9 +42,9 @@
                 "id": "snake",
                 "color": "terminal.ansiBlue",
             },
-            "command": ". ${userHome}/miniconda3/etc/profile.d/conda.sh && conda env create --force --yes --file ${workspaceFolder}/development/conda-docs-base-1.0.yaml",
+            "command": ". ${userHome}/miniconda3/etc/profile.d/conda.sh && conda env create --force --yes --file ${workspaceFolder}/development/conda-docs-base-latest.yaml",
             "windows": {
-                "command": "& '${env:LOCALAPPDATA}\\miniconda3\\shell\\condabin\\conda-hook.ps1' ; conda env create --force --yes --file '${workspaceFolder}\\development\\conda-docs-base-1.0.yaml'",
+                "command": "& '${env:LOCALAPPDATA}\\miniconda3\\shell\\condabin\\conda-hook.ps1' ; conda env create --force --yes --file '${workspaceFolder}\\development\\conda-docs-base-latest.yaml'",
             },
         },
         {
