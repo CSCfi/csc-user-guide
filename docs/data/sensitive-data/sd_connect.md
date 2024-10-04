@@ -2,7 +2,7 @@
 
 ## Overview
 
-Sensitive Data (SD) Connect allows you to store and share sensitive research data. The service provides a user interface that automatically encrypts files during upload and automatically decrypts them during downland. For large files (>100 GB), a command line tool can be used.
+Sensitive Data (SD) Connect allows you to store and share sensitive research data. **The service provides a user interface that automatically encrypts files during upload and automatically decrypts them during download. For large files (>100 GB), a command line tool can be used.**
 
 SD Connect serves as a workspace for collaborative research projects, facilitating data collection and sharing. Encrypted files stored in SD Connect are directly available for analysis, annotation or editing via SD Desktop.
 
