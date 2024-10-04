@@ -90,8 +90,8 @@ where `--sk groupA.sec` is a corresponding private key to one of the public keys
 
 The command will ask the user to enter the password (passphrase) of your private key. For security reasons the password is not displayed when you type it.
 
-Note
+!!! Note
+    In case you are decrypting the file in SD Desktop and the CSC Sensitive Data public key has been used in encryption, decryption will be done automatically, and you do not need to specify any decryption keys. If you need to decrypt a large number of files, please check the tutorial [Decrypting all files in a directory](https://docs.csc.fi/data/sensitive-data/tutorials/decrypt-directory/).
 
-In case you are decrypting the file in SD Desktop and the CSC Sensitive Data public key has been used in encryption, decryption will be done automatically, and you do not need to specify any decryption keys.
 
-If you need to decrypt a large number of files, please check the tutorial [Decrypting all files in a directory](https://docs.csc.fi/data/sensitive-data/tutorials/decrypt-directory/).
+   
