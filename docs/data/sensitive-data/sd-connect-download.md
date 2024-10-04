@@ -13,11 +13,11 @@ You can download folders or individual files from SD Connect. Files and folders 
 4. Files are decrypted automatically. Files will download and decrypt automatically, usually to downloads folder. Do not open the folder until the download is complete to avoid errors. The downloaded folder has a .tar extension, double-click to extract the content in a new folder.
 
 !!! Warning
-    If you encounter the message 'Requested files could not be decrypted' while downloading, it indicates that some files in your folder were uploaded with an older version of SD Connect, making automatic decryption unavailable. To resolve this, please follow the [manual decryption instructions](sd-connect-command-line-interface.md). For further assistance, contact us at servicedes@csc.fi.
+    If you encounter the message 'Requested files could not be decrypted' while downloading, it indicates that some files in your folder were uploaded with an older version of SD Connect, making automatic decryption unavailable. To resolve this, please follow the [manual decryption instructions](sd-connect-download-old-version.md). For further assistance, contact us at servicedes@csc.fi.
 
 ## Limitations
 
-Files uploaded before October 2024 can be downloaded but require manual decryption, please follow the [manual decryption instructions](sd-connect-command-line-interface.md).
+Files uploaded before October 2024 can be downloaded but require manual decryption, please follow the [manual decryption instructions](sd-connect-download-old-version..md).
 
 
 ## Features in SD Connect 
