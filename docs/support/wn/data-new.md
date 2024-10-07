@@ -17,7 +17,7 @@ On Monday October 7 SD Connect service has been upgraded. Please note, this upgr
 * **Enhanced security**: Multifactor Authentication (MFA) for added security.
 * **Flexible sharing permissions**: Three levels of sharing permissions available.
 
-[Updated user guide and video tutorials](../../data/sensitive-data/sd-connect.md)**.**
+[Updated user guide and video tutorials](../data/sensitive-data/sd-connect.md)**.**
 
 **Limitations:**
 
@@ -49,7 +49,7 @@ Copy-paste functionality via **Clipboard -feature** is now available in your vir
 
 A new version of SD Connect is now available for testing purposes. The updated user interface offers automated file encryption and decryption (up to 100 GB) along with key management. Additionally, three levels of sharing permissions are accessible across CSC projects. This version is in Open Beta. Kindly use it for testing scenarios and avoid relying on it for storing critical data until it transitions to a stable release. Please provide feedback by [contacting CSC Service Desk](../contact.md) (subject: Sensitive Data) to contribute to service improvement.
 
-User guide is available [here](../../data/sensitive-data/sd-connect.md)
+User guide is available [here](../data/sensitive-data/sd-connect.md)
 
 ## SD Desktop and SD Connect: service usage restrictions and CSC project closure, 8.9.2023
 
