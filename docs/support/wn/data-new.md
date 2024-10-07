@@ -43,7 +43,6 @@ This info are available via the link in research.csc.fi:
 
 
 
-
 ## SD Desktop: CentOS 7 will no longer be supported after June 2024
 
 We are implementing a security update for our virtual desktop operating system. As part of this update, the old operating system known as Linux CentOS 7 will no longer be supported after June 2024. Instead, we'll be transitioning exclusively to an operating system called Ubuntu for our virtual desktops. 
