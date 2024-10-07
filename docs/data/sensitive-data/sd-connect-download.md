@@ -22,8 +22,6 @@ Files uploaded before October 2024 can be downloaded but require manual decrypti
 
 <iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/SMnEkcS_HJw?feature=shared" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-Creating a virtual desktop is easy and doesn't require tech
-
 
 ## Features in SD Connect 
 
