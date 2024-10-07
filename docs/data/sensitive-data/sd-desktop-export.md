@@ -101,5 +101,6 @@ Below you can find step-by-step instructions to encrypt and export data from SD 
 
 6. Download and decrypt the files.
 
-    The exported file is now available in SD Connect/Allas. After downloading the file in your local environment, you can decrypt it with your secret encryption key, using the Crypt4GH application or programmatically. [See this page for specific guidance](./sd-connect-upload-for-storage-and-sharing.md#data-download-and-decryption).
+    The exported file is now available in SD Connect/Allas. After downloading the file in your local environment, you can decrypt it with your secret encryption key, using the Crypt4GH application or programmatically. [See this page for specific guidance](sd-connect-download-old-version.md). 
+
     For more information and support, write to [CSC Service Desk](../../support/contact.md) (email subject Sensitive Data).
