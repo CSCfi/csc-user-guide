@@ -5,14 +5,14 @@ tags:
 
 # QIIME
 
-QIIME (Quantitative Insights Into Microbial Ecology) is a package for comparison and analysis of microbial communities, 
-primarily based on high-throughput amplicon sequencing data (such as SSU rRNA) generated on a variety of platforms, 
-but also supporting analysis of other types of data (such as shotgun metagenomic data). QIIME takes users from their 
-raw sequencing output through initial analyses such as OTU picking, taxonomic assignment, and construction of 
-phylogenetic trees from representative sequences of OTUs, and through downstream statistical analysis, visualization, 
+QIIME (Quantitative Insights Into Microbial Ecology) is a package for comparison and analysis of microbial communities,
+primarily based on high-throughput amplicon sequencing data (such as SSU rRNA) generated on a variety of platforms,
+but also supporting analysis of other types of data (such as shotgun metagenomic data). QIIME takes users from their
+raw sequencing output through initial analyses such as OTU picking, taxonomic assignment, and construction of
+phylogenetic trees from representative sequences of OTUs, and through downstream statistical analysis, visualization,
 and production of publication-quality graphics.
 
-In 2017 a totally rewritten version QIIME2 was released. The development of the original QIIME version has stopped. QIIME2 is strongly suggested for most uses. 
+In 2017 a totally rewritten version QIIME2 was released. The development of the original QIIME version has stopped. QIIME2 is strongly suggested for most uses.
 
 [TOC]
 
@@ -23,7 +23,7 @@ Free to use and open source under [BSD 3-Clause License](https://github.com/qiim
 ## Available
 
 - QIIME1: Puhti: 1.9.1
-- QIIME2: Puhti: 2022.8, 2023.2, 2023.5, 2023.9-amplicon, 2023.9-shotgun, 2024.2-amplicon, 2024.2-shotgun 
+- QIIME2: Puhti: 2022.8, 2023.2, 2023.5, 2023.9-amplicon, 2023.9-shotgun, 2024.2-amplicon, 2024.2-shotgun
 
 ## Usage
 
@@ -74,7 +74,7 @@ For example for 2023.9 amplicon distribution:
 wget https://data.qiime2.org/distro/amplicon/qiime2-amplicon-2023.9-py38-linux-conda.yml
 ```
 
-Check the installation instructions for the plugins you want to use. 
+Check the installation instructions for the plugins you want to use.
 
 If the additional plugins can be installed with Conda, you can simply add them to the end of the
 environment file.
@@ -91,7 +91,7 @@ mkdir qiime
 conda-containerize new --mamba --prefix qiime qiime2-amplicon-2023.9-py38-linux-conda.yml
 ```
 
-If necessary, run: 
+If necessary, run:
 
 ```bash
 conda-containerize update qiime --post-install plugins.txt
@@ -100,12 +100,12 @@ conda-containerize update qiime --post-install plugins.txt
 ## Running
 
 Note that many QIIME tasks involve heavy computing. Thus, these tasks should be executed as
-batch jobs. 
+batch jobs.
 
 QIIME jobs can be very disk intensive, especially its handling of temporary files, so it is best to
 reserve fast local disk for them.
 
-For interactive batch jobs, see [sinteractive](../computing/running/interactive-usage.md) documentation. 
+For interactive batch jobs, see [sinteractive](../computing/running/interactive-usage.md) documentation.
 
 In case of normal batch jobs, you must reserve NVMe disk area that will be used as $TMPDIR area.
 
@@ -122,7 +122,7 @@ as a batch job using eight cores.
 ```bash
 #!/bin/bash
 #SBATCH --job-name=qiime_denoise
-#SBATCH --account=<project> 
+#SBATCH --account=<project>
 #SBATCH --time=01:00:00
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
@@ -143,7 +143,7 @@ qiime dada2 denoise-single \
   --o-table table-dada2.qza \
   --o-denoising-stats stats-dada2.qza \
   --p-n-threads $SLURM_CPUS_PER_TASK
-``` 
+```
 
 Maximum running time is set to 1 hour (`--time=01:00:00`). As QIIME2 uses thread-based
 parallelization, the job is requested to use one task (`--ntasks=1`) where all cores need to be in
@@ -154,10 +154,10 @@ Qiime option `--p-n-threads`. In this case we use `$SLURM_CPUS_PER_TASK` variabl
 `--cpus-pre-task` value. We could as well use `--p-n-threads 8`, but then we have to remember
 to change the value if the number of reserved CPUs is changed.
 
-The job is submitted to the batch job system with `sbatch` command. For example, if the batch job file is named `qiime_job.sh`, then the submission command is: 
+The job is submitted to the batch job system with `sbatch` command. For example, if the batch job file is named `qiime_job.sh`, then the submission command is:
 
 ```bash
-sbatch qiime_job.sh 
+sbatch qiime_job.sh
 ```
 More information about running batch jobs can be found from the [batch job section of the Puhti user guide](../computing/running/getting-started.md).
 

@@ -19,7 +19,7 @@ Free to use and open source under [MIT License](https://raw.githubusercontent.co
 
 ## Available
 
-Versions available in Puhti: 3.0.1, 3.6, 3.8
+Versions available in Puhti: 3.0.1, 3.6, 3.8, 3.9
 
 ## Usage
 
@@ -52,6 +52,12 @@ specifying:
 --protein-database $HUMANN_PROT
 ```
 
+HUMAnN can utilize several CPU cores. To do this set `--cpus-per-task` to desired number.
+In Puhti you can use up to 40 cores. Also remember to add option `--threads` to your HUMAnN
+command. You can use variable `$SLURM_CPUS_PER_TASK` to automatically match the requested
+number.
+
+
 Example batch job script (use your actual project neame for `--account`)
 
 ```text
@@ -61,8 +67,8 @@ Example batch job script (use your actual project neame for `--account`)
 #SBATCH --partition=small
 #SBATCH --time=01:00:00
 #SBATCH --ntasks=1  
-#SBATCH --cpus-per-task=1
-#SBATCH --mem=24000
+#SBATCH --cpus-per-task=10
+#SBATCH --mem=20000
 
 # Load HUMaN module
 module load humann
@@ -71,7 +77,7 @@ module load humann
 wget https://github.com/biobakery/humann/raw/master/examples/demo.fastq.gz
 
 # Run HUMaN
-humann --input demo.fastq.gz --nucleotide-database $HUMANN_NUC --protein-database $HUMANN_PROT --metaphlan-options "--offline --bowtie2db $MPA" --output demo_out
+humann --threads=$SLURM_CPUS_PER_TASK --input demo.fastq.gz --nucleotide-database $HUMANN_NUC --protein-database $HUMANN_PROT --metaphlan-options "--offline --bowtie2db $MPA" --output demo_out
 ```
 
 ## More information

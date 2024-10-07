@@ -39,8 +39,7 @@ allowed.
 The preferred registration method is to log in using Haka or Virtu. If you do not have this option available, please ask your project manager to [contact CSC Service Desk](../support/contact.md).
 
 This mostly applies to foreign collaborators of Finland-based research
-groups, but basically anybody who has a project to join can register
-this way.
+groups, but ask your project manager to contact CSC and provide details about your use case and we will check your eligibility.
 
 !!! Note
 
