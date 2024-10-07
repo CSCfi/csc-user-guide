@@ -54,7 +54,7 @@ The decrypted file will no longer display the `.c4gh` extension and will be save
 
 Download and decryption of files uploaded with CLI and own encryption key pair:
 
-To encrypt and upload files via command line, please check [this tutorial](https://docs.csc.fi/data/sensitive-data/sequencing_center_tutorial/) illustrating how to use the crpt4GH tool to upload files in Allas (visible from SD Connect).
+To encrypt and upload files via command line, please check [this tutorial](sequencing_center_tutorial.md) illustrating how to use the crpt4GH tool to upload files in Allas (visible from SD Connect).
 
 Below more information about the crypt4GH <abbr title="Command-Line Interface">CLI</abbr>:
 
@@ -95,7 +95,4 @@ where `--sk groupA.sec` is a corresponding private key to one of the public keys
 The command will ask the user to enter the password (passphrase) of your private key. For security reasons the password is not displayed when you type it.
 
 !!! Note
-    In case you are decrypting the file in SD Desktop and the CSC Sensitive Data public key has been used in encryption, decryption will be done automatically, and you do not need to specify any decryption keys. If you need to decrypt a large number of files, please check the tutorial [Decrypting all files in a directory](https://docs.csc.fi/data/sensitive-data/tutorials/decrypt-directory/).
-
-
-   
+    In case you are decrypting the file in SD Desktop and the CSC Sensitive Data public key has been used in encryption, decryption will be done automatically, and you do not need to specify any decryption keys. If you need to decrypt a large number of files, please check the tutorial [Decrypting all files in a directory](tutorials/decrypt-directory.md).
