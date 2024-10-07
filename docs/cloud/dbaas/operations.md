@@ -1,6 +1,6 @@
 # Database operations
 
-## Keeping your database up to date
+## Minor version database upgrades
 
 The DBaaS service provides tools for you to upgrade your database yourself. Before you do an upgrade you need to be aware of the risks and implications. Upgrading the database will cause a short downtime. The downtime might depend on the version upgrade and how large database you have. It is a good idea to test the upgrade first by creating a new database instance from a backup and upgrade the new database instance first, or just continue using the new database instance. This allows you to better understand the implications.
 
@@ -34,6 +34,26 @@ The commands to use:
     ```
 
 5. Verify with your preferred tool that your database is working as expected.
+
+## Major database upgrades
+Major version database upgrades works from the users point the same way but in the background
+happens more stuff, and is therefor more riskily.
+
+Things that you need to take into account when doing a major database version upgrade:
+1. You have a recent enough backup that you can use if the upgrade fails.
+2. You have tested doing the upgrade on database restored from the backup.
+3. You reserve plenty of time for the upgrade.
+4. You have considered if you benefit of using a bigger flavor while doing the upgrade.
+5. You have ensured that your database have plenty of free disk space before starting the upgrade,
+you should aim for you volume be three times bigger than the used size.
+
+An even safer way than upgrading your main database is creating a new database from backup and
+upgrade that database and once it is done, you can start using that as your main database. The
+drawback of this way is that your IP changes and the latest changes to your old database will not
+be added to the new database if you have not blocked all traffic to your old database before
+taking the backup.
+
+
 
 ## Deleting a database in your database instance
 

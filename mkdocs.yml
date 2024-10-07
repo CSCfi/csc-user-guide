@@ -279,7 +279,8 @@ nav:
                  - cloud/dbaas/postgresql.md
                  - Accessing your database: cloud/dbaas/postgres-accessing.md
                  - PostgreSQL version differences: cloud/dbaas/postgres-versions.md
-                 - Extensions: cloud/dbaas/postgres-extensions.md
+                 - Extensions and parameters: cloud/dbaas/postgres-extensions.md
+                 - Permissions: cloud/dbaas/postgres-permissions.md
         - More advanced features: cloud/dbaas/advanced.md
         - Resizing database instance volume: cloud/dbaas/resize-volume.md
      - Rahti 2:
