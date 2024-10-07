@@ -3,7 +3,7 @@
 ## Enabling extensions
 
   1. [Enable the root user](operations.md#enable-root).
-  2. [Log in to the database as root](postgres-accessing#command-line).
+  2. [Log in to the database as root](postgres-accessing.md#command-line).
   3. Use the following command to enable extensions:
     ```
     CREATE EXTENSION $EXTENSION_NAME ;
