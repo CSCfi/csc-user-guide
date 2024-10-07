@@ -2,9 +2,10 @@
 
 ## Overview
 
-Sensitive Data (SD) Connect allows you to store and share sensitive research data. **The service provides a user interface that automatically encrypts files during upload and automatically decrypts them during download. For large files (>100 GB), a command line tool can be used.**
+Sensitive Data (SD) Connect enables the secure storage and sharing of sensitive research data. It automatically encrypts files during upload and decrypts them during download through an easy-to-use interface. For files larger than 100 GB, a command-line tool is available which also provides automated key management.
 
-SD Connect serves as a workspace for collaborative research projects, facilitating data collection and sharing. Encrypted files stored in SD Connect are directly available for analysis, annotation or editing via SD Desktop.
+SD Connect also supports collaborative research, allowing data collection and sharing within the platform. Files stored are encrypted and can be accessed for analysis, annotation, or editing through SD Desktop.
+
 
 Contents:
 
@@ -19,7 +20,7 @@ You can browse through the main topics of the manual using the navigation bar on
 
 ## Key features
 
-* User-friendly interface compatible with fully compatible by Chrome. Firefox (excluding private mode in Firefox) **can be also used, but there are some known limitations.**
+* User-friendly interface compatible with fully compatible by Chrome. 
 
 * Accessible via web browser from your computer (Mac, Linux, or Windows) and any location (no need to install specific programs or use a VPN).
 
@@ -27,24 +28,30 @@ You can browse through the main topics of the manual using the navigation bar on
 
 * Enhanced login security with multi-factor authentication (MFA).
 
-* Supports encryption and storage of any file type: text files, images, audio files, video, and genetic data (default space 10 TB, additional space required contact CSC Service Desk). **In addition, you can** describe or organize each file or folder with specific tags.
+* Supports encryption and storage of any file type: text files, images, audio files, video, and genetic data (default space 10 TB, additional space required contact CSC Service Desk). 
 
 
 ## Limitations
 
+Known temporary issues: 
+
+* Firefox (except in private mode) is supported, but some known limitations exist.
+
+* Tagging files is not currently supported.
+
+* Accessing the service requires logging in twice by entering your username and password.
+  
+* In October 2024, SD Connect was updated. Files from the previous version are still compatible, but you may encounter issues due to file format changes. For step-by-step instructions on dowlaoding files stored witht eh previos version, please check this [information].(/sd-connect-download-old-version.md)
+
+General considerations: 
+
 * SD Connect is based on an object storage solution. Files are called objects, they are stored as file segments and can not be directly edited. All files (sensitive or non-sensitive, e.g. scripts) stored in SD Connect must be encrypted. 
-
-* Automated encryption is currently limited to files < 1GB. Larger files (up to 100 GB) can be encrypted with the Cryp4GH application and uploaded using SD Connect or programmatically (>100GB).
-
-* SD Connect user interface is compatible with all modern web browsers but not supported during Firefox private browsing. 
 
 *  The storage space remains available as long as the CSC project is active. All data will be deleted 90 days after account termination or project closure, accordingly to [CSC's General Terms of Use](https://research.csc.fi/general-terms-of-use). 
 
 * CSC does not provide backups of the data stored in SD Connect. Therefore, we advise you to maintain **backups** of important datasets.
 
 * SD Connect service only supports processing of encrypted files, whether sensitive or non-sensitive (e.g., scripts).
-
-* A new version of SD Connect was released in October 2024. Files uploaded with the previous version are still compatible with the new interface, but you may experience issues due to changes in the file format. If you encounter any difficulties, please contact us. For more details on the changes, please refer to link.
 
 
 !!! Note
@@ -53,7 +60,7 @@ You can browse through the main topics of the manual using the navigation bar on
 
 ## Overview of SD Connect 2.0 features
 
-**SD Connect 2.0** introduces several enhancements over the original version of the service, aimed at improving user experience, security, performance and automation. Below is a summary of the key features and their differences compared to the  **SD Connect 1.0**.
+The current version of the service, SD Connect 2.0, introduces several enhancements over the original version to improve user experience, security, performance, and automation. Below is a summary of the key new features and their differences compared to the previous version.
 
 <table>
 <tr>
@@ -97,9 +104,7 @@ User interface
 
 Automated encryption and upload
 </td>
-<td>
-
-Supports files up to 100 GB
+<td>Uplaod via user inetrfaces supports files up to 100 GB, larger files cann be autmatically uplaoded during upload via commend line
 </td>
 <td>
 
@@ -135,8 +140,8 @@ Uploading unencrypted files
 
 Folder sharing 
 </td>
-<td>Automated encryption and decryption for data transfer</td>
-<td>Manual encryption and decryption</td>
+<td> Supports 3 different type of data sharing: for data tarnsfer, collection or collaborative analysis on Sd Desktop (without the possibility of dowlaoding extra copis of the files) </td>
+<td> Sharing was supported only via manual encryption and decryption</td>
 </tr>
 <tr>
 <td>
@@ -147,14 +152,14 @@ Command line utility tool
 
 SD Lock/Un-lock provide automated key management, this requires temporary token access.
 </td>
-<td>Not available</td>
+<td> Aailale but required manual encryption and did not support automated key management</td>
 </tr>
 <tr>
 <td>
 
 Compatibility with Allas
 </td>
-<td>Files uploaded with after October 7, 2024 are visible in Allas but not downloadable; size may be incorrect.</td>
+<td>Files uploaded with after October 7, 2024 are visible in Allas but not downloadable directly from it; size may be incorrect.</td>
 <td>Files visible and downloadable</td>
 </tr>
 </table>
