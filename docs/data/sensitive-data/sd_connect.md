@@ -20,7 +20,7 @@ You can browse through the main topics of the manual using the navigation bar on
 
 ## Key features
 
-* User-friendly interface compatible with fully compatible by Chrome. 
+* User-friendly interface compatible fully compatible with Chrome web browser.
 
 * Accessible via web browser from your computer (Mac, Linux, or Windows) and any location (no need to install specific programs or use a VPN).
 
