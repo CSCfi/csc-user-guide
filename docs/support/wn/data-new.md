@@ -16,7 +16,7 @@ On Monday October 7 SD Connect service has been upgraded. Please note, this upgr
 * **Enhanced security**: Multifactor Authentication (MFA) for added security.
 * **Flexible sharing permissions**: Three levels of sharing permissions available.
 
-[Updated user guide and video tutorials](../../data/sensitive-data/sd-_onnect.md).
+[Updated user guide and video tutorials](../../data/sensitive-data/sd_connect.md).
 
 **Limitations:**
 
