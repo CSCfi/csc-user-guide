@@ -104,7 +104,7 @@ User interface
 
 Automated encryption and upload
 </td>
-<td>Uplaod via user inetrfaces supports files up to 100 GB, larger files cann be autmatically uplaoded during upload via commend line
+<td>Upload via user interfaces supports files up to 100 GB, larger files can be autmatically uplaoded during upload via command line
 </td>
 <td>
 
@@ -140,7 +140,7 @@ Uploading unencrypted files
 
 Folder sharing 
 </td>
-<td> Supports 3 different type of data sharing: for data tarnsfer, collection or collaborative analysis on Sd Desktop (without the possibility of dowlaoding extra copis of the files) </td>
+<td> Supports 3 different type of data sharing: for data transfer, collection or collaborative analysis on Sd Desktop (without the possibility of downlaoding extra copis of the files) </td>
 <td> Sharing was supported only via manual encryption and decryption</td>
 </tr>
 <tr>
@@ -152,7 +152,7 @@ Command line utility tool
 
 SD Lock/Un-lock provide automated key management, this requires temporary token access.
 </td>
-<td> Aailale but required manual encryption and did not support automated key management</td>
+<td> Available but required manual encryption and did not support automated key management</td>
 </tr>
 <tr>
 <td>
