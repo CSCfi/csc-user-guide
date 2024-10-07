@@ -41,7 +41,7 @@ Known temporary issues:
 
 * Accessing the service requires logging in twice by entering your username and password.
   
-* In October 2024, SD Connect was updated. Files from the previous version are still compatible, but you may encounter issues due to file format changes. For step-by-step instructions on dowlaoding files stored witht eh previos version, please check this [information].(/sd-connect-download-old-version.md)
+* In October 2024, SD Connect was updated. Files from the previous version are still compatible, but you may encounter issues due to file format changes. For step-by-step instructions on dowlaoding files stored with the previous version, please check this [information].(/sd-connect-download-old-version.md)
 
 General considerations: 
 
@@ -140,7 +140,7 @@ Uploading unencrypted files
 
 Folder sharing 
 </td>
-<td> Supports 3 different type of data sharing: for data transfer, collection or collaborative analysis on Sd Desktop (without the possibility of downlaoding extra copis of the files) </td>
+<td> Supports 3 different type of data sharing: for data transfer, collection or collaborative analysis on Sd Desktop (without the possibility of downloading extra copis of the files) </td>
 <td> Sharing was supported only via manual encryption and decryption</td>
 </tr>
 <tr>

@@ -2,24 +2,13 @@
 
 ## SD Connect major upgrade October 7
 
-Please note, this upgrade will not affect your data—files stored in SD Connect will remain accessible after the service break, but a new encryption protocol will be applied for new uploads. The new version is compatible with the current one, but there are **four actions required** on your part. You can find more information about these steps and any limitations [here](https://research.csc.fi/-/280351-91).
-
-We will continue providing updates after the service break. If you have any questions or need assistance, please feel free to contact us at servicedesk@csc.fi (subject: Sensitive Data) or join us on Wednesday, October 9, at 14:00 (Finnish time) for an introduction and live demo of **SD Connect 2** at the CSC Research Support Coffee session: [Zoom Link](https://cscfi.zoom.us/j/65059161807#success). For more information, visit our [training calendar](https://csc.fi/en/training-calendar/csc-research-support-coffee-every-wednesday-at-1400-finnish-time-2-2/).​​​​​​​
-
-Thank you for your understanding and cooperation.
-
-Sincerely,
-The CSC Sensitive Data Services Support Team
-
-This info are available via the link in research.csc.fi:
-
-### To access the new version, please follow these four steps:
+On Monday October 7 SD Connect service has been upgraded. Please note, this upgrade will not affect your data. Files stored in SD Connect will remain accessible after the service break, but a new encryption protocol will be applied for new uploads. The new version is compatible with the current one, but there are **four actions required** on your part: ​​​
 
 * Service access: [Apply for SD Connect service access](https://docs.csc.fi/accounts/how-to-add-service-access-for-project/) at [MyCSC portal](http://my.csc.fi/) and accept the terms of use. _Note: Only the project PI can enable the service, but all project members must accept the terms of use._
 * MFA: Ensure that Multifactor Authentication (MFA) is [enabled](../../accounts/mfa.md) on your CSC profile. _Note: If you are using SD Desktop, MFA is already enabled, and no further action is needed_.
 * Syncing: Once the service break is over, log in to the service and keep the user interface open for 5 minutes to allow for syncing. After this, you will have access to all files stored in SD Connect.
 * Shared folders: Uploading or downloading data from folders shared in the previous service version will no longer be possible. To re-enable it, please update the sharing permissions by following [these steps](../../data/sensitive-data/sd-connect-share.md).
-* 
+
 
 **New Key Features:**
 
@@ -60,7 +49,7 @@ Copy-paste functionality via **Clipboard -feature** is now available in your vir
 
 A new version of SD Connect is now available for testing purposes. The updated user interface offers automated file encryption and decryption (up to 100 GB) along with key management. Additionally, three levels of sharing permissions are accessible across CSC projects. This version is in Open Beta. Kindly use it for testing scenarios and avoid relying on it for storing critical data until it transitions to a stable release. Please provide feedback by [contacting CSC Service Desk](../contact.md) (subject: Sensitive Data) to contribute to service improvement.
 
-Preliminary user guide is available [here](../../data/sensitive-data/sd-connect-beta.md)
+User guide is available [here](../../data/sensitive-data/sd-connect.md)
 
 ## SD Desktop and SD Connect: service usage restrictions and CSC project closure, 8.9.2023
 
