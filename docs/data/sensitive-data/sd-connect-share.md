@@ -20,12 +20,18 @@ Permission levels are Transfer data, Collaborate and Read to SD Desktop. Please 
 
 [Read about use case: Transfer your data to another project](./sd-connect-share-tranfer-data.md)
 
+<iframe width="400" height="225" srcdoc="https://www.youtube.com/embed/YE5_THNJEsw?feature=shared" title="Introducing CSC Sensitive Data Services" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+
 
 ### Collaborate
 
 In addition to Transfer data permission, the recipient project’s members can upload new files or delete existing files from your folder in SD Connect. Use this when you want the folder to be your shared workspace. 
 
 [Read about use case: Use folder as your shared workspace](./sd-connect-share-workspace.md)
+
+<iframe width="400" height="225" srcdoc="https://www.youtube.com/embed/h5PKZtPOCU?feature=shared" title="Introducing CSC Sensitive Data Services" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
 
 
 ### Read to SD Desktop 
