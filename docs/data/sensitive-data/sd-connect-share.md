@@ -30,7 +30,7 @@ In addition to Transfer data permission, the recipient project’s members can u
 
 [Read about use case: Use folder as your shared workspace](./sd-connect-share-workspace.md)
 
-<iframe width="400" height="225" srcdoc="https://www.youtube.com/embed/h5PKZtPOCU?feature=shared" title="Introducing CSC Sensitive Data Services" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe width="400" height="225" srcdoc="https://www.youtube.com/embed/Ih5PKZtPOCU?feature=shared" title="Introducing CSC Sensitive Data Services" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 
 
