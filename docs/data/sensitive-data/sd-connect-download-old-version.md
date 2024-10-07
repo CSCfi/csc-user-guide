@@ -1,8 +1,8 @@
-# How to dowload and access file encrypted with older version
+# How to download and access file encrypted with older version
 
 ## Via SD Connect user interface
 
-If you uploaded files encrypted with your encryption key using SD Connect version 1, you can still download them through the SD Connect 2.0 interface. However, these files will remain encrypted, and you will need to decrypt them on your laptop with the Crypt4GH application by following the provided instructions. Please note that you can only decrypt one file at a time. If you need to decrypt multiple files at once, a command line option is available. For further assistance, contact us at servicedesk@csc.fi.
+If you uploaded files encrypted with your encryption key using SD Connect version 1, you can still download them through the current SD Connect service (v2). However, these files will remain encrypted, and you will need to decrypt them on your laptop with the Crypt4GH application by following the provided instructions. Please note that you can only decrypt one file at a time. If you need to decrypt multiple files at once, a command line option is available. For further assistance, contact us at servicedesk@csc.fi.
 
 ### Preparation:
 
