@@ -20,7 +20,7 @@ Permission levels are Transfer data, Collaborate and Read to SD Desktop. Please 
 
 [Read about use case: Transfer your data to another project](./sd-connect-share-tranfer-data.md)
 
-<iframe width="400" height="225" srcdoc="https://www.youtube.com/embed/YE5_THNJEsw?feature=shared" title="Introducing CSC Sensitive Data Services" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe width="400" height="225" srcdoc="https://www.youtube.com/embed/YE5_THNJEsw" title="Introducing CSC Sensitive Data Services" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 
 
@@ -30,7 +30,7 @@ In addition to Transfer data permission, the recipient project’s members can u
 
 [Read about use case: Use folder as your shared workspace](./sd-connect-share-workspace.md)
 
-<iframe width="400" height="225" srcdoc="https://www.youtube.com/embed/Ih5PKZtPOCU?feature=shared" title="Introducing CSC Sensitive Data Services" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe width="400" height="225" srcdoc="https://www.youtube.com/embed/Ih5PKZtPOCU" title="Introducing CSC Sensitive Data Services" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 
 

@@ -48,7 +48,7 @@ If you uploaded files encrypted with your encryption key using SD Connect versio
 The decrypted file will no longer display the `.c4gh` extension and will be saved in the same folder from which the original file was uploaded.
 
 
-* Follow [video](https://youtu.be/SQJ8QEKV7BE?feature=shared) and after downloading the file, change the extension.
+* Follow [video](https://youtu.be/SQJ8QEKV7BE) and after downloading the file, change the extension.
 
 ### Programmatically
 
