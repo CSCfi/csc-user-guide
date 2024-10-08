@@ -36,24 +36,10 @@ them are focused on server side performance, logging, and more advanced and spec
 However, PostgreSQL 15 brought a very specific change to default permissions, which affects how
 Pukki manages users and their access rights.
 
-It is important to know if you update a PostgreSQL database 14 to 17 the permissions continues
-to work in the same way as the 14 database. So if you have a production database that was updated
-from a PostgreSQL 14 to 17 and a development database that was created as a PostgreSQL 17 database
-their permissions might work differently.
-
-### Differences in how Pukki manages database access
-
-
-On PostgreSQL 14 database instances, the default permissions allow all database users to connect
-to any database and create tables in the public schema.
-
-On PostgreSQL 17 database instances, you need to explicitly grant users access to a database to
-allow them to create tables in the public schema of the specified database. This can be done as
-follows with the command line tools. This makes it a lot easier to create read-only users in
-PostgreSQL 17.
-
-
-
+Keep in mind when upgrading a database from PostgreSQL 14 to 17 that the existing permissions are
+kept intact. This means that a fresh PostgreSQL 17 instance will have some differences compared to
+one that was upgraded from PostgreSQL 14. You can read more about this on the 
+[permissions page](postgres-permissions.md).
 
 ## Some useful commands
 

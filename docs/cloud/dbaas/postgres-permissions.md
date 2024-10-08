@@ -49,10 +49,8 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON ${table} TO ${user};
 
 ## Changes between PostgreSQL 14 and 17
 
-Most of the changes to PostgreSQL between versions 14 and 17 won't be visible to the user. Many of
-them are focused on server side performance, logging, and more advanced and specific SQL features.
-However, PostgreSQL 15 brought a very specific change to default permissions, which affects how
-Pukki manages users and their access rights.
+PostgreSQL 15 brought a very specific change to default permissions, which affects how Pukki
+manages users and their access rights.
 
 ### Differences in how Pukki manages database access
 
