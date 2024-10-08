@@ -40,7 +40,7 @@ Your data is automatically encrypted when you upload data to SD Connect. This is
     - SD Connect shows where your encrypted files are stored as virtual folders. Planning how to organise your files in SD Connect folders is a crucial step for efficient data management. Carefully consider storing the files based on projects, themes, or logical structures to enhance accessibility and streamline workflow. A well-thought-out folder structure also facilitates collaboration when sharing access with others. If you have questions or need assistance, don't hesitate to contact our service desk (servicedesk@csc.fi, subject: Sensitive data).
 
 
-<iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/SMnEkcS_HJw?feature=shared" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/SMnEkcS_HJw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 
 ## Features in SD Connect 
