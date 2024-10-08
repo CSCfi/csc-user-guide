@@ -38,7 +38,7 @@ Known temporary issues:
 
 * Accessing the service requires logging in twice by entering your username and password.
   
-* In October 2024, SD Connect was updated. Files from the previous version are still compatible, but you may encounter issues due to file format changes. For step-by-step instructions on dowlaoding files stored with the previous version, please check this [information](/sd-connect-download-old-version.md)
+* In October 2024, SD Connect was updated. Files from the previous version are still compatible, but you may encounter issues due to file format changes. For step-by-step instructions on downloading files stored with the previous version, [please check this page](sd-connect-download-old-version.md).
 
 General considerations:
 
