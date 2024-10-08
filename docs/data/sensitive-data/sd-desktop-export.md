@@ -1,6 +1,6 @@
 #  Export data from SD Desktop
 
-Your virtual desktop is isolated from the internet for security reasons. Only the CSC project manager can export results or data from the secure workspace using the _Data Gateway_ application, currently available only programmatically. The results are exported to SD Connect, where they will be available for download to your computer. 
+Your virtual desktop is isolated from the internet for security reasons. Only the CSC project manager can export results or data from the secure workspace using the _Data Gateway_ application, currently available only programmatically. The results are exported to SD Connect, where they will be available for download to your computer where they can be manually decrypted. 
 
 
 Below you can find step-by-step instructions to encrypt and export data from SD Desktop to SD Connect, where you can download and decrypt it. 
@@ -101,5 +101,6 @@ Below you can find step-by-step instructions to encrypt and export data from SD 
 
 6. Download and decrypt the files.
 
-    The exported file is now available in SD Connect/Allas. After downloading the file in your local environment, you can decrypt it with your secret encryption key, using the Crypt4GH application or programmatically. [See this page for specific guidance](./sd-connect-upload-for-storage-and-sharing.md#data-download-and-decryption).
+    The exported file is now available in SD Connect/Allas. After downloading the file in your local environment, you can decrypt it with your secret encryption key, using the Crypt4GH application or programmatically. [See this page for specific guidance](sd-connect-download-old-version.md). 
+
     For more information and support, write to [CSC Service Desk](../../support/contact.md) (email subject Sensitive Data).

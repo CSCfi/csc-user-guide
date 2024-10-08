@@ -34,7 +34,7 @@ add-python-lib search_term
 
 The command looks for matching packages from the set of Python libraries that CSC has preloaded to SD Connect.
 Note that the preloaded set of libraries is very small (some hundreds) compared to the over 300 000 libraries available through pip.
-Please send a request to _servicedesk@csc.fi_ if you would need to have a library to be added to the selection.
+Please send a request to [CSC Service Desk](../../../support/contact.md) if you would need to have a library to be added to the selection.
 Note that all python libraries are not compatible with this approach.
 
 The selected library will added to a Python virtual environment that locates in _/shared-directory/sd-tools/python3-venv_.

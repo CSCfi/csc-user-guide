@@ -9,7 +9,7 @@ You need to access to SD services. You are manager of research team or work inde
 
 1. [Create a CSC account](#1-create-a-csc-account)
 2. [Create new CSC project](#2-create-new-csc-project)
-3. [Fill the GDPR document](#3-fill-the-gdpr-document)
+3. [Data protection](#3-data-protection)
 4. [Activate SD Services for your project](#4-activate-sd-services-for-your-project)
 5. [Apply resources (billing units) for your project](#5-apply-billing-units-for-your-project)
 6. [Activate MFA Authentication](#6-activate-mfa-authentication)
@@ -41,11 +41,12 @@ You need to access to SD services. You are manager of research team or work inde
 ![Click create a project.](./images/MyCSC/MyCSC_NewProject.png)
 
 
-### 3. Fill the GDPR document
+### 3. Data protection
 
 - Since your project handles personal data, you need to fill the GDPR document i.e. *Description of processing activity* -form.
 - The document appears when you create a new project. You can edit this document later.
 - Please check with your home organization  who is the **data controller** (CSC is the data processor, never the controller). [Read more about the roles and GDPR](../../support/faq/sensitive-data-legal.md#what-are-the-roles-of-csc-and-its-service-users-under-gdpr).
+- Transferring personal or sensitive personal data out of the EEA requires an appropriate basis for the transfer and compliance with the other requirements imposed by data protection legislation. Please contact your organization's legal service for support. [Read more](https://www.edpb.europa.eu/sme-data-protection-guide/international-data-transfers_en)
 
 ![Personal data handling document.](https://a3s.fi/docs-files/sensitive-data/MyCSC/MyCSC_GDPR.png)
 
