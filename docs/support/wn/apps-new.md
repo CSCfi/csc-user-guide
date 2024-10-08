@@ -1,5 +1,11 @@
 # Applications
 
+## Amber24 available on Puhti and Mahti, 8.10.2024
+
+[Amber](../../apps/amber.md) version 24 (including AmberTools24) has been
+installed and set as the default module on Puhti and Mahti.
+[See here for a list of major new features](https://ambermd.org/AmberMD.php).
+
 ## CSC chemistry software stack on LUMI updated, 26.9.2024
 
 The chemistry software stack maintained by CSC on LUMI
