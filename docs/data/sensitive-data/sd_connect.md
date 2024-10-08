@@ -26,7 +26,7 @@ You can browse through the main topics of the manual using the navigation bar on
 
 * Enhanced login security with multi-factor authentication (MFA).
 
-* Supports encryption and storage of any file type: text files, images, audio files, video, and genetic data (default space 10 TB, additional space required contact CSC Service Desk).
+* Supports encryption and storage of any file type: text files, images, audio files, video, and genetic data (default space 10 TB, if additional space is required, [contact CSC Service Desk](../../support/contact.md)).
 
 ## Limitations
 
