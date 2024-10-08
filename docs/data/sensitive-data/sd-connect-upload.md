@@ -1,4 +1,4 @@
-# Uploading and encrypting data 
+# Uploading and encrypting data
 
 Your data is automatically encrypted when you upload data to SD Connect. This is suitable for all file types and formats. Automated encryption and data upload via a web browser is for files up to 100 GB. Files larger than 100 GB can be automatically encrypted and uploaded [programmatically](./sd-connect-command-line-interface.md).
 
@@ -13,23 +13,19 @@ Your data is automatically encrypted when you upload data to SD Connect. This is
 7. Once the upload is finished, the encrypted files are accessible for downloading and sharing via SD Connect or for analysis, editing or annotation via SD Desktop.
 
 !!! info "Folder names"
-    
+
     - Folder names must be unique across all existing folders in all projects in SD Connect and Allas (the cloud storage solution based on which SD Connect is developed). If you can't create a new folder, another project may already use the name you have chosen. To avoid this situation, it is good practice to include projec specific identifiers (e.g., project ID number or acronym) in the folder name.
     - Avoid spaces and special characters; use Latin alphabets (a-z), numbers (0-9), dash (-), underscore (_), and dot (.). Remember, all folder names are public; please do not include any confidential information.
     - Folder names can't be modified afterwards.
-
 
 ## Upload and encrypt files to an existing folder
 
 1. Select the correct folder (by double-click).
 2. Click **Upload** in the top right corner and follow steps from 4 to 6 in above paragraph.
 
-
 !!! warning "Warning"
-    
+
     Members in the same CSC project can download and decrypt data from SD Connect. This can be limited by sharing files with **Read to SD Desktop** permission. [Read about use case](./sd-connect-share-read-to-sd-desktop.md)
-
-
 
 !!! Note "Additional considerations"
 
@@ -37,16 +33,13 @@ Your data is automatically encrypted when you upload data to SD Connect. This is
     - The user interface might be slower when there are more than 2500 files for each folder. In this case please user the terminal.
     - Files can't be edited in SD Connect; download them for editing or  access them via SD Desktop. 
     - Uploading files into subfolders is currently not supported.
-    - SD Connect shows where your encrypted files are stored as virtual folders. Planning how to organise your files in SD Connect folders is a crucial step for efficient data management. Carefully consider storing the files based on projects, themes, or logical structures to enhance accessibility and streamline workflow. A well-thought-out folder structure also facilitates collaboration when sharing access with others. If you have questions or need assistance, don't hesitate to contact our service desk (servicedesk@csc.fi, subject: Sensitive data).
-
+    - SD Connect shows where your encrypted files are stored as virtual folders. Planning how to organise your files in SD Connect folders is a crucial step for efficient data management. Carefully consider storing the files based on projects, themes, or logical structures to enhance accessibility and streamline workflow. A well-thought-out folder structure also facilitates collaboration when sharing access with others. If you have questions or need assistance, don't hesitate to contact [CSC Service Desk](../../support/contact.md) (subject: Sensitive data).
 
 <iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/SMnEkcS_HJw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-
-## Features in SD Connect 
+## Features in SD Connect
 
 * [Upload](./sd-connect-upload.md)
 * [Share](./sd-connect-share.md)
 * [Download](./sd-connect-download.md)
 * [Delete](./sd-connect-delete.md)
-

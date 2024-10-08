@@ -13,8 +13,6 @@ This document describes the usage of this tool.
 
 <iframe width="512" height="288" srcdoc="https://www.youtube.com/embed/S4hpjPy-TDQ" title="How to install software on SD Desktop" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
-
-
 ## Requirements
 
 In order to get access to the installation tool, you need to **[send a request to CSC Service Desk](../../../support/contact.md)**.
@@ -43,12 +41,11 @@ need to right-click the and select _Allow Launching_ before you can use the inst
 
 **Figure 2.** SD Software installer
 
-
 ## Usage
 
-In order to use the installer, you must have an active Data Gateway connection running and 
-mounting of the SD Connect data should be done through the default location in the file system 
-(_Projects_ directory in the users home directory). 
+In order to use the installer, you must have an active Data Gateway connection running and
+mounting of the SD Connect data should be done through the default location in the file system
+(_Projects_ directory in the users home directory).
 
 The installer shows a panel of buttons that allow you to install a software by just clicking the button.
 The available software include graphical and command line applications. For graphical applications, a launching icon is added 
@@ -59,18 +56,19 @@ In case of some applications, part of the installation process occurs only when 
 Thus, you should start the application once after the installation, to make sure that the process is completed. After that
 the installed software should work also when Data Gateway connection has not been opened.
 
-
 ## Tool selection
 
 Notes about the available tools. Note that this list may be outdated:
 
 ### Statistics
+
 *  [Rstudio 4.2.2](../r-in-sd-desktop.md) R statistics tool with graphical user interface and help tools for adding libraries.
     *  After installation, right-click the Rstudio desktop icon and select: _Allow launching_.
 *  [PSPP](https://www.gnu.org/software/pspp/) Open Source alternative for SPSS statistics tool.
     *  After installation, right-click the PSPP desktop icon and select: _Allow launching_.
 
 ### Imaging and videos
+
 *  [Audacity](https://www.audacityteam.org/). Sound editor.
     *  After installation, right-click the Audacity desktop icon and select: _Allow launching_.
 *  [ELAN 6.7](https://archive.mpi.nl/tla/elan/). Annotation tool for audio and video recordings.
@@ -82,10 +80,12 @@ Notes about the available tools. Note that this list may be outdated:
 *  [Whisper](whisper.md) Automatic speech recognition.
   
 ### Geosciences
-*  [QGis 3.1.1](https://qgis.org/en/site/) A Free and Open Source Geographic Information System. 
+
+*  [QGis 3.1.1](https://qgis.org/en/site/) A Free and Open Source Geographic Information System.
     *   [QGis at CSC servers](../../../apps/qgis.md)
 
 ### Biosciences
+
 *  [GATK](https://gatk.broadinstitute.org/hc/en-us) A genomic analysis toolkit focused on variant discovery.
 *  [GCTA 1.94.1](https://yanglab.westlake.edu.cn/software/gcta/#Overview) A tool for Genome-wide Complex Trait Analysis.
 *  [GCTB 2.05b](https://cnsgenomics.com/software/gctb/#Overview) Genome-wide Complex Trait Bayesian analysis
@@ -96,13 +96,12 @@ Notes about the available tools. Note that this list may be outdated:
 *  [Regenie 3.3](https://rgcgithub.github.io/regenie/) Program for whole genome regression modelling of large genome-wide association studies.
 *  [Salmon 1.9.0](https://combine-lab.github.io/salmon/) Program to produce transcript-level quantification estimates from RNA-seq data.
     *   [Salmon 1.9.0 at CSC servers](../../../apps/salmon.md)
-   
 
 ### Miscellaneous
+
 *   [auto-apptainer](./auto-apptainer.md) Tool to add command line applications using the Apptainer container library provided by CSC.
 *   [add-python-lib](./sd-pythonlibs.md) Help tool to add Python libraries.
 *   [Backup tool](./backup_sd_desktop.md) Help tool to automatize backup and export in SD Desktop.
 *   [VS Code 1.90.2](./vscode.md) Code editor.
     *  After installation, right-click the VS Code desktop icon and select: _Allow launching_.
 *   [WEKA 3-8-6](https://ml.cms.waikato.ac.nz/weka/index.html)
-
