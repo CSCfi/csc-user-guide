@@ -1,4 +1,4 @@
-# Command Line Interface: encryption for data sharing
+# Command Line Interface
 
 To encrypt and upload files via command line, please check [this tutorial](sequencing_center_tutorial.md) illustrating how to use the crpt4GH tool to upload files in Allas (visible from SD Connect).
 
