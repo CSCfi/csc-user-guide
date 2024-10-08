@@ -212,6 +212,16 @@ In the Project details page (`Developer` > `Project`), click `PersistentVolumeCl
 !!! warning "Lazy volume creation"
     The volume will only be created when it is mounted for the first time, this is a change in behavior in `Rahti 2`.
 
+### How to Recreate Pod for Deployment having RWO Volumes
+
+In Rahti 1 the default volume was RWX(read-write-many), so these volumes could be mounted to many pods at same time. But in Rahti 2 volumes are RWO(read-write-once), so these volumes can be mouted to only one pod at a time. 
+
+So, if the deployment have a mounted volume and you want to update the deployment, change the deployment strategy from "rolling update" to "recreate". Go to "Actions" and click on "Edit update strategy", now select "recreate"
+
+![Action](../img/action.png)
+
+![Edit deployment stategy](../img/edit_update_strategy.png)
+
 ### How to use Integrated Registry
 
 To learn more about image caching and access control registry in Rahti 2, refer to the following article: [Using Rahti 2 Integrated Registry](../../cloud/rahti2/images/Using_Rahti_2_integrated_registry.md)
