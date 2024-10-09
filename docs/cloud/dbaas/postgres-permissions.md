@@ -21,9 +21,10 @@ openstack database user grant access $INSTNACE_ID $USER_NAME $DATABASE_NAME
 The web interface also allows creating users and modifying their permissions.
 
 To create a new user with database access:
-    1. Choose an instance from the Instances page
-    2. Go to its Users tab
-    3. Press Create User
+
+  1. Choose an instance from the Instances page
+  2. Go to its Users tab
+  3. Press Create User
 
 You can also edit permissions of existing users from the Users tab, by choosing 'Manage Access'
 from the drop down menu in the 'Actions' column.
@@ -39,7 +40,7 @@ GRANT SELECT ON ${table} TO ${user};
 
 ### Giving a user read-write access to a table
 
-If you want to give allow users to add, modify, remove and read rows in your database you can give the
+If you want to allow users to add, modify, remove and read rows in your database you can give the
 user following permissions:
 
 ```sql
@@ -82,7 +83,7 @@ permissions more freely.
 
 If you have little or no prior experience with PostgreSQL, we recommend familiarizing yourself with how privileges in PSQL interact with Databases, Schema, and Tables. [Here's one tutorial that might be of use.](https://www.postgresqltutorial.com/postgresql-administration/postgresql-schema/)
 
-To avoid confusion, keep in mind that in PostgreSQL 14 the default privileges allow every user to connect to any database and create tables in the default 'public' schema. They cannot access existing tables or other schema without explicit permission, however, and they cannot create new schema.
+To avoid confusion, keep in mind that in PostgreSQL 14 the default privileges allow every user to connect to any database and create tables in the default 'public' schema. They cannot access existing tables or other schema without explicit permission, however, they cannot create new schema.
 
 Typically the owner of an object in PSQL (an object can be a database, a schema, a table, etc. etc.) is the only one with any privileges regarding it, unless otherwise specified. This, combined with privileges not flowing 'downwards' in the hierarchy, can lead to some confusion. Having privileges to a schema doesn't imply any privileges to the tables contained within. For further reading, [here's the official docs on privileges.](https://www.postgresql.org/docs/14/ddl-priv.html)
 

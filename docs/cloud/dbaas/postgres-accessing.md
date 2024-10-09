@@ -15,13 +15,13 @@ A popular tool for working with PostgreSQL databases is pgAdmin, which can be fo
    psql --user ${USERNAME} --host ${PUBLIC_IP} ${DATABASE_NAME}
    ```
 
-   The syntax normally used in configuration files is:
+   If your application is using a configuration file The syntax normally looks something like this:
 
    ```
-   psql postgresql://${USERNAME}:${PASSWORD}@{PUBLIC_IP}:5432/${DATABASE_NAME}
+   postgresql://${USERNAME}:${PASSWORD}@{PUBLIC_IP}:5432/${DATABASE_NAME}
    ```
 
-   Note that if you use the latter syntax to access the database it will omit column names from query responses.
+   You can also use the latter syntax to access the database with `psql` but it will omit column names from query responses.
 
 ### Common issues with CLI connections
 
