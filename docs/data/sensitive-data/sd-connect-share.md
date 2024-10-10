@@ -1,16 +1,37 @@
 # Sharing folders
 
-SD Connects provides you multiple ways to share your files.
-
 !!! info "Share ID"
 
     With SD Connect, you can share folders across different CSC projects. This is done by using Share ID, a unique 32-digit code associated with a CSC project. You can share a folder with multiple CSC projects and use different permission levels. 
-    
-    You need to know the Share ID of the **recipient** CSC project. The recipient can copy the Share ID from the SD Connect user interface (the recipient should select correct CSC project from the top left corner, then click **Copy Share ID** next to the project number) and provide it to you via email. 
 
-## Permission levels and example use cases
+SD Connects provides you multiple ways to share your files. Please read about permission rights and example use cases which demonstrate how the different permissions:
 
-Permission levels are Transfer data, Collaborate and Read to SD Desktop. Please read about example use cases which demonstrate how the different permissions can be applied based on specific collaboration requirements and data sharing needs.
+* [Transfer data](#transfer-data)
+* [Collaborate](#collaborate)
+* [Transfer data](#read-to-sd-desktop)
+
+
+## Share folder to another project
+
+
+1. Ask from recipient for their project Share ID. They find it from their SD Connect. The recipient should select correct CSC project from the top left corner, then click **Copy Share ID** next to the project number) and provide it to you via email. 
+![(screenshot)](https://a3s.fi/docs-files/sensitive-data/SD_Connect/UseCase_ShareID.png)
+2. Click “**Share**” next to the folder you wish to share.
+![screenshot](https://a3s.fi/docs-files/sensitive-data/SD_Connect/UseCase_ShareButton.png)
+3. Add the recipient project's **Share ID** to the field.
+![screenshot](https://a3s.fi/docs-files/sensitive-data/SD_Connect/UseCase_AddShareID.png)
+4. Select suitable sharing permission. Click “**Share**”.
+![screenshot](https://a3s.fi/docs-files/sensitive-data/SD_Connect/UseCase_SelectPermission.png)
+
+### Change share permission
+
+1. Click “**Share**” next to the folder you wish to share.
+2. Scroll down and under "This project is shared to" title select correct Share ID and then change permission from "Permissions" dropdown. 
+![screenshot](https://a3s.fi/docs-files/sensitive-data/SD_Connect/UseCase_ChangePermissions.png)
+
+## Permission rights and example use cases
+
+ Please read about permission rights and example use cases which demonstrate how the different permissions can be applied based on specific collaboration requirements and data sharing needs.
 
 ### Transfer data
 

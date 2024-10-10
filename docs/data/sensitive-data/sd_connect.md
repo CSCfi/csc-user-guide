@@ -53,11 +53,11 @@ General considerations:
 !!! Note
     SD Connect is unsuitable for data processing under the Act on the Secondary Use of Health and Social Data. Please check [SD Desktop for secondary use](./sd-desktop-audited.md) to learn about the precise requirements.
 
-## Overview of SD Connect 2.0 features
+## Overview of SD Connect new features
 
-The current version of the service, SD Connect 2.0, introduces several enhancements over the original version to improve user experience, security, performance, and automation. Below is a summary of the key new features and their differences compared to the previous version.
+In October 2024 we introduced several enhancements over the original version to improve user experience, security, performance, and automation. Below is a summary of the key new features and their differences compared to the previous version.
 
-| Feature | SD Connect 2.0 | SD Connect 1.0 (has been discontinued) |
+| Feature | SD Connect new version | SD Connect previous version (discontinued) |
 |---------|----------------|----------------------------------------|
 |Service access via [MyCSC](https://my.csc.fi)|Requires CSC account and project, SD Connect service access and multi-factor authentication enabled on your CSC account|Requires CSC account and project and Allas service access|
 |User interface|Redesigned based on user feedback|Standard interface|

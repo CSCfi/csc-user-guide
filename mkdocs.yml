@@ -416,6 +416,7 @@ nav:
             - Upload: data/sensitive-data/sd-connect-upload.md
             - Share: data/sensitive-data/sd-connect-share.md
             - Download: data/sensitive-data/sd-connect-download.md
+            - Download files uploaded with previous version: data/sensitive-data/sd-connect-download-old-version.md
             - Delete: data/sensitive-data/sd-connect-delete.md
             - Command line interface: data/sensitive-data/sd-connect-command-line-interface.md
             - Troubleshooting: data/sensitive-data/sd-connect-troubleshooting.md
