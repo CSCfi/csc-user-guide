@@ -118,3 +118,13 @@ The command will ask the user to enter the password (passphrase) of your private
 
 !!! Note
     In case you are decrypting the file in SD Desktop and the CSC Sensitive Data public key has been used in encryption, decryption will be done automatically, and you do not need to specify any decryption keys. If you need to decrypt a large number of files, please check the tutorial [Decrypting all files in a directory](tutorials/decrypt-directory.md).
+
+## Features in SD Connect
+
+* [Upload](./sd-connect-upload.md)
+* [Share](./sd-connect-share.md)
+* [Download](./sd-connect-download.md)
+* [Download files uploaded with previous version](./sd-connect-download-old-version.md)
+* [Delete](./sd-connect-delete.md)
+* [Command line interface](./sd-connect-command-line-interface.md)
+* [Troubleshooting](./sd-connect-troubleshooting.md)

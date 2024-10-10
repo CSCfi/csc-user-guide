@@ -112,3 +112,13 @@ In this example, we first generate your key pair (a password-protected private k
       If you need to decrypt a large number of files, please check the tutorial [Decrypting all files in a directory](./tutorials/decrypt-directory.md).
 
       [More information about data encryption](sd-connect-command-line-interface.md)
+
+## Features in SD Connect
+
+* [Upload](./sd-connect-upload.md)
+* [Share](./sd-connect-share.md)
+* [Download](./sd-connect-download.md)
+* [Download files uploaded with previous version](./sd-connect-download-old-version.md)
+* [Delete](./sd-connect-delete.md)
+* [Command line interface](./sd-connect-command-line-interface.md)
+* [Troubleshooting](./sd-connect-troubleshooting.md)
