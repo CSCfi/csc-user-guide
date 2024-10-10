@@ -8,7 +8,7 @@ SD Connects provides you multiple ways to share your files. Please read about pe
 
 * [Transfer data](#transfer-data)
 * [Collaborate](#collaborate)
-* [Transfer data](#read-to-sd-desktop)
+* [Read to SD Desktop](#read-to-sd-desktop)
 
 
 ## Share folder to another project
