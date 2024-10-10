@@ -12,7 +12,7 @@ Contents:
 
 * [Limitations](./sd_connect.md#limitations)
 
-* [Overview of SD Connect 2.0 features](./sd_connect.md#overview-of-sd-connect-20-features)
+* [Overview of SD Connect 2.0 features](./sd_connect.md#overview-of-sd-connect-new-features)
 
 You can browse through the main topics of the manual using the navigation bar on the left side of this page or the search function.
 
