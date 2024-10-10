@@ -45,11 +45,11 @@ As a project manager, you can invite other users as members to your project.
 If you wish to be joined to an existing project, please ask the project manager to add your CSC user account to the 
 project member list.
 
-### Step 1.3. Add Allas access for your project
+### Step 1.3. Add SD Connect access for your project
 
-Add _Allas_ service to your project in MyCSC. Only the project manager can add services. 
-After you have added Allas to the project, the other project members need to login to 
-MyCSC and approve the terms of use for the service before getting access to Allas. 
+Add _SD Connect_ service to your project in MyCSC. Only the project manager can add services. 
+After you have added SD Connect, that enables Allas too, to the project, the other project members need to login to 
+MyCSC and approve the terms of use for the service before getting access to Allas anf SD Connect. 
 
 After these steps, your project has 10 TB storage space available in Allas. 
 Please [contact CSC Service Desk](../../support/contact.md) if you need more storage space. 
@@ -218,7 +218,7 @@ In this example, we first generate your key pair (a password-protected private k
         You need to create your keys only once and use them for all your encryption needs, but you can of course, choose to generate separate keys for encryption as you wish.
 
 
-## 3. Project key generation example
+## 3. Project key generation  
 
 ### 3.1 Generating keys
 
@@ -239,28 +239,24 @@ files accordingly: `animine_crypt4gh.key` and `animine_crypt4gh.pub`.
 
 Next, Tiina Tutkija logs in to [SD Connect service](https://sd-connect.csc.fi). 
 After connecting she checks that **Current project** setting refers to the CSC project 
-that AniMINE project will be using. After that she clicks the **Create bucket** button to 
-create a new bucket called `animine_keys`. Then she uses the same button to create another 
-bucket called `animine_pub`.
+that AniMINE project will be using. After that she clicks the **Create folder** button to 
+create a new folder called `animine_keys`. Then she uses the same button to create another 
+bucket called `animine_data_import_1`.
 
-Now SD Connect contains two new empty buckets. Tiina opens the bucket `amimine_keys` and uses **Upload** 
-button to start upload process. In the upload page she checks that options **Encrypt files before upload** 
-is **on** (which is the default setting). Then she uses **Select files for upload** to select both key files 
-to be uploaded and starts the upload process by clicking button **Encrypt and upload** in the bottom of the page.
-After uploading, she needs to press the _reload button_ of the browser to update the state of the browser.
+Now SD Connect contains two new empty folders. Tiina opens the folder `amimine_keys` and uses **Upload** 
+button to start upload process. Then she uses **Select files** to select both key files 
+to be uploaded and starts the upload process by clicking button **Upload** in the bottom of the screen.
 
-When the upload is ready, Tiina switches back to the _Browser view_ of SD Connect and moves to the bucket `animine_pub`. 
-She clicks the _upload button_ again and this time turns **off** **Encrypt files before upload** and then uploads **ONLY** 
-the public key (`animine_crypt4gh.pub`) to this bucket.
+When the upload is ready, Tiina switches back to the _All folders_ list of SD Connect and moves to the bucket `animine_data_import_1` 
+She clicks the _Upload_ button again and this time uploads **ONLY**  the public key (`animine_crypt4gh.pub`) to this bucket.
 
-After uploading, she again needs to press the reload button of the browser to update the state of the browser.
 
 Finally, she opens a simple text editor to create short instructions file about the keys. 
 The content of the file, named as `animine_key_instructions.txt`, is as follows:
 
 ```text
 ---------------------------------------------------------------------------------------------------------
-AniMINE  encryption keys created on 16.3. 2022 by project manager Tiina Tutkija.
+AniMINE  encryption keys created on 9.10. 2024 by project manager Tiina Tutkija.
 Following key files are used to encrypt sensitive data used by AniMINE project.
 Keys are used with crypt4gh encryption tool.
 Public key:   animine_crypt4gh.pub
@@ -284,94 +280,39 @@ Delete the local copy of the secret key when it is no longer actively used.
 ------------------------------------------------
 ```
 
-She uploads this text file to the `animine_keys` bucket with 
-the default encryption option on and then deletes the file from her local computer.
+She uploads this text file to the `animine_keys` folder and then deletes the file from her local computer.
 
-Now the bucket `animine_keys` contain objects:
+Now the folder `animine_keys` contain objects:
 
-   * `data/animine_crypt4gh.pub.c4gh`
-   * `data/animine_crypt4gh.key.c4gh`
-   * `data/animine_key_instructions.txt.c4gh`
+   * `animine_crypt4gh.pub.c4gh`
+   * `animine_crypt4gh.key.c4gh`
+   * `animine_key_instructions.txt.c4gh`
 
-And bucket `animine_pub` contains object:
+And folder `animine_data_import_1` contains object:
 
-   * `data/animine_crypt4gh.pub`
+   * `animine_crypt4gh.pub`
+
+## 3.3 Sharing a folder with data producer
+
+Next Tiina shares the animine_data_import_1 folder with the CSC project of the data producer.
+For this she needs to know the project ID string of the data producer. She has already earlier requested this 32 characters long 
+random string form the data producer by email. 
+
+Do to de sharing, Tiina goes back to the all folders list and press the share icon of the animine_data_import_1 folder.
+The copies the project ID to the firts field of the sharing tool and selects **Collaborate** as the sharing permission type.
+
+Now sharing is done and Tiina sends the name of the shared bucket to the data producer by email.
 
 
-## 4. Opening a storage bucket for importing data from data producer
-
-Once you have access to Allas, you can create a new data bucket there and share this bucket with the data producer. 
-This approach requires that the data producer too has a project at CSC. Usually the Finnish academic data producers, 
-like sequencing centers, have a CSC project. You can copy the public key of your project to the shared bucket or 
-sent the public key to the data producer by some other means.
-
-We recommend that you ask the data producer to encrypt your data with _CSC public key_ and 
-with the _key of your project_. This way you can use the data both in your local secure environment 
-and in CSC Sensitive Data Services.
-
-### 4.1 Using Puhti to create a shared bucket
-
-If you know the project number of the data producer, you can easily create a shared Allas 
-bucket using `a-tools` commands in _Puhti_. First open terminal connection to `puhti.csc.fi`
-(use SSH, PuTTY, or terminal connection from [Puhti web interface](https://puhti.csc.fi)).
-
-In chapter 2.2 we had researcher Tiina Tutkija who created encryption keys and stored them to Allas. 
-In her case a shared bucket could be created with following commands.
-
-First Tiina Tutkija opens a connection to Puhti. In a browser, she moves to URL
-[https://puhti.csc.fi](https://puhti.csc.fi) and logs in with her CSC account. Once the web interface of Puhti is open she opens a terminal with tool:
-
-**Tools/Login node shell**
-
-This tool provides terminal connection to Puhti.
-
-In the terminal, Tiina activates connection to Allas:
-
-```text
-module load allas
-allas-conf
-```
-
-Then she creates a new shared bucket with command:
-
-```text
-make-shared-bucket
-```
-
-This tool creates a new bucket and shares it with the collaborator.
-The command asks first for the name of the bucket to be created. In this
-case Tiina uses bucket name `animine_data_import_1`.        
-
-Then the command asks for the project that should have access to the bucket.
-The project name of data producer is in this example `project_2000111`.
-
-Then she downloads the public key to Puhti:
-
-```text
-a-get animine_pub/data/animine_crypt4gh.pub
-```
-
-And uploads the key to the shared bucket:
-
-```text
-a-put animine_crypt4gh.pub -b animine_data_import_1
-```
-
-Finally, Tiina sends the name of the shared bucket to the data producer 
-and ask them to encrypt the data to be uploaded with both the public key 
-that they can find from the bucket and the CSC public key.
-
-### 4.2 Revoke bucket sharing after data transport
+### 3.4 Revoke bucket sharing after data transport
 
 Moving large datasets (several terabytes) of data to Allas can take a long time. 
-After few days, data producer tells Tiina that all data has been imported to the shared `animine_data_import_1` bucket in Allas. 
-Tiina can now remove the external access rights from the bucket with command:
+After few days, data producer tells Tiina that all data has been imported to the shared _animine_data_import_1_ folder in Allas. 
+Tiina can now remove the external access rights in SD Connect interface. She klicks the _share_ icon of the _animine_data_import_1_ 
+folder and press **Delete** next to the project ID of the data producer.
 
-```text
-a-access -rw project_2000111 animine_data_import_1
-```
 
-## 5. Using encrypted data 
+## 4. Using encrypted data 
 
 The data stored to CSC using the procedure above is accessible only to the members of the research group.
 The data is encrypted with both CSC public key and research group's own public key. If the data is accessed 
@@ -380,20 +321,9 @@ tool when data is used in the working environment.
 
 If the data is used in other environments, decryption must be done by the user.
 
-In SD Connect service the shared bucket, in this example `animine_data_import_1`, needs some preparations before the uploaded data 
-can be downloaded. 
-
-First, user must share the bucket to her own project too. After that the uploaded data can be accessed, not through the normal data _Browser_ view, but through the _Shared_ view of SD Connect.
-
 In the example above, researcher _Tiina Tutkija_ shared a data bucket `animine_data_import_1` in Allas service 
 to receive data from sequencing center. The sequencing center uploaded file `run_12_R1.fastq.c4gh` to the bucket. 
 Tiina can now use [SD Connect](https://sd-connect.csc.fi) to download this file to her local computer. 
-
-   * First, Tiina checks the _Project Identifier_ string of her project and copies it to the clip board.
-   * Then, on the _Browser_ view of SD Connect she presses the _Share_ button of the bucket (`animine_data_import_1`). This opens the Bucket sharing page. Here, Tiina turns on _read_ and _write_ permissions and adds her Project Identifier (shown in the user information page of SD Connect) to the field: Project Identifiers to share with. The sharing is activated by clicking the Share button.
-   * Next, Tiina moves to the _Shared to the project_ view which now includes bucket `animine_data_import_1`. 
-
-She can now open the bucket and start downloading the data.
 
 However, after downloading the file is still in encrypted format. To decrypt the file Tiina opens the _[cryp4gh-gui](https://github.com/CSCfi/crypt4gh-gui/blob/master/README.md)_ encryption tool that she previously installed to her computer to create the encryption keys. 
 
