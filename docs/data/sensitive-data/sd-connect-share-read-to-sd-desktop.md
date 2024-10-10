@@ -1,9 +1,5 @@
 # How to give access to folder content only in SD Desktop
 
-!!! error-label
-
-    Not yet available
-
 ## Use case
 
 You (Team A) have data that other team (Team B) needs access to. They wish to view and analyse your data, but you want to restrict their ability to download a copy of the data directly.

@@ -17,3 +17,13 @@
 ||Low upload speed (programmatically)|Upload and download speed depends on the local network.|
 |Shared folder|I cannot upload data into a shared folder|Only folders shared with 'collect' permissions allow data uploads.|
 ||I cannot download the content of a shared folder|Only folders shared with 'transfer' or 'collect' permissions allows you to download a copy of the content.|
+
+## Features in SD Connect
+
+* [Upload](./sd-connect-upload.md)
+* [Share](./sd-connect-share.md)
+* [Download](./sd-connect-download.md)
+* [Download files uploaded with previous version](./sd-connect-download-old-version.md)
+* [Delete](./sd-connect-delete.md)
+* [Command line interface](./sd-connect-command-line-interface.md)
+* [Troubleshooting](./sd-connect-troubleshooting.md)

@@ -24,9 +24,12 @@ You need first delete all files in main folder.
 2. Find correct folder from All folders tab.
 5. Delete folder with **Delete** on right side of the folder.
 
-## Features in SD Connect 
+## Features in SD Connect
 
 * [Upload](./sd-connect-upload.md)
 * [Share](./sd-connect-share.md)
 * [Download](./sd-connect-download.md)
+* [Download files uploaded with previous version](./sd-connect-download-old-version.md)
 * [Delete](./sd-connect-delete.md)
+* [Command line interface](./sd-connect-command-line-interface.md)
+* [Troubleshooting](./sd-connect-troubleshooting.md)
