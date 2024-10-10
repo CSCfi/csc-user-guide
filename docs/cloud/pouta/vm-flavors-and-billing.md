@@ -352,11 +352,11 @@ Typical use cases:
 The GPU flavors are intended to provide high performance computing using
 GPGPU (General Purpose computing on Graphical Processing
 Units). GPGPUs can significantly speed up certain algorithms and
-applications. The gpu.1. flavors have NVIDIA Tesla P100 GPGPUs.
-The gpu.2.1gpu in ePouta have a NVIDIA Tesla V100 GPGPU.
-
+applications.
 The GPGPUs are suitable for deep learning, scientific computing as
-well as for remote desktops, rendering or visualization. The GPGPU
+well as for remote desktops, rendering or visualization.
+
+The GPGPU
 flavors are backed by local SSD on the servers. The SSDs in gpu.1 flavors
 are configured in RAID-1. This is where the OS root disk is stored. With
 gpu.2 flavors, the SSDs are bigger and the SSDs are configured in RAID-0
@@ -394,55 +394,49 @@ These instances are also tightly tied to the hardware. You may expect
 downtime of instances during the maintenance of the hardware.
 
 Users also have the possibility to use NVIDIA Volta V100 GPGPUs in the
-batch system on [Technical details about Puhti](../../computing/systems-puhti.md).
+batch system [Puhti](../../computing/systems-puhti.md).
 
 **cPouta flavor characteristics:**
 
 **gpu.1.\*:**
 
--   No redundant power
+-   GPU: NVIDIA Tesla P100 (16 GB)
 -   CPU: Intel(R) Xeon(R) CPU E5-2680 v4, with hyper-threading
 -   Network: Redundant 10 Gb/s
 -   Flavor disk: Local SSD disks, RAID-1
+-   No redundant power
 -   Instance can be lost due to a single-node or multiple simultaneous disk failures.
 
 **ePouta flavor characteristics:**
 
 **gpu.1.\*:**
 
--   Redundant power
+-   GPU: NVIDIA Tesla P100 (16 GB)
 -   CPU: Intel(R) Xeon(R) CPU E5-2680 v4, with hyper-threading
 -   Network: Redundant 10 Gb/s
 -   Flavor disk: Local SSD disks, RAID-1
+-   Redundant power
 -   Instance can be lost due to a single-node or disk failure.
 
 **gpu.2.\*:**
 
--   Only available via request to servicedesk@csc.fi
--   Redundant power
+-   GPU: NVIDIA Tesla V100 (16 GB)
 -   CPU: Intel(R) Xeon(R) Gold 6148, with hyper-threading
 -   NUMA Aware: yes (CPU &lt;&gt; memory, not PCI devices)
 -   Network: Redundant 10 Gb/s
 -   Flavor disk: Local SSD disks, RAID-0
+-   Redundant power
 -   Instance can be lost due to a single-node or disk failure.
 
 **gpu.3.\*:**
 
--   Redundant power
+-   GPU: NVIDIA A100 (40 GB)
 -   CPU: AMD EPYC 7402 24-Core Processor
 -   Network: Redundant 10 Gb/s
 -   Flavor disk: Local NVMe disks
+-   Redundant power
 -   Instance can be lost due to a single-node or disk failure.
--   Multi-Instance GPU (MIG) is supported
-
-### Installation and configuration of GPU Flavors
-
-We have specific CUDA images available for the GPU nodes.
-These images come pre-installed with the freshest CUDA version. Note
-that the CUDA images are not configured with auto update. You can use
-any other images with the GPU flavors, but you have
-to install the required libraries yourself.
-[How CSC customizes the images](adding-images.md).
+-   Multi-Instance GPU (MIG) functionality supported
 
 ### High memory flavors (only in ePouta)
 

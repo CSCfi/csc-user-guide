@@ -1,6 +1,13 @@
 # Cloud services
 
-## Pukki DBaaS now supports PostGIS extensions 28.08.2024
+## Pukki now supports PostgreSQL 17, 9.10.2024
+The default database in Pukki is now PostgreSQL 17 instead of the previous PostgreSQL 14. You can
+still use PostgreSQL 14 but we recommend that if you are creating a new database you start using
+PostgreSQL 17. More information can be found in the
+[Pukki PostgreSQL documentation](../../cloud/dbaas/postgresql.md)
+
+
+## Pukki DBaaS now supports PostGIS extensions, 28.08.2024
 It is now possible to enable PostGIS extensions in the new PostgreSQL 14.13 databases.
 [PostgreSQL documentation](../../cloud/dbaas/postgresql.md)
 
