@@ -60,22 +60,22 @@ The data also shows the following things:
   the optimum performance shifts from more threads per task (15) towards fewer
   threads per task (3).
 * 1 GPU (+ 10 CPU cores) on Puhti gives a performance that is faster than
-  running on four full Mahti nodes. This requires using the GPU-resident mode
-  instead of regular GPU-offloading. See more details in the
+  running on four full Mahti nodes. This is achieved by using the GPU-resident
+  mode instead of regular GPU-offloading. See more details in the
   [NAMD user guide](https://www.ks.uiuc.edu/Research/namd/3.0/ug/node102.html).
 * Remember that using more resources to get results faster is also more
   expensive in terms of consumed billing units. To avoid wasting resources,
   ensure that your job actually benefits from increasing the number of cores.
   You should get at least a 1.5-fold speedup when doubling the amount of
   resources.
-* To test your own system, run e.g. 10000 steps of dynamics and search for the
+* To test your own system, run e.g. 10 000 steps of dynamics and search for the
   `Benchmark time:` line in the output.
 
 !!! info "NAMD 3.0"
-    NAMD3 shows an 2-3 times improved GPU performance over NAMD2, e.g. 160
+    NAMD3 shows a 2-3 times improved GPU performance over NAMD2, e.g. 160
     ns/day vs. 55 ns/day for the ApoA1 system on Puhti. Please consider using
     NAMD3 if you intend to run on GPUs. Running on LUMI-G is recommended for
-    large-scale simulations due the better availability of GPUs compared to
+    large-scale simulations due to the better availability of GPUs compared to
     Puhti and Mahti.
 
 #### Multi-GPU performance
