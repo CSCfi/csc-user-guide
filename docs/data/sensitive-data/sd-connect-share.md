@@ -8,44 +8,36 @@ SD Connects provides you multiple ways to share your files.
     
     You need to know the Share ID of the **recipient** CSC project. The recipient can copy the Share ID from the SD Connect user interface (the recipient should select correct CSC project from the top left corner, then click **Copy Share ID** next to the project number) and provide it to you via email. 
 
-
 ## Permission levels and example use cases
 
 Permission levels are Transfer data, Collaborate and Read to SD Desktop. Please read about example use cases which demonstrate how the different permissions can be applied based on specific collaboration requirements and data sharing needs.
 
-
 ### Transfer data
 
- The recipient project’s members can copy your folder in SD Connect and download files in decrypted format. Files are also accessible via SD Desktop. Use this when you want to transfer your data to another project.
+The recipient project’s members can copy your folder in SD Connect and download files in decrypted format. Files are also accessible via SD Desktop. Use this when you want to transfer your data to another project.
 
 [Read about use case: Transfer your data to another project](./sd-connect-share-tranfer-data.md)
 
+<iframe width="400" height="225" srcdoc="https://www.youtube.com/embed/YE5_THNJEsw" title="Introducing CSC Sensitive Data Services" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 ### Collaborate
 
-In addition to Transfer data permission, the recipient project’s members can upload new files or delete existing files from your folder in SD Connect. Use this when you want the folder to be your shared workspace. 
+In addition to Transfer data permission, the recipient project’s members can upload new files or delete existing files from your folder in SD Connect. Use this when you want the folder to be your shared workspace.
 
 [Read about use case: Use folder as your shared workspace](./sd-connect-share-workspace.md)
 
+<iframe width="400" height="225" srcdoc="https://www.youtube.com/embed/Ih5PKZtPOCU" title="Introducing CSC Sensitive Data Services" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
-### Read to SD Desktop 
-
-!!! error-label
-
-    Not yet available
+### Read to SD Desktop
 
 The recipient project's members can only access the folder content in SD Desktop. Use this when you need maximum certainty that your files are not distributed further.
 
 !!! warning
-    Note that you also have to be the project manager of the recipient project. Please contact us at servicedesk@csc.fi to discuss this option before proceeding.
+    Note that you also have to be the project manager of the recipient project. Please [contact CSC Service Desk](../../support/contact.md) to discuss this option before proceeding.
 
 [Read about use case: Give access to folder content only in SD Desktop](./sd-connect-share-read-to-sd-desktop.md)
 
-
-
-
-
-## Features in SD Connect 
+## Features in SD Connect
 
 * [Upload](./sd-connect-upload.md)
 * [Share](./sd-connect-share.md)

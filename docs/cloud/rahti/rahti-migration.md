@@ -201,7 +201,7 @@ In the Project details page (`Developer` > `Project`), click `PersistentVolumeCl
 
 ![Create PersistentVolumeClaim](../img/Create_PersistentVolumeClaim.png)
 
-* For the moment only a single type of `StorageClass` can be used. It corresponds to `Cinder` volumes, which can only be read or write by a single Pod.
+* For the moment only a single type of `StorageClass` can be used. It corresponds to `Cinder` volumes, which can only be read or write (mounted) by a single node (In order to mount it in several Pods, you need to use [Pod affinity](../../tutorials/pod-affinity/), so all the Pods are created on the same node).
 
 * A unique name within the project must be provided.
 
@@ -211,6 +211,16 @@ In the Project details page (`Developer` > `Project`), click `PersistentVolumeCl
 
 !!! warning "Lazy volume creation"
     The volume will only be created when it is mounted for the first time, this is a change in behavior in `Rahti 2`.
+
+### How to Recreate Pod for Deployment having RWO Volumes
+
+In Rahti 1 the default volume was RWX(read-write-many), so these volumes could be mounted to many pods at the same time. But in Rahti 2 volumes are RWO(read-write-once), so these volumes can be mouted to only one pod at a time. 
+
+So, if the deployment have a mounted volume and you want to update the deployment, change the deployment strategy from "rolling update" to "recreate". Go to "Actions" and click on "Edit update strategy", now select "recreate"
+
+![Action](../img/action.png)
+
+![Edit deployment stategy](../img/edit_update_strategy.png)
 
 ### How to use Integrated Registry
 
