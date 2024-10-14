@@ -1,8 +1,8 @@
 # Accessing databases on Rahti 2 from CSC supercomputers
 
 !!! warning "New Rahti LoadBalancer available"
-    It is now possible to enable [LoadBalancer](https://docs.csc.fi/cloud/rahti2/networking/#using-loadbalancer-service-type-with-dedicated-ips) in Rahti.   
-    Unlike [Routes](https://docs.csc.fi/cloud/rahti2/networking/#routes), the LoadBalancer service allows you to expose services to the Internet without being limited to HTTP/HTTPS.  
+    It is now possible to enable [LoadBalancer](../rahti2/networking.md#using-loadbalancer-service-type-with-dedicated-ips) in Rahti.   
+    Unlike [Routes](../rahti2/networking.md#routes), the LoadBalancer service allows you to expose services to the Internet without being limited to HTTP/HTTPS.  
     Have a look to the documentation linked above to learn more.  
 
     The following documentation is still available if you prefer to use Routes and Websocat.
