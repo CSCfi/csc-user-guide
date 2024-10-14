@@ -156,7 +156,7 @@ billing unit coefficients.
 
 |Flavor|Cores|Memory<br/>(GiB)|Root<br/>disk<br/>(GB)|Ephemeral<br/>disk<br/>(GB)|Total<br/>disk<br/>(GB)|Memory/<br/>core<br/>(GiB)|Redundancy|Billing<br/>Units<br/>/h|
 |--- |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-| tb.3.480RAM  | 56 | 480  | 20 | 1650 | 1730 | 8.5  |![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg)![Icon for root disk data redundancy level NONE](../../img/circle_icons/r0.svg)![Icon for ephemeral disk data redundancy level NONE](../../img/circle_icons/e0.svg)![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg)| 110 |
+| ![This flavor is temporarily unavailable](../../img/risk-icon.svg) tb.3.480RAM  | 56 | 480  | 20 | 1650 | 1730 | 8.5  |![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg)![Icon for root disk data redundancy level NONE](../../img/circle_icons/r0.svg)![Icon for ephemeral disk data redundancy level NONE](../../img/circle_icons/e0.svg)![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg)| 110 |
 | tb.3.1470RAM | 80 | 1470 | 80 | 2500 | 2580 | 18 |![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg)![Icon for root disk data redundancy level NONE](../../img/circle_icons/r0.svg)![Icon for ephemeral disk data redundancy level NONE](../../img/circle_icons/e0.svg)![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg)| 320 |
 
 Note that the root disks of all high memory flavors are hosted on solid-state drives (SSDs), while the ephemeral disks are hosted using NVM Express (NVMe).
