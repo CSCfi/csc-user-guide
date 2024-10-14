@@ -40,6 +40,7 @@ The most common causes are:
   job.
 * The job was executed directly `./script_name.sh` or `bash script_name.sh`,
   while it should be submitted with `sbatch script_name.sh`.
+* Your project has ran out of billing units
 
 
 ## Requested node configuration is not available
