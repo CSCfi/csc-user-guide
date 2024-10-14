@@ -10,7 +10,7 @@ Yes. According to CSC's [General terms of use](https://research.csc.fi/general-t
 ## What data formats can be encrypted using SD Connect?
 You can encrypt data in any format (e.g., video, images, text files, etc.). 
 
-## What is the new extension added to my files upload with SD Connect?
+## What is the new extension added to my files after upload with SD Connect?
 When encryption with SD Connect is successful, the file extension ends with .c4gh. The extension will be removed when once the file is decrypted. 
 
 ## Do CSC Sensitive Data services allow the use of customers' encryption keys?
