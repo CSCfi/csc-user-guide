@@ -9,7 +9,7 @@ Once the database user accounts have been received from CSC the user can start t
 In command line usage, users open the connection from Puhti to the `kaivos.csc.fi` server, which provides the database service. To be able to use MySQL commands you need to first load the environment:
 
 ```bash
-module load mariadb/10.8.2
+module load mariadb/11.4.3
 ```
 
 After this you can start the MySQL client program or execute some of the MySQL commands. A MySQL command line client session to `kaivos.csc.fi` is opened with the command:
