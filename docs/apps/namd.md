@@ -14,8 +14,8 @@ Beckman Institute of the University of Illinois.
 
 The following versions are available:
 
-* Puhti: 2.14, 2.14-cuda, 3.0alpha11-cuda, 3.0b6-cuda
-* Mahti: 2.14
+* Puhti: 2.14, 2.14-cuda, 3.0, 3.0-cuda
+* Mahti: 2.14, 3.0, 3.0-cuda
 * LUMI: 3.0, 3.0-gpu
 
 ## License
@@ -40,7 +40,7 @@ when running on multiple CPU nodes:
 ```
 
 This is also recommended by the
-[NAMD manual](https://www.ks.uiuc.edu/Research/namd/2.14/ug/node104.html).
+[NAMD manual](https://www.ks.uiuc.edu/Research/namd/3.0/ug/node96.html).
 Please test with your input.
 
 Make sure `--ntasks-per-node` multiplied by `--cpus-per-task` equals 40 (Puhti)
@@ -49,45 +49,59 @@ optimal one.
 
 The data below shows the ApoA1 benchmark (92k atoms, 2 fs timestep) on Mahti
 with ns/day as a function of allocated nodes and varying the number of
-`namd_threads` as set in the
-[Mahti script below](#batch-script-examples).
+`namd_threads` as set in the [Mahti script below](#batch-script-examples).
 
 ![NAMD Scaling on Mahti](../img/namd-scaling.svg 'NAMD Scaling on Mahti')
 
 The data also shows the following things:
 
 * Optimal settings depend on the amount of resources in addition to system and
-  run parameters.
-    * For this system, as the amount of resources are increased, the optimum
-      performance shifts from more threads per task (15) towards fewer threads
-      per task (3).
-* 1 GPU (+ 10 CPU cores) on Puhti gives a performance that is comparable to
-  running on two full Mahti nodes. However, note that using more resources to
-  get results faster is also more expensive in terms of consumed billing units.
-  To avoid wasting resources, ensure that your job actually benefits from
-  increasing the number of cores. You should get at least a 1.5-fold speedup
-  when doubling the amount of resources.
-* To test your own system, run e.g. 1000 steps of dynamics and search for the
+  run parameters. For this system, as the amount of resources are increased,
+  the optimum performance shifts from more threads per task (15) towards fewer
+  threads per task (3).
+* 1 GPU (+ 10 CPU cores) on Puhti gives a performance that is faster than
+  running on four full Mahti nodes. This is achieved by using the GPU-resident
+  mode instead of regular GPU-offloading. See more details in the
+  [NAMD user guide](https://www.ks.uiuc.edu/Research/namd/3.0/ug/node102.html).
+* Remember that using more resources to get results faster is also more
+  expensive in terms of consumed billing units. To avoid wasting resources,
+  ensure that your job actually benefits from increasing the number of cores.
+  You should get at least a 1.5-fold speedup when doubling the amount of
+  resources.
+* To test your own system, run e.g. 10 000 steps of dynamics and search for the
   `Benchmark time:` line in the output.
 
 !!! info "NAMD 3.0"
-    NAMD3 shows an 2-3 times improved GPU performance over NAMD2, e.g. 160
-    ns/day vs. 55 ns/day for the ApoA1 system on Puhti.
+    NAMD3 shows a 2-3 times improved GPU performance over NAMD2, e.g. 160
+    ns/day vs. 55 ns/day for the ApoA1 system on Puhti. Please consider using
+    NAMD3 if you intend to run on GPUs. Running on LUMI-G is recommended for
+    large-scale simulations due to the better availability of GPUs compared to
+    Puhti and Mahti.
 
 #### Multi-GPU performance
 
-The plot below shows the scalability of NAMD 3.0 on LUMI-G. To run on
-multiple GPUs (GCDs) efficiently, you typically need a rather large systems
+!!! warning-label
+    Given the scarcity of GPUs on Puhti and Mahti, we highly recommend running
+    multi-GPU NAMD simulations on LUMI-G.
+
+
+The plot below shows the scalability of NAMD 3.0 on Puhti, Mahti and LUMI-G. To
+run on multiple GPUs efficiently, you typically need a rather large system
 composed of at least several hundred thousand atoms, such as the STMV case
 below. Check with your system and see the
 [NAMD website](https://www.ks.uiuc.edu/Research/namd/3.0/features.html)
 for available features that allow you to maximize the performance
 of multi-GPU runs. Importantly, enabling GPU-resident mode using configuration
-file option `GPUresident on` is beneficial.
+file option `GPUresident on` is extremely beneficial.
 
-![NAMD Scaling on LUMI-G](../img/namd-lumig.svg 'NAMD Scaling on LUMI-G')
+![NAMD Scaling on GPUs](../img/namd-gpu.svg 'NAMD Scaling on GPUs')
 
 ### Batch script examples
+
+!!! info ""
+    NAMD2 and NAMD3 come with differently named executables, `namd2` and
+    `namd3`. If you intend to use NAMD2, please edit the batch script examples
+    below accordingly.
 
 === "Puhti CPU"
     The script below requests 5 tasks per node and 8 threads per task on two
@@ -100,26 +114,26 @@ file option `GPUresident on` is beneficial.
     #SBATCH --partition=test
     #SBATCH --time=0:10:00
     #SBATCH --nodes=2             
-    #SBATCH --ntasks-per-node=5   # test to find the optimum number
-    #SBATCH --cpus-per-task=8     # 40/(ntasks-per-node)
+    #SBATCH --ntasks-per-node=4   # test to find the optimum number
+    #SBATCH --cpus-per-task=10    # 40/(ntasks-per-node)
 
     module purge
     module load gcc/11.3.0
     module load openmpi/4.1.4
-    module load namd/2.14
+    module load namd/3.0
 
     # leave one core per process for communication
     (( namd_threads = SLURM_CPUS_PER_TASK - 1 ))
 
-    srun namd2 +ppn ${namd_threads} apoa1.namd > apoa1.out
+    srun namd3 +ppn ${namd_threads} apoa1.namd > apoa1.out
 
-    # while NAMD suggests using 1 thread per task for communication (as above)
-    # all cores for computing can be tested with:
-    # srun namd2 +ppn ${SLURM_CPUS_PER_TASK} apoa1.namd > apoa1.out
+    # while NAMD suggests using 1 thread per task for communication
+    # (as above), all cores for computing can be tested with:
+    # srun namd3 +ppn ${SLURM_CPUS_PER_TASK} apoa1.namd > apoa1.out
     ```
 
 === "Puhti GPU"
-    Note, NAMD2 runs most efficiently on one GPU, and this is usually more
+    Note, NAMD3 runs efficiently on GPUs, and this is usually more
     cost-efficient than running on multiple CPU-only nodes.
 
     ```bash
@@ -131,13 +145,13 @@ file option `GPUresident on` is beneficial.
     #SBATCH --cpus-per-task=10    # use at most 10 CPU cores per GPU
     #SBATCH --gres=gpu:v100:1
 
-    module load namd/2.14-cuda
+    module load namd/3.0-cuda
 
-    srun namd2 +p ${SLURM_CPUS_PER_TASK} +setcpuaffinity +devices 0 apoa1.namd > apoa1.out
+    srun namd3 +p ${SLURM_CPUS_PER_TASK} +setcpuaffinity +devices 0 apoa1.namd > apoa1.out
     ```
 
 === "Mahti CPU"
-    The script below requests 16 tasks per node and 8 threads per task on two
+    The script below requests 8 tasks per node and 16 threads per task on two
     full Mahti nodes (256 cores). One thread per task is reserved for
     communication.
 
@@ -147,18 +161,18 @@ file option `GPUresident on` is beneficial.
     #SBATCH --partition=test
     #SBATCH --time=0:10:00 
     #SBATCH --nodes=2
-    #SBATCH --ntasks-per-node=16  # test to find the optimum number
-    #SBATCH --cpus-per-task=8     # 128/(ntasks-per-node)
+    #SBATCH --ntasks-per-node=8   # test to find the optimum number
+    #SBATCH --cpus-per-task=16    # 128/(ntasks-per-node)
 
     module purge
     module load gcc/11.2.0
     module load openmpi/4.1.2
-    module load namd/2.14
+    module load namd/3.0
 
     # leave one core per process for communication
     (( namd_threads = SLURM_CPUS_PER_TASK - 1))
 
-    srun namd2 +ppn ${namd_threads} apoa1.namd > apoa1.out
+    srun namd3 +ppn ${namd_threads} apoa1.namd > apoa1.out
     ```
 
 === "LUMI-G (1 GCD)"
