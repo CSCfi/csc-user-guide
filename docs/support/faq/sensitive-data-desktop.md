@@ -19,7 +19,7 @@ Yes, every SD Desktop is built on a predefined virtual machine defined by our te
 
 * Copy-paste function disabled for security reasons, but coping text to SD Desktop available via clipboard. 
 
-* Default pre-installed software (additional software can be installed via SD-Sofware installer by contacting servicedesk@csc.fi (subject: sensitive data)
+* Default pre-installed software (additional software can be installed via SD-Software installer by contacting servicedesk@csc.fi (subject: sensitive data)
 
 * The computing environment is isolated from the Internet.
 
