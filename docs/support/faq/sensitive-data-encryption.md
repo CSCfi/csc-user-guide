@@ -2,7 +2,7 @@
 
 ## Why do I need to encrypt my data?
 According to the GDPR, the data controller and the data processor need to implement appropriate technical and organizational measures to ensure a level of security appropriate to the risk. Encryption is one of the required security measures that protect sensitive data. See: [Best practices for client-side encryption](https://research.csc.fi/best-practices-for-client-side-encryption).
-SD Connect privides automated data encryption and decryption, via a web user interface or programmatically. 
+SD Connect provides automated data encryption and decryption, via a web user interface or programmatically. 
 
 ## Do sensitive data always need to be encrypted during upload or data transfer (e.g., using an  SSH connection)?
 Yes. According to CSC's [General terms of use](https://research.csc.fi/general-terms-of-use), sensitive data must be encrypted when stored in CSC services or transferred to CSC. Therefore, data needs to be encrypted if, for example, you are using an SSH connection for data transfer. 
