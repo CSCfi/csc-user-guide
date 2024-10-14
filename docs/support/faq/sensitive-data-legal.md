@@ -68,11 +68,10 @@ In GDPR terms, CSC is always a data processor acting on behalf of a data control
 ## I am not sure if the data I am working with is sensitive or not. Where can I find support?
 If you need assistance to verify if SD service are suitable for processing your research data, contact your organization's data protection officer or legal office. You can provide them with supporting documents such as:
 
-1. [Technical and Organizational Measures (TOMS)](./sensitive-data/technical-organisational-sec-measures.pdf)
-2. Service descriptions of [SD Connect ](https://research.csc.fi/-/sd-connect)and [SD Desktop](https://research.csc.fi/en/-/sd-desktop)
-3. [The CSC Data Processing Agreement (DPA)](https://research.csc.fi/data-processing-agreement)
-4. the GDPR (Description of processing activity form) that can be downloaded from your CSC project
-5. [The CSC Data Policy](https://www.csc.fi/en/data-policy)
+1. Service descriptions of [SD Connect ](https://research.csc.fi/-/sd-connect)and [SD Desktop](https://research.csc.fi/en/-/sd-desktop) and technical and organizational measures document. 
+2. [The CSC Data Processing Agreement (DPA)](https://research.csc.fi/data-processing-agreement)
+3. the GDPR (Description of processing activity form) that can be downloaded from your CSC project
+4. [The CSC Data Policy](https://www.csc.fi/en/data-policy)
 
 For suppoer don't hesitate to contac us at servicedesk@csc.fi (subject: Sensitive Data).
 
