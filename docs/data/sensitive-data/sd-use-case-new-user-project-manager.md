@@ -49,8 +49,6 @@ You need to access to SD services. You are manager of research team or work inde
 
 When you first access your project, you’ll be prompted to complete the GDPR document (Description of Processing Activity form) if your project handles personal data. This form requires key details such as the types of data collected (e.g. sensitive personal data), how it is used and secured, and the data controller (usually your home organization). The form will be linked to your CSC project and guide CSC in managing the data. You can edit the document later if needed.
 
-![Personal data handling document.](https://a3s.fi/docs-files/sensitive-data/MyCSC/MyCSC_GDPR.png)
-
 #### 3.1 Data Transfer Outside the EEA
 
 When transferring personal or sensitive data outside the EEA, ensure you have the appropriate legal basis and comply with relevant data protection legislation. Be mindful of this when sharing sensitive data with collaborators via SD Connect or SD Desktop.
@@ -64,6 +62,8 @@ If you need assistance with the above points or support to verify if SD service 
 3. [The CSC Data Processing Agreement (DPA)](https://research.csc.fi/data-processing-agreement)
 4. The GDPR form (Description of processing activity ) that can be downloaded from your CSC project
 5. [The CSC Data Policy](https://www.csc.fi/en/data-policy)
+
+![Personal data handling document.](https://a3s.fi/docs-files/sensitive-data/MyCSC/MyCSC_GDPR.png)
 
 
 ### 4. Activate SD Services for your project
