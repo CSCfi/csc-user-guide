@@ -73,7 +73,7 @@ If you need assistance with the above points or support to verify if SD service 
 - Read and accept the terms of use and click **“Add service”**.
 - Select **SD Desktop** and add it also.
 
-![Add new services.](./images/MyCSC/MyCSC_AddServices.png)
+![Add new services.](https://a3s.fi/docs-files/sensitive-data/MyCSC/MyCSC_AddServices.png)
 
 
 ### 5. Apply billing units for your project
