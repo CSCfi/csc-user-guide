@@ -15,10 +15,10 @@ separate tables.
 Please note that the values for the memory of each flavor (in GiB) are approximated.
 
 
-## About redundancy
+## Flavor notation
 
-In addition to the amount of cores, memory, and disk, the flavors we offer vary also on the level of redundancy of the nodes hosting the virtual machines.
-The details on the levels of redundancy follow.
+We use symbols to describe some of the features of the flavors we offer.
+A short descripion of the notation used follows.
 
 ### Power redundancy
 
@@ -43,6 +43,10 @@ For the network reachability of the virtual machine, there are two possible valu
 
 * ![Icon for network reachability redundancy level NONE](../../img/circle_icons/n0.svg) **NONE** - The node hosting the virtual machine is connected to the cloud platform without a failover link. **A fault in the link of the node might make the virtual machine temporarily unreachable**.
 * ![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg) **FULL** - The node hosting the virtual machine is connected to the cloud platform with an additional failover link.
+
+### Other symbols
+
+* ![New VMs with this flavor cannot be currently launched](../../img/risk-icon.svg) - Launching new virtual machines with this flavor is temporarily not possible. Existing virtual machines are not affected.
 
 ## cPouta flavors
 
@@ -156,8 +160,8 @@ billing unit coefficients.
 
 |Flavor|Cores|Memory<br/>(GiB)|Root<br/>disk<br/>(GB)|Ephemeral<br/>disk<br/>(GB)|Total<br/>disk<br/>(GB)|Memory/<br/>core<br/>(GiB)|Redundancy|Billing<br/>Units<br/>/h|
 |--- |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-| tb.3.480RAM  | 56 | 480  | 20 | 1650 | 1730 | 8.5  |![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg)![Icon for root disk data redundancy level NONE](../../img/circle_icons/r0.svg)![Icon for ephemeral disk data redundancy level NONE](../../img/circle_icons/e0.svg)![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg)| 110 |
-| tb.3.1470RAM | 80 | 1470 | 80 | 2500 | 2580 | 18 |![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg)![Icon for root disk data redundancy level NONE](../../img/circle_icons/r0.svg)![Icon for ephemeral disk data redundancy level NONE](../../img/circle_icons/e0.svg)![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg)| 320 |
+| ![New VMs with this flavor cannot be currently launched](../../img/risk-icon.svg) tb.3.480RAM  | 56 | 480  | 20 | 1650 | 1730 | 8.5  |![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg)![Icon for root disk data redundancy level NONE](../../img/circle_icons/r0.svg)![Icon for ephemeral disk data redundancy level NONE](../../img/circle_icons/e0.svg)![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg)| 110 |
+| ![New VMs with this flavor cannot be currently launched](../../img/risk-icon.svg) tb.3.1470RAM | 80 | 1470 | 80 | 2500 | 2580 | 18 |![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg)![Icon for root disk data redundancy level NONE](../../img/circle_icons/r0.svg)![Icon for ephemeral disk data redundancy level NONE](../../img/circle_icons/e0.svg)![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg)| 320 |
 
 Note that the root disks of all high memory flavors are hosted on solid-state drives (SSDs), while the ephemeral disks are hosted using NVM Express (NVMe).
 
@@ -165,11 +169,11 @@ Note that the root disks of all high memory flavors are hosted on solid-state dr
 
 |Flavor|Cores|GPUs|Memory<br/>(GiB)|Root<br/>disk<br/>(GB)|Ephemeral<br/>disk<br/>(GB)|Total<br/>disk<br/>(GB)|Memory/<br/>core<br/>(GiB)|Redundancy|Billing<br/>Units<br/>/h|
 |--- |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-| gpu.1.1gpu | 14 | 1 | 117 | 80 |    0 |   80 |   8.3 |![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg)![Icon for root disk data redundancy level BASIC](../../img/circle_icons/r50.svg)![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg)| 60  |
-| gpu.1.2gpu | 28 | 2 | 234 | 80 |    0 |   80 |   8.3 |![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg)![Icon for root disk data redundancy level BASIC](../../img/circle_icons/r50.svg)![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg)| 120 |
-| gpu.1.4gpu | 56 | 4 | 468 | 80 |    0 |   80 |   8.3 |![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg)![Icon for root disk data redundancy level BASIC](../../img/circle_icons/r50.svg)![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg)| 240 |
-| gpu.2.1gpu | 20 | 1 | 180 | 80 | 1000 | 1080 | 9 |![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg)![Icon for root disk data redundancy level NONE](../../img/circle_icons/r0.svg)![Icon for ephemeral disk data redundancy level NONE](../../img/circle_icons/e0.svg)![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg)| 100 |
-| gpu.3.1gpu | 12 | 1 | 219 | 80 | 1500 | 1580 | 18 |![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg)![Icon for root disk data redundancy level NONE](../../img/circle_icons/r0.svg)![Icon for ephemeral disk data redundancy level NONE](../../img/circle_icons/e0.svg)![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg)| 150  |
+| ![New VMs with this flavor cannot be currently launched](../../img/risk-icon.svg) gpu.1.1gpu | 14 | 1 | 117 | 80 |    0 |   80 |   8.3 |![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg)![Icon for root disk data redundancy level BASIC](../../img/circle_icons/r50.svg)![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg)| 60  |
+| ![New VMs with this flavor cannot be currently launched](../../img/risk-icon.svg) gpu.1.2gpu | 28 | 2 | 234 | 80 |    0 |   80 |   8.3 |![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg)![Icon for root disk data redundancy level BASIC](../../img/circle_icons/r50.svg)![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg)| 120 |
+| ![New VMs with this flavor cannot be currently launched](../../img/risk-icon.svg) gpu.1.4gpu | 56 | 4 | 468 | 80 |    0 |   80 |   8.3 |![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg)![Icon for root disk data redundancy level BASIC](../../img/circle_icons/r50.svg)![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg)| 240 |
+| ![New VMs with this flavor cannot be currently launched](../../img/risk-icon.svg) gpu.2.1gpu | 20 | 1 | 180 | 80 | 1000 | 1080 | 9 |![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg)![Icon for root disk data redundancy level NONE](../../img/circle_icons/r0.svg)![Icon for ephemeral disk data redundancy level NONE](../../img/circle_icons/e0.svg)![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg)| 100 |
+| ![New VMs with this flavor cannot be currently launched](../../img/risk-icon.svg) gpu.3.1gpu | 12 | 1 | 219 | 80 | 1500 | 1580 | 18 |![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg)![Icon for root disk data redundancy level NONE](../../img/circle_icons/r0.svg)![Icon for ephemeral disk data redundancy level NONE](../../img/circle_icons/e0.svg)![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg)| 150  |
 
 Note that both the root and the ephemeral disks of the GPU flavors are hosted on solid-state drives (SSDs).
 
