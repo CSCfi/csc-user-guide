@@ -14,8 +14,9 @@ You need to access to SD services. You are manager of research team or work inde
 5. [Apply resources (billing units) for your project](#5-apply-billing-units-for-your-project)
 6. [Activate MFA Authentication](#6-activate-mfa-authentication)
 7. [If you have a research team, add them to be your project members](#7-if-you-have-a-research-team-add-them-to-be-your-project-members)
-8. [Log into SD Services](#8-closing-your-project)
-
+8. [Closing your project and data retention](#8-closing-your-project-and-data-retention)
+9. [Log into SD Services](#9-log-into-sd-services)
+    
 ![How to get started as project manager.](images/MyCSC/HowToGetStarted_SD_Project_Manager.png)
 
 
@@ -35,7 +36,9 @@ You need to access to SD services. You are manager of research team or work inde
 - On the top of the page choose **”New project”**
 - Fill in the project name and project description. You can edit these later if needed.
 - Choose the Project category to be **“Academic”** (if you are a researcher and a member of Finnish higher education institution)
-- Fill all required fields. Read and accept the terms of use.
+- If your project involves handling personal data, choose "Yes" for the field: **We handle personal data in this project**.
+- Next, under Terms of Use, ensure you meet the **Prerequisites and Responsibilities** to be a CSC Project Manager. For research projects, the Project Manager should be an experienced researcher (e.g., postdoc, group leader, professor, or doctoral researcher employed by a research organization). **Note for Students:** If you are a student, please have your supervisor create the CSC project or contact us at servicedesk@csc.fi (subject: sensitive data) for assistance. Is is not possible to access SD Services with a student account.
+- Finally, read and accept the terms of use.
 - Click **“Create a project”**.
 
 ![Click create a project.](./images/MyCSC/MyCSC_NewProject.png)
@@ -43,31 +46,64 @@ You need to access to SD services. You are manager of research team or work inde
 
 ### 3. Data protection
 
-- Since your project handles personal data, you need to fill the GDPR document i.e. *Description of processing activity* -form.
-- The document appears when you create a new project. You can edit this document later.
-- Please check with your home organization  who is the **data controller** (CSC is the data processor, never the controller). [Read more about the roles and GDPR](../../support/faq/sensitive-data-legal.md#what-are-the-roles-of-csc-and-its-service-users-under-gdpr).
-- Transferring personal or sensitive personal data out of the EEA requires an appropriate basis for the transfer and compliance with the other requirements imposed by data protection legislation. Please contact your organization's legal service for support. [Read more](https://www.edpb.europa.eu/sme-data-protection-guide/international-data-transfers_en)
+#### 3.1 GDPR Form
+
+When you first access your project, you’ll be prompted to complete the GDPR document (Description of Processing Activity form) if your project handles personal data. This form requires key details such as the types of data collected (e.g. sensitive personal data), how it is used and secured, and the data controller (usually your home organization). The form will be linked to your CSC project and guide CSC in managing the data. You can edit the document later if needed.
+
+#### 3.1 Data Transfer Outside the EEA
+
+When transferring personal or sensitive data outside the EEA, ensure you have the appropriate legal basis and comply with relevant data protection legislation. Be mindful of this when sharing sensitive data with collaborators via SD Connect or SD Desktop.
+
+#### 3.2 Contact your organization’s legal office
+
+If you need assistance with the above points or support to verify if SD service are suitable for processing your research data, contact your organization's [data protection officer or legal service](../../accounts/when-your-project-handles-personal-data.md#contact-information-of-finnish-universities-data-protection-legal-offices). You can provide them with supporting documents such as:
+
+1. [Technical and Organizational Measures (TOMS)](../../data/sensitive-data/technical-organisational-sec-measures.pdf)
+2. Service descriptions of [SD Connect](https://research.csc.fi/-/sd-connect)and [SD Desktop](https://research.csc.fi/en/-/sd-desktop)
+3. [The CSC Data Processing Agreement (DPA)](https://research.csc.fi/data-processing-agreement)
+4. The GDPR form (Description of processing activity ) that can be downloaded from your CSC project
+5. [The CSC Data Policy](https://www.csc.fi/en/data-policy)
 
 ![Personal data handling document.](https://a3s.fi/docs-files/sensitive-data/MyCSC/MyCSC_GDPR.png)
+
 
 ### 4. Activate SD Services for your project
 
 - Services are listed in **Services** window in the bottom right of the project page.
-- Select **Allas** (You need Allas to use SD Connect).
+- Select **SD Connect** (Allas will be added automatically as it is the underlying storage solution).
 - Read and accept the terms of use and click **“Add service”**.
 - Select **SD Desktop** and add it also.
 
-![Add new services.](./images/MyCSC/MyCSC_AddServices.png)
+![Add new services.](https://a3s.fi/docs-files/sensitive-data/MyCSC/MyCSC_AddServices.png)
 
 
 ### 5. Apply billing units for your project
 
-- CSC project consumes billing units (BU's). 
-- All new academic CSC projects are initially granted 10 000 BU's, so you can get started. However, you should estimate how many BU’s your project will consume **during 1 year** and apply more if needed. When you start a new project, you should plan ahead for your [project's billing unit and storage usage](sd-csc-project.md).
-- Use the [billing unit calculator](sd-csc-project.md#billing-unit-calculator-for-estimating-billing-units-consumption) for estimating your billing unit consumption.
+- CSC project consumes billing units (BU's).
+- All new academic CSC projects are initially granted 10 000 BU's, so you can get started. However, you should estimate how many BU’s your project will consume **during 1 year** and apply more if needed. When you start a new project, you should plan ahead for your project's billing unit and storage usage.
+- Use the billing unit calculator for estimating your billing unit consumption.
 - Apply more billing units by clicking **"Apply for resources"** in Resource applications window.
 - You will get more info after your application to your MyCSC inbox.
-- You can always ask help from [Service Desk](../../support/contact.md) *Subject: Sensitive Data*
+- You can always ask help from Service Desk _Subject: Sensitive Data_
+
+Example using SD service for 6 months /one year:
+
+| **Desktop Option** | **Billing Units (6 Months)** | **Billing Units (1 Year)** |
+|--------------------|------------------------------|----------------------------|
+| Small Computation | 22,464 units | 44,928 units |
+| Medium Computation | 44,928 units | 89,856 units |
+| Heavy Computation | 224,640 units | 449,280 units |
+| Small GPU Computation | 518,400 units | 1,036,800 units |
+| Medium GPU Computation | 864,000 units | 1,728,000 units |
+
+Here’s a table summarizing the billing units required for storing data in **SD Connect/Allas** over **6 months** and **1 year** for various storage sizes:
+
+| **Storage Size** | **Billing Units (6 Months)** | **Billing Units (1 Year)** |
+|------------------|------------------------------|----------------------------|
+| 500 GB (0.5 TB) | 2,160 units | 4,320 units |
+| 1 TB | 4,320 units | 8,640 units |
+| 10 TB | 43,200 units | 86,400 units |
+| 100 TB | 432,000 units | 864,000 units |
 
 ![Click apply for resources.](./images/MyCSC/MyCSC_AddResources.png)
 
@@ -98,9 +134,11 @@ You need to access to SD services. You are manager of research team or work inde
     You project members must also create a MyCSC user account (this happens when they apply membership to your project), activate the MFA and approve the terms of use of the services you have activated (SD Connect, SD Desktop).
 
 
-### 8. Closing your project
+### 8. Closing your project and data retention
 
 - As a project manager you should familiarize yourself how to [close CSC project](sd-csc-project.md#closing-csc-project).
+- **All data in SD Connect and SD Desktop will be automatically deleted after 90 days after project closure.**
+- CSC projects must be renewed each year to help CSC monitor resources and ensure that all researchers have access to the services. Project members will receive reminders about the project's expiration. If a CSC project expires, you will be notified. You can also directly close your project after completing your research.
 
 ### 9. Log into SD Services
 
