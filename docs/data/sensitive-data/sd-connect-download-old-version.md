@@ -2,7 +2,7 @@
 
 ## Via SD Connect user interface
 
-If you uploaded files encrypted with your encryption key using SD Connect version 1, you can still download them through the current SD Connect service (v2). However, these files will remain encrypted, and you will need to decrypt them on your laptop with the Crypt4GH application by following the provided instructions. Please note that you can only decrypt one file at a time. If you need to decrypt multiple files at once, a command line option is available. For further assistance, [contact CSC Service Desk](../../support/contact.md).
+If you uploaded files encrypted with your encryption key using previous version before October 2024, you can still download them through the current SD Connect. However, these files will remain encrypted, and you will need to decrypt them on your laptop with the Crypt4GH application by following the provided instructions. Please note that you can only decrypt one file at a time. If you need to decrypt multiple files at once, a command line option is available. For further assistance, [contact CSC Service Desk](../../support/contact.md).
 
 ### Preparation
 
@@ -17,7 +17,7 @@ If you uploaded files encrypted with your encryption key using SD Connect versio
 
 ### Procedure
 
-1. Access SD Connect v2 and locate the files you need. You can download either the entire bucket or individual files. At the end of the download, the user interface will display the message: "Some requested files could not be decrypted."
+1. Access SD Connect and locate the files you need. You can download either the entire bucket or individual files. At the end of the download, the user interface will display the message: "Some requested files could not be decrypted."
    ![Some requested files could not be decrypted.](https://a3s.fi/docs-files/sensitive-data/SD_Connect/Old_download_1.png)
 2. After downloading the files, you need to adjust their extensions. Right-click the file, choose "Rename," and add `.c4gh` to the end of the filename. If opened with a text editor, the files will still be encrypted.
    ![After downloading the files, you need to adjust their extensions.](https://a3s.fi/docs-files/sensitive-data/SD_Connect/Old_download_2.png)
@@ -118,3 +118,13 @@ The command will ask the user to enter the password (passphrase) of your private
 
 !!! Note
     In case you are decrypting the file in SD Desktop and the CSC Sensitive Data public key has been used in encryption, decryption will be done automatically, and you do not need to specify any decryption keys. If you need to decrypt a large number of files, please check the tutorial [Decrypting all files in a directory](tutorials/decrypt-directory.md).
+
+## Features in SD Connect
+
+* [Upload](./sd-connect-upload.md)
+* [Share](./sd-connect-share.md)
+* [Download](./sd-connect-download.md)
+* [Download files uploaded with previous version](./sd-connect-download-old-version.md)
+* [Delete](./sd-connect-delete.md)
+* [Command line interface](./sd-connect-command-line-interface.md)
+* [Troubleshooting](./sd-connect-troubleshooting.md)
