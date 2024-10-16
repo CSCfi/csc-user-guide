@@ -15,3 +15,15 @@ Due to an ongoing technical challenge, double login is required. We apologize fo
 5. You will now be redirected one more time to the login page. Here, please select again the login method (Haka or CSC Login) and press on *Login*. In the new page, add again your username and password and press on *Login*. After this final step, you should be able to access the service. Please, clear browser history and cookies if errors occur.
 
 [![Project](images/connect/beta-login.png)](images/connect/beta-login.png)
+
+
+
+## Features in SD Connect
+
+* [Upload](./sd-connect-upload.md)
+* [Share](./sd-connect-share.md)
+* [Download](./sd-connect-download.md)
+* [Download files uploaded with previous version](./sd-connect-download-old-version.md)
+* [Delete](./sd-connect-delete.md)
+* [Command line interface](./sd-connect-command-line-interface.md)
+* [Troubleshooting](./sd-connect-troubleshooting.md)
