@@ -16,6 +16,7 @@ You need to access to SD services. You are manager of research team or work inde
 7. [If you have a research team, add them to be your project members](#7-if-you-have-a-research-team-add-them-to-be-your-project-members)
 8. [Closing your project and data retention](#8-closing-your-project-and-data-retention)
 9. [Log into SD Services](#9-log-into-sd-services)
+    
 ![How to get started as project manager.](images/MyCSC/HowToGetStarted_SD_Project_Manager.png)
 
 
