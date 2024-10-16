@@ -237,23 +237,20 @@ files accordingly: `animine_crypt4gh.key` and `animine_crypt4gh.pub`.
 
 ### 3.2 Storing keys with SD Connect
 
-Next, Tiina Tutkija logs in to [SD Connect service](https://sd-connect.csc.fi). 
-After connecting she checks that **Current project** setting refers to the CSC project 
-that AniMINE project will be using. After that she clicks the **Create bucket** button to 
-create a new bucket called `animine_keys`. Then she uses the same button to create another 
-bucket called `animine_pub`.
+Next, Tiina Tutkija logs in to [SD Connect web user interface](https://sd-connect.csc.fi). Tiina uses Chrome for best experience.
 
-Now SD Connect contains two new empty buckets. Tiina opens the bucket `amimine_keys` and uses **Upload** 
-button to start upload process. In the upload page she checks that options **Encrypt files before upload** 
-is **on** (which is the default setting). Then she uses **Select files for upload** to select both key files 
-to be uploaded and starts the upload process by clicking button **Encrypt and upload** in the bottom of the page.
-After uploading, she needs to press the _reload button_ of the browser to update the state of the browser.
+After connecting she checks that **Select project** dropdown at the top left refers to the CSC project 
+that AniMINE project will be using. After that she clicks the **Create folder** (in the UI buckets are called folders) button to 
+create a new folder called `animine_keys`. Then she uses the same button to create another 
+folder called `animine_pub`.
 
-When the upload is ready, Tiina switches back to the _Browser view_ of SD Connect and moves to the bucket `animine_pub`. 
-She clicks the _upload button_ again and this time turns **off** **Encrypt files before upload** and then uploads **ONLY** 
-the public key (`animine_crypt4gh.pub`) to this bucket.
+Now SD Connect contains two new empty folders. Tiina opens the folder `amimine_keys` and uses **Upload** 
+button. Then she uses **Select files** to select both keys
+to be uploaded and starts the upload process by clicking button **Upload**.
 
-After uploading, she again needs to press the reload button of the browser to update the state of the browser.
+When the upload is ready, Tiina navigates to the other folder `animine_pub`. 
+She clicks the **Upload** button and she uploads **ONLY** 
+the public key (`animine_crypt4gh.pub`) to this folder.
 
 Finally, she opens a simple text editor to create short instructions file about the keys. 
 The content of the file, named as `animine_key_instructions.txt`, is as follows:
@@ -284,16 +281,15 @@ Delete the local copy of the secret key when it is no longer actively used.
 ------------------------------------------------
 ```
 
-She uploads this text file to the `animine_keys` bucket with 
-the default encryption option on and then deletes the file from her local computer.
+She uploads this text file to the `animine_keys` folder on and then deletes the file from her local computer.
 
-Now the bucket `animine_keys` contain objects:
+Now the folders `animine_keys` contain files:
 
    * `data/animine_crypt4gh.pub.c4gh`
    * `data/animine_crypt4gh.key.c4gh`
    * `data/animine_key_instructions.txt.c4gh`
 
-And bucket `animine_pub` contains object:
+And folder `animine_pub` contains files:
 
    * `data/animine_crypt4gh.pub`
 
