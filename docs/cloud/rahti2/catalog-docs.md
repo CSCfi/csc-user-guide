@@ -5,6 +5,8 @@ For more information, you can access The official GitHub repository for the [def
 
 Regarding templates, you can find the GitHub repository here: [Openshift default templates](https://github.com/sclorg/)
 
+You can also take a look at the [RedHat Ecosystem Catalog](https://catalog.redhat.com/). This catalog contains the latest image releases.  
+You will find the instructions on how to import the images into your namespace/Rahti project.
 
 ## How to access the catalog using the WebUI
 
