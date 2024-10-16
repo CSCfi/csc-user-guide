@@ -56,7 +56,7 @@ When transferring personal or sensitive data outside the EEA, ensure you have th
 
 #### 3.2 Contact your organization’s legal office
 
-If you need assistance with the above points or support to verify if SD service are suitable for processing your research data, contact your organization's data protection officer or [legal office](../../accounts/when-your-project-handles-personal-data/#contact-information-of-finnish-universities-data-protection-legal-offices). You can provide them with supporting documents such as:
+If you need assistance with the above points or support to verify if SD service are suitable for processing your research data, contact your organization's data protection officer or [legal office](./../accounts/when-your-project-handles-personal-data/#contact-information-of-finnish-universities-data-protection-legal-offices). You can provide them with supporting documents such as:
 
 1. [Technical and Organizational Measures (TOMS)](../../data/sensitive-data/technical-organisational-sec-measures.pdf)
 2. Service descriptions of [SD Connect](https://research.csc.fi/-/sd-connect)and [SD Desktop](https://research.csc.fi/en/-/sd-desktop)
