@@ -12,9 +12,24 @@ for more sophisticated analysis and in particular NMR structure refinement.
 
 ## Available
 
-* Puhti: 20, 20-cuda, 22, 22-cuda
-* Mahti: 20, 20-cuda, 22, 22-cuda
-* LUMI: 24-cpu, 24-gpu
+=== "Puhti"
+    | Version | Available modules           |
+    |:-------:|:----------------------------|
+    |20       |`amber/20`<br>`amber/20-cuda`|
+    |22       |`amber/22`<br>`amber/22-cuda`|
+    |24       |`amber/24`<br>`amber/24-cuda`|
+
+=== "Mahti"
+    | Version | Available modules           |
+    |:-------:|:----------------------------|
+    |20       |`amber/20`<br>`amber/20-cuda`|
+    |22       |`amber/22`<br>`amber/22-cuda`|
+    |24       |`amber/24`<br>`amber/24-cuda`|
+
+=== "LUMI"
+    | Version | Available modules              |
+    |:-------:|:-------------------------------|
+    |24       |`amber/24-cpu`<br>`amber/24-gpu`|
 
 ## License
 

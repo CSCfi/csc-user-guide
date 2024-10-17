@@ -1,13 +1,43 @@
 # Data management
 
+## SD Connect major upgrade, 7.10.2024
+
+On Monday October 7 SD Connect service has been upgraded. Please note, this upgrade will not affect your data. Files stored in SD Connect will remain accessible after the service break, but a new encryption protocol will be applied for new uploads. The new version is compatible with the current one, but there are **four actions required** on your part: ​​
+
+1. Service access: [Apply for SD Connect service access](../../accounts/how-to-add-service-access-for-project.md) at [MyCSC portal](https://my.csc.fi/) and accept the terms of use. _Note: Only the project PI can enable the service, but all project members must accept the terms of use._
+2. MFA: Ensure that Multifactor Authentication (MFA) is [enabled](../../accounts/mfa.md) on your CSC profile. _Note: If you are using SD Desktop, MFA is already enabled, and no further action is needed_.
+3. Syncing: Once the service break is over, log in to the service and keep the user interface open for 5 minutes to allow for syncing. After this, you will have access to all files stored in SD Connect.
+4. Shared folders: Uploading or downloading data from folders shared in the previous service version will no longer be possible. To re-enable it, please update the sharing permissions by following [these steps](../../data/sensitive-data/sd-connect-share.md).
+
+**New Key Features:**
+
+* **New user interface**:  more intuitive design for easier navigation.
+* **Automated encryption and decryption**: automatic encryption during uploads and decryption during downloads, with key management available through the user interface (for files up to 100 GB) or programmatically using SD-lock SD-unlock tools.
+* **Enhanced security**: Multifactor Authentication (MFA) for added security.
+* **Flexible sharing permissions**: Three levels of sharing permissions available.
+
+[Updated user guide and video tutorials](../../data/sensitive-data/sd_connect.md).
+
+**Limitations:**
+
+* **Double login required**: Due to ongoing technical challenges, a [double login](../../data/sensitive-data/sd-connect-login.md) is necessary to access the service. We apologize for the inconvenience.
+* **Manual decryption**: Data uploaded with the previous version of SD Connect will not be automatically decrypted during download with version 2
+* **Browser Recommendation**: For optimal performance, we recommend using Google Chrome. Firefox is also supported.
+
+**Support:**
+
+* If you have any questions or need assistance, please [contact CSC Service Desk](../contact.md) (subject: Sensitive Data).
+* Join us every Wednesday for the CSC Research Support Coffee session at 14:00 Finnish time for questions and support: [Zoom Link](https://cscfi.zoom.us/j/65059161807#success). For more information, visit our [training calendar](https://csc.fi/en/training-calendar/csc-research-support-coffee-every-wednesday-at-1400-finnish-time-2-2/).
+
 ## SD Desktop: CentOS 7 will no longer be supported after June 2024
 
-We are implementing a security update for our virtual desktop operating system. As part of this update, the old operating system known as Linux CentOS 7 will no longer be supported after June 2024. Instead, we'll be transitioning exclusively to an operating system called Ubuntu for our virtual desktops. 
+We are implementing a security update for our virtual desktop operating system. As part of this update, the old operating system known as Linux CentOS 7 will no longer be supported after June 2024. Instead, we'll be transitioning exclusively to an operating system called Ubuntu for our virtual desktops.
 
 If you're currently using a virtual desktop with CentOS 7 and anticipate running your analyses beyond June, please reach out to us at **servicedesk@csc.fi *subject: Sensitive data***. We will assist you in evaluating whether there is a need to transition to a new virtual desktop and provide assistance with creating a plan for transferring your data and results accordingly.
 
 ## SD Desktop copy-paste functionality via Clipboard is now available, 7.3.2024
-Copy-paste functionality via **Clipboard -feature** is now available in your virtual desktop, enabling easy transfer of text from your computer to your secure environment: [Copy-paste instructions for SD Desktop](../../data/sensitive-data/sd-desktop-access.md#copy-paste-from-your-laptop-to-virtual-desktop). 
+
+Copy-paste functionality via **Clipboard -feature** is now available in your virtual desktop, enabling easy transfer of text from your computer to your secure environment: [Copy-paste instructions for SD Desktop](../../data/sensitive-data/sd-desktop-access.md#copy-paste-from-your-laptop-to-virtual-desktop).
 
 * The Clipboard acts as a secure intermediary, facilitating the one-way transfer of data from your laptop to the virtual desktop, guaranteeing that copied text remains isolated from other processes and preventing unauthorized access to sensitive information.
 
@@ -17,7 +47,7 @@ Copy-paste functionality via **Clipboard -feature** is now available in your vir
 
 A new version of SD Connect is now available for testing purposes. The updated user interface offers automated file encryption and decryption (up to 100 GB) along with key management. Additionally, three levels of sharing permissions are accessible across CSC projects. This version is in Open Beta. Kindly use it for testing scenarios and avoid relying on it for storing critical data until it transitions to a stable release. Please provide feedback by [contacting CSC Service Desk](../contact.md) (subject: Sensitive Data) to contribute to service improvement.
 
-Preliminary user guide is available [here](../../data/sensitive-data/sd-connect-beta.md)
+User guide is available [here](../../data/sensitive-data/sd_connect.md)
 
 ## SD Desktop and SD Connect: service usage restrictions and CSC project closure, 8.9.2023
 
@@ -27,24 +57,17 @@ As of September 6, 2023, we have introduced two significant changes to our servi
 
 * CSC Project closure: content stored within the SD Desktop and SD Connect services is subject to permanent deletion 90 days after the closure of a CSC project. **It is important to note that once data is deleted, it cannot be restored.**
 
-To ensure that you are well-informed about these changes and your account status,  all project members will receive email notifications when billing units have been consumed and when a  CSC project is scheduled for closure. 
-
-
+To ensure that you are well-informed about these changes and your account status,  all project members will receive email notifications when billing units have been consumed and when a  CSC project is scheduled for closure.
 
 ## SD Desktop: Ubuntu OS now available, 8.9.2023
 
 You can now select the Ubuntu virtual desktop environment when creating a virtual desktop, alongside CentOS 7.
-  
 
 ## Technical issues on SD Connect: follow up 2.2.2023
 
-Files uploaded using the SD Connect automated encryption option between November 2, 2022, and December 20, 2022, might be corrupted. 
-During the upload phase files are split into short segments, and in some cases, due to a technical issue, the correct segment's order has been lost, making the files unreadable. Therefore, if you have used this function, we advise you to upload a new copy of the files. If this is not possible, don't hesitate to contact us at servicedesk@csc.fi. We will evaluate individual cases to determine if the files can be retrieved. Currently, SD Connect automated encryption is supported only for files < 1GB. 
-
-
+Files uploaded using the SD Connect automated encryption option between November 2, 2022, and December 20, 2022, might be corrupted.
+During the upload phase files are split into short segments, and in some cases, due to a technical issue, the correct segment's order has been lost, making the files unreadable. Therefore, if you have used this function, we advise you to upload a new copy of the files. If this is not possible, don't hesitate to contact us at servicedesk@csc.fi. We will evaluate individual cases to determine if the files can be retrieved. Currently, SD Connect automated encryption is supported only for files < 1GB.
 
 ## Sensitive Data services now have an audited computing environment for secondary use of social and health data 8.6.2022
 
 SD Desktop is a certified environment for data processing under the Act on the Secondary Use of Health and Social Data. However, the services provided for this purpose have specific limitations compared to the standard service.
-
-

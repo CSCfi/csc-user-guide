@@ -66,10 +66,32 @@ Any organization that stores or processes personal information regarding EU citi
 In GDPR terms, CSC is always a data processor acting on behalf of a data controller. GDPR also requires that this relationship be done in writing. Therefore, the data controller (a group leader, researcher, research organization or their legal representative) needs to sign the Data Processing Agreement with the CSC, a legal contract. CSC never acts as a data controller, but our services give CSC users all the instruments necessary to manage the access to sensitive data. The CSC service user remains fully responsible for the data and is required to choose a service that complies with the security level needed for the data. 
 
 ## I am not sure if the data I am working with is sensitive or not. Where can I find support?
-You can write to  servicedesk@csc.fi (email subject: Sensitive Data) describing your research and the data you are working with (e.g. providing your Data Management Plan, DMP). You can also contact the legal services or Data Protection Officer in your own organization. They can give you more details about your organization's policies.
+If you need assistance to verify if SD service are suitable for processing your research data, contact your organization's data protection officer or legal office. You can provide them with supporting documents such as:
+
+1. Service descriptions of [SD Connect ](https://research.csc.fi/-/sd-connect)and [SD Desktop](https://research.csc.fi/en/-/sd-desktop) and technical and organizational measures document. 
+2. [The CSC Data Processing Agreement (DPA)](https://research.csc.fi/data-processing-agreement)
+3. the GDPR (Description of processing activity form) that can be downloaded from your CSC project
+4. [The CSC Data Policy](https://www.csc.fi/en/data-policy)
+
+For suppoer don't hesitate to contac us at servicedesk@csc.fi (subject: Sensitive Data).
+
+Contact information of Finnish universities data protection / legal offices
+
+| **University**  | **Contact information**  |
+|---|---|
+| Aalto University  | tietosuojavastaava@aalto.fi <br />[Data Protection Policy](https://www.aalto.fi/en/services/aalto-university-data-protection-policy) |
+| LUT University  | dataprotection@lut.fi <br />tietosuoja@lut.fi <br />[Data protection policy](https://www.lut.fi/en/data-protection)  |
+| University of Eastern Finland  | tietosuoja@uef.fi <br />[Data protection policy](https://www.uef.fi/en/data-protection)  |
+| University of Helsinki  | tietosuoja@helsinki.fi <br />[Data protection policy](https://www.helsinki.fi/en/about-us/processing-data-university/data-protection) |
+| University of Jyväskylä  | tietosuoja@jyu.fi <br />[Data protection policy](https://www.jyu.fi/en/data-privacy-at-the-university-of-jyvaskyla) |
+| University of Lapland  | tietosuoja@ulapland.fi <br />[Data protection policy](https://www.ulapland.fi/EN/About-us/Our-principles/Data-protection) |
+| University of Oulu  | dpo@oulu.fi <br />[Data protection policy](https://www.oulu.fi/en/data-privacy-notice) |
+| University of Tampere  | dpo@tuni.fi <br />[Data protection policy](https://www.tuni.fi/en/research/responsible-science-and-research/data-protection) |
+| University of Turku  | dpo@utu.fi <br />tietosuoja@utu.fi <br />[Data protection policy](https://www.utu.fi/en/privacy/notice) |
+| University of Vaasa  | tietosuojavastaava@uwasa.fi <br />[Data protection policy](https://www.uwasa.fi/en/data-protection) |
 
 ## What type of sensitive data can I process with CSC Sensitive Data Services?
-Any type of sensitive data consented for research. Processing register data under the Act on Secondary us of Health and Social data is possible only with a Findata permit and using a restricted version of the SD Desktop service (see: Sd Desktop for secondary use).
+Any type of sensitive data consented for research. Processing register data under the Act on Secondary us of Health and Social data is possible only with a Findata permit or register permit and using a restricted version of the SD Desktop service (see: Sd Desktop for secondary use).
 
 ## What type of documentation do I need to provide to use CSC Sensitive Data Services?
 
