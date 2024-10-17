@@ -2,6 +2,7 @@
   display: flex;
   align-items: flex-start;
   flex-grow: 1;
+  font-size: medium;
 }
 
 @media screen and (min-width: 50em) {
@@ -23,13 +24,11 @@
 }
 
 .csc-footer__heading {
-  font-size: var(--csc-font-size--large);
   font-weight: var(--csc-font-weight--bold);
   margin-bottom: 1rem;
 }
 
 .csc-footer__body {
-  font-size: var(--csc-font-size--small);
   font-weight: var(--csc-font-weight--regular);
   margin-bottom: 1rem;
 }
@@ -41,29 +40,14 @@
 
 .csc-footer__body .twemoji :is(svg) {
   height: 1em;
+  fill: var(--md-footer-fg-color);
 }
 
 .csc-footer__link {
   text-decoration: underline;
+  transition: background-color 125ms;
 }
 
-.csc-footer a:hover {
-  background-color: var(--md-typeset-a-bg-color);
-}
-
-.md-footer-meta {
-  background-color: var(--csc-dark-grey)
-}
-
-.md-footer-meta .md-copyright {
-  color: var(--csc-light-grey);
-}
-
-.md-footer-meta .md-copyright a {
-  color: var(--csc-mint) !important;
-}
-
-.md-footer-meta .md-copyright a:is(:focus, :hover) {
-  color: var(--csc-primary) !important;
-  background-color: var(--csc-mint);
+.csc-footer__link:is(:active, :hover) {
+  background-color: var(--md-accent-bg-color);
 }
