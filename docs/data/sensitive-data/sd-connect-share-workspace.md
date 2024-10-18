@@ -1,5 +1,9 @@
 # How to use folder as your shared workspace with SD Connect
 
+
+<iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/Ih5PKZtPOCU" title="Share datasets with Collaborate-permission in SD Connect" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+
 ## Use case
 
 You (Team A) and other team (Team B) are actively collaborating. You both want to upload data to the same folder and be able to modify folder content.
