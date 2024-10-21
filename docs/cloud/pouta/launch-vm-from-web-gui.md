@@ -259,9 +259,9 @@ Once the SSH keys and security groups are set, you can launch a new virtual mach
     ![Launch the instance access view](../img/launch_instance_access_security.png 'Launch cPouta instance network')
 
     !!! Warning
-        If you click the "+" button, the window will close unexpectedly and a small window popup will appear:
+        If you click the "+" button, the window will close unexpectedly and a small pop-up will appear:
 
-          ![Error plus button](../img/danger_keypairs.png 'Danger key pairs')
+        ![Error plus button](../img/danger_keypairs.png 'Danger key pairs')
 
         This is a known bug. Please refer to the [previous section](#setting-up-ssh-keys) on how to create your SSH keys.
 
