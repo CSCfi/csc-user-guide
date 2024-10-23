@@ -1,5 +1,9 @@
 # Training & tutorials
 
+## Visual changes for Docs CSC, 17.10.2024
+
+In order to streamline technical development for the Docs CSC platform, some visual customizations have been rolled back. Most notably, the styling of the navigation sidebars. This change does not affect the content nor the structure of the site and will allow new features from the underlying technology&mdash;i.e. _Material for MkDocs_&mdash;to be enabled with less effort.
+
 ## New guide for working with large language models on CSC's supercomputers, 6.9.2024
 
 We have created a new [guide for working with large language models

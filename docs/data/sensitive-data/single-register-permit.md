@@ -1,5 +1,7 @@
 # Accessing the service with a permit from a single register
 
+<iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/bMaBl0IED74" title="SD Desktop toisiokäyttötarkoitukseen — käsittelyluvan myöntäjänä yksittäinen rekisteri" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
 **[Instructions in Finnish (PDF)](https://a3s.fi/docs-files/sensitive-data/PDF_instructions/SD_toisiolaki_yksittainenRekisteri.pdf){ target="_blank" }**
 
 These instructions are for researchers who have received a permit for the secondary use of social and health data **directly from a single public register**. In other words, the permit is not from Findata, and **the permit is issued for SD Desktop**.

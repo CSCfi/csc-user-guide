@@ -11,6 +11,9 @@ In this case you can share your data folder to Team B with **Transfer data** -pe
 
 ![Transfer Data Infograph](https://a3s.fi/docs-files/sensitive-data/SD_Connect/UseCase_TransferData.png)
 
+<iframe width="400" height="225" srcdoc="https://www.youtube.com/embed/YE5_THNJEsw" title="Introducing CSC Sensitive Data Services" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+
 ## Step by step tutorial
 
 Both teams should have their own CSC project and SD Connect activated. If you don't have one yet, please follow instructions from [Start here](sd-access.md) and return to this tutorial after you have set up the CSC project.

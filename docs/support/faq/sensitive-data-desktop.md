@@ -1,10 +1,10 @@
 # SD Desktop 
 
-## Can I access/analyze encrypted data stored in SD Connect using SD Desktop?
-Yes. Encrypted data stored in SD Connect can be accessed via data streaming (in read-only format ) in SD Desktop. You can store up to TB of data in SD Connect and directly analyze it in your private Desktop without creating a full copy of it. 
+## Can I access/analyse encrypted data stored in SD Connect using SD Desktop?
+Yes. Encrypted data stored in SD Connect can be analised in SD Desktop. Once you have logged in to Sd Desktop, use the data gateway application to access the files stored in SD Connect and make a copy of it in your virtual desktop. 
 
 ## Can I edit/annotate data using SD Desktop?
-Yes. You can edit or annotate data in SD Desktop. However, you need to make a full copy of it in the Desktop environment. If your data is larger than  280 GB, contact us at servicedesk@csc.fi. We can provide additional external disk pace (the default space in SD Desktop is about 280 GB). 
+Yes. You can edit or annotate data in SD Desktop. However, you need to make a full copy of it in the Desktop environment. If your data is larger than  280 GB, contact us at servicedesk@csc.fi. We can provide additional storage space. The default volume space in SD Desktop is about 280 GB. 
 
 ## Does CSC provide SD Desktop operating system, software, and security updates?
 Yes, every SD Desktop is built on a predefined virtual machine defined by our team. CSC provides the operating system, software, and updates. CSC also takes care of the security of all the service components and network connections.
@@ -17,9 +17,9 @@ Yes, every SD Desktop is built on a predefined virtual machine defined by our te
 
 * Computing environment provided via web browser: currently only Linux OS.
 
-* Copy-paste function disabled for security reasons.
+* Copy-paste function disabled for security reasons, but coping text to SD Desktop available via clipboard. 
 
-* Default pre-installed software (additional software can be installed by importing singularity containers).
+* Default pre-installed software (additional software can be installed via SD-Software installer by contacting servicedesk@csc.fi (subject: sensitive data)
 
 * The computing environment is isolated from the Internet.
 
@@ -51,7 +51,7 @@ ePouta is an infrastructure provided to research organizations, and the organiza
 No. Your account has only normal user level priviledges. Providing sudo rights to a user would compromise the secutity of you SD Desktop environmenyt. 
 
 ## Why do I see the word guacamole in the URL next to sd-desktop.csc.fi?
-Yes, this is a very frequent question! Guacamole is a technical component (Open source)  of the services and allows you to access SD Desktop via a web browser. Especially if you are using a Windows laptop, the term may appear in your URL while accessing the service as in this example: https://sd-desktop.csc.fi/guacamole/#/
+Guacamole is a technical component (Open source)  of the services and allows you to access SD Desktop via a web browser. Especially if you are using a Windows laptop, the term may appear in your URL while accessing the service as in this example: https://sd-desktop.csc.fi/guacamole/#/
 
 
    
