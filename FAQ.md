@@ -181,7 +181,7 @@ pip install -r requirements.txt
 Detailed instructions for installing Conda on Windows are found [here](GETTING_STARTED.md#setting-up-a-development-environment-on-windows), but the gist of it, regardless of the operating system used, is to install [Miniconda](https://docs.conda.io/projects/miniconda/en/latest/), use it to create a virtual environment to install the requirements in. So, with Miniconda installed, an environment to run MkDocs in can be created by running the command
 
 ```bash
-conda env create -f development/conda-docs-base-1.0.yaml
+conda env create -f development/conda-docs-base-latest.yaml
 ```
 
 Add a `--force` flag if you already have a Conda environment named `docs-env` (you got `CondaValueError: prefix already exists: [...]`) and want to overwrite it. The environment is now ready for installing the requirements.
