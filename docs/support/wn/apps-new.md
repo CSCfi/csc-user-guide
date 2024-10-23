@@ -1,5 +1,70 @@
 # Applications
 
+## NAMD 3.0 available on Puhti and Mahti, 11.10.2024
+
+[NAMD](../../apps/namd.md) 3.0 has been installed and set as the default
+module on Puhti and Mahti.
+[See here for a list of new and improved features](https://www.ks.uiuc.edu/Research/namd/3.0/features.html).
+Notably, the GPU performance has improved significantly compared to NAMD 2.14.
+However, for large-scale GPU simulations, we recommend running NAMD3 on LUMI-G
+due to the better availability of GPUs compared to Puhti and Mahti.
+[See batch script examples here](../../apps/namd.md#batch-script-examples).
+
+## Amber24 available on Puhti and Mahti, 8.10.2024
+
+[Amber](../../apps/amber.md) version 24 (including AmberTools24) has been
+installed and set as the default module on Puhti and Mahti.
+[See here for a list of major new features](https://ambermd.org/AmberMD.php).
+
+## CSC chemistry software stack on LUMI updated, 26.9.2024
+
+The chemistry software stack maintained by CSC on LUMI
+(`/appl/local/csc/soft/chem`) has been recompiled following the recent major
+LUMI upgrade. Modules and instructions for the following software have been
+updated:
+
+* [Amber](../../apps/amber.md)
+* [CP2K](../../apps/cp2k.md)
+* [GROMACS](../../apps/gromacs.md)
+* [LAMMPS](../../apps/lammps.md)
+* [NAMD](../../apps/namd.md)
+
+At the same time, some old module versions have been deprecated. In general, we
+recommend using the most recent software versions as they tend to have better
+performance and less bugs than older releases.
+
+## PyTorch 2.4.1 available on LUMI, 19.9.2024
+
+PyTorch 2.4.1 with ROCm 6.1 is now available on LUMI. The LUMI PyTorch
+module now includes [vLLM version 0.5.5](https://docs.vllm.ai/en/latest/) 
+in addition to FlashAttention-2, bitsandbytes and many other frequently 
+requested packages already added included in earlier installations.  See our
+[PyTorch module documentation for more information](../../apps/pytorch.md#available).
+
+## GROMACS 2024.3, 12.9.2024
+
+[GROMACS](../../apps/gromacs.md) 2024.3 is now available on Puhti and Mahti. See
+[release notes](https://manual.gromacs.org/2024.3/release-notes/2024/2024.3.html)
+for a list of all new features and improvements.
+
+## JAX 0.4.30 available on Puhti and Mahti, 5.9.2024
+
+[JAX](../../apps/jax.md) 0.4.30 has been installed on Puhti and Mahti
+and set as the default version.
+
+The `transformers` package is no longer included since it officially 
+only supports JAX up to version 0.4.13.
+
+From this version on, there will be "small" and "full" flavours of JAX,
+where the "full" flavour includes JAX ML ecosystem packages as before
+while the "small" flavour includes only JAX with GPU support as well as
+CPU-only versions of Tensorflow and PyTorch for their data loading and
+processing utilities but no additional packages. You can use the latter
+if you want a cleaner base to install additional packages on.
+
+The LUMI installation will be delayed until early autumn due to the
+ongoing system update and changes to the relevant system driver versions.
+
 ## CP2K 2024.2 available on Puhti and Mahti, 27.8.2024
 
 [CP2K](../../apps/cp2k.md) 2024.2 has been installed and set as the default

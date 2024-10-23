@@ -7,18 +7,18 @@ tags:
 
 LAMMPS is a "Molecular Dynamics Simulator" which supports a wide variety of
 [different force fields](https://docs.lammps.org/Intro_features.html#ff). CSC
-does not have a general purpose installation of LAMMPS, as each user typically
+does not have a general purpose installation of LAMMPS as each user typically
 needs a more or less customized version. Please read below how to create yours.
 
 [TOC]
 
 ## Available
 
-- Puhti: Instructions and CMake files available for building in
+* Puhti: Instructions and CMake files available for building in
   `/appl/soft/chem/lammps/`
-- Mahti: Instructions and CMake files available for building in
+* Mahti: Instructions and CMake files available for building in
   `/appl/soft/chem/lammps/`
-- LUMI: Instructions and CMake files available for building in
+* LUMI: Instructions and CMake files available for building in
   `/appl/local/csc/soft/chem/lammps`
 
 !!! info "Note"
@@ -166,16 +166,16 @@ features, performance, and brief highlights of many of its materials modeling
 capabilities. If you wish, you can also mention the URL of the LAMMPS website
 in your paper, namely <https://www.lammps.org>.
 
-- **LAMMPS - a flexible simulation tool for particle-based materials modeling
-  at the atomic, meso, and continuum scales**, A. P. Thompson, H. M. Aktulga,
-  R. Berger, D. S. Bolintineanu, W. M. Brown, P. S. Crozier, P. J. in 't Veld,
-  A. Kohlmeyer, S. G. Moore, T. D. Nguyen, R. Shan, M. J. Stevens,
-  J. Tranchida, C. Trott, S. J. Plimpton, Comp Phys Comm, 271 (2022) 10817. 
+> LAMMPS - a flexible simulation tool for particle-based materials modeling at
+> the atomic, meso, and continuum scales, A. P. Thompson, H. M. Aktulga, R.
+> Berger, D. S. Bolintineanu, W. M. Brown, P. S. Crozier, P. J. in 't Veld, A.
+> Kohlmeyer, S. G. Moore, T. D. Nguyen, R. Shan, M. J. Stevens, J. Tranchida,
+> C. Trott, S. J. Plimpton, Comp Phys Comm, 271 (2022) 10817.
 
 References to other methods used in LAMMPS can be found
-[here](https://lammps.org/cite.html).
+[at the LAMMPS website](https://lammps.org/cite.html).
 
 ## More information
 
-- [LAMMPS home page](https://www.lammps.org)
-- [LAMMPS manual](https://docs.lammps.org/Manual.html)
+* [LAMMPS home page](https://www.lammps.org)
+* [LAMMPS manual](https://docs.lammps.org/Manual.html)

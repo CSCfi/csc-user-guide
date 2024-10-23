@@ -10,6 +10,14 @@ Machine learning framework for Python.
 
 !!! info "News" 
 
+    **19.9.2024** PyTorch 2.4.1 with ROCm 6.1 added to LUMI. The LUMI
+    PyTorch module now includes [vLLM version
+    0.5.5](https://docs.vllm.ai/en/latest/) in addition to
+    FlashAttention-2, bitsandbytes and many other frequently requested
+    packages already added included in earlier installations. The LUMI
+    module still uses old-style wrappers (not the tykky-based wrappers
+    as in Puhti and Mahti).
+
     **21.8.2024** PyTorch 2.4 added to Puhti and Mahti. The LUMI
     installation will be delayed until after the current service
     break. The torchtext package is no longer included as it has been
@@ -55,24 +63,25 @@ Machine learning framework for Python.
 
 Currently supported PyTorch versions:
 
-| Version | Module         | Puhti | Mahti | LUMI      | Notes                      |
-|:--------|----------------|:-----:|:-----:|-----------|:---------------------------|
-| 2.4.0   | `pytorch/2.4`  | X     | X     | (delayed) | New tykky-based wrappers   |
-| 2.3.1   | `pytorch/2.3`  | X     | X     | -         | New tykky-based wrappers   |
-| 2.2.2   | `pytorch/2.2`  | -     | -     | X         | default version            |
-| 2.2.1   | `pytorch/2.2`  | X     | X     | -         |                            |
-| 2.1.2   | `pytorch/2.1`  | -     | -     | X         |                            |
-| 2.1.0   | `pytorch/2.1`  | X     | X     | -         |                            |
-| 2.0.1   | `pytorch/2.0`  | -     | -     | X         |                            |
-| 2.0.0   | `pytorch/2.0`  | X     | X     | -         |                            |
-| 1.13.1  | `pytorch/1.13` | -     | -     | X         | limited multi-node support |
-| 1.13.0  | `pytorch/1.13` | X     | X     | -         |                            |
-| 1.12.0  | `pytorch/1.12` | X     | X     | -         |                            |
-| 1.11.0  | `pytorch/1.11` | X     | X     | -         |                            |
-| 1.10.0  | `pytorch/1.10` | (x)   | (x)   | -         |                            |
-| 1.9.0   | `pytorch/1.9`  | (x)   | (x)   | -         |                            |
-| 1.8.1   | `pytorch/1.8`  | (x)   | (x)   | -         |                            |
-| 1.7.1   | `pytorch/1.7`  | (x)   | -     | -         |                            |
+| Version | Module         | Puhti | Mahti | LUMI | Notes                      |
+|:--------|----------------|:-----:|:-----:|------|:---------------------------|
+| 2.4.1   | `pytorch/2.4`  | -     | -     | X    | default version            |
+| 2.4.0   | `pytorch/2.4`  | X     | X     | -    | New tykky-based wrappers   |
+| 2.3.1   | `pytorch/2.3`  | X     | X     | -    | New tykky-based wrappers   |
+| 2.2.2   | `pytorch/2.2`  | -     | -     | X    | default version            |
+| 2.2.1   | `pytorch/2.2`  | X     | X     | -    |                            |
+| 2.1.2   | `pytorch/2.1`  | -     | -     | X    |                            |
+| 2.1.0   | `pytorch/2.1`  | X     | X     | -    |                            |
+| 2.0.1   | `pytorch/2.0`  | -     | -     | X    |                            |
+| 2.0.0   | `pytorch/2.0`  | X     | X     | -    |                            |
+| 1.13.1  | `pytorch/1.13` | -     | -     | X    | limited multi-node support |
+| 1.13.0  | `pytorch/1.13` | X     | X     | -    |                            |
+| 1.12.0  | `pytorch/1.12` | X     | X     | -    |                            |
+| 1.11.0  | `pytorch/1.11` | X     | X     | -    |                            |
+| 1.10.0  | `pytorch/1.10` | (x)   | (x)   | -    |                            |
+| 1.9.0   | `pytorch/1.9`  | (x)   | (x)   | -    |                            |
+| 1.8.1   | `pytorch/1.8`  | (x)   | (x)   | -    |                            |
+| 1.7.1   | `pytorch/1.7`  | (x)   | -     | -    |                            |
 
 Includes [PyTorch](https://pytorch.org/) and related libraries with
 GPU support via CUDA/ROCm.
@@ -83,17 +92,14 @@ and Horovod are not expected to work anymore with these modules. If
 you still wish to access these versions, you need to enable old RHEL7
 modules by `module use /appl/soft/ai/rhel7/modulefiles/`.
 
-If you find that some package is missing, you can often install it yourself with
-`pip install --user`. See [our Python
-documentation](python.md#installing-python-packages-to-existing-modules) for
-more information on how to install packages yourself. If you think that some
-important PyTorch-related package should be included in the module provided by
-CSC, please [contact our servicedesk](../support/contact.md).
-
-It is also possible to use [Python virtual
-environments](https://packaging.python.org/en/latest/guides/installing-using-pip-and-virtual-environments/#creating-a-virtual-environment). To
-create a virtual environment use the command `python3 -m venv
---system-site-packages venv`.
+If you find that some package is missing, you can often install it
+yourself using `pip install`. It is recommended to use Python virtual
+environments. See [our Python documentation for more information on
+how to install packages
+yourself](../support/tutorials/python-usage-guide.md#installing-python-packages-to-existing-modules).
+If you think that some important package should be included in the
+module provided by CSC, please [contact our
+servicedesk](../support/contact.md).
 
 All modules are based on containers using Apptainer (previously known
 as Singularity). Wrapper scripts have been provided so that common
@@ -106,12 +112,13 @@ exec huggingface-cli`. For more information, see [CSC's general
 instructions on how to run Apptainer
 containers](../computing/containers/run-existing.md). 
 
-For **PyTorch version 2.3 and later**, we have used wrappers created
-with [the tykky tool](../computing/containers/tykky.md), and all
-commands provided by pre-installed Python packages are wrapped and can
-be used directly. In case you really need to run something inside the
-container you can prefix with `_debug_exec` or run `_debug_shell` to
-open a shell session.
+For **PyTorch version 2.3 and later on Puhti or Mahti**, we have used
+wrappers created with [the tykky
+tool](../computing/containers/tykky.md), and all commands provided by
+pre-installed Python packages are wrapped and can be used directly. In
+case you really need to run something inside the container you can
+prefix with `_debug_exec` or run `_debug_shell` to open a shell
+session.
 
 
 !!! info "New users"
@@ -147,7 +154,7 @@ If you wish to have a specific version ([see above for available
 versions](#available)), use:
 
 ```text
-module load pytorch/1.13
+module load pytorch/2.4
 ```
 
 Please note that the module already includes CUDA and cuDNN libraries,
@@ -189,7 +196,7 @@ proportion of the available CPU cores in a single node:
     #SBATCH --time=1:00:00
     #SBATCH --gres=gpu:v100:1
         
-    module load pytorch/2.3
+    module load pytorch/2.4
     srun python3 myprog.py <options>
     ```
 
@@ -203,7 +210,7 @@ proportion of the available CPU cores in a single node:
     #SBATCH --time=1:00:00
     #SBATCH --gres=gpu:a100:1
     
-    module load pytorch/2.3
+    module load pytorch/2.4
     srun python3 myprog.py <options>
     ```
 
@@ -219,7 +226,7 @@ proportion of the available CPU cores in a single node:
     #SBATCH --time=1:00:00
     
     module use /appl/local/csc/modulefiles/
-    module load pytorch/2.2
+    module load pytorch/2.4
     srun python3 myprog.py <options>
     ```
 

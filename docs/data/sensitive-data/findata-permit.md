@@ -1,5 +1,6 @@
 # Accessing SD Desktop with a Findata permit
 
+<iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/idK2iI9rTQw" title="SD Desktop toisiokäyttötarkoitukseen — käsittelyluvan myöntäjänä Findata" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 **[Instructions in Finnish (PDF)](https://a3s.fi/docs-files/sensitive-data/PDF_instructions/SD_toisiolaki_Findata.pdf){ target="_blank" }**
 

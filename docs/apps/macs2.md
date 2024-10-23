@@ -7,12 +7,12 @@ tags:
 
 
 
-MACS (Model-based Analysis of ChIP-Seq) is an analysis tool for NGS ChIP-Seq data. 
-MACS empirically models the length of the sequenced ChIP fragments and uses it to improve 
-the spatial resolution of predicted binding sites. 
+MACS (Model-based Analysis of ChIP-Seq) is an analysis tool for NGS ChIP-Seq data.
+MACS empirically models the length of the sequenced ChIP fragments and uses it to improve
+the spatial resolution of predicted binding sites.
 
-MACS also uses a dynamic Poisson distribution to effectively capture local biases in the 
-genome sequence, allowing for more sensitive and robust prediction. MACS compares can be 
+MACS also uses a dynamic Poisson distribution to effectively capture local biases in the
+genome sequence, allowing for more sensitive and robust prediction. MACS compares can be
 used for ChIP-Seq with or without control samples.
 
 [TOC]

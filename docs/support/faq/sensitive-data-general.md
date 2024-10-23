@@ -41,9 +41,9 @@ The Sensitive Data Services are free of charge for Finnish academics, according 
 
 **Quotas:**
 
-* When you create a new CSC project and service access for Allas, you have a default quota (or storage space) of about 10 TB. If you need more storage space, you can write to servicedesk@csc.fi and apply for more. 
+* When you create a new CSC project and service access for SD Connect, you have a default quota (or storage space) of about 10 TB. If you need more storage space, you can write to servicedesk@csc.fi and apply for more. 
 
-* The costs for storage space in Allas/SD Connect (both quota and billing units) up to around 100–200 TB is free of charge for academic research use. 
+* The costs for storage space in SD Connect (both quota and billing units) up to around 100–200 TB is free of charge for academic research use. 
 
 * If you plan to store more than 200 TB of data for more than 1-2 years, a separate discussion and an agreement are needed.
 
@@ -52,7 +52,7 @@ One important note is that once you end your research and submit your manuscript
 
 ## Do I need any particular experties to set up a private workspace with SD Connect and SD Desktop?
 
-No. You can set up your secure workspace following the user guide and video tutorial instructions.
+No. You can set up your secure workspace following the user guide and video tutorial instructions. We also provide on line support, don't hesitate to contact us at servicedesk@csc.fi (Subject: Sensitive Data)
 
 
 ## How long does it take to set up a private workspace with SD Connect and SD Desktop?
