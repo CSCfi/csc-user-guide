@@ -525,12 +525,12 @@ Now that you have cloned the repository, we can use the files it contains to pre
 Create the Conda environment (if not created yet):
 
 ```bash
-conda env create -f development/conda-docs-base-1.0.yaml
+conda env create -f development/conda-docs-base-latest.yaml
 ```
 
 >if created before, add the `--force` flag:
 >```bash
->conda env create --force -f development/conda-docs-base-1.0.yaml
+>conda env create --force -f development/conda-docs-base-latest.yaml
 >```
 
 Activate the environment:
