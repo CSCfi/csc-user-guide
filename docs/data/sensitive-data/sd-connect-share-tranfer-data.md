@@ -1,6 +1,8 @@
 # How to transfer your data to another project with SD Connect
 
 
+<iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/YE5_THNJEsw" title="Share datasets with Transfer-permission in SD Connect" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
 ## Use case
 You (Team A) have datasets that other team (Team B) needs access to. They wish to view your data and analyse it in their own environment. You are willing to give them a copy of your dataset.
 
