@@ -1,36 +1,70 @@
 # Getting started on contributing to Docs CSC using a local development server
 
-The procedure described in this file aims to set up the necessary tools on Windows without the need for a system administrator account. However, the [simple Git workflow example](#a-simple-git-workflow-example) that follows the Windows-specific instructions doesn't make any particular assumptions on the operating system used. The two alternative paths for command-line and graphical interfaces are marked **Option 1, CLI** and **Option 2, GUI**, respectively. The GUI path should work with only minor deviation on a Mac.
+The procedure described in this file aims to set up the necessary tools on Windows without the need for a system administrator account. However, the [simple Git workflow example](#a-simple-git-workflow-example) that follows the Windows-specific instructions doesn't make any particular assumptions on the operating system used. The two alternative paths for command-line and graphical interfaces are marked **Option A &ndash; CLI** and **Option B &ndash; GUI**, respectively. The GUI path should work with only minor deviation on a Mac.
 
 > [!IMPORTANT]
 > While these instructions are meant to provide a way for installing everything as user installations, i.e. without touching any system files or the like, **please consult your local IT support first**, for there may be a preferred way of installing some or all of the following software. Some of it may even come pre-installed on your machine.
 
 
+## Workflow
+
+### Set up a development environment
+
+This only needs to be done once:
+
+1. [Install the tools](#setting-up-a-development-environment-step-1)
+1. [Clone the repository](#obtaining-a-local-copy-ie-cloning-the-repository)
+1. [Install the dependencies](#setting-up-a-development-environment--step-2-installing-the-dependencies)
+
+
+### Working on your contribution
+
+The main workflow once everything is installed:
+
+1. [Start a local development server](#previewing-your-changes-locally)
+1. [Create a branch for your work](#creating-a-new-branch-for-your-work)
+1. [**Stage** the changes you've made](#staging-your-changes)
+1. [**Commit** the staged changes](#committing-the-staged-changes)
+1. [**Push** the commits to the remote repository](#pushing-the-commits-to-github)
+1. [Open a pull request](#opening-a-pull-request)
+1. [Check the test results](#checking-the-status-of-the-tests)
+
+
+### If something goes wrong
+
+Here's a relevant _xkcd_:
+
+![relevant xkcd](https://imgs.xkcd.com/comics/git.png)
+
+The part about memorizing some shell commands is what this tutorial is about (**Option A &ndash; CLI**, at least). If you run into a problem with Git, you really _can_ just
+
+  1. copy the files you've worked on into some _other folder_ (`git status` to see which files, or just copy everything)
+  1. delete the repository folder
+  1. clone the repository anew and
+  1. copy your work from the _other folder_ into the newly cloned folder
+
+Remember to **think** before doing something destructive like deleting (or "restoring" unstaged changes). Git can't help you recover anything it doesn't know about and 'letting Git know about stuff' is basically what 'using Git' means.
+
+
+## Setting up a development environment &mdash; Step 1: Installing the tools
+
+### Visual Studio Code (VS Code)
+
+This is only necessary for **Option B &ndash; GUI**, but may also be used with **Option A &ndash; CLI**.
+
+> [!NOTE]
+> - For "Free/Libre Open Source Software Binaries of VS Code" with telemetry disabled, have a look at [_VS Codium_](https://vscodium.com).
+> - For information on telemetry data collection in _Visual Studio Code_, please see [Visual Studio Code Telemetry](https://code.visualstudio.com/docs/getstarted/telemetry).
+
+
+#### Tasks
+
+VS Code _Tasks_ provide a way to run the **Option A &ndash; CLI** commands by using a graphical menu. Tasks for e.g. creating/updating the Conda environment or starting the development server have been pre-defined in the VS Code workspace (available after cloning the repository).
+
 <details>
-<summary>With <strong>Option 2, GUI</strong> comes: <strong>Suggestion 1, VS Code</strong>  (click to expand)</summary>
+<summary>Using Tasks (click to expand)</summary>
 
-## Visual Studio Code
-
-### Installation
-
->For "Free/Libre Open Source Software Binaries of VS Code" with telemetry disabled, have a look at [_VS Codium_](https://vscodium.com). For information on telemetry data collection in _Visual Studio Code_, please see [Visual Studio Code Telemetry](https://code.visualstudio.com/docs/getstarted/telemetry).
-
-The installation procedure for _Microsoft_ Visual Studio Code is as follows:
-
-1. Download the 'User Installer" from [the Download page](https://code.visualstudio.com/Download)
-1. Once the download has completed, click the downloaded executable file on the browser's downloaded files list (there might be a warning about running the file, just proceed). Alternatively, open the File Explorer, navigate to Downloads and double click on the downloaded executable to launch the installer.
-1. Advance the installer through the following steps:
-
-    - License Agreement
-    - Select Additional Tasks
-        + Pick whatever you like, leave as-is if unsure.
-
-    Click "Install" and after the installation has completed, if you leave "Launch Visual Studio Code" checked when clicking "Finish", VS Code will be launched.
-
-
-### Tasks
-
-When you later clone the Docs CSC repository, it'll come with some pre-defined _Tasks_ for VS Code that provide a way to run the **Option 1, CLI** commands using a graphical menu. Tasks for e.g. creating/updating the Conda environment or starting the development server have been pre-defined in the workspace. Tasks can be found
+Tasks can be found in VS Code (there are multiple ways)
 
 - by selecting _Terminal -> Run task..._ from the menu bar.
 - or from _Quick Open_, accessed by either
@@ -42,13 +76,32 @@ When you later clone the Docs CSC repository, it'll come with some pre-defined _
 
 ![VS Code Tasks](docs/img/windows/tasks.png)
 
+</details>
 
-### Extensions
+
+#### Installation
+
+<details>
+<summary>Installing Visual Studio Code on Windows (click to expand)</summary>
+
+0. (Check if already installed or if another method is preferred in your organization)
+1. Download the 'User Installer" from [the Download page](https://code.visualstudio.com/Download)
+1. Once the download has completed, click the downloaded executable file on the browser's downloaded files list (there might be a warning about running the file, just proceed). Alternatively, open the File Explorer, navigate to Downloads and double click on the downloaded executable to launch the installer.
+1. Advance the installer through the following steps:
+
+    - License Agreement
+    - Select Additional Tasks
+        + Pick whatever you like, leave as-is if unsure.
+
+    Click "Install" and after the installation has completed, if you leave "Launch Visual Studio Code" checked when clicking "Finish", VS Code will be launched.
+
+
+##### Extensions (optional)
 
 The Docs repository also comes with some pre-defined _Workspace Settings_ for VS Code. Some of these settings are for configuring optional extensions for VS Code. If you feel that the extensions are not relevant for your use-case, feel free to skip the installations. In any case, you can do it later.
 
 
-#### YAML
+###### Extension: _YAML_
 
 [YAML at Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-yaml)
 
@@ -59,7 +112,7 @@ _Material for MkDocs_ provides a YAML schema for validation and auto-complete in
 1. In the list of search results, click on the little "Install" button next to the _YAML_ extension that has _Red Hat_ (might be _redhat_ in VS Codium) as its publisher.
 
 
-#### Better Jinja
+###### Extension: _Better Jinja_
 
 [Better Jinja at Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=samuelcolvin.jinjahtml)
 
@@ -72,8 +125,6 @@ If you intend to edit or define some Jinja templates, the extension _Better Jinj
 </details>
 
 
-## Setting up a development environment, step 1
-
 ### Conda
 
 A Python program called _MkDocs_ is used to generate the Docs CSC website from documentation files written in a markup language called _Markdown_. To run a local development server for an instant preview of your work, MkDocs and all the software it depends on&mdash;all the way to Python itself&mdash;needs to be available on your computer. This is conveniently accomplished with a package and environment management system called _Conda_.
@@ -81,7 +132,10 @@ A Python program called _MkDocs_ is used to generate the Docs CSC website from d
 
 #### Installation
 
-Installation instructions are provided for Windows, macOS and Linux [here](https://docs.conda.io/projects/miniconda/en/latest/miniconda-install.html). On Windows, the installation procedure is as follows.
+Installation instructions are provided for Windows, macOS and Linux [here](https://docs.conda.io/projects/miniconda/en/latest/miniconda-install.html).
+
+<details>
+<summary>Installing Conda on Windows (click to expand)</summary>
 
 1. Download a minimal installer for Conda, called _Miniconda_, from [docs.conda.io/projects/miniconda/en/latest/](https://docs.conda.io/projects/miniconda/en/latest/#latest-miniconda-installer-links) by clicking the hyperlink "Miniconda3 Windows 64-bit".
 
@@ -112,14 +166,22 @@ Installation instructions are provided for Windows, macOS and Linux [here](https
 
     Click "Install" and, after it's completed, click "Next". Then, unless you'd like to have the corresponding web pages opened for you ([this](https://conda.io/projects/conda/en/latest/user-guide/getting-started.html) and [this](https://www.anaconda.com/installation-success?source=installer), respectively), uncheck "Getting started with Conda" and "Welcome to Anaconda" before clicking "Finish".
 
+</details>
+
 
 ### Git
 
 In order to "clone" the Docs CSC repository from (and later, to "push" your work back to) GitHub onto your computer, a tool called _Git_ is needed. As an alternative to the command-line tool, GitHub provides their own graphical program called _GitHub Desktop_.
 
 
+#### Documentation
+
+Documentation on Git, with a reference manual, videos and an external links section is available at [www.git-scm.com/doc](https://www.git-scm.com/doc). The Git commands introduced in this tutorial come with a link to the corresponding page of the reference manual.
+
+**Option B &ndash; GUI:** [GitHub Desktop documentation](https://docs.github.com/en/desktop)
+
 <details>
-<summary>Option 1, CLI: Git from the command-line (click to expand)</summary>
+<summary>Option A &ndash; CLI: Git from the command-line (click to expand)</summary>
 
 #### Git for Windows
 
@@ -379,11 +441,11 @@ Follow the instructions at GitHub Docs for
 
 
 <details>
-<summary>Option 2, GUI: Graphical interface with GitHub Desktop (click to expand)</summary>
+<summary>Option B &ndash; GUI: Graphical interface with GitHub Desktop (click to expand)</summary>
 
 #### GitHub Desktop
 
->Note that, even though you want to use GitHub Desktop, it might prove beneficial to also have an installation of Git at hand (on Windows, that would be _Git for Windows_, introduced above). That way you can use the Git integration in VS Code and, when you ask for help and get offered a solution as an elaborate Git command, you have something to run it with. The section is quite long, but you only need to [install Git for Windows](#installation-2) and _maybe_ [set your email/username](#associating-your-commits-with-your-github-account). You can skip everything else. **It's certainly fine to proceed with GitHub Desktop only. You can always install Git later if you really need it.**
+>Note that, even though you want to use GitHub Desktop, it might prove beneficial to also have an installation of Git at hand (on Windows, that would be _Git for Windows_, introduced above). That way you can use the Git integration in VS Code and, when you ask for help and get offered a solution as an elaborate Git command, you have something to run it with. The section is quite long, but you only need to [install Git for Windows](#installation-2) and _maybe_ [set your email/username](#associating-your-commits-with-your-github-account). You can skip everything else. **It's certainly fine to proceed with GitHub Desktop only. You can always install Git later if you really need it, but just so you know: GitHub recommends using the included version of Git only through the GitHub Desktop application.**
 
 
 ##### Installation
@@ -409,33 +471,10 @@ If you're using, for example VS Code (or Codium), you can set it as the default 
 </details>
 
 
-### Uninstallation
-
-Miniconda, Git for Windows or GitHub Desktop can be uninstalled like any other program by going to Add or remove programs and selecting them from the list of installed applications. 
-
-Alternatively, you can run the corresponding executable to uninstall Conda or Git for Windows:
-
-- `C:\Users\<your username>\AppData\Local\miniconda3\Uninstall-Miniconda3.exe`
-- `C:\Users\<your username>\AppData\Local\Programs\Git\unins000.exe`
-
-
-## Working with Git
-
-### Documentation on the tools
-
-Have a look at a [relevant xkcd](https://xkcd.com/1597/).
-
-The part about memorizing some shell commands is what this tutorial is about (option 1, at least). The steps to take if something goes wrong you probably already know, but are in any case [described below](#starting-over).
-
-**Option 1, CLI:** Documentation on Git, with a reference manual, videos and an external links section is available at [www.git-scm.com/doc](https://www.git-scm.com/doc). The Git commands introduced in this tutorial come with a link to the corresponding page of the reference manual.
-
-**Option 2, GUI:** [GitHub Desktop documentation](https://docs.github.com/en/desktop)
-
-
-### Obtaining a local copy, i.e. _cloning_ the repository
+## Obtaining a local copy, i.e. _cloning_ the repository
 
 <details>
-<summary>Option 1, CLI (click to expand)</summary>
+<summary>Option A &ndash; CLI (click to expand)</summary>
 
 Clone the Docs repository (if not cloned yet) with [git-clone](https://git-scm.com/docs/git-clone):
 
@@ -453,9 +492,9 @@ cd csc-user-guide/
 
 
 <details>
-<summary>Option 2, GUI (click to expand)</summary>
+<summary>Option B &ndash; GUI (click to expand)</summary>
 
-_[Cloning and forking repositories from GitHub Desktop](https://docs.github.com/en/desktop/adding-and-cloning-repositories/cloning-and-forking-repositories-from-github-desktop)_
+Instructions at GitHub Docs: _[Cloning and forking repositories from GitHub Desktop](https://docs.github.com/en/desktop/adding-and-cloning-repositories/cloning-and-forking-repositories-from-github-desktop)_
 
 In GitHub Desktop,
 
@@ -473,12 +512,15 @@ Now you can select the _Repository -> Show in Explorer_ menu entry to browse the
 </details>
 
 
-## Setting up a development environment, step 2
+## Setting up a development environment &mdash; Step 2: Installing the dependencies
+
+Now that you have cloned the repository, we can use the files it contains to prepare a virtual environment and install the needed software dependencies into it.
+
 
 ### Creating a virtual Python environment using Conda
 
 <details>
-<summary>Option 1, CLI (click to expand)</summary>
+<summary>Option A &ndash; CLI (click to expand)</summary>
 
 Create the Conda environment (if not created yet):
 
@@ -518,26 +560,30 @@ conda deactivate
 
 
 <details>
-<summary>Option 2, GUI (click to expand)</summary>
+<summary>Option B &ndash; GUI (click to expand)</summary>
 
-Using VS Code, creating a virtual Conda environment is as simple as running the task (VS Code tasks introduced above in _[Tasks](#tasks)_) **_Docs CSC: Create_**. A terminal panel will open showing you the progress on installing the dependencies. The environment is ready when the terminal instructs you to "press any key to close it", though you can leave it open if you like.
+Using VS Code, creating a virtual Conda environment is as simple as running the task **_Docs CSC: Create_** (see _Using Tasks_ under _[VS Code &ndash; Tasks](#tasks)_). A terminal panel will open showing you the progress on installing the dependencies. The environment is ready when the terminal instructs you to "press any key to close it", though you can leave it open if you like.
 
 The virtual environment is now ready for installing the Python requirements for Docs CSC. Simply run the task **_Docs CSC: Install_**. Both creating the environment and installing the requirements need to be done only when starting fresh or when the dependencies/requirements have been changed, i.e. (for Conda dependencies) a new file named _conda-docs-base-something.something.yaml_ has appeared in the _development_ folder or (for Python requirements) the file _requirements.txt_ has been changed.
 
 </details>
 
----
 
-That's it for setting up! Let's see if it'll run! From here on, the CLI and GUI paths shall be intertwined.
+## Working on your contribution
 
->The procedure for **Option 2, GUI** can be found in a blockquote like this,
+That's it for setting up! All installations should now be done. Let's see if it'll run! From here on, the CLI and GUI paths shall be intertwined.
 
-while **Option 1, CLI** will be implicit.
+>The procedure for **Option B &ndash; GUI** can be found in a blockquote like this,
+
+while **Option A &ndash; CLI** will be implicit.
 
 
-## Previewing your changes locally
+### Previewing your changes locally
 
->**Option 2, GUI**: Run the task **_Docs CSC: Serve_**
+The main point of this tutorial is to be able to work on the files using the tools you prefer, and that by using a local preview server, you will immediately see your changes when you save a file you've edited. This happens quicker with the `--dirtyreload` option enabled, but is in any case quicker and more convenient than waiting for the Rahti preview to rebuild a branch.
+
+>**Option B &ndash; GUI**: Run the task **_Docs CSC: Serve_**
+> * See _Using Tasks_ under _[VS Code &ndash; Tasks](#tasks)_
 
 Run the development server (with the Conda environment activated):
 
@@ -551,11 +597,12 @@ or
 mkdocs serve --dirtyreload
 ```
 
->**Option 2, GUI**: The task **_Docs CSC: Serve_**, for starting the development server, will ask whether you'd like to include e.g. the `--dirtyreload` flag.
+>**Option B &ndash; GUI**: The task **_Docs CSC: Serve_**, for starting the development server, will ask whether you'd like to include e.g. the `--dirtyreload` flag.
+> * See _Using Tasks_ under _[VS Code &ndash; Tasks](#tasks)_
 
-It will take a moment for MkDocs to build and serve the site. You can ignore the long list of pages that "exist in the docs directory, but are not included in the "nav" configuration" MkDocs will show you. If you wish to shut down the server (even when its building)&ndash;perhaps to restart it with `--dirtyreload` enabled&ndash;simply hit _Ctrl+C_.
+It will take a moment for MkDocs to build and serve the site. If you wish to shut down the server (even when its building)&ndash;perhaps to restart it with `--dirtyreload` enabled&ndash;simply hit _Ctrl+C_.
 
->**Option 2, GUI**: Click on the terminal panel to activate it before hitting _Ctrl+C_. You can also click the trashcan icon with the tooltip "Kill Terminal" to shut the server down.
+>**Option B &ndash; GUI**: Click on the terminal panel to activate it before hitting _Ctrl+C_. You can also click the trashcan icon with the tooltip "Kill Terminal" to shut the server down.
 
 When MkDocs tells you it is serving on an address, you can point a web browser to the address for a preview. The default is [127.0.0.1:8000](http://127.0.0.1:8000/) AKA [localhost:8000](http://localhost:8000/).
 
@@ -566,14 +613,9 @@ cd csc-user-guide/
 ```
 
 
-## Working on your contribution
-
-The main point of this tutorial is to be able to work on the files using the tools you prefer, and that if you left MkDocs running, it will reload the preview when you save a file you've edited. This happens quicker with the `--dirtyreload` option enabled, but is in any case quicker and more convenient than waiting for the Rahti preview to rebuild a branch.
-
-
 ### Creating a new branch for your work
 
->**Option 2, GUI**: See
+>**Option B &ndash; GUI**: See
 >- _[Managing branches in GitHub Desktop](https://docs.github.com/en/desktop/making-changes-in-a-branch/managing-branches-in-github-desktop)_
 >- [Pulling to your local branch from the remote](https://docs.github.com/en/desktop/working-with-your-remote-repository-on-github-or-github-enterprise/syncing-your-branch-in-github-desktop#pulling-to-your-local-branch-from-the-remote)
 
@@ -616,11 +658,14 @@ Branch off of the latest commit on master using [git-switch](https://git-scm.com
 git switch --create my-branch-name
 ```
 
-You're now ready to work on your contribution! If you forget to make a new branch before editing some files, and the files you've edited have
+
+#### Forgot to make a new branch?
+
+If you forgot to make a new branch before editing some files, and the files **you've edited** have
 
 - **not** been changed by someone else **since you last pulled** from the remote, you can just fetch, pull and create a new branch.
 - been changed on the remote, Git will not let you pull the changes, since your local changes to the files would be overwritten. You'll need to
-    >**Option 2, GUI**: See _[Stashing changes in GitHub Desktop](https://docs.github.com/en/desktop/making-changes-in-a-branch/stashing-changes-in-github-desktop)_
+    >**Option B &ndash; GUI**: See _[Stashing changes in GitHub Desktop](https://docs.github.com/en/desktop/making-changes-in-a-branch/stashing-changes-in-github-desktop)_
     * [git-stash](https://git-scm.com/docs/git-switch) your changes
         ```console
         $ git stash
@@ -646,26 +691,14 @@ You're now ready to work on your contribution! If you forget to make a new branc
     * create the new branch
 
 
-### Getting your work to the repository
+## Getting your work back to the repository
 
->**Option 2, GUI**: See _[Committing and reviewing changes to your project in GitHub Desktop](https://docs.github.com/en/desktop/making-changes-in-a-branch/committing-and-reviewing-changes-to-your-project-in-github-desktop)_.
-
-
-#### Starting over
-
-Remember the relevant xkcd? If you run into a problem with Git, you really _can_ just
-
-  1. copy the files you've worked on into some _other folder_ (`git status` to see which files, or just copy everything)
-  1. delete the repository folder
-  1. clone the repository anew and
-  1. copy your work from the _other folder_ into the newly cloned folder
-
-Remember to **think** before doing something destructive like deleting. Git can't help you recover anything it doesn't know about and 'letting Git know about stuff' is basically what you'll be doing for the rest of the tutorial.
+>**Option B &ndash; GUI**: See _[Committing and reviewing changes to your project in GitHub Desktop](https://docs.github.com/en/desktop/making-changes-in-a-branch/committing-and-reviewing-changes-to-your-project-in-github-desktop)_.
 
 
-#### Staging your changes
+### Staging your changes
 
->**Option 2, GUI**: See _[Selecting changes to include in a commit](https://docs.github.com/en/desktop/making-changes-in-a-branch/committing-and-reviewing-changes-to-your-project-in-github-desktop#selecting-changes-to-include-in-a-commit)_
+>**Option B &ndash; GUI**: See _[Selecting changes to include in a commit](https://docs.github.com/en/desktop/making-changes-in-a-branch/committing-and-reviewing-changes-to-your-project-in-github-desktop#selecting-changes-to-include-in-a-commit)_
 
 Selecting specific changes that you want to include in a so called _commit_ is done by staging.
 
@@ -718,9 +751,9 @@ git restore --staged path/to/file
 Be careful with git-restore without the `--staged` option. It is used to restore _unstaged_ files to how they were before you changed them.
 
 
-#### Committing the staged changes
+### Committing the staged changes
 
->**Option 2, GUI**: See _[Write a commit message and push your changes](https://docs.github.com/en/desktop/making-changes-in-a-branch/committing-and-reviewing-changes-to-your-project-in-github-desktop#write-a-commit-message-and-push-your-changes)_
+>**Option B &ndash; GUI**: See _[Write a commit message and push your changes](https://docs.github.com/en/desktop/making-changes-in-a-branch/committing-and-reviewing-changes-to-your-project-in-github-desktop#write-a-commit-message-and-push-your-changes)_
 
 Check which changes you've staged with [git-status](https://git-scm.com/docs/git-status):
 
@@ -751,9 +784,9 @@ then save the file, exit the editor and Git will read the commit message you typ
 If you forget to give a message with the -m argument, you can enter it when the text editor opens to confirm the commit operation. 
 
 
-#### Pushing the commits to GitHub
+### Pushing the commits to GitHub
 
->**Option 2, GUI**: See _[Pushing changes to GitHub from GitHub Desktop](https://docs.github.com/en/desktop/making-changes-in-a-branch/pushing-changes-to-github-from-github-desktop)_
+>**Option B &ndash; GUI**: See _[Pushing changes to GitHub from GitHub Desktop](https://docs.github.com/en/desktop/making-changes-in-a-branch/pushing-changes-to-github-from-github-desktop)_
 
 Check what happened to the branch with [git-log](https://git-scm.com/docs/git-log) (replace the `9` in `-9` to get more/less commits or remove `--oneline` to increase verbosity):
 
@@ -775,7 +808,7 @@ Push your branch to GitHub (replace `my-branch-name`) with [git-push](https://gi
 git push origin my-branch-name
 ```
 
-#### Open a pull request
+### Opening a pull request
 
 Instructions for creating a pull request can be found
 
@@ -783,7 +816,7 @@ Instructions for creating a pull request can be found
 - at _[GitHub Docs](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request)_
 
 
-#### Checking the status of the tests
+### Checking the status of the tests
 
 Every time a push is made, _Travis CI_ will automatically run the tests defined in the _tests_ folder.
 
