@@ -466,7 +466,7 @@ Follow the instructions for [Authenticating to GitHub in GitHub Desktop](https:/
 
 _[Configuring a default editor in GitHub Desktop](https://docs.github.com/en/desktop/configuring-and-customizing-github-desktop/configuring-a-default-editor-in-github-desktop)_
 
-If you're using, for example VS Code (or Codium), you can set it as the default editor. This allows you to quickly open the repository with VS Code by clicking a "Open in Visual Studio Code" button in the _Changes_ view of GitHub Desktop (another option would selecting _File -> Open Folder..._ in VS Code and looking for the cloned repository folder). There should be a link to the appropriate section for Options right under the text "Open the repository in your external editor" in the _Changes_ view (if not, select _File -> Options..._ and then _Integrations_ from the sidebar).
+If you're using, for example VS Code (or Codium), you can set it as the default editor. This allows you to quickly open the repository with VS Code by clicking a "Open in Visual Studio Code" button in the _Changes_ view of GitHub Desktop. There should be a link to the appropriate section for Options right under the text "Open the repository in your external editor" in the _Changes_ view (if not, select _File -> Options..._ and then _Integrations_ from the sidebar).
 
 </details>
 
@@ -503,11 +503,12 @@ In GitHub Desktop,
 1. When it appears on the list, click on `CSCfi/csc-user-guide` to activate the entry.
 1. Click _Clone_ to start.
 
-Now you can select the _Repository -> Show in Explorer_ menu entry to browse the cloned repository files on your computer.
+Now you can select the _Repository -> Show in Explorer_ menu entry to browse the cloned repository files on your computer. If you set the external editor to VS Code above in _[External editor](#external-editor)_, you should see a button titled "Open in Visual Studio Code" in the _Changes_ view. Alternatively, you can open the folder by selecting _File -> Open Folder..._ in VS Code and looking for the cloned repository folder.
 
 >You'll probably want to uncheck "Hide extensions for known file types" (and have File Explorer "Show hidden files, folders and drives" too, while you're at it) from the _Folder Options_, accessed by clicking the _Options_ button in the _View_ ribbon.
 >
 >![Folder Options](docs/img/windows/folder_options.png)
+
 
 </details>
 
