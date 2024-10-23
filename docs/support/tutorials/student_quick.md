@@ -27,7 +27,7 @@ The easiest way is to **create a student project**.
 
 - Thanks to our updated terms and conditions, you - the student - can now be **the project manager** of the student project.
 - You will have **the same responsibilities** as any other CSC Project Manager.[^4]
-- As a project manager, you can **invite people** to your project[^5]. _(but you're also responsible for their actions in the project)_
+- As a project manager, you can **invite other members** of Finnish higher education institutions to your project[^5]. _(but you're also responsible for their actions in the project)_
 - Student projects are **not intended for sensitive data**[^6] and cannot store such data.
 
 ## Available Services

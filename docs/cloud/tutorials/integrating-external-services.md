@@ -90,7 +90,7 @@ In the example above we are proxying traffic from Rahti 1 to Rahti 2. This is ob
       port:
         targetPort: http
       tls:
-        insecureEdgeTermination: Redirect
+        insecureEdgeTerminationPolicy: Redirect
         termination: edge
       to:
         kind: Service

@@ -1,9 +1,5 @@
 # How to give access to folder content only in SD Desktop
 
-!!! error-label
-
-    Not yet available
-
 ## Use case
 
 You (Team A) have data that other team (Team B) needs access to. They wish to view and analyse your data, but you want to restrict their ability to download a copy of the data directly.
@@ -18,7 +14,7 @@ You also don’t want Team B to export your original data from SD Desktop. That 
 ![Transfer Data Infograph](https://a3s.fi/docs-files/sensitive-data/SD_Connect/UseCase_ReadToDesktop.png)
 
 !!! warning
-    Note that you have to be the project manager of the both projects. Please contact us at *servicedesk@csc.fi* subject: *Sensitive data* to discuss this share option before proceeding.
+    Note that you have to be the project manager of the both projects. Please [contact CSC Service Desk](../../support/contact.md) (subject: *Sensitive data*) to discuss this share option before proceeding.
 
 ## Step by step tutorial
 

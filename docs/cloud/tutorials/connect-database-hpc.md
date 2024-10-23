@@ -1,5 +1,12 @@
 # Accessing databases on Rahti 2 from CSC supercomputers
 
+!!! warning "New Rahti LoadBalancer available"
+    It is now possible to enable [LoadBalancer](../rahti2/networking.md#using-loadbalancer-service-type-with-dedicated-ips) in Rahti.   
+    Unlike [Routes](../rahti2/networking.md#routes), the LoadBalancer service allows you to expose services to the Internet without being limited to HTTP/HTTPS.  
+    Have a look to the documentation linked above to learn more.  
+
+    The following documentation is still available if you prefer to use Routes and Websocat.
+
 Many HPC workflows require a database. Running these on the login node poses several issues and running on Pouta brings administration overhead. Rahti 2 is a good candidate, but one obstacle is that Rahti 2 does not support non-HTTP traffic from external sources.
 
 A workaround for this problem is to establish a TCP tunnel over an HTTP-compatible WebSocket connection. This can be achieved using a command-line client for connecting to and serving WebSockets called [WebSocat](https://github.com/vi/websocat). Here, a WebSocat instance running on Puhti/Mahti translates a database request coming from a workflow to an HTTP-compatible WebSocket protocol. Once the traffic enters Rahti 2 we use another WebSocat instance running inside Rahti 2 to translate back the WebSocket connection to a TCP connection over the original port the database is configured to receive traffic. A drawing of the process is shown below.

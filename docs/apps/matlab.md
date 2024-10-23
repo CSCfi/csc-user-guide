@@ -168,7 +168,7 @@ Using Puhti MPS requires a local MATLAB installation with a supported MATLAB ver
 We can configure MPS on a local computer using the following instructions.
 
 1. Log in and out to Puhti via SSH client to ensure you have a home directory.
-2. Download the configuration script archive [`mps_puhti.zip`](https://wiki.eduuni.fi/display/cscjemma/MATLAB+MPS+configuration) for Puhti.
+2. Download the configuration script archive [**mps_puhti.zip**](https://github.com/CSCfi/csc-env-matlab/raw/refs/heads/main/config/mps_puhti.zip) for Puhti.
 3. Create a local MATLAB configuration directory.
 4. Extract the configurations to the configuration directory.
 5. Add the directory to the unzipped configuration files to MATLAB's path using `addpath` and `savepath` functions in MATLAB.

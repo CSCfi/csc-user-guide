@@ -1,5 +1,21 @@
 # Applications
 
+## NAMD 3.0 available on Puhti and Mahti, 11.10.2024
+
+[NAMD](../../apps/namd.md) 3.0 has been installed and set as the default
+module on Puhti and Mahti.
+[See here for a list of new and improved features](https://www.ks.uiuc.edu/Research/namd/3.0/features.html).
+Notably, the GPU performance has improved significantly compared to NAMD 2.14.
+However, for large-scale GPU simulations, we recommend running NAMD3 on LUMI-G
+due to the better availability of GPUs compared to Puhti and Mahti.
+[See batch script examples here](../../apps/namd.md#batch-script-examples).
+
+## Amber24 available on Puhti and Mahti, 8.10.2024
+
+[Amber](../../apps/amber.md) version 24 (including AmberTools24) has been
+installed and set as the default module on Puhti and Mahti.
+[See here for a list of major new features](https://ambermd.org/AmberMD.php).
+
 ## CSC chemistry software stack on LUMI updated, 26.9.2024
 
 The chemistry software stack maintained by CSC on LUMI
