@@ -1,5 +1,13 @@
 # Computing environment
 
+## Puhti and Mahti web interfaces updated to release 23 and 9, 23.10.2024
+
+* MLflow, Tensorboard, and the Desktop app now work with newer Apptainer.
+* The number of CPUs per GPU is now limited to 10.
+* The link to MyCSC has been fixed.
+* Puhti: The fonts in the Accelerated Visualization app have been improved.
+* Open OnDemand updated to version 3.1.9.
+
 ## Puhti and Mahti web interfaces updated to release 22 and 8, 28.8.2024
 * The Jupyter app launch form has been improved.
     * Module version for Python modules can now be selected using a dropdown.
