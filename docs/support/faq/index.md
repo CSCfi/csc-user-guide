@@ -10,6 +10,7 @@
 * [Disk quota exceeded](disk-quota-exceeded.md)
 * [I need a Database, where can I deploy it?](database.md)
 * [Is there a glossary of the acronyms you keep using?](is-there-a-glossary-of-the-acronyms-you-keep-using.md)
+* [How to write good support requests to CSC Service Desk](../support-howto.md)
 
 ## Batch jobs
 * [Why does my batch job fail?](why-does-my-batch-job-fail.md)
