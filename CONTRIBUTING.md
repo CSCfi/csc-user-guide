@@ -213,60 +213,6 @@ This will run a web server on your laptop in port 80. You can view the
 content of the user guides by pointing your browser to
 [localhost](http://localhost).
 
-## Hosting the website on OpenShift
-
-Install & authorize command line tools. For reference, see the
-[Rahti documentation](https://rahti.csc.fi/tutorials/elemental_tutorial/#preparations).
-
-The Dockerfile is also made to be compatible with OpenShift, so it
-works with the source-to-image mechanism when using `oc
-new-app`. First create a new project to host the user guide.
-
-```bash
-oc new-project my-user-guide-project
-```
-
-Note that the name of the project must be unique within the OpenShift
-cluster you are running this in. Someone else may have already taken
-`my-user-guide-project`.
-
-You can then run `oc new-app` to create the user guide deployment.
-
-```bash
-oc new-app https://github.com/CSCfi/csc-user-guide#feature-a --name=csc-user-guide-feature-a
-```
-
-In the command above, the `#feature-a` at the end specifies the branch to
-use. The option `--name=` is free to be chosen.
-
-Now Rahti will build an image and a small webserver that can be exposed to
-internet with the `oc expose` command:
-
-```bash
-oc expose svc/csc-user-guide-feature-a --hostname=cug-user-guide-feature-a.rahtiapp.fi
-```
-
-You are free to choose any unused hostname.
-
-Rebuilding the content is done with `oc start-build` command:
-
-```bash
-oc start-build csc-user-guide-feature-a
-```
-
-Or by setting up a webhook (see [Rahti User
-Guide](https://rahti.csc.fi/tutorials/patterns/#webhooks).)
-
-If you always do your features in the branch with the same name, you only have
-to issue `oc start-build` command to have your preview of the user-guide updated.
-
-When you are sure you don't ever need the preview website again, please either
-delete your project or clean it with `oc delete`:
-
-```bash
-oc delete all -l app=csc-user-guide-feature-a
-```
-
 ## Finding pages that might be outdated
 
 Each page in Docs CSC shows a "Last update" timestamp. To ensure that content
