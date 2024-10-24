@@ -4,3 +4,4 @@ Currently Pukki only supports PostgreSQL. If you think that Pukki should support
 database type please [contact us](../../support/contact.md) with your suggestions.
 
 * [PostgreSQL](postgresql.md)
+* [MariaDB](mariadb.md)
