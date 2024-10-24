@@ -34,7 +34,7 @@ On the fourth page `Advanced`:
 15.  Now you can go to the database specific documentation to find out further instructions on how to use the database:
 
 	* [PostgreSQL](postgresql.md)
-        * [MariaDB](mariadb.md)
+	* [MariaDB](mariadb.md)
 
 ## Modify user accounts in the database instance
 
