@@ -1,16 +1,16 @@
 
 # Sensitive Data (SD) Service user guide
 
-Welcome to the user guide for CSC's Sensitive Data (SD) services. Follow the steps below to navigate the guide and access key information quickly.
+Welcome to the user guide for CSC's Sensitive Data (SD) services. Follow the steps below to navigate the guide and access key information quickly. To navigate the user guide, click on the left-hand side navigation bar or the [quick links](#quick-links-to-key-topics) from this page. Right side of each page has a table of content for faster browsing. The search tool is also available at the top bar
 
-1.To navigate the user guide, click on the left-hand side navigation bar or the [quick links](#quick-links-to-key-topics) from this page. 
+!!! info "Do you have any questions? Would you like to discuss a specific project?"
+       
+       - [Contact us](../../support/contact.md), subject: *Sensitive Data*
+       - Join the [CSC Research User Support Coffee - Every Wednesday at 14:00](https://ssl.eventilla.com/usersupportcoffee){ target="_blank" }. 
+       - Our team is here to help, and we offer direct support. Don't hesitate to contact!
 
-2. Right side of each page has a table of content for faster browsing
 
-3. The search tool is also available at the top bar
-
-
-## Quick links to Key topics
+## Quick links to key topics
 
 <div class="quick-links-container">
   <div class="quick-links-topic">
@@ -57,14 +57,14 @@ Welcome to the user guide for CSC's Sensitive Data (SD) services. Follow the ste
 - [FAQ](../../support/faq/)
 
 
-### SD Service login pages
+## SD Service login pages
 
 Please ensure you read the instructions carefully before accessing any services to have a smooth experience:
 
-* Create and account and access your CSC project [MyCSC portal](https://my.csc.fi/welcome){ target="_blank" }
-* Store and share with [SD Connect](https://sd-connect.csc.fi/){ target="_blank" }
-* Anaylyse with [SD Desktop](https://sd-desktop.csc.fi){ target="_blank" }
-* Apply or manage reuse with [SD Apply](https://sd-apply.csc.fi/){ target="_blank" }
+* [MyCSC portal](https://my.csc.fi/welcome){ target="_blank" }
+* [SD Connect](https://sd-connect.csc.fi/){ target="_blank" }
+* [SD Desktop](https://sd-desktop.csc.fi){ target="_blank" }
+* [SD Apply](https://sd-apply.csc.fi/){ target="_blank" }
 
 !!! note "Service Breaks"
    
@@ -72,13 +72,7 @@ Please ensure you read the instructions carefully before accessing any services 
       - Please note that occasional urgent maintenance may also be required for technical or security reasons. In such cases, we will notify you via email
       - All service breaks are scheduled on [Service Breaks -website](https://research.csc.fi/service-breaks){ target="_blank" } 
 
-### Support
 
-!!! info "Do you have any questions? Would you like to discuss a specific project?"
-       
-       - [Contact us](../../support/contact.md), subject: *Sensitive Data*
-       - Join the [CSC Research User Support Coffee - Every Wednesday at 14:00](https://ssl.eventilla.com/usersupportcoffee){ target="_blank" }. 
-       - Our team is here to help, and we offer direct support. Don't hesitate to contact!
 
 
 ## Introduction to Sensitive Data (SD) services
