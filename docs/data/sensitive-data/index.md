@@ -74,7 +74,7 @@ We kindly request that users carefully read the instructions before proceeding t
 
 
 
-#  Backgrounf informations to Sensitive Data (SD) services
+##  Background informations to Sensitive Data (SD) services
 
 <iframe width="400" height="225" srcdoc="https://www.youtube.com/embed/YcgeuatWf9g" title="Introducing CSC Sensitive Data Services" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
@@ -91,7 +91,7 @@ Sensitive data is defined as any information that is protected against unwarrant
 - Using CSC services requires you to [register a CSC account](../../accounts/index.md#getting-access)
 
 
-# Quick links
+## Quick links
 
 [What's new with Sensitive Data services](../../support/wn/data-new.md)
 
@@ -100,3 +100,31 @@ Sensitive data is defined as any information that is protected against unwarrant
 [Useful terminology](sd-terminology.md)
 
 [FAQ](../../support/faq/)
+
+
+## Introduction to CSC's Sensitive Data (SD) Services
+
+### Watch: Overview Video
+<iframe width="400" height="225" srcdoc="https://www.youtube.com/embed/YcgeuatWf9g" title="Introducing CSC Sensitive Data Services" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+For a detailed guide, [Choose a service](choose-a-service.md).
+
+---
+
+### What is Sensitive Data?
+Sensitive data refers to information that requires protection against unwarranted disclosure. This protection may be necessary due to:
+- Legal or ethical obligations
+- Personal privacy concerns
+- Proprietary or confidential data considerations
+
+For more details, visit [CSC's definition of sensitive data](https://research.csc.fi/definition-of-sensitive-data){ target="_blank" }.
+
+---
+
+### Who Can Access CSC's Sensitive Data Services?
+
+- Researchers and students from Finnish higher education institutions (universities, universities of applied sciences)
+- Research institutes and their international collaborators
+
+> **Note**: Access to CSC services requires you to [register a CSC account](../../accounts/index.md#getting-access).
+
