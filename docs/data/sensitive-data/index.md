@@ -53,10 +53,10 @@ This user guide introduces CSC's Sensitive Data (SD) services
 
 We kindly request that users carefully read the instructions before proceeding to use the services to ensure a smooth experience. 
 
-* [MyCSC portal](https://my.csc.fi/welcome){ target="_blank" }
-* [SD Connect](https://sd-connect.csc.fi/){ target="_blank" }
-* [SD Desktop](https://sd-desktop.csc.fi){ target="_blank" }
-* [SD Apply](https://sd-apply.csc.fi/){ target="_blank" }
+* [ Create account and create /join CSC project: MyCSC portal](https://my.csc.fi/welcome){ target="_blank" }
+* [ Store and share: SD Connect](https://sd-connect.csc.fi/){ target="_blank" }
+* [Analyse: SD Desktop](https://sd-desktop.csc.fi){ target="_blank" }
+* [Reuse: SD Apply](https://sd-apply.csc.fi/){ target="_blank" }
 
 !!! note "Service Breaks"
    
