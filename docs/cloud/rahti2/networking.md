@@ -180,12 +180,73 @@ spec:
     app: httpd
 ```
 
-!!! info
-    Just as a side note, in Rahti2, the way routes and external load balancer services manage traffic during deployment rollouts differently. 
+### Add firewall IP blocking to a LoadBalancer Service
 
-    Routes, managed by OpenShift's HAProxy, are designed to quickly adjust and direct traffic as soon as a new pod starts and simultaneously cease routing to the old or terminating pods, ensuring rapid response to changes and minimizing service disruption. 
+It is possible to add firewall IP blocking to a `LoadBalancer` Service. This means that we can add a whitelist of IPs (`188.184.77.250`) and/or IP masks (`188.184.0.0/16`)
+that will be the only ones that will be able to access the service. This added to using secure protocols and safe password practises, can be a good improvement in security.
 
-    In contrast, external load balancers distribute traffic not only to new pods but also continue to send requests to old or terminating pods. This behavior occurs because these services rely on periodic updates from [EndpointSlices](https://kubernetes.io/docs/tutorials/services/pods-and-endpoint-termination-flow/), which can delay the exclusion of terminating pods from traffic distribution. This difference in handling traffic can be useful to understand, as it affects how deployment strategies should handled for application updates. 
-    
-    For more information refer to the OpenShift documentation regarding [route based deployment strategies](https://docs.openshift.com/container-platform/4.15/applications/deployments/route-based-deployment-strategies.html#deployments-proxy-shard_route-based-deployment-strategies).
-    To avoid disruptions when using external load balancer services, you can adopt the principle of a [blue-green deployment](https://www.redhat.com/en/topics/devops/what-is-blue-green-deployment)
+The procedure to achieve this is the following:
+
+1. Activate the `Local` external traffic policy in the service. To do so add `externalTrafficPolicy: Local` under `spec` like this:
+
+    ```yaml
+    kind: Service                                       kind: Service
+    apiVersion: v1                                      apiVersion: v1
+    metadata:                                           metadata:
+      name: mysqllb                                       name: mysqllb
+    spec:                                               spec:
+      ports:                                              ports:
+        - protocol: TCP                                     - protocol: TCP
+          port: 33306                                         port: 33306
+          targetPort: 3306                                    targetPort: 3306
+          name: http                                          name: http
+      allocateLoadBalancerNodePorts: false                allocateLoadBalancerNodePorts: false
+                                                     >    externalTrafficPolicy: Local
+      type: LoadBalancer                                  type: LoadBalancer
+      selector:                                           selector:
+        app: mysql                                          app: mysql
+
+    ```
+
+    !!! Warning "Bug in OpenShift"
+        At this moment, with the Local policy activated, no traffic will be possible through this service. This is due to a bug in the current deployed version of OpenShift OKD. The expected fixed behaviour would be that access will continue to be open for any IP.
+
+        For more information refer to the official article: [Understanding Openshift `externalTrafficPolicy: local` and Source IP Preservation](https://access.redhat.com/solutions/7028639)
+
+1. Add a `NetworkPolicy` to open access to selected IPs:
+
+    ```yaml
+    apiVersion: networking.k8s.io/v1
+    kind: NetworkPolicy
+    metadata:
+      name: firewall
+    spec:
+      ingress:
+      - from:
+        - ipBlock:
+            cidr: 188.184.0.0/16
+        - ipBlock:
+            cidr: 137.138.6.31/32
+      - from:
+        - namespaceSelector:
+            matchLabels:
+              policy-group.network.openshift.io/ingress: ""
+      podSelector:
+        matchLabels:
+          app: mysql
+      policyTypes:
+      - Ingress
+    ```
+
+    The `NetworkPolicy` above allows ingress traffic from the [CIDR](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) `188.184.0.0/16` which translates to the range [`188.184.0.0` - `188.184.255.255`], and from the single IP `137.138.6.31`. The destination of the traffic is limited by the `matchLabels` section. The label must be the same as the one used in the `LoadBalancer` service.
+
+### Differences between a Route and a LoadBalancer service during deployment roll outs
+
+In Rahti2, the way `Route`s and `LoadBalancer` services manage traffic during deployment rollouts work differently.
+
+`Routes`, managed by OpenShift's HAProxy integraged load blanacer, are designed to quickly adjust and direct traffic as soon as a new pod starts and simultaneously cease routing to the old or terminating pods, ensuring rapid response to changes and minimizing service disruption.
+
+In contrast, `LoadBalancer` services distribute traffic not only to new pods but also continue to send requests to old or terminating pods. This behavior occurs because these services rely on periodic updates from [EndpointSlices](https://kubernetes.io/docs/tutorials/services/pods-and-endpoint-termination-flow/), which can delay the exclusion of terminating pods from traffic distribution. This difference in handling traffic can be useful to understand, as it affects how deployment strategies should be handled for application updates.
+
+For more information refer to the OpenShift documentation regarding [route based deployment strategies](https://docs.openshift.com/container-platform/4.15/applications/deployments/route-based-deployment-strategies.html#deployments-proxy-shard_route-based-deployment-strategies).
+To avoid disruptions when using external load balancer services, you can adopt the principle of a [blue-green deployment](https://www.redhat.com/en/topics/devops/what-is-blue-green-deployment)
