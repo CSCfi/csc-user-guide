@@ -445,7 +445,8 @@ Follow the instructions at GitHub Docs for
 
 #### GitHub Desktop
 
->Note that, even though you want to use GitHub Desktop, it might prove beneficial to also have an installation of Git at hand (on Windows, that would be _Git for Windows_, introduced above). That way you can use the Git integration in VS Code and, when you ask for help and get offered a solution as an elaborate Git command, you have something to run it with. The section is quite long, but you only need to [install Git for Windows](#installation-2) and _maybe_ [set your email/username](#associating-your-commits-with-your-github-account). You can skip everything else. **It's certainly fine to proceed with GitHub Desktop only. You can always install Git later if you really need it, but just so you know: GitHub recommends using the included version of Git only through the GitHub Desktop application.**
+> [!TIP]
+> Even though you want to use GitHub Desktop, it might prove beneficial to also have an installation of Git at hand (on Windows, that would be _Git for Windows_, introduced above). That way you can use the Git integration in VS Code and, when you ask for help and get offered a solution as an elaborate Git command, you have something to run it with. The section is quite long, but you only need to [install Git for Windows](#installation-2) and _maybe_ [set your email/username](#associating-your-commits-with-your-github-account). You can skip everything else. **It's certainly fine to proceed with GitHub Desktop only. You can always install Git later if you really need it, but just so you know: GitHub recommends using the included version of Git only through the GitHub Desktop application.**
 
 
 ##### Installation
@@ -505,9 +506,10 @@ In GitHub Desktop,
 
 Now you can select the _Repository -> Show in Explorer_ menu entry to browse the cloned repository files on your computer. If you set the external editor to VS Code above in _[External editor](#external-editor)_, you should see a button titled "Open in Visual Studio Code" in the _Changes_ view. Alternatively, you can open the folder by selecting _File -> Open Folder..._ in VS Code and looking for the cloned repository folder.
 
->You'll probably want to uncheck "Hide extensions for known file types" (and have File Explorer "Show hidden files, folders and drives" too, while you're at it) from the _Folder Options_, accessed by clicking the _Options_ button in the _View_ ribbon.
+> [!TIP]
+> You'll probably want to uncheck "Hide extensions for known file types" (and have File Explorer "Show hidden files, folders and drives" too, while you're at it) from the _Folder Options_, accessed by clicking the _Options_ button in the _View_ ribbon.
 >
->![Folder Options](docs/img/windows/folder_options.png)
+> ![Folder Options](docs/img/windows/folder_options.png)
 
 
 </details>
@@ -529,10 +531,11 @@ Create the Conda environment (if not created yet):
 conda env create -f development/conda-docs-base-latest.yaml
 ```
 
->if created before, add the `--force` flag:
->```bash
->conda env create --force -f development/conda-docs-base-latest.yaml
->```
+> [!NOTE]
+> If an environment named `docs-env` already exists&mdash;i.e. you are updating it&mdash;add the `--force` flag:
+> ```bash
+> conda env create --force -f development/conda-docs-base-latest.yaml
+> ```
 
 Activate the environment:
 
@@ -546,10 +549,11 @@ Install the Python requirements with Pip (when starting fresh):
 pip install -r requirements.txt
 ```
 
->when updating, you may want to add the `--force-reinstall` flag:
->```bash
->pip install --force-reinstall -r requirements.txt
->```
+> [!NOTE]
+> When updating, you may need to add the `--force-reinstall` flag:
+> ```bash
+> pip install --force-reinstall -r requirements.txt
+> ```
 
 The environment can be deactivated with
 
