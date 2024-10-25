@@ -100,6 +100,31 @@ status:
   loadBalancer: {}
 ```
 
+#### Ports 
+- The `ports` field in a Kubernetes Service defines the network ports that the Service will expose to clients and how it maps those to the corresponding ports on the pods.
+
+- It typically consists of several components:
+  - **Name**: A label for the port, which can help identify it.
+  - **Port**: The port number that clients will use to access the Service.
+  - **Protocol**: The communication protocol used (usually TCP).
+  - **TargetPort**: The port on the pod where the Service directs traffic.
+
+#### Selector
+- The `selector` field in a Kubernetes Service is crucial for determining which pods the Service should route traffic to.
+
+- It consists of key-value pairs that match the labels assigned to the pods. The Service uses these labels to identify and connect to the appropriate pods dynamically.
+
+```yaml
+selector:
+  app: app
+```
+
+- **Key Value Pair (`app: app`)**: This means that the Service will route traffic to any pods that have a label matching app: app.
+
+- **Functionality**: This allows the Service to connect to all relevant pods automatically. If any pods with this label are added or removed, the Service will adjust its routing accordingly, ensuring that traffic is always directed to the correct pods.
+
+
+
 ### ReplicaSet
 
 A **ReplicaSet** ensures that _n_ copies of a pod are running. If one of the

@@ -133,13 +133,26 @@ spec:
     app: mysql
 ```
 
+**You can find detailed explanation about `Service` [here](./concepts.md#service)**
+
 Ensure that the service type is set to `LoadBalancer`, and that the `allocateLoadBalancerNodePorts` field is set to false (the default is true) because NodePorts are not enabled in Rahti 2. If this field is not set correctly, the allocated node port will be unusable, and service creation may fail if the entire default node port range (`30000-32767`) is already allocated.
 
 Additionally, the port field in the service definition (e.g., `33306` in the previous example) must be within the range of `30000-35000`.
 
-- **How to retrieve the selector**: on your CLI run `oc describe pod <pod-name> -n <namespace>`. After running the oc command, you will see an output that includes a section labeled `Labels`, Copy any of labels and paste in the `yaml` file under `selector`. **Make sure to follow the `yaml` syntax and change `=` to `:`**.
+- **How to retrieve the selector**: on your CLI run `oc describe pod <pod-name> -n <namespace>`. After running the oc command, you will see an output that includes a section labeled `Labels`, Copy any of labels and paste in the `yaml` file under `selector`. **Make sure to follow the `yaml` syntax and change `=` to `:`**. For example under the `Labels` we are using the first one:
 
-- **How to make sure your service is pointing to the right pod**: On your CLI run `oc get endpoints <service-name> -n <namespace>`. You should see the name of the Service and the IP addresses and ports of the Pods that are currently targeted by the Service. 
+```bash
+Labels:         app=mysql
+                environment=production
+                app.kubernetes.io/name=postgresql
+```
+
+- **How to make sure your service is pointing to the right pod**: On your CLI run `oc get endpoints <service-name> -n <namespace>`. You should see the name of the Service and the IP addresses and ports of the Pods that are currently targeted by the Service. For example:
+
+```bash
+NAME       ENDPOINTS           AGE
+mysqllb   10.0.0.1:3306        10m
+```
 
 ### Multiple LoadBalancer Services
 
