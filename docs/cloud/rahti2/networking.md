@@ -137,6 +137,10 @@ Ensure that the service type is set to `LoadBalancer`, and that the `allocateLoa
 
 Additionally, the port field in the service definition (e.g., `33306` in the previous example) must be within the range of `30000-35000`.
 
+- **How to retrieve the selector**: on your CLI run `oc describe pod <pod-name> -n <namespace>`. After running the oc command, you will see an output that includes a section labeled `Labels`, Copy any of labels and paste in the `yaml` file under `selector`. **Make sure to follow the `yaml` syntax and change `=` to `:`**.
+
+- **How to make sure your service is pointing to the right pod**: On your CLI run `oc get endpoints <service-name> -n <namespace>`. You should see the name of the Service and the IP addresses and ports of the Pods that are currently targeted by the Service. 
+
 ### Multiple LoadBalancer Services
 
 It is also possible to expose multiple `LoadBalancer` services on the same public IP but on different ports, you can enable IP sharing by adding the `metallb.universe.tf/allow-shared-ip` annotation to services. The value of the annotation is a label of your choice. The services annotated with the same label will share the same IP. Here is an example configuration of two services that share the same IP address:
