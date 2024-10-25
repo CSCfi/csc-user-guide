@@ -161,6 +161,7 @@ Labels:         app=mysql
 
 On the web interface under `Developer`, go to the `Project` tab, press on `pods` and then choose the pod you want. You can see all the labels under `Labels`. Copy any of labels and paste in the `yaml` file under `selector`. **Make sure to follow the `yaml` syntax and change `=` to `:`**.
 
+![rahti1](https://github.com/user-attachments/assets/75babfd9-12a1-498a-b7e7-c6e8f8ec72dc)
 
 
 #### How to make sure your service is pointing to the right pod
@@ -178,6 +179,7 @@ mysqllb   10.0.0.1:3306        10m
 
 On the web interface under `Developer`, go to the `Project` tab, press on `Services` and choose the LoadBalancer service you just created. Under the `Pods` tab you should see the targeted pod. 
 
+![rahti2](https://github.com/user-attachments/assets/3651fc81-682d-40d4-8a2e-bae639c1c81b)
 
 
 ### Multiple LoadBalancer Services
