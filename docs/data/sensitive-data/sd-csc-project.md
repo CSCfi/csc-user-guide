@@ -9,7 +9,7 @@ To access CSC services, you need both a CSC account and membership in a CSC proj
 
 To effectively manage your CSC projects and its resources, please learn more information below: 
 
-* [Project closure expiration and data deletio](#project-closure-expiration-and-data-deletion)
+* [Project closure expiration and data deletion](#project-closure-expiration-and-data-deletion)
 * [Billing units and storage usage](#billing-units-and-storage-usage)
 * [What happens if your project runs out of billing units?](#what-happens-if-your-project-runs-out-of-billing-units)
 
