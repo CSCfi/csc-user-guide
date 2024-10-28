@@ -117,7 +117,7 @@ Example batch script for reserving one GPU and two CPU cores in a single node:
     #SBATCH --gpus-per-node=1
     
     module use /appl/local/quantum/modulefiles
-    module load qiskit/1.2.0 or 
+    module load qiskit/1.2.0 
     python myprog.py <options>
     # or 
     # srun singularity exec --rocm --home $PWD /appl/local/quantum/qiskit/qiskit_1.2.0_csc.sif python3 myprog.py
