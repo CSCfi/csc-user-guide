@@ -9,17 +9,17 @@ To transform the virtual desktop into a versatile research workspace tailored to
 
 Below you can find:
 
-- A list of software available by default in SD Desktop.
-- Information on adding software, including background details and limitations.
-- Customisation via SD Software Installer application (no previous experience required).
-- Customization via Apptainer and Podman (advanced; technical expertise required).
+- Default software available in SD Desktop
+- Adding software: background information and limitations
+- Customisation via SD Software Installer (no previous experience required).
+- Customisation via Apptainer and Podman (advanced; technical expertise required).
 
 
 
 Please don't hesitate to contact [CSC Service Desk](../../support/contact.md) if you have any questions about the software selection (subject: SD Services). We can support you in your Desktop customisation. 
 
 
-## Default software selection in SD Desktop
+## Default software available in SD Desktop
 
 Below we list some of the most commonly used tools that are by default installed in SD Desktop machines. The list is not complete and there are small differences between different linux flavours.
 
@@ -34,7 +34,7 @@ Below we list some of the most commonly used tools that are by default installed
 | **Terminals & Interfaces** | - [Byobu](https://www.byobu.org/) (Only in Ubuntu machines.) <br> - [Jupyter](https://jupyter.org/)                                                                                                                         |
 
 
-## Adding software: background information
+## Adding software: background information and limitations
 
 * The virtual desktops (or virtual machines) are intentionally isolated from the internet for security reasons. Consequently, the process of adding supplementary software and libraries is not straightforward.
   
@@ -45,7 +45,7 @@ Below we list some of the most commonly used tools that are by default installed
 * Adding extra software to SD Desktop is possible, but it involves converting the installation steps into special files. These files are then uploaded to SD Connect and copied to your SD Desktop for installation. For this process, we recommend using Apptainer containers for importing the software you need, but Apptainer is not the only option. You can also import software for example as Appimage files, Ubuntu 22.04 compatible binaries or as source code.
 
 
-## SD Software installer
+## Customisation via SD Software Installer 
 
 SD Software installer provides an easy-to-use tool to add some commonly used software to SD Desktop (Eg. Rstudio 4.2.2, Whisper, VSCode and GATK). SD Software installer is an application provided by CSC. Users can't add their own tools to the SD Software installer, but you can send requests for new tools to be added. Please follow the step-by-step totutorial below.  
 
@@ -124,7 +124,7 @@ the installed software should work also when Data Gateway connection has not bee
  
 
    
-## Software customisation with Apptainer and Podman (advanced)
+## Customisation via Apptainer and Podman 
 
 If you want to add new software to your virtual machine independently, the most convenient way is to build an Apptainer container outside SD Desktop and then import the container through SD Connect to SD Desktop. The two documents below describe two sample cases on adding software with containers.
 
