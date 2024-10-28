@@ -37,7 +37,7 @@ First let's import the right python libraries
 
 ```python
 import os
-from qiskit import QuantumCircuit, QuantumRegister
+from qiskit import QuantumCircuit, QuantumRegister, transpile
 from iqm.qiskit_iqm import IQMProvider
 ```
 
@@ -46,8 +46,7 @@ from iqm.qiskit_iqm import IQMProvider
 The quantum circuit is created by defining a `QuantumRegister` which hold our qubits and classical bits respectively. As this circuit only requires 2 qubits we only create a `QuantumRegister` of size 2. The number of shots is also defined here. The number of shots is the number of times a quantum circuit is executed. We do this because quantum computers are probabilistic machines and by repeating the experiment many times we can get close to a deterministic result to be able to draw conclusions from. A good number of shots for your first quantum job is `shots = 1000`. Increasing the shots will increase the precision of your results. 
 
 ```python
-
-shots = 10000  # Number of repetitions of the Quantum Circuit
+shots = 1000  # Number of repetitions of the Quantum Circuit
 
 qreg = QuantumRegister(2, "qB")
 circuit = QuantumCircuit(qreg, name='Bell pair circuit')
@@ -67,19 +66,17 @@ Now the circuit is created! If you wish you can see what your circuit looks like
 
 ## Setting the backend
 
-First we need to set our provider and backend. The provider is the service which gives an interface to the quantum computer and the backend provides the tools necessary to submitting the quantum job. The `HELMI_CORTEX_URL` is the endpoint to reach Helmi and is only reachable inside the `q_fiqci` partition. This environment variable is set automatically when loading the `helmi_qiskit` module. 
+First we need to set our provider and backend. The provider is the service which gives an interface to the quantum computer and the backend provides the tools necessary to submitting the quantum job. The `HELMI_CORTEX_URL` is the endpoint to reach Helmi and is only reachable inside the `q_fiqci` partition. This environment variable is set automatically when loading any of the `helmi_*` modules such as the `helmi_qiskit` module. 
 
 ```python
 HELMI_CORTEX_URL = os.getenv('HELMI_CORTEX_URL')
-if not HELMI_CORTEX_URL:
-    raise ValueError("Environment variable HELMI_CORTEX_URL is not set")
 
 provider = IQMProvider(HELMI_CORTEX_URL)
 backend = provider.get_backend()
 ```
 ### Decomposing the circuit (*Optional*)
 
-The next step is optional and where the quantum circuit into you've just created into it's *basis gates*. These basis gates are the actual quantum gates on the quantum computer. The process of decomposition involves turning the above Hadamard and controlled-x gates into something that can be physically run on the quantum computer. Helmi's basis gates are the two-qubit controlled-z and a the one-qubit rotational gate around the x-y plane. In Qiskit these are defined in the backend and can be printed with `backend.operation_names`. 
+The next step is optional and where the quantum circuit into you've just created into it's *basis gates*. These basis gates are the actual quantum gates on the quantum computer. The process of decomposition involves turning the above Hadamard and controlled-x gates into something that can be physically run on the quantum computer. Helmi's basis gates are the entangling gate controlled-z and the one-qubit phased-rx gate. In Qiskit these are defined in the backend and can be printed with `backend.operation_names`. 
 
 ```python
 circuit_decomposed = transpile(circuit, backend=backend)
@@ -108,14 +105,26 @@ The two qubit Controlled-X gate we implemented in our circuit is currently on th
 
 Note that this step is entirely optional. Using the `execute` function automatically does the mapping based on the information stored in the backend. Inputting the qubit mapping simply gives more control to the user. 
 
+To transpile a circuit using the specified qubit mapping you can do the following:
+
+```python
+circuit_decomposed = transpile(circuit, backend=backend, initial_layout=qubit_mapping)
+```
+
 ### Submitting the job
 
 Now we can run our quantum job!
 
 ```python
-job = execute(circuit, backend, shots=shots)
-# Optional input the qubit mapping
-# job = execute(circuit, backend, shots=shots, initial_layout=mapping)
+job = backend.run(circuit_decomposed, shots=shots)
+```
+
+### Viewing the status of your job
+
+You can view the status of your job with 
+
+```python
+job.status()
 ```
 
 ### Results
@@ -194,8 +203,6 @@ circuit.measure_all()
 # print(circuit.draw())
 
 HELMI_CORTEX_URL = os.getenv('HELMI_CORTEX_URL')
-if not HELMI_CORTEX_URL:
-    raise ValueError("Environment variable HELMI_CORTEX_URL is not set")
 
 provider = IQMProvider(HELMI_CORTEX_URL)
 backend = provider.get_backend()
