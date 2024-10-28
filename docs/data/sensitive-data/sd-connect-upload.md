@@ -3,7 +3,7 @@
 Your data is automatically encrypted when you upload data to SD Connect. This is suitable for all file types and formats, but it is supported only for files up to 100 GB and folders smaller than 1 TB. Largers files or folders can be and uploaded [programmatically](./sd-connect-command-line-interface.md). 
 
 !!! Note
-Automated key management, encryption, and decryption are not yet available for programmatic data uploads and downloads.
+    Automated key management, encryption, and decryption are not yet available for programmatic data uploads and downloads.
 
 ## Upload and encrypt files to a new folder
 
