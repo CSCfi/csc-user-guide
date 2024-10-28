@@ -54,7 +54,6 @@ Welcome to the user guide for CSC's Sensitive Data (SD) services. Follow the ste
 - [What's New with Sensitive Data Services](../../support/wn/data-new.md)
 - [Frequently Asked Questions (FAQ)](../../support/faq/)
 - [Useful Terminology](sd-terminology.md)
-- [FAQ](../../support/faq/)
 
 
 ## SD Service login pages
@@ -66,13 +65,20 @@ Please ensure you read the instructions carefully before accessing any services 
 * [SD Desktop](https://sd-desktop.csc.fi){ target="_blank" }
 * [SD Apply](https://sd-apply.csc.fi/){ target="_blank" }
 
-!!! note "Service Breaks"
+## Service Breaks
    
-      - SD Desktop and SD Connect undergo regular maintenance on the **first Wednesday of every month**
-      - Please note that occasional urgent maintenance may also be required for technical or security reasons. In such cases, we will notify you via email
-      - All service breaks are scheduled on [Service Breaks -website](https://research.csc.fi/service-breaks){ target="_blank" } 
+* SD Desktop and SD Connect undergo regular maintenance on the **first Wednesday of every month**
+* Please note that occasional urgent maintenance may also be required for technical or security reasons. In such cases, we will notify you via email
+* All service breaks are scheduled on [Service Breaks page in CSC's reaserch.csc.fi webiste](https://research.csc.fi/service-breaks){ target="_blank" } 
 
 
+## Contact and support for SD services 
+
+Do you have any questions? Would you like to discuss a specific reserch project?
+       
+       - [Contact us](../../support/contact.md), subject: *Sensitive Data*
+       - Join the [CSC Research User Support Coffee - Every Wednesday at 14:00](https://ssl.eventilla.com/usersupportcoffee){ target="_blank" }. 
+       - Our team is here to help, and we offer direct support. Don't hesitate to contact!
 
 
 ## Introduction to Sensitive Data (SD) services
