@@ -88,7 +88,7 @@ Thus, you should start the application once after the installation, to make sure
 the installed software should work also when Data Gateway connection has not been opened.
 
 
-### Software avalable
+### Software available
 
 | **Category**          | **Tool**                                                                                                                                                                                                                     |
 |-----------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
