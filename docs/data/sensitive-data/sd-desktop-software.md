@@ -5,11 +5,11 @@ When you log into the virtual desktop, you are welcomed into a digital workspace
 Below you can find:
 
 - [Default software available in SD Desktop](sd-desktop-software.md#default-software-available-in-sd-desktop)
-- Adding software: background information and limitations 
-- Customisation via SD Software Installer (no previous experience required)
-- Customisation via Apptainer and Podman (advanced; technical expertise required).
+- [Adding software: background information and limitations](sd-desktop-software.md#adding-software-background-information-and-limitations)
+- [Customisation via SD Software Installe](sd-desktop-software.md#customisation-via-sd-software-installer) (no previous experience required)
+- [Customisation via Apptainer and Podman](sd-desktop-software.md#customisation-via-apptainer-and-podman)(advanced; technical expertise required).
 
-Please don't hesitate to contact [CSC Service Desk](../../support/contact.md) if you have any questions about the software selection (subject: SD Services). We can support you in your Desktop customisation. 
+Please don't hesitate to contact us at @servicedesk@csc.fi (subject: SD Services) if you have any questions about the software selection. We can support you in your desktop customisation. 
 
 
 ## Default software available in SD Desktop
