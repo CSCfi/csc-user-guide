@@ -128,15 +128,6 @@ Register data provided by Findata can be accessed on your **virtual desktop** us
 1. [Create virtual desktop](sd-desktop-secondary-create.md)
 2. [Access virtual desktop](sd-desktop-secondary-access.md)
 3. [Access data with virtual desktop using Data Gateway](sd-desktop-secondary-access.md#accessing-data-using-data-gateway)
-* [Manage virtual desktop](sd-desktop-secondary-manage.md)
-
-
-!!! Note
-    If you attempt to access the desktop and are redirected to a page indicating a low assurance level, please follow these steps:
-    - Go to the MyCSC login page.
-    - Click on Haka and select your university. This will redirect you to your university's login page.
-    - On the university login page, click on "Redisplay the page on accepting the disclosure of your information."
-    - Log in using your university credentials.
-    - After successfully logging in, accept the disclosure of your information.
+4. [Manage virtual desktop](sd-desktop-secondary-manage.md)
 
 
