@@ -40,6 +40,10 @@ Known temporary issues:
   
 * In October 2024, SD Connect was updated. Files from the previous version are still compatible, but you may encounter issues due to file format changes. For step-by-step instructions on downloading files stored with the previous version, [please check this page](sd-connect-download-old-version.md).
 
+!!! Note
+    Automated key mamagement, encryptiona and decryption is not yet provided for programmatic data uplaods and downloads.
+
+
 General considerations:
 
 * SD Connect is based on an object storage solution. Files are called objects, they are stored as file segments and can not be directly edited. All files (sensitive or non-sensitive, e.g. scripts) stored in SD Connect must be encrypted.
