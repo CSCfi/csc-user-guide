@@ -58,7 +58,7 @@ SD Software installer provides an easy-to-use tool to add some commonly used sof
 
 ### Step2: SD Software Installer on your virtual desktop
 
-* Log in to [SD Desktop service](https://sd-desktop.csc.fi/guacamole/#/) and access your virtual dekstop. Here open the **Data Gateway** application, select SD Connect and enter your CSC username and password. Next click on Open. Do not close the Data Gateway application.
+* Log in to [SD Desktop service](https://sd-desktop.csc.fi/guacamole/#/) and access your virtual desktop. Here open the **Data Gateway** application, select SD Connect and enter your CSC username and password. Next click on Open. Do not close the Data Gateway application.
   
 * If the software installation help tools are enabled for your project, then you should have folder `tools-for-sd-desktop` included in the directory that Data Gateway created (in `Projects/SD-Connect/your-project-name`).
 
