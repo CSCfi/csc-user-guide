@@ -70,7 +70,7 @@ Choose a pre-built option based on your needs: Small (for basic tasks), Medium (
 
 * Each CSC project supports up to 3 virtual desktops, with 10 project members allowed to connect simultaneously to each desktop.
 
-* All desktops come with a set of pre-installed open-source software managed by CSC. [List of pre-installed softwares](./sd-desktop-software.md#default-software-selection-in-sd-desktop).
+* All desktops come with a set of pre-installed open-source software managed by CSC. More informations about the list of pre-installed software and customisation is available [delete](./sd-desktop-software.md).
 
 * **Delete or pause unused desktops**: Ensure to [delete](./sd-desktop-manage.md#deleting-a-desktop) or [pause](./sd-desktop-manage.md#pausing-or-unpausing-a-virtual-desktop) your desktop when not in use. Unused desktops trigger email notifications after 14 days of inactivity.
 
