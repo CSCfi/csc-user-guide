@@ -9,7 +9,7 @@ Qiskit is an open-source software for working with quantum computers at the leve
 of circuits, pulses, and algorithms. 
 
 !!! info "News"
-     **13.08.2024** Installed `qiskit/1.1.1` with all major Qiskit packages and
+     **28.10.2024** Installed `qiskit/1.2.0` on LUMI with all major Qiskit packages and
      added support for GPU-acceleration.
 
 ## Available
@@ -19,13 +19,14 @@ Currently supported Qiskit versions:
 | Version | Module          | Puhti | Mahti | LUMI  | Notes           |
 | :------ | :-------------- | :---: | :---: | :---: | --------------- |
 | 0.45.3  | `qiskit/0.45.3` |   X   |   X   |       |                 |
-| 1.0.2   | `qiskit/1.0.2`  |   X   |   X   |       | default version |
-| 1.1.1   | `qiskit/1.1.1`  |   X   |   X   |   X   |                 |
+| 1.0.2   | `qiskit/1.0.2`  |   X   |   X   |       |                 |
+| 1.1.1   | `qiskit/1.1.1`  |   X   |   X   |       |                 |
+| 1.2.0   | `qiskit/1.2.0`  |       |       |   X   |                 |
 
-Includes all the major Qiskit packages (Terra, Nature, Aer, etc.) and GPU acceleration. The `qiskit/1.0.2` and `qiskit/1.1.1` packages include the following qiskit plugins:
+Includes all the major Qiskit packages (Terra, Nature, Aer, etc.) and GPU acceleration. The `qiskit/1.0.2`, `qiskit/1.1.1` and `qiskit/1.2.0` packages include the following qiskit plugins:
 
 ```bash
-qiskit-aer-gpu==0.14.2
+qiskit-aer-gpu>=0.14.2
 qiskit-algorithms==0.3.0
 qiskit-dynamics==0.5.1
 qiskit-experiments==0.7.0
@@ -116,8 +117,10 @@ Example batch script for reserving one GPU and two CPU cores in a single node:
     #SBATCH --gpus-per-node=1
     
     module use /appl/local/quantum/modulefiles
-    module load qiskit/v1.1.0
+    module load qiskit/1.2.0 or 
     python myprog.py <options>
+    # or 
+    # srun singularity exec --rocm --home $PWD /appl/local/quantum/qiskit/qiskit_1.2.0_csc.sif python3 myprog.py
     ```
 
 

@@ -37,7 +37,7 @@ First let's import the right python libraries
 
 ```python
 import os
-from qiskit import QuantumCircuit, QuantumRegister, execute
+from qiskit import QuantumCircuit, QuantumRegister
 from iqm.qiskit_iqm import IQMProvider
 ```
 
@@ -178,7 +178,7 @@ The full python script can be found below.
 ```python
 import os
 
-from qiskit import QuantumCircuit, QuantumRegister, execute
+from qiskit import QuantumCircuit, QuantumRegister, transpile
 from iqm.qiskit_iqm import IQMProvider
 
 shots = 1000
@@ -205,7 +205,8 @@ backend = provider.get_backend()
 # print(f'Number of qubits: {backend.num_qubits}')
 # print(f'Coupling map: {backend.coupling_map}')
 
-job = execute(circuit, backend, shots=shots)
+transpiled_circuit = transpile(circuit, backend)
+job = backend.run(transpiled_circuit, shots=shots)
 result = job.result()
 exp_result = job.result()._get_experiment(circuit)
 # You can retrieve the job at a later date with backend.retrieve_job(job_id)
