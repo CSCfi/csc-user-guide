@@ -2,6 +2,9 @@
 
 You can download folders or individual files from SD Connect. Files and folders are automatically decrypted during download.
 
+!!! Note
+    You can use the user interface to download files up to 100 GB and folders up to 1 TB. For files or folders larger than these limits (such as sequencing data),          downloads must be performed programmatically. If you need assistance, please contact us for support at servicedesk@csc.fi (subject SD services).
+
 ## Downloading folder
 
 1. Find correct folder from All folders tab.
@@ -20,7 +23,8 @@ You can download folders or individual files from SD Connect. Files and folders 
 
 ## Limitations
 
-Files uploaded before October 2024 can be downloaded but require manual decryption, please follow the [manual decryption instructions](sd-connect-download-old-version.md).
+* Files uploaded before October 2024 can be downloaded but require manual decryption, please follow the [manual decryption instructions](sd-connect-download-old-version.md).
+* You can use the user interface to download files up to 100 GB and folders up to 1 TB. For files or folders larger than these limits (such as sequencing data),          downloads must be performed programmatically. 
 
 <iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/SMnEkcS_HJw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
