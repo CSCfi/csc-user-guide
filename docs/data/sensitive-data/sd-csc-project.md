@@ -4,8 +4,8 @@
 To access CSC services, you need both a CSC account and membership in a CSC project. This allows you to apply for service access, manage team members, set data permissions and apply for additional resources. Although using SD Connect and SD Desktop is free of charge for research purposes according to CSC’s terms of use, CSC tracks the resources consumed by each CSC project through Billing Units. 
 
 
-!!! Note: 
-    The default lifetime of a CSC project is one year. All data stored in SD Connect or SD Desktop, including files, virtual desktops and volumes, will be permanently deleted 90 days after the project closure/ expiration.
+!!! Note
+    The default lifetime of a CSC project is one year. All data stored in SD Connect or SD Desktop, including files, virtual desktops and volumes, will be permanently      deleted 90 days after the project closure/ expiration.
 
 To effectively manage your CSC projects and its resources, please learn more information below: 
 
