@@ -70,9 +70,8 @@ consisting of _secret key_ and _public key_ for your own use. You can use the sa
 several times, and normally it is practical to use the same keys for all data of a project so that 
 key management does not get too complicated. 
 
-Instructions for creating _crypt4gh_ compatible keys can be found [here](./sd-connect-upload-for-storage-and-sharing.md).
-(The key generation processes are described in the second steps of graphical user 
-interface and command line client instructions).
+Below you can find step-by-step instructions to create encryption keys using the Cryp4GH graphical user interface or via the command line.
+
 Once the keys have been generated, you can send the public key to all data producers, 
 so that they can then encrypt the data that they will send for you. After that, only the owners 
 of the private key, i.e. project members, can decrypt the data.  
@@ -99,6 +98,125 @@ CSC it is handy to use both project's public key and CSC public key in encryptio
 This way the data can be used both in users local environment and in the 
 sensitive data services of CSC.
 
+#### Creating _crypt4gh_ compatible keys via grafical user interface
+
+
+1. Generate your encryption key pair (secret key and public key) with the Crypt4GH application (you can skip this paragraph if you already have a key pair).
+
+      * Install the Crypt4GH application:
+
+      CSC has developed a simple application that will allow you to generate your encryption keys and decrypt data when necessary. 
+      Download the version specific to your operating system from the [GitHub repository](https://github.com/CSCfi/crypt4gh-gui):
+
+      * [Mac](https://github.com/CSCfi/crypt4gh-gui/releases/download/v1.3.0/crypt4gh-gui-python3.10-macos-amd64.zip)
+      * [Windows](https://github.com/CSCfi/crypt4gh-gui/releases/download/v1.3.0/crypt4gh-gui-python3.10-windows-amd64.zip)
+      * [Linux](https://github.com/CSCfi/crypt4gh-gui/releases/download/v1.3.0/crypt4gh-gui-python3.10-linux-amd64.zip)
+
+    Please check that the tool for Windows has been digitally signed by CSC - IT Center for Science. After the download, you can find the Crypt4GH application in your downloads folder.
+
+    * When you open the application for the first time, you might encounter an error message. In this case, click on _More info_ and verify that the publisher is CSC-IT Center for Science (or in Finnish CSC-Tieteen tietotekniikan keskus Oy) and then click on _Run anyway_.
+
+    * Generate your encryption keys:
+
+        - Open the Crypt4GH application and click on _Generate Keys_ (in the top right corner).
+        - The tool will open a new window and ask you to insert a password (_Private Key Passphrase_). This password will be associated with your secret key. Please, use a strong password.
+        - When you click on _OK_, the tool will generate a key pair consisting of a secret key (`username_crypt4gh.key`) and a public key (`username_crypt4gh.pub`).
+        - The keys/file names will be displayed in the Activity Log with the following message:
+
+            ```
+            Key pair has been generated, your private key will be auto-loaded the next time you launch this tool:
+            Private key: username_crypt4gh.key
+            Public key: username_crypt4gh.pub
+            All the fields must be filled before file encryption will be started
+            ```
+
+            The keys will be generated and saved to the same folder in which the application resides.
+
+        !!! Note
+            * If you lose or forget your secret key, or the password, you will be unable to decrypt the files.
+            * Do not share your secret key or your password.
+            * You need to **create your keys only once** and use them for all your encryption needs, but you can of course, choose to generate separate keys for encryption as you wish.
+
+
+#### Cretating encryption keys via command line tools
+
+In this example, we first generate your key pair (a password-protected private key and a public key that can be shared with collaborators). Next, we encrypt a file with public keys of two different collaborators (research group A and research group B).
+
+**Python 3.6+ is required** to use the Crypt4GH encryption utility. If you need help installing Python, please follow [these instructions](https://www.python.org/downloads/release/python-3810/).
+
+1. Install the Crypt4GH encryption CLI tool
+
+      You can install Crypt4GH directly with pip tool:
+
+      ```bash
+      pip install crypt4gh     
+      ```
+
+      or, if you prefer the latest sources from GitHub:
+
+      ```bash
+      pip install -r crypt4gh/requirements.txt
+      pip install ./crypt4gh
+      ```
+
+      or even:
+
+      ```bash
+      pip install git+https://github.com/EGA-archive/crypt4gh.git
+      ```
+
+      The usual `-h` flag shows you the different options that the tool accepts:
+
+      ```bash
+      $ crypt4gh -h
+
+      Utility for the cryptographic GA4GH standard, reading from stdin and outputting to stdout.
+
+      Usage:
+         {PROG} [-hv] [--log <file>] encrypt [--sk <path>] --recipient_pk <path> [--recipient_pk <path>]... [--range <start-end>]
+         {PROG} [-hv] [--log <file>] decrypt [--sk <path>] [--sender_pk <path>] [--range <start-end>]
+         {PROG} [-hv] [--log <file>] rearrange [--sk <path>] --range <start-end>
+         {PROG} [-hv] [--log <file>] reencrypt [--sk <path>] --recipient_pk <path> [--recipient_pk <path>]... [--trim]
+
+      Options:
+         -h, --help             Prints this help and exit
+         -v, --version          Prints the version and exits
+         --log <file>           Path to the logger file (in YML format)
+         --sk <keyfile>         Curve25519-based Private key.
+                              When encrypting, if neither the private key nor C4GH_SECRET_KEY are specified, we generate a new key
+         --recipient_pk <path>  Recipient's Curve25519-based Public key
+         --sender_pk <path>     Peer's Curve25519-based Public key to verify provenance (akin to signature)
+         --range <start-end>    Byte-range either as  <start-end> or just <start> (Start included, End excluded)
+         -t, --trim             Keep only header packets that you can decrypt
+
+      Environment variables:
+         C4GH_LOG         If defined, it will be used as the default logger
+         C4GH_SECRET_KEY  If defined, it will be used as the default secret key (ie --sk ${C4GH_SECRET_KEY})
+      ```
+
+      You may notice that crypt4gh uses `--sk` option for the private key. This might seem odd but apparently, crypt4gh uses term _secure key_ for private key, hence `sk`, and consequently `pk` refers to public key instead of the private key.
+
+2. Generate your public-private key pair
+
+      You use `crypt4gh-keygen` command to create your private and public keys:
+
+      ```bash
+      $ crypt4gh-keygen --sk mykey.sec --pk mykey.pub
+      Generating public/private Crypt4GH key pair.
+      Enter passphrase for meykey.sec (empty for no passphrase): 
+      Enter passphrase for mykey.sec (again): 
+      Your private key has been saved in mykey.sec
+      Your public key has been saved in mykey.pub
+      ```
+
+      where `--sk mykey.sec` is your private (secret, sk) key and `--pk mykey.pub` is your public key (pk). The tool will ask you to enter a password (passphrase) for your private key. For security reasons, the password is not shown when you type it, so the tool will ask you to enter it a second time to make sure you made no typing errors (or, you make the same errors twice). Please, use a strong password!
+
+    !!! Note
+        If you lose or forget your private key, or the password to it, you will be unable to decrypt the files. Do not share your private key or your password.
+
+    !!! Note
+        You need to create your keys only once and use them for all your encryption needs, but you can of course, choose to generate separate keys for encryption as you wish.
+
 
 ## 3. Project key generation example
 
@@ -119,23 +237,20 @@ files accordingly: `animine_crypt4gh.key` and `animine_crypt4gh.pub`.
 
 ### 3.2 Storing keys with SD Connect
 
-Next, Tiina Tutkija logs in to [SD Connect service](https://sd-connect.csc.fi). 
-After connecting she checks that **Current project** setting refers to the CSC project 
-that AniMINE project will be using. After that she clicks the **Create bucket** button to 
-create a new bucket called `animine_keys`. Then she uses the same button to create another 
-bucket called `animine_pub`.
+Next, Tiina Tutkija logs in to [SD Connect web user interface](https://sd-connect.csc.fi). Tiina uses Chrome for best experience.
 
-Now SD Connect contains two new empty buckets. Tiina opens the bucket `amimine_keys` and uses **Upload** 
-button to start upload process. In the upload page she checks that options **Encrypt files before upload** 
-is **on** (which is the default setting). Then she uses **Select files for upload** to select both key files 
-to be uploaded and starts the upload process by clicking button **Encrypt and upload** in the bottom of the page.
-After uploading, she needs to press the _reload button_ of the browser to update the state of the browser.
+After connecting she checks that **Select project** dropdown at the top left refers to the CSC project 
+that AniMINE project will be using. After that she clicks the **Create folder** (in the UI buckets are called folders) button to 
+create a new folder called `animine_keys`. Then she uses the same button to create another 
+folder called `animine_pub`.
 
-When the upload is ready, Tiina switches back to the _Browser view_ of SD Connect and moves to the bucket `animine_pub`. 
-She clicks the _upload button_ again and this time turns **off** **Encrypt files before upload** and then uploads **ONLY** 
-the public key (`animine_crypt4gh.pub`) to this bucket.
+Now SD Connect contains two new empty folders. Tiina opens the folder `amimine_keys` and uses **Upload** 
+button. Then she uses **Select files** to select both keys
+to be uploaded and starts the upload process by clicking button **Upload**.
 
-After uploading, she again needs to press the reload button of the browser to update the state of the browser.
+When the upload is ready, Tiina navigates to the other folder `animine_pub`. 
+She clicks the **Upload** button and she uploads **ONLY** 
+the public key (`animine_crypt4gh.pub`) to this folder.
 
 Finally, she opens a simple text editor to create short instructions file about the keys. 
 The content of the file, named as `animine_key_instructions.txt`, is as follows:
@@ -166,16 +281,15 @@ Delete the local copy of the secret key when it is no longer actively used.
 ------------------------------------------------
 ```
 
-She uploads this text file to the `animine_keys` bucket with 
-the default encryption option on and then deletes the file from her local computer.
+She uploads this text file to the `animine_keys` folder on and then deletes the file from her local computer.
 
-Now the bucket `animine_keys` contain objects:
+Now the folders `animine_keys` contain files:
 
    * `data/animine_crypt4gh.pub.c4gh`
    * `data/animine_crypt4gh.key.c4gh`
    * `data/animine_key_instructions.txt.c4gh`
 
-And bucket `animine_pub` contains object:
+And folder `animine_pub` contains files:
 
    * `data/animine_crypt4gh.pub`
 

@@ -1,8 +1,11 @@
 ---
 tags:
   - Academic
-description: Schrodinger Maestro usage instructions on CSC supercomputer Puhti
+system:
+  - www-puhti
+  - www-mahti
 ---
+
 # Maestro
 
 Schrödinger Maestro is a versatile molecular modeling environment. It has modules for
@@ -22,8 +25,8 @@ self-learning materials.
 
 ## Available
 
-* Puhti: 2022.3, 2022.4, 2023.1, 2023.2, 2023.3, 2023.4, 2024.1, 2024.2
-* Mahti: 2022.3, 2022.4, 2023.1, 2023.2, 2023.3, 2023.4, 2024.1, 2024.2
+* Puhti: 2022.4, 2023.1, 2023.2, 2023.3, 2023.4, 2024.1, 2024.2, 2024.3
+* Mahti: 2022.4, 2023.1, 2023.2, 2023.3, 2023.4, 2024.1, 2024.2, 2024.3
 
 !!! info "Pay attention to efficiency on Mahti"
 

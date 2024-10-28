@@ -3,131 +3,131 @@
   display: none !important;
 }
 
-.md-typeset :is(.admonition) {
-  border: 2px solid;
+.md-typeset .admonition {
   box-shadow: unset;
+  border: 2px solid;
   border-radius: 6px;
-  font-size: var(--csc-font-size--body);
+  border-left-width: 14px;
+  font-size: medium;
   font-weight: var(--csc-font-weight--regular);
 }
 
-.md-typeset :is(.admonition-title) {
+.md-typeset .admonition-title::before {
+  display: none;
+}
+
+.md-typeset .admonition-title {
   margin: unset !important;
   padding: unset !important;
   padding-top: .6rem !important;
-  font-size: var(--csc-font-size--large);
   font-weight: var(--csc-font-weight--bold);
   background-color: unset !important;
 }
 
-.md-typeset :is(.admonition-title)+* {
+.md-typeset .admonition-title + * {
   margin-top: 0;
 }
 
-.md-typeset :is(.admonition-title)::before {
-  display: none;
-}
-
-[dir="ltr"] .md-typeset :is(.admonition) {
-  border-left-width: var(--csc-admonition-border-left-width);
-}
-
-.md-typeset :is(.admonition):not(
+.md-typeset .admonition:not(
   .default,
   .info,
   .success,
   .warning,
-  .error) {
+  .error
+) {
   border: unset;
   background-color: var(--csc-admonition--bg);
   color: var(--csc-admonition--fg);
 }
 
-.md-typeset :is(.admonition):is(.default) {
+.md-typeset .admonition.default {
   border-color: var(--csc-admonition-default--border);
 }
 
-.md-typeset :is(.admonition):is(.default-label) {
+.md-typeset .admonition.default-label {
   border-color: var(--csc-admonition-default-label--fg) !important;
   color: var(--csc-admonition-default-label--fg);
   background-color: var(--csc-admonition-default-label--bg);
 }
 
-.md-typeset :is(.admonition):is(.info) {
+.md-typeset .admonition.info {
   border-color: var(--csc-admonition-info--border);
 }
 
-.md-typeset :is(.admonition):is(.info-label) {
+.md-typeset .admonition.info-label {
   border-color: var(--csc-admonition-info-label--fg) !important;
   color: var(--csc-admonition-info-label--fg);
   background-color: var(--csc-admonition-info-label--bg);
 }
 
-.md-typeset :is(.admonition):is(.success) {
+.md-typeset .admonition.success {
   border-color: var(--csc-admonition-success--border);
 }
 
-.md-typeset :is(.admonition):is(.success-label) {
+.md-typeset .admonition.success-label {
   border-color: var(--csc-admonition-success-label--fg) !important;
   color: var(--csc-admonition-success-label--fg);
   background-color: var(--csc-admonition-success-label--bg);
 }
 
-.md-typeset :is(.admonition):is(.warning) {
+.md-typeset .admonition.warning {
   border-color: var(--csc-admonition-warning--border);
 }
 
-.md-typeset :is(.admonition):is(.warning-label) {
+.md-typeset .admonition.warning-label {
   border-color: var(--csc-admonition-warning-label--fg) !important;
   color: var(--csc-admonition-warning-label--fg);
   background-color: var(--csc-admonition-warning-label--bg);
 }
 
-.md-typeset :is(.admonition):is(.error) {
-  border-color: var(--csc-red);
+.md-typeset .admonition.error {
+  border-color: var(--csc-admonition-error--border);
 }
 
-.md-typeset :is(.admonition):is(.error-label) {
-  border-color: var(--csc-red) !important;
-  color: var(--csc-red);
-  background-color: var(--csc-light-red);
+.md-typeset .admonition.error-label {
+  border-color: var(--csc-admonition-error-label--fg) !important;
+  color: var(--csc-admonition-error-label--fg);
+  background-color: var(--csc-admonition-error-label--bg);
 }
 
-.md-typeset :is(.admonition):is(
+.md-typeset .admonition:is(
   .default-label,
   .info-label,
   .success-label,
   .warning-label,
-  .error-label) {
+  .error-label
+) {
   max-width: max-content;
   border: var(--csc-border);
-  font-size: var(--csc-font-size--small);
   font-weight: var(--csc-font-weight--regular);
 }
 
-.md-typeset :is(.admonition):is(
+.md-typeset .admonition:is(
   .default-label,
   .info-label,
   .success-label,
   .warning-label,
-  .error-label) > .admonition-title {
+  .error-label
+) > .admonition-title {
   display: none;
 }
 
-.md-typeset :is(.admonition):is(
+.md-typeset .admonition:is(
   .default-label,
   .info-label,
   .success-label,
   .warning-label,
-  .error-label) > :nth-child(2) {
+  .error-label
+) > :nth-child(2) {
   margin-top: .1rem;
 }
 
-.md-typeset :is(.admonition):is(
+.md-typeset .admonition:is(
   .default-label,
   .info-label,
   .success-label,
   .warning-label,
-  .error-label) > :last-child {
+  .error-label
+) > :last-child {
   margin-bottom: .1rem;
 }

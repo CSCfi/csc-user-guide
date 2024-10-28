@@ -1,6 +1,9 @@
 ---
 tags:
   - Free
+system:
+  - www-puhti
+  - www-lumi
 ---
 
 # VisIt
@@ -10,12 +13,13 @@ VisIt is available on Puhti, and we recommend
 [the Puhti web interface remote desktop](../computing/webinterface/desktop.md)
 for running the GUI.
 
-!!! info "Running VisIt with GPU-accelerated graphics on Puhti"
+!!! info "Running VisIt with GPU-accelerated graphics on Puhti and LUMI"
     You can now also enable
     [interactive visualization with GPU acceleration](../computing/webinterface/accelerated-visualization.md)
     for much better performance. In this case, select the
     _Accelerated Visualization_ app instead of _Desktop_ in the Puhti web
-    interface.
+    interface. On LUMI, select the regular _Desktop_ app and `lumid`
+    partition ([mode information](https://docs.lumi-supercomputer.eu/runjobs/webui/desktop/)).
 
 ## License
 
@@ -25,6 +29,8 @@ VisIt is free also for commercial use and has been released under
 ## Available
 
 Puhti: 3.1.3, 3.3.3
+Mahti: 3.1.3, 3.3.1
+LUMI: 3.2.2
 
 ## Parallel use
 

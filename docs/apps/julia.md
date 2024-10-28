@@ -162,4 +162,4 @@ For information, we recommend reading the [AMDGPU.jl documentation](https://amdg
 ### Further reading
 For further reading about parallel and high-performance computing with Julia, we recommend the [Julia for high-performance scientific computing](https://enccs.github.io/julia-for-hpc/) from ENCCS and the [A brief tour of Julia for high-performance computing](https://forem.julialang.org/wikfeldt/a-brief-tour-of-julia-for-high-performance-computing-5deb) by Kjartan Thor Wikfeldt.
 HLRS's training material for the [Julia for High-Performance Computing](https://github.com/carstenbauer/JuliaHLRS23) course offers a deep dive into programming high-performance code with Julia.
-Finally, the [Julia on HPC Clusters](https://juliahpc.github.io/JuliaOnHPCClusters/) lists general notes about using and installing Julia on an HPC cluster.
+Finally, the [Julia on HPC Clusters](https://juliahpc.github.io) lists general notes about using and installing Julia on an HPC cluster.

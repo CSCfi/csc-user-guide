@@ -1,15 +1,15 @@
 # Concepts
 
-This document defines terminology in CSC Notebooks service.
+This document defines terminology in Noppe service.
 
-CSC Notebooks is a CSC cloud service for interactive web based applications
+Noppe is a CSC cloud service for interactive web based applications
 
 ## Application template
 
 - Created by Admin
 - Defines Application container image and configuration
 - Defines resource limits (such as memory)
-- See [the source code for images](https://github.com/CSCfi/notebook-images/tree/master/builds){target="_blank"} 
+- See [the source code for images](https://github.com/CSCfi/noppe-public-images/tree/master/builds){target="_blank"} 
   for technical details
 
 ## Application
@@ -31,7 +31,7 @@ CSC Notebooks is a CSC cloud service for interactive web based applications
 - Has an Owner
 - May have Co-owners
 - Has a lifetime
-- May contain persistent folders (Workspace `shared`, Users' `my-work`). See [Storage in CSC Notebooks](data_persistence.md)
+- May contain persistent folders (Workspace `shared`, Users' `my-work`). See [Storage in Noppe](data_persistence.md)
 - Has a maximum number of Applications (10 by default)
 - Has a limit for total memory for concurrent sessions
 

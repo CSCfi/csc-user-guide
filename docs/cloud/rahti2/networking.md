@@ -64,33 +64,33 @@ Any existing possible domain name could potentially be used in Rahti, but the DN
 
 * For the DNS configuration, you need to configure a `CNAME` pointing to `router-default.apps.2.rahti.csc.fi` or in cases that this is not possible, another possibility is to configure an `A` record containing the IP of `router-default.apps.2.rahti.csc.fi` has to be configured. The way this needs to be configured depends on the register of the DNS record.
 
-```sh
-$ host ?????.??
-?????.?? is an alias for router-default.apps.2.rahti.csc.fi.
-router-default.apps.2.rahti.csc.fi has address 195.148.21.61
-```
+    ```console
+    $ host ?????.??
+    ?????.?? is an alias for router-default.apps.2.rahti.csc.fi.
+    router-default.apps.2.rahti.csc.fi has address 195.148.21.61
+    ```
 
 * Any certificate provider can be used, like for example use the free certificates provided by the [Let's Encrypt controller](../tutorials/custom-domain.md#lets-encrypt).
 
-Another aspect of routes is the IP white listing feature, ie: only allowing a range of IPs to access the route. This is controlled by creating an annotation in the Route object with the key `haproxy.router.openshift.io/ip_whitelist`, and by setting the value to a space separated list of IPs and or IP ranges.
+Another aspect of routes is the IP white listing feature, ie: only allowing a range of IPs to access the route. This is controlled by creating an annotation in the Route object with the key `haproxy.router.openshift.io/ip_whitelist`, and by setting the value to a space separated list of IPs and or IP ranges. Assuming variable `route_name` holds the name of the route
 
 * This first example will white list a range of IPs (`193.166.[0-255].[1-254]`):
 
-```bash
-oc annotate route <route_name> haproxy.router.openshift.io/ip_whitelist='193.166.0.0/16'
-```
+    ```bash
+    oc annotate route $route_name haproxy.router.openshift.io/ip_whitelist='193.166.0.0/16'
+    ```
 
 * This other example will white list only a specific IP:
 
-```bash
-oc annotate route <route_name> haproxy.router.openshift.io/ip_whitelist='188.184.9.236'
-```
+    ```bash
+    oc annotate route $route_name haproxy.router.openshift.io/ip_whitelist='188.184.9.236'
+    ```
 
 * And this example will combine both:
 
-```bash
-oc annotate route <route_name> haproxy.router.openshift.io/ip_whitelist='193.166.0.0/15 193.167.189.25'
-```
+    ```bash
+    oc annotate route $route_name haproxy.router.openshift.io/ip_whitelist='193.166.0.0/15 193.167.189.25'
+    ```
 
 ## Egress IPs
 
@@ -100,3 +100,198 @@ The IP for all outgoing customer traffic is `86.50.229.150`. Any pod that runs i
 
     The egress IP of Rahti 2 might change in the future. For example, if several versions of Rahti 2 are run in parallel each will have a different IP. Or if a major change in the underlining network infrastructure happens.
 
+
+## Using LoadBalancer Service Type with Dedicated IPs
+
+Unlike routes, the `LoadBalancer` service type makes it possible to expose services to the internet without being limited to HTTP/HTTPS. This feature allows you to expose services to receive external inbound traffic on a dedicated public IP address, ensuring that external users or services can interact with your applications. To enable and use LoadBalancer services within your Rahti 2 project, you must submit a request to the service desk (`servicedesk@csc.fi`). The request must include the following details:
+
+- **Project Name**: Provide the exact name of the Rahti 2 project for which you want to enable LoadBalancer services.
+
+- **Use Case**: Clearly describe the use case, including:
+    - The type of services you plan to expose (e.g., web applications, APIs).
+    - Any specific requirements or considerations.
+
+When your request is approved by the admins, you will receive the public IP address that can be used to access your services, and you can then proceed with the creation of the ```LoadBalancer``` service.
+
+For example, the following service definition exposes a MySQL service on the assigned public IP at port 33306.
+
+
+```yaml
+kind: Service
+apiVersion: v1
+metadata:
+  name: mysqllb
+  namespace: my-namespace
+spec:
+  ports:
+    - protocol: TCP
+      port: 33306
+      targetPort: 3306
+  allocateLoadBalancerNodePorts: false
+  type: LoadBalancer
+  selector:
+    app: mysql
+```
+
+**You can find detailed explanation about `Service` [here](./concepts.md#service)**
+
+Ensure that the service type is set to `LoadBalancer`, and that the `allocateLoadBalancerNodePorts` field is set to false (the default is true) because NodePorts are not enabled in Rahti 2. If this field is not set correctly, the allocated node port will be unusable, and service creation may fail if the entire default node port range (`30000-32767`) is already allocated.
+
+Additionally, the port field in the service definition (e.g., `33306` in the previous example) must be within the range of `30000-35000`.
+
+#### How to retrieve the selector
+
+##### **Using CLI**
+
+ on your CLI run `oc describe pod <pod-name> -n <namespace>`. After running the oc command, you will see an output that includes a section labeled `Labels`, Copy any of labels and paste in the `yaml` file under `selector`. **Make sure to follow the `yaml` syntax and change `=` to `:`**. For example under the `Labels` we are using the first one:
+
+```bash
+Name:           mysql-pod
+Namespace:      my-namespace
+Priority:       0
+Node:           worker-node-1/10.0.0.1
+Start Time:     Mon, 23 Oct 2024 10:00:00 +0000
+Labels:         app=mysql
+                environment=production
+                app.kubernetes.io/name=postgresql
+(...)
+```
+
+##### **Using the Web Interface**
+
+On the web interface under `Developer`, go to the `Project` tab, press on `pods` and then choose the pod you want. You can see all the labels under `Labels`. Copy any of labels and paste in the `yaml` file under `selector`. **Make sure to follow the `yaml` syntax and change `=` to `:`**.
+
+![rahti1](https://github.com/user-attachments/assets/75babfd9-12a1-498a-b7e7-c6e8f8ec72dc)
+
+
+#### How to make sure your service is pointing to the right pod
+
+##### **Using CLI**
+
+ On your CLI run `oc get endpoints <service-name> -n <namespace>`. You should see the name of the Service and the IP addresses and ports of the Pods that are currently targeted by the Service. For example:
+
+```bash
+NAME       ENDPOINTS           AGE
+mysqllb   10.0.0.1:3306        10m
+```
+
+##### **Using the Web Interface**
+
+On the web interface under `Developer`, go to the `Project` tab, press on `Services` and choose the LoadBalancer service you just created. Under the `Pods` tab you should see the targeted pod. 
+
+![rahti2](https://github.com/user-attachments/assets/3651fc81-682d-40d4-8a2e-bae639c1c81b)
+
+
+### Multiple LoadBalancer Services
+
+It is also possible to expose multiple `LoadBalancer` services on the same public IP but on different ports, you can enable IP sharing by adding the `metallb.universe.tf/allow-shared-ip` annotation to services. The value of the annotation is a label of your choice. The services annotated with the same label will share the same IP. Here is an example configuration of two services that share the same IP address:
+
+```yaml
+kind: Service
+apiVersion: v1
+metadata:
+  name: mysqllb
+  namespace: my-namespace
+  annotations:
+     metallb.universe.tf/allow-shared-ip: "label-to-share-1.2.3.4"
+spec:
+  ports:
+    - protocol: TCP
+      port: 33306
+      targetPort: 3306
+  allocateLoadBalancerNodePorts: false
+  type: LoadBalancer
+  selector:
+    app: mysql
+```
+
+
+```yaml
+kind: Service
+apiVersion: v1
+metadata:
+  name: httplb
+  namespace: my-namespace
+  annotations:
+     metallb.universe.tf/allow-shared-ip: "label-to-share-1.2.3.4"
+spec:
+  ports:
+    - protocol: TCP
+      port: 30080
+      targetPort: 80
+  allocateLoadBalancerNodePorts: false
+  type: LoadBalancer
+  selector:
+    app: httpd
+```
+
+### Add firewall IP blocking to a LoadBalancer Service
+
+It is possible to add firewall IP blocking to a `LoadBalancer` Service. This means that we can add a whitelist of IPs (`188.184.77.250`) and/or IP masks (`188.184.0.0/16`)
+that will be the only ones that will be able to access the service. This added to using secure protocols and safe password practises, can be a good improvement in security.
+
+The procedure to achieve this is the following:
+
+1. Activate the `Local` external traffic policy in the service. To do so add `externalTrafficPolicy: Local` under `spec` like this:
+
+    ```yaml
+    kind: Service                                       kind: Service
+    apiVersion: v1                                      apiVersion: v1
+    metadata:                                           metadata:
+      name: mysqllb                                       name: mysqllb
+    spec:                                               spec:
+      ports:                                              ports:
+        - protocol: TCP                                     - protocol: TCP
+          port: 33306                                         port: 33306
+          targetPort: 3306                                    targetPort: 3306
+          name: http                                          name: http
+      allocateLoadBalancerNodePorts: false                allocateLoadBalancerNodePorts: false
+                                                     >    externalTrafficPolicy: Local
+      type: LoadBalancer                                  type: LoadBalancer
+      selector:                                           selector:
+        app: mysql                                          app: mysql
+
+    ```
+
+    !!! Warning "Bug in OpenShift"
+        At this moment, with the Local policy activated, no traffic will be possible through this service. This is due to a bug in the current deployed version of OpenShift OKD. The expected fixed behaviour would be that access will continue to be open for any IP.
+
+        For more information refer to the official article: [Understanding Openshift `externalTrafficPolicy: local` and Source IP Preservation](https://access.redhat.com/solutions/7028639)
+
+1. Add a `NetworkPolicy` to open access to selected IPs:
+
+    ```yaml
+    apiVersion: networking.k8s.io/v1
+    kind: NetworkPolicy
+    metadata:
+      name: firewall
+    spec:
+      ingress:
+      - from:
+        - ipBlock:
+            cidr: 188.184.0.0/16
+        - ipBlock:
+            cidr: 137.138.6.31/32
+      - from:
+        - namespaceSelector:
+            matchLabels:
+              policy-group.network.openshift.io/ingress: ""
+      podSelector:
+        matchLabels:
+          app: mysql
+      policyTypes:
+      - Ingress
+    ```
+
+    The `NetworkPolicy` above allows ingress traffic from the [CIDR](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) `188.184.0.0/16` which translates to the range [`188.184.0.0` - `188.184.255.255`], and from the single IP `137.138.6.31`. The destination of the traffic is limited by the `matchLabels` section. The label must be the same as the one used in the `LoadBalancer` service.
+
+### Differences between a Route and a LoadBalancer service during deployment roll outs
+
+In Rahti2, the way `Route`s and `LoadBalancer` services manage traffic during deployment rollouts work differently.
+
+`Routes`, managed by OpenShift's HAProxy integraged load blanacer, are designed to quickly adjust and direct traffic as soon as a new pod starts and simultaneously cease routing to the old or terminating pods, ensuring rapid response to changes and minimizing service disruption.
+
+In contrast, `LoadBalancer` services distribute traffic not only to new pods but also continue to send requests to old or terminating pods. This behavior occurs because these services rely on periodic updates from [EndpointSlices](https://kubernetes.io/docs/tutorials/services/pods-and-endpoint-termination-flow/), which can delay the exclusion of terminating pods from traffic distribution. This difference in handling traffic can be useful to understand, as it affects how deployment strategies should be handled for application updates.
+
+For more information refer to the OpenShift documentation regarding [route based deployment strategies](https://docs.openshift.com/container-platform/4.15/applications/deployments/route-based-deployment-strategies.html#deployments-proxy-shard_route-based-deployment-strategies).
+To avoid disruptions when using external load balancer services, you can adopt the principle of a [blue-green deployment](https://www.redhat.com/en/topics/devops/what-is-blue-green-deployment)

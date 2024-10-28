@@ -1,16 +1,16 @@
 # Guide for teachers and collaborators
 
-Instructions on using the CSC Notebooks environment as a teacher or for collaboration.
+Instructions on using the Noppe environment as a teacher or for collaboration.
 
-## How to host a course or use CSC Notebooks for collaboration?
+## How to host a course or use Noppe for collaboration?
 
-CSC Notebooks is built for hosting online courses. We support currently Jupyter and RStudio based content, with more
+Noppe is built for hosting online courses. We support currently Jupyter and RStudio based content, with more
 options to come in the future. The intended workflow is that you create one workspace per course, and arrange your 
 exercises in one or more applications in that workspace.
-Instead of a course you can also use CSC Notebooks for collaboration. The workflow is similar to creating a course environment and is described below.
+Instead of a course you can also use Noppe for collaboration. The workflow is similar to creating a course environment and is described below.
 
 ### 1. Become a workspace owner and create a workspace
-* Login to CSC Notebooks using your CSC account by choosing 'CSC Login' option after clicking 'Login'.
+* Login to Noppe using your CSC account by choosing 'CSC Login' option after clicking 'Login'.
   If you don't have a CSC account yet, [see the instructions on how to create new user account](../../../accounts/how-to-create-new-user-account/).
 * Open `Manage workspaces` from the left panel and create a new workspace.
     * Workspace type:
@@ -20,12 +20,12 @@ Instead of a course you can also use CSC Notebooks for collaboration. The workfl
     * Check that you logged in using your CSC account. Your user account on the bottom of the left navigation
       should look like 'csc/youraccountname'
     * Reload your browser
-    * If the issue persists, contact CSC Notebooks support at servicedesk@csc.fi
+    * If the issue persists, contact Noppe support at servicedesk@csc.fi
  
 ### 2. Find or create custom images
 
 * The easiest is to use an existing Docker image, look these repositories for suitable images:
-    * [Docker image sources in notebooks-public-images repository.](https://github.com/CSCfi/notebooks-public-images)
+    * [Docker image sources in noppe-public-images repository.](https://github.com/CSCfi/noppe-public-images)
     * [Rocker images](https://hub.docker.com/u/rocker) for different RStudio set-ups.
     * If you would need a few R/Python packages extra compared to existing images, it likely is easiest to add them run-time by the user.
 * To create your own custom image, see [Creating custom Docker images](#creating-custom-docker-images) below.
@@ -36,8 +36,8 @@ Open `Manage workspaces` in the left navigation and select the workspace you wan
 through `Application wizard` or `Application form`-buttons.
 
 **Application template** Template provides the base features for your application. Most of the templates are based on
-container images maintained by Notebooks team. Take a look at the 
-[image sources in notebooks-public-images repository](https://github.com/CSCfi/notebooks-public-images). 
+container images maintained by Noppe team. Take a look at the 
+[image sources in noppe-public-images repository](https://github.com/CSCfi/noppe-public-images). 
 If you intend to use your own custom image, you can choose any template that matches your application type (Jupyter/RStudio).
 
 **Application name** Give a valid meaningful name. This is the name under which participants will see the application.
@@ -71,7 +71,7 @@ shared folder in advance. The folder is visible for everyone, but is read-only f
 **Work folder per user** Whether persistent user-based `my-work` folder is available for users in this application. 
 This is enabled by default.
 
-**Publication** Choose `save as draft` if you still need to test/change things in your application. Only after publication, which can be done here by choosing `publish immediately` or from the application menu (Manage workspaces > your workspace > your Application > 3 bars on right end of application > `publish`) later. Publication means that people with the join code can find the application. Your application will never appear for everyone. Only CSC Notebooks team can add self-learning and public-for-all notebooks.
+**Publication** Choose `save as draft` if you still need to test/change things in your application. Only after publication, which can be done here by choosing `publish immediately` or from the application menu (Manage workspaces > your workspace > your Application > 3 bars on right end of application > `publish`) later. Publication means that people with the join code can find the application. Your application will never appear for everyone. Only Noppe team can add self-learning and public-for-all applications.
 
 ### 4. Invite users
 
@@ -84,7 +84,7 @@ Once the co-instructors/co-organizers/collaborators have signed in, you can find
 Co-owners can do everything the owner can, except demoting the owner or deleting the workspace. For collaboration purposes, all collaborators should have co-owner rights, to be able to write to the shared folder in the workspace.
 
 ## Creating custom Docker images
-If you cannot find a suitable image for your intended application, you will need to create and publish your own custom image for Notebooks. Image can be created on your own computer or for example [cPouta](../pouta/index.md) instance.
+If you cannot find a suitable image for your intended application, you will need to create and publish your own custom image for Noppe. Image can be created on your own computer or for example [cPouta](../pouta/index.md) instance.
 
 Requirements: 
 
@@ -150,7 +150,7 @@ RUN /rocker_scripts/install_xx.sh
 Below a few useful commands to install R packages from the command line or script, which can be used to write your own install script or edit the scripts provided by rocker:
 
 ```bash
-# install a package with innstall2.r script
+# install a package with install2.r script
 install2.r --error --deps TRUE packagename  
 # Install R packages from CRAN
 R -e "install.packages('packagename', repos='http://cran.rstudio.com/')" 
@@ -190,7 +190,7 @@ docker run -p 8888:8787 <yourimagename>
 
 ## Security guidelines for Workspace owners
 
-- CSC Notebooks is not intended for sensitive data. Do not store sensitive data or data sets.
+- Noppe is not intended for sensitive data. Do not store sensitive data or data sets.
 - Share join code only with users you wish to join your workspace.
 - If you are creating custom images for your course, do not store any keys or sensitive data in the image.
 - Delete the workspace as soon as the course is over.

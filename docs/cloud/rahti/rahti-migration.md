@@ -4,7 +4,7 @@ This guide is dedicated to answer the most frequent questions and provide proced
 
 Rahti 1 is the current deployed and used version of OpenShift OKD running in CSC. The exact version is `v3.11`, it is the last released version in the `3.XX` series. The underlining Kubernetes version is v1.11. Rahti 1 is in open beta, and was not meant to reach production status.
 
-Rahti 2 production is the next version of OpenShift OKD running in CSC. The underlining version of Kubernetes is v1.28. This version uses [cri-o](https://cri-o.io/) as the container runtime. `CRI-o` it is a lightweight alternative to using Docker as the runtime for kubernetes, both are fully compatible with each other and follow the `OCI` standard. Due to the fact that OpenShift OKD v4 is a re-implementation, there is no upgrade path provided by the manufacturer for Rahti 1 (OKD v3.11) to become Rahti 2 production (OKD 4.xx). So in other words, this means that every single application running in Rahti 1 needs to be migrated to production Rahti 2 manually. The two versions will run in parallel for a certain amount of time, but all wanted applications should be migrated to new platform by the latest June 2024.
+Rahti 2 production is the next version of OpenShift OKD running in CSC. The underlining version of Kubernetes is v1.28. This version uses [cri-o](https://cri-o.io/) as the container runtime. `CRI-o` it is a lightweight alternative to using Docker as the runtime for kubernetes, both are fully compatible with each other and follow the `OCI` standard. Due to the fact that OpenShift OKD v4 is a re-implementation, there is no upgrade path provided by the manufacturer for Rahti 1 (OKD v3.11) to become Rahti 2 production (OKD 4.xx). So in other words, this means that every single application running in Rahti 1 needs to be migrated to production Rahti 2 manually. The two versions will run in parallel for a certain amount of time, but all wanted applications should be migrated to new platform by the latest 22nd October 2024.
 
 ## General steps
 
@@ -123,6 +123,9 @@ From the web UI, go to the Deployment page, go to **Actions > Edit resource limi
 
 ![Edit ResourceLimits](../img/editResourceLimitsDialog.png)
 
+!!! Warning "DeploymentConfig is deprecated"
+    DeploymentConfig is deprecated in newer versions of OpenShift OKD and will be completely removed in the future. See Redhat's [deprecation announcement of DeploymentConfig](https://access.redhat.com/articles/7041372) and their [replacement guide for DeploymentConfig](https://developers.redhat.com/learning/learn:openshift:replace-deprecated-deploymentconfigs-deployments/resource/resources:convert-deploymentconfig-deployment).
+
 ### How to create routes?
 
 !!! info "Default URLs suffix have changed"
@@ -198,7 +201,7 @@ In the Project details page (`Developer` > `Project`), click `PersistentVolumeCl
 
 ![Create PersistentVolumeClaim](../img/Create_PersistentVolumeClaim.png)
 
-* For the moment only a single type of `StorageClass` can be used. It corresponds to `Cinder` volumes, which can only be read or write by a single Pod.
+* For the moment only a single type of `StorageClass` can be used. It corresponds to `Cinder` volumes, which can only be read or write (mounted) by a single node (In order to mount it in several Pods, you need to use [Pod affinity](../../tutorials/pod-affinity/), so all the Pods are created on the same node).
 
 * A unique name within the project must be provided.
 
@@ -208,3 +211,17 @@ In the Project details page (`Developer` > `Project`), click `PersistentVolumeCl
 
 !!! warning "Lazy volume creation"
     The volume will only be created when it is mounted for the first time, this is a change in behavior in `Rahti 2`.
+
+### How to Recreate Pod for Deployment having RWO Volumes
+
+In Rahti 1 the default volume was RWX(read-write-many), so these volumes could be mounted to many pods at the same time. But in Rahti 2 volumes are RWO(read-write-once), so these volumes can be mouted to only one pod at a time. 
+
+So, if the deployment have a mounted volume and you want to update the deployment, change the deployment strategy from "rolling update" to "recreate". Go to "Actions" and click on "Edit update strategy", now select "recreate"
+
+![Action](../img/action.png)
+
+![Edit deployment stategy](../img/edit_update_strategy.png)
+
+### How to use Integrated Registry
+
+To learn more about image caching and access control registry in Rahti 2, refer to the following article: [Using Rahti 2 Integrated Registry](../../cloud/rahti2/images/Using_Rahti_2_integrated_registry.md)

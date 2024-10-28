@@ -9,28 +9,28 @@ Qiskit is an open-source software for working with quantum computers at the leve
 of circuits, pulses, and algorithms. 
 
 !!! info "News"
-     **30.05.2024** Installed `qiskit/1.0.2` with all major Qiskit packages and
-     added support for CUDA-acceleration.
+     **13.08.2024** Installed `qiskit/1.1.1` with all major Qiskit packages and
+     added support for GPU-acceleration.
 
 ## Available
 
 Currently supported Qiskit versions:
 
-| Version | Module          | Puhti | Mahti | Notes           |
-| :------ | :-------------- | :---: | :---: | --------------- |
-| 0.43.2  | `qiskit/0.43.2` |   X   |   X   |                 |
-| 0.45.3  | `qiskit/0.45.3` |   X   |   X   |                 |
-| 1.0.2   | `qiskit/1.0.2`  |   X   |   X   | default version |
+| Version | Module          | Puhti | Mahti | LUMI  | Notes           |
+| :------ | :-------------- | :---: | :---: | :---: | --------------- |
+| 0.45.3  | `qiskit/0.45.3` |   X   |   X   |       |                 |
+| 1.0.2   | `qiskit/1.0.2`  |   X   |   X   |       | default version |
+| 1.1.1   | `qiskit/1.1.1`  |   X   |   X   |   X   |                 |
 
-Includes all the major Qiskit packages (Terra, Nature, Aer, etc.) and GPU support for the
-CUDA-accelerated simulation methods. The `qiskit/1.0.2` package includes the following qiskit plugins:
+Includes all the major Qiskit packages (Terra, Nature, Aer, etc.) and GPU acceleration. The `qiskit/1.0.2` and `qiskit/1.1.1` packages include the following qiskit plugins:
 
 ```bash
-qiskit-aer-gpu==0.14.0.1
+qiskit-aer-gpu==0.14.2
 qiskit-algorithms==0.3.0
 qiskit-dynamics==0.5.1
-qiskit-experiments==0.6.1
+qiskit-experiments==0.7.0
 qiskit-finance==0.4.1
+qiskit-ibm-experiment==0.4.7
 qiskit-machine-learning==0.7.2
 qiskit-nature==0.7.2
 qiskit-optimization==0.6.1
@@ -55,7 +55,7 @@ Qiskit is licensed under
 
 ## Usage
 
-To use the default version of Qiskit on Puhti or Mahti, initialize
+To use the default version of Qiskit, initialize
 it with:
 
 ```text
@@ -66,10 +66,10 @@ If you wish to have a specific version ([see above for available
 versions](#available)), use:
 
 ```text
-module load qiskit/1.0.2
+module load qiskit/1.1.1
 ```
 
-The Qiskit module can also be used from the Puhti web interface using Jupyter and
+The Qiskit module can also be used from Puhti, Mahti and LUMI web interfaces using Jupyter and
 Jupyterlab. Check out [our Jupyter documentation](../../computing/webinterface/jupyter/). 
 
 ### Example batch script
@@ -103,6 +103,21 @@ Example batch script for reserving one GPU and two CPU cores in a single node:
     
     module load qiskit
     srun python myprog.py <options>
+    ```
+
+=== "LUMI"
+    ```bash
+    #!/bin/bash
+    #SBATCH --account=<project>
+    #SBATCH --partition=small-g
+    #SBATCH --ntasks=1
+    #SBATCH --cpus-per-task=1
+    #SBATCH --time=1:00:00
+    #SBATCH --gpus-per-node=1
+    
+    module use /appl/local/quantum/modulefiles
+    module load qiskit/v1.1.0
+    python myprog.py <options>
     ```
 
 

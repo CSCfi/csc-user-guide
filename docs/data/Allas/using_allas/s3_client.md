@@ -64,7 +64,7 @@ s3cmd
 
 Please refer to [http://s3tools.org/download](http://s3tools.org/download) and [http://s3tools.org/usage](http://s3tools.org/usage) for upstream documentation.
 
-** Configuring S3 connection in local computer **
+**Configuring S3 connection on local computer**
 
 Once you have _OpenStack_ and _s3cmd_ installed in your environment, you can download the [allas_conf](https://raw.githubusercontent.com/CSCfi/allas-cli-utils/master/allas_conf)
 script to set up the S3 connection to your Allas project.

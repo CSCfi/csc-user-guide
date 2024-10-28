@@ -134,7 +134,7 @@ as reviewers and collaborators.
 You can access the command-line interface either by
 using the [shell applications](../../computing/webinterface/shell.md)
 featured in the web interfaces or by
-[using an SSH client on your own workstation](../../computing/connecting.md).
+[using an SSH client on your own workstation](../../computing/connecting/index.md).
 
 ## How to work with software and data?
 
@@ -244,10 +244,7 @@ at CSC.
 === "Computing"
     - [Overview](../../computing/index.md)
     - [Usage policy](../../computing/usage-policy.md)
-    - Connecting to supercomputers
-      [using the web interface](../../computing/webinterface/connecting.md)
-      and
-      [using an SSH client](../../computing/connecting.md)
+    - [Connecting to supercomputers](../../computing/connecting/index.md)
     - [Running batch jobs](../../computing/running/getting-started.md) and
       [available batch job partitions](../../computing/running/batch-job-partitions.md)
     - [Pre-installed applications](../../apps/index.md) and

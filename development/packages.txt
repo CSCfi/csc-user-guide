@@ -1,0 +1,7 @@
+# The packages listed here are what we actually install, while the
+# file ../requirements.txt contains the current frozen environment.
+mkdocs-material
+mkdocs-git-revision-date-localized-plugin
+mkdocs-redirects
+mkdocs-section-index
+feedparser

@@ -10,6 +10,7 @@
 * [Disk quota exceeded](disk-quota-exceeded.md)
 * [I need a Database, where can I deploy it?](database.md)
 * [Is there a glossary of the acronyms you keep using?](is-there-a-glossary-of-the-acronyms-you-keep-using.md)
+* [How to write good support requests to CSC Service Desk](../support-howto.md)
 
 ## Batch jobs
 * [Why does my batch job fail?](why-does-my-batch-job-fail.md)
@@ -88,7 +89,6 @@
 
 * [Are CSC Sensitive Data services accessible through the public internet?](sensitive-data-access.md)
 * [How I can start using CSC Sensitive Data services?](sensitive-data-access.md#how-can-i-start-using-csc-sensitive-data-services)
-* [Do SD Connect and SD Desktop  support federated authentication methods?](sensitive-data-access.md#do-sd-connect-and-sd-desktop-support-federated-authentication-methods)
 * [Does CSC provide Multi-Factor Authentication (MFA)?](sensitive-data-access.md#does-csc-provide-multi-factor-authentication-mfa)
 
 ### Collaborative projects
@@ -111,14 +111,9 @@
 
 * [Why do I need to encrypt my data?](sensitive-data-encryption.md)
 * [Do sensitive data always need to be encrypted during data transfer e.g. using an  SSH connection?](sensitive-data-encryption.md#do-sensitive-data-always-need-to-be-encrypted-during-upload-or-data-transfer-eg-using-an-ssh-connection)
-* [What methods can I use to encrypt the data? How can I use the CSC public encryption key?](sensitive-data-encryption.md#what-methods-can-i-use-to-encrypt-the-data-how-can-i-use-the-csc-public-encryption-key)
-* [What data formats can be encrypted using Crypt4GH?](sensitive-data-encryption.md#what-data-formats-can-be-encrypted-using-crypt4gh)
-* [What is the new extension that was added to my files after Crypt4GH encryption?](sensitive-data-encryption.md#what-is-the-new-extension-added-to-my-files-after-crypt4gh-encryption)
+* [What data formats can be encrypted using SD Connect?](sensitive-data-encryption.md#what-data-formats-can-be-encrypted-using-sd-connect)
+* [What is the new extension that was added to my files after upload with SD Connect?](sensitive-data-encryption.md#what-is-the-new-extension-added-to-my-files-after-upload-with-sd-connect)
 * [Do CSC Sensitive Data services allow the use of customers' own encryption keys?](sensitive-data-encryption.md#do-csc-sensitive-data-services-allow-the-use-of-customers-encryption-keys)
-* [Can I share my public encryption key?](sensitive-data-encryption.md#can-i-share-my-public-encryption-key-with-others)
-* [Can I share my private encryption key?](sensitive-data-encryption.md#can-i-share-my-private-encryption-key-with-others)
-* [Do I need to generate a new key pair every time I encrypt a new dataset?](sensitive-data-encryption.md#do-i-need-to-generate-a-new-key-pair-every-time-i-encrypt-a-new-dataset)
-* [Can I (or my collaborators) decrypt data encrypted only with the Sensitive Data public encryption key outside SD Desktop?](sensitive-data-encryption.md#can-i-or-my-collaborators-decrypt-data-encrypted-only-with-the-csc-public-encryption-key-outside-sd-desktop)
 
 
 ### Sensitive Data and GDPR
