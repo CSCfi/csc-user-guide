@@ -65,12 +65,12 @@ SD Software installer provides an easy-to-use tool to add some commonly used sof
 * Open `tools-for-sd-desktop` folder and from there, drag/copy file `sd-installer-centos7.desktop` or `sd-installer-ubuntu22.desktop` to your desktop.
 Select the version that matches the operating system of your SD Desktop (e.g. Ubuntu). 
 
-[![Installing-sd-installer](../images/desktop/sd-installer1.png)](../images/desktop/sd-installer1.png) **Figure 1.** Copying `sd-installer.desktop` file to SD desktop.
+[![Installing-sd-installer](images/desktop/sd-installer1.png)](images/desktop/sd-installer1.png) **Figure 1.** Copying `sd-installer.desktop` file to SD desktop.
  
 * Double-click the copy of the installer tool in your desktop to start the software installation tool. In Ubuntu based virtual desktops you
 need to right-click the and select _Allow Launching_ before you can use the installer.
 
-[![sd-installer](../images/desktop/sd-installer2.png)](../images/desktop/sd-installer2.png) **Figure 2.** SD Software installer
+[![sd-installer](images/desktop/sd-installer2.png)](images/desktop/sd-installer2.png) **Figure 2.** SD Software installer
 
 ### Step 3: usage
 
