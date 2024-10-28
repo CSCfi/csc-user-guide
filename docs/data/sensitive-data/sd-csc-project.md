@@ -31,10 +31,6 @@ The default lifetime of a CSC project is one year. As a project manager, you can
 
 The Billing Unit (BU) is CSC’s metric for tracking resource consumption for each CSC projects. As each service consumes billing units. When starting a project, consider your resource needs, including storage and billing units consumption. Each project starts with 10,000 billing units, typically enough for initial testing. 
 
-You will get a notification via email from the My CSC portal when your billing units are about to end. \* Please apply more billing units for your project in [MyCSC](https://my.csc.fi/login){ target="\_blank" }.
-
-Estimate your annual usage and apply for more units through the MyCSC portal if needed.
-
 #### What happens if your project runs out of billing units?
 
 Once all the billing units for your CSC project have been used up, **your access to the SD Desktop service will be restricted**. This means that:
@@ -45,12 +41,9 @@ Once all the billing units for your CSC project have been used up, **your access
 
 #### Applying for more billing units
 
-You will get a notification via email from the My CSC portal when your billing units are about to end. You can apply more billing units for your CSC project and:
+You will get a notification via email from the My CSC portal when your billing units are about to end. You can apply for more billing units by following via the [MyCSC portal](https://my.csc.fi/login){ target="\_blank" } by following [these steps](../../accounts/how-to-apply-for-billing-units.md)
 
-* login to [MyCSC](https://my.csc.fi/login){ target="\_blank" } 
-* follow [these steps](./../accounts/how-to-apply-for-billing-units.md)
-
-Below, you can find more details about Billing Units consumption for SD Connect and SD Desktop, including a table summarizing the billing units required for storing data in SD Connect or using SD Desktop over 6 months and 1 year.
+Below, you can find more details about billing units consumption for SD Connect and SD Desktop, including a table summarizing the billing units required for storing data in SD Connect or using SD Desktop over 6 months and 1 year.
 
 #### SD Connect BU consumption
 
