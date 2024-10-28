@@ -27,7 +27,7 @@ These modifications include changes in :
 
 ## Submit as a batch job to Puhti cluster
 
-- First login to Puhti computer (see instructions [here](../../computing/connecting.md))
+- First login to Puhti computer (see instructions [here](../../computing/connecting/index.md))
 
 - Change to your project directory on Puhti and copy your input files there ([tips on how to transfer files](../../data/moving/index.md)).
 
@@ -40,7 +40,7 @@ With mono software, you can choose your *version* of MaxQuant.
 CSC provides a module for mono.
 
 ```text
-module load mono
+module load mono/5.14
 ```
 
 Download your linux-compatible version of MaxQuant (e.g., v2.0.3.0) to your 
@@ -81,7 +81,7 @@ minimal example script (calles say, e.g., `maxquant.sh`), to start with:
 
 # load maxquant environment
 
-module load mono
+module load mono/5.14
 
 # adjust file paths here
 

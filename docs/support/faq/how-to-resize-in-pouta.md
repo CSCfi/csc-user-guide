@@ -7,7 +7,7 @@ You can find more information about snapshot [here](../../cloud/pouta/snapshots.
 
 ### Using the resize functionality 
 !!! Warning    
-    I/O flavors [cannot be resized](../../cloud/pouta/vm-flavors-and-billing.md#io-flavors_2) to a different family flavors. Currently resizing I/O flavors to another I/O flavor is not supported. We recommend to use [snapshots](../../cloud/pouta/snapshots.md#launching-an-instance-from-a-volume-snapshot).
+    [I/O flavors](../../cloud/pouta/vm-flavors-and-billing.md#io-flavors_2) and [GPU flavors](../../cloud/pouta/vm-flavors-and-billing.md#gpu-flavors_2) cannot be resized to a different family flavors. We recommend to use [snapshots](../../cloud/pouta/snapshots.md#launching-an-instance-from-a-volume-snapshot).
 
 !!! Warning  
     It's possible to resize from a `standard` flavor *family* to a `hpc` flavor *family*. Nothing will prevent you to do that but it's **highly not recommended!**  
@@ -59,3 +59,23 @@ Click **Extend Volume**
 You should see the new size of your volume.
 
 You can now attach the new volume back to your instance.
+
+## Customize disk size when creating the instance
+
+To customize the root disk size during instance creation (instead of using a snapshot), follow these steps:
+
+1. Go to **Project > Compute > Instances** and click on **Launch Instance**.
+2. In the **Details** section:
+   - **Instance Name**: Enter a name for your instance.
+   - **Flavor**: Choose the appropriate flavor, such as `standard.tiny` (with default 80 GB disk space).
+   - **Instance Boot Source**: Choose **Boot from image (creates a new volume)**.
+   - **Image Name**: Select the image you want to use (e.g., AlmaLinux-8).
+   - **Device Size**: Adjust the size of the root volume to your desired size, as shown in the image (e.g., 200 GB instead of the default 80 GB).
+   
+   - This field allows you to customize the root volume size beyond the flavor's default disk size as shown in figure below.
+
+3. After configuring the rest of the options (security, networking, etc.), click **Launch**.
+
+![cloud_pouta_resize_custome_disk](img/cloud_pouta_resize_custome_disk.png)
+
+If you'd like to extend the volume using a snapshot instead, please visit [Volume snapshots](../../cloud/pouta/snapshots.md#volume-snapshots) for more detailed instructions.

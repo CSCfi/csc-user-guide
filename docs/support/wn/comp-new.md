@@ -1,5 +1,42 @@
 # Computing environment
 
+## Puhti and Mahti web interfaces updated to release 23 and 9, 23.10.2024
+
+* MLflow, Tensorboard, and the Desktop app now work with newer Apptainer.
+* The number of CPUs per GPU is now limited to 10.
+* The link to MyCSC has been fixed.
+* Puhti: The fonts in the Accelerated Visualization app have been improved.
+* Open OnDemand updated to version 3.1.9.
+
+## Puhti and Mahti web interfaces updated to release 22 and 8, 28.8.2024
+* The Jupyter app launch form has been improved.
+    * Module version for Python modules can now be selected using a dropdown.
+    * The UI for extending the Python environment with additional packages has been simplified.
+* The MLflow app launch form now lists all available pytorch module versions.
+* The performance of the web interfaces have been improved.
+* The Compute node shell now supports running multiple instances on the same node.
+* Open OnDemand updated to version 3.1.7.
+
+## Puhti and Mahti web interfaces updated to release 21 and 7, 13.6.2024
+* VSCode updated to 1.89.1.
+* Jupyter app should work better with virtual environments created outside the web interface.
+* Puhti: RStudio now has R version 4.4.0 available.
+* Puhti: VisIt updated to 3.3.3. Some previously missing dependencies are now installed.
+* Open OnDemand updated to version 3.1.5.
+
+## Puhti and Mahti web interfaces updated to release 20 and 6, 27.5.2024
+* The Cloud storage configuration app can now configure connections to LUMI-O.
+
+
+## Puhti and Mahti web interfaces updated to release 19 and 5, 10.4.2024
+
+* The error pages for issues caused by Lustre and other issues have been improved.
+* The Desktop app terminal now supports submitting Slurm jobs.
+* The Desktop app terminal now uses the default $XDG_CONFIG_HOME rather than a custom location.
+* Downloading directories now works correctly again.
+* Accessibility statement has been updated and some accessibility issues have been fixed.
+* Open OnDemand updated to version 3.1.4
+
 
 ## Puhti web interface updated to release 18, 5.3.2024
 
@@ -82,7 +119,7 @@ Read more in the [LUMI documentation](https://docs.lumi-supercomputer.eu/runjobs
 ## Mahti web interface updated to release 2, 13.10.2023
 
 * [MLflow Tracking](../../computing/webinterface/mlflow.md) is now available as an interactive app.
-- An [Allas configuration tool](../../computing/webinterface/index.md#using-allas) has been added for configuring a connection to Allas.
+- An [Allas configuration tool](../../computing/webinterface/file-browser.md#accessing-allas-and-lumi-o) has been added for configuring a connection to Allas.
 - [IDA](../../data/ida/using_ida.md) is now supported in the file browser.
 - The Desktop app configuration and icons are now saved between sessions.
 - VSCode updated to 1.82.2.
@@ -116,7 +153,7 @@ Apps available in the [Mahti web interface](https://www.mahti.csc.fi):
 * Compute and Login node shell
 * Desktop with Maestro and VMD
 * Disk quotas and Project view
-* File browser with [support for Allas](../../../computing/webinterface/#using-allas)
+* File browser with [support for Allas](../../computing/webinterface/file-browser.md#accessing-allas-and-lumi-o)
 * Jupyter, Julia-Jupyter and Jupyter for courses
 * TensorBoard
 * Visual Studio Code

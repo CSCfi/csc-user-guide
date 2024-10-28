@@ -119,21 +119,22 @@ Common issues:
 Tests are run to check, for example, that your pull request complies with the CSC Docs style guide and that there are no broken links. If any such errors are found in your commits, the tests will not pass and you need to figure out what went wrong:
 
 1. Find out which tests did not pass under the notification `Some checks were not successful` in the Review-dialogue (marked with a red x and text `Failing after X - Build Failed`).
-2. To the right of the failed test, click `Details`, which opens the `Checks` tab.
-3. Under the `Build Failed` section, click the link at `The build failed` to open the Travis CI page with logged details on the build.
-4. Scan through the Job log for any text marked in red. These are errors that the test found, and the reason for them is written before the red text. 
-5. An example error is shown below. Here, the `link_check.py` test script was run to see whether any links were broken. The test found two broken section links and it tells you in which files and on which lines the errors are.
+1. To the right of the failed test, click `Details`, which opens the `Checks` tab.
+1. Under the `Build Failed` section, click the link at `The build failed` to open the Travis CI page with logged details on the build.
+    - Alternatively, look for your PR in the [list of csc-user-guide pull requests at Travis CI](https://app.travis-ci.com/github/CSCfi/csc-user-guide/pull_requests).
+1. Scan through the Job log for any text marked in red. These are errors that the test found, and the reason for them is written before the red text.
+1. An example error is shown below. Here, the `link_check.py` test script was run to see whether any links were broken. The test found two broken section links and it tells you in which files and on which lines the errors are.
 
-```console
-$ python3 tests/python_link_tests/link_check.py
-The section link namd.md#batch-script-example-for-mahti in file docs/apps/namd.md on line 33 is broken
-The section link cp2k.md#example-batch-script-for-mahti-using-mixed-mpi-openmp-parallelization in file docs/apps/cp2k.md on line 81 is broken
-No broken file links found
-No hidden files found
-The command "python3 tests/python_link_tests/link_check.py" exited with 1.
-```
+    ```console
+    $ python3 tests/python_link_tests/link_check.py
+    The section link namd.md#batch-script-example-for-mahti in file docs/apps/namd.md on line 33 is broken
+    The section link cp2k.md#example-batch-script-for-mahti-using-mixed-mpi-openmp-parallelization in file docs/apps/cp2k.md on line 81 is broken
+    No broken file links found
+    No hidden files found
+    The command "python3 tests/python_link_tests/link_check.py" exited with 1.
+    ```
 
-6. Fix the errors, commit and push the revised files to the same branch and the tests should now pass.
+1. Fix the errors, commit and push the revised files to the same branch and the tests should now pass.
 
 ## How can I preview my edits?
 
@@ -141,7 +142,7 @@ You can preview how the Docs CSC page would look like with your changes included
 
 ### Using the preview feature for active branches hosted on Rahti
 
-* A full preview for ongoing work is available for all branches: https://csc-guide-preview.rahtiapp.fi/origin/
+* A full preview for ongoing work is available for all branches: https://csc-guide-preview.2.rahtiapp.fi/origin/
 * Select your branch from the list to get a preview of your version of Docs CSC
 * Note, currently absolute internal links formatted as e.g. `/support/accessibility/` don't work in the preview, but they will work on docs.csc.fi.
 
@@ -177,13 +178,21 @@ pip install -r requirements.txt
 
 #### Conda
 
-Detailed instructions for installing Conda on Windows are found [here](GETTING_STARTED.md#setting-up-a-development-environment-on-windows), but the gist of it, regardless of the operating system used, is to install [Miniconda](https://docs.conda.io/projects/miniconda/en/latest/) and to use it to create the virtual environment. So, with Miniconda installed, an environment containing everything needed to run MkDocs can be created by running the command
+Detailed instructions for installing Conda on Windows are found [here](GETTING_STARTED.md#setting-up-a-development-environment-on-windows), but the gist of it, regardless of the operating system used, is to install [Miniconda](https://docs.conda.io/projects/miniconda/en/latest/), use it to create a virtual environment to install the requirements in. So, with Miniconda installed, an environment to run MkDocs in can be created by running the command
 
 ```bash
-conda env create -f docs/support/tutorials/conda/conda-docs-env-freeze.yaml
+conda env create -f development/conda-docs-base-latest.yaml
 ```
 
-Add a `--force` flag if you already have a Conda environment named `docs-env` (you got `CondaValueError: prefix already exists: [...]`) and want to overwrite it. Activate the new environment with
+Add a `--force` flag if you already have a Conda environment named `docs-env` (you got `CondaValueError: prefix already exists: [...]`) and want to overwrite it. The environment is now ready for installing the requirements.
+
+```bash
+conda run -n docs-env pip install -r requirements.txt
+```
+
+If you want to reinstall the dependencies, add a `--force-reinstall` flag to the Pip command.
+
+Activate the new environment with
 
 ```bash
 conda activate docs-env
@@ -213,7 +222,7 @@ You can also run the tests locally with
 bash tests/run_tests.sh
 ```
 
-The tests depend on the Conda environment, so remember to activate it before running them.
+The tests depend on the Conda environment, so remember to activate it before running them, or use `conda run -n docs-env bash tests/run_tests.sh`.
 
 #### Scripts
 
@@ -252,7 +261,7 @@ the debugging view lists the literal breadcrumbs:
 ## How and who should I ask to review my PR?
 
 1. Ask someone (one or two persons) who knows the *content* of the work you have committed to review your pull request. This is done in your pull request view using the right-hand-side panel, under `Reviewers`. The panel will suggest a few names for you based on, for example, who has edited the same pages recently. To view more reviewer options, click the cogwheel in the upper right corner of the `Reviewers` panel. If you're still unsure who to pick, you can always drop a message in the Rocket Chat channel #docs.csc.fi. Always request someone to review your PR, otherwise there's a high chance that it will just linger around.
-2. To help the reviewer to get started with going through your PR, you should leave a comment in the PR with a link to the preview page `https://csc-guide-preview.rahtiapp.fi/origin/your-branch/path/to/page/` with your additions/changes (edit `/your-branch/path/to/page/` as needed). Any other comments are of course also helpful for the reviewer to understand what you have done.
+2. To help the reviewer to get started with going through your PR, you should leave a comment in the PR with a link to the preview page `https://csc-guide-preview.2.rahtiapp.fi/origin/your-branch/path/to/page/` with your additions/changes (edit `/your-branch/path/to/page/` as needed). Any other comments are of course also helpful for the reviewer to understand what you have done.
 3. Once the reviewer has gone through your PR, they will request changes or approve the PR. Once approved, someone with merge permissions will merge your PR to the master branch. If the changes you have made are urgent, you can always ping the Rocket Chat channel #docs.csc.fi to expedite the merging of your PR.
 
 ## I was asked to review a PR, what should I do?
@@ -260,7 +269,7 @@ the debugging view lists the literal breadcrumbs:
 1. Read any comments left by the requestor. If you understand the content of the PR and have time, you're up for the task. Otherwise, communicate to the requestor that you're unable to review the PR so that they can request someone else.
 2. Ensure that all tests have passed. If the tests are failing, notify the requestor. [See also above](FAQ.md#my-pr-did-not-pass-the-tests-what-to-do).
 3. Check which files have been modified under tab `Files changed`. The panel shows the _diff_, i.e. which lines have been deleted and which have been added. Focus on these changes, but also look that the content looks good and is correct overall. Are there typos, is the text clear and concise, is the content accessible (see [Style Guide](STYLEGUIDE.md#accessibility))?
-4. Go to the [Rahti preview page](https://csc-guide-preview.rahtiapp.fi/origin/) of the branch and check that the formatting of the page looks good. If the requestor has not left the preview link as a comment, select the branch from list. The name of the branch can be seen in the PR under the title (e.g. `username wants to merge N commits into master from name-of-branch`). It's important that you view the page in the preview because the preview feature of GitHub does not show all formatting correctly, e.g. indentation of bullet-point lists. Check that links work. Note that absolute internal links will not work in the preview, but work on docs.csc.fi.
+4. Go to the [Rahti preview page](https://csc-guide-preview.2.rahtiapp.fi/origin/) of the branch and check that the formatting of the page looks good. If the requestor has not left the preview link as a comment, select the branch from list. The name of the branch can be seen in the PR under the title (e.g. `username wants to merge N commits into master from name-of-branch`). It's important that you view the page in the preview because the preview feature of GitHub does not show all formatting correctly, e.g. indentation of bullet-point lists. Check that links work. Note that absolute internal links will not work in the preview, but work on docs.csc.fi.
 5. If there are small errors, for example typos, you can correct these directly in the PR: In the `Files changed` tab go the file you want to correct, select `Edit file` (behind the three dots in the top right corner). *Commit the corrections to the same branch so that they get added to the PR!*
 6. If there are substantial revisions that should be made, click the green `Review changes` button in the top right corner and select `Request changes`. You can also leave general feedback without explicit approval. It's a good idea to suggest changes so that they appear as a diff in the conversation tab, [see here](FAQ.md#when-reviewing-a-pr-how-to-leave-commentssuggest-changes-so-that-they-appear-as-a-diff-in-the-conversation-tab).
 7. Once all corrections have been made, approve the changes (also behind the `Review changes` button). Someone with merge privileges will merge the PR into master.

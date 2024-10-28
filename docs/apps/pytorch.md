@@ -10,7 +10,28 @@ Machine learning framework for Python.
 
 !!! info "News" 
 
-    **1.3.2024** PyTorch 2.2.1 added to Puhti, Mahti and LUMI. The LUMI
+    **19.9.2024** PyTorch 2.4.1 with ROCm 6.1 added to LUMI. The LUMI
+    PyTorch module now includes [vLLM version
+    0.5.5](https://docs.vllm.ai/en/latest/) in addition to
+    FlashAttention-2, bitsandbytes and many other frequently requested
+    packages already added included in earlier installations. The LUMI
+    module still uses old-style wrappers (not the tykky-based wrappers
+    as in Puhti and Mahti).
+
+    **21.8.2024** PyTorch 2.4 added to Puhti and Mahti. The LUMI
+    installation will be delayed until after the current service
+    break. The torchtext package is no longer included as it has been
+    deprecated and no longer works with PyTorch 2.4.
+
+    **13.6.2024** PyTorch 2.3 added to Puhti and Mahti. The LUMI
+    installation will be delayed until early autumn due to an incompatible
+    ROCm driver version. This version has also updated how Python commands
+    are wrapped, as this solves several problems with using virtual
+    environments and Jupyter Notebooks. Due to this `apptainer` and
+    `apptainer_wrapper` commands will no longer work, but otherwise the
+    change should be invisible to users.
+
+    **1.3.2024** PyTorch 2.2 added to Puhti, Mahti and LUMI. The LUMI
     module includes ROCm versions of 
     [FlashAttention-2](https://github.com/ROCm/flash-attention) 
     and [bitsandbytes](https://github.com/ROCm/bitsandbytes) as these are
@@ -44,8 +65,13 @@ Currently supported PyTorch versions:
 
 | Version | Module         | Puhti | Mahti | LUMI | Notes                      |
 |:--------|----------------|:-----:|:-----:|------|:---------------------------|
-| 2.1.2   | `pytorch/2.1`  | -     | -     | X    | default version            |
-| 2.1.0   | `pytorch/2.1`  | X     | X     | -    | default version            |
+| 2.4.1   | `pytorch/2.4`  | -     | -     | X    | default version            |
+| 2.4.0   | `pytorch/2.4`  | X     | X     | -    | New tykky-based wrappers   |
+| 2.3.1   | `pytorch/2.3`  | X     | X     | -    | New tykky-based wrappers   |
+| 2.2.2   | `pytorch/2.2`  | -     | -     | X    | default version            |
+| 2.2.1   | `pytorch/2.2`  | X     | X     | -    |                            |
+| 2.1.2   | `pytorch/2.1`  | -     | -     | X    |                            |
+| 2.1.0   | `pytorch/2.1`  | X     | X     | -    |                            |
 | 2.0.1   | `pytorch/2.0`  | -     | -     | X    |                            |
 | 2.0.0   | `pytorch/2.0`  | X     | X     | -    |                            |
 | 1.13.1  | `pytorch/1.13` | -     | -     | X    | limited multi-node support |
@@ -66,26 +92,33 @@ and Horovod are not expected to work anymore with these modules. If
 you still wish to access these versions, you need to enable old RHEL7
 modules by `module use /appl/soft/ai/rhel7/modulefiles/`.
 
-If you find that some package is missing, you can often install it yourself with
-`pip install --user`. See [our Python
-documentation](python.md#installing-python-packages-to-existing-modules) for
-more information on how to install packages yourself. If you think that some
-important PyTorch-related package should be included in the module provided by
-CSC, please [contact our servicedesk](../support/contact.md).
-
-It is also possible to use [Python virtual
-environments](https://packaging.python.org/en/latest/guides/installing-using-pip-and-virtual-environments/#creating-a-virtual-environment). To
-create a virtual environment use the command `python3 -m venv
---system-site-packages venv`.
+If you find that some package is missing, you can often install it
+yourself using `pip install`. It is recommended to use Python virtual
+environments. See [our Python documentation for more information on
+how to install packages
+yourself](../support/tutorials/python-usage-guide.md#installing-python-packages-to-existing-modules).
+If you think that some important package should be included in the
+module provided by CSC, please [contact our
+servicedesk](../support/contact.md).
 
 All modules are based on containers using Apptainer (previously known
 as Singularity). Wrapper scripts have been provided so that common
 commands such as `python`, `python3`, `pip` and `pip3` should work as
-normal. For other commands, you need to prefix them with
-`apptainer_wrapper exec`, for example `apptainer_wrapper exec
-huggingface-cli`. For more information, see [CSC's general
+normal. 
+
+For **PyTorch version 2.2 and earlier**, other commands need to be
+prefixed with `apptainer_wrapper exec`, for example `apptainer_wrapper
+exec huggingface-cli`. For more information, see [CSC's general
 instructions on how to run Apptainer
-containers](../computing/containers/run-existing.md).
+containers](../computing/containers/run-existing.md). 
+
+For **PyTorch version 2.3 and later on Puhti or Mahti**, we have used
+wrappers created with [the tykky
+tool](../computing/containers/tykky.md), and all commands provided by
+pre-installed Python packages are wrapped and can be used directly. In
+case you really need to run something inside the container you can
+prefix with `_debug_exec` or run `_debug_shell` to open a shell
+session.
 
 
 !!! info "New users"
@@ -121,7 +154,7 @@ If you wish to have a specific version ([see above for available
 versions](#available)), use:
 
 ```text
-module load pytorch/1.13
+module load pytorch/2.4
 ```
 
 Please note that the module already includes CUDA and cuDNN libraries,
@@ -163,7 +196,7 @@ proportion of the available CPU cores in a single node:
     #SBATCH --time=1:00:00
     #SBATCH --gres=gpu:v100:1
         
-    module load pytorch/2.1
+    module load pytorch/2.4
     srun python3 myprog.py <options>
     ```
 
@@ -177,7 +210,7 @@ proportion of the available CPU cores in a single node:
     #SBATCH --time=1:00:00
     #SBATCH --gres=gpu:a100:1
     
-    module load pytorch/2.1
+    module load pytorch/2.4
     srun python3 myprog.py <options>
     ```
 
@@ -193,7 +226,7 @@ proportion of the available CPU cores in a single node:
     #SBATCH --time=1:00:00
     
     module use /appl/local/csc/modulefiles/
-    module load pytorch/2.1
+    module load pytorch/2.4
     srun python3 myprog.py <options>
     ```
 

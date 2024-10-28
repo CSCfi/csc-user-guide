@@ -66,7 +66,7 @@ LUMI services are free of charge for academic research for members of Finnish hi
 
 Once you have created the project, [invite the project members](how-to-add-members-to-project.md). Your LUMI project application will be sent to the CSC Resource allocation administration to be processed. The CSC Resource allocation group has meetings [every three weeks](https://research.csc.fi/applying-for-computing-resources).
 
-Please note that LUMI access is provided only with SSH keys, not with passwords. After you have received an acceptance confirmation email for your LUMI project request, please [upload your public SSH key to MyCSC according to the instructions](../computing/connecting.md#setting-up-ssh-keys).
+Please note that LUMI access is provided only with SSH keys, not with passwords. After you have received an acceptance confirmation email for your LUMI project request, please [upload your public SSH key to MyCSC according to the instructions](../computing/connecting/ssh-keys.md).
 
 For further information on LUMI projects please visit [Users in Finland](https://www.lumi-supercomputer.eu/get-started-2021/users-in-finland/){:target="_blank"}
 

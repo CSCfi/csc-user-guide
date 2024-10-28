@@ -1,8 +1,10 @@
 .csc-feedback {
-  --button-positive--fg: var(--csc-admonition-success-label--fg);
-  --button-positive--bg: var(--csc-admonition-success-label--bg);
-  --button-negative--fg: var(--csc-admonition-error-label--fg);
-  --button-negative--bg: var(--csc-admonition-error-label--bg);
+  --button-positive--fg: var(--c-success-800);
+  --button-positive--bg: var(--c-success-200);
+  --button-positive--hover: var(--c-success-600);
+  --button-negative--fg: var(--c-error-800);
+  --button-negative--bg: var(--c-error-200);
+  --button-negative--hover: var(--c-error-600);
 }
 
 .csc-feedback fieldset {
@@ -26,7 +28,6 @@
 }
 
 .csc-feedback .csc-feedback-note {
-  font-size: var(--csc-font-size--large);
   font-weight: var(--csc-font-weight--bold);
 }
 
@@ -36,7 +37,7 @@
 }
 
 .csc-feedback .csc-feedback-button--positive:is(:hover, :focus) {
-  background-color: var(--csc-success);
+  background-color: var(--button-positive--hover);
 }
 
 .csc-feedback .csc-feedback-button--negative {
@@ -45,7 +46,7 @@
 }
 
 .csc-feedback .csc-feedback-button--negative:is(:hover, :focus) {
-  background-color: var(--csc-error);
+  background-color: var(--button-negative--hover);
 }
 
 .csc-feedback .csc-rated>.csc-feedback-button {

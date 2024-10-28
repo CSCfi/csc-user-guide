@@ -1,5 +1,4 @@
-# Expand a volume
-
+--8<-- "rahtibeta_announcement.md"
 ## Non dynamically
 
 When dynamic volume expansion is not activated, the command line will give an error like:
@@ -12,11 +11,11 @@ Then a more artisanal procedure must be followed:
 
 * Create a new volume with the desired size
 
-![Create a new volume](/cloud/rahti/img/Create-new-volume.png)
+![Create a new volume](../../img/Create-new-volume.png)
 
 * Scale down the deployment that mounts the volume that is being resized.
 
-![Scale down](/cloud/rahti/img/Scale-down.png)
+![Scale down](../../img/Scale-down.png)
 
 * Mount the old and new volume in another Pod. The best option is to create a new deployment, create a file called `two-volumes.yaml` and replace the names of both volumes:
 
@@ -42,7 +41,7 @@ spec:
         deploymentconfig: two-volumes
     spec:
         containers:
-        - image: lvarin/nginx-okd:plus
+        - image: cscfi/nginx-okd:plus
           imagePullPolicy: IfNotPresent
           name: two-volumes
           resources: {}

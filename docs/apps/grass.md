@@ -1,6 +1,8 @@
 ---
 tags:
   - Free
+system:
+  - www-puhti
 ---
 
 # GRASS GIS
@@ -41,7 +43,8 @@ grass
 
 #### GRASS in LUMI
 
-Until LUMI web interface is available, GRASS needs to be used with [SSH X11 forwarding](../computing/connecting.md#using-graphical-applications).
+Until LUMI web interface is available, GRASS needs to be used with
+[SSH X11 forwarding](../computing/connecting/index.md#graphical-connection).
 
 ```
 module use /appl/local/csc/modulefiles

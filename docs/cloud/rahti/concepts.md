@@ -1,4 +1,4 @@
-# Kubernetes and OpenShift concepts
+--8<-- "rahtibeta_announcement.md"
 
 The power of Kubernetes (and OpenShift) is in the relatively simple abstractions that they provide for complex tasks such as load balancing, software updates for a distributed system, or autoscaling. Here we give a very brief overview of some of the most important abstractions, but we highly recommend that you read the concept documentation for Kubernetes and OpenShift as well:
 
@@ -7,13 +7,13 @@ The power of Kubernetes (and OpenShift) is in the relatively simple abstractions
 
 These abstractions are objects, persistent entities in the Kubernetes system. These entities are used to represent the desired state of the project (also called namespace in Kubernetes). Most of the objects are common to both plain Kubernetes and OpenShift, but OpenShift also introduces some of its own extra objects.
 
-![Kubernetes full picture](img/Kubernetes.drawio.svg)
+![Kubernetes full picture](../img/Kubernetes.drawio.svg)
 
 ## Kubernetes concepts
 
 ### Namespace
 
-Every Kubernetes object is created inside a **Namespace**. It is just a sandbox where all the other objects are contained and separated from objects belonging to other namespaces. In Openshift they are referred as **Projects**. The two names (project and namespace) are very common words in computing so referring to them can sometimes be confusing. In order to create a project, please go to the [Creating a project](/cloud/rahti/usage/projects_and_quota/#creating-a-project) documentation.
+Every Kubernetes object is created inside a **Namespace**. It is just a sandbox where all the other objects are contained and separated from objects belonging to other namespaces. In Openshift they are referred as **Projects**. The two names (project and namespace) are very common words in computing so referring to them can sometimes be confusing. In order to create a project, please go to the [Creating a project](usage/projects_and_quota.md#creating-a-project) documentation.
 
 ### Pod
 
@@ -26,7 +26,7 @@ case, a pod contains one container and perhaps one or a few different volumes.
 
 Pods are intended to be _expendable_, i.e. they may be killed at any time and a "cloud native" application must be able to continue working and show no sign of interruption to the user. It must recover automatically. Any data that needs to persist after a pod is killed should be stored on a volume attached to the pod.
 
-![Pod](img/pods.png)
+![Pod](../img/pods.png)
 
 The abstractions in Kubernetes/OpenShift are described using YAML or JSON. YAML
 and JSON are so-called data serialization languages that provide a way to
@@ -70,7 +70,7 @@ A **service** provides a stable virtual IP, a port and a DNS name for one or
 more pods. They act as load balancers, directing traffic to a group of pods
 that all serve the same application.
 
-![Service](img/service.png)
+![Service](../img/service.png)
 
 *`service.yaml`*:
 
@@ -102,7 +102,7 @@ pods dies, the ReplicaSet ensures that a new one is created in its place. They
 are typically not used on their own but rather as part of a **Deployment**
 (explained next).
 
-![ReplicaSet](img/replicaset.png)
+![ReplicaSet](../img/replicaset.png)
 
 ### Deployment
 
@@ -114,7 +114,7 @@ will perform a rolling update to kill all pods one by one and replace them with
 newer ones while making sure that end user traffic is directed towards working
 pods at all times.
 
-![Deployment](img/deployment.png)
+![Deployment](../img/deployment.png)
 
 *`deployment.yaml`*:
 ```yaml
@@ -193,9 +193,9 @@ The shared volume is defined in `spec.volumes` and "mounted" in
 
 ### StatefulSet
 
-Most Kubernetes objects are stateless. This means that they may be deleted and recreated, and the application should be able to cope with that without any visible effect. For example, a DeploymentConfig defines a Pod with 5 replicas and a Rolling release strategy. When a new image is deployed, Kubernetes will kill one by one all Pods, recreating them with different names and possibly in different nodes, always keeping at least 5 replicas active. For some application this is not acceptable, for this use case, Stateful sets have been created.
+Most Kubernetes objects are stateless. This means that they may be deleted and recreated, and the application should be able to cope with that without any visible effect. For example, a Deployment defines a Pod with 5 replicas and a Rolling release strategy. When a new image is deployed, Kubernetes will kill one by one all Pods, recreating them with different names and possibly in different nodes, always keeping at least 5 replicas active. For some application this is not acceptable, for this use case, Stateful sets have been created.
 
-Like a DeploymentConfig, a StatefulSet defines Pods based on container specification. But unlike a Deployment, a StatefulSet gives an expected and stable identity, with a persistent identifier that it is maintained across any event (upgrades, re-deployments, ...). A stateful set provides:
+Like a Deployment, a StatefulSet defines Pods based on container specification. But unlike a Deployment, a StatefulSet gives an expected and stable identity, with a persistent identifier that it is maintained across any event (upgrades, re-deployments, ...). A stateful set provides:
 
 * Stable, unique network identifiers.
 * Stable, persistent storage.
@@ -319,14 +319,16 @@ OpenShift includes all Kubernetes objects, plus some extensions:
 * **ImageStream** objects abstract images and
   enrich them to streams that emit signals when they see that a new image is
   uploaded into them by e.g. BuildConfig.
-* **DeploymentConfig** objects create new [**ReplicationControllers**](/cloud/rahti/tutorials/elemental_tutorial#replicationcontroller) based on the new images.
 * **Route** objects connects a **Service** with the internet using _HTTP_.
 
 ### DeploymentConfig
 
+!!! Warning "DeploymentConfig is deprecated"
+    DeploymentConfig is deprecated in newer versions of OpenShift OKD and will be completely removed in the future. See Redhat's [deprecation announcement of DeploymentConfig](https://access.redhat.com/articles/7041372) and their [replacement guide for DeploymentConfig](https://developers.redhat.com/learning/learn:openshift:replace-deprecated-deploymentconfigs-deployments/resource/resources:convert-deploymentconfig-deployment).
+
 DeploymentConfigs are objects that create
-[ReplicationControllers](/cloud/rahti/tutorials/elemental_tutorial#replicationcontroller) according to
-`spec.template`. They differ from ReplicationControllers in the sense that 
+[ReplicationControllers](../tutorials/elemental_tutorial.md#replicationcontroller) according to
+`spec.template`. They differ from ReplicationControllers in the sense that
 DeploymentConfig objects may start new ReplicationControllers based on the state of
 `spec.triggers`. In the example below, the DeploymentConfig performs
 an automatic rolling update when it gets triggered by an ImageStream named
@@ -335,11 +337,11 @@ Strategies](https://docs.okd.io/3.11/dev_guide/deployments/deployment_strategies
 in the OpenShift documentation.
 
 DeploymentConfig objects function similarly to deployments described in the
-chapter [concepts](/cloud/rahti/concepts/) except that deployments
+chapter [concepts](concepts.md) except that deployments
 trigger updates only when `spec.template` is changed. Furthermore, deployment
 is a pure Kubernetes concept, and DeploymentConfig is an OpenShift extension.
 
-Recall that [ReplicationControllers](/cloud/rahti/tutorials/elemental_tutorial#replicationcontroller)
+Recall that [ReplicationControllers](../tutorials/elemental_tutorial.md#replicationcontroller)
 are objects that make sure that a requested number of replicas of the pod defined in the
 `spec.template` is running.
 
@@ -388,7 +390,7 @@ In this case, the DeploymentConfig object listens to the *ImageStream* object
 ImageStreams simplify image names and get triggered by a BuildConfig if new
 images are uploaded to the registry. When a new image is
 uploaded, it can trigger its listeners to act. In the case of our
-DeploymentConfig, the action triggered would be to do an update for the pods
+Deployment, the action triggered would be to do an update for the pods
 that it is meant to deploy.
 
 A simple ImageStream object:
@@ -471,7 +473,7 @@ This will redirect any traffics coming to `<host.name.dom>` to the service `name
 * `insecureEdgeTerminationPolicy` is set to `Redirect`. This means that any traffic coming to port 80 (HTTP) will be redirected to port 443 (HTTPS).
 * `termination` is set to `edge`, This means that the route will manage the TLS certificate and decrypt the traffic sending it to the service in clear text. Other options for `termination` include `passthrough` or `reencrypt`.
 
-Every host with the pattern `*.rahtiapp.fi` will automatically have a **DNS record** and a valid **TLS certificate**. It is possible to configure a Route with any given hostname, but a `CNAME` pointing to `rahtiapp.fi` must be configured, and a **TLS certificate** must be provided. See the [Custom domain names and secure transport](/cloud/rahti/tutorials/custom-domain/) article for more information.
+Every host with the pattern `*.rahtiapp.fi` will automatically have a **DNS record** and a valid **TLS certificate**. It is possible to configure a Route with any given hostname, but a `CNAME` pointing to `rahtiapp.fi` must be configured, and a **TLS certificate** must be provided. See the [Custom domain names and secure transport](../tutorials/custom-domain.md) article for more information.
 
 #### Annotations
 

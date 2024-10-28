@@ -22,20 +22,21 @@ This article lists some basic commands for some of the most common
 operations in OpenStack. For each of the operations, we show a command
 that uses the common OpenStack command line tool.
 
-##### These minimun versions of the OpenStack commands should work with the current version of ePouta and cPouta (Rocky).
+##### These recommended versions of the OpenStack commands should work with the current version of ePouta and cPouta (Train).
 
-    python-openstackclient==3.16.0
-    python-cinderclient==4.0.2
-    python-glanceclient==2.13.0
-    python-heatclient==1.14.1
-    python-keystoneclient==3.17.0
-    python-neutronclient==6.7.0
-    python-novaclient==11.0.1
-    python-swiftclient==3.6.1
+- [python-openstackclient](https://docs.openstack.org/releasenotes/python-openstackclient/)==4.0.2
+- [python-cinderclient](https://docs.openstack.org/releasenotes/python-cinderclient/)==5.0.2
+- [python-glanceclient](https://docs.openstack.org/releasenotes/python-glanceclient/)==2.17.1
+- [python-heatclient](https://docs.openstack.org/releasenotes/python-heatclient/)==1.18.1
+- [python-keystoneclient](https://docs.openstack.org/releasenotes/python-keystoneclient/)==3.21.0
+- [python-neutronclient](https://docs.openstack.org/releasenotes/python-neutronclient/)==6.14.1
+- [python-novaclient](https://docs.openstack.org/releasenotes/python-novaclient/)==15.1.1
+- [python-swiftclient](https://docs.openstack.org/releasenotes/python-swiftclient/)==3.8.1
 
 More information: [OpenStackClient pip module](https://pypi.org/project/python-openstackclient/)  
 
-!!! Note  
+!!! info
+
     You can install the latest versions of the OpenStackClient pip module since they are backwards compatible.
 
 ##### Openstack commands and help
@@ -83,7 +84,8 @@ cores, how much memory, and so on.
 This command has the minimum amount of information for launching a
 functioning virtual machine.
 
-!!! Note
+!!! info
+
     The output of the command "openstack server create" shows also a 
     password called adminPass. You do not need to store this password as
     is not used when connecting to the virtual machine. The virtual 

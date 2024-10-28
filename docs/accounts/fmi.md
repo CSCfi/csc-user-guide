@@ -36,7 +36,7 @@ between __projappl__ and __scratch__:
 
 !!! Note
     All FMI projects share the same global quota and should therefore strive to good practices in data storage.
-    Per project usage is tracked.
+    Per project usage is tracked. If you need to adjust your FMI project quotas, please contact Lasse Jalava (CC Matti Keränen) at FMI either with email or in FMI's Slack channel 'fmi-computing'.
 
 **A cleaning script is run periodically on `/fmi/scratch` (FMI projects) the same way as on `/scratch` (Academic projects). The cleaning removes any unused files older than 180 days. You can ask for white listing your project's `/fmi/scratch` directory. Automatic cleaning is convenient, so ask white listing only if really necessary.**
 

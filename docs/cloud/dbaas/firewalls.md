@@ -1,11 +1,5 @@
 # Using Firewalls in Pukki
 
-!!! error "Closed Beta"
-    Pukki DBaaS is in closed beta. This means that the service is probably not suitable for most users
-    and there might be breaking changes. If you are still interested in using the service you can
-    [contact us](../../support/contact.md) to see if the service would be suitable for you.
-
-
 All database instances have their own firewalls. Users are responsible for making sure that the firewall rules are strict. The firewall rules should only be open to those IP-addresses that is needed. Relaxed firewall rules are probably some of the largest security risks and you need to take it seriously. Even if you don't have any "secret" data in your database, you are not allowed to have it open to the world. If you want to share your data, you should do it through a proxy or other services that might use the database as a backend. Leaving a database port open on the internet is an sure-fire way to attract malicious actors to target your database.
 
 ## How to manage firewalls
@@ -53,16 +47,16 @@ with the new IP address with the "CIDR notation" (suffix) `/32`.
 
 ### Rahti
 
-Rahti is using a `193.167.189.25/32` as a shared outgoing IP address. Note that if you are using
+Rahti is using a `86.50.229.150/32` as a shared outgoing IP address. Note that if you are using
 Rahti with the shared outgoing IP-address all other Rahti customers can access to your database
 which makes it even more important to use a strong username and password for your database.
 
-More information can be found in [Rahti security guide](../rahti/security-guide.md)
+More information can be found in [Rahti security guide](../rahti2/security-guide.md)
 
 
 
-### Notebooks
-If you need to access your Pukki database instance from Notebooks then you need to allow this IP
+### Noppe
+If you need to access your Pukki database instance from Noppe then you need to allow this IP
 `193.167.189.137/32` . Note that all other Notebook users will be able to access your database
 instances as well so it is important to use strong passwords for your database user.
 

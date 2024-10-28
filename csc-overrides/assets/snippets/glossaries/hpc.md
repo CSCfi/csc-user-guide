@@ -1,4 +1,4 @@
-*[CLI]: Command-Line Interface 
+*[CLI]: Command-Line Interface
 *[CPU]: Central Processing Unit
 *[GPU]: Graphics Processing Unit
 *[QPU]: Quantum Processing Unit
@@ -62,3 +62,10 @@
 *[MAC]: Message Authentication Code
 *[SSL]: Secure Sockets Layer
 *[EtM]: Encrypt-then-MAC
+*[UI]: User Interface
+*[GID]: Group IDentifier
+*[NFS]: Network File System
+*[FTP]: File Transfer Protocol
+*[UUID]: Universally Unique Identifier
+*[TOTP]: Time-based One-Time Password
+*[MFA]: Multi-Factor Authentication

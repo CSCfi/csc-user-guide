@@ -1,5 +1,212 @@
 # Applications
 
+## JAX 0.4.30 available on LUMI, 23.10.2024
+
+[JAX](../../apps/jax.md) 0.4.30 has now been installed on LUMI
+and set as the default version, after previously being made
+available on Puhti and Mahti. The installation on LUMI now
+makes use of the new AMD drivers and ROCM 6.0.3 installed with
+the LUMI system upgrade during September.
+
+The `transformers` package is no longer included since it
+officially only supports JAX up to version 0.4.13.
+
+From this version on, there will be "small" and "full"
+flavours of JAX, where the "full" flavour includes JAX ML
+ecosystem packages as before while the "small" flavour
+includes only JAX with GPU support as well as CPU-only
+versions of Tensorflow and PyTorch for their data loading and
+processing utilities but no additional packages. You can use
+the latter if you want a cleaner base to install additional
+packages on.
+
+## NAMD 3.0 available on Puhti and Mahti, 11.10.2024
+
+[NAMD](../../apps/namd.md) 3.0 has been installed and set as the default
+module on Puhti and Mahti.
+[See here for a list of new and improved features](https://www.ks.uiuc.edu/Research/namd/3.0/features.html).
+Notably, the GPU performance has improved significantly compared to NAMD 2.14.
+However, for large-scale GPU simulations, we recommend running NAMD3 on LUMI-G
+due to the better availability of GPUs compared to Puhti and Mahti.
+[See batch script examples here](../../apps/namd.md#batch-script-examples).
+
+## Amber24 available on Puhti and Mahti, 8.10.2024
+
+[Amber](../../apps/amber.md) version 24 (including AmberTools24) has been
+installed and set as the default module on Puhti and Mahti.
+[See here for a list of major new features](https://ambermd.org/AmberMD.php).
+
+## CSC chemistry software stack on LUMI updated, 26.9.2024
+
+The chemistry software stack maintained by CSC on LUMI
+(`/appl/local/csc/soft/chem`) has been recompiled following the recent major
+LUMI upgrade. Modules and instructions for the following software have been
+updated:
+
+* [Amber](../../apps/amber.md)
+* [CP2K](../../apps/cp2k.md)
+* [GROMACS](../../apps/gromacs.md)
+* [LAMMPS](../../apps/lammps.md)
+* [NAMD](../../apps/namd.md)
+
+At the same time, some old module versions have been deprecated. In general, we
+recommend using the most recent software versions as they tend to have better
+performance and less bugs than older releases.
+
+## PyTorch 2.4.1 available on LUMI, 19.9.2024
+
+PyTorch 2.4.1 with ROCm 6.1 is now available on LUMI. The LUMI PyTorch
+module now includes [vLLM version 0.5.5](https://docs.vllm.ai/en/latest/)
+in addition to FlashAttention-2, bitsandbytes and many other frequently
+requested packages already added included in earlier installations.  See our
+[PyTorch module documentation for more information](../../apps/pytorch.md#available).
+
+## GROMACS 2024.3, 12.9.2024
+
+[GROMACS](../../apps/gromacs.md) 2024.3 is now available on Puhti and Mahti. See
+[release notes](https://manual.gromacs.org/2024.3/release-notes/2024/2024.3.html)
+for a list of all new features and improvements.
+
+## JAX 0.4.30 available on Puhti and Mahti, 5.9.2024
+
+[JAX](../../apps/jax.md) 0.4.30 has been installed on Puhti and Mahti
+and set as the default version.
+
+The `transformers` package is no longer included since it officially
+only supports JAX up to version 0.4.13.
+
+From this version on, there will be "small" and "full" flavours of JAX,
+where the "full" flavour includes JAX ML ecosystem packages as before
+while the "small" flavour includes only JAX with GPU support as well as
+CPU-only versions of Tensorflow and PyTorch for their data loading and
+processing utilities but no additional packages. You can use the latter
+if you want a cleaner base to install additional packages on.
+
+The LUMI installation will be delayed until early autumn due to the
+ongoing system update and changes to the relevant system driver versions.
+
+## CP2K 2024.2 available on Puhti and Mahti, 27.8.2024
+
+[CP2K](../../apps/cp2k.md) 2024.2 has been installed and set as the default
+module on Puhti and Mahti. See
+[release notes](https://github.com/cp2k/cp2k/releases/tag/v2024.2)
+for a list of new features, fixes and breaking changes.
+
+## ORCA 6.0.0, 22.8.2024
+
+[ORCA](../../apps/orca.md) 6.0.0 is now available on Puhti and Mahti. This major
+release brings numerous new features and enhancements. For full details, check out
+the [ORCA 6 Changes](https://www.faccts.de/docs/orca/6.0/manual/contents/changes.html).
+
+## PyTorch 2.4.0, 21.8.2024
+
+[PyTorch](../../apps/pytorch.md) 2.4.0 added to Puhti and Mahti. The
+LUMI installation will be delayed until after the current service
+break. The torchtext package is no longer included as it has been
+deprecated and no longer works with PyTorch 2.4. See our [PyTorch
+module documentation for more information](../../apps/pytorch.md#available).
+
+## AMS 2024 available on Puhti and Mahti, 20.8.2024
+
+[AMS](../../apps/ams.md) has been updated to version 2024.102 on both Mahti and Puhti
+and set as the default module. The [AMS2024 release notes](https://www.scm.com/downloads/release-notes-amsterdam-modeling-suite-2024/)
+summarize major changes and improvements since AMS2023.
+
+## Geoconda 3.11.9, 7.8.2024
+
+[geoconda](../../apps/geoconda.md) version 3.11.9 has been added
+and set as the default module on Puhti and Mahti. Besides package updates, it includes a few new packages: `geo2ml`, `h3pandas`, `openeo`, `pcraster` and `r5py`. From packages available in previous geoconda, `copc-lib` and `osmnx` unfortunately could not be added this time.
+
+## Schrödinger Maestro 2024.3, 5.8.2024
+
+[Schrödinger Maestro](../../apps/maestro.md) version 2024.3 has been installed
+and set as the default module on Puhti and Mahti. As a major highlight, this
+release includes the new OPLS5 polarizable force field. See
+[release notes](https://www.schrodinger.com/life-science/download/release-notes/)
+for the full list of new features and improvements.
+
+## PyTorch 2.3.1, 13.6.2024
+
+[PyTorch](../../apps/pytorch.md) 2.3.1 added to Puhti and Mahti. The
+LUMI installation will be delayed until early autumn due to an
+incompatible ROCm driver version. This version has also updated how
+Python commands are wrapped, as this solves several problems with
+using virtual environments and Jupyter Notebooks. Due to this
+`apptainer` and `apptainer_wrapper` commands will no longer work, but
+otherwise the change should be invisible to users. See our [PyTorch
+module documentation for more
+information](../../apps/pytorch.md#available).
+
+## Python Data 3.10-24.04 now the default version
+
+The recently installed `python-data/3.10-24.04` has been set as the
+default version for [Python Data](../../apps/python-data.md).
+
+## R 4.4.0 in r-env, 7.6.2024
+
+R version 4.4.0 is now available in `r-env` in Puhti and is set as the default version. The new version will be available in RStudio in the Puhti web interface shortly.
+
+## Molpro 2024.1 is available on Puhti, 5.6.2024
+
+The new [Molpro 2024.1](../../apps/molpro.md) includes new features like
+a CAS(2,2) version of icMRCCSD. Check the
+[Recent changes](https://www.molpro.net/manual/doku.php?id=recent_changes)
+for a detailed list of new features, bug fixes and improvements.
+
+## GROMACS 2024.2, 22.5.2024
+
+[GROMACS](../../apps/gromacs.md) 2024.2 is now available on Puhti, Mahti and LUMI.
+New GPU versions on LUMI have been compiled to use the instant submission mode of
+AdaptiveCpp, which can improve performance and scalability in some cases by more
+than 10%. See [release notes](https://manual.gromacs.org/2024.2/release-notes/2024/2024.2.html)
+for a list of all new features and improvements.
+
+## Schrödinger Maestro 2024.2, 3.5.2024
+
+[Schrödinger Maestro](../../apps/maestro.md) version 2024.2 has been installed
+and set as the default module on Puhti and Mahti. See
+[release notes](https://www.schrodinger.com/life-science/download/release-notes/)
+for a list of new features and improvements.
+
+## AMS 2023 available on Puhti and Mahti, 21.3.2024
+
+[AMS](../../apps/ams.md) has been updated to version 2023.104 on both Mahti and Puhti
+and set as the default module. The corresponding [AMS-GUI](../../apps/ams-gui.md)
+is also updated.
+
+## GROMACS 2024.1, 21.3.2024
+
+[GROMACS](../../apps/gromacs.md) 2024.1 is now available on Puhti, Mahti and LUMI.
+See [release notes](https://manual.gromacs.org/2024.1/release-notes/2024/2024.1.html)
+for a list of new features and improvements.
+
+## CP2K 2024.1 available on Puhti, Mahti and LUMI, 20.3.2024
+
+[CP2K](../../apps/cp2k.md) 2024.1 has been installed and set as the default
+module on Puhti, Mahti and LUMI. See
+[release notes](https://github.com/cp2k/cp2k/releases/tag/v2024.1)
+for a list of new features, fixes and breaking changes. As a notable change,
+calculations will now abort instead of just issuing a warning if the SCF cycle
+fails to converge. Add `IGNORE_CONVERGENCE_FAILURE` keyword in the `&SCF`
+section to enable the old behavior.
+
+## NAMD 3.0b6 available on LUMI, 12.3.2024
+
+The latest AMD GPU-enabled version of NAMD is now available pre-installed
+on LUMI. See our [NAMD page](../../apps/namd.md) for batch script examples
+and performance notes, as well as the
+[NAMD website](https://www.ks.uiuc.edu/Research/namd/3.0/features.html)
+for a list of new features that improve the performance of single-node
+multi-GPU simulations.
+
+## JAX 0.4.23, 6.3.2024
+
+[JAX](../../apps/jax.md) 0.4.23 was added to Puhti, Mahti and LUMI.
+JAX modules now also include a CPU-only installation of PyTorch,
+which sometimes used together with JAX for its data loading capabilities,
+as well as relevant updates to all Python packages already bundled in the
+previous JAX modules.
+
 ## PyTorch 2.2.1, 1.3.2024
 
 [PyTorch](../../apps/pytorch.md) 2.2.1 added to Puhti, Mahti and
@@ -28,7 +235,7 @@ performance.
 ## TmoleX 2024, 9.2.2024
 
 [TmoleX](../../apps/tmolex.md) has been updated and is now also available via
-the web interface on Puhti. 
+the web interface on Puhti.
 
 ## TURBOMOLE 7.8, 8.2.2024
 
@@ -47,16 +254,16 @@ for a list of new features and improvements.
 ## ORCA 5.0.4, 7.2.2024
 
 [ORCA](../../apps/orca.md) 5.0.4 is now available on Puhti and Mahti. It's a bugfix release including corrections for the bug in the D4 implementation.
-Please note the change in how it's launched in a batch script. 
+Please note the change in how it's launched in a batch script.
 
 ## R 4.3.2 in r-env, 2.2.2024
-	
+
 R version 4.3.2 is now available in [r-env](../../apps/r-env.md) and is set as the default version. The new version will also be available in RStudio in the Puhti web interface shortly.
 
 ## COSMO-RS, 30.1.2024
 
 [COSMO-RS](../../apps/cosmors.md) is a new tool for modelling fluid phase properties,
-based on quantum chemistry derived properties. 
+based on quantum chemistry derived properties.
 It consists of the BIOVIA COSMOsuite toolbox and can be utilized in combination with
 [TURBOMOLE](../../apps/turbomole.md).
 
@@ -78,7 +285,7 @@ GPU-enabled modules on LUMI are simply suffixed with `-gpu` to avoid confusion.
 ## PyTorch 2.1 and TensorFlow 2.14, 13.11.2023
 
 [PyTorch](../../apps/pytorch.md) 2.1 and
-[TensorFlow](../../apps/tensorflow.md) 2.14 are now available on Puhti and Mahti. 
+[TensorFlow](../../apps/tensorflow.md) 2.14 are now available on Puhti and Mahti.
 See [PyTorch 2.1 blog post](https://pytorch.org/blog/pytorch-2-1/) or the
 [TensorFlow 2.14 release notes](https://github.com/tensorflow/tensorflow/releases/tag/v2.14.0).
 
@@ -133,7 +340,7 @@ the [GROMACS manual](https://manual.gromacs.org/2023.2/release-notes/2023/2023.2
 [the CP2K website](https://www.cp2k.org/version_history#section20232).
 
 ## R 4.3.0 in r-env, 20.6.2023
-	
+
 R version 4.3.0 is now available in `r-env` and is set as the default version. The new version will also be available in RStudio in the Puhti web interface shortly.
 
 ## Gromacs 2023.1 available on LUMI, 7.6.2023
@@ -147,7 +354,7 @@ have also been updated and the
 using the built-in `multidir` feature extended and adapted for LUMI-G.
 
 ## R 4.2.2 in r-env, 26.5.2023
-	
+
 R version 4.2.2 is now available in `r-env` and is set as the default version. The new version will also be available in RStudio in the Puhti web interface shortly.
 
 ## Schrödinger Maestro 2023.2, 25.5.2023
@@ -177,7 +384,7 @@ developers.
 ## PyTorch 2.0 and TensorFlow 2.12, 27.3.2023
 
 [PyTorch](../../apps/pytorch.md) 2.0 and
-[TensorFlow](../../apps/tensorflow.md) 2.12 are now available on Puhti and Mahti. 
+[TensorFlow](../../apps/tensorflow.md) 2.12 are now available on Puhti and Mahti.
 See [PyTorch 2.0 blog post](https://pytorch.org/blog/pytorch-2.0-release/) or the
 [TensorFlow 2.12 release notes](https://github.com/tensorflow/tensorflow/releases/tag/v2.12.0).
 

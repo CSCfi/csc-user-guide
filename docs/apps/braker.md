@@ -5,7 +5,7 @@ tags:
 
 # BRAKER
 
-## Description
+
 
 BRAKER is a tool for eukaryotic genome annotation.
 It uses genomic and RNA-Seq data to automatically generate full gene structure annotations in novel genome.
@@ -17,9 +17,9 @@ BRAKER is based on GeneMark-ET R2 and AUGUSTUS pipelines.
 Free to use and open source under [Artistic License] (https://opensource.org/licenses/artistic-license-1.0)
 
 
-## Version
+## Available
 
-Version on CSC's Servers
+
 
 Puhti: 2.1.6, 3.0.7
 
@@ -35,17 +35,23 @@ Each user needs to license and install them for their own use.
 
 ### GeneMark
 
-Go to [GeneMark download page](http://exon.gatech.edu/GeneMark/license_download.cgi), and fill in the form. The version you need is "GeneMark-ES/ET/EP+" for "LINUX 64 kernel 3.10 - 5". Download the program file and yhe license key. To uncompress the packages:
+Go to [GeneMark download page](http://exon.gatech.edu/GeneMark/license_download.cgi), and fill in the form. The version you need is "GeneMark-ES/ET/EP+" for "LINUX 64 kernel 3.10 - 5". Download the program file and the license key. To uncompress the packages:
 
 ```bash
 tar xf gmes_linux_64_4.tar.gz
 gunzip gm_key_64.gz
 ```
 
-To tell BRAKER where to find GeneMark, set environment variable `$GENEMARK_PATH`to point to install location or use command line option `--GENEMARK_PATH`.
+Copy the uncompressed key file to your home directory.
 
 ```bash
-export GENEMARK_PATH=/path/to/gmes_linux_64_4
+cp gm_key_64 $HOME
+```
+
+To tell BRAKER where to find GeneMark, use command line option `--GENEMARK_PATH` to point to install location.
+
+```txt
+--GENEMARK_PATH=/path/to/gmes_linux_64_4
 ```
 
 BRAKER module contains all the necessary dependencies.
@@ -60,10 +66,10 @@ wget https://github.com/gatech-genemark/ProtHint/releases/download/v2.6.0/ProtHi
 tar xf ProtHint-2.6.0.tar.gz
 ```
 
-Set environment variable `$PROTHINT_PATH`to point to install location or use command line option `--PROTHINT_PATH`.
+Use command line option `--PROTHINT_PATH`to point to install location.
 
-```bash
-export PROTHINT_PATH=/path/to/ProtHint-2.6.0/bin
+```text
+--PROTHINT_PATH=/path/to/ProtHint-2.6.0/bin
 ```
 
 BRAKER module contains all the necessary dependencies.
@@ -79,7 +85,7 @@ copy_config
 
 It will create directory `config` in your current directory.
 
-Set environment variable `$AUGUSTUS_CONFIG_PATH` to print to the config directory or use command line option `--AUGUSTUS_CONFIG_PATH`
+Use command line option `--AUGUSTUS_CONFIG_PATH` to point to the config directory
 
 
 ## Usage
@@ -119,7 +125,7 @@ braker.pl --help
 Sample BRAKER command in Puhti:
 
 ```bash
-braker.pl --species=sp1 --genome=Drosophila.dna.fa --prot_seq=Drosophila.pep.fa --prg=gth --trainFromGth --AUGUSTUS_ab_initio --cores=$SLURM_CPUS_PER_TASK
+braker.pl --species=sp1 --genome=Drosophila.dna.fa --prot_seq=Drosophila.pep.fa --prg=gth --trainFromGth --AUGUSTUS_ab_initio --cores=$SLURM_CPUS_PER_TASK --GENEMARK_PATH=/path/to/gmes_linux_64_4 --PROTHINT_PATH=/path/to/ProtHint-2.6.0/bin --AUGUSTUS_CONFIG_PATH /path/to/config
 ```
 
 
@@ -142,14 +148,11 @@ Sample batch job scrip for BRAKER:
 module load braker
 
 # Use correct paths instead of "/path/to"
-export GENEMARK_PATH=/path/to/gmes_linux_64_4
-export PROTHINT_PATH=/path/to/ProtHint-2.6.0/bin
-export AUGUSTUS_CONFIG_PATH=/path/to/config
-
-
-# start the job
 braker.pl --species=sp1 --genome=Drosophila.dna.fa --prot_seq=Drosophila.pep.fa \
---prg=gth --trainFromGth --AUGUSTUS_ab_initio --cores=$SLURM_CPUS_PER_TASK
+--prg=gth --trainFromGth --AUGUSTUS_ab_initio --cores=$SLURM_CPUS_PER_TASK \
+--GENEMARK_PATH=/path/to/gmes_linux_64_4 \
+--PROTHINT_PATH=/path/to/ProtHint-2.6.0/bin \
+--AUGUSTUS_CONFIG_PATH /path/to/config
 ```
 
 In the batch job example above one task (--ntasks 1) is executed. The BRAKER job uses 8 cores (--cpus-per-task=8 ) with total of 32 GB of memory (--mem=32000).

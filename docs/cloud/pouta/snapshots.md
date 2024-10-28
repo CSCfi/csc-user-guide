@@ -5,13 +5,15 @@ Table of Contents
 This article describes how to use [snapshots](https://docs.openstack.org/arch-design/common/glossary.html#term-snapshot){target="_blank"} to capture and store 
 the file system state of a Pouta virtual machine.
 
-### Types of snapshots
+## Types of snapshots
 
 There are two types of snapshots used in OpenStack: [image](https://docs.openstack.org/arch-design/common/glossary.html#image){target="_blank"} (instance)
 snapshots and [volume](https://docs.openstack.org/arch-design/common/glossary.html#term-volume){target="_blank"} snapshots. Both snapshot types can be utilized
 when creating a new instance. Image snapshots are more common.
 
-### Instance snapshot from the web interface
+### Instance snapshot
+
+#### Instance snapshot from the web interface
 
 Select 'Instances' tab, under 'Compute', from the left hand side menu (**1**).
 Select the virtual machine you want to take a snapshot of from the list
@@ -26,9 +28,10 @@ to start the process.
 
 You can access a list of snapshots from the 'Images' tab.
 
-### Instance snapshot from the CLI
+#### Instance snapshot from the CLI
 
-!!! note
+!!! info
+
     Ensure you have sourced the OpenStack RC file and can communicate with your OpenStack environment.
 
 Use the following [command](https://docs.openstack.org/python-openstackclient/latest/cli/command-objects/server.html#server-list){target="_blank"} to check the list of available instances:
@@ -105,9 +108,10 @@ Image snapshots hold the state of a given instance's root disk, and
 can typically be used as bootable images.
 
 !!! warning
+
     Possible [ephemeral disk](ephemeral-storage.md) is not included in the snapshot.
 
-### Launching a snapshot from the web interface
+#### Launching a snapshot from the web interface
 
 Image snapshots are used just like any other image. You can launch one
 from the 'Images' view or from the 'Instances' view ('Launch Instance' button).
@@ -118,7 +122,7 @@ from the list of snapshots (**3**) the one you wish to launch.
 
 ![Launch a snapshot based instance.](../img/cloud_pouta_vm_snapshot_3.svg)
 
-### Launching a snapshot from the CLI
+#### Launching a snapshot from the CLI
 
 A snapshot can also be launched from a command line using the following [command](https://docs.openstack.org/python-openstackclient/latest/cli/command-objects/server.html#server-create){target="_blank"}:
 
@@ -174,8 +178,44 @@ A few points to bear in mind:
  * Any bindings, e.g. to a public IP address, are not automatically changed from the old instance to the new one (**3**).
  * Any volume mappings will also need to be reconfigured if you want to use them with the new instance.
 
+#### Downloading an instance snapshot
 
-### Volume snapshot from the web interface
+It is possible to download an image, including image snapshots, but only from the CLI. The steps are the following:
+
+!!! Info
+    In order to run this commands you need to [install the openstack client](../install-client/) and [login into Pouta](../install-client/#configure-your-terminal-environment-for-openstack).
+
+2. List all the images in the project:
+
+    ```sh
+    $ openstack image list
+
+    +--------------------------------------+------------------------------------------+--------+
+    | ID                                   | Name                                     | Status |
+    +--------------------------------------+------------------------------------------+--------+
+    | 5c057d87-5353-4f3c-a7a9-bffbbb99da4c | CentOS-7                                 | active |
+    | 1585f871-f9c3-47ec-a3ff-1b80bce0b0eb | CentOS-7-Cuda                            | active |
+    | 500e4de4-23fb-4cc1-bac7-83c43a8cb7eb | CentOS-8-Stream                          | active |
+    | bef0ff50-1aaa-48af-95b2-910bf1da7dc9 | Ubuntu-18.04                             | active |
+    | 5842526b-c835-4ad7-b572-4a8fe87752d1 | Ubuntu-20.04                             | active |
+    | 41c7cd7e-8e10-4ced-a89e-41f159fe49fd | Ubuntu-22.04                             | active |
+    | 3a9aad67-0f9c-4493-b574-17fe28d40afc | cirros                                   | active |
+    | 14b2de4d-a5de-453a-bee0-f0b506198760 | important-linux-vm-snapshot-20320912     | active |
+    | 5b92fd8b-d7e2-471c-bfbc-27c3041e54f7 | important-linux-vm-snapshot-20320912-cli | active |
+    +--------------------------------------+------------------------------------------+--------+
+    ```
+
+1. Copy the ID of the image (snapshot) you want to download and run the `openstack image save` command, like this:
+
+    ```sh
+    openstack image save 14b2de4d-a5de-453a-bee0-f0b506198760 >./important-linux-vm-snapshot-20320912.raw
+    ```
+
+1. After a few minutes, you will get a file with the image (snapshot).
+
+### Volume snapshots
+
+#### Volume snapshot from the web interface
 
 Select 'Volumes' tab, under Volumes, from the left hand side menu (**1**). Select the volume 
 you want to take a snapshot of from the list and extend the 'Actions' menu.
@@ -188,7 +228,7 @@ to start the process.
 
 ![Naming the snapshot and launching creation.](../img/cloud_pouta_vm_snapshot_6.svg)
 
-### Volume snapshot from the CLI
+#### Volume snapshot from the CLI
 
 Use the following [command](https://docs.openstack.org/python-openstackclient/latest/cli/command-objects/volume.html#volume-list){target="_blank"} to check the list of available volumes:
 
@@ -247,7 +287,7 @@ to get the following kind of listing:
 +--------------------------------------+---------------------------------+-------------+-----------+------+
 ```
 
-### Launching an instance from a volume snapshot
+#### Launching an instance from a volume snapshot
 
 If certain requirements are met (the volume snapshot is bootable,
 contains a bootable operating system etc.), a new instance can be
@@ -267,7 +307,64 @@ is a slightly longer process and is not covered in
 this article. However, if you are interested, you can find more
 information in the official OpenStack [documentation](https://docs.openstack.org/ocata/user-guide/cli-nova-launch-instance-from-volume.html){target="_blank"}.
 
-### General considerations
+#### Downloading a volume snapshot
+
+It is not possible to download a volume snapshot directly from OpenStack, not from the web interface neither from the CLI. But it is possible to indirectly download the contents of a snapshot. The basic idea is to create a volume from the volume snapshot, and then mount said new volume into a VM. Once that is done, it will be possible to download individual files or the whole volume in a single file.
+
+1. Create the volume from the snapshot:
+
+    ![Create volume](../img/cloud_pouta_vm_snapshot_8.svg)
+
+    ![Create volume](../img/cloud_pouta_vm_snapshot_9.svg)
+
+    Set the `Volume Name` to something that clearly identifies the volume as a snapshot, as when the process is over, you will need to delete this volume.
+    !!! Info "Using the CLI"
+        `openstack volume create --snapshot b4f95381-e56d-4080-95e4-935c66528005 test-snapshot`
+
+        The id `b4f95381-e56d-4080-95e4-935c66528005` corresponds to the snapshot we want to restore, and `test-snapshot` is the name of the new createc volume.
+
+1. Now you need to attach the volume to a VM. You can use an existing VM or [create a new VM](../launch-vm-from-web-gui/). Once you have a VM ready, you need to attach the volume to it:
+
+    ![Manage Attachments](../img/cloud_pouta_vm_snapshot_10.svg)
+
+    ![Manage Volume Attachments](../img/cloud_pouta_vm_snapshot_11.svg)
+
+    !!! Info "Using the CLI"
+        `openstack server add volume salto 1a0c583d-1981-4246-9b7f-23865c1884c1`
+
+         `salto` is the name of the VM, the id corresponds to the volume newly created.
+
+1. Once attached, you need to mount the volume into a folder of the VM. First, you need to know the device name. The information is under the `Attached To` field in the Volumes table.
+
+     ![Attached To](../img/attached_to.png)
+
+1. [Log in the VM via SSH](../connecting-to-vm/) and mount the folder:
+
+    ```sh
+    sudo mount /dev/vdb /mnt
+    ```
+
+    In the case above, the device is `/dev/vdb`, and the folder `/mnt`.
+
+1. Once mounted, you can use `scp` or `rsync` to get individual files in a folder:
+
+    ```sh
+    scp salto:/mnt/important-file .
+    ```
+
+    In this case we are using `scp`, with the host name `salto` and the file we are retrieving `important-file`. On the other hand, if you want to get all the files in a compressed `tar` file, you can run something like:
+
+    ```sh
+    $ ssh salto "sudo tar czf - /mnt/" > file.tar.gz
+    ```
+
+1. After you get the files you needed to get, you need to clean up:
+
+    * Unmount the volume `umount /mnt`.
+    * Detach the volume from the VM.
+    * Remove the volume you created in step 1.
+
+## General considerations
 
 We recommend powering off the instance and detaching volumes
 before taking snapshots. This is the best way to make sure

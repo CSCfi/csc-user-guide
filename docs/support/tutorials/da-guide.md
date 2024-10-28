@@ -1,6 +1,6 @@
 # Data analysis guide
 
-The purpose of this guide is to help you in choosing the right tools and environment for your data analysis.  In addition, CSC organizes a [wide variety of training courses](https://www.csc.fi/web/training), many of which are related to data analytics and machine learning in CSC's computing environments.  Finally, CSC's specialists are happy to help with all aspects of your data driven research, and can be contacted via the [CSC Service Desk](https://www.csc.fi/contact-info).
+The purpose of this guide is to help you in choosing the right tools and environment for your data analysis.  In addition, CSC organizes a [wide variety of training courses](https://www.csc.fi/en/trainings), many of which are related to data analytics and machine learning in CSC's computing environments.  Finally, CSC's specialists are happy to help with all aspects of your data driven research, and can be contacted via the [CSC Service Desk](../../support/contact.md).
 
 ## Getting started
 
@@ -23,7 +23,7 @@ Below is a short glossary of CSC's services that are most relevant for data anal
 
 [**Rahti**](../../cloud/rahti/index.md) is CSC's container cloud.  Here you can easily create virtual applications based on container images.
 
-[**Notebooks**](https://notebooks.csc.fi/) is a great service if you just want to run a quick analysis directly in your web browser. Notebooks supports Jupyter with Python tools for data analysis and machine learning, and also RStudio.
+[**Noppe**](https://noppe.csc.fi/) is a great service if you just want to run a quick analysis directly in your web browser. Noppe supports Jupyter with Python tools for data analysis and machine learning, and also RStudio.
 
 ## Example use cases
 
@@ -31,7 +31,7 @@ Below is a short glossary of CSC's services that are most relevant for data anal
 
 *You have been dabbling in Excel or SPSS but now you are looking for more powerful ways to handle your data.*
 
-A great way to start with data analytics is to attend a course. You can check out upcoming courses on the [CSC training website](https://www.csc.fi/web/training). Also, CSC has some training materials that are suitable for self-learning, such as these introductory courses:
+A great way to start with data analytics is to attend a course. You can check out upcoming courses on the [CSC training website](https://www.csc.fi/en/trainings). Also, CSC has some training materials that are suitable for self-learning, such as these introductory courses:
 
 - [R for Beginners](https://github.com/csc-training/R-for-beginners)
 - [Data Analysis with R](https://github.com/csc-training/da-with-r-remote)
@@ -52,7 +52,7 @@ We also have [instructions on how to use the Allas object storage from RStudio](
 
 In most cases, the next step would be to move to CSC's supercomputer Puhti, which is a high performance computing (HPC) cluster. That means it's not one computer, but a collection of many computers. Users access the front-end server (login node) of Puhti, where they can submit computing jobs to a queuing system which takes care of distributing them to the cluster's different computers (compute nodes).  Please read the [instructions on how to access Puhti](../../computing/index.md), and [how to submit computing jobs to Puhti's queuing system](../../computing/running/getting-started.md).
 
-Puhti has a [large selection of scientific computing applications pre-installed](../../apps/index.md), including [R and RStudio Server](../../apps/r-env.md), and [Python libraries for data analysis](../../apps/python-data.md).  If you find something missing, don't hesitate to contact our [Service Desk](https://www.csc.fi/contact-info).
+Puhti has a [large selection of scientific computing applications pre-installed](../../apps/index.md), including [R and RStudio Server](../../apps/r-env.md), and [Python libraries for data analysis](../../apps/python-data.md).  If you find something missing, don't hesitate to contact our [Service Desk](../../support/contact.md).
 
 As Puhti is a shared computing environment, users are restricted in what they can do, for example when it comes to installing customized software or processing sensitive data.  In some cases, it might make sense to instead use [**Pouta**](../../cloud/pouta/index.md) to create your own virtual server.  This gives you more control over the computing environment, but may not be suitable for very heavy computing tasks.  Another option is [**Rahti**](../../cloud/rahti/index.md), where you can create virtual applications based on container images. See some examples of [how to deploy machine learning models on Rahti](https://github.com/CSCfi/rahti-ml-examples).
 
@@ -79,8 +79,8 @@ You can use Rahti for example running [big data analytics and machine learning j
 
 *You are teaching a course that needs complex computing environments for its exercises but you do not want to spend valuable course time on debugging installation errors.* 
 
-Consider using [CSC's Notebooks service](https://notebooks.csc.fi/) that contains easy-to-use environments for working with data and programming. The course environments support Jupyter, Python (including many machine learning libraries), R / RStudio Server and Spark.
+Consider using [CSC's Noppe service](https://noppe.csc.fi/) that contains easy-to-use environments for working with data and programming. The course environments support Jupyter, Python (including many machine learning libraries), R / RStudio Server and Spark.
 
-If you are planning to use Notebooks for your course, please remember to submit a notification about your course requirements using [this online form](https://www.webropolsurveys.com/S/84118B6BD6E97501.par).
+If you are planning to use Noppe for your course, please remember to submit a notification about your course requirements using [this online form](https://www.webropolsurveys.com/S/84118B6BD6E97501.par).
 
 CSC's collection of [GitHub repositories](https://github.com/csc-training) for training purposes can also be a valuable resource for course planning and sharing teaching materials with course participants.

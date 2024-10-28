@@ -15,7 +15,8 @@ Currently supported [cirq-on-iqm](https://iqm-finland.github.io/cirq-on-iqm/) ve
 
 | Version | Module                               | LUMI  | Notes           |
 |:--------|:-------------------------------------|:-----:|-----------------|
-| 12.2    | `helmi_cirq/12.2`                    | X     |                 |
+| 14.0    | `helmi_cirq/14.0`                    | X     |                 |
+
 
 All modules are based on Tykky using LUMI-container-wrapper.
 Wrapper scripts have been provided so that common commands such as `python`,
@@ -76,5 +77,5 @@ Submit the script with `sbatch <script_name>.sh`.
 
 ## More information
 
-- [Cirq-IQM documentation](https://iqm-finland.github.io/cirq-on-iqm/versions/12.2/index.html)
+- [Cirq-IQM documentation](https://iqm-finland.github.io/cirq-on-iqm/user_guide.html)
 - [Quantum-Computing](../computing/quantum-computing/helmi/running-on-helmi.md)

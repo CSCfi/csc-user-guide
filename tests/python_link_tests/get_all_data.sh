@@ -1,6 +1,6 @@
 
 get_all_internal_links(){
-    grep -o -n -r --include \*.md   -- "\[[^]]*\]([^)(]*)" $1 | sed 's/(\s*/(/g'  | grep -v "http" | grep -v "mailto:"  | sed 's/\[.*\](//g' | sed 's/)$//g' | sed 's/\(.*\)#/\1:/' | sed 's/".*"//g' \
+    grep -o -n -r --include \*.md   -- "\[[^]]*\]([^)(]*)" $1 | sed 's/(\s*/(/g'  | egrep -v "https?://" | grep -v "mailto:"  | sed 's/\[.*\](//g' | sed 's/)$//g' | sed 's/\(.*\)#/\1:/' | sed 's/".*"//g' \
     | awk '{print $1}'
 }
 

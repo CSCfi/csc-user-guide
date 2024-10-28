@@ -25,10 +25,10 @@ To find out which versions of Abaqus are installed on the server, give command
 module available
 ```
 
-and check lines `abaqus/<version number>`. For example, to load Abaqus version 2022, give command
+and check lines `abaqus/<version number>`. For example, to load Abaqus version 2024, give command
 
 ```bash
-module load abaqus/2022
+module load abaqus/2024
 ```
 
 There is an example **batch job file** available on Puhti server:

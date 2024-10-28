@@ -13,7 +13,7 @@ tags:
 
 ## Available
 
-`r-env` includes 1300+ pre-installed R packages, including support for [geospatial analyses](r-env-for-gis.md) and parallel computing. For improved performance, `r-env` has been compiled using the [Intel® oneAPI Math Kernel Library (oneMKL)](https://software.intel.com/content/www/us/en/develop/tools/oneapi/components/onemkl.html) (formerly Intel® MKL).
+`r-env` includes 1400+ pre-installed R packages, including support for [geospatial analyses](r-env-for-gis.md) and parallel computing. For improved performance, `r-env` has been compiled using the [Intel® oneAPI Math Kernel Library (oneMKL)](https://software.intel.com/content/www/us/en/develop/tools/oneapi/components/onemkl.html) (formerly Intel® MKL).
 
 With a small number of exceptions, R package versions on `r-env` are date-locked ([CRAN packages](https://cran.r-project.org/web/packages/index.html)) or fixed to a specific [Bioconductor](https://www.bioconductor.org/) version.
 
@@ -21,6 +21,7 @@ Current modules and versions supported on Puhti:
 
 | Module name (R version) | CRAN package dating | Bioconductor version | RStudio Server version | oneMKL version  | TensorFlow version | CmdStan version |
 | ----------------------- | ------------------- | -------------------- | ---------------------- | ----------------| ------------------ | --------------- |
+| r-env/440               | May 15 2024         | 3.19                 | 2024.04.0-735          | 2024.1.0        | 2.9.1              | 2.35.0          |
 | r-env/432               | January 15 2024     | 3.18                 | 2023.12.0-369          | 2024.0.0        | 2.9.1              | 2.34.1          |
 | r-env/430               | June 07 2023        | 3.17                 | 2023.06.0-421          | 2023.1.0        | 2.9.1              | 2.32.2          |
 | r-env/422               | March 06 2023       | 3.16                 | 2023.03.0-386          | 2023.1.0        | 2.9.1              | 2.32.1          |
@@ -46,7 +47,7 @@ Other software and libraries:
 
 - NVIDIA NCCL is distributed under the [3-clause BSD license](https://docs.nvidia.com/deeplearning/nccl/bsd/index.html).
 
-- NVIDIA cuDNN is distributed under the [Software License Agreement for NVIDIA cuDNN](https://docs.nvidia.com/deeplearning/cudnn/sla/index.html).
+- NVIDIA cuDNN is distributed under the [Software License Agreement for NVIDIA software development kits](https://docs.nvidia.com/deeplearning/cudnn/latest/reference/eula.html).
 
 - cget is available under the [Boost Software License](https://github.com/pfultz2/cget/blob/master/LICENSE).
 
@@ -89,7 +90,7 @@ The`r-env` module can be used to remotely launch RStudio Server on your web brow
 
 **Option 1. Using the Puhti web interface**. This is by far the easiest way to launch RStudio on Puhti. For details, [see the Puhti web interface documentation](../computing/webinterface/index.md).
 
-**Option 2. Using SSH tunneling**. This option requires authentication using a Secure Shell (SSH) key. Detailed instructions for this are provided in a [separate tutorial for using RStudio Server](../support/tutorials/rstudio-or-jupyter-notebooks.md) and our [documentation on setting up SSH keys on Windows, macOS and Linux](../../computing/connecting/#setting-up-ssh-keys).
+**Option 2. Using SSH tunneling**. This option requires authentication using a Secure Shell (SSH) key. Detailed instructions for this are provided in a [separate tutorial for using RStudio Server](../support/tutorials/rstudio-or-jupyter-notebooks.md) and our [documentation on setting up SSH keys on Windows, macOS and Linux](../computing/connecting/ssh-keys.md).
 
 #### Interactive use on a login node
 
@@ -664,17 +665,17 @@ The `r-env` module includes several packages that make use of [Stan](https://mc-
 *Using R with the CmdStan backend* 
 
 The `r-env` module comes with a separate [CmdStan](https://github.com/stan-dev/cmdstan) installation that is specific to each module version.
-To use it, one must set the correct path to CmdStan using `cmdstanr`. For example, for `r-env/432` this would be done as follows:
+To use it, one must set the correct path to CmdStan using `cmdstanr`. For example, for `r-env/440` this would be done as follows:
 
 ```r
-cmdstanr::set_cmdstan_path("/appl/soft/math/r-env/432-stan/cmdstan-2.34.1")
+cmdstanr::set_cmdstan_path("/appl/soft/math/r-env/440-stan/cmdstan-2.35.0")
 ```
 
 If you are using CmdStan in an interactive session, the above command will work directly. For non-interactive batch jobs, the path to CmdStan needs to be separately set in the batch job file. This is done by including the following commands further to your other batch job file contents: 
 
 ```r
 # Set R version
-export RVER=432
+export RVER=440
 
 # Launch R after binding CmdStan
 SING_FLAGS="$SING_FLAGS -B /appl/soft/math/r-env/${RVER}-stan:/appl/soft/math/r-env/${RVER}-stan"
@@ -693,7 +694,7 @@ fit_serial <- brm(
 )
 ```
 
-Note that [within-chain parallelisation with `brms`](https://cran.r-project.org/web/packages/brms/vignettes/brms_threading.html) requires a project-specific installation of CmdStan. Please contact [servicedesk@csc.fi](mailto:servicedesk@csc.fi) for instructions.
+Note that [within-chain parallelisation with `brms`](https://cran.r-project.org/web/packages/brms/vignettes/brms_threading.html) requires a project-specific installation of CmdStan. Please contact [CSC Service Desk](../support/contact.md) for instructions.
 
 #### R package installations
 
@@ -715,7 +716,7 @@ Additional R package installations can be arranged via two routes:
 
 - Project-specific installations can be used by creating a separate package directory in the `/projappl/<project>` directory (instructions below; also see [here](../computing/disk.md#projappl-directory) for information on ProjAppl)
 
-- Requests for general installations (provided to all users as part of the module): please contact [servicedesk@csc.fi](mailto:servicedesk@csc.fi)
+- Requests for general installations (provided to all users as part of the module): please contact [CSC Service Desk](../support/contact.md)
 
 To make use of a project-specific package library, follow these instructions. First create a new folder inside your project directory. Note that the folder should be specific to the R version you are using (R packages installed using different `r-env` modules are not cross-compatible).
 

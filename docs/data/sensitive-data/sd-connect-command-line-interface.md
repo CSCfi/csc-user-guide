@@ -1,4 +1,8 @@
-# Command Line Interface: encryption for data sharing 
+# Command Line Interface
+
+To encrypt and upload files via command line, please check [this tutorial](sequencing_center_tutorial.md) illustrating how to use the crpt4GH tool to upload files in Allas (visible from SD Connect).
+
+Below more information about the crypt4GH CLI:
 
 For documentation and more information, you can check the [Crypt4GH Encryption Utility](https://github.com/EGA-archive/crypt4gh.git) page.
 
@@ -84,11 +88,10 @@ In this example, we first generate your key pair (a password-protected private k
       To encrypt files you will need the public keys of the recipients of the data. In this example we are sharing the data with two recipients: yourself and research group A. Your own public key (`mykey.pub`) was created in the previous step, and the public key of research group A (`groupA.pub`) we have received somehow (e.g. via email). To encrypt a file you use `crypt4gh encrypt` command:
 
       ```bash
-      $ crypt4gh encrypt --recipient_pk mykey.pub --recipient_pk groupA.pub <dog.jpg >dog.jpg.c4gh
+      crypt4gh encrypt --recipient_pk mykey.pub --recipient_pk groupA.pub <dog.jpg >dog.jpg.c4gh
       ```
 
       The `crypt4gh` command uses only standard input (stdin) and standard output (stdout) so you must use shell redirections: `<` denotes an input file and `>` and denotes an output file, hence `<dog.jpg` reads in a file called `dog.jpg` and `>dog.jpg.c4gh` writes out an encrypted file named `dog.jpg.c4gh`.
-
 
 4. Decrypt a file
 
@@ -105,5 +108,17 @@ In this example, we first generate your key pair (a password-protected private k
 
     !!! Note
         In case you are decrypting the file in SD Desktop and the CSC Sensitive Data public key has been used in encryption, decryption will be done automatically, and you do not need to specify any decryption keys.
-    
+
       If you need to decrypt a large number of files, please check the tutorial [Decrypting all files in a directory](./tutorials/decrypt-directory.md).
+
+      [More information about data encryption](sd-connect-command-line-interface.md)
+
+## Features in SD Connect
+
+* [Upload](./sd-connect-upload.md)
+* [Share](./sd-connect-share.md)
+* [Download](./sd-connect-download.md)
+* [Download files uploaded with previous version](./sd-connect-download-old-version.md)
+* [Delete](./sd-connect-delete.md)
+* [Command line interface](./sd-connect-command-line-interface.md)
+* [Troubleshooting](./sd-connect-troubleshooting.md)

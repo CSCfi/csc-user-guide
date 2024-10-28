@@ -43,7 +43,7 @@ Persistent identifiers offer managed ways to link and tag digital information. B
 The more persistent identifiers you can include in your work flows, the better and easier is your information management. Do not hesitate to contact the research data services or library in your own organization for further help. 
 
 !!! note "Additional readings"
-    - [Support for Persistent Identifiers at CSC](https://research.csc.fi/support-for-persistent-identifiers)
+    - [Support for Persistent Identifiers at CSC](https://wiki.eduuni.fi/x/9ZRYH)
     - [Cite Your Data - DataCite](https://datacite.org/cite-your-data.html)
     - [Digital Object Identifier (DOI)](https://www.doi.org/)
     - [ORCID - researcher identifier](https://researcheridentifier.fi/)

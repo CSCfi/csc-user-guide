@@ -10,6 +10,7 @@
 * [Disk quota exceeded](disk-quota-exceeded.md)
 * [I need a Database, where can I deploy it?](database.md)
 * [Is there a glossary of the acronyms you keep using?](is-there-a-glossary-of-the-acronyms-you-keep-using.md)
+* [How to write good support requests to CSC Service Desk](../support-howto.md)
 
 ## Batch jobs
 * [Why does my batch job fail?](why-does-my-batch-job-fail.md)
@@ -26,7 +27,6 @@
 * [How can I find information about my projects?](how-to-find-information-about-projects.md)
 * [Who 'unknown' is using our resources](who-unknown-is-using-our-resources.md)
 * [How can I change which project is billed for my usage?](how-can-i-change-billing-project.md)
-* [How to configure the MyCSC Dashboard](how-to-configure-dashboard.md)
 * [I have moved to a new university/organization. Can I keep my present user account and join it to some new project under the new organization?](how-to-change-organization.md)
 * [A foreign researcher is joining our research group as a visiting scientist. Can they receive an academic CSC user account?](can-visitors-get-user-accounts.md)
 
@@ -35,7 +35,7 @@
 * [Where should I put my data?](where-should-i-put-my-data.md)
 * [How can I share my data with other users?](how-can-i-share-my-data-with-others.md)
 * [How do I know how much computing resources I have left?](how-do-i-know-how-much-resources-i-have-left.md)
-* [What directory I should use to analyse a large numbers of small files?](local_scratch_for_data_processing.md)
+* [Which directory should I use to analyze many small files?](local_scratch_for_data_processing.md)
 * [How can I install my own software?](how-to-install-own-software.md)
 * [How do the project and scratch file permissions work?](how-do-the-project-file-permissions-work.md)
 * [How does LUMI-C differ from Mahti?](../../computing/lumi-vs-mahti.md)
@@ -68,15 +68,19 @@
 * [How to get Allas S3 credentials](how-to-get-Allas-s3-credentials.md)
 * [How to resize an instance or volume in Pouta?](how-to-resize-in-pouta.md)
 
-## Rahti
+## Rahti 1
+
+* [Why Rahti cannot find this docker image?](get-image-format.md)
+
+## Rahti 2
 
 * [Protecting against DDoS Attacks](DDos.md)
-* [Do you offer in Rahti SSL certificates?](rahti-ssl-certificates.md)
+* [Do you offer in Rahti 2 SSL certificates?](rahti-ssl-certificates.md)
 * [Why this container report permission denied errors?](why-this-container-does-not-work.md)
-* [Does Rahti support UDP connections?](rahti-udp.md)
-* [Why my SSH key does not work in Rahti?](ssh-clone.md)
-* [Why Rahti cannot find this docker image?](get-image-format.md)
+* [Does Rahti 2 support UDP connections?](rahti-udp.md)
+* [Why my SSH key does not work in Rahti 2?](ssh-clone.md)
 * [How to open a terminal to a Pod?](terminal-rahti-pod.md)
+* [How to pull images from Rahti v1 registry](pull-from-rahtiv1-registry.md)
 
 
 ## Sensitive Data Services for research
@@ -85,7 +89,6 @@
 
 * [Are CSC Sensitive Data services accessible through the public internet?](sensitive-data-access.md)
 * [How I can start using CSC Sensitive Data services?](sensitive-data-access.md#how-can-i-start-using-csc-sensitive-data-services)
-* [Do SD Connect and SD Desktop  support federated authentication methods?](sensitive-data-access.md#do-sd-connect-and-sd-desktop-support-federated-authentication-methods)
 * [Does CSC provide Multi-Factor Authentication (MFA)?](sensitive-data-access.md#does-csc-provide-multi-factor-authentication-mfa)
 
 ### Collaborative projects
@@ -108,14 +111,9 @@
 
 * [Why do I need to encrypt my data?](sensitive-data-encryption.md)
 * [Do sensitive data always need to be encrypted during data transfer e.g. using an  SSH connection?](sensitive-data-encryption.md#do-sensitive-data-always-need-to-be-encrypted-during-upload-or-data-transfer-eg-using-an-ssh-connection)
-* [What methods can I use to encrypt the data? How can I use the CSC public encryption key?](sensitive-data-encryption.md#what-methods-can-i-use-to-encrypt-the-data-how-can-i-use-the-csc-public-encryption-key)
-* [What data formats can be encrypted using Crypt4GH?](sensitive-data-encryption.md#what-data-formats-can-be-encrypted-using-crypt4gh)
-* [What is the new extension that was added to my files after Crypt4GH encryption?](sensitive-data-encryption.md#what-is-the-new-extension-added-to-my-files-after-crypt4gh-encryption)
+* [What data formats can be encrypted using SD Connect?](sensitive-data-encryption.md#what-data-formats-can-be-encrypted-using-sd-connect)
+* [What is the new extension that was added to my files after upload with SD Connect?](sensitive-data-encryption.md#what-is-the-new-extension-added-to-my-files-after-upload-with-sd-connect)
 * [Do CSC Sensitive Data services allow the use of customers' own encryption keys?](sensitive-data-encryption.md#do-csc-sensitive-data-services-allow-the-use-of-customers-encryption-keys)
-* [Can I share my public encryption key?](sensitive-data-encryption.md#can-i-share-my-public-encryption-key-with-others)
-* [Can I share my private encryption key?](sensitive-data-encryption.md#can-i-share-my-private-encryption-key-with-others)
-* [Do I need to generate a new key pair every time I encrypt a new dataset?](sensitive-data-encryption.md#do-i-need-to-generate-a-new-key-pair-every-time-i-encrypt-a-new-dataset)
-* [Can I (or my collaborators) decrypt data encrypted only with the Sensitive Data public encryption key outside SD Desktop?](sensitive-data-encryption.md#can-i-or-my-collaborators-decrypt-data-encrypted-only-with-the-csc-public-encryption-key-outside-sd-desktop)
 
 
 ### Sensitive Data and GDPR

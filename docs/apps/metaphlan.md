@@ -5,7 +5,7 @@ tags:
 
 # MetaPhlAn
 
-## Description
+
 
 MetaPhlAn is a computational tool for profiling the composition of microbial communities from metagenomic sequencing data. 
 
@@ -15,7 +15,7 @@ MetaPhlAn is a computational tool for profiling the composition of microbial com
 
 Free to use and open source under [MIT License](https://github.com/biobakery/MetaPhlAn2/blob/master/license.txt).
 
-## Availability
+## Available
 
 *   Puhti: 4.0.2, 4.0.3, 4.0.6
 

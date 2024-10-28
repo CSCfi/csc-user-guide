@@ -17,6 +17,7 @@ In addition to this page, this guide contains the following subsections:
 - [**Multi-GPU and multi-node machine learning**](ml-multi.md)
 - [**Hyperparameter search**](hyperparameter_search.md)
 - [**Managing machine learning workflows on CSC's supercomputers**](ml-workflows.md)
+- &#127381; [**Working with large language models on supercomputers**](ml-llm.md)
 
 ## What CSC service to use?
 
@@ -108,23 +109,8 @@ See our [Pouta documentation pages on how to apply for
 access](../../cloud/pouta/index.md).
 
 
-### Rahti
-
-For model deployment, the [**Rahti**](../../cloud/rahti/index.md)
-container cloud service might be used. [Rahti has a very limited
-amount of GPU resources](../../cloud/rahti/gpu.md) that can be
-requested from servicedesk.
-
-Below are a few examples of how Rahti can be used for machine learning tasks:
-
-* Setting up an MLflow server on Rahti to store results and models: 
-  [how-to video](https://video.csc.fi/media/t/0_2frjyzz9) and 
-  [GitHub repository](https://github.com/CSCfi/mlflow-openshift)
-* [How to deploy machine learning models on Rahti](https://github.com/CSCfi/rahti-ml-examples)
-
-
 ## Further reading in Docs CSC
 
-* [Python parallel jobs](../../apps/python.md#python-parallel-jobs)
+* [Python parallel jobs](python-usage-guide.md#python-parallel-jobs)
 * [Dask tutorial](dask-python.md)
 * [High-throughput computing and workflows](../../computing/running/throughput.md)

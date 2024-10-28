@@ -18,9 +18,13 @@ search:
 This page contains some elements that are available in Docs CSC. For example, here we have some
 body text [with an external link](https://example.com){ target=_blank }. **Some of it is
 boldfaced**, *some italicized*. `Some might be monospaced`. Some acronyms, like HPC, are
-defined automatically (see: [Glossary](#glossary)).
+defined automatically (see: [Glossary](#glossary)). One small addition: <small>Some small text.</small>
 
-> There's even text in a blockquote. The blockquote has some filler text after an empty line. I
+As you can see here:
+in some cases [external links](https://example.com){ target=_blank } followed by text _italicized_
+using underscores will produce unwanted results. *Italicize* with asterisks instead.
+
+> Now, there's even text in a blockquote. The blockquote has some filler text after an empty line. I
 like to imagine it's what a typewriter would dream.
 >
 > Vel suscipit quia voluptates quis. Rerum sequi voluptatem in non ipsam tempora quod natus. Soluta
@@ -29,16 +33,16 @@ enim. Laboriosam autem vel vel aut quod.
 
 Here's a reference to a footnote:[^1]
 
-As you can see here:
-in some cases [external links](https://example.com){ target=_blank } followed by text _italicized_
-using underscores will produce unwanted results. *Italicize* with asterisks instead.
+Then&mdash;as a rule&mdash;a horizontal rule:
+
+---
 
 
 ## Banners
 
 The front page can be fitted with a banner to promote a course for example.
 
-![Banners at Docs](img/ref/screenshot-of-reference-banner.png)
+![Pulla at Docs](https://a3s.fi/docs-files/reference-card/screenshot-of-pulla-banner.png){ width=80% style="margin: 0 10%; border: var(--csc-border);" }
 
 There is currently no special mechanism in place for controlling banners.
 
@@ -193,7 +197,7 @@ Let's make an ordered list:
 
 ## Source code
 
-```python
+``` py linenums="1" hl_lines="2 3"
 # Here is a box with some syntax highlighted Python
 
 from somewhere import some_code
@@ -220,10 +224,17 @@ def main():
     print(string)
 ```
 
-The code boxes can have a title:
+Notice the optional line numbers and the line highlighting (on lines 2 and 3). Additionally, the code boxes can have a title:
 
 ```javascript title="looong_comment.js"
 // Here's a JavaScript comment with a loooooooooooooooooooooooooooooooong line. You know, for testing purposes. Tell you what, let's make it just a bit longer still.
+```
+
+Diff works too:
+
+```diff
+-Departing
++Arriving
 ```
 
 Remember to leave an empty line after the ` ``` ` in a source code box. Failing to do so can leave
@@ -258,7 +269,7 @@ any immediately following text as "loose", i.e., outside of an HTML paragraph (`
     `warning`,
     `warning-label`,
     `error`,
-    `error-label`,
+    `error-label`,img/ref/image.png)
     `success` or
     `success-label`.
     Perhaps a suitable one would just simply be: `note`.
@@ -378,7 +389,8 @@ in [the Markdown source](https://github.com/CSCfi/csc-user-guide/blob/master/doc
 ## Images
 
 Here's an image of the Reference card with an image of the Reference card with...
-![image of an image of an image...](img/ref/image.png)
+
+![image of an image of an image...](https://a3s.fi/docs-files/reference-card/screenshot-of-image-of-image-of.png){ width=80% style="margin: 0 10%; border: var(--csc-border);" }
 
 
 ## Embedded videos
@@ -456,25 +468,14 @@ width and _px_ for height. Here's an example with a width of 100 percent and a h
 
 ## Buttons
 
-Docs CSC supports two button variants that try to recreate the look of CSC Design System.
+### Button
+
+[Button](#button){ .md-button }
 
 
-### Default button
+### Primary button
 
-<!-- This is called a 'default' button in the CSC Design System and a 'primary' button in Material
-for MkDocs (notice the two classes '.md-button' AND '.md-button--primary'. Also, don't forget to
-include the 'target=_blank' attribute for links pointing outside of Docs)... -->
-[Default](https://example.com/Default){ .md-button .md-button--primary target=_blank }
-
-
-### Outlined button
-
-<!-- ...and the one you'd think would be the 'default' (without the '--primary' suffix in Material
-for MkDocs) is called 'outlined' in the CSC Design System. -->
-[Outlined](https://example.com/Outlined){ .md-button target=_blank }
-
-<!-- So, to recap, if you wan't a 'normal' filled-in button (called 'default'), you must add the
-'.md-button--primary' class to the attribute list. -->
+[Primary](#primary-button){ .md-button .md-button--primary }
 
 
 ## Tabbed content
@@ -554,9 +555,11 @@ Snippets also work from inside the source code boxes. For example
 
 would produce
 
+````markdown
 ```markdown
 --8<-- "ref/a.md"
 ```
+````
 
 More examples (untested in Docs CSC) can be found in [PyMdown Extensions Documentation](https://facelessuser.github.io/pymdown-extensions/extensions/snippets/).
 

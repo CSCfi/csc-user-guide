@@ -1,6 +1,8 @@
 ---
 tags:
   - Free
+system:
+  - www-puhti
 ---
 
 # CloudCompare
@@ -9,7 +11,7 @@ tags:
 
 The main purpose of CloudCompare on Puhti is to serve as a tool for visualizing point cloud data.
 
-## Availability
+## Available
 
 The following versions of CloudCompare are available in **Puhti**:
 

@@ -25,11 +25,19 @@ CSC staff: do these two things _first_:
 2. Then [join here the CSC employees team](https://github.com/orgs/CSCfi/teams/employees/members). Membership
 gives you permissions to edit source files that build the user guide. (Wait for a confirmation email.)
 
-The rest of this document describes the workflow in Github as well as instructions for previewing and deploying the documentation. See [Style guide](STYLEGUIDE.md) for content and formatting instructions and [Frequently Asked Questions](FAQ.md) for more in depth explanations of common questions you might encounter while contributing.
+The rest of this document describes the workflow in Github as well as instructions for previewing and
+deploying the documentation. There are more resources available, though:
+
+- [STYLEGUIDE.md](STYLEGUIDE.md) &mdash; Content and formatting instructions
+- [FAQ.md](FAQ.md) &mdash; More in-depth explanations of common questions you might encounter while contributing
+- [GETTING_STARTED.md](GETTING_STARTED.md) &mdash; Setting up a local development environment
+- [Reference card](docs.csc.fi/ref) &mdash; On the available elements
+    - [Markdown source for Reference card](docs/ref.md)
 
 ## For the impatient
 
 Once you've completed the steps above:
+
 * In [docs.csc.fi](https://docs.csc.fi) go to the page you want to edit and click the pen icon at top right
 * (sign in to GitHub) and edit the content
 * Scroll down to commit changes (create a new branch) -> make a pull request
@@ -54,13 +62,13 @@ must use pull requests.
  - Make a pull request for your work to be added to Master
     - Look at the test results of your PR: if they are red, check what's wrong and commit to the PR directly to fix it. See the [FAQ](FAQ.md#my-pr-did-not-pass-the-tests-what-to-do) for instructions.
     - Assign one or more reviewers, try to choose someone who knows the _content_. See also the [FAQ](FAQ.md#how-and-who-should-i-ask-to-review-my-pr).
-        - Please add a link to the rahtiapp-preview page `https://csc-guide-preview.rahtiapp.fi/origin/<your-branch-name>/rest-of-url/`) in the Pull Request description to help reviewer.
+        - Please add a link to the rahtiapp-preview page `https://csc-guide-preview.2.rahtiapp.fi/origin/<your-branch-name>/rest-of-url/`) in the Pull Request description to help reviewer.
     - You can also add a label to your PR. For example, if your edit is minor (e.g. fixed link or typo), you can add the label "trivial change" to expedite the reviewing process.
     - Pull requests which do not meet the requirements will not be accepted. Note that you can keep committing to a pull request after it has been submitted.
         - If your commits aren't showing up on the pull request, i.e., the pull request isn't updating when making new commits, try switching the base branch ('Edit' button, top-right) from `master` to something else and then back again.
     - Write meaningful pull request messages, so it is easier for reviewers to do their job.
     - Communicate! Use "WIP" (= Work In Progress) in your pull request title, if you don't wish the branch to be merged to master (i.e. you want to continue working with it).
- - Once your PR has been accepted, remove the temporary branch (if not deleted by an admin at merge)
+ - Once your PR has been accepted, remove the temporary branch (if not deleted automatically at merge)
 
 #### Reviewer
 
@@ -79,7 +87,7 @@ If you get a request to review a pull request, please contribute to help publish
 If you see an approved branch:
 
  - "Squash and merge" it
- - Delete the (now unnecessary) branch
+ - Delete the (now unnecessary) branch (if not deleted automatically at merge)
  - Occasionally the number of (unnecessary) branches grows: prune.
 
 **Note:** If you make bigger changes to the (main) categories / menu on the left, it might affect some links used on our webpages. Please communicate these changes, for example in the RC-channel #research.csc.fi.
@@ -87,7 +95,7 @@ If you see an approved branch:
 ### Previewing active branches
 
 The GitHub web interface gives a preview (also while editing) but it does not render all syntax used in mkdocs correctly.
-A full preview for ongoing work is available for all branches: https://csc-guide-preview.rahtiapp.fi/origin/
+A full preview for ongoing work is available for all branches: https://csc-guide-preview.2.rahtiapp.fi/origin/
 Note, currently absolute internal links don't work in the preview, but work on docs.csc.fi. For more details, see the [FAQ](FAQ.md#how-can-i-preview-my-edits).
 
 ### Making pull requests in the web GUI
@@ -141,7 +149,8 @@ git push origin your_branch_name
 ```
 
 Now, in the GitHub web GUI you can create a pull request, ask a person to review
-it and (some admin to) merge the changes. After the PR has been merged, the branch on github can be deleted.
+it and (some admin to) merge the changes. After the PR has been merged, the branch
+on GitHub should get deleted automatically (delete manually if not).
 
 **Tip 1.** Git uses [Vim](https://www.vim.org) as the default editor for commit
 messages. It is possible to change the default editor, but below are
@@ -203,60 +212,6 @@ sudo docker run --rm -it -p 80:8000 --name csc-user-guides csc-user-guides
 This will run a web server on your laptop in port 80. You can view the
 content of the user guides by pointing your browser to
 [localhost](http://localhost).
-
-## Hosting the website on OpenShift
-
-Install & authorize command line tools. For reference, see the
-[Rahti documentation](https://rahti.csc.fi/tutorials/elemental_tutorial/#preparations).
-
-The Dockerfile is also made to be compatible with OpenShift, so it
-works with the source-to-image mechanism when using `oc
-new-app`. First create a new project to host the user guide.
-
-```bash
-oc new-project my-user-guide-project
-```
-
-Note that the name of the project must be unique within the OpenShift
-cluster you are running this in. Someone else may have already taken
-`my-user-guide-project`.
-
-You can then run `oc new-app` to create the user guide deployment.
-
-```bash
-oc new-app https://github.com/CSCfi/csc-user-guide#feature-a --name=csc-user-guide-feature-a
-```
-
-In the command above, the `#feature-a` at the end specifies the branch to
-use. The option `--name=` is free to be chosen.
-
-Now Rahti will build an image and a small webserver that can be exposed to
-internet with the `oc expose` command:
-
-```bash
-oc expose svc/csc-user-guide-feature-a --hostname=cug-user-guide-feature-a.rahtiapp.fi
-```
-
-You are free to choose any unused hostname.
-
-Rebuilding the content is done with `oc start-build` command:
-
-```bash
-oc start-build csc-user-guide-feature-a
-```
-
-Or by setting up a webhook (see [Rahti User
-Guide](https://rahti.csc.fi/tutorials/patterns/#webhooks).)
-
-If you always do your features in the branch with the same name, you only have
-to issue `oc start-build` command to have your preview of the user-guide updated.
-
-When you are sure you don't ever need the preview website again, please either
-delete your project or clean it with `oc delete`:
-
-```bash
-oc delete all -l app=csc-user-guide-feature-a
-```
 
 ## Finding pages that might be outdated
 

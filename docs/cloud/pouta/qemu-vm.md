@@ -37,7 +37,7 @@ Replace `LOCAL_IMAGE_FILENAME.qcow2` with your desired local filename, disk form
 
 ## 2. Understanding file formats of the downloaded backup or snapshot
 
-When you download a backup or snapshot of your virtual machine (VM) from cPouta, the file format of the downloaded image could be raw or qcow2. The QEMU emulator supports several disk formats including raw, vdi, and qcow2. See [OpenStack Disk and Container Formats](https://docs.openstack.org/glance/rocky/user/formats.html) for more information.
+When you download a backup or snapshot of your virtual machine (VM) from cPouta, the file format of the downloaded image could be raw or qcow2. The QEMU emulator supports several disk formats including raw, vdi, and qcow2. See [OpenStack Disk and Container Formats](https://docs.openstack.org/glance/stein/user/formats.html) for more information.
 
 - **QCOW2 (QEMU Copy On Write)**: This is the default and most common format for OpenStack images, especially when QEMU is used.
 - **RAW**: A raw disk image format. It's generally larger in size than QCOW2 images.

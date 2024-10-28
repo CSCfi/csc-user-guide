@@ -14,7 +14,7 @@ tags:
 LAStools is included in following modules:
 
 * lastools: 2023 (more exactly 230914) and 2022 (220613)
-* geoconda: 3.10.9 and 3.10.6 (both with older 20171231)
+* geoconda: 3.11.9, 3.10.9 and 3.10.6 (all with older 20171231)
 
 Load one of these modules, for example the newest version (default):
 

@@ -1,18 +1,17 @@
-# Persistent volumes
-
+--8<-- "rahtibeta_announcement.md"
 **Persistent volumes** are storage which persist during & after pod's lifetime.
 
-Persistent volumes in Rahti are stored in a resilient storage such as CEPH, NFS or
+Persistent volumes in Rahti 1 are stored in a resilient storage such as CEPH, NFS or
 GlusterFS. They are claimed by a pod using a **PersistentVolumeClaim**. When a
 new claim is made, this can mean that either an existing volume is claimed or a
 new one is created dynamically and given to the pod to use.
 
-There are two storage classes available in Rahti:
+There are two storage classes available in Rahti 1:
 
  * *glusterfs-storage*. This kind of volume is a "Read Write Many" (RWX) type storage, this means multiple nodes can mount it in read and write mode. This is the default class. It is the most flexible class, as allows any pod anywhere in the cluster to read and write files. The downside is a lower performance than the next class.
  * *standard-rwo*. This kind is a "Read Write Once" (RWO), meaning that only one node can mount the volume (in read-write mode). It is faster than glusterfs, but it is limited to a single node.
 
-![PersistentVolumeClaim](/cloud/rahti/img/pods-and-storage-pvc.drawio.svg)
+![PersistentVolumeClaim](../../img/pods-and-storage-pvc.drawio.svg)
 
 Persistent storage is requested in the cluster using `PersistentVolumeClaim` objects:
 
@@ -32,7 +31,7 @@ spec:
 ```
 
 Above will request a 1 GiB persistent storage that can be mounted in read-write
-mode by multiple nodes. Other access modes are ReadWriteOnce (Only one node can mount it read-write) and ReadOnlyMany (Multiple nodes can mount read-only).
+mode by multiple nodes. Other access modes are ReadWriteOnce (Only one pod can mount it read-write) and ReadOnlyMany (Multiple pods can mount read-only).
 
 Persistent storage can be requested also via the web console.
 

@@ -64,13 +64,13 @@ s3cmd
 
 Please refer to [http://s3tools.org/download](http://s3tools.org/download) and [http://s3tools.org/usage](http://s3tools.org/usage) for upstream documentation.
 
-** Configuring S3 connection in local computer **
+**Configuring S3 connection on local computer**
 
 Once you have _OpenStack_ and _s3cmd_ installed in your environment, you can download the [allas_conf](https://raw.githubusercontent.com/CSCfi/allas-cli-utils/master/allas_conf)
 script to set up the S3 connection to your Allas project.
 ```text
 wget https://raw.githubusercontent.com/CSCfi/allas-cli-utils/master/allas_conf
-source allas_conf --mode s3cmd --user your-csc-username
+source allas_conf --mode S3 --user your-csc-username
 ```
 Note that you should use the `--user` option to define your CSC username. The configuration command first asks for your
 CSC password and then for you to choose an Allas project. After that, the tool creates a key file for the S3 connection and stores it in the default location (_.s3cfg_ in home directory).
@@ -80,7 +80,7 @@ CSC password and then for you to choose an Allas project. After that, the tool c
 To use _s3cmd_ in Puhti and Mahti, you must first configure the connection:
 ```text
 module load allas
-allas-conf --mode s3cmd
+allas-conf --mode S3
 ```
 The configuration process first asks for your CSC password. Then it lists your Allas projects and asks to select the project to be used. The configuration information is stored in the file _$HOME/.s3cfg_. This configuration only needs to be defined once. In the future, _s3cmd_ will automatically use the object storage connection described in the _.s3cfg_ file. If you wish to change the Allas project that _s3cmd_ uses, you need to run the configuration command again.
 
@@ -233,7 +233,7 @@ Option _--acl-revoke_ can be used to remove a read or write access:
 s3cmd setacl --recursive --acl-revoke=read:$other_project_uuid s3://my_fishbucket
 ```
 
-The shared objects and buckets can be used with both S3 and Swift based tools. Note howerver, that listing
+The shared objects and buckets can be used with both S3 and Swift based tools. Note however, that listing
 commands show only buckets owned by your project. In the case of shared buckets and objects you must know the
 names of the buckets in order to use them.
 

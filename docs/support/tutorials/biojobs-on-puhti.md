@@ -16,7 +16,7 @@ ssh yourcscusername@puhti.csc.fi
 Where **yourcscusername** is the username you get from CSC.
 
 You can find more detailed instructions in our User Guide: [Connecting
-to CSC supercomputers](../../computing/connecting.md).
+to CSC supercomputers](../../computing/connecting/index.md).
 
 
 ## What is Puhti?
