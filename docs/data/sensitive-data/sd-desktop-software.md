@@ -4,8 +4,8 @@ When you log into the virtual desktop, you are welcomed into a digital workspace
 
 Below you can find:
 
-- Default software available in SD Desktop
-- Adding software: background information and limitations
+- [Default software available in SD Desktop](sd-desktop-software.md#default-software-available-in-sd-desktop)
+- Adding software: background information and limitations 
 - Customisation via SD Software Installer (no previous experience required)
 - Customisation via Apptainer and Podman (advanced; technical expertise required).
 
