@@ -48,7 +48,7 @@ Once all the billing units for your CSC project have been used up, **your access
 You will get a notification via email from the My CSC portal when your billing units are about to end. You can apply more billing units for your CSC project and:
 
 * login to [MyCSC](https://my.csc.fi/login){ target="\_blank" } 
-* follow [these steps](./../accounts/how-to-apply-for-billing-units)
+* follow [these steps](./../accounts/how-to-apply-for-billing-units.md)
 
 Below, you can find more details about Billing Units consumption for SD Connect and SD Desktop, including a table summarizing the billing units required for storing data in SD Connect or using SD Desktop over 6 months and 1 year.
 
