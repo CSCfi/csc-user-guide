@@ -12,6 +12,12 @@ To use the quantum software stack you first need to tell LMOD where to search fo
 module use /appl/local/quantum/modulefiles
 ```
 
+Alternatively, you can achieve the same result by loading the Local-quantum module.
+
+```bash
+module load Local-quantum
+```
+
 You can then see the list of available *modules* with `module avail`. The quantum modules should be at the top! In this walkthrough Qiskit will be used, therefore the next step is to load the module into our current environment with
 
 ```bash
