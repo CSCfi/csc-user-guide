@@ -3,11 +3,14 @@
 When you log into the virtual desktop, you are guided to a digital workspace that looks like a computer screen. This workspace is powered by a type of operating system called Linux, and you can choose between two versions: Ubuntu 22 or CentOS 7 (dismissed in 2024). 
 The virtual desktop comes with some basic tools or software that you can use right away (listed below). However, this basic toolkit provides you a rather limited set of open-source software. 
 
-The virtual desktop can also become a versatile research workspace designed to adapt to your specific needs **via customization with**:
+The virtual desktop can also become a versatile research workspace designed to adapt to your specific needs **via customization with** a simple application called Software installer that sypportds you in adding sofwatre and customizing you virtual desktop for thos with techincal expertice, it is possible to created customized containes with apptainer or podman.
 
-* [SD Software installer](../../data/sensitive-data/sd-desktop-software.md#sd-software-installer): A simple application for easy software additions and customization. 
+  Below you can find:
+  - list of software avaulable by defalt in Sd Desktop
+  - Adding software: background information anf limitations
+  - introduction to SD Sfotware installer application and link to totorial (no previous experience required)
+  - introduction to customisation via apteniners and podman and link to totorial  (advances, techincal expertice required). 
 
-* [Apptainer and Podman](../../data/sensitive-data/sd-desktop-software.md#software-customisation-with-apptainer-and-podman): For those with technical expertise, create customized containers for specialized software setups (advanced). 
 
 Please don't hesitate to contact [CSC Service Desk](../../support/contact.md) if you have any questions about the software selection (subject: Sensitive Data). We can support you in your Desktop customization. Moreover, we are working on developing our services to provide proprietary software. Follow our webpage for constant updates. 
 
@@ -17,6 +20,35 @@ Please don't hesitate to contact [CSC Service Desk](../../support/contact.md) if
 
 Below we list some of the most commonly used tools that are by default installed in SD Desktop machines.
 The list is not complete and there are small differences between different linux flavours.
+
+| **Category**       | **Software**                                                                                                                                                                       |
+|--------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Office Tools**    | [LibreOffice](https://en.wikipedia.org/wiki/LibreOffice)                                                                                                                                                             |
+| **Programming**     | [go](https://go.dev/)
+   [Python3](./tutorials/sd-pythonlibs.md) including packages: tensorflow, nltk, spacy, scikit-learn, seaborn, plotly, bokeh, pydot, xgboost, lightgbm, catboost, eli5, torch, keras, dist-keras, elephas, gensim, scrapy, beautifulsoup4, numpy, scipy, pandas, statsmodels, matplotlib, pyfuse3, crypt4gh, trio, httpx, qrcode|
+| **R & RStudio**     | [R / RStudio Server](./sd-desktop-access.md#accessing-rstudio) 
+    - Matching the r-env-singularity/4.0.5 module on Puhti (R 4.0.5 + RStudio Server 1.4.1106, Bioconductor 3.12)
+     - 1000+ pre-installed R packages (versions available on Apr 20, 2021)
+     - Intel® oneAPI Math Kernel Library (oneMKL)
+     - GIS software (PROJ, GDAL, SAGA)
+     - CUDA drivers
+     - TensorFlow (used with R TensorFlow back-end)
+     - R + RStudio Server versions matched with Puhti r-env-singularity module (R 4.0.5 + RStudio Server 1.4.1106, MRAN, Bioconductor 3.12)                 |
+| **Workflow Engines** | - [Nextflow](https://www.nextflow.io/)
+   - [Snakemake](https://snakemake.readthedocs.io/en/stable/)                                                                                                                                                |
+| **Software Containers** |  - [Apptainer](https://apptainer.org/)
+   - [Podman](https://podman.io/) Only in Ubuntu machines                                                                                                                             |
+| **Scientific Software** |  - [Plink 1.9](https://www.cog-genomics.org/plink/)
+   - [Samtools 1.8](http://www.htslib.org/)
+   - [Minimap2 2.26](https://github.com/lh3/minimap2)
+                                                                                                                          |
+| **Terminals & Interfaces** | - [Byobu](https://www.byobu.org/) (Only in Ubuntu machines.)
+   - [Jupyter](https://jupyter.org/)                                                                                                                           |
+
+
+
+
+
 
 ### Office tools
    - [LibreOffice](https://en.wikipedia.org/wiki/LibreOffice)
