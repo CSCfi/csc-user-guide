@@ -41,7 +41,7 @@ Known temporary issues:
 * In October 2024, SD Connect was updated. Files from the previous version are still compatible, but you may encounter issues due to file format changes. For step-by-step instructions on downloading files stored with the previous version, [please check this page](sd-connect-download-old-version.md).
 
 !!! Note
-    Automated key mamagement, encryptiona and decryption is not yet provided for programmatic data uplaods and downloads.
+    Automated key management, encryption, and decryption are not yet available for programmatic data uploads and downloads.
 
 
 General considerations:
