@@ -136,7 +136,7 @@ Here’s a table summarizing the billing units required for storing data in **SD
 
 ### 8. Closing your project and data retention
 
-- As a project manager you should familiarize yourself how to [close CSC project](../../accounts/how-to-manage-your-project/#project-closure) via the MyCSC porta.
+- As a project manager you should familiarize yourself how to [close CSC project](../../accounts/how-to-manage-your-project.md#project-closure) via the MyCSC portal.
 -  **All data in SD Connect and SD Desktop will be automatically deleted after 90 days after project closure.**
 - CSC projects must be renewed each year to help CSC monitor resources and ensure that all researchers have access to the services. Project members will receive reminders about the project's expiration. If a CSC project expires, you will be notified. You can also directly close your project after completing your research.
 
