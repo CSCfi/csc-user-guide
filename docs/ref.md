@@ -449,16 +449,25 @@ Diagrams (including a toolbar) from [draw.io](https://draw.io) can be embedded a
 Embed -> IFrame..._. With line breaks added for illustration, the resulting piece of HTML could
 look something like this:
 
-````html
+```html
 <iframe
-  sandbox
+  frameborder="0"
   style="width: 100%;
          height: 301px;"
-  frameborder="0"
   src="https://viewer.diagrams.net/?tags=blahblahblahblah%blah
-  blahblahblah%blahblah%blah%blahblahblahblah%blahblahblahblah"
+       blahblahblah%blahblah%blah%blahblahblahblah%blahblah"
 ></iframe>
-````
+```
+
+**The `src` attribute needs to be renamed to `srcdoc`:**
+
+```html
+<iframe
+  ...
+  srcdoc="..."
+  ...
+></iframe>
+```
 
 The size can be controlled by changing the value of the _style_ attribute. Note the units: _%_ for
 width and _px_ for height. Here's an example with a width of 100 percent and a height of 500 pixels:
