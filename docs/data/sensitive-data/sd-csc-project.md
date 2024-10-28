@@ -40,8 +40,8 @@ Estimate your annual usage and apply for more units through the MyCSC portal if 
 Once all the billing units for your CSC project have been used up, **your access to the SD Desktop service will be restricted**. This means that:
 
 * all virtual desktops currently running will automatically be paused
-* you won't be able to access the virtual desktops content or unpause them, until you have applied for more resources. 
-* your data remains unaffected and will not be deleted**, even in cases where the total billing units reach zero or enter negative values.
+* you won't be able to access the virtual desktops content or unpause them, until you have applied for more resources
+* your data remains unaffected and will not be deleted, even in cases where the total billing units reach zero or enter negative values.
 
 #### Applying for more billing units
 
