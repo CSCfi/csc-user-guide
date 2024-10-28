@@ -72,7 +72,7 @@ need to right-click the and select _Allow Launching_ before you can use the inst
 
 [![sd-installer](../images/desktop/sd-installer2.png)](../images/desktop/sd-installer2.png) **Figure 2.** SD Software installer
 
-### Step 3: Usage
+### Step 3: usage
 
 * In order to use the installer, you must have an active Data Gateway connection running and
 mounting of the SD Connect data should be done through the default location in the file system
