@@ -1,20 +1,13 @@
 # Software in SD Desktop
 
-When you log into the virtual desktop, you are welcomed into a digital workspace that resembles a traditional computer screen. This workspace operates on a Linux-based operating system, allowing you to choose between two versions: Ubuntu 22 or CentOS 7 (which will be dismissed in 2024).
-
-The virtual desktop comes pre-installed with a set of basic tools or software that you can use immediately (listed below). However, this initial toolkit offers a somewhat limited selection of open-source software.
-
-To transform the virtual desktop into a versatile research workspace tailored to your specific needs, you can use a simple application called Software Installer. This tool assists you in adding software and customizing your virtual desktop. For users with technical expertise, it is also possible to create customized containers using Apptainer or Podman.
-
+When you log into the virtual desktop, you are welcomed into a digital workspace that resembles a traditional computer screen. This workspace operates on a Linux-based operating system, allowing you to choose between two versions: Ubuntu 22 or CentOS 7 (which will be dismissed in 2024). The virtual desktop comes pre-installed with a set of basic tools or software that you can use immediately (listed below). However, this initial toolkit offers a somewhat limited selection of open-source software. To transform the virtual desktop into a versatile research workspace tailored to your specific needs, you can use a simple application called SD Software Installer, this tool assists you in adding software and customizing your virtual desktop. For users with technical expertise, it is also possible to create customised containers using Apptainer or Podman.
 
 Below you can find:
 
 - Default software available in SD Desktop
 - Adding software: background information and limitations
-- Customisation via SD Software Installer (no previous experience required).
+- Customisation via SD Software Installer (no previous experience required)
 - Customisation via Apptainer and Podman (advanced; technical expertise required).
-
-
 
 Please don't hesitate to contact [CSC Service Desk](../../support/contact.md) if you have any questions about the software selection (subject: SD Services). We can support you in your Desktop customisation. 
 
