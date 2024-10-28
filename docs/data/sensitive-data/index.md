@@ -51,9 +51,9 @@ Welcome to the user guide for CSC's Sensitive Data (SD) services. Follow the ste
 - [Useful Terminology](sd-terminology.md)
 
 
-### Links to login pages
+### Access SD services
 
-Please ensure you read the instructions carefully before accessing any services to have a smooth experience:
+Quick links to login portals. Please ensure you read the instructions carefully before accessing any services to have a smooth experience:
 
 * [MyCSC portal](https://my.csc.fi/welcome){ target="_blank" }
 * [SD Connect](https://sd-connect.csc.fi/){ target="_blank" }
@@ -62,9 +62,7 @@ Please ensure you read the instructions carefully before accessing any services 
 
 ### Service Breaks
    
-* SD services undergo regular maintenance on the **first Wednesday of every month**
-* Please note that occasional urgent maintenance may also be required for technical or security reasons. In such cases, we will notify you via email
-* All service breaks are scheduled on [Service Breaks page in CSC's reaserch.csc.fi webiste](https://research.csc.fi/service-breaks){ target="_blank" } 
+* SD services undergo regular maintenance on the **first Wednesday of every month**, for full details please visit [Service Breaks page in CSC's reaserch.csc.fi webiste](https://research.csc.fi/service-breaks){ target="_blank" } 
 
 
 ### Support
@@ -74,7 +72,6 @@ Please ensure you read the instructions carefully before accessing any services 
        - [Contact us](../../support/contact.md), subject: *Sensitive Data*
        - Join the [CSC Research User Support Coffee - Every Wednesday at 14:00](https://ssl.eventilla.com/usersupportcoffee){ target="_blank" }. 
        - Our team is here to help, and we offer direct support. Don't hesitate to contact!
-
 
 
 
