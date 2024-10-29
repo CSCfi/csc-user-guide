@@ -3,7 +3,7 @@
 
 Welcome to the user guide for CSC's Sensitive Data (SD) services. Follow the steps below to navigate the guide and access key information quickly. To navigate the user guide, click on the left-hand side navigation bar or the [quick links](#quick-links-to-key-topics) from this page. Right side of each page has a table of content for faster browsing. The search tool is also available at the top bar.
 
-### Quick links to key topics in the user guide
+### Quick links to key topics
 
 <div class="quick-links-container">
   <div class="quick-links-topic">
