@@ -6,10 +6,16 @@ If you've applied for a project, been accepted, setup your ssh keys and gained a
 
 The first step after you have logged into LUMI (via `ssh lumi` on your terminal) is to configure the environment. The base environment when first logging into LUMI does not provide the necessary tools to submit quantum jobs, therefore a quantum software stack has been created which sets up the correct python virtual environments and the correct environment variables. This is accessed through the LMOD system on LUMI using *modules*.
 
-To use the quantum software stack you first need to tell LMOD where to search for modules. 
+To use the quantum software stack you first need to load the Quantum module tree. 
 
 ```bash
 module use /appl/local/quantum/modulefiles
+```
+
+Alternatively, you can achieve the same result by loading the Local-quantum module.
+
+```bash
+module load Local-quantum
 ```
 
 You can then see the list of available *modules* with `module avail`. The quantum modules should be at the top! In this walkthrough Qiskit will be used, therefore the next step is to load the module into our current environment with
@@ -17,7 +23,6 @@ You can then see the list of available *modules* with `module avail`. The quantu
 ```bash
 module load helmi_qiskit
 ```
-
 
 ## Creating your first quantum program
 
@@ -37,7 +42,7 @@ First let's import the right python libraries
 
 ```python
 import os
-from qiskit import QuantumCircuit, QuantumRegister, execute
+from qiskit import QuantumCircuit, QuantumRegister
 from iqm.qiskit_iqm import IQMProvider
 ```
 
@@ -178,7 +183,7 @@ The full python script can be found below.
 ```python
 import os
 
-from qiskit import QuantumCircuit, QuantumRegister, execute
+from qiskit import QuantumCircuit, QuantumRegister, transpile
 from iqm.qiskit_iqm import IQMProvider
 
 shots = 1000
@@ -205,7 +210,8 @@ backend = provider.get_backend()
 # print(f'Number of qubits: {backend.num_qubits}')
 # print(f'Coupling map: {backend.coupling_map}')
 
-job = execute(circuit, backend, shots=shots)
+transpiled_circuit = transpile(circuit, backend)
+job = backend.run(transpiled_circuit, shots=shots)
 result = job.result()
 exp_result = job.result()._get_experiment(circuit)
 # You can retrieve the job at a later date with backend.retrieve_job(job_id)
