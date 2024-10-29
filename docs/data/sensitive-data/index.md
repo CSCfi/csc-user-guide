@@ -43,7 +43,7 @@ Welcome to the user guide for CSC's Sensitive Data (SD) services. Follow the ste
     </div>
   </div>
   <div class="quick-links-topic">
-    <span class="quick-links-title"><h2 style="margin: 0; font-size: 24px;">Additional Resources</h2></span>
+    <span class="quick-links-title"><h2>Additional Resources</h2></span>
     <div class="quick-links-item">
       <a class="quick-link" target="_self" href="../../support/wn/data-new.md">What's New with Sensitive Data Services</a>
     </div>
