@@ -26,8 +26,10 @@ Zonation is available in the __zonation__ module:
 ```
 module load zonation
 z5 <command arguments>
-(5.2.1) or zonation5 <command arguments>
 ```
+
+With version 5.2.1 you can also use `zonation5 <command arguments>`
+
 Zonation can be used in Puhti with command-line or graphical interface, as interactive job or with batch system. In any case reserve suitable amount of computing resources: cores and memory. Zonation 5 runs faster, if it can use several cores. In Puhti, it can use one node, which is max 40 cores.  
 
 Before starting Zonation, move your data to your project's __scratch__ folder. For testing, [zonation5-tutorial data](https://github.com/zonationteam/Zonation5/releases/download/v1.0/manual_and_example_setups.zip) can be used.
