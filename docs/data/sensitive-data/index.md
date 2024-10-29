@@ -4,7 +4,6 @@
 Welcome to the user guide for CSC's Sensitive Data (SD) services. Follow the steps below to navigate the guide and access key information quickly. To navigate the user guide, click on the left-hand side navigation bar or the [quick links](#quick-links-to-key-topics) from this page. Right side of each page has a table of content for faster browsing. The search tool is also available at the top bar.
 
 
-
 ### Quick links to key topics
 
 <div class="quick-links-container">
@@ -20,6 +19,7 @@ Welcome to the user guide for CSC's Sensitive Data (SD) services. Follow the ste
       <a class="quick-link" target="_self" href="sd_desktop/">Analyse with SD Desktop</a>
     </div>
   </div>
+  
   <div class="quick-links-topic">
     <span class="quick-links-title"><h2>Publish and reuse</h2></span>
     <div class="quick-links-item">
@@ -29,7 +29,8 @@ Welcome to the user guide for CSC's Sensitive Data (SD) services. Follow the ste
       <a class="quick-link" target="_self" href="sd-apply/">Reuse with SD Apply</a>
     </div>
   </div>
-   <div class="quick-links-topic">
+  
+  <div class="quick-links-topic">
     <span class="quick-links-title"><h2>Secondary use of health and social data</h2></span>
     <div class="quick-links-item">
       <a class="quick-link" target="_self" href="findata-permit/">Findata permit</a>
@@ -44,21 +45,46 @@ Welcome to the user guide for CSC's Sensitive Data (SD) services. Follow the ste
       <a class="quick-link" target="_self" href="single-register-submission/">Submitting secondary use data</a>
     </div>
   </div>
+
+
+  <div class="quick-links-topic">
+    <span class="quick-links-title"><h2>Additional Resources</h2></span>
+    <div class="quick-links-item">
+      <a class="quick-link" target="_self" href="../../support/wn/data-new.md">What's New with Sensitive Data Services</a>
+    </div>
+    <div class="quick-links-item">
+      <a class="quick-link" target="_self" href="../../support/faq/">Frequently Asked Questions (FAQ)</a>
+    </div>
+    <div class="quick-links-item">
+      <a class="quick-link" target="_self" href="sd-terminology.md">Useful Terminology</a>
+    </div>
+  </div>
 </div>
 
-- [What's New with Sensitive Data Services](../../support/wn/data-new.md)
-- [Frequently Asked Questions (FAQ)](../../support/faq/)
-- [Useful Terminology](sd-terminology.md)
 
 
-### Access SD services
+### Quick links to login portals. 
 
-Quick links to login portals. Please ensure you read the instructions carefully before accessing any services to have a smooth experience:
+Please ensure you read the instructions carefully before accessing any services to have a smooth experience:
 
-* [MyCSC portal](https://my.csc.fi/welcome){ target="_blank" }
-* [SD Connect](https://sd-connect.csc.fi/){ target="_blank" }
-* [SD Desktop](https://sd-desktop.csc.fi){ target="_blank" }
-* [SD Apply](https://sd-apply.csc.fi/){ target="_blank" }
+<div class="quick-links-container">
+  <div class="quick-links-topic">
+    <span class="quick-links-title"><h2>Access SD Services</h2></span>
+    <div class="quick-links-item">
+      <a class="quick-link" target="_blank" href="https://my.csc.fi/welcome">MyCSC portal</a>
+    </div>
+    <div class="quick-links-item">
+      <a class="quick-link" target="_blank" href="https://sd-connect.csc.fi/">SD Connect</a>
+    </div>
+    <div class="quick-links-item">
+      <a class="quick-link" target="_blank" href="https://sd-desktop.csc.fi">SD Desktop</a>
+    </div>
+    <div class="quick-links-item">
+      <a class="quick-link" target="_blank" href="https://sd-apply.csc.fi/">SD Apply</a>
+    </div>
+  </div>
+</div>
+
 
 ### Service Breaks
    
