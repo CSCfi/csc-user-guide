@@ -61,9 +61,9 @@ Welcome to the user guide for CSC's Sensitive Data (SD) services. Follow the ste
 
 Please ensure you read the instructions carefully before accessing any services to have a smooth experience:
 
-<div class="quick-links-container" style="background-color: white; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); padding: 1rem; margin-bottom: 2rem;">
+<div class="quick-links-container">
   <div class="quick-links-topic">
-    <span class="quick-links-title"><h2 style="margin: 0; font-size: 24px;">Access SD Services</h2></span>
+    <span class="quick-links-title"><h2>Access SD Services</h2></span>
     <div class="quick-links-item">
       <a class="quick-link" target="_blank" href="https://my.csc.fi/welcome">MyCSC portal</a>
     </div>
