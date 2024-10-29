@@ -5,9 +5,9 @@ Welcome to the user guide for CSC's Sensitive Data (SD) services. Follow the ste
 
 ### Quick links to key topics
 
-<div class="quick-links-container" style="background-color: white; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); padding: 1rem; margin-bottom: 2rem;">
+<div class="quick-links-container">
   <div class="quick-links-topic">
-    <span class="quick-links-title"><h2 style="margin: 0; font-size: 24px;">Store and analyse</h2></span>
+    <span class="quick-links-title"><h2>Store and analyse</h2></span>
     <div class="quick-links-item">
       <a class="quick-link" target="_self" href="sd-access/">Start here</a>
     </div>
@@ -18,9 +18,8 @@ Welcome to the user guide for CSC's Sensitive Data (SD) services. Follow the ste
       <a class="quick-link" target="_self" href="sd_desktop/">Analyse with SD Desktop</a>
     </div>
   </div>
-  
   <div class="quick-links-topic">
-    <span class="quick-links-title"><h2 style="margin: 0; font-size: 24px;">Publish and reuse</h2></span>
+    <span class="quick-links-title"><h2>Publish and reuse</h2></span>
     <div class="quick-links-item">
       <a class="quick-link" target="_self" href="federatedega/">Federated EGA</a>
     </div>
@@ -28,9 +27,8 @@ Welcome to the user guide for CSC's Sensitive Data (SD) services. Follow the ste
       <a class="quick-link" target="_self" href="sd-apply/">Reuse with SD Apply</a>
     </div>
   </div>
-  
   <div class="quick-links-topic">
-    <span class="quick-links-title"><h2 style="margin: 0; font-size: 24px;">Secondary use of health and social data</h2></span>
+    <span class="quick-links-title"><h2>Secondary use of health and social data</h2></span>
     <div class="quick-links-item">
       <a class="quick-link" target="_self" href="findata-permit/">Findata permit</a>
     </div>
@@ -44,7 +42,6 @@ Welcome to the user guide for CSC's Sensitive Data (SD) services. Follow the ste
       <a class="quick-link" target="_self" href="single-register-submission/">Submitting secondary use data</a>
     </div>
   </div>
-
   <div class="quick-links-topic">
     <span class="quick-links-title"><h2 style="margin: 0; font-size: 24px;">Additional Resources</h2></span>
     <div class="quick-links-item">
@@ -58,6 +55,7 @@ Welcome to the user guide for CSC's Sensitive Data (SD) services. Follow the ste
     </div>
   </div>
 </div>
+
 
 ### Quick links to login portals.
 
