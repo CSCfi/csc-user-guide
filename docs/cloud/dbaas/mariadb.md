@@ -4,6 +4,12 @@
 * [How to access your MariaDB database](mariadb-accessing.md)
 * [How to create database users and modify user permissions](mariadb-permissions.md)
 
+# Database engine and backups
+TOOD mention that Innodb is the default engine and that engine is the most test in Pukki and using
+engine like Aria might cause usages issues while doing backups so one should think twice before
+using anohter engine than InnoDB.
+better infor:  https://mariadb.com/kb/en/aria-storage-engine/
+
 TODO I would like out documentation to manetion how the backup works in the background e.g. 
   * pg_basebackup is compressed encrypted and streamed to Allas
   * mariadbbackup is compressed encyrpted and streamed to Allas
