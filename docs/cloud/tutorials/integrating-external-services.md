@@ -1,5 +1,8 @@
 # Integrating External Services
 
+!!! Error "Obsolete"
+    Since `*.rahtiapp.fi` now points to the same DNS record as `*.2.rahtiapp.fi`, this tutorial is now obsolete.
+
 Kubernetes, and by extension OpenShift OKD, gives a lot of flexibility regarding network use cases. One of the uses cases is the one that allows to use external services, like databases, transparently in a OpenShift project. Other of the use cases would be to to have a network proxy between OpenShift installations. This could be used as a temporal solution to ease migration periods, where a user of your web application will visit a "Rahti 1 URL", but content will be server by a "Rahti 2 application". Other option is to [setup a HTTP redirector in Rahti](http-redirector.md).
 
 ![Proxy between clusters](../img/proxy.drawio.svg)
@@ -39,6 +42,9 @@ In the example above we are proxying traffic from Rahti 1 to Rahti 2. This is ob
     curl <test>.rahtiapp.fi -vL --resolve <test>.rahtiapp.fi:80:195.148.21.61
     ```
     The command above uses `--resolve` to change the ip associated to a DNS that corresponds to Rahti 2.
+
+    !!! Error "Obsolete"
+        The following steps are not necessary anymore.
 
 1. [Install](../../rahti/usage/cli/#how-to-install-the-oc-tool) and [login with OC](../../rahti/usage/cli/#how-to-login-with-oc) in Rahti 1.
 
