@@ -188,6 +188,19 @@ Another alternative is to build the image on an x64 VM, for example on pouta.csc
 docker run -p 8888:8787 <yourimagename>
 ```
 
+## Adding content to already existing Docker image
+
+To install additional libraries to your persistent personal directory, please use pip install, e.g.
+
+```
+--target=/home/jovyan/my-work/<your_subdir> <yourlibraryname>
+```
+
+It might be in order to create a subdirectory in my-work and install the packages there, as these often come with lots of files. 
+!! You will then have to add the directory where you installed the packages to your PYTHONPATH in order for python to find it, e.g. by calling export PYTHONPATH=$PYTHONPATH:/home/jovyan/my-work/<your_subdir> in beginning of each session from the terminal.
+
+Finally, you need to close and open any open notebooks for this to take effect.
+
 ## Security guidelines for Workspace owners
 
 - Noppe is not intended for sensitive data. Do not store sensitive data or data sets.
