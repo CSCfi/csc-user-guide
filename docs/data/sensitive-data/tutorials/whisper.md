@@ -6,7 +6,8 @@ speech translation, and language identification.
 
 *   [Whisper home page](https://github.com/openai/whisper)
 
-Whisper can be installed to a SD Desktop virtual machine with [SD software installer](./sd-software-installer.md).
+Whisper can be installed to a SD Desktop virtual machine with [SD Software installer](../../sensitive-data/sd-desktop-software.md#customisation-via-sd-software-installer).
+
 The version provided for SD Desktop is based on [WhisperDO](https://github.com/nicholasgcotton/WhisperDO).
 
 After installation Whisper is available as a command line tool in SD Desktop. 

@@ -9,7 +9,7 @@ Accessing secondary use health or social data from public registries requires a 
 After acquiring the permit, you can start the service access process with CSC. Next, we will walk you through the steps that need to be completed in order to access the dataset on SD Desktop.
 
 !!! Note
-    * [SD Connect](sd_connect.md), a service used for storing sensitive research data, is **not accessible for registry data processing**. It is not possible to directly import any additional data, script, or software into the virtual desktop. 
+    * [SD Connect](sd_connect.md), a service used for storing sensitive research data, is **not suitable for registry data processing**. It is not possible to directly import any additional data, script, or software into the virtual desktop. 
     * If you need software that is not available on the SD Desktop by default, please contact [Service Desk](../../support/contact.md) (*Subject: Sensitive Data, Secondary use*) well in advance - even before applying for a data permit.
 
 *Please note that you can create a test project and test regular SD Desktop independently, to make sure that SD Desktop is suitable for your needs. [Instructions how to access regular SD Desktop](sd-use-case-new-user-project-manager.md).*
@@ -32,7 +32,8 @@ After acquiring the permit, you can start the service access process with CSC. N
 **Assignment for whole team:**
 
 - **Go to [MyCSC portal](https://my.csc.fi){ target="_blank" }**
-- Log in with Haka. Select your home organization and log in to their identity service. [How to get an account without Haka](../../accounts/how-to-create-new-user-account.md#getting-an-account-without-haka-or-virtu). 
+- Log in with Haka. Select your home organization and log in to their identity service. [How to get an account without Haka](../../accounts/how-to-create-new-user-account.md#getting-an-account-without-haka-or-virtu).
+  
 - Fill in your information on the Sign up page.
 - Set your password using 12 characters or more, containing both upper and lowercase letters and at least one number. No special characters are allowed.
  - You will receive your CSC user account confirmation via email.
@@ -109,6 +110,16 @@ ___
 3. You need to verify your identity with a second verification step (i.e. Multi-factor Authentication, MFA). Enter the verification code provided via your MFA mobile application (e.g. Google Authenticator)
 4. Press *Continue*.
 
+!!! Note
+    If you attempt to access the desktop and are redirected to a page indicating a low assurance level, please follow these steps:
+    - Go to the MyCSC login page.
+    - Click on Haka and select your university. This will redirect you to your university's login page.
+    - On the university login page, click on "Redisplay the page on accepting the disclosure of your information."
+    - Log in using your university credentials.
+    - After successfully logging in, accept the disclosure of your information.
+
+
+
 [![Authentication](images/desktop/desktop_login-mfa1.png)](images/desktop/desktop_login-mfa1.png)
 
 ### 11. Access the data with SD Desktop
@@ -117,5 +128,6 @@ Register data provided by Findata can be accessed on your **virtual desktop** us
 1. [Create virtual desktop](sd-desktop-secondary-create.md)
 2. [Access virtual desktop](sd-desktop-secondary-access.md)
 3. [Access data with virtual desktop using Data Gateway](sd-desktop-secondary-access.md#accessing-data-using-data-gateway)
-* [Manage virtual desktop](sd-desktop-secondary-manage.md)
+4. [Manage virtual desktop](sd-desktop-secondary-manage.md)
+
 
