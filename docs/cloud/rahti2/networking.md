@@ -133,9 +133,54 @@ spec:
     app: mysql
 ```
 
+**You can find detailed explanation about `Service` [here](./concepts.md#service)**
+
 Ensure that the service type is set to `LoadBalancer`, and that the `allocateLoadBalancerNodePorts` field is set to false (the default is true) because NodePorts are not enabled in Rahti 2. If this field is not set correctly, the allocated node port will be unusable, and service creation may fail if the entire default node port range (`30000-32767`) is already allocated.
 
 Additionally, the port field in the service definition (e.g., `33306` in the previous example) must be within the range of `30000-35000`.
+
+#### How to retrieve the selector
+
+##### **Using CLI**
+
+ on your CLI run `oc describe pod <pod-name> -n <namespace>`. After running the oc command, you will see an output that includes a section labeled `Labels`, Copy any of labels and paste in the `yaml` file under `selector`. **Make sure to follow the `yaml` syntax and change `=` to `:`**. For example under the `Labels` we are using the first one:
+
+```bash
+Name:           mysql-pod
+Namespace:      my-namespace
+Priority:       0
+Node:           worker-node-1/10.0.0.1
+Start Time:     Mon, 23 Oct 2024 10:00:00 +0000
+Labels:         app=mysql
+                environment=production
+                app.kubernetes.io/name=postgresql
+(...)
+```
+
+##### **Using the Web Interface**
+
+On the web interface under `Developer`, go to the `Project` tab, press on `pods` and then choose the pod you want. You can see all the labels under `Labels`. Copy any of labels and paste in the `yaml` file under `selector`. **Make sure to follow the `yaml` syntax and change `=` to `:`**.
+
+![rahti1](https://github.com/user-attachments/assets/75babfd9-12a1-498a-b7e7-c6e8f8ec72dc)
+
+
+#### How to make sure your service is pointing to the right pod
+
+##### **Using CLI**
+
+ On your CLI run `oc get endpoints <service-name> -n <namespace>`. You should see the name of the Service and the IP addresses and ports of the Pods that are currently targeted by the Service. For example:
+
+```bash
+NAME       ENDPOINTS           AGE
+mysqllb   10.0.0.1:3306        10m
+```
+
+##### **Using the Web Interface**
+
+On the web interface under `Developer`, go to the `Project` tab, press on `Services` and choose the LoadBalancer service you just created. Under the `Pods` tab you should see the targeted pod. 
+
+![rahti2](https://github.com/user-attachments/assets/3651fc81-682d-40d4-8a2e-bae639c1c81b)
+
 
 ### Multiple LoadBalancer Services
 
