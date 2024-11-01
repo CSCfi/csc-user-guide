@@ -188,18 +188,29 @@ Another alternative is to build the image on an x64 VM, for example on pouta.csc
 docker run -p 8888:8787 <yourimagename>
 ```
 
-## Adding content to already existing Docker image
+## Adding Python packages to an existing workspace 
 
-To install additional libraries to your persistent personal directory, please use pip install, e.g.
+This section is about how to add packages to the workspace _after_ you have built the Docker image. You do not need to always create a new custom image.
+
+To install additional libraries to your persistent personal directory, please use ```pip```.
+
+1. Open Terminal in JupyterLab.
+2. Create new folder for installation files in my-work.
+3. Set PYTHONUSERBASE to direct to the new folder.
+4. Add the new packages with pip.
 
 ```
---target=/home/jovyan/my-work/<your_subdir> <yourlibraryname>
+mkdir -p /home/jovyan/my-work/<your_subdir>
+export PYTHONUSERBASE=/home/jovyan/my-work/<your_subdir>
+pip install --user the_new_package_name
 ```
 
-It might be in order to create a subdirectory in my-work and install the packages there, as these often come with lots of files. 
-!! You will then have to add the directory where you installed the packages to your PYTHONPATH in order for python to find it, e.g. by calling export PYTHONPATH=$PYTHONPATH:/home/jovyan/my-work/<your_subdir> in beginning of each session from the terminal.
+For using these packages, you need to define PYTHONUSERBASE in each new session. Add for example a new first cell to you notebook.
 
-Finally, you need to close and open any open notebooks for this to take effect.
+```
+import os
+os.environ["PYTHONUSERBASE"] = "/home/jovyan/my-work/<your_subdir>"
+```
 
 ## Security guidelines for Workspace owners
 
