@@ -1,5 +1,8 @@
 # How to use folder as your shared workspace with SD Connect
 
+<iframe width="400" height="225" srcdoc="https://www.youtube.com/embed/Ih5PKZtPOCU" title="Introducing CSC Sensitive Data Services" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+
 ## Use case
 
 You (Team A) and other team (Team B) are actively collaborating. You both want to upload data to the same folder and be able to modify folder content.
@@ -10,7 +13,7 @@ In this case you can share your data folder to Team B with **Collaborate** -perm
 
 ![Collaborate Infograph](https://a3s.fi/docs-files/sensitive-data/SD_Connect/UseCase_Collaborate.png)
 
-<iframe width="400" height="225" srcdoc="https://www.youtube.com/embed/Ih5PKZtPOCU" title="Introducing CSC Sensitive Data Services" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
 
 ## Step by step tutorial
 
