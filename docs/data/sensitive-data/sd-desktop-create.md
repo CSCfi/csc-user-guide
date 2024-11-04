@@ -54,6 +54,10 @@ Add an external volume to your virtual desktop, extending default storage (80 GB
 
 Finally, click _Create desktop_. The operation is entirely automated and can take up to 30 minutes. If you try accessing the virtual desktop during this process, an error message will be displayed asking you to return later.
 
+
+!!! Note 
+    After clicking "Create," please be aware that the confirmation notification may take up to 30 seconds to appear. If you are unsure whether the action was successful, please reach out to us at the service desk. We apologize for any inconvenience this may cause.
+
 ![Create desktop.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-Desktop_CreateButton.png)
 
 ## Important considerations
