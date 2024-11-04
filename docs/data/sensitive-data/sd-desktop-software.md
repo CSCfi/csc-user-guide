@@ -44,7 +44,7 @@ SD Software installer provides an easy-to-use tool to add some commonly used sof
 
 <iframe width="512" height="288" srcdoc="https://www.youtube.com/embed/S4hpjPy-TDQ" title="How to install software on SD Desktop" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
-### Software available via SD Desktop Installer
+### Software available via SD Sofware Installer
 
 | **Category**          | **Tool**                                                                                                                                                                                                                     |
 |-----------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
