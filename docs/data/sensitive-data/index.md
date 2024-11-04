@@ -30,16 +30,16 @@ Welcome to the user guide for CSC's Sensitive Data (SD) services. Follow the ste
   <div class="quick-links-topic">
     <span class="quick-links-title"><h2>Secondary use of health and social data</h2></span>
     <div class="quick-links-item">
-      <a class="quick-link" target="_self" href="findata-permit/">Findata permit</a>
+      <a class="quick-link" target="_self" href="findata-permit/"> Access with Findata permit</a>
     </div>
     <div class="quick-links-item">
-      <a class="quick-link" target="_self" href="single-register-permit/">Register permit</a>
+      <a class="quick-link" target="_self" href="single-register-permit/"> Access with public register permit</a>
     </div>
     <div class="quick-links-item">
       <a class="quick-link" target="_self" href="sd-desktop-audited/">Analyse with SD Desktop for secondary use</a>
     </div>
     <div class="quick-links-item">
-      <a class="quick-link" target="_self" href="single-register-submission/">Submitting secondary use data</a>
+      <a class="quick-link" target="_self" href="single-register-submission/">Submission guide for public registers</a>
     </div>
   </div>
   <div class="quick-links-topic">
