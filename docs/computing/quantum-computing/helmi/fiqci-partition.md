@@ -17,34 +17,22 @@ need to apply for quantum resources in addition to CPU, GPU, and storage.
 
 ## The FiQCI partition `q_fiqci`
 
-Access to Helmi is only available through the FiQCI partition on LUMI, which provides a direct connection between a LUMI-C
-node (with 128 cores and 256 GB RAM) and Helmi.
+Access to Helmi is only available through the FiQCI partition on LUMI, which provides a direct connection between a [LUMI-C
+node](https://docs.lumi-supercomputer.eu/hardware/lumic/) and Helmi.
 
 * [Further details on LUMI nodes](https://docs.lumi-supercomputer.eu/hardware/)
 
 There is one queue in the Helmi partition corresponding to FiQCI projects: `q_fiqci`. 
-Currently, the maximum run time of a quantum job is 15 minutes.
+Currently, the maximum run time of a quantum job is 2 hours.
 
-| Name      | Max walltime | Max jobs | Max resources/job |
-| --------- | ------------ | -------- | ----------------- |
-| _q_fiqci_ | _15 mins_    | _1_      | _1 node_          |
+| Name      | Max walltime | Max jobs |
+| --------- | ------------ | -------- |
+| _q_fiqci_ | _2 hours_    | _5_      |
 
 
 ## Storage areas
 
-The Helmi partition uses the same storage policies as LUMI.
-
-|                       | Quota | Max files |  Expandable  | Backup | Retention        |
-| :-------------------: | ----- | --------- | :----------: | ------ | ---------------- |
-|     User<br>Home      | 20 GB | 100k      |      No      | Yes    | User lifetime    |
-| Project<br>Persistent | 50 GB | 100k      | Yes<br>500GB | No     | Project lifetime |
-|  Project<br>Scratch   | 50 TB | 2000k     | Yes<br>500TB | No     | 90 days          |
-
-* Your home directory (`$HOME`) that can contain up to 20 GB of data. It is intended to store user configuration files and personal data. The user home directory is purged once the user account expires.
-* Your project persistent storage is used to share data amongst the members of a project and is located at `/project/project_<project-number>`. **The project persistent directory is purged once the project expires.**
-* Your project scratch is intended as temporary storage for input, output or checkpoint data of your application. Please remove the files that are no longer needed by your project on a regular basis.
-
-* [Further details on LUMI Storage](https://docs.lumi-supercomputer.eu/storage/)
+The Helmi partition uses the same storage policies as LUMI. You can find [further details on LUMI Storage here](https://docs.lumi-supercomputer.eu/storage/).
 
 ## Usage and Billing
 
@@ -60,6 +48,5 @@ Presently, running through the `q_fiqci` queue will consume QPU seconds for the 
 !!! success "Querying your used QPUs"
     You can check your used QPUs using the `lumi-allocations` tool. 
 
-Storage is billed by volume as well as time. The billing units are TB-hours. For the regular scratch file system, 1 TB that stays for 1 hour on the filesystem, consumes 1 TB-hour.
 
 Helmi-specific support can be reached via the [CSC Service Desk](/support/contact/). Note that presently, user support is limited to technical issues.

@@ -256,6 +256,8 @@ The procedure to achieve this is the following:
     !!! Warning "Bug in OpenShift"
         At this moment, with the Local policy activated, no traffic will be possible through this service. This is due to a bug in the current deployed version of OpenShift OKD. The expected fixed behaviour would be that access will continue to be open for any IP.
 
+        In addition, when `externalTrafficPolicy` is set to `Local`, only one service can be exposed using the external IP.
+
         For more information refer to the official article: [Understanding Openshift `externalTrafficPolicy: local` and Source IP Preservation](https://access.redhat.com/solutions/7028639)
 
 1. Add a `NetworkPolicy` to open access to selected IPs:

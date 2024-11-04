@@ -10,7 +10,6 @@ You need to access SD Desktop. You have a permit from Findata.
 
 ## Solution
 
-
 1. [Create a CSC account](#1-create-a-csc-account) 
 2. [Create new CSC project](#2-create-new-csc-project)
 3. [Fill GDPR document](#3-fill-gdpr-document)
@@ -29,7 +28,8 @@ You need to access SD Desktop. You have a permit from Findata.
     Team member
 
 - **Go to [MyCSC portal](https://my.csc.fi){ target="_blank" }**
-- Log in with Haka. Select your home organization and log in to their identity service. [How to get an account without Haka](../../accounts/how-to-create-new-user-account.md#getting-an-account-without-haka-or-virtu). 
+- Log in with Haka. Select your home organization and log in to their identity service. [How to get an account without Haka](../../accounts/how-to-create-new-user-account.md#getting-an-account-without-haka-or-virtu).
+  
 - Fill in your information on the Sign up page.
 - Set your password using 12 characters or more, containing both upper and lowercase letters and at least one number. No special characters are allowed.
  - You will receive your CSC user account confirmation via email.
@@ -115,8 +115,6 @@ You need to access SD Desktop. You have a permit from Findata.
     Team manager
 !!! info-label
     Team member
-    
+
 - Write down your project number, you might need it later (e.g. *project_1234567*).
 - Now you can log out from MyCSC and [login to SD Desktop](sd-desktop-secondary-login.md).
-
-

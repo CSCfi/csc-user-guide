@@ -29,12 +29,11 @@ With the SD Desktop service, you can create virtual computers for analysing sens
 |  **Small computation** | Ideal for analyzing sensitive data using office software (for example: similar to simple statistical analysis with Excel, watching videos, listening to audio files, and working on text files). You can compare this desktop to your laptop. | Core 6; Memory 15 GB; Root disk 80 GB; | standard.xlarge | 5.2 billing units/h|
 |  **Medium computation**  | Ideal for running complex statistical or genome analysis (for example: using the command line to run specific scripts). You can compare this desktop to a powerful laptop provided by your organization's IT unit. | Core 8; Memory 30 GB; Root disk 80 GB | standard.xxlarge | 10.4 billing units/h |
 | **Heavy computation**| Ideal for running non-interactive programmatic analysis (machine learning) that requires heavy computation. Please do not choose this option for simple analysis, as it consumes considerable resources. | Core 32; Memory 116 GB; Root disk 80 GB  | hpc.5.32core | 52 billing units/h |
-| **Small GPU computation**| Running GPU-based computation - only available via **request** and only for testing purposes. [Please contact CSC Service Desk](../../support/contact.md) (subject: *Sensitive data*)  | Core 14; Memory 117 GB; Root disk 80 GB; GPU 1  | gpu.1.1gpu | 120 billing units/h |
-| **Medium GPU computation**| Running GPU-based computation - only available via **request** and only for testing purposes. [Please contact CSC Service Desk](../../support/contact.md) (subject: *Sensitive data*)  | Core 20; Memory 180 GB; Root disk 80 GB; GPU 1; SSD Ephemeral Disk 1000 GB | gpu.2.1gpu | 200 billing units/h |
+| **Small GPU computation**| Only available via **request** by writing at CSC Service Desk](../../support/contact.md) (subject: *SD Services*)  | Core 14; Memory 117 GB; Root disk 80 GB; GPU 1  | gpu.1.1gpu | 120 billing units/h |
+| **Medium GPU computation**| Only available via **request** by writing at CSC Service Desk](../../support/contact.md) (subject: *SD Services*)  | Core 20; Memory 180 GB; Root disk 80 GB; GPU 1; SSD Ephemeral Disk 1000 GB | gpu.2.1gpu | 200 billing units/h |
 
 !!! note
     The two GPU options are available only for testing purposes. Before proceeding, contact [CSC Service Desk](../../support/contact.md), *(subject: Sensitive Data)* to ensure optimal use, as limited resources require careful planning.
-
 
 ### 3. Add an external volume (virtual external hard drive)
 
@@ -54,14 +53,13 @@ Finally, click _Create desktop_. The operation is entirely automated and can tak
 
 ![Create desktop.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-Desktop_CreateButton.png)
 
-
 ## Important considerations
 
 * Your virtual desktop is **accessible to all project members upon creation** and **consumes billing units** from your CSC project until [paused](./sd-desktop-manage.md#pausing-or-unpausing-a-virtual-desktop) or [deleted](./sd-desktop-manage.md#deleting-a-desktop). 
 
 * Each CSC project supports up to 3 virtual desktops, with 10 project members allowed to connect simultaneously to each desktop.
 
-* All desktops come with a set of pre-installed open-source software managed by CSC. [List of pre-installed softwares](./sd-desktop-software.md#default-software-selection-in-sd-desktop).
+* All desktops come with a set of pre-installed open-source software managed by CSC. More informations about the list of pre-installed software and customisation is available [delete](./sd-desktop-software.md).
 
 * **Delete or pause unused desktops**: Ensure to [delete](./sd-desktop-manage.md#deleting-a-desktop) or [pause](./sd-desktop-manage.md#pausing-or-unpausing-a-virtual-desktop) your desktop when not in use. Unused desktops trigger email notifications after 14 days of inactivity.
 
@@ -69,24 +67,11 @@ Finally, click _Create desktop_. The operation is entirely automated and can tak
   
 * **You can detach and attach a volume from your virtual desktop** on the SD Desktop Management page. This can be compared to connecting/disconnecting a hard drive to your laptop. This feature is available only on desktops created after February 2023. For additional details, refer to: [Managing volume and desktops](./sd-desktop-manage.md).
 
-
 !!! info "Need assistance?"
     If you're uncertain about which desktop to choose or need support for your research, contact [CSC Service Desk](../../support/contact.md) with the subject "Sensitive data".
-
-
 
 Read next:
 
 * [How to work with your virtual desktop](./sd-desktop-access.md)
 * [Which software is available for virtual desktop](./sd-desktop-software.md)
 * [How to manage your virtual desktop (delete, pause, detach volume etc.)](./sd-desktop-manage.md)
-
-
-
-
-
-
-
-
-
-

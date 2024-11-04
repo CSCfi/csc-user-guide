@@ -186,7 +186,7 @@ By default, `corosync` and `pacemaker` services are disabled:
       pacemaker: active/disabled
       pcsd: active/enabled
     
-According to [pacemaker docs](https://clusterlabs.org/pacemaker/doc/2.1/Clusters_from_Scratch/html/verification.html):
+According to [pacemaker docs](https://clusterlabs.org/projects/pacemaker/doc/2.1/Clusters_from_Scratch/html/verification.html):
 
     requiring a manual start of cluster services gives you the opportunity 
     to do a post-mortem investigation of a node failure 
@@ -479,7 +479,7 @@ You can enable them if you wish with `pcs`:
 
 ### GFS2 Links
 
-- [Pacemaker docs](https://clusterlabs.org/pacemaker/doc/2.1/Clusters_from_Scratch/html/cluster-setup.html)
+- [Pacemaker docs](https://clusterlabs.org/projects/pacemaker/doc/2.1/Clusters_from_Scratch/html/cluster-setup.html)
 - [GFS2 on Amazon EBS Multi-Attach](https://aws.amazon.com/blogs/storage/clustered-storage-simplified-gfs2-on-amazon-ebs-multi-attach-enabled-volumes/)
 - [Getting start with Pacamaker](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/configuring_and_managing_high_availability_clusters/assembly_getting-started-with-pacemaker-configuring-and-managing-high-availability-clusters#proc_learning-to-use-pacemaker-getting-started-with-pacemaker)
 - [Configuring a Red Hat High Availability cluster on Red Hat OpenStack Platform](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/configuring_a_red_hat_high_availability_cluster_on_red_hat_openstack_platform/index)

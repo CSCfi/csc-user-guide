@@ -76,7 +76,7 @@ In Qiskit python scripts you will need to include the following:
 ```python
 import os
 
-from qiskit import QuantumCircuit, execute
+from qiskit import QuantumCircuit, transpile
 from iqm.qiskit_iqm import IQMProvider
 
 HELMI_CORTEX_URL = os.getenv('HELMI_CORTEX_URL')  # This is set when loading the module
@@ -95,7 +95,8 @@ circuit.measure_all()
 
 print(circuit.draw(output='text'))
 
-job = execute(circuit, backend, shots=shots)  # execute your quantum circuit
+transpiled_circuit = transpile(circuit, backend)
+job = backend.run(transpiled_circuit, shots=shots)
 counts = job.result().get_counts()
 print(counts)
 ```
@@ -168,7 +169,8 @@ print(f'Native operations: {backend.operation_names}')
 print(f'Number of qubits: {backend.num_qubits}')
 print(f'Coupling map: {backend.coupling_map}')
 
-job = execute(circuit, backend, shots=shots)
+transpiled_circuit = transpile(circuit, backend)
+job = backend.run(transpiled_circuit, shots=shots)
 result = job.result()
 exp_result = result._get_experiment(circuit)
 
