@@ -4,14 +4,13 @@ Your virtual desktop is completely isolated from the internet and other services
 
 **In order to export the results at the end of your analysis, you need to:**
 
-1. Download and complete Findata's [summary form for verifying the anonymity of the results](https://findata.fi/summary-form-verifying-anonymity-of-results);
-2. Send the completed form to sensitivedata-support@csc.fi;
-3. Make sure your results **do not contain any sensitive data**;
-4. Collect all the results into a same folder and name it as **Results**;
-5. Place the **Results** folder into the **shared-directory** on your Desktop;
-6. **Send a request to [CSC Service Desk](../../support/contact.md)** to export your results;
-7. All the content in the “Results” folder will be exported to the data permit authority, and it will be available for you after their scrutiny. During the export, you will not be able to access your virtual Desktop. All the project members have to be removed from the CSC project for the duration of the data export. Afterwards, you will be invited back to the CSC project, if your project is still ongoing;
-8. You will receive instructions on how to create a new CSC project in SD Connect, after which the Sensitive Data Support -team will share the results to you via SD Connect.
+1. Make sure your results **do not contain any sensitive data**;
+2. Collect all the results into a same folder and name it as **Results**;
+3. Place the **Results** folder into the **shared-directory** on your Desktop;
+4. Download and complete Findata's [summary form for verifying the anonymity of the results](https://findata.fi/summary-form-verifying-anonymity-of-results);
+5. **Send a request to [CSC Service Desk](../../support/contact.md)** to export your results and attach the completed Findata's summary form to the request;
+6. All the content in the “Results” folder will be exported to the data permit authority, and it will be available for you after their scrutiny. During the export, you will not be able to access your virtual Desktop. All the project members have to be removed from the CSC project for the duration of the data export. Afterwards, you will be added back to the CSC project, if your project is still ongoing;
+7. You will receive instructions on how to create a new CSC project in SD Connect, after which the Sensitive Data Support -team will share the results to you via SD Connect.
 
 ![Exporting results from virtual desktop](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Exporting_secondary_use_data.png)
 
