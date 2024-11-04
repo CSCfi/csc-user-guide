@@ -1,6 +1,7 @@
 # Log into SD Desktop
 
 ## Prerequisites
+
 * [Accessing secondary use health or social data via Sensitive Data services](secondarydata-access.md)
 
 ## Step by step
@@ -10,7 +11,7 @@
 3. You need to verify your identity with a second verification step (i.e. Multi-factor Authentication, MFA). Enter the verification code provided via your MFA mobile application (e.g. Google Authenticator)
 4. Press *Continue*.
 
-![Authentication](images/desktop/desktop_login-mfa1.png)
+[![Authentication](images/desktop/desktop_login-mfa1.png)](images/desktop/desktop_login-mfa1.png)
 
 * [Create virtual desktop](sd-desktop-secondary-create.md)
 * [Access virtual desktop](sd-desktop-secondary-access.md)
