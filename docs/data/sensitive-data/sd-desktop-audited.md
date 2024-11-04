@@ -41,7 +41,7 @@ Contents:
 
 ## Before you start
 
-* You need to have a data permit issued by Findata or single register before starting the service access process at CSC.
+* You need to have a data permit issued by Findata or a single register before starting the service access process at CSC.
 
 * All the members belonging to a specific CSC project can access the same computing virtual desktop. Currently, it is possible to launch 3 virtual Desktops (or computing environment) for each CSC project. Each CSC project has its private desktop, and each desktop is isolated from other CSC projects or CSC accounts.
 
@@ -51,4 +51,3 @@ Contents:
 
 !!! Note
     We recommend you to **[contact CSC Service Desk](../../support/contact.md) well in advance**, even before applying for a data permit, if you need **software that is not available** on the Desktop as a default.
-
