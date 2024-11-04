@@ -7,7 +7,7 @@ process and `sd-backup` commands that provide a way for SD Users to back up thei
 ## Installation 
 
 The tools for running backup process are not by default installed in SD Desktop Virtual Machines. Thus, the first step is that the 
-manager installs the **SD Backup tool** package using the [SD software installer](./sd-software-installer.md). 
+manager installs the **SD Backup tool** package using the [SD Software installer](../../sensitive-data/sd-desktop-software.md#customisation-via-sd-software-installer)
 
 Log in to your SD Desktop and open **Data Gateway**. If the software installation help tools are enabled for your project, then you should have folder: 
 `tools-for-sd-desktop` included in the directory that Data Gateway created (in `Projects/SD-Connect/your-project-name`). If you don't find `tools-for-sd-desktop` 

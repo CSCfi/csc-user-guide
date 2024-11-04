@@ -1,5 +1,9 @@
 # Command Line Interface
 
+
+!!! Note
+    Automated key management, encryption, and decryption are not yet available for programmatic data uploads and downloads.
+
 To encrypt and upload files via command line, please check [this tutorial](sequencing_center_tutorial.md) illustrating how to use the crpt4GH tool to upload files in Allas (visible from SD Connect).
 
 Below more information about the crypt4GH CLI:

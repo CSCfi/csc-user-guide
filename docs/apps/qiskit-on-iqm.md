@@ -9,6 +9,9 @@ Qiskit on IQM is an open-source qiskit adapter for IQM quantum computers. It is
 installed as `helmi_qiskit` on LUMI. It is used for running quantum circuits on
 [Helmi](../computing/quantum-computing/helmi/running-on-helmi.md).
 
+!!! info "News"
+     **28.10.2024** Installed `helmi_qiskit/13.16` which supports Qiskit==1.1.2
+
 ## Available
 
 Currently supported [qiskit-on-iqm](https://iqm-finland.github.io/qiskit-on-iqm/)
@@ -16,7 +19,7 @@ versions:
 
 | Version | Module                               | LUMI  | Notes           |
 |:--------|:-------------------------------------|:-----:|-----------------|
-| 13.6    | `helmi_qiskit/13.6`                  | X     |                 |
+| 13.16   | `helmi_qiskit/13.16`                 | X     |                 |
 
 All modules are based on Tykky using LUMI-container-wrapper.
 Wrapper scripts have been provided so that common commands such as `python`,
@@ -64,6 +67,7 @@ Example batch script for running a quantum job on Helmi:
 #SBATCH --partition=q_fiqci     # Partition (queue) name
 #SBATCH --ntasks=1              # One task (process)
 #SBATCH --cpus-per-task=1       # Number of cores (threads)
+#SBATCH --mem-per-cpu=1G        # Memory allocation
 #SBATCH --time=00:15:00         # Run time (hh:mm:ss)
 #SBATCH --account=project_xxx   # Project for billing
 
