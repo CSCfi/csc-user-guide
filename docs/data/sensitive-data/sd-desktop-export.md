@@ -7,7 +7,7 @@ Your virtual desktop is isolated from the internet for security reasons. Only th
     * Only one file can be exported at a time. To export multiple files, first compress them into a single folder.
     * Files larger than 30 GB need to be split into smaller parts before exporting.
 
-## Step-by-Step Instructions
+## Step-by-Step 
 
 1. Download and install the Crypt4GH application
 2. Generate your encryption key pair
@@ -29,11 +29,11 @@ CSC provides an application that simplifies encryption key generation and data d
 
 1. Download the appropriate version for your operating system from the [GitHub repository](https://github.com/CSCfi/crypt4gh-gui):
 
-   * [Mac](https://github.com/CSCfi/crypt4gh-gui/releases/download/v1.3.0/crypt4gh-gui-python3.10-macos-amd64.zip)
+   * [Mac](https://github.com/CSCfi/crypt4gh-gui/releases/download/2024.7.0/crypt4gh-gui-python3.11-macos-arm64.zip)
      
-   * [Windows](https://github.com/CSCfi/crypt4gh-gui/releases/download/v1.3.0/crypt4gh-gui-python3.10-windows-amd64.zip)
+   * [Windows](https://github.com/CSCfi/crypt4gh-gui/releases/download/2024.7.0/crypt4gh-gui-python3.11-windows-amd64.zip)
      
-   * [Linux](https://github.com/CSCfi/crypt4gh-gui/releases/download/v1.3.0/crypt4gh-gui-python3.10-linux-amd64.zip)
+   * [Linux](https://github.com/CSCfi/crypt4gh-gui/releases/download/2024.7.0/crypt4gh-gui-python3.11-linux-amd64.zip)
 
 
 2. Locate the Crypt4GH application in your downloads folder.
