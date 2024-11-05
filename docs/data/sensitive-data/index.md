@@ -44,13 +44,10 @@ Welcome to the user guide for CSC's Sensitive Data (SD) services. Follow the ste
   </div>
 </div>
 
-#### Addittional resources
-
-[What's New with Sensitive Data Services](../../support/wn/data-new.md)
-
-[Frequently Asked Questions](../../support/faq.md)
-
-[Useful Terminology](../../data/sesntive-data/sd-terminology.md)
+###### Additional resources
+###### [What's New with Sensitive Data Services](../../support/wn/data-new.md)
+###### [Frequently Asked Questions](../../support/faq.md)
+###### [Useful Terminology](../../data/sensitive-data/sd-terminology.md)
 
   
 
