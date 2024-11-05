@@ -31,6 +31,8 @@ Choose a pre-built option based on your needs: Small (for basic tasks), Medium (
 !!! note
     The two GPU options are available only for testing purposes. Before proceeding, contact [CSC Service Desk](../../support/contact.md), *(subject: Sensitive Data)* to ensure optimal use, as limited resources require careful planning.
 
+!!! info "Need assistance?"
+    If you're uncertain about which desktop to choose or need support for your research, contact [CSC Service Desk](../../support/contact.md) with the subject "SD Desktop".
 
 
 ## 3. Add an external volume
@@ -38,7 +40,7 @@ Choose a pre-built option based on your needs: Small (for basic tasks), Medium (
 * Attach an external volume (virtual external hard drive) to your virtual desktop, extending default storage (80 GB) up to 200 GB. Choose *Volume size* (recommended: 50 GB for small computing, 100 GB for medium, 200 GB for heavy computation) and assign a name in the *Volume name* -field [(See screenshot)](images/desktop/SD-Desktop_Volume.png){ target="_blank" }.
 
 !!! Note
-    If you need additional volume space, you can request it by [CSC Service Desk](../../support/contact.md), *(subject: SD Desktop)*, please be aware that volume extensions are only possible before any secondary use data has been added to the volume.
+    If you need additional volume space, you can request it by [CSC Service Desk](../../support/contact.md), *(subject: SD Desktop)*, please be aware that volume extensions are only possible before any data has been added to the volume.
 
 * **It's advisable to save critical analyses or files on the volume, which can also serve as a backup if the virtual desktop becomes unresponsive.** Note that after the virtual desktop is created, disk space/volume extension requires contacting [CSC Service Desk](../../support/contact.md), *(subject: Sensitive Data)*. 
 
@@ -76,15 +78,7 @@ Choose a pre-built option based on your needs: Small (for basic tasks), Medium (
 * All desktops come with a set of pre-installed open-source software managed by CSC. More informations about the list of pre-installed software and customisation is available [delete](./sd-desktop-software.md).
 
 * **Delete or pause unused desktops**: Ensure to [delete](./sd-desktop-manage.md#deleting-a-desktop) or [pause](./sd-desktop-manage.md#pausing-or-unpausing-a-virtual-desktop) your desktop when not in use. Unused desktops trigger email notifications after 14 days of inactivity.
-
-* Additional volume or disk space can only be requested by writing to [CSC Service Desk](../../support/contact.md) (subject: Sensitive data).
   
-* **You can detach and attach a volume from your virtual desktop** on the SD Desktop Management page. This can be compared to connecting/disconnecting a hard drive to your laptop. This feature is available only on desktops created after February 2023. For additional details, refer to: [Managing volume and desktops](./sd-desktop-manage.md).
-
-
-!!! info "Need assistance?"
-    If you're uncertain about which desktop to choose or need support for your research, contact [CSC Service Desk](../../support/contact.md) with the subject "Sensitive data".
-
 
 
 Read next:
