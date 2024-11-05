@@ -159,13 +159,20 @@ Once the file is encrypted, only the CSC project manager can export them  via th
 ## Step 7: Downlaod the files from SD Connect and change extension
 
 
-6. Follow [video](https://youtu.be/SQJ8QEKV7BE) and after downloading the file, change the extension.
+<iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/SQJ8QEKV7BE" title="Create a virtual desktop in SD Desktop" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
 
 1. Access SD Connect and locate the file you need. Click on download.
 
 2. The user interface will display the message: "Some requested files could not be decrypted."
 
-3. After downloading the files, you need to adjust their extensions. Right-click the file, choose "Rename," and add `.c4gh` to the end of the filename. If opened with a text editor, the files will still be encrypted.
+3. After downloading the file, **you need to adjust the extension**:
+  
+* Right-click the file
+
+* Choose "Rename," and add `.c4gh` to the end of the filename.
+  
+* If opened with a text editor, the files will still be encrypted.
 
 
 ![Some requested files could not be decrypted.](https://a3s.fi/docs-files/sensitive-data/SD_Connect/Old_download_1.png)
@@ -176,7 +183,7 @@ Once the file is encrypted, only the CSC project manager can export them  via th
  
 Next, you can decrypt the file using the Crypt4GH application and your secret encryption key. Unfortunately, it is currently only possible to single files.
  
-1. Open the Crypt4GH application and click on _load Your Private Key_.
+1. Open the Crypt4GH application and click on _load Your Private Key_ (expport_secrete.key)
    
 2. Click on _Select File_ and upload the file you want to decrypt.
    
@@ -186,30 +193,25 @@ Next, you can decrypt the file using the Crypt4GH application and your secret en
    
 5. The tool will ask you to write the secret key's password. Press _ok_.
 
-The secret key must match the public key used to encrypt the data.
-
-!!! Note
-    In the case of decryption, adding the public key is not mandatory, but if you have the public key of the person who has encrypted        the file, you can use it to verify the encryption signature. If you don't select a public key, the activity log will display the         following (the decryption will be executed anyway):
-      ```text
-      Sender public key has not been set, authenticity will not be verified.
-      ```
-
 6. If your decryption runs successfully, the activity log will display the following:
       ```text
       Decrypting..... Decryption has finished Decrypted file: C:/users/username/exampledirectory/examplefile
       ```
-
 The decrypted file will no longer display the `.c4gh` extension and will be saved in the same folder from which the original file was uploaded.
 
+!!! Note
+    In the case of decryption, adding the public key is not mandatory. Decryption will be executed anyway, but the activity log will display        the following (the decryption will be executed anyway):
+      ```text
+      Sender public key has not been set, authenticity will not be verified.
 
 !!! Note
-    * If you need to decrypt a large number of files, please check the tutorial [Decrypting all files in a directory](tutorials/decrypt-              directory.md).
+    If you need to decrypt a large number of files, please check the tutorial [Decrypting all files in a directory](./tutorials/decrypt-              directory.md).
     
 ## Adavanced: Back up copies
     
 The fact that only project manager can export data from SD Desktop makes taking back-up copies of important files difficult for project       memebers. 
 
-If needed, the project manager can launch a back-up server process that project memebers can utilse to have backups. For details, see: [SD Desktop Back-up server tutorial](tutorials/backup_sd_desktop.md).
+If needed, the project manager can launch a back-up server process that project memebers can utilse to have backups. For details, see: [SD Desktop Back-up server tutorial](./tutorials/backup_sd_desktop.md).
 
 
 
