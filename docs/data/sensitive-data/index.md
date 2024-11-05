@@ -44,7 +44,7 @@ Welcome to the user guide for CSC's Sensitive Data (SD) services. Follow the ste
   </div>
 </div>
 
-##### Addittional resources
+#### Addittional resources
 
 [What's New with Sensitive Data Services](../../support/wn/data-new.md)
 
