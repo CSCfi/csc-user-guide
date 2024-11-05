@@ -12,7 +12,7 @@ Please note that you can only decrypt one file at a time. If you need to decrypt
 
 ## 1. Via SD Connect user interface
 
-### 1.1 Prepareation
+### 1.1 Preparation
 
 - **Have your private encryption key available.** If you don’t remember the key used, please [contact CSC Service Desk](../../support/contact.md).
 
