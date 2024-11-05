@@ -30,16 +30,16 @@ Welcome to the user guide for CSC's Sensitive Data (SD) services. Follow the ste
   <div class="quick-links-topic">
     <span class="quick-links-title"><h2>Secondary use of health and social data</h2></span>
     <div class="quick-links-item">
-      <a class="quick-link" target="_self" href="findata-permit/"> Access with Findata permit</a>
+      <a class="quick-link" target="_self" href="findata-permit/">Findata permit</a>
     </div>
     <div class="quick-links-item">
-      <a class="quick-link" target="_self" href="single-register-permit/"> Access with public register permit</a>
+      <a class="quick-link" target="_self" href="single-register-permit/">Register permit</a>
     </div>
     <div class="quick-links-item">
       <a class="quick-link" target="_self" href="sd-desktop-audited/">Analyse with SD Desktop for secondary use</a>
     </div>
     <div class="quick-links-item">
-      <a class="quick-link" target="_self" href="single-register-submission/">Submission guide for public registers</a>
+      <a class="quick-link" target="_self" href="single-register-submission/">Submitting secondary use data</a>
     </div>
   </div>
   <div class="quick-links-topic">
@@ -54,9 +54,8 @@ Welcome to the user guide for CSC's Sensitive Data (SD) services. Follow the ste
       <a class="quick-link" target="_self" href="sd-terminology.md">Useful Terminology</a>
     </div>
   </div>
-</div
+</div>
 
-  
 
 ### Quick links to login portals
 
@@ -114,6 +113,9 @@ Sensitive data is defined as any information that is protected against unwarrant
 - Researchers and students affiliated with Finnish higher education institutions (universities, universities of applied sciences)
 - Research institutes and their international collaborators
 - Using CSC services requires you to [register a CSC account](../../accounts/index.md#getting-access)
+
+
+
 
 
 
