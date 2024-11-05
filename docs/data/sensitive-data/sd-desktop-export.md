@@ -4,10 +4,8 @@ Your virtual desktop is isolated from the internet for security reasons. Only th
  
 !!! Note
     There are two limitations when exporting data:
-    
-    * Only one file can be exported at a time. To export multiple files, first compress them into a single folder.
-    
-    * Files larger than 30 GB need to be split into smaller parts before exporting.
+    - Only one file can be exported at a time. To export multiple files, first compress them into a single folder.
+    - Files larger than 30 GB need to be split into smaller parts before exporting.
 
 ## Step-by-Step 
 
@@ -23,7 +21,7 @@ Your virtual desktop is isolated from the internet for security reasons. Only th
 
 
 !!! info "Need assistance?"
-    If you find these steps challenging, please reach out to us at servicedesk@csc.fi (subject: SD Desktop). We will gladly guide you through the export process in an online meeting.
+    If you find these steps challenging, please reach out to us at servicedesk@csc.fi (subject: SD Desktop). We will guide you through the export process in an online meeting.
 
 ## Step 1: Download and install the Crypt4GH application
 
