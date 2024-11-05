@@ -1,11 +1,19 @@
 #  Export data from SD Desktop
 
-Your virtual desktop is isolated from the internet for security reasons. Only the CSC project manager can export results or data from the secure workspace using the _Data Gateway_ application, currently available only programmatically. The results are exported to SD Connect, where they will be available for download to your computer where they can be manually decrypted. 
+Your virtual desktop is isolated from the internet for security reasons. Only the CSC project manager can export results or data from the secure workspace using the _Data Gateway_ application. The results are exported to SD Connect, where they will be available for download to your computer where they can be manually decrypted. 
 
 
-Below you can find step-by-step instructions to encrypt and export data from SD Desktop to SD Connect, where you can download and decrypt it. 
+1. Dowlaod and install the crypt4Gh application
+2. Generate your encryption key pair
+3. Upload the public key
+4. encrypt the files
+5. export the files
+6. chnage the extention
+7. decrypt wth crypt4gh
 
-[![Data-export](images/desktop/airlock.png)](images/desktop/airlock.png)
+
+
+## Step by Step
 
 
 1. Generate your encryption key pair (secret key and public key) with the Crypt4GH application (you can skip this paragraph if you already have a key pair).
