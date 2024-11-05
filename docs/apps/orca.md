@@ -60,6 +60,7 @@ available only for academic use at academic institutions.
     # create an mpirun script that executes srun
     echo exec 'srun $(echo "${@}" | sed 's/^-np/-n/')' >./mpirun
     chmod +x ./mpirun
+    export PATH=${SLURM_SUBMIT_DIR}:${PATH}
     touch Jobid_is_$SLURM_JOB_ID 
 
     ${ORCADIR}/orca orca6.inp > orca6.out

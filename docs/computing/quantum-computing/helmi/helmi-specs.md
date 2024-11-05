@@ -13,7 +13,7 @@ whereas one-qubit gates can be mapped to any of the 4 surrounding qubits.
 
 ### Native Gates
 
-Helmi's native gates are the two-qubit controlled-z gate and the one-qubit phased x-rotation gate.
+Helmi's native gates are the two-qubit controlled-z gate and the one-qubit phased rx gate.
 
 ### Defining topology and gates in Qiskit and Cirq
 
