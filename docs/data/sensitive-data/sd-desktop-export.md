@@ -9,7 +9,7 @@ Your virtual desktop is isolated from the internet for security reasons. Only th
 3. Upload your public key.
 4. Encrypt the files.
 5. Export the files.
-6. Change the file extension.
+6. Dowload the file and change extension.
 7. Decrypt with Crypt4GH.
 8. Advanced: Back up copies.
 
@@ -89,7 +89,7 @@ Ensure that the Windows tool is digitally signed by CSC - IT Center for Science.
 No technical expertise is required for this step. 
 
 
-### Preparation:  Compress multiple files into a single folder 
+### Preparation:  compress multiple files into a single folder 
 
 Only one file can be exported at a time. To export multiple files, first compress them into a single folder:
 
@@ -153,18 +153,68 @@ Once the file is encrypted, only the CSC project manager can export them  via th
 
 2. Press Enter and enter your password when prompted.
 
-> **Note:** If you attempt to upload an unencrypted file, the Airlock client will automatically encrypt it with the Sensitive Data public key for security reasons and export it to SD Connect. You will be able to download this file, but you will not be able to decrypt it.
+!!! Note:
+    If you attempt to upload an unencrypted file, the Data Gateway apploication or Airlock client will automatically encrypt it with the Sensitive Data services public key for security reasons and export it to SD Connect. You will be able to download this file, but you will not be able to decrypt it.
 
-    The fact that only project manager can export data from SD Desktop makes taking back-up copies of important files difficult for normal users. 
-    If needed, the project manager can launch a back-up server process that normal users can utilize to do backups. For details, see:
 
-    * [SD Desktop Back-up server tutorial](tutorials/backup_sd_desktop.md)
 
-6. Download and decrypt the files.
+## 6 Downlaod the files from SD Connect and change extension
 
-    The exported file is now available in SD Connect/Allas. After downloading the file in your local environment, you can decrypt it with your secret encryption key, using the Crypt4GH application or programmatically. [See this page for specific guidance](sd-connect-download-old-version.md). 
 
-    For more information and support, write to [CSC Service Desk](../../support/contact.md) (email subject Sensitive Data).
+6. Follow [video](https://youtu.be/SQJ8QEKV7BE) and after downloading the file, change the extension.
+
+
+* Access SD Connect and locate the file you need. At the end of the download, the user interface will display the message: "Some requested files could not be decrypted."
+
+![Some requested files could not be decrypted.](https://a3s.fi/docs-files/sensitive-data/SD_Connect/Old_download_1.png)
+
+
+* After downloading the files, you need to adjust their extensions.
+
+  Right-click the file, choose "Rename," and add `.c4gh` to the end of the filename. If opened with a text editor, the files will still be encrypted.
+
+![After downloading the files, you need to adjust their extensions.](https://a3s.fi/docs-files/sensitive-data/SD_Connect/Old_download_2.png)
+
+### 1.4 Decrypt the files  wiht the Crypt4gh application
+ 
+ Next, you can decrypt the file using the Crypt4GH application and your secret encryption key. Unfortunately, it is currently only possible to single files.
+ 
+      1. Open the Crypt4GH application and click on _load Your Private Key_.
+      2. Click on _Select File_ and upload the file you want to decrypt.
+      3. Click on _Open_.
+      4. Next, click on _Decrypt File_.
+      5. The tool will ask you to write the secret key's password. Press _ok_.
+
+      The secret key must match the public key used to encrypt the data.
+
+!!! Note
+    In the case of decryption, adding the public key is not mandatory, but if you have the public key of the person who has encrypted        the file, you can use it to verify the encryption signature. If you don't select a public key, the activity log will display the         following (the decryption will be executed anyway):
+      ```text
+      Sender public key has not been set, authenticity will not be verified.
+      ```
+
+If your decryption runs successfully, the activity log will display the following:
+      ```text
+      Decrypting..... Decryption has finished Decrypted file: C:/users/username/exampledirectory/examplefile
+      ```
+
+The decrypted file will no longer display the `.c4gh` extension and will be saved in the same folder from which the original file was uploaded.
+
+### 2.2 Decrypt a file programmatically
+
+To decrypt a file you will need a private key which corresponds to one of the public keys used in encryption phase. Let's assume in our example that the research group A is decrypting a file you've sent them. To decrypt a file they use `crypt4gh decrypt` command:
+
+```bash
+crypt4gh decrypt --sk groupA.sec <dog.jpg.c4gh >dog.jpg Passphrase for groupA.sec:
+```
+
+where `--sk groupA.sec` is a corresponding private key to one of the public keys used in the encryption. The `crypt4gh` command uses only standard input (stdin) and standard output (stdout) so you must use shell redirections: `<` denotes an input file and `>` and denotes an output file, hence `<dog.jpg.c4gh` reads in an encrypted file called `dog.jpg.c4gh` and `>dog.jpg` writes out a decrypted file named `dog.jpg`.
+
+The command will ask the user to enter the password (passphrase) of your private key. For security reasons the password is not displayed when you type it.
+
+!!! Note
+    In case you are decrypting the file in SD Desktop and the CSC Sensitive Data public key has been used in encryption, decryption will be done automatically, and you do not need to specify any decryption keys. If you need to decrypt a large number of files, please check the tutorial [Decrypting all files in a directory](tutorials/decrypt-directory.md).
+
 
 
 !!! Note
