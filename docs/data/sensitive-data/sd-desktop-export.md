@@ -2,9 +2,11 @@
 
 Your virtual desktop is isolated from the internet for security reasons. Only the CSC project manager can export results or data from the secure workspace using the _Data Gateway_ application. The results are exported to SD Connect, where they will be available for download to your computer and can be manually decrypted.
  
-!!! Note:
+!!! Note
     There are two limitations when exporting data:
+    
     * Only one file can be exported at a time. To export multiple files, first compress them into a single folder.
+    
     * Files larger than 30 GB need to be split into smaller parts before exporting.
 
 ## Step-by-Step 
