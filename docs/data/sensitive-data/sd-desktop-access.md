@@ -20,7 +20,7 @@ Once a virtual desktop has been created, each CSC project member can access the 
    
 ## Step by step
 
-## Step 1: access virtual desktop
+### Step 1: access virtual desktop
 
 1. After [log in](./sd-desktop-login.md), you will see all your virtual desktops listed at the front page, under *All connections*. 
 
@@ -58,7 +58,7 @@ When you open the connection, a virtual computing environment will open in your 
 [![Data-gateway2](images/desktop/desktop-gateway-part2.png)](images/desktop/desktop-gateway-part2.png)
  
  
-### Step 2: import a copy of the files on your virtual desktop's volume
+### Step 3: import a copy of the files on your virtual desktop's volume
 
 1. Keep Data Gateway connection open: select and copy the files or folders from the Projects folder.
 
@@ -68,7 +68,7 @@ When you open the connection, a virtual computing environment will open in your 
 
  [![Desktop-data-import](images/desktop/desktop-gateway-import.png)](images/desktop/desktop-gateway-import.png)
 
-### Step 3: setting permissions for shared access
+### Step 4: setting permissions for shared access
 
 After copying files to the external volume, adjust permissions to enable access for other project members. By default, permissions are limited to your access only, so these steps ensure that others can view and edit the data.
 
@@ -87,14 +87,14 @@ After copying files to the external volume, adjust permissions to enable access 
 
 Once permissions are set, your files are ready for collaborative work, and all project members with access can view and analyze them. 
 
-### Step 4: close the Data Gateway application
+### Step 5: close the Data Gateway application
 
 You can now disconnect the Data Gateway connection if no further data accessor import are needed.
 
 !!! Note
     If more than 10 data gateway connection are left open, the data gateway will stop working. In this case, contact us at servicedesk@csc.fi (subject: SD Desktop)
 
-### Steo 5: logout from your desktop
+### Steo 6: logout from your desktop
 
 1. _Log out_ from the desktop (in the workspace view, top right corner of the browser, select your _username_ and _log out_). This will close all applications and disconnect the work session. You can access the same desktop anytime after logging in to the services.
 
