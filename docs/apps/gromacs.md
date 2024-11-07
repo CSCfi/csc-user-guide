@@ -376,7 +376,9 @@ export GMX_PMEONEDD=1
 
 The number of PME ranks to use depends on the specific case, but 1 or 2 per GPU
 *node* should be a reasonable starting point. So for 16 LUMI-G nodes, try
-`-npme 16` or `-npme 32`.
+`-npme 16` or `-npme 32`. An example benchmark is shown below.
+
+![Scalability of benchPEP-h](../img/benchpep-h.png 'Scalability of benchPEP-h')
 
 ### Visualization and analysis
 
