@@ -93,6 +93,10 @@ sidebar.
   * Use the `title` to describe the content of the video.
   * Use of `srcdoc` is also required instead of plain `src` to avoid cookies if consent has not been granted.
 
+## How to embed a diagram from _draw.io_?
+
+Diagrams from [draw.io](https://draw.io) can be embedded as iframes by selecting _File -> Embed -> IFrame..._. As with [videos](#how-to-embed-an-external-video), the iframe `src` attribute needs to be renamed to `srcdoc`, but no further changes are necessary. An example can be found in the [Markdown source of the Reference card](docs/ref.md#drawio).
+
 ## How to add links?
 
 Links are added using the markdown syntax `[This is my link text](link url or path)`. Whether to use a URL or path depends on if your link is *internal*, i.e. it points to another page within Docs CSC, or *external*. For internal links use relative paths, for example:
