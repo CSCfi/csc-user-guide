@@ -29,11 +29,11 @@ Please note that you can only decrypt one file at a time. If you need to decrypt
 Access SD Connect and locate the files you need. You can download either the entire bucket or individual files. At the end of the download, the user interface will display the message: "Some requested files could not be decrypted."
    ![Some requested files could not be decrypted.](https://a3s.fi/docs-files/sensitive-data/SD_Connect/Old_download_1.png)
 
-### 1.3 Change the file extention
+### 1.3 Change the file extension
 After downloading the files, you need to adjust their extensions. Right-click the file, choose "Rename," and add `.c4gh` to the end of the filename. If opened with a text editor, the files will still be encrypted.
    ![After downloading the files, you need to adjust their extensions.](https://a3s.fi/docs-files/sensitive-data/SD_Connect/Old_download_2.png)
 
-### 1.4 Decrypt the files  wiht the Crypt4gh application
+### 1.4 Decrypt the files wiht the Crypt4gh application
  
  Next, you can decrypt the file using the Crypt4GH application and your secret encryption key. Unfortunately, it is currently only possible to single files.
       1. Open the Crypt4GH application and click on _load Your Private Key_.
