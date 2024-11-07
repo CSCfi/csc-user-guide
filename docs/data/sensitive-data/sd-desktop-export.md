@@ -1,13 +1,12 @@
-# Export Data from SD Desktop
+# Export data from SD Desktop
 
-Your virtual desktop is isolated from the internet for security reasons. Only the CSC project manager can export results or data from the secure workspace using the _Data Gateway_ application. The results are exported to SD Connect, where they will be available for download to your computer and can be manually decrypted.
+Your virtual desktop is isolated from the internet for security reasons. Only the CSC project manager can export results or data from the secure workspace using **Data Gateway** application. The results are exported to SD Connect, where they will be available for download to your computer and can be manually decrypted.
  
 !!! Note
-    There are two limitations when exporting data:
-    - Only one file can be exported at a time. To export multiple files, first compress them into a single folder.
+    - Only one file can be exported at a time. To export multiple files, first compress them into a single folder. 
     - Files larger than 30 GB need to be split into smaller parts before exporting.
 
-## Step-by-Step 
+## Step by step tutorial
 
 1. Download and install the Crypt4GH application
 2. Generate your encryption key pair
@@ -17,11 +16,11 @@ Your virtual desktop is isolated from the internet for security reasons. Only th
 6. Export the files from SD Desktop
 7. Download the file from SD Connect and change extension
 8. Decrypt the file with crypt4GH application
-9. Advanced: Back up copies
+9. Advanced: Backup copies
 
 
-!!! info "Need assistance?"
-    If you find these steps challenging, please reach out to us at servicedesk@csc.fi (subject: SD Desktop). We will guide you through the export process in an online meeting.
+!!! info "Support available"
+    Please reach out to us at servicedesk@csc.fi (subject: SD Desktop). We will guide you through the export process in an online meeting.
 
 ## Step 1: Download and install the Crypt4GH application
 
@@ -29,37 +28,39 @@ CSC provides an application that simplifies encryption key generation and data d
 
 1. Download the appropriate version for your operating system from the [GitHub repository](https://github.com/CSCfi/crypt4gh-gui):
 
-   * [Mac](https://github.com/CSCfi/crypt4gh-gui/releases/download/2024.7.0/crypt4gh-gui-python3.11-macos-arm64.zip)
-     
-   * [Windows](https://github.com/CSCfi/crypt4gh-gui/releases/download/2024.7.0/crypt4gh-gui-python3.11-windows-amd64.zip)
-     
-   * [Linux](https://github.com/CSCfi/crypt4gh-gui/releases/download/2024.7.0/crypt4gh-gui-python3.11-linux-amd64.zip)
+    * [Mac](https://github.com/CSCfi/crypt4gh-gui/releases/download/2024.7.0/crypt4gh-gui-python3.11-macos-arm64.zip)
+    * [Windows](https://github.com/CSCfi/crypt4gh-gui/releases/download/2024.7.0/crypt4gh-gui-python3.11-windows-amd64.zip)
+    * [Linux](https://github.com/CSCfi/crypt4gh-gui/releases/download/2024.7.0/crypt4gh-gui-python3.11-linux-amd64.zip)
 
 
-2. Locate the Crypt4GH application in your downloads folder.
+2. Locate the Crypt4GH application in your **Downloads** folder.
 
-!!! Note
-    For Windows, verify that the tool is digitally signed by CSC - IT Center for Science. If you see an error upon opening, click More info,        confirm the publisher, and select Run anyway.
+!!! warning
+    For Windows, verify that the tool is digitally signed by CSC - IT Center for Science. If you see an error upon opening, click More info, confirm the publisher, and select Run anyway.
 
 
 ## Step 2: Generate your encryption key pair
 
-1. Open Crypt4GH and click Generate Keys (top right corner).
+1. Open Crypt4GH and click **Generate Keys** (top right corner).
    
 2. A new window will open, prompting you to enter a password (_Private Key Passphrase_). This password will be used to secure your secret key. Please use a strong password.
 
-3. Click OK to generate the key pair. Crypt4GH will create:
+3. Click **OK** to generate the key pair. Crypt4GH will create:
    
         * A secret key (e.g., username_crypt4gh.key)
    
         * A public key (e.g., username_crypt4gh.pub)
 
-4. The keys will be saved in the same folder where the application resides (e.g. downloads folder).
+4. The keys will be saved in the same folder where the application resides (e.g. **Downloads** folder).
   
-5. We recommend saving the key pair in a dedicated folder and  renaming them descriptive names (e.g., `export_public.pub` and `export_secret.key`). Common issues arise when keys are misplaced or mismatched.
+5. We recommend saving the key pair in a dedicated folder and renaming them descriptive names (e.g., `export_public.pub` and `export_secret.key`). Common issues arise when keys are misplaced or mismatched.
+
+6. We recommend testing if the key pair works.
+    * Encrypt and decrypt a test file with Crypt4gh application. 
+    * If you encrypted file can be opened after decrypting you know that keys work and you can proceed.
 
    
-!!! Note
+!!! warning
     - If you lose or forget your secret key or password, you won’t be able to decrypt your files.
     - **Do not share** your secret key or password.
     - You need to **create your keys only once** for all encryption needs, but you may generate separate keys for different projects if desired.
@@ -68,33 +69,27 @@ CSC provides an application that simplifies encryption key generation and data d
 
 ## Step 3: Upload the public key to SD Connect 
 
-1. Log in to SD Connect and select the relevant CSC project (top left corner)
-   
-2. Click Upload and in the new window name a destination folder (e.g., project_export).
-
-3. Click Select Files to open a browser window and choose the public enycrption key  (e.g. .pub file).
-  
-5. Click Upload to start the upload. The encryption key will be now visible from yoru virtual desktop
+1. Log in to SD Connect.
+2. Select the correct CSC project in the top left corner.
+3. Click **Upload** in the top right corner.
+4. In the new window, name the destination folder for your files (e.g. **project_export**).
+5. Click **Select Files** to open a browser window and choose the public enycrption key  (e.g. .pub file). Click **Upload** to start automatic encryption and upload.
+6. Once the upload is finished, the encryption key will be now visible from your virtual desktop.
 
 
 ## Step 4: Import the public key inside the virtual desktop
 
-1 Access your virtual desktop.
-
+1. Access your virtual desktop. [See instructions](./sd-desktop-access.md)
 2. Open the Data Gateway application, select SD Connect, enter your CSC username and password, click on open folder and access the folder with the public key. 
-
-3. You can now import a copy of your public key inside the virtual Desktop (via copy/paste function). 
-
-
+3. Copy your public key inside the virtual desktop using copy/paste function. 
 
 ## Step 5: Encrypt the file
 
-No technical expertise is required for this step. To export multiple files, first compress them into a single folder, then encrypt as a single file.
+### Exporting multiple files
 
-### Compress Files (If Needed):
+To export multiple files, first compress them into a single folder, then encrypt as a single file.
 
 1. Place all files in a folder.
-   
 2. Right-click the folder, select Send to > Compressed (zipped) folder.
 
 ### Encrypt the file or folder
@@ -120,15 +115,13 @@ No technical expertise is required for this step. To export multiple files, firs
 
 ## Step 6: Export the encrypted files from the virtual Desktop
 
-Once the file is encrypted, only the CSC project manager can export them  via the Data Gateway application or programmatically using the Airlock client.
+Once the file is encrypted, only the CSC project manager can export them via the Data Gateway application or programmatically using the Airlock client.
 
 ### Option A: Export via data Gateway application
 
-1. Open the data Gateway application
-   
-3. Select Sd Connect, enter uesanemane a passowr. If you are CSC projectmanager, click on export
-
-4. 
+1. Open Data Gateway application
+2. Select SD Connect, enter user name and password. 
+3. If you are CSC project manager, click on Export tab.
 
 
 ### Option B: Export programmatically via Airlock client
@@ -149,50 +142,40 @@ Once the file is encrypted, only the CSC project manager can export them  via th
     airlock-client cscuser analysis-2022 results-03.csv.c4gh
     ```
 
-2. Press Enter and enter your password when prompted.
+2. Press **Enter** and enter your password when prompted.
 
 !!! Note:
     If you attempt to upload an unencrypted file, the Data Gateway apploication or Airlock client will automatically encrypt it with the Sensitive Data services public key for security reasons and export it to SD Connect. You will be able to download this file, but you will not be able to decrypt it.
 
 
 
-## Step 7: Downlaod the files from SD Connect and change extension
+## Step 7: Download the files from SD Connect and change extension
 
 
 <iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/SQJ8QEKV7BE" title="Create a virtual desktop in SD Desktop" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 
-1. Access SD Connect and locate the file you need. Click on download.
-
+1. Access SD Connect and locate the file you need. Click on Download.
 2. The user interface will display the message: "Some requested files could not be decrypted."
-
 3. After downloading the file, **you need to adjust the extension**:
-  
-* Right-click the file
-
-* Choose "Rename," and add `.c4gh` to the end of the filename.
-  
-* If opened with a text editor, the files will still be encrypted.
+    * Right-click the file
+    * Choose "Rename," and add `.c4gh` to the end of the filename.
+    * If opened with a text editor, the files will still be encrypted.
 
 
 ![Some requested files could not be decrypted.](https://a3s.fi/docs-files/sensitive-data/SD_Connect/Old_download_1.png)
 
 ![After downloading the files, you need to adjust their extensions.](https://a3s.fi/docs-files/sensitive-data/SD_Connect/Old_download_2.png)
 
-### Step 8: Decrypt the files wiht the Crypt4gh application
+### Step 8: Decrypt the files with the Crypt4gh application
  
 Next, you can decrypt the file using the Crypt4GH application and your secret encryption key. Unfortunately, it is currently only possible to single files.
  
 1. Open the Crypt4GH application and click on _load Your Private Key_ (expport_secrete.key)
-   
 2. Click on _Select File_ and upload the file you want to decrypt.
-   
 3. Click on _Open_.
-   
 4. Next, click on _Decrypt File_.
-   
 5. The tool will ask you to write the secret key's password. Press _ok_.
-
 6. If your decryption runs successfully, the activity log will display the following:
       ```text
       Decrypting..... Decryption has finished Decrypted file: C:/users/username/exampledirectory/examplefile
@@ -207,11 +190,9 @@ The decrypted file will no longer display the `.c4gh` extension and will be save
 !!! Note
     If you need to decrypt a large number of files, please check the tutorial [Decrypting all files in a directory](./tutorials/decrypt-              directory.md).
     
-## Adavanced: Back up copies
-    
-The fact that only project manager can export data from SD Desktop makes taking back-up copies of important files difficult for project       memebers. 
+## Advanced: Back-up copies
 
-If needed, the project manager can launch a back-up server process that project memebers can utilse to have backups. For details, see: [SD Desktop Back-up server tutorial](./tutorials/backup_sd_desktop.md).
+If project members need to make back-up copies from important files, the project manager can launch a back-up server process that project members can utilse to have backups. For details, see: [SD Desktop Back-up server tutorial](./tutorials/backup_sd_desktop.md).
 
 
 
