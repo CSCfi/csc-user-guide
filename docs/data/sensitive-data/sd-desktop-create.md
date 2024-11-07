@@ -40,7 +40,7 @@ With the SD Desktop service, you can create virtual computers for analysing sens
 
 ### 3. Add an external volume (virtual external hard drive)
 
-Add an external volume to your virtual desktop, extending default storage (80 GB) up to 200 GB.
+Add an external  volume to your virtual desktop, extending default storage (80 GB) up to 200 GB.
 
 1. Choose a size that covers the combined size of your dataset and working files. If you are unsure about which volume size you should choose, send an email to servicedesk@csc.fi.
 2. Name your volume. Note, that the volume name should not include special characters or spaces.
