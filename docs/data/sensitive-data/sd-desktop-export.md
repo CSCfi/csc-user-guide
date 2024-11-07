@@ -188,7 +188,7 @@ The decrypted file will no longer display the `.c4gh` extension and will be save
       Sender public key has not been set, authenticity will not be verified.
 
 !!! Note
-    If you need to decrypt a large number of files, please check the tutorial [Decrypting all files in a directory](./tutorials/decrypt-              directory.md).
+    If you need to decrypt a large number of files, please check the tutorial [Decrypting all files in a directory](./tutorials/decrypt-directory.md).
     
 ## Advanced: Back-up copies
 
