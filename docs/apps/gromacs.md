@@ -17,11 +17,6 @@ with plenty of analysis scripts.
 === "Puhti"
     | Version | Available modules | Notes |
     |:-------:|:------------------|:-----:|
-    |2020.5   |`gromacs/2020.5`
-    |2020.7   |`gromacs/2020.7`
-    |2021.4   |`gromacs/2021.4-plumed`|Module with Plumed available
-    |2021.5   |`gromacs/2021.5`<br>`gromacs/2021.5-cuda`|GPU-enabled module available
-    |2021.6   |`gromacs/2021.6`
     |2022.2   |`gromacs/2022.2`<br>`gromacs/2022.2-cuda`|GPU-enabled module available
     |2022.3   |`gromacs/2022.3`<br>`gromacs/2022.3-cuda`|GPU-enabled module available
     |2022.4   |`gromacs/2022.4`<br>`gromacs/2022.4-cuda`|GPU-enabled module available
@@ -36,12 +31,6 @@ with plenty of analysis scripts.
 === "Mahti"
     | Version | Available modules | Notes |
     |:-------:|:------------------|:-----:|
-    |2020.4   |`gromacs/2020.4-plumed`|Module with Plumed available
-    |2020.5   |`gromacs/2020.5`
-    |2021.3   |`gromacs/2021.3`
-    |2021.4   |`gromacs/2021.4-plumed`|Module with Plumed available
-    |2021.5   |`gromacs/2021.5`
-    |2022     |`gromacs/2022`<br>`gromacs/2022-cp2k`|Module with CP2K available for QM/MM
     |2022.1   |`gromacs/2022.1`<br>`gromacs/2022.1-cp2k`|Module with CP2K available for QM/MM
     |2022.2   |`gromacs/2022.2`<br>`gromacs/2022.2-cuda`|GPU-enabled module available
     |2022.3   |`gromacs/2022.3`<br>`gromacs/2022.3-cuda`|GPU-enabled module available
