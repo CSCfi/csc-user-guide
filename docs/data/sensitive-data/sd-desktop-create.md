@@ -9,7 +9,6 @@ With the SD Desktop service, you can create virtual computers for analysing sens
 
 
 
-<<<<<<< Updated upstream
 ## Step by step
 
 ### 1. Log in to SD Desktop
@@ -27,19 +26,6 @@ With the SD Desktop service, you can create virtual computers for analysing sens
 ![Virtual desktop selections.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-Desktop_SelectProject.png)
 
 #### Virtual desktop options
-=======
-## 1. Specify desktop parameters
-  
-* Select your CSC project.
-* Select operating system. We recommend to choose **Linux Ubuntu22**, since there will be no updates published for Linux CentOS7 after June 30, 2024 [(See screenshot)](images/desktop/SD-Desktop_SelectProject.png){ target="_blank" }.
-* Give your desktop a name for easy identification, so that all project members can quickly identify it later on.
-
-![Collaborate Infograph](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-Desktop_SelectProject.png)
-
-## 2. Choose a pre-built desktop options
-
-Choose a pre-built option based on your needs: Small (for basic tasks), Medium (for complex analysis), or Heavy (for intensive tasks).
->>>>>>> Stashed changes
 
 |  | Use  | Technical specifications | Correspondent Pouta Flavor | Billing Units consumption |
 |-|-|-|-|-| 
