@@ -21,8 +21,8 @@ Subfolder is deleted automatically when all files in it are deleted.
 
 You need first delete all files in main folder.
 
-2. Find correct folder from All folders tab.
-5. Delete folder with **Delete** on right side of the folder.
+1. Find correct folder from All folders tab.
+2. Delete folder with **Delete** on right side of the folder.
 
 ## Features in SD Connect
 
