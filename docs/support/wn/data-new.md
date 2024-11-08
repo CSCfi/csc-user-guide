@@ -37,7 +37,7 @@ If you're currently using a virtual desktop with CentOS 7 and anticipate running
 
 ## SD Desktop copy-paste functionality via Clipboard is now available, 7.3.2024
 
-Copy-paste functionality via **Clipboard -feature** is now available in your virtual desktop, enabling easy transfer of text from your computer to your secure environment: [Copy-paste instructions for SD Desktop](../../data/sensitive-data/sd-desktop-access.md#copy-paste-from-your-laptop-to-virtual-desktop).
+Copy-paste functionality via **Clipboard -feature** is now available in your virtual desktop, enabling easy transfer of text from your computer to your secure environment: [Copy-paste instructions for SD Desktop](../../data/sensitive-data/sd-desktop-working.md).
 
 * The Clipboard acts as a secure intermediary, facilitating the one-way transfer of data from your laptop to the virtual desktop, guaranteeing that copied text remains isolated from other processes and preventing unauthorized access to sensitive information.
 
