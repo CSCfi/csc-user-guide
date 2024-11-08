@@ -13,7 +13,7 @@ Once a virtual desktop is created, each CSC project member can access it through
 
 * **What is an external volume?** Your virtual desktop’s local storage is limited, so it’s recommended to save large data files and collaborative work on the external volume. This volume acts like an external hard drive that can be detached and reattached to different desktops, allowing project members to share and edit files stored there.
 
-* **Adding the external volume:** the external volume can only be added when creating a [new virtual desktop](./sensitive-data/sd-desktop-create.md)
+* **Adding the external volume:** the external volume can only be added when creating a [new virtual desktop](../sensitive-data/sd-desktop-create.md)
 
 * **Additional voluem space:** if you need additional volume space (more than 200 GB), you can request it by wirting to CSC Service Desk, (subject: SD Desktop), **please be aware that volume extensions are only possible before any data has been added to the volume**.
 
