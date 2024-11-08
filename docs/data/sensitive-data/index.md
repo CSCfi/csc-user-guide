@@ -81,7 +81,7 @@ Please ensure you read the instructions carefully before accessing any services 
 
 ### Service Breaks
    
-* SD services undergo regular maintenance on the **first Wednesday of every month**, for full details please visit [Service Breaks page in CSC's reaserch.csc.fi website](https://research.csc.fi/service-breaks){ target="_blank" } 
+* SD services undergo regular maintenance on the **first Wednesday of every month**, for full details please visit [Service Breaks page in CSC's research.csc.fi website](https://research.csc.fi/service-breaks){ target="_blank" } 
 
 
 ### Support
