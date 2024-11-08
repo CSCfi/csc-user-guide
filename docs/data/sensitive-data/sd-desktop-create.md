@@ -86,3 +86,18 @@ Read next:
 * [How to work with your virtual desktop](./sd-desktop-access.md)
 * [Which software is available for virtual desktop](./sd-desktop-software.md)
 * [How to manage your virtual desktop (delete, pause, detach volume etc.)](./sd-desktop-manage.md)
+
+Read next:
+
+* [How to import data for analysis in your desktop](./sd-desktop-access.md)
+* [Customisation: adding software](./sd-desktop-software.md)
+* [How to manage your virtual desktop (delete, pause, detach volume etc.)](./sd-desktop-manage.md)
+
+Read next:
+
+* [Working with your desktop: tips and essentials](./sd-desktop-defualt-software.md)
+* [How to import data for analysis in your desktop](./sd-desktop-access.md)
+* [Customisation: adding software](./sd-desktop-software.md)
+* [How to manage your virtual desktop (delete, pause, detach volume etc.)](./sd-desktop-manage.md)
+
+
