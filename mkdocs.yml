@@ -441,7 +441,7 @@ nav:
               - Manage virtual desktop: data/sensitive-data/sd-desktop-manage.md
               - Work with your virtual desktop- tips end essentials: sd-desktop-default-software.md
               - Import data: data/sensitive-data/sd-desktop-access.md
-              - Customisation- add software: data/sensitive-data/sd-desktop-software.md
+              - Customisation- add software: sd-desktop-default-software.md
               - Export data: data/sensitive-data/sd-desktop-export.md
               - Troubleshooting: data/sensitive-data/sd-desktop-troubleshooting.md
       - Publish and reuse:
