@@ -2,7 +2,7 @@
 
 ## Use case
 
-You need to access to SD services. You are member of a research team and research team manager has invited you to join CSC project.
+You need to access to SD services for processing research data. You are member of a research team and research team manager has invited you to join CSC project.
 
 
 ## Solution
