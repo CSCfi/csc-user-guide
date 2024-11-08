@@ -38,16 +38,16 @@ will help you become familiar with how everything works.
 
 * **Isolated from the internet**: your virtual desktop is completely isolated from the internet. This means that although you can open a web browser like Firefox, you will not be able to access websites or online repositories directly. This feature helps keep your data safe by reducing the risk of online threats.
 
-* **Encrypted file only**: Only encrypted files are accessible form your virtual desktop. This means unencrypted files will not appear in your virtual desktop and you will first need to encrypt it using SD Connect. All files exported from the virtual desktop also need to be encrypted. This adds an extra layer of protection for your data.
+* **Encrypted file only**: Only encrypted files are accessible from your virtual desktop. This means unencrypted files will not appear in your virtual desktop and you will first need to encrypt them using SD Connect. All files exported from the virtual desktop also need to be encrypted. This adds an extra layer of protection for your data.
 
-* **Controlled file access and export with Data Gateway**: Each project memember can import files to the virtual desktop for analysis by using a  secure application called [Data Gateway](#accessing-encrypted-sensitive-data-within-sd-desktop). Files can be imported only via the SD Connect (directly, by upload) or SD Apply service (upon approval for reuse). Data export, however, is limited to the CSC Project Manager for additional security.
+* **Controlled file access and export with Data Gateway**: Each project member can import files to the virtual desktop for analysis by using a  secure application called [Data Gateway](#accessing-encrypted-sensitive-data-within-sd-desktop). Files can be imported only via the SD Connect (directly, by upload) or SD Apply service (upon approval for reuse). Data export, however, is limited to the CSC Project Manager for additional security.
 
 * **Limited storage space**: The virtual desktop is designed primarily for data analysis and has limited storage space. To expand storage, you can add an external
 volume (such as an external hard drive) during the desktop setup. This external volume is accessible to all project members and also serves as a backup for imported data.
 
-* **Open source software only**: Only open-source software can be installed in the virtual desktop, as it does not currently support licensed or proprietary software. Each virtual desktop comes with a default set of pre-installed software, but you can customize it further using an easy-to-use application or, for advanced users, through Apptainer. If the software you need is not listed below, please contact our servicedesk@csc.fi for support (subject: SD Desktop). 
+* **Open source software only**: Only open-source software can be installed in the virtual desktop, as it does not currently support licensed or proprietary software. Each virtual desktop comes with a default set of pre-installed software, but you can customise it further using an easy-to-use application or, for advanced users, through Apptainer. If the software you need is not listed below, please contact our servicedesk@csc.fi for support (subject: SD Desktop). 
 
-* **Copy-Paste restrictions**: For security reasons, copy-pasting from your own computer to SD Desktop is limited. You can still transfer text with a few extra steps, as explained in the copy-paste instructions below. These restrictions ensure that no unauthorized data is copied or exported from the secure environment.
+* **Copy-paste restrictions**: For security reasons, copy-pasting from your own computer to SD Desktop is limited. You can still transfer text with a few extra steps, as explained in the copy-paste instructions below. These restrictions ensure that no unauthorized data is copied or exported from the secure environment.
 
 * **Shared file access for team members**: Any files saved in the shared-directory or on the external volume can be accessed by other project members working in
 the virtual desktop, allowing safe collaboration.
