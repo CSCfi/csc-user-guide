@@ -4,20 +4,33 @@
 Once a virtual desktop has been created, each CSC project member can access it through their browser. When you log in, you will enter a virtual computer running
 on a Linux operating system. If you’re new to Linux, it might feel a little different from other systems like Windows or macOS.
 
-No technical experience is required to work with it, but while Windows is designed to be user-friendly from the start, Linux can have a learning curve, 
-especially if you need to use the command line. In addition, SD Desktop has extra security features that you’ll need to familiarize yourself with for smooth use. 
-
-The guide below provides clear instructions to help you get comfortable with both Linux and the SD Desktop’s security setup.
+No technical experience is required to work with it, but while Windows is designed to be user-friendly from the start, Linux can have a learning curve, especially if you need to use the command line. In addition, SD Desktop has extra security features that you’ll need to familiarize yourself with for smooth use. 
 
 
-## Introduction to Linux on your virtual desktop
+The guide below provides clear instructions to help you get comfortable with both Linux and the SD Desktop’s security setup:
+
+
+- [Introduction to Linux](sd-desktop-working.md#introduction-to-linux)
+
+- [Security-related features](sd-desktop-working.md#security-related-features)
+
+- [Accessing the secure environment](sd-desktop-working.md#accessing-the-secure-environment)
+
+- [Copy-paste from your laptop to virtual desktop](sd-desktop-working.md#copy-paste-from-your-laptop-to-virtual-desktop)
+
+- [Default software available in SD Desktop](sd-desktop-working.md#default-software-available-in-sd-desktop)
+
+- [Accessing RStudio](sd-desktop-working.md#accessing-rstudio)
+
+
+
+## Introduction to Linux 
 
 Linux is an open-source operating system, meaning it’s free to use, and its code is openly available for people to view and modify.
 It's commonly used in many research applications due to its stability, security, and flexibility.
 
 
-* **Look and feel**: Linux may look slightly different, depending on the “desktop environment” used. But don’t worry – it still has familiar elements like windows
-folders, and menus. You’ll find the main menu at the top left corner, where you can access all available software.
+* **Look and feel**: Linux may look slightly different from Windows, depending on the “desktop environment” used. But don’t worry – it still has familiar elements like windows folders and menus. You will find the main menu at the top left corner, where you can access all available software.
     
 * **File structure**: Instead of “My Documents” or drives labeled C: or D:, Linux has a different way of organizing files. 
 The main directory starts with /, and you’ll see folders like /home for your personal files.
@@ -26,11 +39,9 @@ The main directory starts with /, and you’ll see folders like /home for your p
     
 
 
-## Security-related features of SD Desktop
+## Security-related features 
 
-SD Desktop is a secure environment designed specifically for analysing sensitive data. To protect this data, SD Desktop has certain features that may work
-differently than a regular computer. These security features ensure that your data stays safe, even when working with sensitive information. 
-Here’s what you need to know about these features and how they affect your workflow.
+SD Desktop is a secure environment designed specifically for analysing sensitive data. To protect this data, SD Desktop has certain features that may work differently than a regular computer. These security features ensure that your data stays safe, even when working with sensitive information. Here’s what you need to know about these features and how they affect your workflow.
 
 For each of these features, a specific step-by-step guide is available. If you are using the service for the first time, reviewing these guides 
 will help you become familiar with how everything works.
