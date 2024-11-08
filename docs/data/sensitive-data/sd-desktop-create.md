@@ -84,7 +84,7 @@ Finally, click _Create desktop_. The operation is entirely automated and can tak
 
 Read next:
 
-* [Working with your desktop: tips and essentials](./sd-desktop-default-software.md)
+* [Working with your desktop: tips and essentials](./sd-desktop-working.md)
 * [How to import data for analysis in your desktop](./sd-desktop-access.md)
 * [Customisation: adding software](./sd-desktop-software.md)
 * [How to manage your virtual desktop (delete, pause, detach volume etc.)](./sd-desktop-manage.md)
