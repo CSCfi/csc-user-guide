@@ -2,7 +2,7 @@
 
 
 Once a virtual desktop has been created, each CSC project member can access it through their browser. When you log in, you will enter a virtual computer running
-ona Linux operating system. If you’re new to Linux, it might feel a little different from other systems like Windows or macOS.
+on a Linux operating system. If you’re new to Linux, it might feel a little different from other systems like Windows or macOS.
 
 No technical experience is required to work with it, but while Windows is designed to be user-friendly from the start, Linux can have a learning curve, 
 especially if you need to use the command line. In addition, SD Desktop has extra security features that you’ll need to familiarize yourself with for smooth use. 
@@ -36,19 +36,16 @@ For each of these features, a specific step-by-step guide is available. If you a
 will help you become familiar with how everything works.
 
 
-* **Isolated from the internet**: your virtual desktop is completely isolated from the internet. This means that although you can open a web browser like Firefox, you
-won’t be able to access websites or online repositories directly. This feature helps keep your data safe by reducing the risk of online threats.
+* **Isolated from the internet**: your virtual desktop is completely isolated from the internet. This means that although you can open a web browser like Firefox, you will not be able to access websites or online repositories directly. This feature helps keep your data safe by reducing the risk of online threats.
 
-* **Encrypted file only**: Only encrypted files are accessible frm your virtual desktop. This means unencrypted files won’t appear in your virtual desktop and you will first need to encrypt it using SD Connect. All files exported from teh virtual desktop will be also automatically encrpted be default. This adds an extra layer of protection for your data.
+* **Encrypted file only**: Only encrypted files are accessible form your virtual desktop. This means unencrypted files will not appear in your virtual desktop and you will first need to encrypt it using SD Connect. All files exported from the virtual desktop also need to be encrypted. This adds an extra layer of protection for your data.
 
-* **Controlled file access and export with Data Gateway**: Each project memeber can import files to the virtual desktop for analysis by using a  secure application called [Data Gateway](#accessing-encrypted-sensitive-data-within-sd-desktop). Files can be imported only via the SD Conect or SD Apply service. Data export, however, is limited to the CSC Project Manager for additional security.
+* **Controlled file access and export with Data Gateway**: Each project memember can import files to the virtual desktop for analysis by using a  secure application called [Data Gateway](#accessing-encrypted-sensitive-data-within-sd-desktop). Files can be imported only via the SD Connect (directly, by upload) or SD Apply service (upon approval for reuse). Data export, however, is limited to the CSC Project Manager for additional security.
 
 * **Limited storage space**: The virtual desktop is designed primarily for data analysis and has limited storage space. To expand storage, you can add an external
 volume (such as an external hard drive) during the desktop setup. This external volume is accessible to all project members and also serves as a backup for imported data.
 
-
-* **Open source software only**: Only open-source software can be installed in the virtual desktop, as it does not currently support licensed or proprietary software. Each virtual desktop comes with a default set of pre-installed software, but you can customize it further using an easy-to-use application or, for advanced users, through Apptainer.
-If the software you need is not listed below, please contact our servicedesk@csc.fi for support (subject: SD Desktop). 
+* **Open source software only**: Only open-source software can be installed in the virtual desktop, as it does not currently support licensed or proprietary software. Each virtual desktop comes with a default set of pre-installed software, but you can customize it further using an easy-to-use application or, for advanced users, through Apptainer. If the software you need is not listed below, please contact our servicedesk@csc.fi for support (subject: SD Desktop). 
 
 * **Copy-Paste restrictions**: For security reasons, copy-pasting from your own computer to SD Desktop is limited. You can still transfer text with a few extra steps, as explained in the copy-paste instructions below. These restrictions ensure that no unauthorized data is copied or exported from the secure environment.
 
@@ -61,7 +58,7 @@ the virtual desktop, allowing safe collaboration.
 
 ### Connecting to your desktop
 
-1. After [log in](./sd-desktop-login.md), you will see all your virtual desktops listed at the front page, under *All connections*. 
+1. After [login](./sd-desktop-login.md), you will see all your virtual desktops listed at the front page, under *All connections*. 
 
 2. Select project (e.g. `project_NNNNN`) and click the plus-sign.
   
@@ -78,7 +75,7 @@ When you open the connection, a virtual computing environment will open in your 
 
 This will close all applications and disconnect the work session. You can access the same desktop anytime after logging in to the services.
 
-2. **Reconnecting to an analysis aession**:
+2. **Reconnecting to an analysis session**:
 
 * Closing the browser window: If you started the analysis programmatically (e.g., by running a script), you can safely close the browser window without 
 interrupting the ongoing processes. Your tools and interfaces will remain open when you reconnect to your desktop, allowing you to continue working.
@@ -94,10 +91,10 @@ you will most likely be unable to reconnect to the old session.
 The copy-paste function from your computer/laptop to your virtual desktop is limited for security reasons. However it is possible to copy-paste text with Clipboard. Copy-paste works only in one direction: from your computer to virtual desktop.
 
 #### Step by step 
-1. Go to virtual desktop and open the Clipboard with a key combination **Cntrl+Alt+Shift** and click *Paste*.
+1. Go to virtual desktop and open the Clipboard with a key combination **Ctrl+Alt+Shift** and click *Paste*.
 2. Activate the copy-paste function by selecting input method ***Text input*** (the Clipboard panel will close automatically after the selection).
-3. Now you can copy text normally from your computer (Cntrl+C or mouse right click).
-4. Paste the text inside your virtual desktop (Cntrl+C).
+3. Now you can copy text normally from your computer (Ctrl+C or mouse right click).
+4. Paste the text inside your virtual desktop (Ctrl+V).
 
 Note: Don't close Clipboard panel with **Cntrl+Alt+Shift**, this might disable the copy-paste function. Please note you have to activate the copy-paste function again every time you use your virtual desktop. 
 
@@ -127,7 +124,7 @@ Below we list some of the most commonly used tools that are by default installed
 
 ### Accessing RStudio 
 
-The computing environment i.e. virtual desktop (visible from your browser) is isolated from the internet. For example, you can open a Firefox web browser in your virtual desktop but not access any site online. At this moment, you will also not be able to access any repositories directly. To open R Studio for data analysis the following steps are requires:
+The computing environment i.e. virtual desktop (visible from your browser) is isolated from the internet. For example, you can open a Firefox web browser in your virtual desktop but not access any site online. At this moment, you will also not be able to access any repositories directly. To open R Studio for data analysis the following steps are required:
 
 1. Open the terminal and launch RStudio with:
 
