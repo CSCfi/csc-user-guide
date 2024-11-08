@@ -16,17 +16,17 @@ Linux is an open-source operating system, meaning it’s free to use, and its co
 It's commonly used in many research applications due to its stability, security, and flexibility.
 
 
-* Look and feel: Linux may look slightly different, depending on the “desktop environment” used. But don’t worry – it still has familiar elements like windows
+* **Look and feel**: Linux may look slightly different, depending on the “desktop environment” used. But don’t worry – it still has familiar elements like windows
 folders, and menus. You’ll find the main menu at the top left corner, where you can access all available software.
     
-* File structure: Instead of “My Documents” or drives labeled C: or D:, Linux has a different way of organizing files. 
+* **File structure**: Instead of “My Documents” or drives labeled C: or D:, Linux has a different way of organizing files. 
 The main directory starts with /, and you’ll see folders like /home for your personal files.
     
-* Benefits: Linux is built with security in mind, helping to keep your work safe and private. It is very stable and less likely to crash, making it ideal for long or intensive computing tasks.
+* **Benefits**: Linux is built with security in mind, helping to keep your work safe and private. It is very stable and less likely to crash, making it ideal for long or intensive computing tasks.
     
 
 
-### Security-related features of SD Desktop
+## Security-related features of SD Desktop
 
 SD Desktop is a secure environment designed specifically for analysing sensitive data. To protect this data, SD Desktop has certain features that may work
 differently than a regular computer. These security features ensure that your data stays safe, even when working with sensitive information. 
@@ -36,45 +36,23 @@ For each of these features, a specific step-by-step guide is available. If you a
 will help you become familiar with how everything works.
 
 
-* Isolated from the internet: 
-
-your virtual desktop is completely isolated from the internet. This means that although you can open a web browser like Firefox, you
+* **Isolated from the internet**: your virtual desktop is completely isolated from the internet. This means that although you can open a web browser like Firefox, you
 won’t be able to access websites or online repositories directly. This feature helps keep your data safe by reducing the risk of online threats.
 
-* Encrypted file only:
+* **Encrypted file only**: Only encrypted files are accessible frm your virtual desktop. This means unencrypted files won’t appear in your virtual desktop and you will first need to encrypt it using SD Connect. All files exported from teh virtual desktop will be also automatically encrpted be default. This adds an extra layer of protection for your data.
 
-Only encrypted files are accessible frm your virtual desktop. This means unencrypted files won’t appear in your virtual desktop and you will first need to encrypt it 
-using SD Connect. All files exported from teh virtual desktop will be also automatically encrpted be default. This adds an extra layer of protection for your data.
+* **Controlled file access and export with Data Gateway**: Each project memeber can import files to the virtual desktop for analysis by using a  secure application called [Data Gateway](#accessing-encrypted-sensitive-data-within-sd-desktop). Files can be imported only via the SD Conect or SD Apply service. Data export, however, is limited to the CSC Project Manager for additional security.
 
-* Controlled file access and export with Data Gateway: 
-
-Each project memeber can import files to the virtual desktop for analysis by using a  secure application 
-called [Data Gateway](#accessing-encrypted-sensitive-data-within-sd-desktop). Files can be imported only via the SD Conect or SD Apply service. Data export, however, is limited to the CSC Project Manager for additional 
-security.
-
-* Limited storage space:
-
-The virtual desktop is designed primarily for data analysis and has limited storage space. To expand storage, you can add an external
+* **Limited storage space**: The virtual desktop is designed primarily for data analysis and has limited storage space. To expand storage, you can add an external
 volume (such as an external hard drive) during the desktop setup. This external volume is accessible to all project members and also serves as a backup for imported data.
 
 
-* Open source software only:
-
-Only open-source software can be installed in the virtual desktop, as it does not currently support licensed or proprietary software. Each virtual desktop
-comes with a default set of pre-installed software, but you can customize it further using an easy-to-use application or, for advanced users, through Apptainer.
+* **Open source software only**: Only open-source software can be installed in the virtual desktop, as it does not currently support licensed or proprietary software. Each virtual desktop comes with a default set of pre-installed software, but you can customize it further using an easy-to-use application or, for advanced users, through Apptainer.
 If the software you need is not listed below, please contact our servicedesk@csc.fi for support (subject: SD Desktop). 
 
-* Copy-Paste restrictions: 
+* **Copy-Paste restrictions**: For security reasons, copy-pasting from your own computer to SD Desktop is limited. You can still transfer text with a few extra steps, as explained in the copy-paste instructions below. These restrictions ensure that no unauthorized data is copied or exported from the secure environment.
 
-For security reasons, copy-pasting from your own computer to SD Desktop is limited. You can still transfer text with a few extra steps, 
-as explained in the copy-paste instructions below. These restrictions ensure that no unauthorized data is copied or exported from the secure environment.
-
-
-
-
-* Shared file access for team members:
-
-Any files saved in the shared-directory or on the external volume can be accessed by other project members working in
+* **Shared file access for team members**: Any files saved in the shared-directory or on the external volume can be accessed by other project members working in
 the virtual desktop, allowing safe collaboration.
 
 
