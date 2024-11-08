@@ -3,7 +3,7 @@
 
 ## Use case
 
-You need to access to SD services. You are manager of research team or work independently.
+You need to access to SD services for processign research data. You are manager of research team or work independently.
 
 ## Solution
 
@@ -18,6 +18,9 @@ You need to access to SD services. You are manager of research team or work inde
 9. [Log into SD Services](#9-log-into-sd-services)
     
 ![How to get started as project manager.](images/MyCSC/HowToGetStarted_SD_Project_Manager.png)
+
+!!! Note
+    The default lifetime of a CSC project is one year. All data stored in SD Connect or SD Desktop, including files, virtual desktops and volumes, will be            permanently deleted 90 days after the project closure/ expiration.
 
 
 ## Step by step tutorial
@@ -79,24 +82,36 @@ If you need assistance with the above points or support to verify if SD service 
 
 ### 5. Apply billing units for your project
 
-- CSC project consumes billing units (BU's).
-- All new academic CSC projects are initially granted 10 000 BU's, so you can get started. However, you should estimate how many BU’s your project will consume **during 1 year** and apply more if needed. When you start a new project, you should plan ahead for your project's billing unit and storage usage.
-- Use the billing unit calculator for estimating your billing unit consumption.
-- Apply more billing units by clicking **"Apply for resources"** in Resource applications window.
+The Billing Unit (BU) is CSC’s metric for tracking resource consumption for each CSC projects. As each service consumes billing units. When starting a project, consider your resource needs, including storage and billing units consumption. Each project starts with 10,000 billing units, typically enough for initial testing. 
+
+
+You should estimate how many BU’s your project will consume **during 1 year** and apply more if needed. When you start a new project, you should plan ahead for your project's billing unit and storage usage.
+
+- See the teble below for estimating your billing unit consumption.
+  
+- Apply more billing units for your CCS project by clicking **"Apply for resources"** in Resource applications window.
+  
 - You will get more info after your application to your MyCSC inbox.
+
 - You can always ask help from Service Desk _Subject: SD Services_
 
-Example using SD Desktop for 6 months and 1 year:
+#### What happens if your project runs out of billing units?
 
-| **Desktop Option** | **Billing Units (6 Months)** | **Billing Units (1 Year)** |
-|--------------------|------------------------------|----------------------------|
-| Small Computation | 22,464 units | 44,928 units |
-| Medium Computation | 44,928 units | 89,856 units |
-| Heavy Computation | 224,640 units | 449,280 units |
-| Small GPU Computation | 518,400 units | 1,036,800 units |
-| Medium GPU Computation | 864,000 units | 1,728,000 units |
+Once all the billing units for your CSC project have been used up, ** access to the SD Desktop service will be restricted**. This means that:
 
-Example of billing units required for storing data in **SD Connect/Allas** for 6 months and 1 year:
+* all virtual desktops currently running will automatically be paused
+* you won't be able to access the virtual desktops content or unpause them, until you have applied for more resources
+* your data remains unaffected and will not be deleted, even in cases where the total billing units reach zero or enter negative values.
+
+!!! Note
+    Each project memeber will receive a notification via email from the My CSC portal when the billing units for your CCS project are about to end.
+
+
+#### SD Connect BU consumption
+
+SD Connect stores data to Allas. Default storage space for SD Connect/Allas is 10 TB, which you can expand up to 200 TB as needed. If you need even more storage capacity, please contact service desk _(subject: Increase Allas quota)_. Storing data in SD Connect/Allas consumes billing units at a rate of **1 billing unit per TB per hour**. This means that storing 1 TB of data in SD Connect/Allas consumes 24 billing units daily and 8760 billing units annually.
+
+Here’s a table summarizing the billing units required for storing data in **SD Connect** over **6 months** and **1 year** for various storage sizes:
 
 | **Storage Size** | **Billing Units (6 Months)** | **Billing Units (1 Year)** |
 |------------------|------------------------------|----------------------------|
@@ -104,6 +119,22 @@ Example of billing units required for storing data in **SD Connect/Allas** for 6
 | 1 TB | 4,320 units | 8,640 units |
 | 10 TB | 43,200 units | 86,400 units |
 | 100 TB | 432,000 units | 864,000 units |
+
+#### SD Desktop BU consumption
+
+Analysing data in SD Desktop consumes billing units based on the type of virtual desktop used. Each virtual desktop can also have a volume (also called disk space), where files can be imported from SD Connect/SD Apply. The volume can be added only during desktop creation (up to 200 GB). If you need larger volume please contact service desk _(subject: Sensitive data)_.
+
+Here’s a table summarizing the billing units required for using **SD desktop** over **6 months** and **1 year** for various desktop options:
+
+| Desktop Option | Billing Rate (units/hour) | Billing Units (6 Months) | Billing Units (1 Year) |
+|----------------|---------------------------|--------------------------|------------------------|
+| Small Computation | 5.2 | 22,464 | 44,928 |
+| Medium Computation | 10.4 | 44,928 | 89,856 |
+| Heavy Computation | 52 | 224,640 | 449,280 |
+| Small GPU Computation | 120 | 518,400 | 1,036,800 |
+| Medium GPU Computation | 200 | 864,000 | 1,728,000 |
+    
+
 
 ![Click apply for resources.](./images/MyCSC/MyCSC_AddResources.png)
 
