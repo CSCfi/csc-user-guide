@@ -54,7 +54,7 @@ the virtual desktop, allowing safe collaboration.
 
 
 
-## Logging in and out of the secure environment
+## Accessing the secure environment
 
 ### Connecting to your desktop
 
@@ -66,9 +66,8 @@ the virtual desktop, allowing safe collaboration.
 
 When you open the connection, a virtual computing environment will open in your browser. If you are accessing the virtual desktop for the first time, you will see the panel getting started, from which you can, for example, adjust the screen resolution.
 
-![check the paragraph below](../sensitive-data/images/desktop/SD-Desktop-Frontpage.png)
 
-### Logging out 
+### Disconnecting from the virtual desktop
 
 1. In the workspace view, top right corner of the browser, select your _username_ and _log out_.
 2. In the new window, click on _Home_.
@@ -84,7 +83,7 @@ interrupting the ongoing processes. Your tools and interfaces will remain open w
 session was in use. This is typically only possible if you're using the SD Desktop in full-screen mode on the same machine. If the window size has changed, 
 you will most likely be unable to reconnect to the old session.
 
-
+![check the paragraph below](../sensitive-data/images/desktop/SD-Desktop-Frontpage.png)
 
 ## Copy-paste from your laptop to virtual desktop
 
