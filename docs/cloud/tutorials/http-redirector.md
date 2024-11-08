@@ -6,13 +6,13 @@ It is very simple to setup a HTTP redirection in Rahti using a web server like n
 
 1. Deploy an NGINX Image. It is recommended to use `bitnami/nginx`
 
-    ![bitnami/nginx](../img/bitnami-nginx.png)
+    ![bitnami/nginx](../img/bitnami-nginx-deploy.png)
 
 1. Add a Route with the URL that you want to redirect. If you visit the URL, you should see the "nginx welcome page"
 
-    ![route](../img/route-create.png)
+    ![route](../img/create-route-nginx.png)
 
-1. Add a ConfigMap with a server redirection block. Go to **Resources > Config Maps**, click in **Create Config Map**. The **Name** will be later used as **Source** when mounting the ConfigMap. The **Key** will be the name of the file, and the **Value** the content of the file. 
+1. Add a ConfigMap with a server redirection block. Go to **Workloads > ConfigMaps**, click in **Create ConfigMap**. The **Name** will be later used as **Source** when mounting the ConfigMap. The **Key** will be the name of the file, and the **Value** the content of the file. 
 
     ```nginx
     #default.conf
@@ -25,9 +25,20 @@ It is very simple to setup a HTTP redirection in Rahti using a web server like n
 
     In this example, `test.com` is the original URL, and `test2.com`  is the one that the user will be redirected to.
 
-1. Mount the Configmap to the nginx deployment. Navigate to **Applications > Deployments** and click in the nginx deployment. Then go to **Configuration** and finally click in **Add Config Files**
+1. Mount the Configmap to the nginx deployment. Go to deployment and add following code in the YAML file.
 
-    ![ConfigMap](../img/nginx-configmap.png)
+   ```
+   spec:
+        containers:
+          volumeMounts:
+          - mountPath: /opt/bitnami/nginx/conf/server_blocks
+            name: nginx-conf
+          volumes:
+          - configMap:
+              defaultMode: 420
+              name: nginx-config
+            name: nginx-conf
+   ```
 
     In this example, the ConfigMap has to be mounted in `/opt/bitnami/nginx/conf/server_blocks/`, other images may store the nginx configuration in different folders.
 
