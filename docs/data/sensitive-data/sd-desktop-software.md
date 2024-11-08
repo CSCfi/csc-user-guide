@@ -1,31 +1,14 @@
-# Software in SD Desktop
+# Customisation: adding software
 
-When you log into the virtual desktop, you are welcomed into a digital workspace that resembles a traditional computer screen. This workspace operates on a Linux-based operating system, allowing you to choose between two versions: Ubuntu 22 or CentOS 7 (which will be dismissed in 2024). The virtual desktop comes pre-installed with a set of basic tools or software that you can use immediately (listed below). However, this initial toolkit offers a somewhat limited selection of open-source software. To transform the virtual desktop into a versatile research workspace tailored to your specific needs, you can use a simple application called SD Software Installer, this tool assists you in adding software and customizing your virtual desktop. For users with technical expertise, it is also possible to create customised containers using Apptainer or Podman.
+The virtual desktop comes pre-installed with a set of basic tools or software that you can use immediately (listed below). However, this initial toolkit offers a somewhat limited selection of open-source software. To transform the virtual desktop into a versatile research workspace tailored to your specific needs, you can use a simple application called SD Software Installer, this tool assists you in adding software and customizing your virtual desktop. For users with technical expertise, it is also possible to create customised containers using Apptainer or Podman.
 
 Below you can find:
 
-- [Default software available in SD Desktop](sd-desktop-software.md#default-software-available-in-sd-desktop)
 - [Adding software: background information and limitations](sd-desktop-software.md#adding-software-background-information-and-limitations)
 - [Customisation via SD Software Installer](sd-desktop-software.md#customisation-via-sd-software-installer) (no previous experience required)
 - [Customisation via Apptainer and Podman](sd-desktop-software.md#customisation-via-apptainer-and-podman) (advanced; technical expertise required).
 
 Please don't hesitate to contact us at @servicedesk@csc.fi (subject: SD Services) if you have any questions about the software selection. We can support you in your desktop customisation. 
-
-
-## Default software available in SD Desktop
-
-Below we list some of the most commonly used tools that are by default installed in SD Desktop machines. The list is not complete and there are small differences between different linux flavours.
-
-| **Category**              | **Software**                                                                                                                                                                       |
-|---------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Office Tools**          | [LibreOffice](https://en.wikipedia.org/wiki/LibreOffice)                                                                                                                         |
-| **Programming**           | [Go](https://go.dev/) <br> [Python 3](./tutorials/sd-pythonlibs.md) including packages: tensorflow, nltk, spacy, scikit-learn, seaborn, plotly, bokeh, pydot, xgboost, lightgbm, catboost, eli5, torch, keras, dist-keras, elephas, gensim, scrapy, beautifulsoup4, numpy, scipy, pandas, statsmodels, matplotlib, pyfuse3, crypt4gh, trio, httpx, qrcode |
-| **R & RStudio**           | [R / RStudio Server](sd-desktop-access.md#accessing-rstudio) <br> - Matching the r-env-singularity/4.0.5 module on Puhti (R 4.0.5 + RStudio Server 1.4.1106, Bioconductor 3.12) <br> - 1000+ pre-installed R packages (versions available on Apr 20, 2021) <br> - Intel® oneAPI Math Kernel Library (oneMKL) <br> - GIS software (PROJ, GDAL, SAGA) <br> - CUDA drivers <br> - TensorFlow (used with R TensorFlow back-end) <br> - R + RStudio Server versions matched with Puhti r-env-singularity module (R 4.0.5 + RStudio Server 1.4.1106, MRAN, Bioconductor 3.12)                 |
-| **Workflow Engines**      | - [Nextflow](https://www.nextflow.io/) <br> - [Snakemake](https://snakemake.readthedocs.io/en/stable/)                                                                                                                                                |
-| **Software Containers**    | - [Apptainer](https://apptainer.org/) <br> - [Podman](https://podman.io/) (Only in Ubuntu machines)                                                                                                                             |
-| **Scientific Software**    | - [Plink 1.9](https://www.cog-genomics.org/plink/) <br> - [Samtools 1.8](http://www.htslib.org/) <br> - [Minimap2 2.26](https://github.com/lh3/minimap2)                                                                                                                          |
-| **Terminals & Interfaces** | - [Byobu](https://www.byobu.org/) (Only in Ubuntu machines.) <br> - [Jupyter](https://jupyter.org/)                                                                                                                         |
-
 
 ## Adding software: background information and limitations
 
@@ -113,9 +96,6 @@ Thus, you should start the application once after the installation, to make sure
 the installed software should work also when Data Gateway connection has not been opened.
 
 
-
- 
-
    
 ## Customisation via Apptainer and Podman 
 
@@ -131,3 +111,12 @@ In Ubuntu22-based virtual machines you can use also Podman container manager. On
 
 !!! Note
     Please don't hesitate to contact [CSC Service Desk](../../support/contact.md) (subject: Sensitive Data). We can support you in your Desktop customisation. 
+
+Read next: 
+
+* [Working with your desktop: tips and essentials](./sd-desktop-defualt-software.md)
+* [How to import data for analysis in your desktop](./sd-desktop-access.md)
+* [Customisation: adding software](./sd-desktop-software.md)
+* [How to manage your virtual desktop (delete, pause, detach volume etc.)](./sd-desktop-manage.md)
+
+    
