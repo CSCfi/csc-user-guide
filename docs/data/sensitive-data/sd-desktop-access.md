@@ -15,7 +15,7 @@ Once a virtual desktop is created, each CSC project member can access it through
 
 * **Adding the external volume:** the external volume can only be added when creating a [new virtual desktop](../sensitive-data/sd-desktop-create.md)
 
-* **Additional voluem space:** if you need additional volume space (more than 200 GB), you can request it by wirting to CSC Service Desk, (subject: SD Desktop), **please be aware that volume extensions are only possible before any data has been added to the volume**.
+* **Additional voluem space:** if you need additional volume space (more than 200 GB), you can request it by writing to CSC Service Desk, (subject: SD Desktop), **please be aware that volume extensions are only possible before any data has been added to the volume**.
 
    
 ## Step by step
@@ -45,7 +45,7 @@ When you open the connection, a virtual computing environment will open in your 
 
 3. Click Login, then Continue.
 
-4. In the next window, under Create Secure Access, select Create. This establishes a secure connection bewteen your virtual desktop and your data, and create a Projects folder visible on your desktop (and accessible from the terminal).
+4. In the next window, under Create Secure Access, select Create. This establishes a secure connection between your virtual desktop and your data, and create a Projects folder visible on your desktop (and accessible from the terminal).
 
 5. Click Open Folder to view all files stored in SD Connect or SD Apply. Files are available in read-only mode for secure access, but to view them, right-click the file and select the desired application to open it.
 
@@ -98,7 +98,7 @@ You can now disconnect the Data Gateway connection if no further data accessor i
 
 1. _Log out_ from the desktop (in the workspace view, top right corner of the browser, select your _username_ and _log out_). This will close all applications and disconnect the work session. You can access the same desktop anytime after logging in to the services.
 
-2. **Reconnecting to an analysis aession**:
+2. **Reconnecting to an analysis session**:
 
 * Closing the browser window: If you started the analysis programmatically (e.g., by running a script), you can safely close the browser window without interrupting the ongoing processes. Your tools and interfaces will remain open when you reconnect to your desktop, allowing you to continue working.
 
@@ -106,5 +106,5 @@ You can now disconnect the Data Gateway connection if no further data accessor i
 
 
 !!! Note
-    Connection limit: each virtual desktop allows a maximum of 10 simultaneous connections. This means that up to 10 CSC project memebers can       be logged in and using the system at the same time. If more than 10 CSC project members attempt to connect to the same virtual desktop,          additional users will not be able to access the system until one of the active sessions is disconnected.
-    If a connection remains inactive for two consecutive days, the system will automatically log the user out to free up resources. Please          ensure you log out manually when you're finished to avoid this.
+    Connection limit: each virtual desktop allows a maximum of 10 simultaneous connections. This means that up to 10 CSC project members can be logged in and using the system at the same time. If more than 10 CSC project members attempt to connect to the same virtual desktop, additional users will not be able to access the system until one of the active sessions is disconnected.
+    If a connection remains inactive for two consecutive days, the system will automatically log the user out to free up resources. Please ensure you log out manually when you're finished to avoid this.
