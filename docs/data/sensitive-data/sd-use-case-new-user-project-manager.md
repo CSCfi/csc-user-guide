@@ -3,7 +3,7 @@
 
 ## Use case
 
-You need to access to SD services for processign research data. You are manager of research team or work independently.
+You need to access to SD services for processing research data. You are manager of research team or work independently.
 
 ## Solution
 
@@ -40,7 +40,7 @@ You need to access to SD services for processign research data. You are manager 
 - Fill in the project name and project description. You can edit these later if needed.
 - Choose the Project category to be **“Academic”** (if you are a researcher and a member of Finnish higher education institution)
 - If your project involves handling personal data, choose "Yes" for the field: **We handle personal data in this project**.
-- Next, under Terms of Use, ensure you meet the **Prerequisites and Responsibilities** to be a CSC Project Manager. For research projects, the Project Manager should be an experienced researcher (e.g., postdoc, group leader, professor, or doctoral researcher employed by a research organization). **Note for Students:** If you are a student, please have your supervisor create the CSC project or contact us at servicedesk@csc.fi (subject: sensitive data) for assistance. Is is not possible to access SD Services with a student account.
+- Next, under Terms of Use, ensure you meet the **Prerequisites and Responsibilities** to be a CSC Project Manager. For research projects, the Project Manager should be an experienced researcher (e.g., postdoc, group leader, professor, or doctoral researcher employed by a research organization). **Note for Students:** If you are a student, please have your supervisor create the CSC project or contact us at servicedesk@csc.fi (subject: sensitive data) for assistance. It is not possible to access SD Services with a student account.
 - Finally, read and accept the terms of use.
 - Click **“Create a project”**.
 
@@ -87,7 +87,7 @@ The Billing Unit (BU) is CSC’s metric for tracking resource consumption for ea
 
 You should estimate how many BU’s your project will consume **during 1 year** and apply more if needed. When you start a new project, you should plan ahead for your project's billing unit and storage usage.
 
-- See the teble below for estimating your billing unit consumption.
+- See the table below for estimating your billing unit consumption.
   
 - Apply more billing units for your CCS project by clicking **"Apply for resources"** in Resource applications window.
   
@@ -100,11 +100,11 @@ You should estimate how many BU’s your project will consume **during 1 year** 
 Once all the billing units for your CSC project have been used up, ** access to the SD Desktop service will be restricted**. This means that:
 
 * all virtual desktops currently running will automatically be paused
-* you won't be able to access the virtual desktops content or unpause them, until you have applied for more resources
+* you will not be able to access the virtual desktops content's or unpause them, until you have applied for more resources
 * your data remains unaffected and will not be deleted, even in cases where the total billing units reach zero or enter negative values.
 
 !!! Note
-    Each project memeber will receive a notification via email from the My CSC portal when the billing units for your CCS project are about to end.
+    Each project member will receive a notification via email from the My CSC portal when the billing units for your CCS project are about to end.
 
 
 #### SD Connect BU consumption
@@ -162,7 +162,7 @@ Here’s a table summarizing the billing units required for using **SD desktop**
 ![Add project members.](./images/MyCSC/MyCSC_AddMembers.png)
 
 !!! Note 
-    You project members must also create a MyCSC user account (this happens when they apply membership to your project), activate the MFA and approve the terms of use of the services you have activated (SD Connect, SD Desktop).
+    Each CSC project members must also create a MyCSC user account (this happens when they apply membership to your project), activate the MFA and approve the terms of use of the services you have activated (SD Connect, SD Desktop).
 
 
 ### 8. Closing your project and data retention
