@@ -46,9 +46,7 @@ When all billing units in your CSC Project have been consumed, service usage can
 Detailed information on how services are currently limiting the use when billing units run out:
 
 * [Puhti and Mahti](../computing/usage-policy.md#running-out-of-billing-units)
-* [Sensitive Data Desktop](../data/sensitive-data/sd-csc-project.md#what-happens-if-your-project-runs-out-of-billing-units)
-
-
+* [Sensitive Data Desktop](../data/sensitive-data/sd-use-case-new-user-project-manager.md#what-happens-if-your-project-runs-out-of-billing-units)
 
 
 
