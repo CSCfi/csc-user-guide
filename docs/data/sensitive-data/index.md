@@ -45,13 +45,13 @@ Welcome to the user guide for CSC's Sensitive Data (SD) services. Follow the ste
   <div class="quick-links-topic">
     <span class="quick-links-title"><h2>Additional Resources</h2></span>
     <div class="quick-links-item">
-      <a class="quick-link" target="_self" href="../../support/wn/data-new.md">What's New with Sensitive Data Services</a>
+      <a class="quick-link" target="_self" href="../../support/wn/data-new/">What's New with Sensitive Data Services</a>
     </div>
     <div class="quick-links-item">
       <a class="quick-link" target="_self" href="../../support/faq/">Frequently Asked Questions (FAQ)</a>
     </div>
     <div class="quick-links-item">
-      <a class="quick-link" target="_self" href="sd-terminology.md">Useful Terminology</a>
+      <a class="quick-link" target="_self" href="sd-terminology/">Useful Terminology</a>
     </div>
   </div>
 </div>
