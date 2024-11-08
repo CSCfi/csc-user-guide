@@ -114,9 +114,8 @@ In Ubuntu22-based virtual machines you can use also Podman container manager. On
 
 Read next: 
 
-* [Working with your desktop: tips and essentials](./sd-desktop-defualt-software.md)
+* [Working with your desktop: tips and essentials](./sd-desktop-default-software.md)
 * [How to import data for analysis in your desktop](./sd-desktop-access.md)
-* [Customisation: adding software](./sd-desktop-software.md)
 * [How to manage your virtual desktop (delete, pause, detach volume etc.)](./sd-desktop-manage.md)
 
     
