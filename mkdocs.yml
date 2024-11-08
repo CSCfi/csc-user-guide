@@ -439,9 +439,9 @@ nav:
               - Login to SD Desktop: data/sensitive-data/sd-desktop-login.md
               - Create virtual desktop: data/sensitive-data/sd-desktop-create.md
               - Manage virtual desktop: data/sensitive-data/sd-desktop-manage.md
-              - Work with your virtual desktop: sd-desktop-working.md
+              - Work with your virtual desktop: data/sensitive-data/sd-desktop-working.md
               - Import data: data/sensitive-data/sd-desktop-access.md
-              - Customisation add software: sd-desktop-default-software.md
+              - Customisation add software: data/sensitive-data/sd-desktop-default-software.md
               - Export data: data/sensitive-data/sd-desktop-export.md
               - Troubleshooting: data/sensitive-data/sd-desktop-troubleshooting.md
       - Publish and reuse:
