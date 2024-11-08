@@ -416,7 +416,23 @@ If you don't need sound (or controls), you can use animations as an alternative 
 used just like [static images](#images). Both _.gif_ and _.png_ files work.
 
 
-## Mermaid
+## Diagrams
+
+### Mermaid
+
+Documented here: <https://mermaid.js.org/intro/>, but for example a fenced block like this:
+
+````markdown
+```mermaid
+%%{init: {'theme': 'neutral' }}%%
+graph TD
+    A(Does your reference card have a Mermaid chart?) -->|Yes| B(Good)
+    A -->|No| C(Yes, it does.)
+    C --> |What? No, you can't just... Oh.| B
+```
+````
+
+produces a flowchart like that:
 
 ```mermaid
 %%{init: {'theme': 'neutral' }}%%
@@ -425,6 +441,38 @@ graph TD
     A -->|No| C(Yes, it does.)
     C --> |What? No, you can't just... Oh.| B
 ```
+
+
+### Draw.io
+
+Diagrams (including a toolbar) from [draw.io](https://draw.io) can be embedded as iframes by selecting _File ->
+Embed -> IFrame..._. With line breaks added for illustration, the resulting piece of HTML could
+look something like this:
+
+```html
+<iframe
+  frameborder="0"
+  style="width: 100%;
+         height: 301px;"
+  src="https://viewer.diagrams.net/?tags=blahblahblahblah%blah
+       blahblahblah%blahblah%blah%blahblahblahblah%blahblah"
+></iframe>
+```
+
+**The `src` attribute needs to be renamed to `srcdoc`:**
+
+```html
+<iframe
+  ...
+  srcdoc="..."
+  ...
+></iframe>
+```
+
+The size can be controlled by changing the value of the _style_ attribute. Note the units: _%_ for
+width and _px_ for height. Here's an example with a width of 100 percent and a height of 500 pixels:
+
+<iframe frameborder="0" style="width:100%;height:500px;" srcdoc="https://viewer.diagrams.net/?tags=%7B%7D&lightbox=1&highlight=0000ff&edit=_blank&layers=1&nav=1#R%3Cmxfile%3E%3Cdiagram%20name%3D%22Page-1%22%20id%3D%22ftzXAFIqJNWyvfU7Nhta%22%3E7Zpbc9o4FMc%2FDY%2FxGN9wHgMk6UN2lllmJ7tPHWELW8W2WFmOIZ9%2BJUsy8gUwKWnSaZtkgo4uls7%2Fp%2BMjpSN7lu4eCdjGf%2BAQJiPLDHcjez6yrLFp2uwXt%2ByF5dZxhCEiKJSNDoYleoWqp7QWKIR5oyHFOKFo2zQGOMtgQBs2QAgum83WOGk%2BdQsi2DEsA5B0rc8opLGw%2Bq55sH%2BBKIrVk9mKRU0KVGNpyGMQ4lIz2fcje0YwpuJTupvBhDtP%2BUX0ezhSW0%2BMwIz2dPg7h%2BTP1TfuE8tMwIrpUjUS3RKUbUQ5ppS78o53tB5CHORGkAfGGrFSgNNtQVEW8RqUb6o2doxTeBMiwobGZC%2FGU7Pal%2BvNX8%2Fea%2Fa4%2BM83X2dP4fL5ZuzWy62XkdO9cjHBRRZCPsB4ZE%2FLGFG43IKA15YMKmaLaZrI6hS%2FgFXVk5cIzNGrXsYUUK3MaIR6GYZILyY42FQPNllBEqRVdz0snf4CCYU7zSTX9giZayj3ialqbam%2BxN9R5VKDSZpijaOafyD5jeqhDxKzD9KfqqiJfhKCRRFTxGcBV1y8jEKy5h4%2FyUZZlsaWd6wBOau8dVL4fANpEEv3axqDfCu28hrtuDzTnBK8gTOcYMKsGc4gN6r9xHuvUZKoeoaoPfXnD3worhRiu%2FkuQVHG6ijmPFWeWOAcUYS5NYDcA1rzp1aDFaYUp%2BKhWz77dBfxeGdEwdYyogSv4NcSExZbvh8ZxxqAjGOogXVq%2FHeFZrac8UCOgyJlqwOVa4YHk7Os2CdZ0fA4KxKQYteyVouYgmATVbFGA2Vd%2FTsKigBPBX6rg2II16BIaJvGEORxHVfayCCcTwzEok1uKF8yl023GFUf5iN3yr5NgwXNGdN4Zsofyx65c%2F59lcDktShz3S5lrmtMbruUeVehrPNC64XCk%2BsCSQH199exKIILymhk%2BqhsoAoOOKOa5uzrgU9hyvQIETzUycDSiiVV8%2FmxKNSQ%2BiyZ%2FZR1eNVg53OXWdHYUmW5eLMvVlYcQXL%2FIriqBmkjCMrcMYq8etZVIpZXhyOJk9eD08TvsqRsF7A0DJxJhxMYssROFjGhMY5wBpL7g3V6SEQqlOo2T5jLVHnyG6R0L%2FUABcVNsZgLyf4f3t9w7Yky%2FMtrDctV5flOPkGU9nppAQliDuDKVMaj6uS4IAE8v3MoIBGk517Rlsm9c1JrAhMW8l%2BaafHVZRt7H6rbWNeMh%2BDTkr1dHX%2BgOiJ1%2FjTy%2BBeG46HR6cirU5OoN%2Fi%2BPY8bGIhbrwLTHPv%2BvC%2BgvhYEGuK4xDp%2Bf0itUzn1evZ7Xs895wbHfSflbz86njai6ecMpf4P2qvHj%2FZelYuyM50X8Q%2FL5RdlY0PU5guy9sYVgDwhi8KAjH6sr7%2Bb0nM%2FPYnZN05%2F7U3Y3qspCkPBl3b6NzspdH%2BifAruzvasr5XkQ0b6zU3ftr0xDdN37cbWlfddg0WXgy%2F4Yg6j3DjNHni9zhmMbUjqKV01C1eXEZ9%2F97ND0odtf%2Fva279FgmTMHTdfDd5t6zwmFiR76TeIrYE812kO5LQGEivuDHRHCNhrzeS2Ozphz%2FF7J3zgVow4kOKByFoXpirXzUxaiYNr8q93yFh6z7udCNpOV1jwQAE0QvjCfuVGDEj4tbrf%2FfnuV93WZZljd%2FIkpydPclvh9HoHGPs3d78gd3VQ%2FjDunN%2Fc%2FYrcTVzD%2FWDyJj3ktQ4iC0BAklR%2FGmakwHyfU5geP5pozDK%2F0Av5k6bh54i%2BPzk2s9efjRKnlSL23MZ6PYzYb7rZP%2FwJWyRvh%2F8IYN%2F%2FDw%3D%3D%3C%2Fdiagram%3E%3C%2Fmxfile%3E"></iframe>
 
 
 ## Buttons

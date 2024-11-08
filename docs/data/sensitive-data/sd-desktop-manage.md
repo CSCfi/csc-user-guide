@@ -18,7 +18,7 @@ To detach a volume from your virtual desktop:
 
 2. From SD Desktop homepage, click on _SD Desktop management page_.
 
-3. Here, under _Available desktops_ choose the correct virtual desktop, and in the same raw, on the right side, click on _Detach volume_.
+3. Here, under _Available desktops_ choose the correct virtual desktop, and in the same row, on the right side, click on _Detach volume_.
 A message will ask to confirm the operation.
 
 
@@ -55,7 +55,7 @@ To pause the desktop:
 
 2. On the SD Desktop homepage, click on _Go To SD Desktop Management_;
 
-3. Here, under _Available desktops_ select the correct virtual desktop, and in the same raw, on the right side, click on _Pause desktop_. Note: you can not detach a volume or access a paused desktop. 
+3. Here, under _Available desktops_ select the correct virtual desktop, and in the same row, on the right side, click on _Pause desktop_. Note: you can not detach a volume or access a paused desktop. 
 
 4. A message will ask to confirm the operation, which can take up to 30 minutes.
 
@@ -63,7 +63,7 @@ You can unpause the virtual desktop at any time from the same page. Also, in thi
 
 1. On the SD Desktop homepage, click on _Go To SD Desktop Management_;
 
-2. Here, under _Available desktops_ select the correct virtual desktop, and in the same raw, on the right side, click on _Resume_. 
+2. Here, under _Available desktops_ select the correct virtual desktop, and in the same row, on the right side, click on _Resume_. 
 
 !!! Note
     Restarting a paused desktop is only possible for active CSC projects with available billing units. 
@@ -98,7 +98,7 @@ At the end of your analysis, you can delete your virtual desktop, including the 
 
 2. Under _Available desktops_ select the correct virtual desktop.
 
-3. On the same raw, on the right side, click on _Options_ and on _Delete_.
+3. On the same row, on the right side, click on _Options_ and on _Delete_.
 
 !!! Note
     Please contact all the project members before deleting a virtual desktop. With this action, you will delete the entire workspace, including all files saved in the virtual desktop or external volume by other project members. 

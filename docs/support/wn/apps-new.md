@@ -1,5 +1,12 @@
 # Applications
 
+## Schrödinger Maestro 2024.4, 5.11.2024
+
+[Schrödinger Maestro](../../apps/maestro.md) version 2024.4 has been installed
+and set as the default module on Puhti and Mahti. See
+[release notes](https://www.schrodinger.com/life-science/download/release-notes/)
+for a list of new features and improvements.
+
 ## JAX 0.4.30 available on LUMI, 23.10.2024
 
 [JAX](../../apps/jax.md) 0.4.30 has now been installed on LUMI
