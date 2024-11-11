@@ -12,7 +12,7 @@ It is very simple to setup a HTTP redirection in Rahti using a web server like n
 
     ![route](../img/create-route-nginx.png)
 
-1. Add a ConfigMap with a server redirection block. Go to **Workloads > ConfigMaps**, click in **Create ConfigMap**. The **Name** will be later used as **Source** when mounting the ConfigMap. The **Key** will be the name of the file, and the **Value** the content of the file. 
+1. Add a ConfigMap with a server redirection block. Go to **Workloads > ConfigMaps**, click in **Create ConfigMap**. The **Name** will be later used when mounting the ConfigMap. The **Key** will be the name of the file, and the **Value** the content of the file. 
 
     ```nginx
     #default.conf
@@ -25,7 +25,7 @@ It is very simple to setup a HTTP redirection in Rahti using a web server like n
 
     In this example, `test.com` is the original URL, and `test2.com`  is the one that the user will be redirected to.
 
-1. Mount the Configmap to the nginx deployment. Go to deployment and add following code in the YAML file.
+1. Mount the Configmap to the nginx deployment as a volume. Go to deployment and add following code in the YAML file.
 
    ```
    spec:
@@ -40,7 +40,7 @@ It is very simple to setup a HTTP redirection in Rahti using a web server like n
             name: nginx-conf
    ```
 
-    In this example, the ConfigMap has to be mounted in `/opt/bitnami/nginx/conf/server_blocks/`, other images may store the nginx configuration in different folders.
+    In this example, nginx-conf is the **name** of configMap, nginx-config is the **key** and the ConfigMap has to be mounted in `/opt/bitnami/nginx/conf/server_blocks/`, other images may store the nginx configuration in different folders.
 
 ## Add more host domains
 
