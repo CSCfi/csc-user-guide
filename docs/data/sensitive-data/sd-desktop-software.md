@@ -21,7 +21,7 @@ Please don't hesitate to [contact CSC Service Desk](../../support/contact.md) (s
 
 SD Software installer provides an easy-to-use tool to add some commonly used software to SD Desktop (Eg. Rstudio 4.2.2, Whisper, VSCode and GATK). SD Software installer is an application provided by CSC. Users can't add their own tools to the SD Software installer, but you can send requests for new tools to be added by [contacting CSC Service Desk](../../support/contact.md) (subject: SD Desktop). To access the application, please follow the step-by-step tutorial below.  
 
-<iframe width="512" height="288" srcdoc="https://www.youtube.com/embed/S4hpjPy-TDQ" title="How to install software on SD Desktop" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/S4hpjPy-TDQ" title="How to install software on SD Desktop" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 ### Software available via SD Software Installer
 
@@ -32,6 +32,7 @@ SD Software installer provides an easy-to-use tool to add some commonly used sof
 | **Imaging and Videos**| [Audacity](https://www.audacityteam.org/) - Sound editor. <br> *After installation, right-click the Audacity desktop icon and select: Allow launching.*                                                                      |
 |                       | [ELAN 6.7](https://archive.mpi.nl/tla/elan/) - Annotation tool for audio and video recordings. <br> *After installation, right-click the ELAN desktop icon and select: Allow launching.*                                       |
 |                       | [OpenShot 3.1.1](https://www.openshot.org/) - Video editor. <br> *This tool works only in Ubuntu 22-based virtual desktops. After installation, right-click the OpenShot desktop icon and select: Run as a program.*        |
+|                       | [Praat](https://www.fon.hum.uva.nl/praat/) - Toolkit for speech and sound analysis.                                                                                                                                       |  
 |                       | [QuPath 0.4.2](https://github.com/qupath/qupath/) - Software for bioimage analysis.                                                                                                                                        |
 |                       | [Whisper](./tutorials/whisper.md) - Automatic speech recognition.                                                                                                                                                                         |
 | **Geosciences**       | [QGIS 3.1.1](https://qgis.org/en/site/) - A Free and Open Source Geographic Information System. <br> *[QGIS at CSC servers](../../apps/qgis.md)*                                                                         |
@@ -45,7 +46,8 @@ SD Software installer provides an easy-to-use tool to add some commonly used sof
 |                       | [Salmon 1.9.0](https://combine-lab.github.io/salmon/) - Program to produce transcript-level quantification estimates from RNA-seq data. <br> *[Salmon 1.9.0 at CSC servers](../../apps/salmon.md)*                     |
 | **Miscellaneous**     | [auto-apptainer](./tutorials/auto-apptainer.md) - Tool to add command line applications using the Apptainer container library provided by CSC.                                                                                         |
 |                       | [add-python-lib](./tutorials/sd-pythonlibs.md) - Help tool to add Python libraries.                                                                                                                                                  |
-|                       | [Backup tool](./tutorials/backup_sd_desktop.md) - Help tool to automate backup and export in SD Desktop.                                                                                                                             |
+|                       | [Backup tool](./tutorials/backup_sd_desktop.md) - Help tool to automate backup and export in SD Desktop.                                                                                                                   |
+|                       | [OpenRefine](https://openrefine.org/) - Data pre-prosessing and conversion tool for various data formats.                                                                                                                                         |
 |                       | [VS Code 1.90.2](./tutorials/vscode.md) - Code editor. <br> *After installation, right-click the VS Code desktop icon and select: Allow launching.*                                                                                   |
 |                       | [WEKA 3-8-6](https://ml.cms.waikato.ac.nz/weka/index.html) - Data mining software.                                                                                                                                         |
 
