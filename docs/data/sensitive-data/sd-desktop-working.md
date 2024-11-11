@@ -1,5 +1,10 @@
 # Working with your Desktop: tips and essentials
 
+
+<iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/EhuAYNLS90g" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+
+
 Once a virtual desktop has been created, each CSC project member can access it through their browser. When you log in, you will enter a virtual computer running
 on a Linux operating system. If you’re new to Linux, it might feel a little different from other systems like Windows or macOS.
 
