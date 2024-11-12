@@ -62,7 +62,6 @@ and platforms by CSC and partners!
 
 * [Fairdata service training material](https://www.fairdata.fi/en/training/materials/)
 * [Data management checklist](https://www.fairdata.fi/en/why-fairdata/data-management-checklist/) find tips on how to take care of your research data.
-* [Remote training day for the Universities of the Applied Sciences](https://research.csc.fi/en/web/training/-/csc-tki-toiminnan-tukena) 18th May (in Finnish)
 
 ## Training materials and sources from CSC and partners
 
