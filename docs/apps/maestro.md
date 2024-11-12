@@ -68,9 +68,9 @@ Maestro can be installed on a Linux, Mac or Windows computer. Download the appro
 from [the Schrödinger website](https://www.schrodinger.com/). You don't need a license to
 *download* the software, although you need to register to the Schrödinger website, but you'll
 need to configure licensing before you can *run* it. [See these instructions on how to configure
-licensing](https://wiki.eduuni.fi/pages/viewpage.action?pageId=130528861) (requires Haka
-authentication). Access to the license requires that your computer is in the FUNET network, i.e.
-you're at the university or connected to it via VPN from home.
+licensing](https://wiki.eduuni.fi/pages/viewpage.action?pageId=130528861) (logging in to Eduuni
+requires Haka authentication). Access to the license requires that your computer is in the FUNET
+network, i.e. you're at the university or connected to it via VPN from home.
 
 ### Standalone usage on Puhti
 
