@@ -75,12 +75,23 @@ Standalone GDAL was installed to Puhti using [Spack and its GDAL package definit
 
 Installation settings for 3.8.5. `+` means enabled option, `~` disabled.
 ```
-gdal@3.8.5+arrow+curl+deflate+expat+geos+gif+hdf4+hdf5+iconv+jpeg+liblzma+libxml2+lz4+netcdf+openjpeg+png+postgresql+spatialite+sqlite3+zstd~archive~armadillo~basisu~blosc~brunsli~cfitsio~crnlib~cryptopp~csharp~ecw~filegdb~freexl~fyba~gta~hdfs~heif~idb~ipo~java~jxl~kdu~kea~lerc~libaec~libcsf~libkml~libqb3~luratech~mongocxx~mrsid~mssql_ncli~mssql_odbc~mysql~odbc~odbccpp~ogdi~opencad~opencl~openexr~openssl~oracle~parquet~pcidsk~pcre2~pdfium~podofo~poppler~python~qhull~rasterlite2~rdb~sfcgal~teigha~tiledb~webp~xercesc build_system=cmake build_type=Release generator=ninja patches=52459dc
+gdal@3.8.5+arrow+curl+deflate+expat+geos+gif+hdf4+hdf5+iconv+jpeg+liblzma+libxml2+lz4+netcdf+openjpeg+png+postgresql+spatialite+sqlite3+zstd
+~archive~armadillo~basisu~blosc~brunsli~cfitsio~crnlib~cryptopp~csharp~ecw~filegdb~freexl~fyba~gta~hdfs~heif~idb~ipo~java~jxl~kdu~kea~lerc
+~libaec~libcsf~libkml~libqb3~luratech~mongocxx~mrsid~mssql_ncli~mssql_odbc~mysql~odbc~odbccpp~ogdi~opencad~opencl~openexr~openssl~oracle
+~parquet~pcidsk~pcre2~pdfium~podofo~poppler~python~qhull~rasterlite2~rdb~sfcgal~teigha~tiledb~webp~xercesc
+build_system=cmake build_type=Release generator=ninja patches=52459dc
 ```
 
 Installation settings for 3.4.3:
 ```
---with-libtiff=/appl/spack/v018/install-tree/gcc-11.3.0/libtiff-4.3.0-4xvmnn --with-geotiff=/appl/spack/v018/install-tree/gcc-11.3.0/libgeotiff-1.6.0-m66qzg --with-libjson-c=/appl/spack/v018/install-tree/gcc-11.3.0/json-c-0.15-cvy2yv --with-proj=/appl/spack/v018/install-tree/gcc-11.3.0/proj-8.2.1-zj2pln --with-libtool=yes --with-libz=/appl/spack/v018/install-tree/gcc-11.3.0/zlib-1.2.12-tpcwxh --with-liblzma=yes--with-jpeg=/appl/spack/v018/install-tree/gcc-11.3.0/libjpeg-turbo-2.1.3-hnflqm"
+--with-libtiff=/appl/spack/v018/install-tree/gcc-11.3.0/libtiff-4.3.0-4xvmnn
+--with-geotiff=/appl/spack/v018/install-tree/gcc-11.3.0/libgeotiff-1.6.0-m66qzg
+--with-libjson-c=/appl/spack/v018/install-tree/gcc-11.3.0/json-c-0.15-cvy2yv
+--with-proj=/appl/spack/v018/install-tree/gcc-11.3.0/proj-8.2.1-zj2pln
+--with-libtool=yes
+--with-libz=/appl/spack/v018/install-tree/gcc-11.3.0/zlib-1.2.12-tpcwxh
+--with-liblzma=yes
+--with-jpeg=/appl/spack/v018/install-tree/gcc-11.3.0/libjpeg-turbo-2.1.3-hnflqm"
 ```
 ## References
 
