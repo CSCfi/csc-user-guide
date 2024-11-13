@@ -67,8 +67,8 @@ It is recommended to download and install Maestro on your own computer, see belo
 Maestro can be installed on a Linux, Mac or Windows computer. Download the
 appropriate files from [the Schrödinger website](https://www.schrodinger.com/).
 You don't need a license to *download* the software, although you do need to
-register at the Schrödinger website. Note that getting access may take up to 24
-hours, so please be patient.
+register at the Schrödinger website first. Note that getting access may take up
+to 24 hours, so please be patient.
 
 After you've downloaded and installed Maestro, you'll need to configure
 licensing to be able to *run* the software.
