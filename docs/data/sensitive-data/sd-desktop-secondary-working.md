@@ -1,4 +1,4 @@
-# Working with your Desktop: tips and essentials
+# Working with your desktop: tips and essentials
 
 <iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/EhuAYNLS90g" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
