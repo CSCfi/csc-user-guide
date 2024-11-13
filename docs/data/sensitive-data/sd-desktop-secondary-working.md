@@ -1,7 +1,5 @@
 # Working with your desktop: tips and essentials
 
-<iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/EhuAYNLS90g" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
 Once a virtual desktop has been created, each CSC project member can access it through their browser. When you log in, you will enter a virtual computer running on a Linux operating system. If you are new to Linux, it might feel a little different from other systems like Windows or macOS. No technical experience is required to work with it, but while Windows is designed to be user-friendly from the start, Linux can have a learning curve, especially if you need to use the command line. 
 
 The guide below provides instructions to help you get comfortable with both Linux and the SD Desktop’s security setup:
