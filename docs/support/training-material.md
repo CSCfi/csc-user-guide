@@ -9,8 +9,8 @@ and platforms by CSC and partners!
 ## Linux & HPC basics
 
 * [Linux 101 guide](tutorials/env-guide/index.md)
-* [Linux 1: Introduction to Linux course material](https://e-learn.csc.fi/course/view.php?id=35)
-* [Linux 2: Intermediate Linux course materials](https://e-learn.csc.fi/course/view.php?id=45)
+* [Linux 1: Introduction to Linux course material (GitHub source)](https://github.com/csc-training/linux-1) and [related lecture videos](https://video.csc.fi/channel/Introduction+to+Linux+-course/514985)
+* [Linux 2: Intermediate Linux course materials (GitHub source)](https://github.com/csc-training/linux-2)
 * [MPI: A Short Introduction to One-sided Communication](https://www.futurelearn.com/courses/mpi-one-sided) PRACE MOOC
 * [Using CSC HPC Environment Efficiently](https://a3s.fi/CSC_training/csc-env.html) Slides, tutorials and exercises about the CSC environment
 * [HPC Glossary](glossary.md) All of the tooltipped acronyms (such as "HPC") as a single page.
