@@ -20,7 +20,7 @@ Contents:
 
 * Only the members of the same CSC project can access the same virtual desktop.
 
-* After login to SD Desktop, the user can start a pre-built computing environment (Linux OS), on-demand; available options offer the capability of doing simple statistical analysis to machine learning.
+* After login to SD Desktop, the user can start a pre-built computing environment (Linux Ubuntu OS), on-demand; available options offer the capability of doing simple statistical analysis to machine learning.
 
 * To comply with the regulation, virtual desktops for secondary use are completely isolated from the internet and other services: you can only access the data you have requested from the data controller;
 
@@ -34,10 +34,8 @@ Contents:
 
 * **Data export from SD Desktop is also restricted**. Only *non-sensitive* results can be exported from the workspace, and those can only be exported by the CSC project manager. Instructions for exporting your results are provided in the next paragraph.
 
-* Encrypted files will be **visible in read-only mode**. This solution allows you to process large amounts of data without storing any copy on your virtual desktop. However, this means that the files cannot be edited in SD Desktop.
 
-* Lastly, we are not yet providing a virtual Desktop with Windows operating system, or with GPUs. However, we are working on it, and you can find more information on the future developments of the services on our webpage.
-
+* Lastly, we are not yet providing a virtual Desktop with Windows operating system or with GPUs. 
 
 ## Before you start
 
