@@ -64,13 +64,18 @@ It is recommended to download and install Maestro on your own computer, see belo
     have been updated for Maestro versions 2024.3 and later, which use the new
     Schrödinger License Manager (SLM).
 
-Maestro can be installed on a Linux, Mac or Windows computer. Download the appropriate files
-from [the Schrödinger website](https://www.schrodinger.com/). You don't need a license to
-*download* the software, although you need to register to the Schrödinger website, but you'll
-need to configure licensing before you can *run* it. [See these instructions on how to configure
-licensing](https://wiki.eduuni.fi/pages/viewpage.action?pageId=130528861) (logging in to Eduuni
-requires Haka authentication). Access to the license requires that your computer is in the FUNET
-network, i.e. you're at the university or connected to it via VPN from home.
+Maestro can be installed on a Linux, Mac or Windows computer. Download the
+appropriate files from [the Schrödinger website](https://www.schrodinger.com/).
+You don't need a license to *download* the software, although you do need to
+register at the Schrödinger website. Note that getting access may take up to 24
+hours, so please be patient.
+
+After you've downloaded and installed Maestro, you'll need to configure
+licensing to be able to *run* the software.
+[See these instructions on how to configure licensing](https://wiki.eduuni.fi/pages/viewpage.action?pageId=130528861)
+(logging in to Eduuni requires Haka authentication). Accessing the license
+requires that your computer is in the FUNET network, i.e. you're at the
+university or connected to it via VPN from home.
 
 ### Standalone usage on Puhti
 
