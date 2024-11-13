@@ -25,7 +25,7 @@ GDAL is available with following versions:
 ## Usage
 GDAL is included in the modules listed above, so it can be used when any of these modules is loaded. 
 
-The stand-alone `gdal` module is mainly meant for building software on top of GDAL, but can be used also for command-line usage. To load stand-alone `gdal` use:
+The stand-alone `gdal` module is mainly meant for building software on top of GDAL, but can also be used for command-line usage. To load stand-alone `gdal` use:
 
 ```
 # GDAL 3.8.5
