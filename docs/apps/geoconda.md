@@ -37,7 +37,7 @@ includes following python packages:
 -   [openeo](https://openeo.org/) - for connecting to Earth observation cloud back-ends in a simple and unified way. NEW 2024
 -   [open3d](http://www.open3d.org/docs/release/index.html) - for 3D data processing
 -   [osmnx] - download spatial geometries and construct, project, visualize, and analyze street networks from
-    OpenStreetMap's APIs. [Routing examples in CSC geocomputing Github](https://github.com/csc-training/geocomputing/tree/master/python/routing) Only in geoconda-3.10.x.
+    OpenStreetMap's APIs. [Routing examples in CSC geocomputing Github](https://github.com/csc-training/geocomputing/tree/master/python/routing) Not in geoconda-3.11.9.
 -   [owslib](https://geopython.github.io/OWSLib/index.html) -  for retrieving data from Open Geospatial Consortium (OGC) web services
 -   [pcraster](https://pcraster.geo.uu.nl/) - for spatio-temporal environmental modelling. NEW 2024
 -   [python-pdal](https://github.com/PDAL/python) - PDAL Python extension for lidar data
@@ -87,6 +87,7 @@ If you think that some important GIS package for Python is missing from here, yo
 
 The `geoconda` module is available:
 
+* 3.11.10 (Python 3.11.10, PDAL 2.8.0, GDAL 3.9.2, created November 2024), in Puhti.
 * 3.11.9 (Python 3.11.9, PDAL 2.7.2, GDAL 3.9.1, created August 2024), in Puhti and Mahti.
 * 3.10.9 (Python 3.10.9, PDAL 2.5.2, GDAL 3.6.2, created March 2023), in Puhti.
 * 3.10.6 (Python 3.10.6, PDAL 2.4.1, GDAL 3.5.0, created September 2022), in Puhti and Mahti.
@@ -193,7 +194,7 @@ As an example, you can write "The authors wish to thank CSC - IT Center for Scie
 Geoconda was installed to Puhti and Mahti using [Tykkys conda-containerize functionality](../computing/containers/tykky.md). The WhiteboxTools conda package installs only WhiteboxTools installer, therefore for proper installation of Whiteboxtools required additional post installation command and folder to wrap commandline tools.
 
 ```bash
-conda-containerize new --mamba --prefix install_dir --post download_wbt -w miniconda/envs/env1/lib/python3.10/site-packages/whitebox/WBT/whitebox_tools geoconda_3.10.9.yml
+conda-containerize new --mamba --prefix install_dir --post download_wbt -w miniconda/envs/env1/lib/python3.11/site-packages/whitebox/WBT/whitebox_tools geoconda_3.11.10.yml
 ```
 
 Geoconda conda environment files and `download_wbt` and `start_wbt.py` needed for WhiteboxTools are available in [CSCs geocomputing repository](https://github.com/csc-training/geocomputing/tree/master/supercomputer_installations/geoconda). Note that for reproducibility, you'll need to define the package versions in the environment file, which can be checked on Puhti and Mahti using `list-packages` command after loading the `geoconda` module.
