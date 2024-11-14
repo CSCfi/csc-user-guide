@@ -464,7 +464,7 @@ nav:
               - Login to SD Desktop: data/sensitive-data/sd-desktop-secondary-login.md
               - Create virtual desktop: data/sensitive-data/sd-desktop-secondary-create.md
               - Manage virtual desktop: data/sensitive-data/sd-desktop-secondary-manage.md
-              - Working with your desktop: data/sensitive-data/sd-desktop-secondary-working.md
+              - Working with your desktop and software: data/sensitive-data/sd-desktop-secondary-working.md
               - Import data: data/sensitive-data/sd-desktop-secondary-access.md
               - Export data: data/sensitive-data/sd-desktop-secondary-export.md
               - Troubleshooting: data/sensitive-data/sd-desktop-secondary-troubleshooting.md
