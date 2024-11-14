@@ -36,7 +36,7 @@ SD Desktop is a secure environment designed specifically for analysing sensitive
   
 - **Limited storage space**: The virtual desktop is designed primarily for data analysis and has limited storage space. To expand storage, you can add an external volume (such as an external hard drive) during the desktop setup. This external volume is accessible to all project members and also serves as a backup for imported data.
   
-- **Open source software only**: Only open-source software can be installed in the virtual desktop, as it does not currently support licensed or proprietary software. Installing additional software to the virtual desktop is limited. Always [contact CSC Service Desk](../../support/contact.md) for support (subject: SD Desktop). software needs before starting to work with the data.
+- **Open source software only**: Only open-source software can be installed in the virtual desktop, as it does not currently support licensed or proprietary software. Installing additional software to the virtual desktop is limited. Always contact servicedesk@csc.fi about software needs before starting to work with the data.
   
 - **Copy-paste restrictions**: For security reasons, copy-pasting from your own computer to SD Desktop is limited. You can still transfer text with a few extra steps, as explained in the [Instructions how to copy-paste](#copy-paste-from-your-laptop-to-virtual-desktop). These restrictions ensure that no unauthorised data is copied or exported from the secure environment.
   
