@@ -30,7 +30,7 @@ SD Desktop is a secure environment designed specifically for analysing sensitive
   
 - **Encrypted file only**: Only encrypted files are accessible from your virtual desktop. All files exported from the virtual desktop also need to be encrypted. This adds an extra layer of protection for your data.
   
-- **Controlled file access with Data Gateway**: The import of data and software is restricted in SD Desktop. You cannot import any data or software yourself for security reasons. If you are working with a dataset for which you have received a permit from a data controller, the only way to access the data for analysis is by utilizing a specific application called [Data Gateway](./sd-desktop-secondary-access.md) and imported only via the SD Apply service (upon approval for reuse).
+- **Controlled file access with Data Gateway**: The import of data and software is restricted in SD Desktop. You cannot import any data or software yourself for security reasons. If you are working with a dataset for which you have received a permit from a data controller, the only way to access the data for analysis is by utilizing a specific application called [Data Gateway](./sd-desktop-secondary-access.md) and imported only via SD Apply.
 
 - **Data export from SD Desktop is restricted**. Only *non-sensitive* results can be exported from the workspace, and those can only be exported by the CSC specialists. Instructions for exporting your results are provided in the next section.
   
