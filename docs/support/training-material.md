@@ -8,10 +8,9 @@ and platforms by CSC and partners!
 
 ## Linux & HPC basics
 
-* [Linux 101 tutorial](tutorials/env-guide/index.md)
-* [Linux 1: Introduction to Linux course material](https://research.csc.fi/en/web/training/-/linux1_autumn2018)
-* [Linux 2: Intermediate Linux course materials](https://research.csc.fi/en/web/training/-/linux-2-november-2018)
-* [Linux 3: Scripting course material](https://research.csc.fi/en/web/training/-/linux3_spring_2019)
+* [Linux 101 guide](tutorials/env-guide/index.md)
+* [Linux 1: Introduction to Linux course material (GitHub source)](https://github.com/csc-training/linux-1) and [related lecture videos](https://video.csc.fi/channel/Introduction+to+Linux+-course/514985)
+* [Linux 2: Intermediate Linux course materials (GitHub source)](https://github.com/csc-training/linux-2)
 * [MPI: A Short Introduction to One-sided Communication](https://www.futurelearn.com/courses/mpi-one-sided) PRACE MOOC
 * [Using CSC HPC Environment Efficiently](https://a3s.fi/CSC_training/csc-env.html) Slides, tutorials and exercises about the CSC environment
 * [HPC Glossary](glossary.md) All of the tooltipped acronyms (such as "HPC") as a single page.
@@ -63,7 +62,6 @@ and platforms by CSC and partners!
 
 * [Fairdata service training material](https://www.fairdata.fi/en/training/materials/)
 * [Data management checklist](https://www.fairdata.fi/en/why-fairdata/data-management-checklist/) find tips on how to take care of your research data.
-* [Remote training day for the Universities of the Applied Sciences](https://research.csc.fi/en/web/training/-/csc-tki-toiminnan-tukena) 18th May (in Finnish)
 
 ## Training materials and sources from CSC and partners
 
