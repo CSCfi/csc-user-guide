@@ -109,6 +109,10 @@ The copy-paste function from your computer/laptop to your virtual desktop is lim
 
 ### Software available via request
 
+Available via request to servicedes@csc.fi (subject:sensitive data), only if no data has been yet imported to the virtual desktop.
+
+
+
 | **Category**          | **Tool**                                                                                                                                                                                                                     |
 |-----------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **Statistics**        | [RStudio 4.2.2](r-in-sd-desktop.md) - R statistics tool with a graphical user interface and help tools for adding libraries. <br> *After installation, right-click the RStudio desktop icon and select: Allow launching.*   |
