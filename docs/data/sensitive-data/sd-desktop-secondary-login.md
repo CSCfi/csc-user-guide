@@ -14,6 +14,6 @@
 [![Authentication](images/desktop/desktop_login-mfa1.png)](images/desktop/desktop_login-mfa1.png)
 
 * [Create virtual desktop](sd-desktop-secondary-create.md)
-* [Access virtual desktop](sd-desktop-secondary-access.md)
-* [Access data with virtual desktop using Data Gateway](sd-desktop-secondary-access.md#accessing-data-using-data-gateway)
+* [Import data for analysis using Data gateway](sd-desktop-secondary-access.md)
+* [Working with your desktop: tips, essentials, software](sd-desktop-secondary-working.md)
 * [Manage virtual desktop](sd-desktop-secondary-manage.md)
