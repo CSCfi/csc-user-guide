@@ -12,7 +12,7 @@ No technical experience is required to work with it, but while Windows is design
 The guide below provides clear instructions to help you get comfortable with both Linux and the SD Desktop’s security setup:
 
 - [Introduction to Linux](sd-desktop-working.md#introduction-to-linux)
-- [Security-related features and limitations](sd-desktop-working.md#security-related-features)
+- [Security-related features and limitations](sd-desktop-working.md#security-related-features-and-limitations)
 - [Accessing the secure environment](sd-desktop-working.md#accessing-the-secure-environment)
 - [Copy-paste from your laptop to virtual desktop](sd-desktop-working.md#copy-paste-from-your-laptop-to-virtual-desktop)
 - [Default software available in SD Desktop](sd-desktop-working.md#default-software-available-in-sd-desktop)
