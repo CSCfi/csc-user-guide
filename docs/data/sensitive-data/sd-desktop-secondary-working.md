@@ -61,8 +61,8 @@ When you open the connection, a virtual computing environment will open in your 
 2. In the new window, click on *Home*.
     - This will close all applications and disconnect the work session. You can access the same desktop anytime after logging in to the services.
 3. **Reconnecting to an analysis session**:
-    - Closing the browser window: If you started the analysis programmatically (e.g., by running a script), you can safely close the browser window without interrupting the ongoing processes. Your tools and interfaces will remain open when you reconnect to your desktop, allowing you to continue working.
-    - Reconnecting to an old session: You can reconnect to a previous session only if the browser window is exactly the same size as when the original session was in use. This is typically only possible if you're using the SD Desktop in full-screen mode on the same machine. If the window size has changed, you will most likely be unable to reconnect to the old session.
+
+You can reconnect to a previous session only if the browser window is exactly the same size as when the original session was in use. This is typically only possible if you're using the SD Desktop in full-screen mode on the same machine. If the window size has changed, you will most likely be unable to reconnect to the old session.
 
         ![check the paragraph below](../sensitive-data/images/desktop/SD-Desktop-Frontpage.png)
 
