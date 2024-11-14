@@ -32,7 +32,7 @@ SD Desktop is a secure environment designed specifically for analysing sensitive
   
 - **Controlled file access with Data Gateway**: The import of data and software is restricted in SD Desktop. You cannot import any data or software yourself for security reasons. If you are working with a dataset for which you have received a permit from a data controller, the only way to access the data for analysis is by utilizing a specific application called [Data Gateway](./sd-desktop-secondary-access.md) and imported only via the SD Apply service (upon approval for reuse).
 
-- **Data export from SD Desktop is restricted**. Only *non-sensitive* results can be exported from the workspace, and those can only be exported by the CSC specialitis. Instructions for exporting your results are provided in the next section.
+- **Data export from SD Desktop is restricted**. Only *non-sensitive* results can be exported from the workspace, and those can only be exported by the CSC specialists. Instructions for exporting your results are provided in the next section.
   
 - **Limited storage space**: The virtual desktop is designed primarily for data analysis and has limited storage space. To expand storage, you can add an external volume (such as an external hard drive) during the desktop setup. This external volume is accessible to all project members and also serves as a backup for imported data.
   
