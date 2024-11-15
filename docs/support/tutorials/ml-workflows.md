@@ -21,8 +21,8 @@ We document **two ways to use MLflow on CSC's supercomputers**:
 
 1. Storing the tracking data on the supercomputer's filesystem (e.g.,
    on `/scratch/`) and viewing the results via the [MLflow tracking
-   UI](#mlflow-tracking-ui) in the web interface. (This is currently
-   only supported on Puhti.)
+   UI](#mlflow-tracking-ui) in the web interface. (This is currently 
+supported on Puhti. Mahti and Lumi.)
    
 2. Using your own [MLflow tracking server](#mlflow-tracking-server),
    for example running on [CSC's Rahti
