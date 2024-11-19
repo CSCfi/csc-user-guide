@@ -25,6 +25,8 @@ With the option **Detach volume**, you can easily disconnect a volume from your 
 3. At the bottom of the page, under **Available desktops** choose the correct virtual desktop, and in the same row, on the right side, click **Detach volume**.
 Confirm the operation through the notification.
 
+![Detach volume.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Detach_volume.png)
+
 ### Reattach a volume to a new virtual desktop
 
 When you want to access the data saved in the detached volume, you can reattach it to a new virtual desktop.
@@ -33,7 +35,7 @@ When you want to access the data saved in the detached volume, you can reattach 
 
 2. At the bottom of the page, under Desktop selection choose the necessary options (CSC project, operating system etc.). Follow steps 1-2 in these [instructions](./sd-desktop-create.md).
 
-3. Under **Add External Volume (optional)** click **Choose from existing volumes**. The user interface will visualize available volumes stored in the same CSC project. Leave fields **Volume size** and **Volume name** empty. 
+3. Under **Add External Volume (optional)** click **Choose from existing volumes**. Dropdownn will show available volumes stored in the same CSC project. Leave fields **Volume size** and **Volume name** empty. 
 
 4. Click on **Create desktop**.
 
@@ -44,7 +46,8 @@ When you want to access the data saved in the detached volume, you can reattach 
     - To delete or access the volume content, attach it to a desktop with the same operating system during the desktop creation phase. 
     - Volumes can not be moved or transferred between CSC projects for security reasons.
 
-[![Desktop-volume](images/desktop/volume.png)](images/desktop/volume.png)
+![Attach volume.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Attach_volume.png)
+
 
 ## Pausing or unpausing a virtual desktop
 
@@ -63,6 +66,8 @@ You can pause a virtual desktop. In this manner, the desktop will stop consuming
 !!! note
     You can't access or detach a volume while a desktop is paused.
 
+![Pause desktop.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Pause_desktop.png)
+
 ### Resuming a virtual desktop
 
 1. On the SD Desktop homepage, click **Go To SD Desktop Management**.
@@ -72,7 +77,7 @@ You can pause a virtual desktop. In this manner, the desktop will stop consuming
 !!! note
     Resuming a paused desktop is only possible for active CSC projects with available billing units. 
 
-[![Desktop-volume](images/desktop/pause.png)](images/desktop/pause.png)
+![Resume desktop.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Resume_desktop.png)
 
 
 ## Rebooting a virtual desktop
@@ -92,7 +97,7 @@ To reboot a desktop:
     
 4. Confirm the operation via the notification. Rebooting a desktop may take up to 30 minutes.
 
-
+![Reboot desktop.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Reboot_desktop.png)
 
 ## Deleting a virtual desktop
 
@@ -105,6 +110,4 @@ At the end of your analysis, you can delete your virtual desktop, including the 
 !!! Note
     Please contact all the project members before deleting a virtual desktop. With this action, you will delete the entire workspace, including all files saved in the virtual desktop or external volume by other project members. 
 
-
-
- [![Desktop-delete](images/desktop/desktop-deleting.png)](images/desktop/desktop-deleting.png)
+![Delete desktop.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Delete_desktop.png)
