@@ -2,7 +2,9 @@
 
 <iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/rYpuUwm8LhQ" title="Manage virtual desktops in the SD Desktop service" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
-With the SD Desktop service, you can easily manage volumes and pause, reboot or delete your virtual desktops. Below we illustrate the main available options. 
+With the SD Desktop service, you can easily manage volumes and pause, reboot or delete your virtual desktops. Managing desktops happens in **SD Desktop management** page.
+
+![Go to SD Desktop Management.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-Desktop_GoToManagement.png)
 
 !!! Note
     These options are available only on virtual desktops created after February 2, 2023. Please [contact service desk](../../support/contact.md) if you are working with older desktops. 
@@ -11,6 +13,8 @@ With the SD Desktop service, you can easily manage volumes and pause, reboot or 
 * [Pausing or unpausing a virtual desktop](#pausing-or-unpausing-a-virtual-desktop)
 * [Rebooting a virtual desktop](#rebooting-a-virtual-desktop)
 * [Deleting a virtual desktop](#deleting-a-virtual-desktop)
+
+
 
 ## Detaching and reattaching a volume 
 
@@ -22,8 +26,6 @@ With the option **Detach volume**, you can easily disconnect a volume from your 
 
 2. Login to SD Desktop. On the homepage, click **SD Desktop management**.
 
-![Go to SD Desktop Management.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-Desktop_GoToManagement.png)
-
 3. At the bottom of the page, under **Available desktops** choose the correct virtual desktop, and in the same row, on the right side, click **Detach volume**.
 Confirm the operation through the notification.
 
@@ -34,8 +36,6 @@ Confirm the operation through the notification.
 When you want to access the data saved in the detached volume, you can reattach it to a new virtual desktop.
 
 1. Login to SD Desktop. On the homepage, click **SD Desktop management**.
-
-![Go to SD Desktop Management.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-Desktop_GoToManagement.png)
 
 2. At the bottom of the page, under Desktop selection choose the necessary options (CSC project, operating system etc.). Follow steps 1-2 in these [instructions](./sd-desktop-create.md).
 
@@ -63,8 +63,6 @@ You can pause a virtual desktop. In this manner, the desktop will stop consuming
 
 2. On the SD Desktop homepage, click **Go To SD Desktop Management**.
 
-![Go to SD Desktop Management.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-Desktop_GoToManagement.png)
-
 3. At the bottom of the page, under **Available desktops** choose the correct virtual desktop, and in the same row, on the right side, click **Pause desktop**. 
 
 4. Confirm the operation via the notification. Pausing a desktop may take up to 30 minutes.
@@ -77,8 +75,6 @@ You can pause a virtual desktop. In this manner, the desktop will stop consuming
 ### Resuming a virtual desktop
 
 1. On the SD Desktop homepage, click **Go To SD Desktop Management**.
-
-![Go to SD Desktop Management.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-Desktop_GoToManagement.png)
 
 2. At the bottom of the page, under **Available desktops**, select the correct virtual desktop. In the same row, click **Options** on the right, then choose **Resume**.
 
@@ -112,8 +108,6 @@ To reboot a desktop:
 At the end of your analysis, you can delete your virtual desktop, including the external volume and all files saved in it. You cannot undo this action:
 
 1. On the SD Desktop homepage, click **Go To SD Desktop Management**.
-
-![Go to SD Desktop Management.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-Desktop_GoToManagement.png)
 
 2. At the bottom of the page, under **Available desktops**, select the correct virtual desktop. In the same row, click **Options** on the right, then choose **Delete**.
 
