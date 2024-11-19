@@ -23,7 +23,7 @@ With the option **Detach volume**, you can easily disconnect a volume from your 
 2. Login to SD Desktop. On the homepage, click **SD Desktop management**.
 
 3. At the bottom of the page, under **Available desktops** choose the correct virtual desktop, and in the same row, on the right side, click **Detach volume**.
-Confirm the operation via notification.
+Confirm the operation through the notification.
 
 ### Reattach a volume to a new virtual desktop
 
@@ -39,10 +39,10 @@ When you want to access the data saved in the detached volume, you can reattach 
 
 
 !!! note
-    * A detached volume can not be reattached to an existing virtual desktop, only to new virtual desktops during creation phase. 
+    - A detached volume can not be reattached to an existing virtual desktop, only to new virtual desktops during creation phase. 
     - The content of a detached volume can not be accessed or deleted.
     - To delete or access the volume content, attach it to a desktop with the same operating system during the desktop creation phase. 
-    -Volumes can not be moved or transferred between CSC projects for security reasons.
+    - Volumes can not be moved or transferred between CSC projects for security reasons.
 
 [![Desktop-volume](images/desktop/volume.png)](images/desktop/volume.png)
 
@@ -50,44 +50,47 @@ When you want to access the data saved in the detached volume, you can reattach 
 
 You can pause a virtual desktop. In this manner, the desktop will stop consuming billing units. 
 
-To pause the desktop:
+### Pausing a virtual desktop
 
-1. Close all the programs, save/close all the files, and log out from the virtual desktop to prevent data corruption.
+1. Close all the programs, save or close all the files, and log out from the virtual desktop to prevent data corruption. 
 
-2. On the SD Desktop homepage, click on _Go To SD Desktop Management_;
+2. On the SD Desktop homepage, click **Go To SD Desktop Management**.
 
-3. Here, under _Available desktops_ select the correct virtual desktop, and in the same row, on the right side, click on _Pause desktop_. Note: you can not detach a volume or access a paused desktop. 
+3. At the bottom of the page, under **Available desktops** choose the correct virtual desktop, and in the same row, on the right side, click **Pause desktop**. 
 
-4. A message will ask to confirm the operation, which can take up to 30 minutes.
+4. Confirm the operation via the notification. Pausing a desktop may take up to 30 minutes.
 
-You can unpause the virtual desktop at any time from the same page. Also, in this case, the restart processes can take up to 30 minutes:
+!!! note
+    You can't access or detach a volume while a desktop is paused.
 
-1. On the SD Desktop homepage, click on _Go To SD Desktop Management_;
+### Resuming a virtual desktop
 
-2. Here, under _Available desktops_ select the correct virtual desktop, and in the same row, on the right side, click on _Resume_. 
+1. On the SD Desktop homepage, click **Go To SD Desktop Management**.
 
-!!! Note
-    Restarting a paused desktop is only possible for active CSC projects with available billing units. 
+2. At the bottom of the page, under **Available desktops**, select the correct virtual desktop. In the same row, click **Options** on the right, then choose **Resume**.
+
+!!! note
+    Resuming a paused desktop is only possible for active CSC projects with available billing units. 
 
 [![Desktop-volume](images/desktop/pause.png)](images/desktop/pause.png)
 
 
 ## Rebooting a virtual desktop
 
-If your virtual desktop or software becomes unresponsive, you can reboot (restart) it. After the reboot, all files and software saved on the virtual desktop will remain accessible.
+If your virtual desktop or software becomes unresponsive, you can reboot it. After the reboot, all files and software saved on the virtual desktop will remain accessible.
 
 !!! Note
-    If the Data Gateway application becomes unresponsive due to old sessions running in the background, there's no need to restart your desktop. Instead, you can utilize the terminal to identify and halt the process. For assistance, please [contact CSC Service Desk](../../support/contact.md), subject "Sensitive data."
+    If the Data Gateway application becomes unresponsive due to old sessions running in the background, there's no need to reboot your desktop. Instead, you can utilize the terminal to identify and halt the process. For assistance, please [contact CSC Service Desk](../../support/contact.md), subject "Sensitive data."
 
 To reboot a desktop:
 
-1. Close all programs and ensure you save/close any files to prevent data corruption.
+1. Close all programs and ensure you save or close any files to prevent data corruption.
     
-2. Go to the SD Desktop homepage and select "Go To SD Desktop Management."
+2. On the SD Desktop homepage, click **Go To SD Desktop Management**.
     
-3. Scroll to the end of the page. Here, under "Available desktops," choose the relevant virtual desktop. On the right side of the same row, click "Options" and then select "Reboot."
+3. At the bottom of the page, under **Available desktops**, select the correct virtual desktop. In the same row, click **Options** on the right, then choose **Reboot**.
     
-4. Confirm the operation when prompted. The process may take up to 30 minutes.
+4. Confirm the operation via the notification. Rebooting a desktop may take up to 30 minutes.
 
 
 
@@ -95,11 +98,9 @@ To reboot a desktop:
 
 At the end of your analysis, you can delete your virtual desktop, including the external volume and all files saved in it. You cannot undo this action:
 
-1. On SD Desktop Homepage, click on _Go to SD Desktop Management page_.
+1. On the SD Desktop homepage, click **Go To SD Desktop Management**.
 
-2. Under _Available desktops_ select the correct virtual desktop.
-
-3. On the same row, on the right side, click on _Options_ and on _Delete_.
+2. At the bottom of the page, under **Available desktops**, select the correct virtual desktop. In the same row, click **Options** on the right, then choose **Delete**.
 
 !!! Note
     Please contact all the project members before deleting a virtual desktop. With this action, you will delete the entire workspace, including all files saved in the virtual desktop or external volume by other project members. 
