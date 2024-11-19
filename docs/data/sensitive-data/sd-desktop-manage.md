@@ -9,7 +9,7 @@ With the SD Desktop service, you can easily manage volumes and pause, reboot or 
 !!! Note
     These options are available only on virtual desktops created after February 2, 2023. Please [contact service desk](../../support/contact.md) if you are working with older desktops. 
 
-* [Detaching and reattaching a volume](#detaching-and-reattaching-a-volume)
+* [Detaching and attaching a volume](#detaching-and-reattaching-a-volume)
 * [Pausing or unpausing a virtual desktop](#pausing-or-unpausing-a-virtual-desktop)
 * [Rebooting a virtual desktop](#rebooting-a-virtual-desktop)
 * [Deleting a virtual desktop](#deleting-a-virtual-desktop)
@@ -31,15 +31,15 @@ Confirm the operation through the notification.
 
 ![Detach volume.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Detach_volume.png)
 
-### Reattach a volume to a new virtual desktop
+### Attach a volume to a new virtual desktop
 
-When you want to access the data saved in the detached volume, you can reattach it to a new virtual desktop.
+When you want to access the data saved in the detached volume, you can attach it to a new virtual desktop.
 
 1. Login to SD Desktop. On the homepage, click **SD Desktop management**.
 
 2. At the bottom of the page, under Desktop selection choose the necessary options (CSC project, operating system etc.). Follow steps 1-2 in these [instructions](./sd-desktop-create.md).
 
-3. Under **Add External Volume (optional)** click **Choose from existing volumes**. Dropdownn will show available volumes stored in the same CSC project. Leave fields **Volume size** and **Volume name** empty. 
+3. Under **Add External Volume (optional)** click **Choose from existing volumes**. Dropdown will show available volumes stored in the same CSC project. Leave fields **Volume size** and **Volume name** empty. 
 
 4. Click on **Create desktop**.
 
