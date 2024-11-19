@@ -45,7 +45,7 @@ When you want to access the data saved in the detached volume, you can attach it
 
 
 !!! note
-    - A detached volume can not be reattached to an existing virtual desktop, only to new virtual desktops during creation phase. 
+    - A detached volume can not be attached to an existing virtual desktop, only to new virtual desktops during creation phase. 
     - The content of a detached volume can not be accessed or deleted.
     - To delete or access the volume content, attach it to a desktop with the same operating system during the desktop creation phase. 
     - Volumes can not be moved or transferred between CSC projects for security reasons.
