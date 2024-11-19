@@ -5,15 +5,14 @@
 
 
 
-Once a virtual desktop has been created, each CSC project member can access it through their browser. When you log in, you will enter a virtual computer running
-on a Linux operating system. If you’re new to Linux, it might feel a little different from other systems like Windows or macOS.
+Once a virtual desktop has been created, each CSC project member can access it through their browser. When you log in, you will enter a virtual computer running on a Linux operating system. If you are new to Linux, it might feel a little different from other systems like Windows or macOS.
 
-No technical experience is required to work with it, but while Windows is designed to be user-friendly from the start, Linux can have a learning curve, especially if you need to use the command line. In addition, SD Desktop has extra security features that you’ll need to familiarize yourself with for smooth use.
+No technical experience is required to work with it, but while Windows is designed to be user-friendly from the start, Linux can have a learning curve, especially if you need to use the command line. 
 
 The guide below provides clear instructions to help you get comfortable with both Linux and the SD Desktop’s security setup:
 
 - [Introduction to Linux](sd-desktop-working.md#introduction-to-linux)
-- [Security-related features](sd-desktop-working.md#security-related-features)
+- [Security-related features and limitations](sd-desktop-working.md#security-related-features-and-limitations)
 - [Accessing the secure environment](sd-desktop-working.md#accessing-the-secure-environment)
 - [Copy-paste from your laptop to virtual desktop](sd-desktop-working.md#copy-paste-from-your-laptop-to-virtual-desktop)
 - [Default software available in SD Desktop](sd-desktop-working.md#default-software-available-in-sd-desktop)
@@ -21,27 +20,31 @@ The guide below provides clear instructions to help you get comfortable with bot
 
 ## Introduction to Linux
 
-Linux is an open-source operating system, meaning it’s free to use, and its code is openly available for people to view and modify.
-It's commonly used in many research applications due to its stability, security, and flexibility.
+Linux is an open-source operating system, meaning it is free to use, and its code is openly available for people to view and modify. It's commonly used in many research applications due to its stability, security, and flexibility.
 
 - **Look and feel**: Linux may look slightly different from Windows, depending on the “desktop environment” used. But don’t worry – it still has familiar elements like windows folders and menus. You will find the main menu at the top left corner, where you can access all available software.
-- **File structure**: Instead of “My Documents” or drives labeled C: or D:, Linux has a different way of organizing files. The main directory starts with /, and you’ll see folders like /home for your personal files.
-- **Benefits**: Linux is built with security in mind, helping to keep your work safe and private. It is very stable and less likely to crash, making it ideal for long or intensive computing tasks.
+  
+- **File structure**: Instead of “My Documents” or drives labeled C: or D:, Linux has a different way of organising files. The main directory starts with /, and you’ll see folders like /home for your personal files.
+  
+- **Benefits**: Linux is very stable and less likely to crash, making it ideal for long or intensive computing tasks.
 
-## Security-related features
+## Security-related features and limitations
 
-SD Desktop is a secure environment designed specifically for analysing sensitive data. To protect this data, SD Desktop has certain features that may work differently than a regular computer. These security features ensure that your data stays safe, even when working with sensitive information. Here’s what you need to know about these features and how they affect your workflow.
-
-For each of these features, a specific step-by-step guide is available. If you are using the service for the first time, reviewing these guides will help you become familiar with how everything works.
+SD Desktop is a secure environment designed specifically for analysing sensitive data and some features may work differently than a regular computer. For each of these features, a specific step-by-step guide is available. If you are using the service for the first time, reviewing these guides will help you become familiar with how everything works.
 
 - **Isolated from the internet**: your virtual desktop is completely isolated from the internet. This means that although you can open a web browser like Firefox, you will not be able to access websites or online repositories directly. This feature helps keep your data safe by reducing the risk of online threats.
+
 - **Encrypted file only**: Only encrypted files are accessible from your virtual desktop. This means unencrypted files will not appear in your virtual desktop and you will first need to encrypt them using SD Connect. All files exported from the virtual desktop also need to be encrypted. This adds an extra layer of protection for your data.
+  
 - **Controlled file access and export with Data Gateway**: Each project member can import files to the virtual desktop for analysis by using a  secure application called [Data Gateway](./sd-desktop-access.md). Files can be imported only via the SD Connect (directly, by upload) or SD Apply service (upon approval for reuse). Data export, however, is limited to the CSC Project Manager for additional security.
+  
 - **Limited storage space**: The virtual desktop is designed primarily for data analysis and has limited storage space. To expand storage, you can add an external volume (such as an external hard drive) during the desktop setup. This external volume is accessible to all project members and also serves as a backup for imported data.
+  
 - **Open source software only**: Only open-source software can be installed in the virtual desktop, as it does not currently support licensed or proprietary software. Each virtual desktop comes with a default set of pre-installed software, but you can customise it further using an easy-to-use application or, for advanced users, through Apptainer. If the software you need is not listed below, please [contact CSC Service Desk](../../support/contact.md) for support (subject: SD Desktop).
+  
 - **Copy-paste restrictions**: For security reasons, copy-pasting from your own computer to SD Desktop is limited. You can still transfer text with a few extra steps, as explained in the copy-paste instructions below. These restrictions ensure that no unauthorized data is copied or exported from the secure environment.
-- **Shared file access for team members**: Any files saved in the shared-directory or on the external volume can be accessed by other project members working in
-the virtual desktop, allowing safe collaboration.
+  
+- **Shared file access for team members**: Any files saved in the shared-directory or on the external volume can be accessed by other project members working in the virtual desktop, allowing safe collaboration.
 
 ## Accessing the secure environment
 
@@ -58,12 +61,14 @@ When you open the connection, a virtual computing environment will open in your 
 ### Disconnecting from the virtual desktop
 
 1. In the workspace view, top right corner of the browser, select your *username* and *log out*.
+   
 2. In the new window, click on *Home*.
     - This will close all applications and disconnect the work session. You can access the same desktop anytime after logging in to the services.
+      
 3. **Reconnecting to an analysis session**:
-    - Closing the browser window: If you started the analysis programmatically (e.g., by running a script), you can safely close the browser window without interrupting the ongoing processes. Your tools and interfaces will remain open when you reconnect to your desktop, allowing you to continue working.
-    - Reconnecting to an old session: You can reconnect to a previous session only if the browser window is exactly the same size as when the original session was in use. This is typically only possible if you're using the SD Desktop in full-screen mode on the same machine. If the window size has changed, you will most likely be unable to reconnect to the old session.
-
+   
+Closing the browser window: If you started the analysis programmatically (e.g., by running a script), you can safely close the browser window without interrupting the ongoing processes. Your tools and interfaces will remain open when you reconnect to your desktop, allowing you to continue working.
+      
         ![check the paragraph below](../sensitive-data/images/desktop/SD-Desktop-Frontpage.png)
 
 ## Copy-paste from your laptop to virtual desktop

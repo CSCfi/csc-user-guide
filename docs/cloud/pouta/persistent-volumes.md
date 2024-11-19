@@ -7,8 +7,9 @@ Persistent volumes, as the name says, remain even when instances are
 removed. They can be attached to or detached from virtual machines
 while they are running.
 
-Persistent volumes are using CEPH cluster. Regarding I/O performance, you should not use this kind of volume.
-It will use network access to the volume therefore latency.
+Persistent volumes use a CEPH cluster. If I/O performance is critical,
+you should not use this kind of volume - it will access your data via
+the network, which inherently causes some latency.
 
 ## Creating and attaching a volume in the Pouta web interface
 
