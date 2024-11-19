@@ -16,7 +16,7 @@ With the SD Desktop service, you can easily manage volumes and pause, reboot or 
 
 ### Detach a volume from your virtual desktop
 
-With the option **Detach volume**, you can easily disconnect a volume from your virtual desktop. The volume and its content will be stored in the same CSC project where it was initially created. You can compare this operation to disconnecting or attaching a hard drive to your laptop.
+With the option **Detach volume**, you can easily disconnect a volume from your virtual desktop. The volume and its content will be stored in the same CSC project where it was initially created. You can compare this operation to disconnecting or attaching a hard drive to your laptop. 
 
 1. Save and close all the files on the volume to prevent data corruption and log out from the virtual desktop.
 
@@ -25,17 +25,17 @@ With the option **Detach volume**, you can easily disconnect a volume from your 
 3. At the bottom of the page, under **Available desktops** choose the correct virtual desktop, and in the same row, on the right side, click **Detach volume**.
 Confirm the operation via notification.
 
-### Reattach a volume from your virtual desktop
+### Reattach a volume to a new virtual desktop
 
-When you want to access the data saved in the detached volume, you can reattach it to a new desktop:
+When you want to access the data saved in the detached volume, you can reattach it to a new virtual desktop.
 
 1. Login to SD Desktop. On the homepage, click **SD Desktop management**.
 
-2. At the bottom of the page, under **Desktop selection** choose the necessary options (CSC project, operating system etc.). 
+2. At the bottom of the page, under Desktop selection choose the necessary options (CSC project, operating system etc.). Follow steps 1-2 in these [instructions](./sd-desktop-create.md).
 
-3. Under **Add External Volume (optional)** click **Choose from existing volumes**. The user interface will visualize available volumes stored in the same CSC project. Note: Leave fields **Volume size** and **volume name** empty. 
+3. Under **Add External Volume (optional)** click **Choose from existing volumes**. The user interface will visualize available volumes stored in the same CSC project. Leave fields **Volume size** and **Volume name** empty. 
 
-4. Click on _Create desktop_
+4. Click on **Create desktop**.
 
 
 !!! note
