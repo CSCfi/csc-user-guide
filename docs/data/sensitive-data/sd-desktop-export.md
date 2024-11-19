@@ -134,9 +134,9 @@ Once the file is encrypted, only the CSC project manager can export them via the
 
 ### Option A: Export via data Gateway application
 
-1. Open Data Gateway application
-2. Select SD Connect and enter CSC user name and password. 
-3. Click on **Export** tab (available only to project manager). 
+1. Open Data Gateway application.
+2. Select SD Connect and enter CSC user name and password. Click **Login** and then click **Continue**.
+3. Click on **Export** tab. This is available only to project manager. 
 4. Exported file will go to SD Connect. Choose the destination folder from existing folders in SD Connect. You can also first log in to SD Connect and create a new folder for exported files.
 5. Select file you want to export and click **Export**.
 6. Files are now in the folder you selected in SD Connect.
