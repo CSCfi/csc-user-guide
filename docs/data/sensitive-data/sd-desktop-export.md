@@ -187,8 +187,8 @@ Once the file is encrypted, only the CSC project manager can export them via the
 
 ### Step 8: Decrypt the files with the Crypt4gh application
  
-Next, you can decrypt the file using the Crypt4GH application and your secret encryption key. Unfortunately, it is currently only possible to single files.
- 
+Next, you can decrypt the file using the Crypt4GH application and your secret encryption key. Unfortunately, it is currently only possible to single files and compressed folders.
+
 1. Open the Crypt4GH application and click **Load My Private Key** (export_secret.key)
 2. Click **Select File** and upload the file you want to decrypt. Click **Open**.
 3. Next, click **Decrypt File**. 
