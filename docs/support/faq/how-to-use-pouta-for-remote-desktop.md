@@ -18,7 +18,7 @@ We will utilize the following technologies to install the remote desktop:
   - Xfce as our Desktop environment
   - ssh-tunnel so that the VNC server is not open to the internet. This is very important.
 
-## Create and access your instance for remote desktop
+### Create and access your instance for remote desktop
 
 1. Launch a standard-flavor instance with the Alamlinux-9 image.
 2. Attach a floating IP to the instance.
@@ -42,7 +42,7 @@ Note, that the port 2001 is the one that you will use with the browser later.
 from our computer's local port 2001. Keep the terminal alive. The ssh-command is the only step
 needed on the local computer.
 
-## Install the required software on the VM
+### Install the required software on the VM
 
 In this example we are using Xfce for our Desktop Environment. If you want to use
 some other Desktop environment you will probably need to modify the
@@ -62,7 +62,7 @@ Install noVNC and tigervnc for the vncserver
 sudo dnf install -y novnc tigervnc-server
 ```
 
-## Configure the software
+### Configure the software
 
 Create a new user called `vncuser` for example.
 
@@ -114,7 +114,7 @@ localhost=no
 EOF
 ```
 
-## Starting your remote desktop
+### Starting your remote desktop
 
 Note, that with this documentation the NoVNC session will only work with ':1'.
 
@@ -176,7 +176,7 @@ that you add a good security rule to your server so that you can only access the
 server from your IP.
 
 
-# Deploy Guacamole
+## Deploy Guacamole
 
 Guacamole is a clientless remote desktop gateway. It supports standard protocols like VNC, RDP, and SSH.
 More information on the [official website](https://guacamole.apache.org/)
@@ -191,7 +191,7 @@ After the deployment, guacamole is accessible via `https://<YOUR_FLOATING_IP>:80
 It allows you to access different machines with a `vncserver` from one place.
 
 
-# If you want to use Ubuntu
+## If you want to use Ubuntu
 
 As of this writing, `ubuntu-desktop` and `tigervnc-server` works with `Ubuntu-22`. 
 If you want to use `Ubuntu-24`, use `Xfce` as graphical environment.
@@ -239,7 +239,7 @@ sudo snap install novnc
 sudo apt install -y tigervnc-standalone-server
 ```
 
-## Configure the software
+### Configure the software
 
 Create a new user called `vncuser` for example.
 
@@ -290,7 +290,7 @@ cat >> ~/.vnc/config <<EOF
 EOF
 ```
 
-## Starting your remote desktop
+### Starting your remote desktop
 
 Note, that with this documentation the NoVNC session will only work with ':1'.
 
