@@ -295,7 +295,7 @@ EOF
 Note, that with this documentation the NoVNC session will only work with ':1'.
 
 A good practice is to use the `systemd` service to start `vncserver`. There is a template in
-`/lib/systemd/system` called `vncserver@.service`. Copy it to `/etc/systemd/system/tigervncserver@:1.service`
+`/lib/systemd/system` called `tigervncserver@.service`. Copy it to `/etc/systemd/system/tigervncserver@:1.service`
 
 ```
 sudo cp /lib/systemd/system/tigervncserver@.service /etc/systemd/system/tigervncserver@:1.service
