@@ -40,6 +40,7 @@ includes following python packages:
     OpenStreetMap's APIs. [Routing examples in CSC geocomputing Github](https://github.com/csc-training/geocomputing/tree/master/python/routing) Not in geoconda-3.11.9.
 -   [owslib](https://geopython.github.io/OWSLib/index.html) -  for retrieving data from Open Geospatial Consortium (OGC) web services
 -   [pcraster](https://pcraster.geo.uu.nl/) - for spatio-temporal environmental modelling. NEW 2024
+-   [psycopg2](https://www.psycopg.org/docs/) - PostgreSQL database adapter for Python. NEW 2024
 -   [python-pdal](https://github.com/PDAL/python) - PDAL Python extension for lidar data
 -   [Py6S](https://py6s.readthedocs.io/en/latest/index.html) - Python interface to the Second Simulation of the Satellite Signal in the Solar Spectrum (6S) atmospheric Radiative Transfer Model
 -   [pysal] - spatial analysis functions.    
