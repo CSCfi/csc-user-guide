@@ -6,15 +6,12 @@ addons:
     packages:
       - aspell
       - aspell-en
-      - python3
-      - python3-pip
-      - python3-setuptools
+language: python
+python:
+  - "3.11"
 before_install:
-  - pip3 install --user wheel
-  - pip3 install --user --requirement requirements.txt
   - curl -L https://git.io/misspell | BINDIR=~/.local/bin sh
-install:
-#  - pip install --upgrade pip
+  - python -m pip install --upgrade pip
 script:
 
   # Checks all files for commonly misspelled English words with client9's misspell
