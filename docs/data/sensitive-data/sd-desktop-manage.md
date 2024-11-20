@@ -16,17 +16,19 @@ With the SD Desktop service, you can easily manage volumes and pause, reboot or 
 
 
 
-## Detaching and reattaching a volume 
+## Detaching and attaching a volume 
 
 ### Detach a volume from your virtual desktop
 
 With the option **Detach volume**, you can easily disconnect a volume from your virtual desktop. The volume and its content will be stored in the same CSC project where it was initially created. You can compare this operation to disconnecting or attaching a hard drive to your laptop. 
 
-1. Save and close all the files on the volume to prevent data corruption and log out from the virtual desktop.
+1. Log in to SD Desktop. Access the correct virtual desktop on the homepage under **All connections**.
 
-2. Login to SD Desktop. On the homepage, click **SD Desktop management**.
+2. Save and close all the files on the volume to prevent data corruption and log out from the virtual desktop.
 
-3. At the bottom of the page, under **Available desktops** choose the correct virtual desktop, and in the same row, on the right side, click **Detach volume**.
+3. On the homepage, click **SD Desktop management**.
+
+4. At the bottom of the page, under **Available desktops** choose the correct virtual desktop, and in the same row, on the right side, click **Detach volume**.
 Confirm the operation through the notification.
 
 ![Detach volume.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Detach_volume.png)
@@ -59,13 +61,15 @@ You can pause a virtual desktop. In this manner, the desktop will stop consuming
 
 ### Pausing a virtual desktop
 
-1. Close all the programs, save or close all the files, and log out from the virtual desktop to prevent data corruption. 
+1. Log in to SD Desktop. Access the correct virtual desktop on the homepage under **All connections**.
 
-2. On the SD Desktop homepage, click **Go To SD Desktop Management**.
+2. Close all the programs, save or close all the files, and log out from the virtual desktop to prevent data corruption. 
 
-3. At the bottom of the page, under **Available desktops** choose the correct virtual desktop, and in the same row, on the right side, click **Pause desktop**. 
+3. On the SD Desktop homepage, click **Go To SD Desktop Management**.
 
-4. Confirm the operation via the notification. Pausing a desktop may take up to 30 minutes.
+4. At the bottom of the page, under **Available desktops** choose the correct virtual desktop, and in the same row, on the right side, click **Pause desktop**. 
+
+5. Confirm the operation via the notification. Pausing a desktop may take up to 30 minutes.
 
 !!! note
     You can't access or detach a volume while a desktop is paused.
@@ -74,7 +78,7 @@ You can pause a virtual desktop. In this manner, the desktop will stop consuming
 
 ### Resuming a virtual desktop
 
-1. On the SD Desktop homepage, click **Go To SD Desktop Management**.
+1.  Log in to SD Desktop. On the SD Desktop homepage, click **Go To SD Desktop Management**.
 
 2. At the bottom of the page, under **Available desktops**, select the correct virtual desktop. In the same row, click **Options** on the right, then choose **Resume**.
 
@@ -93,13 +97,15 @@ If your virtual desktop or software becomes unresponsive, you can reboot it. Aft
 
 To reboot a desktop:
 
-1. Close all programs and ensure you save or close any files to prevent data corruption.
+1. Log in to SD Desktop. Access the correct virtual desktop on the homepage under **All connections**.
+
+2. Close all programs and ensure you save or close any files to prevent data corruption.
     
-2. On the SD Desktop homepage, click **Go To SD Desktop Management**.
+3. On the SD Desktop homepage, click **Go To SD Desktop Management**.
     
-3. At the bottom of the page, under **Available desktops**, select the correct virtual desktop. In the same row, click **Options** on the right, then choose **Reboot**.
+4. At the bottom of the page, under **Available desktops**, select the correct virtual desktop. In the same row, click **Options** on the right, then choose **Reboot**.
     
-4. Confirm the operation via the notification. Rebooting a desktop may take up to 30 minutes.
+5. Confirm the operation via the notification. Rebooting a desktop may take up to 30 minutes.
 
 ![Reboot desktop.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Reboot_desktop.png)
 
@@ -107,7 +113,7 @@ To reboot a desktop:
 
 At the end of your analysis, you can delete your virtual desktop, including the external volume and all files saved in it. You cannot undo this action:
 
-1. On the SD Desktop homepage, click **Go To SD Desktop Management**.
+1. Log in to SD Desktop. On the SD Desktop homepage, click **Go To SD Desktop Management**.
 
 2. At the bottom of the page, under **Available desktops**, select the correct virtual desktop. In the same row, click **Options** on the right, then choose **Delete**.
 
