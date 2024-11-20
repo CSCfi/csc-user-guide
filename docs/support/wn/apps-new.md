@@ -1,5 +1,11 @@
 # Applications
 
+## GROMACS 2024.4, 7.11.2024
+
+[GROMACS](../../apps/gromacs.md) 2024.4 is now available on Puhti, Mahti and LUMI.
+See [release notes](https://manual.gromacs.org/2024.4/release-notes/2024/2024.4.html)
+for a list of all new features and improvements.
+
 ## Schrödinger Maestro 2024.4, 5.11.2024
 
 [Schrödinger Maestro](../../apps/maestro.md) version 2024.4 has been installed
