@@ -1,4 +1,9 @@
 # Accessing your MariaDB instance
+!!! warning "MariaDB in Pukki is still in beta"
+    This means that we have not tested as extensively that everything works correctly and there
+    might still be big changes how Pukki will manage MariaDB databases. We are hoping to be able
+    to get out of beta in March 2025.
+
 ## Graphical user interface
 TODO add links to some graphical users interfaces
 ## Command-line
