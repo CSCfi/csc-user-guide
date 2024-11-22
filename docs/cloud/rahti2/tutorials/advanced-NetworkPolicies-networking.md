@@ -47,4 +47,4 @@ Spec:
   Policy Types: Ingress
 ```
 
-For more information check our [Network](../../rahti2/networking/) information page
+For more information check our [Network](../networking.md) information page

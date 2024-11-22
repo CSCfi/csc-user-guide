@@ -40,7 +40,7 @@ The forms and licenses are public in SD Apply, so these should not include any s
 
 To prepare for the data transfer, we first need to establish a secure ssh connection between your laptop with CSC. Please follow these steps:
 
-1. Create an SSH key pair in **RSA** format via command line. [See detailed instructions](../../cloud/tutorials/ssh-key.md#creating-an-ssh-key-pair-on-a-computer) Do not use a password for your SSH key, leave this field empty.
+1. Create an SSH key pair in **RSA** format via command line. [See detailed instructions](../../cloud/pouta/tutorials/ssh-key.md#creating-an-ssh-key-pair-on-a-computer) Do not use a password for your SSH key, leave this field empty.
 2. Log in to [the Sensitive Data user administration portal](https://admin.sd.csc.fi/). If you don't have HAKA or Virtu accounts, please write to our helpdesk to ask for a CSC account. Setting up an account takes few days.
 
 [![Sensitive Data user administration login](images/apply/SUP_Login.png)](images/apply/SUP_Login.png)

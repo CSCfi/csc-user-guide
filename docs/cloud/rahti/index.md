@@ -8,7 +8,7 @@ the topic:
   * [Containers and their Orchestration](containers.md)
   * [Kubernetes and OpenShift concepts](concepts.md)
   * [Security guide](security-guide.md)
-  * [Rahti 1 Tutorials](../tutorials/index.md)
+  * [Rahti 1 Tutorials](../rahti2/tutorials/index.md)
   * [External documentation ](ext_docs.md)
 
 If you are already familiar with container technology and Kubernetes/OpenShift concepts,
