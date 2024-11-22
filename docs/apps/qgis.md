@@ -46,7 +46,7 @@ For using QGIS, open it in LUMI web interface:
 2. Open [Desktop app](../computing/webinterface/desktop.md). 
 3. After launching the Desktop, double-click QGIS icon for the newest version.
 
-If you want to use older version, open `Terminal Emulator` from the Menu in the bottom left corner and start QGIS:
+If you want to use an older version, open `Terminal Emulator` from the Menu in the bottom left corner and start QGIS:
 
 ```
 module use /appl/local/csc/modulefiles
