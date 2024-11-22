@@ -64,7 +64,7 @@ apptainer_wrapper exec saga_gui
 
 For using SAGA GIS, open it in LUMI web interface:
 
-1. Log in to [Puhti web interface](https://lumi.csc.fi). 
+1. Log in to [LUMI web interface](https://lumi.csc.fi). 
 2. Open [Desktop app](../computing/webinterface/desktop.md). 
 3. After launching the Desktop, double-click SAGA GIS icon for the newest version.
 
