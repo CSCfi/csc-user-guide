@@ -67,11 +67,7 @@
 * [What does it cost to use Pouta?](what-does-it-cost-to-use-pouta.md)
 * [What are volumes? How do I use them?](what-are-volumes-and-how-to-use.md)
 * [Why can't I connect to my VM in Pouta?](why-cant-i-connect-to-my-vm-in-pouta.md)
-<!--
-## Rahti 1
 
-* [Why Rahti cannot find this docker image?](get-image-format.md)
--->
 ## Rahti 2
 
 * [Do you offer in Rahti 2 SSL certificates?](rahti-ssl-certificates.md)
