@@ -9,7 +9,7 @@ With the SD Desktop service, you can easily manage volumes and pause, reboot or 
 !!! Note
     These options are available only on virtual desktops created after February 2, 2023. Please [contact service desk](../../support/contact.md) if you are working with older desktops. 
 
-* [Detaching and attaching a volume](#detaching-and-reattaching-a-volume)
+* [Detaching and attaching a volume](#detaching-and-attaching-a-volume)
 * [Pausing or unpausing a virtual desktop](#pausing-or-unpausing-a-virtual-desktop)
 * [Rebooting a virtual desktop](#rebooting-a-virtual-desktop)
 * [Deleting a virtual desktop](#deleting-a-virtual-desktop)
