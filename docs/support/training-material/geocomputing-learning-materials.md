@@ -12,7 +12,7 @@
 
 More learning materials can be found in [GeoPortti training materials](http://www.geoportti.fi/skills-development/).
 
-Software specific learning materials can be found from [CSC software pages](https://docs.csc.fi/apps/#geosciences).
+Software specific learning materials can be found from [CSC software pages](../../apps/by_discipline.md#geosciences).
 
 ## Materials of CSC GIS events
 ### Geocomputing in CSC computing environment learning materials
