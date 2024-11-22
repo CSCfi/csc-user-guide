@@ -1,5 +1,4 @@
 # Training material
-# Training material
 
 Get the basics right! In addition the the [Tutorials](../tutorials/index.md)
 and [FAQ](../faq/index.md) collections, this page links to a selection of
