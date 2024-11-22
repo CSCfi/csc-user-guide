@@ -45,6 +45,8 @@ CSC provides an application that simplifies encryption key generation and data d
    
 2. A new window will open, prompting you to enter a password (_Private Key Passphrase_). This password will be used to secure your secret key. Please use a strong password.
 
+![Generate keys](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Generate_keys.png)
+
 3. Click **OK** to generate the key pair. Crypt4GH will create:
    
         * A secret key (e.g., username_crypt4gh.key)
@@ -55,10 +57,23 @@ CSC provides an application that simplifies encryption key generation and data d
   
 5. We recommend saving the key pair in a dedicated folder and renaming them descriptive names (e.g., `export_public.pub` and `export_secret.key`). Common issues arise when keys are misplaced or mismatched.
 
-6. We recommend testing if the key pair works.
-    * Encrypt and decrypt a test file with Crypt4gh application. 
-    * If you encrypted file can be opened after decrypting you know that keys work and you can proceed.
+6. We recommend testing if the key pair works:
 
+* Encrypt a test file with Crypt4gh application
+    1. Load your **public** key.
+    2. Select a test file.
+    3. Click **Encrypt file**.
+
+![Test encrypt](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Encrypt_test.png)
+
+* Decrypt a test file with Crypt4gh application
+    1. Load your **private key**.
+    2. Select the encrypted test file.
+    3. Click **Encrypt file**. 
+    4. Insert password.
+    5. If you encrypted test file can be opened after decrypting you know that keys work and you can proceed.
+
+![Test decrypt](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Decrypt_test.png)
    
 !!! warning
     - If you lose or forget your secret key or password, you won’t be able to decrypt your files.
@@ -119,9 +134,12 @@ Once the file is encrypted, only the CSC project manager can export them via the
 
 ### Option A: Export via data Gateway application
 
-1. Open Data Gateway application
-2. Select SD Connect, enter user name and password. 
-3. If you are CSC project manager, click on Export tab.
+1. Open Data Gateway application.
+2. Select SD Connect and enter CSC user name and password. Click **Login** and then click **Continue**.
+3. Click on **Export** tab. This is available only to project manager. 
+4. Exported file will go to SD Connect. Choose the destination folder from existing folders in SD Connect. You can also first log in to SD Connect and create a new folder for exported files.
+5. Select file you want to export and click **Export**.
+6. Files are now in the folder you selected in SD Connect.
 
 
 ### Option B: Export programmatically via Airlock client
@@ -169,17 +187,20 @@ Once the file is encrypted, only the CSC project manager can export them via the
 
 ### Step 8: Decrypt the files with the Crypt4gh application
  
-Next, you can decrypt the file using the Crypt4GH application and your secret encryption key. Unfortunately, it is currently only possible to single files.
- 
-1. Open the Crypt4GH application and click on _load Your Private Key_ (expport_secrete.key)
-2. Click on _Select File_ and upload the file you want to decrypt.
-3. Click on _Open_.
-4. Next, click on _Decrypt File_.
-5. The tool will ask you to write the secret key's password. Press _ok_.
-6. If your decryption runs successfully, the activity log will display the following:
+Next, you can decrypt the file using the Crypt4GH application and your secret encryption key. Unfortunately, it is currently only possible to single files and compressed folders.
+
+1. Open the Crypt4GH application and click **Load My Private Key** (export_secret.key)
+2. Click **Select File** and upload the file you want to decrypt. Click **Open**.
+3. Next, click **Decrypt File**. 
+4. The tool will ask you to write the secret key's password. Click **Ok**.
+
+ ![Test decrypt](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Decrypt.png)
+
+If your decryption runs successfully, the activity log will display the following:
       ```text
       Decrypting..... Decryption has finished Decrypted file: C:/users/username/exampledirectory/examplefile
       ```
+
 The decrypted file will no longer display the `.c4gh` extension and will be saved in the same folder from which the original file was uploaded.
 
 !!! Note
