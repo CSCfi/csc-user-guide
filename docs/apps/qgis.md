@@ -40,8 +40,13 @@ qgis
 
 ### QGIS in LUMI
 
-Until LUMI web interface is available, QGIS needs to be used with
-[SSH X11 forwarding](../computing/connecting/index.md#graphical-connection).
+For using QGIS, open it in LUMI web interface:
+
+1. Log in to [Puhti web interface](https://lumi.csc.fi). 
+2. Open [Desktop app](../computing/webinterface/desktop.md). 
+3. After launching the Desktop, double-click QGIS icon for the newest version.
+
+If you want to use older version, open `Terminal Emulator` from the Menu in the bottom left corner and start QGIS:
 
 ```
 module use /appl/local/csc/modulefiles
