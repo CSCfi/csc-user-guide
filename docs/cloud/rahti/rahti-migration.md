@@ -21,7 +21,7 @@ Before you start the migration, you need to gather information about your applic
 
 1. What are the **CPU** and **memory** requirements? Rahti 2 has lower _default_ **memory** or **CPU** limits, see the [What are the default limits?](#what-are-the-default-limits) section for more details about this.
 
-1. How was the application **deployed** in Rahti 1? Ideally you used [Helm Charts](https://helm.sh/), [Kustomize](https://kustomize.io/) or Source to Image, and deploying your application to Rahti 2 will be simple. If not, consider creating one Helm chart using the guide [How to package a Kubernetes application with Helm](../../tutorials/helm/). As a last option, you may copy manually each API object.
+1. How was the application **deployed** in Rahti 1? Ideally you used [Helm Charts](https://helm.sh/), [Kustomize](https://kustomize.io/) or Source to Image, and deploying your application to Rahti 2 will be simple. If not, consider creating one Helm chart using the guide [How to package a Kubernetes application with Helm](../../support/faq/helm.md). As a last option, you may copy manually each API object.
 1. How do users access the application? What are the URLs? Is the URL is a Rahti provided URL (`*.rahtiapp.fi`), or a dedicated domain?
     1. If you use a dedicated domain, you need to see with your DNS provider how to update the name record. The DNS information can be found on the [Route](../../rahti2/networking/#routes) documentation.
     1. If you use a URL of the type `*.rahtiapp.fi`, you will no longer be able to use use it in Rahti 2 and will need to migrate to `*.2.rahtiapp.fi` or to a dedicated domain.
@@ -108,7 +108,7 @@ In Rahti 2 the default limits are lower than the default quota:
           memory: 500Mi
 ```
 
-The recommended way to discover the suitable values for your application is trial and error. Launch your application in Rahti 2 and observe the memory and CPU consumption. If your application gets to the memory limit, it will be killed with an `OutOfMemoryError` (`OOM`), normally with a `137 error code`. CPU on the other hand, behaves differently, and the application will not be killed. But both limits have to be treated on the same way, if you see that any of the two limits is reached, raise the limit and try again. It is recommended to have at least a small margin of 10-20% over the expected limits. Of course, you can skip this process if you already know your application's resource needs. Also you might take a look to the [Horizontal Autoscaler](../../tutorials/addHorizontalAutoscaler/), which allows you to automatically create and delete replicas of your Pods. It is better for availability and resource scheduling to have several smaller Pods, but not all applications support it.  
+The recommended way to discover the suitable values for your application is trial and error. Launch your application in Rahti 2 and observe the memory and CPU consumption. If your application gets to the memory limit, it will be killed with an `OutOfMemoryError` (`OOM`), normally with a `137 error code`. CPU on the other hand, behaves differently, and the application will not be killed. But both limits have to be treated on the same way, if you see that any of the two limits is reached, raise the limit and try again. It is recommended to have at least a small margin of 10-20% over the expected limits. Of course, you can skip this process if you already know your application's resource needs. Also you might take a look to the [Horizontal Autoscaler](../../support/faq/addHorizontalAutoscaler.md), which allows you to automatically create and delete replicas of your Pods. It is better for availability and resource scheduling to have several smaller Pods, but not all applications support it.  
 
 !!! info "Why are limits tighter?"
     Rahti 1 resource range (difference between request and limits) was too wide. This made the scheduler's job harder, as every Pod looked the same regarding resource needs (every Pod requested the same resources). This increased the "noisy neighbours effect", were Pods hungry for resources were placed on the same nodes as more modest Pods. The hungry ones were starving the more modest ones. With tighter limits and a maximum factor of between request and limit, Pods will need to be configured with more explicit limits.
@@ -201,7 +201,7 @@ In the Project details page (`Developer` > `Project`), click `PersistentVolumeCl
 
 ![Create PersistentVolumeClaim](../img/Create_PersistentVolumeClaim.png)
 
-* For the moment only a single type of `StorageClass` can be used. It corresponds to `Cinder` volumes, which can only be read or write (mounted) by a single node (In order to mount it in several Pods, you need to use [Pod affinity](../../tutorials/pod-affinity/), so all the Pods are created on the same node).
+* For the moment only a single type of `StorageClass` can be used. It corresponds to `Cinder` volumes, which can only be read or write (mounted) by a single node (In order to mount it in several Pods, you need to use [Pod affinity](../rahti2/tutorials/pod-affinity.md), so all the Pods are created on the same node).
 
 * A unique name within the project must be provided.
 

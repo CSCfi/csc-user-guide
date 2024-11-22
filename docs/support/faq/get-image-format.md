@@ -24,7 +24,7 @@ oc secrets link default <SECRET-NAME> --for=pull
 
 **Note**: Substitute placeholders with actual username, password, email, and an appropriate name for the secret (without <>).
 
-You can find more information in the [How to add docker hub credentials to a project](../../../cloud/tutorials/docker_hub_login/) article.
+You can find more information in the [How to add docker hub credentials to a project](docker_hub_login.md) article.
 
 ## Unsupported image format
 

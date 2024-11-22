@@ -1,6 +1,6 @@
 # Allow pulls of images from one Rahti project to another
 
-Every Rahti project has a private image registry space. Any image compatible with the [OCI](https://opencontainers.org/) format can be stored in the registry. Common uses for the registry are to store [images built by Rahti](../../rahti2/images/creating/#using-rahti-2-to-build-container-images) or cache upstream images.
+Every Rahti project has a private image registry space. Any image compatible with the [OCI](https://opencontainers.org/) format can be stored in the registry. Common uses for the registry are to store [images built by Rahti](../images/creating.md#using-rahti-2-to-build-container-images) or cache upstream images.
 
 ![Image Streams](../../img/ImageStreams.png)
 

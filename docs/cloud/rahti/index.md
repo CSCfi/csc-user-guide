@@ -1,3 +1,4 @@
+<!--
 --8<-- "rahtibeta_announcement.md"
 Welcome to the Rahti 1 container cloud! If you are not yet
 familiar with container technology or container orchestration systems such as
@@ -22,3 +23,4 @@ you could move directly to the instructions for getting started with Rahti 1 & i
   * [Billing](billing.md)
 
 Still have queries? Checkout our [Rahti 1 FAQs](../../support/faq/index.md#rahti-1) page or contact <servicedesk@csc.fi> for more info.
+-->
