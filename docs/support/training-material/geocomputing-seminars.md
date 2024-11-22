@@ -65,10 +65,10 @@
 *   Kylli Ek, Eduardo Gonzalez (CSC): [CSC computing resources for spatial analysis](https://gis-seminars.a3s.fi/2018-10-08/csc-geocomputing-seminar.pdf)
 *   Kylli Ek, Eduardo Gonzalez (CSC): [Zonal statistics exercise with Python in Taito](https://gis-seminars.a3s.fi/2018-10-08/csc-geocomputing-seminar-exercise.zip)
 *   Eevaliisa Laine, Riikka Valtonen (GTK): [Rock fracture simulation](https://gis-seminars.a3s.fi/2018-10-08/valtonen-rock-fracture-simulation-pre.pdf)
-*   Henrikki Tenkanen (Univeristy of Helsinki): [Using cPouta cloud for distributed computing and transport routing using PostgreSQL](https://gis-seminars.a3s.fi/2018-10-08/tenkanen-geocomputing-csc.pdf)
+*   Henrikki Tenkanen (University of Helsinki): [Using cPouta cloud for distributed computing and transport routing using PostgreSQL](https://gis-seminars.a3s.fi/2018-10-08/tenkanen-geocomputing-csc.pdf)
 *   Vuokko Heikinheimo, Elias Willberg, Henrikki Tenkanen (University of Helsinki): [Using cPouta cloud for geoinformatics teaching](https://gis-seminars.a3s.fi/2018-10-08/digigeolab-csc-teaching.pdf)
 *   Johanna Eklund (University of Helsinki): [Advances in evaluating protected area effectiveness in avoiding forest loss](https://gis-seminars.a3s.fi/2018-10-08/eklund-johanna.pdf)
-*   Timo Pitkänen (LUKE): [Modelling trees from terrestial forest lidar data with Matlab and R](https://gis-seminars.a3s.fi/2018-10-08/pitkanen.pdf)
+*   Timo Pitkänen (LUKE): [Modelling trees from terrestrial forest lidar data with Matlab and R](https://gis-seminars.a3s.fi/2018-10-08/pitkanen.pdf)
 *   Juho Lappalainen (SYKE): Geocomputing in Species Distribution Modelling and Evaluation of Marine Protected Areas
 *   Juha Aalto (University of Helsinki / FMI): [Fine-resolution modeling of Circum-Arctic ground thermal regime](https://gis-seminars.a3s.fi/2018-10-08/aalto.pdf)
 *   Ville Mäkinen (FGI): 1m DEM generation
