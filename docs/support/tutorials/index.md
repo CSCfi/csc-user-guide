@@ -72,9 +72,9 @@
 
 You can find Pouta tutorials in [Cloud Services > Pouta > Tutorials](../../cloud/pouta/tutorials/index.md)
 
-## Rahti - container cloud
+## Rahti 2 - container cloud
 
-You can find Rahti tutorials in [Cloud Services > Rahti > Tutorials](../../cloud/rahti2/tutorials/index.md)
+You can find Rahti tutorials in [Cloud Services > Rahti 2 > Tutorials](../../cloud/rahti2/tutorials/index.md)
 
 ## Sensitive Data
 * [Using Allas to transport sensitive data](../../data/sensitive-data/sequencing_center_tutorial.md)
