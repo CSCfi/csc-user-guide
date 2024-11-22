@@ -48,7 +48,8 @@ and platforms by CSC and partners!
 
 ## Geoscience
 
-* [Materials of CSC geoinformatics courses and workshops](geocomputing-learning-materials.md)
+* [CSC geoinformatics courses and workshops](geocomputing-learning-materials.md)
+* [CSC geoinformatics seminars](geocomputing-seminars.md)
 * [Skills development resources at Geoportti portal ](https://www.geoportti.fi/services/skills-development/) 
 * For tools specific training materials see also References sections of each [geocomputing tool](../../apps/by_discipline.md#geosciences) available at CSC computing environment.
 
