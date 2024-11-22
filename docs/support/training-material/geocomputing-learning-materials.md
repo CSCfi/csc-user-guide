@@ -2,10 +2,10 @@
 
 ## Geocomputing in the CSC computing environment 
  
-* [Geocomputing on supercomputers](https://e-learn.csc.fi/course/view.php?id=116) Kylli Ek, Samantha Wittke, Eetu Huusko, Mitja Sainio / CSC 2024  
-* [Geocomputing in Puhti supercomputer](http://youtu.be/PrgMFna3DKw), Johannes Nyman / CSC, 2020: [Geocomputing in Puhti supercomputer webinar slides](https://webinars.a3s.fi/2020-puhti-for-gis.pdf)   
-* [Using CSC's cloud services cPouta and Rahti for GIS](http://youtu.be/8szDsp_33lU) (Eduardo Gonzalez /CSC, 2019): [cPouta and Rahti for GIS webinar slides](https://webinars.a3s.fi/2019-04-24-webinar-csc-cloud-services-for-gis.pdf)  
-* [Allas and Geospatial data](http://youtu.be/mnFXe2-dJ_g), Johannes Nyman / CSC, 2020. [Allas and Geospatial data webinar slides](https://webinars.a3s.fi/2020-allas-geospatial-data.pdf) 
+* [Geocomputing on supercomputers](https://e-learn.csc.fi/course/view.php?id=116) Kylli Ek, Samantha Wittke, Eetu Huusko, Mitja Sainio / CSC, 2-day course, 2024  
+* [Geocomputing in Puhti supercomputer](http://youtu.be/PrgMFna3DKw), Johannes Nyman / CSC, webinar, 2020. [Slides](https://webinars.a3s.fi/2020-puhti-for-gis.pdf 'https://csc-guide-preview.rahtiapp.fi/origin/ktiits-gis-events/support/training-material/geocomputing-learning-materials/')   
+* [Using CSC's cloud services cPouta and Rahti for GIS](http://youtu.be/8szDsp_33lU), Eduardo Gonzalez /CSC, webinar, 2019: [Slides](https://webinars.a3s.fi/2019-04-24-webinar-csc-cloud-services-for-gis.pdf 'cPouta and Rahti for GIS webinar slides')  
+* [Allas and Geospatial data](http://youtu.be/mnFXe2-dJ_g), Johannes Nyman / CSC, webinar, 2020. [Slides](https://webinars.a3s.fi/2020-allas-geospatial-data.pdf 'Allas and Geospatial data webinar slides') 
   
 ## Application specific courses 
 
