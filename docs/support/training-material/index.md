@@ -48,8 +48,9 @@ and platforms by CSC and partners!
 
 ## Geoscience
 
-* [Geoscience training material](geocomputing-learning-materials.md)
-* [GeoPortti](https://www.geoportti.fi/services/skills-development/) learning material
+* [Materials of CSC geoinformatics courses and workshops](geocomputing-learning-materials.md)
+* [Skills development resources at Geoportti portal ](https://www.geoportti.fi/services/skills-development/) 
+* For tools specific training materials see also References sections of each [geocomputing tool](../../apps/by_discipline.md#geosciences) available at CSC computing environment.
 
 ## Chemistry
 

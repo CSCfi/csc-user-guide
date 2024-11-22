@@ -1,23 +1,11 @@
-# GIS self-study materials 
+# Materials of CSC geoinformatics courses and workshops
+
+!!! default "Geocomputing seminars"
+See also, the materials of [Geocomputing seminars](geocomputing-seminars.md) organized by CSC. 
+
+## Geocomputing in CSC computing environment learning materials 
  
- 
-## GIS introductions and vocabulary 
- 
- 
-*   [Geoinformatiikka luonnonvarojen hallinnassa](https://helda.helsinki.fi/bitstream/handle/10138/166765/GIS_kirja_kansineen_netti.pdf?sequence=1) (Holopainen, Tokola, Vastaranta, Heikkilä, Huitu, Laamanen & Alho, HY, 2015), only in Finnish 
-*   [A gentle introduction to GIS](https://docs.qgis.org/3.16/en/docs/gentle_gis_introduction/index.html) (T. Sutton, O. Dassau, M. Sutton 2009) 
-*   Wikipedia: [Geographic information system in Wikipedia](https://en.wikipedia.org/wiki/Geographic_information_system#Applications), [Paikkatietojärjestelmä Wikipediassa](https://fi.wikipedia.org/wiki/Paikkatietoj%C3%A4rjestelm%C3%A4) 
-*   [Laserkeilaus metsävarojen hallinnassa](https://helda.helsinki.fi/bitstream/handle/10138/42935/Laserkirja_painettu.pdf?sequence=2) (Holopainen, Hyyppä & Vastaranta, HY), only in Finnish. 
-*   Sanastot: [geoinformatiikan sanasto](http://www.tsk.fi/tiedostot/pdf/GeoinformatiikanSanasto.pdf), [paikannussanasto](http://www.tsk.fi/tiedostot/pdf/paikannussanasto.pdf), [kaukokartoitussanasto](http://foto.hut.fi/sanasto.html), only in Finnish. 
- 
-More learning materials can be found in [GeoPortti training materials](http://www.geoportti.fi/skills-development/). 
- 
-Software specific learning materials can be found from [CSC software pages](../../apps/#geosciences). 
- 
-## Materials of CSC GIS events 
-### Geocomputing in CSC computing environment learning materials 
- 
-#### Geocomputing on supercomputers 
+### Geocomputing on supercomputers 
  
 Kylli Ek, Samantha Wittke, Eetu Huusko, Mitja Sainio 2021, 2022, 2023, 2024 
  
@@ -25,19 +13,15 @@ Introduction to geocomputing in Puhti (and LUMI): using R, Python, GDAL.
  
 *   [Course materials](https://csc-training.github.io/geocomputing_course/) 2024 
  
-#### Geocomputing webinars 
+### Geocomputing webinars 
  
 *   Geocomputing in Puhti supercomputer (Johannes Nyman / CSC, 2020): [Geocomputing in Puhti supercomputer webinar slides](https://webinars.a3s.fi/2020-puhti-for-gis.pdf) and [Geocomputing in Puhti supercomputer webinar webinar recording](http://youtu.be/PrgMFna3DKw)  
 *   Using CSC's cloud services cPouta and Rahti for GIS (Eduardo Gonzalez /CSC, 2019): [cPouta and Rahti for GIS webinar slides](https://webinars.a3s.fi/2019-04-24-webinar-csc-cloud-services-for-gis.pdf) and [cPouta and Rahti for GIS webinar webinar recording](http://youtu.be/8szDsp_33lU)  
 *   Allas and Geospatial data (Johannes Nyman / CSC, 2020): [Allas and Geospatial data webinar slides](https://webinars.a3s.fi/2020-allas-geospatial-data.pdf) and [Allas and Geospatial data webinar webinar recording](http://youtu.be/mnFXe2-dJ_g) 
+  
+## Software or application specific courses 
  
-#### Geocomputing seminars 
- 
-[Geocomputing seminars](geocomputing-seminars.md). Short presentations of research projects where CSC geocomputing resources have been used. 
- 
-### Software or application specific courses 
- 
-#### Introduction to Python GIS 
+### Introduction to Python GIS 
  
 Kamyar Hasanzadeh / HY, Samantha Wittke / CSC, 3-days course, 2024. 
  
@@ -46,19 +30,19 @@ GIS in Python; Spatial Data Model, Geometric Objects, Shapely, working with (Geo
 *   This course is based on [Helsinki University Automating GIS-processes course](https://autogis-site.readthedocs.io/en/latest/), which has a few more topics and updates. 
 *   [Raster lession materials and notebooks](https://github.com/Automating-GIS-processes/csc-intensive-course/tree/main/Day-3/Lesson-7) 
  
-#### Spatial data analysis with R 
+### Spatial data analysis with R 
  
 Marko Kallio / Aalto university, 3-days course, 2023. 
  
 *   [Course materials](https://github.com/csc-training/r-spatial-course) 
  
-#### Practical machine learning for spatial data 
+### Practical machine learning for spatial data 
  
 Mats Sjöberg, Markus Koskela, Samantha Wittke, Kylli Ek, 2-days course, 2022. 
  
 *   [Exercises for shallow and deep learning](https://github.com/csc-training/GeoML) [with spatial data](https://github.com/csc-training/geocomputing/tree/master/machineLearning) 
  
-#### STAC - how to find and use spatiotemporal data easily? 
+### STAC - how to find and use spatiotemporal data easily? 
  
 Kylli Ek, half-day workshop, 2023 
  
@@ -68,7 +52,7 @@ Kylli Ek, half-day workshop, 2023
  
 [of Lidar data analysis in Taito, with PDAL and R](https://gis-courses.a3s.fi/2019-03-05-lidar.zip) 
  
-#### Web GIS Enabled Spatial Analysis & Data Science with ArcGIS 
+### Web GIS Enabled Spatial Analysis & Data Science with ArcGIS 
  
 Aki Kaapro / Esri Finland, 1-day course, 2021 
  
@@ -83,7 +67,7 @@ Introduction to the spatial analysis framework within the ArcGIS platform for ve
 *   Exercise 4: [Understanding Precipitation Patterns and Trends using Scientific Multidimensional Data with ArcGIS pro](https://www.esri.com/arcgis-blog/products/arcgis/imagery/precipitation-patterns-and-trends-predictions-multidimensional-data/), in the text the data link is wrong, use this [NOAA dataset.](https://a3s.fi/gis-courses/arcpro_2020/precip.mon.total.v501.nc) 
     *   [Jupyt, correct dataset for ArcGIS Pro Patterns exercise](https://a3s.fi/gis-courses/arcpro_2020/precip.mon.total.v501.nc)[Jupyter notebook for Exercise 4](https://a3s.fi/gis-courses/arcpro_2020/NOAA_Precipitation_raw.ipynb). 
  
-#### PyQGIS: expanding QGIS’s functionality with Python 
+### PyQGIS: expanding QGIS’s functionality with Python 
  
 Tatu Leppämäki / University of Helsinki, 1-day course, 2021 
  
