@@ -124,7 +124,7 @@ In Linux and Mac:
 
 `gdal_translate "STACIT:\"https://paituli.csc.fi/geoserver/ogc/stac/v1/search?collections=corine_land_cover_at_geocubes&datetime=2017-01-05/2019-02-14&bbox=19.5,61.5,28.7,63.0\":asset=COG" -of VRT corine.vrt`
 
-In Windows (add `^` before `&` characers):
+In Windows (add `^` before `&` characters):
 
 `gdal_translate "STACIT:\"https://paituli.csc.fi/geoserver/ogc/stac/v1/search?collections=corine_land_cover_at_geocubes^&datetime=2017-01-05/2019-02-14^&bbox=19.5,61.5,28.7,63.0\":asset=COG" -of VRT corine.vrt`
 
