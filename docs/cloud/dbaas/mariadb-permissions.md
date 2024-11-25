@@ -26,7 +26,7 @@ When give user access to a database from the openstack cli or web interface the 
 `ALL PRIVILEGES` to that database.
 
 If you want to crate a user with different privileges you need to use the
-`openstack datbase enable root` command so that you can create a user manually. More information
+`openstack database enable root` command so that you can create a user manually. More information
 in the next topic how to create a read-only user.
 
 
@@ -36,7 +36,7 @@ are not able to be created from the Pukki interfaces.
 
 1. First create the root user
 ```sh
-openstack database root enable 1de0dbe4-eed7-4291-b8ae-156c3d74473b
+openstack database root enable $DATABASE_ID
 ```
 
 2. Then you can access the database with the root user and password:
@@ -50,7 +50,7 @@ SHOW GRANTS FOR 'reader'@'%';
 +-------------------------------------------------------------------------------------------------------+
 | Grants for reader@%                                                                                   |
 +-------------------------------------------------------------------------------------------------------+
-| GRANT USAGE ON *.* TO `reader`@`%` IDENTIFIED BY PASSWORD '*2470C0C06DEE42FD1618BB99005ADCA2EC9D1E19' |
+| GRANT USAGE ON *.* TO `reader`@`%` IDENTIFIED BY PASSWORD 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX' |
 | GRANT SELECT ON `database_name`.* TO `reader`@`%`                                                     |
 +-------------------------------------------------------------------------------------------------------+
 ```

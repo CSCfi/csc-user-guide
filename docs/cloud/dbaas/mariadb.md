@@ -11,10 +11,10 @@
 
 # Database engine and backups
 Innodb is the default engine and it is the most test in Pukki. Using other
-engines like Aria might cause issues while doing backups so one should consider it twich before
-using anohter engine than InnoDB.
-More info can be found in the MariaDB documenation:  https://mariadb.com/kb/en/aria-storage-engine/
+engines like Aria might cause issues while doing backups so one should consider it twice before
+using another engine than InnoDB.
+More info can be found in the MariaDB documentation:  https://mariadb.com/kb/en/aria-storage-engine/
 
 ## Useful links when using MariaDB
   * [MariaDB client](https://mariadb.com/kb/en/mariadb-client/)
-  * [MariaDB SQL statement structur](https://mariadb.com/kb/en/sql-statements-structure/)
+  * [MariaDB SQL statement structure](https://mariadb.com/kb/en/sql-statements-structure/)
