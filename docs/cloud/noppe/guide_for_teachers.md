@@ -190,13 +190,14 @@ docker run -p 8888:8787 <yourimagename>
 
 ## Adding Python packages to an existing workspace 
 
-This section is about how to add packages to the workspace _after_ you have built the Docker image. You do not need to always create a new custom image.
+This section is about how to add packages to the workspace _after_ you have built the Docker image. 
+You do not need to always create a new custom image.
 
 To install additional libraries to your persistent personal directory, please use ```pip```.
 
 1. Open Terminal in JupyterLab.
-2. Create new folder for installation files in my-work.
-3. Set PYTHONUSERBASE to direct to the new folder.
+2. Create a new folder for installation files in my-work.
+3. Set `PYTHONUSERBASE` to direct to the new folder.
 4. Add the new packages with pip.
 
 ```
@@ -205,12 +206,9 @@ export PYTHONUSERBASE=/home/jovyan/my-work/<your_subdir>
 pip install --user the_new_package_name
 ```
 
-For using these packages, you need to define PYTHONUSERBASE in each new session. Add for example a new first cell to you notebook.
-
-```
-import os
-os.environ["PYTHONUSERBASE"] = "/home/jovyan/my-work/<your_subdir>"
-```
+Finally, delete the existing session and open application settings under "Edit application".
+Add `PYTHONUSERBASE=/home/jovyan/my-work/<your_subdir>` to Environment variables. Use the name of the folder you
+created earlier. After this, new application sessions will have the installed packages available.
 
 ## Security guidelines for Workspace owners
 
