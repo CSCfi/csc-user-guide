@@ -1,23 +1,23 @@
 # Training material
 
-Get the basics right! In addition the the [Tutorials](tutorials/index.md)
-and [FAQ](faq/index.md) collections, this page links to a selection of
+Get the basics right! In addition the the [Tutorials](../tutorials/index.md)
+and [FAQ](../faq/index.md) collections, this page links to a selection of
 additional training material useful for self study. At the bottom of the
 page, you can also find a summary of trainings and training material sources
 and platforms by CSC and partners!
 
 ## Linux & HPC basics
 
-* [Linux 101 guide](tutorials/env-guide/index.md)
+* [Linux 101 guide](../tutorials/env-guide/index.md)
 * [Linux 1: Introduction to Linux course material (GitHub source)](https://github.com/csc-training/linux-1) and [related lecture videos](https://video.csc.fi/channel/Introduction+to+Linux+-course/514985)
 * [Linux 2: Intermediate Linux course materials (GitHub source)](https://github.com/csc-training/linux-2)
 * [MPI: A Short Introduction to One-sided Communication](https://www.futurelearn.com/courses/mpi-one-sided) PRACE MOOC
 * [Using CSC HPC Environment Efficiently](https://a3s.fi/CSC_training/csc-env.html) Slides, tutorials and exercises about the CSC environment
-* [HPC Glossary](glossary.md) All of the tooltipped acronyms (such as "HPC") as a single page.
+* [HPC Glossary](../glossary.md) All of the tooltipped acronyms (such as "HPC") as a single page.
 
 ## CSC cloud resources, cPouta, ePouta and Rahti
 
-* [cPouta and ePouta related videos](../cloud/pouta/pouta-videos.md)
+* [cPouta and ePouta related videos](../../cloud/pouta/pouta-videos.md)
 * [Pouta cloud course materials](https://pouta-course.a3s.fi/index.html)
 * [Container clouds fundamentals](https://rahti-course.a3s.fi/basic.html) (with Rahti OpenShift OKD)
 
@@ -31,7 +31,7 @@ and platforms by CSC and partners!
 
 ## Data analytics and machine learning
 
-* [Data analysis guide](tutorials/da-guide.md)
+* [Data analysis guide](../tutorials/da-guide.md)
 * [Practical machine learning](https://e-learn.csc.fi/course/view.php?id=14) MOOC
 
 ## Language bank
@@ -47,8 +47,10 @@ and platforms by CSC and partners!
 
 ## Geoscience
 
-* [Geoscience training material](https://research.csc.fi/gis-learning-materials)
-* [GeoPortti](https://www.geoportti.fi/services/skills-development/) learning material
+* [CSC geoinformatics courses and workshops](geocomputing-learning-materials.md)
+* [CSC geoinformatics seminars](geocomputing-seminars.md)
+* [Skills development resources at Geoportti portal](https://www.geoportti.fi/services/skills-development/)
+* For tools specific training materials see also References sections of each [geocomputing tool](../../apps/by_discipline.md#geosciences) available at CSC computing environment.
 
 ## Chemistry
 
@@ -69,8 +71,8 @@ and platforms by CSC and partners!
 | -------- | -------- |
 | **[CSC training calendar](https://www.csc.fi/en/trainings/training-calendar)** | Upcoming courses <br> Links to self-learning materials, e.g. [Elements of Supercomputing](https://edukamu.fi/elements-of-supercomputing) |
 | **[eLena](https://e-learn.csc.fi) (Moodle environment)** | [Research Data Management](https://e-learn.csc.fi/course/view.php?id=63) <br> [CSC Computing Environment](https://e-learn.csc.fi/course/view.php?id=76) |
-| **[Tutorials at Docs CSC](tutorials/index.md)** | [Getting started with supercomputing at CSC](tutorials/hpc-quick.md) <br> [Machine learning guide](tutorials/ml-guide.md) |
-| **[Docs CSC training materials collection](training-material.md) (this page)** | Links to thematically collected materials |
+| **[Tutorials at Docs CSC](../tutorials/index.md)** | [Getting started with supercomputing at CSC](../tutorials/hpc-quick.md) <br> [Machine learning guide](../tutorials/ml-guide.md) |
+| **[Docs CSC training materials collection](index.md) (this page)** | Links to thematically collected materials |
 | **[CSC Noppe](https://noppe.csc.fi)** |  Introduction to Python <br> Introduction to R <br> 2h Intro to Quantum Computing |
 | **[VideoCSC](https://video.csc.fi)** | [Introductions to topics](https://video.csc.fi/category/Training%3EIntroductions+to+Topics/455249) <br> Recordings of weekly user support coffee talks |
 | **[CSC's YouTube channel](https://www.youtube.com/c/CscFi)** | See also [Chipster channel](https://www.youtube.com/channel/UCnL-Lx5gGlW01OkskZL7JEQ) <br> [Elmer channel](https://www.youtube.com/user/elmerfem) |

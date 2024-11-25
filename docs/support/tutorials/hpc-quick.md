@@ -258,7 +258,7 @@ at CSC.
     - [Using Python on CSC supercomputers](python-usage-guide.md)
     - [Managing data on Puhti and Mahti scratch disks](clean-up-data.md)
     - Other [tutorials](index.md) and
-      [training materials](../training-material.md)
+      [training materials](../training-material/index.md)
 
 === "Support"
     - [Frequently asked questions](../faq/index.md)
