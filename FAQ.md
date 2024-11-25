@@ -168,7 +168,10 @@ activate it with
 source docs-env/bin/activate
 ```
 
-(on Windows, use `docs-env\Scripts\activate.bat` or `docs-env\Scripts\activate.ps1`) and upgrade Pip with
+> [!NOTE]
+> On Windows, use `docs-env\Scripts\activate.ps1` with _PowerShell_, or `docs-env\Scripts\activate.bat` with _cmd_.
+
+and upgrade Pip with
 
 ```bash
 pip install --upgrade pip
