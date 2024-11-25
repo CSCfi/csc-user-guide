@@ -401,4 +401,4 @@ search:
 ...
 ```
 Start with low values.  
-More information [here](https://squidfunk.github.io/mkdocs-material/setup/setting-up-site-search/#rank-up)
+More information [here](https://squidfunk.github.io/mkdocs-material/setup/setting-up-site-search/#usage)
