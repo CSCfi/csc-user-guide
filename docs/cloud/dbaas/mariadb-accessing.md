@@ -101,7 +101,7 @@ have access to.
 
 ### Accessing your Pukki MariaDB database from Puhti
 
-1. First you need to ensure that you allow [network traffic from Puhti.](firewalls.md#Puthi)
+1. First you need to ensure that you allow [network traffic from Puhti.](firewalls.md#puhti)
 2. Once you have ssh into Puhti you need to load the `mariadb` module.
 ```
 module load mariadb
