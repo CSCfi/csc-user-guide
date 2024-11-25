@@ -3,6 +3,7 @@ tags:
   - Free
 system:
   - www-puhti
+  - www-lumi
 ---
 
 # SAGA GIS
