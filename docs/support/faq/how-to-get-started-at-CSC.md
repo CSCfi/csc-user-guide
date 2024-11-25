@@ -10,7 +10,7 @@ We have collected some useful materials in the following locations:
 * [Services by discipline](https://research.csc.fi/sciences)
 * [Tutorials](../../support/tutorials/index.md)
 * [Frequently Asked Questions](index.md)
-* [Collection of training materials](../training-material.md)
+* [Collection of training materials](../training-material/index.md)
 * [CSC training calendar](https://csc.fi/en/trainings/training-calendar/)
 
 Need direct support? [Contact CSC Service Desk](../contact.md)!

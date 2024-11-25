@@ -10,7 +10,7 @@ installed as `helmi_qiskit` on LUMI. It is used for running quantum circuits on
 [Helmi](../computing/quantum-computing/helmi/running-on-helmi.md).
 
 !!! info "News"
-     **28.10.2024** Installed `helmi_qiskit/13.16` which supports Qiskit==1.1.2
+     **28.10.2024** Installed `helmi_qiskit/15.4` which supports Qiskit==1.1.2
 
 ## Available
 
@@ -19,7 +19,7 @@ versions:
 
 | Version | Module                               | LUMI  | Notes           |
 |:--------|:-------------------------------------|:-----:|-----------------|
-| 13.16   | `helmi_qiskit/13.16`                 | X     |                 |
+| 15.4    | `helmi_qiskit/15.4`                  | X     |                 |
 
 All modules are based on Tykky using LUMI-container-wrapper.
 Wrapper scripts have been provided so that common commands such as `python`,
@@ -27,7 +27,7 @@ Wrapper scripts have been provided so that common commands such as `python`,
 [LUMI container wrapper](https://docs.lumi-supercomputer.eu/software/installing/container-wrapper/).
 
 The module includes python packages that are often used with qiskit, such as
-qiskit-experiments, matplotlib, numpy, pennylane-qiskit and jupyterlab.
+qiskit-experiments, matplotlib, numpy, and jupyterlab.
 
 ## License
 
