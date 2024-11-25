@@ -86,6 +86,29 @@ plugins:
         # for convenience:
         "glossary.md": "support/glossary.md"
         "archives.md": "support/contact.md#archives"
+        # Rahti1 to Rahti2:
+        "docs/cloud/rahti/rahti-migration.md": "docs/cloud/rahti2/rahti-migration.md"
+        "docs/cloud/rahti/index.md": "docs/cloud/rahti2/index.md"
+        "docs/cloud/rahti/billing.md": "docs/cloud/rahti2/billing.md"
+        "docs/cloud/rahti/rahti-what-is.md": "docs/cloud/rahti2/rahti-what-is.md"
+        "docs/cloud/rahti/concepts.md": "docs/cloud/rahti2/concepts.md"
+        "docs/cloud/rahti/ext_docs.md": "docs/cloud/rahti2/ext_docs.md"
+        "docs/cloud/rahti/access.md": "docs/cloud/rahti2/access.md"
+        "docs/cloud/rahti/networking.md": "docs/cloud/rahti2/networking.md"
+        "docs/cloud/rahti/storage/index.md": "docs/cloud/rahti2/storage/index.md"
+        "docs/cloud/rahti/storage/persistent.md": "docs/cloud/rahti2/storage/persistent.md"
+        "docs/cloud/rahti/storage/expand-volumes.md": "docs/cloud/rahti2/storage/expand-volumes.md"
+        "docs/cloud/rahti/storage/ephemeral.md": "docs/cloud/rahti2/storage/ephemeral.md"
+        "docs/cloud/rahti/containers.md": "docs/cloud/rahti2/containers.md"
+        "docs/cloud/rahti/template-docs.md": "docs/cloud/rahti2/template-docs.md"
+        "docs/cloud/rahti/security-guide.md": "docs/cloud/rahti2/security-guide.md"
+        "docs/cloud/rahti/usage/cli.md": "docs/cloud/rahti2/usage/cli.md"
+        "docs/cloud/rahti/usage/projects_and_quota.md": "docs/cloud/rahti2/projects_and_quota.md"
+        "docs/cloud/rahti/usage/getting_started.md": "docs/cloud/rahti2/getting_started.md"
+        "docs/cloud/rahti/images/creating.md": "docs/cloud/rahti2/images/creating.md"
+        "docs/cloud/rahti/images/pushing-external.md": "docs/cloud/rahti2/images/pushing-external.md"
+        "docs/cloud/rahti/images/keeping_docker_images_small.md": "docs/cloud/rahti2/images/keeping_docker_images_small.md"
+        "docs/cloud/rahti/images/overview.md": "docs/cloud/rahti2/images/overview.md"
 
 markdown_extensions:
   - footnotes
@@ -316,7 +339,7 @@ nav:
           - cloud/rahti2/index.md
           - What is Rahti: cloud/rahti2/rahti-what-is.md
           - Moving into Rahti: cloud/rahti2/moving-into.md
-          - Migration to Rahti 2: cloud/rahti/rahti-migration.md
+          - Migration to Rahti 2: cloud/rahti2/rahti-migration.md
           - Containers & their Orchestration: cloud/rahti2/containers.md
           - Kubernetes and OpenShift concepts: cloud/rahti2/concepts.md
           - Getting Started:
