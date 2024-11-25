@@ -28,29 +28,21 @@ self-learning materials.
 * Puhti: 2023.1, 2023.2, 2023.3, 2023.4, 2024.1, 2024.2, 2024.3, 2024.4
 * Mahti: 2023.1, 2023.2, 2023.3, 2023.4, 2024.1, 2024.2, 2024.3, 2024.4
 
-!!! info "Pay attention to efficiency on Mahti"
-
-    Note that Mahti is mostly suitable for running Desmond MD simulations on GPUs.
-    Most other jobs do not scale to full nodes, so please use Puhti instead for these.
-
-!!! info "Module cleaning policy"
-
-    A two-year cleaning cycle is applied on the Maestro modules on CSC supercomputers.
-    Specifically, this means that module versions older than two years will be removed.
-    This policy is enforced to free up disk space and encourage use of the latest versions
-    which tend to be more performant and have less bugs.
+A two-year cleaning cycle is applied on the Maestro modules on CSC supercomputers.
+Specifically, this means that module versions older than two years will be removed.
+This policy is enforced to free up disk space and encourage use of the latest versions
+which tend to be more performant and have less bugs.
 
 !!! info "Some notes about warnings"
-
     Maestro gives a warning for using a `schrodinger.hosts` file from your home
     directory. This is **not an issue**: that file cannot be made available in
     the installation directory, so please ignore the warning, but consider any
     others you may see.
 
-    Also, starting from module version `maestro/2023.1` you might get warnings
-    about missing graphics libraries. These warnings should be harmless.
-    Nonetheless, if you would encounter unfamiliar issues using these Maestro
-    versions, please [contact CSC Service Desk](../support/contact.md).
+    Similarly, warnings about missing graphics libraries should be harmless.
+    However, don't hesitate to [contact CSC Service Desk](../support/contact.md)
+    if you are unsure about any warning or error message you might get when
+    using Maestro at CSC.
 
 ## License
 
@@ -64,36 +56,33 @@ us via [ServiceDesk](/support/contact/).
 
 It is recommended to download and install Maestro on your own computer, see below.
 
-### Local Installation
+### Local installation
 
-Maestro can be installed on a Linux, Mac or Windows computer. Download the appropriate files
-from [the Schrödinger website](https://www.schrodinger.com/). You don't need a license to
-*download* the software, although you need to register to the Schrödinger website, but you'll
-need to configure licensing before you can *run* it. [See these instructions on how to configure
-licensing](https://wiki.eduuni.fi/pages/viewpage.action?pageId=130528861) (requires Haka
-authentication). Access to the license requires that your computer is in the FUNET network, i.e.
-you're at the university or connected to it via VPN from home.
+!!! info "Maestro versions 2024.3 onward use a new license manager"
+    Please note that the
+    [license configuration instructions](https://wiki.eduuni.fi/pages/viewpage.action?pageId=130528861)
+    have been updated for Maestro versions 2024.3 and later, which use the new
+    Schrödinger License Manager (SLM).
+
+Maestro can be installed on a Linux, Mac or Windows computer. Download the
+appropriate files from [the Schrödinger website](https://www.schrodinger.com/).
+You don't need a license to *download* the software, although you do need to
+register at the Schrödinger website first. Note that getting access may take up
+to 24 hours, so please be patient.
+
+After you've downloaded and installed Maestro, you'll need to configure
+licensing to be able to *run* the software.
+[See these instructions on how to configure licensing](https://wiki.eduuni.fi/pages/viewpage.action?pageId=130528861)
+(logging in to Eduuni requires Haka authentication). Accessing the license
+requires that your computer is in the FUNET network, i.e. you're at the
+university or connected to it via VPN from home.
 
 ### Standalone usage on Puhti
 
-!!! info "Please update your `schrodinger.hosts` file"
-
-    The login nodes of Puhti were renamed following the RHEL8 upgrade in October 2022.
-    Consequently, old `schrodinger.hosts` files referencing `puhti-login1` will not work
-    anymore! Please update your hosts file either manually by replacing all occurrences of
-    `login1` with `login11`, or by deleting your old `schrodinger.hosts` file and setting a
-    new one by running the `/appl/soft/chem/schrodinger/set-hosts-file.bash` script.
-    
-    Also, using public host addresses (ending with `csc.fi`, e.g. `puhti-login11.csc.fi`) in
-    the hosts file might cause timeout issues, so these should be changed to internal ones,
-    i.e. `puhti-login11` (without `csc.fi`).
-
-!!! warning "Puhti vs. Mahti"
-
-     We mainly recommend using Puhti to run your Maestro jobs. If running on
-     Mahti, you must ensure that your jobs are able to utilize full nodes
-     (128 CPU cores). Preferably, run only Desmond MD simulations on GPUs
-     because most other jobs do not scale. If in doubt, [contact us](/support/contact/).
+!!! info "Puhti vs. Mahti"
+    Note that Mahti is mostly suitable for running Desmond MD simulations on GPUs.
+    Most other jobs do not scale to full nodes, so please use Puhti instead for these.
+    If in doubt, [contact us](../support/contact.md).
 
 It is possible to run heavier computations on Puhti. Here, a brief overview is given.
 Additional details and some diagnostics tips are explained in our [Maestro power usage
@@ -156,7 +145,6 @@ bash your_script_name.sh
 ```
 
 !!! warning "Maestro GUI"
-
     We do **not** recommend running the Maestro GUI remotely on Puhti. It *can* be done via
     [the Puhti web interface remote desktop](../computing/webinterface/desktop.md), but
     the performance may be somewhat slow and submitted jobs may end up fizzled. Also,
@@ -164,7 +152,6 @@ bash your_script_name.sh
     [Usage policy](../../computing/usage-policy) page for more details.
 
 !!! info "Note for Windows users"
-
     **Windows** users may need to edit the script created by the GUI a little.
     Replace the backslashes `\` with `/` in the path to the Maestro binary
     (right after `$SCHRODINGER` in the script).

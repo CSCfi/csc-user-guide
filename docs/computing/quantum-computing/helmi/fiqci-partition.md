@@ -27,7 +27,7 @@ Currently, the maximum run time of a quantum job is 2 hours.
 
 | Name      | Max walltime | Max jobs |
 | --------- | ------------ | -------- |
-| _q_fiqci_ | _2 hours_    | _5_      |
+| _q_fiqci_ | _2 hours_    | _64_      |
 
 
 ## Storage areas
@@ -39,7 +39,7 @@ The Helmi partition uses the same storage policies as LUMI. You can find [furthe
 Quantum computing projects work similarly to the regular LUMI system. The main differences are:
 
 1. FiQCI projects use the `--partition=q_fiqci` partition instead of the regular LUMI-C `--partition=standard` and `--partition=small`.
-2. The maximum job walltime is **15 mins**.
+2. The maximum job walltime is **2 hours**.
 3. Usage is billed as QPU seconds **QPUs** in `q_fiqci`. 
 4. The LUMI-Helmi computing environment has to be loaded separately. See [Running on Helmi](../running-on-helmi/) for details.
 

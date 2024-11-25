@@ -72,12 +72,15 @@ plugins:
         "cloud/concepts.md": "cloud/index.md"
         "apps/alpha.md": "apps/index.md"
         "support/tutorials/env-guide/overview.md": "support/tutorials/env-guide/index.md"
+        # files moved to Allas:
+        # (note the '<filename>.<original extension>.md' hack, as these are not Markdown files)
+        "data/sensitive-data/federated-ega-pricing.pdf.md": "https://a3s.fi/docs-files/sensitive-data/PDF_instructions/federated-ega-pricing.pdf"
         # for URL consistency:
         "sensitive-data.md": "data/sensitive-data/index.md"
         "applications.md": "apps/index.md"
         "faq.md": "support/faq/index.md"
         "tutorials.md": "support/tutorials/index.md"
-        "training-material.md": "support/training-material.md"
+        "training-material.md": "support/training-material/index.md"
         "contact.md": "support/contact.md"
         "whats-new.md": "support/whats-new.md"
         # for convenience:
@@ -464,7 +467,8 @@ nav:
               - Login to SD Desktop: data/sensitive-data/sd-desktop-secondary-login.md
               - Create virtual desktop: data/sensitive-data/sd-desktop-secondary-create.md
               - Manage virtual desktop: data/sensitive-data/sd-desktop-secondary-manage.md
-              - Access virtual desktop and data: data/sensitive-data/sd-desktop-secondary-access.md
+              - Working with your desktop and software: data/sensitive-data/sd-desktop-secondary-working.md
+              - Import data: data/sensitive-data/sd-desktop-secondary-access.md
               - Export data: data/sensitive-data/sd-desktop-secondary-export.md
               - Troubleshooting: data/sensitive-data/sd-desktop-secondary-troubleshooting.md
           - Instructions for registers: data/sensitive-data/single-register-submission.md
@@ -476,6 +480,6 @@ nav:
       - By license: apps/by_license.md
   - FAQ: support/faq/index.md
   - Tutorials: support/tutorials/index.md
-  - Training material: support/training-material.md
+  - Training material: support/training-material/index.md
   - Contact: support/contact.md
   - What's new: support/whats-new.md
