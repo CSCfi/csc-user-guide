@@ -156,7 +156,7 @@ This user guide uses [MkDocs](https://www.mkdocs.org/) to generate documentation
 
 #### Venv
 
-If you have at least Python 3.8 (at the time of writing) installed (see other option, Conda, below if not), you can create a new virtual environment with
+If you have a suitable Python version (i.e. equal or greater to the one defined in the [Conda environment file](development/conda-docs-base-latest.yaml); see [Conda](#conda) below, if not) installed, you can create a new virtual environment with
 
 ```bash
 python -m venv docs-env
