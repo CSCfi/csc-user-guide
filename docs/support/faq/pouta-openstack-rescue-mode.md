@@ -253,21 +253,21 @@ You can boot a new machine and attach the volume to edit the files.
 
 1. SSH to the newly created machine and identify the volume. vdb1 is likely the partition you're looking for.
 
-   ```sh
-   $ lsblk
+    ```sh
+    $ lsblk
 
-   NAME    MAJ:MIN RM  SIZE RO TYPE MOUNTPOINTS
-   vda     253:0    0   80G  0 disk
-   ├─vda1  253:1    0   79G  0 part /
-   ├─vda14 253:14   0    4M  0 part
-   ├─vda15 253:15   0  106M  0 part /boot/efi
-   └─vda16 259:0    0  913M  0 part /boot
-   vdb     253:16   0   20G  0 disk
-   ├─vdb1  253:17   0   19G  0 part
-   ├─vdb14 253:30   0    4M  0 part
-   ├─vdb15 253:31   0  106M  0 part
-   └─vdb16 259:1    0  913M  0 part
-   ```
+    NAME    MAJ:MIN RM  SIZE RO TYPE MOUNTPOINTS
+    vda     253:0    0   80G  0 disk
+    ├─vda1  253:1    0   79G  0 part /
+    ├─vda14 253:14   0    4M  0 part
+    ├─vda15 253:15   0  106M  0 part /boot/efi
+    └─vda16 259:0    0  913M  0 part /boot
+    vdb     253:16   0   20G  0 disk
+    ├─vdb1  253:17   0   19G  0 part
+    ├─vdb14 253:30   0    4M  0 part
+    ├─vdb15 253:31   0  106M  0 part
+    └─vdb16 259:1    0  913M  0 part
+    ```
 
 1. Create a mount point and mount the partition
    
