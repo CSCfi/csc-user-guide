@@ -20,6 +20,9 @@ We will utilize the following technologies to install the remote desktop:
 
 ### Create and access your instance for remote desktop
 
+!!! Warning  
+    Do not use the `standard.tiny` flavor. As this flavor has only 1Go of RAM, noVNC cannot be installed
+
 1. Launch a standard-flavor instance with the Alamlinux-9 image.
 2. Attach a floating IP to the instance.
 3. In the security rules allow ingress ssh (port 22).
