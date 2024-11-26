@@ -35,7 +35,7 @@ With the SD Desktop service, you can create virtual computers for analysing sens
 | **Big Picture project**| This option is available only upon request. Please contact servicedesk@csc.fi  (subject 'SD Desktop') before creation to confirm availability and receive further details |  |  |  |
 
 !!! note
-    All virtual GPU desktops created without prior approval will be deleted to ensure optimal use of limited GPU resources. Please contact the CSC Service Desk (subject "Sensitive Data") for more information and planning. The medium GPU computation option has been deprecated in October 2024. 
+    All virtual GPU desktops created **without prior approval** will be deleted to ensure optimal use of limited resources. Please contact servicedesk@csc.fi (subject "Sensitive Data") for more information and planning. The medium GPU computation option has been deprecated in October 2024. 
 
 ### 3. Add an external volume (virtual external hard drive)
 
