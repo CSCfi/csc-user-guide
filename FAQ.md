@@ -156,7 +156,7 @@ This user guide uses [MkDocs](https://www.mkdocs.org/) to generate documentation
 
 #### Venv
 
-If you have at least Python 3.8 (at the time of writing) installed (see other option, Conda, below if not), you can create a new virtual environment with
+If you have a suitable Python version (i.e. equal or greater to the one defined in the latest Conda environment file [symlinked here](development/conda-docs-base-latest.yaml); see [Conda](#conda) below, if not) installed, you can create a new virtual environment with
 
 ```bash
 python -m venv docs-env
@@ -168,7 +168,10 @@ activate it with
 source docs-env/bin/activate
 ```
 
-(on Windows, use `docs-env\Scripts\activate.bat` or `docs-env\Scripts\activate.ps1`) and upgrade Pip with
+> [!NOTE]
+> On Windows, use `docs-env\Scripts\activate.ps1` with _PowerShell_, or `docs-env\Scripts\activate.bat` with _cmd_.
+
+and upgrade Pip with
 
 ```bash
 pip install --upgrade pip
@@ -398,4 +401,4 @@ search:
 ...
 ```
 Start with low values.  
-More information [here](https://squidfunk.github.io/mkdocs-material/setup/setting-up-site-search/#rank-up)
+More information [here](https://squidfunk.github.io/mkdocs-material/setup/setting-up-site-search/#usage)
