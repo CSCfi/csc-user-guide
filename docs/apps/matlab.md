@@ -176,6 +176,12 @@ We can configure MPS on a local computer using the following instructions.
 
 
 #### Linux and MacOS
+Step 2: Run in shell:
+
+```bash
+curl --location --output "$HOME/Downloads/mps_puhti.zip" https://github.com/CSCfi/csc-env-matlab/raw/refs/heads/main/config/mps_puhti.zip
+```
+
 Step 3: Run in shell:
 
 ```bash
@@ -184,7 +190,7 @@ mkdir -p "$HOME/.matlab"
 
 Step 4: Run in shell:
 ```bash
-unzip "$HOME/Downloads/mps_puhti.zip" -d "$HOME/.matlab"
+unzip "$HOME/Downloads/mps_puhti.zip" -d "$HOME/.matlab/mps_puhti"
 ```
 
 Step 5: Run in MATLAB:
@@ -199,6 +205,12 @@ configCluster
 ```
 
 #### Windows
+Step 2: Run in Windows Powershell:
+
+```powershell
+Invoke-WebRequest -Uri "https://github.com/CSCfi/csc-env-matlab/raw/refs/heads/main/config/mps_puhti.zip" -OutFile "$env:USERPROFILE\Downloads\mps_puhti.zip"
+```
+
 Step 3: Run in Windows Powershell:
 
 ```powershell
@@ -207,7 +219,7 @@ New-Item -Path "$env:APPDATA\Mathworks\MATLAB" -ItemType Directory -Force
 
 Step 4: Run in Windows Powershell:
 ```powershell
-Expand-Archive -Path "$env:USERPROFILE\Downloads\mps_puhti.zip" -DestinationPath "$env:APPDATA\Mathworks\MATLAB"
+Expand-Archive -Path "$env:USERPROFILE\Downloads\mps_puhti.zip" -DestinationPath "$env:APPDATA\Mathworks\MATLAB\mps_puhti"
 ```
 
 Step 5: Run in MATLAB:
