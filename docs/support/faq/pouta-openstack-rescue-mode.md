@@ -243,9 +243,9 @@ You can boot a new machine and attach the volume to edit the files.
 
 1. Delete the machine that boots from the volume
 
-   ```sh
-   $ openstack server delete $INSTANCE_UUID
-   ```
+    ```sh
+    $ openstack server delete $INSTANCE_UUID
+    ```
 
 1. Create a new machine (boot from an image) and attach the volume
 
