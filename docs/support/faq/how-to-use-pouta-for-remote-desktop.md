@@ -20,7 +20,7 @@ We will utilize the following technologies to install the remote desktop:
 
 ### Create and access your instance for remote desktop
 
-1. Launch a standard-flavor instance with the Alamlinux-9 image.
+1. Launch a standard-flavor instance with the Almalinux-9 image.
 2. Attach a floating IP to the instance.
 3. In the security rules allow ingress ssh (port 22).
 4. We will ssh into the instance with this command and create a ssh-tunnel.
