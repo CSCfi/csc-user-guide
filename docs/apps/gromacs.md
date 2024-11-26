@@ -17,11 +17,6 @@ with plenty of analysis scripts.
 === "Puhti"
     | Version | Available modules | Notes |
     |:-------:|:------------------|:-----:|
-    |2020.5   |`gromacs/2020.5`
-    |2020.7   |`gromacs/2020.7`
-    |2021.4   |`gromacs/2021.4-plumed`|Module with Plumed available
-    |2021.5   |`gromacs/2021.5`<br>`gromacs/2021.5-cuda`|GPU-enabled module available
-    |2021.6   |`gromacs/2021.6`
     |2022.2   |`gromacs/2022.2`<br>`gromacs/2022.2-cuda`|GPU-enabled module available
     |2022.3   |`gromacs/2022.3`<br>`gromacs/2022.3-cuda`|GPU-enabled module available
     |2022.4   |`gromacs/2022.4`<br>`gromacs/2022.4-cuda`|GPU-enabled module available
@@ -31,16 +26,11 @@ with plenty of analysis scripts.
     |2024.1   |`gromacs/2024.1`
     |2024.2   |`gromacs/2024.2`
     |2024.3   |`gromacs/2024.3`
+    |2024.4   |`gromacs/2024.4`
 
 === "Mahti"
     | Version | Available modules | Notes |
     |:-------:|:------------------|:-----:|
-    |2020.4   |`gromacs/2020.4-plumed`|Module with Plumed available
-    |2020.5   |`gromacs/2020.5`
-    |2021.3   |`gromacs/2021.3`
-    |2021.4   |`gromacs/2021.4-plumed`|Module with Plumed available
-    |2021.5   |`gromacs/2021.5`
-    |2022     |`gromacs/2022`<br>`gromacs/2022-cp2k`|Module with CP2K available for QM/MM
     |2022.1   |`gromacs/2022.1`<br>`gromacs/2022.1-cp2k`|Module with CP2K available for QM/MM
     |2022.2   |`gromacs/2022.2`<br>`gromacs/2022.2-cuda`|GPU-enabled module available
     |2022.3   |`gromacs/2022.3`<br>`gromacs/2022.3-cuda`|GPU-enabled module available
@@ -52,6 +42,7 @@ with plenty of analysis scripts.
     |2024.1   |`gromacs/2024.1`
     |2024.2   |`gromacs/2024.2`
     |2024.3   |`gromacs/2024.3`
+    |2024.4   |`gromacs/2024.4`
 
 === "LUMI"
     | Version | Available modules | Notes |
@@ -59,6 +50,7 @@ with plenty of analysis scripts.
     |2023.3   |`gromacs/2023.3`<br>`gromacs/2023.3-gpu`|GPU-enabled module available
     |2024.2   |`gromacs/2024.2`<br>`gromacs/2024.2-gpu`<br>`gromacs/2024.2-heffte`|GPU-enabled module available<br>Module with heFFTe available for [GPU PME decomposition](#gpu-pme-decomposition)
     |2024.3   |`gromacs/2024.3`<br>`gromacs/2024.3-gpu`<br>`gromacs/2024.3-heffte`|GPU-enabled module available<br>Module with heFFTe available for [GPU PME decomposition](#gpu-pme-decomposition)
+    |2024.4   |`gromacs/2024.4`<br>`gromacs/2024.4-gpu`|GPU-enabled module available
 
 - Puhti and Mahti have also `gromacs-env/<year>` modules for loading the
   recommended latest minor version from each year (replace `<year>`
@@ -271,7 +263,7 @@ on the GROMACS page.
     #SBATCH --cpus-per-task=7
 
     module use /appl/local/csc/modulefiles
-    module load gromacs/2024.3-gpu
+    module load gromacs/2024.4-gpu
 
     export OMP_NUM_THREADS=${SLURM_CPUS_PER_TASK}
 
@@ -290,7 +282,7 @@ on the GROMACS page.
     #SBATCH --ntasks-per-node=8
 
     module use /appl/local/csc/modulefiles
-    module load gromacs/2024.3-gpu
+    module load gromacs/2024.4-gpu
 
     export OMP_NUM_THREADS=7
 
@@ -384,7 +376,9 @@ export GMX_PMEONEDD=1
 
 The number of PME ranks to use depends on the specific case, but 1 or 2 per GPU
 *node* should be a reasonable starting point. So for 16 LUMI-G nodes, try
-`-npme 16` or `-npme 32`.
+`-npme 16` or `-npme 32`. An example benchmark is shown below.
+
+![Scalability of benchPEP-h](../img/benchpep-h.png 'Scalability of benchPEP-h')
 
 ### Visualization and analysis
 

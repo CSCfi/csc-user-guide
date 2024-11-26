@@ -14,6 +14,7 @@ system:
 
 __Zonation__ is available in Puhti with following versions:
 
+* 5.2.1 (including Graphical User Interface)
 * 5.2.0.2 (including Graphical User Interface)
 * 5.1.0 (including Graphical User Interface)
 
@@ -26,6 +27,9 @@ Zonation is available in the __zonation__ module:
 module load zonation
 z5 <command arguments>
 ```
+
+With version 5.2.1 you can also use `zonation5 <command arguments>`
+
 Zonation can be used in Puhti with command-line or graphical interface, as interactive job or with batch system. In any case reserve suitable amount of computing resources: cores and memory. Zonation 5 runs faster, if it can use several cores. In Puhti, it can use one node, which is max 40 cores.  
 
 Before starting Zonation, move your data to your project's __scratch__ folder. For testing, [zonation5-tutorial data](https://github.com/zonationteam/Zonation5/releases/download/v1.0/manual_and_example_setups.zip) can be used.
@@ -82,10 +86,12 @@ As an example, you can write "The authors wish to thank CSC - IT Center for Scie
 
 ## Installation
 
-Zonation was installed to Puhti with Apptainer using [Zonation Apptainer definition file written by Pauli Lehtinen from University of Helsinki](https://raw.githubusercontent.com/CSCfi/singularity-recipes/main/zonation/zonation5.def). 
+Zonation was installed to Puhti with Apptainer using [Zonation Apptainer definition files](https://github.com/CSCfi/singularity-recipes/tree/main/zonation) written by Pauli Lehtinen from University of Helsinki with slight modifications. 
 
-The container was finally wrapped with [Tykky's wrap-container functionality](../computing/containers/tykky.md#container-based-installations): `wrap-container -w /squashfs-root/usr/bin/z5 --prefix install_dir z5.sif`
+The container was finally wrapped with [Tykky's wrap-container functionality](../computing/containers/tykky.md#container-based-installations): 
+`wrap-container -w /squashfs-root/AppRun --prefix install_dir zonation5_v2.1.sif`
 
+Symbolic links added for `z5` and `zonation5` to work as starting commands.
 
 ## References
 

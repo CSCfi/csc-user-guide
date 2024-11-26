@@ -1,5 +1,38 @@
 # Applications
 
+## GROMACS 2024.4, 7.11.2024
+
+[GROMACS](../../apps/gromacs.md) 2024.4 is now available on Puhti, Mahti and LUMI.
+See [release notes](https://manual.gromacs.org/2024.4/release-notes/2024/2024.4.html)
+for a list of all new features and improvements.
+
+## Schrödinger Maestro 2024.4, 5.11.2024
+
+[Schrödinger Maestro](../../apps/maestro.md) version 2024.4 has been installed
+and set as the default module on Puhti and Mahti. See
+[release notes](https://www.schrodinger.com/life-science/download/release-notes/)
+for a list of new features and improvements.
+
+## JAX 0.4.30 available on LUMI, 23.10.2024
+
+[JAX](../../apps/jax.md) 0.4.30 has now been installed on LUMI
+and set as the default version, after previously being made
+available on Puhti and Mahti. The installation on LUMI now
+makes use of the new AMD drivers and ROCM 6.0.3 installed with
+the LUMI system upgrade during September.
+
+The `transformers` package is no longer included since it
+officially only supports JAX up to version 0.4.13.
+
+From this version on, there will be "small" and "full"
+flavours of JAX, where the "full" flavour includes JAX ML
+ecosystem packages as before while the "small" flavour
+includes only JAX with GPU support as well as CPU-only
+versions of Tensorflow and PyTorch for their data loading and
+processing utilities but no additional packages. You can use
+the latter if you want a cleaner base to install additional
+packages on.
+
 ## NAMD 3.0 available on Puhti and Mahti, 11.10.2024
 
 [NAMD](../../apps/namd.md) 3.0 has been installed and set as the default
@@ -36,8 +69,8 @@ performance and less bugs than older releases.
 ## PyTorch 2.4.1 available on LUMI, 19.9.2024
 
 PyTorch 2.4.1 with ROCm 6.1 is now available on LUMI. The LUMI PyTorch
-module now includes [vLLM version 0.5.5](https://docs.vllm.ai/en/latest/) 
-in addition to FlashAttention-2, bitsandbytes and many other frequently 
+module now includes [vLLM version 0.5.5](https://docs.vllm.ai/en/latest/)
+in addition to FlashAttention-2, bitsandbytes and many other frequently
 requested packages already added included in earlier installations.  See our
 [PyTorch module documentation for more information](../../apps/pytorch.md#available).
 
@@ -52,7 +85,7 @@ for a list of all new features and improvements.
 [JAX](../../apps/jax.md) 0.4.30 has been installed on Puhti and Mahti
 and set as the default version.
 
-The `transformers` package is no longer included since it officially 
+The `transformers` package is no longer included since it officially
 only supports JAX up to version 0.4.13.
 
 From this version on, there will be "small" and "full" flavours of JAX,
@@ -215,7 +248,7 @@ performance.
 ## TmoleX 2024, 9.2.2024
 
 [TmoleX](../../apps/tmolex.md) has been updated and is now also available via
-the web interface on Puhti. 
+the web interface on Puhti.
 
 ## TURBOMOLE 7.8, 8.2.2024
 
@@ -234,16 +267,16 @@ for a list of new features and improvements.
 ## ORCA 5.0.4, 7.2.2024
 
 [ORCA](../../apps/orca.md) 5.0.4 is now available on Puhti and Mahti. It's a bugfix release including corrections for the bug in the D4 implementation.
-Please note the change in how it's launched in a batch script. 
+Please note the change in how it's launched in a batch script.
 
 ## R 4.3.2 in r-env, 2.2.2024
-	
+
 R version 4.3.2 is now available in [r-env](../../apps/r-env.md) and is set as the default version. The new version will also be available in RStudio in the Puhti web interface shortly.
 
 ## COSMO-RS, 30.1.2024
 
 [COSMO-RS](../../apps/cosmors.md) is a new tool for modelling fluid phase properties,
-based on quantum chemistry derived properties. 
+based on quantum chemistry derived properties.
 It consists of the BIOVIA COSMOsuite toolbox and can be utilized in combination with
 [TURBOMOLE](../../apps/turbomole.md).
 
@@ -265,7 +298,7 @@ GPU-enabled modules on LUMI are simply suffixed with `-gpu` to avoid confusion.
 ## PyTorch 2.1 and TensorFlow 2.14, 13.11.2023
 
 [PyTorch](../../apps/pytorch.md) 2.1 and
-[TensorFlow](../../apps/tensorflow.md) 2.14 are now available on Puhti and Mahti. 
+[TensorFlow](../../apps/tensorflow.md) 2.14 are now available on Puhti and Mahti.
 See [PyTorch 2.1 blog post](https://pytorch.org/blog/pytorch-2-1/) or the
 [TensorFlow 2.14 release notes](https://github.com/tensorflow/tensorflow/releases/tag/v2.14.0).
 
@@ -320,7 +353,7 @@ the [GROMACS manual](https://manual.gromacs.org/2023.2/release-notes/2023/2023.2
 [the CP2K website](https://www.cp2k.org/version_history#section20232).
 
 ## R 4.3.0 in r-env, 20.6.2023
-	
+
 R version 4.3.0 is now available in `r-env` and is set as the default version. The new version will also be available in RStudio in the Puhti web interface shortly.
 
 ## Gromacs 2023.1 available on LUMI, 7.6.2023
@@ -334,7 +367,7 @@ have also been updated and the
 using the built-in `multidir` feature extended and adapted for LUMI-G.
 
 ## R 4.2.2 in r-env, 26.5.2023
-	
+
 R version 4.2.2 is now available in `r-env` and is set as the default version. The new version will also be available in RStudio in the Puhti web interface shortly.
 
 ## Schrödinger Maestro 2023.2, 25.5.2023
@@ -364,7 +397,7 @@ developers.
 ## PyTorch 2.0 and TensorFlow 2.12, 27.3.2023
 
 [PyTorch](../../apps/pytorch.md) 2.0 and
-[TensorFlow](../../apps/tensorflow.md) 2.12 are now available on Puhti and Mahti. 
+[TensorFlow](../../apps/tensorflow.md) 2.12 are now available on Puhti and Mahti.
 See [PyTorch 2.0 blog post](https://pytorch.org/blog/pytorch-2.0-release/) or the
 [TensorFlow 2.12 release notes](https://github.com/tensorflow/tensorflow/releases/tag/v2.12.0).
 

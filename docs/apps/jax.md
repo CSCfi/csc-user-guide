@@ -15,9 +15,9 @@ Currently supported JAX versions:
 
 | Version | Module             | Puhti   | Mahti   | LUMI       | Notes          |
 |:-------:|--------------------|:-------:|:-------:|:----------:|----------------|
-| 0.4.30  | `jax/0.4.30`       | default | default | -          | all packages   |
-| 0.4.30  | `jax/0.4.30-small` | X       | X       | -          | framework only |
-| 0.4.23  | `jax/0.4.23-py3.9` | X       | X       | default*   |                |
+| 0.4.30  | `jax/0.4.30`       | default | default | default    | all packages   |
+| 0.4.30  | `jax/0.4.30-small` | X       | X       | X*         | framework only |
+| 0.4.23  | `jax/0.4.23-py3.9` | X       | X       | X*         |                |
 | 0.4.20  | `jax/0.4.20`       | X       | X       | X*         |                |
 | 0.4.18  | `jax/0.4.18`       | -       | -       | X*         |                |
 | 0.4.14  | `jax/0.4.14`       | X       | X       | -          |                |
@@ -30,8 +30,8 @@ with GPU support via CUDA/ROCm as well as a large list of additional python pack
 
 **Versions in LUMI, marked as "*" are still experimental with limited
 support.** Some of the features described below might not work for them.
-They are subject to change at any time without notice. Note that JAX is
-also available in the [LUMI Software Library](https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/j/jax/).
+Note that JAX is also available in the [LUMI Software Library](https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/j/jax/)
+maintained by the LUMI User Support Team (and not CSC research support).
 
 Since version 0.4.30, the JAX module comes in two flavours:
 

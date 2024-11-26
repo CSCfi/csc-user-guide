@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 source_dir="csc-overrides/assets/snippets/glossaries"
 glossary_dir="docs/support"
 generated_file="$glossary_dir/glossary.md"

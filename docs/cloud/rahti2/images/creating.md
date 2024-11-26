@@ -242,7 +242,7 @@ Deploying a private Git repository to Rahti involves setting up the necessary au
 
 This assumes that the users has generated SSH keys and registered their public key with GitHub.
 
- 
+
 **[Log into OpenShift CLI (`oc`)](../usage/cli.md#how-to-login-with-oc)**:
 
 ```bash
@@ -280,12 +280,12 @@ oc new-app <repository-url> --name=<application-name>
   ```bash
   oc logs -f buildconfig.build.openshift.io/<application-name>
   ```
-        
+
 - The initial build will probably fail due to authentication issues, set the build secret explicitly:
   ```bash
   oc set build-secret --source bc/<application-name> <secret-name>
   ```
-        
+
 - Trigger a new build:
   ```bash
   oc start-build <application-name> --follow
@@ -297,7 +297,7 @@ oc new-app <repository-url> --name=<application-name>
 oc expose deployment <application-name> --name=<service-name> --port=<port> --target-port=<target-port>
 oc expose svc/<service-name>
 ```
-    
+
 **Access the Application**:
 
 - Use the URL provided by:
@@ -309,17 +309,17 @@ oc expose svc/<service-name>
 
 If your build fails in Rahti 2, it could mean that your application needs more memory than is provided by default. Unfortunately, it's not possible to set resource limits and requests directly from the CLI when deploying the app. You will need to use a YAML configuration file or the web UI to specify these settings.
 
-You can create a yaml file and then apply it with the command `oc apply -f {your_yaml_file}.yaml` or edit your current `BuildConfig` in the Rahti 2 webUI.  
-In the Administrator view, navigate to `Builds > BuildConfigs` and click on your BuildConfig. Select the `YAML` tab.  
+You can create a yaml file and then apply it with the command `oc apply -f {your_yaml_file}.yaml` or edit your current `BuildConfig` in the Rahti 2 webUI.
+In the Administrator view, navigate to `Builds > BuildConfigs` and click on your BuildConfig. Select the `YAML` tab.
 
 Under `spec` you should see `resources: {}`. From here, add `limits.cpu`, `limits.memory`, `requests.cpu` and `requests.memory`:
 ```yaml
 resources:
   limits:
-    cpu: 400m
+    cpu: 1
     memory: 8Gi
   requests:
-    cpu: 50m
+    cpu: 200m
     memory: 1600Mi
 ```
 

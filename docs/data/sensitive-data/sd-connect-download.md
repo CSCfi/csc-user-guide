@@ -1,5 +1,7 @@
 # Downloading folders and files
 
+<iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/SMnEkcS_HJw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 You can download folders or individual files from SD Connect. Files and folders are automatically decrypted during download.
 
 ## Downloading folder
@@ -20,9 +22,7 @@ You can download folders or individual files from SD Connect. Files and folders 
 
 ## Limitations
 
-Files uploaded before October 2024 can be downloaded but require manual decryption, please follow the [manual decryption instructions](sd-connect-download-old-version.md).
-
-<iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/SMnEkcS_HJw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+* Files uploaded before October 2024 can be downloaded but require manual decryption, please follow the [manual decryption instructions](sd-connect-download-old-version.md).
 
 ## Features in SD Connect
 

@@ -93,6 +93,10 @@ sidebar.
   * Use the `title` to describe the content of the video.
   * Use of `srcdoc` is also required instead of plain `src` to avoid cookies if consent has not been granted.
 
+## How to embed a diagram from _draw.io_?
+
+Diagrams from [draw.io](https://draw.io) can be embedded as iframes by selecting _File -> Embed -> IFrame..._. As with [videos](#how-to-embed-an-external-video), the iframe `src` attribute needs to be renamed to `srcdoc`, but no further changes are necessary. An example can be found in the [Markdown source of the Reference card](docs/ref.md#drawio).
+
 ## How to add links?
 
 Links are added using the markdown syntax `[This is my link text](link url or path)`. Whether to use a URL or path depends on if your link is *internal*, i.e. it points to another page within Docs CSC, or *external*. For internal links use relative paths, for example:
@@ -119,21 +123,22 @@ Common issues:
 Tests are run to check, for example, that your pull request complies with the CSC Docs style guide and that there are no broken links. If any such errors are found in your commits, the tests will not pass and you need to figure out what went wrong:
 
 1. Find out which tests did not pass under the notification `Some checks were not successful` in the Review-dialogue (marked with a red x and text `Failing after X - Build Failed`).
-2. To the right of the failed test, click `Details`, which opens the `Checks` tab.
-3. Under the `Build Failed` section, click the link at `The build failed` to open the Travis CI page with logged details on the build.
-4. Scan through the Job log for any text marked in red. These are errors that the test found, and the reason for them is written before the red text. 
-5. An example error is shown below. Here, the `link_check.py` test script was run to see whether any links were broken. The test found two broken section links and it tells you in which files and on which lines the errors are.
+1. To the right of the failed test, click `Details`, which opens the `Checks` tab.
+1. Under the `Build Failed` section, click the link at `The build failed` to open the Travis CI page with logged details on the build.
+    - Alternatively, look for your PR in the [list of csc-user-guide pull requests at Travis CI](https://app.travis-ci.com/github/CSCfi/csc-user-guide/pull_requests).
+1. Scan through the Job log for any text marked in red. These are errors that the test found, and the reason for them is written before the red text.
+1. An example error is shown below. Here, the `link_check.py` test script was run to see whether any links were broken. The test found two broken section links and it tells you in which files and on which lines the errors are.
 
-```console
-$ python3 tests/python_link_tests/link_check.py
-The section link namd.md#batch-script-example-for-mahti in file docs/apps/namd.md on line 33 is broken
-The section link cp2k.md#example-batch-script-for-mahti-using-mixed-mpi-openmp-parallelization in file docs/apps/cp2k.md on line 81 is broken
-No broken file links found
-No hidden files found
-The command "python3 tests/python_link_tests/link_check.py" exited with 1.
-```
+    ```console
+    $ python3 tests/python_link_tests/link_check.py
+    The section link namd.md#batch-script-example-for-mahti in file docs/apps/namd.md on line 33 is broken
+    The section link cp2k.md#example-batch-script-for-mahti-using-mixed-mpi-openmp-parallelization in file docs/apps/cp2k.md on line 81 is broken
+    No broken file links found
+    No hidden files found
+    The command "python3 tests/python_link_tests/link_check.py" exited with 1.
+    ```
 
-6. Fix the errors, commit and push the revised files to the same branch and the tests should now pass.
+1. Fix the errors, commit and push the revised files to the same branch and the tests should now pass.
 
 ## How can I preview my edits?
 
@@ -151,7 +156,7 @@ This user guide uses [MkDocs](https://www.mkdocs.org/) to generate documentation
 
 #### Venv
 
-If you have at least Python 3.8 (at the time of writing) installed (see other option, Conda, below if not), you can create a new virtual environment with
+If you have a suitable Python version (i.e. equal or greater to the one defined in the latest Conda environment file [symlinked here](development/conda-docs-base-latest.yaml); see [Conda](#conda) below, if not) installed, you can create a new virtual environment with
 
 ```bash
 python -m venv docs-env
@@ -163,7 +168,10 @@ activate it with
 source docs-env/bin/activate
 ```
 
-(on Windows, use `docs-env\Scripts\activate.bat` or `docs-env\Scripts\activate.ps1`) and upgrade Pip with
+> [!NOTE]
+> On Windows, use `docs-env\Scripts\activate.ps1` with _PowerShell_, or `docs-env\Scripts\activate.bat` with _cmd_.
+
+and upgrade Pip with
 
 ```bash
 pip install --upgrade pip
@@ -177,13 +185,21 @@ pip install -r requirements.txt
 
 #### Conda
 
-Detailed instructions for installing Conda on Windows are found [here](GETTING_STARTED.md#setting-up-a-development-environment-on-windows), but the gist of it, regardless of the operating system used, is to install [Miniconda](https://docs.conda.io/projects/miniconda/en/latest/) and to use it to create the virtual environment. So, with Miniconda installed, an environment containing everything needed to run MkDocs can be created by running the command
+Detailed instructions for installing Conda on Windows are found [here](GETTING_STARTED.md#setting-up-a-development-environment-on-windows), but the gist of it, regardless of the operating system used, is to install [Miniconda](https://docs.conda.io/projects/miniconda/en/latest/), use it to create a virtual environment to install the requirements in. So, with Miniconda installed, an environment to run MkDocs in can be created by running the command
 
 ```bash
-conda env create -f docs/support/tutorials/conda/conda-docs-env-freeze.yaml
+conda env create -f development/conda-docs-base-latest.yaml
 ```
 
-Add a `--force` flag if you already have a Conda environment named `docs-env` (you got `CondaValueError: prefix already exists: [...]`) and want to overwrite it. Activate the new environment with
+Add a `--force` flag if you already have a Conda environment named `docs-env` (you got `CondaValueError: prefix already exists: [...]`) and want to overwrite it. The environment is now ready for installing the requirements.
+
+```bash
+conda run -n docs-env pip install -r requirements.txt
+```
+
+If you want to reinstall the dependencies, add a `--force-reinstall` flag to the Pip command.
+
+Activate the new environment with
 
 ```bash
 conda activate docs-env
@@ -213,7 +229,7 @@ You can also run the tests locally with
 bash tests/run_tests.sh
 ```
 
-The tests depend on the Conda environment, so remember to activate it before running them.
+The tests depend on the Conda environment, so remember to activate it before running them, or use `conda run -n docs-env bash tests/run_tests.sh`.
 
 #### Scripts
 
@@ -385,4 +401,4 @@ search:
 ...
 ```
 Start with low values.  
-More information [here](https://squidfunk.github.io/mkdocs-material/setup/setting-up-site-search/#rank-up)
+More information [here](https://squidfunk.github.io/mkdocs-material/setup/setting-up-site-search/#usage)

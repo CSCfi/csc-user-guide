@@ -15,7 +15,7 @@ Currently supported [cirq-on-iqm](https://iqm-finland.github.io/cirq-on-iqm/) ve
 
 | Version | Module                               | LUMI  | Notes           |
 |:--------|:-------------------------------------|:-----:|-----------------|
-| 14.0    | `helmi_cirq/14.0`                    | X     |                 |
+| 15.1    | `helmi_cirq/15.1`                    | X     |                 |
 
 
 All modules are based on Tykky using LUMI-container-wrapper.
@@ -64,6 +64,7 @@ Example batch script for running a quantum job on Helmi:
 #SBATCH --partition=q_fiqci     # Partition (queue) name
 #SBATCH --ntasks=1              # One task (process)
 #SBATCH --cpus-per-task=1       # Number of cores (threads)
+#SBATCH --mem-per-cpu=1G        # Memory allocation
 #SBATCH --time=00:15:00         # Run time (hh:mm:ss)
 #SBATCH --account=project_xxx   # Project for billing
 

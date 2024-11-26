@@ -3,7 +3,7 @@
 
 ## Use case
 
-You need to access to SD services. You are manager of research team or work independently.
+You need to access to SD services for processing research data. You are manager of research team or work independently.
 
 ## Solution
 
@@ -16,19 +16,21 @@ You need to access to SD services. You are manager of research team or work inde
 7. [If you have a research team, add them to be your project members](#7-if-you-have-a-research-team-add-them-to-be-your-project-members)
 8. [Closing your project and data retention](#8-closing-your-project-and-data-retention)
 9. [Log into SD Services](#9-log-into-sd-services)
-    
+
 ![How to get started as project manager.](images/MyCSC/HowToGetStarted_SD_Project_Manager.png)
 
+!!! Note
+    The default lifetime of a CSC project is one year. All data stored in SD Connect or SD Desktop, including files, virtual desktops and volumes, will be permanently deleted 90 days after the project closure/ expiration.
 
 ## Step by step tutorial
 
 ### 1. Create a CSC account
-    
+
 - **Go to [MyCSC portal](https://my.csc.fi){ target="_blank" }**
-- Log in with Virtu or Haka depending on which federation your home organization is a member of. Select your home organization and log in to their identity service. [How to get an account without Haka or Virtu](../../accounts/how-to-create-new-user-account.md#getting-an-account-without-haka-or-virtu). 
+- Log in with Virtu or Haka depending on which federation your home organization is a member of. Select your home organization and log in to their identity service. [How to get an account without Haka or Virtu](../../accounts/how-to-create-new-user-account.md#getting-an-account-without-haka-or-virtu).
 - Fill in your information on the Sign up page.
 - Set your password using 12 characters or more, containing both upper and lowercase letters and at least one number. No special characters are allowed.
- - You will receive your CSC user account confirmation via email.
+    - You will receive your CSC user account confirmation via email.
 
 ### 2. Create new CSC project
 
@@ -37,12 +39,11 @@ You need to access to SD services. You are manager of research team or work inde
 - Fill in the project name and project description. You can edit these later if needed.
 - Choose the Project category to be **“Academic”** (if you are a researcher and a member of Finnish higher education institution)
 - If your project involves handling personal data, choose "Yes" for the field: **We handle personal data in this project**.
-- Next, under Terms of Use, ensure you meet the **Prerequisites and Responsibilities** to be a CSC Project Manager. For research projects, the Project Manager should be an experienced researcher (e.g., postdoc, group leader, professor, or doctoral researcher employed by a research organization). **Note for Students:** If you are a student, please have your supervisor create the CSC project or contact us at servicedesk@csc.fi (subject: sensitive data) for assistance. Is is not possible to access SD Services with a student account.
+- Next, under Terms of Use, ensure you meet the **Prerequisites and Responsibilities** to be a CSC Project Manager. For research projects, the Project Manager should be an experienced researcher (e.g., postdoc, group leader, professor, or doctoral researcher employed by a research organization). **Note for Students:** If you are a student, please have your supervisor create the CSC project or [contact CSC Service Desk](../../support/contact.md) (subject: sensitive data) for assistance. It is not possible to access SD Services with a student account.
 - Finally, read and accept the terms of use.
 - Click **“Create a project”**.
 
 ![Click create a project.](./images/MyCSC/MyCSC_NewProject.png)
-
 
 ### 3. Data protection
 
@@ -66,7 +67,6 @@ If you need assistance with the above points or support to verify if SD service 
 
 ![Personal data handling document.](https://a3s.fi/docs-files/sensitive-data/MyCSC/MyCSC_GDPR.png)
 
-
 ### 4. Activate SD Services for your project
 
 - Services are listed in **Services** window in the bottom right of the project page.
@@ -76,27 +76,33 @@ If you need assistance with the above points or support to verify if SD service 
 
 ![Add new services.](https://a3s.fi/docs-files/sensitive-data/MyCSC/MyCSC_AddServices.png)
 
-
 ### 5. Apply billing units for your project
 
-- CSC project consumes billing units (BU's).
-- All new academic CSC projects are initially granted 10 000 BU's, so you can get started. However, you should estimate how many BU’s your project will consume **during 1 year** and apply more if needed. When you start a new project, you should plan ahead for your project's billing unit and storage usage.
-- Use the billing unit calculator for estimating your billing unit consumption.
-- Apply more billing units by clicking **"Apply for resources"** in Resource applications window.
+The Billing Unit (BU) is CSC’s metric for tracking resource consumption for each CSC projects. As each service consumes billing units. When starting a project, consider your resource needs, including storage and billing units consumption. Each project starts with 10,000 billing units, typically enough for initial testing.
+
+You should estimate how many BU’s your project will consume **during 1 year** and apply more if needed. When you start a new project, you should plan ahead for your project's billing unit and storage usage.
+
+- See the table below for estimating your billing unit consumption.
+- Apply more billing units for your CCS project by clicking **"Apply for resources"** in Resource applications window.
 - You will get more info after your application to your MyCSC inbox.
-- You can always ask help from Service Desk _Subject: Sensitive Data_
+- You can always ask help from Service Desk _Subject: SD Services_
 
-Example using SD service for 6 months /one year:
+#### What happens if your project runs out of billing units?
 
-| **Desktop Option** | **Billing Units (6 Months)** | **Billing Units (1 Year)** |
-|--------------------|------------------------------|----------------------------|
-| Small Computation | 22,464 units | 44,928 units |
-| Medium Computation | 44,928 units | 89,856 units |
-| Heavy Computation | 224,640 units | 449,280 units |
-| Small GPU Computation | 518,400 units | 1,036,800 units |
-| Medium GPU Computation | 864,000 units | 1,728,000 units |
+Once all the billing units for your CSC project have been used up, **access to the SD Desktop service will be restricted**. This means that:
 
-Here’s a table summarizing the billing units required for storing data in **SD Connect/Allas** over **6 months** and **1 year** for various storage sizes:
+- all virtual desktops currently running will automatically be paused
+- you will not be able to access the virtual desktops content's or unpause them, until you have applied for more resources
+- your data remains unaffected and will not be deleted, even in cases where the total billing units reach zero or enter negative values.
+
+!!! Note
+    Each project member will receive a notification via email from the My CSC portal when the billing units for your CCS project are about to end.
+
+#### SD Connect BU consumption
+
+SD Connect stores data to Allas. Default storage space for SD Connect/Allas is 10 TB, which you can expand up to 200 TB as needed. If you need even more storage capacity, please contact service desk _(subject: Increase Allas quota)_. Storing data in SD Connect/Allas consumes billing units at a rate of **1 billing unit per TB per hour**. This means that storing 1 TB of data in SD Connect/Allas consumes 24 billing units daily and 8760 billing units annually.
+
+Here’s a table summarizing the billing units required for storing data in **SD Connect** over **6 months** and **1 year** for various storage sizes:
 
 | **Storage Size** | **Billing Units (6 Months)** | **Billing Units (1 Year)** |
 |------------------|------------------------------|----------------------------|
@@ -105,8 +111,21 @@ Here’s a table summarizing the billing units required for storing data in **SD
 | 10 TB | 43,200 units | 86,400 units |
 | 100 TB | 432,000 units | 864,000 units |
 
-![Click apply for resources.](./images/MyCSC/MyCSC_AddResources.png)
+#### SD Desktop BU consumption
 
+Analysing data in SD Desktop consumes billing units based on the type of virtual desktop used. Each virtual desktop can also have a volume (also called disk space), where files can be imported from SD Connect/SD Apply. The volume can be added only during desktop creation (up to 200 GB). If you need larger volume please contact service desk _(subject: Sensitive data)_.
+
+Here’s a table summarizing the billing units required for using **SD desktop** over **6 months** and **1 year** for various desktop options:
+
+| Desktop Option | Billing Rate (units/hour) | Billing Units (6 Months) | Billing Units (1 Year) |
+|----------------|---------------------------|--------------------------|------------------------|
+| Small Computation | 5.2 | 22,464 | 44,928 |
+| Medium Computation | 10.4 | 44,928 | 89,856 |
+| Heavy Computation | 52 | 224,640 | 449,280 |
+| Small GPU Computation | 120 | 518,400 | 1,036,800 |
+| Medium GPU Computation | 200 | 864,000 | 1,728,000 |
+
+![Click apply for resources.](./images/MyCSC/MyCSC_AddResources.png)
 
 ### 6. Activate MFA Authentication
 
@@ -119,7 +138,6 @@ Here’s a table summarizing the billing units required for storing data in **SD
 
 ![Multi-Factor Authentication.](./images/MyCSC/MyCSC_MFA.png)
 
-
 ### 7. If you have a research team, add them to be your project members
 
 - Go to project page and select the correct project (Left side menu or hamburger menu).
@@ -130,15 +148,19 @@ Here’s a table summarizing the billing units required for storing data in **SD
 
 ![Add project members.](./images/MyCSC/MyCSC_AddMembers.png)
 
-!!! Note 
-    You project members must also create a MyCSC user account (this happens when they apply membership to your project), activate the MFA and approve the terms of use of the services you have activated (SD Connect, SD Desktop).
-
+!!! Note
+    Each CSC project members must also create a MyCSC user account (this happens when they apply membership to your project), activate the MFA and approve the terms of use of the services you have activated (SD Connect, SD Desktop).
 
 ### 8. Closing your project and data retention
 
-- As a project manager you should familiarize yourself how to [close CSC project](sd-csc-project.md#closing-csc-project).
-- **All data in SD Connect and SD Desktop will be automatically deleted after 90 days after project closure.**
-- CSC projects must be renewed each year to help CSC monitor resources and ensure that all researchers have access to the services. Project members will receive reminders about the project's expiration. If a CSC project expires, you will be notified. You can also directly close your project after completing your research.
+The default lifetime of a CSC project is one year, after which it will be automatically closed and all data deleted. As a project manager, you can either extend the project duration or directly close your project after completing your research.  As a project manager you should familiarize yourself how to [close CSC project](../../accounts/how-to-manage-your-project.md#project-closure) via the MyCSC portal.
+
+- You will receive an email notification from the MyCSC portal when your project is about to expire. Please keep your contact information up to date in MyCSC to ensure you receive this notification.
+- After the project is closed, access to SD Connect and SD Desktop services will be disabled.
+- All data stored in SD Connect or SD Desktop, including files, virtual desktops, and volumes, **will be permanently deleted 90 days after the project closure/ expiration**.
+
+!!! Note
+    Once data is deleted in line with CSC's data retention policy, it cannot be restored or recovered.
 
 ### 9. Log into SD Services
 
