@@ -88,7 +88,7 @@ If you think that some important GIS package for Python is missing from here, yo
 
 The `geoconda` module is available:
 
-* 3.11.10 (Python 3.11.10, PDAL 2.8.0, GDAL 3.9.2, created November 2024), in Puhti.
+* 3.11.10 (Python 3.11.10, PDAL 2.8.0, GDAL 3.9.2, created November 2024), in Puhti and LUMI.
 * 3.11.9 (Python 3.11.9, PDAL 2.7.2, GDAL 3.9.1, created August 2024), in Puhti and Mahti.
 * 3.10.9 (Python 3.10.9, PDAL 2.5.2, GDAL 3.6.2, created March 2023), in Puhti.
 * 3.10.6 (Python 3.10.6, PDAL 2.4.1, GDAL 3.5.0, created September 2022), in Puhti and Mahti.
@@ -96,6 +96,8 @@ The `geoconda` module is available:
 Version number is the same as the Python version.
 
 ## Usage
+
+### Puhti
 
 For using Python packages and other tools listed above, you can initialize them with:
 
@@ -137,6 +139,50 @@ module load geoconda
 spyder
 ```
 
+### LUMI
+
+For using Python packages and other tools listed above, you can initialize them with:
+
+```bash
+module use /appl/local/csc/modulefiles
+module load geoconda
+```
+By default the latest geoconda module is loaded. If you want a specific version you can specify the version number of geoconda:
+
+```bash
+module use /appl/local/csc/modulefiles
+module load geoconda/[VERSION]
+```
+
+To check the exact packages and versions included in the loaded module:
+
+```bash
+list-packages
+```
+ 
+You can add more Python packages to `geoconda` by following the instructions in
+our
+[Python usage guide](../support/tutorials/python-usage-guide.md#installing-python-packages-to-existing-modules).
+
+You can edit your Python code in LUMI with:
+
+* [Visual Studio Code in Puhti web interface](../computing/webinterface/vscode.md), 
+* [Visual Studio Code on your local laptop](../support/tutorials/remote-dev.md),
+* [Jupyter Notebook or Lab in Puhti web interface](../computing/webinterface/jupyter.md) or 
+* Spyder in [Puhti web interface with remote desktop](../computing/webinterface/desktop.md).
+
+To open Spyder in LUMI web interface with remote desktop:
+
+1. Log in to [LUMI web interface](https://www.lumi.csc.fi/).
+2. Open Remote desktop: Apps -> Desktop. 
+3. After launching the remote desktop, open `Terminal Emulator` from the Menu in the bottom left corner and start Spyder:
+
+```bash
+module use /appl/local/csc/modulefiles
+module load geoconda
+spyder
+```
+
 ### r5py memory settings
 `r5py` by default does not correctly understand how much memory it has available in a supercomputer so, it has to be defined manually. It is using Java in the background, so add environmental variable to set maximum memory available for Java: 
 
@@ -165,7 +211,6 @@ ee.Authenticate()
 ```
 
 This prints out a long link and asks for a code. Copy the link to the Web Browser and open the Google log-in page. Log-in and copy the created code back to Python.
-
 
 ## Using Allas from Python
 
