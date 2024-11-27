@@ -176,6 +176,12 @@ We can configure MPS on a local computer using the following instructions.
 
 
 #### Linux and MacOS
+Step 1: Run in shell:
+
+```bash
+ssh <username>@puhti.csc.fi
+```
+
 Step 2: Run in shell:
 
 ```bash
@@ -205,6 +211,12 @@ configCluster
 ```
 
 #### Windows
+Step 1: Run in Windows Powershell:
+
+```bash
+ssh <username>@puhti.csc.fi
+```
+
 Step 2: Run in Windows Powershell:
 
 ```powershell
