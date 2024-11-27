@@ -179,7 +179,7 @@ We can configure MPS on a local computer using the following instructions.
 Step 1: Run in shell:
 
 ```bash
-ssh <username>@puhti.csc.fi
+ssh <username>@puhti.csc.fi exit
 ```
 
 Step 2: Run in shell:
@@ -214,7 +214,7 @@ configCluster
 Step 1: Run in Windows Powershell:
 
 ```bash
-ssh <username>@puhti.csc.fi
+ssh <username>@puhti.csc.fi exit
 ```
 
 Step 2: Run in Windows Powershell:
