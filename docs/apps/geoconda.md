@@ -97,7 +97,11 @@ Version number is the same as the Python version.
 
 ## Usage
 
-### Puhti
+When using in LUMI, run this first:
+
+```bash
+module use /appl/local/csc/modulefiles
+```
 
 For using Python packages and other tools listed above, you can initialize them with:
 
@@ -121,7 +125,7 @@ You can add more Python packages to `geoconda` by following the instructions in
 our
 [Python usage guide](../support/tutorials/python-usage-guide.md#installing-python-packages-to-existing-modules).
 
-You can edit your Python code in Puhti with:
+You can edit your Python code with:
 
 * [Visual Studio Code in Puhti web interface](../computing/webinterface/vscode.md), 
 * [Visual Studio Code on your local laptop](../support/tutorials/remote-dev.md),
@@ -135,50 +139,6 @@ To open Spyder in Puhti web interface with remote desktop:
 3. After launching the remote desktop open `Terminal` (Desktop icon) and start Spyder:
 
 ```bash
-module load geoconda
-spyder
-```
-
-### LUMI
-
-For using Python packages and other tools listed above, you can initialize them with:
-
-```bash
-module use /appl/local/csc/modulefiles
-module load geoconda
-```
-By default the latest geoconda module is loaded. If you want a specific version you can specify the version number of geoconda:
-
-```bash
-module use /appl/local/csc/modulefiles
-module load geoconda/[VERSION]
-```
-
-To check the exact packages and versions included in the loaded module:
-
-```bash
-list-packages
-```
- 
-You can add more Python packages to `geoconda` by following the instructions in
-our
-[Python usage guide](../support/tutorials/python-usage-guide.md#installing-python-packages-to-existing-modules).
-
-You can edit your Python code in LUMI with:
-
-* [Visual Studio Code in Puhti web interface](../computing/webinterface/vscode.md), 
-* [Visual Studio Code on your local laptop](../support/tutorials/remote-dev.md),
-* [Jupyter Notebook or Lab in Puhti web interface](../computing/webinterface/jupyter.md) or 
-* Spyder in [Puhti web interface with remote desktop](../computing/webinterface/desktop.md).
-
-To open Spyder in LUMI web interface with remote desktop:
-
-1. Log in to [LUMI web interface](https://www.lumi.csc.fi/).
-2. Open Remote desktop: Apps -> Desktop. 
-3. After launching the remote desktop, open `Terminal Emulator` from the Menu in the bottom left corner and start Spyder:
-
-```bash
-module use /appl/local/csc/modulefiles
 module load geoconda
 spyder
 ```
@@ -218,9 +178,7 @@ There are two Python libraries installed in Geoconda that can interact with Alla
 
 It is also possible to __read__ and __write__ files from and to Allas or other cloud object storage directly with GDAL-based packages such as `geopandas` and `rasterio`. Please check our [Using geospatial files directly from cloud, inc Allas tutorial](../support/tutorials/gis/gdal_cloud.md) for instructions and examples.
 
-With large quantities of data in Allas, consider using [virtual rasters](https://research.csc.fi/virtual_rasters). 
-
-
+With large quantities of data in Allas, consider using [virtual rasters](https://research.csc.fi/virtual_rasters).
 
 ## License
 
