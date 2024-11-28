@@ -6,7 +6,7 @@ The SD Desktop service is a certified environment for data processing under the 
 
 ## How does processing secondary use data on SD Desktop differ from standard use of Sensitive Data services?
 
-With register data, there are some restrictions to the service compared to the standard use of SD Desktop. The restrictions are necessary to comply with the  regulation of the Health and Social Data Permit Authority (Findata). Most important limitations include: the service and data access is managed by CSC instead of the user and other services (for example SD Connect) are not available. Read more in SD Desktop service description.
+With register data, there are some restrictions to the service compared to the standard use of SD Desktop. The restrictions are necessary to comply with the  regulation of the Health and Social Data Permit Authority (Findata). Most important limitations include: the service and data access is managed by CSC instead of the user and other services (for example SD Connect) are not available. Read more in [SD Desktop service description](https://research.csc.fi/-/sd-desktop).
 
 ## How can I access register data with SD Desktop?
 
