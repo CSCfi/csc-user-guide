@@ -18,7 +18,7 @@ In a project using secondary use health and social data, all the data processed 
 
 ## Is it possible to install software to SD Desktop when processing secondary use data?
 
-The programs available on the Desktop are [listed in the user guide](../../data/sensitive-data/sd-desktop-secondary-working/#default-software-available-in-sd-desktop.md).
+The programs available on the Desktop are [listed in the user guide](../../data/sensitive-data/sd-desktop-secondary-working.md#default-software-available-in-sd-desktop).
 
 If the software you need is not pre-installed on SD Desktop, you need to contact our service desk (servicedesk@csc.fi) to check if the program is compatible with the service and available for installation in the secondary use projects.
 
