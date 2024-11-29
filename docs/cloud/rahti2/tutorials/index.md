@@ -18,4 +18,4 @@
 * [Short introduction to YAML](yaml_introduction.md)
 * [Webhooks](webhooks.md)
 
-We also have a [Rahti 2 FAQ](../../../support/faq#rahti-2). Take a look at it.
+We also have an [FAQ](../../../support/faq#rahti-2) for Rahti 2. Take a look at it.

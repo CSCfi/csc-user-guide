@@ -4,7 +4,7 @@
 
 !!! info
 
-    Projects in Rahti 2 are separate from CSC computing projects. A single CSC
+    Projects in Rahti 2 are separated from CSC computing projects. A single CSC
     computing project can have access to multiple projects in Rahti 2.
     Each CSC computing project with access to Rahti will have a corresponding *group* in
     Rahti 2.
@@ -121,9 +121,11 @@ clicking the question mark symbol in the top bar and selecting "About".
 
 ## CSC computing project quotas
 
-!!! warning  
+!!! info  
     
-    Starting June 5th, 2024 a new quota system will be applied. Namespaces/Rahti projects quota will be removed to only have CSC projects quota.  
+    A CSC project quota is shared between the different Rahti projects (also known as namespaces).
+    This means that if more than one person is working on the same CSC project and create their
+    own namespaces, the resources are shared.
 
 Each CSC computing project has its own quota. Initial quota is the following:
 

@@ -4,4 +4,4 @@
 * [Orchestration with Heat](heat-orchestration.md)
 * [SSH Key-pair](ssh-key.md)
 
-We also have a [Pouta FAQ](../../../support/faq#pouta). Take a look at it.
+We also have an [FAQ](../../../support/faq#pouta) for Pouta. Take a look at it.

@@ -1,10 +1,8 @@
 ## What is Rahti 2?
 
-!!! info "Prerequisites"
+!!! warning "Recommendations"
     
-    We strongly recommend that you look at the external documentation.
-    
-    Before using Rahti, you need to familiarise yourself with containers.
+    Before using Rahti, we recommend that you familiarise yourself with containers.
     
     You can find more information by following this [link](ext_docs.md)
 

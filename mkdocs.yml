@@ -87,7 +87,6 @@ plugins:
         "glossary.md": "support/glossary.md"
         "archives.md": "support/contact.md#archives"
         # Rahti1 to Rahti2:
-        "rahti/rahti-migration.md": "cloud/rahti2/rahti-migration.md"
         "rahti/index.md": "cloud/rahti2/index.md"
         "rahti/billing.md": "cloud/rahti2/billing.md"
         "rahti/rahti-what-is.md": "cloud/rahti2/rahti-what-is.md"
@@ -265,6 +264,12 @@ nav:
               - Running on Helmi: computing/quantum-computing/helmi/running-on-helmi.md
   - Cloud Services:
       - cloud/index.md
+      - Noppe:
+          - cloud/noppe/index.md
+          - Guide for students: cloud/noppe/guide_for_students.md
+          - Guide for teachers: cloud/noppe/guide_for_teachers.md
+          - Concepts: cloud/noppe/concepts.md
+          - Data persistence: cloud/noppe/data_persistence.md
       - Pouta:
           - cloud/pouta/index.md
           # - What is Pouta: cloud/pouta/pouta-what-is.md
@@ -336,16 +341,16 @@ nav:
           - Resizing database instance volume: cloud/dbaas/resize-volume.md
       - Rahti 2:
           - cloud/rahti2/index.md
-          - External documentation: cloud/rahti2/ext_docs.md          
-          - What is Rahti: cloud/rahti2/rahti-what-is.md
-          - Moving into Rahti: cloud/rahti2/moving-into.md
-          - Migration to Rahti 2: cloud/rahti2/rahti-migration.md
-          - Containers & their Orchestration: cloud/rahti2/containers.md
-          - Kubernetes and OpenShift concepts: cloud/rahti2/concepts.md
+          - What is Rahti: 
+              - cloud/rahti2/rahti-what-is.md
+              - Containers & their Orchestration: cloud/rahti2/containers.md
+              - Kubernetes and OpenShift concepts: cloud/rahti2/concepts.md
+              - External documentation: cloud/rahti2/ext_docs.md          
           - Getting Started:
               - Getting access: cloud/rahti2/access.md
-              - Using the web interface: cloud/rahti2/usage/getting_started.md
-              - Command line tool installation and usage: cloud/rahti2/usage/cli.md
+              - Web user interface: cloud/rahti2/usage/getting_started.md
+              - Command line tool: cloud/rahti2/usage/cli.md
+              - Moving into Rahti: cloud/rahti2/moving-into.md
           - Configuration:
               - Billing: cloud/rahti2/billing.md
               - Projects and quota: cloud/rahti2/usage/projects_and_quota.md
@@ -387,12 +392,6 @@ nav:
               - Integrating External Services: cloud/rahti2/tutorials/integrating-external-services.md
               - Setup a HTTP redirection in Rahti: cloud/rahti2/tutorials/http-redirector.md
               - Allow pulls of images from one Rahti project to another: cloud/rahti2/tutorials/allow-pull-from-other-projects.md
-      - Noppe:
-          - cloud/noppe/index.md
-          - Guide for students: cloud/noppe/guide_for_students.md
-          - Guide for teachers: cloud/noppe/guide_for_teachers.md
-          - Concepts: cloud/noppe/concepts.md
-          - Data persistence: cloud/noppe/data_persistence.md
   - Data:
       - data/index.md
       #    - Datasets: data/datasets.md
