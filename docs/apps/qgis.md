@@ -3,7 +3,7 @@ tags:
   - Free
 system:
   - www-puhti
-  - lumi
+  - www-lumi
 ---
 
 # QGIS
