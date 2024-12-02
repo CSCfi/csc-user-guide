@@ -139,7 +139,6 @@ To open Spyder in Puhti or LUMI web interface with remote desktop:
   * on Puhti, open `Terminal` (Desktop icon)
   * on LUMI, open `Terminal Emulator` from the Menu in the bottom left corner
 4. Start spyder:
-
  * On LUMI, remember to first run `module use /appl/local/csc/modulefiles`
 
 ```bash
