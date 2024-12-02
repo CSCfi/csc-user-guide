@@ -136,10 +136,10 @@ To open Spyder in Puhti or LUMI web interface with remote desktop:
 1. Log in to [Puhti](https://puhti.csc.fi) or [LUMI](https://www.lumi.csc.fi/) web interface.
 2. Open Remote desktop: Apps -> Desktop.
 3. After launching the remote desktop:
-  * on Puhti, open `Terminal` (Desktop icon)
-  * on LUMI, open `Terminal Emulator` from the Menu in the bottom left corner
+    * on Puhti, open `Terminal` (Desktop icon)
+    * on LUMI, open `Terminal Emulator` from the Menu in the bottom left corner
 4. Start spyder:
- * On LUMI, remember to first run `module use /appl/local/csc/modulefiles`
+    * On LUMI, remember to first run `module use /appl/local/csc/modulefiles`
 
 ```bash
 module load geoconda
