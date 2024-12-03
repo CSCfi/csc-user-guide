@@ -29,9 +29,9 @@ The current supported software versions on helmi are:
 
 | Software | Module_name | Versions |
 |----------|-------------|----------|
-| Cirq on IQM | cirq_iqm | >= 14.3, <= 14.6 |
-| Qiskit on IQM | qiskit_iqm | >= 13.11, <= 13.16 |
-| IQM client | iqm_client | >= 18.0, < 19.0 |
+| Cirq on IQM | cirq_iqm | >= 15.0, <= 15.2|
+| Qiskit on IQM | qiskit_iqm | >= 14.0, <= 15.4 |
+| IQM client | iqm_client | >= 20.0, < 20.4 |
 
 Here is an example batch script to submit jobs on Helmi
 
@@ -138,7 +138,7 @@ routed_circuit, initial_mapping, final_mapping = adonis.route_circuit(decomposed
 # print(final_mapping)
 
 result = sampler.run(routed_circuit, repetitions=shots)
-print(result.histogram(key='m'))
+print(result.measurements['m'])
 ```
 
 ## Additional examples
@@ -153,7 +153,7 @@ scripts for submitting jobs.
 
 As quantum resources can be scarce, it is recommended that you prepare the codes and algorithms you intend to run on Helmi in advance. To help with this process, [`qiskit-on-iqm` provides a fake noise model backend](https://iqm-finland.github.io/qiskit-on-iqm/user_guide.html#noisy-simulation-of-quantum-circuit-execution). You can run the fake noise model backend locally on your laptop for simulation and testing.
 
-A set of Qiskit and Cirq examples and scripts for guidance in using the LUMI-Helmi partition are also available. [You can find these here](https://github.com/FiQCI/helmi-examples).
+A set of Qiskit and Cirq examples and scripts for guidance in using the LUMI-Helmi partition are also available. [You can find these here](https://github.com/FiQCI/fiqci-examples).
 
 ## Job Metadata
 
@@ -239,3 +239,4 @@ Click on launch to start your Jupyter session. This will launch Jupyter using th
 ## Further Reading
 * [Lumi web interface](https://docs.lumi-supercomputer.eu/runjobs/webui/)
 * [Jupyter on Lumi web interface](https://docs.lumi-supercomputer.eu/runjobs/webui/jupyter/)
+* [Using Helmi on Lumi web interface](https://fiqci.fi/_posts/2024-08-23-Lumi_web_introduction/)
