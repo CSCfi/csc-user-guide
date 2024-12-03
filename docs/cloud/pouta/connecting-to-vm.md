@@ -90,7 +90,7 @@ Check the manual page of [ssh_config](https://linux.die.net/man/5/ssh_config) fo
 
     Using these steps, you need only a single public IP instead of one public IP for each of the instances.
 
-    **Warning**: using agent forwarding has some [security implications](https://blog.wizardsoftheweb.pro/ssh-agent-forwarding-vulnerability-and-alternative/#thevulnerability)
+    **Warning**: using agent forwarding has some [security implications](https://wizardsoftheweb.pro/ssh-agent-forwarding-vulnerability-and-alternative/#the-vulnerability)
 
 ### Putty
 
