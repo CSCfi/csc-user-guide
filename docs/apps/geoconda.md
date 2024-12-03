@@ -175,13 +175,13 @@ ee.Authenticate()
 
 This prints out a long link and asks for a code. Copy the link to the web browser and open the Google log-in page. Log-in and copy the created code back to Python.
 
-## Using Allas from Python
+## Using Allas or LUMI-O from Python
 
-There are two Python libraries installed in Geoconda that can interact with Allas. __Swiftclient__ uses the swift protocol and __boto3__ uses S3 protocol. You can find CSC examples how to use both [here](https://github.com/csc-training/geocomputing/tree/master/python/allas). 
+There are two Python libraries installed in Geoconda that can interact with Allas or LUMI-O. __Swiftclient__ uses the swift protocol and __boto3__ uses S3 protocol. You can find CSC examples how to use both [here](https://github.com/csc-training/geocomputing/tree/master/python/allas). 
 
 It is also possible to __read__ and __write__ files from and to Allas or other cloud object storage directly with GDAL-based packages such as `geopandas` and `rasterio`. Please check our [Using geospatial files directly from cloud, inc Allas tutorial](../support/tutorials/gis/gdal_cloud.md) for instructions and examples.
 
-With large quantities of data in Allas, consider using [virtual rasters](https://research.csc.fi/virtual_rasters).
+With large quantities of raster data, consider using [virtual rasters](https://research.csc.fi/virtual_rasters).
 
 ## License
 
