@@ -1,50 +1,51 @@
 # MariaDB permissions and privileges
 !!! warning "MariaDB in Pukki is still in beta"
-    This means that we have not tested as extensively that everything works correctly and there
-    might still be big changes how Pukki will manage MariaDB databases. We are hoping to be able
-    to get out of beta in March 2025.
+    This means that it hasn't been tested as extensively as PostgreSQL, and there might still be
+    large changes to how Pukki manages MariaDB database instances. We hope to move out of beta in
+    March 2025.
 
 
 ## About privileges
 
-By default when creating a user in a MariaDB database the user does not have access to any
-database, one need to specify to which database the user have access either from the web interface
-or the openstack cli. 
+When creating a user through the web interface or via openstack cli, you can define which databases
+it has access to. By default, a freshly created user doesn't have access to any databases.
 
 When creating a new user:
 ```sql
-openstack database user create $INSTNACE_ID myuser my_password --database my_database
+openstack database user create $INSTANCE_ID my_user my_password --databases my_database
 ```
 
 When updating an existing user:
-
 ```sql
-openstack database user grant access $DATABASE_ID username database_name
+openstack database user grant access $INSTANCE_ID my_user my_database
 ```
+You can either specify a single database or a list of databases to these commands. The commands
+also accept the database instance's name in place of the ID.
 
-When give user access to a database from the openstack cli or web interface the user gets
+Giving a user access to a database via openstack cli or the web interface means it gets
 `ALL PRIVILEGES` to that database.
 
-If you want to crate a user with different privileges you need to use the
-`openstack database enable root` command so that you can create a user manually. More information
-in the next topic how to create a read-only user.
+If you want more control over a user's privileges, you have to enable root access (through
+the web interface, or with `openstack database enable root` with the CLI client) and manually
+modify user privileges.
 
 
 ## Example of giving a user read-only access to a database
-To be able to create a read-only user you will first need to enable root since read only users
-are not able to be created from the Pukki interfaces.
 
-1. First create the root user
+1. Enable the root user:
 ```sh
 openstack database root enable $DATABASE_ID
 ```
 
-2. Then you can access the database with the root user and password:
+2. Access the database using the root user and password.
+
+3. Grant `SELECT` privileges on a database to a user:
 ```sql
 GRANT SELECT ON database_name.* TO 'reader'@'%';
 FLUSH PRIVILEGES;
 ```
-You can show the result with:
+
+You can view the grant with:
 ```
 SHOW GRANTS FOR 'reader'@'%';
 +-------------------------------------------------------------------------------------------------------+
@@ -54,12 +55,10 @@ SHOW GRANTS FOR 'reader'@'%';
 | GRANT SELECT ON `database_name`.* TO `reader`@`%`                                                     |
 +-------------------------------------------------------------------------------------------------------+
 ```
-If you would like to only give the `reader` user access to only a table you can do it by
 
+You can also grant table-specific access:
 ```sql
 GRANT SELECT ON database_name.table_name TO 'reader'@'%';
 ```
 
-Be aware that when creating a read user the openstack cli tool will not show to what tables the user
-have access to.
-
+Be aware that the openstack cli tool or the the web interface will not display grants given through root access. For more information on MariaDB's grants, refer to [the official MariaDB documentation](https://mariadb.com/kb/en/grant/).
