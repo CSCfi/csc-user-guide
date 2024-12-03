@@ -1,19 +1,21 @@
 # MariaDB
 !!! warning "MariaDB in Pukki is still in beta"
-    This means that we have not tested as extensively that everything works correctly and there
-    might still be big changes how Pukki will manage MariaDB databases. We are hoping to be able
-    to get out of beta in March 2025.
-    
+    This means that it hasn't been tested as extensively as PostgreSQL, and there might still be
+    large changes to how Pukki manages MariaDB database instances. We hope to move out of beta in
+    March 2025.
+
 
 
 * [How to access your MariaDB database](mariadb-accessing.md)
 * [How to create database users and modify user permissions](mariadb-permissions.md)
 
 # Database engine and backups
-Innodb is the default engine and it is the most test in Pukki. Using other
-engines like Aria might cause issues while doing backups so one should consider it twice before
-using another engine than InnoDB.
-More info can be found in the MariaDB documentation:  https://mariadb.com/kb/en/aria-storage-engine/
+
+MariaDB database instances on Pukki use InnoDB by default, as most testing has been done using it.
+Changing to other engines such as Aria might cause issues with backups, so one should carefully
+consider how necessary it is before switching from InnoDB.
+More information on database engines can be found in the
+[official MariaDB documentation](https://mariadb.com/kb/en/storage-engines/).
 
 ## Useful links when using MariaDB
   * [MariaDB client](https://mariadb.com/kb/en/mariadb-client/)
