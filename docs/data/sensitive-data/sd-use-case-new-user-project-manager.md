@@ -43,7 +43,7 @@ You need to access to SD services for processing research data. You are manager 
 - Finally, read and accept the terms of use.
 - Click **“New project”**.
 
-![Click create a project.](./images/MyCSC/MyCSC_NewProject.png)
+![Click create a project.](https://a3s.fi/docs-files/sensitive-data/MyCSC/MyCSC_NewProject.png)
 
 ### 3. Data protection
 
@@ -65,14 +65,14 @@ If you need assistance with the above points or support to verify if SD service 
 4. The GDPR form (Description of processing activity ) that can be downloaded from your CSC project
 5. [The CSC Data Policy](https://www.csc.fi/en/data-policy)
 
-![Personal data handling document.](https://a3s.fi/docs-files/sensitive-data/MyCSC/MyCSC_GDPR.png)
+![Personal data handling document.](https://a3s.fi/docs-files/sensitive-data/MyCSC/MyCSC_Description.png)
 
 ### 4. Activate SD Services for your project
 
 - Services are listed in **Services** window in the bottom right of the project page.
-- Select **SD Connect** (Allas will be added automatically as it is the underlying storage solution).
-- Read and accept the terms of use and click **“Add service”**.
-- Select **SD Desktop** and add it also.
+- Select **SD Connect** and read and accept the terms of use (Allas will be added automatically as it is the underlying storage solution).
+- Select **SD Desktop** and read and accept the terms of use.
+- Click **Add selected services**.
 
 ![Add new services button.](https://a3s.fi/docs-files/sensitive-data/MyCSC/MyCSC_AddServices1.png)
 
@@ -138,19 +138,23 @@ Here’s a table summarizing the billing units required for using **SD desktop**
 - This will create a QR code which you can read with your authentication application (for example Google Authenticator).
 - You authentication application will provide a verification code which you can now write to MyCSC **“Verification code”** field and click **“Verify”**.
 
-![Multi-Factor Authentication.](./images/MyCSC/MyCSC_MFA.png)
+![Multi-Factor Authentication.](https://a3s.fi/docs-files/sensitive-data/MyCSC/MyCSC_MFA.png)
 
 ### 7. If you have a research team, add them to be your project members
 
 - Go to project page and select the correct project (Left side menu or hamburger menu).
-- Add members from **Members** window at the top right of the project page.
-- You can add members from your own organization by clicking **“Manage”**.
-- Or you can create an invitation link by clicking **“Invite”** and use it in email or webpage.
-- People can apply a membership for your project by clicking the invite link. After that you still have to approve them to be member of your project in MyCSC.
+- Add members from **Members** window. Click **Add members**.
+- In the new window you can search and add members from your own organization.
+- If you need to add members from other organizations you can create a invitation link by clicking **Invitation link**. 
+    - Generate link and use it in email or webpage. 
+    - People can apply a membership for your project by clicking the invite link. 
+    - After that you have to approve them to be member of your project in MyCSC through **Members** window in **Membership applications** tab.
 
-![Add project members.](./images/MyCSC/MyCSC_AddMembers1.png)
+![Add project members button.](https://a3s.fi/docs-files/sensitive-data/MyCSC/MyCSC_AddMembers1.png)
 
-![Add project members.](./images/MyCSC/MyCSC_AddMembers2.png)
+![Search and add members.](https://a3s.fi/docs-files/sensitive-data/MyCSC/MyCSC_AddMembers2.png)
+
+![Generate invitation link.](https://a3s.fi/docs-files/sensitive-data/MyCSC/MyCSC_AddMembers3.png)
 
 
 !!! Note
@@ -166,6 +170,9 @@ The default lifetime of a CSC project is one year, after which it will be automa
 
 !!! Note
     Once data is deleted in line with CSC's data retention policy, it cannot be restored or recovered.
+
+
+![Close project.](https://a3s.fi/docs-files/sensitive-data/MyCSC/MyCSC_CloseProject.png)
 
 ### 9. Log into SD Services
 
