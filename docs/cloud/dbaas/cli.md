@@ -49,8 +49,8 @@ Remember that you can use the help command as `openstack help database` and the 
 		```sh
 		openstack datastore list
 		```
-<!---TODO we should probably avoid using specific database version numbers and instead try encourage users to use the default version number)--->
-	* `datastore version`. This depends on the datastore you have chosen and you should usually choose the latest. If you use PostgreSQL you can probably use `17.0`. You can find out the available datastore versions with:
+
+	* `datastore version`. This optional flag depends on the datastore you have chosen. You can safely omit it if you're fine with the default datastore version, which should always be the latest one available. You can find out the available datastore versions with:
 
 		```sh
 		openstack datastore version list postgresql
