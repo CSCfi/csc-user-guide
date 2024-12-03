@@ -41,15 +41,15 @@ You need to access to SD services for processing research data. You are manager 
 - If your project involves handling personal data, choose "Yes" for the field: **We handle personal data in this project**.
 - Next, under Terms of Use, ensure you meet the **Prerequisites and Responsibilities** to be a CSC Project Manager. For research projects, the Project Manager should be an experienced researcher (e.g., postdoc, group leader, professor, or doctoral researcher employed by a research organization). **Note for Students:** If you are a student, please have your supervisor create the CSC project or [contact CSC Service Desk](../../support/contact.md) (subject: sensitive data) for assistance. It is not possible to access SD Services with a student account.
 - Finally, read and accept the terms of use.
-- Click **“Create a project”**.
+- Click **“New project”**.
 
 ![Click create a project.](./images/MyCSC/MyCSC_NewProject.png)
 
 ### 3. Data protection
 
-#### 3.1 GDPR Form
+#### 3.1 Description of Processing Activity (GDPR) form
 
-When you first access your project, you’ll be prompted to complete the GDPR document (Description of Processing Activity form) if your project handles personal data. This form requires key details such as the types of data collected (e.g. sensitive personal data), how it is used and secured, and the data controller (usually your home organization). The form will be linked to your CSC project and guide CSC in managing the data. You can edit the document later if needed.
+When you first access your project, you’ll be prompted to complete the Description of Processing Activity (GDPR) form if your project handles personal data. This form requires key details such as the types of data collected (e.g. sensitive personal data), how it is used and secured, and the data controller (usually your home organization). The form will be linked to your CSC project and guide CSC in managing the data. You can edit the document later if needed.
 
 #### 3.1 Data Transfer Outside the EEA
 
@@ -74,7 +74,9 @@ If you need assistance with the above points or support to verify if SD service 
 - Read and accept the terms of use and click **“Add service”**.
 - Select **SD Desktop** and add it also.
 
-![Add new services.](https://a3s.fi/docs-files/sensitive-data/MyCSC/MyCSC_AddServices.png)
+![Add new services button.](https://a3s.fi/docs-files/sensitive-data/MyCSC/MyCSC_AddServices1.png)
+
+![Add new services window.](https://a3s.fi/docs-files/sensitive-data/MyCSC/MyCSC_AddServices2.png)
 
 ### 5. Apply billing units for your project
 
@@ -83,7 +85,7 @@ The Billing Unit (BU) is CSC’s metric for tracking resource consumption for ea
 You should estimate how many BU’s your project will consume **during 1 year** and apply more if needed. When you start a new project, you should plan ahead for your project's billing unit and storage usage.
 
 - See the table below for estimating your billing unit consumption.
-- Apply more billing units for your CCS project by clicking **"Apply for resources"** in Resource applications window.
+- Apply more billing units for your CSC project by clicking **"Apply for resources"** in Resources window.
 - You will get more info after your application to your MyCSC inbox.
 - You can always ask help from Service Desk _Subject: SD Services_
 
@@ -96,7 +98,7 @@ Once all the billing units for your CSC project have been used up, **access to t
 - your data remains unaffected and will not be deleted, even in cases where the total billing units reach zero or enter negative values.
 
 !!! Note
-    Each project member will receive a notification via email from the My CSC portal when the billing units for your CCS project are about to end.
+    Each project member will receive a notification via email from the My CSC portal when the billing units for your CSC project are about to end.
 
 #### SD Connect BU consumption
 
@@ -125,7 +127,7 @@ Here’s a table summarizing the billing units required for using **SD desktop**
 | Small GPU Computation | 120 | 518,400 | 1,036,800 |
 | Medium GPU Computation | 200 | 864,000 | 1,728,000 |
 
-![Click apply for resources.](./images/MyCSC/MyCSC_AddResources.png)
+![Click apply for resources.](https://a3s.fi/docs-files/sensitive-data/MyCSC/MyCSC_AddResources1.png)
 
 ### 6. Activate MFA Authentication
 
@@ -146,7 +148,10 @@ Here’s a table summarizing the billing units required for using **SD desktop**
 - Or you can create an invitation link by clicking **“Invite”** and use it in email or webpage.
 - People can apply a membership for your project by clicking the invite link. After that you still have to approve them to be member of your project in MyCSC.
 
-![Add project members.](./images/MyCSC/MyCSC_AddMembers.png)
+![Add project members.](./images/MyCSC/MyCSC_AddMembers1.png)
+
+![Add project members.](./images/MyCSC/MyCSC_AddMembers2.png)
+
 
 !!! Note
     Each CSC project members must also create a MyCSC user account (this happens when they apply membership to your project), activate the MFA and approve the terms of use of the services you have activated (SD Connect, SD Desktop).
