@@ -110,7 +110,7 @@ You need to access SD Desktop. You have a permit from a single register.
 
 - You need to activate MFA (multi-factor authentication) to be able to log in to the Sensitive Data services. [More about multi-factor authentication](../../accounts/mfa.md). *If your multi-factor authentication is already enabled, you can move to step 9.*
 - Before activating MFA you need to have some authentication application on your mobile phone, for example Google Authenticator or Microsoft Authenticator.
-- Go to the **Profile** page (Left side menu or top right hamburger menu).
+- Click **Enable MFA** in **Project notifications** window in top left corner or go to the **Profile** page (Left side menu or top right hamburger menu).
 - Enable Multi-Factor Authentication by clicking **''Activate''**.
 - This will create a QR code which you can read with your authentication application (for example Google Authenticator).
 - Your authentication application will provide a verification code which you can now write to MyCSC **Verification code** field and click **“Verify”**.

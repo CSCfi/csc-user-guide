@@ -42,7 +42,7 @@ You need access to SD services for processing research data. You are member of a
 
 - You need to activate MFA (multi-factor authentication), to be able to log in the Sensitive Data services. [More about multi-factor authentication](../../accounts/mfa.md).
 - Before activating MFA you need to have some authentication application in your mobile, for example Google Authenticator or Microsoft Authenticator.
-- Go to the **Profile** page (Left side menu or top right hamburger menu).
+- Click **Enable MFA** in **Project notifications** window in top left corner or go to the **Profile** page (Left side menu or top right hamburger menu).
 - Enable Multi-Factor Authentication by clicking **“Activate”**.
 - This will create a QR code, that you can read with your authentication application (for example Google Authenticator).
 - You authentication application will provide a verification code, that you can now write to MyCSC **“Verification code”** field and click **“Verify”**.
