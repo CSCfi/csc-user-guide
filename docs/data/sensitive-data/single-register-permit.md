@@ -100,8 +100,6 @@ You need to access SD Desktop. You have a permit from a single register.
 
 ![Terms of use notification.](https://a3s.fi/docs-files/sensitive-data/MyCSC/MyCSC_TermsOfUse1.png)
 
-![Terms of use window.](https://a3s.fi/docs-files/sensitive-data/MyCSC/MyCSC_TermsOfUse2.png)
-
 
 ### 8. Activate MFA
 
