@@ -133,10 +133,10 @@ Here’s a table summarizing the billing units required for using **SD desktop**
 
 - You need to activate MFA (multi-factor authentication) to be able to log in the Sensitive Data services. [More about multi-factor authentication](../../accounts/mfa.md).
 - Before activating MFA you need to have some authentication application in your mobile, for example Google Authenticator or Microsoft Authenticator.
-- Go to the **Profile** page (Left side menu or top right hamburger menu).
-- Enable Multi-Factor Authentication by clicking **“Activate”**.
+- Click **Enable MFA** in **Project notifications** window in top left corner or go to the **Profile** page (Left side menu or top right hamburger menu).
+- Enable Multi-Factor Authentication by clicking **Activate**.
 - This will create a QR code which you can read with your authentication application (for example Google Authenticator).
-- You authentication application will provide a verification code which you can now write to MyCSC **“Verification code”** field and click **“Verify”**.
+- You authentication application will provide a verification code which you can now write to MyCSC **Verification code** field and click **Verify**.
 
 ![Multi-Factor Authentication.](https://a3s.fi/docs-files/sensitive-data/MyCSC/MyCSC_MFA.png)
 

@@ -88,12 +88,12 @@ You need to access SD Desktop. You have a permit from Findata.
 !!! info-label
     Team member
 
-- If you haven't accepted the terms of use before, please go to MyCSC - navigate to the project view - see left side **Service** list - click SD Desktop and **accept the terms of use**.
+- If you haven't accepted the terms of use before, please go to MyCSC and navigate to the project view.
 - Please note that every team member must accept the SD Desktop terms of use.
+- Click **Accepts terms** in **Project notifications** window in top left corner.
+- Read and accept terms of use.
 
 ![Terms of use notification.](https://a3s.fi/docs-files/sensitive-data/MyCSC/MyCSC_TermsOfUse1.png)
-
-![Terms of use window.](https://a3s.fi/docs-files/sensitive-data/MyCSC/MyCSC_TermsOfUse2.png)
 
 ### 8. Activate MFA
 
