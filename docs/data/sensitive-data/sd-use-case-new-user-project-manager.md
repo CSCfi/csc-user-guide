@@ -124,7 +124,7 @@ Here’s a table summarizing the billing units required for using **SD desktop**
 | Medium Computation | 10.4 | 44,928 | 89,856 |
 | Heavy Computation | 52 | 224,640 | 449,280 |
 | Small GPU Computation | 120 | 518,400 | 1,036,800 |
-| Medium GPU Computation | 200 | 864,000 | 1,728,000 |
+| Big Picture project | 159 | 696,467 | 1,392,934 |
 
 ![Click apply for resources.](https://a3s.fi/docs-files/sensitive-data/MyCSC/MyCSC_AddResources1.png)
 

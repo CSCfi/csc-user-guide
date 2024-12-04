@@ -3,6 +3,7 @@ tags:
   - Free
 system:
   - www-puhti
+  - www-lumi
 ---
 
 # SAGA GIS
@@ -44,6 +45,15 @@ With `qgis` module SagaGIS commands can be used normally, for example:
 saga_cmd -h
 ```
 
+#### SAGA GIS command line interface in LUMI
+
+With `qgis` module in LUMI, SagaGIS commands can be used normally, for example:
+
+```
+module use /appl/local/csc/modulefiles
+module load qgis
+saga_cmd
+```
 
 ### SAGA GIS Graphical User Interface
 
@@ -62,15 +72,19 @@ apptainer_wrapper exec saga_gui
 
 #### SAGA GIS Graphical User Interface in LUMI
 
-Until LUMI web interface is available, SagaGIS needs to be used with
-[SSH X11 forwarding](../computing/connecting/index.md#graphical-connection).
+For using SAGA GIS, open it in LUMI web interface:
 
+1. Log in to [LUMI web interface](https://lumi.csc.fi). 
+2. Open [Desktop app](https://docs.lumi-supercomputer.eu/runjobs/webui/desktop/). 
+3. After launching the Desktop, double-click SAGA GIS icon for the newest version.
+
+If you want to use the CLI in the Desktop app, open `Terminal Emulator` from the Menu in the bottom left corner and load the QGIS module:
 ```
 module use /appl/local/csc/modulefiles
 module load qgis
 saga_gui
+saga_cmd
 ```
-
 
 ## License
 
