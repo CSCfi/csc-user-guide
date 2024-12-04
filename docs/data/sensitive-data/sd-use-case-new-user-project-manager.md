@@ -69,7 +69,7 @@ If you need assistance with the above points or support to verify if SD service 
 
 ### 4. Activate SD Services for your project
 
-- Services are listed in **Services** window in the bottom right of the project page.
+- Services are added through **Services** window in the bottom right of the project page. Click "Add services".
 - Select **SD Connect** and read and accept the terms of use (Allas will be added automatically as it is the underlying storage solution).
 - Select **SD Desktop** and read and accept the terms of use.
 - Click **Add selected services**.
@@ -132,7 +132,7 @@ Here’s a table summarizing the billing units required for using **SD desktop**
 
 - You need to activate MFA (multi-factor authentication) to be able to log in the Sensitive Data services. [More about multi-factor authentication](../../accounts/mfa.md).
 - Before activating MFA you need to have some authentication application in your mobile, for example Google Authenticator or Microsoft Authenticator.
-- Click **Enable MFA** in **Project notifications** window in top left corner or go to the **Profile** page (Left side menu or top right hamburger menu).
+- Click **Enable MFA** in **Project notifications** window in top right corner or go to the **Profile** page (Left side menu or top right hamburger menu).
 - Enable Multi-Factor Authentication by clicking **Activate**.
 - This will create a QR code which you can read with your authentication application (for example Google Authenticator).
 - You authentication application will provide a verification code which you can now write to MyCSC **Verification code** field and click **Verify**.

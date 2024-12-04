@@ -90,7 +90,7 @@ You need to access SD Desktop. You have a permit from Findata.
 
 - If you haven't accepted the terms of use before, please go to MyCSC and navigate to the project view.
 - Please note that every team member must accept the SD Desktop terms of use.
-- Click **Accepts terms** in **Project notifications** window in top left corner.
+- Click **Accepts terms** in **Project notifications** window in top right corner.
 - Read and accept terms of use.
 
 ![Terms of use notification.](https://a3s.fi/docs-files/sensitive-data/MyCSC/MyCSC_TermsOfUse1.png)
@@ -104,7 +104,7 @@ You need to access SD Desktop. You have a permit from Findata.
 
 - You need to activate MFA (multi-factor authentication) to be able to log in to the Sensitive Data services. [More about multi-factor authentication](../../accounts/mfa.md). *If your multi-factor authentication is already enabled, you can move to step 9.*
 - Before activating MFA you need to have some authentication application on your mobile phone, for example Google Authenticator or Microsoft Authenticator.
-- Click **Enable MFA** in **Project notifications** window in top left corner or go to the **Profile** page (Left side menu or top right hamburger menu).
+- Click **Enable MFA** in **Project notifications** window in top right corner or go to the **Profile** page (Left side menu or top right hamburger menu).
 - Enable Multi-Factor Authentication by clicking **“Activate”**.
 - This will create a QR code which you can read with your authentication application (for example Google Authenticator).
 - Your authentication application will provide a verification code which you can now write to MyCSC **“Verification code”** field and click **“Verify”**.

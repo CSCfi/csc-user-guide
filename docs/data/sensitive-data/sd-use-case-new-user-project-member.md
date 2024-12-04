@@ -33,7 +33,7 @@ You need access to SD services for processing research data. You are member of a
 ### 3. Accept SD Services terms of use
 
 - The project manager has already added services to the project. As a project member, you need to accept the terms of use to access these services.
-- Click **Accepts terms** in **Project notifications** window in top left corner.
+- Click **Accepts terms** in **Project notifications** window in top right corner.
 - Read and accept terms of use.
 
 ![Terms of use notification.](https://a3s.fi/docs-files/sensitive-data/MyCSC/MyCSC_TermsOfUse1.png)
@@ -42,7 +42,7 @@ You need access to SD services for processing research data. You are member of a
 
 - You need to activate MFA (multi-factor authentication), to be able to log in the Sensitive Data services. [More about multi-factor authentication](../../accounts/mfa.md).
 - Before activating MFA you need to have some authentication application in your mobile, for example Google Authenticator or Microsoft Authenticator.
-- Click **Enable MFA** in **Project notifications** window in top left corner or go to the **Profile** page (Left side menu or top right hamburger menu).
+- Click **Enable MFA** in **Project notifications** window in top right corner or go to the **Profile** page (Left side menu or top right hamburger menu).
 - Enable Multi-Factor Authentication by clicking **“Activate”**.
 - This will create a QR code, that you can read with your authentication application (for example Google Authenticator).
 - You authentication application will provide a verification code, that you can now write to MyCSC **“Verification code”** field and click **“Verify”**.
