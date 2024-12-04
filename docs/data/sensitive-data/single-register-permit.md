@@ -45,13 +45,13 @@ You need to access SD Desktop. You have a permit from a single register.
     Team manager
 
 - Go to ”Projects” page (left side menu or a hamburger menu at the top right corner).
-- On the top of the page choose **”New project”**.
+- On the top of the page choose **New project**.
 - Fill in the project name and project description. You can edit these later if needed.
-- Choose the Project category to be **“Findata”**.
+- Choose the Project category to be **Findata**.
 - Fill all required fields. Read and accept the terms of use.
-- Click **“Create a project”**.
+- Click **Create a project**.
 
-![Click create a project.](./images/MyCSC/MyCSC_NewProject.png)
+![Create a new project.](https://a3s.fi/docs-files/sensitive-data/MyCSC/MyCSC_NewProject.png)
 
 
 ### 3. Fill GDPR document
@@ -63,7 +63,7 @@ You need to access SD Desktop. You have a permit from a single register.
 - The document appears when you create a new project. You can edit this document later.
 - Your home organization is the **data controller**. [Read more about the roles and GDPR](../../support/faq/sensitive-data-legal.md#what-are-the-roles-of-csc-and-its-service-users-under-gdpr).
 
-![Personal data handling document.](https://a3s.fi/docs-files/sensitive-data/MyCSC/MyCSC_GDPR.png)
+![Personal data handling document.](https://a3s.fi/docs-files/sensitive-data/MyCSC/MyCSC_Description.png)
 
 ### 4. Contact CSC service desk
 
@@ -95,8 +95,13 @@ You need to access SD Desktop. You have a permit from a single register.
 
 - If you haven't accepted the terms of use before, please go to MyCSC - navigate to the project view - see left side **Service** list - click SD Desktop and **accept the terms of use**.
 - Please note that every team member must accept the SD Desktop terms of use.
+- Click **Accepts terms** in **Project notifications** window in top left corner.
+- Read and accept terms of use.
 
-![How to approve terms of use.](https://a3s.fi/docs-files/sensitive-data/MyCSC/MyCSC_TermsOfUse.png)
+![Terms of use notification.](https://a3s.fi/docs-files/sensitive-data/MyCSC/MyCSC_TermsOfUse1.png)
+
+![Terms of use window.](https://a3s.fi/docs-files/sensitive-data/MyCSC/MyCSC_TermsOfUse2.png)
+
 
 ### 8. Activate MFA
 
@@ -112,7 +117,8 @@ You need to access SD Desktop. You have a permit from a single register.
 - This will create a QR code which you can read with your authentication application (for example Google Authenticator).
 - Your authentication application will provide a verification code which you can now write to MyCSC **Verification code** field and click **“Verify”**.
 
-![Multi-Factor Authentication.](./images/MyCSC/MyCSC_MFA.png)
+![Multi-Factor Authentication.](https://a3s.fi/docs-files/sensitive-data/MyCSC/MyCSC_MFA.png)
+
 
 ### 9. Your CSC project is ready!
 

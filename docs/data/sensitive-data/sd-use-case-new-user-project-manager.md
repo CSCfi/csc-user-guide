@@ -17,7 +17,7 @@ You need to access to SD services for processing research data. You are manager 
 8. [Closing your project and data retention](#8-closing-your-project-and-data-retention)
 9. [Log into SD Services](#9-log-into-sd-services)
 
-![How to get started as project manager.](images/MyCSC/HowToGetStarted_SD_Project_Manager.png)
+![How to get started as project manager.](https://a3s.fi/docs-files/sensitive-data/MyCSC/HowToGetStarted_SD_Project_Manager.png)
 
 !!! Note
     The default lifetime of a CSC project is one year. All data stored in SD Connect or SD Desktop, including files, virtual desktops and volumes, will be permanently deleted 90 days after the project closure/ expiration.
@@ -43,7 +43,7 @@ You need to access to SD services for processing research data. You are manager 
 - Finally, read and accept the terms of use.
 - Click **“New project”**.
 
-![Click create a project.](https://a3s.fi/docs-files/sensitive-data/MyCSC/MyCSC_NewProject.png)
+![Create a new project.](https://a3s.fi/docs-files/sensitive-data/MyCSC/MyCSC_NewProject.png)
 
 ### 3. Data protection
 
@@ -65,7 +65,7 @@ If you need assistance with the above points or support to verify if SD service 
 4. The GDPR form (Description of processing activity ) that can be downloaded from your CSC project
 5. [The CSC Data Policy](https://www.csc.fi/en/data-policy)
 
-![Personal data handling document.](https://a3s.fi/docs-files/sensitive-data/MyCSC/MyCSC_Description.png)
+![Description of Processing Activity](https://a3s.fi/docs-files/sensitive-data/MyCSC/MyCSC_Description.png)
 
 ### 4. Activate SD Services for your project
 

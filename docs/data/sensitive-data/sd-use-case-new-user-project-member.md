@@ -12,7 +12,7 @@ You need access to SD services for processing research data. You are member of a
 4. [Activate MFA Authentication](#4-activate-mfa-authentication)
 5. [Log into SD Services](#5-log-into-sd-services)
 
-![How to get started as project member.](images/MyCSC/HowToGetStarted_SD_Project_Member.png)
+![How to get started as project member.](https://a3s.fi/docs-files/sensitive-data/MyCSC/HowToGetStarted_SD_Project_Member.png)
 
 ## Step by step tutorial
 
@@ -32,9 +32,13 @@ You need access to SD services for processing research data. You are member of a
 
 ### 3. Accept SD Services terms of use
 
-- The project manager has added services to the project already. You as a project member has to **accept the terms of use**, so you can use the services.
+- The project manager has already added services to the project. As a project member, you need to accept the terms of use to access these services.
+- Click **Accepts terms** in **Project notifications** window in top left corner.
+- Read and accept terms of use.
 
-![How to approve terms of use.](https://a3s.fi/docs-files/sensitive-data/MyCSC/MyCSC_TermsOfUse.png)
+![Terms of use notification.](https://a3s.fi/docs-files/sensitive-data/MyCSC/MyCSC_TermsOfUse1.png)
+
+![Terms of use window.](https://a3s.fi/docs-files/sensitive-data/MyCSC/MyCSC_TermsOfUse2.png)
 
 ### 4. Activate MFA Authentication
 
@@ -45,7 +49,7 @@ You need access to SD services for processing research data. You are member of a
 - This will create a QR code, that you can read with your authentication application (for example Google Authenticator).
 - You authentication application will provide a verification code, that you can now write to MyCSC **“Verification code”** field and click **“Verify”**.
 
- ![Multi-Factor Authentication.](./images/MyCSC/MyCSC_MFA.png)
+![Multi-Factor Authentication.](https://a3s.fi/docs-files/sensitive-data/MyCSC/MyCSC_MFA.png)
 
 ### 5. Log into SD Services
 
