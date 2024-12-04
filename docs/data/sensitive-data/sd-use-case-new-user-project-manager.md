@@ -41,7 +41,7 @@ You need to access to SD services for processing research data. You are manager 
 - If your project involves handling personal data, choose "Yes" for the field: **We handle personal data in this project**.
 - Next, under Terms of Use, ensure you meet the **Prerequisites and Responsibilities** to be a CSC Project Manager. For research projects, the Project Manager should be an experienced researcher (e.g., postdoc, group leader, professor, or doctoral researcher employed by a research organization). **Note for Students:** If you are a student, please have your supervisor create the CSC project or [contact CSC Service Desk](../../support/contact.md) (subject: sensitive data) for assistance. It is not possible to access SD Services with a student account.
 - Finally, read and accept the terms of use.
-- Click **“New project”**.
+- Click **Create new project**.
 
 ![Create a new project.](https://a3s.fi/docs-files/sensitive-data/MyCSC/MyCSC_NewProject.png)
 
