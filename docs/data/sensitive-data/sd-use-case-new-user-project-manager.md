@@ -76,7 +76,6 @@ If you need assistance with the above points or support to verify if SD service 
 
 ![Add new services button.](https://a3s.fi/docs-files/sensitive-data/MyCSC/MyCSC_AddServices1.png)
 
-![Add new services window.](https://a3s.fi/docs-files/sensitive-data/MyCSC/MyCSC_AddServices2.png)
 
 ### 5. Apply billing units for your project
 
