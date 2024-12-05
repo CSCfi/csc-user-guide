@@ -1,6 +1,6 @@
 # Kustomize
 
-[Kustomize](https://kustomize.io) is similar to [Helm](helm.md), both are good for bundling kubernetes elements such as services, deployments, etc...  
+[Kustomize](https://kustomize.io) is similar to [Helm](../../../support/faq/helm.md), both are good for bundling kubernetes elements such as services, deployments, etc...  
 Helm can act as a package manager for kubernetes/oc as well as apt or yum can do for Debian, RedHat.  
 The main difference is Helm uses **Templates** whereas Kustomize uses **Overlays**. Kustomize is also developed by the Kubernetes teams and it is built in recent version of `oc` and `kubectl`. You can build a project using this command:
 

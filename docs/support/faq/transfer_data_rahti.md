@@ -1,6 +1,6 @@
 # How to transfer data to Rahti 2?
 
-As discussed in the [available storage options](../rahti2/storage/index.md) article, it is possible store data using a persistent volume, or using a object storage service like [Allas](../../data/Allas/index.md).
+As discussed in the [available storage options](../../cloud/rahti2/storage/index.md) article, it is possible store data using a persistent volume, or using a object storage service like [Allas](../../data/Allas/index.md).
 
 ## to a Persistent Volume
 
@@ -15,7 +15,7 @@ using the rsync command from your OS. To ensure optimum performance, install rsy
 systems, use your package manager. In Windows, install cwRsync from https://www.itefix.net/cwrsync.
 ```
 
-First of all, it is required to [install oc](../rahti2/usage/cli.md).
+First of all, it is required to [install oc](../../cloud/rahti2/usage/cli.md).
 
 Once `oc` is installed, the process is:
 

@@ -67,7 +67,7 @@ Any other domain name is possible, but the DNS and the certificates must be mana
 
 * For the DNS, a `CNAME` pointing to `rahtiapp.fi` or in cases that this is not possible, directly the `A` record containing the IP of `rahtiapp.fi` has to be configured. The way this needs to be configured depends on the register of the DNS record.
 
-* Any certificate provider can be used, like for example use the free certificates provided by the [Let's Encrypt controller](../tutorials/custom-domain.md#lets-encrypt).
+* Any certificate provider can be used, like for example use the free certificates provided by the [Let's Encrypt controller](../rahti2/tutorials/custom-domain.md#lets-encrypt).
 
 Another aspect of routes is the IP white listing feature, ie: only allowing a range of IPs to access the route. This is controlled by creating an annotation in the Route object with the key `haproxy.router.openshift.io/ip_whitelist`, and by setting the value to a space separated list of IPs and or IP ranges.
 

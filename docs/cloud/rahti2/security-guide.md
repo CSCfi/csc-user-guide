@@ -39,7 +39,7 @@ you need to add your certificate data in the route object.
 
 Access to the services should be limited to selected networks with
 **whitelists** whenever applicable (See the chapter
-[Routes](../tutorials/elemental_tutorial.md#route)). This is relevant whenever
+[Routes](tutorials/deploy_static_webserver_cli.md#route)). This is relevant whenever
 access can be restricted in terms of IP addresses.
 
 Secure routes thwart eavesdropping attacks that target e.g. service passwords

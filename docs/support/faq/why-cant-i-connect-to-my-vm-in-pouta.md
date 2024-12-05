@@ -71,7 +71,7 @@ It can happen that when the instance was created you forgot to add a key pair du
 
 ![Instance with no Key Pair](../../cloud/img/instance-no-keypair.png)
 
-The only solution for this issue is to recreate the instance, this time remember to add a key pair. See the [SSH Key Pair](/cloud/tutorials/ssh-key/) and the [Creating a virtual machine](/cloud/pouta/launch-vm-from-web-gui/) articles.
+The only solution for this issue is to recreate the instance, this time remember to add a key pair. See the [SSH Key Pair](../../cloud/pouta/tutorials/ssh-key.md) and the [Creating a virtual machine](../../cloud/pouta/launch-vm-from-web-gui.md) articles.
 
 ### Are you offering the correct private key?
 

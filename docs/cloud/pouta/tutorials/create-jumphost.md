@@ -4,7 +4,7 @@ The purpose of a jumphost in an infrastructure is to allow access from the exter
 You can configure one machine with a public IP and access the other machines from the jumphost. This unique machine with a public IP is a gateway to the internal network.  
 
 Here is a schema:  
-![jumphost-schema](../img/jumphost_schema.png)
+![jumphost-schema](../../img/jumphost_schema.png)
 
 
 ## How to create a jumphost?

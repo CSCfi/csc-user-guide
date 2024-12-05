@@ -1,5 +1,10 @@
---8<-- "rahti2_announcement.md"
 ## What is Rahti 2?
+
+!!! warning "Recommendations"
+    
+    Before using Rahti, we recommend that you familiarise yourself with containers.
+    
+    You can find more information by following this [link](ext_docs.md)
 
 Rahti 2 is the container orchestration service at CSC. Rahti 2 runs on [okd](https://www.okd.io/), the community distribution of Kubernetes that powers Red Hat OpenShift. Built around a core of [OCI](https://opencontainers.org/) container packaging and [Kubernetes](https://kubernetes.io/) container cluster management.
 

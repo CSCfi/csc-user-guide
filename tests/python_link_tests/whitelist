@@ -18,4 +18,10 @@ docs/cloud/dbaas/getting-started.md
 docs/cloud/dbaas/index.md
 docs/cloud/dbaas/databases.md
 docs/data/sensitive-data/federatedega.md
+docs/cloud/rahti/storage/expand-volumes.md
+docs/cloud/rahti/gpu.md
+docs/cloud/rahti/usage/getting_started.md
+docs/cloud/rahti/images/pushing-external.md
 docs/cloud/rahti2/index.md
+docs/cloud/rahti2/advanced.md
+docs/support/faq/get-image-format.md

@@ -17,7 +17,7 @@ and platforms by CSC and partners!
 
 ## CSC cloud resources, cPouta, ePouta and Rahti
 
-* [cPouta and ePouta related videos](../../cloud/pouta/pouta-videos.md)
+* [cPouta and ePouta related videos](../../cloud/pouta/tutorials/pouta-videos.md)
 * [Pouta cloud course materials](https://pouta-course.a3s.fi/index.html)
 * [Container clouds fundamentals](https://rahti-course.a3s.fi/basic.html) (with Rahti OpenShift OKD)
 

@@ -5,7 +5,7 @@
 
 Kubernetes, and by extension OpenShift OKD, gives a lot of flexibility regarding network use cases. One of the uses cases is the one that allows to use external services, like databases, transparently in a OpenShift project. Other of the use cases would be to to have a network proxy between OpenShift installations. This could be used as a temporal solution to ease migration periods, where a user of your web application will visit a "Rahti 1 URL", but content will be server by a "Rahti 2 application". Other option is to [setup a HTTP redirector in Rahti](http-redirector.md).
 
-![Proxy between clusters](../img/proxy.drawio.svg)
+![Proxy between clusters](../../img/proxy.drawio.svg)
 
 In the example above we are proxying traffic from Rahti 1 to Rahti 2. This is obtained by creating two routes, a service and an Endpoint.
 
@@ -13,7 +13,7 @@ In the example above we are proxying traffic from Rahti 1 to Rahti 2. This is ob
 
 1. First deploy an application in Rahti 2. Any application is suitable for this test.
 
-1. [Install](../../rahti2/usage/cli/#how-to-install-the-oc-tool) and [login with OC](../../rahti2/usage/cli/#how-to-login-with-oc) in Rahti 2.
+1. [Install](../usage/cli.md#how-to-install-the-oc-tool) and [login with OC](../usage/cli.md#how-to-login-with-oc) in Rahti 2.
 
 1. Create a special `Route` in Rahti 2:
 
@@ -46,7 +46,7 @@ In the example above we are proxying traffic from Rahti 1 to Rahti 2. This is ob
     !!! Error "Obsolete"
         The following steps are not necessary anymore.
 
-1. [Install](../../rahti/usage/cli/#how-to-install-the-oc-tool) and [login with OC](../../rahti/usage/cli/#how-to-login-with-oc) in Rahti 1.
+1. [Install](../../rahti/usage/cli.md#how-to-install-the-oc-tool) and [login with OC](../../rahti/usage/cli.md#how-to-login-with-oc) in Rahti 1.
 
 1. Create a project in Rahti 1, or use an existing one.
 
