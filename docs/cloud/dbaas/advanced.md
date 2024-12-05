@@ -14,11 +14,11 @@ engine. The configuration groups can be modified from the web-GUI as well as the
 ### Example how to create a configuration group with the CLI
 
 1. Figure out which datastore, datastore-version and what values you want to create a configuration
-group for. In this example we will use datastore `postgresql` and datastore-version `14.4`.
+group for. In this example we will use datastore `postgresql` and datastore-version `17.0`.
 2. Figure out which parameters can be modified:
     
     ```bash
-    openstack database configuration parameter list --datastore postgresql 14.4
+    openstack database configuration parameter list --datastore postgresql 17.0
     ```
     
     Note that some parameters require restarting the database instance.
@@ -28,7 +28,7 @@ group for. In this example we will use datastore `postgresql` and datastore-vers
 
     ```
     openstack database configuration create group-name --datastore postgresql \
-        --datastore-version 14.4 '{"max_connections": 234 }'
+        --datastore-version 17.0 '{"max_connections": 234 }'
     ```
 
 4. You can see the configuration group with:
