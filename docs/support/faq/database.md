@@ -24,5 +24,5 @@ outside Rahti using the HTTP(s) protocol in ports 80 and 443.
 
 One way to connect to Rahti from CSC supercomputers is to establish a TCP
 tunnel over an HTTP-compatible WebSocket connection. See
-[Accessing databases on Rahti from CSC supercomputers](../../cloud/tutorials/connect-database-hpc.md)
+[Accessing databases on Rahti from CSC supercomputers](../../cloud/rahti2/tutorials/connect-database-hpc.md)
 for more details about this workaround.

@@ -327,7 +327,7 @@ OpenShift includes all Kubernetes objects, plus some extensions:
     DeploymentConfig is deprecated in newer versions of OpenShift OKD and will be completely removed in the future. See Redhat's [deprecation announcement of DeploymentConfig](https://access.redhat.com/articles/7041372) and their [replacement guide for DeploymentConfig](https://developers.redhat.com/learning/learn:openshift:replace-deprecated-deploymentconfigs-deployments/resource/resources:convert-deploymentconfig-deployment).
 
 DeploymentConfigs are objects that create
-[ReplicationControllers](../tutorials/elemental_tutorial.md#replicationcontroller) according to
+[ReplicationControllers](../rahti2/tutorials/deploy_static_webserver_cli.md#replicationcontroller) according to
 `spec.template`. They differ from ReplicationControllers in the sense that
 DeploymentConfig objects may start new ReplicationControllers based on the state of
 `spec.triggers`. In the example below, the DeploymentConfig performs
@@ -341,7 +341,7 @@ chapter [concepts](concepts.md) except that deployments
 trigger updates only when `spec.template` is changed. Furthermore, deployment
 is a pure Kubernetes concept, and DeploymentConfig is an OpenShift extension.
 
-Recall that [ReplicationControllers](../tutorials/elemental_tutorial.md#replicationcontroller)
+Recall that [ReplicationControllers](../rahti2/tutorials/deploy_static_webserver_cli.md#replicationcontroller)
 are objects that make sure that a requested number of replicas of the pod defined in the
 `spec.template` is running.
 
@@ -473,7 +473,7 @@ This will redirect any traffics coming to `<host.name.dom>` to the service `name
 * `insecureEdgeTerminationPolicy` is set to `Redirect`. This means that any traffic coming to port 80 (HTTP) will be redirected to port 443 (HTTPS).
 * `termination` is set to `edge`, This means that the route will manage the TLS certificate and decrypt the traffic sending it to the service in clear text. Other options for `termination` include `passthrough` or `reencrypt`.
 
-Every host with the pattern `*.rahtiapp.fi` will automatically have a **DNS record** and a valid **TLS certificate**. It is possible to configure a Route with any given hostname, but a `CNAME` pointing to `rahtiapp.fi` must be configured, and a **TLS certificate** must be provided. See the [Custom domain names and secure transport](../tutorials/custom-domain.md) article for more information.
+Every host with the pattern `*.rahtiapp.fi` will automatically have a **DNS record** and a valid **TLS certificate**. It is possible to configure a Route with any given hostname, but a `CNAME` pointing to `rahtiapp.fi` must be configured, and a **TLS certificate** must be provided. See the [Custom domain names and secure transport](../rahti2/tutorials/custom-domain.md) article for more information.
 
 #### Annotations
 

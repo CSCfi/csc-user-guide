@@ -14,7 +14,7 @@ The obvious utility of this is to allow automatically and dynamically optimize t
 
 For doing this, first we need a `Deployment`. Any deployment will work, but you can use this example that deploys a dummy application: 
 
-**Note:** Remember to [login in Rahti 2](../rahti2/usage/cli.md#how-to-login-with-oc) first
+**Note:** Remember to [login in Rahti 2](../../cloud/rahti2/usage/cli.md#how-to-login-with-oc) first
 
 ```sh
 echo "apiVersion: apps/v1
@@ -46,7 +46,7 @@ The deployment should now spin up 4 copies of the same `Pod`. We will later conf
 
 ### Add resources limits
 
-![Actions>EditResourceLimits](../img/editResourceLimits.png){ align=right }
+![Actions>EditResourceLimits](../../cloud/img/editResourceLimits.png){ align=right }
 
 The next step is to set resource limits for CPU and Memory. This is the maximum amount of CPU and memory that each Pod will be able to use. From the Deployment page, go to **Actions > Edit resource limits**
 
@@ -58,13 +58,13 @@ For this example, we will set:
 * `1` CPU limit.
 * `1` Gi memory limit.
 
-![Edit ResourceLimits](../img/editResourceLimitsDialog.png)
+![Edit ResourceLimits](../../cloud/img/editResourceLimitsDialog.png)
 
 ### Add the HorizontalAutoscaler
 
 Once the Pod limits are set, you can now add the Horizontal auto-scaler. From the Deployment page, go to **Actions > Add HorizontalPodAutoscaler**.
 
-![Actions>AddHorizontalAutoscaler](../img/addHorizontalAutoscaler.png){ align=right }
+![Actions>AddHorizontalAutoscaler](../../cloud/img/addHorizontalAutoscaler.png){ align=right }
 
 First set the **maximum** and **minimum** number of replicas. In general, one will leave the minimum to 1, and set the maximum to a value to a "fair share" of the total quota. For example, if you have a total quota of 20 Pods, and one single Deployment, the maximum should be set to 20, to use all the quota available. But if you have two deployments sharing the same name space, the maximum should be set to 10 each.
 
@@ -74,7 +74,7 @@ When the usage of the resources configured is surpassed, a new replica will be c
 
 On the hand, an scale down will happen when the extra capacity is no longer needed, i.e.: When by removing one replica, the total memory used will not be more that 50% of the total available after the scale down.
 
-![Add Horizontal Pod Autoscaler dialog](../img/addHorizontalPodAutoscalerDialog.png)
+![Add Horizontal Pod Autoscaler dialog](../../cloud/img/addHorizontalPodAutoscalerDialog.png)
 
 For this example we will setup:
 
@@ -88,7 +88,7 @@ We will not touch the CPU utilization.
 
 After some minutes, we should have only one single Pod with almost zero CPU usage and 100MB of memory usage. The autoscaler waits up to 10 minutes to delete Pods to avoid flapping, see below for more information. You can check this in the `Pods` page (**Project > Pods** in the Developer page).
 
-![Pods](../img/podsAutoscaler.png)
+![Pods](../../cloud/img/podsAutoscaler.png)
 
 !!! info "Using the CLI"
 
@@ -107,7 +107,7 @@ There is only need for a single Pod because only ~100MB is used out of 1Gi of to
 
 This will create a new process that will reserve 5 chunks of 100MB of RAM. As 100+500 MB is more than 50% of the total 1Gi of memory, a new Pod will be created by the auto scaler. 
 
-![2 Pods](../img/pods2Autoscaler.png)
+![2 Pods](../../cloud/img/pods2Autoscaler.png)
 
 Monitor the situation and wait for the second Pod to be created. The resources can be monitored from the main project page, this gives a general view of the whole project, including the quota usage. Alternatively you can enter in the page of the deployment we created (from the **Project** page, go to **Deployment**, click in **example**, and finally in the Metrics tab. 
 

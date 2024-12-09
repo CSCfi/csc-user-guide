@@ -163,7 +163,7 @@ A new build can be triggered in the command line:
 oc start-build os-sample-python
 ```
 
-Or using [webhooks](../../tutorials/webhooks.md)
+Or using [webhooks](../../rahti2/tutorials/webhooks.md)
 
 ### Using the `Docker` strategy
 
