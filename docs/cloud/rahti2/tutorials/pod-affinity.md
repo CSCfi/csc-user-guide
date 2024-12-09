@@ -30,7 +30,7 @@ index 93ca230..e64349b 100644
 
 The `affinity` block needs to be under `spec`. For applying this to another deployment one will need to change only the `value` and perhaps the `key`, so it corresponds to one `key` and `value` pair of the **Labels** belonging to the Pod we want to have affinity with. It is possible to see the **Labels** of a Pod via the command line or via the web interface.
 
-![Labels](../img/celery-worker.png)
+![Labels](../../img/celery-worker.png)
 
 And from the command line:
 

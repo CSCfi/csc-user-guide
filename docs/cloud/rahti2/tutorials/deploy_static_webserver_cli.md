@@ -19,11 +19,11 @@ server running:
     tutorial. Instead, it is meant for learning the core concepts of
     Kubernetes.
 
-![Network](../img/routeServicePod.drawio.svg)
+![Network](../../img/routeServicePod.drawio.svg)
 
 ## Preparation
 
-Make sure you have the `oc` command line installed, and that you are logged in. Please check the [command line tool installation](../rahti2/usage/cli.md) if you need help on that.
+Make sure you have the `oc` command line installed, and that you are logged in. Please check the [command line tool installation](../usage/cli.md) if you need help on that.
 
 ## Projects
 
@@ -61,7 +61,7 @@ name.
 If you are a member of multiple CSC projects with access to Rahti 2, the description of the
 project must contain `csc_project: #######`, where `#######` is the project
 that should be billed (see
-[Projects and quota](../rahti2/usage/projects_and_quota.md)).
+[Projects and quota](../usage/projects_and_quota.md)).
 The description can be included in the `new-project` command:
 
 ```bash
@@ -261,7 +261,7 @@ internet.
 
 You can now go to your browser and type the address you set: `<myservice>.2.rahtiapp.fi`. It should return you the Apache test page:
 
-![Apache test page](../img/Apache-test-page.png)
+![Apache test page](../../img/Apache-test-page.png)
 
 !!! warning
 
@@ -315,8 +315,7 @@ spec:
 ```
 
 The ReplicationControllers are functionally close to ReplicaSets, discussed
-in the chapter "[Kubernetes and OpenShift
-concepts](../rahti2/concepts.md)".
+in the chapter "[Kubernetes and OpenShiftconcepts](../concepts.md)".
 A ReplicationController can be transformed into a ReplicaSet by
 changing `spec.selector` to `spec.selector.matchLabels` and setting
 `kind: ReplicaSet`.
