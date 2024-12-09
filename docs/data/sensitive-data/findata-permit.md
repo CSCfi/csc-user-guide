@@ -46,7 +46,7 @@ You need to access SD Desktop. You have a permit from Findata.
 - Fill all required fields. Read and accept the terms of use.
 - Click **“Create a project”**.
 
-![Click create a project.](./images/MyCSC/MyCSC_NewProject.png)
+![Create a new project.](https://a3s.fi/docs-files/sensitive-data/MyCSC/MyCSC_NewProject.png)
 
 
 ### 3. Fill GDPR document
@@ -58,7 +58,7 @@ You need to access SD Desktop. You have a permit from Findata.
 - The document appears when you create a new project. You can edit this document later.
 - Your home organization is the **data controller**. [Read more about the roles and GDPR](../../support/faq/sensitive-data-legal.md#what-are-the-roles-of-csc-and-its-service-users-under-gdpr).
 
-![Personal data handling document.](https://a3s.fi/docs-files/sensitive-data/MyCSC/MyCSC_GDPR.png)
+![Description of Processing Activity](https://a3s.fi/docs-files/sensitive-data/MyCSC/MyCSC_Description.png)
 
 ### 4. Contact CSC service desk
 
@@ -88,10 +88,12 @@ You need to access SD Desktop. You have a permit from Findata.
 !!! info-label
     Team member
 
-- If you haven't accepted the terms of use before, please go to MyCSC - navigate to the project view - see left side **Service** list - click SD Desktop and **accept the terms of use**.
+- If you haven't accepted the terms of use before, please go to MyCSC and navigate to the project view.
 - Please note that every team member must accept the SD Desktop terms of use.
+- Click **Accepts terms** in **Project notifications** window in top right corner.
+- Read and accept terms of use.
 
-![How to approve terms of use.](https://a3s.fi/docs-files/sensitive-data/MyCSC/MyCSC_TermsOfUse.png)
+![Terms of use notification.](https://a3s.fi/docs-files/sensitive-data/MyCSC/MyCSC_TermsOfUse1.png)
 
 ### 8. Activate MFA
 
@@ -102,12 +104,12 @@ You need to access SD Desktop. You have a permit from Findata.
 
 - You need to activate MFA (multi-factor authentication) to be able to log in to the Sensitive Data services. [More about multi-factor authentication](../../accounts/mfa.md). *If your multi-factor authentication is already enabled, you can move to step 9.*
 - Before activating MFA you need to have some authentication application on your mobile phone, for example Google Authenticator or Microsoft Authenticator.
-- Go to the **Profile** page (Left side menu or top right hamburger menu).
+- Click **Enable MFA** in **Project notifications** window in top right corner or go to the **Profile** page (Left side menu or top right hamburger menu).
 - Enable Multi-Factor Authentication by clicking **“Activate”**.
 - This will create a QR code which you can read with your authentication application (for example Google Authenticator).
 - Your authentication application will provide a verification code which you can now write to MyCSC **“Verification code”** field and click **“Verify”**.
 
-![Multi-Factor Authentication.](./images/MyCSC/MyCSC_MFA.png)
+![Multi-Factor Authentication.](https://a3s.fi/docs-files/sensitive-data/MyCSC/MyCSC_MFA.png)
 
 ### 9. Your CSC project is ready!
 
