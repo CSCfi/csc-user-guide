@@ -62,13 +62,9 @@ in a module provided by CSC, do not hesitate to contact our
     to actually have the base module loaded.
     Naturally, this also applies to Slurm job scripts.
 
-    !!! info "Compatibility with virtual environments"
-        Some CSC modules are not compatible with Python
-        virtual environments. We are still working to update these
-        modules, so if you happen to be working with one of them,
-        you need to use the `pip install --user` approach described on
-        the other tab. For example, do not use [geoconda module](../../apps/geoconda.md) with virtual environment.
-
+    !!! info "Problems with virtual environments"
+        In some specific cases CSC modules may not work properly with Python virtual environments. Try first to run `export CW_FORCE_CONDA_ACTIVATE=1` before activating the venv. If that does not help, try to use the `pip install --user` approach described on
+        the other tab. 
     ---
 
 === "Using `pip install --user`"
