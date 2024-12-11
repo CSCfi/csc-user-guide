@@ -1,4 +1,4 @@
-# How to use Pouta for Remote Desktop
+# How to use cPouta for Remote Desktop
 
 This article will go through how to set up a remote desktop with noVNC and
 ssh-tunnel into a non-GPU flavor in c- and ePouta. We are using noVNC because
@@ -6,6 +6,10 @@ it allows us to use our browser to access the desktop, i.e. no
 local installations needed. If you would like to have
 instructions on how to use a GPU instance for rendering look
 here: [How to use cPouta GPU for rendering](how-to-use-cpouta-gpu-for-rendering.md)
+
+First, we will show you how to install the different softwares needed manually. At the end of this article, 
+we will show you how to do it automatically when creating an instance (post install scripts). If you want to 
+go directly to the post install script, click [here](#post-install-scripts)
 
 ## Preparations
 
@@ -344,3 +348,175 @@ accessed from. You can exit out of the noVNC session by `ctrl+c`.
 You should now be able to access the noVNC session by going to this link in
 your browser `http://127.0.0.1:2001/vnc.html` . Note, that the port number is the
 same as the one you used with the ssh-command.
+
+
+## Post install scripts
+When you create an instance in cPouta, it is possible to add a `Post-Creation` step.
+
+It allows you to run automatic tasks to install softwares and/or run updates.
+
+![machine post creation](img/post-creation-pouta.png)
+
+You have the choice between `Direct Input` meaning that you have to type the commands 
+or `File` meaning that you can upload a bash script or a [cloud-init](https://docs.cloud-init.io/en/latest/index.html) 
+script.
+
+You can find here two scripts using `cloud-init`. One for `AlmaLinux` and one for `Ubuntu`:
+
+`init_vnc_almalinux.yaml`:
+
+```yaml
+#cloud-config
+#
+# Above first line indicates that the file is a Cloud-Init configuration file. Don't remove it
+
+# Update the package list
+package_update: true
+
+# Upgrade all installed packages to their latest versions
+package_upgrade: true
+
+# List of packages to install
+packages:
+  - epel-release
+
+runcmd:
+  - dnf install -y tigervnc-server novnc
+  - dnf groupinstall -y "Xfce" "base-x"
+  - systemctl set-default graphical
+  - cp /lib/systemd/system/vncserver@.service /etc/systemd/system/vncserver@:1.service
+  - systemctl enable vncserver@:1.service
+
+users:
+  - default
+  - vncuser
+
+write_files:
+  - content: |
+      ## CONFIGURATION FOR ALL USERS ##
+      geometry=1440x900
+      depth=24
+      session=xfce
+      localhost=no
+    path: /etc/tigervnc/vncserver-config-defaults
+    append: true
+  - content: |
+      :1=vncuser
+    path: /etc/tigervnc/vncserver.users
+    append: true
+
+final_message: |
+  init_vnc_almalinux has finished
+  version: $version
+  timestamp: $timestamp
+  datasource: $datasource
+  uptime: $uptime
+
+power_state:
+  mode: reboot
+  message: rebooting machine
+```
+
+`init_vnc_ubuntu.yaml`:
+
+```yaml
+#cloud-config
+#
+# Above first line indicates that the file is a Cloud-Init configuration file. Don't remove it
+
+# Update the package list
+package_update: true
+
+# Upgrade all installed packages to their latest versions
+package_upgrade: true
+
+# List of packages to install
+packages:
+  - ubuntu-desktop
+  - tigervnc-standalone-server
+  - snap:
+    - novnc
+
+users:
+  - default
+  - vncuser
+
+write_files:
+  - content: |
+      ## CONFIGURATION FOR ALL USERS ##
+      $geometry = "1440x900";
+      $depth = "24";
+      $session = "ubuntu";
+      $localhost = "no";
+    path: /etc/tigervnc/vncserver-config-defaults
+    append: true
+  - content: |
+      :1=vncuser
+    path: /etc/tigervnc/vncserver.users
+    append: true
+
+runcmd:
+  - systemctl set-default graphical
+  - cp /lib/systemd/system/tigervncserver@.service /etc/systemd/system/tigervncserver@:1.service
+  - systemctl enable tigervncserver@:1.service
+
+final_message: |
+  init_vnc_ubuntu has finished
+  version: $version
+  timestamp: $timestamp
+  datasource: $datasource
+  uptime: $uptime
+
+power_state:
+  mode: reboot
+  message: rebooting machine
+```
+
+We recommend to save these scripts in a yaml file and use **File** from the Post-Creation menu.
+
+After the installation of your machine, you still need to create a vnc password. Connect to your machine via SSH 
+(`ssh -L2001:localhost:6081 {ubuntu | almalinux}@{YOUR-FLOATING-IP}`) and run the following commands:
+
+For AlmaLinux:
+
+```sh
+$ sudo su - vncuser
+$ vncpasswd
+
+Password:
+Verify:
+Would you like to enter a view-only password (y/n)? n
+
+$ exit
+$ sudo systemctl start vncserver@:1.service
+```
+
+For Ubuntu:
+
+```sh
+$ sudo su - vncuser
+$ vncpasswd
+
+Password:
+Verify:
+Would you like to enter a view-only password (y/n)? n
+
+$ exit
+$ sudo systemctl start tigervncserver@:1.service
+```
+
+Once the service is running, you can run `novnc`:
+
+Almalinux:
+
+```sh
+novnc_server --listen 6081 --vnc localhost:5901
+```
+
+Ubuntu:
+
+```sh
+novnc --listen 6081 --vnc localhost:5901
+```
+
+and access the noVNC session via `http://127.0.0.1:2001/vnc.html` using the `vncpasswd` you set previously.

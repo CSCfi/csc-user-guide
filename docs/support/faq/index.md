@@ -61,7 +61,7 @@
 * [How to mount my Allas S3 bucket to a VM running in cPouta](how-to-mount-os-bucket-for-cpouta.md)
 * [How to rescue a Pouta instance](pouta-openstack-rescue-mode.md)
 * [How to resize an instance or volume in Pouta?](how-to-resize-in-pouta.md)
-* [How to use cPouta for Remote Desktop](how-to-use-pouta-for-remote-desktop.md)
+* [How to use cPouta for Remote Desktop](how-to-use-cpouta-for-remote-desktop.md)
 * [How to use cPouta GPU for rendering](how-to-use-cpouta-gpu-for-rendering.md)
 * [Is Pouta backed up?](is-pouta-backed-up.md)
 * [What does it cost to use Pouta?](what-does-it-cost-to-use-pouta.md)
