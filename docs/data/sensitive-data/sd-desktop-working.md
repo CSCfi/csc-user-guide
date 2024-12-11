@@ -17,7 +17,8 @@ The guide below provides clear instructions to help you get comfortable with bot
 
 ## Security-related features and limitations
 
-<iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/r0S1NNN2eQs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+[![View video](https://www.youtube.com/embed/r0S1NNN2eQs){ target="_blank" }]
 
 SD Desktop is a secure environment designed specifically for analysing sensitive data and some features may work differently than a regular computer. For each of these features, a specific step-by-step guide is available. If you are using the service for the first time, reviewing these guides will help you become familiar with how everything works.
 
