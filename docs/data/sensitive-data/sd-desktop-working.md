@@ -12,11 +12,11 @@ No technical experience is required to work with it, but while Windows is design
 The guide below provides clear instructions to help you get comfortable with both Linux and the SD Desktop’s security setup:
 
 - [Security-related features and limitations](sd-desktop-working.md#security-related-features-and-limitations)
-- [Accessing the secure environment](sd-desktop-working.md#accessing-the-secure-environment)
-- [Introduction to your virtual desktop](sd-desktop-working.md#introduction-to-linux)
+- [Accessing virtual desktop](sd-desktop-working.md#accessing-virtual-desktop)
+- [Introduction to Linux and virtual desktop](sd-desktop-working.md#introduction-to-linux-and-virtual-desktop)
 - [Copy-paste from your laptop to virtual desktop](sd-desktop-working.md#copy-paste-from-your-laptop-to-virtual-desktop)
 - [Default software available in SD Desktop](sd-desktop-working.md#default-software-available-in-sd-desktop)
-- [Accessing RStudio](sd-desktop-working.md#accessing-rstudio)
+- [Accessing RStudio from virtual desktop](sd-desktop-working.md#accessing-rstudio-from-virtual-desktop)
 
 ## Security-related features and limitations
 
@@ -36,9 +36,8 @@ SD Desktop is a secure environment designed specifically for analysing sensitive
   
 - **Shared file access for team members**: Any files saved in the shared-directory or on the external volume can be accessed by other project members working in the virtual desktop, allowing safe collaboration.
 
-## Accessing the secure environment
 
-### Connecting to your desktop
+## Accessing virtual desktop
 
 1. After [login](./sd-desktop-login.md), you will see all your virtual desktops listed at the front page, under *All connections*.
 
@@ -51,7 +50,7 @@ When you open the connection, a virtual computing environment will open in your 
 ![All connections](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Desktop_AllConnections.png)
 
 
-### Introduction to Linux
+## Introduction to Linux and virtual desktop
 
 Linux is an open-source operating system, meaning it is free to use, and its code is openly available for people to view and modify. It's commonly used in many research applications due to its stability, security, and flexibility.
 
@@ -61,13 +60,13 @@ Linux is an open-source operating system, meaning it is free to use, and its cod
   
 - **Benefits**: Linux is very stable and less likely to crash, making it ideal for long or intensive computing tasks.
 
+Below is an image showing the basic functions of a virtual desktop. Click the image to open it in a new window.
 
-![Virtual desktop](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Desktop_Overview.png)
+[![Virtual desktop](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Desktop_Overview.png)](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Desktop_Overview.png){ target="_blank" }
 
 
 
-
-### Disconnecting from the virtual desktop
+## Logging out from virtual desktop
 
 1. In the workspace view, top right corner of the browser, select your *username* and *log out*.
    
@@ -119,17 +118,22 @@ Below we list some of the most commonly used tools that are by default installed
 | **Scientific Software**    | - [Plink 1.9](https://www.cog-genomics.org/plink/) <br> - [Samtools 1.8](http://www.htslib.org/) <br> - [Minimap2 2.26](https://github.com/lh3/minimap2)                                                                                                                          |
 | **Terminals & Interfaces** | - [Byobu](https://www.byobu.org/) (Only in Ubuntu machines.) <br> - [Jupyter](https://jupyter.org/)                                                                                                                         |
 
-### Accessing RStudio
+## Accessing RStudio from virtual desktop
 
 The computing environment i.e. virtual desktop (visible from your browser) is isolated from the internet. For example, you can open a Firefox web browser in your virtual desktop but not access any site online. At this moment, you will also not be able to access any repositories directly. To open R Studio for data analysis the following steps are required:
 
-1. Open the terminal and launch RStudio with:
+1. Open the terminal.
+
+2. Launch RStudio with:
 
     ```text
     start-rstudio-server
     ```
 
-2. This will return a URL and a service-specific password:
+![Access R-Studio](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Desktop_RStudio1.png)
+
+
+* This will return a URL and a service-specific password:
 
     ```text
     RStudio Server - Sensitive Data Desktop Edition
@@ -146,14 +150,11 @@ The computing environment i.e. virtual desktop (visible from your browser) is is
     To stop RStudio Server: Ctrl+C
     ```
 
-3. Next:
-    - paste the URL in Firefox
-    - after a few seconds, you can input the username and password (service-specific) and access the server.
+3.  Copy the URL and paste it in Firefox to open the R-Studio login page.
+4. After a few seconds, enter your username and password to access the server.
 
 !!! Note
     Only files saved in the external volume are accessible to other project members using RStudio.
-
-![Access R-Studio](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Desktop_RStudio1.png)
 
 ![Access R-Studio](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Desktop_RStudio2.png)
 
