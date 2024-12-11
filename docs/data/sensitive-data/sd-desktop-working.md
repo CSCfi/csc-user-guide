@@ -17,6 +17,8 @@ The guide below provides clear instructions to help you get comfortable with bot
 - [Copy-paste from your laptop to virtual desktop](sd-desktop-working.md#copy-paste-from-your-laptop-to-virtual-desktop)
 - [Default software available in SD Desktop](sd-desktop-working.md#default-software-available-in-sd-desktop)
 - [Accessing RStudio from virtual desktop](sd-desktop-working.md#accessing-rstudio-from-virtual-desktop)
+- [Logging out from virtual desktop](sd-desktop-working.md#logging-out-from-virtual-desktop)
+- [Reconnecting to an analysis session](sd-desktop-working.md#reconnedting-to-an-analysis-sesion)
 
 ## Security-related features and limitations
 
@@ -66,24 +68,7 @@ Below is an image showing the basic functions of a virtual desktop. Click the im
 
 
 
-## Logging out from virtual desktop
 
-1. In the workspace view, top right corner of the browser, select your *username* and *log out*.
-   
-2. In the new window, click on *Home*.
-    - This will close all applications and disconnect the work session. You can access the same desktop anytime after logging in to the services.
-
-
-![Log out from desktop](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Desktop_LogOut1.png)
-
-![Return to main view](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Desktop_LogOut2.png)
-
-
-
-### Reconnecting to an analysis session
-   
-If you started the analysis programmatically (e.g., by running a script), you can safely close the browser window without interrupting the ongoing processes. Your tools and interfaces will remain open when you reconnect to your desktop, allowing you to continue working.
-      
 
 
 ## Copy-paste from your laptop to virtual desktop
@@ -160,6 +145,24 @@ The computing environment i.e. virtual desktop (visible from your browser) is is
 
 
 
+## Logging out from virtual desktop
+
+1. In the workspace view, top right corner of the browser, select your *username* and *log out*.
+   
+2. In the new window, click on *Home*.
+    - This will close all applications and disconnect the work session. You can access the same desktop anytime after logging in to the services.
+
+
+![Log out from desktop](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Desktop_LogOut1.png)
+
+![Return to main view](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Desktop_LogOut2.png)
+
+
+
+## Reconnecting to an analysis session
+   
+If you started the analysis programmatically (e.g., by running a script), you can safely close the browser window without interrupting the ongoing processes. Your tools and interfaces will remain open when you reconnect to your desktop, allowing you to continue working.
+      
 
 Read next:
 
