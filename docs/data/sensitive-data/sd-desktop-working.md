@@ -136,7 +136,7 @@ The computing environment i.e. virtual desktop (visible from your browser) is is
     ```
 
 3.  Copy the URL and paste it in Firefox to open the R-Studio login page.
-4. After a few seconds, enter your username and password to access the server.
+4. Enter your username and password to access the server.
 
 !!! Note
     Only files saved in the external volume are accessible to other project members using RStudio.
