@@ -9,7 +9,7 @@ This tutorial is a long format one, it explains all the different steps that wer
 1. We can use the docker compose deployment as a base and adapt it to Kubernetes deployment using [kompose](https://kompose.io). This tool is specifically designed to make this conversions. From their website: "Our conversions are not always 1:1 from Docker Compose to Kubernetes, but we will help get you 99% of the way there!". And it indeed will save us a lot of tedious conversion time, but it will not be the end of it.
 
 !!! warning "Linux is used for all the examples"
-    We have prepared this tutorial using a Linux machine. In principle, all these commands run also in Windows and Mac, but if confused I recommend you to [install a tiny VM in Pouta](https://docs.csc.fi/cloud/pouta/launch-vm-from-web-gui/) and use it for following the tutorial instead. This is usefull even for Linux users, as you will be able to install, uninstall or change software without risking your local installation.
+    We have prepared this tutorial using a Linux machine. In principle, all these commands run also in Windows and Mac, but if confused I recommend you to [install a tiny VM in Pouta](/cloud/pouta/launch-vm-from-web-gui/) and use it for following the tutorial instead. This is useful even for Linux users, as you will be able to install, uninstall or change software without risking your local installation.
 
 
 ## Docker compose
@@ -259,7 +259,7 @@ The tool has generated 4 kind of files: `service`, `deployment`,  `configmap` an
           storage: 100Mi
     ```
 
-    We can see that the `name` is the same (In `metadata > name`). The `accessMode` is set to `ReadWriteOnce`, which means that the volume can only be mounted once. Finaly the size is set to `100Mi` by default (In `spec > resources > request > storage`).
+    We can see that the `name` is the same (In `metadata > name`). The `accessMode` is set to `ReadWriteOnce`, which means that the volume can only be mounted once. Finally the size is set to `100Mi` by default (In `spec > resources > request > storage`).
 
 - The `configmap` file(s) store configuration. In our case the (relevant) variables defined in `.env` have been translated to `env-configmap.yaml`. The `name` is set to `env` and the variables are defined under `data`.
 
@@ -342,7 +342,7 @@ The tool has generated 4 kind of files: `service`, `deployment`,  `configmap` an
     ```
 
     - The `image` is defined at `spec > template > spec > containers > image`, and in this case is `postgres:`. This is a mistake as the tag `latest` is missing.
-    - The `enviroment` is defined at `spec > template > spec > containers > env`, values are also missing.
+    - The `environment` is defined at `spec > template > spec > containers > env`, values are also missing.
     - The `volumes` are defined at `spec > template > spec > volumes` and `spec > template > spec > containers > volumeMounts`.
     - The `ports` are defined in `spec > template > spec > containers > ports` and in the already mentioned corresponding `service` files.
     - Finally the `command` is defined in `spec > template > spec > containers > command` (you can see the example in `backend-deployment.yaml`).
