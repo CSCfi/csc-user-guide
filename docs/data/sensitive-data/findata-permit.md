@@ -16,9 +16,8 @@ You need to access SD Desktop. You have a permit from Findata.
 4. [Contact CSC service desk](#4-contact-csc-service-desk)
 5. CSC adds members to your project, please wait
 6. CSC activates SD Desktop for your project, please wait
-7. [Accept SD Desktop terms of use](#7-accept-sd-desktop-terms-of-use)
-8. [Activate MFA](#8-activate-mfa)
-9. [CSC project is ready](#9-your-csc-project-is-ready)
+7. [Activate MFA](#8-activate-mfa)
+8. [CSC project is ready](#9-your-csc-project-is-ready)
 
 ### 1. Create a CSC account
 
@@ -81,21 +80,8 @@ You need to access SD Desktop. You have a permit from Findata.
     - Please wait that Sensitive Data Support -team activates SD Desktop -service for your project.
     - You will receive an email notification, when everything is ready.
 
-### 7. Accept SD Desktop terms of use
 
-!!! warning-label
-    Team manager
-!!! info-label
-    Team member
-
-- If you haven't accepted the terms of use before, please go to MyCSC and navigate to the project view.
-- Please note that every team member must accept the SD Desktop terms of use.
-- Click **Accepts terms** in **Project notifications** window in top right corner.
-- Read and accept terms of use.
-
-![Terms of use notification.](https://a3s.fi/docs-files/sensitive-data/MyCSC/MyCSC_TermsOfUse1.png)
-
-### 8. Activate MFA
+### 7. Activate MFA
 
 !!! warning-label
     Team manager
@@ -111,7 +97,7 @@ You need to access SD Desktop. You have a permit from Findata.
 
 ![Multi-Factor Authentication.](https://a3s.fi/docs-files/sensitive-data/MyCSC/MyCSC_MFA.png)
 
-### 9. Your CSC project is ready!
+### 8. Your CSC project is ready!
 
 !!! warning-label
     Team manager
