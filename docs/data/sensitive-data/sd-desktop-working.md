@@ -1,10 +1,5 @@
 # Working with your Desktop: tips and essentials
 
-
-<iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/r0S1NNN2eQs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-
-
 Once a virtual desktop has been created, all members of your CSC project can access it. When you log in, you will enter a virtual computer running on a Linux operating system. If you are new to Linux, it might feel a little different from other systems like Windows or macOS.
 
 No technical experience is required to work with it, but while Windows is designed to be user-friendly from the start, Linux can have a learning curve, especially if you need to use the command line. 
@@ -21,6 +16,8 @@ The guide below provides clear instructions to help you get comfortable with bot
 - [Reconnecting to an analysis session](sd-desktop-working.md#reconnedting-to-an-analysis-sesion)
 
 ## Security-related features and limitations
+
+<iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/r0S1NNN2eQs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 SD Desktop is a secure environment designed specifically for analysing sensitive data and some features may work differently than a regular computer. For each of these features, a specific step-by-step guide is available. If you are using the service for the first time, reviewing these guides will help you become familiar with how everything works.
 
@@ -40,6 +37,8 @@ SD Desktop is a secure environment designed specifically for analysing sensitive
 
 
 ## Accessing virtual desktop
+
+<iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/ZPee-2OC9Dw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 1. After [login](./sd-desktop-login.md), you will see all your virtual desktops listed at the front page, under *All connections*.
 
@@ -146,6 +145,8 @@ The computing environment i.e. virtual desktop (visible from your browser) is is
 
 
 ## Logging out from virtual desktop
+
+<iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/ZPee-2OC9Dw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 1. In the workspace view, top right corner of the browser, select your *username* and *log out*.
    
