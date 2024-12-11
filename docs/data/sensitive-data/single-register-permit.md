@@ -17,11 +17,11 @@ You need to access SD Desktop. You have a permit from a single register.
 4. [Contact CSC service desk](#4-contact-csc-service-desk)
 5. CSC adds members to your project, please wait
 6. CSC activates SD Desktop for your project, please wait
-7. [Activate MFA](#8-activate-mfa)
-8. [CSC project is ready](#9-your-csc-project-is-ready)
-9. [Apply for access to the dataset with SD Apply](#10-apply-for-access-to-the-dataset-with-sd-apply)
+7. [Activate MFA](#7-activate-mfa)
+8. [CSC project is ready](#8-your-csc-project-is-ready)
+9. [Apply for access to the dataset with SD Apply](#9-apply-for-access-to-the-dataset-with-sd-apply)
 10. Register processes application, please wait
-11. [Send approved application to CSC](#12-send-approved-application-to-csc)
+11. [Send approved application to CSC](#11-send-approved-application-to-csc)
 
 
 ### 1. Create a CSC account 
