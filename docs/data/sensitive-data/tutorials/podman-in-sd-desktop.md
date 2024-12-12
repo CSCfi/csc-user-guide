@@ -1,7 +1,9 @@
 # Using Podman in SD Desktop
 
-!!! Noteß
-   Podman is not available at the moment
+
+!!! Note
+    Podman is not available at the moment.
+
 
 The [Podman](https://podman.io/) container manager is available in Ubuntu 22-based SD Desktop virtual machines.
 Podman is able to use Docker containers and thus it can be used to replace Docker in your SD Desktop workflows.
