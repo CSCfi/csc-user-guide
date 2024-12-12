@@ -4,6 +4,11 @@
 
 This tutorial walks you through migrating a PostgreSQL database to Pukki, CSC's Database-as-a-Service (DBaaS) platform. This step-by-step guide will show you how to export your existing database, import it into Pukki, and verify your migration was successful.
 
+!!! Warning "Ensure Sufficient Disk Space and Resource Allocation" 
+    **On Your Machine**: The `pg_dump` command writes the database dump file to your local machine / server (where the command is executed). Ensure that your machine has enough free disk space to store the dump file. The size of the dump depends on the volume of data and the chosen format (plain SQL or directory).
+    
+    **On the DBaaS Instance**: Projects on Pukki have [default quotas and volume limits](../../cloud/dbaas/flavors.md). If your database requires more resources (e.g., a larger volume size, more memory, or additional instances), contact [ServiceDesk](mailto:servicedesk@csc.fi) to request an increase to your default quota (include your project number).
+
 ## Step 1: Set Up Your Pukki PostgreSQL Instance
 
 Before you can migrate your database, you need to create a new PostgreSQL instance on Pukki where the data from your current database will be imported. 
@@ -20,45 +25,37 @@ To migrate your database, you must first create a backup or "dump" of your exist
 
 - Run the `pg_dump` command to export your database as a plain SQL file:
     ```bash
-    pg_dump -U user -h host -F p database > database_backup.sql
+    pg_dump --user ${USERNAME} --host ${PUBLIC_IP} --format p ${DATABASE_NAME} > database_backup.sql
     ```
-    - `-U user`: The username with access to the database.
-    - `-h host`: The host of your current database server.
-    - `-F p`: Specifies the plain-text SQL format for the output.
-    - `database`: The name of the database you want to export.
+    - `--format p`: Specifies the plain-text SQL format for the output.
     - `database_backup.sql`: The name of the output file.
 
 - If your database is large, consider creating a parallel dump using the directory format for faster processing:
     ```bash
-    pg_dump -U user -h host -F d -j 4 -f /path/to/dir database
+    pg_dump --user ${USERNAME} --host ${PUBLIC_IP} --format d --jobs 4 --file /path/to/dir ${DATABASE_NAME}
     ```
-    - `-F d`: Specifies the directory format.
-    - `-j 4`: Uses 4 parallel jobs for faster export.
-    - `/path/to/dir`: Directory where the dump files will be saved.
+    - `--format d`: Specifies the directory format.
+    - `--jobs 4`: Uses 4 parallel jobs for faster export.
+    - `--file /path/to/dir`: Directory where the dump files will be saved.
 
 
 ## Step 3: Import the Dump into Pukki
 
 After creating a backup/"dump", the next step is to import it into the Pukki PostgreSQL instance. This step ensures that the data and schema from your original database are restored in the new environment.
 
-- If you used `pg_dump` with the plain SQL format (`-F p`), follow these steps:
+- If you used `pg_dump` with the plain SQL format (`--format p`), follow these steps:
     - Use psql to import the SQL file directly into the Pukki database:
     ```bash
-    psql -h ip -U user -d database -f database_backup.sql
+    psql --user ${USERNAME} --host ${PUBLIC_IP} ${DATABASE_NAME} --file database_backup.sql
     ```
-    - `-h ip`: Public IP of the Pukki instance.
-    - `-U user`: The username with access to the database.
-    - `-d database`: The name of the database created on Pukki.
-    - `-f database_backup.sql`: Path to the dump file.
+    - `--file database_backup.sql`: Path to the dump file.
 
-- If you used the directory format (`-F d`) for the dump, use `pg_restore` to restore the database:
+- If you used the directory format (`--format d`) for the dump, use `pg_restore` to restore the database:
     - Use `pg_restore` with parallel jobs to import the directory format dump:
     ```bash
-    pg_restore -h ip -U user -d database -j 4 /path/to/dir
+    pg_restore --user ${USERNAME} --host ${PUBLIC_IP} ${DATABASE_NAME} --jobs 4 /path/to/dir
     ```
-    - `-h ip`: Public IP of the Pukki instance.
-    - `-U user`: The username with access to the database.
-    - `-d database`: The name of the database created on Pukki.
+    - `--jobs 4`: Number of jobs.
     - `/path/to/dir`: Path to the directory containing the dump files.
 
 ## Step 4: Verify the Migration
@@ -67,9 +64,9 @@ After importing the data, it’s important to verify that the migration was succ
 
 - Connect to the Pukki database:
     ```bash
-    psql -h ip -U user -d database
+    psql --user ${USERNAME} --host ${PUBLIC_IP} ${DATABASE_NAME}
     ```
-    - Replace `ip`, `user`, and `database` with your actual host, username, and database name.
+    - Replace `${USERNAME}`, `${PUBLIC_IP}`, and `${DATABASE_NAME}` with your actual username, host, and database name.
 
 - Run a query to count the rows in a key table:
     ```sql

@@ -14,6 +14,7 @@
 * [Command Line tools](cli.md)
 * [Using backups](backups.md)
 * [Database operations](operations.md)
+* [How to migrate a database to Pukki (DBaaS)](../../support/tutorials/pukki_data_migration.md)
 
 ## Database types
 
