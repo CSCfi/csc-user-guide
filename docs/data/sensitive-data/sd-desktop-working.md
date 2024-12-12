@@ -17,9 +17,6 @@ The guide below provides clear instructions to help you get comfortable with bot
 
 ## Security-related features and limitations
 
-
-[![View video](https://www.youtube.com/embed/r0S1NNN2eQs){ target="_blank" }]
-
 SD Desktop is a secure environment designed specifically for analysing sensitive data and some features may work differently than a regular computer. For each of these features, a specific step-by-step guide is available. If you are using the service for the first time, reviewing these guides will help you become familiar with how everything works.
 
 - **Isolated from the internet**: your virtual desktop is completely isolated from the internet. This means that although you can open a web browser like Firefox, you will not be able to access websites or online repositories directly. This feature helps keep your data safe by reducing the risk of online threats.
@@ -53,6 +50,8 @@ When you open the connection, a virtual computing environment will open in your 
 
 
 ## Introduction to Linux and virtual desktop
+
+<iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/r0S1NNN2eQs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 Linux is an open-source operating system, meaning it is free to use, and its code is openly available for people to view and modify. It's commonly used in many research applications due to its stability, security, and flexibility.
 
@@ -146,8 +145,6 @@ The computing environment i.e. virtual desktop (visible from your browser) is is
 
 
 ## Logging out from virtual desktop
-
-<iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/ZPee-2OC9Dw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 1. In the workspace view, top right corner of the browser, select your *username* and *log out*.
    
