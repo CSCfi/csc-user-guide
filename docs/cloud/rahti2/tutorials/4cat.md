@@ -1,6 +1,6 @@
 # How to deploy 4cat in Rahti
 
-This tutorial is a long format one, it explains all the different steps that were necessary to deploy the [4cat_fi](https://github.com/uh-dcm/4cat_fi) application into Rahti. The idea is to explain the story of how the different issues were found and solved. Each issue will have its own chapter and hopefully the solution will be easy to apply to any other application with similar issues.
+This tutorial is a long format one, it explains all the different steps that were necessary to deploy the [4cat_fi](https://github.com/uh-dcm/4cat_fi) application into Rahti. The idea is to explain the story of how the different issues were found and solved. Each issue will have its own chapter and hopefully the solution will be easy to apply to any other application with similar issues. We will omit some of the false solutions and leads that I followed when I originally tried to deploy this application for the sake of keeping this tutorial from growing exponentially. But keep in mind that these kind of processes are rarely straight forward and that to find the solution you normally find a lot of non solutions.
 
 4Cat is a capture and analysis toolkit. From the Github page linked above, we learnt that the tool is used for analysing social media platforms and that one of the installation methods is docker compose. This is good news because:
 
@@ -571,7 +571,7 @@ Finally we will create the deployments. We have 3 deployments and we will start 
 
 ### Backend deployment
 
-This deployment also needs few changes. Let's go through them in more agile way:
+This deployment also needs few changes. Let's go through them in hopefully a more agile way:
 
 1. Fix the image name. The error:
 
@@ -584,7 +584,6 @@ This deployment also needs few changes. Let's go through them in more agile way:
     The solution:
 
     ```diff
-    @@ -137,5 +137,5 @@
                        key: workers
                        name: env
     -          image: 'digitalmethodsinitiative/4cat:'
@@ -613,10 +612,9 @@ This deployment also needs few changes. Let's go through them in more agile way:
     psql: error: connection to server at "db" (172.30.154.239), port 5432 failed: fe_sendauth: no password supplied`
     ```
 
-    This is due to the fact that meanwhile we are defining `POSTGRESQL_PASSWORD` the application is expcting `PGPASSWPRD`. This mean that the fix is:
+    This is due to the fact that meanwhile we are defining `POSTGRESQL_PASSWORD` the application is expecting `PGPASSWPRD`. This mean that the fix is:
 
     ```diff
-    @@ -72,5 +72,5 @@
                        key: POSTGRES_HOST_AUTH_METHOD
                        name: env
     -            - name: POSTGRES_PASSWORD
@@ -648,4 +646,423 @@ This deployment also needs few changes. Let's go through them in more agile way:
     PermissionError: [Errno 13] Permission denied: '/nltk_data'
     ```
 
-    We need to create an emptyDir for that folder.
+    We need to make the folder `/nltk_data` writable to the user running the application. If we come back to check the docker compose, this folder was not mentioned. This means that any data written on the folder, will not survive the restrt to the container image. The easiest way to acomplish this is to mount an [ephemeral storage](/cloud/rahti2/storage/ephemeral.md) folder (an emptyDir). This is a fast temporal storage that will be deleted when the Pod is terminated, the same behaviour as with the docker compose. The change is the following:
+
+    ```diff
+                   protocol: TCP
+               volumeMounts:
+    +            - mountPath: /nltk_data
+    +              name: nltk-data
+                 - mountPath: /usr/src/app/data
+                   name: 4cat-data
+    @@ -151,4 +153,6 @@
+           restartPolicy: Always
+           volumes:
+    +        - name: nltk-data
+    +          emptyDir: {}
+             - name: 4cat-data
+               persistentVolumeClaim:
+    ```
+
+1. The next error is again about environment variables:
+
+    ```py
+    Creating config/config.ini file
+    Traceback (most recent call last):
+      File "/usr/local/lib/python3.8/runpy.py", line 194, in _run_module_as_main
+        return _run_code(code, main_globals, None,
+      File "/usr/local/lib/python3.8/runpy.py", line 87, in _run_code
+        exec(code, run_globals)
+      File "/usr/src/app/docker/docker_setup.py", line 88, in <module>
+        update_config_from_environment(CONFIG_FILE, config_parser)
+      File "/usr/src/app/docker/docker_setup.py", line 35, in update_config_from_environment
+        config_parser['DATABASE']['db_password'] = os.environ['POSTGRES_PASSWORD']
+      File "/usr/local/lib/python3.8/os.py", line 675, in __getitem__
+        raise KeyError(key) from None
+    KeyError: 'POSTGRES_PASSWORD'
+    ```
+
+    This environment variable is hardwired on the application's code. We could patch the code, but this means to rebuild the image and keep patching the code for every new version of the image. The most cost effecive solution is to define the variable twice. If you remember, in step 3 of this chapter we changed the variable's name to satisfy other part of the code.
+
+    ```diff
+                       key: POSTGRES_PASSWORD
+                       name: env
+    +            - name: POSTGRES_PASSWORD
+    +              valueFrom:
+    +                configMapKeyRef:
+    +                  key: POSTGRES_PASSWORD
+    +                  name: env
+                 - name: POSTGRES_PORT
+                   valueFrom:
+    ```
+
+1. We are progressing, but we are not over. The new error is:
+
+    ```sh
+    $ oc logs backend-7f9c9dbfbb-78sh8 -f
+    Waiting for postgres...
+    PostgreSQL started
+    Database already created
+
+               4CAT migration agent
+    ------------------------------------------
+    Interactive:             no
+    Pull latest release:     no
+    Pull branch:             no
+    Restart after migration: no
+    Repository URL:          https://github.com/digitalmethodsinitiative/4cat.git
+    .current-version path:   config/.current-version
+    Current Datetime:        2024-12-12 07:00:22
+
+    WARNING: Migration can take quite a while. 4CAT will not be available during migration.
+    If 4CAT is still running, it will be shut down now (forcibly if necessary).
+
+    - No PID file found, assuming 4CAT is not running
+    - Version last migrated to: 1.46
+    - Code version: 1.46
+      ...already up to date.
+
+    Migration finished. You can now safely restart 4CAT.
+
+    Creating config/config.ini file
+    Created config/config.ini file
+
+    Starting app
+    4CAT is accessible at:
+    http://localhost
+
+    Starting 4CAT Backend Daemon...
+    ...error while starting 4CAT Backend Daemon (pidfile not found).
+    tail: cannot open 'logs/backend_4cat.log' for reading: No such file or directory
+    tail: no files remaining
+
+    ```
+
+    For solving this we again have two options, we can guess or we can use the `oc debug` tool. The `oc debug` tool allows you to launch a failed pod in an interactive session without launching the initial command of the Pod.
+
+    ```sh
+    $ oc debug backend-7f9c9dbfbb-78sh8
+    Starting pod/backend-7f9c9dbfbb-78sh8-debug-vcb6f, command was: docker/docker-entrypoint.sh
+    Pod IP: 10.129.12.120
+    If you don't see a command prompt, try pressing enter.
+
+    $ ls logs
+    4cat.stderr  lost+found  migrate-backend.log
+    $ df -h
+    Filesystem      Size  Used Avail Use% Mounted on
+    overlay         1.2T  435G  766G  37% /
+    tmpfs            64M     0   64M   0% /dev
+    shm              64M     0   64M   0% /dev/shm
+    tmpfs            22G   91M   22G   1% /etc/passwd
+    /dev/sda4        90G   17G   73G  19% /nltk_data
+    /dev/sdr        974M   24K  958M   1% /usr/src/app/data
+    /dev/sds        974M   36K  958M   1% /usr/src/app/config
+    /dev/sdq        974M  168K  958M   1% /usr/src/app/logs
+    tmpfs           1.0G   24K  1.0G   1% /run/secrets/kubernetes.io/serviceaccount
+    devtmpfs        4.0M     0  4.0M   0% /proc/keys
+    $
+    ```
+
+    So we can see that the `logs` folder is a persistent volume and indeed does not have the log file there. The solution might be to just create the file meanwhile we are still on the debug interactive session:
+
+    ```sh
+    $ touch logs/backend_4cat.log
+    ```
+
+    It is strange that the application does not create the file itself and that this was not an issue for the compose approach. It is suspissius but we will continue and see if this becomes a problem later. To see if the fix made the trick, we need to delete the Pod, so a new one is created:
+
+    ```sh
+    $ oc get pods
+    NAME                       READY   STATUS    RESTARTS        AGE
+    backend-7f9c9dbfbb-78sh8   1/1     Running   7 (7m49s ago)   21m
+    db-545945c9b8-tkbwc        1/1     Running   0               17h
+
+    $ oc delete pod backend-7f9c9dbfbb-78sh8
+    pod "backend-7f9c9dbfbb-78sh8" deleted
+
+    ```
+
+    and then see if the Pod still fails:
+
+    ```sh
+    $ oc get pods
+    NAME                       READY   STATUS    RESTARTS   AGE
+    backend-7f9c9dbfbb-sznxl   1/1     Running   0          3m22s
+    db-545945c9b8-tkbwc        1/1     Running   0          17h
+    ```
+
+    It has been running for few minutes without failing. The log shows now a new error:
+
+    ```sh
+    $ oc logs backend-7f9c9dbfbb-sznxl
+    [...]
+    Starting 4CAT Backend Daemon...
+    ...error while starting 4CAT Backend Daemon (pidfile not found).
+    ```
+
+    We are assuming that the application is trying to write the Pid file (file with the process number on it) to a folder that you can only write to if you are root. This is a typical error with these kind of coversions. The log does not tell us where the pid file should be, so we need to investigate it for ourselves. As the Pod is running, we can use `oc rsh`, which is a tool used to open a remote shell, this works only with to running Pods:
+
+    ```sh
+    $ oc rsh backend-7f9c9dbfbb-sznxl
+        $ grep 'pidfile not' -C 4 -nR *
+        4cat-daemon.py-144-            else:
+        4cat-daemon.py-145-                time.sleep(0.1)
+        4cat-daemon.py-146-
+        4cat-daemon.py-147-        if not pidfile.is_file():
+        4cat-daemon.py:148:            print("...error while starting 4CAT Backend Daemon (pidfile not found).")
+        4cat-daemon.py-149-            return False
+        4cat-daemon.py-150-
+        4cat-daemon.py-151-        else:
+        4cat-daemon.py-152-            with pidfile.open() as infile:
+
+        $ grep pidfile 4cat-daemon.py
+        pidfile = config.get('PATH_ROOT').joinpath(config.get('PATH_LOCKFILE'), "4cat.pid")  # pid file location
+        if pidfile.is_file():
+            with pidfile.open() as infile:
+    ```
+
+    We used `grep` to find the error message in the code, and then so see where the `pidfile` variable was defined. We could have used a local text editor, or directly using GitHub search. I just think `grep` is a great tool and that everyone should know how to use it. Coming back to the issue on hand, we know that the iod file is stored on a folder configured with `PATH_LOCKFILE`. We will check if we can find it on the `config.ini` file:
+
+    ```sh
+    $ oc rsh backend-7f9c9dbfbb-sznxl
+        $ grep path -i config/config.ini
+        [PATHS]
+        path_images = data
+        path_data = data
+        path_lockfile = backend
+        path_sessions = config/sessions
+        path_logs = logs/
+        $ ls -alh backend
+        total 24K
+        drwxr-xr-x. 1 root root  108 Oct 14 10:52 .
+        drwxr-xr-x. 1 root root   30 Dec 12 07:22 ..
+        -rw-r--r--. 1 root root  919 Oct 14 10:52 README.md
+        -rw-r--r--. 1 root root   92 Oct 14 10:52 __init__.py
+        -rw-r--r--. 1 root root 3.4K Oct 14 10:52 bootstrap.py
+        -rw-r--r--. 1 root root 4.7K Oct 14 10:52 database.sql
+        drwxr-xr-x. 2 root root  157 Oct 14 10:52 lib
+        drwxr-xr-x. 2 root root 4.0K Oct 14 10:52 workers
+    ```
+
+    This one was probably one of the most complicated one to fix, and the one that required more guessing. The solution we will follow is to first change the config `path_lockfile` to a different value. I think that `pid` is a good descriptive name. As the `config.ini` file is in a volume, we can change the value directly on the Pod (`sed -i 's#path_lockfile = backend#path_lockfile = pid#' config/config.ini`) or copy to the local machine (see `oc cp`) edit it with a tedt editor and copy it back. Secondly add a `pid` folder as an emptyDir:
+
+    ```diff
+    @@ -150,4 +150,6 @@
+                 - mountPath: /nltk_data
+                   name: nltk-data
+    +            - mountPath: /usr/src/app/pid
+    +              name: pid
+                 - mountPath: /usr/src/app/data
+                   name: 4cat-data
+    @@ -160,4 +162,6 @@
+             - name: nltk-data
+               emptyDir: {}
+    +        - name: pid
+    +          emptyDir: {}
+             - name: 4cat-data
+               persistentVolumeClaim:
+    ```
+
+    Our next error is the following:
+
+    ```sh
+    $ oc logs backend-65cb8dc8dd-8thwg
+
+    12-12-2024 12:40:44 | INFO at api.py:54: Could not open port 4444 yet ([Errno 99] Cannot assign requested address), retrying in 10 seconds
+    12-12-2024 12:40:54 | INFO at api.py:54: Could not open port 4444 yet ([Errno 99] Cannot assign requested address), retrying in 10 seconds
+    12-12-2024 12:41:04 | INFO at api.py:54: Could not open port 4444 yet ([Errno 99] Cannot assign requested address), retrying in 10 seconds
+    12-12-2024 12:41:14 | INFO at api.py:54: Could not open port 4444 yet ([Errno 99] Cannot assign requested address), retrying in 10 seconds
+    12-12-2024 12:41:24 | INFO at api.py:54: Could not open port 4444 yet ([Errno 99] Cannot assign requested address), retrying in 10 seconds
+    12-12-2024 12:41:34 | INFO at api.py:54: Could not open port 4444 yet ([Errno 99] Cannot assign requested address), retrying in 10 seconds
+    ```
+
+    In this case we get the file and line where the error is happening `app.py` line 54. The relevant part of [app.py](https://github.com/uh-dcm/4cat_fi/blob/master/backend/workers/api.py#L50) is here:
+
+    ```py linenums="18"
+      host = config.get('API_HOST')
+      port = config.get('API_PORT')
+    ```
+
+    ```py linenums="47"
+    while has_time:
+			has_time = start_trying > time.time() - 300  # stop trying after 5 minutes
+			try:
+				server.bind((self.host, self.port))
+				break
+			except OSError as e:
+				if has_time and not self.interrupted:
+					self.manager.log.info("Could not open port %i yet (%s), retrying in 10 seconds" % (self.port, e))
+					time.sleep(10.0)  # wait a few seconds before retrying
+					continue
+				self.manager.log.error("Port %s is already in use! Local API not available. Check if a residual 4CAT process may still be listening at the port." % self.port)
+				return
+			except ConnectionRefusedError:
+				self.manager.log.error("OS refused listening at port %i! Local API not available." % self.port)
+				return
+    ```
+
+    The function on line `50` is trying to bind the port to a given hostname. In the case of the compose approach, the hostname is `backend` but this is not true in the case of Kubernetes where the Pods have a (partly) random name. We could change the config from `backend` to `0.0.0.0`, this will make the backend to work. Sadly the same config file is also used by the frontend, they share the ame volume. This is not a priory a good practise because it causes errors like the one here. In addition, for this kind of application deployments, the best is to change as little as possible so we can still get updates from upstream. For this case, we will try to duplicate the config volume, one for the frontend one for the backend:
+
+    ```sh
+    $ diff 4cat-config-persistentvolumeclaim.yaml 4cat-config-front-persistentvolumeclaim.yaml -U 2
+    --- 4cat-config-persistentvolumeclaim.yaml	2024-12-10 15:48:29.123813479 +0200
+    +++ 4cat-config-front-persistentvolumeclaim.yaml	2024-12-12 15:55:41.207227320 +0200
+    @@ -4,5 +4,5 @@
+       labels:
+         io.kompose.service: 4cat-config
+    -  name: 4cat-config
+    +  name: 4cat-config-front
+     spec:
+       accessModes:
+
+    $ oc create -f 4cat-config-front-persistentvolumeclaim.yaml
+    persistentvolumeclaim/4cat-config-front created
+    ```
+
+    and edit the configmap:
+
+    ```diff
+     apiVersion: v1
+     data:
+    -  API_HOST: backend
+    +  API_HOST: 0.0.0.0
+       DOCKER_CONFIG_VOL: 4cat_4cat_config
+       DOCKER_DATA_VOL: 4cat_4cat_data
+    ```
+
+    ```sh
+    $ oc replace -f env-configmap.yaml
+    configmap/env replaced
+
+    ```
+
+This should be all the changes needed on the backend:
+
+    ```sh
+    12-12-2024 14:03:30 | INFO at api.py:65: Local API listening for requests at 0.0.0.0:4444
+    ```
+
+### Frontend deployment
+
+1. Before deploying the frontend, we need to change the deployment to use the new volume:
+
+    ```diff
+    @@ -158,5 +168,5 @@
+             - name: 4cat-config
+               persistentVolumeClaim:
+    -            claimName: 4cat-config
+    +            claimName: 4cat-config-front
+             - name: 4cat-logs
+               persistentVolumeClaim:
+    ```
+
+1. We will now deploy the frontend and see what is the result:
+
+    ```sh
+    $ oc  get pods
+    NAME                        READY   STATUS              RESTARTS   AGE
+    backend-7f9c9dbfbb-sznxl    1/1     Running             0          105m
+    db-545945c9b8-tkbwc         1/1     Running             0          19h
+    frontend-59f789b489-nbgvc   0/1     ContainerCreating   0          2m
+    ```
+
+    It looks like it is taking too much time to start, let's take a look into the events:
+
+    ```sh
+    oc get events
+    [...]
+    3m         Normal    Scheduled                pod/frontend-59f789b489-nbgvc              Successfully assigned 4cat-2/frontend-59f789b489-nbgvc to 2-rcr6j-worker-0-97gds
+    3m         Warning   FailedAttachVolume       pod/frontend-59f789b489-nbgvc              Multi-Attach error for volume "pvc-593a70ee-6632-4960-bc85-c7f3dc2d9c20" Volume is already used by pod(s) backend-7f9c9dbfbb-sznxl
+    3m         Warning   FailedAttachVolume       pod/frontend-59f789b489-nbgvc              Multi-Attach error for volume "pvc-2da7867d-98ec-4911-a4cb-7a563046f2e7" Volume is already used by pod(s) backend-7f9c9dbfbb-sznxl
+    3m         Warning   FailedAttachVolume       pod/frontend-59f789b489-nbgvc              Multi-Attach error for volume "pvc-bed2a472-c808-45b7-8c3e-171897780dc8" Volume is already used by pod(s) backend-7f9c9dbfbb-sznxl
+    3m         Normal    SuccessfulCreate         replicaset/frontend-59f789b489             Created pod: frontend-59f789b489-nbgvc
+    3m         Normal    ScalingReplicaSet        deployment/frontend                        Scaled up replica set frontend-59f789b489 to 1
+    ```
+
+    So the issue on this case is that both the backend and the frontend want to mount the same volume. At this moment Rahti does not have any Volume type that allows us to mount volumes in more than one node. One workaround for this is [Pod affinity](/cloud/rahti2/tutorials/pod-affinity/), this mechanism is designed to politely ask the scheduler to place two or more Pods on the same node. This will solve our current issue, so we will try it:
+
+    ```diff
+             kompose.cmd: kompose convert
+             kompose.version: 1.34.0 (cbf2835db)
+           labels:
+             io.kompose.service: frontend
+         spec:
+    +      affinity:
+    +        podAffinity:
+    +          requiredDuringSchedulingIgnoredDuringExecution:
+    +          - labelSelector:
+    +              matchExpressions:
+    +              - key: io.kompose.service
+    +                operator: In
+    +                values:
+    +                - backend
+    +            topologyKey: "kubernetes.io/hostname"
+           containers:
+             - args:
+                 - docker/wait-for-backend.sh
+               env:
+                 - name: API_HOST
+    ```
+
+    After replacing the deployment...
+
+    ```sh
+    $ oc replace -f frontend-deployment.yaml
+    deployment.apps/frontend replaced
+
+    $ oc get pods
+    NAME                        READY   STATUS             RESTARTS   AGE
+    backend-7f9c9dbfbb-sznxl    1/1     Running            0          125m
+    db-545945c9b8-tkbwc         1/1     Running            0          19h
+    frontend-6b99c94fff-fv5wd   0/1     InvalidImageName   0          2s
+    ```
+
+    ... we get a familiar error, with a known solution:
+
+    ```diff
+                       key: workers
+                       name: env
+    -          image: 'digitalmethodsinitiative/4cat:'
+    +          image: 'digitalmethodsinitiative/4cat:stable'
+               name: 4cat-frontend
+               ports:
+    ```
+
+    Now the Pods finally starts, but it fails to connect to the backend:
+
+    ```sh
+    $ oc replace -f frontend-deployment.yaml
+    deployment.apps/frontend replaced
+
+    $ oc get pods
+    NAME                       READY   STATUS    RESTARTS   AGE
+    backend-7f9c9dbfbb-sznxl   1/1     Running   0          127m
+    db-545945c9b8-tkbwc        1/1     Running   0          19h
+    frontend-9ffbcf6b-wfg98    1/1     Running   0          4s
+
+    $ oc logs frontend-9ffbcf6b-wfg98 -f
+    Backend has not started - sleeping
+    Backend has not started - sleeping
+    Backend has not started - sleeping
+    Backend has not started - sleeping
+    Backend has not started - sleeping
+    Backend has not started - sleeping
+    Backend has not started - sleeping
+    Backend has not started - sleeping
+    Backend has not started - sleeping
+    Backend has not started - sleeping
+    Backend has not started - sleeping
+    Backend has not started - sleeping
+    ```
+
+    If we look into the frontend config folder, it is empty, let's solve it:
+
+    ```sh
+    $ oc cp backend-65cb8dc8dd-nxq6p:config/config.ini config.ini
+
+    $ vim config.ini
+
+    $ oc cp config.ini frontend-79864b8548-pvh8z:config/
+    ```
+
+
