@@ -145,11 +145,3 @@ This will show each column of the record on its own row. This is especially usef
 ```sql
 SELECT * FROM table1 LIMIT 1 \gx
 ```
-
-### Import database dump
-
-If you have a database dump, you can import it with the following command. Be aware that this might overwrite existing data:
-
-```bash
-psql -h $FLOATING_IP -d $DATABASE -U USERNAME -f file.sql
-```
