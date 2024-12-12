@@ -1,4 +1,4 @@
-# How to migrate a database to Pukki (DBaaS)
+# How to migrate a PostgreSQL database to Pukki
 
 ## Introduction
 
