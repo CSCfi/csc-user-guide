@@ -1,32 +1,19 @@
 # Working with your Desktop: tips and essentials
 
-
-<iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/EhuAYNLS90g" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-
-
-Once a virtual desktop has been created, each CSC project member can access it through their browser. When you log in, you will enter a virtual computer running on a Linux operating system. If you are new to Linux, it might feel a little different from other systems like Windows or macOS.
+Once a virtual desktop has been created, all members of your CSC project can access it. When you log in, you will enter a virtual computer running on a Linux operating system. If you are new to Linux, it might feel a little different from other systems like Windows or macOS.
 
 No technical experience is required to work with it, but while Windows is designed to be user-friendly from the start, Linux can have a learning curve, especially if you need to use the command line. 
 
 The guide below provides clear instructions to help you get comfortable with both Linux and the SD Desktop’s security setup:
 
-- [Introduction to Linux](sd-desktop-working.md#introduction-to-linux)
 - [Security-related features and limitations](sd-desktop-working.md#security-related-features-and-limitations)
-- [Accessing the secure environment](sd-desktop-working.md#accessing-the-secure-environment)
+- [Accessing virtual desktop](sd-desktop-working.md#accessing-virtual-desktop)
+- [Introduction to Linux and virtual desktop](sd-desktop-working.md#introduction-to-linux-and-virtual-desktop)
 - [Copy-paste from your laptop to virtual desktop](sd-desktop-working.md#copy-paste-from-your-laptop-to-virtual-desktop)
 - [Default software available in SD Desktop](sd-desktop-working.md#default-software-available-in-sd-desktop)
-- [Accessing RStudio](sd-desktop-working.md#accessing-rstudio)
-
-## Introduction to Linux
-
-Linux is an open-source operating system, meaning it is free to use, and its code is openly available for people to view and modify. It's commonly used in many research applications due to its stability, security, and flexibility.
-
-- **Look and feel**: Linux may look slightly different from Windows, depending on the “desktop environment” used. But don’t worry – it still has familiar elements like windows folders and menus. You will find the main menu at the top left corner, where you can access all available software.
-  
-- **File structure**: Instead of “My Documents” or drives labeled C: or D:, Linux has a different way of organising files. The main directory starts with /, and you’ll see folders like /home for your personal files.
-  
-- **Benefits**: Linux is very stable and less likely to crash, making it ideal for long or intensive computing tasks.
+- [Accessing RStudio from virtual desktop](sd-desktop-working.md#accessing-rstudio-from-virtual-desktop)
+- [Logging out from virtual desktop](sd-desktop-working.md#logging-out-from-virtual-desktop)
+- [Reconnecting to an analysis session](sd-desktop-working.md#reconnedting-to-an-analysis-sesion)
 
 ## Security-related features and limitations
 
@@ -46,9 +33,10 @@ SD Desktop is a secure environment designed specifically for analysing sensitive
   
 - **Shared file access for team members**: Any files saved in the shared-directory or on the external volume can be accessed by other project members working in the virtual desktop, allowing safe collaboration.
 
-## Accessing the secure environment
 
-### Connecting to your desktop
+## Accessing virtual desktop
+
+<iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/ZPee-2OC9Dw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 1. After [login](./sd-desktop-login.md), you will see all your virtual desktops listed at the front page, under *All connections*.
 
@@ -58,18 +46,29 @@ SD Desktop is a secure environment designed specifically for analysing sensitive
 
 When you open the connection, a virtual computing environment will open in your browser. If you are accessing the virtual desktop for the first time, you will see the panel getting started, from which you can, for example, adjust the screen resolution.
 
-### Disconnecting from the virtual desktop
+![All connections](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Desktop_AllConnections.png)
 
-1. In the workspace view, top right corner of the browser, select your *username* and *log out*.
-   
-2. In the new window, click on *Home*.
-    - This will close all applications and disconnect the work session. You can access the same desktop anytime after logging in to the services.
-      
-3. **Reconnecting to an analysis session**:
-   
-Closing the browser window: If you started the analysis programmatically (e.g., by running a script), you can safely close the browser window without interrupting the ongoing processes. Your tools and interfaces will remain open when you reconnect to your desktop, allowing you to continue working.
-      
-        ![check the paragraph below](../sensitive-data/images/desktop/SD-Desktop-Frontpage.png)
+
+## Introduction to Linux and virtual desktop
+
+<iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/r0S1NNN2eQs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+Linux is an open-source operating system, meaning it is free to use, and its code is openly available for people to view and modify. It's commonly used in many research applications due to its stability, security, and flexibility.
+
+- **Look and feel**: Linux may look slightly different from Windows, depending on the “desktop environment” used. But don’t worry – it still has familiar elements like windows folders and menus. You will find the main menu at the top left corner, where you can access all available software.
+  
+- **File structure**: Instead of “My Documents” or drives labeled C: or D:, Linux has a different way of organising files. The main directory starts with /, and you’ll see folders like /home for your personal files.
+  
+- **Benefits**: Linux is very stable and less likely to crash, making it ideal for long or intensive computing tasks.
+
+Below is an image showing the basic functions of a virtual desktop. Click the image to open it in a new window.
+
+[![Virtual desktop](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Desktop_Overview.png)](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Desktop_Overview.png){ target="_blank" }
+
+
+
+
+
 
 ## Copy-paste from your laptop to virtual desktop
 
@@ -103,17 +102,22 @@ Below we list some of the most commonly used tools that are by default installed
 | **Scientific Software**    | - [Plink 1.9](https://www.cog-genomics.org/plink/) <br> - [Samtools 1.8](http://www.htslib.org/) <br> - [Minimap2 2.26](https://github.com/lh3/minimap2)                                                                                                                          |
 | **Terminals & Interfaces** | - [Byobu](https://www.byobu.org/) (Only in Ubuntu machines.) <br> - [Jupyter](https://jupyter.org/)                                                                                                                         |
 
-### Accessing RStudio
+## Accessing RStudio from virtual desktop
 
 The computing environment i.e. virtual desktop (visible from your browser) is isolated from the internet. For example, you can open a Firefox web browser in your virtual desktop but not access any site online. At this moment, you will also not be able to access any repositories directly. To open R Studio for data analysis the following steps are required:
 
-1. Open the terminal and launch RStudio with:
+1. Open the terminal.
+
+2. Launch RStudio with:
 
     ```text
     start-rstudio-server
     ```
 
-2. This will return a URL and a service-specific password:
+![Access R-Studio](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Desktop_RStudio1.png)
+
+
+* This will return a URL and a service-specific password:
 
     ```text
     RStudio Server - Sensitive Data Desktop Edition
@@ -130,14 +134,34 @@ The computing environment i.e. virtual desktop (visible from your browser) is is
     To stop RStudio Server: Ctrl+C
     ```
 
-3. Next:
-    - paste the URL in Firefox
-    - after a few seconds, you can input the username and password (service-specific) and access the server.
+3.  Copy the URL and paste it in Firefox to open the R-Studio login page.
+4. Enter your username and password to access the server.
 
 !!! Note
     Only files saved in the external volume are accessible to other project members using RStudio.
 
-[![Desktop-rstudio](images/desktop/desktop-rstudio.png)](images/desktop/desktop-rstudio.png)
+![Access R-Studio](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Desktop_RStudio2.png)
+
+
+
+## Logging out from virtual desktop
+
+1. In the workspace view, top right corner of the browser, select your *username* and *log out*.
+   
+2. In the new window, click on *Home*.
+    - This will close all applications and disconnect the work session. You can access the same desktop anytime after logging in to the services.
+
+
+![Log out from desktop](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Desktop_LogOut1.png)
+
+![Return to main view](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Desktop_LogOut2.png)
+
+
+
+## Reconnecting to an analysis session
+   
+If you started the analysis programmatically (e.g., by running a script), you can safely close the browser window without interrupting the ongoing processes. Your tools and interfaces will remain open when you reconnect to your desktop, allowing you to continue working.
+      
 
 Read next:
 

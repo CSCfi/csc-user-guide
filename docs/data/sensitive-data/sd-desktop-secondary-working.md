@@ -23,6 +23,11 @@ It's commonly used in many research applications due to its stability, security,
   
 - **Benefits**: Linux is very stable and less likely to crash, making it ideal for long or intensive computing tasks.
 
+Below is an image showing the basic functions of a virtual desktop. Click the image to open it in a new window.
+
+[![Virtual desktop](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Desktop_Overview.png)](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Desktop_Overview.png){ target="_blank" }
+
+
 ## Security-related features and limitations
 
 SD Desktop is a secure environment designed specifically for analysing sensitive data and the services has certain features that may work differently than a regular computer. For each of these features, a specific step-by-step guide is available below. If you are using the service for the first time, reviewing these guides will help you become familiar with how everything works.
@@ -46,7 +51,7 @@ SD Desktop is a secure environment designed specifically for analysing sensitive
 
 ## Accessing the secure environment
 
-### 1. Connecting to your desktop
+### Connecting to your desktop
 
 1. After [login](./sd-desktop-login.md), you will see all your virtual desktops listed at the front page, under *All connections*.
 
@@ -56,16 +61,25 @@ SD Desktop is a secure environment designed specifically for analysing sensitive
 
 When you open the connection, a virtual computing environment will open in your browser. If you are accessing the virtual desktop for the first time, you will see the panel getting started, from which you can, for example, adjust the screen resolution.
 
-### 2. Disconnecting from the virtual desktop
+![All connections](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Desktop_AllConnections.png)
+
+
+### Disconnecting from the virtual desktop
 
 1. In the workspace view, top right corner of the browser, select your *username* and *log out*.
 2. In the new window, click on *Home*.
     - This will close all applications and disconnect the work session. You can access the same desktop anytime after logging in to the services.
-3. **Reconnecting to an analysis session**:
+
+![Log out from desktop](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Desktop_LogOut1.png)
+
+![Return to main view](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Desktop_LogOut2.png)
+
+
+### Reconnecting to an analysis session
 
 You can reconnect to a previous session only if the browser window is exactly the same size as when the original session was in use. This is typically only possible if you're using the SD Desktop in full-screen mode on the same machine. If the window size has changed, you will most likely be unable to reconnect to the old session.
 
-        ![check the paragraph below](../sensitive-data/images/desktop/SD-Desktop-Frontpage.png)
+
 
 ## Copy-paste from your laptop to virtual desktop
 
@@ -174,6 +188,6 @@ The computing environment i.e. virtual desktop (visible from your browser) is is
 !!! Note
     Only files saved in the external volume are accessible to other project members using RStudio.
 
-[![Desktop-rstudio](images/desktop/desktop-rstudio.png)](images/desktop/desktop-rstudio.png)
+![Access R-Studio](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Desktop_RStudio2.png)
 
 
