@@ -388,6 +388,7 @@ nav:
               - Sending e-mail from Rahti 2: cloud/rahti2/tutorials/email.md
               - Short introduction to YAML: cloud/rahti2/tutorials/yaml_introduction.md
               - Webhooks: cloud/rahti2/tutorials/webhooks.md
+              - 4cat: cloud/rahti2/tutorials/4cat.md
               - Pod (anti) affinity: cloud/rahti2/tutorials/pod-affinity.md
               - Advanced NetworkPolicies: cloud/rahti2/tutorials/advanced-NetworkPolicies-networking.md
               - Integrating External Services: cloud/rahti2/tutorials/integrating-external-services.md

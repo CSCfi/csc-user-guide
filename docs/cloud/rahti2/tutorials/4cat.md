@@ -349,7 +349,7 @@ The tool has generated 4 kind of files: `service`, `deployment`,  `configmap` an
 
     As you can see the generated YAML files sare not perfect, but will be fine as a base for continuing the deployment.
 
-## First deployment to Rahti
+## Deployment to Rahti
 
 We will take the current unmodified YAML files and deploy them one by one. First you need to [install oc](/cloud/rahti2/usage/cli/#how-to-install-the-oc-tool) and [login into Rahti](/cloud/rahti2/usage/cli/#how-to-login-with-oc). Then you need to [create a Rahti project](/cloud/rahti2/usage/projects_and_quota/#creating-a-project). Make sure you are in the correct project: `oc project <project_name>`.
 
@@ -646,7 +646,7 @@ This deployment also needs few changes. Let's go through them in hopefully a mor
     PermissionError: [Errno 13] Permission denied: '/nltk_data'
     ```
 
-    We need to make the folder `/nltk_data` writable to the user running the application. If we come back to check the docker compose, this folder was not mentioned. This means that any data written on the folder, will not survive the restrt to the container image. The easiest way to acomplish this is to mount an [ephemeral storage](/cloud/rahti2/storage/ephemeral.md) folder (an emptyDir). This is a fast temporal storage that will be deleted when the Pod is terminated, the same behaviour as with the docker compose. The change is the following:
+    We need to make the folder `/nltk_data` writable to the user running the application. If we come back to check the docker compose, this folder was not mentioned. This means that any data written on the folder, will not survive the restrt to the container image. The easiest way to accomplish this is to mount an [ephemeral storage](/cloud/rahti2/storage/ephemeral/) folder (an emptyDir). This is a fast temporal storage that will be deleted when the Pod is terminated, the same behaviour as with the docker compose. The change is the following:
 
     ```diff
                    protocol: TCP
@@ -1004,7 +1004,7 @@ This should be all the changes needed on the backend:
                  - name: API_HOST
     ```
 
-    After replacing the deployment...
+1. After replacing the deployment...
 
     ```sh
     $ oc replace -f frontend-deployment.yaml
@@ -1028,7 +1028,7 @@ This should be all the changes needed on the backend:
                ports:
     ```
 
-    Now the Pods finally starts, but it fails to connect to the backend:
+1. Now the Pods finally starts, but it fails to connect to the backend:
 
     ```sh
     $ oc replace -f frontend-deployment.yaml
@@ -1055,14 +1055,170 @@ This should be all the changes needed on the backend:
     Backend has not started - sleeping
     ```
 
-    If we look into the frontend config folder, it is empty, let's solve it:
+    If we look into the frontend config folder (`/usr/src/app/config/`), it is empty. This is easy to solve, we will copy the config file in the backend folder using `oc cp`:
 
     ```sh
     $ oc cp backend-65cb8dc8dd-nxq6p:config/config.ini config.ini
+    ```
 
-    $ vim config.ini
+    Edit the file, replacing the `api_host` by the name of the service:
 
+    ```diff
+         [API]
+     api_port = 4444
+    -api_host = 0.0.0.0
+    +api_host = backend
+
+     [PATHS]
+    ```
+
+    Copy the edited file to the new folder:
+
+    ```sh
     $ oc cp config.ini frontend-79864b8548-pvh8z:config/
     ```
 
+1. After applying the solution we get an error we also got on the backend:
 
+    ```py
+    During handling of the above exception, another exception occurred:
+
+    Traceback (most recent call last):
+      File "/usr/local/lib/python3.8/runpy.py", line 185, in _run_module_as_main
+        mod_name, mod_spec, code = _get_module_details(mod_name, _Error)
+      File "/usr/local/lib/python3.8/runpy.py", line 111, in _get_module_details
+        __import__(pkg_name)
+      File "/usr/src/app/helper-scripts/migrate.py", line 336, in <module>
+        finish(args, logger, no_pip=pip_ran)
+      File "/usr/src/app/helper-scripts/migrate.py", line 122, in finish
+        check_for_nltk()
+      File "/usr/src/app/helper-scripts/migrate.py", line 74, in check_for_nltk
+        nltk.download('punkt_tab', quiet=True)
+      File "/usr/local/lib/python3.8/site-packages/nltk/downloader.py", line 774, in download
+        for msg in self.incr_download(info_or_id, download_dir, force):
+      File "/usr/local/lib/python3.8/site-packages/nltk/downloader.py", line 642, in incr_download
+        yield from self._download_package(info, download_dir, force)
+      File "/usr/local/lib/python3.8/site-packages/nltk/downloader.py", line 698, in _download_package
+        os.makedirs(download_dir, exist_ok=True)
+      File "/usr/local/lib/python3.8/os.py", line 223, in makedirs
+        mkdir(name, mode)
+    PermissionError: [Errno 13] Permission denied: '/nltk_data'
+    ```
+
+    That gets solved in a similar way:
+
+    ```diff
+    @@ -145,4 +155,6 @@
+                   protocol: TCP
+               volumeMounts:
+    +            - mountPath: /nltk_data
+    +              name: nltk-data
+                 - mountPath: /usr/src/app/data
+                   name: 4cat-data
+    @@ -153,4 +165,6 @@
+           restartPolicy: Always
+           volumes:
+    +        - name: nltk-data
+    +          emptyDir: {}
+             - name: 4cat-data
+               persistentVolumeClaim:
+    ```
+
+    Finally the frontend starts. We can see that it is listening to port `5000`, as expected:
+
+    ```sh
+    [2024-12-13 05:53:41 +0000] [35] [INFO] Starting gunicorn 23.0.0
+    [2024-12-13 05:53:41 +0000] [35] [DEBUG] Arbiter booted
+    [2024-12-13 05:53:41 +0000] [35] [INFO] Listening at: http://0.0.0.0:5000 (35)
+    [2024-12-13 05:53:41 +0000] [35] [INFO] Using worker: gthread
+    [2024-12-13 05:53:41 +0000] [37] [INFO] Booting worker with pid: 37
+    [2024-12-13 05:53:41 +0000] [39] [INFO] Booting worker with pid: 39
+    [2024-12-13 05:53:41 +0000] [41] [INFO] Booting worker with pid: 41
+    [2024-12-13 05:53:41 +0000] [43] [INFO] Booting worker with pid: 43
+    [2024-12-13 05:53:41 +0000] [35] [DEBUG] 4 workers
+    ```
+
+1. But shortly after we have a permission denied error:
+
+    ```py
+    PermissionError: [Errno 13] Permission denied: '/usr/src/app/webtool/static/css/colours.css'
+    ```
+
+    The folder `/usr/src/app/webtool/static/css/` has `drwxr-xr-x` permissions. This means that only the owner `(root`) can write to it. The folder is not empty in the original image:
+
+    ```sh
+    root@5878384231b9:/usr/src/app# ls webtool/static/css/ -alh
+    total 160K
+    drwxr-xr-x 2 root root 4.0K Oct 14 10:52 .
+    drwxr-xr-x 7 root root 4.0K Oct 14 10:52 ..
+    -rw-r--r-- 1 root root  569 Oct 14 10:52 colours.css.template
+    -rw-r--r-- 1 root root 4.6K Oct 14 10:52 control-panel.css
+    -rw-r--r-- 1 root root  13K Oct 14 10:52 dataset-page.css
+    -rw-r--r-- 1 root root 8.7K Oct 14 10:52 explorer.css
+    -rw-r--r-- 1 root root  13K Oct 14 10:52 flags.css
+    -rw-r--r-- 1 root root  428 Oct 14 10:52 flowchart.css
+    -rw-r--r-- 1 root root 1.2K Oct 14 10:52 jquery-jsonviewer.css
+    -rw-r--r-- 1 root root  50K Oct 14 10:52 progress.css
+    -rw-r--r-- 1 root root 1.1K Oct 14 10:52 reset.css
+    -rw-r--r-- 1 root root 4.6K Oct 14 10:52 sigma_network.css
+    -rw-r--r-- 1 root root  21K Oct 14 10:52 stylesheet.css
+    ```
+
+    So the simplest solution available is to create our own image by patching the current one. WE will use this `Dockerfile`:
+
+    ```Dockerfile
+    FROM docker.io/digitalmethodsinitiative/4cat:stable
+
+    RUN chmod g+w /usr/src/app/webtool/static/css/
+    RUN chmod g+w /usr/src/app/webtool/static/img/favicon/
+    ```
+
+    Rahti can build it for us if we run this command:
+
+    ```sh
+    $ oc new-build -D $'FROM docker.io/digitalmethodsinitiative/4cat:stable\nRUN chmod g+w /usr/src/app/webtool/static/css/\nRUN chmod g+w /usr/src/app/webtool/static/img/favicon/' --to 4cat
+      --> Found container image ca4511d (8 weeks old) from docker.io for "docker.io/digitalmethodsinitiative/4cat:stable"
+
+          * An image stream tag will be created as "4cat:stable" that will track the source image
+          * A Docker build using a predefined Dockerfile will be created
+            * The resulting image will be pushed to image stream tag "4cat:latest"
+            * Every time "4cat:stable" changes a new build will be triggered
+
+      --> Creating resources with label build=4cat ...
+          imagestream.image.openshift.io "4cat" created
+          imagestreamtag.image.openshift.io "4cat:latest" created
+          buildconfig.build.openshift.io "4cat" created
+      --> Success
+    ```
+
+    We used the [inline Dockerfile method](/cloud/rahti2/images/creating/#using-the-inline-dockerfile-method) because the `Dockerfile` is only 3 lines. After no so much time we have a new image called 4cat in our internal Rahti registry. The internal URL is `image-registry.openshift-image-registry.svc:5000/4cat-2/4cat:latest`.
+
+    ```diff
+                       key: workers
+                       name: env
+    -          image: 'digitalmethodsinitiative/4cat:'
+    +          image: 'image-registry.openshift-image-registry.svc:5000/4cat-2/4cat:latest'
+               name: 4cat-frontend
+               ports:
+    ```
+
+1. After replacing the URL all looks good 🤞. We just need to expose the frontend service to the Internet:
+
+    ```sh
+    $ oc expose svc/frontend
+    route/frontend exposed
+
+    $ oc get route
+    NAME       HOST/PORT                       PATH   SERVICES   PORT   TERMINATION   WILDCARD
+    frontend   frontend-4cat-2.2.rahtiapp.fi          frontend   5000                 None
+    ```
+
+    If we visit the URL <http://frontend-4cat-2.2.rahtiapp.fi> we can finally see the application.
+
+![4cat in Rahti](/cloud/img/4cat-rahti.png)
+
+## Conclusion
+
+As you can see deploying this application into Rahti was a long process. We used every trick in the book, but we managed to make it run on Rahti. I hope all the techniques and rationalizations are clear to you at this moment. We made some leaps of faith, based on intuition and experience, but leaps of faith and experience is hard to write down on paper. If you follow this tutorial with your own application and have any question, do not hesitate to contact us at <servicedesk@csc.fi>. Also reach out to us if you use some other technique that we are not covering here, we will add it to this tutorial.
+
+At the end of the tutorial you should have the deployment YAML files with all the necessary changes. One way to continue the learning experience and to consolidate this YAML files is to package them in a Helm chart following our [Helm chart tutorial](/support/faq/helm/). This way you will be able to deploy the application multiple times in multiple projects (production, test, development, ...) with a single command and consistently.
