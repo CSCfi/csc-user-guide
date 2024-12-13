@@ -17,7 +17,7 @@ When you open the connection, a virtual computing environment will open in your 
 
 ## Log out from your desktop
 
-*Log out* from the desktop (in the workspace view, top right corner of the browser, select your *username* and *log out*). This will close all applications and disconnect the work session. You can access the same desktop anytime after logging in to the services.
+*Log out* from the desktop (in the workspace view, top right corner of the browser). This will close all applications and disconnect the work session. You can access the same desktop anytime after logging in to the services.
 
 ![Log out from desktop](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Desktop_LogOut1.png)
 

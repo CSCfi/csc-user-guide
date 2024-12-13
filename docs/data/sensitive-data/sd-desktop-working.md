@@ -49,9 +49,6 @@ Below is an image showing the basic functions of a virtual desktop. Click the im
 
 
 
-
-
-
 ## Copy-paste from your laptop to virtual desktop
 
 The copy-paste function from your computer/laptop to your virtual desktop is limited for security reasons. However it is possible to copy-paste text with Clipboard. Copy-paste works only in one direction: from your computer to virtual desktop.
@@ -123,5 +120,4 @@ The computing environment i.e. virtual desktop (visible from your browser) is is
     Only files saved in the external volume are accessible to other project members using RStudio.
 
 ![Access R-Studio](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Desktop_RStudio2.png)
-
 
