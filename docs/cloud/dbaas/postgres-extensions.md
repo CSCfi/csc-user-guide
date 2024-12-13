@@ -19,7 +19,7 @@ Note that the extension list is based on the latest PostgreSQL version, the avai
 SELECT '| ' || name  AS name, comment || ' |' as comment FROM pg_available_extensions ORDER BY name;
 --->
 | Extension name  | Extension description |
-|:--- |:--- |:--- |
+|:--- |:--- |
  | address_standardizer           | Used to parse an address into constituent elements. Generally used to support geocoding address normalization step. |
  | address_standardizer-3         | Used to parse an address into constituent elements. Generally used to support geocoding address normalization step. |
  | address_standardizer_data_us   | Address Standardizer US dataset example |
