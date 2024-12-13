@@ -13,16 +13,16 @@ Once a virtual desktop is created, each CSC project member can access it through
 * **Adding the external volume:** the external volume can only be added when creating a [new virtual desktop](../sensitive-data/sd-desktop-create.md)
 * **Additional volume space:** if you need additional volume space (more than 200 GB), you can request it by writing to CSC Service Desk, (subject: SD Desktop), **please be aware that volume extensions are only possible before any data has been added to the volume**.
 
-## Access and import data via the Data Gateway application
 
-### Step by step
+## Step by step
 
-#### Access data with Data Gateway
+### 1. Access data via the Data Gateway application
 
+* [Access virtual desktop](sd-desktop-access-vm.md)
 * Launch **Data Gateway** by clicking icon on the left side of desktop.
 ![Launch Gateway](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Desktop_LaunchGateway1.png)
 
-Select:
+* Select:
     * **SD Connect:** This option is for accessing data you’ve uploaded directly to SD Connect. Enter your CSC username and password (note that copy-paste is disabled for security, so you need to type credentials manually).
     * **SD Apply:** This option is accessible only if the data controller has granted you permission.
     * Click **Login** and then **Continue**.
@@ -42,9 +42,9 @@ Select:
 
 ![Gateway open folder](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Desktop_GatewayAccess2.png)
 
-#### Import a copy of the files to your virtual desktop's volume
+### 2. Import a copy of the files to your virtual desktop's volume
 
-Keep **Data Gateway** open.
+Keep **Data Gateway** open and click **Open folder**.
 
 1. Select and copy the files or folders from the **Projects** folder.
 2. Open **Volume** by clicking icon on the left side of desktop.
@@ -53,7 +53,7 @@ Keep **Data Gateway** open.
 ![Gateway copy to volume](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Desktop_GatewayAccess3.png)
 
 
-### Setting permissions for shared access
+### 3. Set permissions for shared access
 
 After copying files to volume, adjust permissions for folders and files to enable access for other project members. By default, permissions are limited to your access only.
 
@@ -70,7 +70,7 @@ After copying files to volume, adjust permissions for folders and files to enabl
   
 Now all project members with access can view and analyze files.
 
-### Close Data Gateway
+### 4. Close Data Gateway
 
 You can now disconnect the Data Gateway connection if no further data accessor import are needed.
 
@@ -78,8 +78,8 @@ You can now disconnect the Data Gateway connection if no further data accessor i
     If more than 10 Data Gateway connection are left open, Data Gateway will stop working. In this case, [contact CSC Service Desk](../../support/contact.md) (subject: SD Desktop).
 
 
-### Log out of virtual desktop
+### 5. Log out
 
-See instructions.
+[Log out](sd-desktop-access-vm#log-out-from-virtual-desktop.md) from virtual desktop.
 
 
