@@ -1,6 +1,8 @@
 # Accessing virtual desktop
 
-Here are instructions for accessing, reconnecting ang logging out.
+
+## Prerequisites
+* [Create virtual desktop](sd-desktop-create.md)
 
 ## Access virtual desktop
 
@@ -15,9 +17,14 @@ When you open the connection, a virtual computing environment will open in your 
 ![All connections](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Desktop_AllConnections.png)
 
 
-## Log out from your desktop
+## Log out from virtual desktop
 
-*Log out* from the desktop (in the workspace view, top right corner of the browser). This will close all applications and disconnect the work session. You can access the same desktop anytime after logging in to the services.
+1. Click **Power icon** in top right corner of the desktop. 
+2. Select **Power Off/Log out**, then select **Log Ou**t.
+3. Select **Log Out** in the new window.
+4. Select **Home** to return to SD Desktop home page. 
+
+This will close all applications and disconnect the work session. You can access the same desktop anytime after logging in to the services.
 
 ![Log out from desktop](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Desktop_LogOut1.png)
 
@@ -25,8 +32,8 @@ When you open the connection, a virtual computing environment will open in your 
 
 ## Reconnecting to an analysis session
 
-* Closing the browser window: If you started the analysis programmatically (e.g., by running a script), you can safely close the browser window without interrupting the ongoing processes. Your tools and interfaces will remain open when you reconnect to your desktop, allowing you to continue working.
-* Reconnecting to an old session: You can reconnect to a previous session only if the browser window is exactly the same size as when the original session was in use. This is typically only possible if you're using the SD Desktop in full-screen mode on the same machine. If the window size has changed, you will most likely be unable to reconnect to the old session.
+* **Closing the browser window:** If you started the analysis programmatically (e.g., by running a script), you can safely close the browser window without interrupting the ongoing processes. Your tools and interfaces will remain open when you reconnect to your desktop, allowing you to continue working.
+* **Reconnecting to an old session:** You can reconnect to a previous session only if the browser window is exactly the same size as when the original session was in use. This is typically only possible if you're using the SD Desktop in full-screen mode on the same machine. If the window size has changed, you will most likely be unable to reconnect to the old session.
 
 !!! Note
     Connection limit: each virtual desktop allows a maximum of 10 simultaneous connections. This means that up to 10 CSC project members can be logged in and using the system at the same time. If more than 10 CSC project members attempt to connect to the same virtual desktop, additional users will not be able to access the system until one of the active sessions is disconnected.
