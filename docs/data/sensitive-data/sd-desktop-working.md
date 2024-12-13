@@ -1,5 +1,11 @@
 # Working with your Desktop: tips and essentials
 
+## Prerequisites
+* [Create virtual desktop](sd-desktop-create.md)
+
+
+## Work and collaborate in a virtual desktop
+
 Once a virtual desktop has been created, all members of your CSC project can access it. When you log in, you will enter a virtual computer running on a Linux operating system. If you are new to Linux, it might feel a little different from other systems like Windows or macOS.
 
 No technical experience is required to work with it, but while Windows is designed to be user-friendly from the start, Linux can have a learning curve, especially if you need to use the command line. 
@@ -7,13 +13,10 @@ No technical experience is required to work with it, but while Windows is design
 The guide below provides clear instructions to help you get comfortable with both Linux and the SD Desktop’s security setup:
 
 - [Security-related features and limitations](sd-desktop-working.md#security-related-features-and-limitations)
-- [Accessing virtual desktop](sd-desktop-working.md#accessing-virtual-desktop)
 - [Introduction to Linux and virtual desktop](sd-desktop-working.md#introduction-to-linux-and-virtual-desktop)
 - [Copy-paste from your laptop to virtual desktop](sd-desktop-working.md#copy-paste-from-your-laptop-to-virtual-desktop)
 - [Default software available in SD Desktop](sd-desktop-working.md#default-software-available-in-sd-desktop)
 - [Accessing RStudio from virtual desktop](sd-desktop-working.md#accessing-rstudio-from-virtual-desktop)
-- [Logging out from virtual desktop](sd-desktop-working.md#logging-out-from-virtual-desktop)
-- [Reconnecting to an analysis session](sd-desktop-working.md#reconnecting-to-an-analysis-session)
 
 ## Security-related features and limitations
 

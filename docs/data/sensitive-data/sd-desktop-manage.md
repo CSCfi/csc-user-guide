@@ -2,19 +2,22 @@
 
 <iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/rYpuUwm8LhQ" title="Manage virtual desktops in the SD Desktop service" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
+## Prerequisites
+* [Create virtual desktop](sd-desktop-create.md)
+
+## SD Desktop management
+
 With the SD Desktop service, you can easily manage volumes and pause, reboot or delete your virtual desktops. Managing desktops happens in **SD Desktop management** page.
-
-![Go to SD Desktop Management.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-Desktop_GoToManagement.png)
-
-!!! Note
-    These options are available only on virtual desktops created after February 2, 2023. Please [contact service desk](../../support/contact.md) if you are working with older desktops. 
 
 * [Detaching and attaching a volume](#detaching-and-attaching-a-volume)
 * [Pausing or unpausing a virtual desktop](#pausing-or-unpausing-a-virtual-desktop)
 * [Rebooting a virtual desktop](#rebooting-a-virtual-desktop)
 * [Deleting a virtual desktop](#deleting-a-virtual-desktop)
 
+!!! Note
+    These options are available only on virtual desktops created after February 2, 2023. Please [contact service desk](../../support/contact.md) if you are working with older desktops. 
 
+![Go to SD Desktop Management.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-Desktop_GoToManagement.png)
 
 ## Detaching and attaching a volume 
 
