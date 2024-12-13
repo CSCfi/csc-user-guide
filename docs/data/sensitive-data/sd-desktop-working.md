@@ -2,7 +2,7 @@
 
 ## Prerequisites
 * [Create virtual desktop](sd-desktop-create.md)
-* [Access virtual desktop](sd-desktop-access.md)
+* [Access virtual desktop](sd-desktop-access-vm.md)
 
 ## Work and collaborate in a virtual desktop
 

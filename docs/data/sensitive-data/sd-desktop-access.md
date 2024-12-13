@@ -18,7 +18,7 @@ Once a virtual desktop is created, each CSC project member can access it through
 
 ### 1. Access data via the Data Gateway application
 
-* [Access virtual desktop](sd-desktop-access-vm.md)
+* [Access](sd-desktop-access-vm.md) your virtual desktop.
 * Launch **Data Gateway** by clicking icon on the left side of desktop.
 ![Launch Gateway](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Desktop_LaunchGateway1.png)
 
@@ -80,6 +80,6 @@ You can now disconnect the Data Gateway connection if no further data accessor i
 
 ### 5. Log out
 
-[Log out](sd-desktop-access-vm#log-out-from-virtual-desktop.md) from virtual desktop.
+[Log out](sd-desktop-access-vm.md#log-out-from-virtual-desktop) from virtual desktop.
 
 
