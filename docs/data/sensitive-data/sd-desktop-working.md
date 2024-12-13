@@ -159,8 +159,8 @@ The computing environment i.e. virtual desktop (visible from your browser) is is
 
 
 ## Reconnecting to an analysis session
-   
-If you started the analysis programmatically (e.g., by running a script), you can safely close the browser window without interrupting the ongoing processes. Your tools and interfaces will remain open when you reconnect to your desktop, allowing you to continue working.
+
+You can reconnect to a previous session only if the browser window is exactly the same size as when the original session was in use. This is typically only possible if you're using the SD Desktop in full-screen mode on the same machine. If the window size has changed, you will most likely be unable to reconnect to the old session.
       
 
 Read next:
