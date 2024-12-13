@@ -7,13 +7,10 @@ No technical experience is required to work with it, but while Windows is design
 The guide below provides clear instructions to help you get comfortable with both Linux and the SD Desktop’s security setup:
 
 - [Security-related features and limitations](sd-desktop-working.md#security-related-features-and-limitations)
-- [Accessing virtual desktop](sd-desktop-working.md#accessing-virtual-desktop)
 - [Introduction to Linux and virtual desktop](sd-desktop-working.md#introduction-to-linux-and-virtual-desktop)
 - [Copy-paste from your laptop to virtual desktop](sd-desktop-working.md#copy-paste-from-your-laptop-to-virtual-desktop)
 - [Default software available in SD Desktop](sd-desktop-working.md#default-software-available-in-sd-desktop)
 - [Accessing RStudio from virtual desktop](sd-desktop-working.md#accessing-rstudio-from-virtual-desktop)
-- [Logging out from virtual desktop](sd-desktop-working.md#logging-out-from-virtual-desktop)
-- [Reconnecting to an analysis session](sd-desktop-working.md#reconnedting-to-an-analysis-sesion)
 
 ## Security-related features and limitations
 
@@ -32,21 +29,6 @@ SD Desktop is a secure environment designed specifically for analysing sensitive
 - **Copy-paste restrictions**: For security reasons, copy-pasting from your own computer to SD Desktop is limited. You can still transfer text with a few extra steps, as explained in the copy-paste instructions below. These restrictions ensure that no unauthorized data is copied or exported from the secure environment.
   
 - **Shared file access for team members**: Any files saved in the shared-directory or on the external volume can be accessed by other project members working in the virtual desktop, allowing safe collaboration.
-
-
-## Accessing virtual desktop
-
-<iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/ZPee-2OC9Dw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-1. After [login](./sd-desktop-login.md), you will see all your virtual desktops listed at the front page, under *All connections*.
-
-2. Select project (e.g. `project_NNNNN`) and click the plus-sign.
-  
-3. Now you can see all desktops that belongs to this project (`desktopname-NNNNNNNNNN`). Access virtual desktop by clicking the name.
-
-When you open the connection, a virtual computing environment will open in your browser. If you are accessing the virtual desktop for the first time, you will see the panel getting started, from which you can, for example, adjust the screen resolution.
-
-![All connections](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Desktop_AllConnections.png)
 
 
 ## Introduction to Linux and virtual desktop
