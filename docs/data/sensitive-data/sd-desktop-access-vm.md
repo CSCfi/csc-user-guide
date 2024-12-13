@@ -1,14 +1,13 @@
 # Accessing virtual desktop
 
-
 ## Prerequisites
 * [Create virtual desktop](sd-desktop-create.md)
 
 ## Access virtual desktop
 
-1. After [login](./sd-desktop-login.md), you will see all your virtual desktops listed at the front page, under *All connections*.
+1. [Login](./sd-desktop-login.md) to SD Desktop. All your virtual desktops are listed at the home page under **All connections**.
 
-2. Select project (e.g. `project_NNNNN`) and click the plus-sign.
+2. Select project (e.g. `project_NNNNN`) and click **plus icon**.
   
 3. Now you can see all desktops that belongs to this project (`desktopname-NNNNNNNNNN`). Access virtual desktop by clicking the name.
 

@@ -17,10 +17,12 @@ Once a virtual desktop is created, each CSC project member can access it through
 
 ### Step by step
 
-1. Launch **Data Gateway** by clicking icon on the left side of desktop.
+#### Access data with Data Gateway
+
+* Launch **Data Gateway** by clicking icon on the left side of desktop.
 ![Launch Gateway](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Desktop_LaunchGateway1.png)
 
-2. Select:
+Select:
     * **SD Connect:** This option is for accessing data you’ve uploaded directly to SD Connect. Enter your CSC username and password (note that copy-paste is disabled for security, so you need to type credentials manually).
     * **SD Apply:** This option is accessible only if the data controller has granted you permission.
     * Click **Login** and then **Continue**.
@@ -28,19 +30,19 @@ Once a virtual desktop is created, each CSC project member can access it through
 ![Gateway login](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Desktop_LaunchGateway2.png)
 
 
-4. In the next window click **Continue**. Data Gateway establishes a secure connection between your virtual desktop and your data, and creates **Projects** folder on your virtual desktop (and accessible from the terminal).
+* In the next window click **Continue**. Data Gateway establishes a secure connection between your virtual desktop and your data, and creates **Projects** folder on your virtual desktop (and accessible from the terminal).
 
 ![Gateway connection](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Desktop_GatewayAccess1.png)
 
 
-5. In the next window click **Open folder** to view all files stored in SD Connect or SD Apply. Files are available in read-only mode for secure access. To view them, right-click the file and select the desired application to open it.
+* In the next window click **Open folder** to view all files stored in SD Connect or SD Apply. Files are available in read-only mode for secure access. To view them, right-click the file and select the desired application to open it.
 
 !!! Note
     In SD Desktop, **you can access only encrypted files.** Accessing unencrypted data or files encrypted only with your public encryption key will result in an error.
 
 ![Gateway open folder](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Desktop_GatewayAccess2.png)
 
-### Import a copy of the files to your virtual desktop's volume
+#### Import a copy of the files to your virtual desktop's volume
 
 Keep **Data Gateway** open.
 
