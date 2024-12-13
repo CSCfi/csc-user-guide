@@ -7,7 +7,7 @@ This tutorial covers the creation of an SSH key pair and a practical use case wi
 SSH keys are text files and, as the name of this tutorial suggests, they come in pairs: a private key and a public key.
 
 <center>
-![SSH key pair in use](../img/cloud_tutorial_ssh_key_pair.svg 'One key pair can be used for multiple computers'){width=400}
+![SSH key pair in use](../../img/cloud_tutorial_ssh_key_pair.svg 'One key pair can be used for multiple computers'){width=400}
 </center>
 
 After this tutorial, you will know how to use SSH keys instead of password authentication.
@@ -54,7 +54,7 @@ After the command exits, two files may be found from the .ssh directory.
 
 Below is an example execution of the command in Windows 11 PowerShell.
 
-![Creating an SSH key pair in Windows 11](../img/cloud_tutorial_ssh_key_pair_powershell.png 'A screencapture of the Windows 11')
+![Creating an SSH key pair in Windows 11](../../img/cloud_tutorial_ssh_key_pair_powershell.png 'A screencapture of the Windows 11')
 
 ## Adding an existing key pair to OpenStack
 
@@ -67,7 +67,7 @@ To do this, you need to be signed in to one of the Pouta services.
 3. Either use **Choose File** button and select **id_rsa.pub** file or copy + paste the content of it to the **Public Key** text area.
 4. Click **Import Public Key** button.
 
-![Importing an existing SSH key pair.](../img/cloud_tutorial_ssh_key_pair_import.png 'Import Public Key view in OpenStack')
+![Importing an existing SSH key pair.](../../img/cloud_tutorial_ssh_key_pair_import.png 'Import Public Key view in OpenStack')
 
 !!! info "Tip"
 
@@ -79,13 +79,13 @@ This chapter will walk you through creating an SSH key pair in the OpenStack web
 
 1. Go to the **Compute > Key Pairs** section, and select **Create Key Pair**.
 
-    ![The Access & Security subpage in the cPouta web interface](../../img/pouta-user-guide-keypairs.png 'ssh key pairs')
+    ![The Access & Security subpage in the cPouta web interface](../../../img/pouta-user-guide-keypairs.png 'ssh key pairs')
 
     **Figure** The _Access & Security_ subpage in the cPouta web interface
 
 1. Give your key a name and click in **Create Key Pair**. You will get a "_keyname.pem_" to save. Save it in your home directory. This will be the last time you will be able to download this **private key**, Pouta does not keep a copy in its servers.
 
-    ![Create key](../../img/pouta-create-key.png)
+    ![Create key](../../../img/pouta-create-key.png)
 
     **Figure** The Create Key Pair dialog
 
@@ -147,18 +147,18 @@ This is done by using the _puttygen_ tool to load your private key (.pem) and sa
 
 1. Run _puttygen_ and load the key you downloaded (it should be in the Downloads page).
 
-    ![Putty Gen](../../img/putty-load.png)
+    ![Putty Gen](../../../img/putty-load.png)
 
 1. Set a password to the key. This is not compulsory, but advised.
 
 1. Save the key in _ppk_ format, this is the default Putty format for keys.
 
-    ![Saved](../../img/putty-saved-ppk.png)
+    ![Saved](../../../img/putty-saved-ppk.png)
 
 Now we can use this new in Putty to connect to a Virtual Machine.
 
 1. Run _putty_ and load the ssh key. Go to **Connection > SSH > Auth** and under **Private key file for authentication**, use the **Browse...** button to select the proper .ppk file.
 
-    ![Private key file for authentication](../../img/putty-key-file-authentication.png)
+    ![Private key file for authentication](../../../img/putty-key-file-authentication.png)
 
 1. Once the key is loaded, you will save the session. Go to the **Session** section and under **Saved Sessions** write the name of the new session and click save.

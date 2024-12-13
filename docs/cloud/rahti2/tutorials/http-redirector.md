@@ -6,11 +6,11 @@ It is very simple to setup a HTTP redirection in Rahti using a web server like n
 
 1. Deploy an NGINX Image. It is recommended to use `bitnami/nginx`
 
-    ![bitnami/nginx](../img/bitnami-nginx-deploy.png)
+    ![bitnami/nginx](../../img/bitnami-nginx-deploy.png)
 
 1. Add a Route with the URL that you want to redirect. If you visit the URL, you should see the "nginx welcome page"
 
-    ![route](../img/create-route-nginx.png)
+    ![route](../../img/create-route-nginx.png)
 
 1. Add a ConfigMap with a server redirection block. Go to **Workloads > ConfigMaps**, click in **Create ConfigMap**. The **Name** will be later used when mounting the ConfigMap. The **Key** will be the name of the file, and the **Value** the content of the file. 
 
