@@ -2,7 +2,7 @@
 
 ## Prerequisites
 * [Create virtual desktop](sd-desktop-create.md)
-
+* [Access virtual desktop](sd-desktop-access.md)
 
 ## Work and collaborate in a virtual desktop
 
@@ -36,22 +36,6 @@ SD Desktop is a secure environment designed specifically for analysing sensitive
   
 - **Shared file access for team members**: Any files saved in the shared-directory or on the external volume can be accessed by other project members working in the virtual desktop, allowing safe collaboration.
 
-
-## Accessing virtual desktop
-
-<iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/ZPee-2OC9Dw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-1. After [login](./sd-desktop-login.md), you will see all your virtual desktops listed at the front page, under *All connections*.
-
-2. Select project (e.g. `project_NNNNN`) and click the plus-sign.
-  
-3. Now you can see all desktops that belongs to this project (`desktopname-NNNNNNNNNN`). Access virtual desktop by clicking the name.
-
-When you open the connection, a virtual computing environment will open in your browser. If you are accessing the virtual desktop for the first time, you will see the panel getting started, from which you can, for example, adjust the screen resolution.
-
-![All connections](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Desktop_AllConnections.png)
-
-
 ## Introduction to Linux and virtual desktop
 
 <iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/r0S1NNN2eQs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -67,9 +51,6 @@ Linux is an open-source operating system, meaning it is free to use, and its cod
 Below is an image showing the basic functions of a virtual desktop. Click the image to open it in a new window.
 
 [![Virtual desktop](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Desktop_Overview.png)](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Desktop_Overview.png){ target="_blank" }
-
-
-
 
 
 
@@ -144,27 +125,6 @@ The computing environment i.e. virtual desktop (visible from your browser) is is
     Only files saved in the external volume are accessible to other project members using RStudio.
 
 ![Access R-Studio](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Desktop_RStudio2.png)
-
-
-
-## Logging out from virtual desktop
-
-1. In the workspace view, top right corner of the browser, select your *username* and *log out*.
-   
-2. In the new window, click on *Home*.
-    - This will close all applications and disconnect the work session. You can access the same desktop anytime after logging in to the services.
-
-
-![Log out from desktop](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Desktop_LogOut1.png)
-
-![Return to main view](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Desktop_LogOut2.png)
-
-
-
-## Reconnecting to an analysis session
-
-You can reconnect to a previous session only if the browser window is exactly the same size as when the original session was in use. This is typically only possible if you're using the SD Desktop in full-screen mode on the same machine. If the window size has changed, you will most likely be unable to reconnect to the old session.
-      
 
 Read next:
 
