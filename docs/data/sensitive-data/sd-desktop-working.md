@@ -125,28 +125,3 @@ The computing environment i.e. virtual desktop (visible from your browser) is is
 ![Access R-Studio](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Desktop_RStudio2.png)
 
 
-
-## Logging out from virtual desktop
-
-1. In the workspace view, top right corner of the browser, select your *username* and *log out*.
-   
-2. In the new window, click on *Home*.
-    - This will close all applications and disconnect the work session. You can access the same desktop anytime after logging in to the services.
-
-
-![Log out from desktop](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Desktop_LogOut1.png)
-
-![Return to main view](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Desktop_LogOut2.png)
-
-
-
-## Reconnecting to an analysis session
-   
-If you started the analysis programmatically (e.g., by running a script), you can safely close the browser window without interrupting the ongoing processes. Your tools and interfaces will remain open when you reconnect to your desktop, allowing you to continue working.
-      
-
-Read next:
-
-- [How to import data for analysis in your desktop](./sd-desktop-access.md)
-- [Customisation: adding software](./sd-desktop-software.md)
-- [How to manage your virtual desktop (delete, pause, detach volume etc.)](./sd-desktop-manage.md)
