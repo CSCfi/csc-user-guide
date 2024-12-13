@@ -13,7 +13,7 @@ The guide below provides clear instructions to help you get comfortable with bot
 - [Default software available in SD Desktop](sd-desktop-working.md#default-software-available-in-sd-desktop)
 - [Accessing RStudio from virtual desktop](sd-desktop-working.md#accessing-rstudio-from-virtual-desktop)
 - [Logging out from virtual desktop](sd-desktop-working.md#logging-out-from-virtual-desktop)
-- [Reconnecting to an analysis session](sd-desktop-working.md#reconnedting-to-an-analysis-session)
+- [Reconnecting to an analysis session](sd-desktop-working.md#reconnecting-to-an-analysis-session)
 
 ## Security-related features and limitations
 
