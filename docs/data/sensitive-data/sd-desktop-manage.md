@@ -25,7 +25,7 @@ With the SD Desktop service, you can easily manage volumes and pause, reboot or 
 
 With the option **Detach volume**, you can easily disconnect a volume from your virtual desktop. The volume and its content will be stored in the same CSC project where it was initially created. You can compare this operation to disconnecting or attaching a hard drive to your laptop. 
 
-1. Log in to SD Desktop. Access the correct virtual desktop on the homepage under **All connections**.
+1. [Log in](./sd-desktop-login.md) to SD Desktop. Access the correct virtual desktop on the homepage under **All connections**.
 
 2. Save and close all the files on the volume to prevent data corruption and log out from the virtual desktop.
 
@@ -40,7 +40,7 @@ Confirm the operation through the notification.
 
 When you want to access the data saved in the detached volume, you can attach it to a new virtual desktop.
 
-1. Login to SD Desktop. On the homepage, click **SD Desktop management**.
+1. [Log in](./sd-desktop-login.md) to SD Desktop. On the homepage, click **SD Desktop management**.
 
 2. At the bottom of the page, under Desktop selection choose the necessary options (CSC project, operating system etc.). Follow steps 1-2 in these [instructions](./sd-desktop-create.md).
 
@@ -64,7 +64,7 @@ You can pause a virtual desktop. In this manner, the desktop will stop consuming
 
 ### Pausing a virtual desktop
 
-1. Log in to SD Desktop. Access the correct virtual desktop on the homepage under **All connections**.
+1. [Log in](./sd-desktop-login.md) to SD Desktop. Access the correct virtual desktop on the homepage under **All connections**.
 
 2. Close all the programs, save or close all the files, and log out from the virtual desktop to prevent data corruption. 
 
@@ -81,7 +81,7 @@ You can pause a virtual desktop. In this manner, the desktop will stop consuming
 
 ### Resuming a virtual desktop
 
-1.  Log in to SD Desktop. On the SD Desktop homepage, click **Go To SD Desktop Management**.
+1. [Log in](./sd-desktop-login.md) to SD Desktop. On the SD Desktop homepage, click **Go To SD Desktop Management**.
 
 2. At the bottom of the page, under **Available desktops**, select the correct virtual desktop. In the same row, click **Options** on the right, then choose **Resume**.
 
@@ -100,7 +100,7 @@ If your virtual desktop or software becomes unresponsive, you can reboot it. Aft
 
 To reboot a desktop:
 
-1. Log in to SD Desktop. Access the correct virtual desktop on the homepage under **All connections**.
+1. [Log in](./sd-desktop-login.md) to SD Desktop. Access the correct virtual desktop on the homepage under **All connections**.
 
 2. Close all programs and ensure you save or close any files to prevent data corruption.
     
@@ -116,7 +116,7 @@ To reboot a desktop:
 
 At the end of your analysis, you can delete your virtual desktop, including the external volume and all files saved in it. You cannot undo this action:
 
-1. Log in to SD Desktop. On the SD Desktop homepage, click **Go To SD Desktop Management**.
+1. [Log in](./sd-desktop-login.md) to SD Desktop. On the SD Desktop homepage, click **Go To SD Desktop Management**.
 
 2. At the bottom of the page, under **Available desktops**, select the correct virtual desktop. In the same row, click **Options** on the right, then choose **Delete**.
 

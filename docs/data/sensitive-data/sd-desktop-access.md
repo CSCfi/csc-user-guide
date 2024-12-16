@@ -1,9 +1,10 @@
 # Importing data in your virtual desktop
 
-<iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/7iGQ7gWb-Pk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/hsUQSrNpaf8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ## Prerequisites
 * [Create virtual desktop](sd-desktop-create.md)
+* [Access virtual desktop](sd-desktop-access-vm.md)
 
 Once a virtual desktop is created, each CSC project member can access it through their browser. The virtual desktop is isolated from the internet, so data access must be done through the Data Gateway application. This application allows you to import data from SD Connect or SD Apply. Imported data is saved on the virtual desktop’s external volume for secure analysis.
 
@@ -60,19 +61,26 @@ After copying files to volume, adjust permissions for folders and files to enabl
 1. Right-click the folder copied to **Volume** and select **Properties** to adjust folder permissions.
     * Open the **Permissions** tab.
     * Set permissions to Create and Delete Files so they remain accessible when the volume is reattached to a different virtual desktop.
-        * Owner -> Access -> Select “Create and delete files”.
-        * Others -> Access -> Select “Create and delete files”.
+        1. Owner -> Access -> Select “Create and delete files”.
+        2. Others -> Access -> Select “Create and delete files”.
+
+![Gateway copy to volume](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Desktop_FolderPermissions1.png)
+
+![Gateway copy to volume](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Desktop_FolderPermissions2.png)
+
 2. Next select **Change Permissions for Enclosed Files** to adjust file permisssions inside the folder.
     * Set permissions to:
-        * Owner -> Files -> Select “Read and write”. Folders -> Select “Create and delete files”. 
-        * Others -> Files -> Select “Read and write”. Folders -> Select “Create and delete files”.
-        * Click “Change”.
-  
+        1. Owner -> Files -> Select “Read and write”. Folders -> Select “Create and delete files”. 
+        2. Others -> Files -> Select “Read and write”. Folders -> Select “Create and delete files”.
+        3. Click **Change**.
+
+![Gateway copy to volume](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Desktop_FolderPermissions3.png)
+
 Now all project members with access can view and analyze files.
 
 ### 4. Close Data Gateway
 
-You can now disconnect the Data Gateway connection if no further data accessor import are needed.
+You can now disconnect the Data Gateway connection if no further data accessor import are needed by clicking **Disconnect and sign out**.
 
 !!! Note
     If more than 10 Data Gateway connection are left open, Data Gateway will stop working. In this case, [contact CSC Service Desk](../../support/contact.md) (subject: SD Desktop).

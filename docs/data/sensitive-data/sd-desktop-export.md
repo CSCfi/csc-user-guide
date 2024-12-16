@@ -1,4 +1,10 @@
-# Export data from SD Desktop
+# Exporting data from virtual desktop
+
+## Prerequisites
+* [Create virtual desktop](sd-desktop-create.md)
+* [Access virtual desktop](sd-desktop-access-vm.md)
+
+## Only project managers can export data
 
 Your virtual desktop is isolated from the internet for security reasons. Only the CSC project manager can export results or data from the secure workspace using **Data Gateway** application. The results are exported to SD Connect, where they will be available for download to your computer and can be manually decrypted.
  
@@ -6,7 +12,7 @@ Your virtual desktop is isolated from the internet for security reasons. Only th
     - Only one file can be exported at a time. To export multiple files, first compress them into a single folder. 
     - Files larger than 30 GB need to be split into smaller parts before exporting.
 
-## Step by step tutorial
+## Step by step
 
 1. Download and install the Crypt4GH application
 2. Generate your encryption key pair
@@ -94,9 +100,9 @@ CSC provides an application that simplifies encryption key generation and data d
 
 ## Step 4: Import the public key inside the virtual desktop
 
-1. Access your virtual desktop. [See instructions](./sd-desktop-access.md)
-2. Open the Data Gateway application, select SD Connect, enter your CSC username and password, click on open folder and access the folder with the public key. 
-3. Copy your public key inside the virtual desktop using copy/paste function. 
+1. [Access](./sd-desktop-access-vm.md) your virtual desktop.
+2. [Access the folder](./sd-desktop-access.md#1-access-data-via-the-data-gateway-application) with the public key.
+3. Use the copy/paste function to paste your public key into the virtual desktop.
 
 ## Step 5: Encrypt the file
 
@@ -104,8 +110,9 @@ CSC provides an application that simplifies encryption key generation and data d
 
 To export multiple files, first compress them into a single folder, then encrypt as a single file.
 
-1. Place all files in a folder.
-2. Right-click the folder, select Send to > Compressed (zipped) folder.
+1. Create a new folder. 
+2. Place all files into the folder.
+3. Right-click the folder, select **Compress**. Now your folder is a .zip file and can be exported.
 
 ### Encrypt the file or folder
 
