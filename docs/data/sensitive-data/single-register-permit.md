@@ -1,10 +1,8 @@
 # How to get access to SD Desktop with a single register permit
 
-<iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/bMaBl0IED74" title="SD Desktop toisiokäyttötarkoitukseen — käsittelyluvan myöntäjänä yksittäinen rekisteri" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/y91wzD0wqEA" title="SD Desktop toisiokäyttötarkoitukseen — käsittelyluvan myöntäjänä yksittäinen rekisteri" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 **[Instructions in Finnish (PDF)](https://a3s.fi/docs-files/sensitive-data/PDF_instructions/SD_toisiolaki_yksittainenRekisteri.pdf){ target="_blank" }**
-
-<iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/AlGQoj5V0jQ" title="SD Desktop toisiokäyttötarkoitukseen — käsittelyluvan myöntäjänä yksittäinen rekisteri" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 ## Use case
 
@@ -18,12 +16,11 @@ You need to access SD Desktop. You have a permit from a single register.
 4. [Contact CSC service desk](#4-contact-csc-service-desk)
 5. CSC adds members to your project, please wait
 6. CSC activates SD Desktop for your project, please wait
-7. [Accept SD Desktop terms of use](#7-accept-sd-desktop-terms-of-use)
-8. [Activate MFA](#8-activate-mfa)
-9. [CSC project is ready](#9-your-csc-project-is-ready)
-10. [Apply for access to the dataset with SD Apply](#10-apply-for-access-to-the-dataset-with-sd-apply)
-11. Register processes application, please wait
-12. [Send approved application to CSC](#12-send-approved-application-to-csc)
+7. [Activate MFA](#7-activate-mfa)
+8. [CSC project is ready](#8-your-csc-project-is-ready)
+9. [Apply for access to the dataset with SD Apply](#9-apply-for-access-to-the-dataset-with-sd-apply)
+10. Register processes application, please wait
+11. [Send approved application to CSC](#11-send-approved-application-to-csc)
 
 
 ### 1. Create a CSC account 
@@ -86,22 +83,8 @@ You need to access SD Desktop. You have a permit from a single register.
     - Please wait that Sensitive Data Support team activates SD Desktop service for your project.
     - You will receive an email notification, when everything is ready.
 
-### 7. Accept SD Desktop terms of use
 
-!!! warning-label
-    Team manager
-!!! info-label
-    Team member
-
-- If you haven't accepted the terms of use before, please go to MyCSC and navigate to the project view.
-- Please note that every team member must accept the SD Desktop terms of use.
-- Click **Accepts terms** in **Project notifications** window in top right corner.
-- Read and accept terms of use.
-
-![Terms of use notification.](https://a3s.fi/docs-files/sensitive-data/MyCSC/MyCSC_TermsOfUse1.png)
-
-
-### 8. Activate MFA
+### 7. Activate MFA
 
 !!! warning-label
     Team manager
@@ -118,7 +101,7 @@ You need to access SD Desktop. You have a permit from a single register.
 ![Multi-Factor Authentication.](https://a3s.fi/docs-files/sensitive-data/MyCSC/MyCSC_MFA.png)
 
 
-### 9. Your CSC project is ready!
+### 8. Your CSC project is ready!
 
 !!! warning-label
     Team manager
@@ -128,7 +111,7 @@ You need to access SD Desktop. You have a permit from a single register.
 - Write down your project number, you might need it later (e.g. *project_1234567*).
 - Now you can log out from MyCSC.
 
-### 10. Apply for access to the dataset with SD Apply
+### 9. Apply for access to the dataset with SD Apply
 
 !!! warning-label
     Team manager
@@ -165,7 +148,7 @@ You are now on the Applications page.
     * After you have sent the application, it will be forwarded to the data controller, who approves or rejects it. 
     * You will receive an email notification whenever the state of your application changes.
 
-### 12. Send approved application to CSC
+### 11. Send approved application to CSC
 
 * Login to SD Apply: [https://sd-apply.csc.fi](https://sd-apply.csc.fi).
 * Find your application and click **''PDF''** under **Actions**.

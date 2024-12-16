@@ -72,6 +72,9 @@
 
 You can find Pouta tutorials in [Cloud Services > Pouta > Tutorials](../../cloud/pouta/tutorials/index.md)
 
+## Pukki - database cloud
+* [How to migrate a PostgreSQL database to Pukki](./pukki_data_migration.md)
+
 ## Rahti 2 - container cloud
 
 You can find Rahti tutorials in [Cloud Services > Rahti 2 > Tutorials](../../cloud/rahti2/tutorials/index.md)

@@ -36,8 +36,6 @@ You need access to SD services for processing research data. You are member of a
 - Click **Accepts terms** in **Project notifications** window in top right corner.
 - Read and accept terms of use.
 
-![Terms of use notification.](https://a3s.fi/docs-files/sensitive-data/MyCSC/MyCSC_TermsOfUse1.png)
-
 ### 4. Activate MFA Authentication
 
 - You need to activate MFA (multi-factor authentication), to be able to log in the Sensitive Data services. [More about multi-factor authentication](../../accounts/mfa.md).
