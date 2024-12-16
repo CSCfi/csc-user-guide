@@ -28,7 +28,7 @@ In the page find the command to use Docker. In this case:
 docker pull quay.io/biocontainers/metabat2:<tag>
 ```
 
-From the command we need the Docker address:
+From the command we need the Docker addres:
 
 ```bash
 quay.io/biocontainers/metabat2
