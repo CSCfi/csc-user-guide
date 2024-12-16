@@ -28,13 +28,13 @@ In the page find the command to use Docker. In this case:
 docker pull quay.io/biocontainers/metabat2:<tag>
 ```
 
-From the command we need the Docker addres:
+From the command we need the Docker address:
 
 ```bash
 quay.io/biocontainers/metabat2
 ```
 
-We will also need a tag for the version we want to install. Open the addres above in web browser:
+We will also need a tag for the version we want to install. Open the address above in web browser:
 
 ```text
 https://quay.io/biocontainers/metabat2
