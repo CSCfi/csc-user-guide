@@ -880,7 +880,7 @@ This deployment also needs few changes. Let's go through them in hopefully a mor
     12-12-2024 12:41:34 | INFO at api.py:54: Could not open port 4444 yet ([Errno 99] Cannot assign requested address), retrying in 10 seconds
     ```
 
-    In this case we get the file and line where the error is happening `app.py` line 54. The relevant part of [app.py](https://github.com/uh-dcm/4cat_fi/blob/master/backend/workers/api.py#L50) is here:
+    In this case we get the file and line where the error is happening `app.py` line 54. The relevant parts of [app.py](https://github.com/uh-dcm/4cat_fi/blob/master/backend/workers/api.py#L50) are these:
 
     ```py linenums="18"
       host = config.get('API_HOST')
@@ -905,9 +905,16 @@ This deployment also needs few changes. Let's go through them in hopefully a mor
 				return
     ```
 
-    The function on line `50` is trying to bind the port to a given hostname. In the case of the compose approach, the hostname is `backend` but this is not true in the case of Kubernetes where the Pods have a (partly) random name. We could change the config from `backend` to `0.0.0.0`, this will make the backend to work. Sadly the same config file is also used by the frontend, they share the ame volume. This is not a priory a good practise because it causes errors like the one here. In addition, for this kind of application deployments, the best is to change as little as possible so we can still get updates from upstream. For this case, we will try to duplicate the config volume, one for the frontend one for the backend:
+    The function on line `50` is trying to bind the port to a given hostname. In the case of the compose approach, the hostname is `backend` but this is not true in the case of Kubernetes where the Pods have a (partly) random name. We could change the config from `backend` to `0.0.0.0`, this will make the backend to work. Sadly the same config file is also used by the frontend, they share the same volume.
+
+    !!! Error "Configuration in volumes"
+        Storing configurations on a volume and share it in between deployments is a bad practise. You should no change the configuration files on the fly. And you might need to use different configuration for different deployments.
+
+    In the case of these kind of application deployments, sadly the best is to change as little as possible so we can still get updates from upstream. For this case, we will try to duplicate the config volume, one for the frontend one for the backend (and "we will pretend we never saw that"):
 
     ```sh
+    $ cp 4cat-config-persistentvolumeclaim.yaml 4cat-config-front-persistentvolumeclaim.yaml
+
     $ diff 4cat-config-persistentvolumeclaim.yaml 4cat-config-front-persistentvolumeclaim.yaml -U 2
     --- 4cat-config-persistentvolumeclaim.yaml	2024-12-10 15:48:29.123813479 +0200
     +++ 4cat-config-front-persistentvolumeclaim.yaml	2024-12-12 15:55:41.207227320 +0200
@@ -923,7 +930,7 @@ This deployment also needs few changes. Let's go through them in hopefully a mor
     persistentvolumeclaim/4cat-config-front created
     ```
 
-    and edit the configmap:
+    We also need to edit the `env` `configMap` because the backend overwrites the `config.ini` file with the configMap on start up (another thing I am not a fan of):
 
     ```diff
      apiVersion: v1
@@ -948,7 +955,9 @@ This should be all the changes needed on the backend:
 
 ### Frontend deployment
 
-1. Before deploying the frontend, we need to change the deployment to use the new volume:
+This is our last piece to fix. 
+
+1. Before deploying the frontend, we need to change the deployment file to use the new volume:
 
     ```diff
     @@ -158,5 +168,5 @@
@@ -963,56 +972,8 @@ This should be all the changes needed on the backend:
 1. We will now deploy the frontend and see what is the result:
 
     ```sh
-    $ oc  get pods
-    NAME                        READY   STATUS              RESTARTS   AGE
-    backend-7f9c9dbfbb-sznxl    1/1     Running             0          105m
-    db-545945c9b8-tkbwc         1/1     Running             0          19h
-    frontend-59f789b489-nbgvc   0/1     ContainerCreating   0          2m
-    ```
-
-    It looks like it is taking too much time to start, let's take a look into the events:
-
-    ```sh
-    oc get events
-    [...]
-    3m         Normal    Scheduled                pod/frontend-59f789b489-nbgvc              Successfully assigned 4cat-2/frontend-59f789b489-nbgvc to 2-rcr6j-worker-0-97gds
-    3m         Warning   FailedAttachVolume       pod/frontend-59f789b489-nbgvc              Multi-Attach error for volume "pvc-593a70ee-6632-4960-bc85-c7f3dc2d9c20" Volume is already used by pod(s) backend-7f9c9dbfbb-sznxl
-    3m         Warning   FailedAttachVolume       pod/frontend-59f789b489-nbgvc              Multi-Attach error for volume "pvc-2da7867d-98ec-4911-a4cb-7a563046f2e7" Volume is already used by pod(s) backend-7f9c9dbfbb-sznxl
-    3m         Warning   FailedAttachVolume       pod/frontend-59f789b489-nbgvc              Multi-Attach error for volume "pvc-bed2a472-c808-45b7-8c3e-171897780dc8" Volume is already used by pod(s) backend-7f9c9dbfbb-sznxl
-    3m         Normal    SuccessfulCreate         replicaset/frontend-59f789b489             Created pod: frontend-59f789b489-nbgvc
-    3m         Normal    ScalingReplicaSet        deployment/frontend                        Scaled up replica set frontend-59f789b489 to 1
-    ```
-
-    So the issue on this case is that both the backend and the frontend want to mount the same volume. At this moment Rahti does not have any Volume type that allows us to mount volumes in more than one node. One workaround for this is [Pod affinity](/cloud/rahti2/tutorials/pod-affinity/), this mechanism is designed to politely ask the scheduler to place two or more Pods on the same node. This will solve our current issue, so we will try it:
-
-    ```diff
-             kompose.cmd: kompose convert
-             kompose.version: 1.34.0 (cbf2835db)
-           labels:
-             io.kompose.service: frontend
-         spec:
-    +      affinity:
-    +        podAffinity:
-    +          requiredDuringSchedulingIgnoredDuringExecution:
-    +          - labelSelector:
-    +              matchExpressions:
-    +              - key: io.kompose.service
-    +                operator: In
-    +                values:
-    +                - backend
-    +            topologyKey: "kubernetes.io/hostname"
-           containers:
-             - args:
-                 - docker/wait-for-backend.sh
-               env:
-                 - name: API_HOST
-    ```
-
-1. After replacing the deployment...
-
-    ```sh
-    $ oc replace -f frontend-deployment.yaml
-    deployment.apps/frontend replaced
+    $ oc create -f frontend-deployment.yaml
+    deployment.apps/frontend created
 
     $ oc get pods
     NAME                        READY   STATUS             RESTARTS   AGE
@@ -1109,7 +1070,7 @@ This should be all the changes needed on the backend:
     PermissionError: [Errno 13] Permission denied: '/nltk_data'
     ```
 
-    That gets solved in a similar way:
+    That gets solved in the same way:
 
     ```diff
     @@ -145,4 +155,6 @@
@@ -1128,7 +1089,7 @@ This should be all the changes needed on the backend:
                persistentVolumeClaim:
     ```
 
-    Finally the frontend starts. We can see that it is listening to port `5000`, as expected:
+1. Finally the frontend starts. We can see that it is listening to port `5000`, as expected:
 
     ```sh
     [2024-12-13 05:53:41 +0000] [35] [INFO] Starting gunicorn 23.0.0
@@ -1148,7 +1109,7 @@ This should be all the changes needed on the backend:
     PermissionError: [Errno 13] Permission denied: '/usr/src/app/webtool/static/css/colours.css'
     ```
 
-    The folder `/usr/src/app/webtool/static/css/` has `drwxr-xr-x` permissions. This means that only the owner `(root`) can write to it. The folder is not empty in the original image:
+    The folder `/usr/src/app/webtool/static/css/` has `drwxr-xr-x` permissions. This means that only the owner `(root`) can _w_rite to it. We can not use the emptyDir trick this time, because the folder is not empty in the original image:
 
     ```sh
     root@5878384231b9:/usr/src/app# ls webtool/static/css/ -alh
@@ -1168,7 +1129,7 @@ This should be all the changes needed on the backend:
     -rw-r--r-- 1 root root  21K Oct 14 10:52 stylesheet.css
     ```
 
-    So the simplest solution available is to create our own image by patching the current one. WE will use this `Dockerfile`:
+    So the simplest solution available is to create our own image by patching the current one. We will use this `Dockerfile`:
 
     ```Dockerfile
     FROM docker.io/digitalmethodsinitiative/4cat:stable
@@ -1180,7 +1141,10 @@ This should be all the changes needed on the backend:
     Rahti can build it for us if we run this command:
 
     ```sh
-    $ oc new-build -D $'FROM docker.io/digitalmethodsinitiative/4cat:stable\nRUN chmod g+w /usr/src/app/webtool/static/css/\nRUN chmod g+w /usr/src/app/webtool/static/img/favicon/' --to 4cat
+    $ oc new-build -D $'FROM docker.io/digitalmethodsinitiative/4cat:stable
+    RUN chmod g+w /usr/src/app/webtool/static/css/\
+    RUN chmod g+w /usr/src/app/webtool/static/img/favicon/' \
+    --to 4cat
       --> Found container image ca4511d (8 weeks old) from docker.io for "docker.io/digitalmethodsinitiative/4cat:stable"
 
           * An image stream tag will be created as "4cat:stable" that will track the source image
@@ -1195,7 +1159,7 @@ This should be all the changes needed on the backend:
       --> Success
     ```
 
-    We used the [inline Dockerfile method](/cloud/rahti2/images/creating/#using-the-inline-dockerfile-method) because the `Dockerfile` is only 3 lines. After no so much time we have a new image called 4cat in our internal Rahti registry. The internal URL is `image-registry.openshift-image-registry.svc:5000/4cat-2/4cat:latest`.
+    We used the [inline Dockerfile method](/cloud/rahti2/images/creating/#using-the-inline-dockerfile-method) because the `Dockerfile` is only 3 lines. After no so much time we have a new image called 4cat in our internal Rahti registry. The internal URL is `image-registry.openshift-image-registry.svc:5000/4cat-2/4cat:latest`. Where `4cat-2` is the name of the project I am using to write this documentation.``
 
     ```diff
                        key: workers
@@ -1217,9 +1181,9 @@ This should be all the changes needed on the backend:
     frontend   frontend-4cat-2.2.rahtiapp.fi          frontend   5000                 None
     ```
 
-    If we visit the URL <http://frontend-4cat-2.2.rahtiapp.fi> we can finally see the application.
+If we visit the URL <http://frontend-4cat-2.2.rahtiapp.fi> we can finally see the application.
 
-![4cat in Rahti](/cloud/img/4cat-rahti.png)
+![4cat in Rahti](../../img/4cat-rahti.png)
 
 ## Conclusion
 
