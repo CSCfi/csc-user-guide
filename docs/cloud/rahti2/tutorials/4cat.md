@@ -25,7 +25,7 @@ This tutorial is a long format one, it explains all the different steps that wer
     sudo apt-get install docker.io docker-compose
     ```
 
-    !!! Info "Alternatives to docker"
+    !!! Info "Alternatives to docker 🐋"
         You can instead use podman compose or similar, but we will use docker as it is the most common tool.
 
 1. Once docker compose is installed, let's deploy 4cat and see how the it looks and works. You will need to clone the repository and run docker-compose inside the cloned folder:
@@ -161,13 +161,13 @@ log_level=debug
 
 As you can see this `docker-compose.yml` file is a [YAML](https://en.wikipedia.org/wiki/YAML) file with two main sections: `services` and `volumes`. There are 3 `services` and 4 `volumes`. In Kubernetes this will mean 3 `Deployments` and 4 `PersistentVolumeClaim`s (PVC). The most important fields of a service are:
 
-- `image` is the image that docker will need to pull and run for every service. In our case, we have two different images, the `postgres` image (a well known database) and the `4cat_fi`. As docker compose is working we know that both images exists and can be pulled with no issue.
+- `image` is the image that docker will need to pull and run for every service. In our case, we have two different images, the `postgres` image (a well known database) and the `4cat_fi` one. `Frontend` and `backend` use the same image, but have a different command/entry point. As docker compose is working we know that both images exists and can be pulled with no issue.
 - `environment` and `env_file` define the environment variables that will configure the services. For example `POSTGRES_PASSWORD` is used to pass the password to the database.
 - `volumes` is where we tell docker which volumes we need to be attached to the service and in which folder they need to be mounted.
 - `ports` tells us the public ports, the internal ports, and the mapping between themselves. The notation is `<external_port>:<internal_port>`.
-- `entrypoint` and `command` are the commands to be executed when the image is launched. Postgres does not have either due to the fact that the image has already a `command`/`entrypoint`.
+- `entrypoint` and `command` are the commands to be executed when the image is launched. Postgres does not have either due to the fact that we will use the default `command`/`entrypoint` defined in the image.
 
-The volumes section is simpler and only contains a list of names. A "docker compose volume" is a normal docker volume and does not include a size, because it will be using the local disk, and the size will be the limit of the local disk. Volumes in Kubernetes do have a size and we will need to account for that when we do the conversion.
+The volumes section is simpler and only contains a list of names. A docker compose "volume" is a normal docker volume and does not include a size. This is because it will be using the local disk, and the size will be the limit of the local disk itself. Volumes in Kubernetes do have a size and we will need to account for that when we do the conversion.
 
 The `.env` file has the default values to properly deploy the application. Like `PUBLIC_PORT` that is set to `80`.
 
@@ -177,7 +177,7 @@ Kompose will allow us to translate the `docker-compose.yaml` file into a set of 
 
 1. We need to have [kompose](https://kompose.io/) installed. You can follow the instruction here:
 
-    - https://kompose.io/installation/
+    - <https://kompose.io/installation/>
 
     As we have docker already installed, we can follow the docker method that will build the image from source:
 
@@ -241,9 +241,9 @@ Kompose will allow us to translate the `docker-compose.yaml` file into a set of 
 
 ### Analysis
 
-The tool has generated 4 kind of files: `service`, `deployment`,  `configmap` and `persistentvolumeclaim`. Let start with the simpler ones:
+The tool has generated 4 kind of files: `service`, `deployment`,  `configmap` and `persistentvolumeclaim`. Let's start with the simpler ones:
 
-- `persistentvolumeclaim` files are the definitions of volumes. There is one file per `volume` definition in the docker compose file. Let's see an example and see the meaning of the relevant lines:
+- `persistentvolumeclaim` files are the definitions of volumes. There is one file per `volume` definition in the docker compose file. Let's see an example and the meaning of the relevant lines:
 
     ```yaml
     apiVersion: v1
@@ -260,11 +260,11 @@ The tool has generated 4 kind of files: `service`, `deployment`,  `configmap` an
           storage: 100Mi
     ```
 
-    We can see that the `name` is the same (In `metadata > name`). The `accessMode` is set to `ReadWriteOnce`, which means that the volume can only be mounted once. Finally the size is set to `100Mi` by default (In `spec > resources > request > storage`).
+    We can see that the `name` has been kept from the compose definition (Found in `metadata > name`). The `accessMode` is set to `ReadWriteOnce`, which means that the volume can only be mounted once. Finally the size is set to `100Mi` by default (Found in `spec > resources > request > storage`).
 
-- The `configmap` file(s) store configuration. In our case the (relevant) variables defined in `.env` have been translated to `env-configmap.yaml`. The `name` is set to `env` and the variables are defined under `data`.
+- The `configmap` file(s) store configuration. In our case the (non docker-compose specific) variables defined in `.env` have been translated to `env-configmap.yaml`. The `name` is set to `env` and the variables are defined under `data`.
 
-- The `service` files define "stable network identities". A service is created for each `deployment` and it exports every port that the deployment provides. For example in `frontend-service.yaml`:
+- The `service` files define "stable network identities" that act as a load balancer. A service is created for each `deployment` and it exports every port that the deployment provides. For example in `frontend-service.yaml`:
 
     ```yaml
     apiVersion: v1
@@ -288,7 +288,7 @@ The tool has generated 4 kind of files: `service`, `deployment`,  `configmap` an
         io.kompose.service: frontend
     ```
 
-    The two relevant parts are `selector` and `ports`. The first one links the service with the `deployment` the second lists the ports are a possible remap. Se more information about [Services](/cloud/rahti2/networking/#services).
+    The two relevant parts are `selector` and `ports`. The first one links the service with the `deployment` and the second lists the ports this service export. See more information about [Services](/cloud/rahti2/networking/#services).
 
 - `deployment` is the most complex configuration generated. We can try to map the con figuration of `docker-compose.yaml` into these files. For example using the shortest one generated:
 
@@ -342,7 +342,7 @@ The tool has generated 4 kind of files: `service`, `deployment`,  `configmap` an
                 claimName: 4cat-db
     ```
 
-    - The `image` is defined at `spec > template > spec > containers > image`, and in this case is `postgres:`. This is a mistake as the tag `latest` is missing.
+    - The `image` is defined at `spec > template > spec > containers > image`, and in this case is `postgres:`. This is a mistake as the tag `latest` is missing, we will fix this later.
     - The `environment` is defined at `spec > template > spec > containers > env`, values are also missing.
     - The `volumes` are defined at `spec > template > spec > volumes` and `spec > template > spec > containers > volumeMounts`.
     - The `ports` are defined in `spec > template > spec > containers > ports` and in the already mentioned corresponding `service` files.
@@ -352,25 +352,27 @@ The tool has generated 4 kind of files: `service`, `deployment`,  `configmap` an
 
 ## Deployment to Rahti
 
-We will take the current unmodified YAML files and deploy them one by one. First you need to [install oc](/cloud/rahti2/usage/cli/#how-to-install-the-oc-tool) and [login into Rahti](/cloud/rahti2/usage/cli/#how-to-login-with-oc). Then you need to [create a Rahti project](/cloud/rahti2/usage/projects_and_quota/#creating-a-project). Make sure you are in the correct project: `oc project <project_name>`.
+We will take the current unmodified YAML files and deploy them one by one. First you need to [install oc](/cloud/rahti2/usage/cli/#how-to-install-the-oc-tool) and [login into Rahti](/cloud/rahti2/usage/cli/#how-to-login-with-oc). Then you need to [create a Rahti project](/cloud/rahti2/usage/projects_and_quota/#creating-a-project). Finally make sure you are in the correct project: `oc project <project_name>`.
 
 ### Volumes, ConfigMaps and Services
 
+These 3 types are going to be straight forward and should cause no issue.
+
 1. We can start creating the `volumes` one by one:
 
-   ```sh
-   $ oc create -f 4cat-config-persistentvolumeclaim.yaml
-   persistentvolumeclaim/4cat-config created
+     ```sh
+     $ oc create -f 4cat-config-persistentvolumeclaim.yaml
+     persistentvolumeclaim/4cat-config created
 
-   $ oc create -f 4cat-data-persistentvolumeclaim.yaml
-   persistentvolumeclaim/4cat-data created
+     $ oc create -f 4cat-data-persistentvolumeclaim.yaml
+     persistentvolumeclaim/4cat-data created
 
-   $ oc create -f 4cat-db-persistentvolumeclaim.yaml
-   persistentvolumeclaim/4cat-db created
+     $ oc create -f 4cat-db-persistentvolumeclaim.yaml
+     persistentvolumeclaim/4cat-db created
 
-   $ oc create -f 4cat-logs-persistentvolumeclaim.yaml
-   persistentvolumeclaim/4cat-logs created
-   ```
+     $ oc create -f 4cat-logs-persistentvolumeclaim.yaml
+     persistentvolumeclaim/4cat-logs created
+     ```
 
     This will create 4 volumes in `Pending` status. They will remain in `Pending` till we deploy the `deployments`. This is expected.
 
@@ -389,7 +391,7 @@ We will take the current unmodified YAML files and deploy them one by one. First
 
     The other two entries (`kube-root-cs.crt` and `openshift-service-ca.crt`) are pre-created Kubernetes and Openshift base config maps.
 
-1. We do not expect any error while creating the `services` (db service is missing and we will need to create it ourselves manually later):
+1. We do not expect any error while creating the `services` (db service is missing because the docker cmpose file did not mention any ports, and we will need to create it ourselves manually later):
 
     ```sh
     $ oc create -f frontend-service.yaml
@@ -421,10 +423,9 @@ Finally we will create the deployments. We have 3 deployments and we will start 
     db-66db46fb89-vzqrz   0/1     InvalidImageName   0          26s
     ```
 
-1. This is expected as the tag `latest` was missing in the image name. Let's fix it and try again. So we will edit the file `db-deployment.yaml`, add latest to the image filed so it looks like: `postgres:latest`,
+1. This is expected as the tag `latest` was missing in the image name. Let's fix it and try again. So we will edit the file `db-deployment.yaml`, add `latest` to the image value so it looks like: `postgres:latest`,
 
     ```diff
-    @@ -33,5 +33,5 @@
                  - name: POSTGRES_USER
     -          image: 'postgres:'
     +          image: 'postgres:latest'
@@ -444,7 +445,7 @@ Finally we will create the deployments. We have 3 deployments and we will start 
     ```
 
     !!! Info "YAML files"
-        We are making the modifications into the `YAML` file so we can re-create the deployment afterwards. You can also add the files to a Git repository and commit every change so later the history and reasons of modifications is clear.
+        We are making the modifications into the `YAML` files so we can re-create the whole deployment afterwards. You can also add the files to a Git repository and commit every change so later the history and reasons of modifications are clear in the commit history.
 
 1. The deployment is not working, but for a different reason. Let's see why:
 
@@ -463,7 +464,7 @@ Finally we will create the deployments. We have 3 deployments and we will start 
            https://www.postgresql.org/docs/current/auth-trust.html
     ```
 
-    This shows two kind of errors folder permission errors and missing variables errors. Let's to reproduce the error localy on our machine. The command will be:
+    This shows two kind of errors: folder permission errors and missing variables errors. Let's to reproduce the error localy on our machine. The command will be:
 
     ```sh
     docker run -it --rm -u 1000 postgres:latest
@@ -480,11 +481,11 @@ Finally we will create the deployments. We have 3 deployments and we will start 
            https://www.postgresql.org/docs/current/auth-trust.html
     ```
 
-    We added `-u 1000` to change the UID to a non root UID, so we can reproduce the same error Rahti is showing us. Any random UID can be used, this is the way Rahti runs imnages. with random UIDs. Let's repeat it with the `POSTGRES_HOST_AUTH_METHOD` variable defined as suggested:
+    In our example above, we added `-u 1000` to change the UID to a non root UID, so we can reproduce the same error Rahti is showing us. Any random UID can be used, this is the way Rahti runs images (running then with random UIDs). Let's repeat it with the `POSTGRES_PASSWORD` variable defined as suggested:
 
     ```sh
     $ podman run -it --rm -u 1000 -e  POSTGRES_PASSWORD=password postgres:latest
-    WARN[0000] Error validating CNI config file /home/galvaro/.config/cni/net.d/4cat_default.conflist: [plugin firewall does not support config version "1.0.0"] 
+    WARN[0000] Error validating CNI config file /home/galvaro/.config/cni/net.d/4cat_default.conflist: [plugin firewall does not support config version "1.0.0"]
     chmod: changing permissions of '/var/lib/postgresql/data': Operation not permitted
     chmod: changing permissions of '/var/run/postgresql': Operation not permitted
     The files belonging to this database system will be owned by user "1000".
@@ -501,7 +502,7 @@ Finally we will create the deployments. We have 3 deployments and we will start 
 
     In this case we can see that this container image will never work in Rahti, as it needs to be able to change folder permissions. Luckily Rahti/Openshift provides a PostgreSQL template that is available in the developer catalog.
 
-    ![Developer Catalog](/cloud/img/db-developer-catalog.png)
+    ![Developer Catalog](../../img/db-developer-catalog.png)
 
     In the description of the template we can see a link to a Github page <https://github.com/sclorg/postgresql-container/>. On the page we can see the list of all the available images. We will choose [quay.io/sclorg/postgresql-15-c9s](https://quay.io/repository/sclorg/postgresql-15-c9s) as it is the newest available version and uses Centos 9 as a base.
 
