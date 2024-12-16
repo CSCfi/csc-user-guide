@@ -112,7 +112,7 @@ To export multiple files, first compress them into a single folder, then encrypt
 
 1. Create a new folder. 
 2. Place all files into the folder.
-3. Right-click the folder, select **Compress**. Now your folder is a .zip file and can be exported.
+3. Right-click the folder, select **Compress**. Now your folder is a .zip file.
 
 
 
