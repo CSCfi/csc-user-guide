@@ -1,22 +1,22 @@
 # How to deploy 4cat in Rahti
 
-This tutorial is a long format one, it explains all the different steps that were necessary to deploy the [4cat_fi](https://github.com/uh-dcm/4cat_fi) application into Rahti. The idea is to explain the story of how the different issues were found and solved. Each issue will have its own chapter and hopefully the solution will be easy to apply to any other application with similar issues. We will omit some of the false solutions and leads that I followed when I originally tried to deploy this application for the sake of keeping this tutorial from growing exponentially. But keep in mind that these kind of processes are rarely straight forward and that to find the solution you normally find a lot of non solutions.
+This tutorial is a long format one, it explains all the different steps that were necessary to deploy the [4cat_fi](https://github.com/uh-dcm/4cat_fi) application into Rahti. The idea is to explain the story of how the different issues were found and solved. Each issue will have its own chapter and hopefully the solution will be easy to apply to any other application with similar symptoms. We will omit some of the false solutions and leads that I followed when I originally tried to deploy this application for the sake of keeping this tutorial from growing exponentially. But keep in mind that these kind of processes are rarely straight forward and that to find the solution you normally find a lot of non solutions.
 
 4Cat is a capture and analysis toolkit. From the Github page linked above, we learnt that the tool is used for analysing social media platforms and that one of the installation methods is docker compose. This is good news because:
 
 1. We can test the application deployment using docker compose and see how it looks.
 1. We do not need to create a docker container from scratch.
-1. We can use the docker compose deployment as a base and adapt it to Kubernetes deployment using [kompose](https://kompose.io). This tool is specifically designed to make this conversions. From their website: "Our conversions are not always 1:1 from Docker Compose to Kubernetes, but we will help get you 99% of the way there!". And it indeed will save us a lot of tedious conversion time, but it will not be the end of it.
+1. We can use the docker compose deployment as a base and adapt it to Kubernetes deployment using [kompose](https://kompose.io). This tool is specifically designed to make these conversions. From their website: "Our conversions are not always 1:1 from Docker Compose to Kubernetes, but we will help get you 99% of the way there!". And it indeed will save us a lot of tedious conversion time, but it will not be the end of it.
 
-!!! warning "Linux is used for all the examples"
-    We have prepared this tutorial using a Linux machine. In principle, all these commands run also in Windows and Mac, but if confused I recommend you to [install a tiny VM in Pouta](/cloud/pouta/launch-vm-from-web-gui/) and use it for following the tutorial instead. This is useful even for Linux users, as you will be able to install, uninstall or change software without risking your local installation.
+!!! warning "Linux 🐧 is used for all the examples"
+    We have prepared this tutorial using a Linux machine. In principle, with a bit of adapting all these commands run also in Windows and Mac, but if confused I recommend you to [install a tiny VM in Pouta](/cloud/pouta/launch-vm-from-web-gui/) and use it for following the tutorial instead. This is useful even for Linux users, as you will be able to install, uninstall or change software without risking corrupting your local installation.
 
 
 ## Docker compose
 
 1. Before continuing, we will need to have docker and the docker compose plugin installed. You can find instructions on how to install docker compose here:
 
-    - https://docs.docker.com/compose/install/
+    - <https://docs.docker.com/compose/install/>
 
     For Debian and Ubuntu you can install it by:
 
@@ -25,9 +25,10 @@ This tutorial is a long format one, it explains all the different steps that wer
     sudo apt-get install docker.io docker-compose
     ```
 
-    You can use podman compose or similar, but we will use docker as it is the most common tool.
+    !!! Info "Alternatives to docker"
+        You can instead use podman compose or similar, but we will use docker as it is the most common tool.
 
-1. Once docker compose is installed, let's deploy it and see how the application works. You will need to clone the repository and run docker-compose inside the cloned folder:
+1. Once docker compose is installed, let's deploy 4cat and see how the it looks and works. You will need to clone the repository and run docker-compose inside the cloned folder:
 
     ```sh
     git clone https://github.com/uh-dcm/4cat_fi
@@ -35,13 +36,13 @@ This tutorial is a long format one, it explains all the different steps that wer
     sudo docker compose up
     ```
 
-    This will start the process for deploying the application in the machine. It can take some time to pull the images and configure the application. If you `Ctrl+C` the application will exit. If you want to run it on the background, you just need to add `-d` or  `--detach`.
+    This will start the process for deploying the application in the machine. It can take some time to pull the images and configure the application. If you `Ctrl+C` the application will exit. If you want to run it on the background, you just need to add `-d` or  `--detach` to the docker-compose command.
 
-    ![docker-compose output](/cloud/img/4cat-docker-compose.png)
+    ![docker-compose output](../../img/4cat-docker-compose.png)
 
     After a while the application will be available on port `80` (The `PUBLIC_PORT`):
 
-    ![4cat first run](/cloud/img/4cat.png)
+    ![4cat first run](../../img/4cat.png)
 
 ### Analysis
 
