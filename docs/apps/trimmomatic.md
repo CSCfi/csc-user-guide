@@ -13,7 +13,7 @@ Trimmomatic performs a variety of useful trimming tasks for illumina paired-end 
 
 - Free to use and open source under [GNU GPLv3](https://www.gnu.org/licenses/gpl-3.0.html).
 - The license does NOT apply to the sequence of the Illumina sequences contained in the software.
-THE ILLUMINA sequences (adapters) etc REMAIN COPYRIGHTED and owned by Illumina and are used in trimmomatic by permission.
+THE ILLUMINA sequences (adapters) etc REMAIN COPYRIGHTED and owned by Illumina and are used in Trimmomatic by permission.
 
 ## Available
 
