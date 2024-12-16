@@ -535,7 +535,6 @@ Finally we will create the deployments. We have 3 deployments and we will start 
     The variable names are different, but easy to translate. We will also take the values from the `env` `configMap`:
 
     ```diff
-        @@ -25,13 +25,11 @@
            containers:
              - env:
     -            - name: POSTGRES_DB
@@ -594,7 +593,7 @@ This deployment also needs few changes. Let's go through them in hopefully a mor
                ports:
     ```
 
-1. Then we get this other error:
+1. Add the DB service to solve this issue:
 
     ```sh
     db: forward host lookup failed: Unknown host
@@ -614,7 +613,7 @@ This deployment also needs few changes. Let's go through them in hopefully a mor
     psql: error: connection to server at "db" (172.30.154.239), port 5432 failed: fe_sendauth: no password supplied`
     ```
 
-    This is due to the fact that meanwhile we are defining `POSTGRESQL_PASSWORD` the application is expecting `PGPASSWPRD`. This mean that the fix is:
+    This is due to the fact that meanwhile we are defining `POSTGRESQL_PASSWORD` the application is expecting `PGPASSWPRD`. This means that the fix is:
 
     ```diff
                        key: POSTGRES_HOST_AUTH_METHOD
@@ -648,7 +647,7 @@ This deployment also needs few changes. Let's go through them in hopefully a mor
     PermissionError: [Errno 13] Permission denied: '/nltk_data'
     ```
 
-    We need to make the folder `/nltk_data` writable to the user running the application. If we come back to check the docker compose, this folder was not mentioned. This means that any data written on the folder, will not survive the restrt to the container image. The easiest way to accomplish this is to mount an [ephemeral storage](/cloud/rahti2/storage/ephemeral/) folder (an emptyDir). This is a fast temporal storage that will be deleted when the Pod is terminated, the same behaviour as with the docker compose. The change is the following:
+    We need to make the folder `/nltk_data` writable to the user running the application. If we come back to check the docker compose, this folder was not mentioned. As containers are stateless, this means that any data written on the folder, will not survive the restart of the container. The easiest way to accomplish this is to mount an [ephemeral storage](/cloud/rahti2/storage/ephemeral/) folder (or `emptyDir`). This is a fast temporal storage that will be deleted when the Pod is terminated, the same behaviour as with the docker compose. The change is the following:
 
     ```diff
                    protocol: TCP
@@ -740,7 +739,7 @@ This deployment also needs few changes. Let's go through them in hopefully a mor
 
     ```
 
-    For solving this we again have two options, we can guess or we can use the `oc debug` tool. The `oc debug` tool allows you to launch a failed pod in an interactive session without launching the initial command of the Pod.
+    For solving this issue we again have two paths: we can guess or we can use the `oc debug` tool. The `oc debug` tool allows you to launch a failed pod in an interactive session without launching the initial command of the Pod.
 
     ```sh
     $ oc debug backend-7f9c9dbfbb-78sh8
@@ -771,7 +770,7 @@ This deployment also needs few changes. Let's go through them in hopefully a mor
     $ touch logs/backend_4cat.log
     ```
 
-    It is strange that the application does not create the file itself and that this was not an issue for the compose approach. It is suspissius but we will continue and see if this becomes a problem later. To see if the fix made the trick, we need to delete the Pod, so a new one is created:
+    It is strange that the application does not create the file itself and that this was not an issue for the compose approach. It is suspicious but we will continue and see if this becomes a problem later. To see if the fix made the trick, we need to delete the Pod, so a new one is created:
 
     ```sh
     $ oc get pods
@@ -784,7 +783,7 @@ This deployment also needs few changes. Let's go through them in hopefully a mor
 
     ```
 
-    and then see if the Pod still fails:
+1. And then see if the Pod still fails:
 
     ```sh
     $ oc get pods
@@ -793,7 +792,7 @@ This deployment also needs few changes. Let's go through them in hopefully a mor
     db-545945c9b8-tkbwc        1/1     Running   0          17h
     ```
 
-    It has been running for few minutes without failing. The log shows now a new error:
+    It has been running for few minutes without crashing, which is good. But the log shows now a new error, which is not so good:
 
     ```sh
     $ oc logs backend-7f9c9dbfbb-sznxl
@@ -802,10 +801,10 @@ This deployment also needs few changes. Let's go through them in hopefully a mor
     ...error while starting 4CAT Backend Daemon (pidfile not found).
     ```
 
-    We are assuming that the application is trying to write the Pid file (file with the process number on it) to a folder that you can only write to if you are root. This is a typical error with these kind of coversions. The log does not tell us where the pid file should be, so we need to investigate it for ourselves. As the Pod is running, we can use `oc rsh`, which is a tool used to open a remote shell, this works only with to running Pods:
+    We are assuming that the application is trying to write the PID file (a file with the process number on it, common practise in Unix) to a folder that you can only write to if you are `root`. This is a typical error with these kind of coversions. The log does not tell us where the PID file should be, so we need to investigate it for ourselves. As the Pod is running, we can use `oc rsh`, which is a tool used to open a remote shell, this works only with to running Pods:
 
     ```sh
-    $ oc rsh backend-7f9c9dbfbb-sznxl
+    $ oc rsh deploy/backend
         $ grep 'pidfile not' -C 4 -nR *
         4cat-daemon.py-144-            else:
         4cat-daemon.py-145-                time.sleep(0.1)
@@ -823,10 +822,13 @@ This deployment also needs few changes. Let's go through them in hopefully a mor
             with pidfile.open() as infile:
     ```
 
-    We used `grep` to find the error message in the code, and then so see where the `pidfile` variable was defined. We could have used a local text editor, or directly using GitHub search. I just think `grep` is a great tool and that everyone should know how to use it. Coming back to the issue on hand, we know that the iod file is stored on a folder configured with `PATH_LOCKFILE`. We will check if we can find it on the `config.ini` file:
+    !!! Info "Grep tool"
+        We used the `grep` tool to find the error message in the code, and then again to see where and how the `pidfile` variable was defined. We could have used a local text editor, or directly use GitHub search. I just think `grep` is a great tool and that everyone can benfit by knowing how to use it.
+
+    So now we know that the PID file is stored on a folder configured with the `PATH_LOCKFILE` variable. We will check if we can find it on the `config.ini` file:
 
     ```sh
-    $ oc rsh backend-7f9c9dbfbb-sznxl
+    $ oc rsh deploy/backend
         $ grep path -i config/config.ini
         [PATHS]
         path_images = data
@@ -846,7 +848,7 @@ This deployment also needs few changes. Let's go through them in hopefully a mor
         drwxr-xr-x. 2 root root 4.0K Oct 14 10:52 workers
     ```
 
-    This one was probably one of the most complicated one to fix, and the one that required more guessing. The solution we will follow is to first change the config `path_lockfile` to a different value. I think that `pid` is a good descriptive name. As the `config.ini` file is in a volume, we can change the value directly on the Pod (`sed -i 's#path_lockfile = backend#path_lockfile = pid#' config/config.ini`) or copy to the local machine (see `oc cp`) edit it with a tedt editor and copy it back. Secondly add a `pid` folder as an emptyDir:
+    This one was probably one of the most complicated ones to fix, and the one that required more guessing. The solution we will follow is to first change the config `path_lockfile` to a different value. For example to `pid`, which I think that it is a good descriptive name for the folder. As the `config.ini` file is in a volume, we can change the value directly on the Pod (`sed -i 's#path_lockfile = backend#path_lockfile = pid#' config/config.ini`) or copy the file to the local machine (see `oc cp`) edit it with a text editor and copy it back. Secondly add a `pid` folder as an `emptyDir`:
 
     ```diff
     @@ -150,4 +150,6 @@
@@ -865,7 +867,7 @@ This deployment also needs few changes. Let's go through them in hopefully a mor
                persistentVolumeClaim:
     ```
 
-    Our next error is the following:
+1. Our next error is the following:
 
     ```sh
     $ oc logs backend-65cb8dc8dd-8thwg
