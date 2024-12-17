@@ -63,7 +63,7 @@
 * [STAR](star.md) Short read aligner
 * [Structure](structure.md) Inference of population structure in genetics
 * [Tophat](tophat.md) Splice junction mapper for RNA-Seq reads
-* [Trimmomatic](trimmomatic.md) Trim illumina paired-end and single ended data
+* [Trimmomatic](trimmomatic.md) Trim Illumina paired-end and single-read data
 * [Trinity](trinity.md) Traskriptome assembly tool
 * [Velvet](velvet.md) Genome assembler
 * [VirusDetect](virusdetect.md) Virus identification with sRNA data
