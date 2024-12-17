@@ -1,5 +1,15 @@
 # Applications
 
+## Maestro versions older than 2023.1 will not work after 13.3.2025
+
+Schrödinger has taken into use a
+[new license manager](https://www.schrodinger.com/life-science/learn/white-paper/new-schrodinger-license-manager/),
+which does not support Maestro versions older than 2023.1. Consequently, **CSC
+will no longer be able to provide a license for Maestro versions 2022.4 and
+older after 13th of March 2025**. If not done already, please migrate to using
+versions 2023.1 or later as soon as possible! See our Maestro page for details on
+[how to configure licensing for your local Maestro installation](../../apps/maestro.md#local-installation).
+
 ## GROMACS 2024.4, 7.11.2024
 
 [GROMACS](../../apps/gromacs.md) 2024.4 is now available on Puhti, Mahti and LUMI.

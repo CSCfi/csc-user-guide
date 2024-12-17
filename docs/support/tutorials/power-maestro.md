@@ -354,21 +354,6 @@ You can check the currently available licenses (tokens) with:
 $SCHRODINGER/run lictool status
 ```
 
-!!! info "Note for older Maestro versions"
-    If you are using Maestro version 2024.2 or older, the above command will
-    not work. In this case, you can check the currently available licenses
-    (tokens) with:
-
-    ```bash
-    $SCHRODINGER/utilities/licutil -avail
-    ```
-
-    and currently used licenses (tokens) with:
-
-    ```bash
-    $SCHRODINGER/utilities/licutil -used
-    ```
-
 Note that some Maestro tools or workflows use multiple modules and hence licenses
 or tokens from multiple modules. Typically, one running instance of a module (a job or
 a subjob) requires several tokens. For example, Desmond and Glide jobs take 8 tokens each.
