@@ -64,7 +64,7 @@
 * [Structure](structure.md) Inference of population structure in genetics
 * [Tophat](tophat.md) Splice junction mapper for RNA-Seq reads
 * [Trimmomatic](trimmomatic.md) Trim Illumina paired-end and single-read data
-* [Trinity](trinity.md) Traskriptome assembly tool
+* [Trinity](trinity.md) Transcriptome assembly tool
 * [Velvet](velvet.md) Genome assembler
 * [VirusDetect](virusdetect.md) Virus identification with sRNA data
 * [VMD](vmd.md) Molecular visualization program
