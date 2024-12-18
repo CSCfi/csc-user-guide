@@ -1,8 +1,8 @@
 # Working with your Desktop: tips and essentials
 
 ## Prerequisites
-* [Create virtual desktop](sd-desktop-create.md)
-* [Access virtual desktop](sd-desktop-access-vm.md)
+* [Create virtual desktop](sd-desktop-secondary-create.md)
+* [Access virtual desktop](sd-desktop-secondary-access-vm.md)
 
 ## Work and collaborate in a virtual desktop
 
