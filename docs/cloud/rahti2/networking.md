@@ -253,10 +253,10 @@ The procedure to achieve this is the following:
 
     ```
 
-    !!! Warning "Bug in OpenShift"
-        At this moment, with the Local policy activated, no traffic will be possible through this service. This is due to a bug in the current deployed version of OpenShift OKD. The expected fixed behaviour would be that access will continue to be open for any IP.
-
-        In addition, when `externalTrafficPolicy` is set to `Local`, only one service can be exposed using the external IP.
+    !!! Warning "Local Traffic Policy Limitations"
+        Rahti uses `L2Advertisement` mode in metallb. Fore more information please refer to ['Layer 2'](https://metallb.universe.tf/usage/#traffic-policies).
+   
+        Also note that, when `externalTrafficPolicy` is set to `Local`, only one service can be exposed using the external IP; i.e., the load balancer IP can not be shared among multiple services.
 
         For more information refer to the official article: [Understanding Openshift `externalTrafficPolicy: local` and Source IP Preservation](https://access.redhat.com/solutions/7028639)
 
@@ -285,7 +285,7 @@ The procedure to achieve this is the following:
       - Ingress
     ```
 
-    The `NetworkPolicy` above allows ingress traffic from the [CIDR](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) `188.184.0.0/16` which translates to the range [`188.184.0.0` - `188.184.255.255`], and from the single IP `137.138.6.31`. The destination of the traffic is limited by the `matchLabels` section. The label must be the same as the one used in the `LoadBalancer` service.
+    The above example of `NetworkPolicy` allows ingress traffic from the [CIDR](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) `188.184.0.0/16` which translates to the range [`188.184.0.0` - `188.184.255.255`], and from the single IP `137.138.6.31`. The destination of the traffic is limited by the `matchLabels` section. The label must be the same as the one used in the `LoadBalancer` service.
 
 ### Differences between a Route and a LoadBalancer service during deployment roll outs
 
