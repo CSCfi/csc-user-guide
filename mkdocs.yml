@@ -29,8 +29,13 @@ extra:
             Thank you! Your feedback is appreciated.
       exclude:
         - ref.md
+  csc_ui_version: 2.3.0
+  sw_catalog:
+    templates_dir: sw-catalog-templates
+    page_meta_key: software_catalog
 
 hooks:
+  - hooks/sw_catalog.py
   - hooks/archives.py
 
 plugins:
@@ -478,6 +483,7 @@ nav:
       - By discipline: apps/by_discipline.md
       - By availability: apps/by_system.md
       - By license: apps/by_license.md
+  - Software catalog: sw-catalog/index.md
   - FAQ: support/faq/index.md
   - Tutorials: support/tutorials/index.md
   - Training material: support/training-material/index.md
