@@ -182,7 +182,7 @@ On the web interface under `Developer`, go to the `Project` tab, press on `Servi
 ![rahti2](https://github.com/user-attachments/assets/3651fc81-682d-40d4-8a2e-bae639c1c81b)
 
 
-### Multiple LoadBalancer Services
+### Share the same LoadBalancer IP among Services
 
 It is also possible to expose multiple `LoadBalancer` services on the same public IP but on different ports, you can enable IP sharing by adding the `metallb.universe.tf/allow-shared-ip` annotation to services. The value of the annotation is a label of your choice. The services annotated with the same label will share the same IP. Here is an example configuration of two services that share the same IP address:
 
