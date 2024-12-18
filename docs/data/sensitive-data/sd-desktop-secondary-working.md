@@ -1,8 +1,8 @@
 # Working with your Desktop: tips and essentials
 
 ## Prerequisites
-* [Create virtual desktop](sd-desktop-secondary-create.md)
-* [Access virtual desktop](sd-desktop-secondary-access-vm.md)
+* [Create virtual desktop](../sensitive-data/sd-desktop-secondary-create.md)
+* [Access virtual desktop](../sensitive-data/sd-desktop-secondary-access-vm.md)
 
 ## Work and collaborate in a virtual desktop
 
@@ -12,11 +12,11 @@ No technical experience is required to work with it, but while Windows is design
 
 The guide below provides clear instructions to help you get comfortable with both Linux and the SD Desktop’s security setup:
 
-- [Security-related features and limitations](sd-desktop-working.md#security-related-features-and-limitations)
-- [Introduction to Linux and virtual desktop](sd-desktop-working.md#introduction-to-linux-and-virtual-desktop)
-- [Copy-paste from your laptop to virtual desktop](sd-desktop-working.md#copy-paste-from-your-laptop-to-virtual-desktop)
-- [Default software available in SD Desktop](sd-desktop-working.md#default-software-available-in-sd-desktop)
-- [Accessing RStudio from virtual desktop](sd-desktop-working.md#accessing-rstudio-from-virtual-desktop)
+- [Security-related features and limitations](sd-desktop-secondary-working.md#security-related-features-and-limitations)
+- [Introduction to Linux and virtual desktop](sd-desktop-secondary-working.md#introduction-to-linux-and-virtual-desktop)
+- [Copy-paste from your laptop to virtual desktop](sd-desktop-secondary-working.md#copy-paste-from-your-laptop-to-virtual-desktop)
+- [Default software available in SD Desktop](sd-desktop-secondary-working.md#default-software-available-in-sd-desktop)
+- [Accessing RStudio from virtual desktop](sd-desktop-secondary-working.md#accessing-rstudio-from-virtual-desktop)
 
 ## Security-related features and limitations
 
@@ -128,6 +128,5 @@ The computing environment i.e. virtual desktop (visible from your browser) is is
 
 Read next:
 
-- [How to import data for analysis in your desktop](./sd-desktop-access.md)
-- [Customisation: adding software](./sd-desktop-software.md)
-- [How to manage your virtual desktop (delete, pause, detach volume etc.)](./sd-desktop-manage.md)
+- [How to import data for analysis in your desktop](./sd-desktop-secondary-access.md)
+- [How to manage your virtual desktop (delete, pause, detach volume etc.)](./sd-desktop-secondary-manage.md)
