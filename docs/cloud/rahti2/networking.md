@@ -107,11 +107,45 @@ Unlike routes, the `LoadBalancer` service type makes it possible to expose servi
 
 - **Project Name**: Provide the exact name of the Rahti 2 project for which you want to enable LoadBalancer services.
 
+- **CSC Project Number**: The `csc_project` number that is used for Rahti Project.
+
 - **Use Case**: Clearly describe the use case, including:
     - The type of services you plan to expose (e.g., web applications, APIs).
-    - Any specific requirements or considerations.
+    - Any specific requirements or considerations. (e.g., how many ips)
 
 When your request is approved by the admins, you will receive the public IP address that can be used to access your services, and you can then proceed with the creation of the ```LoadBalancer``` service.
+Alternatively, you can use the following command to check the IP addresses that are assigned to your project. The information will be visible under `annotations.ip_pairs` field.
+
+```bash
+oc get ipaddresspools.metallb.io -n metallb-system <project_name> -o yaml
+```
+
+```bash
+apiVersion: metallb.io/v1beta1
+kind: IPAddressPool
+metadata:
+  annotations:
+    ip_pairs: |
+      192.168.191.X - 86.50.228.M
+      192.168.192.Y - 195.148.30.N
+  creationTimestamp: "XXXX-XX-XXTXX:XX:XXZ"
+  generation: 1
+  name: <project_name>
+  namespace: metallb-system
+  resourceVersion: "XXXXXX"
+  uid: XXXXXXX
+spec:
+  addresses:
+  - 192.168.191.X/32
+  - 192.168.192.Y/32
+  autoAssign: true
+  avoidBuggyIPs: false
+  serviceAllocation:
+    namespaces:
+    - <project_name>
+    priority: 1
+
+```
 
 For example, the following service definition exposes a MySQL service on the assigned public IP at port 33306.
 
