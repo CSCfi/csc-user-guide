@@ -77,41 +77,87 @@ See the explanation in the [Networking routes](../networking.md#routes) page.
     special care, since the private TLS key should be never exposed to
     non-trusted parties.
 
-## Let's Encrypt
+## Cloud native certificate management
 
-[letsencrypt.org](https://letsencrypt.org/) provides free and open certificates. Routes can automatically obtain a "let's encrypt" certificate using the third-party [openshift-acme controller](https://github.com/tnozicka/openshift-acme). The process is simple:
+[**cert-manager**](https://cert-manager.io/docs/) is a powerful and extensible X.509 certificate controller for Kubernetes and OpenShift workloads. It will obtain certificates from a variety of Issuers, both popular public Issuers as well as private Issuers, and ensure the certificates are valid and up-to-date, and will attempt to renew certificates at a configured time before expiry.
 
-* Clone the [openshift-acme controller](https://github.com/tnozicka/openshift-acme) repository.
+One of the supported certificate authorities is [letsencrypt.org](https://letsencrypt.org/), which provides free and open certificates. The process has 3 steps:
 
-```sh
-git clone https://github.com/tnozicka/openshift-acme.git
-```
+1. First you need to configure an `Issuer`. You only need to confogure one per `NameSpace`
 
-* The whole process is documented in the [README.md](https://github.com/tnozicka/openshift-acme/blob/master/README.md) file. We recommend the [Single namespace](https://github.com/tnozicka/openshift-acme/tree/master/deploy#single-namespace) method. It will deploy the controller inside your Rahti 2 project and it will only work for the `Route` you have defined inside said project:
+    ```yaml
+    apiVersion: cert-manager.io/v1
+    kind: Issuer
+    metadata:
+      name: letsencrypt
+    spec:
+      acme:
+        # You must replace this email address with your own.
+        # Let's Encrypt will use this to contact you about expiring
+        # certificates, and issues related to your account.
+        email: <<YOUR_EMAIL>>
+        server: https://acme-v02.api.letsencrypt.org/directory
+        privateKeySecretRef:
+          # Secret resource that will be used to store the account's private key.
+          name: example-issuer-account-key
+        # Add a single challenge solver, HTTP01 using nginx
+        solvers:
+        - http01:
+            ingress:
+              ingressClassName: openshift-default
+    ```
 
-```sh
-cd openshift-acme
-oc apply -f deploy/single-namespace/{role,serviceaccount,issuer-letsencrypt-live,deployment}.yaml
-oc create rolebinding openshift-acme --role=openshift-acme --serviceaccount="$( oc project -q ):openshift-acme" --dry-run -o yaml | oc apply -f -
-```
+    You need to replace `<<YOUR_EMAIL>>` by your email. This is to automatically create a free Let's Encrypt account.
 
-* Add an annotation to the Route you need the certificate for.
+1. Then you need to create the `Certificate` object. You can create an many certificates as needed:
 
-```sh
-oc annotate route <route_name> kubernetes.io/tls-acme='true'
-```
+    ```yaml
+    apiVersion: cert-manager.io/v1
+    kind: Certificate
+    metadata:
+        name: nginx
+    spec:
+        secretName: tutorial-tls
+        duration: 2160h # 90d
+        renewBefore: 360h # 15d
+        issuerRef:
+            name: letsencrypt-staging
+            kind: Issuer
+        commonName: <<DNS_NAME>>
+        dnsNames:
+          - <<DNS_NAME>>
+    ```
 
-* Wait for few minutes. The controller will see that the annotation has been added, and it will start the process of requesting the certificate, validating the request, issuing the certificate, and finally adding it to the Route. It will also add an annotation to the `Route` with the status:
+    You need to replace `<<DNS_NAME>>` by the name of the DNS you need the certificate for. The certificates will be stored in the `Secret` called `tutirial-tls`, you can change the name of the secret on the YAML above to any name that makes sense for you.
 
-```yaml
-  annotations:
-    acme.openshift.io/status: |
-      provisioningStatus:
-        earliestAttemptAt: "2021-02-09T10:26:15.006145385Z"
-        orderStatus: valid
-        orderURI: https://acme-v02.api.letsencrypt.org/acme/order/XXXXXXXXX/XXXXXXXXXX
-        startedAt: "2021-02-09T10:26:15.006145385Z"
-    kubernetes.io/tls-acme: 'true'
-```
+1. Finally you just need to create the `Ingress`:
 
-The certificate is ready. The controller will take care of checking the validity of the certificate, and of renewing it when necessary (every 3 months).
+    ```yaml linenums="1"
+    apiVersion: networking.k8s.io/v1
+    kind: Ingress
+    metadata:
+        name: tuto
+        annotations:
+          cert-manager.io/issuer: letsencrypt
+    spec:
+        rules:
+        - http:
+            paths:
+            - path: /test
+              pathType: Prefix
+              backend:
+                service:
+                  name: echo-service
+                  port:
+                    number: 9000
+      tls:
+      - hosts:
+        - <<DNS_NAME>>
+        secretName: tutorial-tls
+    ```
+
+    The key lines on the `Ingress` objects are:
+
+    - Line `6` (`cert-manager.io/issuer`) must point to the same name of the `Issuer` you created.
+    - Line `20` (`hosts` array), the `<<DNS_NAME>>` must be the same as before.
+    - Line `21` (`secretName`) must point to same secret you used before.
