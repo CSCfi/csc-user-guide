@@ -10,16 +10,6 @@ There are many other high-throughput tools and workflow managers exist for scien
 
 ## Installation
  
-### Custom Nextflow installations
-The installation of Nextflow is easy as it is java-based tool. You can for example download the latest version of Nextflow binary to your /home directory  on Puhti as below: 
-
-```bash
-
-module load biojava/21
-curl -s https://get.nextflow.io | bash && mv nextflow ~/bin
-chmod +x ~/bin/nextflow
-
-```
 
 ### Nextflow as modules
 Nextflow is also available as a module on Puhti. One can choose the version of the nextflow depending on the requirement of your own pipeline. Please note that the Nextflow version starting from 23.04.3 can only be
@@ -37,6 +27,17 @@ module load nextflow/<version>     # e.g., module load nextflow/22.10.1
      Please make sure to specify the correct version of the Nextflow module as
      some pipelines require a specific version of Nextflow.
 
+
+### Custom Nextflow installations
+The installation of Nextflow is easy as it is java-based tool. You can for example download the latest version of Nextflow binary to your /home directory  on Puhti as below: 
+
+```bash
+
+module load biojava/21
+curl -s https://get.nextflow.io | bash && mv nextflow ~/bin
+chmod +x ~/bin/nextflow
+
+```
 
 ### Installation of tools used in Nextflow
 
@@ -214,7 +215,7 @@ Monitor the status of submitted Slurm job
    squeue -u $USER
 ```
 
-### Running Nextflow  with SLURM executor (Currently NOT recommended on Puhti when you have several small jobs)
+### Running Nextflow  with SLURM executor 
 
 One of the advantages of Nextflow is that the actual pipeline functional logic is separated from the execution environment. The same script can therefore be executed in different environments by changing the execution environment without touching actual pipeline code. Nextflow uses `executor` information to decide where the job should be run. Once executor is configured, Nextflow submits each process to the specified job scheduler on your behalf (=you don't need to write sbatch script, Nextflow writes on the fly for you, instead ).
 
