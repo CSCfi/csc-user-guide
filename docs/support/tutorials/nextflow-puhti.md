@@ -101,9 +101,8 @@ module load nextflow/23.04.3                     # Load nextflow module
 
 Please note that one has to load Nextflow module with a version. Otherwise, the latest version of stable module installed at that point is used. For the reproducibility point of view, make sure to load versions of all tools including the Nextflow module.
 
-### Running hello-world example 
 
-This "Hello-world" minimalist example demonstrates the basic syntax of Nextflow for a process. In this tutorial, you will learn how to run a Nextflow script as well as understand the default location of resulting output files. Copy the below script to a file named, hello-world.nf
+The following "Hello-world" minimalist example demonstrates the basic syntax of Nextflow. Copy the below script to a file named, hello-world.nf.
 
 ```nextflow
 #!/usr/bin/env nextflow
