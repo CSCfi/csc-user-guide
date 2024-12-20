@@ -10,7 +10,7 @@ There are many other high-throughput tools and workflow managers exist for scien
 
 ## Installation
  
-### Custom installations
+### Custom Nextflow installations
 The installation of Nextflow is easy as it is java-based tool. You can for example download the latest version of Nextflow binary to your /home directory  on Puhti as below: 
 
 ```bash
@@ -21,7 +21,7 @@ chmod +x ~/bin/nextflow
 
 ```
 
-### Nextflow module
+### Nextflow as modules
 Nextflow is also available as a module on Puhti. One can choose the version of the nextflow depending on the requirement of your own pipeline. Please note that the Nextflow version starting from 23.04.3 can only be
 used for pipelines built with DSL2 syntax. You can downgrade to lower versions for DSL1-compliant pipelines.
 
