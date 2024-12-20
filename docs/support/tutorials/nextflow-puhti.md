@@ -33,7 +33,7 @@ below:
 module load nextflow/<version>     # e.g., module load nextflow/22.10.1
 ```
 
-!!! note
+!!! info "Note"
      Please make sure to specify the correct version of the Nextflow module as
      some pipelines require a specific version of Nextflow.
 
@@ -68,7 +68,7 @@ Here are some options for preparing your Apptainer/Singularity image:
 More information on these different options can be found in our
 [documentation on creating containers](../../computing/containers/creating.md).
 
-!!! note
+!!! info "Note"
     Singularity/Apptainer is installed on login and compute nodes and does
     not require loading a separate module on either Puhti, Mahti or LUMI.
     * Apptainer container can be downloaded from some repository or built locally. For building custom Apptainer containers, see [Creating containers page](../../computing/containers/creating.md).
@@ -180,7 +180,7 @@ nextflow run workflow.nf <options>
 # nf-core pipeline example: nextflow run nf-core/scrnaseq  -profile test,singularity -resume --outdir .
 ```
 
-!!! note
+!!! info "Note"
      If you are directly pulling multiple images on the fly, please set
      `$APPTAINER_TMPDIR` and `$APPTAINER_CACHEDIR` to either local scratch
      (i.e. `$LOCAL_SCRATCH`) or to your scratch folder (`/scratch/<project>`)
@@ -319,7 +319,7 @@ hq worker stop all
 hq server stop
 ```
 
-!!! note
+!!! info "Note"
      Please make sure that your Nextflow configuration file (`nextflow.config`)
      has the correct executor name when using the HypeQueue executor. Also,
      when multiple nodes are used, ensure that the executor knows how many jobs
