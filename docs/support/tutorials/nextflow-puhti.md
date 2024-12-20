@@ -25,11 +25,11 @@ Nextflow is also available as a module on Puhti. One can choose the version of t
 used for pipelines built with DSL2 syntax. You can downgrade to lower versions for DSL1-compliant pipelines.
 
 
-Nextflow can be loaded for example as
+Nextflow can be loaded as
 below:
 
 ```bash
-module load nextflow/22.10.1
+module load nextflow/<version>     # e.g., module load nextflow/22.10.1
 ```
 
 !!! note
@@ -53,7 +53,7 @@ specify a different Singularity image for each process definition in the
 Nextflow pipeline script.
 
 Most Nextflow pipelines pull the needed container images on the fly. However,
-when there are multiple images involved, it is a good idea to prepare the
+when multiple images are needed in a pipeline, it is a good idea to prepare the
 images locally first before launching your Nextflow pipeline.
 
 Here are some options for preparing your Apptainer/Singularity image:
@@ -97,7 +97,7 @@ Lanuch an [interactive session](https://docs.csc.fi/computing/running/interactiv
 sinteractive -c 2 -m 4G -d 250 -A project_2xxxx  # replace actual project number here
 module load nextflow/23.04.3                     # Load nextflow module
 ```
-‼️ Please note that one has to load a module (in this case Nextflow) with a version. Otherwise, the latest version of stable module installed at that point is used. For the reproducibility point of view, make sure to load versions of all tools including the Nextflow module.
+‼️ Please note that one has to load Nextflow module with a version. Otherwise, the latest version of stable module installed at that point is used. For the reproducibility point of view, make sure to load versions of all tools including the Nextflow module.
 
 ## Tutorial 1: Hello-world example 
 
@@ -137,6 +137,7 @@ workflow {
  Execute the script by entering the following command on your interactive Puhti terminal: 
 
 ```nextflow
+module load nextflow/23.04.3
 nextflow run hello-world.nf
 ```
 This script defines one process named `sayHello`. This process takes a set of greetings from different languages and then writes each one to a separate file in a random order.
@@ -196,10 +197,10 @@ nextflow run workflow.nf <options>
      `#SBATCH --gres=nvme:100` to request 100 GB of space on `$LOCAL_SCRATCH`.
 
 
-Finally, submit your job as below:
+Finally, copy above script to a fle (e.g., nextflow_script.sh) and  submit the job to cluster as below:
 
 ```
-sbatch scrna_nfcore.sh
+sbatch nextflow_script.sh
 ```
 
 Monitor the status of submitted Slurm job
@@ -212,9 +213,9 @@ Monitor the status of submitted Slurm job
    squeue -u $USER
 ```
 
-### Running Nextflow  with slurm executor (Currently NOT recommended on Puhti when you have several small jobs)
+### Running Nextflow  with SLURM executor (Currently NOT recommended on Puhti when you have several small jobs)
 
-One of the advantages of Nextflow is that the actual pipeline functional logic is separated from the execution environment. The same script can therefore be executed in different environments by changing the execution environment without touching actual pipeline code. Nextflow uses `executor` information to decide where the job should be run. Once executor is configured, Nextflow submits each process to the specified job scheduler on your behalf (=you don't need to write sbatch script, Nextflow writes on the fly for you, instead).
+One of the advantages of Nextflow is that the actual pipeline functional logic is separated from the execution environment. The same script can therefore be executed in different environments by changing the execution environment without touching actual pipeline code. Nextflow uses `executor` information to decide where the job should be run. Once executor is configured, Nextflow submits each process to the specified job scheduler on your behalf (=you don't need to write sbatch script, Nextflow writes on the fly for you, instead ).
 
 Default executor is `local` where process is run in your computer/localhost where Nextflow is launched.  Other executors include:
 
@@ -248,7 +249,7 @@ In this case, you can run a Nextflow script as below:
 ```
 nextflow run <nextflow_script> -profile puhti
 ```
-This will submit each process of your job as a batch job to Puhti cluster.
+This will submit each process of your job as a separate batch job to Puhti cluster.
 
 
 ### Running Nextflow with HyperQueue executor
