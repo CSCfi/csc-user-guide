@@ -9,6 +9,9 @@ tags:
 Machine learning framework for Python.
 
 !!! info "News" 
+    **20.12.2024** PyTorch 2.5.1 with ROCm 6.2 added to LUMI. Includes all
+    the usual packages plus experimental support for FAISS.
+    
     **17.12.2024** PyTorch 2.5.1 added to Puhti and Mahti. Includes vLLM
     and FAISS among many other updates.
 
@@ -67,7 +70,7 @@ Currently supported PyTorch versions:
 
 | Version | Module         | Puhti | Mahti | LUMI | Notes                      |
 |:--------|----------------|:-----:|:-----:|------|:---------------------------|
-| 2.5.1   | `pytorch/2.5`  | X     | X     | -    | New tykky-based wrappers   |
+| 2.5.1   | `pytorch/2.5`  | X     | X     | X    | New tykky-based wrappers   |
 | 2.4.1   | `pytorch/2.4`  | -     | -     | X    | default version            |
 | 2.4.0   | `pytorch/2.4`  | X     | X     | -    | New tykky-based wrappers   |
 | 2.3.1   | `pytorch/2.3`  | X     | X     | -    | New tykky-based wrappers   |

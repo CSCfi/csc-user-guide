@@ -1,5 +1,12 @@
 # Applications
 
+## PyTorch 2.5.1 available on Puhti, Mahti and LUMI, 20.12.2024
+
+PyTorch 2.5.1 is now available on Puhti, Mahti and LUMI. All the
+regular packages are included. The LUMI module now has experimental
+support for FAISS. See our [PyTorch module documentation for more
+information](../../apps/pytorch.md#available).
+
 ## Maestro versions older than 2023.1 will not work after 13.3.2025
 
 Schrödinger has taken into use a
