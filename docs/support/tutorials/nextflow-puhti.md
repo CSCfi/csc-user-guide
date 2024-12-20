@@ -1,21 +1,27 @@
 # Running Nextflow pipelines on Puhti
 
-[Nextflow](https://www.nextflow.io/) is one of scientific wokrflow managers written in groovy. Nextflow provides built-in support for
+[Nextflow](https://www.nextflow.io/) is one of scientific wokrflow managers written in groovy and provides built-in support for
 HPC-friendly containers such as Apptainer and Singularity. Although Nextflow
-pipelines allow us to choose Docker engine as an executor for running
+pipelines allows choosing Docker engine for running
 pipelines, please note that Docker containers can't be used on Puhti due to the
-lack of administrative privileges for regular users.
+lack of administrative privileges for users.
 
-Please refer to [High-throughput computing and workflows page](../../computing/running/throughput.md) to get an overview of different tools and help you choose the right tool.
+There are many high-throughput tools and workflow managers. Please refer to our [high-throughput computing and workflows page](../../computing/running/throughput.md) to get an overview of different tools and may help you choose the right tool for your needs.
 
 ## Installation
 
-The installation of Nextflow is easy as the nextflow is java-based Nextflow is available as a module in Puhti supercomputer. 
+The installation of Nextflow is easy as it is java-based tool. You can download the latest version of nextflow to your home folder as below: 
 
+```bash
+
+module load java
+curl -s https://get.nextflow.io | bash && mv nextflow ~/bin
+chmod +x ~/bin/nextflow
+
+```
 
 ## Nextflow module
-Nextflow is available as a module on Puhti. There multiple versions of
-nextflow are available. One can choose the version of depending on the requirement of a pipelines.Please note that the nextflow version starting from 23.04.3 can only be
+Nextflow is also available as a module on Puhti. One can choose the version of the nextflow depending on the requirement of your own pipeline. Please note that the Nextflow version starting from 23.04.3 can only be
 used for pipelines built with DSL2. You can downgrade to lower versions for DSL1-compliant pipelines.
 
 
@@ -33,7 +39,7 @@ module load nextflow/22.10.1
 
 ### Installation of tools used in the the workflow
 
-1. By default, nextflow expects that tools are installed locally. Tools available in other [Puhti modules](../../apps/by_discipline.md) or [own custom module](../../computing/modules.md#using-your-own-module-files).
+1. By default, Nextflow expects that tools are installed locally. Tools available in other [Puhti modules](../../apps/by_discipline.md) or [own custom module](../../computing/modules.md#using-your-own-module-files).
     
 2. Own custom installations as Apptainer containers:
 Containers can be smoothly integrated with Nextflow pipelines. No additional
@@ -103,7 +109,7 @@ Lanuch an [interactive session](https://docs.csc.fi/computing/running/interactiv
 sinteractive -c 2 -m 4G -d 250 -A project_2xxxx  # replace actual project number here
 module load nextflow/23.04.3                     # Load nextflow module
 ```
-‼️ Please note that one has to load a module (in this case nextflow) with a version. Otherwise, the latest version of stable module installed at that point is used. For the reproducibility point of view, make sure to load versions of all tools including the nextflow module.
+‼️ Please note that one has to load a module (in this case Nextflow) with a version. Otherwise, the latest version of stable module installed at that point is used. For the reproducibility point of view, make sure to load versions of all tools including the Nextflow module.
 
 ## Tutorial 1: Hello-world example 
 
@@ -218,9 +224,9 @@ Monitor the status of submitted Slurm job
    squeue -u $USER
 ```
 
-### Running Snakemake workflow with SLURM executor (Currently NOT recommended on Puhti but good to know to realise the power of nextflow)
+### Running Nextflow  with slurm executor (Currently NOT recommended on Puhti when you have multiple small jobs)
 
-One of the advantages of nextflow is that the actual pipeline functional logic is separated from the execution environment. The same script can therefore be executed in different environment by changing the execution environment without touching actual pipeline code. Nextflow uses `executor` information to decide where the job should  be run. Once executor is configured, Nextflow submits each process to the specified job scheduler on your behalf (=you don't need to write sbatch script, nextflow writes on the fly for you, instead).
+One of the advantages of Nextflow is that the actual pipeline functional logic is separated from the execution environment. The same script can therefore be executed in different environment by changing the execution environment without touching actual pipeline code. Nextflow uses `executor` information to decide where the job should  be run. Once executor is configured, Nextflow submits each process to the specified job scheduler on your behalf (=you don't need to write sbatch script, Nextflow writes on the fly for you, instead).
 
 Default executor is `local` where process is run in your computer/localhost where Nextflow is launched.  Other executors include:
 
@@ -249,7 +255,7 @@ profiles {
 }
 ```
 
-In this case, you can run a nextflow script as below: 
+In this case, you can run a Nextflow script as below: 
 
 ```
 nextflow run <nextflow_script> -profile puhti
@@ -257,7 +263,7 @@ nextflow run <nextflow_script> -profile puhti
 This will submit each process of your job to Puhti cluster.
 
 
-### Running Snakemake with HyperQueue executor
+### Running Nextflow with HyperQueue executor
 
 In this example, let's use the
 [HyperQueue meta-scheduler](../../apps/hyperqueue.md) for executing a Nextflow
@@ -323,7 +329,7 @@ hq server stop
 ```
 
 !!! note
-     Please make sure that your nextflow configuration file (`nextflow.config`)
+     Please make sure that your Nextflow configuration file (`nextflow.config`)
      has the correct executor name when using the HypeQueue executor. Also,
      when multiple nodes are used, ensure that the executor knows how many jobs
      it can submit using the parameter `queueSize` under the `executor` block.
