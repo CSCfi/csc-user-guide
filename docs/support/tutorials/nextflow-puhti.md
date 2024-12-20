@@ -11,8 +11,9 @@ There are many other high-throughput tools and workflow managers exist for scien
 ## Installation
  
 
-### Nextflow as modules
-Nextflow is also available as a module on Puhti. One can choose the version of the nextflow depending on the requirement of your own pipeline. Please note that the Nextflow version starting from 23.04.3 can only be
+### Nextflow as a module
+
+Nextflow is available as a module on Puhti. One can choose the version of the nextflow depending on the requirement of your own pipeline. Please note that the Nextflow version starting from 23.04.3 can only be
 used for pipelines built with DSL2 syntax. You can downgrade to lower versions for DSL1-compliant pipelines.
 
 
@@ -29,6 +30,7 @@ module load nextflow/<version>     # e.g., module load nextflow/22.10.1
 
 
 ### Custom Nextflow installations
+
 The installation of Nextflow is easy as it is java-based tool. You can for example download the latest version of Nextflow binary to your /home directory  on Puhti as below: 
 
 ```bash
@@ -83,6 +85,7 @@ time when downloading multiple Apptainer/Singularity images or databases.
 
 
 ## Usage
+
 Nextflow pipelines can be run in different ways in supercomputering environment:
 
 1. [In interactive mode](../../computing/running/interactive-usage.md) with local executor, with limited resources. Useful mainly for debugging or testing very small workflows.
