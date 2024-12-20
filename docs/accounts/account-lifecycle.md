@@ -31,9 +31,9 @@ SSH keys are functionally similar to usernames and passwords and provide means t
 
 ## Expiration of user accounts
 
-If you have been granted an account for a fixed period, the account expires when the period ends. Accounts created with Haka or Virtu do not have an end date, and they remain valid as long as use one of the following methods to login: Haka, Virtu or SSH key.
+If you have been granted an account for a fixed period, the account expires when the period ends. Accounts created with Haka or Virtu are validated periodically. The following methods can be independently used to login depending on the service: Haka, Virtu, password or SSH key.
 
-All accounts are immediately terminated if their owner is not reachable, i.e. emails bounce back.
+User accounts may be closed if their owner is not reachable, i.e. emails bounce back.
 
 !!! Note
 
