@@ -1,14 +1,9 @@
-# Running Nextflow pipelines on Puhti and Mahti
+# Running Nextflow pipelines on supercomputers
 
 [Nextflow](https://www.nextflow.io/) is one of the scientific wokrflow managers and provides built-in support for
-HPC-friendly containers such as Apptainer (= Singularity). One of the advantages of Nextflow is that the actual pipeline functional logic is separated from the execution environment. The same script can therefore be executed in different environments by changing the execution environment without touching actual pipeline code. Nextflow uses `executor` information to decide where the job should be run. Once executor is configured, Nextflow submits each process to the specified job scheduler on your behalf (=you don't need to write sbatch script, Nextflow writes on the fly for you, instead ).
+HPC-friendly containers such as Apptainer (= Singularity). One of the advantages of Nextflow is that the actual pipeline functional logic is separated from the execution environment. The same script can therefore be executed in different environments by changing the execution environment without touching actual pipeline code. Nextflow uses `executor` information to decide where the job should be run. Once executor is configured, Nextflow submits each process to the specified job scheduler on your behalf.
 
-Default executor is `local` where process is run in your computer/localhost where Nextflow is launched.  Other executors include:
-
-- SLURM
-- PBS/Torque
-- Amazon (AWS Batch)
-- SGE (Sun Grid Engine)
+Default executor is `local` where processes are run in the computer where Nextflow is launched. Several other [executors](https://www.nextflow.io/docs/latest/executor.html) are supported, to CSC computing environment, best suit SLURM and HyperQueue executors.
 
 There are many other high-throughput tools and workflow managers exist for scientific computing and selecting the right tool can sometimes be challenging. Please refer to our [high-throughput computing and workflows page](../../computing/running/throughput.md) to get an overview from the selected list of relevant tools.
 
@@ -16,8 +11,7 @@ There are many other high-throughput tools and workflow managers exist for scien
  
 ### Nextflow
 
-Nextflow itself is available as a module on Puhti and Mahti. One can choose the version of the nextflow depending on the requirement of your own pipeline. Please note that the Nextflow version starting from 23.04.3 can only be
-used for pipelines built with DSL2 syntax. You can select a lower version for DSL1-compliant pipelines.
+Nextflow itself is available as a module on Puhti, Mahti and LUMI. The default version is usually the latest. Choose the version of the Nextflow depending on the requirements of your own pipeline. It is recommended to load Nextflow module with a version, for the reproducibility point of view. 
 
 Nextflow can be loaded as below:
 
@@ -25,68 +19,44 @@ Nextflow can be loaded as below:
 module load nextflow/<version>     # e.g., module load nextflow/22.10.1
 ```
 
-Please note that one has to load Nextflow module with a version. Otherwise, the latest version of stable module installed at that point is used. For the reproducibility point of view, make sure to load versions of all tools including the Nextflow module.
-
-!!! info "Note"
-     Please make sure to specify the correct version of the Nextflow module as
-     some pipelines require a specific version of Nextflow.
-
+Please note that the Nextflow version starting from 23.04.3 can only be used for pipelines built with DSL2 syntax. You can select a older version for DSL1-compliant pipelines.
 
 ### Installation of tools used in Nextflow
 
-1. Local installations: By default, Nextflow expects that the analysis tools are available locally. Tools can be activated from existing [modules](../../apps/by_discipline.md) or [own custom module installations](../../computing/modules.md#using-your-own-module-files).
+#### Local installations
+
+By default, Nextflow expects that the analysis tools are available locally. Tools can be activated from existing [modules](../../apps/by_discipline.md) or [own custom module installations](../../computing/modules.md#using-your-own-module-files).
     
-2. Container instalaltions:
+#### Container instalaltions
 Containers can be smoothly integrated with Nextflow pipelines. No additional
 modifications to Nextflow scripts are needed except enabling the
 Apptainer engine in the Nextflow configuration
-file in the HPC environment. Nextflow can pull remote container images as Apptainer
+file. Nextflow can pull remote container images as Apptainer
 from container registries on the fly. The remote container images are
 usually specified in the Nextflow script or configuration file by simply
 prefixing the image name with `shub://` or `docker://`. It is also possible to
 specify a different Apptainer image for each process definition in the
 Nextflow pipeline script.
 
-Although Nextflow
-allows choosing Docker engine for running
-pipelines, please note that Docker containers can't be used on supercomputers due to the
-lack of administrative privileges for normal users.
-
 Most Nextflow pipelines pull the needed container images on the fly. However,
 when multiple images are needed in a pipeline, it is a good idea to prepare the
 images locally first before launching your Nextflow pipeline. More information about [creating containers](../../computing/containers/creating.md).
 
 
-!!! info "Note"
-    Apptainer is installed on login and compute nodes and does
-    not require loading a separate module on either Puhti, Mahti or LUMI.
+Practical considerations:
+* Apptainer is installed on login and compute nodes and does not require loading a separate module on CSC supercomputers.
+* For binding folders or using other [Apptainer settings](https://www.nextflow.io/docs/latest/reference/config.html#apptainer), `nextflow.config` file.
+* If you are directly pulling multiple Apptainer images on the fly, please use NVMe disk of a compute node for storing the Apptainer images. For that in your batch job file, first request NVMe disk and then set Apptainer tempory folders as environmental variables.
 
-    * For binding folders or using other Apptainer flags, use [--apptainer-args option] or delcare in the nextflow.config files.
+```bash
+#SBATCH --gres=nvme:100   # Request 100 GB of space to local disk
 
-!!! info "Note"
-     If you are directly pulling multiple images on the fly, please set
-     `$APPTAINER_TMPDIR` and `$APPTAINER_CACHEDIR` to either local scratch
-     (i.e. `$LOCAL_SCRATCH`) or to your scratch folder (`/scratch/<project>`)
-     in the batch script. Otherwise `$HOME` directory, the size of which is
-     only 10 GB, will be used. To avoid any disk quota errors while pulling
-     images, set `$APPTAINER_TMPDIR` and `$APPTAINER_CACHEDIR` in your batch
-     script as below:
+export APPTAINER_TMPDIR=$LOCAL_SCRATCH
+export APPTAINER_CACHEDIR=$LOCAL_SCRATCH
+```
 
-     ```bash
-     export APPTAINER_TMPDIR=$LOCAL_SCRATCH
-     export APPTAINER_CACHEDIR=$LOCAL_SCRATCH
-     ```
-
-     Note that this also requires requesting NVMe disk in the batch script by
-     adding `#SBATCH --gres=nvme:<value in GB>`. For example, add
-     `#SBATCH --gres=nvme:100` to request 100 GB of space on `$LOCAL_SCRATCH`.
-
-Running Nextflow pipelines can sometimes be quite compute-intensive and may
-require downloading large volumes of data such as databases and container
-images. This can take a while and may not even work successfully for the first
-time when downloading multiple Apptainer images or databases.
-
-
+!!! warning
+      Although Nextflow supports also Docker containers, these can't be used as such on supercomputers due to the lack of administrative privileges for normal users.
 
 ## Usage
 
@@ -100,12 +70,11 @@ Nextflow pipelines can be run in different ways in supercomputering environment:
 !!! info "Note"
     Please do not launch heavy Nextflow workflows on login nodes.
 
-Please follow our
-[instructions for writing a batch job script for Puhti](../../computing/running/example-job-scripts-puhti.md).
+For general introduction to batch jobs, see [example job scripts for Puhti](../../computing/running/example-job-scripts-puhti.md).
 
 ### Nextflow script
 
-The following minimalist example demonstrates the basic syntax of Nextflow.
+The following minimalist example demonstrates the basic syntax of a Nextflow script.
 
 ```nextflow title="workflow.nf"
 #!/usr/bin/env nextflow
