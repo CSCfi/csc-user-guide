@@ -1,24 +1,21 @@
-# Running Nextflow pipelines on Puhti
+# Running Nextflow pipelines on Puhti and Mahti
 
 [Nextflow](https://www.nextflow.io/) is one of the scientific wokrflow managers and provides built-in support for
-HPC-friendly containers such as Apptainer and Singularity. Although Nextflow
+HPC-friendly containers such as Apptainer (Singularity). Although Nextflow
 allows choosing Docker engine for running
-pipelines, please note that Docker containers can't be used on Puhti due to the
+pipelines, please note that Docker containers can't be used on supercomputers due to the
 lack of administrative privileges for normal users.
 
 There are many other high-throughput tools and workflow managers exist for scientific computing and selecting the right tool can sometimes be challenging. Please refer to our [high-throughput computing and workflows page](../../computing/running/throughput.md) to get an overview from the selected list of relevant tools.
 
 ## Installation
  
-
 ### Nextflow as a module
 
-Nextflow is available as a module on Puhti. One can choose the version of the nextflow depending on the requirement of your own pipeline. Please note that the Nextflow version starting from 23.04.3 can only be
-used for pipelines built with DSL2 syntax. You can downgrade to lower versions for DSL1-compliant pipelines.
+Nextflow is available as a module on Puhti and Mahti. One can choose the version of the nextflow depending on the requirement of your own pipeline. Please note that the Nextflow version starting from 23.04.3 can only be
+used for pipelines built with DSL2 syntax. You can select a lower version for DSL1-compliant pipelines.
 
-
-Nextflow can be loaded as
-below:
+Nextflow can be loaded as below:
 
 ```bash
 module load nextflow/<version>     # e.g., module load nextflow/22.10.1
@@ -31,19 +28,21 @@ module load nextflow/<version>     # e.g., module load nextflow/22.10.1
 
 ### Custom Nextflow installations
 
-The installation of Nextflow is easy as it is java-based tool. You can for example download the latest version of Nextflow binary to your /home directory  on Puhti as below: 
+If you need some very specific verion or for some other reason, you can install Nextflow also yourself. It is easy as it is java-based tool. You can for example download the latest version of Nextflow binary to your /home directory as below: 
 
 ```bash
-
-module load biojava/21
-curl -s https://get.nextflow.io | bash && mv nextflow ~/bin
+cd ~/bin
+curl -s https://get.nextflow.io
 chmod +x ~/bin/nextflow
 
+```
+```
+module load biojava/21
 ```
 
 ### Installation of tools used in Nextflow
 
-1. Local installations: By default, Nextflow expects that the analysis tools are available locally. Tools can be activated from existing [Puhti modules](../../apps/by_discipline.md) or [own custom module installations](../../computing/modules.md#using-your-own-module-files).
+1. Local installations: By default, Nextflow expects that the analysis tools are available locally. Tools can be activated from existing [modules](../../apps/by_discipline.md) or [own custom module installations](../../computing/modules.md#using-your-own-module-files).
     
 2. Container instalaltions:
 Containers can be smoothly integrated with Nextflow pipelines. No additional
@@ -62,11 +61,11 @@ images locally first before launching your Nextflow pipeline.
 
 Here are some options for preparing your Apptainer/Singularity image:
 
-* Build a Singularity/Apptainer image on Puhti without `sudo` access using
+* Build a Singularity/Apptainer image without `sudo` access using
   `--fakeroot` flag.
 * Convert a Docker image to Apptainer on your local system and then copy it
-  to Puhti.
-* Convert a Docker image from a container registry on Puhti.
+  to the supercomputer.
+* Convert a Docker image from a container registry on the supercomputer.
 
 More information on these different options can be found in our
 [documentation on creating containers](../../computing/containers/creating.md).
@@ -97,7 +96,7 @@ Nextflow pipelines can be run in different ways in supercomputering environment:
     Please do not launch heavy Nextflow workflows on login nodes.
 
 ### Running Nextflow pipeline with local executor interactively
-Lanuch an [interactive session](https://docs.csc.fi/computing/running/interactive-usage/) on Puhti as below:
+Launch an [interactive session](https://docs.csc.fi/computing/running/interactive-usage/) as below:
 ```
 sinteractive -c 2 -m 4G -d 250 -A project_2xxxx  # replace actual project number here
 module load nextflow/23.04.3                     # Load nextflow module
@@ -139,7 +138,7 @@ workflow {
 
 ```
 
- Execute the script by entering the following command on Puhti interactive terminal: 
+ Execute the script by entering the following command in the interactive terminal: 
 
 ```nextflow
 module load nextflow/23.04.3
@@ -165,7 +164,7 @@ Although Nextflow supports SLURM natively, avoid launching
 large amounts of very short jobs using SLURM. Instead, one can launch a Nextflow
 job as a regular batch job that co-executes all job tasks in the same job
 allocation. Below is a minimal example to get started with your Nextflow
-pipeline on Puhti:
+pipeline:
 
 ```bash
 #!/bin/bash
@@ -229,7 +228,7 @@ Default executor is `local` where process is run in your computer/localhost wher
 - Amazon (AWS Batch)
 - SGE (Sun Grid Engine)
 
-To enable the SLURM executor on Puhti, simply set  `process.executor` property to slurm value in the `nextflow.config` file as shown below:
+To enable the SLURM executor, simply set  `process.executor` property to slurm value in the `nextflow.config` file as shown below:
 
 ```
 profiles {
@@ -254,7 +253,7 @@ In this case, you can run a Nextflow script as below:
 ```
 nextflow run <nextflow_script> -profile puhti
 ```
-This will submit each process of your job as a separate batch job to Puhti cluster.
+This will submit each process of your job as a separate batch job to Puhti supercomputer.
 
 
 ### Running Nextflow with HyperQueue executor
@@ -265,7 +264,7 @@ pipeline. This executor can be used to scale up analysis across multiple nodes
 when needed. However, the executor settings can be complex depending on the pipeline.
 
 Here is a batch script for running a
-[nf-core pipeline](https://nf-co.re/pipelines) on Puhti:
+[nf-core pipeline](https://nf-co.re/pipelines):
 
 ```bash
 #!/bin/bash
@@ -343,3 +342,4 @@ hq server stop
 * [Official Nextflow documentation](https://www.nextflow.io/docs/latest/index.html)
 * [CSC's Nextflow documentation](../../apps/nextflow.md)
 * [High-throughput Nextflow workflow using HyperQueue](nextflow-hq.md)
+* [Master thesis by Antoni Gołoś comparing automated workflow approaches on supercomputers](https://urn.fi/URN:NBN:fi:aalto-202406164397)
