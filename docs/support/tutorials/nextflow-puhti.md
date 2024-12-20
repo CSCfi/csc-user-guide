@@ -5,7 +5,7 @@ HPC-friendly containers such as Apptainer (= Singularity). One of the advantages
 
 Default executor is `local` where processes are run in the computer where Nextflow is launched. Several other [executors](https://www.nextflow.io/docs/latest/executor.html) are supported, to CSC computing environment, best suit SLURM and HyperQueue executors.
 
-There are many other high-throughput tools and workflow managers exist for scientific computing and selecting the right tool can sometimes be challenging. Please refer to our [high-throughput computing and workflows page](../../computing/running/throughput.md) to get an overview from the selected list of relevant tools.
+There are many other high-throughput tools and workflow managers for scientific computing and selecting the right tool can sometimes be challenging. Please refer to our [high-throughput computing and workflows page](../../computing/running/throughput.md) to get an overview of relevant tools.
 
 ## Installation
  
@@ -13,21 +13,22 @@ There are many other high-throughput tools and workflow managers exist for scien
 
 Nextflow itself is available as a module on Puhti, Mahti and LUMI. The default version is usually the latest. Choose the version of the Nextflow depending on the requirements of your own pipeline. It is recommended to load Nextflow module with a version, for the reproducibility point of view. 
 
-Nextflow can be loaded as below:
+To load Nextflow module:
 
 ```bash
 module load nextflow/<version>     # e.g., module load nextflow/22.10.1
 ```
 
-Please note that the Nextflow version starting from 23.04.3 can only be used for pipelines built with DSL2 syntax. You can select a older version for DSL1-compliant pipelines.
+!!! warning
+      The Nextflow 23.04.3 and newer support only pipelines built with DSL2 syntax. Select an older version for DSL1-compliant pipelines.
 
 ### Installation of tools used in Nextflow
 
 #### Local installations
 
-By default, Nextflow expects that the analysis tools are available locally. Tools can be activated from existing [modules](../../apps/by_discipline.md) or [own custom module installations](../../computing/modules.md#using-your-own-module-files).
+By default, Nextflow expects that the analysis tools are available locally. Tools can be activated from existing [modules](../../apps/by_discipline.md) or [own custom module installations](../../computing/modules.md#using-your-own-module-files). See also how to create [create containers](../../computing/containers/creating.md).
     
-#### Container instalaltions
+#### On-the-fly Apptainer installations
 Containers can be smoothly integrated with Nextflow pipelines. No additional
 modifications to Nextflow scripts are needed except enabling the
 Apptainer engine in the Nextflow configuration
@@ -40,15 +41,15 @@ Nextflow pipeline script.
 
 Most Nextflow pipelines pull the needed container images on the fly. However,
 when multiple images are needed in a pipeline, it is a good idea to prepare the
-images locally first before launching your Nextflow pipeline. More information about [creating containers](../../computing/containers/creating.md).
-
+containers locally before launching the Nextflow pipeline. 
 
 Practical considerations:
+
 * Apptainer is installed on login and compute nodes and does not require loading a separate module on CSC supercomputers.
-* For binding folders or using other [Apptainer settings](https://www.nextflow.io/docs/latest/reference/config.html#apptainer), `nextflow.config` file.
+* For binding folders or using other [Apptainer settings](https://www.nextflow.io/docs/latest/reference/config.html#apptainer) use `nextflow.config` file.
 * If you are directly pulling multiple Apptainer images on the fly, please use NVMe disk of a compute node for storing the Apptainer images. For that in your batch job file, first request NVMe disk and then set Apptainer tempory folders as environmental variables.
 
-```bash
+```bash title="batch_job.sh"
 #SBATCH --gres=nvme:100   # Request 100 GB of space to local disk
 
 export APPTAINER_TMPDIR=$LOCAL_SCRATCH
