@@ -97,7 +97,8 @@ Lanuch an [interactive session](https://docs.csc.fi/computing/running/interactiv
 sinteractive -c 2 -m 4G -d 250 -A project_2xxxx  # replace actual project number here
 module load nextflow/23.04.3                     # Load nextflow module
 ```
-‼️ Please note that one has to load Nextflow module with a version. Otherwise, the latest version of stable module installed at that point is used. For the reproducibility point of view, make sure to load versions of all tools including the Nextflow module.
+
+Please note that one has to load Nextflow module with a version. Otherwise, the latest version of stable module installed at that point is used. For the reproducibility point of view, make sure to load versions of all tools including the Nextflow module.
 
 ## Tutorial 1: Hello-world example 
 
@@ -134,7 +135,7 @@ workflow {
 
 ```
 
- Execute the script by entering the following command on your interactive Puhti terminal: 
+ Execute the script by entering the following command on Puhti interactive terminal: 
 
 ```nextflow
 module load nextflow/23.04.3
@@ -156,8 +157,8 @@ executor >  local (5)
 Please follow our
 [instructions for writing a batch job script for Puhti](../../computing/running/example-job-scripts-puhti.md).
 
-Although Nextflow supports SLURM natively, one has to avoid launching
-large amounts of very short jobs using it. Instead, one can launch a Nextflow
+Although Nextflow supports SLURM natively, avoid launching
+large amounts of very short jobs using SLURM. Instead, one can launch a Nextflow
 job as a regular batch job that co-executes all job tasks in the same job
 allocation. Below is a minimal example to get started with your Nextflow
 pipeline on Puhti:
