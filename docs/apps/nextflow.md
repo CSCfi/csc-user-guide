@@ -6,7 +6,8 @@ tags:
 # Nextflow
 
 Nextflow is a scientific workflow management system for creating scalable,
-portable, and reproducible workflows. 
+portable, and reproducible workflows. It is a groovy-based language for expressing the entire workflow in a single script and also supports running scripts (via script/run/shell directive of Snakemake rule) from other languages such as R, bash and Python. 
+
 
 [TOC]
 
@@ -14,8 +15,8 @@ portable, and reproducible workflows.
 
 Versions available on CSC's servers
 
-* Puhti: 21.10.6, 22.04.5, 22.10.1, 23.04.3
-* Mahti: 22.05.0-edge
+* Puhti: 21.10.6, 22.04.5, 22.10.1, 23.04.3, 24.01.0-edge.5903, 24.10.0
+* Mahti: 22.05.0-edge, 24.04.4
 * LUMI: 22.10.4
 
 !!! info "Pay attention to usage of Nextflow version"
@@ -69,7 +70,7 @@ computational workflows. Nat. Biotechnol. 35, 316–319 (2017).
 
 ## More information
 
-* [Nextflow documentation](https://www.nextflow.io/docs/latest/index.html)
+* [Nextflow official documentation](https://www.nextflow.io/docs/latest/index.html)
 * [Running Nextflow on Puhti](../support/tutorials/nextflow-puhti.md)
 * [High-throughput Nextflow workflow using HyperQueue](../support/tutorials/nextflow-hq.md)
 * [Contact CSC Service Desk for technical support](../support/contact.md)

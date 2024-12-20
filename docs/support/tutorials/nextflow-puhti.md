@@ -1,28 +1,41 @@
 # Running Nextflow pipelines on Puhti
 
-[Nextflow](https://www.nextflow.io/) is a scalable and reproducible scientific
-workflow management system that interacts with containerized applications to
-perform compute-intensive tasks. Nextflow provides built-in support for
+[Nextflow](https://www.nextflow.io/) is one of scientific wokrflow managers written in groovy. Nextflow provides built-in support for
 HPC-friendly containers such as Apptainer and Singularity. Although Nextflow
 pipelines allow us to choose Docker engine as an executor for running
 pipelines, please note that Docker containers can't be used on Puhti due to the
 lack of administrative privileges for regular users.
 
-## Strengths of Nextflow
+Please refer to [High-throughput computing and workflows page](../../computing/running/throughput.md) to get an overview of different tools and help you choose the right tool.
 
-* Easy installation
-* Supports implicit parallelism
-* Can handle complex dependencies and conditional execution
-* Handles error recovery
+## Installation
 
-## Disadvantages of Nextflow
+The installation of Nextflow is easy as the nextflow is java-based Nextflow is available as a module in Puhti supercomputer. 
 
-* Has limited MPI support
-* Creates a lot of job steps and excessive I/O load
-* Does not efficiently integrate with Slurm scheduler
 
-## Use Apptainer/Singularity containers with Nextflow
+## Nextflow module
+Nextflow is available as a module on Puhti. There multiple versions of
+nextflow are available. One can choose the version of depending on the requirement of a pipelines.Please note that the nextflow version starting from 23.04.3 can only be
+used for pipelines built with DSL2. You can downgrade to lower versions for DSL1-compliant pipelines.
 
+
+Nextflow can be loaded for example as
+below:
+
+```bash
+module load nextflow/22.10.1
+```
+
+!!! note
+     Please make sure to specify the correct version of the Nextflow module as
+     some pipelines require a specific version of Nextflow.
+
+
+### Installation of tools used in the the workflow
+
+1. By default, nextflow expects that tools are installed locally. Tools available in other [Puhti modules](../../apps/by_discipline.md) or [own custom module](../../computing/modules.md#using-your-own-module-files).
+    
+2. Own custom installations as Apptainer containers:
 Containers can be smoothly integrated with Nextflow pipelines. No additional
 modifications to Nextflow scripts are needed except enabling the
 Singularity/Apptainer engine (instead of Docker) in the Nextflow configuration
@@ -32,26 +45,6 @@ usually specified in the Nextflow script or configuration file by simply
 prefixing the image name with `shub://` or `docker://`. It is also possible to
 specify a different Singularity image for each process definition in the
 Nextflow pipeline script.
-
-Here is a generic recipe for running a Nextflow pipeline on Puhti:
-
-* [1. Login to Puhti supercomputer](#1-login-to-puhti-supercomputer)
-* [2. Prepare your Apptainer/Singularity images](#2-prepare-your-apptainersingularity-images)
-* [3. Load Nextflow module on Puhti](#3-load-nextflow-module-on-puhti)
-* [4. Set-up your Nextflow pipeline environment](#4-set-up-your-nextflow-pipeline-environment)
-* [5. Run your Nextflow pipeline as a batch job](#5-run-your-nextflow-pipeline-as-a-batch-job)
-* [6. Demonstration of nf-core Nextflow pipeline using HyperQueue executor (optional)](#6-demonstration-of-nf-core-nextflow-pipeline-using-hyperqueue-executor-optional)
-
-## 1. Login to Puhti supercomputer
-
-SSH to the login node of Puhti supercomputer
-([more instructions here](../../computing/index.md#connecting-to-the-supercomputers)).
-
-```bash
-ssh <username>@puhti.csc.fi   # replace <username> with your CSC username
-```
-
-## 2. Prepare your Apptainer/Singularity images
 
 Most Nextflow pipelines pull the needed container images on the fly. However,
 when there are multiple images involved, it is a good idea to prepare the
@@ -71,21 +64,9 @@ More information on these different options can be found in our
 !!! note
     Singularity/Apptainer is installed on login and compute nodes and does
     not require loading a separate module on either Puhti, Mahti or LUMI.
+    * Apptainer container can be downloaded from some repository or built locally. For building custom Apptainer containers, see [Creating containers page](../../computing/containers/creating.md).
 
-## 3. Load Nextflow module on Puhti
-
-Nextflow is available as a module on Puhti and can be loaded for example as
-below:
-
-```bash
-module load nextflow/22.10.1
-```
-
-!!! note
-     Please make sure to specify the correct version of the Nextflow module as
-     some pipelines require a specific version of Nextflow.
-
-## 4. Set-up your Nextflow pipeline environment
+    * For binding folders or using other Apptainer flags, use [--apptainer-args option] or delcare in the nextflow.config files.
 
 Running Nextflow pipelines can sometimes be quite compute-intensive and may
 require downloading large volumes of data such as databases and container
@@ -104,7 +85,78 @@ pipeline:
 * Clone the GitHub repository of your pipeline to your scratch directory and
   then [run your pipeline](#5-run-your-nextflow-pipeline-as-a-batch-job).
 
-## 5. Run your Nextflow pipeline as a batch job
+
+## Usage
+Snakemake can be run in 4 different ways in supercomputers:
+
+1. [In interactive mode](../../computing/running/interactive-usage.md) with local executor, with limited resources. Useful mainly for debugging or very small workflows.
+2. With batch job and local executor. Resource usage limited to one full node. Useful for small and medium size workflows, simpler than next options, start with this, if unsure.
+3. With batch job and SLURM executor. Can use multiple nodes and different SLURM partitions (CPU and GPU), but may create significant overhead, if many small jobs. Could be used, if each job step for each file takes at least 30 min.
+4. With batch job and HyperQueue as a sub-job scheduler. Can use multiple nodes in the same batch job allocation, most complex set up. Suits well for cases, when workflow includes a lot of small job steps with many input files (high-troughput computing).
+
+!!! info "Note"
+        Please do not launch heavy Snakemake workflows on **login nodes**.
+
+### Running Snakemake workflow with local executor interactively
+Lanuch an [interactive session](https://docs.csc.fi/computing/running/interactive-usage/) on Puhti as below:
+```
+sinteractive -c 2 -m 4G -d 250 -A project_2xxxx  # replace actual project number here
+module load nextflow/23.04.3                     # Load nextflow module
+```
+‼️ Please note that one has to load a module (in this case nextflow) with a version. Otherwise, the latest version of stable module installed at that point is used. For the reproducibility point of view, make sure to load versions of all tools including the nextflow module.
+
+## Tutorial 1: Hello-world example 
+
+This "Hello-world" minimalist example demonstrates the basic syntax of Nextflow for a process. In this tutorial, you will learn how to run a Nextflow script as well as understand the default location of resulting output files. Copy the below script to a file named, hello-world.nf
+
+```nextflow
+#!/usr/bin/env nextflow
+  
+greets = Channel.fromList(["Moi", "Ciao", "Hello", "Hola","Bonjour"])
+
+/*
+ * Use echo to print 'Hello !' in different languages to a file
+ */
+
+process sayHello {
+
+  input:
+    val greet
+
+  output:
+    path "${greet}.txt"
+
+  script:
+    """
+    echo ${greet} > ${greet}.txt
+    """
+}
+
+workflow {
+
+    // Print  a greeting
+    sayHello(greets)
+}
+
+```
+
+ Execute the script by entering the following command on your interactive Puhti terminal: 
+
+```nextflow
+nextflow run hello-world.nf
+```
+This script defines one process named `sayHello`. This process takes a set of greetings from different languages and then writes each one to a separate file.
+
+The resulting terminal output would look similar to the text shown below:
+
+```nextflow
+N E X T F L O W  ~  version 23.04.3
+Launching `hello-world.nf` [intergalactic_panini] DSL2 - revision: 880a4a2dfd
+executor >  local (5)
+[a0/bdf83f] process > sayHello (5) [100%] 5 of 5 ✔
+```
+
+### Running Snakemake workflow with local executor and batch job
 
 Please follow our
 [instructions for writing a batch job script for Puhti](../../computing/running/example-job-scripts-puhti.md).
@@ -124,10 +176,11 @@ pipeline on Puhti:
 #SBATCH --mem-per-cpu=1G           # Increase as needed
 
 # Load Nextflow module
-module load nextflow/22.10.1
+module load nextflow/23.04.3
 
 # Actual Nextflow command here
 nextflow run workflow.nf <options>
+# nf-core pipeline example: nextflow run nf-core/scrnaseq  -profile test,singularity -resume --outdir .
 ```
 
 !!! note
@@ -148,7 +201,63 @@ nextflow run workflow.nf <options>
      adding `#SBATCH --gres=nvme:<value in GB>`. For example, add
      `#SBATCH --gres=nvme:100` to request 100 GB of space on `$LOCAL_SCRATCH`.
 
-## 6. Demonstration of nf-core Nextflow pipeline using HyperQueue executor (optional)
+
+Finally, submit your job as below:
+
+```
+sbatch scrna_nfcore.sh
+```
+
+Monitor the status of submitted Slurm job
+
+```
+   squeue -j <slurmjobid>
+   # or
+   squeue --me
+   # or
+   squeue -u $USER
+```
+
+### Running Snakemake workflow with SLURM executor (Currently NOT recommended on Puhti but good to know to realise the power of nextflow)
+
+One of the advantages of nextflow is that the actual pipeline functional logic is separated from the execution environment. The same script can therefore be executed in different environment by changing the execution environment without touching actual pipeline code. Nextflow uses `executor` information to decide where the job should  be run. Once executor is configured, Nextflow submits each process to the specified job scheduler on your behalf (=you don't need to write sbatch script, nextflow writes on the fly for you, instead).
+
+Default executor is `local` where process is run in your computer/localhost where Nextflow is launched.  Other executors include:
+
+- PBS/Torque
+- SLURM
+- Amazon (AWS Batch)
+- SGE (Sun Grid Engine)
+
+To enable the SLURM executor on Puhti, simply set  `process.executor` property to slurm value in the `nextflow.config` file as shown below:
+
+```
+profiles {
+
+
+ standard {
+     process.executor = 'local'
+   }
+
+ puhti {
+     process.clusterOptions = '--account=project_xxxx --ntasks-per-node=1 --cpus-per-task=4 --ntasks=1 --time=00:00:05'
+     process.executor = 'slurm'
+     process.queue = 'small'
+     process.memory = '10GB'
+    }
+    
+}
+```
+
+In this case, you can run a nextflow script as below: 
+
+```
+nextflow run <nextflow_script> -profile puhti
+```
+This will submit each process of your job to Puhti cluster.
+
+
+### Running Snakemake with HyperQueue executor
 
 In this example, let's use the
 [HyperQueue meta-scheduler](../../apps/hyperqueue.md) for executing a Nextflow
