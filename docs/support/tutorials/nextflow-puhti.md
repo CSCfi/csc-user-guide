@@ -6,7 +6,7 @@ allows choosing Docker engine for running
 pipelines, please note that Docker containers can't be used on Puhti due to the
 lack of administrative privileges for normal users.
 
-There are many other high-throughput tools and workflow managers exist and please refer to our [high-throughput computing and workflows page](../../computing/running/throughput.md) to get an overview of different tools and may help you choose the right tool for your needs.
+There are many other high-throughput tools and workflow managers exist for scientific computing and selecting the right tool can sometimes be challenging. Please refer to our [high-throughput computing and workflows page](../../computing/running/throughput.md) to get an overview from the selected list of relevant tools.
 
 ## Installation
  
