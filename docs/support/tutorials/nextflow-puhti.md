@@ -1,20 +1,20 @@
 # Running Nextflow pipelines on Puhti
 
-[Nextflow](https://www.nextflow.io/) is one of scientific wokrflow managers written in groovy and provides built-in support for
+[Nextflow](https://www.nextflow.io/) is one of the scientific wokrflow managers and provides built-in support for
 HPC-friendly containers such as Apptainer and Singularity. Although Nextflow
-pipelines allows choosing Docker engine for running
+allows choosing Docker engine for running
 pipelines, please note that Docker containers can't be used on Puhti due to the
-lack of administrative privileges for users.
+lack of administrative privileges for normal users.
 
-There are many high-throughput tools and workflow managers. Please refer to our [high-throughput computing and workflows page](../../computing/running/throughput.md) to get an overview of different tools and may help you choose the right tool for your needs.
+There are many other high-throughput tools and workflow managers exist and please refer to our [high-throughput computing and workflows page](../../computing/running/throughput.md) to get an overview of different tools and may help you choose the right tool for your needs.
 
 ## Installation
-
-The installation of Nextflow is easy as it is java-based tool. You can download the latest version of nextflow to your home folder as below: 
+ 
+The installation of Nextflow is easy as it is java-based tool. You can download the latest version of Nextflow binary to your /home directory  on Puhti as below: 
 
 ```bash
 
-module load java
+module load biojava/21
 curl -s https://get.nextflow.io | bash && mv nextflow ~/bin
 chmod +x ~/bin/nextflow
 
@@ -22,7 +22,7 @@ chmod +x ~/bin/nextflow
 
 ## Nextflow module
 Nextflow is also available as a module on Puhti. One can choose the version of the nextflow depending on the requirement of your own pipeline. Please note that the Nextflow version starting from 23.04.3 can only be
-used for pipelines built with DSL2. You can downgrade to lower versions for DSL1-compliant pipelines.
+used for pipelines built with DSL2 syntax. You can downgrade to lower versions for DSL1-compliant pipelines.
 
 
 Nextflow can be loaded for example as
@@ -37,16 +37,16 @@ module load nextflow/22.10.1
      some pipelines require a specific version of Nextflow.
 
 
-### Installation of tools used in the the workflow
+### Installation of tools used in Nextflow
 
-1. By default, Nextflow expects that tools are installed locally. Tools available in other [Puhti modules](../../apps/by_discipline.md) or [own custom module](../../computing/modules.md#using-your-own-module-files).
+1. Local installations: By default, Nextflow expects that the analysis tools are available locally. Tools can be activated from existing [Puhti modules](../../apps/by_discipline.md) or [own custom module installations](../../computing/modules.md#using-your-own-module-files).
     
-2. Own custom installations as Apptainer containers:
+2. Container instalaltions:
 Containers can be smoothly integrated with Nextflow pipelines. No additional
 modifications to Nextflow scripts are needed except enabling the
-Singularity/Apptainer engine (instead of Docker) in the Nextflow configuration
-file in the HPC environment. Nextflow is able to pull remote container images
-stored in Singularity or Docker Hub registry. The remote container images are
+Singularity/Apptainer engine in the Nextflow configuration
+file in the HPC environment. Nextflow can pull remote container images as Singularity/Apptainer
+from container registries on the fly. The remote container images are
 usually specified in the Nextflow script or configuration file by simply
 prefixing the image name with `shub://` or `docker://`. It is also possible to
 specify a different Singularity image for each process definition in the
@@ -79,31 +79,19 @@ require downloading large volumes of data such as databases and container
 images. This can take a while and may not even work successfully for the first
 time when downloading multiple Apptainer/Singularity images or databases.
 
-You can do the following basic preparation steps before running your Nextflow
-pipeline:
-
-* Copy Apptainer images from your local workstation to your project folder on
-  Puhti. Pay attention to the Apptainer cache directory (i.e.
-  `$APPTAINER_CACHEDIR`) which is usually `$HOME/.apptainer/cache`. Note that
-  `$HOME` directory quota is only 10 GB on Puhti, so it may fill up quickly.
-* Move all your raw data to your project directory (`/scratch/<project>`)
-  on Puhti.
-* Clone the GitHub repository of your pipeline to your scratch directory and
-  then [run your pipeline](#5-run-your-nextflow-pipeline-as-a-batch-job).
-
 
 ## Usage
-Snakemake can be run in 4 different ways in supercomputers:
+Nextflow pipelines can be run in different ways in supercomputering environment:
 
-1. [In interactive mode](../../computing/running/interactive-usage.md) with local executor, with limited resources. Useful mainly for debugging or very small workflows.
-2. With batch job and local executor. Resource usage limited to one full node. Useful for small and medium size workflows, simpler than next options, start with this, if unsure.
-3. With batch job and SLURM executor. Can use multiple nodes and different SLURM partitions (CPU and GPU), but may create significant overhead, if many small jobs. Could be used, if each job step for each file takes at least 30 min.
+1. [In interactive mode](../../computing/running/interactive-usage.md) with local executor, with limited resources. Useful mainly for debugging or testing very small workflows.
+2. With batch job and local executor. Useful for small and medium size workflows
+3. With batch job and SLURM executor. This can use multiple nodes and different SLURM partitions (CPU and GPU), but may create significant overhead, if many small jobs. Could be used, if each job step for each file takes at least 30 min.
 4. With batch job and HyperQueue as a sub-job scheduler. Can use multiple nodes in the same batch job allocation, most complex set up. Suits well for cases, when workflow includes a lot of small job steps with many input files (high-troughput computing).
 
 !!! info "Note"
-        Please do not launch heavy Snakemake workflows on **login nodes**.
+        Please do not launch heavy Nextflow workflows on **login nodes**.
 
-### Running Snakemake workflow with local executor interactively
+### Running Nextflow pipeline with local executor interactively
 Lanuch an [interactive session](https://docs.csc.fi/computing/running/interactive-usage/) on Puhti as below:
 ```
 sinteractive -c 2 -m 4G -d 250 -A project_2xxxx  # replace actual project number here
@@ -151,7 +139,7 @@ workflow {
 ```nextflow
 nextflow run hello-world.nf
 ```
-This script defines one process named `sayHello`. This process takes a set of greetings from different languages and then writes each one to a separate file.
+This script defines one process named `sayHello`. This process takes a set of greetings from different languages and then writes each one to a separate file in a random order.
 
 The resulting terminal output would look similar to the text shown below:
 
@@ -162,12 +150,12 @@ executor >  local (5)
 [a0/bdf83f] process > sayHello (5) [100%] 5 of 5 ✔
 ```
 
-### Running Snakemake workflow with local executor and batch job
+### Running Nextflow  with local executor in a batch job
 
 Please follow our
 [instructions for writing a batch job script for Puhti](../../computing/running/example-job-scripts-puhti.md).
 
-Although Nextflow comes with native Slurm support, one has to avoid launching
+Although Nextflow supports SLURM natively, one has to avoid launching
 large amounts of very short jobs using it. Instead, one can launch a Nextflow
 job as a regular batch job that co-executes all job tasks in the same job
 allocation. Below is a minimal example to get started with your Nextflow
@@ -224,9 +212,9 @@ Monitor the status of submitted Slurm job
    squeue -u $USER
 ```
 
-### Running Nextflow  with slurm executor (Currently NOT recommended on Puhti when you have multiple small jobs)
+### Running Nextflow  with slurm executor (Currently NOT recommended on Puhti when you have several small jobs)
 
-One of the advantages of Nextflow is that the actual pipeline functional logic is separated from the execution environment. The same script can therefore be executed in different environment by changing the execution environment without touching actual pipeline code. Nextflow uses `executor` information to decide where the job should  be run. Once executor is configured, Nextflow submits each process to the specified job scheduler on your behalf (=you don't need to write sbatch script, Nextflow writes on the fly for you, instead).
+One of the advantages of Nextflow is that the actual pipeline functional logic is separated from the execution environment. The same script can therefore be executed in different environments by changing the execution environment without touching actual pipeline code. Nextflow uses `executor` information to decide where the job should be run. Once executor is configured, Nextflow submits each process to the specified job scheduler on your behalf (=you don't need to write sbatch script, Nextflow writes on the fly for you, instead).
 
 Default executor is `local` where process is run in your computer/localhost where Nextflow is launched.  Other executors include:
 
@@ -260,7 +248,7 @@ In this case, you can run a Nextflow script as below:
 ```
 nextflow run <nextflow_script> -profile puhti
 ```
-This will submit each process of your job to Puhti cluster.
+This will submit each process of your job as a batch job to Puhti cluster.
 
 
 ### Running Nextflow with HyperQueue executor
@@ -268,7 +256,7 @@ This will submit each process of your job to Puhti cluster.
 In this example, let's use the
 [HyperQueue meta-scheduler](../../apps/hyperqueue.md) for executing a Nextflow
 pipeline. This executor can be used to scale up analysis across multiple nodes
-when needed.
+when needed. However, the executor settings can be complex depending on the pipeline.
 
 Here is a batch script for running a
 [nf-core pipeline](https://nf-co.re/pipelines) on Puhti:
