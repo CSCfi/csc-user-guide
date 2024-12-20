@@ -89,7 +89,7 @@ Nextflow pipelines can be run in different ways in supercomputering environment:
 4. With batch job and HyperQueue as a sub-job scheduler. Can use multiple nodes in the same batch job allocation, most complex set up. Suits well for cases, when workflow includes a lot of small job steps with many input files (high-troughput computing).
 
 !!! info "Note"
-        Please do not launch heavy Nextflow workflows on **login nodes**.
+    Please do not launch heavy Nextflow workflows on login nodes.
 
 ### Running Nextflow pipeline with local executor interactively
 Lanuch an [interactive session](https://docs.csc.fi/computing/running/interactive-usage/) on Puhti as below:
