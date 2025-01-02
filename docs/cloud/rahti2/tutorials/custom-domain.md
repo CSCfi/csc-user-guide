@@ -115,3 +115,18 @@ oc annotate route <route_name> kubernetes.io/tls-acme='true'
 ```
 
 The certificate is ready. The controller will take care of checking the validity of the certificate, and of renewing it when necessary (every 3 months).
+
+### Troubleshooting
+
+If your certificate hasn't been renewed automatically, you can check its status in the `annotations` section from the `Route`. There is a bug with the date changing from December 31st to January 1st, the year will reset to **0001**. If it's the case, simply delete this section from the annotations (you can find it by browsing **Administrator view** > **Networking** > **Routes** > Select your route > YAML tab):
+
+```yaml
+    acme.openshift.io/status: |
+      provisioningStatus:
+        earliestAttemptAt: "0001-01-01T00:00:01.006145385Z"
+        orderStatus: valid
+        orderURI: https://acme-v02.api.letsencrypt.org/acme/order/XXXXXXXXX/XXXXXXXXXX
+        startedAt: "0001-01-01T00:00:01.006145385Z"
+```
+
+**Save** and reload the configuration. The date should be fixed.
