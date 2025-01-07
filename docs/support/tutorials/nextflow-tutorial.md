@@ -110,7 +110,7 @@ executor >  local (5)
 ```
 
 ### Running Nextflow pipeline with local executor interactively
-To run Nextflow in [interactive session](../../computing/running/interactive-usage/):
+To run Nextflow in [interactive session](../../computing/running/interactive-usage.md):
 ```
 sinteractive -c 2 -m 4G -d 250 -A project_2xxxx  # replace actual project number here
 module load nextflow/23.04.3                     # Load nextflow module
