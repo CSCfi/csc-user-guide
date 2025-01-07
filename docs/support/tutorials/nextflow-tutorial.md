@@ -147,6 +147,8 @@ sbatch nextflow_local_batch_job.sh
 
 ### Running Nextflow with SLURM executor 
 
+If the workflow includes only limited number of individual jobs/job steps [Slurm executor of Nextflow](https://www.nextflow.io/docs/latest/executor.html#slurm) could be considered.
+
 The first batch job file reserves resources only for Nextflow itself. Nextflow then creates further SLURM jobs for workflow's processes. The SLURM jobs created by Nextflow may be distributed to several nodes of a supercomputer and also to use different partitions for different workflow rules, for example CPU and GPU. SLURM executor should be used only, if the job steps are at least 20-30 minutes long, otherwise it may overload SLURM.
 
 !!! warning
@@ -201,6 +203,10 @@ This will submit each process of your workflow as a separate batch job to Puhti 
 ### Running Nextflow with HyperQueue executor
 
 [HyperQueue meta-scheduler](../../apps/hyperqueue.md) executer is suitable, if your workflow includes a lot of short processes and you need several nodes for the computation. However, the executor settings can be complex depending on the pipeline.
+
+!!! Note
+    Whenever you're unsure how to run your workflow efficiently, don't hesitate
+    to [contact CSC Service Desk](../contact.md).
 
 Here is a batch script for running a
 [nf-core pipeline](https://nf-co.re/pipelines):
@@ -273,3 +279,7 @@ sbatch nextflow_hyperqueue_batch_job.sh
 * [CSC's Nextflow documentation](../../apps/nextflow.md)
 * [Master thesis by Antoni Gołoś comparing automated workflow approaches on supercomputers](https://urn.fi/URN:NBN:fi:aalto-202406164397)
   * [Full code Nextflow example from Antoni Gołoś with 3 different executors for Puhti](https://github.com/antonigoo/LIPHE-processing/tree/nextflow/workflow)
+* [General guidelines for high-throughput computing in CSC's HPC environment](../../computing/running/throughput.md)
+* [Official HyperQueue documentation](https://it4innovations.github.io/hyperqueue/stable/)
+* [CSC's HyperQueue documentation](../../apps/hyperqueue.md) 
+
