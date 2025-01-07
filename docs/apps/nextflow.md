@@ -39,13 +39,13 @@ Nextflow is released under the
     module use /appl/local/csc/modulefiles
     ```
 
-Nextflow is activated by loading `nextflow` module as below:
+Nextflow is activated by loading `nextflow` module:
 
 ```bash
 module load nextflow
 ```
 
-Example of loading `nextflow` module with a specific version:
+The default version is usually the latest. Choose the version of the Nextflow depending on the requirements of your own pipeline. It is recommended to load Nextflow module with a version, for the reproducibility point of view.  To load `nextflow` module with a specific version:
 
 ```bash
 module load nextflow/22.04.5
