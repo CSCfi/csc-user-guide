@@ -59,10 +59,11 @@ Nextflow pipelines can be run in different ways in supercomputering environment:
 3. With batch job and SLURM executor. This can use multiple nodes and different SLURM partitions (CPU and GPU), but may create significant overhead, with many small jobs. Could be used, if each job step for each file takes at least 30 min.
 4. With batch job and HyperQueue as a sub-job scheduler. Can use multiple nodes in the same batch job allocation, most complex set up. Suits well for cases, when workflow includes a lot of small job steps with many input files (high-troughput computing).
 
-!!! info "Note"
-    Please do not launch heavy Nextflow workflows on login nodes.
-
 For general introduction to batch jobs, see [example job scripts for Puhti](../../computing/running/example-job-scripts-puhti.md).
+
+!!! Note
+    Whenever you're unsure how to run your workflow efficiently, don't hesitate
+    to [contact CSC Service Desk](../contact.md).
 
 ### Nextflow script
 
@@ -116,6 +117,9 @@ sinteractive -c 2 -m 4G -d 250 -A project_2xxxx  # replace actual project number
 module load nextflow/23.04.3                     # Load nextflow module
 nextflow run workflow.nf
 ```
+
+!!! info "Note"
+    Please do not launch heavy Nextflow workflows on login nodes.
 
 ### Running Nextflow with local executor in a batch job
 
@@ -203,10 +207,6 @@ This will submit each process of your workflow as a separate batch job to Puhti 
 ### Running Nextflow with HyperQueue executor
 
 [HyperQueue meta-scheduler](../../apps/hyperqueue.md) executer is suitable, if your workflow includes a lot of short processes and you need several nodes for the computation. However, the executor settings can be complex depending on the pipeline.
-
-!!! Note
-    Whenever you're unsure how to run your workflow efficiently, don't hesitate
-    to [contact CSC Service Desk](../contact.md).
 
 Here is a batch script for running a
 [nf-core pipeline](https://nf-co.re/pipelines):
