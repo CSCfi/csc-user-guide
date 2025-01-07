@@ -1,6 +1,6 @@
 # Running Nextflow pipelines on supercomputers
 
-[Nextflow](https://www.nextflow.io/) is one of the scientific wokrflow managers and provides built-in support for
+[Nextflow](https://www.nextflow.io/) is a scientific wokrflow manager and provides built-in support for
 HPC-friendly containers such as Apptainer (= Singularity). One of the advantages of Nextflow is that the actual pipeline functional logic is separated from the execution environment. The same script can therefore be executed in different environments by changing the execution environment without touching actual pipeline code. Nextflow uses `executor` information to decide where the job should be run. Once executor is configured, Nextflow submits each process to the specified job scheduler on your behalf.
 
 Default executor is `local` where processes are run in the computer where Nextflow is launched. Several other [executors](https://www.nextflow.io/docs/latest/executor.html) are supported, to CSC computing environment, best suit SLURM and HyperQueue executors.
@@ -11,16 +11,7 @@ There are many other high-throughput tools and workflow managers for scientific 
  
 ### Nextflow
 
-Nextflow itself is available as a module on Puhti, Mahti and LUMI. The default version is usually the latest. Choose the version of the Nextflow depending on the requirements of your own pipeline. It is recommended to load Nextflow module with a version, for the reproducibility point of view. 
-
-To load Nextflow module:
-
-```bash
-module load nextflow/<version>     # e.g., module load nextflow/22.10.1
-```
-
-!!! warning
-      The Nextflow 23.04.3 and newer support only pipelines built with DSL2 syntax. Select an older version for DSL1-compliant pipelines.
+Nextflow itself is available as a module on Puhti, Mahti and LUMI. Specific versions available are described on the [Nextflow main page](../../apps/nextflow.md).
 
 ### Installation of tools used in Nextflow
 
@@ -57,7 +48,7 @@ export APPTAINER_CACHEDIR=$LOCAL_SCRATCH
 ```
 
 !!! warning
-      Although Nextflow supports also Docker containers, these can't be used as such on supercomputers due to the lack of administrative privileges for normal users.
+    Although Nextflow supports also Docker containers, these can't be used as such on supercomputers due to the lack of administrative privileges for normal users.
 
 ## Usage
 
@@ -119,7 +110,7 @@ executor >  local (5)
 ```
 
 ### Running Nextflow pipeline with local executor interactively
-To run Nextflow in [interactive session](https://docs.csc.fi/computing/running/interactive-usage/):
+To run Nextflow in [interactive session](../../computing/running/interactive-usage/):
 ```
 sinteractive -c 2 -m 4G -d 250 -A project_2xxxx  # replace actual project number here
 module load nextflow/23.04.3                     # Load nextflow module
@@ -156,7 +147,7 @@ sbatch nextflow_local_batch_job.sh
 
 ### Running Nextflow with SLURM executor 
 
-The first batch job file reserves resources only for Nextflow itself. Nextflow then creates further SLURM jobs for workflow's processes. The SLURM jobs created by Nextflow may be distributed to several nodes of a supercomputer and also to use different partitions for different workflow rules, for example CPU and GPU. SLURM executor should be used only, if the job steps are at least 20-30 minutes long, otherwise the it could overload SLURM.
+The first batch job file reserves resources only for Nextflow itself. Nextflow then creates further SLURM jobs for workflow's processes. The SLURM jobs created by Nextflow may be distributed to several nodes of a supercomputer and also to use different partitions for different workflow rules, for example CPU and GPU. SLURM executor should be used only, if the job steps are at least 20-30 minutes long, otherwise it may overload SLURM.
 
 !!! warning
     Please do not use SLURM executor, if your workflow includes a lot of short processes. It would overload SLURM.
