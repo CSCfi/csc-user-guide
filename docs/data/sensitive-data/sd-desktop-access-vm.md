@@ -1,5 +1,11 @@
 # Accessing virtual desktop
 
+
+* [Access virtual desktop](#access-virtual-desktop)
+* [Log out from virtual desktop](#log-out-from-virtual-desktop)
+* [Reconnecting to an analysis session](#reconnecting-to-an-analysis-session)
+
+
 ## Access virtual desktop
 
 1. [Login](./sd-desktop-login.md) to SD Desktop. All your virtual desktops are listed at the home page under **All connections**.
