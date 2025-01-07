@@ -27,9 +27,7 @@
 * [HyperQueue meta-scheduler](../../apps/hyperqueue.md)
 * [FireWorks workflow manager](../../computing/running/fireworks.md)
 * [How to run many short jobs with GNU Parallel](many.md)
-* [Nextflow tutorial for Puhti (basic)](https://yetulaxman.github.io/Biocontainer/tutorials/nextflow_tutorial.html)
-* [Running Nextflow pipelines on Puhti (advanced)](nextflow-puhti.md)
-* [Running Nextflow workflows using HyperQueue](nextflow-hq.md)
+* [Running Nextflow pipelines](nextflow-tutorial.md)
 * [Running Snakemake pipelines on Puhti](snakemake-puhti.md)
 
 ## Allas
