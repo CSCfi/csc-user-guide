@@ -678,7 +678,7 @@ PyTorch Lightning Slurm script for two full nodes using all GPUs:
 
 Hugging Face's
 [Accelerate](https://huggingface.co/docs/transformers/accelerate) is a
-popular framework for large-language model training, and it makes
+popular framework for large language model training, and it makes
 using more advanced training algorithms like FSDP very easy. Launching
 a job with accelerate it similar to PyTorch DDP, except we need to use
 the accelerate launcher and also provide an Accelerate config file.
@@ -735,6 +735,30 @@ Example using Accelerate on all GPUs on a single node:
      myprog.py <options>
     ```
 
+=== "LUMI"
+
+    ```bash
+    #!/bin/bash
+    #SBATCH --account=<project>
+    #SBATCH --partition=small-g
+    #SBATCH --ntasks=1
+    #SBATCH --cpus-per-task=56
+    #SBATCH --mem=480G
+    #SBATCH --time=1:00:00
+    #SBATCH --gpus-per-node=8
+    
+    module purge
+    module use /appl/local/csc/modulefiles/
+    module load pytorch
+
+    srun accelerate launch \
+     --config_file=accelerate_config.yaml \
+     --num_processes=8 \
+     --num_machines=1 \
+     --machine_rank=0 \
+     myprog.py <options>
+    ```
+
 
 Example of running Accelerate on 2 full nodes (8 GPUs).
 
@@ -786,6 +810,37 @@ Example of running Accelerate on 2 full nodes (8 GPUs).
 
     GPUS_PER_NODE=4
     NUM_PROCESSES=$(expr $SLURM_NNODES \* $GPUS_PER_NODE)
+    MAIN_PROCESS_IP=$(hostname -i)
+    
+    RUN_CMD="accelerate launch \
+                        --config_file=accelerate_config.yaml \
+                        --num_processes=$NUM_PROCESSES \
+                        --num_machines=$SLURM_NNODES \
+                        --machine_rank=\$SLURM_NODEID \
+                        --main_process_ip=$MAIN_PROCESS_IP \
+                        myprog.py <options>"
+    
+    srun bash -c "$RUN_CMD"
+    ```
+
+=== "LUMI"
+
+    ```bash
+    #!/bin/bash
+    #SBATCH --account=<project>
+    #SBATCH --partition=small-g
+    #SBATCH --nodes=2
+    #SBATCH --ntasks-per-node=1
+    #SBATCH --cpus-per-task=56
+    #SBATCH --gpus-per-node=8
+    #SBATCH --mem=480G
+    #SBATCH --time=1:00:00
+    
+    module purge
+    module use /appl/local/csc/modulefiles
+    module load pytorch
+
+    NUM_PROCESSES=$(expr $SLURM_NNODES \* $SLURM_GPUS_PER_NODE)
     MAIN_PROCESS_IP=$(hostname -i)
     
     RUN_CMD="accelerate launch \
