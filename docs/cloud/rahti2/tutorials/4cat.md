@@ -202,7 +202,7 @@ Kompose will allow us to translate the `docker-compose.yaml` file into a set of 
     WARN The "POSTGRES_DB" variable is not set. Defaulting to a blank string.
     WARN The "POSTGRES_HOST_AUTH_METHOD" variable is not set. Defaulting to a blank string.
     WARN The "PUBLIC_API_PORT" variable is not set. Defaulting to a blank string.
-    WARN The "DOCKER_TAG" variable is not set. Defaulting to a blank string.``
+    WARN The "DOCKER_TAG" variable is not set. Defaulting to a blank string.
     WARN Restart policy 'unless-stopped' in service frontend is not supported, convert it to 'always'
     WARN Restart policy 'unless-stopped' in service db is not supported, convert it to 'always'
     WARN Restart policy 'unless-stopped' in service backend is not supported, convert it to 'always'
@@ -610,7 +610,7 @@ This deployment also needs few changes. Let's go through them in hopefully a mor
 
     ```
     Password for user fourcat:
-    psql: error: connection to server at "db" (172.30.154.239), port 5432 failed: fe_sendauth: no password supplied`
+    psql: error: connection to server at "db" (172.30.154.239), port 5432 failed: fe_sendauth: no password supplied
     ```
 
     This is due to the fact that meanwhile we are defining `POSTGRESQL_PASSWORD` the application is expecting `PGPASSWPRD`. This means that the fix is:
@@ -823,7 +823,7 @@ This deployment also needs few changes. Let's go through them in hopefully a mor
     ```
 
     !!! Info "Grep tool"
-        We used the `grep` tool to find the error message in the code, and then again to see where and how the `pidfile` variable was defined. We could have used a local text editor, or directly use GitHub search. I just think `grep` is a great tool and that everyone can benfit by knowing how to use it.
+        We used the `grep` tool to find the error message in the code, and then again to see where and how the `pidfile` variable was defined. We could have used a local text editor, or directly use GitHub search. I just think `grep` is a great tool and that everyone can benefit by knowing how to use it.
 
     So now we know that the PID file is stored on a folder configured with the `PATH_LOCKFILE` variable. We will check if we can find it on the `config.ini` file:
 
@@ -949,13 +949,13 @@ This deployment also needs few changes. Let's go through them in hopefully a mor
 
 This should be all the changes needed on the backend:
 
-    ```sh
-    12-12-2024 14:03:30 | INFO at api.py:65: Local API listening for requests at 0.0.0.0:4444
-    ```
+  ```sh
+  12-12-2024 14:03:30 | INFO at api.py:65: Local API listening for requests at 0.0.0.0:4444
+  ```
 
 ### Frontend deployment
 
-This is our last piece to fix. 
+This is our last piece to fix.
 
 1. Before deploying the frontend, we need to change the deployment file to use the new volume:
 
@@ -1159,7 +1159,7 @@ This is our last piece to fix.
       --> Success
     ```
 
-    We used the [inline Dockerfile method](/cloud/rahti2/images/creating/#using-the-inline-dockerfile-method) because the `Dockerfile` is only 3 lines. After no so much time we have a new image called 4cat in our internal Rahti registry. The internal URL is `image-registry.openshift-image-registry.svc:5000/4cat-2/4cat:latest`. Where `4cat-2` is the name of the project I am using to write this documentation.``
+    We used the [inline Dockerfile method](/cloud/rahti2/images/creating/#using-the-inline-dockerfile-method) because the `Dockerfile` is only 3 lines. After no so much time we have a new image called 4cat in our internal Rahti registry. The internal URL is `image-registry.openshift-image-registry.svc:5000/4cat-2/4cat:latest`. Where `4cat-2` is the name of the project I am using to write this documentation.
 
     ```diff
                        key: workers
