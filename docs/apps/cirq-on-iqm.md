@@ -15,7 +15,7 @@ Currently supported [cirq-on-iqm](https://iqm-finland.github.io/cirq-on-iqm/) ve
 
 | Version | Module                               | LUMI  | Notes           |
 |:--------|:-------------------------------------|:-----:|-----------------|
-| 14.6    | `helmi_cirq/14.6`                    | X     |                 |
+| 15.1    | `helmi_cirq/15.1`                    | X     |                 |
 
 
 All modules are based on Tykky using LUMI-container-wrapper.

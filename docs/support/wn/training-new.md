@@ -76,7 +76,7 @@ The [Earth Observation guide](../tutorials/gis/eo_guide.md) aims to help researc
 
 ## Training materials and sources from CSC and partners, 12.12.2022
 
-Check out this [concise table of training materials](../training-material.md#training-materials-and-sources-from-csc-and-partners)
+Check out this [concise table of training materials](../training-material/index.md#training-materials-and-sources-from-csc-and-partners)
 available from us and our partners on many topics related to doing science
 with computers.
 
@@ -127,7 +127,7 @@ A [guide on using FireWorks](../../computing/running/fireworks.md) in CSC's comp
 
 ## Accessing databases on Rahti from CSC supercomputers, 8.2.2022
 
-A [tutorial on how to connect to databases on Rahti from CSC supercomputers](../../cloud/tutorials/connect-database-hpc.md) has been published. The tutorial describes the process of setting up MongoDB on Rahti and how to establish an HTTP-compatible connection between the database and Puhti/Mahti using the WebSocat tool.
+A [tutorial on how to connect to databases on Rahti from CSC supercomputers](../../cloud/rahti2/tutorials/connect-database-hpc.md) has been published. The tutorial describes the process of setting up MongoDB on Rahti and how to establish an HTTP-compatible connection between the database and Puhti/Mahti using the WebSocat tool.
 
 ## New machine learning guide released, 20.12.2021
 

@@ -34,13 +34,15 @@ After you have been set as the owner of the organization profile, you can create
 2. **License** specifies the terms of use for the data, which the applicants need to approve when they fill in the access application form. In the license, you can for example refer to the terms specified in the data permit.
 3. With a **workflow**, you define who will manage the access applications of the organization in SD services. These named users will always receive a notification via email about new access applications and can approve or reject the applications in SD Apply.
 
+License and form are optional so if you don't need to define additional terms of use or ask applicant to provide more information with a form, you don't need to create them. 
+
 The forms and licenses are public in SD Apply, so these should not include any sensitive information. These three objects will be used for all secondary use datasets coming from your organization, so they should also be as general as possible. **Resource** and **Catalogue item** will be created for each dataset automatically when the data is transferred via SFTP. 
 
 ### Step 3: Establishing a secure SSH connection with CSC
 
 To prepare for the data transfer, we first need to establish a secure ssh connection between your laptop with CSC. Please follow these steps:
 
-1. Create an SSH key pair in **RSA** format via command line. [See detailed instructions](../../cloud/tutorials/ssh-key.md#creating-an-ssh-key-pair-on-a-computer) Do not use a password for your SSH key, leave this field empty.
+1. Create an SSH key pair in **RSA** format via command line. [See detailed instructions](../../cloud/pouta/tutorials/ssh-key.md#creating-an-ssh-key-pair-on-a-computer) Do not use a password for your SSH key, leave this field empty.
 2. Log in to [the Sensitive Data user administration portal](https://admin.sd.csc.fi/). If you don't have HAKA or Virtu accounts, please write to our helpdesk to ask for a CSC account. Setting up an account takes few days.
 
 [![Sensitive Data user administration login](images/apply/SUP_Login.png)](images/apply/SUP_Login.png)
@@ -81,9 +83,9 @@ You can now encrypt and transfer the dataset securely. While there are multiple 
 With the SDA Uploader tool, you need to collect all the data to one folder on your computer before transfer.
 
 !!! Note 
-    The folder name determines the indentifying information visible in SD Apply. Therefore, it is a good practice to use the journal number or other unique identifier for the folder name. This ensures that the correct data are always sent to the correct applicant, even in additional data transfers.  
+    Name the folder with a short name (max. 64 characters) that does not include spaces or personal information, such us person's names. The folder name will become publicly visible in SD Apply. Therefore, it is a good practice to use the journal number or other unique identifier for the folder name. This ensures that the correct data are always sent to the correct applicant, even in additional data transfers. 
       
-1. Create a folder on your computer and name it with the journal number or other suitable unique identifier. Add all the files belonging to the dataset to that folder.
+1. Create a folder on your computer and name it with the journal number or other suitable short unique identifier that doesn't contain spaces. Add all the files belonging to the dataset to that folder.
 2. Download the SDA (Sensitive Data Archive) Uploader tool available on [GitHub](https://github.com/CSCfi/sda-uploader/releases), for Linux, Mac and or Windows. You might need permissions from your administrators to install the SDA Uploader tool on your laptop.
     * Windows (sdagui-python3.11-windows-amd64.zip )
     * Mac (sdagui-python3.11-macos-amd64.zip)
@@ -109,7 +111,7 @@ This SDA (Sensitive Data Archive) Uploader tool is available on GitHub, via  com
 
 ##### Advanced option 1
 
-With the SDA CLI tool, you also first create a folder on your computer and name it with the journal number or other unique identifier. Add all of the files belonging to the dataset to that folder. Then you add the following command to the command line (replace example_dataset_123 with the directory name, username@org.fi with your credentials, and X:\folder\filename.key (or ~/.ssh/filename for Linux/macOS) with the location of your SSH key):
+With the SDA CLI tool, you also first create a folder on your computer and name it with the journal number or other short unique identifier that does not contain spaces. Add all of the files belonging to the dataset to that folder. Then you add the following command to the command line (replace example_dataset_123 with the directory name, username@org.fi with your credentials, and X:\folder\filename.key (or ~/.ssh/filename for Linux/macOS) with the location of your SSH key):
 
 ```
 sdacli example_dataset_123 -host porin.lega.csc.fi -p 50527 -u username@org.fi -i X:\folder\filename.key -pub registry.pub
@@ -147,17 +149,13 @@ After a successful upload, the dataset is visible in SD Apply. With the direct S
 
 ## Data access management
 
-After the data has been submitted, it is discoverable in SD Apply with the dataset ID (organization's identifier + the journal number).
+After the data has been submitted, it is discoverable in SD Apply with the dataset ID (organization's identifier + the journal number). 
 
-The researcher who has received the data permit can contact the CSC service desk and ask for a CSC project with the data permit. After the project has been established, they can log in to SD Apply and apply for data access.
+The researcher who has received the data permit should create a secondary use CSC project and send the data permit to CSC service desk to be validated. The data permit issuer should tell the researcher what is the dataset identifier in SD Apply they should apply access to.
 
-The assigned representatives of the data controller will receive a notification of the application via email. They can review and approve the application and set an end date for the data access in SD Apply. The access right can also be cancelled manually in the future, but automated end date is preferred to avoid unauthorised access after the data permit has expired.
+The assigned representatives of the data controller will receive a notification of new applications via email. They can review and approve the application and set an end date for the data access in SD Apply. The access right can also be cancelled manually in the future, but automated end date is preferred to avoid unauthorised access after the data permit has expired.
 
-### Step 1: Confirm availability
-
-When a new dataset you are associated with is uploaded to CSC, you will receive an automated email via SD Apply asking you to confirm your availability to act as a data access controller. Follow the link in your email or log in directly to SD Apply at https://sd-apply.csc.fi/ and confirm your availability. 
-
-### Step 2: Login
+### Step 1: Login
 
 As a data access controller, you receive email notifications each time when an applicant applies for data access to the dataset you are associated with.
 
@@ -168,7 +166,7 @@ To start processing applications, follow the link in your email or log in direct
 !!! note
     Always use the same identity provider when you log in to SD Apply because all your actions are connected to your login identity.
 
-### Step 3: Process the application
+### Step 2: Process the application
 
 In SD Apply, navigate to the "Actions" tab to see all the applications that are waiting for approval. Select *View* to open the application you want to process. You do not have to follow any specific order when you process the applications. The approval process is fully dynamic.
 
@@ -182,8 +180,10 @@ When approving the application, you can also set an end date for the access righ
 
 The applicant will receive an email notification about the decision. Once you approve or reject the application, the decision is final. You cannot edit it later. If the applicant has added members to their application, the members will get access rights too when the application is approved, if they have accepted the terms of use. Any member not having accepted the terms of use by that time will get access rights after they log in to SD Apply and accept the terms of use.
 
+CSC Service Desk will add access to the data to the researchers after they send a pdf file of the approved application to the CSC Service Desk. 
+
 !!! note
-    If the owner of the dataset has removed the dataset that applicant is applying for access, SD Apply will give a warning, but you can still process the application. However, if the dataset has been removed, you cannot approve or reject the application.
+    If the dataset that applicant is applying for access has been taken out of use, SD Apply will give a warning to application handlers, but you can still approve or reject the application. 
 
 #### Close the application
 You can close the application at any stage of the process by selecting *Close application*. Closing means that the application process is cancelled and that the application cannot be modified or opened again. Write a comment on the comment field to explain why did you close the application.
