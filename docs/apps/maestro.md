@@ -33,6 +33,19 @@ Specifically, this means that module versions older than two years will be remov
 This policy is enforced to free up disk space and encourage use of the latest versions
 which tend to be more performant and have less bugs.
 
+!!! info "Maestro versions older than 2023.1 will not work after 13.3.2025!"
+    Schrödinger has taken into use a
+    [new license manager](https://www.schrodinger.com/life-science/learn/white-paper/new-schrodinger-license-manager/),
+    which does not support Maestro versions older than 2023.1. Consequently,
+    **CSC's will no longer be able to provide a license for Maestro versions
+    2022.4 and older after 13th of March 2025**. If not done already, please
+    migrate to using versions 2023.1 or later as soon as possible!
+
+    Please note that CSC's Schrödinger Maestro
+    [license configuration instructions](https://wiki.eduuni.fi/pages/viewpage.action?pageId=130528861)
+    have also been updated accordingly.
+    [See more details below](#local-installation).
+
 !!! info "Some notes about warnings"
     Maestro gives a warning for using a `schrodinger.hosts` file from your home
     directory. This is **not an issue**: that file cannot be made available in
@@ -57,12 +70,6 @@ us via [ServiceDesk](/support/contact/).
 It is recommended to download and install Maestro on your own computer, see below.
 
 ### Local installation
-
-!!! info "Maestro versions 2024.3 onward use a new license manager"
-    Please note that the
-    [license configuration instructions](https://wiki.eduuni.fi/pages/viewpage.action?pageId=130528861)
-    have been updated for Maestro versions 2024.3 and later, which use the new
-    Schrödinger License Manager (SLM).
 
 Maestro can be installed on a Linux, Mac or Windows computer. Download the
 appropriate files from [the Schrödinger website](https://www.schrodinger.com/).

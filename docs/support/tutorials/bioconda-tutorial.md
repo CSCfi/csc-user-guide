@@ -34,17 +34,23 @@ From the command we need the Docker address:
 quay.io/biocontainers/metabat2
 ```
 
+We will also need a tag for the version we want to install. Open the address above in web browser:
+
+```text
+https://quay.io/biocontainers/metabat2
+```
+
 From the Tags page select the desired version. In this case we choose the latest
 (the topmost) version:
 
 ```bash
-2.15--h986a166_1
+2.17--h6f16272_1
 ```
 
 Combine the address and tag to form Docker URL:
 
 ```bash
-docker://quay.io/biocontainers/metabat2:2.15--h986a166_1
+docker://quay.io/biocontainers/metabat2:2.17--h6f16272_1
 ```
 
 Load the Tykky module:
@@ -66,22 +72,22 @@ environment on the shared file system (outside the container). The directory
 needs to exist, so we we need to create it first. For example:
 
 ```bash
-mkdir -p /projappl/project_2001234/metabat-2.15
+mkdir -p /projappl/project_2001234/metabat-2.17
 ```
 
 We can now install the software with:
 
 ```bash
-wrap-container -w /usr/local/bin docker://quay.io/biocontainers/metabat2:2.15--h986a166_1 --prefix /projappl/project_2001234/metabat-2.15
+wrap-container -w /usr/local/bin docker://quay.io/biocontainers/metabat2:2.17--h6f16272_1 --prefix /projappl/project_2001234/metabat-2.17
 ```
 
 After the installations finishes, the executables for the program will be in directory
-`metabat-2.15/bin`. It should be noted that these are not the actual commands, but
+`metabat-2.17/bin`. It should be noted that these are not the actual commands, but
 rather wrapper scripts for the commands inside the container. You can, however, use
 them as if they were the actual commands. For example:
 
 ```bash
-/projappl/project_2001234/metabat-2.15/bin/metabat --help
+/projappl/project_2001234/metabat-2.17/bin/metabat --help
 ```
 
 Adding the `bin` directory to your `$PATH` will work similarly as activating the
@@ -90,7 +96,7 @@ command finishes, it will show you the `export` command to do this. The actual c
 will depend on the installation directory, but will be something like:
 
 ```bash
-export PATH="/projappl/project_2001234/metabat-2.15/bin:$PATH"
+export PATH="/projappl/project_2001234/metabat-2.17/bin:$PATH"
 ```
 
 After this you can simply do:
