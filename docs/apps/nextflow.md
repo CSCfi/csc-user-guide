@@ -58,7 +58,7 @@ nextflow -h
 ```
 
 More detailed instructions can be found in
-[CSC's Nextflow tutorial](../support/tutorials/nextflow-puhti.md).
+[CSC's Nextflow tutorial](../support/tutorials/nextflow-tutorial.md).
 
 ## References
 
@@ -71,6 +71,4 @@ computational workflows. Nat. Biotechnol. 35, 316–319 (2017).
 ## More information
 
 * [Nextflow official documentation](https://www.nextflow.io/docs/latest/index.html)
-* [Running Nextflow on Puhti](../support/tutorials/nextflow-puhti.md)
-* [High-throughput Nextflow workflow using HyperQueue](../support/tutorials/nextflow-hq.md)
-* [Contact CSC Service Desk for technical support](../support/contact.md)
+* [CSC Nextflow tutorial](../support/tutorials/nextflow-tutorial.md)
