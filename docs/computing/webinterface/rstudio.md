@@ -17,9 +17,9 @@ Selecting **Multithreaded** will set the environment variable `OMP_NUM_THREADS`,
 of OpenMP threads, to the number of requested CPU cores. See [r-env documentation on
 threading](../../apps/r-env.md#improving-performance-using-threading) for more details.
 
-!!! note "Please note"
-    RStudio sessions on Puhti are meant for interactive work, for example R script development and running light and medium-heavy analyses up to a few hours. Long, memory-intensive, or otherwise resource- 
-    heavy tasks are best carried out as [non-interactive batch jobs](../../apps/r-env.md#non-interactive-use).
+!!! note "When to use RStudio?"
+    RStudio sessions on Puhti are meant for interactive work, for example R script development and running light and medium-heavy analyses up to a few hours. Long, 
+    memory-intensive, or otherwise resource-heavy tasks are best carried out as [non-interactive batch jobs](../../apps/r-env.md#non-interactive-use).
 
 ## Frequently asked questions about RStudio
 
@@ -48,7 +48,7 @@ Desk](../../support/contact.md) for an installation available to all users.
 
 ### How do I change the directory shown in the RStudio files panel?
 
-By default, your Puhti home directory is shown in the files panel. To change the directory, click the three dots on the top right of the panel. In the box that appears, type the target directory, for example `/scratch/<project>`.
+By default, the files panel shows your home directory on Puhti. To change the directory, click the three dots on the top right of the panel. In the box that appears, type the target directory, for example `/scratch/<project>`.
 
 ## More information
 
