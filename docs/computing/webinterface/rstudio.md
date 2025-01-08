@@ -19,7 +19,7 @@ threading](../../apps/r-env.md#improving-performance-using-threading) for more d
 
 !!! info
     RStudio sessions on Puhti are meant for interactive work, for example R script development and running light and medium-heavy analyses. Long, memory-intensive, or otherwise resource-heavy tasks
-are best carried out as [non-interactive batch jobs](../../apps/r-env.md#non-interactive-use).
+    are best carried out as [non-interactive batch jobs](../../apps/r-env.md#non-interactive-use).
 
 ## Frequently asked questions about RStudio
 
@@ -32,11 +32,11 @@ sessions in two hidden folders in the user's home directory.
 Use the file viewer in the Puhti web interface (click **show dotfiles**) or a terminal to rename or
 delete these folders :
 
-`~/.config/rstudio`\
+`~/.config/rstudio`  
 `~/.local/share/rstudio`
 
 If after this RStudio still fails to start or remains very slow, please contact [CSC Service
-Desk](../support/contact.md).
+Desk](../../support/contact.md).
 
 ### How do I install an R package?
 
@@ -44,7 +44,7 @@ The R environment on Puhti has over 1400 pre-installed R packages packages ready
 way to check if a package is available is to try to load it with `library(packagename)`. If a
 package is missing, you can install it yourself for your project following the [instructions for R package
 installation](../../apps/r-env.md#r-package-installations), or you can contact [CSC Service
-Desk](../support/contact.md) for an installation available to all users.
+Desk](../../support/contact.md) for an installation available to all users.
 
 ### How do I change the directory shown in the RStudio files panel?
 
@@ -54,4 +54,4 @@ By default, your Puhti home directory is shown in the files panel. To change the
 
 For more information on the R environment on Puhti, see the [r-env
 documentation](../../apps/r-env.md). If you have a question, contact [CSC Service
-Desk](../support/contact.md). 
+Desk](../../support/contact.md). 
