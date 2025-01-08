@@ -42,9 +42,9 @@ Desk](../../support/contact.md).
 
 The R environment on Puhti has over 1400 pre-installed R packages packages ready to use. The easiest
 way to check if a package is available is to try to load it with `library(packagename)`. If a
-package is missing, you can install it yourself for your project following the [instructions for R package
+package is missing, you can install it yourself for your project by following the [instructions for R package
 installation](../../apps/r-env.md#r-package-installations), or you can contact [CSC Service
-Desk](../../support/contact.md) for an installation available to all users.
+Desk](../../support/contact.md) for a general installation available to all users.
 
 ### How do I change the directory shown in the RStudio files panel?
 
