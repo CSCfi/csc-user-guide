@@ -7,7 +7,7 @@ editor_options:
 # RStudio
 
 The RStudio application will launch an RStudio session on Puhti with the specified resources using
-the selected R environment ([r-env](../../apps/r-env.md#available)) version. Currently, the latest available r-env
+the selected [R environment (r-env) version](../../apps/r-env.md#available)). Currently, the latest available r-env
 (and R) version is **4.4.0**.
 
 The user is automatically logged in to the RStudio session when pressing the **Connect to RStudio
@@ -35,7 +35,7 @@ delete these folders :
 `~/.config/rstudio`  
 `~/.local/share/rstudio`
 
-If after this RStudio still fails to start or remains very slow, please contact [CSC Service
+If after this RStudio still fails to start or remains very slow, please [contact CSC Service
 Desk](../../support/contact.md).
 
 ### How do I install an R package?
@@ -43,7 +43,7 @@ Desk](../../support/contact.md).
 The R environment on Puhti has over 1400 pre-installed R packages packages ready to use. The easiest
 way to check if a package is available is to try to load it with `library(packagename)`. If a
 package is missing, you can install it yourself for your project by following the [instructions for R package
-installation](../../apps/r-env.md#r-package-installations), or you can contact [CSC Service
+installation](../../apps/r-env.md#r-package-installations), or you can [contact CSC Service
 Desk](../../support/contact.md) for a general installation available to all users.
 
 ### How do I change the directory shown in the RStudio files panel?
@@ -53,5 +53,5 @@ By default, the files panel shows your home directory on Puhti. To change the di
 ## More information
 
 For more information on the R environment on Puhti, see the [r-env
-documentation](../../apps/r-env.md). If you have a question, contact [CSC Service
+documentation](../../apps/r-env.md). If you have a question, please [contact CSC Service
 Desk](../../support/contact.md). 
