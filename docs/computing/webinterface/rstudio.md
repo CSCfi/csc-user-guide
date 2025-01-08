@@ -7,19 +7,19 @@ editor_options:
 # RStudio
 
 The RStudio application will launch an RStudio session on Puhti with the specified resources using
-the selected [r-env](../../apps/r-env.md#available) version. Currently, the latest available r-env
-(and R) version is 4.4.0.
+the selected R environment ([r-env](../../apps/r-env.md#available)) version. Currently, the latest available r-env
+(and R) version is **4.4.0**.
 
 The user is automatically logged in to the RStudio session when pressing the **Connect to RStudio
 Server** button.
 
-Selecting Multithreaded will set the environment variable `OMP_NUM_THREADS`, controlling the number
+Selecting **Multithreaded** will set the environment variable `OMP_NUM_THREADS`, controlling the number
 of OpenMP threads, to the number of requested CPU cores. See [r-env documentation on
 threading](../../apps/r-env.md#improving-performance-using-threading) for more details.
 
-!!! info
-    RStudio sessions on Puhti are meant for interactive work, for example R script development and running light and medium-heavy analyses. Long, memory-intensive, or otherwise resource-heavy tasks
-    are best carried out as [non-interactive batch jobs](../../apps/r-env.md#non-interactive-use).
+!!! note "Please note"
+    RStudio sessions on Puhti are meant for interactive work, for example R script development and running light and medium-heavy analyses up to a few hours. Long, memory-intensive, or otherwise resource- 
+    heavy tasks are best carried out as [non-interactive batch jobs](../../apps/r-env.md#non-interactive-use).
 
 ## Frequently asked questions about RStudio
 
