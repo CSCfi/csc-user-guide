@@ -1,5 +1,7 @@
 # How to get access to SD Services: Project member
 
+**[Instructions in Finnish (PDF)](https://a3s.fi/docs-files/sensitive-data/SD_palvelut_aloita.pdf){ target="_blank" }**
+
 ## Use case
 
 You need access to SD services for processing research data. You are member of a research team and research team manager has invited you to join CSC project.
