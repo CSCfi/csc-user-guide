@@ -175,6 +175,7 @@ nav:
   - Accounts:
       - accounts/index.md
       - Creating a new user account: accounts/how-to-create-new-user-account.md
+      - User account lifecycle: accounts/account-lifecycle.md
       - Changing your password: accounts/how-to-change-password.md
       - Managing user information: accounts/how-to-manage-user-information.md
       - Creating a new project: accounts/how-to-create-new-project.md
