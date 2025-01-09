@@ -1,9 +1,3 @@
----
-editor_options: 
-  markdown: 
-    wrap: 100
----
-
 # RStudio
 
 The RStudio application will launch an RStudio session on Puhti with the specified resources using
