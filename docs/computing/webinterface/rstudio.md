@@ -40,7 +40,7 @@ sessions in two hidden folders in the user's home directory:
 
 **Option 2:** Use a terminal (for example a login node shell in the Puhti web interface) to rename or delete these folders. Here is an example how renaming would work:
 
-`mv ~/.config/rstudio ~/.config/rstudio-old`
+`mv ~/.config/rstudio ~/.config/rstudio-old`  
 `mv ~/.local/share/rstudio ~/.local/share/rstudio-old`
 
 If after this RStudio still fails to start or remains very slow, please [contact CSC Service
