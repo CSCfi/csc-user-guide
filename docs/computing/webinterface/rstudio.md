@@ -27,7 +27,7 @@ threading](../../apps/r-env.md#improving-performance-using-threading) for more d
 
 If an RStudio session fails to start or RStudio is extremely slow, first try resetting your
 RStudio user state as described below. These steps will clean up leftover data from previous interrupted RStudio
-sessions in two hidden folders in the user's home directory: `.config/rstudio` and `.local/share/rstudio`.
+sessions in two hidden folders in the user's home directory: `.config/rstudio` and `.local/share/rstudio`. These folders can be either renamed (to keep the contents) or deleted (if you are sure the contents are not needed).
 
 **Option 1:** Use the file viewer in the Puhti web interface:
 
@@ -35,7 +35,7 @@ sessions in two hidden folders in the user's home directory: `.config/rstudio` a
 2. Click **Show dotfiles**.
 3. Delete or rename the `rstudio` folders under `.config` and `.local` -> `share`. 
 
-**Option 2:** Use a terminal (for example a login node shell in the Puhti web interface) to rename or delete these folders. Here is an example how renaming would work:
+**Option 2:** Use a terminal (for example a login node shell in the Puhti web interface) to delete or rename these folders. Here is an example how renaming would work:
 
 `mv ~/.config/rstudio ~/.config/rstudio-old`  
 `mv ~/.local/share/rstudio ~/.local/share/rstudio-old`
