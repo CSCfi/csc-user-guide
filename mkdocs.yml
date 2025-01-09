@@ -481,6 +481,8 @@ nav:
               - Export data: data/sensitive-data/sd-desktop-export.md
               - Troubleshooting: data/sensitive-data/sd-desktop-troubleshooting.md
       - Publish and reuse:
+          - Start here:
+              - data/sensitive-data/publish-and-reuse-start-here.md
           - Publish with Federated EGA:
               - data/sensitive-data/federatedega.md
               - Publish data: data/sensitive-data/fega-submission.md
