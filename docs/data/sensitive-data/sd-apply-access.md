@@ -4,12 +4,15 @@
 
 <iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/pR0DQo11g0U" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
+<iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/LFkq2quFq_4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 ## Application process overview
 [![FEGA application process overview](images/fega/FEGA_applicant_overview.png)](images/fega/FEGA_applicant_overview.png)
 
 
 ## Step 1: Apply for access
-To access a specific dataset hosted in Finnish FEGA, navigate to the [EGA webpage](https://ega-archive.org/studies) and search for a particular study, dataset, or DAC using the search field at the top of the page. Then, in the Study view, click on the Dataset ID (EGADNNNN). In the Dataset view, under “Who controls access to this dataset”, click on the link that allows you to access the application form using SD Apply. SD Apply is a service for applying access rights to sensitive datasets stored at CSC. For more information about SD Apply and the application process, please check [SD Apply user guide](./sd-apply.md).
+To access a specific dataset hosted in Finnish FEGA, navigate to the [EGA webpage](https://ega-archive.org/studies) and search for a particular study, dataset, or DAC using the search field at the top of the page. Then, in the Study view, click on the Dataset ID (EGADNNNN). In the Dataset view, under “Who controls access to this dataset”, click on the link that allows you to access the application form using SD Apply. SD Apply is a service for applying access rights to sensitive datasets stored at CSC. 
+
 [![EGA webpage study and dataset view](images/fega/fega_search.png)](images/fega/fega_search.png)
 
 !!! note
@@ -17,20 +20,21 @@ To access a specific dataset hosted in Finnish FEGA, navigate to the [EGA webpag
 
 
 
-## Step 2: Login
-
-<iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/LFkq2quFq_4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+## Step 2: Login to SD Apply
 
 Log in to [SD Apply](https://sd-apply.csc.fi) is possible with either user identity federation systems (Haka, Virtu and ELIXIR login) or with CSC account. The interface is compatible with all modern web browsers.
-
-[![SD Apply login page](images/apply/apply_login.png)](images/apply/apply_login.png)
 
 !!! note
     Always use the same identity provider when you log in to SD Apply because all your actions are connected to your login identity.
 
-## Step 3: Apply for access
+[![SD Apply login page](images/apply/apply_login.png)](images/apply/apply_login.png)
 
-After login, you will access the SD Apply "Catalogue" page. On this page, you can search for a specific dataset and start the application process. Start a new application by clicking on *Add to cart* next to the name of the dataset. You can select multiple datasets, and they will all appear in your cart under the "Catalogue" title. By clicking on *Apply*, you will be redirected to the application form.
+
+## Step 3: Fill application
+
+After login, you will access the SD Apply "Catalogue" page. On this page, you can search for a specific dataset and start the application process. 
+
+Start a new application by clicking on *Add to cart* next to the name of the dataset. You can select multiple datasets, and they will all appear in your cart under the "Catalogue" title. By clicking on *Apply*, you will be redirected to the application form.
 
 [![SD Apply "Catalogue" page](images/apply/apply_catalogue.png)](images/apply/apply_catalogue.png)
 
@@ -38,17 +42,24 @@ After login, you will access the SD Apply "Catalogue" page. On this page, you ca
 
 Follow the instructions on the application form and fill in the required fields:
 
-- **State**. Contains basic details like title and state of your application.
+- **State**: Contains basic details like title and state of your application.
 
-- **Applicants**. Everyone who processes or has direct or indirect access to the data is considered as a research group member and must be named in the Applicants field. Members can be added, changed, or removed without re-applying. You can invite other people to join the data access application by selecting Invite member and providing their names and email addresses. They will then get an invitation email. By following the invitation link, they can log in to SD Apply and accept the terms of use and Data Access Agreement. When the application is approved, all members of the application will be granted access to the same dataset(s).
+- **Applicants**: Everyone who processes or has direct or indirect access to the data is considered as a research group member and must be named in the Applicants field. 
 
-- **Resources**. Shows all the datasets you are applying for
+    - Members can be added, changed, or removed without re-applying. 
+    - You can invite other people to join the data access application by selecting Invite member and providing their names and email addresses. They will then get an invitation email. By following the invitation link, they can log in to SD Apply and accept the terms of use and Data Access Agreement. 
+    - When the application is approved, all members of the application will be granted access to the same dataset(s).
 
-- **Terms of use**. Lists all the licenses defining the terms and conditions for data access and re-use (e.g. Data Access Agreement). To access, click on Accept terms of use.
+- **Resources**: Shows all the datasets you are applying for.
 
-- **Application**. Access to a dataset is granted for a single, designated purpose only. Add the necessary information about your research: research/study name, research plan abstract, Data access start date and Data access end date.
+- **Terms of use**: Lists the licenses for data access and re-use (e.g., Data Access Agreement). Click **Accept terms of use** to access.
 
-To submit your application, select *Send application* under Actions. Unfortunately, editing or deleting the application is no more possible after sending the application. However, removing members is still possible. If you want to use the application as a template for a new application, select *Copy as new application*. Note that the attachments (e.g. research plan) of your old application will also be copied.
+- **Application**: Access to a dataset is granted for a single, designated purpose only. Add the necessary information about your research: research/study name, research plan abstract, Data access start date and Data access end date.
+
+To submit your application, select **Send application** under **Actions** (top right). 
+
+ - After sending, you can't edit or delete the application, but you can still remove members. 
+ - To use it as a template for a new application, select **Copy as new application** under **Actions** (top right). Attachments from the old application will also be copied.
 
 [![SD Apply application form](images/apply/apply_application.png)](images/apply/apply_application.png)
 
@@ -84,61 +95,23 @@ You will receive an email notification whenever the state of your application ch
 
 [![SD Apply "Applications" tab](images/apply/apply_state.png)](images/apply/apply_state.png)
 
-## Step 6: Set up your Desktop
+## Step 6: Access data
 
-Once your application has been approved, you will receive a notification and further instructions via email. You can now access the data in SD Desktop, a private cloud computing environment. 
+Once your application has been approved, you will receive a notification and further instructions via email. You can now access the data in SD Desktop, a private cloud computing environment. Follow these steps:
+
+* [Access SD Desktop](./sd-access.md)
+* [Create virtual desktop](./sd-access.md)
 
 ## Step 7: Access the data
 
-Once you sign in to your virtual Desktop, you can access the data using Data Gateway application. Follow these steps:
+Once you sign in to your virtual desktop, you can access the data using Data Gateway application. Follow these steps:
 
-1. Open Data Gateway. You can find the application on your Desktop.
+* [Import data to virtual desktop](./sd-access.md)
+* [Working with virtual desktop](./sd-access.md)
 
-2. Select SD Apply.
-
-3. Add your CSC credentials.
-
-4. Click on *Login* and next click on *Continue*.
-
-5. In the new window, at the end of the page, click on *Create*. The application will create a new folder called Projects accessible from your Desktop or programmatically the terminal. Next, click on *Open folder*.
-
-[![SD Desktop Data Gateway application](images/apply/desktop_gateway.png)](images/apply/desktop_gateway.png)
-
-!!! note
-
-    The Projects folder is available only when the Data Gateway application is open. If you sign out from the application, you will not access the data stored in other Sensitive Data services unless you previously made a full copy of it inside your Desktop. Thus, Data Gateway needs to be open during data processing in streaming mode.
 
 ## Step 8: Export your results
 
-Once your analysis is completed, you can export the results from the computing environment. After that, the data access will be revoked. To get access to the same dataset, you need to start a new application process.
+Once your analysis is completed, you can export the results from the computing environment. After that, the data access will be revoked. To get access to the same dataset, you need to start a new application process. Follow these steps:
 
-
-
-# Data access application
-
-
-
-
-## Step 2: Log in to SD Apply
-Log in to SD Apply either with user identity federation systems (Haka, Virtu and ELIXIR login) or with CSC account. Remember to always use the same identity provider when you log in to SD Apply because all your actions are connected to your login identity.
-
-## Step 3: Submit the application
-Follow the instructions on the application form and fill in the required fields (State, Applicants, Resources, Terms of use and Application). To submit your application, select *Send application* under Actions.  
-
-## Step 4: Wait for approval
-After you have sent the application, it will be forwarded to the Data Access Committee, which evaluates it and grants the access rights. You can follow the approval process and read the possible comments from the "Events" section of the application. In addition, you can find all your applications and see their state from the "Applications" tab.
-[![SD Apply application form](images/fega/fega_apply.png)](images/fega/fega_apply.png)
-
-## Step 5: Set up your Desktop
-Once your application has been approved, you will receive a notification and further instructions via email. You can now access the data in SD Desktop, a private cloud computing environment part of CSC Sensitive Data Services for research. For more information about SD Desktop, check [SD Desktop user guide](./sd_desktop.md). 
-
-## Step 6: Access the data
-Once you sign in to your virtual Desktop, you can access the data using Data Gateway application. Open the application on your Desktop and select SD Apply. Add your CSC credentials. Click on *Login* and next click on *Continue*. In the new window, at the end of the page, click on *Create Data Gateway*. The application will create a new folder called Projects accessible from your Desktop or programmatically. To access the data, click on *Open folder*.  
-[![SD Desktop Data Gateway application](images/fega/desktop_gateway.png)](images/fega/desktop_gateway.png)
-
-## Step 7: Export the results
-Once your analysis is completed, you can export the results from the computing environment. After that, the data access will be revoked. To get access to the same dataset, you need to start a new application process.
-
-!!! note
-    If you are a new CSC user, please check these instructions on CSC [accounts](../../accounts/index.md) and [multi-factor authentication](../../accounts/mfa.md). Check also the [SD Desktop user guide](./sd_desktop.md) and [CSC Sensitive Data Services for Research webpage](https://research.csc.fi/sensitive-data-services-for-research) for more information.  
-
+* [Export data from virtual deskotop](./sd-access.md)
