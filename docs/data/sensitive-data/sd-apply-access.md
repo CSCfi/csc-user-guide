@@ -97,17 +97,17 @@ You will receive an email notification whenever the state of your application ch
 
 ## Step 6: Access data
 
-Once your application has been approved, you will receive a notification and further instructions via email. You can now access the data in SD Desktop, a private cloud computing environment. Follow these steps:
+Once your application has been approved, you will receive a notification and further instructions via email. You can now access the data in SD Desktop, a private cloud computing environment. 
 
 * [Access SD Desktop](./sd-access.md)
-* [Create virtual desktop](./sd-access.md)
 
 ## Step 7: Access the data
 
 Once you sign in to your virtual desktop, you can access the data using Data Gateway application. Follow these steps:
 
-* [Import data to virtual desktop](./sd-access.md)
-* [Working with virtual desktop](./sd-access.md)
+* [Create virtual desktop](./sd-desktop-create.md)
+* [Import data to virtual desktop](./sd-desktop-access.md)
+* [Working with virtual desktop](./sd-desktop-working.md)
 
 
 ## Step 8: Export your results
