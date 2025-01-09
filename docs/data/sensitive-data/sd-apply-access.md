@@ -2,9 +2,22 @@
 
 ## Application process overview
 
-[![SD Apply application process overview](images/apply/apply_overview.png)](images/apply/apply_overview.png)
+<iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/pR0DQo11g0U" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-## Step 1: Login
+## Application process overview
+[![FEGA application process overview](images/fega/FEGA_applicant_overview.png)](images/fega/FEGA_applicant_overview.png)
+
+
+## Step 1: Apply for access
+To access a specific dataset hosted in Finnish FEGA, navigate to the [EGA webpage](https://ega-archive.org/studies) and search for a particular study, dataset, or DAC using the search field at the top of the page. Then, in the Study view, click on the Dataset ID (EGADNNNN). In the Dataset view, under “Who controls access to this dataset”, click on the link that allows you to access the application form using SD Apply. SD Apply is a service for applying access rights to sensitive datasets stored at CSC. For more information about SD Apply and the application process, please check [SD Apply user guide](./sd-apply.md).
+[![EGA webpage study and dataset view](images/fega/fega_search.png)](images/fega/fega_search.png)
+
+!!! note
+    In the EGA webpage, you can also find datasets that are hosted outside Finland, in central EGA or other FEGA nodes. However, this workflow is specific for datasets that are hosted in Finnish FEGA. 
+
+
+
+## Step 2: Login
 
 <iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/LFkq2quFq_4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
@@ -15,13 +28,13 @@ Log in to [SD Apply](https://sd-apply.csc.fi) is possible with either user ident
 !!! note
     Always use the same identity provider when you log in to SD Apply because all your actions are connected to your login identity.
 
-## Step 2: Apply for access
+## Step 3: Apply for access
 
 After login, you will access the SD Apply "Catalogue" page. On this page, you can search for a specific dataset and start the application process. Start a new application by clicking on *Add to cart* next to the name of the dataset. You can select multiple datasets, and they will all appear in your cart under the "Catalogue" title. By clicking on *Apply*, you will be redirected to the application form.
 
 [![SD Apply "Catalogue" page](images/apply/apply_catalogue.png)](images/apply/apply_catalogue.png)
 
-## Step 3: Submit the application
+## Step 4: Submit the application
 
 Follow the instructions on the application form and fill in the required fields:
 
@@ -39,7 +52,7 @@ To submit your application, select *Send application* under Actions. Unfortunate
 
 [![SD Apply application form](images/apply/apply_application.png)](images/apply/apply_application.png)
 
-## Step 4: Wait for approval
+## Step 5: Wait for approval
 
 After you have sent the application, it will be forwarded to the Data Access Committee, which evaluates it and grants the access rights.
 
@@ -71,16 +84,11 @@ You will receive an email notification whenever the state of your application ch
 
 [![SD Apply "Applications" tab](images/apply/apply_state.png)](images/apply/apply_state.png)
 
-## Step 5: Set up your Desktop
+## Step 6: Set up your Desktop
 
-Once your application has been approved, you will receive a notification and further instructions via email. You can now access the data in SD Desktop, a private cloud computing environment. To set up your workspace, you need a CSC account, a CSC project, and service access to SD Desktop. When logging in to SD Desktop, use the same user account/identity provider (CSC account, Haka, or ELXIR login) you have used for SD Apply log in. Next, enter the authentication code received via the mobile app. If you are a new CSC user, check these instructions on [accounts](../../accounts/index.md) and [multi-factor authentication](../../accounts/mfa.md).
+Once your application has been approved, you will receive a notification and further instructions via email. You can now access the data in SD Desktop, a private cloud computing environment. 
 
-[![SD Desktop login](images/apply/desktop_login.png)](images/apply/desktop_login.png)
-
-!!! note
-    If you are a new CSC user, please check these instructions on CSC [accounts](../../accounts/index.md). Check also the [SD Desktop user guide](./sd_desktop.md) and [CSC Sensitive Data Services for Research webpage](https://research.csc.fi/sensitive-data-services-for-research) for more information. 
-
-## Step 6: Access the data
+## Step 7: Access the data
 
 Once you sign in to your virtual Desktop, you can access the data using Data Gateway application. Follow these steps:
 
@@ -100,7 +108,7 @@ Once you sign in to your virtual Desktop, you can access the data using Data Gat
 
     The Projects folder is available only when the Data Gateway application is open. If you sign out from the application, you will not access the data stored in other Sensitive Data services unless you previously made a full copy of it inside your Desktop. Thus, Data Gateway needs to be open during data processing in streaming mode.
 
-## Step 7: Export your results
+## Step 8: Export your results
 
 Once your analysis is completed, you can export the results from the computing environment. After that, the data access will be revoked. To get access to the same dataset, you need to start a new application process.
 
@@ -108,17 +116,8 @@ Once your analysis is completed, you can export the results from the computing e
 
 # Data access application
 
-<iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/pR0DQo11g0U" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-## Application process overview
-[![FEGA application process overview](images/fega/FEGA_applicant_overview.png)](images/fega/FEGA_applicant_overview.png)
 
-## Step 1: Apply for access
-To access a specific dataset hosted in Finnish FEGA, navigate to the [EGA webpage](https://ega-archive.org/studies) and search for a particular study, dataset, or DAC using the search field at the top of the page. Then, in the Study view, click on the Dataset ID (EGADNNNN). In the Dataset view, under “Who controls access to this dataset”, click on the link that allows you to access the application form using SD Apply. SD Apply is a service for applying access rights to sensitive datasets stored at CSC. For more information about SD Apply and the application process, please check [SD Apply user guide](./sd-apply.md).
-[![EGA webpage study and dataset view](images/fega/fega_search.png)](images/fega/fega_search.png)
-
-!!! note
-    In the EGA webpage, you can also find datasets that are hosted outside Finland, in central EGA or other FEGA nodes. However, this workflow is specific for datasets that are hosted in Finnish FEGA. 
 
 ## Step 2: Log in to SD Apply
 Log in to SD Apply either with user identity federation systems (Haka, Virtu and ELIXIR login) or with CSC account. Remember to always use the same identity provider when you log in to SD Apply because all your actions are connected to your login identity.
@@ -131,8 +130,7 @@ After you have sent the application, it will be forwarded to the Data Access Com
 [![SD Apply application form](images/fega/fega_apply.png)](images/fega/fega_apply.png)
 
 ## Step 5: Set up your Desktop
-Once your application has been approved, you will receive a notification and further instructions via email. You can now access the data in SD Desktop, a private cloud computing environment part of CSC Sensitive Data Services for research. For more information about SD Desktop, check [SD Desktop user guide](./sd_desktop.md). Login to SD Desktop is possible using CSC account, Haka or ELIXIR login. Use the same user account you have used for SD Apply login. After entering your username and passworod, you need to verify your identity (or Multi factor Authentication, MFA) by entering the verification code provided via a mobile application.  
-[![SD Desktop login](images/fega/desktop_login.png)](images/fega/desktop_login.png)
+Once your application has been approved, you will receive a notification and further instructions via email. You can now access the data in SD Desktop, a private cloud computing environment part of CSC Sensitive Data Services for research. For more information about SD Desktop, check [SD Desktop user guide](./sd_desktop.md). 
 
 ## Step 6: Access the data
 Once you sign in to your virtual Desktop, you can access the data using Data Gateway application. Open the application on your Desktop and select SD Apply. Add your CSC credentials. Click on *Login* and next click on *Continue*. In the new window, at the end of the page, click on *Create Data Gateway*. The application will create a new folder called Projects accessible from your Desktop or programmatically. To access the data, click on *Open folder*.  
