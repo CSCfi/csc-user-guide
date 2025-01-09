@@ -486,12 +486,10 @@ nav:
           - Publish with Federated EGA:
               - data/sensitive-data/federatedega.md
               - Publish data: data/sensitive-data/fega-submission.md
-              - Data access application: data/sensitive-data/fega-application.md
-              - Data access approval for DAC: data/sensitive-data/fega-dac.md
           - Reuse with SD Apply:
               - data/sensitive-data/sd-apply.md
-              - Apply for access: data/sensitive-data/sd-apply-access.md
-              - Data access approval for DAC: data/sensitive-data/sd-apply-approval.md
+              - Apply access to FEGA data: data/sensitive-data/sd-apply-access.md
+              - Approve access to FEGA data: data/sensitive-data/sd-apply-approval.md
       - Secondary use of health and social data:
           - Start here:
               - data/sensitive-data/secondarydata-access.md
