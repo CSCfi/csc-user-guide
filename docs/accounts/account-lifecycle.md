@@ -3,7 +3,7 @@
 The password of your CSC user account is valid for one year. You will receive
 notifications from CSC when your password is about to expire. An expired
 password will not lock you out of your CSC user account if you use one of the
-following two login methods: Haka, Virtu or an SSH key pair. These three login
+following three login methods: Haka, Virtu, or an SSH key pair. These three login
 methods effectively bypass the need for a CSC user account password.
 Nevertheless, **we strongly recommend you to change your password in time**.
 
