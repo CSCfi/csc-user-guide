@@ -1,26 +1,30 @@
 # Using SD Connect to receive sensitive research data
 
+This document provides instructions of how a research group can use SD Connect to receive **sensitive data** from external 
+data provider like a sequencing center. The procedure presented here is applicaple in cases where the data will analyzed in
+SD Desktop or in a computer that has internet connection.
 
-SD Connect is part of the CSC sensitive data services that provide 
-free-of-charge sensitive data processing environment for academic research projects at Finnish universities and research institutes. 
-SD Connect adds an automatic encryption layer to the the Allas object storage system of CSC, so that it can be used for storing sensitive data. SD Connect can be used for storing any kind of sensitive research data during the active working phase of a research project. 
-SD Connect is however not intended for data archiving. You must remove your data from Allas SD Connect the research project ends.
+In some sensitive data environments, internet connection is not availabe. In those cases, please check the alternative 
+approach, defined in:
+
+   * [Using Allas to recieve sensitive research data](./sequencing_center_tutorial.md)
+
+## SD Connect
+
+SD Connect is part of the CSC sensitive data services that provide free-of-charge sensitive data processing environment for 
+academic research projects at Finnish universities and research institutes. SD Connect adds an automatic encryption layer to the the Allas object storage system of CSC, so that it can be used for securely storing sensitive data. SD Connect can be used for storing any kind of sensitive research data during the active working phase of a research project. 
+SD Connect is however not intended for data archiving. You must remove your data from SD Connect when the research project ends.
 
 There is no automatic backup processes in SD Connect. In technical level SD Connect is very reliable and fault-tolerant, 
 but if you, or some of your project members, remove or overwrite some data in SD Connect, 
 it is permanently lost. Thus, you might consider making a backup copy of your data to some other location.
 
-This document provides an example of how a research group can use SD Connect to receive **sensitive data** from external 
-data provider like a sequencing center. 
-
-The steps 1 (Obtaining storage space in SD Conncet), and 2 (Generating encryption keys) require some work, 
-but they need to be done only once. Once you have the keys in place you can move directly to step 3 where you 
-prepare a new shared folder for retrieviung the data. 
+Please check the [SD Connect documentaion](./sd_connect.md) For more details abot 
 
 
 ## 1. Obtaining a storage space in SD Connect
 
-If you are already using SD Connect service, you can skip this chapter and start from [chapter 2](#2-generating-keys-for-encrypting-sensitive-data).
+If you are already using SD Connect service, you can skip this chapter and start from chapter 2.
 Otherwise, do following steps to get access to SD Connect.
 
 
