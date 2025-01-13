@@ -49,7 +49,7 @@ Desk](../../support/contact.md) for a general installation available to all user
 
 By default, the files panel shows your home directory on Puhti. To change the directory, click the three dots on the top right of the panel. In the box that appears, type the target directory, for example `/scratch/<project>`.
 
-![Changing RStudio Files panel directory](docs/img/rstudio_change_directory.png 'Changing RStudio Files panel directory')
+![Changing RStudio Files panel directory](../../img/rstudio_change_directory.png 'Changing RStudio Files panel directory')
 
 ## More information
 
