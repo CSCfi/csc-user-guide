@@ -10,7 +10,7 @@ With the SD Desktop service, you can create virtual computers for analysing sens
 
 ### 1. Log in to SD Desktop
 
-* [Log in](./sd-desktop-login.md) to SD Desktop.
+* Log in to SD Desktop.
 * Click **Go to SD Desktop Management**.
 
 ![Go to SD Desktop Management.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-Desktop_GoToManagement.png)
