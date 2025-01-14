@@ -1,7 +1,7 @@
 # Data management
 
 
-## SD Desktop, upgrade Havy Computation option, 15.01.2025
+## SD Desktop, upgrade Heavy Computation option, 15.01.2025
 
 We have updated the Heavy Computation virtual desktop option with the following specifications:
 
