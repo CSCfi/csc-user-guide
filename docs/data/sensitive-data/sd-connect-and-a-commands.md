@@ -18,13 +18,13 @@ in buckets and folders that don't contain other types of data.
 
 To open SD Connect compatible Allas connection you must add option *--sdc* the configurtion command. In CSC supercomputers the connecton is opened with commands:
 
-```test
+```bash
 module load allas
 allas-conf --sdc
 ```
 In local installations the connection is typically opened with commands like
 
-```
+```bash
 export PATH=/some-local-path/allas-cli-utils:$PATH
 source /some-local-path/allas-cli-utils/allas_conf -u your-csc-account --sdc
 ```
@@ -49,7 +49,7 @@ The SD Connect compatible Allas connection is now valid for next eight hours. An
 Data can be uploaded to SD Connect by using command *a-put* with option *--sdc*.
 For example to upload file *my-secret-table.csv" to location *2000123-sens/dataset2* in Allas use command:
 
-```text
+```bash
 a-put --sdc my-secret-table.csv -b 2000123-sens/dataset2
 ```
 
@@ -60,7 +60,7 @@ stored as tar files, if --asis option is not used.
 
 Command: 
 
-```text
+```bash
 a-put --sdc my-secret-directory -b 2000123-sens/dataset2
 ```
 
@@ -68,7 +68,7 @@ Will produce SD connect object: 2000123-sens/dataset2/my-secret-directory.tar.c4
 
 For massive data uploads, you can use *allas-dir-to-bucket* in combination with option *--sdc*.
 
-```text
+```bash
 allas-dir-to-bucket --sdc my-secret-directory  2000123-new-sens
 ```
 
@@ -81,7 +81,7 @@ Data can be downloaded form Allas with command a-get. If SD Connect connection i
 
 So for example command: 
 
-```text
+```bash
 a-get 2000123-sens/dataset2/my-secret-table.csv.c4gh
 ```
 
@@ -89,7 +89,7 @@ Will produce local file: my-secret-table.csv
 
 And similarly command:
 
-```text
+```bash
 a-get 2000123-sens/dataset2/my-secret-directory.tar.c4gh
 ```
 
@@ -101,7 +101,7 @@ been stored using the new SD Connect that was taken in use in October 2024.
 For the older SD Connect files and other Crypt4gh encrypted files you still must
 provide the matching secret key with option *--sk*
 
-```
+```bash
 a-get --sk my-key.sec  2000123-sens/old-date/sample1.txt.c4gh
 ```
 
