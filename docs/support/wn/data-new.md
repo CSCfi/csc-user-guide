@@ -1,5 +1,24 @@
 # Data management
 
+
+## SD Desktop, upgrade Havy Computation option, 15.01.2025
+
+We have updated the Heavy Computation virtual desktop option with the following specifications:
+
+- Cores: 28
+
+- Memory: 176 GB
+
+- Root Disk: 80 GB
+
+- Identifier: hpc.6.28 core
+
+- Cost: 65 billing units/hour
+
+This change only affects new virtual desktops created after January 15. Existing desktops are not affected and will continue to operate as usual.
+
+
+
 ## SD Connect major upgrade, 7.10.2024
 
 On Monday October 7 SD Connect service has been upgraded. Please note, this upgrade will not affect your data. Files stored in SD Connect will remain accessible after the service break, but a new encryption protocol will be applied for new uploads. The new version is compatible with the current one, but there are **four actions required** on your part: ​​
