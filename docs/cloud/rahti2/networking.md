@@ -107,11 +107,45 @@ Unlike routes, the `LoadBalancer` service type makes it possible to expose servi
 
 - **Project Name**: Provide the exact name of the Rahti 2 project for which you want to enable LoadBalancer services.
 
+- **CSC Project Number**: The `csc_project` number that is used for Rahti Project.
+
 - **Use Case**: Clearly describe the use case, including:
     - The type of services you plan to expose (e.g., web applications, APIs).
-    - Any specific requirements or considerations.
+    - Any specific requirements or considerations. (e.g., how many ips)
 
 When your request is approved by the admins, you will receive the public IP address that can be used to access your services, and you can then proceed with the creation of the ```LoadBalancer``` service.
+Alternatively, you can use the following command to check the IP addresses that are assigned to your project. The information will be visible under `annotations.ip_pairs` field.
+
+```bash
+oc get ipaddresspools.metallb.io -n metallb-system <project_name> -o yaml
+```
+
+```bash
+apiVersion: metallb.io/v1beta1
+kind: IPAddressPool
+metadata:
+  annotations:
+    ip_pairs: |
+      192.168.191.X - 86.50.228.M
+      192.168.192.Y - 195.148.30.N
+  creationTimestamp: "XXXX-XX-XXTXX:XX:XXZ"
+  generation: 1
+  name: <project_name>
+  namespace: metallb-system
+  resourceVersion: "XXXXXX"
+  uid: XXXXXXX
+spec:
+  addresses:
+  - 192.168.191.X/32
+  - 192.168.192.Y/32
+  autoAssign: true
+  avoidBuggyIPs: false
+  serviceAllocation:
+    namespaces:
+    - <project_name>
+    priority: 1
+
+```
 
 For example, the following service definition exposes a MySQL service on the assigned public IP at port 33306.
 
@@ -182,7 +216,7 @@ On the web interface under `Developer`, go to the `Project` tab, press on `Servi
 ![rahti2](https://github.com/user-attachments/assets/3651fc81-682d-40d4-8a2e-bae639c1c81b)
 
 
-### Multiple LoadBalancer Services
+### Share the same LoadBalancer IP among Services
 
 It is also possible to expose multiple `LoadBalancer` services on the same public IP but on different ports, you can enable IP sharing by adding the `metallb.universe.tf/allow-shared-ip` annotation to services. The value of the annotation is a label of your choice. The services annotated with the same label will share the same IP. Here is an example configuration of two services that share the same IP address:
 
@@ -253,10 +287,10 @@ The procedure to achieve this is the following:
 
     ```
 
-    !!! Warning "Bug in OpenShift"
-        At this moment, with the Local policy activated, no traffic will be possible through this service. This is due to a bug in the current deployed version of OpenShift OKD. The expected fixed behaviour would be that access will continue to be open for any IP.
-
-        In addition, when `externalTrafficPolicy` is set to `Local`, only one service can be exposed using the external IP.
+    !!! Warning "Local Traffic Policy Limitations"
+        Rahti uses `L2Advertisement` mode in metallb. Fore more information please refer to ['Layer 2'](https://metallb.universe.tf/usage/#traffic-policies).
+   
+        Also note that, when `externalTrafficPolicy` is set to `Local`, only one service can be exposed using the external IP; i.e., the load balancer IP can not be shared among multiple services.
 
         For more information refer to the official article: [Understanding Openshift `externalTrafficPolicy: local` and Source IP Preservation](https://access.redhat.com/solutions/7028639)
 
@@ -285,7 +319,7 @@ The procedure to achieve this is the following:
       - Ingress
     ```
 
-    The `NetworkPolicy` above allows ingress traffic from the [CIDR](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) `188.184.0.0/16` which translates to the range [`188.184.0.0` - `188.184.255.255`], and from the single IP `137.138.6.31`. The destination of the traffic is limited by the `matchLabels` section. The label must be the same as the one used in the `LoadBalancer` service.
+    The above example of `NetworkPolicy` allows ingress traffic from the [CIDR](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) `188.184.0.0/16` which translates to the range [`188.184.0.0` - `188.184.255.255`], and from the single IP `137.138.6.31`. The destination of the traffic is limited by the `matchLabels` section. The label must be the same as the one used in the `LoadBalancer` service.
 
 ### Differences between a Route and a LoadBalancer service during deployment roll outs
 

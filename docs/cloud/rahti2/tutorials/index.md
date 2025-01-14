@@ -17,5 +17,6 @@
 * [Setup a HTTP redirection in Rahti](http-redirector.md)
 * [Short introduction to YAML](yaml_introduction.md)
 * [Webhooks](webhooks.md)
+* [4cat, deploying and adapting an application](4cat.md)
 
 We also have an [FAQ](../../../support/faq#rahti-2) for Rahti 2. Take a look at it.

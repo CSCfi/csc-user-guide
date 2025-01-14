@@ -9,6 +9,11 @@ tags:
 Machine learning framework for Python.
 
 !!! info "News" 
+    **20.12.2024** PyTorch 2.5.1 with ROCm 6.2 added to LUMI. Includes all
+    the usual packages plus experimental support for FAISS.
+    
+    **17.12.2024** PyTorch 2.5.1 added to Puhti and Mahti. Includes vLLM
+    and FAISS among many other updates.
 
     **19.9.2024** PyTorch 2.4.1 with ROCm 6.1 added to LUMI. The LUMI
     PyTorch module now includes [vLLM version
@@ -63,25 +68,26 @@ Machine learning framework for Python.
 
 Currently supported PyTorch versions:
 
-| Version | Module         | Puhti | Mahti | LUMI | Notes                      |
-|:--------|----------------|:-----:|:-----:|------|:---------------------------|
-| 2.4.1   | `pytorch/2.4`  | -     | -     | X    | default version            |
-| 2.4.0   | `pytorch/2.4`  | X     | X     | -    | New tykky-based wrappers   |
-| 2.3.1   | `pytorch/2.3`  | X     | X     | -    | New tykky-based wrappers   |
-| 2.2.2   | `pytorch/2.2`  | -     | -     | X    | default version            |
-| 2.2.1   | `pytorch/2.2`  | X     | X     | -    |                            |
-| 2.1.2   | `pytorch/2.1`  | -     | -     | X    |                            |
-| 2.1.0   | `pytorch/2.1`  | X     | X     | -    |                            |
-| 2.0.1   | `pytorch/2.0`  | -     | -     | X    |                            |
-| 2.0.0   | `pytorch/2.0`  | X     | X     | -    |                            |
-| 1.13.1  | `pytorch/1.13` | -     | -     | X    | limited multi-node support |
-| 1.13.0  | `pytorch/1.13` | X     | X     | -    |                            |
-| 1.12.0  | `pytorch/1.12` | X     | X     | -    |                            |
-| 1.11.0  | `pytorch/1.11` | X     | X     | -    |                            |
-| 1.10.0  | `pytorch/1.10` | (x)   | (x)   | -    |                            |
-| 1.9.0   | `pytorch/1.9`  | (x)   | (x)   | -    |                            |
-| 1.8.1   | `pytorch/1.8`  | (x)   | (x)   | -    |                            |
-| 1.7.1   | `pytorch/1.7`  | (x)   | -     | -    |                            |
+| Version | Module         | Puhti | Mahti | LUMI | Notes                         |
+|:--------|----------------|:-----:|:-----:|------|:------------------------------|
+| 2.5.1   | `pytorch/2.5`  | X     | X     | X    | Tykky-wrappers (Puhti, Mahti) |
+| 2.4.1   | `pytorch/2.4`  | -     | -     | X    | default version               |
+| 2.4.0   | `pytorch/2.4`  | X     | X     | -    | New tykky-based wrappers      |
+| 2.3.1   | `pytorch/2.3`  | X     | X     | -    | New tykky-based wrappers      |
+| 2.2.2   | `pytorch/2.2`  | -     | -     | X    | default version               |
+| 2.2.1   | `pytorch/2.2`  | X     | X     | -    |                               |
+| 2.1.2   | `pytorch/2.1`  | -     | -     | X    |                               |
+| 2.1.0   | `pytorch/2.1`  | X     | X     | -    |                               |
+| 2.0.1   | `pytorch/2.0`  | -     | -     | X    |                               |
+| 2.0.0   | `pytorch/2.0`  | X     | X     | -    |                               |
+| 1.13.1  | `pytorch/1.13` | -     | -     | X    | limited multi-node support    |
+| 1.13.0  | `pytorch/1.13` | X     | X     | -    |                               |
+| 1.12.0  | `pytorch/1.12` | X     | X     | -    |                               |
+| 1.11.0  | `pytorch/1.11` | X     | X     | -    |                               |
+| 1.10.0  | `pytorch/1.10` | (x)   | (x)   | -    |                               |
+| 1.9.0   | `pytorch/1.9`  | (x)   | (x)   | -    |                               |
+| 1.8.1   | `pytorch/1.8`  | (x)   | (x)   | -    |                               |
+| 1.7.1   | `pytorch/1.7`  | (x)   | -     | -    |                               |
 
 Includes [PyTorch](https://pytorch.org/) and related libraries with
 GPU support via CUDA/ROCm.

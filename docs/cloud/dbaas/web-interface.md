@@ -10,7 +10,8 @@ Now you can define what settings you want for your database:
 1. `Instance name` - What ever you want to name the instance.
 2. `Volume size` - How much disk space you will need for your database. If you just want to test the DBaaS then 1 GiB is probably enough. To increase the disk size later, downtime is required for the database. If you already know how much data you will use then it is easy to estimate how large volume you need.
 3. `Volume type` - This can be left empty.
-4. `Datastore` - What type of database you want. It is recommend to use the latest version of your preferred database, if you don't have a specific reason for using an older version. PostgreSQL is the only available database at the moment.
+4. `Datastore` - What type of database you want. It is recommend to use the latest version of your preferred database, if you don't have a specific reason for using an older version. 
+Currently Pukki supports [PostgreSQL](postgresql.md) and [MariaDB](mariadb.md).
 5. `Flavor` - How large database instances you want. For small use cases the `standard.small` is probably enough. If you later find out that it is not large enough you can always change it later. Changing flavor will require downtime.
 6. `Locality` - Is not needed. In the future DBaaS will support clustered databases and at that point anti-affinity should be the preferred option in most cases.
 
@@ -33,6 +34,7 @@ On the fourth page `Advanced`:
 15.  Now you can go to the database specific documentation to find out further instructions on how to use the database:
 
 	* [PostgreSQL](postgresql.md)
+	* [MariaDB](mariadb.md)
 
 ## Modify user accounts in the database instance
 
