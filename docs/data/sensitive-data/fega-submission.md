@@ -22,7 +22,7 @@ To begin the submission process, please fill in the [general information form](h
     
     - Please use the same email thread throughout the whole submission process.
     
-## Step 2: Legal agreements 
+## Step 2: Legal agreements and Data Access Committee and Policies
 
 Data deposition to the Finnish Federated EGA requires a series of legal agreements: a Service Agreement for Federated EGA and a data Access Agreement. The required legal documents state the roles of a data processor and a data controller, which are defined in the General Data Protection Regulation (GDPR). CSC acts as a data processor, while in most research projects, the data controller is an academic organization or other legal entity. The ownership of the data does not change by using this service.
 
@@ -31,6 +31,8 @@ Submitting data to FEGA is covered by the [free-of-charge](https://research.csc.
 * **Service agreement for Federated EGA**: your organization (or data controller) must have a specific service agreement with CSC (data processor) before accessing the Finnish Federated EGA service. This service agreement includes the Data Processing Agreement (DPA), which outlines the specifics of data processing, such as its scope and purpose, as well as the rights and duties between the controller and the processor. Your organization's legal service will assist you in outlining these necessary agreements. If more support is needed, please contact us at [CSC Service Desk](../../support/contact.md) (subject: Federated EGA) and provide the contact information for your organization's legal representative.
 
 * **Data Access Agreement**: The Data Access Agreement (DAA) is a contract between the Data Access Committee (DAC) and an applicant seeking access to the data for reuse. Through the DAA, you can define conditions and restrictions for data reuse, including policies governing data use, publication, download, and access. Each submitted dataset will be linked to this agreement (refer to Step 6: Data Access Committee and Policy Registration below). The DAA might also include a data transfer agreement, necessary when researchers from non-EU/non-EEA regions access the data via SD Desktop. For further information, please contact your home organization's legal services. You can find an example template [here](https://ega-archive.org/assets/files/Example_DAA.doc).
+
+* **Data Access Committee and Policies**: Data Access Committee (DAC) and Policies are managed by data controller, which is usually your home organization. Data access as well as DAC and Policy information are managed in a separate service called SD Apply. To make sure your organization has a suitable DAC and Policies for your dataset, contact your own organization's representatives or [CSC Service Desk](../../support/contact.md) for further guidance.
 
 
 <iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/XXOph-0wacc?si=9NWFpr-LjF_d4f2W" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -147,25 +149,7 @@ or
 
 4. Please inform the Finnish FEGA helpdesk via email ([CSC Service Desk](../../support/contact.md)) when you have completed the data encryption and upload to Finnish FEGA. You will receive further instructions for the metadata submission.
 
-## Step 6: Data Access Committee and Policy registration
-
-Data Access Committee (DAC) and Policy are created by CSC service desk separately from other metadata. DAC and policy must be finalised before they can be added to the metadata submission.
-
-To register DAC and Policy for your dataset, contact [CSC Service Desk](../../support/contact.md). For registration, you will need
-
-1. names and email addresses of all the Data Access Committee members;
-2. Data Access Agreement;
-3. other necessary information defining the conditions of data reuse, e.g. DUO codes; and
-4. data application link for each dataset (provided by CSC helpdesk).
-
-### Dataset application link
-
-After uploading the data to Finnish FEGA, you will receive a dataset application link for each dataset via email from the CSC Service Desk.
-
-!!! note
-    If someone wants to apply access to your dataset stored in Finnish FEGA, they must click the dataset application link on the EGA website. The link will direct the user to the application form in SD Apply. SD Apply is a service for applying access rights to sensitive datasets stored at CSC. There is a separate [guide](./fega-application.md) for applying data access.
-
-## Step 7: Metadata submission
+## Step 6: Metadata submission
 
 Next, you can describe all the information related to your study, non-sensitive public metadata, using the [Finnish FEGA submitter portal](https://submission.finland.ega-archive.org/) or programmatically. The public metadata will be published on the EGA website to facilitate data discovery and re-use.
 
@@ -194,13 +178,13 @@ After data release, each of these objects will be assigned with a permanent iden
 
 !!! note
     
-    - **Data Access Committee (DAC)** and **Policy** need to be created by CSC helpdesk before they can be added to the metadata in the submitter portal. DAC is always associated with a Policy, and by selecting a Policy for a dataset in the metadata submitter portal, you also select the DAC linked to that specific Policy.
+    - Dataset specific **Policy** item for the metadata submission need to be created separately by CSC helpdesk before it can be selected in the submitter portal. This Policy metadata item links the dataset to the data access application created by your organisation in SD Apply (see [Step 2](./fega-submission.md#step-2-legal-agreements)).
     
     - **Study**, **Samples**, and **Experiment** metadata can be registered before uploading files, while **Run** and **Analysis** objects cannot be registered before the files have been uploaded to Finnish FEGA. You can choose **Policy** for your submission only after you have registered all the other metadata, when you are registering **Dataset** metadata.
     
     - If you are performing *array-based submission(s)*, the submitter portal should only be used to register the Study, Samples, and Dataset metadata objects. In contrast, the other metadata objects need to be registered using an excel template.
     
-## Step 8: Data release
+## Step 7: Data release
 To finalize your submission, write to [CSC Service Desk](../../support/contact.md) to confirm that the submission can be released and add the following information from the submitter portal:
 
 - Name of the submission (as on the submitter portal)
@@ -212,3 +196,6 @@ To finalize your submission, write to [CSC Service Desk](../../support/contact.m
 - Appropriate Data Use Ontology codes (DUO). You can find more information in Data Use Conditions on [EGA webpage](https://ega-archive.org/access/data-access-committee/data-use-ontology/). 
 
 CSC helpdesk will complete the release process. You will receive confirmation of successful submission and accessions suitable for publication, grants, etc. from the CSC helpdesk.
+
+!!! note
+    If someone wants to apply access to your dataset stored in Finnish FEGA, they must click the dataset application link on the EGA website. The link will direct the user to the application form in SD Apply. SD Apply is a service for applying and managing access rights to sensitive datasets stored at CSC. There is a separate [guide](./fega-application.md) for applying data access.
