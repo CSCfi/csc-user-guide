@@ -11,9 +11,9 @@ We have updated the Heavy Computation virtual desktop option with the following 
 
 - Root Disk: 80 GB 
 
-- Identifier: hpc.6.28 core (previuosly 5.32)
+- Identifier: hpc.6.28 core (previously 5.32)
 
-- Cost: 65 billing units/hour (previuosly 52)
+- Cost: 65 billing units/hour (previously 52)
 
 This change only affects new virtual desktops created after January 15. 
 
