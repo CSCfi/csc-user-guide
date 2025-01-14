@@ -5,17 +5,19 @@
 
 We have updated the Heavy Computation virtual desktop option with the following specifications:
 
-- Cores: 28
+- Cores: 28 (previously 32)
 
-- Memory: 176 GB
+- Memory: 176 GB (previously 116)
 
-- Root Disk: 80 GB
+- Root Disk: 80 GB 
 
-- Identifier: hpc.6.28 core
+- Identifier: hpc.6.28 core (previuosly 5.32)
 
-- Cost: 65 billing units/hour
+- Cost: 65 billing units/hour (previuosly 52)
 
-This change only affects new virtual desktops created after January 15. Existing desktops are not affected and will continue to operate as usual.
+This change only affects new virtual desktops created after January 15. 
+
+Existing virtual desktops are not affected and will continue to operate as usual.
 
 
 
