@@ -125,7 +125,7 @@ Here’s a table summarizing the billing units required for using **SD desktop**
 |----------------|---------------------------|--------------------------|------------------------|
 | Small Computation | 5.2 | 22,464 | 44,928 |
 | Medium Computation | 10.4 | 44,928 | 89,856 |
-| Heavy Computation | 52 | 224,640 | 449,280 |
+| Heavy Computation | 65 | 280,800 |  561,600 |
 | Small GPU Computation | 120 | 518,400 | 1,036,800 |
 | Big Picture project | 159 | 696,467 | 1,392,934 |
 
