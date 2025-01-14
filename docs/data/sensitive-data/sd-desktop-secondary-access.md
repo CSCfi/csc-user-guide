@@ -32,9 +32,6 @@ Once a virtual desktop is created, each CSC project member can access it through
 
 * In the next window click **Open folder** to view all files stored in SD Connect or SD Apply. Files are available in read-only mode for secure access. To view them, right-click the file and select the desired application to open it.
 
-!!! Note
-    In SD Desktop, **you can access only encrypted files.** Accessing unencrypted data or files encrypted only with your public encryption key will result in an error.
-
 ![Gateway open folder](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/DesktopSec_GatewayAccess2.png)
 
 ### 2. Import a copy of the files to your virtual desktop's volume
@@ -74,7 +71,7 @@ Now all project members with access can view and analyze files.
 
 ### 4. Close Data Gateway
 
-You can now disconnect the Data Gateway connection if no further data accessor import are needed by clicking **Disconnect and sign out**.
+You can now disconnect the Data Gateway connection by clicking **Disconnect and sign out** if no further data import are needed at this point.
 
 !!! Note
     If more than 10 Data Gateway connection are left open, Data Gateway will stop working. In this case, [contact CSC Service Desk](../../support/contact.md) (subject: SD Desktop).
