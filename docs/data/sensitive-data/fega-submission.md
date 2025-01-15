@@ -56,7 +56,7 @@ Before uploading the data to FEGA, you must prepare the datasets and verify the 
     
 **Sensitive Data**:
 
-- **sequence data**: CRAM, BAM, FASTQ, VCF formats
+- **sequence data**: CRAM, BAM, FASTQ formats
 
 - **metagenomics**: EGA has adopted the suite of [Minimum Information about any (x) Sequence (MIxS)](https://www.gensc.org/pages/projects/mixs-gsc-project.html) standards to describe data of this type.
 
