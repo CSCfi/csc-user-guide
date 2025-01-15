@@ -150,7 +150,7 @@ or
 
 ## Step 6: Metadata submission
 
-Next, you can describe all the information related to your study, non-sensitive public metadata, using the [Finnish FEGA submitter portal](https://submission.finland.ega-archive.org/) or programmatically. The public metadata will be published on the EGA website to facilitate data discovery and re-use.
+Next, you can describe all the information related to your study, i.e. non-sensitive public metadata, by using the [Finnish FEGA submitter portal](https://submission.finland.ega-archive.org/) or programmatically. The public metadata will be published on the EGA website to facilitate data discovery and re-use.
 
 You can get an introduction to the submitter portal from the video below or by taking the tour available in the portal by clicking the yellow book icon in the top right corner while you are logged in.
 
