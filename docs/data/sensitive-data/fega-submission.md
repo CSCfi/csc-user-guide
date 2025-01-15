@@ -182,15 +182,7 @@ After data release, each of these objects will be assigned with a permanent iden
     - **Study**, **Samples**, and **Experiment** metadata can be registered before uploading files, while **Run** and **Analysis** objects cannot be registered before the files have been uploaded to Finnish FEGA. You can choose **Policy** for your submission only after you have registered all the other metadata, while you are registering **Dataset** metadata.
     
 ## Step 7: Data release
-To finalize your submission, write to [CSC Service Desk](../../support/contact.md) to confirm that the submission can be released and add the following information from the submitter portal:
-
-- Name of the submission (as on the submitter portal)
-
-- Study Accession number (EGAS)
-
-- Dataset Accession number (EGAD)
-
-- Appropriate Data Use Ontology codes (DUO). You can find more information in Data Use Conditions on [EGA webpage](https://ega-archive.org/access/data-access-committee/data-use-ontology/). 
+To finalize your submission, write to [CSC Service Desk](../../support/contact.md) to confirm that the submission can be released.
 
 CSC helpdesk will complete the release process. You will receive confirmation of successful submission and accessions suitable for publication, grants, etc. from the CSC helpdesk.
 
