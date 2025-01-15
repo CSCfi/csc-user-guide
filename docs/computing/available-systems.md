@@ -61,3 +61,7 @@ The selection of installed [scientific software](../apps/by_system.md#mahti) in
 Mahti is more limited than in Puhti.
 
 - [A more technical description of Mahti](systems-mahti.md)
+
+## Roihu
+
+TBA
