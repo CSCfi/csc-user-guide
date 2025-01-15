@@ -1,9 +1,9 @@
 # Running Nextflow pipelines on supercomputers
 
-[Nextflow](https://www.nextflow.io/) is a scientific wokrflow manager and provides built-in support for
+[Nextflow](https://www.nextflow.io/) is a scientific workflow manager and provides built-in support for
 HPC-friendly containers such as Apptainer (= Singularity). One of the advantages of Nextflow is that the actual pipeline functional logic is separated from the execution environment. The same script can therefore be executed in different environments by changing the execution environment without touching actual pipeline code. Nextflow uses `executor` information to decide where the job should be run. Once executor is configured, Nextflow submits each process to the specified job scheduler on your behalf.
 
-Default executor is `local` where processes are run in the computer where Nextflow is launched. Several other [executors](https://www.nextflow.io/docs/latest/executor.html) are supported, to CSC computing environment, best suit SLURM and HyperQueue executors.
+Default executor is `local` where processes are run in the computer where Nextflow is launched. Several other [executors](https://www.nextflow.io/docs/latest/executor.html) are supported, the CSC computing environments best suit SLURM and HyperQueue executors.
 
 There are many other high-throughput tools and workflow managers for scientific computing and selecting the right tool can sometimes be challenging. Please refer to our [high-throughput computing and workflows page](../../computing/running/throughput.md) to get an overview of relevant tools.
 
@@ -17,11 +17,12 @@ Nextflow itself is available as a module on Puhti, Mahti and LUMI. Specific vers
 
 #### Local installations
 
-By default, Nextflow expects that the analysis tools are available locally. Tools can be activated from existing [modules](../../apps/by_discipline.md) or [own custom module installations](../../computing/modules.md#using-your-own-module-files). See also how to create [create containers](../../computing/containers/creating.md).
+By default, Nextflow expects that the analysis tools are available locally. Tools can be activated from existing [modules](../../apps/by_discipline.md) or [own custom module installations](../../computing/modules.md#using-your-own-module-files). See also how to [create containers](../../computing/containers/creating.md).
     
 #### On-the-fly Apptainer installations
+
 Containers can be smoothly integrated with Nextflow pipelines. No additional
-modifications to Nextflow scripts are needed except enabling the
+modifications to Nextflow scripts are needed except for enabling the
 Apptainer engine in the Nextflow configuration
 file. Nextflow can pull remote container images as Apptainer
 from container registries on the fly. The remote container images are
@@ -38,7 +39,7 @@ Practical considerations:
 
 * Apptainer is installed on login and compute nodes and does not require loading a separate module on CSC supercomputers.
 * For binding folders or using other [Apptainer settings](https://www.nextflow.io/docs/latest/reference/config.html#apptainer) use `nextflow.config` file.
-* If you are directly pulling multiple Apptainer images on the fly, please use NVMe disk of a compute node for storing the Apptainer images. For that in your batch job file, first request NVMe disk and then set Apptainer tempory folders as environmental variables.
+* If you are directly pulling multiple Apptainer images on the fly, please use the NVMe disk of a compute node for storing the Apptainer images. For that in your batch job file, first request NVMe disk space and then set Apptainer temporary folders as environmental variables.
 
 ```bash title="batch_job.sh"
 #SBATCH --gres=nvme:100   # Request 100 GB of space to local disk
@@ -52,12 +53,12 @@ export APPTAINER_CACHEDIR=$LOCAL_SCRATCH
 
 ## Usage
 
-Nextflow pipelines can be run in different ways in supercomputering environment:
+Nextflow pipelines can be run in different ways in the supercomputer environment:
 
 1. [In interactive mode](../../computing/running/interactive-usage.md) with local executor, with limited resources. Useful mainly for debugging or testing very small workflows.
-2. With batch job and local executor. Useful for small and medium size workflows
+2. With batch job and local executor. Useful for small and medium size workflows.
 3. With batch job and SLURM executor. This can use multiple nodes and different SLURM partitions (CPU and GPU), but may create significant overhead, with many small jobs. Could be used, if each job step for each file takes at least 30 min.
-4. With batch job and HyperQueue as a sub-job scheduler. Can use multiple nodes in the same batch job allocation, most complex set up. Suits well for cases, when workflow includes a lot of small job steps with many input files (high-troughput computing).
+4. With batch job and HyperQueue as a sub-job scheduler. Can use multiple nodes in the same batch job allocation, most complex set up. Well-suited for cases, when the workflow includes a lot of small job steps with many input files (high-troughput computing).
 
 For general introduction to batch jobs, see [example job scripts for Puhti](../../computing/running/example-job-scripts-puhti.md).
 
@@ -94,7 +95,7 @@ process sayHello {
 
 workflow {
 
-    // Print  a greeting
+    // Print a greeting
     sayHello(greets)
 }
 
@@ -111,6 +112,7 @@ executor >  local (5)
 ```
 
 ### Running Nextflow pipeline with local executor interactively
+
 To run Nextflow in [interactive session](../../computing/running/interactive-usage.md):
 ```
 sinteractive -c 2 -m 4G -d 250 -A project_2xxxx  # replace actual project number here
@@ -151,7 +153,7 @@ sbatch nextflow_local_batch_job.sh
 
 ### Running Nextflow with SLURM executor 
 
-If the workflow includes only limited number of individual jobs/job steps [Slurm executor of Nextflow](https://www.nextflow.io/docs/latest/executor.html#slurm) could be considered.
+If the workflow includes only limited number of individual jobs/job steps [SLURM executor of Nextflow](https://www.nextflow.io/docs/latest/executor.html#slurm) could be considered.
 
 The first batch job file reserves resources only for Nextflow itself. Nextflow then creates further SLURM jobs for workflow's processes. The SLURM jobs created by Nextflow may be distributed to several nodes of a supercomputer and also to use different partitions for different workflow rules, for example CPU and GPU. SLURM executor should be used only, if the job steps are at least 20-30 minutes long, otherwise it may overload SLURM.
 
@@ -185,7 +187,7 @@ Create the batch job file, note the usage of a profile.
 #SBATCH --time=00:15:00            # Change your runtime settings
 #SBATCH --partition=test           # Change partition as needed
 #SBATCH --account=<project>        # Add your project name here
-#SBATCH --cpus-per-task=1    # Change as needed
+#SBATCH --cpus-per-task=1          # Change as needed
 #SBATCH --mem-per-cpu=1G           # Increase as needed
 
 # Load Nextflow module
