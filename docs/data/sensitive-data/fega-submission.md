@@ -170,7 +170,7 @@ Using the submitter portal, you can register the following metadata objects:
 
 - **Dataset**. Contains the collection of data files organized under runs and/or analyses and to be subject to controlled access. Associated with Policy (including access application link), which is created by CSC helpdesk.
 
-After data release, each of these objects will be assigned with a permanent identifier or unique accession number.
+When you have filled in all metadata, you can finalize the submission, and the submission will move to Finnish FEGA helpdesk for approval and release. After data release, each of these objects will be assigned with a permanent identifier or unique accession number.
 
 !!! note
     
@@ -179,7 +179,7 @@ After data release, each of these objects will be assigned with a permanent iden
     - **Study**, **Samples**, and **Experiment** metadata can be registered before uploading files, while **Run** and **Analysis** objects cannot be registered before the files have been uploaded to Finnish FEGA. You can choose **Policy** for your submission only after you have registered all the other metadata, while you are registering **Dataset** metadata.
     
 ## Step 7: Data release
-To finalize your submission, write to [CSC Service Desk](../../support/contact.md) to confirm that the submission can be released.
+To have your submission approved and released, write to [CSC Service Desk](../../support/contact.md) to confirm that the submission can be released.
 
 CSC helpdesk will complete the release process. You will receive confirmation of successful submission and accessions suitable for publication, grants, etc. from the CSC helpdesk.
 
