@@ -150,28 +150,28 @@ or
 
 ## Step 6: Metadata submission
 
-Next, you can describe all the information related to your study, i.e. non-sensitive public metadata, by using the [Finnish FEGA submitter portal](https://submission.finland.ega-archive.org/) or programmatically. The public metadata will be published on the EGA website to facilitate data discovery and re-use.
+Next, you can describe all the information related to your study, i.e. non-sensitive public metadata, by using the [Finnish FEGA submitter portal](https://submission.finland.ega-archive.org/). The public metadata will be published on the EGA website to facilitate data discovery and re-use.
 
 You can get an introduction to the submitter portal from the video below or by taking the tour available in the portal by clicking the yellow book icon in the top right corner while you are logged in.
 
 
 <iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/eDTNIE8Ex0g?si=QJlYwfAGERAHN-e9" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-Log in to the submitter portal using the EGA credentials (username: usually your email address, and password).
+Log in to the submitter portal by using the EGA credentials (username: usually your email address, and password).
 
 Using the submitter portal, you can register the following metadata objects:
 
 - **Study**. Information about the sequencing study.
 
-- **Samples**. Information about the sequencing samples. You can also do a batch upload for samples.
+- **Samples**. Information about the sequencing samples in the experiment or analysis. You can also do a batch upload for samples.
 
 - **Experiments**. Information about the sequencing methods, protocols, and machines.
 
-- **Runs**. Samples, experiments, and files are linked through runs. Appropriate objects for FASTQ and BAM/CRAM submissions. You can also do a batch upload for runs.
+- **Runs**. Information about the files containing the raw data generated in a run of sequencing. Samples, experiments, and files are linked through runs. Appropriate objects for FASTQ and BAM/CRAM submissions. You can also do a batch upload for runs.
 
-- **Analysis**. References the analysis (BAM) files. Associated with samples and study. Analysis should be only be used for BAM/BAI pair, VCF and phenotype linkage to samples. The analysis is an EGA specific metadata object that links Samples, to Files.
+- **Analysis**. References the analysis files, which can include processed data (VCF), specific type of raw data (BAM/BAI or CRAM/CRAI) or phenotypic information. Associated with samples and study. The analysis is an EGA specific metadata object that links Samples to Files. If you don't have any analysis files, you can proceed without Analysis metadata.
 
-- **Dataset**. Contains the collection of runs/analysis data files to be subject to controlled access. Associated with Policy, which is created by CSC helpdesk.
+- **Dataset**. Contains the collection of data files organized under runs and/or analyses and to be subject to controlled access. Associated with Policy (including access application link), which is created by CSC helpdesk.
 
 After data release, each of these objects will be assigned with a permanent identifier or unique accession number.
 
@@ -179,9 +179,7 @@ After data release, each of these objects will be assigned with a permanent iden
     
     - Dataset specific **Policy** item for the metadata submission need to be created separately by CSC helpdesk before it can be selected in the submitter portal. This Policy metadata item links the dataset to the data access application created by your organisation in SD Apply (see [Step 2](./fega-submission.md#step-2-legal-agreements-data-access-committee-and-policies)).
     
-    - **Study**, **Samples**, and **Experiment** metadata can be registered before uploading files, while **Run** and **Analysis** objects cannot be registered before the files have been uploaded to Finnish FEGA. You can choose **Policy** for your submission only after you have registered all the other metadata, when you are registering **Dataset** metadata.
-    
-    - If you are performing *array-based submission(s)*, the submitter portal should only be used to register the Study, Samples, and Dataset metadata objects. In contrast, the other metadata objects need to be registered using an excel template.
+    - **Study**, **Samples**, and **Experiment** metadata can be registered before uploading files, while **Run** and **Analysis** objects cannot be registered before the files have been uploaded to Finnish FEGA. You can choose **Policy** for your submission only after you have registered all the other metadata, while you are registering **Dataset** metadata.
     
 ## Step 7: Data release
 To finalize your submission, write to [CSC Service Desk](../../support/contact.md) to confirm that the submission can be released and add the following information from the submitter portal:
