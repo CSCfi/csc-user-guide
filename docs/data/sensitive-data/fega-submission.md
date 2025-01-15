@@ -105,7 +105,7 @@ or
 
 6. Click on *Encrypt and upload files*. The tool will ask the SFTP Passphrase, which corresponds to your Central EGA account password. After clicking on OK, the application will start the data encryption and upload. 
 
-7. The application is not provided with a progress bar. Data encryption and upload can take minutes or up to several hours, depending on the size of the dataset. Data upload is successfully finished when the activity log in the application visualises the following message: Disconnecting SFTP. SFTP has been disconnected.
+7. The application is not provided with a progress bar. Data encryption and upload can take minutes or up to several hours, depending on the size of the dataset. Data upload is successfully finished when the activity log in the application visualises the following message: ´Disconnecting SFTP. SFTP has been disconnected.´ When the process is complete, you can see the files in the submitter portal by going to the Files page from the top right corner menu. 
 
 [![Fi-FEGA upload application](images/fega/fega_upload.png)](images/fega/fega_upload.png)
 
@@ -146,9 +146,7 @@ or
 
     Data upload can take minutes or up to several hours, depending on the size of the dataset.
 
-3. Wait for the process to be completed before closing the connection. When the process is complete, you should see the files in the [submitter portal](https://submission.finland.ega-archive.org/) by going to Files from the menu. After you have confirmed that the process has completed, you can close the SFTP connection with `exit` command. It is important to disconnect when you have finished the upload.
-
-4. Please inform the Finnish FEGA helpdesk via email ([CSC Service Desk](../../support/contact.md)) when you have completed the data encryption and upload to Finnish FEGA. You will receive further instructions for the metadata submission.
+3. Wait for the process to be completed before closing the connection. When the process is complete, you should see the files in the [submitter portal](https://submission.finland.ega-archive.org/) by going to the Files page from the top right corner menu. After you have confirmed that the process has completed, you can close the SFTP connection with `exit` command. It is important to disconnect when you have finished the upload.
 
 ## Step 6: Metadata submission
 
