@@ -5,9 +5,6 @@ Below, you will find step-by-step instructions for uploading, describing, and pu
 !!! Note
     Before you begin, it's crucial to ensure that a service agreement specific to the Federated EGA service is in place between CSC (as data processor) and your home organization (or data controller). Please make sure, before starting to submit any data, that all the legal agreements are in place. You can do so by contacting [CSC Service Desk](../../support/contact.md) (subject: Federated EGA) or your home organization's legal services.
 
-## Submission process overview 
-[![FEGA submission process overview](images/fega/fega_submission_overview.png)](images/fega/fega_submission_overview.png)
-
 ## Step 1: General information of the submission
 
 Submission to the Finnish Federated EGA service starts with contacting the Finnish FEGA helpdesk and providing the general information of the submission.
@@ -68,7 +65,7 @@ Before uploading the data to FEGA, you must prepare the datasets and verify the 
 - **linking files**: If non-sensitive datasets belonging to the same study have been submitted to a specific repository, the samples can be linked to sensitive information submitted to FEGA for the same sample. The datasets should have different anonymised sample IDs in each archive. The IDs obtained in the appropriate archive can then be referenced in the FEGA submission. For example, the sample ID can be linked in an additional `.txt` file that can be added to one of the sensitive datasets above.
 
 !!! note
-    FEGA doesn't support submitting **array data**. You can read more information about array based submissions, and how to submit array based datasets on [EGA web page](https://ega-archive.org/submission/metadata/submission/array/).
+    FEGA doesn't support **array data**. You can read more information about array based submissions, and how to submit array based datasets on [EGA web page](https://ega-archive.org/submission/metadata/submission/array/).
 
 **Non-sensitive data**:
 
@@ -173,7 +170,7 @@ Using the submitter portal, you can register the following metadata objects:
 
 - **Dataset**. Contains the collection of data files organized under runs and/or analyses and to be subject to controlled access. Associated with Policy (including access application link), which is created by CSC helpdesk.
 
-After data release, each of these objects will be assigned with a permanent identifier or unique accession number.
+When you have filled in all metadata, you can finalize the submission, and the submission will move to Finnish FEGA helpdesk for approval and release. After data release, each of these objects will be assigned with a permanent identifier or unique accession number.
 
 !!! note
     
@@ -182,15 +179,7 @@ After data release, each of these objects will be assigned with a permanent iden
     - **Study**, **Samples**, and **Experiment** metadata can be registered before uploading files, while **Run** and **Analysis** objects cannot be registered before the files have been uploaded to Finnish FEGA. You can choose **Policy** for your submission only after you have registered all the other metadata, while you are registering **Dataset** metadata.
     
 ## Step 7: Data release
-To finalize your submission, write to [CSC Service Desk](../../support/contact.md) to confirm that the submission can be released and add the following information from the submitter portal:
-
-- Name of the submission (as on the submitter portal)
-
-- Study Accession number (EGAS)
-
-- Dataset Accession number (EGAD)
-
-- Appropriate Data Use Ontology codes (DUO). You can find more information in Data Use Conditions on [EGA webpage](https://ega-archive.org/access/data-access-committee/data-use-ontology/). 
+To have your submission approved and released, write to [CSC Service Desk](../../support/contact.md) to confirm that the submission can be released.
 
 CSC helpdesk will complete the release process. You will receive confirmation of successful submission and accessions suitable for publication, grants, etc. from the CSC helpdesk.
 
