@@ -43,8 +43,8 @@ Production Mapping, Tracking Analyst, Workflow Manager, Location Referencing Des
 
 ------------------------------------------------------------------------
 
-## ArcGIS  Desktop and ArcGIS Pro
-All old ArcGIS Desktop users are encouraged to [move to ArcGIS Pro](https://support.esri.com/en/arcmap-esri-plan), because active development of ArcGIS Desktop has stopped.
+!!! note 
+Development of ArcGIS Desktop has stopped and it will be officially retired on 1.3.2026 and licencies are likely unavailable from 1.1.2026. ArcGIS Desktop users are encouraged to [move to ArcGIS Pro](https://support.esri.com/en/arcmap-esri-plan) during 2025. 
 
 ### Installation
 -   [Installation guidelines for ArcGIS Pro](https://pro.arcgis.com/en/pro-app/latest/get-started/install-and-sign-in-to-arcgis-pro.htm) and [ArcGIS Desktop](https://desktop.arcgis.com/en/arcmap/latest/get-started/installation-guide/introduction.htm).
