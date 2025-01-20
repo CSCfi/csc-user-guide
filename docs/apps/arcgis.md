@@ -38,7 +38,7 @@ Software may be installed to the computers of the consortium member university a
 and students and may be used at home or during field work according to the user terms. The more detailed terms of
 use can be found from [ArcGIS site license agreement](../img/ArcGIS_education_Institution_terms_and_conditions_2020-2022.pdf).
 
-From 1.1.2025 following ArcGIS Desktop extensions are not available: Data Interoperability, Aviation Airports, Aviation Charting, Bathymetry, Data Reviewer, Defense Mapping, LocateXT, Maritime,
+From 1.1.2025 onward the following ArcGIS Desktop extensions are not available: Data Interoperability, Aviation Airports, Aviation Charting, Bathymetry, Data Reviewer, Defense Mapping, LocateXT, Maritime,
 Production Mapping, Tracking Analyst, Workflow Manager, Location Referencing Desktop (Pipeline) and Location Referencing Desktop (Roads&Hwy).
 
 ------------------------------------------------------------------------
