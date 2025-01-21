@@ -2,10 +2,6 @@
 
 Webhooks are URLs that allow triggering actions in a system. Rahti 2 supports webhooks to trigger rebuilds. This means that each BuildConfig is listening to a particular URL that includes a secret (more about that later), and that when this URL is called, a build will be triggered for a default branch.
 
-!!! info "Default branch name"
-
-    In Rahti 2 the default branch name is `master`. Branches named otherwise (e.g. GitHub's default value `main`) will be ignored, so make sure that both sides use the same branch name.
-
 There are few types of formats supported: Generic, GitHub, GitLab and Bitbucket. This means that if the source code of the application is in Gitlab, the Gitlab URL type must be selected.
 
 ![Triggers](../../img/trigger.drawio.svg)
@@ -29,6 +25,13 @@ Now you need to edit the build config (**Actions -> Edit BuildConfig**), and add
 When the `BuildConfig` is configured, you can get the URL via the webinterface. Using the `Developer` menu, go to the **Builds** page, and select the `BuildConfig`. In the `Webhooks` section, you will see "Copy URL with Secret". Click on it, and the URL will be in your clipboard.
 
 ![Copy URL with Secret](../../img/webhooks.png)
+
+
+!!! Warning "Default branch names do not match"
+
+    You need to make sure that the branches in both sides (`Rahti2` and `GitHub`) match. In Rahti 2 the default branch name is `master`. But in GitHub the default branch name is `main`. This means that by default, any change in `main` will be ignored by Rahti2.
+
+    If you want changes in `main` to be picked up by Rahti2, you need to: Edit the `BuildConfig`, click in `Show advanced Git options`, and add the correct branch name (in this case `master`) under `Git reference`.
 
 ## GitHub
 
