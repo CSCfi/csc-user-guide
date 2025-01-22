@@ -1,5 +1,11 @@
 # Working with your Desktop: tips and essentials
 
+## Prerequisites
+* [Create virtual desktop](sd-desktop-create.md)
+* [Access virtual desktop](sd-desktop-access-vm.md)
+
+## Work and collaborate in a virtual desktop
+
 Once a virtual desktop has been created, all members of your CSC project can access it. When you log in, you will enter a virtual computer running on a Linux operating system. If you are new to Linux, it might feel a little different from other systems like Windows or macOS.
 
 No technical experience is required to work with it, but while Windows is designed to be user-friendly from the start, Linux can have a learning curve, especially if you need to use the command line. 
@@ -7,47 +13,30 @@ No technical experience is required to work with it, but while Windows is design
 The guide below provides clear instructions to help you get comfortable with both Linux and the SD Desktop’s security setup:
 
 - [Security-related features and limitations](sd-desktop-working.md#security-related-features-and-limitations)
-- [Accessing virtual desktop](sd-desktop-working.md#accessing-virtual-desktop)
 - [Introduction to Linux and virtual desktop](sd-desktop-working.md#introduction-to-linux-and-virtual-desktop)
 - [Copy-paste from your laptop to virtual desktop](sd-desktop-working.md#copy-paste-from-your-laptop-to-virtual-desktop)
 - [Default software available in SD Desktop](sd-desktop-working.md#default-software-available-in-sd-desktop)
 - [Accessing RStudio from virtual desktop](sd-desktop-working.md#accessing-rstudio-from-virtual-desktop)
-- [Logging out from virtual desktop](sd-desktop-working.md#logging-out-from-virtual-desktop)
-- [Reconnecting to an analysis session](sd-desktop-working.md#reconnecting-to-an-analysis-session)
 
 ## Security-related features and limitations
 
 SD Desktop is a secure environment designed specifically for analysing sensitive data and some features may work differently than a regular computer. For each of these features, a specific step-by-step guide is available. If you are using the service for the first time, reviewing these guides will help you become familiar with how everything works.
 
-- **Isolated from the internet**: your virtual desktop is completely isolated from the internet. This means that although you can open a web browser like Firefox, you will not be able to access websites or online repositories directly. This feature helps keep your data safe by reducing the risk of online threats.
+!!! Note
 
-- **Encrypted file only**: Only encrypted files are accessible from your virtual desktop. This means unencrypted files will not appear in your virtual desktop and you will first need to encrypt them using SD Connect. All files exported from the virtual desktop also need to be encrypted. This adds an extra layer of protection for your data.
+    - **Isolated from the internet**: your virtual desktop is completely isolated from the internet. This means that although you can open a web browser like Firefox, you will not be able to access websites or online repositories directly. This feature helps keep your data safe by reducing the risk of online threats.
+
+    - **Encrypted file only**: Only encrypted files are accessible from your virtual desktop. This means unencrypted files will not appear in your virtual desktop and you will first need to encrypt them using SD Connect. All files exported from the virtual desktop also need to be encrypted. This adds an extra layer of protection for your data.
+    
+    - **Controlled file access and export with Data Gateway**: Each project member can import files to the virtual desktop for analysis by using a  secure application called [Data Gateway](./sd-desktop-access.md). Files can be imported only via the SD Connect (directly, by upload) or SD Apply service (upon approval for reuse). Data export, however, is limited to the CSC Project Manager for additional security.
   
-- **Controlled file access and export with Data Gateway**: Each project member can import files to the virtual desktop for analysis by using a  secure application called [Data Gateway](./sd-desktop-access.md). Files can be imported only via the SD Connect (directly, by upload) or SD Apply service (upon approval for reuse). Data export, however, is limited to the CSC Project Manager for additional security.
+    - **Limited storage space**: The virtual desktop is designed primarily for data analysis and has limited storage space. To expand storage, you can add an external volume (such as an external hard drive) during the desktop setup. This external volume is accessible to all project members and also serves as a backup for imported data.
   
-- **Limited storage space**: The virtual desktop is designed primarily for data analysis and has limited storage space. To expand storage, you can add an external volume (such as an external hard drive) during the desktop setup. This external volume is accessible to all project members and also serves as a backup for imported data.
+    - **Open source software only**: Only open-source software can be installed in the virtual desktop, as it does not currently support licensed or proprietary software. Each virtual desktop comes with a default set of pre-installed software, but you can customise it further using an easy-to-use application or, for advanced users, through Apptainer. If the software you need is not listed below, please [contact CSC Service Desk](../../support/contact.md) for support (subject: SD Desktop).
   
-- **Open source software only**: Only open-source software can be installed in the virtual desktop, as it does not currently support licensed or proprietary software. Each virtual desktop comes with a default set of pre-installed software, but you can customise it further using an easy-to-use application or, for advanced users, through Apptainer. If the software you need is not listed below, please [contact CSC Service Desk](../../support/contact.md) for support (subject: SD Desktop).
+    - **Copy-paste restrictions**: For security reasons, copy-pasting from your own computer to SD Desktop is limited. You can still transfer text with a few extra steps, as explained in the copy-paste instructions below. These restrictions ensure that no unauthorized data is copied or exported from the secure environment.
   
-- **Copy-paste restrictions**: For security reasons, copy-pasting from your own computer to SD Desktop is limited. You can still transfer text with a few extra steps, as explained in the copy-paste instructions below. These restrictions ensure that no unauthorized data is copied or exported from the secure environment.
-  
-- **Shared file access for team members**: Any files saved in the shared-directory or on the external volume can be accessed by other project members working in the virtual desktop, allowing safe collaboration.
-
-
-## Accessing virtual desktop
-
-<iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/ZPee-2OC9Dw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-1. After [login](./sd-desktop-login.md), you will see all your virtual desktops listed at the front page, under *All connections*.
-
-2. Select project (e.g. `project_NNNNN`) and click the plus-sign.
-  
-3. Now you can see all desktops that belongs to this project (`desktopname-NNNNNNNNNN`). Access virtual desktop by clicking the name.
-
-When you open the connection, a virtual computing environment will open in your browser. If you are accessing the virtual desktop for the first time, you will see the panel getting started, from which you can, for example, adjust the screen resolution.
-
-![All connections](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Desktop_AllConnections.png)
-
+    - **Shared file access for team members**: Any files saved in the shared-directory or on the external volume can be accessed by other project members working in the virtual desktop, allowing safe collaboration.
 
 ## Introduction to Linux and virtual desktop
 
@@ -64,9 +53,6 @@ Linux is an open-source operating system, meaning it is free to use, and its cod
 Below is an image showing the basic functions of a virtual desktop. Click the image to open it in a new window.
 
 [![Virtual desktop](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Desktop_Overview.png)](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Desktop_Overview.png){ target="_blank" }
-
-
-
 
 
 
@@ -141,27 +127,6 @@ The computing environment i.e. virtual desktop (visible from your browser) is is
     Only files saved in the external volume are accessible to other project members using RStudio.
 
 ![Access R-Studio](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Desktop_RStudio2.png)
-
-
-
-## Logging out from virtual desktop
-
-1. In the workspace view, top right corner of the browser, select your *username* and *log out*.
-   
-2. In the new window, click on *Home*.
-    - This will close all applications and disconnect the work session. You can access the same desktop anytime after logging in to the services.
-
-
-![Log out from desktop](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Desktop_LogOut1.png)
-
-![Return to main view](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Desktop_LogOut2.png)
-
-
-
-## Reconnecting to an analysis session
-
-You can reconnect to a previous session only if the browser window is exactly the same size as when the original session was in use. This is typically only possible if you're using the SD Desktop in full-screen mode on the same machine. If the window size has changed, you will most likely be unable to reconnect to the old session.
-      
 
 Read next:
 

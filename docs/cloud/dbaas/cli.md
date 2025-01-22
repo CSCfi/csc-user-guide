@@ -50,7 +50,7 @@ Remember that you can use the help command as `openstack help database` and the 
 		openstack datastore list
 		```
 
-	* `datastore version`. This depends on the datastore you have chosen and you should usually choose the latest. If you use PostgreSQL you can probably use `14.5`. You can find out the available datastore versions with:
+	* `datastore version`. This optional flag depends on the datastore you have chosen. You can safely omit it if you're fine with the default datastore version, which should always be the latest one available. You can find out the available datastore versions with:
 
 		```sh
 		openstack datastore version list postgresql
@@ -68,7 +68,7 @@ Remember that you can use the help command as `openstack help database` and the 
 	--databases my_first_database \
 	--users databaseuser:myPassword568 \
 	--datastore postgresql \
-	--datastore-version 14.5 \
+	--datastore-version 17.0 \
 	--is-public \
 	--size 1 \
 	--allowed-cidr ${MY_IP}/32

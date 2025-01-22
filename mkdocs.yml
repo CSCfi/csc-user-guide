@@ -32,6 +32,7 @@ extra:
 
 hooks:
   - hooks/archives.py
+  - hooks/preview.py
 
 plugins:
   - tags:
@@ -174,6 +175,7 @@ nav:
   - Accounts:
       - accounts/index.md
       - Creating a new user account: accounts/how-to-create-new-user-account.md
+      - User account lifecycle: accounts/account-lifecycle.md
       - Changing your password: accounts/how-to-change-password.md
       - Managing user information: accounts/how-to-manage-user-information.md
       - Creating a new project: accounts/how-to-create-new-project.md
@@ -316,6 +318,7 @@ nav:
               - Orchestration with Heat: cloud/pouta/tutorials/heat-orchestration.md
               - Create a jumphost in cPouta: cloud/pouta/tutorials/create-jumphost.md
               - SSH Key-pair: cloud/pouta/tutorials/ssh-key.md
+              - Create a fixed IP for a VM: cloud/pouta/tutorials/create-fixed-ip-for-Vm.md
       - Pukki:
           - cloud/dbaas/index.md
           - What is DBaaS: cloud/dbaas/what-is-dbaas.md
@@ -337,6 +340,11 @@ nav:
                   - PostgreSQL version differences: cloud/dbaas/postgres-versions.md
                   - Extensions and parameters: cloud/dbaas/postgres-extensions.md
                   - Permissions: cloud/dbaas/postgres-permissions.md
+              - MariaDB:
+                  - cloud/dbaas/mariadb.md
+                  - Accessing your database: cloud/dbaas/mariadb-accessing.md
+                  - Permissions: cloud/dbaas/mariadb-permissions.md
+
           - More advanced features: cloud/dbaas/advanced.md
           - Resizing database instance volume: cloud/dbaas/resize-volume.md
       - Rahti 2:
@@ -387,6 +395,7 @@ nav:
               - Sending e-mail from Rahti 2: cloud/rahti2/tutorials/email.md
               - Short introduction to YAML: cloud/rahti2/tutorials/yaml_introduction.md
               - Webhooks: cloud/rahti2/tutorials/webhooks.md
+              - 4cat: cloud/rahti2/tutorials/4cat.md
               - Pod (anti) affinity: cloud/rahti2/tutorials/pod-affinity.md
               - Advanced NetworkPolicies: cloud/rahti2/tutorials/advanced-NetworkPolicies-networking.md
               - Integrating External Services: cloud/rahti2/tutorials/integrating-external-services.md
@@ -465,6 +474,7 @@ nav:
               - Login to SD Desktop: data/sensitive-data/sd-desktop-login.md
               - Create virtual desktop: data/sensitive-data/sd-desktop-create.md
               - Manage virtual desktop: data/sensitive-data/sd-desktop-manage.md
+              - Access virtual desktop: data/sensitive-data/sd-desktop-access-vm.md
               - Work with your virtual desktop: data/sensitive-data/sd-desktop-working.md
               - Import data: data/sensitive-data/sd-desktop-access.md
               - Customisation: data/sensitive-data/sd-desktop-software.md
@@ -490,7 +500,8 @@ nav:
               - Login to SD Desktop: data/sensitive-data/sd-desktop-secondary-login.md
               - Create virtual desktop: data/sensitive-data/sd-desktop-secondary-create.md
               - Manage virtual desktop: data/sensitive-data/sd-desktop-secondary-manage.md
-              - Working with your desktop and software: data/sensitive-data/sd-desktop-secondary-working.md
+              - Access virtual desktop: data/sensitive-data/sd-desktop-secondary-access-vm.md
+              - Work with your desktop and software: data/sensitive-data/sd-desktop-secondary-working.md
               - Import data: data/sensitive-data/sd-desktop-secondary-access.md
               - Export data: data/sensitive-data/sd-desktop-secondary-export.md
               - Troubleshooting: data/sensitive-data/sd-desktop-secondary-troubleshooting.md
