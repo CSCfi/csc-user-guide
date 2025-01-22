@@ -1,16 +1,7 @@
 # Data access for Data Applicant
 
-## Application process overview
-
-<iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/pR0DQo11g0U" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-<iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/LFkq2quFq_4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-## Application process overview
-[![FEGA application process overview](images/fega/FEGA_applicant_overview.png)](images/fega/FEGA_applicant_overview.png)
-
-
 ## Step 1: Apply for access
+
 To access a specific dataset hosted in Finnish FEGA, navigate to the [EGA webpage](https://ega-archive.org/studies) and search for a particular study, dataset, or DAC using the search field at the top of the page. Then, in the Study view, click on the Dataset ID (EGADNNNN). In the Dataset view, under “Who controls access to this dataset”, click on the link that allows you to access the application form using SD Apply. SD Apply is a service for applying access rights to sensitive datasets stored at CSC. 
 
 [![EGA webpage study and dataset view](images/fega/fega_search.png)](images/fega/fega_search.png)

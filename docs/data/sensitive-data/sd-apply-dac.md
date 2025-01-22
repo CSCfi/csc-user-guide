@@ -1,0 +1,205 @@
+ 
+
+# Adding (Listing?) datasets to SD Apply 
+
+Access to data that are stored at CSC and published under controlled access are managed by the data controller or their representatives in the SD Apply service. The data itself are not stored in SD Apply, but you need to list the datasets that your organization offers there. 
+
+As a dataset owner in SD Apply, you are responsible for:
+- Listing your datasets to SD Apply together with an application form and policies
+- Designating representatives (a data access committee) who manage the data access requests to your organization’s datasets.
+
+## How to add a dataset to SD Apply
+
+Before you can create resources to SD Apply, CSC service desk needs to create an organization profile and set you as the organization administrator. Request profile creation by sending an email to servicedesk@csc.fi with the subject heading SD services. 
+
+1.	Log in to SD Apply service once so that your user is created in the service https://sd-apply.csc.fi/
+2.	Inform the service desk that you have logged in. The service desk will inform you when you can start adding resources to SD Apply. 
+Note!  Always use the same identity provider when you log in to SD Apply because your role and datasets you manage are connected to your login identity. (i.e. always use only Haka/Virtu login or the CSC login).
+
+When you make the published data available in SD Apply, you have to create:
+
+- **Form**: Define the information applicants need to provide when they apply for access to your data in SD Apply. 
+- **Workflow**: Designate a Data Access Committee who will manage the data access requests in SD Apply. DAC works as a representative for the Data Controller. 
+- **Licences**: (optional): Set terms of use, agreements and policies for the data use that the applicants need to accept when they fill in the application form. Licenses are shown as part of the application form. 
+- **Resource**: a technical identifier for the data set, for example DOI.
+and combine these items together by **creating a catalogue item**.
+
+When you have created these items once, you can reuse them and form new catalogue items by combining different items.
+
+
+Note! You have to create all the other items before creating a catalogue item.
+
+### 1. Create an application form
+In the application form, the data controller specifies the information that the applicant needs to provide to get access to the data. 
+1. Log in to SD Apply and navigate to Administration>Forms
+![Forms](img/forms.png)
+2. Select **Create form**.
+3. Give the form a descriptive name. The name will show in the form list view to help you find it but it is not shown to the applicant.
+4. Give the form a title. This is shown to the applicant. For example?
+4. Add the fields you want to have in the application. The preview on the right side shows how an applicant would see the application form.
+5. Select **Save** when you are finished with the form.
+:exclamation: Note! You can only edit the form as long as it has not been connected to a catalogue item.
+Tip. Instead of having the agreements, such as Data Access Agreement, as pdf.s that the applicant has to download and sign, we recommend dividing the agreement content to the application form and having the rest of the agreement as a license. This way the applicant can provide the needed information on the application form and accept the policies in SD Apply instead of manually signing them. Licenses are shown to the applicant as part of the application form.
+
+#### Form fields explained
+
+**Application title**: Use this field if you want the applicants to provide a name for their application.
+**Option list**: Use option list if you want the applicant to choose one of the given options. ID-code is the identifier for the option. It is shown, for example in the reports, but the applicant will only see the label fields. For example: You can put “Y” as an ID-code for Yes-option and “N” for No-option.
+**Multi-select list**: Use a multi-select list if you want the applicant to choose one or more of the given options.
+**Table**: You choose a set of columns for the table. The applicant can add as many rows as they wish. All columns are required for each row. You can require the applicant to fill in at least one row.
+**Email address**: Email address field will validate the email the applicant has provided.
+**Attachment**: Applicant can add one or multiple attachments.
+**Label**: Use labels as descriptive texts if you want to give the applicant additional information, such as instructions, regarding some field.
+**Header**: Consider using headers if you want to divide the application form into sections.
+**Phone number**: A phone number in an international format (E.164), e.g. +14155552671.
+**IP address**: IP address field will validate the IP address the applicant has provided in IPv4 or IPv6 forms. IP address must not be within the known private range.
+
+Placeholder texts: It is possible to add placeholder text to most of the fields. Use placeholder texts to provide an example on how the field should be filled. Placeholders help the applicant to fill in the field correctly. For example:
+
+Note! **Do not give important information, such as instructions, as placeholder texts** because it will be difficult for the applicant to read and it is not accessible. Use labels or info text if you want to give instructions how to fill in a field.
+
+Pro tip: If you have already created application forms before, you can use an old form as a template by navigating to Administration>Forms and selecting a form and **Copy as new**.
+
+#### Creating conditional fields
+
+You can create fields that are hidden or shown to the applicant depending on their answers.
+
+For example, you can create an option list “Do you want to add attachments?” Yes - No. If the applicant chooses “Yes” the attachment field is shown to the applicant. If they choose “No” they will not see the attachment field.
+
+:exclamation: Note! Conditional fields only work with Option list and Multiselect fields.
+
+1. Create an **Option list** and fill in the options
+
+
+
+2. Create another field of any field type.
+
+
+
+3. In the field you just created, select Additional settings>Visible>Only if
+
+
+
+4. Field: Locate the Option list you created earlier from the drop-down list
+5. Has one of the values: Select when you want the list to be shown. In this example, Field 2 "Add one or multiple attachments" is shown if the applicant chooses the "Yes" option in Field 1, "Do you want to add attachments?".
+
+
+
+You can test how the fields work in the Preview section on the right of the page.
+
+### 2. Create a license 
+Licenses define the agreements and terms of use that the applicant has to accept to be able to use the data. Licenses are shown as part of the application form and every research group member who applies for access has to accept the licenses before they are able to access the data.
+
+You can create three types of licenses:
+
+- **External link**: Provide a link to an external page with terms of use. Use links, for example, when you want to license your resources using standardised licenses, such as [Creative Commons](https://creativecommons.org/choose/?lang=en).
+- **Inline text**: Write the terms of use in the application form. The applicant will see it as normal text in the application form.
+- **Attachment**: Upload a license file. We recommend using PDF-format. If you use the attachment type, we recommend that the attachments are in a form that do not require downloading and signing but instead the applicant can agree to them by accepting the licenses in SD Apply. 
+Licences are optional.
+:exclamation: Note! You cannot edit the license after you have created and saved it.
+
+## Create a workflow (DAC)
+By creating a workflow, you designate a Data Access Committee DAC who will approve and reject the data access requests for your data. The DAC members receive email notifications of new applications. 
+You can choose between two different workflows: A dynamic workflow and a decider workflow. Choose the one which suits your organisation best. Remember to give your workflow a descriptive name so it will be easier for you to find it later.
+
+**A dynamic workflow** is the default. In dynamic workflow the DAC members are in full charge of approving or rejecting applications. In addition, there can be reviewers and deciders. Only one DAC member has to approve the application. 
+
+**A decider workflow** is a restricted version of the dynamic workflow. The DAC members do not have the authority to approve or reject applications. They have to request a separate decider user to approve or reject the application. 
+
+Assign handlers for a workflow by searching the user by their username or locating them from the drop-down list. We recommend **assigning more than one handler to a workflow** to make sure there are enough handlers to process all the applications. Pitäisikö mainita jotain organisaatiokohtaisista DACeista?
+
+Note! You can **only find handlers that have previously logged in to SD Apply or have been added using the API**. If you cannot find the handler you were looking for, please ask them to log in and try again. 
+
+If you want to hide the names of the application handlers (DAC, reviewers, deciders) from the applicant, select the checkbox Anonymized handling.
+
+Pro tip: Automate approving applications by selecting **Approver Bot** as a handler. Approver Bot will automatically **approve all applications where all the required fields have been filled**.  
+
+Handlers do not get notified when they have been assigned as a handler but they receive emails about new applications.
+
+**Disabling actions in a workflow**
+You can disable actions that you do not want to use in a specific workflow. Actions can be disabled from a specific role (e.g. applicant or handler) or when the application is in a specific state (e.g. returned). 
+1.	Create a workflow or modify an already existing one and select New rule
+2.	Select the action you want to disable, for example disable inviting members from applicant in a workflow by selecting invite member
+3.	Select in which application state you want the application to be disabled. If you want to disable inviting members do not choose anything so that the rule applies in all states of the application.
+4.	Select from which users you want to disable the action. If you want to disable add member from applicants, select applicant in User role.
+5.	Select save. You can add several rules and edit them even when the workflow is in use.  
+:exclamation: Note! After saving a workflow, you cannot edit anything else than its name, organization, handlers and the disabled actions.
+
+#### Adding a form to a workflow
+
+You can connect an application form to a workflow. You can also add the form when you create a catalogue item. Connecting form to a workflow is useful when you know all the datasets that have the same DAC will use the same application form. If you want to ask dataset specific questions from the applicant, you should connect the form to the catalogue item. Depends on the form questions if you want to use this or the other. dataset specific questions
+
+1. Create a form with the questions you want to have in each catalogue item that uses the certain workflow.
+2. Create a workflow and choose one or multiple forms that you want to connect to the workflow
+
+The applicant will see the application forms in two parts: one form that has the questions connected to a workflow and the other regarding the resource they are applying access to.
+
+#### Adding a license to a workflow
+If you know many of your catalogue items will use the same license, for example CC-BY-4, you can connect a license to a workflow. This way the license will be added to all catalogue items that use the workflow. In addition, you can add dataset specific terms of use by connecting a license to a specific resource. 
+
+### 4. Create a resource
+
+1. Provide a resource identifier, for example a DOI, for your resource. 
+2. Select the policies you want to connect to your resource by choosing the licenses you have created from the drop-down list. Licenses are optional.
+:exclamation: Note! You cannot edit the resource after you have created and saved it. If you want to change something after you have created a resource, you should create a new resource and archive the old one.
+
+### 5. Create a catalogue item
+
+Catalogue item connects the items you have created into a single dataset to which the applicant can apply for access. 
+
+Create a catalogue item by choosing an application form, a workflow and a resource you want to use. Forms are optional. If you have, for example, already added a form to a workflow, you do not have to add another form in this phase. 
+
+Give your catalogue item a descriptive name. Thus, it will be easier for the applicants to recognise which catalogue item they want to apply access to. 
+
+**After you have created a catalogue item, you have to enable it**. The catalogue item is disabled at first so that you can edit it before anyone will be able to apply access to it. After enabling it, the applicant will see it as a resource in Catalogue tab and can apply for access to it.
+
+:point_up: Pro tip: If you want to see how an applicant sees the catalogue items, you can navigate to the Catalog tab.
+
+#### Editing catalogue items
+
+You can edit the catalogue item’s name, organization and links to additional information by selecting edit.
+
+:exclamation: Note! After saving, you cannot edit form, workflow or resource connected to the catalogue item. Editing is also not possible when some part of the catalogue item is disabled.
+
+If you want to change the application form and/or the form of one or multiple catalogue items, select the catalogue items you want to edit by clicking the checkbox and then **Update catalogue item**.
+
+
+
+This will **disable and archive the old catalogue item** and create a new updated catalogue item. This means that the applicants cannot see or apply for access to the old catalogue item anymore.
+
+## Categories
+
+Create a category and add catalogue items
+
+1.	Select Manage Categories from the catalogue items tab 
+2.	Select Create Category and fill in the fields. Description of the category is shown to applicants on the Catalogue page.
+3.	If you want a specific category to show first on the Catalogue page, you can edit the order by adding a number to Display order field. 1 will be shown first. 
+4.	You can add subcategories to your category by adding the categories in the subcategory field. Subcategories are shown under the main category in the Catalogue page. 
+5.	Select the catalogue item you want to add to a category by selecting Modify>Edit and add the desired category to the Categories field. 
+Note that categories show up on the Catalogue page only after you have added catalogue items to them. 
+Note that you can only delete categories that do not have subcategories or any catalogue items added to them. 
+
+## Disabling, and archiving items
+
+You can disable and archive all the items. Deleting is not possible because we want to offer a full history of events for information security reasons.
+
+### Disabling items
+
+When you disable an item, for example a form, it **cannot be used in any new catalogue items anymore**. Disabled items will be hidden from the drop-down lists.
+
+#### Disabling catalogue items
+
+If you disable a catalogue item, the applicant will not be able to apply for access to it anymore. However, if they have applied for access to the catalogue item before disabling, the handler can still complete the application process and approve or reject the application.
+
+You can enable disabled items.
+
+### Archiving
+
+Archiving **hides the item from the administration view and from the applicants**. If you want to view archived items select **Display archived**. We recommend archiving old items that are not in use anymore.
+
+
+
+You can unarchive archived items.
+Handlers are warned if the catalogue item the applicant has applied for access, has been disabled or archived. 
+
+If you have any questions, please contact servicedesk@csc.fi.

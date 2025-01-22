@@ -488,6 +488,7 @@ nav:
               - data/sensitive-data/sd-apply.md
               - Apply access to FEGA data: data/sensitive-data/sd-apply-access.md
               - Approve access to FEGA data: data/sensitive-data/sd-apply-approval.md
+              - Enable reuse of FEGA data: data/sensitive-data/sd-apply-dac.md
       - Secondary use of health and social data:
           - Start here:
               - data/sensitive-data/secondarydata-access.md
