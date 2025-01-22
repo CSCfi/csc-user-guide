@@ -69,25 +69,15 @@ For example, you can create an option list “Do you want to add attachments?”
 :exclamation: Note! Conditional fields only work with Option list and Multiselect fields.
 
 1. Create an **Option list** and fill in the options
-
-
-
 2. Create another field of any field type.
-
-
-
 3. In the field you just created, select Additional settings>Visible>Only if
-
-
-
 4. Field: Locate the Option list you created earlier from the drop-down list
 5. Has one of the values: Select when you want the list to be shown. In this example, Field 2 "Add one or multiple attachments" is shown if the applicant chooses the "Yes" option in Field 1, "Do you want to add attachments?".
-
-
 
 You can test how the fields work in the Preview section on the right of the page.
 
 ### 2. Create a license 
+
 Licenses define the agreements and terms of use that the applicant has to accept to be able to use the data. Licenses are shown as part of the application form and every research group member who applies for access has to accept the licenses before they are able to access the data.
 
 You can create three types of licenses:
@@ -197,9 +187,8 @@ You can enable disabled items.
 
 Archiving **hides the item from the administration view and from the applicants**. If you want to view archived items select **Display archived**. We recommend archiving old items that are not in use anymore.
 
-
-
 You can unarchive archived items.
+
 Handlers are warned if the catalogue item the applicant has applied for access, has been disabled or archived. 
 
 If you have any questions, please contact servicedesk@csc.fi.
