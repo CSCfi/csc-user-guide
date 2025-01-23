@@ -99,10 +99,10 @@ When you login to SD Desktop, remember to use same login method you used to log 
 
 Once your analysis is completed, you can export the results from the computing environment. After that, the data access will be discontinued. To get access to the same dataset, you need to start a new application process. Follow these steps:
 
-* [Export data from virtual deskotop](./sd-access.md)
+* [Export data from virtual deskotop](./sd-desktop-export.md)
 
 ## Support
 
-If you have questions about using SD Apply, please contact [CSC Service Desk](https://docs.csc.fi/support/contact/) with the subject SD Apply.
+If you have questions about using SD Apply, please contact [CSC Service Desk](../../support/contact.md) (subject: SD Apply).
 
 If you have questions regarding the application form or the dataset you are applying for access, please contact the data controller or the Data Access Committee.
