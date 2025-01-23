@@ -76,6 +76,8 @@ To access the data all members should:
 3. Scroll down to Term of use section.
 4. Read terms of use and then click **Accept terms of use**.
 
+![SD Apply terms of use](https://a3s.fi/docs-files/sensitive-data/SD_Apply/SD-Apply_Termsofuse.png)
+
 
 ## Step 7: Access SD Desktop
 
