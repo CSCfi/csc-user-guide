@@ -76,7 +76,8 @@ For using SAGA GIS, open it in LUMI web interface:
 
 1. Log in to [LUMI web interface](https://lumi.csc.fi). 
 2. Open [Desktop app](https://docs.lumi-supercomputer.eu/runjobs/webui/desktop/). 
-3. After launching the Desktop, double-click SAGA GIS icon for the newest version.
+3. After launching the Desktop, open the newest version of SAGA GIS from the Menu in the bottom left corner (under Other).
+    * You can drag-and-drop the icon to your desktop for easier access in the future
 
 If you want to use the CLI in the Desktop app, open `Terminal Emulator` from the Menu in the bottom left corner and load the QGIS module:
 ```
