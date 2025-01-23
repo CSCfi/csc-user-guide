@@ -84,6 +84,6 @@ If the applicant has been granted access rights, but they misuse them, you can r
 
 ## Support
 
-If you have questions about using SD Apply, please contact [CSC Service Desk](https://docs.csc.fi/support/contact/) with the subject SD Apply.
+If you have questions about using SD Apply, please contact [CSC Service Desk](../../support/contact.md) (subject: SD Apply).  
 
 If you have questions regarding the applications or the datasets, please contact the data controller.
