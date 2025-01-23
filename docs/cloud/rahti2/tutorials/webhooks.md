@@ -26,12 +26,15 @@ When the `BuildConfig` is configured, you can get the URL via the webinterface. 
 
 ![Copy URL with Secret](../../img/webhooks.png)
 
-
 !!! Warning "Default branch names do not match"
 
-    You need to make sure that the branches in both sides (`Rahti2` and `GitHub`) match. In Rahti 2 the default branch name is `master`. But in GitHub the default branch name is `main`. This means that by default, any change in `main` will be ignored by Rahti2.
+    You need to make sure that the branch names match between Rahti 2 and GitHub. In Rahti 2, the default branch name is `master`, but in GitHub, the default branch name is `main`. This means that&mdash;by default&mdash;any change in a GitHub branch named `main` will be ignored by Rahti 2.
 
-    If you want changes in `main` to be picked up by Rahti2, you need to: Edit the `BuildConfig`, click in `Show advanced Git options`, and add the correct branch name (in this case `master`) under `Git reference`.
+    If you want changes in `main` to be picked up by Rahti 2, you need to:
+
+    1. Edit the **BuildConfig**
+    1. Expand **Show advanced Git options** under **Source**
+    1. Add the correct branch name (in this case `master`) under **Git reference**.
 
 ## GitHub
 
