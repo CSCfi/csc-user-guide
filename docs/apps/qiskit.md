@@ -103,6 +103,7 @@ Example batch script for reserving one GPU and two CPU cores in a single node fo
     ```
 
 === "LUMI"
+    ```bash
     #!/bin/bash
     #SBATCH --account=<project>
     #SBATCH --partition=standard-g
