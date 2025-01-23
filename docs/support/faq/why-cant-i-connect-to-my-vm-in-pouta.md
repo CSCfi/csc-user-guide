@@ -112,7 +112,7 @@ The fingerprints must match.
 
     ![Instance log](../../cloud/img/log-instance.png)
 
-    You will be able to see the username, the file where the keys are configured and the list of finger prints of the configured keys. In the exampe above the output shgows the `MD5` algorithm.
+    You will be able to see the username, the file where the keys are configured and the list of finger prints of the configured keys. In the example above the output shows the `MD5` algorithm.
 
 If you do not find the corresponding private key, you will need to either [re-create the VM](../../cloud/pouta/launch-vm-from-web-gui.md)) with a ssh key pair that you own and control, or use our [How to rescue instances?](./pouta-openstack-rescue-mode.md) guide to be able to access the VM's disk and change the public key installed in the `authorized_keys` file. This last option is complex and it is only needed if you already have data and/or software in the VM's local disk. If you need to follow this second option, but are confused on how, please create a ticket with us at <servicedesk@csc.fi>, we will help you step by step.
 
