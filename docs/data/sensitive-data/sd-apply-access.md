@@ -70,10 +70,10 @@ You can find all your applications and see their state from the "Applications" t
 
 If you have invited members in the application, they will receive an invitation email.
 
-All members should:
+To access the data all members should:
 
 1. Click the link in the email and sign in to SD Apply. They will land on the application page.
-3. Scroll down to Term of Use section.
+3. Scroll down to Term of use section.
 4. Read terms of use and then click **Accept terms of use**.
 
 
