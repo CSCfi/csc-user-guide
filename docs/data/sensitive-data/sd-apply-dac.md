@@ -2,9 +2,10 @@
 
 # Adding datasets to SD Apply 
 
-Access to data that are stored at CSC and published under controlled access are managed by the data controller or their representatives in the SD Apply service. To enable reuse of datasets stored in Finnish FEGA you need to add them to catalogue in SD Apply
+Access to data that are stored at CSC and published under controlled access are managed by the data controller or their representatives in the SD Apply service. To enable reuse of datasets stored in Finnish FEGA you need to add them to the catalogue in SD Apply
 
 As a data controller in SD Apply, you are responsible for:
+
 - Adding your datasets to catalogue in SD Apply together with an application form and policies
 - Designating representatives (a data access committee) who manage the data access requests to your organization’s datasets.
 
@@ -46,14 +47,14 @@ In the application form, the data controller specifies the information that the 
 !!! note
    You can only edit the form as long as it has not been connected to a catalogue item.
 
-Instead of having the agreements, such as Data Access Agreement, as pdf.s that the applicant has to download and sign, we recommend dividing the agreement content to the application form and having the rest of the agreement as a license. This way the applicant can provide the needed information on the application form and accept the policies in SD Apply instead of manually signing them. Licenses are shown to the applicant as part of the application form.
+It's recommended to include parts of the agreements that need to be filled in directly in the application form in SD Apply. The rest of the agreement content can be provided as a PDF license the applicants can review and accept electronically when they request access to the dataset. This way, applicants can complete the necessary sections within SD Apply and accept the terms of use without needing to manually sign documents. 
 
 #### Form fields explained
 
 - **Application title**: Use this field if you want the applicants to provide a name for their application.
 - **Option list**: Use option list if you want the applicant to choose one of the given options. ID-code is the identifier for the option. It is shown, for example in the reports, but the applicant will only see the label fields. For example: You can put “Y” as an ID-code for Yes-option and “N” for No-option.
 - **Multi-select list**: Use a multi-select list if you want the applicant to choose one or more of the given options.
-- **Table**: You choose a set of columns for the table. The applicant can add as many rows as they wish. All columns are required for each row. You can require the applicant to fill in at least one row.
+- **Table**: Provide a set of columns for the table. The applicant can add as many rows as they wish. All columns are required for each row. You can require the applicant to fill in at least one row.
 - **Email address**: Email address field will validate the email the applicant has provided.
 - **Attachment**: Applicant can add one or multiple attachments.
 - **Label**: Use labels as descriptive texts if you want to give the applicant additional information, such as instructions, regarding some field.
@@ -86,44 +87,46 @@ You can create three types of licenses:
 
 - **External link**: Provide a link to an external page with terms of use. Use links, for example, when you want to license your resources using standardised licenses, such as [Creative Commons](https://creativecommons.org/choose/?lang=en).
 - **Inline text**: Write the terms of use in the application form. The applicant will see it as normal text in the application form.
-- **Attachment**: Upload a license file. We recommend using PDF-format. If you use the attachment type, we recommend that the attachments are in a form that do not require downloading and signing but instead the applicant can agree to them by accepting the licenses in SD Apply. 
-Licences are optional.
-:exclamation: Note! You cannot edit the license after you have created and saved it.
+- **Attachment**: Upload a license file. We recommend using PDF-format. If you use the attachment type, we recommend that the attachments are in a form that do not require downloading and signing but instead the applicant can agree to them by accepting the licenses in SD Apply.
+
+Licences are optional. You cannot edit the license after you have created and saved it.
 
 ## Create a workflow (DAC)
-By creating a workflow, you designate a Data Access Committee DAC who will approve and reject the data access requests for your data. The DAC members receive email notifications of new applications. 
+By creating a workflow, you designate a Data Access Committee DAC as application handlers. DAC approves and rejects the data access requests for your data. The DAC members receive email notifications of new applications. 
 You can choose between two different workflows: A dynamic workflow and a decider workflow. Choose the one which suits your organisation best. Remember to give your workflow a descriptive name so it will be easier for you to find it later.
 
 - **A dynamic workflow** is the default. In dynamic workflow the DAC members are in full charge of approving or rejecting applications. In addition, there can be reviewers and deciders. Only one DAC member has to approve the application. 
 
 - **A decider workflow** is a restricted version of the dynamic workflow. The DAC members do not have the authority to approve or reject applications. They have to request a separate decider user to approve or reject the application. 
 
-Assign handlers for a workflow by searching the user by their username or locating them from the drop-down list. We recommend **assigning more than one handler to a workflow** to make sure there are enough handlers to process all the applications. Pitäisikö mainita jotain organisaatiokohtaisista DACeista?
+Assign >DAC members as application handlers for a workflow by searching the user by their username or locating them from the drop-down list. We recommend **assigning more than one handler to a workflow** to make sure there are enough handlers to process all the applications. 
 
 !!! note
    You can **only find handlers that have previously logged in to SD Apply or have been added using the API**. If you cannot find the handler you were looking for, please ask them to log in and try again. 
 
 If you want to hide the names of the application handlers (DAC, reviewers, deciders) from the applicant, select the checkbox Anonymized handling.
 
-Handlers do not get notified when they have been assigned as a handler but they receive emails about new applications.
+DAC members do not get notified when they have been assigned as a handler but they receive emails about new applications.
 
 #### Adding a form to a workflow
 
-You can connect an application form to a workflow. You can also add the form when you create a catalogue item. Connecting form to a workflow is useful when you know all the datasets that have the same DAC will use the same application form. If you want to ask dataset specific questions from the applicant, you should connect the form to the catalogue item. Depends on the form questions if you want to use this or the other. dataset specific questions
+You can connect an application form to a workflow. You can also add the form when you create a catalogue item. Connecting form to a workflow is useful when you know all the datasets that have the same DAC will use the same application form. If you want to ask dataset specific questions from the applicant, you should connect the form to the catalogue item. 
 
 1. Create a form with the questions you want to have in each catalogue item that uses the certain workflow.
-2. Create a workflow and choose one or multiple forms that you want to connect to the workflow
+2. Create a workflow and choose one or multiple forms that you want to connect to the workflow.
 
 The applicant will see the application forms in two parts: one form that has the questions connected to a workflow and the other regarding the resource they are applying access to.
 
 #### Adding a license to a workflow
-If you know many of your catalogue items will use the same license, for example CC-BY-4, you can connect a license to a workflow. This way the license will be added to all catalogue items that use the workflow. In addition, you can add dataset specific terms of use by connecting a license to a specific resource. 
+If you know many of your catalogue items will have the same terms of use, you can connect licenses to a workflow. This way the license will be added automatically to all catalogue items that use the workflow. In addition, you can add dataset specific terms of use by connecting a license to a specific resource. 
 
 ### 4. Create a resource
+When a researcher submits data to Federated EGA, they receive a permanent identifier called EGA ID. To make the dataset available for reuse through SD Apply, the FEGA Submitter should send this identifier to the data controller so that it can be added to SD Apply. 
 
-1. Provide a resource identifier, for example a DOI, for your resource. 
+1. Add the EGA identifier the FEGA submitter provided to you in the resource identifier field. 
 2. Select the policies you want to connect to your resource by choosing the licenses you have created from the drop-down list. Licenses are optional.
-:exclamation: Note! You cannot edit the resource after you have created and saved it. If you want to change something after you have created a resource, you should create a new resource and archive the old one.
+
+Note! You cannot edit the resource after you have created and saved it. If you want to change something after you have created a resource, you should create a new resource and archive the old one.
 
 ### 5. Create a catalogue item
 
@@ -142,7 +145,7 @@ You can edit the catalogue item’s name, organization and links to additional i
 !!! note
    After saving, you cannot edit form, workflow or resource connected to the catalogue item. Editing is also not possible when some part of the catalogue item is disabled.
 
-If you want to change the application form and/or the form of one or multiple catalogue items, select the catalogue items you want to edit by clicking the checkbox and then **Update catalogue item**.
+If you want to change the application form and/or the workflow of one or multiple catalogue items, select the catalogue items you want to edit by clicking the checkbox and then **Update catalogue item**.
 
 This will **disable and archive the old catalogue item** and create a new updated catalogue item. This means that the applicants cannot see or apply for access to the old catalogue item anymore.
 
@@ -168,4 +171,6 @@ You can unarchive archived items.
 
 Handlers are warned if the catalogue item the applicant has applied for access, has been disabled or archived. 
 
-If you have any questions, please contact servicedesk@csc.fi.
+## Support
+
+If you have questions about using SD Apply, please contact [CSC Service Desk](../../support/contact.md) (subject: SD Apply).
