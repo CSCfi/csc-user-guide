@@ -98,7 +98,7 @@ $ ssh-keygen -lf .ssh/SGC-key.pub -E md5
     It is possible that the VM was created without a "**keypair**` (the corresponding field is empty `-`), in this case you need to [re-create the VM](../../cloud/pouta/launch-vm-from-web-gui.md), this time with a keypair configured.
     ![No Key Pair](../../cloud/img/instance-no-keypair.png)
 
-Then it is necessary to find the corresponding **Private key**. In Linux and MacOS, private key are normally stored on the `.ssh` folder. You can use the same command as above to generate the fingerprint of the private key:
+Then it is necessary to find the corresponding **Private key**. In Linux and MacOS, private key are normally stored in the `.ssh` folder. You can use the same command as above to generate the fingerprint of the private key:
 
 ```sh
 $ ssh-keygen -lf .ssh/SGC-key
