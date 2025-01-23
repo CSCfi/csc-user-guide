@@ -109,7 +109,7 @@ Example batch script for reserving one GPU and two CPU cores in a single node fo
     #SBATCH --partition=standard-g
     #SBATCH --nodes=1
     #SBATCH --gpus-per-node=8
-    #SBATCH --tasks-per-node=1
+    #SBATCH --ntasks-per-node=1
     #SBATCH --gpus-per-task=8
     #SBATCH --cpus-per-task=56
     #SBATCH --time=1:00:00
@@ -221,7 +221,7 @@ Example batch script for running a simulation on multiple LUMI nodes in the stan
     #SBATCH --partition=standard-g
     #SBATCH --nodes=16
     #SBATCH --gpus-per-node=8
-    #SBATCH --tasks-per-node=8
+    #SBATCH --ntasks-per-node=8
     #SBATCH --cpus-per-task=7
     
     export LUMI_QISKIT_SINGULARITY_CONTAINER_PATH=/appl/local/quantum/qiskit/qiskit_1.2.4_csc.sif
