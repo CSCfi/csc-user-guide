@@ -66,7 +66,7 @@ wget "https://filesender.funet.fi/download.php?token=4da0-b98e-3290c6471469&file
     the download link with quotation marks and use option `-O` to define a file
     name that will be used for the downloaded data.
 
-## Using FileSender from the command-line
+## FIXME: Using FileSender from the command-line
 
 FileSender can also be used from the command-line using a Python 3 utility
 script. These instructions have been adapted from the
