@@ -79,7 +79,105 @@ See the explanation in the [Networking routes](../networking.md#routes) page.
 
 ## Let's Encrypt
 
-[letsencrypt.org](https://letsencrypt.org/) provides free and open certificates. Routes can automatically obtain a "let's encrypt" certificate using the third-party [openshift-acme controller](https://github.com/tnozicka/openshift-acme). The process is simple:
+[letsencrypt.org](https://letsencrypt.org/) is a non-profit Certificate Authority, that provides free and open certificates. It is possible to **get** and **renew** automatically valid certificates from Let's Encrypt. Here we document two methods, the cert-manager and the ACME controller.
+
+### Cert-manager
+
+This is the recommended option to obtain and renew Let's Encrypt certificates. The process to get a certificate involves creating 3 API objects: `Issuer`, `Certificate` and `Ingress`. We can do this using the Web interface, or the Command Line Interface. As in this case the web interface is not much easier than the CLI, we will use the Command Line Interface.
+
+![Cert manager](../../img/cert-manager.png)
+
+1. First, as usual, you need to [install oc](/cloud/rahti2/usage/cli/#how-to-install-the-oc-tool) and [login into Rahti](/cloud/rahti2/usage/cli/#how-to-login-with-oc). Then you need to [create a Rahti project](/cloud/rahti2/usage/projects_and_quota/#creating-a-project). Finally make sure you are in the correct project: `oc project <project_name>`.
+
+1. Double check that the domain name exists. Let's Encrypt needs to verify that you indeed control said domain name, and it does that by issuing a HTTP request to the actual Domain Name and it expects it to respond accordingly. To test it, enter the Domain name in your browser and see that Rahti2 answers accordingly.
+
+1. Then you need to create an `Issuer`:
+
+    ```sh
+    echo "apiVersion: cert-manager.io/v1
+    kind: Issuer
+    metadata:
+      name: letsencrypt
+    spec:
+      acme:
+        # You must replace this email address with your own.
+        # Let's Encrypt will use this to contact you about expiring
+        # certificates, and issues related to your account.
+        email: <EMAIL>
+        server: https://acme-v02.api.letsencrypt.org/directory
+        privateKeySecretRef:
+          # Secret resource that will be used to store the account's private key.
+          name: example-issuer-account-key
+        # Add a single challenge solver, HTTP01 using nginx
+        solvers:
+        - http01:
+            ingress:
+              ingressClassName: openshift-default" | oc create -f -
+    ```
+
+    - You need to replace `<EMAIL>` by your own email. This is to create automatically an account with Let's Encrypt and to send notification emails.
+
+1. After the `Issuer` is created, you can create the certificate:
+
+    ```sh linenums="1"
+    echo "apiVersion: cert-manager.io/v1
+    kind: Certificate
+    metadata:
+        name: nginx
+    spec:
+        secretName: hostname-tls
+        duration: 2160h # 90d
+        renewBefore: 360h # 15d
+        issuerRef:
+            name: letsencrypt-staging
+            kind: Issuer
+        commonName: <HOSTNAME>
+        dnsNames:
+          - <HOSTNAME>" | oc create -f -
+    ```
+
+    - You need to replace `<HOSTAME>` in both lines **12** and **14**, by the Domain that you want to get the certificate.
+
+1. If all went as expected a new `Secret` called `hostname-tls` was just created. The secret should have two data entries: `tls.crt` and `tls.key`. Now the only step left is to create an `Ingress`:
+
+    ```sh
+    echo "apiVersion: networking.k8s.io/v1
+    kind: Ingress
+    metadata:
+      name: nginx
+    spec:
+      rules:
+      - host: <HOSTNAME>
+        http:
+          paths:
+          - backend:
+              service:
+                name: <SERVICE>
+                port:
+                  number: <PORT>
+            path: /
+            pathType: Prefix
+      tls:
+      - hosts:
+        - <HOSTNAME>
+        secretName: hostname-tls
+    status: {}" | oc create -f -
+    ```
+
+    - You need to replace `<HOSTNAME>` by the same host name that you used in the `Certificate`.
+    - You need to replace `<SERVICE>` and `<PORT>` by the corresponding service and the port that provide the website you need the certificate for.
+
+!!! Info "Ingress vs Route"
+    `Ingress` and `Route` are two ways of solving the same use case. They approach it diferently
+
+If all went well, you should have a valid Certificate.
+
+### OpenShift ACME controller
+
+!!! Info "Deprecated"
+    The OpenShift ACME controller has been archived since 2023. This means that while this work (at the time of writing this), it may stop working if Let's Encrypt makes any change in their API implementation of ACME.
+
+Routes can automatically obtain a "let's encrypt" certificate using the third-party [openshift-acme controller](https://github.com/tnozicka/openshift-acme). The process is simple:
 
 * Clone the [openshift-acme controller](https://github.com/tnozicka/openshift-acme) repository.
 
