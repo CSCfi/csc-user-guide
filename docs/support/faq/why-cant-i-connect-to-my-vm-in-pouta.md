@@ -80,7 +80,7 @@ Then go to <https://pouta.csc.fi/dashboard/project/key_pairs> where all **your**
 
 ![Key pairs listing](../../cloud/img/key-pairs-listing.png)
 
-Copy the Public key content (`ssh-rsa AAA.... jack@sgc.com`) into a filed called `SGC-key.pub`. You can then calculate the **Public key** fingerprint by:
+Copy the Public key content (`ssh-rsa AAA.... jack@sgc.com`) into a file called `SGC-key.pub`. You can then calculate the **Public key** fingerprint by:
 
 ```sh
 $ ssh-keygen -lf SGC-key.pub
