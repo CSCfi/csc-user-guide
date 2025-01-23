@@ -8,10 +8,12 @@
 # Or if it is being piped => no colors
 
 if [[ -t 1 ]];then
+    UNDERLINE='\033[0;4m'
     RED='\033[0;31m'
     GREEN='\033[0;32m'
     NC='\033[0m' # No Color
 else
+    UNDERLINE=""
     RED=""
     GREEN=""
     NC=""
@@ -53,5 +55,6 @@ done <<< "$tests"
 
 if $ERROR
 then
-  cat $TEST_LOG
+  echo -e "\n${UNDERLINE}${TEST_LOG}:${NC}"
+  cat --number $TEST_LOG
 fi
