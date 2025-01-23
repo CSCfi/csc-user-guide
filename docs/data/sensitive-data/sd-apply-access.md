@@ -20,7 +20,6 @@ Login to [SD Apply](https://sd-apply.csc.fi) by using your identity provider (Ha
 
 [![SD Apply login page](images/apply/apply_login.png)](images/apply/apply_login.png)
 
-
 ## Step 3: Fill application
 
 After login, you will access the SD Apply Catalogue page. On this page, you can search for a specific dataset and start the application process. 
@@ -67,7 +66,18 @@ You can find all your applications and see their state from the "Applications" t
 
 [![SD Apply "Applications" tab](images/apply/apply_state.png)](images/apply/apply_state.png)
 
-## Step 6: Access data
+## Step 6: Project members join the application
+
+If you have invited members in the application, they will receive an invitation email.
+
+All members should:
+
+1. Click the link in the email and sign in to SD Apply. They will land on the application page.
+3. Scroll down to Term of Use section.
+4. Read terms of use and then click **Accept terms of use**.
+
+
+## Step 7: Access SD Desktop
 
 Once your application has been approved, you will receive a notification and further instructions via email. You can now access the data in SD Desktop, a private cloud computing environment. 
 
@@ -75,7 +85,7 @@ Read more how to create a CSC project and access SD Desktop:
 
 * [Access SD Desktop](./sd-access.md)
 
-## Step 7: Access the data
+## Step 8: Access the data
 
 Once you sign in to your virtual desktop, you can access the data using Data Gateway application. Follow these steps:
 
@@ -85,7 +95,7 @@ Once you sign in to your virtual desktop, you can access the data using Data Gat
 
 When you login to SD Desktop, remember to use same login method you used to log in to SD Apply. 
 
-## Step 8: Export your results
+## Step 9: Export your results
 
 Once your analysis is completed, you can export the results from the computing environment. After that, the data access will be discontinued. To get access to the same dataset, you need to start a new application process. Follow these steps:
 
