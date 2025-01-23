@@ -168,7 +168,7 @@ This is the recommended option to obtain and renew Let's Encrypt certificates. T
     - You need to replace `<SERVICE>` and `<PORT>` by the corresponding service and the port that provide the website you need the certificate for.
 
 !!! Info "Ingress vs Route"
-    `Ingress` and `Route` are two ways of solving the same use case. They approach it diferently
+    `Ingress` and `Route` are two ways of solving the same use case. They approach it differently
 
 If all went well, you should have a valid Certificate.
 
