@@ -1,7 +1,10 @@
 # Accessing virtual desktop
 
-## Prerequisites
-* [Create virtual desktop](sd-desktop-create.md)
+
+* [Access virtual desktop](#access-virtual-desktop)
+* [Log out from virtual desktop](#log-out-from-virtual-desktop)
+* [Reconnecting to an analysis session](#reconnecting-to-an-analysis-session)
+
 
 ## Access virtual desktop
 
