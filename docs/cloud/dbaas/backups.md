@@ -6,6 +6,7 @@ after the last backup. All backups are stored for 90 days after which they get a
 deleted, backups can not be manually deleted by the user.
 
 The backups are stored encrypted in Allas.
+<!-- TODO I would like our documentation to mention how the backup works in the background e.g. -->
 
 The web interface is currently only showing the latest 20 backups. If you want to see all your
 backups you need to use the CLI-tool.
