@@ -23,7 +23,7 @@ Please follow the [Firewalls and security](../../cloud/pouta/launch-vm-from-web-
 
 !!! Warning "Permission denied"
     Incorrectly configured Security Groups, can lead to permissions denied errors due to the fact that the VM needs to fetch the public SSH keys on its first start. If the network is not configured properly, the public key may not be added and no access will be configured.
-    FOr this reaseon, you need to make sure that the `default` security group is configured in the VM at creation.
+    For this reason, you need to make sure that the `default` security group is configured in the VM at creation.
 
 
 ### REMOTE HOST IDENTIFICATION HAS CHANGED
