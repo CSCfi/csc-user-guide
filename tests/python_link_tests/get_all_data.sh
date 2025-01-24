@@ -19,7 +19,7 @@ get_all_anchors(){
 
 
 get_all_nav_links(){
-cat $1  | grep "^\s*[^#]*\.md" | cut -d":" -f 2 | sed 's/^\s/docs\//g' | grep -v "#"
+    grep "^\s*[^#]*\.md\s*$" "$1" | sed -e 's#^.*\s\(\S*\.md\)\s*$#docs/\1#'
 }
 
 
