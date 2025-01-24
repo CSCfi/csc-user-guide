@@ -64,7 +64,7 @@ If the data controller needs additional information regarding your application, 
 
 You can find all your applications and see their state from the "Applications" tab in SD Apply. You will receive an email notification whenever the state of your application changes.
 
-[![SD Apply "Applications" tab](images/apply/apply_state.png)](images/apply/apply_state.png)
+[![SD Apply Applications tab](images/apply/apply_state.png)](images/apply/apply_state.png)
 
 ## Step 6: Project members join the application
 
