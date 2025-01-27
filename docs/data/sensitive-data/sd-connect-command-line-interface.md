@@ -1,6 +1,20 @@
 # Command Line Interface
 
 
+## New command line tools, atomated key management
+
+Requires coding skills or command line experience, if now pleae conatct csc
+They need to be insatlled in the same place where the sensitive data are. But if you want to uplaod scripts and non sensitive data you can use Puhti. 
+
+Install the command line tools, requires yout IT unit support, root access to your laptop (local enviroment? : https://github.com/CSCfi/allas-cli-utils (lock-unlock are included there)
+
+follow this: https://docs.csc.fi/data/sensitive-data/sd-connect-and-a-commands/
+
+
+
+
+### Delete this one: 
+
 !!! Note
     Automated key management, encryption, and decryption are not yet available for programmatic data uploads and downloads.
 
