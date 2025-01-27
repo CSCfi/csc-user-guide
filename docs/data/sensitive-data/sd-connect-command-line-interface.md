@@ -1,4 +1,4 @@
-# Command Line Interface
+# Command Line Interface and automated key management
 
 
 ## New command line tools, atomated key management
@@ -13,10 +13,10 @@ follow this: https://docs.csc.fi/data/sensitive-data/sd-connect-and-a-commands/
 
 
 
-### Delete this one: 
+### Move text below to SD Desktop; export via command line tools.
 
 !!! Note
-    Automated key management, encryption, and decryption are not yet available for programmatic data uploads and downloads.
+    Automated key management, encryption, and decryption are not yet available for export from SD Desktop. 
 
 To encrypt and upload files via command line, please check [this tutorial](sequencing_center_tutorial.md) illustrating how to use the crpt4GH tool to upload files in Allas (visible from SD Connect).
 
