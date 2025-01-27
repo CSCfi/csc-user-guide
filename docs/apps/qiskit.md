@@ -344,7 +344,7 @@ Submit the script with `sbatch <sbatch_MPI_script_name>.sh`
 Please take note that the recommended nodes are twice the number of minimum resources needed to run a simulation but due to our tests we have found a significant speedup and cost savings of GPU hours if a user submits a job with double the amount of resources that are actually required to simulate a quantum circuit for any specific number of qubits. The Maximum number of qubits that can be simulated using the state_vector simulation method is a theoretical 45 qubits due to the total amount of nodes in the standard-g partition and the amount of system memory in each node. 
 
 | # of Qubits | # of Blocking Qubits | Recommended # of nodes | # gpus-per-node  |
-| :-----------| :------------------- | :--------------------: | :--------------: |
+| :----------:| :------------------: | :--------------------: | :--------------: |
 | 1           | 0                    | 1                      | 8                |
 | 2           | 0                    | 1                      | 8                |
 | 3           | 0                    | 1                      | 8                |
