@@ -410,6 +410,7 @@ Please take note that the recommended nodes are twice the number of minimum reso
 
 ## More information
 
+- [LUMI Slurm binding options for MPI jobs](https://docs.lumi-supercomputer.eu/runjobs/scheduled-jobs/distribution-binding/#slurm-binding-options)
 - [Qiskit-Aer Running with multiple-GPUs and/or multiple nodes](https://qiskit.github.io/qiskit-aer/howtos/running_gpu.html)
 - [Cache Blocking Technique to Large Scale Quantum Computing Simulation on Supercomputers](https://arxiv.org/abs/2102.02957)
 - [Qiskit documentation](https://qiskit.org/documentation/getting_started.html)
