@@ -237,7 +237,7 @@ Example `<myprog>.py` python script for single node simulations. Do note that th
     circuit_depth = 30                    # Layers in quantum volume circuit
     num_shots = 1000                      # How many times we sample the circuit
     sim_method = 'statevector'            # Choosing simulation method
-    sim_device = 'GPU'                    # Choose wheter simulation is run on CPUs or GPUs
+    sim_device = 'GPU'                    # Choose whether simulation is run on CPUs or GPUs
     use_cache_blocking = True             # Cache blocking technique parallelizes simulation by distributing quantum states into distributed memory space
     num_blocking_qubits = 29              # Defines chunk size for cache blocking. Must be smaller than "qubits-log2(number-of-processes)"
     use_batched_shots = True              # Distributing shots to multiple processess
@@ -327,7 +327,7 @@ Small code example of `<myprog_MPI>.py` python script using 38 qubits which we r
     circuit_depth = 30                    # Layers in quantum volume circuit
     num_shots = 1000                      # How many times we sample the circuit
     sim_method = 'statevector'            # Choosing simulation method
-    sim_device = 'GPU'                    # Choose wheter simulation is run on CPUs or GPUs
+    sim_device = 'GPU'                    # Choose whether simulation is run on CPUs or GPUs
     use_cache_blocking = True             # Cache blocking technique parallelizes simulation by distributing quantum states into distributed memory space
     num_blocking_qubits = 29              # Defines chunk size for cache blocking. Must be smaller than "qubits-log2(number-of-processes)"
     use_batched_shots = True              # Distributing shots to multiple processess
