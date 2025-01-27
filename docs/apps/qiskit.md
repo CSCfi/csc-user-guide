@@ -108,6 +108,9 @@ Example `<sbatch_script_name>.sh` script for reserving one GPU and two CPU cores
 === "Puhti"
     ```bash
     #!/bin/bash
+    #SBATCH --job-name=aer_job
+    #SBATCH --output=aer_job.o%j
+    #SBATCH --error=aer_job.e%j
     #SBATCH --account=<project>
     #SBATCH --partition=gpu
     #SBATCH --ntasks=1
@@ -123,6 +126,9 @@ Example `<sbatch_script_name>.sh` script for reserving one GPU and two CPU cores
 === "Mahti"
     ```bash
     #!/bin/bash
+    #SBATCH --job-name=aer_job
+    #SBATCH --output=aer_job.o%j
+    #SBATCH --error=aer_job.e%j
     #SBATCH --account=<project>
     #SBATCH --partition=gpusmall
     #SBATCH --ntasks=1
@@ -137,21 +143,29 @@ Example `<sbatch_script_name>.sh` script for reserving one GPU and two CPU cores
 === "LUMI"
     ```bash
     #!/bin/bash
-    #SBATCH --account=<project>
+    #SBATCH --job-name=aer_job
+    #SBATCH --output=aer_job.o%j
+    #SBATCH --error=aer_job.e%j
+    #SBATCH --account=<project_id>
+    #SBATCH --time=2:00:00
     #SBATCH --partition=standard-g
     #SBATCH --nodes=1
     #SBATCH --gpus-per-node=8
     #SBATCH --ntasks-per-node=1
-    #SBATCH --gpus-per-task=8
     #SBATCH --cpus-per-task=56
-    #SBATCH --time=1:00:00
-
+    
     export LUMI_QISKIT_SINGULARITY_CONTAINER_PATH=/appl/local/quantum/qiskit/qiskit_1.2.4_csc.sif
     export WRAPPER_PATH=/appl/local/quantum/qiskit/run-singularity
-
+    
+    echo "NODES                   : ${SLURM_NNODES}"
+    echo "TASKS PER NODE          : ${SLURM_NTASKS_PER_NODE}"
+    echo "CPUS PER TASK           : ${SLURM_CPUS_PER_TASK}"
+    echo "GPUS PER NODE           : ${SLURM_GPUS_PER_NODE}"
+    echo "GPUS PER TASK           : ${SLURM_GPUS_PER_TASK}"
+    
     mask=mask_cpu:0xfe000000000000,0xfe00000000000000,0xfe0000,0xfe000000,0xfe,0xfe00,0xfe00000000,0xfe0000000000
-    export MPICH_GPU_SUPPORT_ENABLED=1 
-
+    export MPICH_GPU_SUPPORT_ENABLED=1
+    
     srun --cpu-bind=$mask $WRAPPER_PATH $LUMI_QISKIT_SINGULARITY_CONTAINER_PATH python myprog.py
     ```
 
@@ -159,50 +173,56 @@ Example `<myprog>.py` python script for single node simulations. Do note that th
 
 === "Puhti"
     ```Python
-    import qiskit
+    from qiskit import QuantumCircuit
     from qiskit_aer import AerSimulator
     
-    # Generate 3-qubit GHZ state
-    circ = qiskit.QuantumCircuit(3)
-    circ.h(0)
-    circ.cx(0, 1)
-    circ.cx(1, 2)
-    circ.measure_all()
+    ## CHOOSE PARAMETERS
+    num_qubits = 5              # Number of qubits in the circuit
+    num_shots = 1000            # How many times we sample the circuit
     
-    shots = 1000
+    ## CREATE CIRCUIT FOR N-QUBIT GHZ-STATE
+    circuit = QuantumCircuit(num_qubits)
+    circuit.h(0)
+    for i in range(1,num_qubits):
+        circuit.cx(0,i)
+    circuit.measure_all()
     
-    # Construct an ideal simulator that uses GPU
+    ## INITIALIZE SIMULATOR BACKEND THAT RUNS ON GPU
     simulator = AerSimulator(method="statevector", device="GPU")
-
-    # Execute the circuit with cuStateVec enabled. 
-    result_ideal = simulator.run(circ,shots=shots,seed_simulator=12345, cuStateVec_enable=True).result()
     
-    counts_ideal = result_ideal.get_counts(0)
-    print('Counts(ideal):', counts_ideal)
+    ## RUN THE CIRCUIT WITH CUSTATEVEC ENABLED
+    result_statevec = simulator.run(circuit, shots=num_shots, seed_simulator=12345, cuStateVec_enable=True).result()
+    
+    ## PRINT RESULTS
+    counts = result_statevec.get_counts()
+    print(f"Counts:, {counts}")
     ```
 
 === "Mahti"
     ```Python
-    import qiskit
+    from qiskit import QuantumCircuit
     from qiskit_aer import AerSimulator
     
-    # Generate 3-qubit GHZ state
-    circ = qiskit.QuantumCircuit(3)
-    circ.h(0)
-    circ.cx(0, 1)
-    circ.cx(1, 2)
-    circ.measure_all()
+    ## CHOOSE PARAMETERS
+    num_qubits = 5              # Number of qubits in the circuit
+    num_shots = 1000            # How many times we sample the circuit
     
-    shots = 1000
+    ## CREATE CIRCUIT FOR N-QUBIT GHZ-STATE
+    circuit = QuantumCircuit(num_qubits)
+    circuit.h(0)
+    for i in range(1,num_qubits):
+        circuit.cx(0,i)
+    circuit.measure_all()
     
-    # Construct an ideal simulator that uses GPU
+    ## INITIALIZE SIMULATOR BACKEND THAT RUNS ON GPU
     simulator = AerSimulator(method="statevector", device="GPU")
     
-    # Execute the circuit with cuStateVec enabled. 
-    result_ideal = simulator.run(circ,shots=shots,seed_simulator=12345, cuStateVec_enable=True).result()
+    ## RUN THE CIRCUIT WITH CUSTATEVEC ENABLED
+    result_statevec = simulator.run(circuit, shots=num_shots, seed_simulator=12345, cuStateVec_enable=True).result()
     
-    counts_ideal = result_ideal.get_counts(0)
-    print('Counts(ideal):', counts_ideal)
+    ## PRINT RESULTS
+    counts = result_statevec.get_counts()
+    print(f"Counts:, {counts}")
     ```
 
 === "LUMI"
@@ -211,49 +231,55 @@ Example `<myprog>.py` python script for single node simulations. Do note that th
     from qiskit.transpiler import CouplingMap
     from qiskit_aer import AerSimulator
     from qiskit.circuit.library import QuantumVolume
-    import time
-
-    ## CHOOSE PARAMETERS - Values obtained from sbatch script that are imported into SINGULARITY CONTAINER using SINGULARITYENV_*env variable -----------------------------------------
-
-    qubits = 34
-    depth = 30                            # How many layers of quantum gates does the circuit have (Applies for Quantum Volume circuit)
+    
+    ## CHOOSE PARAMETERS
+    num_qubits = 34                       # Number of qubits in the circuit
+    circuit_depth = 30                    # Layers in quantum volume circuit
     num_shots = 1000                      # How many times we sample the circuit
-    sim_method = 'statevector'            # Circuits with over 30 qubits start to require a lot of memory if using statevector simulator
-    sim_device = 'GPU'                    # Requires system that provides GPU
-    use_cache_blocking = True             # Enables cache blocking technique. Qiskit Aer parallelizes simulations by distributing quantum states into distributed memory space.
-    num_blocking_qubits = 29              # Must be smaller than qubits-log2(num_processes). Smaller number of blocking qubits -> more processess (beneficial to utilize MPI by allocating more resources)
-    use_batched_shots = True              # Enables distributing shots to multiple processess
+    sim_method = 'statevector'            # Choosing simulation method
+    sim_device = 'GPU'                    # Choose wheter simulation is run on CPUs or GPUs
+    use_cache_blocking = True             # Cache blocking technique parallelizes simulation by distributing quantum states into distributed memory space
+    num_blocking_qubits = 29              # Defines chunk size for cache blocking. Must be smaller than "qubits-log2(number-of-processes)"
+    use_batched_shots = True              # Distributing shots to multiple processess
     num_parallel_experiments = 1          # Does not seem to do anything when running with MPI, probably intended to be used with multithreading
     
-    start_time = time.time()
+    ## INITIALIZE SIMULATOR BACKEND
+    simulator = AerSimulator(method=sim_method, device=sim_device, batched_shots_gpu=use_batched_shots)
     
-    ## INITIALIZE SIMULATOR BACKEND ---------------------------------------------------------------------------------------------------
-    sim = AerSimulator(method=sim_method, device=sim_device, batched_shots_gpu=use_batched_shots)
-    
-    ## CREATE CIRCUIT -----------------------------------------------------------------------------------------------------------------
-    circuit = QuantumVolume(qubits, depth, seed=0)
+    ## CREATE QUANTUM VOLUME CIRCUIT
+    circuit = QuantumVolume(num_qubits, circuit_depth, seed=0)
     circuit.measure_all()
     
-    ## TRANSPILE THE FOR CIRCUIT FOR FULL COUPLING MAP --------------------------------------------------------------------------------
-    coupling_map = CouplingMap.from_full(qubits)
-    transpiled_circuit = transpile(circuit, sim, coupling_map=coupling_map, optimization_level=0)
+    ## TRANSPILE THE CIRCUIT FOR SPECIFIC COUPLING MAP
+    coupling_map = CouplingMap.from_full(num_qubits)
+    transpiled_circuit = transpile(circuit, simulator, coupling_map=coupling_map, optimization_level=0)
     
-    ## RUN THE SIMULATION -------------------------------------------------------------------------------------------------------------
-    result_statevec = sim.run(transpiled_circuit, shots=num_shots, seed_simulator=12345, blocking_enabled=use_cache_blocking, blocking_qubits=num_blocking_qubits, max_parallel_experiments=num_parallel_experiments).result()
+    ## RUN THE SIMULATION
+    result_statevec = simulator.run(transpiled_circuit, shots=num_shots, seed_simulator=12345, blocking_enabled=use_cache_blocking, blocking_qubits=num_blocking_qubits, max_parallel_experiments=num_parallel_experiments).result()
     
-    ## GATHER THE RESULTS AND PRINT WITH SOME ADDITIONAL METADATA ---------------------------------------------------------------------
-    input_data = {'Circuit' : 'Quantum Volume', 'Qubits' : qubits, 'Depth' : depth, 'Shots' : num_shots, 'Batched Shots' : use_batched_shots , 'Device' : sim_device, 'Simulation Method' : sim_method}
+    ## GATHER THE RESULTS AND SOME ADDITIONAL METADATA
+    counts = result_statevec.get_counts()
+    result_dict = result_statevec.to_dict()
+    metadata = result_dict['metadata']
+    input_data = {'Circuit' : 'Quantum Volume', 'Qubits' : num_qubits, 'Depth' : circuit_depth, 'Shots' : num_shots, 'Batched Shots' : use_batched_shots , 'Device' : sim_device, 'Simulation Method' : sim_method}
     if (use_cache_blocking):
-        num_processes = 2**(qubits - num_blocking_qubits)
+        num_chunks = 2**(num_qubits - num_blocking_qubits)
         input_data['Blocking Qubits'] = num_blocking_qubits
-        input_data['Num Processes'] = num_processes
+        input_data['Number of Chunks'] = num_chunks
     
-    dict = result_statevec.to_dict()
-    meta = dict['metadata']
     
-    print(f"{input_data}")
-    print(f"{meta}")
-    print(f"-------------------------------------------------------------- \n")
+    ## PRINT FOR ONE MPI RANK
+    if (metadata['mpi_rank'] == 0):
+        print()
+        print(f"Input data: {input_data}")
+        print(f"Metadata: {metadata}")
+        #print(f"Results: {counts}")
+        print(f"-------------------- \n")
+    
+    ## PRINT ALL MPI PROCESSES
+    #print(f"Input data: {input_data}")
+    #print(f"Metadata: {metadata}")
+    #print(f"-------------------- \n")
     ```
 
 Submit the script with `sbatch <sbatch_script_name>.sh`
@@ -266,7 +292,10 @@ Example `<sbatch_MPI_script_name>.sh` script for running a simulation on multipl
     ```bash
     #!/bin/bash
     ## Here is an example sbatch script for a 38 qubit quantum volume simulation (myprog_MPI.py) using 16 nodes 
-    #SBATCH --account=<project>
+    #SBATCH --job-name=aer_job
+    #SBATCH --output=aer_job.o%j
+    #SBATCH --error=aer_job.e%j
+    #SBATCH --account=<project_id>
     #SBATCH --time=2:00:00
     #SBATCH --partition=standard-g
     #SBATCH --nodes=16
@@ -287,55 +316,61 @@ Small code example of `<myprog_MPI>.py` python script using 38 qubits which we r
 *reference recommended resource allocation table below
 
 === "LUMI"
-```Python
-from qiskit import QuantumCircuit, transpile
-from qiskit.transpiler import CouplingMap
-from qiskit_aer import AerSimulator
-from qiskit.circuit.library import QuantumVolume
-import time
-
-## CHOOSE PARAMETERS - Values obtained from sbatch script that are imported into SINGULARITY CONTAINER using SINGULARITYENV_*env variable -----------------------------------------
-
-qubits = 38
-depth = 30                            # How many layers of quantum gates does the circuit have (Applies for Quantum Volume circuit)
-num_shots = 1000                      # How many times we sample the circuit
-sim_method = 'statevector'            # Circuits with over 30 qubits start to require a lot of memory if using statevector simulator
-sim_device = 'GPU'                    # Requires system that provides GPU
-use_cache_blocking = True             # Enables cache blocking technique. Qiskit Aer parallelizes simulations by distributing quantum states into distributed memory space.
-num_blocking_qubits = 29              # Must be smaller than qubits-log2(num_processes). Smaller number of blocking qubits -> more processess (beneficial to utilize MPI by allocating more resources)
-use_batched_shots = True              # Enables distributing shots to multiple processess
-num_parallel_experiments = 1          # Does not seem to do anything when running with MPI, probably intended to be used with multithreading
-
-start_time = time.time()
-
-## INITIALIZE SIMULATOR BACKEND ---------------------------------------------------------------------------------------------------
-sim = AerSimulator(method=sim_method, device=sim_device, batched_shots_gpu=use_batched_shots)
-
-## CREATE CIRCUIT -----------------------------------------------------------------------------------------------------------------
-circuit = QuantumVolume(qubits, depth, seed=0)
-circuit.measure_all()
-
-## TRANSPILE THE FOR CIRCUIT FOR FULL COUPLING MAP --------------------------------------------------------------------------------
-coupling_map = CouplingMap.from_full(qubits)
-transpiled_circuit = transpile(circuit, sim, coupling_map=coupling_map, optimization_level=0)
-
-## RUN THE SIMULATION -------------------------------------------------------------------------------------------------------------
-result_statevec = sim.run(transpiled_circuit, shots=num_shots, seed_simulator=12345, blocking_enabled=use_cache_blocking, blocking_qubits=num_blocking_qubits, max_parallel_experiments=num_parallel_experiments).result()
-
-## GATHER THE RESULTS AND PRINT WITH SOME ADDITIONAL METADATA ---------------------------------------------------------------------
-input_data = {'Circuit' : 'Quantum Volume', 'Qubits' : qubits, 'Depth' : depth, 'Shots' : num_shots, 'Batched Shots' : use_batched_shots , 'Device' : sim_device, 'Simulation Method' : sim_method}
-if (use_cache_blocking):
-    num_processes = 2**(qubits - num_blocking_qubits)
-    input_data['Blocking Qubits'] = num_blocking_qubits
-    input_data['Num Processes'] = num_processes
-
-dict = result_statevec.to_dict()
-meta = dict['metadata']
-
-print(f"{input_data}")
-print(f"{meta}")
-print(f"-------------------------------------------------------------- \n")
-```
+    ```Python
+    from qiskit import QuantumCircuit, transpile
+    from qiskit.transpiler import CouplingMap
+    from qiskit_aer import AerSimulator
+    from qiskit.circuit.library import QuantumVolume
+    
+    ## CHOOSE PARAMETERS
+    num_qubits = 34                       # Number of qubits in the circuit
+    circuit_depth = 30                    # Layers in quantum volume circuit
+    num_shots = 1000                      # How many times we sample the circuit
+    sim_method = 'statevector'            # Choosing simulation method
+    sim_device = 'GPU'                    # Choose wheter simulation is run on CPUs or GPUs
+    use_cache_blocking = True             # Cache blocking technique parallelizes simulation by distributing quantum states into distributed memory space
+    num_blocking_qubits = 29              # Defines chunk size for cache blocking. Must be smaller than "qubits-log2(number-of-processes)"
+    use_batched_shots = True              # Distributing shots to multiple processess
+    num_parallel_experiments = 1          # Does not seem to do anything when running with MPI, probably intended to be used with multithreading
+    
+    ## INITIALIZE SIMULATOR BACKEND
+    simulator = AerSimulator(method=sim_method, device=sim_device, batched_shots_gpu=use_batched_shots)
+    
+    ## CREATE QUANTUM VOLUME CIRCUIT
+    circuit = QuantumVolume(num_qubits, circuit_depth, seed=0)
+    circuit.measure_all()
+    
+    ## TRANSPILE THE CIRCUIT FOR SPECIFIC COUPLING MAP
+    coupling_map = CouplingMap.from_full(num_qubits)
+    transpiled_circuit = transpile(circuit, simulator, coupling_map=coupling_map, optimization_level=0)
+    
+    ## RUN THE SIMULATION
+    result_statevec = simulator.run(transpiled_circuit, shots=num_shots, seed_simulator=12345, blocking_enabled=use_cache_blocking, blocking_qubits=num_blocking_qubits, max_parallel_experiments=num_parallel_experiments).result()
+    
+    ## GATHER THE RESULTS AND SOME ADDITIONAL METADATA
+    counts = result_statevec.get_counts()
+    result_dict = result_statevec.to_dict()
+    metadata = result_dict['metadata']
+    input_data = {'Circuit' : 'Quantum Volume', 'Qubits' : num_qubits, 'Depth' : circuit_depth, 'Shots' : num_shots, 'Batched Shots' : use_batched_shots , 'Device' : sim_device, 'Simulation Method' : sim_method}
+    if (use_cache_blocking):
+        num_chunks = 2**(num_qubits - num_blocking_qubits)
+        input_data['Blocking Qubits'] = num_blocking_qubits
+        input_data['Number of Chunks'] = num_chunks
+    
+    
+    ## PRINT FOR ONE MPI RANK
+    if (metadata['mpi_rank'] == 0):
+        print()
+        print(f"Input data: {input_data}")
+        print(f"Metadata: {metadata}")
+        #print(f"Results: {counts}")
+        print(f"-------------------- \n")
+    
+    ## PRINT ALL MPI PROCESSES
+    #print(f"Input data: {input_data}")
+    #print(f"Metadata: {metadata}")
+    #print(f"-------------------- \n")
+    ```
 
 Submit the script with `sbatch <sbatch_MPI_script_name>.sh`
 
@@ -344,7 +379,7 @@ Submit the script with `sbatch <sbatch_MPI_script_name>.sh`
 Please take note that the recommended nodes are twice the number of minimum resources needed to run a simulation but due to our tests we have found a significant speedup and cost savings of GPU hours if a user submits a job with double the amount of resources that are actually required to simulate a quantum circuit for any specific number of qubits. The Maximum number of qubits that can be simulated using the state_vector simulation method is a theoretical 45 qubits due to the total amount of nodes in the standard-g partition and the amount of system memory in each node. 
 
 | # of Qubits | # of Blocking Qubits | Recommended # of nodes | # gpus-per-node  |
-| :----------:| :------------------: | :--------------------: | :--------------: |
+| :-----------| :------------------: | :--------------------: | ---------------- |
 | 1           | 0                    | 1                      | 8                |
 | 2           | 0                    | 1                      | 8                |
 | 3           | 0                    | 1                      | 8                |
@@ -369,6 +404,7 @@ Please take note that the recommended nodes are twice the number of minimum reso
 | 43          | 29                   | 512                    | 8                |
 | 44          | 29                   | 1024                   | 8                |
 | 45*         | 29                   | 2048                   | 8                |
+
 * For a job submitted to LUMI where more than 1024 nodes are required, a special petition must be filed to request the allocation of such resources
 
 
