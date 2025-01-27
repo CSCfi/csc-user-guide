@@ -6,7 +6,9 @@ tags:
 # Qiskit
 
 Qiskit is an open-source software for working with quantum computers at the level
-of circuits, pulses, and algorithms. 
+of circuits, pulses, and algorithms. This page contains information in regard to running Quantum simulations using qiskit inside of a singularity container.
+For information pertaining to running jobs on Helmi using qiskit please refer to this documentation: 
+[Running on Helmi](https://csc-guide-preview.2.rahtiapp.fi/origin/QT-qiskit-singularity/computing/quantum-computing/helmi/running-on-helmi/)
 
 !!! info "News"
      **23.01.2025** Installed `qiskit/1.2.4` in a singularity container on LUMI with all major Qiskit packages and
@@ -24,7 +26,9 @@ Currently supported Qiskit versions:
 
 Includes all the major Qiskit packages (Terra, Nature, Aer, etc.) and GPU acceleration. The `qiskit/1.1.1` and `qiskit/1.2.4` packages include the following qiskit plugins:
 
-```bash
+=== "Puhti"
+    ```bash
+qiskit=1.1.1
 qiskit-aer-gpu>=0.14.2
 qiskit-algorithms==0.3.0
 qiskit-dynamics==0.5.1
@@ -34,7 +38,33 @@ qiskit-ibm-experiment==0.4.7
 qiskit-machine-learning==0.7.2
 qiskit-nature==0.7.2
 qiskit-optimization==0.6.1
-```
+    ```
+=== "Mahti"
+    ```bash
+qiskit=1.1.1
+qiskit-aer-gpu>=0.14.2
+qiskit-algorithms==0.3.0
+qiskit-dynamics==0.5.1
+qiskit-experiments==0.7.0
+qiskit-finance==0.4.1
+qiskit-ibm-experiment==0.4.7
+qiskit-machine-learning==0.7.2
+qiskit-nature==0.7.2
+qiskit-optimization==0.6.1
+    ```
+=== "LUMI"
+    ```bash
+qiskit=1.2.4
+qiskit-aer-gpu>=0.15.1
+qiskit-algorithms==0.3.1
+qiskit-dynamics==0.5.1
+qiskit-experiments==0.8.0
+qiskit-finance==0.4.1
+qiskit-ibm-experiment==0.4.8
+qiskit-machine-learning==0.8.0
+qiskit-nature==0.7.2
+qiskit-optimization==0.6.1
+    ```
 
 
 If you find that some package is missing, you can often install it yourself with `pip install --user`.
@@ -69,9 +99,9 @@ versions](#available)), use:
 module load qiskit/1.1.1
 ```
 
-### Example batch script - Single-node simulations on Puhti, Mahti, and LUMI
+### Example sbatch and python script - Single-node simulations on Puhti, Mahti, and LUMI
 
-Example batch script for reserving one GPU and two CPU cores in a single node for Puhti and Mahti and all CPU/GPU resources on a single node using the LUMI standard-g partition :
+Example <sbatch_script_name>.sh script for reserving one GPU and two CPU cores in a single node for Puhti and Mahti and all CPU/GPU resources on a single node using the LUMI standard-g partition:
 
 === "Puhti"
     ```bash
@@ -123,10 +153,9 @@ Example batch script for reserving one GPU and two CPU cores in a single node fo
     srun --cpu-bind=$mask $WRAPPER_PATH $LUMI_QISKIT_SINGULARITY_CONTAINER_PATH python myprog.py
     ```
 
-### Small code example of "myprog.py" without MPI
+Example <myprog>.py python script for single node simulations. Do note that this code is just to highlight the syntax and only works on a single node. For LUMI simulations, reference the table below for resource requirements relative to the amount of qubits you wish to simulate.
 
-Do note that this code is just to highlight the syntax and only works on a single node.
-
+=== "Puhti"
 ```Python
 import qiskit
 from qiskit_aer import AerSimulator
@@ -150,12 +179,31 @@ counts_ideal = result_ideal.get_counts(0)
 print('Counts(ideal):', counts_ideal)
 ```
 
-Submit the script with `sbatch <script_name>.sh`
+=== "Mahti"
+```Python
+import qiskit
+from qiskit_aer import AerSimulator
 
+# Generate 3-qubit GHZ state
+circ = qiskit.QuantumCircuit(3)
+circ.h(0)
+circ.cx(0, 1)
+circ.cx(1, 2)
+circ.measure_all()
 
-### Small code example of "myprog.py" on LUMI using a single node for 34 qubits 
-* please reference the recommended resource allocation table below to see how many resources are required per amount of qubits you wish to simulate on LUMI. The example script below works on a single node as well as on multiple nodes.
+shots = 1000
 
+# Construct an ideal simulator that uses GPU
+simulator = AerSimulator(method="statevector", device="GPU")
+
+# Execute the circuit with cuStateVec enabled. 
+result_ideal = simulator.run(circ,shots=shots,seed_simulator=12345, cuStateVec_enable=True).result()
+
+counts_ideal = result_ideal.get_counts(0)
+print('Counts(ideal):', counts_ideal)
+```
+
+=== "LUMI"
 ```Python
 from qiskit import QuantumCircuit, transpile
 from qiskit.transpiler import CouplingMap
@@ -166,7 +214,7 @@ import time
 ## CHOOSE PARAMETERS - Values obtained from sbatch script that are imported into SINGULARITY CONTAINER using SINGULARITYENV_*env variable -----------------------------------------
 
 qubits = 34
-depth = 30                            # How many layers of quantum gates dioes the circuit have (Applies for Quantum Volume circuit)
+depth = 30                            # How many layers of quantum gates does the circuit have (Applies for Quantum Volume circuit)
 num_shots = 1000                      # How many times we sample the circuit
 sim_method = 'statevector'            # Circuits with over 30 qubits start to require a lot of memory if using statevector simulator
 sim_device = 'GPU'                    # Requires system that provides GPU
@@ -206,16 +254,16 @@ print(f"{meta}")
 print(f"-------------------------------------------------------------- \n")
 ```
 
-Submit the script with `sbatch <script_name>.sh`
+Submit the script with `sbatch <sbatch_script_name>.sh`
 
-### Example batch script - Multi-node simulations which leverage Native HPE Cray MPI with GPU acceleration
+### Example sbatch and python script - Multi-node simulations which leverage Native HPE Cray MPI with GPU acceleration on LUMI
 
-Example batch script for running a simulation on multiple LUMI nodes in the standard-g partition using all GPUs and all CPU cores on a node. This is for simulations involving 35 qubits or more (up to a maximum 45* qubits - see table below for recommended resource allocations based on amount of qubits you wish to simulate ):
+Example <sbatch_MPI_script_name>.sh script for running a simulation on multiple LUMI nodes in the standard-g partition using all GPUs and all CPU cores on a node. This is for simulations involving 35 qubits or more (up to a maximum 45* qubits - see table below for recommended resource allocations based on amount of qubits you wish to simulate ):
 
 === "LUMI"
     ```bash
-    ## Here is an example sbatch script for a 38 qubit simulation using 16 nodes
     #!/bin/bash
+    ## Here is an example sbatch script for a 38 qubit quantum volume simulation (myprog_MPI.py) using 16 nodes 
     #SBATCH --account=<project>
     #SBATCH --time=2:00:00
     #SBATCH --partition=standard-g
@@ -233,9 +281,10 @@ Example batch script for running a simulation on multiple LUMI nodes in the stan
     srun --cpu-bind=$mask $GPU_WRAPPER_PATH $LUMI_QISKIT_SINGULARITY_CONTAINER_PATH python myprog_MPI.py
     ```
 
-### Small code example of "myprog_MPI.py" using 38 qubits which we recommend running on 16 nodes 
+Small code example of <myprog_MPI>.py python script using 38 qubits which we recommend running on 16 nodes 
 *reference recommended resource allocation table below
 
+=== "LUMI"
 ```Python
 from qiskit import QuantumCircuit, transpile
 from qiskit.transpiler import CouplingMap
@@ -246,7 +295,7 @@ import time
 ## CHOOSE PARAMETERS - Values obtained from sbatch script that are imported into SINGULARITY CONTAINER using SINGULARITYENV_*env variable -----------------------------------------
 
 qubits = 38
-depth = 30                            # How many layers of quantum gates dioes the circuit have (Applies for Quantum Volume circuit)
+depth = 30                            # How many layers of quantum gates does the circuit have (Applies for Quantum Volume circuit)
 num_shots = 1000                      # How many times we sample the circuit
 sim_method = 'statevector'            # Circuits with over 30 qubits start to require a lot of memory if using statevector simulator
 sim_device = 'GPU'                    # Requires system that provides GPU
@@ -286,9 +335,9 @@ print(f"{meta}")
 print(f"-------------------------------------------------------------- \n")
 ```
 
-Submit the script with `sbatch <script_name>.sh`
+Submit the script with `sbatch <sbatch_MPI_script_name>.sh`
 
-### Recommended resource allocation based on number of qubits in your circuit for a "normal" Slurm job. 
+### Recommended LUMI resource allocation table 
 
 Please take note that the recommended nodes are twice the number of minimum resources needed to run a simulation but due to our tests we have found a significant speedup and cost savings of GPU hours if a user submits a job with double the amount of resources that are actually required to simulate a quantum circuit for any specific number of qubits. The Maximum number of qubits that can be simulated using the state_vector simulation method is a theoretical 45 qubits due to the total amount of nodes in the standard-g partition and the amount of system memory in each node. 
 
@@ -323,5 +372,7 @@ Please take note that the recommended nodes are twice the number of minimum reso
 
 ## More information
 
+- [Qiskit-Aer Running with multiple-GPUs and/or multiple nodes](https://qiskit.github.io/qiskit-aer/howtos/running_gpu.html)
+- [Cache Blocking Technique to Large Scale Quantum Computing Simulation on Supercomputers](https://arxiv.org/abs/2102.02957)
 - [Qiskit documentation](https://qiskit.org/documentation/getting_started.html)
 - [Qiskit-aer documentation](https://qiskit.org/ecosystem/aer/tutorials/index.html)
