@@ -323,7 +323,7 @@ Small code example of `<myprog_MPI>.py` python script using 38 qubits which we r
     from qiskit.circuit.library import QuantumVolume
     
     ## CHOOSE PARAMETERS
-    num_qubits = 34                       # Number of qubits in the circuit
+    num_qubits = 38                       # Number of qubits in the circuit
     circuit_depth = 30                    # Layers in quantum volume circuit
     num_shots = 1000                      # How many times we sample the circuit
     sim_method = 'statevector'            # Choosing simulation method
@@ -365,7 +365,7 @@ Small code example of `<myprog_MPI>.py` python script using 38 qubits which we r
         print(f"Metadata: {metadata}")
         #print(f"Results: {counts}")
         print(f"-------------------- \n")
-    
+
     ## PRINT ALL MPI PROCESSES
     #print(f"Input data: {input_data}")
     #print(f"Metadata: {metadata}")
