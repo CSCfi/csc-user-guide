@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -e
 
 get_all_internal_links(){
     grep -o -n -r --include \*.md   -- "\[[^]]*\]([^)(]*)" "$1" | sed 's/(\s*/(/g'  | grep -E -v "https?://" | grep -v "mailto:"  | sed 's/\[.*\](//g' | sed 's/)$//g' | sed 's/\(.*\)#/\1:/' | sed 's/".*"//g' \
