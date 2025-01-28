@@ -1,16 +1,54 @@
 
-### Export data programmatically
+### Export data programmatically from the virtual desktop
 
+# Exporting data from virtual desktop
+
+## Prerequisites
+* [Create virtual desktop](sd-desktop-create.md)
+* [Access virtual desktop](sd-desktop-access-vm.md)
+
+
+## Backround informations:
+
+
+### Automated key management, encryption, and decryption are not yet available for export from SD Desktop
+
+
+Data export requires encryption. At present, exporting data from SD Desktop to Sd Connect **is a manual process that involves using Crypt4GH tools and generating your own encryption key pair**. Automated keymanagement, which simplifies encryption, is only available for data uploads and downloads via SD Connect. This feature was introduced programmatically in February 2025 and extended to the user interface in October 2025.
+
+Because of these differences, your SD Connect storage may contain files encrypted using different methods. To avoid confusion and ensure proper organization, we recommend creating a             dedicated folder exclusively for data exports from SD Desktop. This will help keep files with different encryption formats separate.
+
+
+### Only project managers can export data
+
+Your virtual desktop is isolated from the internet for security reasons. Only the CSC project manager can export results or data from the secure workspace using **Data Gateway** application or the airlock command line tool (programmtiaclly). The results are exported to SD Connect, where they will be available for download to your computer and can be manually decrypted.
+ 
 !!! Note
-    Automated key management, encryption, and decryption are not yet available for export from SD Desktop. 
+    - Only one file can be exported at a time. To export multiple files, first compress them into a single folder. 
+    - Files larger than 30 GB need to be split into smaller parts before exporting.
 
-To encrypt and upload files via command line, please check [this tutorial](sequencing_center_tutorial.md) illustrating how to use the crpt4GH tool to upload files in Allas (visible from SD Connect).
+## Step by step
 
-Below more information about the crypt4GH CLI:
+In this example, we first generate your key pair (a password-protected private key and a public key that can be shared with collaborators). We uplaod the public key to Sd Connect and import it to SD Desktop.  Here, we encrypt a file with public key and export them to SD Connect /Allas using the airlock CLI. Finally we download the files form Sd Connect /allas and decrypt them on our local enviroment using the correspondent secrete encryption key. 
+
+1. Download and install the Crypt4GH application
+2. Generate your encryption key pair
+3. Upload your public key to SD Connect
+4. Import the public key inside the virtual desktop
+5. Encrypt the files with your public key
+6. Export the files from SD Desktop
+7. Download the file from SD Connect and change extension
+8. Decrypt the file with crypt4GH application
+9. Advanced: Backup copies
+
+
+!!! info "Support available"
+    Please reach out to us at servicedesk@csc.fi (subject: SD Desktop). We will guide you through the export process in an online meeting.
+
+
+## 1. Download and install the Crypt4GH  encryption CLI tool:
 
 For documentation and more information, you can check the [Crypt4GH Encryption Utility](https://github.com/EGA-archive/crypt4gh.git) page.
-
-In this example, we first generate your key pair (a password-protected private key and a public key that can be shared with collaborators). Next, we encrypt a file with public keys of two different collaborators (research group A and research group B).
 
 **Python 3.6+ is required** to use the Crypt4GH encryption utility. If you need help installing Python, please follow [these instructions](https://www.python.org/downloads/release/python-3810/).
 
@@ -66,7 +104,10 @@ In this example, we first generate your key pair (a password-protected private k
 
       You may notice that crypt4gh uses `--sk` option for the private key. This might seem odd but apparently, crypt4gh uses term _secure key_ for private key, hence `sk`, and consequently `pk` refers to public key instead of the private key.
 
-2. Generate your public-private key pair
+
+
+## 2. Generate your public-secrete encryption key pair
+
 
       You use `crypt4gh-keygen` command to create your private and public keys:
 
@@ -87,17 +128,129 @@ In this example, we first generate your key pair (a password-protected private k
     !!! Note
         You need to create your keys only once and use them for all your encryption needs, but you can of course, choose to generate separate keys for encryption as you wish.
 
-3. Encrypt a file
 
-      To encrypt files you will need the public keys of the recipients of the data. In this example we are sharing the data with two recipients: yourself and research group A. Your own public key (`mykey.pub`) was created in the previous step, and the public key of research group A (`groupA.pub`) we have received somehow (e.g. via email). To encrypt a file you use `crypt4gh encrypt` command:
+- The keys will be saved in the same folder where the application resides (e.g. **Downloads** folder).
+  
+- We recommend saving the key pair in a dedicated folder and renaming them descriptive names (e.g., `export_public.pub` and `export_secret.key`). Common issues arise when keys are misplaced or mismatched.
 
-      ```bash
-      crypt4gh encrypt --recipient_pk mykey.pub --recipient_pk groupA.pub <dog.jpg >dog.jpg.c4gh
-      ```
+-  We recommend testing if the key pair works
 
-      The `crypt4gh` command uses only standard input (stdin) and standard output (stdout) so you must use shell redirections: `<` denotes an input file and `>` and denotes an output file, hence `<dog.jpg` reads in a file called `dog.jpg` and `>dog.jpg.c4gh` writes out an encrypted file named `dog.jpg.c4gh`.
+   
+!!! warning
+    - If you lose or forget your secret key or password, you won’t be able to decrypt your files.
+    - **Do not share** your secret key or password.
+    - You need to **create your keys only once** for all encryption needs, but you may generate separate keys for different projects if desired.
 
-4. Decrypt a file
+
+
+## 3. Upload the public key to SD Connect 
+
+1. Log in to SD Connect.
+2. Select the correct CSC project in the top left corner.
+3. Click **Upload** in the top right corner.
+4. In the new window, name the destination folder for your files (e.g. **project_export**).
+5. Click **Select Files** to open a browser window and choose the public enycrption key  (e.g. .pub file). Click **Upload** to start automatic encryption and upload.
+6. Once the upload is finished, the encryption key will be now visible from your virtual desktop.
+
+
+## 4. Import the public key inside the virtual desktop
+
+1. [Access](./sd-desktop-access-vm.md) your virtual desktop.
+2. [Access the folder](./sd-desktop-access.md#1-access-data-via-the-data-gateway-application) with the public key.
+3. Use the copy/paste function to paste your public key into the virtual desktop.
+
+## 5. Encrypt the file
+
+### Exporting multiple files
+
+To export multiple files, first compress them into a single folder, then encrypt as a single file.
+
+1. Create a new folder. 
+2. Place all files into the folder.
+3. Right-click the folder, select **Compress**. Now your folder is a .zip file.
+
+
+
+### Encrypt the file or folder
+
+1. Open the terminal (right-click) and use your public key to encrypt the files you want to export. Crypt4GH is pre-installed on each virtual desktop and accessible programmatically.
+
+    The syntax for the encryption command is:
+
+    ```text
+    crypt4gh encrypt --recipient_pk public-key < input > output
+    ```
+
+    Here:
+    - `public-key` is your public key file (e.g., `your-username.pub`).
+    - `input` is the file you wish to export (e.g., `my_results.csv`).
+    - `output` is the encrypted file (e.g., `my_results.csv.c4gh`).
+
+    **Example:**
+
+    ```text
+    crypt4gh encrypt --recipient_pk your-username.pub < my_results.csv > my_results.csv.c4gh
+    ```
+
+## 6. Export the encrypted files from the virtual Desktop
+
+Once the file is encrypted, only the CSC project manager can export them via the Data Gateway application or programmatically using the Airlock client.
+
+### Option A: Export via data Gateway application
+
+1. Open Data Gateway application.
+2. Select SD Connect and enter CSC user name and password. Click **Login** and then click **Continue**.
+3. Click on **Export** tab. This is available only to project manager. 
+4. Exported file will go to SD Connect. Choose the destination folder from existing folders in SD Connect. You can also first log in to SD Connect and create a new folder for exported files.
+5. Select file you want to export and click **Export**.
+6. Files are now in the folder you selected in SD Connect.
+
+
+### Option B: Export programmatically via Airlock client
+
+1. Open the terminal (right-click) and use the following syntax:
+
+    ```text
+    airlock-client <<username>> <<data_output_bucket>> <<filename>>
+    ```
+
+    - `username` is your CSC account username.
+    - `data_output_bucket` is the name you assign to the bucket where the results will be exported. The Airlock client will create this bucket automatically within the same CSC project as your Desktop.
+    - `filename` is the name of the encrypted file you wish to export.
+
+    **Example:**
+
+    ```text
+    airlock-client cscuser analysis-2022 results-03.csv.c4gh
+    ```
+
+2. Press **Enter** and enter your password when prompted.
+
+!!! Note:
+    If you attempt to upload an unencrypted file, the Data Gateway apploication or Airlock client will automatically encrypt it with the Sensitive Data services public key for security reasons and export it to SD Connect. You will be able to download this file, but you will not be able to decrypt it.
+
+
+
+## 7. Download the files from SD Connect and change extension (ADD progrmmatically, from old tutorial?)
+
+
+<iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/SQJ8QEKV7BE" title="Create a virtual desktop in SD Desktop" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+
+1. Access SD Connect and locate the file you need. Click on Download.
+2. The user interface will display the message: "Some requested files could not be decrypted."
+3. After downloading the file, **you need to adjust the extension**:
+    * Right-click the file
+    * Choose "Rename," and add `.c4gh` to the end of the filename.
+    * If opened with a text editor, the files will still be encrypted.
+
+
+![Some requested files could not be decrypted.](https://a3s.fi/docs-files/sensitive-data/SD_Connect/Old_download_1.png)
+
+![After downloading the files, you need to adjust their extensions.](https://a3s.fi/docs-files/sensitive-data/SD_Connect/Old_download_2.png)
+
+### 8. Decrypt the files with the Crypt4gh CLi tools
+
 
       To decrypt a file you will need a private key which corresponds to one of the public keys used in encryption phase. Let's assume in our example that the research group A is decrypting a file you've sent them. To decrypt a file they use `crypt4gh decrypt` command:
 
@@ -116,3 +269,23 @@ In this example, we first generate your key pair (a password-protected private k
       If you need to decrypt a large number of files, please check the tutorial [Decrypting all files in a directory](./tutorials/decrypt-directory.md).
 
       [More information about data encryption](sd-connect-command-line-interface.md)
+
+
+
+    If you need to decrypt a large number of files, please check the tutorial [Decrypting all files in a directory](./tutorials/decrypt-directory.md).
+    
+## Advanced: Back-up copies
+
+If project members need to make back-up copies from important files, the project manager can launch a back-up server process that project members can utilse to have backups. For details, see: [SD Desktop Back-up server tutorial](./tutorials/backup_sd_desktop.md).
+
+## More support:
+
+To encrypt and upload files via command line, please check [this tutorial](sequencing_center_tutorial.md) illustrating how to use the crpt4GH tool to upload files in Allas (visible from SD Connect).
+
+Below more information about the crypt4GH CLI:
+
+For documentation and more information, you can check the [Crypt4GH Encryption Utility](https://github.com/EGA-archive/crypt4gh.git) page.
+
+If you need to decrypt a large number of files, please check the tutorial [Decrypting all files in a directory](./tutorials/decrypt-directory.md).
+
+    
