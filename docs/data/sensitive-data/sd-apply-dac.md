@@ -102,7 +102,7 @@ You can choose between two different workflows: A dynamic workflow and a decider
 Assign >DAC members as application handlers for a workflow by searching the user by their username or locating them from the drop-down list. We recommend **assigning more than one handler to a workflow** to make sure there are enough handlers to process all the applications. 
 
 !!! note
-   You can **only find handlers that have previously logged in to SD Apply or have been added using the API**. If you cannot find the handler you were looking for, please ask them to log in and try again. 
+   You can **only find handlers that have previously logged in to SD Apply or have been added using the API**. If you cannot find the handler you were looking for, please ask them to log in and try again.
 
 If you want to hide the names of the application handlers (DAC, reviewers, deciders) from the applicant, select the checkbox Anonymized handling.
 
@@ -126,7 +126,8 @@ When a researcher submits data to Federated EGA, they receive a permanent identi
 1. Add the EGA identifier the FEGA submitter provided to you in the resource identifier field. 
 2. Select the policies you want to connect to your resource by choosing the licenses you have created from the drop-down list. Licenses are optional.
 
-Note! You cannot edit the resource after you have created and saved it. If you want to change something after you have created a resource, you should create a new resource and archive the old one.
+!!! note
+   You cannot edit the resource after you have created and saved it. If you want to change something after you have created a resource, you should create a new resource and archive the old one.
 
 ### 5. Create a catalogue item
 
