@@ -1,10 +1,12 @@
 # Data export from virtual desktop
 
-Your virtual desktop is completely isolated from the internet and other services for information security reasons. Data export is also restricted: only CSC can export non-sensitive results from the secure workspace when processing secondary use data.
+Your virtual desktop is completely isolated from the internet and other services for information security reasons. Data export is also restricted: only CSC can export non-sensitive results from the secure workspace when processing secondary use data. The exported results will be send to the data permit authority Findata for scrutiny. 
+
+Please ensure you reserve enough time for the export process. It may take us a few days to respond to your request, and once the results are sent to scrutiny, the scrutiny process will take up to seven business days.
 
 **In order to export the results at the end of your analysis, you need to:**
 
-1. Make sure your results **do not contain any sensitive data**;
+1. Make sure your results **do not contain any sensitive data**. Read more about producing anonymous results from [Findata's website](https://findata.fi/en/services-and-instructions/producing-anonymous-results/);
 2. Collect all the results into a same folder and name it as **Results**;
 3. Place the **Results** folder into the **shared-directory** on your Desktop;
 4. Download and complete Findata's [summary form for verifying the anonymity of the results](https://findata.fi/summary-form-verifying-anonymity-of-results);

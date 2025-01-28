@@ -481,15 +481,14 @@ nav:
               - Export data: data/sensitive-data/sd-desktop-export.md
               - Troubleshooting: data/sensitive-data/sd-desktop-troubleshooting.md
       - Publish and reuse:
-          - Federated EGA:
+          - Publish with Federated EGA:
               - data/sensitive-data/federatedega.md
-              - Data access application: data/sensitive-data/fega-application.md
-              - Data access approval for DAC: data/sensitive-data/fega-dac.md
-              - Data submission: data/sensitive-data/fega-submission.md
-          - SD Apply:
+              - Publish data: data/sensitive-data/fega-submission.md
+          - Reuse with SD Apply:
               - data/sensitive-data/sd-apply.md
-              - Data access for Data Applicant: data/sensitive-data/sd-apply-access.md
-              - Data approval for DAC: data/sensitive-data/sd-apply-approval.md
+              - Apply access to FEGA data: data/sensitive-data/sd-apply-access.md
+              - Approve access to FEGA data: data/sensitive-data/sd-apply-approval.md
+              - Enable reuse of FEGA data: data/sensitive-data/sd-apply-dac.md
       - Secondary use of health and social data:
           - Start here:
               - data/sensitive-data/secondarydata-access.md

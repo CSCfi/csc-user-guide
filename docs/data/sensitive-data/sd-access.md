@@ -14,7 +14,7 @@ Next select suitable tutorial:
 
 ### Project manager creates and manages CSC project
 * The person who creates the project in MyCSC is the project manager. This is usually done by research team manager. 
-* Project manager can invite project members and manage project's lifetime, services,ß storage space and billing units. 
+* Project manager can invite project members and manage project's lifetime, services, storage space and billing units. 
 * Only the project manager can export data from SD Desktop.
 
 [Step by step tutorial for project manager](./sd-use-case-new-user-project-manager.md)
