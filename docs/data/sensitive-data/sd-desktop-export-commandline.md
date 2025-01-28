@@ -6,7 +6,7 @@
 * [Access virtual desktop](sd-desktop-access-vm.md)
 
 
-## Backround informations:
+## Background informations:
 
 
 ### Automated key management, encryption, and decryption are not yet available for export from SD Desktop
@@ -29,22 +29,22 @@ Your virtual desktop is isolated from the internet for security reasons. Only th
 
 In this example, we first generate your key pair (a password-protected private key and a public key that can be shared with collaborators). We uplaod the public key to Sd Connect and import it to SD Desktop.  Here, we encrypt a file with public key and export them to SD Connect /Allas using the airlock CLI. Finally we download the files form Sd Connect /allas and decrypt them on our local enviroment using the correspondent secrete encryption key. 
 
-1. Download and install the Crypt4GH application
+1. Download and install the Crypt4GH encryption CLI tool
 2. Generate your encryption key pair
-3. Upload your public key to SD Connect
+3. Upload your public key to SD Connect /Allas
 4. Import the public key inside the virtual desktop
 5. Encrypt the files with your public key
-6. Export the files from SD Desktop
-7. Download the file from SD Connect and change extension
-8. Decrypt the file with crypt4GH application
-9. Advanced: Backup copies
+6. Export the files from SD Desktop via airlock
+7. Download the file from SD Connect /Allas and change extension
+8. Decrypt the file with crypt4GH encryption CLI tool
+9. Advanced: Backup copies and support
 
 
 !!! info "Support available"
     Please reach out to us at servicedesk@csc.fi (subject: SD Desktop). We will guide you through the export process in an online meeting.
 
 
-## 1. Download and install the Crypt4GH  encryption CLI tool:
+## 1. Download and install the Crypt4GH encryption CLI tool:
 
 For documentation and more information, you can check the [Crypt4GH Encryption Utility](https://github.com/EGA-archive/crypt4gh.git) page.
 
