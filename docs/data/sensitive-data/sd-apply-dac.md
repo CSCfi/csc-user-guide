@@ -30,7 +30,8 @@ and combine these items together by **creating a catalogue item**.
 
 When you have created these items once, you can reuse them and form new catalogue items by combining different items.
 
-!!! note You have to create all the other items before creating a catalogue item.
+!!! note
+    You have to create all the other items before creating a catalogue item.
 
 ### 1. Create an application form
 
@@ -43,7 +44,8 @@ In the application form, the data controller specifies the information that the 
 5. Add the fields you want to have in the application. The preview on the right side shows how an applicant would see the application form.
 6. Select **Save** when you are finished with the form.
 
-!!! note You can only edit the form as long as it has not been connected to a catalogue item.
+!!! note
+    You can only edit the form as long as it has not been connected to a catalogue item.
 
 It's recommended to include parts of the agreements that need to be filled in directly in the application form in SD Apply. The rest of the agreement content can be provided as a PDF license the applicants can review and accept electronically when they request access to the dataset. This way, applicants can complete the necessary sections within SD Apply and accept the terms of use without needing to manually sign documents. 
 
@@ -66,7 +68,8 @@ You can create fields that are hidden or shown to the applicant depending on the
 
 For example, you can create an option list “Do you want to add attachments?” Yes - No. If the applicant chooses “Yes” the attachment field is shown to the applicant. If they choose “No” they will not see the attachment field.
 
-!!! note Conditional fields only work with Option list and Multiselect fields.
+!!! note
+    Conditional fields only work with Option list and Multiselect fields.
 
 1. Create an **Option list** and fill in the options
 2. Create another field of any field type.
@@ -98,7 +101,8 @@ You can choose between two different workflows: A dynamic workflow and a decider
 
 Assign >DAC members as application handlers for a workflow by searching the user by their username or locating them from the drop-down list. We recommend **assigning more than one handler to a workflow** to make sure there are enough handlers to process all the applications. 
 
-!!! note You can **only find handlers that have previously logged in to SD Apply or have been added using the API**. If you cannot find the handler you were looking for, please ask them to log in and try again.
+!!! note
+    You can **only find handlers that have previously logged in to SD Apply or have been added using the API**. If you cannot find the handler you were looking for, please ask them to log in and try again.
 
 If you want to hide the names of the application handlers (DAC, reviewers, deciders) from the applicant, select the checkbox Anonymized handling.
 
@@ -122,7 +126,8 @@ When a researcher submits data to Federated EGA, they receive a permanent identi
 1. Add the EGA identifier the FEGA submitter provided to you in the resource identifier field. 
 2. Select the policies you want to connect to your resource by choosing the licenses you have created from the drop-down list. Licenses are optional.
 
-!!! note You cannot edit the resource after you have created and saved it. If you want to change something after you have created a resource, you should create a new resource and archive the old one.
+!!! note
+    You cannot edit the resource after you have created and saved it. If you want to change something after you have created a resource, you should create a new resource and archive the old one.
 
 ### 5. Create a catalogue item
 
@@ -138,7 +143,8 @@ Give your catalogue item a descriptive name. Thus, it will be easier for the app
 
 You can edit the catalogue item’s name, organization and links to additional information by selecting edit.
 
-!!! note After saving, you cannot edit form, workflow or resource connected to the catalogue item. Editing is also not possible when some part of the catalogue item is disabled.
+!!! note
+    After saving, you cannot edit form, workflow or resource connected to the catalogue item. Editing is also not possible when some part of the catalogue item is disabled.
 
 If you want to change the application form and/or the workflow of one or multiple catalogue items, select the catalogue items you want to edit by clicking the checkbox and then **Update catalogue item**.
 
