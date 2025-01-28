@@ -129,7 +129,7 @@ This is the recommended option to obtain and renew Let's Encrypt certificates. T
         duration: 2160h # 90d
         renewBefore: 360h # 15d
         issuerRef:
-            name: letsencrypt-staging
+            name: letsencrypt
             kind: Issuer
         commonName: <HOSTNAME>
         dnsNames:
