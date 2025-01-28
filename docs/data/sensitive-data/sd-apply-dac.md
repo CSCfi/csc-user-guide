@@ -99,7 +99,7 @@ You can choose between two different workflows: A dynamic workflow and a decider
 
 - **A decider workflow** is a restricted version of the dynamic workflow. The DAC members do not have the authority to approve or reject applications. They have to request a separate decider user to approve or reject the application. 
 
-Assign >DAC members as application handlers for a workflow by searching the user by their username or locating them from the drop-down list. We recommend **assigning more than one handler to a workflow** to make sure there are enough handlers to process all the applications. 
+Assign DAC members as application handlers for a workflow by searching the user by their username or locating them from the drop-down list. We recommend **assigning more than one handler to a workflow** to make sure there are enough handlers to process all the applications. 
 
 !!! note
     You can **only find handlers that have previously logged in to SD Apply or have been added using the API**. If you cannot find the handler you were looking for, please ask them to log in and try again.
