@@ -1,7 +1,5 @@
 
-### Export data programmatically from the virtual desktop
-
-# Exporting data from virtual desktop
+# Export data programmatically from the virtual desktop
 
 ## Prerequisites
 * [Create virtual desktop](sd-desktop-create.md)
