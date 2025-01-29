@@ -30,7 +30,8 @@ When you add a dataset to catalogue in SD Apply, you have to create:
 2. **Licences**: Set terms of use, agreements and policies for the data use that the applicants need to accept when they fill in the application form. Licenses are shown as part of the application form. 
 3. **Workflow**: Designate a Data Access Committee who will manage the data access requests in SD Apply. DAC works as a representative for the Data Controller. 
 4. **Resource**: a technical identifier for the data set, for example DOI.
-and combine these items together by **creating a catalogue item**.
+
+And combine these items together by **creating a catalogue item**.
 
 When you have created these items once, you can reuse them and form new catalogue items by combining different items.
 
@@ -114,15 +115,19 @@ If you want to hide the names of the application handlers (DAC, reviewers, decid
 
 DAC members do not get notified when they have been assigned as a handler, but they receive emails about new applications.
 
-#### Adding a form to a workflow
+#### Add a form to a workflow
 
-If you know all the datasets your organization manages in SD Apply will use the same application form, you can connect the form you created to a workflow. 
+If you know all the datasets your organization manages in SD Apply will use the same application form, you can connect the form you created to a workflow by selecting the form from the dropdown menu.  
 
-If you want to ask dataset specific questions from the applicant, you can create two application forms and connect the form with general questions to the workflow and another form with dataset specific questions to the catalogue item. In this case, the applicant will see the application forms two parts and will fill in both forms. 
+If you want to ask dataset specific questions from the applicant, you can create two application forms and connect the form with general questions to the workflow, and another form with dataset specific questions to the catalogue item. In this case, the applicant will see the application forms two parts and will fill in both forms. 
 
-#### Adding a license to a workflow
+#### Add a license to a workflow
 
-If you know all the datasets your organization manages in SD Apply will have the same terms of use and agreements, you can connect the licenses you created to a workflow. This way these licenses will be added automatically to all catalogue items that use the same workflow. You can also add dataset specific terms of use by connecting a license to a resource. 
+If you know all the datasets your organization manages in SD Apply will have the same terms of use and agreements, you can connect the licenses you created to a workflow by selecting them from the dropdown menu.
+
+Unfortunately, we currently have a technical limitation of 1MB for PDF attachments. Please optimise your PDF file before adding it to SD Apply.  
+
+This way these licenses will be added automatically to all catalogue items that use the same workflow. You can also add dataset specific terms of use by connecting a license to a resource. 
 
 ### 4. Create a resource
 When a researcher submits data to Federated EGA, they receive a unique identifier for their dataset, for example EGAD12345. To make the dataset available for reuse through SD Apply, the FEGA Submitter should send this identifier to the data controller so that it can be added to SD Apply. 
