@@ -2,23 +2,22 @@
 
 # Adding datasets to SD Apply 
 
-Access to data that are stored at CSC and published under controlled access are managed by the data controller or their representatives in the SD Apply service. To enable reuse of datasets stored in Finnish Federated EGA (FEGA) you need to add the datasets your organisation offers to the catalogue in SD Apply. 
+Access to data that are stored at CSC and published under controlled access are managed by the data controller or their representatives in the SD Apply service. To enable reuse of datasets stored in Finnish Federated EGA (FEGA) you need to add the datasets your organisation offers to the catalogue in SD Apply. Please note, when you use SD Apply to manage access to datasets stored in FEGA, your organization needs to have a service agreement with CSC in place. Read more about [FEGA legal agreements](./fega-submission.md#step-1-legal-agreements-data-access-committee-and-policies).
 
-Please note, when you use SD Apply to manage access to datasets stored in FEGA, your organization needs to have a service agreement with CSC in place. Read more about [FEGA legal agreements](./fega-submission.md#step-1-legal-agreements-data-access-committee-and-policies).
-Before you start to add information in SD Apply, we recommend discussing inside the organization about the possibility of forming a general Data Access Committee that manages access to all datasets the organization is the data controller of. 
+Before you start adding information in SD Apply, we recommend discussing inside your organization about the possibility of forming a general Data Access Committee (DAC) that manages access to all datasets your organization is the data controller of.
 
 As a data controller in SD Apply, you are responsible for:
 
 - Adding your datasets to catalogue in SD Apply together with an application form and policies
 - Designating representatives (a data access committee) who manage the data access requests to your organization’s datasets.
 
-Adding datasets to SD Apply for the first time is made in close collaboration with CSC Service Desk as the process is a bit complex at first. Below are general instructions to guide you through the process.
+Adding datasets to SD Apply for the first time is made in close collaboration with CSC Service Desk as the process can be a bit complex. Please reserve time for the process and prepare to discuss with your legal team about the agreements needed for data reuse. Below are general instructions to guide you through the process.
 
 ## How to add a dataset to catalogue in SD Apply
 
 Before you can create resources to SD Apply, CSC service desk needs to create an organization profile and set you as the organization administrator. Request profile creation by sending an email to servicedesk@csc.fi with the subject heading SD services. 
 
-1. Log in to SD Apply service https://sd-apply.csc.fi/.
+1. Log in to [SD Apply service](https://sd-apply.csc.fi/).
 2. Inform the service desk that you have logged in. Service desk will add you to right organization.
 3. The service desk will inform you when you can start adding resources to SD Apply. 
 
@@ -85,7 +84,6 @@ For example, you can create an option list “Do you want to add attachments?”
 You can test how the fields work in the Preview section on the right of the page.
 
 ### 2. Create a license 
-
 Licenses define the agreements and terms of use that the applicant has to accept to be able to use the data. Licenses are shown as part of the application form and every research group member who applies for access has to accept the licenses before they are able to access the data.
 
 You can create three types of licenses:
@@ -96,39 +94,40 @@ You can create three types of licenses:
 
 Licences are optional. You cannot edit the license after you have created and saved it.
 
-## Create a workflow (DAC)
-By creating a workflow, you designate a Data Access Committee DAC as application handlers. DAC approves and rejects the data access requests for your data. The DAC members receive email notifications of new applications. 
+### Create a workflow (DAC)
+By creating a workflow, you designate a Data Access Committee (DAC) as application handlers. DAC approves and rejects the data access requests for your organization's datasets. The DAC members receive email notifications of new applications.
+
 You can choose between two different workflows: A dynamic workflow and a decider workflow. Choose the one which suits your organisation best. Remember to give your workflow a descriptive name so it will be easier for you to find it later.
 
 - **A dynamic workflow** is the default. In dynamic workflow the DAC members are in full charge of approving or rejecting applications. In addition, there can be reviewers and deciders. Only one DAC member has to approve the application. 
 
 - **A decider workflow** is a restricted version of the dynamic workflow. The DAC members do not have the authority to approve or reject applications. They have to request a separate decider user to approve or reject the application. 
 
-Assign DAC members as application handlers for a workflow by searching the user by their username or locating them from the drop-down list. We recommend **assigning more than one handler to a workflow** to make sure there are enough handlers to process all the applications. 
+**Assign DAC members**
+
+Add DAC members as application handlers by searching the user by their username or locating them from the drop-down list. We recommend **assigning more than one handler to a workflow** to make sure there are enough handlers to process all the applications. 
 
 !!! note
-    You can **only find handlers that have previously logged in to SD Apply or have been added using the API**. If you cannot find the handler you were looking for, please ask them to log in and try again.
+    You can **only find handlers that have previously logged in to SD Apply**. If you cannot find the handler you were looking for, please ask them to log in and try again.
 
-If you want to hide the names of the application handlers (DAC, reviewers, deciders) from the applicant, select the checkbox Anonymized handling.
+If you want to hide the names of the application handlers (DAC, reviewers, deciders) from the applicant, select the checkbox *Anonymized handling*.
 
-DAC members do not get notified when they have been assigned as a handler but they receive emails about new applications.
+DAC members do not get notified when they have been assigned as a handler, but they receive emails about new applications.
 
 #### Adding a form to a workflow
 
-You can connect an application form to a workflow. You can also add the form when you create a catalogue item. Connecting form to a workflow is useful when you know all the datasets that have the same DAC will use the same application form. If you want to ask dataset specific questions from the applicant, you should connect the form to the catalogue item. 
+If you know all the datasets your organization manages in SD Apply will use the same application form, you can connect the form you created to a workflow. 
 
-1. Create a form with the questions you want to have in each catalogue item that uses the certain workflow.
-2. Create a workflow and choose one or multiple forms that you want to connect to the workflow.
-
-The applicant will see the application forms in two parts: one form that has the questions connected to a workflow and the other regarding the resource they are applying access to.
+If you want to ask dataset specific questions from the applicant, you can create two application forms and connect the form with general questions to the workflow and another form with dataset specific questions to the catalogue item. In this case, the applicant will see the application forms two parts and will fill in both forms. 
 
 #### Adding a license to a workflow
-If you know many of your catalogue items will have the same terms of use, you can connect licenses to a workflow. This way the license will be added automatically to all catalogue items that use the workflow. In addition, you can add dataset specific terms of use by connecting a license to a specific resource. 
+
+If you know all the datasets your organization manages in SD Apply will have the same terms of use and agreements, you can connect the licenses you created to a workflow. This way these licenses will be added automatically to all catalogue items that use the same workflow. You can also add dataset specific terms of use by connecting a license to a resource. 
 
 ### 4. Create a resource
-When a researcher submits data to Federated EGA, they receive a permanent identifier called EGA ID. To make the dataset available for reuse through SD Apply, the FEGA Submitter should send this identifier to the data controller so that it can be added to SD Apply. 
+When a researcher submits data to Federated EGA, they receive a unique identifier for their dataset, for example EGAD12345. To make the dataset available for reuse through SD Apply, the FEGA Submitter should send this identifier to the data controller so that it can be added to SD Apply. 
 
-1. Add the EGA identifier the FEGA submitter provided to you in the resource identifier field. 
+1. Add the identifier the FEGA submitter provided to you in the resource identifier field. 
 2. Select the policies you want to connect to your resource by choosing the licenses you have created from the drop-down list. Licenses are optional.
 
 !!! note
@@ -154,6 +153,18 @@ You can edit the catalogue item’s name, organization and links to additional i
 If you want to change the application form and/or the workflow of one or multiple catalogue items, select the catalogue items you want to edit by clicking the checkbox and then **Update catalogue item**.
 
 This will **disable and archive the old catalogue item** and create a new updated catalogue item. This means that the applicants cannot see or apply for access to the old catalogue item anymore.
+
+## Adding more datasets under your organisation
+
+When you have created a form, necessary licenses, and a workflow once, you can reuse these items for future dataset submissions, if the datasets have the same DAC.
+
+Add a new dataset to SD Apply catalogue with the same DAC:
+
+1. Create a new **resource**. The FEGA submitter should provide you the unique identifier for their dataset. 
+2. Create a **catalogue item** by combining the items you previously created (resource, form, workflow,)
+3. Enable the catalogue item so it shows for the applicants.
+
+Make sure that necessary agreements are either combined with the workflow you use or every new resource you add to SD Apply. 
 
 ## Disabling, and archiving items
 
