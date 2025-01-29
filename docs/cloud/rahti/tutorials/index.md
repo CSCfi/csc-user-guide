@@ -19,4 +19,4 @@
 * [Webhooks](webhooks.md)
 * [4cat, deploying and adapting an application](4cat.md)
 
-We also have an [FAQ](../../../support/faq#rahti-2) for Rahti. Take a look at it.
+We also have an [FAQ](../../../support/faq#rahti) for Rahti. Take a look at it.
