@@ -15,11 +15,11 @@ Adding datasets to SD Apply for the first time is made in close collaboration wi
 
 ## How to add a dataset to catalogue in SD Apply
 
-Before you can create resources to SD Apply, CSC service desk needs to create an organization profile and set you as the organization administrator. Request profile creation by sending an email to servicedesk@csc.fi with the subject heading SD services. 
+Before you can add information to SD Apply, CSC service desk needs to create an organization profile and set you as the organization administrator. Request profile creation by sending an email to servicedesk@csc.fi with the subject heading SD services. 
 
 1. Log in to [SD Apply service](https://sd-apply.csc.fi/).
 2. Inform the service desk that you have logged in. Service desk will add you to right organization.
-3. The service desk will inform you when you can start adding resources to SD Apply. 
+3. The service desk will inform you when you can start adding datasets to SD Apply. 
 
 !!! note
     Always use the same identity provider when you log in to SD Apply because your role and datasets you manage are connected to your login identity. (i.e. always use only Haka/Virtu login or the CSC login).
@@ -91,7 +91,7 @@ You can create three types of licenses:
 
 - **External link**: Provide a link to an external page with terms of use. Use links, for example, when you want to license your resources using standardised licenses, such as [Creative Commons](https://creativecommons.org/choose/?lang=en).
 - **Inline text**: Write the terms of use in the application form. The applicant will see it as normal text in the application form.
-- **Attachment**: Upload a license file. We recommend using PDF-format. If you use the attachment type, we recommend that the attachments are in a form that do not require downloading and signing but instead the applicant can agree to them by accepting the licenses in SD Apply.
+- **Attachment**: Upload a file that the applicant can download and accept when they fill in the application form. We recommend using PDF-format. We recommend drafting the license attachments in the way that allows the applicant to agree to them by accepting the terms of use electronically in SD Apply.
 
 Licences are optional. You cannot edit the license after you have created and saved it.
 
@@ -142,11 +142,13 @@ When a researcher submits data to Federated EGA, they receive a unique identifie
 
 Catalogue item connects the items you have created into a single dataset to which the applicant can apply for access. 
 
-Create a catalogue item by choosing an application form, a workflow and a resource you want to use. Forms are optional. If you have, for example, already added a form to a workflow, you do not have to add another form in this phase. 
-
-Give your catalogue item a descriptive name. Thus, it will be easier for the applicants to recognise which catalogue item they want to apply access to. 
-
-**After you have created a catalogue item, you have to enable it**. The catalogue item is disabled at first so that you can edit it before anyone will be able to apply access to it. After enabling it, the applicant will see it as a resource in Catalogue tab and can apply for access to it.
+1. In the title field, provide a descriptive name for the dataset. It will make it easier for the applicants to recognise which dataset they want to apply access to.
+2. If there is more information about the dataset on another website, you can add a link to the More info field.
+3. Select the DAC you have created from the workflow drop-down.
+4. Select the resource (dataset identifier) for the dataset you want to add to SD Apply from resource drop-down.
+5. If you didn't connect the form to the workflow, select the application form you have created from the drop-down list.
+6. Select FEGA as category.
+7. **Enable the catalogue item to show it to applicants**. The catalogue item is disabled at first so no one will be able to apply access to it before it is enabled. After you enable the catalogue item, it will show as a dataset on the Catalogue page.
 
 #### Editing catalogue items
 
@@ -166,7 +168,7 @@ When you have created a form, necessary licenses, and a workflow once, you can r
 Add a new dataset to SD Apply catalogue with the same DAC:
 
 1. Create a new **resource**. The FEGA submitter should provide you the unique identifier for their dataset. 
-2. Create a **catalogue item** by combining the items you previously created (resource, form, workflow,)
+2. Create a **catalogue item** by combining the items you previously created (resource, form, workflow)
 3. Enable the catalogue item so it shows for the applicants.
 
 Make sure that necessary agreements are either combined with the workflow you use or every new resource you add to SD Apply. 
