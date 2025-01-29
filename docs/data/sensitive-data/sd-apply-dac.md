@@ -2,12 +2,17 @@
 
 # Adding datasets to SD Apply 
 
-Access to data that are stored at CSC and published under controlled access are managed by the data controller or their representatives in the SD Apply service. To enable reuse of datasets stored in Finnish FEGA you need to add them to the catalogue in SD Apply
+Access to data that are stored at CSC and published under controlled access are managed by the data controller or their representatives in the SD Apply service. To enable reuse of datasets stored in Finnish Federated EGA (FEGA) you need to add the datasets your organisation offers to the catalogue in SD Apply. 
+
+Please note, when you use SD Apply to manage access to datasets stored in FEGA, your organization needs to have a service agreement with CSC in place. Read more about [FEGA legal agreements](./fega-submission.md#step-1-legal-agreements-data-access-committee-and-policies).
+Before you start to add information in SD Apply, we recommend discussing inside the organization about the possibility of forming a general Data Access Committee that manages access to all datasets the organization is the data controller of. 
 
 As a data controller in SD Apply, you are responsible for:
 
 - Adding your datasets to catalogue in SD Apply together with an application form and policies
 - Designating representatives (a data access committee) who manage the data access requests to your organization’s datasets.
+
+Adding datasets to SD Apply for the first time is made in close collaboration with CSC Service Desk as the process is a bit complex at first. Below are general instructions to guide you through the process.
 
 ## How to add a dataset to catalogue in SD Apply
 
@@ -23,7 +28,7 @@ Before you can create resources to SD Apply, CSC service desk needs to create an
 When you add a dataset to catalogue in SD Apply, you have to create:
 
 1. **Form**: Define the information applicants need to provide when they apply for access to your data in SD Apply. 
-2. **Licences**: (optional): Set terms of use, agreements and policies for the data use that the applicants need to accept when they fill in the application form. Licenses are shown as part of the application form. 
+2. **Licences**: Set terms of use, agreements and policies for the data use that the applicants need to accept when they fill in the application form. Licenses are shown as part of the application form. 
 3. **Workflow**: Designate a Data Access Committee who will manage the data access requests in SD Apply. DAC works as a representative for the Data Controller. 
 4. **Resource**: a technical identifier for the data set, for example DOI.
 and combine these items together by **creating a catalogue item**.
@@ -41,13 +46,13 @@ In the application form, the data controller specifies the information that the 
 2. Select **Create form**.
 3. Give the form a descriptive name. The name will show in the form list view to help you find it but it is not shown to the applicant.
 4. Give the form a title. This is shown to the applicant. 
-5. Add the fields you want to have in the application. The preview on the right side shows how an applicant would see the application form.
+5. Add the fields you want to have in the application. The preview on the right side shows how an applicant would see the application form. The form field options are explained in more detail below.
 6. Select **Save** when you are finished with the form.
 
 !!! note
     You can only edit the form as long as it has not been connected to a catalogue item.
 
-It's recommended to include parts of the agreements that need to be filled in directly in the application form in SD Apply. The rest of the agreement content can be provided as a PDF license the applicants can review and accept electronically when they request access to the dataset. This way, applicants can complete the necessary sections within SD Apply and accept the terms of use without needing to manually sign documents. 
+It's recommended to include the parts of the agreements that need to be filled in, directly in the application form in SD Apply. The rest of the agreement content can be provided as a PDF attachment and added as license in SD Apply, allowing applicants to review and accept the terms electronically when requesting access to the dataset. This way, applicants can complete the necessary sections within SD Apply and accept the terms of use without needing to manually sign documents. Please discuss with your organization's legal team about this possibility.
 
 #### Form fields explained
 
@@ -62,9 +67,9 @@ It's recommended to include parts of the agreements that need to be filled in di
 - **Phone number**: A phone number in an international format (E.164), e.g. +14155552671.
 - **IP address**: IP address field will validate the IP address the applicant has provided in IPv4 or IPv6 forms. IP address must not be within the known private range.
 
-#### Creating conditional fields
+#### Creating conditional fields 
 
-You can create fields that are hidden or shown to the applicant depending on their answers.
+If needed, you can create fields that are hidden or shown to the applicant depending on their answers.
 
 For example, you can create an option list “Do you want to add attachments?” Yes - No. If the applicant chooses “Yes” the attachment field is shown to the applicant. If they choose “No” they will not see the attachment field.
 
@@ -158,11 +163,9 @@ You can disable and archive all the items. Deleting is not possible because we w
 
 When you disable an item, for example a form, it **cannot be used in any new catalogue items anymore**. Disabled items will be hidden from the drop-down lists.
 
-#### Disabling catalogue items
+**If you disable a catalogue item**, the applicant will not be able to apply for access to it anymore. However, if they have applied for access to the catalogue item before disabling, the handler can still complete the application process and approve or reject the application.
 
-If you disable a catalogue item, the applicant will not be able to apply for access to it anymore. However, if they have applied for access to the catalogue item before disabling, the handler can still complete the application process and approve or reject the application.
-
-You can enable disabled items.
+You can re-enable disabled items.
 
 ### Archiving
 
