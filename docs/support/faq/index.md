@@ -68,10 +68,10 @@
 * [What are volumes? How do I use them?](what-are-volumes-and-how-to-use.md)
 * [Why can't I connect to my VM in Pouta?](why-cant-i-connect-to-my-vm-in-pouta.md)
 
-## Rahti 2
+## Rahti
 
-* [Do you offer in Rahti 2 SSL certificates?](rahti-ssl-certificates.md)
-* [Does Rahti 2 support UDP connections?](rahti-udp.md)
+* [Do you offer in Rahti SSL certificates?](rahti-ssl-certificates.md)
+* [Does Rahti support UDP connections?](rahti-udp.md)
 * [How to add docker hub credentials to a project](docker_hub_login.md)
 * [How to automatically scale up and down replicas](addHorizontalAutoscaler.md)
 * [How to backup a Postgres DB into Allas](backup-postgres-allas.md)
@@ -79,9 +79,9 @@
 * [How to package a Kubernetes application with Helm](helm.md)
 * [How to pull images from Rahti v1 registry](pull-from-rahtiv1-registry.md)
 * [How to run an ad-hoc interactive container](oc-run.md)
-* [How to transfer data to Rahti 2?](transfer_data_rahti.md)
+* [How to transfer data to Rahti?](transfer_data_rahti.md)
 * [Protecting against DDoS Attacks](DDos.md)
-* [Why my SSH key does not work in Rahti 2?](ssh-clone.md)
+* [Why my SSH key does not work in Rahti?](ssh-clone.md)
 * [Why this container report permission denied errors?](why-this-container-does-not-work.md)
 
 ## Sensitive Data Services for research
