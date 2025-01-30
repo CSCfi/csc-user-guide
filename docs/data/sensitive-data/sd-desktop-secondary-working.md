@@ -86,6 +86,39 @@ Below we list some of the most commonly used tools that are by default installed
 | **Scientific Software**    | - [Plink 1.9](https://www.cog-genomics.org/plink/) <br> - [Samtools 1.8](http://www.htslib.org/) <br> - [Minimap2 2.26](https://github.com/lh3/minimap2)                                                                                                                          |
 | **Terminals & Interfaces** | - [Byobu](https://www.byobu.org/) (Only in Ubuntu machines.) <br> - [Jupyter](https://jupyter.org/)                                                                                                                         |
 
+### Software available via request 
+
+Please contact [CSC Service Desk](../../support/contact.md) (subject: Sensitive Data Services) if you want to bring in additional software into SD Desktop. We will provide you with further instructions. 
+
+Below you can find a list of tools available in our software package. 
+
+| **Category**          | **Tool**                                                                                                                                                                                                                     |
+|-----------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Statistics**        | [RStudio 4.2.2](r-in-sd-desktop.md) - R statistics tool with a graphical user interface and help tools for adding libraries. <br> *After installation, right-click the RStudio desktop icon and select: Allow launching.*   |
+|                       | [PSPP](https://www.gnu.org/software/pspp/) - Open Source alternative for SPSS statistics tool. <br> *After installation, right-click the PSPP desktop icon and select: Allow launching.*                                    |
+| **Imaging and Videos**| [Audacity](https://www.audacityteam.org/) - Sound editor. <br> *After installation, right-click the Audacity desktop icon and select: Allow launching.*                                                                      |
+|                       | [ELAN 6.7](https://archive.mpi.nl/tla/elan/) - Annotation tool for audio and video recordings. <br> *After installation, right-click the ELAN desktop icon and select: Allow launching.*                                       |
+|                       | [OpenShot 3.1.1](https://www.openshot.org/) - Video editor. <br> *This tool works only in Ubuntu 22-based virtual desktops. After installation, right-click the OpenShot desktop icon and select: Run as a program.*        |
+|                       | [Praat](https://www.fon.hum.uva.nl/praat/) - Toolkit for speech and sound analysis.                                                                                                                                       |  
+|                       | [QuPath 0.4.2](https://github.com/qupath/qupath/) - Software for bioimage analysis.                                                                                                                                        |
+|                       | [Whisper](./tutorials/whisper.md) - Automatic speech recognition.                                                                                                                                                                         |
+| **Geosciences**       | [QGIS 3.1.1](https://qgis.org/en/site/) - A Free and Open Source Geographic Information System. <br> *[QGIS at CSC servers](../../apps/qgis.md)*                                                                         |
+| **Biosciences**       | [GATK](https://gatk.broadinstitute.org/hc/en-us) - A genomic analysis toolkit focused on variant discovery.                                                                                                               |
+|                       | [GCTA 1.94.1](https://yanglab.westlake.edu.cn/software/gcta/#Overview) - A tool for Genome-wide Complex Trait Analysis.                                                                                                     |
+|                       | [GCTB 2.05b](https://cnsgenomics.com/software/gctb/#Overview) - Genome-wide Complex Trait Bayesian analysis.                                                                                                               |
+|                       | [IGV 2.16.2](https://igv.org/doc/desktop/) - Integrated Genomics Viewer. <br> *After installation, right-click the IGV desktop icon and select: Allow launching.*                                                           |
+|                       | [MultiQC 1.10](https://multiqc.info/) - NGS Read quality checking tool.                                                                                                                                                    |
+|                       | [PRSice 2.0](https://choishingwan.github.io/PRSice/) - Polygenic Risk Score software for calculating, applying, evaluating, and plotting the results of polygenic risk scores (PRS) analyses.                              |
+|                       | [Regenie 3.3](https://rgcgithub.github.io/regenie/) - Program for whole genome regression modelling of large genome-wide association studies.                                                                                 |
+|                       | [Salmon 1.9.0](https://combine-lab.github.io/salmon/) - Program to produce transcript-level quantification estimates from RNA-seq data. <br> *[Salmon 1.9.0 at CSC servers](../../apps/salmon.md)*                     |
+| **Miscellaneous**     | [auto-apptainer](./tutorials/auto-apptainer.md) - Tool to add command line applications using the Apptainer container library provided by CSC.                                                                                         |
+|                       | [add-python-lib](./tutorials/sd-pythonlibs.md) - Help tool to add Python libraries.                                                                                                                                                  |
+|                       | [Backup tool](./tutorials/backup_sd_desktop.md) - Help tool to automate backup and export in SD Desktop.                                                                                                                   |
+|                       | [OpenRefine](https://openrefine.org/) - Data pre-prosessing and conversion tool for various data formats.                                                                                                                                         |
+|                       | [VS Code 1.90.2](./tutorials/vscode.md) - Code editor. <br> *After installation, right-click the VS Code desktop icon and select: Allow launching.*                                                                                   |
+|                       | [WEKA 3-8-6](https://ml.cms.waikato.ac.nz/weka/index.html) - Data mining software.                                                                                                                                         |
+
+
 ## Accessing RStudio from virtual desktop
 
 The computing environment i.e. virtual desktop (visible from your browser) is isolated from the internet. For example, you can open a Firefox web browser in your virtual desktop but not access any site online. At this moment, you will also not be able to access any repositories directly. To open R Studio for data analysis the following steps are required:
