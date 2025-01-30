@@ -2,7 +2,7 @@
 
 To get access to Puhti, you need a CSC account and a project with Puhti service
 enabled. Please see
-[How to add service access to a project](/accounts/how-to-add-service-access-for-project/).
+[How to add service access to a project](../../accounts/how-to-add-service-access-for-project.md).
 
 ## Common problems and some tips
 

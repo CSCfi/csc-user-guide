@@ -205,11 +205,11 @@ If you find a module that has most of what you need, but a few packages are
 missing, you can easily install them yourself (to your home directory) with the
 `pip install --user` command. See our [Python documentation for more information
 on how to install packages
-yourself](../../apps/python.md#installing-python-packages-to-existing-modules).
+yourself](./python-usage-guide.md#installing-python-packages-to-existing-modules).
 
 If you have more complex software needs which are not easily covered by our
 existing modules, it is always possible to [create your own Python
-environments](../../apps/python.md#creating-your-own-python-environments). If
+environments](./python-usage-guide.md#creating-your-own-python-environments). If
 you are unsure what to do, you can always [contact our service
 desk](../contact.md).
 

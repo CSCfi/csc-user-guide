@@ -31,7 +31,7 @@ using different development environments and doing parallel processing
 with Python.
 
 It is generally recommended to use one of
-[pre-installed Python environments](python.md#pre-installed-python-environments)
+[pre-installed Python environments](./python.md#pre-installed-python-environments)
 for computing,
 since these already contain the essential libraries for most uses.
 If for some reason one wishes to use Python without loading an environment

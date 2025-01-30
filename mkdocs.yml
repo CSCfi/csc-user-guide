@@ -193,9 +193,9 @@ validation:
   nav:
     omitted_files: ignore
   links:
-    absolute_links: ignore
-    unrecognized_links: ignore
-    anchors: ignore
+    absolute_links: relative_to_docs
+    unrecognized_links: warn
+    anchors: warn
 
 nav:
   - Home: index.md

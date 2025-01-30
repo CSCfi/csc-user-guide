@@ -45,7 +45,7 @@ rm -rf $MOLPRO_TMP
 ```
 
 !!! info "Note"
-    Particularly some of the wavefunction-based electron correlation methods can be very disk I/O intensive. Such jobs benefit from using the [fast local storage](../../computing/running/creating-job-scripts-puhti/#local-storage) on Puhti. Using local disk for such jobs will also reduce the load on the Lustre parallel file system.
+    Particularly some of the wavefunction-based electron correlation methods can be very disk I/O intensive. Such jobs benefit from using the [fast local storage](../computing/running/creating-job-scripts-puhti.md#local-storage) on Puhti. Using local disk for such jobs will also reduce the load on the Lustre parallel file system.
 
 ### Example batch script for Puhti using MPI parallelization and local disk (NVMe)
 

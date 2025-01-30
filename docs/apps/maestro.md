@@ -63,7 +63,7 @@ Maestro is available for all academic users in Finland: staff and students, for 
 purposes. Please consult the [EULA](https://www.schrodinger.com/maestro-academic-eula)
 for the exact definition. Using Maestro means that you accept the EULA linked to above.
 The Maestro license consists of floating licenses and tokens. If licenses run out, contact
-us via [ServiceDesk](/support/contact/).
+us via [ServiceDesk](../support/contact.md).
 
 ## Usage
 
@@ -156,7 +156,7 @@ bash your_script_name.sh
     [the Puhti web interface remote desktop](../computing/webinterface/desktop.md), but
     the performance may be somewhat slow and submitted jobs may end up fizzled. Also,
     **no long/heavy tasks** should be done on the login nodes. Please consult the
-    [Usage policy](../../computing/usage-policy) page for more details.
+    [Usage policy](../computing/usage-policy.md) page for more details.
 
 !!! info "Note for Windows users"
     **Windows** users may need to edit the script created by the GUI a little.

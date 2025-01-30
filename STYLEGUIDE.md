@@ -91,7 +91,7 @@
  - For a list of all supported languages see: http://pygments.org/docs/lexers/
  - Give commands, environment variables, command options, as well as partition 
    names between two backticks, i.e. \`srun\`, \`$LOCAL_SCRATCH\`, \`--gres\`, \`small\`
- - Refer to servicedesk via the docs contact page: as in `[contact ServiceDesk](/support/contact/)`  
+ - Refer to servicedesk via the docs contact page: as in `[contact ServiceDesk](/support/contact.md)`
       - Page has email, service times, phone, support request how-to
  
 ## Redirecting pages

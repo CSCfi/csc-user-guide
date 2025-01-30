@@ -11,7 +11,7 @@ Instead of a course you can also use Noppe for collaboration. The workflow is si
 
 ### 1. Become a workspace owner and create a workspace
 * Login to Noppe using your CSC account by choosing 'CSC Login' option after clicking 'Login'.
-  If you don't have a CSC account yet, [see the instructions on how to create new user account](../../../accounts/how-to-create-new-user-account/).
+  If you don't have a CSC account yet, [see the instructions on how to create new user account](../../accounts/how-to-create-new-user-account.md).
 * Open `Manage workspaces` from the left panel and create a new workspace.
     * Workspace type:
       * Fixed-time course with limited lifetime: Valid for limited months.

@@ -1,6 +1,6 @@
 # Application credentials
 
-Application credentials allow you to interact with Pouta via the [OpenStack command-line tools](../command-line-tools) or directly via the API, by allowing you to create a **role specific** and **time limited** _TOKEN_ that can be revoked at any time. The most immediate advantage is that you no longer need to use or write your CSC password while using Pouta's API.
+Application credentials allow you to interact with Pouta via the [OpenStack command-line tools](command-line-tools.md) or directly via the API, by allowing you to create a **role specific** and **time limited** _TOKEN_ that can be revoked at any time. The most immediate advantage is that you no longer need to use or write your CSC password while using Pouta's API.
 
 * **Role specific** means that the credentials can be created with limited permissions. You can create credentials that are only allowed to get data of your project, but not modify it. You can also create credentials that can only modify a specific resource. It is also possible to create credentials that can do everything that you can.
 
@@ -51,7 +51,7 @@ file that you can source, a YAML file that can be used directly by the CLI, or a
     export OS_APPLICATION_CREDENTIAL_SECRET=xxxxxxxxxxxxxxxxxxx
     ```
 
-    If you source that file, you can use it together with with [OpenStack command-line tools](../command-line-tools).
+    If you source that file, you can use it together with with [OpenStack command-line tools](command-line-tools.md).
 
     You can also download the `cloud.yaml` file that will look like this:
 
