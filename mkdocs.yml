@@ -423,6 +423,7 @@ nav:
               - Short introduction to YAML: cloud/rahti/tutorials/yaml_introduction.md
               - Webhooks: cloud/rahti/tutorials/webhooks.md
               - 4cat: cloud/rahti/tutorials/4cat.md
+              - OAuth2 Proxy: cloud/rahti/tutorials/oauth2.md
               - Pod (anti) affinity: cloud/rahti/tutorials/pod-affinity.md
               - Advanced NetworkPolicies: cloud/rahti/tutorials/advanced-NetworkPolicies-networking.md
               - Integrating External Services: cloud/rahti/tutorials/integrating-external-services.md
