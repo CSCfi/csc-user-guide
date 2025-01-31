@@ -288,7 +288,7 @@ The tool has generated 4 kind of files: `service`, `deployment`,  `configmap` an
         io.kompose.service: frontend
     ```
 
-    The two relevant parts are `selector` and `ports`. The first one links the service with the `deployment` and the second lists the ports this service export. See more information about [Services](/cloud/rahti2/networking/#services).
+    The two relevant parts are `selector` and `ports`. The first one links the service with the `deployment` and the second lists the ports this service export. See more information about [Services](/cloud/rahti/networking/#services).
 
 - `deployment` is the most complex configuration generated. We can try to map the con figuration of `docker-compose.yaml` into these files. For example using the shortest one generated:
 
@@ -352,7 +352,7 @@ The tool has generated 4 kind of files: `service`, `deployment`,  `configmap` an
 
 ## Deployment to Rahti
 
-We will take the current unmodified YAML files and deploy them one by one. First you need to [install oc](/cloud/rahti2/usage/cli/#how-to-install-the-oc-tool) and [login into Rahti](/cloud/rahti2/usage/cli/#how-to-login-with-oc). Then you need to [create a Rahti project](/cloud/rahti2/usage/projects_and_quota/#creating-a-project). Finally make sure you are in the correct project: `oc project <project_name>`.
+We will take the current unmodified YAML files and deploy them one by one. First you need to [install oc](/cloud/rahti/usage/cli/#how-to-install-the-oc-tool) and [login into Rahti](/cloud/rahti/usage/cli/#how-to-login-with-oc). Then you need to [create a Rahti project](/cloud/rahti/usage/projects_and_quota/#creating-a-project). Finally make sure you are in the correct project: `oc project <project_name>`.
 
 ### Volumes, ConfigMaps and Services
 
@@ -647,7 +647,7 @@ This deployment also needs few changes. Let's go through them in hopefully a mor
     PermissionError: [Errno 13] Permission denied: '/nltk_data'
     ```
 
-    We need to make the folder `/nltk_data` writable to the user running the application. If we come back to check the docker compose, this folder was not mentioned. As containers are stateless, this means that any data written on the folder, will not survive the restart of the container. The easiest way to accomplish this is to mount an [ephemeral storage](/cloud/rahti2/storage/ephemeral/) folder (or `emptyDir`). This is a fast temporal storage that will be deleted when the Pod is terminated, the same behaviour as with the docker compose. The change is the following:
+    We need to make the folder `/nltk_data` writable to the user running the application. If we come back to check the docker compose, this folder was not mentioned. As containers are stateless, this means that any data written on the folder, will not survive the restart of the container. The easiest way to accomplish this is to mount an [ephemeral storage](/cloud/rahti/storage/ephemeral/) folder (or `emptyDir`). This is a fast temporal storage that will be deleted when the Pod is terminated, the same behaviour as with the docker compose. The change is the following:
 
     ```diff
                    protocol: TCP
@@ -1159,7 +1159,7 @@ This is our last piece to fix.
       --> Success
     ```
 
-    We used the [inline Dockerfile method](/cloud/rahti2/images/creating/#using-the-inline-dockerfile-method) because the `Dockerfile` is only 3 lines. After no so much time we have a new image called 4cat in our internal Rahti registry. The internal URL is `image-registry.openshift-image-registry.svc:5000/4cat-2/4cat:latest`. Where `4cat-2` is the name of the project I am using to write this documentation.
+    We used the [inline Dockerfile method](/cloud/rahti/images/creating/#using-the-inline-dockerfile-method) because the `Dockerfile` is only 3 lines. After no so much time we have a new image called 4cat in our internal Rahti registry. The internal URL is `image-registry.openshift-image-registry.svc:5000/4cat-2/4cat:latest`. Where `4cat-2` is the name of the project I am using to write this documentation.
 
     ```diff
                        key: workers

@@ -87,7 +87,7 @@ See the explanation in the [Networking routes](../networking.md#routes) page.
 git clone https://github.com/tnozicka/openshift-acme.git
 ```
 
-* The whole process is documented in the [README.md](https://github.com/tnozicka/openshift-acme/blob/master/README.md) file. We recommend the [Single namespace](https://github.com/tnozicka/openshift-acme/tree/master/deploy#single-namespace) method. It will deploy the controller inside your Rahti 2 project and it will only work for the `Route` you have defined inside said project:
+* The whole process is documented in the [README.md](https://github.com/tnozicka/openshift-acme/blob/master/README.md) file. We recommend the [Single namespace](https://github.com/tnozicka/openshift-acme/tree/master/deploy#single-namespace) method. It will deploy the controller inside your Rahti project and it will only work for the `Route` you have defined inside said project:
 
 ```sh
 cd openshift-acme

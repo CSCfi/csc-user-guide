@@ -1,6 +1,6 @@
 # How to pull images from Rahti v1 registry
 
-If you want to use the images stored in Rahti 1 Registry from Rahti 2 in a `Pod` you can make it via `Secret`.  
+If you want to use the images stored in Rahti 1 Registry from Rahti in a `Pod` you can make it via `Secret`.  
 Here are the steps.
 
 ## Create a secret in Rahti v2

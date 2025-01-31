@@ -3,19 +3,19 @@
 !!! Error "Obsolete"
     Since `*.rahtiapp.fi` now points to the same DNS record as `*.2.rahtiapp.fi`, this tutorial is now obsolete.
 
-Kubernetes, and by extension OpenShift OKD, gives a lot of flexibility regarding network use cases. One of the uses cases is the one that allows to use external services, like databases, transparently in a OpenShift project. Other of the use cases would be to to have a network proxy between OpenShift installations. This could be used as a temporal solution to ease migration periods, where a user of your web application will visit a "Rahti 1 URL", but content will be server by a "Rahti 2 application". Other option is to [setup a HTTP redirector in Rahti](http-redirector.md).
+Kubernetes, and by extension OpenShift OKD, gives a lot of flexibility regarding network use cases. One of the uses cases is the one that allows to use external services, like databases, transparently in a OpenShift project. Other of the use cases would be to to have a network proxy between OpenShift installations. This could be used as a temporal solution to ease migration periods, where a user of your web application will visit a "Rahti 1 URL", but content will be server by a "Rahti application". Other option is to [setup a HTTP redirector in Rahti](http-redirector.md).
 
 ![Proxy between clusters](../../img/proxy.drawio.svg)
 
-In the example above we are proxying traffic from Rahti 1 to Rahti 2. This is obtained by creating two routes, a service and an Endpoint.
+In the example above we are proxying traffic from Rahti 1 to Rahti. This is obtained by creating two routes, a service and an Endpoint.
 
 ## Procedure
 
-1. First deploy an application in Rahti 2. Any application is suitable for this test.
+1. First deploy an application in Rahti. Any application is suitable for this test.
 
-1. [Install](../usage/cli.md#how-to-install-the-oc-tool) and [login with OC](../usage/cli.md#how-to-login-with-oc) in Rahti 2.
+1. [Install](../usage/cli.md#how-to-install-the-oc-tool) and [login with OC](../usage/cli.md#how-to-login-with-oc) in Rahti.
 
-1. Create a special `Route` in Rahti 2:
+1. Create a special `Route` in Rahti:
 
     ```yaml
     echo 'apiVersion: route.openshift.io/v1
@@ -33,7 +33,7 @@ In the example above we are proxying traffic from Rahti 1 to Rahti 2. This is ob
       wildcardPolicy: None
     status: {}' | oc create -f -
     ```
-    Replace `<test>` so the URL is the same as in Rahti 1. Rahti 1 will be later configured to relay the request to Rahti 2, when the request reaches Rahti 2, the Loadbalancer needs to know to which application to send the request, the host parameter is used (Using `HTTPD` headers).
+    Replace `<test>` so the URL is the same as in Rahti 1. Rahti 1 will be later configured to relay the request to Rahti, when the request reaches Rahti, the Loadbalancer needs to know to which application to send the request, the host parameter is used (Using `HTTPD` headers).
     The `<service-name>` must be the one corresponding to the application you deployed. Double check which ports is `<Service-name>` exporting and adapt the Route in accordance to that.
 
     You can test the setup so far:
@@ -41,7 +41,7 @@ In the example above we are proxying traffic from Rahti 1 to Rahti 2. This is ob
     ```sh
     curl <test>.rahtiapp.fi -vL --resolve <test>.rahtiapp.fi:80:195.148.21.61
     ```
-    The command above uses `--resolve` to change the ip associated to a DNS that corresponds to Rahti 2.
+    The command above uses `--resolve` to change the ip associated to a DNS that corresponds to Rahti.
 
     !!! Error "Obsolete"
         The following steps are not necessary anymore.
@@ -109,7 +109,7 @@ In the example above we are proxying traffic from Rahti 1 to Rahti 2. This is ob
 
 ## Final considerations
 
-In the tutorial above we have setup a proxy from Rahti 1 to Rahti 2, every request will go first to Rahti 1. This means two things, first that the performance will be affected by this proxy, secondly that when Rahti 1 is retired (or is down due to an incident or a planned maintenance) this setup will stop working. This is just a temporal fix.
+In the tutorial above we have setup a proxy from Rahti 1 to Rahti, every request will go first to Rahti 1. This means two things, first that the performance will be affected by this proxy, secondly that when Rahti 1 is retired (or is down due to an incident or a planned maintenance) this setup will stop working. This is just a temporal fix.
 
 It is possible to "proxy" more than one URL, the only necessary step is to create the `Route`s in Rahti 1 and 2 with the same URL in each service. It is not necessary to replicate the `Service` and `Endpoint` in Rahti 1.
 

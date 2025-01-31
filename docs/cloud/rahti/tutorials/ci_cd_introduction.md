@@ -26,7 +26,7 @@ check the [command line tool installation](../usage/cli.md) if you need help on 
 ## Quick Start
 
 We have written a hello world web application and defined the necessary Kubernetes objects to build
-and deploy it to Rahti 2. The following steps will quickly get you started:
+and deploy it to Rahti. The following steps will quickly get you started:
 
 Clone the source repository for the sample application.
 
@@ -35,7 +35,7 @@ git clone https://github.com/CSCfi/rahti-bc-example.git
 cd rahti-bc-example/
 ```
 
-Login to Rahti 2 if you haven't done so. You can copy your login command from the Rahti 2 UI.
+Login to Rahti if you haven't done so. You can copy your login command from the Rahti UI.
 
 ```
  oc login https://api.2.rahti.csc.fi:6443 --token=<your_token>

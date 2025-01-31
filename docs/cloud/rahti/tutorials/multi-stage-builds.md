@@ -98,18 +98,18 @@ golang       1.18.3-stretch   6ee1deda35bd   12 days ago   890 MB
 
 This same small image (`go-server:latest`) is of course also achievable by other methods. You can build the code outside of docker and then copy it to the `alpine` image. You can mount the code directory into the build image, build it and then again copy the compiled product into the `alpine` image. But none of these methods are as easy and compact as this one.
 
-## Usage in Rahti 2
+## Usage in Rahti
 
-In order to test this in Rahti 2, one only needs to login in Rahti 2, select the correct project, and run:
+In order to test this in Rahti, one only needs to login in Rahti, select the correct project, and run:
 
 ```sh
 oc new-build https://github.com/cscfi/multi-stage-build.git
 
 ```
 
-**NOTE**: The code must be in a git repository and Rahti 2 must be able to clone it.
+**NOTE**: The code must be in a git repository and Rahti must be able to clone it.
 
-The end result will be an image called `multi-stage-build` stored in the internal Rahti 2 registry of the project you selected. This image can then be used in a Rahti 2 deployment using the image stream option when deploying an image.
+The end result will be an image called `multi-stage-build` stored in the internal Rahti registry of the project you selected. This image can then be used in a Rahti deployment using the image stream option when deploying an image.
 
 ## Upstream documentation
 

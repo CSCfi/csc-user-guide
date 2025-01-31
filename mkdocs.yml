@@ -87,27 +87,54 @@ plugins:
         # for convenience:
         "glossary.md": "support/glossary.md"
         "archives.md": "support/contact.md#archives"
-        # Rahti1 to Rahti2:
-        "rahti/index.md": "cloud/rahti2/index.md"
-        "rahti/billing.md": "cloud/rahti2/billing.md"
-        "rahti/rahti-what-is.md": "cloud/rahti2/rahti-what-is.md"
-        "rahti/concepts.md": "cloud/rahti2/concepts.md"
-        "rahti/ext_docs.md": "cloud/rahti2/ext_docs.md"
-        "rahti/access.md": "cloud/rahti2/access.md"
-        "rahti/networking.md": "cloud/rahti2/networking.md"
-        "rahti/storage/index.md": "cloud/rahti2/storage/index.md"
-        "rahti/storage/persistent.md": "cloud/rahti2/storage/persistent.md"
-        "rahti/storage/expand-volumes.md": "cloud/rahti2/storage/expand-volumes.md"
-        "rahti/storage/ephemeral.md": "cloud/rahti2/storage/ephemeral.md"
-        "rahti/containers.md": "cloud/rahti2/containers.md"
-        "rahti/template-docs.md": "cloud/rahti2/catalog-docs.md"
-        "rahti/security-guide.md": "cloud/rahti2/security-guide.md"
-        "rahti/usage/cli.md": "cloud/rahti2/usage/cli.md"
-        "rahti/usage/projects_and_quota.md": "cloud/rahti2/usage/projects_and_quota.md"
-        "rahti/usage/getting_started.md": "cloud/rahti2/usage/getting_started.md"
-        "rahti/images/creating.md": "cloud/rahti2/images/creating.md"
-        "rahti/images/keeping_docker_images_small.md": "cloud/rahti2/images/keeping_docker_images_small.md"
-        "rahti/images/overview.md": "cloud/rahti2/images/overview.md"
+        # Rahti2 to Rahti:
+        "cloud/rahti2/catalog-docs.md": "cloud/rahti/catalog-docs.md"
+        "cloud/rahti2/rahti-migration.md": "cloud/rahti/rahti-migration.md"
+        "cloud/rahti2/index.md": "cloud/rahti/index.md"
+        "cloud/rahti2/advanced.md": "cloud/rahti/advanced.md"
+        "cloud/rahti2/billing.md": "cloud/rahti/billing.md"
+        "cloud/rahti2/rahti-what-is.md": "cloud/rahti/rahti-what-is.md"
+        "cloud/rahti2/concepts.md": "cloud/rahti/concepts.md"
+        "cloud/rahti2/moving-into.md": "cloud/rahti/moving-into.md"
+        "cloud/rahti2/ext_docs.md": "cloud/rahti/ext_docs.md"
+        "cloud/rahti2/access.md": "cloud/rahti/access.md"
+        "cloud/rahti2/networking.md": "cloud/rahti/networking.md"
+        "cloud/rahti2/storage/index.md": "cloud/rahti/storage/index.md"
+        "cloud/rahti2/storage/persistent.md": "cloud/rahti/storage/persistent.md"
+        "cloud/rahti2/storage/expand-volumes.md": "cloud/rahti/storage/expand-volumes.md"
+        "cloud/rahti2/storage/volume-snapshot.md": "cloud/rahti/storage/volume-snapshot.md"
+        "cloud/rahti2/storage/ephemeral.md": "cloud/rahti/storage/ephemeral.md"
+        "cloud/rahti2/storage/objectstorage.md": "cloud/rahti/storage/objectstorage.md"
+        "cloud/rahti2/containers.md": "cloud/rahti/containers.md"
+        "cloud/rahti2/security-guide.md": "cloud/rahti/security-guide.md"
+        "cloud/rahti2/tutorials/index.md": "cloud/rahti/tutorials/index.md"
+        "cloud/rahti2/tutorials/allow-pull-from-other-projects.md": "cloud/rahti/tutorials/allow-pull-from-other-projects.md"
+        "cloud/rahti2/tutorials/deploy_static_webserver_webconsole.md": "cloud/rahti/tutorials/deploy_static_webserver_webconsole.md"
+        "cloud/rahti2/tutorials/configuration.md": "cloud/rahti/tutorials/configuration.md"
+        "cloud/rahti2/tutorials/webhooks.md": "cloud/rahti/tutorials/webhooks.md"
+        "cloud/rahti2/tutorials/integrating-external-services.md": "cloud/rahti/tutorials/integrating-external-services.md"
+        "cloud/rahti2/tutorials/annotations.md": "cloud/rahti/tutorials/annotations.md"
+        "cloud/rahti2/tutorials/connect-database-hpc.md": "cloud/rahti/tutorials/connect-database-hpc.md"
+        "cloud/rahti2/tutorials/yaml_introduction.md": "cloud/rahti/tutorials/yaml_introduction.md"
+        "cloud/rahti2/tutorials/web-app-dev-cloud.md": "cloud/rahti/tutorials/web-app-dev-cloud.md"
+        "cloud/rahti2/tutorials/sidecar_proxy_authentication.md": "cloud/rahti/tutorials/sidecar_proxy_authentication.md"
+        "cloud/rahti2/tutorials/deploy_static_webserver_cli.md": "cloud/rahti/tutorials/deploy_static_webserver_cli.md"
+        "cloud/rahti2/tutorials/custom-domain.md": "cloud/rahti/tutorials/custom-domain.md"
+        "cloud/rahti2/tutorials/email.md": "cloud/rahti/tutorials/email.md"
+        "cloud/rahti2/tutorials/http-redirector.md": "cloud/rahti/tutorials/http-redirector.md"
+        "cloud/rahti2/tutorials/multi-stage-builds.md": "cloud/rahti/tutorials/multi-stage-builds.md"
+        "cloud/rahti2/tutorials/ci_cd_introduction.md": "cloud/rahti/tutorials/ci_cd_introduction.md"
+        "cloud/rahti2/tutorials/advanced-NetworkPolicies-networking.md": "cloud/rahti/tutorials/advanced-NetworkPolicies-networking.md"
+        "cloud/rahti2/tutorials/pod-affinity.md": "cloud/rahti/tutorials/pod-affinity.md"
+        "cloud/rahti2/tutorials/kustomize.md": "cloud/rahti/tutorials/kustomize.md"
+        "cloud/rahti2/tutorials/4cat.md": "cloud/rahti/tutorials/4cat.md"
+        "cloud/rahti2/usage/cli.md": "cloud/rahti/usage/cli.md"
+        "cloud/rahti2/usage/projects_and_quota.md": "cloud/rahti/usage/projects_and_quota.md"
+        "cloud/rahti2/usage/getting_started.md": "cloud/rahti/usage/getting_started.md"
+        "cloud/rahti2/images/creating.md": "cloud/rahti/images/creating.md"
+        "cloud/rahti2/images/keeping_docker_images_small.md": "cloud/rahti/images/keeping_docker_images_small.md"
+        "cloud/rahti2/images/overview.md": "cloud/rahti/images/overview.md"
+        "cloud/rahti2/images/Using_Rahti_2_integrated_registry.md": "cloud/rahti/images/Using_Rahti_2_integrated_registry.md"
 
 markdown_extensions:
   - footnotes
@@ -347,60 +374,60 @@ nav:
 
           - More advanced features: cloud/dbaas/advanced.md
           - Resizing database instance volume: cloud/dbaas/resize-volume.md
-      - Rahti 2:
-          - cloud/rahti2/index.md
-          - What is Rahti: 
-              - cloud/rahti2/rahti-what-is.md
-              - Containers & their Orchestration: cloud/rahti2/containers.md
-              - Kubernetes and OpenShift concepts: cloud/rahti2/concepts.md
-              - External documentation: cloud/rahti2/ext_docs.md          
+      - Rahti:
+          - cloud/rahti/index.md
+          - What is Rahti:
+              - cloud/rahti/rahti-what-is.md
+              - Containers & their Orchestration: cloud/rahti/containers.md
+              - Kubernetes and OpenShift concepts: cloud/rahti/concepts.md
+              - External documentation: cloud/rahti/ext_docs.md
           - Getting Started:
-              - Getting access: cloud/rahti2/access.md
-              - Web user interface: cloud/rahti2/usage/getting_started.md
-              - Command line tool: cloud/rahti2/usage/cli.md
-              - Moving into Rahti: cloud/rahti2/moving-into.md
+              - Getting access: cloud/rahti/access.md
+              - Web user interface: cloud/rahti/usage/getting_started.md
+              - Command line tool: cloud/rahti/usage/cli.md
+              - Moving into Rahti: cloud/rahti/moving-into.md
           - Configuration:
-              - Billing: cloud/rahti2/billing.md
-              - Projects and quota: cloud/rahti2/usage/projects_and_quota.md
-              - Rahti Catalog: cloud/rahti2/catalog-docs.md
+              - Billing: cloud/rahti/billing.md
+              - Projects and quota: cloud/rahti/usage/projects_and_quota.md
+              - Rahti Catalog: cloud/rahti/catalog-docs.md
               - Images:
-                  - cloud/rahti2/images/overview.md
-                  - Creating an image: cloud/rahti2/images/creating.md
-                  - Keeping docker images small: cloud/rahti2/images/keeping_docker_images_small.md
-                  - Using Rahti 2 integrated registry: cloud/rahti2/images/Using_Rahti_2_integrated_registry.md
+                  - cloud/rahti/images/overview.md
+                  - Creating an image: cloud/rahti/images/creating.md
+                  - Keeping docker images small: cloud/rahti/images/keeping_docker_images_small.md
+                  - Using Rahti integrated registry: cloud/rahti/images/Using_Rahti_2_integrated_registry.md
               - Storage in Rahti:
-                  - cloud/rahti2/storage/index.md
-                  - Ephemeral storage: cloud/rahti2/storage/ephemeral.md
-                  - Persistent volumes: cloud/rahti2/storage/persistent.md
-                  - Object storage: cloud/rahti2/storage/objectstorage.md
-                  - Expand a volume: cloud/rahti2/storage/expand-volumes.md
-                  - Volume snapshot: cloud/rahti2/storage/volume-snapshot.md
+                  - cloud/rahti/storage/index.md
+                  - Ephemeral storage: cloud/rahti/storage/ephemeral.md
+                  - Persistent volumes: cloud/rahti/storage/persistent.md
+                  - Object storage: cloud/rahti/storage/objectstorage.md
+                  - Expand a volume: cloud/rahti/storage/expand-volumes.md
+                  - Volume snapshot: cloud/rahti/storage/volume-snapshot.md
           - Advanced:
-              - cloud/rahti2/advanced.md
-              - Networking: cloud/rahti2/networking.md
-              - Security guide: cloud/rahti2/security-guide.md
+              - cloud/rahti/advanced.md
+              - Networking: cloud/rahti/networking.md
+              - Security guide: cloud/rahti/security-guide.md
           - Tutorials:
-              - cloud/rahti2/tutorials/index.md
-              - Accessing databases on Rahti 2 from CSC supercomputers: cloud/rahti2/tutorials/connect-database-hpc.md
-              - Annotations: cloud/rahti2/tutorials/annotations.md
-              - CI/CD on Rahti 2: cloud/rahti2/tutorials/ci_cd_introduction.md
-              - Configuration, ConfigMaps and Secrets: cloud/rahti2/tutorials/configuration.md
-              - Custom domain names and secure transport: cloud/rahti2/tutorials/custom-domain.md
-              - Deploying a static web server using the command line: cloud/rahti2/tutorials/deploy_static_webserver_cli.md
-              - Deploying a static web server using the web interface: cloud/rahti2/tutorials/deploy_static_webserver_webconsole.md
-              - Kustomize: cloud/rahti2/tutorials/kustomize.md
-              - Learn cloud computing by developing and deploying a web application: cloud/rahti2/tutorials/web-app-dev-cloud.md
-              - Multi stage builds: cloud/rahti2/tutorials/multi-stage-builds.md
-              - Reverse proxy authentication using a sidecar container: cloud/rahti2/tutorials/sidecar_proxy_authentication.md
-              - Sending e-mail from Rahti 2: cloud/rahti2/tutorials/email.md
-              - Short introduction to YAML: cloud/rahti2/tutorials/yaml_introduction.md
-              - Webhooks: cloud/rahti2/tutorials/webhooks.md
-              - 4cat: cloud/rahti2/tutorials/4cat.md
-              - Pod (anti) affinity: cloud/rahti2/tutorials/pod-affinity.md
-              - Advanced NetworkPolicies: cloud/rahti2/tutorials/advanced-NetworkPolicies-networking.md
-              - Integrating External Services: cloud/rahti2/tutorials/integrating-external-services.md
-              - Setup a HTTP redirection in Rahti: cloud/rahti2/tutorials/http-redirector.md
-              - Allow pulls of images from one Rahti project to another: cloud/rahti2/tutorials/allow-pull-from-other-projects.md
+              - cloud/rahti/tutorials/index.md
+              - Accessing databases on Rahti from CSC supercomputers: cloud/rahti/tutorials/connect-database-hpc.md
+              - Annotations: cloud/rahti/tutorials/annotations.md
+              - CI/CD on Rahti: cloud/rahti/tutorials/ci_cd_introduction.md
+              - Configuration, ConfigMaps and Secrets: cloud/rahti/tutorials/configuration.md
+              - Custom domain names and secure transport: cloud/rahti/tutorials/custom-domain.md
+              - Deploying a static web server using the command line: cloud/rahti/tutorials/deploy_static_webserver_cli.md
+              - Deploying a static web server using the web interface: cloud/rahti/tutorials/deploy_static_webserver_webconsole.md
+              - Kustomize: cloud/rahti/tutorials/kustomize.md
+              - Learn cloud computing by developing and deploying a web application: cloud/rahti/tutorials/web-app-dev-cloud.md
+              - Multi stage builds: cloud/rahti/tutorials/multi-stage-builds.md
+              - Reverse proxy authentication using a sidecar container: cloud/rahti/tutorials/sidecar_proxy_authentication.md
+              - Sending e-mail from Rahti: cloud/rahti/tutorials/email.md
+              - Short introduction to YAML: cloud/rahti/tutorials/yaml_introduction.md
+              - Webhooks: cloud/rahti/tutorials/webhooks.md
+              - 4cat: cloud/rahti/tutorials/4cat.md
+              - Pod (anti) affinity: cloud/rahti/tutorials/pod-affinity.md
+              - Advanced NetworkPolicies: cloud/rahti/tutorials/advanced-NetworkPolicies-networking.md
+              - Integrating External Services: cloud/rahti/tutorials/integrating-external-services.md
+              - Setup a HTTP redirection in Rahti: cloud/rahti/tutorials/http-redirector.md
+              - Allow pulls of images from one Rahti project to another: cloud/rahti/tutorials/allow-pull-from-other-projects.md
   - Data:
       - data/index.md
       #    - Datasets: data/datasets.md
