@@ -50,4 +50,4 @@ If all went as expected, if you enter the DNS name from the previous step, the b
 
 ## Conclusion
 
-This is just a simple example of the design pattern. Two or more containers working together in the same local network, normally being one of the containers the "main" one that other provide extra functionality. This concept can be extended by using other authentication methods can be used, like LDAP or OpenID. Also this pattern is useful for file serving, where files are hosted in a "slow but safe" filesystem, and a sidecar container pull these files to an emptyDir, which is a temporal fast filesystem Rahti 2 provides.
+This is just a simple example of the design pattern. Two or more containers working together in the same local network, normally being one of the containers the "main" one that other provide extra functionality. This concept can be extended by using other authentication methods can be used, like LDAP or OpenID. Also this pattern is useful for file serving, where files are hosted in a "slow but safe" filesystem, and a sidecar container pull these files to an emptyDir, which is a temporal fast filesystem Rahti provides.

@@ -1,15 +1,15 @@
-# Using Rahti 2 integrated registry
+# Using Rahti integrated registry
 
 ## Manual Image Caching 
 
-It is possible to manually cache images in Rahti 2. This could be useful to remove
+It is possible to manually cache images in Rahti. This could be useful to remove
 an external dependency or improve performance.
 
 The process is simple:
 
 1. [Install](../../usage/cli/#how-to-install-the-oc-tool) and [login with OC](../../usage/cli/#how-to-login-with-oc).
 
-1. With a terminal, connect to the Rahti 2 registry:
+1. With a terminal, connect to the Rahti registry:
     ```sh
     docker login -p $(oc whoami -t ) -u unused image-registry.apps.2.rahti.csc.fi
     ```
@@ -42,9 +42,9 @@ Finally select the new image.
 
 ![Use cached image](../../img/use_cached_image.png)
 
-## Access Control for the Rahti 2 Integrated Registry
+## Access Control for the Rahti Integrated Registry
 
-Rahti 2 allows fine-grained control over access to the integrated image registry, enabling management of access based on [user authentication](https://docs.openshift.com/container-platform/4.15/authentication/understanding-authentication.html).
+Rahti allows fine-grained control over access to the integrated image registry, enabling management of access based on [user authentication](https://docs.openshift.com/container-platform/4.15/authentication/understanding-authentication.html).
 
 ### 1. **Anonymous Access** (`system:anonymous`)
 
@@ -78,4 +78,4 @@ Authenticated users are those who have successfully logged in using valid creden
 
 ## Guide on Pulling Images from Rahti 1 Registry
 
-To securely pull images from Rahti 1 registry to Rahti 2, follow this [guide](../../../support/faq/pull-from-rahtiv1-registry.md). It also explains how to convert images using `Skopeo` for compatibility with future releases.
+To securely pull images from Rahti 1 registry to Rahti, follow this [guide](../../../support/faq/pull-from-rahtiv1-registry.md). It also explains how to convert images using `Skopeo` for compatibility with future releases.

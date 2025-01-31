@@ -1,10 +1,10 @@
-# How to transfer data to Rahti 2?
+# How to transfer data to Rahti?
 
-As discussed in the [available storage options](../../cloud/rahti2/storage/index.md) article, it is possible store data using a persistent volume, or using a object storage service like [Allas](../../data/Allas/index.md).
+As discussed in the [available storage options](../../cloud/rahti/storage/index.md) article, it is possible store data using a persistent volume, or using a object storage service like [Allas](../../data/Allas/index.md).
 
 ## to a Persistent Volume
 
-In order to move data to Rahti 2, the best method is to use the command line tool `oc rsync`. From its manual:
+In order to move data to Rahti, the best method is to use the command line tool `oc rsync`. From its manual:
 
 ```bash
 $ oc rsync
@@ -15,11 +15,11 @@ using the rsync command from your OS. To ensure optimum performance, install rsy
 systems, use your package manager. In Windows, install cwRsync from https://www.itefix.net/cwrsync.
 ```
 
-First of all, it is required to [install oc](../../cloud/rahti2/usage/cli.md).
+First of all, it is required to [install oc](../../cloud/rahti/usage/cli.md).
 
 Once `oc` is installed, the process is:
 
-* Create the `PersistentVolumeClaim` (PVC) to store the data in Rahti 2. You may use the web interface or directly the command line. In this example we will use the command line. A simple way to create a `1Gi` volume called `testing-pvc` is:
+* Create the `PersistentVolumeClaim` (PVC) to store the data in Rahti. You may use the web interface or directly the command line. In this example we will use the command line. A simple way to create a `1Gi` volume called `testing-pvc` is:
 
 ```bash
 $ echo 'apiVersion: v1
