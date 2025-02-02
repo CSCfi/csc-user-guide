@@ -6,15 +6,15 @@
 * [Access virtual desktop](sd-desktop-access-vm.md)
 
 
-## Background informations:
+## Background information
 
 
-### Automated key management, encryption, and decryption are not yet available for export from SD Desktop
+### Data export from SD Desktop requires manula encryption
 
+Exporting data (e.g. results) from SD Desktop to SD Connect is a manual process requiring Crypt4GH tools and generating your own encryption key pair. In contrast, automated key management is available only for direct uploads and downloads via SD Connect (introduced programmatically in February 2025 and added to the user interface in October 2025). Since SD Connect may store files encrypted using different methods, yet with the same .c4gh extension, we recommend creating a dedicated folder for SD Desktop exports. This helps distinguish:
 
-Data export requires encryption. At present, exporting data from SD Desktop to Sd Connect **is a manual process that involves using Crypt4GH tools and generating your own encryption key pair**. Automated keymanagement, which simplifies encryption, is only available for data uploads and downloads via SD Connect. This feature was introduced programmatically in February 2025 and extended to the user interface in October 2025.
-
-Because of these differences, your SD Connect storage may contain files encrypted using different methods. To avoid confusion and ensure proper organization, we recommend creating a             dedicated folder exclusively for data exports from SD Desktop. This will help keep files with different encryption formats separate.
+- files encrypted manually with your won encryption key pair (exported from SD Desktop).
+- files automatically encrypted files by using via SD Connect, with encryption keys managed by the service.
 
 
 ### Only project managers can export data
@@ -104,7 +104,7 @@ For documentation and more information, you can check the [Crypt4GH Encryption U
 
 
 
-## 2. Generate your public-secrete encryption key pair
+## 2. Generate your encryption key pair
 
 
       You use `crypt4gh-keygen` command to create your private and public keys:
@@ -143,6 +143,10 @@ For documentation and more information, you can check the [Crypt4GH Encryption U
 
 ## 3. Upload the public key to SD Connect 
 
+You can import the public encryption key bu uplaoding it vie SD Connect user inetrfacem or programmatiaclly.
+
+### Via SD Connect suer interface
+
 1. Log in to SD Connect.
 2. Select the correct CSC project in the top left corner.
 3. Click **Upload** in the top right corner.
@@ -150,16 +154,17 @@ For documentation and more information, you can check the [Crypt4GH Encryption U
 5. Click **Select Files** to open a browser window and choose the public enycrption key  (e.g. .pub file). Click **Upload** to start automatic encryption and upload.
 6. Once the upload is finished, the encryption key will be now visible from your virtual desktop.
 
+### Programmatically (@kimmo)
 
-## 4. Import the public key inside the virtual desktop
+## 4. Import the public key inside the virtual desktop (@kimmo)
 
 1. [Access](./sd-desktop-access-vm.md) your virtual desktop.
-2. [Access the folder](./sd-desktop-access.md#1-access-data-via-the-data-gateway-application) with the public key.
-3. Use the copy/paste function to paste your public key into the virtual desktop.
+2. Open the Data Gateway application, access files store in SD Cobbect the public key.
+3. Use the copy/paste function to paste your public key into the virtual desktop (or the terminial), it will be automatically decrypted.
 
 ## 5. Encrypt the file
 
-### Exporting multiple files
+### Exporting multiple files (@KIMMO)
 
 To export multiple files, first compress them into a single folder, then encrypt as a single file.
 
@@ -192,19 +197,10 @@ To export multiple files, first compress them into a single folder, then encrypt
 
 ## 6. Export the encrypted files from the virtual Desktop
 
-Once the file is encrypted, only the CSC project manager can export them via the Data Gateway application or programmatically using the Airlock client.
+Once the file are encrypted, only the CSC project manager can export them via the Data Gateway application or programmatically using the Airlock client.
 
-### Option A: Export via data Gateway application
-
-1. Open Data Gateway application.
-2. Select SD Connect and enter CSC user name and password. Click **Login** and then click **Continue**.
-3. Click on **Export** tab. This is available only to project manager. 
-4. Exported file will go to SD Connect. Choose the destination folder from existing folders in SD Connect. You can also first log in to SD Connect and create a new folder for exported files.
-5. Select file you want to export and click **Export**.
-6. Files are now in the folder you selected in SD Connect.
-
-
-### Option B: Export programmatically via Airlock client
+!!! Note
+   The Airlock client supports exporting files up to 30 GB. Larger files or datasets must be split into smaller segments before export.
 
 1. Open the terminal (right-click) and use the following syntax:
 
