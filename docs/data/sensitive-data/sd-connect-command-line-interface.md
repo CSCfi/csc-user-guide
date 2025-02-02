@@ -1,6 +1,6 @@
 # Command Line Interface and automated key management
 
-The new SD Copnnect command line tools, available from January 2025, support file upload, download (with a-commands) and automated key management (with lock-unlock) during encryption and decryption. After programmatic encryption and upload, data can be viewed through the SD Connect user interface and SD Desktop. Coding skills are required to use the tools effectively, below is a step by step guide to get started.
+The new SD Coonnect command line tools, available from January 2025, support file upload, download (with a-commands) and automated key management (with lock-unlock) during encryption and decryption. After programmatic encryption and upload, data can be viewed through the SD Connect user interface and SD Desktop. Coding skills are required to use the tools effectively, below is a step by step guide to get started.
 
 
 ## Background information
@@ -82,12 +82,13 @@ allas-dir-to-bucket --sdc my-secret-directory  2000123-new-sens
 
 The command above will copy all the files from directory my-secret-directory to bucket 2000123-new-sens in SD Connect compatible format.
 
-
-!!! Note
-    Since SD Connect was updated in October 2024, it is no longer straightforward to determine which encryption method was used for an encrypted .c4gh file stored in Allas/SD Connect. If you        are now using a new encryption method to upload files to an existing CSC project, please ensure you add a note to your folders indicating that the encryption protocol has changed. You can       either share this information with your colleagues or clearly include it in the folder name. As a good practive, we advise creating a new folder and avoiding mixing files encrypted with different methods.
-
 !!! Note
     Do not use special characters or spaces in the folder name.
+
+!!! Note
+    Since SD Connect was updated in October 2024, it is no longer straightforward to determine which encryption method was used for an encrypted .c4gh file stored in Allas/SD Connect. If you are now using a new encryption method to upload files to an existing CSC project, please ensure you add a note to your folders indicating that the encryption protocol has changed. You can       either share this information with your colleagues or clearly include it in the folder name. As a good practive, we advise creating a new folder and avoiding mixing files encrypted with different methods.
+
+
 
 
 
