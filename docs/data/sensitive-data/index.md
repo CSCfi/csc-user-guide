@@ -66,16 +66,16 @@ Please ensure you read the instructions carefully before accessing any services 
   <div class="quick-links-topic">
     <span class="quick-links-title"><h2>Access SD Services</h2></span>
     <div class="quick-links-item">
-      <a class="quick-link" target="_blank" href="https://my.csc.fi/welcome">MyCSC portal</a>
+      <a class="quick-link" target="_blank" href="https://my.csc.fi/welcome">MyCSC portal: create an account and manage or join a CSC project</a>
     </div>
     <div class="quick-links-item">
-      <a class="quick-link" target="_blank" href="https://sd-connect.csc.fi/">SD Connect</a>
+      <a class="quick-link" target="_blank" href="https://sd-connect.csc.fi/">SD Connect: uplaod, store or share encrypted files</a>
     </div>
     <div class="quick-links-item">
-      <a class="quick-link" target="_blank" href="https://sd-desktop.csc.fi">SD Desktop</a>
+      <a class="quick-link" target="_blank" href="https://sd-desktop.csc.fi">SD Desktop: analyse</a>
     </div>
     <div class="quick-links-item">
-      <a class="quick-link" target="_blank" href="https://sd-apply.csc.fi/">SD Apply</a>
+      <a class="quick-link" target="_blank" href="https://sd-apply.csc.fi/">SD Apply: apply for access</a>
     </div>
   </div>
 </div>
