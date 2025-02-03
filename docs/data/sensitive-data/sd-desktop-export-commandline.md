@@ -149,7 +149,7 @@ You can import the public encryption key by uplaoding it via SD Connect user int
 6. Once the upload is finished, the encryption key will be now visible from your virtual desktop.
 
 
-## 4. Import the public key inside the virtual desktop (@kimmo)
+## 4. Import the public key inside the virtual desktop 
 
 1. [Access](./sd-desktop-access-vm.md) your virtual desktop.
 2. Open the Data Gateway application, access files store in SD Cobbect the public key.
@@ -157,7 +157,7 @@ You can import the public encryption key by uplaoding it via SD Connect user int
 
 ## 5. Encrypt the file
 
-### Exporting multiple files (@KIMMO)
+### Exporting multiple files 
 
 To export multiple files, first compress them into a single folder, then encrypt as a single file.
 
@@ -224,6 +224,7 @@ There are two ways:
 
 ### 8. Decrypt the files with the Crypt4gh CLI tools
 
+Below s step by step example for decrypting one file. If you have several files i n a single directory, please check this [tutorial](./sensitive-data/tutorials/decrypt-directory/).
 
       To decrypt a file you will need a private key which corresponds to one of the public keys used in encryption phase. Let's assume in our example that the research group A is decrypting a file you've sent them. To decrypt a file they use `crypt4gh decrypt` command:
 
