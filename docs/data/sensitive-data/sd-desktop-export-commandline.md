@@ -1,13 +1,8 @@
 
 # Export data programmatically from the virtual desktop
 
-## Prerequisites
-* [Create virtual desktop](sd-desktop-create.md)
-* [Access virtual desktop](sd-desktop-access-vm.md)
-
 
 ## Background information
-
 
 ### Data export from SD Desktop requires manual encryption
 
@@ -15,7 +10,6 @@ Exporting data (e.g. results) from SD Desktop to SD Connect is a manual process 
 
 - files encrypted manually with your won encryption key pair (exported from SD Desktop).
 - files automatically encrypted files by using via SD Connect, with encryption keys managed by the service.
-
 
 ### Only project managers can export data
 
