@@ -1,7 +1,15 @@
 
 # Sensitive Data (SD) services for research: user guide
 
-Welcome to the user guide for CSC's Sensitive Data (SD) services. Use the left menu, [quick links](#quick-links-to-key-topics) or the search bar to find topics quickly. If the left menu is not visible, try zooming out in your browser.
+Welcome to the user guide for CSC's Sensitive Data (SD) services. Use the left menu or the search bar to find topics quickly. If the left menu is not visible, try zooming out in your browser.
+
+
+1. [Quicklinks to key topics](#quick-links-to-key-topics) 
+2. [Quick links to login portals](#quick-links-to-login-portals)
+3. [Service Breaks](#service-breaks)
+4. [Support](#suppport)
+
+
 
 
 ### Quick links to key topics
