@@ -11,7 +11,6 @@ Welcome to the user guide for CSC's Sensitive Data (SD) services. Use the left m
 
 
 
-
 ### Quick links to key topics
 
 <div class="quick-links-container">
@@ -81,7 +80,8 @@ Welcome to the user guide for CSC's Sensitive Data (SD) services. Use the left m
       <a class="quick-link" target="_blank" href="https://sd-apply.csc.fi/">  SD Apply</a> | 
     </div>
   </div>
-</div
+</div>    
+
 
 
 ### Service Breaks
