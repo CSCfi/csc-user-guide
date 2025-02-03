@@ -94,26 +94,6 @@ Please ensure you read the instructions carefully before accessing any services 
 
 
 
-## Introduction to Sensitive Data (SD) services
-
-If you're new to CSC's Sensitive Data services, we recommend starting with the [introduction on research.csc.fi](https://research.csc.fi/sensitive-data) to get an overview of how the services work.
-
-### Watch: Overview Video
-
-<iframe width="400" height="225" srcdoc="https://www.youtube.com/embed/YcgeuatWf9g" title="Introducing CSC Sensitive Data Services" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-
-Read more about the services: [Choose a service](choose-a-service.md)
-
-### What is sensitive data
-Sensitive data is defined as any information that is protected against unwarranted disclosure. Protection of data may be required for legal or ethical reasons, for issues pertaining to personal privacy, or for proprietary considerations.
-[Read more about sensitive data from research.csc.fi](https://research.csc.fi/definition-of-sensitive-data){ target="_blank" }
-
-### CSC's Sensitive Data services are available to:
-
-- Researchers and students affiliated with Finnish higher education institutions (universities, universities of applied sciences)
-- Research institutes and their international collaborators
-- Using CSC services requires you to [register a CSC account](../../accounts/index.md#getting-access)
-
 
 
 
