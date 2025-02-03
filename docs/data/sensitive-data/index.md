@@ -7,7 +7,7 @@ Welcome to the user guide for CSC's Sensitive Data (SD) services. Use the left m
 1. [Quick links to key topics](#quick-links-to-key-topics) 
 2. [Quick links to login portals](#quick-links-to-login-portals)
 3. [Service Breaks](#service-breaks)
-4. [Support](#suppport)
+4. [Support](#support)
 
 
 
@@ -80,10 +80,10 @@ Welcome to the user guide for CSC's Sensitive Data (SD) services. Use the left m
       <a class="quick-link" target="_blank" href="https://sd-apply.csc.fi/">  Sensitive Data (SD) Apply</a> 
       </div>
   </div>
-</div>    
-
+</div> 
+        
 ### Service breaks
-   
+
 * SD services undergo regular maintenance on the **first Wednesday of every month**, for full details please visit [Service Breaks page in CSC's research.csc.fi website](https://research.csc.fi/service-breaks){ target="_blank" } 
 
 
