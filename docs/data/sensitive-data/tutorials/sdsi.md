@@ -113,11 +113,11 @@ new files in SD Connect:
  name must be uniq in this case too.
 
 
-## Practicalities
+## Running serial jobs effectively
 
-The jobs that sdsi submits reserve one full Puhti node. These nodes have 40 computing cores 
-so you should use these batch jobs only for tasks can utilize multiple computing cores. 
-Preferably all 40.
+The jobs that sdsi submits reserve always one full Puhti node. These nodes have 40 computing cores 
+so you should use these batch jobs only for tasks that can utilize multiple computing cores. 
+Preferably all 40. 
 
 In the previous example, the actual computing task consisted of calculating md5 
 checksums for two files. The command used, `md5sum`, is able to use just one computing core so
@@ -127,35 +127,96 @@ However if you need to calculate a large amount of unrelated tasks that are able
 or few computing cores, you can use tools like _gnuparallel_, _nextfllow_ or _snakemake_ to submit several
 computing tasks to be executed in the same time.
 
-In the example below we have a tar file that has been stored to SD Connect: 2008749-sdsi-input/data_1000.tar.c4gh.
-The tar file contains 1000 files for which we want to compute md5sum. Now the batch job could look like
-following:
+In the examples below we have a tar-arcvive file that has been stored to SD Connect: `2008749-sdsi-input/data_1000.tar.c4gh`.
+The tar file contains 1000 text files (_.txt_) for which we want to compute md5sum.  Bellow we have three alternative ways to run the tasks
+so that all 40 cores are effectively used.
+ 
+### GNUparallel
 
+In the case of GNUparallel based parallelization the workflow could look like 
+following:
 
 ```text
 data:
   recv:
   - 2008749-sdsi-input/data_1000.tar.c4gh
 run: |
-  source /appl/profile/zz-csc-rnv.sh
+  source /appl/profile/zz-csc-env.sh
   module load parallel
   tar xf 2008749-sdsi-input/data_1000.tar
-  ls  data_1000  | parallel -j 40 md5sun
+  cd  data_1000
+  ls *.txt  | parallel -j 40 md5sum {} ">" {.}.md5
+  tar -cvf md5sums.tar *.md5
+  mv md5sums.tar $RESULTS/
 sbatch:
 - --time=04:00:00
 - --partition=small
 ```
 
-In the sample job above, the first source command is used to add 
-module command and other Puhti settings to the execution environment.
+In the sample job above, the first command, `source /appl/profile/zz-csc-env.sh` is used to add 
+_module_ command and other Puhti settings to the execution environment.
 The GNUparallel is enabled command `module load parallel`.
 Next the tar file containing 1000 files is extracted to the temporary local disk area.
-Finally, the file listing of the extracted directory is guided to `parallel` command that runs 
-the given command, `md5sum`, for each file using 40 parallel processes (`-j 40`).
+Finally, the file listing of the .txt filesmin the extracted directory is guided to `parallel` command that runs 
+the given command, `md5sum`, for each file (_{}_) using 40 parallel processes (`-j 40`).
+
+
+### snakemake
+
+If we want to use SnakeMake we must first upload a SnakeMake job file (_md5sums.snakefile_ in this case) to SD Connect. 
+This file defines the input files to be processed, commands to be executed and outputs to be create. 
+Note that you can't upload this file to the SD Connect form SD Desktop, but you must upload it for 
+example from your own computer or from Puhti.
+
+Content of SnakeMake file _md5sums.snakefile_
+
+```text
+txt_files = [f for f in os.listdir(".") if f.endswith(".txt")]
+
+rule all:
+    input:
+        expand("{file}.md5", file=txt_files)
+
+rule md5sum:
+    input:
+        "{file}"
+    output:
+        "{file}.md5"
+    shell:
+        "md5sum {input} > {output}"
+```
+
+The actual sdsi job file could look like this:
+
+```text
+data:
+  recv:
+  - 2008749-sdsi-input/md5sums.snakefile.c4gh
+  - 2008749-sdsi-input/data_1000.tar.c4gh
+run: |
+  source /appl/profile/zz-csc-env.sh
+  module load snakemake
+  mkdir snakemake_cache
+  export SNAKEMAKE_OUTPUT_CACHE=$(pwd)"/snakemake_cache"
+  tar xf 2008749-sdsi-input/data_1000.tar
+  cp 2008749-sdsi-input/md5sums.snakefile data_1000
+  cd data_1000
+  snakemake --cores 40 --snakefile md5sums.snakefile
+  tar -cvf md5sums.tar *.md5
+  mv md5sums.tar $RESULTS/
+  
+sbatch:
+- --time=04:00:00
+- --partition=small
+```
+
 
 
 In the next example, GPU computing are used to speed up whisper speech recognition tool that
-the user has installed to her own python virtual environment in Puhti
+the user has installed to her own python virtual environment in Puhti.
+
+
+
 
 ```text
 data:
