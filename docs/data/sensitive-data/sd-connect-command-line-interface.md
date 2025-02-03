@@ -140,7 +140,7 @@ Examples are:
 - R-clone
 - a-tools
 
-You can fidn more informations in [Tools for client side encryption for Allas][./data/Allas/allas_encryption.md]
+You can fidn more informations in [Tools for client side encryption for Allas](./data/Allas/allas_encryption.md)
 
 Download and decryption of files uploaded with CLI and own encryption key pair is discussed in this section. To encrypt and upload files via command line, please check [this tutorial](sequencing_center_tutorial.md) illustrating how to use the crypt4GH tool to upload files in Allas (visible from SD Connect). Below is also more information about the crypt4GH CLI. For documentation and more information, you can also check the [Crypt4GH Encryption Utility](https://github.com/EGA-archive/crypt4gh.git) page.
 
