@@ -63,7 +63,7 @@ Welcome to the user guide for CSC's Sensitive Data (SD) services. Use the left m
      </div>
     <div class="quick-links-item">
       <a class="quick-link" target="_self" href="https://research.csc.fi/sensitive-data-services-for-research/">SD Services homepage on research.csc.fi website</a>
-    </div>
+     </div>
   </div>
 </div>
 
@@ -78,7 +78,7 @@ Welcome to the user guide for CSC's Sensitive Data (SD) services. Use the left m
       <a class="quick-link" target="_blank" href="https://sd-connect.csc.fi/"> Sensitive Data (SD) Connect</a> | 
       <a class="quick-link" target="_blank" href="https://sd-desktop.csc.fi">  Sensitive Data (SD) Desktop</a> | 
       <a class="quick-link" target="_blank" href="https://sd-apply.csc.fi/">  Sensitive Data (SD) Apply</a> 
-    </div>
+      </div>
   </div>
 </div>    
 
