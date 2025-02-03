@@ -9,7 +9,7 @@
 ## Background information
 
 
-### Data export from SD Desktop requires manula encryption
+### Data export from SD Desktop requires manual encryption
 
 Exporting data (e.g. results) from SD Desktop to SD Connect is a manual process requiring Crypt4GH tools and generating your own encryption key pair. In contrast, automated key management is available only for direct uploads and downloads via SD Connect (introduced programmatically in February 2025 and added to the user interface in October 2025). Since SD Connect may store files encrypted using different methods, yet with the same .c4gh extension, we recommend creating a dedicated folder for SD Desktop exports. This helps distinguish:
 
@@ -143,9 +143,9 @@ For documentation and more information, you can check the [Crypt4GH Encryption U
 
 ## 3. Upload the public key to SD Connect 
 
-You can import the public encryption key bu uplaoding it vie SD Connect user inetrfacem or programmatiaclly.
+You can import the public encryption key by uplaoding it via SD Connect user interface.
 
-### Via SD Connect suer interface
+### Via SD Connect user interface
 
 1. Log in to SD Connect.
 2. Select the correct CSC project in the top left corner.
@@ -154,7 +154,6 @@ You can import the public encryption key bu uplaoding it vie SD Connect user ine
 5. Click **Select Files** to open a browser window and choose the public enycrption key  (e.g. .pub file). Click **Upload** to start automatic encryption and upload.
 6. Once the upload is finished, the encryption key will be now visible from your virtual desktop.
 
-### Programmatically (@kimmo)
 
 ## 4. Import the public key inside the virtual desktop (@kimmo)
 
@@ -167,11 +166,6 @@ You can import the public encryption key bu uplaoding it vie SD Connect user ine
 ### Exporting multiple files (@KIMMO)
 
 To export multiple files, first compress them into a single folder, then encrypt as a single file.
-
-1. Create a new folder. 
-2. Place all files into the folder.
-3. Right-click the folder, select **Compress**. Now your folder is a .zip file.
-
 
 
 ### Encrypt the file or folder
@@ -225,25 +219,16 @@ Once the file are encrypted, only the CSC project manager can export them via th
 
 
 
-## 7. Download the files from SD Connect and change extension (ADD progrmmatically, from old tutorial?)
+## 7. Download the files from SD Connect/ Allas programmatically and decrypt them with your encryption key
+
+There are two ways:
+- R-Clone (downlaod the files and then derypt)
+- a-tools
 
 
-<iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/SQJ8QEKV7BE" title="Create a virtual desktop in SD Desktop" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 
-1. Access SD Connect and locate the file you need. Click on Download.
-2. The user interface will display the message: "Some requested files could not be decrypted."
-3. After downloading the file, **you need to adjust the extension**:
-    * Right-click the file
-    * Choose "Rename," and add `.c4gh` to the end of the filename.
-    * If opened with a text editor, the files will still be encrypted.
-
-
-![Some requested files could not be decrypted.](https://a3s.fi/docs-files/sensitive-data/SD_Connect/Old_download_1.png)
-
-![After downloading the files, you need to adjust their extensions.](https://a3s.fi/docs-files/sensitive-data/SD_Connect/Old_download_2.png)
-
-### 8. Decrypt the files with the Crypt4gh CLi tools
+### 8. Decrypt the files with the Crypt4gh CLI tools
 
 
       To decrypt a file you will need a private key which corresponds to one of the public keys used in encryption phase. Let's assume in our example that the research group A is decrypting a file you've sent them. To decrypt a file they use `crypt4gh decrypt` command:
