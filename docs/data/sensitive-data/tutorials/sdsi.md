@@ -160,11 +160,64 @@ Next the tar file containing 1000 files is extracted to the temporary local disk
 Finally, the file listing of the .txt filesmin the extracted directory is guided to `parallel` command that runs 
 the given command, `md5sum`, for each file (_{}_) using 40 parallel processes (`-j 40`).
 
+### nextfllow
 
-### snakemake
+If we want to use NextFlow we must first upload a NextFlow task file (_md5sums.nf_ in this case) to SD Connect. 
+This file defines the input files to be processed, commands to be executed and outputs to be created. 
+Note that you can't upload this file to the SD Connect form SD Desktop, but you must upload it for 
+example from your own computer or from Puhti.
+
+Content of NextFlow file _md5sums.nf_
+
+```text
+nextflow.enable.dsl=2
+
+process md5sum {
+    tag "$filename"
+    
+    input:
+        path txt_file from files("*.txt")
+    
+    output:
+        path "${txt_file}.md5"
+    
+    script:
+        """
+        md5sum $txt_file > ${txt_file}.md5
+        """
+}
+
+workflow {
+    md5sum()
+}
+```
+The actual sdsi job file could look like this:
+
+```text
+data:
+  recv:
+  - 2008749-sdsi-input/md5sums.nf.c4gh
+  - 2008749-sdsi-input/data_1000.tar.c4gh
+run: |
+  source /appl/profile/zz-csc-env.sh
+  module load nextflow
+  tar xf 2008749-sdsi-input/data_1000.tar
+  cp 2008749-sdsi-input/md5sums.nf data_1000
+  cd data_1000
+  nextflow run md5sums.nf -process.executor local -process.maxForks 40
+  tar -cvf md5sums.tar *.md5
+  mv md5sums.tar $RESULTS/
+  
+sbatch:
+- --time=04:00:00
+- --partition=small
+```
+
+
+### SnakeMake
 
 If we want to use SnakeMake we must first upload a SnakeMake job file (_md5sums.snakefile_ in this case) to SD Connect. 
-This file defines the input files to be processed, commands to be executed and outputs to be create. 
+This file defines the input files to be processed, commands to be executed and outputs to be created. 
 Note that you can't upload this file to the SD Connect form SD Desktop, but you must upload it for 
 example from your own computer or from Puhti.
 
@@ -210,12 +263,10 @@ sbatch:
 - --partition=small
 ```
 
-
+### GPU computing
 
 In the next example, GPU computing are used to speed up whisper speech recognition tool that
 the user has installed to her own python virtual environment in Puhti.
-
-
 
 
 ```text
