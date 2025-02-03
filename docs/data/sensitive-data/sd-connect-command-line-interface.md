@@ -232,6 +232,5 @@ Additional information about [data encryption](./sd-connect-introduction-to-data
 * [Upload](./sd-connect-upload.md)
 * [Share](./sd-connect-share.md)
 * [Download](./sd-connect-download.md)
-* [Download files uploaded with previous version](./sd-connect-download-old-version.md)
 * [Delete](./sd-connect-delete.md)
 * [Troubleshooting](./sd-connect-troubleshooting.md)
