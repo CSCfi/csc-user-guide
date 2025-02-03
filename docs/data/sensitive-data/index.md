@@ -69,6 +69,27 @@ Welcome to the user guide for CSC's Sensitive Data (SD) services. Use the left m
 </div>
 
 
+
+### Quick Access to SD Services  
+
+Access CSC's SD services quickly:  
+
+<div class="quick-links-container">
+  <div class="quick-links-topic">
+    <div class="quick-links-item">
+      <a class="quick-link" target="_blank" href="https://my.csc.fi/welcome">MyCSC</a> |  
+      <a class="quick-link" target="_blank" href="https://sd-connect.csc.fi/">SD Connect</a> |  
+      <a class="quick-link" target="_blank" href="https://sd-desktop.csc.fi">SD Desktop</a> |  
+      <a class="quick-link" target="_blank" href="https://sd-apply.csc.fi/">SD Apply</a>  
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
 ### Quick links to login portals
 
 Please ensure you read the instructions carefully before accessing any services to have a smooth experience:
