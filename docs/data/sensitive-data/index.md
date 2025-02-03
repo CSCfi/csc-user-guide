@@ -72,10 +72,18 @@ Welcome to the user guide for CSC's Sensitive Data (SD) services. Use the left m
 
 ### Quick Access to SD Services  
 
-- **Create an account and manage or join a CSC project with** <a class="quick-link" target="_blank" href="https://my.csc.fi/welcome">MyCSC portal</a>  | 
-- **Upload store or share encrypted files with** <a class="quick-link" target="_blank" href="https://sd-connect.csc.fi/">SD Connect</a>  | 
-- **Analyze data securely with** <a class="quick-link" target="_blank" href="https://sd-desktop.csc.fi/">SD Desktop</a>  | 
-- **Apply for access with** <a class="quick-link" target="_blank" href="https://sd-apply.csc.fi/">SD Apply</a>  
+
+<div class="quick-links-container">
+  <div class="quick-links-topic">
+    <div class="quick-links-item">
+    **Create an account and manage or join a CSC project with** <a class="quick-link" target="_blank" href="https://my.csc.fi/welcome">MyCSC portal</a>  
+      
+    **Upload store or share encrypted files with** <a class="quick-link" target="_blank" href="https://sd-connect.csc.fi/">SD Connect</a>  | 
+    **Analyze data securely with** <a class="quick-link" target="_blank" href="https://sd-desktop.csc.fi/">SD Desktop</a>  | 
+    **Apply for access with** <a class="quick-link" target="_blank" href="https://sd-apply.csc.fi/">SD Apply</a>  
+   </div>
+  </div>
+</div>
 
 
 
