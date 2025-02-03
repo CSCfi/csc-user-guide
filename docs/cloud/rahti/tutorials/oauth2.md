@@ -297,6 +297,6 @@ Congrats! You managed to deploy an OAuth2 Proxy to access your website.
 Keep in mind that this example doesn't control the name, username or email. A good application must be able to check the email for example and
 let the user access the applications or not.
 
-Here is an example of OAuth2 Proxy + Kubernetes-Dashboard: https://kubernetes.github.io/ingress-nginx/examples/auth/oauth-external-auth/#example-oauth2-proxy-kubernetes-dashboard
+Here is an example of OAuth2 Proxy + Kubernetes-Dashboard: <https://kubernetes.github.io/ingress-nginx/examples/auth/oauth-external-auth/#example-oauth2-proxy-kubernetes-dashboard>
 
 In this example, it is possible to give access to the cluster by controlling the email of the user with [kubernetes RBAC](https://kubernetes.io/docs/reference/access-authn-authz/rbac/)
