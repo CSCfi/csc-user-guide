@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-set -e
-
 regex="iframe.* src="
 
 IFRAME_WITH_SRC=$(grep -o -i -n -r --include \*.md -- "$regex" docs)
