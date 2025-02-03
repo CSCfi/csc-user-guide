@@ -72,15 +72,20 @@ Welcome to the user guide for CSC's Sensitive Data (SD) services. Use the left m
 
 ### Quick Access to SD Services  
 
-Access CSC's SD services quickly:  
+- **Create an account and manage or join a CSC project with** <a class="quick-link" target="_blank" href="https://my.csc.fi/welcome">MyCSC portal</a>  | 
+- **Upload store or share encrypted files with** <a class="quick-link" target="_blank" href="https://sd-connect.csc.fi/">SD Connect</a>  | 
+- **Analyze data securely with** <a class="quick-link" target="_blank" href="https://sd-desktop.csc.fi/">SD Desktop</a>  | 
+- **Apply for access with** <a class="quick-link" target="_blank" href="https://sd-apply.csc.fi/">SD Apply</a>  
+
+
 
 <div class="quick-links-container">
   <div class="quick-links-topic">
     <div class="quick-links-item">
-      <a class="quick-link" target="_blank" href="https://my.csc.fi/welcome">MyCSC</a> |  
-      <a class="quick-link" target="_blank" href="https://sd-connect.csc.fi/">SD Connect</a> |  
-      <a class="quick-link" target="_blank" href="https://sd-desktop.csc.fi">SD Desktop</a> |  
-      <a class="quick-link" target="_blank" href="https://sd-apply.csc.fi/">SD Apply</a>  
+      <a class="quick-link" target="_blank" href="https://my.csc.fi/welcome">Create an ccount and manage a CSC project: MyCSC portal</a> |  
+      <a class="quick-link" target="_blank" href="https://sd-connect.csc.fi/"> Uplaod, store or share encrypted files: SD Connect</a> |  
+      <a class="quick-link" target="_blank" href="https://sd-desktop.csc.fi"> Analyse with SD Desktop</a> |  
+      <a class="quick-link" target="_blank" href="https://sd-apply.csc.fi/"> Apply for access with SD Apply</a>  
     </div>
   </div>
 </div>
