@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
 
 # .md files can not have the same name as directory
 # on the same level in the hierarchy as they will be
