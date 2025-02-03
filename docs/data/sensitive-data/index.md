@@ -1,5 +1,5 @@
 
-# Sensitive Data (SD) services user guide
+# Sensitive Data (SD) services for research: user guide
 
 Welcome to the user guide for CSC's Sensitive Data (SD) services. Use the left menu, [quick links](#quick-links-to-key-topics) or the search bar to find topics quickly. If the left menu is not visible, try zooming out in your browser.
 
@@ -8,7 +8,7 @@ Welcome to the user guide for CSC's Sensitive Data (SD) services. Use the left m
 
 <div class="quick-links-container">
   <div class="quick-links-topic">
-    <span class="quick-links-title"><h2>Store and analyse</h2></span>
+    <span class="quick-links-title"><h2>Store and analyse reaserch data</h2></span>
     <div class="quick-links-item">
       <a class="quick-link" target="_self" href="sd-access/">Start here</a>
     </div>
@@ -20,7 +20,7 @@ Welcome to the user guide for CSC's Sensitive Data (SD) services. Use the left m
     </div>
   </div>
   <div class="quick-links-topic">
-    <span class="quick-links-title"><h2>Publish and reuse</h2></span>
+    <span class="quick-links-title"><h2>Publish and reuse research data</h2></span>
     <div class="quick-links-item">
       <a class="quick-link" target="_self" href="federatedega/">Federated EGA</a>
     </div>
