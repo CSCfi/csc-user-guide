@@ -2,10 +2,10 @@
 
 The new SD Connect command line tools, available from february 2025, support file upload, download (with a-commands) and automated key management (with lock-unlock) during encryption and decryption. After programmatic encryption and upload, data can be viewed through the SD Connect user interface and SD Desktop. Coding skills are required to use the tools effectively, below is a step by step guide to get started. In contrast, files have been uplaoded before February 2025, were manually encrypted using your encryption key and will need to be decrypted manually after download. 
 
-1. [Background information]
-2. [Command line tools and automated key management](#)
-3. [Command line tools and manual encryption](#)
-4. Tutorals
+1. [Background information](#background-information)
+2. [Command line tools and automated key management](#command-line-tools-and-automated-key-management)
+3. [Command line tools and manual encryption](#command-line-tools-and-manual-encryption)
+4. [Tutorals](#tutorials)
 
 
 ## Background information
