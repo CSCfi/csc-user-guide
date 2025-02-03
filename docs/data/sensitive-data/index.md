@@ -8,7 +8,7 @@ Welcome to the user guide for CSC's Sensitive Data (SD) services. Use the left m
 
 <div class="quick-links-container">
   <div class="quick-links-topic">
-    <span class="quick-links-title"><h2>Store and analyse reaserch data</h2></span>
+    <span class="quick-links-title"><h2>Store and analyse research data</h2></span>
     <div class="quick-links-item">
       <a class="quick-link" target="_self" href="sd-access/">Start here</a>
     </div>
