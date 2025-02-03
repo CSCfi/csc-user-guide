@@ -13,7 +13,7 @@ This document provides instructions on how you can install on your local envirom
 Please note: Allas itself does not differentiate between data uplaoded via SD Connect (user inetrface or commandline tools) and data uplaoded to Allas using different mothods. Data buckets may contain a mix of SD Connect data, other encrypted data, and regular data. It is the user's responsibility to manage data types within the buckets. However, it is recommended to store SD Connect data in separate buckets and folders to avoid mixing different data types.
 
 
-## Step1: Insalling a-toold on your local enviroment
+## Step1: Installing a-toold on your local enviroment
 
 To upload and automatically encrypt sensitive data to SD Connect programmatically, you need to install the command-line tools, which require root access to your laptop or local environment (Mac or Linux). For this reason, you might need support from your organization’s IT unit.
 
