@@ -77,7 +77,7 @@ Welcome to the user guide for CSC's Sensitive Data (SD) services. Use the left m
       <a class="quick-link" target="_blank" href="https://my.csc.fi/welcome"> MyCSC portal | 
       <a class="quick-link" target="_blank" href="https://sd-connect.csc.fi/"> Sensitive Data (SD) Connect</a> | 
       <a class="quick-link" target="_blank" href="https://sd-desktop.csc.fi">  Sensitive Data (SD) Desktop</a> | 
-      <a class="quick-link" target="_blank" href="https://sd-apply.csc.fi/">  Sensitive Data (SD) Apply</a> | 
+      <a class="quick-link" target="_blank" href="https://sd-apply.csc.fi/">  Sensitive Data (SD) Apply</a> 
     </div>
   </div>
 </div>    
