@@ -76,6 +76,3 @@ Authenticated users are those who have successfully logged in using valid creden
   ```
 - **Use case**: This allows any user with valid credentials to view or pull images, useful for restricting access.
 
-## Guide on Pulling Images from Rahti 1 Registry
-
-To securely pull images from Rahti 1 registry to Rahti, follow this [guide](../../../support/faq/pull-from-rahtiv1-registry.md). It also explains how to convert images using `Skopeo` for compatibility with future releases.

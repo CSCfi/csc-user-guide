@@ -77,7 +77,6 @@
 * [How to backup a Postgres DB into Allas](backup-postgres-allas.md)
 * [How to open a terminal to a Pod?](terminal-rahti-pod.md)
 * [How to package a Kubernetes application with Helm](helm.md)
-* [How to pull images from Rahti v1 registry](pull-from-rahtiv1-registry.md)
 * [How to run an ad-hoc interactive container](oc-run.md)
 * [How to transfer data to Rahti?](transfer_data_rahti.md)
 * [Protecting against DDoS Attacks](DDos.md)
