@@ -85,6 +85,7 @@ Molpro has been built with the Global Arrays toolkit (`--with-mpi-pr`) that allo
     #SBATCH --cpus-per-task=8
     #SBATCH --account=yourproject     # insert here the project to be billed
     #SBATCH --time=0:10:00 # time as hh:mm:ss
+    # set --ntasks-per-node=X and --cpus-per-task=Y so that X * Y = 128
     module purge
     module load molpro/2024.3
 
