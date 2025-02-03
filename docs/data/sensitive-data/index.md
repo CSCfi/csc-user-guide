@@ -75,8 +75,7 @@ Welcome to the user guide for CSC's Sensitive Data (SD) services. Use the left m
 <div class="quick-links-container">
   <div class="quick-links-topic">
     <div class="quick-links-item">
-      <a class="quick-link" target="_blank" href="https://my.csc.fi/welcome">MyCSC portal</a>  
-      <span class="quick-links-title"><h2>Create an acounf and manage a CSC project</h2></span>
+      <a class="quick-link" target="_blank" href="https://my.csc.fi/welcome">MyCSC portal: create and account and join or manage a CSC project</a>  
     </div>
   </div>
 </div>
@@ -85,24 +84,9 @@ Welcome to the user guide for CSC's Sensitive Data (SD) services. Use the left m
 <div class="quick-links-container">
   <div class="quick-links-topic">
     <div class="quick-links-item">
-      <a class="quick-link" target="_blank" href="https://my.csc.fi/welcome">MyCSC portal</a>  
-      <a class="quick-link" target="_blank" href="https://sd-connect.csc.fi/"> Uplaod, store or share encrypted files with SD Connect</a> 
-    </div>
-  </div>
-</div>
-
-<div class="quick-links-container">
-  <div class="quick-links-topic">
-    <div class="quick-links-item">
+      <a class="quick-link" target="_blank" href="https://sd-connect.csc.fi/"> SD Connect</a> | 
       <a class="quick-link" target="_blank" href="https://sd-desktop.csc.fi"> Analyse with SD Desktop</a> | 
-    </div>
-  </div>
-</div
-
-<div class="quick-links-container">
-  <div class="quick-links-topic">
-    <div class="quick-links-item">
-      <a class="quick-link" target="_blank" href="https://sd-apply.csc.fi/"> Apply for access with SD Apply</a>  
+      <a class="quick-link" target="_blank" href="https://sd-apply.csc.fi/"> Apply for access with SD Apply</a>  | 
     </div>
   </div>
 </div
