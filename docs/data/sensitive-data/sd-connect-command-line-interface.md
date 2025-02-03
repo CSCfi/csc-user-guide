@@ -5,7 +5,7 @@ The new SD Connect command line tools, available from february 2025, support fil
 1. [Background information](#background-information)
 2. [Command line tools and automated key management](#command-line-tools-and-automated-key-management)
 3. [Command line tools and manual encryption](#command-line-tools-and-manual-encryption)
-4. [Tutorals](#tutorials)
+4. [Tutorials](#tutorials)
 
 
 ## Background information
@@ -217,7 +217,7 @@ Additional information about [data encryption](./sd-connect-introduction-to-data
 
 
 
-## Tutorals
+## Tutorials
 
 - [Tools for client side encryption for Allas](./docs/data/Allas/allas_encryption.md)
 
