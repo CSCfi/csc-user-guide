@@ -86,7 +86,7 @@ The command above will copy all the files from directory my-secret-directory to 
     Do not use special characters or spaces in the folder name.
 
 !!! Note
-    Since SD Connect was updated in October 2024, it is no longer straightforward to determine which encryption method was used for an encrypted .c4gh file stored in Allas/SD Connect. If you are now using a new encryption method to upload files to an existing CSC project, please ensure you add a note to your folders indicating that the encryption protocol has changed. You can       either share this information with your colleagues or clearly include it in the folder name. As a good practive, we advise creating a new folder and avoiding mixing files encrypted with different methods.
+    Since SD Connect was updated in October 2024, it is no longer straightforward to determine which encryption method was used for an encrypted .c4gh file stored in Allas/SD Connect. If you are now using a new encryption method to upload files to an existing CSC project, please ensure you add a note to your folders indicating that the encryption protocol has changed. You can either share this information with your colleagues or clearly include it in the folder name. As a good practice, we advise creating a new folder and avoiding mixing files encrypted with different methods.
 
 
 
