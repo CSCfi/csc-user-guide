@@ -75,10 +75,10 @@ Welcome to the user guide for CSC's Sensitive Data (SD) services. Use the left m
 <div class="quick-links-container">
   <div class="quick-links-topic">
     <div class="quick-links-item">
-      <a class="quick-link" target="_blank" href="https://my.csc.fi/welcome"> Account and join a CSC project with MyCSC portal | 
-      <a class="quick-link" target="_blank" href="https://sd-connect.csc.fi/"> Uplaod and store withSD Connect</a> | 
-      <a class="quick-link" target="_blank" href="https://sd-desktop.csc.fi"> Analyse with SD Desktop</a> | 
-      <a class="quick-link" target="_blank" href="https://sd-apply.csc.fi/"> Apply for access with SD Apply</a> | 
+      <a class="quick-link" target="_blank" href="https://my.csc.fi/welcome"> MyCSC portal | 
+      <a class="quick-link" target="_blank" href="https://sd-connect.csc.fi/"> SD Connect</a> | 
+      <a class="quick-link" target="_blank" href="https://sd-desktop.csc.fi">  SD Desktop</a> | 
+      <a class="quick-link" target="_blank" href="https://sd-apply.csc.fi/">  SD Apply</a> | 
     </div>
   </div>
 </div
@@ -96,7 +96,6 @@ Welcome to the user guide for CSC's Sensitive Data (SD) services. Use the left m
        - [Contact us](../../support/contact.md), subject: *Sensitive Data*
        - Join the [CSC Research User Support Coffee - Every Wednesday at 14:00](https://ssl.eventilla.com/usersupportcoffee){ target="_blank" }. 
        - Our team is here to help, and we offer direct support. Don't hesitate to contact!
-
 
 
 
