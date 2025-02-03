@@ -224,7 +224,8 @@ There are two ways:
 
 ### 8. Decrypt the files with the Crypt4gh CLI tools
 
-Below s step by step example for decrypting one file. If you have several files i n a single directory, please check this [tutorial](./tutorials/decrypt-directory.md).
+!!! Note
+    Below a step by step example for decrypting one file. If you have several files i n a single directory, please check this [tutorial](./tutorials/decrypt-directory.md).
 
       To decrypt a file you will need a private key which corresponds to one of the public keys used in encryption phase. Let's assume in our example that the research group A is decrypting a file you've sent them. To decrypt a file they use `crypt4gh decrypt` command:
 
