@@ -65,10 +65,10 @@ You can use this ID number to check the status of your job. For example for job 
 in *SD Desk desktop* with command:
 
 ```text
-sdsi-client status 1234
+sdsi-client status 123456
 ```
 
-Aternatively, you can use this ID in *Puhti* with `sacct` command:
+Alternatively, you can use this ID in *Puhti* with `sacct` command:
 
 ```text
 sacct -j 123456
@@ -80,7 +80,7 @@ The task submitted with sdsi-client is transported to the batch job system of Pu
 where it is processed among other batch jobs. The resource requirements for the batch job: computing time, memory, local disk size, GPUs, are 
 set according to the values defined in the _sbatch:_ section in the job description file.
 
-The actual computing and starts only when a suitable Puhti node is available. Queueing times may be long as 
+The actual computing starts only when a suitable Puhti node is available. Queueing times may be long as 
 the jobs always reserves one full node with sufficient local disk and memory.
 
 The execution of the actual computing includes following steps:
@@ -98,10 +98,10 @@ The execution of the actual computing includes following steps:
 ## Output
 
 By default the exported files include standard output and standard error of the batch job (meaning the information
-that in interactive working is written to to the terminal screen ) and files that moved in directory _$RESULTS_.
+that in interactive working is written to the terminal screen ) and files that moved in directory _$RESULTS_.
 
 
-In SD Connect the results are uploaded to a bucket named as: sdhpc-results-project_number, in a subfolder named after the 
+In SD Connect the results are uploaded to a bucket named as: *sdhpc-results-*_project_number_, in a subfolder named after the 
 batch job ID. In the example above the project used was 2008749 and the job id was 123456. Thus the job would produce two
 new files in SD Connect:
 
@@ -109,7 +109,7 @@ new files in SD Connect:
     sdhpc-results-2008749/123456/slurm.err.tar.c4gh
     sdhpc-results-2008749/123456/slurm.out.tar.c4gh
 ```
- You change the output bucket with sdsi-client option `-bucket bucket_name`. Note that the bucket 
+ You can change the output bucket with sdsi-client option `-bucket bucket_name`. Note that the bucket 
  name must be uniq in this case too.
 
 
@@ -119,12 +119,12 @@ The jobs that sdsi submits reserve one full Puhti node. These nodes have 40 comp
 so you should use these batch jobs only for tasks can utilize multiple computing cores. 
 Preferably all 40.
 
-In the previous example, the batch job the actual computing task consisted of calculating md5 
+In the previous example, the actual computing task consisted of calculating md5 
 checksums for two files. The command used, `md5sum`, is able to use just one computing core so
-the job waisted resources as 40 cores were reserved for the job but only one was used.
+the job waisted resources as 40 cores were reserved but only one was used.
 
 However if you need to calculate a large amount of unrelated tasks that are able to use only one 
-or few computing cores, you can use tools like gnuparallel, nextfllow or snakemake to submit several
+or few computing cores, you can use tools like _gnuparallel_, _nextfllow_ or _snakemake_ to submit several
 computing tasks to be executed in the same time.
 
 In the example below we have a tar file that has been stored to SD Connect: 2008749-sdsi-input/data_1000.tar.c4gh.
@@ -140,15 +140,36 @@ run: |
   source /appl/profile/zz-csc-rnv.sh
   module load parallel
   tar xf 2008749-sdsi-input/data_1000.tar
-  ls  2008749-sdsi-input/data_1000  | parallel -j 40 md5sun
+  ls  data_1000  | parallel -j 40 md5sun
 sbatch:
 - --time=04:00:00
 - --partition=small
 ```
 
+In the sample job above, the first source command is used to add 
+module command and other Puhti settings to the execution environment.
+The GNUparallel is enabled command `module load parallel`.
+Next the tar file containing 1000 files is extracted to the temporary local disk area.
+Finally, the file listing of the extracted directory is guided to `parallel` command that runs 
+the given command, `md5sum`, for each file using 40 parallel processes (`-j 40`).
 
 
+In the next example, GPU computing are used to speed up whisper speech recognition tool that
+the user has installed to her own python virtual environment in Puhti
 
+```text
+data:
+  recv:
+  - 2008749-sdsi-input/interview-52.mp4.c4gh
+run: |
+  source /appl/profile/zz-csc-rnv.sh
+  module load pytorch
+  source /projappl/project_2008749/whisper-python/bin/activate
+  whisper --model medium 2008749-sdsi-input/interview-52.mp4 --threads 40
+sbatch:
+- --time=01:00:00
+- --gres=gpu:v100:1
+```
 
 
 
@@ -196,84 +217,3 @@ run: |
    module load plink/1.90b7.2
    pli
 ```
-
-The tools for running backup process are not by default installed in SD Desktop Virtual Machines. Thus, the first step is that the 
-manager installs the **SD Backup tool** package using the [SD Software installer](../../sensitive-data/sd-desktop-software.md#customisation-via-sd-software-installer)
-
-Log in to your SD Desktop and open **Data Gateway**. If the software installation help tools are enabled for your project, then you should have folder: 
-`tools-for-sd-desktop` included in the directory that Data Gateway created (in `Projects/SD-Connect/your-project-name`). If you don't find `tools-for-sd-desktop` 
-directory through Data Gateway **send a request to [CSC Service Desk](../../../support/contact.md)**. In the request, indicate that you wish that the SD Desktop software installation help tools would 
-be made available for your project. You must also include to the message the **Project identifier string** of your project.
-You can check this random string for example in the [SD Connect service](https://sd-connect.csc.fi). There you find the 
-Project Identifier in the **User information** view.
-
-Open `tools-for-sd-desktop` folder and from there, drag/copy file `sd-installer.desktop` to your desktop.
-
-[![Installing-sd-installer](../images/desktop/sd-installer1.png)](../images/desktop/sd-installer1.png)
-
-**Figure 1.** Copying `sd-installer.desktop` file to SD desktop.
- 
-Double-click the copy of `sd-installer.desktop` to start the software installation tool. Use this tool to install _SD Backup_ tool
-to your SD Desktop virtual machine if you have not yet done so. 
-
-## Project Mangers Starts backup server
-
-When the SD Backup tool is installed, the Project Manager should start a new terminal session and there start a virtual terminal session with command:
-
-```text
-screen
-```
-
-and then launch the backup process with command:
-
-```text
-sd-backup-server.sh
-```
-
-When launched, `sd-backup-server.sh` asks for the CSC password of the Project Manager.
-
-After that the project manager can leave the virtual session running in background by pressing:
-`Ctrl+a+d`.
-
-This way the `sd-backup-server.sh` command remains active in the virtual terminal session even when the connection to SD Desktop is closed.
-
-The actual server process is very simple. It checks the content of the backup directory once in a minute and moves the contents of this directory 
-to a bucket in SD Connect. The data is encrypted with CSC public key so that the backups can be used only in SD Desktop environment.
-The default backup directory is `/shared-data/auto-backup` and target bucket in SD Connect is `sdd-backup-<virtual-machine-name>`. 
-
-Note that the server is not able to check if the given password was correct. If a wrong password was given then backup requests will fail. 
-Thus, it may be good to test the backup process once the server is running.
-
-## Doing backups
-
-When the backup server is running, all users of the VM can use command `sd-backup` to make a backup copy of the dataset to SD Connect.
-The syntax of the `sd-backup` command is:
-
-```text
-sd-backup file.csv
-```
-
-or
-
-```text
-sd-backup directory
-```
-
-The command copies the given file or directory to the backup directory from where the server process is able to move it to SD Connect.
-In SD Connect a timestamp is added to the file name in order to make the file name unique. In addition, a metadata file is
-created. This file contains information about the user who requested the backup, original host and location of the file. If backup is done for 
-a directory, then the content of the directory is stored as one tar-archive file and the metadata file will contain list of the backed-up files. 
- 
-For example, for a file called `my_data.csv` that locates in SD Desktop virtual machine called `secserver-1683868755`, a backup command:
-
-```text
-sd-backup  my_data.csv
-```
-
-Will create a backup file that will be available through Data Gateway in path:
-
-```text
-Projects/SD-Connect/project_number/sdd-backup-secserver-1683868755/my_data.csv-2023-05-15-07:41
-```
-
-Note that you have to refresh the Data Gateway connection in order to see the changes in SD Connect.
