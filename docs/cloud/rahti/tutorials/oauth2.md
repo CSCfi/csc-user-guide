@@ -141,7 +141,7 @@ oc apply -f configmap.yaml
 
 ## Create your GitHub OAuth Apps
 
-You need to go to [GitHub](https://github.com) > Settings > Developer Settings > OAuth Apps
+You need to go to [GitHub](https://github.com/settings/developers) > OAuth Apps
 
 Click on New OAuth App
 
