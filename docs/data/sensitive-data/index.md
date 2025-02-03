@@ -53,6 +53,9 @@ Welcome to the user guide for CSC's Sensitive Data (SD) services. Use the left m
     </div>
     <div class="quick-links-item">
       <a class="quick-link" target="_self" href="sd-terminology/">Useful Terminology</a>
+     </div>
+    <div class="quick-links-item">
+      <a class="quick-link" target="_self" href="https://research.csc.fi/sensitive-data-services-for-research/">SD Services homepage on research.csc.fi website</a>
     </div>
   </div>
 </div>
