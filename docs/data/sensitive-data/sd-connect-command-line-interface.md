@@ -1,6 +1,14 @@
 # Command Line Interface and automated key management
 
-The new SD Connect command line tools, available from January 2025, support file upload, download (with a-commands) and automated key management (with lock-unlock) during encryption and decryption. After programmatic encryption and upload, data can be viewed through the SD Connect user interface and SD Desktop. Coding skills are required to use the tools effectively, below is a step by step guide to get started.
+The new SD Connect command line tools, available from february 2025, support file upload, download (with a-commands) and automated key management (with lock-unlock) during encryption and decryption. After programmatic encryption and upload, data can be viewed through the SD Connect user interface and SD Desktop. Coding skills are required to use the tools effectively, below is a step by step guide to get started. In contrast, files have been uplaoded before February 2025, were manually encrypted using your encryption key and will need to be decrypted manually after download. 
+
+1. [Background information]
+2. [Command line tools and automated key management](#)
+3. [Command line tools and manual encryption](#)
+4. Tutorals
+
+
+
 
 
 ## Background information
@@ -12,8 +20,9 @@ This document provides instructions on how you can install on your local envirom
 
 Please note: Allas itself does not differentiate between data uplaoded via SD Connect (user inetrface or commandline tools) and data uplaoded to Allas using different mothods. Data buckets may contain a mix of SD Connect data, other encrypted data, and regular data. It is the user's responsibility to manage data types within the buckets. However, it is recommended to store SD Connect data in separate buckets and folders to avoid mixing different data types.
 
+## Command line tools and automated key management
 
-## Step1: Installing a-toold on your local enviroment
+### Step1: Installing a-toold on your local enviroment
 
 To upload and automatically encrypt sensitive data to SD Connect programmatically, you need to install the command-line tools, which require root access to your laptop or local environment (Mac or Linux). For this reason, you might need support from your organization’s IT unit.
 
@@ -22,7 +31,7 @@ Here you can find step-by-step instructions: https://github.com/CSCfi/allas-cli-
 Note !!!
      If you need to upload non-sensitive data (such as scripts, containers, or software for use in SD Desktop), note that these tools are also available on CSC's supercomputers (Puhti, Mahti,        and Lumi). However, these systems are restricted to non-sensitive data only. Sensitive data must be uploaded to SD Connect through the appropriate channels.
 
-## Step2: Opening connection to SD Connect
+### Step2: Opening connection to SD Connect
 
 To open SD Connect compatible Allas connection you must add option *--sdc* the configurtion command. In CSC supercomputers the connecton is opened with commands:
 
@@ -52,7 +61,7 @@ The SD Connect compatible Allas connection is now valid for next eight hours. An
 *a-list* and *a-delete* to manage both normal Allas objects and SD Connect objects.
 
 
-## Step3: Data upload
+### Step3: Data upload and automated encryption
 
 Data can be uploaded to SD Connect by using command *a-put* with option *--sdc*.
 For example to upload file *my-secret-table.csv" to location *2000123-sens/dataset2* in Allas use command:
@@ -90,9 +99,7 @@ The command above will copy all the files from directory my-secret-directory to 
 
 
 
-
-
-## Step 4: Data download
+### Step 4: Data download and automated decryption
 
 Data can be downloaded form Allas with command a-get. If SD Connect connection is enabled, a-get will automatically try to decrypt objects with suffix *.c4gh*.
 
@@ -124,6 +131,13 @@ a-get --sk my-key.sec  2000123-sens/old-date/sample1.txt.c4gh
 
 Unfortunately there is no easy way to know, which encryption method has been used in
 a .c4gh file stored in Allas. 
+
+
+## Command line tools and manual encryption
+
+## Tutorals
+
+Deccrypting all fiels in a directory: https://docs.csc.fi/data/sensitive-data/tutorials/decrypt-directory/
 
 
 
