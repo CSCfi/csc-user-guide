@@ -8,25 +8,25 @@ system:
 
 # CryoSPARC
 
-CryoSPARC(Cryo-EM Single Particle Ab-Initio Reconstruction and Classification) is a state of the art scientific software platform for processing cryo-electron microscopy (cryo-EM) used in research and drug discovery activities by solving structures of membrane proteins, viruses, complexes, flexible molecules, small particles, phase plate data and negative stain data.
+CryoSPARC (Cryo-EM Single Particle Ab-Initio Reconstruction and Classification) is a state-of-the-art scientific software platform for processing cryo-electron microscopy (cryo-EM) used in research and drug discovery activities by solving structures of membrane proteins, viruses, complexes, flexible molecules, small particles, phase plate data and negative stain data.
 
 
 ## Available
 
- The software can be installed on Puhti and Mahti. CSC recommends using Mahti for CryoSPARC usage due to limited availale scratch are on Puhti  Follow installation instructions for Master at [CryoSPARC](https://cryosparc.com/docs/reference/install/). Users can reques port ranges from CSC by sending email to servicedesk@csc.fi.
+ The software can be installed on Puhti and Mahti. CSC recommends using Mahti for CryoSPARC usage due to its large requirement for scratch disk area.  Follow installation instructions at [CryoSPARC](https://cryosparc.com/docs/reference/install/) for master node installation. Users can request port ranges from CSC by sending email to <servicedesk@csc.fi>.
 
 
 ## License
 
-CryoSPARC has non-profit and commercial licensing options. The software is free of charge for non-profit academic use but the user has to request [a licence key](https://cryosparc.com/download/) from Structura from their website. Please consult structure Bio (e-mail:sales@structura.bio) for commercial usage
+CryoSPARC has non-profit and commercial licensing options. The software is free of charge for non-profit academic use but the user has to request [a licence key](https://cryosparc.com/download/) from Structura from their website. Please consult structure Bio (e-mail:<sales@structura.bio>) for commercial usage
 
 
 ## Usage
 
-Note that every user needs to install their own instance of cryoSPARC, shared installations are not recommended. Request a port for you to use for your cryoSPARC installation by sending an email to <servicedesk@csc.fi>. The port number and login node you receive will be reserved to you on both Puhti and Mahti. The cryosparc_master.tar.gz file required in the installation contains over 160 000 files, while the default limit in projappl is 100 000. You will therefore need to apply for an extension to the default quota when installing cryoSPARC.  CSC maintains a centralised installation of cryoSPARC worker. If you follow these instructions and use the correct lane templates, you do not need to install worker at all. It is helpful to setup passwordless login for cryoSPARC use. Check the documentation on [CSC documentation](../computing/connecting.md)on setting up SSH keys.
+Note that every user needs to install his or her own instance of cryoSPARC and shared installations are not recommended. Request a port numebrs for your CryoSPARC usage by sending an email to <servicedesk@csc.fi>. The port number and login node will be reserved to you on Puhti and/or Mahti. The CryoSPARC tar file contains over 160 k files which exceeds default file quota for projappl disk space (100k). Users thus need to apply for an extension to the default quota when installing CryoSPARC. CSC maintains a centralised installation of cryoSPARC worker. If you follow CSC internal instructions and use the correct lane templates, you do not need to install worker at all. It is helpful to setup passwordless login for CryoSPARC use. Consult  [CSC documentation](../computing/connecting.md)on setting up of SSH keys.
 
 
-!!! Web interfaces may not be used for using CryoSPARC as login nodes are randomly assigned. Please note that each user is assigned on a specific login node with specific port range. 
+!!! Web interfaces Puhti/Mahti may not be recommended for using CryoSPARC as login nodes are randomly assigned. Please note that each user is assigned on a specific login node with specific port range. 
 
 
 ## References
