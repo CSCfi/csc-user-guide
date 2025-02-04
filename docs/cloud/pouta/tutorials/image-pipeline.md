@@ -132,7 +132,7 @@ We open a third terminal window, to which we will refer using the name `terminal
 We use `terminal_C` for all the commands dealing with cPouta.
 
 In the same way as for Allas and Pukki, to continue the tutorial we need to have a working command-line interface for cPouta as well.
-We follow the [instructions on how to install and configure cPouta command-line interface](../../cloud/pouta/install-client.md), if we haven't done it already.
+We follow the [instructions on how to install and configure cPouta command-line interface](../install-client.md), if we haven't done it already.
 
 We can test the correct functioning of the command-line interface by, for example, showing the properties of one of the flavors.
 An example of the command and its expected output follows:
