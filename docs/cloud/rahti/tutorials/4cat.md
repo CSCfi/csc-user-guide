@@ -1,3 +1,7 @@
+!!! error "Advanced level"
+    You need to have Linux, Docker, Docker Compose and Kompose knowledge. Python knowledge is a plus.  
+    Regarding Rahti, we will privilege the use of OpenShift CLI tool [oc](../usage/cli.md)
+
 # How to deploy 4cat in Rahti
 
 This tutorial is a long format one, it explains all the different steps that were necessary to deploy the [4cat_fi](https://github.com/uh-dcm/4cat_fi) application into Rahti. The idea is to explain the story of how the different issues were found and solved. Each issue will have its own chapter and hopefully the solution will be easy to apply to any other application with similar symptoms. We will omit some of the false solutions and leads that I followed when I originally tried to deploy this application for the sake of keeping this tutorial from growing exponentially. But keep in mind that these kind of processes are rarely straight forward and that to find the solution you normally find a lot of non solutions.

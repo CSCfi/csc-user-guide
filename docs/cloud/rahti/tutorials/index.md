@@ -4,7 +4,6 @@
 * [Allow pulls of images from one Rahti project to another](allow-pull-from-other-projects.md)
 * [Annotations](annotations.md)
 * [CI/CD on Rahti](ci_cd_introduction.md)
-* [Configuration, ConfigMaps and Secrets](configuration.md)
 * [Custom domain names and secure transport](custom-domain.md)
 * [Deploying a static web server using the command line](deploy_static_webserver_cli.md)
 * [Deploying a static web server using the web interface](deploy_static_webserver_webconsole.md)
