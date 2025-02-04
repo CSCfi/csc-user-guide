@@ -13,7 +13,7 @@ CryoSPARC (Cryo-EM Single Particle Ab-Initio Reconstruction and Classification) 
 
 ## Available
 
- The software can be installed on Puhti and Mahti. CSC recommends using Mahti for CryoSPARC usage due to its large requirement for scratch disk area. For master node installation, follow the installation instructions at [CryoSPARC](https://cryosparc.com/docs/reference/install/). Users can request port ranges from CSC by sending an e-mail to <servicedesk@csc.fi>.
+ The software can be installed on Puhti and Mahti. CSC recommends using Mahti for CryoSPARC usage due to its large requirement for scratch disk area. 
 
 
 ## License
