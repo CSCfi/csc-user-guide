@@ -13,7 +13,7 @@ CryoSPARC (Cryo-EM Single Particle Ab-Initio Reconstruction and Classification) 
 
 ## Available
 
- The software can be installed on Puhti and Mahti. CSC recommends using Mahti for CryoSPARC usage due to its large requirement for scratch disk area. 
+ The software can be installed on Puhti and Mahti. CSC recommends using Mahti for CryoSPARC usage due to its large needs of scratch disk space. 
 
 
 ## License
@@ -23,11 +23,11 @@ CryoSPARC has non-profit and commercial licensing options. The software is free-
 
 ## Usage
 
-Note that every user needs to install his or her instance of cryoSPARC and shared installations are not recommended. Request port numebrs for your CryoSPARC usage by sending an email to <servicedesk@csc.fi>. The port number and login node will be reserved to you on Puhti and/or Mahti. The CryoSPARC installation tar file contains over 160k files which exceeds the default file quota (100k) for /projappl disk space. Users thus need to apply for an extension to the default quota when installing CryoSPARC. CSC maintains a centralised installation of cryoSPARC worker. If you follow CSC internal instructions and use the correct lane templates, you do not need to install worker at all. It is helpful to setup a passwordless login for CryoSPARC use. Consult  [CSC documentation](../computing/connecting/index.md) on setting up SSH keys.
+Note that every user needs to install his or her instance of cryoSPARC and shared installations are not recommended. Request port numebrs for your CryoSPARC usage by sending an email to <servicedesk@csc.fi>. The port number and login node will be reserved to you on Puhti and/or Mahti. The CryoSPARC installation tar file contains over 160k files which exceeds the default file quota (100k) for /projappl disk space. Users thus need to apply for an extension to the default quota when installing CryoSPARC. CSC maintains a centralised installation of cryoSPARC worker. If you follow CSC internal instructions and use the correct lane templates, you do not need to install worker at all. The internal installation instructions on Puhti or Mahti are available at path: /appl/soft/bio/cryosparc/documentation/cryoSPARC_at_CSC.pdf. It is helpful to setup a passwordless login for CryoSPARC usage. Please consult [CSC documentation](../computing/connecting/index.md) on setting up SSH keys.
 
 
 !!! note ""
-    CryoSPARC users may not use Web interfaces for logging into Puhti/Mahti as login nodes are randomly assigned. Please note that each user is assigned to a specific login node with a specific port range for CryoSPARC usage. 
+    CryoSPARC users may not use web interfaces for logging into Puhti/Mahti as login nodes are randomly assigned. Please note that each user is assigned to a specific login node with a specific port range for CryoSPARC usage. 
 
 
 ## References
