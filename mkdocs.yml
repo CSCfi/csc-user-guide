@@ -426,7 +426,6 @@ nav:
               - OAuth2 Proxy: cloud/rahti/tutorials/oauth2.md
               - Pod (anti) affinity: cloud/rahti/tutorials/pod-affinity.md
               - Advanced NetworkPolicies: cloud/rahti/tutorials/advanced-NetworkPolicies-networking.md
-              - Integrating External Services: cloud/rahti/tutorials/integrating-external-services.md
               - Setup a HTTP redirection in Rahti: cloud/rahti/tutorials/http-redirector.md
               - Allow pulls of images from one Rahti project to another: cloud/rahti/tutorials/allow-pull-from-other-projects.md
   - Data:
