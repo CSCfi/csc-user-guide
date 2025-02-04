@@ -30,7 +30,7 @@ We open a new terminal window, to which we will refer using the name `terminal_A
 We use `terminal_A` for all the commands dealing with Allas.
 
 To create buckets in Allas, we need to have a working command-line interface for it.
-If we haven't set up such interface before on our workstation, we follow the [instructions on how to install and configure s3cmd](https://docs.csc.fi/data/Allas/using_allas/s3_client/#getting-started-with-s3cmd).
+If we haven't set up such interface before on our workstation, we follow the [instructions on how to install and configure s3cmd](../../../data/Allas/using_allas/s3_client.md#getting-started-with-s3cmd).
 
 We can test the correct functioning of the command-line interface by simply listing all the buckets currently in our project.
 An example of the command and its expected output follows:
@@ -71,7 +71,7 @@ We open a second terminal window, to which we will refer using the name `termina
 We use `terminal_B` for all the commands dealing with Pukki.
 
 Having a working command-line interface for Pukki is a prerequisite for continuing with the tutorial.
-If we haven't set it up before, we follow the [instructions on how to install and configure Pukki command-line interface](https://docs.csc.fi/cloud/dbaas/cli/#getting-started).
+If we haven't set it up before, we follow the [instructions on how to install and configure Pukki command-line interface](../../dbaas/cli.md#getting-started).
 
 We can test the correct functioning of the command-line interface by simply listing the available types of database.
 An example of the command and its expected output follows:
@@ -132,7 +132,7 @@ We open a third terminal window, to which we will refer using the name `terminal
 We use `terminal_C` for all the commands dealing with cPouta.
 
 In the same way as for Allas and Pukki, to continue the tutorial we need to have a working command-line interface for cPouta as well.
-We follow the [instructions on how to install and configure cPouta command-line interface](https://docs.csc.fi/cloud/pouta/install-client/), if we haven't done it already.
+We follow the [instructions on how to install and configure cPouta command-line interface](../../cloud/pouta/install-client.md), if we haven't done it already.
 
 We can test the correct functioning of the command-line interface by, for example, showing the properties of one of the flavors.
 An example of the command and its expected output follows:
@@ -413,7 +413,7 @@ We are interested in the second one, so we note down `5.6.7.8`, which is a dummy
 
 Similarly to our own workstation, to access the buckets hosted in Allas the virtual machine needs to be configured as well.
 
-We go back to `terminal_C`, where we are still logged in to our virtual machine in cPouta, and we follow the [instructions on how to install and configure s3cmd](https://docs.csc.fi/data/Allas/using_allas/s3_client/#getting-started-with-s3cmd).
+We go back to `terminal_C`, where we are still logged in to our virtual machine in cPouta, and we follow the [instructions on how to install and configure s3cmd](../../../data/Allas/using_allas/s3_client.md#getting-started-with-s3cmd).
 It basically boils down to running the following commands:
 ```
 $ sudo apt update
@@ -522,7 +522,7 @@ The database is now configured for our pipeline.
 ### Installing image transforming script
 
 The final part in our configuration phase is to install the script that takes care of talking with Allas, Pukki, as well as transforming the image in input.
-To do so, we first install the tool to tranform the images.
+To do so, we first install the tool to transform the images.
 On `terminal_C` we run:
 ```
 $ sudo apt install imagemagick
