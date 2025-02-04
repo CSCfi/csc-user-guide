@@ -77,7 +77,7 @@ Molpro has been built with the Global Arrays toolkit (`--with-mpi-pr`) that allo
 
 === "Mahti"
  
-     On Mahti, it is often necessary to undersubscribe cores per node to ensure sufficient memory per core. See the [Mahti job script guidelines](https://docs.csc.fi/computing/running/creating-job-scripts-mahti/#undersubscribing-nodes) for more details.
+     On Mahti, it is often necessary to undersubscribe cores per node to ensure sufficient memory per core. See the [Mahti job script guidelines](../computing/running/creating-job-scripts-mahti.md#undersubscribing-nodes) for more details.
 
     ```bash
     #!/bin/bash
