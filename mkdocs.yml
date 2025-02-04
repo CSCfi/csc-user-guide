@@ -112,7 +112,6 @@ plugins:
         "cloud/rahti2/tutorials/deploy_static_webserver_webconsole.md": "cloud/rahti/tutorials/deploy_static_webserver_webconsole.md"
         "cloud/rahti2/tutorials/configuration.md": "cloud/rahti/tutorials/configuration.md"
         "cloud/rahti2/tutorials/webhooks.md": "cloud/rahti/tutorials/webhooks.md"
-        "cloud/rahti2/tutorials/integrating-external-services.md": "cloud/rahti/tutorials/integrating-external-services.md"
         "cloud/rahti2/tutorials/annotations.md": "cloud/rahti/tutorials/annotations.md"
         "cloud/rahti2/tutorials/connect-database-hpc.md": "cloud/rahti/tutorials/connect-database-hpc.md"
         "cloud/rahti2/tutorials/yaml_introduction.md": "cloud/rahti/tutorials/yaml_introduction.md"
