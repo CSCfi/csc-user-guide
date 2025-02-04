@@ -13,12 +13,12 @@ CryoSPARC (Cryo-EM Single Particle Ab-Initio Reconstruction and Classification) 
 
 ## Available
 
- The software can be installed on Puhti and Mahti. CSC recommends using Mahti for CryoSPARC usage due to its large requirement for scratch disk area.  Follow installation instructions at [CryoSPARC](https://cryosparc.com/docs/reference/install/) for master node installation. Users can request port ranges from CSC by sending email to <servicedesk@csc.fi>.
+ The software can be installed on Puhti and Mahti. CSC recommends using Mahti for CryoSPARC usage due to its large requirement for scratch disk area. Follow the installation instructions at [CryoSPARC](https://cryosparc.com/docs/reference/install/) for master node installation. Users can request port ranges from CSC by sending an e-mail to <servicedesk@csc.fi>.
 
 
 ## License
 
-CryoSPARC has non-profit and commercial licensing options. The software is free of charge for non-profit academic use but the user has to request [a licence key](https://cryosparc.com/download/) from Structura from their website. Please consult structure Bio (e-mail:<sales@structura.bio>) for commercial usage
+CryoSPARC has non-profit and commercial licensing options. The software is free of charge for non-profit academic use but the user has to request [a licence key](https://cryosparc.com/download/) from CryoSPARC home page. Please consult Structura Biotechnology Inc.(e-mail:<sales@structura.bio>) for commercial usage
 
 
 ## Usage
