@@ -4,5 +4,6 @@
 * [Learn cloud computing by developing and deploying a web application](web-app-dev-cloud.md)
 * [Orchestration with Heat](heat-orchestration.md)
 * [SSH Key-pair](ssh-key.md)
+* [Setting up a pipeline for images](image-pipeline.md)
 
 We also have an [FAQ](../../../support/faq/index.md#pouta) for Pouta. Take a look at it.
