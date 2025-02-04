@@ -27,8 +27,7 @@ Note that every user needs to install his or her instance of cryoSPARC and share
 
 
 !!! note
-     Web interfaces may not be recommended logging into Puhti/Mahti 
-     for using CryoSPARC as login nodes are randomly assigned. Please note that each user is assigned to a specific login node with a specific port range. 
+    CryoSPARC users may not use Web interfaces for logging into Puhti/Mahti as login nodes are randomly assigned. Please note that each user is assigned to a specific login node with a specific port range for CryoSPARC usage. 
 
 
 ## References
