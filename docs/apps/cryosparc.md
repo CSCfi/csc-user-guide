@@ -8,7 +8,7 @@ system:
 
 # CryoSPARC
 
-CryoSPARC (Cryo-EM Single Particle Ab-Initio Reconstruction and Classification) is a state-of-the-art scientific software platform for processing cryo-electron microscopy (cryo-EM) used in research and drug discovery activities by solving structures of membrane proteins, viruses, complexes, flexible molecules, small particles, phase plate data and negative stain data.
+CryoSPARC (Cryo-EM Single Particle Ab-Initio Reconstruction and Classification) is a state-of-the-art scientific software platform for processing cryo-electron microscopy (cryo-EM) single particle analysis data used in research and drug discovery activities by solving 3D structures of biological specimens, such as soluble and membrane proteins and their complexes, viruses, nucleic acids, and more. It can also process negative stain electron microscopy data.
 
 
 ## Available
