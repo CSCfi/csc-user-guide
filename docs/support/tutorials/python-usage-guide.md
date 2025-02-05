@@ -207,7 +207,7 @@ can be used on a supercomputer through
 In addition to editing code directly on a supercomputer, it is also
 possible to [develop code remotely](./remote-dev.md) using some
 locally installable editors like Visual Studio Code. Please note,
-howver, that this way of connecting to CSC supercomputers is prone
+however, that this way of connecting to CSC supercomputers is prone
 to issues and thus not fully supported.
 
 Finally, one can of course edit code on a local device
