@@ -1,5 +1,9 @@
 # Applications
 
+## Molpro 2024.3 is available on Puhti and Mahti, 3.2.2025
+
+Molpro has been updated to version [2024.3](../../apps/molpro.md). Previously available only on Puhti, this latest version is now also on Mahti. See the [Recent changes](https://www.molpro.net/manual/doku.php?id=recent_changes) for details on new features, bug fixes, and improvements.
+
 ## PyTorch 2.5.1 available on Puhti, Mahti and LUMI, 20.12.2024
 
 PyTorch 2.5.1 is now available on Puhti, Mahti and LUMI. All the

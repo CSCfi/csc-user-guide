@@ -76,12 +76,4 @@ information to servicedesk@csc.fi.
 * The CSC service your service uses (e.g. cPouta, Rahti)
 * Your mobile number (to which the password are sent via SMS)
 
-## Expiration of user accounts
 
-If you have been granted an account for a fixed period, the account expires when the period ends. Accounts created with Haka or Virtu do not have an end date, and they remain valid as long as the account's password is changed once a year.
-
-All accounts are immediately terminated if their owner is not reachable, i.e. emails bounce back.
-
-!!! Note
-
-    If you want to terminate your account please contact <mailto:servicedesk@csc.fi>

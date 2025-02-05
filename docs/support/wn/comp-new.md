@@ -1,5 +1,12 @@
 # Computing environment
 
+## Puhti and Mahti web interfaces updated to release 24 and 10, 30.1.2025
+
+* VSCode has been updated to 1.96.4.
+* The accessibility statement contact info has been updated.
+* MLflow now works with when using NVME again.
+* Open OnDemand updated to version 3.1.10.
+
 ## Puhti and Mahti web interfaces updated to release 23 and 9, 23.10.2024
 
 * MLflow, Tensorboard, and the Desktop app now work with newer Apptainer.
