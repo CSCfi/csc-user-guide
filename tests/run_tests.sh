@@ -34,7 +34,7 @@ fi
 
 TEST_LOG="$(dirname "$0")/test.log"
 
-rm "$TEST_LOG"
+if [[ -f $TEST_LOG ]]; then rm "$TEST_LOG"; fi
 touch "$TEST_LOG"
 echo -e "\nRUNNING TESTS, output in $TEST_LOG"
 echo    "--------------------------------------------"
