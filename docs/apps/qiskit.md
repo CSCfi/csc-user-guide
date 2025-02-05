@@ -8,7 +8,7 @@ tags:
 Qiskit is an open-source software for working with quantum computers at the level
 of circuits, pulses, and algorithms. This page contains information in regard to running Quantum simulations using qiskit inside of a singularity container.
 For information pertaining to running jobs on Helmi using qiskit please refer to this documentation: 
-[Running on Helmi](https://csc-guide-preview.2.rahtiapp.fi/origin/QT-qiskit-singularity/computing/quantum-computing/helmi/running-on-helmi/)
+[Running on Helmi FIXME](https://csc-guide-preview.2.rahtiapp.fi/origin/QT-qiskit-singularity/computing/quantum-computing/helmi/running-on-helmi/)
 
 !!! info "News"
      **23.01.2025** Installed `qiskit/1.2.4` in a singularity container on LUMI with all major Qiskit packages and
