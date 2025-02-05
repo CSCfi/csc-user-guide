@@ -1,5 +1,14 @@
 # Developing scripts remotely
 
+!!! warning "Here be dragons!"
+    While developing scripts remotely can be useful, it is quite prone to
+    connection issues and other hard-to-debug problems. If you encounter
+    issues while developing scripts remotely, we unfortunately cannot
+    guarantee being able to resolve them for your. Thus, we recommend
+    primarily using the [VSCode](../../computing/webinterface/vscode.md)
+    and [Jupyter](../../computing/webinterface/jupyter.md) apps available
+    through the HPC web interfaces for scripting and analysis.
+
 Often it is more efficient to use an IDE like Visual Studio Code or a text editor like Notepad++ to modify and develop the scripts you are running in Puhti, Mahti or cPouta virtual machine. 
 
 **Pros:**
