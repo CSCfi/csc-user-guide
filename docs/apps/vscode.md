@@ -23,9 +23,16 @@ Visual Studio Code is available as an interactive application via the web interf
 - Puhti
 - LUMI
 
-## Remote Connections
+## Remote connections
 
 Visual Studio Code features a remote connection extension (Remote-SSH) that allows an instance of the program installed at your local computer to connect to CSC's computing environments to edit code remotely. Find more details on how to use it with CSC's computing environments in our [Developing scripts remotely tutorial](../support/tutorials/remote-dev.md).
+
+!!! warning
+    While connecting to CSC computing environment with VS Code is possible, it
+    is prone to connection issues and other problems. Thus, we recommend using
+    other ways to [connect to CSC supercomputers](../computing/connecting/index.md).
+    If you need to use VS Code on HPC, please consider the VS Code applications
+    available in the supercomputer web interfaces.
 
 ## More information
 
