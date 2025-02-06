@@ -13,6 +13,13 @@ The process is simple:
     ```sh
     docker login -p $(oc whoami -t ) -u unused image-registry.apps.2.rahti.csc.fi
     ```
+   
+    _Alternatively, you can access to this address: <https://oauth-openshift.apps.2.rahti.csc.fi/oauth/token/display> to request
+    a token. Once connected, display and copy the token. The command will be:_
+
+    ```sh
+    docker login -p <YOUR_TOKEN> -u unused image-registry.apps.2.rahti.csc.fi
+    ```
 
     !!! info
         If you get any error, make sure you are logged in. If you run `oc whoami`, the command should return your username.
