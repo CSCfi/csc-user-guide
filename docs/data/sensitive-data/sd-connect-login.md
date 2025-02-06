@@ -23,7 +23,6 @@ Due to an ongoing technical challenge, double login is required. We apologize fo
 * [Upload](./sd-connect-upload.md)
 * [Share](./sd-connect-share.md)
 * [Download](./sd-connect-download.md)
-* [Download files uploaded with previous version](./sd-connect-download-old-version.md)
 * [Delete](./sd-connect-delete.md)
 * [Command line interface](./sd-connect-command-line-interface.md)
 * [Troubleshooting](./sd-connect-troubleshooting.md)
