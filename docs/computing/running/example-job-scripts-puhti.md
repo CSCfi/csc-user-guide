@@ -10,7 +10,7 @@ on Puhti.
     etc.) to match your needs, and to replace `myprog <options>` with the
     executable (and options) of the program you intend to run. Also, do not
     forget to replace `<project>` with the name of your billing project (see
-    [My CSC](https://my.csc.fi) or `csc-projects` command).
+    [MyCSC](https://my.csc.fi) or `csc-projects` command).
 
 ## Serial
 
