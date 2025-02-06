@@ -72,7 +72,7 @@ Host *.bullx
 ## Copying public key to supercomputer
 
 The recommended and easiest way to copy your public key to a CSC system is
-[through the MyCSC customer portal](#adding-public-key-in-my-csc). For other
+[through the MyCSC customer portal](#adding-public-key-in-mycsc). For other
 approaches, please see the system-specific SSH instructions.
 
 ### Adding public key in MyCSC
