@@ -4,7 +4,7 @@
     While developing scripts remotely can be useful, it is quite prone to
     connection issues and other hard-to-debug problems. If you encounter
     issues while developing scripts remotely, we unfortunately cannot
-    guarantee being able to resolve them for your. Thus, we recommend
+    guarantee being able to resolve them for you. Thus, we recommend
     primarily using the [VSCode](../../computing/webinterface/vscode.md)
     and [Jupyter](../../computing/webinterface/jupyter.md) apps available
     in our supercomputer web interfaces for scripting and analysis on HPC.
@@ -23,7 +23,7 @@ Here are some installation and usage instructions for the following programs:
 
 ## Visual Studio Code with Remote SSH plugin
 
-Visual Studio Code is a widely used open source code editor made by Microsoft that can be used remotely with the **Remote SSH** extension. It is especially great for Python and bash scripts but can be used with any programming language. VS Code has a lot of extensions for your needs, some notable are the Python extension and the Jupyter notebook extension.
+Visual Studio Code is a widely used open source code editor that can be used remotely with the **Remote SSH** extension. It is great for Python and bash scripts, but can be used with any programming language. VS Code has many extensions available. However, for running Jupyter notebooks, we recommend primarily using the [Jupyter app](../../computing/webinterface/jupyter.md) available in our HPC web interfaces.
 
 ### Installation
 
@@ -143,7 +143,7 @@ Finally, you need to [select the Python interpreter used by VS Code](https://cod
 
 ### Running the code
 
-You can also run the code in Puhti by opening a terminal from the Terminal tab or using VS Code's debuggers. Note that this runs the code on a login node by default which is **not meant for demanding computations**. Unfortunately it is currently not possible to easily start interactive slurm sessions on computation nodes using the above VS Code remote setup for the majority of modules since the slurm commands are not available from within the singularity containers. Please [contact CSC Service Desk](../contact.md) if you require help on this.
+We do not recommend running any computations on HPC via the VS Code Terminal tab or using VS Code's debuggers. This would run the code on a login node by default, which is **not meant for demanding computations**. The setup is also fragile in general.
 
 ## Notepad++ with NppFTP plugin
 
