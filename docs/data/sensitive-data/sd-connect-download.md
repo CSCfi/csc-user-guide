@@ -27,7 +27,7 @@ For files and folders uplaoded using SD Connect user interface after October 1, 
 4. Files are decrypted automatically. Files will download and decrypt automatically, usually to downloads folder. Do not open the folder until the download is complete to avoid errors. The downloaded folder has a .tar extension, double-click to extract the content in a new folder.
 
 !!! Warning
-    If you encounter the message 'Requested files could not be decrypted' while downloading, it indicates that some files in your folder were uploaded with an older version of SD Connect, making automatic decryption unavailable. To resolve this, please follow the [manual decryption instructions](sd-connect-download-old-version.md). For further assistance, [contact CSC Service Desk](../../support/contact.md).
+    If you encounter the message 'Requested files could not be decrypted' while downloading, it indicates that some files in your folder were uploaded with an older version of SD Connect, making automatic decryption unavailable. To resolve this, please follow the steps below. For further assistance, [contact CSC Service Desk](../../support/contact.md).
 
 
 # Download and manual decryption
@@ -92,7 +92,6 @@ The decrypted file will no longer display the `.c4gh` extension and will be save
 * [Upload](./sd-connect-upload.md)
 * [Share](./sd-connect-share.md)
 * [Download](./sd-connect-download.md)
-* [Download files uploaded with previous version](./sd-connect-download-old-version.md)
 * [Delete](./sd-connect-delete.md)
 * [Command line interface](./sd-connect-command-line-interface.md)
 * [Troubleshooting](./sd-connect-troubleshooting.md)
