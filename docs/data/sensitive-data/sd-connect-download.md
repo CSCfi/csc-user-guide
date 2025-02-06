@@ -4,7 +4,7 @@ You can easily download folders or individual files from SD Connect user interfa
 
 **Automated decryption is available only for files uploaded and automatically encrypted via the user interface after October 1, 2024**. In contrast, files have been uplaoded before October 1 2024, were manually encrypted using your encryption key and will need to be decrypted manually after download. Although both file types use the same .c4h extension, if you see the message "Requested files could not be decrypted" during download, it indicates that the file was encrypted manually and its decryption will require an extra step. If you need any assistance, don't hesitate to contact us.
 
-1. [Downlaod and automated decryption](#download-and-automated-decryption)
+1. [Download and automated decryption](#download-and-automated-decryption)
 3. [Download and manual decryption](#download-and-manual-decryption)
 
 ## Download and automated decryption
@@ -30,7 +30,7 @@ For files and folders uplaoded using SD Connect user interface after October 1, 
     If you encounter the message 'Requested files could not be decrypted' while downloading, it indicates that some files in your folder were uploaded with an older version of SD Connect, making automatic decryption unavailable. To resolve this, please follow the [manual decryption instructions](sd-connect-download-old-version.md). For further assistance, [contact CSC Service Desk](../../support/contact.md).
 
 
-# Downlaod and manual decryption
+# Download and manual decryption
 
 For files uplaoded vis SD Connect user interface before October 2024. These files will remain encrypted after dowlaod, and you will need to decrypt them manually  on your laptop with the Crypt4GH application by following the provided instructions:
 
