@@ -1,0 +1,21 @@
+{%- macro render_tag(text, href, badge=none, compact=false) -%}
+  {% set anchor = '#' ~ text|lower|replace(' ', '-') %}
+  {% set colors = dict(discipline='primary-600',
+                       license='secondary-600',
+                       puhti='link-500',
+                       mahti='accent-800',
+                       lumi='black') %}
+  {% set tag_color = colors[badge|lower]|default(colors[text|lower]) %}
+  {% set props %}
+    {% if badge is not none %}
+      badge="{{ badge|capitalize if badge is lower else badge }}"
+    {% else %}
+      active
+    {% endif %}
+    onclick="location.href='{{ href ~ '/' ~ anchor }}'"
+    style="--c-tag-text-color: var(--c-{{ tag_color }});"
+  {% endset %}
+  <c-tag {{ props }}>
+    {{ text }}
+  </c-tag>
+{%- endmacro -%}
