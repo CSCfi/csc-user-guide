@@ -75,7 +75,6 @@ Finally, click *Create desktop*. The operation is entirely automated and can tak
 !!! info "Need assistance?"
     If you're uncertain about which desktop to choose or need support for your research, contact [CSC Service Desk](../../support/contact.md) with the subject "Sensitive data".
 
-## Your next steps in this guide
 
 ## Your next steps in this guide
 
