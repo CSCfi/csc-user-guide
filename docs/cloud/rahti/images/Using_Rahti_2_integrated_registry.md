@@ -26,7 +26,7 @@ The process is simple:
 
 2. Tag the image you want to push:
    ```sh
-   docker tag centos:7 image-registry.apps.2.rahti.csc.fi/{YOUR_PROJECT_NAME}/centos:<tag>
+   docker tag {YOUR_IMAGE_NAME} image-registry.apps.2.rahti.csc.fi/{YOUR_PROJECT_NAME}/centos:<tag>
    ```
    _Replace {YOUR_PROJECT_NAME} by the name of your project._
 
