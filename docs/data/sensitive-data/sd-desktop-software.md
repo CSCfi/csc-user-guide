@@ -1,4 +1,4 @@
-# Customising virtual desktop by adding software
+# Customising virtual desktop by adding software & tools for analysis
 
 ## Prerequisites
 * [Create virtual desktop](sd-desktop-create.md)
