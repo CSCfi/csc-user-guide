@@ -5,9 +5,9 @@ If you are a new Sensitive Data (SD) services user, this section is for you. Her
 
 The steps you need to follow depend on your role in the research team:
 
-1. [read project manager's resposabilities](#project-manager)
+1. [Read project manager's resposabilities](#project-manager)
 
-2. [read project memeber's resposabilities](#project-memeber)
+2. [Read project memeber's resposabilities](#project-memeber)
 
 3. [Next, select tutorial](#select-tutorial)
 
