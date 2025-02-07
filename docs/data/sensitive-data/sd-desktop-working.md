@@ -136,9 +136,9 @@ Read next:
   
 ## Your next steps in this guide
 
-* [Importing data in your virtual desktop](./sd-desktop-access.md)
-* [Customising virtual desktop by adding software & tools](./sd-desktop-software.md)
-* [Importing data in your virtual desktop](./sd-desktop-access.md)
-* [Exporting data from virtual desktop vi auser interface](./sd-desktop-export.md)
-* [Export data programmatically from the virtual desktop](./sd-desktop-export-commandline.md)
+* [Customisation - software & tools](./sd-desktop-software.md)
+* [Importing data ](./sd-desktop-access.md)
+* [Exporting data  via user interface](./sd-desktop-export.md)
+* [Export data programmatically](./sd-desktop-export-commandline.md)
 * [Troubleshooting](./sd-desktop-troubleshooting.md)
+
