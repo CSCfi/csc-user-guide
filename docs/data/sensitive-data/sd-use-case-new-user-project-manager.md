@@ -183,7 +183,7 @@ The default lifetime of a CSC project is one year, after which it will be automa
 
 SD Connect:
 
-- [SD Connect overview and key features](./sd-connect.md)
+- [SD Connect overview and key features](./sd_connect.md)
 - [SD Connect login instructions](./sd-connect-login.md)
   
 SD Desktop:
