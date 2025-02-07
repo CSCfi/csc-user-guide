@@ -122,14 +122,15 @@ At the end of your analysis, you can delete your virtual desktop, including the 
 
 ![Delete desktop.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Delete_desktop.png)
 
+
 ## Your next steps in this guide
 
 * [Accessing virtual desktop](./sd-desktop-access-vm.md)
-* [Working with your Desktop:tips and essentials](./sd-desktop-working.md)
-* [Importing data in your virtual desktop](./sd-desktop-access.md)
-* [Customising virtual desktop by adding software & tools](./sd-desktop-software.md)
-* [Importing data in your virtual desktop](./sd-desktop-access.md)
-* [Exporting data from virtual desktop vi auser interface](./sd-desktop-export.md)
-* [Export data programmatically from the virtual desktop](./sd-desktop-export-commandline.md)
+* [Working with your desktop: tips and essentials](./sd-desktop-working.md)
+* [Customisation - software & tools](./sd-desktop-software.md)
+* [Importing data ](./sd-desktop-access.md)
+* [Exporting data  via user interface](./sd-desktop-export.md)
+* [Export data programmatically](./sd-desktop-export-commandline.md)
 * [Troubleshooting](./sd-desktop-troubleshooting.md)
+
 
