@@ -1,7 +1,7 @@
 
 # Start here: creating a CSC accoung and accessing Sensitive Data services 
 
-If you are a new Sensitive Data (SD) services user, this section is for you. Here you learn how to cretate an account, manage your project's resources consumption(here alled billing unit), storage space, adding project members and what happens to your data upon project closure.
+If you are a new Sensitive Data (SD) services user, this section is for you. Here you learn how to cretate an account and a CSC project. You learn also how to manage your project's resources consumption (here called billing unit), storage space and what happens to your data upon project closure.
 
  * [Understanding roles in a CSC project](#understanding-roles-in-a-csc-project)
    
@@ -13,7 +13,7 @@ The steps you need to follow depend on your role in the research team:
 
 ### Project Manager
 
-The project manager is the primary user of a CSC project, responsible for managing the project and its members. They act as the data controller (or academic organization representative).
+The project manager is the primary user of a CSC project, responsible for managing the project and project members members. They act as the data controller (or academic organization representative).
 
 Responsibilities include:
 
@@ -30,8 +30,7 @@ Responsibilities include:
 
 ### Project Member
 
-
-* Project member is a person who joins to existing CSC project (can only be added by the project manager)
+The project member is a person who joins to existing CSC project (can only be added by the project manager)
   
 * All project members have equal access to the project's content (e.g. data access)
   
@@ -52,6 +51,6 @@ Responsibilities include:
 
 
 !!! Note
-   If you encounter any difficulties with these steps, feel free to reach out to us. We provide step-by-step online support to guide you through the       process.
+   If you encounter any difficulties with these steps, feel free to reach out to us. We provide step-by-step online support to guide you through the process.
 
 
