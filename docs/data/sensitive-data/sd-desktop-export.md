@@ -1,4 +1,4 @@
-# Exporting data from virtual desktop
+# Exporting data from virtual desktop via user interface
 
 ## Prerequisites
 * [Create virtual desktop](sd-desktop-create.md)
@@ -224,6 +224,10 @@ The decrypted file will no longer display the `.c4gh` extension and will be save
 
 If project members need to make back-up copies from important files, the project manager can launch a back-up server process that project members can utilse to have backups. For details, see: [SD Desktop Back-up server tutorial](./tutorials/backup_sd_desktop.md).
 
+## You next steps in this guide
+
+* [Export data programmatically from the virtual desktop](./sd-desktop-export-commandline.md)
+* [Troubleshooting](./sd-desktop-troubleshooting.md)
 
 
 
