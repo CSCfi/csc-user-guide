@@ -291,8 +291,7 @@ For documentation and more information, you can check the [Crypt4GH Encryption U
 
 If you need to decrypt a large number of files, please check the tutorial [Decrypting all files in a directory](./tutorials/decrypt-directory.md).
 
-## You next steps in this guide
+## Your next steps in this guide
 
 * [Troubleshooting](./sd-desktop-troubleshooting.md)
-
     
