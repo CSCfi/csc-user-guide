@@ -6,7 +6,7 @@
 
 ## Use case
 
-You need to access to SD services for processing research data. You are manager of research team or work independently.
+You need access to SD services for processing research data. Whether you are the manager of a research team or working independently, you can use SD Connect to store, share, and transfer research data. Optionally, your team can also analyse the data stored in SD Connect using SD Desktop.
 
 ## Solution
 
@@ -179,6 +179,14 @@ The default lifetime of a CSC project is one year, after which it will be automa
 
 ### 9. Log into SD Services
 
-- Now all the preparations are already and you can start to use SD Connect and SD Desktop.
-    - [SD Connect login instructions](sd-connect-login.md)
-    - [SD Desktop login instructions](sd-desktop-login.md)
+- Now all the preparations are already and you can start using the services (links to related user guides):
+
+SD Connect:
+
+- [SD Connect overview and key features](./sd.connect.md)
+- [SD Connect login instructions](./sd-connect-login.md)
+  
+SD Desktop:
+
+- [SD Desktop overwvire and key features](./sd_desktop.md)
+- [SD Desktop login instructions](sd-desktop-login.md)
