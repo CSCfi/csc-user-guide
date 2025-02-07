@@ -109,7 +109,6 @@ In Ubuntu22-based virtual machines you can use also Podman container manager. On
 
 ## You next steps in this guide
 
-* [Customising virtual desktop by adding software & tools](./sd-desktop-software.md)
 * [Importing data in your virtual desktop](./sd-desktop-access.md)
 * [Exporting data from virtual desktop vi auser interface](./sd-desktop-export.md)
 * [Export data programmatically from the virtual desktop](./sd-desktop-export-commandline.md)
