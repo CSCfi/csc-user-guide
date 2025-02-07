@@ -158,7 +158,7 @@ If the workflow includes only limited number of individual jobs/job steps [SLURM
 The first batch job file reserves resources only for Nextflow itself. Nextflow then creates further SLURM jobs for workflow's processes. The SLURM jobs created by Nextflow may be distributed to several nodes of a supercomputer and also to use different partitions for different workflow rules, for example CPU and GPU. SLURM executor should be used only, if the job steps are at least 20-30 minutes long, otherwise it may overload SLURM.
 
 !!! warning
-    Please do not use SLURM executor, if your workflow includes a lot of short processes. It would overload SLURM.
+    Please do not use SLURM executor, if your workflow includes a lot of short processes. It would overload SLURM. Use HyperQueue executor instead.
 
 To enable the SLURM executor, set the `process.xx` settings in [nextflow.config file](https://www.nextflow.io/docs/latest/config.html). The settings are similar to [batch job files](../../computing/running/example-job-scripts-puhti.md).
 
@@ -216,30 +216,24 @@ Here is a batch script for running a
 ```bash title="nextflow_hyperqueue_batch_job.sh"
 #!/bin/bash
 #SBATCH --job-name=nextflowjob
-#SBATCH --account=<project>
 #SBATCH --partition=small
-#SBATCH --time=01:00:00
+#SBATCH --account=<project>
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=1
 #SBATCH --cpus-per-task=40
 #SBATCH --mem-per-cpu=2G
-  
-module load hyperqueue/0.16.0
-module load nextflow/22.10.1
-module load git
+#SBATCH --time=01:00:00
 
-# create a directory on scratch folder for running nextflow pipeline
-export SCRATCH=/scratch/<project>/$USER/nextflow
-mkdir -p ${SCRATCH}
-cd ${SCRATCH}
+# Load the required modules
+module load hyperqueue
+module load nextflow
 
-export APPTAINER_TMPDIR="${SCRATCH}"
-export APPTAINER_CACHEDIR="${SCRATCH}"
-unset XDG_RUNTIME_DIR
+# Create a per job directory
+wrkdir=${PWD}/WRKDIR-${SLURM_JOB_ID}
 
-# Specify a location for the HyperQueue server
-export HQ_SERVER_DIR=${PWD}/hq-server-${SLURM_JOB_ID}
-mkdir -p "${HQ_SERVER_DIR}"
+# Set the directory which hyperqueue will use 
+export HQ_SERVER_DIR=${wrkdir}/.hq-server
+mkdir -p ${HQ_SERVER_DIR}
 
 # Start the server in the background (&) and wait until it has started
 hq server start &
@@ -249,19 +243,20 @@ until hq job list &>/dev/null ; do sleep 1 ; done
 srun --overlap --cpu-bind=none --mpi=none hq worker start --cpus=${SLURM_CPUS_PER_TASK} &
 hq worker wait "${SLURM_NTASKS}"
 
-# As an example, let's clone a nf-core pipeline and run a test sample
-git clone https://github.com/nf-core/rnaseq.git -b 3.10
-cd rnaseq
+# change to the work directory if needed 
 
+cd ${wrkdir}
 # Ensure Nextflow uses the right executor and knows how many jobs it can submit
 # The `queueSize` can be limited as needed. 
+											
 echo "executor {
   queueSize = $(( 40*SLURM_NNODES ))
   name = 'hq'
   cpus = $(( 40*SLURM_NNODES ))
-}" >> nextflow.config
+}" >> ${wrkdir}/nextflow.config
 
-nextflow run main.nf -profile test,singularity --outdir . -resume
+# run the Nextflow pipeline here 
+nextflow run main.nf <options>
 
 # Wait for all jobs to finish, then shut down the workers and server
 hq job wait all
