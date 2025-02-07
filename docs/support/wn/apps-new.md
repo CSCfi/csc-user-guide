@@ -2,7 +2,7 @@
 
 ## Snakemake and Nextflow tutorials significantly improved
 
-Tutorials with major updates available for workflow tools: [Snakemake](../snakemake-puhti.md) and [Nextflow](../nextflow-tutorial.md). The tutorial describe different options for the installating and running the tools. Note also the new [master thesis by Antoni Gołoś comparing automated workflow approaches on supercomputers](https://urn.fi/URN:NBN:fi:aalto-202406164397).
+Tutorials with major updates available for workflow tools: [Snakemake](../../tutorials/snakemake-puhti.md) and [Nextflow](../../tutorials/nextflow-tutorial.md). The tutorial describe different options for the installating and running the tools. Note also the new [master thesis by Antoni Gołoś comparing automated workflow approaches on supercomputers](https://urn.fi/URN:NBN:fi:aalto-202406164397).
 
 ## Schrödinger Maestro 2025.1, 6.2.2025
 
