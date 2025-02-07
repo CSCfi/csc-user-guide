@@ -1,7 +1,7 @@
 # Login to SD Desktop
 
 ## Prerequisites
-* [Access SD Connect and SD Desktop for the first time](sd-access.md#access-sd-connect-and-sd-desktop-for-the-first-time)
+* [Access SD Connect and SD Desktop for the first time](./sd-access.md)
 
 ## Step by step
 
