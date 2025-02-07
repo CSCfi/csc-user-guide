@@ -5,7 +5,7 @@ Welcome to the user guide for CSC's Sensitive Data (SD) services. Use the left m
 
 
 1. [Quick links to key topics](#quick-links-to-key-topics) 
-2. [Quick links to login portals](#quick-links-to-login-portals)
+2. [Quick access to login portals](#quick-access-to-login-portals)
 3. [Service Breaks](#service-breaks)
 4. [Support](#support)
 
@@ -69,7 +69,7 @@ Welcome to the user guide for CSC's Sensitive Data (SD) services. Use the left m
 
 
 
-### Quick access login portals
+### Quick access to login portals
 
 <div class="quick-links-container">
   <div class="quick-links-topic">
