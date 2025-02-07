@@ -179,7 +179,7 @@ The default lifetime of a CSC project is one year, after which it will be automa
 
 ### 9. Log into SD Services
 
-- Now all the preparations are already and you can start using the services (links to related user guides):
+- Now all the preparations are ready and you can start using the services (links to related user guides):
 
 SD Connect:
 
