@@ -5,7 +5,7 @@ If you are a new Sensitive Data (SD) services user, this section is for you. Her
 
  * [Undertanding roles in a CSC project](#understanding-roles-in-a-cs-cproject)
    
- * [Select your tutorial](#select-your-tutorial))
+ * [Select your tutorial](#select-your-tutorial)
 
 ## Understanding roles in a CSC Project
 
