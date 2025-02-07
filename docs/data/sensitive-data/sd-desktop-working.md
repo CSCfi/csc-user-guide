@@ -133,3 +133,12 @@ Read next:
 - [How to import data for analysis in your desktop](./sd-desktop-access.md)
 - [Customisation: adding software](./sd-desktop-software.md)
 - [How to manage your virtual desktop (delete, pause, detach volume etc.)](./sd-desktop-manage.md)
+  
+## Your next steps in this guide
+
+* [Importing data in your virtual desktop](./sd-desktop-access.md)
+* [Customising virtual desktop by adding software & tools](./sd-desktop-software.md)
+* [Importing data in your virtual desktop](./sd-desktop-access.md)
+* [Exporting data from virtual desktop vi auser interface](./sd-desktop-export.md)
+* [Export data programmatically from the virtual desktop](./sd-desktop-export-commandline.md)
+* [Troubleshooting](./sd-desktop-troubleshooting.md)
