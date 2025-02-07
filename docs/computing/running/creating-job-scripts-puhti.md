@@ -51,7 +51,7 @@ queue and other listings.
 ```
 
 sets the billing project for the job. Please replace `<project>` with the Unix
-group of your project. You can find it in [My CSC](https://my.csc.fi) under the
+group of your project. You can find it in [MyCSC](https://my.csc.fi) under the
 *Projects* tab. [More information about billing](../../accounts/billing.md).
 
 !!! warning "Remember to specify the billing project"

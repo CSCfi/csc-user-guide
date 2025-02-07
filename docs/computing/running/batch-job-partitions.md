@@ -67,8 +67,8 @@ Puhti features the following partitions for submitting jobs to CPU nodes:
 | `small`           | 3 days        | 40               | 1            | M, L, IO                          | 373 GiB                | 3600 GiB                               |
 | `large`           | 3 days        | 1040             | 26           | M, L, IO                          | 373 GiB                | 3600 GiB                               |
 | `longrun`         | 14 days       | 40               | 1            | M, L, IO                          | 373 GiB                | 3600 GiB                               |
-| `hugemem`         | 3 days        | 160              | 4            | XL, BM                            | 1496 GiB               | n/a                                    |
-| `hugemem_longrun` | 14 days       | 40               | 1            | XL, BM                            | 1496 GiB               | n/a                                    |
+| `hugemem`         | 3 days        | 160              | 4            | XL, BM                            | 1496 GiB               | 1490 GiB (XL), 5960 GiB (BM)           |
+| `hugemem_longrun` | 14 days       | 40               | 1            | XL, BM                            | 1496 GiB               | 1490 GiB (XL), 5960 GiB (BM)           |
 
 ### Puhti GPU partitions
 

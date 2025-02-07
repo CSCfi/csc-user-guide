@@ -19,6 +19,7 @@
 * [CD-hit](cd-hit.md) Sequence clustering and redundancy removal tool
 * [Chipster](https://chipster.csc.fi/) Easy-to-use analysis platform for RNA-seq, single cell RNA-seq and other NGS data
 * [Chipster_genomes](chipster_genomes.md) Tool to download aligner indexes used by Chipster to Puhti
+* [CryoSPARC](cryosparc.md) Tool to analyse Cryo-EM data on Puhti/Mahti
 * [Cutadapt](cutadapt.md) Trimming high-throughput sequencing reads
 * [Diamond](diamond.md ) Sequence similarity search tool for proteins and nucloeotides
 * [Discovery Studio](discovery-studio.md) Protein modeling environment
