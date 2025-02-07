@@ -7,7 +7,7 @@ We are excited to announce that, starting February 2025, new command line tools 
 
 Important: files uploaded programmratically before February 2025 were manually encrypted with your encryption key and will require manual decryption after download.
 
-Contiure reading: [user guide](./data/sensitive-data/sd-connect-command-line-interface.md)
+Contiure reading: [user guide](../../data/sensitive-data/sd-connect-command-line-interface.md)
 
 For questions, support or traning, don't hesitate to conact us at servicedesk@csc.fi (subject: SD Connect)
 
