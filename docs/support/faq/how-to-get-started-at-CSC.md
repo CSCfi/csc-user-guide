@@ -4,7 +4,7 @@ You are now browsing through our service guides.
 We have collected some useful materials in the following locations:
 
 * [CSC accounts and projects](../../accounts/index.md)
-* [CSC customer portal My CSC](https://my.csc.fi)
+* [CSC customer portal MyCSC](https://my.csc.fi)
 * [Free-of-charge use cases](https://research.csc.fi/free-of-charge-use-cases)
 * [Services for research](https://research.csc.fi)
 * [Services by discipline](https://research.csc.fi/sciences)
