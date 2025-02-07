@@ -56,13 +56,15 @@ Keep **Data Gateway** open and click **Open folder**.
 
 ### 3. Set permissions for shared access
 
-After copying files to volume, adjust permissions for folders and files to enable access for other project members. By default, permissions are limited to your access only.
+After copying files to volume, adjust permissions for folders and files to enable access for other project members. By default, permissions are limited to your access only (orange lock icon).
 
 1. Right-click the folder copied to **Volume** and select **Properties** to adjust folder permissions.
     * Open the **Permissions** tab.
     * Set permissions to Create and Delete Files so they remain accessible when the volume is reattached to a different virtual desktop.
         1. Owner -> Access -> Select “Create and delete files”.
         2. Others -> Access -> Select “Create and delete files”.
+        3. Close the permission tab (top left corner).
+        4. The orange lock icon will no longer be visible next to the folder and can now be edited by all project members.
 
 ![Gateway copy to volume](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Desktop_FolderPermissions1.png)
 
@@ -73,10 +75,12 @@ After copying files to volume, adjust permissions for folders and files to enabl
         1. Owner -> Files -> Select “Read and write”. Folders -> Select “Create and delete files”. 
         2. Others -> Files -> Select “Read and write”. Folders -> Select “Create and delete files”.
         3. Click **Change**.
+        4. Close the permission tab (top left corner).
+        5. The orange lock icon will no longer be visible next to the files and can now be edited by all project members.
 
 ![Gateway copy to volume](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Desktop_FolderPermissions3.png)
 
-Now all project members with access can view and analyze files.
+
 
 ### 4. Close Data Gateway
 
