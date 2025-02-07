@@ -94,12 +94,10 @@ You can now disconnect the Data Gateway connection if no further data accessor i
 
 [Log out](sd-desktop-access-vm.md#log-out-from-virtual-desktop) from virtual desktop.
 
-## You next steps in this guide
+## Your next steps in this guide
 
-* [Exporting data from virtual desktop vi auser interface](./sd-desktop-export.md)
-* [Export data programmatically from the virtual desktop](./sd-desktop-export-commandline.md)
+* [Exporting data  via user interface](./sd-desktop-export.md)
+* [Export data programmatically](./sd-desktop-export-commandline.md)
 * [Troubleshooting](./sd-desktop-troubleshooting.md)
-
-
 
 
