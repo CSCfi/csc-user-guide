@@ -460,22 +460,10 @@ is requested.
     hq server stop
     ```
 
-### Using Snakemake with HyperQueue
+### Using Snakemake or Nextflow with HyperQueue
 
-Using Snakemake's `--cluster` flag, we can use `hq submit` instead of `sbatch`:
-
-```bash
-snakemake --cluster "hq submit --cpus <threads> ..."
-```
-
-If you are porting a more complicated workflow from Slurm, you can do argument
-parsing and transformations programmatically using Snakemake's
-[job properties](https://snakemake.readthedocs.io/en/stable/snakefiles/rules.html#job-properties).
-
-### Using Nextflow with HyperQueue
-
-See a [separate tutorial](../support/tutorials/nextflow-hq.md) for instructions on
-using HyperQueue as an executor for Nextflow workflows.
+See a [Nextflow](../support/tutorials/nextflow-tutorial.md#running-nextflow-with-hyperqueue-executor) or [Snakemake tutorial](../support/tutorials/snakemake-puhti.md#running-snakemake-with-hyperqueue-executor) for instructions on
+using HyperQueue as an executor for Nextflow or Snakemake workflows.
 
 ### Multinode tasks
 
