@@ -29,9 +29,9 @@ The current supported software versions on helmi are:
 
 | Software | Module_name | Versions |
 |----------|-------------|----------|
-| Cirq on IQM | cirq_iqm | >= 15.0, <= 15.2|
-| Qiskit on IQM | qiskit_iqm | >= 14.0, <= 15.4 |
-| IQM client | iqm_client | >= 20.0, < 20.4 |
+| Cirq on IQM | cirq_iqm |  15.2  |
+| Qiskit on IQM | qiskit_iqm |  15.5 |
+| IQM client | iqm_client | >= 20.11, <= 20.13 |
 
 Here is an example batch script to submit jobs on Helmi
 
