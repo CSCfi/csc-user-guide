@@ -38,10 +38,10 @@ Welcome to the user guide for CSC's Sensitive Data (SD) services. Use the left m
   <div class="quick-links-topic">
     <span class="quick-links-title"><h2>Secondary use of health and social data</h2></span>
     <div class="quick-links-item">
-      <a class="quick-link" target="_self" href="findata-permit/">Findata permit</a>
+      <a class="quick-link" target="_self" href="findata-permit/"> Start heere with Findata permit</a>
     </div>
     <div class="quick-links-item">
-      <a class="quick-link" target="_self" href="single-register-permit/">Register permit</a>
+      <a class="quick-link" target="_self" href="single-register-permit/">Start here with Public Register permit</a>
     </div>
     <div class="quick-links-item">
       <a class="quick-link" target="_self" href="sd-desktop-audited/">Analyse with SD Desktop for secondary use</a>
