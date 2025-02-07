@@ -7,7 +7,7 @@ The steps you need to follow depend on your role in the research team:
 
 1. [Read project manager's resposabilities](#project-manager)
 
-2. [Read project memeber's resposabilities](#project-memeber)
+2. [Read project member's resposabilities](#project-member)
 
 3. [Next, select tutorial](#select-tutorial)
 
