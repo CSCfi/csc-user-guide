@@ -107,9 +107,9 @@ In Ubuntu22-based virtual machines you can use also Podman container manager. On
 !!! Note
     Please don't hesitate to contact [CSC Service Desk](../../support/contact.md) (subject: Sensitive Data). We can support you in your Desktop customisation.
 
-## You next steps in this guide
+## Your next steps in this guide
 
-* [Importing data in your virtual desktop](./sd-desktop-access.md)
-* [Exporting data from virtual desktop vi auser interface](./sd-desktop-export.md)
-* [Export data programmatically from the virtual desktop](./sd-desktop-export-commandline.md)
+* [Importing data ](./sd-desktop-access.md)
+* [Exporting data  via user interface](./sd-desktop-export.md)
+* [Export data programmatically](./sd-desktop-export-commandline.md)
 * [Troubleshooting](./sd-desktop-troubleshooting.md)
