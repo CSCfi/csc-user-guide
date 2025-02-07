@@ -11,3 +11,16 @@
 4. Press *Continue*.
 
 [![Authentication](images/desktop/desktop_login-mfa1.png)](images/desktop/desktop_login-mfa1.png)
+
+## Your next steps in this guide
+
+* [Create virtual desktops](./sd-desktop-create.md)
+* [Managing volumes and virtual desktops](./sd-desktop-manage.md)
+* [Accessing virtual desktop](./sd-desktop-access-vm.md)
+* [Working with your Desktop:tips and essentials](./sd-desktop-working.md)
+* [Importing data in your virtual desktop](./sd-desktop-access.md)
+* [Customising virtual desktop by adding software & tools](./sd-desktop-software.md)
+* [Importing data in your virtual desktop](./sd-desktop-access.md)
+* [Exporting data from virtual desktop vi auser interface](./sd-desktop-export.md)
+* [Export data programmatically from the virtual desktop](./sd-desktop-export-commandline.md)
+* [Troubleshooting](./sd-desktop-troubleshooting.md)
