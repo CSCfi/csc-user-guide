@@ -82,8 +82,7 @@ main.nf work
 ## More information
 
 * [General guidelines for high-throughput computing in CSC's HPC environment](../../computing/running/throughput.md)
-* [Basic](https://yetulaxman.github.io/Biocontainer/tutorials/nextflow_tutorial.html)
-  and [advanced Nextflow tutorials for Puhti](nextflow-puhti.md)
+* [CSC Nextflow tutorial](nextflow-tutorial.md)
 * [Official Nextflow documentation](https://www.nextflow.io/docs/latest/index.html)
 * [Official HyperQueue documentation](https://it4innovations.github.io/hyperqueue/stable/)
 * [More information in CSC's HyperQueue documentation](../../apps/hyperqueue.md)

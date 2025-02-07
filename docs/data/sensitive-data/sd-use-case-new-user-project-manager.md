@@ -100,7 +100,7 @@ Once all the billing units for your CSC project have been used up, **access to t
 - your data remains unaffected and will not be deleted, even in cases where the total billing units reach zero or enter negative values.
 
 !!! Note
-    Each project member will receive a notification via email from the My CSC portal when the billing units for your CSC project are about to end.
+    Each project member will receive a notification via email from the MyCSC portal when the billing units for your CSC project are about to end.
 
 #### SD Connect BU consumption
 
