@@ -52,6 +52,6 @@ The project member is a person who joins to existing CSC project (can only be ad
 
 
 !!! Note
-   If you encounter any difficulties with these steps, feel free to reach out to us. We provide step-by-step online support to    guide you through the process.
+    If you encounter any difficulties with these steps, feel free to reach out to us at servicedesk@csc.fi (subject: Sesntive Data services). We provide step-by-step online support to guide you through the process.
 
 
