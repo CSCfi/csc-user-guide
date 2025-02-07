@@ -5,7 +5,7 @@
 1. [Overview](#overview)
 2. [Key features](#key-features)
 3. [Limitations](#limitations)
-4. [Yourn ext steps in this guide](your-next-steps-in-this-this-guide)
+4. [Your next steps in this guide](your-next-steps-in-this-this-guide)
 
 
 ## Overview
