@@ -96,11 +96,10 @@ You can now disconnect the Data Gateway connection if no further data accessor i
 
 ## You next steps in this guide
 
-* [Customising virtual desktop by adding software & tools](./sd-desktop-software.md)
-* [Importing data in your virtual desktop](./sd-desktop-access.md)
 * [Exporting data from virtual desktop vi auser interface](./sd-desktop-export.md)
 * [Export data programmatically from the virtual desktop](./sd-desktop-export-commandline.md)
 * [Troubleshooting](./sd-desktop-troubleshooting.md)
+
 
 
 
