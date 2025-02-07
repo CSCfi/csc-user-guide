@@ -50,7 +50,7 @@ You need to activate MFA (multi-factor authentication) to log in the Sensitive D
 
 SD Connect:
 
-- [SD Connect overview and key features](./sd.connect.md)
+- [SD Connect overview and key features](./sd-connect.md)
 - [SD Connect login instructions](./sd-connect-login.md)
   
 SD Desktop:
