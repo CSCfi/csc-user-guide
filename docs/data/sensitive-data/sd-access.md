@@ -3,7 +3,7 @@
 
 If you are a new Sensitive Data (SD) services user, this section is for you. Here you learn how to cretate an account, manage your project's resources consumption(here alled billing unit), storage space, adding project members and what happens to your data upon project closure.
 
- * [Undertanding roles in a CSC project](#understanding-roles-in-a-cs-cproject)
+ * [Understanding roles in a CSC project](#understanding-roles-in-a-cs-cproject)
    
  * [Select your tutorial](#select-your-tutorial)
 
