@@ -1,7 +1,7 @@
 
 # Start here: creating a CSC accoung and accessing Sensitive Data services 
 
-If you are a new Sensitive Data (SD) services user, this section is for you. Here you learn how to cretate an account and a CSC project. You learn also how to manage your project's resources consumption (here called billing unit), storage space and what happens to your data upon project closure.
+If you are a new Sensitive Data (SD) services user, this section is for you. Here you learn how to create an account and a CSC project. You will learn also how to manage your project's resources consumption (here called billing unit), storage space and what happens to your data upon project closure.
 
 The steps you need to follow depend on your role in the research team:
 
