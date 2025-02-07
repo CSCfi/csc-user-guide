@@ -252,8 +252,7 @@ The command above asks the password of the secret key and produces a ready-to-us
 !!! Note
     Below a step by step example for decrypting one file.
 
-      To decrypt a file you will need a private key which corresponds to one of the public keys used in encryption phase. Let's assume in our example that the research 
-      group A is decrypting a file you've sent them. To decrypt a file they use `crypt4gh decrypt` command:
+To decrypt a file you will need a private key which corresponds to one of the public keys used in encryption phase. Let's assume in our example that the research group A is decrypting a file you've sent them. To decrypt a file they use `crypt4gh decrypt` command:
 
       ```bash
       crypt4gh decrypt --sk groupA.sec <dog.jpg.c4gh >dog.jpg
