@@ -3,13 +3,14 @@
 
 If you are a new Sensitive Data (SD) services user, this section is for you. Here you learn how to cretate an account and a CSC project. You learn also how to manage your project's resources consumption (here called billing unit), storage space and what happens to your data upon project closure.
 
- * [Understanding roles in a CSC project](#understanding-roles-in-a-csc-project)
-   
- * [Select your tutorial](#select-your-tutorial)
-
-## Understanding roles in a CSC Project
-
 The steps you need to follow depend on your role in the research team:
+
+1. [read project manager's resposabilities](#project-manager)
+
+2. [read project memeber's resposabilities](#project-memeber)
+
+3. [Next, select tutorial](#select-tutorial)
+
 
 ### Project Manager
 
@@ -42,7 +43,7 @@ The project member is a person who joins to existing CSC project (can only be ad
 
 
 
-## Select your tutorial: 
+## Select tutorial: 
 
 
 * [Step by step tutorial for project manager](./sd-use-case-new-user-project-manager.md)
