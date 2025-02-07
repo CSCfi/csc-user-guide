@@ -5,7 +5,7 @@
 1. [Overview](#overview)
 2. [Key features](#key-features)
 3. [Limitations](#limitations)
-4. [Your next steps in this guide](your-next-steps-in-this-this-guide)
+4. [Your next steps in this guide](#your-next-steps-in-this-this-guide)
 
 
 ## Overview
@@ -48,11 +48,11 @@ If you have already created a CSC account and are part of a CSC project, you can
 * [Create virtual desktops](./sd-desktop-create.md)
 * [Managing volumes and virtual desktops](./sd-desktop-manage.md)
 * [Accessing virtual desktop](./sd-desktop-access-vm.md)
-* [Working with your Desktop:tips and essentials](./sd-desktop-working.md)
+* [Working with your desktop:tips and essentials](./sd-desktop-working.md)
 * [Importing data in your virtual desktop](./sd-desktop-access.md)
 * [Customising virtual desktop by adding software & tools](./sd-desktop-software.md)
 * [Importing data in your virtual desktop](./sd-desktop-access.md)
-* [Exporting data from virtual desktop vi auser interface](./sd-desktop-export.md)
+* [Exporting data from virtual desktop via user interface](./sd-desktop-export.md)
 * [Export data programmatically from the virtual desktop](./sd-desktop-export-commandline.md)
 * [Troubleshooting](./sd-desktop-troubleshooting.md)
 
