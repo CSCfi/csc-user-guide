@@ -48,7 +48,7 @@ If you have already created a CSC account and are part of a CSC project, you can
 * [Create virtual desktops](./sd-desktop-create.md)
 * [Managing volumes and virtual desktops](./sd-desktop-manage.md)
 * [Accessing virtual desktop](./sd-desktop-access-vm.md)
-* [Working with your desktop:tips and essentials](./sd-desktop-working.md)
+* [Working with your desktop: tips and essentials](./sd-desktop-working.md)
 * [Importing data in your virtual desktop](./sd-desktop-access.md)
 * [Customising virtual desktop by adding software & tools](./sd-desktop-software.md)
 * [Importing data in your virtual desktop](./sd-desktop-access.md)
