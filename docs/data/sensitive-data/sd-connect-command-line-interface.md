@@ -14,8 +14,8 @@ SD Connect is part of CSC's Sensitive Data Services, offering a free and secure 
 
 This document provides instructions on how you can install on your local environment (Linux, Mac) and how you can use the a-commands from the allas-cli-utils package to upload and download with automated key management via command line with SD Connect. 
 
-
-Please note: Allas itself does not differentiate between data uploaded via SD Connect (user interface or commandline tools) and data uploaded to Allas using different methods. Data buckets may contain a mix of SD Connect data, other encrypted data, and regular data. It is the user's responsibility to manage data types within the buckets. However, it is recommended to store SD Connect data in separate buckets and folders to avoid mixing different data types.
+!!! Note
+    Allas itself does not differentiate between data uploaded via SD Connect (user interface or commandline tools) and data uploaded to Allas using different methods. Data buckets may contain a mix of SD Connect data, other encrypted data, and regular data. It is the user's responsibility to manage data types within the buckets. However, it is recommended to store SD Connect data in separate buckets and folders to avoid mixing different data types.
 
 ## Command line tools and automated key management
 
@@ -58,7 +58,7 @@ The SD Connect compatible Allas connection is now valid for next eight hours. An
 *a-list* and *a-delete* to manage both normal Allas objects and SD Connect objects.
 
 
-### Step3: Data upload and automated encryption
+### Step 3: Data upload and automated encryption
 
 Data can be uploaded to SD Connect by using command *a-put* with option *--sdc*.
 For example to upload file *my-secret-table.csv" to location *2000123-sens/dataset2* in Allas use command:
