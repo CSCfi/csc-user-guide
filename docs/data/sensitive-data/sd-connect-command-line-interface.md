@@ -2,10 +2,10 @@
 
 The new SD Connect command line tools, available from February 2025, support file upload, download (with a-commands) and automated key management (with lock-unlock) during encryption and decryption. After programmatic encryption and upload, data can be viewed through the SD Connect user interface and SD Desktop. Coding skills are required to use the tools effectively, below is a step by step guide to get started. In contrast, files have been uploaded before February 2025, were manually encrypted using your encryption key and will need to be decrypted manually after download. 
 
-1. [Background information](#background-information)
-2. [Command line tools and automated key management](#command-line-tools-and-automated-key-management)
-3. [Command line tools and manual encryption](#command-line-tools-and-manual-encryption)
-4. [Tutorials](#tutorials)
+- [Background information](#background-information)
+- [Command line tools and automated key management](#command-line-tools-and-automated-key-management)
+- [Command line tools and manual encryption](#command-line-tools-and-manual-encryption)
+- [Tutorials](#tutorials)
 
 
 ## Background information
@@ -19,16 +19,16 @@ Please note: Allas itself does not differentiate between data uploaded via SD Co
 
 ## Command line tools and automated key management
 
-### Step1: Installing a-tools on your local environment
+### Step 1: Installing a-tools on your local environment
 
 To upload and automatically encrypt sensitive data to SD Connect programmatically, you need to install the command-line tools, which require root access to your laptop or local environment (Mac or Linux). For this reason, you might need support from your organization’s IT unit.
 
 Here you can find step-by-step instructions: https://github.com/CSCfi/allas-cli-utils. This guide provides installation instructions for the a-commands (used to upload and download files) as well as the lock and unlock commands (used to automatically encrypt and decrypt files via automated key management).
 
-Note !!!
-     If you need to upload non-sensitive data (such as scripts, containers, or software for use in SD Desktop), note that these tools are also available on CSC's supercomputers (Puhti, Mahti, and Lumi). However, these systems are restricted to non-sensitive data only. Sensitive data must be uploaded to SD Connect through the appropriate channels.
+!!! Note
+    If you need to upload non-sensitive data (such as scripts, containers, or software for use in SD Desktop), note that these tools are also available on CSC's supercomputers (Puhti, Mahti, and Lumi). However, these systems are restricted to non-sensitive data only. Sensitive data must be uploaded to SD Connect through the appropriate channels.
 
-### Step2: Opening connection to SD Connect
+### Step 2: Opening connection to SD Connect
 
 To open SD Connect compatible Allas connection you must add option *--sdc* the configuration command. In CSC supercomputers the connection is opened with commands:
 
