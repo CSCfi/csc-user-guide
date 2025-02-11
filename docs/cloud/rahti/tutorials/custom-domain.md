@@ -77,9 +77,9 @@ See the explanation in the [Networking routes](../networking.md#routes) page.
     special care, since the private TLS key should be never exposed to
     non-trusted parties.
 
-## Let's Encrypt
+## ACME protocol, automatic certificates
 
-[letsencrypt.org](https://letsencrypt.org/) is a non-profit Certificate Authority, that provides free and open certificates. It is possible to **get** and **renew** automatically valid certificates from Let's Encrypt. Here we document two methods, the cert-manager and the ACME controller.
+The Automatic Certificate Management Environment (ACME) protocol is a communications protocol for automating interactions between certificate authorities and their users' servers. [letsencrypt.org](https://letsencrypt.org/) is a non-profit Certificate Authority, that provides **free** and **open** certificates using the ACME protocol. It is possible to **get** and **renew** automatically valid certificates from Let's Encrypt. There are other certificats providers that support the ACME protocol, but we will focus on Let's Encrypt because it is the most known of them. Here we will document two methods, the **cert-manager** and the **ACME controller**.
 
 ### Cert-manager
 
@@ -116,6 +116,7 @@ This is the recommended option to obtain and renew Let's Encrypt certificates. T
     ```
 
     - You need to replace `<EMAIL>` by your own email. This is to create automatically an account with Let's Encrypt and to send notification emails.
+    - If you want to use a different provider than Let's Encrypt, you will need to setup a different `server` parameter and perhaps add some means of authentication. This is directly dependent on the provider used so we are not able to help you with that, but it should only require to change few lines in the example above.  
 
 1. After the `Issuer` is created, you can create the certificate:
 
@@ -175,7 +176,7 @@ If all went well, you should have a valid Certificate.
 ### OpenShift ACME controller
 
 !!! Info "Deprecated"
-    The OpenShift ACME controller has been archived since 2023. This means that while this work (at the time of writing this), it may stop working if Let's Encrypt makes any change in their API implementation of ACME.
+    The OpenShift ACME controller has been archived since 2023. This means that while it does still work (at the time of writing this), it may stop working if for exmaple, Let's Encrypt makes any change in their API implementation of ACME.
 
 Routes can automatically obtain a "let's encrypt" certificate using the third-party [openshift-acme controller](https://github.com/tnozicka/openshift-acme). The process is simple:
 
