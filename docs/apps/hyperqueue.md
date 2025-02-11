@@ -283,8 +283,8 @@ It is worth reading the sections about
 and [Task Arrays](https://it4innovations.github.io/hyperqueue/stable/jobs/arrays/)
 to understand the different ways to run computations with HyperQueue. For more
 complex task dependencies, we can use HyperQueue as the executor for other workflow
-managers, such as [Snakemake](#using-snakemake-with-hyperqueue) or
-[Nextflow](#using-nextflow-with-hyperqueue).
+managers, such as [Snakemake](#using-snakemake-or-nextflow-with-hyperqueue) or
+[Nextflow](#using-snakemake-or-nextflow-with-hyperqueue).
 
 **Stopping the workers and the server**
 
