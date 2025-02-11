@@ -21,7 +21,7 @@ const dropdownSites = [
     active: false
   },
   {
-    name: 'My CSC',
+    name: 'MyCSC',
     description: 'customer portal',
     url: 'https://my.csc.fi',
     external: true,

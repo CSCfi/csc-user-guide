@@ -1,4 +1,4 @@
-# Customising virtual desktop by adding software
+# Customising virtual desktop by adding software & tools for analysis
 
 ## Prerequisites
 * [Create virtual desktop](sd-desktop-create.md)
@@ -108,9 +108,9 @@ In Ubuntu22-based virtual machines you can use also Podman container manager. On
 !!! Note
     Please don't hesitate to contact [CSC Service Desk](../../support/contact.md) (subject: Sensitive Data). We can support you in your Desktop customisation.
 
-Read next:
+## Your next steps in this guide
 
-- [Working with your desktop: tips and essentials](./sd-desktop-working.md)
-- [How to import data for analysis in your desktop](./sd-desktop-access.md)
-- [Customisation: adding software](./sd-desktop-software.md)
-- [How to manage your virtual desktop (delete, pause, detach volume etc.)](./sd-desktop-manage.md)
+* [Importing data ](./sd-desktop-access.md)
+* [Exporting data  via user interface](./sd-desktop-export.md)
+* [Export data programmatically](./sd-desktop-export-commandline.md)
+* [Troubleshooting](./sd-desktop-troubleshooting.md)
