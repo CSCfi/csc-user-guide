@@ -211,15 +211,16 @@ that require heavy I/O operations, for example packing and unpacking archive fil
 
 ### Compute nodes with local SSD (NVMe) disks
 
-Jobs running in the I/O- and GPU-nodes in Puhti and GPU-nodes in Mahti have local fast storage
+Jobs running in the I/O- and GPU-nodes in Puhti and Mahti have local fast storage
 available. In interactive batch jobs launched with [sinteractive](running/interactive-usage.md),
 this local disk area is defined with environment variable `$TMPDIR` and in normal batch jobs
 with `$LOCAL_SCRATCH`. The size of this storage space is defined in the batch job resource request.
 Different nodes have different amounts of disks, see [Puhti technical details](systems-puhti.md)
-for a detailed list of all node types. In normal compute nodes, there are 1490 GiB and 3600 GiB
+for a detailed list of all node types in Puhti. In normal compute nodes, there are 1490 GiB and 3600 GiB
 disks. In big memory nodes there are 1490 GiB and 5960 GiB disks, and in GPU-nodes there are
 3600 GiB disks. To save resources, and to ensure your jobs do not queue for resources for too
-long, it is a good idea to only reserve what you actually need.
+long, it is a good idea to only reserve what you actually need. In Mahti there are 60 CPU nodes with 3500 GiB
+local disks in the `small` and `interactive` partitions. The GPU nodes have 3600 GiB local disks.
 
 These local disk areas are designed to support I/O intensive computing tasks and cases where you
 need to process large amounts (over 100 000) of small files. These directories are cleaned once

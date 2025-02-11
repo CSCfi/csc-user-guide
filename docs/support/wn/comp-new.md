@@ -1,6 +1,19 @@
 # Computing environment
 
-## Puhti and Mahti web interfaces updated to release 24 and 10, 30.1.2025
+## Mahti small partition with NVMe drives, 12.2.2025
+
+Mahti now has a new `small` partition with 56 nodes with 3500 GiB
+local disks. Additionally the interactive partition has also has
+access to 4 nodes with 3500 GiB local disks. In the new partition
+users can reserve individual CPU cores, instead of only full
+nodes. The partition and the NVMes are geared for batch processing of
+small CPU workloads that benefit from having local disks available,
+and may be interesting for some Puhti users too.
+
+ 
+
+## Puhti and Mahti web interfaces updated to release 24 and 10,
+   30.1.2025
 
 * VSCode has been updated to 1.96.4.
 * The accessibility statement contact info has been updated.
