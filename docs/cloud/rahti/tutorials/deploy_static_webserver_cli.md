@@ -1,3 +1,7 @@
+!!! warning "Middle level"
+    You need a knowledge of OpenShift CLI tool [oc](../usage/cli.md) and OpenShift [Routes](../concepts.md#route) API as well as a 
+    knowledge of Kubernetes [Pods](../concepts.md#pod) and [Services](../concepts.md#service)
+
 # Introduction
 
 In this tutorial, the Kubernetes core concepts _pods_, _services_, _routes_ and

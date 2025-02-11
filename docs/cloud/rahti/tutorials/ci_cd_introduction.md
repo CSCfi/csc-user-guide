@@ -1,3 +1,7 @@
+!!! warning "Middle level"
+    You need to familiarize yourself with OpenShift [ImageStreams](../concepts.md#imagestream) and [BuildConfig](../concepts.md#buildconfig) API  
+    In this tutorial, we will use the OpenShift CLI tool [oc](../usage/cli.md)
+    
 # Introduction
 
 Nowadays agile software development methodologies are being used to satisfy

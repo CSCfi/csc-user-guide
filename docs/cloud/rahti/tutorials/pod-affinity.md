@@ -1,3 +1,8 @@
+!!! warning "Middle level"
+    This tutorial uses OpenShift CLI tool [oc](../usage/cli.md)
+
+    A knowledge of Kubernetes environment is required
+
 # Pod (anti) affinity
 
 Pod affinity and anti-affinity allow you to constrain where your Pods will be scheduled on, based on the labels of Pods already running on that node. This general idea can also be used to select (or avoid) specific nodes with specific hardware configurations like a GPU.

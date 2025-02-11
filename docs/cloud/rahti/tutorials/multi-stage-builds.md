@@ -1,3 +1,6 @@
+!!! warning "Middle level"
+    A good knowledge of [Docker](https://docs.docker.com/get-started/) is required
+
 # Multistage builds
 
 The idea behind _multistage builds_ is to make it easy to build smaller container images by facilitating the exclusion of intermediate build files from the final product.

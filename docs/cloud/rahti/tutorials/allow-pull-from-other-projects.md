@@ -1,3 +1,6 @@
+!!! success "Basic level"
+    You need a knowledge of OpenShift CLI tool [oc](../usage/cli.md) or the Rahti [web interface](../usage/getting_started.md)
+
 # Allow pulls of images from one Rahti project to another
 
 Every Rahti project has a private image registry space. Any image compatible with the [OCI](https://opencontainers.org/) format can be stored in the registry. Common uses for the registry are to store [images built by Rahti](../images/creating.md#using-rahti-to-build-container-images) or cache upstream images.
