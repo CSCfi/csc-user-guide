@@ -423,6 +423,7 @@ nav:
               - Short introduction to YAML: cloud/rahti/tutorials/yaml_introduction.md
               - Webhooks: cloud/rahti/tutorials/webhooks.md
               - 4cat: cloud/rahti/tutorials/4cat.md
+              - OAuth2 Proxy: cloud/rahti/tutorials/oauth2.md
               - Pod (anti) affinity: cloud/rahti/tutorials/pod-affinity.md
               - Advanced NetworkPolicies: cloud/rahti/tutorials/advanced-NetworkPolicies-networking.md
               - Integrating External Services: cloud/rahti/tutorials/integrating-external-services.md
@@ -492,7 +493,6 @@ nav:
               - Upload: data/sensitive-data/sd-connect-upload.md
               - Share: data/sensitive-data/sd-connect-share.md
               - Download: data/sensitive-data/sd-connect-download.md
-              - Download files uploaded with previous version: data/sensitive-data/sd-connect-download-old-version.md
               - Delete: data/sensitive-data/sd-connect-delete.md
               - Command line interface: data/sensitive-data/sd-connect-command-line-interface.md
               - Troubleshooting: data/sensitive-data/sd-connect-troubleshooting.md
@@ -503,9 +503,10 @@ nav:
               - Manage virtual desktop: data/sensitive-data/sd-desktop-manage.md
               - Access virtual desktop: data/sensitive-data/sd-desktop-access-vm.md
               - Work with your virtual desktop: data/sensitive-data/sd-desktop-working.md
+              - Customisation - software & tools: data/sensitive-data/sd-desktop-software.md
               - Import data: data/sensitive-data/sd-desktop-access.md
-              - Customisation: data/sensitive-data/sd-desktop-software.md
-              - Export data: data/sensitive-data/sd-desktop-export.md
+              - Export data via user interface: data/sensitive-data/sd-desktop-export.md
+              - Export data programmatically: data/sensitive-data/sd-desktop-export-commandline.md
               - Troubleshooting: data/sensitive-data/sd-desktop-troubleshooting.md
       - Publish and reuse:
           - Publish with Federated EGA:

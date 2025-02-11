@@ -75,3 +75,15 @@ Finally, click *Create desktop*. The operation is entirely automated and can tak
 !!! info "Need assistance?"
     If you're uncertain about which desktop to choose or need support for your research, contact [CSC Service Desk](../../support/contact.md) with the subject "Sensitive data".
 
+
+## Your next steps in this guide
+
+* [Managing volumes and virtual desktops](./sd-desktop-manage.md)
+* [Accessing virtual desktop](./sd-desktop-access-vm.md)
+* [Working with your desktop: tips and essentials](./sd-desktop-working.md)
+* [Customisation - software & tools](./sd-desktop-software.md)
+* [Importing data ](./sd-desktop-access.md)
+* [Exporting data  via user interface](./sd-desktop-export.md)
+* [Export data programmatically](./sd-desktop-export-commandline.md)
+* [Troubleshooting](./sd-desktop-troubleshooting.md)
+

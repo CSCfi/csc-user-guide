@@ -188,6 +188,11 @@ Another alternative is to build the image on an x64 VM, for example on pouta.csc
 docker run -p 8888:8787 <yourimagename>
 ```
 
+### Upload and link the image to your application
+
+For the docker image to be used in your application. You need to host it somewhere, e.g. DockerHub or Rahti registry. 
+Once you have it hosted somewhere, provide the link to your image in the application : `Edit application` > `Container image`.
+
 ## Adding Python packages to an existing workspace 
 
 You can add pip packages to existing Python applications without building a new image by installing them to your 

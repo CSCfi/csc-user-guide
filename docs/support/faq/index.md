@@ -22,7 +22,7 @@
 
 ## Accounts
 * [I cannot login. What to do?](i-cannot-login.md)
-* [I forgot my CSC password. How do I get a new one?](new-password.md)
+* [I forgot MyCSC password. How do I get a new one?](new-password.md)
 * [How to create a CSC user account?](how-to-create-CSC-user-account.md)
 * [How can I find information about my projects?](how-to-find-information-about-projects.md)
 * [Who 'unknown' is using our resources](who-unknown-is-using-our-resources.md)
@@ -50,7 +50,7 @@
 
 ## Pouta
 
-* [Can I access my CSC home/wrkdir/scratch/project directories from Pouta?](how-to-access-home-wrkdir-projdir-from-epouta.md)
+* [Can I access MyCSC home/wrkdir/scratch/project directories from Pouta?](how-to-access-home-wrkdir-projdir-from-epouta.md)
 * [Can I run MPI applications on pouta?](can-i-run-mpi-applications-on-pouta.md)
 * [Do you offer SSL certificates?](do-you-offer-ssl-certificates.md)
 * [How can I give access to other people to my VM in Pouta?](how-can-I-give-access-to-other-people-to-my-vm-in-pouta.md)
@@ -77,7 +77,6 @@
 * [How to backup a Postgres DB into Allas](backup-postgres-allas.md)
 * [How to open a terminal to a Pod?](terminal-rahti-pod.md)
 * [How to package a Kubernetes application with Helm](helm.md)
-* [How to pull images from Rahti v1 registry](pull-from-rahtiv1-registry.md)
 * [How to run an ad-hoc interactive container](oc-run.md)
 * [How to transfer data to Rahti?](transfer_data_rahti.md)
 * [Protecting against DDoS Attacks](DDos.md)

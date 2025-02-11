@@ -209,7 +209,7 @@ remains before access is removed.
 
 * User authentication is now happening through OpenID Connect, which means that users
   can authenticate via Haka or CSC login. This enables Single Sign-on (SSO) between,
-  e.g., the web interface and My CSC.
+  e.g., the web interface and MyCSC.
 * A new welcome page has been added instead of the old login page.
 * The Puhti usage metrics are now visualized in a new manner.
 * Open onDemand version updated to 2.0.29.
