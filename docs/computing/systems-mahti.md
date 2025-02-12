@@ -7,7 +7,7 @@ search:
 
 ## Compute nodes
 
-**Mahti** has a total of **1404** CPU nodes and **24** GPU nodes. The theoretical peak performance is 7,5 petaflops for the CPU nodes and 2,0 petaflops for the GPU nodes, in total 9,5 petaflops. 
+**Mahti** has a total of **1404** CPU nodes and **24** GPU nodes. The theoretical peak performance is 7.5 petaflops for the CPU nodes and 2.0 petaflops for the GPU nodes, in total 9.5 petaflops.
 
 
 Both CPU and GPU nodes have two AMD Rome 7H12 CPUs with 64 cores each,
@@ -19,10 +19,10 @@ threads.
 
 The CPU nodes are equipped with 256 GB of memory and the vast majority
 have no local disks. There are in total 60 nodes that are equipped
-with a local 3,8 TB NVMe drive. These are available in the  `small` and
- `interactive` partitions.
+with a local 3.8 TB NVMe drive. These are available in the  `small` and
+`interactive` partitions.
 
-The GPU nodes are equipped with 512 GB of memory and a local 3,8 TB NVMe drive. They also have four Nvidia Ampere A100 GPUs. In a  subset of the nodes the A100 GPUs have been split into multiple smaller GPUs with a fraction of the compute and memory capacity of the A100 GPUs. These are useful for interactive work, courses and for code development.
+The GPU nodes are equipped with 512 GB of memory and a local 3.8 TB NVMe drive. They also have four Nvidia Ampere A100 GPUs. In a  subset of the nodes the A100 GPUs have been split into multiple smaller GPUs with a fraction of the compute and memory capacity of the A100 GPUs. These are useful for interactive work, courses and for code development.
 
 ### NUMA configuration
 

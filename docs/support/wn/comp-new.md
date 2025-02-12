@@ -20,8 +20,7 @@ tasks. Current Puhti users working with I/O-bound workflows may find
 this new resource especially valuable for their computations.
 
 
-## Puhti and Mahti web interfaces updated to release 24 and 10,
-   30.1.2025
+## Puhti and Mahti web interfaces updated to release 24 and 10, 30.1.2025
 
 * VSCode has been updated to 1.96.4.
 * The accessibility statement contact info has been updated.

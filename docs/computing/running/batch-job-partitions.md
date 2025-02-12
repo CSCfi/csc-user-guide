@@ -142,7 +142,7 @@ The `interactive` partition on Mahti is intended for
 allows reserving CPU resources without occupying an entire node, which means
 that other jobs may also access the same node. You can run up to 8
 simultaneous jobs on the `interactive` partition and reserve at most 32 cores,
-i.e. you may have one job using 32 cores, 8 jobs using 4 cores each, or
+i.e., you may have one job using 32 cores, 8 jobs using 4 cores each, or
 anything in between.
 
 The `small` partition is intended for batch processing of small scale
