@@ -91,30 +91,6 @@ Once you have finished:
 * Close (`exit`) also the interactive session. 
 * Close SSH tunnel with `Ctrl + C`.
 
-## Custom Python environment with Jupyter Notebook
-
-If you want to use a custom Conda environment with Jupyter Notebook, the
-following workflow could be used (adapted to your situation):
-
-```bash
-# Set up PROJAPPL environment variable, where to install your Conda environment. 
-# Add your project here
-export PROJAPPL=/projappl/project_xxx
-# Activate Conda commands
-module load bioconda
-# Create Conda environment with your packages
-# It is important to include the notebook package
-conda create --name gromacs-tutorials -c conda-forge -c bioconda gromacs=2020.4 matplotlib nglview notebook numpy requests pandas seaborn  
-# Activate the new Conda environment
-source activate gromacs-tutorials
-# Start Jupyter kernel, you will see a separate kernel with name "gromacs"
-python -m ipykernel install --user --name gromacs-tutorials --display-name "gromacs" 
-# load one of those packages that have Jupyter
-module load python-data
-# Launch Jupyter
-start-jupyter-server 
-```
-
 ## SSH tunnelling with PuTTy
 Both RStudio and Jupyter Notebook also print out PuTTy instructions that have to be copied to PuTTy settings. The port numbers and compute node name may change from session to session.
 
