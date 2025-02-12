@@ -63,7 +63,7 @@ module load python-data
 start-jupyterlab-server
 ```
 
-It is also possible to use some other pre-installed [Python module](../../apps/python.md) than `python-data`, if it includes Jupyter. You can also use your [own custom Python environment with Jupyter Notebook.](#custom-python-environment-with-jupyter-notebook)
+It is also possible to use some other pre-installed [Python module](../../apps/python.md) than `python-data`, if it includes Jupyter.
 
 ***
 
