@@ -1,14 +1,24 @@
 # Computing environment
 
-## Mahti small partition with NVMe drives, 12.2.2025
 
-Mahti now has a new `small` partition with 56 nodes with 3500 GiB
-local disks. Additionally, the `interactive` partition now also has
-access to 4 nodes with 3500 GiB local disks. In the new partition
-users can reserve individual CPU cores, instead of only full
-nodes. The partition and the NVMes are geared for batch processing of
-small CPU workloads that benefit from having local disks available,
-and may be interesting for some Puhti users, too.
+
+## New Small Partition with High-Performance NVMe Storage on Mahti, 12.2.2025
+
+Mahti has expanded its capabilities with a new small partition
+featuring 56 compute nodes (7168 cores), each equipped with 3500 GiB
+of local NVMe storage. This partition introduces flexible CPU
+core-based allocation, allowing users to reserve individual cores
+rather than entire nodes. Additionally, the interactive partition has
+been enhanced with 4 nodes that include the same high-capacity local
+storage.
+
+This new configuration is optimized for batch processing of small
+CPU-intensive workloads that require fast local storage access. The
+combination of core-based allocation and high-performance NVMe drives
+makes this partition particularly suitable for data-intensive
+tasks. Current Puhti users working with I/O-bound workflows may find
+this new resource especially valuable for their computations.
+
 
 ## Puhti and Mahti web interfaces updated to release 24 and 10,
    30.1.2025
