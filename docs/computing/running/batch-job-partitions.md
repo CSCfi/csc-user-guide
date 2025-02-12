@@ -168,9 +168,9 @@ each reserved GPU.
 
 | Partition   | Time<br>limit | Max<br>GPUs | Max CPU<br>cores | Max<br>nodes | [Node types](../systems-mahti.md) | Max memory<br>per node | Max local storage<br>([NVMe]) per node |
 |-------------|---------------|-------------|------------------|--------------|-----------------------------------|------------------------|----------------------------------------|
-| `gputest`   | 15 minutes    | 4           | 128              | 1            | GPU                               | 490 GiB                | 3800 GiB                               |
-| `gpusmall`  | 36 hours      | 2           | 64               | 1            | GPU                               | 490 GiB                | 3800 GiB                               |
-| `gpumedium` | 36 hours      | 24          | 768              | 6            | GPU                               | 490 GiB                | 3800 GiB                               |
+| `gputest`   | 15 minutes    | 4           | 128              | 1            | GPU                               | 490 GiB                | 3500 GiB                               |
+| `gpusmall`  | 36 hours      | 2           | 64               | 1            | GPU                               | 490 GiB                | 3500 GiB                               |
+| `gpumedium` | 36 hours      | 24          | 768              | 6            | GPU                               | 490 GiB                | 3500 GiB                               |
 
 !!! info "Fair use of GPU nodes on Mahti"
     You should reserve **no more than 32 CPU cores per GPU**.
