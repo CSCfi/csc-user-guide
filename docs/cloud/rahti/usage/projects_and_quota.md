@@ -59,21 +59,21 @@ This should produce the following output:
 apiVersion: project.openshift.io/v1
 kind: Project
 metadata:
-annotations:
-  ...
-creationTimestamp: 2018-11-22T12:27:05Z
-labels:
-  csc_project: "1000123"
-name: my-openshift-project
-resourceVersion: "72557736"
-selfLink: /apis/project.openshift.io/v1/projects/my-openshift-project
-uid: df4970e2-abd7-4417-adbf-531293c68cd6
+  annotations:
+    ...
+  creationTimestamp: 2018-11-22T12:27:05Z
+  labels:
+    csc_project: "1000123"
+  name: my-openshift-project
+  resourceVersion: "72557736"
+  selfLink: /apis/project.openshift.io/v1/projects/my-openshift-project
+  uid: df4970e2-abd7-4417-adbf-531293c68cd6
 spec:
-finalizers:
-- openshift.io/origin
-- kubernetes
+  finalizers:
+  - openshift.io/origin
+  - kubernetes
 status:
-phase: Active
+  phase: Active
 ```
 
 In the output above, you can find the associated CSC computing project under
