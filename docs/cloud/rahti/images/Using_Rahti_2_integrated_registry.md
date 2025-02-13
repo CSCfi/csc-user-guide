@@ -39,7 +39,7 @@ The process is simple:
 You should be able to see your images in your project:
 ![Image Streams](../../img/image_streams_rahti4.png)
 
-Alternatively you can query images in remote registry with docker image ls [OPTIONS] [REPOSITORY[:TAG]]
+Alternatively you can query images in remote registry with `docker image ls [OPTIONS] [REPOSITORY[:TAG]]`
 
 ## Using Manually Cached Images
 
