@@ -95,8 +95,7 @@ If you see an approved branch:
 ### Previewing active branches
 
 The GitHub web interface gives a preview (also while editing) but it does not render all syntax used in mkdocs correctly.
-A full preview for ongoing work is available for all branches: https://csc-guide-preview.2.rahtiapp.fi/origin/
-Note, currently absolute internal links don't work in the preview, but work on docs.csc.fi. For more details, see the [FAQ](FAQ.md#how-can-i-preview-my-edits).
+A full preview for ongoing work is available for all branches: <https://csc-guide-preview.2.rahtiapp.fi/origin/>. For more details, see the [FAQ](FAQ.md#how-can-i-preview-my-edits).
 
 ### Making pull requests in the web GUI
 
