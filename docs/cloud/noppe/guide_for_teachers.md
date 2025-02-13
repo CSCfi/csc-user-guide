@@ -177,6 +177,13 @@ with our cloud hosts. This can be done using "docker buildx".
 docker buildx build --platform linux/amd64 ....
 ```
 
+Note that you might have to make sure user home directory is owned by user by adding this line below (sometimes there could be a .cache directory owned by root)
+
+```
+RUN chown -R $NB_USER $HOME
+```
+
+  
 Another alternative is to build the image on an x64 VM, for example on pouta.csc.fi.
 
 * Test your image. 
