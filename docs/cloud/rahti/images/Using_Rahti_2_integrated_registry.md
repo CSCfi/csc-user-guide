@@ -1,6 +1,6 @@
 # Using Rahti integrated registry
 
-## Manual Image Caching 
+## Manual Image Caching
 
 It is possible to manually cache images in Rahti. This could be useful to remove
 an external dependency or improve performance.
@@ -13,7 +13,7 @@ The process is simple:
     ```sh
     docker login -p $(oc whoami -t ) -u unused image-registry.apps.2.rahti.csc.fi
     ```
-   
+ 
     _Alternatively, you can access to this address: <https://oauth-openshift.apps.2.rahti.csc.fi/oauth/token/display> to request
     a token. Once connected, display and copy the token. The command will be:_
 
@@ -26,19 +26,19 @@ The process is simple:
 
 2. Tag the image you want to push:
    ```sh
-   docker tag centos:7 image-registry.apps.2.rahti.csc.fi/{YOUR_PROJECT_NAME}/centos:<tag>
+   docker tag centos:7 image-registry.apps.2.rahti.csc.fi/{YOUR_RAHTI_PROJECT_NAME}/centos:<tag>
    ```
-   _Replace {YOUR_PROJECT_NAME} by the name of your project._
+   _Replace {YOUR_RAHTI_PROJECT_NAME} by the name of your project._
 
 3. Push your image:
    ```sh
-   docker push image-registry.apps.2.rahti.csc.fi/{YOUR_PROJECT_NAME}/centos:<tag>
+   docker push image-registry.apps.2.rahti.csc.fi/{YOUR_RAHTI_PROJECT_NAME}/centos:<tag>
    ```
 
 You should be able to see your images in your project:
 ![Image Streams](../../img/image_streams_rahti4.png)
 
-## Using Manually Cached Images 
+## Using Manually Cached Images
 
 Go to your project's deployment, and edit it.
 
