@@ -147,8 +147,8 @@ srun myprog <options>
 # - Each job gets 1.875 GB memory per reserved core automatically.
 #   If a task needs more memory, use `--cpus-per-task` option.
 # - Memory reservation slurm options are ignored
-# - Local NVMe disk up to 3500 GB is available, reserve with
-#   `--gres=nvme:<size in GB>` option and use through
+# - Local NVMe disk up to 3500 GiB is available, reserve with
+#   `--gres=nvme:<size in GiB>` option and use through
 #   $LOCAL_SCRATCH environment variable
 
 export MY_JOB_TMPDIR=$LOCAL_SCRATCH
