@@ -36,7 +36,7 @@ Service has parts where information and structure cannot be programmatically det
 
 #### Non-accessible content and its shortcomings
 
-Service has parts which don't meet minimum contrast requirements
+Service has parts which don't meet minimum contrast requirements.
 
 #### Accessibility requirements that are not met
 
@@ -46,7 +46,7 @@ Service has parts which don't meet minimum contrast requirements
 
 #### Non-accessible content and its shortcomings
 
-Service has parts which don't meet requirements for reflow
+Service has parts which don't meet requirements for reflow.
 
 #### Accessibility requirements that are not met
 
@@ -97,13 +97,13 @@ email to <servicedesk@csc.fi>.
 
 ## Supervision authority
 
-If you notice accessibility issues on the website, first give feedback to the website administrator. Receiving a response may take 14 days. If you are not satisfied with the response or you receive no response within two weeks, you can provide feedback to Traficom. The Agency’s accessibility requirements website (<saavutettavuusvaatimukset.fi>) explains how you can lodge a complaint and how the matter will be processed.
+If you notice accessibility issues on the website, first give feedback to the website administrator. Receiving a response may take 14 days. If you are not satisfied with the response or you receive no response within two weeks, you can provide feedback to Traficom. [The Agency's accessibility requirements website](https://saavutettavuusvaatimukset.fi/en) explains how you can lodge a complaint and how the matter will be processed.
 
-### Supervisory authority’s contact information
+### Supervisory authority's contact information
 
 Finnish Transport and Communications Agency Traficom  
 Digital Accessibility Supervision Unit  
-[www.webaccessibility.fi](http://www.webaccessibility.fi) (External link)  
+[www.webaccessibility.fi](https://www.webaccessibility.fi) (External link)  
 <saavutettavuus@traficom.fi>  
 telephone switchboard 029 534 5000
 
