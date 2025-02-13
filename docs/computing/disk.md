@@ -69,7 +69,7 @@ the disks do not fill up CSC will regularly delete files that have not
 been accessed in a long time. In Puhti the current policy is to remove
 files that have not been accessed for more than 6 months. In Mahti a
 similar cleaning procedure will be introduced, but is not yet
-active. See [Usage policy](../../computing/usage-policy) page for details on the current
+active. See [Usage policy](./usage-policy.md) page for details on the current
 policy.
 
 
@@ -189,7 +189,8 @@ of millions of files are stored in the `scratch` area.
 If the application depends on the use of temporary files, the suitability of
 the filesystem may have a large effect on the performance of the application,
 see section *Mind your I/O - it can make a big difference* in the [Performance
-checklist](running/performance-checklist.md#mind-your-io---it-can-make-a-big-difference).
+checklist](running/performance-checklist.md#mind-your-io-it-can-make-a-big-difference).
+
 Please note that some applications use temporary files "behind the scenes". Usually these
 applications read some environment variable that points to a suitable disk area, such as
 `$TMPDIR`.
