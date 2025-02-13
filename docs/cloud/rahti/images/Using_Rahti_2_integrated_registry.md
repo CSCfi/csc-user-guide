@@ -29,14 +29,17 @@ The process is simple:
    docker tag centos:7 image-registry.apps.2.rahti.csc.fi/{YOUR_RAHTI_PROJECT_NAME}/centos:<tag>
    ```
    _Replace {YOUR_RAHTI_PROJECT_NAME} by the name of your project._
+   _Please note that YOUR_RAHTI_PROJECT_NAME here is the Rahti project name (AKA namespace name), and does not refer to CSC project._
 
-3. Push your image:
+4. Push your image:
    ```sh
    docker push image-registry.apps.2.rahti.csc.fi/{YOUR_RAHTI_PROJECT_NAME}/centos:<tag>
    ```
 
 You should be able to see your images in your project:
 ![Image Streams](../../img/image_streams_rahti4.png)
+
+Alternatively you can query images in remote registry with `docker image ls [OPTIONS] [REPOSITORY[:TAG]]`
 
 ## Using Manually Cached Images
 
