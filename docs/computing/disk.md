@@ -234,12 +234,13 @@ For more information see [creating job scripts](running/creating-job-scripts-puh
 In Puhti we simply recommend using compute nodes with NVMe disks (`$LOCAL_SCRATCH`) for the
 applications that require temporary local storage.
 
-In Mahti, with most compute nodes without local NVMe disks, it is possible to store a relatively
+In Mahti, where only some compute nodes have local NVMe disks, it is also possible to store a relatively
 small amount of temporary files in memory. In practice, the applications can use the directory
 `/dev/shm` for this, for example by setting `export TMPDIR=/dev/shm`. Please note that the use
 of `/dev/shm` consumes memory, so less is left available for the applications. This may lead to
 applications running out of memory sooner than expected and failing in the compute node, but
-this usually does no other harm. The plus side is that if it works, it should be fast. In Puhti
-however, where applications from multiple users can share the same node, running out of memory
-by filling up `/dev/shm` will crash other users applications, too. **It is thus not recommended to
-use `/dev/shm` in Puhti at all.**
+this usually does no other harm. The plus side is that if it works, it should be fast.
+
+However, in Puhti, as well as Mahti `small`, `interactive` and GPU partitions, where applications
+from multiple users can share the same node, running out of memory by filling up `/dev/shm` will
+crash other users applications, too! **In these cases it is not recommended to use `/dev/shm` at all.**
