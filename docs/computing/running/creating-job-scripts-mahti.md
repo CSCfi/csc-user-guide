@@ -67,7 +67,7 @@ actual physical cores unallocated and performance will be suboptimal.
 
 ## Local storage
 
-In Mahti nodes in `interactive`, `small` and GPU partitions also have fast local storage, which is good for I/O-intensive applications.
+Mahti nodes in `interactive`, `small` and GPU partitions also have fast local storage, which is good for I/O-intensive applications.
 Request local storage using the `--gres` flag in the job submission:
 
 ```bash
@@ -79,7 +79,7 @@ The amount of space is given in GB (with a maximum of 3800 GB per node). For exa
 ## GPU batch jobs
 
 Mahti has 24 GPU nodes and each of them has four Nvidia Ampere A100 GPUs and a local 3.8 TB Nvme drive.
-The GPUs are available on the `gputest` ,`gpusmall` and `gpumedium` partitions using the option:
+The GPUs are available on the `gputest`, `gpusmall` and `gpumedium` partitions using the option:
 
 ```bash
 #SBATCH --gres=gpu:a100:<number_of_gpus_per_node>
@@ -201,7 +201,7 @@ For example, say that we would like to post-process the _output_ file, produced 
 `python post-proc.py output` uses only serial computing and requires about 40 minutes and 3 GB of memory. Instead of including the post-processing
 to the main job it is reasonable to execute it as separate job in the interactive partition.
 
-Jobs in interactive partition can reserve 1-8 cores and each core reserves 1.875 GB of memory. Thus in this case we will reserve 2 cores `--cpus-per-task=2` to have enough memory (3,75 GB) available.  Further, `--dependency=afterok:<slurm-jobid>` defines that the job can start only when the previously sent job has successfully finished. Here the `<slurm-jobid>` is replaced with ID number of the batch job that produces the _output_ file (you'll get the ID number when you submit the job).
+Jobs in interactive partition can reserve 1-8 cores and each core reserves 1.875 GB of memory. Thus in this case we will reserve 2 cores `--cpus-per-task=2` to have enough memory (3.75 GB) available.  Further, `--dependency=afterok:<slurm-jobid>` defines that the job can start only when the previously sent job has successfully finished. Here the `<slurm-jobid>` is replaced with ID number of the batch job that produces the _output_ file (you'll get the ID number when you submit the job).
 
 ```bash
 #!/bin/bash

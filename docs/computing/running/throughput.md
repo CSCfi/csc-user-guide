@@ -100,7 +100,7 @@ all users and should thus be moved away from Lustre.
 If you need to read and write thousands of files in your HTC workflow, please use:
 
 * [Fast local NVMe disk] on Puhti and Mahti
-* [Ramdisk] (`/dev/shm`) on Mahti `medium` partition (only if you know what you're doing!)
+* [Ramdisk] (`/dev/shm`) on Mahti CPU partitions with node-based allocation (only if you know what you're doing!)
 * If your application can be run as a [Singularity container], another good option
   is to [mount your datasets with SquashFS]. Creating a SquashFS image from your
   dataset, possibly composed of thousands of files, reduces it to a single file
