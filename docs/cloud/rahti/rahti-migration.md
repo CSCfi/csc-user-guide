@@ -224,4 +224,4 @@ So, if the deployment have a mounted volume and you want to update the deploymen
 
 ### How to use Integrated Registry
 
-To learn more about image caching and access control registry in Rahti, refer to the following article: [Using Rahti Integrated Registry](../../cloud/rahti/images/Using_Rahti_2_integrated_registry.md)
+To learn more about image caching and access control registry in Rahti, refer to the following article: [Using Rahti Integrated Registry](../../cloud/rahti/images/Using_Rahti_integrated_registry.md)
