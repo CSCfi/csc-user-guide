@@ -120,12 +120,12 @@ We are committed to improve the accessibility of our services. We ensure
 accessibility with, among other things, the following measures:
 
 - We develop the site's accessibility in the first phase by prioritizing
-  the repair order based on the accessibility audit report
+  the repair order based on the accessibility audit report.
 - We take accessibility requirements into account when we develop
   services.
 - We already take accessibility requirements into account when we make
   purchases.
-- We support our staff in producing accessible content
+- We support our staff in producing accessible content.
 
 ## This service has been published
 
