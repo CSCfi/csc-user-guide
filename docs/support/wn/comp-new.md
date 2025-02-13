@@ -1,8 +1,6 @@
 # Computing environment
 
-
-
-## New Small Partition with High-Performance NVMe Storage on Mahti, 12.2.2025
+## New Small Partition with High-Performance NVMe Storage on Mahti, 13.2.2025
 
 Mahti has expanded its capabilities with a new small partition
 featuring 56 compute nodes (7168 cores), each equipped with 3500 GiB
@@ -18,7 +16,6 @@ combination of core-based allocation and high-performance NVMe drives
 makes this partition particularly suitable for data-intensive
 tasks. Current Puhti users working with I/O-bound workflows may find
 this new resource especially valuable for their computations.
-
 
 ## Puhti and Mahti web interfaces updated to release 24 and 10, 30.1.2025
 
@@ -36,6 +33,7 @@ this new resource especially valuable for their computations.
 * Open OnDemand updated to version 3.1.9.
 
 ## Puhti and Mahti web interfaces updated to release 22 and 8, 28.8.2024
+
 * The Jupyter app launch form has been improved.
     * Module version for Python modules can now be selected using a dropdown.
     * The UI for extending the Python environment with additional packages has been simplified.
@@ -45,6 +43,7 @@ this new resource especially valuable for their computations.
 * Open OnDemand updated to version 3.1.7.
 
 ## Puhti and Mahti web interfaces updated to release 21 and 7, 13.6.2024
+
 * VSCode updated to 1.89.1.
 * Jupyter app should work better with virtual environments created outside the web interface.
 * Puhti: RStudio now has R version 4.4.0 available.
@@ -52,8 +51,8 @@ this new resource especially valuable for their computations.
 * Open OnDemand updated to version 3.1.5.
 
 ## Puhti and Mahti web interfaces updated to release 20 and 6, 27.5.2024
-* The Cloud storage configuration app can now configure connections to LUMI-O.
 
+* The Cloud storage configuration app can now configure connections to LUMI-O.
 
 ## Puhti and Mahti web interfaces updated to release 19 and 5, 10.4.2024
 
@@ -63,7 +62,6 @@ this new resource especially valuable for their computations.
 * Downloading directories now works correctly again.
 * Accessibility statement has been updated and some accessibility issues have been fixed.
 * Open OnDemand updated to version 3.1.4
-
 
 ## Puhti web interface updated to release 18, 5.3.2024
 
@@ -86,7 +84,6 @@ this new resource especially valuable for their computations.
 * TensorBoard and MLflow can now use the default module versions.
 * Open OnDemand updated to version 3.1.1.
 
-
 ## Mahti has small GPUs available for interactive work, 5.3.2024
 
 Four (4) A100 GPUs on Mahti have been split into a total of 28 smaller GPUs with a fraction of the 
@@ -95,7 +92,6 @@ the compute power of one A100 GPU and in total 5 GB of memory. These are useful 
 courses and for code development, and are also available via the
 [web interface](../../computing/webinterface/index.md#partitions-and-resources).
 [See more details here](../../computing/running/creating-job-scripts-mahti.md#gpu-batch-jobs).
-
 
 ## Mahti web interface updated to release 4, 27.2.2024
 

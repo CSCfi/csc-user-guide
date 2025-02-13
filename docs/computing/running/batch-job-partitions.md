@@ -97,7 +97,7 @@ run two simultaneous jobs on the Puhti `interactive` partition.
 
 ## Mahti partitions
 
-### Mahti CPU partitions with node based allocation
+### Mahti CPU partitions with node-based allocation
 
 Mahti features the following partitions for submitting jobs to CPU nodes. Jobs
 submitted to these partitions occupy
@@ -124,10 +124,9 @@ accessible to
 | `large`   | 36 hours      | 128                   | 20–200           | CPU                               | 256 GiB            | n/a                                    | [scalability test]              |
 | `gc`      | 36 hours      | 128                   | 200–700          | CPU                               | 256 GiB            | n/a                                    | [Grand Challenge project]       |
 
+### Mahti CPU partitions with core-based allocation
 
-### Mahti CPU partitions with core based allocation
-
-Two CPU partitions on Mahti allow you to reserve cores, instead of
+Two CPU partitions on Mahti allow you to reserve cores instead of
 full nodes. These are the `small` partition and the `interactive`
 partition. In these partitions jobs are allocated 1.875 GiB of memory
 for each reserved CPU core, and the only way to reserve more memory is
@@ -149,16 +148,12 @@ The `small` partition is intended for batch processing of small scale
 CPU compute workloads, that do not need a full node. It is also able
 to support applications that need local storage to perform
 optimally. Many workloads that have traditionally used Puhti, may
-benefit from this partition. 
- 
+benefit from this partition.
 
 | Partition     | Time<br>limit | Max CPU<br>cores | Max<br>nodes | [Node types](../systems-mahti.md) | Max memory<br>per node | Max local storage<br>([NVMe]) per node |
 |---------------|---------------|------------------|--------------|-----------------------------------|------------------------|----------------------------------------|
 | `small`       | 3 days        | 128              | 1            | CPU with NVMe                     | 240 GiB                | 3500 GiB                               |
 | `interactive` | 7 days        | 32               | 1            | CPU, CPU with NVMe                | 60 GiB                 | 3500 GiB                               |
-
-
-
 
 ### Mahti GPU partitions
 
