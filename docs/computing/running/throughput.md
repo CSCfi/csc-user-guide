@@ -143,8 +143,7 @@ graph TD
 !!!warning "Note"
     Please do not reserve GPU nodes just to utilize the node's NVMe disk. To run
     on GPUs, your code must be GPU-enabled and benefit from using the resources,
-    [see usage policy]. Remember that the CPU nodes of Puhti also have NVMe disks.
-    If you have questions about your particular workflow, please [contact CSC Service Desk].
+    [see usage policy]. If you need NVMe disks, consider using Puhti's CPU nodes or Mahti's 'small' partition instead, as these also provide NVMe disks. If you have questions about your particular workflow, please [contact CSC Service Desk].
 
 ## More information on workflows and efficient IO
 
