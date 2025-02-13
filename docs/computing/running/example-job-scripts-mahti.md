@@ -133,6 +133,30 @@ export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
 srun myprog <options>
 ```
 
+## Local discs and `small` partition
+
+```
+#!/bin/bash
+#SBATCH --job-name=example
+#SBATCH --account=<project>
+#SBATCH --partition=small
+#SBATCH --time=02:00:00
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=4
+#SBATCH --gres=nvme:100
+
+# Small partition:
+# - Each job gets 1.875GB memory per reserved core automatically.
+#   If a task needs more memory, use `--cpus-per-task` option.
+# - memory reservation slurm options are ignored
+# - local nvme disc up to 3500GB is available, reserve with
+#   `--gres=nvme:<size in GB>` option and use through
+#   $LOCAL_SCRATCH environment variable
+
+export MY_JOB_TMPDIR=$LOCAL_SCRATCH
+srun myprog <options>
+```
+
 ## 1-2 GPU job i.e. `gpusmall` partition
 
 ```
