@@ -8,7 +8,6 @@
 * [Custom domain names and secure transport](custom-domain.md)
 * [Deploying a static web server using the command line](deploy_static_webserver_cli.md)
 * [Deploying a static web server using the web interface](deploy_static_webserver_webconsole.md)
-* [Integrating External Services](integrating-external-services.md)
 * [Kustomize](kustomize.md)
 * [Learn cloud computing by developing and deploying a web application](web-app-dev-cloud.md)
 * [Multi stage builds](multi-stage-builds.md)
