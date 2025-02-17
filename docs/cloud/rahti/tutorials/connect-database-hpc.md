@@ -2,8 +2,6 @@
     This tutorial uses OpenShift CLI tool [oc](../usage/cli.md).
     You must understand that OpenShift [Routes](../concepts.md#route) only exposes HTTP/HTTPS port to the internet
 
-    As stated below, you can use [LoadBalancer](../networking.md#using-loadbalancer-service-type-with-dedicated-ips)
-
 # Accessing databases on Rahti from CSC supercomputers
 
 !!! warning "New Rahti LoadBalancer available"
