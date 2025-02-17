@@ -24,14 +24,14 @@ that uses the common OpenStack command line tool.
 
 ##### These recommended versions of the OpenStack commands should work with the current version of ePouta and cPouta (Ussuri).
 
-- [python-openstackclient](https://docs.openstack.org/releasenotes/python-openstackclient/)==5.0.0,5.2.2
-- [python-cinderclient](https://docs.openstack.org/releasenotes/python-cinderclient/)== 6.0.0,7.0.2
-- [python-glanceclient](https://docs.openstack.org/releasenotes/python-glanceclient/)==3.0.0,3.1.2
-- [python-heatclient](https://docs.openstack.org/releasenotes/python-heatclient/)==2.0.0,2.1.0
-- [python-keystoneclient](https://docs.openstack.org/releasenotes/python-keystoneclient/)==3.22.0,4.0.0
-- [python-neutronclient](https://docs.openstack.org/releasenotes/python-neutronclient/)==7.0.0,7.1.1
-- [python-novaclient](https://docs.openstack.org/releasenotes/python-novaclient/)==16.0.0,17.0.1
-- [python-swiftclient](https://docs.openstack.org/releasenotes/python-swiftclient/)==3.9.0,3.9.1
+- [python-openstackclient](https://docs.openstack.org/releasenotes/python-openstackclient/)==5.2.2
+- [python-cinderclient](https://docs.openstack.org/releasenotes/python-cinderclient/)==7.0.2
+- [python-glanceclient](https://docs.openstack.org/releasenotes/python-glanceclient/)==3.1.2
+- [python-heatclient](https://docs.openstack.org/releasenotes/python-heatclient/)==2.1.0
+- [python-keystoneclient](https://docs.openstack.org/releasenotes/python-keystoneclient/)==4.0.0
+- [python-neutronclient](https://docs.openstack.org/releasenotes/python-neutronclient/)==7.1.1
+- [python-novaclient](https://docs.openstack.org/releasenotes/python-novaclient/)==17.0.1
+- [python-swiftclient](https://docs.openstack.org/releasenotes/python-swiftclient/)==3.9.1
 
 More information: [OpenStackClient pip module](https://pypi.org/project/python-openstackclient/)  
 
