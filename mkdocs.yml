@@ -415,7 +415,6 @@ nav:
               - Custom domain names and secure transport: cloud/rahti/tutorials/custom-domain.md
               - Deploying a static web server using the command line: cloud/rahti/tutorials/deploy_static_webserver_cli.md
               - Deploying a static web server using the web interface: cloud/rahti/tutorials/deploy_static_webserver_webconsole.md
-              - Integrating External Services: cloud/rahti/tutorials/integrating-external-services.md
               - Kustomize: cloud/rahti/tutorials/kustomize.md
               - Learn cloud computing by developing and deploying a web application: cloud/rahti/tutorials/web-app-dev-cloud.md
               - Multi stage builds: cloud/rahti/tutorials/multi-stage-builds.md
