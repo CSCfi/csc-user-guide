@@ -111,7 +111,6 @@ plugins:
         "cloud/rahti2/tutorials/allow-pull-from-other-projects.md": "cloud/rahti/tutorials/allow-pull-from-other-projects.md"
         "cloud/rahti2/tutorials/deploy_static_webserver_webconsole.md": "cloud/rahti/tutorials/deploy_static_webserver_webconsole.md"
         "cloud/rahti2/tutorials/webhooks.md": "cloud/rahti/tutorials/webhooks.md"
-        "cloud/rahti2/tutorials/integrating-external-services.md": "cloud/rahti/tutorials/integrating-external-services.md"
         "cloud/rahti2/tutorials/annotations.md": "cloud/rahti/tutorials/annotations.md"
         "cloud/rahti2/tutorials/connect-database-hpc.md": "cloud/rahti/tutorials/connect-database-hpc.md"
         "cloud/rahti2/tutorials/yaml_introduction.md": "cloud/rahti/tutorials/yaml_introduction.md"
@@ -133,7 +132,7 @@ plugins:
         "cloud/rahti2/images/creating.md": "cloud/rahti/images/creating.md"
         "cloud/rahti2/images/keeping_docker_images_small.md": "cloud/rahti/images/keeping_docker_images_small.md"
         "cloud/rahti2/images/overview.md": "cloud/rahti/images/overview.md"
-        "cloud/rahti2/images/Using_Rahti_2_integrated_registry.md": "cloud/rahti/images/Using_Rahti_2_integrated_registry.md"
+        "cloud/rahti2/images/Using_Rahti_2_integrated_registry.md": "cloud/rahti/images/Using_Rahti_integrated_registry.md"
 
 markdown_extensions:
   - footnotes
@@ -192,9 +191,9 @@ validation:
   nav:
     omitted_files: ignore
   links:
-    absolute_links: ignore
-    unrecognized_links: ignore
-    anchors: ignore
+    absolute_links: relative_to_docs
+    unrecognized_links: warn
+    anchors: warn
 
 nav:
   - Home: index.md
@@ -393,7 +392,7 @@ nav:
                   - cloud/rahti/images/overview.md
                   - Creating an image: cloud/rahti/images/creating.md
                   - Keeping docker images small: cloud/rahti/images/keeping_docker_images_small.md
-                  - Using Rahti integrated registry: cloud/rahti/images/Using_Rahti_2_integrated_registry.md
+                  - Using Rahti integrated registry: cloud/rahti/images/Using_Rahti_integrated_registry.md
               - Storage in Rahti:
                   - cloud/rahti/storage/index.md
                   - Ephemeral storage: cloud/rahti/storage/ephemeral.md

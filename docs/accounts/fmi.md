@@ -51,6 +51,6 @@ Puhti FMI works similarly to the regular Puhti system, the main difference being
 3. the FMI compute nodes have simultaneous multithreading (SMT/hyper threading) enabled, thus most tools, such as `htop`,
    show 80 logical cpus instead of 40, `seff` CPU efficiency report is computed with 80 logical cpus, etc. The configuration
    and the usage is similar to Mahti, see
-   [Hybrid jobs with SMT](/computing/running/creating-job-scripts-mahti/#hybrid-batch-jobs-with-simultaneous-multithreading-smt).
+   [Hybrid jobs with SMT](../computing/running/creating-job-scripts-mahti.md#hybrid-batch-jobs-with-simultaneous-multithreading-smt).
 
 In addition to the regular CSC's user support, [servicedesk@csc.fi](mailto:servicedesk@csc.fi), FMI specific support is available in the internal wiki pages [FMI Puhti Guide](https://wiki.fmi.fi/display/VTUKI/FMI+Puhti+guide), and in the very active FMI's Slack channel 'fmi-computing'.
