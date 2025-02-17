@@ -110,7 +110,6 @@ plugins:
         "cloud/rahti2/tutorials/index.md": "cloud/rahti/tutorials/index.md"
         "cloud/rahti2/tutorials/allow-pull-from-other-projects.md": "cloud/rahti/tutorials/allow-pull-from-other-projects.md"
         "cloud/rahti2/tutorials/deploy_static_webserver_webconsole.md": "cloud/rahti/tutorials/deploy_static_webserver_webconsole.md"
-        "cloud/rahti2/tutorials/configuration.md": "cloud/rahti/tutorials/configuration.md"
         "cloud/rahti2/tutorials/webhooks.md": "cloud/rahti/tutorials/webhooks.md"
         "cloud/rahti2/tutorials/annotations.md": "cloud/rahti/tutorials/annotations.md"
         "cloud/rahti2/tutorials/connect-database-hpc.md": "cloud/rahti/tutorials/connect-database-hpc.md"
@@ -407,26 +406,25 @@ nav:
               - Security guide: cloud/rahti/security-guide.md
           - Tutorials:
               - cloud/rahti/tutorials/index.md
+              - 4cat: cloud/rahti/tutorials/4cat.md
+              - Advanced NetworkPolicies: cloud/rahti/tutorials/advanced-NetworkPolicies-networking.md
               - Accessing databases on Rahti from CSC supercomputers: cloud/rahti/tutorials/connect-database-hpc.md
+              - Allow pulls of images from one Rahti project to another: cloud/rahti/tutorials/allow-pull-from-other-projects.md
               - Annotations: cloud/rahti/tutorials/annotations.md
               - CI/CD on Rahti: cloud/rahti/tutorials/ci_cd_introduction.md
-              - Configuration, ConfigMaps and Secrets: cloud/rahti/tutorials/configuration.md
               - Custom domain names and secure transport: cloud/rahti/tutorials/custom-domain.md
               - Deploying a static web server using the command line: cloud/rahti/tutorials/deploy_static_webserver_cli.md
               - Deploying a static web server using the web interface: cloud/rahti/tutorials/deploy_static_webserver_webconsole.md
               - Kustomize: cloud/rahti/tutorials/kustomize.md
               - Learn cloud computing by developing and deploying a web application: cloud/rahti/tutorials/web-app-dev-cloud.md
               - Multi stage builds: cloud/rahti/tutorials/multi-stage-builds.md
+              - Pod (anti) affinity: cloud/rahti/tutorials/pod-affinity.md
               - Reverse proxy authentication using a sidecar container: cloud/rahti/tutorials/sidecar_proxy_authentication.md
               - Sending e-mail from Rahti: cloud/rahti/tutorials/email.md
+              - Setup a HTTP redirection in Rahti: cloud/rahti/tutorials/http-redirector.md
               - Short introduction to YAML: cloud/rahti/tutorials/yaml_introduction.md
               - Webhooks: cloud/rahti/tutorials/webhooks.md
-              - 4cat: cloud/rahti/tutorials/4cat.md
               - OAuth2 Proxy: cloud/rahti/tutorials/oauth2.md
-              - Pod (anti) affinity: cloud/rahti/tutorials/pod-affinity.md
-              - Advanced NetworkPolicies: cloud/rahti/tutorials/advanced-NetworkPolicies-networking.md
-              - Setup a HTTP redirection in Rahti: cloud/rahti/tutorials/http-redirector.md
-              - Allow pulls of images from one Rahti project to another: cloud/rahti/tutorials/allow-pull-from-other-projects.md
   - Data:
       - data/index.md
       #    - Datasets: data/datasets.md
