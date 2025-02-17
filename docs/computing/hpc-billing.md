@@ -30,8 +30,8 @@ interactive work, as well as for small scale pre- and postprocessing, the usage
 is billed per CPU core. The GPU nodes in Mahti are billed according to the number
 of reserved GPUs. Memory is not billed separately.
 
-* Each reserved CPU node consumes **100** BU per hour.
-* In interactive partition each core consumes **1** BU per hour.
+* In the partitions with dedicated nodes each reserved CPU node consumes **100** BU per hour.
+* In the `interactive` and `small` partitions each core consumes **1** BU per hour, and each reserved GiB of NVMe disk consumes **0.01** BU per hour.
 * Each reserved A100 GPU consumes **100** BU per hour, or in total **400** BU per
   hour for a full GPU node.
 * A slice of an A100 GPU with one seventh of an A100 (a100_1g.5gb) consumes **15** BU per hour 
