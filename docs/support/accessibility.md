@@ -56,7 +56,7 @@ Service has parts which don't meet requirements for reflow.
 
 #### Non-accessible content and its shortcomings
 
-The accessibility audit revealed some functions and elements that were difficult or impossible to use specially with assistive technology.
+The accessibility audit revealed some functions and elements that were difficult or impossible to use especially with assistive technology.
 
 #### Accessibility requirements that are not met
 
