@@ -1,0 +1,50 @@
+.pre-header {
+  background-color: var(--c-primary-200);
+  color: var(--c-tertiary-700);
+  height: 42px;
+  line-height: 24px;
+  z-index: 5;
+}
+
+.pre-header > ul {
+  display: flex;
+  position: relative;
+  box-sizing: border-box;
+  height: 100%;
+  max-width: var(--csc-content-width);
+  list-style: none;
+  justify-content: center;
+  margin: auto 0;
+  padding: 0;
+}
+
+.pre-header > ul > li {
+  display: flex;
+  align-items: center;
+}
+
+.pre-header > ul > li.current-site {
+  background-color: var(--c-white);
+}
+
+.pre-header > ul > li:last-child {
+  position: absolute;
+  right: 0;
+}
+
+.pre-header > ul > li > a {
+  display: block;
+  line-height: 20px;
+  font-size: 14px;
+  padding: 8px 16px;
+  box-sizing: border-box;
+}
+
+.pre-header > ul > li > a > svg {
+  display: inline-block;
+  margin-left: 8px;
+  vertical-align: middle;
+  height: 24px;
+  width: 24px;
+  fill: var(--c-primary-600);
+}
