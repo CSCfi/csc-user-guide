@@ -207,7 +207,10 @@ class Internal_link:
         if(self.is_absolute):
             source="site/"
             target=self.link_file_target
-            
+
+            if(self.ends_with_md):
+                target=target[:-3]
+
             if(not self.has_other_ending):
                 target=target+"/index.html"
 
