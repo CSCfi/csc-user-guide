@@ -258,10 +258,8 @@ serve`. After that your job can access the API in `localhost` at port
 download huge model files to your home directory.  See our [example
 Slurm script `run-ollama.sh` for running with Ollama][11].
 
-<!-- TODO
-- multi-GPU example
-- test on LUMI
--->
+The [`ai-inference-examples`][14] repository also has some examples of
+running Ollama on a full node with 4 GPUs on Puhti and 8 GPUs on LUMI.
 
 ### Inference with vLLM
 
