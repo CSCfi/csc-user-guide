@@ -438,9 +438,13 @@ We have found that it is possible to speed up the execution time for a simulatio
 
 === "Number of nodes for multi-node simulation with Cache Blocking Qubits"
     ```bash
-                  Statevector memory required for n-qubits = precision*2^n
-      Cache memory required for nc-cache blocking qubits = precision*2^nc
-                                           Max MPI-ranks = (Statevector Memory)/(Cache Memory) = 2^(n-nc)
+    
+                Statevector memory required for n-qubits = precision*2^n
+      Cache memory required for nc-cache-blocking-qubits = precision*2^nc
+      
+                                           Max MPI-ranks = (Statevector Memory)/(Cache Memory)
+                                           Max MPI-ranks = (precision*2^n)/(precision*2^nc) = 2^(n-nc)
+                                           
                                                Max Nodes = (Max MPI-Ranks)/(Tasks Per Node)
     ```
 
