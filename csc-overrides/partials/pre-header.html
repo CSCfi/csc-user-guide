@@ -1,22 +1,16 @@
-{% set external_link_icon %}
-<svg xmlns="http://www.w3.org/2000/svg">
-  <path
-    d="M5.77778 20C5.28889 20 4.87022 19.8261 4.52178 19.4782C4.17393 19.1298 4 18.7111 4 18.2222V5.77778C4 5.28889 4.17393 4.87022 4.52178 4.52178C4.87022 4.17393 5.28889 4 5.77778 4H12V5.77778H5.77778V18.2222H18.2222V12H20V18.2222C20 18.7111 19.8261 19.1298 19.4782 19.4782C19.1298 19.8261 18.7111 20 18.2222 20H5.77778ZM9.95556 15.2889L8.71111 14.0444L16.9778 5.77778H13.7778V4H20V10.2222H18.2222V7.02222L9.95556 15.2889Z" />
-</svg>
-{% endset %}
 <div class="pre-header">
   <ul>
     <li>
-      <a href="https://beta-research.csc.fi" target="_blank">Services for research{{ external_link_icon }}</a>
+      <a href="https://beta-research.csc.fi" target="_blank">Services for research</a>
     </li>
     <li class="current-site">
-      <a href="{{ config.site_url | url }}">Docs CSC - User guides</a>
+      <a href="{{ config.site_url | url }}">Docs CSC <span class="hidden">- User guides</span></a>
     </li>
     <li>
-      <a href="https://my.csc.fi/" target="_blank">MyCSC - User portal{{ external_link_icon }}</a>
+      <a href="https://my.csc.fi/" target="_blank">MyCSC <span class="hidden">- User portal</span></a>
     </li>
-    <li class="company-site">
-      <a href="https://www.csc.fi/" target="_blank">csc.fi - Company site{{ external_link_icon }}</a>
+    <li>
+      <a href="https://www.csc.fi/" target="_blank">csc.fi <span class="hidden">- Company site</span></a>
     </li>
   </ul>
 </div>
