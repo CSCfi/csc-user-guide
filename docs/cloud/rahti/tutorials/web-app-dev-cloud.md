@@ -1,3 +1,6 @@
+!!! error "Advanced level"
+    This tutorial requires a good knowledge of OpenShift CLI tool [oc](../usage/cli.md) as well as Linux environment
+
 # Learn cloud computing by developing and deploying a web application
 This tutorial will teach you how to use CSC's [Cloud](../index.md) services by developing a web application and deploying it on the cloud. The tutorial assumes basic knowledge of the Linux operating system, Git version control system, Julia language, and SQL databases. We recommend reading the Linux basics tutorial for understanding basic [Linux command line usage](../../../support/tutorials/env-guide/index.md).
 

@@ -1,5 +1,9 @@
 # Applications
 
+## Snakemake and Nextflow tutorials significantly improved
+
+Tutorials with major updates available for workflow tools: [Snakemake](../tutorials/snakemake-puhti.md) and [Nextflow](../tutorials/nextflow-tutorial.md). The tutorial describe different options for the installing and running the tools. Note also the new [master thesis by Antoni Gołoś comparing automated workflow approaches on supercomputers](https://urn.fi/URN:NBN:fi:aalto-202406164397).
+
 ## Schrödinger Maestro 2025.1, 6.2.2025
 
 [Schrödinger Maestro](../../apps/maestro.md) version 2025.1 has been installed
@@ -474,7 +478,7 @@ instead.
 A wrapper for HyperQueue called `sbatch-hq` has been created to enable easy and efficient
 task farming, *i.e.* high-throughput computing workflows where the intention is to run many
 similar (non-MPI parallel, independent) commands/programs. [See the HyperQueue page for more
-details](../../apps/hyperqueue.md#sbatch-hq).
+details](../../apps/hyperqueue.md#task-farming-with-sbatch-hq-tool).
 
 ## PyTorch 1.13, 9.12.2022
 

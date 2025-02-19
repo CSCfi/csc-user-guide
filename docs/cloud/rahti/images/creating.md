@@ -323,6 +323,6 @@ resources:
     memory: 1600Mi
 ```
 
-Note that they cannot be more than 5x apart (default ratio, more information [here](../../usage/projects_and_quota/#default-pod-resource-limits)).
+Note that they cannot be more than 5x apart (default ratio, more information [here](../usage/projects_and_quota.md#default-pod-resource-limits)).
 
 Save and run the build again, and if it succeeds, check the metrics and see how much memory was used. You can adjust the memory limit to 10-20% more than what it was used.
