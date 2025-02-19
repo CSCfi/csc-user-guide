@@ -432,9 +432,9 @@ The table below showcases example parameters for simulating a Quantum Volume cir
 
 * For a job submitted to LUMI where more than 1024 nodes are required, a special petition for a hero run must be filed to request the allocation of such resources.
 
-### Using more than the recommended LUMI resources for a simulation
+### Using more than the effective minimum LUMI resources for a simulation
 
-We have found that it is possible to speed up the execution time for a simulation by increasing the amount of resources beyond the recommended # of nodes used for the job. We have also found that you can indeed allocate too many resources which results in an error and your simulation is not executed successfully. In order to obtain an estimate of the max # of nodes for a job we have the below formula as a guideline.
+It is possible to speed up the execution time for a simulation by increasing the number of resources beyond the effective minimum number of nodes, which corresponds to double the statevector memory requirements. In such cases, the number of distributed processes (MPI_Ranks) and allocated resources should be carefully considered. Blocking qubits should be specified so that there are no more MPI ranks than there are caches. In order to obtain an estimate of the max # of nodes for a job, we have the below formulas as a guideline.
 
 === "Number of nodes for multi-node simulation with Cache Blocking Qubits"
     ```bash
