@@ -98,8 +98,8 @@ file that you can source, a YAML file that can be used directly by the CLI, or a
 <del>
 In cPouta, there are four roles available: `member`, `heat_stack_owner`, `object_store_user` and `creator`.
 
-* `member` role is the normal user role. It can make changes to the system. When you login into the web-interface you have the `member` role
-enabled.
+~~* `member` role is the normal user role. It can make changes to the system. When you login into the web-interface you have the `member` role
+enabled.~~
 
 * `heat_stack_owner` can operate over Heat stacks, that is create, modify and delete infrastructure. This is useful for using it in a `IaC` setup.
 
