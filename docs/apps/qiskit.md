@@ -5,15 +5,15 @@ tags:
 
 # Qiskit
 
-Qiskit is an open-source software for working with quantum computers at the level
-of circuits, pulses, and algorithms. This page contains information in regard to running Quantum simulations using qiskit inside of a singularity container.
+Qiskit is an open-source software for working with quantum computers at the level of circuits, pulses, and algorithms. 
+This page contains information in regard to running Quantum simulations using qiskit inside of a singularity container.
 For information pertaining to running jobs on Helmi using qiskit please refer to this documentation: 
 [Running on Helmi](../computing/quantum-computing/helmi/running-on-helmi.md).
 
 !!! info "News"
-     **23.01.2025** Installed `qiskit/1.2.4` in a singularity container on LUMI with all major Qiskit packages and
-     added support for multi-node Native Cray MPI GPU-acceleration allowing for performant multi node simulations 
-     for up to 45* qubits.
+     **19.02.2025** Installed `qiskit/1.3.2` in a singularity container on LUMI with all major Qiskit packages and
+     added support for multi-node Native Cray MPI GPU-acceleration allowing for performant multi node simulations. 
+     for up to 44* qubits. Qiskit-aer has also been upgraded to 0.16
 
 ## Available
 
@@ -22,9 +22,9 @@ Currently supported Qiskit versions:
 | Version | Module          | Puhti | Mahti | LUMI  | Notes                            |
 | :------ | :-------------- | :---: | :---: | :---: | -------------------------------- |
 | 1.1.1   | `qiskit/1.1.1`  |   X   |   X   |       |                                  |
-| 1.2.4   | `qiskit/1.2.4`  |       |       |   X   | Native Cray MPI with GPU support |
+| 1.3.2   |                 |       |       |   X   | Native Cray MPI with GPU support |
 
-Includes all the major Qiskit packages (Terra, Nature, Aer, etc.) and GPU acceleration. The `qiskit/1.1.1` and `qiskit/1.2.4` packages include the following qiskit plugins:
+Includes all the major Qiskit packages (Terra, Nature, Aer, etc.) and GPU acceleration. The `qiskit/1.1.1` and `qiskit/1.3.2` packages include the following qiskit plugins:
 
 === "Puhti"
     ```bash
@@ -56,16 +56,17 @@ Includes all the major Qiskit packages (Terra, Nature, Aer, etc.) and GPU accele
     
 === "LUMI"
     ```bash
-    qiskit=1.2.4
-    qiskit-aer-gpu>=0.15.1
+    qiskit==1.3.2
+    qiskit-aer-gpu==0.16.0
     qiskit-algorithms==0.3.1
     qiskit-dynamics==0.5.1
-    qiskit-experiments==0.8.0
+    qiskit-experiments==0.8.1
     qiskit-finance==0.4.1
     qiskit-ibm-experiment==0.4.8
-    qiskit-machine-learning==0.8.0
+    qiskit-machine-learning==0.8.2
     qiskit-nature==0.7.2
     qiskit-optimization==0.6.1
+    qiskit_qasm3_import==0.5.1
     ```
 
 
@@ -154,7 +155,7 @@ Example `<sbatch_script_name>.sh` script for reserving one GPU and two CPU cores
     #SBATCH --ntasks-per-node=1
     #SBATCH --cpus-per-task=56
     
-    export LUMI_QISKIT_SINGULARITY_CONTAINER_PATH=/appl/local/quantum/qiskit/qiskit_1.2.4_csc.sif
+    export LUMI_QISKIT_SINGULARITY_CONTAINER_PATH=/appl/local/quantum/qiskit/qiskit_1.3.2_csc.sif
     export WRAPPER_PATH=/appl/local/quantum/qiskit/run-singularity
     
     echo "NODES                   : ${SLURM_NNODES}"
@@ -303,7 +304,7 @@ Example `<sbatch_MPI_script_name>.sh` script for running a simulation on multipl
     #SBATCH --ntasks-per-node=8
     #SBATCH --cpus-per-task=7
     
-    export LUMI_QISKIT_SINGULARITY_CONTAINER_PATH=/appl/local/quantum/qiskit/qiskit_1.2.4_csc.sif
+    export LUMI_QISKIT_SINGULARITY_CONTAINER_PATH=/appl/local/quantum/qiskit/qiskit_1.3.2_csc.sif
     export GPU_WRAPPER_PATH=/appl/local/quantum/qiskit/run-singularity-with-gpu-affinity
 
     mask=mask_cpu:0xfe000000000000,0xfe00000000000000,0xfe0000,0xfe000000,0xfe,0xfe00,0xfe00000000,0xfe0000000000
@@ -374,42 +375,83 @@ Small code example of `<myprog_MPI>.py` python script using 38 qubits which we r
 
 Submit the script with `sbatch <sbatch_MPI_script_name>.sh`
 
-### Recommended LUMI resource allocation table 
+### Guidelines for LUMI resource allocation
 
-Please take note that the recommended nodes are twice the number of minimum resources needed to run a simulation but due to our tests we have found a significant speedup and cost savings of GPU hours if a user submits a job with double the amount of resources that are actually required to simulate a quantum circuit for any specific number of qubits. The Maximum number of qubits that can be simulated using the state_vector simulation method is a theoretical 45 qubits due to the total amount of nodes in the standard-g partition and the amount of system memory in each node. 
+The required memory for running statevector simulation is doubled for every qubit added. Using 16-byte precision (default for qiskit-aer), LUMI supports statevector simulations up to 34 qubits using a single node, and up to 44* qubits using 1024 nodes with cache blocking technique. Cache blocking utilizes distributed memory spaces of GPU memory to parallelize the simulation. The size of distributed processes is defined by blocking qubits parameters, which cannot be larger than the size of a single cache. In LUMI, the cache should correspond to the memory of a single GPU, and blocking qubits should not be larger than 29.
 
-| # of Qubits | # of Blocking Qubits | Recommended # of nodes | # gpus-per-node  |
-| :-----------| :------------------: | :--------------------: | ---------------- |
-| 1           | 0                    | 1                      | 8                |
-| 2           | 0                    | 1                      | 8                |
-| 3           | 0                    | 1                      | 8                |
-| 4           | 0                    | 1                      | 8                |
-| .           | 0                    | 1                      | 8                |
-| .           | 0                    | 1                      | 8                |
-| 28          | 0                    | 1                      | 8                |
-| 29          | 0                    | 1                      | 8                |
-| 30          | 28                   | 1                      | 8                |
-| 31          | 29                   | 1                      | 8                |
-| 32          | 29                   | 1                      | 8                |
-| 33          | 29                   | 1                      | 8                |
-| 34          | 29                   | 1                      | 8                |
-| 35          | 29                   | 2                      | 8                |
-| 36          | 29                   | 4                      | 8                |
-| 37          | 29                   | 8                      | 8                |
-| 38          | 29                   | 16                     | 8                |
-| 39          | 29                   | 32                     | 8                |
-| 40          | 29                   | 64                     | 8                |
-| 41          | 29                   | 128                    | 8                |
-| 42          | 29                   | 256                    | 8                |
-| 43          | 29                   | 512                    | 8                |
-| 44          | 29                   | 1024                   | 8                |
-| 45*         | 29                   | 2048                   | 8                |
+The table below showcases example parameters for simulating a Quantum Volume circuit of depth 30 with different numbers of qubits on a LUMI standard-g partition. The statevector required memory is calculated for 16-byte precision. The amount of nodes used corresponds to twice the amount of memory required by the statevector, which results in optimal performance by reserving additional memory for cache blocking to handle data exchange between distributed processes. Please take note that these parameters were tested for a specific circuit. Changing the number of nodes or simulating different circuits might require specifying different amounts of blocking qubits.
 
-* For a job submitted to LUMI where more than 1024 nodes are required, a special petition must be filed to request the allocation of such resources
+### Memory requirements and example parameters for statevector simulation of quantum volume with circuit depth 30 and 16 byte precision
+
+| # of Qubits | # of Blocking Qubits | Recommended # of nodes | # gpus-per-node | # tasks-per-node | # gpus-per-task | # cpus-per-task | Qubit memory requirements | 
+| :-----------| :------------------: | :--------------------: | --------------- | ---------------- | --------------- | --------------- | ------------------------- |
+| 1           | 0                    | 1                      | 8               | 1                | 8               | 56              | 32 Bytes                  |
+| 2           | 0                    | 1                      | 8               | 1                | 8               | 56              | 64                        |
+| 3           | 0                    | 1                      | 8               | 1                | 8               | 56              | 128                       |
+| 4           | 0                    | 1                      | 8               | 1                | 8               | 56              | 256                       |
+| 5           | 0                    | 1                      | 8               | 1                | 8               | 56              | 512                       |
+| 6           | 0                    | 1                      | 8               | 1                | 8               | 56              | 1024                      |
+| 7           | 0                    | 1                      | 8               | 1                | 8               | 56              | 2 Kilobytes               |
+| 8           | 0                    | 1                      | 8               | 1                | 8               | 56              | 4                         |
+| 9           | 0                    | 1                      | 8               | 1                | 8               | 56              | 8                         |
+| 10          | 0                    | 1                      | 8               | 1                | 8               | 56              | 16                        |
+| 11          | 0                    | 1                      | 8               | 1                | 8               | 56              | 32                        |
+| 12          | 0                    | 1                      | 8               | 1                | 8               | 56              | 64                        |
+| 13          | 0                    | 1                      | 8               | 1                | 8               | 56              | 128                       |
+| 14          | 0                    | 1                      | 8               | 1                | 8               | 56              | 256                       |
+| 15          | 0                    | 1                      | 8               | 1                | 8               | 56              | 512                       |
+| 16          | 0                    | 1                      | 8               | 1                | 8               | 56              | 1024                      |
+| 17          | 0                    | 1                      | 8               | 1                | 8               | 56              | 2 Megabytes               |
+| 18          | 0                    | 1                      | 8               | 1                | 8               | 56              | 4                         |
+| 19          | 0                    | 1                      | 8               | 1                | 8               | 56              | 8                         |
+| 20          | 0                    | 1                      | 8               | 1                | 8               | 56              | 16                        |
+| 21          | 0                    | 1                      | 8               | 1                | 8               | 56              | 32                        |
+| 22          | 0                    | 1                      | 8               | 1                | 8               | 56              | 64                        |
+| 23          | 0                    | 1                      | 8               | 1                | 8               | 56              | 128                       |
+| 24          | 0                    | 1                      | 8               | 1                | 8               | 56              | 256                       |
+| 25          | 0                    | 1                      | 8               | 1                | 8               | 56              | 512                       |
+| 26          | 0                    | 1                      | 8               | 1                | 8               | 56              | 1024                      |
+| 27          | 0                    | 1                      | 8               | 1                | 8               | 56              | 2 Gigabytes               |
+| 28          | 0                    | 1                      | 8               | 1                | 8               | 56              | 4                         |
+| 29          | 0                    | 1                      | 8               | 1                | 8               | 56              | 8                         |
+| 30          | 29                   | 1                      | 8               | 1                | 8               | 56              | 16                        |
+| 31          | 29                   | 1                      | 8               | 1                | 8               | 56              | 32                        |
+| 32          | 29                   | 1                      | 8               | 1                | 8               | 56              | 64                        |
+| 33          | 29                   | 1                      | 8               | 1                | 8               | 56              | 128                       |
+| 34          | 29                   | 1                      | 8               | 1                | 8               | 56              | 256                       |
+| 35          | 29                   | 2                      | 8               | 8                | 1               | 7               | 512                       |
+| 36          | 29                   | 4                      | 8               | 8                | 1               | 7               | 1024                      |
+| 37          | 29                   | 8                      | 8               | 8                | 1               | 7               | 2 Terabytes               |
+| 38          | 29                   | 16                     | 8               | 8                | 1               | 7               | 4                         |
+| 39          | 29                   | 32                     | 8               | 8                | 1               | 7               | 8                         |
+| 40          | 29                   | 64                     | 8               | 8                | 1               | 7               | 16                        |
+| 41          | 29                   | 128                    | 8               | 8                | 1               | 7               | 32                        |
+| 42          | 29                   | 256                    | 8               | 8                | 1               | 7               | 64                        |
+| 43          | 29                   | 512                    | 8               | 8                | 1               | 7               | 128                       |
+| 44          | 29                   | 1024                   | 8               | 8                | 1               | 7               | 256                       |
+
+* For a job submitted to LUMI where more than 1024 nodes are required, a special petition for a hero run must be filed to request the allocation of such resources.
+
+### Using more than the effective minimum LUMI resources for a simulation
+
+It is possible to speed up the execution time for a simulation by increasing the number of resources beyond the effective minimum number of nodes, which corresponds to double the statevector memory requirements. In such cases, the number of distributed processes (MPI_Ranks) and allocated resources should be carefully considered. Blocking qubits should be specified so that there are no more MPI ranks than there are caches. In order to obtain an estimate of the max # of nodes for a job, we have the below formulas as a guideline.
+
+=== "Number of nodes for multi-node simulation with Cache Blocking Qubits"
+    ```bash
+    
+                Statevector memory required for n-qubits = precision*2^n
+      Cache memory required for nc-cache-blocking-qubits = precision*2^nc
+      
+                                           Max MPI-ranks = (Statevector Memory)/(Cache Memory)
+                                           Max MPI-ranks = (precision*2^n)/(precision*2^nc) = 2^(n-nc)
+                                           
+                                               Max Nodes = (Max MPI-Ranks)/(Tasks Per Node)
+    ```
 
 
 ## More information
 
+- [* LUMI Full Machine Runs](https://docs.lumi-supercomputer.eu/runjobs/scheduled-jobs/hero-runs)
 - [LUMI Slurm binding options for MPI jobs](https://docs.lumi-supercomputer.eu/runjobs/scheduled-jobs/distribution-binding/#slurm-binding-options)
 - [Qiskit-Aer Running with multiple-GPUs and/or multiple nodes](https://qiskit.github.io/qiskit-aer/howtos/running_gpu.html)
 - [Cache Blocking Technique to Large Scale Quantum Computing Simulation on Supercomputers](https://arxiv.org/abs/2102.02957)
