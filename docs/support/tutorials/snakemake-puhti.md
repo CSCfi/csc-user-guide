@@ -97,6 +97,9 @@ rule capitalise:
                 """
 ```
 
+For more complicated workflows, you can do argument parsing and transformations programmatically using Snakemake's
+[job properties file](https://snakemake.readthedocs.io/en/stable/snakefiles/rules.html#job-properties).
+
 ### Running Snakemake workflow with local executor interactively
 The resources are reserved in advance, both for Snakemake and the workflow jobs as **one interactive session**. In interactive session, the workflow can be started for several times for debugging as long as the reserved resources are available. See resource limits for [interactive partition](../../computing/running/batch-job-partitions.md).
 

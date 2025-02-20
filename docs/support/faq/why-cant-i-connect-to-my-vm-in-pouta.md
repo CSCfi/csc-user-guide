@@ -61,7 +61,7 @@ If the authentication is not configured properly, you may see an error similar t
 
 ### Are you using the correct user?
 
-Different distributions are configured with different defaults users. See here the up to date list of [images](/cloud/pouta/images/#images) and their corresponding default users. For example if you are using "Ubuntu 24.04", the correct user is "ubuntu", but if you are using "AlmaLinux-9" the correct one is "almalinux".
+Different distributions are configured with different defaults users. See here the up to date list of [images](../../cloud/pouta/images.md#images) and their corresponding default users. For example if you are using "Ubuntu 24.04", the correct user is "ubuntu", but if you are using "AlmaLinux-9" the correct one is "almalinux".
 
 It is a common practise for Pouta images, when you try to login as `root`, to get a message back telling you which username to use instead:
 

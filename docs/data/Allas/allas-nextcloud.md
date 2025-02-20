@@ -20,7 +20,7 @@ In this document we show a simple use case with the following steps:
 ## 1. Launch a new Ubuntu Virtual Machine
 
 First, launch a new Ubuntu based server in cPouta service. This tutorial has been tested on **Ubuntu18** and **Ubuntu24**.  
-See instructions in the [cPouta documentation](../../../cloud/pouta/) and
+See instructions in the [cPouta documentation](../../cloud/pouta/index.md) and
 in [tutorial video](https://www.youtube.com/watch?v=CvoN4pv0RJQ).
 
 In most cases the combination of “standard small” flavor and **Ubuntu18** or **Ubuntu24** image is sufficient.

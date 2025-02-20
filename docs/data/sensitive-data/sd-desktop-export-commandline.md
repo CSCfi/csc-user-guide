@@ -1,7 +1,6 @@
 
 # Export data programmatically from the virtual desktop
 
-
 ## Background information
 
 ### Data export from SD Desktop requires manual encryption
@@ -46,7 +45,7 @@ Finally we download the files form Sd Connect/Allas and decrypt them on our loca
     Please reach out to us at servicedesk@csc.fi (subject: SD Desktop). We will guide you through the export process in an online meeting.
 
 
-## 1. Download and install the Crypt4GH encryption CLI tool:
+## 1. Download and install the Crypt4GH encryption CLI tool
 
 For documentation and more information, you can check the [Crypt4GH Encryption Utility](https://github.com/EGA-archive/crypt4gh.git) page.
 
@@ -149,9 +148,7 @@ For documentation and more information, you can check the [Crypt4GH Encryption U
 
 You can import the public encryption key by uploading it via SD Connect user interface.
 
-### Via SD Connect user interface
-
-1. Log in to SD Connect.
+1. [Log in](./sd-connect-login.md) to SD Connect user interface.
 2. Select the correct CSC project in the top left corner.
 3. Click **Upload** in the top right corner.
 4. In the new window, name the destination folder for your files (e.g. **project_export**).
@@ -169,8 +166,7 @@ You can import the public encryption key by uploading it via SD Connect user int
 
 ### Exporting multiple files 
 
-To export multiple files, it is often handy to first collect them first into a single folder, then pack the folder with `tar` or `zip` commands.
-After that you can encrypt all the data as a single file.
+To export multiple files, it is often handy to first collect them first into a single folder, then pack the folder with `tar` or `zip` commands. After that you can encrypt all the data as a single file.
 
 
 ### Encrypt the file or folder
@@ -199,7 +195,7 @@ After that you can encrypt all the data as a single file.
 Once the file are encrypted, only the CSC project manager can export them via the _Data Gateway_ application or using the _Airlock_ command line client.
 
 !!! Note
-   The Airlock client supports exporting files up to 30 GB. Larger files or datasets must be split into smaller segments before export.
+    The Airlock client supports exporting files up to 30 GB. Larger files or datasets must be split into smaller segments before export.
 
 1. Open the terminal (right-click) and use the following syntax:
 
@@ -219,10 +215,8 @@ Once the file are encrypted, only the CSC project manager can export them via th
 
 2. Press **Enter** and enter your password when prompted.
 
-!!! Note:
-    If you attempt to upload an unencrypted file, the Data Gateway application or Airlock client will automatically encrypt it with 
-    the Sensitive Data services public key for security reasons and export it to SD Connect. You will be able to download this file, 
-    but you will not be able to decrypt it. The file is however compatible with other SD Desktop virtual machines.
+!!! Note
+    If you attempt to upload an unencrypted file, the Data Gateway application or Airlock client will automatically encrypt it with the Sensitive Data services public key for security reasons and export it to SD Connect. You will be able to download this file, but you will not be able to decrypt it. The file is however compatible with other SD Desktop virtual machines.
 
 
 
@@ -247,10 +241,10 @@ The command above asks the password of the secret key and produces a ready-to-us
 
 
 
-### 8. Decrypt the files with the Crypt4gh CLI tools
+## 8. Decrypt the files with the Crypt4gh CLI tools
 
 !!! Note
-    Below a step by step example for decrypting one file.
+    Below is a step by step example for decrypting one file.
 
 To decrypt a file you will need a private key which corresponds to one of the public keys used in encryption phase. Let's assume in our example that the research group A is decrypting a file you've sent them. To decrypt a file they use `crypt4gh decrypt` command:
 
@@ -264,14 +258,12 @@ To decrypt a file you will need a private key which corresponds to one of the pu
 
       The command will ask the user to enter the password (passphrase) of your private key. For security reasons the password is not displayed when you type it.
 
-    !!! Note
-        In case you are decrypting the file in SD Desktop and the CSC Sensitive Data public key has been used in encryption, decryption will be done automatically, 
-        and you do not need to specify any decryption keys.
+!!! Note
+    In case you are decrypting the file in SD Desktop and the CSC Sensitive Data public key has been used in encryption, decryption will be done automatically, and you do not need to specify any decryption keys.
 
-      If you need to decrypt a large number of files, please check the tutorial [Decrypting all files in a directory](./tutorials/decrypt-directory.md).
+If you need to decrypt a large number of files, please check the tutorial [Decrypting all files in a directory](./tutorials/decrypt-directory.md).
 
-      [More information about data encryption](sd-connect-command-line-interface.md)
-
+[More information about data encryption](sd-connect-command-line-interface.md)
 
     
 ## Advanced: Back-up copies

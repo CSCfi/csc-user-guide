@@ -1,3 +1,7 @@
+!!! warning "Middle level"
+    You need a knowledge of OpenShift CLI tool [oc](../usage/cli.md) and OpenShift [Routes](../concepts.md#route) API  
+    A knowledge on how internet certificates work is a plus.
+
 # Custom domain names and secure transport
 
 Custom domain names and HTTPS secure data transport are implemented in the

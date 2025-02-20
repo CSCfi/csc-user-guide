@@ -1,3 +1,6 @@
+!!! success "Basic level"
+    You need a knowledge of OpenShift CLI tool [oc](../usage/cli.md) and kubernetes [annotations](https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/)
+
 # Annotations
 
 You can use Kubernetes annotations to attach arbitrary non-identifying metadata to objects. Clients such as tools and libraries can retrieve this metadata. Annotations, like labels, are key/value maps.

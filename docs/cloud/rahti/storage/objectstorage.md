@@ -33,7 +33,7 @@ RUN sed -i.bak 's/^user/#user/' /etc/nginx/nginx.conf
 EXPOSE 8080
 ```
 
-If you build your image locally, don't forget to [push](../../rahti/images/Using_Rahti_2_integrated_registry.md) it to your project.  
+If you build your image locally, don't forget to [push](../../rahti/images/Using_Rahti_integrated_registry.md) it to your project.
 You can deploy this `nginx` server with this Deployment:
 
 ```yaml
@@ -162,7 +162,7 @@ COPY rclone.sh /usr/local/bin/
 RUN chmod 755 /.rclone.conf
 RUN chmod +x /usr/local/bin/rclone.sh
 ```
-If you create your image locally, don't forget to [push](../../rahti/images/Using_Rahti_2_integrated_registry.md) it to your project.  
+If you create your image locally, don't forget to [push](../../rahti/images/Using_Rahti_integrated_registry.md) it to your project.
 
 Once all this done, you can deploy your `rclone` pod.
 You can use this example:

@@ -1,3 +1,8 @@
+!!! warning "Medium level"
+    A knowledge of Python is a plus.
+   
+    This tutorial implies that you have a running [Pod](../concepts.md#pod) and you want to add a SMTP configuration.
+
 # Sending e-mail from Rahti
 
 The procedure is the same as for [sending an e-mail from cPouta](../../pouta/additional-services.md).
