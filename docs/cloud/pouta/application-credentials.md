@@ -96,15 +96,21 @@ file that you can source, a YAML file that can be used directly by the CLI, or a
 !!! warning "Temporary Unavailability of Role Restrictions for Application Credentials"
     The usage of role restrictions for Application Credentials is temporarily unavailable. 
     
-~~In cPouta, there are four roles available: member, heat_stack_owner, object_store_user, and creator.~~
+<del>
+In cPouta, there are four roles available: member, heat_stack_owner, object_store_user, and creator.
 
-~~member role is the normal user role. It can make changes to the system. When you log in to the web interface, you have the member role enabled.~~  
-~~heat_stack_owner can operate over Heat stacks, that is, create, modify, and delete infrastructure. This is useful for using it in an IaC setup.~~  
-~~object_store_user can operate over Allas and Objects Store.~~  
-~~creator can create secrets such as passwords and encryption keys.~~
+<ul>
+    <li>member role is the normal user role. It can make changes to the system. When you log in to the web interface, you have the member role enabled.</li>
+    <li>heat_stack_owner can operate over Heat stacks, that is, create, modify, and delete infrastructure. This is useful for using it in an IaC setup.</li>
+    <li>object_store_user can operate over Allas and Objects Store.</li>
+    <li>creator can create secrets such as passwords and encryption keys.</li>
+</ul>
 
-~~If you are using Application credentials in ePouta, it's slightly different. There are two roles available: member and heat_stack_owner.~~
+If you are using Application credentials in ePouta, it's slightly different. There are two roles available: member and heat_stack_owner.
 
-~~member role is the normal user role. When you log in to the web interface, you have the member role enabled.~~  
-~~heat_stack_owner can operate over Heat stacks, that is, create, modify, and delete infrastructure. This is useful for using it in an IaC setup.~~
+<ul>
+    <li>member role is the normal user role. When you log in to the web interface, you have the member role enabled.</li>
+    <li>heat_stack_owner can operate over Heat stacks, that is, create, modify, and delete infrastructure. This is useful for using it in an IaC setup.</li>
+</ul>
+</del>
 
