@@ -5,7 +5,7 @@ tags:
 
 # r-env
 
-`r-env` is an [Apptainer container](../../computing/containers/run-existing/) including R and RStudio Server, and several other features to facilitate their use. 
+`r-env` is an [Apptainer container](../computing/containers/run-existing.md) including R and RStudio Server, and several other features to facilitate their use. 
 
 - R is an open-source language and environment for statistical computing and graphics. More information on R can be found on [the R Project website](https://www.r-project.org/about.html). Many useful [R manuals are also hosted on CRAN](https://cran.r-project.org/manuals.html).
 
@@ -60,8 +60,8 @@ Licensing information within the `r-env` container is available in the file `/us
 There are several ways to use the `r-env` module on Puhti:
 
 * Non-interactive batch jobs without limits on the reserved computing resources (other than those applying to Puhti in general). Use this option for analyses that take longer or require a lot of memory.
-* [Interactive jobs on a compute node](../../computing/running/interactive-usage/), using either the R console or RStudio Server. Use this option for preparing your code and for smaller analyses. Interactive jobs may use limited resources.
-* Interactively on the login node, using the R console. Use this option only for moving data, checking package availability and installing packages. Puhti login nodes are [not intended for heavy computing](../../computing/usage-policy#login-nodes). 
+* [Interactive jobs on a compute node](../computing/running/interactive-usage.md), using either the R console or RStudio Server. Use this option for preparing your code and for smaller analyses. Interactive jobs may use limited resources.
+* Interactively on the login node, using the R console. Use this option only for moving data, checking package availability and installing packages. Puhti login nodes are [not intended for heavy computing](../computing/usage-policy.md#login-nodes). 
 
 #### Interactive use on a compute node
 
@@ -628,7 +628,7 @@ It is possible to configure `r-env` to use NVIDIA NVBLAS, a drop-in BLAS replace
 
 Compared to CPU jobs, using NVBLAS may offer speed improvements without changes to the underlying R code. However, the benefits afforded are strongly analysis-specific. Additionally, NVBLAS jobs make sub-optimal use of reservations on the GPU partition, with only certain operations being routed to the GPU.
 
-Prior to running a NVBLAS job, consider the [Puhti GPU node usage policy](../../computing/usage-policy#gpu-nodes) and this checklist:
+Prior to running a NVBLAS job, consider the [Puhti GPU node usage policy](../computing/usage-policy.md#gpu-nodes) and this checklist:
 
 - Are BLAS3 routines the main bottleneck in your workflow? 
 - Are speed-ups possible through other means (e.g. rewriting your code)?

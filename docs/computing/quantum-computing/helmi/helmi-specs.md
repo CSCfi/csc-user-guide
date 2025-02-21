@@ -40,7 +40,7 @@ print(adonis.metadata.nx_graph)
 
 ## Further Reading
 
-* [Specific instructions for the LUMI Helmi partition](../fiqci-partition/)
+* [Specific instructions for the LUMI Helmi partition](fiqci-partition.md)
 * [Qiskit adapter for IQM devices](https://iqm-finland.github.io/qiskit-on-iqm/)
 * [Cirq adapter for IQM devices](https://iqm-finland.github.io/cirq-on-iqm/)
 

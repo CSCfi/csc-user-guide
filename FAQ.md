@@ -99,13 +99,14 @@ Diagrams from [draw.io](https://draw.io) can be embedded as iframes by selecting
 
 ## How to add links?
 
-Links are added using the markdown syntax `[This is my link text](link url or path)`. Whether to use a URL or path depends on if your link is *internal*, i.e. it points to another page within Docs CSC, or *external*. For internal links use relative paths, for example:
+Links are added using the markdown syntax `[This is my link text](link url or path)`. Whether to use a URL or path depends on if your link is *internal*, i.e. it points to another page within Docs CSC, or *external*. For example:
 
 * Link pointing to file in same directory: `[Gromacs documentation](gromacs.md)`
 * Link pointing to a certain section (anchor) in a page: `[Gromacs usage](gromacs.md#usage)`
 * Link pointing to a file in another directory: `[Contact Service Desk](../support/contact.md)`, where the double dot `../` syntax means going up one level in the directory tree relative to the current directory. Then the path is followed to `support` and the contact page `contact.md`.
+* An absolute link to a file relative to the `docs` directory: `[Contact Service Desk](/support/contact.md)` (These do not work when, e.g., browsing the source files through the GitHub web interface).
 * **For internal links you need to include the file extension `.md` in the target**
-* **Don't make internal links using a URL, `https://docs.csc.fi/...`**. Use URLs only in links pointing to an external target. 
+* **Don't make internal links using a URL, `https://docs.csc.fi/...` or `https://csc-guide-preview.2.rahtiapp.fi/...`**. Use URLs only in links pointing to an external target.
 * **Always add a descriptive link text to make the content accessible.** Plain URLs without link text are not acceptable! Screen readers will read it as h-t-t-p-s-colon-slash-slash...
   * `[Read more here](gromacs.md#usage)` is not accessible. `[Read more about Gromacs usage](gromacs.md#usage)` is better.
   * If, for some rare reason, writing a descriptive link text is not possible, you can use html and aria-label: `<a href="https://code.visualstudio.com" aria-label="This is readable by screen readers">Visual Studio Code</a>`. This label is read by the screen readers but is not visible to others.
@@ -147,8 +148,7 @@ You can preview how the Docs CSC page would look like with your changes included
 ### Using the preview feature for active branches hosted on Rahti
 
 * A full preview for ongoing work is available for all branches: https://csc-guide-preview.2.rahtiapp.fi/origin/
-* Select your branch from the list to get a preview of your version of Docs CSC
-* Note, currently absolute internal links formatted as e.g. `/support/accessibility/` don't work in the preview, but they will work on docs.csc.fi.
+    - Select your branch from the list to get a preview of your version of Docs CSC
 
 ### Locally using the MkDocs tool
 

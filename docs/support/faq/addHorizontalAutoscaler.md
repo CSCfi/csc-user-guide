@@ -1,6 +1,6 @@
 # How to automatically scale up and down replicas
 
-Rahti 2 allows automatic Horizontal auto-scaling based on CPU and Memory consumption. This means that the platform can be configured to add more copies of an application (scale up) when the current copies are consuming too much CPU and/or Memory, and to remove copies of the application (scale down) when the consumption of CPU and/or memory is too low and a lower amount of copies can cope with the current load. 
+Rahti allows automatic Horizontal auto-scaling based on CPU and Memory consumption. This means that the platform can be configured to add more copies of an application (scale up) when the current copies are consuming too much CPU and/or Memory, and to remove copies of the application (scale down) when the consumption of CPU and/or memory is too low and a lower amount of copies can cope with the current load. 
 
 !!! info "Horizontal/Vertical scaling"
 
@@ -14,7 +14,7 @@ The obvious utility of this is to allow automatically and dynamically optimize t
 
 For doing this, first we need a `Deployment`. Any deployment will work, but you can use this example that deploys a dummy application: 
 
-**Note:** Remember to [login in Rahti 2](../../cloud/rahti2/usage/cli.md#how-to-login-with-oc) first
+**Note:** Remember to [login in Rahti](../../cloud/rahti/usage/cli.md#how-to-login-with-oc) first
 
 ```sh
 echo "apiVersion: apps/v1

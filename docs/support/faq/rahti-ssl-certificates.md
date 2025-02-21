@@ -1,4 +1,4 @@
-# Do you offer in Rahti 2 SSL certificates?
+# Do you offer in Rahti SSL certificates?
 
 Yes, a wildcard certificate for the DNS names `*.2.rahtiapp.fi` is installed and can be used directly by the user.
 

@@ -7,4 +7,4 @@ You can find the web application from the [csc-training/GenieWebApp.jl](https://
 git clone https://github.com/csc-training/GenieWebApp.jl.git
 ```
 
-Then, you can continue by reading the [GenieWebApp.jl's documentation](https://csc-training.github.io/GenieWebApp.jl/dev/), which contains in-depth instruction on developing and deploying the application using a web user interface and command-line interface to a virtual machine on [Pouta](../index.md) with OpenStack and OpenShift container platform on [Rahti](../../rahti2/index.md). By following the instructions, you will learn the basic usage of both services.
+Then, you can continue by reading the [GenieWebApp.jl's documentation](https://csc-training.github.io/GenieWebApp.jl/dev/), which contains in-depth instruction on developing and deploying the application using a web user interface and command-line interface to a virtual machine on [Pouta](../index.md) with OpenStack and OpenShift container platform on [Rahti](../../rahti/index.md). By following the instructions, you will learn the basic usage of both services.

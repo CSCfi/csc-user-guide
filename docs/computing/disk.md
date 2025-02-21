@@ -69,7 +69,7 @@ the disks do not fill up CSC will regularly delete files that have not
 been accessed in a long time. In Puhti the current policy is to remove
 files that have not been accessed for more than 6 months. In Mahti a
 similar cleaning procedure will be introduced, but is not yet
-active. See [Usage policy](../../computing/usage-policy) page for details on the current
+active. See [Usage policy](./usage-policy.md) page for details on the current
 policy.
 
 
@@ -189,7 +189,8 @@ of millions of files are stored in the `scratch` area.
 If the application depends on the use of temporary files, the suitability of
 the filesystem may have a large effect on the performance of the application,
 see section *Mind your I/O - it can make a big difference* in the [Performance
-checklist](running/performance-checklist.md#mind-your-io---it-can-make-a-big-difference).
+checklist](running/performance-checklist.md#mind-your-io-it-can-make-a-big-difference).
+
 Please note that some applications use temporary files "behind the scenes". Usually these
 applications read some environment variable that points to a suitable disk area, such as
 `$TMPDIR`.
@@ -211,15 +212,16 @@ that require heavy I/O operations, for example packing and unpacking archive fil
 
 ### Compute nodes with local SSD (NVMe) disks
 
-Jobs running in the I/O- and GPU-nodes in Puhti and GPU-nodes in Mahti have local fast storage
+Jobs running in the I/O- and GPU-nodes in Puhti and Mahti have local fast storage
 available. In interactive batch jobs launched with [sinteractive](running/interactive-usage.md),
 this local disk area is defined with environment variable `$TMPDIR` and in normal batch jobs
 with `$LOCAL_SCRATCH`. The size of this storage space is defined in the batch job resource request.
 Different nodes have different amounts of disks, see [Puhti technical details](systems-puhti.md)
-for a detailed list of all node types. In normal compute nodes, there are 1490 GiB and 3600 GiB
+for a detailed list of all node types in Puhti. In normal compute nodes, there are 1490 GiB and 3600 GiB
 disks. In big memory nodes there are 1490 GiB and 5960 GiB disks, and in GPU-nodes there are
 3600 GiB disks. To save resources, and to ensure your jobs do not queue for resources for too
-long, it is a good idea to only reserve what you actually need.
+long, it is a good idea to only reserve what you actually need. In Mahti there are 60 CPU nodes with 3500 GiB
+local disks in the `small` and `interactive` partitions. The GPU nodes have 3600 GiB local disks.
 
 These local disk areas are designed to support I/O intensive computing tasks and cases where you
 need to process large amounts (over 100 000) of small files. These directories are cleaned once
@@ -233,12 +235,13 @@ For more information see [creating job scripts](running/creating-job-scripts-puh
 In Puhti we simply recommend using compute nodes with NVMe disks (`$LOCAL_SCRATCH`) for the
 applications that require temporary local storage.
 
-In Mahti, with most compute nodes without local NVMe disks, it is possible to store a relatively
+In Mahti, where only some compute nodes have local NVMe disks, it is also possible to store a relatively
 small amount of temporary files in memory. In practice, the applications can use the directory
 `/dev/shm` for this, for example by setting `export TMPDIR=/dev/shm`. Please note that the use
 of `/dev/shm` consumes memory, so less is left available for the applications. This may lead to
 applications running out of memory sooner than expected and failing in the compute node, but
-this usually does no other harm. The plus side is that if it works, it should be fast. In Puhti
-however, where applications from multiple users can share the same node, running out of memory
-by filling up `/dev/shm` will crash other users applications, too. **It is thus not recommended to
-use `/dev/shm` in Puhti at all.**
+this usually does no other harm. The plus side is that if it works, it should be fast.
+
+However, in Puhti, as well as Mahti `small`, `interactive` and GPU partitions, where applications
+from multiple users can share the same node, running out of memory by filling up `/dev/shm` will
+crash other users applications, too! **In these cases it is not recommended to use `/dev/shm` at all.**

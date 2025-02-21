@@ -1,11 +1,6 @@
 ---
 os: linux
 dist: jammy
-addons:
-  apt:
-    packages:
-      - aspell
-      - aspell-en
 language: python
 python:
   - "3.11"

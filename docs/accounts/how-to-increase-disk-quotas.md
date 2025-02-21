@@ -2,7 +2,7 @@
 
 ## Increasing the storage capacity in Puhti and Mahti
 
-The quotas of the [scratch](../../computing/disk/#scratch-directory) and [projappl](../../computing/disk/#projappl-directory) directories of Puhti and Mahti servers can be
+The quotas of the [scratch](../computing/disk.md#scratch-directory) and [projappl](../computing/disk.md#projappl-directory) directories of Puhti and Mahti servers can be
 increased if needed.
 
 You can use MyCSC to manage these quotas.
@@ -37,3 +37,4 @@ i.e. 1 TB of data stored in Allas consumes 24 BU in a day and 8760 BU in a year.
 ## Increasing the storage capacity in IDA
 
 [About Monitoring and Adjusting Project Quota in IDA User Guide](https://www.fairdata.fi/en/user-guides/user-guide/#project-quota)
+

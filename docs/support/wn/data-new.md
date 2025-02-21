@@ -1,5 +1,37 @@
 # Data management
 
+
+## Sensitive Data (SD) Connect: new command line tools for automated key management, 02.2025
+
+We are excited to announce that, starting February 2025, new command line tools are available for automated key management with SD Connect. These tools allow you to upload and download files (using a-commands) and manage encryption keys automatically (using lock-unlock commands). After encrypting and uploading data programmatically, you can access it via the SD Connect user interface or SD Desktop. Please note that these tools require coding skills. A step-by-step guide is provided below to help you get started.
+
+Important: files uploaded programmratically before February 2025 were manually encrypted with your encryption key and will require manual decryption after download.
+
+Contiure reading: [user guide](../../data/sensitive-data/sd-connect-command-line-interface.md)
+
+For questions, support or traning, don't hesitate to conact us at servicedesk@csc.fi (subject: SD Connect)
+
+
+## SD Desktop, upgrade Heavy Computation option, 15.01.2025
+
+We have updated the Heavy Computation virtual desktop option with the following specifications:
+
+- Cores: 28 (previously 32)
+
+- Memory: 176 GB (previously 116)
+
+- Root Disk: 80 GB 
+
+- Identifier: hpc.6.28 core (previously 5.32)
+
+- Cost: 65 billing units/hour (previously 52)
+
+This change only affects new virtual desktops created after January 15. 
+
+Existing virtual desktops are not affected and will continue to operate as usual.
+
+
+
 ## SD Connect major upgrade, 7.10.2024
 
 On Monday October 7 SD Connect service has been upgraded. Please note, this upgrade will not affect your data. Files stored in SD Connect will remain accessible after the service break, but a new encryption protocol will be applied for new uploads. The new version is compatible with the current one, but there are **four actions required** on your part: ​​

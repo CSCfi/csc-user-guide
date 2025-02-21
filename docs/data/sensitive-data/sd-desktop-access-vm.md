@@ -1,7 +1,10 @@
 # Accessing virtual desktop
 
-## Prerequisites
-* [Create virtual desktop](sd-desktop-create.md)
+
+* [Access virtual desktop](#access-virtual-desktop)
+* [Log out from virtual desktop](#log-out-from-virtual-desktop)
+* [Reconnecting to an analysis session](#reconnecting-to-an-analysis-session)
+
 
 ## Access virtual desktop
 
@@ -37,3 +40,12 @@ This will close all applications and disconnect the work session. You can access
 !!! Note
     Connection limit: each virtual desktop allows a maximum of 10 simultaneous connections. This means that up to 10 CSC project members can be logged in and using the system at the same time. If more than 10 CSC project members attempt to connect to the same virtual desktop, additional users will not be able to access the system until one of the active sessions is disconnected.
     If a connection remains inactive for two consecutive days, the system will automatically log the user out to free up resources. Please ensure you log out manually when you're finished to avoid this.
+
+## Your next steps in this guide
+
+* [Working with your desktop: tips and essentials](./sd-desktop-working.md)
+* [Customisation - software & tools](./sd-desktop-software.md)
+* [Importing data ](./sd-desktop-access.md)
+* [Exporting data  via user interface](./sd-desktop-export.md)
+* [Export data programmatically](./sd-desktop-export-commandline.md)
+* [Troubleshooting](./sd-desktop-troubleshooting.md)

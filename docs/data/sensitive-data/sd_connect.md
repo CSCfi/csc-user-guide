@@ -1,18 +1,17 @@
 # Store and share with Sensitive Data Connect
 
+
+- [Overview](#overview)
+- [Key features](#key-features)
+- [Limitations](#limitations)
+- [October 2024 major service upgrade](#overview-of-sd-connect-new-features)
+- [Your next steps in this guide](#features-in-sd-connect)
+
 ## Overview
 
 Sensitive Data (SD) Connect enables the secure storage and sharing of sensitive research data. It automatically encrypts files during upload and decrypts them during download through an easy-to-use interface. For files larger than 100 GB, a command-line tool is available which also provides automated key management.
 
 SD Connect also supports collaborative research, allowing data collection and sharing within the platform. Files stored are encrypted and can be accessed for analysis, annotation, or editing through SD Desktop.
-
-Contents:
-
-* [Key features](./sd_connect.md#key-features)
-
-* [Limitations](./sd_connect.md#limitations)
-
-* [Overview of SD Connect 2.0 features](./sd_connect.md#overview-of-sd-connect-new-features)
 
 You can browse through the main topics of the manual using the navigation bar on the left side of this page or the search function.
 
@@ -38,7 +37,8 @@ Known temporary issues:
 
 * Accessing the service requires logging in twice by entering your username and password.
   
-* In October 2024, SD Connect was updated. Files from the previous version are still compatible, but you may encounter issues due to file format changes. For step-by-step instructions on downloading files stored with the previous version, [please check this page](sd-connect-download-old-version.md).
+* In October 2024, SD Connect was updated. Files from the previous version are still compatible, but you may encounter issues due to file format changes. For step-by-step instructions on downloading files stored with the previous version, [please check this page](./sd-connect-download.md))
+
 
 !!! Note
     Automated key management, encryption, and decryption are not yet available for programmatic data uploads and downloads.
@@ -72,3 +72,14 @@ In October 2024 we introduced several enhancements over the original version to 
 |Folder sharing|Supports 3 different type of data sharing: for data transfer, collection or collaborative analysis on SD Desktop (without the possibility of downloading extra copies of the files)|Sharing was supported only via manual encryption and decryption|
 |Command-line utility tool|SD Lock/Un-lock provide automated key management, this requires temporary token access|Available but required manual encryption and did not support automated key management|
 |Compatibility with Allas|Files uploaded with after October 7, 2024 are visible in Allas but not downloadable directly from it; size may be incorrect|Files visible and downloadable|
+
+
+## Features in SD Connect
+
+* [Login](./sd-connect-login.md)
+* [Upload](./sd-connect-upload.md)
+* [Share](./sd-connect-share.md)
+* [Download](./sd-connect-download.md)
+* [Delete](./sd-connect-delete.md)
+* [Command line interface](./sd-connect-command-line-interface.md)
+* [Troubleshooting](./sd-connect-troubleshooting.md)

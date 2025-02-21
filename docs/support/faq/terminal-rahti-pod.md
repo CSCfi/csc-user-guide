@@ -4,7 +4,7 @@ In order to open a terminal to a **Running** Pod there are two options:
 
 ## Using the web interface
 
-1. Log into Rahti 2's web interface and navigate to **Project > Pods**. (Or **Workloads > Pods** in Administrator view)
+1. Log into Rahti's web interface and navigate to **Project > Pods**. (Or **Workloads > Pods** in Administrator view)
 
 1. Click on any of the Pod names whose status is **Running**.
 
