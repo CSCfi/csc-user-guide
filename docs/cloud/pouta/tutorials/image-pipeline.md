@@ -135,6 +135,14 @@ We use `terminal_C` for all the commands dealing with cPouta.
 In the same way as for Allas and Pukki, to continue the tutorial we need to have a working command-line interface for cPouta as well.
 We follow the [instructions on how to install and configure cPouta command-line interface](../install-client.md), if we haven't done it already.
 
+!!! warning
+    Although similar in many aspects, Pukki and cPouta command-line interfaces are different and cannot be used interchangeably.
+    For example, running Pukki commands on the terminal configured for cPouta will result in the following error:
+    ```
+    public endpoint for database service in regionOne region not found
+    ```
+    Stick to using two different terminals to interact with them to avoid this type of issues.
+
 We can test the correct functioning of the command-line interface by, for example, showing the properties of one of the flavors.
 An example of the command and its expected output follows:
 ```
