@@ -66,7 +66,7 @@ In the rest of the tutorial, we assume:
 * the name of the bucket used for uploading images to the pipeline is `input_bucket`
 * the name of the bucket used by the pipeline to make available its outputs is `output_bucket`
 
-## Step 2: creating database in Pukki
+## Step 2: creating a database in Pukki
 
 We open a second terminal window, to which we will refer using the name `terminal_B`.
 We use `terminal_B` for all the commands dealing with Pukki.
@@ -86,7 +86,7 @@ $ openstack datastore list
 +--------------------------------------+------------+
 ```
 
-We now create the database that we use to log the actions of the pipeline by issuing the following command:
+We now create the database that we will use to log the actions of the pipeline by issuing the following command:
 ```
 $ openstack database instance create pipeline_db_instance \
 --flavor standard.small \
