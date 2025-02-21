@@ -7,9 +7,9 @@
 
 The tutorial focuses on the following services:
 
-* Allas
-* cPouta
-* Pukki
+* [Allas](../../../data/Allas/introduction.md), our object storage service
+* [cPouta](../index.md), our public cloud service
+* [Pukki](../../dbaas/what-is-dbaas.md), our on-demand database service
 
 ## Introduction
 
