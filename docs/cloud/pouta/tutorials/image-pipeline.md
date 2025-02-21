@@ -238,6 +238,13 @@ Access to the virtual machine is regulated by means of _security groups_ and the
 We thus create a new security group with a single rule, which allow access to the virtual machine, for example, from our workstation.
 
 We go back to `terminal_C`.
+
+First, we find what is the public ip address used by our workstation by typing the following command:
+```
+$ MY_IP=$(curl -4 ifconfig.me)
+
+```
+
 We create a new security group issuing the following command:
 ```
 $ openstack security group create pipeline_security_group
@@ -264,7 +271,7 @@ Output will look like the following:
 
 We add the rule to allow access by issuing the following command:
 ```
-$ openstack security group rule create --dst-port 22 --protocol tcp pipeline_security_group
+$ openstack security group rule create --remote-ip $MY_IP/32 --dst-port 22 --protocol tcp pipeline_security_group
 ```
 
 The output will be similar to the following:
@@ -284,7 +291,7 @@ The output will be similar to the following:
 | project_id        | ef20bcc4215d49ddbf33e5c5740d89fe                                                                                                                                           |
 | protocol          | tcp                                                                                                                                                                        |
 | remote_group_id   | None                                                                                                                                                                       |
-| remote_ip_prefix  | 0.0.0.0/0                                                                                                                                                                  |
+| remote_ip_prefix  | *.*.*.*/32                                                                                                                                                                  |
 | revision_number   | 0                                                                                                                                                                          |
 | security_group_id | a8630776-db3d-408a-ba8e-8c52b5f2a8c9                                                                                                                                       |
 | tags              | []                                                                                                                                                                         |
