@@ -17,10 +17,11 @@ We want to set up a simple pipeline which transforms the images that are given i
 
 ![image-pipeline-diagram](../../img/image-pipeline-diagram.png)
 
-We use Allas as the place where to upload our images in input.
-The pipeline uploads its transformed images to Allas too.
-A virtual machine in cPouta takes care of downloading, transforming, and re-uploading the images received in input.
-Once it has transformed an image, the virtual machine also logs the event to a database hosted in Pukki.
+First, we upload our images from our workstation to a bucket in Allas.
+A virtual machine in cPouta takes the images from the bucket and downloads them locally.
+The virtual machine transforms the images and logs the completed action to a database hosted in Pukki.
+Finally, the virtual machine uploads the transformed images to another bucket in Allas.
+We can then download from the bucket the transformed images to our workstation.
 
 For the sake of this tutorial, the transformed image simply corresponds to the input image whose colors have been inverted, sometimes also called "reversed".
 
