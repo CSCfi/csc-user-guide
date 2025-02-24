@@ -18,7 +18,7 @@ scenarios related to collaboration, geography, and data handling.
 The module ensures researchers can comply with GDPR while leveraging its opportunities for 
 responsible research.
 
-### For researchers: Act of Seconday Use
+### For researchers: Act on Seconday Use
 
 https://www.uef.fi/en/library/act-on-the-secondary-use-of-health-and-social-data
 
