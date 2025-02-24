@@ -3,12 +3,14 @@
 Welcome to the SD Service Materials Hub! here you can 
 
 
-## Backgound inforamtion an introductory courses
+## Backgound information an introductory courses
 
 On line courses that provide backrung information about data privacy and GDPR: 
 
 
-Privacy in Reaserch   https://maken.wikiwijs.nl/125518/Privacy_in__Research#!page-4392044.
+### For researchers:  Privacy in Reaserch  
+
+https://maken.wikiwijs.nl/125518/Privacy_in__Research#!page-4392044.
 
 This 45-minute GDPR training module helps researchers understand and apply privacy regulations in their work. 
 It covers real-world case studies, key GDPR principles (such as Privacy by Design and DPIA), and practical
@@ -16,6 +18,8 @@ scenarios related to collaboration, geography, and data handling.
 The module ensures researchers can comply with GDPR while leveraging its opportunities for 
 responsible research.
 
+
+### For data supprot personel: 
 
 The GDPR for Data Support personel: (https://danstraining.moodlecloud.com/course/section.php?id=32)
 
