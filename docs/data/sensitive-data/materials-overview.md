@@ -39,13 +39,31 @@ compliance requirements effectively.
 
 ## Checklists: 
 
-### Getting started with CSC (1 day)
+What is this checklist for?
 
-- [ ] Create a CSC account
-- [ ] Figure out if you are a CSC projecy manager of a CSC project member
-- [ ] Create or Join a CSC project
-- [ ] Enable Multi-factor Authenitcation on you CSC profile and link it to the authenticator app on your phone
-- [ ]
+If you're unsure about how to get started, this checklist will help you understand the steps needed based on the type of data you’re processing. If anything is unclear or if you need further assistance, feel free to contact us!
+
+
+### Please identify the type of data you are processing:
+
+- [ ] **Research Data** – I am processing research data for storage or analysis (I can use SD Connect and SD Desktop).  
+- [ ] **Register Data from Findata** – I am processing register data provided by Findata (I understand this requires additional steps).  
+- [ ] **Register Data from a Public Register** – I am processing register data from a public register (I understand this requires an agreement between the register and CSC, and a permit).  
+- [ ] **Unsure if Services are Suitable** – I am not sure if these services are suitable for my research, but I have already contacted the legal service in my organization for support.  
+- [ ] **Access for Collaborators Outside the EU/EEA** – I will provide access to collaborators outside the EU/EEA, and I have consulted with the legal service in my organization to verify if there is a legal basis for this.
+
+
+
+### Getting Started with CSC (1 Day)
+
+- [ ] **Create a CSC Account** – Sign up for your CSC account if you haven’t already.  
+- [ ] **Determine Your Role** – Figure out if you are a **CSC Project Manager** or a **CSC Project Member**.  
+- [ ] **Create or Join a CSC Project** – Create a new project or join an existing one.  
+- [ ] **Enable Multi-factor Authentication** – Set up Multi-factor Authentication on your CSC profile and link it to the authenticator app on your phone.  
+- [ ] **Describe the Data You Are Processing** – Specify the type of data you'll be working with.  
+- [ ] **Familiarize Yourself with Billing Units** – Understand how billing units work and determine how much research resource you need.  
+- [ ] **Understand CSC Data Retention Policy** – Be aware of CSC's data retention policy, especially when your project expires or is closed.
+
 
 
 ### Uplaod files
