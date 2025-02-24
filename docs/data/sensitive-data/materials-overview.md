@@ -18,6 +18,11 @@ scenarios related to collaboration, geography, and data handling.
 The module ensures researchers can comply with GDPR while leveraging its opportunities for 
 responsible research.
 
+## For researchers: Act of Seconday Use
+
+https://www.uef.fi/en/library/act-on-the-secondary-use-of-health-and-social-data
+
+
 
 ### For data support personel: The GDPR for Data Support personel
 
@@ -27,6 +32,9 @@ This training is designed to professionalize research support staff in handling 
 under the General Data Protection Regulation (GDPR). It explains GDPR principles within the context
 of scientific research and provides practical tools to help support staff navigate
 compliance requirements effectively.
+
+
+
 
 
 ## Checklists: 
