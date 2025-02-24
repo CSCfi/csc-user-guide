@@ -34,12 +34,11 @@ Known temporary issues:
 * Firefox in private mode is not supported.
   
 * Tagging files is not currently supported.
+
+* CSC projects created before 2013 are incompatible with the current user interface and will not be displayed. For assistance, please contact us.
   
 * In October 2024, SD Connect was updated. Files from the previous version are still compatible, but you may encounter issues due to file format changes. For step-by-step instructions on downloading files stored with the previous version, [please check this page](./sd-connect-download.md))
 
-
-!!! Note
-    Automated key management, encryption, and decryption are not yet available for programmatic data uploads and downloads.
 
 
 General considerations:
