@@ -8,7 +8,7 @@ Welcome to the SD Service Materials Hub! here you can
 On line courses that provide backrung information about data privacy and GDPR: 
 
 
-### For researchers:  Privacy in Reaserch  
+# For researchers:  Privacy in Reaserch  
 
 https://maken.wikiwijs.nl/125518/Privacy_in__Research#!page-4392044.
 
@@ -18,13 +18,13 @@ scenarios related to collaboration, geography, and data handling.
 The module ensures researchers can comply with GDPR while leveraging its opportunities for 
 responsible research.
 
-## For researchers: Act of Seconday Use
+# For researchers: Act of Seconday Use
 
 https://www.uef.fi/en/library/act-on-the-secondary-use-of-health-and-social-data
 
 
 
-### For data support personel: The GDPR for Data Support personel
+## For data support personel: The GDPR for Data Support personel
 
 (https://danstraining.moodlecloud.com/course/section.php?id=32)
 
