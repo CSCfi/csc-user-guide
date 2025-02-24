@@ -7,8 +7,8 @@ You can easily download folders or individual files from SD Connect user interfa
 1. [Download and automated decryption](#download-and-automated-decryption)
 3. [Download and manual decryption](#download-and-manual-decryption)
 
-Note !!!
-     If this is your first time using the service, a pop-up may appear in your browser asking you to accept cookies. Please click Accept to enable the download to       start.
+!!! Note 
+    If this is your first time using the service, a pop-up may appear in your browser asking you to accept cookies. Please click Accept to enable the download to       start.
 
 ## Download and automated decryption
 
