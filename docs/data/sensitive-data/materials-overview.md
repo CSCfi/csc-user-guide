@@ -19,9 +19,9 @@ The module ensures researchers can comply with GDPR while leveraging its opportu
 responsible research.
 
 
-### For data supprot personel: 
+### For data support personel: The GDPR for Data Support personel
 
-The GDPR for Data Support personel: (https://danstraining.moodlecloud.com/course/section.php?id=32)
+(https://danstraining.moodlecloud.com/course/section.php?id=32)
 
 This training is designed to professionalize research support staff in handling personal data responsibly
 under the General Data Protection Regulation (GDPR). It explains GDPR principles within the context
