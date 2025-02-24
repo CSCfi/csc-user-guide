@@ -31,11 +31,9 @@ You can browse through the main topics of the manual using the navigation bar on
 
 Known temporary issues:
 
-* Firefox (except in private mode) is supported, but some known limitations exist.
-
+* Firefox in private mode is not supported.
+  
 * Tagging files is not currently supported.
-
-* Accessing the service requires logging in twice by entering your username and password.
   
 * In October 2024, SD Connect was updated. Files from the previous version are still compatible, but you may encounter issues due to file format changes. For step-by-step instructions on downloading files stored with the previous version, [please check this page](./sd-connect-download.md))
 
