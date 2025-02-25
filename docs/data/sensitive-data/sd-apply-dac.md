@@ -4,14 +4,22 @@
 
 Access to data that are stored at CSC and published under controlled access are managed by the data controller or their representatives in the SD Apply service. To enable reuse of datasets stored in Finnish Federated EGA (FEGA) you need to add the datasets your organisation offers to the catalogue in SD Apply. Please note, when you use SD Apply to manage access to datasets stored in FEGA, your organization needs to have a service agreement with CSC in place. Read more about [FEGA legal agreements](./fega-submission.md#step-1-legal-agreements-data-access-committee-and-policies).
 
-Before you start adding information in SD Apply, we recommend discussing inside your organization about the possibility of forming a general Data Access Committee (DAC) that manages access to all datasets your organization is the data controller of.
-
 As a data controller in SD Apply, you are responsible for:
 
 - Adding your datasets to catalogue in SD Apply together with an application form and policies
-- Designating representatives (a data access committee) who manage the data access requests to your organization’s datasets.
+- Designating representatives (a Data Access Committee, DAC) who manage the data access requests to your organization’s datasets
+- Defining data access policies for data reuse.
 
-Adding datasets to SD Apply for the first time is made in close collaboration with CSC Service Desk as the process can be a bit complex. Please reserve time for the process and prepare to discuss with your legal team about the agreements needed for data reuse. Below are general instructions to guide you through the process.
+Adding datasets to SD Apply for the first time is made in close collaboration with CSC Service Desk as the process can be a bit complicated. Please reserve time for the process and prepare to discuss with your legal team about the agreements needed for data reuse. Below are general instructions to guide you through the process.
+
+## Forming a Data Access Committee
+
+Before you start adding information in SD Apply, we recommend discussing inside your organization about the possibility of forming a general Data Access Committee (DAC) that manages access to all datasets your organization is the data controller of. 
+
+DAC is responsible for:
+
+- **Coordinating and approving new FEGA submissions inside their organisation**: Reviewing the datasets that will be submitted in the Federated EGA under their organization and controllership  
+- **Managing access to organization's datasets**: Evaluating data access requests for datasets managed by the DAC to ensure compliance with defined policies, regulations, and ethical guidelines.
 
 ## How to add a dataset to catalogue in SD Apply
 
@@ -92,6 +100,14 @@ You can create three types of licenses:
 - **External link**: Provide a link to an external page with terms of use. Use links, for example, when you want to license your resources using standardised licenses, such as [Creative Commons](https://creativecommons.org/choose/?lang=en).
 - **Inline text**: Write the terms of use in the application form. The applicant will see it as normal text in the application form.
 - **Attachment**: Upload a file that the applicant can download and accept when they fill in the application form. We recommend using PDF-format. We recommend drafting the license attachments in the way that allows the applicant to agree to them by accepting the terms of use electronically in SD Apply.
+
+#### Data Access Policies in the Finnish Federated EGA
+
+Data deposition to the Finnish Federated EGA requires a series of legal agreements: a Service Agreement for Federated EGA and a Data Access Agreement including a Data Transfer Agreement. 
+
+**Data Access Agreement**: The Data Access Agreement (DAA) is a contract between the Data Access Committee (DAC) and an applicant seeking access to the data for reuse. Through the DAA, the data controller can define conditions and restrictions for data reuse, including policies governing data use, publication, download, and access. The DAA should also include a Data Transfer Agreement (DTA), necessary when researchers from non-EU/non-EEA regions access the data via SD Desktop. DAA and DTA will be included in the Licenses in SD Apply. For further information, please contact your home organization's legal services. You can [download an example template](https://ega-archive.org/assets/files/Example_DAA.doc) provided by the EGA.
+
+Consult your organization's legal experts to define data access policies that are appropriate for this purpose.  
 
 Licences are optional. You cannot edit the license after you have created and saved it.
 
