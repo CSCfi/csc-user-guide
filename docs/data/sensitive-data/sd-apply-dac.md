@@ -95,7 +95,7 @@ You can create three types of licenses:
 
 Licences are optional. You cannot edit the license after you have created and saved it.
 
-### Create a workflow (DAC)
+### 3. Create a workflow (DAC)
 By creating a workflow, you designate a Data Access Committee (DAC) as application handlers. DAC approves and rejects the data access requests for your organization's datasets. The DAC members receive email notifications of new applications.
 
 You can choose between two different workflows: A dynamic workflow and a decider workflow. Choose the one which suits your organisation best. Remember to give your workflow a descriptive name so it will be easier for you to find it later.
