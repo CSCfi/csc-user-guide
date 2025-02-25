@@ -1,24 +1,32 @@
-{#% import ".icons/material/coffee.svg" as icon %#}
-{#% import ".icons/material/chat.svg" as icon %#}
-{% import ".icons/material/information.svg" as icon %#}
-{#% import ".icons/material/alert.svg" as icon %}
-{#% import ".icons/material/rocker-launch.svg" as icon %#}
-{#% import ".icons/material/test-tube.svg" as icon %#}
-{#% import ".icons/material/beaker.svg" as icon %#}
-{#% import ".icons/material/dna.svg" as icon %#}
-{#% import ".icons/material/atom.svg" as icon %#}
-{#% import ".icons/material/telescope.svg" as icon %#}
+{#
+  You can choose which icon the announcement is garnished
+  with by uncommenting (i.e. changing the delimiters from
+  a comment (#) to a statement (%)) a line below. Only a
+  single line can be uncommented at a time.
+#}
+{# import ".icons/material/coffee.svg" as icon #}
+{# import ".icons/material/chat.svg" as icon #}
+{% import ".icons/material/information.svg" as icon %}
+{# import ".icons/material/alert.svg" as icon #}
+{# import ".icons/material/rocker-launch.svg" as icon #}
+{# import ".icons/material/test-tube.svg" as icon #}
+{# import ".icons/material/beaker.svg" as icon #}
+{# import ".icons/material/dna.svg" as icon #}
+{# import ".icons/material/atom.svg" as icon #}
+{# import ".icons/material/telescope.svg" as icon #}
 <div class="announcement-icon">{{ icon }}</div>
 {# Put the announcement, in HTML, right under this comment! #}
 <p>
 Due to licensing changes, <a href="{{ base_url | url }}/apps/maestro/">Schrödinger Maestro</a> versions older than 2023.1 will no longer work at CSC after 13.3.2025! <a href="{{ base_url | url }}/support/wn/apps-new/#maestro-versions-older-than-20231-will-not-work-after-1332025">Click here for details.</a>
 </p>
+{# ...and right above _this_ comment. #}
 <div class="announcement-icon announcement-icon-end">{{ icon }}</div>
-{# Remember
-  - to not use the literal 'docs.csc.fi' for internal links,
-    use href="{{ base_url | url }}/path/to/page/" instead
-  - to set the announcement_visible to true in mkdocs.yml
-  - that the announcement bar has only been tested with <p> and <a>
-  - to include a target="_blank" attribute in external links
-  - to not have loose text outside of a <p> (or an <a>)
+{#
+  Remember
+    - to not use the literal 'docs.csc.fi' for internal links,
+      - use href="{{ base_url | url }}/path/to/page/" instead
+    - to set the announcement_visible to true in mkdocs.yml
+    - that the announcement bar has only been tested with <p> and <a>
+    - to include a target="_blank" attribute in external links
+    - to not have loose text outside of a <p> (or an <a>)
 #}
