@@ -19,16 +19,12 @@
 }
 
 .announcement-banner > .announcement-icon {
+  margin: 0 1.125em;
   height: 1.75em;
   aspect-ratio: 1/1;
   fill: var(--csc-admonition--fg);
 }
 
-.announcement-banner > .announcement-icon:not(.announcement-icon-end) {
-  margin-right: 1.5em;
-}
-
 .announcement-banner > .announcement-icon-end {
-  margin-left: 1.5em;
   transform: rotateY(180deg);
 }
