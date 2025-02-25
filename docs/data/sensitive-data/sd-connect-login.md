@@ -6,7 +6,7 @@
 
 ## Step by step
 
-1. **Navitage to [SD Connect](https://sd-connect.csc.fi)**. We recommend using Google Chrome for the best experience.
+1. **Navigate to [SD Connect](https://sd-connect.csc.fi)**. We recommend using Google Chrome for the best experience.
    
 2. **Choose your login method**. Select CSC Login, Haka, Virtu or Life Science login then click Login.
 
