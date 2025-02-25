@@ -19,8 +19,8 @@
 }
 
 .announcement-banner > .announcement-icon {
-  height: 26px;
-  width: 26px;
+  height: 1.75em;
+  aspect-ratio: 1/1;
   fill: var(--csc-admonition--fg);
 }
 
