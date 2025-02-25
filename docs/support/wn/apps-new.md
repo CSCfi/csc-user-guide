@@ -1,7 +1,10 @@
 # Applications
 
-## JAX 0.4.38 available on Puhti, Mahti and LUMI, 0.5.0 available on Puhti and Mahti, 19.02.2025
+## R 4.4.2 in r-env, 25.2.2025
 
+R version 4.4.2 is now available in [r-env](../../apps/r-env.md) in Puhti and is set as the default version. The new version will be available in RStudio in the Puhti web interface shortly.
+
+## JAX 0.4.38 available on Puhti, Mahti and LUMI, 0.5.0 available on Puhti and Mahti, 19.02.2025
 
 [JAX](../../apps/jax.md) 0.4.38 has now been installed on Puhti,
 Mahti and LUMI. This has been made the default version on LUMI.
