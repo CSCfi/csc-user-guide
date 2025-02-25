@@ -69,7 +69,7 @@ The `r-env` module includes also [GDAL](gdal.md) and [SAGA GIS](saga-gis.md).
 
 Some R packages like __raster__, __terra__ and __lidR__ include functions that support parallel computing. There is an example of using predict function from raster package in parallel among our [examples](https://github.com/csc-training/geocomputing/tree/master/R). 
 
-For many other GIS packages you have to parallelize the code yourself. It can be done with several libraries, including __future__. See [Parallel jobs using R tutorial](https://docs.csc.fi/support/tutorials/parallel-r/) for further information.
+For many other GIS packages you have to parallelize the code yourself. It can be done with several libraries, including __future__. See [Parallel jobs using R tutorial](../support/tutorials/parallel-r.md) for further information.
 
 ## Using Allas from R
 
