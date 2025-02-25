@@ -2,7 +2,6 @@
   background-color: var(--c-primary-200);
   color: var(--c-tertiary-700);
   font-size: small;
-  z-index: 5;
 }
 
 .pre-header > ul {
