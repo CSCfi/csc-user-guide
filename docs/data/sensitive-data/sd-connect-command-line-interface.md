@@ -28,7 +28,7 @@ Here you can find step-by-step instructions: https://github.com/CSCfi/allas-cli-
 !!! Note
     If you need to upload non-sensitive data (such as scripts, containers, or software for use in SD Desktop), note that these tools are also available on CSC's supercomputers (Puhti, Mahti, and Lumi). However, these systems are restricted to non-sensitive data only. Sensitive data must be uploaded to SD Connect through the appropriate channels.
 
-### Step 2: Opening connection to SD Connect
+### Step 2: Opening connection to SD Connect 
 
 To open SD Connect compatible Allas connection you must add option *--sdc* the configuration command. In CSC supercomputers the connection is opened with commands:
 
@@ -43,19 +43,24 @@ export PATH=/some-local-path/allas-cli-utils:$PATH
 source /some-local-path/allas-cli-utils/allas_conf -u your-csc-account --sdc
 ```
 
-The set up process asks first your CSC passwords (Haka or Virtu passwords can't be used here).
-After that you will select the CSC project to be used. This is the normal login process for Allas.
-However, when SD Connect is enabled, the process asks you to give the *SD Connect API token*. This
-token must be retrieved from the [SD Connect web interface](https://sd-connect.csc.fi). Note that the tokens
-are project specific. Make sure you have selected the same SD Connect project in both command line and in web 
-interface.
+- The set up process asks first your CSC passwords (Haka or Virtu passwords can't be used here). After that you will select the CSC project to be used. This is the normal login process for Allas.
 
-In the web interface the token can be created using dialog that opens by selecting *Create API tokens* from the *Support* menu.
+- However, when SD Connect is enabled, the process asks you to give the *SD Connect API token*. 
 
-Copy the token, paste into to command line and press enter.
 
-The SD Connect compatible Allas connection is now valid for next eight hours. And you can use commands like
-*a-list* and *a-delete* to manage both normal Allas objects and SD Connect objects.
+To retrieve the temporary SD Connect API token:
+
+- Login to the [SD Connect web interface](https://sd-connect.csc.fi). If you have multiple CSC projects, make sure you have selected the same SD Connect project in both the command line and the web interface (top left corner).
+  
+- In the top right corner of the web interface, click on Support, then select Select API Token from the dropdown menu.
+
+- In the new dialog, enter a name for your temporary token. Note: Tokens are project-specific, so the name must be unique. Avoid using special characters in the name.
+
+- Click on Create Token. The token will be displayed only once. Once you see the token, copy it (click the icon to the left of the token). Important: make sure to store it securely, as it will not be retrievable later.
+
+- The token will be valid for 24 hours and will be automatically deleted after this period. Paste the token into the command line and press Enter to use it.
+
+The SD Connect compatible Allas connection is now valid for next eight hours. And you can use commands like *a-list* and *a-delete* to manage both normal Allas objects and SD Connect objects.
 
 
 ### Step 3: Data upload and automated encryption
