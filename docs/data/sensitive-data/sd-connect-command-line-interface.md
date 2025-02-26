@@ -58,6 +58,8 @@ To retrieve the temporary SD Connect API token:
 
 - Click on Create Token. The token will be displayed only once. Once you see the token, copy it (click the icon to the left of the token). Important: make sure to store it securely, as it will not be retrievable later.
 
+![API token](https://a3s.fi/docs-files/sensitive-data/SD_Connect/SDConnect_APItoken.png)
+
 - The token will be valid for 24 hours and will be automatically deleted after this period. Paste the token into the command line and press Enter to use it.
 
 The SD Connect compatible Allas connection is now valid for next eight hours. And you can use commands like *a-list* and *a-delete* to manage both normal Allas objects and SD Connect objects.
