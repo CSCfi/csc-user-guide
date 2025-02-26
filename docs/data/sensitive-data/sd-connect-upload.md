@@ -9,7 +9,7 @@ Your data is automatically encrypted when you upload data to SD Connect. This is
 
 
 !!! Note 
-    If this is your first time using the service, a pop-up may appear in your browser asking you to accept cookies. Please click Accept to enable the download to start.
+    If this is your first time using the service, a pop-up may appear in your browser asking you to accept cookies. Please click Accept to enable uploading files and folders.
 
 ## Upload and encrypt files to a new folder
 
