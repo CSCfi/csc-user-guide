@@ -8,6 +8,9 @@
 Your data is automatically encrypted when you upload data to SD Connect. This is suitable for all file types and formats, but it is supported only for files up to 100 GB and folders smaller than 1 TB. Largers files or folders can be and uploaded [programmatically](./sd-connect-command-line-interface.md). 
 
 
+!!! Note 
+    If this is your first time using the service, a pop-up may appear in your browser asking you to accept cookies. Please click Accept to enable the download to start.
+
 ## Upload and encrypt files to a new folder
 
 1. Log in to SD Connect.
@@ -15,9 +18,8 @@ Your data is automatically encrypted when you upload data to SD Connect. This is
 3. Click **Upload** in the top right corner.
 4. In the new window, name the destination folder for your files.
 5. Click **Select Files** to open a browser window and choose files for upload. If you want to upload folders, drag and drop them into the window. Click **Upload** to start automatic encryption and upload.
-6. If this is your first time using the service, a pop-up may appear in your browser asking you to accept cookies. Please click Accept to enable the download to start.
-7. Notification about the status of upload will appear and be visible until the upload is completed. Notification also includes a link to the destination folder.
-8. Once the upload is finished, the encrypted files are accessible for downloading and sharing via SD Connect or for analysis, editing or annotation via SD Desktop.
+6. Notification about the status of upload will appear and be visible until the upload is completed. Notification also includes a link to the destination folder.
+7. Once the upload is finished, the encrypted files are accessible for downloading and sharing via SD Connect or for analysis, editing or annotation via SD Desktop.
 
 !!! info "Folder names"
 
