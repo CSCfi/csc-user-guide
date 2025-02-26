@@ -14,13 +14,12 @@
 
 4. **Verify your identity**. As a second verification step, enter the temporary code from your mobile authenticator app and click Continue. If prompted, please accept cookies to proceed.
    
-5. You should now have access to SD Connect. If you see an addittional message about identity verification, click Proceed to continue.
+5. You should now have access to SD Connect. If you see an additional message about identity verification, click Proceed to continue.
 
 6. **Troubleshooting tip**. If you run into any issues, try clearing your browser history and cookies before logging in again. Note that Firefox private mode is not supported. 
 
 
-
-[![Project](images/connect/beta-login.png)](images/connect/beta-login.png)
+![SD Connect login](https://a3s.fi/docs-files/sensitive-data/SD_Connect/SDConnect_Login.png)
 
 
 
