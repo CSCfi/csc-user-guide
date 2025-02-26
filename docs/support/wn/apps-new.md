@@ -1,5 +1,22 @@
 # Applications
 
+## R 4.4.2 in r-env, 25.2.2025
+
+R version 4.4.2 is now available in [r-env](../../apps/r-env.md) in Puhti and is set as the default version. The new version will be available in RStudio in the Puhti web interface shortly.
+
+## JAX 0.4.38 available on Puhti, Mahti and LUMI, 0.5.0 available on Puhti and Mahti, 19.02.2025
+
+[JAX](../../apps/jax.md) 0.4.38 has now been installed on Puhti,
+Mahti and LUMI. This has been made the default version on LUMI.
+
+Additionally, JAX 0.5.0 has been installed on Puhti and Mahti
+and made the default version there. There is currently no support
+for ROCm for this JAX version and it has not been installed to LUMI.
+JAX 0.5.0 comes with [breaking changes](https://github.com/jax-ml/jax/releases/tag/jax-v0.5.0).
+If your code is incompatible, you can consider upgrading it or falling back to 0.4.38.
+
+On LUMI, the 0.4.38 module fixes memory allocation instabilities that were present in 0.4.30.
+
 ## Snakemake and Nextflow tutorials significantly improved
 
 Tutorials with major updates available for workflow tools: [Snakemake](../tutorials/snakemake-puhti.md) and [Nextflow](../tutorials/nextflow-tutorial.md). The tutorial describe different options for the installing and running the tools. Note also the new [master thesis by Antoni Gołoś comparing automated workflow approaches on supercomputers](https://urn.fi/URN:NBN:fi:aalto-202406164397).

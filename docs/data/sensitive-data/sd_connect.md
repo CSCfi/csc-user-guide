@@ -1,21 +1,17 @@
 # Store and share with Sensitive Data Connect
 
 
-1. [Overview](#overview)
-2. [Key features](#key-features)
-3. [Limitations](#limitations)
-4. [October 2024 major service upgrade](#overview-of-sd-connect-new-features)
-5. [Your next steps in this guide](#features-in-sd-connect)
-
-
+- [Overview](#overview)
+- [Key features](#key-features)
+- [Limitations](#limitations)
+- [October 2024 major service upgrade](#overview-of-sd-connect-new-features)
+- [Your next steps in this guide](#features-in-sd-connect)
 
 ## Overview
 
 Sensitive Data (SD) Connect enables the secure storage and sharing of sensitive research data. It automatically encrypts files during upload and decrypts them during download through an easy-to-use interface. For files larger than 100 GB, a command-line tool is available which also provides automated key management.
 
 SD Connect also supports collaborative research, allowing data collection and sharing within the platform. Files stored are encrypted and can be accessed for analysis, annotation, or editing through SD Desktop.
-
-
 
 You can browse through the main topics of the manual using the navigation bar on the left side of this page or the search function.
 
