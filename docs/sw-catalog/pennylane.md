@@ -1,5 +1,5 @@
 ---
-template: sw-catalog-templates/app.html
+template: sw-catalog/app.html
 software_catalog:
   name: Pennylane
   description: Free open-source software framework for quantum machine learning and quantum computing

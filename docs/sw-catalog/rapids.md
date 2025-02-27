@@ -1,5 +1,5 @@
 ---
-template: sw-catalog-templates/app.html
+template: sw-catalog/app.html
 software_catalog:
   name: RAPIDS
   description: Suite of libraries for data analytics and machine learning on GPUs

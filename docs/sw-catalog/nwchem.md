@@ -1,5 +1,5 @@
 ---
-template: sw-catalog-templates/app.html
+template: sw-catalog/app.html
 software_catalog:
   name: NWChem
   description: A computational chemistry software package designed to perform well on parallel HPC systems

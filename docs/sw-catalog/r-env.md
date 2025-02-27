@@ -1,5 +1,5 @@
 ---
-template: sw-catalog-templates/app.html
+template: sw-catalog/app.html
 software_catalog:
   name: r-env
   description: R, RStudio Server, SAGA and TensorFlow

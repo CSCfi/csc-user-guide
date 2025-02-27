@@ -1,5 +1,5 @@
 ---
-template: sw-catalog-templates/app.html
+template: sw-catalog/app.html
 software_catalog:
   name: Maestro
   description: Versatile drug discovery and materials modeling suite

@@ -1,5 +1,5 @@
 ---
-template: sw-catalog-templates/app.html
+template: sw-catalog/app.html
 software_catalog:
   name: MIRA
   description: Whole genome shotgun and EST sequence Assembler

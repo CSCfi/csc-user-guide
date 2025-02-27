@@ -1,5 +1,5 @@
 ---
-template: sw-catalog-templates/app.html
+template: sw-catalog/app.html
 software_catalog:
   name: HMMER
   description: Toolkit to create and use sequence profile hidden Markov models

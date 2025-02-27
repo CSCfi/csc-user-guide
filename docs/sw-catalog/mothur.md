@@ -1,5 +1,5 @@
 ---
-template: sw-catalog-templates/app.html
+template: sw-catalog/app.html
 software_catalog:
   name: Mothur
   description: Package for microbial community analysis of amplicon sequencing data

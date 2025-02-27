@@ -1,5 +1,5 @@
 ---
-template: sw-catalog-templates/app.html
+template: sw-catalog/app.html
 software_catalog:
   name: PALM
   description: Meteorological model system for atmospheric and oceanic boundary-layer flows

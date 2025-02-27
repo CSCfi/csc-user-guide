@@ -1,5 +1,5 @@
 ---
-template: sw-catalog-templates/app.html
+template: sw-catalog/app.html
 software_catalog:
   name: Illumina BaseSpace
   description: Command line client for retrieving data from the Illumina BaseSpace environment

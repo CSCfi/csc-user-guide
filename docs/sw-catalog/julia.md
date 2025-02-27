@@ -1,5 +1,5 @@
 ---
-template: sw-catalog-templates/app.html
+template: sw-catalog/app.html
 software_catalog:
   name: Julia Language
   description:  High-level, high-performance dynamic programming language for numerical computing

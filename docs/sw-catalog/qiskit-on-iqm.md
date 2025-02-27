@@ -1,5 +1,5 @@
 ---
-template: sw-catalog-templates/app.html
+template: sw-catalog/app.html
 software_catalog:
   name: Qiskit-on-iqm
   description: open-source qiskit adapter for quantum computing

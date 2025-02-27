@@ -1,5 +1,5 @@
 ---
-template: sw-catalog-templates/app.html
+template: sw-catalog/app.html
 software_catalog:
   name: XHMM (eXome-Hidden Markov Model)
   description: Copy number variation calling from targeted sequencing data

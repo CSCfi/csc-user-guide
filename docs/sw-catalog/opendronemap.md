@@ -1,5 +1,5 @@
 ---
-template: sw-catalog-templates/app.html
+template: sw-catalog/app.html
 software_catalog:
   name: OpenDroneMap (ODM)
   description: for processing aerial drone imagery

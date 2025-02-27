@@ -1,5 +1,5 @@
 ---
-template: sw-catalog-templates/apps-index.html
+template: sw-catalog/apps-index.html
 hide:
   - toc
 ---

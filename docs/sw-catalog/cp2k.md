@@ -1,5 +1,5 @@
 ---
-template: sw-catalog-templates/app.html
+template: sw-catalog/app.html
 software_catalog:
   name: CP2K
   description: DFT, quantum chemistry, QM/MM, AIMD etc. in particular for periodic systems
