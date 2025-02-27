@@ -51,7 +51,7 @@ characters. Never leave the passphrase empty!
 ## Copying public key to supercomputer
 
 The recommended way to copy a public key to a supercomputer is
-[through the My CSC customer portal](ssh-keys.md#adding-public-key-in-my-csc).
+[through the MyCSC customer portal](ssh-keys.md#adding-public-key-in-mycsc).
 Alternatively, you can use the `ssh-copy-id` utility:
 
 ```bash

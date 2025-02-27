@@ -36,7 +36,7 @@ This feature has several advantages and disadvantages. On one hand it allows to 
 
 ### CLI
 
-Before doing this, you need to [install the openstack client](../install-client/):
+Before doing this, you need to [install the openstack client](install-client.md):
 
 1. Create a multi attach volume:
 

@@ -241,12 +241,38 @@ tar xzf ollama-linux-amd64.tgz
 rm ollama-linux-amd64.tgz
 ```
 
+On LUMI you have to do this additionally (in the same directory as
+above). Note that with the additional ROCm files, the installation
+takes 14 GB of disk space!
+
+```bash
+wget https://ollama.com/download/ollama-linux-amd64-rocm.tgz
+tar xzf ollama-linux-amd64-rocm.tgz
+rm ollama-linux-amd64-rocm.tgz
+```
+
 In your batch job you then just need to start the service with `ollama
 serve`. After that your job can access the API in `localhost` at port
 `11434`.  It's also a good idea to setup the environment variable
 `OLLAMA_MODELS` to point to the project scratch, as it will otherwise
 download huge model files to your home directory.  See our [example
 Slurm script `run-ollama.sh` for running with Ollama][11].
+
+The [`ai-inference-examples`][14] repository also has some examples of
+running Ollama on a full node with 4 GPUs on Puhti and 8 GPUs on LUMI.
+
+### Inference with vLLM
+
+[vLLM][12] is another library for running LLM inference. vLLM supports
+[offline batched inference][13] which is the mode most suitable for
+running in a supercomputer. This runs just as a normal Python batch
+job.
+
+In some situations there's still a need for an OpenAI-compatible
+server, for example when interfacing with other programs. [Example
+scripts for running vLLM on Puhti, Mahti and LUMI can be found in our
+`ai-inference-examples` repository][14]. There's also an example of
+running on multiple nodes using Ray.
 
 
 [1]: https://blog.eleuther.ai/transformer-math/
@@ -260,3 +286,6 @@ Slurm script `run-ollama.sh` for running with Ollama][11].
 [9]: https://huggingface.co/docs/transformers/fsdp
 [10]: https://huggingface.co/docs/peft/en/accelerate/fsdp#the-important-parts
 [11]: https://github.com/CSCfi/machine-learning-scripts/blob/master/slurm/run-ollama.sh
+[12]: https://docs.vllm.ai/en/latest/
+[13]: https://docs.vllm.ai/en/latest/getting_started/quickstart.html#offline-batched-inference
+[14]: https://github.com/mvsjober/ai-inference-examples

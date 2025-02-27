@@ -60,7 +60,7 @@ cloud-user@<floating-ip>: Permission denied (publickey,gssapi-keyex,gssapi-with-
 
 Note that there are always several ways to fix any problem, this FAQ is mainly meant to show one of the ways to fix these kinds of problems. Also meanwhile you are allowed to edit Grub boot parameters, the root single mode access is disabled by default for security reasons. The procedure to perform a rescue is as follows:
 
-1. You need to have installed the [OpenStack command line tools](/cloud/pouta/install-client/). And you have to login, and see [Configure your terminal environment for OpenStack](/cloud/pouta/install-client/#configure-your-terminal-environment-for-openstack) for reference.
+1. You need to have installed the [OpenStack command line tools](../../cloud/pouta/install-client.md). And you have to login, and see [Configure your terminal environment for OpenStack](../../cloud/pouta/install-client.md#configure-your-terminal-environment-for-openstack) for reference.
 
 1. Get the server's ID, and store it in an environment variable called: `INSTANCE_UUID`:
 
@@ -216,3 +216,66 @@ The `chroot` has now changed your root folder `/` to `/tmp/mnt/` (your VM's disk
 
     It should work as before the incident happened.
 
+
+## If your instance boot from a bootable volume
+
+If you are in this case:
+
+```
+$ openstack server list
++--------------------------------------+-------------------+--------+------------------------------------------------+--------------------------+-----------------+
+| ID                                   | Name              | Status | Networks                                       | Image                    | Flavor          |
++--------------------------------------+-------------------+--------+------------------------------------------------+--------------------------+-----------------+
+| 8bbffd1b-99b2-494a-9501-890db20fc2a7 | machine           | ACTIVE | project_200xxxx=192.168.1.0, 123.45.67.89      | N/A (booted from volume) | standard.small  |
+```
+
+You can boot a new machine and attach the volume to edit the files.
+
+
+!!! Warning  
+    Before deleting the machine, be sure that the volume won't be deleted automatically. You can check this by running this command:
+
+	```sh
+	$ openstack server show $INSTANCE_UUID | grep 'volumes_attached'
+
+      volumes_attached   | delete_on_termination='False', id='6183d89e-59ac-4b25-b2d5-ef802fd5ef82'
+	```
+
+1. Delete the machine that boots from the volume
+
+    ```sh
+    $ openstack server delete $INSTANCE_UUID
+    ```
+
+1. Create a new machine (boot from an image) and attach the volume
+
+1. Associate a Floating IP and connect to it
+
+1. SSH to the newly created machine and identify the volume. vdb1 is likely the partition you're looking for.
+
+    ```sh
+    $ lsblk
+
+    NAME    MAJ:MIN RM  SIZE RO TYPE MOUNTPOINTS
+    vda     253:0    0   80G  0 disk
+    ├─vda1  253:1    0   79G  0 part /
+    ├─vda14 253:14   0    4M  0 part
+    ├─vda15 253:15   0  106M  0 part /boot/efi
+    └─vda16 259:0    0  913M  0 part /boot
+    vdb     253:16   0   20G  0 disk
+    ├─vdb1  253:17   0   19G  0 part
+    ├─vdb14 253:30   0    4M  0 part
+    ├─vdb15 253:31   0  106M  0 part
+    └─vdb16 259:1    0  913M  0 part
+    ```
+
+1. Create a mount point and mount the partition
+   
+	```sh
+	$ sudo mkdir -p /tmp/mnt
+	$ sudo mount /dev/vdb1 /tmp/mnt/
+	```
+
+1. You can now edit the files you need in `/tmp/mnt`
+
+Once you're done, you can simply shutdown the vm, detach the volume and start a new machine with the bootable volume.

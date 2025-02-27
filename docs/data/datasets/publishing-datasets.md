@@ -16,7 +16,7 @@ If possible, use discipline specific repositories for your data. We recommend co
 
 [EUDAT Services](https://www.eudat.eu/)
 
-[How to make spatial data available in CSC's computing environment](https://research.csc.fi/en/gis_data_in_csc_computing_env)
+[How to publish youre spatial data to Paituli service](https://paituli.csc.fi/opendata.html)
 
 [Example case 1: Sharing data during research project, publish FAIR when ready](https://research.csc.fi/example-case-1)
 

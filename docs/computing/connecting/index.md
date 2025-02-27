@@ -165,4 +165,4 @@ ssh <host>
 
 Some editors like Visual Studio Code and Notepad++ can be used to
 [work on files remotely](../../support/tutorials/remote-dev.md)
-using an appropriate plugin.
+using an appropriate plugin. **However, this is not recommended.**

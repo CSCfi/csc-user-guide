@@ -27,9 +27,7 @@
 * [HyperQueue meta-scheduler](../../apps/hyperqueue.md)
 * [FireWorks workflow manager](../../computing/running/fireworks.md)
 * [How to run many short jobs with GNU Parallel](many.md)
-* [Nextflow tutorial for Puhti (basic)](https://yetulaxman.github.io/Biocontainer/tutorials/nextflow_tutorial.html)
-* [Running Nextflow pipelines on Puhti (advanced)](nextflow-puhti.md)
-* [Running Nextflow workflows using HyperQueue](nextflow-hq.md)
+* [Running Nextflow pipelines](nextflow-tutorial.md)
 * [Running Snakemake pipelines on Puhti](snakemake-puhti.md)
 
 ## Allas
@@ -69,26 +67,15 @@
 * For software specific tutorials and examples, see [the respective software pages](../../apps/by_discipline.md#geosciences)
 
 ## Pouta - cloud
-* [cPouta and ePouta related videos](../../cloud/pouta/pouta-videos.md)
-* [Learn cloud computing by developing and deploying a web application](../../cloud/tutorials/web-app-dev-cloud.md)
-* [Orchestration with Heat](../../cloud/pouta/heat-orchestration.md)
-* [Create a jumphost in cPouta](../../cloud/tutorials/create-jumphost.md)
-* [SSH Key-pair](../../cloud/tutorials/ssh-key.md)
+
+You can find Pouta tutorials in [Cloud Services > Pouta > Tutorials](../../cloud/pouta/tutorials/index.md)
+
+## Pukki - database cloud
+* [How to migrate a PostgreSQL database to Pukki](./pukki_data_migration.md)
 
 ## Rahti - container cloud
-* [Accessing databases on Rahti from CSC supercomputers](../../cloud/tutorials/connect-database-hpc.md)
-* [Configuration, ConfigMaps and Secrets](../../cloud/tutorials/configuration.md)
-* [Core objects](../../cloud/rahti/concepts.md)
-* [Custom domain names and secure transport](../../cloud/tutorials/custom-domain.md)
-* [Deploying a static web server using the command line](../../cloud/tutorials/elemental_tutorial.md)
-* [Deploying a static web server using the web interface](../../cloud/tutorials/basic-console.md)
-* [How to add docker hub credentials to a project](../../cloud/tutorials/docker_hub_login.md)
-* [How to manually cache images in Rahti's registry](../../cloud/rahti2/images/Using_Rahti_2_integrated_registry.md)
-* [How to package a Kubernetes application with Helm?](../../cloud/tutorials/helm.md)
-* [How to transfer data to Rahti?](../../cloud/tutorials/transfer_data_rahti.md)
-* [Reverse proxy authentication using a sidecar container](../../cloud/tutorials/sidecar_proxy_authentication.md)
-* [Short introduction to YAML](../../cloud/tutorials/yaml_introduction.md)
-* [Webhooks](../../cloud/tutorials/webhooks.md)
+
+You can find Rahti tutorials in [Cloud Services > Rahti > Tutorials](../../cloud/rahti/tutorials/index.md)
 
 ## Sensitive Data
 * [Using Allas to transport sensitive data](../../data/sensitive-data/sequencing_center_tutorial.md)
@@ -99,4 +86,4 @@
 
 ## CSC Resources for Courses
 * [A Puhti webinterface demo for course organizers](https://github.com/CSCfi/Jupyter_www_puhti)
-* [Noppe environment for creating custom notebooks](../../cloud/noppe/guide_for_teachers/#creating-custom-docker-images)
+* [Noppe environment for creating custom notebooks](../../cloud/noppe/guide_for_teachers.md#creating-custom-docker-images)

@@ -14,6 +14,7 @@
 --export
 --export-file
 --gpus-per-node
+--gpus-per-task
 --get-user-env
 --gid
 --gres

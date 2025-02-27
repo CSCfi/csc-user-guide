@@ -30,7 +30,7 @@ are meant for things like moving data and setting up and managing your
 batch jobs. You should not run actual jobs on the login nodes. There
 are only two login nodes and they are shared by everybody. Running big
 jobs on them can make the system slow and unresponsive for all
-(More details in our [usage policy](../../../computing/usage-policy)).
+(More details in our [usage policy](../../computing/usage-policy.md)).
 
 Jobs should be run in the compute nodes. This is done using the *batch
 job system* also called a *scheduler* or a *workload manager*. The

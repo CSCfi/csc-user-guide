@@ -1,46 +1,46 @@
-# Rahti 2 migration guide
+# Rahti migration guide
 
-This guide is dedicated to answer the most frequent questions and provide procedures for the Rahti 1 to Rahti 2 migration.
+This guide is dedicated to answer the most frequent questions and provide procedures for the Rahti 1 to Rahti migration.
 
 Rahti 1 is the current deployed and used version of OpenShift OKD running in CSC. The exact version is `v3.11`, it is the last released version in the `3.XX` series. The underlining Kubernetes version is v1.11. Rahti 1 is in open beta, and was not meant to reach production status.
 
-Rahti 2 production is the next version of OpenShift OKD running in CSC. The underlining version of Kubernetes is v1.28. This version uses [cri-o](https://cri-o.io/) as the container runtime. `CRI-o` it is a lightweight alternative to using Docker as the runtime for kubernetes, both are fully compatible with each other and follow the `OCI` standard. Due to the fact that OpenShift OKD v4 is a re-implementation, there is no upgrade path provided by the manufacturer for Rahti 1 (OKD v3.11) to become Rahti 2 production (OKD 4.xx). So in other words, this means that every single application running in Rahti 1 needs to be migrated to production Rahti 2 manually. The two versions will run in parallel for a certain amount of time, but all wanted applications should be migrated to new platform by the latest 22nd October 2024.
+Rahti production is the next version of OpenShift OKD running in CSC. The underlining version of Kubernetes is v1.28. This version uses [cri-o](https://cri-o.io/) as the container runtime. `CRI-o` it is a lightweight alternative to using Docker as the runtime for kubernetes, both are fully compatible with each other and follow the `OCI` standard. Due to the fact that OpenShift OKD v4 is a re-implementation, there is no upgrade path provided by the manufacturer for Rahti 1 (OKD v3.11) to become Rahti production (OKD 4.xx). So in other words, this means that every single application running in Rahti 1 needs to be migrated to production Rahti manually. The two versions will run in parallel for a certain amount of time, but all wanted applications should be migrated to new platform by the latest 22nd October 2024.
 
 ## General steps
 
 Before you start the migration, you need to gather information about your application:
 
 1. Where is the **data stored**? And how is it **accessed**? Do you use a database?
-     1. If you use a PostgreSQL database hosted in Rahti, think about migrating to [Pukki DBaaS](../../dbaas/).
-     1. If you use Read-Write-Once (RWO) volumes, you can easily migrate them to Rahti 2. Just follow the instruction in the [How to use storage?](#how-to-use-storage) section.
-     1. If you use Read-Write-Many (RWX), you have to check why are you using it. It may be two main options: (1) It was the default and you could use a RWO volume instead because you are only mounting the volume once, or (2) You need to mount at the same time the same volume in several Pods. If you are in option (2), sadly there is not yet a supported solution in Rahti 2 for RWX, please contact us at <servicedesk@csc.fi> and let us know your use case, we are gathering customer needs to better develop the RWX solution. And we will work together on possible alternatives.
+     1. If you use a PostgreSQL database hosted in Rahti, think about migrating to [Pukki DBaaS](../dbaas/index.md).
+     1. If you use Read-Write-Once (RWO) volumes, you can easily migrate them to Rahti. Just follow the instruction in the [How to use storage?](#how-to-use-storage) section.
+     1. If you use Read-Write-Many (RWX), you have to check why are you using it. It may be two main options: (1) It was the default and you could use a RWO volume instead because you are only mounting the volume once, or (2) You need to mount at the same time the same volume in several Pods. If you are in option (2), sadly there is not yet a supported solution in Rahti for RWX, please contact us at <servicedesk@csc.fi> and let us know your use case, we are gathering customer needs to better develop the RWX solution. And we will work together on possible alternatives.
 
      In order to see the storage type of your volumes, you can check the types in the Storage page.
 
      ![Storage page](../img/storage-page.png)
 
-1. What are the **CPU** and **memory** requirements? Rahti 2 has lower _default_ **memory** or **CPU** limits, see the [What are the default limits?](#what-are-the-default-limits) section for more details about this.
+1. What are the **CPU** and **memory** requirements? Rahti has lower _default_ **memory** or **CPU** limits, see the [What are the default limits?](#what-are-the-default-limits) section for more details about this.
 
-1. How was the application **deployed** in Rahti 1? Ideally you used [Helm Charts](https://helm.sh/), [Kustomize](https://kustomize.io/) or Source to Image, and deploying your application to Rahti 2 will be simple. If not, consider creating one Helm chart using the guide [How to package a Kubernetes application with Helm](../../tutorials/helm/). As a last option, you may copy manually each API object.
+1. How was the application **deployed** in Rahti 1? Ideally you used [Helm Charts](https://helm.sh/), [Kustomize](https://kustomize.io/) or Source to Image, and deploying your application to Rahti will be simple. If not, consider creating one Helm chart using the guide [How to package a Kubernetes application with Helm](../../support/faq/helm.md). As a last option, you may copy manually each API object.
 1. How do users access the application? What are the URLs? Is the URL is a Rahti provided URL (`*.rahtiapp.fi`), or a dedicated domain?
-    1. If you use a dedicated domain, you need to see with your DNS provider how to update the name record. The DNS information can be found on the [Route](../../rahti2/networking/#routes) documentation.
-    1. If you use a URL of the type `*.rahtiapp.fi`, you will no longer be able to use use it in Rahti 2 and will need to migrate to `*.2.rahtiapp.fi` or to a dedicated domain.
+    1. If you use a dedicated domain, you need to see with your DNS provider how to update the name record. The DNS information can be found on the [Route](../rahti/networking.md#routes) documentation.
+    1. If you use a URL of the type `*.rahtiapp.fi`, you will no longer be able to use use it in Rahti and will need to migrate to `*.2.rahtiapp.fi` or to a dedicated domain.
 1. Migration day considerations. What is an acceptable downtime? - We can provide you some assistance on planning the migration, but we cannot coordinate with your users or decide what is an acceptable downtime.
 
 Suggested migration procedure:
 
-1. Deploy a test application in Rahti 2.
-1. Make a copy of the data from Rahti 1 to Rahti 2. Remember to write down the time it takes.
-1. Validate that the application works as expected in Rahti 2. Stress tests are a recommended way to better catch any possible issue.
+1. Deploy a test application in Rahti.
+1. Make a copy of the data from Rahti 1 to Rahti. Remember to write down the time it takes.
+1. Validate that the application works as expected in Rahti. Stress tests are a recommended way to better catch any possible issue.
 1. Schedule the migration, where you stop the Rahti 1 app, copy the data, and make the necessary DNS updates.
 
 ## FAQ
 
-### How to log in Rahti 2?
+### How to log in Rahti?
 
-Go to [Rahti 2](https://rahti.csc.fi/), click in `Login`
+Go to [Rahti](https://rahti.csc.fi/), click in `Login`
 
-![Rahti 2 login](../img/rahti_login2.png)
+![Rahti login](../img/rahti_login2.png)
 
 You will be then served with a page with all the authentication options that Rahti 1 accepts. Choose the one that is more convenient for you, all your identities should be linked to the same Rahti 1 account.
 
@@ -96,7 +96,7 @@ In Rahti 1 the default limits were the same as the default quota:
           memory: 200Mi
 ```
 
-In Rahti 2 the default limits are lower than the default quota:
+In Rahti the default limits are lower than the default quota:
 
 ```yaml
     - resources:
@@ -108,7 +108,7 @@ In Rahti 2 the default limits are lower than the default quota:
           memory: 500Mi
 ```
 
-The recommended way to discover the suitable values for your application is trial and error. Launch your application in Rahti 2 and observe the memory and CPU consumption. If your application gets to the memory limit, it will be killed with an `OutOfMemoryError` (`OOM`), normally with a `137 error code`. CPU on the other hand, behaves differently, and the application will not be killed. But both limits have to be treated on the same way, if you see that any of the two limits is reached, raise the limit and try again. It is recommended to have at least a small margin of 10-20% over the expected limits. Of course, you can skip this process if you already know your application's resource needs. Also you might take a look to the [Horizontal Autoscaler](../../tutorials/addHorizontalAutoscaler/), which allows you to automatically create and delete replicas of your Pods. It is better for availability and resource scheduling to have several smaller Pods, but not all applications support it.  
+The recommended way to discover the suitable values for your application is trial and error. Launch your application in Rahti and observe the memory and CPU consumption. If your application gets to the memory limit, it will be killed with an `OutOfMemoryError` (`OOM`), normally with a `137 error code`. CPU on the other hand, behaves differently, and the application will not be killed. But both limits have to be treated on the same way, if you see that any of the two limits is reached, raise the limit and try again. It is recommended to have at least a small margin of 10-20% over the expected limits. Of course, you can skip this process if you already know your application's resource needs. Also you might take a look to the [Horizontal Autoscaler](../../support/faq/addHorizontalAutoscaler.md), which allows you to automatically create and delete replicas of your Pods. It is better for availability and resource scheduling to have several smaller Pods, but not all applications support it.  
 
 !!! info "Why are limits tighter?"
     Rahti 1 resource range (difference between request and limits) was too wide. This made the scheduler's job harder, as every Pod looked the same regarding resource needs (every Pod requested the same resources). This increased the "noisy neighbours effect", were Pods hungry for resources were placed on the same nodes as more modest Pods. The hungry ones were starving the more modest ones. With tighter limits and a maximum factor of between request and limit, Pods will need to be configured with more explicit limits.
@@ -130,7 +130,7 @@ From the web UI, go to the Deployment page, go to **Actions > Edit resource limi
 
 !!! info "Default URLs suffix have changed"
 
-    In Rahti 1 default URLs were `<whatever>.rahtiapp.fi` meanwhile in Rahti 2 it will be `<whatever>.2.rahtiapp.fi`
+    In Rahti 1 default URLs were `<whatever>.rahtiapp.fi` meanwhile in Rahti it will be `<whatever>.2.rahtiapp.fi`
 
 A Route can be created by going to the project details page, and click in Routes.
 
@@ -148,13 +148,13 @@ A Route has two compulsory parameters:
 Other optional parameters are:
 
 * a `hostname`, which must be unique within Rahti. If none is provided, the hostname will be autogenerated by using the route `name` and the `project name`.
-* `Secure Route` can be activated to activate TLS encryption (Only TLS v1.3 and v1.2 are supported in Rahti 2, Rahti 1 only support TLS v1.2). The options are similar than in [Rahti 2 Routes](../rahti2/networking.md#routes)
+* `Secure Route` can be activated to activate TLS encryption (Only TLS v1.3 and v1.2 are supported in Rahti, Rahti 1 only support TLS v1.2). The options are similar than in [Rahti Routes](../rahti/networking.md#routes)
 
 ### How to edit a route?
 
 A Route can be edited by going to the project details page, click in Route, and then click in the route name you would like to edit.
 
-Then click in Actions > Edit Route. A YAML representation of the route will appear. You can edit it following the example at the [Concepts Route](../rahti2/concepts.md#route) page. If for example you want to add TLS support (https support), you need to add inside the `spec` section:
+Then click in Actions > Edit Route. A YAML representation of the route will appear. You can edit it following the example at the [Concepts Route](../rahti/concepts.md#route) page. If for example you want to add TLS support (https support), you need to add inside the `spec` section:
 
 ```
 spec:
@@ -169,17 +169,17 @@ Where `Redirect` tells the route to redirect users from http to https automatica
 
 ### What changes must be made in firewalls?
 
-The egress IP used in Rahti 2 is different that for Rahti 1 had. This means that if you have a firewall rule opening for traffic coming from Rahti 1, the IP has to be updated. The Rahti 1 IP is `193.167.189.25` and the new one for Rahti 2 is `86.50.229.150`.
+The egress IP used in Rahti is different that for Rahti 1 had. This means that if you have a firewall rule opening for traffic coming from Rahti 1, the IP has to be updated. The Rahti 1 IP is `193.167.189.25` and the new one for Rahti is `86.50.229.150`.
 
 !!! warning "egress IP may change"
 
-    The egress IP of Rahti 2 might change in the future. For example, if several versions of Rahti 2 are run in parallel each will have a different IP. Or if a major change in the underlining network infrastructure happens.
+    The egress IP of Rahti might change in the future. For example, if several versions of Rahti are run in parallel each will have a different IP. Or if a major change in the underlining network infrastructure happens.
 
-Some project with dedicated egress IPs will have to request a new dedicated IP in Rahti 2 and update their firewalls accordingly.
+Some project with dedicated egress IPs will have to request a new dedicated IP in Rahti and update their firewalls accordingly.
 
 ### How to manage users in project?
 
-Rahti 2 will synchronize the Rahti 2 project members with the CSC project members. Any member of the linked CSC project will get **Admin** access to the Rahti 2 project. The membership of the CSC project can be then handled in <my.csc.fi>. For example, we have the CSC project 1000123, we can go to <my.csc.fi> and add or remove members. We can create few Rahti 2 projects and link each of them to 1000123. A couple of minutes after creation, all members of the CSC project will be Admins of each of the Rahti 1 projects.
+Rahti will synchronize the Rahti project members with the CSC project members. Any member of the linked CSC project will get **Admin** access to the Rahti project. The membership of the CSC project can be then handled in <my.csc.fi>. For example, we have the CSC project 1000123, we can go to <my.csc.fi> and add or remove members. We can create few Rahti projects and link each of them to 1000123. A couple of minutes after creation, all members of the CSC project will be Admins of each of the Rahti 1 projects.
 In the project details page select "Project access".
 It is also possible to add permissions manually to specific users that are not member of the CSC project and maybe that we do not want to make Admins. In the **Project** page in the Developer section, select "Project access".
 
@@ -201,7 +201,7 @@ In the Project details page (`Developer` > `Project`), click `PersistentVolumeCl
 
 ![Create PersistentVolumeClaim](../img/Create_PersistentVolumeClaim.png)
 
-* For the moment only a single type of `StorageClass` can be used. It corresponds to `Cinder` volumes, which can only be read or write (mounted) by a single node (In order to mount it in several Pods, you need to use [Pod affinity](../../tutorials/pod-affinity/), so all the Pods are created on the same node).
+* For the moment only a single type of `StorageClass` can be used. It corresponds to `Cinder` volumes, which can only be read or write (mounted) by a single node (In order to mount it in several Pods, you need to use [Pod affinity](../rahti/tutorials/pod-affinity.md), so all the Pods are created on the same node).
 
 * A unique name within the project must be provided.
 
@@ -210,11 +210,11 @@ In the Project details page (`Developer` > `Project`), click `PersistentVolumeCl
 * The Volume mode should be `Filesystem`.
 
 !!! warning "Lazy volume creation"
-    The volume will only be created when it is mounted for the first time, this is a change in behavior in `Rahti 2`.
+    The volume will only be created when it is mounted for the first time, this is a change in behavior in `Rahti`.
 
 ### How to Recreate Pod for Deployment having RWO Volumes
 
-In Rahti 1 the default volume was RWX(read-write-many), so these volumes could be mounted to many pods at the same time. But in Rahti 2 volumes are RWO(read-write-once), so these volumes can be mouted to only one pod at a time. 
+In Rahti 1 the default volume was RWX(read-write-many), so these volumes could be mounted to many pods at the same time. But in Rahti volumes are RWO(read-write-once), so these volumes can be mouted to only one pod at a time. 
 
 So, if the deployment have a mounted volume and you want to update the deployment, change the deployment strategy from "rolling update" to "recreate". Go to "Actions" and click on "Edit update strategy", now select "recreate"
 
@@ -224,4 +224,4 @@ So, if the deployment have a mounted volume and you want to update the deploymen
 
 ### How to use Integrated Registry
 
-To learn more about image caching and access control registry in Rahti 2, refer to the following article: [Using Rahti 2 Integrated Registry](../../cloud/rahti2/images/Using_Rahti_2_integrated_registry.md)
+To learn more about image caching and access control registry in Rahti, refer to the following article: [Using Rahti Integrated Registry](../../cloud/rahti/images/Using_Rahti_integrated_registry.md)

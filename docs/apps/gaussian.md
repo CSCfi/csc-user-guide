@@ -46,7 +46,7 @@ be found [here](http://gaussian.com/running/?tabid=3).
 
 Particularly some wave function-based electron correlation methods can
 be very disk I/O intensive. Such jobs benefit from using the fast
-[NMVE local disk](../../computing/running/creating-job-scripts-puhti/#local-storage)
+[NMVE local disk](../computing/running/creating-job-scripts-puhti.md#local-storage)
 on Puhti. Using local disk for such jobs will also reduce the overall load on the
 Lustre parallel file system.
 
@@ -111,7 +111,7 @@ well as use of local disk (nvme) significantly affects the performance:
 From these results we conclude that 80 GB seems to be the optimal memory allocation and
 that the use of local disk clearly improves the performance. The speedup when going from
 20 to 40 cores, and using local disk is 1.35, that is below the
-[recommended minimum of 1.5](../../accounts/how-to-access-mahti-large-partition/#scalability-testing).
+[recommended minimum of 1.5](../accounts/how-to-access-mahti-large-partition.md#scalability-testing).
 Hence, the most efficient resource usage would correspond to 20 cores, 80 GB of memory and local disk
 on Puhti. For this type of calculation Mahti isn't the optimal choice.
 

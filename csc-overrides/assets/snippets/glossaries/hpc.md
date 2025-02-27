@@ -63,6 +63,7 @@
 *[SSL]: Secure Sockets Layer
 *[EtM]: Encrypt-then-MAC
 *[UI]: User Interface
+*[UX]: User Experience
 *[GID]: Group IDentifier
 *[NFS]: Network File System
 *[FTP]: File Transfer Protocol

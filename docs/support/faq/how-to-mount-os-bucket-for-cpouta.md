@@ -81,7 +81,7 @@ chmod u+x poutaos_configure
 ./poutaos_configure
 ```
 
-The _poutaos_configure_ will first ask you for your CSC username and password, you can see which is your CSC username in your [My CSC profile](https://my.csc.fi/profile) page, you csan also change your password there. Then it will list your Allas projects and ask you to fill up the project to be used. Finally it will ask you for the **chunk size**, it is recommended to leave the default.
+The _poutaos_configure_ will first ask you for your CSC username and password, you can see which is your CSC username in your [MyCSC profile](https://my.csc.fi/profile) page, you csan also change your password there. Then it will list your Allas projects and ask you to fill up the project to be used. Finally it will ask you for the **chunk size**, it is recommended to leave the default.
 
 After this you can use the storage area of your Allas project with _s3cmd_ commands. Now you can see, download and upload files in this bucket with _s3cmd_.
 

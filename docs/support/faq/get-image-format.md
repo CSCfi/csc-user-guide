@@ -24,7 +24,7 @@ oc secrets link default <SECRET-NAME> --for=pull
 
 **Note**: Substitute placeholders with actual username, password, email, and an appropriate name for the secret (without <>).
 
-You can find more information in the [How to add docker hub credentials to a project](../../../cloud/tutorials/docker_hub_login/) article.
+You can find more information in the [How to add docker hub credentials to a project](docker_hub_login.md) article.
 
 ## Unsupported image format
 
@@ -35,7 +35,7 @@ When an old client is used to try to pull an image with the newer format, the cl
 
 ## Workarounds
 
-* A trivial fix is to pull the image using a compatible client, re-tag it, and push it to Rahti's internal registry. This newly pushed image will be using the old docker format. Follow the link for a guide on [How to manually cache images in Rahti's registry](../../../cloud/rahti2/images/Using_Rahti_2_integrated_registry).
+* A trivial fix is to pull the image using a compatible client, re-tag it, and push it to Rahti's internal registry. This newly pushed image will be using the old docker format. Follow the link for a guide on [How to manually cache images in Rahti's registry](../../cloud/rahti/images/Using_Rahti_integrated_registry.md).
 
 * If the image was built by your team, the [buildah](https://buildah.io) tool can be used. It allows to build docker images without the extra privileges the `docker build` requires, and even though by default it will build an image using the `OCI` format, it has an option to use the `docker` format instead:
 

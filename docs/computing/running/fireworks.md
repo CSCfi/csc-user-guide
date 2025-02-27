@@ -22,7 +22,7 @@ FireWorks is easy to install. We recommend using [Tykky](../containers/tykky.md)
 
 Note that the Python version used by `pip-containerize` is the first Python executable found in the path, so it's affected by loading modules. FireWorks requires at least Python 3.7, so make sure you're using at least this version. To this end, you can use the `--slim` flag of `pip-containerize` to utilize a pre-built minimal Python container with a much newer version of Python than the system default 3.6.8.
 
-The process of setting up and connecting to a MongoDB database in Rahti is detailed in a separate tutorial, see [Accessing databases on Rahti from CSC supercomputers](../../cloud/tutorials/connect-database-hpc.md). Note that the OpenShift template in Rahti sets up MongoDB version 3.2, requiring that the PyMongo version used with FireWorks cannot be newer than 3.12. Thus, you may need to separately specify the PyMongo version in the `req.txt` file when installing FireWorks. For example,
+The process of setting up and connecting to a MongoDB database in Rahti is detailed in a separate tutorial, see [Accessing databases on Rahti from CSC supercomputers](../../cloud/rahti/tutorials/connect-database-hpc.md). Note that the OpenShift template in Rahti sets up MongoDB version 3.2, requiring that the PyMongo version used with FireWorks cannot be newer than 3.12. Thus, you may need to separately specify the PyMongo version in the `req.txt` file when installing FireWorks. For example,
 
 ```
 # req.txt
@@ -57,7 +57,7 @@ A FireWorker (e.g. your laptop or in this case either of CSC's supercomputers) f
 !!! Note
     This page focuses on the usage of YAML files and the FireWorks command-line interface to define and execute workflows. For instructions on using the FireWorks Python API, see the [official FireWorks documentation](https://materialsproject.github.io/fireworks/).
 
-Before configuring the LaunchPad, make sure that you have opened a connection to your MongoDB database in Rahti using WebSocat as outlined in [Accessing databases on Rahti from CSC supercomputers](../../cloud/tutorials/connect-database-hpc.md). Note that `websocat` should be launched in an interactive session to avoid stressing the login nodes. With the obtained target port, database username and password, run `lpad init` to interactively configure the LaunchPad:
+Before configuring the LaunchPad, make sure that you have opened a connection to your MongoDB database in Rahti using WebSocat as outlined in [Accessing databases on Rahti from CSC supercomputers](../../cloud/rahti/tutorials/connect-database-hpc.md). Note that `websocat` should be launched in an interactive session to avoid stressing the login nodes. With the obtained target port, database username and password, run `lpad init` to interactively configure the LaunchPad:
 
 ```console
 $ lpad init
@@ -105,7 +105,7 @@ post_rocket: null
 In addition to queue parameters (resource requests, billing project), the QueueAdapter contains the `rocket_launch` key which specifies how the workflow should be launched within the batch job. This detail is discussed further in [Step 3](fireworks.md#step-3-defining-and-executing-a-simple-fireworks-workflow). Additionally, the batch queue system (SLURM) is specified with the `_fw_q_type` key, and any commands to be run before and/or after the workflow are provided using the `pre_rocket` and `post_rocket` keys.
 
 !!! Note
-    To open a TCP tunnel to your MongoDB in Rahti from the compute side, `websocat` should in addition to the interactive session also be launched in the `pre_rocket`. Here, the previously obtained target port can be used. See [Accessing databases on Rahti from CSC supercomputers](../../cloud/tutorials/connect-database-hpc.md#step-2-running-websocat-on-csc-supercomputers) for further details.
+    To open a TCP tunnel to your MongoDB in Rahti from the compute side, `websocat` should in addition to the interactive session also be launched in the `pre_rocket`. Here, the previously obtained target port can be used. See [Accessing databases on Rahti from CSC supercomputers](../../cloud/rahti/tutorials/connect-database-hpc.md#step-2-running-websocat-on-csc-supercomputers) for further details.
 
 For all possible SLURM flags that can be specified in the QueueAdapter, see the [SLURM template file](https://github.com/materialsproject/fireworks/blob/main/fireworks/user_objects/queue_adapters/SLURM_template.txt) distributed with FireWorks. Note the usage of underscores instead of dashes compared to the common SLURM options, e.g. `cpus_per_task` vs. `--cpus-per-task`, as well as the keys `walltime` and `queue` in contrast to `time` and `partition` used by SLURM. If the existing SLURM template does not suit your needs, please consult the official FireWorks documentation on [how to program custom QueueAdapters](https://materialsproject.github.io/fireworks/qadapter_programming.html).
 

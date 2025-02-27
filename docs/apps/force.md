@@ -71,4 +71,4 @@ FORCE was installed to Puhti with [Tykky's wrap-container functionality](../comp
 * [FORCE tutorials](https://davidfrantz.github.io/#tutorials)
 * [FORCE google group](https://groups.google.com/d/forum/force_eo)
 * [FORCE v2.0 (Old) User manual](https://www.uni-trier.de/fileadmin/fb6/prof/FER/Downloads/Software/FORCE/FORCE-user-guide-v-2-0.pdf)
-* [Using FORCE v2.0 (Old) in CSC environment (Taito) by Pekka Hurskainen](https://research.csc.fi/documents/48467/73370/Satellite_time_series_processing_with_FORCE_in_CSC_Hurskainen.pdf/c6960f88-ec94-4c94-aca3-734c8d283268)
+* [Using FORCE v2.0 (Old) in CSC environment (Taito) by Pekka Hurskainen](https://a3s.fi/gis-workshops/Satellite_time_series_processing_with_FORCE_in_CSC_Hurskainen.pdf)

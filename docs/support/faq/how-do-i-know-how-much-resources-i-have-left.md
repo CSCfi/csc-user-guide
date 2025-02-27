@@ -1,6 +1,6 @@
 # How do I know how much computing resources I have left?
 
-By logging in to our customer portal [My CSC](https://my.csc.fi). 
+By logging in to our customer portal [MyCSC](https://my.csc.fi). 
 You can see your projects, their project numbers, managers and billing 
 unit status on the [*Projects* page](https://my.csc.fi/projects).
 

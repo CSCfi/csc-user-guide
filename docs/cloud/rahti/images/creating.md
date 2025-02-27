@@ -1,7 +1,6 @@
---8<-- "rahtibeta_announcement.md"
 There are several reasons to make your own docker image, but mostly there are two. The application you want to run does not have a docker image available, or there is an image available, but it is not working on OpenShift. Due to the fact that OpenShift is designed to be a shared cluster, where users from different teams will run applications in the same hardware, OpenShift has to add limitations and runs things differently than in a standard Kubernetes cluster.
 
-Rahti 1's registry has an image size limit of 5GB. The bigger is an image, the worse the experience is to work with it. It takes more time to pull, and it fills up the image's cache of the node faster. An image more than 1GB is already considered a very big image. See the article about [keeping docker images small](./keeping_docker_images_small.md)
+Rahti's registry has an image size limit of 5GB. The bigger is an image, the worse the experience is to work with it. It takes more time to pull, and it fills up the image's cache of the node faster. An image more than 1GB is already considered a very big image. See the article about [keeping docker images small](keeping_docker_images_small.md)
 
 ## Building images locally
 
@@ -62,21 +61,21 @@ And finally, to publish the image:
 docker push docker.io/user/name:tag
 ```
 
-## Using Rahti 1 to build container images
+## Using Rahti to build container images
 
-The methods below use Rahti 1 to build the images.
+The methods below use Rahti to build the images.
 
 ### Using a local folder for building
 
-This method allows to build an image using a local folder containing a Dockerfile and the other required project files. It is useful when it is not possible or inconvenient to allow Rahti 1 to clone a repository directly.
+This method allows to build an image using a local folder containing a Dockerfile and the other required project files. It is useful when it is not possible or inconvenient to allow Rahti to clone a repository directly.
 
-This assumes that you have authorized a Rahti 1 command line session and created
-a project in Rahti 1. Instructions for that are shown in Chapter [Command line
+This assumes that you have authorized a Rahti command line session and created
+a project in Rahti. Instructions for that are shown in Chapter [Command line
 tool usage](../usage/cli.md#cli-cheat-sheet).
 
 **Steps:**
 
-Create Rahti 1 specific definitions with `oc new-build` command. Be sure
+Create Rahti specific definitions with `oc new-build` command. Be sure
 not to be in a directory under git version control:
 
 ```bash
@@ -97,62 +96,57 @@ Then you need a `Dockerfile`, you can use any of the previous `Dockerfile` in th
 oc start-build my-hello --from-dir=./ -F
 ```
 
-The image will appear in the Rahti 1 registry console
-[registry-console.rahti.csc.fi/registry](https://registry-console.rahti.csc.fi),
-and it will be visible to internet at
-`docker-registry.rahti.csc.fi/<project-name>/my-hello:devel` for docker
-compatible clients.
+The image will be visible to internet at
+`image-registry.apps.2.rahti.csc.fi/<project-name>/my-hello-image:devel` for docker
+compatible clients but you will first need to authenticate in order to pull it. 
 
-For command-line usage with docker compatible clients, the docker repository password will be the access token shown when authorizing Rahti 1 command line session and user name can be `unused`.
+For command-line usage with docker compatible clients, the docker repository password will be the access token shown when authorizing Rahti command line session and user name can be `unused`.
 
-The Docker CLI tool login instructions are also shown in the [Rahti 1 registry
-console](https://registry-console.rahti.csc.fi).
+```sh
+docker login -u g -p $(oc whoami -t) image-registry.apps.2.rahti.csc.fi
+```
 
 ### Using the Source to Image mechanism
 
 OpenShift allows to build and deploy code without writing a `Dockerfile`. This is called Source to Image or `s2i`. It is used by running `oc new-app URL#branch`, the `#branch` is optional. For example, use the official python sample code:
 
 ```bash
-$ oc new-app https://github.com/OpenShiftDemos/os-sample-python.git
---> Found image 4e4d991 (2 weeks old) in image stream "openshift/python" under tag "3.8" for "python"
+$ oc new-app https://github.com/CSCfi/nodejs-16-rahti-example.git
+--> Found Docker image 9d200cd (7 weeks old) from Docker Hub for "node:16.15.0"
 
-    Python 3.8 
-    ---------- 
-    Python 3.8 available as container is a base platform for building and running various Python 3.8 applications and frameworks. Python is an easy to learn, powerful programming language. It has efficient high-level data structures and a simple but effective approach to object-oriented programming. Python's elegant syntax and dynamic typing, together with its interpreted nature, make it an ideal language for scripting and rapid application development in many areas on most platforms.
-
-    Tags: builder, python, python38, python-38, rh-python38
-
-    * The source repository appears to match: python
-    * A source build using source code from https://github.com/OpenShiftDemos/os-sample-python.git will be created
-      * The resulting image will be pushed to image stream tag "os-sample-python:latest"
-      * Use 'start-build' to trigger a new build
-    * This image will be deployed in deployment config "os-sample-python"
-    * Port 8080/tcp will be load balanced by service "os-sample-python"
-      * Other containers can access this service through the hostname "os-sample-python"
+    * An image stream tag will be created as "node:16.15.0" that will track the source image
+    * A Docker build using source code from https://github.com/CSCfi/nodejs-16-rahti-example.git will be created
+      * The resulting image will be pushed to image stream tag "nodejs-16-rahti-example:latest"
+      * Every time "node:16.15.0" changes a new build will be triggered
+    * This image will be deployed in deployment config "nodejs-16-rahti-example"
+    * Port 8080/tcp will be load balanced by service "nodejs-16-rahti-example"
+      * Other containers can access this service through the hostname "nodejs-16-rahti-example"
+    * WARNING: Image "node:16.15.0" runs as the 'root' user which may not be permitted by your cluster administrator
 
 --> Creating resources ...
-    imagestream.image.openshift.io "os-sample-python" created
-    buildconfig.build.openshift.io "os-sample-python" created
-    deploymentconfig.apps.openshift.io "os-sample-python" created
-    service "os-sample-python" created
+    imagestream.image.openshift.io "node" created
+    imagestream.image.openshift.io "nodejs-16-rahti-example" created
+    buildconfig.build.openshift.io "nodejs-16-rahti-example" created
+    deploymentconfig.apps.openshift.io "nodejs-16-rahti-example" created
+    service "nodejs-16-rahti-example" created
 --> Success
-    Build scheduled, use 'oc logs -f bc/os-sample-python' to track its progress.
+    Build scheduled, use 'oc logs -f bc/nodejs-16-rahti-example' to track its progress.
     Application is not exposed. You can expose services to the outside world by executing one or more of the commands below:
-     'oc expose svc/os-sample-python' 
+     'oc expose svc/nodejs-16-rahti-example' 
     Run 'oc status' to view your app.
 ```
 
-The image will be found in Rahti 1 registry. Then do as suggested and expose the new application to the outside world:
+Then do as suggested and expose the new application to the outside world:
 
 ```bash
-$ oc expose svc/os-sample-python
-route.route.openshift.io/os-sample-python exposed
+$ oc expose svc/nodejs-16-rahti-example
+route.route.openshift.io/nodejs-16-rahti-example exposed
 ```
 
 In order to get the new route hostname do:
 
 ```bash
-oc get route os-sample-python
+oc get route nodejs-16-rahti-example
 ```
 
 If you enter the hostname in a browser, you will see the "Hello World!" message.
@@ -160,44 +154,10 @@ If you enter the hostname in a browser, you will see the "Hello World!" message.
 A new build can be triggered in the command line:
 
 ```bash
-oc start-build os-sample-python
+oc start-build nodejs-16-rahti-example
 ```
 
-Or using [webhooks](../../tutorials/webhooks.md)
-
-### Using the `Docker` strategy
-
-This is used in the same way as the Source to Image mechanism, `oc new-app URL#branch`. Rahti 1 will then detect that there is a Dockerfile in the repository and build the image automatically. This is useful when we want to fine tune a build procedure, or when the base image is not know to Rahti. The example bellow uses `node:16` as a base, but Rahti 1 does not support node16 by default.
-
-```sh
-$ oc new-app https://github.com/IBM/nodejs-express-app.git
---> Found container image 0787341 (13 days old) from registry.access.redhat.com for "registry.access.redhat.com/ubi8/nodejs-16-minimal:1"
-
-    Node.js 16 Minimal 
-    ------------------ 
-    Node.js 16 available as container is a base platform for running various Node.js 16 applications and frameworks. Node.js is a platform built on Chrome's JavaScript runtime for easily building fast, scalable network applications. Node.js uses an event-driven, non-blocking I/O model that makes it lightweight and efficient, perfect for data-intensive real-time applications that run across distributed devices.
-
-    Tags: builder, nodejs, nodejs16
-
-    * An image stream tag will be created as "nodejs-16-minimal:1" that will track the source image
-    * A Docker build using source code from https://github.com/IBM/nodejs-express-app.git will be created
-      * The resulting image will be pushed to image stream tag "nodejs-express-app:latest"
-      * Every time "nodejs-16-minimal:1" changes a new build will be triggered
-
---> Creating resources ...
-    imagestream.image.openshift.io "nodejs-16-minimal" created
-    imagestream.image.openshift.io "nodejs-express-app" created
-    buildconfig.build.openshift.io "nodejs-express-app" created
-    deployment.apps "nodejs-express-app" created
-    service "nodejs-express-app" created
---> Success
-    Build scheduled, use 'oc logs -f buildconfig/nodejs-express-app' to track its progress.
-    Application is not exposed. You can expose services to the outside world by executing one or more of the commands below:
-     'oc expose service/nodejs-express-app' 
-    Run 'oc status' to view your app.
-```
-
-Then one can continue following the steps in the Spource 2 Image procedure above (`oc expose svc/nodejs-express-app'` and `oc get route nodejs-express-app`).
+Or using [webhooks](../tutorials/webhooks.md)
 
 ### Using the inline Dockerfile method
 
@@ -214,3 +174,155 @@ It is also possible to create a build from a given `Dockerfile`:
 ```bash
 cat Dockerfile | oc new-build -D -
 ```
+
+### Import from Git (Private Repositories) using the Web GUI
+
+Deploying a private Git repository to Rahti involves setting up the necessary authentication to access your private repository. Without proper authentication, you will see the error "URL is valid but cannot be reached" (seen in the pictures below). Here's how to resolve this using two authentication methods:
+
+
+![oie_1671443U3OLpFT1](https://github.com/user-attachments/assets/a844e224-769e-4d9f-bba2-043ad5c9b258)
+
+
+#### Option 1: Using a Token for Git Authentication
+
+1. **Generate a Personal Access Token:**
+
+    - **GitHub:**
+         - Go to your GitHub account settings.
+         - Navigate to "Developer settings" > "Personal access tokens".
+         - Click on "Generate new token".
+         - Select the scopes you need (typically, you'll need `repo` scope for private repositories).
+         - Generate the token and copy it.
+
+    - **GitLab:**
+         - Go to your GitLab profile settings.
+         - Navigate to "Access Tokens".
+         - Give your token a name, select the required scopes (e.g., `api`, `read_repository`), and create the token.
+         - Copy the token.
+
+3. **Add the Token to Rahti:**
+    - Under "Source Secret" choose "Create new Secret"
+    - Name the secret, under "Authentication type" choose "Basic Authentication"
+    - Paste the token and create
+
+![oie_1672121lETtYQ6J](https://github.com/user-attachments/assets/4bd9450f-170b-4a9e-ae8c-df4700fb0be4)
+
+
+#### Option 2: Using a Private SSH Key for Git Authentication
+
+1. **Generate an SSH Key Pair (if you don't have one already):**
+
+    - Open a terminal and run the following command to generate a new SSH key pair:
+         ```sh
+         ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
+         ```
+    - This will create two files: a private key (`id_rsa`) and a public key (`id_rsa.pub`).
+
+2. **Add Your Public Key to Your Git Hosting Service:**
+
+    - **GitHub:**
+        - Go to your GitHub account settings.
+        - Navigate to "SSH and GPG keys".
+        - Click "New SSH key" and paste the contents of your `id_rsa.pub` file.
+
+    - **GitLab:**
+        - Go to your GitLab profile settings.
+        - Navigate to "SSH Keys".
+        - Add a new SSH key and paste the contents of your `id_rsa.pub` file.
+
+4. **Add the Private SSH Key to Rahti:**
+    - Under "Source Secret" choose "Create new Secret"
+    - Name the secret, under "Authentication type" choose "SSH Key"
+    - Paste the contents of your private SSH key (`id_rsa`) and create
+    - 
+![oie_16720584BbbOspb](https://github.com/user-attachments/assets/b1d47511-0ce6-4980-a732-895193895780)
+
+
+### Import from Git (Private Repositories) using the CLI
+
+This assumes that the users has generated SSH keys and registered their public key with GitHub.
+
+
+**[Log into OpenShift CLI (`oc`)](../usage/cli.md#how-to-login-with-oc)**:
+
+```bash
+oc login <cluster-url>
+```
+
+**[Create a New Project](../usage/projects_and_quota.md#creating-a-project)**:
+
+```bash
+oc new-project <project-name> --display-name=<display-name> --description="csc_project:<project-id>"
+```
+
+**Create SSH Key Secret**:
+
+```bash
+oc create secret generic <secret-name> --from-file=ssh-privatekey=<path-to-private-key> --type=kubernetes.io/ssh-auth
+```
+
+**Link the Secret to the Builder Service Account**:
+
+```bash
+oc secrets link builder <secret-name>
+```
+
+
+**Deploy the Application**:
+
+```bash
+oc new-app <repository-url> --name=<application-name>
+```
+
+**Monitor the Build**:
+
+- monitor logs
+  ```bash
+  oc logs -f buildconfig.build.openshift.io/<application-name>
+  ```
+
+- The initial build will probably fail due to authentication issues, set the build secret explicitly:
+  ```bash
+  oc set build-secret --source bc/<application-name> <secret-name>
+  ```
+
+- Trigger a new build:
+  ```bash
+  oc start-build <application-name> --follow
+  ```
+
+**Expose the Application**:
+
+```bash
+oc expose deployment <application-name> --name=<service-name> --port=<port> --target-port=<target-port>
+oc expose svc/<service-name>
+```
+
+**Access the Application**:
+
+- Use the URL provided by:
+    ```bash
+    oc get route <application-name>
+    ```
+
+## Troubleshooting
+
+If your build fails in Rahti, it could mean that your application needs more memory than is provided by default. Unfortunately, it's not possible to set resource limits and requests directly from the CLI when deploying the app. You will need to use a YAML configuration file or the web UI to specify these settings.
+
+You can create a yaml file and then apply it with the command `oc apply -f {your_yaml_file}.yaml` or edit your current `BuildConfig` in the Rahti webUI.
+In the Administrator view, navigate to `Builds > BuildConfigs` and click on your BuildConfig. Select the `YAML` tab.
+
+Under `spec` you should see `resources: {}`. From here, add `limits.cpu`, `limits.memory`, `requests.cpu` and `requests.memory`:
+```yaml
+resources:
+  limits:
+    cpu: 1
+    memory: 8Gi
+  requests:
+    cpu: 200m
+    memory: 1600Mi
+```
+
+Note that they cannot be more than 5x apart (default ratio, more information [here](../usage/projects_and_quota.md#default-pod-resource-limits)).
+
+Save and run the build again, and if it succeeds, check the metrics and see how much memory was used. You can adjust the memory limit to 10-20% more than what it was used.

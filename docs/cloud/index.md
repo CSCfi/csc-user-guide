@@ -4,7 +4,7 @@ title: Cloud Services
 
 # Overview
 
-CSC Cloud Services consists of Pouta hardware virtualisation service, Rahti 2 application containerisation service, Pukki cloud database service and CSC Noppe web application course hosting service. CSC hosts all services itself, with data centres in Finland.
+CSC Cloud Services consists of Pouta hardware virtualisation service, Rahti application containerisation service, Pukki cloud database service and CSC Noppe web application course hosting service. CSC hosts all services itself, with data centres in Finland.
 
 ### Pouta
 
@@ -18,11 +18,11 @@ Pukki is a cloud database service that provides on demand databases with automat
 
 If you need a self-service database with backups, choose [Pukki](dbaas/index.md).
 
-### Rahti 2
+### Rahti
 
-Rahti 2 is a containerisation service based on Red Hat OKD. It provides application level virtualisation where software applications can run in isolated user spaces without root access.
+Rahti is a containerisation service based on Red Hat OKD. It provides application level virtualisation where software applications can run in isolated user spaces without root access.
 
-If you need an environment to run a containerised software application that does not require root privileges, choose [Rahti 2](rahti2/index.md).
+If you need an environment to run a containerised software application that does not require root privileges, choose [Rahti](rahti/index.md).
 
 ### Noppe
 

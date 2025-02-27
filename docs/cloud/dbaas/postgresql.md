@@ -11,4 +11,5 @@ you want to use extensions for example PostGIS.
   * [PostgreSQL versions](postgres-versions.md) What kind of changes there are between the major
 versions that are supported in Pukki. This documentation is important if you are planning to
 do a major version upgrade.
+  * [How to migrate a PostgreSQL database to Pukki](../../support/tutorials/pukki_data_migration.md)
 

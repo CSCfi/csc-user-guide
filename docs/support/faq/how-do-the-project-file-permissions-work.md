@@ -34,6 +34,9 @@ drwxrwx---. 2 maijam project_2009999       4096 Feb 15 14:52 demofolder
 total 0
 -rw-rw----. 1 maijam maijam 0 Feb 15 14:52 my-file
 [maijam@puhti project_2009999]$ chmod g+s demofolder/
+[maijam@puhti project_2009999]$ ls -l
+total 0
+drwxrws---. 2 maijam project_2009999       4096 Feb 15 14:52 demofolder
 [maijam@puhti project_2009999]$ touch demofolder/my-other-file
 [maijam@puhti project_2009999]$ ls -l demofolder/
 total 0

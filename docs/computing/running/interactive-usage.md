@@ -79,7 +79,7 @@ sinteractive --help
 
 On Mahti, each user can have up to 8 active sessions on the `interactive`
 partition. See the
-[Mahti `interactive` partition details](batch-job-partitions.md#mahti-interactive-partition)
+[Mahti `interactive` partition details](batch-job-partitions.md#mahti-cpu-partitions-with-core-based-allocation)
 for information on the available resources. It is also possible to request a
 a [GPU slice](./batch-job-partitions.md#gpu-slices) for interactive work by
 using the `-g` flag, which submits the job to the `gpusmall` partition. Note

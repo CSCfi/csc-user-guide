@@ -16,7 +16,7 @@ quantum computing resources through CSC's service portals.
 
 Helmi, the first Finnish quantum computer, is co-developed by VTT and IQM Quantum Computers. Presently, Helmi provides 5 qubits. With Helmi, users can run quantum programs and algorithms on a real, physical device.
 
-Access to Helmi is provided through the LUMI supecomputer environment. Users will need to apply for a quantum computing project on LUMI, which gives access to Helmi through the LUMI job scheduler (SLURM). Applying for a project is done through [MyCSC](../../../accounts/how-to-create-new-project/).
+Access to Helmi is provided through the LUMI supecomputer environment. Users will need to apply for a quantum computing project on LUMI, which gives access to Helmi through the LUMI job scheduler (SLURM). Applying for a project is done through [MyCSC](../../accounts/how-to-create-new-project.md).
 
 For further reading:
 

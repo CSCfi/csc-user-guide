@@ -8,7 +8,7 @@ You can find out more about how to use firewalls in the [Firewall section](firew
 
 ## Authentication
 
-You can log in to the DBaaS service with many different authentication methods as long as you have a [CSC account](../../../accounts/how-to-create-new-user-account/) and belong to a project that has applied for DBaaS access.
+You can log in to the DBaaS service with many different authentication methods as long as you have a [CSC account](../../accounts/how-to-create-new-user-account.md) and belong to a project that has applied for DBaaS access.
 
 From the web interface, you can create application credentials if you like to automate your database management from another application.
 

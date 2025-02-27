@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 
 source tests/common_functions.sh
 regex="^\s*#SBATCH\s*-[A-Z,a-z]"

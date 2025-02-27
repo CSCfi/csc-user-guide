@@ -93,7 +93,7 @@ When starting a task that requires EO data, there are multiple factors to consid
 
 !!! default "EO database"
 
-    Database of all EO missions and instrument information can be found in the [CEOS EO handbook database](http://database.eohandbook.com/database/instrumenttable.aspx). See also [EOReader band mapping graphics](https://eoreader.readthedocs.io/en/latest/optical_band_mapping.html) for an overview of observed wavelength intervals for different optical sensors.
+    Database of all EO missions and instrument information can be found in the [CEOS EO handbook database](http://database.eohandbook.com/database/instrumenttable.aspx). See also [EOReader band mapping graphics](https://eoreader.readthedocs.io/latest/optical_band_mapping.html) for an overview of observed wavelength intervals for different optical sensors.
     
     
 ## Where can I find the data?

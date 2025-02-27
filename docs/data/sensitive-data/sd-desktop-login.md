@@ -1,7 +1,7 @@
 # Login to SD Desktop
 
 ## Prerequisites
-* [Access SD Connect and SD Desktop for the first time](sd-access.md#access-sd-connect-and-sd-desktop-for-the-first-time)
+* [Access SD Connect and SD Desktop for the first time](./sd-access.md)
 
 ## Step by step
 
@@ -11,3 +11,15 @@
 4. Press *Continue*.
 
 [![Authentication](images/desktop/desktop_login-mfa1.png)](images/desktop/desktop_login-mfa1.png)
+
+## Your next steps in this guide
+
+* [Create virtual desktops](./sd-desktop-create.md)
+* [Managing volumes and virtual desktops](./sd-desktop-manage.md)
+* [Accessing virtual desktop](./sd-desktop-access-vm.md)
+* [Working with your desktop: tips and essentials](./sd-desktop-working.md)
+* [Customisation - software & tools](./sd-desktop-software.md)
+* [Importing data ](./sd-desktop-access.md)
+* [Exporting data  via user interface](./sd-desktop-export.md)
+* [Export data programmatically](./sd-desktop-export-commandline.md)
+* [Troubleshooting](./sd-desktop-troubleshooting.md)

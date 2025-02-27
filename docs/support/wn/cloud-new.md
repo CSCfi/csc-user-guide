@@ -1,5 +1,11 @@
 # Cloud services
 
+## Pukki now supports MariaDB, 7.1.2025
+Pukki now supports MariaDB as well as PostgreSQL. The MariaDB version we are support in Pukki is
+MariaDB 11.4. More information can be found in the
+[Pukki MariaDB documentation](../../cloud/dbaas/mariadb.md)
+
+
 ## Pukki now supports PostgreSQL 17, 9.10.2024
 The default database in Pukki is now PostgreSQL 17 instead of the previous PostgreSQL 14. You can
 still use PostgreSQL 14 but we recommend that if you are creating a new database you start using

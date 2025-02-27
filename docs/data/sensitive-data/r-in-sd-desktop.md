@@ -10,7 +10,7 @@ The process described here is the first prototype implementation of this service
 
 ## Requirements
 
-In order to get access to the installation tool, you need to **send a request to [CSC Service desk](/support/contact/)**.
+In order to get access to the installation tool, you need to **send a request to [CSC Service desk](/support/contact.md)**.
 In the request, indicate that you wish that the SD Desktop software installation help tools would be made available for your project. 
 You must also include to the message the **Project identifier string** of your project.
 

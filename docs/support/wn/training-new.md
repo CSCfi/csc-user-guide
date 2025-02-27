@@ -1,5 +1,9 @@
 # Training & tutorials
 
+## Renewed research.csc.fi website launched, 26.02.2025
+
+In addition to a fresh new look, the _Services for research_ website has been restructured based on feedback from our users and following best User Interface and User Experience (UI/UX) design practices. The content has also been streamlined in a way which we hope will make finding information about CSC’s services easier. One of the new features&mdash;a pre-header for navigating between different CSC websites&mdash;has also been introduced to Docs CSC. [Read the blog at research.csc.fi to learn more.](https://research.csc.fi/2025/01/23/renewed-research-csc-fi-website-aims-to-clarify-cscs-service-offering-and-improve-end-user-communication/){ target=_blank }
+
 ## Visual changes for Docs CSC, 17.10.2024
 
 In order to streamline technical development for the Docs CSC platform, some visual customizations have been rolled back. Most notably, the styling of the navigation sidebars. This change does not affect the content nor the structure of the site and will allow new features from the underlying technology&mdash;i.e. _Material for MkDocs_&mdash;to be enabled with less effort.
@@ -127,7 +131,7 @@ A [guide on using FireWorks](../../computing/running/fireworks.md) in CSC's comp
 
 ## Accessing databases on Rahti from CSC supercomputers, 8.2.2022
 
-A [tutorial on how to connect to databases on Rahti from CSC supercomputers](../../cloud/tutorials/connect-database-hpc.md) has been published. The tutorial describes the process of setting up MongoDB on Rahti and how to establish an HTTP-compatible connection between the database and Puhti/Mahti using the WebSocat tool.
+A [tutorial on how to connect to databases on Rahti from CSC supercomputers](../../cloud/rahti/tutorials/connect-database-hpc.md) has been published. The tutorial describes the process of setting up MongoDB on Rahti and how to establish an HTTP-compatible connection between the database and Puhti/Mahti using the WebSocat tool.
 
 ## New machine learning guide released, 20.12.2021
 

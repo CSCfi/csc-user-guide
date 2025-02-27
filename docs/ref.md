@@ -33,6 +33,8 @@ enim. Laboriosam autem vel vel aut quod.
 
 Here's a reference to a footnote:[^1]
 
+And there's a reference to a second footnote:[^2]
+
 Then&mdash;as a rule&mdash;a horizontal rule:
 
 ---

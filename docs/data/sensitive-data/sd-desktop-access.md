@@ -1,80 +1,103 @@
 # Importing data in your virtual desktop
 
-<iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/7iGQ7gWb-Pk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/hsUQSrNpaf8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+## Prerequisites
+* [Create virtual desktop](sd-desktop-create.md)
+* [Access virtual desktop](sd-desktop-access-vm.md)
 
 Once a virtual desktop is created, each CSC project member can access it through their browser. The virtual desktop is isolated from the internet, so data access must be done through the Data Gateway application. This application allows you to import data from SD Connect or SD Apply. Imported data is saved on the virtual desktop’s external volume for secure analysis.
 
-## Prerequisites
+## Additional information
 
 * **What is an external volume?** Your virtual desktop’s local storage is limited, so it’s recommended to save large data files and collaborative work on the external volume. This volume acts like an external hard drive that can be detached and reattached to different desktops, allowing project members to share and edit files stored there.
 * **Adding the external volume:** the external volume can only be added when creating a [new virtual desktop](../sensitive-data/sd-desktop-create.md)
 * **Additional volume space:** if you need additional volume space (more than 200 GB), you can request it by writing to CSC Service Desk, (subject: SD Desktop), **please be aware that volume extensions are only possible before any data has been added to the volume**.
 
+
 ## Step by step
 
-### Step 1: access virtual desktop
+### 1. Access data via the Data Gateway application
 
-1. After [log in](./sd-desktop-login.md), you will see all your virtual desktops listed at the front page, under *All connections*.
-2. Select project (e.g. `project_NNNNN`) and click the plus-sign.  
-3. Now you can see all desktops that belongs to this project (`desktopname-NNNNNNNNNN`). Access virtual desktop by clicking the name.
+* [Access](sd-desktop-access-vm.md) your virtual desktop.
+* Launch **Data Gateway** by clicking icon on the left side of desktop.
+![Launch Gateway](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Desktop_LaunchGateway1.png)
 
-When you open the connection, a virtual computing environment will open in your browser. If you are accessing the virtual desktop for the first time, you will see the panel getting started, from which you can, for example, adjust the screen resolution.
+* Select:
+    * **SD Connect:** This option is for accessing data you’ve uploaded directly to SD Connect. Enter your CSC username and password (note that copy-paste is disabled for security, so you need to type credentials manually).
+    * **SD Apply:** This option is accessible only if the data controller has granted you permission.
+    * Click **Login** and then **Continue**.
 
-![check the paragraph below](../sensitive-data/images/desktop/SD-Desktop-Frontpage.png)
+![Gateway login](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Desktop_LaunchGateway2.png)
 
-### Step 2: access data via the Data Gateway application
 
-1. Locate the application on your desktop.
-2. Select connection method:
-    * SD Connect: For data you’ve uploaded directly to CSC. Enter your CSC username and password (note that copy-paste is disabled for security, so type your password manually).
-    * SD Apply: Accessible only if the data controller has granted you permission.
-3. Click Login, then Continue.
-4. In the next window, under Create Secure Access, select Create. This establishes a secure connection between your virtual desktop and your data, and create a Projects folder visible on your desktop (and accessible from the terminal).
-5. Click Open Folder to view all files stored in SD Connect or SD Apply. Files are available in read-only mode for secure access, but to view them, right-click the file and select the desired application to open it.
+* In the next window click **Continue**. Data Gateway establishes a secure connection between your virtual desktop and your data, and creates **Projects** folder on your virtual desktop (and accessible from the terminal).
+
+![Gateway connection](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Desktop_GatewayAccess1.png)
+
+
+* In the next window click **Open folder** to view all files stored in SD Connect or SD Apply. Files are available in read-only mode for secure access. To view them, right-click the file and select the desired application to open it.
 
 !!! Note
     In SD Desktop, **you can access only encrypted files.** Accessing unencrypted data or files encrypted only with your public encryption key will result in an error.
 
-[![Data-gateway1](images/desktop/desktop-gateway-part1.png)](images/desktop/desktop-gateway-part1.png)
+![Gateway open folder](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Desktop_GatewayAccess2.png)
 
-[![Data-gateway2](images/desktop/desktop-gateway-part2.png)](images/desktop/desktop-gateway-part2.png)
+### 2. Import a copy of the files to your virtual desktop's volume
 
-### Step 3: import a copy of the files on your virtual desktop's volume
+Keep **Data Gateway** open and click **Open folder**.
 
-1. Keep Data Gateway connection open: select and copy the files or folders from the Projects folder.
-2. Paste them into the external volume within your virtual desktop, located on the left side menu.
-3. Files or folders will automatically decrypt during the copy process and become available for analysis.
+1. Select and copy the files or folders from the **Projects** folder.
+2. Open **Volume** by clicking icon on the left side of desktop.
+3. Paste files or folders into **Volume**. Files or folders will automatically decrypt during the copy process and become available for analysis.
 
-[![Desktop-data-import](images/desktop/desktop-gateway-import.png)](images/desktop/desktop-gateway-import.png)
+![Gateway copy to volume](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Desktop_GatewayAccess3.png)
 
-### Step 4: setting permissions for shared access
 
-After copying files to the external volume, adjust permissions to enable access for other project members. By default, permissions are limited to your access only, so these steps ensure that others can view and edit the data.
+### 3. Set permissions for shared access
 
-1. **Adjust folder permissions**:
-    * Right-click the folder on the external volume, select Properties, and open the Permissions tab.
-    * Set permissions to Create and Delete Files for each user to allow full access.
-  
-2. **Adjust file permissions**:
-    * For individual files, right-click each file, select Properties, and change permissions to Read and Write.
-    * For folders, set permissions to Create and Delete Files so they remain accessible when the volume is reattached to a different virtual desktop.
+After copying files to volume, adjust permissions for folders and files to enable access for other project members. By default, permissions are limited to your access only (orange lock icon).
 
-Once permissions are set, your files are ready for collaborative work, and all project members with access can view and analyze them.
+1. Right-click the folder copied to **Volume** and select **Properties** to adjust folder permissions.
+    * Open the **Permissions** tab.
+    * Set permissions to Create and Delete Files so they remain accessible when the volume is reattached to a different virtual desktop.
+        1. Owner -> Access -> Select “Create and delete files”.
+        2. Others -> Access -> Select “Create and delete files”.
+        3. Close the permission tab (top left corner).
+        4. The orange lock icon will no longer be visible next to the folder and can now be edited by all project members.
 
-### Step 5: close the Data Gateway application
+![Gateway copy to volume](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Desktop_FolderPermissions1.png)
 
-You can now disconnect the Data Gateway connection if no further data accessor import are needed.
+![Gateway copy to volume](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Desktop_FolderPermissions2.png)
+
+2. Next select **Change Permissions for Enclosed Files** to adjust file permisssions inside the folder.
+    * Set permissions to:
+        1. Owner -> Files -> Select “Read and write”. Folders -> Select “Create and delete files”. 
+        2. Others -> Files -> Select “Read and write”. Folders -> Select “Create and delete files”.
+        3. Click **Change**.
+        4. Close the permission tab (top left corner).
+        5. The orange lock icon will no longer be visible next to the files and can now be edited by all project members.
+
+![Gateway copy to volume](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Desktop_FolderPermissions3.png)
+
+
+
+### 4. Close Data Gateway
+
+You can now disconnect the Data Gateway connection if no further data accessor import are needed by clicking **Disconnect and sign out**.
 
 !!! Note
-    If more than 10 data gateway connection are left open, the data gateway will stop working. In this case, [contact CSC Service Desk](../../support/contact.md) (subject: SD Desktop).
+    If more than 10 Data Gateway connection are left open, Data Gateway will stop working. In this case, [contact CSC Service Desk](../../support/contact.md) (subject: SD Desktop).
 
-### Step 6: logout from your desktop
 
-1. *Log out* from the desktop (in the workspace view, top right corner of the browser, select your *username* and *log out*). This will close all applications and disconnect the work session. You can access the same desktop anytime after logging in to the services.
-2. **Reconnecting to an analysis session**:
-    * Closing the browser window: If you started the analysis programmatically (e.g., by running a script), you can safely close the browser window without interrupting the ongoing processes. Your tools and interfaces will remain open when you reconnect to your desktop, allowing you to continue working.
-    * Reconnecting to an old session: You can reconnect to a previous session only if the browser window is exactly the same size as when the original session was in use. This is typically only possible if you're using the SD Desktop in full-screen mode on the same machine. If the window size has changed, you will most likely be unable to reconnect to the old session.
+### 5. Log out
 
-!!! Note
-    Connection limit: each virtual desktop allows a maximum of 10 simultaneous connections. This means that up to 10 CSC project members can be logged in and using the system at the same time. If more than 10 CSC project members attempt to connect to the same virtual desktop, additional users will not be able to access the system until one of the active sessions is disconnected.
-    If a connection remains inactive for two consecutive days, the system will automatically log the user out to free up resources. Please ensure you log out manually when you're finished to avoid this.
+[Log out](sd-desktop-access-vm.md#log-out-from-virtual-desktop) from virtual desktop.
+
+## Your next steps in this guide
+
+* [Exporting data  via user interface](./sd-desktop-export.md)
+* [Export data programmatically](./sd-desktop-export-commandline.md)
+* [Troubleshooting](./sd-desktop-troubleshooting.md)
+
+

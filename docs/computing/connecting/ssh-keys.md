@@ -72,15 +72,15 @@ Host *.bullx
 ## Copying public key to supercomputer
 
 The recommended and easiest way to copy your public key to a CSC system is
-[through the My CSC customer portal](#adding-public-key-in-my-csc). For other
+[through the MyCSC customer portal](#adding-public-key-in-mycsc). For other
 approaches, please see the system-specific SSH instructions.
 
-### Adding public key in My CSC
+### Adding public key in MyCSC
 
 You can add your public key through the
-[My CSC customer portal](https://my.csc.fi) by following these steps:
+[MyCSC customer portal](https://my.csc.fi) by following these steps:
 
-1. Log in to My CSC with your CSC or Haka/Virtu credentials.
+1. Log in to MyCSC with your CSC or Haka/Virtu credentials.
 2. Open the dropdown menu in the top right corner and select _My Profile_.
 3. Locate _SSH PUBLIC KEYS_ section and select _Add key_. As a security
    measure, you are asked to log in again if it has been a few minutes since
