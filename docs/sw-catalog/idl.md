@@ -1,5 +1,5 @@
 ---
-template: sw-catalog-templates/app.html
+template: sw-catalog/app.html
 software_catalog:
   name: IDL
   description: Programming Language, Numeric Analysis, Manipulation and Visualization of Scientific Data

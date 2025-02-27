@@ -1,5 +1,5 @@
 ---
-template: sw-catalog-templates/app.html
+template: sw-catalog/app.html
 software_catalog:
   name: AMS
   description: Modelling suite providing engines like ADF, BAND, DFTB and MOPAC

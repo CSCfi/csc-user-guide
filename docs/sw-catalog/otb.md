@@ -1,5 +1,5 @@
 ---
-template: sw-catalog-templates/app.html
+template: sw-catalog/app.html
 software_catalog:
   name: Orfeo ToolBox (Open Source processing of remote sensing images) 
   description: for remote sensing applications

@@ -1,5 +1,5 @@
 ---
-template: sw-catalog-templates/app.html
+template: sw-catalog/app.html
 software_catalog:
   name: NASA Ames Stereo Pipeline (ASP)
   description: for processing stereo images

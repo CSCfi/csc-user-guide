@@ -1,5 +1,5 @@
 ---
-template: sw-catalog-templates/app.html
+template: sw-catalog/app.html
 software_catalog:
   name: Seqtk
   description: Tool for processing sequences in the FASTA or FASTQ format

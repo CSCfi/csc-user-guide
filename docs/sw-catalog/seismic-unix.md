@@ -1,5 +1,5 @@
 ---
-template: sw-catalog-templates/app.html
+template: sw-catalog/app.html
 software_catalog:
   name: Seismic Unix
   description: for processing of 2D seismic or GPR data sets.

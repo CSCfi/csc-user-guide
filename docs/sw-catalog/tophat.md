@@ -1,5 +1,5 @@
 ---
-template: sw-catalog-templates/app.html
+template: sw-catalog/app.html
 software_catalog:
   name: TopHat
   description: Splice junction mapper for RNA-Seq reads

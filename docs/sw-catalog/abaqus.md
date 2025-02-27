@@ -1,5 +1,5 @@
 ---
-template: sw-catalog-templates/app.html
+template: sw-catalog/app.html
 software_catalog:
   name: ABAQUS
   description: Dassault Systemes' SIMULIA academic research suite

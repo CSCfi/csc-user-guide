@@ -1,5 +1,5 @@
 ---
-template: sw-catalog-templates/app.html
+template: sw-catalog/app.html
 software_catalog:
   name: Nextflow
   description: Nextflow is a scientific workflow management system for creating scalable, portable, and reproducible workflows

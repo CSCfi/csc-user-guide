@@ -1,5 +1,5 @@
 ---
-template: sw-catalog-templates/app.html
+template: sw-catalog/app.html
 software_catalog:
   name: SALMON
   description: Program to produce transcript-level quantification estimates from RNA-seq data

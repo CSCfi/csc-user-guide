@@ -1,5 +1,5 @@
 ---
-template: sw-catalog-templates/app.html
+template: sw-catalog/app.html
 software_catalog:
   name: Lazypipe
   description: A stand-alone pipeline for identifying viruses in host-associated or environmental samples

@@ -1,5 +1,5 @@
 ---
-template: sw-catalog-templates/app.html
+template: sw-catalog/app.html
 software_catalog:
   name: Entrez Direct
   description: Entrez direct - command line tool to search and retrieve data from NCBI

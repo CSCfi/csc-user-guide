@@ -1,5 +1,5 @@
 ---
-template: sw-catalog-templates/app.html
+template: sw-catalog/app.html
 software_catalog:
   name: Open Babel
   description: Program to interconvert file formats currently used in molecular modeling

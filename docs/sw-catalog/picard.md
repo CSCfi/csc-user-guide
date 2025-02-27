@@ -1,5 +1,5 @@
 ---
-template: sw-catalog-templates/app.html
+template: sw-catalog/app.html
 software_catalog:
   name: Picard Tools
   description: Tools for working with SAM,BAM,CRAM and VCF files

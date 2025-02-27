@@ -1,5 +1,5 @@
 ---
-template: sw-catalog-templates/app.html
+template: sw-catalog/app.html
 software_catalog:
   name: QIIME
   description: Package for microbial community analysis of amplicon sequencing data

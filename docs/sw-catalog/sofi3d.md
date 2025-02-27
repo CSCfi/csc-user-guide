@@ -1,5 +1,5 @@
 ---
-template: sw-catalog-templates/app.html
+template: sw-catalog/app.html
 software_catalog:
   name: SOFI3D
   description: for 3D finite-difference seismic wave simulation

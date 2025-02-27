@@ -1,5 +1,8 @@
-{% from config.extra.sw_catalog.templates_dir ~ '/macros/tags.html'
+{% from 'sw-catalog/macros/tags.html'
    import render_tag as tag %}
+{% from 'sw-catalog/macros/links.html'
+   import render_link as link %}
+
 {%- macro render_item(app, exclude_tags=[]) -%}
 
   {% set system_tags %}
@@ -20,7 +23,7 @@
             {% set web_uis = system.web_interfaces %}
             {% for web_ui in web_uis %}
               {% if web_ui is string %}
-                {{ tag(web_ui, '/sw-catalog', badge='Web UI', compact=true) }}
+                {{ tag(web_ui, page.url|url, badge='Web UI', compact=true) }}
               {% endif %}
             {% endfor %}
           {% endif %}
@@ -38,17 +41,17 @@
   {% endset %}
 
   {% set license_tags %}
-    {% if app.license_type is string and 'license' not in exclude_tags %}
+    {% if app.license_type
+         and app.license_type is string
+         and 'license' not in exclude_tags %}
       {{ tag(app.license_type, page.url|url, badge='license', compact=true) }}
     {% endif %}
   {% endset %}
 
   <c-list-item>
     <c-list-item-title>
-        <c-link href="{{ app.page.url|url }}">
-          {{ app.name }}
-        </c-link>
-      </c-list-item-title>
+      {{ link(app.name, app.url|url) }}
+    </c-list-item-title>
     {{ app.description }}
     <c-tags size="small" slot="post">
       {{ system_tags }}

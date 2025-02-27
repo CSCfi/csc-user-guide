@@ -1,5 +1,5 @@
 ---
-template: sw-catalog-templates/app.html
+template: sw-catalog/app.html
 software_catalog:
   name: ArcGIS
   description: General purpose GIS software family for viewing, editing and analysing geospatial data

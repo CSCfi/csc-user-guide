@@ -1,5 +1,5 @@
 ---
-template: sw-catalog-templates/app.html
+template: sw-catalog/app.html
 software_catalog:
   name: Diamond
   description: Sequence similarity search tool for proteins and nucloeotides

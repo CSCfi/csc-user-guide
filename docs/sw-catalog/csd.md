@@ -1,5 +1,5 @@
 ---
-template: sw-catalog-templates/app.html
+template: sw-catalog/app.html
 software_catalog:
   name: CSD
   description: Cambridge Crystallographic Database - organic and metallo-organic crystal structures and tools

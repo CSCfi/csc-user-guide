@@ -1,5 +1,5 @@
 ---
-template: sw-catalog-templates/app.html
+template: sw-catalog/app.html
 software_catalog:
   name: MetaPhlAn
   description: Profiling the composition of microbial communities with metagenomic data

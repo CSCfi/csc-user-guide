@@ -1,5 +1,5 @@
 ---
-template: sw-catalog-templates/app.html
+template: sw-catalog/app.html
 software_catalog:
   name: BayeScan
   description: Tool for identifying candidate loci under natural selection based on allele frequencies in populations

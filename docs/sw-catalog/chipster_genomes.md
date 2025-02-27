@@ -1,5 +1,5 @@
 ---
-template: sw-catalog-templates/app.html
+template: sw-catalog/app.html
 software_catalog:
   name: Chipster_genomes
   description: Tool to download aligner indexes used by Chipster to Puhti

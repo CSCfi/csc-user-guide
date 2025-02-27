@@ -1,5 +1,5 @@
 ---
-template: sw-catalog-templates/app.html
+template: sw-catalog/app.html
 software_catalog:
   name: LAMMPS
   description: Fast molecular dynamics engine with large force field selection

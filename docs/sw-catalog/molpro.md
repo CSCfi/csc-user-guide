@@ -1,5 +1,5 @@
 ---
-template: sw-catalog-templates/app.html
+template: sw-catalog/app.html
 software_catalog:
   name: MOLPRO
   description: Package for accurate ab initio quantum chemistry calculations

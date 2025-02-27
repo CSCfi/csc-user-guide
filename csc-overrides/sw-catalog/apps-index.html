@@ -6,7 +6,7 @@
 
   {{ page.content }}
 
-  {% from config.extra.sw_catalog.templates_dir ~ '/macros/apps.html'
+  {% from 'sw-catalog/macros/apps.html'
      import render_group as app_group with context %}
 
   <c-tabs value="alpha">
@@ -32,7 +32,7 @@
                      catalog.by_availability,
                      exclude_tags=['availability']) }}
       </c-tab-item>
-      
+
       <c-tab-item value="license">
         {{ app_group('Applications by license',
                      catalog.by_license,

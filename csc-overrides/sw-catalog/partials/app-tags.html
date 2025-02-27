@@ -1,4 +1,4 @@
-{% from 'sw-catalog-templates/macros/tags.html' import render_tag as tag %}
+{% from 'sw-catalog/macros/tags.html' import render_tag as tag %}
 
 {% if app_meta.disciplines is sequence
       or app_meta.license is string
@@ -48,7 +48,7 @@
   {% set license_tags %}
     {% if app_meta.license_type is string %}
       <c-tags class="app-tags">
-        {{ tag(app_meta.license_type, '/sw_catalog', badge='license') }}
+        {{ tag(app_meta.license_type, '/sw-catalog', badge='license') }}
       </c-tags>
     {% endif %}
   {% endset %}

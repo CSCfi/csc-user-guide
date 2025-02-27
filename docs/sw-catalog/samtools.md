@@ -1,5 +1,5 @@
 ---
-template: sw-catalog-templates/app.html
+template: sw-catalog/app.html
 software_catalog:
   name: SAMtools
   description: Utilities for managing SAM/BAM formatted alignment files

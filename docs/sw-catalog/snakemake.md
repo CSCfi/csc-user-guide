@@ -1,5 +1,5 @@
 ---
-template: sw-catalog-templates/app.html
+template: sw-catalog/app.html
 software_catalog:
   name: Snakemake
   description: Snakemake is a scientific workflow management system for creating scalable, portable, and reproducible workflows

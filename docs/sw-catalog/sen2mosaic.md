@@ -1,5 +1,5 @@
 ---
-template: sw-catalog-templates/app.html
+template: sw-catalog/app.html
 software_catalog:
   name: Sen2mosaic
   description: for download, preprocessing and mosaicing of Sentinel-2 products

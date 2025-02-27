@@ -1,5 +1,5 @@
 ---
-template: sw-catalog-templates/app.html
+template: sw-catalog/app.html
 software_catalog:
   name: OpenFOAM
   description: Open source C++ tool box for continuum mechanics problems

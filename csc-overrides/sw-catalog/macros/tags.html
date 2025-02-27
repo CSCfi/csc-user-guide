@@ -12,7 +12,7 @@
     {% else %}
       active
     {% endif %}
-    onclick="location.href='{{ href ~ '/' ~ anchor }}'"
+    onclick="location.href='{{ href ~ anchor }}'"
     style="--c-tag-text-color: var(--c-{{ tag_color }});"
   {% endset %}
   <c-tag {{ props }}>

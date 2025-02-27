@@ -1,5 +1,5 @@
 ---
-template: sw-catalog-templates/app.html
+template: sw-catalog/app.html
 software_catalog:
   name: Star-CCM+
   description: Computational Fluid Dynamics software by Siemens Digital Industries Software

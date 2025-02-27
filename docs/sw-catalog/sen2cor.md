@@ -1,5 +1,5 @@
 ---
-template: sw-catalog-templates/app.html
+template: sw-catalog/app.html
 software_catalog:
   name: Sen2Cor
   description: for atmospheric-, terrain and cirrus correction of the Sentinel-2 products
