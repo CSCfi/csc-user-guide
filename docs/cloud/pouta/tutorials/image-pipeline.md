@@ -259,7 +259,7 @@ Output will look like the following:
 | created_at      | 2025-02-04T13:12:43Z                                                                                                                                                       |
 | description     | pipeline_security_group                                                                                                                                                    |
 | id              | a8630776-db3d-408a-ba8e-8c52b5f2a8c9                                                                                                                                       |
-| location        | cloud='', project.domain_id='default', project.domain_name=, project.id='ef20bcc4215d49ddbf33e5c5740d89fe', project.name='project_2003103', region_name='regionOne', zone= |
+| location        | cloud='', project.domain_id='default', project.domain_name=, project.id='ef20bcc4215d49ddbf33e5c5740d89fe', project.name='project_*******', region_name='regionOne', zone= |
 | name            | pipeline_security_group                                                                                                                                                    |
 | project_id      | ef20bcc4215d49ddbf33e5c5740d89fe                                                                                                                                           |
 | revision_number | 1                                                                                                                                                                          |
@@ -285,7 +285,7 @@ The output will be similar to the following:
 | direction         | ingress                                                                                                                                                                    |
 | ether_type        | IPv4                                                                                                                                                                       |
 | id                | 29ebe032-f09c-4cb5-9e49-bc75e6d1880c                                                                                                                                       |
-| location          | cloud='', project.domain_id='default', project.domain_name=, project.id='ef20bcc4215d49ddbf33e5c5740d89fe', project.name='project_2003103', region_name='regionOne', zone= |
+| location          | cloud='', project.domain_id='default', project.domain_name=, project.id='ef20bcc4215d49ddbf33e5c5740d89fe', project.name='project_*******', region_name='regionOne', zone= |
 | name              | None                                                                                                                                                                       |
 | port_range_max    | 22                                                                                                                                                                         |
 | port_range_min    | 22                                                                                                                                                                         |
@@ -330,7 +330,7 @@ The output will be similar to the following:
 | floating_ip_address | 1.2.3.4                                                                                                                                                                                              |
 | floating_network_id | 26f9344a-2e81-4ef5-a018-7d20cff891ee                                                                                                                                                                 |
 | id                  | 1a38ae4f-1354-4958-b2be-72502b53c492                                                                                                                                                                 |
-| location            | Munch({'cloud': '', 'region_name': 'regionOne', 'zone': None, 'project': Munch({'id': 'ef20bcc4215d49ddbf33e5c5740d89fe', 'name': 'project_2003103', 'domain_id': 'default', 'domain_name': None})}) |
+| location            | Munch({'cloud': '', 'region_name': 'regionOne', 'zone': None, 'project': Munch({'id': 'ef20bcc4215d49ddbf33e5c5740d89fe', 'name': 'project_*******', 'domain_id': 'default', 'domain_name': None})}) |
 | name                | 1.2.3.4                                                                                                                                                                                              |
 | port_details        | None                                                                                                                                                                                                 |
 | port_id             | None                                                                                                                                                                                                 |
