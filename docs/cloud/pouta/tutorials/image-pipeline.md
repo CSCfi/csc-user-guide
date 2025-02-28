@@ -460,34 +460,7 @@ Therefore, next we configure the access to the database from the virtual machine
 We stay on `terminal_pouta`.
 First, we install a tool that we will need to talk with the database:
 ```
-$ sudo apt install postgresql-client
-Reading package lists... Done
-Building dependency tree... Done
-Reading state information... Done
-The following NEW packages will be installed:
-  postgresql-client
-0 upgraded, 1 newly installed, 0 to remove and 28 not upgraded.
-Need to get 11.6 kB of archives.
-After this operation, 17.4 kB of additional disk space will be used.
-Get:1 http://nova.clouds.archive.ubuntu.com/ubuntu noble-updates/main amd64 postgresql-client all 16+257build1.1 [11.6 kB]
-Fetched 11.6 kB in 0s (47.3 kB/s)             
-Selecting previously unselected package postgresql-client.
-(Reading database ... 117863 files and directories currently installed.)
-Preparing to unpack .../postgresql-client_16+257build1.1_all.deb ...
-Unpacking postgresql-client (16+257build1.1) ...
-Setting up postgresql-client (16+257build1.1) ...
-Scanning processes...                                                                                                                                                                    
-Scanning linux images...                                                                                                                                                                 
-
-Running kernel seems to be up-to-date.
-
-No services need to be restarted.
-
-No containers need to be restarted.
-
-No user sessions are running outdated binaries.
-
-No VM guests are running outdated hypervisor (qemu) binaries on this host.
+$ sudo apt update ; sudo apt install postgresql-client
 ```
 
 We then prepare a script with the information on how to reach and access the database hosted in Pukki.
