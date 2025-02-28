@@ -432,18 +432,8 @@ We are interested in the second one, so we note down `5.6.7.8`, which is a dummy
 Similarly to our own workstation, to access the buckets hosted in Allas the virtual machine needs to be configured as well.
 
 We go back to `terminal_C`, where we are still logged in to our virtual machine in cPouta, and we follow the [instructions on how to install and configure s3cmd](../../../data/Allas/using_allas/s3_client.md#getting-started-with-s3cmd).
-It basically boils down to running the following commands:
-```
-$ sudo apt update
 
-$ sudo apt install python3-openstackclient s3cmd
-
-$ wget https://raw.githubusercontent.com/CSCfi/allas-cli-utils/master/allas_conf
-
-$ source allas_conf --mode S3 --user your-csc-username
-```
-
-Once these three steps are done, we test that everything works properly by listing our buckets in Allas:
+Once s3cmd is configured, we test that everything works properly by listing our buckets in Allas:
 ```
 $ s3cmd ls
 2025-01-16 14:59  s3://input_bucket
