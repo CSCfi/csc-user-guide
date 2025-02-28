@@ -142,6 +142,15 @@ We follow the [instructions on how to install and configure cPouta command-line 
     public endpoint for database service in regionOne region not found
     ```
     Stick to using two different terminals to interact with them to avoid this type of issues.
+    
+    If you want to check for which service your current terminal is configured, you can type the following command:
+    ```
+    $ printenv | grep OS_AUTH_URL
+    OS_AUTH_URL=https://pukki.dbaas.csc.fi:5000/v3 # our terminal is configured for Pukki
+    
+    $ printenv | grep OS_AUTH_URL
+    OS_AUTH_URL=https://pouta.csc.fi:5001/v3 # our terminal is configured for cPouta
+    ```
 
 We can test the correct functioning of the command-line interface by, for example, showing the properties of one of the flavors.
 An example of the command and its expected output follows:
