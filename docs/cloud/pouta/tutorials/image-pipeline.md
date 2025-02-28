@@ -626,7 +626,12 @@ The pipeline has thus taken the image from `input_bucket` and processed it.
 We check if we have a trace of the image transformation in the database.
 On `terminal_C` we run the following command:
 ```
-$ psql -h "$DB_HOST" -p "$DB_PORT" -U "$DB_USER" -d "$DB_NAME" -c "select * from log_records where negated_image_name like '%cat1%'"
+$ psql \
+-h "$DB_HOST" \
+-p "$DB_PORT" \
+-U "$DB_USER" \
+-d "$DB_NAME" \
+-c "select * from log_records where negated_image_name like '%cat1%'"
 ```
 We get an output similar to the following:
 ```
