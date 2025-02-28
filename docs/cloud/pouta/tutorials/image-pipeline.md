@@ -213,7 +213,7 @@ The output from the command should be similar to the following:
 | key_name                    | mykeypair                                            |
 | name                        | pipeline_vm                                          |
 | progress                    | 0                                                    |
-| project_id                  | ef20bcc4215d49ddbf33e5c5740d89fe                     |
+| project_id                  | abcdef0123456789abcdef0123456789                     |
 | properties                  |                                                      |
 | security_groups             | name='default'                                       |
 | status                      | BUILD                                                |
@@ -259,9 +259,9 @@ Output will look like the following:
 | created_at      | 2025-02-04T13:12:43Z                                                                                                                                                       |
 | description     | pipeline_security_group                                                                                                                                                    |
 | id              | a8630776-db3d-408a-ba8e-8c52b5f2a8c9                                                                                                                                       |
-| location        | cloud='', project.domain_id='default', project.domain_name=, project.id='ef20bcc4215d49ddbf33e5c5740d89fe', project.name='project_*******', region_name='regionOne', zone= |
+| location        | cloud='', project.domain_id='default', project.domain_name=, project.id='abcdef0123456789abcdef0123456789', project.name='project_*******', region_name='regionOne', zone= |
 | name            | pipeline_security_group                                                                                                                                                    |
-| project_id      | ef20bcc4215d49ddbf33e5c5740d89fe                                                                                                                                           |
+| project_id      | abcdef0123456789abcdef0123456789                                                                                                                                           |
 | revision_number | 1                                                                                                                                                                          |
 | rules           | created_at='2025-02-04T13:12:44Z', direction='egress', ethertype='IPv6', id='8e0cba6e-814d-4e70-92de-61389f9b6ca7', updated_at='2025-02-04T13:12:44Z'                      |
 |                 | created_at='2025-02-04T13:12:43Z', direction='egress', ethertype='IPv4', id='cdf6527c-ca5a-4247-8e47-40213b601ee0', updated_at='2025-02-04T13:12:43Z'                      |
@@ -285,11 +285,11 @@ The output will be similar to the following:
 | direction         | ingress                                                                                                                                                                    |
 | ether_type        | IPv4                                                                                                                                                                       |
 | id                | 29ebe032-f09c-4cb5-9e49-bc75e6d1880c                                                                                                                                       |
-| location          | cloud='', project.domain_id='default', project.domain_name=, project.id='ef20bcc4215d49ddbf33e5c5740d89fe', project.name='project_*******', region_name='regionOne', zone= |
+| location          | cloud='', project.domain_id='default', project.domain_name=, project.id='abcdef0123456789abcdef0123456789', project.name='project_*******', region_name='regionOne', zone= |
 | name              | None                                                                                                                                                                       |
 | port_range_max    | 22                                                                                                                                                                         |
 | port_range_min    | 22                                                                                                                                                                         |
-| project_id        | ef20bcc4215d49ddbf33e5c5740d89fe                                                                                                                                           |
+| project_id        | abcdef0123456789abcdef0123456789                                                                                                                                           |
 | protocol          | tcp                                                                                                                                                                        |
 | remote_group_id   | None                                                                                                                                                                       |
 | remote_ip_prefix  | *.*.*.*/32                                                                                                                                                                  |
@@ -330,11 +330,11 @@ The output will be similar to the following:
 | floating_ip_address | 1.2.3.4                                                                                                                                                                                              |
 | floating_network_id | 26f9344a-2e81-4ef5-a018-7d20cff891ee                                                                                                                                                                 |
 | id                  | 1a38ae4f-1354-4958-b2be-72502b53c492                                                                                                                                                                 |
-| location            | Munch({'cloud': '', 'region_name': 'regionOne', 'zone': None, 'project': Munch({'id': 'ef20bcc4215d49ddbf33e5c5740d89fe', 'name': 'project_*******', 'domain_id': 'default', 'domain_name': None})}) |
+| location            | Munch({'cloud': '', 'region_name': 'regionOne', 'zone': None, 'project': Munch({'id': 'abcdef0123456789abcdef0123456789', 'name': 'project_*******', 'domain_id': 'default', 'domain_name': None})}) |
 | name                | 1.2.3.4                                                                                                                                                                                              |
 | port_details        | None                                                                                                                                                                                                 |
 | port_id             | None                                                                                                                                                                                                 |
-| project_id          | ef20bcc4215d49ddbf33e5c5740d89fe                                                                                                                                                                     |
+| project_id          | abcdef0123456789abcdef0123456789                                                                                                                                                                     |
 | qos_policy_id       | None                                                                                                                                                                                                 |
 | revision_number     | 0                                                                                                                                                                                                    |
 | router_id           | None                                                                                                                                                                                                 |
