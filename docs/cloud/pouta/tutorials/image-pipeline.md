@@ -27,8 +27,8 @@ For the sake of this tutorial, the transformed image simply corresponds to the i
 
 ## Step 1: creating buckets in Allas
 
-We open a new terminal window, to which we will refer using the name `terminal_A`.
-We use `terminal_A` for all the commands dealing with Allas.
+We open a new terminal window, to which we will refer using the name `terminal_allas`.
+We use `terminal_allas` for all the commands dealing with Allas.
 
 To create buckets in Allas, we need to have a working command-line interface for it.
 If we haven't set up such interface before on our workstation, we follow the [instructions on how to install and configure s3cmd](../../../data/Allas/using_allas/s3_client.md#getting-started-with-s3cmd).
@@ -68,8 +68,8 @@ In the rest of the tutorial, we assume:
 
 ## Step 2: creating a database in Pukki
 
-We open a second terminal window, to which we will refer using the name `terminal_B`.
-We use `terminal_B` for all the commands dealing with Pukki.
+We open a second terminal window, to which we will refer using the name `terminal_pukki`.
+We use `terminal_pukki` for all the commands dealing with Pukki.
 
 Having a working command-line interface for Pukki is a prerequisite for continuing with the tutorial.
 If we haven't set it up before, we follow the [instructions on how to install and configure Pukki command-line interface](../../dbaas/cli.md#getting-started).
@@ -129,8 +129,8 @@ In the rest of the tutorial, we assume that:
 
 ## Step 3: creating virtual machine in cPouta
 
-We open a third terminal window, to which we will refer using the name `terminal_C`.
-We use `terminal_C` for all the commands dealing with cPouta.
+We open a third terminal window, to which we will refer using the name `terminal_pouta`.
+We use `terminal_pouta` for all the commands dealing with cPouta.
 
 In the same way as for Allas and Pukki, to continue the tutorial we need to have a working command-line interface for cPouta as well.
 We follow the [instructions on how to install and configure cPouta command-line interface](../install-client.md), if we haven't done it already.
@@ -238,7 +238,7 @@ To prevent unauthorized access attempts, by default a virtual machine does not a
 Access to the virtual machine is regulated by means of _security groups_ and the rules they contain.
 We thus create a new security group with a single rule, which allow access to the virtual machine from our workstation.
 
-We go back to `terminal_C`.
+We go back to `terminal_pouta`.
 
 First, we find what is the public ip address used by our workstation by typing the following command:
 ```
@@ -311,7 +311,7 @@ In case of success, the command will show no output.
 The virtual machine is now configured to allow traffic from our workstation but it is not reachable yet.
 A virtual machine gets assigned a private IP address at launch, but it has no automatically-assigned public IP, which is required to connect to the virtual machine via the Internet.
 
-We go back to `terminal_C`.
+We go back to `terminal_pouta`.
 We acquire a new address issuing the command:
 ```
 $ openstack floating ip create public
@@ -380,14 +380,14 @@ See "man sudo_root" for details.
 ubuntu@pipeline-vm:~$
 ```
 
-We leave for a moment `terminal_C`, we come back when it is time to install and configure the tools inside it.
+We leave for a moment `terminal_pouta`, we come back when it is time to install and configure the tools inside it.
 
 ### Allowing traffic from virtual machine to database
 
 Our database in Pukki, by default, does not accept any incoming traffic.
 We want to configure it so that it accepts traffic from our virtual machine.
 
-We move to `terminal_B`.
+We move to `terminal_pukki`.
 We issue the following command:
 ```
 $ openstack database instance update pipeline_db_instance --allowed-cidr 1.2.3.4/32
@@ -431,7 +431,7 @@ We are interested in the second one, so we note down `5.6.7.8`, which is a dummy
 
 Similarly to our own workstation, to access the buckets hosted in Allas the virtual machine needs to be configured as well.
 
-We go back to `terminal_C`, where we are still logged in to our virtual machine in cPouta, and we follow the [instructions on how to install and configure s3cmd](../../../data/Allas/using_allas/s3_client.md#getting-started-with-s3cmd).
+We go back to `terminal_pouta`, where we are still logged in to our virtual machine in cPouta, and we follow the [instructions on how to install and configure s3cmd](../../../data/Allas/using_allas/s3_client.md#getting-started-with-s3cmd).
 
 Once s3cmd is configured, we test that everything works properly by listing our buckets in Allas:
 ```
@@ -448,7 +448,7 @@ At this point in the tutorial, traffic from the virtual machine is allowed to fl
 However, at the moment the virtual machine has no information about where the database can be found, i.e., its public IP address, nor which are the credentials to use when accessing the database.
 Therefore, next we configure the access to the database from the virtual machine.
 
-We stay on `terminal_C`.
+We stay on `terminal_pouta`.
 First, we install a tool that we will need to talk with the database:
 ```
 $ sudo apt install postgresql-client
@@ -482,7 +482,7 @@ No VM guests are running outdated hypervisor (qemu) binaries on this host.
 ```
 
 We then prepare a script with the information on how to reach and access the database hosted in Pukki.
-Still on `terminal_C` we type the following:
+Still on `terminal_pouta` we type the following:
 ```
 $ nano db_cred.sh
 ```
@@ -502,7 +502,7 @@ Finally, it is given to us a chance to modify the name of the file in which our 
 We are happy with the current name of the file, so we just type `Enter` key, and we are back to our typical terminal view.
 
 Let's now test the access to the database.
-On `terminal_C` we run the following two commands:
+On `terminal_pouta` we run the following two commands:
 ```
 $ source db_cred.sh
 $ psql -h "$DB_HOST" -p "$DB_PORT" -U "$DB_USER" -d "$DB_NAME"
@@ -520,7 +520,7 @@ pipeline_db=>
 To go back to our virtual machine we just type `exit` and press `Enter` key.
 
 Now that we can communicate with the database, we prepare it to host the data that we will send to it when processing our images.
-On `terminal_C` we run the following command:
+On `terminal_pouta` we run the following command:
 ```
 $ psql \
 -h "$DB_HOST" \
@@ -536,7 +536,7 @@ The database is now configured for our pipeline.
 
 The final part in our configuration phase is to install the script that takes care of talking with Allas, Pukki, as well as transforming the image in input.
 To do so, we first install the tool to transform the images.
-On `terminal_C` we run:
+On `terminal_pouta` we run:
 ```
 $ sudo apt install imagemagick
 ```
@@ -589,7 +589,7 @@ done
 As done earlier as well, we save the content of the file by pressing `CTRL + X`, then `y`, and finally `Enter` key.
 
 The script now contains the logic of the pipeline, but it is not set to run automatically yet.
-On `terminal_C` we run the following commands:
+On `terminal_pouta` we run the following commands:
 ```
 $ chmod +x /home/ubuntu/pipeline_script.sh
 $ crontab -l > crontab_list
@@ -608,7 +608,7 @@ As an example, here is our image at `~/cat1.jpg`:
 ![image-cat](../../img/cat1.jpg)
 
 We now want to send the image through the pipeline.
-On `terminal_A`, we first navigate to the home folder and then upload the image to Allas:
+On `terminal_allas`, we first navigate to the home folder and then upload the image to Allas:
 ```
 $ cd ~
 $ s3cmd put cat1.jpg s3://input_bucket
@@ -624,7 +624,7 @@ $
 The pipeline has thus taken the image from `input_bucket` and processed it.
 
 We check if we have a trace of the image transformation in the database.
-On `terminal_C` we run the following command:
+On `terminal_pouta` we run the following command:
 ```
 $ psql \
 -h "$DB_HOST" \
@@ -643,7 +643,7 @@ We get an output similar to the following:
 The output tells us that the pipeline has processed correctly our original image `cat1.jpg` and has produced the `negated_cat1.jpg` image in output.
 
 Let's check out the transformed image.
-On `terminal_A` first we check that the image is indeed available in `output_bucket`.
+On `terminal_allas` first we check that the image is indeed available in `output_bucket`.
 Then, we download it to our home folder:
 ```
 $ s3cmd ls s3://output_bucket
