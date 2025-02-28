@@ -482,7 +482,7 @@ No VM guests are running outdated hypervisor (qemu) binaries on this host.
 ```
 
 We then prepare a script with the information on how to reach and access the database hosted in Pukki.
-On `terminal_C` we type the following:
+Still on `terminal_C` we type the following:
 ```
 $ nano db_cred.sh
 ```
@@ -522,7 +522,12 @@ To go back to our virtual machine we just type `exit` and press `Enter` key.
 Now that we can communicate with the database, we prepare it to host the data that we will send to it when processing our images.
 On `terminal_C` we run the following command:
 ```
-$ psql -h "$DB_HOST" -p "$DB_PORT" -U "$DB_USER" -d "$DB_NAME" -c "CREATE TABLE IF NOT EXISTS log_records (timestamp varchar(25) primary key, negated_image_name text, negated_image_hash text)"
+$ psql \
+-h "$DB_HOST" \
+-p "$DB_PORT" \
+-U "$DB_USER" \
+-d "$DB_NAME" \
+-c "CREATE TABLE IF NOT EXISTS log_records (timestamp varchar(25) primary key, negated_image_name text, negated_image_hash text)"
 ```
 If the command is successful, the terminal simply replies to us with the string `CREATE TABLE`.
 The database is now configured for our pipeline.
