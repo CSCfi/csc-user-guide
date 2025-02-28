@@ -308,7 +308,8 @@ In case of success, the command will show no output.
 
 ### Connecting to the virtual machine
 
-The virtual machine is now configured to allow traffic from our workstation but it is not reachable yet because it has no address assigned to it.
+The virtual machine is now configured to allow traffic from our workstation but it is not reachable yet.
+A virtual machine gets assigned a private IP address at launch, but it has no automatically-assigned public IP, which is required to connect to the virtual machine via the Internet.
 
 We go back to `terminal_C`.
 We acquire a new address issuing the command:
