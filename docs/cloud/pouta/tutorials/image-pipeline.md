@@ -554,33 +554,33 @@ export INPUT_BUCKET="input_bucket"
 export OUTPUT_BUCKET="output_bucket"
 
 source /home/ubuntu/db_cred.sh
-    
+
 export NEGATED_PREFIX="negated_"
 
 (
 # perform the task if the lock is free, otherwise exit
 flock -n 200 || exit 1
 # iterate over the images in the bucket
-for IMAGE_URL in `s3cmd ls s3://$INPUT_BUCKET | awk '{ print $4 }'`
+for IMAGE_URL in $(s3cmd ls s3://$INPUT_BUCKET | awk '{ print $4 }')
 do
         # get the current timestamp
         TIMESTAMP=$(date +%FT%T)
         # get the image
         IMAGE_NAME=$(echo "$IMAGE_URL" | awk -F '/' '{ print $NF }')
-        s3cmd get $IMAGE_URL $IMAGE_NAME
+        s3cmd get "$IMAGE_URL" "$IMAGE_NAME"
         # compute the negated
         NEGATED_IMAGE_NAME="$NEGATED_PREFIX$IMAGE_NAME"
-        convert -negate $IMAGE_NAME $NEGATED_IMAGE_NAME
+        convert -negate "$IMAGE_NAME" "$NEGATED_IMAGE_NAME"
         # compute hash of the result
-        NEGATED_IMAGE_HASH=$(sha256sum $NEGATED_IMAGE_NAME | awk '{ print $1 }')
+        NEGATED_IMAGE_HASH=$(sha256sum "$NEGATED_IMAGE_NAME" | awk '{ print $1 }')
         # log to the db that this was done
         psql -h "$DB_HOST" -p "$DB_PORT" -U "$DB_USER" -d "$DB_NAME" -c "INSERT INTO log_records (timestamp, negated_image_name, negated_image_hash) VALUES ('$TIMESTAMP', '$NEGATED_IMAGE_NAME', '$NEGATED_IMAGE_HASH')"
         # push the negated image to the output bucket
-        s3cmd put $NEGATED_IMAGE_NAME s3://$OUTPUT_BUCKET
+        s3cmd put "$NEGATED_IMAGE_NAME" s3://$OUTPUT_BUCKET
         # delete the local copies of the images
-        rm $IMAGE_NAME $NEGATED_IMAGE_NAME
+        rm "$IMAGE_NAME" "$NEGATED_IMAGE_NAME"
         # delete the image from the input bucket
-        s3cmd del $IMAGE_URL
+        s3cmd del "$IMAGE_URL"
         # sleep 1 sec
         sleep 1
 done
