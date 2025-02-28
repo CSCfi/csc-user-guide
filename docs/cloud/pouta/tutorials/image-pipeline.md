@@ -234,8 +234,9 @@ Finally, we install and configure in the virtual machine the tools required to g
 
 ### Allowing traffic from workstation to virtual machine
 
+To prevent unauthorized access attempts, by default a virtual machine does not allow incoming traffic from the Internet.
 Access to the virtual machine is regulated by means of _security groups_ and the rules they contain.
-We thus create a new security group with a single rule, which allow access to the virtual machine, for example, from our workstation.
+We thus create a new security group with a single rule, which allow access to the virtual machine from our workstation.
 
 We go back to `terminal_C`.
 
