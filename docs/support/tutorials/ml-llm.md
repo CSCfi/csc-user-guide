@@ -211,17 +211,18 @@ argument. This will decrease even further the memory requirements.
 
 [Retrieval-augmented generation (RAG)][RAG] is a way of using a
 pre-trained large language model together with the user's own dataset
-without needing any expensive fine-tuning or retraining of the model.
-In brief, this works by performing a search on the dataset and using
-the top results as additional context for the language model. 
+without needing any computationally expensive fine-tuning or
+retraining of the model.  In brief, this works by performing a search
+on the dataset and using the top results as additional context for the
+language model.
 
-In RAG, the search is a critical part of the system, as a failed
-search will give the LLM the wrong context, which easily causes the
-LLM to generate irrelevant information. For efficient search one can
-utilize embedding models and fast vector search methods. See our
-[RAG-60K repository][RAG-60K] for an example of how to utilize
-supercomputers to prepare a Faiss vector store using state-of-the-art
-embedding models.
+In RAG the search is a critical part of the system, as a failed search
+will give the LLM the wrong context, which easily causes the LLM to
+generate irrelevant information. For efficient search one can utilize
+embedding models and fast vector search methods. See our [RAG-60K
+repository][RAG-60K] for an example of how to utilize supercomputers
+to prepare a Faiss vector store using state-of-the-art embedding
+models.
 
 ## Inference
 
