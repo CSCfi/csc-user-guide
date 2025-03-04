@@ -2,15 +2,15 @@
 
 ## Use `pip list -v` to find out where your packages are coming from
 
-When troubleshooting Python installation problems, we often see the
-situation that users have installed their own versions of packages
+When troubleshooting Python installation problems, we often see
+that users have installed their own versions of packages
 that can conflict with those coming from CSC's pre-installed
 modules. It can be very easy to forget something you installed a long
 time ago, and it is also easy to miss that pip is installing some
 additional packages that you are not aware of.
 
 The command `pip list -v` is an easy way to find out where your
-packages are coming from. The list might be very long so it you might
+packages are coming from. The list might be very long, so you might
 want to use `less` to get a view where you can scroll up and down, or
 `grep` to extract the lines you are interested in.
 
@@ -18,7 +18,7 @@ want to use `less` to get a view where you can scroll up and down, or
 pip list -v | less
 ```
 
-In less you can use the arrow keys or Page Up and Page Down keys to
+In `less` you can use the arrow keys or Page Up and Page Down keys to
 move around. Press 'q' to quit.
 
 Below is an example (with many lines removed) using the python-data
@@ -50,7 +50,7 @@ To see only packages not coming from the CSC-installed python-data module:
 pip list -v | grep -v /PUHTI_TYKKY
 ```
 
-Note that some modules are not using [Tykky][tykky] and conda, for
+Note that some modules are not using [Tykky][tykky] and Conda, for
 example pytorch has packages installed into `/usr/local/lib` or
 `/usr/local/lib64`. Note that these are paths inside the pytorch
 container.
