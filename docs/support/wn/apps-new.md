@@ -1,5 +1,11 @@
 # Applications
 
+## Tykky 0.4.2, 27.2.2025
+
+The newest version of Tykky (0.4.2) installed and set as default
+version on Puhti and Mahti. See the [Tykky releases page to see what's
+new](https://github.com/CSCfi/hpc-container-wrapper/releases/tag/v0.4.2).
+
 ## R 4.4.2 in r-env, 25.2.2025
 
 R version 4.4.2 is now available in [r-env](../../apps/r-env.md) in Puhti and is set as the default version. The new version will be available in RStudio in the Puhti web interface shortly.
