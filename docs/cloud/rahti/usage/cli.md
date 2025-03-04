@@ -80,8 +80,8 @@ Rahti also offers the opportunity of using an internal service account to intera
 
 ```sh
 oc create serviceaccount pusher
-oc policy add-role-to-user system:image-pusher pusher
-docker login -p $(oc sa get-token pusher) -u unused image-registry.apps.2.rahti.csc.fi
+oc policy add-role-to-user system:image-pusher -z pusher
+docker login -p $(oc create token pusher) -u unused image-registry.apps.2.rahti.csc.fi
 ```
 
 This service account token, the one you get with `oc sa get-token pusher` does not expire.
