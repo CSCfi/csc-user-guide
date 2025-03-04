@@ -442,7 +442,7 @@ You can enable them if you wish with `pcs`:
 
 * **How to extend my GFS2 volume?**
 
-    The GFS2 volume was configured using LVM (Logical Volume Manager) that enhance the management and flexibility of physical storage.
+    The GFS2 volume was configured using LVM ([Logical Volume Manager](https://en.wikipedia.org/wiki/Logical_volume_management)) that enhance the management and flexibility of physical storage.
 
     a. Create a new multiattach volume and attach it to your instances. Check that the volume is well attached by running the command `sudo parted -l`
 
