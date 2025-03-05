@@ -75,8 +75,8 @@ Mahti is more limited than in Puhti.
 
 ## Roihu (coming soon)
 
-CSC's next national supercomputer Roihu is a BullSequana XH3000 hybrid system
-that will replace the Puhti and Mahti supercomputers. Roihu will be located in
+CSC's next national supercomputer Roihu, a BullSequana XH3000 hybrid system,
+will replace the Puhti and Mahti supercomputers. Roihu will be located in
 CSC's Kajaani data center, and it is projected to be in researchers' use early
 2026.
 
