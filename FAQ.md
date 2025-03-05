@@ -329,10 +329,26 @@ The glossary is also viewable as a page at [docs.csc.fi/glossary](https://docs.c
 
 ## How do I use the announcement bar?
 
-The content inside the yellow announcement bar at the top of the page is controlled by editing the file
+The content inside the yellow announcement bar below the header is controlled by editing the file
 [csc-overrides/partials/announcement.html](csc-overrides/partials/announcement.html). The bar's
 visibility, in turn, is controlled by changing the value `true|false` of `extra: announcement_visible` in
 [mkdocs.yml](mkdocs.yml). At the moment, the only content confirmed to work are HTML `<p>` and `<a>`.
+
+Select an icon by uncommenting (change both `#`s to `%`s) one of the lines:
+
+Commented:
+```text
+{# import ".icons/material/information.svg" as icon #}
+```
+
+Uncommented:
+```text
+{% import ".icons/material/information.svg" as icon %}
+```
+
+Make sure to "un-uncomment" every other line, since only a single line may be in an uncommented state at a time.
+
+Documentation for _Material for MkDocs_ has a [search feature](https://squidfunk.github.io/mkdocs-material/reference/icons-emojis/?h=icon#search) including **previews** for the icon database. The path of the icon file can be determined by examining the shortcode. For example, the path `.icons/material/information.svg` above corresponds to the shortcode `:material-information:` shown in the search.
 
 ## How do I add a license tag to an application page?
 
