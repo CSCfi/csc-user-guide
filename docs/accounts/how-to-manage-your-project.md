@@ -20,7 +20,7 @@ If you want to close your Project, change your account email address or change t
 ## Project lifetime extension
 
 You can apply for an initial project lifetime extension of one year.
-Please note, maximum duration of Student projects is 6 months, non-extendable.
+Please note, maximum duration of [Student projects](../support/tutorials/student_quick.md) is 6 months, non-extendable.
 
 1. Login to [MyCSC](https://my.csc.fi).
 1. Choose _Projects_ in the navigation menu on the left.
