@@ -1,6 +1,7 @@
-# Setup a HTTP redirection in Rahti
+!!! success "Basic level"
+    It is very simple to setup a HTTP redirection in Rahti using a web server like nginx. We can redirect to basically any URL we want with very complex logics. For this tutorial, we will keep it simple and simply redirect to a different host, but keeping the path of the URL.
 
-It is very simple to setup a HTTP redirection in Rahti using a web server like nginx. We can redirect to basically any URL we want with very complex logics. For this tutorial, we will keep it simple and simply redirect to a different host, but keeping the path of the URL.
+# Setup a HTTP redirection in Rahti
 
 ## Procedure
 

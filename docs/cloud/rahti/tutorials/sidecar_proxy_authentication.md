@@ -1,3 +1,8 @@
+!!! error "Advanced level"
+    You need a good knowledge of Kubernetes/OpenShift environment as well as the tool used. Here, [oc](../usage/cli.md)
+
+    [Network](../networking.md) knowledge is a plus for this tutorial
+
 # Reverse proxy authentication using a sidecar container
 
 A container is called a sidecar when: it is located in the same Pod than other "main" container, and it provides a functionality to that other container. When containers are in the same `Pod`, they share the same network, always reside in the same node, and are created and destroyed at the same time.

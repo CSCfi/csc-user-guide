@@ -2,10 +2,10 @@
 # Analyze and compute with Sensitive Data Desktop
 
 
-1. [Overview](#overview)
-2. [Key features](#key-features)
-3. [Limitations](#limitations)
-4. [Your next steps in this guide](#your-next-steps-in-this-guide)
+- [Overview](#overview)
+- [Key features](#key-features)
+- [Limitations](#limitations)
+- [Your next steps in this guide](#your-next-steps-in-this-guide)
 
 
 ## Overview
