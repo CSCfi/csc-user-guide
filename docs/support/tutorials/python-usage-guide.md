@@ -12,6 +12,9 @@ pre-installed Python environments on CSC supercomputers.
 
 ## Creating and managing Python environments
 
+See also our [FAQ section with common questions related to Python
+environments on supercomputers](../faq/index.md#python-on-supercomputers).
+
 ### Installing Python packages to existing modules
 
 If there is a CSC-provided module that covers _almost_ everything you

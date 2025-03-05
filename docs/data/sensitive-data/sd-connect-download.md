@@ -1,11 +1,14 @@
-# Downloading folders and files 
+# Downloading folders and files
 
 You can easily download folders or individual files from SD Connect user interface.
 
 **Automated decryption is available only for files uploaded and automatically encrypted via the user interface after October 1, 2024**. In contrast, files have been uplaoded before October 1 2024, were manually encrypted using your encryption key and will need to be decrypted manually after download. Although both file types use the same .c4h extension, if you see the message "Requested files could not be decrypted" during download, it indicates that the file was encrypted manually and its decryption will require an extra step. If you need any assistance, don't hesitate to contact us.
 
 1. [Download and automated decryption](#download-and-automated-decryption)
-3. [Download and manual decryption](#download-and-manual-decryption)
+2. [Download and manual decryption](#download-and-manual-decryption)
+
+!!! Note
+    If this is your first time using the service, a pop-up may appear in your browser asking you to accept cookies. Please click Accept to enable the download to       start.
 
 ## Download and automated decryption
 
@@ -29,13 +32,11 @@ For files and folders uplaoded using SD Connect user interface after October 1, 
 !!! Warning
     If you encounter the message 'Requested files could not be decrypted' while downloading, it indicates that some files in your folder were uploaded with an older version of SD Connect, making automatic decryption unavailable. To resolve this, please follow the steps below. For further assistance, [contact CSC Service Desk](../../support/contact.md).
 
-
-# Download and manual decryption
+## Download and manual decryption
 
 For files uplaoded vis SD Connect user interface before October 2024. These files will remain encrypted after dowlaod, and you will need to decrypt them manually  on your laptop with the Crypt4GH application by following the provided instructions:
 
 Please note that you can only decrypt one file at a time. If you need to decrypt multiple files at once, a command line option is available. For further assistance, [contact CSC Service Desk](../../support/contact.md).
-
 
 ### 1.1 Preparation
 
@@ -55,13 +56,14 @@ Access SD Connect and locate the files you need. You can download either the ent
    ![Some requested files could not be decrypted.](https://a3s.fi/docs-files/sensitive-data/SD_Connect/Old_download_1.png)
 
 ### 1.3 Change the file extension
+
 After downloading the files, you need to adjust their extensions. Right-click the file, choose "Rename," and add `.c4gh` to the end of the filename. If opened with a text editor, the files will still be encrypted.
    ![After downloading the files, you need to adjust their extensions.](https://a3s.fi/docs-files/sensitive-data/SD_Connect/Old_download_2.png)
 
 ### 1.4 Decrypt the files with the Crypt4gh application
 
-[video](https://youtu.be/SQJ8QEKV7BE)
- 
+[Video](https://youtu.be/SQJ8QEKV7BE)
+
  Next, you can decrypt the file using the Crypt4GH application and your secret encryption key. Unfortunately, it is currently only possible to single files.
       1. Open the Crypt4GH application and click on _load Your Private Key_.
       2. Click on _Select File_ and upload the file you want to decrypt.
@@ -72,26 +74,25 @@ After downloading the files, you need to adjust their extensions. Right-click th
       The secret key must match the public key used to encrypt the data.
 
 !!! Note
-    In the case of decryption, adding the public key is not mandatory, but if you have the public key of the person who has encrypted        the file, you can use it to verify the encryption signature. If you don't select a public key, the activity log will display the         following (the decryption will be executed anyway):
-      ```text
-      Sender public key has not been set, authenticity will not be verified.
-      ```
+    In the case of decryption, adding the public key is not mandatory, but if you have the public key of the person who has encrypted the file, you can use it to verify the encryption signature. If you don't select a public key, the activity log will display the following (the decryption will be executed anyway):
+
+    ```text
+    Sender public key has not been set, authenticity will not be verified.
+    ```
 
 If your decryption runs successfully, the activity log will display the following:
-      ```text
-      Decrypting..... Decryption has finished Decrypted file: C:/users/username/exampledirectory/examplefile
-      ```
+
+```text
+Decrypting..... Decryption has finished Decrypted file: C:/users/username/exampledirectory/examplefile
+```
 
 The decrypted file will no longer display the `.c4gh` extension and will be saved in the same folder from which the original file was uploaded.
 
-
-
-
 ## Features in SD Connect
 
-* [Upload](./sd-connect-upload.md)
-* [Share](./sd-connect-share.md)
-* [Download](./sd-connect-download.md)
-* [Delete](./sd-connect-delete.md)
-* [Command line interface](./sd-connect-command-line-interface.md)
-* [Troubleshooting](./sd-connect-troubleshooting.md)
+- [Upload](./sd-connect-upload.md)
+- [Share](./sd-connect-share.md)
+- [Download](./sd-connect-download.md)
+- [Delete](./sd-connect-delete.md)
+- [Command line interface](./sd-connect-command-line-interface.md)
+- [Troubleshooting](./sd-connect-troubleshooting.md)

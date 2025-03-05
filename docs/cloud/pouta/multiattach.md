@@ -440,6 +440,49 @@ You can enable them if you wish with `pcs`:
     $> pcs resource create sharedfs1 --group shared_vg1 ocf:heartbeat:Filesystem device="/dev/shared_vg1/shared_lv1" directory="/mnt/gfs" fstype="gfs2" options=noatime op monitor interval=10s on-fail=fence
     ```
 
+* **How to extend my GFS2 volume?**
+
+    The GFS2 volume was configured using LVM ([Logical Volume Manager](https://en.wikipedia.org/wiki/Logical_volume_management)) that enhance the management and flexibility of physical storage.
+
+    a. Create a new multiattach volume and attach it to your instances. Check that the volume is well attached by running the command `sudo parted -l`
+
+    b. On one node, add the new volume in the Volume Group:
+
+    ```sh
+    sudo vgextend VolumeGroupName /dev/vdX
+    ```
+
+    c. Still on one node, extend the Logical Volume:
+
+    ```sh
+    sudo lvextend -l +100%FREE /dev/VolumeGroupName/LogicalVolumeName
+    ```
+
+    d. Check that the Logical Volume has been extended by running the command `sudo lvs`
+
+    e. Before extending the GFS2 volume, check on the other nodes that you don't have error messages. Run `sudo pvs`. If you see something like:
+
+    ```
+    WARNING: Couldn't find device with uuid JuoyG2-ftdd-U9xm-LLei-VrY7-4GZz-FgC2dr.
+    WARNING: VG shared_vg1 is missing PV JuoyG2-ftdd-U9xm-LLei-VrY7-4GZz-FgC2dr (last written to /dev/vdX)
+    ```
+    You must add the device by running the command:
+
+    ```
+    sudo lvmdevices --adddev /dev/vdX
+    ```
+
+    Check again with the command `sudo pvs`. The warning message shouldn't appear.
+
+    f. If everything's ok, you can grow your GFS2 volume by typing:
+
+    ```sh
+    sudo gfs2_grow <YourGFS2MountVolume>
+    ```
+
+    !!! warning
+        You cannot decrease the size of a GFS2 file system
+    
 * **What happens if a VM gets disconnected?**
 
     This covers two different use cases, a temporal and/or unexpected disconnection, and a permanent one.
@@ -484,6 +527,8 @@ You can enable them if you wish with `pcs`:
 - [Getting start with Pacamaker](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/configuring_and_managing_high_availability_clusters/assembly_getting-started-with-pacemaker-configuring-and-managing-high-availability-clusters#proc_learning-to-use-pacemaker-getting-started-with-pacemaker)
 - [Configuring a Red Hat High Availability cluster on Red Hat OpenStack Platform](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/configuring_a_red_hat_high_availability_cluster_on_red_hat_openstack_platform/index)
 - [GFS2 file systems in a cluster](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/configuring_gfs2_file_systems/assembly_configuring-gfs2-in-a-cluster-configuring-gfs2-file-systems#proc_configuring-gfs2-in-a-cluster.adoc-configuring-gfs2-cluster)
+- [Growing a GFS2 file system](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/configuring_gfs2_file_systems/assembly_creating-mounting-gfs2-configuring-gfs2-file-systems#proc_growing-gfs2-filesystem-creating-mounting-gfs2)
+- [Managing LVM volume groups](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/configuring_and_managing_logical_volumes/managing-lvm-volume-groups_configuring-and-managing-logical-volumes#managing-lvm-volume-groups_configuring-and-managing-logical-volumes)
 
 ## OCFS2 as a second example
 
