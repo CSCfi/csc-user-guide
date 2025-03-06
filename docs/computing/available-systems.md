@@ -12,6 +12,9 @@ pan-European pre-exascale supercomputer LUMI. The CPU-partition of LUMI has
 been available since early 2022, while the largest partition of the system
 consisting of GPU-accelerated nodes became available in 2023.
 
+CSC's national supercomputers Puhti and Mahti will be replaced in 2026 by a new
+system, Roihu.
+
 ## LUMI
 
 LUMI is one of the three European pre-exascale supercomputers. It's an HPE Cray
