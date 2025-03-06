@@ -2,7 +2,8 @@
 
 !!! note
     This page contains preliminary information about CSC's next national
-    supercomputer Roihu. Please note that the details may evolve over time.
+    supercomputer Roihu, which is projected to be in researchers' use early
+    2026. Please note that the details may evolve over time.
 
 ## Compute
 
