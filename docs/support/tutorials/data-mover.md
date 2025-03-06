@@ -19,7 +19,7 @@ directory to corresponding project in Allas, and then back. Similar works with
 Mahti and LUMI-O. Please have a look at `dm help` and `dm <sub-command> --help`
 for additional documentation.
 
-## Setting up the connection from Puhti or Mahti to Allas
+## Setting up the connection from Puhti to Allas
 
 1. Your CSC project needs to have Allas service enabled. The project PI can add
 Allas service for the project in [my.csc.fi](https://my.csc.fi) , if not already enabled, and
