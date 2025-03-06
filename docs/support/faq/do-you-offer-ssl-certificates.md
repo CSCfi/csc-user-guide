@@ -8,6 +8,6 @@ Not as such, but you do have several options:
 * There are also services that provide free certificates. For example,
   [Let's Encrypt](https://letsencrypt.org/) provides certificates which behave
   well with most modern web browsers.
-* If you are using Rahti 2, you can use the wildcard certificate for
+* If you are using Rahti, you can use the wildcard certificate for
   `*.2.rahtiapp.fi` DNS names. See also:
-  [Do you offer SSL certificates in Rahti](../rahti-ssl-certificates).
+  [Do you offer SSL certificates in Rahti](rahti-ssl-certificates.md).

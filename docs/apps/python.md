@@ -31,7 +31,7 @@ using different development environments and doing parallel processing
 with Python.
 
 It is generally recommended to use one of
-[pre-installed Python environments](python.md#pre-installed-python-environments)
+[pre-installed Python environments](./python.md#pre-installed-python-environments)
 for computing,
 since these already contain the essential libraries for most uses.
 If for some reason one wishes to use Python without loading an environment
@@ -87,6 +87,19 @@ wider set of available packages. You can always check the Python version
 with the command `python3 --version`, and the full path of the command with
 `which python3` (to see if you are using the system Python or one from the
 modules listed above).
+
+!!! info ""
+
+    Note that most of the pre-installed Python environment modules are
+    self-contained and mutually exclusive environments, so it does not
+    make sense to for example load both python-data and pytorch
+    modules. The module loaded last will be the only active one, and
+    the module load command will warn about this, for example:
+
+    ```
+    Lmod is automatically replacing "python-data/3.10-24.04" with "pytorch/2.5".
+    ```
+
 
 ### Custom Python environments
 

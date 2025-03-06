@@ -53,7 +53,7 @@ Puhti and Mahti GPUs should only be used for workloads that greatly benefit from
 GPU capacity compared to using CPUs or which can't be run on CPUs. In particular
 AI/ML workloads are prioritized, since many of them cannot be done at all on
 CPUs. A good rule of thumb is to compare the [billing unit (BU)](../accounts/billing.md)
-usage (_e.g._ with [`seff`](../performance/#quick-start-efficiency-report-with-seff)
+usage (_e.g._ with [`seff`](./performance.md#quick-start-efficiency-report-with-seff)
 or the [billing unit calculator](https://research.csc.fi/billing-units/#buc)) of the job on
 GPUs against CPUs and select the one using less.
 

@@ -164,7 +164,7 @@ application, for example:
 
 [MLflow]: https://www.mlflow.org/
 [ml-apps]: ../../apps/by_discipline.md#data-analytics-and-machine-learning
-[own-install]: ../../apps/python.md#installing-python-packages-to-existing-modules
+[own-install]: ./python-usage-guide.md#installing-python-packages-to-existing-modules
 [autolog]: https://www.mlflow.org/docs/latest/tracking.html#automatic-logging
 [pytorch-ex]: https://github.com/CSCfi/pytorch-ddp-examples/blob/master/mnist_ddp_mlflow.py
 [lightning-ex]: https://github.com/CSCfi/pytorch-ddp-examples/blob/master/mnist_lightning_ddp.py

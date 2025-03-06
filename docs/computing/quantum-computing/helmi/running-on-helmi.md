@@ -29,9 +29,9 @@ The current supported software versions on helmi are:
 
 | Software | Module_name | Versions |
 |----------|-------------|----------|
-| Cirq on IQM | cirq_iqm | >= 15.0, <= 15.2|
-| Qiskit on IQM | qiskit_iqm | >= 14.0, <= 15.4 |
-| IQM client | iqm_client | >= 20.0, < 20.4 |
+| Cirq on IQM | cirq_iqm |  15.2  |
+| Qiskit on IQM | qiskit_iqm |  15.5 |
+| IQM client | iqm_client | >= 20.11, <= 20.13 |
 
 Here is an example batch script to submit jobs on Helmi
 
@@ -207,7 +207,7 @@ Here is a brief description of the figures which are given when querying:
 | CZ gate fidelity                | The controlled-z gate fidelity calculated through interleaved randomized benchmarking, where the controlled-z gate is interleaved.                                                    |     |     |
 
 
-For further information on the figures of merit contact the [CSC Service Desk](../../../../support/contact/), reachable at [servicedesk@csc.fi](mailto:servicedesk@csc.fi).
+For further information on the figures of merit contact the [CSC Service Desk](../../../support/contact.md), reachable at [servicedesk@csc.fi](mailto:servicedesk@csc.fi).
 
 
 ## Using Helmi on Lumi-web interface

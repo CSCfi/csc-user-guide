@@ -35,5 +35,5 @@
 -   EC2 is presently not supported. EC2 credentials can, however, be
     used with the object storage.
 
-## [Pouta FAQ entries](../../../support/faq/#pouta)
+## [Pouta FAQ entries](../../support/faq/index.md#pouta)
 
