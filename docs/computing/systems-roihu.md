@@ -13,10 +13,10 @@ the CPU nodes and 23.4 PFlop/s for the GPU nodes, resulting in an aggregate HPL
 performance of 33.9 PFlop/s for the full system.
 
 The CPU nodes will have two 192-core AMD Turin CPUs each, amounting to 186 624
-CPU cores altogether. The CPUs are based on AMD Zen 5 architecture, supporting
-the AVX-512 vector instruction set.
+CPU cores altogether. The CPUs are based on the AMD Zen 5 architecture, which
+supports the AVX-512 vector instruction set.
 
-Each GPU node will be equipped with 4 Nvidia GH200 GPUs, i.e. 528 GPUs in
+Each GPU node will be equipped with 4 Nvidia GH200 GPUs, i.e., 528 GPUs in
 total. Each GPU is accompanied by 72 ARM CPU cores for a total of 38 016 ARM
 CPU cores on the GPU nodes.
 
@@ -25,9 +25,9 @@ well as huge memory nodes.
 
 ## Storage
 
-Roihu will have 6.5 PB of fully flash-based storage based on DDN EXAScaler.
-This is divided into a 6.0 PB scratch space and a 0.5 PB disk area for project
-applications and users' personal home directories.
+Roihu will have 6.5 PiB of fully flash-based storage based on DDN EXAScaler.
+This is divided into a 6.0 PiB scratch space and a 0.5 PiB disk area for
+project applications and users' personal home directories.
 
 The peak I/O performance of Roihu scratch space is expected to be around 200
 GB/s for read and 170 GB/s for write. The home and projappl will have read and
