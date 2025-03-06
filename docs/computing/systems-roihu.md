@@ -13,11 +13,15 @@ the CPU nodes and 23.4 PFlop/s for the GPU nodes, resulting in an aggregate HPL
 performance of 33.9 PFlop/s for the full system.
 
 The CPU nodes will have two 192-core AMD Turin CPUs each, amounting to 186 624
-CPU cores altogether. Each GPU node will be equipped with 4 Nvidia GH200 GPUs,
-i.e. 528 GPUs in total.
+CPU cores altogether. The CPUs are based on AMD Zen 5 architecture, supporting
+the AVX-512 vector instruction set.
 
-The system will also provide special GPU nodes for visualization, as well as
-huge memory nodes.
+Each GPU node will be equipped with 4 Nvidia GH200 GPUs, i.e. 528 GPUs in
+total. Each GPU is accompanied by 72 ARM CPU cores for a total of 38 016 ARM
+CPU cores on the GPU nodes.
+
+The system will also provide special GPU nodes for visualization, as
+well as huge memory nodes.
 
 ## Storage
 
