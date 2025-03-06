@@ -28,11 +28,10 @@ the project members need to [accept the service terms](../../accounts/how-to-add
 2. Create a configuration for rclone and store the authentication token in the
 file `$HOME/.config/rclone/rclone.conf` in Puhti. This is easiest to do from
 [Puhti web interface](https://puhti.csc.fi). Open "Cloud storage configuration" from the
-"Tools" drop-down menu, and create Allas S3 rclone configuration for the
-project,
-[](../../computing/webinterface/file-browser.md#accessing-allas-and-lumi-o).
+"Tools" drop-down menu, and
+[create Allas S3 rclone configuration for the project](../../computing/webinterface/file-browser.md#accessing-allas-and-lumi-o).
 
-3. Open a terminal to Puhti, and take the data-mover tool `dm` into use with
+4. Open a terminal to Puhti, and take the data-mover tool `dm` into use with
 ```
 module load .data-mover
 ```
