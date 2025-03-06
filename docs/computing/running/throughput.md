@@ -57,7 +57,7 @@ graph TD
     C -->|No| E(Single- or multi-node subtasks?)
     E -->|Single| F(Dependencies between subtasks?)
     E -->|Multi-node| G(<a href='/computing/running/fireworks/'>FireWorks</a>)
-    F -->|Yes| J(<a href='https://snakemake.readthedocs.io/en/stable/'>Snakemake</a><br><a href='/support/tutorials/nextflow-puhti/'>Nextflow</a><br><a href='/computing/running/fireworks/'>FireWorks</a>)
+    F -->|Yes| J(<a href='https://snakemake.readthedocs.io/en/stable/'>Snakemake</a><br><a href='/support/tutorials/nextflow-tutorial/'>Nextflow</a><br><a href='/computing/running/fireworks/'>FireWorks</a>)
     F -->|No| K(<a href='/support/tutorials/many/'>GNU Parallel</a><br><a href='/computing/running/array-jobs/'>Array jobs</a><br><a href='/apps/hyperqueue/'>HyperQueue</a>)
 ```
 
@@ -99,8 +99,8 @@ all users and should thus be moved away from Lustre.
 
 If you need to read and write thousands of files in your HTC workflow, please use:
 
-* [Fast local NVMe disk] on Puhti and Mahti GPU-nodes
-* [Ramdisk] (`/dev/shm`) on Mahti CPU-nodes
+* [Fast local NVMe disk] on Puhti and Mahti
+* [Ramdisk] (`/dev/shm`) on Mahti CPU partitions with node-based allocation (only if you know what you're doing!)
 * If your application can be run as a [Singularity container], another good option
   is to [mount your datasets with SquashFS]. Creating a SquashFS image from your
   dataset, possibly composed of thousands of files, reduces it to a single file
@@ -129,9 +129,9 @@ graph TD
     C -->|Yes| D(<a href='/computing/containers/tykky/'>Containerize it with Tykky</a>)
     D --> B
     C -->|No| E(Are you running on Puhti or Mahti?)
-    E -->|Mahti| F(CPU or GPU job?)
-    F -->|CPU| G(<a href='/computing/disk/#compute-nodes-without-local-ssd-nvme-disks'>Use ramdisk</a>)
-    F -->|GPU| H(<a href='/computing/disk/#compute-nodes-with-local-ssd-nvme-disks'>Use fast local NVMe disk</a>)
+    E -->|Mahti| F(medium/large partition?)
+    F -->|Yes| G(<a href='/computing/disk/#compute-nodes-without-local-ssd-nvme-disks'>Use ramdisk</a>)
+    F -->|No| H(<a href='/computing/disk/#compute-nodes-with-local-ssd-nvme-disks'>Use fast local NVMe disk</a>)
     E -->|Puhti| H
     B -->|No| E
     B -->|Yes| I(Done)

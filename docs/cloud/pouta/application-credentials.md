@@ -1,6 +1,6 @@
 # Application credentials
 
-Application credentials allow you to interact with Pouta via the [OpenStack command-line tools](../command-line-tools) or directly via the API, by allowing you to create a **role specific** and **time limited** _TOKEN_ that can be revoked at any time. The most immediate advantage is that you no longer need to use or write your CSC password while using Pouta's API.
+Application credentials allow you to interact with Pouta via the [OpenStack command-line tools](command-line-tools.md) or directly via the API, by allowing you to create a **role specific** and **time limited** _TOKEN_ that can be revoked at any time. The most immediate advantage is that you no longer need to use or write your CSC password while using Pouta's API.
 
 * **Role specific** means that the credentials can be created with limited permissions. You can create credentials that are only allowed to get data of your project, but not modify it. You can also create credentials that can only modify a specific resource. It is also possible to create credentials that can do everything that you can.
 
@@ -51,7 +51,7 @@ file that you can source, a YAML file that can be used directly by the CLI, or a
     export OS_APPLICATION_CREDENTIAL_SECRET=xxxxxxxxxxxxxxxxxxx
     ```
 
-    If you source that file, you can use it together with with [OpenStack command-line tools](../command-line-tools).
+    If you source that file, you can use it together with with [OpenStack command-line tools](command-line-tools.md).
 
     You can also download the `cloud.yaml` file that will look like this:
 
@@ -93,20 +93,23 @@ file that you can source, a YAML file that can be used directly by the CLI, or a
 
 ## Using roles
 
-In cPouta, there are four roles available: `member`, `heat_stack_owner`, `object_store_user` and `creator`.
+!!! warning "Temporary Unavailability of Role Restrictions for Application Credentials"
+    The usage of role restrictions for Application Credentials is temporarily unavailable.
 
-* `member` role is the normal user role. It can make changes to the system. When you login into the web-interface you have the `member` role
-enabled.
 
-* `heat_stack_owner` can operate over Heat stacks, that is create, modify and delete infrastructure. This is useful for using it in a `IaC` setup. 
+<del> In cPouta, there are four roles available: `member`, `heat_stack_owner`, `object_store_user` and `creator`.
 
-* `object_store_user` can operate over Allas and Objects Store.
 
-* `creator` can create secrets such as passwords, encryption keys.
+* <del> `member` role is the normal user role. It can make changes to the system. When you login into the web-interface you have the `member` role enabled.
 
-If you are using Applications credentials in ePouta, it's slightly different. There are two roles available: `member` and `heat_stack_owner`.
+* <del> `heat_stack_owner` can operate over Heat stacks, that is create, modify and delete infrastructure. This is useful for using it in a `IaC` setup. 
 
-* `member` role is the normal user role. When you login into the web-interface you have the `member` role enabled.
+* <del> `object_store_user` can operate over Allas and Objects Store.
 
-* `heat_stack_owner` can operate over Heat stacks, that is create, modify and delete infrastructure. This is useful for using it in a `IaC` setup. 
+* <del> `creator` can create secrets such as passwords, encryption keys.
 
+<del> If you are using Applications credentials in ePouta, it's slightly different. There are two roles available: `member` and `heat_stack_owner`.
+
+* <del> `member` role is the normal user role. When you login into the web-interface you have the `member` role enabled.
+
+* <del> `heat_stack_owner` can operate over Heat stacks, that is create, modify and delete infrastructure. This is useful for using it in a `IaC` setup. 

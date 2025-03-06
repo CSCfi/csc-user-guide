@@ -63,5 +63,6 @@ If you use Snakemake in your work, please cite:
 * [Snakemake official documentation](https://snakemake.readthedocs.io/en/stable/index.html)
 * [How to run Snakemake workflow on Puhti](../support/tutorials/snakemake-puhti.md)
 * [CSC Snakemake Hackathon 2024](https://coderefinery.github.io/snakemake_hackathon/)
+* [Master thesis by Antoni Gołoś comparing automated workflow approaches on supercomputers](https://urn.fi/URN:NBN:fi:aalto-202406164397)
 * [Contact CSC Service Desk for technical support](../support/contact.md)
 

@@ -323,7 +323,7 @@ and the time spent waiting in the queue will be wasted.
 ## Optimal disk usage
 
 The Schrödinger HOSTs in Puhti have not been configured to use the
-[local NVMe disk](../../../computing/running/creating-job-scripts-puhti/#local-storage),
+[local NVMe disk](../../computing/running/creating-job-scripts-puhti.md#local-storage),
 which is available only on some of the compute nodes. Since most jobs don't
 gain speed advantage from NVMe disk, you'll likely queue less by not asking
 for it. If your job performs a lot of I/O operations, please contact
@@ -360,7 +360,7 @@ a subjob) requires several tokens. For example, Desmond and Glide jobs take 8 to
 
 CPU time (billing units) is a different resource and has nothing to do with license tokens.
 When you run out of billing units, you or your project manager can
-[apply for more via the My CSC portal](../../accounts/how-to-apply-for-billing-units.md).
+[apply for more via the MyCSC portal](../../accounts/how-to-apply-for-billing-units.md).
 
 ## Fizzled jobs
 

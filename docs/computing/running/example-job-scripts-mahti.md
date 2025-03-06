@@ -12,7 +12,7 @@ Example job scripts for running different types of programs:
 
 ## MPI
 
-```
+```bash
 #!/bin/bash
 #SBATCH --job-name=example
 #SBATCH --account=<project>
@@ -26,7 +26,7 @@ srun myprog <options>
 
 ## Large MPI
 
-```
+```bash
 #!/bin/bash
 #SBATCH --job-name=example
 #SBATCH --account=<project>
@@ -36,11 +36,11 @@ srun myprog <options>
 #SBATCH --ntasks-per-node=128
 
 srun myprog <options>
-
 ```
+
 ## MPI + OpenMP
 
-```
+```bash
 #!/bin/bash
 #SBATCH --job-name=example
 #SBATCH --account=<project>
@@ -58,7 +58,7 @@ srun myprog <options>
 
 ## MPI + OpenMP with thread binding
 
-```
+```bash
 #!/bin/bash
 #SBATCH --job-name=example
 #SBATCH --account=<project>
@@ -75,10 +75,9 @@ export OMP_PLACES=cores
 srun myprog <options>
 ```
 
-
 ## MPI + OpenMP with simultaneous multithreading
 
-```
+```bash
 #!/bin/bash
 #SBATCH --job-name=example
 #SBATCH --account=<project>
@@ -99,7 +98,7 @@ srun myprog <options>
 
 ## MPI with one task per NUMA domain
 
-```
+```bash
 #!/bin/bash
 #SBATCH --job-name=example
 #SBATCH --account=<project>
@@ -115,10 +114,9 @@ srun myprog <options>
 srun myprog <options>
 ```
 
-
 ## OpenMP
 
-```
+```bash
 #!/bin/bash
 #SBATCH --job-name=example
 #SBATCH --account=<project>
@@ -133,9 +131,33 @@ export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
 srun myprog <options>
 ```
 
+## Local disk and `small` partition
+
+```bash
+#!/bin/bash
+#SBATCH --job-name=example
+#SBATCH --account=<project>
+#SBATCH --partition=small
+#SBATCH --time=02:00:00
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=4
+#SBATCH --gres=nvme:100
+
+# Small partition:
+# - Each job gets 1.875 GB memory per reserved core automatically.
+#   If a task needs more memory, use `--cpus-per-task` option.
+# - Memory reservation slurm options are ignored
+# - Local NVMe disk up to 3500 GiB is available, reserve with
+#   `--gres=nvme:<size in GiB>` option and use through
+#   $LOCAL_SCRATCH environment variable
+
+export MY_JOB_TMPDIR=$LOCAL_SCRATCH
+srun myprog <options>
+```
+
 ## 1-2 GPU job i.e. `gpusmall` partition
 
-```
+```bash
 #!/bin/bash
 #SBATCH --job-name=example
 #SBATCH --account=<project>
@@ -156,7 +178,7 @@ srun myprog <options>
 
 ## 4 GPUs per node and multinode GPU job i.e. `gpumedium` partition
 
-```
+```bash
 #SBATCH --job-name=example
 #SBATCH --account=<project>
 #SBATCH --partition=gpumedium
