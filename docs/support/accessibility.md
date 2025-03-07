@@ -2,7 +2,7 @@
 
 This accessibility statement applies to docs.csc.fi and was made on 13.02.2025. The service is owned by CSC – IT Center for Science Ltd. The service is subject to the Act on the provision of digital services 306/2019, which requires that public online services must be accessible.
 
-The accessibility of the service has been evaluated by an external organization.
+The accessibility of the service has been evaluated by an external organization. This accessibility statement was last updated on 06.03.2025.
 
 ## Compliance status
 
@@ -64,16 +64,6 @@ The accessibility audit revealed some functions and elements that were difficult
 - 2.4.4 Link Purpose (in Context)
 - 2.4.6 Headings and Labels
 - 2.4.7 Focus Visible
-
-### Understandable: Deficiencies in the language definition
-
-#### Non-accessible content and its shortcomings
-
-There are problems with the language definitions in some parts of the service.
-
-#### Accessibility requirements that are not met
-
-- 3.1.2 Language of Parts
 
 ### Robust: Deficiencies in the code and status messages
 
