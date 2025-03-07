@@ -1,16 +1,15 @@
  
 
-# Adding datasets to SD Apply 
+# Enabling reuse of FEGA data
 
 Access to data that are stored at CSC and published under controlled access are managed by the data controller or their representatives in the SD Apply service. To enable reuse of datasets stored in Finnish Federated EGA (FEGA) you need to add the datasets your organisation offers to the catalogue in SD Apply. Please note, when you use SD Apply to manage access to datasets stored in FEGA, your organization needs to have a service agreement with CSC in place. Read more about [FEGA legal agreements](./fega-submission.md#step-1-legal-agreements-data-access-committee-and-policies).
 
-As a data controller in SD Apply, you are responsible for:
+!!! Note
+    As a data controller in SD Apply, you are responsible for:
+    - Adding your datasets to catalogue in SD Apply together with an application form and policies
+    - Designating representatives (a Data Access Committee, DAC) who manage the data access requests to your organization’s datasets
+    - Defining data access policies for data reuse.
 
-- Adding your datasets to catalogue in SD Apply together with an application form and policies
-- Designating representatives (a Data Access Committee, DAC) who manage the data access requests to your organization’s datasets
-- Defining data access policies for data reuse.
-
-Adding datasets to SD Apply for the first time is made in close collaboration with CSC Service Desk as the process can be a bit complicated. Please reserve time for the process and prepare to discuss with your legal team about the agreements needed for data reuse. Below are general instructions to guide you through the process.
 
 ## Forming a Data Access Committee
 
@@ -21,7 +20,13 @@ DAC is responsible for:
 - **Coordinating and approving new FEGA submissions inside their organisation**: Reviewing the datasets that will be submitted in the Federated EGA under their organization and controllership  
 - **Managing access to organization's datasets**: Evaluating data access requests for datasets managed by the DAC to ensure compliance with defined policies, regulations, and ethical guidelines.
 
-## How to add a dataset to catalogue in SD Apply
+## Adding a dataset to catalogue in SD Apply
+
+![SD Apply Infograph](https://a3s.fi/docs-files/sensitive-data/SD_Apply/SD_Apply_infographic.png)
+
+
+Adding datasets to SD Apply for the first time is made in close collaboration with CSC Service Desk as the process can be a bit complicated. Please reserve time for the process and prepare to discuss with your legal team about the agreements needed for data reuse. Below are general instructions to guide you through the process.
+
 
 Before you can add information to SD Apply, CSC service desk needs to create an organization profile and set you as the organization administrator. Request profile creation by sending an email to servicedesk@csc.fi with the subject heading SD services. 
 
