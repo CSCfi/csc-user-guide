@@ -96,7 +96,7 @@ You need to access SD Desktop. You have a permit from Findata.
 !!! info-label
     Team member
 
-**[Watch video](https://www.youtube.com/embed/qxYIXDqpTp0){ target="_blank" }**
+**[Watch video](https://www.youtube.com/watch?v=qxYIXDqpTp0&t=359s){ target="_blank" }**
 
 - You need to activate MFA (multi-factor authentication) to be able to log in to the Sensitive Data services. [More about multi-factor authentication](../../accounts/mfa.md). *If your multi-factor authentication is already enabled, you can move to step 9.*
 - Before activating MFA you need to have some authentication application on your mobile phone, for example Google Authenticator or Microsoft Authenticator.
