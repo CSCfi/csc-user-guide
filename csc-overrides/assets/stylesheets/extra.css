@@ -13,5 +13,6 @@
 @import url(./sidebars.css);
 @import url(./tags.css);
 @import url(./video.css);
+@import url(./sw-catalog.css);
 
 @import url(./sensitive-data.css);
