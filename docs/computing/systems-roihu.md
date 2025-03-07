@@ -15,13 +15,13 @@ performance of 33.9 PFlop/s for the full system.
 The CPU nodes will have two 192-core AMD Turin 9965 CPUs each, amounting to
 186 624 CPU cores altogether. The CPUs are based on the AMD Zen 5 architecture,
 which supports the AVX-512 vector instruction set. 414 of the CPU nodes will
-have a 768 GiB memory, while the remaining 72 nodes will have an extended
-memory of 1 536 GiB.
+have 768 GiB of memory, while the remaining 72 nodes will have an extended
+memory of 1 536 GiB each.
 
-The GPU nodes will be equipped with 4 Nvidia GH200 GPUs each, i.e., 528 GPUs in
+Each GPU node will be equipped with 4 Nvidia GH200 GPUs, i.e., 528 GPUs in
 total. Each GH200 chip is accompanied by 72 ARM CPU cores for a total of 38 016
-cores in the whole GPU partition. Each GPU node will have 4 x 120 GiB of CPU
-memory and 4 x 96 GiB of GPU memory.
+cores in the whole GPU partition. The GPU nodes will have 4 x 120 GiB of CPU
+memory and 4 x 96 GiB of GPU memory each.
 
 The system will also provide four visualization nodes with two Nvidia L40 GPUs
 each, as well as four high-memory CPU nodes with 3 TiB memory and higher
