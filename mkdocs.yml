@@ -221,6 +221,7 @@ nav:
           - computing/available-systems.md
           - Puhti: computing/systems-puhti.md
           - Mahti: computing/systems-mahti.md
+          - Roihu: computing/systems-roihu.md
           - LUMI: "https://docs.lumi-supercomputer.eu/hardware/"
       - Connecting:
           - computing/connecting/index.md
