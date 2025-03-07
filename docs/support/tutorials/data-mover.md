@@ -8,7 +8,7 @@ dataset is large.
 
 We wish the data-mover tool `dm` to be simple to use, and handle all possible
 hard corner cases. It is basically a wrapper around [Restic backup tool](https://restic.readthedocs.io)
-, and stores the data in Restic repositories.
+, and stores the data in Restic repository format.
 Restic in turn uses [Rclone](https://rclone.org) for the actual data transfers to
 the object storage servers and back. In addition, the data-mover tool does the
 data transfers in the background, using batch jobs, allowing larger transfers
@@ -36,13 +36,13 @@ file `$HOME/.config/rclone/rclone.conf` in Puhti. This is easiest to do from
 module load .data-mover
 ```
 
-## Moving data from Puhti to Allas
+## Moving a single directory in Puhti to Allas
 
-1. Put the data in a single directory, for example
-`/scratch/project_<projid>/exampledir` in Puhti, _deleting all the files that
-you do not need_. There is no need to compress the files.
+1. Delete all the files that are not needed from the scratch directory,
+`/scratch/project_<projid>/exampledir`, for example. There is no need
+to compress the files.
 
-2. Move the data to Allas
+3. Move the data to Allas
 ```
 dm export /scratch/project_<projid>/exampledir
 ```
