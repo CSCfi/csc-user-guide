@@ -39,8 +39,8 @@ GB/s for read and 170 GB/s for write. The home and projappl will have read and
 write bandwidths of 120 GB/s and 100 GB/s, respectively.
 
 Contrary to Puhti and Mahti, all Roihu CPU and GPU nodes will have a small 960
-GiB fast NVMe disk for efficient storage of, for example, temporary files. The
-high-memory nodes will include 2 x 7.68 TiB fast disks each.
+GB fast NVMe disk for efficient storage of, for example, temporary files. The
+high-memory nodes will include 2 x 7.68 TB fast disks each.
 
 ## Network
 
