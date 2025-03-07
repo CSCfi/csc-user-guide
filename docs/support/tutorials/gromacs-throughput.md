@@ -92,7 +92,7 @@ running multiple trajectories per GCD. Below is an example batch script that lau
 to the Mahti example above.
 
 ```bash
-!/bin/bash
+#!/bin/bash
 #SBATCH --partition=standard-g
 #SBATCH --account=<project>
 #SBATCH --time=01:00:00
