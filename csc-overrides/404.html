@@ -6,14 +6,10 @@
 {% block breadcrumbs %}
 <nav class="csc-breadcrumbs">
   <a class="csc-breadcrumbs__link" href="{{ base_url }}">Docs CSC</a>
-  404
+  Error 404: Page not found
 </nav>
 {% endblock breadcrumbs %}
-<h1>Error</h1>
-<h2>Page not found</h2>
-<p>Oops. Please retry looking for the content starting from the landing page: <a href="{{ base_url }}">docs.csc.fi</a>.</p>
-<div class="admonition warning">
-  <p class="admonition-title">Some incoming links may malfunction</p>
-  <p>The <em>Datasets</em> section has been reorganized into <em>Working with data</em> on 10th of December in 2021 changing those URLs.</p>
-</div>
+<h1>Error 404: Page not found</h1>
+<h2>Sorry, we couldn't find what you're looking for</h2>
+<p>Please retry looking for the content using the search function, or return to <a href="{{ base_url }}">the Home page</a>.</p>
 {% endblock content %}
