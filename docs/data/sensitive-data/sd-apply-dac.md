@@ -4,12 +4,12 @@
 
 Access to data that are stored at CSC and published under controlled access are managed by the data controller or their representatives in the SD Apply service. To enable reuse of datasets stored in Finnish Federated EGA (FEGA) you need to add the datasets your organisation offers to the catalogue in SD Apply. Please note, when you use SD Apply to manage access to datasets stored in FEGA, your organization needs to have a service agreement with CSC in place. Read more about [FEGA legal agreements](./fega-submission.md#step-1-legal-agreements-data-access-committee-and-policies).
 
-!!! note
-    As a data controller in SD Apply, you are responsible for:
-    * Adding your datasets to catalogue in SD Apply together with an application form and policies
-    * Designating representatives (a Data Access Committee, DAC) who manage the data access requests to your organization’s datasets
-    *Defining data access policies for data reuse.
 
+!!! Note "As a data controller in SD Apply, you are responsible for:"
+
+   * Adding your datasets to catalogue in SD Apply together with an application form and policies.
+   * Designating representatives (a Data Access Committee, DAC) who manage the data access requests to your organization’s datasets.
+   * Defining data access policies for data reuse.
 
 ## Forming a Data Access Committee (DAC)
 
