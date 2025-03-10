@@ -11,7 +11,7 @@ Access to data that are stored at CSC and published under controlled access are 
     *Defining data access policies for data reuse.
 
 
-## Forming a Data Access Committee
+## Forming a Data Access Committee (DAC)
 
 Before you start adding information in SD Apply, we recommend discussing inside your organization about the possibility of forming a general Data Access Committee (DAC) that manages access to all datasets your organization is the data controller of. 
 
@@ -23,7 +23,6 @@ DAC is responsible for:
 ## Adding a dataset to catalogue in SD Apply
 
 ![SD Apply Infograph](https://a3s.fi/docs-files/sensitive-data/SD_Apply/SD_Apply_infographic.png)
-
 
 Adding datasets to SD Apply for the first time is made in close collaboration with CSC Service Desk as the process can be a bit complicated. Please reserve time for the process and prepare to discuss with your legal team about the agreements needed for data reuse. Below are general instructions to guide you through the process.
 
