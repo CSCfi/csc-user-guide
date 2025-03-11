@@ -37,7 +37,7 @@ For files and folders uploaded using SD Connect user interface after October 1, 
 
 If when using Firefox download doesn't start follow steps below:
 
-1. In your browser, click **Tools** > **Browser** > **Web Developer Tools** (or press F12 on your keyboard).
+1. In your browser, click **Tools** > **Browser Tools** > **Web Developer Tools** (or press F12 on your keyboard).
 2. A new window will open at the bottom of your browser. Click **Application** tab.
 3. Next to **Service Worker**, click **Unregister**.
 4. You can close **Web Developer Tools** window.
