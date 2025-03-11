@@ -8,7 +8,7 @@ You can easily download folders or individual files from SD Connect user interfa
 2. [Download and manual decryption](#download-and-manual-decryption)
 
 !!! Note
-    If this is your first time using the service, a pop-up may appear in your browser asking you to accept cookies. Please click Accept to enable the download to       start.
+    If this is your first time using the service, a pop-up may appear in your browser asking you to accept cookies. Please click Accept to enable the download to start.
 
 ## Download and automated decryption
 
@@ -33,15 +33,20 @@ For files and folders uploaded using SD Connect user interface after October 1, 
     If you encounter the message 'Some downloaded files need manual decryption.' while downloading, it indicates that some files in your folder were uploaded with an older version of SD Connect, making automatic decryption unavailable. To resolve this, please follow these [instructions](#download-and-manual-decryption). For further assistance, [contact CSC Service Desk](../../support/contact.md).
 
 
-### Downloading invidual files via Firefox 
+### Downloading via Firefox: troubleshooting
 
-If when using Firefox download doesn't start follow steps below:
+Firefox is a supported browser; however you might encounter issues where the download does not start.
 
-1. In your browser, click **Tools** > **Browser Tools** > **Web Developer Tools** (or press F12 on your keyboard).
+If this is your first time using the service, or if you have cleared your browser history and cookies, a pop-up may appear asking you to accept cookies. This pop-up only appears when you click on Download and may not be immediately visible, as it appears on the top bar of the browser. Please click Accept to enable the download to start." 
+
+If you have used the service before, but the download suddenly no longer starts, follow these steps (this process only needs to be done once):
+
+1. In your browser, click **Tools** > **Browser Tools** > **Web Developer Tools** (or on your keyboard press F12 for Windows or Fn+F12 on your Mac).
 2. A new window will open at the bottom of your browser. Click **Application** tab.
 3. Next to **Service Worker**, click **Unregister**.
 4. You can close **Web Developer Tools** window.
-5. Refresh your browser and download files following these [instructions](#downloading-individual-files). 
+5. Refresh your browser and download files following these [instructions](#downloading-individual-files).
+
 
 ![SD Connect download via Firefox](https://a3s.fi/docs-files/sensitive-data/SD_Connect/SD_Connect_FirefoxDownload.png)
 
