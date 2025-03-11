@@ -30,10 +30,10 @@ For files and folders uploaded using SD Connect user interface after October 1, 
 4. Files are decrypted automatically. Files will download and decrypt automatically, usually to downloads folder. Do not open the folder until the download is complete to avoid errors. The downloaded folder has a .tar extension, double-click to extract the content in a new folder.
 
 !!! Warning
-    If you encounter the message 'Requested files could not be decrypted' while downloading, it indicates that some files in your folder were uploaded with an older version of SD Connect, making automatic decryption unavailable. To resolve this, please follow these [instructions](#download-and-manual-decryption). For further assistance, [contact CSC Service Desk](../../support/contact.md).
+    If you encounter the message 'Some downloaded files need manual decryption.' while downloading, it indicates that some files in your folder were uploaded with an older version of SD Connect, making automatic decryption unavailable. To resolve this, please follow these [instructions](#download-and-manual-decryption). For further assistance, [contact CSC Service Desk](../../support/contact.md).
 
 
-### Downloading invidual files with Firefox 
+### Downloading invidual files via Firefox 
 
 1. Log in to SD Connect using Firefox.
 2. Find corrects files.
@@ -44,9 +44,13 @@ For files and folders uploaded using SD Connect user interface after October 1, 
 7. You can close **Web Developer Tools** window.
 8. Download files following these [instructions](#downloading-individual-files). 
 
+![SD Connect download via Firefox](https://a3s.fi/docs-files/sensitive-data/SD_Connect/SD_Connect_FirefoxDownload.png)
+
+![SD Connect download via Firefox](https://a3s.fi/docs-files/sensitive-data/SD_Connect/SD_Connect_FirefoxDownload2.png)
+
 ## Download and manual decryption
 
-For files uplaoded vis SD Connect user interface before October 2024. These files will remain encrypted after dowlaod, and you will need to decrypt them manually  on your laptop with the Crypt4GH application by following the provided instructions:
+For files uploaded vis SD Connect user interface before October 2024. These files will remain encrypted after dowlaod, and you will need to decrypt them manually  on your laptop with the Crypt4GH application by following the provided instructions:
 
 Please note that you can only decrypt one file at a time. If you need to decrypt multiple files at once, a command line option is available. For further assistance, [contact CSC Service Desk](../../support/contact.md).
 
