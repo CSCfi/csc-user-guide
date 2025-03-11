@@ -6,7 +6,7 @@
 * [How to get access to Puhti](how-to-get-puhti-access.md)
 * [How to cite CSC in a paper?](how-to-cite-csc.md)
 * [Can I still use CSC services if I'm moving abroad?](can-i-use-csc-services-abroad.md)
-* [How can I move data between CSC and my local computer?](../../data/moving)
+* [How can I move data between CSC and my local computer?](../../data/moving/index.md)
 * [Disk quota exceeded](disk-quota-exceeded.md)
 * [I need a Database, where can I deploy it?](database.md)
 * [Is there a glossary of the acronyms you keep using?](is-there-a-glossary-of-the-acronyms-you-keep-using.md)
@@ -39,6 +39,11 @@
 * [How can I install my own software?](how-to-install-own-software.md)
 * [How do the project and scratch file permissions work?](how-do-the-project-file-permissions-work.md)
 * [How does LUMI-C differ from Mahti?](../../computing/lumi-vs-mahti.md)
+
+## Python on supercomputers
+* [How do I install missing Python packages to CSC-provided modules?](../tutorials/python-usage-guide.md#installing-python-packages-to-existing-modules)
+* [How do I create my own Python environment?](../tutorials/python-usage-guide.md#creating-your-own-python-environments)
+* [How to troubleshoot Python installation problems?](python-package-trouble.md)
 
 ## Allas
 

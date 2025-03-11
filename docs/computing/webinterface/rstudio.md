@@ -2,7 +2,7 @@
 
 The RStudio application will launch an RStudio session on Puhti with the specified resources using
 the selected [R environment (r-env) version](../../apps/r-env.md#available)). Currently, the latest available r-env
-(and R) version is **4.4.0**.
+(and R) version is **4.4.2**.
 
 The user is automatically logged in to the RStudio session when pressing the **Connect to RStudio
 Server** button.
