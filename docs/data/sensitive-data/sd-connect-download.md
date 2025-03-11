@@ -14,7 +14,7 @@ You can easily download folders or individual files from SD Connect user interfa
 
 <iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/SMnEkcS_HJw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-For files and folders uplaoded using SD Connect user interface after October 1, 2024.
+For files and folders uploaded using SD Connect user interface after October 1, 2024.
 
 ### Downloading folder
 
@@ -38,7 +38,7 @@ For files and folders uplaoded using SD Connect user interface after October 1, 
 1. Log in to SD Connect using Firefox.
 2. Find corrects files.
 3. Click **Download** on right side of each file you want to download.
-4. On top bar of your browser, click **Tools** > **Browser > **Web Developer Tools** (or press F12 on your keyboard).
+4. On top bar of your browser, click **Tools** > **Browser** > **Web Developer Tools** (or press F12 on your keyboard).
 5. A new window will open at the bottom of your browser. Click **Application** tab.
 6. Next to **Service Worker**, click **Unregister**.
 7. You can close **Web Developer Tools** window.
