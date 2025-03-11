@@ -67,7 +67,7 @@ Please note that you can only decrypt one file at a time. If you need to decrypt
 
 ### 1.2 Download the files from SD Connect
 
-Access SD Connect and locate the files you need. You can download either the entire bucket or individual files. At the end of the download, the user interface will display the message: "Some requested files could not be decrypted."
+Access SD Connect and locate the files you need. You can download either the entire bucket or individual files. At the end of the download, the user interface will display the message: "Some downloaded files need manual decryption."
    ![Some requested files could not be decrypted.](https://a3s.fi/docs-files/sensitive-data/SD_Connect/Old_download_1.png)
 
 ### 1.3 Change the file extension
