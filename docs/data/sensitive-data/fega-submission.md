@@ -19,9 +19,6 @@ Below, you can find more information about necessary legal agreements and data a
 
 * **Data Access Committee and Policies**: Data Access Committee (DAC) and Policies are managed by the data controller. Data access as well as DAC and Policy information are managed in a separate service called SD Apply. Organizations can have general DACs and Policies, which are used for all datasets submitted from the same organization. Only data access application link associated with the dataset will be unique to each dataset. This link is created after your data submission is finalized in FEGA submission portal, and the unique identifier of your dataset is combined to DAC, Policies and application form in SD Apply. To make sure your organization has a suitable DAC and Policies for your dataset, contact your own organization's representatives or [CSC Service Desk](../../support/contact.md) for further guidance.
 
-<iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/XXOph-0wacc?si=9NWFpr-LjF_d4f2W" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-
 !!! Note
     Please be aware that your organization might already have the necessary agreements in place with CSC, or templates for Data Access Agreements available. We are here to provide support if additional information is required, [CSC Service Desk](../../support/contact.md) (subject: Federated EGA). 
 
