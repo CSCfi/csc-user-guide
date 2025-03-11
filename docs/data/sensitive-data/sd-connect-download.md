@@ -35,18 +35,22 @@ For files and folders uploaded using SD Connect user interface after October 1, 
 
 ### Downloading invidual files via Firefox 
 
-1. Log in to SD Connect using Firefox.
-2. Find corrects files.
-3. Click **Download** on right side of each file you want to download. If download doesn't start follow steps 4.-8. below.
-4. In your browser, click **Tools** > **Browser** > **Web Developer Tools** (or press F12 on your keyboard).
-5. A new window will open at the bottom of your browser. Click **Application** tab.
-6. Next to **Service Worker**, click **Unregister**.
-7. You can close **Web Developer Tools** window.
-8. Refresh your browser and download files following these [instructions](#downloading-individual-files). 
+If when using Firefox download doesn't start follow steps below:
+
+1. In your browser, click **Tools** > **Browser** > **Web Developer Tools** (or press F12 on your keyboard).
 
 ![SD Connect download via Firefox](https://a3s.fi/docs-files/sensitive-data/SD_Connect/SD_Connect_FirefoxDownload.png)
 
+
+2. A new window will open at the bottom of your browser. Click **Application** tab.
+3. Next to **Service Worker**, click **Unregister**.
+
+
 ![SD Connect download via Firefox](https://a3s.fi/docs-files/sensitive-data/SD_Connect/SD_Connect_FirefoxDownload2.png)
+
+
+4. You can close **Web Developer Tools** window.
+5. Refresh your browser and download files following these [instructions](#downloading-individual-files). 
 
 ## Download and manual decryption
 
