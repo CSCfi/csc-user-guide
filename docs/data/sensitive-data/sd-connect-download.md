@@ -38,19 +38,14 @@ For files and folders uploaded using SD Connect user interface after October 1, 
 If when using Firefox download doesn't start follow steps below:
 
 1. In your browser, click **Tools** > **Browser** > **Web Developer Tools** (or press F12 on your keyboard).
+2. A new window will open at the bottom of your browser. Click **Application** tab.
+3. Next to **Service Worker**, click **Unregister**.
+4. You can close **Web Developer Tools** window.
+5. Refresh your browser and download files following these [instructions](#downloading-individual-files). 
 
 ![SD Connect download via Firefox](https://a3s.fi/docs-files/sensitive-data/SD_Connect/SD_Connect_FirefoxDownload.png)
 
-
-2. A new window will open at the bottom of your browser. Click **Application** tab.
-3. Next to **Service Worker**, click **Unregister**.
-
-
 ![SD Connect download via Firefox](https://a3s.fi/docs-files/sensitive-data/SD_Connect/SD_Connect_FirefoxDownload2.png)
-
-
-4. You can close **Web Developer Tools** window.
-5. Refresh your browser and download files following these [instructions](#downloading-individual-files). 
 
 ## Download and manual decryption
 
