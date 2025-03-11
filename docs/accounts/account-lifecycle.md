@@ -1,3 +1,10 @@
+!!! The short version
+    Inactive accounts will be de-activated in 6 months, and passwords will
+    expire in a year. No need to worry, though. CSC will send notifications
+    by email well in advance with instructions on what to do. Keep your email
+    contact info up to date, and if you have any problems with accounts or
+    logins, just contact [CSC Service Desk](../support/contact.md).
+
 # CSC user account lifecycle
 
 The password of your CSC user account is valid for one year. You will receive
