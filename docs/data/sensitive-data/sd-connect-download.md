@@ -30,7 +30,19 @@ For files and folders uplaoded using SD Connect user interface after October 1, 
 4. Files are decrypted automatically. Files will download and decrypt automatically, usually to downloads folder. Do not open the folder until the download is complete to avoid errors. The downloaded folder has a .tar extension, double-click to extract the content in a new folder.
 
 !!! Warning
-    If you encounter the message 'Requested files could not be decrypted' while downloading, it indicates that some files in your folder were uploaded with an older version of SD Connect, making automatic decryption unavailable. To resolve this, please follow the steps below. For further assistance, [contact CSC Service Desk](../../support/contact.md).
+    If you encounter the message 'Requested files could not be decrypted' while downloading, it indicates that some files in your folder were uploaded with an older version of SD Connect, making automatic decryption unavailable. To resolve this, please follow these [instructions](#download-and-manual-decryption). For further assistance, [contact CSC Service Desk](../../support/contact.md).
+
+
+### Downloading invidual files with Firefox 
+
+1. Log in to SD Connect using Firefox.
+2. Find corrects files.
+3. Click **Download** on right side of each file you want to download.
+4. On top bar of your browser, click **Tools** > **Browser > **Web Developer Tools** (or press F12 on your keyboard).
+5. A new window will open at the bottom of your browser. Click **Application** tab.
+6. Next to **Service Worker**, click **Unregister**.
+7. You can close **Web Developer Tools** window.
+8. Download files following these [instructions](#downloading-individual-files). 
 
 ## Download and manual decryption
 
