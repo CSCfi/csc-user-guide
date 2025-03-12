@@ -1,9 +1,13 @@
 # Data submission
 
-Below, you will find step-by-step instructions for uploading, describing, and publishing biomedical data via the Finnish Federated EGA. **Please be aware that this process can be lengthy** (anywhere between one to four months), but we will support you at every step. Requests will be processed in the order they are received. 
+Below, you will find step-by-step instructions for uploading, describing, and publishing biomedical data via the Finnish Federated EGA. **Please be aware that this process can be lengthy** (anywhere between one to six months), but we will offer support and guide you during the entire process.
+
+The process described on this user guide is specific for submitting datasets to Finnish FEGA. Central EGA and other FEGA nodes have different data submission processes.
+
+Submission requests will be processed in the order they are received. 
 
 !!! Note
-    Before you begin, it's crucial to ensure that a service agreement specific to the Federated EGA service is in place between CSC (as data processor) and your home organization (or data controller). Please make sure, before starting to submit any data, that all the legal agreements are in place. You can do so by contacting [CSC Service Desk](../../support/contact.md) (subject: Federated EGA) or your home organization's legal services.
+    Before you begin, it's crucial to ensure that a service agreement specific to the Federated EGA service is in place between CSC (as data processor) and your home organization (or data controller). **Please start preparing the submission well in advance** (even before submitting your manuscript to a scientific journal) by contacting [CSC Service Desk](../../support/contact.md) (subject: Federated EGA) and your home organization's legal services.
     
 ## Step 1: Legal agreements, Data Access Committee and Policies
 
@@ -21,18 +25,9 @@ Below, you can find more information about necessary legal agreements and data a
 
 ## Step 2: General information of the submission
 
-Submission to the Finnish Federated EGA service starts with contacting the Finnish FEGA helpdesk and providing the general information of the submission.
+Submission to the Finnish Federated EGA service starts with contacting the Finnish FEGA helpdesk and providing the general information of the submission. Preferably, this information is first sent to the organizational DAC, which then can send the information to FEGA helpdesk with their confirmation of the submission.
 
-To begin the submission process, please fill in the [general information form](https://a3s.fi/docs-files/sensitive-data/PDF_instructions/fega-general-information.pdf) with contact information, details about the data submission type and information about the data controller, or provide the same information in an email message. Send the required information via email to [CSC Service Desk](../../support/contact.md) (subject: Federated EGA). You will receive further instructions.
-
-!!! note
-
-    - This workflow is specific for submitting datasets to Finnish FEGA. Central EGA and other FEGA nodes have different data submission processes.
-    
-    - Data submission might take up to a month or more. Therefore, please get in touch with us well in advance (before submitting your manuscript to a scientific journal). In this way, we can offer proper support and guide you during the entire process.
-    
-    - Please use the same email thread throughout the whole submission process.
-
+To begin the submission process, please fill in the [general information form](https://a3s.fi/docs-files/sensitive-data/PDF_instructions/fega-general-information.pdf) with contact information, details about the data submission type and information about the data controller, or provide the same information in an email message. Send submission request to your organization's DAC and they can deliver the required information via email to [CSC Service Desk](../../support/contact.md) (subject: Federated EGA).
 
 ## Step 3: Credentials
 
