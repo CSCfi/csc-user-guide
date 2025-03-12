@@ -29,6 +29,15 @@ Welcome to the user guide for CSC's Sensitive Data (SD) services. Use the left m
       <a class="quick-link" target="_self" href="sd_connect/">Store with SD Connect</a>
     </div>
     <div class="quick-links-item">
+      <a class="quick-link" target="_self" href="sd-connect-login/">Login to SD Connect</a>
+    </div>
+    <div class="quick-links-item">
+      <a class="quick-link" target="_self" href="sd-connect-upload/">Upload</a>
+    </div>
+    <div class="quick-links-item">
+      <a class="quick-link" target="_self" href="sd-connect-share/">Share</a>
+    </div>
+    <div class="quick-links-item">
       <a class="quick-link" target="_self" href="sd_desktop/">Analyse with SD Desktop</a>
     </div>
   </div>
