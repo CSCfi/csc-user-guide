@@ -57,7 +57,7 @@ There is currently no special mechanism in place for controlling banners.
 
     ```html
     <center>
-      [![A description of the banner](img/banners/example-banner.png){ width=80% }
+      [![A description of the banner](https://a3s.fi/docs-files/path/to/file.png){ width=80% }
       ](https://example.org/courses/example-course/){ target=_blank }
     </center>
     ```
@@ -70,7 +70,7 @@ There is currently no special mechanism in place for controlling banners.
     ```html
     <!--
     <center>
-      [![A description of the banner](img/banners/example-banner.png){ width=80% }
+      [![A description of the banner](https://a3s.fi/docs-files/path/to/file.png){ width=80% }
       ](https://example.org/courses/example-course/){ target=_blank }
     </center>
     -->
@@ -573,6 +573,36 @@ would produce
 ````
 
 More examples (untested in Docs CSC) can be found in [PyMdown Extensions Documentation](https://facelessuser.github.io/pymdown-extensions/extensions/snippets/).
+
+
+## Hiding the sidebars
+
+The sidebars on a particular page can be hidden by adding a `hide` property to the YAML front matter in the page Markdown source.
+
+```yaml
+---
+hide:
+  - toc
+  - navigation
+---
+
+# Title of the page
+```
+
+Here's a preview screenshot for each case:
+
+!!! warning ""
+
+    Make sure that the breadcrumbs navigation at the top of the page is working correctly if hiding the navigation sidebar!
+
+=== "Hide table of contents"
+    ![Hide TOC](https://a3s.fi/docs-files/reference-card/screenshot-of-hidden-toc.png){ width=60% style="margin: 0 10%; border: var(--csc-border);" }
+
+=== "Hide navigation"
+    ![Hide nav](https://a3s.fi/docs-files/reference-card/screenshot-of-hidden-nav.png){ width=60% style="margin: 0 10%; border: var(--csc-border);" }
+
+=== "Hide TOC and navigation"
+    ![Hide both enabled](https://a3s.fi/docs-files/reference-card/screenshot-of-hidden-sidebars.png){ width=60% style="margin: 0 10%; border: var(--csc-border);" }
 
 
 [^1]: This is the footnote ...and here's a shoenote for the footnote: 👞🎵
