@@ -5,17 +5,15 @@ hide:
 
 # Sensitive Data (SD) services - Index of user guides
 
-Welcome to the user guide for CSC's Sensitive Data (SD) services. Use the left menu or the search bar to find topics quickly. If the left menu is not visible, try zooming out in your browser. 
-## Index 
-
-### Store and analyse research data
+## Store and analyse research data
 
 * [Start here: Creating a CSC project](sd-access.md)
     * [Access as a project manager](sd-access.md)
     * [Access as a project mmeber](sd-access.md)
 
-#### Store and share with SD Connect
+### Store and share with SD Connect
 
+* [Store and share with SD Connect](sd-connect.md)
 * [Login to SD Connect](sd-connect-login.md)
 * [Upload](sd-connect-upload.md)
 * [Share](sd-connect-share.md)
