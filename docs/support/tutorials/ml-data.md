@@ -76,9 +76,9 @@ achieve better I/O performance on Lustre](lustre_performance.md).
 Many machine learning frameworks support formats for packaging your
 data more efficiently. Common formats include [TensorFlow's
 TFRecord](https://www.tensorflow.org/tutorials/load_data/tfrecord) and
-[WebDataset](https://webdataset.github.io/webdataset/) for PyTorch.
+[WebDataset **FIXME**](https://webdataset.github.io/webdataset/) for PyTorch.
 Other examples include using
-[HDF5](https://towardsdatascience.com/hdf5-datasets-for-pytorch-631ff1d750f5),
+[HDF5 **FIXME**](https://towardsdatascience.com/hdf5-datasets-for-pytorch-631ff1d750f5),
 or [LMDB](http://deepdish.io/2015/04/28/creating-lmdb-in-python/)
 formats, or even humble ZIP-files, e.g., via Python's
 [zipfile](https://docs.python.org/3/library/zipfile.html) library.
