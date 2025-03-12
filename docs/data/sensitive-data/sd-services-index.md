@@ -1,5 +1,5 @@
 
-# Sensitive Data (SD) services for research: user guide
+# Sensitive Data (SD) services - Index of user guides
 
 Welcome to the user guide for CSC's Sensitive Data (SD) services. Use the left menu or the search bar to find topics quickly. If the left menu is not visible, try zooming out in your browser.
 
@@ -11,7 +11,11 @@ Welcome to the user guide for CSC's Sensitive Data (SD) services. Use the left m
 
 
 
-### Quick links to key topics
+## Index
+
+### Store and analyse research data
+
+[Start here: Creating a CSC project](sd-access/)
 
 <div class="quick-links-container">
   <div class="quick-links-topic">
@@ -23,7 +27,7 @@ Welcome to the user guide for CSC's Sensitive Data (SD) services. Use the left m
       <a class="quick-link" target="_self" href="sd-use-case-new-user-project-manager/">Access as a project manager</a>
     </div>
     <div class="quick-links-item">
-      <a class="quick-link" target="_self" href="https://docs.csc.fi/data/sensitive-data/sd-use-case-new-user-project-member/">Access as a project member</a>
+      <a class="quick-link" target="_self" href="sd-use-case-new-user-project-member/">Access as a project member</a>
     </div>
     <div class="quick-links-item">
       <a class="quick-link" target="_self" href="sd_connect/">Store with SD Connect</a>
