@@ -57,7 +57,7 @@ There is currently no special mechanism in place for controlling banners.
 
     ```html
     <center>
-      [![A description of the banner](img/banners/example-banner.png){ width=80% }
+      [![A description of the banner](https://a3s.fi/docs-files/path/to/file.png){ width=80% }
       ](https://example.org/courses/example-course/){ target=_blank }
     </center>
     ```
@@ -70,7 +70,7 @@ There is currently no special mechanism in place for controlling banners.
     ```html
     <!--
     <center>
-      [![A description of the banner](img/banners/example-banner.png){ width=80% }
+      [![A description of the banner](https://a3s.fi/docs-files/path/to/file.png){ width=80% }
       ](https://example.org/courses/example-course/){ target=_blank }
     </center>
     -->
