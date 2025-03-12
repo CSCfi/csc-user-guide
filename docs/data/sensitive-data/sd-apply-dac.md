@@ -1,19 +1,33 @@
  
 
-# Adding datasets to SD Apply 
+# Enabling reuse of FEGA data
 
 Access to data that are stored at CSC and published under controlled access are managed by the data controller or their representatives in the SD Apply service. To enable reuse of datasets stored in Finnish Federated EGA (FEGA) you need to add the datasets your organisation offers to the catalogue in SD Apply. Please note, when you use SD Apply to manage access to datasets stored in FEGA, your organization needs to have a service agreement with CSC in place. Read more about [FEGA legal agreements](./fega-submission.md#step-1-legal-agreements-data-access-committee-and-policies).
 
-Before you start adding information in SD Apply, we recommend discussing inside your organization about the possibility of forming a general Data Access Committee (DAC) that manages access to all datasets your organization is the data controller of.
-
 As a data controller in SD Apply, you are responsible for:
 
-- Adding your datasets to catalogue in SD Apply together with an application form and policies
-- Designating representatives (a data access committee) who manage the data access requests to your organization’s datasets.
+* Adding your datasets to catalogue in SD Apply together with an application form and policies.
+* Designating representatives (a Data Access Committee, DAC) who manage the data access requests to your organization’s datasets.
+* Defining data access policies for data reuse.
 
-Adding datasets to SD Apply for the first time is made in close collaboration with CSC Service Desk as the process can be a bit complex. Please reserve time for the process and prepare to discuss with your legal team about the agreements needed for data reuse. Below are general instructions to guide you through the process.
+## Forming a Data Access Committee (DAC)
 
-## How to add a dataset to catalogue in SD Apply
+Before you start adding information in SD Apply, we recommend discussing inside your organization about the possibility of forming a general Data Access Committee (DAC) that manages access to all datasets your organization is the data controller of. 
+
+DAC is responsible for:
+
+- **Coordinating and approving new FEGA submissions inside their organisation**: Reviewing the datasets that will be submitted in the Federated EGA under their organization and controllership  
+- **Managing access to organization's datasets**: Evaluating data access requests for datasets managed by the DAC to ensure compliance with defined policies, regulations, and ethical guidelines.
+
+## Adding a dataset to catalogue in SD Apply
+
+![SD Apply Infograph](https://a3s.fi/docs-files/sensitive-data/SD_Apply/SD_Apply_infographic.png)
+
+Adding datasets to SD Apply for the first time is made in close collaboration with CSC Service Desk as the process can be a bit complicated. Please reserve time for the process and prepare to discuss with your legal team about the agreements needed for data reuse. Below are general instructions to guide you through the process.
+
+## Step by step guide
+
+### 1. Request for organization profile
 
 Before you can add information to SD Apply, CSC service desk needs to create an organization profile and set you as the organization administrator. Request profile creation by sending an email to servicedesk@csc.fi with the subject heading SD services. 
 
@@ -24,21 +38,25 @@ Before you can add information to SD Apply, CSC service desk needs to create an 
 !!! note
     Always use the same identity provider when you log in to SD Apply because your role and datasets you manage are connected to your login identity. (i.e. always use only Haka/Virtu login or the CSC login).
 
+### 2. Add dataset as catalogue item
+
 When you add a dataset to catalogue in SD Apply, you have to create:
 
-1. **Form**: Define the information applicants need to provide when they apply for access to your data in SD Apply. 
-2. **Licences**: Set terms of use, agreements and policies for the data use that the applicants need to accept when they fill in the application form. Licenses are shown as part of the application form. 
-3. **Workflow**: Designate a Data Access Committee who will manage the data access requests in SD Apply. DAC works as a representative for the Data Controller. 
-4. **Resource**: a technical identifier for the data set, for example DOI.
+- **Form**: Define the information applicants need to provide when they apply for access to your data in SD Apply. 
+- **Licences**: Set terms of use, agreements and policies for the data use that the applicants need to accept when they fill in the application form. Licenses are shown as part of the application form. 
+- **Workflow**: Designate a Data Access Committee who will manage the data access requests in SD Apply. DAC works as a representative for the Data Controller. 
+- **Resource**: a technical identifier for the data set, for example DOI.
 
-And combine these items together by **creating a catalogue item**.
+!!! note
+    You have to create form, licence, workflow and resource items before creating a catalogue item.
+
+Combine these items together by **creating a catalogue item**.
 
 When you have created these items once, you can reuse them and form new catalogue items by combining different items.
 
-!!! note
-    You have to create all the other items before creating a catalogue item.
 
-### 1. Create an application form
+
+### 2.1. Create an application form
 
 In the application form, the data controller specifies the information that the applicant needs to provide to get access to the data. 
 
@@ -84,7 +102,8 @@ For example, you can create an option list “Do you want to add attachments?”
 
 You can test how the fields work in the Preview section on the right of the page.
 
-### 2. Create a license 
+### 2.2. Create a license 
+
 Licenses define the agreements and terms of use that the applicant has to accept to be able to use the data. Licenses are shown as part of the application form and every research group member who applies for access has to accept the licenses before they are able to access the data.
 
 You can create three types of licenses:
@@ -93,9 +112,18 @@ You can create three types of licenses:
 - **Inline text**: Write the terms of use in the application form. The applicant will see it as normal text in the application form.
 - **Attachment**: Upload a file that the applicant can download and accept when they fill in the application form. We recommend using PDF-format. We recommend drafting the license attachments in the way that allows the applicant to agree to them by accepting the terms of use electronically in SD Apply.
 
+#### Data Access Policies in the Finnish Federated EGA
+
+Data deposition to the Finnish Federated EGA requires a series of legal agreements: a Service Agreement for Federated EGA and a Data Access Agreement including a Data Transfer Agreement. 
+
+**Data Access Agreement**: The Data Access Agreement (DAA) is a contract between the Data Access Committee (DAC) and an applicant seeking access to the data for reuse. Through the DAA, the data controller can define conditions and restrictions for data reuse, including policies governing data use, publication, download, and access. The DAA should also include a Data Transfer Agreement (DTA), necessary when researchers from non-EU/non-EEA regions access the data via SD Desktop. DAA and DTA will be included in the Licenses in SD Apply. For further information, please contact your home organization's legal services. You can [download an example template](https://ega-archive.org/assets/files/Example_DAA.doc) provided by the EGA.
+
+Consult your organization's legal experts to define data access policies that are appropriate for this purpose.  
+
 Licences are optional. You cannot edit the license after you have created and saved it.
 
-### Create a workflow (DAC)
+### 2.3. Create a workflow (DAC)
+
 By creating a workflow, you designate a Data Access Committee (DAC) as application handlers. DAC approves and rejects the data access requests for your organization's datasets. The DAC members receive email notifications of new applications.
 
 You can choose between two different workflows: A dynamic workflow and a decider workflow. Choose the one which suits your organisation best. Remember to give your workflow a descriptive name so it will be easier for you to find it later.
@@ -104,7 +132,7 @@ You can choose between two different workflows: A dynamic workflow and a decider
 
 - **A decider workflow** is a restricted version of the dynamic workflow. The DAC members do not have the authority to approve or reject applications. They have to request a separate decider user to approve or reject the application. 
 
-**Assign DAC members**
+#### Assign DAC members
 
 Add DAC members as application handlers by searching the user by their username or locating them from the drop-down list. We recommend **assigning more than one handler to a workflow** to make sure there are enough handlers to process all the applications. 
 
@@ -125,11 +153,12 @@ If you want to ask dataset specific questions from the applicant, you can create
 
 If you know all the datasets your organization manages in SD Apply will have the same terms of use and agreements, you can connect the licenses you created to a workflow by selecting them from the dropdown menu.
 
-Unfortunately, we currently have a technical limitation of 1MB for PDF attachments. Please optimise your PDF file before adding it to SD Apply.  
+Unfortunately, we currently have a technical limitation of 1MB for PDF attachments. **Please optimise your PDF file before adding it to SD Apply**.  
 
 This way these licenses will be added automatically to all catalogue items that use the same workflow. You can also add dataset specific terms of use by connecting a license to a resource. 
 
-### 4. Create a resource
+### 2.4. Create a resource
+
 When a researcher submits data to Federated EGA, they receive a unique identifier for their dataset, for example EGAD12345. To make the dataset available for reuse through SD Apply, the FEGA Submitter should send this identifier to the data controller so that it can be added to SD Apply. 
 
 1. Add the identifier the FEGA submitter provided to you in the resource identifier field. 
@@ -138,7 +167,7 @@ When a researcher submits data to Federated EGA, they receive a unique identifie
 !!! note
     You cannot edit the resource after you have created and saved it. If you want to change something after you have created a resource, you should create a new resource and archive the old one.
 
-### 5. Create a catalogue item
+### 2.5. Create a catalogue item
 
 Catalogue item connects the items you have created into a single dataset to which the applicant can apply for access. 
 
