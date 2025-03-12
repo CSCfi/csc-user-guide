@@ -33,75 +33,46 @@
 </center>
 -->
 
-!!! default "Overview"
+<div class="landing-overview" markdown>
+Docs CSC contains user guides, [FAQs](support/faq/index.md) and [tutorials](support/tutorials/index.md) related to CSC services.
 
-    Docs CSC contains user guides, [FAQs](support/faq/index.md) and [tutorials](support/tutorials/index.md) related to CSC services.
-
-    * In order to navigate across the CSC user guide, click on the topics on
-      the left hand side of the navigation bar
-    * Or use the search functionality
-
-<div class="quick-links-container">
-
-  <div class="quick-links-topic">
-    <span class="quick-links-title"><h2>Getting started</h2></span>
-    <div class="quick-links-item">
-      <a class="quick-link" target="_self" href="accounts/">CSC Accounts and Projects</a>
-    </div>
-    <div class="quick-links-item">
-      <a class="quick-link" target="_self" href="support/tutorials/hpc-quick/">Getting started with supercomputing</a>
-    </div>
-    <div class="quick-links-item">
-      <a class="quick-link" target="_self" href="computing/">Puhti and Mahti Overview</a>
-    </div>
-    <div class="quick-links-item">
-      <a class="quick-link" target="_blank" href="https://docs.lumi-supercomputer.eu/firststeps/getstarted/">Getting started with LUMI</a><sup>&#128279;</sup>
-    </div>
-    <div class="quick-links-item">
-      <a class="quick-link" target="_self" href="support/contact/">How to get support</a>
-    </div>
+  <div class="landing-overview-instructions" markdown>
+  In order to navigate across the CSC user guide, click on the topics on the left hand side of the navigation bar, or use the search functionality.
   </div>
+</div>
 
-  <div class="quick-links-topic">
-    <span class="quick-links-title"><h2>User guides</h2></span>
-    <div class="quick-links-item">
-      <a class="quick-link" target="_blank" href="https://docs.lumi-supercomputer.eu/">LUMI User Guide</a><sup>&#128279;</sup>
-    </div>
-    <div class="quick-links-item">
-      <a class="quick-link" target="_self" href="data/Allas/">Allas User Guide</a>
-    </div>
-    <div class="quick-links-item">
-      <a class="quick-link" target="_self" href="computing/quantum-computing/overview/">Quantum Computing Guide</a>
-    </div>
-    <div class="quick-links-item">
-      <a class="quick-link" target="_self" href="support/tutorials/ml-guide/">Machine Learning Guide</a>
-    </div>
-    <div class="quick-links-item">
-      <a class="quick-link" target="_self" href="data/sensitive-data/">Sensitive Data Services Guide</a>
-    </div>
-    <div class="quick-links-item">
-      <a class="quick-link" target="_blank" href="https://www.fairdata.fi/en/fairdata-quick-guide/">Fairdata Services Guides</a><sup>&#128279;</sup>
-    </div>
-  </div>
+<div class="grid cards quick-links" markdown>
 
-  <div class="quick-links-topic">
-    <span class="quick-links-title"><h2>Tutorials/courses</h2></span>
-    <div class="quick-links-item">
-      <a class="quick-link" target="_blank" href="https://csc-training.github.io/csc-env-eff/">CSC Computing Environment</a><sup>&#128279;</sup>
-    </div>
-      <div class="quick-links-item">
-      <a class="quick-link" target="_blank" href="https://edukamu.fi/elements-of-supercomputing/">Elements of Supercomputing</a><sup>&#128279;</sup>
-    </div>
-    <div class="quick-links-item">
-      <a class="quick-link" target="_self" href="support/tutorials/env-guide/overview/">Linux basics for CSC</a>
-    </div>
-    <div class="quick-links-item">
-      <a class="quick-link" target="_self" href="computing/running/throughput/">High-throughput computing</a>
-    </div>
-    <div class="quick-links-item">
-      <a class="quick-link" target="_self" href="support/tutorials/clean-up-data/">Managing data on scratch</a>
-    </div>
-  </div>
+- ## Getting started
+
+    ---
+
+    [CSC Accounts and Projects](accounts/index.md)<br>
+    [Getting started with supercomputing](support/tutorials/hpc-quick.md)<br>
+    [Puhti and Mahti Overview](computing/index.md)<br>
+    [Getting started with LUMI](https://docs.lumi-supercomputer.eu/firststeps/getstarted/){ target=_blank }<br>
+    [How to get support](support/contact.md)
+
+- ## User guides
+
+    ---
+
+    [Quantum Computing Guide](computing/quantum-computing/overview.md)<br>
+    [LUMI User Guide](https://docs.lumi-supercomputer.eu/){ target=_blank }<br>
+    [Allas User Guide](data/Allas/index.md)<br>
+    [Machine Learning Guide](support/tutorials/ml-guide.md)<br>
+    [Sensitive Data Services Guide](data/sensitive-data/index.md)<br>
+    [Fairdata Services Guides](https://www.fairdata.fi/en/fairdata-quick-guide/){ target=_blank }
+
+- ## Tutorials/courses
+
+    ---
+
+    [CSC Computing Environment](https://csc-training.github.io/csc-env-eff/){ target=_blank }<br>
+    [Elements of Supercomputing](https://edukamu.fi/elements-of-supercomputing/){ target=_blank }<br>
+    [Linux basics for CSC](support/tutorials/env-guide/index.md)<br>
+    [Managing data on scratch](support/tutorials/clean-up-data.md)<br>
+    [High-throughput computing](computing/running/throughput.md)
 
 </div>
 

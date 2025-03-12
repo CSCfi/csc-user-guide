@@ -135,6 +135,7 @@ plugins:
         "cloud/rahti2/images/Using_Rahti_2_integrated_registry.md": "cloud/rahti/images/Using_Rahti_integrated_registry.md"
 
 markdown_extensions:
+  - md_in_html
   - footnotes
   - admonition
   - abbr
