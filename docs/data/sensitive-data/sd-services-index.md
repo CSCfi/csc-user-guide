@@ -1,3 +1,7 @@
+---
+hide:
+  - toc
+---
 
 # Sensitive Data (SD) services - Index of user guides
 
