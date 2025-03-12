@@ -38,6 +38,9 @@ Welcome to the user guide for CSC's Sensitive Data (SD) services. Use the left m
       <a class="quick-link" target="_self" href="sd-connect-share/">Share</a>
     </div>
     <div class="quick-links-item">
+      <a class="quick-link" target="_self" href="sd-connect-share-transfer-data/">Transfer your data to another project</a>
+    </div>
+    <div class="quick-links-item">
       <a class="quick-link" target="_self" href="sd_desktop/">Analyse with SD Desktop</a>
     </div>
   </div>
