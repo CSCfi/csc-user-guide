@@ -180,9 +180,6 @@ extra_css:
   - assets/stylesheets/extra.css
 
 extra_javascript:
-  - assets/javascripts/constants.js # Constants need to be loaded first since the other scripts depend on them
-  - assets/javascripts/dropdown.js
-  - assets/javascripts/layout.js
   - assets/javascripts/extra.js
   - assets/javascripts/feedback.js
 
@@ -224,6 +221,7 @@ nav:
           - computing/available-systems.md
           - Puhti: computing/systems-puhti.md
           - Mahti: computing/systems-mahti.md
+          - Roihu: computing/systems-roihu.md
           - LUMI: "https://docs.lumi-supercomputer.eu/hardware/"
       - Connecting:
           - computing/connecting/index.md

@@ -5,7 +5,7 @@
 }
 
 .md-header__inner {
-  max-width: unset;
+  max-width: var(--csc-content-width);
   height: var(--csc-header-height);
 }
 

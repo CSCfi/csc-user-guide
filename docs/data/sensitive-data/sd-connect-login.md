@@ -6,21 +6,14 @@
 
 ## Step by step
 
-Due to an ongoing technical challenge, double login is required. We apologize for the complexity of this process. Please follow these steps:
+1. **Navigate to [SD Connect](https://sd-connect.csc.fi)**. We recommend using Google Chrome for the best experience.
+2. **Choose your login method**. Select CSC Login, Haka, Virtu or Life Science login then click Login.
+3. **Enter your details**. Type in your username and password, then click Login.
+4. **Verify your identity**. As a second verification step, enter the temporary code from your mobile authenticator app and click Continue. If prompted, please accept cookies to proceed.
+5. You should now have access to SD Connect. If you see an additional message about identity verification, click Proceed to continue.
+6. **Troubleshooting tip**. If you run into any issues, try clearing your browser history and cookies before logging in again. Note that Firefox private mode is not supported.
 
-1. Navigate to [SD Connect](https://sd-connect.csc.fi). We suggest to use Google Chrome for optimal service performance, Firefox is also supported. Please, clear browser history and cookies if you have accessed the service before.
-   
-3. Choose the login method (CSC Login, Haka) and click on *Login*. In the new page, enter username and password, and click on *Login*.
-   
-4. Verify your identity with the temporary code (Multi-factor authentication); click on *Continue*.
-   
-5. You might now encounter an additional page stating that your account needs to go through identity verification. Please press on *Proceed* to continue at the bottom of the message.
-   
-6. You will now be redirected one more time to the login page. Here, please select again the login method (Haka or CSC Login) and press on *Login*. In the new page, add again your username and password and press on *Login*. After this final step, you should be able to access the service. Please, clear browser history and cookies if errors occur.
-
-[![Project](images/connect/beta-login.png)](images/connect/beta-login.png)
-
-
+![SD Connect login](https://a3s.fi/docs-files/sensitive-data/SD_Connect/SDConnect_Login.png)
 
 ## Features in SD Connect
 
