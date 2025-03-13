@@ -156,7 +156,7 @@ Using the submitter portal, you can register the following metadata objects:
 
 - **Analysis**. References the analysis files, which can include processed data (VCF), specific type of raw data (BAM/BAI or CRAM/CRAI) or phenotypic information. Associated with samples and study. The analysis is an EGA specific metadata object that links Samples to Files. If you don't have any analysis files, you can proceed without Analysis metadata.
 
-- **Dataset**. Contains the collection of data files organized under runs and/or analyses and to be subject to controlled access. Associated with Policy, which includes access application link and is created by CSC helpdesk. The title should be a 3–20-word description of the dataset content, and the description should be a 3 - 4 sentences definition of the dataset content, including sample number and details, file type and technology/experimentation used.
+- **Dataset**. Contains the collection of data files organized under runs and/or analyses and to be subject to controlled access. Associated with Policy, which includes access application link and is created by CSC helpdesk. The title should be a 3–20-word overview of the dataset content, and the description should be a 3 - 4 sentences definition of the dataset content, including sample number and details, file type and technology/experimentation used.
 
 When you have filled in all metadata, you can finalize the submission, and the submission will move to Finnish FEGA helpdesk for approval and release. After data release, each of these objects will be assigned with a permanent identifier or unique accession number.
 
