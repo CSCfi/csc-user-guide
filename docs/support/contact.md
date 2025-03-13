@@ -13,7 +13,7 @@
     you can directly discuss with our specialists!
 
     !!! info-label
-        [See here for more information and connection details]([https://ssl.eventilla.com/event/PP4WB](https://csc.fi/en/training-calendar/csc-research-support-coffee-every-wednesday-at-1400-finnish-time-2-2/)).
+        [See here for more information and connection details](https://csc.fi/en/training-calendar/csc-research-support-coffee-every-wednesday-at-1400-finnish-time-2-2/).
 
 !!! info "LUMI User Support Team"
     If you have any questions or issues related to using LUMI, please
