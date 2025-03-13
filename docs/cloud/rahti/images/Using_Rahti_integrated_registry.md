@@ -11,14 +11,14 @@ The process is simple:
 
 1. With a terminal, connect to the Rahti registry:
     ```sh
-    docker login -p $(oc whoami -t ) -u unused image-registry.apps.2.rahti.csc.fi
+    sudo docker login -p $(oc whoami -t ) -u unused image-registry.apps.2.rahti.csc.fi
     ```
- 
+
     _Alternatively, you can access to this address: <https://oauth-openshift.apps.2.rahti.csc.fi/oauth/token/display> to request
     a token. Once connected, display and copy the token. The command will be:_
 
     ```sh
-    docker login -p <YOUR_TOKEN> -u unused image-registry.apps.2.rahti.csc.fi
+    sudo docker login -p <YOUR_TOKEN> -u unused image-registry.apps.2.rahti.csc.fi
     ```
 
     !!! info
@@ -26,14 +26,14 @@ The process is simple:
 
 2. Tag the image you want to push:
    ```sh
-   docker tag centos:7 image-registry.apps.2.rahti.csc.fi/{YOUR_RAHTI_PROJECT_NAME}/centos:<tag>
+   sudo docker tag centos:7 image-registry.apps.2.rahti.csc.fi/{YOUR_RAHTI_PROJECT_NAME}/centos:<tag>
    ```
    _Replace {YOUR_RAHTI_PROJECT_NAME} by the name of your project._
    _Please note that YOUR_RAHTI_PROJECT_NAME here is the Rahti project name (AKA namespace name), and does not refer to CSC project._
 
 4. Push your image:
    ```sh
-   docker push image-registry.apps.2.rahti.csc.fi/{YOUR_RAHTI_PROJECT_NAME}/centos:<tag>
+   sudo docker push image-registry.apps.2.rahti.csc.fi/{YOUR_RAHTI_PROJECT_NAME}/centos:<tag>
    ```
 
 You should be able to see your images in your project:
