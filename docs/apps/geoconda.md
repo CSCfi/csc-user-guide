@@ -53,7 +53,7 @@ includes following python packages:
     vector geometries. It includes functions for zonal statistics and
     interpolated point queries. [rasterstats example in CSC geocomputing Github](https://github.com/csc-training/geocomputing/tree/master/python/zonal_stats)
 -   [rtree] - spatial indexing and search.
--   [r5py](https://r5py.readthedocs.io/en/stable) - for rapid realistic routing on multimodal transport networks, see [below how to set memory correctly](#r5py-memory-settings) for r5py. NEW 2024
+-   [r5py](https://r5py.readthedocs.io) - for rapid realistic routing on multimodal transport networks, see [below how to set memory correctly](#r5py-memory-settings) for r5py. NEW 2024
 -   [sentinelhub](https://sentinelhub-py.readthedocs.io/en/latest/index.html) - for working with new Sentinel Hub services.
 -   [sentinelsat] - downloading Sentinel images, [sentinelsat example in CSC geocomputing Github] (https://github.com/csc-training/geocomputing/tree/master/python/sentinel)
 -   [shapely] - manipulation and analysis of geometric objects in the Cartesian plane.
