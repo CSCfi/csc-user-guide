@@ -12,12 +12,15 @@ You can find a non-comprehensive list of different graphical interfaces for usin
 
 MariaDB Connectors are used for creating database connections from applications,
 and are available for many popular programming languages. You can find more information
-regarding their usage and configuration in [MariaDB's documentation](https://mariadb.com/docs/server/connect/).
-As Pukki MariaDB instances only allow SSL connections, you may want to pay special attention
-to that part of your connection's configuration.
+regarding their usage and configuration in MariaDB's documentation:
+  * https://mariadb.com/docs/server/connect/
+  * https://mariadb.com/kb/en/connectors/
+
+**Please pay special attention to SSL configuration** - as Pukki only allows SSL connections
+to its MariaDB instances, you *will* have to set up configuration options related to that.
 
 ## Command-line client mariadb and mysql
-[MariaDB's documentation client](https://mariadb.com/kb/en/mariadb-command-line-client/)
+[MariaDB's documentation on the command-line client](https://mariadb.com/kb/en/mariadb-command-line-client/)
 
 The recommended CLI client to use is `mariadb`. The `mysql` client does still work, but is
 usually a symbolic link to `mariadb`.
