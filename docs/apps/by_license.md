@@ -11,21 +11,21 @@
         research institutes or non-academic non-profit institutes might not be permitted to use the software.
         Please always see the specific licensing details under the respective application pages.
 
-        [Scroll to applications with 'Academic' licensing](#academic){ .md-button .md-button--primary }
+        [Scroll to applications with 'Academic' licensing](#tag:academic){ .md-button .md-button--primary }
 
     === "Free"
 
         These software are freely available for anyone to use for most purposes. Please always see the specific
         licensing details under the respective application pages.
 
-        [Scroll to applications with 'Free' licensing](#free){ .md-button .md-button--primary }
+        [Scroll to applications with 'Free' licensing](#tag:free){ .md-button .md-button--primary }
 
     === "Non-commercial"
 
         The use of these software is restricted to non-commercial purposes irrespective of affiliation.
         Please always see the specific licensing details under the respective application pages.
 
-        [Scroll to applications with 'Non-commercial' licensing](#non-commercial){ .md-button .md-button--primary }
+        [Scroll to applications with 'Non-commercial' licensing](#tag:non-commercial){ .md-button .md-button--primary }
 
     === "Other"
 
@@ -33,6 +33,6 @@
         example, these software may require the user to acquire their own license directly from the developers, 
         or there could be additional steps needed to get usage permission (e.g. addition to Unix group).
 
-        [Scroll to applications with 'Other' licensing](#other){ .md-button .md-button--primary }
+        [Scroll to applications with 'Other' licensing](#tag:other){ .md-button .md-button--primary }
 
-[TAGS]
+<!-- material/tags -->

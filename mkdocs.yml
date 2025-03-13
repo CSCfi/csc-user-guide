@@ -35,8 +35,7 @@ hooks:
   - hooks/preview.py
 
 plugins:
-  - tags:
-      tags_file: apps/by_license.md
+  - tags
   - search
   - git-revision-date-localized:
       enabled: !ENV [ENABLED_GIT_REVISION_DATE, true]
