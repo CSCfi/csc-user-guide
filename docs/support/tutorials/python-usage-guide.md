@@ -12,6 +12,9 @@ pre-installed Python environments on CSC supercomputers.
 
 ## Creating and managing Python environments
 
+See also our [FAQ section with common questions related to Python
+environments on supercomputers](../faq/index.md#python-on-supercomputers).
+
 ### Installing Python packages to existing modules
 
 If there is a CSC-provided module that covers _almost_ everything you
@@ -62,13 +65,9 @@ in a module provided by CSC, do not hesitate to contact our
     to actually have the base module loaded.
     Naturally, this also applies to Slurm job scripts.
 
-    !!! info "Compatibility with virtual environments"
-        Some CSC modules are not compatible with Python
-        virtual environments. We are still working to update these
-        modules, so if you happen to be working with one of them,
-        you need to use the `pip install --user` approach described on
-        the other tab. For example, do not use [geoconda module](../../apps/geoconda.md) with virtual environment.
-
+    !!! info "Problems with virtual environments"
+        In some specific cases CSC modules may not work properly with Python virtual environments. Try first to run `export CW_FORCE_CONDA_ACTIVATE=1` before activating the venv. If that does not help, try to use the `pip install --user` approach described on
+        the other tab. 
     ---
 
 === "Using `pip install --user`"
@@ -210,7 +209,9 @@ can be used on a supercomputer through
 
 In addition to editing code directly on a supercomputer, it is also
 possible to [develop code remotely](./remote-dev.md) using some
-locally installable editors like Visual Studio Code.
+locally installable editors like Visual Studio Code. Please note,
+however, that this way of connecting to CSC supercomputers is prone
+to issues and thus not fully supported.
 
 Finally, one can of course edit code on a local device
 and copy it to a supercomputer with command-line tools like
@@ -247,7 +248,7 @@ default with all CSC- and custom-made Python environments.
 There are two ways to run VSCode on CSC supercomputers:
 
 1. [As an interactive app on our web interface](../../computing/webinterface/vscode.md)
-2. [Remotely using the Remote-SSH plugin](./remote-dev.md#visual-studio-code-with-remote-ssh-plugin)
+2. [Remotely using the Remote-SSH plugin](./remote-dev.md#visual-studio-code-with-remote-ssh-plugin) (unsupported)
 
 !!! info "Using custom environments in VSCode"
     Since only CSC modules are offered in the VSCode session launch form,

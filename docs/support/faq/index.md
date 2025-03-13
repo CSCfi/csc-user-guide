@@ -6,7 +6,7 @@
 * [How to get access to Puhti](how-to-get-puhti-access.md)
 * [How to cite CSC in a paper?](how-to-cite-csc.md)
 * [Can I still use CSC services if I'm moving abroad?](can-i-use-csc-services-abroad.md)
-* [How can I move data between CSC and my local computer?](../../data/moving)
+* [How can I move data between CSC and my local computer?](../../data/moving/index.md)
 * [Disk quota exceeded](disk-quota-exceeded.md)
 * [I need a Database, where can I deploy it?](database.md)
 * [Is there a glossary of the acronyms you keep using?](is-there-a-glossary-of-the-acronyms-you-keep-using.md)
@@ -22,7 +22,7 @@
 
 ## Accounts
 * [I cannot login. What to do?](i-cannot-login.md)
-* [I forgot my CSC password. How do I get a new one?](new-password.md)
+* [I forgot MyCSC password. How do I get a new one?](new-password.md)
 * [How to create a CSC user account?](how-to-create-CSC-user-account.md)
 * [How can I find information about my projects?](how-to-find-information-about-projects.md)
 * [Who 'unknown' is using our resources](who-unknown-is-using-our-resources.md)
@@ -40,6 +40,11 @@
 * [How do the project and scratch file permissions work?](how-do-the-project-file-permissions-work.md)
 * [How does LUMI-C differ from Mahti?](../../computing/lumi-vs-mahti.md)
 
+## Python on supercomputers
+* [How do I install missing Python packages to CSC-provided modules?](../tutorials/python-usage-guide.md#installing-python-packages-to-existing-modules)
+* [How do I create my own Python environment?](../tutorials/python-usage-guide.md#creating-your-own-python-environments)
+* [How to troubleshoot Python installation problems?](python-package-trouble.md)
+
 ## Allas
 
 * [How to move data from Puhti to Allas and vice versa?](how-to-move-data-between-puhti-and-allas.md)
@@ -50,38 +55,38 @@
 
 ## Pouta
 
-* [How to use cPouta for Remote Desktop](how-to-use-pouta-for-remote-desktop.md)
-* [How to create default network and router in a Pouta project](how-to-create-default-network-and-router-in-pouta.md)
-* [How to use cPouta GPU for rendering](how-to-use-cpouta-gpu-for-rendering.md)
-* [How to mount my Allas S3 bucket to a VM running in cPouta](how-to-mount-os-bucket-for-cpouta.md)
-* [Do you offer SSL certificates?](do-you-offer-ssl-certificates.md)
+* [Can I access MyCSC home/wrkdir/scratch/project directories from Pouta?](how-to-access-home-wrkdir-projdir-from-epouta.md)
 * [Can I run MPI applications on pouta?](can-i-run-mpi-applications-on-pouta.md)
-* [How fast is the Pouta network?](how-fast-is-the-pouta-network.md)
-* [Why can't I connect to my VM in Pouta?](why-cant-i-connect-to-my-vm-in-pouta.md)
+* [Do you offer SSL certificates?](do-you-offer-ssl-certificates.md)
 * [How can I give access to other people to my VM in Pouta?](how-can-I-give-access-to-other-people-to-my-vm-in-pouta.md)
-* [Can I access my CSC home/wrkdir/scratch/project directories from Pouta?](how-to-access-home-wrkdir-projdir-from-epouta.md)
-* [What are volumes? How do I use them?](what-are-volumes-and-how-to-use.md)
-* [Is Pouta backed up?](is-pouta-backed-up.md)
 * [How can I store data on Pouta?](how-to-store-data-in-pouta.md)
-* [What does it cost to use Pouta?](what-does-it-cost-to-use-pouta.md)
-* [How to rescue a Pouta instance](pouta-openstack-rescue-mode.md)
+* [How fast is the Pouta network?](how-fast-is-the-pouta-network.md)
+* [How to create default network and router in a Pouta project](how-to-create-default-network-and-router-in-pouta.md)
 * [How to get Allas S3 credentials](how-to-get-Allas-s3-credentials.md)
+* [How to mount my Allas S3 bucket to a VM running in cPouta](how-to-mount-os-bucket-for-cpouta.md)
+* [How to rescue a Pouta instance](pouta-openstack-rescue-mode.md)
 * [How to resize an instance or volume in Pouta?](how-to-resize-in-pouta.md)
+* [How to use cPouta for Remote Desktop](how-to-use-cpouta-for-remote-desktop.md)
+* [How to use cPouta GPU for rendering](how-to-use-cpouta-gpu-for-rendering.md)
+* [Is Pouta backed up?](is-pouta-backed-up.md)
+* [What does it cost to use Pouta?](what-does-it-cost-to-use-pouta.md)
+* [What are volumes? How do I use them?](what-are-volumes-and-how-to-use.md)
+* [Why can't I connect to my VM in Pouta?](why-cant-i-connect-to-my-vm-in-pouta.md)
 
-## Rahti 1
+## Rahti
 
-* [Why Rahti cannot find this docker image?](get-image-format.md)
-
-## Rahti 2
-
-* [Protecting against DDoS Attacks](DDos.md)
-* [Do you offer in Rahti 2 SSL certificates?](rahti-ssl-certificates.md)
-* [Why this container report permission denied errors?](why-this-container-does-not-work.md)
-* [Does Rahti 2 support UDP connections?](rahti-udp.md)
-* [Why my SSH key does not work in Rahti 2?](ssh-clone.md)
+* [Do you offer in Rahti SSL certificates?](rahti-ssl-certificates.md)
+* [Does Rahti support UDP connections?](rahti-udp.md)
+* [How to add docker hub credentials to a project](docker_hub_login.md)
+* [How to automatically scale up and down replicas](addHorizontalAutoscaler.md)
+* [How to backup a Postgres DB into Allas](backup-postgres-allas.md)
 * [How to open a terminal to a Pod?](terminal-rahti-pod.md)
-* [How to pull images from Rahti v1 registry](pull-from-rahtiv1-registry.md)
-
+* [How to package a Kubernetes application with Helm](helm.md)
+* [How to run an ad-hoc interactive container](oc-run.md)
+* [How to transfer data to Rahti?](transfer_data_rahti.md)
+* [Protecting against DDoS Attacks](DDos.md)
+* [Why my SSH key does not work in Rahti?](ssh-clone.md)
+* [Why this container report permission denied errors?](why-this-container-does-not-work.md)
 
 ## Sensitive Data Services for research
 

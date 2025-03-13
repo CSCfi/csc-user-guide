@@ -11,5 +11,5 @@ resources.
 
 Accounting and billing is based on the same billing units that are used in the
 HPC systems at CSC. Academic users can apply for more free billing units
-through the [CSC customer portal My CSC](https://my.csc.fi). Paying customers
+through the [CSC customer portal MyCSC](https://my.csc.fi). Paying customers
 should contact [CSC Service Desk](../contact.md).

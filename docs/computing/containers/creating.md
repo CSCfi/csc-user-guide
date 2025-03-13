@@ -33,7 +33,7 @@ cd /projappl/<project>
 apptainer build pytorch_22.09-py3.sif docker://nvcr.io/nvidia/pytorch:22.09-py3
 ```
 
-Note that the Apptainer image `.sif` files can easily be several GB in size, so they should not be stored in your home directory, but for example in the project application directory [projappl](/computing/disk).
+Note that the Apptainer image `.sif` files can easily be several GB in size, so they should not be stored in your home directory, but for example in the project application directory [projappl](../../computing/disk.md).
 
 Also see our [documentation on how to run containers](run-existing.md).
 
@@ -81,7 +81,7 @@ Some issues related to, for example, glibc, fakeroot, file permissions and old r
 
 ### Running existing images
 
-To run programs in [Accelerated Visualization](../../webinterface/accelerated-visualization/) that [use GPU](https://apptainer.org/docs/user/latest/gpu.html), use the `--nv` flag when starting the container: `apptainer run --nv /path_to_image/image.sif`. To use the graphical display with [VirtualGL](https://virtualgl.org/), a few environment variables have to be set as well. In the base images provided for GPU usage by CSC, these are set automatically when the container is started. Note that if you run `apptainer shell` instead of `apptainer run`, `%runscript` is not executed and necessary environment variables for vgl are not set, you then have to set them manually, see [base image definition files](https://github.com/CSCfi/singularity-recipes/tree/main/visualization) for details.
+To run programs in [Accelerated Visualization](../webinterface/accelerated-visualization.md) that [use GPU](https://apptainer.org/docs/user/latest/gpu.html), use the `--nv` flag when starting the container: `apptainer run --nv /path_to_image/image.sif`. To use the graphical display with [VirtualGL](https://virtualgl.org/), a few environment variables have to be set as well. In the base images provided for GPU usage by CSC, these are set automatically when the container is started. Note that if you run `apptainer shell` instead of `apptainer run`, `%runscript` is not executed and necessary environment variables for vgl are not set, you then have to set them manually, see [base image definition files](https://github.com/CSCfi/singularity-recipes/tree/main/visualization) for details.
 
 To easily start the program, create a `.desktop` [shortcut file](https://specifications.freedesktop.org/desktop-entry-spec/desktop-entry-spec-latest.html#recognized-keys) in the `$HOME/Desktop` directory in Puhti. An icon then appears on the desktop which will start the program in the container.
 

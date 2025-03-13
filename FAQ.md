@@ -26,6 +26,7 @@ The [contributing guide](CONTRIBUTING.md) outlines the basic steps of starting c
   - [How do I tag an application as available under a web interface?](#how-do-i-tag-an-application-as-available-under-a-web-interface)
   - [How do I make footnotes?](#how-do-i-make-footnotes)
   - [How do I improve search results?](#how-do-i-improve-search-results)
+  - [How do I redirect incoming links](#how-do-i-redirect-incoming-links)
 
 
 ## How to include my new page in the navigation panel?
@@ -99,13 +100,14 @@ Diagrams from [draw.io](https://draw.io) can be embedded as iframes by selecting
 
 ## How to add links?
 
-Links are added using the markdown syntax `[This is my link text](link url or path)`. Whether to use a URL or path depends on if your link is *internal*, i.e. it points to another page within Docs CSC, or *external*. For internal links use relative paths, for example:
+Links are added using the markdown syntax `[This is my link text](link url or path)`. Whether to use a URL or path depends on if your link is *internal*, i.e. it points to another page within Docs CSC, or *external*. For example:
 
 * Link pointing to file in same directory: `[Gromacs documentation](gromacs.md)`
 * Link pointing to a certain section (anchor) in a page: `[Gromacs usage](gromacs.md#usage)`
 * Link pointing to a file in another directory: `[Contact Service Desk](../support/contact.md)`, where the double dot `../` syntax means going up one level in the directory tree relative to the current directory. Then the path is followed to `support` and the contact page `contact.md`.
+* An absolute link to a file relative to the `docs` directory: `[Contact Service Desk](/support/contact.md)` (These do not work when, e.g., browsing the source files through the GitHub web interface).
 * **For internal links you need to include the file extension `.md` in the target**
-* **Don't make internal links using a URL, `https://docs.csc.fi/...`**. Use URLs only in links pointing to an external target. 
+* **Don't make internal links using a URL, `https://docs.csc.fi/...` or `https://csc-guide-preview.2.rahtiapp.fi/...`**. Use URLs only in links pointing to an external target.
 * **Always add a descriptive link text to make the content accessible.** Plain URLs without link text are not acceptable! Screen readers will read it as h-t-t-p-s-colon-slash-slash...
   * `[Read more here](gromacs.md#usage)` is not accessible. `[Read more about Gromacs usage](gromacs.md#usage)` is better.
   * If, for some rare reason, writing a descriptive link text is not possible, you can use html and aria-label: `<a href="https://code.visualstudio.com" aria-label="This is readable by screen readers">Visual Studio Code</a>`. This label is read by the screen readers but is not visible to others.
@@ -147,8 +149,7 @@ You can preview how the Docs CSC page would look like with your changes included
 ### Using the preview feature for active branches hosted on Rahti
 
 * A full preview for ongoing work is available for all branches: https://csc-guide-preview.2.rahtiapp.fi/origin/
-* Select your branch from the list to get a preview of your version of Docs CSC
-* Note, currently absolute internal links formatted as e.g. `/support/accessibility/` don't work in the preview, but they will work on docs.csc.fi.
+    - Select your branch from the list to get a preview of your version of Docs CSC
 
 ### Locally using the MkDocs tool
 
@@ -329,10 +330,26 @@ The glossary is also viewable as a page at [docs.csc.fi/glossary](https://docs.c
 
 ## How do I use the announcement bar?
 
-The content inside the yellow announcement bar at the top of the page is controlled by editing the file
+The content inside the yellow announcement bar below the header is controlled by editing the file
 [csc-overrides/partials/announcement.html](csc-overrides/partials/announcement.html). The bar's
 visibility, in turn, is controlled by changing the value `true|false` of `extra: announcement_visible` in
 [mkdocs.yml](mkdocs.yml). At the moment, the only content confirmed to work are HTML `<p>` and `<a>`.
+
+Select an icon by uncommenting (change both `#`s to `%`s) one of the lines:
+
+Commented:
+```text
+{# import ".icons/material/information.svg" as icon #}
+```
+
+Uncommented:
+```text
+{% import ".icons/material/information.svg" as icon %}
+```
+
+Make sure to "un-uncomment" every other line, since only a single line may be in an uncommented state at a time.
+
+Documentation for _Material for MkDocs_ has a [search feature](https://squidfunk.github.io/mkdocs-material/reference/icons-emojis/?h=icon#search) including **previews** for the icon database. The path of the icon file can be determined by examining the shortcode. For example, the path `.icons/material/information.svg` above corresponds to the shortcode `:material-information:` shown in the search.
 
 ## How do I add a license tag to an application page?
 
@@ -402,3 +419,7 @@ search:
 ```
 Start with low values.  
 More information [here](https://squidfunk.github.io/mkdocs-material/setup/setting-up-site-search/#usage)
+
+## How do I redirect incoming links
+
+The [STYLEGUIDE.md](STYLEGUIDE.md#redirecting-pages) describes how to add redirection for a URL.

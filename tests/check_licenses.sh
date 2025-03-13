@@ -1,3 +1,5 @@
+#!/usr/bin/env sh
+
 file_type="*.md"
 regex="^#\{2,3\} Licenses\?"
 directory="docs/apps"

@@ -11,7 +11,7 @@ Instead of a course you can also use Noppe for collaboration. The workflow is si
 
 ### 1. Become a workspace owner and create a workspace
 * Login to Noppe using your CSC account by choosing 'CSC Login' option after clicking 'Login'.
-  If you don't have a CSC account yet, [see the instructions on how to create new user account](../../../accounts/how-to-create-new-user-account/).
+  If you don't have a CSC account yet, [see the instructions on how to create new user account](../../accounts/how-to-create-new-user-account.md).
 * Open `Manage workspaces` from the left panel and create a new workspace.
     * Workspace type:
       * Fixed-time course with limited lifetime: Valid for limited months.
@@ -188,12 +188,20 @@ Another alternative is to build the image on an x64 VM, for example on pouta.csc
 docker run -p 8888:8787 <yourimagename>
 ```
 
+### Upload and link the image to your application
+
+For the docker image to be used in your application. You need to host it somewhere, e.g. DockerHub or Rahti registry. 
+Once you have it hosted somewhere, provide the link to your image in the application : `Edit application` > `Container image`.
+
 ## Adding Python packages to an existing workspace 
 
-This section is about how to add packages to the workspace _after_ you have built the Docker image. 
-You do not need to always create a new custom image.
+You can add pip packages to existing Python applications without building a new image by installing them to your 
+`my-work` or `shared` folders. The process is slightly tedious, because by principle Docker images are designed to be 
+immutable, and building a new image with the needed installations is preferred.
 
-To install additional libraries to your persistent personal directory, please use ```pip```.
+The following steps are for `my-work` installation. Note that `my-work` is user specific and not shared with your course 
+participants. If your course participants need to access the installed packages, use the `shared` folder, to which only 
+the workspace owner has write permissions.
 
 1. Open Terminal in JupyterLab.
 2. Create a new folder for installation files in my-work.
@@ -206,13 +214,63 @@ export PYTHONUSERBASE=/home/jovyan/my-work/<your_subdir>
 pip install --user the_new_package_name
 ```
 
-Finally, delete the existing session and open application settings under "Edit application".
+Finally, exit and delete the existing session and open application settings under "Edit application".
 Add `PYTHONUSERBASE=/home/jovyan/my-work/<your_subdir>` to Environment variables. Use the name of the folder you
 created earlier. After this, new application sessions will have the installed packages available.
 
+## Adding R packages to an existing RStudio application
+
+You can add R packages to existing RStudio applications without building a new image by installing them to your 
+`my-work` or `shared` folders. The process is slightly tedious, because by principle Docker images are designed to be 
+immutable, and building a new image with the needed installations is preferred.
+
+The process is as follows (detailed instructions below):
+
+1. Open terminal in RStudio
+2. Create a new folder for installation files in `my-work` or `shared`
+3. Set the environment variable `R_LIBS_USER` to point to your newly created folder in application settings
+4. Install the package to the newly created folder in `my-work` or `shared`
+
+### Installation process in detail
+
+The following steps are for `my-work` installation. Note that `my-work` is user specific and not shared with your course 
+participants. If your course participants need to access the installed packages, use the `shared` folder, to which only 
+the workspace owner has write permissions.
+
+Start a session for your RStudio application, open the terminal and create a new folder for the installations (here 
+named `R-packages`, but you can use a different name):
+```
+mkdir /home/rstudio/my-work/R-packages
+```
+
+Next, exit and delete the session. Open `Edit application` and set the following to "Environment variables":
+
+```
+R_LIBS_USER=/home/rstudio/my-work/R-packages
+```
+
+If you used a different name for your folder, remember to change it.
+
+Open a new session for the application. The path set in the environment variable should be visible in `.libPaths()`:
+
+```
+> .libPaths()
+[1] "/usr/local/lib/R/site-library" "/usr/local/lib/R/library" "/home/rstudio/my-work/R-packages"
+```
+
+Now you can install packages to the new folder, e.g.:
+
+```
+install.packages("jsonlite", lib="/home/rstudio/my-work/R-packages")
+library(jsonlite)
+```
+
+The installed packages are available in all new sessions.
+
+
 ## Security guidelines for Workspace owners
 
-- Noppe is not intended for sensitive data. Do not store sensitive data or data sets.
+- Noppe is not audited for sensitive data.
 - Share join code only with users you wish to join your workspace.
 - If you are creating custom images for your course, do not store any keys or sensitive data in the image.
 - Delete the workspace as soon as the course is over.

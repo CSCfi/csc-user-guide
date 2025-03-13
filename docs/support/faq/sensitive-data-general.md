@@ -57,7 +57,7 @@ No. You can set up your secure workspace following the user guide and video tuto
 
 ## How long does it take to set up a private workspace with SD Connect and SD Desktop?
 
-* If you are an experienced CSC user, it should take about 10 minutes. First, apply for SD Desktop and SD Connect/Allas service access using [My CSC portal](https://my.csc.fi); next, login to SD Desktop and launch a new computing environment.
+* If you are an experienced CSC user, it should take about 10 minutes. First, apply for SD Desktop and SD Connect/Allas service access using [MyCSC portal](https://my.csc.fi); next, login to SD Desktop and launch a new computing environment.
  
 * If you have never used CSC services, it might take up to several hours. You can find the necessary support in the user guide and step-by-step video tutorials (13 videos X 3 minutes). Please feel free to contact us at servicedesk@csc.fi if you need our help. 
 

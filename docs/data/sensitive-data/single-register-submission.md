@@ -15,7 +15,7 @@ After the process is established for the first time, the representative of the d
 
 ### Step 1: Organizational profile in SD Apply
 
-A representative of the data controller has to make the data available for the research group in SD Apply service.
+A representative of the data controller has to make the data available for the research group in SD Apply service. Researchers use SD Apply to apply for access to the dataset they have the data permit for and the representative of the data controller will approve or reject their application.
 
 After you have created an CSC account, you can log in to [SD Apply service](https://sd-apply.csc.fi/).
 
@@ -28,21 +28,19 @@ After the first log in, CSC service desk can create an organizational profile fo
 
 ### Step 2: Creating objects in SD Apply
 
-After you have been set as the owner of the organization profile, you can create a workflow, form and license for the organization in SD Apply.
+After you have been set as the owner of the organization profile, you should create a license and a workflow for the organization in SD Apply. You can also create an application form that the applicant has to fill in when they submit a data access request. Forms are optional so if you don't need to ask applicant to provide more information, e.g. to confirm the journal number when they send the access request, you don't need to create one. 
 
-1. To the **form**, you add all the information needed for access applications. This information will be shown to the applicants in SD Apply. To the form, you can also add fields for the applicant to fill, e.g. ask them to confirm the journal number or other identification information by submitting it via the form.
-2. **License** specifies the terms of use for the data, which the applicants need to approve when they fill in the access application form. In the license, you can for example refer to the terms specified in the data permit.
-3. With a **workflow**, you define who will manage the access applications of the organization in SD services. These named users will always receive a notification via email about new access applications and can approve or reject the applications in SD Apply.
+1. Navigate to SD Apply Administration tab
+2. Select Licenses tab and then **create license**. License specifies the terms of use for the data, which the applicants need to approve when they send the data access application. Since in this case, the terms have already been defined in the data permit, you can for example refer to the data permit in the license text. You can use the inline text as license type for short texts.  
+3. Next, navigate to Workflows tab and **create workflow**. Workflow defines who will manage the data access applications of the organization in SD services. These named users will always receive a notification via email about new access applications and can approve or reject the applications in SD Apply.  
 
-License and form are optional so if you don't need to define additional terms of use or ask applicant to provide more information with a form, you don't need to create them. 
-
-The forms and licenses are public in SD Apply, so these should not include any sensitive information. These three objects will be used for all secondary use datasets coming from your organization, so they should also be as general as possible. **Resource** and **Catalogue item** will be created for each dataset automatically when the data is transferred via SFTP. 
+The forms and licenses are public in SD Apply, so these should not include any sensitive information. These objects will be used for all secondary use datasets coming from your organization, so they should also be as general as possible. **Resource** and **Catalogue item** will be created for each dataset automatically when the data is transferred via SFTP. 
 
 ### Step 3: Establishing a secure SSH connection with CSC
 
 To prepare for the data transfer, we first need to establish a secure ssh connection between your laptop with CSC. Please follow these steps:
 
-1. Create an SSH key pair in **RSA** format via command line. [See detailed instructions](../../cloud/tutorials/ssh-key.md#creating-an-ssh-key-pair-on-a-computer) Do not use a password for your SSH key, leave this field empty.
+1. Create an SSH key pair in **RSA** format via command line. [See detailed instructions](../../cloud/pouta/tutorials/ssh-key.md#creating-an-ssh-key-pair-on-a-computer) Do not use a password for your SSH key, leave this field empty.
 2. Log in to [the Sensitive Data user administration portal](https://admin.sd.csc.fi/). If you don't have HAKA or Virtu accounts, please write to our helpdesk to ask for a CSC account. Setting up an account takes few days.
 
 [![Sensitive Data user administration login](images/apply/SUP_Login.png)](images/apply/SUP_Login.png)

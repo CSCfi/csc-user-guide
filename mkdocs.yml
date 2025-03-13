@@ -32,6 +32,7 @@ extra:
 
 hooks:
   - hooks/archives.py
+  - hooks/preview.py
 
 plugins:
   - tags:
@@ -86,6 +87,53 @@ plugins:
         # for convenience:
         "glossary.md": "support/glossary.md"
         "archives.md": "support/contact.md#archives"
+        "mahti-nvme-2025.md": "support/wn/comp-new.md#new-small-partition-with-high-performance-nvme-storage-on-mahti-1322025"
+        # Rahti2 to Rahti:
+        "cloud/rahti2/catalog-docs.md": "cloud/rahti/catalog-docs.md"
+        "cloud/rahti2/rahti-migration.md": "cloud/rahti/rahti-migration.md"
+        "cloud/rahti2/index.md": "cloud/rahti/index.md"
+        "cloud/rahti2/advanced.md": "cloud/rahti/advanced.md"
+        "cloud/rahti2/billing.md": "cloud/rahti/billing.md"
+        "cloud/rahti2/rahti-what-is.md": "cloud/rahti/rahti-what-is.md"
+        "cloud/rahti2/concepts.md": "cloud/rahti/concepts.md"
+        "cloud/rahti2/moving-into.md": "cloud/rahti/moving-into.md"
+        "cloud/rahti2/ext_docs.md": "cloud/rahti/ext_docs.md"
+        "cloud/rahti2/access.md": "cloud/rahti/access.md"
+        "cloud/rahti2/networking.md": "cloud/rahti/networking.md"
+        "cloud/rahti2/storage/index.md": "cloud/rahti/storage/index.md"
+        "cloud/rahti2/storage/persistent.md": "cloud/rahti/storage/persistent.md"
+        "cloud/rahti2/storage/expand-volumes.md": "cloud/rahti/storage/expand-volumes.md"
+        "cloud/rahti2/storage/volume-snapshot.md": "cloud/rahti/storage/volume-snapshot.md"
+        "cloud/rahti2/storage/ephemeral.md": "cloud/rahti/storage/ephemeral.md"
+        "cloud/rahti2/storage/objectstorage.md": "cloud/rahti/storage/objectstorage.md"
+        "cloud/rahti2/containers.md": "cloud/rahti/containers.md"
+        "cloud/rahti2/security-guide.md": "cloud/rahti/security-guide.md"
+        "cloud/rahti2/tutorials/index.md": "cloud/rahti/tutorials/index.md"
+        "cloud/rahti2/tutorials/allow-pull-from-other-projects.md": "cloud/rahti/tutorials/allow-pull-from-other-projects.md"
+        "cloud/rahti2/tutorials/deploy_static_webserver_webconsole.md": "cloud/rahti/tutorials/deploy_static_webserver_webconsole.md"
+        "cloud/rahti2/tutorials/webhooks.md": "cloud/rahti/tutorials/webhooks.md"
+        "cloud/rahti2/tutorials/annotations.md": "cloud/rahti/tutorials/annotations.md"
+        "cloud/rahti2/tutorials/connect-database-hpc.md": "cloud/rahti/tutorials/connect-database-hpc.md"
+        "cloud/rahti2/tutorials/yaml_introduction.md": "cloud/rahti/tutorials/yaml_introduction.md"
+        "cloud/rahti2/tutorials/web-app-dev-cloud.md": "cloud/rahti/tutorials/web-app-dev-cloud.md"
+        "cloud/rahti2/tutorials/sidecar_proxy_authentication.md": "cloud/rahti/tutorials/sidecar_proxy_authentication.md"
+        "cloud/rahti2/tutorials/deploy_static_webserver_cli.md": "cloud/rahti/tutorials/deploy_static_webserver_cli.md"
+        "cloud/rahti2/tutorials/custom-domain.md": "cloud/rahti/tutorials/custom-domain.md"
+        "cloud/rahti2/tutorials/email.md": "cloud/rahti/tutorials/email.md"
+        "cloud/rahti2/tutorials/http-redirector.md": "cloud/rahti/tutorials/http-redirector.md"
+        "cloud/rahti2/tutorials/multi-stage-builds.md": "cloud/rahti/tutorials/multi-stage-builds.md"
+        "cloud/rahti2/tutorials/ci_cd_introduction.md": "cloud/rahti/tutorials/ci_cd_introduction.md"
+        "cloud/rahti2/tutorials/advanced-NetworkPolicies-networking.md": "cloud/rahti/tutorials/advanced-NetworkPolicies-networking.md"
+        "cloud/rahti2/tutorials/pod-affinity.md": "cloud/rahti/tutorials/pod-affinity.md"
+        "cloud/rahti2/tutorials/kustomize.md": "cloud/rahti/tutorials/kustomize.md"
+        "cloud/rahti2/tutorials/4cat.md": "cloud/rahti/tutorials/4cat.md"
+        "cloud/rahti2/usage/cli.md": "cloud/rahti/usage/cli.md"
+        "cloud/rahti2/usage/projects_and_quota.md": "cloud/rahti/usage/projects_and_quota.md"
+        "cloud/rahti2/usage/getting_started.md": "cloud/rahti/usage/getting_started.md"
+        "cloud/rahti2/images/creating.md": "cloud/rahti/images/creating.md"
+        "cloud/rahti2/images/keeping_docker_images_small.md": "cloud/rahti/images/keeping_docker_images_small.md"
+        "cloud/rahti2/images/overview.md": "cloud/rahti/images/overview.md"
+        "cloud/rahti2/images/Using_Rahti_2_integrated_registry.md": "cloud/rahti/images/Using_Rahti_integrated_registry.md"
 
 markdown_extensions:
   - footnotes
@@ -133,9 +181,6 @@ extra_css:
   - assets/stylesheets/extra.css
 
 extra_javascript:
-  - assets/javascripts/constants.js # Constants need to be loaded first since the other scripts depend on them
-  - assets/javascripts/dropdown.js
-  - assets/javascripts/layout.js
   - assets/javascripts/extra.js
   - assets/javascripts/feedback.js
 
@@ -144,15 +189,16 @@ validation:
   nav:
     omitted_files: ignore
   links:
-    absolute_links: ignore
-    unrecognized_links: ignore
-    anchors: ignore
+    absolute_links: relative_to_docs
+    unrecognized_links: warn
+    anchors: warn
 
 nav:
   - Home: index.md
   - Accounts:
       - accounts/index.md
       - Creating a new user account: accounts/how-to-create-new-user-account.md
+      - User account lifecycle: accounts/account-lifecycle.md
       - Changing your password: accounts/how-to-change-password.md
       - Managing user information: accounts/how-to-manage-user-information.md
       - Creating a new project: accounts/how-to-create-new-project.md
@@ -176,6 +222,7 @@ nav:
           - computing/available-systems.md
           - Puhti: computing/systems-puhti.md
           - Mahti: computing/systems-mahti.md
+          - Roihu: computing/systems-roihu.md
           - LUMI: "https://docs.lumi-supercomputer.eu/hardware/"
       - Connecting:
           - computing/connecting/index.md
@@ -243,6 +290,12 @@ nav:
               - Running on Helmi: computing/quantum-computing/helmi/running-on-helmi.md
   - Cloud Services:
       - cloud/index.md
+      - Noppe:
+          - cloud/noppe/index.md
+          - Guide for students: cloud/noppe/guide_for_students.md
+          - Guide for teachers: cloud/noppe/guide_for_teachers.md
+          - Concepts: cloud/noppe/concepts.md
+          - Data persistence: cloud/noppe/data_persistence.md
       - Pouta:
           - cloud/pouta/index.md
           # - What is Pouta: cloud/pouta/pouta-what-is.md
@@ -253,10 +306,16 @@ nav:
               - cloud/pouta/getting-started.md
               - Creating a virtual machine: cloud/pouta/launch-vm-from-web-gui.md
               - Connecting the virtual machine: cloud/pouta/connecting-to-vm.md
+              - Command line:
+                  - cloud/pouta/command-line-tools.md
+                  - Install: cloud/pouta/install-client.md
           - Configuration:
               - cloud/pouta/configuration.md
               - VM lifecycle & saving BUs: cloud/pouta/vm-lifecycle.md
               - Virtual machine flavors and Billing Unit rates: cloud/pouta/vm-flavors-and-billing.md
+              - Images:
+                  - cloud/pouta/images.md
+                  - Creating, Converting, Uploading and Sharing virtual machine images: cloud/pouta/adding-images.md
               - Networking:
                   - cloud/pouta/networking.md
               - Storage:
@@ -268,21 +327,22 @@ nav:
                   - Multi-attach Cinder storage: cloud/pouta/multiattach.md
           - Advanced:
               - cloud/pouta/advanced.md
-              - Security Guidelines for Pouta: cloud/pouta/security.md
-              - Command line:
-                  - cloud/pouta/command-line-tools.md
-                  - Install: cloud/pouta/install-client.md
-              - Images:
-                  - cloud/pouta/images.md
-                  - Creating, Converting, Uploading and Sharing virtual machine images: cloud/pouta/adding-images.md
               - Additional services (email, dns): cloud/pouta/additional-services.md
               - API Access: cloud/pouta/api-access.md
               - Application credentials: cloud/pouta/application-credentials.md
               - Application Development Practises: cloud/pouta/application-dev.md
-              - Orchestration with Heat: cloud/pouta/heat-orchestration.md
+              - Known problems and limitations: cloud/pouta/known-problems.md
+              - Security Guidelines for Pouta: cloud/pouta/security.md
               # - Self study and troubleshooting:
               #     - Pouta videos: cloud/pouta/pouta-videos.md
-              - Known problems and limitations: cloud/pouta/known-problems.md
+          - Tutorials:
+              - cloud/pouta/tutorials/index.md
+              - cPouta and ePouta related videos: cloud/pouta/tutorials/pouta-videos.md
+              - Learn cloud computing by developing and deploying a web application: cloud/pouta/tutorials/web-app-dev-cloud.md
+              - Orchestration with Heat: cloud/pouta/tutorials/heat-orchestration.md
+              - Create a jumphost in cPouta: cloud/pouta/tutorials/create-jumphost.md
+              - SSH Key-pair: cloud/pouta/tutorials/ssh-key.md
+              - Create a fixed IP for a VM: cloud/pouta/tutorials/create-fixed-ip-for-Vm.md
       - Pukki:
           - cloud/dbaas/index.md
           - What is DBaaS: cloud/dbaas/what-is-dbaas.md
@@ -304,71 +364,66 @@ nav:
                   - PostgreSQL version differences: cloud/dbaas/postgres-versions.md
                   - Extensions and parameters: cloud/dbaas/postgres-extensions.md
                   - Permissions: cloud/dbaas/postgres-permissions.md
+              - MariaDB:
+                  - cloud/dbaas/mariadb.md
+                  - Accessing your database: cloud/dbaas/mariadb-accessing.md
+                  - Permissions: cloud/dbaas/mariadb-permissions.md
+
           - More advanced features: cloud/dbaas/advanced.md
           - Resizing database instance volume: cloud/dbaas/resize-volume.md
-      - Rahti 2:
-          - cloud/rahti2/index.md
-          - What is Rahti: cloud/rahti2/rahti-what-is.md
-          - Moving into Rahti: cloud/rahti2/moving-into.md
-          - Containers & their Orchestration: cloud/rahti2/containers.md
-          - Kubernetes and OpenShift concepts: cloud/rahti2/concepts.md
-          - Networking: cloud/rahti2/networking.md
-          - Security guide: cloud/rahti2/security-guide.md
-          - Getting Started:
-              - Getting access: cloud/rahti2/access.md
-              - Using the web interface: cloud/rahti2/usage/getting_started.md
-              - Command line tool installation and usage: cloud/rahti2/usage/cli.md
-          - Migration to Rahti 2: cloud/rahti/rahti-migration.md
-          - Storage in Rahti:
-              - cloud/rahti2/storage/index.md
-              - Persistent volumes: cloud/rahti2/storage/persistent.md
-              - Ephemeral storage: cloud/rahti2/storage/ephemeral.md
-              - Object storage: cloud/rahti2/storage/objectstorage.md
-              - Expand a volume: cloud/rahti2/storage/expand-volumes.md
-              - Volume snapshot: cloud/rahti2/storage/volume-snapshot.md
-          - Images:
-              - cloud/rahti2/images/overview.md
-              - Creating an image: cloud/rahti2/images/creating.md
-              - Keeping docker images small: cloud/rahti2/images/keeping_docker_images_small.md
-              - Using Rahti 2 integrated registry: cloud/rahti2/images/Using_Rahti_2_integrated_registry.md
-          - Rahti Catalog: cloud/rahti2/catalog-docs.md
-          - Projects and quota: cloud/rahti2/usage/projects_and_quota.md
-          - Billing: cloud/rahti2/billing.md
-          - External documentation: cloud/rahti2/ext_docs.md
       - Rahti:
           - cloud/rahti/index.md
-          - What is Rahti: cloud/rahti/rahti-what-is.md
-          - Containers & their Orchestration: cloud/rahti/containers.md
-          - Kubernetes and OpenShift concepts: cloud/rahti/concepts.md
-          - Networking: cloud/rahti/networking.md
-          - Security guide: cloud/rahti/security-guide.md
+          - What is Rahti:
+              - cloud/rahti/rahti-what-is.md
+              - Containers & their Orchestration: cloud/rahti/containers.md
+              - Kubernetes and OpenShift concepts: cloud/rahti/concepts.md
+              - External documentation: cloud/rahti/ext_docs.md
           - Getting Started:
               - Getting access: cloud/rahti/access.md
-              - Using the web interface: cloud/rahti/usage/getting_started.md
-              - Command line tool installation and usage: cloud/rahti/usage/cli.md
-          - Migration to Rahti 2: cloud/rahti/rahti-migration.md
-          - Storage in Rahti:
-              - cloud/rahti/storage/index.md
-              - Persistent volumes: cloud/rahti/storage/persistent.md
-              - Ephemeral storage: cloud/rahti/storage/ephemeral.md
-              - Expand a volume: cloud/rahti/storage/expand-volumes.md
-          - Images:
-              - cloud/rahti/images/overview.md
-              - Creating an image: cloud/rahti/images/creating.md
-              - Pushing to external repository: cloud/rahti/images/pushing-external.md
-              - Keeping docker images small: cloud/rahti/images/keeping_docker_images_small.md
-          - GPU in Rahti: cloud/rahti/gpu.md
-          - Rahti Templates: cloud/rahti/template-docs.md
-          - Projects and quota: cloud/rahti/usage/projects_and_quota.md
-          - Billing: cloud/rahti/billing.md
-          - External documentation: cloud/rahti/ext_docs.md
-      - Noppe:
-          - cloud/noppe/index.md
-          - Guide for students: cloud/noppe/guide_for_students.md
-          - Guide for teachers: cloud/noppe/guide_for_teachers.md
-          - Concepts: cloud/noppe/concepts.md
-          - Data persistence: cloud/noppe/data_persistence.md
-      - Cloud Tutorials: cloud/tutorials/index.md
+              - Web user interface: cloud/rahti/usage/getting_started.md
+              - Command line tool: cloud/rahti/usage/cli.md
+              - Moving into Rahti: cloud/rahti/moving-into.md
+          - Configuration:
+              - Billing: cloud/rahti/billing.md
+              - Projects and quota: cloud/rahti/usage/projects_and_quota.md
+              - Rahti Catalog: cloud/rahti/catalog-docs.md
+              - Images:
+                  - cloud/rahti/images/overview.md
+                  - Creating an image: cloud/rahti/images/creating.md
+                  - Keeping docker images small: cloud/rahti/images/keeping_docker_images_small.md
+                  - Using Rahti integrated registry: cloud/rahti/images/Using_Rahti_integrated_registry.md
+              - Storage in Rahti:
+                  - cloud/rahti/storage/index.md
+                  - Ephemeral storage: cloud/rahti/storage/ephemeral.md
+                  - Persistent volumes: cloud/rahti/storage/persistent.md
+                  - Object storage: cloud/rahti/storage/objectstorage.md
+                  - Expand a volume: cloud/rahti/storage/expand-volumes.md
+                  - Volume snapshot: cloud/rahti/storage/volume-snapshot.md
+          - Advanced:
+              - cloud/rahti/advanced.md
+              - Networking: cloud/rahti/networking.md
+              - Security guide: cloud/rahti/security-guide.md
+          - Tutorials:
+              - cloud/rahti/tutorials/index.md
+              - 4cat: cloud/rahti/tutorials/4cat.md
+              - Advanced NetworkPolicies: cloud/rahti/tutorials/advanced-NetworkPolicies-networking.md
+              - Accessing databases on Rahti from CSC supercomputers: cloud/rahti/tutorials/connect-database-hpc.md
+              - Allow pulls of images from one Rahti project to another: cloud/rahti/tutorials/allow-pull-from-other-projects.md
+              - Annotations: cloud/rahti/tutorials/annotations.md
+              - CI/CD on Rahti: cloud/rahti/tutorials/ci_cd_introduction.md
+              - Custom domain names and secure transport: cloud/rahti/tutorials/custom-domain.md
+              - Deploying a static web server using the command line: cloud/rahti/tutorials/deploy_static_webserver_cli.md
+              - Deploying a static web server using the web interface: cloud/rahti/tutorials/deploy_static_webserver_webconsole.md
+              - Kustomize: cloud/rahti/tutorials/kustomize.md
+              - Learn cloud computing by developing and deploying a web application: cloud/rahti/tutorials/web-app-dev-cloud.md
+              - Multi stage builds: cloud/rahti/tutorials/multi-stage-builds.md
+              - Pod (anti) affinity: cloud/rahti/tutorials/pod-affinity.md
+              - Reverse proxy authentication using a sidecar container: cloud/rahti/tutorials/sidecar_proxy_authentication.md
+              - Sending e-mail from Rahti: cloud/rahti/tutorials/email.md
+              - Setup a HTTP redirection in Rahti: cloud/rahti/tutorials/http-redirector.md
+              - Short introduction to YAML: cloud/rahti/tutorials/yaml_introduction.md
+              - Webhooks: cloud/rahti/tutorials/webhooks.md
+              - OAuth2 Proxy: cloud/rahti/tutorials/oauth2.md
   - Data:
       - data/index.md
       #    - Datasets: data/datasets.md
@@ -433,7 +488,6 @@ nav:
               - Upload: data/sensitive-data/sd-connect-upload.md
               - Share: data/sensitive-data/sd-connect-share.md
               - Download: data/sensitive-data/sd-connect-download.md
-              - Download files uploaded with previous version: data/sensitive-data/sd-connect-download-old-version.md
               - Delete: data/sensitive-data/sd-connect-delete.md
               - Command line interface: data/sensitive-data/sd-connect-command-line-interface.md
               - Troubleshooting: data/sensitive-data/sd-connect-troubleshooting.md
@@ -442,21 +496,22 @@ nav:
               - Login to SD Desktop: data/sensitive-data/sd-desktop-login.md
               - Create virtual desktop: data/sensitive-data/sd-desktop-create.md
               - Manage virtual desktop: data/sensitive-data/sd-desktop-manage.md
+              - Access virtual desktop: data/sensitive-data/sd-desktop-access-vm.md
               - Work with your virtual desktop: data/sensitive-data/sd-desktop-working.md
+              - Customisation - software & tools: data/sensitive-data/sd-desktop-software.md
               - Import data: data/sensitive-data/sd-desktop-access.md
-              - Customisation: data/sensitive-data/sd-desktop-software.md
-              - Export data: data/sensitive-data/sd-desktop-export.md
+              - Export data via user interface: data/sensitive-data/sd-desktop-export.md
+              - Export data programmatically: data/sensitive-data/sd-desktop-export-commandline.md
               - Troubleshooting: data/sensitive-data/sd-desktop-troubleshooting.md
       - Publish and reuse:
-          - Federated EGA:
+          - Publish with Federated EGA:
               - data/sensitive-data/federatedega.md
-              - Data access application: data/sensitive-data/fega-application.md
-              - Data access approval for DAC: data/sensitive-data/fega-dac.md
-              - Data submission: data/sensitive-data/fega-submission.md
-          - SD Apply:
+              - Publish data: data/sensitive-data/fega-submission.md
+          - Reuse with SD Apply:
               - data/sensitive-data/sd-apply.md
-              - Data access for Data Applicant: data/sensitive-data/sd-apply-access.md
-              - Data approval for DAC: data/sensitive-data/sd-apply-approval.md
+              - Apply access to FEGA data: data/sensitive-data/sd-apply-access.md
+              - Approve access to FEGA data: data/sensitive-data/sd-apply-approval.md
+              - Enable reuse of FEGA data: data/sensitive-data/sd-apply-dac.md
       - Secondary use of health and social data:
           - Start here:
               - data/sensitive-data/secondarydata-access.md
@@ -467,7 +522,8 @@ nav:
               - Login to SD Desktop: data/sensitive-data/sd-desktop-secondary-login.md
               - Create virtual desktop: data/sensitive-data/sd-desktop-secondary-create.md
               - Manage virtual desktop: data/sensitive-data/sd-desktop-secondary-manage.md
-              - Working with your desktop and software: data/sensitive-data/sd-desktop-secondary-working.md
+              - Access virtual desktop: data/sensitive-data/sd-desktop-secondary-access-vm.md
+              - Work with your desktop and software: data/sensitive-data/sd-desktop-secondary-working.md
               - Import data: data/sensitive-data/sd-desktop-secondary-access.md
               - Export data: data/sensitive-data/sd-desktop-secondary-export.md
               - Troubleshooting: data/sensitive-data/sd-desktop-secondary-troubleshooting.md

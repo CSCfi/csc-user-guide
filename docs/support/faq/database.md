@@ -12,7 +12,7 @@ of your choice. Use security groups to give network access to your database.
 
 !!! warning "Important"
     When using
-    [security groups](/cloud/pouta/launch-vm-from-web-gui/#firewalls-and-security-groups),
+    [security groups](../../cloud/pouta/launch-vm-from-web-gui.md#firewalls-and-security-groups),
     pay special attention to open only the necessary port(s) to the necessary
     IP(s).
 
@@ -24,5 +24,5 @@ outside Rahti using the HTTP(s) protocol in ports 80 and 443.
 
 One way to connect to Rahti from CSC supercomputers is to establish a TCP
 tunnel over an HTTP-compatible WebSocket connection. See
-[Accessing databases on Rahti from CSC supercomputers](../../cloud/tutorials/connect-database-hpc.md)
+[Accessing databases on Rahti from CSC supercomputers](../../cloud/rahti/tutorials/connect-database-hpc.md)
 for more details about this workaround.

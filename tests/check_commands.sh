@@ -1,5 +1,7 @@
+#!/usr/bin/env bash
+
 is_valid_slurm_option(){
-   
+
     res=$(grep -- "$1" tests/slurm_options.txt)
     if [[ -z $res ]];then
         return 1

@@ -15,7 +15,7 @@ images are not suitable. In this case, it is possible to create your
 own images and use them instead. However, there are some caveats 
 to consider when creating your own images that you would not
 need to consider when using the default images. For more information,,
-see [Advanced images](../adding-images)
+see [Advanced images](adding-images.md)
 
 ## The main features of the images provided by CSC
 
@@ -71,7 +71,7 @@ Ubuntu images, and their default username is `ubuntu` instead of `cloud-user`.
 
 ## Snowflake images
 These images you should probably not use without a really good
-reason. You might be better off [creating your own image](../adding-images)
+reason. You might be better off [creating your own image](adding-images.md)
 
 If there any images that you think we should add, do not hesitate to contact
 [Service Desk](mailto:servicedesk@csc.fi).

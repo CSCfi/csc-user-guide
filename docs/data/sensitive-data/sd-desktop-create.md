@@ -1,6 +1,6 @@
 # Create virtual desktops
 
-<iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/c8qShhJ64nQ" title="Create a virtual desktop in SD Desktop" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/wb4TwsqNCRE" title="Create a virtual desktop in SD Desktop" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 <iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/KgdGueesSe4" title="Luo virtuaalinen työpöytä SD Desktop -palvelussa" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
@@ -10,7 +10,7 @@ With the SD Desktop service, you can create virtual computers for analysing sens
 
 ### 1. Log in to SD Desktop
 
-* [Log in](./sd-desktop-login.md) to SD Desktop service.
+* Log in to SD Desktop.
 * Click **Go to SD Desktop Management**.
 
 ![Go to SD Desktop Management.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-Desktop_GoToManagement.png)
@@ -30,12 +30,13 @@ With the SD Desktop service, you can create virtual computers for analysing sens
 |-|-|-|-|-|
 |  **Small computation** | Ideal for analyzing sensitive data using office software (for example: similar to simple statistical analysis with Excel, watching videos, listening to audio files, and working on text files). You can compare this desktop to your laptop. | Core 6; Memory 15 GB; Root disk 80 GB; | standard.xlarge | 5.2 billing units/h|
 |  **Medium computation**  | Ideal for running complex statistical or genome analysis (for example: using the command line to run specific scripts). You can compare this desktop to a powerful laptop provided by your organization's IT unit. | Core 8; Memory 30 GB; Root disk 80 GB | standard.xxlarge | 10.4 billing units/h |
-| **Heavy computation**| Ideal for running non-interactive programmatic analysis (machine learning) that requires heavy computation. Please do not choose this option for simple analysis, as it consumes considerable resources. | Core 32; Memory 116 GB; Root disk 80 GB  | hpc.5.32core | 52 billing units/h |
+| **Heavy computation**| Ideal for running non-interactive programmatic analysis (machine learning) that requires heavy computation. Please do not choose this option for simple analysis, as it consumes considerable resources. | Core 28; Memory 176 GB; Root disk 80 GB  | hpc.6.28 core | 65 billing units/h |
 | **Small GPU computation**| This option is available only upon request. Please contact servicedesk@csc.fi (subject 'SD Desktop') before creation to confirm availability and receive further details |  |  |  |
 | **Big Picture project**| This option is available only upon request. Please contact servicedesk@csc.fi  (subject 'SD Desktop') before creation to confirm availability and receive further details |  |  |  |
 
 !!! note
     All virtual GPU desktops created **without prior approval** will be deleted to ensure optimal use of limited resources. Please contact servicedesk@csc.fi (subject "Sensitive Data") for more information and planning. The medium GPU computation option has been deprecated in October 2024. 
+
 
 ### 3. Add an external volume (virtual external hard drive)
 
@@ -45,7 +46,7 @@ Add an external  volume to your virtual desktop, extending default storage (80 G
 
 2. Name your volume. Note, that the volume name should not include special characters or spaces.
 
-* It’s recommended to save critical analyses or files on the volume, which can also act as a backup if the virtual desktop becomes unresponsive. Please note that after the virtual desktop is set up, the volume can only be extended with addittional storage if no data or files have been saved on it. To request an extension, contact [CSC Service Desk](../../support/contact.md), *(subject: SD Desktop)*.
+* It’s recommended to save critical analyses or files on the volume, which can also act as a backup if the virtual desktop becomes unresponsive. Please note that after the virtual desktop is set up, the volume can only be extended with additional storage if no data or files have been saved on it. To request an extension, contact [CSC Service Desk](../../support/contact.md), *(subject: SD Desktop)*.
 
 * **You can detach and attach a volume from your virtual desktop** on the SD Desktop Management page. This can be compared to connecting/disconnecting a hard drive to your laptop. This feature is available only on desktops created after February 2023. For additional details, refer to: [Managing volume and desktops](./sd-desktop-manage.md).
 
@@ -73,4 +74,16 @@ Finally, click *Create desktop*. The operation is entirely automated and can tak
 
 !!! info "Need assistance?"
     If you're uncertain about which desktop to choose or need support for your research, contact [CSC Service Desk](../../support/contact.md) with the subject "Sensitive data".
+
+
+## Your next steps in this guide
+
+* [Managing volumes and virtual desktops](./sd-desktop-manage.md)
+* [Accessing virtual desktop](./sd-desktop-access-vm.md)
+* [Working with your desktop: tips and essentials](./sd-desktop-working.md)
+* [Customisation - software & tools](./sd-desktop-software.md)
+* [Importing data ](./sd-desktop-access.md)
+* [Exporting data  via user interface](./sd-desktop-export.md)
+* [Export data programmatically](./sd-desktop-export-commandline.md)
+* [Troubleshooting](./sd-desktop-troubleshooting.md)
 

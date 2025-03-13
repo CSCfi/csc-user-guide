@@ -19,6 +19,7 @@
 * [CD-hit](cd-hit.md) Sequence clustering and redundancy removal tool
 * [Chipster](https://chipster.csc.fi/) Easy-to-use analysis platform for RNA-seq, single cell RNA-seq and other NGS data
 * [Chipster_genomes](chipster_genomes.md) Tool to download aligner indexes used by Chipster to Puhti
+* [CryoSPARC](cryosparc.md) Tool to analyse Cryo-EM data on Puhti/Mahti
 * [Cutadapt](cutadapt.md) Trimming high-throughput sequencing reads
 * [Diamond](diamond.md ) Sequence similarity search tool for proteins and nucloeotides
 * [Discovery Studio](discovery-studio.md) Protein modeling environment
@@ -63,7 +64,8 @@
 * [STAR](star.md) Short read aligner
 * [Structure](structure.md) Inference of population structure in genetics
 * [Tophat](tophat.md) Splice junction mapper for RNA-Seq reads
-* [Trinity](trinity.md) Traskriptome assembly tool
+* [Trimmomatic](trimmomatic.md) Trim Illumina paired-end and single-read data
+* [Trinity](trinity.md) Transcriptome assembly tool
 * [Velvet](velvet.md) Genome assembler
 * [VirusDetect](virusdetect.md) Virus identification with sRNA data
 * [VMD](vmd.md) Molecular visualization program

@@ -21,7 +21,7 @@ Free to use and open source under [GNU AGPLv3](https://www.gnu.org/licenses/agpl
 
 ## Available
 
-* Puhti: 2.0.15, 2.1.6
+* Puhti: 2.0.15, 2.1.6, 2.1.10
 
 ## Usage
 

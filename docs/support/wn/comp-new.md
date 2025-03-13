@@ -1,5 +1,30 @@
 # Computing environment
 
+## New Small Partition with High-Performance NVMe Storage on Mahti, 13.2.2025
+
+Mahti has expanded its capabilities with a
+[new small partition](../../computing/running/batch-job-partitions.md#mahti-cpu-partitions-with-core-based-allocation)
+featuring 56 compute nodes (7168 cores), each equipped with 3500 GiB
+of local NVMe storage. This partition introduces flexible CPU
+core-based allocation, allowing users to reserve individual cores
+rather than entire nodes. Additionally, the interactive partition has
+been enhanced with 4 nodes that include the same high-capacity local
+storage.
+
+This new configuration is optimized for batch processing of small
+CPU-intensive workloads that require fast local storage access. The
+combination of core-based allocation and high-performance NVMe drives
+makes this partition particularly suitable for data-intensive
+tasks. Current Puhti users working with I/O-bound workflows may find
+this new resource especially valuable for their computations.
+
+## Puhti and Mahti web interfaces updated to release 24 and 10, 30.1.2025
+
+* VSCode has been updated to 1.96.4.
+* The accessibility statement contact info has been updated.
+* MLflow now works with when using NVME again.
+* Open OnDemand updated to version 3.1.10.
+
 ## Puhti and Mahti web interfaces updated to release 23 and 9, 23.10.2024
 
 * MLflow, Tensorboard, and the Desktop app now work with newer Apptainer.
@@ -9,6 +34,7 @@
 * Open OnDemand updated to version 3.1.9.
 
 ## Puhti and Mahti web interfaces updated to release 22 and 8, 28.8.2024
+
 * The Jupyter app launch form has been improved.
     * Module version for Python modules can now be selected using a dropdown.
     * The UI for extending the Python environment with additional packages has been simplified.
@@ -18,6 +44,7 @@
 * Open OnDemand updated to version 3.1.7.
 
 ## Puhti and Mahti web interfaces updated to release 21 and 7, 13.6.2024
+
 * VSCode updated to 1.89.1.
 * Jupyter app should work better with virtual environments created outside the web interface.
 * Puhti: RStudio now has R version 4.4.0 available.
@@ -25,8 +52,8 @@
 * Open OnDemand updated to version 3.1.5.
 
 ## Puhti and Mahti web interfaces updated to release 20 and 6, 27.5.2024
-* The Cloud storage configuration app can now configure connections to LUMI-O.
 
+* The Cloud storage configuration app can now configure connections to LUMI-O.
 
 ## Puhti and Mahti web interfaces updated to release 19 and 5, 10.4.2024
 
@@ -36,7 +63,6 @@
 * Downloading directories now works correctly again.
 * Accessibility statement has been updated and some accessibility issues have been fixed.
 * Open OnDemand updated to version 3.1.4
-
 
 ## Puhti web interface updated to release 18, 5.3.2024
 
@@ -59,7 +85,6 @@
 * TensorBoard and MLflow can now use the default module versions.
 * Open OnDemand updated to version 3.1.1.
 
-
 ## Mahti has small GPUs available for interactive work, 5.3.2024
 
 Four (4) A100 GPUs on Mahti have been split into a total of 28 smaller GPUs with a fraction of the 
@@ -68,7 +93,6 @@ the compute power of one A100 GPU and in total 5 GB of memory. These are useful 
 courses and for code development, and are also available via the
 [web interface](../../computing/webinterface/index.md#partitions-and-resources).
 [See more details here](../../computing/running/creating-job-scripts-mahti.md#gpu-batch-jobs).
-
 
 ## Mahti web interface updated to release 4, 27.2.2024
 
@@ -202,7 +226,7 @@ remains before access is removed.
 
 * User authentication is now happening through OpenID Connect, which means that users
   can authenticate via Haka or CSC login. This enables Single Sign-on (SSO) between,
-  e.g., the web interface and My CSC.
+  e.g., the web interface and MyCSC.
 * A new welcome page has been added instead of the old login page.
 * The Puhti usage metrics are now visualized in a new manner.
 * Open onDemand version updated to 2.0.29.
@@ -280,7 +304,7 @@ for a detailed list of all nodes.
 Puhti's parallel file system is filling up and hence degrading performance. We will start
 to enforce a policy to remove old files. To help managing files without causing
 excessive load on the system, we've updated our [tutorial on how to move, delete or archive
-your data](../../tutorials/clean-up-data/).
+your data](../tutorials/clean-up-data.md).
 
 ## Puhti web interface beta updated to release 8 25.5.2022
 

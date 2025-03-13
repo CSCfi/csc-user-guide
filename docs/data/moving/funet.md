@@ -69,27 +69,24 @@ wget "https://filesender.funet.fi/download.php?token=4da0-b98e-3290c6471469&file
 ## Using FileSender from the command-line
 
 FileSender can also be used from the command-line using a Python 3 utility
-script. These instructions have been adapted from the
-[AARNet Knowledge Base](https://support.aarnet.edu.au/hc/en-us/articles/5276533711887-Use-FileSender-from-the-command-line).
+script.
 
 Assuming you are on a Linux server (e.g. Puhti or Mahti):
 
 1. Download the `filesender.py` Python tool:
 
     ```bash
-    wget "https://filesender.aarnet.edu.au/clidownload.php" -O filesender.py
+    wget https://raw.githubusercontent.com/filesender/filesender/refs/heads/development/scripts/client/filesender.py
     ```
 
-2. Create a new folder `~/.filesender` in your home directory and download a
-   client configuration file there:
+2. Create a new folder `~/.filesender` in your home directory:
 
     ```bash
     mkdir -p ~/.filesender
-    wget "https://filesender.aarnet.edu.au/clidownload.php?config=1" -O ~/.filesender/filesender.py.ini
     ```
 
-3. Edit the `~/.filesender/filesender.py.ini` files as follows (decrease the
-   preservation time if needed):
+3. Create a `~/.filesender/filesender.py.ini` client configuration file as
+   follows (decrease the preservation time if needed):
 
     ```ini
     [system]
@@ -111,5 +108,5 @@ Assuming you are on a Linux server (e.g. Puhti or Mahti):
    `recipient@example.com`) with:
 
     ```bash
-    python3 filesender.py -r recipient@example.com data.tar.gz
+    python3 filesender.py -r recipient@example.com ./data.tar.gz
     ```

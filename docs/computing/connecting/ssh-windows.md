@@ -58,7 +58,7 @@ ssh-keygen -o -a 100 -t ed25519
 ### Copying public key to supercomputer (PowerShell)
 
 The recommended way to copy a public key to a supercomputer is
-[through the My CSC customer portal](ssh-keys.md#adding-public-key-in-my-csc).
+[through the MyCSC customer portal](ssh-keys.md#adding-public-key-in-mycsc).
 Alternatively, you can do it using PowerShell by running the following
 command:
 
@@ -115,7 +115,7 @@ generator](https://www.puttygen.com/). The PuTTY documentation provides
 ### Copying public key to supercomputer (PuTTY)
 
 The recommended way to copy a public key to a supercomputer is
-[through the My CSC customer portal](ssh-keys.md#adding-public-key-in-my-csc).
+[through the MyCSC customer portal](ssh-keys.md#adding-public-key-in-mycsc).
 Alternatively, you can do it using PuTTY by following the instructions below.
 
 1. Do one of the following:
@@ -188,7 +188,7 @@ set a persistent home directory for MobaXterm in the program settings
 ### Copying public key to supercomputer (MobaXterm)
 
 The recommended way to copy a public key to a supercomputer is
-[through the My CSC customer portal](ssh-keys.md#adding-public-key-in-my-csc).
+[through the MyCSC customer portal](ssh-keys.md#adding-public-key-in-mycsc).
 Alternatively, you can do it in MobaXterm using the `ssh-copy-id`
 utility:
 

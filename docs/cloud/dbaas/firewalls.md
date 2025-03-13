@@ -51,7 +51,7 @@ Rahti is using a `86.50.229.150/32` as a shared outgoing IP address. Note that i
 Rahti with the shared outgoing IP-address all other Rahti customers can access to your database
 which makes it even more important to use a strong username and password for your database.
 
-More information can be found in [Rahti security guide](../rahti2/security-guide.md)
+More information can be found in [Rahti security guide](../rahti/security-guide.md)
 
 
 

@@ -1,14 +1,11 @@
 # Uploading and encrypting data
 
-
 <iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/SMnEkcS_HJw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-
-
-Your data is automatically encrypted when you upload data to SD Connect. This is suitable for all file types and formats, but it is supported only for files up to 100 GB and folders smaller than 1 TB. Largers files or folders can be and uploaded [programmatically](./sd-connect-command-line-interface.md). 
+Your data is automatically encrypted when you upload data to SD Connect. This is suitable for all file types and formats, but it is supported only for files up to 100 GB and folders smaller than 1 TB. Largers files or folders can be and uploaded [programmatically](./sd-connect-command-line-interface.md).
 
 !!! Note
-    Automated key management, encryption, and decryption are not yet available for programmatic data uploads and downloads.
+    If this is your first time using the service, a pop-up may appear in your browser asking you to accept cookies. Please click Accept to enable uploading files and folders.
 
 ## Upload and encrypt files to a new folder
 
@@ -38,19 +35,16 @@ Your data is automatically encrypted when you upload data to SD Connect. This is
 !!! Note "Additional considerations"
 
     - Large files (> 100 GB) may take hours to upload, and uploads stop after 8 hours.
-    - The user interface might be slower when there are more than 2500 files for each folder. In this case please user the terminal.
+    - The user interface might be slower when there are more than 2500 files for each folder. In this case please user the [command-line tools for upload and automated key management](./sd-connect-command-line-interface.md). 
     - Files can't be edited in SD Connect; download them for editing or  access them via SD Desktop. 
     - Uploading files into subfolders is currently not supported.
     - SD Connect displays your encrypted files as virtual folders. Plan your folder structure carefully—organize files by projects, themes, or logical structures to improve accessibility and workflow. This also helps when sharing access with others. For assistance, contact CSC Service Desk (subject: Sensitive data).
-
-
 
 ## Features in SD Connect
 
 * [Upload](./sd-connect-upload.md)
 * [Share](./sd-connect-share.md)
 * [Download](./sd-connect-download.md)
-* [Download files uploaded with previous version](./sd-connect-download-old-version.md)
 * [Delete](./sd-connect-delete.md)
 * [Command line interface](./sd-connect-command-line-interface.md)
 * [Troubleshooting](./sd-connect-troubleshooting.md)

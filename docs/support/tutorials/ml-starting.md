@@ -38,7 +38,7 @@ getting access to Finland's most powerful GPU resource for researchers!
 ## Step 1: Get a CSC user account
 
 First of all, you need to get a CSC user account, if you don't have one already.
-If you work or study at a Finnish university just **go to the My CSC portal at
+If you work or study at a Finnish university just **go to the MyCSC portal at
 [my.csc.fi](https://my.csc.fi) and click "Get Started"**. Select Haka-Login and
 your university from the pull-down menu. After that you should be able to log in
 with your normal university credentials. Fill in your information on the *Sign
@@ -56,7 +56,7 @@ mechanism for that.
 If you are part of a research group, **ask your professor or group leader if you
 already have a CSC project that you can join**. If that is the case the manager
 of the project (most likely the professor) can add you to the project via the
-[My CSC portal](https://my.csc.fi). Check our more [detailed documentation on
+[MyCSC portal](https://my.csc.fi). Check our more [detailed documentation on
 how to add a new user to a
 project](../../accounts/how-to-add-members-to-project.md)
 
@@ -205,11 +205,11 @@ If you find a module that has most of what you need, but a few packages are
 missing, you can easily install them yourself (to your home directory) with the
 `pip install --user` command. See our [Python documentation for more information
 on how to install packages
-yourself](../../apps/python.md#installing-python-packages-to-existing-modules).
+yourself](./python-usage-guide.md#installing-python-packages-to-existing-modules).
 
 If you have more complex software needs which are not easily covered by our
 existing modules, it is always possible to [create your own Python
-environments](../../apps/python.md#creating-your-own-python-environments). If
+environments](./python-usage-guide.md#creating-your-own-python-environments). If
 you are unsure what to do, you can always [contact our service
 desk](../contact.md).
 

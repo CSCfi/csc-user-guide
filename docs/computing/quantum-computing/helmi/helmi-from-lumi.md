@@ -4,11 +4,11 @@ This page goes through the steps required for setting up an account on LUMI for 
 
 ## Access to Helmi through LUMI
 
-You first need to create a Helmi project according to the instructions here: [Helmi Projects on LUMI](../helmi-projects/).
+You first need to create a Helmi project according to the instructions here: [Helmi Projects on LUMI](helmi-projects.md).
 
 After creation of a project, the PI can invite additional standard users to the project:
 
-* [How to add members to project](../../../../accounts/how-to-add-members-to-project)
+* [How to add members to project](../../../accounts/how-to-add-members-to-project.md)
 
 The project PI is responsible for ensuring that the [Helmi Terms of Use](https://a3s.fi/FiQCI/Helmi-Terms-of-Use-2022.pdf) are followed.
 
@@ -16,9 +16,9 @@ The project PI is responsible for ensuring that the [Helmi Terms of Use](https:/
 
 Details for connecting to LUMI can be read through the [LUMI Documentation page](https://docs.lumi-supercomputer.eu/firststeps/).
 
-Details for running jobs on Helmi through lumi can found in the [Running on Helmi](../running-on-helmi/) page.
+Details for running jobs on Helmi through lumi can found in the [Running on Helmi](running-on-helmi.md) page.
 
 ## Support channels
 
-The main channel for support for Helmi use through LUMI is the [CSC Service Desk](../../../../support/contact/), reachable at servicedesk@csc.fi. 
+The main channel for support for Helmi use through LUMI is the [CSC Service Desk](../../../support/contact.md), reachable at servicedesk@csc.fi. 
 

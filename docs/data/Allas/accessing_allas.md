@@ -15,7 +15,7 @@ Once you have Allas enabled you can access it from any machine or server that is
 At the moment CSC provides several web browser interfaces for Allas:
 
 The **WWW interfaces of Puhti and Mahti** are connected to Allas. 
-These interfaces allow you transfer files and directories between your local computer and Allas as well as
+These interfaces allow you to transfer files and directories between your local computer and Allas as well as
 between CSC supercomputers and Allas.
 
 * [Instructions for using Allas in Puhti and Mahti web interfaces](../../computing/webinterface/file-browser.md)

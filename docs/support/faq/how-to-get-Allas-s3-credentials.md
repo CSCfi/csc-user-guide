@@ -2,9 +2,9 @@
 
 It is possible to use the openstack API to get Allas S3 credentials (AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY). Each credential pair is linked to a single OpenStack project.
 
-1. Install [OpenStack command line tools](/cloud/pouta/install-client/)
+1. Install [OpenStack command line tools](../../cloud/pouta/install-client.md)
 
-1. Login into OpenStack by following the [Configure your terminal environment for OpenStack](/cloud/pouta/install-client/#configure-your-terminal-environment-for-openstack) article.
+1. Login into OpenStack by following the [Configure your terminal environment for OpenStack](../../cloud/pouta/install-client.md#configure-your-terminal-environment-for-openstack) article.
 
 1. You can either retrieve already created credentials or create new ones
 

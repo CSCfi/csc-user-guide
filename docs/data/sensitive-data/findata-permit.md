@@ -1,6 +1,6 @@
 # How to get access to SD Desktop with a Findata permit
 
-<iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/idK2iI9rTQw" title="SD Desktop toisiokäyttötarkoitukseen — käsittelyluvan myöntäjänä Findata" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/qxYIXDqpTp0" title="SD Desktop toisiokäyttötarkoitukseen — käsittelyluvan myöntäjänä Findata" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 **[Instructions in Finnish (PDF)](https://a3s.fi/docs-files/sensitive-data/PDF_instructions/SD_toisiolaki_Findata.pdf){ target="_blank" }**
 
@@ -16,9 +16,8 @@ You need to access SD Desktop. You have a permit from Findata.
 4. [Contact CSC service desk](#4-contact-csc-service-desk)
 5. CSC adds members to your project, please wait
 6. CSC activates SD Desktop for your project, please wait
-7. [Accept SD Desktop terms of use](#7-accept-sd-desktop-terms-of-use)
-8. [Activate MFA](#8-activate-mfa)
-9. [CSC project is ready](#9-your-csc-project-is-ready)
+7. [Activate MFA](#7-activate-mfa)
+8. [CSC project is ready](#8-your-csc-project-is-ready)
 
 ### 1. Create a CSC account
 
@@ -26,6 +25,8 @@ You need to access SD Desktop. You have a permit from Findata.
     Team manager
 !!! info-label
     Team member
+
+**[Watch video](https://www.youtube.com/watch?v=qxYIXDqpTp0&t=46s){ target="_blank" }**
 
 - **Go to [MyCSC portal](https://my.csc.fi){ target="_blank" }**
 - Log in with Haka. Select your home organization and log in to their identity service. [How to get an account without Haka](../../accounts/how-to-create-new-user-account.md#getting-an-account-without-haka-or-virtu).
@@ -38,6 +39,8 @@ You need to access SD Desktop. You have a permit from Findata.
 
 !!! warning-label
     Team manager
+
+**[Watch video](https://www.youtube.com/watch?v=qxYIXDqpTp0&t=119s){ target="_blank" }**
 
 - Go to ”Projects” page (left side menu or a hamburger menu at the top right corner).
 - On the top of the page choose **”New project”**.
@@ -54,6 +57,8 @@ You need to access SD Desktop. You have a permit from Findata.
 !!! warning-label
     Team manager
 
+**[Watch video](https://www.youtube.com/watch?v=qxYIXDqpTp0&t=185s){ target="_blank" }**
+
 - Since your project handles personal data, you need to fill the GDPR document i.e. *Description of processing activity* -form.
 - The document appears when you create a new project. You can edit this document later.
 - Your home organization is the **data controller**. [Read more about the roles and GDPR](../../support/faq/sensitive-data-legal.md#what-are-the-roles-of-csc-and-its-service-users-under-gdpr).
@@ -64,6 +69,8 @@ You need to access SD Desktop. You have a permit from Findata.
 
 !!! warning-label
     Team manager
+
+**[Watch video](https://www.youtube.com/watch?v=qxYIXDqpTp0&t=221s){ target="_blank" }**
 
 - Send email to **sensitivedata-support@csc.fi**, subject: *Sensitive Data, Secondary use*.
 - Write your project number to the email (e.g. *project_1234567*).
@@ -81,26 +88,15 @@ You need to access SD Desktop. You have a permit from Findata.
     - Please wait that Sensitive Data Support -team activates SD Desktop -service for your project.
     - You will receive an email notification, when everything is ready.
 
-### 7. Accept SD Desktop terms of use
+
+### 7. Activate MFA
 
 !!! warning-label
     Team manager
 !!! info-label
     Team member
 
-- If you haven't accepted the terms of use before, please go to MyCSC and navigate to the project view.
-- Please note that every team member must accept the SD Desktop terms of use.
-- Click **Accepts terms** in **Project notifications** window in top right corner.
-- Read and accept terms of use.
-
-![Terms of use notification.](https://a3s.fi/docs-files/sensitive-data/MyCSC/MyCSC_TermsOfUse1.png)
-
-### 8. Activate MFA
-
-!!! warning-label
-    Team manager
-!!! info-label
-    Team member
+**[Watch video](https://www.youtube.com/watch?v=qxYIXDqpTp0&t=359s){ target="_blank" }**
 
 - You need to activate MFA (multi-factor authentication) to be able to log in to the Sensitive Data services. [More about multi-factor authentication](../../accounts/mfa.md). *If your multi-factor authentication is already enabled, you can move to step 9.*
 - Before activating MFA you need to have some authentication application on your mobile phone, for example Google Authenticator or Microsoft Authenticator.
@@ -111,7 +107,7 @@ You need to access SD Desktop. You have a permit from Findata.
 
 ![Multi-Factor Authentication.](https://a3s.fi/docs-files/sensitive-data/MyCSC/MyCSC_MFA.png)
 
-### 9. Your CSC project is ready!
+### 8. Your CSC project is ready!
 
 !!! warning-label
     Team manager

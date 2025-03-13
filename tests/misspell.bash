@@ -4,14 +4,14 @@
 ##
 # parameters:
 # -error makes it exit code 2 on errors - travis build failure
-# * is better than . because . includes the ".git" directory 
+# * is better than . because . includes the ".git" directory
 #   and stops this from spellchecking git commit messages..
 # -locale - the default is a neutral English (so not UK or US)
 ##
-# -w there's also a -w argument to misspell, it fixes the errors instead of just 
+# -w there's also a -w argument to misspell, it fixes the errors instead of just
 #   outputting them
-find . -type f -name '*.yml' -o -name '*.md'|xargs misspell -error
-if [ "$?" == 0 ]; then
+if find . -type f \( -name '*.yml' -o -name '*.md' \) -print0 | xargs -0 misspell -error;
+then
   echo "No commonly misspelled English words found"
   exit 0
 else

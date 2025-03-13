@@ -45,7 +45,7 @@ cleaned up afterwards. For data intensive jobs it is often worthwhile
 to copy the data to the NVMe at the start of the job and then to store
 the final results on the scratch drive at the end of the job. [See
 below for more information on how to use the fast local NVMe
-drive](#fast-local-drive).
+drive](#fast-local-drive-puhti-and-mahti-only).
 
 
 ## Using the shared file system efficiently

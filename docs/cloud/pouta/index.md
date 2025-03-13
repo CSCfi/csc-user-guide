@@ -61,7 +61,7 @@ Other useful links are:
 * [Command line client tools](command-line-tools.md)
     * [Installing command line tools](install-client.md)
 * [Virtual machine lifecycle and saving billing units](vm-lifecycle.md)
-* [Orchestration with Heat](heat-orchestration.md)
+* [Orchestration with Heat](tutorials/heat-orchestration.md)
 * [Application development practises in Pouta](application-dev.md)
 * [Creating and uploading virtual machine images](adding-images.md)
 * [Additional services in Pouta (email, DNS)](additional-services.md)
@@ -75,6 +75,6 @@ Other useful links are:
 
 ## Self study and troubleshooting
 
-* [Pouta videos](pouta-videos.md)
-* [Known problems and limitations](known-problems.md)
+* [Pouta videos](tutorials/pouta-videos.md)
+* [Known problems and limitations](./known-problems.md)
 * [Pouta FAQ](../../support/faq/index.md#pouta)

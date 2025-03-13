@@ -28,9 +28,8 @@
   --csc-border-radius: 4px;
   --csc-border: 1px solid var(--c-tertiary-200);
 
-  --csc-box-shadow--header: 2px 4px 10px #00000029;
+  --csc-box-shadow--header: 0px 8px 8px -2px #00000029;
   --csc-box-shadow--quicklinks: 2px 4px 10px #00000029;
-  --csc-box-shadow--dropdown: 0px 4px 4px 0px #00000040;
 
   --csc-font-weight--regular: 500;
   --csc-font-weight--bold: 700;

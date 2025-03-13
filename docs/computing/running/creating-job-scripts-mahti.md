@@ -5,14 +5,12 @@ for the general introduction to batch scripts in the CSC supercomputing
 environment. On this page we focus on Mahti-specific topics.
 
 !!! Note
-    Full nodes are allocated for jobs, with the exception of
-    [interactive jobs](interactive-usage.md#sinteractive-on-mahti),
+    Full nodes are allocated for jobs, with the exception of jobs in `small`,
+    [`interactive`](interactive-usage.md#sinteractive-on-mahti) and GPU partitions,
     [see also below](#using-interactive-partition-for-non-parallel-pre-or-post-processing).
     Many options also work differently on Mahti compared to Puhti, so it is not
     advisable to copy scripts from Puhti to Mahti without appropriate
     modifications.
-
-    Note also that only Mahti GPU nodes have NVMe disk on compute nodes.
 
 [TOC]
 
@@ -67,10 +65,21 @@ When this option is used, it is important to use the `--ntasks-per-node=X` and
 actual physical cores unallocated and performance will be suboptimal.
 [Example batch job script for SMT](example-job-scripts-mahti.md#mpi-openmp-with-simultaneous-multithreading).
 
+## Local storage
+
+Mahti nodes in `interactive`, `small` and GPU partitions also have fast local storage, which is good for I/O-intensive applications.
+Request local storage using the `--gres` flag in the job submission:
+
+```bash
+#SBATCH --gres=nvme:<local_storage_space_per_node>
+```
+
+The amount of space is given in GB (with a maximum of 3800 GB per node). For example, to request 100 GB of storage, use option `--gres=nvme:100`. The local storage reservation is on a per node basis. Use the environment variable `$LOCAL_SCRATCH` in your batch job scripts to access the local storage on each node.
+
 ## GPU batch jobs
 
 Mahti has 24 GPU nodes and each of them has four Nvidia Ampere A100 GPUs and a local 3.8 TB Nvme drive.
-The GPUs are available on the `gputest` ,`gpusmall` and `gpumedium` partitions using the option:
+The GPUs are available on the `gputest`, `gpusmall` and `gpumedium` partitions using the option:
 
 ```bash
 #SBATCH --gres=gpu:a100:<number_of_gpus_per_node>
@@ -106,15 +115,6 @@ The `gpumedium` is the only gpu partition where more than one compute node is av
 
 The `gputest` partition is for short test runs. Maximum for the `--time` flag is 15 minutes and one job per account can be run in a RUNNING state.
 Maximum for the  `--nodes` flag is one but all four GPUs on a node can be allocated for a test job.
-
-In Mahti fast local storage is only available on GPU nodes and it is good for IO intensive applications.
-Request local storage using the `--gres` flag in the job submission:
-
-```bash
-#SBATCH --gres=nvme:<local_storage_space_per_node>
-```
-
-The amount of space is given in GB (with a maximum of 3800 GB per node). For example, to request 100 GB of storage, use option `--gres=nvme:100`. The local storage reservation is on a per node basis. Use the environment variable `$LOCAL_SCRATCH` in your batch job scripts to access the local storage on each node.
 
 Multiple resources can be requested with a comma-separated list.
 Request both GPU and local storage:
@@ -201,7 +201,7 @@ For example, say that we would like to post-process the _output_ file, produced 
 `python post-proc.py output` uses only serial computing and requires about 40 minutes and 3 GB of memory. Instead of including the post-processing
 to the main job it is reasonable to execute it as separate job in the interactive partition.
 
-Jobs in interactive partition can reserve 1-8 cores and each core reserves 1.875 GB of memory. Thus in this case we will reserve 2 cores `--cpus-per-task=2` to have enough memory (3,75 GB) available.  Further, `--dependency=afterok:<slurm-jobid>`  defines that the job can start only when the previously sent job has successfully finished. Here the `<slurm-jobid>` is replaced with ID number of the batch job that produces the _output_ file (you'll get the ID number when you submit the job).
+Jobs in interactive partition can reserve 1-8 cores and each core reserves 1.875 GB of memory. Thus in this case we will reserve 2 cores `--cpus-per-task=2` to have enough memory (3.75 GB) available.  Further, `--dependency=afterok:<slurm-jobid>` defines that the job can start only when the previously sent job has successfully finished. Here the `<slurm-jobid>` is replaced with ID number of the batch job that produces the _output_ file (you'll get the ID number when you submit the job).
 
 ```bash
 #!/bin/bash
