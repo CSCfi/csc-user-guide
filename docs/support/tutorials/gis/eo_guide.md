@@ -114,7 +114,7 @@ Some Finnish EO datasets are available locally at CSC. [Paituli STAC](https://pa
 
 ### EO data download services  
 
-**SYKE/FMI, Finnish image mosaics: Sentinel-1, Sentinel-2 and Landsat mosaics, also index mosaics. For several time periods per year. These are included in [Paituli STAC](https://paituli.csc.fi/stac.html)
+**SYKE/FMI, Finnish image mosaics**: Sentinel-1, Sentinel-2 and Landsat mosaics, also index mosaics. For several time periods per year. These are included in [Paituli STAC](https://paituli.csc.fi/stac.html)
 
 [**ESA Copernicus Data Space Ecosystem**](https://dataspace.copernicus.eu/) provides worldwide main Sentinel products, see below for more information.
 
