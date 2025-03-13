@@ -13,6 +13,7 @@ You can find a non-comprehensive list of different graphical interfaces for usin
 MariaDB Connectors are used for creating database connections from applications,
 and are available for many popular programming languages. You can find more information
 regarding their usage and configuration in MariaDB's documentation:
+
   * https://mariadb.com/docs/server/connect/
   * https://mariadb.com/kb/en/connectors/
 
