@@ -25,7 +25,7 @@ Below, you can find more information about necessary legal agreements and data a
 
 ## Step 2: General information of the submission
 
-Submission to the Finnish Federated EGA service starts with contacting the Finnish FEGA helpdesk and providing the general information of the submission. Preferably, this information is first sent to the organizational DAC, which then can send the information to FEGA helpdesk with their confirmation of the submission.
+Submission to the Finnish Federated EGA service starts with contacting the Finnish FEGA helpdesk and providing the general information of the submission. Preferably, this information is first shared with the organizational DAC, which then can send the information to FEGA helpdesk with their approval of the submission.
 
 To begin the submission process, please fill in the [general information form](https://a3s.fi/docs-files/sensitive-data/PDF_instructions/fega-general-information.pdf) with contact information, details about the data submission type and information about the data controller, or provide the same information in an email message. Send submission request to your organization's DAC and they can deliver the required information via email to [CSC Service Desk](../../support/contact.md) (subject: Federated EGA).
 
