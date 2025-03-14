@@ -1,0 +1,26 @@
+FROM rockylinux:8
+
+RUN dnf -y install epel-release \
+                   python3.11 \
+                   python3.11-pip \
+                   git \
+                   findutils &&\
+    dnf clean all
+
+WORKDIR /dev_dir
+COPY ./development/packages.txt ./packages.txt
+COPY ./requirements.txt ./requirements.txt
+
+RUN pip3 install \
+      --root-user-action=ignore \
+      --requirement=requirements.txt \
+      --use-pep517 \
+      --no-cache-dir
+
+WORKDIR /csc-user-guide
+
+COPY --chmod=500 ./development/entrypoint.bash /entrypoint.bash
+
+EXPOSE 8000
+
+ENTRYPOINT ["/entrypoint.bash"]
