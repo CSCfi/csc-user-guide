@@ -60,7 +60,7 @@ Today, it is possible to put data produced in previous research into more divers
 
 When using data produced by others, their terms of use must be taken into consideration. The terms of use are usually defined in a license, such as an open [Creative Commons](https://creativecommons.org/licenses/) license. Data can be completely open for use or its use may be subject to certain restrictions, which are normally due to the sensitivity of information, business secrets, or agreements signed by researchers. As a general rule, you can use data in accordance with its terms of use.
 
-The terms of use for a dataset are always determined by the person producing it or a person to whom the producer has transferred the rights to that dataset ([Copyright Act 404/1961](http://www.finlex.fi/en/laki/kaannokset/1961/en19610404.pdf)). If necessary, you can contact the owner of the data in order to clarify any uncertainty regarding its use.
+The terms of use for a dataset are always determined by the person producing it or a person to whom the producer has transferred the rights to that dataset ([Copyright Act 404/1961](https://www.finlex.fi/en/legislation/translations/1961/eng/404)). If necessary, you can contact the owner of the data in order to clarify any uncertainty regarding its use.
 
 ### How to license your own data?
 

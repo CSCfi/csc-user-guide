@@ -131,7 +131,7 @@ gradients and optimizer states are not stored completely in each GPU,
 but are split up (sharded) between all GPUs and only gathered together
 as needed in the current stage of the training.
 
-Perhaps to easiest way to take FSDP into use for large language models
+Perhaps the easiest way to take FSDP into use for large language models
 is to use Hugging Face's Accelerate framework. No changes are needed
 to the PyTorch script, one only needs to change to the `accelerate`
 launcher. [Our GitHub repository][2] has example scripts for launching
@@ -206,6 +206,23 @@ model = AutoModelForCausalLM.from_pretrained(
 
 In our example script this can be tried with the `--4bit`
 argument. This will decrease even further the memory requirements.
+
+## Retrieval-augmented generation (RAG)
+
+[Retrieval-augmented generation (RAG)][RAG] is a way of using a
+pre-trained large language model together with the user's own dataset
+without needing any computationally expensive fine-tuning or
+retraining of the model.  In brief, this works by performing a search
+on the dataset and using the top results as additional context for the
+language model.
+
+In RAG the search is a critical part of the system, as a failed search
+will give the LLM the wrong context, which easily causes the LLM to
+generate irrelevant information. For efficient search one can utilize
+embedding models and fast vector search methods. See our [RAG-60K
+repository][RAG-60K] for an example of how to utilize supercomputers
+to prepare a Faiss vector store using state-of-the-art embedding
+models.
 
 ## Inference
 
@@ -288,4 +305,6 @@ running on multiple nodes using Ray.
 [11]: https://github.com/CSCfi/machine-learning-scripts/blob/master/slurm/run-ollama.sh
 [12]: https://docs.vllm.ai/en/latest/
 [13]: https://docs.vllm.ai/en/latest/getting_started/quickstart.html#offline-batched-inference
-[14]: https://github.com/mvsjober/ai-inference-examples
+[14]: https://github.com/CSCfi/ai-inference-examples
+[RAG]: https://en.wikipedia.org/wiki/Retrieval-augmented_generation
+[RAG-60K]: https://github.com/CSCfi/RAG-60K/tree/main

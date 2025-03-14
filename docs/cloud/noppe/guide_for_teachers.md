@@ -177,6 +177,8 @@ with our cloud hosts. This can be done using "docker buildx".
 docker buildx build --platform linux/amd64 ....
 ```
 
+Note also that with Mac you might need to disable Rosetta.
+
 Another alternative is to build the image on an x64 VM, for example on pouta.csc.fi.
 
 * Test your image. 
@@ -270,7 +272,7 @@ The installed packages are available in all new sessions.
 
 ## Security guidelines for Workspace owners
 
-- Noppe is not intended for sensitive data. Do not store sensitive data or data sets.
+- Noppe is not audited for sensitive data.
 - Share join code only with users you wish to join your workspace.
 - If you are creating custom images for your course, do not store any keys or sensitive data in the image.
 - Delete the workspace as soon as the course is over.

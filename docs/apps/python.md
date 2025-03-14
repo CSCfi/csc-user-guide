@@ -88,6 +88,19 @@ with the command `python3 --version`, and the full path of the command with
 `which python3` (to see if you are using the system Python or one from the
 modules listed above).
 
+!!! info ""
+
+    Note that most of the pre-installed Python environment modules are
+    self-contained and mutually exclusive environments, so it does not
+    make sense to for example load both python-data and pytorch
+    modules. The module loaded last will be the only active one, and
+    the module load command will warn about this, for example:
+
+    ```
+    Lmod is automatically replacing "python-data/3.10-24.04" with "pytorch/2.5".
+    ```
+
+
 ### Custom Python environments
 
 While the pre-installed Python environments suffice for many applications,

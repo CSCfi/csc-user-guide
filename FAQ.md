@@ -26,6 +26,7 @@ The [contributing guide](CONTRIBUTING.md) outlines the basic steps of starting c
   - [How do I tag an application as available under a web interface?](#how-do-i-tag-an-application-as-available-under-a-web-interface)
   - [How do I make footnotes?](#how-do-i-make-footnotes)
   - [How do I improve search results?](#how-do-i-improve-search-results)
+  - [How do I redirect incoming links](#how-do-i-redirect-incoming-links)
 
 
 ## How to include my new page in the navigation panel?
@@ -418,3 +419,7 @@ search:
 ```
 Start with low values.  
 More information [here](https://squidfunk.github.io/mkdocs-material/setup/setting-up-site-search/#usage)
+
+## How do I redirect incoming links
+
+The [STYLEGUIDE.md](STYLEGUIDE.md#redirecting-pages) describes how to add redirection for a URL.
