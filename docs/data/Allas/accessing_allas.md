@@ -14,6 +14,13 @@ Once you have Allas enabled you can access it from any machine or server that is
 
 At the moment CSC provides several web browser interfaces for Allas:
 
+**Allas Web UI** is a web-based interface designed to simplify the management of object storage in Allas. It provides an intuitive way to interact with your data without needing command-line tools.  
+It is an ideal option for users who prefer a visual interface over command-line tools for basic object storage operations.  
+
+* [Allas Web UI Guide](./using_allas/allas-ui.md)  
+* [Access Allas Web UI](https://allas.csc.fi)  
+
+
 The **WWW interfaces of Puhti and Mahti** are connected to Allas. 
 These interfaces allow you to transfer files and directories between your local computer and Allas as well as
 between CSC supercomputers and Allas.
