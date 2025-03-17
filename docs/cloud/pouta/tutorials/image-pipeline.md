@@ -43,11 +43,18 @@ $ s3cmd ls
 ```
 Please note that the list can also be empty, if we haven't created any bucket in our project before.
 
-We create the input and the output buckets for our pipeline using the following commands:
+We now create the input and the output buckets for our pipeline.
+First, we define the names for the buckets as environment variables:
 ```
-$ s3cmd mb s3://input_bucket
+$ export INPUT_BUCKET="input_bucket"
+$ export OUTPUT_BUCKET="output_bucket"
+```
+
+We then use the following commands to actually create the buckets:
+```
+$ s3cmd mb s3://$INPUT_BUCKET
 Bucket 's3://input_bucket/' created
-$ s3cmd mb s3://output_bucket
+$ s3cmd mb s3://$OUTPUT_BUCKET
 Bucket 's3://output_bucket/' created
 ```
 
@@ -55,16 +62,11 @@ Bucket 's3://output_bucket/' created
     Bucket names must be unique.
     If another user has already selected the same name, bucket creation command will fail:
     ```
-    $ s3cmd mb s3://input_bucket
+    $ s3cmd mb s3://$INPUT_BUCKET
     ERROR: Bucket 'input_bucket' already exists
     ERROR: S3 error: 409 (BucketAlreadyExists)
     ```
     In such case, we can just select a different name and retry the command.
-
-In the rest of the tutorial, we assume:
-
-* the name of the bucket used for uploading images to the pipeline is `input_bucket`
-* the name of the bucket used by the pipeline to make available its outputs is `output_bucket`
 
 ## Step 2: creating a database in Pukki
 
@@ -86,12 +88,21 @@ $ openstack datastore list
 +--------------------------------------+------------+
 ```
 
-We now create the database that we will use to log the actions of the pipeline by issuing the following command:
+We now create the database that we will use to log the actions of the pipeline.
+First, we define few environment variables that we will use later on:
 ```
-$ openstack database instance create pipeline_db_instance \
+$ export DB_INSTANCE_NAME="pipeline_db_instance" # name of the database instance in Pukki
+$ export DB_NAME="pipeline_db" # name of the database
+$ export DB_USERNAME="db_admin" # name of the user to be configured in the database
+$ export DB_PASSWORD="xxxxxx" # put here the password for the user to be configured in the database 
+```
+
+We then create the actual database instance issuing the following command:
+```
+$ openstack database instance create $DB_INSTANCE_NAME \
 --flavor standard.small \
---databases pipeline_db \
---users db_admin:db_password \
+--databases $DB_NAME \
+--users $DB_USERNAME:$DB_PASSWORD \
 --datastore postgresql \
 --is-public \
 --size 1
@@ -120,12 +131,6 @@ The output from the command should be similar to the following:
 +--------------------------+--------------------------------------+
 ```
 
-In the rest of the tutorial, we assume that:
-
-* the name of the database instance in Pukki is `pipeline_db_instance`
-* the name of the postgresql database is `pipeline_db`
-* the username for the admin of the postgresql database is `db_admin`
-* the password for the admin of the postgresql database is `db_password`
 
 ## Step 3: creating virtual machine in cPouta
 
@@ -175,26 +180,45 @@ $ openstack flavor show standard.tiny
 ```
 
 First, we create a keypair, which we will use to access the virtual machine once it is up and running.
-To create a new keypair, we run the following command:
+To create a new keypair, we first define its name using an environment variable and then we run the dedicated command:
 ```
-openstack keypair create mykeypair > mykeypair.pem
-```
-
-We check that the command has indeed created a file called `mykeypair.pem` in the current folder of our workstation.
-```
-$ ls mykeypair.pem
-mykeypair.pem
+$ export POUTA_KEYPAIR="mykeypair"
+$ ssh-keygen -t rsa -b 2048 -f $POUTA_KEYPAIR -N ''
 ```
 
-We also restrict the permission of the just-created keypair file by issuing the following command:
+We check that the command has indeed created two files in the current folder of our workstation.
 ```
-$ chmod 600 mykeypair.pem
+$ ls $POUTA_KEYPAIR*
+mykeypair mykeypair.pub
+```
+The first file, without `.pub` extension, corresponds to the private key, while the file ending with `.pub` corresponds to the public key.
+The private key should never leave your workstation, i.e., you should not need to copy it to anywhere else.
+Instead, the public key can be freely copied and distributed to the locations where you would like to access using the just-created keypair.
+To this end, we upload the public key to cPouta by issuing the following command:
+```
+$ openstack keypair create --public-key $POUTA_KEYPAIR.pub $POUTA_KEYPAIR 
+```
+
+The output of the command will be similar to the following:
+```
++-------------+-------------------------------------------------+
+| Field       | Value                                           |
++-------------+-------------------------------------------------+
+| fingerprint | 0e:60:39:df:83:83:fb:18:91:87:67:25:a9:67:27:fd |
+| name        | mykeypair                                       |
+| user_id     | xxxxxxxx                                        |
++-------------+-------------------------------------------------+
 ```
 
 We now create the virtual machine that we will use for our pipeline.
-The command we issue is the following:
+First, we define the name of the virtual machine as an environment variable:
 ```
-$ openstack server create --flavor standard.tiny --image Ubuntu-24.04 --key-name mykeypair pipeline_vm
+$ export POUTA_INSTANCE_NAME="pipeline_vm"
+```
+
+The command we then issue to actually create the virtual machine is the following:
+```
+$ openstack server create --flavor standard.tiny --image Ubuntu-24.04 --key-name $POUTA_KEYPAIR $POUTA_INSTANCE_NAME
 ```
 
 The output from the command should be similar to the following:
@@ -212,7 +236,7 @@ The output from the command should be similar to the following:
 | accessIPv4                  |                                                      |
 | accessIPv6                  |                                                      |
 | addresses                   |                                                      |
-| adminPass                   | gCUbcRtu26Ka                                         |
+| adminPass                   | xxxxxxxxxxxx                                         |
 | config_drive                |                                                      |
 | created                     | 2025-02-04T13:10:43Z                                 |
 | flavor                      | standard.tiny (0143b0d1-4788-4d1f-aa04-4473e4a7c2a6) |
@@ -222,7 +246,7 @@ The output from the command should be similar to the following:
 | key_name                    | mykeypair                                            |
 | name                        | pipeline_vm                                          |
 | progress                    | 0                                                    |
-| project_id                  | abcdef0123456789abcdef0123456789                     |
+| project_id                  | xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx                     |
 | properties                  |                                                      |
 | security_groups             | name='default'                                       |
 | status                      | BUILD                                                |
@@ -232,7 +256,6 @@ The output from the command should be similar to the following:
 +-----------------------------+------------------------------------------------------+
 ```
 
-In the rest of the tutorial we assume that the name of the virtual machine in cPouta is `pipeline_vm`.
 
 ## Step 4: configuring the pipeline
 
@@ -249,15 +272,16 @@ We thus create a new security group with a single rule, which allow access to th
 
 We go back to `terminal_pouta`.
 
-First, we find what is the public ip address used by our workstation by typing the following command:
+First, we find what is the public ip address used by our workstation and we store it in an environment variable by typing the following command:
 ```
-$ MY_IP=$(curl -4 ifconfig.me)
+$ export WORKSTATION_IP=$(curl -4 ifconfig.me)
 
 ```
 
-We create a new security group issuing the following command:
+We create a new security group by first defining its name in an environment variable and then issuing the dedicated command:
 ```
-$ openstack security group create pipeline_security_group
+$ export POUTA_SEC_GROUP_NAME="pipeline_security_group"
+$ openstack security group create $POUTA_SEC_GROUP_NAME
 ```
 
 Output will look like the following:
@@ -268,9 +292,9 @@ Output will look like the following:
 | created_at      | 2025-02-04T13:12:43Z                                                                                                                                                       |
 | description     | pipeline_security_group                                                                                                                                                    |
 | id              | a8630776-db3d-408a-ba8e-8c52b5f2a8c9                                                                                                                                       |
-| location        | cloud='', project.domain_id='default', project.domain_name=, project.id='abcdef0123456789abcdef0123456789', project.name='project_*******', region_name='regionOne', zone= |
+| location        | cloud='', project.domain_id='default', project.domain_name=, project.id='xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx', project.name='project_xxxxxxx', region_name='regionOne', zone= |
 | name            | pipeline_security_group                                                                                                                                                    |
-| project_id      | abcdef0123456789abcdef0123456789                                                                                                                                           |
+| project_id      | xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx                                                                                                                                           |
 | revision_number | 1                                                                                                                                                                          |
 | rules           | created_at='2025-02-04T13:12:44Z', direction='egress', ethertype='IPv6', id='8e0cba6e-814d-4e70-92de-61389f9b6ca7', updated_at='2025-02-04T13:12:44Z'                      |
 |                 | created_at='2025-02-04T13:12:43Z', direction='egress', ethertype='IPv4', id='cdf6527c-ca5a-4247-8e47-40213b601ee0', updated_at='2025-02-04T13:12:43Z'                      |
@@ -281,7 +305,7 @@ Output will look like the following:
 
 We add the rule to allow access by issuing the following command:
 ```
-$ openstack security group rule create --remote-ip $MY_IP/32 --dst-port 22 --protocol tcp pipeline_security_group
+$ openstack security group rule create --remote-ip $WORKSTATION_IP/32 --dst-port 22 --protocol tcp $POUTA_SEC_GROUP_NAME
 ```
 
 The output will be similar to the following:
@@ -294,14 +318,14 @@ The output will be similar to the following:
 | direction         | ingress                                                                                                                                                                    |
 | ether_type        | IPv4                                                                                                                                                                       |
 | id                | 29ebe032-f09c-4cb5-9e49-bc75e6d1880c                                                                                                                                       |
-| location          | cloud='', project.domain_id='default', project.domain_name=, project.id='abcdef0123456789abcdef0123456789', project.name='project_*******', region_name='regionOne', zone= |
+| location          | cloud='', project.domain_id='default', project.domain_name=, project.id='xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx', project.name='project_xxxxxxx', region_name='regionOne', zone= |
 | name              | None                                                                                                                                                                       |
 | port_range_max    | 22                                                                                                                                                                         |
 | port_range_min    | 22                                                                                                                                                                         |
-| project_id        | abcdef0123456789abcdef0123456789                                                                                                                                           |
+| project_id        | xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx                                                                                                                                           |
 | protocol          | tcp                                                                                                                                                                        |
 | remote_group_id   | None                                                                                                                                                                       |
-| remote_ip_prefix  | *.*.*.*/32                                                                                                                                                                  |
+| remote_ip_prefix  | xxx.xxx.xxx.xxx/32                                                                                                                                                         |
 | revision_number   | 0                                                                                                                                                                          |
 | security_group_id | a8630776-db3d-408a-ba8e-8c52b5f2a8c9                                                                                                                                       |
 | tags              | []                                                                                                                                                                         |
@@ -311,7 +335,7 @@ The output will be similar to the following:
 
 Now we apply the security group to the previously created virtual machine, so that this newly-created rule applies to its traffic.
 ```
-$ openstack server add security group pipeline_vm pipeline_security_group
+$ openstack server add security group $POUTA_INSTANCE_NAME $POUTA_SEC_GROUP_NAME
 ```
 In case of success, the command will show no output.
 
@@ -336,14 +360,14 @@ The output will be similar to the following:
 | dns_domain          | None                                                                                                                                                                                                 |
 | dns_name            | None                                                                                                                                                                                                 |
 | fixed_ip_address    | None                                                                                                                                                                                                 |
-| floating_ip_address | 1.2.3.4                                                                                                                                                                                              |
+| floating_ip_address | xxx.xxx.xxx.xxx                                                                                                                                                                                      |
 | floating_network_id | 26f9344a-2e81-4ef5-a018-7d20cff891ee                                                                                                                                                                 |
 | id                  | 1a38ae4f-1354-4958-b2be-72502b53c492                                                                                                                                                                 |
-| location            | Munch({'cloud': '', 'region_name': 'regionOne', 'zone': None, 'project': Munch({'id': 'abcdef0123456789abcdef0123456789', 'name': 'project_*******', 'domain_id': 'default', 'domain_name': None})}) |
-| name                | 1.2.3.4                                                                                                                                                                                              |
+| location            | Munch({'cloud': '', 'region_name': 'regionOne', 'zone': None, 'project': Munch({'id': 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx', 'name': 'project_xxxxxxx', 'domain_id': 'default', 'domain_name': None})}) |
+| name                | xxx.xxx.xxx.xxx                                                                                                                                                                                      |
 | port_details        | None                                                                                                                                                                                                 |
 | port_id             | None                                                                                                                                                                                                 |
-| project_id          | abcdef0123456789abcdef0123456789                                                                                                                                                                     |
+| project_id          | xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx                                                                                                                                                                     |
 | qos_policy_id       | None                                                                                                                                                                                                 |
 | revision_number     | 0                                                                                                                                                                                                    |
 | router_id           | None                                                                                                                                                                                                 |
@@ -353,23 +377,26 @@ The output will be similar to the following:
 | updated_at          | 2025-02-04T13:13:38Z                                                                                                                                                                                 |
 +---------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 ```
-In particular, we note down the value returned for the field `floating_ip_address`, which in this case corresponds to the dummy value `1.2.3.4`.
+In particular, we note down the value returned for the field `floating_ip_address` in an environment variable:
+```
+$ export POUTA_FLOATING_IP="xxx.xxx.xxx.xxx" # put here the value returned for floating_ip_address
+```
 
 We now associate the obtained address to our virtual machine by issuing the following command:
 ```
-$ openstack server add floating ip pipeline_vm 1.2.3.4
+$ openstack server add floating ip $POUTA_INSTANCE_NAME $POUTA_FLOATING_IP
 ```
 In case of success, the command will show no output.
 
 Everything is now ready.
 We can test the connection to our virtual machine by issuing the command:
 ```
-$ ssh -i mykeypair.pem ubuntu@1.2.3.4
+$ ssh -i mykeypair.pem ubuntu@$POUTA_FLOATING_IP
 ```
 
 Most probably we will be asked the following question:
 ```
-The authenticity of host '1.2.3.4 (1.2.3.4)' can't be established.
+The authenticity of host 'xxx.xxx.xxx.xxx (xxx.xxx.xxx.xxx)' can't be established.
 ED25519 key fingerprint is SHA256:waKe82wIU0HYSGpRFCBOx0n6GOvH108nkJ+koosOF80.
 This key is not known by any other names
 Are you sure you want to continue connecting (yes/no/[fingerprint])?
@@ -378,7 +405,7 @@ Are you sure you want to continue connecting (yes/no/[fingerprint])?
 We can safely answer `yes` and press enter, which will finally lead us to the virtual machine:
 ```
 Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
-Warning: Permanently added '1.2.3.4' (ED25519) to the list of known hosts.
+Warning: Permanently added 'xxx.xxx.xxx.xxx' (ED25519) to the list of known hosts.
 Welcome to Ubuntu 24.04.1 LTS (GNU/Linux 6.8.0-51-generic x86_64)
 
 ...
@@ -397,9 +424,15 @@ Our database in Pukki, by default, does not accept any incoming traffic.
 We want to configure it so that it accepts traffic from our virtual machine.
 
 We move to `terminal_pukki`.
-We issue the following command:
+First, environment variables defined in one terminal do not propagate automatically to other terminals.
+For this reason, we need to define the floating ip assigned to the virtual machine in cPouta as an environment variable also in this terminal.
 ```
-$ openstack database instance update pipeline_db_instance --allowed-cidr 1.2.3.4/32
+$ export POUTA_FLOATING_IP="xxx.xxx.xxx.xxx" # put here the same value assigned to the same variable in terminal_pouta
+```
+
+We issue then the following command:
+```
+$ openstack database instance update $DB_INSTANCE_NAME --allowed-cidr $POUTA_FLOATING_IP/32
 ```
 
 In case of success, the command will show no output.
@@ -410,15 +443,15 @@ $ openstack database instance show pipeline_db_instance
 | Field                    | Value                                                                                                     |
 +--------------------------+-----------------------------------------------------------------------------------------------------------+
 | addresses                | [{'address': '192.168.215.98', 'type': 'private', 'network': 'a89ef792-74ec-434f-8e20-7d33b5b6d633'},     |
-|                          | {'address': '5.6.7.8', 'type': 'public'}]                                                                 |
-| allowed_cidrs            | ['1.2.3.4/32']                                                                                            |
+|                          | {'address': 'xxx.xxx.xxx.xxx', 'type': 'public'}]                                                         |
+| allowed_cidrs            | ['xxx.xxx.xxx.xxx/32']                                                                                    |
 | created                  | 2025-02-04T13:08:51                                                                                       |
 | datastore                | postgresql                                                                                                |
 | datastore_version        | 17.2                                                                                                      |
 | datastore_version_number | 17.2                                                                                                      |
 | flavor                   | d4a2cb9c-99da-4e0f-82d7-3313cca2b2c2                                                                      |
 | id                       | 2f347948-9460-4ac0-a588-32187c8b6ab1                                                                      |
-| ip                       | 192.168.215.98, 5.6.7.8                                                                                   |
+| ip                       | 192.168.215.98, xxx.xxx.xxx.xxx                                                                           |
 | name                     | pipeline_db_instance                                                                                      |
 | operating_status         | HEALTHY                                                                                                   |
 | public                   | False                                                                                                     |
@@ -430,18 +463,20 @@ $ openstack database instance show pipeline_db_instance
 | volume_used              | 0.08                                                                                                      |
 +--------------------------+-----------------------------------------------------------------------------------------------------------+
 ```
-We can see that the public IP address of our virtual machine (`1.2.3.4/32`) is indeed listed in the `allowed_cidrs`.
+We can see that the floating IP address of our virtual machine is now listed in the `allowed_cidrs`.
 
 From the information displayed with the previous command we also extract and take down the public IP address of our database instance, which we will need in the following steps.
 The first row, whose name is `addresses`, contains two parts: an address that is marked as `private`, and one that is marked as `public`.
-We are interested in the second one, so we note down `5.6.7.8`, which is a dummy value selected for the purpose of this tutorial.
+We go back to `terminal_pouta`, where we are still logged in to our virtual machine in cPouta, and we define an environment variable to store the public address of the database, as we will need it later for configuration.
+```
+$ export DB_PUBLIC_IP="xxx.xxx.xxx.xxx" # put here the public ip address of the database instance in Pukki
+```
 
 ### Configuring access from virtual machine to Allas
 
 Similarly to our own workstation, to access the buckets hosted in Allas the virtual machine needs to be configured as well.
 
-We go back to `terminal_pouta`, where we are still logged in to our virtual machine in cPouta, and we follow the [instructions on how to install and configure s3cmd](../../../data/Allas/using_allas/s3_client.md#getting-started-with-s3cmd).
-
+On `terminal_pouta` we follow the [instructions on how to install and configure s3cmd](../../../data/Allas/using_allas/s3_client.md#getting-started-with-s3cmd).
 Once s3cmd is configured, we test that everything works properly by listing our buckets in Allas:
 ```
 $ s3cmd ls
@@ -463,33 +498,26 @@ First, we install a tool that we will need to talk with the database:
 $ sudo apt update ; sudo apt install postgresql-client
 ```
 
-We then prepare a script with the information on how to reach and access the database hosted in Pukki.
-Still on `terminal_pouta` we type the following:
+We then define all the environment variables we need to connect and access the database hosted in Pukki.
 ```
-$ nano db_cred.sh
+$ export DB_NAME="pipeline_db" # name of the database
+$ export DB_USERNAME="db_admin" # name of the user configured for the database
+$ export DB_PASSWORD="xxxxxx" # put here the password of the user configured for the database
 ```
-We see a blinking cursor on the top-left corner of the window, indicating that the terminal is ready to receive our input.
-We write in the terminal what follows:
+
+We also define the postgresql password file, which can be then used to easily connect to the database using the command line.
 ```
-#!/bin/bash
-export DB_HOST="5.6.7.8"
-export DB_PORT="5432"
-export DB_NAME="pipeline_db"
-export DB_USER="db_admin"
-export PGPASSWORD='db_password'
+$ echo "$DB_PUBLIC_IP:5432:$DB_NAME:$DB_USERNAME:$DB_PASSWORD" >> ~/.pgpass
+$ chmod 0600 ~/.pgpass
 ```
-When we are done writing, we press the key combination `CTRL + X`.
-From the terminal we are asked if we want to save our changes, to which we reply by pressing the key `y`.
-Finally, it is given to us a chance to modify the name of the file in which our text is saved.
-We are happy with the current name of the file, so we just type `Enter` key, and we are back to our typical terminal view.
+More details about the postgresql password file can be found in its own [reference page](https://www.postgresql.org/docs/current/libpq-pgpass.html).
 
 Let's now test the access to the database.
-On `terminal_pouta` we run the following two commands:
+On `terminal_pouta` we run the following command:
 ```
-$ source db_cred.sh
-$ psql -h "$DB_HOST" -p "$DB_PORT" -U "$DB_USER" -d "$DB_NAME"
+$ psql -h "$DB_PUBLIC_IP" -U "$DB_USERNAME"
 ```
-After entering the second command we get the following prompt, which indicates successful connection to the database:
+We get the following prompt, which indicates successful connection to the database:
 ```
 psql (16.6 (Ubuntu 16.6-0ubuntu0.24.04.1), server 17.2 (Debian 17.2-1.pgdg110+1))
 WARNING: psql major version 16, server major version 17.
@@ -502,13 +530,11 @@ pipeline_db=>
 To go back to our virtual machine we just type `exit` and press `Enter` key.
 
 Now that we can communicate with the database, we prepare it to host the data that we will send to it when processing our images.
-On `terminal_pouta` we run the following command:
+We run the following command to create a table which will host the data about the pictures:
 ```
 $ psql \
--h "$DB_HOST" \
--p "$DB_PORT" \
--U "$DB_USER" \
--d "$DB_NAME" \
+-h "$DB_PUBLIC_IP" \
+-U "$DB_USERNAME" \
 -c "CREATE TABLE IF NOT EXISTS log_records (timestamp varchar(25) primary key, negated_image_name text, negated_image_hash text)"
 ```
 If the command is successful, the terminal simply replies to us with the string `CREATE TABLE`.
@@ -527,15 +553,20 @@ Once the tool is installed with all its dependencies, we run:
 ```
 $ nano pipeline_script.sh
 ```
-The terminal shows us a blinking cursor on the top-left corner, indicating that we can now write in our new file named `pipeline_script.sh`.
-We type (or copy-and-paste) the following:
+We see a blinking cursor on the top-left corner of the window, indicating that we can now write in our new file named `pipeline_script.sh`.
+We copy-and-paste the content that follows.
+Please make sure to change to their correct value the environment variables defined at the beginning of the script.
 ```
 #!/bin/bash
 
+### NB! Change the value of these environment variables to match your setup
 export INPUT_BUCKET="input_bucket"
 export OUTPUT_BUCKET="output_bucket"
+export DB_PUBLIC_IP="xxx.xxx.xxx.xxx"
+export DB_USERNAME="db_admin"
+###
 
-source /home/ubuntu/db_cred.sh
+
 
 export NEGATED_PREFIX="negated_"
 
@@ -556,7 +587,7 @@ do
         # compute hash of the result
         NEGATED_IMAGE_HASH=$(sha256sum "$NEGATED_IMAGE_NAME" | awk '{ print $1 }')
         # log to the db that this was done
-        psql -h "$DB_HOST" -p "$DB_PORT" -U "$DB_USER" -d "$DB_NAME" -c "INSERT INTO log_records (timestamp, negated_image_name, negated_image_hash) VALUES ('$TIMESTAMP', '$NEGATED_IMAGE_NAME', '$NEGATED_IMAGE_HASH')"
+        psql -h "$DB_PUBLIC_IP" -U "$DB_USERNAME" -c "INSERT INTO log_records (timestamp, negated_image_name, negated_image_hash) VALUES ('$TIMESTAMP', '$NEGATED_IMAGE_NAME', '$NEGATED_IMAGE_HASH')"
         # push the negated image to the output bucket
         s3cmd put "$NEGATED_IMAGE_NAME" s3://$OUTPUT_BUCKET
         # delete the local copies of the images
@@ -568,7 +599,10 @@ do
 done
 ) 200>/var/lock/pipeline_script_lock
 ```
-As done earlier as well, we save the content of the file by pressing `CTRL + X`, then `y`, and finally `Enter` key.
+When we are done writing, we press the key combination `CTRL + X`.
+From the terminal we are asked if we want to save our changes, to which we reply by pressing the key `y`.
+Finally, it is given to us a chance to modify the name of the file in which our text is saved.
+We are happy with the current name of the file, so we just type `Enter` key, and we are back to our typical terminal view.
 
 The script now contains the logic of the pipeline, but it is not set to run automatically yet.
 On `terminal_pouta` we run the following commands:
@@ -593,26 +627,24 @@ We now want to send the image through the pipeline.
 On `terminal_allas`, we first navigate to the home folder and then upload the image to Allas:
 ```
 $ cd ~
-$ s3cmd put cat1.jpg s3://input_bucket
+$ s3cmd put cat1.jpg s3://$INPUT_BUCKET
 upload: 'cat1.jpg' -> 's3://input_bucket/cat1.jpg'  [1 of 1]
  133275 of 133275   100% in    0s     2.47 MB/s  done
 ```
 
-We wait a minute or so, we check the content of `input_bucket`, and we notice that it is empty.
+We wait a minute or so, we check the content of the bucket, and we notice that it is empty.
 ```
-$ s3cmd ls s3://input_bucket
+$ s3cmd ls s3://$INPUT_BUCKET
 $
 ```
-The pipeline has thus taken the image from `input_bucket` and processed it.
+The pipeline has thus taken the image from the bucket and processed it.
 
 We check if we have a trace of the image transformation in the database.
 On `terminal_pouta` we run the following command:
 ```
 $ psql \
--h "$DB_HOST" \
--p "$DB_PORT" \
--U "$DB_USER" \
--d "$DB_NAME" \
+-h "$DB_PUBLIC_IP" \
+-U "$DB_USERNAME" \
 -c "select * from log_records where negated_image_name like '%cat1%'"
 ```
 We get an output similar to the following:
@@ -625,12 +657,12 @@ We get an output similar to the following:
 The output tells us that the pipeline has processed correctly our original image `cat1.jpg` and has produced the `negated_cat1.jpg` image in output.
 
 Let's check out the transformed image.
-On `terminal_allas` first we check that the image is indeed available in `output_bucket`.
+On `terminal_allas` first we check that the image is indeed available in the other bucket.
 Then, we download it to our home folder:
 ```
-$ s3cmd ls s3://output_bucket
+$ s3cmd ls s3://$OUTPUT_BUCKET
 2025-02-04 12:01       140798  s3://output_bucket/negated_cat1.jpg
-$ s3cmd get s3://output_bucket/negated_cat1.jpg .
+$ s3cmd get s3://$OUTPUT_BUCKET/negated_cat1.jpg .
 download: 's3://output_bucket/negated_cat1.jpg' -> './negated_cat1.jpg'  [1 of 1]
  140798 of 140798   100% in    0s     2.12 MB/s  done
 ```
