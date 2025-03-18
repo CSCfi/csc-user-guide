@@ -58,11 +58,13 @@ You cannot mount Allas direcly to a computer. This means that in order to use Al
 1. In the CSC computing environment (Puhti and Mahti), there are ready-to-use tools provided by CSC to access Allas. These tools are mostly the same that can also be installed in any Linux environment, e.g. a virtual machine in cPouta or a local Linux server.
 In the CSC computing environment, Allas should be used to store any data that needs to be preserved for longer than a few weeks. The supercomputer's own storage has a policy to delete idle data, so the data must be moved to Allas after computing. See [Computing disk environment](../../computing/disk.md)
 
-2. WWW access to Allas is provided by the web interface of the cPouta cloud environment [https://pouta.csc.fi](https://pouta.csc.fi). No special software is required to access Allas with a browser, making this the by far simplest way to access Allas. On the other hand, the browser user interface has a number of limitations compared to other clients, the most notable of which are lower performance and uploading/downloading only a single file at a time. Instructions for accessing and using Allas with a browser: [OpenStack Horizon web interface](./using_allas/web_client.md)
+2. [Allas Web UI](https://allas.csc.fi) provides a web-based graphical interface for managing object storage in Allas. It allows users to create and manage buckets, upload and download objects (up to 5 GiB per file), and configure sharing permissions. Allas Web UI offers a convenient way to interact with Allas without requiring command-line tools, making it suitable for users who prefer a visual approach. More information can be found in the [Allas Web UI guide](./using_allas/allas-ui.md).
 
-3. To access Allas with command line commands, client software supporting the _Swift_ or _S3_ protocol is required. This is the most flexible way to access Allas, but it requires more effort than other access methods. Instructions to use a command line client: [Accessing Allas with Linux](./accessing_allas.md#accessing-allas-in-the-csc-computing-environment-and-other-linux-platforms).
+3. WWW access to Allas is provided by the web interface of the cPouta cloud environment [https://pouta.csc.fi](https://pouta.csc.fi). No special software is required to access Allas with a browser, making this the by far simplest way to access Allas. On the other hand, the browser user interface has a number of limitations compared to other clients, the most notable of which are lower performance and uploading/downloading only a single file at a time. Instructions for accessing and using Allas with a browser: [OpenStack Horizon web interface](./using_allas/web_client.md)
 
-4. To access Allas with a GUI client, a suitable GUI client is required. The client needs to be capable to use the _Swift_ or _S3_ access protocol. Instructions to use a GUI client: [Accessing Allas with Windows and Mac](./accessing_allas.md#accessing-allas-with-windows-or-mac).
+4. To access Allas with command line commands, client software supporting the _Swift_ or _S3_ protocol is required. This is the most flexible way to access Allas, but it requires more effort than other access methods. Instructions to use a command line client: [Accessing Allas with Linux](./accessing_allas.md#accessing-allas-in-the-csc-computing-environment-and-other-linux-platforms).
+
+5. To access Allas with a GUI client, a suitable GUI client is required. The client needs to be capable to use the _Swift_ or _S3_ access protocol. Instructions to use a GUI client: [Accessing Allas with Windows and Mac](./accessing_allas.md#accessing-allas-with-windows-or-mac).
 
 See also the [common use cases](./using_allas/common_use_cases.md).
 
@@ -88,7 +90,7 @@ Allas is accessed via a client software that takes care of moving data to and fr
 
 | Client | Notes |
 | :-------- | :------- |
-| [web client](./using_allas/web_client.md) | Use via [https://pouta.csc.fi](https://pouta.csc.fi). Provides basic functions. |
+| [Allas Web UI](./using_allas/allas-ui.md) | Use via [https://allas.csc.fi](https://allas.csc.fi). |
 | [SD Connect](../sensitive-data/sd_connect.md) | Sensitive data orinented [Web interface for Allas](https://sd-connect.csc.fi). |
 | [a-commands](./using_allas/a_commands.md) | Provides easy-to-use tools for basic use. Requires Rclone, Swift and OpenStack. |
 | [swift python-swiftclient](./using_allas/swift_client.md)| The versatile Swift client. |
@@ -101,28 +103,29 @@ Allas is accessed via a client software that takes care of moving data to and fr
 | aws-cli | aws-cli and the boto3 Python library. |
 | curl | Extremely simple to use with public objects and temporary URLs. |
 | wget | The same as curl. |
+| [web client](./using_allas/web_client.md) | Use via [https://pouta.csc.fi](https://pouta.csc.fi). Provides basic functions. |
 
 ### Client operations
 
 A _web client_ is suitable for using the basic functions. *a-commands* offer easy-to-use functions for using Allas either via a personal computer or supercomputer. Power users might want to consider the clients _rclone_, _Swift_ and _s3cmd_. The table displays the core functions of the power clients concerning data management in Allas.
 
-| | web client | a-commands | rclone | Swift | s3cmd |
+| | Allas Web UI | a-commands | rclone | Swift | s3cmd |
 | :----- | :-----: | :----: | :----: | :-----: | :----: |
 | Usage | _Basic_ | _Basic_ | _Power_ |_Power_ | _Power_ |
 | **Create buckets** | <font color="green">&#x2714;</font> |<font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> |
-| **Upload objects** | <font color="green">&#x2714;</font>&#8226; | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> |
+| **Upload objects** | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> |
 | **List** | | | | | |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objects | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; buckets | <font color="green">&#x2714;</font>  | <font color="green">&#x2714;</font>| <font color="green">&#x2714;</font>  | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font>  |
 | **Download** | | | | |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objects | <font color="green">&#x2714;</font>&#8226; |<font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; buckets | | |<font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objects | <font color="green">&#x2714;</font> |<font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; buckets | <font color="green">&#x2714;</font> | |<font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> |
 | **Remove** | | | | | |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objects | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; buckets | <font color="green">&#x2714;</font>&#8226;&#8226; | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font>&#8226;&#8226; |
 | **Managing access rights** | | | | |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; public/private | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font>| | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; read/write access</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; to another project | | <font color="green">&#x2714;</font> | | <font color="green">&#x2714;</font>| <font color="green">&#x2714;</font> |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; public/private |  | <font color="green">&#x2714;</font>| | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; read/write access</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; to another project | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> | | <font color="green">&#x2714;</font>| <font color="green">&#x2714;</font> |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; temp URLs | | | | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> |
 | **Set lifecycle policies** | | | | | <font color="green">&#x2714;</font> |
 | **Move objects** | | | | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> |
@@ -130,8 +133,6 @@ A _web client_ is suitable for using the basic functions. *a-commands* offer eas
 | **Download whole project** | | | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> | |
 | **Remove whole project** | | | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> | |
 
-
-<div align="right">&#8226; Only one object at a time</div>
 <div align="right">&#8226;&#8226; Only empty buckets</div>
 
 ## System characteristics
