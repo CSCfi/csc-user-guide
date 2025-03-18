@@ -18,3 +18,4 @@
 ## Database types
 
 * [PostgreSQL](postgresql.md)
+* [MariaDB](mariadb.md)

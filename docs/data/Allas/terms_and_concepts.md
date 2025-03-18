@@ -24,11 +24,17 @@ You can display the checksum using the command `md5sum`.
 
 ### Client
 
-The _client software_ is used to access an object storage service, such as Allas. There are three types of clients:
+The _client software_ is used to access an object storage service, such as Allas. There are different types of clients:
 
- * Web browser based access via the [OpenStack Horizon web interface](./using_allas/web_client.md) for basic graphical usage.
- * Command-line clients such as [Swift](./using_allas/swift_client.md) and [s3cmd](./using_allas/s3_client.md) for power users.
- * _Programmable interface_ (API) for those who integrate software.
+* **Web browser-based access** via:
+    - [Allas Web UI](./using_allas/allas-ui.md) – a user-friendly graphical interface for managing buckets, uploading and downloading objects, and sharing data.
+    - [OpenStack Horizon web interface](./using_allas/web_client.md) – a basic web interface for managing small files (≤5 GiB) in Allas.
+
+* **Command-line clients** such as:
+    - [Swift](./using_allas/swift_client.md) and [s3cmd](./using_allas/s3_client.md) – for power users who need advanced control over object storage.
+
+* **Programmable interface (API)** for those integrating Allas with software applications.
+
 
 ### Metadata
 

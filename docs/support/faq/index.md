@@ -40,6 +40,11 @@
 * [How do the project and scratch file permissions work?](how-do-the-project-file-permissions-work.md)
 * [How does LUMI-C differ from Mahti?](../../computing/lumi-vs-mahti.md)
 
+## Python on supercomputers
+* [How do I install missing Python packages to CSC-provided modules?](../tutorials/python-usage-guide.md#installing-python-packages-to-existing-modules)
+* [How do I create my own Python environment?](../tutorials/python-usage-guide.md#creating-your-own-python-environments)
+* [How to troubleshoot Python installation problems?](python-package-trouble.md)
+
 ## Allas
 
 * [How to move data from Puhti to Allas and vice versa?](how-to-move-data-between-puhti-and-allas.md)

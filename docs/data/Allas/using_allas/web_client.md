@@ -15,6 +15,11 @@ The OpenStack dashboard has a small subset of object storage functionalities. Th
 | _Remove_ objects and buckets |
 | Make buckets _public_ or _private_ |
 
+
+### **Alternative Web Interface – Allas Web UI**
+For a more intuitive and feature-rich web interface, you can also use **[Allas Web UI](./allas-ui.md)**.  
+Allas Web UI provides a graphical way to manage object storage, create and delete buckets, upload/download objects, and set sharing permissions, all within a user-friendly environment.
+
 ## Create a bucket
 
 1\. Go to [pouta.csc.fi](https://pouta.csc.fi/) and login
