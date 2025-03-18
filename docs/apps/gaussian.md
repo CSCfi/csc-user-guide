@@ -85,11 +85,9 @@ There are also some tools, like
 memory needs.  
 
 !!! info "Note"
-    On Mahti, each reserved CPU core is allocated **1.875 GiB of memory**. The
-only way to request more memory is to reserve additional cores.  As a result,
-the optimal number of cores used by Gaussian may sometimes be lower than the
-number of reserved cores, depending on memory requirements.  
+    On Mahti, each reserved CPU core is allocated **1.875 GiB of memory**. The only way to request more memory is to reserve additional cores.  As a result, the optimal number of cores used by Gaussian may sometimes be lower than the number of reserved cores, depending on memory requirements. 
 
+ 
 ### Using local disk (NVMe)  
 
 For disk I/O intensive jobs, such as highly correlated methods like **MP2**,
