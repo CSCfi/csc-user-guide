@@ -34,7 +34,8 @@ Standard jobs are then conveniently submitted by using the `subg16` script:
 subg16 hhh:mm:ss jobname <your project id> [NVMe disk]
 ```
 
-where:  
+where:
+
 - `hhh:mm:ss` is the requested maximum wall time in hours, minutes, and seconds.  
 - `jobname` is the name of the input file, excluding the `.com` extension.  
 - `[NVMe disk]` (optional) is the request for fast local NVMe disk in GB.  
