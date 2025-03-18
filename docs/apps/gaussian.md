@@ -42,7 +42,7 @@ where:
 
 Run `subg16` without arguments to display more details.
 
-## Performance considerations  
+## Performance considerations
 
 For optimal performance of Gaussian jobs on CSC's servers, it is beneficial to
 make some efficiency considerations. Some hints on how to estimate memory and
@@ -66,7 +66,7 @@ the appropriate resources for actual production runs.
 Increasing the number of cores does not always improve performance and may even
 degrade it.
 
-### Memory  
+### Memory
 
 Memory reservation in Gaussian is controlled using the `%Mem` flag in the input
 file, where you specify the total amount of memory to be allocated for the
@@ -91,7 +91,7 @@ memory needs.
     result, the optimal number of cores used by Gaussian may sometimes be lower
     than the number of reserved cores, depending on memory requirements.
 
-### Using local disk (NVMe)  
+### Using local disk (NVMe)
 
 For disk I/O intensive jobs, such as highly correlated methods like **MP2**,
 **CCSD(T)**, and property calculations like **vibrational frequency
@@ -105,7 +105,7 @@ reduce the overall load on the Lustre parallel file system.
 subg16 hhh:mm:ss jobname <your project id> [NVMe disk]
 ```
 
-### Estimating optimal resources  
+### Estimating optimal resources
 
 Before running large-scale calculations, it's crucial to determine the **most
 efficient** use of computational resources. Overallocating cores or memory can
@@ -146,7 +146,7 @@ First, we compare the runtime and scaling of a `b3lyp/cc-pVDZ, %mem=10GB, 10GB
 NVMe` single-point calculation. This calculation requires only modest memory
 and disk resources, so increasing them should not affect performance.
 
-![Gaussian Performance](../img/g16_perf_1.png)  
+![Gaussian Performance](../img/g16_perf_1.png)
 
 For this specific case, the scaling on Puhti starts to level off beyond 30
 cores, while on Mahti, the scaling continues at a reasonable level up to about
@@ -156,23 +156,23 @@ If we perform the same calculation but increase the size of the basis set to
 `b3lyp/cc-pVTZ`, the `%mem=10GB, 10GB NVMe` allocation is still sufficient for
 all requirements.
 
-![Gaussian Performance](../img/g16_perf_2.png)  
+![Gaussian Performance](../img/g16_perf_2.png)
 
 For this larger calculation, the scaling on Puhti remains good up to a full
 node. On Mahti, however, the scaling begins to level off around 100 cores.
 
 For a wave function-based method like `MP2/cc-pVDZ, %mem=100GB, 200GB NVMe`,
 both the reserved memory and the use of local disk (NVMe) have a significant
-impact on performance, as shown in the following graph:  
+impact on performance, as shown in the following graph:
 
-![Gaussian Performance](../img/g16_perf_3.png)  
+![Gaussian Performance](../img/g16_perf_3.png)
 
 On Puhti, the speedup levels off at around 25 cores, while on Mahti, the
 performance gain continues up to approximately 35 cores.
 
 Tests on Puhti highlight the importance of allocating sufficient memory.
 Additionally, the notable performance improvement from using local disk (NVMe)
-over the standard scratch disk (about 30% faster!)  indicates that local disk
+over the standard scratch disk (about 30% faster!) indicates that local disk
 should always be the preferred option for these types of calculations.
 
 ## References
@@ -182,6 +182,6 @@ should always be the preferred option for these types of calculations.
 
 ## More information
 
-- [Online Gaussian user reference](http://gaussian.com/man/)  
-- [Using Gabedit as GUI for Gaussian jobs on Puhti](../support/tutorials/gabedit_gaussian.md)  
-- [Farming Gaussian jobs with HyperQueue](https://csc-training.github.io/csc-env-eff/hands-on/throughput/gaussian_hq.html)  
+- [Online Gaussian user reference](http://gaussian.com/man/)
+- [Using Gabedit as GUI for Gaussian jobs on Puhti](../support/tutorials/gabedit_gaussian.md)
+- [Farming Gaussian jobs with HyperQueue](https://csc-training.github.io/csc-env-eff/hands-on/throughput/gaussian_hq.html)
