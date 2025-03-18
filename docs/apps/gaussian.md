@@ -172,7 +172,7 @@ performance gain continues up to approximately 35 cores.
 
 Tests on Puhti highlight the importance of allocating sufficient memory.
 Additionally, the notable performance improvement from using local disk (NVMe)
-over the standard scratch disk (about 50% faster!)  indicates that local disk
+over the standard scratch disk (about 30% faster!)  indicates that local disk
 should always be the preferred option for these types of calculations.
 
 ## References
