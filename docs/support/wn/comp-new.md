@@ -2,7 +2,8 @@
 
 ## New Small Partition with High-Performance NVMe Storage on Mahti, 13.2.2025
 
-Mahti has expanded its capabilities with a new small partition
+Mahti has expanded its capabilities with a
+[new small partition](../../computing/running/batch-job-partitions.md#mahti-cpu-partitions-with-core-based-allocation)
 featuring 56 compute nodes (7168 cores), each equipped with 3500 GiB
 of local NVMe storage. This partition introduces flexible CPU
 core-based allocation, allowing users to reserve individual cores
