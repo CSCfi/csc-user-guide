@@ -3,13 +3,91 @@ tags:
   - Free
 ---
 
-# AlphaFold
-
-
+# Alphafold
 
 AlphaFold is an AI system developed by [DeepMind](https://www.deepmind.com/) that predicts a protein’s 3D structure from its amino acid sequence.
 
 [TOC]
+
+# AlphaFold 3
+
+AlphaFold 3 is available on Mahti.
+
+## License
+
+The AlphaFold 3 code is available under a [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en) license.
+The model parameters are available under a separate terms of use agreement and have to be obtained by each user directly from Google as described [here](https://github.com/google-deepmind/alphafold3?tab=readme-ov-file#obtaining-model-parameters).
+
+## Available
+
+-   Mahti: 3.0.1
+
+## Usage
+
+To initialize on Mahti use:
+```bash
+module load alphafold
+```
+
+To print the available command line options:
+```bash
+run_alphafold --helpshort
+```
+or
+```bash
+run_alphafold --helfull
+```
+
+### Database
+
+The genetic databases needed for evolutionary search are hosted at `/mnt/datasets/alphafold`.
+CSC maintains a single version of these databases. If you need a different version, you can download it yourself.
+See download instructions [here](https://github.com/google-deepmind/alphafold3/blob/main/docs/installation.md#obtaining-genetic-databases) and the Job Script Examples.
+At time of writing the databases were about 700 GB and it took 30 minutes to download them.
+
+### Job Script Examples
+
+#### Data pipeline job
+Since GPUs are not needed for the first stage of the workflow, it may make sense to perform this on a CPU node as follows:
+```bash
+```
+
+#### Inference job
+And then perform the second stage on a GPU node.
+```bash
+```
+
+#### Data pipeline job using fast local disk
+It is also possible to have part of the databases on the node local disk.
+Since copying the databases to the local disk introduces some overhead, this may only lead to overall performance gains when running many queries in bulk.
+```bash
+```
+
+#### Download databases
+CSC hosts these databases under `/mnt/datasets/alphafold`. If you need a newer version you can download it with this job script and [this](https://github.com/google-deepmind/alphafold3/blob/main/fetch_databases.sh) download script.
+```bash
+#!/bin/bash
+#SBATCH --job-name=AF3-data-download
+#SBATCH --account=project_XXXXXXX
+#SBATCH --partition=small
+#SBATCH --time=01:00:00
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=8
+#SBATCH --mem=10G
+#SBATCH --mail-type=END,FAIL
+#SBATCH --mail-user=<your mail>
+
+export DB_DIR=/scratch/${SLURM_JOB_ACCOUNT}/${USER}/db_dir
+
+bash <path/to/script/>/fetch_databases.sh $DB_DIR
+```
+
+## More Information
+See [AlphaFold 3](https://github.com/google-deepmind/alphafold3?tab=readme-ov-file#alphafold-3) documentation.
+
+# AlphaFold 2
+
+Alphafold 2 is available on Puhti.
 
 ## License
 
@@ -108,3 +186,4 @@ export ALPHAFOLD_DATADIR=$LOCAL_SCRATCH/alphafold_db
 
 *   [AlphaFold Homepage](https://github.com/google-deepmind/alphafold/)
 *   CSC installation is based on [Alphafold_singularity](https://github.com/prehensilecode/alphafold_singularity)
+
