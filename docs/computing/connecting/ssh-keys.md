@@ -1,5 +1,7 @@
 # Setting up SSH keys
 
+--8<-- "auth-update-ssh.md"
+
 SSH keys provide more convenient and secure authentication. Setting them up is
 a simple two-step process.
 
@@ -72,8 +74,10 @@ Host *.bullx
 ## Copying public key to supercomputer
 
 The recommended and easiest way to copy your public key to a CSC system is
-[through the MyCSC customer portal](#adding-public-key-in-mycsc). For other
-approaches, please see the system-specific SSH instructions.
+[through the MyCSC customer portal](#adding-public-key-in-mycsc). This will
+also be the only possible way to upload your key starting April 14, 2025.
+
+For other approaches, please see the system-specific SSH instructions.
 
 ### Adding public key in MyCSC
 

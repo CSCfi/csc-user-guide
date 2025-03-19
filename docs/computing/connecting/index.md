@@ -1,5 +1,7 @@
 # Connecting to CSC supercomputers
 
+--8<-- "auth-update-ssh.md"
+
 There are two main ways of connecting to CSC supercomputers.
 
 1. The traditional way to connect to a supercomputer is

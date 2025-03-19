@@ -1,5 +1,7 @@
 # SSH client on Windows
 
+--8<-- "auth-update-ssh.md"
+
 There are various programs that can be used for creating a remote SSH
 connection on a Windows system. This page provides instructions for three
 popular alternatives: [PowerShell](#powershell), [PuTTY](#putty) and
@@ -59,6 +61,9 @@ ssh-keygen -o -a 100 -t ed25519
 
 The recommended way to copy a public key to a supercomputer is
 [through the MyCSC customer portal](ssh-keys.md#adding-public-key-in-mycsc).
+This will also be the only possible way to upload your key starting April 14,
+2025.
+
 Alternatively, you can do it using PowerShell by running the following
 command:
 
@@ -116,6 +121,9 @@ generator](https://www.puttygen.com/). The PuTTY documentation provides
 
 The recommended way to copy a public key to a supercomputer is
 [through the MyCSC customer portal](ssh-keys.md#adding-public-key-in-mycsc).
+This will also be the only possible way to upload your key starting April 14,
+2025.
+
 Alternatively, you can do it using PuTTY by following the instructions below.
 
 1. Do one of the following:
@@ -189,6 +197,9 @@ set a persistent home directory for MobaXterm in the program settings
 
 The recommended way to copy a public key to a supercomputer is
 [through the MyCSC customer portal](ssh-keys.md#adding-public-key-in-mycsc).
+This will also be the only possible way to upload your key starting April 14,
+2025.
+
 Alternatively, you can do it in MobaXterm using the `ssh-copy-id`
 utility:
 

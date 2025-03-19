@@ -1,5 +1,24 @@
 # Computing environment
 
+## Authentication changes for Puhti and Mahti coming in April, 19.3.2025
+
+To improve the security of our computing services, the following changes to
+authentication for Puhti and Mahti will be introduced in April:
+
+* Starting April 14, SSH login to Puhti and Mahti will only work using SSH keys
+  added in MyCSC. Password authentication and keys stored in users' personal
+  `~/.ssh` folder will no longer work. This authentication method is already in
+  use on LUMI.
+  [Read the detailed instructions on setting up and using SSH keys](../../computing/connecting/ssh-keys.md).
+* Starting April 21, logging in to Puhti and Mahti web interfaces will require
+  multi-factor authentication (MFA). We encourage all users with a CSC account to
+  activate two-factor authentication as soon as possible to avoid any
+  interruption in service access.
+  [Read the detailed instructions on setting up MFA](https://docs.csc.fi/accounts/mfa/#activation-of-mfa).
+  If your home organization already implements MFA as part of Haka logins, then
+  you are all set and there is no need to additionally set up multi-factor
+  authentication in MyCSC.
+
 ## New Small Partition with High-Performance NVMe Storage on Mahti, 13.2.2025
 
 Mahti has expanded its capabilities with a
