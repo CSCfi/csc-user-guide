@@ -13,17 +13,17 @@ The tutorial focuses on the following services:
 
 ## Introduction
 
-We want to set up a simple pipeline which transforms the images that are given in input to it.
+We want to set up a simple pipeline which transforms the pictures that are given in input to it.
 
-![image-pipeline-diagram](../../img/image-pipeline-diagram.png)
+![picture-pipeline-diagram](../../img/picture-pipeline-diagram.png)
 
-First, we upload our images from our workstation to a bucket in Allas.
-A virtual machine in cPouta takes the images from the bucket and downloads them locally.
-The virtual machine transforms the images and logs the completed action to a database hosted in Pukki.
-Finally, the virtual machine uploads the transformed images to another bucket in Allas.
-We can then download from the bucket the transformed images to our workstation.
+First, we upload our pictures from our workstation to a bucket in Allas.
+A virtual machine in cPouta takes the pictures from the bucket and downloads them locally.
+The virtual machine transforms the pictures and logs the completed action to a database hosted in Pukki.
+Finally, the virtual machine uploads the transformed pictures to another bucket in Allas.
+We can then download from the bucket the transformed pictures to our workstation.
 
-For the sake of this tutorial, the transformed image simply corresponds to the input image whose colors have been inverted, sometimes also called "reversed".
+For the sake of this tutorial, the transformed picture simply corresponds to the input picture whose colors have been inverted, sometimes also called "reversed".
 
 ## Step 1: creating buckets in Allas
 
@@ -196,7 +196,8 @@ The private key should never leave your workstation, i.e., you should not need t
 Instead, the public key can be freely copied and distributed to the locations where you would like to access using the just-created keypair.
 To this end, we upload the public key to cPouta by issuing the following command:
 ```
-$ openstack keypair create --public-key $POUTA_KEYPAIR.pub $POUTA_KEYPAIR 
+$ openstack keypair create $POUTA_KEYPAIR \
+--public-key $POUTA_KEYPAIR.pub 
 ```
 
 The output of the command will be similar to the following:
@@ -218,7 +219,10 @@ $ export POUTA_INSTANCE_NAME="pipeline_vm"
 
 The command we then issue to actually create the virtual machine is the following:
 ```
-$ openstack server create --flavor standard.tiny --image Ubuntu-24.04 --key-name $POUTA_KEYPAIR $POUTA_INSTANCE_NAME
+$ openstack server create $POUTA_INSTANCE_NAME \
+--flavor standard.tiny \
+--image Ubuntu-24.04 \
+--key-name $POUTA_KEYPAIR
 ```
 
 The output from the command should be similar to the following:
@@ -305,7 +309,10 @@ Output will look like the following:
 
 We add the rule to allow access by issuing the following command:
 ```
-$ openstack security group rule create --remote-ip $WORKSTATION_IP/32 --dst-port 22 --protocol tcp $POUTA_SEC_GROUP_NAME
+$ openstack security group rule create $POUTA_SEC_GROUP_NAME \
+--remote-ip $WORKSTATION_IP/32 \
+--dst-port 22 \
+--protocol tcp
 ```
 
 The output will be similar to the following:
@@ -432,7 +439,8 @@ $ export POUTA_FLOATING_IP="xxx.xxx.xxx.xxx" # put here the same value assigned 
 
 We issue then the following command:
 ```
-$ openstack database instance update $DB_INSTANCE_NAME --allowed-cidr $POUTA_FLOATING_IP/32
+$ openstack database instance update $DB_INSTANCE_NAME \
+--allowed-cidr $POUTA_FLOATING_IP/32
 ```
 
 In case of success, the command will show no output.
@@ -529,21 +537,21 @@ pipeline_db=>
 ```
 To go back to our virtual machine we just type `exit` and press `Enter` key.
 
-Now that we can communicate with the database, we prepare it to host the data that we will send to it when processing our images.
+Now that we can communicate with the database, we prepare it to host the data that we will send to it when processing our pictures.
 We run the following command to create a table which will host the data about the pictures:
 ```
 $ psql \
 -h "$DB_PUBLIC_IP" \
 -U "$DB_USERNAME" \
--c "CREATE TABLE IF NOT EXISTS log_records (timestamp varchar(25) primary key, negated_image_name text, negated_image_hash text)"
+-c "CREATE TABLE IF NOT EXISTS log_records (timestamp varchar(25) primary key, negated_picture_name text, negated_picture_hash text)"
 ```
 If the command is successful, the terminal simply replies to us with the string `CREATE TABLE`.
 The database is now configured for our pipeline.
 
-### Installing image transforming script
+### Installing picture transforming script
 
-The final part in our configuration phase is to install the script that takes care of talking with Allas, Pukki, as well as transforming the image in input.
-To do so, we first install the tool to transform the images.
+The final part in our configuration phase is to install the script that takes care of talking with Allas, Pukki, as well as transforming the picture in input.
+To do so, we first install the tool to transform the pictures.
 On `terminal_pouta` we run:
 ```
 $ sudo apt install imagemagick
@@ -573,27 +581,27 @@ export NEGATED_PREFIX="negated_"
 (
 # perform the task if the lock is free, otherwise exit
 flock -n 200 || exit 1
-# iterate over the images in the bucket
-for IMAGE_URL in $(s3cmd ls s3://$INPUT_BUCKET | awk '{ print $4 }')
+# iterate over the pictures in the bucket
+for PICTURE_URL in $(s3cmd ls s3://$INPUT_BUCKET | awk '{ print $4 }')
 do
         # get the current timestamp
         TIMESTAMP=$(date +%FT%T)
-        # get the image
-        IMAGE_NAME=$(echo "$IMAGE_URL" | awk -F '/' '{ print $NF }')
-        s3cmd get "$IMAGE_URL" "$IMAGE_NAME"
+        # get the picture
+        PICTURE_NAME=$(echo "$PICTURE_URL" | awk -F '/' '{ print $NF }')
+        s3cmd get "$PICTURE_URL" "$PICTURE_NAME"
         # compute the negated
-        NEGATED_IMAGE_NAME="$NEGATED_PREFIX$IMAGE_NAME"
-        convert -negate "$IMAGE_NAME" "$NEGATED_IMAGE_NAME"
+        NEGATED_PICTURE_NAME="$NEGATED_PREFIX$PICTURE_NAME"
+        convert -negate "$PICTURE_NAME" "$NEGATED_PICTURE_NAME"
         # compute hash of the result
-        NEGATED_IMAGE_HASH=$(sha256sum "$NEGATED_IMAGE_NAME" | awk '{ print $1 }')
+        NEGATED_PICTURE_HASH=$(sha256sum "$NEGATED_PICTURE_NAME" | awk '{ print $1 }')
         # log to the db that this was done
-        psql -h "$DB_PUBLIC_IP" -U "$DB_USERNAME" -c "INSERT INTO log_records (timestamp, negated_image_name, negated_image_hash) VALUES ('$TIMESTAMP', '$NEGATED_IMAGE_NAME', '$NEGATED_IMAGE_HASH')"
-        # push the negated image to the output bucket
-        s3cmd put "$NEGATED_IMAGE_NAME" s3://$OUTPUT_BUCKET
-        # delete the local copies of the images
-        rm "$IMAGE_NAME" "$NEGATED_IMAGE_NAME"
-        # delete the image from the input bucket
-        s3cmd del "$IMAGE_URL"
+        psql -h "$DB_PUBLIC_IP" -U "$DB_USERNAME" -c "INSERT INTO log_records (timestamp, negated_picture_name, negated_picture_hash) VALUES ('$TIMESTAMP', '$NEGATED_PICTURE_NAME', '$NEGATED_PICTURE_HASH')"
+        # push the negated picture to the output bucket
+        s3cmd put "$NEGATED_PICTURE_NAME" s3://$OUTPUT_BUCKET
+        # delete the local copies of the pictures
+        rm "$PICTURE_NAME" "$NEGATED_PICTURE_NAME"
+        # delete the picture from the input bucket
+        s3cmd del "$PICTURE_URL"
         # sleep 1 sec
         sleep 1
 done
@@ -618,13 +626,13 @@ We are ready to test the functioning of the pipeline.
 
 ## Step 5: testing the pipeline
 
-We pick up an image of choice and we copy it to the home folder of our workstation.
-As an example, here is our image at `~/cat1.jpg`:
+We pick up an picture of choice and we copy it to the home folder of our workstation.
+As an example, here is our picture at `~/cat1.jpg`:
 
-![image-cat](../../img/cat1.jpg)
+![picture-cat](../../img/cat1.jpg)
 
-We now want to send the image through the pipeline.
-On `terminal_allas`, we first navigate to the home folder and then upload the image to Allas:
+We now want to send the picture through the pipeline.
+On `terminal_allas`, we first navigate to the home folder and then upload the picture to Allas:
 ```
 $ cd ~
 $ s3cmd put cat1.jpg s3://$INPUT_BUCKET
@@ -637,27 +645,27 @@ We wait a minute or so, we check the content of the bucket, and we notice that i
 $ s3cmd ls s3://$INPUT_BUCKET
 $
 ```
-The pipeline has thus taken the image from the bucket and processed it.
+The pipeline has thus taken the picture from the bucket and processed it.
 
-We check if we have a trace of the image transformation in the database.
+We check if we have a trace of the picture transformation in the database.
 On `terminal_pouta` we run the following command:
 ```
 $ psql \
 -h "$DB_PUBLIC_IP" \
 -U "$DB_USERNAME" \
--c "select * from log_records where negated_image_name like '%cat1%'"
+-c "select * from log_records where negated_picture_name like '%cat1%'"
 ```
 We get an output similar to the following:
 ```
-      timestamp      | negated_image_name |                        negated_image_hash                        
+      timestamp      | negated_picture_name |                        negated_picture_hash                        
 ---------------------+--------------------+------------------------------------------------------------------
  2025-02-04T12:01:01 | negated_cat1.jpg   | 50cc363c1528371cf9526d1fddead5f37f3004f11e9f24b72ea210db58dee095
 (1 row)
 ```
-The output tells us that the pipeline has processed correctly our original image `cat1.jpg` and has produced the `negated_cat1.jpg` image in output.
+The output tells us that the pipeline has processed correctly our original picture `cat1.jpg` and has produced the `negated_cat1.jpg` picture in output.
 
-Let's check out the transformed image.
-On `terminal_allas` first we check that the image is indeed available in the other bucket.
+Let's check out the transformed picture.
+On `terminal_allas` first we check that the picture is indeed available in the other bucket.
 Then, we download it to our home folder:
 ```
 $ s3cmd ls s3://$OUTPUT_BUCKET
@@ -669,12 +677,12 @@ download: 's3://output_bucket/negated_cat1.jpg' -> './negated_cat1.jpg'  [1 of 1
 
 We can finally admire the result of our hard work!
 
-![image-negated-cat](../../img/negated_cat1.jpg)
+![picture-negated-cat](../../img/negated_cat1.jpg)
 
 ## Conclusion
 
-We have built an automated workflow to transform images using three different cloud services.
-In this tutorial the workflow is just a simple procedure to transform an image into its negated version, but it can be built upon to help in more concrete use cases.
+We have built an automated workflow to transform pictures using three different cloud services.
+In this tutorial the workflow is just a simple procedure to transform an picture into its negated version, but it can be built upon to help in more concrete use cases.
 We can draw a couple of key take-aways from our experience:
 
 * When operating with multiple cloud services at the same time, it might be beneficial to use *one terminal window per cloud service*. Although not necessary, it helps in keeping order in the credentials loaded for different services, e.g., in case we use Allas from a project `X` and cPouta from another project `Y`.
