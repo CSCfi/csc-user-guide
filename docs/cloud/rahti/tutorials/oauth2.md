@@ -1,6 +1,6 @@
 # How to deploy OAuth2 Proxy in Rahti
 
-We will explan how to deploy and use [OAuth2 Proxy](https://oauth2-proxy.github.io/oauth2-proxy/) to provide authentication control
+We will explain how to deploy and use [OAuth2 Proxy](https://oauth2-proxy.github.io/oauth2-proxy/) to provide authentication control
 using Providers such as Google, GitHub, and others.
 
 In this tutorial, we will see how to use GitHub
