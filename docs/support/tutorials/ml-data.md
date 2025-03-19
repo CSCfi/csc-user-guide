@@ -73,11 +73,10 @@ achieve better I/O performance on Lustre](lustre_performance.md).
 
 ### More efficient data format
 
-Many machine learning frameworks support formats for packaging your
-data more efficiently. Common formats include [TensorFlow's
-TFRecord][TFRecord] and [WebDataset][] for PyTorch.  Other examples include
-using [HDF5][], or [LMDB][] formats, or even humble ZIP-files, e.g.,
-via Python's [zipfile][] library.
+Many machine learning frameworks support formats for packaging your data more
+efficiently. Common formats include [TensorFlow's TFRecord][TFRecord] and
+[WebDataset] for PyTorch. Other examples include using [HDF5], or [LMDB]
+formats, or even humble ZIP-files, e.g., via Python's [zipfile] library.
 
 The [LUMI AI guide][LUMI-AI-data] has a nice comparison of different
 formats for use with PyTorch. See also [an example of creating
