@@ -114,7 +114,7 @@ Some Finnish EO datasets are available locally at CSC. [Paituli STAC](https://pa
 
 ### EO data download services  
 
-**[SYKE/FMI, Finnish image mosaics](https://www.syke.fi/fi-FI/Tutkimus__kehittaminen/Tutkimus_ja_kehittamishankkeet/Hankkeet/Paikkatietoalusta_PTA)** : Sentinel-1, Sentinel-2 and Landsat mosaics, also index mosaics. For several time periods per year. These are included in [Paituli STAC](https://paituli.csc.fi/stac.html)
+**SYKE/FMI, Finnish image mosaics**: Sentinel-1, Sentinel-2 and Landsat mosaics, also index mosaics. For several time periods per year. These are included in [Paituli STAC](https://paituli.csc.fi/stac.html)
 
 [**ESA Copernicus Data Space Ecosystem**](https://dataspace.copernicus.eu/) provides worldwide main Sentinel products, see below for more information.
 
@@ -259,7 +259,7 @@ If you find any mistakes or outdated links, have improvement suggestions or want
 
 If you are interested in the fundamentals of EO, take a look at these excellent resources:
 
-* [Fundamentals of remote sensing tutorial](https://www.nrcan.gc.ca/maps-tools-and-publications/satellite-imagery-and-air-photos/tutorial-fundamentals-remote-sensing/9309) by Canada Centre for Mapping and Earth Observation , Natural Resources Canada; an "interactive module is intended as an overview at a senior high school or early university level and touches on physics, environmental sciences, mathematics, computer sciences and geography."
+* [Fundamentals of remote sensing tutorial](https://natural-resources.canada.ca/science-data/science-research/geomatics/remote-sensing/remote-sensing-software-tools) by Canada Centre for Mapping and Earth Observation , Natural Resources Canada; an "interactive module is intended as an overview at a senior high school or early university level and touches on physics, environmental sciences, mathematics, computer sciences and geography."
 * [Echoes in space - Introduction to RADAR remote sensing](https://eo-college.org/courses/echoes-in-space/) by the European Space Agency; "a detailed insight into the history of Radar technology, including all the basics that are needed to understand how electromagnetic waves work and a unique hands-on experience to work with Radar data in diverse application scenarios."
 * [Newcomers guide to Earth Observation](https://business.esa.int/newcomers-earth-observation-guide) by the European Space Agency, "a  guide to help non-experts in providing a starting point in the decision process for selecting an appropriate Earth Observation (EO) solution."
 * [Earthdatascience intro to multispectral data](https://www.earthdatascience.org/courses/use-data-open-source-python/multispectral-remote-sensing/intro-multispectral-data/)
