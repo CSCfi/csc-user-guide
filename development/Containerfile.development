@@ -1,19 +1,25 @@
 FROM rockylinux:8
 
-RUN dnf -y install epel-release \
-                   python3.11 \
-                   python3.11-pip \
-                   git \
-                   findutils &&\
+RUN dnf --assumeyes install \
+      epel-release \
+      python3.11 \
+      python3.11-pip \
+      git \
+      findutils &&\
     dnf clean all
 
 WORKDIR /dev_dir
 COPY ./development/packages.txt ./packages.txt
 COPY ./requirements.txt ./requirements.txt
 
-RUN pip3 install \
+ARG upgrade=false
+RUN if [ $upgrade = true ]; \
+    then requirements_file=packages.txt; \
+    else requirements_file=requirements.txt; \
+    fi; \
+    pip3 install \
       --root-user-action=ignore \
-      --requirement=requirements.txt \
+      --requirement=$requirements_file \
       --use-pep517 \
       --no-cache-dir
 
