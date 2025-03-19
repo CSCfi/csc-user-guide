@@ -75,21 +75,27 @@ achieve better I/O performance on Lustre](lustre_performance.md).
 
 Many machine learning frameworks support formats for packaging your
 data more efficiently. Common formats include [TensorFlow's
-TFRecord](https://www.tensorflow.org/tutorials/load_data/tfrecord) and
-[WebDataset](https://github.com/webdataset/webdataset/) for PyTorch.
-Other examples include using
-[HDF5](https://towardsdatascience.com/hdf5-datasets-for-pytorch-631ff1d750f5),
-or [LMDB](http://deepdish.io/2015/04/28/creating-lmdb-in-python/)
-formats, or even humble ZIP-files, e.g., via Python's
-[zipfile](https://docs.python.org/3/library/zipfile.html) library.
-See also [an example of creating TFRecord files from an image
-dataset](https://github.com/CSCfi/machine-learning-scripts/blob/master/notebooks/tf2-pets-create-tfrecords.ipynb).
+TFRecord][] and [WebDataset][] for PyTorch.  Other examples include
+using [HDF5][], or [LMDB][] formats, or even humble ZIP-files, e.g.,
+via Python's [zipfile][] library.
+
+The [LUMI AI guide][LUMI-AI-data] has a nice comparison of different
+formats for use with PyTorch. See also [an example of creating
+TFRecord files from an image dataset][tfrecord-example].
 
 The main point with all of these formats is that instead of many
 thousands of small files you have one or a few bigger files, which are
 much more efficient to access and read sequentially. Don't hesitate to
 [contact our service desk](../contact.md) if you need advice about how
 to access your data more efficiently.
+
+[TFRecord]: https://www.tensorflow.org/tutorials/load_data/tfrecord
+[WebDataset]: https://github.com/webdataset/webdataset
+[HDF5]: https://docs.h5py.org/en/stable/
+[LMDB]: https://en.wikipedia.org/wiki/Lightning_Memory-Mapped_Database
+[zipfile]: https://docs.python.org/3/library/zipfile.html
+[LUMI-AI-data]: https://github.com/Lumi-supercomputer/LUMI-AI-Guide/tree/main/3-file-formats#readme
+[tfrecord-example]: https://github.com/CSCfi/machine-learning-scripts/blob/master/notebooks/tf2-pets-create-tfrecords.ipynb
 
 
 ### Fast local drive (Puhti and Mahti only)
