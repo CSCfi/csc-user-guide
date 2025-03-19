@@ -14,7 +14,7 @@ authentication for Puhti and Mahti will be introduced in April:
   multi-factor authentication (MFA). We encourage all users with a CSC account to
   activate two-factor authentication as soon as possible to avoid any
   interruption in service access.
-  [Read the detailed instructions on setting up MFA](../../accounts/mfa/#activation-of-mfa).
+  [Read the detailed instructions on setting up MFA](../../accounts/mfa.md#activation-of-mfa).
   If your home organization already implements MFA as part of Haka logins, then
   you are all set and there is no need to additionally set up multi-factor
   authentication in MyCSC.
