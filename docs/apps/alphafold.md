@@ -98,7 +98,7 @@ And then perform the second stage on a GPU node.
 module purge
 module load alphafold/3.0.1
 
-time run_alphafold --json_path=af_output/2pv7/2pv7_data.json --model_dir=/projappl/project_2001659/tauberto/ --output_dir=af_output --run_inference --norun_data_pipeline
+time run_alphafold --json_path=af_output/2pv7/2pv7_data.json --model_dir=</path/to/dir/containing/weight/file/> --output_dir=af_output --run_inference --norun_data_pipeline
 ```
 
 #### Data pipeline job using fast local disk
