@@ -3,7 +3,7 @@
 ## Authentication changes for Puhti and Mahti coming in April, 19.3.2025
 
 To improve the security of our computing services, the following changes to
-authentication for Puhti and Mahti will be introduced in April:
+authentication for Puhti and Mahti will be introduced in April 2025:
 
 * Starting April 14, SSH login to Puhti and Mahti will only work using SSH keys
   added in MyCSC. Password authentication and keys stored in users' personal
