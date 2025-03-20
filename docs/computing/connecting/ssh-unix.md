@@ -1,5 +1,7 @@
 # SSH client on macOS and Linux
 
+--8<-- "auth-update-ssh.md"
+
 On Unix-based systems like macOS and Linux, it is recommended to connect to CSC
 supercomputers using the pre-installed terminal program.
 
@@ -52,6 +54,9 @@ characters. Never leave the passphrase empty!
 
 The recommended way to copy a public key to a supercomputer is
 [through the MyCSC customer portal](ssh-keys.md#adding-public-key-in-mycsc).
+This will also be the only possible way to upload your key starting April 14,
+2025.
+
 Alternatively, you can use the `ssh-copy-id` utility:
 
 ```bash
