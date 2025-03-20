@@ -136,7 +136,6 @@ CSC hosts these databases under `/mnt/datasets/alphafold`. If you need a newer v
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=8
 #SBATCH --mem=10G
-#SBATCH --mail-type=END,FAIL
 
 export DB_DIR=/scratch/${SLURM_JOB_ACCOUNT}/${USER}/db_dir
 
