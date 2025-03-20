@@ -35,7 +35,7 @@ run_alphafold --helpshort
 ```
 or
 ```bash
-run_alphafold --helfull
+run_alphafold --helpfull
 ```
 
 ### Database
