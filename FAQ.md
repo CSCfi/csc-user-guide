@@ -155,6 +155,8 @@ You can preview how the Docs CSC page would look like with your changes included
 
 This user guide uses [MkDocs](https://www.mkdocs.org/) to generate documentation pages. MkDocs comes with it's own preview server for a quick local preview of your edits. You can install the requirements for running Docs CSC locally (all of the following commands are to be run while in the root directory of the cloned repository) with Pip or Conda (recommended).
 
+Alternatively, see [CONTRIBUTING.md](CONTRIBUTING.md#building-the-website-using-the-included-dockerfile) for instructions for Docker/Podman.
+
 #### Venv
 
 If you have a suitable Python version (i.e. equal or greater to the one defined in the latest Conda environment file [symlinked here](development/conda-docs-base-latest.yaml); see [Conda](#conda) below, if not) installed, you can create a new virtual environment with
