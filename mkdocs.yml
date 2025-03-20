@@ -315,6 +315,7 @@ nav:
               - cloud/pouta/configuration.md
               - VM lifecycle & saving BUs: cloud/pouta/vm-lifecycle.md
               - Virtual machine flavors and Billing Unit rates: cloud/pouta/vm-flavors-and-billing.md
+              - Accounting principles and quotas: cloud/pouta/accounting.md
               - Images:
                   - cloud/pouta/images.md
                   - Creating, Converting, Uploading and Sharing virtual machine images: cloud/pouta/adding-images.md
