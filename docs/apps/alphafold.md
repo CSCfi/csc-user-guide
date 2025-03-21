@@ -16,7 +16,7 @@ AlphaFold 3 is available on Mahti.
 ## License
 
 The AlphaFold 3 inference code is available under a [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en) license.
-The model parameters are available under a separate terms of use agreement and have to be obtained by each user directly from Google as described [here](https://github.com/google-deepmind/alphafold3?tab=readme-ov-file#obtaining-model-parameters).
+The model parameters are available under a separate terms of use agreement and have to be obtained by each user directly from Google as described in [AlphaFold 3 documentation](https://github.com/google-deepmind/alphafold3?tab=readme-ov-file#obtaining-model-parameters).
 
 ## Available
 
@@ -38,11 +38,11 @@ run_alphafold --helpshort
 
 The genetic databases needed for evolutionary search are hosted at `/mnt/datasets/alphafold`.
 CSC maintains a single version of these databases. If you need a different version, you can download it yourself.
-See download instructions [here](https://github.com/google-deepmind/alphafold3/blob/main/docs/installation.md#obtaining-genetic-databases) and the Job Script Examples.
+See [download instructions](https://github.com/google-deepmind/alphafold3/blob/main/docs/installation.md#obtaining-genetic-databases) and the Job Script Examples.
 At time of writing the databases were about 700 GB and it took 30 minutes to download them.
 
 ### Job Script Examples
-All the examples here use the example input from [here](https://github.com/google-deepmind/alphafold3?tab=readme-ov-file#installation-and-running-your-first-prediction):
+All the examples here use the example input from [AlphaFold 3 GitHub page](https://github.com/google-deepmind/alphafold3?tab=readme-ov-file#installation-and-running-your-first-prediction):
 ```json
 {
   "name": "2PV7",
@@ -142,11 +142,11 @@ bash <path/to/script/>/fetch_databases.sh $DB_DIR
 To run the data pipeline first and then start the inference job as soon as the first one is finished, you can chain them like this:
 ```bash
 sbatch run_datapipeline.slurm
-> sbatch --dependency=afterok:<JOBID> run_inference.slurm
+sbatch --dependency=afterok:<JOBID> run_inference.slurm
 ```
 
 ## More Information
-See [AlphaFold 3](https://github.com/google-deepmind/alphafold3?tab=readme-ov-file#alphafold-3) documentation.
+See [AlphaFold 3 documentation](https://github.com/google-deepmind/alphafold3?tab=readme-ov-file#alphafold-3).
 
 # AlphaFold 2
 
