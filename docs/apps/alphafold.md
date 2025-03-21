@@ -141,7 +141,7 @@ bash <path/to/script/>/fetch_databases.sh $DB_DIR
 #### Chaining Jobs
 To run the data pipeline first and then start the inference job as soon as the first one is finished, you can chain them like this:
 ```bash
-> sbatch run_datapipeline.slurm
+sbatch run_datapipeline.slurm
 > sbatch --dependency=afterok:<JOBID> run_inference.slurm
 ```
 
