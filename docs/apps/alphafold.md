@@ -33,10 +33,6 @@ To print the available command line options:
 ```bash
 run_alphafold --helpshort
 ```
-or
-```bash
-run_alphafold --helpfull
-```
 
 ### Database
 
