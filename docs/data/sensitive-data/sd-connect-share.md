@@ -1,3 +1,8 @@
+---
+hide:
+  - toc
+---
+
 # Sharing folders
 
 !!! info "Share ID"
