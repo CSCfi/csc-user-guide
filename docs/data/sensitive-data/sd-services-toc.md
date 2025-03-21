@@ -3,7 +3,7 @@ hide:
   - toc
 ---
 
-# Sensitive Data (SD) services - Table of content of user guide
+# Sensitive Data (SD) services user guide - Table of content
 
 ## Store and analyse research data
 
