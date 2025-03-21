@@ -16,7 +16,7 @@ AlphaFold 3 is available on Mahti.
 ## License
 
 The AlphaFold 3 inference code is available under a [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en) license.
-The model parameters are available under a separate terms of use agreement and have to be obtained by each user directly from Google as described in [AlphaFold 3 documentation](https://github.com/google-deepmind/alphafold3?tab=readme-ov-file#obtaining-model-parameters).
+The model parameters are available under a separate terms of use agreement and have to be obtained by each user directly from Google as described in the [AlphaFold 3 documentation](https://github.com/google-deepmind/alphafold3?tab=readme-ov-file#obtaining-model-parameters).
 
 ## Available
 
@@ -42,7 +42,7 @@ See [download instructions](https://github.com/google-deepmind/alphafold3/blob/m
 At time of writing the databases were about 700 GB and it took 30 minutes to download them.
 
 ### Job Script Examples
-All the examples here use the example input from [AlphaFold 3 GitHub page](https://github.com/google-deepmind/alphafold3?tab=readme-ov-file#installation-and-running-your-first-prediction):
+All the examples here use the example input from the [AlphaFold 3 GitHub page](https://github.com/google-deepmind/alphafold3?tab=readme-ov-file#installation-and-running-your-first-prediction):
 ```json
 {
   "name": "2PV7",
