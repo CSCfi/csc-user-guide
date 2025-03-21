@@ -10,6 +10,9 @@ hide:
 * [Start here: Creating a CSC project](sd-access.md)
     * [Access as a project manager](sd-use-case-new-user-project-manager.md)
     * [Access as a project mmeber](sd-use-case-new-user-project-member.md)
+
+### Store and share with SD Connect
+
 * [Store and share with SD Connect](sd-connect.md)
   * [Login to SD Connect](sd-connect-login.md)
   * [Upload](sd-connect-upload.md)
@@ -21,6 +24,8 @@ hide:
   * [Delete](sd-connect-delete.md)
   * [Command line interfaca](sd-connect-command-line-interface.md)
   * [Troubleshooting](sd-connect-troubleshooting.md)
+
+### Analyze and compute with SD Desktop
 
 * [Analyze and compute with Sensitive Data Desktop](sd-desktop.md)
     * [Login to SD Desktop](sd-desktop-login.md)
@@ -37,8 +42,13 @@ hide:
 
 ## Publish and reuse research data
 
+### Publish with Fedarated EGA
+
 * [Publish with Fedarated EGA](federatedega.md)
     * [Publish data](fega-submission.md)
+
+### Reuse with SD Apply
+
 * [Reuse with SD Apply](sd-apply.md)
     * [Apply access to FEGA data](sd-apply-access.md)
     * [Approve access to FEGA data](sd-apply-approval.md)
@@ -46,9 +56,14 @@ hide:
 
 ## Secondary use of health and social data
 
+### Start here: Accessing secondary use health or social data via Sensitive Data services
+
 * [Start here: Accessing secondary use health or social data via Sensitive Data services](secondarydata-access.md)
     * [Access with Findata permit](findata-permit.md)
     * [Access with register permit](single-register-permit.md)
+
+### Analyze with SD Desktop for secondary use
+
 * [Analyze with SD Desktop for secondary use](sd-desktop-audited.md)
     * [Login to SD Desktop](sd-desktop-secondary-login.md)
     * [Create virtual desktop](sd-desktop-secondary-create.md)
