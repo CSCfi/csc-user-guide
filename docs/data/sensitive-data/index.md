@@ -1,3 +1,7 @@
+---
+hide:
+  - toc
+---
 
 # Sensitive Data (SD) services for research: user guide
 

@@ -1,3 +1,8 @@
+---
+hide:
+  - toc
+---
+
 # Store and share with Sensitive Data Connect
 
 - [Overview](#overview)

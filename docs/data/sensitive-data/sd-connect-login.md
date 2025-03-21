@@ -1,3 +1,8 @@
+---
+hide:
+  - toc
+---
+
 # Login to SD Connect
 
 ## Prerequisites
