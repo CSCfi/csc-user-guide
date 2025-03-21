@@ -1,3 +1,8 @@
+---
+hide:
+  - toc
+---
+
 # Introduction to data encryption compatible with Sensitive Data services
 
 

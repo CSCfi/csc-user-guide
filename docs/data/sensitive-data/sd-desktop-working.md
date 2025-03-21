@@ -1,3 +1,9 @@
+---
+hide:
+  - toc
+---
+
+
 # Working with your Desktop: tips and essentials
 
 ## Prerequisites

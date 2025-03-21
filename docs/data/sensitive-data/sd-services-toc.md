@@ -22,7 +22,7 @@ hide:
       * [Give access to folder content only in SD Desktop](sd-connect-share-read-to-sd-desktop.md)
   * [Download](sd-connect-download.md)
   * [Delete](sd-connect-delete.md)
-  * [Command line interfaca](sd-connect-command-line-interface.md)
+  * [Command line interface](sd-connect-command-line-interface.md)
   * [Troubleshooting](sd-connect-troubleshooting.md)
 
 ### Analyze and compute with SD Desktop

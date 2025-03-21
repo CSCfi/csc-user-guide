@@ -1,3 +1,9 @@
+---
+hide:
+  - toc
+---
+
+
 # Login to SD Desktop
 
 ## Prerequisites

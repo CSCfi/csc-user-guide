@@ -1,3 +1,9 @@
+---
+hide:
+  - toc
+---
+
+
 # How to get access to SD Services: Project member
 
 **[Instructions in Finnish (PDF)](https://a3s.fi/docs-files/sensitive-data/SD_palvelut_aloita.pdf){ target="_blank" }**

@@ -1,3 +1,8 @@
+---
+hide:
+  - toc
+---
+
 # Downloading folders and files
 
 You can easily download folders or individual files from SD Connect user interface.

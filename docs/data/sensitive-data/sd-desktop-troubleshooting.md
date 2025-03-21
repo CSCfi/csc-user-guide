@@ -1,3 +1,9 @@
+---
+hide:
+  - toc
+---
+
+
 # Troubleshooting
 
 | Problem               |                                                                                                                                    | Possible solution                                                                                                                                                                                                                                                                                                                |

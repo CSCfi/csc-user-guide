@@ -1,3 +1,9 @@
+---
+hide:
+  - toc
+---
+
+
 # Customising virtual desktop by adding software & tools for analysis
 
 ## Prerequisites

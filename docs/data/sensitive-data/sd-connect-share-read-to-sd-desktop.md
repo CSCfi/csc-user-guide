@@ -1,3 +1,9 @@
+---
+hide:
+  - toc
+---
+
+
 # How to give access to folder content only in SD Desktop
 
 ## Use case

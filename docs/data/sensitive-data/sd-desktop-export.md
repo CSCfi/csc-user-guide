@@ -1,3 +1,9 @@
+---
+hide:
+  - toc
+---
+
+
 # Exporting data from virtual desktop via user interface
 
 ## Prerequisites

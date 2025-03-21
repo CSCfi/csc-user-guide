@@ -1,4 +1,10 @@
 
+---
+hide:
+  - toc
+---
+
+
 # Analyze and compute with Sensitive Data Desktop
 
 

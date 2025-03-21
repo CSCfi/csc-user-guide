@@ -1,3 +1,8 @@
+---
+hide:
+  - toc
+---
+
 # Deleting files and folders
 
 You can delete main folders, subfolders or individual files from SD Connect.

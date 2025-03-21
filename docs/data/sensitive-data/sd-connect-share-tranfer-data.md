@@ -1,3 +1,8 @@
+---
+hide:
+  - toc
+---
+
 # How to transfer your data to another project with SD Connect
 
 <iframe width="400" height="225" srcdoc="https://www.youtube.com/embed/YE5_THNJEsw" title="Introducing CSC Sensitive Data Services" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
