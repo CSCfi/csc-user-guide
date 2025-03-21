@@ -107,6 +107,14 @@ $ openstack database instance create $DB_INSTANCE_NAME \
 --is-public \
 --size 1
 ```
+The parameters of the command are as follows:
+
+* **flavor** determines the amount of resources (CPU, memory) that are allocated for the database instance, see the [DBaaS flavors and prices](../../../dbaas/flavors/) for more information.
+* **databases** is a list of the names of the databases that we want to create inside the instance, in this case corresponding to a single database.
+* **users** is a list of credentials in the format *username:password* to configure the users for the databases, in this case corresponding to a single pair of credentials.
+* **datastore** specifies the type of database to be used, e.g., postgresql or mariadb.
+* **is-public** specifies that the database instance should be made publicly reachable.
+* **size** is the size of the database in gigabytes.
 
 The output from the command should be similar to the following:
 ```
@@ -199,6 +207,9 @@ To this end, we upload the public key to cPouta by issuing the following command
 $ openstack keypair create $POUTA_KEYPAIR \
 --public-key $POUTA_KEYPAIR.pub 
 ```
+The parameters of the command are as follows:
+
+* **public-key** specifies the path to the public key file.
 
 The output of the command will be similar to the following:
 ```
@@ -224,6 +235,11 @@ $ openstack server create $POUTA_INSTANCE_NAME \
 --image Ubuntu-24.04 \
 --key-name $POUTA_KEYPAIR
 ```
+The parameters of the command are as follows:
+
+* **flavor** determines the amount of resources (CPU, memory) that are allocated for virtual machine, see the [Virtual machine flavors and billing unit rates](../../vm-flavors-and-billing/) for more information.
+* **image** specifies the image of the operating system to be used to build the virtual machine, see the [Basic information about images](../../images/) for a list of the available alternative images.
+* **key-name** specifies the public key to be configured inside the virtual machine.
 
 The output from the command should be similar to the following:
 ```
@@ -314,6 +330,11 @@ $ openstack security group rule create $POUTA_SEC_GROUP_NAME \
 --dst-port 22 \
 --protocol tcp
 ```
+The parameters of the command are as follows:
+
+* **remote-ip** specifies the set of ip addresses for which the rule is defined. The remote ips correspond to the source of the traffic.
+* **dst-port** specifies for which port of the destination the rule is defined. The destination port correspond to the destination of the traffic.
+* **protocol** specifies the protocol for which the rule is defined. In this case, the rule considers only TCP traffic.
 
 The output will be similar to the following:
 ```
@@ -442,6 +463,9 @@ We issue then the following command:
 $ openstack database instance update $DB_INSTANCE_NAME \
 --allowed-cidr $POUTA_FLOATING_IP/32
 ```
+The parameters of the command are as follows:
+
+* **allowed-cidr** specifies the set of ip addresses for which traffic towards the database instance is allowed.
 
 In case of success, the command will show no output.
 However, we can check the successful operation by looking at the information about our database instance:
@@ -545,6 +569,12 @@ $ psql \
 -U "$DB_USERNAME" \
 -c "CREATE TABLE IF NOT EXISTS log_records (timestamp varchar(25) primary key, negated_picture_name text, negated_picture_hash text)"
 ```
+The parameters of the command are as follows:
+
+* **h** is the hostname, i.e., the ip address at which the database can be reached.
+* **U** is the username to be used when authenticating with the database.
+* **c** is a command to be issued on the database itself. The command must be written using a syntax that can be understood by the database.
+
 If the command is successful, the terminal simply replies to us with the string `CREATE TABLE`.
 The database is now configured for our pipeline.
 
