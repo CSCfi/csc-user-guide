@@ -39,7 +39,6 @@ hide:
     * [Export data programmatically](sd-desktop-export-commandline.md)
     * [Troubleshooting](sd-desktop-troubleshooting.md)
 
-
 ## Publish and reuse research data
 
 ### Publish with Fedarated EGA
@@ -75,3 +74,16 @@ hide:
     * [Export data](sd-desktop-secondary-export.md)  
     * [Troubleshooting](sd-desktop-secondary-troubleshooting.md)
 
+## Tutorials
+
+* [Adding missing Python libraries to Pythion in SD Desktop](./tutorials/sd-pythonlibs.md)
+* [Adding RStudio and R libraries to SD Desktop](./tutorials/rstudio.md)
+* [Adding RStudio and R libraries to SD Desktop 2](r-in-sd-desktop.md)
+* [Auto apptainer](./tutorials/auto-apptainer.md)
+* [Backup for SD Desktop](./tutorials/backup_sd_desktop.md)
+* [Decrypting all files in a directory](./tutorials/decrypt-directory.md)
+* [Install VS Code in SD Desktop](./tutorials/vscode.md)
+* [Install Whisper in SD Desktop](./tutorials/whisper.md)
+* [Podman in SD Desktop](./tutorials/podman-in-sd-desktop.md)
+* [Running temporary PostgreSQL database in SD Desktop](./tutorials/postgresql.md)
+* [Using Allas storage service to receive sensitive research data](sequencing_center_tutorial.md)
