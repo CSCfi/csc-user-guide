@@ -32,9 +32,9 @@ The easiest way is to **create a student project**.
 
 ## Available Services
 
-!!! warning ""
+!!! warning-label
 
-    If you need other resources, please ask someone at the university to create a different type of a project and add you as a participant.
+    If you need other services, ask someone at the university to create a different type of project and add you as a member.
 
 - [Allas](../../data/Allas/index.md){:target="_blank"} storage service
 - [Pouta](../../cloud/pouta/index.md){:target="_blank"} cloud service
