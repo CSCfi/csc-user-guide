@@ -109,7 +109,7 @@ $ openstack database instance create $DB_INSTANCE_NAME \
 ```
 The parameters of the command are as follows:
 
-* **flavor** determines the amount of resources (CPU, memory) that are allocated for the database instance, see the [DBaaS flavors and prices](../../../dbaas/flavors/) for more information.
+* **flavor** determines the amount of resources (CPU, memory) that are allocated for the database instance, see the [DBaaS flavors and prices](../../../dbaas/flavors.md) for more information.
 * **databases** is a list of the names of the databases that we want to create inside the instance, in this case corresponding to a single database.
 * **users** is a list of credentials in the format *username:password* to configure the users for the databases, in this case corresponding to a single pair of credentials.
 * **datastore** specifies the type of database to be used, e.g., postgresql or mariadb.
@@ -237,8 +237,8 @@ $ openstack server create $POUTA_INSTANCE_NAME \
 ```
 The parameters of the command are as follows:
 
-* **flavor** determines the amount of resources (CPU, memory) that are allocated for virtual machine, see the [Virtual machine flavors and billing unit rates](../../vm-flavors-and-billing/) for more information.
-* **image** specifies the image of the operating system to be used to build the virtual machine, see the [Basic information about images](../../images/) for a list of the available alternative images.
+* **flavor** determines the amount of resources (CPU, memory) that are allocated for virtual machine, see the [Virtual machine flavors and billing unit rates](../../vm-flavors-and-billing.md) for more information.
+* **image** specifies the image of the operating system to be used to build the virtual machine, see the [Basic information about images](../../images.md) for a list of the available alternative images.
 * **key-name** specifies the public key to be configured inside the virtual machine.
 
 The output from the command should be similar to the following:
