@@ -9,17 +9,19 @@ dataset is large.
 We wish the data-mover tool `dm` to be simple to use, and handle all possible
 hard corner cases. It is basically a wrapper around [Restic backup tool](https://restic.readthedocs.io)
 , and stores the data in Restic repository format.
-Restic in turn uses [Rclone](https://rclone.org) for the actual data transfers to
+Restic (as used by data-mover) in turn uses [Rclone](https://rclone.org) backend for the actual data transfers to
 the object storage servers and back. In addition, the data-mover tool does the
 data transfers in the background, using batch jobs, allowing larger transfers
 than would be practical in regular interactive login sessions.
+
+## Simple exaple case, moving data from Puhti to Allas and back
 
 Below is a guide for a simple scenario, moving data from Puhti project scratch
 directory to corresponding project in Allas, and then back. Similar works with
 Mahti and LUMI-O. Please have a look at `dm help` and `dm <sub-command> --help`
 for additional documentation.
 
-## Setting up the connection from Puhti to Allas
+### Setting up the connection from Puhti to Allas
 
 1. Your CSC project needs to have Allas service enabled. The project PI can add
 Allas service for the project in [my.csc.fi](https://my.csc.fi) , if not already enabled, and
@@ -36,7 +38,7 @@ file `$HOME/.config/rclone/rclone.conf` in Puhti. This is easiest to do from
 module load .data-mover
 ```
 
-## Moving a single directory in Puhti to Allas
+### Moving a single directory in Puhti to Allas
 
 1. Delete all the files that are not needed from the scratch directory,
 `/scratch/project_<projid>/exampledir`, for example. There is no need
@@ -52,13 +54,13 @@ dm export /scratch/project_<projid>/exampledir
 dm status
 ```
 
-## Listing the data in Allas
+### Listing the data in Allas
 
 ```
 dm list
 ```
 
-## Moving data from Allas to Puhti
+### Moving data from Allas to Puhti
 
 Import data back to the original directory with
 ```
