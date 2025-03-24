@@ -32,7 +32,7 @@ The easiest way is to **create a student project**.
 
 ## Available Services
 
-!!! warning-label
+!!! info-label
 
     If you need other services, ask someone at the university to create a different type of project and add you as a member.
 
