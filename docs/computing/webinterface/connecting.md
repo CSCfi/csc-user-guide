@@ -1,7 +1,5 @@
 # Connecting to Puhti and Mahti web interfaces
 
---8<-- "auth-update-mfa.md"
-
 1. Using a web browser, go to [www.puhti.csc.fi](https://www.puhti.csc.fi) or
    [www.mahti.csc.fi](https://www.mahti.csc.fi).
 2. On the landing page, click on "Log in" and select an appropriate
