@@ -3,35 +3,8 @@
 --8<-- "auth-update-ssh.md"
 
 On Unix-based systems like macOS and Linux, it is recommended to connect to CSC
-supercomputers using the pre-installed terminal program.
-
-## Basic usage
-
-The OpenSSH client typically comes pre-installed on macOS and Linux systems.
-You can create a remote SSH connection by opening the terminal and running:
-
-```bash
-# Replace <username> with the name of your CSC user account and
-# <host> with "puhti" or "mahti"
-
-ssh <username>@<host>.csc.fi
-```
-
-## Graphical connection
-
-Displaying graphics, such as GUIs and plots, over an SSH connection requires
-a window system. Most macOS and Linux systems have a server program for the X
-window system (X11) installed by default.
-
-To enable displaying graphics over SSH, use the `-X` (X11 forwarding) or `-Y`
-(trusted X11 forwarding) option when launching the SSH client:
-
-```bash
-ssh -X <username>@<host>.csc.fi
-```
-
-For more information about the X11 forwarding options, run `man ssh` in the
-terminal.
+supercomputers using the pre-installed terminal program. The OpenSSH client
+typically comes pre-installed on macOS and Linux systems.
 
 ## Generating SSH keys
 
@@ -55,6 +28,34 @@ characters. Never leave the passphrase empty!
 Starting April 14 2025, the only way to copy a public key to a supercomputer is
 through the MyCSC customer portal.
 [Read the instructions here](ssh-keys.md#adding-public-key-in-mycsc).
+
+## Basic usage
+
+After setting up SSH keys and adding your public key to MyCSC, you can create a
+remote SSH connection by opening the terminal and running:
+
+```bash
+# Replace <username> with the name of your CSC user account and
+# <host> with "puhti" or "mahti"
+
+ssh <username>@<host>.csc.fi
+```
+
+## Graphical connection
+
+Displaying graphics, such as GUIs and plots, over an SSH connection requires
+a window system. Most macOS and Linux systems have a server program for the X
+window system (X11) installed by default.
+
+To enable displaying graphics over SSH, use the `-X` (X11 forwarding) or `-Y`
+(trusted X11 forwarding) option when launching the SSH client:
+
+```bash
+ssh -X <username>@<host>.csc.fi
+```
+
+For more information about the X11 forwarding options, run `man ssh` in the
+terminal.
 
 ## Authentication agent
 
