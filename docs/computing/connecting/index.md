@@ -48,19 +48,30 @@ over SSH, there are multiple programs that can be used for this. The
 instructions for using an [SSH client on Windows](ssh-windows.md) lists a few
 popular options.
 
+Starting April 14 2025, logging in to Puhti and Mahti using an SSH client
+requires that you have [set up SSH keys](ssh-keys.md) and
+[added your public key to MyCSC](ssh-keys.md#adding-public-key-in-mycsc).
+Traditional password-based authentication and public keys stored in your
+personal `~/.ssh/authorized_keys` file will **not** work.
+
+Once you have set up SSH keys and added your public key to MyCSC, use a
+command like below to connect over SSH:
+
+```bash
+# Replace <username> with the name of your CSC user account and
+# <host> with "puhti" or "mahti"
+
+ssh <username>@<host>.csc.fi
+```
+!!! note
+    It might take up to one hour for your new key to become active after adding
+    it to MyCSC.
+
 Once the SSH connection to the supercomputer is open, you can interact with it
 by issuing Linux commands using the Bash shell program. An introduction to
 working on the Linux command-line can be found in our
 [Linux basics tutorial for CSC](../../support/tutorials/env-guide/index.md).
 You can have several connections to CSC supercomputers open at the same time.
-
-!!! note "SSH keys"
-    Starting April 14 2025, logging in to Puhti and Mahti using an SSH client
-    requires that you have set up SSH keys and added your public key to MyCSC.
-    Traditional password-based authentication and public keys stored in your
-    personal `~/.ssh/authorized_keys` file will not work.
-
-    [Read the detailed instructions on setting up and using SSH keys](ssh-keys.md).
 
 ### First connection
 
