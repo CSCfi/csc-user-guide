@@ -43,16 +43,15 @@ Before you can add information to SD Apply, CSC service desk needs to create an 
 
 Cataloque item enables applicant to apply for access for your dataset. When you add datasets to be applied via SD Apply, you have to first create:
 
-!!! note
-    You have to create form, policy, DAC and identifier items **before** creating a catalogue item.
-
-* Form: applicants use the application form to apply for access rights.
-* Policy (optional): Data access agreements which describe how applicants can re-use data .
-* DAC: Data Access Committee process applications.
-* Identifier: a technical identifier for the dataset, for example a DOI.
+* **Form:** applicants use the application form to apply for access rights.
+* **Policy (optional):** Data access agreements which describe how applicants can re-use data.
+* **DAC:** Data Access Committee process applications.
+* **Identifier:** a technical identifier for the dataset, for example a DOI.
 
 Then you combine these items together by creating a catalogue item. You can also reuse existing items. 
 
+!!! note
+    You have to create form, policy, DAC and identifier items **before** creating a catalogue item.
 
 ### 2.1. Create an application form
 
