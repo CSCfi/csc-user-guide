@@ -63,6 +63,7 @@ command like below to connect over SSH:
 
 ssh <username>@<host>.csc.fi
 ```
+
 !!! note
     It might take up to one hour for your new key to become active after adding
     it to MyCSC.
