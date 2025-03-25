@@ -83,8 +83,7 @@ to store your keys in memory for the duration of your local login session.
 
 The [PuTTY SSH client](https://putty.org/) is an alternative to using OpenSSH.
 When you launch PuTTY, you are asked to configure your SSH session. Do so
-according to the table below and click `Open`. You will be asked for your CSC
-username and password, after which you are connected to the supercomputer.
+according to the table below and click `Open`.
 
 | Option | Value |
 |-|-|
