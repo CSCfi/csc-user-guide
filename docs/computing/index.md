@@ -36,7 +36,9 @@ of this user guide.
 
 ## Connecting to the supercomputers
 
-Connect using an ssh client:
+--8<-- "auth-update-ssh.md"
+
+Connect using an SSH client:
 
 ```bash
 ssh yourcscusername@puhti.csc.fi
@@ -52,21 +54,23 @@ This will connect you to one of the login nodes. If you need to connect
 to a specific login node, use the command:
 
 ```bash
-ssh yourcscusername@puhti-login<number 11-12,14-15>.csc.fi
+ssh yourcscusername@puhti-login[11-12,14-15].csc.fi
 ```
 
 or
 
 ```bash
-ssh yourcscusername@mahti-login<number 11-12>.csc.fi
+ssh yourcscusername@mahti-login[11-12,14-15].csc.fi
 ```
 
 Where `yourcscusername` is the username you get from CSC.
 
 For more details, see the [connecting](connecting/index.md) page.
 
-Puhti can also be accessed via the [Puhti web interface](webinterface/index.md)
-available at [www.puhti.csc.fi](https://www.puhti.csc.fi).
+Puhti and Mahti can also be accessed via their respective
+[web interfaces](webinterface/index.md) available at
+[www.puhti.csc.fi](https://www.puhti.csc.fi) and
+[www.mahti.csc.fi](https://www.mahti.csc.fi).
 
 ### Scalability
 
