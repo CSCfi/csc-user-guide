@@ -9,7 +9,8 @@ file will no longer work. Note that the Puhti and Mahti web interfaces are not
 affected by this change and login sessions can be launched within the web
 browser as before.
 
-**Action:** To ensure access to login nodes you must add SSH keys to MyCSC.
+**Action:** To access to Puhti and Mahti login nodes with SSH, you must create
+SSH keys and add your public key to MyCSC.
 [See here for detailed instructions on setting up and using SSH keys](../../computing/connecting/ssh-keys.md).
 
 **Motivation:** The purpose of implementing this changes is to enhance
