@@ -35,8 +35,7 @@ hooks:
   - hooks/preview.py
 
 plugins:
-  - tags:
-      tags_file: apps/by_license.md
+  - tags
   - search
   - git-revision-date-localized:
       enabled: !ENV [ENABLED_GIT_REVISION_DATE, true]
@@ -144,6 +143,9 @@ markdown_extensions:
   - pymdownx.details
   - pymdownx.tabbed:
       alternate_style: true
+      slugify: !!python/object/apply:pymdownx.slugs.slugify
+        kwds:
+          case: lower
   - pymdownx.snippets:
       base_path: csc-overrides/assets/snippets
       auto_append:
@@ -313,6 +315,7 @@ nav:
               - cloud/pouta/configuration.md
               - VM lifecycle & saving BUs: cloud/pouta/vm-lifecycle.md
               - Virtual machine flavors and Billing Unit rates: cloud/pouta/vm-flavors-and-billing.md
+              - Accounting principles and quotas: cloud/pouta/accounting.md
               - Images:
                   - cloud/pouta/images.md
                   - Creating, Converting, Uploading and Sharing virtual machine images: cloud/pouta/adding-images.md

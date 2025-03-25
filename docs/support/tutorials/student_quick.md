@@ -32,6 +32,10 @@ The easiest way is to **create a student project**.
 
 ## Available Services
 
+!!! info-label
+
+    If you need other services, ask someone at the university to create a different type of project and add you as a member.
+
 - [Allas](../../data/Allas/index.md){:target="_blank"} storage service
 - [Pouta](../../cloud/pouta/index.md){:target="_blank"} cloud service
 - [Puhti](hpc-quick.md){:target="_blank"} computing service
