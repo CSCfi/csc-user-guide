@@ -194,6 +194,8 @@ A newbie-friendly guide on how to set up the necessary tools on Windows is avail
 
 ## Building the website using the included Dockerfile
 
+**This has some drawbacks, see [below](#development-container) for an alternative.**
+
 You can also create a Docker container to host the docs. First build
 an image from the included Dockerfile.
 
@@ -211,6 +213,69 @@ sudo docker run --rm -it -p 80:8000 --name csc-user-guides csc-user-guides
 This will run a web server on your laptop in port 80. You can view the
 content of the user guides by pointing your browser to
 [localhost](http://localhost).
+
+### Development container
+
+A [Containerfile](development/Containerfile.development) is included for building a container image with live-reload support.
+
+#### Usage with rootless _Podman_
+
+First, build the container image with the command
+
+```bash
+podman build -t docs-development -f development/Containerfile.development .
+```
+
+Then, start a container&mdash;bind-mounting the repository directory (`./`) to `/csc-user-guide` inside the container and publishing the port `8000`&mdash;with
+
+```bash
+podman run -it -v ./:/csc-user-guide -p 8000:8000 localhost/docs-development:latest serve
+```
+
+The site should be up at `localhost:8000` momentarily.
+
+If you define an alias `mkdocs` for the Podman command like so
+
+```bash
+alias mkdocs='podman run -it -v ./:/csc-user-guide -p 8000:8000 localhost/docs-development:latest'
+```
+
+running the container is almost like running a regular installation of _MkDocs_:
+
+```console
+$ mkdocs --help
+Usage: mkdocs [OPTIONS] COMMAND [ARGS]...
+
+  MkDocs - Project documentation with Markdown.
+
+Options:
+  -V, --version         Show the version and exit.
+  -q, --quiet           Silence warnings
+  -v, --verbose         Enable verbose output
+  --color / --no-color  Force enable or disable color and wrapping for the output. Default is auto-detect.
+  -h, --help            Show this message and exit.
+
+Commands:
+  build      Build the MkDocs documentation.
+  get-deps   Show required PyPI packages inferred from plugins in mkdocs.yml.
+  gh-deploy  Deploy your documentation to GitHub Pages.
+  new        Create a new MkDocs project.
+  serve      Run the builtin development server.
+```
+
+#### Building with upgraded Python dependencies
+
+The file [development/packages.txt](development/packages.txt) contains the currently used Python packages without explicit versions. To build an image with the latest versions for the packages available to _pip_ on the base image (`rockylinux:8`), include `--build-args upgrade=true` for the build command (possibly using a different tag, such as `docs-upgrade`):
+
+```bash
+podman build -t docs-upgrade -f development/Containerfile.development --build-args upgrade=true .
+```
+
+The image now has the latest available Python packages installed instead of the versions frozen in [requirements.txt](requirements.txt). The upgraded environment can now be, for example, frozen into `requirements.txt` with
+
+```bash
+podman run --entrypoint '["/bin/bash", "-c", "pip3 freeze"]' localhost/docs-upgrade:latest > requirements.txt
+```
 
 ## Finding pages that might be outdated
 
