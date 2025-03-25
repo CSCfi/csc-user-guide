@@ -16,9 +16,10 @@ A [CSC user account](how-to-create-new-user-account.md#getting-an-account-with-h
 	* [Commercial](how-to-create-new-project.md#commercial)
 	* [Course](how-to-create-new-project.md#course)
 	* [LUMI](how-to-create-new-project.md#how-to-create-finnish-lumi-projects)
-6. After you have created the project, remember to add [Service](../accounts/how-to-add-service-access-for-project/) to the project. 
+6. After you have created the project, remember to add [Service](how-to-add-service-access-for-project.md) to the project.
 
 ![New Project creation view.](../img/mycsc-create-new-project.png){width=400}
+
 ## Academic
 
 Academic project category is reserved for [free-of-charge use cases](https://research.csc.fi/free-of-charge-use-cases){:target="_blank"} and they can be created only by members of Finnish higher education institutions, state research institutes and CSC.
