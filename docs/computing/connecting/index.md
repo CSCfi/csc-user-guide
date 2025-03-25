@@ -1,5 +1,7 @@
 # Connecting to CSC supercomputers
 
+--8<-- "auth-update-ssh.md"
+
 There are two main ways of connecting to CSC supercomputers.
 
 1. The traditional way to connect to a supercomputer is
@@ -53,9 +55,12 @@ working on the Linux command-line can be found in our
 You can have several connections to CSC supercomputers open at the same time.
 
 !!! note "SSH keys"
-    When you connect over SSH, you can log in using your CSC account password, but
-    it is more convenient and secure to [set up SSH keys](ssh-keys.md) and use
-    them for authentication.
+    Starting April 14 2025, logging in to Puhti and Mahti using an SSH client
+    requires that you have set up SSH keys and added your public key to MyCSC.
+    Traditional password-based authentication and public keys stored in your
+    personal `~/.ssh/authorized_keys` file will not work.
+
+    [Read the detailed instructions on setting up and using SSH keys](ssh-keys.md).
 
 ### First connection
 
