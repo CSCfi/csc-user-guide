@@ -16,7 +16,7 @@ Before you start adding information in SD Apply, we recommend discussing inside 
 
 DAC is responsible for:
 
-- **Coordinating and approving new FEGA submissions inside their organisation**: Reviewing the datasets that will be submitted in the Federated EGA under their organization and controllership  
+- **Coordinating and approving new FEGA submissions inside their organisation**: Reviewing the datasets that will be submitted in the Federated EGA under their organization and controllership.
 - **Managing access to organization's datasets**: Evaluating data access requests for datasets managed by the DAC to ensure compliance with defined policies, regulations, and ethical guidelines.
 
 ## Adding a dataset to catalogue in SD Apply
@@ -31,35 +31,32 @@ Adding datasets to SD Apply for the first time is made in close collaboration wi
 
 Before you can add information to SD Apply, CSC service desk needs to create an organization profile and set you as the organization administrator. 
 
-1. Request profile creation by sending an email to servicedesk@csc.fi with the subject heading SD services.
+1. Send an email to servicedesk@csc.fi with the subject "SD services" to request profile creation.
 2. Log in to [SD Apply service](https://sd-apply.csc.fi/).
 3. Inform the service desk that you have logged in. Service desk will add you to right organization.
 4. The service desk will inform you when you can start adding datasets to SD Apply. 
 
 !!! note
-    Always use the same identity provider when you log in to SD Apply because your role and datasets you manage are connected to your login identity. (i.e. always use only Haka/Virtu login or the CSC login).
+    Always use the same identity provider (Haka/Virtu or CSC login) when logging into SD Apply because your role and datasets you manage are connected to your login identity.
 
 ### 2. Add dataset as catalogue item
 
-When you add a dataset to catalogue in SD Apply, you have to create:
-
-- **Form**: Specify the information applicants need to provide when they apply for access to your data in SD Apply. 
-- **Policy**: Set terms of use, agreements and policies for the data use that the applicants need to accept when they fill in the application form. Policies are shown as part of the application form. 
-- **DAC**: Designate a Data Access Committee who will manage the data access requests in SD Apply. DAC works as a representative for the Data Controller. 
-- **Identifier**: a technical identifier for the dataset, for example DOI.
+Cataloque item enables applicant to apply for access for your dataset. When you add datasets to be applied via SD Apply, you have to first create:
 
 !!! note
     You have to create form, policy, DAC and identifier items **before** creating a catalogue item.
 
-Combine these items together by **creating a catalogue item**.
+* Form: applicants use the application form to apply for access rights.
+* Policy (optional): Data access agreements which describe how applicants can re-use data .
+* DAC: Data Access Committee process applications.
+* Identifier: a technical identifier for the dataset, for example a DOI.
 
-When you have created these items once, you can reuse them and form new catalogue items by combining different items.
-
+Then you combine these items together by creating a catalogue item. You can also reuse existing items. 
 
 
 ### 2.1. Create an application form
 
-In the application form, the data controller specifies the information that the applicant needs to provide to get access to the data. 
+The data controller specifies what information the applicant must provide in the application form to access the data.
 
 1. Log in to SD Apply and navigate to Administration > Forms.
 2. Select **Create form**.
@@ -71,7 +68,7 @@ In the application form, the data controller specifies the information that the 
 !!! note
     You can only edit the form as long as it has not been connected to a catalogue item.
 
-It's recommended to include the parts of the agreements that need to be filled in directly in the application form in SD Apply. The rest of the agreement content can be provided as a PDF attachment and added as license in SD Apply, allowing applicants to review and accept the terms electronically when requesting access to the dataset. This way, applicants can complete the necessary sections within SD Apply and accept the terms of use without needing to manually sign documents. Please discuss with your organization's legal team about this possibility.
+It's recommended to include the parts of the agreements that need to be filled in directly in the application form in SD Apply. The rest of the agreement content can be provided as a PDF attachment and added as policy in SD Apply, allowing applicants to review and accept the terms electronically when requesting access to the dataset. This way, applicants can complete the necessary sections within SD Apply and accept the terms of use without needing to manually sign documents. Please discuss with your organization's legal team about this possibility.
 
 #### Form fields explained
 
