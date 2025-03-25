@@ -13,8 +13,8 @@ browser as before.
 keys and add your public key to MyCSC.
 [See here for detailed instructions on setting up and using SSH keys](../../computing/connecting/ssh-keys.md).
 
-**Motivation:** The purpose of implementing this changes is to enhance
-protection for our computing, data, and cloud services. Password-based logins
+**Motivation:** The purpose of implementing this change is to improve the
+security of our computing, data, and cloud services. Password-based logins
 are vulnerable, as are manually managed SSH keys. Implementing MyCSC key
 management significantly strengthens user identity verification.
 
