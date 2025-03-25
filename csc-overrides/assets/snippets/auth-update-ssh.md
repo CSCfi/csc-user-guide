@@ -4,4 +4,4 @@
     users' personal `~/.ssh/authorized_keys` file on the supercomputer will no
     longer work. This authentication method is already in use on LUMI.
 
-    [Read the detailed instructions on setting up and using SSH keys](../../computing/connecting/ssh-keys.md).
+    [Read the detailed instructions on setting up and using SSH keys](/computing/connecting/ssh-keys.md).
