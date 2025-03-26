@@ -63,7 +63,7 @@ hide:
 
 ### Analyze with SD Desktop for secondary use
 
-* [Analyze with SD Desktop for secondary use](sd-desktop-audited.md)
+* [Analyze with SD Desktop for secondary use ](sd-desktop-audited.md)
     * [Login to SD Desktop](sd-desktop-secondary-login.md)
     * [Create virtual desktop](sd-desktop-secondary-create.md)
     * [Manage virtual desktop](sd-desktop-secondary-manage.md)
