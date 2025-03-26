@@ -14,7 +14,7 @@ the object storage servers and back. In addition, the data-mover tool does the
 data transfers in the background, using batch jobs, allowing larger transfers
 than would be practical in regular interactive login sessions.
 
-## Simple exaple case, moving data from Puhti to Allas and back
+## Simple example case, moving data from Puhti to Allas and back
 
 Below is a guide for a simple scenario, moving data from Puhti project scratch
 directory to corresponding project in Allas, and then back. Similar works with
