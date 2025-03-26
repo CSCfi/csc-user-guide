@@ -99,6 +99,12 @@ You can add your public key through the
    longer than that, please
    [contact the CSC Service Desk](../../support/contact.md).
 
+Users can check their public keys on Puhti or Mahti using the command:
+
+```bash
+ls -l /var/lib/acco/sshkeys/${USER}/${USER}.pub
+```
+
 !!! info "Required key format"
       Your public key should consist of the SSH key type and the key sequence,
       separated by a single space. If your key is improperly formatted, an
