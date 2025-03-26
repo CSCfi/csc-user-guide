@@ -228,9 +228,9 @@ nav:
           - LUMI: "https://docs.lumi-supercomputer.eu/hardware/"
       - Connecting:
           - computing/connecting/index.md
+          - Setting up SSH keys: computing/connecting/ssh-keys.md
           - SSH client on macOS and Linux: computing/connecting/ssh-unix.md
           - SSH client on Windows: computing/connecting/ssh-windows.md
-          - Setting up SSH keys: computing/connecting/ssh-keys.md
       - Supercomputer storage:
           - computing/disk.md
           - Lustre filesystem: computing/lustre.md

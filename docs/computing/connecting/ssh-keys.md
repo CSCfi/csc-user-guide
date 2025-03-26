@@ -1,15 +1,19 @@
 # Setting up SSH keys
 
+--8<-- "auth-update-ssh.md"
+
 SSH keys provide more convenient and secure authentication. Setting them up is
 a simple two-step process.
 
 1. [Generate SSH keys on your local workstation](#generating-ssh-keys).
     - SSH keys are always generated in pairs consisting of one _public key_ and
-    one _private key_. Generate these keys on the device you intend to use to
-    connect to CSC supercomputers.
-2. [Copy the public key from your workstation to a supercomputer](#copying-public-key-to-supercomputer).
+      one _private key_. Generate these keys on the device you intend to use to
+      connect to CSC supercomputers.
+2. [Copy the public key from your workstation to MyCSC](#copying-public-key-to-supercomputer).
     - For authenticating an SSH connection using a key pair, you need to copy
-      the public key onto the supercomputer. **Do not copy the private key.**
+      the public key to MyCSC. **Do not copy the private key.** Note that
+      copying the public key directly to CSC supercomputers using tools such as
+      `ssh-copy-id` will no longer work after April 14, 2025.
 
 !!! warning
     The private key should **never** be shared with anyone, not even with CSC
@@ -71,9 +75,9 @@ Host *.bullx
 
 ## Copying public key to supercomputer
 
-The recommended and easiest way to copy your public key to a CSC system is
-[through the MyCSC customer portal](#adding-public-key-in-mycsc). For other
-approaches, please see the system-specific SSH instructions.
+Starting April 14 2025, the only way to copy a public key to a supercomputer is
+through the MyCSC customer portal.
+[Read the instructions here](ssh-keys.md#adding-public-key-in-mycsc).
 
 ### Adding public key in MyCSC
 
