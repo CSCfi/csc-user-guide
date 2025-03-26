@@ -1,15 +1,20 @@
 # Setting up SSH keys
 
-SSH keys provide more convenient and secure authentication. Setting them up is
-a simple two-step process.
+--8<-- "auth-update-ssh.md"
+
+[SSH keys](https://www.ssh.com/academy/ssh-keys) provide more convenient and
+secure authentication. Setting them up is a two-step process, and is required
+to be able to connect to CSC supercomputers using an SSH client.
 
 1. [Generate SSH keys on your local workstation](#generating-ssh-keys).
     - SSH keys are always generated in pairs consisting of one _public key_ and
-    one _private key_. Generate these keys on the device you intend to use to
-    connect to CSC supercomputers.
-2. [Copy the public key from your workstation to a supercomputer](#copying-public-key-to-supercomputer).
+      one _private key_. Generate these keys on the device you intend to use to
+      connect to CSC supercomputers.
+2. [Copy the public key from your workstation to MyCSC](#copying-public-key-to-supercomputer).
     - For authenticating an SSH connection using a key pair, you need to copy
-      the public key onto the supercomputer. **Do not copy the private key.**
+      the public key to MyCSC. **Do not copy the private key.** Note that
+      copying the public key directly to CSC supercomputers using tools such as
+      `ssh-copy-id` will no longer work after April 14, 2025.
 
 !!! warning
     The private key should **never** be shared with anyone, not even with CSC
@@ -71,9 +76,9 @@ Host *.bullx
 
 ## Copying public key to supercomputer
 
-The recommended and easiest way to copy your public key to a CSC system is
-[through the MyCSC customer portal](#adding-public-key-in-mycsc). For other
-approaches, please see the system-specific SSH instructions.
+Starting April 14 2025, the only way to copy a public key to a supercomputer is
+through the MyCSC customer portal.
+[Read the instructions here](ssh-keys.md#adding-public-key-in-mycsc).
 
 ### Adding public key in MyCSC
 
@@ -93,6 +98,12 @@ You can add your public key through the
    it might take up to one hour for your new key to become active. If it takes
    longer than that, please
    [contact the CSC Service Desk](../../support/contact.md).
+
+Users can check their public keys on Puhti or Mahti using the command:
+
+```bash
+ls -l /var/lib/acco/sshkeys/${USER}/${USER}.pub
+```
 
 !!! info "Required key format"
       Your public key should consist of the SSH key type and the key sequence,
