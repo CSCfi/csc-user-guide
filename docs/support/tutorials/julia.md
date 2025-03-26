@@ -10,7 +10,7 @@ They are adapted from the general instructions of running jobs on [Puhti and Mah
 Note that we do not use `srun` to start processes in the batch script.
 Instead we use Julia for process management or call `srun` inside the Julia code.
 
-Before running the exapmles, we need to instantiate the Julia project on the login node.
+Before running the examples, we need to instantiate the Julia project on the login node.
 That is, run the following command in the directory with your Julia environment where `Project.toml` file is located.
 
 ```bash
