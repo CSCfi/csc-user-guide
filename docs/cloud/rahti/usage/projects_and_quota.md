@@ -184,8 +184,8 @@ The user can set the limits explicitly within the available quota, but if no lim
 
 |Type|CPU|Memory|
 |:-:|:-:|:-:|
-|limits|250m|2500Mi|
-|requests|50m|500Mi|
+|limits|500m|1Gi|
+|requests|100m|500Mi|
 
 Note: `m` stands for milicores. `500m` will be the equivalent of 0.5 cores, or in other words half of the time of a CPU core.
 

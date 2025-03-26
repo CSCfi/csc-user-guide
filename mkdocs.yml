@@ -35,8 +35,7 @@ hooks:
   - hooks/preview.py
 
 plugins:
-  - tags:
-      tags_file: apps/by_license.md
+  - tags
   - search
   - git-revision-date-localized:
       enabled: !ENV [ENABLED_GIT_REVISION_DATE, true]
@@ -87,6 +86,7 @@ plugins:
         # for convenience:
         "glossary.md": "support/glossary.md"
         "archives.md": "support/contact.md#archives"
+        "mahti-nvme-2025.md": "support/wn/comp-new.md#new-small-partition-with-high-performance-nvme-storage-on-mahti-1322025"
         # Rahti2 to Rahti:
         "cloud/rahti2/catalog-docs.md": "cloud/rahti/catalog-docs.md"
         "cloud/rahti2/rahti-migration.md": "cloud/rahti/rahti-migration.md"
@@ -143,6 +143,9 @@ markdown_extensions:
   - pymdownx.details
   - pymdownx.tabbed:
       alternate_style: true
+      slugify: !!python/object/apply:pymdownx.slugs.slugify
+        kwds:
+          case: lower
   - pymdownx.snippets:
       base_path: csc-overrides/assets/snippets
       auto_append:
@@ -225,9 +228,9 @@ nav:
           - LUMI: "https://docs.lumi-supercomputer.eu/hardware/"
       - Connecting:
           - computing/connecting/index.md
+          - Setting up SSH keys: computing/connecting/ssh-keys.md
           - SSH client on macOS and Linux: computing/connecting/ssh-unix.md
           - SSH client on Windows: computing/connecting/ssh-windows.md
-          - Setting up SSH keys: computing/connecting/ssh-keys.md
       - Supercomputer storage:
           - computing/disk.md
           - Lustre filesystem: computing/lustre.md
@@ -312,6 +315,7 @@ nav:
               - cloud/pouta/configuration.md
               - VM lifecycle & saving BUs: cloud/pouta/vm-lifecycle.md
               - Virtual machine flavors and Billing Unit rates: cloud/pouta/vm-flavors-and-billing.md
+              - Accounting principles and quotas: cloud/pouta/accounting.md
               - Images:
                   - cloud/pouta/images.md
                   - Creating, Converting, Uploading and Sharing virtual machine images: cloud/pouta/adding-images.md
@@ -453,6 +457,7 @@ nav:
           - Common Error Messages: data/Allas/using_allas/error_messages.md
           - Allas object storage related terms and concepts: data/Allas/terms_and_concepts.md
           - Allas clients:
+              - Allas Web UI: data/Allas/using_allas/allas-ui.md
               - a-command: data/Allas/using_allas/a_commands.md
               - a-backup: data/Allas/using_allas/a_backup.md
               - Cyberduck: data/Allas/using_allas/cyberduck.md

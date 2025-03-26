@@ -32,9 +32,13 @@ Please note, maximum duration of [Student projects](../support/tutorials/student
 
 ## Project closure
 
-CSC Projects will automatically close when they reach their end date. Before the Project ends all Project members receive multiple email messages regarding the closure. Project Manager is able to extend the Project before the Project is closed.  
+CSC Projects will automatically close on their end date. Before the CSC Project ends, all project members will receive multiple email notifications about the closure. The Project Manager can extend the CSC Project before it is closed.
 
-Project Manager can close the Project earlier in [MyCSC](https://my.csc.fi) portal. Project members will receive notification when the CSC Project is closed. Please note that content in services will be deleted after Project closure. If you want to preserve any content (i.e. data, software, servers, systems or processes), please export and delete them from CSC services before the Project end date. Content can't be retrieved after 90 days of Project closure.
+The Project Manager can also close the CSC Project earlier through the MyCSC portal. Project members will be notified when the CSC Project is closed. Please note that content in services will be deleted after the CSC Project closure, unless otherwise agreed. If you want to preserve any content (e.g., data, software, servers, systems, or processes), please export and delete them from CSC services before the CSC Project end date.
+
+If the CSC Project closure was unintentional, the Project Manager should contact CSC as soon as possible at servicedesk@csc.fi. Upon request from the Project Manager, the CSC Project can be re-opened or temporary access to services can be provided.
+
+Content cannot be retrieved after 90 days from the CSC Project closure.
 
 #### When the Project is closed
 
