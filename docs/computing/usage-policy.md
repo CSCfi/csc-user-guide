@@ -38,13 +38,15 @@ been accessed in a long time. The performance of a parallel file system starts
 to degrade when it fills up, and the more it fills up, the slower the performance
 will get.
 
-The current policy in Puhti is that files that have not been accessed for
-**6 months** or more will be removed. This cleaning will happen regularly,
+**Puhti:** For projects with a quota of 5 TiB or less, any file that has not been accessed for
+**180 days** or more will be removed. Projects with a larger quota will have a shorter data retention 
+period. For those projects any file that has not been accessed **90 days** or more will be removed.
+This cleaning will happen regularly,
 and each time users are informed at least 1 month in advance. CSC also provides
 lists of files that are about to be removed and instructions for how one can
 transfer important files to more suitable disk systems.
 
-A similar procedure will be introduced on Mahti, but it is not yet in place.
+**Mahti:** A similar procedure will be introduced on Mahti if the disk usage grows enough to warrant it.
 The policy is still that users should keep only actively used data in scratch.
 
 ## GPU nodes
@@ -95,3 +97,7 @@ in MyCSC.
 If you are still actively using the project you can gain access to the compute
 resources and storage by [applying](../accounts/how-to-apply-for-billing-units.md)
 for more billing units.
+
+## Prolonging ongoing slurm jobs 
+
+CSC admins will not change job parameters like length or priority on request. 
