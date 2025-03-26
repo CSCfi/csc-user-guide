@@ -1,5 +1,7 @@
 # SSH client on Windows
 
+--8<-- "auth-update-ssh.md"
+
 There are various programs that can be used for creating a remote SSH
 connection on a Windows system. This page provides instructions for three
 popular alternatives: [PowerShell](#powershell), [PuTTY](#putty) and
@@ -57,17 +59,9 @@ ssh-keygen -o -a 100 -t ed25519
 
 ### Copying public key to supercomputer (PowerShell)
 
-The recommended way to copy a public key to a supercomputer is
-[through the MyCSC customer portal](ssh-keys.md#adding-public-key-in-mycsc).
-Alternatively, you can do it using PowerShell by running the following
-command:
-
-```bash
-# The default location for SSH keys is "C:\Users\<local-user>\.ssh\"
-# and the default ED25519 key ID is "id_ed25519"
-
-cat C:\Users\<local-user>\.ssh\<key-id>.pub | ssh <csc-user>@<host>.csc.fi "cat >> ~/.ssh/authorized_keys"
-```
+Starting April 14 2025, the only way to copy a public key to a supercomputer is
+through the MyCSC customer portal.
+[Read the instructions here](ssh-keys.md#adding-public-key-in-mycsc).
 
 ### Authentication agent (PowerShell)
 
@@ -89,8 +83,7 @@ to store your keys in memory for the duration of your local login session.
 
 The [PuTTY SSH client](https://putty.org/) is an alternative to using OpenSSH.
 When you launch PuTTY, you are asked to configure your SSH session. Do so
-according to the table below and click `Open`. You will be asked for your CSC
-username and password, after which you are connected to the supercomputer.
+according to the table below and click `Open`.
 
 | Option | Value |
 |-|-|
@@ -112,26 +105,15 @@ To generate SSH keys for connecting with PuTTY, use the [PuTTYgen key
 generator](https://www.puttygen.com/). The PuTTY documentation provides
 [instructions for using PuTTYgen](https://www.putty.be/0.76/htmldoc/Chapter8.html).
 
-### Copying public key to supercomputer (PuTTY)
-
-The recommended way to copy a public key to a supercomputer is
-[through the MyCSC customer portal](ssh-keys.md#adding-public-key-in-mycsc).
-Alternatively, you can do it using PuTTY by following the instructions below.
-
-1. Do one of the following:
-    1. Copy the public key (`ssh-ed25519 ...`) displayed in the PuTTYgen main
-    window to your clipboard. Make sure to scroll down to the bottom of the
-    text box.
-    2. Edit the public key file written by PuTTYgen so that all the file
-    contents are on one row and the key sequence does not contain any
-    spaces. Copy the public key from the file to your clipboard.
-2. Connect to a supercomputer using SSH and open the `~/.ssh/authorized_keys`
-   file using a text editor. Paste your copied public key to the end of the
-   file and save the file.
-
 !!! note "Using SSH keys"
     See the page on [setting up SSH keys](ssh-keys.md) for general
     information about using SSH keys for authentication.
+
+### Copying public key to supercomputer (PuTTY)
+
+Starting April 14 2025, the only way to copy a public key to a supercomputer is
+through the MyCSC customer portal.
+[Read the instructions here](ssh-keys.md#adding-public-key-in-mycsc).
 
 ### Connecting with SSH keys (PuTTY)
 
@@ -187,17 +169,9 @@ set a persistent home directory for MobaXterm in the program settings
 
 ### Copying public key to supercomputer (MobaXterm)
 
-The recommended way to copy a public key to a supercomputer is
-[through the MyCSC customer portal](ssh-keys.md#adding-public-key-in-mycsc).
-Alternatively, you can do it in MobaXterm using the `ssh-copy-id`
-utility:
-
-```bash
-ssh-copy-id <username>@<host>.csc.fi
-```
-
-You will be asked for your CSC password (not the passphrase for the SSH key).
-Subsequent logins using the SSH key pair will ask for the passphrase.
+Starting April 14 2025, the only way to copy a public key to a supercomputer is
+through the MyCSC customer portal.
+[Read the instructions here](ssh-keys.md#adding-public-key-in-mycsc).
 
 ### Authentication agent (MobaXterm)
 

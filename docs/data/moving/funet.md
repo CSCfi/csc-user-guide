@@ -91,7 +91,7 @@ Assuming you are on a Linux server (e.g. Puhti or Mahti):
     ```ini
     [system]
     base_url = https://filesender.funet.fi/rest.php
-    default_transfer_days_valid = 21
+    default_transfer_days_valid = 7
 
     [user]
     username = <your username>

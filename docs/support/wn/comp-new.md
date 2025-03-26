@@ -1,5 +1,26 @@
 # Computing environment
 
+## Starting April 14 2025, SSH login to Puhti and Mahti will only work with SSH keys added in MyCSC, 25.3.2025
+
+**Change:** Starting April 14 2025, only SSH keys added through MyCSC will
+allow you to login to Puhti or Mahti with SSH. Traditional password-based
+authentication and SSH keys stored in your personal `~/.ssh/authorized_keys`
+file will no longer work. Note that the Puhti and Mahti web interfaces are not
+affected by this change and login sessions can be launched within the web
+browser as before.
+
+**Action:** To access Puhti and Mahti login nodes with SSH, you must create SSH
+keys and add your public key to MyCSC.
+[See here for detailed instructions on setting up and using SSH keys](../../computing/connecting/ssh-keys.md).
+
+**Motivation:** The purpose of implementing this change is to improve the
+security of our computing, data, and cloud services. Password-based logins
+are vulnerable, as are manually managed SSH keys. Implementing MyCSC key
+management significantly strengthens user identity verification.
+
+Please contact [CSC Service Desk](../../support/contact.md) if you have any
+questions or need support with taking SSH keys into use.
+
 ## New Small Partition with High-Performance NVMe Storage on Mahti, 13.2.2025
 
 Mahti has expanded its capabilities with a
