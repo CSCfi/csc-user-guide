@@ -1,6 +1,7 @@
 # Setting up SSH keys
 
-SSH keys provide more convenient and secure authentication and enhance protection for our computing, data, and cloud services. Starting April 14 2025 SSH login to Puhti and Mahti will only work with SSH keys added in MyCSC. 
+SSH keys provide more convenient and secure authentication. Setting them up is
+a simple two-step process.
 
 1. [Generate SSH keys on your local workstation](#generating-ssh-keys).
     - SSH keys are always generated in pairs consisting of one _public key_ and
@@ -35,7 +36,8 @@ this:
 /home/<username>/.ssh/id_ed25519 already exists. Overwrite (y/n)?
 ```
 
-Generally, you do not want to overwrite existing keys, so enter `n`, run `ssh-keygen` again
+Generally, you do
+not want to overwrite existing keys, so enter `n`, run `ssh-keygen` again
 and enter a different file name when prompted. See also the section on
 [SSH key files with non-default name or location](#ssh-key-file-with-non-default-name-or-location).
 
@@ -46,9 +48,37 @@ letters and special characters.
 !!! warning
     Never leave the passphrase empty when generating an SSH key pair!
 
+### SSH key file with non-default name or location
+
+If you want to store your key pair in a non-default location (somewhere else
+than `~/.ssh/` or `C:\Users\<username>\.ssh\`), set the key location in the
+`.ssh/config` file or using an authentication agent (see system-specific
+instructions). If you intend to use RStudio, Jupyter notebooks or something
+else where the connecting from your local workstation to a compute node
+requires piping through a login node, set agent-forwarding and the path to
+your private key in the `.ssh/config` file as follows:
+
+```bash
+Host <host>.csc.fi
+  HostName <host>.csc.fi
+  User <username>
+  ForwardAgent yes
+  IdentityFile /<path-to-key-files>/<private-key>
+
+Host *.bullx
+  IdentityFile /<path-to-key-files>/<private-key>
+```
+
 ## Copying public key to supercomputer
 
-Use [the MyCSC customer portal](https://my.csc.fi) to copy your public key to a CSC system by following these steps:
+The recommended and easiest way to copy your public key to a CSC system is
+[through the MyCSC customer portal](#adding-public-key-in-mycsc). For other
+approaches, please see the system-specific SSH instructions.
+
+### Adding public key in MyCSC
+
+You can add your public key through the
+[MyCSC customer portal](https://my.csc.fi) by following these steps:
 
 1. Log in to MyCSC with your CSC or Haka/Virtu credentials.
 2. Open the dropdown menu in the top right corner and select _My Profile_.
