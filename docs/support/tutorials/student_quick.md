@@ -15,7 +15,7 @@ The easiest way is to **create a student project**.
 ## Project Details
 
 - The student may have **one project** at a time but be a member of many.
-- The student project is access to **a fixed amount of resources** for **a fixed period of time** for [selected CSC services](#available-services).
+- The student project is access to **a fixed amount of resources** for **a fixed period of time** for [selected CSC services](#available-services). *The quota of services cannot be increased and the end date of the project cannot be extended.*
 - Its purpose is to help students with their studies **free of charge**[^1].
 - The services are provided through **the same infrastructure** used by researchers, teachers and other students at Finnish higher education institutions.[^2]
 
