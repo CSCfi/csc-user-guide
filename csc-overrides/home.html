@@ -1,0 +1,11 @@
+{% extends "main.html" %}
+{% block content %}
+  <div class="csc-landing-title">
+    <img src="{{ config.theme.logo | url }}" alt="logo" />
+    <hgroup>
+        <h1>{{ config.site_name }}</h1>
+        <p>{{ config.extra.short_description }}</p>
+    </hgroup>
+  </div>
+  {{ page.content }}
+{% endblock content %}

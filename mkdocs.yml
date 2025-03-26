@@ -29,6 +29,7 @@ extra:
             Thank you! Your feedback is appreciated.
       exclude:
         - ref.md
+  short_description: User guides and tutorials
 
 hooks:
   - hooks/archives.py
@@ -177,7 +178,7 @@ theme:
   name: material
   language: en
   custom_dir: csc-overrides
-  logo: assets/images/logo.png
+  logo: assets/images/logo.svg
   favicon: assets/images/logo.png
   icon:
     repo: material/git
