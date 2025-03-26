@@ -6,7 +6,7 @@ Allas and LUMI-O object storage servers, when
 are not practical, either because there are many small files, or the size of the
 dataset is large.
 
-We wish the data-mover tool `dm` to be simple to use, and handle all possible
+We wish the data-mover tool `data-mover` to be simple to use, and handle all possible
 hard corner cases. It is basically a wrapper around [Restic backup tool](https://restic.readthedocs.io)
 , and stores the data in Restic repository format.
 Restic (as used by data-mover) in turn uses [Rclone](https://rclone.org) backend for the actual data transfers to
@@ -18,7 +18,7 @@ than would be practical in regular interactive login sessions.
 
 Below is a guide for a simple scenario, moving data from Puhti project scratch
 directory to corresponding project in Allas, and then back. Similar works with
-Mahti and LUMI-O. Please have a look at `dm help` and `dm <sub-command> --help`
+Mahti and LUMI-O. Please have a look at `data-mover help` and `data-mover <sub-command> --help`
 for additional documentation.
 
 ### Setting up the connection from Puhti to Allas
@@ -33,7 +33,7 @@ file `$HOME/.config/rclone/rclone.conf` in Puhti. This is easiest to do from
 "Tools" drop-down menu, and
 [create Allas S3 rclone configuration for the project](../../computing/webinterface/file-browser.md#accessing-allas-and-lumi-o).
 
-4. Open a terminal to Puhti, and take the data-mover tool `dm` into use with
+4. Open a terminal to Puhti, and take the data-mover tool `data-mover` into use with
 ```
 module load .data-mover
 ```
@@ -46,25 +46,25 @@ to compress the files.
 
 3. Move the data to Allas
 ```
-dm export /scratch/project_<projid>/exampledir
+data-mover export /scratch/project_<projid>/exampledir
 ```
 
 3. Check the status of the data transfer with
 ```
-dm status
+data-mover status
 ```
 
 ### Listing the data in Allas
 
 ```
-dm list
+data-mover list
 ```
 
 ### Moving data from Allas to Puhti
 
 Import data back to the original directory with
 ```
-dm import /scratch/project_<projid>/exampledir
+data-mover import /scratch/project_<projid>/exampledir
 ```
 
 ## Links to related material
