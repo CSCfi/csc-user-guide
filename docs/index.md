@@ -1,30 +1,6 @@
-<div style="margin-bottom: 2rem;">
-    <img
-      src="assets/images/logo.png"
-      alt="CSC logo"
-      style="
-        float: left;
-        height: 62px;
-        width: auto;
-        margin-right: 10px;
-      "
-    />
-    <h1
-      style="
-        margin: unset;
-        line-height: 1;
-        font-size: 42px;
-      "
-    >Docs CSC</h1>
-    <h2
-      style="
-        margin: unset;
-        line-height: 1;
-        font-size: 20px;
-        font-weight: var(--csc-font-weight--body);
-      "
-    >User guides and tutorials</h2>
-</div>
+---
+template: home.html
+---
 
 <!--
 <center>
