@@ -26,6 +26,7 @@ The [contributing guide](CONTRIBUTING.md) outlines the basic steps of starting c
   - [How do I tag an application as available under a web interface?](#how-do-i-tag-an-application-as-available-under-a-web-interface)
   - [How do I make footnotes?](#how-do-i-make-footnotes)
   - [How do I improve search results?](#how-do-i-improve-search-results)
+  - [How do I redirect incoming links](#how-do-i-redirect-incoming-links)
 
 
 ## How to include my new page in the navigation panel?
@@ -153,6 +154,8 @@ You can preview how the Docs CSC page would look like with your changes included
 ### Locally using the MkDocs tool
 
 This user guide uses [MkDocs](https://www.mkdocs.org/) to generate documentation pages. MkDocs comes with it's own preview server for a quick local preview of your edits. You can install the requirements for running Docs CSC locally (all of the following commands are to be run while in the root directory of the cloned repository) with Pip or Conda (recommended).
+
+Alternatively, see [CONTRIBUTING.md](CONTRIBUTING.md#building-the-website-using-the-included-dockerfile) for instructions for Docker/Podman.
 
 #### Venv
 
@@ -418,3 +421,7 @@ search:
 ```
 Start with low values.  
 More information [here](https://squidfunk.github.io/mkdocs-material/setup/setting-up-site-search/#usage)
+
+## How do I redirect incoming links
+
+The [STYLEGUIDE.md](STYLEGUIDE.md#redirecting-pages) describes how to add redirection for a URL.

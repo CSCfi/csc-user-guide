@@ -60,7 +60,7 @@ which tend to be more performant and have less bugs.
 ## License
 
 Maestro is available for all academic users in Finland: staff and students, for academic
-purposes. Please consult the [EULA](https://www.schrodinger.com/maestro-academic-eula)
+purposes. Please consult the [EULA](https://www.schrodinger.com/eula)
 for the exact definition. Using Maestro means that you accept the EULA linked to above.
 The Maestro license consists of floating licenses and tokens. If licenses run out, contact
 us via [ServiceDesk](../support/contact.md).
