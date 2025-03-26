@@ -26,15 +26,15 @@ running:
 ssh-keygen -o -a 100 -t ed25519
 ```
 
+After you have generated an SSH key pair, you need to add the **public key** to
+the MyCSC portal.
+[Read the instructions here](ssh-keys.md#adding-public-key-in-mycsc).
+
 !!! note "Using SSH keys"
     See the page on [setting up SSH keys](ssh-keys.md) for general
-    information about using SSH keys for authentication.
-
-### Copying public key to supercomputer (PowerShell)
-
-Starting April 14 2025, the only way to copy a public key to a supercomputer is
-through the MyCSC customer portal.
-[Read the instructions here](ssh-keys.md#adding-public-key-in-mycsc).
+    information about using SSH keys for authentication. Note that copying the
+    public key directly to CSC supercomputers instead of adding it to MyCSC
+    will no longer work after April 14, 2025.
 
 ### Basic usage (PowerShell)
 
@@ -92,15 +92,15 @@ keys. To generate SSH keys for connecting with PuTTY, use the
 provides
 [instructions for using PuTTYgen](https://www.putty.be/0.76/htmldoc/Chapter8.html).
 
+After you have generated an SSH key pair, you need to add the **public key** to
+the MyCSC portal.
+[Read the instructions here](ssh-keys.md#adding-public-key-in-mycsc).
+
 !!! note "Using SSH keys"
     See the page on [setting up SSH keys](ssh-keys.md) for general
-    information about using SSH keys for authentication.
-
-### Copying public key to supercomputer (PuTTY)
-
-Starting April 14 2025, the only way to copy a public key to a supercomputer is
-through the MyCSC customer portal.
-[Read the instructions here](ssh-keys.md#adding-public-key-in-mycsc).
+    information about using SSH keys for authentication. Note that copying the
+    public key directly to CSC supercomputers instead of adding it to MyCSC
+    will no longer work after April 14, 2025.
 
 ### Basic usage (PuTTY)
 
@@ -151,15 +151,15 @@ If you want your generated keys to persist through MobaXterm restarts,
 set a persistent home directory for MobaXterm in the program settings
 (`Settings --> Configuration --> General`).
 
+After you have generated an SSH key pair, you need to add the **public key** to
+the MyCSC portal.
+[Read the instructions here](ssh-keys.md#adding-public-key-in-mycsc).
+
 !!! note "Using SSH keys"
     See the page on [setting up SSH keys](ssh-keys.md) for general
-    information about using SSH keys for authentication.
-
-### Copying public key to supercomputer (MobaXterm)
-
-Starting April 14 2025, the only way to copy a public key to a supercomputer is
-through the MyCSC customer portal.
-[Read the instructions here](ssh-keys.md#adding-public-key-in-mycsc).
+    information about using SSH keys for authentication. Note that copying the
+    public key directly to CSC supercomputers instead of adding it to MyCSC
+    will no longer work after April 14, 2025.
 
 ### Basic usage (MobaXterm)
 

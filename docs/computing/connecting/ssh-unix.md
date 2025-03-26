@@ -20,15 +20,15 @@ You will be asked to type a passphrase. Please choose a secure passphrase. It
 should be at least 8 characters long and contain numbers, letters and special
 characters. Never leave the passphrase empty!
 
+After you have generated an SSH key pair, you need to add the **public key** to
+the MyCSC portal.
+[Read the instructions here](ssh-keys.md#adding-public-key-in-mycsc).
+
 !!! note "Using SSH keys"
     See the page on [setting up SSH keys](ssh-keys.md) for general
-    information about using SSH keys for authentication.
-
-## Copying public key to supercomputer
-
-Starting April 14 2025, the only way to copy a public key to a supercomputer is
-through the MyCSC customer portal.
-[Read the instructions here](ssh-keys.md#adding-public-key-in-mycsc).
+    information about using SSH keys for authentication. Note that copying the
+    public key directly to CSC supercomputers instead of adding it to MyCSC
+    will no longer work after April 14, 2025.
 
 ## Basic usage
 
