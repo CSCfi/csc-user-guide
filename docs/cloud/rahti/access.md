@@ -22,7 +22,7 @@ MyCSC customer portal:
 4. In the list of CSC services, click Rahti's dropdown menu.
 5. Read and accept the *Terms of Use* and press *Apply for access*.
 6. CSC will contact you once your application has been accepted.
-7. Wait up to 30 min for your profile and privileges to be synced in Rahti.
+7. Wait up to 30 min for your profile and privileges to sync in Rahti.
 
 If you don't have a suitable computing project for Rahti
 you can create one in the the MyCSC customer portal.
