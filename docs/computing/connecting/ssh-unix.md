@@ -8,7 +8,8 @@ typically comes pre-installed on macOS and Linux systems.
 
 ## Generating SSH keys
 
-On macOS and Linux, you can use the `ssh-keygen` command-line utility for
+Connecting to CSC supercomputers using an SSH client requires setting up SSH
+keys. On macOS and Linux, you can use the `ssh-keygen` command-line utility for
 generating SSH keys:
 
 ```bash

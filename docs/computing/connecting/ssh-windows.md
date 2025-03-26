@@ -18,7 +18,8 @@ To install OpenSSH on a Windows device, follow
 
 ### Generating SSH keys (PowerShell)
 
-After installing OpenSSH, you can generate SSH keys using PowerShell by
+Connecting to CSC supercomputers using an SSH client requires setting up SSH
+keys. After installing OpenSSH, you can generate SSH keys using PowerShell by
 running:
 
 ```bash
@@ -85,8 +86,10 @@ The [PuTTY SSH client](https://putty.org/) is an alternative to using OpenSSH.
 
 ### Generating SSH keys (PuTTY)
 
-To generate SSH keys for connecting with PuTTY, use the [PuTTYgen key
-generator](https://www.puttygen.com/). The PuTTY documentation provides
+Connecting to CSC supercomputers using an SSH client requires setting up SSH
+keys. To generate SSH keys for connecting with PuTTY, use the
+[PuTTYgen key generator](https://www.puttygen.com/). The PuTTY documentation
+provides
 [instructions for using PuTTYgen](https://www.putty.be/0.76/htmldoc/Chapter8.html).
 
 !!! note "Using SSH keys"
@@ -137,7 +140,8 @@ server, which means that it can be used to display graphics.
 
 ### Generating SSH keys (MobaXterm)
 
-You can generate SSH keys using MobaXterm by running:
+Connecting to CSC supercomputers using an SSH client requires setting up SSH
+keys. You can generate SSH keys using MobaXterm by running:
 
 ```bash
 ssh-keygen -o -a 100 -t ed25519

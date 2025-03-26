@@ -38,6 +38,12 @@ typically come with a pre-installed SSH client. See the instructions for
 
 ## Using an SSH client
 
+Starting 14 April 2025, logging in to Puhti and Mahti using an SSH client
+requires that you have [set up SSH keys](ssh-keys.md) and
+[added your public key to MyCSC](ssh-keys.md#adding-public-key-in-mycsc).
+Traditional password-based authentication and public keys stored in your
+personal `~/.ssh/authorized_keys` file will **not** work.
+
 Unix-based systems like macOS and Linux typically come with a pre-installed
 terminal program called simply *Terminal*. The instructions for using an
 [SSH client on macOS and Linux](ssh-unix.md) show how to connect to a CSC
@@ -47,12 +53,6 @@ While Windows systems do not have a similar pre-existing solution for connecting
 over SSH, there are multiple programs that can be used for this. The
 instructions for using an [SSH client on Windows](ssh-windows.md) lists a few
 popular options.
-
-Starting April 14 2025, logging in to Puhti and Mahti using an SSH client
-requires that you have [set up SSH keys](ssh-keys.md) and
-[added your public key to MyCSC](ssh-keys.md#adding-public-key-in-mycsc).
-Traditional password-based authentication and public keys stored in your
-personal `~/.ssh/authorized_keys` file will **not** work.
 
 Once you have set up SSH keys and added your public key to MyCSC, use a
 command like below to connect over SSH:

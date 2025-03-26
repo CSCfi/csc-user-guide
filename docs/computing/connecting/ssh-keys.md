@@ -2,8 +2,9 @@
 
 --8<-- "auth-update-ssh.md"
 
-SSH keys provide more convenient and secure authentication. Setting them up is
-a simple two-step process.
+[SSH keys](https://www.ssh.com/academy/ssh-keys) provide more convenient and
+secure authentication. Setting them up is a two-step process, and is required
+to be able to connect to CSC supercomputers using an SSH client.
 
 1. [Generate SSH keys on your local workstation](#generating-ssh-keys).
     - SSH keys are always generated in pairs consisting of one _public key_ and
