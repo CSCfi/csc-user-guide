@@ -9,16 +9,37 @@ popular alternatives: [PowerShell](#powershell), [PuTTY](#putty) and
 
 ## PowerShell
 
-### Basic usage (PowerShell)
-
 You can use the
 [Windows PowerShell](https://learn.microsoft.com/en-us/powershell/scripting/security/remoting/ssh-remoting-in-powershell)
 command-line shell to connect to a CSC supercomputer using the
 [Win32 OpenSSH client](https://learn.microsoft.com/en-us/windows-server/administration/openssh/openssh_install_firstuse).
 To install OpenSSH on a Windows device, follow
 [these installation instructions](https://learn.microsoft.com/en-us/windows-server/administration/openssh/openssh_install_firstuse?tabs=gui#install-openssh-for-windows).
-After installing OpenSSH, you can connect to a CSC supercomputer by opening
-PowerShell and running:
+
+### Generating SSH keys (PowerShell)
+
+Connecting to CSC supercomputers using an SSH client requires setting up SSH
+keys. After installing OpenSSH, you can generate SSH keys using PowerShell by
+running:
+
+```bash
+ssh-keygen -o -a 100 -t ed25519
+```
+
+After you have generated an SSH key pair, you need to add the **public key** to
+the MyCSC portal.
+[Read the instructions here](ssh-keys.md#adding-public-key-in-mycsc).
+
+!!! note "Using SSH keys"
+    See the page on [setting up SSH keys](ssh-keys.md) for general
+    information about using SSH keys for authentication. Note that copying the
+    public key directly to CSC supercomputers instead of adding it to MyCSC
+    will no longer work after April 14, 2025.
+
+### Basic usage (PowerShell)
+
+After setting up SSH keys and adding your public key to MyCSC, you can connect
+to a CSC supercomputer by opening PowerShell and running:
 
 ```bash
 # Replace <username> with the name of your CSC user account and
@@ -45,24 +66,6 @@ creating the connection:
 ssh -X <username>@<host>.csc.fi
 ```
 
-### Generating SSH keys (PowerShell)
-
-You can generate SSH keys using PowerShell by running:
-
-```bash
-ssh-keygen -o -a 100 -t ed25519
-```
-
-!!! note "Using SSH keys"
-    See the page on [setting up SSH keys](ssh-keys.md) for general
-    information about using SSH keys for authentication.
-
-### Copying public key to supercomputer (PowerShell)
-
-Starting April 14 2025, the only way to copy a public key to a supercomputer is
-through the MyCSC customer portal.
-[Read the instructions here](ssh-keys.md#adding-public-key-in-mycsc).
-
 ### Authentication agent (PowerShell)
 
 To avoid having to type your passphrase every time you connect,
@@ -79,17 +82,42 @@ to store your keys in memory for the duration of your local login session.
 
 ## PuTTY
 
+The [PuTTY SSH client](https://putty.org/) is an alternative to using OpenSSH.
+
+### Generating SSH keys (PuTTY)
+
+Connecting to CSC supercomputers using an SSH client requires setting up SSH
+keys. To generate SSH keys for connecting with PuTTY, use the
+[PuTTYgen key generator](https://www.puttygen.com/). The PuTTY documentation
+provides
+[instructions for using PuTTYgen](https://www.putty.be/0.76/htmldoc/Chapter8.html).
+
+After you have generated an SSH key pair, you need to add the **public key** to
+the MyCSC portal.
+[Read the instructions here](ssh-keys.md#adding-public-key-in-mycsc).
+
+!!! note "Using SSH keys"
+    See the page on [setting up SSH keys](ssh-keys.md) for general
+    information about using SSH keys for authentication. Note that copying the
+    public key directly to CSC supercomputers instead of adding it to MyCSC
+    will no longer work after April 14, 2025.
+
 ### Basic usage (PuTTY)
 
-The [PuTTY SSH client](https://putty.org/) is an alternative to using OpenSSH.
-When you launch PuTTY, you are asked to configure your SSH session. Do so
-according to the table below and click `Open`.
+After setting up SSH keys and adding your public key to MyCSC, you can connect
+to a CSC supercomputer using PuTTY. When you launch PuTTY, you are asked to
+configure your SSH session. Do so according to the table below:
 
 | Option | Value |
 |-|-|
 | **Host Name** | `puhti.csc.fi` or `mahti.csc.fi` |
 | **Port** | `22` |
 | **Connection type** | `SSH` |
+
+When creating a remote connection using PuTTY, select the private key file
+under `Connection --> SSH --> Auth`. If you want the private key to be
+used each time you connect, save your session to store your choice. Finally,
+click `Open`.
 
 ### Graphical connection (PuTTY)
 
@@ -99,28 +127,6 @@ you can use, for example, the
 graphics remotely, select `Enable X11 forwarding` in the PuTTY program settings
 (`Connection --> SSH --> X11`).
 
-### Generating SSH keys (PuTTY)
-
-To generate SSH keys for connecting with PuTTY, use the [PuTTYgen key
-generator](https://www.puttygen.com/). The PuTTY documentation provides
-[instructions for using PuTTYgen](https://www.putty.be/0.76/htmldoc/Chapter8.html).
-
-!!! note "Using SSH keys"
-    See the page on [setting up SSH keys](ssh-keys.md) for general
-    information about using SSH keys for authentication.
-
-### Copying public key to supercomputer (PuTTY)
-
-Starting April 14 2025, the only way to copy a public key to a supercomputer is
-through the MyCSC customer portal.
-[Read the instructions here](ssh-keys.md#adding-public-key-in-mycsc).
-
-### Connecting with SSH keys (PuTTY)
-
-When creating a remote connection using PuTTY, select the private key file
-under `Connection --> SSH --> Auth`. If you want the private key to be
-used each time you connect, save your session to store your choice.
-
 ### Authentication agent (PuTTY)
 
 To avoid having to type your passphrase every time you connect, you can
@@ -129,11 +135,37 @@ to store your private keys in memory.
 
 ## MobaXterm
 
+[MobaXterm](https://mobaxterm.mobatek.net/) is an SSH client with an embedded X
+server, which means that it can be used to display graphics.
+
+### Generating SSH keys (MobaXterm)
+
+Connecting to CSC supercomputers using an SSH client requires setting up SSH
+keys. You can generate SSH keys using MobaXterm by running:
+
+```bash
+ssh-keygen -o -a 100 -t ed25519
+```
+
+If you want your generated keys to persist through MobaXterm restarts,
+set a persistent home directory for MobaXterm in the program settings
+(`Settings --> Configuration --> General`).
+
+After you have generated an SSH key pair, you need to add the **public key** to
+the MyCSC portal.
+[Read the instructions here](ssh-keys.md#adding-public-key-in-mycsc).
+
+!!! note "Using SSH keys"
+    See the page on [setting up SSH keys](ssh-keys.md) for general
+    information about using SSH keys for authentication. Note that copying the
+    public key directly to CSC supercomputers instead of adding it to MyCSC
+    will no longer work after April 14, 2025.
+
 ### Basic usage (MobaXterm)
 
-[MobaXterm](https://mobaxterm.mobatek.net/) is an SSH client with an embedded X
-server, which means that it can be used to display graphics. To connect using
-MobaXterm, open the terminal and run:
+After setting up SSH keys and adding your public key to MyCSC, you can connect
+to a CSC supercomputer using MobaXterm. To connect using MobaXterm, open the
+terminal and run:
 
 ```bash
 # Replace <username> with the name of your CSC user account and
@@ -150,28 +182,6 @@ To enable displaying graphics over SSH, use the `-X` (X11 forwarding) or `-Y`
 ```bash
 ssh -X <username>@<host>.csc.fi
 ```
-
-### Generating SSH keys (MobaXterm)
-
-You can generate SSH keys using MobaXterm by running:
-
-```bash
-ssh-keygen -o -a 100 -t ed25519
-```
-
-If you want your generated keys to persist through MobaXterm restarts,
-set a persistent home directory for MobaXterm in the program settings
-(`Settings --> Configuration --> General`).
-
-!!! note "Using SSH keys"
-    See the page on [setting up SSH keys](ssh-keys.md) for general
-    information about using SSH keys for authentication.
-
-### Copying public key to supercomputer (MobaXterm)
-
-Starting April 14 2025, the only way to copy a public key to a supercomputer is
-through the MyCSC customer portal.
-[Read the instructions here](ssh-keys.md#adding-public-key-in-mycsc).
 
 ### Authentication agent (MobaXterm)
 

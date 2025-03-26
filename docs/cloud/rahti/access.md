@@ -17,11 +17,12 @@ MyCSC customer portal:
 
 1. Login to [MyCSC](https://my.csc.fi) with your CSC account.
 2. Go to the [My Projects](https://my.csc.fi/projects) page.
-3. Select the project you want Rahti access for in the
+3. Select the project you want to add Rahti access for in the
    project list.
 4. In the list of CSC services, click Rahti's dropdown menu.
-4. Read and accept the *Terms of Use* and press *Apply for access*.
-5. CSC will contact you once your application has been accepted.
+5. Read and accept the *Terms of Use* and press *Apply for access*.
+6. CSC will contact you once your application has been accepted.
+7. Wait up to 30 min for your profile and privileges to sync in Rahti.
 
 If you don't have a suitable computing project for Rahti
 you can create one in the the MyCSC customer portal.
@@ -38,9 +39,6 @@ Create a new computing project in the MyCSC customer portal:
  *Create project*.
 5. CSC will contact you once your project has been successfully created.
 
-!!! warning
-
-    Your account and your CSC project can take up to 1 hour to be synced with Rahti.
 
 Please contact [servicedesk@csc.fi](mailto:servicedesk@csc.fi) in case you
 need assistance.

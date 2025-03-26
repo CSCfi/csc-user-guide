@@ -2,8 +2,9 @@
 
 --8<-- "auth-update-ssh.md"
 
-SSH keys provide more convenient and secure authentication. Setting them up is
-a simple two-step process.
+[SSH keys](https://www.ssh.com/academy/ssh-keys) provide more convenient and
+secure authentication. Setting them up is a two-step process, and is required
+to be able to connect to CSC supercomputers using an SSH client.
 
 1. [Generate SSH keys on your local workstation](#generating-ssh-keys).
     - SSH keys are always generated in pairs consisting of one _public key_ and
@@ -97,6 +98,12 @@ You can add your public key through the
    it might take up to one hour for your new key to become active. If it takes
    longer than that, please
    [contact the CSC Service Desk](../../support/contact.md).
+
+Users can check their public keys on Puhti or Mahti using the command:
+
+```bash
+ls -l /var/lib/acco/sshkeys/${USER}/${USER}.pub
+```
 
 !!! info "Required key format"
       Your public key should consist of the SSH key type and the key sequence,
