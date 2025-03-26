@@ -8,15 +8,19 @@ services you can login and which you cannot.
 If you can login to [MyCSC](https://my.csc.fi), there are three common reasons
 for login problems affecting other services, like Puhti:
 
-1. The service you are trying to login is down or has issues. See notifications
+1. You're trying to login to Puhti, Mahti or LUMI using an SSH client, but
+   have not set up SSH keys and/or uploaded your public key to MyCSC. This is
+   a requirement starting 14 April 2025. Please read the
+   [instructions on how to create an SSH key pair and add the public key to MyCSC](../../computing/connecting/ssh-keys.md).
+2. The service you are trying to login is down or has issues. See notifications
    in your mailbox or at [research.csc.fi](https://research.csc.fi). Wait until
    the maintenance is completed or the issue is resolved.
-1. You have no projects enabled in the service that you are trying to login.
+3. You have no projects enabled in the service that you are trying to login.
    Check the services linked to your projects at MyCSC.
    [Add service access for your project](../../accounts/how-to-add-service-access-for-project.md)
    if you have a suitable project, or [create a new project](../../accounts/how-to-create-new-project.md),
    and for it, add the access to the service.
-1. You just changed your password and it has not yet been updated on the system
+4. You just changed your password and it has not yet been updated on the system
    you try to access. Please allow for up to one hour and retry. Too many
    repeated failed attempts will (temporarily) block your IP address or account.
 
@@ -31,8 +35,8 @@ others:
 * We have sent email to you but it bounces back.
 * Your account was granted for a fixed period and the time is up.
 
-You need to contact us to get your account unlocked. Our email address is
-[servicedesk@csc.fi](mailto:servicedesk@csc.fi).
+You need to [contact CSC Service Desk](../contact.md) to get your account
+unlocked.
 
 ## Why is my SSH client saying "Corrupted MAC on input"?
 
@@ -43,9 +47,9 @@ The client will show an error saying `Corrupted MAC on input`.
 
 Here are some links to relevant bug reports:
 
-- [https://github.com/libressl/portable/issues/603](https://github.com/libressl/portable/issues/603)
-- [https://github.com/PowerShell/Win32-OpenSSH/issues/1359](https://github.com/PowerShell/Win32-OpenSSH/issues/1359)
-- [https://github.com/PowerShell/Win32-OpenSSH/issues/2078](https://github.com/PowerShell/Win32-OpenSSH/issues/2078)
+* [https://github.com/libressl/portable/issues/603](https://github.com/libressl/portable/issues/603)
+* [https://github.com/PowerShell/Win32-OpenSSH/issues/1359](https://github.com/PowerShell/Win32-OpenSSH/issues/1359)
+* [https://github.com/PowerShell/Win32-OpenSSH/issues/2078](https://github.com/PowerShell/Win32-OpenSSH/issues/2078)
 
 If you encounter this issue while trying to log in via SSH, you can try to add an explicit choice
 of MAC algorithm to your SSH client, instead of using the automatically chosen algorithms.
@@ -75,7 +79,7 @@ for the time being, due to a newly discovered security weakness in them from Dec
 called "Terrapin".
 If you use an unsupported algorithm, the server will tell you:
 
-```
+```text
 Unable to negotiate with <server's IP> port 22: no matching MAC found.
 ```
 
@@ -84,7 +88,7 @@ you might want to add a line to your `ssh_config` which would enable the workaro
 For example, to tell SSH that the `umac-128` algorithm should be disallowed, use a configuration
 like the one below:
 
-```
+```text
 # Place this in your home directory's ssh\config file:
 
 Host *
