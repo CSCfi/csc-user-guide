@@ -3,6 +3,8 @@ hide:
   - toc
 ---
 
+[Table of contents of user guide](sd-services-toc.md) 
+
 # Introduction to data encryption compatible with Sensitive Data services
 
 

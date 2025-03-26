@@ -3,6 +3,8 @@ hide:
   - toc
 ---
 
+[Table of contents of user guide](sd-services-toc.md) 
+
 # Sharing folders
 
 !!! info "Share ID"

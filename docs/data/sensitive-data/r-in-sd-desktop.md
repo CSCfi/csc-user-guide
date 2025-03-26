@@ -1,3 +1,5 @@
+[Table of contents of user guide](sd-services-toc.md) 
+
 # Adding RStudio and R libraries to SD Desktop
 
 Using R and RStudio in SD Desktop virtual machines is based on an Apptainer/Singularity container that 

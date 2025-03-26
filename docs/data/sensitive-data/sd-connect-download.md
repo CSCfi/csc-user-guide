@@ -3,6 +3,8 @@ hide:
   - toc
 ---
 
+[Table of contents of user guide](sd-services-toc.md) 
+
 # Downloading folders and files
 
 You can easily download folders or individual files from SD Connect user interface.

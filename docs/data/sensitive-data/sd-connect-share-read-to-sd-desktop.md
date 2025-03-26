@@ -3,6 +3,7 @@ hide:
   - toc
 ---
 
+[Table of contents of user guide](sd-services-toc.md) 
 
 # How to give access to folder content only in SD Desktop
 

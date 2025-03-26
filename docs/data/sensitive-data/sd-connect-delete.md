@@ -3,6 +3,8 @@ hide:
   - toc
 ---
 
+[Table of contents of user guide](sd-services-toc.md) 
+
 # Deleting files and folders
 
 You can delete main folders, subfolders or individual files from SD Connect.

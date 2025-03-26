@@ -1,3 +1,4 @@
+[Table of contents of user guide](sd-services-toc.md) 
 
 # Export data programmatically from the virtual desktop
 

@@ -13,21 +13,21 @@ hide:
 
 ### Store and share with SD Connect
 
-* [Store and share with SD Connect](sd-connect.md)
-  * [Login to SD Connect](sd-connect-login.md)
-  * [Upload](sd-connect-upload.md)
-  * [Share](sd-connect-share.md)
-      * [Transfer data to another project](sd-connect-share-tranfer-data.md)
-      * [Use folder as your shared workspace](sd-connect-share-workspace.md)
-      * [Give access to folder content only in SD Desktop](sd-connect-share-read-to-sd-desktop.md)
-  * [Download](sd-connect-download.md)
-  * [Delete](sd-connect-delete.md)
-  * [Command line interface](sd-connect-command-line-interface.md)
-  * [Troubleshooting](sd-connect-troubleshooting.md)
+* [Store and share with SD Connect](sd_connect.md)
+    * [Login to SD Connect](sd-connect-login.md)
+    * [Upload](sd-connect-upload.md)
+    * [Share](sd-connect-share.md)
+        * [Transfer data to another project](sd-connect-share-tranfer-data.md)
+        * [Use folder as your shared workspace](sd-connect-share-workspace.md)
+        * [Give access to folder content only in SD Desktop](sd-connect-share-read-to-sd-desktop.md)
+    * [Download](sd-connect-download.md)
+    * [Delete](sd-connect-delete.md)
+    * [Command line interface](sd-connect-command-line-interface.md)
+    * [Troubleshooting](sd-connect-troubleshooting.md)
 
 ### Analyze and compute with SD Desktop
 
-* [Analyze and compute with Sensitive Data Desktop](sd-desktop.md)
+* [Analyze and compute with Sensitive Data Desktop](sd_desktop.md)
     * [Login to SD Desktop](sd-desktop-login.md)
     * [Create virtual desktop](sd-desktop-create.md)
     * [Manage virtual desktop](sd-desktop-manage.md)
@@ -69,7 +69,7 @@ hide:
     * [Manage virtual desktop](sd-desktop-secondary-manage.md)
     * [Access virtual desktop](sd-desktop-secondary-access-vm.md)
     * [Work with your desktop and software](sd-desktop-secondary-working.md)
-    * [Customisation - software & tools](sd-desktop-software.md)
+    * [Customisation - software & tools](sd-desktop-secondary-software.md)
     * [Import data](sd-desktop-secondary-access.md)  
     * [Export data](sd-desktop-secondary-export.md)  
     * [Troubleshooting](sd-desktop-secondary-troubleshooting.md)

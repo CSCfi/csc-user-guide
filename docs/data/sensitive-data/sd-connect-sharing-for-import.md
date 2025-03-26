@@ -1,3 +1,5 @@
+[Table of contents of user guide](sd-services-toc.md) 
+
 # Using SD Connect to receive sensitive research data
 
 This document provides instructions of how a research group can use SD Connect to receive **sensitive data** from external 

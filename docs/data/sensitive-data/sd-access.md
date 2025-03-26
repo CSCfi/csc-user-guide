@@ -3,7 +3,7 @@ hide:
   - toc
 ---
 
-
+[Table of contents of user guide](sd-services-toc.md) 
 
 # Start here: creating a CSC account and accessing Sensitive Data services 
 

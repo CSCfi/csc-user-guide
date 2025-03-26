@@ -1,4 +1,4 @@
- 
+ [Table of contents of user guide](sd-services-toc.md) 
 
 # Enabling reuse of FEGA data
 

@@ -3,6 +3,8 @@ hide:
   - toc
 ---
 
+[Table of contents of user guide](sd-services-toc.md) 
+
 # Choose a service
 
 Discover our range of services for managing sensitive research data or secondary use data. These services are designed to work together seamlessly. Our support team is available to help you understand how they can be adapted to suit your project. 

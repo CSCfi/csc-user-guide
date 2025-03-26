@@ -3,6 +3,7 @@ hide:
   - toc
 ---
 
+[Table of contents of user guide](sd-services-toc.md) 
 
 # Managing volumes and virtual desktops
 

@@ -3,6 +3,7 @@ hide:
   - toc
 ---
 
+[Table of contents of user guide](sd-services-toc.md) 
 
 # Customising virtual desktop by adding software & tools for analysis
 

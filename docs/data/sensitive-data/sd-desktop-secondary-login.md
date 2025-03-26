@@ -1,3 +1,10 @@
+---
+hide:
+  - toc
+---
+
+[Table of contents of user guide](sd-services-toc.md) 
+
 # Log into SD Desktop
 
 ## Prerequisites
