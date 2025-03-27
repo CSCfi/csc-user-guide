@@ -1,6 +1,6 @@
 # CSC user account lifecycle
 
-!!! Summary
+!!! note
     CSC will send notifications with instructions by email well in advance
     before any user accounts or passwords expire. Keep your email
     contact info up to date. If you have any problems with accounts or
