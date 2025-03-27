@@ -213,5 +213,5 @@ workflows.
 [Data storage guide for machine learning]: ../../support/tutorials/ml-data.md
 [xargsjob.sh]: https://a3s.fi/pub/xargsjob.sh
 [see usage policy]: ../usage-policy.md#gpu-nodes
-[Fast disk areas in CSC computing environment]: https://csc-training.github.io/csc-env-eff/hands-on/disk-areas/disk-areas-tutorial-fastdisks.html
+[Fast disk areas in CSC computing environment]: https://csc-training.github.io/csc-env-eff/hands-on/data-io/tutorial-fastdisks.html
 [Farming Gaussian jobs with HyperQueue]: https://csc-training.github.io/csc-env-eff/hands-on/throughput/gaussian_hq.html
