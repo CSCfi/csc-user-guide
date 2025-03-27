@@ -27,6 +27,16 @@ The system will also provide four visualization nodes with two Nvidia L40 GPUs
 each, as well as four high-memory CPU nodes with 3 TiB memory and higher
 single-thread performance.
 
+### Nodes
+
+| Name | Number of nodes | Compute        | Cores                          | Memory (GiB) | Local disk (TB) |
+|:-----|----------------:|---------------:|-------------------------------:|-------------:|----------------:|
+| M    | 414             | AMD Turin 9965 | 2 x 192 cores (x86) @ 2.25 GHz | 768          | 0.96            |
+| L    | 72              | AMD Turin 9965 | 2 x 192 cores (x86) @ 2.25 GHz | 1536         | 0.96            |
+| XL   | 4               | AMD Turin 9555 | 2 x 64 cores (x86) @ 3.20 GHz  | 3072         | 15.36           |
+| V    | 4               | AMD Turin 9335<br>Nvidia L40 | 2 x 32 cores (x86) @ 3.40 GHz<br>4 x GPUs | 384 | 0.96 |
+| GPU  | 132             | Nvidia GH200   | 4 x 72 cores (ARM)<br>4 x GPUs | 4 x 120<br>4 x 96 | 0.96 |
+
 ## Storage
 
 Roihu will have two independent flash-based DDN EXAScaler Lustre file systems –
