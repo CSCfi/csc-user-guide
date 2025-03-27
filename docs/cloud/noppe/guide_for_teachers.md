@@ -177,6 +177,8 @@ with our cloud hosts. This can be done using "docker buildx".
 docker buildx build --platform linux/amd64 ....
 ```
 
+Note also that with Mac you might need to disable Rosetta.
+
 Another alternative is to build the image on an x64 VM, for example on pouta.csc.fi.
 
 * Test your image. 
