@@ -1,4 +1,20 @@
+---
+tags:
+  - Free
+---
+
 # cProfile: Python profiler
+
+## Available
+
+- Mahti: Any Python version
+- Puhti: Any Python version
+
+## License
+
+Usage is possible for both academic and commercial purposes.
+
+## Usage
 
 [cProfile](https://docs.python.org/3.8/library/profile.html#module-cProfile)
 is a built-in profiler for Python programs. There are two ways to use the

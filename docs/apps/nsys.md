@@ -5,6 +5,10 @@
 Puhti: 2022.1.3.3
 Mahti: 2021.3.3.2
 
+## License
+
+Usage is possible for both academic and commercial purposes.
+
 ## Usage
 
 The *nsys* profiling tool collects and views profiling data from the

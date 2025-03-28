@@ -4,6 +4,10 @@
     Puhti: 10.2
     Mahti: 10.1
 
+## License
+
+Usage is possible for both academic and commercial purposes.    
+
 ## Usage
 
 [cuda-gdb](https://docs.nvidia.com/cuda/cuda-gdb/index.html) is an NVIDIA

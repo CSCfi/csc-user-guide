@@ -4,6 +4,10 @@
     Puhti: 2022.2.0.0
     Mahti: 2021.3.0.0
 
+## License
+
+Usage is possible for both academic and commercial purposes.    
+
 ## Usage
 
 NVIDIA Nsight Compute is a CUDA kernel profiler that provides detailed performance data and offers guidance for optimizing your CUDA kernels.
