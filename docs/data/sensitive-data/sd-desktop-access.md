@@ -1,3 +1,10 @@
+---
+hide:
+  - toc
+---
+
+[Table of contents of user guide](sd-services-toc.md) 
+
 # Importing data in your virtual desktop
 
 <iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/hsUQSrNpaf8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>

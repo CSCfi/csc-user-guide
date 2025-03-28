@@ -1,3 +1,5 @@
+[Table of contents of user guide](sd-services-toc.md) 
+
 # Data access for Data Applicant
 
 ## Step 1: Apply for access

@@ -1,3 +1,5 @@
+[Table of contents of user guide](sd-services-toc.md) 
+
 # Data export from virtual desktop
 
 Your virtual desktop is completely isolated from the internet and other services for information security reasons. Data export is also restricted: only CSC can export non-sensitive results from the secure workspace when processing secondary use data. The exported results will be send to the data permit authority Findata for scrutiny. 
