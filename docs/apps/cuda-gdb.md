@@ -13,7 +13,7 @@ CUDA programs.
 In order to use tool the CUDA code has to be compiled with the extra flags
 `-g` and `-G`.
 
-Next in an [interactive session](running/interactive-usage.md) one needs to
+Next in an [interactive session](../computing/running/interactive-usage.md) one needs to
 first load the CUDA module:
 
 ```bash

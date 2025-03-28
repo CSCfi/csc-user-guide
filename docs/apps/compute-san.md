@@ -8,7 +8,7 @@
 In order to use the tool, the CUDA code has to be compiled with the extra flags
 `-g` and `-G`.
 
-Debugging is started in an [interactive session](running/interactive-usage.md) 
+Debugging is started in an [interactive session](../computing/running/interactive-usage.md) 
 by running:
 
 ```bash

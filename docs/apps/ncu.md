@@ -22,7 +22,7 @@ module load cuda
 
 To profile a CUDA code, one then adds the command `ncu` before the normal
 command to execute the code. Running is otherwise similar to that of any other
-CUDA job on [Puhti](running/example-job-scripts-puhti.md#single-gpu) or [Mahti](running/example-job-scripts-mahti.md#1-2-gpu-job-ie-gpusmall-partition).
+CUDA job on [Puhti](../computing/running/example-job-scripts-puhti.md#single-gpu) or [Mahti](../computing/running/example-job-scripts-mahti.md#1-2-gpu-job-ie-gpusmall-partition).
 
 An example of usage of `ncu`:
 ```

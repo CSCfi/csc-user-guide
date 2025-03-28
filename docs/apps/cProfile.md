@@ -51,5 +51,5 @@ done for a function:
 ```
 
 Keep in mind that running the profiler has to be done in the same way as
-running a ([puhti](running/example-job-scripts-puhti.md)  or [mahti](running/example-job-scripts-mahti.md)) batch or
-[interactive](running/interactive-usage.md) job.
+running a ([puhti](../computing/running/example-job-scripts-puhti.md)  or [mahti](../computing/running/example-job-scripts-mahti.md)) batch or
+[interactive](../computing/running/interactive-usage.md) job.
