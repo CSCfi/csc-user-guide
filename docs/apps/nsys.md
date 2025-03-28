@@ -1,9 +1,14 @@
+---
+tags:
+  - Free
+---
+
 # nsys: Nvidia GPU and CPU profiler
 
 ## Available
 
-Puhti: 2022.1.3.3
-Mahti: 2021.3.3.2
+- Puhti: 2022.1.3.3
+- Mahti: 2021.3.3.2
 
 ## License
 

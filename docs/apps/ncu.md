@@ -1,3 +1,8 @@
+---
+tags:
+  - Free
+---
+
 # ncu: GPU CUDA Kernel Profiler
 
 ## Available

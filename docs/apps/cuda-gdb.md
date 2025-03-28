@@ -1,8 +1,14 @@
+---
+tags:
+  - Free
+---
+
 # cuda-gdb: CUDA debugger
 
 ## Available
-    Puhti: 10.2
-    Mahti: 10.1
+
+- Puhti: 10.2
+- Mahti: 10.1
 
 ## License
 

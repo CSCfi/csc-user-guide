@@ -1,9 +1,14 @@
+---
+tags:
+  - Free
+---
+
 # nvprof: CUDA profiler
 
 ## Available
 
-    Puhti: 11.7.50
-    Mahti: 11.5.50
+- Puhti: 11.7.50
+- Mahti: 11.5.50
 
 ## License
 

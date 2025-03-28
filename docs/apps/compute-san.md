@@ -1,9 +1,14 @@
+---
+tags:
+  - Free
+---
+
 # compute-sanitizer: functional correctness checking suite for CUDA programs
 
 ## Available
 
-    Puhti: 2022.2.0
-    Mahti: 2021.3.0
+- Puhti: 2022.2.0
+- Mahti: 2021.3.0
 
 ## License
 
