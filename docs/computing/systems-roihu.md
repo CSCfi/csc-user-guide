@@ -18,10 +18,12 @@ which supports the AVX-512 vector instruction set. 414 of the CPU nodes will
 have 768 GiB of memory, while the remaining 72 nodes will have an extended
 memory of 1 536 GiB each.
 
-Each GPU node will be equipped with 4 Nvidia GH200 GPUs, i.e., 528 GPUs in
-total. Each GH200 chip is accompanied by 72 ARM CPU cores for a total of 38 016
-cores in the whole GPU partition. The GPU nodes will have 4 x 120 GiB of CPU
-memory and 4 x 96 GiB of GPU memory each.
+Each GPU node will be equipped with 4 Nvidia GH200 Grace Hopper superchips. 
+Each GH200 superchip comprises one Hopper GPU and one Grace CPU with 
+72 ARM CPU cores which are connected with a very fast interface. Each 
+GH200 superchip has 120 GiB CPU memory and 96 GiB GPU memory, providing 
+a total of 480 GiB CPU memory per node. This gives a total of 528 GPUs and 
+38 016 CPU cores in the whole GPU partition. 
 
 The system will also provide four visualization nodes with two Nvidia L40 GPUs
 each, as well as four high-memory CPU nodes with 3 TiB memory and higher
