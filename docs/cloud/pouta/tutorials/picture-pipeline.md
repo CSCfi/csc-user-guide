@@ -66,7 +66,7 @@ Bucket 's3://output_bucket/' created
     ERROR: Bucket 'input_bucket' already exists
     ERROR: S3 error: 409 (BucketAlreadyExists)
     ```
-    In such case, we can just select a different name and retry the command.
+    In such case, we can just retry the command using a different name.
 
 ## Step 2: creating a database in Pukki
 
@@ -187,7 +187,7 @@ $ openstack flavor show standard.tiny
 +----------------------------+--------------------------------------+
 ```
 
-First, we create a keypair, which we will use to access the virtual machine once it is up and running.
+Now that we interact with cPouta, as first step we create a keypair, which we will use to access the virtual machine once it is up and running.
 To create a new keypair, we first define its name using an environment variable and then we run the dedicated command:
 ```
 $ export POUTA_KEYPAIR="mykeypair"
@@ -207,9 +207,7 @@ To this end, we upload the public key to cPouta by issuing the following command
 $ openstack keypair create $POUTA_KEYPAIR \
 --public-key $POUTA_KEYPAIR.pub 
 ```
-The parameters of the command are as follows:
-
-* **public-key** specifies the path to the public key file.
+The parameter **public-key** of the command specifies the path to the public key file.
 
 The output of the command will be similar to the following:
 ```
@@ -281,12 +279,13 @@ The output from the command should be similar to the following:
 
 Now that we have built all the components, we configure them to work as a pipeline.
 First, we configure the virtual machine to allow us to access it from our workstation.
-Then, we make sure that the virtual machine can work with the buckets in Allas, as well as that our database instance in Pukki accepts traffic coming from the virtual machine.
-Finally, we install and configure in the virtual machine the tools required to get the pipeline working.
+Then, we make sure that the virtual machine can work with the buckets in Allas.
+We also configure our database instance in Pukki to accept traffic coming from the virtual machine.
+Finally, we install and configure the tools required to get the pipeline working in the virtual machine.
 
 ### Allowing traffic from workstation to virtual machine
 
-To prevent unauthorized access attempts, by default a virtual machine does not allow incoming traffic from the Internet.
+By default a virtual machine does not allow incoming traffic from the Internet to prevent unauthorized access attempts.
 Access to the virtual machine is regulated by means of _security groups_ and the rules they contain.
 We thus create a new security group with a single rule, which allow access to the virtual machine from our workstation.
 
@@ -419,7 +418,7 @@ In case of success, the command will show no output.
 Everything is now ready.
 We can test the connection to our virtual machine by issuing the command:
 ```
-$ ssh -i mykeypair.pem ubuntu@$POUTA_FLOATING_IP
+$ ssh -i $POUTA_KEYPAIR ubuntu@$POUTA_FLOATING_IP
 ```
 
 Most probably we will be asked the following question:
@@ -448,11 +447,11 @@ We leave for a moment `terminal_pouta`, we come back when it is time to install 
 
 ### Allowing traffic from virtual machine to database
 
-Our database in Pukki, by default, does not accept any incoming traffic.
-We want to configure it so that it accepts traffic from our virtual machine.
+By default our database instance in Pukki does not accept any incoming traffic.
+We want to configure it so that it accepts traffic from our virtual machine in cPouta.
 
 We move to `terminal_pukki`.
-First, environment variables defined in one terminal do not propagate automatically to other terminals.
+Before starting to operate with the database instance, one should note that environment variables defined in one terminal do not propagate automatically to other terminals.
 For this reason, we need to define the floating ip assigned to the virtual machine in cPouta as an environment variable also in this terminal.
 ```
 $ export POUTA_FLOATING_IP="xxx.xxx.xxx.xxx" # put here the same value assigned to the same variable in terminal_pouta
@@ -463,14 +462,12 @@ We issue then the following command:
 $ openstack database instance update $DB_INSTANCE_NAME \
 --allowed-cidr $POUTA_FLOATING_IP/32
 ```
-The parameters of the command are as follows:
-
-* **allowed-cidr** specifies the set of ip addresses for which traffic towards the database instance is allowed.
+The parameter **allowed-cidr** of the command specifies the set of ip addresses for which traffic towards the database instance is allowed.
 
 In case of success, the command will show no output.
 However, we can check the successful operation by looking at the information about our database instance:
 ```
-$ openstack database instance show pipeline_db_instance
+$ openstack database instance show $DB_INSTANCE_NAME
 +--------------------------+-----------------------------------------------------------------------------------------------------------+
 | Field                    | Value                                                                                                     |
 +--------------------------+-----------------------------------------------------------------------------------------------------------+
@@ -497,8 +494,8 @@ $ openstack database instance show pipeline_db_instance
 ```
 We can see that the floating IP address of our virtual machine is now listed in the `allowed_cidrs`.
 
-From the information displayed with the previous command we also extract and take down the public IP address of our database instance, which we will need in the following steps.
-The first row, whose name is `addresses`, contains two parts: an address that is marked as `private`, and one that is marked as `public`.
+From the information displayed with the previous command we also note down the public IP address of our database instance, which we will need in the following steps.
+The row corresponding to the field `addresses` contains two parts: an address that is marked as `private`, and one that is marked as `public`.
 We go back to `terminal_pouta`, where we are still logged in to our virtual machine in cPouta, and we define an environment variable to store the public address of the database, as we will need it later for configuration.
 ```
 $ export DB_PUBLIC_IP="xxx.xxx.xxx.xxx" # put here the public ip address of the database instance in Pukki
@@ -506,9 +503,9 @@ $ export DB_PUBLIC_IP="xxx.xxx.xxx.xxx" # put here the public ip address of the 
 
 ### Configuring access from virtual machine to Allas
 
-Similarly to our own workstation, to access the buckets hosted in Allas the virtual machine needs to be configured as well.
+Similarly to our own workstation, the virtual machine too needs to be configured to access the buckets hosted in Allas.
 
-On `terminal_pouta` we follow the [instructions on how to install and configure s3cmd](../../../data/Allas/using_allas/s3_client.md#getting-started-with-s3cmd).
+On `terminal_pouta` we follow the [instructions on how to install and configure s3cmd](../../../data/Allas/using_allas/s3_client.md#getting-started-with-s3cmd) from inside the virtual machine.
 Once s3cmd is configured, we test that everything works properly by listing our buckets in Allas:
 ```
 $ s3cmd ls
@@ -520,7 +517,7 @@ We have thus confirmed that the virtual machine can now access properly the buck
 
 ### Configuring access from virtual machine to database
 
-At this point in the tutorial, traffic from the virtual machine is allowed to flow towards the database in Pukki.
+At this point in the tutorial, traffic from the virtual machine can reach the database in Pukki.
 However, at the moment the virtual machine has no information about where the database can be found, i.e., its public IP address, nor which are the credentials to use when accessing the database.
 Therefore, next we configure the access to the database from the virtual machine.
 
@@ -547,7 +544,7 @@ More details about the postgresql password file can be found in its own [referen
 Let's now test the access to the database.
 On `terminal_pouta` we run the following command:
 ```
-$ psql -h "$DB_PUBLIC_IP" -U "$DB_USERNAME"
+$ psql -h "$DB_PUBLIC_IP" -d "$DB_NAME" -U "$DB_USERNAME"
 ```
 We get the following prompt, which indicates successful connection to the database:
 ```
@@ -566,14 +563,16 @@ We run the following command to create a table which will host the data about th
 ```
 $ psql \
 -h "$DB_PUBLIC_IP" \
+-d "$DB_NAME" \
 -U "$DB_USERNAME" \
 -c "CREATE TABLE IF NOT EXISTS log_records (timestamp varchar(25) primary key, negated_picture_name text, negated_picture_hash text)"
 ```
 The parameters of the command are as follows:
 
 * **h** is the hostname, i.e., the ip address at which the database can be reached.
+* **d** is the name of the database.
 * **U** is the username to be used when authenticating with the database.
-* **c** is a command to be issued on the database itself. The command must be written using a syntax that can be understood by the database.
+* **c** is a command to be issued on the database itself. The command is written using the syntax of the database.
 
 If the command is successful, the terminal simply replies to us with the string `CREATE TABLE`.
 The database is now configured for our pipeline.
@@ -601,6 +600,7 @@ Please make sure to change to their correct value the environment variables defi
 export INPUT_BUCKET="input_bucket"
 export OUTPUT_BUCKET="output_bucket"
 export DB_PUBLIC_IP="xxx.xxx.xxx.xxx"
+export DB_NAME="pipeline_db"
 export DB_USERNAME="db_admin"
 ###
 
@@ -625,7 +625,7 @@ do
         # compute hash of the result
         NEGATED_PICTURE_HASH=$(sha256sum "$NEGATED_PICTURE_NAME" | awk '{ print $1 }')
         # log to the db that this was done
-        psql -h "$DB_PUBLIC_IP" -U "$DB_USERNAME" -c "INSERT INTO log_records (timestamp, negated_picture_name, negated_picture_hash) VALUES ('$TIMESTAMP', '$NEGATED_PICTURE_NAME', '$NEGATED_PICTURE_HASH')"
+        psql -h "$DB_PUBLIC_IP" -d "$DB_NAME" -U "$DB_USERNAME" -c "INSERT INTO log_records (timestamp, negated_picture_name, negated_picture_hash) VALUES ('$TIMESTAMP', '$NEGATED_PICTURE_NAME', '$NEGATED_PICTURE_HASH')"
         # push the negated picture to the output bucket
         s3cmd put "$NEGATED_PICTURE_NAME" s3://$OUTPUT_BUCKET
         # delete the local copies of the pictures
@@ -682,6 +682,7 @@ On `terminal_pouta` we run the following command:
 ```
 $ psql \
 -h "$DB_PUBLIC_IP" \
+-d "$DB_NAME" \
 -U "$DB_USERNAME" \
 -c "select * from log_records where negated_picture_name like '%cat1%'"
 ```
