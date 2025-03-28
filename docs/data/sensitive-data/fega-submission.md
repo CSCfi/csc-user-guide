@@ -31,7 +31,7 @@ To begin the submission process, please fill in the [general information form](h
 
 ## Step 3: Credentials
 
-Once the legal agreements between the data controller and CSC are finalized and the submission is approved by the organizational DAC, you can register on the [EGA webpage](https://ega-archive.org/register/) to create central EGA credentials. You will receive an activation link via email after your registration has been approved by central EGA. After activating your credentials, contact [CSC Service Desk](../../support/contact.md) in order to be added as a Finnish FEGA submitter.
+Once the legal agreements between the data controller and CSC are finalized and the submission is approved by the organizational DAC, you can register on the [EGA webpage](https://ega-archive.org/register/) to create central EGA credentials. You will receive an activation link via email after your registration has been approved by central EGA. After activating your credentials, contact [CSC Service Desk](../../support/contact.md) in order to be added as a Finnish FEGA submitter. In addition, provide the IP address from which you will transfer the data to FEGA to be albe to connect to the FEGA inbox.
 
 !!! note
     Central EGA credentials, including a username (usually this is your email address) and a password, are required for the encryption and data upload to Finnish FEGA and for metadata submission with the submitter portal.
