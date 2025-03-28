@@ -14,7 +14,7 @@ to be able to connect to CSC supercomputers using an SSH client.
     - For authenticating an SSH connection using a key pair, you need to copy
       the public key to MyCSC. **Do not copy the private key.** Note that
       copying the public key directly to CSC supercomputers using tools such as
-      `ssh-copy-id` will no longer work after April 14, 2025.
+      `ssh-copy-id` will not work.
 
 !!! warning
     The private key should **never** be shared with anyone, not even with CSC
@@ -76,8 +76,8 @@ Host *.bullx
 
 ## Copying public key to supercomputer
 
-Starting April 14 2025, the only way to copy a public key to a supercomputer is
-through the MyCSC customer portal.
+The only way to copy a public key to a supercomputer is through the MyCSC
+customer portal.
 [Read the instructions here](ssh-keys.md#adding-public-key-in-mycsc).
 
 ### Adding public key in MyCSC
