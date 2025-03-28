@@ -9,7 +9,7 @@ hide:
 
 * [Start here: Creating a CSC project](sd-access.md)
     * [Access as a project manager](sd-use-case-new-user-project-manager.md)
-    * [Access as a project mmeber](sd-use-case-new-user-project-member.md)
+    * [Access as a project member](sd-use-case-new-user-project-member.md)
 
 ### Store and share with SD Connect
 
@@ -78,8 +78,7 @@ hide:
 
 * [Adding missing Python libraries to Pythion in SD Desktop](./tutorials/sd-pythonlibs.md)
 * [Adding RStudio and R libraries to SD Desktop](./tutorials/rstudio.md)
-* [Adding RStudio and R libraries to SD Desktop 2](./tutorials/pr-in-sd-desktop.md)
-* [Auto apptainer](./tutorials/auto-apptainer.md)
+* [Auto-apptainer](./tutorials/auto-apptainer.md)
 * [Backup for SD Desktop](./tutorials/backup_sd_desktop.md)
 * [Decrypting all files in a directory](./tutorials/decrypt-directory.md)
 * [Extending SD Desktop software environment with your own Apptainer containers](./tutorials/creating_containers.md)
@@ -88,3 +87,6 @@ hide:
 * [Podman in SD Desktop](./tutorials/podman-in-sd-desktop.md)
 * [Running temporary PostgreSQL database in SD Desktop](./tutorials/postgresql.md)
 * [Using Allas storage service to receive sensitive research data](./tutorials/psequencing_center_tutorial.md)
+
+## Misc
+* [Useful terminology: services and technical aspects](sd-terminology.md)
