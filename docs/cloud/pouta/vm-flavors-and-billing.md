@@ -12,40 +12,6 @@ machine *flavors* available in cPouta and ePouta are listed below in
 separate tables.
 Please note that the values for the memory of each flavor (in GiB) are approximated.
 
-
-## Flavor notation
-
-We use symbols to describe some of the features of the flavors we offer.
-A short descripion of the notation used follows.
-
-### Power redundancy
-
-For the power provisioning of the node hosting the virtual machine, there are two possible values of redundancy.
-
-* ![Icon for power redundancy level NONE](../../img/circle_icons/p0.svg) **NONE** - The node is not protected from sudden power losses. **A fault in the power provisioning of the node might make the virtual machine temporarily unreachable**.
-* ![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg) **FULL** - The node is protected from sudden power losses (UPS).
-
-### Data redundancy
-
-Within each virtual machine, the customer data is stored in a root disk (R) and possibly in an [ephemeral disk (E)](ephemeral-storage.md).
-For customer data, there are three possible values of redundancy.
-We also offer the possibility to store the data in a [persistent volume (FULL)](persistent-volumes.md)
-
-* ![Icon for root disk data redundancy level NONE](../../img/circle_icons/r0.svg)![Icon for ephemeral disk data redundancy level NONE](../../img/circle_icons/e0.svg) **NONE** - The disk is stored only in the node running the virtual machine and it is not backed up (RAID-0 or LVM striping). **A fault in one of the disks of the node might corrupt the data of the virtual machine**. Moreover, **a fault in the node hosting the virtual machine might make the virtual machine not usable until the fault is fixed**.
-* ![Icon for root disk data redundancy level BASIC](../../img/circle_icons/r50.svg)![Icon for ephemeral disk data redundancy level BASIC](../../img/circle_icons/e50.svg) **BASIC** - The disk is stored only in the node running the virtual machine and it is mirrored within the same node (RAID-1). A fault in a single disk of the node does not compromise the data of the virtual machine. **Simultaneous faults in multiple disks of the node might corrupt the data of the virtual machine**. Moreover, **a fault in the node hosting the virtual machine might make the virtual machine not usable until the fault is fixed**.
-* ![Icon for root disk data redundancy level FULL](../../img/circle_icons/r100.svg)![Icon for ephemeral disk data redundancy level FULL](../../img/circle_icons/e100.svg) **FULL** - The disk is stored using multiple nodes in a fault-tolerant fashion (Ceph), so the customer data is not tied to any specific node. In case of a fault in a node used by the customer, it is possible to re-spawn the virtual machine of the customer using an alternative node.
-
-### Network redundancy
-
-For the network reachability of the virtual machine, there are two possible values of redundancy.
-
-* ![Icon for network reachability redundancy level NONE](../../img/circle_icons/n0.svg) **NONE** - The node hosting the virtual machine is connected to the cloud platform without a failover link. **A fault in the link of the node might make the virtual machine temporarily unreachable**.
-* ![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg) **FULL** - The node hosting the virtual machine is connected to the cloud platform with an additional failover link.
-
-### Other symbols
-
-* ![New VMs with this flavor cannot be currently launched](../../img/risk-icon.svg) - Launching new virtual machines with this flavor is temporarily not possible. Existing virtual machines are not affected.
-
 ## cPouta flavors
 
 The following tables list the available virtual machine flavors in cPouta and their
@@ -69,7 +35,7 @@ flavors.
 ### HPC flavors
 
 |Flavor|Cores|Memory<br/>(GiB)|Root<br/>disk<br/>(GB)|Ephemeral<br/>disk<br/>(GB)|Total<br/>disk<br/>(GB)|Memory/<br/>core<br/>(GiB)|Redundancy|Billing<br/>Units<br/>/h|
-|--- |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+|-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
 | hpc.6.14core    | 14 | 88  | 80 | 0 | 80 | 6.2|![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg)![Icon for root disk data redundancy level FULL](../../img/circle_icons/r100.svg)![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg)| 23 |
 | hpc.6.28core    | 28 | 176 | 80 | 0 | 80 | 6.2|![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg)![Icon for root disk data redundancy level FULL](../../img/circle_icons/r100.svg)![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg)| 45 |
 | hpc.6.56core   | 56 | 352 | 80 | 0 | 80 | 6.2|![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg)![Icon for root disk data redundancy level FULL](../../img/circle_icons/r100.svg)![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg)| 90 |
@@ -174,6 +140,30 @@ Note that the root disks of all high memory flavors are hosted on solid-state dr
 | gpu.3.1gpu | 12 | 1 | 219 | 80 | 1500 | 1580 | 18 |![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg)![Icon for root disk data redundancy level NONE](../../img/circle_icons/r0.svg)![Icon for ephemeral disk data redundancy level NONE](../../img/circle_icons/e0.svg)![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg)| 150  |
 
 Note that both the root and the ephemeral disks of the GPU flavors are hosted on solid-state drives (SSDs).
+
+## Flavor notation
+
+We use symbols to describe some of the features of the flavors we offer.
+A short descripion of the notation used follows.
+
+- **Power redundancy**, For the power provisioning of the node hosting the virtual machine, there are two possible values of redundancy.
+- **Data redundancy**, Within each virtual machine, the customer data is stored in a root disk (R) and possibly in an [ephemeral disk (E)](ephemeral-storage.md).
+For customer data, there are three possible values of redundancy.
+We also offer the possibility to store the data in a [persistent volume (FULL)](persistent-volumes.md)
+- **Network redundancy**, For the network reachability of the virtual machine, there are two possible values of redundancy.
+
+|Type|Icon||Description|
+|-:|:-:|:-:|:-|
+|Power|![Icon for power redundancy level NONE](../../img/circle_icons/p0.svg)|**NONE**|The node is not protected from sudden power losses. **A fault in the power provisioning of the node might make the virtual machine temporarily unreachable**.|
+|Power|![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg)|**FULL**|The node is protected from sudden power losses (UPS).|
+|Data|![Icon for root disk data redundancy level NONE](../../img/circle_icons/r0.svg)![Icon for ephemeral disk data redundancy level NONE](../../img/circle_icons/e0.svg)|**NONE**|The disk is stored only in the node running the virtual machine and it is not backed up (RAID-0 or LVM striping). **A fault in one of the disks of the node might corrupt the data of the virtual machine**. Moreover, **a fault in the node hosting the virtual machine might make the virtual machine not usable until the fault is fixed**.|
+|Data|![Icon for root disk data redundancy level BASIC](../../img/circle_icons/r50.svg)![Icon for ephemeral disk data redundancy level BASIC](../../img/circle_icons/e50.svg)|**BASIC**|The disk is stored only in the node running the virtual machine and it is mirrored within the same node (RAID-1). A fault in a single disk of the node does not compromise the data of the virtual machine. **Simultaneous faults in multiple disks of the node might corrupt the data of the virtual machine**. Moreover, **a fault in the node hosting the virtual machine might make the virtual machine not usable until the fault is fixed**.|
+|Data|![Icon for root disk data redundancy level FULL](../../img/circle_icons/r100.svg)![Icon for ephemeral disk data redundancy level FULL](../../img/circle_icons/e100.svg)|**FULL**|The disk is stored using multiple nodes in a fault-tolerant fashion (Ceph), so the customer data is not tied to any specific node. In case of a fault in a node used by the customer, it is possible to re-spawn the virtual machine of the customer using an alternative node.|
+|Network|![Icon for network reachability redundancy level NONE](../../img/circle_icons/n0.svg)|**NONE**|The node hosting the virtual machine is connected to the cloud platform without a failover link. **A fault in the link of the node might make the virtual machine temporarily unreachable**.|
+|Network|![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg)|**FULL**|The node hosting the virtual machine is connected to the cloud platform with an additional failover link.|
+|Other|![New VMs with this flavor cannot be currently launched](../../img/risk-icon.svg)||Launching new virtual machines with this flavor is temporarily not possible. Existing virtual machines are not affected.|
+
+
 
 ## Which type of flavor should I use?
 
@@ -381,7 +371,7 @@ in the snapshot because only the TB VM root disk is stored in the snapshot.
 |:-:|:-:|:-:|:-:|:-:|:-:|
 |**tb.3.\***|Yes|Intel(R) Xeon(R) CPU  E5-2680 v4, with hyper-threading<br/>**or**<br/>Intel(R) Xeon(R) CPU E5-2698 v4, with hyper-threading|Redundant 25 Gb/s|Local SSD disks, RAID-0|Instances can be lost due to a single-node or disk failure.|
 
-## Deprecated flavors
+### Deprecated flavors
 
 This is the set of original flavors that has been available
 since the launch. **You should not launch any new virtual machines using
