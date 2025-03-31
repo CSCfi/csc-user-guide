@@ -3,9 +3,7 @@
 This article lists the types (flavors) of virtual machines and their
 cost in billing units.
 
-[TOC]
-
-The cPouta and ePouta services consume the same billing units as 
+The cPouta and ePouta services consume the same billing units as
 Puhti and Mahti. You can find more information in the [CSC computing environment articles].
 
 Users can create virtual machines with larger or
@@ -13,40 +11,6 @@ smaller compute resources based on their needs. The virtual
 machine *flavors* available in cPouta and ePouta are listed below in
 separate tables.
 Please note that the values for the memory of each flavor (in GiB) are approximated.
-
-
-## Flavor notation
-
-We use symbols to describe some of the features of the flavors we offer.
-A short descripion of the notation used follows.
-
-### Power redundancy
-
-For the power provisioning of the node hosting the virtual machine, there are two possible values of redundancy.
-
-* ![Icon for power redundancy level NONE](../../img/circle_icons/p0.svg) **NONE** - The node is not protected from sudden power losses. **A fault in the power provisioning of the node might make the virtual machine temporarily unreachable**.
-* ![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg) **FULL** - The node is protected from sudden power losses (UPS).
-
-### Data redundancy
-
-Within each virtual machine, the customer data is stored in a root disk (R) and possibly in an [ephemeral disk (E)](ephemeral-storage.md).
-For customer data, there are three possible values of redundancy.  
-We also offer the possibility to store the data in a [persistent volume (FULL)](persistent-volumes.md)
-
-* ![Icon for root disk data redundancy level NONE](../../img/circle_icons/r0.svg)![Icon for ephemeral disk data redundancy level NONE](../../img/circle_icons/e0.svg) **NONE** - The disk is stored only in the node running the virtual machine and it is not backed up (RAID-0 or LVM striping). **A fault in one of the disks of the node might corrupt the data of the virtual machine**. Moreover, **a fault in the node hosting the virtual machine might make the virtual machine not usable until the fault is fixed**.
-* ![Icon for root disk data redundancy level BASIC](../../img/circle_icons/r50.svg)![Icon for ephemeral disk data redundancy level BASIC](../../img/circle_icons/e50.svg) **BASIC** - The disk is stored only in the node running the virtual machine and it is mirrored within the same node (RAID-1). A fault in a single disk of the node does not compromise the data of the virtual machine. **Simultaneous faults in multiple disks of the node might corrupt the data of the virtual machine**. Moreover, **a fault in the node hosting the virtual machine might make the virtual machine not usable until the fault is fixed**.
-* ![Icon for root disk data redundancy level FULL](../../img/circle_icons/r100.svg)![Icon for ephemeral disk data redundancy level FULL](../../img/circle_icons/e100.svg) **FULL** - The disk is stored using multiple nodes in a fault-tolerant fashion (Ceph), so the customer data is not tied to any specific node. In case of a fault in a node used by the customer, it is possible to re-spawn the virtual machine of the customer using an alternative node.
-
-### Network redundancy
-
-For the network reachability of the virtual machine, there are two possible values of redundancy.
-
-* ![Icon for network reachability redundancy level NONE](../../img/circle_icons/n0.svg) **NONE** - The node hosting the virtual machine is connected to the cloud platform without a failover link. **A fault in the link of the node might make the virtual machine temporarily unreachable**.
-* ![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg) **FULL** - The node hosting the virtual machine is connected to the cloud platform with an additional failover link.
-
-### Other symbols
-
-* ![New VMs with this flavor cannot be currently launched](../../img/risk-icon.svg) - Launching new virtual machines with this flavor is temporarily not possible. Existing virtual machines are not affected.
 
 ## cPouta flavors
 
@@ -71,7 +35,7 @@ flavors.
 ### HPC flavors
 
 |Flavor|Cores|Memory<br/>(GiB)|Root<br/>disk<br/>(GB)|Ephemeral<br/>disk<br/>(GB)|Total<br/>disk<br/>(GB)|Memory/<br/>core<br/>(GiB)|Redundancy|Billing<br/>Units<br/>/h|
-|--- |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+|-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
 | hpc.6.14core    | 14 | 88  | 80 | 0 | 80 | 6.2|![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg)![Icon for root disk data redundancy level FULL](../../img/circle_icons/r100.svg)![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg)| 23 |
 | hpc.6.28core    | 28 | 176 | 80 | 0 | 80 | 6.2|![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg)![Icon for root disk data redundancy level FULL](../../img/circle_icons/r100.svg)![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg)| 45 |
 | hpc.6.56core   | 56 | 352 | 80 | 0 | 80 | 6.2|![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg)![Icon for root disk data redundancy level FULL](../../img/circle_icons/r100.svg)![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg)| 90 |
@@ -177,6 +141,30 @@ Note that the root disks of all high memory flavors are hosted on solid-state dr
 
 Note that both the root and the ephemeral disks of the GPU flavors are hosted on solid-state drives (SSDs).
 
+## Flavor notation
+
+We use symbols to describe some of the features of the flavors we offer.
+A short descripion of the notation used follows.
+
+- **Power redundancy**, For the power provisioning of the node hosting the virtual machine, there are two possible values of redundancy.
+- **Data redundancy**, Within each virtual machine, the customer data is stored in a root disk (R) and possibly in an [ephemeral disk (E)](ephemeral-storage.md).
+For customer data, there are three possible values of redundancy.
+We also offer the possibility to store the data in a [persistent volume (FULL)](persistent-volumes.md)
+- **Network redundancy**, For the network reachability of the virtual machine, there are two possible values of redundancy.
+
+|Type|Icon||Description|
+|-:|:-:|:-:|:-|
+|Power|![Icon for power redundancy level NONE](../../img/circle_icons/p0.svg)|**NONE**|The node is not protected from sudden power losses. **A fault in the power provisioning of the node might make the virtual machine temporarily unreachable**.|
+|Power|![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg)|**FULL**|The node is protected from sudden power losses (UPS).|
+|Data|![Icon for root disk data redundancy level NONE](../../img/circle_icons/r0.svg)![Icon for ephemeral disk data redundancy level NONE](../../img/circle_icons/e0.svg)|**NONE**|The disk is stored only in the node running the virtual machine and it is not backed up (RAID-0 or LVM striping). **A fault in one of the disks of the node might corrupt the data of the virtual machine**. Moreover, **a fault in the node hosting the virtual machine might make the virtual machine not usable until the fault is fixed**.|
+|Data|![Icon for root disk data redundancy level BASIC](../../img/circle_icons/r50.svg)![Icon for ephemeral disk data redundancy level BASIC](../../img/circle_icons/e50.svg)|**BASIC**|The disk is stored only in the node running the virtual machine and it is mirrored within the same node (RAID-1). A fault in a single disk of the node does not compromise the data of the virtual machine. **Simultaneous faults in multiple disks of the node might corrupt the data of the virtual machine**. Moreover, **a fault in the node hosting the virtual machine might make the virtual machine not usable until the fault is fixed**.|
+|Data|![Icon for root disk data redundancy level FULL](../../img/circle_icons/r100.svg)![Icon for ephemeral disk data redundancy level FULL](../../img/circle_icons/e100.svg)|**FULL**|The disk is stored using multiple nodes in a fault-tolerant fashion (Ceph), so the customer data is not tied to any specific node. In case of a fault in a node used by the customer, it is possible to re-spawn the virtual machine of the customer using an alternative node.|
+|Network|![Icon for network reachability redundancy level NONE](../../img/circle_icons/n0.svg)|**NONE**|The node hosting the virtual machine is connected to the cloud platform without a failover link. **A fault in the link of the node might make the virtual machine temporarily unreachable**.|
+|Network|![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg)|**FULL**|The node hosting the virtual machine is connected to the cloud platform with an additional failover link.|
+|Other|![New VMs with this flavor cannot be currently launched](../../img/risk-icon.svg)||Launching new virtual machines with this flavor is temporarily not possible. Existing virtual machines are not affected.|
+
+
+
 ## Which type of flavor should I use?
 
 ### **Standard flavors**
@@ -187,7 +175,7 @@ Typical use cases:
 -   Software development
 
 These are generic flavors that are useful for running regular web
-services such as a web server with a database backend. 
+services such as a web server with a database backend.
 They provide better availability compared to the
 HPC flavors.
 
@@ -200,14 +188,17 @@ workloads. The virtual CPUs used in these instances are
 overcommitted, which means 32 hyperthreaded CPU cores are used to
 provide more than 32 virtual cores.
 
-**Flavor characteristics:**
+#### cPouta
 
--   Redundant power
--   CPU: Varies
--   Network: Redundant 25 Gb/s
--   Flavor disk: Stored in the central storage
--   Single-node or disk failures may cause downtime, but instances
-    are recoverable.
+|Flavor<br/>family|Redundant<br/>power|CPU|Network|Disk<br/>flavor|Notes|
+|:-:|:-:|:-:|:-:|:-:|:-:|
+|standard.\*|Yes|Various|Redundant 25 Gb/s|Stored in the central storage|Single-node or disk failures may cause downtime, but instances are recoverable.|
+
+#### ePouta
+
+|Flavor<br/>family|Redundant<br/>power|CPU|Network|Disk<br/>flavor|Notes|
+|:-:|:-:|:-:|:-:|:-:|:-:|
+|standard.\*|Yes|Various|Redundant 25 Gb/s|Stored in the central storage|Single-node or disk failures may cause downtime, but instances are recoverable.|
 
 ### **HPC flavors**
 
@@ -220,64 +211,21 @@ the HPC flavors. The availability of these instances is not as high
 as the standard flavors, but you get better performance. The HPC
 flavors have faster CPUs and no overcommitment of CPU cores.
 
-**cPouta HPC flavor characteristics:**
+#### cPouta
 
-**hpc.6.\*:**
+|Flavor<br/>family|Redundant<br/>power|CPU|Network|Disk<br/>flavor|Notes|
+|:-:|:-:|:-:|:-:|:-:|:-:|
+|**hpc.6.\***|Yes|AMD EPYC 9734 112-Core|Redundant 25 Gb/s|Stored in the central storage|Single-node failure may cause downtime, but instances are recoverable.|
+|**hpc.5.\***|Yes|AMD EPYC 7702 64-Core|Redundant 25 Gb/s|Stored in the central storage|Single-node failure may cause downtime, but instances are recoverable.|
+|**hpc.4.\***|No|Intel(R)    Xeon(R)   Gold    6148   CPU@2.40GHz ***hyper-threading***|Redundant 25 Gb/s|Stored in the central storage|Single-node or disk failures may cause downtime, but instances are recoverable.|
 
--   Redundant power
--   CPU:  AMD EPYC 9734 112-Core Processor,
--   Network: Redundant 25 Gb/s
--   Flavor disk: Stored in the central storage
--   Single-node failure may cause downtime, but instances
-    are recoverable.
+#### ePouta
 
-**hpc.5.\*:**
-
--   Redundant power
--   CPU:  AMD EPYC 7702 64-Core Processor,
--   Network: Redundant 25 Gb/s
--   Flavor disk: Stored in the central storage
--   Single-node failure may cause downtime, but instances
-    are recoverable.
-
-**hpc.4.\*:**
-
--   No redundant power
--   CPU: Intel(R)    Xeon(R)   Gold    6148   CPU    @   2.40GHz,
-    ***hyper-threading***
--   Network: Redundant 25 Gb/s
--   Flavor disk: Stored in the central storage
--   Single-node or disk failures may cause downtime, but instances
-    are recoverable.
-
-**ePouta HPC flavor characteristics:**
-
-**hpc.6.\*:**
-
--   Redundant power
--   CPU:  AMD EPYC 9734 112-Core Processor,
--   Network: Redundant 25 Gb/s
--   Flavor disk: Stored in the central storage
--   Single-node failure may cause downtime, but instances
-    are recoverable.
-
-**hpc.5.\*:**
-
--   Redundant power
--   CPU:  AMD EPYC 7702 64-Core Processor,
--   Network: Redundant 25 Gb/s
--   Flavor disk: Stored in the central storage
--   Single-node failure may cause downtime, but instances
-    are recoverable.
-
-**hpc.4\*:**
-
--   Redundant power
--   CPU: Intel(R) Xeon(R) CPU Gold 6148, with hyper-threading
--   Network: Redundant 25 Gb/s
--   Flavor disk: Stored in the central storage
--   Single-node or disk failures may cause downtime, but instances
-    are recoverable.
+|Flavor<br/>family|Redundant<br/>power|CPU|Network|Disk<br/>flavor|Notes|
+|:-:|:-:|:-:|:-:|:-:|:-:|
+|**hpc.6.\***|Yes|AMD EPYC 9734 112-Core Processor|Redundant 25 Gb/s|Stored in the central storage|Single-node failure may cause downtime, but instances are recoverable.|
+|**hpc.5.\***|Yes|AMD EPYC 7702 64-Core Processor|Redundant 25 Gb/s|Stored in the central storage|Single-node failure may cause downtime, but instances are recoverable.|
+|**hpc.4\***|Yes|Intel(R) Xeon(R) CPU Gold 6148, with hyper-threading|Redundant 25 Gb/s|Stored in the central storage|Single-node or disk failures may cause downtime, but instances are recoverable.|
 
 ### **I/O flavors**
 
@@ -306,44 +254,21 @@ The availability of these instances is not as high as the
 standard flavors, but the I/O
 performance is significantly better.
 
-**cPouta IO flavor characteristics:**
+!!! Warning "RAID-0 is Non-redundant"
+    Flavors with RAID-0 disks are non-redundant, this means that a single disk failure will lead to data loss.
 
-**io.70GB-700GB:**
+#### cPouta
 
-!!! Note  
-    These servers have non-redundant disks, and you may expect data loss in case of disk failure.  
-    These virtual machines can not be migrated nor resized to a different family flavor.
+|Flavor family|Redundant<br/>power|CPU|Network|Disk<br/>flavor|Notes|
+|:-:|:-:|:-:|:-:|:-:|:-:|
+|**io.70GB-700GB**|No|Intel(R) Xeon(R) CPU E5-2680 v3, with hyper-threading|Redundant 10 Gb/s or 40 Gb/s|Local SSD disks, RAID-0|- Instances can be lost due to a single-node or disk failure.<br/>- Instances can not be migrated nor resized to a different family flavor.|
+|**io.2.\***|Yes|AMD EPYC 7282 16-Core Processor|Redundant 25 Gb/s|Local NVMe disk, RAID-1|- Instance can be lost due to a single-node or multiple simultaneous disk failures.<br/>- Instances can not be resized to a different family flavor.|
 
--   Redundant power
--   CPU: Intel(R) Xeon(R) CPU E5-2680 v3, with hyper-threading
--   Network: Redundant 10 Gb/s or 40 Gb/s
--   Flavor disk: Local SSD disks, RAID-0
--   Instances can be lost due to a single-node or disk failure.
+#### ePouta
 
-**io.2.\*:**
-
-!!! Note  
-    These virtual machines can not be resized to a different family flavor.
-
--   Redundant power
--   CPU: AMD EPYC 7282 16-Core Processor
--   Network: Redundant 25 Gb/s
--   Flavor disk: Local NVMe disk, RAID-1
--   Instance can be lost due to a single-node or multiple simultaneous disk failures.
-
-
-**ePouta IO flavor characteristics:**
-
-**io.2.\*:**
-
-!!! Note  
-    These virtual machines can not be resized to a different family flavor.
-
--   Redundant power
--   CPU: AMD EPYC 7313 16-Core Processor
--   Network: Redundant 25 Gb/s
--   Flavor disk: Local NVMe disk, RAID-1
--   Instance can be lost due to a single-node or multiple simultaneous disk failures.
+|Flavor family|Redundant<br/>power|CPU|Network|Disk<br/>flavor|Notes|
+|:-:|:-:|:-:|:-:|:-:|:-:|
+|**io.2.\***|Yes|AMD EPYC 7313 16-Core Processor|Redundant 25 Gb/s|Local NVMe disk, RAID-1|Instance can be lost due to a single-node or multiple simultaneous disk failures.<br/>These virtual machines can not be resized to a different family flavor.|
 
 ### GPU flavors
 
@@ -400,49 +325,24 @@ downtime of instances during the maintenance of the hardware.
 Users also have the possibility to use NVIDIA Volta V100 GPGPUs in the
 batch system [Puhti](../../computing/systems-puhti.md).
 
-**cPouta flavor characteristics:**
+#### cPouta
 
-**gpu.1.\*:**
+|Flavor family|Redundant<br/>power|GPU|CPU|Network|Disk<br/>flavor|Notes|
+|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
+|**gpu.1.\***|No|NVIDIA Tesla P100 (16 GB)|Intel(R) Xeon(R) CPU E5-2680 v4, with hyper-threading|Redundant 10 Gb/s|Local SSD disks, RAID-1|Instance can be lost due to a single-node or multiple simultaneous disk failures.|
 
--   GPU: NVIDIA Tesla P100 (16 GB)
--   CPU: Intel(R) Xeon(R) CPU E5-2680 v4, with hyper-threading
--   Network: Redundant 10 Gb/s
--   Flavor disk: Local SSD disks, RAID-1
--   No redundant power
--   Instance can be lost due to a single-node or multiple simultaneous disk failures.
+#### ePouta
 
-**ePouta flavor characteristics:**
+|Flavor family|Redundant<br/>power|GPU|CPU|Network|Disk<br/>flavor|Notes|
+|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
+|**gpu.1.\***|Yes|NVIDIA Tesla P100 (16 GB)|Intel(R) Xeon(R) CPU E5-2680 v4, with hyper-threading|Redundant 10 Gb/s|Local SSD disks, RAID-1|Instance can be lost due to a single-node or disk failure.|
+|**gpu.2.\***|Yes|NVIDIA Tesla V100 (16 GB)|Intel(R) Xeon(R) Gold 6148, with hyper-threading|Redundant 10 Gb/s|Local SSD disks, RAID-0|NUMA Aware: yes (CPU &lt;&gt; memory, not PCI devices)<br/>Instance can be lost due to a single-node or disk failure.|
+|**gpu.3.\***|Yes|NVIDIA A100 (40 GB)|AMD EPYC 7402 24-Core Processor|Redundant 10 Gb/s|Local NVMe disks|Instance can be lost due to a single-node or disk failure.<br/>Multi-Instance GPU (MIG) functionality supported|
 
-**gpu.1.\*:**
+### High memory flavors
 
--   GPU: NVIDIA Tesla P100 (16 GB)
--   CPU: Intel(R) Xeon(R) CPU E5-2680 v4, with hyper-threading
--   Network: Redundant 10 Gb/s
--   Flavor disk: Local SSD disks, RAID-1
--   Redundant power
--   Instance can be lost due to a single-node or disk failure.
-
-**gpu.2.\*:**
-
--   GPU: NVIDIA Tesla V100 (16 GB)
--   CPU: Intel(R) Xeon(R) Gold 6148, with hyper-threading
--   NUMA Aware: yes (CPU &lt;&gt; memory, not PCI devices)
--   Network: Redundant 10 Gb/s
--   Flavor disk: Local SSD disks, RAID-0
--   Redundant power
--   Instance can be lost due to a single-node or disk failure.
-
-**gpu.3.\*:**
-
--   GPU: NVIDIA A100 (40 GB)
--   CPU: AMD EPYC 7402 24-Core Processor
--   Network: Redundant 10 Gb/s
--   Flavor disk: Local NVMe disks
--   Redundant power
--   Instance can be lost due to a single-node or disk failure.
--   Multi-Instance GPU (MIG) functionality supported
-
-### High memory flavors (only in ePouta)
+!!! warning "High memory flavors are only in ePouta"
+    High memory flavors are only available in ePouta.
 
 Typical use cases:
 
@@ -465,18 +365,13 @@ VM or create a snapshot of the source VM. **Please note** that all
 ephemeral disk data will be lost in the process and will not be stored
 in the snapshot because only the TB VM root disk is stored in the snapshot.
 
-**Flavor characteristics:**
+#### ePouta
 
-**tb.3.\*:**
+|Flavor family|Redundant<br/>power|CPU|Network|Disk<br/>flavor|Notes|
+|:-:|:-:|:-:|:-:|:-:|:-:|
+|**tb.3.\***|Yes|Intel(R) Xeon(R) CPU  E5-2680 v4, with hyper-threading<br/>**or**<br/>Intel(R) Xeon(R) CPU E5-2698 v4, with hyper-threading|Redundant 25 Gb/s|Local SSD disks, RAID-0|Instances can be lost due to a single-node or disk failure.|
 
--   Redundant power
--   CPU: Intel(R) Xeon(R) CPU  E5-2680 v4, with hyper-threading **or**
-    Intel(R) Xeon(R) CPU E5-2698 v4, with hyper-threading
--   Network: Redundant 25 Gb/s
--   Flavor disk: Local SSD disks, RAID-0
--   Instances can be lost due to a single-node or disk failure.
-
-## Deprecated flavors
+### Deprecated flavors
 
 This is the set of original flavors that has been available
 since the launch. **You should not launch any new virtual machines using
