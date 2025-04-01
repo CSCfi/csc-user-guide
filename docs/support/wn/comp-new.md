@@ -1,6 +1,17 @@
 # Computing environment
 
-## Starting April 14 2025, SSH login to Puhti and Mahti will only work with SSH keys added in MyCSC, 25.3.2025
+## Starting April 21 2025, multi-factor authentication is required to login to web interfaces of Puhti and Mahti, 25.3.2025 <a id="mfa"></a>
+
+**Change:**
+
+**Action:**
+
+**Motivation:**
+
+Please contact [CSC Service Desk](../../support/contact.md) if you have any
+questions or need support with activating MFA.
+
+## Starting April 14 2025, SSH login to Puhti and Mahti will only work with SSH keys added in MyCSC, 25.3.2025 <a id="ssh-key"></a>
 
 **Change:** Starting April 14 2025, only SSH keys added through MyCSC will
 allow you to login to Puhti or Mahti with SSH. Traditional password-based
