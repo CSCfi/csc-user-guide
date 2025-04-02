@@ -92,7 +92,8 @@ If you are experiencing problems or want to disable your MFA authentication, ple
 
 **Summary:**
 
-Activation of MFA 
+Activation of MFA
+
 1. If your home organization has enabled multi-factor authentication (MFA) for Haka login, 
 you do not need to activate CSC’s own MFA separately.
 2. If your organization has not enabled Haka MFA, you must activate CSC MFA. To do this, 
