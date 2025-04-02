@@ -72,6 +72,14 @@ plugins:
         "cloud/concepts.md": "cloud/index.md"
         "apps/alpha.md": "apps/index.md"
         "support/tutorials/env-guide/overview.md": "support/tutorials/env-guide/index.md"
+        "computing/cProfile.md": "apps/cProfile.md"
+        "computing/compute-san.md": "apps/compute-san.md"
+        "computing/cuda-gdb.md": "apps/cuda-gdb.md"
+        "computing/gdb.md": "apps/gdb.md"
+        "computing/ncu.md": "apps/ncu.md"
+        "computing/nsys.md": "apps/nsys.md"
+        "computing/nvprof.md": "apps/nvprof.md"
+        "computing/pdb.md": "apps/pdb.md"  
         # files moved to Allas:
         # (note the '<filename>.<original extension>.md' hack, as these are not Markdown files)
         "data/sensitive-data/federated-ega-pricing.pdf.md": "https://a3s.fi/docs-files/sensitive-data/PDF_instructions/federated-ega-pricing.pdf"
@@ -228,9 +236,9 @@ nav:
           - LUMI: "https://docs.lumi-supercomputer.eu/hardware/"
       - Connecting:
           - computing/connecting/index.md
+          - Setting up SSH keys: computing/connecting/ssh-keys.md
           - SSH client on macOS and Linux: computing/connecting/ssh-unix.md
           - SSH client on Windows: computing/connecting/ssh-windows.md
-          - Setting up SSH keys: computing/connecting/ssh-keys.md
       - Supercomputer storage:
           - computing/disk.md
           - Lustre filesystem: computing/lustre.md
