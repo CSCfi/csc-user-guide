@@ -35,7 +35,7 @@ Each user needs to license and install them for their own use.
 
 ### GeneMark
 
-Go to [GeneMark download page](http://exon.gatech.edu/GeneMark/license_download.cgi), and fill in the form. The version you need is "GeneMark-ES/ET/EP+" for "LINUX 64 kernel 3.10 - 5". Download the program file and the license key. To uncompress the packages:
+Go to [GeneMark download page](http://topaz.gatech.edu/GeneMark/license_download.cgi), and fill in the form. The version you need is "GeneMark-ES/ET/EP+" for "LINUX 64 kernel 3.10 - 5". Download the program file and the license key. To uncompress the packages:
 
 ```bash
 tar xf gmes_linux_64_4.tar.gz
