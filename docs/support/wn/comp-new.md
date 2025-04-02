@@ -9,7 +9,7 @@ required to
 **Action:** Test whether MFA is already enabled for Haka logins by your home
 organization. [Please use the test page in MyCSC](https://my.csc.fi/test-mfa)
 (select **Haka MFA**). If Haka MFA is not enabled,
-[please activate **CSC MFA** following these instructions](../../accounts/mfa.md#activation-of-mfa).
+[please activate **CSC MFA** following these instructions](../../accounts/mfa.md#how-to-activate-mfa).
 It is highly preferred to use the Haka MFA of your home organization, if possible.
 
 **Motivation:** With this change we are improving the security of our
