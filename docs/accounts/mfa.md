@@ -8,7 +8,7 @@ CSC’s MFA uses a time-based one-time passcode (TOTP) system, which works with 
 
 * Compatible apps are those that use a time-based one-time passcode system. Most of the widely used authentication apps, such as Google Authenticator and Microsoft Authenticator, support this method.
 
-## When is MFA Required?
+## When is MFA required?
 
 If your home organization has enabled multi-factor authentication for Haka login, you do not need to activate it separately for CSC services. **It is recommended to use your home organization’s Haka authentication if available.**
 
