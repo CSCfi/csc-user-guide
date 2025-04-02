@@ -221,7 +221,7 @@ nav:
       - Accessing Mahti large partition: accounts/how-to-access-mahti-large-partition.md
       - Reviewing billing unit usage: accounts/how-to-view-billing-unit-usage.md
       - Billing: accounts/billing.md
-      - Multi-factor Authentication: accounts/mfa.md
+      - Multi-factor authentication: accounts/mfa.md
       - Strong identification: accounts/strong-identification.md
       - FMI: accounts/fmi.md
   - Computing:
