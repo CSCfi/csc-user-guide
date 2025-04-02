@@ -52,6 +52,7 @@
 * [Is it possible to move data in Allas to new project?](is-it-possible-to-move-data-in-allas-to-new-project.md)
 * [Is it possible to make data in Allas read-only?](is-it-possible-to-make-data-in-allas-read-only.md)
 * [What to do for data in Allas after project ends?](what-to-do-for-data-in-allas-after-project-ends.md)
+* [How to make a bucket public?](how-to-make-a-bucket-public.md)
 
 ## Pouta
 
