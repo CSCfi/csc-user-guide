@@ -1,7 +1,7 @@
 # How to resize an instance or volume in Pouta
 ## Resize an instance
 ### Using a snapshot
-We might face performance issue with your initial instance and you'd like to run your instance with a bigger flavor?  
+You might face performance issue with your initial instance and you'd like to run your instance with a bigger flavor?  
 It's possible to proceed by taking a snapshot of your instance and then boot the new instance with the new flavor using the snapshot.  
 You can find more information about snapshot [here](../../cloud/pouta/snapshots.md) and how to proceed.
 
