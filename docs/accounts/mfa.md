@@ -32,16 +32,15 @@ Please first check if you already have functioning Haka MFA. To check:
 Visit the 'Profile' section of the MyCSC portal
 Use the 'Test your Multi-Factor Authentication capabilities' function on the right-hand side by pressing 'Test'. Remember to log in with Haka during the test.
 
-## Possible outcomes:
+## Possible outcomes
 
 * Haka MFA is working. In that case no further action is required from you.
 * Haka MFA is **not** working, and you receive an error message indicating that you need to activate Haka **MFA** following your home organization's instructions. Please do this.
 * Haka MFA is not working, and you receive a message stating that Haka MFA is not enabled in your organization. In that case you should activate CSC multi-factor authentication (CSC MFA). See instructions below.
 
-## Users logging in with Virtu credentials, CSC login or Lifescience login:
+## Users logging in with Virtu credentials, CSC login or Lifescience login
 
 Activate CSC's multi-factor authentication (CSC MFA) in MyCSC. See instructions below.
-
 
 ## What you need before setting up CSC MFA
 
