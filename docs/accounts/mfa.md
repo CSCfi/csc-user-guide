@@ -75,7 +75,7 @@ After scanning the QR code, press **Continue**. MyCSC will ask you to enter the 
 
 ![type in 6-digit code](images/small/mfa-enter-verification-code.png 'Type in 6-digit code')
 
-![authentication app screen](images/small/mfa-one-time-password-view.png 'The 6-digit code on your phone')
+![authentication app screen](images/small/haka-one-time-code.jpeg 'The 6-digit code on your phone')
 
 ### Step 6: Finish
 
