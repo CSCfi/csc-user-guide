@@ -4,17 +4,17 @@
 
 This guide explains how to activate and use multi-factor authentication (MFA) for CSC customer accounts. CSC’s MFA system integrates with the authentication solutions provided by universities for Haka accounts.
 
-CSC’s MFA uses a time-based one-time passcode system, which works with standard mobile phones with an authentication app. The authentication app is free for users, and multiple app options are available for different mobile devices. You can choose any compatible authentication app.
+CSC’s MFA uses a time-based one-time passcode (TOTP) system, which works with standard mobile phones with an authentication app. The authentication app is free for users, and multiple app options are available for different mobile devices. You can choose any compatible authentication app.
 
-* Compatible apps are those that use a time-based one-time passcode (TOTP) system. Most of the widely used authentication apps, such as Google Authenticator and Microsoft Authenticator, support this method.
+* Compatible apps are those that use a time-based one-time passcode system. Most of the widely used authentication apps, such as Google Authenticator and Microsoft Authenticator, support this method.
 
 ## When is MFA Required?
 
-If your home organization has enabled multi-factor authentication (MFA) for Haka login, you do not need to activate it separately for CSC services. **It is recommended to use your home organization’s Haka authentication if available.**
+If your home organization has enabled multi-factor authentication for Haka login, you do not need to activate it separately for CSC services. **It is recommended to use your home organization’s Haka authentication if available.**
 
 Otherwise, you must activate MFA once to access CSC research services.
 
-CSC is gradually rolling out MFA across all of it's services. Currently, the following CSC services utilize Multi-factor authentication:
+CSC is gradually rolling out MFA across all of our services. Currently, the following CSC services utilize multi-factor authentication:
 
 * **SD Connect**  
 * **SD Desktop**  
@@ -32,14 +32,14 @@ CSC is gradually rolling out MFA across all of it's services. Currently, the fol
 
 Before enabling MFA, make sure you have:
 
-* A CSC user account and password. If you don’t have an account yet, register through the MyCSC customer portal.
+* A CSC user account and password. If you don’t have an account yet, register through the MyCSC customer portal. [Read the instructions here](how-to-create-new-user-account.md).
 * A mobile device that is compatible with an authentication app (essentially any modern smartphone).
 
 ## How to activate MFA
 
 ### Step 1: Install authentication app
 
-To use MFA, install **an authentication app** on your mobile phone. **If you already have an authentication app on your phone, you can skip this step.**
+To use MFA, install **an authentication app** on your mobile phone. **If you already have an authentication app on your phone, [skip to step 2](#step-2-log-in-to-mycsc).**
 
 Some commonly used apps include:
 
@@ -51,9 +51,9 @@ Follow the installation instructions provided by your chosen app.
 
 ### Step 2: Log in to MyCSC
 
-Log in to the [**MyCSC**](https://my.csc.fi/) website with your username and password, and click the **Profile** icon in the top right corner of the page. A dropdown menu will open, allowing you to select **Profile** (highlighted in the image).
+Log in to the [**MyCSC**](https://my.csc.fi/) website with your username and password, and click the **Profile** icon in the top right corner of the page. A dropdown menu will open, allowing you to select **Profile** (highlighted in the image below).
 
-![Profile view in MyCSC](images/small/mfa-profile-banner.png 'profile view -banner')
+![Profile view in MyCSC](images/small/mfa-profile-banner.png 'Profile view banner')
 
 If you have forgotten your CSC user account password, [**here's how you can change it**](../accounts/how-to-change-password.md).
 
@@ -61,7 +61,7 @@ If you have forgotten your CSC user account password, [**here's how you can chan
 
 In the **Profile** section, click **Enable** in the Multi-Factor Authentication banner.
 
-![enable MFA banner](images/small/mfa-enable-mfa-banner.png 'Multifactor authentication banner')
+![enable MFA banner](images/small/mfa-enable-mfa-banner.png 'Multi-factor authentication banner')
 
 ### Step 4: Scan QR code
 
@@ -99,7 +99,7 @@ If you are experiencing problems or want to disable your MFA authentication, ple
 1. Choose **Haka** as your authentication method.  
 2. Authenticate through your home organization, typically by entering your **username** and **password**.  
 3. Type the six-digit code shown in your authentication app.  
-4. You are in!  
+4. You are in!
 
 ### CSC MFA users
 
@@ -110,7 +110,7 @@ If you are experiencing problems or want to disable your MFA authentication, ple
 
 ### Summary
 
-Activation of MFA
+#### Activation of MFA
 
 1. If your home organization has enabled multi-factor authentication (MFA) for Haka login, you do not need to activate CSC’s own MFA separately.
 2. If your organization has not enabled Haka MFA, you must activate CSC MFA. To do this, you need an authentication app on your mobile phone. Common options include Google Authenticator and Microsoft Authenticator, but any app supporting the TOTP (Time-Based One-Time Password) protocol will work. Install the app according to its instructions.
