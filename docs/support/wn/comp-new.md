@@ -1,6 +1,6 @@
 # Computing environment
 
-## Starting April 21 2025, multi-factor authentication is required to login to web interfaces of Puhti and Mahti, 25.3.2025 <a id="mfa"></a>
+## Starting April 21 2025, multi-factor authentication is required to login to web interfaces of Puhti and Mahti, 2.4.2025 <a id="mfa"></a>
 
 **Change:** Starting 21 April 2025, multi-factor authenticaion (MFA) will be
 required to
