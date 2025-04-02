@@ -2,11 +2,19 @@
 
 ## Starting April 21 2025, multi-factor authentication is required to login to web interfaces of Puhti and Mahti, 25.3.2025 <a id="mfa"></a>
 
-**Change:**
+**Change:** Starting 21 April 2025, multi-factor authenticaion (MFA) will be
+required to
+[login to the web interfaces of Puhti and Mahti](../../computing/webinterface/connecting.md).
 
-**Action:**
+**Action:** Test whether MFA is already enabled for Haka logins by your home
+organization. [Please use the test page in MyCSC](https://my.csc.fi/test-mfa)
+(select **Haka MFA**). If Haka MFA is not enabled,
+[please activate **CSC MFA** following these instructions](../../accounts/mfa.md#activation-of-mfa).
+It is highly preferred to use the Haka MFA of your home organization, if possible.
 
-**Motivation:**
+**Motivation:** With this change we are improving the security of our
+computing, data, and cloud services.
+[Read more about MFA in the blog on the research.csc.fi website](https://research.csc.fi/2025/04/02/multi-factor-authentication/).
 
 Please contact [CSC Service Desk](../../support/contact.md) if you have any
 questions or need support with activating MFA.

@@ -6,4 +6,4 @@
 
     1. [Test whether **Haka MFA** is already enabled for you](https://my.csc.fi/test-mfa).
           * If your home organization has enabled MFA for Haka login, you do not need to activate MFA separately for CSC services. It is highly preferred that you use the Haka MFA of your home organization if possible.
-    2. [If Haka MFA is not enabled, activate CSC MFA following these instructions](/accounts/mfa.md#activation-of-mfa).
+    2. [If Haka MFA is not enabled, activate **CSC MFA** following these instructions](/accounts/mfa.md#activation-of-mfa).
