@@ -1,0 +1,2 @@
+[mkdocs.plugins]
+section-index = mkdocs_section_index.plugin:SectionIndexPlugin
