@@ -32,7 +32,7 @@ Please first check if you already have functioning Haka MFA. To check:
 1. Visit the 'Profile' section of the [MyCSC portal](https://my.csc.fi/)
 2. Use the 'Test your Multi-Factor Authentication capabilities' function on the right-hand side by pressing 'Test'. **Remember to log in with Haka during the test**.
 
-## Possible outcomes
+### Possible outcomes
 
 * Haka MFA is working. In that case no further action is required from you.
 * Haka MFA is **not** working, and you receive an error message indicating that you need to activate Haka **MFA** following your home organization's instructions. Please do this.
