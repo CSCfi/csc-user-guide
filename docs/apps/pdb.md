@@ -1,4 +1,20 @@
+---
+tags:
+  - Free
+---
+
 # pdb: Python debugger
+
+## Available
+
+- Mahti: Any Python version
+- Puhti: Any Python version
+
+## License
+
+Usage is possible for both academic and commercial purposes.
+
+## Usage
 
 [pdb](https://docs.python.org/3/library/pdb.html) is an in-built Python
 debugger that supports breakpoints, stepping through the source line by line,
