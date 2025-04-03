@@ -86,13 +86,14 @@ You can add your public key through the
 [MyCSC customer portal](https://my.csc.fi) by following these steps:
 
 1. Log in to MyCSC with your CSC or Haka/Virtu credentials.
-2. Open the dropdown menu in the top right corner and select _My Profile_.
-3. Locate _SSH PUBLIC KEYS_ section and select _Add key_. As a security
+2. Select _Profile_ from the left-hand navigation or the dropdown menu in the
+   top-right corner.
+3. Locate _SSH PUBLIC KEYS_ section and select _+ Add key_. As a security
    measure, you are asked to log in again if it has been a few minutes since
    you last logged into the portal.
 4. Enter a _Title_ for your key pair, e.g. "my-ssh-key".
-5. Paste your **public** SSH key into the _Key_ field. The supported key types
-   are RSA 2048, ECDSA 521 and ED25519 256.
+5. Paste your **public** SSH key into the _Key_ field. We strongly recommend
+   using RSA 4096 or Ed25519 key types.
 6. Select _Add_.
 7. You should now see your new key listed under _SSH PUBLIC KEYS_. Note that
    it might take up to one hour for your new key to become active. If it takes
