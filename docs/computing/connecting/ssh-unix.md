@@ -18,8 +18,9 @@ ssh-keygen -o -a 100 -t ed25519
 
 You will be asked to type a passphrase. Please choose a secure passphrase. It
 should be at least 8 characters long and contain numbers, letters and special
-characters. Never leave the passphrase empty! We strongly recommend using RSA
-4096 or Ed25519 key types.
+characters. Never leave the passphrase empty!
+
+We strongly recommend using RSA 4096 or Ed25519 key types.
 
 After you have generated an SSH key pair, you need to add the **public key** to
 the MyCSC portal.
