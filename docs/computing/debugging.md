@@ -46,8 +46,8 @@ and to resolve runtime errors. At CSC, several debuggers are available:
 
 * [Arm DDT](../apps/ddt.md) is a debugger for serial and parallel programs
   (MPI, OpenMP, CUDA) with both graphical and command-line interfaces
-* [GDB](gdb.md) is a command-line debugger for compiled programs (C, C++,
+* [GDB](../apps/gdb.md) is a command-line debugger for compiled programs (C, C++,
   Fortran, etc.)
-* [PDB](pdb.md) is an interactive debugger for Python programs
-* [CUDA-GDB](cuda-gdb.md) is a command-line debugger for CUDA programs
-* [compute-sanitizer](compute-san.md) is a command-line functional correctness checking suite
+* [PDB](../apps/pdb.md) is an interactive debugger for Python programs
+* [CUDA-GDB](../apps/cuda-gdb.md) is a command-line debugger for CUDA programs
+* [compute-sanitizer](../apps/compute-san.md) is a command-line functional correctness checking suite
