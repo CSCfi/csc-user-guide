@@ -1,5 +1,11 @@
-# Accessing virtual desktop
+---
+hide:
+  - toc
+---
 
+[Table of contents of user guide](sd-services-toc.md) 
+
+# Accessing virtual desktop
 
 * [Access virtual desktop](#access-virtual-desktop)
 * [Log out from virtual desktop](#log-out-from-virtual-desktop)

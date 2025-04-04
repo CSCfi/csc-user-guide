@@ -1,3 +1,5 @@
+[Table of contents of user guide](sd-services-toc.md) 
+
 # Using SD Connect service with a-commands
 
 SD Connect is part of the CSC sensitive data services that provide free-of-charge sensitive data processing environment for 

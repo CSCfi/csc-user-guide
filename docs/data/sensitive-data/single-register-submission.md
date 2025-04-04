@@ -1,3 +1,5 @@
+[Table of contents of user guide](sd-services-toc.md) 
+
 # Submitting secondary use health and social data for research use via SD Apply
 
 These instructions are for data controllers who have issued a data permit for a research project and need to make their data available on SD Desktop.

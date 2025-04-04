@@ -1,3 +1,5 @@
+[Table of contents of user guide](sd-services-toc.md) 
+
 # Working with your Desktop: tips and essentials
 
 ## Prerequisites
