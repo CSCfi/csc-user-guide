@@ -12,11 +12,11 @@ tags:
 - RStudio Server is an integrated development environment (IDE) for R. More information on RStudio can be found on the [RStudio website](https://rstudio.com/).
 
 !!! info "News"
-    **7.4.2025** `r-env` is now also available on Mahti, including RStudio on [Mahti web interface](http://www.mahti.csc.fi). The module works in general similarly as `r-env` on Puhti, but please note that the documentation below has not yet been updated to mention Mahti. If you have any questions on using R on Mahti, please contact [CSC Service Desk](../support/contact.md).  
+    **7.4.2025** `r-env` is now also available on Mahti, including RStudio in the [Mahti web interface](http://www.mahti.csc.fi). The module works in general similarly as `r-env` on Puhti, but please note that the documentation below has not yet been updated for Mahti. If you have any questions on using R on Mahti, please contact [CSC Service Desk](../support/contact.md).  
 
 ## Available
 
-`r-env` includes 1400+ pre-installed R packages, including support for [geospatial analyses](r-env-for-gis.md) and parallel computing. For improved performance, `r-env` has been compiled using the [Intel® oneAPI Math Kernel Library (oneMKL)](https://software.intel.com/content/www/us/en/develop/tools/oneapi/components/onemkl.html) (formerly Intel® MKL).
+`r-env` includes 1500+ pre-installed R packages, including support for [geospatial analyses](r-env-for-gis.md) and parallel computing. For improved performance, `r-env` has been compiled using the [Intel® oneAPI Math Kernel Library (oneMKL)](https://software.intel.com/content/www/us/en/develop/tools/oneapi/components/onemkl.html) (formerly Intel® MKL).
 
 With a small number of exceptions, R package versions on `r-env` are date-locked ([CRAN packages](https://cran.r-project.org/web/packages/index.html)) or fixed to a specific [Bioconductor](https://www.bioconductor.org/) version.
 
