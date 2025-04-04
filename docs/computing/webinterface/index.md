@@ -42,6 +42,7 @@ more details.
         - Jupyter for courses: An interactive Jupyter session specifically for
           courses
         - MLflow
+        - RStudio
         - TensorBoard
         - Visual Studio Code
 - **Apps available in Puhti only:**
@@ -50,7 +51,6 @@ more details.
         - COMSOL
         - ParaView
         - VMD
-    - RStudio
     - MATLAB
 
 ### Shell
