@@ -2,13 +2,6 @@
 template: home.html
 ---
 
-<!--
-<center>
-  [![A description of the banner](img/banners/example-banner.png){ width=80% }
-  ](https://example.org/courses/example-course/){ target=_blank }
-</center>
--->
-
 <div class="grid cards csc-quick-links csc-quick-links--landing" markdown>
 
 - ## Overview

@@ -9,6 +9,15 @@ edit_uri: edit/master/docs/
 extra:
   environment: !ENV [MKDOCS_ENV, "preview"]
   announcement_visible: true # Controls the visibility of the announcement bar
+  landing_banner:
+    path: https://a3s.fi/docs-files/banners/ # Put the image file in this bucket; Don't touch this value.
+    image: example-banner.png
+    title: Example banner now up on landing page
+    link: https://example.org/courses/example-course/
+    description: |-
+      Banner for upcoming example course.
+      Second line for example description.
+    visible: false
   breadcrumbs_debug: !ENV DEBUG # Renders a debug view for breadcrumbs navigation
   analytics:
     provider: custom

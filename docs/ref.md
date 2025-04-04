@@ -42,40 +42,54 @@ Then&mdash;as a rule&mdash;a horizontal rule:
 
 ## Banners
 
-The front page can be fitted with a banner to promote a course for example.
+The front page can be fitted with a banner to promote a course for example. The banner is controlled via the `extra.landing_banner` mapping in _mkdocs.yml_. The image file named in `extra.landing_banner.image` should be placed in the _docs-files_ Allas bucket, under _banners/_.
 
-![Pulla at Docs](https://a3s.fi/docs-files/reference-card/screenshot-of-pulla-banner.png){ width=80% style="margin: 0 10%; border: var(--csc-border);" }
+- `path:` _Don't touch!_
+- `image:` The image filename in _docs-files/banners/_ Allas bucket.
+- `title:` Shown, e.g. as a tooltip when pointing the image with a mouse cursor.
+- `link:` The URL for more information, an enrolment page for a course etc.
+- `description:` A short description of the banner rendered as alternative text. Provided mainly for accessibility, i.e. screen readers.
+- `visible:` Set to `true` or `false` to show or hide the banner.
 
-There is currently no special mechanism in place for controlling banners.
+=== "mkdocs.yml"
 
-=== "index.md"
-
-    There is a `<center>` block in _index.md_ to hold the banner. The images themselves
-    should go to _docs/img/banners/_. The width of the image can be controlled with a
-    `width` attribute. A `target=_blank` attribute should be present when a link
-    is pointing outside of Docs.
-
-    ```html
-    <center>
-      [![A description of the banner](https://a3s.fi/docs-files/path/to/file.png){ width=80% }
-      ](https://example.org/courses/example-course/){ target=_blank }
-    </center>
+    ```yaml
+    extra:
+      # ...
+      landing_banner:
+        path: https://a3s.fi/docs-files/banners/ # Put the image file in this bucket; Don't touch this value.
+        image: example-banner.png
+        title: Example banner now up on landing page
+        link: https://example.org/courses/example-course/
+        description: |-
+          Banner for upcoming example course.
+          Second line for example description.
+        visible: true
     ```
+
+    <div class="result" markdown>
+
+    ![Screenshot of the landing page with a banner](https://a3s.fi/docs-files/reference-card/screenshot-of-landing-page-with-banner.png)
+
+    </div>
 
 === "Show/hide"
 
-    To hide the banner, it can just be commented out (mind that the commented-out `<center>`
-    block will still be visible in the HTML source of the page):
+    To show/hide the banner, just flip `extra.landing_banner.visible` from `false` to `true` (and _vice versa_):
 
-    ```html
-    <!--
-    <center>
-      [![A description of the banner](https://a3s.fi/docs-files/path/to/file.png){ width=80% }
-      ](https://example.org/courses/example-course/){ target=_blank }
-    </center>
-    -->
+    ```yaml
+    extra:
+      # ...
+      landing_banner:
+        # ...
+        visible: false
     ```
 
+    <div class="result" markdown>
+
+    ![Screenshot of the landing page without the banner](https://a3s.fi/docs-files/reference-card/screenshot-of-landing-page-without-banner.png)
+
+    </div>
 
 ## Glossary
 
