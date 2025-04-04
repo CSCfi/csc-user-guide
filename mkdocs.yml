@@ -39,6 +39,18 @@ extra:
       exclude:
         - ref.md
   short_description: User guides and tutorials
+  social:
+    - icon: material/github
+      link: https://github.com/CSCfi/
+    - icon: material/linkedin
+      link: https://www.linkedin.com/company/csc---it-center-for-science/
+    - icon: material/instagram
+      link: https://www.instagram.com/CSCfi/
+    - icon: material/facebook
+      link: https://www.facebook.com/CSCfi/
+    - icon: material/youtube
+      link: https://www.youtube.com/c/CSCfi
+
 
 hooks:
   - hooks/archives.py
