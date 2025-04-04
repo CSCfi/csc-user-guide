@@ -9,6 +9,7 @@
 * Interactive app launch settings can now be saved and restored later. See [Saved interactive app settings](../../computing/webinterface/apps.md#saved-interactive-app-settings) for how to use them.
 * Interactive app form labels and descriptions have been improved.
 * The default amount of local disk for interactive apps has been reduced.
+* The performance of the web interfaces has been improved.
 * Open OnDemand updated to version 4.0.2.
 
 ## Starting April 21 2025, multi-factor authentication is required to login to web interfaces of Puhti and Mahti, 2.4.2025 <a id="mfa"></a>

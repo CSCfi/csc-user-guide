@@ -34,11 +34,11 @@ CSC has installed the [Julia for Visual Studio Code](https://www.julia-vscode.or
 
 ## Manual installation of extensions
 
-As the VSCode app in the web interface uses the [Open VSX Registry](https://open-vsx.org/) for
-extensions, rather than the official [Visual Studio
-Marketplace](https://marketplace.visualstudio.com), some extensions are not available in the
-extensions tab in VSCode. Some examples are the C/C++ and GithHub Copilot extensions. However,
-installing these extensions manually from extension package files is possible.
+Due to licensing, the VSCode app in the web interface uses the
+[Open VSX Registry](https://open-vsx.org/) for extensions, rather than the official
+[Visual Studio Marketplace](https://marketplace.visualstudio.com). This means that some extensions
+are not available in the extensions tab in VSCode. Some examples are the C/C++ and GithHub Copilot
+extensions. However, installing these extensions manually from extension package files is possible.
 
 To install the extension:
 
