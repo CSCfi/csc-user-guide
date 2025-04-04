@@ -404,9 +404,32 @@ in [the Markdown source](https://github.com/CSCfi/csc-user-guide/blob/master/doc
 
 ## Images
 
-Here's an image of the Reference card with an image of the Reference card with...
+Images can be added by just using the Markdown syntax for an image
 
-![image of an image of an image...](https://a3s.fi/docs-files/reference-card/screenshot-of-image-of-image-of.png){ width=80% style="margin: 0 10%; border: var(--csc-border);" }
+```markdown
+![Alternative text](https://example.org/image.png "Optional title")
+```
+
+or with caption by wrapping it in some HTML tags like so
+
+```markdown
+<figure markdown="span">
+  ![image of an image of an image...](https://a3s.fi/docs-files/reference-card/screenshot-of-image-of-image-of.png "Now with added tooltip!")
+  <figcaption>Here's an image of the Reference card with an image of the Reference card with...</figcaption>
+</figure>
+```
+
+<div class="result" markdown>
+
+<figure>
+  <img alt="image of an image of an image..."
+       src="https://a3s.fi/docs-files/reference-card/screenshot-of-image-of-image-of.png"
+       title="Now with added tooltip!"
+  />
+    <figcaption>Here's an image of the Reference card with an image of the Reference card with...</figcaption>
+</figure>
+
+</div>
 
 
 ## Embedded videos
