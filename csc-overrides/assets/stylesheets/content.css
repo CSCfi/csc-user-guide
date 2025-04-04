@@ -68,3 +68,7 @@ main > .md-main__inner.md-grid {
   border-radius: var(--csc-border-radius);
   text-decoration: none;
 }
+
+.md-typeset figcaption {
+  color: var(--c-tertiary-700);
+}

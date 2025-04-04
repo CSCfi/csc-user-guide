@@ -1,0 +1,31 @@
+{% extends "main.html" %}
+{% block content %}
+  <div class="csc-landing-title">
+    <img src="{{ config.theme.logo|url }}" alt="logo" title="{{ config.site_name }}" />
+    <hgroup>
+      <h1>{{ config.site_name }}</h1>
+      <p>{{ config.extra.short_description }}</p>
+    </hgroup>
+  </div>
+    {% if config.extra.landing_banner is mapping
+      and config.extra.landing_banner.visible is true %}
+    {% set banner = config.extra.landing_banner %}
+      {% if banner.image is string
+        and banner.path is string
+        and banner.title is string
+        and banner.link is string
+        and banner.description is string %}
+      {% set image_src = banner.path ~ banner.image %}
+      {% set a_target = "_blank" if banner.link.startswith('http') else none %}
+        <div class="csc-landing-banner">
+          <a{{ {'href': banner.link|url,
+                'target': a_target }|xmlattr }}>
+            <img{{ {'src': image_src|url,
+                    'alt': banner.description,
+                    'title': banner.title}|xmlattr }} />
+          </a>
+        </div>
+      {% endif %}
+    {% endif %}
+  {{ page.content }}
+{% endblock content %}

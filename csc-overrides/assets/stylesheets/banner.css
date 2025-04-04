@@ -1,0 +1,26 @@
+.csc-landing-banner {
+  max-width: calc(var(--csc-content-width) / 2);
+  margin: 1rem auto 2rem auto;
+}
+
+.csc-landing-banner a,
+.csc-landing-banner a:hover,
+.csc-landing-banner a:focus-within {
+  color: unset !important;
+  background-color: unset !important;
+  text-decoration: none !important;
+}
+
+.csc-landing-banner img {
+  transition: box-shadow .25s,
+              border-radius .25s,
+              filter .25s;
+  border-radius: 2px;
+}
+
+.csc-landing-banner img:hover,
+.csc-landing-banner img:focus-within {
+  box-shadow: var(--md-shadow-z3);
+  border-radius: 4px;
+  filter: saturate(.75) brightness(1.125);
+}
