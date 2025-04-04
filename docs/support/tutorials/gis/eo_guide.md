@@ -145,7 +145,7 @@ Almost all of the services provide download with web interface and bulk download
 CDSE data APIs and data download:
 
 * [CDSE Browser](https://dataspace.copernicus.eu/browser/) - web interface for accessing, exploring and downloading the data. 
-- [CDSE Catalog APIs](https://dataspace.copernicus.eu/analyse/apis/catalogue-apis) support 3 different options for finding suitable data: OData, OpenSearch and STAC. OData and OpenSearch are older and provide similar functionality. STAC is the newest and a more standard API. It provides search among any metadata of the each tile and STAC-tools make it easy to download only needed data, for example only some bands or geographically only parts of data. 
+- [CDSE Catalogue APIs](https://dataspace.copernicus.eu/analyse/apis/catalogue-apis) support 3 different options for finding suitable data: OData, OpenSearch and STAC. OData and OpenSearch are older and provide similar functionality. STAC is the newest and a more standard API. It provides the ability to search among any metadata from each of the tiles, and STAC tools make it easy to download only the data needed, such as only some bands or only some geographical parts of the data.
 - [CDSE S3](https://documentation.dataspace.copernicus.eu/APIs/S3.html) for high-performance parallel access and download from CDSE object storage.
 
 Several example scripts are available for CDSE data download: 
