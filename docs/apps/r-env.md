@@ -12,8 +12,8 @@ tags:
 - RStudio Server is an integrated development environment (IDE) for R. More information on RStudio can be found on the [RStudio website](https://rstudio.com/).
 
 !!! info "News"
-  **7.4.2025** `r-env` is now also available on Mahti, including RStudio on [Mahti web interface](www.mahti.csc.fi). The module works in general similarly as `r-env` on Puhti, but please note that the documentation below has not yet been updated to mention Mahti. If you have any questions on using R on Mahti, please contact [CSC Service Desk](../support/contact.md)
-  **25.2.2025** R version 4.4.2 is now available in `r-env` in Puhti and is set as the default version. The new version will be available in RStudio in the Puhti web interface after the web interface update on 7.4.2025.
+    **7.4.2025** `r-env` is now also available on Mahti, including RStudio on [Mahti web interface](www.mahti.csc.fi). The module works in general       similarly as `r-env` on Puhti, but please note that the documentation below has not yet been updated to mention Mahti. If you have any questions     on using R on Mahti, please contact [CSC Service Desk](../support/contact.md)
+    **25.2.2025** R version 4.4.2 is now available in `r-env` in Puhti and is set as the default version. The new version will be available in           RStudio in the Puhti web interface after the web interface update on 7.4.2025.
 
 ## Available
 
@@ -756,7 +756,7 @@ To use R packages installed in `/projappl`, add the following to the beginning o
 .libPaths(c("/projappl/<project>/project_rpackages_<rversion>", .libPaths()))
 ```
 
-Alternatively, you can add the desired changes to an `.Renviron` file (only when not using RStudio):
+Alternatively, you can add the desired changes to an `.Renviron` file:
 
 ```bash
 echo "R_LIBS=/projappl/<project>/project_rpackages_<rversion>" >> ~/.Renviron
