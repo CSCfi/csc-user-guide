@@ -92,8 +92,8 @@ You can add your public key through the
    measure, you are asked to log in again if it has been a few minutes since
    you last logged into the portal.
 4. Enter a _Title_ for your key pair, e.g. "my-ssh-key".
-5. Paste your **public** SSH key into the _Key_ field. We strongly recommend
-   using RSA 4096 or Ed25519 key types.
+5. Paste your **public** SSH key into the _Key_ field. **We strongly recommend
+   using RSA 4096 or Ed25519 key types**.
 6. Select _Add_.
 7. You should now see your new key listed under _SSH PUBLIC KEYS_. Note that
    it might take up to one hour for your new key to become active. If it takes
@@ -107,9 +107,11 @@ ls -l /var/lib/acco/sshkeys/${USER}/${USER}.pub
 ```
 
 !!! info "Required key format"
-      Your public key should consist of the SSH key type and the key sequence,
-      separated by a single space. If your key is improperly formatted, an
-      error message is displayed. A key in the correct format looks like this:
-      ```
-      ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDlapOdeoxNvz/1AZFRjGAPnPj8pzzz3skI+a+yJS5b7
-      ```
+    Your public key should consist of the SSH key type and the key sequence,
+    separated by a single space. Make sure to add the whole SSH key on the
+    same line and do not add other whitespace than normal space characters.
+    If your key is improperly formatted, an error message is displayed. A key
+    in the correct format looks like this:
+    ```
+    ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDlapOdeoxNvz/1AZFRjGAPnPj8pzzz3skI+a+yJS5b7
+    ```
