@@ -33,6 +33,33 @@
     browser tab for the app session. To stop the app, you can cancel the
     session from the _My Interactive Sessions_ page.
 
+## Saved interactive app settings
+
+The resources and other settings that you select in the interactive app forms can be saved and
+restored later.
+
+### Saving settings
+
+To save the settings, check the *Save settings* checkbox at the end of the form. A modal will appear
+where you can either choose to save as a new saved settings, or overwrite an existing saved setting.
+Enter a name for the saved settings and press save. After that you will be launch the application,
+which will save the settings.
+
+![saving settings in form](../../img/ood-save-settings.png)
+
+### Using saved settings
+
+On the app forms, you will be able to select which saved settings to load for the app:
+
+![saved settings in form](../../img/ood-use-saved-settings.png)
+
+On the *My interactive sessions* page, or on the app form pages, you will see a list of your saved
+settings for each app on the left. Clicking on one of them will show you the settings in a list.
+Using the buttons on the top right you can either edit the settings in the form, or directly launch
+a session using those settings.
+
+![saved settings page](../../img/ood-saved-settings-page.png)
+
 ## Troubleshooting
 
 Several factors may cause your interactive session to fail to launch. Common
