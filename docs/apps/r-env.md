@@ -12,7 +12,7 @@ tags:
 - RStudio Server is an integrated development environment (IDE) for R. More information on RStudio can be found on the [RStudio website](https://rstudio.com/).
 
 !!! info "News"
-    **7.4.2025** `r-env` is now also available on Mahti, including RStudio on [Mahti web interface](www.mahti.csc.fi). The module works in general       similarly as `r-env` on Puhti, but please note that the documentation below has not yet been updated to mention Mahti. If you have any questions     on using R on Mahti, please contact [CSC Service Desk](../support/contact.md)
+    **7.4.2025** `r-env` is now also available on Mahti, including RStudio on [Mahti web interface](http://www.mahti.csc.fi). The module works in general similarly as `r-env` on Puhti, but please note that the documentation below has not yet been updated to mention Mahti. If you have any questions on using R on Mahti, please contact [CSC Service Desk](../support/contact.md).
     **25.2.2025** R version 4.4.2 is now available in `r-env` in Puhti and is set as the default version. The new version will be available in           RStudio in the Puhti web interface after the web interface update on 7.4.2025.
 
 ## Available
@@ -23,14 +23,14 @@ With a small number of exceptions, R package versions on `r-env` are date-locked
 
 Current modules and versions supported on Puhti and Mahti:
 
-| Module name (R version) | Puhti | Mahti | CRAN package dating | Bioconductor version | RStudio Server version | oneMKL version  | CmdStan version |
-| ----------------------- | ----- | ----- | ------------------- | -------------------- | ---------------------- | ----------------| --------------- |
-| r-env/442 (default)     |   X   |   X   | Feb 12 2025         | 3.20                 | 2024.12.0-467          | 2025.0.1        | 2.36.0          |
-| r-env/440               |   X   |   -   | May 15 2024         | 3.19                 | 2024.04.0-735          | 2024.1.0        | 2.35.0          |    
-| r-env/432               |   X   |   -   | Jan 15 2024         | 3.18                 | 2023.12.0-369          | 2024.0.0        | 2.34.1          | 
-| r-env/430               |   X   |   -   | Jun 07 2023         | 3.17                 | 2023.06.0-421          | 2023.1.0        | 2.32.2          |    
-| r-env/422               |   X   |   -   | Mar 06 2023         | 3.16                 | 2023.03.0-386          | 2023.1.0        | 2.32.1          | 
-| r-env/421               |   X   |   -   | Jun 29 2022         | 3.15                 | 2022.02.3-492          | 2022.1.0        | 2.30.1          | 
+| Module name (R version) | Puhti / Mahti | CRAN package dating | Bioconductor version | RStudio Server version | oneMKL version  | CmdStan version |
+| ----------------------- | ------------- | ------------------- | -------------------- | ---------------------- | ----------------| --------------- |
+| r-env/442 (default)     | X / X         | Feb 12 2025         | 3.20                 | 2024.12.0-467          | 2025.0.1        | 2.36.0          |
+| r-env/440               | X / -         | May 15 2024         | 3.19                 | 2024.04.0-735          | 2024.1.0        | 2.35.0          |    
+| r-env/432               | X / -         | Jan 15 2024         | 3.18                 | 2023.12.0-369          | 2024.0.0        | 2.34.1          | 
+| r-env/430               | X / -         | Jun 07 2023         | 3.17                 | 2023.06.0-421          | 2023.1.0        | 2.32.2          |    
+| r-env/422               | X / -         | Mar 06 2023         | 3.16                 | 2023.03.0-386          | 2023.1.0        | 2.32.1          | 
+| r-env/421               | X / -         | Jun 29 2022         | 3.15                 | 2022.02.3-492          | 2022.1.0        | 2.30.1          | 
 
 
 Other software and libraries:
