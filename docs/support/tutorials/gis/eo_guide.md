@@ -145,18 +145,19 @@ Almost all of the services provide download with web interface and bulk download
 CDSE data APIs and data download:
 
 * [CDSE Browser](https://dataspace.copernicus.eu/browser/) - web interface for accessing, exploring and downloading the data. 
-- [CDSE Catalog APIs](https://dataspace.copernicus.eu/analyse/apis/catalogue-apis) support 3 different options for finding suitable data: OData, OpenSearch and STAC. OData and OpenSearch provide similar functionality. In principle, also STAC has a lot of potential, because it would easier to download only needed data, for example only some bands or geographically only parts of data. It is the newest of data APIs and at the moment does not support any other search criteria than collection, time and location, so for example cloud cover filtering is not possible (yet). So use cases for Sentinel2 STAC are currently limited, but for Sentinel1 it might be more suitable.
+- [CDSE Catalogue APIs](https://dataspace.copernicus.eu/analyse/apis/catalogue-apis) support 3 different options for finding suitable data: OData, OpenSearch and STAC. OData and OpenSearch are older and provide similar functionality. STAC is the newest and a more standard API. It provides the ability to search among any metadata from each of the tiles, and STAC tools make it easy to download only the data needed, such as only some bands or only some geographical parts of the data.
 - [CDSE S3](https://documentation.dataspace.copernicus.eu/APIs/S3.html) for high-performance parallel access and download from CDSE object storage.
 
 Several example scripts are available for CDSE data download: 
 
-* [OpenSearch API + rclone by CSC](https://github.com/csc-training/geocomputing/tree/master/Copernicus_data_download), option to save to CSC Allas or some other object storage .
+* [OpenSearch API + rclone by CSC](https://github.com/csc-training/geocomputing/tree/master/Copernicus_data_download), option to save to CSC Allas or some other object storage.
+* [CDSE STAC example scripts](https://github.com/eu-cdse/notebook-samples/tree/main/stac) for Python.
 * [OData API + Python requests](https://github.com/eu-cdse/notebook-samples/blob/main/geo/odata_basics.ipynb)
 * Alternatively [s3cmd and Python boto3](https://documentation.dataspace.copernicus.eu/APIs/S3.html) can be used for S3 downloads.
 
 You can also read data directly from S3 with GDAL or GDAL-based tools, see [CSC GDAL cloud tutorial](gdal_cloud.md). 
 
-These data APIs are free of charge. Different services have different limitations, see [CDSE Quotas and limitations](https://documentation.dataspace.copernicus.eu/Quotas.html). Compared to the ESA's previous SciHub service, the number of concurrent downloads per user has increased from two to four for most APIs.
+These data APIs are free of charge. Different services have different limitations, see [CDSE Quotas and limitations](https://documentation.dataspace.copernicus.eu/Quotas.html). Compared to the ESA's previous SciHub service, the number of concurrent downloads per user has increased from two to four for most APIs and also direct download from S3 is generally faster.
 
 CDSE includes also [OpenEO](https://documentation.dataspace.copernicus.eu/APIs/openEO/Collections.html) and [SentinelHub](https://documentation.dataspace.copernicus.eu/APIs/SentinelHub/Data.html) services, which provide more analysis ready datasets and own download services and APIs. Both have own STAC. SentinelHub provides also OGC APIs. 
 
