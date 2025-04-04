@@ -1,4 +1,20 @@
+---
+tags:
+  - Free
+---
+
 # gdb: GNU Debugger
+
+## Available
+
+- Puhti
+- Mahti
+
+## License
+
+Usage is possible for both academic and commercial purposes.
+
+## Usage
 
 GNU Debugger (GDB) can be used to debug compiled programs (written in C, C++,
 Fortran). It can perform four main tasks: inform about everything that might
