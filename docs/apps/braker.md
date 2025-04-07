@@ -21,7 +21,7 @@ Free to use and open source under [Artistic License] (https://opensource.org/lic
 
 
 
-Puhti: 2.1.6, 3.0.7
+Puhti: 2.1.6, 3.0.7, 3.0.8
 
 
 ## Setting up BRAKER
@@ -42,10 +42,10 @@ tar xf gmes_linux_64_4.tar.gz
 gunzip gm_key_64.gz
 ```
 
-Copy the uncompressed key file to your home directory.
+Copy the uncompressed key file to your home directory with name `.gm_key`.
 
 ```bash
-cp gm_key_64 $HOME
+cp gm_key_64 $HOME/.gm_key
 ```
 
 To tell BRAKER where to find GeneMark, use command line option `--GENEMARK_PATH` to point to install location.
@@ -125,7 +125,7 @@ braker.pl --help
 Sample BRAKER command in Puhti:
 
 ```bash
-braker.pl --species=sp1 --genome=Drosophila.dna.fa --prot_seq=Drosophila.pep.fa --prg=gth --trainFromGth --AUGUSTUS_ab_initio --cores=$SLURM_CPUS_PER_TASK --GENEMARK_PATH=/path/to/gmes_linux_64_4 --PROTHINT_PATH=/path/to/ProtHint-2.6.0/bin --AUGUSTUS_CONFIG_PATH /path/to/config
+braker.pl --species=sp1 --genome=genome.fa --prot_seq=proteins.fa --AUGUSTUS_ab_initio --threads=$SLURM_CPUS_PER_TASK --GENEMARK_PATH=/path/to/gmes_linux_64_4 --PROTHINT_PATH=/path/to/ProtHint-2.6.0/bin --AUGUSTUS_CONFIG_PATH /path/to/config
 ```
 
 
@@ -148,8 +148,8 @@ Sample batch job scrip for BRAKER:
 module load braker
 
 # Use correct paths instead of "/path/to"
-braker.pl --species=sp1 --genome=Drosophila.dna.fa --prot_seq=Drosophila.pep.fa \
---prg=gth --trainFromGth --AUGUSTUS_ab_initio --cores=$SLURM_CPUS_PER_TASK \
+braker.pl --species=sp1 --genome=genome.fa --prot_seq=proteins.fa \
+--AUGUSTUS_ab_initio --threads=$SLURM_CPUS_PER_TASK \
 --GENEMARK_PATH=/path/to/gmes_linux_64_4 \
 --PROTHINT_PATH=/path/to/ProtHint-2.6.0/bin \
 --AUGUSTUS_CONFIG_PATH /path/to/config
