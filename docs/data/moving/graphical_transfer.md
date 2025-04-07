@@ -26,10 +26,10 @@ For example, use the following settings for connecting to Puhti:
 
 - Host: `puhti.csc.fi`
 - User / Username: your CSC username
-- Password: your CSC password
+- Password: leave empty - you'll be using SSH key based authentication, see below.
 - Port: `22`
 - Protocol: SFTP - SSH File Transfer Protocol
-- Logon type: Ask for password
+- Logon type: Ask for password FIXME
 
 Once the connection is opened, FileZilla shows two interactive file listings
 side by side. On the left side you have your local file system and on the right
@@ -58,12 +58,16 @@ can change it later in the preferences dialogue. The Explorer interface looks
 and works similar to Windows Explorer. If you are familiar with Windows
 Explorer, you will probably find using WinSCP Explorer interface easier.
 
-Start WinSCP and enter your login information like hostname, username, password
-and the server's protocol. In the Explorer interface, you can drag and drop
+Start WinSCP and enter your login information like hostname, username, password,
+the server's protocol and your private SSH key in the Advanced Site Settings
+(see screen capture below)
+In the Explorer interface, you can drag and drop
 files between WinSCP and Windows Explorer to transfer them. In order to do
 other operations, right-click any object in the interface and select the
 operation from the pop-up menu. It is also possible to right-click a file or a
 directory, and drag it to another location.
+
+![WinSCP advanced site settings to add ssh private key](https://a3s.fi/docs-files/winscp-ssh-key-add.png 'Add SSH key to WinSCP')
 
 There are many basic operations that you can do with WinSCP:
 
