@@ -77,5 +77,23 @@ program's behavior depends on your system:
         AddKeysToAgent yes
     ```
 
+### SSH agent forwarding
+
+Agent forwarding is a useful mechanism where the SSH client is configured to
+allow an SSH server to use your local `ssh-agent` on the server as if it was
+local there. This means in practice that you can, for example, connect from
+Puhti to Mahti using the SSH keys you have set up for Mahti on your local
+machine, i.e. you do not need to create a new set of SSH keys on Puhti. Agent
+forwarding is also very handy if you need to push to a private Git repository
+from Puhti or Mahti.
+
+To enable agent forwarding, add the line `ForwardAgent yes` to your local
+`~/.ssh/config` file:
+
+```text
+Host *
+    ForwardAgent yes
+```
+
 For more information about `ssh-agent`, see the
 [relevant SSH Academy tutorial](https://www.ssh.com/academy/ssh/agent).
