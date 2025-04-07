@@ -29,9 +29,7 @@ can create an account yourself.
 organization is a member of.
 1. Select your home organization and log in to their identity service.
 1. Fill in your information on the _Sign up_ page.
-1. Set your password using 12 characters or more, containing both upper
-and lowercase letters and at least one number. No special characters are
-allowed.
+1. You will receive an email message containing a link to MyCSC where you can set your CSC account password.
 1. You will receive your CSC user account information via email.
 
 ## Getting an account without Haka or Virtu
