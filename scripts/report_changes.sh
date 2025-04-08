@@ -6,8 +6,12 @@ Print last update timestamp and most recent committer for each Docs page.
 
 Options:
     -h  show this help text
-    -u  only show pages no one has touched after you"
+    -u  only show pages no one has touched after you
+    -p  path to restrict the report
+    -s  Since when to report changes
 
+    Example: $(basename $0) -p docs/cloud -s 2025-01-02
+    "
 while getopts "hp:s:u" option; do
   case "$option" in
     u) name="$(git config user.name)";;
