@@ -60,6 +60,8 @@ Explorer, you will probably find using WinSCP Explorer interface easier.
 
 ![WinSCP site settings without password but use ssh private key](https://a3s.fi/docs-files/winscp-ssh-key-add-1.png 'No password to WinSCP')
 
+FIXME: is there need to edit the order in which key exchange algorithms are tried? 
+
 Start WinSCP and enter your login information like hostname, username,
 the server's protocol, but no password but instead your private SSH key
 in the Advanced Site Settings (see screen capture below)
@@ -109,8 +111,6 @@ instead of pasting the files.
 You can use Windows Explorer's _"Send To"_ feature to upload files to a server.
 To enable this feature, use the installer or select the feature in preferences
 ("add upload short cut to Explorer's 'sent to' context menu").
-
-![WinSCP interface](/img/Winscp1.jpg 'WinSCP interface')
 
 ### Downloading files from CSC environment
 
