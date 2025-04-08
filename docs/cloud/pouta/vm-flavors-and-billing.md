@@ -180,7 +180,9 @@ We also offer the possibility to store the data in a [persistent volume (FULL)](
 |Network|![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg "Network")|**FULL**|The node hosting the virtual machine is connected to the cloud platform with an additional failover link.|
 |Other|![New VMs with this flavor cannot be currently launched](../../img/risk-icon.svg)||Launching new virtual machines with this flavor is temporarily not possible. Existing virtual machines are not affected.|
 
+* [RAID 0](https://en.wikipedia.org/wiki/Standard_RAID_levels#RAID_0) spreads the data across two or more disks. It is used for an increased I/O performance. It provides no fault tolerance or redundancy, the failure of one drive will cause the entire array to fail.
 
+* [RAID 1](https://en.wikipedia.org/wiki/Standard_RAID_levels#RAID_1) mirrors the data across two or more disks. Reads are usually fast operations, but writes are as fast as the slowest disk. The failure of one drive does not lose any data.
 
 ## Which type of flavor should I use?
 
