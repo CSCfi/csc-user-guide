@@ -32,6 +32,8 @@ flavors.
 |standard.xxlarge|8|31 |80 |0 |3.8|![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg "Power")![Icon for root disk data redundancy level FULL](../../img/circle_icons/r100.svg "Root disk")![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg "Network")|8    |
 |standard.3xlarge|8|62 |80 |0 |7.7|![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg "Power")![Icon for root disk data redundancy level FULL](../../img/circle_icons/r100.svg "Root disk")![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg "Network")|16   |
 
+See more details on the [Standard flavors](#cpouta) section.
+
 ### HPC flavors
 
 |Flavor|Cores|Memory<br/>(GiB)|Root<br/>disk<br/>(GB)|Ephemeral<br/>disk<br/>(GB)|Memory/<br/>core<br/>(GiB)|Redundancy<br/>([notation](#flavor-notation))|Billing<br/>Units<br/>/h|
@@ -50,6 +52,7 @@ flavors.
 | hpc.4.40core    | 40 | 171 | 80 | 0 | 4.2 |![Icon for power redundancy level NONE](../../img/circle_icons/p0.svg "Power")![Icon for root disk data redundancy level FULL](../../img/circle_icons/r100.svg "Root disk")![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg "Network")| 50  |
 | hpc.4.80core    | 80 | 343 | 80 | 0 | 4.2 |![Icon for power redundancy level NONE](../../img/circle_icons/p0.svg "Power")![Icon for root disk data redundancy level FULL](../../img/circle_icons/r100.svg "Root disk")![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg "Network")| 100 |
 
+See more details on the [HPC flavors](#cpouta_1) section.
 
 ### I/O flavors
 
@@ -66,6 +69,8 @@ flavors.
 
 Note that both the root and the ephemeral disks of all I/O flavors are hosted on solid-state drives (SSDs).
 
+See more details on the [I/O flavors](#cpouta_2) section.
+
 ### GPU flavors
 
 |Flavor|Cores|GPUs|Memory<br/>(GiB)|Root<br/>disk<br/>(GB)|Ephemeral<br/>disk<br/>(GB)|Memory/<br/>core<br/>(GiB)|Redundancy<br/>([notation](#flavor-notation))|Billing<br/>Units<br/>/h|
@@ -75,6 +80,8 @@ Note that both the root and the ephemeral disks of all I/O flavors are hosted on
 | gpu.1.4gpu | 56 | 4 | 468 | 80 |0 | 8.3 |![Icon for power redundancy level NONE](../../img/circle_icons/p0.svg "Power")![Icon for root disk data redundancy level BASIC](../../img/circle_icons/r50.svg "Root disk")![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg "Network")| 240 |
 
 Note that the root disks of all GPU flavors are hosted on solid-state drives (SSDs).
+
+See more details on the [GPU flavors](#cpouta_3) section.
 
 ## ePouta flavors
 
@@ -92,6 +99,8 @@ billing unit coefficients.
 | standard.xlarge  | 6 | 15 | 80 | 0 |  2.5 |![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg "Power")![Icon for root disk data redundancy level FULL](../../img/circle_icons/r100.svg "Root disk")![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg "Network")| 4    |
 | standard.xxlarge | 8 | 31 | 80 | 0 |  3.8 |![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg "Power")![Icon for root disk data redundancy level FULL](../../img/circle_icons/r100.svg "Root disk")![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg "Network")| 8    |
 | standard.3xlarge | 8 | 62 | 80 | 0 |  7.7 |![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg "Power")![Icon for root disk data redundancy level FULL](../../img/circle_icons/r100.svg "Root disk")![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg "Network")| 16   |
+
+See more details on the [Standard flavors](#epouta) section.
 
 ### HPC flavors
 
@@ -111,6 +120,8 @@ billing unit coefficients.
 | hpc.4.40core         | 40 | 175 | 80 | 0 | 4.3 |![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg "Power")![Icon for root disk data redundancy level FULL](../../img/circle_icons/r100.svg "Root disk")![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg "Network")| 60  |
 | hpc.4.80core         | 80 | 351 | 80 | 0 | 4.3 |![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg "Power")![Icon for root disk data redundancy level FULL](../../img/circle_icons/r100.svg "Root disk")![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg "Network")| 120 |
 
+See more details on the [HPC flavors](#epouta_1) section.
+
 ### I/O flavors
 
 |Flavor|Cores|Memory<br/>(GiB)|Root<br/>disk<br/>(GB)|Ephemeral<br/>disk<br/>(GB)|Total<br/>disk<br/>(GB)|Memory/<br/>core<br/>(GiB)|Redundancy<br/>([notation](#flavor-notation))|Billing<br/>Units<br/>/h|
@@ -120,6 +131,8 @@ billing unit coefficients.
 | io.2.550GB        | 8  | 54  | 80 | 550  | 630  | 6.7 |![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg "Power")![Icon for root disk data redundancy level BASIC](../../img/circle_icons/r50.svg "Root disk")![Icon for ephemeral disk data redundancy level BASIC](../../img/circle_icons/e50.svg "Ephemeral Disk")![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg "Network")| 24  |
 | io.2.1200GB       | 16 | 107 | 80 | 1200 | 1280 | 6.7 |![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg "Power")![Icon for root disk data redundancy level BASIC](../../img/circle_icons/r50.svg "Root disk")![Icon for ephemeral disk data redundancy level BASIC](../../img/circle_icons/e50.svg "Ephemeral Disk")![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg "Network")| 48  |
 
+See more details on the [I/O flavors](#epouta_2) section.
+
 ### High memory flavors
 
 |Flavor|Cores|Memory<br/>(GiB)|Root<br/>disk<br/>(GB)|Ephemeral<br/>disk<br/>(GB)|Total<br/>disk<br/>(GB)|Memory/<br/>core<br/>(GiB)|Redundancy<br/>([notation](#flavor-notation))|Billing<br/>Units<br/>/h|
@@ -128,6 +141,8 @@ billing unit coefficients.
 | tb.3.1470RAM | 80 | 1470 | 80 | 2500 | 2580 | 18 |![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg "Power")![Icon for root disk data redundancy level NONE](../../img/circle_icons/r0.svg "Root disk")![Icon for ephemeral disk data redundancy level NONE](../../img/circle_icons/e0.svg "Ephemeral Disk")![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg "Network")| 320 |
 
 Note that the root disks of all high memory flavors are hosted on solid-state drives (SSDs), while the ephemeral disks are hosted using NVM Express (NVMe).
+
+See more details on the [High memory flavors](#epouta_4) section.
 
 ### GPU flavors
 
@@ -146,7 +161,7 @@ See more details on the [GPU flavors](#epouta_3) section.
 ## Flavor notation
 
 We use symbols to describe some of the features of the flavors we offer.
-A short descripion of the notation used follows.
+A short description of the notation used follows.
 
 - **Power redundancy**, For the power provisioning of the node hosting the virtual machine, there are two possible values of redundancy.
 - **Data redundancy**, Within each virtual machine, the customer data is stored in a root disk (R) and possibly in an [ephemeral disk (E)](ephemeral-storage.md).
