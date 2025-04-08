@@ -10,7 +10,7 @@ Options:
     -p  path to restrict the report
     -s  Since when to report changes
 
-    Example: $(basename $0) -p docs/cloud -s 2025-01-02
+    Example: $(basename "$0") -p docs/cloud -s 2025-01-02
     "
 while getopts "hp:s:u" option; do
   case "$option" in
@@ -44,7 +44,7 @@ while read -r line ; do
     elif [[ "$line" && -z "${seen[$line]}" ]] ; then
         seen["$line"]="$date"
     fi
-done < <(git log --format="/%H %as %an" --name-only $GIT_LOG_OPTS)
+done < <(git log --format="/%H %as %an" --name-only "$GIT_LOG_OPTS")
 
 echo "|Updated|Filename|Head line|"
 echo "|:-:|:-:|:-:|"
@@ -53,7 +53,7 @@ git ls-files "$path*.md" | while read -r f ; do
     f="${f#./}"
     if [ -n "${seen[$f]}" ];
     then
-      head_line=$(grep -oP '^\#\s\K.*$'  $f | head -1)
+      head_line=$(grep -oP '^\#\s\K.*$' "$f" | head -1)
 
       if [ -z "$head_line" ];
       then
