@@ -26,15 +26,20 @@ For example, use the following settings for connecting to Puhti:
 - Port: `22`
 - Logon type: Key file
 - User: your CSC username
-- Key file: Path to your SSH private key on your local machine
+- Key file: Path to your
+  [SSH private key](../../computing/connecting/ssh-keys.md) on your local
+  machine
 
 ![FileZilla interface](../../img/filezilla.png 'FileZilla interface')
 
-Click _OK_, and once the connection is opened, FileZilla shows two interactive
-file listings side by side. On the left side you have your local file system
-and on the right site the remote file system (e.g. files on Puhti). You can
-change your location by interactive browsing or by typing a directory path to
-the _Local site_ or _Remote site_ fields.
+Click _Connect_. If it is the first time you're connecting, FileZilla will ask
+if you trust the host, and then prompt you for your SSH key passphrase.
+
+Once the connection is opened, FileZilla shows two interactive file listings
+side by side. On the left side you have your local file system and on the right
+site the remote file system (e.g. files on Puhti). You can change your location
+by interactive browsing or by typing a directory path to the _Local site_ or
+_Remote site_ fields.
 
 Once you have the right directories open on both the local and remote site, you
 can copy files or directories between the sites simply by selecting a file or
@@ -55,21 +60,32 @@ can change it later in the preferences dialogue. The Explorer interface looks
 and works similar to Windows Explorer. If you are familiar with Windows
 Explorer, you will probably find using WinSCP Explorer interface easier.
 
+Start WinSCP and enter your login information, for example:
+
+- File protocol: SFTP
+- Host name: `puhti.csc.fi`
+- Port number: 22
+- User name: your CSC username
+- Password: leave empty, as you will be using your
+  [SSH key](../../computing/connecting/ssh-keys.md)
+
 ![WinSCP site settings without password but use ssh private key](https://a3s.fi/docs-files/winscp-ssh-key-add-1.png 'No password to WinSCP')
 
-FIXME: is there need to edit the order in which key exchange algorithms are tried?
-
-Start WinSCP and enter your login information like hostname, username,
-the server's protocol, but no password but instead your private SSH key
-in the Advanced Site Settings (see screen capture below)
+Click the _Advanced_ button and open the _SSH_ > _Authentication_ tab. Enter
+the path to your SSH private key in the _Private key file_ field and click
+_OK_.
 
 ![WinSCP advanced site settings to add ssh private key](https://a3s.fi/docs-files/winscp-ssh-key-add.png 'Add SSH key to WinSCP')
 
-In the Explorer interface, you can drag and drop
-files between WinSCP and Windows Explorer to transfer them. In order to do
-other operations, right-click any object in the interface and select the
-operation from the pop-up menu. It is also possible to right-click a file or a
-directory, and drag it to another location.
+Click _Login_ to connect. If it is the first time you're connecting, FileZilla
+will ask if you trust the host, and then prompt you for your SSH key
+passphrase.
+
+In the Explorer interface, you can drag and drop files between WinSCP and
+Windows Explorer to transfer them. In order to do other operations, right-click
+any object in the interface and select the operation from the pop-up menu. It
+is also possible to right-click a file or a directory, and drag it to another
+location.
 
 There are many basic operations that you can do with WinSCP:
 
