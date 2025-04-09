@@ -16,33 +16,30 @@ FileZilla home page (server is not needed):
 - [FileZilla downloads](https://filezilla-project.org/download.php?show_all=1)
 
 When you start FileZilla, a graphical file transfer interface opens to your
-screen. To open a connection to CSC, define the connection information on the
-_Quickconnect_ row in the upper part of the interface. Alternatively, you can
-use the _Site Manager_ button to define a connection. You can reuse the
-connection settings you have made with _Site Manager_ by right-clicking the
-_Site Manager_ button.
+screen. To open a connection to CSC, open the _Site Manager_ panel (click the
+icon or select _File_ > _Site Manager_).
 
 For example, use the following settings for connecting to Puhti:
 
-- Host: `puhti.csc.fi`
-- User / Username: your CSC username
-- Password: leave empty - you'll be using SSH key based authentication, see below.
-- Port: `22`
 - Protocol: SFTP - SSH File Transfer Protocol
-- Logon type: Ask for password FIXME
+- Host: `puhti.csc.fi`
+- Port: `22`
+- Logon type: Key file
+- User: your CSC username
+- Key file: Path to your SSH private key on your local machine
 
-Once the connection is opened, FileZilla shows two interactive file listings
-side by side. On the left side you have your local file system and on the right
-site the remote file system (e.g. files on Puhti). You can change your location
-by interactive browsing or by typing a directory path to the _Local site_ or
-_Remote site_ fields.
+![FileZilla interface](../../img/filezilla.png 'FileZilla interface')
+
+Click _OK_, and once the connection is opened, FileZilla shows two interactive
+file listings side by side. On the left side you have your local file system
+and on the right site the remote file system (e.g. files on Puhti). You can
+change your location by interactive browsing or by typing a directory path to
+the _Local site_ or _Remote site_ fields.
 
 Once you have the right directories open on both the local and remote site, you
 can copy files or directories between the sites simply by selecting a file or
 folder with your mouse and dragging it to the other site. For other operations,
 try right-clicking a file or a folder.
-
-![FileZilla interface](/img/filezilla.jpg 'FileZilla interface')
 
 ## File transfer on Windows with WinSCP
 
@@ -60,7 +57,7 @@ Explorer, you will probably find using WinSCP Explorer interface easier.
 
 ![WinSCP site settings without password but use ssh private key](https://a3s.fi/docs-files/winscp-ssh-key-add-1.png 'No password to WinSCP')
 
-FIXME: is there need to edit the order in which key exchange algorithms are tried? 
+FIXME: is there need to edit the order in which key exchange algorithms are tried?
 
 Start WinSCP and enter your login information like hostname, username,
 the server's protocol, but no password but instead your private SSH key
