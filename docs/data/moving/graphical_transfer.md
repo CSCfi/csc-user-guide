@@ -13,7 +13,7 @@ FileZilla is a file transfer tool that you can install on all common operating
 systems (Windows, macOS, Linux). You can download FileZilla client from the
 FileZilla home page (server is not needed):
 
-- [FileZilla home](https://filezilla-project.org/)
+- [FileZilla downloads](https://filezilla-project.org/download.php?show_all=1)
 
 When you start FileZilla, a graphical file transfer interface opens to your
 screen. To open a connection to CSC, define the connection information on the
