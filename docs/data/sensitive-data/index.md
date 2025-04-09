@@ -65,17 +65,13 @@ Welcome to the user guide for CSC's Sensitive Data (SD) services. Use the left m
 
 <div class="grid csc-quick-links csc-quick-links--portals" markdown>
 
-[MyCSC portal :material-open-in-new:](https://my.csc.fi/){ target=_blank }
-{ .card }
+[MyCSC :material-open-in-new:](https://my.csc.fi/){ .md-button title="MyCSC user portal" target=_blank }
 
-[Sensitive&nbsp;Data&nbsp;(SD) **Connect** :material-open-in-new:](https://sd-connect.csc.fi/){ target=_blank }
-{ .card }
+[SD Connect :material-open-in-new:](https://sd-connect.csc.fi/){ .md-button title="Sensitive Data (SD) Connect" target=_blank }
 
-[Sensitive&nbsp;Data&nbsp;(SD) **Desktop** :material-open-in-new:](https://sd-desktop.csc.fi){ target=_blank }
-{ .card }
+[SD Desktop :material-open-in-new:](https://sd-desktop.csc.fi){ .md-button title="Sensitive Data (SD) Desktop" target=_blank }
 
-[Sensitive&nbsp;Data&nbsp;(SD) **Apply** :material-open-in-new:](https://sd-apply.csc.fi/){ target=_blank }
-{ .card }
+[SD Apply :material-open-in-new:](https://sd-apply.csc.fi/){ .md-button title="Sensitive Data (SD) Apply" target=_blank }
 
 </div>
 

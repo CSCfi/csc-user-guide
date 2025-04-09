@@ -28,3 +28,7 @@
 .grid.csc-quick-links.csc-quick-links--portals {
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 24ch), 1fr));
 }
+
+.grid.csc-quick-links.csc-quick-links--portals .md-button {
+  width: 100%;
+}
