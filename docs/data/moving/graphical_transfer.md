@@ -142,4 +142,4 @@ your web browser and WinSCP allows you to download the file.
 
 ### Further documentation
 
-- [Extensive WinSCP documentation](https://winscp.net/eng/docs/start).
+- [Extensive WinSCP documentation](https://winscp.net/eng/docs/start)
