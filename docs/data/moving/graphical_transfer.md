@@ -13,23 +13,27 @@ FileZilla is a file transfer tool that you can install on all common operating
 systems (Windows, macOS, Linux). You can download FileZilla client from the
 FileZilla home page (server is not needed):
 
-- [FileZilla home](https://filezilla-project.org/)
+- [FileZilla downloads](https://filezilla-project.org/download.php?show_all=1)
 
 When you start FileZilla, a graphical file transfer interface opens to your
-screen. To open a connection to CSC, define the connection information on the
-_Quickconnect_ row in the upper part of the interface. Alternatively, you can
-use the _Site Manager_ button to define a connection. You can reuse the
-connection settings you have made with _Site Manager_ by right-clicking the
-_Site Manager_ button.
+screen. To open a connection to CSC, open the _Site Manager_ panel (click the
+icon or select _File_ > _Site Manager_).
 
 For example, use the following settings for connecting to Puhti:
 
-- Host: `puhti.csc.fi`
-- User / Username: your CSC username
-- Password: your CSC password
-- Port: `22`
 - Protocol: SFTP - SSH File Transfer Protocol
-- Logon type: Ask for password
+- Host: `puhti.csc.fi`
+- Port: `22`
+- Logon type: Key file
+- User: your CSC username
+- Key file: Path to your
+  [SSH private key](../../computing/connecting/ssh-keys.md) on your local
+  machine
+
+![FileZilla interface](../../img/filezilla.png 'FileZilla interface')
+
+Click _Connect_. If it is the first time you're connecting, FileZilla will ask
+if you trust the host, and then prompt you for your SSH key passphrase.
 
 Once the connection is opened, FileZilla shows two interactive file listings
 side by side. On the left side you have your local file system and on the right
@@ -41,8 +45,6 @@ Once you have the right directories open on both the local and remote site, you
 can copy files or directories between the sites simply by selecting a file or
 folder with your mouse and dragging it to the other site. For other operations,
 try right-clicking a file or a folder.
-
-![FileZilla interface](/img/filezilla.jpg 'FileZilla interface')
 
 ## File transfer on Windows with WinSCP
 
@@ -58,12 +60,32 @@ can change it later in the preferences dialogue. The Explorer interface looks
 and works similar to Windows Explorer. If you are familiar with Windows
 Explorer, you will probably find using WinSCP Explorer interface easier.
 
-Start WinSCP and enter your login information like hostname, username, password
-and the server's protocol. In the Explorer interface, you can drag and drop
-files between WinSCP and Windows Explorer to transfer them. In order to do
-other operations, right-click any object in the interface and select the
-operation from the pop-up menu. It is also possible to right-click a file or a
-directory, and drag it to another location.
+Start WinSCP and enter your login information, for example:
+
+- File protocol: SFTP
+- Host name: `puhti.csc.fi`
+- Port number: 22
+- User name: your CSC username
+- Password: leave empty, as you will be using your
+  [SSH key](../../computing/connecting/ssh-keys.md)
+
+![WinSCP site settings without password but use ssh private key](https://a3s.fi/docs-files/winscp-ssh-key-add-1.png 'No password to WinSCP')
+
+Click the _Advanced_ button and open the _SSH_ > _Authentication_ tab. Enter
+the path to your SSH private key in the _Private key file_ field and click
+_OK_.
+
+![WinSCP advanced site settings to add ssh private key](https://a3s.fi/docs-files/winscp-ssh-key-add.png 'Add SSH key to WinSCP')
+
+Click _Login_ to connect. If it is the first time you're connecting, FileZilla
+will ask if you trust the host, and then prompt you for your SSH key
+passphrase.
+
+In the Explorer interface, you can drag and drop files between WinSCP and
+Windows Explorer to transfer them. In order to do other operations, right-click
+any object in the interface and select the operation from the pop-up menu. It
+is also possible to right-click a file or a directory, and drag it to another
+location.
 
 There are many basic operations that you can do with WinSCP:
 
@@ -103,8 +125,6 @@ You can use Windows Explorer's _"Send To"_ feature to upload files to a server.
 To enable this feature, use the installer or select the feature in preferences
 ("add upload short cut to Explorer's 'sent to' context menu").
 
-![WinSCP interface](/img/Winscp1.jpg 'WinSCP interface')
-
 ### Downloading files from CSC environment
 
 The easiest ways to download files are drag and drop with a mouse and using URL
@@ -122,4 +142,4 @@ your web browser and WinSCP allows you to download the file.
 
 ### Further documentation
 
-- [Extensive WinSCP documentation](https://winscp.net/eng/docs/start).
+- [Extensive WinSCP documentation](https://winscp.net/eng/docs/start)
