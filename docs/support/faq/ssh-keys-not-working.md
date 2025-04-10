@@ -19,20 +19,33 @@ with Finnish allocation) as well.
    the correct key. Output `<key file> is not a public key file` means that the
    key you have is faulty. In both cases, it is easiest to create a new key
    pair and add the public key to MyCSC.
-4. If you have stored your SSH key file with a non-default name or in a
+4. Ensure that your `~/.ssh` folder and private key file have 0700 and 0600
+   permissions, respectively. Example of correct permissions:
+   ```bash
+   $ ls -ld ~/.ssh
+   drwx------ 2 username group 4096 Apr 10 13:47 /home/username/.ssh
+   $ ls -l ~/.ssh/<private key file>
+   -rw------- 1 username group  464 Apr 10 13:47 /home/username/.ssh/<private key file>
+   ```
+   To set correct permissions:
+   ```bash
+   chmod 0700 ~/.ssh
+   chmod 0600 ~/.ssh/<private key file>
+   ```
+5. If you have stored your SSH key file with a non-default name or in a
    non-default location, you must tell the `ssh` command where to look for the
    key. Use option `-i` as follows:
    ```bash
    ssh -i /path/to/key/file <username>@puhti.csc.fi
    ```
-5. If `ssh` command still asks for a password, double check whether it is
+6. If `ssh` command still asks for a password, double check whether it is
    actually asking for the password for Puhti, or the *key passphrase*. If you
    have defined a passphrase for your key (**strongly recommended**), it is
    normal that you will need to enter it when connecting. To avoid having to
    type the passphrase, you may configure an
    [authentication agent](../../computing/connecting/ssh-unix.md#authentication-agent)
    that can hold your keys in memory.
-6. You have waited for at least one hour after adding the key to MyCSC. Syncing
+7. You have waited for at least one hour after adding the key to MyCSC. Syncing
    the data to CSC servers takes some time and may depend on the current load
    on the systems.
 
