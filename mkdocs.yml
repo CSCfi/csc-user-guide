@@ -205,6 +205,14 @@ theme:
   icon:
     repo: material/git
     edit: material/pencil
+    admonition:
+      info: material/information
+      success: material/check-circle
+      warning: material/alert
+    # Error admonition type is not in Material for MkDocs,
+    # so the following icon is a literal definition in
+    # csc-overrides/assets/stylesheets/admonition.css
+      # error: material/close-circle
   palette:
     scheme: csc
     primary: custom

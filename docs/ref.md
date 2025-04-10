@@ -388,13 +388,13 @@ any immediately following text as "loose", i.e., outside of an HTML paragraph (`
 
 ## Admonitions
 
-```markdown
 ### The fallback style
 
+```markdown
 !!! note "Here we have an important announcement"
 
-    Make sure you read this note inside this very important-looking box, since this is the fallback
-    for unknown type qualifiers.
+    Make sure you read this note inside this very important-looking
+    box as this is the fallback for unknown type qualifiers.
 
     Type qualifier can be anything, as long as it's not
     `default`,
@@ -410,17 +410,16 @@ any immediately following text as "loose", i.e., outside of an HTML paragraph (`
     Perhaps a suitable one would just simply be: `note`.
 
 !!! note ""
+
     Title may be removed with `note ""`.
 ```
 
 <div class="result" markdown>
 
-### The fallback style
-
 !!! note "Here we have an important announcement"
 
-    Make sure you read this note inside this very important-looking box, since this is the fallback
-    for unknown type qualifiers.
+    Make sure you read this note inside this very important-looking
+    box as this is the fallback for unknown type qualifiers.
 
     Type qualifier can be anything, as long as it's not
     `default`,
@@ -436,6 +435,7 @@ any immediately following text as "loose", i.e., outside of an HTML paragraph (`
     Perhaps a suitable one would just simply be: `note`.
 
 !!! note ""
+
     Title may be removed with `note ""`.
 
 </div>
@@ -444,6 +444,34 @@ any immediately following text as "loose", i.e., outside of an HTML paragraph (`
 ### Styles available with type qualifiers
 
 #### Alert style
+
+```markdown
+!!! default "Nothing special"
+
+    Type qualifier: `default`.
+
+    !!! default-label
+
+        This isn't the actual default (fallback) admonition for legacy reasons.
+
+!!! info "Information available"
+
+    Type qualifier: `info`
+
+!!! success "You've got it!"
+
+    Type qualifier: `success`
+
+!!! warning "You're on thin ice!"
+
+    Type qualifier: `warning`
+
+!!! error "Oopsie!"
+
+    Type qualifier: `error`
+```
+
+<div class="result" markdown>
 
 !!! default "Nothing special"
 
@@ -469,8 +497,91 @@ any immediately following text as "loose", i.e., outside of an HTML paragraph (`
 
     Type qualifier: `error`
 
+</div>
+
+
+#### Collapsible
+
+```markdown
+???+ default "Collapsible default"
+
+    Some content shown by default (click on title to hide).
+
+??? default "Collapsible default (click to reveal content)"
+
+    Some content hidden by default.
+
+??? info "Collapsible info (click to reveal content)"
+
+    Some content hidden by default.
+
+??? success "Collapsible success (click to reveal content)"
+
+    Some content hidden by default.
+
+??? warning "Collapsible warning (click to reveal content)"
+
+    Some content hidden by default.
+
+??? error "Collapsible error  (click to reveal content)"
+
+    Some content hidden by default.
+```
+
+<div class="result" markdown>
+
+???+ default "Collapsible default"
+
+    Some content shown by default (click on title to hide).
+
+??? default "Collapsible default (click to reveal content)"
+
+    Some content hidden by default.
+
+??? info "Collapsible info (click to reveal content)"
+
+    Some content hidden by default.
+
+??? success "Collapsible success (click to reveal content)"
+
+    Some content hidden by default.
+
+??? warning "Collapsible warning (click to reveal content)"
+
+    Some content hidden by default.
+
+??? error "Collapsible error  (click to reveal content)"
+
+    Some content hidden by default.
+
+</div>
+
 
 #### With the title removed
+
+```markdown
+!!! default ""
+
+    Type qualifier: `default ""`
+
+!!! info ""
+
+    Type qualifier: `info ""`
+
+!!! success ""
+
+    Type qualifier: `success ""`
+
+!!! warning ""
+
+    Type qualifier: `warning ""`
+
+!!! error ""
+
+    Type qualifier: `error ""`
+```
+
+<div class="result" markdown>
 
 !!! default ""
 
@@ -492,8 +603,34 @@ any immediately following text as "loose", i.e., outside of an HTML paragraph (`
 
     Type qualifier: `error ""`
 
+</div>
+
 
 #### Label style
+
+```markdown
+!!! default-label
+
+    Label type available with type qualifier `default-label`.
+
+!!! info-label
+
+    Label type available with type qualifier `info-label`.
+
+!!! success-label
+
+    Label type available with type qualifier `success-label`.
+
+!!! warning-label
+
+    Label type available with type qualifier `warning-label`.
+
+!!! error-label
+
+    Label type available with type qualifier `error-label`.
+```
+
+<div class="result" markdown>
 
 !!! default-label
 
@@ -515,12 +652,14 @@ any immediately following text as "loose", i.e., outside of an HTML paragraph (`
 
     Label type available with type qualifier `error-label`.
 
+</div>
+
 
 #### Inline admonitions
 
 ````markdown
-For inline admonitions, you first define the admonition as either `inline` or `inline end`. Then,
-you define the content.
+For inline admonitions, you first define the admonition as either
+`inline` or `inline end`. Then, you define the content.
 
 !!! warning inline "Hold on!"
 
