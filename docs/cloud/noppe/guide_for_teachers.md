@@ -193,7 +193,7 @@ docker run -p 8888:8787 <yourimagename>
 ### Upload and link the image to your application
 
 For the docker image to be used in your application. You need to host it somewhere, e.g. DockerHub or Rahti registry. 
-Once you have it hosted somewhere, provide the link to your image in the application : `Edit application` > `Container image`.
+Once you have it hosted somewhere, provide the link to your image in the application : `Manage Workspaces` > `Applications` > `Edit application` > `Container image`.
 
 ## Adding Python packages to an existing workspace 
 
