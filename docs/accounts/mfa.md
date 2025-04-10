@@ -35,7 +35,7 @@ Please first check if you already have functioning Haka MFA. To check:
 ### Possible outcomes
 
 * Haka MFA is working. In that case no further action is required from you.
-* Haka MFA is **not** working, and you receive an error message indicating that you need to activate Haka **MFA** following your home organization's instructions. Please do this.
+* Haka MFA is **not** working, and you receive an error message indicating that you need to activate Haka MFA following your home organization's instructions. CSC doesn't handle issues related to Haka MFA, for this matter, please contact your **home organization**.
 * Haka MFA is not working, and you receive a message stating that Haka MFA is not enabled in your organization. In that case you should activate CSC multi-factor authentication (CSC MFA). [See instructions below](#how-to-activate-mfa).
 
 ## Users logging in with Virtu credentials, CSC login or Lifescience login
