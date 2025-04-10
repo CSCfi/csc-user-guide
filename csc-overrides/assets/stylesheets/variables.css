@@ -29,10 +29,12 @@
   --csc-admonition-label-box-shadow: currentColor 0px 0px 0px 1px inset;
   --csc-admonition-label-padding: 4px 16px;
 
+  --csc-button-border-width: 2px;
+  --csc-button-border-radius: 4px;
+
   --csc-header-height: 71px;
   --csc-content-width: 72rem;
 
-  --csc-border-radius: 4px;
   --csc-border: 1px solid var(--c-tertiary-200);
 
   --csc-box-shadow--header: 0px 8px 8px -2px #00000029;
