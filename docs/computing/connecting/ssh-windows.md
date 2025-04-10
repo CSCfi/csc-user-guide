@@ -33,6 +33,10 @@ After you have generated an SSH key pair, you need to add the **public key** to
 the MyCSC portal.
 [Read the instructions here](ssh-keys.md#adding-public-key-in-mycsc).
 
+You may also wish to configure
+[authentication agent](#authentication-agent-powershell) to make using SSH keys
+more convenient.
+
 !!! note "Using SSH keys"
     See the page on [setting up SSH keys](ssh-keys.md) for general
     information about using SSH keys for authentication. Please note that it is
@@ -102,6 +106,10 @@ After you have generated an SSH key pair, you need to add the **public key** to
 the MyCSC portal.
 [Read the instructions here](ssh-keys.md#adding-public-key-in-mycsc).
 
+You may also wish to configure
+[authentication agent](#authentication-agent-putty) to make using SSH keys more
+convenient.
+
 !!! note "Using SSH keys"
     See the page on [setting up SSH keys](ssh-keys.md) for general
     information about using SSH keys for authentication. Please note that it is
@@ -163,6 +171,10 @@ set a persistent home directory for MobaXterm in the program settings
 After you have generated an SSH key pair, you need to add the **public key** to
 the MyCSC portal.
 [Read the instructions here](ssh-keys.md#adding-public-key-in-mycsc).
+
+You may also wish to configure
+[authentication agent](#authentication-agent-mobaxterm) to make using SSH keys
+more convenient.
 
 !!! note "Using SSH keys"
     See the page on [setting up SSH keys](ssh-keys.md) for general

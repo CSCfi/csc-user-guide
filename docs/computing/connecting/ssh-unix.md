@@ -27,6 +27,9 @@ After you have generated an SSH key pair, you need to add the **public key** to
 the MyCSC portal.
 [Read the instructions here](ssh-keys.md#adding-public-key-in-mycsc).
 
+You may also wish to configure [authentication agent](#authentication-agent) to
+make using SSH keys more convenient.
+
 !!! note "Using SSH keys"
     See the page on [setting up SSH keys](ssh-keys.md) for general
     information about using SSH keys for authentication. Please note that it is
@@ -81,13 +84,20 @@ program's behavior depends on your system:
 - On Linux systems, `ssh-agent` is typically configured and run automatically at
   login and requires no additional actions on your part.
 - On macOS systems, you should add the following lines to the `~/.ssh/config`
-  file:
+  file (create the file if it does not exist):
 
     ```text
     Host *
         UseKeychain no
         AddKeysToAgent yes
     ```
+
+Assuming your SSH private key is stored in `~/.ssh/id_ed25519`, add it to the
+authentication agent by running:
+
+```bash
+ssh-add ~/.ssh/id_ed25519
+```
 
 ### SSH agent forwarding
 
