@@ -95,8 +95,9 @@ You can add your public key through the
    measure, you are asked to log in again if it has been a few minutes since
    you last logged into the portal.
 4. Enter a _Title_ for your key pair, e.g. "my-ssh-key".
-5. Paste your **public** SSH key into the _Key_ field. **We strongly recommend
-   using RSA 4096 or Ed25519 key types**.
+5. Paste your **public** SSH key into the _Key_ field. Supported key types are
+   Ed25519 and RSA 2048 through 16384. **We strongly recommend Ed25519 or
+   RSA 4096**.
 6. Select _Add_.
 7. You should now see your new key listed under _SSH PUBLIC KEYS_. Note that
    it might take up to one hour for your new key to become active. If it takes

@@ -13,14 +13,15 @@ keys. On macOS and Linux, you can use the `ssh-keygen` command-line utility for
 generating SSH keys:
 
 ```bash
-ssh-keygen -o -a 100 -t ed25519
+ssh-keygen -a 100 -t ed25519
 ```
 
 You will be asked to type a passphrase. Please choose a secure passphrase. It
 should be at least 8 characters long and contain numbers, letters and special
 characters. Never leave the passphrase empty!
 
-We strongly recommend using RSA 4096 or Ed25519 key types.
+Supported key types are Ed25519 and RSA 2048 through 16384. **We strongly
+recommend Ed25519 or RSA 4096**.
 
 After you have generated an SSH key pair, you need to add the **public key** to
 the MyCSC portal.

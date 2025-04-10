@@ -23,10 +23,11 @@ keys. After installing OpenSSH, you can generate SSH keys using PowerShell by
 running:
 
 ```bash
-ssh-keygen -o -a 100 -t ed25519
+ssh-keygen -a 100 -t ed25519
 ```
 
-We strongly recommend using RSA 4096 or Ed25519 key types.
+Supported key types are Ed25519 and RSA 2048 through 16384. **We strongly
+recommend Ed25519 or RSA 4096**.
 
 After you have generated an SSH key pair, you need to add the **public key** to
 the MyCSC portal.
@@ -94,7 +95,8 @@ keys. To generate SSH keys for connecting with PuTTY, use the
 provides
 [instructions for using PuTTYgen](https://www.putty.be/0.76/htmldoc/Chapter8.html).
 
-We strongly recommend using RSA 4096 or Ed25519 key types.
+Supported key types are Ed25519 and RSA 2048 through 16384. **We strongly
+recommend Ed25519 or RSA 4096**.
 
 After you have generated an SSH key pair, you need to add the **public key** to
 the MyCSC portal.
@@ -148,10 +150,11 @@ Connecting to CSC supercomputers using an SSH client requires setting up SSH
 keys. You can generate SSH keys using MobaXterm by running:
 
 ```bash
-ssh-keygen -o -a 100 -t ed25519
+ssh-keygen -a 100 -t ed25519
 ```
 
-We strongly recommend using RSA 4096 or Ed25519 key types.
+Supported key types are Ed25519 and RSA 2048 through 16384. **We strongly
+recommend Ed25519 or RSA 4096**.
 
 If you want your generated keys to persist through MobaXterm restarts,
 set a persistent home directory for MobaXterm in the program settings
