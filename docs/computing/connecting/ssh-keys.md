@@ -61,10 +61,13 @@ letters and special characters.
 If you want to store your key pair in a non-default location (somewhere else
 than `~/.ssh/` or `C:\Users\<username>\.ssh\`), set the key location in the
 `.ssh/config` file or using an authentication agent (see system-specific
-instructions). If you intend to use RStudio, Jupyter notebooks or something
-else where the connecting from your local workstation to a compute node
-requires piping through a login node, set agent-forwarding and the path to
-your private key in the `.ssh/config` file as follows:
+instructions). You may also use `ssh -i /path/to/key/file` to explicitly tell
+which key to use.
+
+If you intend to use RStudio, Jupyter notebooks or something else where the
+connecting from your local workstation to a compute node requires piping
+through a login node, set agent-forwarding and the path to your private key in
+the `.ssh/config` file as follows:
 
 ```bash
 Host <host>.csc.fi
@@ -107,7 +110,7 @@ You can add your public key through the
 Users can check their public keys on Puhti or Mahti using the command:
 
 ```bash
-ls -l /var/lib/acco/sshkeys/${USER}/${USER}.pub
+cat /var/lib/acco/sshkeys/${USER}/${USER}.pub
 ```
 
 !!! info "Required key format"

@@ -96,5 +96,11 @@ Host *
     ForwardAgent yes
 ```
 
+Another option is to simply include the `-A` flag to your `ssh` command:
+
+```bash
+ssh -A <username>@<host>.csc.fi
+```
+
 For more information about `ssh-agent`, see the
 [relevant SSH Academy tutorial](https://www.ssh.com/academy/ssh/agent).
