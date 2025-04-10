@@ -1,3 +1,5 @@
+# Security guide
+
 Rahti applications are exposed to the Internet, and
 their security should be treated with an appropriate care.
 The user on whose account a service is running in Rahti is
