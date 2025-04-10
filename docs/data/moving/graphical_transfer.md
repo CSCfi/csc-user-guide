@@ -46,11 +46,12 @@ can copy files or directories between the sites simply by selecting a file or
 folder with your mouse and dragging it to the other site. For other operations,
 try right-clicking a file or a folder.
 
-## File transfer on Windows with WinSCP
+## WinSCP - file transfer and more on Windows
 
 WinSCP is a free open source program for Windows. It provides secure file
 transfer between a local and remote computer. WinSCP supports SFTP, FTP and SCP
-transfer protocols. WinSCP has many features that make operating with files
+transfer protocols. In addition to transfers, WinSCP has many features that make
+operating with files
 simple. The installation documentation for WinSCP is available at the
 [official website](https://winscp.net/eng/docs/installation).
 
@@ -77,38 +78,15 @@ _OK_.
 
 ![WinSCP advanced site settings to add ssh private key](https://a3s.fi/docs-files/winscp-ssh-key-add.png 'Add SSH key to WinSCP')
 
-Click _Login_ to connect. If it is the first time you're connecting, FileZilla
+Click _Login_ to connect. If it is the first time you're connecting, WinSCP
 will ask if you trust the host, and then prompt you for your SSH key
 passphrase.
-
-In the Explorer interface, you can drag and drop files between WinSCP and
-Windows Explorer to transfer them. In order to do other operations, right-click
-any object in the interface and select the operation from the pop-up menu. It
-is also possible to right-click a file or a directory, and drag it to another
-location.
-
-There are many basic operations that you can do with WinSCP:
-
-- Navigating
-- Uploading files
-- Downloading files
-- Managing connections
-- Editing/opening files
-- Synchronizing a local directory with a remote one, and vice versa
-- Changing properties (permissions, ownership, etc.) of remote files
-- Renaming files
-- Deleting files
-- Moving and duplicating remote files
-- Creating new objects
-- Creating files
-- Creating directories
-- Creating links and short-cuts
 
 ### Uploading files to CSC environment
 
 You can use the different tools of WinSCP to upload files to CSC's computing
 environment. The easiest methods are drag and drop with your mouse, using copy
-and paste, as well as using Windows Explorer's _Send To_ feature.
+and paste, or using Windows Explorer's _Send To_ feature.
 
 When using drag and drop, select the local files you want to upload e.g.
 inside Windows Explorer. Then, drag selected files with your mouse and drop
@@ -139,6 +117,14 @@ register this feature, use the installer or select the feature in preferences
 your web browser and WinSCP allows you to download the file.
 
 ![WinSCP interface](/img/Winscp2.jpg 'WinSCP interface')
+
+### Other WinSCP operations
+
+WinSCP offers many additional file and folder operations in addition to transfers.
+Access these via right-clicking
+any object in the interface and selecting the operation from the pop-up menu. It
+is also possible to right-click a file or a directory, and e.g. drag it to another
+location.
 
 ### Further documentation
 
