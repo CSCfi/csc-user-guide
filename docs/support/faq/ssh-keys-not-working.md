@@ -59,7 +59,7 @@ with Finnish allocation) as well.
 If everything above checks, and you are still unable to login to Puhti, please
 [contact CSC Service Desk](../contact.md).
 
-## More information about SSH keys
+## More information
 
 * [SSH keys documentation in Docs CSC](../../computing/connecting/ssh-keys.md)
 * [Tutorial on setting up SSH keys at CSC](https://csc-training.github.io/csc-env-eff/hands-on/connecting/ssh-keys.html)
