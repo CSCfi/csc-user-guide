@@ -1,4 +1,4 @@
-# I cannot login to Puhti, or logging in asks for password even though I have set up SSH keys
+# I have set up SSH keys, but logging in to Puhti does not work or still asks for password
 
 Puhti is used as an example here. Same steps apply for Mahti and LUMI (users
 with Finnish allocation) as well.
@@ -36,7 +36,7 @@ with Finnish allocation) as well.
    the data to CSC servers takes some time and may depend on the current load
    on the systems.
 
-If everything above checks, and you are still unable to login Puhti, please
+If everything above checks, and you are still unable to login to Puhti, please
 [contact CSC Service Desk](../contact.md).
 
 ## More information about SSH keys
