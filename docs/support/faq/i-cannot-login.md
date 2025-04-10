@@ -12,6 +12,7 @@ for login problems affecting other services, like Puhti:
    have not set up SSH keys and/or uploaded your public key to MyCSC. This is
    a requirement starting 14 April 2025. Please read the
    [instructions on how to create an SSH key pair and add the public key to MyCSC](../../computing/connecting/ssh-keys.md).
+   If you're still facing issues, [see this FAQ](ssh-keys-not-working.md).
 2. The service you are trying to login is down or has issues. See notifications
    in your mailbox or at [research.csc.fi](https://research.csc.fi). Wait until
    the maintenance is completed or the issue is resolved.
