@@ -1,3 +1,5 @@
+# Billing
+
 ## Terminology
 
 * Billing unit (BU): A unit used for billing at CSC - each resource consumes a given amount of BUs per hour.
