@@ -47,7 +47,14 @@ with Finnish allocation) as well.
    that can hold your keys in memory.
 7. You have waited for at least one hour after adding the key to MyCSC. Syncing
    the data to CSC servers takes some time and may depend on the current load
-   on the systems.
+   on the systems. To check if your public key has been synced, you may log in
+   to Puhti [web interface](https://www.puhti.csc.fi), open a login node shell
+   and run:
+   ```bash
+   cat /var/lib/acco/sshkeys/${USER}/${USER}.pub
+   ```
+   For SSH login to work, the above file must exist and contain the key you are
+   trying to use.
 
 If everything above checks, and you are still unable to login to Puhti, please
 [contact CSC Service Desk](../contact.md).
