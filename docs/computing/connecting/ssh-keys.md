@@ -16,6 +16,9 @@ to be able to connect to CSC supercomputers using an SSH client.
       copying the public key directly to CSC supercomputers using tools such as
       `ssh-copy-id` will not work.
 
+In addition to this documentation, please see our
+[tutorial on setting up SSH keys](https://csc-training.github.io/csc-env-eff/hands-on/connecting/ssh-keys.html).
+
 !!! warning
     The private key should **never** be shared with anyone, not even with CSC
     staff. It should only be stored on the local workstation.
