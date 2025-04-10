@@ -23,7 +23,7 @@ The interactive MATLAB is intended for temporary, light pre- and postprocessing 
 It is available as follows:
 
 - License: Academic
-- Versions: from R2023a to R2024a
+- Versions: from R2023a to R2024b
 - Toolboxes: Parallel Computing Toolbox.
   There are 2 licenses for each toolbox.
 
@@ -32,7 +32,7 @@ MATLAB Parallel Server (MPS) allows sending work as a batch job from a local MAT
 It is available as follows:
 
 - License: Academic
-- Versions: from R2021a to R2024a
+- Versions: from R2021a to R2024b
 - Toolboxes: MATLAB Parallel Server.
   There is license for using upto 500 computing cores simultaneously.
   Furthermore, toolboxes that you have license on your local MATLAB license can also be used with MATLAB Parallel Server.
@@ -268,11 +268,10 @@ c.AdditionalProperties.EmailAddress = '';
 Now, we can use the [`batch`](http://se.mathworks.com/help/distcomp/batch.html) function to submit a job to Puhti.
 It returns a job object which we can use to access the output of the submitted job.
 
-The first time you submit a job, MATLAB will prompt you whether to use a password or an SSH key for authentication.
-
-1. If you choose to use a password, MATLAB will ask your password to Puhti.
-2. If you choose to use an SSH key, MATLAB will ask the path the your private key and whether the key requires a password.
-   MATLAB stores the path to your key and will not ask for it later.
+The first time you submit a job, MATLAB will prompt you to choose between password or SSH key authentication.
+Password authentication is no longer supported on Puhti, so you must select SSH key authentication.
+Provide the path to your private key and enter the password for the private key if one exists.
+MATLAB will store the path to your key and will not request it again in future sessions.
 
 We can submit a simple test job that returns the current working directory as follows:
 
