@@ -48,7 +48,7 @@ of available resources.
 
 [What is Rahti?](rahti-what-is.md)
 
-[Container clouds fundamentals](https://rahti-course.a3s.fi/basic.html#1)
+[Container clouds fundamentals](https://rahti-course.a3s.fi/index.html#1)
 
 [Why use containers vs. VMs? | VMware](https://www.vmware.com/topics/glossary/content/vms-vs-containers.html)
 

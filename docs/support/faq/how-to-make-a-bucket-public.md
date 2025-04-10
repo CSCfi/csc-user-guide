@@ -19,4 +19,4 @@ To do this, we need to go to [Pouta's web interface](https://pouta.csc.fi) and:
 
 1. If there is a "segments" bucket, click also in the "Public Access" checkbox.
 
-Now the bucket is public and its contents will be available throw the URL: `https://$BUCKETNAME.a3s.fi/`. Where `$BUCKETNAME` is the name of the bucket (so the bucket named `musel-photos` will be available in <https://musel-photos.a3s.fi/>).
+Now the bucket is public and its contents will be available throw the URL: `https://$BUCKETNAME.a3s.fi/`. Where `$BUCKETNAME` is the name of the bucket (so the bucket named `musel-photos` will be available in `https://musel-photos.a3s.fi/`).
