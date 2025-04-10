@@ -61,8 +61,14 @@ letters and special characters.
 If you want to store your key pair in a non-default location (somewhere else
 than `~/.ssh/` or `C:\Users\<username>\.ssh\`), set the key location in the
 `.ssh/config` file or using an authentication agent (see system-specific
-instructions). You may also use `ssh -i /path/to/key/file` to explicitly tell
-which key to use.
+instructions). You may also use `ssh` command option `-i` as follows:
+
+```bash
+# Replace <username> with the name of your CSC user account and
+# <host> with "puhti" or "mahti"
+
+ssh <username>@<host>.csc.fi -i /<path-to-key-files>/<private-key>
+```
 
 If you intend to use RStudio, Jupyter notebooks or something else where the
 connecting from your local workstation to a compute node requires piping

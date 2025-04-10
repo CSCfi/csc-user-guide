@@ -45,6 +45,17 @@ remote SSH connection by opening the terminal and running:
 ssh <username>@<host>.csc.fi
 ```
 
+If you have stored your SSH key file with a non-default name or in a
+non-default location, you must tell the `ssh` command where to look for the
+key. Use option `-i` as follows:
+
+```bash
+# Replace <username> with the name of your CSC user account and
+# <host> with "puhti" or "mahti"
+
+ssh <username>@<host>.csc.fi -i /path/to/key/file
+```
+
 ## Graphical connection
 
 Displaying graphics, such as GUIs and plots, over an SSH connection requires
