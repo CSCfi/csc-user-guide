@@ -2,7 +2,7 @@
 
 ## Overview
 
-This guide explains how to activate and use multi-factor authentication (MFA) for CSC customer accounts. CSC’s MFA system integrates with the authentication solutions provided by universities for Haka accounts.
+This guide explains how to activate and use multi-factor authentication (MFA) for CSC customer accounts. CSC’s MFA system integrates with the authentication solutions provided by universities for Haka accounts. If you have multiple CSC accounts, MFA can be assigned to all of them.
 
 CSC’s MFA uses a time-based one-time passcode (TOTP) system, which works with standard mobile phones with an authentication app. The authentication app is free for users, and multiple app options are available for different mobile devices. You can choose any compatible authentication app.
 
