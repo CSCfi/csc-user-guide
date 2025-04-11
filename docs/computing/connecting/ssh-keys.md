@@ -113,11 +113,18 @@ You can add your public key through the
    longer than that, please
    [contact the CSC Service Desk](../../support/contact.md).
 
-Users can check their public keys on Puhti or Mahti using the command:
+Users can check their public keys on Puhti or Mahti using the commands:
 
 ```bash
+# Check timestamp of file (time of previous sync)
+ls -l /var/lib/acco/sshkeys/${USER}/${USER}.pub
+
+# Check its contents (public keys)
 cat /var/lib/acco/sshkeys/${USER}/${USER}.pub
 ```
+
+If you have added multiple keys to MyCSC, they should all be visible in the
+same `${USER}.pub` file.
 
 !!! info "Required key format"
     Your public key should consist of the SSH key type and the key sequence,

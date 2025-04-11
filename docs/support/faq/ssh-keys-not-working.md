@@ -1,7 +1,6 @@
 # I have set up SSH keys, but logging in to Puhti does not work or still asks for password
 
-Puhti is used as an example here. Same steps apply for Mahti and LUMI (users
-with Finnish allocation) as well.
+Puhti is used as an example here. Same steps apply for Mahti as well.
 
 ## Please check the following
 
@@ -20,7 +19,7 @@ with Finnish allocation) as well.
       ```
 2. The key fingerprint in MyCSC (starting with _SHA256_) matches the key you
    have on your local machine. On **Windows**, the fingerprint of a loaded key
-   is shown in the _Key_ section in MobaKeyGen or PuTTYgen. To check the
+   is shown in the _Key_ section of MobaKeyGen or PuTTYgen. To check the
    fingerprint on **Linux** or **macOS**, run the command:
    ```bash
    ssh-keygen -l -f <key file>
@@ -28,7 +27,7 @@ with Finnish allocation) as well.
    If the fingerprint does not match the one in MyCSC, you have not added the
    correct key. Output `<key file> is not a public key file` means that the key
    you have is faulty. In both cases, it is easiest to create a new key pair
-   and add the public key to MyCSC.
+   and add the new public key to MyCSC.
 3. If you have stored your SSH key file with a non-default name or in a
    non-default location, you must tell the `ssh` command where to look for the
    key. When connecting from the terminal, use option `-i` as follows:
