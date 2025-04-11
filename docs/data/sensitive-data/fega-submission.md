@@ -60,7 +60,7 @@ Before uploading the data to FEGA, you must prepare the datasets and verify the 
 Non-sensitive data (or open data) needs to be submitted in appropriate archives. For example, sequences to the ENA [European Nucleotide Archive](https://www.ebi.ac.uk/ena/browser/home), variants to EVA [European Variation Archive](https://www.ebi.ac.uk/eva/), array-based to [ArrayExpress – functional genomics data](https://www.ebi.ac.uk/arrayexpress/), phenotypes to [BioSamples](https://www.ebi.ac.uk/biosamples/) and GWAS summary statistics to the [GWAS Catalog](https://www.ebi.ac.uk/gwas/).
 
 !!! note
-    For more information about data types and formats, check [Central EGA webpage](https://ega-archive.org/submission/sequence) or contact us at [CSC Service Desk](../../support/contact.md) (subject: Federated EGA).
+    For more information about data types and formats, see [Submission FAQ on EGA web page](https://ega-archive.org/submission/metadata/submission/FAQ/) or contact us at [CSC Service Desk](../../support/contact.md) (subject: Federated EGA).
 
 ## Step 5: Data encryption and upload 
 Next, you can upload the data to Finnish FEGA. Each file uploaded to Finnish FEGA needs to be encrypted. 
