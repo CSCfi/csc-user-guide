@@ -31,7 +31,7 @@ with Finnish allocation) as well.
    and add the public key to MyCSC.
 3. If you have stored your SSH key file with a non-default name or in a
    non-default location, you must tell the `ssh` command where to look for the
-   key. Use option `-i` as follows:
+   key. When connecting from the terminal, use option `-i` as follows:
    ```bash
    ssh -i /path/to/key/file <username>@puhti.csc.fi
    ```
