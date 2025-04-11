@@ -1,3 +1,5 @@
+# Volume snapshot
+
 ## Volume snapshot provisioning
 
 Rahti offers two methods for provisioning snapshots: through web interface and by using the CLI.

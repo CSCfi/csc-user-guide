@@ -1,3 +1,5 @@
+# Rahti
+
 Welcome to the Rahti container cloud! Rahti offers several features out of the box. It has an
 integrated and configurable **health monitoring** system that allows for fast and automatic **scaling**
 and **failover**. Deployment of new versions can be done easily and transparently with the provided
