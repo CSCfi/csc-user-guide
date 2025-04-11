@@ -16,10 +16,10 @@ to be able to connect to CSC supercomputers using an SSH client.
       copying the public key directly to CSC supercomputers using tools such as
       `ssh-copy-id` will not work.
 
-In addition to this documentation, please see our
-[tutorial on setting up SSH keys](https://csc-training.github.io/csc-env-eff/hands-on/connecting/ssh-keys.html)
-and
-[FAQ entry on troubleshooting issues with SSH keys](../../support/faq/ssh-keys-not-working.md).
+For more information about SSH keys, see:
+
+- [Tutorial: Setting up SSH keys at CSC](https://csc-training.github.io/csc-env-eff/hands-on/connecting/ssh-keys.html)
+- [FAQ: Troubleshooting issues with SSH keys](../../support/faq/ssh-keys-not-working.md).
 
 !!! warning
     The private key should **never** be shared with anyone, not even with CSC
