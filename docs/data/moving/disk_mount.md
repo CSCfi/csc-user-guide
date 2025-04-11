@@ -13,6 +13,11 @@ local Linux machine must have [FUSE](https://github.com/libfuse/libfuse) and
 [`sshfs`](https://github.com/libfuse/sshfs) installed. In the case of macOS,
 the required packages are [macFUSE and SSHFS](https://osxfuse.github.io/).
 
+Please note that you need to have set up SSH keys and uploaded your public key
+to MyCSC in order to work with remote disk mounts, just as when connecting over
+regular SSH.
+[Read how to set up SSH keys here](../../computing/connecting/ssh-keys.md).
+
 ## Using sshfs in Linux
 
 Once `sshfs` is installed on your Linux machine, you can create a remote disk

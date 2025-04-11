@@ -14,7 +14,10 @@ to be able to connect to CSC supercomputers using an SSH client.
     - For authenticating an SSH connection using a key pair, you need to copy
       the public key to MyCSC. **Do not copy the private key.** Note that
       copying the public key directly to CSC supercomputers using tools such as
-      `ssh-copy-id` will no longer work after April 14, 2025.
+      `ssh-copy-id` will not work.
+
+In addition to this documentation, please see our
+[tutorial on setting up SSH keys](https://csc-training.github.io/csc-env-eff/hands-on/connecting/ssh-keys.html).
 
 !!! warning
     The private key should **never** be shared with anyone, not even with CSC
@@ -58,10 +61,19 @@ letters and special characters.
 If you want to store your key pair in a non-default location (somewhere else
 than `~/.ssh/` or `C:\Users\<username>\.ssh\`), set the key location in the
 `.ssh/config` file or using an authentication agent (see system-specific
-instructions). If you intend to use RStudio, Jupyter notebooks or something
-else where the connecting from your local workstation to a compute node
-requires piping through a login node, set agent-forwarding and the path to
-your private key in the `.ssh/config` file as follows:
+instructions). You may also use `ssh` command option `-i` as follows:
+
+```bash
+# Replace <username> with the name of your CSC user account and
+# <host> with "puhti" or "mahti"
+
+ssh <username>@<host>.csc.fi -i /<path-to-key-files>/<private-key>
+```
+
+If you intend to use RStudio, Jupyter notebooks or something else where the
+connecting from your local workstation to a compute node requires piping
+through a login node, set agent-forwarding and the path to your private key in
+the `.ssh/config` file as follows:
 
 ```bash
 Host <host>.csc.fi
@@ -76,8 +88,8 @@ Host *.bullx
 
 ## Copying public key to supercomputer
 
-Starting April 14 2025, the only way to copy a public key to a supercomputer is
-through the MyCSC customer portal.
+The only way to copy a public key to a supercomputer is through the MyCSC
+customer portal.
 [Read the instructions here](ssh-keys.md#adding-public-key-in-mycsc).
 
 ### Adding public key in MyCSC
@@ -92,19 +104,27 @@ You can add your public key through the
    measure, you are asked to log in again if it has been a few minutes since
    you last logged into the portal.
 4. Enter a _Title_ for your key pair, e.g. "my-ssh-key".
-5. Paste your **public** SSH key into the _Key_ field. **We strongly recommend
-   using RSA 4096 or Ed25519 key types**.
+5. Paste your **public** SSH key into the _Key_ field. Supported key types are
+   Ed25519 and RSA 2048 through 16384. **We strongly recommend Ed25519**. If
+   opting for RSA, please use at least 4096 bits.
 6. Select _Add_.
 7. You should now see your new key listed under _SSH PUBLIC KEYS_. Note that
    it might take up to one hour for your new key to become active. If it takes
    longer than that, please
    [contact the CSC Service Desk](../../support/contact.md).
 
-Users can check their public keys on Puhti or Mahti using the command:
+Users can check their public keys on Puhti or Mahti using the commands:
 
 ```bash
+# Check timestamp of file (time of previous sync)
 ls -l /var/lib/acco/sshkeys/${USER}/${USER}.pub
+
+# Check its contents (public keys)
+cat /var/lib/acco/sshkeys/${USER}/${USER}.pub
 ```
+
+If you have added multiple keys to MyCSC, they should all be visible in the
+same `${USER}.pub` file.
 
 !!! info "Required key format"
     Your public key should consist of the SSH key type and the key sequence,

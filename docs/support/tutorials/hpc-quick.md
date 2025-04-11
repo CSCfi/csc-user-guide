@@ -119,7 +119,7 @@ interface to interact directly with the supercomputer's
 [Linux operating system](./env-guide/index.md). While this way of working may
 seem archaic, it is truly powerful once you get used to it.
 
-The CLI allows you to 
+The CLI allows you to
 [submit your computations as batch jobs](../../computing/running/getting-started.md)
 to the SLURM job scheduler, which runs them as soon as the requested resources
 are available. Importantly, the batch job system ensures that your jobs are run
@@ -134,7 +134,16 @@ as reviewers and collaborators.
 You can access the command-line interface either by
 using the [shell applications](../../computing/webinterface/shell.md)
 featured in the web interfaces or by
-[using an SSH client on your own workstation](../../computing/connecting/index.md).
+[using an SSH client on your own workstation](../../computing/connecting/index.md#using-an-ssh-client).
+
+!!! note "Connecting with SSH"
+    Please note that connecting to CSC supercomputers from the command-line
+    using an SSH client requires that you first set up SSH keys and add your
+    public key to the MyCSC customer portal. Using SSH keys and MyCSC for
+    adding your public key to a supercomputer is a much more secure way of
+    authenticating than traditional passwords or manually managed SSH keys.
+
+    [Read the detailed instructions on setting up and using SSH keys](../../computing/connecting/ssh-keys.md).
 
 ## How to work with software and data?
 

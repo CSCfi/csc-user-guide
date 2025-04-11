@@ -11,6 +11,7 @@
 * [I need a Database, where can I deploy it?](database.md)
 * [Is there a glossary of the acronyms you keep using?](is-there-a-glossary-of-the-acronyms-you-keep-using.md)
 * [How to write good support requests to CSC Service Desk](../support-howto.md)
+* [My SSH keys do not work](ssh-keys-not-working.md)
 
 ## Batch jobs
 * [Why does my batch job fail?](why-does-my-batch-job-fail.md)
@@ -56,7 +57,7 @@
 
 ## Pouta
 
-* [Can I access MyCSC home/wrkdir/scratch/project directories from Pouta?](how-to-access-home-wrkdir-projdir-from-epouta.md)
+* [Can I access MyCSC home/wrkdir/scratch/project directories from Pouta?](how-to-access-home-wrkdir-projdir-from-cpouta.md)
 * [Can I run MPI applications on pouta?](can-i-run-mpi-applications-on-pouta.md)
 * [Do you offer SSL certificates?](do-you-offer-ssl-certificates.md)
 * [How can I give access to other people to my VM in Pouta?](how-can-I-give-access-to-other-people-to-my-vm-in-pouta.md)

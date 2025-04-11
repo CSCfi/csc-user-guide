@@ -23,20 +23,25 @@ keys. After installing OpenSSH, you can generate SSH keys using PowerShell by
 running:
 
 ```bash
-ssh-keygen -o -a 100 -t ed25519
+ssh-keygen -a 100 -t ed25519
 ```
 
-We strongly recommend using RSA 4096 or Ed25519 key types.
+Supported key types are Ed25519 and RSA 2048 through 16384. **We strongly
+recommend Ed25519**. If opting for RSA, please use at least 4096 bits.
 
 After you have generated an SSH key pair, you need to add the **public key** to
 the MyCSC portal.
 [Read the instructions here](ssh-keys.md#adding-public-key-in-mycsc).
 
+You may also wish to configure
+[authentication agent](#authentication-agent-powershell) to make using SSH keys
+more convenient.
+
 !!! note "Using SSH keys"
     See the page on [setting up SSH keys](ssh-keys.md) for general
-    information about using SSH keys for authentication. Note that copying the
-    public key directly to CSC supercomputers instead of adding it to MyCSC
-    will no longer work after April 14, 2025.
+    information about using SSH keys for authentication. Please note that it is
+    mandatory to add your public key to MyCSC – copying it directly to a CSC
+    supercomputer does not work!
 
 ### Basic usage (PowerShell)
 
@@ -94,17 +99,22 @@ keys. To generate SSH keys for connecting with PuTTY, use the
 provides
 [instructions for using PuTTYgen](https://www.putty.be/0.76/htmldoc/Chapter8.html).
 
-We strongly recommend using RSA 4096 or Ed25519 key types.
+Supported key types are Ed25519 and RSA 2048 through 16384. **We strongly
+recommend Ed25519**. If opting for RSA, please use at least 4096 bits.
 
 After you have generated an SSH key pair, you need to add the **public key** to
 the MyCSC portal.
 [Read the instructions here](ssh-keys.md#adding-public-key-in-mycsc).
 
+You may also wish to configure
+[authentication agent](#authentication-agent-putty) to make using SSH keys more
+convenient.
+
 !!! note "Using SSH keys"
     See the page on [setting up SSH keys](ssh-keys.md) for general
-    information about using SSH keys for authentication. Note that copying the
-    public key directly to CSC supercomputers instead of adding it to MyCSC
-    will no longer work after April 14, 2025.
+    information about using SSH keys for authentication. Please note that it is
+    mandatory to add your public key to MyCSC – copying it directly to a CSC
+    supercomputer does not work!
 
 ### Basic usage (PuTTY)
 
@@ -148,10 +158,11 @@ Connecting to CSC supercomputers using an SSH client requires setting up SSH
 keys. You can generate SSH keys using MobaXterm by running:
 
 ```bash
-ssh-keygen -o -a 100 -t ed25519
+ssh-keygen -a 100 -t ed25519
 ```
 
-We strongly recommend using RSA 4096 or Ed25519 key types.
+Supported key types are Ed25519 and RSA 2048 through 16384. **We strongly
+recommend Ed25519**. If opting for RSA, please use at least 4096 bits.
 
 If you want your generated keys to persist through MobaXterm restarts,
 set a persistent home directory for MobaXterm in the program settings
@@ -161,11 +172,15 @@ After you have generated an SSH key pair, you need to add the **public key** to
 the MyCSC portal.
 [Read the instructions here](ssh-keys.md#adding-public-key-in-mycsc).
 
+You may also wish to configure
+[authentication agent](#authentication-agent-mobaxterm) to make using SSH keys
+more convenient.
+
 !!! note "Using SSH keys"
     See the page on [setting up SSH keys](ssh-keys.md) for general
-    information about using SSH keys for authentication. Note that copying the
-    public key directly to CSC supercomputers instead of adding it to MyCSC
-    will no longer work after April 14, 2025.
+    information about using SSH keys for authentication. Please note that it is
+    mandatory to add your public key to MyCSC – copying it directly to a CSC
+    supercomputer does not work!
 
 ### Basic usage (MobaXterm)
 
