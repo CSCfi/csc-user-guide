@@ -7,13 +7,16 @@ search:
 
 !!! default "Documentation"
 
-    Docs CSC is based on *Material for MkDocs*. Note that not all (by far) features are supported.
+    Docs CSC is based on [_Material for MkDocs_](https://squidfunk.github.io/mkdocs-material/){ target=_blank }. Note that some features might not be available on Docs CSC ([see below](#available-features)).
 
-    [Reference - Material for MkDocs](https://squidfunk.github.io/mkdocs-material/reference/){ .md-button target=_blank }
+!!! info "Pro tip"
 
-!!! info "Source"
+    As the [reference documentation of Material for MkDocs](https://squidfunk.github.io/mkdocs-material/reference/){ target=_blank } is itself implemented using Material for MkDocs, you can browse it for ideas on how to present your documentation on Docs CSC. To view the Markdown source for a particular page of the documentation, click the "view" icon :material-file-eye-outline: in the top-right corner of a page (the same goes for Docs CSC, except here we currently only have the "edit" icon :material-pencil:). Additionally, you can, for example
 
-    This page is more useful when viewed side-by-side with [the Markdown source at GitHub](https://github.com/CSCfi/csc-user-guide/blob/master/docs/ref.md?plain=1){ target=_blank }.
+    - [Search for available icons and emojis](https://squidfunk.github.io/mkdocs-material/reference/icons-emojis/#search)
+    - See how they present the result of using a feature or a piece of configuration. For example, a [tabbed comparison of the result when changing the `align` property for images](https://squidfunk.github.io/mkdocs-material/reference/images/#image-alignment) (click on :material-file-eye-outline: to see the source)
+    - Get an idea whether some feature is available on Docs CSC by comparing the current configuration in [_mkdocs.yml_](https://github.com/CSCfi/csc-user-guide/blob/master/mkdocs.yml) with the [documentation on enabling a feature](https://squidfunk.github.io/mkdocs-material/reference/content-tabs/#configuration)
+    { id=available-features }
 
 This page contains some elements that are available in Docs CSC. For example, here we have some
 body text [with an external link](https://example.com){ target=_blank }. **Some of it is
@@ -42,40 +45,54 @@ Then&mdash;as a rule&mdash;a horizontal rule:
 
 ## Banners
 
-The front page can be fitted with a banner to promote a course for example.
+The front page can be fitted with a banner to promote a course for example. The banner is controlled via the `extra.landing_banner` mapping in _mkdocs.yml_. The image file named in `extra.landing_banner.image` should be placed in the _docs-files_ Allas bucket, under _banners/_.
 
-![Pulla at Docs](https://a3s.fi/docs-files/reference-card/screenshot-of-pulla-banner.png){ width=80% style="margin: 0 10%; border: var(--csc-border);" }
+- `path:` _Don't touch!_
+- `image:` The image filename in _docs-files/banners/_ Allas bucket.
+- `title:` Shown, e.g. as a tooltip when pointing the image with a mouse cursor.
+- `link:` The URL for more information, an enrolment page for a course etc.
+- `description:` A short description of the banner rendered as alternative text. Provided mainly for accessibility, i.e. screen readers.
+- `visible:` Set to `true` or `false` to show or hide the banner.
 
-There is currently no special mechanism in place for controlling banners.
+=== "mkdocs.yml"
 
-=== "index.md"
-
-    There is a `<center>` block in _index.md_ to hold the banner. The images themselves
-    should go to _docs/img/banners/_. The width of the image can be controlled with a
-    `width` attribute. A `target=_blank` attribute should be present when a link
-    is pointing outside of Docs.
-
-    ```html
-    <center>
-      [![A description of the banner](https://a3s.fi/docs-files/path/to/file.png){ width=80% }
-      ](https://example.org/courses/example-course/){ target=_blank }
-    </center>
+    ```yaml
+    extra:
+      # ...
+      landing_banner:
+        path: https://a3s.fi/docs-files/banners/ # Put the image file in this bucket; Don't touch this value.
+        image: example-banner.png
+        title: Example banner now up on landing page
+        link: https://example.org/courses/example-course/
+        description: |-
+          Banner for upcoming example course.
+          Second line for example description.
+        visible: true
     ```
+
+    <div class="result" markdown>
+
+    ![Screenshot of the landing page with a banner](https://a3s.fi/docs-files/reference-card/screenshot-of-landing-page-with-banner.png)
+
+    </div>
 
 === "Show/hide"
 
-    To hide the banner, it can just be commented out (mind that the commented-out `<center>`
-    block will still be visible in the HTML source of the page):
+    To show/hide the banner, just flip `extra.landing_banner.visible` from `false` to `true` (and _vice versa_):
 
-    ```html
-    <!--
-    <center>
-      [![A description of the banner](https://a3s.fi/docs-files/path/to/file.png){ width=80% }
-      ](https://example.org/courses/example-course/){ target=_blank }
-    </center>
-    -->
+    ```yaml
+    extra:
+      # ...
+      landing_banner:
+        # ...
+        visible: false
     ```
 
+    <div class="result" markdown>
+
+    ![Screenshot of the landing page without the banner](https://a3s.fi/docs-files/reference-card/screenshot-of-landing-page-without-banner.png)
+
+    </div>
 
 ## Glossary
 
@@ -112,6 +129,28 @@ The glossary is also viewable as a page at [docs.csc.fi/glossary](support/glossa
 The heading for Headings is a heading of a heading level 2. Remember to only use one heading level
 1 heading on your page and to keep the heading hierarchy intact. So no skipping levels.
 
+```markdown
+### This is a heading level 3 heading
+
+That one's a level 3. Here is some text under it.
+
+
+#### Now for a level 4 heading
+
+Some text _four_ it here.
+
+
+##### Level 5 heading: `now with added monospace`
+
+No text this time.
+
+
+###### Level 6
+
+More text coming up next in Text.
+```
+
+<div class="result" markdown>
 
 ### This is a heading level 3 heading
 
@@ -131,6 +170,8 @@ No text this time.
 ###### Level 6
 
 More text coming up next in Text.
+
+</div>
 
 
 ## Text
@@ -179,6 +220,27 @@ Duis maximus ultrices elit, quis hendrerit orci.
 
 ## Lists
 
+```markdown
+### Unordered list
+
+Here is an unordered list:
+
+- It has an item
+- Another item
+- And yet another item
+
+
+### Ordered list
+
+Let's make an ordered list:
+
+1. An item on a list
+1. Another item
+1. Even a third item
+```
+
+<div class="result" markdown>
+
 ### Unordered list
 
 Here is an unordered list:
@@ -196,10 +258,43 @@ Let's make an ordered list:
 1. Another item
 1. Even a third item
 
+</div>
+
 
 ## Source code
 
-``` py linenums="1" hl_lines="2 3"
+````text
+```python hl_lines="2 3"
+# Here is a box with some syntax highlighted Python
+
+from somewhere import some_code
+
+
+NUMBER = 42
+LIST = [1, 2, 'three']
+
+
+class PythonClass:
+    def __init__(self) -> None:
+        self.__property = 'A string property'
+
+    @property
+    def property(self) -> str:
+        return self.__property
+
+    @staticmethod
+    def method(parameter: int = 1) -> list[None]:
+        return [None] * (parameter + NUMBER)
+
+def main():
+    string = f'Length of list is {len(LIST)}.'
+    print(string)
+```
+````
+
+<div class="result" markdown>
+
+```python hl_lines="2 3"
 # Here is a box with some syntax highlighted Python
 
 from somewhere import some_code
@@ -226,24 +321,59 @@ def main():
     print(string)
 ```
 
-Notice the optional line numbers and the line highlighting (on lines 2 and 3). Additionally, the code boxes can have a title:
+</div>
+
+Notice the line highlighting (on lines 2 and 3). Additionally, the code boxes can have a title:
+
+````text
+```javascript title="looong_comment.js"
+// Here's a JavaScript comment with a loooooooooooooooooooooooooooooooong line. You know, for testing purposes. Tell you what, let's make it just a bit longer still.
+```
+````
+
+<div class="result" markdown>
 
 ```javascript title="looong_comment.js"
 // Here's a JavaScript comment with a loooooooooooooooooooooooooooooooong line. You know, for testing purposes. Tell you what, let's make it just a bit longer still.
 ```
 
+</div>
+
 Diff works too:
+
+````text
+```diff
+-Departing
++Arriving
+```
+````
+
+<div class="result" markdown>
 
 ```diff
 -Departing
 +Arriving
 ```
 
+</div>
+
 Remember to leave an empty line after the ` ``` ` in a source code box. Failing to do so can leave
 any immediately following text as "loose", i.e., outside of an HTML paragraph (`<p>`).
 
 
 ## Tables
+
+```markdown
+| This | Table | Has | Five | Columns |
+|-|-|-|-|-|
+| and | | | | |
+| | it | | | |
+| | | has | | |
+| | | | five | |
+| | | | | rows |
+```
+
+<div class="result" markdown>
 
 | This | Table | Has | Five | Columns |
 |-|-|-|-|-|
@@ -253,15 +383,18 @@ any immediately following text as "loose", i.e., outside of an HTML paragraph (`
 | | | | five | |
 | | | | | rows |
 
+</div>
+
 
 ## Admonitions
 
 ### The fallback style
 
+```markdown
 !!! note "Here we have an important announcement"
 
-    Make sure you read this note inside this very important-looking box, since this is the fallback
-    for unknown type qualifiers.
+    Make sure you read this note inside this very important-looking
+    box as this is the fallback for unknown type qualifiers.
 
     Type qualifier can be anything, as long as it's not
     `default`,
@@ -271,18 +404,74 @@ any immediately following text as "loose", i.e., outside of an HTML paragraph (`
     `warning`,
     `warning-label`,
     `error`,
-    `error-label`,img/ref/image.png)
+    `error-label`,
     `success` or
     `success-label`.
     Perhaps a suitable one would just simply be: `note`.
 
 !!! note ""
+
     Title may be removed with `note ""`.
+```
+
+<div class="result" markdown>
+
+!!! note "Here we have an important announcement"
+
+    Make sure you read this note inside this very important-looking
+    box as this is the fallback for unknown type qualifiers.
+
+    Type qualifier can be anything, as long as it's not
+    `default`,
+    `default-label`,
+    `info`,
+    `info-label`,
+    `warning`,
+    `warning-label`,
+    `error`,
+    `error-label`,
+    `success` or
+    `success-label`.
+    Perhaps a suitable one would just simply be: `note`.
+
+!!! note ""
+
+    Title may be removed with `note ""`.
+
+</div>
 
 
 ### Styles available with type qualifiers
 
 #### Alert style
+
+```markdown
+!!! default "Nothing special"
+
+    Type qualifier: `default`.
+
+    !!! default-label
+
+        This isn't the actual default (fallback) admonition for legacy reasons.
+
+!!! info "Information available"
+
+    Type qualifier: `info`
+
+!!! success "You've got it!"
+
+    Type qualifier: `success`
+
+!!! warning "You're on thin ice!"
+
+    Type qualifier: `warning`
+
+!!! error "Oopsie!"
+
+    Type qualifier: `error`
+```
+
+<div class="result" markdown>
 
 !!! default "Nothing special"
 
@@ -308,8 +497,91 @@ any immediately following text as "loose", i.e., outside of an HTML paragraph (`
 
     Type qualifier: `error`
 
+</div>
+
+
+#### Collapsible
+
+```markdown
+???+ default "Collapsible default"
+
+    Some content shown by default (click on title to hide).
+
+??? default "Collapsible default (click to reveal content)"
+
+    Some content hidden by default.
+
+??? info "Collapsible info (click to reveal content)"
+
+    Some content hidden by default.
+
+??? success "Collapsible success (click to reveal content)"
+
+    Some content hidden by default.
+
+??? warning "Collapsible warning (click to reveal content)"
+
+    Some content hidden by default.
+
+??? error "Collapsible error  (click to reveal content)"
+
+    Some content hidden by default.
+```
+
+<div class="result" markdown>
+
+???+ default "Collapsible default"
+
+    Some content shown by default (click on title to hide).
+
+??? default "Collapsible default (click to reveal content)"
+
+    Some content hidden by default.
+
+??? info "Collapsible info (click to reveal content)"
+
+    Some content hidden by default.
+
+??? success "Collapsible success (click to reveal content)"
+
+    Some content hidden by default.
+
+??? warning "Collapsible warning (click to reveal content)"
+
+    Some content hidden by default.
+
+??? error "Collapsible error  (click to reveal content)"
+
+    Some content hidden by default.
+
+</div>
+
 
 #### With the title removed
+
+```markdown
+!!! default ""
+
+    Type qualifier: `default ""`
+
+!!! info ""
+
+    Type qualifier: `info ""`
+
+!!! success ""
+
+    Type qualifier: `success ""`
+
+!!! warning ""
+
+    Type qualifier: `warning ""`
+
+!!! error ""
+
+    Type qualifier: `error ""`
+```
+
+<div class="result" markdown>
 
 !!! default ""
 
@@ -331,8 +603,34 @@ any immediately following text as "loose", i.e., outside of an HTML paragraph (`
 
     Type qualifier: `error ""`
 
+</div>
+
 
 #### Label style
+
+```markdown
+!!! default-label
+
+    Label type available with type qualifier `default-label`.
+
+!!! info-label
+
+    Label type available with type qualifier `info-label`.
+
+!!! success-label
+
+    Label type available with type qualifier `success-label`.
+
+!!! warning-label
+
+    Label type available with type qualifier `warning-label`.
+
+!!! error-label
+
+    Label type available with type qualifier `error-label`.
+```
+
+<div class="result" markdown>
 
 !!! default-label
 
@@ -354,11 +652,14 @@ any immediately following text as "loose", i.e., outside of an HTML paragraph (`
 
     Label type available with type qualifier `error-label`.
 
+</div>
+
 
 #### Inline admonitions
 
-For inline admonitions, you first define the admonition as either `inline` or `inline end`. Then,
-you define the content.
+````markdown
+For inline admonitions, you first define the admonition as either
+`inline` or `inline end`. Then, you define the content.
 
 !!! warning inline "Hold on!"
 
@@ -383,16 +684,70 @@ fi
 ```
 
 &nbsp;
+````
 
-Try adding a `&nbsp;` if inline admonitions give you trouble. Example found right above this line
-in [the Markdown source](https://github.com/CSCfi/csc-user-guide/blob/master/docs/ref.md?plain=1).
+<div class="result" markdown>
+
+For inline admonitions, you first define the admonition as either `inline` or `inline end`. Then,
+you define the content.
+
+!!! warning inline "Hold on!"
+
+    This script might give unexpected results!
+
+    `warning inline "Hold on!"`
+
+!!! info inline end ""
+
+    Then again, it might not.
+
+    `info inline end`
+
+
+```bash
+a="unexpected"
+b="results"
+if [ $RANDOM -eq $RANDOM ];
+then
+    echo "${a} ${b}"
+fi
+```
+
+&nbsp;
+
+</div>
+
+Try adding a `&nbsp;`, like on the last line of the example above, if inline admonitions give you trouble.
 
 
 ## Images
 
-Here's an image of the Reference card with an image of the Reference card with...
+Images can be added by just using the Markdown syntax for an image
 
-![image of an image of an image...](https://a3s.fi/docs-files/reference-card/screenshot-of-image-of-image-of.png){ width=80% style="margin: 0 10%; border: var(--csc-border);" }
+```markdown
+![Alternative text](https://example.org/image.png "Optional title")
+```
+
+or with caption by wrapping it in some HTML tags like so
+
+```markdown
+<figure markdown="span">
+  ![image of an image of an image...](https://a3s.fi/docs-files/reference-card/screenshot-of-image-of-image-of.png "Now with added tooltip!")
+  <figcaption>Here's an image of the Reference card with an image of the Reference card with...</figcaption>
+</figure>
+```
+
+<div class="result" markdown>
+
+<figure>
+  <img alt="image of an image of an image..."
+       src="https://a3s.fi/docs-files/reference-card/screenshot-of-image-of-image-of.png"
+       title="Now with added tooltip!"
+  />
+    <figcaption>Here's an image of the Reference card with an image of the Reference card with...</figcaption>
+</figure>
+
+</div>
 
 
 ## Embedded videos
@@ -401,15 +756,32 @@ At the moment, to avoid setting cookies, embedded videos are rendered only as an
 to the video in question. For example: Behold! Here is a video of a horse kicking a tree, farting
 on some dogs, and then running away:
 
+
+```html
 <iframe
     width="400"
     height="300"
     srcdoc="https://www.youtube.com/embed/KCzwyFHSMdY"
     title="Horse kicks tree, farts on dogs then runs away."
     frameborder="0"
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media;gyroscope; picture-in-picture"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
     allowfullscreen
 ></iframe>
+```
+
+<div class="result" markdown>
+
+<iframe
+    width="400"
+    height="300"
+    srcdoc="https://www.youtube.com/embed/KCzwyFHSMdY"
+    title="Horse kicks tree, farts on dogs then runs away."
+    frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+    allowfullscreen
+></iframe>
+
+</div>
 
 
 ### Animations
@@ -426,22 +798,36 @@ Documented here: <https://mermaid.js.org/intro/>, but for example a fenced block
 
 ````markdown
 ```mermaid
-%%{init: {'theme': 'neutral' }}%%
-graph TD
-    A(Does your reference card have a Mermaid chart?) -->|Yes| B(Good)
-    A -->|No| C(Yes, it does.)
-    C --> |What? No, you can't just... Oh.| B
+flowchart TD
+    A{"`Does your
+        reference card
+        include a _Mermaid_
+        diagram?`"}
+    B(Yes, it does.)
+    C([Good])
+
+    A-->|Yes| C
+    A -->|No| B
+    B --> |"`What?! No, you
+             can't just... Oh.`"| C
 ```
 ````
 
 produces a flowchart like that:
 
 ```mermaid
-%%{init: {'theme': 'neutral' }}%%
-graph TD
-    A(Does your reference card have a Mermaid chart?) -->|Yes| B(Good)
-    A -->|No| C(Yes, it does.)
-    C --> |What? No, you can't just... Oh.| B
+flowchart TD
+    A{"`Does your
+        reference card
+        include a _Mermaid_
+        diagram?`"}
+    B(Yes, it does.)
+    C([Good])
+
+    A-->|Yes| C
+    A -->|No| B
+    B --> |"`What?! No, you
+             can't just... Oh.`"| C
 ```
 
 
@@ -479,6 +865,21 @@ width and _px_ for height. Here's an example with a width of 100 percent and a h
 
 ## Buttons
 
+Markdown links may have the classes `.md-button` and `.md-button--primary` added to them to produce links that look like buttons. In the following example, the buttons have their corresponding headings/anchors (`#button` for `### Button` and `#primary-button` for `### Primary button`) as the link target.
+
+```markdown
+### Button
+
+[Button](#button){ .md-button }
+
+
+### Primary button
+
+[Primary](#primary-button){ .md-button .md-button--primary }
+```
+
+<div class="result" markdown>
+
 ### Button
 
 [Button](#button){ .md-button }
@@ -488,8 +889,36 @@ width and _px_ for height. Here's an example with a width of 100 percent and a h
 
 [Primary](#primary-button){ .md-button .md-button--primary }
 
+</div>
+
 
 ## Tabbed content
+
+```markdown
+=== "First tab"
+    Content can be divided into tabs. The first one is visible by default.
+
+    !!! default ""
+        There can be any content, like this admonition, under tabs.
+
+=== "Second tab"
+    | Tables | work | fine | too |
+    |-|-|-|-|
+    | just  | as | an | example |
+
+=== "And so on..."
+    It can get quite messy:
+
+    !!! warning ""
+
+        === "Probably not what you want"
+            You can even have nested tabs under admonition under tabs.
+
+        === "But possible, nonetheless"
+            I would recommend against it, though.
+```
+
+<div class="result" markdown>
 
 === "First tab"
     Content can be divided into tabs. The first one is visible by default.
@@ -512,6 +941,8 @@ width and _px_ for height. Here's an example with a width of 100 percent and a h
 
         === "But possible, nonetheless"
             I would recommend against it, though.
+
+</div>
 
 
 ## Snippets
@@ -587,6 +1018,8 @@ hide:
 ---
 
 # Title of the page
+
+...
 ```
 
 Here's a preview screenshot for each case:
@@ -604,6 +1037,61 @@ Here's a preview screenshot for each case:
 === "Hide TOC and navigation"
     ![Hide both enabled](https://a3s.fi/docs-files/reference-card/screenshot-of-hidden-sidebars.png){ width=60% style="margin: 0 10%; border: var(--csc-border);" }
 
+The table of contents may also be inserted arbitrarily on the page by simply adding the marker `[TOC]` in the Markdown source:
+
+```markdown
+# Title of the page
+
+## The table of contents
+
+[TOC]
+
+
+## The following heading
+
+...
+```
+
+
+## Grids
+
+The [Grids feature from _Material for MkDocs_](https://squidfunk.github.io/mkdocs-material/reference/grids/) is available in Docs CSC.
+
+```html title="Grid"
+<div class="grid cards" markdown>
+
+- :material-view-grid:{ .lg .middle } **Grids on Docs CSC**
+
+    ---
+
+    Here we go!
+
+- :material-view-grid-plus:{ .lg .middle } **Another one**
+
+    ---
+
+    Yay!
+
+</div>
+```
+
+<div class="result" markdown>
+  <div class="grid cards" markdown>
+
+  - :material-view-grid:{ .lg .middle } **Grids on Docs CSC**
+
+      ---
+
+      Here we go!
+
+  - :material-view-grid-plus:{ .lg .middle } **Another one**
+
+      ---
+
+      Yay!
+
+  </div>
+</div>
 
 [^1]: This is the footnote ...and here's a shoenote for the footnote: 👞🎵
 [^2]:

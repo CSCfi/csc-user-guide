@@ -1,8 +1,10 @@
 # Applications by discipline
 
 !!! default "Note"
-    In addition to technical support, CSC also provides expert consulting in questions related to sciences and methods. For more details, see our [science-specific support pages at research.csc.fi](https://research.csc.fi/sciences) or directly [contact our Service Desk](../support/contact.md).
-
+    In addition to technical support, CSC also provides expert consulting in
+    questions related to sciences and methods. For more details, see our
+    [science-specific support pages at research.csc.fi](https://research.csc.fi/sciences)
+    or directly [contact our Service Desk](../support/contact.md).
 
 ## Biosciences
 
@@ -72,14 +74,13 @@
 * [wtdbg2](wtdbg2.md) Fast assembler for long-read data
 * [XHMM](xhmm.md) Copy number variation calling from targeted sequencing data
 
-
 ## Chemistry
 
 * [Amber](amber.md) Molecular dynamics suite
 * [AMS](ams.md) Modelling suite providing engines like ADF, BAND, DFTB and MOPAC
 * [AMS-GUI](ams-gui.md) AMS integrated GUI
 * [COSMO-RS](cosmors.md) Toolbox for predictive property calculation of liquids
-* [CP2k](cp2k.md) DFT, quantum chemistry, QM/MM, AIMD etc. in particular for periodic systems
+* [CP2K](cp2k.md) DFT, quantum chemistry, QM/MM, AIMD etc. in particular for periodic systems
 * [CSD](csd.md) Cambridge Crystallographic Database - organic and metallo-organic crystal structures and tools
 * [Gaussian](gaussian.md) Versatile computational chemistry package
 * [GOLD](gold.md) Protein Ligand Docking Software
@@ -100,7 +101,6 @@
 * [VASP](vasp.md) Ab initio DFT electronic structures
 * [VMD](vmd.md) Molecular visualization program
 
-
 ## Computational Engineering
 
 * [Abaqus](abaqus.md) Dassault Systemes' SIMULIA academic research suite
@@ -111,7 +111,6 @@
 * [PALM](palm.md) Meteorological model system for atmospheric and oceanic boundary-layer flows
 * [Star-CCM+](starccm+.md) Computational Fluid Dynamics software by Siemens Digital Industries Software
 
-
 ## Data Analytics and Machine Learning
 
 * [JAX](jax.md) Autograd and XLA, brought together for high-performance machine learning
@@ -120,7 +119,6 @@
 * [RAPIDS](rapids.md) Suite of libraries for data analytics and machine learning on GPUs
 * [Spark](spark.md) High-performance distributed computing framework
 * [TensorFlow](tensorflow.md) Deep learning library for Python
-
 
 ## Geosciences
 
@@ -147,7 +145,6 @@
 * [WhiteboxTools](whiteboxtools.md) an advanced geospatial data analysis platform
 * [Zonation](zonation.md) Spatial conservation prioritization framework
 
-
 ## Language Research and Other Digital Humanities and Social Sciences
 
 * [eBay's tsv-tools](http://urn.fi/urn:nbn:fi:lb-202006081) Utilities for manipulating large tabular data files
@@ -158,7 +155,6 @@
 * [HFST-sv](http://urn.fi/urn:nbn:fi:lb-201509035) Helsinki Finite-State Technology for Swedish
 * [Kaldi](http://urn.fi/urn:nbn:fi:lb-2019121020) Kaldi Speech Recognition Toolkit
 * [UDPipe](http://urn.fi/urn:nbn:fi:lb-201902131) UDPipe Kielipankki version
-
 
 ## Mathematics and Statistics
 
@@ -171,13 +167,12 @@
 * [RStudio](rstudio.md) Integrated development environment for R
 * [SageMath](sagemath.md) Free open-source mathematics software system
 
-
 ## Physics
 
 * [VASP](vasp.md) Ab initio DFT electronic structures
 
-
 ## Quantum
+
 * [Cirq-on-iqm](cirq-on-iqm.md) open-source cirq adapter for quantum computing
 * [Pennylane](pennylane.md) Free open-source software framework for quantum machine learning and quantum computing
 * [Qiskit](qiskit.md) open-source toolkit for useful quantum computing
@@ -187,14 +182,22 @@
 
 * [Accelerated visualization](accelerated-visualization.md) A selection of GPU accelerated visualization applications
 * [Blender](blender.md) 3D modeling, visualization and rendering software
+* [Compute Sanitizer](compute-san.md) Functional correctness checking suite included in the CUDA toolkit
+* [cProfile](cProfile.md) Built-in profiler for Python programs
+* [CUDA-GDB](cuda-gdb.md) Nvidia extension of the GNU debugger GDB
 * [DDT](ddt.md) Parallel debugger
 * [Desktop](desktop.md) Remote desktop environment
+* [GDB](gdb.md) GNU debugger for compiled programs
 * [HyperQueue](hyperqueue.md) Scheduler for sub-node tasks
+* [Intel VTune Profiler](vtune.md) Performance analysis tool for single core and threading performance
 * [Julia-Jupyter](julia-jupyter.md) Interactive computational environment for Julia
 * [Jupyter](jupyter.md) Interactive computational environment for Python
 * [Jupyter for courses](jupyter-for-courses.md) A version of the Jupyter app for course environments
-* [MySQL](../data/kaivos/overview.md) MySQL database client.
+* [Nsight Compute](ncu.md) Nvidia CUDA kernel profiler
+* [Nsight Systems](nsys.md) Nvidia GPU and CPU profiler
 * [ParaView](paraview.md) Free open-source visualization application
+* [Python Debugger](pdb.md) Built-in Python debugger
 * [TensorBoard](tensorboard.md) The visualization toolkit for TensorFlow
 * [VisIt](visit.md) Free open-source visualization application
+* [Visual Profiler](nvprof.md) Nvidia profiling tool that collects and views profiling data
 * [Visual Studio Code](vscode.md) Source code editor

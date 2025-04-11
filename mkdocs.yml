@@ -9,6 +9,15 @@ edit_uri: edit/master/docs/
 extra:
   environment: !ENV [MKDOCS_ENV, "preview"]
   announcement_visible: true # Controls the visibility of the announcement bar
+  landing_banner:
+    path: https://a3s.fi/docs-files/banners/ # Put the image file in this bucket; Don't touch this value.
+    image: example-banner.png
+    title: Example banner now up on landing page
+    link: https://example.org/courses/example-course/
+    description: |-
+      Banner for upcoming example course.
+      Second line for example description.
+    visible: false
   breadcrumbs_debug: !ENV DEBUG # Renders a debug view for breadcrumbs navigation
   analytics:
     provider: custom
@@ -29,6 +38,19 @@ extra:
             Thank you! Your feedback is appreciated.
       exclude:
         - ref.md
+  short_description: User guides and tutorials
+  social:
+    - icon: material/github
+      link: https://github.com/CSCfi/
+    - icon: material/linkedin
+      link: https://www.linkedin.com/company/csc---it-center-for-science/
+    - icon: material/instagram
+      link: https://www.instagram.com/CSCfi/
+    - icon: material/facebook
+      link: https://www.facebook.com/CSCfi/
+    - icon: material/youtube
+      link: https://www.youtube.com/c/CSCfi
+
 
 hooks:
   - hooks/archives.py
@@ -72,6 +94,14 @@ plugins:
         "cloud/concepts.md": "cloud/index.md"
         "apps/alpha.md": "apps/index.md"
         "support/tutorials/env-guide/overview.md": "support/tutorials/env-guide/index.md"
+        "computing/cProfile.md": "apps/cProfile.md"
+        "computing/compute-san.md": "apps/compute-san.md"
+        "computing/cuda-gdb.md": "apps/cuda-gdb.md"
+        "computing/gdb.md": "apps/gdb.md"
+        "computing/ncu.md": "apps/ncu.md"
+        "computing/nsys.md": "apps/nsys.md"
+        "computing/nvprof.md": "apps/nvprof.md"
+        "computing/pdb.md": "apps/pdb.md"  
         # files moved to Allas:
         # (note the '<filename>.<original extension>.md' hack, as these are not Markdown files)
         "data/sensitive-data/federated-ega-pricing.pdf.md": "https://a3s.fi/docs-files/sensitive-data/PDF_instructions/federated-ega-pricing.pdf"
@@ -135,12 +165,14 @@ plugins:
         "cloud/rahti2/images/Using_Rahti_2_integrated_registry.md": "cloud/rahti/images/Using_Rahti_integrated_registry.md"
 
 markdown_extensions:
+  - md_in_html
   - footnotes
   - admonition
   - abbr
   - attr_list
   - def_list
   - pymdownx.details
+  - pymdownx.blocks.caption
   - pymdownx.tabbed:
       alternate_style: true
       slugify: !!python/object/apply:pymdownx.slugs.slugify
@@ -160,16 +192,27 @@ markdown_extensions:
       line_spans: __span
       pygments_lang_class: true
   - pymdownx.inlinehilite
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
 
 theme:
   name: material
   language: en
   custom_dir: csc-overrides
-  logo: assets/images/logo.png
+  logo: assets/images/logo.svg
   favicon: assets/images/logo.png
   icon:
     repo: material/git
     edit: material/pencil
+    admonition:
+      info: material/information
+      success: material/check-circle
+      warning: material/alert
+    # Error admonition type is not in Material for MkDocs,
+    # so the following icon is a literal definition in
+    # csc-overrides/assets/stylesheets/admonition.css
+      # error: material/close-circle
   palette:
     scheme: csc
     primary: custom
@@ -213,7 +256,7 @@ nav:
       - Accessing Mahti large partition: accounts/how-to-access-mahti-large-partition.md
       - Reviewing billing unit usage: accounts/how-to-view-billing-unit-usage.md
       - Billing: accounts/billing.md
-      - Multi-factor Authentication: accounts/mfa.md
+      - Multi-factor authentication: accounts/mfa.md
       - Strong identification: accounts/strong-identification.md
       - FMI: accounts/fmi.md
   - Computing:
@@ -228,9 +271,9 @@ nav:
           - LUMI: "https://docs.lumi-supercomputer.eu/hardware/"
       - Connecting:
           - computing/connecting/index.md
+          - Setting up SSH keys: computing/connecting/ssh-keys.md
           - SSH client on macOS and Linux: computing/connecting/ssh-unix.md
           - SSH client on Windows: computing/connecting/ssh-windows.md
-          - Setting up SSH keys: computing/connecting/ssh-keys.md
       - Supercomputer storage:
           - computing/disk.md
           - Lustre filesystem: computing/lustre.md
@@ -346,6 +389,7 @@ nav:
               - Create a jumphost in cPouta: cloud/pouta/tutorials/create-jumphost.md
               - SSH Key-pair: cloud/pouta/tutorials/ssh-key.md
               - Create a fixed IP for a VM: cloud/pouta/tutorials/create-fixed-ip-for-Vm.md
+              - Set up a pipeline for pictures: cloud/pouta/tutorials/picture-pipeline.md
       - Pukki:
           - cloud/dbaas/index.md
           - What is DBaaS: cloud/dbaas/what-is-dbaas.md

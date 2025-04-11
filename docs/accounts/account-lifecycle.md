@@ -1,5 +1,11 @@
 # CSC user account lifecycle
 
+!!! note
+    CSC will send notifications with instructions by email well in advance
+    before any user accounts or passwords expire. Keep your email
+    contact info up to date. If you have any problems with accounts or
+    logins, contact [CSC Service Desk](../support/contact.md).
+
 The password of your CSC user account is valid for one year. You will receive
 notifications from CSC when your password is about to expire. An expired
 password will not lock you out of your CSC user account if you use one of the

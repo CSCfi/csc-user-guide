@@ -64,8 +64,8 @@
 
   /* Footer color shades */
   --md-footer-fg-color:                var(--c-tertiary-700);
-  --md-footer-fg-color--light:         var(--c-tertiary-400);
-  --md-footer-fg-color--lighter:       var(--c-tertiary-100);
+  --md-footer-fg-color--light:         var(--c-tertiary-300);
+  --md-footer-fg-color--lighter:       var(--c-white);
   --md-footer-bg-color:                var(--c-tertiary-100);
-  --md-footer-bg-color--dark:          var(--c-tertiary-700);
+  --md-footer-bg-color--dark:          var(--c-tertiary-800);
 }

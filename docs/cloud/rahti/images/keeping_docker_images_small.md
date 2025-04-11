@@ -1,3 +1,5 @@
+# Keeping docker images small
+
 It is important to keep docker images small. The smaller the image is, the faster it will be pulled, speeding up deployments, both in production and development environments. In addition, bigger images get deleted from the nodes cache sooner. The maximum size for an image stored in Rahti's internal registry is 5GB. Images over 1GB are already considered very big images.
 
 ## Be mindful about what is added to the image

@@ -1,5 +1,18 @@
 # Applications
 
+## PyTorch 2.6.0 available on Puhti and Mahti, 10.4.2025
+
+PyTorch 2.6.0 is now available on Puhti and Mahti, and set as the
+default version. It includes the most recent versions of popular packages
+such as Hugging Face transformers, vLLM and FAISS. PyTorch geometric
+and related packages are no longer included, as they do not support
+newer versions of PyTorch. See our [PyTorch module documentation for
+more information](../../apps/pytorch.md#available).
+
+## R in Mahti, 7.4.2025
+
+R is now available also on Mahti, including RStudio in the [Mahti web interface](../../computing/webinterface/index.md). The [r-env](../../apps/r-env.md) module on Mahti works similarly as r-env on Puhti and currently has R version 4.4.2. The [new small partition on Mahti](../../computing/running/batch-job-partitions.md#mahti-cpu-partitions-with-core-based-allocation) is suitable for many types of R and RStudio work, excluding the most memory intensive tasks. Users familiar with Puhti should note that on Mahti there is no separate memory reservation, and the only way to get more memory is to reserve more cores. 
+
 ## Tykky 0.4.2, 27.2.2025
 
 The newest version of Tykky (0.4.2) installed and set as default
