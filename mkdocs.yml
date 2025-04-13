@@ -1,6 +1,6 @@
 site_name: Docs CSC
 site_url: https://docs.csc.fi/
-site_description: Instructions and user guides for the CSC supercomputers, cloud services, storage and software, including FAQ and tutorials
+site_description: Ohjeet ja käyttöoppaat CSC:n supertietokoneille, pilvipalveluille, tallennusratkaisuille ja ohjelmistoille, mukaan lukien UKK ja tutoriaalit
 
 repo_name: CSCfi/csc-user-guide
 repo_url: https://github.com/CSCfi/csc-user-guide/
@@ -12,11 +12,11 @@ extra:
   landing_banner:
     path: https://a3s.fi/docs-files/banners/ # Put the image file in this bucket; Don't touch this value.
     image: example-banner.png
-    title: Example banner now up on landing page
+    title: Esimerkkibanneri nyt etusivulla
     link: https://example.org/courses/example-course/
     description: |-
-      Banner for upcoming example course.
-      Second line for example description.
+      Banneri tulevalle esimerkkikurssille.
+      Toinen rivi esimerkkikuvaukselle.
     visible: false
   breadcrumbs_debug: !ENV DEBUG # Renders a debug view for breadcrumbs navigation
   analytics:
@@ -24,21 +24,21 @@ extra:
     matomo_site_id: !ENV [MATOMO_SITE_ID, ""]
     matomo_url: !ENV [MATOMO_URL, ""]
     feedback:
-      title: Do you find this page useful?
+      title: Onko tämä sivu hyödyllinen?
       ratings:
-        - name: "Yes"
+        - name: "Kyllä"
           type: Positive
-          description: Yes! I do find this page useful.
+          description: Kyllä! Tämä sivu on hyödyllinen.
           note: >-
-            Thank you for your feedback!
-        - name: "No"
+            Kiitos palautteestasi!
+        - name: "Ei"
           type: Negative
-          description: No! This page needs to be improved.
+          description: Ei! Tätä sivua pitäisi parantaa.
           note: >-
-            Thank you! Your feedback is appreciated.
+            Kiitos! Arvostamme palautettasi.
       exclude:
         - ref.md
-  short_description: User guides and tutorials
+  short_description: Käyttöoppaat ja tutoriaalit
   social:
     - icon: material/github
       link: https://github.com/CSCfi/
@@ -198,7 +198,7 @@ markdown_extensions:
 
 theme:
   name: material
-  language: en
+  language: fi
   custom_dir: csc-overrides
   logo: assets/images/logo.svg
   favicon: assets/images/logo.png
@@ -239,351 +239,351 @@ validation:
     anchors: warn
 
 nav:
-  - Home: index.md
-  - Accounts:
+  - Etusivu: index.md
+  - Käyttäjätunnukset:
       - accounts/index.md
-      - Creating a new user account: accounts/how-to-create-new-user-account.md
-      - User account lifecycle: accounts/account-lifecycle.md
-      - Changing your password: accounts/how-to-change-password.md
-      - Managing user information: accounts/how-to-manage-user-information.md
-      - Creating a new project: accounts/how-to-create-new-project.md
-      - When your project handles personal data: accounts/when-your-project-handles-personal-data.md
-      - Adding members to your project: accounts/how-to-add-members-to-project.md
-      - Adding service access for your project: accounts/how-to-add-service-access-for-project.md
-      - Managing your project: accounts/how-to-manage-your-project.md
-      - Applying for billing units: accounts/how-to-apply-for-billing-units.md
-      - Increasing disk quotas: accounts/how-to-increase-disk-quotas.md
-      - Accessing Mahti large partition: accounts/how-to-access-mahti-large-partition.md
-      - Reviewing billing unit usage: accounts/how-to-view-billing-unit-usage.md
-      - Billing: accounts/billing.md
-      - Multi-factor authentication: accounts/mfa.md
-      - Strong identification: accounts/strong-identification.md
+      - Uuden käyttäjätilin luominen: accounts/how-to-create-new-user-account.md
+      - Käyttäjätilin elinkaari: accounts/account-lifecycle.md
+      - Salasanan vaihtaminen: accounts/how-to-change-password.md
+      - Käyttäjätietojen hallinta: accounts/how-to-manage-user-information.md
+      - Uuden projektin luominen: accounts/how-to-create-new-project.md
+      - Kun projektisi käsittelee henkilötietoja: accounts/when-your-project-handles-personal-data.md
+      - Jäsenten lisääminen projektiisi: accounts/how-to-add-members-to-project.md
+      - Palveluiden käyttöoikeuden lisääminen projektille: accounts/how-to-add-service-access-for-project.md
+      - Projektisi hallinta: accounts/how-to-manage-your-project.md
+      - Laskentayksiköiden hakeminen: accounts/how-to-apply-for-billing-units.md
+      - Levykiintiöiden kasvattaminen: accounts/how-to-increase-disk-quotas.md
+      - Mahti-supertietokoneen suuren osion käyttö: accounts/how-to-access-mahti-large-partition.md
+      - Laskentayksiköiden käytön tarkastelu: accounts/how-to-view-billing-unit-usage.md
+      - Laskutus: accounts/billing.md
+      - Monivaiheinen tunnistautuminen: accounts/mfa.md
+      - Vahva tunnistautuminen: accounts/strong-identification.md
       - FMI: accounts/fmi.md
-  - Computing:
+  - Laskenta:
       - computing/index.md
-      - Usage policy: computing/usage-policy.md
-      - Billing: computing/hpc-billing.md
-      - Systems:
+      - Käyttöpolitiikka: computing/usage-policy.md
+      - Laskutus: computing/hpc-billing.md
+      - Järjestelmät:
           - computing/available-systems.md
           - Puhti: computing/systems-puhti.md
           - Mahti: computing/systems-mahti.md
           - Roihu: computing/systems-roihu.md
           - LUMI: "https://docs.lumi-supercomputer.eu/hardware/"
-      - Connecting:
+      - Yhteyden muodostaminen:
           - computing/connecting/index.md
-          - Setting up SSH keys: computing/connecting/ssh-keys.md
-          - SSH client on macOS and Linux: computing/connecting/ssh-unix.md
-          - SSH client on Windows: computing/connecting/ssh-windows.md
-      - Supercomputer storage:
+          - SSH-avainten määrittäminen: computing/connecting/ssh-keys.md
+          - SSH-asiakas macOS:lla ja Linuxilla: computing/connecting/ssh-unix.md
+          - SSH-asiakas Windowsilla: computing/connecting/ssh-windows.md
+      - Supertietokoneen tallennustila:
           - computing/disk.md
-          - Lustre filesystem: computing/lustre.md
-          - Allas object storage: computing/allas.md
-      - Module environment: computing/modules.md
-      - Running jobs:
+          - Lustre-tiedostojärjestelmä: computing/lustre.md
+          - Allas-objektitallennustila: computing/allas.md
+      - Moduuliympäristö: computing/modules.md
+      - Töiden ajaminen:
           - computing/running/getting-started.md
-          - Create Puhti batch jobs: computing/running/creating-job-scripts-puhti.md
-          - Puhti example scripts: computing/running/example-job-scripts-puhti.md
-          - Create Mahti batch jobs: computing/running/creating-job-scripts-mahti.md
-          - Mahti example scripts: computing/running/example-job-scripts-mahti.md
-          - Submitting a job: computing/running/submitting-jobs.md
-          - Available batch job partitions: computing/running/batch-job-partitions.md
-          - High throughput: computing/running/throughput.md
-          - Interactive usage: computing/running/interactive-usage.md
-          - Performance checklist: computing/running/performance-checklist.md
-      - Installing software:
+          - Puhti-erätyöskriptin luominen: computing/running/creating-job-scripts-puhti.md
+          - Puhti-esimerkkiskriptit: computing/running/example-job-scripts-puhti.md
+          - Mahti-erätyöskriptin luominen: computing/running/creating-job-scripts-mahti.md
+          - Mahti-esimerkkiskriptit: computing/running/example-job-scripts-mahti.md
+          - Työn lähettäminen: computing/running/submitting-jobs.md
+          - Saatavilla olevat erätyöjonot: computing/running/batch-job-partitions.md
+          - Suuri läpäisykyky: computing/running/throughput.md
+          - Interaktiivinen käyttö: computing/running/interactive-usage.md
+          - Suorituskyvyn tarkistuslista: computing/running/performance-checklist.md
+      - Ohjelmistojen asentaminen:
           - computing/installing.md
-          - Compiling on Puhti: computing/compiling-puhti.md
-          - Compiling on Mahti: computing/compiling-mahti.md
-          - Compiling on LUMI: computing/compiling-lumi.md
-          - High performance libraries: computing/hpc-libraries.md
-      - Debugging: computing/debugging.md
-      - Performance analysis: computing/performance.md
-      - Containers:
+          - Kääntäminen Puhtissa: computing/compiling-puhti.md
+          - Kääntäminen Mahtissa: computing/compiling-mahti.md
+          - Kääntäminen LUMIssa: computing/compiling-lumi.md
+          - Korkean suorituskyvyn kirjastot: computing/hpc-libraries.md
+      - Virheenkorjaus: computing/debugging.md
+      - Suorituskyvyn analyysi: computing/performance.md
+      - Kontit:
           - computing/containers/overview.md
-          - Running containers: computing/containers/run-existing.md
-          - Creating containers: computing/containers/creating.md
-          - Container wrapper (Tykky): computing/containers/tykky.md
-      - Web interface:
+          - Konttien ajaminen: computing/containers/run-existing.md
+          - Konttien luominen: computing/containers/creating.md
+          - Konttikääre (Tykky): computing/containers/tykky.md
+      - Verkkokäyttöliittymä:
           - computing/webinterface/index.md
-          - Connecting: computing/webinterface/connecting.md
-          - Shell: computing/webinterface/shell.md
-          - Files and storage services: computing/webinterface/file-browser.md
-          - Project view: computing/webinterface/project-view.md
-          - Interactive apps:
+          - Yhteyden muodostaminen: computing/webinterface/connecting.md
+          - Komentorivi: computing/webinterface/shell.md
+          - Tiedostot ja tallennuspalvelut: computing/webinterface/file-browser.md
+          - Projektinäkymä: computing/webinterface/project-view.md
+          - Interaktiiviset sovellukset:
               - computing/webinterface/apps.md
-              - Accelerated visualization: computing/webinterface/accelerated-visualization.md
-              - Desktop: computing/webinterface/desktop.md
+              - Nopeutettu visualisointi: computing/webinterface/accelerated-visualization.md
+              - Työpöytä: computing/webinterface/desktop.md
               - Jupyter: computing/webinterface/jupyter.md
-              - Julia on Jupyter: computing/webinterface/julia-on-jupyter.md
-              - Jupyter for courses: computing/webinterface/jupyter-for-courses.md
+              - Julia Jupyterissä: computing/webinterface/julia-on-jupyter.md
+              - Jupyter kursseille: computing/webinterface/jupyter-for-courses.md
               - MATLAB: computing/webinterface/matlab.md
               - MLflow: computing/webinterface/mlflow.md
               - RStudio: computing/webinterface/rstudio.md
               - TensorBoard: computing/webinterface/tensorboard.md
               - Visual Studio Code: computing/webinterface/vscode.md
-      - Quantum computing:
+      - Kvanttilaskenta:
           - computing/quantum-computing/overview.md
           - Kvasi QLM:
-              - Accessing Kvasi: computing/quantum-computing/kvasi/kvasi.md
-              - Kvasi Billing: computing/quantum-computing/kvasi/kvasi-billing.md
+              - Kvasin käyttö: computing/quantum-computing/kvasi/kvasi.md
+              - Kvasin laskutus: computing/quantum-computing/kvasi/kvasi-billing.md
           - Helmi:
-              - Helmi projects: computing/quantum-computing/helmi/helmi-projects.md
-              - Access Helmi through LUMI: computing/quantum-computing/helmi/helmi-from-lumi.md
-              - First quantum job: computing/quantum-computing/helmi/first-quantum-job.md
-              - Technical details: computing/quantum-computing/helmi/helmi-specs.md
-              - FiQCI partition: computing/quantum-computing/helmi/fiqci-partition.md
-              - Running on Helmi: computing/quantum-computing/helmi/running-on-helmi.md
-  - Cloud Services:
+              - Helmi-projektit: computing/quantum-computing/helmi/helmi-projects.md
+              - Helmin käyttö LUMIn kautta: computing/quantum-computing/helmi/helmi-from-lumi.md
+              - Ensimmäinen kvanttityö: computing/quantum-computing/helmi/first-quantum-job.md
+              - Tekniset tiedot: computing/quantum-computing/helmi/helmi-specs.md
+              - FiQCI-osio: computing/quantum-computing/helmi/fiqci-partition.md
+              - Ajaminen Helmillä: computing/quantum-computing/helmi/running-on-helmi.md
+  - Pilvipalvelut:
       - cloud/index.md
       - Noppe:
           - cloud/noppe/index.md
-          - Guide for students: cloud/noppe/guide_for_students.md
-          - Guide for teachers: cloud/noppe/guide_for_teachers.md
-          - Concepts: cloud/noppe/concepts.md
-          - Data persistence: cloud/noppe/data_persistence.md
+          - Opas opiskelijoille: cloud/noppe/guide_for_students.md
+          - Opas opettajille: cloud/noppe/guide_for_teachers.md
+          - Käsitteet: cloud/noppe/concepts.md
+          - Tietojen pysyvyys: cloud/noppe/data_persistence.md
       - Pouta:
           - cloud/pouta/index.md
-          # - What is Pouta: cloud/pouta/pouta-what-is.md
-          # - Security Guidelines for Pouta: cloud/pouta/security.md
-          # - Pouta Accounting Principles and Quotas: cloud/pouta/accounting.md
-          # - Virtual machine flavors and Billing Unit rates: cloud/pouta/vm-flavors-and-billing.md
-          - Getting started:
+          # - Mikä on Pouta: cloud/pouta/pouta-what-is.md
+          # - Poutan tietoturvaohjeet: cloud/pouta/security.md
+          # - Poutan laskutusperiaatteet ja kiintiöt: cloud/pouta/accounting.md
+          # - Virtuaalikonetyypit ja laskentayksikköhinnat: cloud/pouta/vm-flavors-and-billing.md
+          - Aloittaminen:
               - cloud/pouta/getting-started.md
-              - Creating a virtual machine: cloud/pouta/launch-vm-from-web-gui.md
-              - Connecting the virtual machine: cloud/pouta/connecting-to-vm.md
-              - Command line:
+              - Virtuaalikoneen luominen: cloud/pouta/launch-vm-from-web-gui.md
+              - Virtuaalikoneeseen yhdistäminen: cloud/pouta/connecting-to-vm.md
+              - Komentorivi:
                   - cloud/pouta/command-line-tools.md
-                  - Install: cloud/pouta/install-client.md
-          - Configuration:
+                  - Asennus: cloud/pouta/install-client.md
+          - Konfigurointi:
               - cloud/pouta/configuration.md
-              - VM lifecycle & saving BUs: cloud/pouta/vm-lifecycle.md
-              - Virtual machine flavors and Billing Unit rates: cloud/pouta/vm-flavors-and-billing.md
-              - Accounting principles and quotas: cloud/pouta/accounting.md
-              - Images:
+              - Virtuaalikoneen elinkaari ja laskentayksiköiden säästäminen: cloud/pouta/vm-lifecycle.md
+              - Virtuaalikonetyypit ja laskentayksikköhinnat: cloud/pouta/vm-flavors-and-billing.md
+              - Laskutusperiaatteet ja kiintiöt: cloud/pouta/accounting.md
+              - Levykuvat:
                   - cloud/pouta/images.md
-                  - Creating, Converting, Uploading and Sharing virtual machine images: cloud/pouta/adding-images.md
-              - Networking:
+                  - Virtuaalikoneiden levykuvien luominen, muuntaminen, lataaminen ja jakaminen: cloud/pouta/adding-images.md
+              - Verkko:
                   - cloud/pouta/networking.md
-              - Storage:
+              - Tallennustila:
                   - cloud/pouta/storage.md
-                  - Ephemeral storage: cloud/pouta/ephemeral-storage.md
-                  - Persistent volumes: cloud/pouta/persistent-volumes.md
-                  - Snapshots: cloud/pouta/snapshots.md
-                  - Snapshot using QEMU: cloud/pouta/qemu-vm.md
-                  - Multi-attach Cinder storage: cloud/pouta/multiattach.md
-          - Advanced:
+                  - Tilapäistallennustila: cloud/pouta/ephemeral-storage.md
+                  - Pysyvät levyt: cloud/pouta/persistent-volumes.md
+                  - Tilannekuvat: cloud/pouta/snapshots.md
+                  - Tilannekuva QEMUn avulla: cloud/pouta/qemu-vm.md
+                  - Moni-liitettävä Cinder-tallennustila: cloud/pouta/multiattach.md
+          - Edistynyt käyttö:
               - cloud/pouta/advanced.md
-              - Additional services (email, dns): cloud/pouta/additional-services.md
-              - API Access: cloud/pouta/api-access.md
-              - Application credentials: cloud/pouta/application-credentials.md
-              - Application Development Practises: cloud/pouta/application-dev.md
-              - Known problems and limitations: cloud/pouta/known-problems.md
-              - Security Guidelines for Pouta: cloud/pouta/security.md
-              # - Self study and troubleshooting:
-              #     - Pouta videos: cloud/pouta/pouta-videos.md
-          - Tutorials:
+              - Lisäpalvelut (sähköposti, dns): cloud/pouta/additional-services.md
+              - API-käyttö: cloud/pouta/api-access.md
+              - Sovellustunnukset: cloud/pouta/application-credentials.md
+              - Sovelluskehityskäytännöt: cloud/pouta/application-dev.md
+              - Tunnetut ongelmat ja rajoitukset: cloud/pouta/known-problems.md
+              - Poutan tietoturvaohjeet: cloud/pouta/security.md
+              # - Itseopiskelua ja vianetsintää:
+              #     - Pouta-videot: cloud/pouta/pouta-videos.md
+          - Tutoriaalit:
               - cloud/pouta/tutorials/index.md
-              - cPouta and ePouta related videos: cloud/pouta/tutorials/pouta-videos.md
-              - Learn cloud computing by developing and deploying a web application: cloud/pouta/tutorials/web-app-dev-cloud.md
-              - Orchestration with Heat: cloud/pouta/tutorials/heat-orchestration.md
-              - Create a jumphost in cPouta: cloud/pouta/tutorials/create-jumphost.md
-              - SSH Key-pair: cloud/pouta/tutorials/ssh-key.md
-              - Create a fixed IP for a VM: cloud/pouta/tutorials/create-fixed-ip-for-Vm.md
-              - Set up a pipeline for pictures: cloud/pouta/tutorials/picture-pipeline.md
+              - cPouta- ja ePouta-aiheiset videot: cloud/pouta/tutorials/pouta-videos.md
+              - Opettele pilvilaskentaa kehittämällä ja julkaisemalla verkkosovellus: cloud/pouta/tutorials/web-app-dev-cloud.md
+              - Orkestrointi Heat-työkalulla: cloud/pouta/tutorials/heat-orchestration.md
+              - Luo hyppykone cPoutaan: cloud/pouta/tutorials/create-jumphost.md
+              - SSH-avainpari: cloud/pouta/tutorials/ssh-key.md
+              - Kiinteän IP-osoitteen luominen virtuaalikoneelle: cloud/pouta/tutorials/create-fixed-ip-for-Vm.md
+              - Kuvaputken asennus: cloud/pouta/tutorials/picture-pipeline.md
       - Pukki:
           - cloud/dbaas/index.md
-          - What is DBaaS: cloud/dbaas/what-is-dbaas.md
-          - Security Guides: cloud/dbaas/security-guides.md
-          - Getting started with DBaaS:
+          - Mikä on DBaaS: cloud/dbaas/what-is-dbaas.md
+          - Tietoturvaohjeet: cloud/dbaas/security-guides.md
+          - DBaaS:n käytön aloittaminen:
               - cloud/dbaas/getting-started.md
-              - Web interface: cloud/dbaas/web-interface.md
-              - Command Line tools: cloud/dbaas/cli.md
-              - Firewalls: cloud/dbaas/firewalls.md
-              - Database Operations: cloud/dbaas/operations.md
-              - Application Credentials: cloud/dbaas/application-credentials.md
-          - Database sizes and prices: cloud/dbaas/flavors.md
-          - Backups: cloud/dbaas/backups.md
-          - Databases:
+              - Verkkokäyttöliittymä: cloud/dbaas/web-interface.md
+              - Komentoriviohjeet: cloud/dbaas/cli.md
+              - Palomuurit: cloud/dbaas/firewalls.md
+              - Tietokantaoperaatiot: cloud/dbaas/operations.md
+              - Sovellustunnukset: cloud/dbaas/application-credentials.md
+          - Tietokantakoot ja hinnat: cloud/dbaas/flavors.md
+          - Varmuuskopiot: cloud/dbaas/backups.md
+          - Tietokannat:
               - cloud/dbaas/databases.md
               - PostgreSQL:
                   - cloud/dbaas/postgresql.md
-                  - Accessing your database: cloud/dbaas/postgres-accessing.md
-                  - PostgreSQL version differences: cloud/dbaas/postgres-versions.md
-                  - Extensions and parameters: cloud/dbaas/postgres-extensions.md
-                  - Permissions: cloud/dbaas/postgres-permissions.md
+                  - Tietokantaan pääsy: cloud/dbaas/postgres-accessing.md
+                  - PostgreSQL-versioiden erot: cloud/dbaas/postgres-versions.md
+                  - Laajennukset ja parametrit: cloud/dbaas/postgres-extensions.md
+                  - Käyttöoikeudet: cloud/dbaas/postgres-permissions.md
               - MariaDB:
                   - cloud/dbaas/mariadb.md
-                  - Accessing your database: cloud/dbaas/mariadb-accessing.md
-                  - Permissions: cloud/dbaas/mariadb-permissions.md
+                  - Tietokantaan pääsy: cloud/dbaas/mariadb-accessing.md
+                  - Käyttöoikeudet: cloud/dbaas/mariadb-permissions.md
 
-          - More advanced features: cloud/dbaas/advanced.md
-          - Resizing database instance volume: cloud/dbaas/resize-volume.md
+          - Edistyneemmät ominaisuudet: cloud/dbaas/advanced.md
+          - Tietokantainstanssin levyn koon muuttaminen: cloud/dbaas/resize-volume.md
       - Rahti:
           - cloud/rahti/index.md
-          - What is Rahti:
+          - Mikä on Rahti:
               - cloud/rahti/rahti-what-is.md
-              - Containers & their Orchestration: cloud/rahti/containers.md
-              - Kubernetes and OpenShift concepts: cloud/rahti/concepts.md
-              - External documentation: cloud/rahti/ext_docs.md
-          - Getting Started:
-              - Getting access: cloud/rahti/access.md
-              - Web user interface: cloud/rahti/usage/getting_started.md
-              - Command line tool: cloud/rahti/usage/cli.md
-              - Moving into Rahti: cloud/rahti/moving-into.md
-          - Configuration:
-              - Billing: cloud/rahti/billing.md
-              - Projects and quota: cloud/rahti/usage/projects_and_quota.md
-              - Rahti Catalog: cloud/rahti/catalog-docs.md
-              - Images:
+              - Kontit ja niiden orkestrointi: cloud/rahti/containers.md
+              - Kubernetes- ja OpenShift-käsitteet: cloud/rahti/concepts.md
+              - Ulkoinen dokumentaatio: cloud/rahti/ext_docs.md
+          - Aloittaminen:
+              - Käyttöoikeuden hankkiminen: cloud/rahti/access.md
+              - Verkkokäyttöliittymä: cloud/rahti/usage/getting_started.md
+              - Komentorivityökalu: cloud/rahti/usage/cli.md
+              - Siirtyminen Rahtiin: cloud/rahti/moving-into.md
+          - Konfigurointi:
+              - Laskutus: cloud/rahti/billing.md
+              - Projektit ja kiintiöt: cloud/rahti/usage/projects_and_quota.md
+              - Rahti-katalogi: cloud/rahti/catalog-docs.md
+              - Levykuvat:
                   - cloud/rahti/images/overview.md
-                  - Creating an image: cloud/rahti/images/creating.md
-                  - Keeping docker images small: cloud/rahti/images/keeping_docker_images_small.md
-                  - Using Rahti integrated registry: cloud/rahti/images/Using_Rahti_integrated_registry.md
-              - Storage in Rahti:
+                  - Levykuvan luominen: cloud/rahti/images/creating.md
+                  - Docker-levykuvien pitäminen pieninä: cloud/rahti/images/keeping_docker_images_small.md
+                  - Rahtin integroidun rekisterin käyttö: cloud/rahti/images/Using_Rahti_integrated_registry.md
+              - Tallennustila Rahtissa:
                   - cloud/rahti/storage/index.md
-                  - Ephemeral storage: cloud/rahti/storage/ephemeral.md
-                  - Persistent volumes: cloud/rahti/storage/persistent.md
-                  - Object storage: cloud/rahti/storage/objectstorage.md
-                  - Expand a volume: cloud/rahti/storage/expand-volumes.md
-                  - Volume snapshot: cloud/rahti/storage/volume-snapshot.md
-          - Advanced:
+                  - Tilapäistallennustila: cloud/rahti/storage/ephemeral.md
+                  - Pysyvät levyt: cloud/rahti/storage/persistent.md
+                  - Objektitallennustila: cloud/rahti/storage/objectstorage.md
+                  - Levyn laajentaminen: cloud/rahti/storage/expand-volumes.md
+                  - Levyn tilannekuva: cloud/rahti/storage/volume-snapshot.md
+          - Edistynyt käyttö:
               - cloud/rahti/advanced.md
-              - Networking: cloud/rahti/networking.md
-              - Security guide: cloud/rahti/security-guide.md
-          - Tutorials:
+              - Verkko: cloud/rahti/networking.md
+              - Tietoturvaohje: cloud/rahti/security-guide.md
+          - Tutoriaalit:
               - cloud/rahti/tutorials/index.md
               - 4cat: cloud/rahti/tutorials/4cat.md
-              - Advanced NetworkPolicies: cloud/rahti/tutorials/advanced-NetworkPolicies-networking.md
-              - Accessing databases on Rahti from CSC supercomputers: cloud/rahti/tutorials/connect-database-hpc.md
-              - Allow pulls of images from one Rahti project to another: cloud/rahti/tutorials/allow-pull-from-other-projects.md
-              - Annotations: cloud/rahti/tutorials/annotations.md
-              - CI/CD on Rahti: cloud/rahti/tutorials/ci_cd_introduction.md
-              - Custom domain names and secure transport: cloud/rahti/tutorials/custom-domain.md
-              - Deploying a static web server using the command line: cloud/rahti/tutorials/deploy_static_webserver_cli.md
-              - Deploying a static web server using the web interface: cloud/rahti/tutorials/deploy_static_webserver_webconsole.md
+              - Edistyneet NetworkPolicy-käytännöt: cloud/rahti/tutorials/advanced-NetworkPolicies-networking.md
+              - Rahtin tietokantoihin pääsy CSC-supertietokoneista: cloud/rahti/tutorials/connect-database-hpc.md
+              - Levykuvien latausoikeuden antaminen toisesta Rahti-projektista: cloud/rahti/tutorials/allow-pull-from-other-projects.md
+              - Huomautukset: cloud/rahti/tutorials/annotations.md
+              - CI/CD Rahtissa: cloud/rahti/tutorials/ci_cd_introduction.md
+              - Mukautetut verkkotunnukset ja suojattu tiedonsiirto: cloud/rahti/tutorials/custom-domain.md
+              - Staattisen verkkopalvelimen käyttöönotto komentoriviltä: cloud/rahti/tutorials/deploy_static_webserver_cli.md
+              - Staattisen verkkopalvelimen käyttöönotto verkkokäyttöliittymällä: cloud/rahti/tutorials/deploy_static_webserver_webconsole.md
               - Kustomize: cloud/rahti/tutorials/kustomize.md
-              - Learn cloud computing by developing and deploying a web application: cloud/rahti/tutorials/web-app-dev-cloud.md
-              - Multi stage builds: cloud/rahti/tutorials/multi-stage-builds.md
-              - Pod (anti) affinity: cloud/rahti/tutorials/pod-affinity.md
-              - Reverse proxy authentication using a sidecar container: cloud/rahti/tutorials/sidecar_proxy_authentication.md
-              - Sending e-mail from Rahti: cloud/rahti/tutorials/email.md
-              - Setup a HTTP redirection in Rahti: cloud/rahti/tutorials/http-redirector.md
-              - Short introduction to YAML: cloud/rahti/tutorials/yaml_introduction.md
-              - Webhooks: cloud/rahti/tutorials/webhooks.md
+              - Opettele pilvilaskentaa kehittämällä ja julkaisemalla verkkosovellus: cloud/rahti/tutorials/web-app-dev-cloud.md
+              - Monivaiheinen kääntäminen: cloud/rahti/tutorials/multi-stage-builds.md
+              - Pod (anti) yhteensopivuus: cloud/rahti/tutorials/pod-affinity.md
+              - Käänteisen välityspalvelimen tunnistautuminen sivukontin avulla: cloud/rahti/tutorials/sidecar_proxy_authentication.md
+              - Sähköpostin lähettäminen Rahtista: cloud/rahti/tutorials/email.md
+              - HTTP-uudelleenohjauksen asennus Rahtiin: cloud/rahti/tutorials/http-redirector.md
+              - Lyhyt johdatus YAML-formaattiin: cloud/rahti/tutorials/yaml_introduction.md
+              - Webhookit: cloud/rahti/tutorials/webhooks.md
               - OAuth2 Proxy: cloud/rahti/tutorials/oauth2.md
   - Data:
       - data/index.md
-      #    - Datasets: data/datasets.md
-      - Working with data:
+      #    - Aineistot: data/datasets.md
+      - Datan kanssa työskentely:
           - data/datasets/dataset-sources.md
-          - Tips for data management: data/datasets/datamanagement.md
-          - Metadata and data documentation: data/datasets/metadata-and-documentation.md
-          - Dataset sources: data/datasets/sourcing-datasets.md
-          - Storing data at CSC: data/datasets/hosting-datasets-at-CSC.md
-          - Publishing datasets: data/datasets/publishing-datasets.md
-      - Moving data:
+          - Vinkkejä tiedonhallintaan: data/datasets/datamanagement.md
+          - Metatiedot ja datan dokumentointi: data/datasets/metadata-and-documentation.md
+          - Aineistolähteet: data/datasets/sourcing-datasets.md
+          - Datan tallentaminen CSC:llä: data/datasets/hosting-datasets-at-CSC.md
+          - Aineistojen julkaiseminen: data/datasets/publishing-datasets.md
+      - Datan siirtäminen:
           - data/moving/index.md
-          - Copying files using scp: data/moving/scp.md
-          - Moving files using the HPC web interfaces: data/moving/web-interface.md
-          - Graphical file transfer tools: data/moving/graphical_transfer.md
-          - Using rsync for data transfer and synchronization: data/moving/rsync.md
-          - Using tar and SSH to transfer many small files efficiently: data/moving/tar_ssh.md
-          - Using wget to download data from web sites to CSC: data/moving/wget.md
-          - Sharing and transporting files using Funet FileSender: data/moving/funet.md
-          - Moving data between IDA and CSC computing environment: data/ida/using_ida.md
-          - Remote disk mounts: data/moving/disk_mount.md
-          - Copying data between Allas and IDA via Puhti: data/moving/copy_allas_ida.md
-      - Allas object storage:
+          - Tiedostojen kopiointi scp:llä: data/moving/scp.md
+          - Tiedostojen siirtäminen HPC-verkkokäyttöliittymien avulla: data/moving/web-interface.md
+          - Graafiset tiedostonsiirtotyökalut: data/moving/graphical_transfer.md
+          - Rsyncin käyttö tiedonsiirtoon ja synkronointiin: data/moving/rsync.md
+          - Tarin ja SSH:n käyttö pienten tiedostojen tehokkaaseen siirtoon: data/moving/tar_ssh.md
+          - Wgetin käyttö datan lataamiseen verkkosivuilta CSC:lle: data/moving/wget.md
+          - Tiedostojen jakaminen ja siirtäminen Funet FileSenderillä: data/moving/funet.md
+          - Datan siirtäminen IDAn ja CSC:n laskentaympäristön välillä: data/ida/using_ida.md
+          - Etälevyjen liittäminen: data/moving/disk_mount.md
+          - Datan kopioiminen Allaksen ja IDAn välillä Puhtin kautta: data/moving/copy_allas_ida.md
+      - Allas-objektitallennustila:
           - data/Allas/index.md
-          - Introduction to Allas Storage service: data/Allas/introduction.md
-          - Accessing Allas: data/Allas/accessing_allas.md
-          - Common Use Cases: data/Allas/using_allas/common_use_cases.md
-          - Common Error Messages: data/Allas/using_allas/error_messages.md
-          - Allas object storage related terms and concepts: data/Allas/terms_and_concepts.md
-          - Allas clients:
-              - Allas Web UI: data/Allas/using_allas/allas-ui.md
+          - Johdatus Allas-tallennuspalveluun: data/Allas/introduction.md
+          - Allakseen pääsy: data/Allas/accessing_allas.md
+          - Yleiset käyttötapaukset: data/Allas/using_allas/common_use_cases.md
+          - Yleiset virheilmoitukset: data/Allas/using_allas/error_messages.md
+          - Allas-objektitallennustilaan liittyvät termit ja käsitteet: data/Allas/terms_and_concepts.md
+          - Allas-asiakasohjelmat:
+              - Allas Web-käyttöliittymä: data/Allas/using_allas/allas-ui.md
               - a-command: data/Allas/using_allas/a_commands.md
               - a-backup: data/Allas/using_allas/a_backup.md
               - Cyberduck: data/Allas/using_allas/cyberduck.md
-              - Python with S3: data/Allas/using_allas/python_boto3.md
-              - Python with SWIFT: data/Allas/using_allas/python_swift.md
-              - Rclone from Computing environment: data/Allas/using_allas/rclone.md
-              - Rclone form Workstation: data/Allas/using_allas/rclone_local.md
+              - Python S3-rajapinnalla: data/Allas/using_allas/python_boto3.md
+              - Python SWIFT-rajapinnalla: data/Allas/using_allas/python_swift.md
+              - Rclone laskentaympäristöstä: data/Allas/using_allas/rclone.md
+              - Rclone työasemalta: data/Allas/using_allas/rclone_local.md
               - Swift: data/Allas/using_allas/swift_client.md
               - S3cmd: data/Allas/using_allas/s3_client.md
-              - Web GUI: data/Allas/using_allas/web_client.md
+              - Web-käyttöliittymä: data/Allas/using_allas/web_client.md
       # data/Allas/using_allas/directory_object_error.md is not linked in this structure
-      - Kaivos database service:
+      - Kaivos-tietokantapalvelu:
           - data/kaivos/overview.md
-          - Getting a database account: data/kaivos/kaivos-account.md
-          - MySQL client programs at CSC: data/kaivos/kaivos_client_in_puhti.md
-          - Data import and export: data/kaivos/kaivos_import.md
-          - Using MySQL client through batch job system: data/kaivos/kaivos_batch_job.md
-          - Using kaivos.csc.fi directly from your local computer: data/kaivos/kaivos_remote.md
-          - Using Perl MySQL API at CSC: data/kaivos/kaivos_perl.md
+          - Tietokantatilin hankkiminen: data/kaivos/kaivos-account.md
+          - MySQL-asiakasohjelmat CSC:llä: data/kaivos/kaivos_client_in_puhti.md
+          - Tietojen tuonti ja vienti: data/kaivos/kaivos_import.md
+          - MySQL-asiakkaan käyttö eräajopalvelun kautta: data/kaivos/kaivos_batch_job.md
+          - Kaivos.csc.fi:n käyttö suoraan paikalliselta tietokoneelta: data/kaivos/kaivos_remote.md
+          - Perl MySQL API:n käyttö CSC:llä: data/kaivos/kaivos_perl.md
           # Python MySQL API at CSC:
-  - Sensitive data:
+  - Arkaluonteinen data:
       - data/sensitive-data/index.md
-      - Choose service: data/sensitive-data/choose-a-service.md
-      - Store and analyse:
-          - Start here:
+      - Palvelun valinta: data/sensitive-data/choose-a-service.md
+      - Tallenna ja analysoi:
+          - Aloita tästä:
               - data/sensitive-data/sd-access.md
-              - Access as project manager: data/sensitive-data/sd-use-case-new-user-project-manager.md
-              - Access as project member: data/sensitive-data/sd-use-case-new-user-project-member.md
-          - Store with SD Connect:
+              - Pääsy projektin vetäjänä: data/sensitive-data/sd-use-case-new-user-project-manager.md
+              - Pääsy projektin jäsenenä: data/sensitive-data/sd-use-case-new-user-project-member.md
+          - Tallenna SD Connectilla:
               - data/sensitive-data/sd_connect.md
-              - Login to SD Connect: data/sensitive-data/sd-connect-login.md
-              - Upload: data/sensitive-data/sd-connect-upload.md
-              - Share: data/sensitive-data/sd-connect-share.md
-              - Download: data/sensitive-data/sd-connect-download.md
-              - Delete: data/sensitive-data/sd-connect-delete.md
-              - Command line interface: data/sensitive-data/sd-connect-command-line-interface.md
-              - Troubleshooting: data/sensitive-data/sd-connect-troubleshooting.md
-          - Analyse with SD Desktop:
+              - Kirjautuminen SD Connectiin: data/sensitive-data/sd-connect-login.md
+              - Lataaminen palveluun: data/sensitive-data/sd-connect-upload.md
+              - Jakaminen: data/sensitive-data/sd-connect-share.md
+              - Lataaminen palvelusta: data/sensitive-data/sd-connect-download.md
+              - Poistaminen: data/sensitive-data/sd-connect-delete.md
+              - Komentorivikäyttöliittymä: data/sensitive-data/sd-connect-command-line-interface.md
+              - Vianetsintä: data/sensitive-data/sd-connect-troubleshooting.md
+          - Analysoi SD Desktopilla:
               - data/sensitive-data/sd_desktop.md
-              - Login to SD Desktop: data/sensitive-data/sd-desktop-login.md
-              - Create virtual desktop: data/sensitive-data/sd-desktop-create.md
-              - Manage virtual desktop: data/sensitive-data/sd-desktop-manage.md
-              - Access virtual desktop: data/sensitive-data/sd-desktop-access-vm.md
-              - Work with your virtual desktop: data/sensitive-data/sd-desktop-working.md
-              - Customisation - software & tools: data/sensitive-data/sd-desktop-software.md
-              - Import data: data/sensitive-data/sd-desktop-access.md
-              - Export data via user interface: data/sensitive-data/sd-desktop-export.md
-              - Export data programmatically: data/sensitive-data/sd-desktop-export-commandline.md
-              - Troubleshooting: data/sensitive-data/sd-desktop-troubleshooting.md
-      - Publish and reuse:
-          - Publish with Federated EGA:
+              - Kirjautuminen SD Desktopiin: data/sensitive-data/sd-desktop-login.md
+              - Virtuaalityöpöydän luominen: data/sensitive-data/sd-desktop-create.md
+              - Virtuaalityöpöydän hallinta: data/sensitive-data/sd-desktop-manage.md
+              - Virtuaalityöpöydän käyttö: data/sensitive-data/sd-desktop-access-vm.md
+              - Virtuaalityöpöydällä työskentely: data/sensitive-data/sd-desktop-working.md
+              - Mukautus - ohjelmistot ja työkalut: data/sensitive-data/sd-desktop-software.md
+              - Datan tuonti: data/sensitive-data/sd-desktop-access.md
+              - Datan vienti käyttöliittymän kautta: data/sensitive-data/sd-desktop-export.md
+              - Datan vienti ohjelmallisesti: data/sensitive-data/sd-desktop-export-commandline.md
+              - Vianetsintä: data/sensitive-data/sd-desktop-troubleshooting.md
+      - Julkaise ja uudelleenkäytä:
+          - Julkaise Federated EGA:lla:
               - data/sensitive-data/federatedega.md
-              - Publish data: data/sensitive-data/fega-submission.md
-          - Reuse with SD Apply:
+              - Datan julkaiseminen: data/sensitive-data/fega-submission.md
+          - Uudelleenkäytä SD Apply:lla:
               - data/sensitive-data/sd-apply.md
-              - Apply access to FEGA data: data/sensitive-data/sd-apply-access.md
-              - Approve access to FEGA data: data/sensitive-data/sd-apply-approval.md
-              - Enable reuse of FEGA data: data/sensitive-data/sd-apply-dac.md
-      - Secondary use of health and social data:
-          - Start here:
+              - Hae pääsyä FEGA-dataan: data/sensitive-data/sd-apply-access.md
+              - Hyväksy pääsy FEGA-dataan: data/sensitive-data/sd-apply-approval.md
+              - Mahdollista FEGA-datan uudelleenkäyttö: data/sensitive-data/sd-apply-dac.md
+      - Terveys- ja sosiaalialan tietojen toissijainen käyttö:
+          - Aloita tästä:
               - data/sensitive-data/secondarydata-access.md
-              - Access with Findata permit: data/sensitive-data/findata-permit.md
-              - Access with register permit: data/sensitive-data/single-register-permit.md
-          - Analyse with SD Desktop for secondary use:
+              - Findata-luvalla pääsy: data/sensitive-data/findata-permit.md
+              - Rekisteriluvalla pääsy: data/sensitive-data/single-register-permit.md
+          - Analysoi SD Desktopilla toissijaiseen käyttöön:
               - data/sensitive-data/sd-desktop-audited.md
-              - Login to SD Desktop: data/sensitive-data/sd-desktop-secondary-login.md
-              - Create virtual desktop: data/sensitive-data/sd-desktop-secondary-create.md
-              - Manage virtual desktop: data/sensitive-data/sd-desktop-secondary-manage.md
-              - Access virtual desktop: data/sensitive-data/sd-desktop-secondary-access-vm.md
-              - Work with your desktop and software: data/sensitive-data/sd-desktop-secondary-working.md
-              - Import data: data/sensitive-data/sd-desktop-secondary-access.md
-              - Export data: data/sensitive-data/sd-desktop-secondary-export.md
-              - Troubleshooting: data/sensitive-data/sd-desktop-secondary-troubleshooting.md
-          - Instructions for registers: data/sensitive-data/single-register-submission.md
-      - Terminology: data/sensitive-data/sd-terminology.md
-  - Applications:
+              - Kirjautuminen SD Desktopiin: data/sensitive-data/sd-desktop-secondary-login.md
+              - Virtuaalityöpöydän luominen: data/sensitive-data/sd-desktop-secondary-create.md
+              - Virtuaalityöpöydän hallinta: data/sensitive-data/sd-desktop-secondary-manage.md
+              - Virtuaalityöpöydän käyttö: data/sensitive-data/sd-desktop-secondary-access-vm.md
+              - Työpöydällä ja ohjelmistoilla työskentely: data/sensitive-data/sd-desktop-secondary-working.md
+              - Datan tuonti: data/sensitive-data/sd-desktop-secondary-access.md
+              - Datan vienti: data/sensitive-data/sd-desktop-secondary-export.md
+              - Vianetsintä: data/sensitive-data/sd-desktop-secondary-troubleshooting.md
+          - Ohjeet rekistereille: data/sensitive-data/single-register-submission.md
+      - Terminologia: data/sensitive-data/sd-terminology.md
+  - Sovellukset:
       - apps/index.md
-      - By discipline: apps/by_discipline.md
-      - By availability: apps/by_system.md
-      - By license: apps/by_license.md
-  - FAQ: support/faq/index.md
-  - Tutorials: support/tutorials/index.md
-  - Training material: support/training-material/index.md
-  - Contact: support/contact.md
-  - What's new: support/whats-new.md
+      - Tieteenaloittain: apps/by_discipline.md
+      - Saatavuuden mukaan: apps/by_system.md
+      - Lisenssin mukaan: apps/by_license.md
+  - UKK: support/faq/index.md
+  - Tutoriaalit: support/tutorials/index.md
+  - Koulutusmateriaalit: support/training-material/index.md
+  - Yhteystiedot: support/contact.md
+  - Uutiset: support/whats-new.md
